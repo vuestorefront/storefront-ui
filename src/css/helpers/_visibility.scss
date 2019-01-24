@@ -1,0 +1,12 @@
+@import '../variables/breakpoints';
+
+.mobile-only {
+  @media ( min-width: $tablet-min ) {
+      display: none;
+  }
+}
+.desktop-only {
+  @media ( max-width: $tablet-max ) {
+    display: none;
+}
+}

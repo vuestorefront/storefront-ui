@@ -1,0 +1,20 @@
+@import '../../css/variables';
+
+.vsf-banner {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-size: cover;
+  &__subtitle {
+    margin-bottom: 0.3rem;
+  }
+  &__title {
+    margin-top: 0.3rem;
+    text-transform: uppercase;
+  }
+  &__description {
+    @media ( max-width: $tablet-max ) {
+      display: none;
+    }
+  }
+}

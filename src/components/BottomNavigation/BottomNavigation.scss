@@ -1,0 +1,42 @@
+@import '../../css/variables';
+
+.vsf-bottom-navigation {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: $c-white;
+
+  @media ( min-width: $tablet-min ) {
+    display: none
+  }
+
+  .vsf-bottom-navigation-elements {
+    display: flex;
+  }
+  
+  .vsf-bottom-navigation-element {
+    padding: 0 0.7rem;
+    opacity: 0.5;
+    transition: 0.3s all;
+
+    &.active,
+    &.cart-button {
+      opacity: 1;
+    }
+  }
+
+  .vsf-bottom-navigation-element-img {
+    width: 1.5rem;
+    height: auto;
+    padding: 0.5rem;
+  }
+
+  .vsf-bottom-navigation-cart-button {
+    background-color: $c-button-bg-primary;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(66, 66, 66, 0.2);
+
+  }
+}
