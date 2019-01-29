@@ -9,6 +9,11 @@ export default {
     }
   },
   props: {
+    text: {
+      type: String,
+      required: false,
+      default: 'Button'
+    },
     color: {
       type: String,
       required: false,

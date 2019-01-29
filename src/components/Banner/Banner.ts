@@ -4,7 +4,7 @@ export default {
     return {
       stylesObj: {
         backgroundImage: this.bgImg,
-        backgroundColor: this.bgCol === 'default' ? '#F1F2F3' : this.bgCol
+        backgroundColor: this.bgCol
       }
     }
   },
@@ -17,7 +17,7 @@ export default {
     bgCol: {
       required: false,
       type: String,
-      default: 'default'
+      default: '#F1F2F3'
     },
     align: {
       required: false,

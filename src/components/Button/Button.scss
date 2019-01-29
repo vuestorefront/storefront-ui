@@ -8,6 +8,7 @@
   background-color: $c-button-bg-primary;
   padding: 0.9375rem 2.5rem;
   outline: none;
+  border: none;
   text-transform: uppercase;
   @media (max-width: $mobile-max) {
     padding: 0.9375rem 1.25rem;

@@ -1,0 +1,17 @@
+@import '../../css/variables';
+
+.vsf-call-to-action {
+  display: flex;
+  align-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 1.25rem 1rem;
+  h2 {
+    margin-top: 0;
+  }
+  &__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
