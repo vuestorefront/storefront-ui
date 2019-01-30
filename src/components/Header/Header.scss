@@ -2,6 +2,13 @@
 
 .vsf-header {
   display: flex;
+
+  &__logo-img {
+    width: 21px;
+    height: auto;
+    padding-right: 0.5rem;
+  }
+
   @media ( max-width: $mobile-max ) {
     background: $c-bg-primary;
     height: 50px;
