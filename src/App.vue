@@ -8,11 +8,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
-import VsfButton from './components/Button/Button.vue'
-import VsfBanner from './components/Banner/Banner.vue'
-import VsfBottomNavigation from './components/BottomNavigation/BottomNavigation.vue'
-import VsfHeader from './components/Header/Header.vue'
+import Vue from "vue";
+import VsfButton from "./components/Button/Button.vue";
+import VsfBanner from "./components/Banner/Banner.vue";
+import VsfBottomNavigation from "./components/BottomNavigation/BottomNavigation.vue";
+import VsfHeader from "./components/Header/Header.vue";
 
 export default Vue.extend({
   name: "app",
@@ -26,6 +26,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@import '~./css/globals';
-@import './css/helpers/visibility';
+@import "~./css/globals";
+@import "./css/helpers/visibility";
 </style>

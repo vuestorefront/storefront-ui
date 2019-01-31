@@ -1,23 +1,23 @@
 export default {
-  name: 'VsfButton',
-  data () {
+  name: "VsfButton",
+  data() {
     return {
-      classObj: { 
-        'vsf-button--secondary' : this.color == 'secondary',
-        'vsf-button--full-width' : this.fullWidth == true
+      classObj: {
+        "vsf-button--secondary": this.color == "secondary",
+        "vsf-button--full-width": this.fullWidth == true
       }
-    }
+    };
   },
   props: {
     text: {
       type: String,
       required: false,
-      default: 'Button'
+      default: "Button"
     },
     color: {
       type: String,
       required: false,
-      default: 'primary'
+      default: "primary"
     },
     big: {
       type: Boolean,
@@ -30,4 +30,4 @@ export default {
       default: false
     }
   }
-}
+};

@@ -8,9 +8,9 @@ module.exports = {
       rules: [
         {
           test: /\.(html|htm)$/,
-          loader: 'html-loader'
+          loader: "html-loader"
         }
       ]
     }
   }
-}
+};
