@@ -1,7 +1,6 @@
 @import '../../css/variables';
 
 .vsf-button {
-  padding: 0.9375rem 2.5rem;
   font-size: $button-font-size-desktop;
   text-align: center;
   color: $c-button-text-primary;
@@ -11,7 +10,7 @@
   border: none;
   text-transform: uppercase;
   @media (max-width: $mobile-max) {
-    padding: 0.9375rem 1.25rem;
+    padding: 0.9375rem 2rem;
     font-size: $button-font-size-small-mobile;
   }
   &--secondary {

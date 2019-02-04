@@ -12,11 +12,11 @@
     display: none
   }
 
-  .vsf-bottom-navigation-elements {
+  .vsf-bottom-navigation__elements {
     display: flex;
   }
   
-  .vsf-bottom-navigation-element {
+  .vsf-bottom-navigation__element {
     padding: 0 0.7rem;
     opacity: 0.5;
     transition: 0.3s all;
@@ -27,7 +27,7 @@
     }
   }
 
-  .vsf-bottom-navigation-element-img {
+  .vsf-bottom-navigation__element img {
     width: 1.5rem;
     height: auto;
     padding: 0.5rem;
