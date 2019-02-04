@@ -1,12 +1,12 @@
 export default {
-  name: 'VsfBanner',
-  data () {
+  name: "VsfBanner",
+  data() {
     return {
       stylesObj: {
         backgroundImage: this.bgImg,
         backgroundColor: this.bgCol
       }
-    }
+    };
   },
   props: {
     bgImg: {
@@ -17,12 +17,12 @@ export default {
     bgCol: {
       required: false,
       type: String,
-      default: '#F1F2F3'
+      default: "#F1F2F3"
     },
     align: {
       required: false,
       type: String,
-      default: 'left'
+      default: "left"
     }
   }
-}
+};

@@ -2,7 +2,7 @@
 
 Ecommerce UI library for Vue.js designed for Vue Storefront but free to use in any project.
 
-**This project is under development. Not ready to use.**
+**This project is on the early stages of development. Not ready to use, install or even try**
 
 
 ## Project setup

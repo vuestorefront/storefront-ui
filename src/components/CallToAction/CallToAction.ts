@@ -1,25 +1,25 @@
-import VsfButton from '../Button/Button.vue'
+import VsfButton from "../Button/Button.vue";
 
 export default {
-  name: 'VsfCallToAction',
-  data () {
+  name: "VsfCallToAction",
+  data() {
     return {
       stylesObj: {
         backgroundImage: this.bgImg,
         backgroundColor: this.bgCol
       }
-    }
+    };
   },
   props: {
     message: {
       required: false,
       type: String,
-      default: 'Call to action'
+      default: "Call to action"
     },
     buttonText: {
       required: false,
       type: String,
-      default: 'Button Text'
+      default: "Button Text"
     },
     bgImg: {
       required: false,
@@ -29,10 +29,10 @@ export default {
     bgCol: {
       required: false,
       type: String,
-      default: 'black'
-    },
+      default: "black"
+    }
   },
   components: {
     VsfButton
   }
-}
+};
