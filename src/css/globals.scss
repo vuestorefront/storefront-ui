@@ -1,9 +1,12 @@
 @import 'variables/typography';
 @import 'variables/breakpoints';
 @import 'variables/colors';
+@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700|Roboto:300,300i,400,400i,500,700');
 
 body {
   font-size: $body-font-size-desktop;
+  font-family: $body-font-family-primary;
+  font-weight: $body-font-weight-primary;
   color: $c-dark-primary;
   @media ( max-width: $mobile-max ) {
     font-size: $body-font-size-mobile;
