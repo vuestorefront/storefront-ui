@@ -3,13 +3,13 @@
 .vsf-banner {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: $spacing-big;
   background-size: cover;
   &__subtitle {
-    margin-bottom: 0.3rem;
+    margin-bottom: $spacing-small;
   }
   &__title {
-    margin-top: 0.3rem;
+    margin-top: $spacing-small;
     text-transform: uppercase;
   }
   &__description {
