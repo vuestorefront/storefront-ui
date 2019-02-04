@@ -1,6 +1,4 @@
-@import 'variables/typography';
-@import 'variables/breakpoints';
-@import 'variables/colors';
+@import 'variables';
 @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700|Roboto:300,300i,400,400i,500,700');
 
 body {
@@ -44,42 +42,4 @@ h4 {
     font-size: $h4-font-size-mobile;
     font-weight: $h4-font-weight-mobile;
   }
-}
-
-// Global margins
-
-.margin-small {
-  margin: 0.3rem;
-}
-.margin-x-small {
-  margin-left: 0.3rem;
-  margin-right: 0.3rem;
-}
-.margin-y-small {
-  margin-top: 0.3rem;
-  margin-bottom: 0.3rem;
-}
-.margin-left-small {
-  margin-left: 0.3rem;
-}
-.margin-right-small {
-  margin-right: 0.3rem;
-}
-
-.margin-big {
-  margin: 1rem;
-}
-.margin-x-big {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-.margin-y-big {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-.margin-left-big {
-  margin-left: 1rem;
-}
-.margin-right-big {
-  margin-right: 1rem;
 }

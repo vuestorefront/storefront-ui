@@ -3,12 +3,17 @@ $body-font-family-primary: 'Lora', serif;
 $body-font-family-secondary: 'Roboto', sans-serif;
 
 // Font weight
-
 $body-font-weight-primary: 400;
+
+// Font sizes
+$font-size-small-mobile: 0.75rem;
+$font-size-regular-mobile: 0.875rem;
+$font-size-big-mobile: 1rem;
+$font-size-extra-big-mobile: 1.125rem;
 
 // Base font size
 $body-font-size-desktop: 1.125rem;
-$body-font-size-mobile: 0.875rem;
+$body-font-size-mobile: $font-size-regular-mobile;
 
 // Heading font size
 $h1-font-size-desktop: 2.25rem;
