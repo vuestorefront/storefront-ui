@@ -1,45 +1,4 @@
 @import 'variables';
+@import 'globals/body';
+@import 'globals/headings';
 @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700|Roboto:300,300i,400,400i,500,700');
-
-body {
-  font-size: $body-font-size-desktop;
-  font-family: $body-font-family-primary;
-  font-weight: $body-font-weight-primary;
-  color: $c-dark-primary;
-  @media ( max-width: $mobile-max ) {
-    font-size: $body-font-size-mobile;
-  }
-}
-
-h1 {
-  font-size: $h1-font-size-desktop;
-  @media ( max-width: $tablet-max ) {
-    font-size: $h1-font-size-mobile;
-    font-weight: $h1-font-weight-mobile;
-  }
-}
-
-h2 {
-  font-size: $h2-font-size-desktop;
-  @media ( max-width: $tablet-max ) {
-    font-size: $h2-font-size-mobile;
-    font-weight: $h2-font-weight-mobile;
-  }
-}
-
-h3 {
-  font-size: $h3-font-size-desktop;
-  @media ( max-width: $tablet-max ) {
-    font-size: $h3-font-size-mobile;
-    font-weight: $h3-font-weight-mobile;
-
-  }
-}
-
-h4 {
-  font-size: $h4-font-size-desktop;
-  @media ( max-width: $tablet-max ) {
-    font-size: $h4-font-size-mobile;
-    font-weight: $h4-font-weight-mobile;
-  }
-}

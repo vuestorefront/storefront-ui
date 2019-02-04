@@ -1,0 +1,34 @@
+@import '../variables';
+
+h1 {
+  font-size: $h1-font-size-desktop;
+  @media ( max-width: $tablet-max ) {
+    font-size: $h1-font-size-mobile;
+    font-weight: $h1-font-weight-mobile;
+  }
+}
+
+h2 {
+  font-size: $h2-font-size-desktop;
+  @media ( max-width: $tablet-max ) {
+    font-size: $h2-font-size-mobile;
+    font-weight: $h2-font-weight-mobile;
+  }
+}
+
+h3 {
+  font-size: $h3-font-size-desktop;
+  @media ( max-width: $tablet-max ) {
+    font-size: $h3-font-size-mobile;
+    font-weight: $h3-font-weight-mobile;
+
+  }
+}
+
+h4 {
+  font-size: $h4-font-size-desktop;
+  @media ( max-width: $tablet-max ) {
+    font-size: $h4-font-size-mobile;
+    font-weight: $h4-font-weight-mobile;
+  }
+}
