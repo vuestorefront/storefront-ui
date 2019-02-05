@@ -3,7 +3,7 @@ export default {
   data() {
     return {
       stylesObj: {
-        backgroundImage: this.bgImg,
+        backgroundImage: 'url("'+this.bgImg+'")',
         backgroundColor: this.bgCol
       }
     };

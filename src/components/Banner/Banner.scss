@@ -3,14 +3,18 @@
 .vsf-banner {
   display: flex;
   flex-direction: column;
-  padding: $spacing-big;
+  padding: $spacing-extra-big;
   background-size: cover;
   &__subtitle {
     margin-bottom: $spacing-small;
+    font-family: $body-font-family-secondary;
+    font-size: 0.875rem;
+    font-weight: 300;
   }
   &__title {
     margin-top: $spacing-small;
     text-transform: uppercase;
+    font-weight: 300;
   }
   &__description {
     @media ( max-width: $tablet-max ) {
