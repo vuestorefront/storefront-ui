@@ -50,7 +50,7 @@ export default {
 
 
 ### Global CSS
-1. TBD
+1. Use REMs
 
 ### Component CSS 
 
