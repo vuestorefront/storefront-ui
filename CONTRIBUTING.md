@@ -132,4 +132,4 @@ $banner-title-text-transform: uppercase;
 4. Propose a PR with screenshots of the component.
 5. Wait for CR
 6. Correct PR after CR
-7. Done!
+7. Profit!
