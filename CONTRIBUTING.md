@@ -27,6 +27,7 @@ export default {
 </style>
 ````
 2. use Vsf prefix in component names.
+3. Try to make components as customizable as possible but without complicating them. Think about the parts that are usually customized and allow simple way to change their look.
 
 ### Template
 
@@ -56,7 +57,7 @@ export default {
 1. Use BEM methodology as naming convention.
 2. Don't use scoped styles.
 3. Make use of global css vars for customizable parts
-4. if you're providing props-based styles like `background-image` encapsulate all of them in one object `stylesoBJ`:
+4. if you're providing props-based styles like `background-image` encapsulate all of them in one object `stylesObj`:
 ````html
 <section class="vsf-banner" v-bind:style="stylesObj">
 ...
@@ -92,3 +93,13 @@ export default {
   }
 }
 ````
+5. Don't use any outer positioning for components (like outer margins). The way they're used should be determined in theme.
+
+# how to start
+1. Make an issue with task name (from Jira).
+2. Write the proposed API for slots and props
+3. Once it's accepted by @filrak or @patzick make separate branch on your fork with name of the issue.
+4. Propose a PR with screenshots of the component.
+5. Wait for CR
+6. Correct PR after CR
+7. Done!
