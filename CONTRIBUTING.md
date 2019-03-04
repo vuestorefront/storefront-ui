@@ -56,7 +56,7 @@ export default {
 1. Use BEM methodology as naming convention.
 2. Don't use scoped styles.
 3. Make use of global css vars for customizable parts
-4. iF you're providing props-based styles like `background-image` encapsulate all of them in one object `stylesoBJ`:
+4. if you're providing props-based styles like `background-image` encapsulate all of them in one object `stylesoBJ`:
 ````html
 <section class="vsf-banner" v-bind:style="stylesObj">
 ...
