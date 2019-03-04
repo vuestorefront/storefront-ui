@@ -62,6 +62,8 @@ export default {
 <section class="vsf-banner" v-bind:style="stylesObj">
 ...
 </section>
+5. Don't use any global css rules on component level
+
 ````
 ````js
 export default {
