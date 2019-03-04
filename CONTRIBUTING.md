@@ -95,7 +95,7 @@ export default {
 ````
 5. Don't use any outer positioning for components (like outer margins). The way they're used should be determined in theme.
 
-# how to start
+# How to contribute
 1. Make an issue with task name (from Jira).
 2. Write the proposed API for slots and props
 3. Once it's accepted by @filrak or @patzick make separate branch on your fork with name of the issue.
