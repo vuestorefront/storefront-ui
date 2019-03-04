@@ -63,7 +63,8 @@ export default {
 ...
 </section>
 5. Don't use any global css rules on component level
-
+6. Add component-specific css variables on top of the component SCSS file. Try to use global CSS rules inside them if possible.
+7. Try to base components CSS configuration on SCSS variables instead of requirement for overriding styles.
 ````
 ````js
 export default {
