@@ -123,7 +123,7 @@ $banner-title-text-transform: uppercase;
   }
 }
 ````
-5. Don't use any outer positioning for components (like outer margins). The way they're used should be determined in theme.
+5. Don't use any outer positioning for components (like outer margins). The way they're positioned in layout should be determined in outer env.
 
 # How to contribute
 1. Make an issue with task name (from Jira).
