@@ -62,10 +62,8 @@ export default {
 <section class="vsf-banner" v-bind:style="stylesObj">
 ...
 </section>
-5. Don't use any global css rules on component level
-6. Add component-specific css variables on top of the component SCSS file. Try to use global CSS rules inside them if possible.
-7. Try to base components CSS configuration on SCSS variables instead of requirement for overriding styles.
 ````
+
 ````js
 export default {
   name: 'VsfBanner',
@@ -92,6 +90,35 @@ export default {
       required: false,
       type: String,
       default: 'left'
+    }
+  }
+}
+````
+5. Don't use any global css rules on component level
+6. Add component-specific css variables on top of the component SCSS file. Try to use global CSS rules inside them if possible.
+7. Try to base components CSS configuration on SCSS variables instead of requirement for overriding styles.
+````sss
+
+$banner-background-size: cover;
+$banner-subtitle-margin-bottom: 0.3rem;
+$banner-title-margin-top: 0.3rem;
+$banner-title-text-transform: uppercase;
+
+.vsf-banner {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-size: $banner-background-size;
+  &__subtitle {
+    margin-bottom: $banner-subtitle-margin-bottom:
+  }
+  &__title {
+    margin-top: $banner-title-margin-top;
+    text-transform: $banner-title-text-transform;
+  }
+  &__description {
+    @media ( max-width: $tablet-max ) {
+      display: none;
     }
   }
 }
