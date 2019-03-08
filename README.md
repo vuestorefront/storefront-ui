@@ -7,7 +7,7 @@ Highly customizable and elegant UI framework for eCommerce (and not only) based 
 
 # Key characteristics
 
-Storefront UI is built with personalization in mind. You can change almost every aspect of provided components and use them to make stunning eCommerce shops (and not only). 
+Full customization and great developer experience are our primar focuses. You can easly change almost every aspect of provided components and use them to make stunning eCommerce shops (and not only)!
 
 **Here are the key characteristics of Storefront UI:**
 - Ability to customize any aspect of the library.
