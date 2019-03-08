@@ -5,7 +5,7 @@
 
 Highly customizable and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team.
 
-# Key characteristics
+# What makes it unique?
 
 Full customization and great developer experience are our primar focuses. You can easly change almost every aspect of provided components and use them to make stunning eCommerce shops (and not only)!
 
