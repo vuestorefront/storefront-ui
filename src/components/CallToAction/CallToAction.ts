@@ -11,16 +11,6 @@ export default {
     };
   },
   props: {
-    message: {
-      required: false,
-      type: String,
-      default: "Call to action"
-    },
-    buttonText: {
-      required: false,
-      type: String,
-      default: "Button Text"
-    },
     bgImg: {
       required: false,
       type: String,

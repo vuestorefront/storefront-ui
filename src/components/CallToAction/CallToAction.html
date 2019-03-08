@@ -1,10 +1,11 @@
 <section class="vsf-call-to-action" v-bind:style="stylesObj">
-  <slot name="message">
-    <h1> {{ message }} </h1>
-  </slot>
-  <slot name="button-text"> 
-    <div class="vsf-call-to-action__button">
-        <vsf-button>{{ buttonText }}</vsf-button> 
-    </div>
-  </slot>
+  <slot />
+  <h1 v-if="$slots.heading">
+    <slot name="heading" />
+  </h1>
+  <div class="vsf-call-to-action__button" v-if="$slots.button">
+    <vsf-button>  
+      <slot name="button" /> 
+    </vsf-button> 
+  </div>
 </section>
