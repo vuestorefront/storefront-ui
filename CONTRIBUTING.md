@@ -35,6 +35,7 @@ export default {
 2. if some parts of the component can be optional - they should be. Ideally as slots:
 ````html
 <section class="vsf-banner" v-bind:style="stylesObj">
+  <slot />
   <h2 class="vsf-banner__subtitle" v-if="$slots.subtitle">
     <slot name="subtitle"></slot>
   </h2>
@@ -47,7 +48,7 @@ export default {
   <slot name="call-to-action"></slot>
 </section>
 ````
-
+3. Always provide a default slot. In most cases it should be empty.
 
 ### Global CSS
 1. Use REMs
