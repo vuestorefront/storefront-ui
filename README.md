@@ -17,6 +17,6 @@ Full customization and great developer experience are our primar focuses. You ca
 - Component design customization with props.
 - Possibility to compose your own components from partials (markup/Vue instance/SCSS)
 
-# Deisgn
+# Design
 
 You can find the stunning designs we are using for Storefront UI components [here](https://www.figma.com/file/hrwE3VsMBHgdJoS86rVr4W/Desktop-%26-Mobile-Vue-Storefront?node-id=99%3A0)
