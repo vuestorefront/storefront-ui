@@ -21,7 +21,7 @@ Full customization and great developer experience are our primar focuses. You ca
 
 You can find the stunning designs we are using for Storefront UI components [here](https://www.figma.com/file/hrwE3VsMBHgdJoS86rVr4W/Desktop-%26-Mobile-Vue-Storefront?node-id=99%3A0)
 
-# How to try it ?
+# How to try it?
 
 Storefront UI is not ready to use in projects yet. We plan to release it as a library before the end of April 2019.
 If you want to play with components anyway just clone the repo and use some of them in `App.vue`
