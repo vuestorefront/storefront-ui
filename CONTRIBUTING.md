@@ -31,8 +31,8 @@ export default {
 
 ### Template
 
-1. We use slots over props for content composition. If slots are overcomplicating the compoennt usage then it's ok to use props (for example to define background colors/images etc).
-2. if some parts of the component can be optional - they should be. Ideally as slots:
+1. We use slots over props for content composition. Use props only for layout properties (like background colors)
+2. Make slots optional if it's possible and provide a default slot (usually empty).
 ````html
 <section class="vsf-banner" v-bind:style="stylesObj">
   <slot />
@@ -48,7 +48,6 @@ export default {
   <slot name="call-to-action"></slot>
 </section>
 ````
-3. Always provide a default slot. In most cases it should be empty.
 
 ### Global CSS
 1. Use REMs
