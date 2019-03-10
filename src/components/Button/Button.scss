@@ -1,11 +1,16 @@
 @import '../../css/variables';
 
+$button-padding: 0.5rem 1.7rem;
+$button-c-text-primary: $c-text-on-dark;
+$button-c-bg-primary: $c-green-primary;
+$button-c-text-secondary: $c-text-on-dark;
+$button-c-bg-secondary: $c-dark-primary;
 .vsf-button {
-  padding: 0.5rem 1.7rem;
+  padding: $button-padding;
   font-size: $button-font-size-desktop;
   text-align: center;
-  color: $c-button-text-primary;
-  background-color: $c-button-bg-primary;
+  color: $button-c-text-primary;
+  background-color: $button-c-bg-primary;
   outline: none;
   border: none;
   text-transform: uppercase;
@@ -14,8 +19,8 @@
     font-size: $button-font-size-small-mobile;
   }
   &--secondary {
-    color: $c-button-text-secondary;
-    background-color: $c-button-bg-secondary;
+    color: $button-c-text-secondary;
+    background-color: $button-c-bg-secondary;
   }
   &--full-width {
     width: 100%;
