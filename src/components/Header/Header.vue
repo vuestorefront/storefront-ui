@@ -1,13 +1,10 @@
 <script>
-import template from "./Header.html";
-import instance from "./Header.ts";
+import instance from "./Header.js";
 
 export default {
-  template,
   ...instance
 };
 </script>
 
-<style lang="scss">
-@import "~./Header.scss";
-</style>
+<template src="./Header.html"></template>
+<style lang="scss" src="./Header.scss"></style>

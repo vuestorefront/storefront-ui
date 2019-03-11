@@ -1,5 +1,5 @@
 {
-  "name": "storefront-ui",
+  "name": "commerce-ui",
   "version": "0.1.0",
   "private": false,
   "scripts": {
@@ -18,9 +18,7 @@
     "vuetify": "^1.4.3"
   },
   "files": [
-    "dist/*",
-    "src/*",
-    "*.js"
+    "dist/*"
   ],
   "devDependencies": {
     "@storybook/addon-actions": "^4.1.0",
