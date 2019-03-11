@@ -1,6 +1,6 @@
 <script>
 import template from "./CallToAction.html";
-import instance from "./CallToAction.ts";
+import instance from "./CallToAction.js";
 
 export default {
   template,
