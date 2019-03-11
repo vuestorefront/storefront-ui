@@ -1,6 +1,6 @@
 <section class="sf-call-to-action" v-bind:style="stylesObj">
   <slot />
-  <h1 v-if="$slots.heading">
+  <h1 class="sf-call-to-action__message" v-if="$slots.message">
     <slot name="heading" />
   </h1>
   <div class="sf-call-to-action__button" v-if="$slots.button">
