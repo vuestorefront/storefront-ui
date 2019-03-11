@@ -6,5 +6,5 @@ export default {
 };
 </script>
 
-<template src="./Header.html"></template>
+<template lang="html" src="./Header.html"></template>
 <style lang="scss" src="./Header.scss"></style>

@@ -1,13 +1,10 @@
 <script>
-import template from "./BottomNavigation.html";
 import instance from "./BottomNavigation.js";
 
 export default {
-  template,
   ...instance
 };
 </script>
 
-<style lang="scss">
-@import "~./BottomNavigation.scss";
-</style>
+<template lang="html" src="./BottomNavigation.html"></template>
+<style lang="scss" src="./BottomNavigation.scss"></style>

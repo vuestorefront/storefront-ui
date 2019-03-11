@@ -1,13 +1,10 @@
 <script>
-import template from "./Banner.html";
 import instance from "./Banner.js";
 
 export default {
-  template,
   ...instance
 };
 </script>
 
-<style lang="scss">
-@import "~./Banner.scss";
-</style>
+<template lang="html" src="./Banner.html"></template>
+<style lang="scss" src="./Banner.scss"></style>

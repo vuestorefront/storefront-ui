@@ -6,5 +6,5 @@ export default {
 };
 </script>
 
-<template src="./CallToAction.html"></template>
+<template lang="html" src="./CallToAction.html"></template>
 <style lang="scss" src="./CallToAction.scss"></style>

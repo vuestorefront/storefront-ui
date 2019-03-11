@@ -1,14 +1,11 @@
 
 <script>
-import template from "./Button.html";
 import instance from "./Button.js";
 
 export default {
-  template,
   ...instance
 };
 </script>
 
-<style lang="scss" src="/Button.scss">
-@import "~./Button.scss";
-</style>
+<template lang="html" src="./Button.html"></template>
+<style lang="scss" src="./Button.scss"></style>
