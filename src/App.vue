@@ -28,6 +28,4 @@ export default Vue.extend({
 <style lang="scss">
 @import "~./css/globals";
 @import "./css/helpers/visibility";
-
-
 </style>
