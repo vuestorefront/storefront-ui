@@ -18,10 +18,12 @@ Full customization and great developer experience are our primar focuses. You ca
 - Component design customization with props.
 - Possibility to compose your own components from partials (markup/Vue instance/SCSS)
 
+![](https://i.ibb.co/VHTcyrw/1234.png)
 # Design
 
 You can find the stunning designs we are using for Storefront UI components [here](https://www.figma.com/file/hrwE3VsMBHgdJoS86rVr4W/Desktop-%26-Mobile-Vue-Storefront?node-id=99%3A0)
 
+![](https://i.ibb.co/7SKbz5K/123457.png)
 # How to try it?
 
 Storefront UI is not ready to use in projects yet. We plan to release it as a library before the end of April 2019.
