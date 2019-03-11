@@ -2,9 +2,10 @@
   "name": "storefront-ui",
   "version": "0.1.0",
   "private": true,
+  "main" : "./dist/storefront-ui.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
