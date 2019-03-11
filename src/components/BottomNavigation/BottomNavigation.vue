@@ -1,6 +1,6 @@
 <script>
 import template from "./BottomNavigation.html";
-import instance from "./BottomNavigation.ts";
+import instance from "./BottomNavigation.js";
 
 export default {
   template,

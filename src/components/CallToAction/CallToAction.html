@@ -1,11 +1,11 @@
-<section class="vsf-call-to-action" v-bind:style="stylesObj">
+<section class="sf-call-to-action" v-bind:style="stylesObj">
   <slot />
   <h1 v-if="$slots.heading">
     <slot name="heading" />
   </h1>
-  <div class="vsf-call-to-action__button" v-if="$slots.button">
-    <vsf-button>  
+  <div class="sf-call-to-action__button" v-if="$slots.button">
+    <sf-button>  
       <slot name="button" /> 
-    </vsf-button> 
+    </sf-button> 
   </div>
 </section>

@@ -1,26 +1,26 @@
 <template>
   <div id="app">
-    <vsf-header />
-    <vsf-button />
-    <vsf-banner />
-    <vsf-bottom-navigation />
+    <sf-header />
+    <sf-button />
+    <sf-banner />
+    <sf-bottom-navigation />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import VsfButton from "./components/Button/Button.vue";
-import VsfBanner from "./components/Banner/Banner.vue";
-import VsfBottomNavigation from "./components/BottomNavigation/BottomNavigation.vue";
-import VsfHeader from "./components/Header/Header.vue";
+import SfButton from "./components/Button/Button.vue";
+import SfBanner from "./components/Banner/Banner.vue";
+import SfBottomNavigation from "./components/BottomNavigation/BottomNavigation.vue";
+import SfHeader from "./components/Header/Header.vue";
 
 export default Vue.extend({
   name: "app",
   components: {
-    VsfButton,
-    VsfBanner,
-    VsfBottomNavigation,
-    VsfHeader
+    SfButton,
+    SfBanner,
+    SfBottomNavigation,
+    SfHeader
   }
 });
 </script>

@@ -1,7 +1,7 @@
-import VsfButton from "../Button/Button.vue";
+import SfButton from "../Button/Button.vue";
 
 export default {
-  name: "VsfCallToAction",
+  name: "SfCallToAction",
   data() {
     return {
       stylesObj: {
@@ -23,6 +23,6 @@ export default {
     }
   },
   components: {
-    VsfButton
+    SfButton
   }
 };

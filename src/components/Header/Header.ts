@@ -1,3 +1,3 @@
 export default {
-  name: "VsfHeader"
+  name: "SfHeader"
 };

@@ -1,5 +1,5 @@
 export default {
-  name: "VsfBanner",
+  name: "SfBanner",
   data() {
     return {
       stylesObj: {

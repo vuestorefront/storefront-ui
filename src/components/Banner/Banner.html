@@ -1,12 +1,12 @@
-<section class="vsf-banner" v-bind:style="stylesObj">
+<section class="sf-banner" v-bind:style="stylesObj">
   <slot />
-  <h2 class="vsf-banner__subtitle" v-if="$slots.subtitle">
+  <h2 class="sf-banner__subtitle" v-if="$slots.subtitle">
     <slot name="subtitle" />
   </h2>
-  <h1 class="vsf-banner__title" v-if="$slots.title">
+  <h1 class="sf-banner__title" v-if="$slots.title">
     <slot name="title" />
   </h1>
-  <p class="vsf-banner__description" v-if="$slots.description">
+  <p class="sf-banner__description" v-if="$slots.description">
     <slot name="description" />
   </p>
   <slot name="call-to-action" />

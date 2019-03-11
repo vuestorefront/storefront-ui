@@ -26,7 +26,7 @@ export default {
 @import '~./Component.scss';
 </style>
 ````
-2. use Vsf prefix in component names.
+2. use Sf prefix in component names.
 3. Try to make components as customizable as possible but without complicating them. Think about the parts that are usually customized and allow simple way to change their look.
 
 ### Template
@@ -34,15 +34,15 @@ export default {
 1. We use slots over props for content composition. Use props only for layout properties (like background colors)
 2. Make slots optional if it's possible and provide a default slot (usually empty).
 ````html
-<section class="vsf-banner" v-bind:style="stylesObj">
+<section class="sf-banner" v-bind:style="stylesObj">
   <slot />
-  <h2 class="vsf-banner__subtitle" v-if="$slots.subtitle">
+  <h2 class="sf-banner__subtitle" v-if="$slots.subtitle">
     <slot name="subtitle"></slot>
   </h2>
-  <h1 class="vsf-banner__title" v-if="$slots.title">
+  <h1 class="sf-banner__title" v-if="$slots.title">
     <slot name="title"></slot>
   </h1>
-  <p class="vsf-banner__description" v-if="$slots.description">
+  <p class="sf-banner__description" v-if="$slots.description">
     <slot name="description"></slot>
   </p>
   <slot name="call-to-action"></slot>
@@ -59,14 +59,14 @@ export default {
 3. Make use of global css vars for customizable parts
 4. if you're providing props-based styles like `background-image` encapsulate all of them in one object `stylesObj`:
 ````html
-<section class="vsf-banner" v-bind:style="stylesObj">
+<section class="sf-banner" v-bind:style="stylesObj">
 ...
 </section>
 ````
 
 ````js
 export default {
-  name: 'VsfBanner',
+  name: 'SfBanner',
   data () {
     return {
       stylesObj: {
@@ -104,7 +104,7 @@ $banner-subtitle-margin-bottom: 0.3rem;
 $banner-title-margin-top: 0.3rem;
 $banner-title-text-transform: uppercase;
 
-.vsf-banner {
+.sf-banner {
   display: flex;
   flex-direction: column;
   padding: 1rem;

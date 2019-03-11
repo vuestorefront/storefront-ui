@@ -1,3 +1,5 @@
+const CopyPlugin = require('copy-webpack-plugin');
+
 module.exports = {
   devServer: {
     port: 3002
@@ -11,6 +13,12 @@ module.exports = {
           loader: "html-loader"
         }
       ]
-    }
+    },
+    plugins: [
+      new CopyPlugin([
+        { from: 'src/components', to: 'components' },
+        { from: 'src/css', to: 'css' },
+      ])
+    ]
   }
 };
