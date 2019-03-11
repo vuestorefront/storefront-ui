@@ -1,6 +1,6 @@
 <script>
 import template from "./Banner.html";
-import instance from "./Banner.ts";
+import instance from "./Banner.js";
 
 export default {
   template,
