@@ -1,4 +1,3 @@
-
 <script>
 import instance from "./Button.js";
 

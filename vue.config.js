@@ -1,4 +1,4 @@
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   devServer: {
@@ -7,14 +7,14 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new CopyPlugin([
-        { 
-          from: 'src/components', 
-          to: 'components' ,
+        {
+          from: "src/components",
+          to: "components",
           transformPath(targePath) {
-            return targePath.split('/').slice(-1)[0];
-          },
+            return targePath.split("/").slice(-1)[0];
+          }
         },
-        { from: 'src/css', to: 'css' },
+        { from: "src/css", to: "css" }
       ])
     ]
   }
