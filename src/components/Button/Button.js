@@ -4,7 +4,8 @@ export default {
     return {
       classObj: {
         "sf-button--secondary": this.color == "secondary",
-        "sf-button--full-width": this.fullWidth == true
+        "sf-button--full-width": this.fullWidth == true,
+        "sf-button--big": this.big == true
       }
     };
   },

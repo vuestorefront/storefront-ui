@@ -25,7 +25,7 @@ describe("HelloWorld.vue", () => {
       }
     });
     expect(component.classes()).toContain('sf-button--full-width');
-  })
+  });
 
   it('adds sf-button--secondary class when "color" prop is set to "secondary"', () => {
     const component = shallowMount(Button, {
@@ -34,5 +34,14 @@ describe("HelloWorld.vue", () => {
       }
     });
     expect(component.classes()).toContain('sf-button--secondary');
-  })
+  });
+
+  it('adds sf-button--big class when "big" prop is present', () => {
+    const component = shallowMount(Button, {
+      propsData: {
+        big: true
+      }
+    });
+    expect(component.classes()).toContain('sf-button--big');
+  });
 });

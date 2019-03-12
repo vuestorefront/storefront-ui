@@ -5,6 +5,7 @@ $button-c-text-primary: $c-text-on-dark;
 $button-c-bg-primary: $c-green-primary;
 $button-c-text-secondary: $c-text-on-dark;
 $button-c-bg-secondary: $c-dark-primary;
+
 .sf-button {
   padding: $button-padding;
   font-size: $button-font-size-desktop;
@@ -25,4 +26,5 @@ $button-c-bg-secondary: $c-dark-primary;
   &--full-width {
     width: 100%;
   }
+  &--big {}
 }
