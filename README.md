@@ -32,4 +32,9 @@ Storefront UI is not ready to use in projects yet. We plan to release it as a li
 If you want to play with components anyway there are two options:
 
 1. Copy the repo and play with them in `App.vue`
-2. Build the lib and install it as local NPM package.
+2. Build the lib and install it as local NPM package. Thel you can just install it as a plugin:
+````js
+import StorefrontUI from 'storefront-ui'
+
+Vue.use(StorefrontUI)
+````
