@@ -19,7 +19,7 @@ Full customization and great developer experience are our primar focuses. You ca
 - Component design customization with props.
 - Possibility to compose your own components from partials (markup/Vue instance/SCSS)
 
-Read about [code design concepts](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) behind Storefront UI.
+Read about [code design concepts](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) behind Storefront UI and [how it can be customized](./docs/Customization.md).
 
 ![](https://i.ibb.co/VHTcyrw/1234.png)
 
