@@ -10,5 +10,5 @@ export default {
 
 <style lang="scss" scoped>
 $button-padding: 10px;
-@import "./components/Button/Button.scss";</style
->s
+@import "./components/Button/Button.scss";
+</style>
