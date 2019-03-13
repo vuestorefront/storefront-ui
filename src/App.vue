@@ -1,28 +1,23 @@
 <template>
   <div id="app">
-    <sf-header />
-    <sf-button />
-    <sf-banner />
+    <h1>It's a heading</h1>
+    <custom-button class="sf-button--secondary">Text</custom-button>
+    <sf-button class="sf-button--secondary">Text</sf-button>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import CustomButton from "./CustomButton.vue";
 import SfButton from "./components/Button/Button.vue";
-import SfBanner from "./components/Banner/Banner.vue";
-import SfHeader from "./components/Header/Header.vue";
 
 export default Vue.extend({
   name: "app",
   components: {
     SfButton,
-    SfBanner,
-    SfHeader
+    CustomButton
   }
 });
 </script>
 
-<style lang="scss">
-@import "~./css/globals";
-@import "./css/helpers/visibility";
-</style>
+<style lang="scss"></style>

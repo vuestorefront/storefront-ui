@@ -1,42 +1,42 @@
 
 // General color names
-$c-green-primary: #5ECE7B;
-$c-green-seconday: #9EE2B0;
-$c-dark-primary: #1D1F22;
-$c-dark-secondary: #737680;
-$c-gray-primary: #A3A5AD;
-$c-gray-secondary: #BEBFC4;
-$c-light-primary: #F1F2F3;
-$c-light-secondary: #FFFFFF;
-$c-pink-primary: #F08C7D;
-$c-pink-secondary: #FFF8F7;
-$c-yellow-primary: #FFDE3B;
-$c-yellow-secondary:#FFFCED;
-$c-blue-primary: #6699CC;
-$c-blue-secondary: #F5F7FA;
-$c-black: #000000;
-$c-white: #FFFFFF;
+$c-green-primary: #5ECE7B !default;
+$c-green-seconday: #9EE2B0 !default;
+$c-dark-primary: #1D1F22 !default;
+$c-dark-secondary: #737680 !default;
+$c-gray-primary: #A3A5AD !default;
+$c-gray-secondary: #BEBFC4 !default;
+$c-light-primary: #F1F2F3 !default;
+$c-light-secondary: #FFFFFF !default;
+$c-pink-primary: #F08C7D !default;
+$c-pink-secondary: #FFF8F7 !default;
+$c-yellow-primary: #FFDE3B !default;
+$c-yellow-secondary:#FFFCED !default;
+$c-blue-primary: #6699CC !default;
+$c-blue-secondary: #F5F7FA !default;
+$c-black: #000000 !default;
+$c-white: #FFFFFF !default;
 
 // Accent 
-$c-accent-primary: $c-green-primary;
-$c-accent-secondary: $c-green-seconday;
+$c-accent-primary: $c-green-primary !default;
+$c-accent-secondary: $c-green-seconday !default;
 
 // Alerts
-$c-info-text: $c-blue-primary;
-$c-info-bg: $c-blue-secondary;
-$c-warning-text: $c-yellow-primary;
-$c-warning-bg: $c-yellow-secondary;
-$c-error-text: $c-pink-primary;
-$c-error-bg: $c-pink-secondary;
+$c-info-text: $c-blue-primary !default;
+$c-info-bg: $c-blue-secondary !default;
+$c-warning-text: $c-yellow-primary !default;
+$c-warning-bg: $c-yellow-secondary !default;
+$c-error-text: $c-pink-primary !default;
+$c-error-bg: $c-pink-secondary !default;
 
 // Text
-$c-text-primary: $c-dark-primary;
-$c-text-secondary: $c-gray-secondary; 
-$c-text-on-light: $c-black;
-$c-text-on-dark: $c-white;
+$c-text-primary: $c-dark-primary !default;
+$c-text-secondary: $c-gray-secondary !default;
+$c-text-on-light: $c-black !default;
+$c-text-on-dark: $c-white !default;
 
 // Background
-$c-bg-primary: $c-light-primary;
-$c-bg-secondary: $c-light-secondary;
+$c-bg-primary: $c-light-primary !default;
+$c-bg-secondary: $c-light-secondary !default;
 
 // Button 

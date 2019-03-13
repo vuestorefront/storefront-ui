@@ -8,7 +8,8 @@
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
-    "storybook:build": "vue-cli-service storybook:build -c config/storybook"
+    "storybook:build": "vue-cli-service storybook:build -c config/storybook",
+    "postinstall": "node scripts/postinstall.js"
   },
   "dependencies": {
     "vue": "^2.6.8"
