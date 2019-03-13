@@ -56,19 +56,6 @@ Now let's see how we can customize any of it's parts by still making use of the 
 <template>
   <div class="sf-button"><slot /></div>
 </template>
-
-<script>
-import instance from "storefront-ui/Button.js";
-
-export default {
-  ...instance
-};
-</script>
-
-
-<style lang="scss" scoped>
-@import "~storefront-ui/Button.scss";
-</style>
 ````
 
 - **Vue instance**: We can make changes directly to imported Vue instance object (like in example we change it's `name` property) and add new properties (like here we added data property `message`)
@@ -87,25 +74,9 @@ export default {
   }
 };
 </script>
-
-<template lang="html" src="storefront-ui/Button.html"></template>
-
-<style lang="scss" scoped>
-@import "~storefront-ui/Button.scss";
-</style>
 ````
 - **Styles**: We can eithe modify SCSS variables only for this specific component or even write completely new stylesheet and get rid of the import.
 ````html
-<script>
-import instance from "storefront-ui/Button.js";
-
-export default {
-  ...instance
-};
-</script>
-
-<template lang="html" src="storefront-ui/Button.html"></template>
-
 <style lang="scss" scoped>
 $c-accent-primary: blue;
 @import "~storefront-ui/Button.scss";
