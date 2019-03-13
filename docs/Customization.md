@@ -35,17 +35,17 @@ If variables are not providing the level of customization you need you can also 
 Let's say we want to create `CustomizedButton` component. We should start with creating new Vue component where we can import `Button` partials.
 ````html 
 <script>
-import instance from "storefront-ui/Button.js";
+import instance from "storefront-ui/SfButton.js";
 
 export default {
   ...instance
 };
 </script>
 
-<template lang="html" src="storefront-ui/Button.html"></template>
+<template lang="html" src="storefront-ui/SfButton.html"></template>
 
 <style lang="scss" scoped>
-@import "~storefront-ui/Button.scss";
+@import "~storefront-ui/SfButton.scss";
 </style>
 ````
 
@@ -61,7 +61,7 @@ Now let's see how we can customize any of it's parts by still making use of the 
 - **Vue instance**: We can make changes directly to imported Vue instance object (like in example we change it's `name` property) and add new properties (like here we added data property `message`)
 ````html
 <script>
-import instance from "storefront-ui/Button.js";
+import instance from "storefront-ui/SfButton.js";
 
 instance.name = 'CustomizedComponent'
 
@@ -79,7 +79,7 @@ export default {
 ````html
 <style lang="scss" scoped>
 $c-accent-primary: blue;
-@import "~storefront-ui/Button.scss";
+@import "~storefront-ui/SfButton.scss";
 </style>
 ````
 **Please note** that `scoped` attribute must be present on `<style>` tag if you're overriding styles. Otherwise your local changes will be overwritten by global overrides from `sfui.scss`

@@ -9,7 +9,7 @@
 <script lang="ts">
 import Vue from "vue";
 import CustomButton from "./CustomButton.vue";
-import SfButton from "./components/Button/Button.vue";
+import SfButton from "./components/SfButton/SfButton.vue";
 
 export default Vue.extend({
   name: "app",
