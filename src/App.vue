@@ -2,7 +2,7 @@
   <div id="app">
     <h1>It's a heading</h1>
     <custom-button class="sf-button--secondary">Text</custom-button>
-    <sf-button class="sf-button--secondary">Text</sf-button>
+    <sf-button>Text</sf-button>
   </div>
 </template>
 
