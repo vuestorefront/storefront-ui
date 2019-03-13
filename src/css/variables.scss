@@ -2,6 +2,7 @@
 @import 'variables/breakpoints';
 @import 'variables/typography';
 @import 'variables/layout';
+@import '../../sfui.scss';
 
 // Button
 $button-padding: 0.5rem 1.7rem !default;
@@ -10,4 +11,3 @@ $button-c-bg-primary: $c-green-primary !default;
 $button-c-text-secondary: $c-text-on-dark !default;
 $button-c-bg-secondary: $c-dark-primary !default;
 
-@import '../../sfui.scss';
