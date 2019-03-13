@@ -8,15 +8,16 @@
 
 1. Each component should be divided into 3 parts. Each of the parts should be named the same as component and it's folder:
 
-- Component.html -> markup (don't use `@`, `:` shorthands since they are not parsed by `html-loader`)
-- Component.scss -> styles for the component
-- Component.ts -> component instance
-- Component.vue -> whole component using above partials. It should look like this:
+- SfComponent.html -> markup
+- sfComponent.scss -> styles for the component
+- SfComponent.ts -> component instance
+- SfComponent.spec.ts - unit tests for component
+- sfComponent.vue -> whole component using above partials. It should look like this:
 
 ```html
 <script>
-  import template from "./Component.html";
-  import instance from "./Component.ts";
+  import template from "./SfComponent.html";
+  import instance from "./sfComponent.ts";
 
   export default {
     template,
@@ -25,7 +26,7 @@
 </script>
 
 <style lang="scss">
-  @import "~./Component.scss";
+  @import "~./sfComponent.scss";
 </style>
 ```
 
@@ -34,7 +35,7 @@
 
 ### Template
 
-1. We use slots over props for content composition. Use props only for layout properties (like background colors)
+1. We use slots over props for content composition. Use props only for properties that are not content-related
 2. Make slots optional if it's possible and provide a default slot (usually empty).
 
 ```html
@@ -52,6 +53,7 @@
   <slot name="call-to-action"></slot>
 </section>
 ```
+3. Don't use props for setting colors, backgrounds and other properties that can be set by css.
 
 ### Global CSS
 
