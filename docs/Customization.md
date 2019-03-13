@@ -99,15 +99,8 @@ export default {
 <script>
 import instance from "storefront-ui/Button.js";
 
-instance.name = 'CustomizedComponent'
-
 export default {
-  ...instance,
-  data () {
-    return {
-      message: "Hello World!"
-    }
-  }
+  ...instance
 };
 </script>
 
