@@ -20,6 +20,7 @@ $button--secondary-background-color: $c-dark-primary !default;
   outline: none;
   border: none;
   text-transform: $button-text-transform;
+  cursor: pointer;
   @media (min-width: $mobile-max) {
     padding: 0.9375rem 2.5rem;
     font-size: $button-mobile-font-size;
