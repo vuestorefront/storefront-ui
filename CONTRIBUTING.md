@@ -16,18 +16,16 @@
 
 ```html
 <script>
-  import template from "./SfComponent.html";
-  import instance from "./sfComponent.ts";
+import instance from "./SfComponent.js";
 
-  export default {
-    template,
-    ...instance
-  };
+export default {
+  ...instance
+};
 </script>
 
-<style lang="scss">
-  @import "~./sfComponent.scss";
-</style>
+<template lang="html" src="./SfComponent.html" functional></template>
+<style lang="scss" src="./SfComponent.scss"></style>
+
 ```
 
 2. use Sf prefix in component names.
