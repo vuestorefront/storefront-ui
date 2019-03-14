@@ -7,15 +7,12 @@
   justify-content: space-between;
   width: 100%;
   background-color: $c-white;
-
   @media ( min-width: $tablet-min ) {
     display: none
   }
-
   .sf-bottom-navigation__elements {
     display: flex;
   }
-  
   .sf-bottom-navigation__element {
     padding: 0 0.7rem;
     opacity: 0.5;
@@ -26,13 +23,11 @@
       opacity: 1;
     }
   }
-
   .sf-bottom-navigation__element img {
     width: 1.5rem;
     height: auto;
     padding: 0.5rem;
   }
-
   .sf-bottom-navigation-cart-button {
     background-color: $c-green-primary;
     border-radius: 50%;

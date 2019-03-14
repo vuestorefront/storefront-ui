@@ -1,20 +1,34 @@
 @import '../../../css/variables';
 
+$banner-padding: $spacing-extra-big;
+$banner-background-size: cover;
+
+$banner__subtitle-font-family: $body-font-family-secondary;
+$banner__subtitle-font-size: 0.875rem;
+$banner__subtitle-font-weight: 300;
+$banner__subtitle-text-transform: none;
+
+$banner__title-text-transform: uppercase;
+$banner__title-font-weight: 300;
+$banner__title-font-size: initial;
+
 .sf-banner {
   display: flex;
   flex-direction: column;
-  padding: $spacing-extra-big;
-  background-size: cover;
+  padding: $banner-padding;
+  background-size: $bannerbackground-size;
   &__subtitle {
     margin-bottom: $spacing-small;
-    font-family: $body-font-family-secondary;
-    font-size: 0.875rem;
-    font-weight: 300;
+    font-family: $banner__subtitle-font-family;
+    font-size: $banner__subtitle-font-size;
+    font-weight: $banner__subtitle-font-weight;
+    text-transform: none;
   }
   &__title {
     margin-top: $spacing-small;
-    text-transform: uppercase;
-    font-weight: 300;
+    text-transform: $banner__title-text-transform;
+    font-weight: $banner__title-font-weight;
+    font-size: $banner__title-font-size;
   }
   &__description {
     @media ( max-width: $tablet-max ) {

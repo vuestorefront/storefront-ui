@@ -1,10 +1,11 @@
 @import '../../../css/variables';
 
-$call-to-action-background: $c-gray-secondary;
-$call-to-action-align-content: center;
-$call-to-action-text-align: center;
+$call-to-action-background-color: $c-gray-secondary !default;
+$call-to-action-align-content: center !default;
+$call-to-action-text-align: center !default;
 
-$call-to-action-message-font-weight: 400;
+$call-to-action__message-font-weight: 400 !default;
+$call-to-action__message-text-transform: none !default;
 
 .sf-call-to-action {
   display: flex;
@@ -12,10 +13,11 @@ $call-to-action-message-font-weight: 400;
   text-align: $call-to-action-text-align;
   flex-direction: column;
   padding: $spacing-extra-big $spacing-big;
-  background: $call-to-action-background;
+  background-color: $call-to-action-background-color;
   &__message {
     margin-top: 0;
-    font-weight: 400;
+    font-weight: $call-to-action__message-font-weight;
+    text-transform: $call-to-action__message-text-transform;    ;
   }
   &__button {
     display: flex;
