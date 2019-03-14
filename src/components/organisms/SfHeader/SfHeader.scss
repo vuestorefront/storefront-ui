@@ -1,0 +1,38 @@
+@import '../../../css/variables';
+
+$header-mobile-background: $c-bg-primary;
+$header-mobile-height: 50px;
+$header-mobile-justify-content: center;
+$header-mobile-align-items: center;
+
+$header-tabler-justify-content: flex-start;
+
+$header-logo-width: 21px;
+$header-logo-height: auto;
+
+.sf-header {
+  display: flex;
+
+  @media ( max-width: $mobile-max ) {
+    background: $header-mobile-background;
+    height: $header-mobile-height;
+    justify-content: $header-mobile-justify-content;
+    align-items: $header-mobile-align-items;
+  }
+
+  @media ( min-width: $tablet-min ) {
+    justify-content: $header-tabler-justify-content;
+  }
+
+  &__logo-img {
+    width: $header-logo-width;
+    height: $header-logo-height;
+    padding-right: 0.5rem;
+  }
+
+  &__nav, &__search, &__icon {
+    @media ( max-width: $mobile-max ) {
+      display: none;
+    }
+  }
+}
