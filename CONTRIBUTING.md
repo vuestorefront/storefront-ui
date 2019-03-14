@@ -39,7 +39,7 @@
 2. Make slots optional if it's possible and provide a default slot (usually empty).
 
 ```html
-<section class="sf-banner" v-bind:style="stylesObj">
+<section class="sf-banner">
   <slot />
   <h2 class="sf-banner__subtitle" v-if="$slots.subtitle">
     <slot name="subtitle"></slot>
@@ -63,48 +63,17 @@
 
 1. Use BEM methodology as naming convention.
 2. Don't use scoped styles.
-3. Make use of global css vars for customizable parts
-4. if you're providing props-based styles like `background-image` encapsulate all of them in one object `stylesObj`:
+3. Make use of global css classes for customizable parts
 
 ```html
-<section class="sf-banner" v-bind:style="stylesObj">
+<section class="sf-banner">
   ...
 </section>
 ```
 
-```js
-export default {
-  name: "SfBanner",
-  data() {
-    return {
-      stylesObj: {
-        backgroundImage: this.bgImg,
-        backgroundColor: this.bgCol === "default" ? "#F1F2F3" : this.bgCol
-      }
-    };
-  },
-  props: {
-    bgImg: {
-      required: false,
-      type: String,
-      default: null
-    },
-    bgCol: {
-      required: false,
-      type: String,
-      default: "default"
-    },
-    align: {
-      required: false,
-      type: String,
-      default: "left"
-    }
-  }
-};
-```
 
-5. Don't use any global css rules on component level
-6. Add component-specific css variables on top of the component SCSS file. Try to use global CSS rules inside them if possible.
+5. Don't use any global CSS styles from other files inside a component. Each of them should be independent.
+6. Add component-specific SCSS variables on top of the component SCSS file. Try to use global SCSS vars inside them for common properties like primary/secondary colors etc. Naming convention for vars is like in BEM: `$component__block--modifier-property` - for example `$banner__title--primary-color: $c-primary`
 7. Try to base components CSS configuration on SCSS variables instead of requirement for overriding styles.
 
 ```sss
