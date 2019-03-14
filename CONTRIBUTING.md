@@ -32,6 +32,7 @@
 
 2. use Sf prefix in component names.
 3. Try to make components as customizable as possible but without complicating them. Think about the parts that are usually customized and allow simple way to change their look.
+4. We use [atomic design](http://bradfrost.com/blog/post/atomic-web-design/) concept for component grouping but without templates and pages.
 
 ### Template
 
