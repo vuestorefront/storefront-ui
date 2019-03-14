@@ -74,26 +74,40 @@
 
 5. Don't use any global CSS styles from other files inside a component. Each of them should be independent.
 6. Add component-specific SCSS variables on top of the component SCSS file. Try to use global SCSS vars inside them for common properties like primary/secondary colors etc. Naming convention for vars is like in BEM: `$component__block--modifier-property` - for example `$banner__title--primary-color: $c-primary`
-7. Try to base components CSS configuration on SCSS variables instead of requirement for overriding styles.
+7. Properties that may broke the design in future changes shouldn't be customizable via SCSS properties. A safe set of properties to customize are: `font-size`, `color`, `background-color`, `background-image`, `padding` (not always), `margin` (not always), `text-transform`, `font-weight`, `font-family`, `background-size`, X and Y justification (not always)
 
 ```sss
+@import '../../../css/variables';
 
+$banner-padding: $spacing-extra-big;
 $banner-background-size: cover;
-$banner-subtitle-margin-bottom: 0.3rem;
-$banner-title-margin-top: 0.3rem;
-$banner-title-text-transform: uppercase;
+
+$banner__subtitle-font-family: $body-font-family-secondary;
+$banner__subtitle-font-size: 0.875rem;
+$banner__subtitle-font-weight: 300;
+$banner__subtitle-text-transform: none;
+
+$banner__title-text-transform: uppercase;
+$banner__title-font-weight: 300;
+$banner__title-font-size: initial;
 
 .sf-banner {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  background-size: $banner-background-size;
+  padding: $banner-padding;
+  background-size: $bannerbackground-size;
   &__subtitle {
-    margin-bottom: $banner-subtitle-margin-bottom:
+    margin-bottom: $spacing-small;
+    font-family: $banner__subtitle-font-family;
+    font-size: $banner__subtitle-font-size;
+    font-weight: $banner__subtitle-font-weight;
+    text-transform: none;
   }
   &__title {
-    margin-top: $banner-title-margin-top;
-    text-transform: $banner-title-text-transform;
+    margin-top: $spacing-small;
+    text-transform: $banner__title-text-transform;
+    font-weight: $banner__title-font-weight;
+    font-size: $banner__title-font-size;
   }
   &__description {
     @media ( max-width: $tablet-max ) {
