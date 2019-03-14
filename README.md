@@ -18,6 +18,7 @@ Full customization and great developer experience are our primar focuses. You ca
 - Component content customization with slots.
 - Component design customization with props.
 - Possibility to compose your own components from partials (markup/Vue instance/SCSS)
+- Implementation of [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/)
 
 Read about [code design concepts](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) behind Storefront UI and [how it can be customized](./docs/Customization.md).
 
