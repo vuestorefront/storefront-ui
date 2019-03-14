@@ -1,12 +1,19 @@
 @import '../../../css/variables';
 
+$call-to-action-background: $c-gray-secondary;
+$call-to-action-align-content: center;
+$call-to-action-text-align: center;
+
+$call-to-action-message-font-weight: 400;
+
 .sf-call-to-action {
   display: flex;
-  align-content: center;
-  text-align: center;
+  align-content: $call-to-action-align-content;
+  text-align: $call-to-action-text-align;
   flex-direction: column;
   padding: $spacing-extra-big $spacing-big;
-  h1 {
+  background: $call-to-action-background;
+  &__message {
     margin-top: 0;
     font-weight: 400;
   }
