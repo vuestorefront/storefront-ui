@@ -49,7 +49,7 @@ export default {
 </style>
 ````
 
-Now let's see how we can customize any of it's parts by still making use of the rest of it.
+Now let's see how we can customize any of it's parts by still making use of the sfui parts we want to remain untouched.
 
 - **Template**:  Here we replaced default HTML with our own. In this example we replaced default <button> with a <div>
 ````html
