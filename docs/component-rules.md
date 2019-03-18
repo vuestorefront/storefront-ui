@@ -1,6 +1,7 @@
-# How to build components
+# Component rules
 
-If you're creating a new component start with copying a template folder and renaming it. It contains a starting boilerplate that'll help you create a componentnt in standarized way and save a lot of work ;)
+Below you can find rules that needs to be applied into every component from sTOREFRONT ui to ensure that they are highly customizable, follow common format and coding standards.
+
 # Common rules for components
 
 ### General rules
