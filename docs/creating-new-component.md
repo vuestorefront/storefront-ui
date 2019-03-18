@@ -1,1 +1,1 @@
-# How to create new component
+# How to create new Storefront UI component
