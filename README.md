@@ -43,3 +43,7 @@ import StorefrontUI from "storefront-ui";
 
 Vue.use(StorefrontUI);
 ```
+
+# Contributing
+
+We are currently in a process of building the library. If you want to help shaping future of vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) you can find all the required information.
