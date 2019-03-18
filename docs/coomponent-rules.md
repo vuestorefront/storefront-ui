@@ -119,8 +119,8 @@ $banner__title-font-size: initial;
 
 ### Unit tests
 
-1. The minimum set of tests should contain component'
+1. The minimum set of tests should contain component:
 - **External API:** props, slots, events
-- **Internal API:** methods, computer properties
+- **Internal API:** methods
 
 
