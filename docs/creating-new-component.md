@@ -9,7 +9,9 @@ If you're creating a new component start with copying a template folder ([`src/c
 
 Depending on what type of component you're creating place it in appropiate subfolder of `src/components` according to [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) rules and design. 
 
-Then rename the folder, CSS classes and component name. At this point you should have properly created component
+Then rename the folder, CSS classes and component name. At this point you should have properly created component.
+
+If you want to test your compoennt just import it inside `App.vue`.
 
 ### Create proper markup
 
