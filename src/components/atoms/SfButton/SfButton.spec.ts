@@ -1,7 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
 import SfButton from "@/components/atoms/SfButton/SfButton.vue";
 
-describe("HelloWorld.vue", () => {
+describe("SfButton.vue", () => {
   it("renders a button", () => {
     const component = shallowMount(SfButton);
     expect(component.contains("button")).toBe(true);
