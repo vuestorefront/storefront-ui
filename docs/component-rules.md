@@ -12,7 +12,7 @@ Below you can find rules that needs to be applied into every component from Stor
 - sfComponent.scss -> styles for the component
 - SfComponent.ts -> component instance
 - SfComponent.spec.ts - unit tests for component
-- sfComponent.vue -> whole component using above partials. It should look like this:
+- SfComponent.vue -> whole component using above partials. It should look like this:
 
 ```html
 <script>
