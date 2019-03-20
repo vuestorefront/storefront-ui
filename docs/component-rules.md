@@ -1,6 +1,6 @@
 # Component rules
 
-Below you can find rules that needs to be applied into every component from sTOREFRONT ui to ensure that they are highly customizable, follow common format and coding standards.
+Below you can find rules that needs to be applied into every component from Storefront UI to ensure that they are highly customizable, follow common format and coding standards.
 
 # Common rules for components
 
