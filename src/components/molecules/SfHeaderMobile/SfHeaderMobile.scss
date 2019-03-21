@@ -1,0 +1,13 @@
+@import '../../../css/variables';
+
+$sf-header-mobile-padding: $spacing-medium $spacing-extra-big;
+$sf-header-mobile-background: $c-bg-primary;
+
+.sf-header-mobile {
+  padding: $sf-header-mobile-padding;
+  background: $sf-header-mobile-background;
+
+  &--content {
+    text-align: center;
+  }
+}
