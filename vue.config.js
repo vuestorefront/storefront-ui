@@ -5,6 +5,11 @@ module.exports = {
     port: 3002
   },
   configureWebpack: {
+    resolve: {
+      alias: {
+        "@alpaca-storybook": "alpaca-components"
+      }
+    },
     plugins: [
       new CopyPlugin([
         {

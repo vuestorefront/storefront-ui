@@ -20,4 +20,7 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss" src="./css/globals.scss"></style>
+<style lang="scss">
+@import "./css/variables.scss";
+@import "./css/globals.scss";
+</style>
