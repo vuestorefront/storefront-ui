@@ -23,7 +23,7 @@ You can override component-specific SCSS variables in the exactly same way.
 
 ````scss
 // This will override primary accent color for button component to 'blue'
-$c-accent-primary: blue !default;
+$button-padding: 0.5rem 1.7rem !default;
 ````
 
 Please note that you should always add a `!default` property when overriding component variables. Otherwise you will also affect scoped modifications you can make for individual components.
