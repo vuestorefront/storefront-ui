@@ -10,6 +10,7 @@
 import Vue from "vue";
 import CustomButton from "./CustomButton.vue";
 import SfButton from "./components/atoms/SfButton/SfButton.vue";
+import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
 
 export default Vue.extend({
   name: "app",

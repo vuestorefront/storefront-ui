@@ -6,5 +6,5 @@ export default {
 };
 </script>
 
-<template lang="html" src="./SfCallToAction.html" functional></template>
+<template lang="html" src="./SfCallToAction.html"></template>
 <style lang="scss" src="./SfCallToAction.scss"></style>
