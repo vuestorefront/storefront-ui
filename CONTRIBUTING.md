@@ -10,4 +10,4 @@
 5. Congrats! Your PR should now me merged in!
 
 
-If you can;t handle some parts of the issue feel free to ask in the comment. It's absolutely OK if you can only handle styling/tests/whatever. 
+If you can't handle some parts of the issue feel free to ask in the comment. It's absolutely OK if you can only handle styling/tests/whatever. 
