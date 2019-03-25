@@ -22,3 +22,12 @@ Start with creating a proper CSS/HTML markup without worrying about the slots an
 ### Make the content customizable with slots
 
 Now it's time to figure out which content should be customizable. By design try not to pass any content into props - instead use slots. Every text field should be a slot. Take a look at [this](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.html) component for inspiration.
+
+### Add unit tests 
+
+Minimal set of tests conteins:
+
+- External API: props, slots, events
+- Internal API: methods
+
+Some of the most common cases can be found in a template.
