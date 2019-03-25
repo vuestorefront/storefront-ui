@@ -16,7 +16,7 @@ $banner__title-font-size: initial !default;
   display: flex;
   flex-direction: column;
   padding: $banner-padding;
-  background-size: $bannerbackground-size;
+  background-size: $banner-background-size;
   &__subtitle {
     margin-bottom: $spacing-small;
     font-family: $banner__subtitle-font-family;
