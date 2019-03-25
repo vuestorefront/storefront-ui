@@ -1,16 +1,16 @@
 @import '../../../css/variables';
 
-$banner-padding: $spacing-extra-big;
-$banner-background-size: cover;
+$banner-padding: $spacing-extra-big !default;
+$banner-background-size: cover !default;
 
-$banner__subtitle-font-family: $body-font-family-secondary;
-$banner__subtitle-font-size: 0.875rem;
-$banner__subtitle-font-weight: 300;
-$banner__subtitle-text-transform: none;
+$banner__subtitle-font-family: $body-font-family-secondary !default;
+$banner__subtitle-font-size: 0.875rem !default;
+$banner__subtitle-font-weight: 300 !default;
+$banner__subtitle-text-transform: none !default;
 
-$banner__title-text-transform: uppercase;
-$banner__title-font-weight: 300;
-$banner__title-font-size: initial;
+$banner__title-text-transform: uppercase !default;
+$banner__title-font-weight: 300  !default;
+$banner__title-font-size: initial !default;
 
 .sf-banner {
   display: flex;
