@@ -24,8 +24,3 @@ storiesOf("Button", module)
     template: '<sf-button @click="action">😀 😎 👍 💯</sf-button>',
     methods: { action: action("clicked") }
   }));
-
-storiesOf("CategoryTile", module).add("with text and image", () => ({
-  components: { SfCategoryTile },
-  template: '<sf-category-tile"></sf-category-tile>'
-}));
