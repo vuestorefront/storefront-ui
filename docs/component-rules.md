@@ -36,24 +36,38 @@ export default {
 ### Template
 
 1. We use slots over props for content composition. Use props only for properties that are not content-related
-2. Make slots optional if it's possible and provide a default slot (usually empty).
+2. Make slots optional if it's possible and provide a default slot (usually empty) just in case someone wants a fully custom component.
+3. Don't use props for setting colors and other properties that can be set by css (except for background images).
+4. If you are providing some components by default make sure that they are replacable and still customizable
 
+Below you can see example of proper component HTML with all rules applied:
 ```html
 <section class="sf-banner">
-  <slot />
-  <h2 class="sf-banner__subtitle" v-if="$slots.subtitle">
-    <slot name="subtitle"></slot>
-  </h2>
-  <h1 class="sf-banner__title" v-if="$slots.title">
-    <slot name="title"></slot>
-  </h1>
-  <p class="sf-banner__description" v-if="$slots.description">
-    <slot name="description"></slot>
-  </p>
-  <slot name="call-to-action"></slot>
+  <div class="sf-banner__container">
+    <!-- 
+      rule 1 - Use slots to enable users put whatever they want inside instead of X props for every use case
+      rule 2 - Use v-if to make slots optional to avoid rendering empty HTML tags.
+    -->
+    <h2 class="sf-banner__subtitle" v-if="$slots.subtitle">
+      <slot name="subtitle" />
+    </h2>
+    <h1 class="sf-banner__title" v-if="$slots.title">
+      <slot name="title" />
+    </h1>
+    <p class="sf-banner__description" v-if="$slots.description">
+      <slot name="description" />
+    </p>
+    <!-- rule 4 - Almost every banner should have button so it makes sense to put it here. The button should have another slot to set it's content. If user doesn't want button for some reasons we should allow this option too by putting it into another slot. -->
+    <slot name="call-to-action">
+      <SfButton class="sf-banner__button" v-if="$slots.button">
+        <slot name="button" />
+      </SfButton>
+    </slot>
+    <slot />
+  </div>
 </section>
+
 ```
-3. Don't use props for setting colors, backgrounds and other properties that can be set by css.
 
 ### Global CSS
 
@@ -73,9 +87,10 @@ export default {
 
 Below we can see an example of properly styled component with all rules applied:
 ```sss
-// rule 1
+// rule 1 - variables import at the top so we can use them now to set some properties
 @import '../../../css/variables';
-// rule 6 and 7 - variables for safe to customiza properties, BEM-like naming for variables
+
+// rule 6 and 7 - Create SCSS variables for safe to customiza properties and use BEM-like naming convention to match CSS classes
 $banner-padding: 4.25rem !default;
 $banner-background-size: cover !default;
 $banner-background-position: bottom left !default;
@@ -84,7 +99,8 @@ $banner-align-items: flex-end !default;
 $banner__subtitle-font-family: $body-font-family-primary !default;
 $banner__subtitle-font-size: 1.5rem !default;
 $banner__subtitle-font-weight: 300 !default;
-$banner__subtitle-color: $c-dark-secondary !default; // rule 5 - try to make use of predefined variables
+// rule 5 - try to make use of global variables (for colors etc) if possible to avoid repetition
+$banner__subtitle-color: $c-dark-secondary !default; 
 $banner__subtitle-text-transform: none !default;
 
 $banner__title-text-transform: uppercase !default;
@@ -100,7 +116,7 @@ $banner__description-color: $c-dark-primary !default;
 $banner__call-to-action-font-size: 0.875rem !default;
 $banner__call-to-action-background-color: $c-dark-primary !default;
 
-// rule 5 and 3 - sf-banner as global class for a banner and BEM naming methodology
+// rule 3 - Use BEM naming methodology
 .sf-banner {
   display: flex;
   flex-direction: column;
@@ -111,7 +127,7 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
   align-items: $banner-align-items;
   background-image: url(../../../assets/img/Banner1.png);
   min-height: 20rem;
-  // rule 2 - write mobile-first classess and add desktop ones inside media querys
+  // rule 2 - Write mobile-first classess and add desktop ones inside media querys as an addition. Usually desktop is extended version of mobile so it makes a perfect sense here.
   @media ( min-width: $desktop-min ) {
     min-height: initial;
   }
@@ -160,7 +176,7 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
       display: flex;
     }
   }
-  // rule 8 - most common modifiers as BEM modifiers
+  // rule 8 - Add most common modifiers as BEM CSS modifiers
   &--top {
     align-content: flex-start;
   }
