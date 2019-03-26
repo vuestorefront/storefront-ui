@@ -83,3 +83,7 @@ $c-accent-primary: blue;
 </style>
 ````
 **Please note** that `scoped` attribute must be present on `<style>` tag if you're overriding styles. Otherwise your local changes will be overwritten by global overrides from `sfui.scss`
+
+### Customization of single components
+
+You can always use pure CSS rules to customize any of the compoennts properties like color etc
