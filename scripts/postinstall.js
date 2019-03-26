@@ -1,7 +1,7 @@
 var fs = require("fs");
 
 fs.appendFile(
-  "sfui.scss",
+  "../../../sfui.scss",
   `/* Here you can override global SCSS variables */
 
 // global override excluding scoped components
