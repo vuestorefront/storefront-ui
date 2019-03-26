@@ -51,6 +51,7 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
     font-weight: $banner__subtitle-font-weight;
     text-transform: none;
     color: $banner__subtitle-color;
+    margin-top: 0;
   }
   &__title {
     margin-top: $spacing-small;
