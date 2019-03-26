@@ -2,21 +2,32 @@
 
 $banner-padding: $spacing-extra-big !default;
 $banner-background-size: cover !default;
+$banner-background-position: bottom left !default;
 
-$banner__subtitle-font-family: $body-font-family-secondary !default;
-$banner__subtitle-font-size: 0.875rem !default;
+$banner__subtitle-font-family: $body-font-family-primary !default;
+$banner__subtitle-font-size: 1.5rem !default;
 $banner__subtitle-font-weight: 300 !default;
 $banner__subtitle-text-transform: none !default;
 
 $banner__title-text-transform: uppercase !default;
 $banner__title-font-weight: 300  !default;
-$banner__title-font-size: initial !default;
+$banner__title-font-size: 3rem !default;
+$banner__title-font-family: $body-font-family-secondary !default;
+
+$banner__description-font-family: $body-font-family-secondary !default;
+$banner__description-font-size: 1.125rem !default;
+
+$banner__call-to-action-font-size: 0.875rem !default;
+$banner__call-to-action-background-color: #1D1F22 !default;
+
 
 .sf-banner {
   display: flex;
   flex-direction: column;
   padding: $banner-padding;
   background-size: $banner-background-size;
+  background-position: $banner-background-position;
+  text-align: left;
   &__subtitle {
     margin-bottom: $spacing-small;
     font-family: $banner__subtitle-font-family;
@@ -29,10 +40,23 @@ $banner__title-font-size: initial !default;
     text-transform: $banner__title-text-transform;
     font-weight: $banner__title-font-weight;
     font-size: $banner__title-font-size;
+    font-family: $banner__title-font-family;
   }
   &__description {
+    font-family: $banner__description-font-family;
+    font-size: $banner__description-font-size;
     @media ( max-width: $tablet-max ) {
       display: none;
     }
+  }
+  &__call-to-action {
+    font-size: $banner__call-to-action-font-size;
+    background-color: $banner__call-to-action-background-color;
+  }
+  @media (min-width: $tablet-min) {
+    padding-left: 50%;
+  }
+  @media (max-width: $tablet-min) {
+    text-align: right
   }
 }

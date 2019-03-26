@@ -1,5 +1,4 @@
-<section class="sf-banner" v-bind:style="stylesObj">
-  <slot />
+<section class="sf-banner">
   <h2 class="sf-banner__subtitle" v-if="$slots.subtitle">
     <slot name="subtitle" />
   </h2>
@@ -9,5 +8,10 @@
   <p class="sf-banner__description" v-if="$slots.description">
     <slot name="description" />
   </p>
-  <slot name="call-to-action" />
+  <div>
+    <SfButton class="sf-banner__call-to-action">
+      <slot name="call-to-action" />
+    </SfButton>
+  </div>
+  <slot />
 </section>
