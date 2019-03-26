@@ -36,10 +36,14 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
   text-align: left;
   align-items: $banner-align-items;
   background-image: url(../../../assets/img/Banner1.png);
+  min-height: 20rem;
+  @media ( min-width: $desktop-min ) {
+    min-height: initial;
+  }
   &__container {
-    width: 50%;
-    @media ( max-width: $tablet-min ) {
-      width: 100%;
+    width: 100%;
+    @media ( min-width: $desktop-min ) {
+      width: 50%;
     }
   }
   &__subtitle {
@@ -68,16 +72,16 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
     font-size: $banner__description-font-size;
     color: $banner__description-color;
     display: none;
-    @media ( min-width: $tablet-max ) {
-      display: initial;
+    @media ( min-width: $desktop-min ) {
+      display: flex;
     }
   }
   &__button {
     font-size: $banner__call-to-action-font-size;
     background-color: $banner__call-to-action-background-color;
     display: none;
-    @media ( min-width: $tablet-max ) {
-      display: initial;
+    @media ( min-width: $desktop-min ) {
+      display: flex;
     }
   }
 
