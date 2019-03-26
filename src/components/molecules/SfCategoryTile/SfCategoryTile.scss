@@ -1,0 +1,27 @@
+@import "../../../css/variables";
+
+$category-tile--background-color: $c-light-primary;
+$category-tile__title--primary-color: $c-dark-primary;
+
+.sf-category-tile {
+  display: flex;
+  align-items: center;
+  max-width: 24rem;
+  height: 10rem;
+  background: $category-tile--background-color;
+}
+
+.sf-category-tile__title {
+  flex: 1;
+  text-align: center;
+  color: $category-tile__title--primary-color;
+  text-transform: uppercase;
+}
+
+.sf-category-tile__image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 100%;
+  flex: 1;
+}
