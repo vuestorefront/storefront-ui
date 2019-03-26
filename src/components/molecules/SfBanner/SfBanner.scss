@@ -74,7 +74,7 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
       display: none;
     }
   }
-  &__call-to-action {
+  &__button {
     font-size: $banner__call-to-action-font-size;
     background-color: $banner__call-to-action-background-color;
     @media ( max-width: $tablet-max ) {

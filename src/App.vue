@@ -11,7 +11,7 @@
         The collection features formal and casual comfort shoes with a Danish
         design focus. Made from premium leathers and comfort.
       </template>
-      <template class="sf-banner__call-to-action" slot="call-to-action">
+      <template slot="button">
         shop now
       </template>
     </SfBanner>

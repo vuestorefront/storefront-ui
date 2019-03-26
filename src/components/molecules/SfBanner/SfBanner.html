@@ -9,9 +9,11 @@
     <p class="sf-banner__description" v-if="$slots.description">
       <slot name="description" />
     </p>
-    <SfButton class="sf-banner__call-to-action"  v-if="$slots['call-to-action']">
-      <slot name="call-to-action" />
-    </SfButton>
+    <slot name="call-to-action">
+      <SfButton class="sf-banner__button" v-if="$slots.button">
+        <slot name="button" />
+      </SfButton>
+    </slot>
     <slot />
   </div>
 </section>
