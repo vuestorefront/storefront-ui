@@ -56,7 +56,8 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
   }
   &__title {
     margin-top: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
     text-transform: $banner__title-text-transform;
     font-weight: $banner__title-font-weight;
     font-size: $banner__title-font-size;
@@ -64,7 +65,7 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
     color: $banner__title-color;
   }
   &__description {
-    margin-bottom: 1.5rem;
+    padding-bottom: 0.6rem;
     font-family: $banner__description-font-family;
     font-size: $banner__description-font-size;
     color: $banner__description-color;
@@ -74,7 +75,6 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
     }
   }
   &__call-to-action {
-    margin-top: 0.5 rem;
     font-size: $banner__call-to-action-font-size;
     background-color: $banner__call-to-action-background-color;
     @media ( max-width: $tablet-max ) {

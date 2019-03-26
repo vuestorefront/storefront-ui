@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <SfBanner>
-      <template slot="title"
-        >ECO SANDALS</template
-      >
-      <template slot="subtitle"
-        >Summer shoes</template
-      >
+      <template slot="title">
+        ECO SANDALS
+      </template>
+      <template slot="subtitle">
+        Summer shoes
+      </template>
       <template slot="description">
         The collection features formal and casual comfort shoes with a Danish
         design focus. Made from premium leathers and comfort.
