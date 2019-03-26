@@ -7,7 +7,7 @@ cache:
   directories:
     - node_modules
 
-install:
+script:
   - yarn
 
 jobs:
