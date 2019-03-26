@@ -56,6 +56,6 @@ We are currently in a process of building the library. If you want to help shapi
 
 - SfButton - done
 - SfBanner - almost done
-- SfCallToaction - almost done
+- SfCallToAction - almost done
 - SfHeader - almost done
 - SfBottomnNavigation - in progress
