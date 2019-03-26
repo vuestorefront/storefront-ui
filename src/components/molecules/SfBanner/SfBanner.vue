@@ -6,5 +6,5 @@ export default {
 };
 </script>
 
-<template lang="html" src="./SfBanner.html" functional></template>
+<template lang="html" src="./SfBanner.html"></template>
 <style lang="scss" src="./SfBanner.scss"></style>

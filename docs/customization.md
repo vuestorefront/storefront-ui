@@ -22,8 +22,8 @@ You can find all available variables and it's defaults [here](https://github.com
 You can override component-specific SCSS variables in the exactly same way. 
 
 ````scss
-// This will override primary accent color for button component to 'blue'
-$c-accent-primary: blue !default;
+// This will change default button padding
+$button-padding: 0.5rem 1.7rem !default;
 ````
 
 Please note that you should always add a `!default` property when overriding component variables. Otherwise you will also affect scoped modifications you can make for individual components.
@@ -83,3 +83,7 @@ $c-accent-primary: blue;
 </style>
 ````
 **Please note** that `scoped` attribute must be present on `<style>` tag if you're overriding styles. Otherwise your local changes will be overwritten by global overrides from `sfui.scss`
+
+### Customization of single components
+
+You can always use pure CSS rules to customize any of the compoennts properties like color etc

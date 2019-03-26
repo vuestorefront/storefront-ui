@@ -6,5 +6,5 @@ export default {
 };
 </script>
 
-<template lang="html" src="./SfButton.html" functional></template>
+<template functional lang="html" src="./SfButton.html"></template>
 <style lang="scss" src="./SfButton.scss"></style>

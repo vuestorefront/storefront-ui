@@ -10,6 +10,7 @@
 import Vue from "vue";
 import CustomButton from "./CustomButton.vue";
 import SfButton from "./components/atoms/SfButton/SfButton.vue";
+import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
 
 export default Vue.extend({
   name: "app",
@@ -20,4 +21,7 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss" src="./css/globals.scss"></style>
+<style lang="scss">
+@import "./css/variables.scss";
+@import "./css/globals.scss";
+</style>
