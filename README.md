@@ -39,7 +39,7 @@ If you want to play with components anyway there are two options:
 2. Build the lib and install it as local NPM package. Then you can just install it as a plugin:
 
 ```js
-import StorefrontUI from "storefront-ui";
+import StorefrontUI from "@storefrontui/vue";
 
 Vue.use(StorefrontUI);
 ```
