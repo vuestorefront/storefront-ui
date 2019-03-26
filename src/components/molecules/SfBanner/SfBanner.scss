@@ -36,14 +36,12 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
   text-align: left;
   align-items: $banner-align-items;
   background-image: url(../../../assets/img/Banner1.png);
-
   &__container {
     width: 50%;
     @media ( max-width: $tablet-min ) {
       width: 100%;
     }
   }
-
   &__subtitle {
     margin-bottom: $spacing-small;
     font-family: $banner__subtitle-font-family;
@@ -69,16 +67,30 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
     font-family: $banner__description-font-family;
     font-size: $banner__description-font-size;
     color: $banner__description-color;
-    font-weight: lighter;
-    @media ( max-width: $tablet-max ) {
-      display: none;
+    display: none;
+    @media ( min-width: $tablet-max ) {
+      display: initial;
     }
   }
   &__button {
     font-size: $banner__call-to-action-font-size;
     background-color: $banner__call-to-action-background-color;
-    @media ( max-width: $tablet-max ) {
-      display: none;
+    display: none;
+    @media ( min-width: $tablet-max ) {
+      display: initial;
     }
+  }
+
+  &--top {
+    align-content: flex-start;
+  }
+  &--bottom {
+    align-content: flex-end;
+  }
+  &--left {
+    align-items: flex-start;
+  }
+  &--right {
+    align-items: flex-end;
   }
 }
