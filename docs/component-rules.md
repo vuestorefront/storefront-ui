@@ -31,6 +31,7 @@ export default {
 2. use Sf prefix in component names.
 3. Try to make components as customizable as possible but without complicating them. Think about the parts that are usually customized and allow simple way to change their look.
 4. We use [atomic design](http://bradfrost.com/blog/post/atomic-web-design/) concept for component grouping but without templates and pages.
+5. Try to make BEM elements matching slot names.
 
 ### Template
 
@@ -60,58 +61,116 @@ export default {
 
 ### Component CSS
 
-1. Use BEM methodology as naming convention.
-2. Don't use scoped styles.
-3. Make use of global css classes for customizable parts
-
-```html
-<section class="sf-banner">
-  ...
-</section>
-```
-
-
-5. Don't use any global CSS styles from other files inside a component. Each of them should be independent.
+1. Always import a global variables at the top.
+2. Start with mobile view and write mobile-first CSS. It means that media queries should be only for a desktop view.
+3. Use BEM methodology as naming convention.
+4. Don't use scoped styles.
+5. Make use of global css variables wehenever it's possible.
 6. Add component-specific SCSS variables on top of the component SCSS file. Try to use global SCSS vars inside them for common properties like primary/secondary colors etc. Naming convention for vars is like in BEM: `$component__block--modifier-property` - for example `$banner__title--primary-color: $c-primary`
-7. Properties that may broke the design in future changes shouldn't be customizable via SCSS properties. A safe set of properties to customize are: `font-size`, `text-align`, `color`, `background-color`, `background-image`, `padding` (not always), `margin` (not always), `text-transform`, `font-weight`, `font-family`, `background-size`, X and Y justification (not always)
+7. Properties that may broke the design in future changes shouldn't be customizable via SCSS properties. A safe set of properties to customize are: `font-size`, `text-align`, `color`, `background-color`, `background-image`, `padding` (not always), `margin` (not always), `text-transform`, `font-weight`, `font-family`, `background-size`, X and Y justification wuth `align-content` and `align-items`(not always)
+8. Provide CSS modifiers for most common modifications.
 
+Below we can see an example of properly styled component with all rules applied:
 ```sss
+// rule 1
 @import '../../../css/variables';
+// rule 6 and 7 - variables for safe to customiza properties, BEM-like naming for variables
+$banner-padding: 4.25rem !default;
+$banner-background-size: cover !default;
+$banner-background-position: bottom left !default;
+$banner-align-items: flex-end !default;
 
-$banner-padding: $spacing-extra-big;
-$banner-background-size: cover;
+$banner__subtitle-font-family: $body-font-family-primary !default;
+$banner__subtitle-font-size: 1.5rem !default;
+$banner__subtitle-font-weight: 300 !default;
+$banner__subtitle-color: $c-dark-secondary !default; // rule 5 - try to make use of predefined variables
+$banner__subtitle-text-transform: none !default;
 
-$banner__subtitle-font-family: $body-font-family-secondary;
-$banner__subtitle-font-size: 0.875rem;
-$banner__subtitle-font-weight: 300;
-$banner__subtitle-text-transform: none;
+$banner__title-text-transform: uppercase !default;
+$banner__title-font-weight: 300  !default;
+$banner__title-font-size: 3rem !default;
+$banner__title-font-family: $body-font-family-secondary !default;
+$banner__title-color: $c-dark-primary !default;
 
-$banner__title-text-transform: uppercase;
-$banner__title-font-weight: 300;
-$banner__title-font-size: initial;
+$banner__description-font-family: $body-font-family-secondary !default;
+$banner__description-font-size: 1.125rem !default;
+$banner__description-color: $c-dark-primary !default;
 
+$banner__call-to-action-font-size: 0.875rem !default;
+$banner__call-to-action-background-color: $c-dark-primary !default;
+
+// rule 5 and 3 - sf-banner as global class for a banner and BEM naming methodology
 .sf-banner {
   display: flex;
   flex-direction: column;
   padding: $banner-padding;
-  background-size: $bannerbackground-size;
+  background-size: $banner-background-size;
+  background-position: $banner-background-position;
+  text-align: left;
+  align-items: $banner-align-items;
+  background-image: url(../../../assets/img/Banner1.png);
+  min-height: 20rem;
+  // rule 2
+  @media ( min-width: $tablet-max ) {
+    min-height: initial;
+  }
+  &__container {
+    width: 100%;
+    // rule 2
+    @media ( min-width: $tablet-max ) {
+      width: 50%;
+    }
+  }
   &__subtitle {
     margin-bottom: $spacing-small;
     font-family: $banner__subtitle-font-family;
     font-size: $banner__subtitle-font-size;
     font-weight: $banner__subtitle-font-weight;
     text-transform: none;
+    color: $banner__subtitle-color;
+    margin-top: 0;
+    padding-bottom: 0.3rem;
   }
   &__title {
-    margin-top: $spacing-small;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
     text-transform: $banner__title-text-transform;
     font-weight: $banner__title-font-weight;
     font-size: $banner__title-font-size;
+    font-family: $banner__title-font-family;
+    color: $banner__title-color;
   }
   &__description {
-    @media ( max-width: $tablet-max ) {
-      display: none;
+    padding-bottom: 0.6rem;
+    font-family: $banner__description-font-family;
+    font-size: $banner__description-font-size;
+    color: $banner__description-color;
+    display: none;
+    @media ( min-width: $tablet-max ) {
+      display: flex;
     }
+  }
+  &__button {
+    font-size: $banner__call-to-action-font-size;
+    background-color: $banner__call-to-action-background-color;
+    display: none;
+    @media ( min-width: $tablet-max ) {
+      display: flex;
+    }
+  }
+  // rule 8 
+  &--top {
+    align-content: flex-start;
+  }
+  &--bottom {
+    align-content: flex-end;
+  }
+  &--left {
+    align-items: flex-start;
+  }
+  &--right {
+    align-items: flex-end;
   }
 }
 ```
