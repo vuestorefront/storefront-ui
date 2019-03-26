@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SfBanner style="background-image: url('./src/assets/img/Banner1.png')">
+    <SfBanner>
       <template slot="title"
         >ECO SANDALS</template
       >

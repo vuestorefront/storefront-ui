@@ -35,6 +35,7 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
   background-position: $banner-background-position;
   text-align: left;
   align-items: $banner-align-items;
+  background-image: url(../../../assets/img/Banner1.png);
 
   &__container {
     width: 50%;

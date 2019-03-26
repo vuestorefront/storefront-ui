@@ -9,8 +9,7 @@ export default storiesOf("Banner", module)
     components: { SfBanner },
     template: `
     <SfBanner 
-      style="background-image: url('/img/Banner1.png')" 
-      :buttonAction="action">
+      style="background-image: url('/img/Banner1.png')" >
       <div slot="title">ECO SANDALS</div>
       <div slot="subtitle">Summer shoes</div>
       <div slot="description">
@@ -27,8 +26,7 @@ export default storiesOf("Banner", module)
     components: { SfBanner },
     template: `
     <SfBanner 
-      style="background-image: url('/img/Banner2.png'); align-items: flex-start;" 
-      :buttonAction="action">
+      style="background-image: url('/img/Banner2.png'); align-items: flex-start;" >
       <div slot="title">COCKTAIL & PARTY</div>
       <div slot="subtitle">Dresses</div>
       <div slot="description">
