@@ -69,6 +69,7 @@ export default {
 6. Add component-specific SCSS variables on top of the component SCSS file. Try to use global SCSS vars inside them for common properties like primary/secondary colors etc. Naming convention for vars is like in BEM: `$component__block--modifier-property` - for example `$banner__title--primary-color: $c-primary`
 7. Properties that may broke the design in future changes shouldn't be customizable via SCSS properties. A safe set of properties to customize are: `font-size`, `text-align`, `color`, `background-color`, `background-image`, `padding` (not always), `margin` (not always), `text-transform`, `font-weight`, `font-family`, `background-size`, X and Y justification wuth `align-content` and `align-items`(not always)
 8. Provide CSS modifiers for most common modifications.
+9. Don't use any outer positioning for components (like outer margins). The way they're positioned in layout should be determined in outer env.
 
 Below we can see an example of properly styled component with all rules applied:
 ```sss
@@ -110,7 +111,7 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
   align-items: $banner-align-items;
   background-image: url(../../../assets/img/Banner1.png);
   min-height: 20rem;
-  // rule 2
+  // rule 2 - write mobile-first classess and add desktop ones inside media querys
   @media ( min-width: $tablet-max ) {
     min-height: initial;
   }
@@ -159,7 +160,7 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
       display: flex;
     }
   }
-  // rule 8 
+  // rule 8 - most common modifiers as BEM modifiers
   &--top {
     align-content: flex-start;
   }
@@ -174,8 +175,6 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
   }
 }
 ```
-
-5. Don't use any outer positioning for components (like outer margins). The way they're positioned in layout should be determined in outer env.
 
 ### Unit tests
 
