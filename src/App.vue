@@ -1,15 +1,19 @@
 <template>
   <div id="app">
-    <SfBanner style="background-image: url('Banner1.png')">
-      <div slot="title">ECO SANDALS</div>
-      <div slot="subtitle">Summer shoes</div>
-      <div slot="description">
+    <SfBanner style="background-image: url('./src/assets/img/Banner1.png')">
+      <template slot="title"
+        >ECO SANDALS</template
+      >
+      <template slot="subtitle"
+        >Summer shoes</template
+      >
+      <template slot="description">
         The collection features formal and casual comfort shoes with a Danish
         design focus. Made from premium leathers and comfort.
-      </div>
-      <template slot="call-to-action"
-        >shop now</template
-      >
+      </template>
+      <template class="sf-banner__call-to-action" slot="call-to-action">
+        shop now
+      </template>
     </SfBanner>
   </div>
 </template>

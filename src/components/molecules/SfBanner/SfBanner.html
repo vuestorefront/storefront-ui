@@ -1,17 +1,17 @@
 <section class="sf-banner">
-  <h2 class="sf-banner__subtitle" v-if="$slots.subtitle">
-    <slot name="subtitle" />
-  </h2>
-  <h1 class="sf-banner__title" v-if="$slots.title">
-    <slot name="title" />
-  </h1>
-  <p class="sf-banner__description" v-if="$slots.description">
-    <slot name="description" />
-  </p>
-  <div>
-    <SfButton class="sf-banner__call-to-action">
+  <div class="sf-banner__container">
+    <h2 class="sf-banner__subtitle" v-if="$slots.subtitle">
+      <slot name="subtitle" />
+    </h2>
+    <h1 class="sf-banner__title" v-if="$slots.title">
+      <slot name="title" />
+    </h1>
+    <p class="sf-banner__description" v-if="$slots.description">
+      <slot name="description" />
+    </p>
+    <SfButton class="sf-banner__call-to-action" @click="buttonAction"  v-if="$slots['call-to-action']">
       <slot name="call-to-action" />
     </SfButton>
+    <slot />
   </div>
-  <slot />
 </section>

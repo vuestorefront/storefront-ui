@@ -7,8 +7,8 @@
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
-    "storybook:build": "vue-cli-service storybook:build -c config/storybook",
+    "storybook:serve": "vue-cli-service storybook:serve -s ./src/assets -p 6006 -c config/storybook",
+    "storybook:build": "vue-cli-service storybook:build -s ./src/assets -c config/storybook",
     "postinstall": "node scripts/postinstall.js"
   },
   "dependencies": {
