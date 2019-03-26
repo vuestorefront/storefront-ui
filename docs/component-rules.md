@@ -112,13 +112,13 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
   background-image: url(../../../assets/img/Banner1.png);
   min-height: 20rem;
   // rule 2 - write mobile-first classess and add desktop ones inside media querys
-  @media ( min-width: $tablet-max ) {
+  @media ( min-width: $desktop-min ) {
     min-height: initial;
   }
   &__container {
     width: 100%;
     // rule 2
-    @media ( min-width: $tablet-max ) {
+    @media ( min-width: $desktop-min ) {
       width: 50%;
     }
   }
@@ -148,7 +148,7 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
     font-size: $banner__description-font-size;
     color: $banner__description-color;
     display: none;
-    @media ( min-width: $tablet-max ) {
+    @media ( min-width: $desktop-min ) {
       display: flex;
     }
   }
@@ -156,7 +156,7 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
     font-size: $banner__call-to-action-font-size;
     background-color: $banner__call-to-action-background-color;
     display: none;
-    @media ( min-width: $tablet-max ) {
+    @media ( min-width: $desktop-min) {
       display: flex;
     }
   }
