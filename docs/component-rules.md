@@ -36,10 +36,10 @@ export default {
 ### Template
 
 1. We use slots over props for content composition. Use props only for properties that are not content-related
-2. Make slots optional if it's possible and provide a default slot (usually empty) just in case someone wants a fully custom component.
+2. Make slots optional if it's possible.
 3. Don't use props for setting colors and other properties that can be set by css (except for background images).
 4. If you are providing some components by default make sure that they are replacable and still customizable
-
+5. Provide a default slot (usually empty) just in case someone wants a fully custom component.
 Below you can see example of proper component HTML with all rules applied:
 ```html
 <section class="sf-banner">
@@ -63,6 +63,7 @@ Below you can see example of proper component HTML with all rules applied:
         <slot name="button" />
       </SfButton>
     </slot>
+    <!-- rule 5 - default slot if someone wants extremely custom component -->
     <slot />
   </div>
 </section>
