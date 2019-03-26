@@ -52,9 +52,10 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
     text-transform: none;
     color: $banner__subtitle-color;
     margin-top: 0;
+    padding-bottom: 0.3rem;
   }
   &__title {
-    margin-top: 0.3rem;
+    margin-top: 0;
     margin-bottom: 2rem;
     text-transform: $banner__title-text-transform;
     font-weight: $banner__title-font-weight;
