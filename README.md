@@ -8,7 +8,11 @@ Highly customizable and elegant UI framework for eCommerce (and not only) based 
 
 # What makes it unique?
 
-Full customization and great developer experience are our primar focuses. You can easly change almost every aspect of provided components and use them to make stunning eCommerce shops (and not only)!
+Some libraries aim to give as much as they can out of the box but they faill when it comes to customization. Our goal was to enable as much as possible out of the box but with primar focus on ability to customize any aspect of the components. 
+
+With sfui you need to do a little bit more than with other libs for basic tasks but you get 100% customizable components in return!
+
+You can easly change almost every aspect of provided components and use them to make stunning eCommerce shops (and not only)!
 
 **Here are the key characteristics of Storefront UI:**
 
