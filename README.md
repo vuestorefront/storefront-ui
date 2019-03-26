@@ -37,16 +37,7 @@ You can find the stunning designs we are using for Storefront UI components [her
 # How to try it?
 
 Storefront UI is not ready to use in projects yet. We plan to release working version before the end of April 2019.
-If you want to play with components anyway there are two options:
-
-
-```js
-import StorefrontUI from "@storefrontui/vue";
-
-Vue.use(StorefrontUI);
-```
-
-...or copy repo and play in App.vue
+If you want to play with components just copy the repo and use them in App.vue
 
 # Contributing
 
