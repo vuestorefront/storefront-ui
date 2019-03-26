@@ -771,6 +771,17 @@
   dependencies:
     any-observable "^0.3.0"
 
+"@snowdog/alpaca-components@^0.1.2-alpha.0":
+  version "0.1.2-alpha.0"
+  resolved "https://registry.yarnpkg.com/@snowdog/alpaca-components/-/alpaca-components-0.1.2-alpha.0.tgz#33549aabb3204c5d134c92045fbb064b38eb95f2"
+  dependencies:
+    lodash.uniqueid "^4.0.1"
+    normalize.css "^8.0.1"
+    vue "^2.6.8"
+    vue-carousel "^0.18.0-alpha"
+    vue-router "^3.0.2"
+    vue-slider-component "^3.0.5"
+
 "@soda/friendly-errors-webpack-plugin@^1.7.1":
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/@soda/friendly-errors-webpack-plugin/-/friendly-errors-webpack-plugin-1.7.1.tgz#706f64bcb4a8b9642b48ae3ace444c70334d615d"
@@ -1785,17 +1796,6 @@ ajv@^6.1.0, ajv@^6.5.5, ajv@^6.9.1:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
-
-"alpaca-components@git+https://github.com/SnowdogApps/alpaca-storybook.git":
-  version "0.1.2"
-  resolved "git+https://github.com/SnowdogApps/alpaca-storybook.git#fb7217a0c76d99031019b3b5dc85f9155bb7559e"
-  dependencies:
-    lodash.uniqueid "^4.0.1"
-    normalize.css "^8.0.1"
-    vue "^2.6.8"
-    vue-carousel "^0.18.0-alpha"
-    vue-router "^3.0.2"
-    vue-slider-component "^3.0.5"
 
 alphanum-sort@^1.0.0:
   version "1.0.2"
