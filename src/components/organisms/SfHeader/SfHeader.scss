@@ -24,7 +24,7 @@ $header__logo-height: auto !default;
   @media (min-width: $tablet-min) {
     justify-content: $header-tablet-justify-content;
   }
-  &__left, &__right, &__middle {
+  &__left, &__right {
     @media (min-width: $tablet-min) {
       display: none;
     }
