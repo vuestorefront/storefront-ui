@@ -20,6 +20,10 @@
 
 <!-- Describe slots and their purpose -->
 
+## Emitted events
+
+- `event` - description
+
 ## SCSS variables
 
 - `variablename` (defaultvalue) - description
