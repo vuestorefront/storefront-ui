@@ -1,22 +1,23 @@
 {
-  "name": "storefront-ui",
-  "version": "0.1.0",
-  "private": false,
+  "name": "@storefrontui/vue",
+  "version": "0.0.1-aplha.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
-    "storybook:build": "vue-cli-service storybook:build -c config/storybook",
-    "postinstall": "node scripts/postinstall.js"
+    "storybook:serve": "vue-cli-service storybook:serve -s ./src/assets -p 6006 -c config/storybook",
+    "storybook:build": "vue-cli-service storybook:build -s ./src/assets -c config/storybook",
+    "postinstall": "node scripts/postinstall.js",
+    "prepublishOnly" : "npm run build"
   },
   "dependencies": {
-    "vue": "^2.6.8",
-    "alpaca-components": "git+https://github.com/SnowdogApps/alpaca-storybook.git"
+    "@snowdog/alpaca-components": "^0.1.2-alpha.0",
+    "vue": "^2.6.8"
   },
   "files": [
-    "dist/*"
+    "dist/*",
+    "scripts/*"
   ],
   "devDependencies": {
     "@storybook/addon-actions": "^5.0.1",

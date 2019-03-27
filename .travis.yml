@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "10"
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+script:
+  - yarn
+
+jobs:
+  include:
+    - stage: Build
+    - script:
+        - yarn lint
+        - yarn build
+
+    - stage: Tests
+    - script: yarn test:unit
+      name: "Unit Tests"

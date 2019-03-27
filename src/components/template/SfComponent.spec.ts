@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfComponent from "@/components/atoms/SfComponent/SfComponent.vue";
+import SfComponent from "@/components/template/SfComponent.vue";
 
 describe("SfComponent.vue", () => {
   // DOM Element render check, you can replace with with root component
@@ -9,13 +9,8 @@ describe("SfComponent.vue", () => {
   // });
 
   // Default slot check, you can replace `default` with any other
-  // it("renders default prop text when passed", () => {
-  //   const msg = "HelloWorld";
-  //   const component = shallowMount(SfComponent, {
-  //     slots: {
-  //       default: msg
-  //     }
-  //   });
-  //   expect(component.find(".sf-button").text()).toMatch(msg);
-  // });
+  it("renders default prop text when passed", () => {
+    const component = shallowMount(SfComponent);
+    expect(component).toBeDefined();
+  });
 });

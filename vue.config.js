@@ -17,6 +17,14 @@ module.exports = {
           to: "components",
           transformPath(targePath) {
             return targePath.split("/").slice(-1)[0];
+          },
+          transform(content, path) {
+            return content
+              .toString()
+              .replace(
+                "@import '../../../css/variables';",
+                "@import './css/variables';"
+              );
           }
         },
         { from: "src/css", to: "css" }
