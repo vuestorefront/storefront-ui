@@ -43,10 +43,6 @@ If you want to play with components just copy the repo and use them in App.vue
 
 We are currently in a process of building the library. If you want to help shaping future of vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) you can find all the required information.
 
-# State of components for this week
+# State of components 
 
-- SfButton - done
-- SfBanner - almost done
-- SfCallToAction - almost done
-- SfHeader - almost done
-- SfBottomnNavigation - in progress
+TBD in a few days once we have current ones docummented.
