@@ -13,6 +13,7 @@ $header__logo-height: auto !default;
 
 .sf-header {
   display: flex;
+
   @media (max-width: $mobile-max) {
     background: $header-mobile-background;
     height: $header-mobile-height;
@@ -21,20 +22,38 @@ $header__logo-height: auto !default;
     padding-left: $header-mobile-padding-x;
     padding-right: $header-mobile-padding-x;
   }
+
   @media (min-width: $tablet-min) {
     justify-content: $header-tablet-justify-content;
   }
-  &__left, &__right {
-    @media (min-width: $tablet-min) {
-      display: none;
+
+  &__column {
+    &--left {
+      order: 1;
+    }
+    &--middle {
+      order: 2;
+    }
+    &--right {
+      order: 3;
+    }
+    &--left,
+    &--right {
+      @media (min-width: $tablet-min) {
+        display: none;
+      }
     }
   }
+
   &__logo {
     width: $header__logo-width;
     height: $header__logo-height;
     padding-right: 0.5rem;
   }
-  &__nav, &__search, &__icon {
+
+  &__nav,
+  &__search,
+  &__icon {
     @media (max-width: $mobile-max) {
       display: none;
     }
