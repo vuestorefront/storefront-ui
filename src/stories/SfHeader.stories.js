@@ -11,8 +11,6 @@ export default storiesOf("Header", module)
     <sf-header>
       <img src="arrow_left.svg" alt="arrow" slot="left"/>
       <img src="arrow_right.svg" alt="arrow" slot="right"/>
-      <span class="sf-header__icon">Icon</span>
-      <span class="sf-header__nav">Nav</span>
     </sf-header>`,
     methods: {}
   }))
