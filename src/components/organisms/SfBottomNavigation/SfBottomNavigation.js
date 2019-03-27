@@ -1,3 +1,3 @@
 export default {
-  components: {}
+  name: "SfBottomNavigation"
 };

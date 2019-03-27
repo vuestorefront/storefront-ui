@@ -1,37 +1,52 @@
-@import '../../../css/variables';
+@import "../../../css/variables";
+
+$bottom-navigation-cart-shadow: 0px 4px 6px rgba(66, 66, 66, 0.2) !default;
+$bottom-navigation-padding: 0.5rem 0 !default;
+$bottom-navigation-background: $c-white !default;
+
+$bottom-navigation__elements-justify-content: space-evenly !default;
+
+$bottom-navigation__element-width: 1.5rem !default;
+$bottom-navigation__element-transition: 0.3s all !default;
 
 .sf-bottom-navigation {
+  display: flex;
   position: fixed;
   bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: $c-white;
-  @media ( min-width: $tablet-min ) {
-    display: none
-  }
-  .sf-bottom-navigation__elements {
+  right: 0;
+  left: 0;
+  padding: $bottom-navigation-padding;
+  background-color: $bottom-navigation-background;
+
+  &__elements {
     display: flex;
+    width: 100%;
+    justify-content: $bottom-navigation__elements-justify-content;
   }
-  .sf-bottom-navigation__element {
+
+  &__element {
     padding: 0 0.7rem;
     opacity: 0.5;
-    transition: 0.3s all;
+    transition: $bottom-navigation__element-transition;
 
     &.active,
     &.cart-button {
       opacity: 1;
     }
   }
+
   .sf-bottom-navigation__element img {
-    width: 1.5rem;
+    width: $bottom-navigation__element-width;
     height: auto;
     padding: 0.5rem;
   }
   .sf-bottom-navigation-cart-button {
     background-color: $c-green-primary;
     border-radius: 50%;
-    box-shadow: 0px 4px 6px rgba(66, 66, 66, 0.2);
+    box-shadow: $bottom-navigation-cart-shadow;
+  }
 
+  @media (min-width: $tablet-min) {
+    display: none;
   }
 }
