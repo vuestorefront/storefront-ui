@@ -59,17 +59,6 @@ hidden on desktop, usage dependent of page context.
 - `$header__logo-width` (21px)
 - `$header__logo-height` (auto)
 
-<!--
-## CSS Modifiers
-
-Write down available CSS Modifiers
-
-- `.sf-header__logo`
-- `.sf-header__nav`
-- `.sf-header__search`
-- `.sf-header__icon`
--->
-
 ## Source files and Storybook demo
 
 - [@src/components/organisms/SfHeader](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/organisms/SfHeader)
