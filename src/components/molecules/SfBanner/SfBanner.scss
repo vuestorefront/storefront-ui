@@ -4,6 +4,7 @@ $banner-padding: 4.25rem !default;
 $banner-background-size: cover !default;
 $banner-background-position: bottom left !default;
 $banner-align-items: flex-end !default;
+$banner-justify-content: center !default;
 
 $banner-mobile-padding: 1.25rem !default;
 
@@ -40,6 +41,7 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
   background-position: $banner-background-position;
   text-align: left;
   align-items: $banner-align-items;
+  justify-content: $banner-justify-content;
   background-image: url(../../../assets/img/Banner1.png);
   min-height: 10rem;
   box-sizing: border-box;
@@ -103,15 +105,19 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
   }
 
   &--top {
-    align-content: flex-start;
+    justify-content: flex-start;
   }
   &--bottom {
-    align-content: flex-end;
+    justify-content: flex-end;
   }
   &--left {
     align-items: flex-start;
   }
   &--right {
-    align-items: flex-end;
+    text-align: right;
+
+    .sf-banner__button {
+      margin-left: auto;
+    }
   }
 }

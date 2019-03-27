@@ -39,10 +39,6 @@
 
 <!-- Describe slots and their purpose -->
 
-## Emitted events
-
-- `event` - description
-
 ## SCSS variables
 
 - `$banner-padding`  (4.25rem) 
@@ -81,14 +77,14 @@
 
 ## CSS Modifiers
 
-- `.sf-banner--top` - align-content: flex-start;
-- `.sf-banner--bottom` - align-content: flex-end;
-- `.sf-banner--left` -  align-items: flex-start;
-- `.sf-banner--right` - align-items: flex-end;
+- `.sf-banner--top` - aligns content to top (visible on mobile) http://localhost:6006/?path=/story/banner--with-modifier-top-mobile
+- `.sf-banner--bottom` - aligns content to bottom (visible on mobile) http://localhost:6006/?path=/story/banner--with-modifier-bottom-mobile
+- `.sf-banner--left` -  aligns content to left http://localhost:6006/?path=/story/banner--with-modifier-left
+- `.sf-banner--right` - aligns content to right http://localhost:6006/?path=/story/banner--with-modifier-right
 
 <!-- Write down available CSS Modifiers -->
 
 ## Source files and Storybook demo
 
-- absolute link to component folder
-- link to storybook
+- @/src/components/molecules/SfBanner
+- http://localhost:6006/?path=/story/banner--default-banner
