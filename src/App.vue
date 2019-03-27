@@ -1,20 +1,52 @@
 <template>
   <div id="app">
-    <SfBanner>
-      <template slot="title">
-        ECO SANDALS
-      </template>
-      <template slot="subtitle">
-        Summer shoes
-      </template>
-      <template slot="description">
-        The collection features formal and casual comfort shoes with a Danish
-        design focus. Made from premium leathers and comfort.
-      </template>
-      <template slot="button">
-        shop now
-      </template>
-    </SfBanner>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between">
+      <SfBanner style="margin-bottom: 30px; justify-content: center;">
+        <template slot="title">
+          ECO SANDALS
+        </template>
+        <template slot="subtitle">
+          Summer shoes
+        </template>
+        <template slot="description">
+          The collection features formal and casual comfort shoes with a Danish
+          design focus. Made from premium leathers and comfort.
+        </template>
+        <template slot="button">
+          shop now
+        </template>
+      </SfBanner>
+      <SfBanner style="width: 48%; align-items: flex-start;">
+        <template slot="title">
+          ECO SANDALS
+        </template>
+        <template slot="subtitle">
+          Summer shoes
+        </template>
+        <template slot="description">
+          The collection features formal and casual comfort shoes with a Danish
+          design focus. Made from premium leathers and comfort.
+        </template>
+        <template slot="button">
+          shop now
+        </template>
+      </SfBanner>
+      <SfBanner style="width: 48%; align-items: flex-start;">
+        <template slot="title">
+          ECO SANDALS
+        </template>
+        <template slot="subtitle">
+          Summer shoes
+        </template>
+        <template slot="description">
+          The collection features formal and casual comfort shoes with a Danish
+          design focus. Made from premium leathers and comfort.
+        </template>
+        <template slot="button">
+          shop now
+        </template>
+      </SfBanner>
+    </div>
   </div>
 </template>
 

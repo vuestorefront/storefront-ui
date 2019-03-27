@@ -1,12 +1,15 @@
 @import '../../../css/variables';
 
 $banner-padding: 4.25rem !default;
+$banner-mobile-padding: 1.25rem !default;
 $banner-background-size: cover !default;
 $banner-background-position: bottom left !default;
 $banner-align-items: flex-end !default;
+$banner-width: 100% !default;
 
 $banner__subtitle-font-family: $body-font-family-primary !default;
 $banner__subtitle-font-size: 1.5rem !default;
+$banner__subtitle-font-size-mobile: 0.875rem !default;
 $banner__subtitle-font-weight: 300 !default;
 $banner__subtitle-color: $c-dark-secondary !default;
 $banner__subtitle-text-transform: none !default;
@@ -14,6 +17,7 @@ $banner__subtitle-text-transform: none !default;
 $banner__title-text-transform: uppercase !default;
 $banner__title-font-weight: 300  !default;
 $banner__title-font-size: 3rem !default;
+$banner__title-font-size-mobile: 1.125rem !default;
 $banner__title-font-family: $body-font-family-secondary !default;
 $banner__title-color: $c-dark-primary !default;
 
@@ -37,8 +41,14 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
   align-items: $banner-align-items;
   background-image: url(../../../assets/img/Banner1.png);
   min-height: 20rem;
+  box-sizing: border-box;
+  width: $banner-width;
   @media ( min-width: $desktop-min ) {
     min-height: initial;
+  }
+  @media (max-width: $mobile-max) {
+    padding: $banner-mobile-padding;
+    min-height: 10rem;
   }
   &__container {
     width: 100%;
@@ -55,6 +65,9 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
     color: $banner__subtitle-color;
     margin-top: 0;
     padding-bottom: 0.3rem;
+    @media (max-width: $mobile-max) {
+      font-size: $banner__subtitle-font-size-mobile;
+    }
   }
   &__title {
     margin-top: 0;
@@ -65,6 +78,10 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
     font-size: $banner__title-font-size;
     font-family: $banner__title-font-family;
     color: $banner__title-color;
+    @media (max-width: $mobile-max) {
+      font-size: $banner__title-font-size-mobile;
+      padding-bottom: 0;
+    }
   }
   &__description {
     padding-bottom: 0.6rem;
