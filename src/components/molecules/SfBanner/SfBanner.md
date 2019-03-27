@@ -70,8 +70,8 @@
 - `$banner__description-color` ($c-dark-primary)
 
 
-- $banner__call-to-action-font-size: 0.875rem !default;
-- $banner__call-to-action-background-color: $c-dark-primary !default;
+- `$banner__call-to-action-font-size` (0.875rem)
+- `$banner__call-to-action-background-color` ($c-dark-primary) 
 
 <!-- Write down SCSS variables available for configuration -->
 
