@@ -35,7 +35,7 @@
 - `subtitle` - slot for Subtitle 
 - `description` - slot for description
 - `button` - slot for button content
-- 'call-to-action' - slot for button replacement
+- `call-to-action` - slot for button replacement
 
 <!-- Describe slots and their purpose -->
 
