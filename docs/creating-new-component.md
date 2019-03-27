@@ -17,7 +17,7 @@ If you want to test your compoennt just import it inside `App.vue`.
 
 ### Create proper markup
 
-Start with creating a proper CSS/HTML markup without worrying about the slots and SCSS variables. Use BEM methodology. Once you have semantically correct and good looking component it's time to make it customizable ;)
+Start with creating a proper CSS/HTML markup without worrying about the slots and SCSS variables. Use BEM methodology. Once you have semantically correct and good looking component it's time to make it customizable.
 
 ### Make the content customizable with slots
 
@@ -31,3 +31,7 @@ Minimal set of tests conteins:
 - Internal API: methods
 
 Some of the most common cases can be found in a template.
+
+### Add documentation
+
+Document the components according to documentation template in `components/template` folder.
