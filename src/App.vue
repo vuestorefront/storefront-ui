@@ -15,7 +15,6 @@
         <template slot="button">
           shop now
         </template>
-        aaa
       </SfBanner>
     </div>
   </div>
