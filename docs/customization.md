@@ -24,8 +24,10 @@ In short words every component exposes 2 ways of standard customization
    <template name="title">
      <h1> Hello from custom title!</h1>
    </template>
- /SfBanner>
+ </SfBanner>
 ````
+
+In addition every component is exposing SCSS variables responsible for the design part you can override.
 
 ## Advanced customization
 
