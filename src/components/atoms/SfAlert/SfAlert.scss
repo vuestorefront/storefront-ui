@@ -1,30 +1,42 @@
 @import '../../../css/variables';
 
-$sf-alert__text-font-size: 0.875rem;
+$sf-alert-padding: 0.625rem !default;
 
-$sf-alert__icon-padding: 1rem  0.625rem;
+$sf-alert__text-font-size: 0.875rem !default;
+$sf-alert__text-margin: 0 !default;
 
-$sf-alert__background-color--info: $c-yellow-secondary;
-$sf-alert__color--info: $c-yellow-primary;
+$sf-alert__icon-padding-right: 0.625rem !default;
+$sf-alert__icon-size: 20px !default;
 
-$sf-alert__background-color--warning: $c-pink-secondary;
-$sf-alert__color--warning: $c-pink-primary;
+$sf-alert__background-color--info: $c-yellow-secondary !default;
+$sf-alert__color--info: $c-yellow-primary !default;
 
-$sf-alert__background-color--alert: $c-blue-secondary;
-$sf-alert__color--alert: $c-blue-primary;
+$sf-alert__background-color--warning: $c-pink-secondary !default;
+$sf-alert__color--warning: $c-pink-primary !default;
+
+$sf-alert__background-color--alert: $c-blue-secondary !default;
+$sf-alert__color--alert: $c-blue-primary !default;
 
 .sf-alert {
     display: flex;
-    align-items: center;    
-
+    align-items: center;
+    border: 1px solid black;
+    padding: $sf-alert-padding;
+    
     &__text {
-        font-size: $sf-alert__text-font-size
+        font-size: $sf-alert__text-font-size;
+        margin: $sf-alert__text-margin;
     }
-
+    
     &__icon {
         display: flex;
         align-items: center;
-        padding: $sf-alert__icon-padding;
+        padding-right: $sf-alert__icon-padding-right;
+
+        svg {
+            height: $sf-alert__icon-size;
+            width: $sf-alert__icon-size;
+        }
     }
 
     &--info {
