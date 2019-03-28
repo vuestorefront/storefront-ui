@@ -1,7 +1,9 @@
 # SfBanner
 Banner with Title, Subtitle and call to action button
 
-https://i.ibb.co/DChQq4v/banner22.png
+
+![Banner](https://i.ibb.co/DChQq4v/banner22.png "Banner")
+
 <!-- Write about general purpose of the component. Include screenshot (to be replaced with a live example once we migrate to vuepress) -->
 
 ## HTML Template
@@ -88,4 +90,4 @@ https://i.ibb.co/DChQq4v/banner22.png
 
 ## Source files and Storybook demo
 
-- @/src/components/molecules/SfBanner
+- [@/src/components/molecules/SfBanner](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/molecules/SfBanner)
