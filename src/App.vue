@@ -15,6 +15,8 @@
         shop now
       </template>
     </SfBanner>
+    <SfCircleButton></SfCircleButton>
+    <SfButton></SfButton>
   </div>
 </template>
 
@@ -22,10 +24,13 @@
 import Vue from "vue";
 import SfButton from "./components/atoms/SfButton/SfButton.vue";
 import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
+import SfCircleButton from "./components/atoms/SfCircleButton/SfCircleButton.vue";
 
 export default Vue.extend({
   name: "app",
   components: {
+    SfCircleButton,
+    SfButton,
     SfBanner
   }
 });

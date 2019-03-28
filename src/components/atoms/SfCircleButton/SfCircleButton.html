@@ -1,0 +1,5 @@
+<button class="sf-circle-button sf-circle-button--primary" @click="e => $emit('click', e)">
+    <slot>
+        <img v-bind:src="icon" v-bind:alt="alt"/>
+    </slot>
+</button>
