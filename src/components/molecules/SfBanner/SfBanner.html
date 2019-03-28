@@ -1,13 +1,25 @@
-<section class="sf-banner" v-bind:style="stylesObj">
-  <slot />
-  <h2 class="sf-banner__subtitle" v-if="$slots.subtitle">
+<section class="sf-banner">
+  <div class="sf-banner__container">
     <slot name="subtitle" />
-  </h2>
-  <h1 class="sf-banner__title" v-if="$slots.title">
-    <slot name="title" />
-  </h1>
-  <p class="sf-banner__description" v-if="$slots.description">
-    <slot name="description" />
-  </p>
-  <slot name="call-to-action" />
+      <h2 class="sf-banner__subtitle" v-if="subtitle">
+        {{ subtitle }}
+      </h2>
+    </slot>
+    <slot name="title">
+      <h1 class="sf-banner__title" v-if="title">
+        {{ title }}
+      </h1>
+    </slot>
+    <slot name="description">
+      <p class="sf-banner__description" v-if="description">
+        {{ description }}
+      </p>
+    </slot>
+    <slot name="call-to-action">
+      <SfButton class="sf-banner__button" v-if="buttonText">
+        {{ buttonText }}
+      </SfButton>
+    </slot>
+    <slot />
+  </div>
 </section>
