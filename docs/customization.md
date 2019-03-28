@@ -14,7 +14,7 @@ In short words every component exposes 2 ways of standard customization
   button-text="Lorem ipsum"
  />
 ````
-- **slots**: If you want to replace some parts of our markup with your own you can easly do this with named slots.
+- **slots**: If you want to replace some parts of our markup with your own you can easily do this with named slots.
 ````html
 <!-- don't like our markup for the title? just replace it with your own :)-->
  <SfBanner
