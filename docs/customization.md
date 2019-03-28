@@ -14,7 +14,7 @@ In short words every component exposes 2 ways of standard customization
       button-text="Lorem ipsum"
     />
 ````
-- slots: To repalce default markup in parts of the component with your own.
+- slots: To replace default markup in parts of the component with your own.
 ````html
     <SfBanner
       subtitle="Lorem ipsum"
