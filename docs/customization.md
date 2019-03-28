@@ -11,7 +11,7 @@ In short words every component exposes 2 ways of standard customization
 <SfBanner
   title="Lorem ipsum"
   subtitle="Lorem ipsum"
-  utton-text="Lorem ipsum"
+  button-text="Lorem ipsum"
  />
 ````
 - **slots**: If you want to replace some parts of our markup with your own you can easly do this with named slots.
