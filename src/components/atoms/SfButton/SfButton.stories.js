@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/vue";
 import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
-import SfButton from "../components/atoms/SfButton/SfButton.vue";
+import SfButton from "./SfButton.vue";
 
 storiesOf("Button", module)
   .add("with text", () => ({
