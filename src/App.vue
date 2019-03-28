@@ -1,18 +1,12 @@
 <template>
   <div id="app">
-    <SfBanner>
-      <template slot="title">
-        ECO SANDALS
-      </template>
-      <template slot="subtitle">
-        Summer shoes
-      </template>
-      <template slot="description">
-        The collection features formal and casual comfort shoes with a Danish
-        design focus. Made from premium leathers and comfort.
-      </template>
-      <template slot="button">
-        shop now
+    <SfBanner
+      title="Lorem ipsum"
+      subtitle="Lorem ipsum"
+      button-text="Lorem ipsum"
+    >
+      <template slot="call-to-action">
+        Example
       </template>
     </SfBanner>
     <SfCircleButton></SfCircleButton>
@@ -22,7 +16,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import SfButton from "./components/atoms/SfButton/SfButton.vue";
 import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
 import SfCircleButton from "./components/atoms/SfCircleButton/SfCircleButton.vue";
 
