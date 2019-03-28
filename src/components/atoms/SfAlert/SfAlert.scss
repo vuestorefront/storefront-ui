@@ -22,7 +22,9 @@ $sf-alert__color--alert: $c-blue-primary;
     }
 
     &__icon {
-        padding: $sf-alert__icon-padding
+        display: flex;
+        align-items: center;
+        padding: $sf-alert__icon-padding;
     }
 
     &--info {

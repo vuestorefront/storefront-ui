@@ -11,7 +11,7 @@ Component for display alerts
 <div class="sf-alert">
     <div class="sf-alert__icon">
         <slot name="icon">
-            <!-- icon  -->
+           `icon`
         </slot>
     </div>
     <p class="sf-alert__text">
@@ -19,6 +19,10 @@ Component for display alerts
     </p>
 </div>
 ````
+
+## Props
+
+- `message` - alert message
 
 ## Slots
 
@@ -48,13 +52,12 @@ Component for display alerts
 
 ## CSS Modifiers
 
-- `sf-alert--info` - sets yellow color for alert
-- `sf-alert--warning` - sets pink color for alert
-- `sf-alert--alert` - sets blue color for alert
+- `.sf-alert--info` - sets yellow color for alert
+- `.sf-alert--warning` - sets pink color for alert
+- `.sf-alert--alert` - sets blue color for alert
 
 <!-- Write down available CSS Modifiers -->
 
 ## Source files and Storybook demo
 
-- absolute link to component folder
-- link to storybook
+- [@/src/components/atoms/SfAlert](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/atoms/SfAlert)

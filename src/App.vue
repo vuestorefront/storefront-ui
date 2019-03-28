@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SfAlert class="sf-alert--warning"></SfAlert>
+    <SfAlert class="sf-alert--warning" message="zaczekaj"></SfAlert>
   </div>
 </template>
 

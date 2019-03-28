@@ -7,6 +7,10 @@
         </slot>
     </div>
     <p class="sf-alert__text">
-        <slot></slot>
+        <slot>
+            <template v-if="message">
+                {{ message }}
+            </template>
+        </slot>
     </p>
 </div>

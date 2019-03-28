@@ -1,3 +1,6 @@
 export default {
-  name: "SfComponent"
+  name: "SfComponent",
+  props: {
+    message: String
+  }
 };
