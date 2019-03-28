@@ -1,5 +1,7 @@
 # SfBanner
+Banner with Title, Subtitle and call to action button
 
+https://i.ibb.co/DChQq4v/banner22.png
 <!-- Write about general purpose of the component. Include screenshot (to be replaced with a live example once we migrate to vuepress) -->
 
 ## HTML Template
@@ -77,14 +79,13 @@
 
 ## CSS Modifiers
 
-- `.sf-banner--top` - aligns content to top (visible on mobile) http://localhost:6006/?path=/story/banner--with-modifier-top-mobile
-- `.sf-banner--bottom` - aligns content to bottom (visible on mobile) http://localhost:6006/?path=/story/banner--with-modifier-bottom-mobile
-- `.sf-banner--left` -  aligns content to left http://localhost:6006/?path=/story/banner--with-modifier-left
-- `.sf-banner--right` - aligns content to right http://localhost:6006/?path=/story/banner--with-modifier-right
+- `.sf-banner--top` - aligns content to top (visible on mobile) 
+- `.sf-banner--bottom` - aligns content to bottom (visible on mobile) 
+- `.sf-banner--left` -  aligns content to left 
+- `.sf-banner--right` - aligns content to right 
 
 <!-- Write down available CSS Modifiers -->
 
 ## Source files and Storybook demo
 
 - @/src/components/molecules/SfBanner
-- http://localhost:6006/?path=/story/banner--default-banner

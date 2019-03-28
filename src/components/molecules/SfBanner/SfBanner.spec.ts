@@ -46,5 +46,16 @@ describe("SfBanner.vue", () => {
     });
     expect(component.find(".sf-banner__button").text()).toMatch(msg);
   });
+
+  it("renders call to action slot text when passed", () => {
+    const msg = "<p class='testSlot'>HelloWorld</p>";
+    const component = shallowMount(SfBanner, {
+      slots: {
+        "call-to-action": msg
+      }
+    });
+    expect(component.find(".sf-banner__button").exists()).toBe(false)
+    expect(component.find('.testSlot').exists()).toBe(true)
+  });
   
 });
