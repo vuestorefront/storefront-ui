@@ -5,10 +5,29 @@ We put a lot of efforts to let you customize any aspect of the UI. Let's see how
 ## Standard customization (typical usage)
 
 In short words every component exposes 2 ways of standard customization
-- props: To customize their content. Suitable for most of the use cases. Content from props is filling the default markup in slots.
-- slots: To repalce default markup in parts of the component with your own.
+- **props:** To customize their content. Suitable for most of the use cases. Content from props is filling the default markup in slots.
 
-Examples WIP.
+````html
+<SfBanner
+  title="Lorem ipsum"
+  subtitle="Lorem ipsum"
+  button-text="Lorem ipsum"
+ />
+````
+- **slots**: If you want to replace some parts of our markup with your own you can easily do this with named slots.
+````html
+<!-- don't like our markup for the title? just replace it with your own :)-->
+ <SfBanner
+  subtitle="Lorem ipsum"
+  button-text="Lorem ipsum"
+ >
+   <template name="title">
+     <h1> Hello from custom title!</h1>
+   </template>
+ </SfBanner>
+````
+
+In addition every component is exposing SCSS variables responsible for the design part you can override.
 
 ## Advanced customization
 
