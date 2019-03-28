@@ -13,18 +13,25 @@ Banner with Title, Subtitle and call to action button
 ````html
 <section class="sf-banner">
   <div class="sf-banner__container">
-    <h2 class="sf-banner__subtitle" v-if="$slots.subtitle">
-      <slot name="subtitle" />
-    </h2>
-    <h1 class="sf-banner__title" v-if="$slots.title">
-      <slot name="title" />
-    </h1>
-    <p class="sf-banner__description" v-if="$slots.description">
-      <slot name="description" />
-    </p>
+    <!-- Rule 1: We display subtitle prop content on default slot content. If someone is willing to replace markup then he/she can use slot -->
+    <slot name="subtitle" />
+      <h2 class="sf-banner__subtitle" v-if="subtitle">
+        {{ subtitle }}
+      </h2>
+    </slot>
+    <slot name="title">
+      <h1 class="sf-banner__title" v-if="title">
+        {{ title }}
+      </h1>
+    </slot>
+    <slot name="description">
+      <p class="sf-banner__description" v-if="description">
+        {{ description }}
+      </p>
+    </slot>
     <slot name="call-to-action">
-      <SfButton class="sf-banner__button" v-if="$slots.button">
-        <slot name="button" />
+      <SfButton class="sf-banner__button" v-if="buttonText">
+        {{ buttonText }}
       </SfButton>
     </slot>
     <slot />
@@ -32,13 +39,18 @@ Banner with Title, Subtitle and call to action button
 </section>
 
 ````
+## Props
+
+- `title` - banner Title 
+- `subtitle` - banner Subtitle 
+- `description` - banner description
+- `button` - button text
 
 ## Slots
 
 - `title` - slot for Title 
 - `subtitle` - slot for Subtitle 
 - `description` - slot for description
-- `button` - slot for button content
 - `call-to-action` - slot for button replacement
 
 <!-- Describe slots and their purpose -->

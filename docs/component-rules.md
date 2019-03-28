@@ -35,7 +35,7 @@ export default {
 
 ### Template
 
-1. We use slots over props for content composition. Use props only for properties that are not content-related
+1. We use slots and props for content composition. Props should be used to fill default slots content, and slots are meant for the markup with custom one.
 2. Make slots optional if it's possible.
 3. Don't use props for setting colors and other properties that can be set by css (except for background images).
 4. If you are providing some components by default make sure that they are replacable and still customizable
@@ -44,26 +44,27 @@ Below you can see example of proper component HTML with all rules applied:
 ```html
 <section class="sf-banner">
   <div class="sf-banner__container">
-    <!-- 
-      rule 1 - Use slots to enable users put whatever they want inside instead of X props for every use case
-      rule 2 - Use v-if to make slots optional to avoid rendering empty HTML tags.
-    -->
-    <h2 class="sf-banner__subtitle" v-if="$slots.subtitle">
-      <slot name="subtitle" />
-    </h2>
-    <h1 class="sf-banner__title" v-if="$slots.title">
-      <slot name="title" />
-    </h1>
-    <p class="sf-banner__description" v-if="$slots.description">
-      <slot name="description" />
-    </p>
-    <!-- rule 4 - Almost every banner should have button so it makes sense to put it here. The button should have another slot to set it's content. If user doesn't want button for some reasons we should allow this option too by putting it into another slot. -->
+    <!-- Rule 1: We display subtitle prop content on default slot content. If someone is willing to replace markup then he/she can use slot -->
+    <slot name="subtitle" />
+      <h2 class="sf-banner__subtitle" v-if="subtitle">
+        {{ subtitle }}
+      </h2>
+    </slot>
+    <slot name="title">
+      <h1 class="sf-banner__title" v-if="title">
+        {{ title }}
+      </h1>
+    </slot>
+    <slot name="description">
+      <p class="sf-banner__description" v-if="description">
+        {{ description }}
+      </p>
+    </slot>
     <slot name="call-to-action">
-      <SfButton class="sf-banner__button" v-if="$slots.button">
-        <slot name="button" />
+      <SfButton class="sf-banner__button" v-if="buttonText">
+        {{ buttonText }}
       </SfButton>
     </slot>
-    <!-- rule 5 - default slot if someone wants extremely custom component -->
     <slot />
   </div>
 </section>
