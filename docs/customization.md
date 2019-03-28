@@ -14,7 +14,7 @@ In short words every component exposes 2 ways of standard customization
   utton-text="Lorem ipsum"
  />
 ````
-- slots: To replace default markup in parts of the component with your own.
+- **slots**: If you want to replace some parts of our markup with your own you can easly do this with named slots.
 ````html
 <!-- don't like our markup for the title? just replace it with your own :)-->
  <SfBanner
