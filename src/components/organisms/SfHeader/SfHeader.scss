@@ -2,8 +2,9 @@
 
 $header-mobile-background: $c-bg-primary !default;
 $header-mobile-height: 50px !default;
-$header-mobile-justify-content: center !default;
+$header-mobile-justify-content: space-between !default;
 $header-mobile-align-items: center !default;
+$header-mobile-padding-x: 1rem !default;
 
 $header-tablet-justify-content: flex-start !default;
 
@@ -12,22 +13,48 @@ $header__logo-height: auto !default;
 
 .sf-header {
   display: flex;
-  @media ( max-width: $mobile-max ) {
+
+  @media (max-width: $mobile-max) {
     background: $header-mobile-background;
     height: $header-mobile-height;
     justify-content: $header-mobile-justify-content;
     align-items: $header-mobile-align-items;
+    padding-left: $header-mobile-padding-x;
+    padding-right: $header-mobile-padding-x;
   }
-  @media ( min-width: $tablet-min ) {
+
+  @media (min-width: $tablet-min) {
     justify-content: $header-tablet-justify-content;
   }
+
+  &__column {
+    &--left {
+      order: 1;
+    }
+    &--middle {
+      order: 2;
+    }
+    &--right {
+      order: 3;
+    }
+    &--left,
+    &--right {
+      @media (min-width: $tablet-min) {
+        display: none;
+      }
+    }
+  }
+
   &__logo {
     width: $header__logo-width;
     height: $header__logo-height;
     padding-right: 0.5rem;
   }
-  &__nav, &__search, &__icon {
-    @media ( max-width: $mobile-max ) {
+
+  &__nav,
+  &__search,
+  &__icon {
+    @media (max-width: $mobile-max) {
       display: none;
     }
   }
