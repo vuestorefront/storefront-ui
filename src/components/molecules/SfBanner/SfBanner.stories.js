@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 
-import SfBanner from "../components/molecules/SfBanner/SfBanner.vue";
+import SfBanner from "./SfBanner.vue";
 const slotConfig = {
   titleSlot: "<b>Custom HTML</b>",
   subtitleSlot: "<b>Custom HTML</b>",
