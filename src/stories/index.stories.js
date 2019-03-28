@@ -4,8 +4,6 @@ import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
 import SfButton from "../components/atoms/SfButton/SfButton.vue";
-import SfCategoryTile from "../components/molecules/SfCategoryTile/SfCategoryTile.vue";
-import SfBottomNavigation from "../components/organisms/SfBottomNavigation/SfBottomNavigation.vue";
 
 storiesOf("Button", module)
   .add("with text", () => ({
@@ -25,8 +23,3 @@ storiesOf("Button", module)
     template: '<sf-button @click="action">😀 😎 👍 💯</sf-button>',
     methods: { action: action("clicked") }
   }));
-
-storiesOf("BottomNavigation", module).add("with icons and  button", () => ({
-  components: { SfBottomNavigation },
-  template: "<sf-bottom-navigation></sf-bottom-navigation>"
-}));
