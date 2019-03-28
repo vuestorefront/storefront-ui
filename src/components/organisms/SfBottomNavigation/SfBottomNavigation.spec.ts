@@ -4,6 +4,6 @@ import SfBottomNavigation from "@/components/organisms/SfBottomNavigation.vue";
 describe("SfBottomNavigation.vue", () => {
   it("renders a bottom navigation", () => {
     const component = shallowMount(SfBottomNavigation);
-    expect(component.contains("image")).toBe(true);
+    expect(component.contains(".sf-bottom-navigation")).toBe(true);
   });
 });

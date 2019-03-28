@@ -62,4 +62,4 @@ Mobile-only bottom navigation menu with icon elements and floating Button.
 
 ## Source files and Storybook demo
 
-//WIP
+- [@/src/components/organisms/SfBottomNavigation](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/organisms/SfBottomNavigation)
