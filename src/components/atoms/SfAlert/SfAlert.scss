@@ -1,0 +1,44 @@
+@import '../../../css/variables';
+
+$sf-alert__text-font-size: 0.875rem;
+
+$sf-alert__icon-padding: 1rem  0.625rem;
+
+$sf-alert__background-color--info: $c-yellow-secondary;
+$sf-alert__color--info: $c-yellow-primary;
+
+$sf-alert__background-color--warning: $c-pink-secondary;
+$sf-alert__color--warning: $c-pink-primary;
+
+$sf-alert__background-color--alert: $c-blue-secondary;
+$sf-alert__color--alert: $c-blue-primary;
+
+.sf-alert {
+    display: flex;
+    align-items: center;    
+
+    &__text {
+        font-size: $sf-alert__text-font-size
+    }
+
+    &__icon {
+        padding: $sf-alert__icon-padding
+    }
+
+    &--info {
+        background-color: $sf-alert__background-color--info;
+        color: $sf-alert__color--info;
+        fill: $sf-alert__color--info;
+     
+    }
+    &--alert {
+        background-color: $sf-alert__background-color--alert;
+        color: $sf-alert__color--alert;
+        fill: $sf-alert__color--alert;
+    }
+    &--warning {
+        background-color: $sf-alert__background-color--warning;
+        color: $sf-alert__color--warning;
+        fill: $sf-alert__color--warning;
+    }
+}
