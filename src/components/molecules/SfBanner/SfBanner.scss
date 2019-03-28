@@ -4,6 +4,9 @@ $banner-padding: 4.25rem !default;
 $banner-background-size: cover !default;
 $banner-background-position: bottom left !default;
 $banner-align-items: flex-end !default;
+$banner-justify-content: center !default;
+
+$banner-mobile-padding: 1.25rem !default;
 
 $banner__subtitle-font-family: $body-font-family-primary !default;
 $banner__subtitle-font-size: 1.5rem !default;
@@ -11,12 +14,15 @@ $banner__subtitle-font-weight: 300 !default;
 $banner__subtitle-color: $c-dark-secondary !default;
 $banner__subtitle-text-transform: none !default;
 
+$banner-mobile__subtitle-font-size: 0.875rem !default;
+
 $banner__title-text-transform: uppercase !default;
 $banner__title-font-weight: 300  !default;
 $banner__title-font-size: 3rem !default;
 $banner__title-font-family: $body-font-family-secondary !default;
 $banner__title-color: $c-dark-primary !default;
 
+$banner-mobile__title-font-size: 1.125rem !default;
 
 $banner__description-font-family: $body-font-family-secondary !default;
 $banner__description-font-size: 1.125rem !default;
@@ -30,41 +36,53 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
 .sf-banner {
   display: flex;
   flex-direction: column;
-  padding: $banner-padding;
+  padding: $banner-mobile-padding;
   background-size: $banner-background-size;
   background-position: $banner-background-position;
   text-align: left;
   align-items: $banner-align-items;
-  background-image: url(../../../assets/img/Banner1.png);
-  min-height: 20rem;
-  @media ( min-width: $desktop-min ) {
+  justify-content: $banner-justify-content;
+  min-height: 10rem;
+  box-sizing: border-box;
+  @media (min-width: $desktop-min) {
     min-height: initial;
+  }
+  @media (min-width: $tablet-min) {
+    padding: $banner-padding;
+    min-height: 20rem;
   }
   &__container {
     width: 100%;
-    @media ( min-width: $desktop-min ) {
+    @media (min-width: $desktop-min) {
       width: 50%;
     }
   }
   &__subtitle {
     margin-bottom: $spacing-small;
     font-family: $banner__subtitle-font-family;
-    font-size: $banner__subtitle-font-size;
+    font-size: $banner-mobile__subtitle-font-size;
     font-weight: $banner__subtitle-font-weight;
     text-transform: none;
     color: $banner__subtitle-color;
     margin-top: 0;
     padding-bottom: 0.3rem;
+    @media (min-width: $tablet-min) {
+      font-size: $banner__subtitle-font-size;
+    }
   }
   &__title {
     margin-top: 0;
     margin-bottom: 0;
-    padding-bottom: 1rem;
+    padding-bottom: 0;
     text-transform: $banner__title-text-transform;
     font-weight: $banner__title-font-weight;
-    font-size: $banner__title-font-size;
+    font-size: $banner-mobile__title-font-size;
     font-family: $banner__title-font-family;
     color: $banner__title-color;
+    @media (min-width: $tablet-min) {
+      font-size: $banner__title-font-size;
+      padding-bottom: 1rem;
+    }
   }
   &__description {
     padding-bottom: 0.6rem;
@@ -72,7 +90,7 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
     font-size: $banner__description-font-size;
     color: $banner__description-color;
     display: none;
-    @media ( min-width: $desktop-min ) {
+    @media (min-width: $desktop-min) {
       display: flex;
     }
   }
@@ -80,21 +98,25 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
     font-size: $banner__call-to-action-font-size;
     background-color: $banner__call-to-action-background-color;
     display: none;
-    @media ( min-width: $desktop-min ) {
+    @media (min-width: $desktop-min) {
       display: flex;
     }
   }
 
   &--top {
-    align-content: flex-start;
+    justify-content: flex-start;
   }
   &--bottom {
-    align-content: flex-end;
+    justify-content: flex-end;
   }
   &--left {
     align-items: flex-start;
   }
   &--right {
-    align-items: flex-end;
+    text-align: right;
+
+    .sf-banner__button {
+      margin-left: auto;
+    }
   }
 }
