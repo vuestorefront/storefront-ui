@@ -8,7 +8,7 @@ In short words every component exposes 2 ways of standard customization
 - **props:** To customize their content. Suitable for most of the use cases. Content from props is filling the default markup in slots.
 
 ````html
-<SfBanner
+<sf-banner
   title="Lorem ipsum"
   subtitle="Lorem ipsum"
   button-text="Lorem ipsum"
@@ -17,14 +17,14 @@ In short words every component exposes 2 ways of standard customization
 - **slots**: If you want to replace some parts of our markup with your own you can easily do this with named slots.
 ````html
 <!-- don't like our markup for the title? just replace it with your own :)-->
- <SfBanner
+ <sf-banner
   subtitle="Lorem ipsum"
   button-text="Lorem ipsum"
  >
    <template name="title">
      <h1> Hello from custom title!</h1>
    </template>
- </SfBanner>
+ </sf-banner>
 ````
 
 In addition every component is exposing SCSS variables responsible for the design part you can override.
