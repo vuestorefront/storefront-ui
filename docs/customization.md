@@ -2,7 +2,17 @@
 
 We put a lot of efforts to let you customize any aspect of the UI. Let's see how to do this from top to bottom.
 
-## Global variables
+## Standard customization (typical usage)
+
+In short words every component exposes 2 ways of standard customization
+- props: To customize their content. Suitable for most of the use cases. Content from props is filling the default markup in slots.
+- slots: To repalce default markup in parts of the component with your own.
+
+Examples WIP.
+
+## Advanced customization
+
+### Global variables
 
 Most of the styling is made through a SCSS variables in global stylesheets. We use them to setup fonts, HTML elements styling (like h1, p), layout properties and colors. 
 
@@ -17,7 +27,7 @@ $c-accent-primary: blue;
 
 You can find all available variables and it's defaults [here](https://github.com/DivanteLtd/storefront-ui/tree/master/src/css/variables).
 
-## Component variables
+### Component variables
 
 You can override component-specific SCSS variables in the exactly same way. 
 
@@ -28,7 +38,7 @@ $button-padding: 0.5rem 1.7rem !default;
 
 Please note that you should always add a `!default` property when overriding component variables. Otherwise you will also affect scoped modifications you can make for individual components.
 
-## Customization of individual components
+### Customization of individual components
 
 If variables are not providing the level of customization you need you can also make a new component that is importing individual partials of the source component from SFUI.
 
