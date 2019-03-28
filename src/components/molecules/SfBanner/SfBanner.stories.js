@@ -20,7 +20,7 @@ const template = (className = "", slotConfig, bannerImage = "Banner1.png") => `
     <template slot="description">
       ${slotConfig.descriptionSlot}
     </template>
-    <template slot="action">
+    <template slot="call-to-action">
       ${slotConfig.CTASlot}
     </template>
   </SfBanner>
