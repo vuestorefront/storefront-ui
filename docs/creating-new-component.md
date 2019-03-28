@@ -15,6 +15,13 @@ Then rename the folder, CSS classes and component name. At this point you should
 
 If you want to test your compoennt just import it inside `App.vue`.
 
+### Check alpaca components
+
+Before you start working on any component check if there is one that you can use as a base in Alpaca UI components. If so then adjust it according to [Working with Alpaca](https://github.com/DivanteLtd/storefront-ui/blob/master/docs/working-with-alpaca.md) doc.
+
+- Here is [Alpaca Storybook](https://alpaca-storybook-ebth12xpx.now.sh/components/), start here to check if there is a component you can use it for base
+- Then check [their repo](https://github.com/SnowdogApps/alpaca-storybook/tree/develop/components/src) to know which properties to override
+
 ### Create proper markup
 
 Start with creating a proper CSS/HTML markup without worrying about the slots and SCSS variables. Use BEM methodology. Once you have semantically correct and good looking component it's time to make it customizable.
