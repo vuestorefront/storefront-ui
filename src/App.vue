@@ -48,6 +48,15 @@
       icon="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg"
     >
     </SfAlert>
+
+    message propsem, icon propsem i slot-scope
+    <SfAlert
+      class="sf-alert--warning"
+      message="Lorem ipsum dolor, sit amet consectetur adipisicing"
+      icon="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg"
+    >
+      <img slot-scope="{ icon }" :src="icon" alt="" slot="icon" />
+    </SfAlert>
   </div>
 </template>
 
