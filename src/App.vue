@@ -1,22 +1,25 @@
 <template>
   <div id="app">
-    <h1>It's a heading</h1>
-    <custom-button class="sf-button--secondary">Text</custom-button>
-    <sf-button>Text</sf-button>
+    <SfBanner
+      title="Lorem ipsum"
+      subtitle="Lorem ipsum"
+      button-text="Lorem ipsum"
+    >
+      <template slot="call-to-action">
+        Example
+      </template>
+    </SfBanner>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import CustomButton from "./CustomButton.vue";
-import SfButton from "./components/atoms/SfButton/SfButton.vue";
 import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
 
 export default Vue.extend({
   name: "app",
   components: {
-    SfButton,
-    CustomButton
+    SfBanner
   }
 });
 </script>

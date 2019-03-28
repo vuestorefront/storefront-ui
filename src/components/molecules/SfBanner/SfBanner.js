@@ -1,28 +1,15 @@
+import SfButton from "@/components/atoms/SfButton/SfButton.vue";
+import { string } from "postcss-selector-parser";
+
 export default {
   name: "SfBanner",
-  data() {
-    return {
-      stylesObj: {
-        backgroundImage: 'url("' + this.bgImg + '")',
-        backgroundColor: this.bgCol
-      }
-    };
-  },
   props: {
-    bgImg: {
-      required: false,
-      type: String,
-      default: null
-    },
-    bgCol: {
-      required: false,
-      type: String,
-      default: "#F1F2F3"
-    },
-    align: {
-      required: false,
-      type: String,
-      default: "left"
-    }
+    title: String,
+    subtitle: String,
+    description: String,
+    buttonText: String
+  },
+  components: {
+    SfButton
   }
 };
