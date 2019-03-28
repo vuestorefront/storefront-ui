@@ -2,7 +2,7 @@ import { storiesOf } from "@storybook/vue";
 import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
-import SfHeader from "../components/organisms/SfHeader/SfHeader.vue";
+import SfHeader from "./SfHeader.vue";
 
 export default storiesOf("Header", module)
   .add("mobile with icons", () => ({
