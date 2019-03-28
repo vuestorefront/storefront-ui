@@ -16,6 +16,7 @@ In short words every component exposes 2 ways of standard customization
 ````
 - slots: To replace default markup in parts of the component with your own.
 ````html
+<!-- don't like our markup for the title? just replace it with your own :)-->
     <SfBanner
       subtitle="Lorem ipsum"
       button-text="Lorem ipsum"
@@ -25,7 +26,6 @@ In short words every component exposes 2 ways of standard customization
       </template>
    </SfBanner>
 ````
-<!-- don't like our markup for the title? just replace it with your own :)
 
 ## Advanced customization
 
