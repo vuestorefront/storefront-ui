@@ -5,10 +5,11 @@
       {{ message }}
     </h1>
   </slot>
-  <slot name="action" />
-  <div class="sf-call-to-action__button" v-if="buttonText">
-    <sf-button>
-      {{ buttonText }}
-    </sf-button>
-  </div>
+  <slot name="action">
+    <div class="sf-call-to-action__button" v-if="buttonText">
+      <sf-button>
+        {{ buttonText }}
+      </sf-button>
+    </div>
+  </slot>
 </section>
