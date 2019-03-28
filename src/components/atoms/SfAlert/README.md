@@ -22,12 +22,12 @@ Component for display alerts
 
 ## Props
 
-- `message` - alert message
+- `message` - for setting default value of message
 
 ## Slots
 
 - `icon` - slot for icon replacement
-- `default` - default slot for alert message
+- `default` - slot for alert message
 
 <!-- Describe slots and their purpose -->
 
