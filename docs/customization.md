@@ -2,9 +2,13 @@
 
 We put a lot of efforts to let you customize any aspect of the UI. Let's see how to do this from top to bottom.
 
-## Standard customization (typical usage
+## Standard customization (typical usage)
 
-WIP
+In short words every component exposes 2 ways of standard customization
+- props: To customize their content. Suitable for most of the use cases. Content from props is filling the default markup in slots.
+- slots: To repalce default markup in parts of the component with your own.
+
+Examples WIP.
 
 ## Advanced customization
 
