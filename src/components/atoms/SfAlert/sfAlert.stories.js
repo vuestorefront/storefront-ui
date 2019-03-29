@@ -6,7 +6,7 @@ storiesOf("Alert", module)
   .add("warning", () => ({
     components: { SfAlert },
     template: `
-  <SfAlert class="sf-alert--warning" message="warning">
+  <SfAlert class="sf-alert--warning" message="Lorem ipsum dolor, sit amet consectetur adipisicing">
   </SfAlert>`
   }))
   .add("alert", () => ({
@@ -26,7 +26,7 @@ storiesOf("Alert", module)
     template: `
   <SfAlert
       class="sf-alert--warning"
-      message="wiadomość przez propsa i slote-scope">
+      message="Lorem ipsum dolor, sit amet consectetur adipisicing">
       <template slot="message" slot-scope="{ message }">
         {{ message }}
       </template>
@@ -35,7 +35,7 @@ storiesOf("Alert", module)
   .add("with message prop", () => ({
     components: { SfAlert },
     template: `
-    <SfAlert class="sf-alert--warning" message="wiadomość przez propsa">
+    <SfAlert class="sf-alert--warning" message="Lorem ipsum dolor, sit amet consectetur adipisicing">
     </SfAlert>`
   }))
   .add("with message prop and icon slot and 0 padding", () => ({
@@ -55,7 +55,7 @@ storiesOf("Alert", module)
     <SfAlert
     :displayIcon="false"
     class="sf-alert--warning"
-    message="wiadomość przez propsa bez ikonki"
+    message="Lorem ipsum dolor, sit amet consectetur adipisicing"
   >
   </SfAlert>`
   }))
