@@ -6,26 +6,26 @@ storiesOf("Alert", module)
   .add("warning", () => ({
     components: { SfAlert },
     template: `
-  <SfAlert class="sf-alert--warning" message="Lorem ipsum dolor, sit amet consectetur adipisicing">
+  <SfAlert type="warning" message="Lorem ipsum dolor, sit amet consectetur adipisicing">
   </SfAlert>`
   }))
   .add("alert", () => ({
     components: { SfAlert },
     template: `
-  <SfAlert class="sf-alert--alert" message="alert">
+  <SfAlert type="alert" message="alert">
   </SfAlert>`
   }))
   .add("info", () => ({
     components: { SfAlert },
     template: `
-  <SfAlert class="sf-alert--info" message="info">
+  <SfAlert type="info" message="info">
   </SfAlert>`
   }))
   .add("with message prop and slot-scope used", () => ({
     components: { SfAlert },
     template: `
   <SfAlert
-      class="sf-alert--warning"
+      type="warning"
       message="Lorem ipsum dolor, sit amet consectetur adipisicing">
       <template slot="message" slot-scope="{ message }">
         {{ message }}
@@ -35,38 +35,38 @@ storiesOf("Alert", module)
   .add("with message prop", () => ({
     components: { SfAlert },
     template: `
-    <SfAlert class="sf-alert--warning" message="Lorem ipsum dolor, sit amet consectetur adipisicing">
+    <SfAlert type="warning" message="Lorem ipsum dolor, sit amet consectetur adipisicing">
     </SfAlert>`
   }))
   .add("with message prop and icon slot and 0 padding", () => ({
     components: { SfAlert },
     template: `
     <SfAlert
-      class="sf-alert--warning"
+      type="warning"
       message="Lorem ipsum dolor, sit amet consectetur adipisicing"
       style="padding: 0"
     >
-      <img slot="icon" src="./assets/clock.svg" alt="" />
+      <img slot="icon" src="./assets/clock.svg"  />
     </SfAlert>`
   }))
   .add("with message prop and icon hidden", () => ({
     components: { SfAlert },
     template: `
     <SfAlert
-    :displayIcon="false"
-    class="sf-alert--warning"
+    :icon="false"
+    type="warning"
     message="Lorem ipsum dolor, sit amet consectetur adipisicing"
   >
   </SfAlert>`
   }))
-  .add("with message prop and icon hidden", () => ({
+  .add("with message prop and icon from link as slot", () => ({
     components: { SfAlert },
     template: `
     <SfAlert
-      class="sf-alert--warning"
+      type="warning"
       message="Lorem ipsum dolor, sit amet consectetur adipisicing"
       icon="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg"
     >
-      <img slot-scope="{ icon }" :src="icon" alt="" slot="icon" />
+      <img slot-scope="{ icon }" :src="icon"  slot="icon" />
     </SfAlert>`
   }));

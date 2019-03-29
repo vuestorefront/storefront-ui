@@ -1,20 +1,13 @@
 <template>
   <div id="app">
+    <SfAlert type="warning" message="message"></SfAlert>
     <SfAlert
-      class="sf-alert--warning"
-      message="wiadomość przez propsa i slote-scope"
+      icon="https://findicons.com/files/icons/1743/ecqlipse/128/attachment.png"
+      type="info"
+      message="message"
     >
     </SfAlert>
-    <SfAlert
-      class="sf-alert--info"
-      message="wiadomość przez propsa i slote-scope"
-    >
-    </SfAlert>
-    <SfAlert
-      class="sf-alert--alert"
-      message="wiadomość przez propsa i slote-scope"
-    >
-    </SfAlert>
+    <SfAlert :icon="false" type="alert" message="message"> </SfAlert>
   </div>
 </template>
 
