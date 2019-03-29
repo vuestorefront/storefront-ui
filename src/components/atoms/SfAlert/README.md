@@ -9,35 +9,46 @@ Component for display alerts
 
 ````html
 <div class="sf-alert">
-    <div class="sf-alert__icon">
-        <slot name="icon">
-           `icon`
+    <slot>
+        <div class="sf-alert__icon" v-if="displayIcon">
+            <slot name="icon" :icon="icon">
+               <img :src="icon" alt="" v-if="icon">
+               <icon v-else />  
+            </slot>
+        </div>    
+        <slot name="message" :message="message">
+            <p class="sf-alert__text"  v-if="message">
+                {{ message }}
+            </p>
         </slot>
-    </div>
-    <p class="sf-alert__text">
-        <slot></slot>
-    </p>
+    </slot>
 </div>
 ````
 
 ## Props
 
 - `message` - for setting default value of message
+- `icon` - url for icon
+- `displayIcon` (true) - hides icon
 
 ## Slots
 
+- `message` - slot for message
 - `icon` - slot for icon replacement
-- `default` - slot for alert message
+- `default` - slot for custom content
 
 <!-- Describe slots and their purpose -->
 
 
 ## SCSS variables
 
+- `$sf-alert-padding` (0.625rem)
 
 - `$sf-alert__text-font-size` (0.875rem)
+- `$sf-alert__text-margin` (0)
 
-- `$sf-alert__icon-padding` (1rem  0.625rem)
+- `$sf-alert__icon-padding-right` (0.625rem)
+- `$sf-alert__icon-size` (20px)
 
 - `$sf-alert__background-color--info` ($c-yellow-secondary) - color for alert background
 - `$sf-alert__color--info` ($c-yellow-primary) - color for text and icon

@@ -20,7 +20,6 @@ $sf-alert__color--alert: $c-blue-primary !default;
 .sf-alert {
     display: flex;
     align-items: center;
-    border: 1px solid black;
     padding: $sf-alert-padding;
     
     &__text {
