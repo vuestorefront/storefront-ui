@@ -16,17 +16,17 @@ Responsive header (navbar) component.
 
 ````html
 <header class="sf-header">
-  <span class="sf-header__column sf-header__column--left">
+  <div class="sf-header__column sf-header__column--left">
     <slot name="left"></slot>
-  </span>
-  <span class="sf-header__column sf-header__column--middle">
+  </div>
+  <div class="sf-header__column sf-header__column--middle">
     <slot name="middle">
       <img src="../../../assets/logo.svg" alt="logo" class="sf-header__logo"/>
     </slot>
-  </span>
-  <span class="sf-header__column sf-header__column--right">
+  </div>
+  <div class="sf-header__column sf-header__column--right">
     <slot name="right"></slot>
-  </span>
+  </div>
   <slot />
 </header>
 ````
