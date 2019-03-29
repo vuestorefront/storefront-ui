@@ -8,7 +8,7 @@ Mobile-only bottom navigation menu with icon elements and floating Button.
 <div class="sf-bottom-navigation">
   <div class="sf-bottom-navigation__elements">
     <router-link to="/">
-      </router-link><div class="sf-bottom-navigation__element" :class="{ 'active': true }" v-if="$slots.image">
+      </router-link><div class="sf-bottom-navigation__element" v-if="$slots.image">
         <slot name="image">
           <img src="../../../assets/home.svg" alt="nav-home" class="sf-bottom-navigation-element-img"/>
         </slot>

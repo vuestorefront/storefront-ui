@@ -1,54 +1,56 @@
 <div class="sf-bottom-navigation">
   <div class="sf-bottom-navigation__elements">
-    <div
-      class="sf-bottom-navigation__element"
-      :class="{ 'active': true }"
-      v-if="$slots.image"
-    >
-      <slot name="image">
+    <slot name="image" :image="image">
+      <div class="sf-bottom-navigation__element" :class="{ active: isActive }" @click="isActive = !isActive" v-if="image">
         <img
-          src="../../../assets/home.svg"
+          :src="image"
           alt="nav-home"
           class="sf-bottom-navigation-element-img"
         />
-      </slot>
-    </div>
-    <div class="sf-bottom-navigation__element" v-if="$slots.image">
-      <slot name="image">
+      </div>
+    </slot>
+
+    <slot name="image" :image="image">
+      <div class="sf-bottom-navigation__element" :class="{ active: isActive }" @click="isActive = !isActive" v-if="image">
         <img
-          src="../../../assets/union.svg"
+          :src="image"
           alt="nav-home"
           class="sf-bottom-navigation-element-img"
         />
-      </slot>
-    </div>
-    <div class="sf-bottom-navigation__element" v-if="$slots.image">
-      <slot name="image">
+      </div>
+    </slot>
+
+    <slot name="image" :image="image">
+      <div class="sf-bottom-navigation__element"  :class="{ active: isActive }" @click="isActive = !isActive" v-if="image">
         <img
-          src="../../../assets/heart.svg"
+          :src="image"
           alt="nav-wishlist"
           class="sf-bottom-navigation-element-img"
         />
-      </slot>
-    </div>
-    <div class="sf-bottom-navigation__element" v-if="$slots.image">
-      <slot name="image">
+      </div>
+    </slot>
+    <slot name="image" :image="image">
+      <div class="sf-bottom-navigation__element" :class="{ active: isActive }" @click="isActive = !isActive" v-if="image">
         <img
-          src="../../../assets/profile.svg"
+          src="image"
           alt="nav-profile"
           class="sf-bottom-navigation-element-img"
         />
-      </slot>
-    </div>
+      </div>
+    </slot>
   </div>
+
   <!--Waiting for button styles-->
   <div class="sf-bottom-navigation__element">
-    <div class="sf-bottom-navigation-cart-button">
-      <img
-        src="../../../assets/cart.svg"
-        alt="nav-cart"
-        class="sf-bottom-navigation-element-img"
-      />
-    </div>
+    <slot name="button" :image="image">
+      <div class="sf-bottom-navigation-cart-button">
+        <img
+          :src="image"
+          alt="nav-cart"
+          class="sf-bottom-navigation-element-img"
+        />
+      </div>
+      </slot>
   </div>
+<slot />
 </div>

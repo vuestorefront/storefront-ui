@@ -5,9 +5,9 @@
       subtitle="Lorem ipsum,"
       button-text="Lorem ipsum"
     >
-      <template v-slot:subtitle="{ subtitle }">
-        Example replaced content {{ b }} {{ subtitle }}
-      </template>
+      <template v-slot:subtitle="{ subtitle }"
+        >Example replaced content {{ b }} {{ subtitle }}</template
+      >
     </sf-banner>
     <sf-header />
   </div>
