@@ -1,7 +1,13 @@
 export default {
   name: "SfCircleButton",
   props: {
-    icon: String,
-    alt: String
+    icon: {
+      type: String,
+      required: true
+    },
+    alt: {
+      type: String,
+      required: true
+    }
   }
 };
