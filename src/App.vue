@@ -1,25 +1,28 @@
 <template>
   <div id="app">
-    <SfBanner
+    <sf-banner
       title="Lorem ipsum"
       subtitle="Lorem ipsum"
       button-text="Lorem ipsum"
     >
       <template slot="call-to-action">
-        Example
+        Example replaced content
       </template>
-    </SfBanner>
+    </sf-banner>
+    <sf-header />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
+import SfHeader from "./components/organisms/SfHeader/SfHeader.vue";
 
 export default Vue.extend({
   name: "app",
   components: {
-    SfBanner
+    SfBanner,
+    SfHeader
   }
 });
 </script>

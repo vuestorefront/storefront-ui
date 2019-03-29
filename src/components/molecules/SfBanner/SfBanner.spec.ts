@@ -14,7 +14,7 @@ describe("SfBanner.vue", () => {
         title: msg
       }
     });
-    expect(component.find(".sf-banner__title").text()).toMatch(msg);
+    expect(component.find(".sf-banner").text()).toContain(msg);
   });
 
   it("renders subtitle slot text when passed", () => {
@@ -24,7 +24,7 @@ describe("SfBanner.vue", () => {
         subtitle: msg
       }
     });
-    expect(component.find(".sf-banner__subtitle").text()).toMatch(msg);
+    expect(component.find(".sf-banner").text()).toContain(msg);
   });
 
   it("renders description slot text when passed", () => {
@@ -34,17 +34,17 @@ describe("SfBanner.vue", () => {
         description: msg
       }
     });
-    expect(component.find(".sf-banner__description").text()).toMatch(msg);
+    expect(component.find(".sf-banner").text()).toContain(msg);
   });
 
-  it("renders button slot text when passed", () => {
+  it("renders button prop text when passed", () => {
     const msg = "HelloWorld";
     const component = shallowMount(SfBanner, {
-      slots: {
-        button: msg
+      propsData: {
+        "buttonText": msg
       }
     });
-    expect(component.find(".sf-banner__button").text()).toMatch(msg);
+    expect(component.find(".sf-banner").text()).toContain(msg);
   });
 
   it("renders call to action slot text when passed", () => {
