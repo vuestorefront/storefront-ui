@@ -18,22 +18,22 @@ $sf-circle-button-size: 3.25rem !default;
     outline: none;
 
   &--primary {
-    background-color: $sf-circle-button__background-primary;
+    background-color: $sf-circle-button-background-primary;
     &:hover {
-        box-shadow: 0 0 0 0.3125rem lighten($sf-circle-button__background-primary, 30%);
+        box-shadow: 0 0 0 0.3125rem lighten($sf-circle-button-background-primary, 30%);
     }
     &:active {
-        box-shadow: 0 0 0 0.625rem lighten($sf-circle-button__background-primary, 30%);
+        box-shadow: 0 0 0 0.625rem lighten($sf-circle-button-background-primary, 30%);
     }
   }
 
   &--secondary {
-    background-color: $sf-circle-button__background-secondary;
+    background-color: $sf-circle-button-background-secondary;
     &:hover {
-        box-shadow: 0 0 0 0.625rem lighten($sf-circle-button__background-secondary, 8%);
+        box-shadow: 0 0 0 0.625rem lighten($sf-circle-button-background-secondary, 8%);
     }
     &:active {
-        box-shadow: 0 0 0 0.625rem lighten($sf-circle-button__background-secondary, 8%);
+        box-shadow: 0 0 0 0.625rem lighten($sf-circle-button-background-secondary, 8%);
     }
   }
 
