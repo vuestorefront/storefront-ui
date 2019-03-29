@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfCallToAction from "@/components/organisms/SfCallToAction/SfCallToAction.vue";
+import SfCallToAction from "./SfCallToAction.vue";
 
 describe("SfCallToAction.vue", () => {
   // DOM Element render check
@@ -23,7 +23,7 @@ describe("SfCallToAction.vue", () => {
   it("renders message prop on h1 when passed", () => {
     const msg = "H1Title";
     const component = shallowMount(SfCallToAction, {
-      props: {
+      propsData: {
         message: msg
       }
     });
@@ -36,7 +36,7 @@ describe("SfCallToAction.vue", () => {
   it("renders button text from prop when passed", () => {
     const msg = "ButtonText";
     const component = shallowMount(SfCallToAction, {
-      props: {
+      propsData: {
         buttonText: msg
       }
     });
