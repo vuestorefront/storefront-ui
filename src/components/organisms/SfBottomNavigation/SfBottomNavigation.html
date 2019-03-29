@@ -1,38 +1,54 @@
 <div class="sf-bottom-navigation">
   <div class="sf-bottom-navigation__elements">
-    <router-link to="/">
-      </router-link><div class="sf-bottom-navigation__element" :class="{ 'active': true }" v-if="$slots.image">
-        <slot name="image">
-          <img src="../../../assets/home.svg" alt="nav-home" class="sf-bottom-navigation-element-img"/>
-        </slot>
-      </div>
-    </router-link>
-    <router-link to="/">
-      </router-link><div class="sf-bottom-navigation__element" v-if="$slots.image">
-        <slot name="image">
-          <img src="../../../assets/union.svg" alt="nav-home" class="sf-bottom-navigation-element-img" />
-        </slot>
-      </div>
-    </router-link>
-    <router-link to="/">
-      </router-link><div class="sf-bottom-navigation__element" v-if="$slots.image">
-        <slot name="image">
-          <img src="../../../assets/heart.svg" alt="nav-wishlist" class="sf-bottom-navigation-element-img"/>
-        </slot>
-      </div>
-    </router-link>
-    <router-link to="/">
-      </router-link><div class="sf-bottom-navigation__element" v-if="$slots.image">
-        <slot name="image">
-          <img src="../../../assets/profile.svg" alt="nav-profile" class="sf-bottom-navigation-element-img"/>
-        </slot>
-      </div>
-    </router-link>
+    <div
+      class="sf-bottom-navigation__element"
+      :class="{ 'active': true }"
+      v-if="$slots.image"
+    >
+      <slot name="image">
+        <img
+          src="../../../assets/home.svg"
+          alt="nav-home"
+          class="sf-bottom-navigation-element-img"
+        />
+      </slot>
+    </div>
+    <div class="sf-bottom-navigation__element" v-if="$slots.image">
+      <slot name="image">
+        <img
+          src="../../../assets/union.svg"
+          alt="nav-home"
+          class="sf-bottom-navigation-element-img"
+        />
+      </slot>
+    </div>
+    <div class="sf-bottom-navigation__element" v-if="$slots.image">
+      <slot name="image">
+        <img
+          src="../../../assets/heart.svg"
+          alt="nav-wishlist"
+          class="sf-bottom-navigation-element-img"
+        />
+      </slot>
+    </div>
+    <div class="sf-bottom-navigation__element" v-if="$slots.image">
+      <slot name="image">
+        <img
+          src="../../../assets/profile.svg"
+          alt="nav-profile"
+          class="sf-bottom-navigation-element-img"
+        />
+      </slot>
+    </div>
   </div>
   <!--Waiting for button styles-->
   <div class="sf-bottom-navigation__element">
-      <div class="sf-bottom-navigation-cart-button" >
-        <img src="../../../assets/cart.svg" alt="nav-cart" class="sf-bottom-navigation-element-img"/>
-      </div>
+    <div class="sf-bottom-navigation-cart-button">
+      <img
+        src="../../../assets/cart.svg"
+        alt="nav-cart"
+        class="sf-bottom-navigation-element-img"
+      />
+    </div>
   </div>
 </div>

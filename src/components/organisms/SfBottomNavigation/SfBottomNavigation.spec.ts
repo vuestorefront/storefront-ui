@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfBottomNavigation from "@/components/organisms/SfBottomNavigation.vue";
+import SfBottomNavigation from "@/components/organisms/SfBottomNavigation/SfBottomNavigation.vue";
 
 describe("SfBottomNavigation.vue", () => {
   it("renders a bottom navigation", () => {
