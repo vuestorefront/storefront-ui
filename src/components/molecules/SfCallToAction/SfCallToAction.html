@@ -1,15 +1,15 @@
 <section class="sf-call-to-action">
   <slot />
-  <slot name="message" />
+  <slot name="message">
     <h1 class="sf-call-to-action__message" v-if="message">
       {{ message }}
     </h1>
   </slot>
-  <slot name="action" /> 
-  <div class="sf-call-to-action__button" v-if="buttonText">
-    <sf-button>
-      {{ buttonText }}
-    </sf-button> 
+  <slot name="action">
+    <div class="sf-call-to-action__button" v-if="buttonText">
+      <sf-button>
+        {{ buttonText }}
+      </sf-button>
     </div>
-  </div>
+  </slot>
 </section>

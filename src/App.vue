@@ -66,6 +66,11 @@ import SfAlert from "./components/atoms/SfAlert/SfAlert.vue";
 
 export default Vue.extend({
   name: "app",
+  data() {
+    return {
+      b: "a"
+    };
+  },
   components: {
     SfAlert
   }
