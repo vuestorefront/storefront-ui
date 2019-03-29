@@ -2,11 +2,11 @@
   <div id="app">
     <sf-banner
       title="Lorem ipsum"
-      subtitle="Lorem ipsum"
+      subtitle="Lorem ipsum,"
       button-text="Lorem ipsum"
     >
-      <template slot="call-to-action">
-        Example replaced content
+      <template v-slot:subtitle="{ subtitle }">
+        Example replaced content {{ b }} {{ subtitle }}
       </template>
     </sf-banner>
     <sf-header />
@@ -20,6 +20,11 @@ import SfHeader from "./components/organisms/SfHeader/SfHeader.vue";
 
 export default Vue.extend({
   name: "app",
+  data() {
+    return {
+      b: "a"
+    };
+  },
   components: {
     SfBanner,
     SfHeader
