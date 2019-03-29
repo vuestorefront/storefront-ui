@@ -8,7 +8,7 @@ Highly customizable and elegant UI framework for eCommerce (and not only) based 
 
 # What makes it unique?
 
-Some libraries aim to give as much as they can out of the box but they faill when it comes to customization. Our goal was to enable as much as possible out of the box but with primar focus on ability to customize any aspect of the components. 
+Some libraries aim to give as much as they can out of the box but they faill when it comes to customization. Our goal was to enable as much as possible out of the box but with primar focus on ability to customize any aspect of the components.
 
 With sfui you need to do a little bit more than with other libs for basic tasks but you get 100% customizable components in return!
 
@@ -43,6 +43,20 @@ If you want to play with components just copy the repo and use them in App.vue
 
 We are currently in a process of building the library. If you want to help shaping future of vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) you can find all the required information.
 
-# State of components 
+## Commit messages
+
+We're using [commitlint](https://github.com/conventional-changelog/commitlint)
+as dev dependency to later auto generate the project changelog.
+
+The commit messages should follow
+[Conventional Commits](https://www.conventionalcommits.org/) specifications, eg.:
+
+```
+feat: allow provided config object to extend other configs
+docs: correct spelling of CHANGELOG
+fix: minor typos in code
+```
+
+# State of components
 
 TBD in a few days once we have current ones docummented.
