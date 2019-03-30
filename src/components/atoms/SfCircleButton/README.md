@@ -1,42 +1,35 @@
-# SfComponent
+# SfCircleButton
 
-<!-- Write about general purpose of the component. Include screenshot (to be replaced with a live example once we migrate to vuepress) -->
+Circle Button Component for basket button / close button.
 
 ## HTML Template
 
-<!-- Just paste HTML template. It's much better description than any other code -->
+<SfButton class="sf-circle-button">
+    <img class="sf-circle-button__icon" :src="icon" :alt="alt"/>
+</SfButton>
 
-````html
-<b></b>
-````
 ## Props
-
-- `propname` - description 
-<!--Write down props and their purpose -->
-
-## Slots
-
-- `slotname` - description
-
-<!-- Describe slots and their purpose -->
-
-## Emitted events
-
-- `event` - description
+- `icon` - icon source for image
+- `alt` - image alt text
 
 ## SCSS variables
 
-- `variablename` (defaultvalue) - description
-
-<!-- Write down SCSS variables available for configuration -->
+- `$sf-circle-button-background-primary` ($c-green-primary)
+- `$sf-circle-button-background-secondary` ($c-dark-primary)
+- `$sf-circle-button-icon-color` ($c-white)
+- `$sf-circle-button-size` (3.25rem !default)
+- `$sf-circle-button-big-size` (3.25rem !default);
+- `$sf-circle-button-small-size` (1.625rem !default);
+- `$sf-circle-button-background-small` ($c-gray-secondary);
+- `$sf-circle-button-background-small-hover` ($c-dark-secondary);
 
 ## CSS Modifiers
 
-- `classname` - description
-
-<!-- Write down available CSS Modifiers -->
+- `.sf-circle-button--secondary` - change color to dark
+- `.sf-ciricle-button--small`  change size, color and hover / active state
 
 ## Source files and Storybook demo
 
-- absolute link to component folder
+- - [@/src/components/atoms/SfCircleButton] (https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/atoms/SfCircleButton)
+
 - link to storybook

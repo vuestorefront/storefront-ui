@@ -16,6 +16,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import SfButton from "./components/atoms/SfButton/SfButton.vue";
 import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
 import SfCircleButton from "./components/atoms/SfCircleButton/SfCircleButton.vue";
 
