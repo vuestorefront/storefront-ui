@@ -1,5 +1,3 @@
-<button class="sf-circle-button" @click="e => $emit('click', e)">
-    <slot>
-        <img :src="icon" :alt="alt"/>
-    </slot>
-</button>
+<SfButton class="sf-circle-button">
+    <img class="sf-circle-button__icon" :src="icon" :alt="alt"/>
+</SfButton>
