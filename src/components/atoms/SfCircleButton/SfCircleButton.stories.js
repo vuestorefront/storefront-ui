@@ -10,12 +10,13 @@ export default storiesOf("CircleButton", module)
     components: { SfCircleButton },
     template: "<sf-circle-button icon='/added_to_cart.svg'/>"
   }))
-  .add("with different size and icon", () => ({
-    components: { SfCircleButton },
-    template: "<sf-circle-button icon='/close.svg'/>>"
-  }))
   .add("with secondary modifier", () => ({
     components: { SfCircleButton },
     template:
       "<sf-circle-button class='sf-circle-button--secondary' icon='/added_to_cart.svg'/>"
+  }))
+  .add("with small modifier and close icon", () => ({
+    components: { SfCircleButton },
+    template:
+      "<sf-circle-button class='sf-circle-button--small' icon='/close.svg'/>>"
   }));
