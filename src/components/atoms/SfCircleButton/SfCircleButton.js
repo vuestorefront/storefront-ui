@@ -1,13 +1,16 @@
+import SfButton from "@/components/atoms/SfButton/SfButton.vue";
+
 export default {
   name: "SfCircleButton",
   props: {
     icon: {
-      type: String,
-      required: true
+      type: String
     },
     alt: {
-      type: String,
-      required: true
+      type: String
     }
+  },
+  components: {
+    SfButton
   }
 };
