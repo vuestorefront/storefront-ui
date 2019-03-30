@@ -3,17 +3,21 @@
 $sf-circle-button-background-primary: $c-green-primary;
 $sf-circle-button-background-secondary: $c-dark-primary;
 $sf-circle-button-icon-color: $c-white;
-$sf-circle-button-size: 3.25rem !default;
+$sf-circle-button-big-size: 3.25rem !default;
+$sf-circle-button-small-size: 1.625rem !default;
+$sf-circle-button-background-small: $c-gray-secondary;
+$sf-circle-button-background-small-hover: $c-dark-secondary;
 
 .sf-circle-button {
+    padding: 0;
     border-radius: 50%;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: $sf-circle-button-size;
-    height: $sf-circle-button-size;
+    width: $sf-circle-button-big-size;
+    height: $sf-circle-button-big-size;
     transition: box-shadow .2s ease;
     outline: none;
     background-color: $sf-circle-button-background-primary;
@@ -32,5 +36,18 @@ $sf-circle-button-size: 3.25rem !default;
     &:active {
         box-shadow: 0 0 0 0.625rem lighten($sf-circle-button-background-secondary, 80%);
     }
+  }
+  &--small {
+      width: $sf-circle-button-small-size;
+      height: $sf-circle-button-small-size;
+      background-color: $sf-circle-button-background-small;
+      &:hover {
+          background-color: $sf-circle-button-background-small-hover;
+          box-shadow: none;
+      }
+      &:active {
+          background-color: $sf-circle-button-background-secondary;
+          box-shadow: none;
+      }
   }
 }
