@@ -1,0 +1,39 @@
+<div class="sf-options">
+  <!-- <alpaca-label
+    v-if="label"
+    :class="['sf-options__title', labelClass]"
+  >
+    {{ label }}
+  </alpaca-label> -->
+  <label>{{ label }}</label>
+
+  <div
+    class="sf-options__wrapper"
+    tabindex="0"
+  >
+  {{ options }}
+    <div
+      v-for="(option) in options"
+      :key="option.id"
+      :class="[
+        'sf-options__option-container',
+        selected === option.value && 'sf-options__option-container--selected',
+        wrapperClass
+      ]"
+      :aria-label="option.label"
+      tabindex="0"
+      @click="setActiveValue(option.value)"
+    >
+      <div
+        :class="['sf-options__option', image && 'sf-options__option--image', optionClass]"
+        :style="option.style"
+      >
+        {{ image || color ? '' : option.text }}
+      </div>
+
+      <span v-if="option.caption">
+        {{ option.caption }}
+      </span>
+    </div>
+  </div>
+</div>
