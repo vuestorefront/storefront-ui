@@ -15,6 +15,7 @@ module.exports = {
         {
           from: "src/components",
           to: "components",
+          ignore: ["**/*.stories.js", "**/*.spec.ts", "**/*.md"],
           transformPath(targePath) {
             return targePath.split("/").slice(-1)[0];
           },
