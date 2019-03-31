@@ -1,17 +1,17 @@
 @import '../../../css/variables';
 
-// $sf-options__transition                  : $transition-base !default;
+$sf-options__transition                  : all 0.3s ease-in-out !default;
 
-// $sf-options__title-margin-bottom         : $spacer !default;
-// $sf-options__title-font-size             : $font-size-base !default;
+$sf-options__title-margin-bottom         : $spacing-medium !default;
+$sf-options__title-font-size             : $font-size-regular-mobile !default;
 
 $sf-options__option-size                 : 40px !default;
 $sf-options__option-size--image          : 48px !default;
-// $sf-options__option-margin               : $spacer !default;
-// $sf-options__option-background           : $white !default;
-// $sf-options__option-color                : $gray-dark !default;
-// $sf-options__option-border               : 4px solid $white !default;
-// $sf-options__option-border--white        : 1px solid $gray-lighter !default;
+$sf-options__option-margin               : $spacing-medium !default;
+$sf-options__option-background           : $c-white !default;
+$sf-options__option-color                : $c-gray-primary !default;
+$sf-options__option-border               : 4px solid $c-white !default;
+$sf-options__option-border--white        : 1px solid $c-gray-secondary !default;
 $sf-options__option-border-color--active : $c-accent-primary !default;
 
 .sf-options {
@@ -22,6 +22,10 @@ $sf-options__option-border-color--active : $c-accent-primary !default;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    
+    &:focus {
+      outline: 0;
+    }
   }
 
   &__option {
@@ -30,8 +34,8 @@ $sf-options__option-border-color--active : $c-accent-primary !default;
     align-items: center;
     min-width: $sf-options__option-size;
     min-height: $sf-options__option-size;
-    // background-color: $sf-options__option-background;
-    // color: $sf-options__option-color;
+    background-color: $sf-options__option-background;
+    color: $sf-options__option-color;
 
     &--image {
       min-height: $sf-options__option-size--image;
@@ -40,21 +44,22 @@ $sf-options__option-border-color--active : $c-accent-primary !default;
     }
 
     &--white {
-      // border: $sf-options__option-border--white;
+      border: $sf-options__option-border--white;
     }
   }
 
   &__option-container {
     box-sizing: border-box;
-    // border: $sf-options__option-border;
-    // margin-right: $sf-options__option-margin;
-    // transition: $sf-options__transition;
+    border: $sf-options__option-border;
+    margin-right: $sf-options__option-margin;
+    transition: $sf-options__transition;
     cursor: pointer;
 
     &--selected,
     &:hover,
     &:focus {
       border-color: $sf-options__option-border-color--active;
+      outline: 0;
 
       .sf-options__option--white {
         border: none;
@@ -62,7 +67,7 @@ $sf-options__option-border-color--active : $c-accent-primary !default;
     }
 
     &:last-child {
-      // margin-right: $reset;
+      margin-right: 0;
     }
   }
 
@@ -73,7 +78,7 @@ $sf-options__option-border-color--active : $c-accent-primary !default;
 
   &__title {
     flex: 0 0 100%;
-    // margin-bottom: $sf-options__title-margin-bottom;
-    // font-size: $sf-options__title-font-size;
+    margin-bottom: $sf-options__title-margin-bottom;
+    font-size: $sf-options__title-font-size;
   }
 }

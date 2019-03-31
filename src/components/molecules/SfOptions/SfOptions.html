@@ -1,17 +1,15 @@
 <div class="sf-options">
-  <!-- <alpaca-label
+  <sf-label
     v-if="label"
     :class="['sf-options__title', labelClass]"
   >
     {{ label }}
-  </alpaca-label> -->
-  <label>{{ label }}</label>
+  </sf-label>
 
   <div
     class="sf-options__wrapper"
     tabindex="0"
   >
-  {{ options }}
     <div
       v-for="(option) in options"
       :key="option.id"

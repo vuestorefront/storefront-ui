@@ -1,8 +1,10 @@
+import SfLabel from "../../atoms/SfLabel/SfLabel.vue";
+
 export default {
   name: "SfOptions",
-  // components: {
-  //   AlpacaLabel
-  // },
+  components: {
+    SfLabel
+  },
   model: {
     prop: "selected",
     event: "change"
