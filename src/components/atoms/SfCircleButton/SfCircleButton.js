@@ -4,10 +4,12 @@ export default {
   name: "SfCircleButton",
   props: {
     icon: {
-      type: String
+      type: String,
+      default: ""
     },
     alt: {
-      type: String
+      type: String,
+      default: "circle button"
     }
   },
   components: {
