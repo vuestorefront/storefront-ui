@@ -5,3 +5,37 @@
     transition: $transition;
   }
 }
+
+@mixin transition-fade() {
+  &-enter-active,
+  &-leave-active {
+    @include transition($transition-fade);
+  }
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+
+@mixin transition-slide($direction: "X") {
+  &-enter-active,
+  &-leave-active {
+    transition: $transition-slide;
+  }
+  &-enter,
+  &-leave-to {
+    @if $direction == "Y" {
+      transform: translateY($transition-slide-transform-size);
+    } @else {
+      transform: translateX($transition-slide-transform-size);
+    }
+    opacity: 0;
+  }
+}
+
+@mixin transition-slide-fade($direction: "X") {
+  @include transition-slide($direction);
+  &-enter-active {
+    transition: $transition-fade;
+  }
+}

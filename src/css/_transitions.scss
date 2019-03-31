@@ -1,11 +1,15 @@
 .fade {
-  &-enter-active,
-  &-leave-active {
-    @include transition($transition-fade);
-  }
-
-  &-enter,
-  &-leave-to {
-    opacity: 0;
-  }
+  @include transition-fade();
+}
+.slide {
+  @include transition-slide();
+}
+.slide-y {
+  @include transition-slide("Y");
+}
+.fade-slide {
+  @include transition-slide-fade();
+}
+.fade-slide-y {
+  @include transition-slide-fade("Y");
 }
