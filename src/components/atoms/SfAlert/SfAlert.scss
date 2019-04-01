@@ -2,8 +2,8 @@
 
 $sf-alert-padding: 0.625rem !default;
 
-$sf-alert__text-font-size: 0.875rem !default;
-$sf-alert__text-margin: 0 !default;
+$sf-alert-text-font-size: 0.875rem !default;
+$sf-alert-text-margin: 0 !default;
 
 $sf-alert__icon-padding-right: 0.625rem !default;
 $sf-alert__icon-size: 20px !default;
@@ -23,8 +23,8 @@ $sf-alert__color--alert: $c-blue-primary !default;
     padding: $sf-alert-padding;
     
     &__text {
-        font-size: $sf-alert__text-font-size;
-        margin: $sf-alert__text-margin;
+        font-size: $sf-alert-text-font-size;
+        margin: $sf-alert-text-margin;
     }
     
     &__icon {

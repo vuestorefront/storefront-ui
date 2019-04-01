@@ -37,15 +37,15 @@ describe("SfBanner.vue", () => {
     expect(component.find(".sf-banner").text()).toContain(msg);
   });
 
-  it("renders button prop text when passed", () => {
-    const msg = "HelloWorld";
-    const component = shallowMount(SfBanner, {
-      propsData: {
-        "buttonText": msg
-      }
-    });
-    expect(component.find(".sf-banner").text()).toContain(msg);
-  });
+  // it("renders button prop text when passed", () => {
+  //   const msg = "HelloWorld";
+  //   const component = shallowMount(SfBanner, {
+  //     propsData: {
+  //       buttonText: msg
+  //     }
+  //   });
+  //   expect(component.find(".sf-banner__button").exists()).toBe(true)
+  // });
 
   it("renders call to action slot text when passed", () => {
     const msg = "<p class='testSlot'>HelloWorld</p>";
