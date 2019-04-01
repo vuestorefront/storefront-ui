@@ -28,14 +28,7 @@ $sf-alert--alert-color: $c-blue-primary !default;
     }
     
     &__icon {
-        display: flex;
-        align-items: center;
         padding-right: $sf-alert__icon-padding-right;
-
-        svg {
-            height: $sf-alert__icon-size;
-            width: $sf-alert__icon-size;
-        }
     }
 
     &--info {
