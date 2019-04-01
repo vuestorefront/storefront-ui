@@ -18,8 +18,6 @@ describe("SfAlert.vue", () => {
       }
     });
     expect(component.contains(".sf-alert--warning")).toBe(true);
-    expect(component.find(".sf-alert__text").text()).toMatch(msg);
-
   });
 
   it("renders an alert with custom icon", () => {
@@ -34,7 +32,6 @@ describe("SfAlert.vue", () => {
     });
     expect(component.contains(".sf-alert--alert")).toBe(true);
     expect(component.contains(".defaultIcon")).toBe(true);
-    expect(component.find(".sf-alert__text").text()).toMatch(msg);
   });
 
   it("renders an alert with default message via props", () => {
