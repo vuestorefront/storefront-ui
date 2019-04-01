@@ -128,7 +128,7 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
   background-position: $banner-background-position;
   text-align: left;
   align-items: $banner-align-items;
-  background-image: url(../../../assets/img/Banner1.png);
+  background-image: url(/assets/img/Banner1.png);
   min-height: 20rem;
   // rule 2 - Write mobile-first classess and add desktop ones inside media querys as an addition. Usually desktop is extended version of mobile so it makes a perfect sense here.
   @media ( min-width: $desktop-min ) {

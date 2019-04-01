@@ -1,13 +1,19 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <SfAlert message="warning"></SfAlert>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
+import SfAlert from "./components/atoms/SfAlert/SfAlert.vue";
 
 export default Vue.extend({
   name: "app",
-  components: {}
+  components: {
+    SfAlert
+  }
 });
 </script>
 
