@@ -1,20 +1,18 @@
 <div class="sf-alert" :class="`sf-alert--${type}`">
-    <slot>
-        <slot name="icon" :icon="icon" v-if="icon">
-            <div class="sf-alert__icon" >
-               <img :src="icon" v-if="typeof icon === 'string'">
-               <template v-else>
-                    <img src="../../../assets/alert-alert.svg" v-if="type === 'alert'">
-                    <img src="../../../assets/alert-info.svg" v-if="type === 'info'">
-                    <img src="../../../assets/alert-warning.svg" v-if="type === 'warning'">
-                    <!-- <img :src="'../../../assets/alert-'+ type +'.svg'" v-if="type === 'warning'"> -->
-                </template>
-            </div>    
-        </slot>
-        <slot name="message" :message="message">
-            <p class="sf-alert__text"  v-if="message">
-                {{ message }}
-            </p>
-        </slot>
+    <slot name="icon" :icon="icon" v-if="icon">
+        <div class="sf-alert__icon" >
+            <img :src="icon" v-if="typeof icon === 'string'">
+            <template v-else>
+                <img src="../../../assets/alert-alert.svg" v-if="type === 'alert'">
+                <img src="../../../assets/alert-info.svg" v-if="type === 'info'">
+                <img src="../../../assets/alert-warning.svg" v-if="type === 'warning'">
+            </template>
+        </div>    
     </slot>
+    <slot name="message" :message="message">
+        <p class="sf-alert__text"  v-if="message">
+            {{ message }}
+        </p>
+    </slot>
+    <slot />
 </div>
