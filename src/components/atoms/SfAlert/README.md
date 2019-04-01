@@ -19,6 +19,7 @@ Component for displaying in-app messages.
 ## Props
 
 - `message` - for setting default value of message
+- `type` - defines alert type, default "alert"
 - `icon` - if string passed it's used as src to icon if boolean, shows default icon or not
 
 ## Slots

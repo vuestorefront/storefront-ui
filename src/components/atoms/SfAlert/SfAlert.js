@@ -5,7 +5,10 @@ export default {
     icon: {
       default: true
     },
-    type: String
+    type: {
+      type: String,
+      default: "alert"
+    }
   },
   computed: {
     iconSrc() {
