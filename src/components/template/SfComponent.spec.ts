@@ -9,8 +9,8 @@ describe("SfComponent.vue", () => {
   // });
 
   // Default slot check, you can replace `default` with any other
-  it("renders default prop text when passed", () => {
-    const component = shallowMount(SfComponent);
-    expect(component).toBeDefined();
-  });
+  // it("renders default prop text when passed", () => {
+  //   const component = shallowMount(SfComponent);
+  //   expect(component).toBeDefined();
+  // });
 });
