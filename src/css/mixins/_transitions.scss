@@ -17,15 +17,19 @@
   }
 }
 
-@mixin transition-slide($direction: "X") {
+@mixin transition-slide($direction: "left") {
   &-enter-active,
   &-leave-active {
     transition: $transition-slide;
   }
   &-enter,
   &-leave-to {
-    @if $direction == "Y" {
+    @if $direction == "top" {
       transform: translateY($transition-slide-transform-size);
+    } @elseif $direction == "bottom" {
+      transform: translateY(-$transition-slide-transform-size);
+    } @elseif $direction == "right" {
+      transform: translateX(-$transition-slide-transform-size);
     } @else {
       transform: translateX($transition-slide-transform-size);
     }
@@ -33,7 +37,7 @@
   }
 }
 
-@mixin transition-slide-fade($direction: "X") {
+@mixin transition-slide-fade($direction: "left") {
   @include transition-slide($direction);
   &-enter-active {
     transition: $transition-fade;

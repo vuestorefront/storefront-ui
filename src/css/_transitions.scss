@@ -4,12 +4,18 @@
 .slide {
   @include transition-slide();
 }
-.slide-y {
-  @include transition-slide("Y");
+.slide-inverse {
+  @include transition-slide("right");
+}
+.collapse {
+  @include transition-slide("bottom");
+}
+.collapse-inverse {
+  @include transition-slide("top");
 }
 .fade-slide {
   @include transition-slide-fade();
 }
-.fade-slide-y {
-  @include transition-slide-fade("Y");
+.fade-collapse {
+  @include transition-slide-fade("bottom");
 }

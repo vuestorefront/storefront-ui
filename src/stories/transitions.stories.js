@@ -10,9 +10,69 @@ export default storiesOf("Transitions", module)
     template: `
     <div>
       <sf-button v-on:click="show = !show">
-        Fade in-out
+        Fade
       </sf-button>
       <transition name="fade">
+        <p v-if="show">hello</p>
+      </transition>
+    </div>`,
+    data: () => ({
+      show: true
+    })
+  }))
+  .add("slide left", () => ({
+    components: { SfButton },
+    template: `
+    <div>
+      <sf-button v-on:click="show = !show">
+        Slide
+      </sf-button>
+      <transition name="slide">
+        <p v-if="show">hello</p>
+      </transition>
+    </div>`,
+    data: () => ({
+      show: true
+    })
+  }))
+  .add("slide right", () => ({
+    components: { SfButton },
+    template: `
+    <div>
+      <sf-button v-on:click="show = !show">
+        Slide inverse
+      </sf-button>
+      <transition name="slide-inverse">
+        <p v-if="show">hello</p>
+      </transition>
+    </div>`,
+    data: () => ({
+      show: true
+    })
+  }))
+  .add("collapse bottom", () => ({
+    components: { SfButton },
+    template: `
+    <div>
+      <sf-button v-on:click="show = !show">
+        Collapse
+      </sf-button>
+      <transition name="collapse">
+        <p v-if="show">hello</p>
+      </transition>
+    </div>`,
+    data: () => ({
+      show: true
+    })
+  }))
+  .add("collapse top", () => ({
+    components: { SfButton },
+    template: `
+    <div>
+      <sf-button v-on:click="show = !show">
+        Collapse inverse
+      </sf-button>
+      <transition name="collapse-inverse">
         <p v-if="show">hello</p>
       </transition>
     </div>`,
@@ -25,7 +85,7 @@ export default storiesOf("Transitions", module)
     template: `
     <div>
       <sf-button v-on:click="show = !show">
-        Fade in slide out
+        Fade/slide
       </sf-button>
       <transition name="fade-slide">
         <p v-if="show">hello</p>
@@ -35,44 +95,14 @@ export default storiesOf("Transitions", module)
       show: true
     })
   }))
-  .add("fade in slide y out", () => ({
+  .add("fade in collapse out", () => ({
     components: { SfButton },
     template: `
     <div>
       <sf-button v-on:click="show = !show">
-        Fade in slide y out
+        Fade/collapse
       </sf-button>
-      <transition name="fade-slide-y">
-        <p v-if="show">hello</p>
-      </transition>
-    </div>`,
-    data: () => ({
-      show: true
-    })
-  }))
-  .add("slide in-out", () => ({
-    components: { SfButton },
-    template: `
-    <div>
-      <sf-button v-on:click="show = !show">
-        Slide in-out
-      </sf-button>
-      <transition name="slide">
-        <p v-if="show">hello</p>
-      </transition>
-    </div>`,
-    data: () => ({
-      show: true
-    })
-  }))
-  .add("slide y in-out", () => ({
-    components: { SfButton },
-    template: `
-    <div>
-      <sf-button v-on:click="show = !show">
-        Slide y in-out
-      </sf-button>
-      <transition name="slide-y">
+      <transition name="fade-collapse">
         <p v-if="show">hello</p>
       </transition>
     </div>`,
