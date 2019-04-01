@@ -2,6 +2,9 @@
 
 Component for displaying in-app messages.
 
+![Alert](https://user-images.githubusercontent.com/33127342/55155868-ba88a500-5158-11e9-94f4-3cd787e5c1b4.png "Alert")
+
+
 ## HTML Template
 
 ````html
