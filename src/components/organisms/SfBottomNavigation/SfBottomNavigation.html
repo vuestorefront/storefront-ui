@@ -1,39 +1,10 @@
 <div class="sf-bottom-navigation">
-  <div class="sf-bottom-navigation__elements">
+  <div class="sf-bottom-navigation__elements" v-for="image in images">
     <slot name="image" :image="image">
       <div class="sf-bottom-navigation__element" :class="{ active: isActive }" @click="isActive = !isActive" v-if="image">
         <img
           :src="image"
           alt="nav-home"
-          class="sf-bottom-navigation-element-img"
-        />
-      </div>
-    </slot>
-
-    <slot name="image" :image="image">
-      <div class="sf-bottom-navigation__element" :class="{ active: isActive }" @click="isActive = !isActive" v-if="image">
-        <img
-          :src="image"
-          alt="nav-home"
-          class="sf-bottom-navigation-element-img"
-        />
-      </div>
-    </slot>
-
-    <slot name="image" :image="image">
-      <div class="sf-bottom-navigation__element"  :class="{ active: isActive }" @click="isActive = !isActive" v-if="image">
-        <img
-          :src="image"
-          alt="nav-wishlist"
-          class="sf-bottom-navigation-element-img"
-        />
-      </div>
-    </slot>
-    <slot name="image" :image="image">
-      <div class="sf-bottom-navigation__element" :class="{ active: isActive }" @click="isActive = !isActive" v-if="image">
-        <img
-          src="image"
-          alt="nav-profile"
           class="sf-bottom-navigation-element-img"
         />
       </div>
