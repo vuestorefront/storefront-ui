@@ -1,11 +1,6 @@
 <div class="sf-alert" :class="`sf-alert--${type}`">
-    <slot name="icon" :icon="icon" v-if="icon">
-        <img :src="icon" v-if="typeof icon === 'string'"  class="sf-alert__icon">
-        <template v-else>
-            <img src="../../../assets/alert-alert.svg" v-if="type === 'alert'"  class="sf-alert__icon">
-            <img src="../../../assets/alert-info.svg" v-if="type === 'info'"  class="sf-alert__icon">
-            <img src="../../../assets/alert-warning.svg" v-if="type === 'warning'"  class="sf-alert__icon">
-        </template>
+    <slot name="icon" :icon="icon">
+        <img :src="iconSrc" class="sf-alert__icon" v-if="icon">
     </slot>
     <slot name="message" :message="message">
         <p class="sf-alert__text"  v-if="message">

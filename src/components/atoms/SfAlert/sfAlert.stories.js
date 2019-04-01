@@ -6,8 +6,7 @@ storiesOf("Alert", module)
   .add("warning", () => ({
     components: { SfAlert },
     template: `
-  <SfAlert type="warning" message="Lorem ipsum dolor, sit amet consectetur adipisicing">
-  </SfAlert>`
+    <SfAlert type="warning" message="message"></SfAlert>`
   }))
   .add("alert", () => ({
     components: { SfAlert },
@@ -46,7 +45,7 @@ storiesOf("Alert", module)
       message="Lorem ipsum dolor, sit amet consectetur adipisicing"
       style="padding: 0"
     >
-      <img slot="icon" src="./assets/clock.svg"  />
+      <img slot="icon" src="/assets/alert-warning.svg"  />
     </SfAlert>`
   }))
   .add("with message prop and icon hidden", () => ({
