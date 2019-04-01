@@ -10,9 +10,7 @@ Component for displaying in-app messages.
         <img :src="iconSrc" class="sf-alert__icon" v-if="icon">
     </slot>
     <slot name="message" :message="message">
-        <p class="sf-alert__text"  v-if="message">
-            {{ message }}
-        </p>
+        <p class="sf-alert__text"  v-if="message">{{ message }}</p>
     </slot>
     <slot />
 </div>
