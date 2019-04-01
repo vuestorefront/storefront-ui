@@ -29,7 +29,7 @@ describe("SfAlert.vue", () => {
       },
       slots: {
         default: msg,
-        icon: "<img class='defaultIcon' src='./' alt='icon'/>"
+        icon: "<img class='defaultIcon' src='/assets/alert-warning.svg' alt='icon'/>"
       }
     });
     expect(component.contains(".sf-alert--alert")).toBe(true);

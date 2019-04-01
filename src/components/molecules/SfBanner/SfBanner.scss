@@ -114,8 +114,9 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
   }
   &--right {
     text-align: right;
-
-    .sf-banner__button {
+    
+    .sf-banner__button, .sf-banner__description {
+      justify-content: flex-end;
       margin-left: auto;
     }
   }
