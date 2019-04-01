@@ -1,6 +1,6 @@
 <section class="sf-banner">
   <div class="sf-banner__container">
-    <slot name="subtitle" />
+    <slot name="subtitle" :subtitle="subtitle">
       <h2 class="sf-banner__subtitle" v-if="subtitle">
         {{ subtitle }}
       </h2>

@@ -12,6 +12,7 @@ Below you can find rules that needs to be applied into every component from Stor
 - sfComponent.scss -> styles for the component
 - SfComponent.ts -> component instance
 - SfComponent.spec.ts - unit tests for component
+- SfComponent.stories.js - storybook stories for component
 - SfComponent.vue -> whole component using above partials. It should look like this:
 
 ```html
@@ -200,4 +201,9 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
 - **External API:** props, slots, events
 - **Internal API:** methods
 
+### Stories for Storybook
 
+Component stories should contain:
+- filled props
+- filled slots
+- applied CSS modifiers
