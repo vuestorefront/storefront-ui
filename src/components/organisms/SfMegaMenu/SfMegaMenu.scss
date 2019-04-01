@@ -1,0 +1,9 @@
+@import '@/css/variables.scss';
+
+$sf-mega-menu-background-color: $c-white !default;
+
+.sf-mega-menu {
+  background-color: $sf-mega-menu-background-color;
+  position: relative;
+  width: 100%;
+}
