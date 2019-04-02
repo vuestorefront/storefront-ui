@@ -4,6 +4,8 @@
 
 Component to list page numbers and start handling content pagination.
 
+![GitHub Logo](https://screenshotscdn.firefoxusercontent.com/images/6b8c6357-8464-43ba-8dd7-159044bf37bb.png)
+
 ## HTML Template
 
 <!-- Just paste HTML template. It's much better description than any other code -->
