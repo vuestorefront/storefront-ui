@@ -207,5 +207,6 @@ Component stories should contain at least those three stories:
 - filled props via knobs
 - filled slots via knobs
 - applied CSS modifiers via knobs
+- if there are some common use cases (liek applying icon to the button) they should also be listed as stories
 
 Please see [this](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.stories.js) stories for reference.
