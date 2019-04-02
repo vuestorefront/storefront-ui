@@ -6,48 +6,42 @@ Mobile-only bottom navigation menu with icon elements and floating Button.
 
 ```html
 <div class="sf-bottom-navigation">
-  <div class="sf-bottom-navigation__elements">
-    <router-link to="/">
-      </router-link><div class="sf-bottom-navigation__element" v-if="$slots.image">
-        <slot name="image">
-          <img src="../../../assets/home.svg" alt="nav-home" class="sf-bottom-navigation-element-img"/>
-        </slot>
+  <div class="sf-bottom-navigation__elements" v-for="icon in icons">
+    <slot name="icon" :image="icon">
+      <div
+        class="sf-bottom-navigation__element"
+        :class="{ active: isActive }"
+        @click="isActive = !isActive"
+        v-if="icon"
+      >
+        <img
+          :src="icon"
+          alt="nav-home"
+          class="sf-bottom-navigation-element-img"
+        />
       </div>
-    </router-link>
-    <router-link to="/">
-      </router-link><div class="sf-bottom-navigation__element" v-if="$slots.image">
-        <slot name="image">
-          <img src="../../../assets/search.svg" alt="nav-home" class="sf-bottom-navigation-element-img" />
-        </slot>
-      </div>
-    </router-link>
-    <router-link to="/">
-      </router-link><div class="sf-bottom-navigation__element" v-if="$slots.image">
-        <slot name="image">
-          <img src="../../../assets/heart.svg" alt="nav-wishlist" class="sf-bottom-navigation-element-img"/>
-        </slot>
-      </div>
-    </router-link>
-    <router-link to="/">
-      </router-link><div class="sf-bottom-navigation__element" v-if="$slots.image">
-        <slot name="image">
-          <img src="../../../assets/profile.svg" alt="nav-profile" class="sf-bottom-navigation-element-img"/>
-        </slot>
-      </div>
-    </router-link>
+    </slot>
   </div>
-  <!--Waiting for floating button styles-->
+
+  <!--Waiting for button styles-->
   <div class="sf-bottom-navigation__element">
-      <div class="sf-bottom-navigation-cart-button" >
-        <img src="../../../assets/cart.svg" alt="nav-cart" class="sf-bottom-navigation-element-img"/>
+    <slot name="button" :icon="icon">
+      <div class="sf-bottom-navigation-cart-button">
+        <img
+          :src="icon"
+          alt="nav-cart"
+          class="sf-bottom-navigation-element-img"
+        />
       </div>
+    </slot>
   </div>
+  <slot />
 </div>
 ```
 
 ## Slots
 
-- `image` - customizable image icon, intended for navigation menus
+- `icon` - customizable icon icon, intended for navigation menus
 
 ## SCSS variables
 

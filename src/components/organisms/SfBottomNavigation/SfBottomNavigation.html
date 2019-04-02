@@ -1,9 +1,9 @@
 <div class="sf-bottom-navigation">
-  <div class="sf-bottom-navigation__elements" v-for="image in images">
-    <slot name="image" :image="image">
-      <div class="sf-bottom-navigation__element" :class="{ active: isActive }" @click="isActive = !isActive" v-if="image">
+  <div class="sf-bottom-navigation__elements" v-for="icon in icons">
+    <slot name="icon" :image="icon">
+      <div class="sf-bottom-navigation__element" :class="{ active: isActive }" @click="isActive = !isActive" v-if="icon">
         <img
-          :src="image"
+          :src="icon"
           alt="nav-home"
           class="sf-bottom-navigation-element-img"
         />
@@ -13,10 +13,10 @@
 
   <!--Waiting for button styles-->
   <div class="sf-bottom-navigation__element">
-    <slot name="button" :image="image">
+    <slot name="button" :icon="icon">
       <div class="sf-bottom-navigation-cart-button">
         <img
-          :src="image"
+          :src="icon"
           alt="nav-cart"
           class="sf-bottom-navigation-element-img"
         />
