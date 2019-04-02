@@ -16,7 +16,7 @@ Below you can find rules that needs to be applied into every component from Stor
 - SfComponent.vue -> whole component using above partials. It should look like this:
 
 ```html
-<script src="./SfComponent.js></script>
+<script src="./SfComponent.js"></script>
 <template lang="html" src="./SfComponent.html" functional></template>
 <style lang="scss" src="./SfComponent.scss"></style>
 
