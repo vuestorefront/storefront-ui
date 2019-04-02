@@ -5,7 +5,7 @@ import SfBanner from "./SfBanner.vue";
 
 export default storiesOf("Banner", module)
   .addDecorator(withKnobs)
-  .add("Props filled", () => ({
+  .add("Props", () => ({
     components: { SfBanner },
     props: {
       title: {
@@ -38,7 +38,7 @@ export default storiesOf("Banner", module)
       />
     `
   }))
-  .add("Slots filled (custom markup)", () => ({
+  .add("Slots (custom markup)", () => ({
     components: { SfBanner },
     template: `
       <SfBanner
