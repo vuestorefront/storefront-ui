@@ -16,14 +16,7 @@ Below you can find rules that needs to be applied into every component from Stor
 - SfComponent.vue -> whole component using above partials. It should look like this:
 
 ```html
-<script>
-import instance from "./SfComponent.js";
-
-export default {
-  ...instance
-};
-</script>
-
+<script src="./SfComponent.js></script>
 <template lang="html" src="./SfComponent.html" functional></template>
 <style lang="scss" src="./SfComponent.scss"></style>
 
@@ -36,41 +29,13 @@ export default {
 
 ### Template
 
-1. We use slots and props for content composition. Props should be used to fill default slots content, and slots are meant for the markup with custom one.
+1. We use slots and props for content composition. Props should be used to fill default slots content, and slots are meant for markup replacement. In other words every default markup should be repalcable with slots. One slot is usually a single BEM element.
 2. Make slots optional if it's possible.
 3. Don't use props for setting colors and other properties that can be set by css (except for background images).
 4. If you are providing some components by default make sure that they are replacable and still customizable
 5. Provide a default slot (usually empty) just in case someone wants a fully custom component.
-Below you can see example of proper component HTML with all rules applied:
-```html
-<section class="sf-banner">
-  <div class="sf-banner__container">
-    <!-- Rule 1: We display subtitle prop content on default slot content. If someone is willing to replace markup then he/she can use slot -->
-    <slot name="subtitle" />
-      <h2 class="sf-banner__subtitle" v-if="subtitle">
-        {{ subtitle }}
-      </h2>
-    </slot>
-    <slot name="title">
-      <h1 class="sf-banner__title" v-if="title">
-        {{ title }}
-      </h1>
-    </slot>
-    <slot name="description">
-      <p class="sf-banner__description" v-if="description">
-        {{ description }}
-      </p>
-    </slot>
-    <slot name="call-to-action">
-      <SfButton class="sf-banner__button" v-if="buttonText">
-        {{ buttonText }}
-      </SfButton>
-    </slot>
-    <slot />
-  </div>
-</section>
 
-```
+[Here](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.html) you can see example of proper component HTML with all rules applied:
 
 ### Global CSS
 
