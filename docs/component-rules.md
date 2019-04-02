@@ -203,7 +203,9 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
 
 ### Stories for Storybook
 
-Component stories should contain:
-- filled props
-- filled slots
-- applied CSS modifiers
+Component stories should contain at least those three stories:
+- filled props via knobs
+- filled slots via knobs
+- applied CSS modifiers via knobs
+
+Please see [this](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.stories.js) stories for reference.
