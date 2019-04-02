@@ -1,46 +1,44 @@
 import { storiesOf } from "@storybook/vue";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 
 import SfBanner from "./SfBanner.vue";
-const slotConfig = {
-  titleSlot: "<b>Custom HTML</b>",
-  subtitleSlot: "<b>Custom HTML</b>",
-  descriptionSlot: "<b>Custom HTML</b>",
-  CTASlot: "<b>Custom HTML</b>"
-};
-
-const template = (className = "", slotConfig, bannerImage = "Banner1.png") => `
-<div style="display: flex;">
-  <SfBanner class="${className}" style="background-image: url('/img/${bannerImage}')">
-    <template slot="title">
-      ${slotConfig.titleSlot}
-    </template>
-    <template slot="subtitle">
-      ${slotConfig.subtitleSlot}
-    </template>
-    <template slot="description">
-      ${slotConfig.descriptionSlot}
-    </template>
-    <template slot="call-to-action">
-      ${slotConfig.CTASlot}
-    </template>
-  </SfBanner>
-</div>`;
 
 export default storiesOf("Banner", module)
-  .add("(props) all filled - default markup", () => ({
+  .addDecorator(withKnobs)
+  .add("Props filled", () => ({
     components: { SfBanner },
+    props: {
+      title: {
+        default: text("title (prop)", "Title prop")
+      },
+      subtitle: {
+        default: text("subtitle (prop)", "Subtitle prop")
+      },
+      description: {
+        default: text("description (prop)", "Descriptiom prop")
+      },
+      buttonText: {
+        default: text("buttonText (prop)", "Button text")
+      },
+      background: {
+        default: text("background (prop)", "#e1e3e2")
+      },
+      image: {
+        default: text("image (prop)", "/storybook/Banner1.png")
+      }
+    },
     template: `
       <SfBanner
-        title="Title prop"
-        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
-        subtitle="Subtitle prop"
-        button-text="Button Text"
-        background="#e1e3e2"
-        image="/storybook/Banner1.png"
+        :title="title"
+        :description="description"
+        :subtitle="subtitle"
+        :button-text="buttonText"
+        :background="background"
+        :image="image"
       />
     `
   }))
-  .add("(slots) all filled - custom markup", () => ({
+  .add("Slots filled (custom markup)", () => ({
     components: { SfBanner },
     template: `
       <SfBanner
@@ -67,7 +65,7 @@ export default storiesOf("Banner", module)
     `
   }))
   .add(
-    "(CSS) sf-banner--left",
+    "CSS Modifiers",
     () => ({
       components: { SfBanner },
       template: `
@@ -89,6 +87,16 @@ export default storiesOf("Banner", module)
     "(CSS) sf-banner--top",
     () => ({
       components: { SfBanner },
+      props: {
+        customClass: {
+          default: select(
+            "CSS Modifier",
+            ["null", "sf-banner--left", "sf-banner--top", "sf-banner--bottom"],
+            null,
+            "CSS-Modifiers"
+          )
+        }
+      },
       template: `
       <SfBanner
         title="Title prop"
@@ -96,26 +104,7 @@ export default storiesOf("Banner", module)
         subtitle="Subtitle prop"
         button-text="Button Text"
         background="#e1e3e2"
-        class="sf-banner--top"
-      />
-    `
-    }),
-    {
-      notes: `This CSS modifier is appliable only on mobile view`
-    }
-  )
-  .add(
-    "(CSS) sf-banner--bottom",
-    () => ({
-      components: { SfBanner },
-      template: `
-      <SfBanner
-        title="Title prop"
-        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
-        subtitle="Subtitle prop"
-        button-text="Button Text"
-        background="#e1e3e2"
-        class="sf-banner--bottom"
+        :class="customClass"
       />
     `
     }),
