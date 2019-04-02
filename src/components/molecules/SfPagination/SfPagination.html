@@ -5,7 +5,7 @@
         aria-label="Go to previous page"
         :disabled="currentPage < 2"
         @click="setCurrentPage(currentPage - 1)">
-        <slot name="previous">
+        <slot name="prev">
           <img src="../../../assets/chevron_left.svg" alt="Go to previous page" class="sf-pagination__icon"/>
         </slot>
       </a>
