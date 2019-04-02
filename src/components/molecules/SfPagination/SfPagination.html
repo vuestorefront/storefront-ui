@@ -1,3 +1,67 @@
-<div class="sf-pagination">
-  <slot></slot>
-</div>
+<nav class="sf-pagination">
+  <ul class="sf-pagination__list">
+    <li class="sf-pagination__item">
+      <button
+        icon="arrow-left"
+        class="sf-pagination__link sf-pagination__link--prev"
+        aria-label="Go to previous page"
+        :disabled="currentPage < 2"
+        @click="setCurrentPage(currentPage - 1)"
+      />
+    </li>
+
+    <template v-if="showFirst">
+      <li class="sf-pagination__item">
+        <a-button
+          class="sf-pagination__link"
+          @click="setCurrentPage(1)"
+        >
+          1
+         </a-button>
+      </li>
+      <li class="sf-pagination__item">
+        ...
+      </li>
+    </template>
+
+    <li
+      v-for="number in limitedPageNumbers"
+      :key="number"
+      :class="[
+        'sf-pagination__item',
+        { 'sf-pagination__item--current': currentPage === number }
+      ]"
+    >
+      <a-button
+        class="sf-pagination__link"
+        @click="setCurrentPage(number)"
+      >
+        {{ number }}
+       </a-button>
+    </li>
+
+    <template v-if="showLast">
+      <li class="sf-pagination__item">
+        ...
+      </li>
+      <li class="sf-pagination__item">
+        <a-button
+          class="sf-pagination__link"
+          @click="setCurrentPage(numberOfPages)"
+        >
+          {{ numberOfPages }}
+         </a-button>
+      </li>
+    </template>
+
+    <li class="sf-pagination__item">
+      <button
+        icon="arrow-right"
+        class="sf-pagination__link sf-pagination__link--next"
+        aria-label="Go to next page"
+        :disabled="currentPage > numberOfPages - 1"
+        @click="setCurrentPage(currentPage + 1)"
+      />
+    </li>
+  </ul>
+</nav>

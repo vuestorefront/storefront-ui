@@ -8,6 +8,10 @@ export default storiesOf("Pagination", module)
   .add("pagination", () => ({
     components: { SfPagination },
     template: `
-    <sf-pagination>1</sf-pagination>`,
+    <sf-pagination
+      :page="2"
+      :limit="10"
+      :totalSize="50"
+    />`,
     methods: {}
   }));

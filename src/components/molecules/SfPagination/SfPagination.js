@@ -1,8 +1,1 @@
-import Pager from "@snowdog/alpaca-components/dist/Pager.vue";
-
-export default {
-  components: {
-    Pager
-  },
-  name: "SfPagination"
-};
+export {default as Alpaca} from "@snowdog/alpaca-components/dist/Pager.js";
