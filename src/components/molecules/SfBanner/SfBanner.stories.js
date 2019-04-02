@@ -72,7 +72,13 @@ export default storiesOf("Banner", module)
         customClass: {
           default: select(
             "CSS Modifier",
-            ["null", "sf-banner--left", "sf-banner--top", "sf-banner--bottom"],
+            [
+              "null",
+              "sf-banner--left",
+              "sf-banner--top",
+              "sf-banner--bottom",
+              "sf-banner--secondary"
+            ],
             null,
             "CSS-Modifiers"
           )

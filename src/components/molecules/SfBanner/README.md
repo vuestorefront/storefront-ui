@@ -96,6 +96,7 @@ Banner with Title, Subtitle and call to action button
 - `.sf-banner--top` - aligns content to top (visible on mobile) 
 - `.sf-banner--bottom` - aligns content to bottom (visible on mobile) 
 - `.sf-banner--left` -  aligns content to left 
+- `.sf-banner--secondary` - changes button color to accent
 
 <!-- Write down available CSS Modifiers -->
 
