@@ -27,27 +27,99 @@ const template = (className = "", slotConfig, bannerImage = "Banner1.png") => `
 </div>`;
 
 export default storiesOf("Banner", module)
-  .add("default banner", () => ({
+  .add("(props) all filled - default markup", () => ({
     components: { SfBanner },
-    template: template("", slotConfig)
+    template: `
+      <SfBanner
+        title="Title prop"
+        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
+        subtitle="Subtitle prop"
+        button-text="Button Text"
+        background="#e1e3e2"
+        image="/storybook/Banner1.png"
+      />
+    `
   }))
-  .add("with modifier: top (mobile)", () => ({
+  .add("(slots) all filled - custom markup", () => ({
     components: { SfBanner },
-    template: template("sf-banner--top", slotConfig)
+    template: `
+      <SfBanner
+        title="Title prop"
+        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
+        subtitle="Subtitle prop"
+        button-text="Button Text"
+        background="#e1e3e2"
+        image="/storybook/Banner1.png"
+      >
+        <template #title="{ title }">
+          <h1> {{ title }} </h1>
+        </template>
+        <template #subtitle="{ subtitle }">
+          <b> {{ subtitle }} </b>
+        </template>
+        <template #description="{ description }">
+          <b> {{ description }} </b>
+        </template>
+        <template #call-to-action>
+          <button>Custom CTA</button>
+        </template>
+      </SfBanner>
+    `
   }))
-  .add("with modifier: bottom (mobile)", () => ({
-    components: { SfBanner },
-    template: template("sf-banner--bottom", slotConfig)
-  }))
-  .add("with modifier: left", () => ({
-    components: { SfBanner },
-    template: template("sf-banner--left", slotConfig, "Banner2.png")
-  }))
-  .add("with modifier: right", () => ({
-    components: { SfBanner },
-    template: template("sf-banner--right", slotConfig)
-  }))
-  .add("with slots", () => ({
-    components: { SfBanner },
-    template: template("", slotConfig)
-  }));
+  .add(
+    "(CSS) sf-banner--left",
+    () => ({
+      components: { SfBanner },
+      template: `
+      <SfBanner
+        title="Title prop"
+        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
+        subtitle="Subtitle prop"
+        button-text="Button Text"
+        background="#e1e3e2"
+        class="sf-banner--left"
+      />
+    `
+    }),
+    {
+      notes: `This CSS modifier is appliable only on desktop view`
+    }
+  )
+  .add(
+    "(CSS) sf-banner--top",
+    () => ({
+      components: { SfBanner },
+      template: `
+      <SfBanner
+        title="Title prop"
+        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
+        subtitle="Subtitle prop"
+        button-text="Button Text"
+        background="#e1e3e2"
+        class="sf-banner--top"
+      />
+    `
+    }),
+    {
+      notes: `This CSS modifier is appliable only on mobile view`
+    }
+  )
+  .add(
+    "(CSS) sf-banner--bottom",
+    () => ({
+      components: { SfBanner },
+      template: `
+      <SfBanner
+        title="Title prop"
+        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
+        subtitle="Subtitle prop"
+        button-text="Button Text"
+        background="#e1e3e2"
+        class="sf-banner--bottom"
+      />
+    `
+    }),
+    {
+      notes: `This CSS modifier is appliable only on mobile view`
+    }
+  );

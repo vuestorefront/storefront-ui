@@ -1,13 +1,32 @@
 import SfButton from "@/components/atoms/SfButton/SfButton.vue";
-import { string } from "postcss-selector-parser";
 
 export default {
   name: "SfBanner",
   props: {
-    title: String,
-    subtitle: String,
-    description: String,
-    buttonText: String
+    title: {
+      type: String,
+      default: ""
+    },
+    subtitle: {
+      type: String,
+      default: ""
+    },
+    description: {
+      type: String,
+      default: ""
+    },
+    buttonText: {
+      type: String,
+      default: ""
+    },
+    background: {
+      type: String,
+      default: ""
+    },
+    image: {
+      tyoe: String,
+      default: ""
+    }
   },
   components: {
     SfButton
