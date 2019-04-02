@@ -27,40 +27,36 @@ describe("SfAlert.vue", () => {
   });
 
   it("renders an alert icon when passed via props", () => {
-    const icon = "/assets/img.jpg"
     const component = shallowMount(SfAlert, {
       propsData: {
-        icon
+        icon:  "/assets/img.jpg"
       }
     });
     expect(component.contains(".sf-alert__icon")).toBe(true);
   });
 
   it("renders an alert without icon when false prop passed", () => {
-    const icon = false
     const component = shallowMount(SfAlert, {
       propsData: {
-        icon
+        icon: false
       }
     });
     expect(component.contains(".sf-alert__icon")).toBe(false);
   });
 
   it("renders an alert icon when passed via slot", () => {
-    const icon = "<img class='slotImg' src='/assets/img.jpg' />"
     const component = shallowMount(SfAlert, {
       slots: {
-        icon
+        icon: "<img class='slotImg' src='/assets/img.jpg' />"
       }
     });
     expect(component.contains(".slotImg")).toBe(true);
   });
 
   it("renders an alert message when passed via slot", () => {
-    const message = "<p class='slotMessage'>text</p>"
     const component = shallowMount(SfAlert, {
       slots: {
-        message
+        message: "<p class='slotMessage'>text</p>"
       }
     });
     expect(component.contains(".slotMessage")).toBe(true);
