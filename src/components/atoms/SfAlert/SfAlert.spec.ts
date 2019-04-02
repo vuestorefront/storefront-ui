@@ -7,7 +7,7 @@ describe("SfAlert.vue", () => {
     expect(component.contains(".sf-alert")).toBe(true);
   });
 
-  it("renders an alert with css modifier", () => {
+  it("renders an alert with css modifier applied via type prop", () => {
     const component = shallowMount(SfAlert, {
      propsData: {
        type: 'warning'
