@@ -1,5 +1,10 @@
+import SfSvgAlert from "../../../../public/assets/alert-default.svg?inline";
+
 export default {
   name: "SfAlert",
+  components: {
+    SfSvgAlert
+  },
   props: {
     message: String,
     icon: {
@@ -8,13 +13,6 @@ export default {
     type: {
       type: String,
       default: "alert"
-    }
-  },
-  computed: {
-    iconSrc() {
-      return typeof this.icon === "string"
-        ? this.icon
-        : `/assets/alert-${this.type}.svg`;
     }
   }
 };
