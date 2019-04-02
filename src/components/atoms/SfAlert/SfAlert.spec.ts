@@ -9,11 +9,11 @@ describe("SfAlert.vue", () => {
 
   it("renders an alert with css modifier", () => {
     const component = shallowMount(SfAlert, {
-      attrs: {
-        class: "sf-alert--warning"
-      }
+     propsData: {
+       type: 'warning'
+     }
     });
-    expect(component.contains(".sf-alert__text")).toBe(false);
+    expect(component.contains(".sf-alert--warning")).toBe(true);
   });
 
   it("renders an alert message when passed via props", () => {
