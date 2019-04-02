@@ -68,25 +68,6 @@ export default storiesOf("Banner", module)
     "CSS Modifiers",
     () => ({
       components: { SfBanner },
-      template: `
-      <SfBanner
-        title="Title prop"
-        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
-        subtitle="Subtitle prop"
-        button-text="Button Text"
-        background="#e1e3e2"
-        class="sf-banner--left"
-      />
-    `
-    }),
-    {
-      notes: `This CSS modifier is appliable only on desktop view`
-    }
-  )
-  .add(
-    "(CSS) sf-banner--top",
-    () => ({
-      components: { SfBanner },
       props: {
         customClass: {
           default: select(
