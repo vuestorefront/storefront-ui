@@ -7,80 +7,62 @@ describe("SfAlert.vue", () => {
     expect(component.contains(".sf-alert")).toBe(true);
   });
 
-  it("renders an warning alert", () => {
+  it("renders an alert with css modifier", () => {
     const component = shallowMount(SfAlert, {
       attrs: {
         class: "sf-alert--warning"
-      },
-      slots: {
-        default: '<p class="slotWarning">warning</p>'
       }
     });
-    expect(component.contains(".slotWarning")).toBe(true);
     expect(component.contains(".sf-alert__text")).toBe(false);
   });
 
-  it("renders an alert with custom icon", () => {
-    const msg = "Hello World"
+  it("renders an alert message when passed via props", () => {
+    const message = "Hello World"
     const component = shallowMount(SfAlert, {
-      attrs: {
-        class: "sf-alert--alert"
-      },
-      slots: {
-        default: msg,
-        icon: "<img class='defaultIcon' src='/assets/alert-warning.svg' alt='icon'/>"
+      propsData: {
+        message
       }
     });
-    expect(component.contains(".sf-alert--alert")).toBe(true);
-    expect(component.contains(".defaultIcon")).toBe(true);
+    expect(component.find(".sf-alert__text").text()).toMatch(message);
+  });
+
+  it("renders an alert icon when passed via props", () => {
+    const icon = "/assets/img.jpg"
+    const component = shallowMount(SfAlert, {
+      propsData: {
+        icon
+      }
+    });
+    expect(component.contains(".sf-alert__icon")).toBe(true);
+  });
+
+  it("renders an alert without icon when false prop passed", () => {
+    const icon = false
+    const component = shallowMount(SfAlert, {
+      propsData: {
+        icon
+      }
+    });
     expect(component.contains(".sf-alert__icon")).toBe(false);
   });
 
-  it("renders an alert with default message via props", () => {
-    const msg = "Hello World"
+  it("renders an alert icon when passed via slot", () => {
+    const icon = "<img class='slotImg' src='/assets/img.jpg' />"
     const component = shallowMount(SfAlert, {
-      attrs: {
-        class: "sf-alert--info"
-      },
-      propsData: {
-        message: msg
-      }
-    });
-    expect(component.contains(".sf-alert--info")).toBe(true);
-    expect(component.find(".sf-alert__text").text()).toMatch(msg);
-  });
-
-  it("renders an alert with default message via slot", () => {
-    const component = shallowMount(SfAlert, {
-      attrs: {
-        class: "sf-alert--info"
-      },
       slots: {
-        message: "<p class='iconSlot'>iconSlot</p>"
+        icon
       }
     });
-    expect(component.contains(".sf-alert--info")).toBe(true);
-    expect(component.find(".iconSlot").text()).toMatch("iconSlot");
+    expect(component.contains(".slotImg")).toBe(true);
   });
 
-  it("renders an alert without icon with message via props", () => {
+  it("renders an alert message when passed via slot", () => {
+    const message = "<p class='slotMessage'>text</p>"
     const component = shallowMount(SfAlert, {
-      attrs: {
-        class: "sf-alert--info"
-      },
-      propsData: {
-        icon: false,
-        message: "without icon"
+      slots: {
+        message
       }
     });
-    expect(component.contains(".sf-alert--info")).toBe(true);
-    expect(component.contains(".sf-alert__icon")).toBe(false);
-    expect(component.find(".sf-alert__text").text()).toMatch("without icon");
-  });
-
-  // Default slot check, you can replace `default` with any other
-  it("renders default prop text when passed", () => {
-    const component = shallowMount(SfAlert);
-    expect(component).toBeDefined();
+    expect(component.contains(".slotMessage")).toBe(true);
   });
 });
