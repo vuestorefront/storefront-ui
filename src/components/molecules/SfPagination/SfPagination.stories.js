@@ -5,8 +5,8 @@ import { linkTo } from "@storybook/addon-links";
 import SfPagination from "./SfPagination.vue";
 
 const pagination = {
-  page: 2,
-  limit: 10,
+  currentPage: 2,
+  pageSize: 10,
   totalSize: 120
 };
 
@@ -15,7 +15,7 @@ const vm = {
   data: () => pagination,
   methods: {
     setCurrentPage(page) {
-      this.page = page;
+      this.currentPage = page;
     }
   }
 };
@@ -24,18 +24,18 @@ export default storiesOf("Pagination", module)
   .add("default", () => ({
     ...vm,
     template: `
-    <sf-pagination @update:page="(page) => { setCurrentPage(page) }"
-      :page="page"
-      :limit="limit"
-      :totalSize="totalSize"/>`
+    <sf-pagination @current-change="(page) => { setCurrentPage(page) }"
+      :current-page="currentPage"
+      :page-size="pageSize"
+      :total-size="totalSize"/>`
   }))
   .add("text for next and prev", () => ({
     ...vm,
     template: `
-    <sf-pagination @update:page="(page) => { setCurrentPage(page) }"
-      :page="page"
-      :limit="limit"
-      :totalSize="totalSize">
+    <sf-pagination @current-change="(page) => { setCurrentPage(page) }"
+      :current-page="currentPage"
+      :page-size="pageSize"
+      :total-size="totalSize">
       <template slot="prev">prev</template>
       <template slot="next">next</template>
     </sf-pagination>`

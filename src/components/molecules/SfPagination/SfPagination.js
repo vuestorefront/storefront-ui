@@ -1,16 +1,16 @@
 export default {
   props: {
-    page: {
+    currentPage: {
       type: Number,
       required: true
+    },
+    pageSize: {
+      type: Number,
+      default: 5
     },
     totalSize: {
       type: Number,
       required: true
-    },
-    limit: {
-      type: Number,
-      default: 5
     }
   },
 
@@ -18,17 +18,17 @@ export default {
     return {
       showFirst: false,
       showLast: false,
-      limitPerPage: this.limit || 5
+      limitPerPage: this.pageSize || 5
     }
   },
 
   computed: {
-    currentPage: {
+    pageNumber: {
       get () {
-        return this.page
+        return this.currentPage
       },
       set (value) {
-        this.$emit('update:page', value)
+        this.$emit('current-change', value)
       }
     },
     numberOfPages () {
@@ -51,7 +51,7 @@ export default {
         return this.listOfPageNumbers
       }
 
-      if (this.page < this.limitPerPage - Math.floor(this.limitPerPage / 2) + 1) {
+      if (this.currentPage < this.limitPerPage - Math.floor(this.limitPerPage / 2) + 1) {
         this.showFirst = false
         this.showLast = true
 
@@ -61,7 +61,7 @@ export default {
         )
       }
 
-      if (this.numberOfPages - this.page < this.limitPerPage - Math.floor(this.limitPerPage / 2) + 1) {
+      if (this.numberOfPages - this.currentPage < this.limitPerPage - Math.floor(this.limitPerPage / 2) + 1) {
         this.showFirst = true
         this.showLast = false
 
@@ -74,13 +74,13 @@ export default {
       this.showLast = true
 
       return this.listOfPageNumbers.slice(
-        this.currentPage - Math.floor(this.limitPerPage / 2) - 1,
-        this.currentPage + Math.floor(this.limitPerPage / 2)
+        this.pageNumber - Math.floor(this.limitPerPage / 2) - 1,
+        this.pageNumber + Math.floor(this.limitPerPage / 2)
       )
     },
 
     setCurrentPage (value) {
-      this.currentPage = value
+      this.pageNumber = value
     }
   }
 }
