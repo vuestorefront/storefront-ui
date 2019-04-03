@@ -1,71 +1,58 @@
 import { storiesOf } from "@storybook/vue";
-
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 import SfAlert from "./SfAlert.vue";
 
 storiesOf("Alert", module)
-  .add("warning", () => ({
+  .addDecorator(withKnobs)
+  .add("Props", () => ({
     components: { SfAlert },
+    props: {
+      message: {
+        default: text("message (prop)", "Message prop")
+      },
+      icon: {
+        default: select("icon (prop)", [
+          true,
+          false,
+          "/assets/profile.svg",
+          "https://img.icons8.com/material/4ac144/256/camera.png"
+        ])
+      },
+      type: {
+        default: select("type (prop)", ["alert", "warning", "info"])
+      }
+    },
     template: `
-    <SfAlert type="warning" message="message"></SfAlert>`
+      <SfAlert
+        :message="message"
+        :icon="icon"
+        :type="type">
+      </SfAlert>
+    `
   }))
-  .add("alert", () => ({
+  .add("Slots", () => ({
     components: { SfAlert },
+    props: {
+      message: {
+        default: text("message (slot)", "slot message")
+      },
+      icon: {
+        default: text(
+          "icon (slot)",
+          "https://img.icons8.com/material/4ac144/256/camera.png"
+        )
+      }
+    },
     template: `
-  <SfAlert type="alert" message="alert">
-  </SfAlert>`
-  }))
-  .add("info", () => ({
-    components: { SfAlert },
-    template: `
-  <SfAlert type="info" message="info">
-  </SfAlert>`
-  }))
-  .add("with message prop and slot-scope used", () => ({
-    components: { SfAlert },
-    template: `
-  <SfAlert
-      type="warning"
-      message="Lorem ipsum dolor, sit amet consectetur adipisicing">
-      <template slot="message" slot-scope="{ message }">
-        {{ message }}
-      </template>
-    </SfAlert>`
-  }))
-  .add("with message prop", () => ({
-    components: { SfAlert },
-    template: `
-    <SfAlert type="warning" message="Lorem ipsum dolor, sit amet consectetur adipisicing">
-    </SfAlert>`
-  }))
-  .add("with message prop and icon slot and 0 padding", () => ({
-    components: { SfAlert },
-    template: `
-    <SfAlert
-      type="warning"
-      message="Lorem ipsum dolor, sit amet consectetur adipisicing"
-      style="padding: 0"
-    >
-      <img slot="icon" src="/assets/alert-warning.svg"  />
-    </SfAlert>`
-  }))
-  .add("with message prop and icon hidden", () => ({
-    components: { SfAlert },
-    template: `
-    <SfAlert
-    :icon="false"
-    type="warning"
-    message="Lorem ipsum dolor, sit amet consectetur adipisicing"
-  >
-  </SfAlert>`
-  }))
-  .add("with message prop and icon from link as slot", () => ({
-    components: { SfAlert },
-    template: `
-    <SfAlert
-      type="warning"
-      message="Lorem ipsum dolor, sit amet consectetur adipisicing"
-      icon="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg"
-    >
-      <img slot-scope="{ icon }" :src="icon"  slot="icon" />
-    </SfAlert>`
+      <SfAlert 
+        :message="message" 
+        :icon="icon">
+        <template slot="icon" :icon="icon">
+          <img slot-scope="{ icon }" :src="icon" />
+        </template>
+        <template slot="message">
+          <h1>{{ message }}</h1>
+        </template>
+      </SfAlert>
+    `
   }));
