@@ -1,13 +1,13 @@
 import { shallowMount } from "@vue/test-utils";
-import SfLabel from "@/components/atoms/SfLabel/SfLabel.vue";
+import SfLabel from "./SfLabel.vue";
 
-describe("SfButton.vue", () => {
-  it("renders a label as a default tag", () => {
+describe("SfLabel.vue", () => {
+  it("renders a label", () => {
     const component = shallowMount(SfLabel);
-    expect(component.contains("label")).toBe(true);
+    expect(component.contains(".sf-label")).toBe(true);
   });
 
-  it("renders default slot when passed", () => {
+  it("renders default text slot when passed", () => {
     const msg = "HelloWorld";
     const component = shallowMount(SfLabel, {
       slots: {
@@ -15,15 +15,5 @@ describe("SfButton.vue", () => {
       }
     });
     expect(component.find(".sf-label").text()).toMatch(msg);
-  });
-
-  it("renders props tag when passed", () => {
-    const tag = "div";
-    const component = shallowMount(SfLabel, {
-      propsData: {
-        tag
-      }
-    });
-    expect(component.contains(tag)).toBe(true);
   });
 });
