@@ -1,8 +1,7 @@
 export default {
   props: {
     currentPage: {
-      type: Number,
-      required: true
+      type: Number
     },
     pageSize: {
       type: Number,
@@ -23,9 +22,9 @@ export default {
   },
 
   computed: {
-    pageNumber: {
+    page: {
       get () {
-        return this.currentPage
+        return this.currentPage || 1
       },
       set (value) {
         this.$emit('current-change', value)
@@ -74,13 +73,13 @@ export default {
       this.showLast = true
 
       return this.listOfPageNumbers.slice(
-        this.pageNumber - Math.floor(this.limitPerPage / 2) - 1,
-        this.pageNumber + Math.floor(this.limitPerPage / 2)
+        this.page - Math.floor(this.limitPerPage / 2) - 1,
+        this.page + Math.floor(this.limitPerPage / 2)
       )
     },
 
     setCurrentPage (value) {
-      this.pageNumber = value
+      this.page = value
     }
   }
 }
