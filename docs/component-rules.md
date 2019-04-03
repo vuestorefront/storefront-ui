@@ -16,14 +16,7 @@ Below you can find rules that needs to be applied into every component from Stor
 - SfComponent.vue -> whole component using above partials. It should look like this:
 
 ```html
-<script>
-import instance from "./SfComponent.js";
-
-export default {
-  ...instance
-};
-</script>
-
+<script src="./SfComponent.js"></script>
 <template lang="html" src="./SfComponent.html" functional></template>
 <style lang="scss" src="./SfComponent.scss"></style>
 
@@ -36,41 +29,13 @@ export default {
 
 ### Template
 
-1. We use slots and props for content composition. Props should be used to fill default slots content, and slots are meant for the markup with custom one.
+1. We use slots and props for content composition. Props should be used to fill default slots content, and slots are meant for markup replacement. In other words every default markup should be repalcable with slots. One slot is usually a single BEM element.
 2. Make slots optional if it's possible.
 3. Don't use props for setting colors and other properties that can be set by css (except for background images).
 4. If you are providing some components by default make sure that they are replacable and still customizable
 5. Provide a default slot (usually empty) just in case someone wants a fully custom component.
-Below you can see example of proper component HTML with all rules applied:
-```html
-<section class="sf-banner">
-  <div class="sf-banner__container">
-    <!-- Rule 1: We display subtitle prop content on default slot content. If someone is willing to replace markup then he/she can use slot -->
-    <slot name="subtitle" />
-      <h2 class="sf-banner__subtitle" v-if="subtitle">
-        {{ subtitle }}
-      </h2>
-    </slot>
-    <slot name="title">
-      <h1 class="sf-banner__title" v-if="title">
-        {{ title }}
-      </h1>
-    </slot>
-    <slot name="description">
-      <p class="sf-banner__description" v-if="description">
-        {{ description }}
-      </p>
-    </slot>
-    <slot name="call-to-action">
-      <SfButton class="sf-banner__button" v-if="buttonText">
-        {{ buttonText }}
-      </SfButton>
-    </slot>
-    <slot />
-  </div>
-</section>
 
-```
+[Here](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.html) you can see example of proper component HTML with all rules applied:
 
 ### Global CSS
 
@@ -88,112 +53,7 @@ Below you can see example of proper component HTML with all rules applied:
 8. Provide CSS modifiers for most common modifications.
 9. Don't use any outer positioning for components (like outer margins). The way they're positioned in layout should be determined in outer env.
 
-Below we can see an example of properly styled component with all rules applied:
-```sss
-// rule 1 - variables import at the top so we can use them now to set some properties
-@import '../../../css/variables';
-
-// rule 6 and 7 - Create SCSS variables for safe to customiza properties and use BEM-like naming convention to match CSS classes
-$banner-padding: 4.25rem !default;
-$banner-background-size: cover !default;
-$banner-background-position: bottom left !default;
-$banner-align-items: flex-end !default;
-
-$banner__subtitle-font-family: $body-font-family-primary !default;
-$banner__subtitle-font-size: 1.5rem !default;
-$banner__subtitle-font-weight: 300 !default;
-// rule 5 - try to make use of global variables (for colors etc) if possible to avoid repetition
-$banner__subtitle-color: $c-dark-secondary !default; 
-$banner__subtitle-text-transform: none !default;
-
-$banner__title-text-transform: uppercase !default;
-$banner__title-font-weight: 300  !default;
-$banner__title-font-size: 3rem !default;
-$banner__title-font-family: $body-font-family-secondary !default;
-$banner__title-color: $c-dark-primary !default;
-
-$banner__description-font-family: $body-font-family-secondary !default;
-$banner__description-font-size: 1.125rem !default;
-$banner__description-color: $c-dark-primary !default;
-
-$banner__call-to-action-font-size: 0.875rem !default;
-$banner__call-to-action-background-color: $c-dark-primary !default;
-
-// rule 3 - Use BEM naming methodology
-.sf-banner {
-  display: flex;
-  flex-direction: column;
-  padding: $banner-padding;
-  background-size: $banner-background-size;
-  background-position: $banner-background-position;
-  text-align: left;
-  align-items: $banner-align-items;
-  background-image: url(../../../assets/img/Banner1.png);
-  min-height: 20rem;
-  // rule 2 - Write mobile-first classess and add desktop ones inside media querys as an addition. Usually desktop is extended version of mobile so it makes a perfect sense here.
-  @media ( min-width: $desktop-min ) {
-    min-height: initial;
-  }
-  &__container {
-    width: 100%;
-    // rule 2
-    @media ( min-width: $desktop-min ) {
-      width: 50%;
-    }
-  }
-  &__subtitle {
-    margin-bottom: $spacing-small;
-    font-family: $banner__subtitle-font-family;
-    font-size: $banner__subtitle-font-size;
-    font-weight: $banner__subtitle-font-weight;
-    text-transform: none;
-    color: $banner__subtitle-color;
-    margin-top: 0;
-    padding-bottom: 0.3rem;
-  }
-  &__title {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-bottom: 1rem;
-    text-transform: $banner__title-text-transform;
-    font-weight: $banner__title-font-weight;
-    font-size: $banner__title-font-size;
-    font-family: $banner__title-font-family;
-    color: $banner__title-color;
-  }
-  &__description {
-    padding-bottom: 0.6rem;
-    font-family: $banner__description-font-family;
-    font-size: $banner__description-font-size;
-    color: $banner__description-color;
-    display: none;
-    @media ( min-width: $desktop-min ) {
-      display: flex;
-    }
-  }
-  &__button {
-    font-size: $banner__call-to-action-font-size;
-    background-color: $banner__call-to-action-background-color;
-    display: none;
-    @media ( min-width: $desktop-min) {
-      display: flex;
-    }
-  }
-  // rule 8 - Add most common modifiers as BEM CSS modifiers
-  &--top {
-    align-content: flex-start;
-  }
-  &--bottom {
-    align-content: flex-end;
-  }
-  &--left {
-    align-items: flex-start;
-  }
-  &--right {
-    align-items: flex-end;
-  }
-}
-```
+[Here](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.scss) you can find an example of properly styled component with all rules applied:
 
 ### Unit tests
 
@@ -203,7 +63,10 @@ $banner__call-to-action-background-color: $c-dark-primary !default;
 
 ### Stories for Storybook
 
-Component stories should contain:
-- filled props
-- filled slots
-- applied CSS modifiers
+Component stories should contain at least those three stories:
+- filled props via knobs
+- filled slots via knobs
+- applied CSS modifiers via knobs
+- if there are some common use cases (liek applying icon to the button) they should also be listed as stories
+
+Please see [this](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.stories.js) stories for reference.
