@@ -91,6 +91,8 @@ Component to list page numbers and start handling content pagination.
 
 - `next` - Next page link, contains chevron right icon by default.
 
+- `current` - Current page item, contains the current page number by default.
+
 ## Emitted events
 
 - `current-change` - Emitted when an pagination link is clicked and
