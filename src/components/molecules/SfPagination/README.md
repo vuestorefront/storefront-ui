@@ -77,11 +77,11 @@ Component to list page numbers and start handling content pagination.
 
 <!--Write down props and their purpose -->
 
-- `page` **required** - Current page integer number, starting from 1.
+- `current-page` (1) - Current page integer number, starting from 1.
 
-- `totalSize` **required** - Number of total paginated elements (items).
+- `total-size` **required** - Number of total paginated elements (items).
 
-- `limit` (5) - Maximum number of elements (items) per page, default is 5.
+- `page-size` (5) - Maximum number of elements (items) per page, default is 5.
 
 ## Slots
 
@@ -93,7 +93,7 @@ Component to list page numbers and start handling content pagination.
 
 ## Emitted events
 
-- `update:page` - Emitted when an pagination link is clicked and
+- `current-change` - Emitted when an pagination link is clicked and
 page should be changed, must be listened to update the content and
 then update the current page number.
 

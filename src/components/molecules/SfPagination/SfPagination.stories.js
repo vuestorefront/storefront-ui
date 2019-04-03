@@ -39,4 +39,14 @@ export default storiesOf("Pagination", module)
       <template slot="prev">prev</template>
       <template slot="next">next</template>
     </sf-pagination>`
+  }))
+  .add("icon for current page", () => ({
+    ...vm,
+    template: `
+    <sf-pagination @current-change="(page) => { setCurrentPage(page) }"
+      :current-page="currentPage"
+      :page-size="pageSize"
+      :total-size="totalSize">
+      <img src="more.svg" alt="more" slot="current"/>
+    </sf-pagination>`
   }));

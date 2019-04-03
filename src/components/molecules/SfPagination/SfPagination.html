@@ -30,9 +30,12 @@
       ]">
       <a
         class="sf-pagination__link"
-        @click="setCurrentPage(number)">
+        @click="setCurrentPage(number)" v-if="currentPage !== number">
         {{ number }}
       </a>
+      <slot name="current" v-else>
+        {{ number }}
+      </slot>
     </li>
 
     <template v-if="showLast">

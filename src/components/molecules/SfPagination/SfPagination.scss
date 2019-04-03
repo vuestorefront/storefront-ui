@@ -35,6 +35,8 @@ $pagination__link--next-margin: $pagination__link--prev-margin !default;
     margin: $pagination__item-margin;
     padding: 0;
     color: $pagination__item-color;
+    align-items: center;
+    justify-content: center;
 
     &:first-child {
       margin-left: 0;
