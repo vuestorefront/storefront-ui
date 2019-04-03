@@ -24,11 +24,11 @@
   }
   &-enter,
   &-leave-to {
-    @if $direction == "top" {
+    @if $direction == "bottom" {
       transform: translateY($transition-slide-transform-size);
-    } @elseif $direction == "bottom" {
+    } @elseif $direction == "top" {
       transform: translateY(-$transition-slide-transform-size);
-    } @elseif $direction == "right" {
+    } @elseif $direction == "left" {
       transform: translateX(-$transition-slide-transform-size);
     } @else {
       transform: translateX($transition-slide-transform-size);

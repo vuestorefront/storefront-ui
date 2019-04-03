@@ -25,9 +25,9 @@ export default storiesOf("Transitions", module)
     template: `
     <div>
       <sf-button v-on:click="show = !show">
-        Slide
+        Slide left
       </sf-button>
-      <transition name="slide">
+      <transition name="slide(left)">
         <p v-if="show">hello</p>
       </transition>
     </div>`,
@@ -40,24 +40,9 @@ export default storiesOf("Transitions", module)
     template: `
     <div>
       <sf-button v-on:click="show = !show">
-        Slide inverse
+        Slide right
       </sf-button>
-      <transition name="slide-inverse">
-        <p v-if="show">hello</p>
-      </transition>
-    </div>`,
-    data: () => ({
-      show: true
-    })
-  }))
-  .add("collapse bottom", () => ({
-    components: { SfButton },
-    template: `
-    <div>
-      <sf-button v-on:click="show = !show">
-        Collapse
-      </sf-button>
-      <transition name="collapse">
+      <transition name="slide(right)">
         <p v-if="show">hello</p>
       </transition>
     </div>`,
@@ -70,9 +55,24 @@ export default storiesOf("Transitions", module)
     template: `
     <div>
       <sf-button v-on:click="show = !show">
-        Collapse inverse
+        Collapse top
       </sf-button>
-      <transition name="collapse-inverse">
+      <transition name="collapse(top)">
+        <p v-if="show">hello</p>
+      </transition>
+    </div>`,
+    data: () => ({
+      show: true
+    })
+  }))
+  .add("collapse bottom", () => ({
+    components: { SfButton },
+    template: `
+    <div>
+      <sf-button v-on:click="show = !show">
+        Collapse bottom
+      </sf-button>
+      <transition name="collapse(bottom)">
         <p v-if="show">hello</p>
       </transition>
     </div>`,

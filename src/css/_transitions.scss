@@ -1,16 +1,16 @@
 .fade {
   @include transition-fade();
 }
-.slide {
-  @include transition-slide();
+.slide\(left\) {
+  @include transition-slide("left");
 }
-.slide-inverse {
+.slide\(right\) {
   @include transition-slide("right");
 }
-.collapse {
+.collapse\(bottom\) {
   @include transition-slide("bottom");
 }
-.collapse-inverse {
+.collapse\(top\) {
   @include transition-slide("top");
 }
 .fade-slide {
