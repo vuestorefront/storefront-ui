@@ -30,29 +30,37 @@ storiesOf("Alert", module)
       </SfAlert>
     `
   }))
-  .add("Slots", () => ({
-    components: { SfAlert },
-    props: {
-      message: {
-        default: text("message (slot)", "slot message")
+  .add(
+    "Slots",
+    () => ({
+      components: { SfAlert },
+      props: {
+        message: {
+          default: text("message (slot)", "<h1>slot <i>message</i></h1>")
+        },
+        icon: {
+          default: text(
+            "icon (slot)",
+            `<img src="https://img.icons8.com/material/4ac144/256/camera.png" />`
+          )
+        },
+        main: {
+          default: text("default (slot)", "")
+        }
       },
-      icon: {
-        default: text(
-          "icon (slot)",
-          "https://img.icons8.com/material/4ac144/256/camera.png"
-        )
-      }
-    },
-    template: `
+      template: `
       <SfAlert 
         :message="message" 
         :icon="icon">
-        <template slot="icon" :icon="icon">
-          <img slot-scope="{ icon }" :src="icon" />
-        </template>
-        <template slot="message">
-          <h1>{{ message }}</h1>
-        </template>
+        <div slot="icon" v-html="icon"></div>
+        <div slot="message" v-html="message"></div>
+        <div v-html="main"></div>
       </SfAlert>
     `
-  }));
+    }),
+    {
+      knobs: {
+        escapeHTML: false
+      }
+    }
+  );
