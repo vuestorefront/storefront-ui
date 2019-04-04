@@ -41,6 +41,7 @@
     "lint-staged": "^8.1.5",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
+    "storybook-addon-vue-info": "^1.0.1",
     "ts-jest": "^24.0.0",
     "typescript": "^3.3.3333",
     "vue-cli-plugin-storybook": "^0.6.0",
