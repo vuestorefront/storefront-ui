@@ -2,13 +2,26 @@
 
 Circle Button Component for basket button / close button.
 
+## Screens
+
+![circle button primary](https://user-images.githubusercontent.com/34887212/55572465-e7642b80-5707-11e9-916e-717686113ad6.png)
+
+![circle button secondary](https://user-images.githubusercontent.com/34887212/55572482-f6e37480-5707-11e9-9fa4-b09bfc2ddf83.png)
+
+![circle button for close](https://user-images.githubusercontent.com/34887212/55572494-fd71ec00-5707-11e9-84c3-1f4cfe6f78bb.png)
+
 ## HTML Template
 
+````html
 <SfButton class="sf-circle-button">
-    <img class="sf-circle-button__icon" :src="icon" :alt="alt"/>
+    <slot>
+        <img class="sf-circle-button__icon" :src="icon" :alt="alt"/>
+    </slot>
 </SfButton>
+````
 
 ## Props
+
 - `icon` - icon source for image
 - `alt` - image alt text
 
