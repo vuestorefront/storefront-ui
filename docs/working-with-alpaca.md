@@ -32,6 +32,6 @@ SCSS should never be directly imported in `<style>` tag. You should create stand
   @extend .message
 }
 ````
-or just copy them and adjust naming.
+or just copy them and adjust naming linke in HTML part.
 
 read more about SCSS inheritance [here](https://sass-lang.com/guide)
