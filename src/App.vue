@@ -1,33 +1,18 @@
 <template>
   <div id="app">
-    <sf-banner
-      title="Lorem ipsum"
-      subtitle="Lorem ipsum,"
-      button-text="Lorem ipsum"
-    >
-      <template v-slot:subtitle="{ subtitle }">
-        Example replaced content {{ b }} {{ subtitle }}
-      </template>
-    </sf-banner>
-    <sf-header />
+    <SfAlert message="warning"></SfAlert>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
-import SfHeader from "./components/organisms/SfHeader/SfHeader.vue";
+import SfAlert from "./components/atoms/SfAlert/SfAlert.vue";
 
 export default Vue.extend({
   name: "app",
-  data() {
-    return {
-      b: "a"
-    };
-  },
   components: {
-    SfBanner,
-    SfHeader
+    SfAlert
   }
 });
 </script>

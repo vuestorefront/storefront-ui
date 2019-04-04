@@ -21,7 +21,7 @@ Responsive header (navbar) component.
   </div>
   <div class="sf-header__column sf-header__column--middle">
     <slot name="middle">
-      <img src="../../../assets/logo.svg" alt="logo" class="sf-header__logo"/>
+      <img src="/assets/logo.svg" alt="logo" class="sf-header__logo"/>
     </slot>
   </div>
   <div class="sf-header__column sf-header__column--right">
