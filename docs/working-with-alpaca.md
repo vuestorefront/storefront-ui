@@ -11,7 +11,7 @@ The customized alpaca component is a new SfUI one.
 
 # Dealing with templates
 
-Markup should always be copied (never imported) and alpaca classes should be repalced with same ones but prefixed with `sf-`
+CSS and HTML markup should always be copied (never imported) and alpaca classes should be repalced with same ones but prefixed with `sf-`
 
 For example this alpaca template:
 
@@ -25,12 +25,13 @@ Should be copied and changed to:
 
 # Dealing with SCSS
 
-SCSS should never be directly imported in `<style>` tag. You should create standard `sf-` prefixed classes (used in markup) and import alpaca styles with SCSS `@extend`.
+SCSS should never be directly imported in `<style>` tag. You should create standard `sf-` prefixed classes (used in markup) and if it makes sense import alpaca styles with SCSS `@extend`.
 
 ````css
 .sf-message {
   @extend .message
 }
 ````
+or just copy them and adjust naming.
 
-read more about SCSS inheritance [here](https://sass-lang.com/guide)alpac
+read more about SCSS inheritance [here](https://sass-lang.com/guide)
