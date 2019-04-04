@@ -4,5 +4,21 @@ module.exports = async ({ config, mode }) => {
     loader: "storybook-addon-vue-info/loader",
     enforce: "post"
   });
+
+  config.module.rules.push({
+    test: /\.md$/,
+    use: [
+      {
+        loader: "html-loader"
+      },
+      {
+        loader: "markdown-loader",
+        options: {
+          /* your options here */
+        }
+      }
+    ]
+  });
+
   return config;
 };

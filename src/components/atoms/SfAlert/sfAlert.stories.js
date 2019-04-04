@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import SfAlert from "./SfAlert.vue";
-import { withInfo } from "storybook-addon-vue-info";
+
 storiesOf("Alert", module)
   .addDecorator(withKnobs)
   .add(
