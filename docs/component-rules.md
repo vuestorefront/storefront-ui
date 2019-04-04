@@ -55,6 +55,10 @@ Below you can find rules that needs to be applied into every component from Stor
 
 [Here](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.scss) you can find an example of properly styled component with all rules applied:
 
+### Script
+
+**If this is possible ALWAYS use a script import directly from alpaca components**
+
 ### Unit tests
 
 1. The minimum set of tests should contain component:
