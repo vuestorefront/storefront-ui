@@ -9,7 +9,9 @@
     "storybook:serve": "vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
     "storybook:build": "vue-cli-service storybook:build -s ./public -c config/storybook",
     "postinstall": "node scripts/postinstall.js",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "@snowdog/alpaca-components": "^0.1.2-alpha.0",
@@ -47,7 +49,8 @@
     "ts-jest": "^24.0.0",
     "typescript": "^3.3.3333",
     "vue-cli-plugin-storybook": "^0.6.0",
-    "vue-template-compiler": "^2.6.8"
+    "vue-template-compiler": "^2.6.8",
+    "vuepress": "^0.14.10"
   },
   "main": "./dist/storefront-ui.common.js",
   "gitHooks": {
