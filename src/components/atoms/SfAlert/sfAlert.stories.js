@@ -31,7 +31,7 @@ storiesOf("Alert", module)
     `
   }))
   .add(
-    "Slots",
+    "Slots (custom html)",
     () => ({
       components: { SfAlert },
       props: {
