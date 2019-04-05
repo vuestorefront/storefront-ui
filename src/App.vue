@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SfAlert message="warning"></SfAlert>
+    <SfButton>a</SfButton>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ import SfAlert from "./components/atoms/SfAlert/SfAlert.vue";
 export default Vue.extend({
   name: "app",
   components: {
-    SfAlert
+    SfButton
   }
 });
 </script>
