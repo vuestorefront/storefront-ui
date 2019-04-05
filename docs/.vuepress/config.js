@@ -8,12 +8,12 @@ module.exports = {
       { text: 'Customization', link: '/customization' },
       { text: 'Storybook', link: 'https://storybook.storefrontui.io' },
       { text: 'Component Rules', link: '/component-rules' },
-      { text: 'GitHub', link: 'https://github.com/DivanteLtd/storefront-ui' },
+      { text: 'GitHub', link: 'https://github.com/DivanteLtd/storefront-ui' }
     ],
     sidebar: [
       ['/customization', 'Customization'],
       ['/component-rules', 'Component Rules'],
-      ['/creating-new-components', 'Creating New Components'],
+      ['/creating-new-component', 'Creating New Component'],
       ['/working-with-alpaca', 'Working With Alpaca'],
       ['/working-with-designs', 'Working With Designs']
     ]
