@@ -4,6 +4,9 @@ $sf-menu-item-icon-spacing: 0.75rem;
 $sf-menu-item-padding: $spacing-big $spacing-extra-big;
 $sf-menu-item-font-size: $font-size-big-mobile;
 $sf-menu-item-font-family: $body-font-family-secondary;
+$sf-title-font-size: 1rem;
+$sf-count-font-color: $c-gray-primary;
+$sf-count-font-size: 0.875rem;
 
 .sf-menu-item {
     display: flex;
@@ -19,22 +22,19 @@ $sf-menu-item-font-family: $body-font-family-secondary;
         flex-wrap: wrap;
         align-items: center;
     }
-
-    &--left {
-        justify-content: flex-start;
-    }
-    &--right {
-        justify-content: flex-end;
-    }
-    &--around {
-        justify-content: space-around;
-    }
-    &--evenly {
-        justify-content: space-evenly;
-    }
+    
     &--center {
         justify-content: center;
     }
+}
+
+.sf-menu-item__title {
+    font-size: $sf-title-font-size;
+}
+
+.sf-menu-item__count {
+    color: $sf-count-font-color;
+    font-size: $sf-count-font-size;
 }
 
 .sf-menu-item-arrow {

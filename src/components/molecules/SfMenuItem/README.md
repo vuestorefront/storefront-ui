@@ -56,6 +56,9 @@ Comming soon...
 - `$sf-menu-item-min-height` (35px)
 - `$sf-menu-item-font-size` ($font-size-big-mobile)
 - `$sf-menu-item-font-family` ($body-font-family-secondary)
+- `$sf-title-font-size` (1rem)
+- `$sf-count-font-color` ($c-gray-primary)
+- `$sf-count-font-size` (0.875rem)
 
 
 ## Source files and Storybook demo
