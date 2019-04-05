@@ -59,12 +59,13 @@ storiesOf("Alert", module)
         :message="message" 
         :icon="icon">
         <div slot="icon" v-html="icon"></div>
-        <div slot="message" v-html="message"></div>
+        <div slot="message" v-html="messśage"></div>
         <div v-html="main"></div>
       </SfAlert>
     `
     }),
     {
+      info: true,
       knobs: {
         escapeHTML: false
       }

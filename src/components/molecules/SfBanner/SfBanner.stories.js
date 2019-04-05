@@ -39,9 +39,11 @@ export default storiesOf("Banner", module)
       />
     `
   }))
-  .add("Slots (custom markup)", () => ({
-    components: { SfBanner },
-    template: `
+  .add(
+    "Slots (custom markup)",
+    () => ({
+      components: { SfBanner },
+      template: `
       <SfBanner
         title="Title prop"
         description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
@@ -64,7 +66,11 @@ export default storiesOf("Banner", module)
         </template>
       </SfBanner>
     `
-  }))
+    }),
+    {
+      info: true
+    }
+  )
   .add(
     "CSS Modifiers",
     () => ({
@@ -97,6 +103,6 @@ export default storiesOf("Banner", module)
     `
     }),
     {
-      notes: `This CSS modifier is appliable only on mobile view`
+      info: true
     }
   );

@@ -5,26 +5,34 @@ import SfCallToAction from "./SfCallToAction.vue";
 
 export default storiesOf("CallToAction", module)
   .addDecorator(withKnobs)
-  .add("Props", () => ({
-    components: { SfCallToAction },
-    props: {
-      message: {
-        default: text("message (prop)", "Message prop")
+  .add(
+    "Props",
+    () => ({
+      components: { SfCallToAction },
+      props: {
+        message: {
+          default: text("message (prop)", "Message prop")
+        },
+        buttonText: {
+          default: text("buttonText (prop)", "ButtonText prop")
+        }
       },
-      buttonText: {
-        default: text("buttonText (prop)", "ButtonText prop")
-      }
-    },
-    template: `
+      template: `
       <SfCallToAction
         :message="message"
         :button-text="buttonText"
       />
     `
-  }))
-  .add("Slots (custom markup)", () => ({
-    components: { SfCallToAction },
-    template: `
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "Slots (custom markup)",
+    () => ({
+      components: { SfCallToAction },
+      template: `
       <SfCallToAction
         message="How cool are those?"
         button-text="Check out"
@@ -37,4 +45,8 @@ export default storiesOf("CallToAction", module)
         </template>
       </SfBanner>
     `
-  }));
+    }),
+    {
+      info: true
+    }
+  );
