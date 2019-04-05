@@ -13,8 +13,6 @@
   },
   "dependencies": {
     "@snowdog/alpaca-components": "^0.1.2-alpha.0",
-    "html-loader": "^0.5.5",
-    "markdown-loader": "^5.0.0",
     "vue": "^2.6.8"
   },
   "files": [
@@ -40,7 +38,9 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.1",
     "eslint-plugin-vue": "^5.2.2",
+    "html-loader": "^0.5.5",
     "lint-staged": "^8.1.5",
+    "markdown-loader": "^5.0.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "storybook-addon-vue-info": "^1.0.1",
