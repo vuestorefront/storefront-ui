@@ -20,10 +20,12 @@ if (currentDir.includes("node_modules")) {
   fs.appendFile(
     "src/Playground.vue",
     `<template>
-    <div id="playground"></div>
+  <div id="playground"></div>
 </template>
+
 <script>
 // Use this component to play with other components
+export default {}
 </script>
     `
   );
