@@ -37,7 +37,10 @@ You can find the stunning designs we are using for Storefront UI components [her
 # How to try it?
 
 Storefront UI is not ready to use in projects yet. We plan to release working version before the end of April 2019.
-If you want to play with components just copy the repo and use them in App.vue
+If you really want to play with components:
+```npm install --save @storefrontui/vue```
+
+Then check if `sfui.scss` file was created in a root of your app. If not - create it.
 
 # Contributing
 
