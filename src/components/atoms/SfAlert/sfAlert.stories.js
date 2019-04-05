@@ -55,12 +55,13 @@ storiesOf("Alert", module)
         }
       },
       template: `
-      <SfAlert 
-        :message="message" 
-        :icon="icon">
-        <div slot="icon" v-html="icon"></div>
-        <div slot="message" v-html="messśage"></div>
-        <div v-html="main"></div>
+      <SfAlert>
+        <template slot="icon">
+          <img src="https://img.icons8.com/material/4ac144/256/camera.png" />
+        </template>
+        <template slot="message">
+          <p>Custom message</p>
+        </div>
       </SfAlert>
     `
     }),
