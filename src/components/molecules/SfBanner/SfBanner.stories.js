@@ -1,34 +1,35 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import { withInfo } from "storybook-addon-vue-info";
 
 import SfBanner from "./SfBanner.vue";
 
 export default storiesOf("Banner", module)
   .addDecorator(withKnobs)
-  .add("Props", () => ({
-    components: { SfBanner },
-    props: {
-      title: {
-        default: text("title (prop)", "Title prop")
+  .add(
+    "Props",
+    () => ({
+      components: { SfBanner },
+      props: {
+        title: {
+          default: text("title (prop)", "Title prop")
+        },
+        subtitle: {
+          default: text("subtitle (prop)", "Subtitle prop")
+        },
+        description: {
+          default: text("description (prop)", "Descriptiom prop")
+        },
+        buttonText: {
+          default: text("buttonText (prop)", "Button text")
+        },
+        background: {
+          default: text("background (prop)", "#e1e3e2")
+        },
+        image: {
+          default: text("image (prop)", "/storybook/Banner1.png")
+        }
       },
-      subtitle: {
-        default: text("subtitle (prop)", "Subtitle prop")
-      },
-      description: {
-        default: text("description (prop)", "Descriptiom prop")
-      },
-      buttonText: {
-        default: text("buttonText (prop)", "Button text")
-      },
-      background: {
-        default: text("background (prop)", "#e1e3e2")
-      },
-      image: {
-        default: text("image (prop)", "/storybook/Banner1.png")
-      }
-    },
-    template: `
+      template: `
       <SfBanner
         :title="title"
         :description="description"
@@ -38,7 +39,11 @@ export default storiesOf("Banner", module)
         :image="image"
       />
     `
-  }))
+    }),
+    {
+      info: true
+    }
+  )
   .add(
     "Slots (custom markup)",
     () => ({
@@ -86,7 +91,7 @@ export default storiesOf("Banner", module)
               "sf-banner--bottom",
               "sf-banner--secondary"
             ],
-            null,
+            "null",
             "CSS-Modifiers"
           )
         }

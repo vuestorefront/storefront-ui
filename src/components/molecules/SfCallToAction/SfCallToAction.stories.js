@@ -43,7 +43,7 @@ export default storiesOf("CallToAction", module)
         <template #call-to-action>
           <button>Custom CTA</button>
         </template>
-      </SfBanner>
+      </SfCallToAction>
     `
     }),
     {
