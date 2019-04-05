@@ -16,4 +16,15 @@ if (currentDir.includes("node_modules")) {
       if (err) throw err;
     }
   );
+} else {
+  fs.appendFile(
+    "src/Playground.vue",
+    `<template>
+    <div id="playground"></div>
+</template>
+<script>
+// Use this component to play with other components
+</script>
+    `
+  );
 }
