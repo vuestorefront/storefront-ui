@@ -6,7 +6,7 @@ Customizable menu item component.
 
 ### Mobile view
 
-Comming soon...
+![MenuItem](https://user-images.githubusercontent.com/28540671/55612159-e4108480-5787-11e9-8d68-ec2cca603746.png "MenuItem")
 
 ## HTML Template
 
