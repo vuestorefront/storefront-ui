@@ -2,6 +2,8 @@
 
 **This project is on the early stages of development. Not ready to use. We aim for beta with minimal set of components till end of April**
 
+**We are looking for contributors and agencies willing to join us and build best UI library for Vue together!**
+
 Customization-first and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team & [Divante](https;//divante.co).
 
 ![](https://i.ibb.co/7ScVptN/123.png)
