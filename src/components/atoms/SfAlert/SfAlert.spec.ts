@@ -9,15 +9,15 @@ describe("SfAlert.vue", () => {
 
   it("renders an alert with css modifier", () => {
     const component = shallowMount(SfAlert, {
-     propsData: {
-       type: 'warning'
-     }
+      propsData: {
+        type: "warning"
+      }
     });
     expect(component.contains(".sf-alert--warning")).toBe(true);
   });
 
   it("renders an alert message when passed via props", () => {
-    const message = "Hello World"
+    const message = "Hello World";
     const component = shallowMount(SfAlert, {
       propsData: {
         message
@@ -29,7 +29,7 @@ describe("SfAlert.vue", () => {
   it("renders an alert icon when passed via props", () => {
     const component = shallowMount(SfAlert, {
       propsData: {
-        icon:  "/assets/img.jpg"
+        icon: "/assets/img.jpg"
       }
     });
     expect(component.contains(".sf-alert__icon")).toBe(true);
