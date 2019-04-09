@@ -1,34 +1,35 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import { withInfo } from "storybook-addon-vue-info";
 
 import SfBanner from "./SfBanner.vue";
 
 export default storiesOf("Banner", module)
   .addDecorator(withKnobs)
-  .add("Props", () => ({
-    components: { SfBanner },
-    props: {
-      title: {
-        default: text("title (prop)", "Title prop")
+  .add(
+    "Props",
+    () => ({
+      components: { SfBanner },
+      props: {
+        title: {
+          default: text("title (prop)", "Title prop")
+        },
+        subtitle: {
+          default: text("subtitle (prop)", "Subtitle prop")
+        },
+        description: {
+          default: text("description (prop)", "Descriptiom prop")
+        },
+        buttonText: {
+          default: text("buttonText (prop)", "Button text")
+        },
+        background: {
+          default: text("background (prop)", "#e1e3e2")
+        },
+        image: {
+          default: text("image (prop)", "/storybook/Banner1.png")
+        }
       },
-      subtitle: {
-        default: text("subtitle (prop)", "Subtitle prop")
-      },
-      description: {
-        default: text("description (prop)", "Descriptiom prop")
-      },
-      buttonText: {
-        default: text("buttonText (prop)", "Button text")
-      },
-      background: {
-        default: text("background (prop)", "#e1e3e2")
-      },
-      image: {
-        default: text("image (prop)", "/storybook/Banner1.png")
-      }
-    },
-    template: `
+      template: `
       <SfBanner
         :title="title"
         :description="description"
@@ -38,10 +39,16 @@ export default storiesOf("Banner", module)
         :image="image"
       />
     `
-  }))
-  .add("Slots (custom markup)", () => ({
-    components: { SfBanner },
-    template: `
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "Slots (custom markup)",
+    () => ({
+      components: { SfBanner },
+      template: `
       <SfBanner
         title="Title prop"
         description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
@@ -64,7 +71,11 @@ export default storiesOf("Banner", module)
         </template>
       </SfBanner>
     `
-  }))
+    }),
+    {
+      info: true
+    }
+  )
   .add(
     "CSS Modifiers",
     () => ({
@@ -80,7 +91,7 @@ export default storiesOf("Banner", module)
               "sf-banner--bottom",
               "sf-banner--secondary"
             ],
-            null,
+            "null",
             "CSS-Modifiers"
           )
         }
@@ -97,6 +108,6 @@ export default storiesOf("Banner", module)
     `
     }),
     {
-      notes: `This CSS modifier is appliable only on mobile view`
+      info: true
     }
   );

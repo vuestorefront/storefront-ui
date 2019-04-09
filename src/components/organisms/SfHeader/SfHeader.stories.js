@@ -1,6 +1,4 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
-
 import SfHeader from "./SfHeader.vue";
 
 export default storiesOf("Header", module)

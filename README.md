@@ -2,6 +2,8 @@
 
 **This project is on the early stages of development. Not ready to use. We aim for beta with minimal set of components till end of April**
 
+**We are looking for contributors and agencies willing to join us and build best UI library for Vue together!**
+
 Customization-first and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team & [Divante](https;//divante.co).
 
 ![](https://i.ibb.co/7ScVptN/123.png)
@@ -37,7 +39,10 @@ You can find the stunning designs we are using for Storefront UI components [her
 # How to try it?
 
 Storefront UI is not ready to use in projects yet. We plan to release working version before the end of April 2019.
-If you want to play with components just copy the repo and use them in App.vue
+If you really want to play with components:
+```npm install --save @storefrontui/vue```
+
+Then check if `sfui.scss` file was created in a root of your app. If not - create it.
 
 # Contributing
 
