@@ -22,10 +22,6 @@ $sf-options__option-border-color--active : $c-accent-primary !default;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    
-    &:focus {
-      outline: 0;
-    }
   }
 
   &__option {
