@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-
+import notes from "./README.md";
 import SfBanner from "./SfBanner.vue";
 
 export default storiesOf("Banner", module)
@@ -41,6 +41,7 @@ export default storiesOf("Banner", module)
     `
     }),
     {
+      notes,
       info: true
     }
   )
@@ -73,6 +74,7 @@ export default storiesOf("Banner", module)
     `
     }),
     {
+      notes,
       info: true
     }
   )
@@ -108,6 +110,7 @@ export default storiesOf("Banner", module)
     `
     }),
     {
+      notes,
       info: true
     }
   );

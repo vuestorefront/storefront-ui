@@ -25,8 +25,11 @@ if (currentDir.includes("node_modules")) {
 
 <script>
 // Use this component to play with other components
-export default {}
+export default {};
 </script>
-    `
+`,
+    err => {
+      if (err) throw err;
+    }
   );
 }

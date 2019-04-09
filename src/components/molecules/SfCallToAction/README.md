@@ -4,27 +4,6 @@
 
 Banner with text and a call to action (as the component name self-explain) element.
 
-## HTML Template
-
-<!-- Just paste HTML template. It's much better description than any other code -->
-
-````html
-<section class="sf-call-to-action">
-  <slot />
-  <slot name="message">
-    <h1 class="sf-call-to-action__message" v-if="message">
-      {{ message }}
-    </h1>
-  </slot>
-  <slot name="action">
-    <div class="sf-call-to-action__button" v-if="buttonText">
-      <sf-button>
-        {{ buttonText }}
-      </sf-button>
-    </div>
-  </slot>
-</section>
-````
 ## Props
 
 <!--Write down props and their purpose -->
@@ -46,3 +25,8 @@ heading tag (H1 by default).
 
 - `action` - Places the action element, contains
 a button by default.
+
+## Source files and Storybook demo
+
+- [@/src/components/molecules/SfCallToAction](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/molecules/SfCallToAction)
+- [HTML template](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/molecules/SfCallToAction/SfCallToAction.html)
