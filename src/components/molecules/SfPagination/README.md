@@ -26,6 +26,9 @@ Component to list page numbers and start handling content pagination.
 
 - `next` - Next page link, contains chevron right icon by default.
 
+- `points` - Showed when the total number of pages is bigger than the
+visible, default content is three points (...).
+
 ## Emitted events
 
 - `change` - Emitted when an pagination link is clicked and
