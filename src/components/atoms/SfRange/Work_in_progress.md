@@ -2,17 +2,9 @@
 
 <!-- Write about general purpose of the component. Include screenshot (to be replaced with a live example once we migrate to vuepress) -->
 
-## HTML Template
-
-<!-- Just paste HTML template. It's much better description than any other code -->
-
-
-````html
-<b></b>
-````
 ## Props
 
-- `propname` - description 
+- `propname` - description
 <!--Write down props and their purpose -->
 
 ## Slots
@@ -40,6 +32,7 @@
 ## Source files and Storybook demo
 
 - absolute link to component folder
+- [HTML template](absolute_link_to_HTML_template)
 - link to storybook
 - template import `@storefrontui/vue/SfComponent.html`
 - instance import `@storefrontui/vue/SfComponent.js`
