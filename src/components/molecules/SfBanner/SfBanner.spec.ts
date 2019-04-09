@@ -54,8 +54,7 @@ describe("SfBanner.vue", () => {
         "call-to-action": msg
       }
     });
-    expect(component.find(".sf-banner__button").exists()).toBe(false)
-    expect(component.find('.testSlot').exists()).toBe(true)
+    expect(component.find(".sf-banner__button").exists()).toBe(false);
+    expect(component.find(".testSlot").exists()).toBe(true);
   });
-  
 });
