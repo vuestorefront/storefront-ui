@@ -1,4 +1,5 @@
 import { storiesOf } from "@storybook/vue";
+import notes from "./README.md";
 import SfCircleButton from "./SfCircleButton.vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 

@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
-
+import notes from "./README.md";
 import SfCallToAction from "./SfCallToAction.vue";
 
 export default storiesOf("CallToAction", module)
@@ -25,6 +25,7 @@ export default storiesOf("CallToAction", module)
     `
     }),
     {
+      notes,
       info: true
     }
   )
@@ -61,6 +62,7 @@ export default storiesOf("CallToAction", module)
     `
     }),
     {
+      notes,
       info: true
     }
   );
