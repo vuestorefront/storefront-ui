@@ -50,6 +50,10 @@ $pagination__link--next-margin: $pagination__link--prev-margin !default;
       color: $pagination__item--current-color;
       border: $pagination__item--current-border;
       border-width: $pagination__item--current-border-width;
+
+      .sf-pagination__link {
+        cursor: default;
+      }
     }
   }
 
