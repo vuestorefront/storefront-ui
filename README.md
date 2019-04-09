@@ -50,7 +50,7 @@ We are currently in a process of building the library. If you want to help shapi
 
 # Cooperation with Snowdog
 
-ideas behind storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-storybook) are common efforts. We joined forces in figuring out how to make things right to deliver best possible experience for the users;
+ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-storybook) are common efforts. We joined forces in figuring out how to make things right to deliver best possible experience for the users;
 
 # State of components 
 
