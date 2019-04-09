@@ -4,18 +4,18 @@ import { linkTo } from "@storybook/addon-links";
 
 import SfPagination from "./SfPagination.vue";
 
-const pagination = {
-  currentPage: 1,
-  pageSize: 5,
-  totalSize: 12
-};
-
 const vm = {
   components: { SfPagination },
-  data: () => pagination,
+  data: () => {
+    return {
+      page: 2,
+      visiblePageNumbers: 5,
+      numberOfPages: 12
+    }
+  },
   methods: {
     setCurrentPage(page) {
-      this.currentPage = page;
+      this.page = page;
     }
   }
 };
@@ -25,7 +25,30 @@ export default storiesOf("Pagination", module)
     ...vm,
     template: `
     <sf-pagination @change="(page) => { setCurrentPage(page) }"
-      :value="currentPage"
-      :visible="pageSize"
-      :length="totalSize"/>`
+      :value="page"
+      :length="numberOfPages"
+      :visible="visiblePageNumbers"/>`
+  }))
+  .add("text for next and prev", () => ({
+    ...vm,
+    template: `
+    <sf-pagination @change="(page) => { setCurrentPage(page) }"
+      :value="page"
+      :length="numberOfPages + 1"
+      :visible="visiblePageNumbers - 1">
+      <template slot="prev">prev</template>
+      <template slot="next">next</template>
+    </sf-pagination>`
+  }))
+  .add("custom items", () => ({
+    ...vm,
+    template: `
+    <sf-pagination @change="(page) => { setCurrentPage(page) }"
+      :value="page"
+      :length="numberOfPages"
+      :visible="visiblePageNumbers">
+      <template v-slot="{ number }">
+        {{ number }}.
+      </template>
+    </sf-pagination>`
   }));
