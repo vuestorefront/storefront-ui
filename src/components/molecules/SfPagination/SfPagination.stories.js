@@ -5,9 +5,9 @@ import { linkTo } from "@storybook/addon-links";
 import SfPagination from "./SfPagination.vue";
 
 const pagination = {
-  currentPage: 2,
-  pageSize: 10,
-  totalSize: 120
+  currentPage: 1,
+  pageSize: 5,
+  totalSize: 12
 };
 
 const vm = {
@@ -24,29 +24,8 @@ export default storiesOf("Pagination", module)
   .add("default", () => ({
     ...vm,
     template: `
-    <sf-pagination @current-change="(page) => { setCurrentPage(page) }"
-      :current-page="currentPage"
-      :page-size="pageSize"
-      :total-size="totalSize"/>`
-  }))
-  .add("text for next and prev", () => ({
-    ...vm,
-    template: `
-    <sf-pagination @current-change="(page) => { setCurrentPage(page) }"
-      :current-page="currentPage"
-      :page-size="pageSize"
-      :total-size="totalSize">
-      <template slot="prev">prev</template>
-      <template slot="next">next</template>
-    </sf-pagination>`
-  }))
-  .add("icon for current page", () => ({
-    ...vm,
-    template: `
-    <sf-pagination @current-change="(page) => { setCurrentPage(page) }"
-      :current-page="currentPage"
-      :page-size="pageSize"
-      :total-size="totalSize">
-      <img src="more.svg" alt="more" slot="current"/>
-    </sf-pagination>`
+    <sf-pagination @change="(page) => { setCurrentPage(page) }"
+      :value="currentPage"
+      :visible="pageSize"
+      :length="totalSize"/>`
   }));

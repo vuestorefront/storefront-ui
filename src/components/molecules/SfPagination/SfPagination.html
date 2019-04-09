@@ -43,8 +43,8 @@
         ...
       </li>
       <li class="sf-pagination__item">
-        <a class="sf-pagination__link" @click="setCurrentPage(numberOfPages)">
-          {{ numberOfPages }}
+        <a class="sf-pagination__link" @click="setCurrentPage(length)">
+          {{ length }}
         </a>
       </li>
     </template>
@@ -52,7 +52,7 @@
     <li class="sf-pagination__item">
       <a class="sf-pagination__link sf-pagination__link--next"
         aria-label="Go to next page"
-        :disabled="currentPage > numberOfPages - 1"
+        :disabled="currentPage > length - 1"
         @click="setCurrentPage(currentPage + 1)">
         <slot name="next">
           <img src="../../../assets/chevron_right.svg" alt="Go to next page" class="sf-pagination__icon"/>

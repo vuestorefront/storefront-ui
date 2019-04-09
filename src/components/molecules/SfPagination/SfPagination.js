@@ -1,40 +1,37 @@
 export default {
   props: {
-    currentPage: {
-      type: Number
+    value: {
+      type: Number,
+      default: 1
     },
-    pageSize: {
+    length: {
       type: Number,
       default: 5
     },
-    totalSize: {
+    visible: {
       type: Number,
-      required: true
+      default: 5
     }
   },
 
   data () {
     return {
       showFirst: false,
-      showLast: false,
-      limitPerPage: this.pageSize || 5
+      showLast: false
     }
   },
 
   computed: {
-    page: {
+    currentPage: {
       get () {
-        return this.currentPage || 1
+        return this.value
       },
       set (value) {
-        this.$emit('current-change', value)
+        this.$emit('change', value)
       }
     },
-    numberOfPages () {
-      return Math.ceil(this.totalSize / this.limitPerPage)
-    },
     listOfPageNumbers () {
-      return Array.from(Array(this.numberOfPages), (_, i) => i + 1)
+      return Array.from(Array(this.length), (_, i) => i + 1)
     },
     limitedPageNumbers () {
       return this.setLimitedPageNumber()
@@ -43,29 +40,29 @@ export default {
 
   methods: {
     setLimitedPageNumber () {
-      if (this.numberOfPages <= this.limitPerPage) {
+      if (this.length <= this.visible) {
         this.showFirst = false
         this.showLast = false
 
         return this.listOfPageNumbers
       }
 
-      if (this.currentPage < this.limitPerPage - Math.floor(this.limitPerPage / 2) + 1) {
+      if (this.currentPage < this.visible - Math.floor(this.visible / 2) + 1) {
         this.showFirst = false
         this.showLast = true
 
         return this.listOfPageNumbers.slice(
           0,
-          this.limitPerPage
+          this.visible
         )
       }
 
-      if (this.numberOfPages - this.currentPage < this.limitPerPage - Math.floor(this.limitPerPage / 2) + 1) {
+      if (this.length - this.currentPage < this.visible - Math.floor(this.visible / 2) + 1) {
         this.showFirst = true
         this.showLast = false
 
         return this.listOfPageNumbers.slice(
-          this.numberOfPages - this.limitPerPage
+          this.length - this.visible
         )
       }
 
@@ -73,13 +70,13 @@ export default {
       this.showLast = true
 
       return this.listOfPageNumbers.slice(
-        this.page - Math.floor(this.limitPerPage / 2) - 1,
-        this.page + Math.floor(this.limitPerPage / 2)
+        this.currentPage - Math.ceil(this.visible / 2),
+        this.currentPage + Math.floor(this.visible / 2)
       )
     },
 
     setCurrentPage (value) {
-      this.page = value
+      this.currentPage = value
     }
   }
 }
