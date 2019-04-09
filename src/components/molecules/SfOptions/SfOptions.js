@@ -5,10 +5,6 @@ export default {
   components: {
     SfLabel
   },
-  model: {
-    prop: "selected",
-    event: "change"
-  },
   props: {
     options: {
       type: Array,
@@ -26,14 +22,14 @@ export default {
       type: Boolean,
       default: false
     },
-    selected: {
+    value: {
       type: String,
       default: null
     }
   },
   methods: {
     setActiveValue(value) {
-      this.$emit("change", value);
+      this.value = value;
     }
   }
 };

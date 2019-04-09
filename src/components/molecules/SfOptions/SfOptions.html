@@ -7,12 +7,8 @@
     <div
       v-for="option in options"
       :key="option.id"
-      :class="[
-        'sf-options__option-container',
-        selected === option.value && 'sf-options__option-container--selected'
-      ]"
-      :aria-label="option.label"
-      tabindex="0"
+      class="sf-options__option-container"
+      :class="{ 'sf-options__option-container--selected': isOptionSelected(option.value) }"
       @click="setActiveValue(option.value)"
     >
       <slot>
