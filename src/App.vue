@@ -1,38 +1,22 @@
 <template>
   <div id="app">
-    <sf-banner
-      title="Lorem ipsum"
-      subtitle="Lorem ipsum,"
-      button-text="Lorem ipsum"
-    >
-      <template v-slot:subtitle="{ subtitle }">
-        Example replaced content {{ b }} {{ subtitle }}
-      </template>
-    </sf-banner>
-    <sf-header />
+    <Playground />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
-import SfHeader from "./components/organisms/SfHeader/SfHeader.vue";
+// If you don;t have this file run `yarn` cmd to create it
+import Playground from "./Playground.vue";
 
 export default Vue.extend({
   name: "app",
-  data() {
-    return {
-      b: "a"
-    };
-  },
   components: {
-    SfBanner,
-    SfHeader
+    Playground
   }
 });
 </script>
 
 <style lang="scss">
-@import "./css/variables.scss";
-@import "./css/globals.scss";
+@import "./css/all.scss";
 </style>

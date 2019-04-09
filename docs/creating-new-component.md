@@ -13,11 +13,11 @@ Depending on what type of component you're creating place it in appropiate subfo
 
 Then rename the folder, CSS classes and component name. At this point you should have properly created component.
 
-If you want to test your compoennt just import it inside `App.vue`.
+If you want to test your compoennt just import it inside `Playground.vue`.
 
 ### Check alpaca components
 
-Before you start working on any component check if there is one that you can use as a base in Alpaca UI components. If so then adjust it according to [Working with Alpaca](https://github.com/DivanteLtd/storefront-ui/blob/master/docs/working-with-alpaca.md) doc.
+Before you start working on any component check if there is one that you can use as a base in Alpaca UI components. If so then ** ALWAYS** adjust it according to [Working with Alpaca](https://github.com/DivanteLtd/storefront-ui/blob/master/docs/working-with-alpaca.md) doc.
 
 ### Create proper markup
 
