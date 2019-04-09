@@ -3,17 +3,13 @@
     {{ label }}
   </sf-label>
 
-  <div
-    class="sf-options__wrapper"
-    tabindex="0"
-  >
+  <div class="sf-options__wrapper">
     <div
-      v-for="(option) in options"
+      v-for="option in options"
       :key="option.id"
       :class="[
         'sf-options__option-container',
-        selected === option.value && 'sf-options__option-container--selected',
-        wrapperClass
+        selected === option.value && 'sf-options__option-container--selected'
       ]"
       :aria-label="option.label"
       tabindex="0"
@@ -21,8 +17,8 @@
     >
       <slot>
         <div
-          :class="['sf-options__option', image && 'sf-options__option--image', optionClass]"
-          :style="option.style"
+          class="sf-options__option"
+          :class="[image && 'sf-options__option--image']"
         >
           {{ image || color ? '' : option.text }}
         </div>

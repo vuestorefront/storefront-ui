@@ -29,14 +29,6 @@ export default {
     selected: {
       type: String,
       default: null
-    },
-    optionClass: {
-      type: String,
-      default: null
-    },
-    wrapperClass: {
-      type: String,
-      default: null
     }
   },
   methods: {
