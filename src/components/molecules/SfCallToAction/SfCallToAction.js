@@ -10,6 +10,10 @@ export default {
     buttonText: {
       type: String,
       default: ""
+    },
+    description: {
+      type: String,
+      default: ""
     }
   },
   components: {

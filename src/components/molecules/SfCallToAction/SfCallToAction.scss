@@ -1,27 +1,66 @@
 @import '../../../css/variables';
 
+$call-to-action-padding: 3.375rem 8.75rem !default;
 $call-to-action-background-color: $c-gray-secondary !default;
+$call-to-action-align-items: center !default;
+$call-to-action-justify-content: space-between !default;
 $call-to-action-align-content: center !default;
 $call-to-action-text-align: center !default;
 
+$call-to-action__message-font-family: $body-font-family-secondary !default;
+$call-to-action__message-font-size: 2.25rem !default;
 $call-to-action__message-font-weight: 400 !default;
 $call-to-action__message-text-transform: none !default;
+
+$call-to-action__description-font-family: $body-font-family-secondary !default;
+
+$call-to-action__button-padding: 1.125rem 3.375rem !default;
+$call-to-action__button-font-size: 0.875rem !default;
+
+$call-to-action-mobile__button-padding: 0.675rem 2rem !default;
 
 .sf-call-to-action {
   display: flex;
   align-content: $call-to-action-align-content;
   text-align: $call-to-action-text-align;
+  align-items: $call-to-action-align-items;
   flex-direction: column;
   padding: $spacing-extra-big $spacing-big;
   background-color: $call-to-action-background-color;
+  @media screen and (min-width: $desktop-min) {
+    flex-direction: row;
+    padding: $call-to-action-padding;
+    justify-content: $call-to-action-justify-content;
+  }
   &__message {
+    font-size: $font-size-big-mobile;
+    font-family: $call-to-action__message-font-family;
     margin-top: 0;
     font-weight: $call-to-action__message-font-weight;
-    text-transform: $call-to-action__message-text-transform;    ;
+    text-transform: $call-to-action__message-text-transform;
+    @media screen and (min-width: $desktop-min) {
+      text-align: left;
+      margin-bottom: 0; 
+      font-size: $call-to-action__message-font-size;
+    }
+  }
+  &__description {
+    font-family: $call-to-action__description-font-family;
+    @media screen and (min-width: $desktop-min) {
+      text-align: left;
+      margin-bottom: 0;
+    }
   }
   &__button {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding: $call-to-action-mobile__button-padding;
+    font-size: $font-size-small-mobile;
+    @media screen and (min-width: $desktop-min) {
+      display: block;
+      padding: $call-to-action__button-padding;
+      font-size: $call-to-action__button-font-size;
+    }
   }
 }
