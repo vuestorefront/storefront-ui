@@ -8,12 +8,25 @@ if (currentDir.includes("node_modules")) {
     `/* Here you can override global SCSS variables */
   
   // global override excluding scoped components
-  // $button-padding: 5px !default;
+  // $button-desktop-padding: 5px !default;
   // global override including scoped componentss
-  // $button-padding: 50px;
+  // $button-desktop-padding: 50px;
     `,
     err => {
       if (err) throw err;
     }
+  );
+} else {
+  fs.appendFile(
+    "src/Playground.vue",
+    `<template>
+  <div id="playground"></div>
+</template>
+
+<script>
+// Use this component to play with other components
+export default {}
+</script>
+    `
   );
 }

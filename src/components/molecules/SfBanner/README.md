@@ -11,10 +11,9 @@ Banner with Title, Subtitle and call to action button
 <!-- Just paste HTML template. It's much better description than any other code -->
 
 ````html
-<section class="sf-banner">
+<section class="sf-banner" :style="'background-image: url(' + image + '); background-color: ' + background +';'">
   <div class="sf-banner__container">
-    <!-- Rule 1: We display subtitle prop content on default slot content. If someone is willing to replace markup then he/she can use slot -->
-    <slot name="subtitle" />
+    <slot name="subtitle" :subtitle="subtitle">
       <h2 class="sf-banner__subtitle" v-if="subtitle">
         {{ subtitle }}
       </h2>
@@ -37,7 +36,6 @@ Banner with Title, Subtitle and call to action button
     <slot />
   </div>
 </section>
-
 ````
 ## Props
 
@@ -45,6 +43,8 @@ Banner with Title, Subtitle and call to action button
 - `subtitle` - banner Subtitle 
 - `description` - banner description
 - `buttonText` - button text
+- `background` - background color
+- `image` - url for background image
 
 ## Slots
 
@@ -96,7 +96,7 @@ Banner with Title, Subtitle and call to action button
 - `.sf-banner--top` - aligns content to top (visible on mobile) 
 - `.sf-banner--bottom` - aligns content to bottom (visible on mobile) 
 - `.sf-banner--left` -  aligns content to left 
-- `.sf-banner--right` - aligns content to right 
+- `.sf-banner--secondary` - changes button color to accent
 
 <!-- Write down available CSS Modifiers -->
 
