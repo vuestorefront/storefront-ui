@@ -10,17 +10,14 @@ export default {
       type: Array,
       required: true
     },
+    type: {
+      type: String,
+      default: "text",
+      validator: val => ["text", "color", "image"].includes(val)
+    },
     label: {
       type: String,
       default: null
-    },
-    image: {
-      type: Boolean,
-      default: false
-    },
-    color: {
-      type: Boolean,
-      default: false
     },
     value: {
       type: String,
@@ -29,7 +26,19 @@ export default {
   },
   methods: {
     setActiveValue(value) {
-      this.value = value;
+      this.$emit("input", value);
+    },
+    isOptionSelected(value) {
+      return this.value === value;
+    },
+    isTypeText() {
+      return this.type === "text";
+    },
+    isTypeColor() {
+      return this.type === "color";
+    },
+    isTypeImage() {
+      return this.type === "image";
     }
   }
 };

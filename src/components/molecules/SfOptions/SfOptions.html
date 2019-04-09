@@ -2,7 +2,6 @@
   <sf-label v-if="label" class="sf-options__title">
     {{ label }}
   </sf-label>
-
   <div class="sf-options__wrapper">
     <div
       v-for="option in options"
@@ -14,15 +13,15 @@
       <slot>
         <div
           class="sf-options__option"
-          :class="[image && 'sf-options__option--image']"
+          :class="{'sf-options__option--image': isTypeImage}"
+          :style="[
+            isTypeColor && { backgroundColor: option.color },
+            isTypeImage && { backgroundImage: `url(${option.image})` }
+          ]"
         >
-          {{ image || color ? '' : option.text }}
+          {{ isTypeText() ? option.text : '' }}
         </div>
       </slot>
-
-      <span v-if="option.caption">
-        {{ option.caption }}
-      </span>
     </div>
   </div>
 </div>
