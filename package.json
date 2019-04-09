@@ -1,19 +1,21 @@
 {
   "name": "@storefrontui/vue",
-  "version": "0.0.1-aplha.1",
+  "version": "0.0.1-aplha.4",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "storybook:serve": "vue-cli-service storybook:serve -s ./src/assets -p 6006 -c config/storybook",
-    "storybook:build": "vue-cli-service storybook:build -s ./src/assets -c config/storybook",
+    "storybook:serve": "vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
+    "storybook:build": "vue-cli-service storybook:build -s ./public -c config/storybook",
     "postinstall": "node scripts/postinstall.js",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@snowdog/alpaca-components": "^0.3.0-alpha.5",
-    "vue": "^2.6.8"
+    "vue": "^2.6.8",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0"
   },
   "files": [
     "dist/*",
@@ -38,9 +40,12 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.2",
+    "html-loader": "^0.5.5",
     "lint-staged": "^8.1.5",
+    "markdown-loader": "^5.0.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
+    "storybook-addon-vue-info": "^1.0.1",
     "ts-jest": "^24.0.1",
     "typescript": "^3.4.1",
     "vue-cli-plugin-storybook": "^0.6.0",
