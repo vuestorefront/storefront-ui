@@ -4,7 +4,7 @@ import SfCircleButton from "./SfCircleButton.vue";
 export default storiesOf("CircleButton", module)
   .add("with icon prop", () => ({
     components: { SfCircleButton },
-    template: "<sf-circle-button icon='/added_to_cart.svg'/>"
+    template: "<sf-circle-button icon='assets/storybook/home.svg'/>"
   }))
   .add("with secondary modifier", () => ({
     components: { SfCircleButton },

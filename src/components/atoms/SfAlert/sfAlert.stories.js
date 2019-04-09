@@ -57,7 +57,7 @@ storiesOf("Alert", module)
       template: `
       <SfAlert>
         <template slot="icon">
-          <img src="https://img.icons8.com/material/4ac144/256/camera.png" />
+          <img src="assets/storybook/added_to_cart.svg" />
         </template>
         <template slot="message">
           <p>Custom message</p>
