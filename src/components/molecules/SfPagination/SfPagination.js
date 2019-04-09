@@ -1,10 +1,10 @@
 export default {
   props: {
-    value: {
+    current: {
       type: Number,
       default: 1
     },
-    length: {
+    total: {
       type: Number,
       default: 5
     },
@@ -24,14 +24,14 @@ export default {
   computed: {
     currentPage: {
       get () {
-        return this.value
+        return this.current
       },
       set (value) {
         this.$emit('change', value)
       }
     },
     listOfPageNumbers () {
-      return Array.from(Array(this.length), (_, i) => i + 1)
+      return Array.from(Array(this.total), (_, i) => i + 1)
     },
     limitedPageNumbers () {
       return this.setLimitedPageNumber()
@@ -40,7 +40,7 @@ export default {
 
   methods: {
     setLimitedPageNumber () {
-      if (this.length <= this.visible) {
+      if (this.total <= this.visible) {
         this.showFirst = false
         this.showLast = false
 
@@ -57,12 +57,12 @@ export default {
         )
       }
 
-      if (this.length - this.currentPage < this.visible - Math.floor(this.visible / 2) + 1) {
+      if (this.total - this.currentPage < this.visible - Math.floor(this.visible / 2) + 1) {
         this.showFirst = true
         this.showLast = false
 
         return this.listOfPageNumbers.slice(
-          this.length - this.visible
+          this.total - this.visible
         )
       }
 

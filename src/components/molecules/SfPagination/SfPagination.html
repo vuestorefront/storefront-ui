@@ -48,9 +48,9 @@
         </slot>
       </li>
       <li class="sf-pagination__item">
-        <a class="sf-pagination__link" @click="setCurrentPage(length)">
-          <slot v-bind:number="length">
-            {{ length }}
+        <a class="sf-pagination__link" @click="setCurrentPage(total)">
+          <slot v-bind:number="total">
+            {{ total }}
           </slot>
         </a>
       </li>
@@ -59,7 +59,7 @@
     <li class="sf-pagination__item">
       <a class="sf-pagination__link sf-pagination__link--next"
         aria-label="Go to next page"
-        :disabled="currentPage > length - 1"
+        :disabled="currentPage > total - 1"
         @click="setCurrentPage(currentPage + 1)">
         <slot name="next">
           <img src="../../../assets/chevron_right.svg" alt="Go to next page" class="sf-pagination__icon"/>

@@ -10,9 +10,9 @@ Component to list page numbers and start handling content pagination.
 
 <!--Write down props and their purpose -->
 
-- `value` (1) - Current page integer number, starting from 1.
+- `current` (1) - Current page integer number, starting from 1.
 
-- `length` (5) - Number of total available pages.
+- `total` (5) - Number of total available pages.
 
 - `visible` (5) - Maximum number of visible page items, default is 5.
 

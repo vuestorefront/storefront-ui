@@ -25,16 +25,16 @@ export default storiesOf("Pagination", module)
     ...vm,
     template: `
     <sf-pagination @change="(page) => { setCurrentPage(page) }"
-      :value="page"
-      :length="numberOfPages"
+      :current="page"
+      :total="numberOfPages"
       :visible="visiblePageNumbers"/>`
   }))
   .add("text for next and prev", () => ({
     ...vm,
     template: `
     <sf-pagination @change="(page) => { setCurrentPage(page) }"
-      :value="page"
-      :length="numberOfPages + 1"
+      :current="page"
+      :total="numberOfPages + 1"
       :visible="visiblePageNumbers - 1">
       <template slot="prev">prev</template>
       <template slot="next">next</template>
@@ -44,8 +44,8 @@ export default storiesOf("Pagination", module)
     ...vm,
     template: `
     <sf-pagination @change="(page) => { setCurrentPage(page) }"
-      :value="page"
-      :length="numberOfPages"
+      :current="page"
+      :total="numberOfPages"
       :visible="visiblePageNumbers">
       <template v-slot="{ number }">
         {{ number }}.
