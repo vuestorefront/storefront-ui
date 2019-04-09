@@ -37,16 +37,32 @@ storiesOf("Alert", module)
     }
   )
   .add(
-    "Slots (custom html)",
+    "[slot] Icon",
     () => ({
       components: { SfAlert },
       template: `
-      <SfAlert>
+      <SfAlert message="Message prop">
         <template slot="icon">
           <img src="assets/storybook/added_to_cart.svg"/>
         </template>
+      </SfAlert>
+    `
+    }),
+    {
+      info: true,
+      knobs: {
+        escapeHTML: false
+      }
+    }
+  )
+  .add(
+    "[slot] Message",
+    () => ({
+      components: { SfAlert },
+      template: `
+      <SfAlert icon="/assets/profile.svg">
         <template slot="message">
-          <p style="margin-left: 10px">Custom message</p>
+          <h2>Custom message</h2>
         </div>
       </SfAlert>
     `

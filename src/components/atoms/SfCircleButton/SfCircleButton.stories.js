@@ -1,18 +1,37 @@
 import { storiesOf } from "@storybook/vue";
 import SfCircleButton from "./SfCircleButton.vue";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 
 export default storiesOf("CircleButton", module)
-  .add("with icon prop", () => ({
+  .addDecorator(withKnobs)
+  .add("Props", () => ({
+    props: {
+      icon: {
+        default: text("icon (prop)", "assets/storybook/home.svg")
+      },
+      alt: {
+        default: text("alt (prop)", "Home")
+      }
+    },
     components: { SfCircleButton },
-    template: "<sf-circle-button icon='assets/storybook/home.svg'/>"
+    template: "<sf-circle-button :icon='icon' :alt='alt'/>"
   }))
-  .add("with secondary modifier", () => ({
+  .add("CSS Modifiers", () => ({
+    props: {
+      customClass: {
+        default: select(
+          "CSS Modifier",
+          ["null", "sf-circle-button--small", "sf-circle-button--secondary"],
+          "null",
+          "CSS-Modifiers"
+        )
+      }
+    },
     components: { SfCircleButton },
     template:
-      "<sf-circle-button class='sf-circle-button--secondary' icon='assets/storybook/home.svg'/>"
+      "<sf-circle-button icon='assets/storybook/home.svg' :class='customClass'/>>"
   }))
-  .add("with small modifier and close icon", () => ({
+  .add("[slot] default", () => ({
     components: { SfCircleButton },
-    template:
-      "<sf-circle-button class='sf-circle-button--small' icon='/close.svg'/>>"
+    template: `<sf-circle-button><img src='assets/storybook/menu.svg'></sf-circle-button>`
   }));

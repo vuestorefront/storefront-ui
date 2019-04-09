@@ -45,38 +45,6 @@ export default storiesOf("Banner", module)
     }
   )
   .add(
-    "Slots (custom markup)",
-    () => ({
-      components: { SfBanner },
-      template: `
-      <SfBanner
-        title="Title prop"
-        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
-        subtitle="Subtitle prop"
-        button-text="Button Text"
-        background="#e1e3e2"
-        image="assets/storybook/Banner1.png"
-      >
-        <template #title="{ title }">
-          <h1> {{ title }} </h1>
-        </template>
-        <template #subtitle="{ subtitle }">
-          <b> {{ subtitle }} </b>
-        </template>
-        <template #description="{ description }">
-          <b> {{ description }} </b>
-        </template>
-        <template #call-to-action>
-          <button>Custom CTA</button>
-        </template>
-      </SfBanner>
-    `
-    }),
-    {
-      info: true
-    }
-  )
-  .add(
     "CSS Modifiers",
     () => ({
       components: { SfBanner },
@@ -105,6 +73,98 @@ export default storiesOf("Banner", module)
         background="#e1e3e2"
         :class="customClass"
       />
+    `
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "[slot] title",
+    () => ({
+      components: { SfBanner },
+      template: `
+      <SfBanner
+        title="Title prop"
+        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
+        subtitle="Subtitle prop"
+        button-text="Button Text"
+        background="#e1e3e2"
+        image="assets/storybook/Banner1.png"
+      >
+        <template #title="{ title }">
+          <h1> {{ title }} </h1>
+        </template>
+      </SfBanner>
+    `
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "[slot] subtitle",
+    () => ({
+      components: { SfBanner },
+      template: `
+      <SfBanner
+        title="Title prop"
+        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
+        subtitle="Subtitle prop"
+        button-text="Button Text"
+        background="#e1e3e2"
+        image="assets/storybook/Banner1.png"
+      >
+        <template #subtitle="{ subtitle }">
+          <b> {{ subtitle }} </b>
+        </template>
+      </SfBanner>
+    `
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "[slot] description",
+    () => ({
+      components: { SfBanner },
+      template: `
+      <SfBanner
+        title="Title prop"
+        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
+        subtitle="Subtitle prop"
+        button-text="Button Text"
+        background="#e1e3e2"
+        image="assets/storybook/Banner1.png"
+      >
+        <template #description="{ description }">
+          <b> {{ description }} </b>
+        </template>
+      </SfBanner>
+    `
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "[slot] call-to-action",
+    () => ({
+      components: { SfBanner },
+      template: `
+      <SfBanner
+        title="Title prop"
+        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
+        subtitle="Subtitle prop"
+        button-text="Button Text"
+        background="#e1e3e2"
+        image="assets/storybook/Banner1.png"
+      >
+        <template #call-to-action>
+          <button>Custom CTA</button>
+        </template>
+      </SfBanner>
     `
     }),
     {
