@@ -14,11 +14,15 @@
     <template v-if="showFirst">
       <li class="sf-pagination__item">
         <a class="sf-pagination__link" @click="setCurrentPage(1)">
-          1
+          <slot v-bind:number="1">
+            1
+          </slot>
         </a>
       </li>
       <li class="sf-pagination__item">
-        ...
+        <slot name="points">
+          ...
+        </slot>
       </li>
     </template>
 
@@ -30,21 +34,24 @@
       ]">
       <a
         class="sf-pagination__link"
-        @click="setCurrentPage(number)" v-if="currentPage !== number">
-        {{ number }}
+        @click="() => { if (currentPage !== number) setCurrentPage(number) }">
+        <slot v-bind:number="number">
+          {{ number }}
+        </slot>
       </a>
-      <slot name="current" v-else>
-        {{ number }}
-      </slot>
     </li>
 
     <template v-if="showLast">
       <li class="sf-pagination__item">
-        ...
+        <slot name="points">
+          ...
+        </slot>
       </li>
       <li class="sf-pagination__item">
         <a class="sf-pagination__link" @click="setCurrentPage(length)">
-          {{ length }}
+          <slot v-bind:number="length">
+            {{ length }}
+          </slot>
         </a>
       </li>
     </template>
