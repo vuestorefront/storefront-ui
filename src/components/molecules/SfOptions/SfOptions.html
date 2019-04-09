@@ -1,8 +1,5 @@
 <div class="sf-options">
-  <sf-label
-    v-if="label"
-    :class="['sf-options__title', labelClass]"
-  >
+  <sf-label v-if="label" class="sf-options__title">
     {{ label }}
   </sf-label>
 
@@ -22,12 +19,14 @@
       tabindex="0"
       @click="setActiveValue(option.value)"
     >
-      <div
-        :class="['sf-options__option', image && 'sf-options__option--image', optionClass]"
-        :style="option.style"
-      >
-        {{ image || color ? '' : option.text }}
-      </div>
+      <slot>
+        <div
+          :class="['sf-options__option', image && 'sf-options__option--image', optionClass]"
+          :style="option.style"
+        >
+          {{ image || color ? '' : option.text }}
+        </div>
+      </slot>
 
       <span v-if="option.caption">
         {{ option.caption }}

@@ -18,10 +18,6 @@ export default {
       type: String,
       default: null
     },
-    labelClass: {
-      type: String,
-      default: null
-    },
     image: {
       type: Boolean,
       default: false
