@@ -10,16 +10,6 @@ Circle Button Component for basket button / close button.
 
 ![circle button for close](https://user-images.githubusercontent.com/34887212/55572494-fd71ec00-5707-11e9-84c3-1f4cfe6f78bb.png)
 
-## HTML Template
-
-````html
-<SfButton class="sf-circle-button">
-    <slot>
-        <img class="sf-circle-button__icon" :src="icon" :alt="alt"/>
-    </slot>
-</SfButton>
-````
-
 ## Props
 
 - `icon` - icon source for image
@@ -43,6 +33,6 @@ Circle Button Component for basket button / close button.
 
 ## Source files and Storybook demo
 
-- - [@/src/components/atoms/SfCircleButton] (https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/atoms/SfCircleButton)
-
+- [@/src/components/atoms/SfCircleButton](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/atoms/SfCircleButton)
+- [HTML template](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/atoms/SfCircleButton/SfCircleButton.html)
 - link to storybook

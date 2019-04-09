@@ -4,26 +4,11 @@ Component for displaying in-app messages.
 
 ![Alert](https://user-images.githubusercontent.com/33127342/55155868-ba88a500-5158-11e9-94f4-3cd787e5c1b4.png "Alert")
 
-
-## HTML Template
-
-````html
-<div class="sf-alert" :class="`sf-alert--${type}`">
-    <slot name="icon" :icon="icon">
-        <img :src="iconSrc" class="sf-alert__icon" v-if="icon">
-    </slot>
-    <slot name="message" :message="message">
-        <p class="sf-alert__text"  v-if="message">{{ message }}</p>
-    </slot>
-    <slot />
-</div>
-````
-
 ## Props
 
 - `message` - for setting default value of message
 - `type` - defines alert type, default "alert"
-- `icon` - if string passed it's used as src to icon if boolean, shows default icon or not
+- `icon` - if string passed it is used as src to icon if boolean, shows default icon or not
 
 ## Slots
 
@@ -35,7 +20,7 @@ Component for displaying in-app messages.
 
 - `$sf-alert-padding` (0.625rem)
 - `$sf-alert-text-font-size` (0.875rem)
-- `$sf-alert-text-margin` (0) 
+- `$sf-alert-text-margin` (0)
 
 - `$sf-alert__text-font-size` (0.875rem)
 - `$sf-alert__text-margin` (0)
@@ -60,3 +45,4 @@ Component for displaying in-app messages.
 ## Source files and Storybook demo
 
 - [@/src/components/atoms/SfAlert](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/atoms/SfAlert)
+- [HTML template](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/atoms/SfAlert/SfAlert.html)

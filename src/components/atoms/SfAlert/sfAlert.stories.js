@@ -1,5 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
+import notes from "./README.md";
 import SfAlert from "./SfAlert.vue";
 
 storiesOf("Alert", module)
@@ -33,6 +34,7 @@ storiesOf("Alert", module)
     `
     }),
     {
+      notes,
       info: true
     }
   )
@@ -66,6 +68,7 @@ storiesOf("Alert", module)
     `
     }),
     {
+      notes,
       info: true,
       knobs: {
         escapeHTML: false
