@@ -9,7 +9,7 @@ export default storiesOf("CircleButton", module)
   .add("with secondary modifier", () => ({
     components: { SfCircleButton },
     template:
-      "<sf-circle-button class='sf-circle-button--secondary' icon='/added_to_cart.svg'/>"
+      "<sf-circle-button class='sf-circle-button--secondary' icon='assets/storybook/home.svg'/>"
   }))
   .add("with small modifier and close icon", () => ({
     components: { SfCircleButton },

@@ -8,7 +8,7 @@ import SfButton from "./SfButton.vue";
 storiesOf("Button", module)
   .addDecorator(withKnobs)
   .add(
-    "with text",
+    "Slots",
     () => ({
       components: { SfButton },
       template: '<sf-button @click="action">Hello Button</sf-button>',

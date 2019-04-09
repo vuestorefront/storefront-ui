@@ -17,7 +17,7 @@ $sf-circle-button-background-small-hover: $c-dark-secondary !default;
     justify-content: center;
     width: $sf-circle-button-size;
     height: $sf-circle-button-size;
-    transition: box-shadow .2s ease;
+    transition: box-shadow .3s ease;
     outline: none;
     background-color: $sf-circle-button-background-primary;
     &:hover {
