@@ -31,7 +31,7 @@ visible, default content is three points (...).
 
 ## Emitted events
 
-- `change:current` - Emitted when an pagination link is clicked and
+- `update:current` - Emitted when an pagination link is clicked and
 page should be changed, must be listened to update the content and
 then update the current page number.
 
