@@ -48,6 +48,13 @@ Then check if `sfui.scss` file was created in a root of your app. If not - creat
 
 We are currently in a process of building the library. If you want to help shaping future of vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) you can find all the required information.
 
+# Cooperation with Alpacas
+
+Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-storybook) are common efforts. We joined forces in figuring out how to make things right to deliver best possible experience to the users.
+
+# Supporters
+<a href="https://www.e-com.club/"><img src="https://avatars3.githubusercontent.com/u/34305306?s=200&v=4" alt="e-com club" height="60px"></a>
+
 # State of components 
 
 TBD in a few days once we have current ones docummented.
