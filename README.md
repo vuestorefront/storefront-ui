@@ -52,6 +52,9 @@ We are currently in a process of building the library. If you want to help shapi
 
 Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-storybook) are common efforts. We joined forces in figuring out how to make things right to deliver best possible experience to the users.
 
+# Supporters
+<a href="https://www.e-com.club/"><img src="https://avatars3.githubusercontent.com/u/34305306?s=200&v=4" alt="e-com club" height="60px"></a>
+
 # State of components 
 
 TBD in a few days once we have current ones docummented.
