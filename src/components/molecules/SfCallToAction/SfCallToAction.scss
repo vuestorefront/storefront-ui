@@ -32,6 +32,11 @@ $call-to-action-mobile__button-padding: 0.675rem 2rem !default;
     padding: $call-to-action-padding;
     justify-content: $call-to-action-justify-content;
   }
+  &__text-container {
+    @media screen and (min-width: $desktop-min) {
+      padding-right: $spacing-medium;
+    }
+  }
   &__message {
     font-size: $font-size-big-mobile;
     font-family: $call-to-action__message-font-family;
@@ -57,6 +62,7 @@ $call-to-action-mobile__button-padding: 0.675rem 2rem !default;
     justify-content: center;
     padding: $call-to-action-mobile__button-padding;
     font-size: $font-size-small-mobile;
+    white-space: nowrap;
     @media screen and (min-width: $desktop-min) {
       display: block;
       padding: $call-to-action__button-padding;
