@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <SfAlert message="warning"></SfAlert>
+    <Playground />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
-import SfAlert from "./components/atoms/SfAlert/SfAlert.vue";
+// If you don;t have this file run `yarn` cmd to create it
+import Playground from "./Playground.vue";
 
 export default Vue.extend({
   name: "app",
   components: {
-    SfAlert
+    Playground
   }
 });
 </script>
