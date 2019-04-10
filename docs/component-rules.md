@@ -67,10 +67,11 @@ Below you can find rules that needs to be applied into every component from Stor
 
 ### Stories for Storybook
 
-Component stories should contain at least those three stories:
-- filled props via knobs
-- filled slots via knobs
-- applied CSS modifiers via knobs
-- if there are some common use cases (liek applying icon to the button) they should also be listed as stories
+Component stories should contain at least those stories:
+- one for all props fillable as knobs (as text or select)
+- one per every slot
+- one for all CSS modifiers (as select)
+
+Run `yarn storybook:serve` to check examples
 
 Please see [this](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.stories.js) stories for reference.

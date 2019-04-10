@@ -30,18 +30,32 @@ export default storiesOf("CallToAction", module)
     }
   )
   .add(
-    "Slots (custom markup)",
+    "[slot] message",
     () => ({
       components: { SfCallToAction },
       template: `
       <SfCallToAction
-        message="How cool are those?"
         button-text="Check out"
       >
-        <template #title="{ title }">
-          <h1> {{ title }} </h1>
+        <template #message>
+          <h1> Lorem ipsum </h1>
         </template>
-        <template #call-to-action>
+      </SfCallToAction>
+    `
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "[slot] call-to-action",
+    () => ({
+      components: { SfCallToAction },
+      template: `
+      <SfCallToAction
+        message="Message prop"
+      >
+        <template #action>
           <button>Custom CTA</button>
         </template>
       </SfCallToAction>

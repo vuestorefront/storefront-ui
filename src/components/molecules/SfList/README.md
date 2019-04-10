@@ -33,6 +33,7 @@
 
 - absolute link to component folder
 - [HTML template](absolute_link_to_HTML_template)
+- link to storybook
 - template import `@storefrontui/vue/SfComponent.html`
 - instance import `@storefrontui/vue/SfComponent.js`
 - scss import `@storefrontui/vue/SfComponent.scss`
