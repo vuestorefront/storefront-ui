@@ -52,6 +52,7 @@ storiesOf("Alert", module)
     }),
     {
       info: true,
+      notes,
       knobs: {
         escapeHTML: false
       }

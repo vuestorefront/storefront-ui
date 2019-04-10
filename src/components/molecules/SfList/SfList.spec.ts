@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfList from "@/components/molecules/SfList.vue";
+import SfList from "./SfList.vue";
 
 describe("SfList.vue", () => {
   it("renders a component", () => {
