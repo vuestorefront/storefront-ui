@@ -3,7 +3,6 @@
 $call-to-action-background-color: $c-gray-secondary !default;
 $call-to-action-align-content: center !default;
 $call-to-action-text-align: center !default;
-
 $call-to-action__message-font-weight: 400 !default;
 $call-to-action__message-text-transform: none !default;
 
@@ -15,6 +14,7 @@ $call-to-action__message-text-transform: none !default;
   padding: $spacing-extra-big $spacing-big;
   background-color: $call-to-action-background-color;
   &__message {
+    width: 100%;
     margin-top: 0;
     font-weight: $call-to-action__message-font-weight;
     text-transform: $call-to-action__message-text-transform;
