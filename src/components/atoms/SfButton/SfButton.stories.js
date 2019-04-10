@@ -17,4 +17,26 @@ storiesOf("Button", module)
     {
       info: true
     }
+  )
+  .add(
+    "CSS Modifiers",
+    () => ({
+      components: { SfButton },
+      props: {
+        customClass: {
+          default: select(
+            "CSS Modifier",
+            ["null", "sf-button--secondary", "sf-button--full-width"],
+            "null",
+            "CSS-Modifiers"
+          )
+        }
+      },
+      template: `
+      <SfButton :class="customClass">Hello world</SfButton>
+    `
+    }),
+    {
+      info: true
+    }
   );

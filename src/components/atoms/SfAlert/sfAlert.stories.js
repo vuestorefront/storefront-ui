@@ -64,7 +64,7 @@ storiesOf("Alert", module)
       template: `
       <SfAlert icon="/assets/profile.svg">
         <template slot="message">
-          <h2>Custom message</h2>
+          <span>Custom message <b>with custom HTML</b></span>
         </div>
       </SfAlert>
     `
