@@ -16,7 +16,8 @@ addParameters({
   }
 });
 setDefaults({
-  summary: "Check **Knobs** tab on Props story to play with compomnent props"
+  summary: `- Check **Knobs** tab on Props story to play with compomnent props.
+  - Check **Notes** tab for documentation`
 });
 
 function loadStories() {
