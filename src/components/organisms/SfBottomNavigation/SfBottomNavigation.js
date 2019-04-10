@@ -9,6 +9,21 @@ export default {
       default: false
     }
   },
+  computed: {
+    currentIcon: {
+      get() {
+        return this.isActive;
+      },
+      set(value) {
+        this.$emit("change:isActive", value);
+      }
+    }
+  },
+  methods: {
+    setCurrentIcon: value => {
+      this.currentIcon = value;
+    }
+  },
   components: {
     SfCircleButton
   }

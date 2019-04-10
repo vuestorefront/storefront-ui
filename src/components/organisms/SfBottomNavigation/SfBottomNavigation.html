@@ -1,7 +1,7 @@
 <div class="sf-bottom-navigation">
   <div class="sf-bottom-navigation__elements" v-for="icon in icons">
     <slot name="icon" :image="icon">
-      <div class="sf-bottom-navigation__element" :class="{ active: isActive }" @click="isActive = !isActive" v-if="icon">
+      <div class="sf-bottom-navigation__element" :class="{ active: isActive }" @click="setCurrentIcon()" v-if="icon">
         <img
           :src="icon"
           alt="nav-home"
