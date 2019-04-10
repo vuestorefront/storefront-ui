@@ -1,0 +1,24 @@
+<div class="sf-checkbox">
+  <input
+    :id="id"
+    :name="name"
+    type="checkbox"
+    :class="['sf-checkbox__field', inputClass]"
+    :checked="finalValue === value"
+    @change="change($event.target.checked)"
+  />
+  <!-- @slot Custom checkbox markup (Named slot) -->
+  <slot name="label">
+    <label :for="id" :class="['sf-checkbox__label', labelClass]">
+      <span class="sf-checkbox__icon" :class="[iconClass,'sf-checkbox__icon']">
+        <img
+          class="sf-checkbox__icon-svg"
+          src="/assets/check.svg"
+          alt="Checkbox Icon"
+        />
+      </span>
+      <!-- @slot Custom label content (Default slot) -->
+      <slot />
+    </label>
+  </slot>
+</div>

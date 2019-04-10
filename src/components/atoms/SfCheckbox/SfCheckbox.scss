@@ -1,0 +1,96 @@
+@import "../../../css/variables";
+
+$sf-checkbox__margin            : $spacing-medium !default;
+$sf-checkbox__line-height       : 21px !default;
+
+$sf-checkbox__icon-size         : 19px !default;
+$sf-checkbox__icon-border-radius: 0 !default;
+$sf-checkbox__icon-border       : 1px $c-gray-secondary solid !default;
+$sf-checkbox__icon-bg-color     : $c-white !default;
+$sf-checkbox__icon-svg-width    : 9px !default;
+$sf-checkbox__icon-svg-height   : 7px !default;
+$sf-checkbox__icon-transition   : $transition-slide !default;
+$sf-checkbox__icon-border--checked: 1px $c-accent-primary solid !default;
+$sf-checkbox__icon-bg-color--checked : $c-accent-primary !default;
+$sf-checkbox__icon-border--hover: 1px $c-accent-primary solid !default;
+$sf-checkbox__icon-bg-color--hover : $c-white !default;
+
+$sf-checkbox__icon-label-spacer : 11px !default;
+$sf-checkbox__label-padding     : 0 0 0 $sf-checkbox__icon-size + $sf-checkbox__icon-label-spacer !default;
+
+.sf-checkbox {
+
+  position: relative;
+  margin-bottom: $sf-checkbox__margin;
+
+  &__field {
+
+    display: none;
+
+    &:checked + .sf-checkbox__label .sf-checkbox__icon {
+
+      border: $sf-checkbox__icon-border--checked;
+      background-color: $sf-checkbox__icon-bg-color--checked;
+
+      .sf-checkbox__icon-svg {
+        opacity: 1;
+      }
+
+    }
+
+  }
+
+  &__label {
+
+    display: block;
+    margin: 0;
+    padding: $sf-checkbox__label-padding;
+    line-height: $sf-checkbox__line-height;
+    cursor: pointer;
+    vertical-align: middle;
+
+  }
+
+  &__icon {
+
+    // Base
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $sf-checkbox__icon-size;
+    height: $sf-checkbox__icon-size;
+    padding: 0;
+    cursor: pointer;
+    opacity: 1;
+    transition: $sf-checkbox__icon-transition;
+    display: inline-block;
+    vertical-align: middle;
+
+    // Appearance
+    border-radius: $sf-checkbox__icon-border-radius;
+    border: $sf-checkbox__icon-border;
+    background-color: $sf-checkbox__icon-bg-color;
+
+    &-svg {
+
+      opacity: 0;
+      transition: $sf-checkbox__icon-transition;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: $sf-checkbox__icon-svg-width;
+      height: $sf-checkbox__icon-svg-height;
+
+    }
+
+    &:hover {
+
+      border: $sf-checkbox__icon-border--hover;
+      background-color: $sf-checkbox__icon-bg-color--hover;
+
+    }
+
+  }
+
+}
