@@ -1,16 +1,16 @@
-<section class="sf-banner">
+<section class="sf-banner" :style="'background-image: url(' + image + '); background-color: ' + background +';'">
   <div class="sf-banner__container">
-    <slot name="subtitle" />
+    <slot name="subtitle" :subtitle="subtitle">
       <h2 class="sf-banner__subtitle" v-if="subtitle">
         {{ subtitle }}
       </h2>
     </slot>
-    <slot name="title">
+    <slot name="title" :title="title">
       <h1 class="sf-banner__title" v-if="title">
         {{ title }}
       </h1>
     </slot>
-    <slot name="description">
+    <slot name="description" :description="description">
       <p class="sf-banner__description" v-if="description">
         {{ description }}
       </p>
