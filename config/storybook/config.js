@@ -2,7 +2,7 @@
 import { configure, addDecorator, addParameters } from "@storybook/vue";
 import { withInfo } from "storybook-addon-vue-info";
 
-import styles from "../../src/css/all.scss";
+import "../../src/css/all.scss";
 
 const req = require.context("../../src/", true, /.stories.js$/);
 

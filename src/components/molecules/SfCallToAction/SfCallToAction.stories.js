@@ -37,8 +37,8 @@ export default storiesOf("CallToAction", module)
       <SfCallToAction
         button-text="Check out"
       >
-        <template #title="{ title }">
-          <h1> {{ title }} </h1>
+        <template #message>
+          <h1> Lorem ipsum </h1>
         </template>
       </SfCallToAction>
     `
@@ -53,9 +53,9 @@ export default storiesOf("CallToAction", module)
       components: { SfCallToAction },
       template: `
       <SfCallToAction
-        message="How cool are those?"
+        message="Message prop"
       >
-        <template #call-to-action>
+        <template #action>
           <button>Custom CTA</button>
         </template>
       </SfCallToAction>

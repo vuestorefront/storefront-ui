@@ -21,26 +21,53 @@ const vm = {
 };
 
 export default storiesOf("Pagination", module)
-  .add("default", () => ({
-    ...vm,
-    template: `
+  .add(
+    "Props",
+    () => ({
+      ...vm,
+      template: `
     <sf-pagination @change:current="(page) => { setCurrentPage(page) }"
       :current="page"
       :total="numberOfPages"
       :visible="visiblePageNumbers"/>`
-  }))
-  .add("text for next and prev", () => ({
-    ...vm,
-    template: `
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "[slot] prev",
+    () => ({
+      ...vm,
+      template: `
     <sf-pagination @change:current="(page) => { setCurrentPage(page) }"
       :current="page"
       :total="numberOfPages + 1"
       :visible="visiblePageNumbers - 1">
       <template slot="prev">prev</template>
+    </sf-pagination>`
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "[slot] next",
+    () => ({
+      ...vm,
+      template: `
+    <sf-pagination @change:current="(page) => { setCurrentPage(page) }"
+      :current="page"
+      :total="numberOfPages + 1"
+      :visible="visiblePageNumbers - 1">
       <template slot="next">next</template>
     </sf-pagination>`
-  }))
-  .add("custom items", () => ({
+    }),
+    {
+      info: true
+    }
+  )
+  .add("[slot] number", () => ({
     ...vm,
     template: `
     <sf-pagination @change:current="(page) => { setCurrentPage(page) }"
@@ -48,7 +75,7 @@ export default storiesOf("Pagination", module)
       :total="numberOfPages"
       :visible="visiblePageNumbers">
       <template v-slot="{ number }">
-        {{ number }}.
+        [{{ number }}]
       </template>
     </sf-pagination>`
   }));
