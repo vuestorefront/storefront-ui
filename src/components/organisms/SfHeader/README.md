@@ -10,27 +10,6 @@ Responsive header (navbar) component.
 
 ![header mobile with text](https://camo.githubusercontent.com/d1e8ae6d1c8141298eff4330111d0c2691e07eb7/68747470733a2f2f73637265656e73686f747363646e2e66697265666f7875736572636f6e74656e742e636f6d2f696d616765732f64376465366235652d666563352d343664652d623934382d6536626437303139323565322e706e67)
 
-## HTML Template
-
-<!-- Just paste HTML template. It's much better description than any other code -->
-
-````html
-<header class="sf-header">
-  <div class="sf-header__column sf-header__column--left">
-    <slot name="left"></slot>
-  </div>
-  <div class="sf-header__column sf-header__column--middle">
-    <slot name="middle">
-      <img src="/assets/logo.svg" alt="logo" class="sf-header__logo"/>
-    </slot>
-  </div>
-  <div class="sf-header__column sf-header__column--right">
-    <slot name="right"></slot>
-  </div>
-  <slot />
-</header>
-````
-
 ## Slots
 
 <!-- Describe slots and their purpose -->
@@ -62,4 +41,5 @@ hidden on desktop, usage dependent of page context.
 ## Source files and Storybook demo
 
 - [@src/components/organisms/SfHeader](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/organisms/SfHeader)
+- [HTML template](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/organisms/SfHeader/SfHeader.html)
 - [@src/stories/SfHeader.stories.js](https://github.com/DivanteLtd/storefront-ui/blob/master/src/stories/SfHeader.stories.js)
