@@ -22,18 +22,11 @@ Mobile-only bottom navigation menu with icon elements and floating Button.
       </div>
     </slot>
   </div>
-
-  <!--Waiting for button styles-->
-  <div class="sf-bottom-navigation__element">
-    <slot name="button" :icon="icon">
-      <div class="sf-bottom-navigation-cart-button">
-        <img
-          :src="icon"
-          alt="nav-cart"
-          class="sf-bottom-navigation-element-img"
-        />
-      </div>
-    </slot>
+<div class="sf-bottom-navigation__element">
+      <Sf-Circle-Button class="sf-bottom-navigation-cart-button">
+        <img src="/assets/cart.svg" alt="nav-cart" class="sf-bottom-navigation-element-img"/>
+      </Sf-Circle-Button>
+      </slot>
   </div>
   <slot />
 </div>
