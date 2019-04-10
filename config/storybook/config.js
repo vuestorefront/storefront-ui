@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { configure, addDecorator, addParameters } from "@storybook/vue";
 import { setDefaults, withInfo } from "storybook-addon-vue-info";
+import theme from "./theme";
 
 import "../../src/css/all.scss";
 
@@ -10,10 +11,10 @@ addDecorator(withInfo);
 
 addParameters({
   options: {
-    brandTitle: "StorefrontUI"
+    brandTitle: "StorefrontUI",
+    theme
   }
 });
-
 setDefaults({
   summary: "Check **Knobs** tab on Props story to play with compomnent props"
 });
