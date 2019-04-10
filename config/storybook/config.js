@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { configure, addDecorator, addParameters } from "@storybook/vue";
-import { withInfo } from "storybook-addon-vue-info";
+import { setDefaults, withInfo } from "storybook-addon-vue-info";
 
 import "../../src/css/all.scss";
 
@@ -12,6 +12,10 @@ addParameters({
   options: {
     brandTitle: "StorefrontUI"
   }
+});
+
+setDefaults({
+  summary: "Check **Knobs** tab on Props story to play with compomnent props"
 });
 
 function loadStories() {
