@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfCallToAction from "./SfCallToAction.vue";
 
@@ -33,6 +33,37 @@ export default storiesOf("CallToAction", module)
     }),
     {
       notes,
+      info: true
+    }
+  )
+  .add(
+    "CSS Modifiers",
+    () => ({
+      components: { SfCallToAction },
+      props: {
+        customClass: {
+          default: select(
+            "CSS Modifier",
+            [
+              "null",
+              "sf-call-to-action--secondary",
+              "sf-call-to-action--light"
+            ],
+            "null",
+            "CSS-Modifiers"
+          )
+        }
+      },
+      template: `
+      <SfCallToAction
+        title="Title prop"
+        description="Description prop lorem ipsum dolor sit amet"
+        button-text="ButtonText prop"
+        :class="customClass"
+      />
+    `
+    }),
+    {
       info: true
     }
   )

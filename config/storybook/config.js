@@ -12,11 +12,12 @@ addDecorator(withInfo);
 addParameters({
   options: {
     brandTitle: "StorefrontUI",
-    theme
+    theme,
+    sortStoriesByKind: true
   }
 });
 setDefaults({
-  summary: `- Check **Knobs** tab on Props story to play with compomnent props.
+  summary: `- Check **Knobs** tab on Props story to play with compomnent props and CSS modifiers story to play with CSS modifiers.
   - Check **Notes** tab for documentation`
 });
 
