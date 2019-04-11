@@ -19,9 +19,9 @@ Component for displaying in-app messages.
 ## SCSS variables
 
 - `$sf-alert-padding` (0.625rem)
-- `$sf-alert-text-font-size` (0.875rem)
-- `$sf-alert-text-margin` (0)
+- `$sf-alert-font-size` (0.875rem)
 
+- `$sf-alert__text-margin` (0)
 - `$sf-alert__text-font-size` (0.875rem)
 - `$sf-alert__text-margin` (0)
 

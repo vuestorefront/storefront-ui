@@ -17,17 +17,17 @@
 
 - `event` - description
 
-## SCSS variables
-
-- `variablename` (defaultvalue) - description
-
-<!-- Write down SCSS variables available for configuration -->
-
 ## CSS Modifiers
 
 - `classname` - description
 
 <!-- Write down available CSS Modifiers -->
+
+## SCSS variables
+
+- `variablename` (defaultvalue) - description
+
+<!-- Write down SCSS variables available for configuration -->
 
 ## Source files and Storybook demo
 
