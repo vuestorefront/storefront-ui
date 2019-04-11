@@ -1,13 +1,13 @@
 <section class="sf-call-to-action">
   <slot />
   <div class="sf-call-to-action__text-container">
-    <slot name="message" :message="message">
-      <h1 class="sf-call-to-action__message" v-if="message">
-        {{ message }}
+    <slot name="title" :title="title">
+      <h1 class="sf-call-to-action__title" v-if="title">
+        {{ title }}
       </h1>
     </slot>
     <slot name="description" :description="description">
-      <p class="sf-call-to-action__description desktop-only" v-if="description">
+      <p class="sf-call-to-action__description" v-if="description">
         {{ description }}
       </p>
     </slot>

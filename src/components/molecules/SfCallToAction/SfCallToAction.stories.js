@@ -10,8 +10,14 @@ export default storiesOf("CallToAction", module)
     () => ({
       components: { SfCallToAction },
       props: {
-        message: {
-          default: text("message (prop)", "Message prop")
+        title: {
+          default: text("title (prop)", "Title prop")
+        },
+        description: {
+          default: text(
+            "description (prop)",
+            "Description prop lorem ipsum dolor sit amet"
+          )
         },
         buttonText: {
           default: text("buttonText (prop)", "ButtonText prop")
@@ -19,8 +25,9 @@ export default storiesOf("CallToAction", module)
       },
       template: `
       <SfCallToAction
-        :message="message"
+        :title="title"
         :button-text="buttonText"
+        :description="description"
       />
     `
     }),
@@ -30,14 +37,15 @@ export default storiesOf("CallToAction", module)
     }
   )
   .add(
-    "[slot] message",
+    "[slot] title",
     () => ({
       components: { SfCallToAction },
       template: `
       <SfCallToAction
         button-text="Check out"
+        description="Description prop lorem ipsum dolor sit amet"
       >
-        <template #message>
+        <template #title>
           <h1> Lorem ipsum </h1>
         </template>
       </SfCallToAction>
@@ -48,12 +56,33 @@ export default storiesOf("CallToAction", module)
     }
   )
   .add(
-    "[slot] call-to-action",
+    "[slot] description",
     () => ({
       components: { SfCallToAction },
       template: `
       <SfCallToAction
-        message="Message prop"
+        title="Title prop"
+        button-text="Check out"
+      >
+        <template #description>
+          <p> Description slot lorem ipsum dolor sit amet</p>
+        </template>
+      </SfCallToAction>
+    `
+    }),
+    {
+      info: true
+    }
+  )
+
+  .add(
+    "[slot] action",
+    () => ({
+      components: { SfCallToAction },
+      template: `
+      <SfCallToAction
+        title="Title prop"
+        description="Description prop lorem ipsum dolor sit amet"
       >
         <template #action>
           <button>Custom CTA</button>
