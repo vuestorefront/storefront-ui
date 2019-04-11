@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import SfComponent from "@/components/template/SfComponent.vue";
+import SfRating from "./SfRating.vue";
 
 describe("SfRating.vue", () => {
   it("renders a component", () => {
-    const component = shallowMount(SfComponent);
+    const component = shallowMount(SfRating);
     expect(component.contains(".sf-rating")).toBe(true);
   });
 

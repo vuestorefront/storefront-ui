@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfAlert from "@/components/atoms/SfAlert/SfAlert.vue";
+import SfAlert from "./SfAlert.vue";
 
 describe("SfAlert.vue", () => {
   it("renders an alert", () => {

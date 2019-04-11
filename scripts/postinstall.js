@@ -1,35 +1,31 @@
-var fs = require("fs");
-var path = require("path");
+const fs = require("fs");
+const path = require("path");
 const currentDir = path.dirname(__dirname);
+const stylesPath = path.resolve("../../../sfui.scss");
+const playgroundPath = path.resolve("src/Playground.vue");
 
-if (currentDir.includes("node_modules")) {
-  fs.appendFile(
-    "../../../sfui.scss",
-    `/* Here you can override global SCSS variables */
+const stylesContent = `/* Here you can override global SCSS variables */
   
-  // global override excluding scoped components
-  // $button-desktop-padding: 5px !default;
-  // global override including scoped componentss
-  // $button-desktop-padding: 50px;
-    `,
-    err => {
-      if (err) throw err;
-    }
-  );
-} else {
-  fs.appendFile(
-    "src/Playground.vue",
-    `<template>
+// global override excluding scoped components
+// $button-desktop-padding: 5px !default;
+// global override including scoped componentss
+// $button-desktop-padding: 50px;`;
+
+const playgroundContent = `<template>
   <div id="playground"></div>
 </template>
-
+  
 <script>
 // Use this component to play with other components
 export default {};
-</script>
-`,
-    err => {
-      if (err) throw err;
-    }
-  );
+</script>`;
+
+if (currentDir.includes("node_modules") && !fs.existsSync(stylesPath)) {
+  fs.appendFile("../../../sfui.scss", stylesContent, err => {
+    if (err) throw err;
+  });
+} else if (!fs.existsSync(playgroundPath)) {
+  fs.appendFile("src/Playground.vue", playgroundContent, err => {
+    if (err) throw err;
+  });
 }
