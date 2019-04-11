@@ -36,6 +36,6 @@ Minimal set of tests conteins:
 
 Some of the most common cases can be found in a template.
 
-### Add documentation
+### Add documentation and stories
 
 Document the components according to documentation template in `components/template` folder.
