@@ -10,7 +10,7 @@ Component to list page numbers and start handling content pagination.
 
 <!--Write down props and their purpose -->
 
-- `current` (1) - Current page integer number, starting from 1.
+- `current.sync` (1) - Current page integer number, starting from 1. In sync with `update:current` event
 
 - `total` (5) - Number of total available pages.
 
