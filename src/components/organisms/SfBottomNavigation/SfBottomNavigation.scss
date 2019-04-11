@@ -1,6 +1,5 @@
 @import "../../../css/variables";
 
-$bottom-navigation-cart-shadow: 0px 4px 6px rgba(66, 66, 66, 0.2) !default;
 $bottom-navigation-padding: 0.5rem 0 !default;
 $bottom-navigation-background: $c-white !default;
 
@@ -40,12 +39,7 @@ $bottom-navigation__element-transition: 0.3s all !default;
     height: auto;
     padding: 0.5rem;
   }
-  .sf-bottom-navigation-cart-button {
-    background-color: $c-green-primary;
-    border-radius: 50%;
-    box-shadow: $bottom-navigation-cart-shadow;
-  }
-
+  
   @media (min-width: $tablet-min) {
     display: none;
   }

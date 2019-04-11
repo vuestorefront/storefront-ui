@@ -4,7 +4,7 @@ export default {
   name: "SfBottomNavigation",
   props: {
     image: String,
-    isActive: {
+    current: {
       type: Boolean,
       default: false
     }
@@ -12,16 +12,16 @@ export default {
   computed: {
     currentIcon: {
       get() {
-        return this.isActive;
+        return this.current;
       },
       set(value) {
-        this.$emit("change:isActive", value);
+        this.$emit("change:current", value);
       }
     }
   },
   methods: {
-    setCurrentIcon: value => {
-      this.currentIcon = value;
+    setCurrent: value => {
+      this.current = value;
     }
   },
   components: {

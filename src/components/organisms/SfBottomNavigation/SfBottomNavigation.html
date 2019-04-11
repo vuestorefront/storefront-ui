@@ -1,7 +1,7 @@
 <div class="sf-bottom-navigation">
   <div class="sf-bottom-navigation__elements" v-for="icon in icons">
-    <slot name="icon" :image="icon">
-      <div class="sf-bottom-navigation__element" :class="{ active: isActive }" @click="setCurrentIcon()" v-if="icon">
+    <slot name="items" :image="icon">
+      <div class="sf-bottom-navigation__element" :class="{ active: current }" @click="setCurrent()" v-if="icon">
         <img
           :src="icon"
           alt="nav-home"
@@ -11,8 +11,9 @@
     </slot>
   </div>
   <div class="sf-bottom-navigation__element">
-      <Sf-Circle-Button class="sf-bottom-navigation-cart-button">
-        <img src="/assets/cart.svg" alt="nav-cart" class="sf-bottom-navigation-element-img"/>
+    <slot name="floating-icon">
+      <Sf-Circle-Button class="sf-bottom-navigation-cart-button" v-if="floating-icon">
+        <img :src="floating-icon" alt="nav-cart" class="sf-bottom-navigation-element-img"/>
       </Sf-Circle-Button>
       </slot>
   </div>
