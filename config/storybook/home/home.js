@@ -28,7 +28,7 @@ storiesOf(" |Introduction", module)
       <li><a href="https://github.com/Divanteltd/storefront-ui" target="_blank">StorefrontUI Github</a></li>
       <li><a href="https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md" target="_blank">>Contribution guide</a></li>
       <li>Documentation (work in progress)</li>
-      <li><a href="https://storybook.js.org/docs/basics/introduction/" target="_blank">>Storybook docs</a>
+      <li><a href="https://storybook.js.org/docs/basics/introduction/" target="_blank">Storybook docs</a>
     </ul>
     </div>
     `
