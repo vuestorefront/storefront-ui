@@ -23,7 +23,7 @@ setDefaults({
 });
 
 function loadStories() {
-  require("../../docs/docs.stories.js");
+  require("./home/home.js");
   req.keys().forEach(filename => req(filename));
 }
 
