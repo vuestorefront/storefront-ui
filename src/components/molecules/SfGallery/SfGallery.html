@@ -1,0 +1,15 @@
+<div class="sf-gallery">
+  <div class="sf-gallery__stage" v-if="currentImage">
+    <img class="sf-gallery__selected-image"
+      :src="currentImage.big.url"
+      :alt="currentImage.big.alt" />
+  </div>
+  <div class="sf-gallery__nav">
+    <div v-for="({ small }, i) in images"
+      key="'img-' + i"
+      :class="sf-gallety__item"
+      @click="setCurrentImage(i)">
+      <img :src="small.url" :alt="small.alt" class="sf-gallery__thumb"/>
+    </div>
+  </div>
+</div>
