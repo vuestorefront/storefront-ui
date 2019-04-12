@@ -15,7 +15,8 @@
     "@snowdog/alpaca-components": "^0.3.0-alpha.5",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
-    "vue": "^2.6.8"
+    "vue": "^2.6.8",
+    "vue-markdown": "^2.2.4"
   },
   "files": [
     "dist/*",
