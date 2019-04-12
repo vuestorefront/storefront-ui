@@ -62,9 +62,11 @@ export default storiesOf("Pagination", module)
       info: true
     }
   )
-  .add("[slot] number", () => ({
-    ...vm,
-    template: `
+  .add(
+    "[slot] number",
+    () => ({
+      ...vm,
+      template: `
     <sf-pagination
       :current.sync="page"
       :total="numberOfPages"
@@ -73,4 +75,8 @@ export default storiesOf("Pagination", module)
         [{{ number }}]
       </template>
     </sf-pagination>`
-  }));
+    }),
+    {
+      info: true
+    }
+  );
