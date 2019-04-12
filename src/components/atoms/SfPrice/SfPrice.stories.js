@@ -4,7 +4,7 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfPrice from "./SfPrice.vue";
 
-storiesOf("Price", module)
+storiesOf("Atoms|Price", module)
   .addDecorator(withKnobs)
   .add(
     "Props",

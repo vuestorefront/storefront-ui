@@ -3,7 +3,7 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfCallToAction from "./SfCallToAction.vue";
 
-export default storiesOf("CallToAction", module)
+storiesOf("Molecules|CallToAction", module)
   .addDecorator(withKnobs)
   .add(
     "Props",

@@ -4,7 +4,7 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfSidebar from "./SfSidebar.vue";
 
-storiesOf("Sidebar", module)
+storiesOf("Molecules|Sidebar", module)
   .addDecorator(withKnobs)
   .add(
     "Props",

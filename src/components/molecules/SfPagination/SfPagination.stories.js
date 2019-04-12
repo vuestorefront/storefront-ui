@@ -15,7 +15,7 @@ const vm = {
   }
 };
 
-export default storiesOf("Pagination", module)
+storiesOf("Molecules|Pagination", module)
   .add(
     "Props",
     () => ({

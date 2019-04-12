@@ -12,6 +12,7 @@ addDecorator(withInfo);
 addParameters({
   options: {
     brandTitle: "StorefrontUI",
+    showPanel: true,
     theme,
     sortStoriesByKind: true
   }

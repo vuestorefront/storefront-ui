@@ -5,7 +5,7 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 
 import SfButton from "./SfButton.vue";
 
-storiesOf("Button", module)
+storiesOf("Atoms|Button", module)
   .addDecorator(withKnobs)
   .add(
     "[slot] default",

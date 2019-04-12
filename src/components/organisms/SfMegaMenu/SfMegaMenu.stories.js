@@ -2,7 +2,7 @@ import { storiesOf } from "@storybook/vue";
 
 import SfMegaMenu from "./SfMegaMenu.vue";
 
-storiesOf("MegaMenu", module).add(
+storiesOf("Organisms|MegaMenu", module).add(
   "[slot] default",
   () => ({
     components: { SfMegaMenu },

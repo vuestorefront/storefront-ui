@@ -3,7 +3,7 @@ import notes from "./README.md";
 import SfCircleButton from "./SfCircleButton.vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 
-export default storiesOf("CircleButton", module)
+storiesOf("Atoms|CircleButton", module)
   .addDecorator(withKnobs)
   .add(
     "Props",

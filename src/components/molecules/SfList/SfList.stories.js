@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/vue";
 
 import SfList from "./SfList.vue";
 
-storiesOf("List", module).add(
+storiesOf("Molecules|List", module).add(
   "[slot] Default",
   () => ({
     components: { SfList },
