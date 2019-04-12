@@ -13,6 +13,7 @@ addParameters({
   options: {
     brandTitle: "StorefrontUI",
     showPanel: true,
+    isToolshown: true,
     theme,
     sortStoriesByKind: true
   }
