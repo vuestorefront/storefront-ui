@@ -29,7 +29,7 @@ $call-to-action--secondary__button-background-color: $c-dark-primary !default;
   align-content: $call-to-action-align-content;
   align-items: $call-to-action-align-items;
   flex-direction: column;
-  padding: $spacing-extra-big $spacing-big;
+  padding: $spacer-big $spacer-medium;
   background-color: $call-to-action-background-color;
   @media screen and (min-width: $desktop-min) {
     flex-direction: row;
@@ -38,7 +38,7 @@ $call-to-action--secondary__button-background-color: $c-dark-primary !default;
   }
   &__text-container {
     @media screen and (min-width: $desktop-min) {
-      padding-right: $spacing-medium;
+      padding-right: $spacer;
     }
   }
   &__title {

@@ -26,7 +26,7 @@ Banner with Title, Subtitle and call to action button
 
 ## SCSS variables
 
-- `$banner-padding`  (4.25rem)
+- `$banner-padding`  (calc( #{$spacer-extra-big} * 2)) (4rem)
 - `$banner-background-size`: (cover)
 - `$banner-background-position`: (bottom left)
 - `$banner-align-items` (flex-end)
