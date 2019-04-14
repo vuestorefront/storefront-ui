@@ -1,10 +1,3 @@
-<script>
-import instance from "./SfCallToAction.js";
-
-export default {
-  ...instance
-};
-</script>
-
+<script src="./SfCallToAction.js"></script>
 <template lang="html" src="./SfCallToAction.html"></template>
 <style lang="scss" src="./SfCallToAction.scss"></style>
