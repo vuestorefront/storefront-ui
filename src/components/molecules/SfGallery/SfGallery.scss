@@ -1,6 +1,52 @@
 @import '../../../css/variables';
 
+$gallery-flex-direction: row !default;
+$gallery__nav-width: 100px !default;
+$gallery__nav-margin: 0 $spacing-extra-big 0 0 !default;
+$gallery__thumb-margin-bottom: $spacing-medium !default;
+$gallery__thumb-opacity: .5 !default;
+$gallery__thumb-transition: $transition-fade !default;
+$gallery__stage-width: auto !default;
+
 .sf-gallery {
   width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: $gallery-flex-direction;
+
+  &__nav {
+    width: $gallery__nav-width;
+    padding: 0;
+    margin: $gallery__nav-margin;
+  }
+
+  &__stage {
+    width: $gallery__stage-width;
+  }
+
+  &__thumb {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: $gallery__thumb-opacity;
+    transition: $gallery__thumb-transition;
+    margin-bottom: $gallery__thumb-margin-bottom;
+    padding-bottom: 0;
+    cursor: pointer;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &--selected {
+      cursor: auto;
+      opacity: 1;
+    }
+  }
+
+  &__big-image {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
 }

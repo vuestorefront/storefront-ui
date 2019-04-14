@@ -10,16 +10,24 @@ export default {
     }
   },
 
-  data () {
+  data() {
     return {
-      currentImage: this.images.length && this.images[current]
+      activeIndex: this.current - 1
+    };
+  },
+
+  computed: {
+    currentImage: {
+      get() {
+        return this.images[this.activeIndex];
+      }
     }
   },
 
   methods: {
-    setCurrentImage (index) {
-      this.currentImage = this.images[index]
-      this.$emit('change:current', index)
+    setCurrentImage(index) {
+      this.activeIndex = index;
+      this.$emit("change:current", index + 1);
     }
   }
 };
