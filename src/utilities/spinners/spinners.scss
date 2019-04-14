@@ -1,0 +1,131 @@
+// Bounce
+
+@-webkit-keyframes spinner-bounce {
+  0% {
+    -webkit-transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes spinner-bounce {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  background-color: $c-accent-primary;
+  border-radius: 100%;
+  -webkit-animation: spinner-bounce 1.0s infinite ease-in-out;
+  animation: spinner-bounce 1.0s infinite ease-in-out;
+}
+
+// Linear
+
+@-webkit-keyframes spinner-linear {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}
+
+@keyframes spinner-linear {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}
+
+@-webkit-keyframes spinner-linear-short {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+}
+
+@keyframes spinner-linear-short {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+}
+
+.spinner-linear {
+  position: relative;
+  height: 2px;
+  display: block;
+  width: 100%;
+  background-color: $c-bg-primary;
+  border-radius: 2px;
+  background-clip: padding-box;
+  overflow: hidden;
+
+  .line {
+    background-color: $c-accent-primary;
+
+    &::before,
+    &::after {
+      box-sizing: border-box;
+      content: '';
+      position: absolute;
+      background-color: inherit;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      will-change: left, right;
+    }
+
+    &::before {
+      animation: spinner-linear 2s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+    }
+
+    &::after {
+      animation: spinner-linear-short 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+      animation-delay: 1.2s;
+    }
+  }
+}
