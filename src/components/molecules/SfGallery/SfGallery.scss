@@ -3,9 +3,10 @@
 $gallery-flex-direction: row !default;
 $gallery__nav-width: 100px !default;
 $gallery__nav-margin: 0 $spacing-extra-big 0 0 !default;
-$gallery__thumb-margin-bottom: $spacing-medium !default;
-$gallery__thumb-opacity: .5 !default;
-$gallery__thumb-transition: $transition-fade !default;
+$gallery__item-margin-bottom: $spacing-medium !default;
+$gallery__item-opacity: .5 !default;
+$gallery__item-transition: $transition-fade !default;
+$gallery__item-mobile-size: 10px !default;
 $gallery__stage-width: auto !default;
 
 .sf-gallery {
@@ -13,11 +14,56 @@ $gallery__stage-width: auto !default;
   text-align: center;
   display: flex;
   flex-direction: $gallery-flex-direction;
+  position: relative;
 
   &__nav {
     width: $gallery__nav-width;
     padding: 0;
     margin: $gallery__nav-margin;
+
+    @media (max-width: $mobile-max) {
+      z-index: 2;
+      position: absolute;
+      width: auto;
+      margin: 0;
+      padding: 0;
+      left: $spacing-medium;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__item {
+    margin-bottom: $gallery__item-margin-bottom;
+    opacity: $gallery__item-opacity;
+    transition: $gallery__item-transition;
+    cursor: pointer;
+
+    &--selected {
+      cursor: auto;
+      opacity: 1;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: $mobile-max) {
+      opacity: 1;
+
+      &::before {
+        display: block;
+        content: " ";
+        height: $gallery__item-mobile-size;
+        width: $gallery__item-mobile-size;
+        background: $c-gray-secondary;
+        border-radius: 50%;
+      }
+
+      &--selected::before {
+        background: $c-accent-primary;
+      }
+    }
   }
 
   &__stage {
@@ -28,19 +74,9 @@ $gallery__stage-width: auto !default;
     display: block;
     width: 100%;
     height: auto;
-    opacity: $gallery__thumb-opacity;
-    transition: $gallery__thumb-transition;
-    margin-bottom: $gallery__thumb-margin-bottom;
-    padding-bottom: 0;
-    cursor: pointer;
 
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-
-    &--selected {
-      cursor: auto;
-      opacity: 1;
+    @media (max-width: $mobile-max) {
+      display: none;
     }
   }
 
