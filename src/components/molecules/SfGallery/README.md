@@ -36,7 +36,7 @@ let images = [
 
 ## Emitted events
 
-- `change:current` - Emitted when an nav item (thumbnail) is clicked and
+- `update:current` - Emitted when an nav item (thumbnail) is clicked and
 the selected image is changed.
 
 ## SCSS variables

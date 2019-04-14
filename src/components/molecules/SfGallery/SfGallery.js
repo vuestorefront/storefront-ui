@@ -27,7 +27,7 @@ export default {
   methods: {
     setCurrentImage(index) {
       this.activeIndex = index;
-      this.$emit("change:current", index + 1);
+      this.$emit("update:current", index + 1);
     }
   }
 };
