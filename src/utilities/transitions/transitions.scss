@@ -1,0 +1,76 @@
+$transition-fade: opacity .15s linear;
+$transition-base: $transition-fade;
+$transition-slide: all .15s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+$transition-slide-transform-size: 10px;
+
+// mixins
+
+@mixin transition($transition...) {
+  @if length($transition) == 0 {
+    transition: $transition-base;
+  } @else {
+    transition: $transition;
+  }
+}
+
+@mixin transition-fade() {
+  &-enter-active,
+  &-leave-active {
+    @include transition($transition-fade);
+  }
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+
+@mixin transition-slide($direction: "left") {
+  &-enter-active,
+  &-leave-active {
+    transition: $transition-slide;
+  }
+  &-enter,
+  &-leave-to {
+    @if $direction == "bottom" {
+      transform: translateY($transition-slide-transform-size);
+    } @elseif $direction == "top" {
+      transform: translateY(-$transition-slide-transform-size);
+    } @elseif $direction == "left" {
+      transform: translateX(-$transition-slide-transform-size);
+    } @else {
+      transform: translateX($transition-slide-transform-size);
+    }
+    opacity: 0;
+  }
+}
+
+@mixin transition-slide-fade($direction: "left") {
+  @include transition-slide($direction);
+  &-enter-active {
+    transition: $transition-fade;
+  }
+}
+
+// classes
+
+.fade {
+  @include transition-fade();
+}
+.slide\(left\) {
+  @include transition-slide("left");
+}
+.slide\(right\) {
+  @include transition-slide("right");
+}
+.collapse\(bottom\) {
+  @include transition-slide("bottom");
+}
+.collapse\(top\) {
+  @include transition-slide("top");
+}
+.fade-slide {
+  @include transition-slide-fade();
+}
+.fade-collapse {
+  @include transition-slide-fade("bottom");
+}
