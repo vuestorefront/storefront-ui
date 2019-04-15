@@ -6,13 +6,16 @@ $body-font-family-secondary: 'Raleway', sans-serif !default;
 $body-font-weight-primary: 400 !default;
 
 // Font sizes
+$font-size-regular-desktop: 1.125rem !default;
+$font-size-big-desktop: 1.5rem !default;
+
 $font-size-small-mobile: 0.75rem !default;
 $font-size-regular-mobile: 0.875rem !default;
 $font-size-big-mobile: 1rem !default;
 $font-size-extra-big-mobile: 1.125rem !default;
 
 // Base font size
-$body-font-size-desktop: 1.125rem !default;
+$body-font-size-desktop: $font-size-regular-desktop !default;
 $body-font-size-mobile: $font-size-regular-mobile !default;
 
 // Heading font size

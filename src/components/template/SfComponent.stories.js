@@ -10,32 +10,27 @@
 //   .add(
 //     "[slot] default",
 //     () => ({
-//       components: { SfComponent },
-//       template: '<SfComponent @click="action">Hello Button</SfComponent>',
-//       methods: { action: action("clicked") }
-//     }),
-//     {
-//       info: true,
-//       notes
-//     }
-//   )
-//   .add(
-//     "CSS Modifiers",
-//     () => ({
-//       components: { SfComponent },
 //       props: {
+//         editableProp: {
+//           default: text("(prop) propname")
+//         },
 //         customClass: {
 //           default: select(
 //             "CSS Modifier",
-//             ["null", "sf-component--secondary", "sf-component--fsomething-else"],
+//             ["null", "sf-component--modifier"],
 //             "null",
 //             "CSS-Modifiers"
 //           )
 //         }
 //       },
-//       template: `
-//       <SfComponent :class="customClass">Hello world</SfComponent>
-//     `
+//       components: { SfComponent },
+//       template: `<SfComponent
+//         :class="customClass"
+//         :
+//       >
+//         Hello Button<
+//       /SfComponent>`,
+//       methods: { action: action("clicked") }
 //     }),
 //     {
 //       info: true,

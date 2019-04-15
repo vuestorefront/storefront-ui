@@ -1,0 +1,34 @@
+<div class="sf-price">
+    <!--@slot Custom old price slots (Named slots)-->
+    <slot name="oldPrice">
+      <span
+        v-if="specialPrice"
+        :aria-label="regularPriceAriaLabel"
+        class="sf-price__old"
+        >
+        {{ regularPrice }}
+      </span>
+    </slot>
+    <!--@slot Custom regular price slots (Named slots)-->
+    <slot name="oldPrice">
+        <span
+          v-if="!specialPrice"
+          :aria-label="regularPriceAriaLabel"
+          class="sf-price__regular"
+          >
+          {{ regularPrice }}
+        </span>
+      </slot>
+    <!--@slot Custom special price slots (Named slots)-->
+    <slot name="specialPrice">
+      <ins
+        v-if="specialPrice"
+        :aria-label="specialPriceAriaLabel"
+        class="sf-price__special"
+      >
+        {{ specialPrice }}
+      </ins>
+    </slot>
+    <!--@slot Custom price content (Default slot)-->
+    <slot/>
+  </div>

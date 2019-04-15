@@ -68,9 +68,8 @@ Below you can find rules that needs to be applied into every component from Stor
 ### Stories for Storybook
 
 Component stories should contain at least those stories:
-- one for all props fillable as knobs (as text or select)
+- one for all props and CSS modifiers fillable as knobs (as text or select)
 - one per every slot
-- one for all CSS modifiers (as select)
 
 Check [our storybook](http://storefrontui-storybook.netlify.com) for examples.
 

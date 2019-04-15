@@ -1,0 +1,23 @@
+@import '../../../css/variables';
+
+$price-desktop-font-size: $font-size-big-desktop;
+$price-mobile-font-size: $font-size-big-mobile;
+$price__special-color: red;
+
+.sf-price {
+  font-size: $price-mobile-font-size;
+  @media (min-width: $desktop-min) {
+    font-size: $price-desktop-font-size;
+  }
+  &__regular {
+    text-decoration: none;
+  }
+  &__special {
+    color: red;
+    text-decoration: none;
+  }
+  &__old {
+    text-decoration: line-through;
+    margin-right: 5px;
+  }
+}

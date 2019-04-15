@@ -12,22 +12,17 @@ const vm = {
       visiblePageNumbers: 5,
       numberOfPages: 12
     };
-  },
-  methods: {
-    setCurrentPage(page) {
-      this.page = page;
-    }
   }
 };
 
-export default storiesOf("Pagination", module)
+storiesOf("Molecules|Pagination", module)
   .add(
     "Props",
     () => ({
       ...vm,
       template: `
-    <sf-pagination @change:current="(page) => { setCurrentPage(page) }"
-      :current="page"
+    <sf-pagination
+      :current.sync="page"
       :total="numberOfPages"
       :visible="visiblePageNumbers"/>`
     }),
@@ -40,8 +35,8 @@ export default storiesOf("Pagination", module)
     () => ({
       ...vm,
       template: `
-    <sf-pagination @change:current="(page) => { setCurrentPage(page) }"
-      :current="page"
+    <sf-pagination
+      :current.sync="page"
       :total="numberOfPages + 1"
       :visible="visiblePageNumbers - 1">
       <template slot="prev">prev</template>
@@ -56,8 +51,8 @@ export default storiesOf("Pagination", module)
     () => ({
       ...vm,
       template: `
-    <sf-pagination @change:current="(page) => { setCurrentPage(page) }"
-      :current="page"
+    <sf-pagination
+      :current.sync="page"
       :total="numberOfPages + 1"
       :visible="visiblePageNumbers - 1">
       <template slot="next">next</template>
@@ -67,15 +62,21 @@ export default storiesOf("Pagination", module)
       info: true
     }
   )
-  .add("[slot] number", () => ({
-    ...vm,
-    template: `
-    <sf-pagination @change:current="(page) => { setCurrentPage(page) }"
-      :current="page"
+  .add(
+    "[slot] number",
+    () => ({
+      ...vm,
+      template: `
+    <sf-pagination
+      :current.sync="page"
       :total="numberOfPages"
       :visible="visiblePageNumbers">
       <template v-slot="{ number }">
         [{{ number }}]
       </template>
     </sf-pagination>`
-  }));
+    }),
+    {
+      info: true
+    }
+  );
