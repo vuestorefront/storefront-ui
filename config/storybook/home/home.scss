@@ -1,20 +1,20 @@
+
 .intro {
   padding: 0 10px;
   box-sizing: border-box;
   line-height: 1.5em;
-  font-size: 0.8em;
-}
-
-h1 {
-  font-size: 1.5em;
-  padding-bottom: 15px;
-  margin-bottom: 10px;
-  color: #5ECE7B;
-  border-bottom: 1px solid lightgray;
-}
-a {
-  color: black;
-  &:hover {
+  font-size: 0.8em
+  h1 {
+    font-size: 1.5em;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
     color: #5ECE7B;
+    border-bottom: 1px solid lightgray;
+  }
+  a {
+    color: black;
+    &:hover {
+      color: #5ECE7B;
+    }
   }
 }
