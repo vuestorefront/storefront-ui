@@ -24,7 +24,12 @@ storiesOf("Molecules|InputNumber", module)
          }
        },
        components: { SfInputNumber },
-       template: `<SfInputNumber :class="customClass" />`,
+       template: `<SfInputNumber :class="customClass" :value.sync="qnt" />`,
+       data () {
+         return {
+           qnt: 1
+         }
+       },
        methods: { action: action("clicked") }
      }),
      {
