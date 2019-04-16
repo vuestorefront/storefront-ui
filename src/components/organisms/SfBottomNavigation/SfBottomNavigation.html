@@ -1,9 +1,9 @@
 <div class="sf-bottom-navigation">
-  <div class="sf-bottom-navigation__elements" v-for="image in icons">
-    <slot name="items" :image="image">
-      <div class="sf-bottom-navigation__element" :class="{ active: current }" @click="setCurrent()" v-if="image">
+  <div class="sf-bottom-navigation__elements" v-for="item in items">
+    <slot name="items" :item="item">
+      <div class="sf-bottom-navigation__element" :class="{ active: current }" @click="setCurrent()" v-if="item">
         <img
-          :src="image"
+          :src="item"
           alt="nav-home"
           class="sf-bottom-navigation-element-img"
         />

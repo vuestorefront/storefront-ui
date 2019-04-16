@@ -10,14 +10,15 @@ export default storiesOf("BottomNavigation", module)
     () => ({
       components: { SfBottomNavigation },
       props: {
-        image: text("image (prop)", "assets/storybook/home.svg"),
+        item: text("item (prop)", "assets/storybook/home.svg"),
         current: {
-          default: text("current(prop)", "1")
+          default: text("current(prop)", "false")
         }
       },
       template: `
       <SfBottomNavigation
-        :image="icon"
+        :item="item
+        :current=current"
       />
     `
     }),
@@ -30,34 +31,9 @@ export default storiesOf("BottomNavigation", module)
     "[slot] items",
     () => ({
       components: { SfBottomNavigation },
-      template: `
-      <SfBottomNavigation
-        image="assets/storybook/home.svg"
-      >
-        <template slot="items">items</template>
-      </SfBottomNavigation>
-    `
+      template: `<sf-bottom-navigation><img src='assets/storybook/heart.svg'></sf-bottom-navigation>`
     }),
     {
-      info: true
-    }
-  )
-  .add(
-    "[slot] floating-icon",
-    () => ({
-      components: { SfBottomNavigation },
-      template: `
-      <SfBottomNavigation
-        floating-icon="assets/storybook/home.svg"
-      >
-        <template #floating-icon>
-          <button>Custom CTA</Floa>
-        </template>
-      </SfBottomNavigation>
-    `
-    }),
-    {
-      notes,
       info: true
     }
   );
