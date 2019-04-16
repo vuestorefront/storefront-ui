@@ -10,17 +10,27 @@
       :class="{ 'sf-options__option-container--selected': isOptionSelected(option.value) }"
       @click="setActiveValue(option.value)"
     >
-      <slot>
+      <slot name="text" :text="option.text">
         <div
+          v-if="isTypeText"
           class="sf-options__option"
-          :class="{'sf-options__option--image': isTypeImage}"
-          :style="[
-            isTypeColor && { backgroundColor: option.color },
-            isTypeImage && { backgroundImage: `url(${option.image})` }
-          ]"
         >
-          {{ isTypeText() ? option.text : '' }}
+          {{ option.text }}
         </div>
+      </slot>
+      <slot name="color" :color="option.color">
+        <div
+          v-if="isTypeColor"
+          class="sf-options__option"
+          :style="{ backgroundColor: option.color }"
+        />
+      </slot>
+      <slot name="image" :image="option.image">
+        <div
+          v-if="isTypeImage"
+          class="sf-options__option sf-options__option--image"
+          :style="{ backgroundImage: `url(${option.image})` }"
+        />
       </slot>
     </div>
   </div>

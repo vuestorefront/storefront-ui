@@ -24,21 +24,23 @@ export default {
       default: null
     }
   },
+  computed: {
+    isTypeColor() {
+      return this.type === "color";
+    },
+    isTypeImage() {
+      return this.type === "image";
+    },
+    isTypeText() {
+      return this.type === "text" && !this.isTypeColor && !this.isTypeImage;
+    }
+  },
   methods: {
     setActiveValue(value) {
       this.$emit("input", value);
     },
     isOptionSelected(value) {
       return this.value === value;
-    },
-    isTypeText() {
-      return this.type === "text";
-    },
-    isTypeColor() {
-      return this.type === "color";
-    },
-    isTypeImage() {
-      return this.type === "image";
     }
   }
 };
