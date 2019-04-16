@@ -1,0 +1,52 @@
+@import '../../../css/variables';
+
+$input-number-background: $c-white !default;
+$input-number-color: $c-dark-primary !default;
+$input-number-width: 3.7rem !default;
+
+.sf-input-number {
+  background: $input-number-background;
+  color: $input-number-color;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+  border: 1px solid #eee;
+  width: $input-number-width;
+  box-sizing: border-box;
+
+  &__field {
+    border-radius: 0;
+    border: none;
+    background: none;
+    padding: 0.75rem 0.15rem;
+    flex: 1 1 auto;
+    width: 1%;
+    height: auto;
+    text-align: center;
+    font-size: $font-size-regular-desktop;
+    color: inherit;
+    line-height: 1;
+
+    @media (max-width: $mobile-max) {
+      font-size: $font-size-regular-mobile;
+    }
+  }
+
+  &__controls {
+    width: 0.75rem;
+    padding-left: 0.1rem;
+    padding-right: 15%;
+  }
+
+  &__control {
+    display: block;
+    cursor: pointer;
+    width: 100%;
+
+    &--up {
+      transform: rotate(180deg);
+      margin-bottom: 0.4rem;
+    }
+  }
+}

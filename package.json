@@ -12,7 +12,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@snowdog/alpaca-components": "^0.3.0-alpha.5",
+    "@snowdog/alpaca-components": "^0.3.0-alpha.6",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.6.8"
@@ -23,17 +23,17 @@
     "node_modules/*"
   ],
   "devDependencies": {
-    "@storybook/addon-actions": "^5.0.6",
-    "@storybook/addon-knobs": "^5.0.6",
-    "@storybook/addon-links": "^5.0.6",
-    "@storybook/addon-notes": "^5.0.6",
-    "@storybook/addon-viewport": "^5.0.6",
+    "@storybook/addon-actions": "^5.0.8",
+    "@storybook/addon-knobs": "^5.0.8",
+    "@storybook/addon-links": "^5.0.8",
+    "@storybook/addon-notes": "^5.0.8",
+    "@storybook/addon-viewport": "^5.0.8",
     "@types/jest": "^24.0.11",
-    "@vue/cli-plugin-babel": "^3.5.5",
-    "@vue/cli-plugin-eslint": "^3.5.1",
-    "@vue/cli-plugin-typescript": "^3.5.3",
-    "@vue/cli-plugin-unit-jest": "^3.5.3",
-    "@vue/cli-service": "^3.5.3",
+    "@vue/cli-plugin-babel": "^3.6.0",
+    "@vue/cli-plugin-eslint": "^3.6.0",
+    "@vue/cli-plugin-typescript": "^3.6.0",
+    "@vue/cli-plugin-unit-jest": "^3.6.3",
+    "@vue/cli-service": "^3.6.0",
     "@vue/eslint-config-prettier": "^4.0.1",
     "@vue/eslint-config-typescript": "^4.0.0",
     "@vue/test-utils": "^1.0.0-beta.29",
@@ -47,8 +47,8 @@
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "storybook-addon-vue-info": "^1.0.1",
-    "ts-jest": "^24.0.1",
-    "typescript": "^3.4.1",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.3",
     "vue-cli-plugin-storybook": "^0.6.0",
     "vue-template-compiler": "^2.6.8"
   },
