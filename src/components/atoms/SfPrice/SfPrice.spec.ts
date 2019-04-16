@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfPrice from "@/components/template/SfPrice.vue";
+import SfPrice from "./SfPrice.vue";
 
 describe("SfPrice.vue", () => {
   it("renders a component", () => {
