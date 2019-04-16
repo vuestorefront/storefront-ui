@@ -17,8 +17,8 @@ export default storiesOf("BottomNavigation", module)
       },
       template: `
       <SfBottomNavigation
-        :item="item
-        :current=current"
+        :item="item"
+        :current="current"
       />
     `
     }),
