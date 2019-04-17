@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { action } from "@storybook/addon-actions";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, text, number, select } from "@storybook/addon-knobs";
 import notes from "./README.md"
 import SfInputNumber from "./SfInputNumber.vue";
 
@@ -11,9 +11,29 @@ storiesOf("Molecules|InputNumber", module)
      "Props / CSS Modifiers",
      () => ({
        props: {
-         editableProp: {
-           delimiter: text("(prop) delimiter"),
-           precision: text("(prop) precision")
+         value: {
+           default: number("value (prop)", 1)
+         },
+         min: {
+           default: number("min (prop)", 1)
+         },
+         max: {
+           default: number("max (prop)")
+         },
+         step: {
+           default: number("step (prop)", 1)
+         },
+         precision: {
+           default: number("precision (prop)", 0)
+         },
+         delimiter: {
+           default: text("delimiter (prop)", ".")
+         },
+         thousands: {
+           default: text("delimiter (prop)", ",")
+         },
+         name: {
+           default: text("name (prop)")
          },
          customClass: {
            default: select(
@@ -27,16 +47,14 @@ storiesOf("Molecules|InputNumber", module)
        components: { SfInputNumber },
        template: `<SfInputNumber
          :class="customClass"
-         v-model="qnt"
+         v-model="value"
          :min="min"
-         :max="max" />`,
-       data () {
-         return {
-           qnt: 1,
-           min: 1,
-           max: 10
-         }
-       },
+         :max="max"
+         :step="step"
+         :precision="precision"
+         :delimiter="delimiter"
+         :thousands="thousands"
+         :name="name" />`,
        methods: { action: action("clicked") }
      }),
      {
