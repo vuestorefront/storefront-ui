@@ -8,26 +8,33 @@ import SfInputNumber from "./SfInputNumber.vue";
 storiesOf("Molecules|InputNumber", module)
    .addDecorator(withKnobs)
    .add(
-     "[slot] default",
+     "Props / CSS Modifiers",
      () => ({
        props: {
          editableProp: {
-           default: text("(prop) propname")
+           delimiter: text("(prop) delimiter"),
+           precision: text("(prop) precision")
          },
          customClass: {
            default: select(
              "CSS Modifier",
-             ["null", "sf-component--modifier"],
+             ["null", "sf-input-number--large"],
              "null",
              "CSS-Modifiers"
            )
          }
        },
        components: { SfInputNumber },
-       template: `<SfInputNumber :class="customClass" v-model="qnt" />`,
+       template: `<SfInputNumber
+         :class="customClass"
+         v-model="qnt"
+         :min="min"
+         :max="max" />`,
        data () {
          return {
-           qnt: 10
+           qnt: 1,
+           min: 1,
+           max: 10
          }
        },
        methods: { action: action("clicked") }
