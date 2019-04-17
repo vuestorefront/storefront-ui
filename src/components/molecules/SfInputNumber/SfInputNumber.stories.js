@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { action } from "@storybook/addon-actions";
 import { withKnobs, text, number, select } from "@storybook/addon-knobs";
 import notes from "./README.md"
 import SfInputNumber from "./SfInputNumber.vue";
@@ -54,8 +53,35 @@ storiesOf("Molecules|InputNumber", module)
          :precision="precision"
          :delimiter="delimiter"
          :thousands="thousands"
-         :name="name" />`,
-       methods: { action: action("clicked") }
+         :name="name" />`
+     }),
+     {
+       info: true,
+       notes
+     }
+   )
+   .add(
+     "[slot] up",
+     () => ({
+       components: { SfInputNumber },
+       template: `
+       <SfInputNumber value="1">
+         <template #up>+</template>
+       </SfInputNumber>`
+     }),
+     {
+       info: true,
+       notes
+     }
+   )
+   .add(
+     "[slot] down",
+     () => ({
+       components: { SfInputNumber },
+       template: `
+       <SfInputNumber value="1">
+         <template #down>-</template>
+       </SfInputNumber>`
      }),
      {
        info: true,
