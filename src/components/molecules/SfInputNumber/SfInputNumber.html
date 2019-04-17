@@ -2,7 +2,7 @@
   <slot v-bind:value="currentValue">
     <input type="tel"
       class="sf-input-number__field"
-      v-model="currentValue"
+      v-model="stringValue"
       @keyup.up="increase"
       @keyup.down="decrease"
       @keypress="keypress" />

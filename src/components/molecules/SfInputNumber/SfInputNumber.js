@@ -37,25 +37,35 @@ export default {
     }
   },
 
+  data () {
+    return {
+      currentValue: this.value
+    }
+  },
+
   computed: {
-    currentValue: {
+    stringValue: {
       get() {
         let str
         if (this.precision) {
-          str = this.value.toFixed(this.precision)
+          str = this.currentValue.toFixed(this.precision)
           if (this.delimiter !== '.') {
             str = str.replace('.', this.delimiter)
           }
         } else {
-          str = parseInt(this.value, 10).toString()
+          str = parseInt(this.currentValue, 10).toString()
         }
         return str.replace(/\B(?=(\d{3})+(?!\d))/g, this.thousands)
       },
       set(value) {
         let num = this.parseNumber(value)
-        if (num >= this.min && (typeof this.max !== 'number' || num <= this.max)) {
-          this.$emit("update:value", num)
+        if (isNaN(num)) {
+          num = 0
         }
+        // force current number value to sync with input value
+        this.currentValue = num
+        // check if number is valid
+        this.setCurrentValue(num)
       }
     }
   },
@@ -91,7 +101,7 @@ export default {
             return value
           }
       }
-      return this.value
+      return this.currentValue
     },
 
     keypress (e) {
@@ -118,12 +128,23 @@ export default {
       }
     },
 
+    setCurrentValue (num) {
+      if (num >= this.min && (typeof this.max !== 'number' || num <= this.max)) {
+        // valid number
+        this.currentValue = num
+        this.$emit("change", num)
+      } else {
+        // reset to default value
+        this.currentValue = this.value
+      }
+    },
+
     increase () {
-      this.currentValue = this.value + this.step
+      this.setCurrentValue(this.currentValue + this.step)
     },
 
     decrease () {
-      this.currentValue = this.value - this.step
+      this.setCurrentValue(this.currentValue - this.step)
     }
   }
 };

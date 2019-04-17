@@ -24,10 +24,10 @@ storiesOf("Molecules|InputNumber", module)
          }
        },
        components: { SfInputNumber },
-       template: `<SfInputNumber :class="customClass" :value.sync="qnt" :precision="2" />`,
+       template: `<SfInputNumber :class="customClass" v-model="qnt" />`,
        data () {
          return {
-           qnt: 1
+           qnt: 10
          }
        },
        methods: { action: action("clicked") }
