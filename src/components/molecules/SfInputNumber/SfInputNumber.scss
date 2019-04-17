@@ -60,7 +60,7 @@ $input-number--large-width: $input-number-width * 2 !default;
       margin-bottom: 0.4rem;
     }
 
-    &--up img {
+    &--up img[src="/assets/chevron_down.svg"] {
       transform: rotate(180deg);
     }
   }
