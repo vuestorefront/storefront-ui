@@ -132,7 +132,7 @@ export default {
         this.$emit("change", num)
       } else {
         // reset to default value
-        this.currentValue = this.value
+        this.currentValue = this.parseNumber(this.value)
       }
     },
 
