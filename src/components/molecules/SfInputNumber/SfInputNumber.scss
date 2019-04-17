@@ -45,13 +45,23 @@ $input-number--large-width: $input-number-width * 2 !default;
   }
 
   &__control {
-    display: block;
+    display: flex;
     cursor: pointer;
     width: 100%;
+    height: auto;
+    vertical-align: middle;
+    line-height: 1;
+
+    img {
+      width: 100%;
+    }
 
     &--up {
-      transform: rotate(180deg);
       margin-bottom: 0.4rem;
+    }
+
+    &--up img {
+      transform: rotate(180deg);
     }
   }
 }
