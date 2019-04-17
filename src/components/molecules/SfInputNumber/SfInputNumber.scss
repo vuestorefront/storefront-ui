@@ -2,7 +2,8 @@
 
 $input-number-background: $c-white !default;
 $input-number-color: $c-dark-primary !default;
-$input-number-width: 30rem !default;
+$input-number-width: 3.7rem !default;
+$input-number--large-width: $input-number-width * 2 !default;
 
 .sf-input-number {
   background: $input-number-background;
@@ -14,6 +15,10 @@ $input-number-width: 30rem !default;
   border: 1px solid #eee;
   width: $input-number-width;
   box-sizing: border-box;
+
+  &--large {
+    width: $input-number--large-width;
+  }
 
   &__field {
     border-radius: 0;
