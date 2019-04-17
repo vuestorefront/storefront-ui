@@ -1,10 +1,12 @@
 <div class="sf-input-number sf-input-number--large">
-  <input type="tel"
-    class="sf-input-number__field"
-    v-model="currentValue"
-    @keyup.up="increase"
-    @keyup.down="decrease"
-    @keypress="keypress" />
+  <slot v-bind:value="currentValue">
+    <input type="tel"
+      class="sf-input-number__field"
+      v-model="currentValue"
+      @keyup.up="increase"
+      @keyup.down="decrease"
+      @keypress="keypress" />
+  </slot>
 
   <div class="sf-input-number__controls">
     <slot name="up">
