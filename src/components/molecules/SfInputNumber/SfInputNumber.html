@@ -5,7 +5,8 @@
       v-model="stringValue"
       @keyup.up="increase"
       @keyup.down="decrease"
-      @keypress="keypress" />
+      @keypress="keypress"
+      :name="name" />
   </slot>
 
   <div class="sf-input-number__controls">

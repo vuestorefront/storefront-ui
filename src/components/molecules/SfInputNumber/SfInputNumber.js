@@ -17,9 +17,6 @@ export default {
     max: {
       type: Number
     },
-    placeholder: {
-      type: String
-    },
     precision: {
       type: Number,
       default: 0
@@ -39,7 +36,7 @@ export default {
 
   data () {
     return {
-      currentValue: this.value
+      currentValue: this.parseNumber(this.value)
     }
   },
 
@@ -101,7 +98,7 @@ export default {
             return value
           }
       }
-      return this.currentValue
+      return 1
     },
 
     keypress (e) {
