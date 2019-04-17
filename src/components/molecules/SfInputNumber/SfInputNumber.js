@@ -40,18 +40,60 @@ export default {
   computed: {
     currentValue: {
       get() {
-        return this.value;
+        let str
+        if (this.precision) {
+          str = this.value.toFixed(this.precision)
+          if (this.delimiter !== '.') {
+            str = str.replace('.', this.delimiter)
+          }
+        } else {
+          str = parseInt(this.value, 10).toString()
+        }
+        return str.replace(/\B(?=(\d{3})+(?!\d))/g, this.thousands)
       },
       set(value) {
-        let num = this.precision ? parseFloat(value) : parseInt(value, 10);
+        let num = this.parseNumber(value)
         if (num >= this.min && (typeof this.max !== 'number' || num <= this.max)) {
-          this.$emit("update:value", num);
+          this.$emit("update:value", num)
         }
       }
     }
   },
 
   methods: {
+    parseNumber (value) {
+      switch (typeof value) {
+        case 'string':
+          // remove thousands separator first
+          value = value.replace(new RegExp(this.thousands, 'g'), '')
+          if (this.precision) {
+            let parts = value.split(this.delimiter, 2)
+            if (parts.length === 1) {
+              // no decimals
+              return parseInt(value)
+            }
+            // fix up to maximum precision on decimal places
+            let decimalPlaces = parts[1].length
+            if (decimalPlaces > this.precision) {
+              // user may have added digit at the end of input
+              let digits = parts[0] + parts[1]
+              value = digits.slice(0, -this.precision) + '.' + digits.slice(-this.precision)
+            } else if (this.delimiter !== '.') {
+              // just fix the delimiter before parsing to float
+              value = value.replace(this.delimiter, '.')
+            }
+            return parseFloat(value)
+          }
+          // no decimal precision: integer value
+          return parseInt(value, 10)
+        case 'number':
+          if (!isNaN(value)) {
+            return value
+          }
+      }
+      return this.value
+    },
+
     keypress (e) {
       if (e && e.key) {
         switch (e.key) {
@@ -67,17 +109,21 @@ export default {
           case '9':
           case 'Enter':
             return true
+          case this.delimiter:
+            if (this.precision) {
+              return true
+            }
         }
         e.preventDefault()
       }
     },
 
     increase () {
-      this.currentValue += this.step
+      this.currentValue = this.value + this.step
     },
 
     decrease () {
-      this.currentValue -= this.step
+      this.currentValue = this.value - this.step
     }
   }
 };

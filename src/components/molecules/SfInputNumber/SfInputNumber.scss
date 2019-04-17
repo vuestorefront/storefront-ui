@@ -2,7 +2,7 @@
 
 $input-number-background: $c-white !default;
 $input-number-color: $c-dark-primary !default;
-$input-number-width: 3.7rem !default;
+$input-number-width: 30rem !default;
 
 .sf-input-number {
   background: $input-number-background;
@@ -19,7 +19,7 @@ $input-number-width: 3.7rem !default;
     border-radius: 0;
     border: none;
     background: none;
-    padding: 0.75rem 0.15rem;
+    padding: 0.75rem 0.25rem;
     flex: 1 1 auto;
     width: 1%;
     height: auto;
