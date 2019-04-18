@@ -1,0 +1,14 @@
+<div class="sf-menu-item">
+	<slot>
+		<div class="sf-menu-item__group" v-if="$slots.iconLeft || title">
+			<slot name="iconLeft" />
+			<span class="sf-menu-item__title">{{ title }}</span>
+		</div>
+		<div class="sf-menu-item__group">
+			<span class="sf-menu-item__count">{{ count }}</span>
+			<slot name="iconRight">
+				<span role="presentation" class="sf-menu-item-arrow sf-menu-item-icon--right" />
+			</slot>
+		</div>
+	</slot>
+</div>

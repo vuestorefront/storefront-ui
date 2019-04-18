@@ -1,0 +1,52 @@
+@import '../../../css/variables';
+
+$sf-menu-item-icon-spacing: 0.75rem;
+$sf-menu-item-padding: $spacing-big $spacing-extra-big;
+$sf-menu-item-font-size: $font-size-big-mobile;
+$sf-menu-item-font-family: $body-font-family-secondary;
+$sf-title-font-size: 1rem;
+$sf-count-font-color: $c-gray-primary;
+$sf-count-font-size: 0.875rem;
+
+.sf-menu-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: $sf-menu-item-padding;
+    font-size: $sf-menu-item-font-size;
+    font-family: $sf-menu-item-font-family;
+    
+    &__group {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    
+    &--center {
+        justify-content: center;
+    }
+}
+
+.sf-menu-item__title {
+    font-size: $sf-title-font-size;
+}
+
+.sf-menu-item__count {
+    color: $sf-count-font-color;
+    font-size: $sf-count-font-size;
+}
+
+.sf-menu-item-arrow {
+    width: 6px;
+    height: 12px;
+    background: url("../../../assets/arrow-alt_right.svg") center no-repeat;
+}
+
+.sf-menu-item-icon--left {
+    margin-right: $sf-menu-item-icon-spacing;
+}
+
+.sf-menu-item-icon--right {
+    margin-left: $sf-menu-item-icon-spacing;
+}
