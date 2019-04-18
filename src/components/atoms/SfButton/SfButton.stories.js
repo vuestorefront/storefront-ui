@@ -8,18 +8,7 @@ import SfButton from "./SfButton.vue";
 storiesOf("Atoms|Button", module)
   .addDecorator(withKnobs)
   .add(
-    "[slot] default",
-    () => ({
-      components: { SfButton },
-      template: '<sf-button @click="action">Hello Button</sf-button>',
-      methods: { action: action("clicked") }
-    }),
-    {
-      info: true
-    }
-  )
-  .add(
-    "CSS Modifiers",
+    "Basic",
     () => ({
       components: { SfButton },
       props: {

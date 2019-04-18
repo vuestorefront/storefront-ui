@@ -29,28 +29,4 @@ export default storiesOf("Molecules|MenuItem", module)
     {
       info: true
     }
-  )
-  .add(
-    "Slots (left icon)",
-    () => ({
-      components: { SfMenuItem },
-      props: {
-        title: {
-          default: text("title (prop)", "Title prop")
-        },
-        count: {
-          default: text("count (prop)", "30")
-        }
-      },
-      template: `
-      <div style="width: 300px">
-        <SfMenuItem :title="title" :count="count">
-          <img class="sf-menu-item-icon sf-menu-item-icon--left" src="/assets/newsletter.svg" alt="" slot="iconLeft" />
-        </SfMenuItem>
-      </div>
-    `
-    }),
-    {
-      info: true
-    }
   );

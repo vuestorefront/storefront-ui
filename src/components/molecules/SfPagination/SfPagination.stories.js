@@ -17,7 +17,7 @@ const vm = {
 
 storiesOf("Molecules|Pagination", module)
   .add(
-    "Props",
+    "Basic",
     () => ({
       ...vm,
       template: `

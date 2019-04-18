@@ -6,7 +6,7 @@ import SfAlert from "./SfAlert.vue";
 storiesOf("Molecules|Alert", module)
   .addDecorator(withKnobs)
   .add(
-    "Props",
+    "Basic",
     () => ({
       components: { SfAlert },
       props: {
