@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import SfComponent from "@/components/template/SfComponent.vue";
+import SfSidebar from "./SfSidebar.vue";
 
 describe("SfSidebar.vue", () => {
   it("renders a component", () => {
-    const component = shallowMount(SfComponent);
+    const component = shallowMount(SfSidebar);
     expect(component.contains(".sf-sidebar")).toBe(true);
   });
 });
