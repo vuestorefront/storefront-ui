@@ -20,7 +20,7 @@ storiesOf("Molecules|List", module)
     }
   )
   .add(
-    "[ex] With SfMenuItem",
+    "With SfMenuItem",
     () => ({
       components: { SfList, SfMenuItem },
       template: `
