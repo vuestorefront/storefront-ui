@@ -1,25 +1,32 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 import SfBottomNavigation from "./SfBottomNavigation.vue";
 import notes from "./README.md";
 
-export default storiesOf("BottomNavigation", module)
+export default storiesOf("Organisms | BottomNavigation", module)
   .addDecorator(withKnobs)
   .add(
     "Props",
     () => ({
       components: { SfBottomNavigation },
       props: {
-        item: text("item (prop)", "assets/storybook/home.svg"),
+        item: {
+          default: select("item (prop)", [
+            "/assets/storybook/home.svg",
+            "/assets/storybook/search.svg",
+            "/assets/storybook/heart.svg",
+            "/assets/storybook/profile.svg"
+          ])
+        },
         current: {
-          default: text("current(prop)", "false")
+          default: text("current (prop)", false)
         }
       },
       template: `
       <SfBottomNavigation
         :item="item"
-        :current="current"
-      />
+        :current="current">
+        </SfBottomNavigation>
     `
     }),
     {
@@ -28,12 +35,28 @@ export default storiesOf("BottomNavigation", module)
     }
   )
   .add(
-    "[slot] items",
+    "[slot] Item",
     () => ({
       components: { SfBottomNavigation },
-      template: `<sf-bottom-navigation><img src='assets/storybook/heart.svg'></sf-bottom-navigation>`
+      template: `
+      <SfBottomNavigation message="Message prop">
+        <template slot="items">
+          <img src="assets/storybook/home.svg"/>
+          <img src="assets/storybook/search.svg"/>
+          <img src="assets/storybook/heart.svg"/>
+          <img src="assets/storybook/profile.svg"/>
+        </template>
+        <template slot="floating-icon">
+          <img src="assets/storybook/add_to_cart.svg"/>
+        </template>
+      </SfBottomNavigation>
+    `
     }),
     {
-      info: true
+      info: true,
+      notes,
+      knobs: {
+        escapeHTML: false
+      }
     }
   );

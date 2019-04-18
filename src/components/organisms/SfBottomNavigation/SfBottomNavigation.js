@@ -3,7 +3,7 @@ import SfCircleButton from "@/components/atoms/SfCircleButton/SfCircleButton.vue
 export default {
   name: "SfBottomNavigation",
   props: {
-    item: String,
+    item: { default: true },
     current: {
       type: Boolean,
       default: false
