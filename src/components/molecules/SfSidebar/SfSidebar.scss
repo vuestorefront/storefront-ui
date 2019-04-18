@@ -1,0 +1,20 @@
+@import '../../../css/variables';
+
+$sidebar-background: $c-white;
+$sidebar-padding: $spacer-inner;
+
+.sf-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background: $sidebar-background;
+  padding: $sidebar-padding;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 56px rgba(87, 87, 87, 0.32);
+  &--right {
+    left: auto;
+    right: 0;
+  }
+}

@@ -3,7 +3,7 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfBanner from "./SfBanner.vue";
 
-export default storiesOf("Banner", module)
+storiesOf("Molecules|Banner", module)
   .addDecorator(withKnobs)
   .add(
     "Props",

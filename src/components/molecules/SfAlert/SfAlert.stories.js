@@ -3,7 +3,7 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfAlert from "./SfAlert.vue";
 
-storiesOf("Alert", module)
+storiesOf("Molecules|Alert", module)
   .addDecorator(withKnobs)
   .add(
     "Props",

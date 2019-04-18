@@ -40,7 +40,7 @@ You can find the stunning designs we are using for Storefront UI components [her
 
 # How to try it?
 
-Storefront UI is not ready to use in projects yet. We plan to release working version before the end of April 2019.
+Storefront UI is not ready to use in projects yet. We plan to release working alpha before the end of April 2019.
 If you want to check current state of components just check [storybook](https://storefrontui-storybook.netlify.com/)
 If you really want to play with components:
 ```npm install --save @storefrontui/vue```

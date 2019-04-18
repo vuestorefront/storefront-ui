@@ -3,7 +3,7 @@ import notes from "./README.md";
 import SfHeader from "./SfHeader.vue";
 
 // Work in progress
-// export default storiesOf("Header", module)
+// export default storiesOf("Organisms/Header", module)
 //   .add("mobile with icons", () => ({
 //     components: { SfHeader },
 //     template: `
