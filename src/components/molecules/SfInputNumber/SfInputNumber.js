@@ -129,16 +129,14 @@ export default {
     },
 
     setCurrentValue(num) {
-      if (
-        num >= this.min &&
-        (typeof this.max !== "number" || num <= this.max)
-      ) {
+      if (num < this.min) {
+        this.currentValue = this.min;
+      } else if (typeof this.max === "number" && num > this.max) {
+        this.currentValue = this.max;
+      } else {
         // valid number
         this.currentValue = num;
         this.$emit("change", num);
-      } else {
-        // reset to default value
-        this.currentValue = this.parseNumber(this.value);
       }
     },
 
