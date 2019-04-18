@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8371333f-ef98-4d04-bcc4-9f4771d11430/deploy-status)](https://app.netlify.com/sites/storefrontui-storybook/deploys)
 
-**This project is on the early stages of development. Not ready to use. We aim for beta with minimal set of components till end of April**
+**This project is on the early stages of development. Not ready for rpoduction use. Expect some things to be broken and api to change**
 
 **We are looking for contributors and agencies willing to join us and build best UI library for Vue together!**
 

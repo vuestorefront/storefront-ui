@@ -21,26 +21,7 @@ storiesOf("Molecules|CallToAction", module)
         },
         buttonText: {
           default: text("buttonText (prop)", "ButtonText prop")
-        }
-      },
-      template: `
-      <SfCallToAction
-        :title="title"
-        :button-text="buttonText"
-        :description="description"
-      />
-    `
-    }),
-    {
-      notes,
-      info: true
-    }
-  )
-  .add(
-    "CSS Modifiers",
-    () => ({
-      components: { SfCallToAction },
-      props: {
+        },
         customClass: {
           default: select(
             "CSS Modifier",
@@ -56,14 +37,15 @@ storiesOf("Molecules|CallToAction", module)
       },
       template: `
       <SfCallToAction
-        title="Title prop"
-        description="Description prop lorem ipsum dolor sit amet"
-        button-text="ButtonText prop"
+        :title="title"
+        :button-text="buttonText"
+        :description="description"
         :class="customClass"
       />
     `
     }),
     {
+      notes,
       info: true
     }
   )

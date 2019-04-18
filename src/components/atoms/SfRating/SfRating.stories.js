@@ -7,7 +7,7 @@ import SfRating from "./SfRating.vue";
 storiesOf("Atoms|Rating", module)
   .addDecorator(withKnobs)
   .add(
-    "Props",
+    "Basic",
     () => ({
       props: {
         rating: {
