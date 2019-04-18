@@ -10,7 +10,6 @@ storiesOf("Molecules|List", module).add(
     template: `
     <SfList>
       <SfListItem>Menu Item 1</SfListItem>
-      <SfListItemH>Menu Item 2</SfListItem>
       <SfListItem>Menu Item 3</SfListItem>
     </SfList>`
   }),

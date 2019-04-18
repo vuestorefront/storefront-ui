@@ -1,6 +1,5 @@
 @import '../../../css/variables';
 
-$sf-menu-item-icon-spacing: 0.75rem;
 $sf-menu-item-padding: $spacer $spacer-big;
 $sf-menu-item-font-size: $font-size-big-mobile;
 $sf-menu-item-font-family: $body-font-family-secondary;
@@ -16,13 +15,20 @@ $sf-count-font-size: 0.875rem;
     padding: $sf-menu-item-padding;
     font-size: $sf-menu-item-font-size;
     font-family: $sf-menu-item-font-family;
-    
-    &__group {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
+    &__right {
+        align-self: flex-end;
     }
-    
+    &__count {
+        color: $sf-count-font-color;
+        font-size: $sf-count-font-size;
+    }
+    &__mobile-nav-icon {
+        display: inline-flex;
+        margin-left: 1rem;
+        @media (min-width: $desktop-min) {
+          display: none;
+        }
+    }
     &--center {
         justify-content: center;
     }
@@ -35,18 +41,4 @@ $sf-count-font-size: 0.875rem;
 .sf-menu-item__count {
     color: $sf-count-font-color;
     font-size: $sf-count-font-size;
-}
-
-.sf-menu-item-arrow {
-    width: 6px;
-    height: 12px;
-    background: url("../../../assets/arrow-alt_right.svg") center no-repeat;
-}
-
-.sf-menu-item-icon--left {
-    margin-right: $sf-menu-item-icon-spacing;
-}
-
-.sf-menu-item-icon--right {
-    margin-left: $sf-menu-item-icon-spacing;
 }
