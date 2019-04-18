@@ -2,7 +2,6 @@
 
 $price-desktop-font-size: $font-size-big-desktop;
 $price-mobile-font-size: $font-size-big-mobile;
-$price__special-color: red;
 
 .sf-price {
   font-size: $price-mobile-font-size;
@@ -13,7 +12,6 @@ $price__special-color: red;
     text-decoration: none;
   }
   &__special {
-    color: red;
     text-decoration: none;
   }
   &__old {
