@@ -1,11 +1,13 @@
 <div class="sf-options">
-  <sf-label v-if="label" class="sf-options__title">
-    {{ label }}
-  </sf-label>
+  <slot name="label">
+    <sf-label v-if="label" class="sf-options__title">
+      {{ label }}
+    </sf-label>
+  </slot>
   <div class="sf-options__wrapper">
     <div
-      v-for="option in options"
-      :key="option.id"
+      v-for="(option, index) in options"
+      :key="index"
       class="sf-options__option-container"
       :class="{ 'sf-options__option-container--selected': isOptionSelected(option.value) }"
       @click="setActiveValue(option.value)"
