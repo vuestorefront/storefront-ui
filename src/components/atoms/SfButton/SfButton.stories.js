@@ -15,8 +15,7 @@ storiesOf("Atoms|Button", module)
           default: select(
             "CSS Modifier",
             ["null", "sf-button--secondary", "sf-button--full-width"],
-            "null",
-            "CSS-Modifiers"
+            "null"
           )
         }
       },

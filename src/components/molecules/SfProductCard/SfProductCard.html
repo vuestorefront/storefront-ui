@@ -1,1 +1,18 @@
-<div class="sf-component"></div>
+<div class="sf-product-card">
+  <a class="sf-product-card__title" href="#" @click="$emit('clicked:title')">
+    {{ title }}
+  </a>
+  <SfPrice
+    class="sf-product-card__price"
+    v-if="price"
+    :regular-price="price.regularPrice"
+    :special-price="price.specialPrice"
+  />
+  <SfRating
+    class="sf-product-card__rating"
+    v-if="rating"
+    :max="rating.max"
+    :score="rating.score"
+  />
+  <span>8 reviews</span>
+</div>

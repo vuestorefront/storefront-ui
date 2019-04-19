@@ -4,9 +4,11 @@ import { linkTo } from "@storybook/addon-links";
 import SfButton from "./../../../src/components/atoms/SfButton/SfButton.vue";
 
 export default storiesOf("Utilities|Transitions", module)
-  .add("fade in-out", () => ({
-    components: { SfButton },
-    template: `
+  .add(
+    "fade in-out",
+    () => ({
+      components: { SfButton },
+      template: `
     <div>
       <sf-button v-on:click="show = !show">
         Fade
@@ -15,13 +17,19 @@ export default storiesOf("Utilities|Transitions", module)
         <p v-if="show">hello</p>
       </transition>
     </div>`,
-    data: () => ({
-      show: false
-    })
-  }))
-  .add("slide left", () => ({
-    components: { SfButton },
-    template: `
+      data: () => ({
+        show: false
+      })
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "slide left",
+    () => ({
+      components: { SfButton },
+      template: `
     <div>
       <sf-button v-on:click="show = !show">
         Slide left
@@ -30,13 +38,19 @@ export default storiesOf("Utilities|Transitions", module)
         <p v-if="show">hello</p>
       </transition>
     </div>`,
-    data: () => ({
-      show: false
-    })
-  }))
-  .add("slide right", () => ({
-    components: { SfButton },
-    template: `
+      data: () => ({
+        show: false
+      })
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "slide right",
+    () => ({
+      components: { SfButton },
+      template: `
     <div>
       <sf-button v-on:click="show = !show">
         Slide right
@@ -45,13 +59,19 @@ export default storiesOf("Utilities|Transitions", module)
         <p v-if="show">hello</p>
       </transition>
     </div>`,
-    data: () => ({
-      show: false
-    })
-  }))
-  .add("collapse top", () => ({
-    components: { SfButton },
-    template: `
+      data: () => ({
+        show: false
+      })
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "collapse top",
+    () => ({
+      components: { SfButton },
+      template: `
     <div>
       <sf-button v-on:click="show = !show">
         Collapse top
@@ -60,13 +80,19 @@ export default storiesOf("Utilities|Transitions", module)
         <p v-if="show">hello</p>
       </transition>
     </div>`,
-    data: () => ({
-      show: false
-    })
-  }))
-  .add("collapse bottom", () => ({
-    components: { SfButton },
-    template: `
+      data: () => ({
+        show: false
+      })
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "collapse bottom",
+    () => ({
+      components: { SfButton },
+      template: `
     <div>
       <sf-button v-on:click="show = !show">
         Collapse bottom
@@ -75,13 +101,19 @@ export default storiesOf("Utilities|Transitions", module)
         <p v-if="show">hello</p>
       </transition>
     </div>`,
-    data: () => ({
-      show: false
-    })
-  }))
-  .add("fade in slide out", () => ({
-    components: { SfButton },
-    template: `
+      data: () => ({
+        show: false
+      })
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "fade in slide out",
+    () => ({
+      components: { SfButton },
+      template: `
     <div>
       <sf-button v-on:click="show = !show">
         Fade/slide
@@ -90,13 +122,19 @@ export default storiesOf("Utilities|Transitions", module)
         <p v-if="show">hello</p>
       </transition>
     </div>`,
-    data: () => ({
-      show: false
-    })
-  }))
-  .add("fade in collapse out", () => ({
-    components: { SfButton },
-    template: `
+      data: () => ({
+        show: false
+      })
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "fade in collapse out",
+    () => ({
+      components: { SfButton },
+      template: `
     <div>
       <sf-button v-on:click="show = !show">
         Fade/collapse
@@ -105,7 +143,11 @@ export default storiesOf("Utilities|Transitions", module)
         <p v-if="show">hello</p>
       </transition>
     </div>`,
-    data: () => ({
-      show: false
-    })
-  }));
+      data: () => ({
+        show: false
+      })
+    }),
+    {
+      info: true
+    }
+  );

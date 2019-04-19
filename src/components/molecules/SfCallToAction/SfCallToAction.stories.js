@@ -30,8 +30,7 @@ storiesOf("Molecules|CallToAction", module)
               "sf-call-to-action--secondary",
               "sf-call-to-action--light"
             ],
-            "null",
-            "CSS-Modifiers"
+            "null"
           )
         }
       },

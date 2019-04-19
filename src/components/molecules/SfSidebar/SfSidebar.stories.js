@@ -11,12 +11,7 @@ storiesOf("Molecules|Sidebar", module)
     () => ({
       props: {
         customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-sidebar--right"],
-            "null",
-            "CSS-Modifiers"
-          )
+          default: select("CSS Modifier", ["null", "sf-sidebar--right"], "null")
         }
       },
       components: { SfSidebar },

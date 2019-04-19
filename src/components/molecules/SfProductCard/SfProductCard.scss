@@ -2,11 +2,11 @@
 
 // $component__block-property: value;
 
-// .sf-component {
-//   &__element {
-
-//   }
-//   &--modifier {
-
-//   }
-// }
+.sf-product-card {
+  &__price {
+    margin: 0.25rem 0;
+  }
+  &__rating {
+    display: inline-flex;
+  }
+}
