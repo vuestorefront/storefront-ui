@@ -73,4 +73,37 @@ describe("SfOptions.vue", () => {
     expect(component.find(".sf-options").text()).toContain(label);
     expect(component.find(".sf-options").text()).toContain(color);
   });
+  it("renders image options props", () => {
+    const type = "image";
+    const label = "Image";
+    const options = [{ image: "/assets/logo.svg", value: "logo" }];
+    const component = shallowMount(SfOptions, {
+      propsData: {
+        type,
+        label,
+        options
+      }
+    });
+    expect(component.contains(".sf-options__option--image")).toBe(true);
+    expect(component.find(".sf-options__label").text()).toContain(label);
+    expect(component.find(".sf-options__option").attributes().style).toBe(
+      `background-image: url(${options[0].image});`
+    );
+  });
+  it("renders image options slots", () => {
+    const label = "This is label slot";
+    const image = "This is image slot";
+    const options = [{ image: "/assets/logo.svg", value: "logo" }];
+    const component = shallowMount(SfOptions, {
+      slots: {
+        label,
+        image
+      },
+      propsData: {
+        options
+      }
+    });
+    expect(component.find(".sf-options").text()).toContain(label);
+    expect(component.find(".sf-options").text()).toContain(image);
+  });
 });
