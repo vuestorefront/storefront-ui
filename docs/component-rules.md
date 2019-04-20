@@ -6,7 +6,7 @@ Below you can find rules that needs to be applied into every component from Stor
 
 ### General rules
 
-1. Each component should be divided into 3 parts. Each of the parts should be named the same as component and it's folder:
+1. Each component should be divided into granular parts. Each of the parts should be named the same as component and it's folder:
 
 - SfComponent.html -> markup
 - sfComponent.scss -> styles for the component
@@ -17,7 +17,7 @@ Below you can find rules that needs to be applied into every component from Stor
 
 ```html
 <script src="./SfComponent.js"></script>
-<template lang="html" src="./SfComponent.html" functional></template>
+<template lang="html" src="./SfComponent.html"></template>
 <style lang="scss" src="./SfComponent.scss"></style>
 
 ```
@@ -67,10 +67,10 @@ Below you can find rules that needs to be applied into every component from Stor
 
 ### Stories for Storybook
 
-Component stories should contain at least those three stories:
-- filled props via knobs
-- filled slots via knobs
-- applied CSS modifiers via knobs
-- if there are some common use cases (liek applying icon to the button) they should also be listed as stories
+Component stories should contain at least those stories:
+- one for all props and CSS modifiers fillable as knobs (as text or select)
+- one per every slot
+
+Check [our storybook](http://storefrontui-storybook.netlify.com) for examples.
 
 Please see [this](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.stories.js) stories for reference.

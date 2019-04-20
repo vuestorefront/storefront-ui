@@ -4,33 +4,14 @@
 
 Banner with text and a call to action (as the component name self-explain) element.
 
-## HTML Template
-
-<!-- Just paste HTML template. It's much better description than any other code -->
-
-````html
-<section class="sf-call-to-action">
-  <slot />
-  <slot name="message">
-    <h1 class="sf-call-to-action__message" v-if="message">
-      {{ message }}
-    </h1>
-  </slot>
-  <slot name="action">
-    <div class="sf-call-to-action__button" v-if="buttonText">
-      <sf-button>
-        {{ buttonText }}
-      </sf-button>
-    </div>
-  </slot>
-</section>
-````
 ## Props
 
 <!--Write down props and their purpose -->
 
-- `message` - Phrase in prominence, should be good for SEO,
+- `title` - Phrase in prominence, should be good for SEO,
 placed on H1 tag.
+
+- `description` - Description, placed on p tag.
 
 - `buttonText` - Text placed on the CTA button.
 
@@ -41,8 +22,15 @@ placed on H1 tag.
 - `default` - Banner text, should be a short description
 or completion for title message.
 
-- `message` - Places the banner title, should contain a
+- `title` - Places the banner title, should contain a
 heading tag (H1 by default).
+
+- `description` - Places the description element.
 
 - `action` - Places the action element, contains
 a button by default.
+
+## Source files and Storybook demo
+
+- [@/src/components/molecules/SfCallToAction](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/molecules/SfCallToAction)
+- [HTML template](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/molecules/SfCallToAction/SfCallToAction.html)
