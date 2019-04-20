@@ -2,12 +2,12 @@
 
 $sf-options__transition                  : all 0.3s ease-in-out !default;
 
-$sf-options__label-margin-bottom         : $spacing-medium !default;
+$sf-options__label-margin-bottom         : 8px !default;
 $sf-options__label-font-size             : $font-size-regular-mobile !default;
 
 $sf-options__option-size                 : 40px !default;
 $sf-options__option-size--image          : 48px !default;
-$sf-options__option-margin               : $spacing-medium !default;
+$sf-options__option-margin               : 8px !default;
 $sf-options__option-background           : $c-white !default;
 $sf-options__option-color                : $c-gray-primary !default;
 $sf-options__option-border               : 4px solid $c-white !default;

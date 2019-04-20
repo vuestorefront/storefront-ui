@@ -1,7 +1,7 @@
 @import '../../../css/variables';
 
-$sf-label-margin        : 0 0 $spacing-medium !default;
-$sf-label-margin--inline: 0 $spacing-medium 0 0 !default;
+$sf-label-margin        : 0 0 8px !default;
+$sf-label-margin--inline: 0 8px 0 0 !default;
 $sf-label-font-size     : $font-size-regular-mobile !default;
 $sf-label-color         : $c-accent-secondary !default;
 $sf-label-font-family   : $body-font-family-primary !default;

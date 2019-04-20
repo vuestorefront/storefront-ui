@@ -4,10 +4,10 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 
 import SfOptions from "./SfOptions.vue";
 
-storiesOf("Options", module)
+storiesOf("Molecules|Options", module)
   .addDecorator(withKnobs)
   .add(
-    "Props text",
+    "Text",
     () => ({
       components: { SfOptions },
       props: {
@@ -52,50 +52,7 @@ storiesOf("Options", module)
     }
   )
   .add(
-    "Slots text",
-    () => ({
-      components: { SfOptions },
-      template: `
-      <sf-options
-        v-model="selected"
-        :options="[
-          {
-            text: 'XS',
-            value: 'XS'
-          },
-          {
-            text: 'S',
-            value: 'S'
-          },
-          {
-            text: 'M',
-            value: 'M'
-          },
-          {
-            text: 'L',
-            value: 'L'
-          },
-          {
-            text: 'XL',
-            value: 'XL'
-          }
-        ]"
-      >
-        <template #label><h1>Size</h1></template>
-        <template #text="{ text }"><h2>{{ text }}</h2></template>
-      </sf-options>`,
-      data() {
-        return {
-          selected: "XS"
-        };
-      }
-    }),
-    {
-      info: true
-    }
-  )
-  .add(
-    "Props Color",
+    "Color",
     () => ({
       components: { SfOptions },
       props: {
@@ -140,7 +97,91 @@ storiesOf("Options", module)
     }
   )
   .add(
-    "Slots color",
+    "Image",
+    () => ({
+      components: { SfOptions },
+      props: {
+        label: {
+          default: text("Label", "Image")
+        },
+        options: {
+          default: [
+            {
+              image: "/assets/logo.svg",
+              value: "logo"
+            },
+            {
+              image: "/assets/heart.svg",
+              value: "heart"
+            },
+            {
+              image: "/assets/home.svg",
+              value: "home"
+            },
+            {
+              image: "/assets/profile.svg",
+              value: "profile"
+            }
+          ]
+        }
+      },
+      template:
+        '<sf-options type="image" :label="label" v-model="selected" :options="options" />',
+      data() {
+        return {
+          selected: "heart"
+        };
+      }
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "[slot] Text",
+    () => ({
+      components: { SfOptions },
+      template: `
+      <sf-options
+        v-model="selected"
+        :options="[
+          {
+            text: 'XS',
+            value: 'XS'
+          },
+          {
+            text: 'S',
+            value: 'S'
+          },
+          {
+            text: 'M',
+            value: 'M'
+          },
+          {
+            text: 'L',
+            value: 'L'
+          },
+          {
+            text: 'XL',
+            value: 'XL'
+          }
+        ]"
+      >
+        <template #label><h1>Size</h1></template>
+        <template #text="{ text }"><h2>{{ text }}</h2></template>
+      </sf-options>`,
+      data() {
+        return {
+          selected: "XS"
+        };
+      }
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "[slot] Color",
     () => ({
       components: { SfOptions },
       template: `
@@ -190,48 +231,7 @@ storiesOf("Options", module)
     }
   )
   .add(
-    "Props Image",
-    () => ({
-      components: { SfOptions },
-      props: {
-        label: {
-          default: text("Label", "Image")
-        },
-        options: {
-          default: [
-            {
-              image: "/assets/logo.svg",
-              value: "logo"
-            },
-            {
-              image: "/assets/heart.svg",
-              value: "heart"
-            },
-            {
-              image: "/assets/home.svg",
-              value: "home"
-            },
-            {
-              image: "/assets/profile.svg",
-              value: "profile"
-            }
-          ]
-        }
-      },
-      template:
-        '<sf-options type="image" :label="label" v-model="selected" :options="options" />',
-      data() {
-        return {
-          selected: "heart"
-        };
-      }
-    }),
-    {
-      info: true
-    }
-  )
-  .add(
-    "Slots image",
+    "[slot] Image",
     () => ({
       components: { SfOptions },
       template: `
