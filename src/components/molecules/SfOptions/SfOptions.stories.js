@@ -1,7 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { action } from "@storybook/addon-actions";
-import { linkTo } from "@storybook/addon-links";
 import { withKnobs, text } from "@storybook/addon-knobs";
 
 import SfOptions from "./SfOptions.vue";
@@ -89,6 +87,188 @@ storiesOf("Options", module)
       data() {
         return {
           selected: "XS"
+        };
+      }
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "Props Color",
+    () => ({
+      components: { SfOptions },
+      props: {
+        label: {
+          default: text("Label", "Color")
+        },
+        options: {
+          default: [
+            {
+              color: "Orange",
+              value: "Orange"
+            },
+            {
+              color: "Pink",
+              value: "Pink"
+            },
+            {
+              color: "Yellow",
+              value: "Yellow"
+            },
+            {
+              color: "Blue",
+              value: "Blue"
+            },
+            {
+              color: "Green",
+              value: "Green"
+            }
+          ]
+        }
+      },
+      template:
+        '<sf-options type="color" :label="label" v-model="selected" :options="options" />',
+      data() {
+        return {
+          selected: "Orange"
+        };
+      }
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "Slots color",
+    () => ({
+      components: { SfOptions },
+      template: `
+      <sf-options
+        type="color"
+        v-model="selected"
+        :options="[
+          {
+            color: 'Orange',
+            value: 'Orange'
+          },
+          {
+            color: 'Pink',
+            value: 'Pink'
+          },
+          {
+            color: 'Yellow',
+            value: 'Yellow'
+          },
+          {
+            color: 'Blue',
+            value: 'Blue'
+          },
+          {
+            color: 'Green',
+            value: 'Green'
+          }
+        ]"
+      >
+        <template #label><h1>Color</h1></template>
+        <template #color="{ color }">
+          <div
+            :style="{
+              width: '32px', height: '32px', borderRadius: '10px', backgroundColor: color
+            }"
+          />
+        </template>
+      </sf-options>`,
+      data() {
+        return {
+          selected: "Orange"
+        };
+      }
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "Props Image",
+    () => ({
+      components: { SfOptions },
+      props: {
+        label: {
+          default: text("Label", "Image")
+        },
+        options: {
+          default: [
+            {
+              image: "/assets/logo.svg",
+              value: "logo"
+            },
+            {
+              image: "/assets/heart.svg",
+              value: "heart"
+            },
+            {
+              image: "/assets/home.svg",
+              value: "home"
+            },
+            {
+              image: "/assets/profile.svg",
+              value: "profile"
+            }
+          ]
+        }
+      },
+      template:
+        '<sf-options type="image" :label="label" v-model="selected" :options="options" />',
+      data() {
+        return {
+          selected: "heart"
+        };
+      }
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "Slots image",
+    () => ({
+      components: { SfOptions },
+      template: `
+      <sf-options
+        type="image"
+        v-model="selected"
+        :options="[
+          {
+            image: '/assets/logo.svg',
+            value: 'logo'
+          },
+          {
+            image: '/assets/heart.svg',
+            value: 'heart'
+          },
+          {
+            image: '/assets/home.svg',
+            value: 'home'
+          },
+          {
+            image: '/assets/profile.svg',
+            value: 'profile'
+          }
+        ]"
+      >
+        <template #label><h1>Image</h1></template>
+        <template #image="{ image }">
+          <div
+            :style="{
+              width: '32px', height: '32px', border: '1px solid green', background: 'url(' + image + ')', backgroundSize: 'cover'
+            }"
+          />
+        </template>
+      </sf-options>`,
+      data() {
+        return {
+          selected: "heart"
         };
       }
     }),

@@ -35,8 +35,9 @@ $sf-options__option-border-color--active : $c-accent-primary !default;
 
     &--image {
       min-height: $sf-options__option-size--image;
-      background-size: cover;
-      background-position: top center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
     &--white {
