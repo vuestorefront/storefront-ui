@@ -26,7 +26,7 @@ storiesOf("Atoms|Rating", module)
     }
   )
   .add(
-    "[slot] icon-positive",
+    "[slot] iconPositive",
     () => ({
       props: {
         rating: {
@@ -49,7 +49,7 @@ storiesOf("Atoms|Rating", module)
     }
   )
   .add(
-    "[slot] icon-negative",
+    "[slot] iconNegative",
     () => ({
       props: {
         rating: {
