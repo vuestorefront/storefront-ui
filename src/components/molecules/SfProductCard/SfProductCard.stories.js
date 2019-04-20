@@ -11,7 +11,7 @@ storiesOf("Molecules|ProductCard", module)
     () => ({
       components: { SfProductCard },
       template: `<SfProductCard
-        title="Lorem ipsum"
+        title="Component WIP"
         :price="{ regularPrice: '10,99 $'}"
         :rating="{ max: 5, score: 4 }"
       />`
