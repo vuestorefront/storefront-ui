@@ -2,8 +2,8 @@
 
 $sf-options__transition                  : all 0.3s ease-in-out !default;
 
-$sf-options__title-margin-bottom         : $spacing-medium !default;
-$sf-options__title-font-size             : $font-size-regular-mobile !default;
+$sf-options__label-margin-bottom         : $spacing-medium !default;
+$sf-options__label-font-size             : $font-size-regular-mobile !default;
 
 $sf-options__option-size                 : 40px !default;
 $sf-options__option-size--image          : 48px !default;
@@ -73,9 +73,9 @@ $sf-options__option-border-color--active : $c-accent-primary !default;
     display: none;
   }
 
-  &__title {
+  &__label {
     flex: 0 0 100%;
-    margin-bottom: $sf-options__title-margin-bottom;
-    font-size: $sf-options__title-font-size;
+    margin-bottom: $sf-options__label-margin-bottom;
+    font-size: $sf-options__label-font-size;
   }
 }
