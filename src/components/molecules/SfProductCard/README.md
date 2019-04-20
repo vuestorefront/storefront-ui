@@ -1,19 +1,19 @@
 # SfComponent
 
 <!-- Write about general purpose of the component. Include screenshot (to be replaced with a live example once we migrate to vuepress) -->
+Work in progress
+<!-- ## Events -->
 
-## Events
+<!-- - `event` - description -->
 
-- `event` - description
+<!-- ## CSS Modifiers -->
 
-## CSS Modifiers
-
-- `classname` - description
+<!-- - `classname` - description -->
 
 <!-- Write down available CSS Modifiers -->
 
-## SCSS variables
+<!-- ## SCSS variables -->
 
-- `variablename` (defaultvalue) - description
+<!-- - `variablename` (defaultvalue) - description -->
 
 <!-- Write down SCSS variables available for configuration -->

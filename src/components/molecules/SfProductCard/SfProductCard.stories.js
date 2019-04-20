@@ -4,14 +4,14 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfProductCard from "./SfProductCard.vue";
 
-storiesOf("Molecules|ProductCard", module)
+storiesOf("Molecules|[WIP] ProductCard", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
     () => ({
       components: { SfProductCard },
       template: `<SfProductCard
-        title="Component WIP"
+        title="Product name"
         :price="{ regularPrice: '10,99 $'}"
         :rating="{ max: 5, score: 4 }"
       />`
