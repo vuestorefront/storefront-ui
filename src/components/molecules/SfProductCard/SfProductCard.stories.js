@@ -7,21 +7,8 @@ import SfProductCard from "./SfProductCard.vue";
 storiesOf("Molecules|Product Card", module)
   .addDecorator(withKnobs)
   .add(
-    "[slot] default",
+    "Basic",
     () => ({
-      // props: {
-      //   editableProp: {
-      //     default: text("(prop) propname")
-      //   },
-      //   customClass: {
-      //     default: select(
-      //       "CSS Modifier",
-      //       ["null", "sf-component--modifier"],
-      //       "null",
-      //       "CSS-Modifiers"
-      //     )
-      //   }
-      // },
       components: { SfProductCard },
       template: `<SfProductCard
         title="Lorem ipsum"

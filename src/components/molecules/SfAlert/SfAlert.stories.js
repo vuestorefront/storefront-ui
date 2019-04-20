@@ -45,7 +45,7 @@ storiesOf("Molecules|Alert", module)
       template: `
       <SfAlert message="Message prop">
         <template slot="icon">
-          <img src="assets/storybook/added_to_cart.svg"/>
+          <img src="assets/storybook/doge.svg" style="height: 25px; margin-right: 10px;"/>
         </template>
       </SfAlert>
     `
@@ -63,7 +63,7 @@ storiesOf("Molecules|Alert", module)
     () => ({
       components: { SfAlert },
       template: `
-      <SfAlert icon="/assets/profile.svg">
+      <SfAlert>
         <template slot="message">
           <span>Custom message <b>with custom HTML</b></span>
         </div>
