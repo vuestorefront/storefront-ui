@@ -4,7 +4,7 @@
 
 Numeric input, for integers and decimals, with controls and customizable range.
 
-![inputNumber](https://screenshotscdn.firefoxusercontent.com/images/4d31c403-734c-4212-aa94-3ee42fb09200.png)
+![inputNumber](https://screenshotscdn.firefoxusercontent.com/images/3d45fbce-97c3-430f-99c4-0e42b6159034.png)
 
 ## Events
 
