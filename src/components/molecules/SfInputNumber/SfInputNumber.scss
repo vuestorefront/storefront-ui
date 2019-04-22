@@ -2,7 +2,7 @@
 
 $input-number-background: $c-white !default;
 $input-number-color: $c-dark-primary !default;
-$input-number-width: 3.7rem !default;
+$input-number-width: 4.5rem !default;
 $input-number-border: none !default;
 $input-number--large-width: $input-number-width * 2 !default;
 
@@ -39,26 +39,15 @@ $input-number--large-width: $input-number-width * 2 !default;
     }
   }
 
-  &__controls {
-    width: 0.75rem;
-    padding-left: 0.1rem;
-    padding-right: 15%;
-  }
-
   &__control {
-    display: flex;
     cursor: pointer;
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-    line-height: 1;
+    width: 0.75rem;
+    padding: .2rem;
+    display: flex;
 
     img {
       width: 100%;
-    }
-
-    &--up {
-      margin-bottom: 0.4rem;
+      margin: 0;
     }
 
     &--up img[src="/assets/chevron_down.svg"] {
