@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, number, select } from "@storybook/addon-knobs";
+import { withKnobs, text, number, boolean, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfInputNumber from "./SfInputNumber.vue";
 
@@ -11,10 +11,13 @@ storiesOf("Molecules|InputNumber", module)
     () => ({
       props: {
         value: {
-          default: number("value (prop)", 1)
+          default: number("value (prop)")
+        },
+        autoFill: {
+          default: boolean("autoFill (prop)")
         },
         min: {
-          default: number("min (prop)", 1)
+          default: number("min (prop)")
         },
         max: {
           default: number("max (prop)")
@@ -34,6 +37,18 @@ storiesOf("Molecules|InputNumber", module)
         name: {
           default: text("name (prop)")
         },
+        type: {
+          default: text("type (prop)", "tel")
+        },
+        placeholder: {
+          default: text("placeholder (prop)")
+        },
+        disabled: {
+          default: boolean("disabled (prop)")
+        },
+        required: {
+          default: boolean("required (prop)")
+        },
         customClass: {
           default: select(
             "CSS Modifier",
@@ -47,13 +62,18 @@ storiesOf("Molecules|InputNumber", module)
       template: `<SfInputNumber
          :class="customClass"
          v-model="value"
+         :autoFill="autoFill"
          :min="min"
          :max="max"
          :step="step"
          :precision="precision"
          :delimiter="delimiter"
          :thousands="thousands"
-         :name="name" />`
+         :type="type"
+         :name="name"
+         :placeholder="placeholder"
+         :disabled="disabled"
+         :required="required" />`
     }),
     {
       info: true,
