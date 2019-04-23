@@ -3,5 +3,10 @@
 .sf-list {
   list-style-type: none;
   padding-left: 0;
-  line-height: 2rem;
+  .sf-list__item {
+    font-size: $font-size-big-mobile;
+    @media (min-width: $desktop-min) {
+      font-size: $font-size-small-desktop;
+    }
+  }
 }
