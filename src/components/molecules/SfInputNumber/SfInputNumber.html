@@ -1,0 +1,33 @@
+<div class="sf-input-number">
+  <div
+    v-if="controls"
+    class="sf-input-number__control sf-input-number__control--up"
+    @click="increase">
+    <slot name="up">
+      <img src="/assets/chevron_down.svg" alt="Increase" />
+    </slot>
+  </div>
+
+  <slot v-bind:value="currentValue">
+    <input
+      class="sf-input-number__field"
+      v-model="stringValue"
+      @keyup.up="increase"
+      @keyup.down="decrease"
+      @keypress="keypress"
+      :type="type"
+      :name="name"
+      :required="required"
+      :disabled="disabled"
+      :placeholder="placeholder" />
+  </slot>
+
+  <div
+    v-if="controls"
+    class="sf-input-number__control sf-input-number__control--down"
+    @click="decrease">
+    <slot name="down">
+      <img src="/assets/chevron_down.svg" alt="Decrease" />
+    </slot>
+  </div>
+</div>
