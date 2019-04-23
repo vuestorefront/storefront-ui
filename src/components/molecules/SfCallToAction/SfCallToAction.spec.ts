@@ -19,19 +19,6 @@ describe("SfCallToAction.vue", () => {
     expect(component.find(".sf-call-to-action").text()).toMatch(msg);
   });
 
-  // title check from prop
-  it("renders title prop on h1 when passed", () => {
-    const msg = "H1Title";
-    const component = shallowMount(SfCallToAction, {
-      propsData: {
-        title: msg
-      }
-    });
-    const wrapper = component.find(".sf-call-to-action__title");
-    expect(wrapper.text()).toMatch(msg);
-    expect(wrapper.is("h1")).toBe(true);
-  });
-
   // button text check from prop
   it("renders button text from prop when passed", () => {
     const msg = "ButtonText";
@@ -40,6 +27,7 @@ describe("SfCallToAction.vue", () => {
         buttonText: msg
       }
     });
+    console.log(component.html())
     const wrapper = component.find(".sf-call-to-action__button");
     expect(wrapper.text()).toMatch(msg);
   });
