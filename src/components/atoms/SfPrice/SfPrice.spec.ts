@@ -27,11 +27,22 @@ describe("SfPrice.vue", () => {
       }
     });
     expect(component.contains(".sf-price__old") && component.contains(".sf-price__special")).toBe(true);
-  });
-
-  // Default slot check, you can replace `default` with any other
-  // it("renders default prop text when passed", () => {
-  //   const component = shallowMount(SfComponent);
-  //   expect(component).toBeDefined();
-  // });
+  })
+  it("renders an old price via slot", () => {
+    const component = shallowMount(SfPrice, {
+      slots: {
+        oldPrice:"<span class='oldPrice'>text</span>"
+      }
+    });
+    expect(component.contains(".oldPrice")).toBe(true);
+  })
+  it("renders a special price via slot", () => {
+    const component = shallowMount(SfPrice, {
+      slots: {
+        specialPrice:"<ins class='specialPrice'>text</ins>"
+      }
+    });
+    expect(component.find(".sf-price__special").exists()).toBe(false);
+    expect(component.contains(".specialPrice")).toBe(true);
+  })
 });
