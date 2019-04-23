@@ -10,10 +10,10 @@
       </div>
     </slot>
   </div>
-  <slot name="floating-icon"></slot>
+  <slot name="circle-button"></slot>
   <div class="sf-bottom-navigation__element">
-      <Sf-Circle-Button class="sf-bottom-navigation-cart-button" v-if="floating-icon">
-        <img :src="floating-icon" alt="nav-cart" class="sf-bottom-navigation-element-img"/>
+      <Sf-Circle-Button class="sf-bottom-navigation-cart__button" v-if="floting-icon">
+        <img :src="floating-icon" alt="nav-cart" class="sf-bottom-navigation-element__img"/>
       </Sf-Circle-Button>
   </div>
   </slot>
