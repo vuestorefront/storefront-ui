@@ -12,6 +12,10 @@ export default {
     count: {
       type: String,
       default: ""
+    },
+    isActive: {
+      type: Boolean,
+      default: false
     }
   }
 };

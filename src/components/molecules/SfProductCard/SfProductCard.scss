@@ -6,7 +6,7 @@ $sf-product-card-max-width: 16rem;
 
 .sf-product-card {
   max-width: 160px;
-  padding: 20px;
+  padding: $spacer-big;
   transition: 0.3s all;
   position: relative;
   &:hover {

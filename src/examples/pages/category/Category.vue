@@ -1,14 +1,10 @@
 <template>
   <div id="category">
-    <transition name="slide-left">
-      <SfSidebar
-        v-show="isFilterSidebarOpen"
-        @close="isFilterSidebarOpen = false"
-        >Filters sidebar</SfSidebar
-      >
-    </transition>
+    <div class="row navbar">
+      <span @click="isFilterSidebarOpen = true">Open Filters</span>
+    </div>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-2 sidebar">
         <h3>Clothing</h3>
         <SfList>
           <SfListItem>
@@ -38,7 +34,7 @@
       </div>
       <div class="col-md-10">
         <div class="row">
-          <div class="col-md-3" v-for="i in 14" :key="i">
+          <div class="col-md-3" v-for="i in 6" :key="i">
             <SfProductCard
               title="Cream Beach Bag"
               :price="{ regularPrice: '10,99 $' }"
@@ -46,8 +42,18 @@
             />
           </div>
         </div>
+        <div class="row">
+          <SfPagination :current.sync="currentPage" :total="20" :visible="5" />
+        </div>
       </div>
     </div>
+    <transition name="slide-left">
+      <SfSidebar
+        v-show="isFilterSidebarOpen"
+        @close="isFilterSidebarOpen = false"
+        >Filters sidebar</SfSidebar
+      >
+    </transition>
   </div>
 </template>
 
@@ -57,32 +63,40 @@ import SfButton from "@/components/atoms/SfButton/SfButton.vue";
 import SfList from "@/components/molecules/SfList/SfList.vue";
 import SfFilter from "@/components/molecules/SfFilter/SfFilter.vue";
 import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
-
+import SfPagination from "@/components/molecules/SfPagination/SfPagination.vue";
 import "./flexboxgrid.css";
 
 export default {
   data() {
     return {
-      isFilterSidebarOpen: true,
-      product: {
-        max: 5,
-        score: 4
-      }
+      isFilterSidebarOpen: false,
+      currentPage: 2
     };
   },
   components: {
     SfSidebar,
     SfList,
     SfFilter,
-    SfProductCard
+    SfProductCard,
+    SfPagination
   }
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "../../../css/variables.scss";
 #category {
   box-sizing: border-box;
   max-width: 1200px;
   margin: auto;
+}
+.navbar {
+  border-top: 1px solid $c-border;
+  border-bottom: 1px solid $c-border;
+  padding: $spacer-big 0;
+}
+.sidebar {
+  border-right: 1px solid $c-border;
+  padding-right: $spacer-big;
 }
 </style>

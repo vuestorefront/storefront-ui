@@ -12,4 +12,7 @@ $sf-filter-font-family: $body-font-family-secondary;
     padding: $sf-filter-padding;
     font-size: $sf-filter-font-size;
     font-family: $sf-filter-font-family;
+    &--active {
+        text-decoration: underline;
+    }
 }

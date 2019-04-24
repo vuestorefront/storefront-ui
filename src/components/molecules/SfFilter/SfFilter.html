@@ -1,4 +1,4 @@
-<div class="sf-filter">
+<div class="sf-filter" ;class="'sf-filter--active' : isActive " @click="e => $emit('click', e)">
 	<slot>
 		<slot name="icon" />
 		<span class="sf-filter__label">{{ label }}</span>
