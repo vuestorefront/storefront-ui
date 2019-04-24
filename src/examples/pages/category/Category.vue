@@ -1,11 +1,20 @@
 <template>
   <div id="category">
-    <div class="row navbar">
-      <span @click="isFilterSidebarOpen = true">Open Filters</span>
+    <div class="row navbar middle">
+      <div class="col-md-2 categories-title">
+        <h2>Categories</h2>
+      </div>
+      <div class="col-md-10 controls">
+        <SfButton class="filters-btn" @click="isFilterSidebarOpen = true">
+          <img src="./filters.svg" />
+          Filters
+        </SfButton>
+      </div>
     </div>
     <div class="row">
       <div class="col-md-2 sidebar">
         <h3>Clothing</h3>
+        <!-- TODO MERGE SFFILTER WITH LIST ITEM -->
         <SfList>
           <SfListItem>
             <SfFilter label="All" value="all" count="280" />
@@ -33,7 +42,7 @@
         <h3>Shoes</h3>
       </div>
       <div class="col-md-10">
-        <div class="row">
+        <div class="row products">
           <div class="col-md-3" v-for="i in 6" :key="i">
             <SfProductCard
               title="Cream Beach Bag"
@@ -42,7 +51,7 @@
             />
           </div>
         </div>
-        <div class="row">
+        <div class="pagination row">
           <SfPagination :current.sync="currentPage" :total="20" :visible="5" />
         </div>
       </div>
@@ -51,8 +60,32 @@
       <SfSidebar
         v-show="isFilterSidebarOpen"
         @close="isFilterSidebarOpen = false"
-        >Filters sidebar</SfSidebar
       >
+        <h3>Clothing</h3>
+        <SfList>
+          <SfListItem>
+            <SfFilter label="All" value="all" count="280" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilter label="Skirts" value="skirts" count="23" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilter label="Sweaters" value="sweaters" count="54" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilter label="Dresses" value="dresses" count="34" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilter label="T-shirts" value="t-shirts" count="56" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilter label="Pants" value="pants" count="7" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilter label="Underwear" value="underwear" count="12" />
+          </SfListItem>
+        </SfList>
+      </SfSidebar>
     </transition>
   </div>
 </template>
@@ -74,6 +107,7 @@ export default {
     };
   },
   components: {
+    SfButton,
     SfSidebar,
     SfList,
     SfFilter,
@@ -85,18 +119,48 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../css/variables.scss";
+
 #category {
   box-sizing: border-box;
   max-width: 1200px;
   margin: auto;
 }
+
 .navbar {
   border-top: 1px solid $c-border;
   border-bottom: 1px solid $c-border;
-  padding: $spacer-big 0;
+  height: 75px;
+  .controls {
+    display: inline-flex;
+    padding-left: $spacer-big;
+  }
+  .categories-title {
+    display: inline-flex;
+    align-items: center;
+    border-right: 1px solid $c-border;
+  }
+  .filters-btn {
+    color: white;
+    color: inherit;
+    font-size: $font-size-small-desktop;
+    text-transform: none;
+    background: transparent;
+    padding: 0;
+    align-items: center;
+    display: flex;
+    img {
+      margin-right: 10px;
+    }
+  }
 }
 .sidebar {
   border-right: 1px solid $c-border;
   padding-right: $spacer-big;
+}
+.products {
+  padding-bottom: $spacer-extra-big;
+}
+.pagination {
+  padding-top: $spacer-extra-big;
 }
 </style>
