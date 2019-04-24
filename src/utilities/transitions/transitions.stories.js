@@ -34,7 +34,7 @@ export default storiesOf("Utilities|Transitions", module)
       <sf-button v-on:click="show = !show">
         Slide left
       </sf-button>
-      <transition name="slide(left)">
+      <transition name="slide-left">
         <p v-if="show">hello</p>
       </transition>
     </div>`,
@@ -55,7 +55,7 @@ export default storiesOf("Utilities|Transitions", module)
       <sf-button v-on:click="show = !show">
         Slide right
       </sf-button>
-      <transition name="slide(right)">
+      <transition name="slide-right">
         <p v-if="show">hello</p>
       </transition>
     </div>`,
@@ -76,7 +76,7 @@ export default storiesOf("Utilities|Transitions", module)
       <sf-button v-on:click="show = !show">
         Collapse top
       </sf-button>
-      <transition name="collapse(top)">
+      <transition name="collapse-top">
         <p v-if="show">hello</p>
       </transition>
     </div>`,
@@ -97,7 +97,7 @@ export default storiesOf("Utilities|Transitions", module)
       <sf-button v-on:click="show = !show">
         Collapse bottom
       </sf-button>
-      <transition name="collapse(bottom)">
+      <transition name="collapse-bottom">
         <p v-if="show">hello</p>
       </transition>
     </div>`,

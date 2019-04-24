@@ -1,7 +1,7 @@
 $transition-fade: opacity .15s linear;
 $transition-base: $transition-fade;
-$transition-slide: all .15s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-$transition-slide-transform-size: 10px;
+$transition-slide: all .25s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+$transition-slide-transform-size: 400px;
 
 // mixins
 
@@ -56,16 +56,16 @@ $transition-slide-transform-size: 10px;
 .fade {
   @include transition-fade();
 }
-.slide\(left\) {
+.slide-left {
   @include transition-slide("left");
 }
-.slide\(right\) {
+.slide-right {
   @include transition-slide("right");
 }
-.collapse\(bottom\) {
+.collapse-bottom {
   @include transition-slide("bottom");
 }
-.collapse\(top\) {
+.collapse-top {
   @include transition-slide("top");
 }
 .fade-slide {
