@@ -20,13 +20,13 @@
       <div class="sidebar col-md-2">
         <h3>Clothing</h3>
         <SfList class="sidebar__category-list">
-          <SfListItem label="All" count="280" />
-          <SfListItem label="Skirts" count="23" />
-          <SfListItem label="Sweaters" count="54" />
-          <SfListItem label="Dresses" count="34" />
-          <SfListItem label="T-shirts" count="56" />
-          <SfListItem label="Pants" count="7" />
-          <SfListItem label="Underwear" count="12" />
+          <SfMenuItem label="All" count="280" />
+          <SfMenuItem label="Skirts" count="23" />
+          <SfMenuItem label="Sweaters" count="54" />
+          <SfMenuItem label="Dresses" count="34" />
+          <SfMenuItem label="T-shirts" count="56" />
+          <SfMenuItem label="Pants" count="7" />
+          <SfMenuItem label="Underwear" count="12" />
         </SfList>
         <h3>Accesorries</h3>
         <h3>Shoes</h3>
@@ -85,6 +85,7 @@
 import SfSidebar from "@/components/molecules/SfSidebar/SfSidebar.vue";
 import SfButton from "@/components/atoms/SfButton/SfButton.vue";
 import SfList from "@/components/molecules/SfList/SfList.vue";
+import SfMenuItem from "@/components/molecules/SfMenuItem/SfMenuItem.vue";
 import SfFilter from "@/components/molecules/SfFilter/SfFilter.vue";
 import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
 import SfPagination from "@/components/molecules/SfPagination/SfPagination.vue";
@@ -106,6 +107,7 @@ export default {
     SfFilter,
     SfProductCard,
     SfPagination,
+    SfMenuItem,
     FiltersIcon
   }
 };

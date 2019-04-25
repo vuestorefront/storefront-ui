@@ -25,4 +25,9 @@ $sidebar-padding: 3.5rem;
       left: -1.625rem;
     }
   }
+  &--mobile-only {
+    &__button {
+      display: none
+    }
+  }
 }
