@@ -20,13 +20,27 @@
       <div class="sidebar col-md-2">
         <h3>Clothing</h3>
         <SfList class="sidebar__category-list">
-          <SfMenuItem label="All" count="280" />
-          <SfMenuItem label="Skirts" count="23" />
-          <SfMenuItem label="Sweaters" count="54" />
-          <SfMenuItem label="Dresses" count="34" />
-          <SfMenuItem label="T-shirts" count="56" />
-          <SfMenuItem label="Pants" count="7" />
-          <SfMenuItem label="Underwear" count="12" />
+          <SfListItem>
+            <SfMenuItem label="All" count="280" />
+          </SfListItem>
+          <SfListItem>
+            <SfMenuItem label="Skirts" count="23" />
+          </SfListItem>
+          <SfListItem>
+            <SfMenuItem label="Sweaters" count="54" />
+          </SfListItem>
+          <SfListItem>
+            <SfMenuItem label="Dresses" count="34" />
+          </SfListItem>
+          <SfListItem>
+            <SfMenuItem label="T-shirts" count="56" />
+          </SfListItem>
+          <SfListItem>
+            <SfMenuItem label="Pants" count="7" />
+          </SfListItem>
+          <SfListItem>
+            <SfMenuItem label="Underwear" count="12" />
+          </SfListItem>
         </SfList>
         <h3>Accesorries</h3>
         <h3>Shoes</h3>
