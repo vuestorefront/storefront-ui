@@ -98,7 +98,7 @@
 <script>
 import SfSidebar from "@/components/molecules/SfSidebar/SfSidebar.vue";
 import SfButton from "@/components/atoms/SfButton/SfButton.vue";
-import SfList from "@/components/molecules/SfList/SfList.vue";
+import SfList from "@/components/organisms/SfList/SfList.vue";
 import SfMenuItem from "@/components/molecules/SfMenuItem/SfMenuItem.vue";
 import SfFilter from "@/components/molecules/SfFilter/SfFilter.vue";
 import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";

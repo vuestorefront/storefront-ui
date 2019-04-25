@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/vue";
 import SfList from "./SfList.vue";
 import SfMenuItem from "../SfMenuItem/SfMenuItem.vue";
 
-storiesOf("Molecules|List", module)
+storiesOf("Organisms|List", module)
   .add(
     "Basic",
     () => ({
