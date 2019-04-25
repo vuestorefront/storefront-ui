@@ -4,9 +4,22 @@ import { storiesOf } from "@storybook/vue";
 import SfList from "./SfList.vue";
 import SfMenuItem from "../SfMenuItem/SfMenuItem.vue";
 
-storiesOf("Molecules|List", module)
-  .add(
-    "Basic",
+storiesOf("Molecules|List", module).add(
+  "Basic",
+  () => ({
+    components: { SfList },
+    template: `
+    <SfList>
+      <SfListItem label="Lorem ipsum" count="30">
+      <SfListItem label="Dolor sit" count="2">
+    </SfList>`
+  }),
+  {
+    info: true
+  }
+),
+  add(
+    "Custom list content",
     () => ({
       components: { SfList },
       template: `
@@ -18,8 +31,7 @@ storiesOf("Molecules|List", module)
     {
       info: true
     }
-  )
-  .add(
+  ).add(
     "With SfMenuItem",
     () => ({
       components: { SfList, SfMenuItem },
