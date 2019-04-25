@@ -1,42 +1,32 @@
 <template>
   <div id="category">
-    <div class="row navbar middle">
-      <div class="col-md-2 categories-title">
+    <div class="navbar row middle">
+      <div class="navbar__title col-md-2">
         <h2>Categories</h2>
       </div>
-      <div class="col-md-10 controls">
-        <SfButton class="filters-btn" @click="isFilterSidebarOpen = true">
-          <img src="./filters.svg" />
+      <div class="navbar__controls col-md-10">
+        <SfButton
+          class="navbar__filters-btn"
+          :class="{ 'navbar__filters-btn--active': isFilterSidebarOpen }"
+          @click="isFilterSidebarOpen = true"
+        >
+          <FiltersIcon />
           Filters
         </SfButton>
       </div>
     </div>
+
     <div class="row">
-      <div class="col-md-2 sidebar">
+      <div class="sidebar col-md-2">
         <h3>Clothing</h3>
-        <!-- TODO MERGE SFFILTER WITH LIST ITEM -->
-        <SfList>
-          <SfListItem>
-            <SfFilter label="All" value="all" count="280" />
-          </SfListItem>
-          <SfListItem>
-            <SfFilter label="Skirts" value="skirts" count="23" />
-          </SfListItem>
-          <SfListItem>
-            <SfFilter label="Sweaters" value="sweaters" count="54" />
-          </SfListItem>
-          <SfListItem>
-            <SfFilter label="Dresses" value="dresses" count="34" />
-          </SfListItem>
-          <SfListItem>
-            <SfFilter label="T-shirts" value="t-shirts" count="56" />
-          </SfListItem>
-          <SfListItem>
-            <SfFilter label="Pants" value="pants" count="7" />
-          </SfListItem>
-          <SfListItem>
-            <SfFilter label="Underwear" value="underwear" count="12" />
-          </SfListItem>
+        <SfList class="sidebar__category-list">
+          <SfListItem label="All" count="280" />
+          <SfListItem label="Skirts" count="23" />
+          <SfListItem label="Sweaters" count="54" />
+          <SfListItem label="Dresses" count="34" />
+          <SfListItem label="T-shirts" count="56" />
+          <SfListItem label="Pants" count="7" />
+          <SfListItem label="Underwear" count="12" />
         </SfList>
         <h3>Accesorries</h3>
         <h3>Shoes</h3>
@@ -56,6 +46,7 @@
         </div>
       </div>
     </div>
+
     <transition name="slide-left">
       <SfSidebar
         v-show="isFilterSidebarOpen"
@@ -97,7 +88,9 @@ import SfList from "@/components/molecules/SfList/SfList.vue";
 import SfFilter from "@/components/molecules/SfFilter/SfFilter.vue";
 import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
 import SfPagination from "@/components/molecules/SfPagination/SfPagination.vue";
-import "./flexboxgrid.css";
+import FiltersIcon from "./components/FiltersIcon.vue";
+
+import "./assets/flexboxgrid.css";
 
 export default {
   data() {
@@ -112,7 +105,8 @@ export default {
     SfList,
     SfFilter,
     SfProductCard,
-    SfPagination
+    SfPagination,
+    FiltersIcon
   }
 };
 </script>
@@ -130,16 +124,16 @@ export default {
   border-top: 1px solid $c-border;
   border-bottom: 1px solid $c-border;
   height: 75px;
-  .controls {
+  &__controls {
     display: inline-flex;
     padding-left: $spacer-big;
   }
-  .categories-title {
+  &__title {
     display: inline-flex;
     align-items: center;
     border-right: 1px solid $c-border;
   }
-  .filters-btn {
+  &__filters-btn {
     color: white;
     color: inherit;
     font-size: $font-size-small-desktop;
@@ -148,14 +142,29 @@ export default {
     padding: 0;
     align-items: center;
     display: flex;
-    img {
+    svg {
       margin-right: 10px;
+      fill: $c-gray-secondary;
+    }
+    &:hover,
+    &--active {
+      color: $c-accent-primary;
+      svg {
+        fill: $c-accent-primary;
+      }
     }
   }
 }
+
 .sidebar {
   border-right: 1px solid $c-border;
   padding-right: $spacer-big;
+  &__category-list li:hover,
+  &__category-item--active {
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+  }
 }
 .products {
   padding-bottom: $spacer-extra-big;
