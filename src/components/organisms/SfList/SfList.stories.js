@@ -2,7 +2,7 @@
 import { storiesOf } from "@storybook/vue";
 
 import SfList from "./SfList.vue";
-import SfMenuItem from "../SfMenuItem/SfMenuItem.vue";
+import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 
 storiesOf("Organisms|List", module)
   .add(
