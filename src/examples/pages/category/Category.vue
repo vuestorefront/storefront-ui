@@ -46,8 +46,8 @@
         <h3>Shoes</h3>
       </div>
       <div class="products">
-        <div class="grid">
-          <div class="grid__item" v-for="i in 6" :key="i">
+        <div class="products__grid">
+          <div class="products__item" v-for="i in 6" :key="i">
             <SfProductCard
               title="Cream Beach Bag"
               :price="{ regularPrice: '10,99 $' }"
@@ -55,7 +55,7 @@
             />
           </div>
         </div>
-        <div class="pagination">
+        <div class="products__pagination">
           <SfPagination :current.sync="currentPage" :total="20" :visible="5" />
         </div>
       </div>
@@ -155,7 +155,6 @@ export default {
     @media (min-width: $desktop-min) {
       padding-left: $spacer-extra-big;
       height: 75px;
-      padding: 0;
     }
   }
   &__filters-btn {
@@ -204,16 +203,11 @@ export default {
 
 .products {
   box-sizing: border-box;
-  @media (min-width: $desktop-min) {
-    width: 80%;
-    padding: $spacer-big;
+  &__grid {
+    padding-bottom: $spacer-extra-big;
+    display: flex;
+    flex-flow: row wrap;
   }
-}
-
-.grid {
-  padding-bottom: $spacer-extra-big;
-  display: flex;
-  flex-flow: row wrap;
   &__item {
     display: flex;
     width: 50%;
@@ -225,11 +219,14 @@ export default {
       width: 25%;
     }
   }
-}
-
-.pagination {
+  &__pagination {
+    @media (min-width: $desktop-min) {
+      padding-top: $spacer-extra-big;
+    }
+  }
   @media (min-width: $desktop-min) {
-    padding-top: $spacer-extra-big;
+    width: 80%;
+    padding: $spacer-big;
   }
 }
 </style>
