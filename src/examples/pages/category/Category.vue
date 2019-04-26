@@ -139,7 +139,7 @@ export default {
 .navbar {
   border-top: 1px solid $c-border;
   border-bottom: 1px solid $c-border;
-  height: 75px;
+  padding: $spacer 0;
   &__title {
     display: inline-flex;
     align-items: center;
@@ -149,9 +149,14 @@ export default {
   }
   &__controls {
     display: inline-flex;
-    padding-left: $spacer-extra-big;
+    padding-left: $spacer-big;
     width: 80%;
     box-sizing: border-box;
+    @media (min-width: $desktop-min) {
+      padding-left: $spacer-extra-big;
+      height: 75px;
+      padding: 0;
+    }
   }
   &__filters-btn {
     color: white;
@@ -174,11 +179,16 @@ export default {
       }
     }
   }
+  @media (min-width: $desktop-min) {
+    height: 75px;
+    padding: 0;
+  }
 }
 
 .main {
   display: flex;
 }
+
 .sidebar {
   border-right: 1px solid $c-border;
   padding-right: $spacer-extra-big;
@@ -208,11 +218,15 @@ export default {
     display: flex;
     width: 50%;
     justify-content: center;
+    @media (min-width: $tablet-min) {
+      width: 33%;
+    }
     @media (min-width: $desktop-min) {
       width: 25%;
     }
   }
 }
+
 .pagination {
   @media (min-width: $desktop-min) {
     padding-top: $spacer-extra-big;
