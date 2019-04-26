@@ -1,10 +1,10 @@
 <template>
   <div id="category">
-    <div class="navbar row middle">
-      <div class="navbar__title col-md-2">
+    <div class="navbar">
+      <div class="navbar__title desktop-only">
         <h2>Categories</h2>
       </div>
-      <div class="navbar__controls col-md-10">
+      <div class="navbar__controls">
         <SfButton
           class="navbar__filters-btn"
           :class="{ 'navbar__filters-btn--active': isFilterSidebarOpen }"
@@ -16,8 +16,8 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="sidebar col-md-2">
+    <div class="main">
+      <div class="sidebar desktop-only">
         <h3>Clothing</h3>
         <SfList class="sidebar__category-list">
           <SfListItem>
@@ -45,9 +45,9 @@
         <h3>Accesorries</h3>
         <h3>Shoes</h3>
       </div>
-      <div class="col-md-10">
-        <div class="row products">
-          <div class="col-md-3" v-for="i in 6" :key="i">
+      <div class="products">
+        <div class="grid">
+          <div class="grid__item" v-for="i in 6" :key="i">
             <SfProductCard
               title="Cream Beach Bag"
               :price="{ regularPrice: '10,99 $' }"
@@ -55,7 +55,7 @@
             />
           </div>
         </div>
-        <div class="pagination row">
+        <div class="pagination">
           <SfPagination :current.sync="currentPage" :total="20" :visible="5" />
         </div>
       </div>
@@ -105,8 +105,6 @@ import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vu
 import SfPagination from "@/components/molecules/SfPagination/SfPagination.vue";
 import FiltersIcon from "./components/FiltersIcon.vue";
 
-import "./assets/flexboxgrid.css";
-
 export default {
   data() {
     return {
@@ -129,25 +127,31 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../css/variables.scss";
+@import "../../../utilities/css-helpers/visibility.scss";
 
 #category {
   box-sizing: border-box;
   max-width: 1200px;
   margin: auto;
+  overflow: hidden;
 }
 
 .navbar {
   border-top: 1px solid $c-border;
   border-bottom: 1px solid $c-border;
   height: 75px;
-  &__controls {
-    display: inline-flex;
-    padding-left: $spacer-big;
-  }
   &__title {
     display: inline-flex;
     align-items: center;
     border-right: 1px solid $c-border;
+    width: 20%;
+    box-sizing: border-box;
+  }
+  &__controls {
+    display: inline-flex;
+    padding-left: $spacer-extra-big;
+    width: 80%;
+    box-sizing: border-box;
   }
   &__filters-btn {
     color: white;
@@ -172,9 +176,14 @@ export default {
   }
 }
 
+.main {
+  display: flex;
+}
 .sidebar {
   border-right: 1px solid $c-border;
-  padding-right: $spacer-big;
+  padding-right: $spacer-extra-big;
+  width: 20%;
+  box-sizing: border-box;
   &__category-list li:hover,
   &__category-item--active {
     text-decoration: underline;
@@ -182,10 +191,31 @@ export default {
     cursor: pointer;
   }
 }
+
 .products {
+  box-sizing: border-box;
+  @media (min-width: $desktop-min) {
+    width: 80%;
+    padding: $spacer-big;
+  }
+}
+
+.grid {
   padding-bottom: $spacer-extra-big;
+  display: flex;
+  flex-flow: row wrap;
+  &__item {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    @media (min-width: $desktop-min) {
+      width: 25%;
+    }
+  }
 }
 .pagination {
-  padding-top: $spacer-extra-big;
+  @media (min-width: $desktop-min) {
+    padding-top: $spacer-extra-big;
+  }
 }
 </style>
