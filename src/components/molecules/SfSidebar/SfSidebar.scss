@@ -1,7 +1,7 @@
 @import '../../../css/variables';
 
 $sidebar-background: $c-white;
-$sidebar-padding: $spacer-inner;
+$sidebar-padding: 3.5rem;
 
 .sf-sidebar {
   position: fixed;
@@ -13,8 +13,21 @@ $sidebar-padding: $spacer-inner;
   padding: $sidebar-padding;
   box-sizing: border-box;
   box-shadow: 0px 4px 56px rgba(87, 87, 87, 0.32);
+  &__button {
+    position: absolute;
+    right: -1.625rem;
+    padding: 10px;
+  }
   &--right {
     left: auto;
     right: 0;
+    .sf-sidebar__button {
+      left: -1.625rem;
+    }
+  }
+  &--mobile-only {
+    &__button {
+      display: none
+    }
   }
 }

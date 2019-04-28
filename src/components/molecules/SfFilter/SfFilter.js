@@ -1,17 +1,21 @@
 export default {
-  name: "SfMenuItem",
+  name: "SfFilter",
   props: {
     label: {
       type: String,
       default: ""
     },
-    mobileNavIcon: {
+    value: {
       type: String,
-      default: "/assets/chevron_right.svg"
+      default: ""
     },
     count: {
       type: String,
       default: ""
+    },
+    isActive: {
+      type: Boolean,
+      default: false
     }
   }
 };

@@ -1,17 +1,17 @@
 import { storiesOf } from "@storybook/vue";
 
-import SfMenuItem from "./SfMenuItem.vue";
+import SfFilter from "./SfFilter.vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
 
-export default storiesOf("Molecules|MenuItem", module)
+export default storiesOf("Molecules|[WIP] Filter", module)
   .addDecorator(withKnobs)
   .add(
-    "Props",
+    "Basic",
     () => ({
-      components: { SfMenuItem },
+      components: { SfFilter },
       props: {
-        label: {
-          default: text("label (prop)", "label prop")
+        title: {
+          default: text("label (prop)", "Label prop")
         },
         count: {
           default: text("count (prop)", "30")
@@ -19,8 +19,8 @@ export default storiesOf("Molecules|MenuItem", module)
       },
       template: `
       <div style="width: 300px">
-        <SfMenuItem
-          :label="label"
+        <SfFilter
+          :label="title"
           :count="count"
         />
       </div>
