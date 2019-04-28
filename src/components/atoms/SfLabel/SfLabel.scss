@@ -1,36 +1,12 @@
 @import '../../../css/variables';
 
 $sf-label-margin        : 0 0 8px !default;
-$sf-label-margin--inline: 0 8px 0 0 !default;
 $sf-label-font-size     : $font-size-regular-mobile !default;
-$sf-label-color         : $c-accent-secondary !default;
+$sf-label-color         : $c-dark-primary !default;
 $sf-label-font-family   : $body-font-family-primary !default;
 $sf-label-font-weight   : normal !default;
 $sf-label-line-height   : 1.5 !default;
 $sf-label-transition    : none !default;
-
-@mixin visually-hidden($usePseudo: '') {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
-
-  @if $usePseudo != '' {
-    &:focus,
-    &:active {
-      clip: auto;
-      height: auto;
-      margin: 0;
-      overflow: visible;
-      position: static;
-      width: auto;
-    }
-  }
-}
 
 .sf-label {
   display: block;
@@ -41,16 +17,4 @@ $sf-label-transition    : none !default;
   font-weight: $sf-label-font-weight;
   line-height: $sf-label-line-height;
   transition: $sf-label-transition;
-
-  &--inline {
-    margin: $sf-label-margin--inline;
-  }
-
-  &--hidden {
-    @include visually-hidden();
-  }
-}
-
-.sf-label {
-  @extend .sf-label;
 }
