@@ -6,6 +6,8 @@ $sf-options__label-margin-bottom            : 0.5rem !default;
 $sf-options__label-font-size                : $font-size-big-mobile !default;
 
 $sf-options__option-size                    : 2rem !default;
+$sf-options-desktop__option-color-size      : 1rem !default;
+
 $sf-options__option-font-size               : $font-size-regular-mobile !default;
 $sf-options__option-margin                  : 0.75rem !default;
 
@@ -44,6 +46,12 @@ $sf-options-desktop__option-text-color      : $c-black;
       }
     }
 
+    &-color, &-image {
+      @media (min-width: $desktop-min) {
+        min-width: $sf-options-desktop__option-color-size;
+        min-height: $sf-options-desktop__option-color-size;
+      }
+    }
     &-image {
       background-repeat: no-repeat;
       background-position: center;
@@ -80,8 +88,8 @@ $sf-options-desktop__option-text-color      : $c-black;
       }
       &--selected, &:hover, &:focus {
         @media (min-width: $desktop-min) {
-          min-width: calc(#{$sf-options__option-size} * 2);
-          min-height: calc(#{$sf-options__option-size} * 2);
+          min-width: calc(#{$sf-options-desktop__option-color-size} * 2);
+          min-height: calc(#{$sf-options-desktop__option-color-size} * 2);
           box-shadow: 0 4px 4px -2px #C8C9CB;
         }
       }
