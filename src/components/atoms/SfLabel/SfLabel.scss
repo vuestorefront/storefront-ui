@@ -1,20 +1,18 @@
 @import '../../../css/variables';
 
-$sf-label-margin        : 0 0 8px !default;
+$sf-label-margin-bottom : 0.5rem !default;
 $sf-label-font-size     : $font-size-regular-mobile !default;
 $sf-label-color         : $c-dark-primary !default;
 $sf-label-font-family   : $body-font-family-primary !default;
-$sf-label-font-weight   : normal !default;
+$sf-label-font-weight   : $body-font-weight-primary !default;
 $sf-label-line-height   : 1.5 !default;
-$sf-label-transition    : none !default;
 
 .sf-label {
   display: block;
-  margin: $sf-label-margin;
+  margin-bottom: $sf-label-margin-bottom;
   font-size: $sf-label-font-size;
   color: $sf-label-color;
   font-family: $sf-label-font-family;
   font-weight: $sf-label-font-weight;
   line-height: $sf-label-line-height;
-  transition: $sf-label-transition;
 }
