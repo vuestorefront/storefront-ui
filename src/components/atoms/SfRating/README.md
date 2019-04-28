@@ -10,8 +10,8 @@ Rating component to display star (or other icons) ratings.
 
 ## Slots
 
-- `iconPositive` - slot for positive icon, repeated (score) times
-- `iconNegative` - slot for  negative icon, repeated (max-score) times
+- `icon-positive` - slot for positive icon, repeated (score) times
+- `icon-negative` - slot for  negative icon, repeated (max-score) times
 
 
 ## SCSS variables
