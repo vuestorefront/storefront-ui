@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
-
+import notes from "./README.md";
 import SfOptions from "./SfOptions.vue";
 
 storiesOf("Molecules|Options", module)
@@ -40,7 +40,7 @@ storiesOf("Molecules|Options", module)
         }
       },
       template:
-        '<sf-options :label="label" v-model="selected" :options="options" />',
+        '<SfOptions :label="label" v-model="selected" :options="options" />',
       data() {
         return {
           selected: "XS"
@@ -48,6 +48,7 @@ storiesOf("Molecules|Options", module)
       }
     }),
     {
+      notes,
       info: true
     }
   )
@@ -85,7 +86,7 @@ storiesOf("Molecules|Options", module)
         }
       },
       template:
-        '<sf-options type="color" :label="label" v-model="selected" :options="options" />',
+        '<SfOptions type="color" :label="label" v-model="selected" :options="options" />',
       data() {
         return {
           selected: "Orange"
@@ -93,6 +94,7 @@ storiesOf("Molecules|Options", module)
       }
     }),
     {
+      notes,
       info: true
     }
   )
@@ -126,7 +128,7 @@ storiesOf("Molecules|Options", module)
         }
       },
       template:
-        '<sf-options type="image" :label="label" v-model="selected" :options="options" />',
+        '<SfOptions type="image" :label="label" v-model="selected" :options="options" />',
       data() {
         return {
           selected: "heart"
@@ -134,6 +136,7 @@ storiesOf("Molecules|Options", module)
       }
     }),
     {
+      notes,
       info: true
     }
   )
@@ -142,7 +145,7 @@ storiesOf("Molecules|Options", module)
     () => ({
       components: { SfOptions },
       template: `
-      <sf-options
+      <SfOptions
         v-model="selected"
         :options="[
           {
@@ -169,7 +172,7 @@ storiesOf("Molecules|Options", module)
       >
         <template #label><h1>Size</h1></template>
         <template #text="{ text }"><h2>{{ text }}</h2></template>
-      </sf-options>`,
+      </SfOptions>`,
       data() {
         return {
           selected: "XS"
@@ -177,6 +180,7 @@ storiesOf("Molecules|Options", module)
       }
     }),
     {
+      notes,
       info: true
     }
   )
@@ -185,7 +189,7 @@ storiesOf("Molecules|Options", module)
     () => ({
       components: { SfOptions },
       template: `
-      <sf-options
+      <SfOptions
         type="color"
         v-model="selected"
         :options="[
@@ -219,7 +223,7 @@ storiesOf("Molecules|Options", module)
             }"
           />
         </template>
-      </sf-options>`,
+      </SfOptions>`,
       data() {
         return {
           selected: "Orange"
@@ -227,6 +231,7 @@ storiesOf("Molecules|Options", module)
       }
     }),
     {
+      notes,
       info: true
     }
   )
@@ -235,7 +240,7 @@ storiesOf("Molecules|Options", module)
     () => ({
       components: { SfOptions },
       template: `
-      <sf-options
+      <SfOptions
         type="image"
         v-model="selected"
         :options="[
@@ -265,7 +270,7 @@ storiesOf("Molecules|Options", module)
             }"
           />
         </template>
-      </sf-options>`,
+      </SfOptions>`,
       data() {
         return {
           selected: "heart"
@@ -273,6 +278,7 @@ storiesOf("Molecules|Options", module)
       }
     }),
     {
+      notes,
       info: true
     }
   );

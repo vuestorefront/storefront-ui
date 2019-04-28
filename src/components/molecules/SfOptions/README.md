@@ -30,7 +30,7 @@ Options selector component can displaying in 3 types, text, color, and image.
 - `options` - set of options to display as `Object[]`
 - `type` - type of displaying options as `String`. Available for: `text`, `color`, and `image`. (Default: `text`)
 - `label` - label on the top of displaying options as `String`
-- `value (v-model)` - The selected option value as `String`
+- `value (v-model)` - the selected option value as `String`
 
 ## Slots
 - `label` - slot for options label
