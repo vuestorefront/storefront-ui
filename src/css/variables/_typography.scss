@@ -6,6 +6,8 @@ $body-font-family-secondary: 'Raleway', sans-serif !default;
 $body-font-weight-primary: 400 !default;
 
 // Font sizes
+$font-size-x-small-desktop: 0.75rem !default;
+$font-size-small-desktop: 0.875rem !default;
 $font-size-regular-desktop: 1.125rem !default;
 $font-size-big-desktop: 1.5rem !default;
 
@@ -18,19 +20,30 @@ $font-size-extra-big-mobile: 1.125rem !default;
 $body-font-size-desktop: $font-size-regular-desktop !default;
 $body-font-size-mobile: $font-size-regular-mobile !default;
 
+// Heading font family
+$heading-font-family: $body-font-family-secondary;
+
 // Heading font size
 $h1-font-size-desktop: 2.25rem !default;
 $h2-font-size-desktop: 1.5rem !default;
 $h3-font-size-desktop: 1.125rem !default;
 $h4-font-size-desktop: 1.125rem !default;
+$h5-font-size-desktop: 0.875rem !default;
+
 $h1-font-size-mobile: 1.125rem !default;
 $h2-font-size-mobile: 1rem !default;
 $h3-font-size-mobile: 1rem !default;
 $h4-font-size-mobile: 1rem !default;
+$h5-font-size-desktop: 0.875rem !default;
 
 // Heading font weight
-$h1-font-weight-mobile: 'medium' !default;
-$h2-font-weight-mobile: 'medium' !default;
-$h3-font-weight-mobile: 'regular' !default;
-$h4-font-weight-mobile: 'regular' !default;
+$h1-font-weight-desktop: 500 !default;
+$h2-font-weight-desktop: 500 !default;
+$h3-font-weight-desktop: 500 !default;
+$h4-font-weight-desktop: 500 !default;
+
+$h1-font-weight-mobile: 500 !default;
+$h2-font-weight-mobile: 500 !default;
+$h3-font-weight-mobile: 500 !default;
+$h4-font-weight-mobile: 500 !default;
 

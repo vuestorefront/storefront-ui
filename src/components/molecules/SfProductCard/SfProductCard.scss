@@ -1,0 +1,61 @@
+@import '../../../css/variables';
+
+// $component__block-property: value;
+
+$sf-product-card-max-width: 16rem;
+
+.sf-product-card {
+  max-width: 160px;
+  transition: 0.3s all;
+  padding: $spacer-big;
+  position: relative;
+  &:hover {
+    box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+    transition: 0.3s all;
+  }
+  @media (min-width: $desktop-min) {
+    max-width: 200px;
+  }
+  &__title {
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    display: flex;
+    font-weight: 300;
+  }
+  &__image {
+    width: 160px;
+    height: 240px;
+    background-color: $c-light-primary;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    @media (min-width: $desktop-min) {
+      width: 200px;
+      height: 300px;
+    }
+    img {
+      max-width: 100%;
+      position: absolute;
+    }
+  }
+  &__cart-button {
+    position: absolute;
+    right: 25px;
+    margin-top: -30px;
+  }
+  &__price {
+    margin: 0.25rem 0;
+  }
+  &__reviews {
+    display: flex;
+    align-items: center;
+    margin-top: 0.25rem;
+  }
+  &__rating {
+    display: inline-flex;
+  }
+  &__reviews-count {
+    font-size: $font-size-small-desktop;
+    margin-left: 0.5rem;
+  }
+}

@@ -1,5 +1,4 @@
 import { storiesOf } from "@storybook/vue";
-import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
 import SfPagination from "./SfPagination.vue";
@@ -17,7 +16,7 @@ const vm = {
 
 storiesOf("Molecules|Pagination", module)
   .add(
-    "Props",
+    "Basic",
     () => ({
       ...vm,
       template: `
@@ -71,7 +70,7 @@ storiesOf("Molecules|Pagination", module)
       :current.sync="page"
       :total="numberOfPages"
       :visible="visiblePageNumbers">
-      <template v-slot="{ number }">
+      <template v-slot:number="{ number }">
         [{{ number }}]
       </template>
     </sf-pagination>`

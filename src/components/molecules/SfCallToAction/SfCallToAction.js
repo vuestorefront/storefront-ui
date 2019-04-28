@@ -1,4 +1,4 @@
-import SfButton from "../../atoms/SfButton/SfButton.vue";
+import SfButton from "@/components/atoms/SfButton/SfButton.vue";
 
 export default {
   name: "SfCallToAction",

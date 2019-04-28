@@ -16,13 +16,6 @@ export default {
       default: null
     },
     /**
-     * Old price value
-     */
-    oldPrice: {
-      type: [String, Number],
-      default: null
-    },
-    /**
      * Aria label for regular price
      */
     ariaLabelRegular: {

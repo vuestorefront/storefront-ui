@@ -7,31 +7,18 @@ import SfSidebar from "./SfSidebar.vue";
 storiesOf("Molecules|Sidebar", module)
   .addDecorator(withKnobs)
   .add(
-    "Props",
+    "Basic",
     () => ({
       props: {
         customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-sidebar--right"],
-            "null",
-            "CSS-Modifiers"
-          )
+          default: select("CSS Modifier", ["null", "sf-sidebar--right"], "null")
+        },
+        button: {
+          default: select("button (prop)", ["true", "false"], "true")
         }
       },
       components: { SfSidebar },
       template: `<SfSidebar :class="customClass">Hello World</SfSidebar>`
-    }),
-    {
-      info: true,
-      notes
-    }
-  )
-  .add(
-    "[CSS] Right",
-    () => ({
-      components: { SfSidebar },
-      template: "<SfSideba class='sf-sidebar--right'r>Hello World</SfSidebar>"
     }),
     {
       info: true,
@@ -49,26 +36,3 @@ storiesOf("Molecules|Sidebar", module)
       notes
     }
   );
-//   .add(
-//     "CSS Modifiers",
-//     () => ({
-//       components: { SfComponent },
-//       props: {
-//         customClass: {
-//           default: select(
-//             "CSS Modifier",
-//             ["null", "sf-component--secondary", "sf-component--fsomething-else"],
-//             "null",
-//             "CSS-Modifiers"
-//           )
-//         }
-//       },
-//       template: `
-//       <SfComponent :class="customClass">Hello world</SfComponent>
-//     `
-//     }),
-//     {
-//       info: true,
-//       notes
-//     }
-//   );
