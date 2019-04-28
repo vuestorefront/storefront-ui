@@ -21,7 +21,7 @@ describe("SfOptions.vue", () => {
       }
     });
     expect(component.find(".sf-options__label").text()).toContain(label);
-    expect(component.find(".sf-options__option").text()).toContain(
+    expect(component.find(".sf-options__option-text").text()).toContain(
       options[0].text
     );
   });
@@ -53,7 +53,7 @@ describe("SfOptions.vue", () => {
       }
     });
     expect(component.find(".sf-options__label").text()).toContain(label);
-    expect(component.find(".sf-options__option").attributes().style).toBe(
+    expect(component.find(".sf-options__option-color").attributes().style).toBe(
       `background-color: ${options[0].color};`
     );
   });
@@ -84,7 +84,7 @@ describe("SfOptions.vue", () => {
         options
       }
     });
-    expect(component.contains(".sf-options__option--image")).toBe(true);
+    expect(component.contains(".sf-options__option-image")).toBe(true);
     expect(component.find(".sf-options__label").text()).toContain(label);
     expect(component.find(".sf-options__option").attributes().style).toBe(
       `background-image: url(${options[0].image});`

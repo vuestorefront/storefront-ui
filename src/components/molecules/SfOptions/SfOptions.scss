@@ -1,18 +1,16 @@
 @import '../../../css/variables';
 
-$sf-options__transition                  : all 0.3s ease-in-out !default;
+$sf-options__transition                     : all 0.3s ease-in-out !default;
 
-$sf-options__label-margin-bottom         : 8px !default;
-$sf-options__label-font-size             : $font-size-regular-mobile !default;
+$sf-options__label-margin-bottom            : 0.5rem !default;
+$sf-options__label-font-size                : $font-size-big-mobile !default;
 
-$sf-options__option-size                 : 40px !default;
-$sf-options__option-size--image          : 48px !default;
-$sf-options__option-margin               : 8px !default;
-$sf-options__option-background           : $c-white !default;
-$sf-options__option-color                : $c-gray-primary !default;
-$sf-options__option-border               : 4px solid $c-white !default;
-$sf-options__option-border--white        : 1px solid $c-gray-secondary !default;
-$sf-options__option-border-color--active : $c-accent-primary !default;
+$sf-options__option-size                    : 2rem !default;
+$sf-options__option-font-size               : $font-size-regular-mobile !default;
+$sf-options__option-margin                  : 0.75rem !default;
+
+$sf-options-mobile__option-text-color       : $c-gray-primary;
+$sf-options-desktop__option-text-color      : $c-black;
 
 .sf-options {
   display: flex;
@@ -25,56 +23,83 @@ $sf-options__option-border-color--active : $c-accent-primary !default;
   }
 
   &__option {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: $sf-options__option-size;
-    min-height: $sf-options__option-size;
-    background-color: $sf-options__option-background;
-    color: $sf-options__option-color;
-
-    &--image {
-      min-height: $sf-options__option-size--image;
-      background-size: 100%;
-      background-repeat: no-repeat;
-      background-position: center;
+    &-text, &-color, &-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: $sf-options__option-size;
+      min-height: $sf-options__option-size;
+      transition: $sf-options__transition;
     }
 
-    &--white {
-      border: $sf-options__option-border--white;
+    &-text {
+      font-size: $sf-options__option-font-size;
+      color: $sf-options-mobile__option-text-color;
+      &--selected, &:hover, &:focus {
+        color: $sf-options-desktop__option-text-color;
+        background-color: rgba(241, 242, 243, 1);
+        @media (min-width: $desktop-min) {
+          background-color: $c-white;
+        }
+      }
+    }
+
+    &-image {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+
+    &-color, &-image {
+      &-check {
+        position: absolute;
+        top: -30%;
+        bottom: 0;
+        left: 60%;
+        right: 0;
+        height: 23px;
+        width: 23px;
+        opacity: 0;
+        transition: $sf-options__transition;
+        background-image: url('/assets/check.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $c-green-primary;
+        border-radius: 50%;
+      }
+
+      &-wrapper {
+        position: relative;
+      }
+
+      &--selected + &-check, &-wrapper:hover > &-check {
+        opacity: 1;
+        @media (min-width: $desktop-min) {
+          opacity: 0;
+        }
+      }
+      &--selected, &:hover, &:focus {
+        @media (min-width: $desktop-min) {
+          min-width: calc(#{$sf-options__option-size} * 2);
+          min-height: calc(#{$sf-options__option-size} * 2);
+          box-shadow: 0 4px 4px -2px #C8C9CB;
+        }
+      }
     }
   }
 
   &__option-container {
-    box-sizing: border-box;
-    border: $sf-options__option-border;
+    display: flex;
+    align-items: center;
     margin-right: $sf-options__option-margin;
-    transition: $sf-options__transition;
     cursor: pointer;
-
-    &--selected,
-    &:hover,
-    &:focus {
-      border-color: $sf-options__option-border-color--active;
-      outline: 0;
-
-      .sf-options__option--white {
-        border: none;
-      }
-    }
 
     &:last-child {
       margin-right: 0;
     }
   }
 
-  &__tooltip,
-  &__selected-option {
-    display: none;
-  }
-
   &__label {
-    flex: 0 0 100%;
     margin-bottom: $sf-options__label-margin-bottom;
     font-size: $sf-options__label-font-size;
   }
