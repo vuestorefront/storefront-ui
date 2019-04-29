@@ -1,7 +1,11 @@
 <div class="sf-filter" @click="e => $emit('click', e)">
 	<slot>
-		<slot name="icon" />
-		<span class="sf-filter__label">{{ label }}</span>
-		<span class="sf-filter__count">{{ count }}</span>
+		<div 
+			v-if="color" 
+			class="sf-filter__color" 
+			:style="'background-color:' + color ">
+		</div>
+		<div class="sf-filter__label">{{ label }}</div>
+		<div class="sf-filter__count">{{ count }}</div>
 	</slot>
 </div>

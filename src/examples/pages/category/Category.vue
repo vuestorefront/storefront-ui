@@ -69,28 +69,34 @@
         v-show="isFilterSidebarOpen"
         @close="isFilterSidebarOpen = false"
       >
-        <h3>Clothing</h3>
+        <h3>Collection</h3>
         <SfList>
           <SfListItem>
-            <SfFilter label="All" value="all" count="280" />
+            <SfFilter label="Summer fly" value="summer-fly" count="10" />
           </SfListItem>
           <SfListItem>
-            <SfFilter label="Skirts" value="skirts" count="23" />
+            <SfFilter label="Best 2018" value="best-2018" count="23" />
           </SfListItem>
           <SfListItem>
-            <SfFilter label="Sweaters" value="sweaters" count="54" />
+            <SfFilter label="Your choice" value="your-choice" count="54" />
+          </SfListItem>
+        </SfList>
+        <h3>Color</h3>
+        <SfList>
+          <SfListItem>
+            <SfFilter label="Red" value="red" color="#990611" />
           </SfListItem>
           <SfListItem>
-            <SfFilter label="Dresses" value="dresses" count="34" />
+            <SfFilter label="Yellow" value="yellow" color="#DCA742" />
           </SfListItem>
           <SfListItem>
-            <SfFilter label="T-shirts" value="t-shirts" count="56" />
+            <SfFilter label="Black" value="black" color="black" />
           </SfListItem>
           <SfListItem>
-            <SfFilter label="Pants" value="pants" count="7" />
+            <SfFilter label="Blue" value="blue" color="#004F97" />
           </SfListItem>
           <SfListItem>
-            <SfFilter label="Underwear" value="underwear" count="12" />
+            <SfFilter label="White" value="white" color="white" />
           </SfListItem>
         </SfList>
       </SfSidebar>

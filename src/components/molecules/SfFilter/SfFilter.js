@@ -13,9 +13,13 @@ export default {
       type: String,
       default: ""
     },
-    isActive: {
-      type: Boolean,
-      default: false
+    color: {
+      type: String,
+      defult: ""
+    },
+    group: {
+      type: Object,
+      default: null
     }
   }
 };

@@ -12,6 +12,15 @@ $sf-filter-font-family: $body-font-family-secondary;
     padding: $sf-filter-padding;
     font-size: $sf-filter-font-size;
     font-family: $sf-filter-font-family;
+    &__label {
+        flex-grow: 1;
+    }
+    &__color {
+        width: 1.125rem;
+        height: 1.125rem;
+        background: black;
+        margin-right: $spacer-big;
+    }
     &--active {
         text-decoration: underline;
     }
