@@ -2,19 +2,22 @@
 
 // $component__block-property: value;
 
-$sf-product-card-max-width: 16rem;
+$sf-product-card-max-width: 200px;
 
 .sf-product-card {
-  max-width: 160px;
+  max-width: 200px;
   transition: 0.3s all;
   padding: $spacer-big;
   position: relative;
+  background: white;
+  box-sizing: border-box;
   &:hover {
     box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
     transition: 0.3s all;
+    z-index: 10;
   }
   @media (min-width: $desktop-min) {
-    max-width: 200px;
+    max-width: 240px;
   }
   &__title {
     margin-top: 0.5rem;
@@ -23,20 +26,9 @@ $sf-product-card-max-width: 16rem;
     font-weight: 300;
   }
   &__image {
-    width: 160px;
-    height: 240px;
+    max-width: 100%;
     background-color: $c-light-primary;
     display: flex;
-    position: relative;
-    overflow: hidden;
-    @media (min-width: $desktop-min) {
-      width: 200px;
-      height: 300px;
-    }
-    img {
-      max-width: 100%;
-      position: absolute;
-    }
   }
   &__cart-button {
     position: absolute;

@@ -13,6 +13,7 @@
           <FiltersIcon />
           Filters
         </SfButton>
+        <span class="navbar__products-count">256 items</span>
       </div>
     </div>
 
@@ -46,18 +47,20 @@
         <h3>Shoes</h3>
       </div>
       <div class="products">
-        <div class="products__grid">
-          <div class="products__item" v-for="i in 6" :key="i">
-            <SfProductCard
-              title="Cream Beach Bag"
-              :price="{ regularPrice: '10,99 $' }"
-              :rating="{ max: 5, score: 4 }"
-            />
-          </div>
-        </div>
-        <div class="products__pagination">
-          <SfPagination :current.sync="currentPage" :total="20" :visible="5" />
-        </div>
+        <SfProductCard
+          class="products__product-card"
+          v-for="i in 6"
+          :key="i"
+          title="Cream Beach Bag"
+          :price="{ regularPrice: '10,99 $' }"
+          :rating="{ max: 5, score: 4 }"
+        />
+        <SfPagination
+          class="products__pagination"
+          :current.sync="currentPage"
+          :total="20"
+          :visible="5"
+        />
       </div>
     </div>
 
@@ -152,10 +155,13 @@ export default {
     padding-left: $spacer-big;
     width: 80%;
     box-sizing: border-box;
+    align-items: center;
     @media (min-width: $desktop-min) {
       padding-left: $spacer-extra-big;
       height: 75px;
     }
+  }
+  &__products-count {
   }
   &__filters-btn {
     color: white;
@@ -203,13 +209,9 @@ export default {
 
 .products {
   box-sizing: border-box;
-  &__grid {
-    padding-bottom: $spacer-extra-big;
-    display: flex;
-    flex-flow: row wrap;
-  }
-  &__item {
-    display: flex;
+  display: flex;
+  flex-flow: row wrap;
+  &__product-card {
     width: 50%;
     justify-content: center;
     @media (min-width: $tablet-min) {
