@@ -1,0 +1,22 @@
+@import '../../../css/variables';
+
+$spinner-background: rgba($c-bg-primary, .5);
+$spinner-size: 40px;
+$spinner-color: $c-accent-primary;
+
+.sf-spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background: $spinner-background;
+
+  .spinner {
+    width: $spinner-size;
+    height: $spinner-size;
+    background-color: $spinner-color;
+  }
+}
