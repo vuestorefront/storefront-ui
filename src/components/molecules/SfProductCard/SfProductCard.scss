@@ -14,7 +14,6 @@ $sf-product-card-max-width: 200px;
   &:hover {
     box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
     transition: 0.3s all;
-    z-index: 10;
   }
   @media (min-width: $desktop-min) {
     max-width: 240px;
