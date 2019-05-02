@@ -62,7 +62,7 @@ export default storiesOf("Molecules|[WIP] Filter", module)
       template: `
       <div style="width: 300px">
       <h3>Collection</h3>
-      <span v-if="filters.collection"> Aactive filter: {{ filters.collection }}) </span> 
+      <span v-if="filters.collection"> Active filter: {{ filters.collection }} </span> 
       <span v-else>No filter active </span>
       <SfList>
         <SfListItem>
@@ -77,7 +77,7 @@ export default storiesOf("Molecules|[WIP] Filter", module)
       </SfList>
 
       <h3>Color</h3>
-      <span v-if="filters.color"> Aactive filter: {{ filters.color }}) </span> 
+      <span v-if="filters.color"> Active filter: {{ filters.color }} </span> 
       <span v-else>No filter active </span>
       <SfList>
         <SfListItem>
