@@ -13,6 +13,7 @@ $sidebar-padding: 3.5rem;
   padding: $sidebar-padding;
   box-sizing: border-box;
   box-shadow: 0px 4px 56px rgba(87, 87, 87, 0.32);
+  z-index: 2;
   &__button {
     position: absolute;
     right: -1.625rem;

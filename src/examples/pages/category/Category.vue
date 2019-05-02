@@ -69,34 +69,75 @@
         v-show="isFilterSidebarOpen"
         @close="isFilterSidebarOpen = false"
       >
+        <!-- RENAME FILTER TO SfProductProperty -->
         <h3>Collection</h3>
         <SfList>
           <SfListItem>
-            <SfFilter label="Summer fly" value="summer-fly" count="10" />
+            <SfFilter
+              :group.sync="filters.collection"
+              label="Summer fly"
+              value="summer-fly"
+              count="10"
+            />
           </SfListItem>
           <SfListItem>
-            <SfFilter label="Best 2018" value="best-2018" count="23" />
+            <SfFilter
+              :group.sync="filters.collection"
+              label="Best 2018"
+              value="best-2018"
+              count="23"
+            />
           </SfListItem>
           <SfListItem>
-            <SfFilter label="Your choice" value="your-choice" count="54" />
+            <SfFilter
+              :group.sync="filters.collection"
+              label="Your choice"
+              value="your-choice"
+              count="54"
+            />
           </SfListItem>
         </SfList>
         <h3>Color</h3>
         <SfList>
           <SfListItem>
-            <SfFilter label="Red" value="red" color="#990611" />
+            <SfFilter
+              :group.sync="filters.color"
+              label="Red"
+              value="red"
+              color="#990611"
+            />
           </SfListItem>
           <SfListItem>
-            <SfFilter label="Yellow" value="yellow" color="#DCA742" />
+            <SfFilter
+              :group.sync="filters.color"
+              label="Yellow"
+              value="yellow"
+              color="#DCA742"
+            />
           </SfListItem>
           <SfListItem>
-            <SfFilter label="Black" value="black" color="black" />
+            <SfFilter
+              :group.sync="filters.color"
+              label="Black"
+              value="black"
+              color="black"
+            />
           </SfListItem>
           <SfListItem>
-            <SfFilter label="Blue" value="blue" color="#004F97" />
+            <SfFilter
+              :group.sync="filters.color"
+              label="Blue"
+              value="blue"
+              color="#004F97"
+            />
           </SfListItem>
           <SfListItem>
-            <SfFilter label="White" value="white" color="white" />
+            <SfFilter
+              :group.sync="filters.color"
+              label="White"
+              value="white"
+              color="white"
+            />
           </SfListItem>
         </SfList>
       </SfSidebar>
@@ -118,6 +159,10 @@ export default {
   data() {
     return {
       isFilterSidebarOpen: false,
+      filters: {
+        color: null,
+        collection: null
+      },
       currentPage: 2
     };
   },

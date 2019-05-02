@@ -20,8 +20,11 @@ $sf-filter-font-family: $body-font-family-secondary;
         height: 1.125rem;
         background: black;
         margin-right: $spacer-big;
+        border: 1px solid $c-gray-secondary;
     }
-    &--active {
+    &--active, &:hover {
         text-decoration: underline;
+        font-weight: 500;
+        cursor: pointer;
     }
 }

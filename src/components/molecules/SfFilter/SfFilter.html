@@ -1,4 +1,8 @@
-<div class="sf-filter" @click="e => $emit('click', e)">
+<div 
+	class="sf-filter" 
+	@click="clicked($event)"
+	:class="{ 'sf-filter--active' : group && ( group === value )}"
+>
 	<slot>
 		<div 
 			v-if="color" 

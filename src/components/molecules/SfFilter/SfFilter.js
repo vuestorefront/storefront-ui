@@ -18,8 +18,14 @@ export default {
       defult: ""
     },
     group: {
-      type: Object,
-      default: null
+      type: String,
+      default: ""
+    }
+  },
+  methods: {
+    clicked(e) {
+      this.$emit("click", e);
+      this.$emit("update:group", this.value);
     }
   }
 };
