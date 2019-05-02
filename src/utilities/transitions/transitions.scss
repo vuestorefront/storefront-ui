@@ -62,6 +62,12 @@ $transition-slide-transform-size: 400px;
 .slide-right {
   @include transition-slide("right");
 }
+.slide-top {
+  @include transition-slide("top");
+}
+.slide-bottom {
+  @include transition-slide("bottom");
+}
 .collapse-bottom {
   @include transition-slide("bottom");
 }
