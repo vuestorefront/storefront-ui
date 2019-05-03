@@ -1,6 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, number, boolean, select } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  number,
+  boolean,
+  select
+} from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfInputNumber from "./SfInputNumber.vue";
 
@@ -11,7 +17,7 @@ storiesOf("Molecules|InputNumber", module)
     () => ({
       props: {
         value: {
-          default: number("value (prop)")
+          default: number("value (prop)", 1)
         },
         autoFill: {
           default: boolean("autoFill (prop)")

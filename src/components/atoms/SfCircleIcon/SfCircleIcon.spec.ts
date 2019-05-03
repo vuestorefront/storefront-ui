@@ -1,25 +1,25 @@
 import { shallowMount } from "@vue/test-utils";
-import SfCircleButton from "@/components/atoms/SfCircleButton/SfCircleButton.vue";
+import SfCircleIcon from "@/components/atoms/SfCircleIcon/SfCircleIcon.vue";
 
-describe.only("SfCircleButton.vue", () => {
+describe.only("SfCircleIcon.vue", () => {
   it("renders a button", () => {
-    const component = shallowMount(SfCircleButton);
-    expect(component.contains(".sf-circle-button")).toBe(true);
+    const component = shallowMount(SfCircleIcon);
+    expect(component.contains(".sf-circle-icon")).toBe(true);
   });
 
   it("renders default slot with image", () => {
-    const component = shallowMount(SfCircleButton, {
+    const component = shallowMount(SfCircleIcon, {
       slots: {
         default:
-          '<img class="sf-circle-button__icon" src="/assets/add_to_cart.svg" alt="icon" />'
+          '<img class="sf-circle-icon__icon" src="/assets/add_to_cart.svg" alt="icon" />'
       }
     });
-    expect(component.contains(".sf-circle-button__icon")).toBe(true);
+    expect(component.contains(".sf-circle-icon__icon")).toBe(true);
   });
 
   it("renders icon props when passed", () => {
     const iconSrc = "../../../assets/add_to_cart.svg";
-    const component = shallowMount(SfCircleButton, {
+    const component = shallowMount(SfCircleIcon, {
       propsData: {
         icon: iconSrc
       }
@@ -29,7 +29,7 @@ describe.only("SfCircleButton.vue", () => {
 
   it("renders alt props when passed", () => {
     const msg = "IamAltText";
-    const component = shallowMount(SfCircleButton, {
+    const component = shallowMount(SfCircleIcon, {
       propsData: {
         alt: msg
       }

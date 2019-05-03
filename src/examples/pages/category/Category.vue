@@ -18,8 +18,8 @@
     </div>
 
     <div class="main">
-      <div @click="a = !a" class="sidebar desktop-only">
-        <SfAccordion ref="clothing">
+      <div class="sidebar desktop-only">
+        <SfAccordion :initially-open="true">
           <h3 slot="label">Clothing</h3>
           <SfList slot="content" class="sidebar__category-list">
             <SfListItem>
@@ -115,85 +115,82 @@
         />
       </div>
     </div>
-
-    <transition name="slide-left">
-      <SfSidebar
-        v-show="isFilterSidebarOpen"
-        @close="isFilterSidebarOpen = false"
-      >
-        <!-- RENAME FILTER TO SfProductProperty -->
-        <h3>Collection</h3>
-        <SfList>
-          <SfListItem>
-            <SfFilter
-              :group.sync="filters.collection"
-              label="Summer fly"
-              value="summer-fly"
-              count="10"
-            />
-          </SfListItem>
-          <SfListItem>
-            <SfFilter
-              :group.sync="filters.collection"
-              label="Best 2018"
-              value="best-2018"
-              count="23"
-            />
-          </SfListItem>
-          <SfListItem>
-            <SfFilter
-              :group.sync="filters.collection"
-              label="Your choice"
-              value="your-choice"
-              count="54"
-            />
-          </SfListItem>
-        </SfList>
-        <h3>Color</h3>
-        <SfList>
-          <SfListItem>
-            <SfFilter
-              :group.sync="filters.color"
-              label="Red"
-              value="red"
-              color="#990611"
-            />
-          </SfListItem>
-          <SfListItem>
-            <SfFilter
-              :group.sync="filters.color"
-              label="Yellow"
-              value="yellow"
-              color="#DCA742"
-            />
-          </SfListItem>
-          <SfListItem>
-            <SfFilter
-              :group.sync="filters.color"
-              label="Black"
-              value="black"
-              color="black"
-            />
-          </SfListItem>
-          <SfListItem>
-            <SfFilter
-              :group.sync="filters.color"
-              label="Blue"
-              value="blue"
-              color="#004F97"
-            />
-          </SfListItem>
-          <SfListItem>
-            <SfFilter
-              :group.sync="filters.color"
-              label="White"
-              value="white"
-              color="white"
-            />
-          </SfListItem>
-        </SfList>
-      </SfSidebar>
-    </transition>
+    <SfSidebar
+      :visible="isFilterSidebarOpen"
+      @close="isFilterSidebarOpen = false"
+    >
+      <!-- RENAME FILTER TO SfProductOption -->
+      <h3>Collection</h3>
+      <SfList>
+        <SfListItem>
+          <SfFilter
+            :group.sync="filters.collection"
+            label="Summer fly"
+            value="summer-fly"
+            count="10"
+          />
+        </SfListItem>
+        <SfListItem>
+          <SfFilter
+            :group.sync="filters.collection"
+            label="Best 2018"
+            value="best-2018"
+            count="23"
+          />
+        </SfListItem>
+        <SfListItem>
+          <SfFilter
+            :group.sync="filters.collection"
+            label="Your choice"
+            value="your-choice"
+            count="54"
+          />
+        </SfListItem>
+      </SfList>
+      <h3>Color</h3>
+      <SfList>
+        <SfListItem>
+          <SfFilter
+            :group.sync="filters.color"
+            label="Red"
+            value="red"
+            color="#990611"
+          />
+        </SfListItem>
+        <SfListItem>
+          <SfFilter
+            :group.sync="filters.color"
+            label="Yellow"
+            value="yellow"
+            color="#DCA742"
+          />
+        </SfListItem>
+        <SfListItem>
+          <SfFilter
+            :group.sync="filters.color"
+            label="Black"
+            value="black"
+            color="black"
+          />
+        </SfListItem>
+        <SfListItem>
+          <SfFilter
+            :group.sync="filters.color"
+            label="Blue"
+            value="blue"
+            color="#004F97"
+          />
+        </SfListItem>
+        <SfListItem>
+          <SfFilter
+            :group.sync="filters.color"
+            label="White"
+            value="white"
+            color="white"
+          />
+        </SfListItem>
+      </SfList>
+    </SfSidebar>
   </div>
 </template>
 
@@ -220,10 +217,6 @@ export default {
       currentPage: 2,
       a: false
     };
-  },
-  mounted() {
-    // TODO: Do on accordion level
-    this.$refs.clothing.isOpen = true;
   },
   components: {
     SfButton,
@@ -264,14 +257,16 @@ export default {
   &__controls {
     display: inline-flex;
     padding-left: $spacer-big;
-    padding-right: $spacer-extra-big;
-    width: 80%;
+    padding-right: $spacer-big;
     box-sizing: border-box;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
     @media (min-width: $desktop-min) {
       padding-left: $spacer-extra-big;
+      padding-right: $spacer-extra-big;
       height: 75px;
+      width: 80%;
     }
   }
   &__filters-btn {
@@ -321,7 +316,9 @@ export default {
 .products {
   box-sizing: border-box;
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
   &__product-card {
     width: 50%;
     justify-content: center;

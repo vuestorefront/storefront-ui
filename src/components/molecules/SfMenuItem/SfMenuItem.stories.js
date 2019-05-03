@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/vue";
 import SfMenuItem from "./SfMenuItem.vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
 
-export default storiesOf("Molecules|MenuItem", module)
+export default storiesOf("Molecules|[WIP]MenuItem", module)
   .addDecorator(withKnobs)
   .add(
     "Props",

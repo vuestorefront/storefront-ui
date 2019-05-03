@@ -1,4 +1,4 @@
-import SfCircleButton from "@/components/atoms/SfCircleButton/SfCircleButton.vue";
+import SfCircleIcon from "@/components/atoms/SfCircleIcon/SfCircleIcon.vue";
 
 export default {
   name: "SfSidebar",
@@ -6,9 +6,30 @@ export default {
     button: {
       type: Boolean,
       default: true
+    },
+    visible: {
+      type: Boolean,
+      default: false
+    },
+    position: {
+      type: String,
+      default: "left"
+    }
+  },
+  watch: {
+    visible: {
+      handler: value => {
+        if (value) {
+          window.document.querySelector("body").style.overflow = "hidden";
+        }
+        if (!value) {
+          window.document.querySelector("body").style.overflow = "visible";
+        }
+      },
+      immediate: true
     }
   },
   components: {
-    SfCircleButton
+    SfCircleIcon
   }
 };

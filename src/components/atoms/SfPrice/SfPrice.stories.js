@@ -22,7 +22,9 @@ storiesOf("Atoms|Price", module)
         '<SfPrice :regular-price="regularPrice" :special-price="specialPrice"/>'
     }),
     {
-      info: true,
+      info: {
+        summary: "Component to display product price."
+      },
       notes
     }
   );
