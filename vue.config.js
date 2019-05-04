@@ -20,15 +20,21 @@ module.exports = {
             return targePath.split("/").slice(-1)[0];
           },
           transform(content) {
-            const pattern = new RegExp("@/components/(.*?)/(.*?)/");
-
+            const patternForComponents = new RegExp(
+              "@/components/(.*?)/(.*?)/"
+            );
+            const patternForInternalComponents = new RegExp(
+              "@/components/(.*?)/(.*?)/_internal/"
+            );
             return content
               .toString()
               .replace(
                 "@import '../../../css/variables';",
                 "@import './css/variables';"
               )
-              .replace(pattern, "./");
+              .replace("@/utilities", "./utilities")
+              .replace(patternForInternalComponents, "./")
+              .replace(patternForComponents, "./");
           }
         },
         {
@@ -39,6 +45,11 @@ module.exports = {
               .toString()
               .replace("../../sfui.scss", "../../../../../sfui.scss");
           }
+        },
+        {
+          from: "src/utilities",
+          to: "utilities",
+          ignore: ["**/*.stories.js"]
         }
       ])
     ]
