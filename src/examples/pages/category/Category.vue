@@ -19,7 +19,7 @@
 
     <div class="main">
       <div class="sidebar desktop-only">
-        <SfAccordion :initially-open="true">
+        <SfAccordion :open="true">
           <h3 slot="label">Clothing</h3>
           <SfList slot="content" class="sidebar__category-list">
             <SfListItem>
@@ -115,6 +115,7 @@
         />
       </div>
     </div>
+
     <SfSidebar
       :visible="isFilterSidebarOpen"
       @close="isFilterSidebarOpen = false"
@@ -214,8 +215,7 @@ export default {
         color: null,
         collection: null
       },
-      currentPage: 2,
-      a: false
+      currentPage: 2
     };
   },
   components: {

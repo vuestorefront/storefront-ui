@@ -20,12 +20,15 @@ module.exports = {
             return targePath.split("/").slice(-1)[0];
           },
           transform(content) {
+            const pattern = new RegExp("@/components/(.*?)/(.*?)/");
+
             return content
               .toString()
               .replace(
                 "@import '../../../css/variables';",
                 "@import './css/variables';"
-              );
+              )
+              .replace(pattern, "./");
           }
         },
         {

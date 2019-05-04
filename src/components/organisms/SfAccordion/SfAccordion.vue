@@ -15,22 +15,20 @@
 // TODO: Make it groupable
 export default {
   props: {
-    group: {
-      type: String,
-      default: ""
-    },
-    initiallyOpen: {
+    open: {
       type: Boolean,
       default: false
     }
   },
   data() {
     return {
-      isOpen: false
+      isOpen: this.open
     };
   },
-  mounted() {
-    if (this.initiallyOpen) this.isOpen = true;
+  watch: {
+    open: function(val) {
+      this.isOpen = val;
+    }
   }
 };
 </script>
