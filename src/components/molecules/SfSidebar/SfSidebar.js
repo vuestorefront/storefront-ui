@@ -19,10 +19,10 @@ export default {
   watch: {
     visible: {
       handler: value => {
-        if (value) {
+        if (value && typeof window !== "undefined") {
           window.document.querySelector("body").style.overflow = "hidden";
         }
-        if (!value) {
+        if (!value && typeof window !== "undefined") {
           window.document.querySelector("body").style.overflow = "visible";
         }
       },
