@@ -50,6 +50,14 @@ module.exports = {
           from: "src/utilities",
           to: "utilities",
           ignore: ["**/*.stories.js"]
+        },
+        {
+          from: "public/assets",
+          to: "assets",
+          transform(content) {
+            //TODO: filter images to ones that are really used, it's a huge folder... you don't wanna do this.
+            return content.toString().replace("/assets", "./assets");
+          }
         }
       ])
     ]
