@@ -1,4 +1,4 @@
-import SfCircleButton from "@/components/atoms/SfCircleButton/SfCircleButton.vue";
+import SfCircleIcon from "@/components/atoms/SfCircleIcon/SfCircleIcon.vue";
 
 export default {
   name: "SfBottomNavigation",
@@ -25,6 +25,6 @@ export default {
     }
   },
   components: {
-    SfCircleButton
+    SfCircleIcon
   }
 };
