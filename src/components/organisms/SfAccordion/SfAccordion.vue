@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import "@/utilities/transitions/transitions.scss";
+
 // TODO: Make it groupable
 export default {
   props: {
@@ -34,8 +36,6 @@ export default {
 </script>
 
 <style>
-@import "~@/utilities/transitions/transitions.scss";
-
 .sf-accordion__label:hover {
   cursor: pointer;
 }

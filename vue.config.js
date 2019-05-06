@@ -34,7 +34,8 @@ module.exports = {
               )
               .replace("@/utilities", "./utilities")
               .replace(patternForInternalComponents, "./")
-              .replace(patternForComponents, "./");
+              .replace(patternForComponents, "./")
+              .replace("/assets", "./assets");
           }
         },
         {
@@ -53,11 +54,7 @@ module.exports = {
         },
         {
           from: "public/assets",
-          to: "assets",
-          transform(content) {
-            //TODO: filter images to ones that are really used, it's a huge folder... you don't wanna do this.
-            return content.toString().replace("/assets", "./assets");
-          }
+          to: "assets"
         }
       ])
     ]
