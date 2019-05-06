@@ -2,7 +2,7 @@ export default {
   name: "SfPrice",
   props: {
     /**
-     * Regular price value
+     * Regular/old price value. Crossed out if `specialPrice` is provided
      */
     regularPrice: {
       type: [String, Number],

@@ -1,1 +1,6 @@
-<aside class="sf-sidebar"><slot /></aside>
+<transition :name="'slide-' + position">
+  <aside v-if="visible" class="sf-sidebar" :class=" 'sf-sidebar'">
+    <SfCircleIcon v-if="button" class="sf-sidebar__button" @click="$emit('close')" icon="/assets/close.svg" />
+    <slot />
+  </aside>
+</transition>

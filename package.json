@@ -1,6 +1,6 @@
 {
   "name": "@storefrontui/vue",
-  "version": "0.0.1-aplha.4",
+  "version": "0.0.1-aplha.10",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -20,7 +20,8 @@
   "files": [
     "dist/*",
     "scripts/*",
-    "node_modules/*"
+    "node_modules/*",
+    "public/assets"
   ],
   "devDependencies": {
     "@storybook/addon-actions": "^5.0.6",

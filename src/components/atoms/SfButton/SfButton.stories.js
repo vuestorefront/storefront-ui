@@ -24,6 +24,8 @@ storiesOf("Atoms|Button", module)
     `
     }),
     {
-      info: true
+      info: {
+        summary: "Button component. Place desired content into it's slot."
+      }
     }
   );

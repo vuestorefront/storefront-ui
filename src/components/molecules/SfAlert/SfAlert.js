@@ -1,10 +1,20 @@
 export default {
   name: "SfAlert",
   props: {
+    /**
+     * Message that will be displayed in Alert.
+     */
     message: String,
+    /**
+     * Show/hide icon.
+     */
     icon: {
+      type: Boolean,
       default: true
     },
+    /**
+     * Alert type ("alert", "warning", "info"). Check "Knobs" section to see how they look like.
+     */
     type: {
       type: String,
       default: "alert",
