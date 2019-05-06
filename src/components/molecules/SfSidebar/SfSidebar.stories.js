@@ -10,26 +10,29 @@ storiesOf("Molecules|Sidebar", module)
     "Basic",
     () => ({
       props: {
-        customClass: {
-          default: select("CSS Modifier", ["null", "sf-sidebar--right"], "null")
+        position: {
+          default: select(
+            "position (prop)",
+            ["left (default)", "right"],
+            "left (default)"
+          )
+        },
+        button: {
+          default: select(
+            "button (prop)",
+            ["true (default)", "false"],
+            "true (default)"
+          )
         }
       },
       components: { SfSidebar },
-      template: `<SfSidebar :class="customClass">Hello World</SfSidebar>`
+      template: `<SfSidebar :button="button" :position="position">Hello World</SfSidebar>`
     }),
     {
-      info: true,
-      notes
-    }
-  )
-  .add(
-    "[slot] default",
-    () => ({
-      components: { SfSidebar },
-      template: "<SfSidebar>Hello World</SfSidebar>"
-    }),
-    {
-      info: true,
+      info: {
+        summary:
+          "`SfSidebar` will add `overflow: hidden` CSS property to body once instantiated. This is why you should always use `v-if`"
+      },
       notes
     }
   );

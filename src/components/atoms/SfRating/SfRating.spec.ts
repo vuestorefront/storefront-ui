@@ -38,7 +38,7 @@ describe("SfRating.vue", () => {
         max
       },
       slots: {
-        iconPositive: '<div class="sf-rating__icon-clock"></div>'
+        'icon-positive': '<div class="sf-rating__icon-clock"></div>'
       }
     });
     expect(component.findAll(".sf-rating__icon-clock").length).toBe(score)
@@ -53,7 +53,7 @@ describe("SfRating.vue", () => {
         max
       },
       slots: {
-        iconNegative: '<div class="sf-rating__icon-close"></div>'
+        'icon-negative': '<div class="sf-rating__icon-close"></div>'
       }
     });
     expect(component.findAll(".sf-rating__icon-close").length).toBe(max - score)

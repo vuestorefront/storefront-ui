@@ -1,5 +1,5 @@
 <div class="sf-price">
-    <!--@slot Custom old price slots (Named slots)-->
+    <!--@slot Custom old price (value from regularPrice)-->
     <slot name="oldPrice">
       <span
         v-if="specialPrice"
@@ -9,8 +9,8 @@
         {{ regularPrice }}
       </span>
     </slot>
-    <!--@slot Custom regular price slots (Named slots)-->
-    <slot name="oldPrice">
+    <!--@slot Custom regular price -->
+    <slot name="regularPrice">
         <span
           v-if="!specialPrice"
           :aria-label="regularPriceAriaLabel"
@@ -19,7 +19,7 @@
           {{ regularPrice }}
         </span>
       </slot>
-    <!--@slot Custom special price slots (Named slots)-->
+    <!--@slot Custom special price-->
     <slot name="specialPrice">
       <ins
         v-if="specialPrice"
@@ -29,6 +29,4 @@
         {{ specialPrice }}
       </ins>
     </slot>
-    <!--@slot Custom price content (Default slot)-->
-    <slot/>
   </div>

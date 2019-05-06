@@ -70,7 +70,7 @@ storiesOf("Molecules|Pagination", module)
       :current.sync="page"
       :total="numberOfPages"
       :visible="visiblePageNumbers">
-      <template v-slot="{ number }">
+      <template v-slot:number="{ number }">
         [{{ number }}]
       </template>
     </sf-pagination>`

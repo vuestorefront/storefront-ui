@@ -1,9 +1,9 @@
 @import '../../../css/variables';
 
-$sf-menu-item-padding: $spacer $spacer-big;
+$sf-menu-item-padding: $spacer 0;
 $sf-menu-item-font-size: $font-size-big-mobile;
 $sf-menu-item-font-family: $body-font-family-secondary;
-$sf-title-font-size: 1rem;
+$sf-label-font-size: 1rem;
 $sf-count-font-color: $c-gray-primary;
 $sf-count-font-size: 0.875rem;
 
@@ -34,8 +34,8 @@ $sf-count-font-size: 0.875rem;
     }
 }
 
-.sf-menu-item__title {
-    font-size: $sf-title-font-size;
+.sf-menu-item__label {
+    font-size: $sf-label-font-size;
 }
 
 .sf-menu-item__count {

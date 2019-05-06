@@ -1,7 +1,7 @@
 @import '../../../css/variables';
 
-$price-desktop-font-size: $font-size-big-desktop;
-$price-mobile-font-size: $font-size-big-mobile;
+$price-desktop-font-size: $font-size-regular-desktop;
+$price-mobile-font-size: $font-size-regular-mobile;
 
 .sf-price {
   font-size: $price-mobile-font-size;

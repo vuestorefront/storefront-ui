@@ -17,8 +17,11 @@ $font-size-big-mobile: 1rem !default;
 $font-size-extra-big-mobile: 1.125rem !default;
 
 // Base font size
-$body-font-size-desktop: $font-size-regular-desktop !default;
+$body-font-size-desktop: $font-size-small-desktop !default;
 $body-font-size-mobile: $font-size-regular-mobile !default;
+
+// Heading font family
+$heading-font-family: $body-font-family-secondary;
 
 // Heading font size
 $h1-font-size-desktop: 2.25rem !default;
@@ -34,8 +37,13 @@ $h4-font-size-mobile: 1rem !default;
 $h5-font-size-desktop: 0.875rem !default;
 
 // Heading font weight
-$h1-font-weight-mobile: 'medium' !default;
-$h2-font-weight-mobile: 'medium' !default;
-$h3-font-weight-mobile: 'regular' !default;
-$h4-font-weight-mobile: 'regular' !default;
+$h1-font-weight-desktop: 500 !default;
+$h2-font-weight-desktop: 500 !default;
+$h3-font-weight-desktop: 500 !default;
+$h4-font-weight-desktop: 500 !default;
+
+$h1-font-weight-mobile: 500 !default;
+$h2-font-weight-mobile: 500 !default;
+$h3-font-weight-mobile: 500 !default;
+$h4-font-weight-mobile: 500 !default;
 
