@@ -1,0 +1,11 @@
+<div>
+    <slot>
+    <ul>
+        <li v-for="tab in sharedState.tabs" :key="tab.id">
+        <slot name="item" :tab="tab" :change="changeTab">
+            <a href="#" @click.prevent="changeTab(tab.id)" v-text="tab.title"/>
+        </slot>
+        </li>
+    </ul>
+    </slot>
+</div>
