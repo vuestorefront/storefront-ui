@@ -26,9 +26,15 @@ $sf-product-card-max-width: 200px;
     font-weight: 300;
   }
   &__image {
-    max-width: 100%;
-    background-color: $c-light-primary;
+    background-color: $c-bg-primary;
+    align-items: center;
+    justify-content: center;
     display: flex;
+    img {
+      mix-blend-mode: darken;
+      max-width: 100%;
+      background-color: $c-light-primary;
+    }
   }
   &__cart-button {
     position: absolute;

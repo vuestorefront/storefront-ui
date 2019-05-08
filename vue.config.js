@@ -23,6 +23,8 @@ module.exports = {
             const patternForComponents = new RegExp(
               "@/components/(.*?)/(.*?)/"
             );
+            // somehow the previous one is not matching atoms
+            const patternForAtoms = new RegExp("@/components/atoms/(.*?)/");
             const patternForInternalComponents = new RegExp(
               "@/components/(.*?)/(.*?)/_internal/"
             );
@@ -34,6 +36,7 @@ module.exports = {
               )
               .replace("@/utilities", "./utilities")
               .replace(patternForInternalComponents, "./")
+              .replace(patternForAtoms, "./")
               .replace(patternForComponents, "./")
               .replace("/assets", "./assets");
           }
