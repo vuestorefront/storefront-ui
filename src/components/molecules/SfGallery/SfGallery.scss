@@ -38,6 +38,7 @@ $gallery__stage-width: auto !default;
     opacity: $gallery__item-opacity;
     transition: $gallery__item-transition;
     cursor: pointer;
+    user-select: none;
 
     &--selected {
       cursor: auto;
@@ -84,5 +85,7 @@ $gallery__stage-width: auto !default;
     max-width: 100%;
     width: auto;
     height: auto;
+    user-select: none;
+    pointer-events: none;
   }
 }
