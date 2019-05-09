@@ -44,6 +44,7 @@ $input-number--large-width: $input-number-width * 2 !default;
     width: 0.75rem;
     padding: .2rem;
     display: flex;
+    user-select: none;
 
     img {
       width: 100%;
