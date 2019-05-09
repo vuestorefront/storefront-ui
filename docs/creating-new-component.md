@@ -17,7 +17,7 @@ If you want to test your compoennt just import it inside `Playground.vue`.
 
 ### Check alpaca components
 
-Before you start working on any component check if there is one that you can use as a base in Alpaca UI components. If so then ** ALWAYS** adjust it according to [Working with Alpaca](https://github.com/DivanteLtd/storefront-ui/blob/master/docs/working-with-alpaca.md) doc.
+Before you start working on any component check if there is one that you can use as a base in Alpaca UI components. If so then ** ALWAYS** adjust it according to [Working with Alpaca](https://github.com/DivanteLtd/storefront-ui/blob/master/docs/working-with-alpaca.md) doc. Properties that are violating our componsition rules should be ommited though (such as props to apply classes to certain elements).
 
 ### Create proper markup
 
@@ -36,6 +36,6 @@ Minimal set of tests conteins:
 
 Some of the most common cases can be found in a template.
 
-### Add documentation
+### Add documentation and stories
 
 Document the components according to documentation template in `components/template` folder.

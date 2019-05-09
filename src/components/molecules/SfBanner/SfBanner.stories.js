@@ -3,10 +3,10 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfBanner from "./SfBanner.vue";
 
-export default storiesOf("Banner", module)
+storiesOf("Molecules|Banner", module)
   .addDecorator(withKnobs)
   .add(
-    "Props",
+    "Basic",
     () => ({
       components: { SfBanner },
       props: {
@@ -27,29 +27,7 @@ export default storiesOf("Banner", module)
         },
         image: {
           default: text("image (prop)", "assets/storybook/Banner1.png")
-        }
-      },
-      template: `
-      <SfBanner
-        :title="title"
-        :description="description"
-        :subtitle="subtitle"
-        :button-text="buttonText"
-        :background="background"
-        :image="image"
-      />
-    `
-    }),
-    {
-      notes,
-      info: true
-    }
-  )
-  .add(
-    "CSS Modifiers",
-    () => ({
-      components: { SfBanner },
-      props: {
+        },
         customClass: {
           default: select(
             "CSS Modifier",
@@ -60,23 +38,24 @@ export default storiesOf("Banner", module)
               "sf-banner--bottom",
               "sf-banner--secondary"
             ],
-            "null",
-            "CSS-Modifiers"
+            "null"
           )
         }
       },
       template: `
       <SfBanner
-        title="Title prop"
-        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
-        subtitle="Subtitle prop"
-        button-text="Button Text"
-        background="#e1e3e2"
+        :title="title"
+        :description="description"
+        :subtitle="subtitle"
+        :button-text="buttonText"
+        :background="background"
+        :image="image"
         :class="customClass"
       />
     `
     }),
     {
+      notes,
       info: true
     }
   )

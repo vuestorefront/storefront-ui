@@ -1,0 +1,48 @@
+// -----------------------------------------
+// Layout helper functions
+// -----------------------------------------
+.flex {
+  display: flex;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+.no-wrap {
+  flex-wrap: nowrap;
+}
+.column {
+  flex-direction: column;
+}
+// x alignment
+.left {
+  justify-content: flex-start;
+}
+.right {
+  justify-content: flex-end;
+}
+.center {
+  justify-content: center;
+}
+.evenly {
+  justify-content: space-evenly
+}
+.between {
+  justify-content: space-between;
+}
+// y alignment
+.top {
+  align-items: flex-start;
+}
+.bottom {
+  align-items: flex-end;
+}
+.center {
+  align-items: center;
+}
+.stretch {
+  align-items: stretch;
+}
+
+.full-width {
+  width: 100%;
+}

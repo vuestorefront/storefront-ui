@@ -1,6 +1,6 @@
 @import '../../../css/variables';
 
-$banner-padding: 4.25rem !default;
+$banner-padding: calc( #{$spacer-extra-big} * 1.8) !default;
 $banner-background-size: cover !default;
 $banner-background-position: bottom left !default;
 $banner-align-items: flex-end !default;
@@ -27,7 +27,6 @@ $banner-mobile__title-font-size: 1.125rem !default;
 $banner__description-font-family: $body-font-family-secondary !default;
 $banner__description-font-size: 1.125rem !default;
 $banner__description-color: $c-dark-primary !default;
-
 
 $banner__call-to-action-font-size: 0.875rem !default;
 $banner__call-to-action-background-color: $c-dark-primary !default;
@@ -60,7 +59,7 @@ $banner--secondary__button-background-color: $c-green-primary !default;
     }
   }
   &__subtitle {
-    margin-bottom: $spacing-small;
+    margin-bottom: $spacer-small;
     font-family: $banner__subtitle-font-family;
     font-size: $banner-mobile__subtitle-font-size;
     font-weight: $banner__subtitle-font-weight;
