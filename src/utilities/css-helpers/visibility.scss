@@ -1,0 +1,10 @@
+.mobile-only {
+  @media ( min-width: $tablet-min ) {
+    display: none !important;
+  }
+}
+.desktop-only {
+  @media ( max-width: $tablet-max ) {
+    display: none !important;
+  }
+}
