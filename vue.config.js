@@ -28,10 +28,15 @@ module.exports = {
             const patternForInternalComponents = new RegExp(
               "@/components/(.*?)/(.*?)/_internal/"
             );
+            // TODO: Unify to only aliases
             return content
               .toString()
               .replace(
                 "@import '../../../css/variables';",
+                "@import './css/variables';"
+              )
+              .replace(
+                "@import '../../../../css/variables';",
                 "@import './css/variables';"
               )
               .replace("@/utilities", "./utilities")

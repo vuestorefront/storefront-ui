@@ -124,75 +124,39 @@
     >
       <!-- RENAME FILTER TO SfProductOption -->
       <h3>Collection</h3>
-      <SfList>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.collection"
-            label="Summer fly"
-            value="summer-fly"
-            count="10"
-          />
-        </SfListItem>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.collection"
-            label="Best 2018"
-            value="best-2018"
-            count="23"
-          />
-        </SfListItem>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.collection"
-            label="Your choice"
-            value="your-choice"
-            count="54"
-          />
-        </SfListItem>
-      </SfList>
+      <SfFilter v-model="filters.collection">
+        <SfList>
+          <SfListItem>
+            <SfFilterItem label="Summer fly" value="summer-fly" count="10" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilterItem label="Best 2018" value="best-2018" count="23" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilterItem label="Your choice" value="your-choice" count="54" />
+          </SfListItem>
+        </SfList>
+      </SfFilter>
       <h3>Color</h3>
-      <SfList>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.color"
-            label="Red"
-            value="red"
-            color="#990611"
-          />
-        </SfListItem>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.color"
-            label="Yellow"
-            value="yellow"
-            color="#DCA742"
-          />
-        </SfListItem>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.color"
-            label="Black"
-            value="black"
-            color="black"
-          />
-        </SfListItem>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.color"
-            label="Blue"
-            value="blue"
-            color="#004F97"
-          />
-        </SfListItem>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.color"
-            label="White"
-            value="white"
-            color="white"
-          />
-        </SfListItem>
-      </SfList>
+      <SfFilter>
+        <SfList>
+          <SfListItem>
+            <SfFilterItem label="Red" value="red" color="#990611" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilterItem label="Yellow" value="yellow" color="#DCA742" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilterItem label="Black" value="black" color="black" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilterItem label="Blue" value="blue" color="#004F97" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilterItem label="White" value="white" color="white" />
+          </SfListItem>
+        </SfList>
+      </SfFilter>
     </SfSidebar>
   </div>
 </template>
@@ -203,6 +167,7 @@ import SfButton from "@/components/atoms/SfButton/SfButton.vue";
 import SfList from "@/components/organisms/SfList/SfList.vue";
 import SfMenuItem from "@/components/molecules/SfMenuItem/SfMenuItem.vue";
 import SfFilter from "@/components/molecules/SfFilter/SfFilter.vue";
+import SfFilterItem from "@/components/molecules/SfFilter/_internal/SfFilterItem.vue";
 import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
 import SfPagination from "@/components/molecules/SfPagination/SfPagination.vue";
 import SfAccordion from "@/components/organisms/SfAccordion/SfAccordion.vue";
@@ -214,8 +179,8 @@ export default {
     return {
       isFilterSidebarOpen: false,
       filters: {
-        color: null,
-        collection: null
+        color: [],
+        collection: []
       },
       currentPage: 2
     };
@@ -225,6 +190,7 @@ export default {
     SfSidebar,
     SfList,
     SfFilter,
+    SfFilterItem,
     SfProductCard,
     SfPagination,
     SfMenuItem,
