@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="sf-gallery__stage" v-if="currentImage">
-    <slot v-bind:image="currentImage">
+    <slot name="current" v-bind:image="currentImage">
       <img class="sf-gallery__big-image"
         :src="currentImage.big.url"
         :alt="currentImage.big.alt" />
