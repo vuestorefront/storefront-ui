@@ -6,7 +6,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Customization', link: '/customization' },
-      { text: 'Storybook', link: 'https://storybook.storefrontui.io' },
+      { text: 'Storybook', link: 'http://storybook.storefrontui.io' },
       { text: 'Component Rules', link: '/component-rules' },
       { text: 'GitHub', link: 'https://github.com/DivanteLtd/storefront-ui' }
     ],
