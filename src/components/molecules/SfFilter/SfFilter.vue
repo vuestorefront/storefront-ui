@@ -5,15 +5,15 @@
 </template>
 
 <script>
-import Vue from 'vue'
+import Vue from "vue";
 import SfFilterItem from "@/components/molecules/SfFilter/_internal/SfFilterItem.vue";
 
-Vue.component('SfFilterItem', SfFilterItem)
+Vue.component("SfFilterItem", SfFilterItem);
 
 export default {
   props: {
     selected: {
-      type: String | Array,
+      type: [String, Array],
       default: () => []
     },
     multiple: {
@@ -26,13 +26,13 @@ export default {
     prop: "selected"
   },
   methods: {
-    getSelected: function () {
+    getSelected: function() {
       return this.selected;
     },
     updateSelected: function(data) {
       this.$emit("update:selected", data);
     },
-    isMultiple: function () {
+    isMultiple: function() {
       return this.multiple;
     }
   },

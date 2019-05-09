@@ -22,6 +22,9 @@ storiesOf(" |Introduction", module)
       On the <b>notes</b> menu you will find additional information about component such as available SCSS variables.
     </p>
     <p>
+      <b>StorefrontUI is currently in ALPHA wchich means it is not suitable for production</b>
+    </p>
+    <p>
     Below you can find useful links that can help you understand the library and Storybook itself.
     </p>
     <ul>
@@ -30,6 +33,14 @@ storiesOf(" |Introduction", module)
       <li>Documentation (work in progress)</li>
       <li><a href="https://storybook.js.org/docs/basics/introduction/" target="_blank">Storybook docs</a></li>
     </ul>
+    <h2> How to start? </h2>
+    <ol>
+      <li> Add the package: <pre>npm install --save @storefrontui/vue</pre> </li>
+      <li> Import stylesheets in App.vue or main.js <pre>import "@storefrontui/vue/dist/css/all.scss";</pre></li>
+      <li> It's done! Now you can import and use any of the components <pre> import SfComponentName from "@storefrontui/vue/dist/SfComponentName.vue"</li>
+      <li> You can find detailed information about every component inside each compoennts stories </li>
+      </ol>
     </div>
+
     `
   }));

@@ -10,10 +10,10 @@ export default storiesOf("Molecules|Filter", module)
     "Basic",
     () => ({
       components: { SfFilter },
-      data () {
+      data() {
         return {
           activeFilters: []
-        }
+        };
       },
       props: {
         multiple: {
@@ -26,7 +26,11 @@ export default storiesOf("Molecules|Filter", module)
           default: text("count (prop of SfFilterItem)", "30")
         },
         color_1: {
-          default: select("color (prop of SfFilterItem)", ["red", "null"], "red")
+          default: select(
+            "color (prop of SfFilterItem)",
+            ["red", "null"],
+            "red"
+          )
         },
         title_2: {
           default: text("label (prop of SfFilterItem)", "Blue")
@@ -35,8 +39,12 @@ export default storiesOf("Molecules|Filter", module)
           default: text("count (prop of SfFilterItem)", "30")
         },
         color_2: {
-          default: select("color (prop of SfFilterItem)", ["blue", "null"], "blue")
-        },
+          default: select(
+            "color (prop of SfFilterItem)",
+            ["blue", "null"],
+            "blue"
+          )
+        }
       },
       template: `
       <div style="width: 300px">
@@ -60,8 +68,8 @@ export default storiesOf("Molecules|Filter", module)
     }),
     {
       info: {
-        summary:
-          `
+        summary: `
+          <h2> Description </h2>
           <p>This component should be used for filtering products on listings. Use \`<SfFilter>\` as a wrapper for individual filters (\`<SfFilterItem>\`). Value passed to \`v-model\` holds an array (or string if multiple prop is set to false) of value properties from active filters.</p>
           <p> \`<SfFilterItem>\` has following properties:</p>
           <ul>
@@ -70,6 +78,8 @@ export default storiesOf("Molecules|Filter", module)
             <li> \`count\` - (optional) number of items matching given filter</li>
             <li> \`color\` - (optional) color that will be displayed in a box on the left side (all valid CSS colors can be passed)</li>
           </ul>
+          <h2> Usage </h2>
+          <pre><code>import SfFilter from "@storefrontui/vue/dist/SfFilter.vue"</code></pre>
           `
       }
     }

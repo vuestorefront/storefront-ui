@@ -204,7 +204,6 @@ export default {
 @import "../../../css/variables.scss";
 @import "../../../utilities/css-helpers/visibility.scss";
 
-
 #category {
   box-sizing: border-box;
   max-width: 1200px;
@@ -235,7 +234,7 @@ export default {
       padding-left: $spacer-extra-big;
       padding-right: $spacer-extra-big;
       height: 75px;
-      width: calc(80% - 4px)
+      width: calc(80% - 4px);
     }
   }
   &__filters-btn {
@@ -307,8 +306,8 @@ export default {
 }
 
 .filters {
-  &__title:first-letter  {
-    text-transform: uppercase
+  &__title:first-letter {
+    text-transform: uppercase;
   }
 }
 </style>

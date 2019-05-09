@@ -33,15 +33,15 @@ export default {
         this.updateSelected(val);
       }
     },
-    multiple: function () {
-      return this.isMultiple()
+    multiple: function() {
+      return this.isMultiple();
     }
   },
   methods: {
     clicked() {
       if (this.multiple) {
         if (!Array.isArray(this.selected)) {
-          this.selected = []
+          this.selected = [];
         }
         if (this.selected.includes(this.value)) {
           let index = this.selected.indexOf(this.value);
@@ -52,7 +52,7 @@ export default {
           this.selected.push(this.value);
         }
       } else {
-        this.selected = this.value === this.selected ? null : this.value
+        this.selected = this.value === this.selected ? null : this.value;
       }
     }
   }

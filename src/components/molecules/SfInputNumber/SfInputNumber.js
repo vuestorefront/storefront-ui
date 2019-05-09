@@ -59,16 +59,15 @@ export default {
 
   data() {
     return {
-      currentValue: (this.value || this.autoFill)
-        ? this.parseNumber(this.value)
-        : null
+      currentValue:
+        this.value || this.autoFill ? this.parseNumber(this.value) : null
     };
   },
 
   computed: {
     stringValue: {
       get() {
-        if (typeof this.currentValue === 'number') {
+        if (typeof this.currentValue === "number") {
           let str;
           if (this.precision) {
             str = this.currentValue.toFixed(this.precision);
@@ -88,7 +87,7 @@ export default {
         return this.currentValue;
       },
       set(value) {
-        if ((value !== null && value !== '') || this.autoFill) {
+        if ((value !== null && value !== "") || this.autoFill) {
           let num = this.parseNumber(value);
           if (isNaN(num)) {
             num = 0;
@@ -169,7 +168,7 @@ export default {
     },
 
     setCurrentValue(val) {
-      if (typeof val === 'number') {
+      if (typeof val === "number") {
         // check minimum and maximum
         if (typeof this.min === "number" && val < this.min) {
           val = this.min;

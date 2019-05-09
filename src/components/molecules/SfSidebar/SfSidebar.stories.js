@@ -3,16 +3,16 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfSidebar from "./SfSidebar.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue"
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 storiesOf("Molecules|Sidebar", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
     () => ({
-      data () {
+      data() {
         return {
           isSidebarOpen: true
-        }
+        };
       },
       props: {
         position: {
