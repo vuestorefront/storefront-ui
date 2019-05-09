@@ -1,105 +1,76 @@
 import { storiesOf } from "@storybook/vue";
 
-import SfFilterItem from "./_internal/SfFilterItem.vue";
-import SfList from "@/components/organisms/SfList/SfList.vue";
+import SfFilter from "./SfFilter.vue";
 
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 
-export default storiesOf("Molecules|[WIP] Filter", module)
+export default storiesOf("Molecules|Filter", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
     () => ({
-      components: { SfFilterItem },
-      props: {
-        title: {
-          default: text("label (prop)", "Label prop")
-        },
-        count: {
-          default: text("count (prop)", "30")
-        },
-        color: {
-          default: select("color (prop)", ["red", "null"], "red")
+      components: { SfFilter },
+      data () {
+        return {
+          activeFilters: []
         }
+      },
+      props: {
+        multiple: {
+          default: select("multiple (prop)", ["true", "false"], "true")
+        },
+        title_1: {
+          default: text("label (prop of SfFilterItem)", "Red")
+        },
+        count_1: {
+          default: text("count (prop of SfFilterItem)", "30")
+        },
+        color_1: {
+          default: select("color (prop of SfFilterItem)", ["red", "null"], "red")
+        },
+        title_2: {
+          default: text("label (prop of SfFilterItem)", "Blue")
+        },
+        count_2: {
+          default: text("count (prop of SfFilterItem)", "30")
+        },
+        color_2: {
+          default: select("color (prop of SfFilterItem)", ["blue", "null"], "blue")
+        },
       },
       template: `
       <div style="width: 300px">
-        <SfFilterItem
-          :color="color"
-          :label="title"
-          :count="count"
-        />
+        <SfFilter v-model="activeFilters">
+          <SfFilterItem
+            :color="color_1"
+            :label="title_1"
+            :count="count_1"
+            value="filter_1_red"
+          />
+          <SfFilterItem
+            :color="color_2"
+            :label="title_2"
+            :count="count_2"
+            value="filter_2_blue"
+          />
+        </SfFilter>
+        <p><b>Active filters:</b> {{ activeFilters }}</p>
       </div>
     `
     }),
     {
       info: {
         summary:
-          "This component should be used for filtering products on listings."
+          `
+          <p>This component should be used for filtering products on listings. Use \`<SfFilter>\` as a wrapper for individual filters (\`<SfFilterItem>\`). Value passed to \`v-model\` holds an array (or string if multiple prop is set to false) of value properties from active filters.</p>
+          <p> \`<SfFilterItem>\` has following properties:</p>
+          <ul>
+            <li> \`label\` - label that will be displayed in a component</li>
+            <li> \`value\` - unique identifier</li>
+            <li> \`count\` - (optional) number of items matching given filter</li>
+            <li> \`color\` - (optional) color that will be displayed in a box on the left side (all valid CSS colors can be passed)</li>
+          </ul>
+          `
       }
-    }
-  )
-  .add(
-    "As grouped lists",
-    () => ({
-      components: { SfFilterItem, SfList },
-      props: {
-        title: {
-          default: text("label (prop)", "Label prop")
-        },
-        count: {
-          default: text("count (prop)", "30")
-        }
-      },
-      data() {
-        return {
-          filters: {
-            colors: null,
-            collection: null
-          }
-        };
-      },
-      template: `
-      <div style="width: 300px">
-        <h3>Collection</h3>
-        <span v-if="filters.collection"> Active filter: {{ filters.collection }} </span> 
-        <span v-else>No filter active </span>
-        <SfList>
-          <SfListItem>
-            <SfFilterItem :group.sync="filters.collection" label="Summer fly" value="summer-fly" count="10" />
-          </SfListItem>
-          <SfListItem>
-            <SfFilterItem :group.sync="filters.collection" label="Best 2018" value="best-2018" count="23" />
-          </SfListItem>
-          <SfListItem>
-            <SfFilterItem :group.sync="filters.collection" label="Your choice" value="your-choice" count="54" />
-          </SfListItem>
-        </SfList>
-
-        <h3>Color</h3>
-        <span v-if="filters.color"> Active filter: {{ filters.color }} </span> 
-        <span v-else>No filter active </span>
-        <SfList>
-          <SfListItem>
-            <SfFilterItem :group.sync="filters.color" label="Red" value="red" color="#990611" />
-          </SfListItem>
-          <SfListItem>
-            <SfFilterItem :group.sync="filters.color" label="Yellow" value="yellow" color="#DCA742" />
-          </SfListItem>
-          <SfListItem>
-            <SfFilterItem :group.sync="filters.color" label="Black" value="black" color="black" />
-          </SfListItem>
-          <SfListItem>
-            <SfFilterItem :group.sync="filters.color" label="Blue" value="blue" color="#004F97" />
-          </SfListItem>
-          <SfListItem>
-            <SfFilterItem :group.sync="filters.color" label="White" value="white" color="white" />
-          </SfListItem>
-        </SfList>
-      </div>
-    `
-    }),
-    {
-      info: true
     }
   );

@@ -3,30 +3,38 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfSidebar from "./SfSidebar.vue";
-
+import SfButton from "../../atoms/SfButton/SfButton.vue"
 storiesOf("Molecules|Sidebar", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
     () => ({
-      props: {
-        position: {
-          default: select(
-            "position (prop)",
-            ["left (default)", "right"],
-            "left (default)"
-          )
-        },
-        button: {
-          default: select(
-            "button (prop)",
-            ["true (default)", "false"],
-            "true (default)"
-          )
+      data () {
+        return {
+          isSidebarOpen: true
         }
       },
-      components: { SfSidebar },
-      template: `<SfSidebar :button="button" :position="position">Hello World</SfSidebar>`
+      props: {
+        position: {
+          default: select("position (prop)", ["left", "right"], "left")
+        },
+        button: {
+          default: select("button (prop)", [true, false], true)
+        }
+      },
+      components: { SfSidebar, SfButton },
+      template: `
+      <div>
+      <SfButton @click="isSidebarOpen = true">Open sidebar</SfButton>
+      <SfSidebar       
+        :visible="isSidebarOpen"
+        @close="isSidebarOpen = false"
+        :button="button" 
+        :position="position"
+      >
+        Hello World
+      </SfSidebar>
+      </div>`
     }),
     {
       info: {

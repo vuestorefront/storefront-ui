@@ -1,5 +1,5 @@
 <transition :name="'slide-' + position">
-  <aside v-if="visible" class="sf-sidebar" :class=" 'sf-sidebar'">
+  <aside v-if="visible" class="sf-sidebar" :class="{ 'sf-sidebar--right' : position == 'right' }">
     <SfCircleIcon v-if="button" class="sf-sidebar__button" @click="$emit('close')">
         <img src="/assets/close.svg" class="sf-circle-icon__icon">
     </SfCircleIcon>

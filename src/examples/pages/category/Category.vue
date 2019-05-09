@@ -179,8 +179,8 @@ export default {
     return {
       isFilterSidebarOpen: false,
       filters: {
-        color: [],
-        collection: []
+        color: null,
+        collection: null
       },
       currentPage: 2
     };
@@ -203,6 +203,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../../css/variables.scss";
 @import "../../../utilities/css-helpers/visibility.scss";
+
 
 #category {
   box-sizing: border-box;
@@ -234,7 +235,7 @@ export default {
       padding-left: $spacer-extra-big;
       padding-right: $spacer-extra-big;
       height: 75px;
-      width: 80%;
+      width: calc(80% - 4px)
     }
   }
   &__filters-btn {
@@ -287,13 +288,10 @@ export default {
   flex-wrap: wrap;
   align-items: flex-start;
   align-content: flex-start;
+  justify-content: space-between;
   &__product-card {
     width: 50%;
-    justify-content: center;
     @media (min-width: $tablet-min) {
-      width: 33%;
-    }
-    @media (min-width: $desktop-min) {
       width: 25%;
     }
   }
@@ -305,6 +303,12 @@ export default {
   @media (min-width: $desktop-min) {
     width: 80%;
     padding: $spacer-big;
+  }
+}
+
+.filters {
+  &__title:first-letter  {
+    text-transform: uppercase
   }
 }
 </style>
