@@ -1,9 +1,13 @@
 @import '../../../css/variables';
 
 $sf-select-padding: $spacer;
+$sf-select-font-size: $font-size-big-mobile;
+$sf-select-font-family: $body-font-family-secondary;
 
 .sf-select {
   position: relative;
+  font-size: $sf-select-font-size;
+  font-family: $sf-select-font-family;
   &__placeholder{
     display: flex;
     justify-content: space-between;
