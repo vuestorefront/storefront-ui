@@ -1,0 +1,16 @@
+<div class="sf-select">
+  <!-- #template; wzorzec jak wyświetlić el -->
+  <div 
+    @click="clicked($event)"
+    @blur="blured($event)"
+    class="sf-select__placeholder"
+    tabindex="0"
+    >{{value}}</div>
+  <transition name="fade">
+    <div 
+      v-if="open"
+      class="sf-select__options">
+      <slot />
+    </div>
+  </transition>
+</div>

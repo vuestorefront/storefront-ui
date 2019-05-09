@@ -1,0 +1,41 @@
+@import '../../../css/variables';
+
+$sf-select-padding: $spacer;
+
+.sf-select {
+  position: relative;
+  &__placeholder{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $sf-select-padding;
+    background-color: #CCC;
+    &:focus{
+      outline: none;
+    }
+    &::after{
+      width: 14px;
+      height: 7px;
+      background-color: #F2F2F2;
+      content: ""
+    }
+  }
+  &__options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  &__option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $sf-select-padding;
+    background-color: #F2F2F2;
+  }
+  &__active{
+    width: 14px;
+    height: 7px;
+    background-color: #CCC;
+  }
+}
