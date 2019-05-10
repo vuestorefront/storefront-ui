@@ -1,51 +1,9 @@
 @import '../../../css/variables';
 
-$sf-select-padding: $spacer;
-$sf-select-font-size: $font-size-big-mobile;
-$sf-select-font-family: $body-font-family-secondary;
-
-.sf-select {
-  position: relative;
-  font-size: $sf-select-font-size;
-  font-family: $sf-select-font-family;
-  &__placeholder{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: $sf-select-padding;
-    border: 1px solid #F1F2F3;  
-    &:focus{
-      outline: none;
-    }
-    &::after{
-      width: 14px;
-      height: 7px;
-      background-color: #F2F2F2;
-      content: ""
-    }
-  }
-  &__options {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #FEFEFE;
+.sf-select {  
+  border: 1px solid #F1F2F3;
+  &--active{
+    border-color: transparent;
     box-shadow: 0px 4px 11px rgba(157, 157, 157, 0.21);
-  }
-  // BEM? 
-  &__option {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: $sf-select-padding;
-    &--active{
-      color: #FFF;
-      background-color: #5ECE7B;
-    }
-  }
-  &__active{
-    width: 14px; 
-    height: 7px;
-    background-color: #FFF; 
   }
 }

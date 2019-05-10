@@ -1,6 +1,28 @@
-<div @click="clicked($event)" class="sf-select__option" :class="{'sf-select__option--active': active}">
+<div 
+  v-if="active || open"
+  @click="clicked($event)"
+  @blur="blured($event)" 
+  class="sf-select-option" 
+  :class="{'sf-select-option--active' : open && active }"
+  >
   <slot>
-    {{ value }}
-    <div v-if="active" class="sf-select__active"></div>
+    <div 
+      v-if="color"
+      class="sf-select-option__color"
+      :style="'background-color:' + color"
+    ></div>
+    <div class="sf-select-option__label">{{ label }}</div>      
+    <svg 
+      v-if="active && !open" 
+      class="sf-select-option__icon sf-select-option__icon--placeholder" 
+      width="7" height="14" viewBox="0 0 7 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.04545 0L7 1.12025L1.92207 7L7 12.8798L6.04545 14L0 6.99994L6.04545 0Z" fill="black"/>
+    </svg><!-- placeholder icon-->
+    <svg 
+      v-if="active && open" 
+      class="sf-select-option__icon sf-select-option__icon--marked"
+      xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none">
+      <path d="M-2.147e-07 7.08824L1.72016 6.47059L5.5 9.75631L16.2798 2.4206e-07L18 0.617647L5.49996 12L-2.147e-07 7.08824Z"/>
+    </svg><!-- marked icon -->
   </slot>
 </div>

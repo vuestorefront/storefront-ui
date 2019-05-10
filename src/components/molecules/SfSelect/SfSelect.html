@@ -1,16 +1,6 @@
-<div class="sf-select">
-  <!-- #template; wzorzec jak wyświetlić el -->
-  <div 
-    @click="clicked($event)"
-    @blur="blured($event)"
-    class="sf-select__placeholder"
-    tabindex="0"
-    >{{value}} <img src="" class="sf-select__placeholder-icon" alt=""></div>
-  <transition name="fade">
-    <div 
-      v-if="open"
-      class="sf-select__options">
-      <slot />
-    </div>
-  </transition>
+<div 
+  class="sf-select"
+  :class="{'sf-select--active': open}"
+>
+  <slot/>
 </div>

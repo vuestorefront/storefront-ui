@@ -20,13 +20,5 @@ export default {
     value() {
       this.open = false;
     }
-  },
-  methods: {
-    blured(e) {
-      this.open = false;
-    },
-    clicked(e) {
-      this.open = !this.open;
-    }
   }
 };

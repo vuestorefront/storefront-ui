@@ -12,15 +12,39 @@ storiesOf("Molecules|[WIP] Select", module)
       components: { SfSelect },
       data() {
         return {
-          selected: "S"
+          selected: "s"
         };
       },
       template: `
         <div style="width: 300px;">
           <SfSelect v-model="selected">
-            <SfSelectOption value="S"/>
-            <SfSelectOption value="M"/>
-            <SfSelectOption value="L"/>
+            <SfSelectOption value="s" label="S"></SfSelectOption>
+            <SfSelectOption value="m" label="M""></SfSelectOption>
+            <SfSelectOption value="l" label="L""></SfSelectOption>
+          </SfSelect>
+        </div>
+      `
+    }),
+    {
+      info: true,
+      notes
+    }
+  )
+  .add(
+    "Colors",
+    () => ({
+      components: { SfSelect },
+      data() {
+        return {
+          selected: "red"
+        };
+      },
+      template: `
+        <div style="width: 300px;">
+          <SfSelect v-model="selected">
+            <SfSelectOption value="red" label="Red" color="red"></SfSelectOption>
+            <SfSelectOption value="blue" label="Blue" color="blue"></SfSelectOption>
+            <SfSelectOption value="pink" label="Pink" color="pink"></SfSelectOption>
           </SfSelect>
         </div>
       `

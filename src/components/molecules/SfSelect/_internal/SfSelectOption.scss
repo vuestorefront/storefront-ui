@@ -1,0 +1,36 @@
+@import '../../../../css/variables';
+
+$sf-select-padding: $spacer;
+$sf-select-font-size: $font-size-big-mobile;
+$sf-select-font-family: $body-font-family-secondary;
+
+.sf-select-option{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $sf-select-padding;
+  font-size: $sf-select-font-size;
+  font-family: $sf-select-font-family;
+  &__label {
+    flex-grow: 1
+  }
+  &__color{
+    width: 1.125rem;
+    height: 1.125rem;
+    background: black;
+    margin-right: $spacer-big;
+  }
+  &__icon{
+    fill: #1D1F22;
+    &--placeholder{
+      transform: rotate(-90deg);
+    }
+    &--marked{
+      fill: #FFF;
+    }
+  }
+  &--active{
+    color: #FFF;
+    background-color: #5ECE7B;
+  }
+}
