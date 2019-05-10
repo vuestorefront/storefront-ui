@@ -18,9 +18,15 @@ storiesOf("Molecules|[WIP] Select", module)
       template: `
         <div style="width: 300px;">
           <SfSelect v-model="selected">
-            <SfSelectOption value="s" label="S"></SfSelectOption>
-            <SfSelectOption value="m" label="M""></SfSelectOption>
-            <SfSelectOption value="l" label="L""></SfSelectOption>
+            <SfSelectOption 
+              value="s" 
+              label="S" />
+            <SfSelectOption 
+              value="m" 
+              label="M" />
+            <SfSelectOption 
+              value="l" 
+              label="L" />
           </SfSelect>
         </div>
       `
