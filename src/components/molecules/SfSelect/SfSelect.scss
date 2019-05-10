@@ -13,7 +13,7 @@ $sf-select-font-family: $body-font-family-secondary;
     justify-content: space-between;
     align-items: center;
     padding: $sf-select-padding;
-    background-color: #CCC;
+    border: 1px solid #F1F2F3;  
     &:focus{
       outline: none;
     }
@@ -29,17 +29,23 @@ $sf-select-font-family: $body-font-family-secondary;
     top: 0;
     left: 0;
     width: 100%;
+    background-color: #FEFEFE;
+    box-shadow: 0px 4px 11px rgba(157, 157, 157, 0.21);
   }
+  // BEM? 
   &__option {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: $sf-select-padding;
-    background-color: #F2F2F2;
+    &--active{
+      color: #FFF;
+      background-color: #5ECE7B;
+    }
   }
   &__active{
-    width: 14px;
+    width: 14px; 
     height: 7px;
-    background-color: #CCC;
+    background-color: #FFF; 
   }
 }

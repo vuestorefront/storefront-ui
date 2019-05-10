@@ -1,0 +1,6 @@
+<div @click="clicked($event)" class="sf-select__option" :class="{'sf-select__option--active': active}">
+  <slot>
+    {{ value }}
+    <div v-if="active" class="sf-select__active"></div>
+  </slot>
+</div>

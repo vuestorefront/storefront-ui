@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     blured(e) {
-      // this.open = false
+      this.open = false;
     },
     clicked(e) {
       this.open = !this.open;
