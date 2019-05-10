@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@snowdog/alpaca-components": "^0.3.0-alpha.5",
+    "babel-loader": "^8.0.5",
     "sass-loader": "^7.1.0",
     "webpack-dev-middleware": "3.6.0"
   },
@@ -55,8 +56,7 @@
     "typescript": "^3.4.5",
     "vue-cli-plugin-storybook": "^0.6.0",
     "vue-template-compiler": "^2.6.8",
-    "vuepress": "^0.14.10",
-    "vue": "^2.6.x"
+    "vuepress": "^0.14.10"
   },
   "peerDependencies": {
     "vue": "^2.6.x"
