@@ -1,6 +1,6 @@
 {
   "name": "@storefrontui/vue",
-  "version": "0.0.1-aplha.14",
+  "version": "0.0.1-aplha.15",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -55,9 +55,6 @@
     "vue": "^2.6.x"
   },
   "main": "./dist/storefront-ui.common.js",
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
   "lint-staged": {
     "*.{js,vue}": [
       "vue-cli-service lint",

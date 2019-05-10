@@ -1,0 +1,15 @@
+<div 
+	class="sf-filter-item" 
+	@click="clicked($)"
+	:class="{ 'sf-filter-item--active' : selected.includes(value) }"
+>
+	<slot>
+		<div 
+			v-if="color" 
+			class="sf-filter-item__color" 
+			:style="'background-color:' + color ">
+		</div>
+		<div class="sf-filter-item__label">{{ label }}</div>
+		<div class="sf-filter-item__count">{{ count }}</div>
+	</slot>
+</div>

@@ -14,22 +14,44 @@ storiesOf(" |Introduction", module)
   .add("How to use Storybook", () => ({
     template: `
     <div class="intro">
-    <h1>Welcome in StorefrontUI Storybook</h1>
-    <p>
-      You can use it to browse and play with StorefrontUI components.
-      On the left panel you will find every component that is currently available in the library. 
-      You can play with props and CSS modifiers of each component from <b>Knobs menu</b> and check available slots. 
-      On the <b>notes</b> menu you will find additional information about component such as available SCSS variables.
-    </p>
-    <p>
-    Below you can find useful links that can help you understand the library and Storybook itself.
-    </p>
-    <ul>
-      <li><a href="https://github.com/Divanteltd/storefront-ui" target="_blank">StorefrontUI Github</a></li>
-      <li><a href="https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md" target="_blank">Contribution guide</a></li>
-      <li>Documentation (work in progress)</li>
-      <li><a href="https://storybook.js.org/docs/basics/introduction/" target="_blank">Storybook docs</a>
-    </ul>
+      <h1>StorefrontUI - Customization-first component library</h1>
+      <p>
+        Welcome in our storybook!
+        You can use it to browse and play with StorefrontUI components.
+        On the left panel you will find every component that is currently available in the library. 
+        You can play with props and CSS modifiers of each component from <b>Knobs menu</b>. 
+        Components marked as <i>WIP</i> will much likely change and they;re not safe to use.
+        On the <b>notes</b> menu you will find additional information about component such as available SCSS variables.
+      </p>
+      <p>
+        <b>StorefrontUI is currently in ALPHA wchich means it is not suitable for production! Expect things to be broken and APIs to possibly change.</b>
+      </p>
+      <h2> Join us! </h2>
+        <p> StorefrontUI is a completely new approach for component libraries oriented around customization possibilities instead of out of the box possibilities. It's a great goal but it will take a lot of time to achieve it only by ourselves. The project is open source and free to use. If you'd like to support us and join the team please write to me: <b> filip [at] vuestorefront.io </b>;)</p>
+      <h2> How to start? </h2>
+      <ol>
+        <li> Add the package: <pre>npm install --save @storefrontui/vue</pre> </li>
+        <li> Import stylesheets in App.vue or main.js <pre>import "@storefrontui/vue/dist/css/all.scss";</pre></li>
+        <li> It's done! Now you can import and use any of the components <pre> import SfComponentName from "@storefrontui/vue/dist/SfComponentName.vue"</li>
+        <li> You can find detailed information about every component inside each compoennts stories </li>
+      </ol>
+      <h2> How to customize? </h2>
+      <p>StorefrontUI components can be customized in many ways:</p>
+      <ul>
+        <li>Global customization through SCSS variables</li>
+        <li>Standard component customization with filling the props</li>
+        <li>Replacement of default HTML with slots</li>
+        <li>Heavy customization with usage of HTML, CSS and JS partials</li>
+      </ul>
+      <p>You can find detailed information in <a href="https://github.com/DivanteLtd/storefront-ui/blob/master/docs/customization.md">this doc</a>.
+      <h2>Useful links</h2>
+      <ul>
+        <li><a href="https://github.com/Divanteltd/storefront-ui" target="_blank">StorefrontUI Github</a></li>
+        <li><a href="https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md" target="_blank">Contribution guide</a></li>
+        <li>Documentation (work in progress)</li>
+        <li><a href="https://storybook.js.org/docs/basics/introduction/" target="_blank">Storybook docs</a></li>
+      </ul>
     </div>
+
     `
   }));
