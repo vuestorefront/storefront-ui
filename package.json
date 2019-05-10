@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@snowdog/alpaca-components": "^0.3.0-alpha.5",
-    "babel-loader": "^8.0.5",
     "sass-loader": "^7.1.0",
     "webpack-dev-middleware": "3.6.0"
   },
@@ -28,6 +27,7 @@
     "public/assets"
   ],
   "devDependencies": {
+    "@babel/core": "^7.4.4",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-knobs": "^5.0.11",
     "@storybook/addon-links": "^5.0.11",
@@ -44,6 +44,7 @@
     "@vue/test-utils": "^1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.2",
     "html-loader": "^0.5.5",
