@@ -1,7 +1,9 @@
 <li 
+  @click="clicked"
   class="sf-select-option" 
   :class="{'sf-select-option--active':selected === value}" 
-  @click="clicked">
+  role="option"
+  :aria-selected="selected === value ? 'true' : 'false'">
   <slot>
     <div 
       v-if="color"

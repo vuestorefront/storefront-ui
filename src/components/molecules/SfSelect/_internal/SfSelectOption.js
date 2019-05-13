@@ -21,11 +21,7 @@ export default {
   },
   methods: {
     clicked(e) {
-      this.$parent.$emit("echo", this.value);
-      // FIXME: html pownien być pobierany w innym miejscu
-      // this.$parent.html = this.$el.innerHTML;
-      // this.$parent.$emit("change", this.value);
-      // this.$parent.open = false;
+      this.$parent.$emit("update", this.value);
     }
   }
 };

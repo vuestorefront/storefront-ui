@@ -21,22 +21,22 @@ export default {
       options: []
     };
   },
-  watch: {
-    selected() {
-      // this.open = false;
-    }
-  },
   methods: {
-    echo() {
-      console.log("echo");
-    },
-    blured(event) {
-      this.open = false;
-    },
-    clicked(event) {
+    keyed(event) {},
+    toggle(e) {
       this.open = !this.open;
-      // this.$refs.selector.focus();
     },
+    blurHander() {
+      if (this.open) {
+        this.toggle();
+      }
+    },
+    // clicked(e) {
+    //   e.preventDefault();
+
+    //   this.open = !this.open;
+    //   // this.$refs.selector.focus();
+    // },
     changed(event) {
       const value = event.target.value;
       // this.$emit("change", value);
@@ -53,14 +53,9 @@ export default {
       if (!slot.tag) return;
       this.options.push(slot.componentOptions.propsData);
     });
-    this.$on("echo", function(value) {
-      const element = this.$slots.default.find(el => {
-        if (!el.tag) return;
-        return el.componentOptions.propsData.value === value;
-      });
-      this.html = element.elm.innerHTML;
-      this.$emit("change", value);
-    });
+  },
+  beforeDestroy: function() {
+    this.$off("update");
   },
   mounted: function() {
     const element = this.$slots.default.find(el => {
@@ -68,5 +63,13 @@ export default {
       return el.componentOptions.propsData.value === this.selected;
     });
     this.html = element.elm.innerHTML;
+    this.$on("update", function(value) {
+      const element = this.$slots.default.find(el => {
+        if (!el.tag) return;
+        return el.componentOptions.propsData.value === value;
+      });
+      this.html = element.elm.innerHTML;
+      this.$emit("change", value);
+    });
   }
 };

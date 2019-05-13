@@ -1,11 +1,13 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withA11y } from "@storybook/addon-a11y";
 import notes from "./SfSelect.md";
 import SfSelect from "./SfSelect.vue";
 
 storiesOf("Molecules|[WIP] Select", module)
   .addDecorator(withKnobs)
+  .addDecorator(withA11y)
   .add(
     "Basic",
     () => ({

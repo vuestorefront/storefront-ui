@@ -1,24 +1,24 @@
-<div class="sf-select">
-  <!-- <select 
-    :value="selected" 
-    @input="changed($event)"
-    @blur="blured($event)" 
-    ref="selector"
-    class="sf-select__default">
-    <option 
-      v-for="option in options" 
-      :key="option.value" 
-      :value="option.value">{{option.label}}</option>
-  </select> -->
+<div 
+  class="sf-select" 
+  @click="toggle($event)"
+  @blur="blurHander"
+  @keyup.space="toggle($event)"
+  @keyup.up="keyed($event)"
+  @keyup.down="keyed($event)"
+  @keyup.enter="keyed($event)"
+  :aria-expanded="open ? 'true' : 'false'"
+  :aria-owns="'lbox_'+_uid"
+  aria-autocomplete="none"
+  role="combobox"
+  tabindex="0">
   <div 
-    @click="clicked($event)"
-    @blur="blured($event)"
     class="sf-select__selected sf-select-option" 
     v-html="html"
-    tabindex="0"
     ></div>
   <transition name="fade">
-    <ul 
+    <ul
+      id="'lbox_'+_uid"
+      role="listbox"
       v-show="open"
       class="sf-select__options" 
       style="list-style-type:none; padding: 0; margin: 0;">

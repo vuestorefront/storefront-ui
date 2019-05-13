@@ -7,15 +7,12 @@ $sf-select-font-family: $body-font-family-secondary;
 .sf-select {
   position: relative;
   user-select: none;
-  &__default{
-    position: absolute; 
-    z-index: -1; 
-    outline: 0;
-    appearance: none;
-  }
   &__selected {
     border: 1px solid #F1F2F3;
     background-color: #FFF;
+    &:focus{
+      outline: 1px solid #5ECE7B;
+    }
   }
   &__options {
     position: absolute;
