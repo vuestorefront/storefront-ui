@@ -1,4 +1,5 @@
 export default {
+  name: "SfSelectOption",
   props: {
     value: {
       type: String,
@@ -13,21 +14,15 @@ export default {
       default: ""
     }
   },
-  computed: {
-    selected() {
-      return this.$parent.$props.value;
-    },
-    active() {
-      return this.selected === this.value;
-    },
-    open() {
-      return this.$parent.open;
+  computed:{
+    selected(){
+      return this.$parent.selected;
     }
   },
   methods: {
     clicked(e) {
-      this.$parent.open = !this.$parent.open;
-      this.$parent.$emit("input", this.value);
+      this.$parent.html = this.$el.innerHTML;
+      this.$parent.$emit("change", this.value);
     }
   }
 };

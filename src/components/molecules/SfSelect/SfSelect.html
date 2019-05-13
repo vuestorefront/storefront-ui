@@ -1,6 +1,14 @@
-<div 
-  class="sf-select"
-  :class="{'sf-select--active': open}"
->
-  <slot/>
+<div class="sf-select">
+  <div 
+    @click="clicked($event)"
+    class="sf-select__selected sf-select-option" 
+    v-html="html"></div>
+  <transition name="fade">
+    <ul 
+      v-show="open"
+      class="sf-select__options" 
+      style="list-style-type:none; padding: 0; margin: 0;">
+      <slot :selected="selected"/>
+    </ul>
+  </transition>
 </div>
