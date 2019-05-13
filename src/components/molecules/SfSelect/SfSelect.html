@@ -1,26 +1,28 @@
 <div class="sf-select">
-  <select 
+  <!-- <select 
     :value="selected" 
     @input="changed($event)"
     @blur="blured($event)" 
     ref="selector"
-    style=""
     class="sf-select__default">
     <option 
       v-for="option in options" 
       :key="option.value" 
       :value="option.value">{{option.label}}</option>
-  </select>
+  </select> -->
   <div 
     @click="clicked($event)"
+    @blur="blured($event)"
     class="sf-select__selected sf-select-option" 
-    v-html="html"></div>
+    v-html="html"
+    tabindex="0"
+    ></div>
   <transition name="fade">
     <ul 
       v-show="open"
       class="sf-select__options" 
       style="list-style-type:none; padding: 0; margin: 0;">
-      <slot :selected="selected"/>
+      <slot/>
     </ul>
   </transition>
 </div>
