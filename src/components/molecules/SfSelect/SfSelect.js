@@ -18,40 +18,54 @@ export default {
     return {
       html: "",
       open: false,
+      index: null,
+      hover: null,
       options: []
     };
   },
   methods: {
-    keyed(event) {},
     toggle(e) {
       this.open = !this.open;
+    },
+    moveUp() {
+      if (this.hover) {
+        this.index =
+          this.options.findIndex(option => {
+            return option.value === this.hover;
+          }) - 1;
+        this.hover = null;
+      } else {
+        this.index = this.index - 1 >= 0 ? this.index - 1 : this.index;
+      }
+      this.$emit("update", this.options[this.index].value);
+    },
+    moveDown() {
+      if (this.hover) {
+        this.index =
+          this.options.findIndex(option => {
+            return option.value === this.hover;
+          }) + 1;
+        this.hover = null;
+      } else {
+        this.index =
+          this.index + 1 < this.options.length ? this.index + 1 : this.index;
+      }
+      this.$emit("update", this.options[this.index].value);
     },
     blurHander() {
       if (this.open) {
         this.toggle();
       }
-    },
-    // clicked(e) {
-    //   e.preventDefault();
-
-    //   this.open = !this.open;
-    //   // this.$refs.selector.focus();
-    // },
-    changed(event) {
-      const value = event.target.value;
-      // this.$emit("change", value);
-      // FIXME: hack, dopiero po created jest elm
-      // const element = this.$slots.default.find(el => {
-      //   if (!el.tag) return;
-      //   return el.componentOptions.propsData.value === this.selected;
-      // });
-      // this.html = element.elm.innerHTML;
     }
   },
   created: function() {
-    this.$slots.default.forEach(slot => {
+    this.$slots.default.forEach((slot, index) => {
       if (!slot.tag) return;
       this.options.push(slot.componentOptions.propsData);
+    });
+
+    this.index = this.options.findIndex(option => {
+      return option.value === this.selected;
     });
   },
   beforeDestroy: function() {

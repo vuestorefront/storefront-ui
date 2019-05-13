@@ -3,21 +3,22 @@
   @click="toggle($event)"
   @blur="blurHander"
   @keyup.space="toggle($event)"
-  @keyup.up="keyed($event)"
-  @keyup.down="keyed($event)"
-  @keyup.enter="keyed($event)"
+  @keyup.up="moveUp"
+  @keyup.down="moveDown"
+  @keyup.enter="toggle($event)"
   :aria-expanded="open ? 'true' : 'false'"
   :aria-owns="'lbox_'+_uid"
   aria-autocomplete="none"
   role="combobox"
   tabindex="0">
   <div 
+    role="textbox"  
     class="sf-select__selected sf-select-option" 
     v-html="html"
     ></div>
   <transition name="fade">
     <ul
-      id="'lbox_'+_uid"
+      :id="'lbox_'+_uid"
       role="listbox"
       v-show="open"
       class="sf-select__options" 

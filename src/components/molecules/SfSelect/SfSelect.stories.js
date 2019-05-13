@@ -28,6 +28,12 @@ storiesOf("Molecules|[WIP] Select", module)
             </SfSelectOption>
             <SfSelectOption value="arctiv" label="Arctic lime" color="#D0FF14">
             </SfSelectOption>
+            <SfSelectOption value="bluetiful" label="Bluetiful" color="#3C69E7">
+            </SfSelectOption>
+            <SfSelectOption value="brilliant-rose" label="Brilliant rose" color="#FF55A3">
+            </SfSelectOption>
+            <SfSelectOption value="buff" label="Buff" color="#F0DC82">
+            </SfSelectOption>
           </SfSelect>
         </div>
       </div>
