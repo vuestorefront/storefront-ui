@@ -7,6 +7,7 @@ $sf-select-option-font-family: $body-font-family-secondary;
 .sf-select-option {
   display: flex;
   padding: $sf-select-option-padding;
+  user-select: none;
   &__label{
     flex-grow: 1;
   }

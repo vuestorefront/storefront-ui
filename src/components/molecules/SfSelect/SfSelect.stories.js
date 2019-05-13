@@ -17,13 +17,14 @@ storiesOf("Molecules|[WIP] Select", module)
       components: { SfSelect },
       template: `
       <div>
+        <p>{{selected}}</p>
         <div style="width: 300px">
           <SfSelect v-model="selected">
-            <SfSelectOption value="amaranth" label="Amaranth pink">
+            <SfSelectOption value="amaranth" label="Amaranth pink" color="#F19CBB">
             </SfSelectOption>
-            <SfSelectOption value="amber" label="Amber">
+            <SfSelectOption value="amber" label="Amber" color="#FFBF00">
             </SfSelectOption>
-            <SfSelectOption value="arctiv" label="Arctic lime">
+            <SfSelectOption value="arctiv" label="Arctic lime" color="#D0FF14">
             </SfSelectOption>
           </SfSelect>
         </div>

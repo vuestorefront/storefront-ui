@@ -1,4 +1,16 @@
 <div class="sf-select">
+  <select 
+    :value="selected" 
+    @input="changed($event)"
+    @blur="blured($event)" 
+    ref="selector"
+    style=""
+    class="sf-select__default">
+    <option 
+      v-for="option in options" 
+      :key="option.value" 
+      :value="option.value">{{option.label}}</option>
+  </select>
   <div 
     @click="clicked($event)"
     class="sf-select__selected sf-select-option" 

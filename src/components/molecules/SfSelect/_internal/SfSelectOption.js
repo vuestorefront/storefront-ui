@@ -14,8 +14,8 @@ export default {
       default: ""
     }
   },
-  computed:{
-    selected(){
+  computed: {
+    selected() {
       return this.$parent.selected;
     }
   },
@@ -23,6 +23,7 @@ export default {
     clicked(e) {
       this.$parent.html = this.$el.innerHTML;
       this.$parent.$emit("change", this.value);
+      this.$parent.open = false;
     }
   }
 };

@@ -6,13 +6,22 @@ $sf-select-font-family: $body-font-family-secondary;
 
 .sf-select {
   position: relative;
+  user-select: none;
+  &__default{
+    position: absolute; 
+    z-index: -1; 
+    outline: 0;
+    appearance: none;
+  }
   &__selected {
     border: 1px solid #F1F2F3;
+    background-color: #FFF;
   }
   &__options {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 100;
     width: 100%;
     background-color: #FFF;
     box-shadow: 0px 4px 11px rgba(157, 157, 157, 0.21);
