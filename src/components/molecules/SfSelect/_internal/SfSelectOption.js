@@ -23,10 +23,10 @@ export default {
     }
   },
   methods: {
-    mouseleave() {
+    mouseleaved() {
       this.$parent.hover = null;
     },
-    mouseover() {
+    mouseovered() {
       this.$parent.hover = this.value;
     },
     clicked(e) {
