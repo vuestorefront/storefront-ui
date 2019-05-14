@@ -24,6 +24,7 @@ $sf-select-option-font-family: $body-font-family-secondary;
     &:after{
       width: 7px;
       height: 14px;
+      margin-left: auto;
       border: 0px solid #FFF;
       border-width: 0px 2px 2px 0px;
       transform: rotate(45deg) translateX(calc(-7px / 2));
