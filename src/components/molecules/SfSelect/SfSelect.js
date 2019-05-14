@@ -17,69 +17,82 @@ export default {
   },
   data() {
     return {
-      html: "",
       open: false,
-      index: null, // FIXME: REMOVE IT
-      hover: null, // FIXME: REMOVE IT
-      options: [] // FIXME: CHANGE DATA STRUTURE, 1ST MAP SLOTS TO OPTIONS
+      index: -1,
+      hover: -1,
+      options: [],
+      indexes: {}
     };
   },
+  watch: {
+    index(index) {
+      this.hover = -1;
+      this.$emit("change", this.options[index].value);
+    }
+  },
+  computed: {
+    html() {
+      if (this.index < 0) return;
+      return this.options[this.index].html;
+    }
+  },
   methods: {
-    // Use to fill options array
-    getOptions(slots) {
-      slots = slots.filter(slot => slot.tag);
-      slots = slots.map(slot => ({ ...slot.componentOptions.propsData }));
-      return slots;
+    update(index) {
+      this.index = index;
     },
-    getOptionHTML(slots, value) {
-      const el = slots.find(
-        item => item.tag && item.componentOptions.propsData.value === value
-      );
-      return el.elm.innerHTML;
-    },
-    // Update v-model and html in selected div
-    update(value) {
-      this.html = this.getOptionHTML(this.$slots.default, value);
-      this.$emit("change", value);
-    },
-    // FIXME: how remove hover
-    // FIXME: how remove index
-    move(direction) {
-      let index = this.index + direction;
+    move(payload) {
+      const optionsLength = this.options.length;
+      let index = this.hover < 0 ? this.index : this.hover;
+      index += payload;
 
       if (index < 0) index = 0;
-      if (index >= this.options.length) index = this.options.length - 1;
-      // if (this.index === index) return;
+      if (index >= optionsLength) index = optionsLength - 1;
 
       this.index = index;
-      this.update(this.options[index].value);
     },
-    //FIXME: how remove hover
     enter() {
       this.toggle();
-      // if (!this.hover) return;
-      // this.update(this.hover);
-      // this.hover = null;
+      if (this.hover > -1) {
+        this.index = this.hover;
+        this.hover = -1;
+      }
     },
     toggle() {
       this.open = !this.open;
     },
-    blurHander() {
+    openHandler() {
+      if (!this.open) {
+        this.toggle();
+      }
+    },
+    closeHandler() {
       if (this.open) {
         this.toggle();
       }
     }
   },
-  created: function() {
-    this.options = this.getOptions(this.$slots.default);
-    this.index = this.options.findIndex(option => {
-      return option.value === this.selected;
-    });
-  },
+  created: function() {},
   mounted: function() {
-    // FIXME: it's still not the best solution. ..elm isn't mounted when use I v-if
-    this.html = this.getOptionHTML(this.$slots.default, this.selected);
+    const selected = this.selected,
+      options = [],
+      indexes = {};
+    let i = 0;
+
     this.$on("update", this.update);
+
+    this.$slots.default.forEach(slot => {
+      if (!slot.tag) return;
+      options.push({
+        ...slot.componentOptions.propsData,
+        html: slot.elm.innerHTML
+      });
+      indexes[slot.componentOptions.propsData.value] = i;
+      i++;
+    });
+
+    this.options = options;
+    this.indexes = indexes;
+    this.index = indexes[selected];
   },
   beforeDestroy: function() {
     this.$off("update", this.update);

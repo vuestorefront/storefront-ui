@@ -18,19 +18,19 @@ export default {
     selected() {
       return this.$parent.selected;
     },
-    hover() {
-      return this.$parent.hover;
+    indexes() {
+      return this.$parent.indexes;
     }
   },
   methods: {
     mouseleaved() {
-      this.$parent.hover = null;
+      this.$parent.hover = -1;
     },
     mouseovered() {
-      this.$parent.hover = this.value;
+      this.$parent.hover = this.indexes[this.value];
     },
-    clicked(e) {
-      this.$parent.$emit("update", this.value);
+    clicked() {
+      this.$parent.$emit("update", this.indexes[this.value]);
     }
   }
 };
