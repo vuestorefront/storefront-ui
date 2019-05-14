@@ -9,6 +9,9 @@ export default {
     current: {
       type: Number,
       default: 1
+    },
+    autoplay: {
+      type: Number
     }
   },
 
@@ -32,8 +35,10 @@ export default {
   mounted () {
     // handle slider with swipe and transitions with Glide.js
     // https://glidejs.com/docs/
+    let { activeIndex, autoplay } = this
     const glide = new Glide(this.$refs.glide, {
-      startAt: this.activeIndex
+      startAt: activeIndex,
+      autoplay
     })
     glide.on('run', () => {
       this.setCurrentImage(glide.index)
