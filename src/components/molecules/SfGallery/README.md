@@ -4,9 +4,9 @@
 
 Swappable gallery for product images.
 
-![desktop](https://screenshotscdn.firefoxusercontent.com/images/0dec9565-4c31-45b1-9554-20b19fdf33c0.png)
+![desktop](https://screenshotscdn.firefoxusercontent.com/images/57c6cd69-6bcc-47e5-aa91-0cd699b3f624.png)
 
-![mobile](https://screenshotscdn.firefoxusercontent.com/images/6234ea80-b523-4a68-9050-73d4c6ccf301.png)
+![mobile](https://screenshotscdn.firefoxusercontent.com/images/48f605e9-aac5-4fc9-8e11-05e824c46c3b.png)
 
 > You must pass an array of objects (images) with the format below:
 
