@@ -5,7 +5,7 @@
       class="sf-gallery__item"
       :class="{ 'sf-gallery__item--selected': i === activeIndex }"
       @click="setCurrentImage(i)">
-      <slot name="thumb" v-bind:image="image">
+      <slot name="thumb" :image="image" :index="i">
         <img class="sf-gallery__thumb" :src="image.small.url" :alt="image.small.alt"/>
       </slot>
     </div>
