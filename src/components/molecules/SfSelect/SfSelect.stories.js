@@ -19,7 +19,7 @@ storiesOf("Molecules|[WIP] Select", module)
       components: { SfSelect },
       template: `
       <div>
-        {{selected}}
+        <p>Selected: {{selected}}</p>
         <div style="width: 300px">
           <SfSelect v-model="selected">
             <SfSelectOption value="amaranth" label="Amaranth pink" color="#F19CBB">

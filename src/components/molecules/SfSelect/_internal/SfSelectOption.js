@@ -23,12 +23,6 @@ export default {
     }
   },
   methods: {
-    mouseleaved() {
-      this.$parent.hover = -1;
-    },
-    mouseovered() {
-      this.$parent.hover = this.indexes[this.value];
-    },
     clicked() {
       this.$parent.$emit("update", this.indexes[this.value]);
     }

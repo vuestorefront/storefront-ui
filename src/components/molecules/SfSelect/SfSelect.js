@@ -42,7 +42,7 @@ export default {
     },
     move(payload) {
       const optionsLength = this.options.length;
-      let index = this.hover < 0 ? this.index : this.hover;
+      let index = this.index;
       index += payload;
 
       if (index < 0) index = 0;
@@ -52,10 +52,6 @@ export default {
     },
     enter() {
       this.toggle();
-      if (this.hover > -1) {
-        this.index = this.hover;
-        this.hover = -1;
-      }
     },
     toggle() {
       this.open = !this.open;
