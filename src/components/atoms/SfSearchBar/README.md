@@ -2,9 +2,9 @@
 Search Bar Component for search queries
 ## Screens
 
-![Search Bar Desktop ]()
+![Search Bar](https://user-images.githubusercontent.com/34887212/57677851-197e7c80-7628-11e9-96c4-b794d797ed8d.png)
 
-![Search Bar Mobile]()
+![Search Bar with different icon and text position ](https://user-images.githubusercontent.com/34887212/57677827-0d92ba80-7628-11e9-9fb1-57b5ce5b4d8d.png)
 
 ## Props
 - `placeholder` - text inside input 
