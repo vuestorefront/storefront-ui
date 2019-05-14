@@ -48,7 +48,7 @@ const data = () => {
 storiesOf("Molecules|Gallery", module)
   .addDecorator(withKnobs)
   .add(
-    "Props / CSS Modifiers",
+    "Props",
     () => ({
       props: {
         autoplay: {
