@@ -10,7 +10,7 @@ Swappable gallery for product images.
 
 > You must pass an array of objects (images) with the format below:
 
-```javascript
+`
 let images = [
   {
     small: { url, alt },
@@ -18,7 +18,7 @@ let images = [
     zoom: { url, alt }
   }
 ]
-```
+`
 
 ## Events
 
