@@ -1,0 +1,13 @@
+<div class="sf-search-bar">
+    <input class="sf-search-bar__input" 
+           type="text" 
+           :placeholder="placeholder" 
+           :value="value"
+           @input="searchValue($event.target.value)"
+    />
+    <slot>
+        <img :src="iconSrc" 
+             :alt="alt" 
+             class="sf-search-bar__icon" />
+    </slot>
+</div>
