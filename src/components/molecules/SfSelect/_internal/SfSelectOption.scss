@@ -6,6 +6,7 @@ $sf-select-option-font-family: $body-font-family-secondary;
 
 .sf-select-option {
   display: flex;
+  align-items: center;
   padding: $sf-select-option-padding;
   user-select: none;
   &__label{
@@ -20,6 +21,14 @@ $sf-select-option-font-family: $body-font-family-secondary;
   &--active{
     color: #FFF;
     background-color: #5ECE7B;
+    &:after{
+      width: 7px;
+      height: 14px;
+      border: 0px solid #FFF;
+      border-width: 0px 2px 2px 0px;
+      transform: rotate(45deg) translateX(calc(-7px / 2));
+      content: "";
+    }
   }
   &:hover{
     outline: 1px solid #5ECE7B;

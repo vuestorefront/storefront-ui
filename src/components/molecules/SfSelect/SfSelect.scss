@@ -16,6 +16,14 @@ $sf-select-font-family: $body-font-family-secondary;
     @at-root :focus &{
       border  : 1px solid #5ECE7B;
     }
+    &:after{
+      width: 7px;
+      height: 7px;
+      border: 0px solid #5ECE7B;
+      border-width: 0px 2px 2px 0px;
+      transform: rotate(45deg) translateX(calc(-7px / 2));
+      content: "";
+    }
   }
   &__options {
     position: absolute;
