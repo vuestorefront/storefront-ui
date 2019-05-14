@@ -1,4 +1,4 @@
-import Glide from '@glidejs/glide'
+import Glide from "@glidejs/glide";
 
 export default {
   props: {
@@ -27,29 +27,29 @@ export default {
       this.activeIndex = index;
       this.$emit("update:current", index + 1);
       if (this.glide) {
-        this.glide.go('=' + index)
+        this.glide.go("=" + index);
       }
     }
   },
 
-  mounted () {
+  mounted() {
     // handle slider with swipe and transitions with Glide.js
     // https://glidejs.com/docs/
-    let { activeIndex, autoplay } = this
+    let { activeIndex, autoplay } = this;
     const glide = new Glide(this.$refs.glide, {
       startAt: activeIndex,
       autoplay
-    })
-    glide.on('run', () => {
-      this.setCurrentImage(glide.index)
-    })
-    glide.mount()
-    this.glide = glide
+    });
+    glide.on("run", () => {
+      this.setCurrentImage(glide.index);
+    });
+    glide.mount();
+    this.glide = glide;
   },
 
-  beforeDestroy () {
+  beforeDestroy() {
     if (this.glide) {
-      this.glide.destroy()
+      this.glide.destroy();
     }
   }
 };
