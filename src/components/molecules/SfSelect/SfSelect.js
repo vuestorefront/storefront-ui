@@ -2,7 +2,6 @@ import SfSelectOption from "@/components/molecules/SfSelect/_internal/SfSelectOp
 import Vue from "vue";
 
 Vue.component("SfSelectOption", SfSelectOption);
-// FIXME: out data.hover
 export default {
   name: "SfSelect",
   model: {
@@ -19,14 +18,12 @@ export default {
     return {
       open: false,
       index: -1,
-      hover: -1,
       options: [],
       indexes: {}
     };
   },
   watch: {
     index(index) {
-      this.hover = -1;
       this.$emit("change", this.options[index].value);
     }
   },
