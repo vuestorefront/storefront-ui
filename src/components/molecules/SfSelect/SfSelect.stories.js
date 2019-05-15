@@ -22,12 +22,12 @@ storiesOf("Molecules|[WIP] Select", module)
         <p><b>Selected: {{selected}}</b></p>
         <div style="width: 300px">
           <SfSelect v-model="selected">
-            <SfSelectOption value="amaranth" label="Amaranth pink" color="#F19CBB" />
-            <SfSelectOption value="amber" label="Amber" color="#FFBF00" />
-            <SfSelectOption value="arctiv" label="Arctic lime" color="#D0FF14" />
-            <SfSelectOption value="bluetiful" label="Bluetiful" color="#3C69E7" />
-            <SfSelectOption value="brilliant-rose" label="Brilliant rose" color="#FF55A3" />
-            <SfSelectOption value="buff" label="Buff" color="#F0DC82" />
+            <SfSelectOption value="amaranth">amaranth</SfSelectOption>
+            <SfSelectOption value="amber">amber</SfSelectOption>
+            <SfSelectOption value="arctiv">arctiv</SfSelectOption>
+            <SfSelectOption value="bluetiful">bluetiful</SfSelectOption>
+            <SfSelectOption value="brilliant-rose">brilliant-rose</SfSelectOption>
+            <SfSelectOption value="buff">buff</SfSelectOption>
           </SfSelect>
         </div>
       </div>
