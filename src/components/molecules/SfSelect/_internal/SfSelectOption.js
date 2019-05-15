@@ -4,14 +4,6 @@ export default {
     value: {
       type: String,
       default: ""
-    },
-    label: {
-      type: String,
-      default: ""
-    },
-    color: {
-      type: String,
-      default: ""
     }
   },
   computed: {
