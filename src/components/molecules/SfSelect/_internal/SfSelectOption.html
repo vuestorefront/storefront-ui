@@ -4,12 +4,5 @@
   :class="{'sf-select-option--active': selected === value}" 
   role="option"
   :aria-selected="selected === value ? 'true' : 'false'">
-  <slot>
-    <div 
-      v-if="color"
-      class="sf-select-option__color"
-      :style="'background-color:' + color"
-    ></div>
-    <div class="sf-select-option__label">{{label}}</div>
-  </slot>
+  <slot />
 </li>
