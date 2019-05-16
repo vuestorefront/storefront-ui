@@ -28,7 +28,11 @@ storiesOf("Atoms|CircleIcon", module)
     }),
     {
       info: {
-        summary: "Rounded button with icon as content."
+        summary: `
+        <p>Rounded button with icon as content.</p>
+        <h2> Usage </h2>
+        <pre><code>import SfCircleIcon from "@storefrontui/vue/dist/SfCircleIcon.vue"</code></pre>
+        `
       },
       notes
     }

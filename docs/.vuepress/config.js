@@ -13,10 +13,17 @@ module.exports = {
     sidebar: [
       ['/introduction', 'Introduction'],
       ['/customization', 'Customization'],
-      ['/component-rules', 'Component Rules'],
-      ['/creating-new-component', 'Creating New Component'],
-      ['/working-with-designs', 'Working With Designs'],
-      ['/working-with-alpaca', 'Working With Alpaca']
+      {
+        title: 'Contributing',
+        collapsable: false,
+        children: [
+          ['/component-rules', 'Component Rules'],
+          ['/creating-new-component', 'Creating New Component'],
+          ['/working-with-designs', 'Working With Designs'],
+          ['/working-with-alpaca', 'Working With Alpaca'],
+        ],
+      },
+
     ]
   }
 }

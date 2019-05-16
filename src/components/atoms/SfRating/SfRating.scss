@@ -1,8 +1,7 @@
 @import '../../../css/variables';
 
-// $sf-component__block-property: value;
-$rating__icon-positive-fill: $c-green-primary;
-$rating__icon-negative-fill: $c-dark-primary;
+$rating__icon-positive-fill : $c-green-primary;
+$rating__icon-negative-fill : $c-dark-primary;
 
 .sf-rating {
   &__icon-positive {
