@@ -64,8 +64,8 @@ Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-st
 
 - Category page components (April) - Done
 - Product Page components (May) (alpha release)
-- Homepage and form elements (June) 
-- Last polishments (June/July) (beta release)
+- Homepage, form elements and a11y (June) 
+- Last polishments and focus on documentation (June/July) (beta release)
 
 Want to help and make it even faster? Grab an issue and become part of our amazing community ;)
 

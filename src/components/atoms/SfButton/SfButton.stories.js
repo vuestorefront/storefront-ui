@@ -25,7 +25,12 @@ storiesOf("Atoms|Button", module)
     }),
     {
       info: {
-        summary: "Button component. Place desired content into it's slot."
+        summary: `
+        <h2> Description </h2>
+        <p>Button component. Place desired content into it's slot.</p>
+        <h2> Usage </h2>
+        <pre><code>import SfButton from "@storefrontui/vue/dist/SfButton.vue"</code></pre>
+        `
       }
     }
   );

@@ -1,11 +1,11 @@
 @import '../../../css/variables';
 
-$sf-circle-icon-background-primary: $c-green-primary !default;
-$sf-circle-icon-background-secondary: $c-dark-primary !default;
-$sf-circle-icon-icon-color: $c-white !default;
-$sf-circle-icon-size: 3.25rem !default;
-$sf-circle-icon-background-small: $c-gray-secondary !default;
-$sf-circle-icon-background-small-hover: $c-dark-secondary !default;
+$sf-circle-icon-background-primary     : $c-green-primary !default;
+$sf-circle-icon-background-secondary   : $c-dark-primary !default;
+$sf-circle-icon-icon-color             : $c-white !default;
+$sf-circle-icon-size                   : 3.25rem !default;
+$sf-circle-icon-background-small       : $c-gray-secondary !default;
+$sf-circle-icon-background-small-hover : $c-dark-secondary !default;
 
 .sf-circle-icon {
     padding: 5px;
