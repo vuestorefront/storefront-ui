@@ -38,7 +38,8 @@ export default {
     let { activeIndex, autoplay } = this;
     const glide = new Glide(this.$refs.glide, {
       startAt: activeIndex,
-      autoplay
+      autoplay,
+      rewind: false
     });
     glide.on("run", () => {
       this.setCurrentImage(glide.index);
