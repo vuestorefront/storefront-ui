@@ -1,0 +1,33 @@
+@import '../../../css/variables';
+
+$component__block-property: value;
+
+.sf-radio {
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+      display: none;
+  }
+
+  &__checkmark {
+      height: 23px;
+      width: 23px;
+      border: 1px solid #BEBFC4;
+      border-radius: 50%;
+      margin: 10px;
+      box-sizing: border-box;
+  }
+
+  &__label {
+      height: 100%;
+  }
+
+  &--checked {
+    .sf-radio__checkmark {
+        border: 9px solid #5ECE7B;
+    }
+  }
+}

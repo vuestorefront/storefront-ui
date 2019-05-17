@@ -1,0 +1,17 @@
+<div class="sf-radio">
+    <label v-for="(option, index) in options" 
+    :key="`radio-${option}-${index}`" 
+    class="sf-radio__container"
+    :class="{'sf-radio--checked': option === value}">
+        <input type="radio" 
+            :checked="option === value ? 'checked' : 'unchecked'"
+            name="gender" 
+            class="sf-radio__input"
+            :id="option" 
+            :value="option"
+            v-model="value" 
+            @input="$emit('input', option)">
+        <span class="sf-radio__checkmark"></span>
+        <span class="sf-radio__label">{{ option }}</span>
+    </label>
+</div>
