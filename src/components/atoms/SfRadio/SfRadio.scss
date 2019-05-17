@@ -1,6 +1,7 @@
 @import '../../../css/variables';
 
-$component__block-property: value;
+$sf-radio__checkmark-border-color: $c-gray-secondary !default;
+$sf-radio__checkmark-border-color--checked: $c-green-primary !default;
 
 .sf-radio {
   &__container {
@@ -15,7 +16,7 @@ $component__block-property: value;
   &__checkmark {
       height: 23px;
       width: 23px;
-      border: 1px solid #BEBFC4;
+      border: 1px solid $sf-radio__checkmark-border-color;
       border-radius: 50%;
       margin: 10px;
       box-sizing: border-box;
@@ -27,7 +28,7 @@ $component__block-property: value;
 
   &--checked {
     .sf-radio__checkmark {
-        border: 9px solid #5ECE7B;
+        border: 9px solid $sf-radio__checkmark-border-color--checked;
     }
   }
 }
