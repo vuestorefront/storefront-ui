@@ -73,5 +73,4 @@ Want to help and make it even faster? Grab an issue and become part of our amazi
 
 - [StorefrontUI Github](https://github.com/Divanteltd/storefront-ui)
 - [Contribution guide](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md)
-- [Documentation (work in progress)](https://docs.storefrontui.io/)
 - [Storybook docs](https://storybook.js.org/docs/basics/introduction/)
