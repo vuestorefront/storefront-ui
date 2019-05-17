@@ -10,7 +10,11 @@
             :value="option"
             v-model="value" 
             @input="$emit('input', option)">
-        <span class="sf-radio__checkmark"></span>
-        <span class="sf-radio__label">{{ option }}</span>
+        <slot name="button" :option="option" :isActive="option === value">
+            <span class="sf-radio__checkmark"></span>
+        </slot>
+        <slot name="content" :option="option">
+            <span class="sf-radio__label">{{ option }}</span>
+        </slot>
     </label>
 </div>
