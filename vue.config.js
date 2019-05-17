@@ -23,17 +23,25 @@ module.exports = {
             const patternForComponents = new RegExp(
               "@/components/(.*?)/(.*?)/"
             );
+            // somehow the previous one is not matching atoms
+            const patternForAtoms = new RegExp("@/components/atoms/(.*?)/");
             const patternForInternalComponents = new RegExp(
               "@/components/(.*?)/(.*?)/_internal/"
             );
+            // TODO: Unify to only aliases
             return content
               .toString()
               .replace(
                 "@import '../../../css/variables';",
                 "@import './css/variables';"
               )
+              .replace(
+                "@import '../../../../css/variables';",
+                "@import './css/variables';"
+              )
               .replace("@/utilities", "./utilities")
               .replace(patternForInternalComponents, "./")
+              .replace(patternForAtoms, "./")
               .replace(patternForComponents, "./")
               .replace("/assets", "./assets");
           }

@@ -6,7 +6,7 @@
         :disabled="currentPage < 2"
         @click="setCurrentPage(currentPage - 1)">
         <slot name="prev">
-          <img src="../../../assets/chevron_left.svg" alt="Go to previous page" class="sf-pagination__icon"/>
+          <img src="/assets/chevron_left.svg" alt="Go to previous page" class="sf-pagination__icon"/>
         </slot>
       </a>
     </li>
@@ -62,7 +62,7 @@
         :disabled="currentPage > total - 1"
         @click="setCurrentPage(currentPage + 1)">
         <slot name="next">
-          <img src="../../../assets/chevron_right.svg" alt="Go to next page" class="sf-pagination__icon"/>
+          <img src="/assets/chevron_right.svg" alt="Go to next page" class="sf-pagination__icon"/>
         </slot>
       </a>
     </li>

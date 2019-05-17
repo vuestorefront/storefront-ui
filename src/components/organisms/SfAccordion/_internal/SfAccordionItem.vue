@@ -4,9 +4,9 @@
       <slot name="label" />
     </span>
     <transition name="fade">
-      <template v-if="isOpen">
+      <span v-if="isOpen">
         <slot name="content" />
-      </template>
+      </span>
     </transition>
   </div>
 </template>
@@ -14,7 +14,7 @@
 <script>
 import "@/utilities/transitions/transitions.scss";
 
-// TODO: Enable real accordion nehavior with only one item open. get rid of open property
+// TODO: Enable real accordion behavior with only one item open. get rid of open property
 export default {
   props: {
     open: {

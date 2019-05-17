@@ -8,14 +8,11 @@ single filter component. Should be used with `SfList`.
 
 <!-- Write down SCSS variables available for configuration -->
 
-- `$sf-filter-padding` ($spacing-big $spacing-extra-big)
-- `$sf-filter-icon-spacing` (0.75rem)
-- `$sf-filter-min-height` (35px)
-- `$sf-filter-font-size` ($font-size-big-mobile)
-- `$sf-filter-font-family` ($body-font-family-secondary)
-- `$sf-label-font-size` (1rem)
-- `$sf-count-font-color` ($c-gray-primary)
-- `$sf-count-font-size` (0.875rem)
+- `$sf-filter-item-padding` ($spacing-big $spacing-extra-big)
+- `$sf-filter-item-icon-spacing` (0.75rem)
+- `$sf-filter-item-min-height` (35px)
+- `$sf-filter-item-font-size` ($font-size-big-mobile)
+- `$sf-filter-item-font-family` ($body-font-family-secondary)
 
 
 ## Source files and Storybook demo

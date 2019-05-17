@@ -1,6 +1,8 @@
 <div class="sf-product-card">
   <slot name="image">
-    <img class="sf-product-card__image" src="assets/storybook/product_thumb.png">
+    <div class="sf-product-card__image">
+      <img :src="image">
+    </div>
   </slot>
   <slot name="title">
     <span class="sf-product-card__title">
@@ -23,7 +25,7 @@
       :max="rating.max"
       :score="rating.score"
     />
-    <a class="sf-product-card__reviews-count">(8)</a>
+    <a v-if="rating" class="sf-product-card__reviews-count">(8)</a>
     </div>
   </slot>
 </div>

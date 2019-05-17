@@ -27,7 +27,7 @@ describe("SfCallToAction.vue", () => {
         buttonText: msg
       }
     });
-    console.log(component.html())
+    console.log(component.html());
     const wrapper = component.find(".sf-call-to-action__button");
     expect(wrapper.text()).toMatch(msg);
   });
