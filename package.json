@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@snowdog/alpaca-components": "^0.3.0-alpha.5",
-    "sass-loader": "^7.1.0",
     "webpack-dev-middleware": "3.6.0"
   },
   "resolutions": {
