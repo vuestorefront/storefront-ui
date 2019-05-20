@@ -56,7 +56,10 @@ storiesOf("Molecules|Banner", module)
     }),
     {
       notes,
-      info: true
+      info: {
+        summary: `<h2> Usage </h2>
+        <pre><code>import SfBanner from "@storefrontui/vue/dist/SfBanner.vue"</code></pre>`
+      }
     }
   )
   .add(

@@ -33,7 +33,7 @@ In addition every component is exposing SCSS variables responsible for the desig
 
 ### Global variables
 
-Most of the styling is made through a SCSS variables in global stylesheets. We use them to setup fonts, HTML elements styling (like h1, p), layout properties and colors. 
+Most of the styling is made through a SCSS variables in global stylesheets. We use them to setup fonts, HTML elements styling (like h1, p), layout properties and colors.
 
 You can override any the global variables inside your `sfui.scss` file that should exist in a root of your app.
 
@@ -48,7 +48,7 @@ You can find all available variables and it's defaults [here](https://github.com
 
 ### Component variables
 
-You can override component-specific SCSS variables in the exactly same way. 
+You can override component-specific SCSS variables in the exactly same way.
 
 ````scss
 // This will change default button padding for desktop
@@ -62,7 +62,7 @@ Please note that you should always add a `!default` property when overriding com
 If variables are not providing the level of customization you need you can also make a new component that is importing individual partials of the source component from SFUI.
 
 Let's say we want to create `CustomizedButton` component. We should start with creating new Vue component where we can import `Button` partials.
-````html 
+````html
 <script>
 import instance from "@storefrontui/vue/dist/SfButton.js";
 
@@ -71,16 +71,18 @@ export default {
 };
 </script>
 
-<template lang="html" src="~@storefrontui/vue/dist/SfButton.js"></template>
+<template lang="html" src="~@storefrontui/vue/dist/SfButton.html"></template>
 
 <style lang="scss" scoped>
+// scoped only for this component
+$c-accent-primary: blue;
 @import "~@storefrontui/vue/dist/SfButton.scss";
 </style>
 ````
 
 Now let's see how we can customize any of it's parts by still making use of the sfui parts we want to remain untouched.
 
-- **Template**:  Here we replaced default HTML with our own. In this example we replaced default <button> with a <div>
+- **Template**:  Here we replaced default HTML with our own. In this example we replaced default `<button>` with a `<div>`
 ````html
 <template>
   <div class="sf-button"><slot /></div>

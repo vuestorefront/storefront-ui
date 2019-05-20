@@ -48,6 +48,12 @@ If you really want to play with components:
 Then check if `sfui.scss` file was created in a root of your app. If not - create it.
 
 
+# Documentation
+
+The documentation is always THE HARDEST PART of each open source project! But we're trying hard. Feel free to contribute to the documentation if you like.
+
+**Please find out what we've already managed to prepare:** [available here](https://docs.storefrontui.io/). Please note that the documentation is not yet finished as this project is still in the early stages of development and will be continuously updated. You can find them also under the `docs/` folder.
+
 
 # Contributing
 
@@ -60,6 +66,12 @@ Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-st
 # Supporters
 <a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="40px"></a>
 
-# State of components 
+# Roadmap 
 
-TBD in a few days once we have current ones docummented.
+- Category page components (April) - Done
+- Product Page components (May) (alpha release)
+- Homepage, form elements and a11y (June) 
+- Last polishments and focus on documentation (June/July) (beta release)
+
+Want to help and make it even faster? Grab an issue and become part of our amazing community ;)
+
