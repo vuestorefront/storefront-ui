@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, number } from "@storybook/addon-knobs";
+import { withKnobs, text, number, boolean } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfGallery from "./SfGallery.vue";
 
@@ -52,7 +52,10 @@ storiesOf("Molecules|Gallery", module)
     () => ({
       props: {
         autoplay: {
-          default: number("autoplay (prop)")
+          default: number("sliderOptions (prop) autoplay")
+        },
+        rewind: {
+          default: boolean("sliderOptions (prop) rewind", false)
         },
         current: {
           default: number("current (prop)", 1)
@@ -61,7 +64,7 @@ storiesOf("Molecules|Gallery", module)
       data,
       components: { SfGallery },
       template: `<SfGallery
-        :autoplay="autoplay"
+        :sliderOptions="{ autoplay, rewind }"
         :current.sync="current"
         :images="images" />`
     }),

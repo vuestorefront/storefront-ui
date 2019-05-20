@@ -10,8 +10,16 @@ export default {
       type: Number,
       default: 1
     },
-    autoplay: {
-      type: Number
+    sliderOptions: {
+      type: Object,
+      default () {
+        // https://glidejs.com/docs/options/
+        return {
+          type: 'slider',
+          autoplay: false,
+          rewind: false
+        }
+      }
     }
   },
 
@@ -35,12 +43,7 @@ export default {
   mounted() {
     // handle slider with swipe and transitions with Glide.js
     // https://glidejs.com/docs/
-    let { activeIndex, autoplay } = this;
-    const glide = new Glide(this.$refs.glide, {
-      startAt: activeIndex,
-      autoplay,
-      rewind: false
-    });
+    const glide = new Glide(this.$refs.glide, this.sliderOptions);
     glide.on("run", () => {
       this.setCurrentImage(glide.index);
     });
