@@ -8,7 +8,7 @@ Swappable gallery for product images.
 
 ![mobile](https://screenshotscdn.firefoxusercontent.com/images/48f605e9-aac5-4fc9-8e11-05e824c46c3b.png)
 
-> You must pass an array of objects (images) with the format below:
+- You must pass an array of objects (images) with the format below:
 
 `
 let images = [
@@ -18,6 +18,18 @@ let images = [
     zoom: { url, alt }
   }
 ]
+`
+
+- We're using [Glidejs](https://glidejs.com/) to handle the slider, you can
+pass the [Glidejs options object](https://glidejs.com/docs/options/)
+trough `sliderOptions` prop, the default is:
+
+`
+{
+  type: 'slider',
+  autoplay: false,
+  rewind: false
+}
 `
 
 ## Events
