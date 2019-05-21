@@ -1,6 +1,6 @@
 import SfTab, { TAB_COMPONENT_NAME } from "../SfTab/SfTab.vue";
 import SfTabsNavigation from "../SfTabsNavigation/SfTabsNavigation.vue";
-
+import Vue from "vue";
 export default {
   name: "SfTabs",
 
@@ -34,10 +34,7 @@ export default {
   },
 
   mounted() {
-    this.sharedState.tabs = this.$children.filter(
-      component => component.$options.name === TAB_COMPONENT_NAME
-    );
-
+    this.updateTabs();
     this.$nextTick(() => {
       if (!this.selected) {
         this.sharedState.activeTab = this.sharedState.tabs[0].id;
@@ -45,9 +42,18 @@ export default {
     });
   },
 
+  updated() {
+    this.updateTabs();
+  },
+
   methods: {
     changeTab(id) {
-      this.sharedState.activeTab = id;
+      Vue.set(this.sharedState, "activeTab", id);
+    },
+    updateTabs() {
+      this.sharedState.tabs = this.$children.filter(
+        component => component.$options.name === TAB_COMPONENT_NAME
+      );
     }
   }
 };
