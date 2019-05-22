@@ -25,13 +25,13 @@ Component for simple group of radio buttons, pass an array get selected value vi
 
 ## SCSS variables
 
-- `$sf-radio__checkmark-size` (23px) - size of the checkmark
-- `$sf-radio__checkmark-margin` - (10px) margin around checkmark
+- `$sf-radio__checkmark-size` (1.438rem) - size of the checkmark
+- `$sf-radio__checkmark-margin` - (0.625rem) margin around checkmark
 
-- `$sf-radio__checkmark-border-width--checked` (9px) - checked radio, ring width
+- `$sf-radio__checkmark-border-width--checked` (0.5625rem) - checked radio, ring width
 - `$sf-radio__checkmark-border-color--checked` ($c-green-primary) - border color of the checked radio
 
-- `$sf-radio__checkmark-border-width` (1px) - unchecked radio, ring width
+- `$sf-radio__checkmark-border-width` (0.0625rem) - unchecked radio, ring width
 - `$sf-radio__checkmark-border-color` ($c-gray-secondary) - border color of the unchecked radio
 
 
