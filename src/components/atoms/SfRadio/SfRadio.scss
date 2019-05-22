@@ -1,11 +1,11 @@
 @import '../../../css/variables';
 
-$sf-radio__checkmark-size: 23px !default;
+$sf-radio__checkmark-size:  1.438rem !default;
 $sf-radio__checkmark-border-color: $c-gray-secondary !default;
-$sf-radio__checkmark-border-width: 1px !default;
+$sf-radio__checkmark-border-width: 0.0625rem !default;
 $sf-radio__checkmark-border-color--checked: $c-green-primary !default;
-$sf-radio__checkmark-border-width--checked: 9px !default;
-$sf-radio__checkmark-margin: 10px !default;
+$sf-radio__checkmark-border-width--checked:  0.5625rem !default;
+$sf-radio__checkmark-margin: 0.625rem !default;
 
 $sf-radio__container-align-items: center !default;
 
