@@ -1,5 +1,5 @@
 export default {
-  name: "SfInputNumber",
+  name: "SfCounter",
 
   props: {
     step: {

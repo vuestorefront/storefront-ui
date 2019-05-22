@@ -13,16 +13,16 @@ returns the new number value
 
 ## CSS Modifiers
 
-- `.sf-input-number--large` - double the default width
+- `.sf-counter--large` - double the default width
 
 <!-- Write down available CSS Modifiers -->
 
 ## SCSS variables
 
-- `$input-number-background` ($c-white)
-- `$input-number-color` ($c-dark-primary)
-- `$input-number-width` (3.7rem)
-- `$input-number-border` (none)
-- `$input-number--large-width` ($input-number-width * 2)
+- `$counter-background` ($c-white)
+- `$counter-color` ($c-dark-primary)
+- `$counter-width` (3.7rem)
+- `$counter-border` (none)
+- `$counter--large-width` ($counter-width * 2)
 
 <!-- Write down SCSS variables available for configuration -->

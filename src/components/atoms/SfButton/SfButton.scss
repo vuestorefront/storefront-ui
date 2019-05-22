@@ -37,16 +37,3 @@ $button--secondary-background-color : $c-dark-primary !default;
     width: 100%;
   }
 }
-
-button {
-  z-index: 1;
-  position: relative;
-  font-size: inherit;
-  font-family: inherit;
-  color: white;
-  padding: 0.5em 1em;
-  outline: none;
-  border: none;
-  overflow: hidden;
-  transition: color 0.4s ease-in-out;
-}
