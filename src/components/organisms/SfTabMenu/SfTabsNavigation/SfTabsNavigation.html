@@ -2,10 +2,10 @@
     <slot>
     <ul class="sf-tabs-navigation__list">
         <li v-for="tab in sharedState.tabs" 
-        :key="tab.id" 
+        :key="tab.valueComputed" 
         class="sf-tabs-navigation__item" 
-        @click="changeTab(tab.id)"
-        :class="{ 'sf-tabs-navigation--active': sharedState.activeTab === tab.id}">
+        @click="changeTab(tab.valueComputed)"
+        :class="{ 'sf-tabs-navigation--active': sharedState.activeTab === tab.valueComputed}">
             <slot name="item" :tab="tab" :change="changeTab">
                 <p  v-text="tab.title"/>
             </slot>

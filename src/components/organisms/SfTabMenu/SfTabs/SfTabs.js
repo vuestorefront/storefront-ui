@@ -18,7 +18,7 @@ export default {
       type: Boolean,
       default: false
     },
-    selected: {
+    value: {
       type: [Number, String],
       default: null
     }
@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       sharedState: {
-        activeTab: this.selected,
+        activeTab: this.value,
         tabs: []
       }
     };
@@ -36,8 +36,8 @@ export default {
   mounted() {
     this.updateTabs();
     this.$nextTick(() => {
-      if (!this.selected) {
-        this.sharedState.activeTab = this.sharedState.tabs[0].id;
+      if (!this.value) {
+        this.changeTab(this.sharedState.tabs[0].valueComputed);
       }
     });
   },
@@ -47,13 +47,14 @@ export default {
   },
 
   methods: {
-    changeTab(id) {
-      Vue.set(this.sharedState, "activeTab", id);
+    changeTab(tab) {
+      Vue.set(this.sharedState, "activeTab", tab);
+      this.$emit("input", tab);
     },
     updateTabs() {
-      this.sharedState.tabs = this.$children.filter(
-        component => component.$options.name === TAB_COMPONENT_NAME
-      );
+      this.sharedState.tabs = this.$children.filter(component => {
+        return component.$options.name === TAB_COMPONENT_NAME;
+      });
     }
   }
 };

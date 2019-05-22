@@ -8,14 +8,17 @@ export default {
       type: String,
       required: true
     },
-    id: {
+    value: {
       type: [Number, String],
-      required: true
+      required: false
     }
   },
   computed: {
     isActive() {
-      return this.id === this.sharedState.activeTab;
+      return this.valueComputed === this.sharedState.activeTab;
+    },
+    valueComputed() {
+      return this.value || this._uid;
     }
   }
 };
