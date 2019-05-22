@@ -2,10 +2,7 @@
 	class="sf-product-option" 
 >
 	<slot>
-		<div 
-			v-if="color" 
-			class="sf-product-option__color" 
-			:style="'background-color:' + color ">
+		<div v-if="color" class="sf-product-option__color" >
 		</div>
 		<div class="sf-product-option__label">{{ label }}</div>
 	</slot>

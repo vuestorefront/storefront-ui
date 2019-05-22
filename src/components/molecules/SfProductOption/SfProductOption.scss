@@ -22,9 +22,4 @@ $product-option-font-family  : $body-font-family-secondary;
         margin-right: $spacer-big;
         border: 1px solid $c-gray-secondary;
     }
-    &--active, &:hover {
-        text-decoration: underline;
-        font-weight: 500;
-        cursor: pointer;
-    }
 }
