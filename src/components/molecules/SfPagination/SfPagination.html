@@ -6,7 +6,7 @@
         :disabled="currentPage < 2"
         @click="setCurrentPage(currentPage - 1)">
         <slot name="prev">
-          <img src="../../../assets/chevron_left.svg" alt="Go to previous page" class="sf-pagination__icon"/>
+          <img src="/assets/chevron_left.svg" alt="Go to previous page" class="sf-pagination__icon"/>
         </slot>
       </a>
     </li>
@@ -14,7 +14,7 @@
     <template v-if="showFirst">
       <li class="sf-pagination__item">
         <a class="sf-pagination__link" @click="setCurrentPage(1)">
-          <slot v-bind:number="1">
+          <slot name="number" v-bind:number="1">
             1
           </slot>
         </a>
@@ -35,7 +35,7 @@
       <a
         class="sf-pagination__link"
         @click="() => { if (currentPage !== number) setCurrentPage(number) }">
-        <slot v-bind:number="number">
+        <slot name="number" v-bind:number="number">
           {{ number }}
         </slot>
       </a>
@@ -49,7 +49,7 @@
       </li>
       <li class="sf-pagination__item">
         <a class="sf-pagination__link" @click="setCurrentPage(total)">
-          <slot v-bind:number="total">
+          <slot name="number" v-bind:number="total">
             {{ total }}
           </slot>
         </a>
@@ -62,7 +62,7 @@
         :disabled="currentPage > total - 1"
         @click="setCurrentPage(currentPage + 1)">
         <slot name="next">
-          <img src="../../../assets/chevron_right.svg" alt="Go to next page" class="sf-pagination__icon"/>
+          <img src="/assets/chevron_right.svg" alt="Go to next page" class="sf-pagination__icon"/>
         </slot>
       </a>
     </li>

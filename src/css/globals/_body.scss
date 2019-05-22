@@ -7,3 +7,10 @@ body {
     font-size: $body-font-size-mobile;
   }
 }
+a {
+  text-decoration: none;
+  color: $c-text-link;
+  &:hover {
+    color: $c-text-link-hover;
+  }
+}

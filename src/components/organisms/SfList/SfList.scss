@@ -1,0 +1,22 @@
+@import '../../../css/variables';
+
+.sf-list {
+  list-style-type: none;
+  padding-left: 0;
+  .sf-list__item {
+    font-size: $font-size-big-mobile;
+    @media (min-width: $desktop-min) {
+      font-size: $font-size-small-desktop;
+    }
+  }
+  .sf-list__item-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacer 0;
+    font-size: $font-size-big-mobile;
+    font-family: $body-font-family-secondary;
+  }
+}
+

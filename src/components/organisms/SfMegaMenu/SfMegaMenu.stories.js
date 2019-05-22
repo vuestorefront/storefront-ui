@@ -3,12 +3,15 @@ import { storiesOf } from "@storybook/vue";
 import SfMegaMenu from "./SfMegaMenu.vue";
 
 storiesOf("Organisms|MegaMenu", module).add(
-  "[slot] default",
+  "Basic",
   () => ({
     components: { SfMegaMenu },
     template: "<sf-mega-menu>Hello Mega-Menu</sf-mega-menu>"
   }),
   {
-    info: true
+    info: {
+      summary: `<h2> Usage </h2>
+      <pre><code>import SfMegaMenu from "@storefrontui/vue/dist/SfMegaMenu.vue"</code></pre>`
+    }
   }
 );

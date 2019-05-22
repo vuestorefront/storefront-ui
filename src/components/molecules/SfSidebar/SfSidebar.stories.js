@@ -3,72 +3,46 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfSidebar from "./SfSidebar.vue";
-
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 storiesOf("Molecules|Sidebar", module)
   .addDecorator(withKnobs)
   .add(
-    "Props",
+    "Basic",
     () => ({
+      data() {
+        return {
+          isSidebarOpen: true
+        };
+      },
       props: {
-        customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-sidebar--right"],
-            "null",
-            "CSS-Modifiers"
-          )
+        position: {
+          default: select("position (prop)", ["left", "right"], "left")
+        },
+        button: {
+          default: select("button (prop)", [true, false], true)
         }
       },
-      components: { SfSidebar },
-      template: `<SfSidebar :class="customClass">Hello World</SfSidebar>`
+      components: { SfSidebar, SfButton },
+      template: `
+      <div>
+      <SfButton @click="isSidebarOpen = true">Open sidebar</SfButton>
+      <SfSidebar       
+        :visible="isSidebarOpen"
+        @close="isSidebarOpen = false"
+        :button="button" 
+        :position="position"
+      >
+        Hello World
+      </SfSidebar>
+      </div>`
     }),
     {
-      info: true,
-      notes
-    }
-  )
-  .add(
-    "[CSS] Right",
-    () => ({
-      components: { SfSidebar },
-      template: "<SfSideba class='sf-sidebar--right'r>Hello World</SfSidebar>"
-    }),
-    {
-      info: true,
-      notes
-    }
-  )
-  .add(
-    "[slot] default",
-    () => ({
-      components: { SfSidebar },
-      template: "<SfSidebar>Hello World</SfSidebar>"
-    }),
-    {
-      info: true,
+      info: {
+        summary:
+          "`SfSidebar` will add `overflow: hidden` CSS property to body once instantiated. This is why you should always use `v-if`." +
+          `<h2> Usage </h2>
+          <pre><code>import SfSidebar from "@storefrontui/vue/dist/SfSidebar.vue"</code></pre>`
+      },
       notes
     }
   );
-//   .add(
-//     "CSS Modifiers",
-//     () => ({
-//       components: { SfComponent },
-//       props: {
-//         customClass: {
-//           default: select(
-//             "CSS Modifier",
-//             ["null", "sf-component--secondary", "sf-component--fsomething-else"],
-//             "null",
-//             "CSS-Modifiers"
-//           )
-//         }
-//       },
-//       template: `
-//       <SfComponent :class="customClass">Hello world</SfComponent>
-//     `
-//     }),
-//     {
-//       info: true,
-//       notes
-//     }
-//   );
