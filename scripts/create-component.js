@@ -1,45 +1,35 @@
 'use strict';
 
-process.on('exit', () => {
-  console.log();
+process.on('exit', code => {
+  if(code === 0) {
+    console.log(`New component is created successfully.`)
+  }
 });
 
-const inquirer = require('inquirer');
 const path = require('path');
 const fs = require('fs');
 const fileSave = require('file-save');
 const uppercamelcase = require('uppercamelcase');
 const glob = require('glob');
+const ATOMIC_TYPE = [
+  'atoms',
+  'molecules',
+  'organisms'
+]
 
-const FOLDER_NAME = 'Which folder';
-const COMPONENT_NAME = 'Component name (Such as Table)';
+if(process.argv.length < 4) {
+  console.warn('Please input atomic type and component name')
+  process.exit(-1);
+}
 
-inquirer
-  .prompt([
-    {
-      name: FOLDER_NAME,
-      type: 'list',
-      choices: [
-        'atoms',
-        'molecules',
-        'organisms'
-      ]
-    },
-    {
-      name: COMPONENT_NAME,
-      validate: v => v.length > 0
-    }
-  ])
-  .then(answers => {
-    const selectedFolder = answers[FOLDER_NAME]
-    const componentName = answers[COMPONENT_NAME]
-
-    createComponent(selectedFolder, componentName)
-  });
+createComponent(process.argv[2],process.argv[3])
 
 
-
-function createComponent(folder, componentName) {
+function createComponent(folder, componentName ) {
+  if(!ATOMIC_TYPE.includes(folder)) {
+    console.warn('Following atomic types are supported: atoms, molecules, organisms')
+    process.exit(-1);
+  }
   const ComponentName = uppercamelcase(componentName);
   const PrefixComponentName = 'Sf' + ComponentName;
   const PackagePath = path.resolve(__dirname, `../src/components/${folder}`, `${PrefixComponentName}`);
@@ -47,8 +37,8 @@ function createComponent(folder, componentName) {
   const ret = glob.sync(PackagePath + '/' + PrefixComponentName + '.js')
 
   if (ret.length > 0) {
-    console.warn(`The ${PrefixComponentName} was already created. \n`)
-    return;
+    console.warn(`${PrefixComponentName} component was already created. \n`)
+    process.exit(-1);
   }
 
   const files = [
@@ -169,7 +159,6 @@ import ${PrefixComponentName} from "./${PrefixComponentName}.vue";
       .end('\n');
   });
 
-  console.log('DONE!');
 }
 
 

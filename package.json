@@ -50,7 +50,6 @@
     "file-save": "^0.2.0",
     "glob": "^7.1.4",
     "html-loader": "^0.5.5",
-    "inquirer": "^6.3.1",
     "lint-staged": "^8.1.6",
     "markdown-loader": "^5.0.0",
     "node-sass": "^4.12.0",
