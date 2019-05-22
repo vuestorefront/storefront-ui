@@ -71,9 +71,11 @@ export default {
 };
 </script>
 
-<template lang="html" src="~@storefrontui/vue/dist/SfButton.js"></template>
+<template lang="html" src="~@storefrontui/vue/dist/SfButton.html"></template>
 
 <style lang="scss" scoped>
+// scoped only for this component
+$c-accent-primary: blue;
 @import "~@storefrontui/vue/dist/SfButton.scss";
 </style>
 ````

@@ -32,14 +32,12 @@ export default {
       set: function(val) {
         this.updateSelected(val);
       }
-    },
-    multiple: function() {
-      return this.isMultiple();
     }
   },
   methods: {
     clicked() {
-      if (this.multiple) {
+      // TODO: Decide if it should be always an array -> probably it should
+      if (this.isMultiple()) {
         if (!Array.isArray(this.selected)) {
           this.selected = [];
         }
