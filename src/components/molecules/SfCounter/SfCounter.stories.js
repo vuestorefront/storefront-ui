@@ -10,7 +10,7 @@ import {
 import notes from "./README.md";
 import SfCounter from "./SfCounter.vue";
 
-storiesOf("Molecules|InputNumber", module)
+storiesOf("Molecules|Counter", module)
   .addDecorator(withKnobs)
   .add(
     "Props / CSS Modifiers",

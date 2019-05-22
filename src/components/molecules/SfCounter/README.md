@@ -2,7 +2,7 @@
 
 <!-- Write about general purpose of the component. Include screenshot (to be replaced with a live example once we migrate to vuepress) -->
 
-Numeric input, for integers and decimals, with controls and customizable range.
+Numeric input, for integers and decimals, with controls and customizable range. 
 
 ![inputNumber](https://screenshotscdn.firefoxusercontent.com/images/3d45fbce-97c3-430f-99c4-0e42b6159034.png)
 

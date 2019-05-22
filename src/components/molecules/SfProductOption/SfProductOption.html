@@ -1,0 +1,12 @@
+<div 
+	class="sf-filter-item" 
+>
+	<slot>
+		<div 
+			v-if="color" 
+			class="sf-filter-item__color" 
+			:style="'background-color:' + color ">
+		</div>
+		<div class="sf-filter-item__label">{{ label }}</div>
+	</slot>
+</div>
