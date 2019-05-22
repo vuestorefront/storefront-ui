@@ -120,7 +120,7 @@ storiesOf("Atoms|Radio", module)
         v-model='selected'
         :class="customClass"
       >
-      <button slot="button" slot-scope={isActive}>{{ isActive }}</button>
+      <button slot="button" slot-scope="{isActive}">{{ isActive }}</button>
       </SfRadio>`
     }),
     {
