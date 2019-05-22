@@ -1,6 +1,6 @@
 {
   "name": "@storefrontui/vue",
-  "version": "0.0.2-aplha.0",
+  "version": "0.0.2-aplha.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -17,8 +17,6 @@
     "@glidejs/glide": "^3.3.0",
     "@snowdog/alpaca-components": "^0.3.0-alpha.5",
     "lozad": "^1.9.0",
-    "node-sass": "^4.11.0",
-    "sass-loader": "^7.1.0",
     "webpack-dev-middleware": "3.6.0"
   },
   "resolutions": {
