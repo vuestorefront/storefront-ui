@@ -10,31 +10,19 @@ export default storiesOf("Molecules|ProductOption", module)
     "Basic",
     () => ({
       components: { SfProductOption },
-      data() {
-        return {
-          activeFilters: []
-        };
-      },
       props: {
-        title: {
-          default: text("label (prop of SfFilterItem)", "Red")
-        },
-        count: {
-          default: text("count (prop of SfFilterItem)", "30")
+        label: {
+          default: text("label", "Red")
         },
         color: {
-          default: select(
-            "color (prop of SfFilterItem)",
-            ["red", "null"],
-            "red"
-          )
+          default: select("color", ["red", "null"], "red")
         }
       },
       template: `
       <div style="width: 300px">
           <SfProductOption
             :color="color"
-            :label="title"
+            :label="label"
             value="filter_val"
           />
       </div>
@@ -43,17 +31,8 @@ export default storiesOf("Molecules|ProductOption", module)
     {
       info: {
         summary: `
-          <h2> Description </h2>
-          <p>This component should be used for filtering products on listings. Use \`<SfFilter>\` as a wrapper for individual filters (\`<SfFilterItem>\`). Value passed to \`v-model\` holds an array (or string if multiple prop is set to false) of value properties from active filters.</p>
-          <p> \`<SfFilterItem>\` has following properties:</p>
-          <ul>
-            <li> \`label\` - label that will be displayed in a component</li>
-            <li> \`value\` - unique identifier</li>
-            <li> \`count\` - (optional) number of items matching given filter</li>
-            <li> \`color\` - (optional) color that will be displayed in a box on the left side (all valid CSS colors can be passed)</li>
-          </ul>
           <h2> Usage </h2>
-          <pre><code>import SfFilter from "@storefrontui/vue/dist/SfFilter.vue"</code></pre>
+          <pre><code>import SfProductOption from "@storefrontui/vue/dist/SfProductOption.vue"</code></pre>
           `
       }
     }

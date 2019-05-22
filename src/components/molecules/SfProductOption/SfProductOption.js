@@ -1,5 +1,5 @@
 export default {
-  name: "SfFilterItem",
+  name: "SfProductOption",
   props: {
     label: {
       type: String,
