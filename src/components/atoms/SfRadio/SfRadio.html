@@ -2,19 +2,21 @@
     <label v-for="(option, index) in options" 
     :key="`radio-${option}-${index}`" 
     class="sf-radio__container"
-    :class="{'sf-radio--checked': option === value}">
+    @click="$emit('input', option.value)"
+    :class="{'sf-radio--checked': option.value === value}">
         <input type="radio" 
             name="gender" 
             class="sf-radio__input"
             :id="option" 
-            :value="option"
-            v-model="value" 
-            @input="$emit('input', option)">
-        <slot name="button" :option="option" :isActive="option === value">
+            :value="option.value">
+        <!--@slot slot for replacing default checkmark -->
+        <slot name="button" :option="option" :isActive="option.value === value">
             <span class="sf-radio__checkmark"></span>
         </slot>
+        
+        <!--@slot slot for customized option content layout -->
         <slot name="content" :option="option">
-            <span class="sf-radio__label">{{ option }}</span>
+            <span class="sf-radio__label">{{ option.label }}</span>
         </slot>
     </label>
 </div>

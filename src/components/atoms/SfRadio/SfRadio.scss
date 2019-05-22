@@ -1,12 +1,18 @@
 @import '../../../css/variables';
 
+$sf-radio__checkmark-size: 23px !default;
 $sf-radio__checkmark-border-color: $c-gray-secondary !default;
+$sf-radio__checkmark-border-width: 1px !default;
 $sf-radio__checkmark-border-color--checked: $c-green-primary !default;
+$sf-radio__checkmark-border-width--checked: 9px !default;
+$sf-radio__checkmark-margin: 10px !default;
+
+$sf-radio__container-align-items: center !default;
 
 .sf-radio {
   &__container {
     display: flex;
-    align-items: center;
+    align-items: $sf-radio__container-align-items;
   }
 
   &__input {
@@ -14,12 +20,13 @@ $sf-radio__checkmark-border-color--checked: $c-green-primary !default;
   }
 
   &__checkmark {
-      height: 23px;
-      width: 23px;
-      border: 1px solid $sf-radio__checkmark-border-color;
+      min-width: $sf-radio__checkmark-size;
+      min-height: $sf-radio__checkmark-size;
+      border: $sf-radio__checkmark-border-width solid $sf-radio__checkmark-border-color;
       border-radius: 50%;
-      margin: 10px;
+      margin: $sf-radio__checkmark-margin;
       box-sizing: border-box;
+      cursor: pointer;
   }
 
   &__label {
@@ -28,7 +35,19 @@ $sf-radio__checkmark-border-color--checked: $c-green-primary !default;
 
   &--checked {
     .sf-radio__checkmark {
-        border: 9px solid $sf-radio__checkmark-border-color--checked;
+        border: $sf-radio__checkmark-border-width--checked solid $sf-radio__checkmark-border-color--checked;
+    }
+  }
+
+  &--align-top {
+    .sf-radio__container {
+      align-items: flex-start;
+    }
+  }
+
+  &--align-bottom {
+    .sf-radio__container {
+      align-items: flex-end;
     }
   }
 }
