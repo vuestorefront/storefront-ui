@@ -5,15 +5,14 @@ At this point I assume you are already familiar with composition rules and know 
 
 ### Start with template
 
-If you're creating a new componet start with `npm run create-component` which accepts two arguments, the first is atomic type, the second is compnent name. When running the command, it will generate boilerplate and help you create a componentnt in standarized way and save a lot of work.
+If you're creating a new componet start with `npm run create-component` which accepts two arguments, the first is atomic
+type, the second is component name. When running the command, it will generate boilerplate and help you create a component in standarized way and save a lot of work.
 
 For example:
 ```bash
 npm run create-component atoms button
 npm run create-component molecules input-number
 ```
-
-
 
 If you're picking already existing just follow the tutorial and finish the missing parts.
 
