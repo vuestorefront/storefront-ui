@@ -41,7 +41,7 @@ export default {
   },
 
   mounted() {
-    this.updateTabs();
+    this.setTabs();
     this.$nextTick(() => {
       if (!this.value) {
         this.changeTab(this.sharedState.tabs[0].valueComputed);
@@ -50,7 +50,7 @@ export default {
   },
 
   updated() {
-    this.updateTabs();
+    this.setTabs();
   },
 
   methods: {
@@ -58,7 +58,7 @@ export default {
       this.$set(this.sharedState, "activeTab", tab);
       this.fireEvent("change", tab);
     },
-    updateTabs() {
+    setTabs() {
       this.sharedState.tabs = this.$children.filter(component => {
         return component.$options.name === TAB_COMPONENT_NAME;
       });
