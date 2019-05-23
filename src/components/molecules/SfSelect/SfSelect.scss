@@ -31,8 +31,7 @@ $sf-select-font-family: $body-font-family-secondary;
   }
   &__options {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 100%;
     z-index: 100;
     width: 100%;
     background-color: #FFF;

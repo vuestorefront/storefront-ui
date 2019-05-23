@@ -6,7 +6,7 @@ import notes from "./SfSelect.md";
 import SfSelect from "./SfSelect.vue";
 import SfProductOption from "../SfProductOption/SfProductOption.vue";
 
-storiesOf("Molecules|[WIP] Select", module)
+storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
   .addDecorator(withA11y)
   .add(
