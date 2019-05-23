@@ -1,10 +1,12 @@
+import Vue from "vue";
 import SfTab, { TAB_COMPONENT_NAME } from "./_internal/SfTab.vue";
 import SfTabsNavigation from "./_internal/SfTabsNavigation.vue";
 
+Vue.component("SfTab", SfTab);
+Vue.component("SfTabsNavigation", SfTabsNavigation);
+
 export default {
   name: "SfTabs",
-
-  components: { SfTab, SfTabsNavigation },
 
   provide() {
     return {
