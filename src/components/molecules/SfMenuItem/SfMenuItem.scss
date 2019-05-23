@@ -1,0 +1,44 @@
+@import '../../../css/variables';
+
+$sf-menu-item-padding     : $spacer 0;
+$sf-menu-item-font-size   : $font-size-big-mobile;
+$sf-menu-item-font-family : $body-font-family-secondary;
+$sf-label-font-size       : 1rem;
+$sf-count-font-color      : $c-gray-primary;
+$sf-count-font-size       : 0.875rem;
+
+.sf-menu-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: $sf-menu-item-padding;
+    font-size: $sf-menu-item-font-size;
+    font-family: $sf-menu-item-font-family;
+    &__right {
+        align-self: flex-end;
+    }
+    &__count {
+        color: $sf-count-font-color;
+        font-size: $sf-count-font-size;
+    }
+    &__mobile-nav-icon {
+        display: inline-flex;
+        margin-left: 1rem;
+        @media (min-width: $desktop-min) {
+          display: none;
+        }
+    }
+    &--center {
+        justify-content: center;
+    }
+}
+
+.sf-menu-item__label {
+    font-size: $sf-label-font-size;
+}
+
+.sf-menu-item__count {
+    color: $sf-count-font-color;
+    font-size: $sf-count-font-size;
+}
