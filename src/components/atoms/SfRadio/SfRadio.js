@@ -2,7 +2,7 @@ export default {
   name: "SfRadio",
   props: {
     /**
-     * Array of objects, keys (label) and (value) are required, more keys are optional
+     * Array of objects, keys (label) and (value) are required
      */
     options: {
       type: Array,

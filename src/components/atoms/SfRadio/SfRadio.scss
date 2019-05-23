@@ -1,18 +1,20 @@
 @import '../../../css/variables';
 
-$sf-radio__checkmark-size:  1.438rem !default;
-$sf-radio__checkmark-border-color: $c-gray-secondary !default;
-$sf-radio__checkmark-border-width: 0.0625rem !default;
-$sf-radio__checkmark-border-color--checked: $c-green-primary !default;
-$sf-radio__checkmark-border-width--checked:  0.5625rem !default;
-$sf-radio__checkmark-margin: 0.625rem !default;
+$radio__checkmark-size:  1.438rem !default;
+$radio__checkmark-border-color: $c-gray-secondary !default;
+$radio__checkmark-border-width: 0.0625rem !default;
+$radio__checkmark-border-color--checked: $c-green-primary !default;
+$radio__checkmark-border-width--checked:  0.5625rem !default;
+$radio__checkmark-margin: 0.625rem !default;
 
-$sf-radio__container-align-items: center !default;
+$radio__container-align-items: flex-start !default;
+$radio__container-background-color--checked: $c-light-primary !default;
 
 .sf-radio {
   &__container {
     display: flex;
-    align-items: $sf-radio__container-align-items;
+    align-items: $radio__container-align-items;
+    padding: $radio__checkmark-margin 0;
   }
 
   &__input {
@@ -20,11 +22,11 @@ $sf-radio__container-align-items: center !default;
   }
 
   &__checkmark {
-      min-width: $sf-radio__checkmark-size;
-      min-height: $sf-radio__checkmark-size;
-      border: $sf-radio__checkmark-border-width solid $sf-radio__checkmark-border-color;
+      min-width: $radio__checkmark-size;
+      min-height: $radio__checkmark-size;
+      border: $radio__checkmark-border-width solid $radio__checkmark-border-color;
       border-radius: 50%;
-      margin: $sf-radio__checkmark-margin;
+      margin: 0 $radio__checkmark-margin;
       box-sizing: border-box;
       cursor: pointer;
   }
@@ -34,14 +36,17 @@ $sf-radio__container-align-items: center !default;
   }
 
   &--checked {
+    background-color: $radio__container-background-color--checked;
+
     .sf-radio__checkmark {
-        border: $sf-radio__checkmark-border-width--checked solid $sf-radio__checkmark-border-color--checked;
+        border: $radio__checkmark-border-width--checked solid $radio__checkmark-border-color--checked;
     }
+
   }
 
-  &--align-top {
+  &--align-center {
     .sf-radio__container {
-      align-items: flex-start;
+      align-items: center;
     }
   }
 

@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, select } from "@storybook/addon-knobs";
+import createStorybookTable from "@/utilities/js-helpers/createStorybookTable";
 import notes from "./README.md";
 import SfRadio from "./SfRadio.vue";
 
@@ -13,58 +14,43 @@ const data = () => ({
   selected: "orange"
 });
 
-const scssDocs = [
-  ["$sf-radio__checkmark-size", "23px", "size of checkmark"],
-  [
-    "$sf-radio__checkmark-border-color",
-    "$c-gray-secondary",
-    "border color of the unchecked radio"
-  ],
-  ["$sf-radio__checkmark-border-width", "1px", "unchecked radio, ring width"],
-  [
-    "$sf-radio__checkmark-border-color--checked",
-    "$c-green-primary",
-    "border color of the checked radio"
-  ],
-  [
-    "$sf-radio__checkmark-border-width--checked",
-    "9px",
-    "checked radio, ring width"
-  ],
-  ["$sf-radio__checkmark-margin", "10px", "margin around checkmark"],
-  [
-    "$sf-radio__container-align-items",
-    "center",
-    "container displays as flex, you can customize here how items should be aligned"
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    ["$radio__checkmark-size", "1.438rem", "size of checkmark"],
+    [
+      "$radio__checkmark-border-color",
+      "$c-gray-secondary",
+      "border color of the unchecked radio"
+    ],
+    [
+      "$radio__checkmark-border-width",
+      "0.0625rem",
+      "unchecked radio, ring width"
+    ],
+    [
+      "$radio__checkmark-border-color--checked",
+      "$c-green-primary",
+      "border color of the checked radio"
+    ],
+    [
+      "$radio__checkmark-border-width--checked",
+      "0.5625rem",
+      "checked radio, ring width"
+    ],
+    ["$radio__checkmark-margin", "0.625rem", "margin around checkmark"],
+    [
+      "$radio__container-align-items",
+      "center",
+      "container displays as flex, you can customize here how items should be aligned"
+    ],
+    [
+      "$radio__container-background-color--checked",
+      "$c-light-primary",
+      "background color of the checked radio label"
+    ]
   ]
-];
-
-const getTableBody = tableData =>
-  tableData.reduce(
-    (acc, item, index) =>
-      (acc =
-        acc +
-        `<tr>${item.reduce(
-          (acc, item, index) => (acc = acc + `<td>${item}</td>`),
-          ""
-        )}</tr>`),
-    ""
-  );
-
-const generateTable = (tableData, label) => `
-<label class="src-components-Table-label-3GH2">${label ? label : ""}</label>
-<table class="src-components-Table-table-3VHw">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Default</th> 
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-       ${getTableBody(tableData)}
-    </tbody>
-</table>`;
+};
 
 storiesOf("Atoms|Radio", module)
   .addDecorator(withKnobs)
@@ -76,7 +62,7 @@ storiesOf("Atoms|Radio", module)
         customClass: {
           default: select(
             "CSS Modifier",
-            ["null", "sf-radio--align-bottom", "sf-radio--align-top"],
+            ["null", "sf-radio--align-bottom", "sf-radio--align-center"],
             "null",
             "CSS-Modifiers"
           )
@@ -94,7 +80,7 @@ storiesOf("Atoms|Radio", module)
         summary: `<p>Component for simple group of radio buttons, pass an array get selected value via v-model.</p>
         <h2> Usage </h2>
         <pre><code>import SfRadio from "@storefrontui/vue/dist/SfRadio.vue"</code></pre>
-        ${generateTable(scssDocs, "SCSS variables")}
+        ${createStorybookTable(scssTableConfig, "SCSS variables")}
         `
       },
       notes
@@ -108,7 +94,7 @@ storiesOf("Atoms|Radio", module)
         customClass: {
           default: select(
             "CSS Modifier",
-            ["null", "sf-radio--align-bottom", "sf-radio--align-top"],
+            ["null", "sf-radio--align-bottom", "sf-radio--align-center"],
             "null",
             "CSS-Modifiers"
           )
@@ -142,7 +128,7 @@ storiesOf("Atoms|Radio", module)
         customClass: {
           default: select(
             "CSS Modifier",
-            ["null", "sf-radio--align-bottom", "sf-radio--align-top"],
+            ["null", "sf-radio--align-bottom", "sf-radio--align-center"],
             "null",
             "CSS-Modifiers"
           )
@@ -155,16 +141,17 @@ storiesOf("Atoms|Radio", module)
         :class="customClass"
       >
       <div slot="content" slot-scope={option}>
-        <p>Name: {{ option.label }}</p>
+        <p style="margin-top: 0">Name: {{ option.label }}</p>
         <p v-if="option.price">Price: {{ option.price }}$</p>
         <p v-if="option.flavour">Flavour: {{ option.flavour }}</p>
-        <p v-if="option.quantity">Quantity: {{ option.quantity }}</p>
+        <p style="margin-bottom: 0" v-if="option.quantity">Quantity: {{ option.quantity }}</p>
       </div>
       </SfRadio>`
     }),
     {
       info: {
-        summary: `<p>Slot for your custom html option structure</p>
+        summary: `<p>Slot for your custom html option structure.</p>
+        <p><strong>hint:</strong> you can extend options object with your values to make this component even more powerfull, see example</p>
       <h2> Usage </h2>
       <pre><code>import SfRadio from "@storefrontui/vue/dist/SfRadio.vue"</code></pre>
       `
