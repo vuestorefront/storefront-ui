@@ -1,0 +1,30 @@
+@import '../../../../css/variables';
+
+$filter-item-padding     : $spacer 0;
+$filter-item-font-size   : $font-size-big-mobile;
+$filter-item-font-family : $body-font-family-secondary;
+
+.sf-filter-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: $filter-item-padding;
+    font-size: $filter-item-font-size;
+    font-family: $filter-item-font-family;
+    &__label {
+        flex-grow: 1;
+    }
+    &__color {
+        width: 1.125rem;
+        height: 1.125rem;
+        background: black;
+        margin-right: $spacer-big;
+        border: 1px solid $c-gray-secondary;
+    }
+    &--active, &:hover {
+        text-decoration: underline;
+        font-weight: 500;
+        cursor: pointer;
+    }
+}

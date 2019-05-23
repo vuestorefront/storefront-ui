@@ -7,7 +7,7 @@ import SfPrice from "./SfPrice.vue";
 storiesOf("Atoms|Price", module)
   .addDecorator(withKnobs)
   .add(
-    "Props",
+    "Basic",
     () => ({
       props: {
         regularPrice: {
@@ -22,7 +22,12 @@ storiesOf("Atoms|Price", module)
         '<SfPrice :regular-price="regularPrice" :special-price="specialPrice"/>'
     }),
     {
-      info: true,
+      info: {
+        summary: `<p>Component for displaying product price.</p>
+        <h2> Usage </h2>
+        <pre><code>import SfPrice from "@storefrontui/vue/dist/SfPrice.vue"</code></pre>
+        `
+      },
       notes
     }
   );

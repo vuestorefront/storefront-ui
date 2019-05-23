@@ -25,13 +25,5 @@ Should be copied and changed to:
 
 # Dealing with SCSS
 
-SCSS should never be directly imported in `<style>` tag. You should create standard `sf-` prefixed classes (used in markup) and if it makes sense import alpaca styles with SCSS `@extend`.
+SCSS should also be copied and adjusted to our CSS naming convention
 
-````css
-.sf-message {
-  @extend .message
-}
-````
-or just copy them and adjust naming linke in HTML part.
-
-read more about SCSS inheritance [here](https://sass-lang.com/guide)
