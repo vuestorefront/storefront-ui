@@ -1,5 +1,5 @@
-import SfTab, { TAB_COMPONENT_NAME } from "../SfTab/SfTab.vue";
-import SfTabsNavigation from "../SfTabsNavigation/SfTabsNavigation.vue";
+import SfTab, { TAB_COMPONENT_NAME } from "./_internal/SfTab.vue";
+import SfTabsNavigation from "./_internal/SfTabsNavigation.vue";
 
 export default {
   name: "SfTabs",

@@ -1,3 +1,9 @@
+<template>
+  <div v-if="isActive">
+    <slot />
+  </div>
+</template>
+<script>
 export const TAB_COMPONENT_NAME = "SfTab";
 
 export default {
@@ -22,3 +28,4 @@ export default {
     }
   }
 };
+</script>
