@@ -1,0 +1,32 @@
+@import '../../../css/variables';
+
+
+$sf-badge--text-color: $c-white;
+
+$sf-badge--alert: $c-pink-primary;
+$sf-badge--warning: $c-blue-primary;
+$sf-badge--info: $c-green-primary;
+$sf-badge--font-size: 0.875rem;
+$sf-badge--padding: 0.625rem;
+
+
+
+.sf-badge {
+  color: $sf-badge--text-color;
+  font-size: $sf-badge--font-size;
+  padding: $sf-badge--padding 0;
+  text-align: center;
+
+  &--alert {
+    background-color: $sf-badge--alert
+  }
+
+  &--warning {
+    background-color: $sf-badge--warning
+  }
+
+  &--info {
+    background-color: $sf-badge--info
+  }
+}        
+        
