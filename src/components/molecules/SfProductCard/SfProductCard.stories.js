@@ -4,7 +4,7 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfProductCard from "./SfProductCard.vue";
 
-storiesOf("Molecules|[WIP] ProductCard", module)
+storiesOf("Molecules| ProductCard", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",

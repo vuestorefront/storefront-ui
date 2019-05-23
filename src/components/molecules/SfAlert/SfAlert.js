@@ -6,10 +6,10 @@ export default {
      */
     message: String,
     /**
-     * Show/hide icon.
+     * Show/hide icon or pass different URL.
      */
     icon: {
-      type: Boolean,
+      type: [Boolean, String],
       default: true
     },
     /**
