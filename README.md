@@ -24,7 +24,7 @@ You can easly change almost every aspect of provided components and use them to 
 **Here are the key characteristics of Storefront UI:**
 
 - Ability to customize any aspect of the library.
-- Seamless upgrades
+- Performance-oriented
 - High-level global customization can be done through SCSS variables
 - Component content customization with slots.
 - Component design customization with pure css BEM classes instead of countless props.
