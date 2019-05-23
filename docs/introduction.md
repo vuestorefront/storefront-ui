@@ -9,19 +9,12 @@ based on Vue.js and
 
 **StorefrontUI is currently in ALPHA which means
 it is not suitable for production!
-Expect things to be broken and APIs to possibly change.**
+Expect things to be broken and APIs to possibly change. See roadmap section below for details**
 
-## Join us!
 
-StorefrontUI is a completely new approach for component libraries oriented
-around customization possibilities instead of out of the box possibilities.
-It's a great goal but it will take a lot of time to achieve it only by ourselves.
-The project is open source and free to use.
+## How to test StorefrontUI?
 
-If you'd like to support us and join the team please write to me:
-**filip [at] vuestorefront.io** ;)
-
-## How to start?
+**Right now StorefrontUI is working only with Nuxt and Vue CLI!**
 
 - Add the package:
 
@@ -44,6 +37,8 @@ import SfComponentName from "@storefrontui/vue/dist/SfComponentName.vue"
 - You can find detailed information about every component inside each components
 [stories](http://storybook.storefrontui.io/)
 
+
+
 ## How to customize?
 
 StorefrontUI components can be customized in many ways:
@@ -55,9 +50,27 @@ StorefrontUI components can be customized in many ways:
 
 You can find [detailed customization info here](customization.md).
 
+## Join us!
+
+StorefrontUI is a completely new approach for component libraries oriented
+around customization possibilities instead of out of the box possibilities.
+It's a great goal but it will take a lot of time to achieve it only by ourselves.
+The project is open source and free to use.
+
+If you'd like to support us and join the team please write to me:
+**filip [at] vuestorefront.io** ;)
+
+# Roadmap 
+
+- Category page components (April) - Done
+- Product Page components (May) (alpha release)
+- Homepage, form elements and a11y (June) 
+- Last polishments and focus on documentation (June/July) (beta release)
+
+Want to help and make it even faster? Grab an issue and become part of our amazing community ;)
+
 ## Useful links
 
 - [StorefrontUI Github](https://github.com/Divanteltd/storefront-ui)
 - [Contribution guide](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md)
-- [Documentation (work in progress)](https://docs.storefrontui.io/)
 - [Storybook docs](https://storybook.js.org/docs/basics/introduction/)

@@ -48,6 +48,12 @@ If you really want to play with components:
 Then check if `sfui.scss` file was created in a root of your app. If not - create it.
 
 
+# Documentation
+
+The documentation is always THE HARDEST PART of each open source project! But we're trying hard. Feel free to contribute to the documentation if you like.
+
+**Please find out what we've already managed to prepare:** [available here](https://docs.storefrontui.io/). Please note that the documentation is not yet finished as this project is still in the early stages of development and will be continuously updated. You can find them also under the `docs/` folder.
+
 
 # Contributing
 
@@ -64,8 +70,8 @@ Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-st
 
 - Category page components (April) - Done
 - Product Page components (May) (alpha release)
-- Homepage and form elements (June) 
-- Last polishments (June/July) (beta release)
+- Homepage, form elements and a11y (June) 
+- Last polishments and focus on documentation (June/July) (beta release)
 
 Want to help and make it even faster? Grab an issue and become part of our amazing community ;)
 

@@ -17,7 +17,10 @@ storiesOf("Molecules|[WIP] ProductCard", module)
       />`
     }),
     {
-      info: true,
+      info: {
+        summary: `<h2> Usage </h2>
+        <pre><code>import SfProductCard from "@storefrontui/vue/dist/SfProductCard.vue"</code></pre>`
+      },
       notes
     }
   );
