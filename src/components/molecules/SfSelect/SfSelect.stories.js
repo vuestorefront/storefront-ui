@@ -4,7 +4,7 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { withA11y } from "@storybook/addon-a11y";
 import notes from "./SfSelect.md";
 import SfSelect from "./SfSelect.vue";
-import SfProductOption from "../SfProductOption/SfProductOption.vue"
+import SfProductOption from "../SfProductOption/SfProductOption.vue";
 
 storiesOf("Molecules|[WIP] Select", module)
   .addDecorator(withKnobs)
