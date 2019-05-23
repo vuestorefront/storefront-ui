@@ -31,7 +31,7 @@ function createComponent(folder, componentName ) {
     process.exit(-1);
   }
   const ComponentName = uppercamelcase(componentName);
-  const PrefixComponentName = 'Sf' + ComponentName;
+  const PrefixComponentName = ComponentName.startsWith('Sf') ? ComponentName : 'Sf' + ComponentName;
   const PackagePath = path.resolve(__dirname, `../src/components/${folder}`, `${PrefixComponentName}`);
   const joinedComponentName = 'sf' + ComponentName.replace(/([A-Z])(?=\w)/g, (s1, s2) => '-' + s2.toLowerCase())
   const ret = glob.sync(PackagePath + '/' + PrefixComponentName + '.js')
