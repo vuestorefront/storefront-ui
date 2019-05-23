@@ -6,7 +6,7 @@
         class="sf-tabs-navigation__item" 
         @click="changeTab(tab.valueComputed)"
         :class="{ 'sf-tabs-navigation--active': sharedState.activeTab === tab.valueComputed}">
-            <slot name="item" :tab="tab" :change="changeTab" :isActive="sharedState.activeTab === tab.valueComputed">
+            <slot name="item" :tab="tab" :changeTab="changeTab" :isActive="sharedState.activeTab === tab.valueComputed">
                 <p  v-text="tab.title"/>
             </slot>
         </li>

@@ -1,6 +1,6 @@
 import SfTab, { TAB_COMPONENT_NAME } from "../SfTab/SfTab.vue";
 import SfTabsNavigation from "../SfTabsNavigation/SfTabsNavigation.vue";
-import Vue from "vue";
+
 export default {
   name: "SfTabs",
 
@@ -9,8 +9,15 @@ export default {
   provide() {
     return {
       changeTab: this.changeTab,
-      sharedState: this.sharedState
+      sharedState: this.sharedState,
+      fireEvent: this.fireEvent,
+      listenEvent: this.listenEvent
     };
+  },
+
+  model: {
+    prop: "value",
+    event: "change"
   },
 
   props: {
@@ -48,13 +55,19 @@ export default {
 
   methods: {
     changeTab(tab) {
-      Vue.set(this.sharedState, "activeTab", tab);
-      this.$emit("input", tab);
+      this.$set(this.sharedState, "activeTab", tab);
+      this.fireEvent("change", tab);
     },
     updateTabs() {
       this.sharedState.tabs = this.$children.filter(component => {
         return component.$options.name === TAB_COMPONENT_NAME;
       });
+    },
+    fireEvent(name, value) {
+      this.$emit(name, value);
+    },
+    listenEvent(name, callback) {
+      this.$on(name, callback);
     }
   }
 };
