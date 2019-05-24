@@ -62,7 +62,7 @@ storiesOf("Atoms|Radio", module)
         customClass: {
           default: select(
             "CSS Modifier",
-            ["null", "sf-radio--align-bottom", "sf-radio--align-center"],
+            ["null", "sf-radio--center"],
             "null",
             "CSS-Modifiers"
           )
@@ -94,7 +94,7 @@ storiesOf("Atoms|Radio", module)
         customClass: {
           default: select(
             "CSS Modifier",
-            ["null", "sf-radio--align-bottom", "sf-radio--align-center"],
+            ["null", "sf-radio--center"],
             "null",
             "CSS-Modifiers"
           )
@@ -128,7 +128,7 @@ storiesOf("Atoms|Radio", module)
         customClass: {
           default: select(
             "CSS Modifier",
-            ["null", "sf-radio--align-bottom", "sf-radio--align-center"],
+            ["null", "sf-radio--center"],
             "null",
             "CSS-Modifiers"
           )

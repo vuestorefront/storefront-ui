@@ -33,6 +33,7 @@ $radio__container-background-color--checked: $c-light-primary !default;
 
   &__label {
       height: 100%;
+      line-height: 100%;
   }
 
   &--checked {
@@ -44,15 +45,10 @@ $radio__container-background-color--checked: $c-light-primary !default;
 
   }
 
-  &--align-center {
+  &--center {
     .sf-radio__container {
       align-items: center;
     }
   }
 
-  &--align-bottom {
-    .sf-radio__container {
-      align-items: flex-end;
-    }
-  }
 }

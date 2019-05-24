@@ -72,10 +72,10 @@ describe("SfRadio.vue", () => {
         value
       },
       attrs: {
-        class: 'sf-radio--align-top'
+        class: 'sf-radio--center'
       }
     });
-    expect(component.contains(".sf-radio--align-top")).toBe(true)
+    expect(component.contains(".sf-radio--center")).toBe(true)
   });
 
 });
