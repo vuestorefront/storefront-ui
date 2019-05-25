@@ -20,7 +20,7 @@ Component to list page numbers and start handling content pagination.
 
 <!-- Describe slots and their purpose -->
 
-- `default` - Page item, contains the respective page number by default.
+- `number` - Page item, contains the respective page number by default.
 
 - `prev` - Previous page link, contents chevron left icon by default.
 

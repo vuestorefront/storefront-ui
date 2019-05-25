@@ -16,25 +16,23 @@ $c-blue-secondary: #F5F7FA !default;
 $c-black: #000000 !default;
 $c-white: #FFFFFF !default;
 
+
 // Accent
 $c-accent-primary: $c-green-primary !default;
 $c-accent-secondary: $c-green-secondary !default;
-
-// Alerts
-$c-info-text: $c-blue-primary !default;
-$c-info-bg: $c-blue-secondary !default;
-$c-warning-text: $c-yellow-primary !default;
-$c-warning-bg: $c-yellow-secondary !default;
-$c-error-text: $c-pink-primary !default;
-$c-error-bg: $c-pink-secondary !default;
 
 // Text
 $c-text-primary: $c-dark-primary !default;
 $c-text-secondary: $c-gray-secondary !default;
 $c-text-on-light: $c-black !default;
 $c-text-on-dark: $c-white !default;
+$c-text-link: $c-dark-secondary !default;
+$c-text-link-hover: $c-dark-primary !default;
 
 // Background
 $c-bg-primary: $c-light-primary !default;
 $c-bg-secondary: $c-light-secondary !default;
 
+// Border
+
+$c-border: $c-light-primary;
