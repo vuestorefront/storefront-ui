@@ -8,7 +8,7 @@
 
 Customization-first and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team.
 
-- [Website](http://storefrontui.io/) 
+- [Website](http://storefrontui.io/)
 - [Documentation](http://docs.storefrontui.io/) (still in very early stages)
 - [Storybook](http://storybook.storefrontui.io/)
 
@@ -17,7 +17,7 @@ Customization-first and elegant UI framework for eCommerce (and not only) based 
 
 # What makes it unique?
 
-Some libraries aim to give as much as they can out of the box but they faill when it comes to customization. Our goal was to enable as much as possible out of the box but with primar focus on ability to customize any aspect of the components. 
+Some libraries aim to give as much as they can out of the box but they faill when it comes to customization. Our goal was to enable as much as possible out of the box but with primary focus on ability to customize any aspect of the components.
 
 With sfui you need to do a little bit more than with other libs for basic tasks but you get 100% customizable components in return!
 
@@ -75,11 +75,11 @@ Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-st
 # Supporters
 <a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="40px"></a>
 
-# Roadmap 
+# Roadmap
 
 - Category page components (April) - Done
 - Product Page components (May) (alpha release)
-- Homepage, form elements and a11y (June) 
+- Homepage, form elements and a11y (June)
 - Last polishments and focus on documentation (June/July) (beta release)
 
 Want to help and make it even faster? Grab an issue and become part of our amazing community ;)
