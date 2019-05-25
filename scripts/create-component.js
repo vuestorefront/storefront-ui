@@ -1,49 +1,54 @@
-'use strict';
+"use strict";
 
-process.on('exit', code => {
-  if(code === 0) {
-    console.log(`New component is created successfully.`)
+process.on("exit", code => {
+  if (code === 0) {
+    console.log(`New component is created successfully.`);
   }
 });
 
-const path = require('path');
-const fs = require('fs');
-const fileSave = require('file-save');
-const uppercamelcase = require('uppercamelcase');
-const glob = require('glob');
-const ATOMIC_TYPE = [
-  'atoms',
-  'molecules',
-  'organisms'
-]
+const path = require("path");
+const fs = require("fs");
+const fileSave = require("file-save");
+const uppercamelcase = require("uppercamelcase");
+const glob = require("glob");
+const ATOMIC_TYPE = ["atoms", "molecules", "organisms"];
 
-if(process.argv.length < 4) {
-  console.warn('Please input atomic type and component name')
+if (process.argv.length < 4) {
+  console.warn("Please input atomic type and component name");
   process.exit(-1);
 }
 
-createComponent(process.argv[2],process.argv[3])
+createComponent(process.argv[2], process.argv[3]);
 
-
-function createComponent(folder, componentName ) {
-  if(!ATOMIC_TYPE.includes(folder)) {
-    console.warn('Following atomic types are supported: atoms, molecules, organisms')
+function createComponent(folder, componentName) {
+  if (!ATOMIC_TYPE.includes(folder)) {
+    console.warn(
+      "Following atomic types are supported: atoms, molecules, organisms"
+    );
     process.exit(-1);
   }
   const ComponentName = uppercamelcase(componentName);
-  const PrefixComponentName = ComponentName.startsWith('Sf') ? ComponentName : 'Sf' + ComponentName;
-  const PackagePath = path.resolve(__dirname, `../src/components/${folder}`, `${PrefixComponentName}`);
-  const joinedComponentName = 'sf' + ComponentName.replace(/([A-Z])(?=\w)/g, (s1, s2) => '-' + s2.toLowerCase())
-  const ret = glob.sync(PackagePath + '/' + PrefixComponentName + '.js')
+  const PrefixComponentName = ComponentName.startsWith("Sf")
+    ? ComponentName
+    : "Sf" + ComponentName;
+  const PackagePath = path.resolve(
+    __dirname,
+    `../src/components/${folder}`,
+    `${PrefixComponentName}`
+  );
+  const joinedComponentName =
+    "sf" +
+    ComponentName.replace(/([A-Z])(?=\w)/g, (s1, s2) => "-" + s2.toLowerCase());
+  const ret = glob.sync(PackagePath + "/" + PrefixComponentName + ".js");
 
   if (ret.length > 0) {
-    console.warn(`${PrefixComponentName} component was already created. \n`)
+    console.warn(`${PrefixComponentName} component was already created. \n`);
     process.exit(-1);
   }
 
   const files = [
     {
-      fileName: 'README.md',
+      fileName: "README.md",
       content: `# ${PrefixComponentName}
 
 ## Events
@@ -149,23 +154,12 @@ import ${PrefixComponentName} from "./${PrefixComponentName}.vue";
 <template lang="html" src="./${PrefixComponentName}.html"></template>
 <style lang="scss" src="./${PrefixComponentName}.scss"></style>
         `
-    },
-  ]
-
+    }
+  ];
 
   files.forEach(file => {
     fileSave(path.join(PackagePath, file.fileName))
-      .write(file.content, 'utf8')
-      .end('\n');
+      .write(file.content, "utf8")
+      .end("\n");
   });
-
 }
-
-
-
-
-
-
-
-
-
