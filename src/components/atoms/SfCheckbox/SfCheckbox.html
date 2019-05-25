@@ -3,22 +3,23 @@
     :id="id"
     :name="name"
     type="checkbox"
-    :class="['sf-checkbox__field', inputClass]"
+    class="sf-checkbox__field"
     :checked="finalValue === value"
-    @change="change($event.target.checked)"
-  />
-  <!-- @slot Custom checkbox markup (Named slot) -->
-  <slot name="label">
-    <label :for="id" :class="['sf-checkbox__label', labelClass]">
-      <span class="sf-checkbox__icon" :class="[iconClass,'sf-checkbox__icon']">
-        <img
-          class="sf-checkbox__icon-svg"
-          src="/assets/check.svg"
-          alt="Checkbox Icon"
-        />
+    @change="change($event.target.checked)" />
+  <!-- @slot Custom checkbox label markup (binds `checked` boolean) -->
+  <slot name="label" :checked="finalValue === value">
+    <label :for="id" class="sf-checkbox__label">
+      <span class="sf-checkbox__icon">
+        <!-- @slot Custom checked icon image markup -->
+        <slot name="icon">
+          <img
+            class="sf-checkbox__icon-svg"
+            src="/assets/check.svg"
+            alt="Check icon" />
+        </slot>
       </span>
-      <!-- @slot Custom label content (Default slot) -->
-      <slot />
+      <!-- @slot Custom checkbox label text (binds `checked` boolean) -->
+      <slot :checked="finalValue === value" />
     </label>
   </slot>
 </div>
