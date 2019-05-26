@@ -4,10 +4,11 @@
     :name="name"
     type="checkbox"
     class="sf-checkbox__field"
-    :checked="finalValue === value"
-    @change="change($event.target.checked)" />
+    :value="true"
+    v-model="isChecked"
+    :disabled="disabled" />
   <!-- @slot Custom checkbox label markup (binds `checked` boolean) -->
-  <slot name="label" :checked="finalValue === value">
+  <slot name="label" :checked="isChecked">
     <label :for="id" class="sf-checkbox__label">
       <span class="sf-checkbox__icon">
         <!-- @slot Custom checked icon image markup -->
@@ -19,7 +20,7 @@
         </slot>
       </span>
       <!-- @slot Custom checkbox label text (binds `checked` boolean) -->
-      <slot :checked="finalValue === value" />
+      <slot :checked="isChecked" />
     </label>
   </slot>
 </div>

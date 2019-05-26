@@ -1,53 +1,63 @@
 export default {
   name: "SfCheckbox",
-  model: {
-    prop: "finalValue",
-    event: "input"
-  },
+
   props: {
     /**
-     * Final value
+     * Current input value (`v-model`)
      */
-    finalValue: {
+    value: {
       type: [String, Boolean, Number, Object],
       default: false
     },
     /**
-     * Unchecked value
+     * Value emitted when input is checked
+     */
+    checkedValue: {
+      type: [String, Boolean, Number, Object],
+      default: true
+    },
+    /**
+     * Value emitted when input is unchecked
      */
     uncheckedValue: {
       type: [String, Boolean, Number, Object],
       default: false
     },
     /**
-     * Input value
-     */
-    value: {
-      type: [String, Boolean, Number, Object],
-      default: true
-    },
-    /**
-     * Input id
+     * Native input ID attribute
      */
     id: {
       type: String,
       default: null
     },
     /**
-     * Input name
+     * Native input name attribute
      */
     name: {
       type: String,
       default: null
+    },
+    /**
+     * Native input disabled attribute
+     */
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
-  methods: {
-    change(checked) {
-      /**
-       * Event for select/unselect
-       * @type {Event}
-       */
-      this.$emit("input", checked ? this.value : this.uncheckedValue);
+
+  computed: {
+    isChecked: {
+      get() {
+        return this.value === this.checkedValue;
+      },
+      set(checked) {
+        /**
+         * Event for check/uncheck (`v-model`)
+         * @type {Event}
+         */
+        this.$emit("input", checked ? this.checkedValue : this.uncheckedValue);
+      }
     }
   }
 };
