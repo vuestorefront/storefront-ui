@@ -7,15 +7,19 @@ $sf-badge--alert: $c-pink-primary;
 $sf-badge--warning: $c-blue-primary;
 $sf-badge--info: $c-green-primary;
 $sf-badge--font-size: 0.875rem;
-$sf-badge--padding: 0.625rem;
+$sf-badge--padding: 0.625rem 0.3125rem;
 
 
 
 .sf-badge {
+  display: inline-block;
+  min-width: 10rem;
   color: $sf-badge--text-color;
   font-size: $sf-badge--font-size;
-  padding: $sf-badge--padding 0;
+  padding: $sf-badge--padding;
   text-align: center;
+  background-color: $sf-badge--info;
+  box-sizing: border-box;
 
   &--alert {
     background-color: $sf-badge--alert
@@ -25,8 +29,8 @@ $sf-badge--padding: 0.625rem;
     background-color: $sf-badge--warning
   }
 
-  &--info {
-    background-color: $sf-badge--info
+  &--full-width {
+    width: 100%;
   }
 }        
         

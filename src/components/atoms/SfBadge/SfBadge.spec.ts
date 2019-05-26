@@ -8,10 +8,10 @@ describe("SfBadge.vue", () => {
   });
 
   it("renders a badge with css modifier", () => {
-    const component = shallowMount(SfBadge, {
-      propsData: {
-        type: "warning",
-      }
+    const component = shallowMount({
+      components: {SfBadge},
+      template : `<SfBadge class="sf-badge--warning" />`,
+      
     });
     expect(component.contains(".sf-badge--warning")).toBe(true);
   });
@@ -19,9 +19,6 @@ describe("SfBadge.vue", () => {
   it("renders a badge content via default slot", () => {
     const content = 'sfbadge content'
     const component = shallowMount(SfBadge, {
-      propsData: {
-        type: "warning",
-      },
       slots: {
         default: content,
       }

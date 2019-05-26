@@ -7,31 +7,32 @@ import SfBadge from "./SfBadge.vue";
 storiesOf("Atoms|Badge", module)
   .addDecorator(withKnobs)
   .add(
-    "info",
+    "Basic",
     () => ({
       components: { SfBadge },
-      template: `<SfBadge>
-        default type
-        </SfBadge>`
+      props: {
+        customClass: {
+          default: select(
+            "CSS Modifier",
+            ["null", "sf-badge--alert", "sf-badge--warning", "sf-button--full-width","sf-button--full-width  sf-badge--warning"],
+            "null"
+          )
+        }
+      },
+      template: `<SfBadge :class="customClass">
+      LIMITED
+</SfBadge>`
     }),
-  )
-  .add(
-    "warning",
-    () => ({
-      components: { SfBadge },
-      template: `<SfBadge type="warning">
-        warning type
-        </SfBadge>`
-    }),
-  )
-  .add(
-    "alert",
-    () => ({
-      components: { SfBadge },
-      template: `<SfBadge type="alert">
-        alert type
-        </SfBadge>`
-    }),
+    {
+      info: {
+        summary: `
+        <h2> Description </h2>
+        <p>Badge component. Place desired content into its default slot.</p>
+        <h2> Usage </h2>
+        <pre><code>import SfBadge from "@storefrontui/vue/dist/SfBadge.vue"</code></pre>
+        `
+      }
+    }
   )
 
 
