@@ -82,5 +82,13 @@ Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-st
 - Homepage, form elements and a11y (June)
 - Last polishments and focus on documentation (June/July) (beta release)
 
+**Other things to include in the meantime:**
+- include additional build for every compoennt so they can also be imported separately but after a build step (useful for apps that don't have a build step at all)
+- webpack build that can be merged into your current one with everything that is needed to consume SFUI webpack source
+
+**In consideration**
+- SCSS - CSS vars transition
+
+
 Want to help and make it even faster? Grab an issue and become part of our amazing community ;)
 
