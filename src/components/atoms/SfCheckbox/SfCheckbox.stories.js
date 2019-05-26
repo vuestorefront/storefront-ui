@@ -1,81 +1,62 @@
-// /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { action } from "@storybook/addon-actions";
 import SfCheckbox from "./SfCheckbox.vue";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
-const defaultData = {
-  components: { SfCheckbox },
-  data: () => {
-    return {
-      status: false
-    };
-  },
-  methods: {
-    onChange: action("Option changed")
-  }
-};
+export default storiesOf("Molecules|Checkbox", module)
+  .addDecorator(withKnobs)
 
-storiesOf("Checkbox", module)
-  .addParameters({ info: true })
-  .add("Basic", () => ({
-    ...defaultData,
-    template: `
-      <sf-checkbox
-        id="sf-checkbox-default"
-        name="sf-checkbox-default"
+  .add(
+    "Basic",
+    () => ({
+      components: { SfCheckbox },
+
+      data: () => {
+        return {
+          status: false
+        };
+      },
+
+      props: {
+        checkedValue: {
+          default: boolean("checkedValue (prop)", true)
+        },
+        uncheckedValue: {
+          default: boolean("uncheckedValue (prop)", false)
+        },
+        id: {
+          default: text("id (prop)", "sf-checkbox-default")
+        },
+        name: {
+          default: text("id (prop)", "sf-checkbox-default")
+        },
+        disabled: {
+          default: boolean("disabled (prop)", false)
+        }
+      },
+
+      template: `<SfCheckbox
+        :id="id"
+        :name="name"
+        :disabled="disabled"
         v-model="status"
-        @input="onChange"
-      />
-    `
-  }))
-  .add("With label", () => ({
-    ...defaultData,
-    template: `
-      <sf-checkbox
-        id="sf-checkbox-with-label"
-        name="sf-checkbox-with-label"
-        v-model="status"
-        @input="onChange"
-      >
-        Checkbox label example
-      </sf-checkbox>
-    `
-  }))
-  .add("With inline status", () => ({
-    ...defaultData,
-    template: `
-      <sf-checkbox
-        id="sf-checkbox-with-inline-status"
-        name="sf-checkbox-with-inline-status"
-        v-model="status"
-        @input="onChange"
-      >
-        Am i checked: {{status}}
-      </sf-checkbox>
-    `
-  }))
-  .add("Slots", () => ({
-    ...defaultData,
-    template: `
-      <sf-checkbox
-        id="sf-checkbox-slots"
-        name="sf-checkbox-slots"
-        v-model="status"
-        @input="onChange"
-      >
-        <template #label>
-          <label for="sf-checkbox-slots" class="sf-checkbox__label">
-            <span class="sf-checkbox__icon">
-              <img
-                class="sf-checkbox__icon-svg"
-                src="/assets/check.svg"
-                alt="Checkbox Icon"
-              />
-            </span>
-            <img src="https://via.placeholder.com/350x60?text=Checkbox+Content+Image" alt="placeholder image" style="display: block;">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dicta ea fugiat maiores non, nulla praesentium similique voluptatum! Aperiam asperiores dolores eius eum impedit minima necessitatibus numquam saepe ullam veritatis!
-          </label>
-        </template>
-      </sf-checkbox>
-    `
-  }));
+        />`
+    }),
+
+    {
+      info: {
+        summary: `
+          <h2> Description </h2>
+          <p>This component should be used for filtering products on listings. Use \`<SfFilter>\` as a wrapper for individual filters (\`<SfFilterItem>\`). Value passed to \`v-model\` holds an array (or string if multiple prop is set to false) of value properties from active filters.</p>
+          <p> \`<SfFilterItem>\` has following properties:</p>
+          <ul>
+            <li> \`label\` - label that will be displayed in a component</li>
+            <li> \`value\` - unique identifier</li>
+            <li> \`count\` - (optional) number of items matching given filter</li>
+            <li> \`color\` - (optional) color that will be displayed in a box on the left side (all valid CSS colors can be passed)</li>
+          </ul>
+          <h2> Usage </h2>
+          <pre><code>import SfFilter from "@storefrontui/vue/dist/SfFilter.vue"</code></pre>
+          `
+      }
+    }
+  );
