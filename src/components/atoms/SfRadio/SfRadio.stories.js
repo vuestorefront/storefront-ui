@@ -106,7 +106,7 @@ storiesOf("Atoms|Radio", module)
         v-model='selected'
         :class="customClass"
       >
-      <button slot="button" slot-scope="{isActive}">{{ isActive }}</button>
+      <button #button="{ isActive }">{{ isActive }}</button>
       </SfRadio>`
     }),
     {
@@ -140,7 +140,7 @@ storiesOf("Atoms|Radio", module)
         v-model='selected'
         :class="customClass"
       >
-      <div slot="content" slot-scope={option}>
+      <div #content={option}>
         <p style="margin-top: 0">Name: {{ option.label }}</p>
         <p v-if="option.price">Price: {{ option.price }}$</p>
         <p v-if="option.flavour">Flavour: {{ option.flavour }}</p>
