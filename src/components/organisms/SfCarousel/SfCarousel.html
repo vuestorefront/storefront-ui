@@ -1,11 +1,25 @@
-<div class="glide" ref="glide">
-  <div class="glide__track" data-glide-el="track">
-    <ul class="glide__slides">
-      <slot />
-    </ul>
+<div class="sf-carousel">
+  <div class="glide" ref="glide">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+        <slot />
+      </ul>
+    </div>
   </div>
-  <div>
-    <button @click="glide.go('<')">prev</button>
-    <button @click="glide.go('>')">next</button>
+  <div class="sf-carousel__controls">
+    <button
+      class="sf-carousel__control"
+      @click="glide.go('<')"
+      type="button"
+      aria-label="previous">
+      <img src="/assets/arrow_left.svg" alt="">
+    </button>
+    <button
+      aria-label="next"
+      class="sf-carousel__control sf-carousel__control--right"
+      type="button"
+      @click="glide.go('>')">
+        <img src="/assets/arrow_left.svg" alt="">
+    </button>
   </div>
 </div>

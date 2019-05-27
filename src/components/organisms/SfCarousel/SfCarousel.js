@@ -18,14 +18,18 @@ export default {
     },
     breakpoints: {
       type: Object,
-      default: () => ({})
+      default: () => ({
+        480: {
+          perView: 1
+        }
+      })
     }
   },
   methods: {},
   mounted: function() {
     const glide = new Glide(this.$refs.glide, {
-      perView: this.perPage,
-      type: "carousel"
+      type: "carousel",
+      perView: this.perPage
     });
 
     glide.mount({ Controls });

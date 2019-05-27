@@ -1,4 +1,25 @@
 @import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
-.glide{
-  &__slide{}
+.sf-carousel{
+  position: relative;
+  width: 100%;
+  padding: 0 60px;
+  &__controls{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__control{
+    display: flex;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    &--right{
+      transform: rotate(180deg);
+    }
+  }
 }
