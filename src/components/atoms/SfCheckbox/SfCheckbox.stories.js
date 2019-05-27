@@ -2,19 +2,22 @@ import { storiesOf } from "@storybook/vue";
 import SfCheckbox from "./SfCheckbox.vue";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
-export default storiesOf("Molecules|Checkbox", module)
+const vm = {
+  components: { SfCheckbox },
+  data: () => {
+    return {
+      status: false
+    };
+  }
+};
+
+export default storiesOf("Atoms|Checkbox", module)
   .addDecorator(withKnobs)
 
   .add(
     "Basic",
     () => ({
-      components: { SfCheckbox },
-
-      data: () => {
-        return {
-          status: false
-        };
-      },
+      ...vm,
 
       props: {
         checkedValue: {
@@ -34,29 +37,71 @@ export default storiesOf("Molecules|Checkbox", module)
         }
       },
 
-      template: `<SfCheckbox
-        :id="id"
-        :name="name"
-        :disabled="disabled"
-        v-model="status"
-        />`
+      template: `
+        <SfCheckbox
+          :id="id"
+          :name="name"
+          :disabled="disabled"
+          v-model="status"
+          />`
     }),
 
     {
       info: {
         summary: `
-          <h2> Description </h2>
-          <p>This component should be used for filtering products on listings. Use \`<SfFilter>\` as a wrapper for individual filters (\`<SfFilterItem>\`). Value passed to \`v-model\` holds an array (or string if multiple prop is set to false) of value properties from active filters.</p>
-          <p> \`<SfFilterItem>\` has following properties:</p>
-          <ul>
-            <li> \`label\` - label that will be displayed in a component</li>
-            <li> \`value\` - unique identifier</li>
-            <li> \`count\` - (optional) number of items matching given filter</li>
-            <li> \`color\` - (optional) color that will be displayed in a box on the left side (all valid CSS colors can be passed)</li>
-          </ul>
+          <h2>
+            Description
+          </h2>
+          <p>
+            Single input checkbox component,
+            called by \`<SfCheckbox>\`.
+            <br>
+            You should use it with \`v-model\`, default value is boolean
+            (false when unchecked and true when checked), and may also use default slot
+            to fill label content.
+          </p>
           <h2> Usage </h2>
-          <pre><code>import SfFilter from "@storefrontui/vue/dist/SfFilter.vue"</code></pre>
+          <pre><code>import SfCheckbox from "@storefrontui/vue/dist/SfCheckbox.vue"</code></pre>
           `
       }
+    }
+  )
+
+  .add(
+    "[slot] default",
+    () => ({
+      ...vm,
+
+      template: `
+       <SfCheckbox
+         id="sf-checkbox-slot"
+         name="sf-checkbox-slot"
+         v-model="status">
+         Accept terms
+       </SfCheckbox>`
+    }),
+    {
+      info: true
+    }
+  )
+
+  .add(
+    "[slot] icon",
+    () => ({
+      ...vm,
+
+      template: `
+       <SfCheckbox
+         id="sf-checkbox-slot-icon"
+         name="sf-checkbox-slot-icon"
+         v-model="status">
+         Accept terms
+         <template #icon="{ checked }">
+           <span v-if="checked">#</span>
+         </template>
+       </SfCheckbox>`
+    }),
+    {
+      info: true
     }
   );
