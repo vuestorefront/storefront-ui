@@ -3,24 +3,15 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: "Search for items"
-    },
-    iconSrc: {
-      type: String,
-      default: ""
-    },
-    alt: {
-      type: String,
-      default: "Search image"
+      default: "Search for..."
     },
     value: {
-      type: String,
-      default: ""
-    }
-  },
-  methods: {
-    searchValue: function(value) {
-      this.$emit("input", value);
+      type: [Number, String],
+      default: null
+    },
+    icon: {
+      type: Boolean,
+      default: true
     }
   }
 };
