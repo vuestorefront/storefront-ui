@@ -12,39 +12,50 @@ storiesOf("Organisms|[WIP] Carousel", module)
     () => ({
       components: { SfCarousel, SfProductCard },
       data() {
-        return {
-          products: [
-            { title: "Product 1" },
-            { title: "Product 2" },
-            { title: "Product 3" },
-            { title: "Product 4" },
-            { title: "Product 5" },
-            { title: "Product 6" },
-            { title: "Product 7" },
-            { title: "Product 8" },
-            { title: "Product 9" },
-            { title: "Product 10" },
-            { title: "Product 11" },
-            { title: "Product 12" }
-          ]
-        };
+        return {};
       },
       template: `
-      <div style="max-width: 800px">
-        <SfCarousel
-          :per-page="4"
-          :breakpoints="{
-            480: {
-              perView: 1
-            },
-            600: {
-              perView: 2
-            }
-          }"
-          >
-          <SfCarouselItem v-for="product in products">
+      <div style="max-width: 960px">
+        <SfCarousel :per-page="4">
+          <SfCarouselItem>
             <SfProductCard
-              :title="product.title"
+              :title="Product"
+              :price="{ regularPrice: '10,99 $'}"
+              :rating="{ max: 5, score: 4 }"/>
+          </SfCarouselItem>
+          <SfCarouselItem>
+            <SfProductCard
+              :title="Product"
+              :price="{ regularPrice: '10,99 $'}"
+              :rating="{ max: 5, score: 4 }"/>
+          </SfCarouselItem>
+          <SfCarouselItem>
+            <SfProductCard
+              :title="Product"
+              :price="{ regularPrice: '10,99 $'}"
+              :rating="{ max: 5, score: 4 }"/>
+          </SfCarouselItem>
+          <SfCarouselItem>
+            <SfProductCard
+              :title="Product"
+              :price="{ regularPrice: '10,99 $'}"
+              :rating="{ max: 5, score: 4 }"/>
+          </SfCarouselItem>
+          <SfCarouselItem>
+            <SfProductCard
+              :title="Product"
+              :price="{ regularPrice: '10,99 $'}"
+              :rating="{ max: 5, score: 4 }"/>
+          </SfCarouselItem>
+          <SfCarouselItem>
+            <SfProductCard
+              :title="Product"
+              :price="{ regularPrice: '10,99 $'}"
+              :rating="{ max: 5, score: 4 }"/>
+          </SfCarouselItem>
+          <SfCarouselItem>
+            <SfProductCard
+              :title="Product"
               :price="{ regularPrice: '10,99 $'}"
               :rating="{ max: 5, score: 4 }"/>
           </SfCarouselItem>
