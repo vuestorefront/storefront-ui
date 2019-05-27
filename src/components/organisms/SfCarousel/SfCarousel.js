@@ -14,13 +14,22 @@ export default {
   props: {
     perPage: {
       type: Number,
-      default: 1
+      default: 4
+    },
+    breakpoints: {
+      type: Object,
+      default: () => ({})
     }
   },
+  methods: {},
   mounted: function() {
     const glide = new Glide(this.$refs.glide, {
-      perView: this.perPage
+      perView: this.perPage,
+      type: "carousel"
     });
+
     glide.mount({ Controls });
+
+    this.glide = glide;
   }
 };
