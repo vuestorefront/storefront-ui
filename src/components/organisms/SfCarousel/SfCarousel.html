@@ -8,18 +8,18 @@
   </div>
   <div class="sf-carousel__controls">
     <button
-      class="sf-carousel__control"
       @click="glide.go('<')"
+      class="sf-carousel__control"
       type="button"
       aria-label="previous">
       <img src="/assets/arrow_left.svg" alt="">
     </button>
     <button
-      aria-label="next"
+      @click="glide.go('>')"
       class="sf-carousel__control sf-carousel__control--right"
       type="button"
-      @click="glide.go('>')">
-        <img src="/assets/arrow_left.svg" alt="">
+      aria-label="next">
+      <img src="/assets/arrow_left.svg" alt="">
     </button>
   </div>
 </div>

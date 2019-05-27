@@ -17,23 +17,23 @@ export default {
       default: 4
     }
   },
-  methods: {},
   mounted: function() {
     const glide = new Glide(this.$refs.glide, {
       type: "carousel",
       perView: this.perPage,
+      peek: 0,
       breakpoints: {
-        480: {
-          perView: 1
-        },
-        600: {
-          perView: 2
+        768: {
+          perView: 2,
+          peek: {
+            before: 0,
+            after: 100
+          }
         }
       }
     });
 
     glide.mount();
-
     this.glide = glide;
   }
 };
