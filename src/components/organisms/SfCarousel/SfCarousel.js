@@ -17,6 +17,18 @@ export default {
       default: 4
     }
   },
+  methods: {
+    go(direct) {
+      switch (direct) {
+        case "<":
+          this.glide.go("<");
+          break;
+        case ">":
+          this.glide.go(">");
+          break;
+      }
+    }
+  },
   mounted: function() {
     const glide = new Glide(this.$refs.glide, {
       type: "carousel",
@@ -32,7 +44,6 @@ export default {
         }
       }
     });
-
     glide.mount();
     this.glide = glide;
   }
