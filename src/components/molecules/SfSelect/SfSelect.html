@@ -1,0 +1,29 @@
+<div 
+  class="sf-select" 
+  @click="toggle($event)"
+  @blur="closeHandler"
+  @keyup.space="openHandler"
+  @keyup.up="move(-1)"
+  @keyup.down="move(1)"
+  @keyup.enter="enter($event)"
+  :aria-expanded="open ? 'true' : 'false'"
+  :aria-owns="'lbox_'+_uid"
+  aria-autocomplete="none"
+  role="combobox"
+  tabindex="0">
+  <div 
+    role="textbox"  
+    class="sf-select__selected sf-select-option" 
+    v-html="html"
+    ></div>
+  <transition name="fade">
+    <ul
+      :id="'lbox_'+_uid"
+      role="listbox"
+      v-show="open"
+      class="sf-select__options" 
+      style="list-style-type:none; padding: 0; margin: 0;">
+      <slot/>
+    </ul>
+  </transition>
+</div>
