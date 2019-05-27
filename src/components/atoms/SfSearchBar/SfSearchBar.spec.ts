@@ -7,44 +7,32 @@ describe.only("SfSearchBar.vue", () => {
     expect(component.contains(".sf-search-bar")).toBe(true);
   });
 
-  it("renders default slot with image", () => {
+  it("renders slot with icon when passed", () => {
+    const icon = "<svg class='sf-search-bar__icon'></svg>"
     const component = shallowMount(SfSearchBar, {
       slots: {
-        default:
-          '<img class="sf-search-bar__icon" src="/assets/search.svg" alt="icon" />'
+        icon
       }
     });
     expect(component.contains(".sf-search-bar__icon")).toBe(true);
   });
 
-  it("renders iconSrc props when passed", () => {
-    const src = "assets/storybook/search.svg";
+  it("renders a search bar without icon when false prop passed", () => {
     const component = shallowMount(SfSearchBar, {
       propsData: {
-        iconSrc: src
+        icon: false
       }
     });
-    expect(component.find("img").attributes("src")).toEqual(src);
-  });
-
-  it("renders alt props when passed", () => {
-    const msg = "About Image";
-    const component = shallowMount(SfSearchBar, {
-      propsData: {
-        alt: msg
-      }
-    });
-    expect(component.find("img").attributes("alt")).toEqual(msg);
-  });
-
+    expect(component.contains(".sf-search-bar__icon")).toBe(false);
+  })
 
   it("renders placeholder props when passed", () => {
-    const msg = "Search for items";
+    const placeholder = "Search for...";
     const component = shallowMount(SfSearchBar, {
       propsData: {
-        placeholder: msg
+        placeholder: placeholder
       }
     });
-  
+    expect(component.find('.sf-search-bar__input').attributes("placeholder")).toEqual(placeholder);
   });
 });
