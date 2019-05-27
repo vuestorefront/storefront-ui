@@ -11,8 +11,8 @@
   <slot name="label" :checked="isChecked">
     <label :for="id" class="sf-checkbox__label">
       <span class="sf-checkbox__icon">
-        <!-- @slot Custom checked icon image markup -->
-        <slot name="icon">
+        <!-- @slot Custom checked icon image markup (binds `checked` boolean) -->
+        <slot name="icon" :checked="isChecked">
           <img
             class="sf-checkbox__icon-svg"
             src="/assets/check.svg"
