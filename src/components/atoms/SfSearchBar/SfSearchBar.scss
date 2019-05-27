@@ -17,6 +17,24 @@ $sf-search-bar-font-size: 0.875rem !default;
     &:-ms-input-placeholder      {@content}  
   }
 
+  @mixin iconPosition {
+    flex-direction: row;
+    .sf-search-bar__input {
+        &::placeholder {
+            text-align: left;
+        }
+    }
+  }
+
+  @mixin clearBtn {
+    background-image: url('../../../../public/assets/clear.svg');
+    -webkit-appearance: none;
+    width: .7rem;
+    height: .7rem;
+    background-size: cover;
+    display: block;
+  }
+
 .sf-search-bar {
     background-color: $sf-search-bar-background-primary;
     border-radius: $sf-search-bar-border-radius;
@@ -35,13 +53,18 @@ $sf-search-bar-font-size: 0.875rem !default;
         background-color: $sf-search-bar-background-secondary;
     }
     &--position-right {
-        flex-direction: row;
-        .sf-search-bar__input {
-            &::placeholder {
-                text-align: left;
+        @include iconPosition();
+    }
+    &--position-right-mobile {
+        @media (max-width: $mobile-max) {
+            @include iconPosition();
             }
         }
-    }
+    &--position-right-desktop {
+          @media (min-width: $mobile-max) {
+              @include iconPosition();
+            }
+        }
     
     .sf-search-bar__input {    
         border: none;
@@ -58,6 +81,14 @@ $sf-search-bar-font-size: 0.875rem !default;
             @include placeholder {
                 color: $sf-search-bar-placeholder-color-focus;
             }  
+        }
+        &,
+        &::-webkit-search-cancel-button
+        {
+            @include clearBtn();
+        }
+        &::-ms-clear {
+            @include clearBtn();
         }
     }
 }
