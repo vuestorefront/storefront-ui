@@ -13,15 +13,16 @@ storiesOf("Atoms|SearchBar", module)
         placeholder: {
           default: text("placeholder (prop", "Search for...")
         },
-        text: {
-          default: text("text (prop", [true, false])
-        },
         icon: {
           default: select("icon (prop)", [true, false])
+        },
+        clearIcon: {
+          default: text("image (prop)", "assets/storybook/clear.svg")
         }
       },
       components: { SfSearchBar },
-      template: "<sf-search-bar placeholder='Search for...' v-model='value'/>"
+      template:
+        "<SfSearchBar :placeholder='placeholder' v-model='value' :clearIcon='clearIcon'/>"
     }),
     {
       info: true,

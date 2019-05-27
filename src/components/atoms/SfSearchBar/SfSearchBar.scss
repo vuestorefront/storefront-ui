@@ -27,7 +27,7 @@ $sf-search-bar-font-size: 0.875rem !default;
   }
 
   @mixin clearBtn {
-    background-image: url('../../../../public/assets/clear.svg');
+    background-image: var(--clear-btn);
     -webkit-appearance: none;
     width: .7rem;
     height: .7rem;
@@ -73,6 +73,7 @@ $sf-search-bar-font-size: 0.875rem !default;
         text-align: center;
         outline: none;
         font-size: $sf-search-bar-font-size;
+        
         @include placeholder {
             color: $sf-search-bar-placeholder-color;
             transition: color 0.2s ease-in;

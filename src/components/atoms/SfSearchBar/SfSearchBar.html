@@ -3,6 +3,7 @@
            type="search" 
            :value="value"
            :placeholder="placeholder" 
+           :style="clearBtn"
            @input="$emit('input',$event.target.value)"
            @keyup.enter="$emit('enter',$event.target.value)"
            @keyup.esc="$emit('input', '')"

@@ -9,8 +9,7 @@ Search Bar Component for search queries
 ## Props
 - `placeholder` - text inside input 
 - `value` - value for search query
-- `icon` - icon source for image
-- `alt` - image alt text
+- `icon` - icon visibility - default visibility is set to true
 
 ## SCSS variables
 
@@ -27,6 +26,8 @@ Search Bar Component for search queries
 ## CSS Modifiers
 
 - `.sf-search-bar--position-right` - changed icon and text position
+- `.sf-search-bar--position-right-mobile` - changed icon and text position for mobile view only
+- `.sf-search-bar--position-right-desktop` - changed icon and text position for desktop view only
 - `.sf-search-bar--secondary` - change color to white
 
 ## Source files and Storybook demo
