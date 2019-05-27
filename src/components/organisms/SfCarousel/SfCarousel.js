@@ -1,6 +1,6 @@
 import Vue from "vue";
 import SfCarouselItem from "@/components/organisms/SfCarousel/_internal/SfCarouselItem.vue";
-import Glide, { Controls } from "@glidejs/glide";
+import Glide from "@glidejs/glide";
 
 Vue.component("SfCarouselItem", SfCarouselItem);
 
@@ -15,24 +15,24 @@ export default {
     perPage: {
       type: Number,
       default: 4
-    },
-    breakpoints: {
-      type: Object,
-      default: () => ({
-        480: {
-          perView: 1
-        }
-      })
     }
   },
   methods: {},
   mounted: function() {
     const glide = new Glide(this.$refs.glide, {
       type: "carousel",
-      perView: this.perPage
+      perView: this.perPage,
+      breakpoints: {
+        480: {
+          perView: 1
+        },
+        600: {
+          perView: 2
+        }
+      }
     });
 
-    glide.mount({ Controls });
+    glide.mount();
 
     this.glide = glide;
   }

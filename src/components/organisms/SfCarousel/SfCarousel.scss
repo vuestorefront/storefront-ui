@@ -1,8 +1,9 @@
 @import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
 .sf-carousel{
   position: relative;
+  box-sizing: border-box;
   width: 100%;
-  padding: 0 60px;
+  padding: 0 40px;
   &__controls{
     position: absolute;
     top: 50%;

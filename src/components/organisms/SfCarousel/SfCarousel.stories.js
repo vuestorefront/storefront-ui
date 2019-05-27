@@ -30,11 +30,14 @@ storiesOf("Organisms|[WIP] Carousel", module)
         };
       },
       template: `
-      <div style="width: 800px">
+      <div style="max-width: 800px">
         <SfCarousel
           :per-page="4"
           :breakpoints="{
             480: {
+              perView: 1
+            },
+            600: {
               perView: 2
             }
           }"
