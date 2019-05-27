@@ -8,9 +8,9 @@ import {
   select
 } from "@storybook/addon-knobs";
 import notes from "./README.md";
-import SfInputNumber from "./SfInputNumber.vue";
+import SfCounter from "./SfCounter.vue";
 
-storiesOf("Molecules|InputNumber", module)
+storiesOf("Molecules|Counter", module)
   .addDecorator(withKnobs)
   .add(
     "Props / CSS Modifiers",
@@ -58,14 +58,14 @@ storiesOf("Molecules|InputNumber", module)
         customClass: {
           default: select(
             "CSS Modifier",
-            ["null", "sf-input-number--large"],
+            ["null", "sf-counter--large"],
             "null",
             "CSS-Modifiers"
           )
         }
       },
-      components: { SfInputNumber },
-      template: `<SfInputNumber
+      components: { SfCounter },
+      template: `<SfCounter
          :class="customClass"
          v-model="value"
          :autoFill="autoFill"
@@ -85,7 +85,7 @@ storiesOf("Molecules|InputNumber", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import SfInputNumber from "@storefrontui/vue/dist/SfInputNumber.vue"</code></pre>`
+        <pre><code>import SfCounter from "@storefrontui/vue/dist/SfCounter.vue"</code></pre>`
       },
       notes
     }
@@ -93,11 +93,11 @@ storiesOf("Molecules|InputNumber", module)
   .add(
     "[slot] up",
     () => ({
-      components: { SfInputNumber },
+      components: { SfCounter },
       template: `
-       <SfInputNumber value="1">
+       <SfCounter value="1">
          <template #up>+</template>
-       </SfInputNumber>`
+       </SfCounter>`
     }),
     {
       info: true,
@@ -107,11 +107,11 @@ storiesOf("Molecules|InputNumber", module)
   .add(
     "[slot] down",
     () => ({
-      components: { SfInputNumber },
+      components: { SfCounter },
       template: `
-       <SfInputNumber value="1">
+       <SfCounter value="1">
          <template #down>-</template>
-       </SfInputNumber>`
+       </SfCounter>`
     }),
     {
       info: true,

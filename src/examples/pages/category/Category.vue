@@ -122,7 +122,6 @@
       :visible="isFilterSidebarOpen"
       @close="isFilterSidebarOpen = false"
     >
-      <!-- RENAME FILTER TO SfProductOption -->
       <h3>Collection</h3>
       <SfFilter v-model="filters.collection">
         <SfList>
@@ -138,7 +137,7 @@
         </SfList>
       </SfFilter>
       <h3>Color</h3>
-      <SfFilter>
+      <SfFilter v-model="filters.color">
         <SfList>
           <SfListItem>
             <SfFilterItem label="Red" value="red" color="#990611" />
@@ -179,8 +178,8 @@ export default {
     return {
       isFilterSidebarOpen: false,
       filters: {
-        color: null,
-        collection: null
+        color: [],
+        collection: []
       },
       currentPage: 2
     };
@@ -287,7 +286,6 @@ export default {
   flex-wrap: wrap;
   align-items: flex-start;
   align-content: flex-start;
-  justify-content: space-between;
   &__product-card {
     width: 50%;
     @media (min-width: $tablet-min) {

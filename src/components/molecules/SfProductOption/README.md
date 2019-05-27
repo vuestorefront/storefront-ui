@@ -2,17 +2,17 @@
 
 <!-- Write about general purpose of the component. Include screenshot (to be replaced with a live example once we migrate to vuepress) -->
 
-single filter component. Should be used with `SfList`.
+Product option component
 
 ## SCSS variables
 
 <!-- Write down SCSS variables available for configuration -->
 
-- `$filter-item-padding` ($spacing-big $spacing-extra-big)
-- `$filter-item-icon-spacing` (0.75rem)
-- `$filter-item-min-height` (35px)
-- `$filter-item-font-size` ($font-size-big-mobile)
-- `$filter-item-font-family` ($body-font-family-secondary)
+- `$product-option-padding` ($spacing-big $spacing-extra-big)
+- `$product-optionicon-spacing` (0.75rem)
+- `$product-option-min-height` (35px)
+- `$product-option-font-size` ($font-size-big-mobile)
+- `$product-option-font-family` ($body-font-family-secondary)
 
 
 ## Source files and Storybook demo
