@@ -1,32 +1,32 @@
 @import '../../../css/variables';
 
 
-$sf-badge--text-color: $c-white;
+$badge--text-color: $c-white;
 
-$sf-badge--alert: $c-pink-primary;
-$sf-badge--warning: $c-blue-primary;
-$sf-badge--info: $c-green-primary;
-$sf-badge--font-size: 0.875rem;
-$sf-badge--padding: 0.625rem 0.3125rem;
-
+$badge--alert: $c-pink-primary;
+$badge--warning: $c-blue-primary;
+$badge--info: $c-green-primary;
+$badge--font-size: 0.875rem;
+$badge--padding: 0.3125rem 0.625rem;
+$badge--line-height: 1.3;
 
 
 .sf-badge {
   display: inline-block;
-  min-width: 10rem;
-  color: $sf-badge--text-color;
-  font-size: $sf-badge--font-size;
-  padding: $sf-badge--padding;
+  color: $badge--text-color;
+  font-size: $badge--font-size;
+  padding: $badge--padding;
   text-align: center;
-  background-color: $sf-badge--info;
+  background-color: $badge--info;
   box-sizing: border-box;
+  line-height: $badge--line-height;
 
   &--alert {
-    background-color: $sf-badge--alert
+    background-color: $badge--alert
   }
 
   &--warning {
-    background-color: $sf-badge--warning
+    background-color: $badge--warning
   }
 
   &--full-width {
