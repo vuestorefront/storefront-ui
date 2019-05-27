@@ -1,9 +1,11 @@
-<div class="sf-carousel">
-  <div class="glide" ref="glide">
-    <div class="glide__track" data-glide-el="track">
-      <ul class="glide__slides">
-        <slot />
-      </ul>
-    </div>
+<div class="glide" ref="glide">
+  <div class="glide__track" data-glide-el="track">
+    <ul class="glide__slides">
+      <slot />
+    </ul>
+  </div>
+  <div>
+    <button @click="glide.go('<')">prev</button>
+    <button @click="glide.go('>')">next</button>
   </div>
 </div>
