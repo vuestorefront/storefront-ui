@@ -11,6 +11,7 @@ Customization-first and elegant UI framework for eCommerce (and not only) based 
 - [Website](http://storefrontui.io/)
 - [Documentation](http://docs.storefrontui.io/) (still in very early stages)
 - [Storybook](http://storybook.storefrontui.io/)
+- [Discord server](https://discord.gg/GS8hqFS)
 
 
 ![](https://i.ibb.co/7ScVptN/123.png)
