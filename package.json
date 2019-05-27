@@ -15,6 +15,7 @@
     "create-component": "node ./scripts/create-component.js"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.3.0",
     "@snowdog/alpaca-components": "^0.3.0-alpha.5",
     "webpack-dev-middleware": "3.6.0"
   },
@@ -27,14 +28,13 @@
     "public/assets"
   ],
   "devDependencies": {
-    "@storybook/addon-a11y": "^5.0.11",
     "@babel/core": "^7.4.4",
+    "@storybook/addon-a11y": "^5.0.11",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-knobs": "^5.0.11",
     "@storybook/addon-links": "^5.0.11",
     "@storybook/addon-notes": "^5.0.11",
     "@storybook/addon-viewport": "^5.0.11",
-    "@storybook/addon-a11y": "^5.0.11",
     "@types/jest": "^24.0.12",
     "@vue/cli-plugin-babel": "^3.7.0",
     "@vue/cli-plugin-eslint": "^3.7.0",

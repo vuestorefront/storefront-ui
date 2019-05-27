@@ -1,12 +1,4 @@
-@import '../../../css/variables';
-
-// $component__block-property: value;
-
-// .sf-component {
-//   &__element {
-
-//   }
-//   &--modifier {
-
-//   }
-// }
+@import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
+.glide{
+  &__slide{}
+}
