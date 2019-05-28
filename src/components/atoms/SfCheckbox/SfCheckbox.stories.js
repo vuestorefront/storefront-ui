@@ -68,7 +68,7 @@ export default storiesOf("Atoms|Checkbox", module)
   )
 
   .add(
-    "[slot] default",
+    "[slot] content",
     () => ({
       ...vm,
 
@@ -77,7 +77,9 @@ export default storiesOf("Atoms|Checkbox", module)
          id="sf-checkbox-slot"
          name="sf-checkbox-slot"
          v-model="status">
-         Accept terms
+         <template #content>
+           Accept terms
+         </template>
        </SfCheckbox>`
     }),
     {
@@ -86,7 +88,7 @@ export default storiesOf("Atoms|Checkbox", module)
   )
 
   .add(
-    "[slot] icon",
+    "[slot] button",
     () => ({
       ...vm,
 
@@ -95,9 +97,11 @@ export default storiesOf("Atoms|Checkbox", module)
          id="sf-checkbox-slot-icon"
          name="sf-checkbox-slot-icon"
          v-model="status">
-         Accept terms
-         <template #icon="{ checked }">
-           <span v-if="checked">#</span>
+         <template #content>
+           Accept terms
+         </template>
+         <template #button="{ checked }">
+           <span v-if="checked">x</span>
          </template>
        </SfCheckbox>`
     }),
