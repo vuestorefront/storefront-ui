@@ -8,13 +8,13 @@ $sf-alert__text-margin              : 0 !default;
 $sf-alert__icon-padding-right       : 0.625rem !default;
 
 $sf-alert--info-background-color    : $c-yellow-secondary !default;
-$sf-alert--info-color               : $c-yellow-primary !default;
+$sf-alert--info-color               : $c-black !default;
 
 $sf-alert--warning-background-color : $c-pink-secondary !default;
-$sf-alert--warning-color            : $c-pink-primary !default;
+$sf-alert--warning-color            : $c-black !default;
 
 $sf-alert--alert-background-color   : $c-blue-secondary !default;
-$sf-alert--alert-color              : $c-blue-primary !default;
+$sf-alert--alert-color              : $c-black !default;
 
 .sf-alert {
     display: flex;
