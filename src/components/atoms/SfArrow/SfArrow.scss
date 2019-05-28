@@ -1,0 +1,55 @@
+@import '../../../css/variables';
+
+// $component__block-property: value;
+
+.sf-arrow {
+  position: relative;
+  display: flex;
+  background-color: transparent;
+  border: 0;
+  padding: 14px 10px 14px;
+  background-color: #F1F2F3;
+  cursor: pointer;
+  transition: padding 150ms ease-in-out;
+  outline: 0;
+  &__icon {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 24px;
+    height: 12px;
+    fill: #1D1F22;
+  }
+  &:hover{
+    background-color: #1D1F22;
+    .sf-arrow__icon{
+      fill: #FFF;
+    }
+    &::after{
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: 86%;
+      box-shadow: 0 5px 12px 0 rgba(29, 31, 34, 0.6);
+      content: ""
+    }
+  }
+
+  &--right {
+    transform: rotate(180deg);
+    &:hover{
+      &::after{
+        transform: translateX(-50%) rotate(180deg);
+      }
+    }
+  }
+
+  &--long{
+    padding: 14px 26px 14px 9px;
+    background-color: #FFF;
+    &:hover{
+      padding: 14px 36px 14px 10px;
+    }
+  }
+}
