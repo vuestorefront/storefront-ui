@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, select } from "@storybook/addon-knobs";
-import createStorybookTable from "@/utilities/js-helpers/createStorybookTable";
+import createStorybookTable from "@/helpers";
 import notes from "./README.md";
 import SfRadio from "./SfRadio.vue";
 
@@ -106,7 +106,7 @@ storiesOf("Atoms|Radio", module)
         v-model='selected'
         :class="customClass"
       >
-      <button #button="{ isActive }">{{ isActive }}</button>
+      <button #radio="{ isActive }">{{ isActive }}</button>
       </SfRadio>`
     }),
     {
@@ -140,7 +140,7 @@ storiesOf("Atoms|Radio", module)
         v-model='selected'
         :class="customClass"
       >
-      <div #content={option}>
+      <div #content="{ option }">
         <p style="margin-top: 0">Name: {{ option.label }}</p>
         <p v-if="option.price">Price: {{ option.price }}$</p>
         <p v-if="option.flavour">Flavour: {{ option.flavour }}</p>

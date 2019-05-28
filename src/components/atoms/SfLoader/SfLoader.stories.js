@@ -1,7 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import notes from "./README.md"
 import SfLoader from "./SfLoader.vue";
 
 storiesOf("Atoms|[WIP]Loader", module)
@@ -29,8 +28,7 @@ storiesOf("Atoms|[WIP]Loader", module)
       </div>`
     }),
     {
-      info: true,
-      notes
+      info: true
     }
   );
         

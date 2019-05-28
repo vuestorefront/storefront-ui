@@ -9,7 +9,7 @@
             class="sf-radio__input"
             :value="option.value">
         <!--@slot slot for replacing default checkmark -->
-        <slot name="button" :option="option" :isActive="option.value === value">
+        <slot name="radio" :option="option" :isActive="option.value === value">
             <span class="sf-radio__checkmark"></span>
         </slot>
         
