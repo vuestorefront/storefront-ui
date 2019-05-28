@@ -1,6 +1,10 @@
 @import '../../../../css/variables';
 
 $sf-select-option-padding: 12px 30px;
+
+$sf-select-color-primary: $c-green-primary;
+$sf-select-color-secondary: $c-light-primary;
+
 $sf-select-option-font-size: $font-size-big-mobile;
 $sf-select-option-font-family: $body-font-family-secondary;
 
@@ -18,9 +22,9 @@ $sf-select-option-font-family: $body-font-family-secondary;
     background: black;
     margin-right: $spacer-big;
   }
-  &--active{
+  &--primary{
     color: #FFF;
-    background-color: #5ECE7B;
+    background-color: $sf-select-color-primary;
     &:after{
       width: 7px;
       height: 14px;
@@ -32,6 +36,6 @@ $sf-select-option-font-family: $body-font-family-secondary;
     }
   }
   &:hover{
-    outline: 1px solid #5ECE7B;
+    outline: 1px solid $sf-select-color-primary;
   }
 }
