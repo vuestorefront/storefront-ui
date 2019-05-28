@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     isActive() {
-      return this.valueComputed === this.sharedState.activeTab;
+      return this.valueComputed === this.sharedState.activeTabValue;
     },
     valueComputed() {
       return this.value || this._uid;

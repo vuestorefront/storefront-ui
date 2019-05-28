@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       sharedState: {
-        activeTab: this.value,
+        activeTabValue: this.value,
         tabs: []
       }
     };
@@ -57,7 +57,7 @@ export default {
 
   methods: {
     changeTab(tab) {
-      this.$set(this.sharedState, "activeTab", tab);
+      this.$set(this.sharedState, "activeTabValue", tab);
       this.fireEvent("change", tab);
     },
     setTabs() {
