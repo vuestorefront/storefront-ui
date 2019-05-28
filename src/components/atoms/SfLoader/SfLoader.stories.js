@@ -1,16 +1,25 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, select } from "@storybook/addon-knobs";
 import SfLoader from "./SfLoader.vue";
+import { generateStorybookTable } from "@/helpers";
 
-storiesOf("Atoms|[WIP]Loader", module)
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    ["$loader__spinner-color", "$c-accent-primary", "color of spinner"],
+    ["$loader__overlay-color", "white", "color of overlay"]
+  ]
+};
+
+storiesOf("Atoms|Loader", module)
   .addDecorator(withKnobs)
   .add(
-    "[slot] default",
+    "Basic",
     () => ({
       data() {
         return {
-          isLoading: text("(prop) isLoading", true)
+          isLoading: select("isLoading (prop)", [true, false], true)
         };
       },
       created() {
@@ -28,6 +37,12 @@ storiesOf("Atoms|[WIP]Loader", module)
       </div>`
     }),
     {
-      info: true
+      info: {
+        summary: `<p>Component to indicate loading state. Use it to cover content until data is fetched. Set **isLoading** to false once data is fetched.</p>
+        <h2> Usage </h2>
+        <pre><code>import SfLoader from "@storefrontui/vue/dist/SfLoader.vue"</code></pre>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+        `
+      }
     }
   );

@@ -3,13 +3,12 @@
   <transition name="fade">
     <div class="sf-loader__overlay" v-if="loading">
       <slot name="loader">
-        <div class="sf-loader__spinner">
           <svg
             width="38"
             height="38"
             viewBox="0 0 38 38"
             xmlns="http://www.w3.org/2000/svg"
-            stroke="gray"
+            class="sf-loader__spinner"
           >
             <g fill="none" fill-rule="evenodd">
               <g transform="translate(1 1)" stroke-width="2">
@@ -27,7 +26,6 @@
               </g>
             </g>
           </svg>
-        </div>
       </slot>
     </div>
   </transition>

@@ -51,12 +51,6 @@ const scssTableConfig = {
   ]
 };
 
-const eventsTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["input", "event emmited when option is selected"],
-  ]
-};
 
 storiesOf("Molecules|Radio", module)
   .addDecorator(withKnobs)
@@ -87,7 +81,6 @@ storiesOf("Molecules|Radio", module)
         <h2> Usage </h2>
         <pre><code>import SfRadio from "@storefrontui/vue/dist/SfRadio.vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(eventsTableConfig, "Events")}
         `
       }
     }

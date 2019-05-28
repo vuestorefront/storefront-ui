@@ -18,5 +18,8 @@ $loader__overlay-color: white;
     justify-content: center;
     align-items: center;
   }
+  &__spinner {
+    stroke: $c-accent-primary;
+  }
 }        
         
