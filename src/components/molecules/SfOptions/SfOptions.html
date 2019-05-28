@@ -1,0 +1,45 @@
+<div class="sf-options">
+  <slot name="label">
+    <sf-label v-if="label" class="sf-options__label">
+      {{ label }}
+    </sf-label>
+  </slot>
+  <div class="sf-options__wrapper">
+    <div
+      v-for="(option, index) in options"
+      :key="index"
+      class="sf-options__option-container"
+      @click="setActiveValue(option.value)"
+    >
+      <slot name="text" :text="option.text">
+        <div
+          v-if="isTypeText"
+          class="sf-options__option-text"
+          :class="{ 'sf-options__option-text--selected': isOptionSelected(option.value) }"
+        >
+          {{ option.text }}
+        </div>
+      </slot>
+      <slot name="color" :color="option.color">
+        <div v-if="isTypeColor" class="sf-options__option-color-wrapper">
+          <div
+            class="sf-options__option-color"
+            :class="{ 'sf-options__option-color--selected': isOptionSelected(option.value) }"
+            :style="{ backgroundColor: option.color }"
+          />
+          <div class="sf-options__option-color-check"></div>
+        </div>
+      </slot>
+      <slot name="image" :image="option.image">
+        <div v-if="isTypeImage" class="sf-options__option-image-wrapper">
+          <div
+            class="sf-options__option sf-options__option-image"
+            :class="{ 'sf-options__option-image--selected': isOptionSelected(option.value) }"
+            :style="{ backgroundImage: `url(${option.image})` }"
+          />
+          <div class="sf-options__option-image-check"></div>
+        </div>
+      </slot>
+    </div>
+  </div>
+</div>

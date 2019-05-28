@@ -1,7 +1,7 @@
 @import '../../../css/variables';
 
-$sidebar-background: $c-white;
-$sidebar-padding: 3.5rem;
+$sidebar-background : $c-white;
+$sidebar-padding    : 3.5rem;
 
 .sf-sidebar {
   position: fixed;
@@ -10,7 +10,6 @@ $sidebar-padding: 3.5rem;
   width: 320px;
   height: 100%;
   background: $sidebar-background;
-  padding: $sidebar-padding;
   box-sizing: border-box;
   box-shadow: 0px 4px 56px rgba(87, 87, 87, 0.32);
   z-index: 2;
@@ -18,6 +17,14 @@ $sidebar-padding: 3.5rem;
     position: absolute;
     right: -1.625rem;
     padding: 10px;
+    top: 3rem;
+  }
+  &__content {
+    overflow: scroll;
+    height: 100vh;
+    width: 100%;
+    padding: $sidebar-padding;
+    box-sizing: border-box;
   }
   &--right {
     left: auto;

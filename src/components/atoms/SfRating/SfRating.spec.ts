@@ -14,7 +14,7 @@ describe("SfRating.vue", () => {
         score
       }
     });
-    expect(component.findAll(".sf-rating__icon-positive").length).toBe(score)
+    expect(component.findAll(".sf-rating__icon-positive").length).toBe(score);
   });
 
   it("render multiple stars when max is increased", () => {
@@ -26,9 +26,11 @@ describe("SfRating.vue", () => {
         max
       }
     });
-    expect(component.findAll(".sf-rating__icon-negative").length).toBe(max - score)
+    expect(component.findAll(".sf-rating__icon-negative").length).toBe(
+      max - score
+    );
   });
-  
+
   it("renders with custom positive icon", () => {
     const score = 3;
     const max = 5;
@@ -38,10 +40,10 @@ describe("SfRating.vue", () => {
         max
       },
       slots: {
-        'icon-positive': '<div class="sf-rating__icon-clock"></div>'
+        "icon-positive": '<div class="sf-rating__icon-clock"></div>'
       }
     });
-    expect(component.findAll(".sf-rating__icon-clock").length).toBe(score)
+    expect(component.findAll(".sf-rating__icon-clock").length).toBe(score);
   });
 
   it("renders with custom negative icon", () => {
@@ -53,9 +55,11 @@ describe("SfRating.vue", () => {
         max
       },
       slots: {
-        'icon-negative': '<div class="sf-rating__icon-close"></div>'
+        "icon-negative": '<div class="sf-rating__icon-close"></div>'
       }
     });
-    expect(component.findAll(".sf-rating__icon-close").length).toBe(max - score)
+    expect(component.findAll(".sf-rating__icon-close").length).toBe(
+      max - score
+    );
   });
 });

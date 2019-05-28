@@ -1,23 +1,26 @@
 @import '../../../css/variables';
 
-// $component__block-property: value;
+$product-card-max-width:          200px;
+$product-card-hover-box-shadow:   0px 4px 35px rgba(168, 172, 176, 0.19);
+$product-card-desktop-max-width:  240px;
 
-$sf-product-card-max-width: 200px;
+$product__image-background-color: $c-bg-primary;
+$product__image-blend-mode:       darken;
 
 .sf-product-card {
-  max-width: 200px;
+  max-width: $product-card-max-width;
   transition: 0.3s all;
   padding: $spacer-big;
   position: relative;
   background: white;
   box-sizing: border-box;
   &:hover {
-    box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+    box-shadow: $product-card-hover-box-shadow;
     transition: 0.3s all;
     z-index: 2;
   }
   @media (min-width: $desktop-min) {
-    max-width: 240px;
+    max-width: $product-card-desktop-max-width;
   }
   &__title {
     margin-top: 0.5rem;
@@ -26,9 +29,15 @@ $sf-product-card-max-width: 200px;
     font-weight: 300;
   }
   &__image {
-    max-width: 100%;
-    background-color: $c-light-primary;
+    background-color: $product__image-background-color;
+    align-items: center;
+    justify-content: center;
     display: flex;
+    img {
+      mix-blend-mode: $product__image-blend-mode;
+      max-width: 100%;
+      background-color: $c-light-primary;
+    }
   }
   &__cart-button {
     position: absolute;

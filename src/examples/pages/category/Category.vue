@@ -19,83 +19,85 @@
 
     <div class="main">
       <div class="sidebar desktop-only">
-        <SfAccordion :open="true">
-          <h3 slot="label">Clothing</h3>
-          <SfList slot="content" class="sidebar__category-list">
-            <SfListItem>
-              <SfMenuItem label="All" count="280" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Skirts" count="23" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Sweaters" count="54" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Dresses" count="34" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="T-shirts" count="56" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Pants" count="7" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Underwear" count="12" />
-            </SfListItem>
-          </SfList>
-        </SfAccordion>
         <SfAccordion>
-          <h3 slot="label">Accesorries</h3>
-          <SfList slot="content" class="sidebar__category-list">
-            <SfListItem>
-              <SfMenuItem label="All" count="280" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Skirts" count="23" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Sweaters" count="54" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Dresses" count="34" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="T-shirts" count="56" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Pants" count="7" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Underwear" count="12" />
-            </SfListItem>
-          </SfList>
-        </SfAccordion>
-        <SfAccordion>
-          <h3 slot="label">Shoes</h3>
-          <SfList slot="content" class="sidebar__category-list">
-            <SfListItem>
-              <SfMenuItem label="All" count="280" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Skirts" count="23" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Sweaters" count="54" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Dresses" count="34" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="T-shirts" count="56" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Pants" count="7" />
-            </SfListItem>
-            <SfListItem>
-              <SfMenuItem label="Underwear" count="12" />
-            </SfListItem>
-          </SfList>
+          <SfAccordionItem :open="true">
+            <h3 slot="label">Clothing</h3>
+            <SfList slot="content" class="sidebar__category-list">
+              <SfListItem>
+                <SfMenuItem label="All" count="280" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Skirts" count="23" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Sweaters" count="54" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Dresses" count="34" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="T-shirts" count="56" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Pants" count="7" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Underwear" count="12" />
+              </SfListItem>
+            </SfList>
+          </SfAccordionItem>
+          <SfAccordionItem>
+            <h3 slot="label">Accesorries</h3>
+            <SfList slot="content" class="sidebar__category-list">
+              <SfListItem>
+                <SfMenuItem label="All" count="280" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Skirts" count="23" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Sweaters" count="54" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Dresses" count="34" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="T-shirts" count="56" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Pants" count="7" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Underwear" count="12" />
+              </SfListItem>
+            </SfList>
+          </SfAccordionItem>
+          <SfAccordionItem>
+            <h3 slot="label">Shoes</h3>
+            <SfList slot="content" class="sidebar__category-list">
+              <SfListItem>
+                <SfMenuItem label="All" count="280" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Skirts" count="23" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Sweaters" count="54" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Dresses" count="34" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="T-shirts" count="56" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Pants" count="7" />
+              </SfListItem>
+              <SfListItem>
+                <SfMenuItem label="Underwear" count="12" />
+              </SfListItem>
+            </SfList>
+          </SfAccordionItem>
         </SfAccordion>
       </div>
       <div class="products">
@@ -120,77 +122,40 @@
       :visible="isFilterSidebarOpen"
       @close="isFilterSidebarOpen = false"
     >
-      <!-- RENAME FILTER TO SfProductOption -->
       <h3>Collection</h3>
-      <SfList>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.collection"
-            label="Summer fly"
-            value="summer-fly"
-            count="10"
-          />
-        </SfListItem>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.collection"
-            label="Best 2018"
-            value="best-2018"
-            count="23"
-          />
-        </SfListItem>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.collection"
-            label="Your choice"
-            value="your-choice"
-            count="54"
-          />
-        </SfListItem>
-      </SfList>
+      <SfFilter v-model="filters.collection">
+        <SfList>
+          <SfListItem>
+            <SfFilterItem label="Summer fly" value="summer-fly" count="10" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilterItem label="Best 2018" value="best-2018" count="23" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilterItem label="Your choice" value="your-choice" count="54" />
+          </SfListItem>
+        </SfList>
+      </SfFilter>
       <h3>Color</h3>
-      <SfList>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.color"
-            label="Red"
-            value="red"
-            color="#990611"
-          />
-        </SfListItem>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.color"
-            label="Yellow"
-            value="yellow"
-            color="#DCA742"
-          />
-        </SfListItem>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.color"
-            label="Black"
-            value="black"
-            color="black"
-          />
-        </SfListItem>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.color"
-            label="Blue"
-            value="blue"
-            color="#004F97"
-          />
-        </SfListItem>
-        <SfListItem>
-          <SfFilter
-            :group.sync="filters.color"
-            label="White"
-            value="white"
-            color="white"
-          />
-        </SfListItem>
-      </SfList>
+      <SfFilter v-model="filters.color">
+        <SfList>
+          <SfListItem>
+            <SfFilterItem label="Red" value="red" color="#990611" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilterItem label="Yellow" value="yellow" color="#DCA742" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilterItem label="Black" value="black" color="black" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilterItem label="Blue" value="blue" color="#004F97" />
+          </SfListItem>
+          <SfListItem>
+            <SfFilterItem label="White" value="white" color="white" />
+          </SfListItem>
+        </SfList>
+      </SfFilter>
     </SfSidebar>
   </div>
 </template>
@@ -201,6 +166,7 @@ import SfButton from "@/components/atoms/SfButton/SfButton.vue";
 import SfList from "@/components/organisms/SfList/SfList.vue";
 import SfMenuItem from "@/components/molecules/SfMenuItem/SfMenuItem.vue";
 import SfFilter from "@/components/molecules/SfFilter/SfFilter.vue";
+import SfFilterItem from "@/components/molecules/SfFilter/_internal/SfFilterItem.vue";
 import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
 import SfPagination from "@/components/molecules/SfPagination/SfPagination.vue";
 import SfAccordion from "@/components/organisms/SfAccordion/SfAccordion.vue";
@@ -212,8 +178,8 @@ export default {
     return {
       isFilterSidebarOpen: false,
       filters: {
-        color: null,
-        collection: null
+        color: [],
+        collection: []
       },
       currentPage: 2
     };
@@ -223,6 +189,7 @@ export default {
     SfSidebar,
     SfList,
     SfFilter,
+    SfFilterItem,
     SfProductCard,
     SfPagination,
     SfMenuItem,
@@ -266,7 +233,7 @@ export default {
       padding-left: $spacer-extra-big;
       padding-right: $spacer-extra-big;
       height: 75px;
-      width: 80%;
+      width: calc(80% - 4px);
     }
   }
   &__filters-btn {
@@ -321,11 +288,7 @@ export default {
   align-content: flex-start;
   &__product-card {
     width: 50%;
-    justify-content: center;
     @media (min-width: $tablet-min) {
-      width: 33%;
-    }
-    @media (min-width: $desktop-min) {
       width: 25%;
     }
   }
@@ -337,6 +300,12 @@ export default {
   @media (min-width: $desktop-min) {
     width: 80%;
     padding: $spacer-big;
+  }
+}
+
+.filters {
+  &__title:first-letter {
+    text-transform: uppercase;
   }
 }
 </style>
