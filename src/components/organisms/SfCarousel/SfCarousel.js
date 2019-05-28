@@ -1,5 +1,6 @@
 import Vue from "vue";
 import SfCarouselItem from "@/components/organisms/SfCarousel/_internal/SfCarouselItem.vue";
+import SfArrow from "@/components/atoms/SfArrow/SfArrow.vue";
 import Glide from "@glidejs/glide";
 
 Vue.component("SfCarouselItem", SfCarouselItem);
@@ -16,6 +17,9 @@ export default {
       type: Number,
       default: 4
     }
+  },
+  components: {
+    SfArrow
   },
   methods: {
     go(direct) {

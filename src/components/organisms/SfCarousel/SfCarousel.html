@@ -7,19 +7,11 @@
     </div>
   </div>
   <div class="sf-carousel__controls">
-    <button
+    <SfArrow
       @click="go('<')"
-      class="sf-carousel__control"
-      type="button"
-      aria-label="previous">
-      <img src="/assets/arrow_left.svg" alt="">
-    </button>
-    <button
-      @click="go('>')"
-      class="sf-carousel__control sf-carousel__control--right"
-      type="button"
-      aria-label="next">
-      <img src="/assets/arrow_left.svg" alt="">
-    </button>
+      class="sf-arrow--long"/>
+    <SfArrow
+    @click="go('>')"
+      class="sf-arrow--long sf-arrow--right"/>
   </div>
 </div>
