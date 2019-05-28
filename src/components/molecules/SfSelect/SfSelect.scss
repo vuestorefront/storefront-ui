@@ -43,7 +43,7 @@ $select-font-family: $body-font-family-secondary;
   &--bordered{
 
     .sf-select__selected{
-      border: 1px solid $sf-select-color-secondary;
+      border: 1px solid $select-color-secondary;
     }
 
     .sf-select__options{
@@ -54,7 +54,7 @@ $select-font-family: $body-font-family-secondary;
   &--underlined{
 
     .sf-select__selected{
-      border-bottom: 1px solid $sf-select-color-secondary;
+      border-bottom: 1px solid $select-color-secondary;
     }
   }
 }
