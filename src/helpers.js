@@ -1,4 +1,4 @@
-export function generateStorybookTable (config, label) {
+export function generateStorybookTable(config, label) {
   const { tableHeadConfig, tableBodyConfig } = config;
 
   const getTableBodyRow = item =>
