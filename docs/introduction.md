@@ -5,6 +5,11 @@ UI framework for eCommerce (and not only)
 based on Vue.js and
 [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf).
 
+**StorefrontUI aims to achieve three goals**
+- Limitless customization of library and it's components
+- Focus on performance and implementation if good practices
+- Full coverage of eCommerce components along with standard web app components
+
 ## Current state of the project
 
 **StorefrontUI is currently in ALPHA which means

@@ -1,6 +1,6 @@
 {
   "name": "@storefrontui/vue",
-  "version": "0.0.2-aplha.0",
+  "version": "0.0.2-aplha.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -11,11 +11,11 @@
     "postinstall": "node scripts/postinstall.js",
     "prepublishOnly": "npm run build",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "create-component": "node ./scripts/create-component.js"
   },
   "dependencies": {
     "@snowdog/alpaca-components": "^0.3.0-alpha.5",
-    "sass-loader": "^7.1.0",
     "webpack-dev-middleware": "3.6.0"
   },
   "resolutions": {
@@ -27,6 +27,7 @@
     "public/assets"
   ],
   "devDependencies": {
+    "@storybook/addon-a11y": "^5.0.11",
     "@babel/core": "^7.4.4",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-knobs": "^5.0.11",
@@ -47,6 +48,8 @@
     "babel-loader": "^8.0.5",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.2",
+    "file-save": "^0.2.0",
+    "glob": "^7.1.4",
     "html-loader": "^0.5.5",
     "lint-staged": "^8.1.6",
     "markdown-loader": "^5.0.0",
@@ -55,6 +58,7 @@
     "storybook-addon-vue-info": "^1.1.1",
     "ts-jest": "^24.0.1",
     "typescript": "^3.4.5",
+    "uppercamelcase": "^3.0.0",
     "vue-cli-plugin-storybook": "^0.6.0",
     "vue-template-compiler": "^2.6.8",
     "vuepress": "^0.14.10"
@@ -64,7 +68,7 @@
   },
   "main": "./dist/storefront-ui.common.js",
   "lint-staged": {
-    "*.{js,vue}": [
+    "*.{js,vue,html,scss,ts}": [
       "vue-cli-service lint",
       "git add"
     ]

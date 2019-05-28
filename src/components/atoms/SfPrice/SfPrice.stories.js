@@ -10,11 +10,11 @@ storiesOf("Atoms|Price", module)
     "Basic",
     () => ({
       props: {
-        regularPrice: {
-          default: text("regularPrice (prop)", "$3,99")
-        },
         specialPrice: {
-          default: text("specialPrice (prop)", "$3,59")
+          default: text("specialPrice (prop)", "$50.00")
+        },
+        regularPrice: {
+          default: text("regularPrice (prop)", "$100.00")
         }
       },
       components: { SfPrice },
