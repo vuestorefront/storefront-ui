@@ -1,0 +1,36 @@
+@import '../../../css/variables';
+
+
+$badge--text-color: $c-white;
+
+$badge--alert: $c-pink-primary;
+$badge--warning: $c-blue-primary;
+$badge--info: $c-green-primary;
+$badge--font-size: 0.875rem;
+$badge--padding: 0.3125rem 0.625rem;
+$badge--line-height: 1.3;
+
+
+.sf-badge {
+  display: inline-block;
+  color: $badge--text-color;
+  font-size: $badge--font-size;
+  padding: $badge--padding;
+  text-align: center;
+  background-color: $badge--info;
+  box-sizing: border-box;
+  line-height: $badge--line-height;
+
+  &--alert {
+    background-color: $badge--alert
+  }
+
+  &--warning {
+    background-color: $badge--warning
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+}        
+        

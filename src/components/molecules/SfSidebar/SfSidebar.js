@@ -16,6 +16,17 @@ export default {
       default: "left"
     }
   },
+  mounted() {
+    const keydownHandler = e => {
+      if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
+        this.$emit("close");
+      }
+    };
+    document.addEventListener("keydown", keydownHandler);
+    this.$once("hook:destroyed", () => {
+      document.removeEventListener("keydown", keydownHandler);
+    });
+  },
   watch: {
     visible: {
       handler: value => {
