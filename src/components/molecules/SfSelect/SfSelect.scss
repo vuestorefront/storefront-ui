@@ -18,10 +18,10 @@ $sf-select-font-family: $body-font-family-secondary;
     background-color: #FFF;
     @at-root :focus &{}
     &:after{
-      width: 7px;
+      flex: 0 0 7px;
       height: 7px;
       margin-left: auto;
-      border: 0px solid $sf-select-color-primary;
+      border: 0px solid $c-dark-primary;
       border-width: 0px 2px 2px 0px;
       transform: rotate(45deg) translateX(calc(-7px / 2));
       content: "";
