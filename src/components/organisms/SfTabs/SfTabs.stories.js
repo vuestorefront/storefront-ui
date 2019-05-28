@@ -23,7 +23,9 @@ storiesOf("Organisms|Tabs", module)
       </SfTabs>`
     }),
     {
-      info: true,
+      info: {
+        summary: `<p>Tab Component</p>`
+      },
       notes
     }
   )
@@ -52,7 +54,37 @@ storiesOf("Organisms|Tabs", module)
       </SfTabs>`
     }),
     {
-      info: true,
+      info: {
+        summary: `<p>Tab Component with fully customized navigation.</p>`
+      },
+      notes
+    }
+  )
+  .add(
+    "[slot] navigation item",
+    () => ({
+      components: { SfTabs },
+      template: `
+      <SfTabs>
+        <SfTabsNavigation slot="navigation">
+          <div slot="item" slot-scope="{ tab }">
+            <i>Tab Title:</i> <b>{{ tab.title }}</b>
+          </div>
+        </SfTabsNavigation>
+        <SfTab title="apple" style="display: flex; justify-content: center;">
+          <img style="max-height: 200px" src="https://i5.walmartimages.ca/images/Large/428/5_r/6000195494285_R.jpg" />
+        </SfTab>
+        <SfTab title="banana">banana</SfTab>
+        <SfTab title="peach">peach</SfTab>
+        <SfTab title="orange" style="display: flex; justify-content: center;">
+          <img style="max-height: 200px" src="https://www.wykop.pl/cdn/c3201142/comment_X7SEcieexT4yoDSxYJwULzPrgkVRXXs7.jpg" />
+        </SfTab>
+      </SfTabs>`
+    }),
+    {
+      info: {
+        summary: `<p>Tab Component with customized navigation item</p>`
+      },
       notes
     }
   );
