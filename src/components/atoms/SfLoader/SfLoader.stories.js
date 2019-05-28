@@ -8,15 +8,15 @@ storiesOf("Atoms|[WIP]Loader", module)
   .add(
     "[slot] default",
     () => ({
-      data () {
+      data() {
         return {
           isLoading: text("(prop) isLoading", true)
-        }
+        };
       },
-      created () {
+      created() {
         setTimeout(() => {
-          this.isLoading = false
-        }, 3000)
+          this.isLoading = false;
+        }, 3000);
       },
       components: { SfLoader },
       template: `
@@ -31,4 +31,3 @@ storiesOf("Atoms|[WIP]Loader", module)
       info: true
     }
   );
-        

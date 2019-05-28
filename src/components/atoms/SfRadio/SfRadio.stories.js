@@ -1,8 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, select } from "@storybook/addon-knobs";
-import { createStorybookTable } from "@/helpers";
-import notes from "./README.md";
+import { generateStorybookTable } from "@/helpers";
 import SfRadio from "./SfRadio.vue";
 
 const data = () => ({
@@ -80,10 +79,9 @@ storiesOf("Atoms|Radio", module)
         summary: `<p>Component for simple group of radio buttons, pass an array get selected value via v-model.</p>
         <h2> Usage </h2>
         <pre><code>import SfRadio from "@storefrontui/vue/dist/SfRadio.vue"</code></pre>
-        ${createStorybookTable(scssTableConfig, "SCSS variables")}
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
-      },
-      notes
+      }
     }
   )
   .add(
@@ -116,8 +114,7 @@ storiesOf("Atoms|Radio", module)
       <pre><code>import SfRadio from "@storefrontui/vue/dist/SfRadio.vue"</code></pre>
       <table>
       `
-      },
-      notes
+      }
     }
   )
   .add(
@@ -155,7 +152,6 @@ storiesOf("Atoms|Radio", module)
       <h2> Usage </h2>
       <pre><code>import SfRadio from "@storefrontui/vue/dist/SfRadio.vue"</code></pre>
       `
-      },
-      notes
+      }
     }
   );

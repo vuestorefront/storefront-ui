@@ -113,7 +113,7 @@ describe("${PrefixComponentName}.vue", () => {
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import ${PrefixComponentName} from "./${PrefixComponentName}.vue";
-import { createStorybookTable } from "@/helpers";
+import { generateStorybookTable } from "@/helpers";
 
 // use this to documment scss vars
 const scssTableConfig = {
@@ -152,7 +152,7 @@ const scssTableConfig = {
 //        summary: \`<p>Component for simple group of radio buttons, pass an array get selected value via v-model.</p>
 //        <h2> Usage </h2>
 //        <pre><code>import ${PrefixComponentName} from "@storefrontui/vue/dist/${PrefixComponentName}.vue"</code></pre>
-//        \${createStorybookTable(scssTableConfig, "SCSS variables")}
+//        \${generateStorybookTable(scssTableConfig, "SCSS variables")}
 //        \`
 //      }
 //    }   
