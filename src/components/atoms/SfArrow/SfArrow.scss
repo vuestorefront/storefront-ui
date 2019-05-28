@@ -8,7 +8,7 @@
   background-color: transparent;
   border: 0;
   padding: 14px 10px 14px;
-  background-color: #FFF;
+  background-color: #F1F2F3;
   cursor: pointer;
   transition: padding 150ms ease-in-out;
   outline: 0;
@@ -47,6 +47,7 @@
 
   &--long{
     padding: 14px 26px 14px 9px;
+    background-color: #FFF;
     &:hover{
       padding: 14px 36px 14px 10px;
     }
