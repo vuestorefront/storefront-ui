@@ -8,7 +8,6 @@ Single input checkbox component, used with `SfCheckbox`.
 
 ## SCSS variables
 
-- `variablename` (defaultvalue) - description
 - `$checkbox-margin` ($spacer-medium)
 - `$checkbox-line-height` (21px)
 - `$checkbox__icon-size` (19px)
