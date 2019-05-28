@@ -11,11 +11,11 @@ $select-option-font-family: $body-font-family-secondary;
 .sf-select-option {
   display: flex;
   align-items: center;
-  padding: $sf-select-option-padding;
+  padding: $select-option-padding;
   user-select: none;
   &--active{
     color: #FFF;
-    background-color: $sf-select-color-primary;
+    background-color: $select-color-primary;
     &:after{
       flex: 0 0 7px;
       height: 14px;
@@ -27,6 +27,6 @@ $select-option-font-family: $body-font-family-secondary;
     }
   }
   &:hover{
-    outline: 1px solid $sf-select-color-primary;
+    outline: 1px solid $select-color-primary;
   }
 }
