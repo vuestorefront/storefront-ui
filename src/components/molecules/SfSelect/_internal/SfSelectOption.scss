@@ -13,15 +13,6 @@ $sf-select-option-font-family: $body-font-family-secondary;
   align-items: center;
   padding: $sf-select-option-padding;
   user-select: none;
-  &__label{
-    flex-grow: 1;
-  }
-  &__color{
-    width: 1.125rem;
-    height: 1.125rem;
-    background: black;
-    margin-right: $spacer-big;
-  }
   &--active{
     color: #FFF;
     background-color: $sf-select-color-primary;
