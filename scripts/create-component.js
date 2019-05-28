@@ -133,13 +133,12 @@ import ${PrefixComponentName} from "./${PrefixComponentName}.vue";
 //           )
 //         }
 //       },
-//       components: { SfComponent },
-//       template: \`<SfComponent
+//       components: { ${PrefixComponentName} },
+//       template: \`<${PrefixComponentName}
 //         :class="customClass"
 //         :
 //       >
-//         Hello Button<
-//       /SfComponent>\`
+//       /${PrefixComponentName}>\`
 //     }),
 //     {
 //       info: true,
