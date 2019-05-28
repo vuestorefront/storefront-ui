@@ -2,7 +2,7 @@ import { storiesOf } from "@storybook/vue";
 import SfProperty from "./SfProperty.vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
 
-export default storiesOf("Molecules|[Property", module)
+export default storiesOf("Molecules|Property", module)
   .addDecorator(withKnobs)
   .add(
     "Props",
@@ -17,7 +17,7 @@ export default storiesOf("Molecules|[Property", module)
         }
       },
       template: `
-      <div style="width: 300px">
+      <div>
         <SfProperty
           :property="property"
           :value="value"

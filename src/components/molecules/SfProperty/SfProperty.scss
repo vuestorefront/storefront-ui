@@ -1,0 +1,35 @@
+@import '../../../css/variables';
+
+$property--align-items: center !default;
+$property--justify-content: flex-start !default;
+$property--font-size: 0.8rem !default;
+$property--line-height: 1.2rem !default;
+$property--margin-y: 1rem !default;
+$property--margin-x: 0 !default;
+$property__property--font-weight: $body-font-weight-primary !default;
+$property__value--color: $c-green-primary !default;
+$property__value--text-decoration: underline !default;
+$property__value--font-weight: 500 !default;
+
+
+.sf-property {
+    display: flex;
+    justify-content: $property--justify-content;
+    align-items: $property--align-items;
+    font-size: $property--font-size;
+    line-height: $property--line-height;
+    margin: $property--margin-y $property--margin-x;
+
+    &__property {
+        margin-right: 0.5rem;
+    }
+
+    &__value {
+        cursor: pointer;
+        font-weight: $property__value--font-weight;
+        &:hover, &:active, &:focus {
+            color: $property__value--color;
+            text-decoration: $property__value--text-decoration;
+        }
+    }
+}
