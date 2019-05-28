@@ -123,6 +123,14 @@ const scssTableConfig = {
   ]
 };
 
+// use this to documment events
+const eventsTableConfig = {
+  tableHeadConfig: ["NAME", "DESCRIPTION"],
+  tableBodyConfig: [
+    ["input", "event emmited when option is selected"],
+  ]
+};
+
 // storiesOf("Component", module)
 //   .addDecorator(withKnobs)
 //   .add(
@@ -153,6 +161,7 @@ const scssTableConfig = {
 //        <h2> Usage </h2>
 //        <pre><code>import ${PrefixComponentName} from "@storefrontui/vue/dist/${PrefixComponentName}.vue"</code></pre>
 //        \${generateStorybookTable(scssTableConfig, "SCSS variables")}
+//        \${generateStorybookTable(eventsTableConfig, "Events")}
 //        \`
 //      }
 //    }   
