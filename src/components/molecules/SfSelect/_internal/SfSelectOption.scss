@@ -22,7 +22,7 @@ $sf-select-option-font-family: $body-font-family-secondary;
     background: black;
     margin-right: $spacer-big;
   }
-  &--primary{
+  &--active{
     color: #FFF;
     background-color: $sf-select-color-primary;
     &:after{
