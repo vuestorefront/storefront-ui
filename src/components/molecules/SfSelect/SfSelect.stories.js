@@ -30,7 +30,7 @@ storiesOf("Molecules|Select", module)
       template: `
       <div>
         <p><b>Selected: {{selected}}</b></p>
-        <div style="width: 509px">
+        <div style="max-width: 509px">
           <SfSelect v-model="selected" :class="customClass">
             <SfSelectOption value="amaranth">
               <SfProductOption color="#E52B50" label="Amaranth"/>
