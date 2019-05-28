@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, select } from "@storybook/addon-knobs";
-import createStorybookTable from "@/helpers";
+import { createStorybookTable } from "@/helpers";
 import notes from "./README.md";
 import SfRadio from "./SfRadio.vue";
 
