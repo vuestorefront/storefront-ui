@@ -1,6 +1,6 @@
 @import '../../../../css/variables';
 
-$sf-select-option-padding: $spacer;
+$sf-select-option-padding: 12px 30px;
 $sf-select-option-font-size: $font-size-big-mobile;
 $sf-select-option-font-family: $body-font-family-secondary;
 
@@ -35,4 +35,3 @@ $sf-select-option-font-family: $body-font-family-secondary;
     outline: 1px solid #5ECE7B;
   }
 }
-
