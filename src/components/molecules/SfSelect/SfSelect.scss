@@ -1,26 +1,27 @@
 @import '../../../css/variables';
 
-$sf-select-padding: $spacer;
-$sf-select-font-size: $font-size-big-mobile;
-$sf-select-font-family: $body-font-family-secondary;
+$select-color-primary: $c-green-primary;
+$select-color-secondary: $c-light-primary;
+
+$select-font-size: $font-size-big-mobile;
+$select-font-family: $body-font-family-secondary;
 
 .sf-select {
   position: relative;
   user-select: none;
+
   &:focus{
     outline: 0;
   }
+
   &__selected {
-    border: 1px solid #F1F2F3;
     background-color: #FFF;
-    @at-root :focus &{
-      border  : 1px solid #5ECE7B;
-    }
+    @at-root :focus &{}
     &:after{
-      width: 7px;
+      flex: 0 0 7px;
       height: 7px;
       margin-left: auto;
-      border: 0px solid #5ECE7B;
+      border: 0px solid $c-dark-primary;
       border-width: 0px 2px 2px 0px;
       transform: rotate(45deg) translateX(calc(-7px / 2));
       content: "";
@@ -29,13 +30,31 @@ $sf-select-font-family: $body-font-family-secondary;
       outline: 0px;
     }
   }
+
   &__options {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 20px);
     z-index: 100;
     width: 100%;
     background-color: #FFF;
-    box-shadow: 0px 4px 11px rgba(157, 157, 157, 0.21);
     outline: 0;
+  }
+
+  &--bordered{
+
+    .sf-select__selected{
+      border: 1px solid $select-color-secondary;
+    }
+
+    .sf-select__options{
+      box-shadow: 0px 4px 11px rgba(157, 157, 157, 0.21);
+    }
+  }
+
+  &--underlined{
+
+    .sf-select__selected{
+      border-bottom: 1px solid $select-color-secondary;
+    }
   }
 }
