@@ -1,4 +1,4 @@
-@import '../../../css/variables';
+@import "../../../css/variables";
 
 $property-align-items: center !default;
 $property-justify-content: flex-start !default;
@@ -12,29 +12,30 @@ $property__value-color: $c-green-primary !default;
 $property__value-text-decoration: underline !default;
 $property__value-font-weight: 500 !default;
 
-
 .sf-property {
-    display: flex;
-    justify-content: $property-justify-content;
-    align-items: $property-align-items;
-    font-size: $property-font-size;
-    line-height: $property-line-height;
-    margin: $property-margin-y $property-margin-x;
+  display: flex;
+  justify-content: $property-justify-content;
+  align-items: $property-align-items;
+  font-size: $property-font-size;
+  line-height: $property-line-height;
+  margin: $property-margin-y $property-margin-x;
 
-    &__property {
-        margin-right: 0.5rem;
+  &__name {
+    margin-right: 0.5rem;
 
-        @media (min-width: $desktop-min) {
-            color: $property__name-desktop-color;
-        }
+    @media (min-width: $desktop-min) {
+      color: $property__name-desktop-color;
     }
+  }
 
-    &__value {
-        cursor: pointer;
-        font-weight: $property__value-font-weight;
-        &:hover, &:active, &:focus {
-            color: $property__value-color;
-            text-decoration: $property__value-text-decoration;
-        }
+  &__value {
+    cursor: pointer;
+    font-weight: $property__value-font-weight;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $property__value-color;
+      text-decoration: $property__value-text-decoration;
     }
+  }
 }

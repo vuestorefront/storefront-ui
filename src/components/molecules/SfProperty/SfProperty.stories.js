@@ -5,7 +5,7 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 export default storiesOf("Molecules|Property", module)
   .addDecorator(withKnobs)
   .add(
-    "Props",
+    "Basic",
     () => ({
       components: { SfProperty },
       props: {
