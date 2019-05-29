@@ -49,7 +49,7 @@ export default {
           perView: 2,
           peek: {
             before: 0,
-            after: 100
+            after: 50
           }
         }
       }
@@ -57,8 +57,9 @@ export default {
     glide.mount();
     glide.on("run.before", move => {
       if (!this.movePerPage) return;
+
       const { perView } = glide.settings;
-      const { direction } = move.direction;
+      const { direction } = move;
 
       move.steps = direction === "<" ? perView : -perView;
     });
