@@ -1,29 +1,26 @@
 @import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
 .sf-carousel{
   position: relative;
-  @media screen and (min-width: 768px){
-    padding: 0 130px;
+
+  &__slides{
+    margin: 0;
   }
+
   &__controls{
     display: none;
+
     @media screen and (min-width: 768px){
       position: absolute;
       top: 50%;
       left: 0;
-      transform: matrix3d(-50%, 0, 0);
+      transform: translate3d(0, -50%, 0);
       width: 100%;
       display: flex;
       justify-content: space-between;
     }
   }
-  &__control{
-    display: flex;
-    background-color: transparent;
-    border: 0;
-    outline: 0;
-    cursor: pointer;
-    &--right{
-      transform: rotate(180deg);
-    }
+
+  @media screen and (min-width: 768px){
+    padding: 0 130px;
   }
 }
