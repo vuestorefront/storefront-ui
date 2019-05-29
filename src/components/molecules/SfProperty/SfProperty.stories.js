@@ -27,7 +27,8 @@ export default storiesOf("Molecules|Property", module)
     }),
     {
       info: {
-        summary: `<h2> Usage </h2>
+        summary: `<p>Simple label and data component created for product description</p>
+        <h2> Usage </h2>
         <pre><code>import SfProperty from "@storefrontui/vue/dist/SfProperty.vue"</code></pre>`
       }
     }
