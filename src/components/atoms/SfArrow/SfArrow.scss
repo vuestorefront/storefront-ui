@@ -1,7 +1,5 @@
 @import '../../../css/variables';
 
-// $component__block-property: value;
-
 .sf-arrow {
   position: relative;
   display: flex;
@@ -10,29 +8,38 @@
   padding: 14px 10px 14px;
   background-color: #F1F2F3;
   cursor: pointer;
-  transition: padding 150ms ease-in-out;
   outline: 0;
+  transition: padding 150ms linear;
+
   &__icon {
     position: relative;
     z-index: 1;
     flex: 0 0 24px;
     height: 12px;
     fill: #1D1F22;
+    transition: fill 150ms linear;
   }
+
+  &::after{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 86%;
+    box-shadow: 0 5px 12px 0 rgba(29, 31, 34, 0.6);
+    opacity: 0;
+    content: "";
+  }
+
   &:hover{
     background-color: #1D1F22;
     .sf-arrow__icon{
       fill: #FFF;
     }
     &::after{
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 100%;
-      width: 86%;
-      box-shadow: 0 5px 12px 0 rgba(29, 31, 34, 0.6);
-      content: ""
+      opacity: 1;
     }
   }
 
