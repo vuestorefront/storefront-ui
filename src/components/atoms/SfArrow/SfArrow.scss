@@ -1,17 +1,27 @@
 @import '../../../css/variables';
 
 .sf-arrow {
-  position: relative;
-  display: flex;
-  border: 0;
-  padding: 14px 10px 14px;
-  background-color: #F1F2F3;
-  cursor: pointer;
-  outline: 0;
-  transition: padding 150ms linear,
-    background-color 150ms linear,
-    box-shadow 150ms linear;
-  box-shadow: 0 5px 12px -6px rgba(29, 31, 34, 0);
+  &__button{
+    position: relative;
+    display: flex;
+    border: 0;
+    padding: 14px 10px 14px;
+    background-color: #F1F2F3;
+    cursor: pointer;
+    outline: 0;
+    transition: padding 150ms linear,
+      background-color 150ms linear,
+      box-shadow 150ms linear;
+    box-shadow: 0 5px 12px -6px rgba(29, 31, 34, 0);
+    &:hover{
+      background-color: #1D1F22;
+      box-shadow: 0 5px 12px -5px rgba(29, 31, 34, 0.6);
+
+      .sf-arrow__icon{
+        fill: #FFF;
+      }
+    }
+  }
   &__icon {
     position: relative;
     z-index: 1;
@@ -20,29 +30,34 @@
     fill: #1D1F22;
     transition: fill 150ms linear;
   }
-
-  &:hover{
-    background-color: #1D1F22;
-    box-shadow: 0 5px 12px -5px rgba(29, 31, 34, 0.6);
-
-    .sf-arrow__icon{
-      fill: #FFF;
-    }
-  }
-
-  &--right {
-    transform: rotate(180deg);
-
-    &:hover{
-      box-shadow: 0 -5px 12px -5px rgba(29, 31, 34, 0.6);
-    }
-  }
-
   &--long{
-    padding: 9px 26px 9px 10px;
-    background-color: #FFF;
-    &:hover{
-      padding: 14px 36px 14px 10px;
+    width: 70px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .sf-arrow{
+      &__button{
+        padding: 9px 26px 9px 10px;
+        background-color: #FFF;
+
+        &:hover{
+          padding: 14px 36px 14px 10px;
+          background-color: #1D1F22;
+        }
+      }
+    }
+  }
+  &--right{
+    justify-content: flex-end;
+    .sf-arrow{
+      &__button{
+        transform: rotate(180deg);
+
+        &:hover{
+          box-shadow: 0 -5px 12px -5px rgba(29, 31, 34, 0.6);
+        }
+      }
     }
   }
 }
