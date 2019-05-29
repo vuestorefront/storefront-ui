@@ -3,14 +3,13 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import notes from "./SfCarousel.md";
 import SfCarousel from "./SfCarousel.vue";
-import SfProductCard from "../../molecules/SfProductCard/SfProductCard.vue";
 
 storiesOf("Organisms|[WIP] Carousel", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
     () => ({
-      components: { SfCarousel, SfProductCard },
+      components: { SfCarousel },
       data() {
         return {
           products: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
@@ -20,10 +19,9 @@ storiesOf("Organisms|[WIP] Carousel", module)
       <div style="max-width: 1140px">
         <SfCarousel :per-page="4" :move-per-page="true">
           <SfCarouselItem v-for="(product, key) in products">
-            <SfProductCard
-              :title="'Product ' + (key + 1)"
-              :price="{ regularPrice: '10,99 $'}"
-              :rating="{ max: 5, score: 4 }"/>
+            <div :style="'color: #FFF; display: flex; justify-content: center; font-size: 72px; align-items: center; height: 300px; background: rgb('+ Math.random() * 255 +',' + Math.random() * 255 +', '+ Math.random() * 255 +')'">
+             {{key + 1}}
+            </div>
           </SfCarouselItem>
         </SfCarousel>
       </div>
