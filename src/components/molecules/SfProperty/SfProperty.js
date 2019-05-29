@@ -1,7 +1,7 @@
 export default {
   name: "SfProperty",
   props: {
-    property: {
+    name: {
       type: String,
       default: ""
     },

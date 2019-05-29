@@ -9,8 +9,8 @@ export default storiesOf("Molecules|Property", module)
     () => ({
       components: { SfProperty },
       props: {
-        property: {
-          default: text("property (prop)", "Material")
+        name: {
+          default: text("name (prop)", "Material")
         },
         value: {
           default: text("value (prop)", "Cotton")
@@ -19,7 +19,7 @@ export default storiesOf("Molecules|Property", module)
       template: `
       <div>
         <SfProperty
-          :property="property"
+          :name="name"
           :value="value"
         />
       </div>

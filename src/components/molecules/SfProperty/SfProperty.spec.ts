@@ -8,15 +8,15 @@ describe("SfProperty.vue", () => {
   });
 
   it("renders correct row", () => {
-    const propertyText = "Category";
+    const nameText = "Category";
     const valueText = "Pants";
     const component = shallowMount(SfProperty, {
       propsData: {
-        property: propertyText,
+        name: nameText,
         value: valueText
       }
     });
-    expect(component.find(".sf-property__property").text()).toMatch(propertyText);
+    expect(component.find(".sf-property__name").text()).toMatch(nameText);
     expect(component.find(".sf-property__value").text()).toMatch(valueText);
   });
 });
