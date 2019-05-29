@@ -11,6 +11,7 @@ Customization-first and elegant UI framework for eCommerce (and not only) based 
 - [Website](http://storefrontui.io/)
 - [Documentation](http://docs.storefrontui.io/) (still in very early stages)
 - [Storybook](http://storybook.storefrontui.io/)
+- [Discord server](https://discord.gg/GS8hqFS)
 
 
 ![](https://i.ibb.co/7ScVptN/123.png)
@@ -19,7 +20,7 @@ Customization-first and elegant UI framework for eCommerce (and not only) based 
 
 Some libraries aim to give as much as they can out of the box but they faill when it comes to customization. Our goal was to enable as much as possible out of the box but with primary focus on ability to customize any aspect of the components.
 
-With sfui you need to do a little bit more than with other libs for basic tasks but you get 100% customizable components in return!
+With SfUI you need to do a little bit more than with other libs for basic tasks but you get 100% customizable components in return!
 
 You can easly change almost every aspect of provided components and use them to make stunning eCommerce shops (and not only)!
 
