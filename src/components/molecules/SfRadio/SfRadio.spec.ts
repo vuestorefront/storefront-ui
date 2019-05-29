@@ -35,14 +35,14 @@ describe("SfRadio.vue", () => {
     expect(component.contains(".sf-radio--checked")).toBe(true)
   });
 
-  it("renders a component with button slot", () => {
+  it("renders a component with radio slot", () => {
     const component = shallowMount(SfRadio, {
       propsData: {
         options: [{ label: "Orange", value: "orange", price: "2" }],
         value
       },
       scopedSlots: {
-        button: `<button class="custom-button" slot-scope="{ isActive }">{{ isActive }}</button>`
+        radio: `<button class="custom-button" slot-scope="{ isActive }">{{ isActive }}</button>`
       }
     });
     expect(component.contains(".custom-button")).toBe(true);
