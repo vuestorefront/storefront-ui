@@ -38,16 +38,20 @@ $select-font-family: $body-font-family-secondary;
     width: 100%;
     background-color: #FFF;
     outline: 0;
+    box-shadow: 0px 4px 11px rgba(157, 157, 157, 0.21);
   }
 
   &--bordered{
 
     .sf-select__selected{
       border: 1px solid $select-color-secondary;
+<<<<<<< HEAD
     }
 
     .sf-select__options{
       box-shadow: 0px 4px 11px rgba(157, 157, 157, 0.21);
+=======
+>>>>>>> master
     }
   }
 
