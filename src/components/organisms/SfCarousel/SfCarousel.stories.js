@@ -18,7 +18,7 @@ storiesOf("Organisms|[WIP] Carousel", module)
       },
       template: `
       <div style="max-width: 1140px">
-        <SfCarousel :per-page="4">
+        <SfCarousel :per-page="4" :move-per-page="true">
           <SfCarouselItem v-for="(product, key) in products">
             <SfProductCard
               :title="'Product ' + (key + 1)"

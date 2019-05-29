@@ -18,6 +18,10 @@ export default {
     perPage: {
       type: Number,
       default: 4
+    },
+    movePerPage: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
@@ -52,6 +56,7 @@ export default {
     });
     glide.mount();
     glide.on("run.before", move => {
+      if (!this.movePerPage) return;
       const { perView } = glide.settings;
       const { direction } = move.direction;
 
