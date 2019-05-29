@@ -1,6 +1,8 @@
 import Vue from "vue";
+
 import SfCarouselItem from "@/components/organisms/SfCarousel/_internal/SfCarouselItem.vue";
 import SfArrow from "@/components/atoms/SfArrow/SfArrow.vue";
+
 import Glide from "@glidejs/glide";
 
 Vue.component("SfCarouselItem", SfCarouselItem);
@@ -49,6 +51,12 @@ export default {
       }
     });
     glide.mount();
+    glide.on("run.before", move => {
+      const { perView } = glide.settings;
+      const { direction } = move.direction;
+
+      move.steps = direction === "<" ? perView : -perView;
+    });
     this.glide = glide;
   }
 };
