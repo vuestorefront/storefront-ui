@@ -17,7 +17,13 @@ storiesOf("Organisms|[WIP] Carousel", module)
       },
       template: `
       <div style="max-width: 1140px">
-        <SfCarousel :per-page="4" :move-per-page="true">
+        <SfCarousel :options="{
+          breakpoints: {
+            768: {
+              perView: 1,
+            }
+          }
+        }">
           <SfCarouselItem v-for="(product, key) in products">
             <div :style="'color: #FFF; display: flex; justify-content: center; font-size: 72px; align-items: center; height: 300px; background: rgb('+ Math.random() * 255 +',' + Math.random() * 255 +', '+ Math.random() * 255 +')'">
              {{key + 1}}

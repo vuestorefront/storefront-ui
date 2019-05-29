@@ -11,17 +11,27 @@ export default {
   name: "SfCarousel",
   data() {
     return {
-      glide: null
+      glide: null,
+      defaultOptions: {
+        type: "carousel",
+        perView: 4,
+        slidePerPage: true,
+        breakpoints: {
+          768: {
+            perView: 2,
+            peek: {
+              before: 0,
+              after: 50
+            }
+          }
+        }
+      }
     };
   },
   props: {
-    perPage: {
-      type: Number,
-      default: 4
-    },
-    movePerPage: {
-      type: Boolean,
-      default: false
+    options: {
+      type: Object,
+      default: () => ({})
     }
   },
   components: {
@@ -39,24 +49,28 @@ export default {
       }
     }
   },
-  mounted: function() {
-    const glide = new Glide(this.$refs.glide, {
-      type: "carousel",
-      perView: this.perPage,
-      peek: 0,
-      breakpoints: {
-        768: {
-          perView: 2,
-          peek: {
-            before: 0,
-            after: 50
-          }
-        }
+  computed: {
+    mergedOptions() {
+      let breakpoints = { ...this.defaultOptions.breakpoints };
+
+      if (this.options.breakpoints) {
+        breakpoints = { ...breakpoints, ...this.options.breakpoints };
       }
-    });
+
+      return {
+        ...this.defaultOptions,
+        ...this.options,
+        breakpoints: breakpoints
+      };
+    }
+  },
+  mounted: function() {
+    const glide = new Glide(this.$refs.glide, this.mergedOptions);
     glide.mount();
     glide.on("run.before", move => {
-      if (!this.movePerPage) return;
+      const { slidePerPage } = this.mergedOptions;
+
+      if (!slidePerPage) return;
 
       const { perView } = glide.settings;
       const { direction } = move;
