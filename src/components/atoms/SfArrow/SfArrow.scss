@@ -3,14 +3,15 @@
 .sf-arrow {
   position: relative;
   display: flex;
-  background-color: transparent;
   border: 0;
   padding: 14px 10px 14px;
   background-color: #F1F2F3;
   cursor: pointer;
   outline: 0;
-  transition: padding 150ms linear;
-
+  transition: padding 150ms linear,
+    background-color 150ms linear,
+    box-shadow 150ms linear;
+  box-shadow: 0 5px 12px -6px rgba(29, 31, 34, 0);
   &__icon {
     position: relative;
     z-index: 1;
@@ -20,35 +21,20 @@
     transition: fill 150ms linear;
   }
 
-  &::after{
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100%;
-    width: 86%;
-    box-shadow: 0 5px 12px 0 rgba(29, 31, 34, 0.6);
-    opacity: 0;
-    content: "";
-  }
-
   &:hover{
     background-color: #1D1F22;
+    box-shadow: 0 5px 12px -5px rgba(29, 31, 34, 0.6);
+
     .sf-arrow__icon{
       fill: #FFF;
-    }
-    &::after{
-      opacity: 1;
     }
   }
 
   &--right {
     transform: rotate(180deg);
+
     &:hover{
-      &::after{
-        transform: translateX(-50%) rotate(180deg);
-      }
+      box-shadow: 0 -5px 12px -5px rgba(29, 31, 34, 0.6);
     }
   }
 
