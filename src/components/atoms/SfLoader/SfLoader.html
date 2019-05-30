@@ -1,5 +1,5 @@
 <div class="sf-loader">
-  <slot></slot>
+  <slot v-if="!loading"></slot>
   <transition name="fade">
     <div class="sf-loader__overlay" v-if="loading">
       <slot name="loader">
