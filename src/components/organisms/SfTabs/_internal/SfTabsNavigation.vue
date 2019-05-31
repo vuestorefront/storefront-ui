@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sf-tabs-navigation">
     <slot
       :tabs="sharedState.tabs"
       :changeTab="changeTab"
