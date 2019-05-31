@@ -1,8 +1,41 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { generateStorybookTable } from "@/helpers";
 import notes from "./README.md";
 import SfTabs from "./SfTabs.vue";
+
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    ["$sf-tabs-navigation-color", "$c-light-primary", "navigation items color"],
+    [
+      "$sf-tabs-navigation-color-hover",
+      "$c-gray-secondary",
+      "navigation item color on hover"
+    ],
+    [
+      "$sf-tabs-navigation-color-active",
+      "$c-black",
+      "active navigation item color"
+    ],
+    [
+      "$sf-tabs-navigation-opacity-hover",
+      "0.7",
+      "navigation item opacity on hover"
+    ]
+  ]
+};
+
+const eventsTableConfig = {
+  tableHeadConfig: ["NAME", "DESCRIPTION"],
+  tableBodyConfig: [
+    [
+      "change",
+      "returns value of the selected tab. this event has v-model support"
+    ]
+  ]
+};
 
 storiesOf("Organisms|Tabs", module)
   .addDecorator(withKnobs)
@@ -24,7 +57,10 @@ storiesOf("Organisms|Tabs", module)
     }),
     {
       info: {
-        summary: `<p>Tab Component</p>`
+        summary: `<p>Tab Component</p>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+        ${generateStorybookTable(eventsTableConfig, "Events")}
+        `
       },
       notes
     }
@@ -55,7 +91,10 @@ storiesOf("Organisms|Tabs", module)
     }),
     {
       info: {
-        summary: `<p>Tab Component with fully customized navigation.</p>`
+        summary: `<p>Tab Component with fully customized navigation.</p>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+        ${generateStorybookTable(eventsTableConfig, "Events")}
+        `
       },
       notes
     }
@@ -83,7 +122,10 @@ storiesOf("Organisms|Tabs", module)
     }),
     {
       info: {
-        summary: `<p>Tab Component with customized navigation item</p>`
+        summary: `<p>Tab Component with customized navigation item</p>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+        ${generateStorybookTable(eventsTableConfig, "Events")}
+        `
       },
       notes
     }

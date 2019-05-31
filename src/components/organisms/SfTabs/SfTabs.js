@@ -23,10 +23,9 @@ export default {
   },
 
   props: {
-    router: {
-      type: Boolean,
-      default: false
-    },
+    /**
+     * Value of selected option, this prop has v-model support
+     */
     value: {
       type: [Number, String],
       default: null

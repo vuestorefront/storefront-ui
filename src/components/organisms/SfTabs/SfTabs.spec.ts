@@ -4,7 +4,6 @@ import SfTabs from "./SfTabs.vue";
 
 describe("SfTabs.vue", () => {
 
-
   it("checks if navigation is rendered when passed tab", () => {
     const component = mount(SfTabs, {
       slots: {
@@ -15,7 +14,6 @@ describe("SfTabs.vue", () => {
     expect(component.find(".sf-tabs-navigation").exists()).toBe(true);
    
   });
-
 
   it("checks if Tab slot is passed correctly", () => {
     const component = mount(SfTabs, {
@@ -30,7 +28,6 @@ describe("SfTabs.vue", () => {
 
   })
 
-
   it("check if navigation contains title passed in tab", () => {
     const component = mount(SfTabs, {
       slots: {
@@ -41,7 +38,6 @@ describe("SfTabs.vue", () => {
     expect(component.find(".sf-tabs-navigation__item").text()).toMatch("test-title");
 
   })
-
 
   it("checks if quantity of passed tabs is equal to navigation items", () => {
     const component = mount(SfTabs, {
@@ -58,10 +54,7 @@ describe("SfTabs.vue", () => {
     return Vue.nextTick().then(() => {
       expect(component.findAll(".sf-tabs-navigation__item").length).toBe(4);
     })
-    
   })
-
-  
 
   it("renders component with custom navigation", () => {
     const component = mount(SfTabs, {
@@ -88,7 +81,6 @@ describe("SfTabs.vue", () => {
     return Vue.nextTick().then(() => {
       expect(component.findAll(".custom-nav-item").length).toBe(4)
     })
-
   })
 
   it("checks if one item is active by default", () => {
@@ -106,8 +98,6 @@ describe("SfTabs.vue", () => {
     return Vue.nextTick().then(() => {
       expect(component.findAll(".sf-tabs-navigation--active").length).toBe(1);
     })
-    
   })
-
 
 });

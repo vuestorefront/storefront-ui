@@ -40,8 +40,11 @@ export default {
 <style lang="scss">
 @import "../../../../css/variables";
 
-$sf-tabs-navigation-color: $c-light-primary;
-$sf-tabs-navigation-color-hover: $c-gray-secondary;
+$sf-tabs-navigation-color: $c-light-primary !default;
+$sf-tabs-navigation-color-hover: $c-gray-secondary !default;
+$sf-tabs-navigation-color-active: $c-black !default;
+
+$sf-tabs-navigation-opacity-hover: 0.7 !default;
 
 .sf-tabs-navigation {
   &__list {
@@ -65,7 +68,7 @@ $sf-tabs-navigation-color-hover: $c-gray-secondary;
     &:hover:not(.sf-tabs-navigation--active) {
       color: $sf-tabs-navigation-color-hover;
       border-bottom: 2px solid $sf-tabs-navigation-color-hover;
-      opacity: 0.7;
+      opacity: $sf-tabs-navigation-opacity-hover;
     }
 
     p {
@@ -74,8 +77,8 @@ $sf-tabs-navigation-color-hover: $c-gray-secondary;
   }
 
   &--active {
-    border-bottom: 2px solid black;
-    color: black;
+    border-bottom: 2px solid $sf-tabs-navigation-color-active;
+    color: $sf-tabs-navigation-color-active;
   }
 }
 </style>
