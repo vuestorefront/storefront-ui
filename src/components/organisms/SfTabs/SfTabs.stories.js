@@ -2,7 +2,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
-import notes from "./README.md";
 import SfTabs from "./SfTabs.vue";
 
 const scssTableConfig = {
@@ -61,8 +60,7 @@ storiesOf("Organisms|Tabs", module)
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(eventsTableConfig, "Events")}
         `
-      },
-      notes
+      }
     }
   )
   .add(
@@ -95,8 +93,7 @@ storiesOf("Organisms|Tabs", module)
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(eventsTableConfig, "Events")}
         `
-      },
-      notes
+      }
     }
   )
   .add(
@@ -126,7 +123,6 @@ storiesOf("Organisms|Tabs", module)
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(eventsTableConfig, "Events")}
         `
-      },
-      notes
+      }
     }
   );
