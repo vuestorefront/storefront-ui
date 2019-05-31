@@ -1,7 +1,78 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import notes from "./README.md";
+import { generateStorybookTable } from "@/helpers";
 import SfBanner from "./SfBanner.vue";
+
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    [
+      "$banner-padding",
+      "(calc( #{$spacer-extra-big} * 2)) (4rem)",
+      "padding for banner"
+    ],
+    ["$banner-background-size", "cover", "background size for banner"],
+    [
+      "$banner-background-position",
+      "bottom left",
+      "background position for banner"
+    ],
+    [
+      "$banner-align-items",
+      "flex-end",
+      "container displays as flex, you can customize here how items should be aligned"
+    ],
+    ["$banner-width", "100%", "width of banner"],
+    ["$banner-mobile-padding", "1.25rem", "banner padding on mobile"],
+    [
+      "$banner__subtitle-font-family",
+      "$body-font-family-primary",
+      "font-family for subtitle"
+    ],
+    ["$banner__subtitle-font-size", "1.5rem", "font-size of subtitle"],
+    ["$banner__subtitle-font-weight", "300", "font-weight of subtitle"],
+    ["$banner__subtitle-color", "$c-dark-secondary", "text color for subtitle"],
+    ["$banner__subtitle-text-transform", "none", "text trnasform for subtitle"],
+    [
+      "banner-mobile__subtitle-font-size",
+      "0.875rem",
+      "font-size of subtitle on mobile"
+    ],
+    [
+      "$banner__title-text-transform",
+      "uppercase",
+      "text trnasform for title text"
+    ],
+    ["$banner__title-font-weight", "300", "font-weight of title"],
+    ["$banner__title-font-size", "3rem", "font-size of title"],
+    [
+      "$banner__title-font-family",
+      "$body-font-family-secondary",
+      "font-family of title"
+    ],
+    ["$banner__title-color", "$c-dark-primary", "color of title text"],
+    [
+      "$banner__call-to-action-font-size",
+      "0.875rem",
+      "call to action font-size"
+    ],
+    [
+      "$banner__call-to-action-background-color",
+      "$c-dark-primary",
+      "background-color for call to action"
+    ]
+  ]
+};
+
+const cssTableConfig = {
+  tableHeadConfig: ["NAME", "DESCRIPTION"],
+  tableBodyConfig: [
+    [".sf-banner--top", "aligns content to top (visible on mobile)"],
+    [".sf-banner--bottom", "aligns content to bottom (visible on mobile)"],
+    [".sf-banner--left", "aligns content to left"],
+    [".sf-banner--secondary", "changes button color to accent"]
+  ]
+};
 
 storiesOf("Molecules|Banner", module)
   .addDecorator(withKnobs)
@@ -55,10 +126,12 @@ storiesOf("Molecules|Banner", module)
     `
     }),
     {
-      notes,
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import SfBanner from "@storefrontui/vue/dist/SfBanner.vue"</code></pre>`
+        <pre><code>import SfBanner from "@storefrontui/vue/dist/SfBanner.vue"</code></pre>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
+        `
       }
     }
   )
@@ -128,7 +201,6 @@ storiesOf("Molecules|Banner", module)
     `
     }),
     {
-      notes,
       info: true
     }
   )
@@ -152,7 +224,6 @@ storiesOf("Molecules|Banner", module)
     `
     }),
     {
-      notes,
       info: true
     }
   );
