@@ -71,9 +71,9 @@ storiesOf("Organisms|Tabs", module)
         selected: "bananaValue"
       }),
       template: `
-      <SfTabs v-model="selected">
+      <SfTabs v-model="selected" style="display: flex;">
         <SfTabsNavigation slot="navigation">
-          <div style="display: flex; justify-content: space-between; cursor: pointer;" slot-scope="{ tabs, changeTab, activeTabValue }">
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; cursor: pointer; min-width: 150px; background: #eee;" slot-scope="{ tabs, changeTab, activeTabValue }">
             <h1 v-for="(tab, index) in tabs" :key="index" @click="changeTab(tab.valueComputed)">{{ tab.title }} <b v-if="tab.valueComputed === activeTabValue">!!!</b></h1>
           </div>
         </SfTabsNavigation>
