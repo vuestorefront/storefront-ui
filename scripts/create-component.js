@@ -75,8 +75,7 @@ function createComponent(folder, componentName) {
       fileName: `${PrefixComponentName}.js`,
       content: `export default {
   name: "${PrefixComponentName}"
-};
-        `
+};`
     },
     {
       fileName: `${PrefixComponentName}.scss`,
@@ -91,8 +90,7 @@ function createComponent(folder, componentName) {
 //   &--modifier {
 
 //   }
-// }        
-        `
+// }`
     },
     {
       fileName: `${PrefixComponentName}.spec.ts`,
@@ -104,8 +102,7 @@ describe("${PrefixComponentName}.vue", () => {
     const component = shallowMount(${PrefixComponentName});
     expect(component.contains(".${joinedComponentName}")).toBe(true);
   });
-});
-        `
+});`
     },
     {
       fileName: `${PrefixComponentName}.stories.js`,
@@ -118,20 +115,16 @@ import { generateStorybookTable } from "@/helpers";
 // use this to documment scss vars
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["$component-size", "1.438rem", "size of checkmark"],
-  ]
+  tableBodyConfig: [["$component-size", "1.438rem", "size of checkmark"]]
 };
 
-// use this to documment events
+// use this to document events
 const eventsTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["input", "event emmited when option is selected"],
-  ]
+  tableBodyConfig: [["input", "event emited when option is selected"]]
 };
 
-// storiesOf("Component", module)
+// storiesOf("${PrefixComponentName}", module)
 //   .addDecorator(withKnobs)
 //   .add(
 //     "[slot] default",
@@ -152,27 +145,25 @@ const eventsTableConfig = {
 //       components: { ${PrefixComponentName} },
 //       template: \`<${PrefixComponentName}
 //         :class="customClass"
-//       >
-//       /${PrefixComponentName}>\`
+//       />\`
 //     }),
 //     {
 //      info: {
 //        summary: \`<p>Component for simple group of radio buttons, pass an array get selected value via v-model.</p>
-//        <h2> Usage </h2>
+//        <h2>Usage</h2>
 //        <pre><code>import ${PrefixComponentName} from "@storefrontui/vue/dist/${PrefixComponentName}.vue"</code></pre>
 //        \${generateStorybookTable(scssTableConfig, "SCSS variables")}
 //        \${generateStorybookTable(eventsTableConfig, "Events")}
 //        \`
 //      }
-//    }   
+//    }
 // );`
     },
     {
       fileName: `${PrefixComponentName}.vue`,
       content: `<script src="./${PrefixComponentName}.js"></script>
 <template lang="html" src="./${PrefixComponentName}.html"></template>
-<style lang="scss" src="./${PrefixComponentName}.scss"></style>
-        `
+<style lang="scss" src="./${PrefixComponentName}.scss"></style>`
     }
   ];
 
