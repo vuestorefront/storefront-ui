@@ -48,26 +48,6 @@ function createComponent(folder, componentName) {
 
   const files = [
     {
-      fileName: "README.md",
-      content: `# ${PrefixComponentName}
-
-## Events
-
-- \`event\` - description
-
-
-## CSS Modifiers
-
-- \`classname\` - description
-
-
-## SCSS variables
-
-- \`variablename\` (defaultvalue) - description
-        
-        `
-    },
-    {
       fileName: `${PrefixComponentName}.html`,
       content: `<div class="${joinedComponentName}"></div>`
     },
@@ -109,19 +89,24 @@ describe("${PrefixComponentName}.vue", () => {
       content: `// /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import ${PrefixComponentName} from "./${PrefixComponentName}.vue";
 import { generateStorybookTable } from "@/helpers";
 
-// use this to documment scss vars
+import ${PrefixComponentName} from "./${PrefixComponentName}.vue";
+
+// use this to document scss vars
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [["$component-size", "1.438rem", "size of checkmark"]]
+  tableBodyConfig: [
+    ["$component-size", "1.438rem", "size of checkmark"]
+  ]
 };
 
 // use this to document events
 const eventsTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [["input", "event emited when option is selected"]]
+  tableBodyConfig: [
+    ["input", "event emited when option is selected"]
+  ]
 };
 
 // storiesOf("${PrefixComponentName}", module)
@@ -149,7 +134,7 @@ const eventsTableConfig = {
 //     }),
 //     {
 //      info: {
-//        summary: \`<p>Component for simple group of radio buttons, pass an array get selected value via v-model.</p>
+//        summary: \`<p>Component description.</p>
 //        <h2>Usage</h2>
 //        <pre><code>import ${PrefixComponentName} from "@storefrontui/vue/dist/${PrefixComponentName}.vue"</code></pre>
 //        \${generateStorybookTable(scssTableConfig, "SCSS variables")}
