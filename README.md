@@ -6,17 +6,21 @@
 
 **We are looking for contributors and agencies willing to join us and build best UI library for Vue together!**
 
-Customization-first and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team.
+Customization-first and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team and contributors.
 
+- [Website](http://storefrontui.io/)
+- [Documentation](http://docs.storefrontui.io/) (still in very early stages)
+- [Storybook](http://storybook.storefrontui.io/)
+- [Discord server](https://discord.gg/GS8hqFS)
 
 
 ![](https://i.ibb.co/7ScVptN/123.png)
 
 # What makes it unique?
 
-Some libraries aim to give as much as they can out of the box but they faill when it comes to customization. Our goal was to enable as much as possible out of the box but with primar focus on ability to customize any aspect of the components. 
+Some libraries aim to give as much as they can out of the box but they faill when it comes to customization. Our goal was to enable as much as possible out of the box but with primary focus on ability to customize any aspect of the components.
 
-With sfui you need to do a little bit more than with other libs for basic tasks but you get 100% customizable components in return!
+With SfUI you need to do a little bit more than with other libs for basic tasks but you get 100% customizable components in return!
 
 You can easly change almost every aspect of provided components and use them to make stunning eCommerce shops (and not only)!
 
@@ -24,7 +28,7 @@ You can easly change almost every aspect of provided components and use them to 
 **Here are the key characteristics of Storefront UI:**
 
 - Ability to customize any aspect of the library.
-- Seamless upgrades
+- Performance-oriented
 - High-level global customization can be done through SCSS variables
 - Component content customization with slots.
 - Component design customization with pure css BEM classes instead of countless props.
@@ -72,12 +76,20 @@ Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-st
 # Supporters
 <a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="40px"></a>
 
-# Roadmap 
+# Roadmap
 
 - Category page components (April) - Done
 - Product Page components (May) (alpha release)
-- Homepage, form elements and a11y (June) 
+- Homepage, form elements and a11y (June)
 - Last polishments and focus on documentation (June/July) (beta release)
+
+**Other things to include in the meantime:**
+- include additional build for every compoennt so they can also be imported separately but after a build step (useful for apps that don't have a build step at all)
+- webpack build that can be merged into your current one with everything that is needed to consume SFUI webpack source
+
+**In consideration**
+- SCSS - CSS vars transition
+
 
 Want to help and make it even faster? Grab an issue and become part of our amazing community ;)
 
