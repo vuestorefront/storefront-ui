@@ -1,0 +1,8 @@
+<div class="sf-property">
+  <slot>
+    <span class="sf-property__name">{{ name }}:</span>
+    <slot name="value" :value="value">
+      <span class="sf-property__value">{{ value }}</span>
+    </slot>
+  </slot>
+</div>
