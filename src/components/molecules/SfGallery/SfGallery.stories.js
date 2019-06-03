@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, number, boolean } from "@storybook/addon-knobs";
-import notes from "./README.md";
 import SfGallery from "./SfGallery.vue";
 
 const data = () => {
@@ -65,12 +64,37 @@ storiesOf("Molecules|Gallery", module)
       components: { SfGallery },
       template: `<SfGallery
         :sliderOptions="{ autoplay, rewind }"
-        :current.sync="current"
+        v-model="current"
         :images="images" />`
     }),
     {
-      info: true,
-      notes
+      info: {
+        summary: `
+          <h2>
+            Description
+          </h2>
+          <p>
+            Swappable gallery for product images,
+            called by <code>&lt;SfGallery&gt;</code>.
+            <br>
+            You may use it with <code>v-model</code> to control current image,
+            by default it starts with the first image.
+            <br>
+            You <b>must</b> pass an array of objects (images) with the format below:
+            <code>
+          let images = [
+            {
+              small: { url, alt },
+              big: { url, alt },
+              zoom: { url, alt }
+            }
+          ]
+            </code>
+          </p>
+          <h2> Usage </h2>
+          <pre><code>import SfGallery from "@storefrontui/vue/dist/SfGallery.vue"</code></pre>
+          `
+      }
     }
   )
   .add(
@@ -87,7 +111,6 @@ storiesOf("Molecules|Gallery", module)
        </SfGallery>`
     }),
     {
-      info: true,
-      notes
+      info: true
     }
   );
