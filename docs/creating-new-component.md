@@ -5,7 +5,14 @@ At this point I assume you are already familiar with composition rules and know 
 
 ### Start with template
 
-If you're creating a new component start with copying a template folder ([`src/components/template`](https://github.com/DivanteLtd/storefront-ui/tree/master/src/components/template)) and renaming it. It contains a starting boilerplate that'll help you create a componentnt in standarized way and save a lot of work.
+If you're creating a new componet start with `npm run create-component` which accepts two arguments, the first is atomic
+type, the second is component name. When running the command, it will generate boilerplate and help you create a component in standarized way and save a lot of work.
+
+For example:
+```bash
+npm run create-component atoms button
+npm run create-component molecules input-number
+```
 
 If you're picking already existing just follow the tutorial and finish the missing parts.
 
@@ -38,4 +45,14 @@ Some of the most common cases can be found in a template.
 
 ### Add documentation and stories
 
-Document the components according to documentation template in `components/template` folder.
+Document the components according to documentation template in `components/template` folder. In `src/utilities/js-helpers` you can find function `createStorybookTable.js`, as name suggests this function returns html for Storybook table. how to use function:
+
+```javascript
+createStorybookTable({
+    tableHeadConfig: ['first th', 'second th', 'third th'],
+    tableBodyConfig: [
+        ['first tr, first td', 'first tr, second td', 'first tr,third td'],
+        ['second tr, first td', 'second tr, second td', 'second tr,third td'],
+    ]
+})
+```

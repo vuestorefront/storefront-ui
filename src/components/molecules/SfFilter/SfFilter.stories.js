@@ -1,8 +1,26 @@
 import { storiesOf } from "@storybook/vue";
-
+import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { generateStorybookTable } from "@/helpers";
 import SfFilter from "./SfFilter.vue";
 
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    [
+      "$filter-item-padding",
+      "$spacing-big $spacing-extra-big",
+      "padding for filter item"
+    ],
+    ["$filter-item-icon-spacing", "0.75rem", "spacing for filter icon"],
+    ["$filter-item-min-height", "35px", "minimum height for filter"],
+    ["$filter-item-font-size", "$font-size-big-mobile", "font-size for filter"],
+    [
+      "$filter-item-font-family",
+      "$body-font-family-secondary",
+      "font-family for filter"
+    ]
+  ]
+};
 
 export default storiesOf("Molecules|Filter", module)
   .addDecorator(withKnobs)
@@ -70,16 +88,17 @@ export default storiesOf("Molecules|Filter", module)
       info: {
         summary: `
           <h2> Description </h2>
-          <p>This component should be used for filtering products on listings. Use \`<SfFilter>\` as a wrapper for individual filters (\`<SfFilterItem>\`). Value passed to \`v-model\` holds an array (or string if multiple prop is set to false) of value properties from active filters.</p>
-          <p> \`<SfFilterItem>\` has following properties:</p>
+          <p>This component should be used for filtering products on listings. Use <code>&#60;SfFilter&#62;</code> as a wrapper for individual filters <code>&#60;SfFilterItem&#62;</code>. Value passed to v-model holds an array (or string if multiple prop is set to false) of value properties from active filters.</p>
+          <p> <code>&#60;SfFilterItem&#62;</code> has following properties:</p>
           <ul>
-            <li> \`label\` - label that will be displayed in a component</li>
-            <li> \`value\` - unique identifier</li>
-            <li> \`count\` - (optional) number of items matching given filter</li>
-            <li> \`color\` - (optional) color that will be displayed in a box on the left side (all valid CSS colors can be passed)</li>
+            <li> label - label that will be displayed in a component</li>
+            <li> value - unique identifier</li>
+            <li> count - (optional) number of items matching given filter</li>
+            <li> color - (optional) color that will be displayed in a box on the left side (all valid CSS colors can be passed)</li>
           </ul>
           <h2> Usage </h2>
           <pre><code>import SfFilter from "@storefrontui/vue/dist/SfFilter.vue"</code></pre>
+          ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }
     }

@@ -1,9 +1,56 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
-import notes from "./README.md";
+import { generateStorybookTable } from "@/helpers";
 import SfOptions from "./SfOptions.vue";
 
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    [
+      "$sf-options__label-font-size",
+      "$font-size-big-mobile",
+      "font-size for label"
+    ],
+    [
+      "sf-options__label-margin-bottom",
+      "0.5rem",
+      "margin between label and options"
+    ],
+    ["$sf-options__transition", "all 0.3s ease-in-out", "transistion on label"],
+    ["sf-options__option-margin", "0.75rem", "margin between options"],
+    ["$sf-options__option-size", "2rem", "width and height of option"],
+    [
+      "$sf-options-desktop__option-color-size",
+      "1rem",
+      "width and height of color"
+    ],
+    [
+      "$sf-options__option-font-size",
+      "$font-size-regular-mobile",
+      "font size of text option"
+    ],
+    [
+      "$sf-options-mobile__option-text-color",
+      "$c-gray-primary",
+      "color of text option on mobile"
+    ],
+    [
+      "$sf-options-desktop__option-text-color",
+      "$c-black",
+      "color of text option on desktop"
+    ]
+  ]
+};
+
+const cssTableConfig = {
+  tableHeadConfig: ["NAME", "DESCRIPTION"],
+  tableBodyConfig: [
+    ["sf-options__option-text--selected", "sets selected for text option"],
+    ["sf-options__option-color--selected", "sets selected for color option"],
+    ["sf-options__option-image--selected", "sets selected for image option"]
+  ]
+};
 storiesOf("Molecules|Options", module)
   .addDecorator(withKnobs)
   .add(
@@ -48,10 +95,12 @@ storiesOf("Molecules|Options", module)
       }
     }),
     {
-      notes,
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import SfOptions from "@storefrontui/vue/dist/SfOptions.vue"</code></pre>`
+        <pre><code>import SfOptions from "@storefrontui/vue/dist/SfOptions.vue"</code></pre>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
+        `
       }
     }
   )
@@ -97,7 +146,6 @@ storiesOf("Molecules|Options", module)
       }
     }),
     {
-      notes,
       info: true
     }
   )
@@ -139,7 +187,6 @@ storiesOf("Molecules|Options", module)
       }
     }),
     {
-      notes,
       info: true
     }
   )
@@ -183,7 +230,6 @@ storiesOf("Molecules|Options", module)
       }
     }),
     {
-      notes,
       info: true
     }
   )
@@ -234,7 +280,6 @@ storiesOf("Molecules|Options", module)
       }
     }),
     {
-      notes,
       info: true
     }
   )
@@ -281,7 +326,6 @@ storiesOf("Molecules|Options", module)
       }
     }),
     {
-      notes,
       info: true
     }
   );

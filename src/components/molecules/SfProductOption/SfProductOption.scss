@@ -1,6 +1,5 @@
 @import '../../../css/variables';
 
-$product-option-padding      : $spacer 0;
 $product-option-font-size    : $font-size-big-mobile;
 $product-option-font-family  : $body-font-family-secondary;
 
@@ -9,7 +8,6 @@ $product-option-font-family  : $body-font-family-secondary;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: $product-option-padding;
     font-size: $product-option-font-size;
     font-family: $product-option-font-family;
     &__label {
