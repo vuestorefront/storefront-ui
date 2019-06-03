@@ -45,4 +45,14 @@ Some of the most common cases can be found in a template.
 
 ### Add documentation and stories
 
-Document the components according to documentation template in `components/template` folder.
+Document the components according to documentation template in `components/template` folder. In `src/utilities/js-helpers` you can find function `createStorybookTable.js`, as name suggests this function returns html for Storybook table. how to use function:
+
+```javascript
+createStorybookTable({
+    tableHeadConfig: ['first th', 'second th', 'third th'],
+    tableBodyConfig: [
+        ['first tr, first td', 'first tr, second td', 'first tr,third td'],
+        ['second tr, first td', 'second tr, second td', 'second tr,third td'],
+    ]
+})
+```

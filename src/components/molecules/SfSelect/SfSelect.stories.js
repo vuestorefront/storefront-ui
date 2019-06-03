@@ -18,11 +18,20 @@ storiesOf("Molecules|Select", module)
         };
       },
       components: { SfSelect, SfProductOption },
+      props: {
+        customClass: {
+          default: select(
+            "CSS Modifier",
+            ["null", "sf-select--bordered", "sf-select--underlined"],
+            "null"
+          )
+        }
+      },
       template: `
       <div>
         <p><b>Selected: {{selected}}</b></p>
-        <div style="width: 300px">
-          <SfSelect v-model="selected">
+        <div style="max-width: 509px">
+          <SfSelect v-model="selected" :class="customClass">
             <SfSelectOption value="amaranth">
               <SfProductOption color="#E52B50" label="Amaranth"/>
             </SfSelectOption>
