@@ -1,5 +1,5 @@
 export default {
-  name: "SfInputNumber",
+  name: "SfCounter",
 
   props: {
     step: {
@@ -177,7 +177,7 @@ export default {
         }
       }
       this.currentValue = val;
-      this.$emit("change", val);
+      this.$emit("input", val);
     },
 
     increase() {

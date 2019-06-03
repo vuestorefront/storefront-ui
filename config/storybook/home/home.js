@@ -24,7 +24,7 @@ storiesOf(" |Introduction", module)
         On the <b>notes</b> menu you will find additional information about component such as available SCSS variables.
       </p>
       <p>
-        <b>StorefrontUI is currently in ALPHA wchich means it is not suitable for production! Expect things to be broken and APIs to possibly change.</b>
+        <b>StorefrontUI is currently in ALPHA, which means it is not suitable for production! Expect things to be broken and APIs to possibly change.</b>
       </p>
       <h2> Join us! </h2>
         <p> StorefrontUI is a completely new approach for component libraries oriented around customization possibilities instead of out of the box possibilities. It's a great goal but it will take a lot of time to achieve it only by ourselves. The project is open source and free to use. If you'd like to support us and join the team please write to me: <b> filip [at] vuestorefront.io </b>;)</p>
@@ -32,8 +32,8 @@ storiesOf(" |Introduction", module)
       <ol>
         <li> Add the package: <pre>npm install --save @storefrontui/vue</pre> </li>
         <li> Import stylesheets in App.vue or main.js <pre>import "@storefrontui/vue/dist/css/all.scss";</pre></li>
-        <li> It's done! Now you can import and use any of the components <pre> import SfComponentName from "@storefrontui/vue/dist/SfComponentName.vue"</li>
-        <li> You can find detailed information about every component inside each compoennts stories </li>
+        <li> It's done! Now you can import and use any of the components <pre> import SfComponentName from "@storefrontui/vue/dist/SfComponentName.vue"</pre></li>
+        <li> You can find detailed information about every component inside each components stories </li>
       </ol>
       <h2> How to customize? </h2>
       <p>StorefrontUI components can be customized in many ways:</p>
@@ -48,7 +48,7 @@ storiesOf(" |Introduction", module)
       <ul>
         <li><a href="https://github.com/Divanteltd/storefront-ui" target="_blank">StorefrontUI Github</a></li>
         <li><a href="https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md" target="_blank">Contribution guide</a></li>
-        <li>Documentation (work in progress)</li>
+        <li><a href="https://docs.storefrontui.io" target="_blank">Documentation (work in progress)</a></li>
         <li><a href="https://storybook.js.org/docs/basics/introduction/" target="_blank">Storybook docs</a></li>
       </ul>
     </div>

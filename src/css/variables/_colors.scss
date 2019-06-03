@@ -26,8 +26,8 @@ $c-text-primary: $c-dark-primary !default;
 $c-text-secondary: $c-gray-secondary !default;
 $c-text-on-light: $c-black !default;
 $c-text-on-dark: $c-white !default;
-$c-text-link: $c-dark-secondary;
-$c-text-link-hover: $c-dark-primary;
+$c-text-link: $c-dark-secondary !default;
+$c-text-link-hover: $c-dark-primary !default;
 
 // Background
 $c-bg-primary: $c-light-primary !default;
