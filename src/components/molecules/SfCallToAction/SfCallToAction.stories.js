@@ -1,6 +1,5 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import notes from "./README.md";
 import SfCallToAction from "./SfCallToAction.vue";
 
 storiesOf("Molecules|CallToAction", module)
@@ -44,7 +43,6 @@ storiesOf("Molecules|CallToAction", module)
     `
     }),
     {
-      notes,
       info: {
         summary: `<h2> Usage </h2>
         <pre><code>import SfCallToAction from "@storefrontui/vue/dist/SfCallToAction.vue"</code></pre>`
@@ -106,7 +104,6 @@ storiesOf("Molecules|CallToAction", module)
     `
     }),
     {
-      notes,
       info: true
     }
   );

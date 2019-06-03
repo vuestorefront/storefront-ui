@@ -1,0 +1,21 @@
+@import "../../../css/variables";
+
+$property-margin-y: 1rem !default;
+$property-margin-x: 0 !default;
+$property__name-font-weight: $body-font-weight-primary !default;
+$property__value--color: $c-green-primary !default;
+$property__value-text-decoration: underline !default;
+$property__value-font-weight: 500 !default;
+
+.sf-property {
+  display: flex;
+  margin: $property-margin-y $property-margin-x;
+
+  &__name {
+    margin-right: 0.5rem;
+  }
+
+  &__value {
+    font-weight: $property__value-font-weight; 
+  }
+}
