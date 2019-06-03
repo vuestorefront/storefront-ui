@@ -34,8 +34,8 @@ trough `sliderOptions` prop, the default is:
 
 ## Events
 
-- `update:current` - Emitted when an nav item (thumbnail) is clicked and
-the selected image is changed, you may handle it with `:current.sync="currentImage"`.
+- `change` - Emitted when an nav item (thumbnail) is clicked and
+the selected image is changed, you may handle it with `v-model`.
 
 ## SCSS variables
 
