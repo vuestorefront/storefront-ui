@@ -5,6 +5,7 @@
       class="sf-gallery__item"
       :class="{ 'sf-gallery__item--selected': i === activeIndex }"
       @click="setCurrentImage(i)">
+      <!-- @slot Custom markup for thumbnails (binds `image` object and `index` number) -->
       <slot name="thumb" :image="image" :index="i">
         <img class="sf-gallery__thumb" :src="image.small.url" :alt="image.small.alt"/>
       </slot>
