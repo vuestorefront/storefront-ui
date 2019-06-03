@@ -1,71 +1,87 @@
-$transition-fade: opacity .15s linear;
-$transition-base: $transition-fade;
-$transition-slide: all .15s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-$transition-slide-transform-size: 10px;
+@import './mixins';
 
-// mixins
+// slide-left
 
-@mixin transition($transition...) {
-  @if length($transition) == 0 {
-    transition: $transition-base;
-  } @else {
-    transition: $transition;
-  }
+.slide-left-enter-active {
+  -webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-@mixin transition-fade() {
-  &-enter-active,
-  &-leave-active {
-    @include transition($transition-fade);
-  }
-  &-enter,
-  &-leave-to {
+.slide-left-leave-active{
+-webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both reverse;
+        animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both reverse;
+}
+
+@-webkit-keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
     opacity: 0;
   }
-}
-
-@mixin transition-slide($direction: "left") {
-  &-enter-active,
-  &-leave-active {
-    transition: $transition-slide;
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
   }
-  &-enter,
-  &-leave-to {
-    @if $direction == "bottom" {
-      transform: translateY($transition-slide-transform-size);
-    } @elseif $direction == "top" {
-      transform: translateY(-$transition-slide-transform-size);
-    } @elseif $direction == "left" {
-      transform: translateX(-$transition-slide-transform-size);
-    } @else {
-      transform: translateX($transition-slide-transform-size);
-    }
+}
+@keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
     opacity: 0;
   }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-@mixin transition-slide-fade($direction: "left") {
-  @include transition-slide($direction);
-  &-enter-active {
-    transition: $transition-fade;
+// slide-right
+.slide-right-enter-active {
+  -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-right-leave-active{
+-webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both reverse;
+        animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both reverse;
+}
+
+@-webkit-keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
   }
 }
 
 // classes
-
+// TODO: Refactor top/bottom slide/collapse transitions - they are not working correctly with conditional rendering
 .fade {
   @include transition-fade();
 }
-.slide\(left\) {
-  @include transition-slide("left");
-}
-.slide\(right\) {
-  @include transition-slide("right");
-}
-.collapse\(bottom\) {
+.collapse-bottom {
   @include transition-slide("bottom");
 }
-.collapse\(top\) {
+.collapse-top {
   @include transition-slide("top");
 }
 .fade-slide {
@@ -74,3 +90,4 @@ $transition-slide-transform-size: 10px;
 .fade-collapse {
   @include transition-slide-fade("bottom");
 }
+

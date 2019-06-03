@@ -1,20 +1,21 @@
 <section class="sf-call-to-action">
-  <slot />
-  <div class="sf-call-to-action__text-container">
-    <slot name="title" :title="title">
-      <h1 class="sf-call-to-action__title" v-if="title">
-        {{ title }}
-      </h1>
+  <slot>
+    <div class="sf-call-to-action__text-container">
+      <slot name="title" :title="title">
+        <h1 class="sf-call-to-action__title" v-if="title">
+          {{ title }}
+        </h1>
+      </slot>
+      <slot name="description" :description="description">
+        <p class="sf-call-to-action__description" v-if="description">
+          {{ description }}
+        </p>
+      </slot>
+    </div>
+    <slot name="action">
+      <sf-button class="sf-call-to-action__button" v-if="buttonText">
+        {{ buttonText }}
+      </sf-button>
     </slot>
-    <slot name="description" :description="description">
-      <p class="sf-call-to-action__description" v-if="description">
-        {{ description }}
-      </p>
-    </slot>
-  </div>
-  <slot name="action">
-    <sf-button class="sf-call-to-action__button" v-if="buttonText">
-      {{ buttonText }}
-    </sf-button>
   </slot>
 </section>

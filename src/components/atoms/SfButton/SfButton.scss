@@ -1,21 +1,21 @@
 @import '../../../css/variables';
 
-// TODO: Make this names following convention
+$button-color                       : $c-text-on-dark !default;
+$button-background-color            : $c-green-primary !default;
+$button-border-radius               : 0 !default;
+$button-text-transform              : uppercase !default;
+$button-desktop-padding             : 0.9375rem 2.5rem !default;
+$button-desktop-font-size           : 1.125rem !default;
+$button-mobile-padding              : 0.5rem 1.7rem !default;
+$button-mobile-font-size            : 0.75rem !default;
 
-$button-color: $c-text-on-dark !default;
-$button-background-color: $c-green-primary !default;
-$button-text-transform: uppercase !default;
-$button-desktop-padding: 0.9375rem 2.5rem !default;
-$button-desktop-font-size: 1.125rem !default;
-$button-mobile-padding: 0.5rem 1.7rem !default;
-$button-mobile-font-size: 0.75rem !default;
-
-$button--secondary-color: $c-text-on-dark !default;
-$button--secondary-background-color: $c-dark-primary !default;
+$button--secondary-color            : $c-text-on-dark !default;
+$button--secondary-background-color : $c-dark-primary !default;
 
 .sf-button {
   padding: $button-mobile-padding;
   font-size: $button-mobile-font-size;
+  border-radius: $button-border-radius;
   text-align: center;
   color: $button-color;
   background-color: $button-background-color;

@@ -1,8 +1,9 @@
 @import '../../../css/variables';
 
-$price-desktop-font-size: $font-size-big-desktop;
-$price-mobile-font-size: $font-size-big-mobile;
-$price__special-color: red;
+$price-desktop-font-size : $font-size-regular-desktop;
+$price-mobile-font-size  : $font-size-regular-mobile;
+$price-mobile-small-font-size  : $font-size-small-mobile;
+$price-desktop-small-font-size  : $font-size-small-mobile;
 
 .sf-price {
   font-size: $price-mobile-font-size;
@@ -13,11 +14,16 @@ $price__special-color: red;
     text-decoration: none;
   }
   &__special {
-    color: red;
+    color: $c-pink-primary;
     text-decoration: none;
   }
   &__old {
     text-decoration: line-through;
+    color: $c-gray-primary;
+    font-size: $price-mobile-small-font-size;
     margin-right: 5px;
+    @media (min-width: $desktop-min) {
+      font-size: $price-desktop-small-font-size;
+    }
   }
 }

@@ -1,0 +1,31 @@
+<div class="sf-product-card">
+  <slot name="image">
+    <div class="sf-product-card__image">
+      <img :src="image" :alt="title">
+    </div>
+  </slot>
+  <slot name="title">
+    <span class="sf-product-card__title">
+      {{ title }}
+    </span>
+  </slot>
+  <slot name="price" :price="price">
+    <SfPrice
+      class="sf-product-card__price"
+      v-if="price"
+      :regular-price="price.regularPrice"
+      :special-price="price.specialPrice"
+    />
+  </slot>
+  <slot name="rating" :rating="rating">
+    <div class="sf-product-card__reviews">
+      <SfRating
+      class="sf-product-card__rating"
+      v-if="rating"
+      :max="rating.max"
+      :score="rating.score"
+    />
+    <a v-if="rating" class="sf-product-card__reviews-count">(8)</a>
+    </div>
+  </slot>
+</div>

@@ -1,0 +1,114 @@
+@import '../../../css/variables';
+
+$sf-options__transition                     : all 0.3s ease-in-out !default;
+
+$sf-options__label-margin-bottom            : 0.5rem !default;
+$sf-options__label-font-size                : $font-size-big-mobile !default;
+
+$sf-options__option-size                    : 2rem !default;
+$sf-options-desktop__option-color-size      : 1rem !default;
+
+$sf-options__option-font-size               : $font-size-regular-mobile !default;
+$sf-options__option-margin                  : 0.75rem !default;
+
+$sf-options-mobile__option-text-color       : $c-gray-primary;
+$sf-options-desktop__option-text-color      : $c-black;
+
+.sf-options {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  &__option {
+    &-text, &-color, &-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: $sf-options__option-size;
+      min-height: $sf-options__option-size;
+      transition: $sf-options__transition;
+    }
+
+    &-text {
+      font-size: $sf-options__option-font-size;
+      color: $sf-options-mobile__option-text-color;
+      &--selected, &:hover, &:focus {
+        color: $sf-options-desktop__option-text-color;
+        background-color: rgba(241, 242, 243, 1);
+        @media (min-width: $desktop-min) {
+          background-color: $c-white;
+        }
+      }
+    }
+
+    &-color, &-image {
+      @media (min-width: $desktop-min) {
+        min-width: $sf-options-desktop__option-color-size;
+        min-height: $sf-options-desktop__option-color-size;
+      }
+    }
+    &-image {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+
+    &-color, &-image {
+      &-check {
+        position: absolute;
+        top: -30%;
+        bottom: 0;
+        left: 60%;
+        right: 0;
+        height: 23px;
+        width: 23px;
+        opacity: 0;
+        transition: $sf-options__transition;
+        background-image: url('/assets/check.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $c-green-primary;
+        border-radius: 50%;
+      }
+
+      &-wrapper {
+        position: relative;
+      }
+
+      &--selected + &-check, &-wrapper:hover > &-check {
+        opacity: 1;
+        @media (min-width: $desktop-min) {
+          opacity: 0;
+        }
+      }
+      &--selected, &:hover, &:focus {
+        @media (min-width: $desktop-min) {
+          min-width: calc(#{$sf-options-desktop__option-color-size} * 2);
+          min-height: calc(#{$sf-options-desktop__option-color-size} * 2);
+          box-shadow: 0 4px 4px -2px #C8C9CB;
+        }
+      }
+    }
+  }
+
+  &__option-container {
+    display: flex;
+    align-items: center;
+    margin-right: $sf-options__option-margin;
+    cursor: pointer;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__label {
+    margin-bottom: $sf-options__label-margin-bottom;
+    font-size: $sf-options__label-font-size;
+  }
+}
