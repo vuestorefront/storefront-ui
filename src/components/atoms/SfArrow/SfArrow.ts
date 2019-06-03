@@ -1,15 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import SfComponent from "@/components/template/SfComponent.vue";
+import SfArrow from "./SfArrow.vue";
 
-describe("SfComponent.vue", () => {
+describe("SfArrow.vue", () => {
   it("renders a component", () => {
-    const component = shallowMount(SfComponent);
-    expect(component.contains(".sf-component")).toBe(true);
+    const component = shallowMount(SfArrow);
+    expect(component.contains(".sf-arrow")).toBe(true);
   });
-
-  // Default slot check, you can replace `default` with any other
-  // it("renders default prop text when passed", () => {
-  //   const component = shallowMount(SfComponent);
-  //   expect(component).toBeDefined();
-  // });
 });
