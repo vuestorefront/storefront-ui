@@ -8,7 +8,7 @@ $sf-input__label-focus-font-size   : 0.625rem !default;
 
 $sf-input__margin-bottom           : 2.625rem;
 
-$sf-input__active-color            : $c-green-primary !default;
+$sf-input__active-color            : $c-accent-primary !default;
 
 .sf-input {
   position: relative;
@@ -22,6 +22,11 @@ $sf-input__active-color            : $c-green-primary !default;
     border-style: solid;
     border-color: #F1F2F3;
     box-sizing: border-box;
+
+    &:required ~ .sf-input__label::after {
+      content: ' *';
+      color: $sf-input__active-color;
+    }
 
     &:focus {
       outline:none;
