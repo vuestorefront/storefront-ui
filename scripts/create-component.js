@@ -130,7 +130,8 @@ const eventsTableConfig = {
 //       components: { ${PrefixComponentName} },
 //       template: \`<${PrefixComponentName}
 //         :class="customClass"
-//       />\`
+//       >
+//       </${PrefixComponentName}>\`
 //     }),
 //     {
 //      info: {
