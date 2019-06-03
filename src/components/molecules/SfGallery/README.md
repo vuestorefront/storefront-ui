@@ -1,4 +1,4 @@
-# SfComponent
+# SfGallery
 
 <!-- Write about general purpose of the component. Include screenshot (to be replaced with a live example once we migrate to vuepress) -->
 
