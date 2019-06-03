@@ -1,4 +1,8 @@
+@import '../../../css/variables';
 @import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
+
+$carousel-mobile-breakpoint: $mobile-max;
+
 .sf-carousel{
   position: relative;
 
@@ -9,7 +13,7 @@
   &__controls{
     display: none;
 
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: $carousel-mobile-breakpoint){
       position: absolute;
       top: 50%;
       left: 0;
@@ -20,7 +24,7 @@
     }
   }
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: $carousel-mobile-breakpoint){
     padding: 0 130px;
   }
 }

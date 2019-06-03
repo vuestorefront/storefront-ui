@@ -1,10 +1,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import notes from "./SfCarousel.md";
+import { generateStorybookTable } from "@/helpers";
 import SfCarousel from "./SfCarousel.vue";
-
-storiesOf("Organisms|[WIP] Carousel", module)
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    ["$carousel-mobile-breakpoint", "$mobile-max", "default mobile breakpoint"]
+  ]
+};
+storiesOf("Organisms|Carousel", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
@@ -58,7 +63,11 @@ storiesOf("Organisms|[WIP] Carousel", module)
       `
     }),
     {
-      info: true,
-      notes
+      info: {
+        summary: `<h2> Usage </h2>
+        <pre><code>import SfCarousel from "@storefrontui/vue/dist/SfCarousel.vue"</code></pre>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+        `
+      }
     }
   );

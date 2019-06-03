@@ -29,6 +29,7 @@ export default {
     };
   },
   props: {
+    /** Carousel options like glide.js (https://glidejs.com/docs/) */
     options: {
       type: Object,
       default: () => ({})
