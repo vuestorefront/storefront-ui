@@ -2,19 +2,34 @@ import Glide from "@glidejs/glide";
 import lozad from "lozad";
 
 export default {
+  name: "SfGallery",
+
+  model: {
+    prop: "current",
+    event: "change"
+  },
+
   props: {
+    /**
+     * Images list
+     */
     images: {
       type: Array,
       default: () => []
     },
+    /**
+     * Initial image number (starting from 1)
+     */
     current: {
       type: Number,
       default: 1
     },
+    /**
+     * Glide slider options (https://glidejs.com/docs/options/)
+     */
     sliderOptions: {
       type: Object,
       default () {
-        // https://glidejs.com/docs/options/
         return {
           type: 'slider',
           autoplay: false,
@@ -34,7 +49,11 @@ export default {
   methods: {
     setCurrentImage(index) {
       this.activeIndex = index;
-      this.$emit("update:current", index + 1);
+      /**
+       * Event for current image change (`v-model`)
+       * @type {Event}
+       */
+      this.$emit("change", index + 1);
       if (this.glide) {
         this.glide.go("=" + index);
       }
