@@ -1,0 +1,72 @@
+@import '../../../css/variables';
+
+$sf-input__transition              : all 0.3s ease-in-out !default;
+
+$sf-input__input-font-size         : 1.125rem !default;
+$sf-input__label-font-size         : 1.125rem !default;
+$sf-input__label-focus-font-size   : 0.625rem !default;
+
+$sf-input__margin-bottom           : 2.625rem;
+
+$sf-input__active-color            : $c-green-primary !default;
+
+.sf-input {
+  position: relative;
+  margin-bottom: $sf-input__margin-bottom;
+
+  & > input {
+    font-size: $sf-input__input-font-size;
+    padding: 0.625rem 0;
+    display: block;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #F1F2F3;
+    box-sizing: border-box;
+
+    &:focus {
+      outline:none;
+    }
+
+    &:focus ~ .sf-input__bar:before, &:focus ~ .sf-input__bar:after {
+      width: 50%;
+    }
+
+    &:focus ~ .sf-input__label, &:valid ~ .sf-input__label {
+      top: -20px;
+      font-size: $sf-input__label-focus-font-size;
+      color: $sf-input__active-color;
+    }
+  }
+
+  &__bar {
+    position: relative;
+    display: block;
+
+    &:before, &:after {
+      content: '';
+      height: 1px; 
+      width: 0;
+      bottom: 0; 
+      position: absolute;
+      background-color: $sf-input__active-color; 
+      transition: $sf-input__transition; 
+    }
+
+    &:before {
+      left: 50%;
+    }
+
+    &:after {
+      right: 50%;
+    }
+  }
+
+  &__label {
+    font-size: $sf-input__label-font-size;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    top: 10px;
+    transition: $sf-input__transition; 
+  }
+}
