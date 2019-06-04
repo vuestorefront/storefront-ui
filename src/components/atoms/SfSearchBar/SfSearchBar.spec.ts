@@ -4,17 +4,27 @@ import SfSearchBar from "@/components/atoms/SfSearchBar/SfSearchBar.vue";
 describe.only("SfSearchBar.vue", () => {
   it("renders a search bar", () => {
     const component = shallowMount(SfSearchBar);
-    expect(component.contains(".sf-search-bar")).toBe(true);
+    expect(component.contains(".search-bar")).toBe(true);
   });
 
   it("renders slot with icon when passed", () => {
-    const icon = "<svg class='sf-search-bar__icon'></svg>"
+    const icon = "<svg class='search-bar__icon'></svg>"
     const component = shallowMount(SfSearchBar, {
       slots: {
         icon
       }
     });
-    expect(component.contains(".sf-search-bar__icon")).toBe(true);
+    expect(component.contains(".search-bar__icon")).toBe(true);
+  });
+
+  it("renders slot with clear icon when passed", () => {
+    const icon = "<span class='search-bar__clear-icon'></span>"
+    const component = shallowMount(SfSearchBar, {
+      slots: {
+        icon
+      }
+    });
+    expect(component.contains(".search-bar__clear-icon")).toBe(true);
   });
 
   it("renders a search bar without icon when false prop passed", () => {
@@ -23,7 +33,7 @@ describe.only("SfSearchBar.vue", () => {
         icon: false
       }
     });
-    expect(component.contains(".sf-search-bar__icon")).toBe(false);
+    expect(component.contains(".search-bar__icon")).toBe(false);
   })
 
   it("renders placeholder props when passed", () => {
@@ -33,6 +43,6 @@ describe.only("SfSearchBar.vue", () => {
         placeholder: placeholder
       }
     });
-    expect(component.find('.sf-search-bar__input').attributes("placeholder")).toEqual(placeholder);
+    expect(component.find('.search-bar__input').attributes("placeholder")).toEqual(placeholder);
   });
 });
