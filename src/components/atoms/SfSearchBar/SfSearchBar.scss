@@ -1,14 +1,14 @@
 @import '../../../css/variables';
 
-$sf-search-bar-background-primary: $c-light-primary !default;
-$sf-search-bar-background-secondary: $c-light-secondary !default;
-$sf-search-bar-placeholder-color: $c-dark-primary !default;
-$sf-search-bar-placeholder-color-focus: $c-gray-primary !default;
-$sf-search-bar-width: 20rem !default;
-$sf-search-bar-height: 2.25rem !default;
-$sf-search-bar-border-radius: 1.6875rem !default;
-$sf-search-bar-text-align: center !default;
-$sf-search-bar-font-size: 0.875rem !default;
+$search-bar-background-primary: $c-light-primary !default;
+$search-bar-background-secondary: $c-light-secondary !default;
+$search-bar-placeholder-color: $c-dark-primary !default;
+$search-bar-placeholder-color-focus: $c-gray-primary !default;
+$search-bar-width: 20rem !default;
+$search-bar-height: 2.25rem !default;
+$search-bar-border-radius: 1.6875rem !default;
+$search-bar-text-align: center !default;
+$search-bar-font-size: 0.875rem;
 
 @mixin placeholder {
     &::-webkit-input-placeholder {@content}
@@ -19,38 +19,36 @@ $sf-search-bar-font-size: 0.875rem !default;
 
   @mixin iconPosition {
     flex-direction: row;
-    .sf-search-bar__input {
+    .search-bar__input {
+        text-align: left;
         &::placeholder {
             text-align: left;
+        }
+        &:focus {
+            & ~ .search-bar__clear-icon {
+                padding-right: 1.5rem;
+            }
         }
     }
   }
 
-  @mixin clearBtn {
-    background-image: var(--clear-btn);
-    -webkit-appearance: none;
-    width: .7rem;
-    height: .7rem;
-    background-size: cover;
-    display: block;
-  }
-
-.sf-search-bar {
-    background-color: $sf-search-bar-background-primary;
-    border-radius: $sf-search-bar-border-radius;
+ .search-bar {
+    background-color: $search-bar-background-primary;
+    border-radius: $search-bar-border-radius;
     width: 100%;
     padding: 0 0.9375rem;
-    height: $sf-search-bar-height;
+    height: $search-bar-height;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     box-sizing: border-box;
+    position: relative;
 
     @media (min-width: $mobile-max) {
-        width: $sf-search-bar-width;
+        width: $search-bar-width;
     }
     &--secondary {
-        background-color: $sf-search-bar-background-secondary;
+        background-color: $search-bar-background-secondary;
     }
     &--position-right {
         @include iconPosition();
@@ -65,31 +63,38 @@ $sf-search-bar-font-size: 0.875rem !default;
               @include iconPosition();
             }
         }
-    
-    .sf-search-bar__input {    
-        border: none;
-        flex-grow: 1;
-        background: transparent;
-        text-align: center;
-        outline: none;
-        font-size: $sf-search-bar-font-size;
-        
-        @include placeholder {
-            color: $sf-search-bar-placeholder-color;
-            transition: color 0.2s ease-in;
-        }
-        &:focus {
-            @include placeholder {
-                color: $sf-search-bar-placeholder-color-focus;
-            }  
-        }
-        &,
-        &::-webkit-search-cancel-button
-        {
-            @include clearBtn();
-        }
-        &::-ms-clear {
-            @include clearBtn();
-        }
     }
-}
+ .search-bar__input {    
+    border: none;
+    flex-grow: 1;
+    background: transparent;
+    text-align: center;
+    outline: none;
+    position:relative;
+    z-index:3;
+
+    @include placeholder {
+        color: $search-bar-placeholder-color;
+        transition: color 0.2s ease-in;
+    }
+    &:focus {
+        @include placeholder {
+            color: $search-bar-placeholder-color-focus;
+        }
+        & ~ .search-bar__clear-icon {
+            display: block;
+            padding-right: .4rem;
+            position: absolute;
+            right: 0.9375rem;
+        }  
+    }
+    &::-webkit-search-cancel-button {
+        opacity: 0;
+    }
+    &::-ms-clear {
+        opacity: 0;
+    }
+ }
+ .search-bar__clear-icon {
+    display: none;
+ }
