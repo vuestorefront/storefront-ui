@@ -13,22 +13,21 @@ Search Bar Component for search queries
 
 ## SCSS variables
 
-- `$sf-search-bar-background-primary`: $c-light-primary !default;
-- `$sf-search-bar-background-secondary`: $c-light-secondary !default;
-- `$sf-search-bar-placeholder-color`: $c-dark-primary !default;
-- `$sf-search-bar-placeholder-color-focus`: $c-gray-primary !default;
-- `$sf-search-bar-width`: 20rem !default;
-- `$sf-search-bar-height`: 2.25rem !default;
-- `$sf-search-bar-border-radius`: 1.6875rem !default;
-- `$sf-search-bar-text-align`: center !default;
-- `$sf-search-bar-font-size`: 0.875rem !default;
+- `$search-bar-background-primary`: $c-light-primary !default;
+- `$search-bar-background-secondary`: $c-light-secondary !default;
+- `$search-bar-placeholder-color`: $c-dark-primary !default;
+- `$search-bar-placeholder-color-focus`: $c-gray-primary !default;
+- `$search-bar-width`: 20rem !default;
+- `$search-bar-height`: 2.25rem !default;
+- `$search-bar-border-radius`: 1.6875rem !default;
+- `$search-bar-text-align`: center !default;
 
 ## CSS Modifiers
 
-- `.sf-search-bar--position-right` - changed icon and text position
-- `.sf-search-bar--position-right-mobile` - changed icon and text position for mobile view only
-- `.sf-search-bar--position-right-desktop` - changed icon and text position for desktop view only
-- `.sf-search-bar--secondary` - change color to white
+- `.search-bar--position-right` - changed icon and text position
+- `.search-bar--position-right-mobile` - changed icon and text position for mobile view only
+- `.search-bar--position-right-desktop` - changed icon and text position for desktop view only
+- `.search-bar--secondary` - change color to white
 
 ## Source files and Storybook demo
 
