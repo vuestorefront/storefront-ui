@@ -30,12 +30,12 @@ $counter--large-width : $counter-width * 2 !default;
     width: 1%;
     height: auto;
     text-align: center;
-    font-size: $font-size-regular-desktop;
+    font-size: $font-size-big-desktop;
     color: inherit;
     line-height: 1;
 
     @media (max-width: $mobile-max) {
-      font-size: $font-size-regular-mobile;
+      font-size: $font-size-big-mobile;
     }
   }
 
