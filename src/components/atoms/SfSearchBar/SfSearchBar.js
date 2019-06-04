@@ -12,17 +12,6 @@ export default {
     icon: {
       type: Boolean,
       default: true
-    },
-    clearIcon: {
-      type: String,
-      default: ""
-    }
-  },
-  computed: {
-    clearBtn() {
-      return {
-        "--clear-btn": "url(" + this.clearIcon + ")"
-      };
     }
   }
 };
