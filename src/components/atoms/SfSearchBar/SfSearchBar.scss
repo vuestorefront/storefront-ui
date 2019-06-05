@@ -19,20 +19,22 @@ $search-bar-font-size: 0.875rem;
 
   @mixin iconPosition {
     flex-direction: row;
-    .search-bar__input {
-        text-align: left;
-        &::placeholder {
+    .sf-search-bar {
+        &__input {
             text-align: left;
-        }
-        &:focus {
-            & ~ .search-bar__clear-icon {
-                padding-right: 1.5rem;
+            &::placeholder {
+                text-align: left;
+            }
+            &:focus {
+                & ~ .sf-search-bar__clear-icon {
+                    padding-right: 1.5rem;
+                }
             }
         }
     }
   }
 
- .search-bar {
+ .sf-search-bar {
     background-color: $search-bar-background-primary;
     border-radius: $search-bar-border-radius;
     width: 100%;
@@ -56,45 +58,45 @@ $search-bar-font-size: 0.875rem;
     &--position-right-mobile {
         @media (max-width: $mobile-max) {
             @include iconPosition();
-            }
         }
+    }
     &--position-right-desktop {
           @media (min-width: $mobile-max) {
               @include iconPosition();
-            }
         }
     }
- .search-bar__input {    
-    border: none;
-    flex-grow: 1;
-    background: transparent;
-    text-align: center;
-    outline: none;
-    position:relative;
-    z-index:3;
-
-    @include placeholder {
-        color: $search-bar-placeholder-color;
-        transition: color 0.2s ease-in;
-    }
-    &:focus {
+    &__input {
+        border: none;
+        flex-grow: 1;
+        background: transparent;
+        text-align: center;
+        outline: none;
+        position:relative;
+        z-index:3;
+    
         @include placeholder {
-            color: $search-bar-placeholder-color-focus;
+            color: $search-bar-placeholder-color;
+            transition: color 0.2s ease-in;
         }
-        & ~ .search-bar__clear-icon {
-            display: block;
-            padding-right: .4rem;
-            position: absolute;
-            right: 0.9375rem;
-        }  
+        &:focus {
+            @include placeholder {
+                color: $search-bar-placeholder-color-focus;
+            }
+            & ~ .sf-search-bar__clear-icon {
+                display: block;
+                padding-right: .4rem;
+                position: absolute;
+                right: 0.9375rem;
+            }  
+        }
+        &::-webkit-search-cancel-button {
+            opacity: 0;
+        }
+        &::-ms-clear {
+            opacity: 0;
+        }
     }
-    &::-webkit-search-cancel-button {
-        opacity: 0;
+    &__clear-icon {
+        display: none;
     }
-    &::-ms-clear {
-        opacity: 0;
-    }
- }
- .search-bar__clear-icon {
-    display: none;
  }
