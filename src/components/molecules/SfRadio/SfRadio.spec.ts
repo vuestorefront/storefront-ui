@@ -42,7 +42,7 @@ describe("SfRadio.vue", () => {
         value
       },
       scopedSlots: {
-        button: `<button class="custom-button" slot-scope="{ isActive }">{{ isActive }}</button>`
+        radio: `<button class="custom-button" slot-scope="{ isActive }">{{ isActive }}</button>`
       }
     });
     expect(component.contains(".custom-button")).toBe(true);
