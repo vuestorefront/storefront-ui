@@ -1,4 +1,11 @@
 export default {
+  name: "SfPagination",
+
+  model: {
+    prop: "current",
+    event: "change"
+  },
+
   props: {
     current: {
       type: Number,
@@ -27,7 +34,7 @@ export default {
         return this.current;
       },
       set(value) {
-        this.$emit("update:current", value);
+        this.$emit("change", value);
       }
     },
     listOfPageNumbers() {
