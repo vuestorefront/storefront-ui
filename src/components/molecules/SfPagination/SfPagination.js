@@ -7,14 +7,23 @@ export default {
   },
 
   props: {
+    /**
+     * Current page number
+     */
     current: {
       type: Number,
       default: 1
     },
+    /**
+     * Total number of pages
+     */
     total: {
       type: Number,
       default: 5
     },
+    /**
+     * Maximum visible pagination items
+     */
     visible: {
       type: Number,
       default: 5
@@ -34,6 +43,10 @@ export default {
         return this.current;
       },
       set(value) {
+        /**
+         * Event for current page change (`v-model`)
+         * @type {Event}
+         */
         this.$emit("change", value);
       }
     },
