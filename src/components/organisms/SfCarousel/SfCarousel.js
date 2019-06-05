@@ -14,6 +14,7 @@ export default {
       glide: null,
       defaultOptions: {
         type: "carousel",
+        rewind: true,
         perView: 4,
         slidePerPage: true,
         breakpoints: {
@@ -69,14 +70,38 @@ export default {
     const glide = new Glide(this.$refs.glide, this.mergedOptions);
     glide.mount();
     glide.on("run.before", move => {
-      const { slidePerPage } = this.mergedOptions;
+      const { slidePerPage, rewind } = this.mergedOptions;
 
       if (!slidePerPage) return;
 
       const { perView } = glide.settings;
-      const { direction } = move;
+      if (!perView > 1) return;
 
-      move.steps = direction === "<" ? perView : -perView;
+      const size = this.$slots.default.filter(slot => slot.tag).length;
+      const { direction } = move;
+      let page, newIndex;
+
+      switch (direction) {
+        case ">":
+        case "<":
+          page = Math.ceil(glide.index / perView);
+          newIndex = page * perView + (direction === ">" ? perView : -perView);
+          if (newIndex >= size) {
+            newIndex = 0;
+            glide.index = size;
+            if (!rewind) {
+              newIndex = glide.index;
+            }
+          } else if (newIndex < 0 || newIndex + perView > size) {
+            newIndex = size - perView;
+            if (!rewind) {
+              newIndex = glide.index;
+            }
+          }
+
+          move.direction = "=";
+          move.steps = newIndex;
+      }
     });
     this.glide = glide;
   }
