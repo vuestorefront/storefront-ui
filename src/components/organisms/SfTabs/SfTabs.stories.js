@@ -56,7 +56,11 @@ storiesOf("Organisms|Tabs", module)
     }),
     {
       info: {
-        summary: `<p>Tab Component</p>
+        summary: `<p>Tabs Component. cool thing about this component is that it uses 
+        <a href="https://vuejs.org/v2/api/#provide-inject" target="_blank">provide/inject</a> pattern. <br>
+        Provided is shareState object where you can find 'activeTabValue' and 'tabs'. <br>
+        function to change tab is also provided and its called: 'changeTab'. <br>
+        2 additional options are provided 'fireEvent' and 'listenEvent'</p>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(eventsTableConfig, "Events")}
         `
