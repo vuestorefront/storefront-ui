@@ -68,13 +68,27 @@ storiesOf("Organisms|Tabs", module)
     () => ({
       components: { SfTabs },
       data: () => ({
-        selected: "bananaValue"
+        selected: "bananaValue",
+        style: {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "space-between",
+          cursor: "pointer",
+          minWidth: "250px",
+          borderRight: "1px solid black",
+          paddingRight: "10px",
+          marginRight: "10px"
+        },
+        selectedStyle: {
+          color: "red"
+        }
       }),
       template: `
       <SfTabs v-model="selected" style="display: flex;">
         <SfTabsNavigation slot="navigation">
-          <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; cursor: pointer; min-width: 150px; background: #eee;" slot-scope="{ tabs, changeTab, activeTabValue }">
-            <h1 v-for="(tab, index) in tabs" :key="index" @click="changeTab(tab.valueComputed)">{{ tab.title }} <b v-if="tab.valueComputed === activeTabValue">!!!</b></h1>
+          <div :style="style" slot-scope="{ tabs, changeTab, activeTabValue }">
+            <h1 v-for="(tab, index) in tabs" :key="index" @click="changeTab(tab.valueComputed)" :style="tab.valueComputed === activeTabValue && selectedStyle">{{ tab.title }}</h1>
           </div>
         </SfTabsNavigation>
         <SfTab value="appleValue" title="apple" style="display: flex; justify-content: center;">
