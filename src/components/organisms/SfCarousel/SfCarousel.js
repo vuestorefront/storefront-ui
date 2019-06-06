@@ -69,8 +69,9 @@ export default {
   mounted: function() {
     const glide = new Glide(this.$refs.glide, this.mergedOptions);
     glide.mount();
+
     glide.on("run.before", move => {
-      const { slidePerPage, rewind } = this.mergedOptions;
+      const { slidePerPage, rewind, type } = this.mergedOptions;
 
       if (!slidePerPage) return;
 
@@ -88,17 +89,18 @@ export default {
           newIndex = page * perView + (direction === ">" ? perView : -perView);
           if (newIndex >= size) {
             newIndex = 0;
-            glide.index = size;
-            if (!rewind) {
+            if (!rewind && type === "slider") {
               newIndex = glide.index;
             }
-          } else if (newIndex < 0 || newIndex + perView > size) {
-            newIndex = size - perView;
-            if (!rewind) {
+          } else if (
+            newIndex < 0 ||
+            (newIndex + perView > size && type === "carousel")
+          ) {
+            newIndex = size - perView + 1;
+            if (!rewind && type === "slider") {
               newIndex = glide.index;
             }
           }
-
           move.direction = "=";
           move.steps = newIndex;
       }
