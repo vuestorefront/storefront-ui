@@ -30,6 +30,7 @@ $breadcrumbs__item-separator-color: $breadcrumbs__link-color !default;
   }
 
   &__link {
+    cursor: pointer;
     color: $breadcrumbs__link-color;
   }
 }
