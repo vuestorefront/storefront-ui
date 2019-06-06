@@ -3,7 +3,7 @@ export default {
 
   props: {
     /**
-     * List of breadcrumbs (array of nested objects: `[ { text, link } ]`)
+     * List of breadcrumbs (array of nested objects: `[ { text, route } ]`)
      */
     breadcrumbs: {
       type: Array,
@@ -14,6 +14,16 @@ export default {
   computed: {
     last () {
       return this.breadcrumbs.length - 1
+    }
+  },
+
+  methods: {
+    click (breadcrumb) {
+      /**
+       * Event for breadcrumb click, passes `breadcrumb.route` as value
+       * @type {Event}
+       */
+      this.$emit('click', breadcrumb.route)
     }
   }
 };
