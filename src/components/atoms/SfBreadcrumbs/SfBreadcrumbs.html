@@ -11,8 +11,8 @@
         <slot name="previous" :breadcrumb="breadcrumb">
           <a
             class="sf-breadcrumbs__link"
-            :href="breadcrumb.link"
             v-text="breadcrumb.text"
+            @click="click(breadcrumb)"
           />
         </slot>
       </template>
