@@ -1,6 +1,7 @@
 {
   "name": "@storefrontui/vue",
-  "version": "0.0.2-aplha.3",
+  "version": "0.0.2-aplha.9",
+  "sideEffects": "false",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -18,7 +19,9 @@
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
     "lozad": "^1.9.0",
-    "webpack-dev-middleware": "3.6.0"
+    "webpack-dev-middleware": "3.6.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0"
   },
   "resolutions": {
     "webpack-dev-middleware": "3.6.0"
@@ -26,7 +29,8 @@
   "files": [
     "dist/*",
     "scripts/*",
-    "public/assets"
+    "public/assets",
+    "index.js"
   ],
   "devDependencies": {
     "@babel/core": "^7.4.4",
