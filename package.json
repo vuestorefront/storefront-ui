@@ -1,6 +1,6 @@
 {
   "name": "@storefrontui/vue",
-  "version": "0.0.2-aplha.2",
+  "version": "0.0.2-aplha.3",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@snowdog/alpaca-components": "^0.3.0-alpha.5",
     "lozad": "^1.9.0",
     "webpack-dev-middleware": "3.6.0"
   },
@@ -69,7 +68,7 @@
   "peerDependencies": {
     "vue": "^2.6.x"
   },
-  "main": "./dist/storefront-ui.common.js",
+  "main": "./index.js",
   "lint-staged": {
     "*.{js,vue,html,scss,ts}": [
       "vue-cli-service lint",
