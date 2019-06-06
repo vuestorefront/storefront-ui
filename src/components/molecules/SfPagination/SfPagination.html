@@ -5,6 +5,7 @@
         aria-label="Go to previous page"
         :disabled="currentPage < 2"
         @click="setCurrentPage(currentPage - 1)">
+        <!-- @slot Custom markup for previous page icon -->
         <slot name="prev">
           <img src="/assets/chevron_left.svg" alt="Go to previous page" class="sf-pagination__icon"/>
         </slot>
@@ -20,6 +21,7 @@
         </a>
       </li>
       <li class="sf-pagination__item">
+        <!-- @slot Points between page numbers and arrows -->
         <slot name="points">
           ...
         </slot>
@@ -35,6 +37,7 @@
       <a
         class="sf-pagination__link"
         @click="() => { if (currentPage !== number) setCurrentPage(number) }">
+        <!-- @slot Pagination item with page number (binds `number`) -->
         <slot name="number" v-bind:number="number">
           {{ number }}
         </slot>
@@ -61,6 +64,7 @@
         aria-label="Go to next page"
         :disabled="currentPage > total - 1"
         @click="setCurrentPage(currentPage + 1)">
+        <!-- @slot Custom markup for next page icon -->
         <slot name="next">
           <img src="/assets/chevron_right.svg" alt="Go to next page" class="sf-pagination__icon"/>
         </slot>
