@@ -88,19 +88,19 @@ export default {
           page = Math.ceil(glide.index / perView);
           newIndex = page * perView + (direction === ">" ? perView : -perView);
           if (newIndex >= size) {
-            newIndex = 0;
-            if (!rewind && type === "slider") {
+            if (type === "slider" && !rewind) {
               newIndex = glide.index;
+            } else {
+              newIndex = 0;
             }
-          } else if (
-            newIndex < 0 ||
-            (newIndex + perView > size && type === "carousel")
-          ) {
-            newIndex = size - perView + 1;
-            if (!rewind && type === "slider") {
+          } else if (newIndex < 0) {
+            if (type === "slider" && !rewind) {
               newIndex = glide.index;
+            } else {
+              newIndex = size - perView + (size % perView > 0 ? 1 : 0);
             }
           }
+
           move.direction = "=";
           move.steps = newIndex;
       }
