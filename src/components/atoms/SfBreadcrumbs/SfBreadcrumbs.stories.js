@@ -31,18 +31,30 @@ const data = () => {
   return {
     breadcrumbs: [
       {
-        link: '#home',
-        text: 'Home'
+        text: 'Home',
+        route: {
+          link: '#home'
+        }
       },
       {
-        link: '#category',
-        text: 'Category'
+        text: 'Category',
+        route: {
+          link: '#category'
+        }
       },
       {
-        link: '#pants',
-        text: 'Pants'
+        text: 'Pants',
+        route: {
+          link: '#pants'
+        }
       }
     ]
+  }
+}
+
+const methods = {
+  click (route) {
+    alert(JSON.stringify(route, null, 2))
   }
 }
 
@@ -53,8 +65,13 @@ storiesOf("Atoms|Breadcrumbs", module)
     "Basic",
     () => ({
       data,
+      methods,
       components: { SfBreadcrumbs },
-      template: `<SfBreadcrumbs :breadcrumbs="breadcrumbs"/>`
+      template: `
+        <SfBreadcrumbs
+          :breadcrumbs="breadcrumbs"
+          @click="click"
+        />`
     }),
     {
       info: {
@@ -72,11 +89,14 @@ storiesOf("Atoms|Breadcrumbs", module)
           <code>
           [
             {
-              link: '/some-page',
-              text: 'Some page'
+              text: 'Some page',
+              route: {}
             }
           ]
           </code>
+          <br>
+          <code>route</code> property is optional and may be anything you want, it'll be passed
+          as argument on click events.
           <br>
           The last array element will be the current item (current page)
           on breadcrumbs nav.
