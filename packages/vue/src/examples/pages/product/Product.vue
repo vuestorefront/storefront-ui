@@ -68,7 +68,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../css/variables.scss";
-@import "../../../utilities/css-helpers/visibility.scss";
+@import "~@storefrontui/shared/styles/helpers/visibility";
 
 #product {
   box-sizing: border-box;

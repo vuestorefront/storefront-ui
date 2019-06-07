@@ -14,7 +14,7 @@ import SfBanner from "./dist/SfBanner.vue";
 import SfCallToAction from "./dist/SfCallToAction.vue";
 import SfCounter from "./dist/SfCounter.vue";
 import SfFilter from "./dist/SfFilter.vue";
-// import SfGallery from "./dist/SfGallery.vue";
+import SfGallery from "./dist/SfGallery.vue";
 import SfMenuItem from "./dist/SfMenuItem.vue";
 import SfOptions from "./dist/SfOptions.vue";
 import SfPagination from "./dist/SfPagination.vue";
@@ -25,7 +25,7 @@ import SfSelect from "./dist/SfSelect.vue";
 import SfSidebar from "./dist/SfSidebar.vue";
 
 import SfAccordion from "./dist/SfAccordion.vue";
-// import SfCarousel from "./dist/SfCarousel.vue";
+import SfCarousel from "./dist/SfCarousel.vue";
 import SfList from "./dist/SfList.vue";
 import SfMegaMenu from "./dist/SfMegaMenu.vue";
 
@@ -44,7 +44,7 @@ export {
   SfCallToAction,
   SfCounter,
   SfFilter,
-  // SfGallery,
+  SfGallery,
   SfMenuItem,
   SfOptions,
   SfPagination,
@@ -54,7 +54,7 @@ export {
   SfSelect,
   SfSidebar,
   SfAccordion,
-  // SfCarousel,
+  SfCarousel,
   SfList,
   SfMegaMenu
 };

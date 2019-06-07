@@ -5,7 +5,7 @@ import { setDefaults, withInfo } from "storybook-addon-vue-info";
 
 import theme from "./theme";
 
-import "../../src/css/all.scss";
+import "../../src/css/_all.scss";
 
 const req = require.context("../../src/", true, /.stories.js$/);
 
