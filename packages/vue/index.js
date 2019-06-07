@@ -28,6 +28,7 @@ import SfAccordion from "./dist/SfAccordion.vue";
 import SfCarousel from "./dist/SfCarousel.vue";
 import SfList from "./dist/SfList.vue";
 import SfMegaMenu from "./dist/SfMegaMenu.vue";
+import SfTopBar from './dist/SfTopBar.vue';
 
 export {
   SfArrow,
@@ -56,5 +57,6 @@ export {
   SfAccordion,
   SfCarousel,
   SfList,
-  SfMegaMenu
+  SfMegaMenu,
+  SfTopBar
  };
