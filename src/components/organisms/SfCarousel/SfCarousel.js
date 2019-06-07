@@ -93,11 +93,11 @@ export default {
             } else {
               newIndex = 0;
             }
-          } else if (newIndex < 0) {
+          } else if (newIndex < 0 || newIndex + perView > size) {
             if (type === "slider" && !rewind) {
               newIndex = glide.index;
             } else {
-              newIndex = size - perView + (size % perView > 0 ? 1 : 0);
+              newIndex = size - perView;
             }
           }
 
