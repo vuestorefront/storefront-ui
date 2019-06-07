@@ -2,11 +2,7 @@
 
 // $component__block-property: value;
 
-// .sf-sf-sticky {
-//   &__element {
-
-//   }
-//   &--modifier {
-
-//   }
-// }
+ .sf-sticky {
+  position: sticky;
+   top: 0;
+ }
