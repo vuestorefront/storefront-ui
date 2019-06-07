@@ -3,8 +3,8 @@
            type="search" 
            :value="value"
            :placeholder="placeholder" 
-           @input="$emit('input',$event.target.value)"
-           @keyup.enter="$emit('enter',$event.target.value)"
+           @input="$emit('input', $event.target.value)"
+           @keyup.enter="$emit('enter', $event.target.value)"
            @keyup.esc="$emit('input', '')"
            @blur="$emit('blur')"
     />
