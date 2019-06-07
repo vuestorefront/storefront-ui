@@ -1,13 +1,135 @@
 @import '../../../css/variables';
 
-// $component__block-property: value;
+$sf-icon-color-primary          : $c-green-primary !default;
+$sf-icon-color-secondary        : $c-dark-primary !default;
+$sf-icon-color-white            : $c-white !default;
+$sf-icon-color-black            : $c-black !default;
+$sf-icon-color-accent           : $c-accent-secondary !default;
+$sf-icon-color-gray-primary     : $c-gray-primary !default;
+$sf-icon-color-gray-secondary   : $c-gray-secondary !default;
+$sf-icon-color-light-primary    : $c-light-primary !default;
+$sf-icon-color-light-secondary  : $c-light-secondary !default;
+$sf-icon-color-pink-primary     : $c-pink-primary !default;
+$sf-icon-color-pink-secondary   : $c-pink-secondary !default;
+$sf-icon-color-yellow-primary   : $c-yellow-primary !default;
+$sf-icon-color-yellow-secondary : $c-yellow-secondary !default;
+$sf-icon-color-blue-primary     : $c-blue-primary !default;
+$sf-icon-color-blue-secondary   : $c-blue-secondary !default;
 
-// .sf-sf-icon {
-//   &__element {
+.sf-icon {
+    --icon-color: #{$sf-icon-color-black};
+    --icon-size: 1.625rem;
+    outline: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    fill: var(--icon-color);
+    width: var(--icon-size);
+    height: var(--icon-size);
 
-//   }
-//   &--modifier {
+    &--color-primary {
+        --icon-color: #{$sf-icon-color-primary};
+    }
 
-//   }
-// }        
-        
+    &--color-secondary {
+        --icon-color: #{$sf-icon-color-secondary};
+    }
+
+    &--color-white {
+        --icon-color: #{$sf-icon-color-white};
+    }
+
+    &--color-accent {
+        --icon-color: #{$sf-icon-color-accent};
+    }
+
+    &--color-gray-primary {
+        --icon-color: #{$sf-icon-color-gray-primary};
+    }
+
+    &--color-gray-secondary {
+        --icon-color: #{$sf-icon-color-gray-secondary};
+    }
+
+    &--color-light-primary {
+        --icon-color: #{$sf-icon-color-light-primary};
+    }
+
+    &--color-light-secondary {
+        --icon-color: #{$sf-icon-color-light-secondary};
+    }
+
+    &--color-pink-primary {
+        --icon-color: #{$sf-icon-color-pink-primary};
+    }
+
+    &--color-pink-secondary {
+        --icon-color: #{$sf-icon-color-pink-secondary};
+    }
+
+    &--color-yellow-primary {
+        --icon-color: #{$sf-icon-color-yellow-primary};
+    }
+
+    &--color-yellow-secondary {
+        --icon-color: #{$sf-icon-color-yellow-secondary};
+    }
+
+    &--color-blue-primary {
+        --icon-color: #{$sf-icon-color-blue-primary};
+    }
+
+    &--color-blue-secondary {
+        --icon-color: #{$sf-icon-color-blue-secondary};
+    }
+    --box-xxs: 10px;
+    --box-xs: 12px;
+    --box-sm: 14px;
+    --box-sm2: 16px;
+    --box-md: 18px;
+    --box-lg: 20px;
+    --box-xl: 24px;
+    --box-xxl: 28px;
+    --box-xl3: 32px;
+    --box-xl4: 42px;
+    --box-xl5: 60px;
+
+    &--size-xxs {
+        --icon-size: 1rem;
+    }
+
+    &--size-xs {
+        --icon-size: 1.4rem;
+    }
+
+    &--size-s {
+        --icon-size: 1.625rem;
+    }
+
+    &--size-sm {
+        --icon-size: 1.8rem;
+    }
+
+    &--size-md {
+        --icon-size: 2rem;
+    }
+
+    &--size-lg {
+        --icon-size: 2.2rem;
+    }
+
+    &--size-xl {
+        --icon-size: 2.5rem;
+    }
+
+    &--size-xxl {
+        --icon-size: 2.8rem;
+    }
+
+    &--size-xl3 {
+        --icon-size: 2.8rem;
+    }
+
+    &--size-xl4 {
+        --icon-size: 3.25rem;
+    }
+}

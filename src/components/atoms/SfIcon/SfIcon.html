@@ -1,6 +1,6 @@
-<div class="sf-icon">
+<div :class="['sf-icon', iconColor, iconSize]" ref="icon" >
   <slot>
-    <svg className="svgIcon" preserveAspectRatio="xMidYMid" viewBox="0 0 24 24">
+    <svg class="sf-icon-path" preserveAspectRatio="xMidYMid" viewBox="0 0 24 24">
         <path :d="path" />
     </svg>
   </slot>
