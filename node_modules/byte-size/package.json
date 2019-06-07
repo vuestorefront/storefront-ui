@@ -1,0 +1,41 @@
+{
+  "name": "byte-size",
+  "author": "Lloyd Brookes <75pound@gmail.com>",
+  "contributors": [
+    {
+      "name": "Raul Perez",
+      "email": "repejota@gmail.com",
+      "url": "http://repejota.com"
+    }
+  ],
+  "version": "4.0.4",
+  "license": "MIT",
+  "engines": {
+    "node": ">4.0.0"
+  },
+  "description": "Convert a bytes (and octets) value to a more human-readable format. Choose between metric or IEC units.",
+  "repository": "https://github.com/75lb/byte-size.git",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "convert",
+    "bytes",
+    "octet",
+    "size",
+    "human",
+    "readable",
+    "metric",
+    "IEC"
+  ],
+  "scripts": {
+    "test": "test-runner test.js",
+    "docs": "jsdoc2md -t README.hbs index.js > README.md; echo",
+    "cover": "istanbul cover ./node_modules/.bin/test-runner test.js && cat coverage/lcov.info | ./node_modules/.bin/coveralls"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "jsdoc-to-markdown": "^4.0.1",
+    "test-runner": "^0.5.1"
+  }
+}

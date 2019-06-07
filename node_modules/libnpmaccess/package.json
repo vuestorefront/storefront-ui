@@ -1,0 +1,40 @@
+{
+  "name": "libnpmaccess",
+  "version": "3.0.1",
+  "description": "programmatic library for `npm access` commands",
+  "author": {
+    "name": "Kat Marchán",
+    "email": "kzm@zkat.tech",
+    "twitter": "maybekatz"
+  },
+  "license": "ISC",
+  "scripts": {
+    "prerelease": "npm t",
+    "release": "standard-version -s",
+    "postrelease": "npm publish && git push --follow-tags",
+    "pretest": "standard",
+    "test": "tap -J --100 test/*.js",
+    "update-coc": "weallbehave -o . && git add CODE_OF_CONDUCT.md && git commit -m 'docs(coc): updated CODE_OF_CONDUCT.md'",
+    "update-contrib": "weallcontribute -o . && git add CONTRIBUTING.md && git commit -m 'docs(contributing): updated CONTRIBUTING.md'"
+  },
+  "devDependencies": {
+    "nock": "^9.6.1",
+    "standard": "*",
+    "standard-version": "*",
+    "tap": "*",
+    "weallbehave": "*",
+    "weallcontribute": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/libnpmaccess.git"
+  },
+  "bugs": "https://github.com/npm/libnpmaccess/issues",
+  "homepage": "https://npmjs.com/package/libnpmaccess",
+  "dependencies": {
+    "aproba": "^2.0.0",
+    "get-stream": "^4.0.0",
+    "npm-package-arg": "^6.1.0",
+    "npm-registry-fetch": "^3.8.0"
+  }
+}
