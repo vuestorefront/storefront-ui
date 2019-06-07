@@ -11,7 +11,6 @@ String label component
 ## SCSS variables
 
 - `$sf-label-margin-bottom` (0.5rem)
-- `$sf-label-font-size` ($font-size-regular-mobile)
 - `$sf-label-color` ($c-dark-primary)
 - `$sf-label-font-family` ($body-font-family-primary)
 - `$sf-label-font-weight` ($body-font-weight-primary)
