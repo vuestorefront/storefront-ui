@@ -1,7 +1,12 @@
+docs/.vuepress/dist
 package-lock.json
 
 .DS_Store
 node_modules
+/dist
+/src/Playground.vue
+storybook_static
+
 # local env files
 .env.local
 .env.*.local
