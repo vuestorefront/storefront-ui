@@ -7,4 +7,3 @@ describe("SfIcon.vue", () => {
     expect(component.contains(".sf-sf-icon")).toBe(true);
   });
 });
-        
