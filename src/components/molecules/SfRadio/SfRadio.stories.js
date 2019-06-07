@@ -51,7 +51,6 @@ const scssTableConfig = {
   ]
 };
 
-
 storiesOf("Molecules|Radio", module)
   .addDecorator(withKnobs)
   .add(

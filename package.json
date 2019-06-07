@@ -1,6 +1,7 @@
 {
   "name": "@storefrontui/vue",
-  "version": "0.0.2-aplha.1",
+  "version": "0.0.2-aplha.9",
+  "sideEffects": "false",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -16,8 +17,11 @@
     "create-component": "node ./scripts/create-component.js"
   },
   "dependencies": {
-    "@snowdog/alpaca-components": "^0.3.0-alpha.5",
-    "webpack-dev-middleware": "3.6.0"
+    "@glidejs/glide": "^3.3.0",
+    "lozad": "^1.9.0",
+    "webpack-dev-middleware": "3.6.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0"
   },
   "resolutions": {
     "webpack-dev-middleware": "3.6.0"
@@ -25,11 +29,12 @@
   "files": [
     "dist/*",
     "scripts/*",
-    "public/assets"
+    "public/assets",
+    "index.js"
   ],
   "devDependencies": {
-    "@storybook/addon-a11y": "^5.0.11",
     "@babel/core": "^7.4.4",
+    "@storybook/addon-a11y": "^5.0.11",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-knobs": "^5.0.11",
     "@storybook/addon-links": "^5.0.11",
@@ -52,13 +57,13 @@
     "file-save": "^0.2.0",
     "glob": "^7.1.4",
     "html-loader": "^0.5.5",
-    "lint-staged": "^8.1.6",
+    "lint-staged": "^8.1.7",
     "markdown-loader": "^5.0.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
-    "storybook-addon-vue-info": "^1.1.1",
+    "storybook-addon-vue-info": "^1.2.0",
     "ts-jest": "^24.0.1",
-    "typescript": "^3.4.5",
+    "typescript": "^3.5.1",
     "uppercamelcase": "^3.0.0",
     "vue-cli-plugin-storybook": "^0.6.0",
     "vue-template-compiler": "^2.6.8",
@@ -67,7 +72,7 @@
   "peerDependencies": {
     "vue": "^2.6.x"
   },
-  "main": "./dist/storefront-ui.common.js",
+  "main": "./index.js",
   "lint-staged": {
     "*.{js,vue,html,scss,ts}": [
       "vue-cli-service lint",
