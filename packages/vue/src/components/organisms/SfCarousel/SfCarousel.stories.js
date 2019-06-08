@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfCarousel from "./SfCarousel.vue";
 const scssTableConfig = {
@@ -58,6 +58,7 @@ storiesOf("Organisms|Carousel", module)
           <SfCarouselItem>
             <div :style="style">8</div>
           </SfCarouselItem>
+          
         </SfCarousel>
       </div>
       `
