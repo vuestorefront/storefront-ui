@@ -2,29 +2,11 @@
   <div class="sf-modal__overlay"></div>
   <div class="sf-modal__container">
     <button class="sf-modal__cross" @click="$emit('close')" v-if="cross">X</button>
-    <!--@slot Modal title. Slot content will replace default <h1> tag-->
-    <slot name="title" :title="title">
-      <h1 class="sf-modal__title" v-if="title">
-        {{ title }}
-      </h1>
-    </slot>
-    <!--@slot Modal subtitle. Slot content will replace default <h2> tag-->
-    <slot name="subtitle" :subtitle="subtitle">
-      <h2 class="sf-modal__subtitle" v-if="subtitle">
-        {{ subtitle }}
-      </h2>
-    </slot>
-    <!--@slot Modal description. Slot content will replace default <p> tag-->
-    <slot name="description" :description="description">
-      <p class="sf-modal__description" v-if="description">
-        {{ description }}
-      </p>
-    </slot>
-    <!--@slot Call to action section. Slot content will replace default SfModal component-->
-    <slot name="call-to-action">
-      <SfButton class="sf-modal__button" v-if="buttonText" @click="$emit('close')">
-        {{ buttonText }}
-      </SfButton>
+    <!--@slot Modal content. Slot content will replace default div.sf-modal__content tag-->
+    <slot name="content" :title="content">
+      <div class="sf-modal__content" v-if="content">
+        {{ content }}
+      </div>
     </slot>
   </div>
 </section>

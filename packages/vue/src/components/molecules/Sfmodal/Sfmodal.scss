@@ -8,14 +8,6 @@ $modal-padding                             : 2.5em 5em;
 $modal__overlay-background-color           : $c-black;
 $modal__overlay-opacity                    : 0.8;
 
-$modal__title-font-family                  : $heading-font-family;
-$modal__title-font-size                    : $body-font-size-desktop;
-$modal__subtitle-font-family               : $heading-font-family;
-$modal__subtitle-font-size                 : $body-font-size-desktop;
-
-$modal__call-to-action-font-size           : 0.875rem !default;
-$modal__call-to-action-background-color    : $c-dark-primary !default;
-
 .sf-modal {
   &__overlay {
     background: $modal__overlay-background-color;
@@ -48,22 +40,6 @@ $modal__call-to-action-background-color    : $c-dark-primary !default;
     position: absolute;
     right: 10px;
     top: 10px;
-  }
-  &__title {
-    font-family: $modal__title-font-family;
-    font-size: $modal__title-font-size;
-  }
-  &__subtitle {
-    font-family: $modal__subtitle-font-family;
-    font-size: $modal__subtitle-font-size;
-  }
-  &__content {
-
-  }
-  &__button {
-    font-size: $modal__call-to-action-font-size;
-    background-color: $modal__call-to-action-background-color;
-    width: 100%;
   }
 }        
         

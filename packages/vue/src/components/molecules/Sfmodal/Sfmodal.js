@@ -1,7 +1,5 @@
-import SfButton from "@/components/atoms/SfButton/SfButton.vue";
-
 export default {
-  name: "Sfmodal",
+  name: "SfModal",
   props: {
     /**
      * Cross closing modal button
@@ -18,26 +16,9 @@ export default {
       default: false
     },
     /**
-     * Modal title
+     * Modal content
      */
-    title: {
-      type: String,
-      default: ""
-    },
-    /**
-     * Modal subtitle
-     */
-    subtitle: {
-      type: String,
-      default: ""
-    },
-    /** content of the modal */
-    description: {
-      type: String,
-      default: ""
-    },
-    /** text that will be displayed inside the button. You can replace the button  with "call-to-action" slot */
-    buttonText: {
+    content: {
       type: String,
       default: ""
     }
@@ -65,8 +46,5 @@ export default {
       },
       immediate: true
     }
-  },
-  components: {
-    SfButton
   }
 };

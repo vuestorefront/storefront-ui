@@ -1,3 +1,3 @@
-<script src="./Sfmodal.js"></script>
-<template lang="html" src="./Sfmodal.html"></template>
-<style lang="scss" src="./Sfmodal.scss"></style>
+<script src="./SfModal.js"></script>
+<template lang="html" src="./SfModal.html"></template>
+<style lang="scss" src="./SfModal.scss"></style>

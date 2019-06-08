@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select, boolean } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
-import Sfmodal from "./Sfmodal.vue";
+import SfModal from "./SfModal.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 
 // use this to document scss vars
@@ -15,7 +15,7 @@ const scssTableConfig = {
 // use this to document events
 const eventsTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [["input", "event emmited when option is selected"]]
+  tableBodyConfig: [["input", "event emited when option is selected"]]
 };
 
 storiesOf("Molecules|Modal", module)
@@ -28,22 +28,13 @@ storiesOf("Molecules|Modal", module)
           isModalOpen: true
         };
       },
-      components: { Sfmodal, SfButton },
+      components: { SfModal, SfButton },
       props: {
         cross: {
           default: boolean("cross (prop)", true)
         },
-        title: {
-          default: text("title (prop)", "Title prop")
-        },
-        subtitle: {
-          default: text("subtitle (prop)", "Subtitle prop")
-        },
-        description: {
-          default: text("description (prop)", "Descriptiom prop")
-        },
-        buttonText: {
-          default: text("buttonText (prop)", "OK")
+        content: {
+          default: text("content (prop)", "Hello world!")
         },
         customClass: {
           default: select(
@@ -56,12 +47,11 @@ storiesOf("Molecules|Modal", module)
       template: `
       <div>
       <SfButton @click="isModalOpen = true">Open modal</SfButton>
-      <Sfmodal
+      <SfModal
         :visible="isModalOpen"
         @close="isModalOpen = false"
         :cross="cross"
-        :title="title"
-        :button-text="buttonText"
+        :content="content"
         :class="customClass"
       />
       </div>`

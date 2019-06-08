@@ -1,10 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import Sfmodal from "@/components/molecules/Sfmodal.vue";
+import SfModal from "@/components/molecules/SfModal.vue";
 
-describe("Sfmodal.vue", () => {
+describe("SfModal.vue", () => {
   it("renders a component", () => {
-    const component = shallowMount(Sfmodal);
-    expect(component.contains(".sf-sfmodal")).toBe(true);
+    const component = shallowMount(SfModal);
+    expect(component.contains(".sf-sf-modal")).toBe(true);
   });
 });
-        
