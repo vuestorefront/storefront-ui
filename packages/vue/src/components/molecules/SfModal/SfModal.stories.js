@@ -58,7 +58,7 @@ storiesOf("Molecules|Modal", module)
       info: {
         summary: `<p>Component for modal.</p>
        <h2>Usage</h2>
-       <pre><code>import Sfmodal from "@storefrontui/vue/dist/Sfmodal.vue"</code></pre>
+       <pre><code>import SfModal from "@storefrontui/vue/dist/SfModal.vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        ${generateStorybookTable(eventsTableConfig, "Events")}
        `
