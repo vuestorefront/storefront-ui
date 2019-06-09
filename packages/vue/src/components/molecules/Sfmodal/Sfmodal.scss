@@ -38,8 +38,16 @@ $modal__overlay-opacity                    : 0.8;
     width: 30px;
     height: 30px;
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    img {
+      filter: invert(0.3);
+      width: 100%;
+    }
   }
 }        
         

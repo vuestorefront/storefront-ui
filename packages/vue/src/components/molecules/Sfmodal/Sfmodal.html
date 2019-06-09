@@ -1,12 +1,12 @@
-<section class="sf-sfmodal" v-if="visible">
-  <div class="sf-modal__overlay"></div>
-  <div class="sf-modal__container">
-    <button class="sf-modal__cross" @click="$emit('close')" v-if="cross">X</button>
+<section class="sf-sfmodal">
+  <div class="sf-modal__overlay" v-if="visible"></div>
+  <div class="sf-modal__container" v-if="visible">
+    <button class="sf-modal__cross" @click="$emit('close')" v-if="cross">
+      <img src="/assets/close.svg" class="sf-circle-icon__icon">
+    </button>
     <!--@slot Modal content. Slot content will replace default div.sf-modal__content tag-->
-    <slot name="content" :title="content">
-      <div class="sf-modal__content" v-if="content">
-        {{ content }}
-      </div>
-    </slot>
+    <div class="sf-modal__content">
+      <slot></slot>
+    </div>    
   </div>
 </section>

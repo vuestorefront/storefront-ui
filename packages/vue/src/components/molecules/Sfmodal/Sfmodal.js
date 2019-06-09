@@ -6,7 +6,7 @@ export default {
      */
     cross: {
       type: Boolean,
-      default: false
+      default: true
     },
     /**
      * Visibility of the modal
@@ -14,13 +14,6 @@ export default {
     visible: {
       type: Boolean,
       default: false
-    },
-    /**
-     * Modal content
-     */
-    content: {
-      type: String,
-      default: ""
     }
   },
   mounted() {

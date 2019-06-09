@@ -33,9 +33,6 @@ storiesOf("Molecules|Modal", module)
         cross: {
           default: boolean("cross (prop)", true)
         },
-        content: {
-          default: text("content (prop)", "Hello world!")
-        },
         customClass: {
           default: select(
             "CSS Modifier",
@@ -47,13 +44,14 @@ storiesOf("Molecules|Modal", module)
       template: `
       <div>
       <SfButton @click="isModalOpen = true">Open modal</SfButton>
+      <transition name="fade">
       <SfModal
         :visible="isModalOpen"
         @close="isModalOpen = false"
         :cross="cross"
-        :content="content"
         :class="customClass"
-      />
+      >Hello World!</SfModal>
+      </transition>
       </div>`
     }),
     {
