@@ -9,13 +9,22 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 // use this to document scss vars
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [["$component-size", "1.438rem", "size of checkmark"]]
-};
-
-// use this to document events
-const eventsTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [["input", "event emited when option is selected"]]
+  tableBodyConfig: [
+    [
+      "$modal-background-color",
+      "$c-white",
+      "background of the modal container"
+    ],
+    ["$modal-width", "430px", "width of the modal container"],
+    ["$modal-height ", "auto", "height of the modal container"],
+    ["$modal-padding", "2.5em 5em", "padding of the modal container"],
+    [
+      "$modal__overlay-background-color",
+      "$c-black",
+      "background color of the overlay"
+    ],
+    ["$modal__overlay-opacity", "0.8", "opacity of the overlay"]
+  ]
 };
 
 storiesOf("Molecules|Modal", module)
@@ -32,13 +41,6 @@ storiesOf("Molecules|Modal", module)
       props: {
         cross: {
           default: boolean("cross (prop)", true)
-        },
-        customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-sfmodal--modifier"],
-            "null"
-          )
         }
       },
       template: `
@@ -60,7 +62,6 @@ storiesOf("Molecules|Modal", module)
        <h2>Usage</h2>
        <pre><code>import SfModal from "@storefrontui/vue/dist/SfModal.vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-       ${generateStorybookTable(eventsTableConfig, "Events")}
        `
       }
     }
