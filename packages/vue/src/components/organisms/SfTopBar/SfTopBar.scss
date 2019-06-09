@@ -1,11 +1,13 @@
 @import '../../../css/variables';
 
-$top-bar-background-color: $c-light-primary;
-$top-bar-horizontal-padding: $spacer-extra-big;
+$top-bar-height: 40px !default;
+$top-bar-hidden-max-width: $desktop-min !default;
+$top-bar-background-color: $c-light-primary !default;
+$top-bar-horizontal-padding: $spacer-extra-big !default;
 
 .sf-topbar {
   width: 100%;
-  height: 40px;
+  height: $top-bar-height;
 
   display: flex;
   align-items: center;
@@ -20,7 +22,7 @@ $top-bar-horizontal-padding: $spacer-extra-big;
   }
 }
 
-@media only screen and (max-width: $desktop-min) {
+@media only screen and (max-width: $top-bar-hidden-max-width) {
   .sf-topbar {
     display: none;
   }
