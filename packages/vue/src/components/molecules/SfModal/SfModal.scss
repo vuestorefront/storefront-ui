@@ -1,0 +1,53 @@
+@import '../../../css/variables';
+
+$modal-background-color                    : $c-white;
+$modal-width                               : 430px;
+$modal-height                              : auto;
+$modal-padding                             : 2.5em 5em;
+
+$modal__overlay-background-color           : $c-black;
+$modal__overlay-opacity                    : 0.8;
+
+.sf-modal {
+  &__overlay {
+    background: $modal__overlay-background-color;
+    opacity: $modal__overlay-opacity;
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    box-sizing: border-box;
+    background-color: $modal-background-color;
+    position: absolute;
+    width: $modal-width;
+    height: $modal-height;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: $modal-padding;
+  }
+  &__cross {
+    border: none;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    img {
+      filter: invert(0.3);
+      width: 100%;
+    }
+  }
+}        
+        
