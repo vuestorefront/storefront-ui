@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefrontui/shared": "file:../shared",
+    "@storefrontui/shared": "file:./../shared",
     "lerna": "^3.0.0-rc.0",
     "lozad": "^1.9.0",
     "node-sass": "^4.12.0",
