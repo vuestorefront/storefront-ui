@@ -32,7 +32,7 @@ export default {
       const color = this.color.trim();
       return RGB_REGEX.test(color) || HEX_REGEX.test(color);
     },
-    isPresetSizes() {
+    isSFSizes() {
       const size = this.size.trim();
       return SF_SIZES.includes(size);
     },
@@ -42,7 +42,7 @@ export default {
         : this.color;
     },
     iconSize() {
-      return this.isPresetSizes ? `sf-icon--size-${this.size.trim()}` : "";
+      return this.isSFSizes ? `sf-icon--size-${this.size.trim()}` : "";
     }
   },
   mounted() {
@@ -50,7 +50,7 @@ export default {
       this.$refs.icon.style.setProperty("--icon-color", this.color);
     }
 
-    if (!this.isPresetSizes) {
+    if (!this.isSFSizes) {
       this.$refs.icon.style.setProperty("--icon-size", this.size);
     }
   }

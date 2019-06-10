@@ -13,8 +13,8 @@ storiesOf("Atoms|Icon", module)
         customClass: {
           default: select(
             "CSS Modifier",
-            ["sf-icon--color-primary", "sf-icon--color-secondary"],
-            "sf-icon--color-primary"
+            ["null", "sf-icon--color-primary", "sf-icon--color-secondary"],
+            "null"
           )
         },
         path: {
@@ -41,7 +41,7 @@ storiesOf("Atoms|Icon", module)
     {
       info: {
         summary: `
-        <p>Component for simple group of radio buttons, pass an array get selected value via v-model.</p>
+        <p>Component for rendering SVG path as icon.</p>
         <h2> Usage </h2>
         <pre><code>import SfIcon from "@storefrontui/vue/dist/SfIcon.vue"</code></pre>
         `
@@ -53,11 +53,31 @@ storiesOf("Atoms|Icon", module)
     "[slot] default",
     () => ({
       components: { SfIcon },
-      template: `<sf-icon><img src='assets/storybook/menu.svg'></sf-icon>`
+      template: `<sf-icon><img src='assets/cart.svg' alt="Cart icon"></sf-icon>`
     }),
     {
       info: {
-        summary: "Use this slot if passing icon SVG path is not enough."
+        summary: "Use this slot if passing icon SVG path is not enough. **Note** that need to provide also alt attribute or arial-label."
+      },
+      notes
+    }
+  )
+  .add(
+    "[slot] with size",
+    () => ({
+      components: { SfIcon },
+      props: {
+        size: {
+          default: text("size (prop)", "sm")
+        }
+      },
+      template: `<sf-icon :size="size">
+        <img src='assets/cart.svg' alt="Cart icon">
+      </sf-icon>`
+    }),
+    {
+      info: {
+        summary: ""
       },
       notes
     }
