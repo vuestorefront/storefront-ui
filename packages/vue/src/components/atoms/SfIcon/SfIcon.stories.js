@@ -57,7 +57,8 @@ storiesOf("Atoms|Icon", module)
     }),
     {
       info: {
-        summary: "Use this slot if passing icon SVG path is not enough. **Note** that need to provide also alt attribute or arial-label."
+        summary:
+          "Use this slot if passing icon SVG path is not enough. **Note** that need to provide also alt attribute or arial-label."
       },
       notes
     }
@@ -77,7 +78,8 @@ storiesOf("Atoms|Icon", module)
     }),
     {
       info: {
-        summary: ""
+        summary:
+          "Render custom image as icon using slot, and pass `size` to customize the icon's size."
       },
       notes
     }
