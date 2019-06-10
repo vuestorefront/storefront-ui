@@ -69,6 +69,20 @@ The documentation is always THE HARDEST PART of each open source project! But we
 
 We are currently in a process of building the library. If you want to help shaping future of vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) you can find all the required information.
 
+# Maintainers
+
+Those awesome people are maintaining Storefront UI. Their ensuring that it performs smooth and looks awesome!
+
+**Core team**
+- Filip Rakowski ([@filrak](https://github.com/filrak))
+- Leonardo Matos [@leomp12](https://github.com/leomp12))
+- Maya Shavin ([@mayashavin](https://github.com/mayashavin))
+- Gift Egwenu ([@lauragify21](https://github.com/lauragift21))
+
+and amazing [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) commiting their time to make it better.
+
+Thank you! There would be no Storefront UIwithout you
+
 # Cooperation with Alpacas
 
 Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-storybook) are common efforts. We joined forces in figuring out how to make things right to deliver best possible experience to the users.
