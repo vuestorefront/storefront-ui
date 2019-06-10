@@ -8,6 +8,7 @@ import SfLoader from "./dist/SfLoader.vue";
 import SfPrice from "./dist/SfPrice.vue";
 import SfProperty from "./dist/SfProperty.vue";
 import SfRating from "./dist/SfRating.vue";
+import SfIcon from "./dist/SfIcon.vue";
 
 import SfAlert from "./dist/SfAlert.vue";
 import SfBanner from "./dist/SfBanner.vue";
@@ -40,6 +41,7 @@ export {
   SfPrice,
   SfProperty,
   SfRating,
+  SfIcon,
   SfAlert,
   SfBanner,
   SfCallToAction,
