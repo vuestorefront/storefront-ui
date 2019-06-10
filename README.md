@@ -92,9 +92,9 @@ Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-st
 # Roadmap
 
 - Category page components (April) - Done
-- Product Page components (May) (alpha release)
-- Homepage, form elements and a11y (June)
-- Last polishments and focus on documentation (June/July) (beta release)
+- Product Page components (May) (alpha release) - Done
+- Homepage, form elements, monorepo setup, product page example (June)
+- Last polishments and focus on documentation (July) (beta release)
 
 **Other things to include in the meantime:**
 - include additional build for every compoennt so they can also be imported separately but after a build step (useful for apps that don't have a build step at all)
