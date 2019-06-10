@@ -28,6 +28,7 @@ import SfAccordion from "./dist/SfAccordion.html";
 import SfCarousel from "./dist/SfCarousel.html";
 import SfList from "./dist/SfList.html";
 import SfMegaMenu from "./dist/SfMegaMenu.html";
+import SfTopBar from './dist/SfTopBar.html';
 
 export {
   SfArrow,
@@ -56,5 +57,6 @@ export {
   SfAccordion,
   SfCarousel,
   SfList,
-  SfMegaMenu
+  SfMegaMenu,
+  SfTopBar
  };
