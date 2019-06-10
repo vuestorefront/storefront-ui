@@ -27,7 +27,7 @@ storiesOf("Atoms|Icon", module)
           default: text("color (prop)", "#774dd7")
         },
         size: {
-          default: text("size (prop)", "s")
+          default: text("size (prop)", "sm")
         }
       },
       components: { SfIcon },
