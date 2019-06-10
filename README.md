@@ -81,7 +81,7 @@ Those awesome people are maintaining Storefront UI. Their ensuring that it perfo
 
 and amazing [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) commiting their time to make it better.
 
-Thank you! There would be no Storefront UIwithout you
+Thank you! There would be no Storefront UI without you
 
 # Cooperation with Alpacas
 
