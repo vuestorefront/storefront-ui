@@ -1,8 +1,24 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, number, select } from "@storybook/addon-knobs";
-import notes from "./README.md";
+import { generateStorybookTable } from "@/helpers";
 import SfRating from "./SfRating.vue";
+
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    [
+      "$rating__icon-positive-fill",
+      "$c-green-primary",
+      "positive star icon color"
+    ],
+    [
+      "$rating__icon-negative-fill",
+      "$c-dark-primary",
+      "negative star icon color"
+    ]
+  ]
+};
 
 storiesOf("Atoms|Rating", module)
   .addDecorator(withKnobs)
@@ -23,9 +39,10 @@ storiesOf("Atoms|Rating", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import SfRating from "@storefrontui/vue/dist/SfRating.vue"</code></pre>`
-      },
-      notes
+        <pre><code>import SfRating from "@storefrontui/vue/dist/SfRating.vue"</code></pre>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+        `
+      }
     }
   )
   .add(
@@ -42,13 +59,12 @@ storiesOf("Atoms|Rating", module)
       components: { SfRating },
       template: `<SfRating :score="rating" :max="max">
         <template #icon-positive>
-          <img src="assets/storybook/cat_green.svg" height="14px" />    
+          <img src="assets/storybook/cat_green.svg" height="14px" />
         </template>
       </SfRating>`
     }),
     {
-      info: true,
-      notes
+      info: true
     }
   )
   .add(
@@ -70,7 +86,6 @@ storiesOf("Atoms|Rating", module)
     </SfRating>`
     }),
     {
-      info: true,
-      notes
+      info: true
     }
   );
