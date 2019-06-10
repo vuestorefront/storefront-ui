@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = async ({ config, mode }) => {
   config.module.rules.push({
     test: /\.vue$/,
@@ -18,6 +20,12 @@ module.exports = async ({ config, mode }) => {
         }
       }
     ]
+  });
+
+  config.module.rules.push({
+    test: /\.scss$/,
+    use: ['sass-loader'],
+    include: path.resolve(__dirname, '../../src/css/'),
   });
 
   return config;

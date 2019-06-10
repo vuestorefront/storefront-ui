@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test:dev": "vue-cli-service test:unit --watch",
-    "storybook:serve": "vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
+    "storybook:serve": "vue-cli-service storybook:serve -s ./public -p 6007 -c config/storybook",
     "storybook:build": "vue-cli-service storybook:build -s ./public -c config/storybook",
     "postinstall": "node scripts/postinstall.js",
     "prepublishOnly": "npm run build",
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefrontui/shared": "file:./../shared",
+    "@storefrontui/shared": "file:../shared",
     "lerna": "^3.0.0-rc.0",
     "lozad": "^1.9.0",
     "node-sass": "^4.12.0",
