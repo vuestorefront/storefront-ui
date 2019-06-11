@@ -50,12 +50,10 @@ You can find the stunning designs we are using for Storefront UI components [her
 
 # How to try it?
 
-Storefront UI is not ready to use in projects yet. We plan to release working alpha before the end of April 2019.
-If you want to check current state of components just check [storybook](https://storefrontui-storybook.netlify.com/)
-If you really want to play with components:
-```npm install --save @storefrontui/vue```
+Storefront UI is not ready to use in production projects yet. We plan to release working alpha before the end of June 2019.
+If you want to check current state of components just check [storybook](https://storybook.storefrontui.io/)
 
-Then check if `sfui.scss` file was created in a root of your app. If not - create it.
+You can read more about the installation [here](https://docs.storefrontui.io/introduction.html#how-to-test-storefrontui)
 
 
 # Documentation
