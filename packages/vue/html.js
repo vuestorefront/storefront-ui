@@ -8,6 +8,7 @@ import SfLoader from "./src/components/atoms/SfLoader/SfLoader.html";
 import SfPrice from "./src/components/atoms/SfPrice/SfPrice.html";
 import SfProperty from "./src/components/atoms/SfProperty/SfProperty.html";
 import SfRating from "./src/components/atoms/SfRating/SfRating.html";
+import SfIcon from "./src/components/atoms/SfIcon/SfIcon.html";
 
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.html";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.html";
@@ -40,6 +41,7 @@ export {
   SfPrice,
   SfProperty,
   SfRating,
+  SfIcon,
   SfAlert,
   SfBanner,
   SfCallToAction,
@@ -59,4 +61,4 @@ export {
   SfList,
   SfMegaMenu,
   SfTopBar
- };
+};
