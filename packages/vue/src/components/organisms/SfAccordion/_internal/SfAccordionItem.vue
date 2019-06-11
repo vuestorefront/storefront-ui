@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import "@/utilities/transitions/transitions.scss";
+import "../../../../utilities/transitions/transitions.scss";
 
 // TODO: Enable real accordion behavior with only one item open. get rid of open property
 export default {

@@ -12,7 +12,7 @@ import SfRating from "./src/components/atoms/SfRating/SfRating.js";
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.js";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.js";
 import SfCallToAction from "./src/components/molecules/SfCallToAction/SfCallToAction.js";
-import SfCounter from "./src/components/molecules/SfCounter/SfCallToAction.js";
+import SfCounter from "./src/components/molecules/SfCounter/SfCounter.js";
 import SfFilter from "./src/components/molecules/SfFilter/SfFilter.js";
 import SfGallery from "./src/components/molecules/SfGallery/SfGallery.js";
 import SfMenuItem from "./src/components/molecules/SfMenuItem/SfMenuItem.js";
