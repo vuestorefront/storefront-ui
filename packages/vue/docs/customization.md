@@ -4,7 +4,7 @@ We put a lot of efforts to let you customize any aspect of the UI. Let's see how
 
 ## Standard customization (typical usage)
 
-In short words every component exposes 2 ways of standard customization
+In short words, every component exposes 2 ways of standard customization.
 - **props:** To customize their content. Suitable for most of the use cases. Content from props is filling the default markup in slots.
 
 ````html
@@ -14,7 +14,7 @@ In short words every component exposes 2 ways of standard customization
   button-text="Lorem ipsum"
  />
 ````
-- **slots**: If you want to replace some parts of our markup with your own you can easily do this with named slots.
+- **slots**: If you want to replace some parts of our markup with your own, you can easily do this with named slots.
 ````html
 <!-- don't like our markup for the title? just replace it with your own :)-->
  <SfBanner
@@ -33,11 +33,11 @@ In addition every component is exposing SCSS variables responsible for the desig
 
 ### Global variables
 
-Most of the styling is made through a SCSS variables in global stylesheets. We use them to setup fonts, HTML elements styling (like h1, p), layout properties and colors.
+Most of the styling is made through SCSS variables in global stylesheets. We use them to setup fonts, HTML elements styling (like h1, p), layout properties and colors.
 
-You can override any the global variables inside your `sfui.scss` file that should exist in a root of your app.
+You can override any of the global variables inside your `sfui.scss` file that should exist in a root of your app.
 
-To override any of the global variables just create one with the same name in `sfui.scss` and your custom value.
+To override any of the global variables, just create one with the same name in `sfui.scss` and your custom value.
 
 ````scss
 // This will override primary accent color to 'blue'
@@ -59,7 +59,7 @@ Please note that you should always add a `!default` property when overriding com
 
 ### Customization of individual components
 
-If variables are not providing the level of customization you need you can also make a new component that is importing individual partials of the source component from SFUI.
+If variables are not providing the level of customization you need, you can also make a new component that is importing individual partials of the source component from SFUI.
 
 Let's say we want to create `CustomizedButton` component. We should start with creating new Vue component where we can import `Button` partials.
 ````html
@@ -82,7 +82,7 @@ $c-accent-primary: blue;
 
 Now let's see how we can customize any of it's parts by still making use of the sfui parts we want to remain untouched.
 
-- **Template**:  Here we replaced default HTML with our own. In this example we replaced default `<button>` with a `<div>`
+- **Template**:  Here, we replaced default HTML with our own. In this example, we replaced default `<button>` with a `<div>`
 ````html
 <template>
   <div class="sf-button"><slot /></div>
@@ -117,4 +117,4 @@ $c-accent-primary: blue;
 
 ### Customization of single components
 
-You can always use pure CSS rules to customize any of the compoennts properties like color etc
+You can always use pure CSS rules to customize any of the components properties like color, etc.

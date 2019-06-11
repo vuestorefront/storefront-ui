@@ -200,7 +200,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../css/variables.scss";
+@import "../../../css/variables";
 @import "~@storefrontui/shared/styles/helpers/visibility";
 
 #category {

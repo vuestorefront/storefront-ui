@@ -6,7 +6,7 @@
 
 <script>
 import Vue from "vue";
-import SfFilterItem from "@/components/molecules/SfFilter/_internal/SfFilterItem.vue";
+import SfFilterItem from "./_internal/SfFilterItem.vue";
 
 Vue.component("SfFilterItem", SfFilterItem);
 

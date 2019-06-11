@@ -1,0 +1,55 @@
+@import '../variables';
+
+$sf-circle-icon-background-primary     : $c-green-primary !default;
+$sf-circle-icon-background-secondary   : $c-dark-primary !default;
+$sf-circle-icon-icon-color             : $c-white !default;
+$sf-circle-icon-size                   : 3.25rem !default;
+$sf-circle-icon-background-small       : $c-gray-secondary !default;
+$sf-circle-icon-background-small-hover : $c-dark-secondary !default;
+
+.sf-circle-icon {
+    padding: 5px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $sf-circle-icon-size;
+    height: $sf-circle-icon-size;
+    transition: box-shadow .3s ease;
+    outline: none;
+    background-color: $sf-circle-icon-background-primary;
+    &:hover {
+        box-shadow: 0 0 0 0.3125rem rgba($sf-circle-icon-background-primary, 0.4);
+    }
+    &:active {
+        box-shadow: 0 0 0 0.625rem rgba($sf-circle-icon-background-primary, 0.4);
+    }
+    &__icon {
+        height: 45%
+    }
+    &--secondary {
+        background-color: $sf-circle-icon-background-secondary;
+        &:hover {
+            box-shadow: 0 0 0 0.3125rem rgba($sf-circle-icon-background-secondary, 0.4);
+        }
+        &:active {
+            box-shadow: 0 0 0 0.625rem rgba($sf-circle-icon-background-secondary, 0.4);
+        }
+    }
+    &--small {
+        $sf-circle-icon-size: 1.625rem;
+        width: $sf-circle-icon-size;
+        height: $sf-circle-icon-size;
+        background-color: $sf-circle-icon-background-small;
+        &:hover {
+            background-color: $sf-circle-icon-background-small-hover;
+            box-shadow: none;
+        }
+        &:active {
+            background-color: $sf-circle-icon-background-secondary;
+            box-shadow: none;
+        }
+  }
+}

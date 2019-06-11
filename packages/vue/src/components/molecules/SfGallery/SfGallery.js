@@ -29,12 +29,12 @@ export default {
      */
     sliderOptions: {
       type: Object,
-      default () {
+      default() {
         return {
-          type: 'slider',
+          type: "slider",
           autoplay: false,
           rewind: false
-        }
+        };
       }
     }
   },
@@ -71,7 +71,7 @@ export default {
     this.glide = glide;
     // handle lazy load for big images with lozad
     // https://apoorv.pro/lozad.js/
-    const observer = lozad('.sf-gallery__big-image');
+    const observer = lozad(".sf-gallery__big-image");
     observer.observe();
   },
 

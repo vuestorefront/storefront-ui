@@ -1,7 +1,35 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, number, boolean } from "@storybook/addon-knobs";
+import { generateStorybookTable } from "@/helpers";
 import SfGallery from "./SfGallery.vue";
+
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    ["$pagination__list-padding", "1rem", "padding for paginated list"],
+    ["$gallery-flex-direction", "row", "flex direction for gallery"],
+    ["$gallery__nav-width", "100px", "minimum height for menu item"],
+    [
+      "$gallery__nav-margin",
+      "0 $spacing-extra-big 0 0",
+      "nav margin for gallery"
+    ],
+    [
+      "$gallery__item-margin-bottom",
+      "$spacing-medium",
+      "margin for gsllery item"
+    ],
+    ["$gallery__item-opacity", ".5", "opacity for gallery item"],
+    [
+      "$gallery__item-transition",
+      "opacity .15s linear",
+      "transistion for gallery item"
+    ],
+    ["$gallery__item-mobile-size", "10px", "size of gallery item on mobile"],
+    ["$gallery__stage-width", "400px", "width of gallery stage"]
+  ]
+};
 
 const data = () => {
   return {
@@ -93,6 +121,7 @@ storiesOf("Molecules|Gallery", module)
           </p>
           <h2> Usage </h2>
           <pre><code>import SfGallery from "@storefrontui/vue/dist/SfGallery.vue"</code></pre>
+          ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }
     }
