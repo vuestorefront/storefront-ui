@@ -1,4 +1,4 @@
-import SfButton from "@/components/atoms/SfButton/SfButton.vue";
+import SfButton from "../SfButton/SfButton.vue";
 
 export default {
   name: "SfCircleIcon",
