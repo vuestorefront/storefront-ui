@@ -4,11 +4,24 @@ $modal-background-color                    : $c-white;
 $modal-width                               : 430px;
 $modal-height                              : auto;
 $modal-padding                             : 2.5em 5em;
+$modal-border                              : solid 1px rgba($c-black, 0.5);
 
 $modal__overlay-background-color           : $c-black;
 $modal__overlay-opacity                    : 0.8;
 
 .sf-modal {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  &--visible {
+    z-index: 0;
+  }
   &__overlay {
     background: $modal__overlay-background-color;
     opacity: $modal__overlay-opacity;
@@ -20,6 +33,7 @@ $modal__overlay-opacity                    : 0.8;
     bottom: 0;
   }
   &__container {
+    align-self: center;
     display: flex;
     flex-direction: column;
     align-content: space-between;
@@ -28,10 +42,8 @@ $modal__overlay-opacity                    : 0.8;
     position: absolute;
     width: $modal-width;
     height: $modal-height;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     padding: $modal-padding;
+    border: $modal-border;
   }
   &__cross {
     border: none;

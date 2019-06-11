@@ -19,6 +19,11 @@ const scssTableConfig = {
     ["$modal-height ", "auto", "height of the modal container"],
     ["$modal-padding", "2.5em 5em", "padding of the modal container"],
     [
+      "$modal-border",
+      "solid 1px rgba($c-black, 0.5)",
+      "border of the modal container"
+    ],
+    [
       "$modal__overlay-background-color",
       "$c-black",
       "background color of the overlay"
@@ -41,19 +46,32 @@ storiesOf("Molecules|Modal", module)
       props: {
         cross: {
           default: boolean("cross (prop)", true)
+        },
+        overlay: {
+          default: boolean("overlay (prop)", true)
+        },
+        persistent: {
+          default: boolean("persistent (prop)", false)
+        },
+        transitionOverlay: {
+          default: text("transitionOverlay (prop)", "fade")
+        },
+        transitionModal: {
+          default: text("transitionModal (prop)", "collapse-top")
         }
       },
       template: `
       <div>
       <SfButton @click="isModalOpen = true">Open modal</SfButton>
-      <transition name="fade">
       <SfModal
         :visible="isModalOpen"
         @close="isModalOpen = false"
         :cross="cross"
-        :class="customClass"
+        :overlay="overlay"
+        :persistent="persistent"
+        :transitionOverlay="transitionOverlay"
+        :transitionModal="transitionModal"
       >Hello World!</SfModal>
-      </transition>
       </div>`
     }),
     {

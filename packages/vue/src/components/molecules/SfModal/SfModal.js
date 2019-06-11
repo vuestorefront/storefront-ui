@@ -14,6 +14,34 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    },
+    /**
+     * Whether to show the overlay
+     */
+    overlay: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * If true clicking outside will not dismiss the modal
+     */
+    persistent: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * overlay transition effect
+     */
+    transitionOverlay: {
+      type: String,
+      default: "fade"
+    },
+    /**
+     * overlay transition effect
+     */
+    transitionModal: {
+      type: String,
+      default: "fade"
     }
   },
   mounted() {
@@ -26,6 +54,13 @@ export default {
     this.$once("hook:destroyed", () => {
       document.removeEventListener("keydown", keydownHandler);
     });
+  },
+  methods: {
+    checkPersistence() {
+      if (this.persistent === false) {
+        this.$emit("close");
+      }
+    }
   },
   watch: {
     visible: {
