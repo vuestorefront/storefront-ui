@@ -15,9 +15,10 @@ $modal__overlay-opacity                    : 0.8;
   align-content: center;
   height: 100%;
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   z-index: -1;
   &--visible {
     z-index: 0;
@@ -41,11 +42,13 @@ $modal__overlay-opacity                    : 0.8;
     background-color: $modal-background-color;
     position: absolute;
     width: $modal-width;
+    max-width: 100%;
     height: $modal-height;
     padding: $modal-padding;
     border: $modal-border;
   }
   &__cross {
+    background: none;
     border: none;
     width: 30px;
     height: 30px;
