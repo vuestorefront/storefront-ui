@@ -1,7 +1,6 @@
 {
   "name": "@storefrontui/vue",
   "version": "0.0.2-aplha.9",
-  "sideEffects": "false",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -32,7 +31,10 @@
     "dist/*",
     "scripts/*",
     "public/assets",
-    "index.js"
+    "src/*",
+    "index.js",
+    "html.js",
+    "js.js"
   ],
   "devDependencies": {
     "@babel/core": "^7.4.4",
