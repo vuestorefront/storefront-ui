@@ -1,4 +1,4 @@
-import SfSelectOption from "@/components/molecules/SfSelect/_internal/SfSelectOption.vue";
+import SfSelectOption from "./_internal/SfSelectOption.vue";
 import Vue from "vue";
 
 Vue.component("SfSelectOption", SfSelectOption);
