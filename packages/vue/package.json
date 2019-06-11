@@ -1,5 +1,6 @@
 {
   "name": "@storefrontui/vue",
+  "sideEffects": "false",
   "version": "0.0.2-aplha.9",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -30,7 +31,7 @@
   "files": [
     "dist/*",
     "scripts/*",
-    "public/assets",
+    "public/*",
     "src/*",
     "index.js",
     "html.js",
