@@ -1,3 +1,5 @@
+import SfIcon from "../SfIcon/SfIcon.vue";
+
 export default {
   name: "SfAlert",
   props: {
@@ -28,6 +30,11 @@ export default {
       return typeof this.icon === "string"
         ? this.icon
         : `/assets/alert-${this.type}.svg`;
-    }
+    },
+    iconColor() { return ""; },
+    iconSize() { return ""; }
+  },
+  components: {
+    SfIcon
   }
 };
