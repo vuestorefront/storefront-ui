@@ -1,3 +1,9 @@
-<div class="sf-sticky">
+<div
+  class="sf-sticky"
+  :class="{
+    'sf-sticky--sticky': isSticky,
+    'sf-sticky--bound': isBound
+  }"
+  :style="{width}">
   <slot/>
 </div>

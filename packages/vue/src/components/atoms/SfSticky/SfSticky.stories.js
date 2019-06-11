@@ -23,13 +23,14 @@ storiesOf("Atoms|Sticky", module)
             maxWidth: "720px"
           },
           col: {
-            flex: "1",
-            padding: ".95rem"
+            flex: "1 1 100%",
+            padding: ".95rem",
+            margin: "1rem"
           },
           sticker: {
             ...mixin,
             height: "300px",
-            backgroundColor: "#5ECE7B",
+            // backgroundColor: "#5ECE7B",
             color: "#FFF"
           },
           content: {
@@ -38,15 +39,19 @@ storiesOf("Atoms|Sticky", module)
             backgroundColor: "#F2F2F2",
             color: "#999"
           },
-          distance: {
-            height: "300px"
+          distanceTop: {
+            height: "44px"
+          },
+          distanceBottom: {
+            height: "1111px"
           }
         };
       },
       components: { SfSticky },
       template: `
         <div>
-          <div :style="row">
+          <div :style="distanceTop"></div>
+          <div class="row">
             <div :style="col">
               <div :style="content">content</div>
               <p></p>
@@ -58,7 +63,20 @@ storiesOf("Atoms|Sticky", module)
               </sf-sticky>
             </div>
           </div>
-          <div :style="distance"></div>
+          <div :style="distanceTop"></div>
+          <div class="row">
+            <div :style="col">
+              <div :style="content">content</div>
+              <p></p>
+              <div :style="content">content</div>
+            </div>
+            <div :style="col">
+              <sf-sticky>
+                <div :style="sticker">sticker</div>
+              </sf-sticky>
+            </div>
+          </div>
+          <div :style="distanceBottom"></div>
         </div>`
     }),
     {
