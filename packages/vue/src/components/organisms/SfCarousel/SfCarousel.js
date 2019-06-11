@@ -1,7 +1,7 @@
 import Vue from "vue";
 
-import SfCarouselItem from "@/components/organisms/SfCarousel/_internal/SfCarouselItem.vue";
-import SfArrow from "@/components/atoms/SfArrow/SfArrow.vue";
+import SfCarouselItem from "./_internal/SfCarouselItem.vue";
+import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
 
 import Glide from "@glidejs/glide";
 
