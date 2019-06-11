@@ -1,8 +1,56 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import notes from "./README.md";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { generateStorybookTable } from "@/helpers";
 import SfIcon from "./SfIcon.vue";
+
+const tableHeaderConfig = ["NAME", "DEFAULT"];
+
+const sizes = [
+  ["xxs", "1rem"],
+  ["xs", "1.4rem"],
+  ["sm", "1.625rem"],
+  ["md", "1.8rem"],
+  ["lg", "2rem"],
+  ["xl", "2.2rem"],
+  ["xxl", "2.5rem"],
+  ["xl3", "2.8rem"],
+  ["xl4", "3.25rem"]
+];
+
+const colors = [
+  ["primary", "$c-green-primary"],
+  ["secondary", "$c-dark-primary"],
+  ["white", "$c-white"],
+  ["black", "$c-black (!default)"],
+  ["accent", "$c-accent-secondary"],
+  ["gray-primary", "$c-gray-primary"],
+  ["gray-secondary", "$c-gray-secondary"],
+  ["light-primary", "$c-light-primary"],
+  ["light-secondary", "$c-light-secondary"],
+  ["pink-primary", "$c-pink-primary"],
+  ["pink-secondary", "$c-pink-secondary"],
+  ["yellow-primary", "$c-yellow-primary"],
+  ["yellow-secondary", "$c-yellow-secondary"],
+  ["blue-primary", "$c-blue-primary"],
+  ["blue-secondary", "$c-blue-secondary"]
+];
+
+const cssTableConfig = {
+  tableHeadConfig: ["NAME", "DESCRIPTION"],
+  tableBodyConfig: [
+    [
+      ".sf-icon--color-<palette>",
+      "Change color to a specific preset pallete (see above)"
+    ],
+    [
+      ".sf-icon--size-<size>",
+      "Change size to specific preset size (see above)"
+    ],
+    ["--icon-color: <color>", "Modify CSS Variable for icon color"],
+    ["--icon-size: <size>", "Modify CSS Variable for icon size"]
+  ]
+};
 
 storiesOf("Atoms|Icon", module)
   .addDecorator(withKnobs)
@@ -44,9 +92,24 @@ storiesOf("Atoms|Icon", module)
         <p>Component for rendering SVG path as icon.</p>
         <h2> Usage </h2>
         <pre><code>import SfIcon from "@storefrontui/vue/dist/SfIcon.vue"</code></pre>
+        <h3>SCSS variables</h3>
+        ${generateStorybookTable(
+          {
+            tableHeadConfig: tableHeaderConfig,
+            tableBodyConfig: sizes
+          },
+          "`$sf-icon-sizes` - map of icon sizes"
+        )} 
+        ${generateStorybookTable(
+          {
+            tableHeadConfig: tableHeaderConfig,
+            tableBodyConfig: colors
+          },
+          "`$sf-icon-colors` - map of icon colors"
+        )}   
+        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `
-      },
-      notes
+      }
     }
   )
   .add(
@@ -59,8 +122,7 @@ storiesOf("Atoms|Icon", module)
       info: {
         summary:
           "Use this slot if passing icon SVG path is not enough. **Note** that need to provide also alt attribute or arial-label."
-      },
-      notes
+      }
     }
   )
   .add(
@@ -80,7 +142,6 @@ storiesOf("Atoms|Icon", module)
       info: {
         summary:
           "Render custom image as icon using slot, and pass `size` to customize the icon's size."
-      },
-      notes
+      }
     }
   );

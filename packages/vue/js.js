@@ -8,6 +8,7 @@ import SfLoader from "./dist/SfLoader.js";
 import SfPrice from "./dist/SfPrice.js";
 import SfProperty from "./dist/SfProperty.js";
 import SfRating from "./dist/SfRating.js";
+import SfIcon from "./dist/SfIcon.js";
 
 import SfAlert from "./dist/SfAlert.js";
 import SfBanner from "./dist/SfBanner.js";
@@ -40,6 +41,7 @@ export {
   SfPrice,
   SfProperty,
   SfRating,
+  SfIcon,
   SfAlert,
   SfBanner,
   SfCallToAction,
