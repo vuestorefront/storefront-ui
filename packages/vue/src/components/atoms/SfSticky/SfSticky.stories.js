@@ -52,25 +52,25 @@ storiesOf("Atoms|Sticky", module)
         <div>
           <div :style="distanceTop"></div>
           <div class="row">
-            <div :style="col">
+            <div class="col">
               <div :style="content">content</div>
               <p></p>
               <div :style="content">content</div>
             </div>
-            <div :style="col">
+            <div class="col">
               <sf-sticky>
-                <div :style="sticker">sticker</div>
+                <div :style="sticker" style="margin-top: 100px">sticker</div>
               </sf-sticky>
             </div>
           </div>
           <div :style="distanceTop"></div>
           <div class="row">
-            <div :style="col">
+            <div class="col">
               <div :style="content">content</div>
               <p></p>
               <div :style="content">content</div>
             </div>
-            <div :style="col">
+            <div class="col">
               <sf-sticky>
                 <div :style="sticker">sticker</div>
               </sf-sticky>

@@ -9,8 +9,18 @@
   }
   background-color: #F2F;
 }
+.col{
+  flex: 1 1 100%;
+  padding: .95rem;
+  margin: 1rem;
+  @media (max-width: 720px){
+    padding: 0;
+  }
+}
 // TEST
 .sf-sticky {
+  //position: sticky;
+  //top: 0;
   background-color: gray;
   width: 100%;
   &--sticky{
