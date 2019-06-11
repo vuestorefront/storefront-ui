@@ -59,7 +59,7 @@ function createComponent(folder, componentName) {
     },
     {
       fileName: `${PrefixComponentName}.scss`,
-      content: `@import '../../../css/variables';
+      content: `@import '../variables';
 
 // $component__block-property: value;
 

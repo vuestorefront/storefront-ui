@@ -1,0 +1,36 @@
+@import '../variables';
+
+$breadcrumbs__item-separator: '|' !default;
+$breadcrumbs__item-padding: .75rem !default;
+$breadcrumbs__link-color: $c-dark-primary !default;
+$breadcrumbs__item-color: $c-gray-primary !default;
+$breadcrumbs__item-separator-color: $breadcrumbs__link-color !default;
+
+.sf-breadcrumbs {
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: inline-block;
+    color: $breadcrumbs__item-color;
+
+    &:not(:first-child) {
+      padding-left: $breadcrumbs__item-padding;
+
+      &::before {
+        content: $breadcrumbs__item-separator;
+        display: inline-block;
+        padding-right: $breadcrumbs__item-padding;
+        color: $breadcrumbs__item-separator-color;
+      }
+    }
+  }
+
+  &__link {
+    cursor: pointer;
+    color: $breadcrumbs__link-color;
+  }
+}

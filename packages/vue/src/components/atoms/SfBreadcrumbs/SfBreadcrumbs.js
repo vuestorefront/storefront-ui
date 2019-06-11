@@ -12,18 +12,18 @@ export default {
   },
 
   computed: {
-    last () {
-      return this.breadcrumbs.length - 1
+    last() {
+      return this.breadcrumbs.length - 1;
     }
   },
 
   methods: {
-    click (breadcrumb) {
+    click(breadcrumb) {
       /**
        * Event for breadcrumb click, passes `breadcrumb.route` as value
        * @type {Event}
        */
-      this.$emit('click', breadcrumb.route)
+      this.$emit("click", breadcrumb.route);
     }
   }
 };
