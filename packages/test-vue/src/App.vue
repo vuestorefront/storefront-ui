@@ -7,6 +7,7 @@
 <script>
 import { SfButton } from "@storefrontui/vue"
 import "@storefrontui/vue/src/css/_all.scss"
+
 export default {
   name: 'app',
   components: {

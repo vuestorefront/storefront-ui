@@ -10,7 +10,7 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
-    "@storefrontui/vue": "file:../vue"
+    "@storefrontui/vue": "0.0.3-aplha.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",
