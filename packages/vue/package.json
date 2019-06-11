@@ -85,5 +85,8 @@
       "vue-cli-service lint",
       "git add"
     ]
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   }
 }
