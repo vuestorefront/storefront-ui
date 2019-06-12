@@ -72,7 +72,7 @@ We are currently in a process of building the library. If you want to help shapi
 Those awesome people are maintaining Storefront UI. Their ensuring that it performs smooth and looks awesome!
 
 - Filip Rakowski ([@filrak](https://github.com/filrak))
-- Leonardo Matos [@leomp12](https://github.com/leomp12))
+- Leonardo Matos ([@leomp12](https://github.com/leomp12))
 - Maya Shavin ([@mayashavin](https://github.com/mayashavin))
 - Gift Egwenu ([@lauragify21](https://github.com/lauragift21))
 
