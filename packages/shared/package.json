@@ -1,11 +1,15 @@
 {
   "name": "@storefrontui/shared",
-  "version": "0.0.2-alpha.1",
+  "version": "0.0.3-alpha.5",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Filip Rakowski",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "85b200d4981615ee7dc0682a7ad2d26fc0de2866"
 }

@@ -8,11 +8,12 @@ import SfLoader from "./src/components/atoms/SfLoader/SfLoader.vue";
 import SfPrice from "./src/components/atoms/SfPrice/SfPrice.vue";
 import SfProperty from "./src/components/atoms/SfProperty/SfProperty.vue";
 import SfRating from "./src/components/atoms/SfRating/SfRating.vue";
+import SfIcon from "./src/components/atoms/SfIcon/SfIcon.vue";
 
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.vue";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.vue";
 import SfCallToAction from "./src/components/molecules/SfCallToAction/SfCallToAction.vue";
-import SfCounter from "./src/components/molecules/SfCounter/SfCallToAction.vue";
+import SfCounter from "./src/components/molecules/SfCounter/SfCounter.vue";
 import SfFilter from "./src/components/molecules/SfFilter/SfFilter.vue";
 import SfGallery from "./src/components/molecules/SfGallery/SfGallery.vue";
 import SfMenuItem from "./src/components/molecules/SfMenuItem/SfMenuItem.vue";
@@ -40,6 +41,7 @@ export {
   SfPrice,
   SfProperty,
   SfRating,
+  SfIcon,
   SfAlert,
   SfBanner,
   SfCallToAction,
@@ -59,4 +61,4 @@ export {
   SfList,
   SfMegaMenu,
   SfTopBar
- };
+};
