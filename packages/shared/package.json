@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Filip Rakowski",
+  "license": "ISC",
+  "gitHead": "a63674b11a4c721537ee2da82ce80ae0795d0e7a"
 }

@@ -1,7 +1,7 @@
 {
   "name": "@storefrontui/vue",
   "sideEffects": "false",
-  "version": "0.0.3-aplha.1",
+  "version": "0.0.3-aplha.2",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefrontui/shared": "file:../shared",
+    "@storefrontui/shared": "^0.0.2",
     "lerna": "^3.0.0-rc.0",
     "lozad": "^1.9.0",
     "node-sass": "^4.12.0",
@@ -88,5 +88,6 @@
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
-  }
+  },
+  "gitHead": "a63674b11a4c721537ee2da82ce80ae0795d0e7a"
 }
