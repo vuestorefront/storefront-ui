@@ -1,7 +1,7 @@
 {
   "name": "@storefrontui/vue",
   "sideEffects": "false",
-  "version": "0.0.4-aplha.5",
+  "version": "0.0.4-aplha.6",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
