@@ -50,12 +50,10 @@ You can find the stunning designs we are using for Storefront UI components [her
 
 # How to try it?
 
-Storefront UI is not ready to use in projects yet. We plan to release working alpha before the end of April 2019.
-If you want to check current state of components just check [storybook](https://storefrontui-storybook.netlify.com/)
-If you really want to play with components:
-```npm install --save @storefrontui/vue```
+Storefront UI is not ready to use in production projects yet. We plan to release working alpha before the end of June 2019.
+If you want to check current state of components just check [storybook](https://storybook.storefrontui.io/)
 
-Then check if `sfui.scss` file was created in a root of your app. If not - create it.
+You can read more about the installation [here](https://docs.storefrontui.io/introduction.html#how-to-test-storefrontui)
 
 
 # Documentation
@@ -69,6 +67,19 @@ The documentation is always THE HARDEST PART of each open source project! But we
 
 We are currently in a process of building the library. If you want to help shaping future of vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) you can find all the required information.
 
+# Maintainers
+
+Those awesome people are maintaining Storefront UI. Their ensuring that it performs smooth and looks awesome!
+
+- Filip Rakowski ([@filrak](https://github.com/filrak))
+- Leonardo Matos [@leomp12](https://github.com/leomp12))
+- Maya Shavin ([@mayashavin](https://github.com/mayashavin))
+- Gift Egwenu ([@lauragify21](https://github.com/lauragift21))
+
+and amazing [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) commiting their time to make it better.
+
+Thank you! There would be no Storefront UI without you
+
 # Cooperation with Alpacas
 
 Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-storybook) are common efforts. We joined forces in figuring out how to make things right to deliver best possible experience to the users.
@@ -79,9 +90,9 @@ Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-st
 # Roadmap
 
 - Category page components (April) - Done
-- Product Page components (May) (alpha release)
-- Homepage, form elements and a11y (June)
-- Last polishments and focus on documentation (June/July) (beta release)
+- Product Page components (May) (alpha release) - Done
+- Homepage, form elements, monorepo setup, product page example (June)
+- Last polishments and focus on documentation (July) (beta release)
 
 **Other things to include in the meantime:**
 - include additional build for every compoennt so they can also be imported separately but after a build step (useful for apps that don't have a build step at all)
