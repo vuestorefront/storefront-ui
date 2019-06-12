@@ -1,7 +1,7 @@
 {
   "name": "@storefrontui/vue",
   "sideEffects": "false",
-  "version": "0.0.4-aplha.5",
+  "version": "0.0.4-aplha.6",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -12,8 +12,7 @@
     "storybook:build": "vue-cli-service storybook:build -s ./public -c config/storybook",
     "postinstall": "node scripts/postinstall.js",
     "version": "node scripts/version.js",
-    "postversion": "node scripts/postversion.js",
-    "prepublishOnly": "npm run build",
+    "postpublish": "node scripts/postpublish.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "create-component": "node ./scripts/create-component.js"
