@@ -1,6 +1,6 @@
 {
   "name": "test-vue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -8,9 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@storefrontui/vue": "^0.0.3-aplha.1",
     "core-js": "^2.6.5",
-    "vue": "^2.6.10",
-    "@storefrontui/vue": "0.0.3-aplha.0"
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",
