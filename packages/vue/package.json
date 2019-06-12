@@ -89,5 +89,8 @@
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "gitHead": "85b200d4981615ee7dc0682a7ad2d26fc0de2866"
 }
