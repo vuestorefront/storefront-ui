@@ -62,4 +62,3 @@ export {
   SfMegaMenu,
   SfTopBar
 };
-
