@@ -44,38 +44,31 @@ export default {
     }
   },
   methods: {
-    scrollHandler () {
+    scrollHandler() {
       this.scrollY = window.scrollY;
     },
-    resizeHandler () {
+    resizeHandler() {
       this.$el.style.maxWidth = `${this.parent.offsetWidth -
-      this.parentPadding.x}px`;
+        this.parentPadding.x}px`;
       this.offsetY = this.$el.parentElement.offsetTop;
     }
   },
   mounted: function() {
     this.parent.style.position = "relative";
 
-    this.offsetY = this.$el.parentElement.offsetTop;
+    this.offsetY = this.parent.offsetTop + this.$el.offsetTop;
+    // console.error()
     this.parentBottom =
       this.parent.offsetHeight +
-      this.offsetY -
+      this.parent.offsetTop -
       (this.$el.offsetHeight + this.parentPadding.y);
 
     this.$el.style.maxWidth = `${this.parent.offsetWidth -
       this.parentPadding.x}px`;
     this.parent.style.minHeight = `${this.$el.offsetHeight}px`;
 
-    window.addEventListener(
-      "scroll",
-      this.scrollHandler,
-      { passive: true }
-    );
-    window.addEventListener(
-      "resize",
-      this.resizeHandler,
-      { passive: true }
-    );
+    window.addEventListener("scroll", this.scrollHandler, { passive: true });
+    window.addEventListener("resize", this.resizeHandler, { passive: true });
   },
   beforeDestroy: function() {}
 };
