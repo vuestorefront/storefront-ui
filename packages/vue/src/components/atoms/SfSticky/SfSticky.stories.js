@@ -10,70 +10,41 @@ storiesOf("Atoms|Sticky", module)
     "Basic",
     () => ({
       data() {
-        const mixin = {
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          fontSize: "3rem"
-        };
+        const mixin = {};
         return {
-          row: {
+          row:{
             display: "flex",
+            maxWidth: "740px",
             margin: "auto",
-            maxWidth: "720px"
+            paddingTop: "140px",
+            paddingBottom: "1140px"
           },
           col: {
-            flex: "1 1 100%",
-            padding: ".95rem",
-            margin: "1rem"
-          },
-          sticker: {
-            ...mixin,
-            height: "300px",
-            // backgroundColor: "#5ECE7B",
-            color: "#FFF"
-          },
-          stickerB: {
-            ...mixin,
-            height: "500px",
-            // backgroundColor: "#5ECE7B",
-            color: "#FFF"
+            flex: 1
           },
           content: {
-            ...mixin,
             height: "600px",
-            backgroundColor: "#F2F2F2",
-            color: "#999"
+            backgroundColor: "#F2F2F2"
           },
-          distanceTop: {
-            height: "44px"
-          },
-          distanceBottom: {
-            height: "1111px"
+          sticky: {
+            height: "300px",
+            backgroundColor: "#5ECE7B"
           }
         };
       },
       components: { SfSticky },
-      template: `
-        <div>
-          <div :style="distanceTop"></div>
-          <div class="row">
-            <div class="col">
-              <sf-sticky>
-                <div :style="sticker">sticker</div>
-              </sf-sticky>
-              <div :style="content">content</div>
-              <p></p>
-              <div :style="content">content</div>
-            </div>
-            <div class="col">
-              <sf-sticky>
-                <div :style="stickerB">sticker</div>
-              </sf-sticky>
-            </div>
-          </div>
-          <div :style="distanceBottom"></div>
-        </div>`
+      template: `<div class="row">
+        <div :style="col">
+          <div :style="content"></div>
+          <p></p>
+          <div :style="content"></div>
+        </div>
+        <div :style="col">
+        <sf-sticky>
+          <div :style="sticky"></div>
+        </sf-sticky>
+        </div>
+      </div>`
     }),
     {
       info: {

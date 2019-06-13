@@ -1,5 +1,14 @@
 @import '../../../css/variables';
-
+.row{
+  display: flex;
+  max-width: 740px;
+  margin: auto;
+  padding-top: 140px;
+  padding-bottom: 1140px;
+  @media (max-width: 480px){
+    display: block;
+  }
+}
 .sf-sticky{
   width: 100%;
 }
