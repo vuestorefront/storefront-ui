@@ -2,73 +2,125 @@ export default {
   name: "SfSticky",
   data() {
     return {
-      offsetY: -1,
-      parentBottom: -1,
-      scrollY: -1,
-      bottom: "unset"
+      top: 0,
+      height: 0,
+      width: 0,
+      padding: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+      },
+      parentTop: 0,
+      parentHeight: 0,
+      scrollY: 0,
+      isSticky: false,
+      isBound: false
     };
   },
   computed: {
-    parent() {
-      return this.$el.parentElement;
+    maxWidth() {
+      return this.width - (this.padding.right + this.padding.left);
     },
-    parentPadding() {
-      const computedStyle = window.getComputedStyle(this.parent);
-      return {
-        top: parseInt(computedStyle["padding-top"]),
-        right: parseInt(computedStyle["padding-right"]),
-        bottom: parseInt(computedStyle["padding-bottom"]),
-        left: parseInt(computedStyle["padding-left"]),
-        x:
-          parseInt(computedStyle["padding-right"]) +
-          parseInt(computedStyle["padding-left"]),
-        y:
-          parseInt(computedStyle["padding-top"]) +
-          parseInt(computedStyle["padding-bottom"])
-      };
+    scrollBegin() {
+      return this.parentTop + this.top;
     },
-    isSticky() {
-      return this.scrollY >= this.offsetY && this.scrollY < this.parentBottom;
-    },
-    isBound() {
-      return this.scrollY >= this.parentBottom;
+    scrollEnd() {
+      return (
+        this.parentHeight + this.parentTop - this.height - this.padding.bottom
+      );
     }
   },
   watch: {
-    isBound(value) {
-      if (value) {
-        this.bottom = `${this.parentPadding.bottom}px`;
-        return;
+    scrollY() {
+      this.toggleSticky();
+      this.toggleBound();
+    },
+    parentTop() {
+      this.$el.style.bottom = "";
+      this.$el.parentElement.style.paddingTop = "";
+
+      this.isSticky = false;
+      this.isBound = false;
+
+      this.top = this.$el.offsetTop;
+      this.parentHeight = this.$el.parentElement.offsetHeight;
+    },
+    isSticky(state) {
+      if (state) {
+        if (this.$el.nextSibling) {
+          this.$el.parentElement.style.paddingTop = `${this.height +
+            this.padding.top}px`;
+        }
+      } else {
+        if (this.$el.nextSibling && this.scrollY <= this.parentTop + this.top) {
+          this.$el.parentElement.style.paddingTop = "";
+        }
       }
-      this.bottom = "unset";
+    },
+    isBound(state) {
+      if (state) {
+        this.$el.style.bottom = `${this.padding.bottom}px`; //if parent have padding
+      } else {
+        this.$el.style.bottom = "";
+      }
     }
   },
   methods: {
     scrollHandler() {
-      this.scrollY = window.scrollY;
+      this.scrollY = Math.ceil(window.scrollY);
     },
     resizeHandler() {
-      this.$el.style.maxWidth = `${this.parent.offsetWidth -
-        this.parentPadding.x}px`;
-      this.offsetY = this.$el.parentElement.offsetTop;
+      this.padding = this.computedPadding();
+      this.parentTop = this.$el.parentElement.offsetTop;
+      this.width = this.$el.parentElement.offsetWidth;
+    },
+    toggleSticky() {
+      if (
+        this.scrollY >= this.parentTop + this.top &&
+        this.scrollY < this.scrollEnd
+      ) {
+        this.isSticky = true;
+      } else {
+        this.isSticky = false;
+      }
+    },
+    toggleBound() {
+      if (
+        this.scrollY >= this.scrollEnd &&
+        this.scrollBegin !== this.scrollEnd
+      ) {
+        this.isBound = true;
+      } else {
+        this.isBound = false;
+      }
+    },
+    computedPadding() {
+      const computed = window.getComputedStyle(this.$el.parentElement);
+      return {
+        top: parseInt(computed["padding-top"]),
+        right: parseInt(computed["padding-right"]),
+        bottom: parseInt(computed["padding-bottom"]),
+        left: parseInt(computed["padding-left"])
+      };
     }
   },
   mounted: function() {
-    this.parent.style.position = "relative";
+    this.$el.parentElement.style.position = "relative";
 
-    this.offsetY = this.parent.offsetTop + this.$el.offsetTop;
-    // console.error()
-    this.parentBottom =
-      this.parent.offsetHeight +
-      this.parent.offsetTop -
-      (this.$el.offsetHeight + this.parentPadding.y);
+    this.padding = this.computedPadding();
+    this.parentTop = this.$el.parentElement.offsetTop;
+    this.top = this.$el.offsetTop;
+    this.parentHeight = this.$el.parentElement.offsetHeight;
 
-    this.$el.style.maxWidth = `${this.parent.offsetWidth -
-      this.parentPadding.x}px`;
-    this.parent.style.minHeight = `${this.$el.offsetHeight}px`;
+    this.height = this.$el.offsetHeight;
+    this.width = this.$el.parentElement.offsetWidth;
 
     window.addEventListener("scroll", this.scrollHandler, { passive: true });
     window.addEventListener("resize", this.resizeHandler, { passive: true });
   },
-  beforeDestroy: function() {}
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.scrollHandler);
+    window.removeEventListener("resize", this.resizeHandler);
+  }
 };

@@ -33,6 +33,12 @@ storiesOf("Atoms|Sticky", module)
             // backgroundColor: "#5ECE7B",
             color: "#FFF"
           },
+          stickerB: {
+            ...mixin,
+            height: "500px",
+            // backgroundColor: "#5ECE7B",
+            color: "#FFF"
+          },
           content: {
             ...mixin,
             height: "600px",
@@ -53,16 +59,17 @@ storiesOf("Atoms|Sticky", module)
           <div :style="distanceTop"></div>
           <div class="row">
             <div class="col">
+              <sf-sticky>
+                <div :style="sticker">sticker</div>
+              </sf-sticky>
               <div :style="content">content</div>
               <p></p>
               <div :style="content">content</div>
             </div>
             <div class="col">
               <sf-sticky>
-                <div :style="sticker">sticker</div>
+                <div :style="stickerB">sticker</div>
               </sf-sticky>
-              <p></p>
-              <div :style="content">content</div>
             </div>
           </div>
           <div :style="distanceBottom"></div>

@@ -1,11 +1,11 @@
 <div
   class="sf-sticky"
   :class="{
-    'sf-sticky--sticky': isSticky,
-    'sf-sticky--bound': isBound
+      'sf-sticky--sticky': isSticky,
+      'sf-sticky--bound': isBound
     }"
   :style="{
-  bottom
-  }">
+      maxWidth: `${maxWidth}px`
+    }">
   <slot/>
 </div>
