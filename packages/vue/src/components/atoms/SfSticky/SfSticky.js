@@ -43,7 +43,7 @@ export default {
       this.isSticky = false;
       this.isBound = false;
 
-      this.top = this.$el.offsetTop;
+      this.computedPadding();
       this.parentHeight = this.$el.parentElement.offsetHeight;
     },
     isSticky(state) {
@@ -71,9 +71,9 @@ export default {
       this.scrollY = Math.ceil(window.scrollY);
     },
     resizeHandler() {
-      this.padding = this.computedPadding();
-      this.parentTop = this.$el.parentElement.offsetTop;
+      console.error("resizeHandler");
       this.width = this.$el.parentElement.offsetWidth;
+      this.parentTop = this.$el.parentElement.offsetTop;
     },
     toggleSticky() {
       if (
@@ -86,10 +86,7 @@ export default {
       }
     },
     toggleBound() {
-      if (
-        this.scrollY >= this.scrollEnd &&
-        this.scrollBegin !== this.scrollEnd
-      ) {
+      if (this.scrollY >= this.scrollEnd && this.scrollBegin < this.scrollEnd) {
         this.isBound = true;
       } else {
         this.isBound = false;
@@ -119,7 +116,7 @@ export default {
     window.addEventListener("scroll", this.scrollHandler, { passive: true });
     window.addEventListener("resize", this.resizeHandler, { passive: true });
   },
-  beforeDestroy() {
+  beforeDestroy: function() {
     window.removeEventListener("scroll", this.scrollHandler);
     window.removeEventListener("resize", this.resizeHandler);
   }

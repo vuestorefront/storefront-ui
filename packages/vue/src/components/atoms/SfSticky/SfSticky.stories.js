@@ -12,38 +12,48 @@ storiesOf("Atoms|Sticky", module)
       data() {
         const mixin = {};
         return {
-          row:{
+          row: {
             display: "flex",
-            maxWidth: "740px",
-            margin: "auto",
-            paddingTop: "140px",
-            paddingBottom: "1140px"
+            flexWrap: "wrap",
+            maxWidth: "600px",
+            margin: "auto"
           },
           col: {
-            flex: 1
+            flex: "0 0 300px"
           },
           content: {
-            height: "600px",
+            height: "880px",
             backgroundColor: "#F2F2F2"
           },
           sticky: {
             height: "300px",
             backgroundColor: "#5ECE7B"
+          },
+          top: {
+            height: "5rem"
+          },
+          bottom: {
+            height: "25rem"
           }
         };
       },
       components: { SfSticky },
-      template: `<div class="row">
-        <div :style="col">
-          <div :style="content"></div>
-          <p></p>
-          <div :style="content"></div>
+      template: `
+      <div>
+        <div :style="top"></div>
+        <div :style="row">
+          <div :style="col">
+            <div :style="content"></div>
+            <p></p>
+            <div :style="content"></div>
+          </div>
+          <div :style="col">
+            <sf-sticky>
+              <div :style="sticky"></div>
+            </sf-sticky>
+          </div>
         </div>
-        <div :style="col">
-        <sf-sticky>
-          <div :style="sticky"></div>
-        </sf-sticky>
-        </div>
+        <div :style="bottom"></div>
       </div>`
     }),
     {
