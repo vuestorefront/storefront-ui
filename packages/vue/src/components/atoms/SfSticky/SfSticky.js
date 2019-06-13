@@ -32,7 +32,7 @@ export default {
     }
   },
   watch: {
-    scrollY() {
+    scrollY(value) {
       this.toggleSticky();
       this.toggleBound();
     },
@@ -68,10 +68,9 @@ export default {
   },
   methods: {
     scrollHandler() {
-      this.scrollY = Math.ceil(window.scrollY);
+      this.scrollY = Math.ceil(window.pageYOffset);
     },
     resizeHandler() {
-      console.error("resizeHandler");
       this.width = this.$el.parentElement.offsetWidth;
       this.parentTop = this.$el.parentElement.offsetTop;
     },
