@@ -1,0 +1,93 @@
+@import '../variables';
+@import '~@glidejs/glide/src/assets/sass/glide.core';
+
+$gallery-flex-direction: row !default;
+$gallery__nav-width: 100px !default;
+$gallery__nav-margin: 0 $spacer-extra-big 0 0 !default;
+$gallery__item-margin-bottom: $spacer-medium !default;
+$gallery__item-opacity: .5 !default;
+$gallery__item-transition: opacity .15s linear !default;
+$gallery__item-mobile-size: 10px !default;
+$gallery__stage-width: 400px !default;
+
+.sf-gallery {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: $gallery-flex-direction;
+  position: relative;
+
+  &__nav {
+    width: $gallery__nav-width;
+    padding: 0;
+    margin: $gallery__nav-margin;
+
+    @media (max-width: $mobile-max) {
+      z-index: 2;
+      position: absolute;
+      width: auto;
+      margin: 0;
+      padding: 0;
+      left: $spacer-medium;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__item {
+    margin-bottom: $gallery__item-margin-bottom;
+    opacity: $gallery__item-opacity;
+    transition: $gallery__item-transition;
+    cursor: pointer;
+    user-select: none;
+
+    &--selected {
+      cursor: auto;
+      opacity: 1;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: $mobile-max) {
+      opacity: 1;
+
+      &::before {
+        display: block;
+        content: " ";
+        height: $gallery__item-mobile-size;
+        width: $gallery__item-mobile-size;
+        background: $c-gray-secondary;
+        border-radius: 50%;
+      }
+
+      &--selected::before {
+        background: $c-accent-primary;
+      }
+    }
+  }
+
+  &__stage {
+    width: $gallery__stage-width;
+    max-width: 100%;
+  }
+
+  &__thumb {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    @media (max-width: $mobile-max) {
+      display: none;
+    }
+  }
+
+  &__big-image {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+  }
+}
