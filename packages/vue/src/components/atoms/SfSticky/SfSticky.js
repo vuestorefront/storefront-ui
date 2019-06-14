@@ -102,8 +102,11 @@ export default {
     }
   },
   mounted: function() {
-    this.$el.parentElement.style.position = "relative";
+    const computed = window.getComputedStyle(this.$el);
 
+    if (computed.position !== "sticky") return;
+
+    this.$el.parentElement.style.position = "relative";
     this.padding = this.computedPadding();
     this.parentTop = this.$el.parentElement.offsetTop;
     this.top = this.$el.offsetTop;
