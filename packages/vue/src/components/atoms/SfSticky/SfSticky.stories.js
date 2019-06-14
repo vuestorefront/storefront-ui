@@ -33,7 +33,7 @@ storiesOf("Atoms|Sticky", module)
             height: "5rem"
           },
           bottom: {
-            height: "25rem"
+            height: "35rem"
           }
         };
       },
@@ -42,7 +42,7 @@ storiesOf("Atoms|Sticky", module)
       <div>
         <div :style="top"></div>
         <div :style="row">
-          <div :style="col">
+          <div :style="col"> 
             <div :style="content"></div>
             <p></p>
             <div :style="content"></div>

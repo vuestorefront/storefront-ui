@@ -19,6 +19,10 @@ export default {
     };
   },
   computed: {
+    isSupportedSticky() {
+      const computed = window.getComputedStyle(this.$el);
+      return computed.position === "sticky";
+    },
     maxWidth() {
       return this.width - (this.padding.right + this.padding.left);
     },
@@ -45,6 +49,9 @@ export default {
 
       this.computedPadding();
       this.parentHeight = this.$el.parentElement.offsetHeight;
+    },
+    width(value) {
+      this.$el.style.maxWidth = `${value}px`;
     },
     isSticky(state) {
       if (state) {
@@ -103,9 +110,7 @@ export default {
   },
   mounted: function() {
     const computed = window.getComputedStyle(this.$el);
-
-    if (computed.position !== "sticky") return;
-
+    if (this.isSupportedSticky) return;
     this.$el.parentElement.style.position = "relative";
     this.padding = this.computedPadding();
     this.parentTop = this.$el.parentElement.offsetTop;

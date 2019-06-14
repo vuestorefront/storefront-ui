@@ -1,5 +1,7 @@
 @import '../../../css/variables';
 .sf-sticky{
+  position: sticky;
+  top: 0;
   width: 100%;
 }
 .sf-sticky--sticky{
