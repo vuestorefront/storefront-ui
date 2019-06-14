@@ -18,9 +18,8 @@ module.exports = {
         collapsable: false,
         children: [
           ['/component-rules', 'Component Rules'],
-          ['/creating-new-component', 'Creating New Component'],
           ['/working-with-designs', 'Working With Designs'],
-          ['/working-with-alpaca', 'Working With Alpaca'],
+          ['/creating-new-component', 'Creating New Component'],
         ],
       },
 
