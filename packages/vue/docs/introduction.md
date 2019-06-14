@@ -19,20 +19,6 @@ We are building Storefront UI based on the following 5 fundamentals:
 it is not suitable for production!
 Expect things to be broken and APIs to possibly change. 
 
-**Roadmap**
-
-- Category page components (April) - Done
-- Product Page components (May) (alpha release) - Done
-- Homepage, form elements, monorepo setup, product page example (June)
-- Last polishments and focus on documentation (July) (beta release)
-
-**Other things to include in the meantime:**
-- include additional build for every compoennt so they can also be imported separately but after a build step (useful for apps that don't have a build step at all)
-- webpack build that can be merged into your current one with everything that is needed to consume SFUI webpack source
-
-**In consideration**
-- SCSS - CSS vars transition
-
 
 ## How to test StorefrontUI?
 
@@ -85,11 +71,16 @@ If you'd like to support us and join the team please write to me:
 # Roadmap 
 
 - Category page components (April) - Done
-- Product Page components (May) (alpha release)
-- Homepage, form elements and a11y (June) 
-- Last polishments and focus on documentation (June/July) (beta release)
+- Product Page components (May) (alpha release) - Done
+- Homepage, form elements, monorepo setup, product page example (June)
+- Last polishments and focus on documentation (July) (beta release)
 
-Want to help and make it even faster? Grab an issue and become part of our amazing community ;)
+**Other things to include in the meantime:**
+- include additional build for every compoennt so they can also be imported separately but after a build step (useful for apps that don't have a build step at all)
+- webpack build that can be merged into your current one with everything that is needed to consume SFUI webpack source
+
+**In consideration**
+- SCSS - CSS vars transition
 
 ## Useful links
 
