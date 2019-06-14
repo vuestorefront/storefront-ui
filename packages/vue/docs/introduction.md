@@ -15,7 +15,7 @@ We are building Storefront UI based on the following 5 fundamentals:
 
 ## Current state of the project
 
-**StorefrontUI is currently in ALPHA which means
+StorefrontUI is currently in ALPHA which means
 it is not suitable for production!
 Expect things to be broken and APIs to possibly change. 
 
@@ -33,7 +33,7 @@ npm install --save @storefrontui/vue
 - Import stylesheets in App.vue or main.js:
 
 ```scss
-import "@storefrontui/vue/dist/css/_all.scss";
+import "@storefrontui/vue/src/css/_all.scss";
 ```
 
 - It's done! Now you can import and use any of the components:
