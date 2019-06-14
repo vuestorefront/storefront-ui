@@ -47,13 +47,13 @@ npm install --save @storefrontui/vue
 - Import stylesheets in App.vue or main.js:
 
 ```scss
-import "@storefrontui/vue/dist/css/all.scss";
+import "@storefrontui/vue/dist/css/_all.scss";
 ```
 
 - It's done! Now you can import and use any of the components:
 
 ```js
-import SfComponentName from "@storefrontui/vue/dist/SfComponentName.vue"
+import { SfComponentName } from "@storefrontui/vue"
 ```
 
 - You can find detailed information about every component inside each components
