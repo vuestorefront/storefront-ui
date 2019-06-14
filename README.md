@@ -90,18 +90,7 @@ Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-st
 
 # Roadmap
 
-- Category page components (April) - Done
-- Product Page components (May) (alpha release) - Done
-- Homepage, form elements, monorepo setup, product page example (June)
-- Last polishments and focus on documentation (July) (beta release)
+Check our [documentation](https://docs.storefrontui.io/introduction.html)
 
-**Other things to include in the meantime:**
-- include additional build for every compoennt so they can also be imported separately but after a build step (useful for apps that don't have a build step at all)
-- webpack build that can be merged into your current one with everything that is needed to consume SFUI webpack source
-
-**In consideration**
-- SCSS - CSS vars transition
-
-
-Want to help and make it even faster? Grab an issue and become part of our amazing community ;)
+Want to help and make it even faster? Read [how to start](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) and become part of our amazing community ;)
 
