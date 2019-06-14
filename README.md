@@ -18,7 +18,7 @@ Customization-first, performance-oriented and elegant UI framework for eCommerce
 
 # What makes it unique?
 
-Some libraries aim to give as much as they can out of the box but they faill when it comes to customization. Our goal was to enable as much as possible out of the box but with primary focus on ability to customize any aspect of the components.
+Some libraries aim to give as much as they can out of the box but they faill when it comes to customization and performance. Our goal was to enable as much as possible out of the box but with primary focus on ability to customize any aspect of the components.
 
 With SfUI you can change almost every aspect of provided components and use them to make stunning eCommerce shops (and not only)!
 
