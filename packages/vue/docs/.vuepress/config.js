@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Storefront UI',
-  description: 'Highly customizable Vue.js UI framework for eCommerce',
+  description: 'Customizable and performant Vue.js UI library for eCommerce',
   themeConfig: {
     logo: '/logo.png',
     nav: [
