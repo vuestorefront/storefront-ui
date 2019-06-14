@@ -12,3 +12,26 @@ features:
   details: Storefront UI components follow best practices in terms of design and core. Every component is based on the Google Retail UX Playbook and is accessibility-friendly.
 footer: MIT Licensed
 ---
+
+## Installation
+
+Install NPM package:
+```
+npm install --save @storefrontui/vue 
+```
+Import styles (optional)
+```
+import "@storefrontui/vue/all.scss"
+```
+Import and register components that you need 
+```js
+import { SfButton } from '@storefrontui/vue'
+
+export default {
+  components: {
+    SfButton
+  }
+}
+</script>
+```
+voila!
