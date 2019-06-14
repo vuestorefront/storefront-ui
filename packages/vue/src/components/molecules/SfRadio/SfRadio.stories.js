@@ -4,12 +4,33 @@ import { withKnobs, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfRadio from "./SfRadio.vue";
 
+const defaultOptions = [
+  {
+    label: "Apple",
+    value: "apple",
+    price: "1",
+    quantity: 3
+  },
+  {
+    label: "Orange",
+    value: "orange",
+    price: "2",
+    quantity: 1
+  },
+  {
+    label: "Banana",
+    value: "banana",
+    flavour: "amazing",
+    quantity: 2
+  }
+];
+
 const data = () => ({
-  options: [
-    { label: "Apple", value: "apple", price: "1", quantity: 3 },
-    { label: "Orange", value: "orange", price: "2", quantity: 1 },
-    { label: "Banana", value: "banana", flavour: "amazing", quantity: 2 }
-  ],
+  options: defaultOptions,
+  optionsWithDescription: defaultOptions.map(option => ({
+    ...option,
+    description: "An awesome fruit."
+  })),
   selected: "orange"
 });
 
@@ -143,6 +164,41 @@ storiesOf("Molecules|Radio", module)
         <p v-if="option.flavour">Flavour: {{ option.flavour }}</p>
         <p style="margin-bottom: 0" v-if="option.quantity">Quantity: {{ option.quantity }}</p>
       </div>
+      </SfRadio>`
+    }),
+    {
+      info: {
+        summary: `<p>Slot for your custom html option structure.</p>
+        <p><strong>hint:</strong> you can extend options object with your values to make this component even more powerfull, see example</p>
+      <h2> Usage </h2>
+      <pre><code>import SfRadio from "@storefrontui/vue/dist/SfRadio.vue"</code></pre>
+      `
+      }
+    }
+  )
+  .add(
+    "[slot] description",
+    () => ({
+      data,
+      props: {
+        customClass: {
+          default: select(
+            "CSS Modifier",
+            ["null", "sf-radio--center"],
+            "null",
+            "CSS-Modifiers"
+          )
+        }
+      },
+      components: { SfRadio },
+      template: `<SfRadio
+        :options="optionsWithDescription"
+        v-model='selected'
+        :class="customClass"
+      >
+      <template #description="{ option }">
+        <p>MY CUSTOM DESCRIPTION STARTER : -  {{ option.description }}</p>
+      </template>
       </SfRadio>`
     }),
     {
