@@ -1,34 +1,35 @@
 /** Package root */
-import SfArrow from "./dist/SfArrow.html";
-import SfBadge from "./dist/SfBadge.html";
-import SfButton from "./dist/SfButton.html";
-import SfCheckbox from "./dist/SfCheckbox.html";
-import SfLabel from "./dist/SfLabel.html";
-import SfLoader from "./dist/SfLoader.html";
-import SfPrice from "./dist/SfPrice.html";
-import SfProperty from "./dist/SfProperty.html";
-import SfRating from "./dist/SfRating.html";
+import SfArrow from "./src/components/atoms/SfArrow/SfArrow.html";
+import SfBadge from "./src/components/atoms/SfBadge/SfBadge.html";
+import SfButton from "./src/components/atoms/SfButton/SfButton.html";
+import SfCheckbox from "./src/components/atoms/SfCheckbox/SfCheckbox.html";
+import SfLabel from "./src/components/atoms//SfLabel/SfLabel.html";
+import SfLoader from "./src/components/atoms/SfLoader/SfLoader.html";
+import SfPrice from "./src/components/atoms/SfPrice/SfPrice.html";
+import SfProperty from "./src/components/atoms/SfProperty/SfProperty.html";
+import SfRating from "./src/components/atoms/SfRating/SfRating.html";
+import SfIcon from "./src/components/atoms/SfIcon/SfIcon.html";
 
-import SfAlert from "./dist/SfAlert.html";
-import SfBanner from "./dist/SfBanner.html";
-import SfCallToAction from "./dist/SfCallToAction.html";
-import SfCounter from "./dist/SfCounter.html";
-import SfFilter from "./dist/SfFilter.html";
-import SfGallery from "./dist/SfGallery.html";
-import SfMenuItem from "./dist/SfMenuItem.html";
-import SfOptions from "./dist/SfOptions.html";
-import SfPagination from "./dist/SfPagination.html";
-import SfProductCard from "./dist/SfProductCard.html";
-import SfProductOption from "./dist/SfProductOption.html";
-import SfRadio from "./dist/SfRadio.html";
-import SfSelect from "./dist/SfSelect.html";
-import SfSidebar from "./dist/SfSidebar.html";
+import SfAlert from "./src/components/molecules/SfAlert/SfAlert.html";
+import SfBanner from "./src/components/molecules/SfBanner/SfBanner.html";
+import SfCallToAction from "./src/components/molecules/SfCallToAction/SfCallToAction.html";
+import SfCounter from "./src/components/molecules/SfCounter/SfCounter.html";
+import SfFilter from "./src/components/molecules/SfFilter/SfFilter.html";
+import SfGallery from "./src/components/molecules/SfGallery/SfGallery.html";
+import SfMenuItem from "./src/components/molecules/SfMenuItem/SfMenuItem.html";
+import SfOptions from "./src/components/molecules/SfOptions/SfOptions.html";
+import SfPagination from "./src/components/molecules/SfPagination/SfPagination.html";
+import SfProductCard from "./src/components/molecules/SfProductCard/SfProductCard.html";
+import SfProductOption from "./src/components/molecules/SfProductOption/SfProductOption.html";
+import SfRadio from "./src/components/molecules/SfRadio/SfRadio.html";
+import SfSelect from "./src/components/molecules/SfSelect/SfSelect.html";
+import SfSidebar from "./src/components/molecules/SfSidebar/SfSidebar.html";
 
-import SfAccordion from "./dist/SfAccordion.html";
-import SfCarousel from "./dist/SfCarousel.html";
-import SfList from "./dist/SfList.html";
-import SfMegaMenu from "./dist/SfMegaMenu.html";
-import SfTopBar from './dist/SfTopBar.html';
+import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.html";
+import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.html";
+import SfList from "./src/components/organisms/SfList/SfList.html";
+import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.html";
+import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.html";
 
 export {
   SfArrow,
@@ -40,6 +41,7 @@ export {
   SfPrice,
   SfProperty,
   SfRating,
+  SfIcon,
   SfAlert,
   SfBanner,
   SfCallToAction,
@@ -59,4 +61,4 @@ export {
   SfList,
   SfMegaMenu,
   SfTopBar
- };
+};

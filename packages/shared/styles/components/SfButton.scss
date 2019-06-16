@@ -1,4 +1,4 @@
-@import '../../../css/variables';
+@import '../variables';
 
 $button-color                       : $c-text-on-dark !default;
 $button-background-color            : $c-green-primary !default;
@@ -27,9 +27,15 @@ $button--secondary-background-color : $c-dark-primary !default;
     padding: $button-desktop-padding;
     font-size: $button-desktop-font-size;
   }
+  &:hover {
+    background-color: lighten($button-background-color, 5);
+  }
   &--secondary {
     color: $button--secondary-color;
     background-color: $button--secondary-background-color; 
+    &:hover {
+      background-color: lighten($button--secondary-background-color, 5);
+    }
   }
   &--full-width {
     width: 100%;

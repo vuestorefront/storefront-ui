@@ -1,0 +1,15 @@
+@import '../variables';
+.sf-sticky{
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+.sf-sticky--sticky{
+  position: fixed;
+  top: 0;
+}
+.sf-sticky--bound{
+  position: absolute;
+  top: auto;
+  bottom: 0;
+}
