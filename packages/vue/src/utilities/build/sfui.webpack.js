@@ -1,4 +1,4 @@
-module.exports = {
+module.exports.scssConfig = {
   module: {
     rules: [
       {
@@ -23,7 +23,14 @@ module.exports = {
           'css-loader',
           'sass-loader?indentedSyntax'
         ],
-      },
+      }
+    ]
+  }
+}
+
+module.exports.sfcConfig = {
+  module: {
+    rules: [
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -45,3 +52,4 @@ module.exports = {
     ]
   }
 }
+
