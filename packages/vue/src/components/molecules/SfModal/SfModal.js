@@ -1,3 +1,5 @@
+import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
+
 export default {
   name: "SfModal",
   props: {
@@ -74,5 +76,8 @@ export default {
       },
       immediate: true
     }
+  },
+  components: {
+    SfOverlay
   }
 };

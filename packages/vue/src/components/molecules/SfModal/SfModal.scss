@@ -6,9 +6,6 @@ $modal-height                              : auto;
 $modal-padding                             : 2.5em 5em;
 $modal-border                              : solid 1px rgba($c-black, 0.5);
 
-$modal__overlay-background-color           : $c-black;
-$modal__overlay-opacity                    : 0.8;
-
 .sf-modal {
   display: flex;
   justify-content: center;
@@ -22,16 +19,6 @@ $modal__overlay-opacity                    : 0.8;
   z-index: -1;
   &--visible {
     z-index: 0;
-  }
-  &__overlay {
-    background: $modal__overlay-background-color;
-    opacity: $modal__overlay-opacity;
-    z-index: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
   }
   &__container {
     align-self: center;

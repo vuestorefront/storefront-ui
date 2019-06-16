@@ -22,13 +22,7 @@ const scssTableConfig = {
       "$modal-border",
       "solid 1px rgba($c-black, 0.5)",
       "border of the modal container"
-    ],
-    [
-      "$modal__overlay-background-color",
-      "$c-black",
-      "background color of the overlay"
-    ],
-    ["$modal__overlay-opacity", "0.8", "opacity of the overlay"]
+    ]
   ]
 };
 
