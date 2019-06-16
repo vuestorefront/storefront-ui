@@ -1,0 +1,54 @@
+@import '../variables';
+
+$sf-tabs-navigation-font-family: $body-font-family-secondary !default;
+$sf-tabs-navigation-font-size: 1.125rem !default;
+
+$sf-tabs-navigation-padding: 1.563rem !default;
+
+$sf-tabs-navigation-border-width: 2px !default;
+
+$sf-tabs-navigation-color: $c-gray-secondary !default;
+$sf-tabs-navigation-color-hover: $c-gray-secondary !default;
+$sf-tabs-navigation-color-active: $c-dark-primary !default;
+
+
+.sf-tabs-navigation {
+  font-family: $sf-tabs-navigation-font-family;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    font-size: $sf-tabs-navigation-font-size;
+    padding: 0;
+    border-bottom-style: solid;
+    border-bottom-width: $sf-tabs-navigation-border-width;
+    border-bottom-color: $sf-tabs-navigation-color;
+  }
+
+  &__item {
+    list-style-type: none;
+    padding-top: $sf-tabs-navigation-padding;
+    padding-bottom: calc(#{$sf-tabs-navigation-padding} + #{$sf-tabs-navigation-border-width});
+    color: $sf-tabs-navigation-color;
+    cursor: pointer;
+    position: relative;
+    top: $sf-tabs-navigation-border-width;
+
+    // &:hover:not(.sf-tabs-navigation--active) {
+    //   color: $sf-tabs-navigation-color-hover;
+    //   border-bottom: 2px solid $sf-tabs-navigation-color-hover;
+    //   opacity: $sf-tabs-navigation-opacity-hover;
+    // }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &--active {
+    border-bottom-width: $sf-tabs-navigation-border-width;
+    border-bottom-style: solid;
+    border-bottom-color: $sf-tabs-navigation-color-active;
+    color: $sf-tabs-navigation-color-active;
+  }
+}

@@ -8,20 +8,40 @@ const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
     ["$sf-tabs-navigation-color", "$c-light-primary", "navigation items color"],
-    [
-      "$sf-tabs-navigation-color-hover",
-      "$c-gray-secondary",
-      "navigation item color on hover"
-    ],
+    // [
+    //   "$sf-tabs-navigation-color-hover",
+    //   "$c-gray-secondary",
+    //   "navigation item color on hover"
+    // ],
     [
       "$sf-tabs-navigation-color-active",
       "$c-black",
       "active navigation item color"
     ],
+    // [
+    //   "$sf-tabs-navigation-opacity-hover",
+    //   "0.7",
+    //   "navigation item opacity on hover"
+    // ]
     [
-      "$sf-tabs-navigation-opacity-hover",
-      "0.7",
-      "navigation item opacity on hover"
+      "$sf-tabs-navigation-font-family",
+      "$body-font-family-secondary",
+      "font family"
+    ],
+    [
+      "$sf-tabs-navigation-font-size",
+      "1.125rem",
+      "font size"
+    ],
+    [
+      "$sf-tabs-navigation-padding",
+      "1.563rem",
+      "top and bottom padding"
+    ],
+    [
+      "$sf-tabs-navigation-border-width",
+      "0.125rem",
+      "border width"
     ]
   ]
 };
