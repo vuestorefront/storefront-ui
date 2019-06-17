@@ -3,25 +3,51 @@
 // $component__block-property: value;
 
  .sf-heading {
-   text-align: center;
-   @media screen and (max-width: 480px){
-     text-align: left;
+   text-align: left;
+   @media screen and (min-width: 480px){
+     text-align: center;
    }
    &__title {
+     line-height: 1.38;
+     padding: 0;
+     margin-bottom: 5px;
    }
    &__subtitle {
+     line-height: 1.64;
      font-weight: 300;
    }
+
    &--underline {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     border-bottom: 1px solid black;
-     .sf-heading{
-       &__subtitle{
-         color: #A3A5AD;
-         font-weight: normal;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       border-bottom: 1px solid #F1F2F4;
+      @media screen and (min-width: 480px) {
+        display: block;
+        border: 0;
+      }
+       .sf-heading{
+         &__title{
+           margin-bottom: 10px;
+           @media screen and (min-width: 480px) {
+             margin-bottom: 0;
+           }
+         }
+         &__subtitle{
+           color: #A3A5AD;
+           font-weight: normal;
+           @media screen and (min-width: 480px) {
+             display: none;
+           }
+         }
        }
-     }
+   }
+
+   &--left{
+     text-align: left;
+   }
+
+   &--right{
+     text-align: right;
    }
  }

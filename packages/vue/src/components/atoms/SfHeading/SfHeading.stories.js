@@ -37,30 +37,23 @@ storiesOf("Atoms|[WIP]Heading", module)
       },
       components: { SfHeading },
       template: `<div style="max-width: 666px">
-        <SfHeading :level="1">
+        <sf-heading :level="2" class="sf-heading--underline">
+          Match it witch
+          <template v-slot:subtitle>9 Items</template>
+        </sf-heading>
+        <p></p>
+        <sf-heading :level="2">
+          Share your look
+          <template v-slot:subtitle>#YOURLOOK</template>
+        </sf-heading>
+        <p></p>
+        <sf-heading :level="2">
+          Share your look
+        </sf-heading>
+        <p></p>
+        <sf-heading :level="1" class="sf-heading--left">
           Cashmere Sweater
-          <template v-slot:subtitle>
-            #YOURLOOK
-          </template>
-        </SfHeading>
-        <p></p>
-        <SfHeading :level="2">
-          Show how YOU wear it 
-          <template v-slot:subtitle>
-            #YOURLOOK
-          </template>
-        </SfHeading>
-        <p></p>
-        <SfHeading class="sf-heading--underline" :level="2">
-          Saved for later
-          <template v-slot:subtitle>
-            9 items
-          </template>
-        </SfHeading>
-        <p></p>
-        <SfHeading title="Saved for later" subtitle="#YOURLOOK" :level="1" />
-        <p></p>
-        <SfHeading title="Saved for later" subtitle="#YOURLOOK" :level="2" />
+        </sf-heading>
       </div>`
     }),
     {
