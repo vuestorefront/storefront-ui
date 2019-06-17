@@ -1,9 +1,11 @@
 @import '../variables';
 
 $sf-tabs-navigation-font-family: $body-font-family-secondary !default;
-$sf-tabs-navigation-font-size: 1.125rem !default;
+$sf-tabs-navigation-font-size: $font-size-big-desktop !default;
+$sf-tabs-navigation-font-size-mobile: $font-size-big-mobile !default;
 
 $sf-tabs-navigation-padding: 1.563rem !default;
+$sf-tabs-navigation-padding-mobile: 1rem !default;
 
 $sf-tabs-navigation-border-width: 2px !default;
 
@@ -14,6 +16,7 @@ $sf-tabs-navigation-color-active: $c-dark-primary !default;
 
 .sf-tabs-navigation {
   font-family: $sf-tabs-navigation-font-family;
+  width: 100%;
 
   &__list {
     display: flex;
@@ -23,6 +26,10 @@ $sf-tabs-navigation-color-active: $c-dark-primary !default;
     border-bottom-style: solid;
     border-bottom-width: $sf-tabs-navigation-border-width;
     border-bottom-color: $sf-tabs-navigation-color;
+
+    @media screen and (max-width: $mobile-max){
+      font-size: $sf-tabs-navigation-font-size-mobile;
+    }
   }
 
   &__item {
@@ -33,6 +40,11 @@ $sf-tabs-navigation-color-active: $c-dark-primary !default;
     cursor: pointer;
     position: relative;
     top: $sf-tabs-navigation-border-width;
+
+    @media screen and (max-width: $mobile-max){
+      padding-top: $sf-tabs-navigation-padding-mobile;
+      padding-bottom: calc(#{$sf-tabs-navigation-padding-mobile} + #{$sf-tabs-navigation-border-width});
+    }
 
     &:hover {
       color: $sf-tabs-navigation-color-hover;
@@ -52,4 +64,5 @@ $sf-tabs-navigation-color-active: $c-dark-primary !default;
     border-bottom-color: $sf-tabs-navigation-color-active;
     color: $sf-tabs-navigation-color-active;
   }
+
 }
