@@ -15,6 +15,17 @@ $radio__container-background-color--checked: $c-light-primary !default;
     display: flex;
     align-items: $radio__container-align-items;
     padding: $radio__checkmark-margin 0;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    
+        &__label {
+          height: 100%;
+          line-height: $radio__checkmark-size;
+        }
+      }
   }
 
   &__input {
@@ -29,17 +40,6 @@ $radio__container-background-color--checked: $c-light-primary !default;
       margin: 0 $radio__checkmark-margin;
       box-sizing: border-box;
       cursor: pointer;
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    &__label {
-      height: 100%;
-      line-height: $radio__checkmark-size;
-    }
   }
 
   &--checked {
