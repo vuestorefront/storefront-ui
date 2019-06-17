@@ -9,6 +9,8 @@ $radio__checkmark-margin: 0.625rem !default;
 
 $radio__container-align-items: flex-start !default;
 $radio__container-background-color--checked: $c-light-primary !default;
+$radio__container__content__description-color: $c-dark-primary !default;
+$radio__container__content__description-size: $font-size-extra-small-desktop !default;
 
 .sf-radio {
   &__container {
@@ -24,6 +26,11 @@ $radio__container-background-color--checked: $c-light-primary !default;
         &__label {
           height: 100%;
           line-height: $radio__checkmark-size;
+        }
+
+        &__description {
+            font-size: $radio__container__content__description-size;
+            color: $radio__container__content__description-color;
         }
       }
   }
