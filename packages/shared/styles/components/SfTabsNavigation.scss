@@ -8,7 +8,7 @@ $sf-tabs-navigation-padding: 1.563rem !default;
 $sf-tabs-navigation-border-width: 2px !default;
 
 $sf-tabs-navigation-color: $c-gray-secondary !default;
-$sf-tabs-navigation-color-hover: $c-gray-secondary !default;
+$sf-tabs-navigation-color-hover: $c-dark-primary !default;
 $sf-tabs-navigation-color-active: $c-dark-primary !default;
 
 
@@ -34,11 +34,12 @@ $sf-tabs-navigation-color-active: $c-dark-primary !default;
     position: relative;
     top: $sf-tabs-navigation-border-width;
 
-    // &:hover:not(.sf-tabs-navigation--active) {
-    //   color: $sf-tabs-navigation-color-hover;
-    //   border-bottom: 2px solid $sf-tabs-navigation-color-hover;
-    //   opacity: $sf-tabs-navigation-opacity-hover;
-    // }
+    &:hover {
+      color: $sf-tabs-navigation-color-hover;
+      border-bottom-width: $sf-tabs-navigation-border-width;
+      border-bottom-style: solid;
+      border-bottom-color: $sf-tabs-navigation-color-hover;
+    }
 
     p {
       margin: 0;
