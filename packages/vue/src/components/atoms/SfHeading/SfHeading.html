@@ -1,0 +1,20 @@
+<header class="sf-heading">
+  <template v-if="level===1">
+    <h1 class="sf-heading__title"><slot>
+      {{title}}
+    </slot></h1>
+  </template>
+  <template v-if="level===2">
+    <h2 class="sf-heading__title"><slot>
+      {{title}}
+    </slot></h2>
+  </template>
+  <template v-if="level===3">
+    <h3 class="sf-heading__title"><slot>
+      {{title}}
+    </slot></h3>
+  </template>
+  <div class="sf-heading__subtitle"><slot name="subtitle">
+    {{subtitle}}
+  </slot></div>
+</header>

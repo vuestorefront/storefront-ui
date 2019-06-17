@@ -1,0 +1,27 @@
+@import '../variables';
+
+// $component__block-property: value;
+
+ .sf-heading {
+   text-align: center;
+   @media screen and (max-width: 480px){
+     text-align: left;
+   }
+   &__title {
+   }
+   &__subtitle {
+     font-weight: 300;
+   }
+   &--underline {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     border-bottom: 1px solid black;
+     .sf-heading{
+       &__subtitle{
+         color: #A3A5AD;
+         font-weight: normal;
+       }
+     }
+   }
+ }
