@@ -4,51 +4,51 @@ $heading--border-color: #F1F2F4;
 $heading--underline-subtitle-color: #A3A5AD;
 $heading--mobile-breakpoint: $mobile-max;
 
- .sf-heading {
-   text-align: left;
-   @media screen and (min-width: $heading--mobile-breakpoint){
-     text-align: center;
-   }
-   &__title {
-     line-height: 1.38;
-     padding: 0;
-   }
-   &__subtitle {
-     margin-top: 5px;
-     line-height: 1.64;
-     font-weight: 300;
-   }
+.sf-heading {
+    text-align: left;
+  @media screen and (min-width: $heading--mobile-breakpoint){
+    text-align: center;
+  }
+  &__title {
+    line-height: 1.38;
+    padding: 0;
+  }
+  &__subtitle {
+    margin-top: 5px;
+    line-height: 1.64;
+    font-weight: 300;
+  }
 
-   &--underline {
+  &--underline {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
     border-bottom: 1px solid $heading--border-color;
 
-      @media screen and (min-width: $heading--mobile-breakpoint) {
-        display: block;
-        padding-bottom: 0;
-        border: 0;
-      }
-       .sf-heading{
+    @media screen and (min-width: $heading--mobile-breakpoint) {
+      display: block;
+      padding-bottom: 0;
+      border: 0;
+    }
+     .sf-heading{
 
-         &__subtitle{
-           margin-top: 0;
-           color: $heading--underline-subtitle-color;
-           font-weight: normal;
-           @media screen and (min-width: $heading--mobile-breakpoint) {
-             display: none;
-           }
+       &__subtitle{
+         margin-top: 0;
+         color: $heading--underline-subtitle-color;
+         font-weight: normal;
+         @media screen and (min-width: $heading--mobile-breakpoint) {
+           display: none;
          }
        }
-   }
+     }
+  }
 
-   &--left{
-     text-align: left;
-   }
+  &--left{
+    text-align: left;
+  }
 
-   &--right{
-     text-align: right;
-   }
- }
+  &--right{
+    text-align: right;
+  }
+}
