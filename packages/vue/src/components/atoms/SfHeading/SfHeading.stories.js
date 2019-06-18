@@ -29,9 +29,13 @@ const scssTableConfig = {
 };
 
 // use this to document events
-const eventsTableConfig = {
+const cssTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [["input", "event emited when option is selected"]]
+  tableBodyConfig: [
+    [".sf-heading--underline", "change heading to underlined mobile version"],
+    [".sf-heading--left", "align text to left"],
+    [".sf-heading--right", "align text to right"]
+  ]
 };
 
 storiesOf("Atoms|Heading", module)
@@ -74,7 +78,7 @@ storiesOf("Atoms|Heading", module)
         summary: `<h2>Usage</h2>
        <pre><code>import SfHeading from "@storefrontui/vue/dist/SfHeading.vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-       ${generateStorybookTable(eventsTableConfig, "Events")}
+       ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
        `
       }
     }
