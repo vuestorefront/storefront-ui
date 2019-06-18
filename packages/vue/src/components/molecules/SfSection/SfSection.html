@@ -4,5 +4,7 @@
     <sf-heading :level="heading.level" :title="heading.title" :subtitle="heading.subtitle" :class="{'sf-heading--underline': hasUnderlinedModifier}"/>
   </slot>
   <!--@slot Section content.-->
-  <slot/>
+  <div class="sf-section__content">
+    <slot />
+  </div>
 </section>

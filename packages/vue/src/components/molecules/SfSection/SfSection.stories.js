@@ -1,9 +1,18 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, object, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfSection from "./SfSection.vue";
+
+// use this to document scss vars
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    ["$section--spacing", "100px", "section spacing"],
+    ["$section--mobile-breakpoint", "$mobile-max", "default mobile breakpoint"]
+  ]
+};
 
 const cssTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
@@ -18,6 +27,13 @@ storiesOf("Molecules|Section", module)
     "Basic",
     () => ({
       props: {
+        heading: {
+          default: object("Heading", {
+            title: "Share your look",
+            subtitle: "#YOURLOOK",
+            level: 2
+          })
+        },
         customClass: {
           default: select(
             "CSS Modifier",
@@ -30,8 +46,7 @@ storiesOf("Molecules|Section", module)
       data() {
         return {
           row: {
-            display: "flex",
-            marginTop: "50px"
+            display: "flex"
           },
           col: {
             flex: 1,
@@ -58,23 +73,23 @@ storiesOf("Molecules|Section", module)
         };
       },
       components: { SfSection },
-      template: `<SfSection :class="customClass" :heading="{
-        title: 'Share your look',
-        subtitle: '#YOURLOOK',
-        level: 1
-      }">
-        <div :style="row">
-          <div :style="colFirst">1</div>
-          <div :style="col">2</div>
-          <div :style="col">3</div>
-        </div>
-      </SfSection>`
+      template: `
+      <div>
+        <SfSection :class="customClass" :heading="heading">
+          <div :style="row">
+            <div :style="colFirst">1</div>
+            <div :style="col">2</div>
+            <div :style="col">3</div>
+          </div>
+        </SfSection>
+      </div>`
     }),
     {
       info: {
         summary: `<p>Component description.</p>
        <h2>Usage</h2>
        <pre><code>import SfSection from "@storefrontui/vue/dist/SfSection.vue"</code></pre>
+       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
        `
       }
