@@ -1,42 +1,43 @@
 @import '../variables';
 
-// $component__block-property: value;
+$heading--border-color: #F1F2F4;
+$heading--underline-subtitle-color: #A3A5AD;
+$heading--mobile-breakpoint: $mobile-max;
 
  .sf-heading {
    text-align: left;
-   @media screen and (min-width: 480px){
+   @media screen and (min-width: $heading--mobile-breakpoint){
      text-align: center;
    }
    &__title {
      line-height: 1.38;
      padding: 0;
-     margin-bottom: 5px;
    }
    &__subtitle {
+     margin-top: 5px;
      line-height: 1.64;
      font-weight: 300;
    }
 
    &--underline {
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
-       border-bottom: 1px solid #F1F2F4;
-      @media screen and (min-width: 480px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $heading--border-color;
+
+      @media screen and (min-width: $heading--mobile-breakpoint) {
         display: block;
+        padding-bottom: 0;
         border: 0;
       }
        .sf-heading{
-         &__title{
-           margin-bottom: 10px;
-           @media screen and (min-width: 480px) {
-             margin-bottom: 0;
-           }
-         }
+
          &__subtitle{
-           color: #A3A5AD;
+           margin-top: 0;
+           color: $heading--underline-subtitle-color;
            font-weight: normal;
-           @media screen and (min-width: 480px) {
+           @media screen and (min-width: $heading--mobile-breakpoint) {
              display: none;
            }
          }
