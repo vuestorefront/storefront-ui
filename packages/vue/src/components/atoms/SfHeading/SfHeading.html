@@ -1,6 +1,11 @@
 <header class="sf-heading">
-  <component :is="`h${level}`" class="sf-heading__title"><slot>{{title}}</slot></component>
-  <div class="sf-heading__subtitle"><slot name="subtitle">
-    {{subtitle}}
-  </slot></div>
+  <component :is="`h${level}`" class="sf-heading__title">
+    <!--@slot Heading title. Slot content will replace default <h> tag-->
+    <slot>{{title}}</slot>
+  </component>
+  <div v-if="hasSubtitle" class="sf-heading__subtitle">
+    <!--@slot Heading subtitle. Slot content will replace default <div> tag-->
+    <slot name="subtitle">{{subtitle}}</slot>
+  </div>
 </header>
+s

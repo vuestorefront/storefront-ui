@@ -1,6 +1,11 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  number,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfHeading from "./SfHeading.vue";
@@ -8,7 +13,19 @@ import SfHeading from "./SfHeading.vue";
 // use this to document scss vars
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [["$component-size", "1.438rem", "size of checkmark"]]
+  tableBodyConfig: [
+    [
+      "$heading--border-color",
+      "#F1F2F4",
+      "border color for underlined heading"
+    ],
+    [
+      "$heading--underline-subtitle-color",
+      "#A3A5AD",
+      "subtitle color for underlined heading"
+    ],
+    ["$heading--mobile-breakpoint", "$mobile-max", "default mobile breakpoint"]
+  ]
 };
 
 // use this to document events
@@ -17,53 +34,126 @@ const eventsTableConfig = {
   tableBodyConfig: [["input", "event emited when option is selected"]]
 };
 
-storiesOf("Atoms|[WIP]Heading", module)
+storiesOf("Atoms|Heading", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
     () => ({
       props: {
-        editableProp: {
-          default: text("(prop) propname")
+        title: {
+          default: text("(prop) title", "Share your look")
+        },
+        subtitle: {
+          default: text("(prop) subtitle", "#YOURLOOK")
+        },
+        level: {
+          default: number("(prop) level", 2)
         },
         customClass: {
-          default: select(
+          default: options(
             "CSS Modifier",
-            ["null", "sf-heading--modifier"],
+            {
+              null: "null",
+              "sf-heading--underline": "sf-heading--underline",
+              "sf-heading--left": "sf-heading--left",
+              "sf-heading--right": "sf-heading--right"
+            },
             "null",
+            { display: "multi-select" },
             "CSS-Modifiers"
           )
         }
       },
       components: { SfHeading },
-      template: `<div style="max-width: 666px">
-        <sf-heading :level="2" class="sf-heading--underline">
-          Match it witch
-          <template v-slot:subtitle>9 Items</template>
-        </sf-heading>
-        <p></p>
-        <sf-heading :level="2">
-          Share your look
-          <template v-slot:subtitle>#YOURLOOK</template>
-        </sf-heading>
-        <p></p>
-        <sf-heading :level="2">
-          Share your look
-        </sf-heading>
-        <p></p>
-        <sf-heading :level="1" class="sf-heading--left">
-          Cashmere Sweater
-        </sf-heading>
+      template: `<div style="max-width: 1140px">
+        <sf-heading :title="title" :subtitle="subtitle" :level="level" :class="customClass" />
       </div>`
     }),
     {
       info: {
-        summary: `<p>Component description.</p>
-       <h2>Usage</h2>
+        summary: `<h2>Usage</h2>
        <pre><code>import SfHeading from "@storefrontui/vue/dist/SfHeading.vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        ${generateStorybookTable(eventsTableConfig, "Events")}
        `
       }
+    }
+  )
+  .add(
+    "[slot] title",
+    () => ({
+      props: {
+        title: {
+          default: text("(slot) default", "Share your look")
+        },
+        subtitle: {
+          default: text("(slot) subtitle", "#YOURLOOK")
+        },
+        level: {
+          default: number("(prop) level", 2)
+        },
+        customClass: {
+          default: options(
+            "CSS Modifier",
+            {
+              null: "null",
+              "sf-heading--underline": "sf-heading--underline",
+              "sf-heading--left": "sf-heading--left",
+              "sf-heading--right": "sf-heading--right"
+            },
+            "null",
+            { display: "multi-select" },
+            "CSS-Modifiers"
+          )
+        }
+      },
+      components: { SfHeading },
+      template: `<div style="max-width: 1140px">
+        <sf-heading :subtitle="subtitle" :level="level" :class="customClass">
+          {{title}}
+        </sf-heading>
+      </div>`
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "[slot] subtitle",
+    () => ({
+      props: {
+        title: {
+          default: text("(slot) default", "Share your look")
+        },
+        subtitle: {
+          default: text("(slot) subtitle", "#YOURLOOK")
+        },
+        level: {
+          default: number("(prop) level", 2)
+        },
+        customClass: {
+          default: options(
+            "CSS Modifier",
+            {
+              null: "null",
+              "sf-heading--underline": "sf-heading--underline",
+              "sf-heading--left": "sf-heading--left",
+              "sf-heading--right": "sf-heading--right"
+            },
+            "null",
+            { display: "multi-select" },
+            "CSS-Modifiers"
+          )
+        }
+      },
+      components: { SfHeading },
+      template: `<div style="max-width: 1140px">
+        <sf-heading :title="title" :level="level" :class="customClass">
+          <template v-slot:subtitle>{{subtitle}}</template>
+        </sf-heading>
+      </div>`
+    }),
+    {
+      info: true
     }
   );
