@@ -1,20 +1,23 @@
 # About
 
-Storefront UI is customization-first and elegant
-UI framework for eCommerce (and not only)
-based on Vue.js and
-[Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf).
+Storefront UI is developer-friendly, customization-first and performance oriented component library that ships raw source.
+Designs are based on [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf).
 
-**StorefrontUI aims to achieve three goals**
-- Limitless customization of library and it's components
-- Focus on performance and implementation if good practices
-- Full coverage of eCommerce components along with standard web app components
+**StorefrontUI key characteristics**
+
+We are building Storefront UI based on the following 5 fundamentals:
+
+- **Performance**: You’re importing ONLY what you need, and in a raw format which means you can benefit from all build-time optimizations like tree shaking or grouping common chunks.
+- **Customization**: Along with standard prop-based customization, every component has a set of slots that let you replace any part of it with your own images, icons or even custom HTML markup. In addition, every component is divided into separate HTML, CSS and JS files so you can compose your own components from only Storefront UI partials.
+- **Best practices**: Storefront UI components follow best practices in terms of design and core. Every component is based on the Google Retail UX Playbook and is accessibility-friendly.
+- **E-commerce**: As a UI library dedicated to eCommerce, Storefront UI along with standard UI components has all the elements necessary for building modern online stores.
+- **Open Source**: Storefront UI is a community effort to deliver the best possible experience to modern web applications and e-commerce shops, with carefully crafted components following best practices. Our team consists of agencies and volunteer contributors from all over the world.
 
 ## Current state of the project
 
-**StorefrontUI is currently in ALPHA which means
+StorefrontUI is currently in ALPHA which means
 it is not suitable for production!
-Expect things to be broken and APIs to possibly change. See roadmap section below for details**
+Expect things to be broken and APIs to possibly change. 
 
 
 ## How to test StorefrontUI?
@@ -30,13 +33,13 @@ npm install --save @storefrontui/vue
 - Import stylesheets in App.vue or main.js:
 
 ```scss
-import "@storefrontui/vue/dist/css/all.scss";
+import "@storefrontui/vue/src/css/_all.scss";
 ```
 
 - It's done! Now you can import and use any of the components:
 
 ```js
-import SfComponentName from "@storefrontui/vue/dist/SfComponentName.vue"
+import { SfComponentName } from "@storefrontui/vue"
 ```
 
 - You can find detailed information about every component inside each components
@@ -68,11 +71,16 @@ If you'd like to support us and join the team please write to me:
 # Roadmap 
 
 - Category page components (April) - Done
-- Product Page components (May) (alpha release)
-- Homepage, form elements and a11y (June) 
-- Last polishments and focus on documentation (June/July) (beta release)
+- Product Page components (May) (alpha release) - Done
+- Homepage, form elements, monorepo setup, product page example (June)
+- Last polishments and focus on documentation (July) (beta release)
 
-Want to help and make it even faster? Grab an issue and become part of our amazing community ;)
+**Other things to include in the meantime:**
+- include additional build for every compoennt so they can also be imported separately but after a build step (useful for apps that don't have a build step at all)
+- webpack build that can be merged into your current one with everything that is needed to consume SFUI webpack source
+
+**In consideration**
+- SCSS - CSS vars transition
 
 ## Useful links
 
