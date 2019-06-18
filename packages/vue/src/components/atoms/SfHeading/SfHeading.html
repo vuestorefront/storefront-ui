@@ -1,5 +1,5 @@
 <header class="sf-heading">
-  <component :is="`h${level}`"><slot>{{title}}</slot></component>
+  <component :is="`h${level}`" class="sf-heading__title"><slot>{{title}}</slot></component>
   <div class="sf-heading__subtitle"><slot name="subtitle">
     {{subtitle}}
   </slot></div>
