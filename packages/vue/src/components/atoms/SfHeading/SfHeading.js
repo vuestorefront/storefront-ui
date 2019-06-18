@@ -3,7 +3,7 @@ export default {
   props: {
     level: {
       type: Number,
-      default: 1
+      default: 2
     },
     title: {
       type: String,
