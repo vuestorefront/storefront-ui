@@ -5,43 +5,69 @@ import { generateStorybookTable } from "@/helpers";
 
 import SfSection from "./SfSection.vue";
 
-// use this to document scss vars
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [["$component-size", "1.438rem", "size of checkmark"]]
-};
-
-// use this to document events
-const eventsTableConfig = {
+const cssTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [["input", "event emited when option is selected"]]
+  tableBodyConfig: [
+    [".sf-section--underline", "changed section heading to underlined version"]
+  ]
 };
 
-storiesOf("Molecules|[WIP]SfSection", module)
+storiesOf("Molecules|Section", module)
   .addDecorator(withKnobs)
   .add(
-    "[slot] default",
+    "Basic",
     () => ({
       props: {
-        editableProp: {
-          default: text("(prop) propname")
-        },
         customClass: {
           default: select(
             "CSS Modifier",
-            ["null", "sf-section--modifier"],
+            ["null", "sf-section--underline"],
             "null",
             "CSS-Modifiers"
           )
         }
       },
+      data() {
+        return {
+          row: {
+            display: "flex",
+            marginTop: "50px"
+          },
+          col: {
+            flex: 1,
+            height: "300px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginLeft: "1rem",
+            backgroundColor: "rgb(94, 206, 123)",
+            color: "#FFF",
+            fontSize: "2em"
+          },
+          colFirst: {
+            flex: 1,
+            height: "300px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginLeft: "0",
+            backgroundColor: "rgb(94, 206, 123)",
+            color: "#FFF",
+            fontSize: "3rem"
+          }
+        };
+      },
       components: { SfSection },
-      template: `<SfSection :heading="{
+      template: `<SfSection :class="customClass" :heading="{
         title: 'Share your look',
         subtitle: '#YOURLOOK',
         level: 1
       }">
-      ...
+        <div :style="row">
+          <div :style="colFirst">1</div>
+          <div :style="col">2</div>
+          <div :style="col">3</div>
+        </div>
       </SfSection>`
     }),
     {
@@ -49,8 +75,7 @@ storiesOf("Molecules|[WIP]SfSection", module)
         summary: `<p>Component description.</p>
        <h2>Usage</h2>
        <pre><code>import SfSection from "@storefrontui/vue/dist/SfSection.vue"</code></pre>
-       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-       ${generateStorybookTable(eventsTableConfig, "Events")}
+       ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
        `
       }
     }

@@ -1,4 +1,8 @@
 <section class="sf-section">
-  <sf-heading :level="heading.level" :title="heading.title" :subtitle="heading.subtitle"/>
+  <!--@slot Section heading. Slot content will replace default <sf-heading> component-->
+  <slot name="heading">
+    <sf-heading :level="heading.level" :title="heading.title" :subtitle="heading.subtitle" :class="{'sf-heading--underline': hasUnderlinedModifier}"/>
+  </slot>
+  <!--@slot Section content.-->
   <slot/>
 </section>
