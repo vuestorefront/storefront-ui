@@ -170,7 +170,14 @@ export default {
   }
 };
 </script>
-
+<style lang="scss">
+ *,
+ *::before,
+ *::after{
+   padding: 0;
+   margin: 0;
+ }
+</style>
 <style lang="scss" scoped>
 .sf-section {
   padding: 0;
