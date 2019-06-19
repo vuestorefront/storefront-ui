@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from '@storybook/vue';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
-import './home.scss';
+import { storiesOf } from "@storybook/vue";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
+import "./home.scss";
 
-storiesOf(' |Introduction', module)
+storiesOf(" |Introduction", module)
   .addDecorator(withKnobs)
   .addParameters({
     options: {
@@ -11,7 +11,7 @@ storiesOf(' |Introduction', module)
       isToolshown: false
     }
   })
-  .add('How to use Storybook', () => ({
+  .add("How to use Storybook", () => ({
     template: `
     <div class="intro">
       <h1>StorefrontUI - Customization-first component library</h1>
