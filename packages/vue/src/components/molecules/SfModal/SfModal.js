@@ -13,9 +13,9 @@ export default {
     /**
      * Visibility of the modal
      */
-    visible: {
+    value: {
       type: Boolean,
-      default: false
+      default: () => false
     },
     /**
      * Whether to show the overlay
@@ -46,15 +46,23 @@ export default {
       default: "fade"
     }
   },
-  mounted() {
-    const keydownHandler = e => {
-      if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
-        this.toggle();
+  computed: {
+    visible: {
+      get() {
+        return this.value;
+      },
+      set(val) {
+        this.$emit("input", val);
       }
-    };
+    }
   },
   methods: {
     toggle() {
+      const keydownHandler = e => {
+        if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
+          this.toggle();
+        }
+      };
       if (this.visible) {
         document.addEventListener("keydown", keydownHandler);
         this.$emit("close");

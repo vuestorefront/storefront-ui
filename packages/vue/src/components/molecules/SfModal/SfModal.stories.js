@@ -58,7 +58,7 @@ storiesOf("Molecules|Modal", module)
       <div>
       <SfButton @click="isModalOpen = true">Open modal</SfButton>
       <SfModal
-        :visible="isModalOpen"
+        v-model="isModalOpen"
         @close="isModalOpen = false"
         :cross="cross"
         :overlay="overlay"
