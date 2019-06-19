@@ -20,9 +20,6 @@ $heading--mobile-breakpoint: $mobile-max;
   }
 
   &--underline {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding-bottom: 10px;
     border-bottom: 1px solid $heading--border-color;
 
@@ -31,17 +28,6 @@ $heading--mobile-breakpoint: $mobile-max;
       padding-bottom: 0;
       border: 0;
     }
-     .sf-heading{
-
-       &__subtitle{
-         margin-top: 0;
-         color: $heading--underline-subtitle-color;
-         font-weight: normal;
-         @media screen and (min-width: $heading--mobile-breakpoint) {
-           display: none;
-         }
-       }
-     }
   }
 
   &--left{
