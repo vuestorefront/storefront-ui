@@ -42,6 +42,11 @@
     >
       ...
     </SfSection>
+    <SfBanner
+      subtitle="Fashion to Take Away"
+      button-text="SHOP NOW"
+      :image="bannerA"
+    ></SfBanner>
   </div>
 </template>
 
@@ -53,6 +58,7 @@ import SfSection from "@/components/molecules/SfSection/SfSection.vue";
 import bannerA from "./assets/bannerA.png";
 import bannerB from "./assets/bannerB.png";
 import bannerC from "./assets/bannerC.png";
+import bannerD from "./assets/bannerD.png";
 
 export default {
   name: "Home",
@@ -60,7 +66,8 @@ export default {
     return {
       bannerA: bannerA,
       bannerB: bannerB,
-      bannerC: bannerC
+      bannerC: bannerC,
+      bannerD: bannerD,
     };
   },
   components: {
