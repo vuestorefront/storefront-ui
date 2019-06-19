@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+    <!-- SfHero -->
     <SfBanner
       title="ECO SANDALS"
       subtitle="Summer shoes"
@@ -32,7 +33,72 @@
         title: 'Best Sellers'
       }"
     >
-      ...
+      <SfCarousel>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            :image="productA"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            :image="productB"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            :image="productC"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            :image="productA"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            :image="productB"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            :image="productC"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            :image="productA"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            :image="productB"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+          />
+        </SfCarouselItem>
+      </SfCarousel>
     </SfSection>
     <SfSection
       :heading="{
@@ -40,13 +106,23 @@
         subtitle: '#YOURLOOK'
       }"
     >
-      ...
+      <!-- SfTiles -->
     </SfSection>
     <SfBanner
       subtitle="Fashion to Take Away"
-      button-text="SHOP NOW"
-      :image="bannerA"
-    ></SfBanner>
+      :image="bannerD"
+      class="sf-banner--left download-app"
+    >
+      <template v-slot:title>
+        <h1>Download our application to your mobile</h1>
+      </template>
+      <template v-slot:call-to-action>
+        <div>
+          <img :src="google" alt="" />
+          <img :src="apple" alt="" />
+        </div>
+      </template>
+    </SfBanner>
   </div>
 </template>
 
@@ -54,11 +130,21 @@
 import SfBanner from "@/components/molecules/SfBanner/SfBanner.vue";
 import SfCallToAction from "@/components/molecules/SfCallToAction/SfCallToAction.vue";
 import SfSection from "@/components/molecules/SfSection/SfSection.vue";
+import SfCarousel from "@/components/organisms/SfCarousel/SfCarousel.vue";
+import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
 
+//ASSETS
 import bannerA from "./assets/bannerA.png";
 import bannerB from "./assets/bannerB.png";
 import bannerC from "./assets/bannerC.png";
 import bannerD from "./assets/bannerD.png";
+
+import productA from "./assets/productA.png";
+import productB from "./assets/productB.png";
+import productC from "./assets/productC.png";
+
+import google from "./assets/google.png";
+import apple from "./assets/apple.png";
 
 export default {
   name: "Home",
@@ -68,12 +154,19 @@ export default {
       bannerB: bannerB,
       bannerC: bannerC,
       bannerD: bannerD,
+      productA: productA,
+      productB: productB,
+      productC: productC,
+      google: google,
+      apple: apple
     };
   },
   components: {
     SfBanner,
     SfCallToAction,
-    SfSection
+    SfSection,
+    SfCarousel,
+    SfProductCard
   }
 };
 </script>
