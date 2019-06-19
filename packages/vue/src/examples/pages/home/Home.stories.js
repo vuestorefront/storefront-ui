@@ -4,10 +4,10 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 
 import Home from "./Home.vue";
 
-storiesOf("Examples|Pages", module)
+storiesOf("Examples|Home", module)
   .addDecorator(withKnobs)
   .add(
-    "Category",
+    "Basic",
     () => ({
       components: { Home },
       template: `
