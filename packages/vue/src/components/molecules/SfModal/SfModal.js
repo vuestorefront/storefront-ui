@@ -49,18 +49,24 @@ export default {
   mounted() {
     const keydownHandler = e => {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
-        this.$emit("close");
+        this.toggle();
       }
     };
-    document.addEventListener("keydown", keydownHandler);
-    this.$once("hook:destroyed", () => {
-      document.removeEventListener("keydown", keydownHandler);
-    });
   },
   methods: {
+    toggle() {
+      if (this.visible) {
+        document.addEventListener("keydown", keydownHandler);
+        this.$emit("close");
+      } else {
+        document.removeEventListener("keydown", keydownHandler);
+        this.$emit("open");
+      }
+      this.visible = !this.visible;
+    },
     checkPersistence() {
       if (this.persistent === false) {
-        this.$emit("close");
+        this.toggle();
       }
     }
   },
