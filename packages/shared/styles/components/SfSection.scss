@@ -1,0 +1,14 @@
+@import '../variables';
+
+$section--spacing: 100px;
+$section--mobile-breakpoint: $mobile-max;
+
+.sf-section {
+ padding: $section--spacing / 2 0;
+ @media screen and (min-width: $section--mobile-breakpoint){
+   padding: $section--spacing 0;
+ }
+ &__content{
+   margin-top: $section--spacing / 2;
+ }
+}
