@@ -45,39 +45,25 @@ storiesOf("Organisms|Tabs", module)
     "Basic",
     () => ({
       components: { SfTabs },
-      data: () => ({
-        contentStyle: {
-          width: "100px",
-          height: "100px"
-        },
-        containerStyle: {
-          display: "flex",
-          justifyContent: "center"
-        }
-      }),
       template: `
       <SfTabs>
-        <SfTab title="apple" :style="containerStyle">
-          <div :style="contentStyle" style="background-color: #C72E30" />
+        <SfTab title="Apple" :style="containerStyle">
+          Apple is a great fruit.
         </SfTab>
-        <SfTab title="banana" :style="containerStyle">
-          <div :style="contentStyle" style="background-color: #F9F494"/>
+        <SfTab title="Banana" :style="containerStyle">
+         Banana is a great fruit.
         </SfTab>
-        <SfTab title="peach" :style="containerStyle">
-          <div :style="contentStyle" style="background-color: #E8914D"/>
+        <SfTab title="Peach" :style="containerStyle">
+          Peach is a great fruit.
         </SfTab>
-        <SfTab title="orange" :style="containerStyle">
-          <div :style="contentStyle" style="background-color: #E0601D"/>
+        <SfTab title="Orange" :style="containerStyle">
+          Orange is a great fruit.
         </SfTab>
       </SfTabs>`
     }),
     {
       info: {
-        summary: `<p>Tabs Component. cool thing about this component is that it uses 
-        <a href="https://vuejs.org/v2/api/#provide-inject" target="_blank">provide/inject</a> pattern. <br>
-        Provided is shareState object where you can find 'activeTabValue' and 'tabs'. <br>
-        function to change tab is also provided and its called: 'changeTab'. <br>
-        2 additional options are provided 'fireEvent' and 'listenEvent'</p>
+        summary: `
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(eventsTableConfig, "Events")}
         `

@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-tabs-navigation">
+  <nav class="sf-tabs-navigation">
     <slot
       :tabs="sharedState.tabs"
       :changeTab="changeTab"
@@ -12,7 +12,7 @@
           class="sf-tabs-navigation__item"
           @click="changeTab(tab.valueComputed)"
           :class="{
-            'sf-tabs-navigation--active':
+            'sf-tabs-navigation__item--active':
               sharedState.activeTabValue === tab.valueComputed
           }"
         >
@@ -22,12 +22,12 @@
             :changeTab="changeTab"
             :isActive="sharedState.activeTabValue === tab.valueComputed"
           >
-            <p v-text="tab.title" />
+            <p v-text="tab.title"/>
           </slot>
         </li>
       </ul>
     </slot>
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -36,6 +36,3 @@ export default {
   inject: ["changeTab", "sharedState"]
 };
 </script>
-<style lang="scss">
-@import "~@storefrontui/shared/styles/components/SfTabsNavigation.scss";
-</style>
