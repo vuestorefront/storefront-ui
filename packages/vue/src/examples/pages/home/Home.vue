@@ -27,13 +27,29 @@
       button-text="SUBSCRIBE"
       description="Be aware of upcoming sales and events. Receive gifts and special offers!"
     />
+    <SfSection
+      :heading="{
+        title: 'Best Sellers'
+      }"
+    >
+      ...
+    </SfSection>
+    <SfSection
+      :heading="{
+        title: 'Share Your Look',
+        subtitle: '#YOURLOOK'
+      }"
+    >
+      ...
+    </SfSection>
   </div>
 </template>
 
 <script>
 import SfBanner from "@/components/molecules/SfBanner/SfBanner.vue";
 import SfCallToAction from "@/components/molecules/SfCallToAction/SfCallToAction.vue";
-// ASSETS
+import SfSection from "@/components/molecules/SfSection/SfSection.vue";
+
 import bannerA from "./assets/bannerA.png";
 import bannerB from "./assets/bannerB.png";
 import bannerC from "./assets/bannerC.png";
@@ -49,9 +65,17 @@ export default {
   },
   components: {
     SfBanner,
-    SfCallToAction
+    SfCallToAction,
+    SfSection
   }
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.sf-section {
+  padding: 0;
+  &__content {
+    margin-top: 0;
+  }
+}
+</style>
