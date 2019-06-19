@@ -58,7 +58,7 @@ storiesOf("Atoms|Arrow", module)
       },
       template: `
       <div :style="{padding: '1rem', 'background-color': customClass.indexOf('sf-arrow--long') ? '' : '#F1F2F3'}">
-      <SfArrow :class="customClass">
+      <SfArrow :class="customClass" />
       </div>
       `
     }),
