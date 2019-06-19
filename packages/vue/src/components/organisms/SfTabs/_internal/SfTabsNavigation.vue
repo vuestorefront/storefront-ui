@@ -22,7 +22,7 @@
             :changeTab="changeTab"
             :isActive="sharedState.activeTabValue === tab.valueComputed"
           >
-            <p v-text="tab.title"/>
+            <p v-text="tab.title"></p>
           </slot>
         </li>
       </ul>
