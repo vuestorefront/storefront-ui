@@ -18,7 +18,7 @@ const cssTableConfig = {
   tableBodyConfig: [["sf-sidebar--right", "places sidebar on the right side"]]
 };
 
-storiesOf("Molecules|Sidebar", module)
+storiesOf("Organisms|Sidebar", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
