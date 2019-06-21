@@ -1,0 +1,16 @@
+<div class="sf-hero">
+    <SfCarousel :options="carouselOptions">
+        <SfCarouselItem v-for="(banner, index) in banners" :key="index">
+            <SfBanner
+            :title="banner.title"
+            :description="banner.description"
+            :subtitle="banner.subtitle"
+            :button-text="banner.buttonText"
+            :background="banner.background"
+            :image="banner.image"
+            :class="banner.customClass"
+            ></SfBanner>
+        </SfCarouselItem>
+        <slot />
+    </SfCarousel>
+</div>
