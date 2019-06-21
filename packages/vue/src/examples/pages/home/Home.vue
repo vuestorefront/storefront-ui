@@ -204,6 +204,10 @@ export default {
   }
 }
 .sf-carousel {
+  margin: 20px 0;
+  &__wrapper {
+    padding: 20px;
+  }
 }
 </style>
 <style lang="scss" scoped>
@@ -245,6 +249,12 @@ export default {
     &:not(:first-child) {
       margin-left: $spacer-big;
     }
+  }
+}
+
+.sf-product-card {
+  &:hover {
+    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
   }
 }
 </style>
