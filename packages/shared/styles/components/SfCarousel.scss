@@ -5,11 +5,14 @@ $carousel-mobile-breakpoint: $mobile-max;
 
 .sf-carousel{
   position: relative;
-
+  &__wrapper{
+    max-width: calc(100% - 240px);
+    margin: auto;
+    overflow: hidden;
+  }
   &__slides{
     margin: 0;
   }
-
   &__controls{
     display: none;
 
@@ -24,7 +27,12 @@ $carousel-mobile-breakpoint: $mobile-max;
     }
   }
 
-  @media screen and (min-width: $carousel-mobile-breakpoint){
-    padding: 0 130px;
+  // reset overflow for shadow
+  .glide{
+    &__track,
+    &__slides,
+    &__slide{
+      overflow: unset;
+    }
   }
 }
