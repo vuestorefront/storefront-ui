@@ -1,11 +1,11 @@
 <div class="sf-characteristic">
-  <div class="sf-characteristic__left">
+  <div class="sf-characteristic__col">
     <!-- @slot Custom markup for left side, default is icon with src from `icon` prop -->
     <slot name="left">
       <img v-if="icon" class="sf-characteristic__icon" :src="icon"/>
     </slot>
   </div>
-  <div class="sf-characteristic__right">
+  <div class="sf-characteristic__col">
     <!-- @slot Custom markup for right side, default is title and description -->
     <slot name="right">
       <div class="sf-characteristic__title" v-html="title"/>
