@@ -1,0 +1,36 @@
+@import '../variables';
+@import '~@glidejs/glide/src/assets/sass/glide.core';
+
+$carousel-mobile-breakpoint: $mobile-max;
+
+.sf-hero{
+  position: relative;
+
+  &__slides{
+    margin: 0;
+  }
+
+  &__controls{
+    display: none;
+
+    @media screen and (min-width: $carousel-mobile-breakpoint){
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate3d(0, -50%, 0);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__pagination{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+
+    //   .sf-pagination__item--current {
+    //       color: red;
+    //   }
+  }
+}

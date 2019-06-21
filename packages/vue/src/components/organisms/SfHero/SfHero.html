@@ -1,0 +1,30 @@
+<div class="sf-hero">
+    <div class="glide" ref="glide">
+        <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides sf-hero__slides">
+                <slot />
+            </ul>
+        </div>
+    </div>
+    <div class="sf-hero__controls">
+        <SfArrow
+            @click="go('<')"
+            class="sf-arrow sf-arrow--transparent"
+            aria-label="previous"/>
+        <SfArrow
+            @click="go('>')"
+            class="sf-arrow sf-arrow--right sf-arrow--transparent"
+            aria-label="next"/>
+    </div>
+    <div class="sf-hero__pagination">
+        <sf-pagination
+            v-model="page"
+            :total="numberOfPages">
+            <template slot="prev">{{""}}</template>
+            <template v-slot:number="{ number }">
+                <sf-icon><img src='assets/cart.svg' alt="Cart icon"></sf-icon>
+            </template>
+            <template slot="next">{{""}}</template>
+        </sf-pagination>
+    </div>
+</div>

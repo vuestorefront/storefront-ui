@@ -74,4 +74,15 @@ $arrow__icon-color--hover: $c-dark-primary;
       }
     }
   }
+  &--transparent{
+    .sf-arrow{
+      &__button{
+        background-color: transparent;
+
+        &:hover{
+          background-color: transparent;
+        }
+      }
+    }
+  }
 }
