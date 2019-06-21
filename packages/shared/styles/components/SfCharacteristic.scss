@@ -1,0 +1,21 @@
+@import '../variables';
+
+$characteristic-max-width: 300px !default;
+
+.sf-characteristic {
+  display: flex;
+  width: 100%;
+  max-width: $characteristic-max-width;
+
+  &__left {
+    background: #000;
+    height: 10px;
+    flex: 1;
+  }
+
+  &__right {
+    background: red;
+    height: 10px;
+    flex: 3;
+  }
+}
