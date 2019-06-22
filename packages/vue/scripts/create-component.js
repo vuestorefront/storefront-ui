@@ -14,7 +14,9 @@ const glob = require("glob");
 const ATOMIC_TYPE = ["atoms", "molecules", "organisms"];
 
 if (process.argv.length < 4) {
-  console.warn("Please input atomic type and component name");
+  console.warn(
+    "Please input atomic type and component name:\n\n\nyarn create-component <type> <name>\n\n"
+  );
   process.exit(-1);
 }
 
@@ -27,6 +29,7 @@ function createComponent(folder, componentName) {
     );
     process.exit(-1);
   }
+  const ComponentType = uppercamelcase(folder);
   const ComponentName = uppercamelcase(componentName);
   const PrefixComponentName = ComponentName.startsWith("Sf")
     ? ComponentName
@@ -35,6 +38,10 @@ function createComponent(folder, componentName) {
     __dirname,
     `../src/components/${folder}`,
     `${PrefixComponentName}`
+  );
+  const SharedFilesPath = path.resolve(
+    __dirname,
+    `../../shared/styles/components`
   );
   const joinedComponentName =
     "sf" +
@@ -59,6 +66,7 @@ function createComponent(folder, componentName) {
     },
     {
       fileName: `${PrefixComponentName}.scss`,
+      filePath: SharedFilesPath,
       content: `@import '../variables';
 
 // $component__block-property: value;
@@ -109,7 +117,7 @@ const eventsTableConfig = {
   ]
 };
 
-// storiesOf("${PrefixComponentName}", module)
+// storiesOf("${ComponentType}|${ComponentName}", module)
 //   .addDecorator(withKnobs)
 //   .add(
 //     "[slot] default",
@@ -149,12 +157,14 @@ const eventsTableConfig = {
       fileName: `${PrefixComponentName}.vue`,
       content: `<script src="./${PrefixComponentName}.js"></script>
 <template lang="html" src="./${PrefixComponentName}.html"></template>
-<style lang="scss" src="./${PrefixComponentName}.scss"></style>`
+<style lang="scss">
+@import "~@storefrontui/shared/styles/components/${PrefixComponentName}.scss";
+</style>`
     }
   ];
 
   files.forEach(file => {
-    fileSave(path.join(PackagePath, file.fileName))
+    fileSave(path.join(file.filePath || PackagePath, file.fileName))
       .write(file.content, "utf8")
       .end("\n");
   });
