@@ -11,63 +11,77 @@ const fs = require("fs");
 const fileSave = require("file-save");
 const uppercamelcase = require("uppercamelcase");
 const glob = require("glob");
+const prompts = require("prompts");
+
 const ATOMIC_TYPE = ["atoms", "molecules", "organisms"];
 
-if (process.argv.length < 4) {
-  console.warn(
-    "Please input atomic type and component name:\n\n\nyarn create-component <type> <name>\n\n"
-  );
-  process.exit(-1);
-}
+const questions = [
+  {
+    type: "select",
+    name: "component",
+    message: "What type of component do you want to create?",
+    choices: ATOMIC_TYPE,
+    initial: 1
+  },
+  {
+    type: "text",
+    name: "name",
+    message: "Enter the name for the component",
+    initial: "banner"
+  }
+];
 
-createComponent(process.argv[2], process.argv[3]);
+(async () => {
+  const response = await prompts(questions);
 
-function createComponent(folder, componentName) {
-  if (!ATOMIC_TYPE.includes(folder)) {
-    console.warn(
-      "Following atomic types are supported: atoms, molecules, organisms"
+  const component = ATOMIC_TYPE[response.component];
+  const name = response.name;
+
+  createComponent(component, name);
+
+  function createComponent(folder, componentName) {
+    const ComponentType = uppercamelcase(folder);
+    const ComponentName = uppercamelcase(componentName);
+    const PrefixComponentName = ComponentName.startsWith("Sf")
+      ? ComponentName
+      : "Sf" + ComponentName;
+    const PackagePath = path.resolve(
+      __dirname,
+      `../src/components/${folder}`,
+      `${PrefixComponentName}`
     );
-    process.exit(-1);
-  }
-  const ComponentType = uppercamelcase(folder);
-  const ComponentName = uppercamelcase(componentName);
-  const PrefixComponentName = ComponentName.startsWith("Sf")
-    ? ComponentName
-    : "Sf" + ComponentName;
-  const PackagePath = path.resolve(
-    __dirname,
-    `../src/components/${folder}`,
-    `${PrefixComponentName}`
-  );
-  const SharedFilesPath = path.resolve(
-    __dirname,
-    `../../shared/styles/components`
-  );
-  const joinedComponentName =
-    "sf" +
-    ComponentName.replace(/([A-Z])(?=\w)/g, (s1, s2) => "-" + s2.toLowerCase());
-  const ret = glob.sync(PackagePath + "/" + PrefixComponentName + ".js");
+    const SharedFilesPath = path.resolve(
+      __dirname,
+      `../../shared/styles/components`
+    );
+    const joinedComponentName =
+      "sf" +
+      ComponentName.replace(
+        /([A-Z])(?=\w)/g,
+        (s1, s2) => "-" + s2.toLowerCase()
+      );
+    const ret = glob.sync(PackagePath + "/" + PrefixComponentName + ".js");
 
-  if (ret.length > 0) {
-    console.warn(`${PrefixComponentName} component was already created. \n`);
-    process.exit(-1);
-  }
+    if (ret.length > 0) {
+      console.warn(`${PrefixComponentName} component was already created. \n`);
+      process.exit(-1);
+    }
 
-  const files = [
-    {
-      fileName: `${PrefixComponentName}.html`,
-      content: `<div class="${joinedComponentName}"></div>`
-    },
-    {
-      fileName: `${PrefixComponentName}.js`,
-      content: `export default {
-  name: "${PrefixComponentName}"
-};`
-    },
-    {
-      fileName: `${PrefixComponentName}.scss`,
-      filePath: SharedFilesPath,
-      content: `@import '../variables';
+    const files = [
+      {
+        fileName: `${PrefixComponentName}.html`,
+        content: `<div class="${joinedComponentName}"></div>`
+      },
+      {
+        fileName: `${PrefixComponentName}.js`,
+        content: `export default {
+    name: "${PrefixComponentName}"
+  };`
+      },
+      {
+        fileName: `${PrefixComponentName}.scss`,
+        filePath: SharedFilesPath,
+        content: `@import '../variables';
 
 // $component__block-property: value;
 
@@ -79,10 +93,10 @@ function createComponent(folder, componentName) {
 
 //   }
 // }`
-    },
-    {
-      fileName: `${PrefixComponentName}.spec.ts`,
-      content: `import { shallowMount } from "@vue/test-utils";
+      },
+      {
+        fileName: `${PrefixComponentName}.spec.ts`,
+        content: `import { shallowMount } from "@vue/test-utils";
 import ${PrefixComponentName} from "@/components/${folder}/${PrefixComponentName}.vue";
 
 describe("${PrefixComponentName}.vue", () => {
@@ -91,10 +105,10 @@ describe("${PrefixComponentName}.vue", () => {
     expect(component.contains(".${joinedComponentName}")).toBe(true);
   });
 });`
-    },
-    {
-      fileName: `${PrefixComponentName}.stories.js`,
-      content: `// /* eslint-disable import/no-extraneous-dependencies */
+      },
+      {
+        fileName: `${PrefixComponentName}.stories.js`,
+        content: `// /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
@@ -152,20 +166,21 @@ const eventsTableConfig = {
 //      }
 //    }
 // );`
-    },
-    {
-      fileName: `${PrefixComponentName}.vue`,
-      content: `<script src="./${PrefixComponentName}.js"></script>
+      },
+      {
+        fileName: `${PrefixComponentName}.vue`,
+        content: `<script src="./${PrefixComponentName}.js"></script>
 <template lang="html" src="./${PrefixComponentName}.html"></template>
 <style lang="scss">
 @import "~@storefrontui/shared/styles/components/${PrefixComponentName}.scss";
 </style>`
-    }
-  ];
+      }
+    ];
 
-  files.forEach(file => {
-    fileSave(path.join(file.filePath || PackagePath, file.fileName))
-      .write(file.content, "utf8")
-      .end("\n");
-  });
-}
+    files.forEach(file => {
+      fileSave(path.join(file.filePath || PackagePath, file.fileName))
+        .write(file.content, "utf8")
+        .end("\n");
+    });
+  }
+})();
