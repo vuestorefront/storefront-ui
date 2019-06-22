@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "create-component": "node ./scripts/create-component.js"
   },
   "repository": {
     "type": "git",

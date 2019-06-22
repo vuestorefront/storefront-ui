@@ -13,9 +13,16 @@ const uppercamelcase = require("uppercamelcase");
 const glob = require("glob");
 const prompts = require("prompts");
 
+const PACKAGE_TYPE = ["vue"]; // @todo: before adding new framework ensure you also generate the correct files for that (ie. component.vue)
 const ATOMIC_TYPE = ["atoms", "molecules", "organisms"];
 
 const questions = [
+  {
+    type: "select",
+    name: "framework",
+    message: "Which framework do you want to create the component with?",
+    choices: PACKAGE_TYPE
+  },
   {
     type: "select",
     name: "component",
@@ -34,25 +41,26 @@ const questions = [
 (async () => {
   const response = await prompts(questions);
 
+  const framework = PACKAGE_TYPE[response.framework];
   const component = ATOMIC_TYPE[response.component];
   const name = response.name;
 
-  createComponent(component, name);
+  createComponent(framework, component, name);
 
-  function createComponent(folder, componentName) {
-    const ComponentType = uppercamelcase(folder);
+  function createComponent(packageFolder, componentFolder, componentName) {
+    const ComponentType = uppercamelcase(componentFolder);
     const ComponentName = uppercamelcase(componentName);
     const PrefixComponentName = ComponentName.startsWith("Sf")
       ? ComponentName
       : "Sf" + ComponentName;
     const PackagePath = path.resolve(
       __dirname,
-      `../src/components/${folder}`,
+      `../packages/${packageFolder}/src/components/${componentFolder}`,
       `${PrefixComponentName}`
     );
     const SharedFilesPath = path.resolve(
       __dirname,
-      `../../shared/styles/components`
+      `../packages/shared/styles/components`
     );
     const joinedComponentName =
       "sf" +
@@ -97,7 +105,7 @@ const questions = [
       {
         fileName: `${PrefixComponentName}.spec.ts`,
         content: `import { shallowMount } from "@vue/test-utils";
-import ${PrefixComponentName} from "@/components/${folder}/${PrefixComponentName}.vue";
+import ${PrefixComponentName} from "@/components/${componentFolder}/${PrefixComponentName}.vue";
 
 describe("${PrefixComponentName}.vue", () => {
   it("renders a component", () => {
