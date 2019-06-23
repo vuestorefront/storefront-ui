@@ -1,0 +1,5 @@
+<div class="sf-input">      
+  <input v-bind="$attrs" v-on="listeners" :value="value" required>
+  <span class="sf-input__bar"></span>
+  <label class="sf-input__label"><slot>{{ label }}</slot></label>
+</div>
