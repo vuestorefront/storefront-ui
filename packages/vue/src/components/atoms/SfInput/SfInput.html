@@ -1,5 +1,5 @@
 <div class="sf-input" :class="{ 'sf-input--invalid': !valid }">
-  <input v-bind="$attrs" v-on="listeners" :value="value" required>
+  <input v-bind="$attrs" v-on="listeners" :value="value">
   <span class="sf-input__bar"></span>
   <label class="sf-input__label"><slot>{{ label }}</slot></label>
   <div class="sf-input__error-message">
