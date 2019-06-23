@@ -1,19 +1,18 @@
 @import '../../../css/variables';
 
-$sf-input__transition              : all 0.3s ease-in-out !default;
+$sf-input__transition                 : all 0.3s ease-in-out !default;
 
-$sf-input__input-font-size         : 1.125rem !default;
-$sf-input__label-font-size         : 1.125rem !default;
-$sf-input__label-focus-font-size   : 0.625rem !default;
+$sf-input__input-font-size            : $font-size-big-desktop !default;
+$sf-input__label-font-size            : $font-size-big-desktop !default;
+$sf-input__label-focus-font-size      : 0.625rem !default;
 
-$sf-input__margin-bottom           : 2.625rem;
+$sf-input__error-message-min-height   : 0.875rem !default;
 
-$sf-input__active-color            : $c-accent-primary !default;
-$sf-input__invalid-color           : rgba(240, 140, 125, 1) !default;
+$sf-input__active-color               : $c-accent-primary !default;
+$sf-input__invalid-color              : rgba(240, 140, 125, 1) !default;
 
 .sf-input {
   position: relative;
-  margin-bottom: $sf-input__margin-bottom;
 
   & > input {
     font-size: $sf-input__input-font-size;
@@ -78,11 +77,18 @@ $sf-input__invalid-color           : rgba(240, 140, 125, 1) !default;
     }
   }
 
+  &__error-message {
+    padding-top: $spacer-small;
+    color: $sf-input__invalid-color;
+    font-size: $font-size-extra-small-desktop;
+    min-height: $sf-input__error-message-min-height;
+  }
+
   &--invalid {
     & > input:focus ~ .sf-input__label {
       color: $sf-input__invalid-color;
     }
-    & > .sf-input__label, .sf-input__label::after {
+    & > .sf-input__label::after {
       color: $sf-input__invalid-color;
     }
     & > .sf-input__bar::before, .sf-input__bar::after {

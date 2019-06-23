@@ -1,3 +1,5 @@
+import "../../../utilities/transitions/transitions.scss";
+
 export default {
   name: "SfInput",
   props: {
@@ -12,6 +14,10 @@ export default {
     valid: {
       type: Boolean,
       default: true
+    },
+    errorMessage: {
+      type: String,
+      default: null
     }
   },
   computed: {
