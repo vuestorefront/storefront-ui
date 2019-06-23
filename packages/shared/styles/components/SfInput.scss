@@ -9,6 +9,7 @@ $sf-input__label-focus-font-size   : 0.625rem !default;
 $sf-input__margin-bottom           : 2.625rem;
 
 $sf-input__active-color            : $c-accent-primary !default;
+$sf-input__invalid-color           : rgba(240, 140, 125, 1) !default;
 
 .sf-input {
   position: relative;
@@ -25,7 +26,6 @@ $sf-input__active-color            : $c-accent-primary !default;
 
     &:required ~ .sf-input__label::after {
       content: ' *';
-      color: $sf-input__active-color;
     }
 
     &:focus {
@@ -72,6 +72,21 @@ $sf-input__active-color            : $c-accent-primary !default;
     position: absolute;
     pointer-events: none;
     top: 10px;
-    transition: $sf-input__transition; 
+    transition: $sf-input__transition;
+    &::after {
+      color: $sf-input__active-color;
+    }
+  }
+
+  &--invalid {
+    & > input:focus ~ .sf-input__label {
+      color: $sf-input__invalid-color;
+    }
+    & > .sf-input__label, .sf-input__label::after {
+      color: $sf-input__invalid-color;
+    }
+    & > .sf-input__bar::before, .sf-input__bar::after {
+      background-color: $sf-input__invalid-color;
+    }
   }
 }

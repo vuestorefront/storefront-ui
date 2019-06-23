@@ -8,6 +8,10 @@ export default {
     label: {
       type: String,
       default: null
+    },
+    valid: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
