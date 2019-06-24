@@ -6,9 +6,12 @@ $carousel__controls-size: 240px;
 .sf-carousel{
   position: relative;
   &__wrapper{
-    max-width: calc(100% - #{$carousel__controls-size});
+    max-width: 100%;
     margin: auto;
     overflow: hidden;
+    @media screen and (min-width: $desktop-min){
+      max-width: calc(100% - #{$carousel__controls-size});
+    }
   }
   &__slides{
     margin: 0;
