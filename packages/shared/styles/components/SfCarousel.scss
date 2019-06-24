@@ -1,10 +1,12 @@
 @import '../variables';
 @import '~@glidejs/glide/src/assets/sass/glide.core';
 
+$carousel__controls-size: 240px;
+
 .sf-carousel{
   position: relative;
   &__wrapper{
-    max-width: calc(100% - 240px);
+    max-width: calc(100% - #{$carousel__controls-size});
     margin: auto;
     overflow: hidden;
   }
