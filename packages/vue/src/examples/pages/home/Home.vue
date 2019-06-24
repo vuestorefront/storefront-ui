@@ -2,11 +2,11 @@
   <div id="home">
     <!-- SfHero -->
     <SfBanner
-      title="ECO SANDALS"
-      subtitle="Summer shoes"
-      description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
+      title="THE OFFICE LIFE"
+      subtitle="T-Shirts"
+      description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
       button-text="SHOP NOW"
-      :image="bannerA"
+      :image="bannerC"
       class="banner"
     />
     <SfBanner
@@ -18,11 +18,11 @@
       class="sf-banner--left banner"
     />
     <SfBanner
-      title="THE OFFICE LIFE"
-      subtitle="T-Shirts"
-      description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+      title="ECO SANDALS"
+      subtitle="Summer shoes"
+      description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
       button-text="SHOP NOW"
-      :image="bannerC"
+      :image="bannerA"
       class="banner"
     />
     <SfCallToAction
@@ -37,13 +37,14 @@
       }"
       class="section"
     >
-      <SfCarousel :options="{ gap: 0 }">
+      <SfCarousel :settings="{ gap: 0 }" class="carousel">
         <SfCarouselItem>
           <SfProductCard
             title="Cream Beach Bag"
             :image="productA"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
+            class="product-card"
           />
         </SfCarouselItem>
         <SfCarouselItem>
@@ -52,6 +53,7 @@
             :image="productB"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
+            class="product-card"
           />
         </SfCarouselItem>
         <SfCarouselItem>
@@ -60,6 +62,7 @@
             :image="productC"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
+            class="product-card"
           />
         </SfCarouselItem>
         <SfCarouselItem>
@@ -68,6 +71,7 @@
             :image="productA"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
+            class="product-card"
           />
         </SfCarouselItem>
         <SfCarouselItem>
@@ -76,6 +80,7 @@
             :image="productB"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
+            class="product-card"
           />
         </SfCarouselItem>
         <SfCarouselItem>
@@ -84,6 +89,7 @@
             :image="productC"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
+            class="product-card"
           />
         </SfCarouselItem>
         <SfCarouselItem>
@@ -92,6 +98,7 @@
             :image="productA"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
+            class="product-card"
           />
         </SfCarouselItem>
         <SfCarouselItem>
@@ -100,6 +107,7 @@
             :image="productB"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
+            class="product-card"
           />
         </SfCarouselItem>
       </SfCarousel>
@@ -184,32 +192,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "../../../css/variables";
-*,
-*::before,
-*::after {
-  padding: 0;
-  margin: 0;
-}
-
-/*reset default styles*/
-.sf-section {
-  padding: 0;
-  &__content {
-    margin: $spacer-extra-big 0;
-    @media screen and (min-width: $desktop-min) {
-      margin: $spacer-extra-big * 2 0;
-    }
-  }
-}
-.sf-carousel {
-  margin: 20px 0;
-  &__wrapper {
-    padding: 20px;
-  }
-}
-</style>
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefrontui/shared/styles/helpers/visibility";
@@ -238,10 +220,17 @@ export default {
     margin: $spacer-extra-big * 2 0;
   }
 }
-.section {
+.sf-section {
   margin: $spacer-extra-big 0;
+  padding: 0;
   @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big * 4 0;
+  }
+  /deep/ &__content {
+    margin: $spacer-extra-big 0;
+    @media screen and (min-width: $desktop-min) {
+      margin: $spacer-extra-big * 2 0;
+    }
   }
 }
 .download {
@@ -251,10 +240,15 @@ export default {
     }
   }
 }
-
-.sf-product-card {
+.product-card {
   &:hover {
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+  }
+}
+.sf-carousel {
+  margin: -20px 0;
+  /deep/ &__wrapper {
+    padding: 20px;
   }
 }
 </style>
