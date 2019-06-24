@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from '@storybook/vue';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
-import './home.scss';
+import { storiesOf } from "@storybook/vue";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
+import "./home.scss";
 
-storiesOf(' |Introduction', module)
+storiesOf(" |Introduction", module)
   .addDecorator(withKnobs)
   .addParameters({
     options: {
@@ -11,7 +11,7 @@ storiesOf(' |Introduction', module)
       isToolshown: false
     }
   })
-  .add('How to use Storybook', () => ({
+  .add("How to use Storybook", () => ({
     template: `
     <div class="intro">
       <h1>StorefrontUI - Customization-first component library</h1>
@@ -36,7 +36,7 @@ storiesOf(' |Introduction', module)
           <pre>import "@storefrontui/vue/dist/css/all.scss";</pre>
         </li>
         <li> It's done! Now you can import and use any of the components: 
-          <pre> import { SfComponentName } from "@storefrontui/vue/dist/SfComponentName.vue"</pre>
+          <pre> import { SfComponentName } from "@storefrontui/vue"</pre>
         </li>
         <li> You can find detailed information about every component inside each component's story. </li>
       </ol>

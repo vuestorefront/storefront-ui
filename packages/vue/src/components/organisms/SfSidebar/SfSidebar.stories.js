@@ -18,7 +18,7 @@ const cssTableConfig = {
   tableBodyConfig: [["sf-sidebar--right", "places sidebar on the right side"]]
 };
 
-storiesOf("Molecules|Sidebar", module)
+storiesOf("Organisms|Sidebar", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
@@ -55,7 +55,7 @@ storiesOf("Molecules|Sidebar", module)
         summary:
           "`SfSidebar` will add `overflow: hidden` CSS property to body once instantiated. This is why you should always use `v-if`." +
           `<h2> Usage </h2>
-          <pre><code>import SfSidebar from "@storefrontui/vue/dist/SfSidebar.vue"</code></pre>
+          <pre><code>import { SfSidebar } from "@storefrontui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
           `

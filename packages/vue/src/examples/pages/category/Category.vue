@@ -161,7 +161,7 @@
 </template>
 
 <script>
-import SfSidebar from "@/components/molecules/SfSidebar/SfSidebar.vue";
+import SfSidebar from "@/components/organisms/SfSidebar/SfSidebar.vue";
 import SfButton from "@/components/atoms/SfButton/SfButton.vue";
 import SfList from "@/components/organisms/SfList/SfList.vue";
 import SfMenuItem from "@/components/molecules/SfMenuItem/SfMenuItem.vue";

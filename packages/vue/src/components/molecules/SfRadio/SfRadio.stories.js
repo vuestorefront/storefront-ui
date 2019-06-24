@@ -99,7 +99,7 @@ storiesOf("Molecules|Radio", module)
       info: {
         summary: `<p>Component for simple group of radio buttons, pass an array get selected value via v-model.</p>
         <h2> Usage </h2>
-        <pre><code>import SfRadio from "@storefrontui/vue/dist/SfRadio.vue"</code></pre>
+        <pre><code>import { SfRadio } from "@storefrontui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }
