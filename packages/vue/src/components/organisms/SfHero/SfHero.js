@@ -3,6 +3,7 @@ import Vue from "vue";
 import SfHeroItem from "./_internal/SfHeroItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
 import SfPagination from "../../molecules/SfPagination/SfPagination.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 import Glide from "@glidejs/glide";
 
@@ -31,7 +32,8 @@ export default {
   },
   components: {
     SfArrow,
-    SfPagination
+    SfPagination,
+    SfIcon
   },
   methods: {
     go(direct) {
