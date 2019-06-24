@@ -1,12 +1,11 @@
 @import '../variables';
 
-// $component__block-property: value;
-
- .sf-image {
-   &__element {
-
-   }
-   &--modifier {
-
-   }
- }
+.sf-image {
+  position: relative;
+  & > .test {
+    opacity: 0;
+  }
+  &:hover > .test{
+    opacity: 1;
+  }
+}

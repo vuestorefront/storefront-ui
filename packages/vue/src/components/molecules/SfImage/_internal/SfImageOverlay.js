@@ -1,8 +1,3 @@
-import Vue from "vue";
-import SfImageOverlay from "./_internal/SfImageOverlay.vue";
-
-Vue.component("SfImageOverlay", SfImageOverlay);
-
 export default {
   name: "SfImage",
   props: {
@@ -15,5 +10,14 @@ export default {
       default: ""
     }
   },
-  methods: {}
+  data() {
+    return {
+      isOverlay: false
+    };
+  },
+  methods: {
+    toggleOverlay(visible) {
+      this.isOverlay = visible;
+    }
+  }
 };

@@ -1,1 +1,6 @@
-<div class="sf-image"></div>
+<div class="sf-image">
+  <SfImageOverlay class="test">
+    <slot/>
+  </SfImageOverlay>
+  <img :src="src" :alt="alt">
+</div>
