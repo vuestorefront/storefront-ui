@@ -8,6 +8,8 @@ $radio__checkmark-border-width--checked:  0.5625rem !default;
 $radio__checkmark-margin: 0.625rem !default;
 
 $radio__container-align-items: flex-start !default;
+$radio__container__content__description-font-weight: 300 !default;
+$radio__container__content__description-line-height: 1.25rem !default;
 $radio__container-background-color--checked: $c-light-primary !default;
 $radio__container__content__description-color: $c-dark-primary !default;
 $radio__container__content__description-size: $font-size-extra-small-desktop !default;
@@ -29,8 +31,10 @@ $radio__container__content__description-size: $font-size-extra-small-desktop !de
         }
 
         &__description {
-            font-size: $radio__container__content__description-size;
             color: $radio__container__content__description-color;
+            font-size: $radio__container__content__description-size;
+            line-height: $radio__container__content__description-line-height;
+            font-weight: $radio__container__content__description-font-weight;
         }
       }
   }
