@@ -52,7 +52,7 @@ storiesOf("Molecules|[WIP]Image", module)
           <SfImage
             style="width: 162px; height: 162px"
             src="https://source.unsplash.com/162x162/"
-            :alt="angelina_trn"
+            alt="angelina_trn"
             :class="customClass"
           >
           angelina_trn
@@ -62,7 +62,7 @@ storiesOf("Molecules|[WIP]Image", module)
           <SfImage
             style="width: 162px; height: 162px"
             src="https://source.unsplash.com/162x162/"
-            :alt="trn_angelina"
+            alt="trn_angelina"
             :class="customClass"
           >
           trn_angelina
