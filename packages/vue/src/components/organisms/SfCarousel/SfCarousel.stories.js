@@ -26,14 +26,14 @@ storiesOf("Organisms|Carousel", module)
             height: "300px",
             "background-color": "#5ECE7B"
           },
-          options: {
+          settings: {
             perView: 4
           }
         };
       },
       template: `
       <div style="max-width: 1140px">
-        <SfCarousel :options="options">
+        <SfCarousel :settings="settings">
           <SfCarouselItem>
             <div :style="style">1</div>
           </SfCarouselItem>
