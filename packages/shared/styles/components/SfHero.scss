@@ -24,13 +24,28 @@ $carousel-mobile-breakpoint: $mobile-max;
     }
   }
 
-  &__pagination{
+  &__bullets{
       position: absolute;
-      bottom: 0;
+      bottom: 16px;
       width: 100%;
-
+      display: flex;
+      justify-content: center;
+      align-content: center;
     //   .sf-pagination__item--current {
     //       color: red;
     //   }
+  }
+
+  &__bullet {
+    border-radius: 50%;
+    background: $c-gray-primary;
+    width: 10px;
+    height: 10px;
+    margin: 3px;
+    cursor: pointer;
+  }
+
+  &__bullet-active {
+    background: $c-green-secondary;
   }
 }

@@ -1,1 +1,64 @@
 @import '../variables';
+
+.sf-hero-item {
+    height: 25rem; // var
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem;
+    @media (max-width: $mobile-max) {
+        padding: 1rem;
+        height: 15rem;
+    }
+
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &__container {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+
+        // @media (max-width: $mobile-max) {
+        //     width: 100%;
+        // }
+    }
+
+    &__subtitle {
+        color: gray; // var
+        border: gray solid 1px; // var
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+        font-size: 12px; // var
+        line-height: 17px; // var
+        padding-left: 40px; // var
+        @media (max-width: $mobile-max) {
+            font-size: 10px; // var
+            line-height: 14px; // var
+            padding-left: 1rem; // var
+        }
+    }
+
+    &__title {
+        font-size: 36px; // var
+        line-height: 50px; //var
+        color: #1D1F22; // var Color/Dark/Primary
+        @media (max-width: $mobile-max) {
+            font-size: 18px; // var
+            line-height: 25px; // var
+        }
+    }
+
+}
+
+// .bgPosition__top-left {
+    // background-position: top left;
+// }
+
+.align-end {
+    align-items: flex-end;
+}
