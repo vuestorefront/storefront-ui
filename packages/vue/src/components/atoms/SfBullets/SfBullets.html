@@ -1,0 +1,20 @@
+<div class="sf-bullets">
+  <span v-for="(_, index) of inactiveLeft" @click="e => $emit('click', index)">
+    <slot name="inactive" class="sf-bullet">
+      <div class="sf-bullet"></div>
+    </slot>
+  </span>
+  <span>
+    <slot name="active">
+      <div class="sf-bullet sf-bullet__active"></div>
+    </slot>
+  </span>
+  <span
+    v-for="(_, index) of inactiveRight"
+    @click="e => $emit('click', (inactiveLeft + 1 + index))"
+  >
+    <slot name="inactive" class="sf-bullet">
+      <div class="sf-bullet"></div>
+    </slot>
+  </span>
+</div>

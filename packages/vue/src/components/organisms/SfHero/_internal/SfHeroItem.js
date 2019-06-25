@@ -71,16 +71,7 @@ export default {
         : "";
     }
   },
-  methods: {
-  //   onButtonClicked() {
-  //     let eventName;
-  //     this.buttonId
-  //       ? (eventName = `button-${this.buttonId}-clicked`)
-  //       : (eventName = `hero-button-${this.title.split(" ").join("-")}-clicked`);
-  //     this.$emit(eventName, eventName);
-  //     this.$emit('elo', 'cuj');
-  //   }
-  },
+  methods: {},
   components: {
     SfButton
   }

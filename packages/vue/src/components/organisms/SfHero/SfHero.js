@@ -4,6 +4,7 @@ import SfHeroItem from "./_internal/SfHeroItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
 import SfPagination from "../../molecules/SfPagination/SfPagination.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfBullets from "../../atoms/SfBullets/SfBullets.vue";
 
 import Glide from "@glidejs/glide";
 
@@ -18,8 +19,7 @@ export default {
         type: "slider",
         rewind: true,
         autoplay: 2000,
-        perView: 1,
-        // slidePerPage: true
+        perView: 1
       }
     };
   },
@@ -37,10 +37,12 @@ export default {
   components: {
     SfArrow,
     SfPagination,
-    SfIcon
+    SfIcon,
+    SfBullets
   },
   methods: {
     go(direct) {
+      console.log(direct);
       switch (direct) {
         case "prev":
           this.glide.go("<");
@@ -62,10 +64,15 @@ export default {
       };
     },
     numberOfPages() {
-      return (
-        this.$slots.default.filter(slot => slot.tag).length +
-        this.heroItems.length
-      );
+      // eslint-disable-next-line no-extra-boolean-cast
+      if (!!this.$slots.default) {
+        return (
+          this.$slots.default.filter(slot => slot.tag).length +
+          this.heroItems.length
+        );
+      } else {
+        return this.heroItems.length;
+      }
     },
     page() {
       if (this.glide) {

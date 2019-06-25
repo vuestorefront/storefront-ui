@@ -2,6 +2,7 @@
 import SfArrow from "./src/components/atoms/SfArrow/SfArrow.vue";
 import SfBadge from "./src/components/atoms/SfBadge/SfBadge.vue";
 import SfBreadcrumbs from "./src/components/atoms/SfBreadcrumbs/SfBreadcrumbs.vue";
+import SfBullets from "./src/components/atoms/SfBullets/SfBullets.vue";
 import SfButton from "./src/components/atoms/SfButton/SfButton.vue";
 import SfCheckbox from "./src/components/atoms/SfCheckbox/SfCheckbox.vue";
 import SfCircleIcon from "./src/components/atoms/SfCircleIcon/SfCircleIcon.vue";
@@ -40,6 +41,7 @@ import SfHero from "./src/components/organisms/SfHero/SfHero.vue";
 export {
   SfArrow,
   SfBadge,
+  SfBullets,
   SfButton,
   SfBreadcrumbs,
   SfCheckbox,

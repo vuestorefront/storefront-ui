@@ -16,7 +16,7 @@
             </ul>
         </div>
     </div>
-    <div class="sf-hero__controls">
+    <div class="sf-hero__controls" v-if="numberOfPages > 1">
         <SfArrow
             @click="go('prev')"
             class="sf-arrow sf-arrow--transparent"
@@ -26,13 +26,18 @@
             class="sf-arrow sf-arrow--right sf-arrow--transparent"
             aria-label="next"/>
     </div>
-    <div class="sf-hero__bullets">
-        <div 
-            class="sf-hero__bullet"
-            :class="(index === page-1) ? 'sf-hero__bullet-active':''"
-            v-for="(_, index) of numberOfPages"
-            @click="go(index)"
-        >
-        </div>
+    <div class="sf-hero__bullets" v-if="numberOfPages > 1">
+        <SfBullets
+            :bulletsNumber="numberOfPages"
+            :currentBulletIndex="page-1"
+            @click="go($event)"
+            >
+            <template #inactive>
+                <slot name="bulletInactive"></slot>
+            </template>
+            <template #active>
+                <slot name="bulletActive"></slot>
+            </template>
+        </SfBullets>
     </div>
 </div>
