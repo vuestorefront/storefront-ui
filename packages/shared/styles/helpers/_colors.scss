@@ -1,0 +1,55 @@
+@import '../variables/colors';
+@import '../functions';
+
+@each $color, $value in $colors-map {
+  // Block utilities with background color and YIQ (white or black) text color
+  .sf-block-#{$color} {
+    background-color: $value !important;
+    color: color-yiq($value) !important;
+  }
+  .sf-block-#{$color}\:hover:hover {
+    background-color: $value !important;
+    color: color-yiq($value) !important;
+  }
+  .sf-block-#{$color}\:active:active,
+  .sf-block-#{$color}\:active:focus {
+    background-color: $value !important;
+    color: color-yiq($value) !important;
+  }
+
+  // Text colors
+  .sf-text-#{$color} {
+    color: $value !important;
+  }
+  .sf-text-#{$color}\:hover:hover {
+    color: $value !important;
+  }
+  .sf-text-#{$color}\:active:active,
+  .sf-text-#{$color}\:active:focus {
+    color: $value !important;
+  }
+
+  // Standalone background colors
+  .sf-bg-#{$color} {
+    background-color: $value !important;
+  }
+  .sf-bg-#{$color}\:hover:hover {
+    background-color: $value !important;
+  }
+  .sf-bg-#{$color}\:active:active,
+  .sf-bg-#{$color}\:active:focus {
+    background-color: $value !important;
+  }
+
+  // Border colors
+  .sf-border-#{$color} {
+    border-color: $value !important;
+  }
+  .sf-border-#{$color}\:hover:hover {
+    border-color: $value !important;
+  }
+  .sf-border-#{$color}\:active:active,
+  .sf-border-#{$color}\:active:focus {
+    border-color: $value !important;
+  }
+}
