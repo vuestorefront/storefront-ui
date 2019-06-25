@@ -1,0 +1,27 @@
+@import '../variables';
+
+$border-radius: 50%;
+$inactive-size: 8px;
+$active-size: 10px;
+$inactive-margin: 4px;
+$active-margin: 3px;
+
+.sf-bullets {
+    display: flex;
+}
+
+.sf-bullet {
+    border-radius: $border-radius;
+    background: $c-gray-primary;
+    width: $inactive-size;
+    height: $inactive-size;
+    margin: $inactive-margin;
+    cursor: pointer;
+    
+    &__active {
+        background: $c-green-secondary;
+        width: $active-size;
+        height: $active-size;
+        margin: $active-margin;
+    }
+}
