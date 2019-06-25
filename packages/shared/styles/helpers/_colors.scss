@@ -1,17 +1,21 @@
 @each $color, $value in $colors {
-  // Utility classes for text and bg colors
-  .has-text-#{$color} {
+  // Atomic utility classes for text and bg colors
+  .text-#{$color} {
     color: $value !important;
   }
-  .has-bg-#{$color} {
+  .bg-#{$color} {
     background-color: $value !important;
   }
 
   // General color modifiers
   // May be overwritten by specific component modifiers
   .is-#{$color} {
-    color: $value;
-    background-color: $value;
-    border-color: $value;
+    color: color-yiq($value) !important;
+    background-color: $value !important;
+    border-color: darken($value, 5) !important;
+    &:hover {
+      background-color: lighten($value, 5) !important;
+      border-color: $value !important;
+    }
   }
 }
