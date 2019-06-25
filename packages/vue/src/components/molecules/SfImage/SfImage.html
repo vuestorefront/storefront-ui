@@ -1,0 +1,15 @@
+<div
+  class="sf-image"
+  :style="{maxWidth: `${maxWidth}px`}"
+  @mouseover="hoverHandler(true)"
+  @mouseleave="hoverHandler(false)">
+  <!-- TODO: overlay hover on mobile ?  -->
+  <SfOverlay
+    v-if="hasOverlay"
+    :visible="overlay && loaded"
+    transition="fade"
+  >
+    <slot/>
+  </SfOverlay>
+  <img ref="img" loading="lazy">
+</div>
