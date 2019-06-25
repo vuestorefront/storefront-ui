@@ -1,4 +1,4 @@
-@each $color, $value in $colors-map {
+@each $color, $value in $colors {
   // Utility classes for text and bg colors
   .has-text-#{$color} {
     color: $value !important;
