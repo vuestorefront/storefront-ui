@@ -27,7 +27,6 @@
           <SfBanner
             title="THE OFFICE LIFE"
             subtitle="T-Shirts"
-            button-text="SHOP NOW"
             :image="bannerC"
             class="sf-banner--left"
           />
@@ -36,7 +35,6 @@
           <SfBanner
             title="ECO SANDALS"
             subtitle="Summer shoes"
-            button-text="SHOP NOW"
             :image="bannerA"
             class="sf-banner--left"
           />
@@ -281,9 +279,10 @@ export default {
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
   }
 }
+
 .banners-grid {
   display: flex;
-  margin: $spacer-big 0;
+  margin: $spacer-medium 0;
   @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big 0;
   }
@@ -291,13 +290,19 @@ export default {
     flex: 1;
     display: flex;
     &:not(:first-child) {
-      margin-left: 40px;
+      margin-left: 10px;
+      @media screen and (min-width: $desktop-min) {
+        margin-left: 40px;
+      }
     }
     &--vertical-tiles {
       flex-direction: column;
 
       & > div:not(:first-child) {
-        margin-top: 40px;
+        margin-top: 10px;
+        @media screen and (min-width: $desktop-min) {
+          margin-top: 40px;
+        }
       }
     }
   }
@@ -319,6 +324,7 @@ export default {
     }
   }
 }
+
 .sf-carousel {
   margin: -20px 0;
   /deep/ &__wrapper {
