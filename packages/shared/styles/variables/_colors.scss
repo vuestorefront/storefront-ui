@@ -7,6 +7,8 @@ $c-gray-primary: #6A6E7E !default;
 $c-gray-secondary: #BEBFC4 !default;
 $c-light-primary: #F1F2F3 !default;
 $c-light-secondary: #FFFFFF !default;
+$c-red-primary: #E22326 !default;
+$c-red-secondary: #FFF8F7 !default;
 $c-pink-primary: #E22326 !default;
 $c-pink-secondary: #FFF8F7 !default;
 $c-yellow-primary: #FFDE3B !default;
@@ -15,7 +17,6 @@ $c-blue-primary: #6699CC !default;
 $c-blue-secondary: #F5F7FA !default;
 $c-black: #000000 !default;
 $c-white: #FFFFFF !default;
-
 
 // Accent
 $c-accent-primary: $c-green-primary !default;
@@ -34,5 +35,19 @@ $c-bg-primary: $c-light-primary !default;
 $c-bg-secondary: $c-light-secondary !default;
 
 // Border
-
 $c-border: $c-light-primary;
+
+// Map colors pallete
+$colors-map: (
+  'primary': $c-accent-primary,
+  'secondary': $c-accent-secondary,
+  'info': $c-blue-primary,
+  'success': $c-green-primary,
+  'warning': $c-yellow-primary,
+  'danger': $c-red-primary,
+  'white': $c-white,
+  'light': $c-light-primary,
+  'body': $c-text-primary,
+  'muted': $c-text-secondary,
+  'dark': $c-black
+);
