@@ -37,7 +37,7 @@ storiesOf("Molecules|[WIP] Image", module)
       },
       components: { SfImage },
       template: `<SfImage
-        :class="customClass"
+        style="width: 162px"
         src="https://source.unsplash.com/random/300x300"
         alt="angelina_trn"
       >

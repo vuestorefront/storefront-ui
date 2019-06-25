@@ -19,7 +19,7 @@ export default {
     return {
       loaded: false,
       overlay: false,
-      maxWidth: 0
+      maxWidth: "unset"
     };
   },
   computed: {
@@ -34,10 +34,10 @@ export default {
   },
   mounted: function() {
     this.$refs.img.setAttribute("src", this.src);
-    this.$refs.img.setAttribute("alt", this.alt);
     this.$refs.img.addEventListener("load", () => {
       this.loaded = true;
-      this.maxWidth = this.$refs.img.offsetWidth;
+      this.$refs.img.setAttribute("alt", this.alt);
+      this.maxWidth = `${this.$refs.img.offsetWidth}px`;
     });
   }
 };
