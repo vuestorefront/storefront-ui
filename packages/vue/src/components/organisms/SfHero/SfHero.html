@@ -2,6 +2,16 @@
     <div class="glide" ref="glide">
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides sf-hero__slides">
+                <div v-for="item in heroItems">
+                    <SfHeroItem
+                        :background="item.background"
+                        :image="item.image"
+                        :title="item.title"
+                        :buttonText="item.buttonText"
+                        :bgPosition="item.bgPosition"
+                        :containerPosition="item.containerPosition">
+                    </SfHeroItem>
+                </div>
                 <slot />
             </ul>
         </div>
@@ -16,28 +26,13 @@
             class="sf-arrow sf-arrow--right sf-arrow--transparent"
             aria-label="next"/>
     </div>
-    <!-- <div class="glide"> -->
-        <!-- <div class="glide__track" data-glide-el="track">...</div> -->
-        
-        <div class="sf-hero__bullets">
-            <div 
-                class="sf-hero__bullet"
-                :class="(index === page-1) ? 'sf-hero__bullet-active':''"
-                v-for="(_, index) of numberOfPages"
-                @click="go(index)"
-            >
-            </div>
+    <div class="sf-hero__bullets">
+        <div 
+            class="sf-hero__bullet"
+            :class="(index === page-1) ? 'sf-hero__bullet-active':''"
+            v-for="(_, index) of numberOfPages"
+            @click="go(index)"
+        >
         </div>
-    <!-- </div> -->
-    <!-- <div class="sf-hero__pagination">
-        <sf-pagination
-            v-model="page"
-            :total="numberOfPages">
-            <template slot="prev">{{""}}</template>
-            <template v-slot:number="{ number }">
-                <sf-icon><img src='assets/cart.svg' alt="Cart icon"></sf-icon>
-            </template>
-            <template slot="next">{{""}}</template>
-        </sf-pagination>
-    </div> -->
+    </div>
 </div>

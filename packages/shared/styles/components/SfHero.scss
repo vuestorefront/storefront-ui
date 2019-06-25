@@ -39,13 +39,16 @@ $carousel-mobile-breakpoint: $mobile-max;
   &__bullet {
     border-radius: 50%;
     background: $c-gray-primary;
-    width: 10px;
-    height: 10px;
-    margin: 3px;
+    width: 8px;
+    height: 8px;
+    margin: 4px;
     cursor: pointer;
   }
 
   &__bullet-active {
     background: $c-green-secondary;
+    width: 10px;
+    height: 10px;
+    margin: 3px;
   }
 }

@@ -71,7 +71,7 @@ export default {
         : "";
     }
   },
-  // methods: {
+  methods: {
   //   onButtonClicked() {
   //     let eventName;
   //     this.buttonId
@@ -80,7 +80,7 @@ export default {
   //     this.$emit(eventName, eventName);
   //     this.$emit('elo', 'cuj');
   //   }
-  // },
+  },
   components: {
     SfButton
   }

@@ -19,7 +19,7 @@ export default {
         rewind: true,
         autoplay: 2000,
         perView: 1,
-        slidePerPage: true
+        // slidePerPage: true
       }
     };
   },
@@ -28,6 +28,10 @@ export default {
     options: {
       type: Object,
       default: () => ({})
+    },
+    heroItems: {
+      type: Array,
+      default: () => []
     }
   },
   components: {
@@ -58,7 +62,10 @@ export default {
       };
     },
     numberOfPages() {
-      return this.$slots.default.filter(slot => slot.tag).length;
+      return (
+        this.$slots.default.filter(slot => slot.tag).length +
+        this.heroItems.length
+      );
     },
     page() {
       if (this.glide) {
