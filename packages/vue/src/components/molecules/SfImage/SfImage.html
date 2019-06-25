@@ -1,0 +1,18 @@
+<div
+  class="sf-image"
+  :style="{maxWidth: maxWidth}"
+  @mouseover="hoverHandler(true)"
+  @mouseleave="hoverHandler(false)">
+  <SfOverlay
+    v-if="hasOverlay"
+    :visible="overlay && loaded"
+    transition="fade"
+  >
+    <slot/>
+  </SfOverlay>
+  <img
+    ref="img"
+    loading="lazy"
+    class="sf-image__img"
+  >
+</div>

@@ -1,0 +1,11 @@
+@import '../variables';
+
+.sf-image {
+  position: relative;
+  display: flex;
+  &__img {
+    flex: 1;
+    max-width: 100%;
+    height: auto;
+  }
+}
