@@ -66,7 +66,7 @@ storiesOf("Organisms|Carousel", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import SfCarousel from "@storefrontui/vue/dist/SfCarousel.vue"</code></pre>
+        <pre><code>import { SfCarousel } from "@storefrontui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }
