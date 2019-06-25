@@ -30,9 +30,9 @@ $button--secondary-background-color : $c-dark-primary !default;
   &:hover {
     background-color: lighten($button-background-color, 5);
   }
-  &--secondary {
+  &.is-secondary {
     color: $button--secondary-color;
-    background-color: $button--secondary-background-color; 
+    background-color: $button--secondary-background-color;
     &:hover {
       background-color: lighten($button--secondary-background-color, 5);
     }
