@@ -29,7 +29,7 @@ storiesOf("Atoms|Button", module)
         <h2> Description </h2>
         <p>Button component. Place desired content into its default slot.</p>
         <h2> Usage </h2>
-        <pre><code>import SfButton from "@storefrontui/vue/dist/SfButton.vue"</code></pre>
+        <pre><code>import { SfButton } from "@storefrontui/vue"</code></pre>
         `
       }
     }
