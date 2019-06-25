@@ -120,11 +120,30 @@
       class="section"
     >
       <!-- SfTiles -->
-      <img
-        :src="placeholderA"
-        alt="placeholderA"
-        style="display: block; margin: auto; max-width: 100%; height: auto"
-      />
+      <div class="images-grid">
+        <div class="images-grid__tiles">
+          <a href="">
+            <SfImage :src="imageA">maria_trn</SfImage>
+          </a>
+        </div>
+        <div class="images-grid__tiles">
+          <a href="#">
+            <SfImage :src="imageB">katherina_trn</SfImage>
+          </a>
+        </div>
+      </div>
+      <div class="images-grid">
+        <div class="images-grid__tiles">
+          <a href="#">
+            <SfImage :src="imageC">angelina_trn</SfImage>
+          </a>
+        </div>
+        <div class="images-grid__tiles">
+          <a href="#">
+            <SfImage :src="imageD">julia_trn</SfImage>
+          </a>
+        </div>
+      </div>
     </SfSection>
     <SfBanner
       subtitle="Fashion to Take Away"
@@ -136,8 +155,8 @@
       </template>
       <template v-slot:call-to-action>
         <div class="download">
-          <img class="download__button" :src="google" alt="" />
-          <img class="download__button" :src="apple" alt="" />
+          <img class="download__button" :src="google" alt="google play" />
+          <img class="download__button" :src="apple" alt="app store" />
         </div>
       </template>
     </SfBanner>
@@ -150,6 +169,7 @@ import SfCallToAction from "@/components/molecules/SfCallToAction/SfCallToAction
 import SfSection from "@/components/molecules/SfSection/SfSection.vue";
 import SfCarousel from "@/components/organisms/SfCarousel/SfCarousel.vue";
 import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
+import SfImage from "@/components/molecules/SfImage/SfImage.vue";
 
 //ASSETS
 import bannerA from "./assets/bannerA.png";
@@ -162,6 +182,11 @@ import productB from "./assets/productB.png";
 import productC from "./assets/productC.png";
 
 import placeholderA from "./assets/placeholderA.png";
+
+import imageA from "./assets/imageA.png";
+import imageB from "./assets/imageB.png";
+import imageC from "./assets/imageC.png";
+import imageD from "./assets/imageD.png";
 
 import google from "./assets/google.png";
 import apple from "./assets/apple.png";
@@ -178,6 +203,10 @@ export default {
       productB,
       productC,
       placeholderA,
+      imageA,
+      imageB,
+      imageC,
+      imageD,
       google,
       apple
     };
@@ -187,7 +216,8 @@ export default {
     SfCallToAction,
     SfSection,
     SfCarousel,
-    SfProductCard
+    SfProductCard,
+    SfImage
   }
 };
 </script>
@@ -220,19 +250,6 @@ export default {
     margin: $spacer-extra-big * 2 0;
   }
 }
-.sf-section {
-  margin: $spacer-extra-big 0;
-  padding: 0;
-  @media screen and (min-width: $desktop-min) {
-    margin: $spacer-extra-big * 4 0;
-  }
-  /deep/ &__content {
-    margin: $spacer-extra-big 0;
-    @media screen and (min-width: $desktop-min) {
-      margin: $spacer-extra-big * 2 0;
-    }
-  }
-}
 .download {
   &__button {
     &:not(:first-child) {
@@ -245,10 +262,40 @@ export default {
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
   }
 }
+.images-grid {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  @media screen and (min-width: $desktop-min) {
+    margin-top: 20px;
+  }
+  &__tiles {
+    max-width: 470px;
+    &:not(:first-child) {
+      margin-left: 10px;
+      @media screen and (min-width: $desktop-min) {
+        margin-left: 20px;
+      }
+    }
+  }
+}
 .sf-carousel {
   margin: -20px 0;
   /deep/ &__wrapper {
     padding: 20px;
+  }
+}
+.sf-section {
+  margin: $spacer-extra-big 0;
+  padding: 0;
+  @media screen and (min-width: $desktop-min) {
+    margin: $spacer-extra-big * 4 0;
+  }
+  /deep/ &__content {
+    margin: $spacer-extra-big 0;
+    @media screen and (min-width: $desktop-min) {
+      margin: $spacer-extra-big * 2 0;
+    }
   }
 }
 </style>
