@@ -38,16 +38,20 @@ $c-bg-secondary: $c-light-secondary !default;
 $c-border: $c-light-primary;
 
 // Map colors palette
-$colors-map: (
-  'primary': $c-green-primary,
-  'secondary': $c-dark-primary,
-  'info': $c-blue-primary,
-  'success': $c-green-primary,
-  'warning': $c-yellow-primary,
-  'danger': $c-red-primary,
-  'white': $c-white,
-  'black': $c-black,
-  'light': $c-light-primary,
-  'dark': $c-text-primary,
-  'muted': $c-text-secondary
+$colors: () !default;
+$colors: map-merge(
+  (
+    'primary': $c-green-primary,
+    'secondary': $c-dark-primary,
+    'info': $c-blue-primary,
+    'success': $c-green-primary,
+    'warning': $c-yellow-primary,
+    'danger': $c-red-primary,
+    'white': $c-white,
+    'black': $c-black,
+    'light': $c-light-primary,
+    'dark': $c-text-primary,
+    'muted': $c-text-secondary
+  ),
+  $colors
 );
