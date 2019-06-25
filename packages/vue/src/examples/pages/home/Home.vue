@@ -1,30 +1,48 @@
 <template>
   <div id="home">
     <!-- SfHero -->
-    <SfBanner
-      title="THE OFFICE LIFE"
-      subtitle="T-Shirts"
-      description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-      button-text="SHOP NOW"
-      :image="bannerC"
-      class="banner"
-    />
-    <SfBanner
-      title="COCKTAIL & PARTY "
-      subtitle="Scarves"
-      description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands."
-      button-text="SHOP NOW"
-      :image="bannerB"
-      class="sf-banner--left banner"
-    />
-    <SfBanner
-      title="ECO SANDALS"
-      subtitle="Summer shoes"
-      description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
-      button-text="SHOP NOW"
-      :image="bannerA"
-      class="banner"
-    />
+    <div class="banners-grid">
+      <div class="banners-grid__column">
+        <SfBanner
+          title="COCKTAIL & PARTY "
+          subtitle="Scarves"
+          description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+          button-text="SHOP NOW"
+          :image="bannerB"
+          class="sf-banner--left sf-banner--top"
+        />
+      </div>
+      <div class="banners-grid__column">
+        <SfBanner
+          title="LINEN DRESSES"
+          subtitle="Dresses"
+          description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+          button-text="SHOP NOW"
+          :image="bannerE"
+          class="sf-banner--left sf-banner--top"
+        />
+      </div>
+      <div class="banners-grid__column banners-grid__column--vertical-tiles">
+        <div>
+          <SfBanner
+            title="THE OFFICE LIFE"
+            subtitle="T-Shirts"
+            button-text="SHOP NOW"
+            :image="bannerC"
+            class="sf-banner--left"
+          />
+        </div>
+        <div>
+          <SfBanner
+            title="ECO SANDALS"
+            subtitle="Summer shoes"
+            button-text="SHOP NOW"
+            :image="bannerA"
+            class="sf-banner--left"
+          />
+        </div>
+      </div>
+    </div>
     <SfCallToAction
       title="Subscribe to Newsletters"
       button-text="SUBSCRIBE"
@@ -119,7 +137,6 @@
       }"
       class="section"
     >
-      <!-- SfTiles -->
       <div class="images-grid">
         <div class="images-grid__tiles">
           <a href="">
@@ -176,6 +193,7 @@ import bannerA from "./assets/bannerA.png";
 import bannerB from "./assets/bannerB.png";
 import bannerC from "./assets/bannerC.png";
 import bannerD from "./assets/bannerD.png";
+import bannerE from "./assets/bannerE.png";
 
 import productA from "./assets/productA.png";
 import productB from "./assets/productB.png";
@@ -199,6 +217,7 @@ export default {
       bannerB,
       bannerC,
       bannerD,
+      bannerE,
       productA,
       productB,
       productC,
@@ -260,6 +279,27 @@ export default {
 .product-card {
   &:hover {
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+  }
+}
+.banners-grid {
+  display: flex;
+  margin: $spacer-big 0;
+  @media screen and (min-width: $desktop-min) {
+    margin: $spacer-extra-big 0;
+  }
+  &__column {
+    flex: 1;
+    display: flex;
+    &:not(:first-child) {
+      margin-left: 40px;
+    }
+    &--vertical-tiles {
+      flex-direction: column;
+
+      & > div:not(:first-child) {
+        margin-top: 40px;
+      }
+    }
   }
 }
 .images-grid {
