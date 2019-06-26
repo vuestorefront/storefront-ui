@@ -30,14 +30,17 @@ $bullets-width: 100%;
 
   &__bullets{
     position: absolute;
-    bottom: $bullets-position-offset;
+    // bottom: $bullets-position-offset;
     width: $bullets-width;
     display: flex;
     justify-content: center;
     align-content: center;
+    &-bottom {
+      bottom: $bullets-position-offset;
+    }
+    &-top {
+      top: $bullets-position-offset;
+    }
   }
 
-  &__bullets-top {
-    top: $bullets-position-offset;
-  }
 }

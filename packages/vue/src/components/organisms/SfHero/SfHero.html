@@ -26,14 +26,14 @@
                     aria-label="previous"/>
             </slot>
         </div>
-        <span @click="go('next')">
+        <div @click="go('next')">
             <!--@slot slot for icon moving to the next item -->
             <slot name="nextIcon">
                 <SfArrow
                     class="sf-arrow sf-arrow--right sf-arrow--transparent"
                     aria-label="next"/>
             </slot>
-        </span>
+        </div>
     </div>
     <div class="sf-hero__bullets" :class="[bulletsPositionClass]" v-if="numberOfPages > 1">
         <SfBullets
