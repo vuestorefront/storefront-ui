@@ -3,8 +3,9 @@
 
 $carousel-mobile-breakpoint: $mobile-max;
 $controls-top: 50%;
-$controls-width: 100%;
-$bullets-position-offset: 16px;
+$controls-padding-h: 32px;
+$controls-width: calc(100% - 2 * #{$controls-padding-h});
+$bullets-position-offset: 40px;
 $bullets-width: 100%;
 
 .sf-hero{
@@ -25,6 +26,7 @@ $bullets-width: 100%;
       width: $controls-width;
       display: flex;
       justify-content: space-between;
+      padding: 0 $controls-padding-h;
     }
   }
 
