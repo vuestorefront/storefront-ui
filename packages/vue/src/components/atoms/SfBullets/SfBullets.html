@@ -1,10 +1,12 @@
 <div class="sf-bullets">
   <span v-for="(_, index) of inactiveLeft" @click="e => $emit('click', index)">
+    <!--@slot custom icon for inactive bullet -->
     <slot name="inactive" class="sf-bullet">
       <div class="sf-bullet"></div>
     </slot>
   </span>
   <span>
+    <!--@slot custom icon for active bullet -->
     <slot name="active">
       <div class="sf-bullet sf-bullet__active"></div>
     </slot>
@@ -13,6 +15,7 @@
     v-for="(_, index) of inactiveRight"
     @click="e => $emit('click', (inactiveLeft + 1 + index))"
   >
+    <!--@slot custom icon for inactive bullet -->
     <slot name="inactive" class="sf-bullet">
       <div class="sf-bullet"></div>
     </slot>
