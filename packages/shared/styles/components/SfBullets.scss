@@ -5,6 +5,8 @@ $inactive-size: 8px;
 $active-size: 10px;
 $inactive-margin: 4px;
 $active-margin: 3px;
+$inactive-color: $c-gray-primary;
+$active-color: $c-green-secondary;
 
 .sf-bullets {
     display: flex;
@@ -12,14 +14,14 @@ $active-margin: 3px;
 
 .sf-bullet {
     border-radius: $border-radius;
-    background: $c-gray-primary;
+    background: $inactive-color;
     width: $inactive-size;
     height: $inactive-size;
     margin: $inactive-margin;
     cursor: pointer;
     
     &__active {
-        background: $c-green-secondary;
+        background: $active-color;
         width: $active-size;
         height: $active-size;
         margin: $active-margin;

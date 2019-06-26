@@ -17,16 +17,22 @@
         </div>
     </div>
     <div class="sf-hero__controls" v-if="numberOfPages > 1">
-        <SfArrow
-            @click="go('prev')"
-            class="sf-arrow sf-arrow--transparent"
-            aria-label="previous"/>
-        <SfArrow
-            @click="go('next')"
-            class="sf-arrow sf-arrow--right sf-arrow--transparent"
-            aria-label="next"/>
+        <div @click="go('prev')">
+            <slot name="previousIcon">
+                <SfArrow
+                    class="sf-arrow sf-arrow--transparent"
+                    aria-label="previous"/>
+            </slot>
+        </div>
+        <span @click="go('next')">
+            <slot name="nextIcon">
+                <SfArrow
+                    class="sf-arrow sf-arrow--right sf-arrow--transparent"
+                    aria-label="next"/>
+            </slot>
+        </span>
     </div>
-    <div class="sf-hero__bullets" v-if="numberOfPages > 1">
+    <div class="sf-hero__bullets" :class="[bulletsPositionClass]" v-if="numberOfPages > 1">
         <SfBullets
             :bulletsNumber="numberOfPages"
             :currentBulletIndex="page-1"

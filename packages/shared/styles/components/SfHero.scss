@@ -2,6 +2,10 @@
 @import '~@glidejs/glide/src/assets/sass/glide.core';
 
 $carousel-mobile-breakpoint: $mobile-max;
+$controls-top: 50%;
+$controls-width: 100%;
+$bullets-position-offset: 16px;
+$bullets-width: 100%;
 
 .sf-hero{
   position: relative;
@@ -15,40 +19,25 @@ $carousel-mobile-breakpoint: $mobile-max;
 
     @media screen and (min-width: $carousel-mobile-breakpoint){
       position: absolute;
-      top: 50%;
+      top: $controls-top;
       left: 0;
-      transform: translate3d(0, -50%, 0);
-      width: 100%;
+      transform: translate3d(0, -$controls-top, 0);
+      width: $controls-width;
       display: flex;
       justify-content: space-between;
     }
   }
 
   &__bullets{
-      position: absolute;
-      bottom: 16px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-content: center;
-    //   .sf-pagination__item--current {
-    //       color: red;
-    //   }
+    position: absolute;
+    bottom: $bullets-position-offset;
+    width: $bullets-width;
+    display: flex;
+    justify-content: center;
+    align-content: center;
   }
 
-  // &__bullet {
-  //   border-radius: 50%;
-  //   background: $c-gray-primary;
-  //   width: 8px;
-  //   height: 8px;
-  //   margin: 4px;
-  //   cursor: pointer;
-  // }
-
-  // &__bullet-active {
-  //   background: $c-green-secondary;
-  //   width: 10px;
-  //   height: 10px;
-  //   margin: 3px;
-  // }
+  &__bullets-top {
+    top: $bullets-position-offset;
+  }
 }

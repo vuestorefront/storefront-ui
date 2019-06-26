@@ -6,6 +6,8 @@ import SfBullets from "../../atoms/SfBullets/SfBullets.vue";
 
 import Glide from "@glidejs/glide";
 
+const BULLETS_POSITION = ["top"];
+
 Vue.component("SfHeroItem", SfHeroItem);
 
 export default {
@@ -30,6 +32,10 @@ export default {
     heroItems: {
       type: Array,
       default: () => []
+    },
+    bulletsPosition: {
+      type: String,
+      default: ""
     }
   },
   components: {
@@ -38,7 +44,6 @@ export default {
   },
   methods: {
     go(direct) {
-      console.log(direct);
       switch (direct) {
         case "prev":
           this.glide.go("<");
@@ -75,6 +80,11 @@ export default {
         return this.glide.index + 1;
       }
       return 1;
+    },
+    bulletsPositionClass() {
+      return BULLETS_POSITION.includes(this.bulletsPosition)
+        ? "sf-hero__bullets-top"
+        : "";
     }
   },
   mounted: function() {
