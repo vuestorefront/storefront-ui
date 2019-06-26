@@ -12,12 +12,14 @@
                         :containerPosition="item.containerPosition">
                     </SfHeroItem>
                 </div>
+                <!--@slot default slot for SfHeroItems tags -->
                 <slot />
             </ul>
         </div>
     </div>
     <div class="sf-hero__controls" v-if="numberOfPages > 1">
         <div @click="go('prev')">
+            <!--@slot slot for icon moving to the previous item -->
             <slot name="previousIcon">
                 <SfArrow
                     class="sf-arrow sf-arrow--transparent"
@@ -25,6 +27,7 @@
             </slot>
         </div>
         <span @click="go('next')">
+            <!--@slot slot for icon moving to the next item -->
             <slot name="nextIcon">
                 <SfArrow
                     class="sf-arrow sf-arrow--right sf-arrow--transparent"
@@ -39,9 +42,11 @@
             @click="go($event)"
             >
             <template #inactive>
+                <!--@slot custom icon for inactive bullet -->
                 <slot name="bulletInactive"></slot>
             </template>
             <template #active>
+                <!--@slot custom icon for active bullet -->
                 <slot name="bulletActive"></slot>
             </template>
         </SfBullets>

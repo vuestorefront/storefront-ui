@@ -18,7 +18,7 @@ export default {
       defaultOptions: {
         type: "slider",
         rewind: true,
-        autoplay: 2000,
+        autoplay: 5000,
         perView: 1
       }
     };
@@ -29,10 +29,12 @@ export default {
       type: Object,
       default: () => ({})
     },
+    /** Items to display in SfHero component */
     heroItems: {
       type: Array,
       default: () => []
     },
+    /** Position of the bullets, either 'top' or 'bottom' */
     bulletsPosition: {
       type: String,
       default: ""
