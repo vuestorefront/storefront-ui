@@ -80,7 +80,7 @@ $arrow__icon-color--hover: $c-dark-primary;
         background-color: transparent;
 
         &:hover{
-          background-color: transparent;
+          box-shadow: none;
         }
       }
     }

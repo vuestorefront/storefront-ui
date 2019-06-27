@@ -19,24 +19,25 @@ const data = () => {
       {
         title: "Colorful summer dresses are already in store",
         buttonText: "Learn more",
-        subtitle: "Summer collection 2019",
-        background: "Pink",
+        subtitle: "SUMMER COLLECTION 2019",
+        background: "#eceff1",
         image: "https://i.ibb.co/Jn6JRGh/hero-bg-left.png",
         bgPosition: "bottom left",
         containerPosition: "right"
       },
       {
         title: "Colorful summer dresses are already in store",
-        subtitle: "Summer collection 2019",
+        subtitle: "SUMMER COLLECTION 2019",
         buttonText: "Learn more",
-        background: "DarkGoldenRod",
+        background: "#efebe9",
+        bgPosition: "bottom right",
         image: "https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
       },
       {
         title: "Colorful summer dresses are already in store",
-        subtitle: "Summer collection 2019",
+        subtitle: "SUMMER COLLECTION 2019",
         buttonText: "Learn more",
-        background: "violet",
+        background: "#fce4ec",
         image: "https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
       }
     ]
@@ -64,25 +65,25 @@ storiesOf("Organisms|SfHero", module)
       template: `<SfHero>
         <SfHeroItem 
           title="Colorful summer dresses are already in store"
-          subtitle="Summer collection 2019"
+          subtitle="SUMMER COLLECTION 2019"
           buttonText="Learn more"
-          background="violet"
+          background="#eceff1"
           image="https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
         ></SfHeroItem>
         <SfHeroItem 
           title="Colorful summer dresses are already in store"
-          subtitle="Summer collection 2019"
+          subtitle="SUMMER COLLECTION 2019"
           buttonText="Learn more"
-          background="DarkGoldenRod"
+          background="#efebe9"
           image="https://i.ibb.co/Jn6JRGh/hero-bg-left.png"
           backgroundPosition="bottom left"
           containerPosition="right"
         ></SfHeroItem>
         <SfHeroItem 
           title="Colorful summer dresses are already in store"
-          subtitle="Summer collection 2019"
+          subtitle="SUMMER COLLECTION 2019"
           buttonText="Learn more"
-          background="pink"
+          background="#fce4ec"
           image="https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
         ></SfHeroItem>
       </SfHero>`
@@ -149,30 +150,30 @@ storiesOf("Organisms|SfHero", module)
           </code>
           <br><br>
           
-          This example uses below items props:<br>
+          This example uses below items props:<br><br>
           <code>
           items: [<br>
             &nbsp;{<br>
             &nbsp;&nbsp;title: "Colorful summer dresses are already in store",<br>
             &nbsp;&nbsp;buttonText: "Learn more",<br>
-            &nbsp;&nbsp;subtitle: "Summer collection 2019",<br>
-            &nbsp;&nbsp;background: "Pink",<br>
+            &nbsp;&nbsp;subtitle: "SUMMER COLLECTION 2019",<br>
+            &nbsp;&nbsp;background: "#eceff1",<br>
             &nbsp;&nbsp;image: "https://i.ibb.co/Jn6JRGh/hero-bg-left.png",<br>
             &nbsp;&nbsp;bgPosition: "bottom left",<br>
             &nbsp;&nbsp;containerPosition: "right"<br>
             &nbsp;},<br>
             &nbsp;{<br>
             &nbsp;&nbsp;title: "Colorful summer dresses are already in store",<br>
-            &nbsp;&nbsp;subtitle: "Summer collection 2019",<br>
+            &nbsp;&nbsp;subtitle: "SUMMER COLLECTION 2019",<br>
             &nbsp;&nbsp;buttonText: "Learn more",<br>
-            &nbsp;&nbsp;background: "DarkGoldenRod",<br>
+            &nbsp;&nbsp;background: "#efebe9",<br>
             &nbsp;&nbsp;image: "https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"<br>
             &nbsp;},<br>
             &nbsp;{<br>
             &nbsp;&nbsp;title: "Colorful summer dresses are already in store",<br>
-            &nbsp;&nbsp;subtitle: "Summer collection 2019",<br>
+            &nbsp;&nbsp;subtitle: "SUMMER COLLECTION 2019",<br>
             &nbsp;&nbsp;buttonText: "Learn more",<br>
-            &nbsp;&nbsp;background: "violet",<br>
+            &nbsp;&nbsp;background: "#fce4ec",<br>
             &nbsp;&nbsp;image: "https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"<br>
             &nbsp;}<br>
           ]<br>

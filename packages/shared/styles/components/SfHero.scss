@@ -1,12 +1,44 @@
 @import '../variables';
 @import '~@glidejs/glide/src/assets/sass/glide.core';
 
-$carousel-mobile-breakpoint: $mobile-max;
-$controls-top: 50%;
-$controls-padding-h: 32px;
-$controls-width: calc(100% - 2 * #{$controls-padding-h});
-$bullets-position-offset: 40px;
-$bullets-width: 100%;
+$hero--mobile-breakpoint: $mobile-max;
+
+$hero__controls--top: 50%;
+$hero__controls--padding-h: 1rem;
+$hero__controls--width: calc(100% - 2 * #{$hero__controls--padding-h});
+
+$hero__bullets--position-offset: 0.5rem;
+$hero__bullets--position-offset-desktop: 2.5rem;
+$hero__bullets--width: 100%;
+
+$hero__item--height: 18rem;
+$hero__item--height-desktop: 30rem;
+$hero__item--width: 100%;
+$hero__item--padding: 1rem;
+$hero__item--padding-desktop: 5rem;
+$hero__item--bg-size: cover;
+$hero__item--bg-repeat: no-repeat;
+
+$hero-item__container--width: 50%;
+$hero-item__container--height: 100%;
+$hero-item__container--padding: 0 2rem;
+
+$hero-item__subtitle--width: min-content;
+$hero-item__subtitle--color: $c-gray-secondary;
+$hero-item__subtitle--border-left: $hero-item__subtitle--color solid 1px;
+$hero-item__subtitle--border: 0;
+$hero-item__subtitle--font: 10px;
+$hero-item__subtitle--font-desktop: 12px;
+$hero-item__subtitle--line_height-desktop: 17px;
+$hero-item__subtitle--line_height: 14px;
+$hero-item__subtitle--padding_left-desktop: 36px;
+$hero-item__subtitle--padding_left: 18px;
+
+$hero-item__title--font: 18px;
+$hero-item__title--font-desktop: 36px;
+$hero-item__title--line-height-desktop: 50px;
+$hero-item__title--line-height: 25px;
+$hero-item__title--color: $c-dark-primary;
 
 .sf-hero{
   position: relative;
@@ -18,31 +50,99 @@ $bullets-width: 100%;
   &__controls{
     display: none;
 
-    @media screen and (min-width: $carousel-mobile-breakpoint){
+    @media screen and (min-width: $hero--mobile-breakpoint){
       position: absolute;
-      top: $controls-top;
+      top: $hero__controls--top;
       left: 0;
-      transform: translate3d(0, -$controls-top, 0);
-      width: $controls-width;
+      transform: translate3d(0, -$hero__controls--top, 0);
+      width: $hero__controls--width;
       display: flex;
       justify-content: space-between;
-      padding: 0 $controls-padding-h;
+      padding: 0 $hero__controls--padding-h;
     }
   }
 
   &__bullets{
+    @media screen and (min-width: $hero--mobile-breakpoint){
+      
+    }
     position: absolute;
-    // bottom: $bullets-position-offset;
-    width: $bullets-width;
+    width: $hero__bullets--width;
     display: flex;
     justify-content: center;
     align-content: center;
-    &-bottom {
-      bottom: $bullets-position-offset;
+
+    &--bottom {
+      bottom: $hero__bullets--position-offset;
+      @media screen and (min-width: $hero--mobile-breakpoint){
+        bottom: $hero__bullets--position-offset-desktop;
+      }
     }
-    &-top {
-      top: $bullets-position-offset;
+    &--top {
+      top: $hero__bullets--position-offset;
+      @media screen and (min-width: $hero--mobile-breakpoint){
+        top: $hero__bullets--position-offset-desktop;
+      }
     }
   }
 
+  &-item {
+    height: $hero__item--height-desktop;
+    width: $hero__item--width;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $hero__item--padding-desktop;
+    @media (max-width: $mobile-max) {
+        padding: $hero__item--padding;
+        height: $hero__item--height;
+    }
+
+    background-size: $hero__item--bg-size;
+    background-repeat: $hero__item--bg-repeat;
+
+    &__container {
+        width: $hero-item__container--width;
+        height: $hero-item__container--height;
+        padding: $hero-item__container--padding;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        @media (max-width: $mobile-max) {
+          padding: 0;
+        }
+    }
+
+    &__subtitle {
+        width: $hero-item__subtitle--width;
+        color: $hero-item__subtitle--color;
+        border: $hero-item__subtitle--border-left;
+        border-top: $hero-item__subtitle--border;
+        border-right: $hero-item__subtitle--border;
+        border-bottom: $hero-item__subtitle--border;
+        font-size: $hero-item__subtitle--font-desktop;
+        line-height: $hero-item__subtitle--line_height-desktop;
+        padding-left: $hero-item__subtitle--padding_left-desktop;
+        @media (max-width: $mobile-max) {
+            font-size: $hero-item__subtitle--font;
+            line-height: $hero-item__subtitle--line-height;
+            padding-left: $hero-item__subtitle--padding-left;
+        }
+    }
+
+    &__title {
+        font-size: $hero-item__title--font-desktop;
+        line-height: $hero-item__title--line-height-desktop;
+        color: $hero-item__title--color;
+        @media (max-width: $mobile-max) {
+            font-size: $hero-item__title--font;
+            line-height: $hero-item__title--line-height;
+        }
+    }
+  }
+}
+
+.align-end {
+    align-items: flex-end;
 }

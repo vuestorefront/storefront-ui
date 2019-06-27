@@ -15,17 +15,13 @@ const CONTAINER_ALIGN = ["right"];
 export default {
   name: "SfHeroItemItem",
   props: {
-    /** Banner title */
+    /** Hero item title */
     title: {
       type: String,
       default: ""
     },
-    /** Banner subtitle (at the top) */
+    /** Hero item subtitle (at the top) */
     subtitle: {
-      type: String,
-      default: ""
-    },
-    description: {
       type: String,
       default: ""
     },
@@ -34,12 +30,12 @@ export default {
       type: String,
       default: ""
     },
-    /** Background color in HEX (eg #FFFFFF) */
+    /** Background color */
     background: {
       type: String,
       default: ""
     },
-    /** Background image. Influenced by $banner-background-size, $banner-background-position CSS props. */
+    /** Background image path */
     image: {
       type: String,
       default: ""
@@ -54,10 +50,6 @@ export default {
       type: String,
       default: ""
     }
-    // buttonId: {
-    //   type: String,
-    //   default: ""
-    // },
   },
   computed: {
     bgPositionClass() {
@@ -71,7 +63,6 @@ export default {
         : "";
     }
   },
-  methods: {},
   components: {
     SfButton
   }

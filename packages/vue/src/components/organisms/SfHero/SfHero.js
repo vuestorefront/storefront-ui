@@ -85,8 +85,8 @@ export default {
     },
     bulletsPositionClass() {
       return BULLETS_POSITION.includes(this.bulletsPosition)
-        ? `sf-hero__bullets-${this.bulletsPosition}`
-        : "sf-hero__bullets-bottom";
+        ? `sf-hero__bullets--${this.bulletsPosition}`
+        : "sf-hero__bullets--bottom";
     }
   },
   mounted: function() {
