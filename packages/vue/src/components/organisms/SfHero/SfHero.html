@@ -1,0 +1,55 @@
+<div class="sf-hero">
+    <div class="glide" ref="glide">
+        <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides sf-hero__slides">
+                <div v-for="item in heroItems">
+                    <SfHeroItem
+                        :background="item.background"
+                        :image="item.image"
+                        :title="item.title"
+                        :subtitle="item.subtitle"
+                        :buttonText="item.buttonText"
+                        :bgPosition="item.bgPosition"
+                        :containerPosition="item.containerPosition">
+                    </SfHeroItem>
+                </div>
+                <!--@slot default slot for SfHeroItems tags -->
+                <slot />
+            </ul>
+        </div>
+    </div>
+    <div class="sf-hero__controls" v-if="numberOfPages > 1">
+        <div @click="go('prev')">
+            <!--@slot slot for icon moving to the previous item -->
+            <slot name="previousIcon">
+                <SfArrow
+                    class="sf-arrow sf-arrow--transparent"
+                    aria-label="previous"/>
+            </slot>
+        </div>
+        <div @click="go('next')">
+            <!--@slot slot for icon moving to the next item -->
+            <slot name="nextIcon">
+                <SfArrow
+                    class="sf-arrow sf-arrow--right sf-arrow--transparent"
+                    aria-label="next"/>
+            </slot>
+        </div>
+    </div>
+    <div class="sf-hero__bullets" :class="[bulletsPositionClass]" v-if="numberOfPages > 1">
+        <SfBullets
+            :bulletsNumber="numberOfPages"
+            :currentBulletIndex="page-1"
+            @click="go($event)"
+            >
+            <template #inactive>
+                <!--@slot custom icon for inactive bullet -->
+                <slot name="bulletInactive"></slot>
+            </template>
+            <template #active>
+                <!--@slot custom icon for active bullet -->
+                <slot name="bulletActive"></slot>
+            </template>
+        </SfBullets>
+    </div>
+</div>

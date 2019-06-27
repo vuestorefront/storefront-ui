@@ -1,0 +1,25 @@
+<li class="glide__slide">
+  <section
+    class="sf-hero-item"
+    :class="[bgPositionClass, containerPositionClass]"
+    :style="'background-image: url(' + image + '); background-color: ' + background +';'">
+    <div class="sf-hero-item__container">
+      <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
+      <slot name="subtitle" >
+        <span class="sf-hero-item__subtitle" v-if="subtitle">{{ subtitle }}</span>
+      </slot>
+      <!--@slot hero item title. Slot content will replace default <h1> tag-->
+      <slot name="title">
+        <h1 class="sf-hero-item__title" v-if="title">{{ title }}</h1>
+      </slot>
+      <!--@slot Call to action section. Slot content will replace default SfButton component-->
+      <slot name="call-to-action">
+        <span v-if="buttonText" class="sf-hero-item__button">
+          <SfButton>
+            {{ buttonText }}
+          </SfButton>
+        </span>
+      </slot>
+    </div>
+  </section>
+</li>

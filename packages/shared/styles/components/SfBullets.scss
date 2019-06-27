@@ -1,0 +1,29 @@
+@import '../variables';
+
+$bullet--border-radius: 50%;
+$bullet--size: 8px;
+$bullet--margin: 6px;
+$bullet--color: $c-gray-primary;
+$bullet--active-size: 10px;
+$bullet--active-margin: 5px;
+$bullet--active-color: $c-green-secondary;
+
+.sf-bullets {
+    display: flex;
+}
+
+.sf-bullet {
+    border-radius: $bullet--border-radius;
+    background: $bullet--color;
+    width: $bullet--size;
+    height: $bullet--size;
+    margin: $bullet--margin;
+    cursor: pointer;
+    
+    &--active {
+        background-color: $bullet--active-color;
+        width: $bullet--active-size;
+        height: $bullet--active-size;
+        margin: $bullet--active-margin;
+    }
+}
