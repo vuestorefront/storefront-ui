@@ -4,6 +4,6 @@ import SfHero from "@/components/organisms/SfHero.vue";
 describe("SfHero.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfHero);
-    expect(component.contains(".sf-sf-hero")).toBe(true);
+    expect(component.contains(".sf-hero")).toBe(true);
   });
 });
