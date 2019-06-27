@@ -36,7 +36,7 @@ storiesOf(" |Introduction", module)
           <pre>import "@storefrontui/vue/dist/css/all.scss";</pre>
         </li>
         <li> It's done! Now you can import and use any of the components: 
-          <pre> import { SfComponentName } from "@storefrontui/vue/dist/SfComponentName.vue"</pre>
+          <pre> import { SfComponentName } from "@storefrontui/vue"</pre>
         </li>
         <li> You can find detailed information about every component inside each component's story. </li>
       </ol>
