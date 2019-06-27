@@ -1,7 +1,10 @@
-import SfIcon from "../SfIcon/SfIcon.vue";
+import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
 
 export default {
   name: "SfAlert",
+  components: {
+    SfIcon
+  },
   props: {
     /**
      * Message that will be displayed in Alert.
@@ -21,20 +24,16 @@ export default {
       type: String,
       default: "alert",
       validator: function(value) {
-        return ["alert", "warning", "info"].indexOf(value) !== -1;
+        return ["alert", "warning", "info", "success"].indexOf(value) !== -1;
       }
     }
   },
   computed: {
-    iconSrc() {
-      return typeof this.icon === "string"
-        ? this.icon
-        : `/assets/alert-${this.type}.svg`;
+    hasIconSrc() {
+      return this.icon && typeof this.icon === "string";
     },
-    iconColor() { return ""; },
-    iconSize() { return ""; }
-  },
-  components: {
-    SfIcon
+    iconSrc() {
+      return typeof this.icon === "string" ? this.icon : "";
+    }
   }
 };
