@@ -58,14 +58,14 @@ storiesOf("Atoms|Arrow", module)
       },
       template: `
       <div :style="{padding: '1rem', 'background-color': customClass.indexOf('sf-arrow--long') ? '' : '#F1F2F3'}">
-      <SfArrow :class="customClass">
+      <SfArrow :class="customClass" />
       </div>
       `
     }),
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import SfArrow from "@storefrontui/vue/dist/SfArrow.vue"</code></pre>
+        <pre><code>import { SfArrow } from "@storefrontui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `

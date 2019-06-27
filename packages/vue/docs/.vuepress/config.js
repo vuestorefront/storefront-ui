@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Storefront UI',
-  description: 'Highly customizable Vue.js UI framework for eCommerce',
+  description: 'Customizable and performant Vue.js UI library for eCommerce',
   themeConfig: {
     logo: '/logo.png',
     nav: [
@@ -18,9 +18,8 @@ module.exports = {
         collapsable: false,
         children: [
           ['/component-rules', 'Component Rules'],
-          ['/creating-new-component', 'Creating New Component'],
           ['/working-with-designs', 'Working With Designs'],
-          ['/working-with-alpaca', 'Working With Alpaca'],
+          ['/creating-new-component', 'Creating New Component'],
         ],
       },
 

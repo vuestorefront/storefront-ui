@@ -97,7 +97,7 @@ storiesOf("Molecules|Options", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import SfOptions from "@storefrontui/vue/dist/SfOptions.vue"</code></pre>
+        <pre><code>import { SfOptions } from "@storefrontui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `

@@ -30,7 +30,7 @@ const scssTableConfig = {
   ]
 };
 
-storiesOf("Atoms|SearchBar", module)
+storiesOf("Molecules|SearchBar", module)
   .addDecorator(withKnobs)
   .add(
     "Props",
@@ -81,7 +81,7 @@ storiesOf("Atoms|SearchBar", module)
 
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import SfSearchBar from "@storefrontui/vue/dist/SfSearchBar.vue"</code></pre>
+        <pre><code>import { SfSearchBar } from "@storefrontui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
       }
     }
