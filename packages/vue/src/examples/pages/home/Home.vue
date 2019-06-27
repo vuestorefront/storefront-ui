@@ -1,6 +1,31 @@
 <template>
   <div id="home">
     <!-- SfHero -->
+    <SfHero>
+      <SfHeroItem
+        title="Colorful summer dresses are already in store"
+        subtitle="SUMMER COLLECTION 2019"
+        buttonText="Learn more"
+        background="#eceff1"
+        image="https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
+      ></SfHeroItem>
+      <SfHeroItem
+        title="Colorful summer dresses are already in store"
+        subtitle="SUMMER COLLECTION 2019"
+        buttonText="Learn more"
+        background="#efebe9"
+        image="assets/storybook/Banner1.png"
+        backgroundPosition="bottom left"
+        containerPosition="right"
+      ></SfHeroItem>
+      <SfHeroItem
+        title="Colorful summer dresses are already in store"
+        subtitle="SUMMER COLLECTION 2019"
+        buttonText="Learn more"
+        background="#fce4ec"
+        image="assets/storybook/Banner2.png"
+      ></SfHeroItem>
+    </SfHero>
     <div class="banners-grid">
       <div class="banners-grid__column banners-grid__column--small">
         <SfBanner
@@ -22,7 +47,9 @@
           class="sf-banner--left sf-banner--top sf-banner--small"
         />
       </div>
-      <div class="banners-grid__column banners-grid__column--vertical-tiles banners-grid__column--small">
+      <div
+        class="banners-grid__column banners-grid__column--vertical-tiles banners-grid__column--small"
+      >
         <div>
           <SfBanner
             title="THE OFFICE LIFE"
@@ -179,6 +206,7 @@
 </template>
 
 <script>
+import SfHero from "@/components/organisms/SfHero/SfHero.vue";
 import SfBanner from "@/components/molecules/SfBanner/SfBanner.vue";
 import SfCallToAction from "@/components/molecules/SfCallToAction/SfCallToAction.vue";
 import SfSection from "@/components/molecules/SfSection/SfSection.vue";
@@ -233,6 +261,7 @@ export default {
     };
   },
   components: {
+    SfHero,
     SfBanner,
     SfCallToAction,
     SfSection,
@@ -299,10 +328,10 @@ export default {
         margin-left: 40px;
       }
     }
-    &--small{
+    &--small {
       flex: 0 0 330px;
     }
-    &--medium{
+    &--medium {
       flex: 0 0 500px;
     }
     &--vertical-tiles {
@@ -355,12 +384,12 @@ export default {
 }
 .sf-banner {
   padding: 2.5rem;
-  /deep/ &__subtitle{
+  /deep/ &__subtitle {
     line-height: 1.167;
     margin: 0;
     padding: 0;
   }
-  /deep/ &__title{
+  /deep/ &__title {
     margin: 0;
     padding: 0;
     font-size: 2.25rem;
@@ -372,12 +401,12 @@ export default {
       width: 77%;
     }
   }
-  /deep/ &--full{
+  /deep/ &--full {
     /deep/ .sf-banner__container {
-        width: 100%;
+      width: 100%;
     }
   }
-  /deep/ &--small{
+  /deep/ &--small {
     /deep/ .sf-banner__container {
       width: 66%;
     }
