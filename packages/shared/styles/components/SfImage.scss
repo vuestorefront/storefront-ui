@@ -1,0 +1,28 @@
+@import '../variables';
+
+$image__overlay-justify-content: center!default;
+$image__overlay-align-items: center!default;
+$image__overlay-background-color: rgba(29, 31, 34, 0.8)!default;
+$image__overlay-color: $c-white !default;
+
+.sf-image {
+  position: relative;
+  display: flex;
+  &__img {
+    flex: none;
+    max-width: 100%;
+    height: auto;
+  }
+  &__overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: $image__overlay-justify-content;
+    align-items: $image__overlay-align-items;
+    background-color: $image__overlay-background-color;
+    color: $image__overlay-color;
+  }
+}
