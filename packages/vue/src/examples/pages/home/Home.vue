@@ -165,18 +165,26 @@
       <div class="images-grid">
         <!-- TODO: test SfImage and fix it -->
         <div class="images-grid__tiles">
-            <SfImage src="assets/storybook/homepage/imageA.png">maria_trn</SfImage>
+          <SfImage src="assets/storybook/homepage/imageA.png"
+            >maria_trn</SfImage
+          >
         </div>
         <div class="images-grid__tiles">
-            <SfImage src="assets/storybook/homepage/imageB.png">katherina_trn</SfImage>
+          <SfImage src="assets/storybook/homepage/imageB.png"
+            >katherina_trn</SfImage
+          >
         </div>
       </div>
       <div class="images-grid">
         <div class="images-grid__tiles">
-            <SfImage src="assets/storybook/homepage/imageC.png">angelina_trn</SfImage>
+          <SfImage src="assets/storybook/homepage/imageC.png"
+            >angelina_trn</SfImage
+          >
         </div>
         <div class="images-grid__tiles">
-            <SfImage src="assets/storybook/homepage/imageD.png">julia_trn</SfImage>
+          <SfImage src="assets/storybook/homepage/imageD.png"
+            >julia_trn</SfImage
+          >
         </div>
       </div>
     </SfSection>
@@ -190,8 +198,16 @@
       </template>
       <template v-slot:call-to-action>
         <div class="download">
-          <img class="download__button" src="assets/storybook/homepage/google.png" alt="google play" />
-          <img class="download__button" src="assets/storybook/homepage/apple.png" alt="app store" />
+          <img
+            class="download__button"
+            src="assets/storybook/homepage/google.png"
+            alt="google play"
+          />
+          <img
+            class="download__button"
+            src="assets/storybook/homepage/apple.png"
+            alt="app store"
+          />
         </div>
       </template>
     </SfBanner>
@@ -257,7 +273,6 @@ export default {
   }
 }
 .product-card {
-
   &:hover {
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
   }
@@ -375,7 +390,7 @@ export default {
     }
   }
 }
-  .sf-product-card{
-    max-width: unset;
-  }
+.sf-product-card {
+  max-width: unset;
+}
 </style>
