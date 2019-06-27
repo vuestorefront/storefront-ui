@@ -163,27 +163,20 @@
       class="section"
     >
       <div class="images-grid">
+        <!-- TODO: test SfImage and fix it -->
         <div class="images-grid__tiles">
-          <a href="">
             <SfImage :src="imageA">maria_trn</SfImage>
-          </a>
         </div>
         <div class="images-grid__tiles">
-          <a href="#">
             <SfImage :src="imageB">katherina_trn</SfImage>
-          </a>
         </div>
       </div>
       <div class="images-grid">
         <div class="images-grid__tiles">
-          <a href="#">
             <SfImage :src="imageC">angelina_trn</SfImage>
-          </a>
         </div>
         <div class="images-grid__tiles">
-          <a href="#">
             <SfImage :src="imageD">julia_trn</SfImage>
-          </a>
         </div>
       </div>
     </SfSection>
@@ -315,28 +308,39 @@ export default {
 }
 
 .banners-grid {
-  display: flex;
   margin: $spacer-medium 0;
   @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big 0;
+    display: flex;
   }
   &__column {
     flex: 1;
-    display: flex;
+    margin-top: 10px;
+    @media screen and (min-width: $desktop-min) {
+      display: flex;
+      margin-top: 0;
+    }
     &:not(:first-child) {
-      margin-left: 10px;
       @media screen and (min-width: $desktop-min) {
         margin-left: 40px;
       }
     }
     &--small {
-      flex: 0 0 330px;
+      @media screen and (min-width: $desktop-min) {
+        flex: 1 1 330px;
+      }
     }
     &--medium {
-      flex: 0 0 500px;
+      @media screen and (min-width: $desktop-min) {
+        flex: 1 1 500px;
+      }
     }
     &--vertical-tiles {
       flex-direction: column;
+      margin-top: 10px;
+      @media screen and (min-width: $desktop-min) {
+        margin-top: 0px;
+      }
       & > div:not(:first-child) {
         margin-top: 10px;
         @media screen and (min-width: $desktop-min) {
@@ -384,7 +388,9 @@ export default {
   }
 }
 .sf-banner {
-  padding: 2.5rem;
+  @media screen and (min-width: $desktop-min) {
+    padding: 2.5rem;
+  }
   /deep/ &__subtitle {
     line-height: 1.167;
     margin: 0;
