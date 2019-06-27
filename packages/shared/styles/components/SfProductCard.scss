@@ -59,4 +59,25 @@ $product__image-blend-mode:       darken;
     font-size: $font-size-small-desktop;
     margin-left: 0.5rem;
   }
+
+  &__wishlist-icon {
+    position: absolute;
+    right: 20px;
+    margin: 10px;
+    padding: 0;
+    cursor: pointer;
+    visibility: visible;
+    outline: none;
+    z-index: 2;
+    background: transparent;
+
+    @media (min-width: $desktop-min) {
+      visibility: hidden;
+
+      &:hover, &:active {
+        visibility: visible;
+        outline: none;
+      }
+    }
+  }
 }
