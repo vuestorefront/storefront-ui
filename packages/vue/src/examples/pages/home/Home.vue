@@ -7,14 +7,14 @@
         subtitle="SUMMER COLLECTION 2019"
         buttonText="Learn more"
         background="#eceff1"
-        image="https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
+        image="assets/storybook/homepage/bannerH.png"
       ></SfHeroItem>
       <SfHeroItem
         title="Colorful summer dresses are already in store"
         subtitle="SUMMER COLLECTION 2019"
         buttonText="Learn more"
         background="#efebe9"
-        image="assets/storybook/Banner1.png"
+        image="assets/storybook/homepage/bannerA.png"
         backgroundPosition="bottom left"
         containerPosition="right"
       ></SfHeroItem>
@@ -23,7 +23,7 @@
         subtitle="SUMMER COLLECTION 2019"
         buttonText="Learn more"
         background="#fce4ec"
-        image="assets/storybook/Banner2.png"
+        image="assets/storybook/homepage/bannerB.png"
       ></SfHeroItem>
     </SfHero>
     <div class="banners-grid">
@@ -33,7 +33,7 @@
           subtitle="Scarves"
           description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
           button-text="SHOP NOW"
-          :image="bannerF"
+          image="assets/storybook/homepage/bannerF.png"
           class="sf-banner--left sf-banner--top"
         />
       </div>
@@ -43,7 +43,7 @@
           subtitle="Dresses"
           description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
           button-text="SHOP NOW"
-          :image="bannerE"
+          image="assets/storybook/homepage/bannerE.png"
           class="sf-banner--left sf-banner--top sf-banner--small"
         />
       </div>
@@ -54,7 +54,7 @@
           <SfBanner
             title="THE OFFICE LIFE"
             subtitle="T-Shirts"
-            :image="bannerC"
+            image="assets/storybook/homepage/bannerC.png"
             class="sf-banner--left sf-banner--full"
           />
         </div>
@@ -62,7 +62,7 @@
           <SfBanner
             title="ECO SANDALS"
             subtitle="Summer shoes"
-            :image="bannerG"
+            image="assets/storybook/homepage/bannerG.png"
             class="sf-banner--left sf-banner--full"
           />
         </div>
@@ -84,7 +84,7 @@
         <SfCarouselItem>
           <SfProductCard
             title="Cream Beach Bag"
-            :image="productA"
+            image="assets/storybook/homepage/productA.png"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
             class="product-card"
@@ -93,7 +93,7 @@
         <SfCarouselItem>
           <SfProductCard
             title="Cream Beach Bag"
-            :image="productB"
+            image="assets/storybook/homepage/productB.png"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
             class="product-card"
@@ -102,7 +102,7 @@
         <SfCarouselItem>
           <SfProductCard
             title="Cream Beach Bag"
-            :image="productC"
+            image="assets/storybook/homepage/productC.png"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
             class="product-card"
@@ -111,7 +111,7 @@
         <SfCarouselItem>
           <SfProductCard
             title="Cream Beach Bag"
-            :image="productA"
+            image="assets/storybook/homepage/productA.png"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
             class="product-card"
@@ -120,7 +120,7 @@
         <SfCarouselItem>
           <SfProductCard
             title="Cream Beach Bag"
-            :image="productB"
+            image="assets/storybook/homepage/productB.png"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
             class="product-card"
@@ -129,7 +129,7 @@
         <SfCarouselItem>
           <SfProductCard
             title="Cream Beach Bag"
-            :image="productC"
+            image="assets/storybook/homepage/productC.png"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
             class="product-card"
@@ -138,7 +138,7 @@
         <SfCarouselItem>
           <SfProductCard
             title="Cream Beach Bag"
-            :image="productA"
+            image="assets/storybook/homepage/productA.png"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
             class="product-card"
@@ -147,7 +147,7 @@
         <SfCarouselItem>
           <SfProductCard
             title="Cream Beach Bag"
-            :image="productB"
+            image="assets/storybook/homepage/productB.png"
             :price="{ regularPrice: '50.00 $' }"
             :rating="{ max: 5, score: 4 }"
             class="product-card"
@@ -165,24 +165,24 @@
       <div class="images-grid">
         <!-- TODO: test SfImage and fix it -->
         <div class="images-grid__tiles">
-            <SfImage :src="imageA">maria_trn</SfImage>
+            <SfImage src="assets/storybook/homepage/imageA.png">maria_trn</SfImage>
         </div>
         <div class="images-grid__tiles">
-            <SfImage :src="imageB">katherina_trn</SfImage>
+            <SfImage src="assets/storybook/homepage/imageB.png">katherina_trn</SfImage>
         </div>
       </div>
       <div class="images-grid">
         <div class="images-grid__tiles">
-            <SfImage :src="imageC">angelina_trn</SfImage>
+            <SfImage src="assets/storybook/homepage/imageC.png">angelina_trn</SfImage>
         </div>
         <div class="images-grid__tiles">
-            <SfImage :src="imageD">julia_trn</SfImage>
+            <SfImage src="assets/storybook/homepage/imageD.png">julia_trn</SfImage>
         </div>
       </div>
     </SfSection>
     <SfBanner
       subtitle="Fashion to Take Away"
-      :image="bannerD"
+      image="assets/storybook/homepage/bannerD.png"
       class="sf-banner--left banner banner--download desktop-only"
     >
       <template v-slot:title>
@@ -190,8 +190,8 @@
       </template>
       <template v-slot:call-to-action>
         <div class="download">
-          <img class="download__button" :src="google" alt="google play" />
-          <img class="download__button" :src="apple" alt="app store" />
+          <img class="download__button" src="assets/storybook/homepage/google.png" alt="google play" />
+          <img class="download__button" src="assets/storybook/homepage/apple.png" alt="app store" />
         </div>
       </template>
     </SfBanner>
@@ -207,52 +207,8 @@ import SfCarousel from "@/components/organisms/SfCarousel/SfCarousel.vue";
 import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
 import SfImage from "@/components/molecules/SfImage/SfImage.vue";
 
-//ASSETS
-import bannerA from "./assets/bannerA.png";
-import bannerB from "./assets/bannerB.png";
-import bannerC from "./assets/bannerC.png";
-import bannerD from "./assets/bannerD.png";
-import bannerE from "./assets/bannerE.png";
-import bannerF from "./assets/bannerF.png";
-import bannerG from "./assets/bannerG.png";
-
-import productA from "./assets/productA.png";
-import productB from "./assets/productB.png";
-import productC from "./assets/productC.png";
-
-import placeholderA from "./assets/placeholderA.png";
-
-import imageA from "./assets/imageA.png";
-import imageB from "./assets/imageB.png";
-import imageC from "./assets/imageC.png";
-import imageD from "./assets/imageD.png";
-
-import google from "./assets/google.png";
-import apple from "./assets/apple.png";
-
 export default {
   name: "Home",
-  data() {
-    return {
-      bannerA,
-      bannerB,
-      bannerC,
-      bannerD,
-      bannerE,
-      bannerF,
-      bannerG,
-      productA,
-      productB,
-      productC,
-      placeholderA,
-      imageA,
-      imageB,
-      imageC,
-      imageD,
-      google,
-      apple
-    };
-  },
   components: {
     SfHero,
     SfBanner,
