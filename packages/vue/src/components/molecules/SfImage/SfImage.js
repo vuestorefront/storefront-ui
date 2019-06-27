@@ -1,18 +1,26 @@
-import Vue from "vue";
-import SfOverlay from "./_internal/SfImageOverlay.vue";
-
-Vue.component("SfOverlay", SfOverlay);
-
 export default {
   name: "SfImage",
   props: {
+    /**
+     * Image url
+     */
     src: {
       type: String,
       default: ""
     },
+    /**
+     * Alt attribute value
+     */
     alt: {
       type: String,
       default: ""
+    },
+    /**
+     * Overlay transition type
+     */
+    transition: {
+      type: String,
+      default: "fade"
     }
   },
   data() {
@@ -24,7 +32,7 @@ export default {
   },
   computed: {
     hasOverlay() {
-      return this.$slots.hasOwnProperty("default");
+      return this.$slots.hasOwnProperty("default") && this.overlay;
     }
   },
   methods: {
