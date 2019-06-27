@@ -61,7 +61,7 @@ export default storiesOf("Atoms|Checkbox", module)
             to fill label content.
           </p>
           <h2> Usage </h2>
-          <pre><code>import SfCheckbox from "@storefrontui/vue/dist/SfCheckbox.vue"</code></pre>
+          <pre><code>import { SfCheckbox } from "@storefrontui/vue"</code></pre>
           `
       }
     }

@@ -25,7 +25,6 @@ $banner__title-color                        : $c-dark-primary !default;
 $banner-mobile__title-font-size             : 1.125rem !default;
 
 $banner__description-font-family            : $body-font-family-secondary !default;
-$banner__description-font-size              : 1.125rem !default;
 $banner__description-color                  : $c-dark-primary !default;
 
 $banner__call-to-action-font-size           : 0.875rem !default;
@@ -67,6 +66,7 @@ $banner--secondary__button-background-color : $c-green-primary !default;
     color: $banner__subtitle-color;
     margin-top: 0;
     padding-bottom: 0.3rem;
+    padding-top: 0;
     @media (min-width: $tablet-min) {
       font-size: $banner__subtitle-font-size;
     }
@@ -86,9 +86,8 @@ $banner--secondary__button-background-color : $c-green-primary !default;
     }
   }
   &__description {
-    padding-bottom: 0.6rem;
+    padding-bottom: 1.5rem;
     font-family: $banner__description-font-family;
-    font-size: $banner__description-font-size;
     color: $banner__description-color;
     display: none;
     @media (min-width: $desktop-min) {

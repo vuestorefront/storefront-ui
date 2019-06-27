@@ -6,7 +6,7 @@
 
 **We are looking for contributors and agencies willing to join us and build best UI library for Vue together!**
 
-Customization-first and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team and contributors.
+Customization-first, performance-oriented and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team and contributors.
 
 - [Website](http://storefrontui.io/)
 - [Documentation](http://docs.storefrontui.io/) (still in very early stages)
@@ -18,22 +18,23 @@ Customization-first and elegant UI framework for eCommerce (and not only) based 
 
 # What makes it unique?
 
-Some libraries aim to give as much as they can out of the box but they faill when it comes to customization. Our goal was to enable as much as possible out of the box but with primary focus on ability to customize any aspect of the components.
+Some libraries aim to give as much as they can out of the box but they faill when it comes to customization and performance. Our goal was to enable as much as possible out of the box but with primary focus on ability to customize any aspect of the components.
 
-With SfUI you need to do a little bit more than with other libs for basic tasks but you get 100% customizable components in return!
-
-You can easly change almost every aspect of provided components and use them to make stunning eCommerce shops (and not only)!
+With SfUI you can change almost every aspect of provided components and use them to make stunning eCommerce shops (and not only)!
 
 
 **Here are the key characteristics of Storefront UI:**
 
-- Ability to customize any aspect of the library.
-- Performance-oriented
-- High-level global customization can be done through SCSS variables
-- Component content customization with slots.
-- Component design customization with pure css BEM classes instead of countless props.
-- Possibility to compose your own components from partials (markup/Vue instance/SCSS)
-- Implementation of [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) (with limit to atoms, molecules and organisms)
+We are building Storefront UI based on the following 5 fundamentals:
+
+- **Performance**: You’re importing ONLY what you need, and in a raw format which means you can benefit from all build-time optimizations like tree shaking or grouping common chunks.
+- **Customization**: Along with standard prop-based customization, every component has a set of slots that let you replace any part of it with your own images, icons or even custom HTML markup. In addition, every component is divided into separate HTML, CSS and JS files so you can compose your own components from only Storefront UI partials.
+- **Best practices**: Storefront UI components follow best practices in terms of design and core. Every component is based on the Google Retail UX Playbook and is accessibility-friendly.
+- **E-commerce**: As a UI library dedicated to eCommerce, Storefront UI along with standard UI components has all the elements necessary for building modern online stores.
+- **Open Source**: Storefront UI is a community effort to deliver the best possible experience to modern web applications and e-commerce shops, with carefully crafted components following best practices. Our team consists of agencies and volunteer contributors from all over the world.
+
+Storefront UI is based on atomic design which means every component is built from tiny atoms that you can use in your application! You’re not limited to big UI components anymore. Use Storefront UI atoms to quickly build your own, great-looking components!
+
 
 Read about [code design concepts](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) behind Storefront UI and [how it can be customized](./docs/customization.md).
 
@@ -72,7 +73,7 @@ We are currently in a process of building the library. If you want to help shapi
 Those awesome people are maintaining Storefront UI. Their ensuring that it performs smooth and looks awesome!
 
 - Filip Rakowski ([@filrak](https://github.com/filrak))
-- Leonardo Matos [@leomp12](https://github.com/leomp12))
+- Leonardo Matos ([@leomp12](https://github.com/leomp12))
 - Maya Shavin ([@mayashavin](https://github.com/mayashavin))
 - Gift Egwenu ([@lauragify21](https://github.com/lauragift21))
 
@@ -89,18 +90,7 @@ Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-st
 
 # Roadmap
 
-- Category page components (April) - Done
-- Product Page components (May) (alpha release) - Done
-- Homepage, form elements, monorepo setup, product page example (June)
-- Last polishments and focus on documentation (July) (beta release)
+Check our [documentation](https://docs.storefrontui.io/introduction.html)
 
-**Other things to include in the meantime:**
-- include additional build for every compoennt so they can also be imported separately but after a build step (useful for apps that don't have a build step at all)
-- webpack build that can be merged into your current one with everything that is needed to consume SFUI webpack source
-
-**In consideration**
-- SCSS - CSS vars transition
-
-
-Want to help and make it even faster? Grab an issue and become part of our amazing community ;)
+Want to help and make it even faster? Read [how to start](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) and become part of our amazing community ;)
 
