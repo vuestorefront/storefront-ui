@@ -2,7 +2,7 @@
     <!--@slot Custom alert icon. Slot content will replace default icon <img> tag.-->
     <slot name="icon" :icon="icon">
         <img :src="iconSrc" class="sf-alert__icon" v-if="hasIconSrc">
-        <sf-icon :path="`notify_${type}`" size="xs" :class="`sf-alert--${type}`" v-else/>
+        <sf-icon path="notify" size="xs" :class="`sf-alert--${type}`" v-else/>
     </slot>
     <!--@slot Custom message . Slot content will replace default message <p> tag.-->
     <slot name="message" :message="message">

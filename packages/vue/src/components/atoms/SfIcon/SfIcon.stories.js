@@ -43,7 +43,7 @@ const iconsList = (() => {
 
   return Object.keys(icons).map(icon => [
     icon,
-    `<img alt="${icon}" src="assets/${icon}.svg" ${
+    `<img alt="${icon}" width="20px" height="20px" src="assets/${icon}.svg" ${
       needInverted.includes(icon) ? 'style="filter:invert(1);"' : ""
     }/>`
   ]);
@@ -89,6 +89,9 @@ storiesOf("Atoms|Icon", module)
         },
         size: {
           default: text("size (prop)", "sm")
+        },
+        viewBox: {
+          default: text("viewBox (prop)", "0 0 24 24")
         }
       },
       components: { SfIcon },
@@ -97,6 +100,7 @@ storiesOf("Atoms|Icon", module)
         :path="path"
         :color="color"
         :size="size"
+        :viewBox="viewBox"
       />`
     }),
     {
@@ -137,6 +141,9 @@ storiesOf("Atoms|Icon", module)
         },
         size: {
           default: text("size (prop)", "sm")
+        },
+        viewBox: {
+          default: text("viewBox (prop)", "0 0 24 24")
         }
       },
       components: { SfIcon },
@@ -144,6 +151,7 @@ storiesOf("Atoms|Icon", module)
         :path="path"
         :color="color"
         :size="size"
+        :viewBox="viewBox"
       />`
     }),
     {
@@ -166,7 +174,7 @@ storiesOf("Atoms|Icon", module)
     "[slot] default",
     () => ({
       components: { SfIcon },
-      template: `<sf-icon><img src='assets/cart.svg' alt="Cart icon"></sf-icon>`
+      template: `<sf-icon><img src='assets/empty_cart.svg' alt="Cart icon"></sf-icon>`
     }),
     {
       info: {
@@ -185,7 +193,7 @@ storiesOf("Atoms|Icon", module)
         }
       },
       template: `<sf-icon :size="size">
-        <img src='assets/cart.svg' alt="Cart icon">
+        <img src='assets/empty_cart.svg' alt="Cart icon">
       </sf-icon>`
     }),
     {

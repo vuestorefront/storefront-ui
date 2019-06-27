@@ -33,9 +33,7 @@ export default {
       return this.icon && typeof this.icon === "string";
     },
     iconSrc() {
-      return typeof this.icon === "string"
-        ? this.icon
-        : `/assets/alert-${this.type}.svg`;
+      return typeof this.icon === "string" ? this.icon : "";
     }
   }
 };

@@ -34,6 +34,16 @@ export default {
     color: {
       type: String,
       default: ""
+    },
+    /**
+     * Custom viewBox size of the icon
+     * It should be according to the standard `"min-x min-y width height"`.
+     * By default it will be `0 0 24 24`. If you use our icons, you don't need to pass this prop at all.
+     * Recommedations: try to get your SVG designed with our default viewBox value and reduce the number of props passed to the component.
+     */
+    viewBox: {
+      type: String,
+      default: "0 0 24 24"
     }
   },
   computed: {
@@ -56,12 +66,17 @@ export default {
     isSFIcons() {
       return SF_ICONS.includes(this.path.trim());
     },
-    iconPaths() {
+    iconViewBox() {
       return this.isSFIcons
-        ? icons[this.path]
-        : Array.isArray(this.path)
-        ? this.path
-        : [this.path];
+        ? icons[this.path].viewBox || this.viewBox
+        : this.viewBox;
+    },
+    iconPaths() {
+      if (this.isSFIcons) {
+        return icons[this.path].paths;
+      } else {
+        return Array.isArray(this.path) ? this.path : [this.path];
+      }
     }
   },
   mounted() {
