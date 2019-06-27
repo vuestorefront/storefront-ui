@@ -75,7 +75,7 @@ storiesOf("Organisms|SfHero", module)
           subtitle="SUMMER COLLECTION 2019"
           buttonText="Learn more"
           background="#efebe9"
-          image="https://i.ibb.co/Jn6JRGh/hero-bg-left.png"
+          image="assets/storybook/Banner1.png"
           backgroundPosition="bottom left"
           containerPosition="right"
         ></SfHeroItem>
@@ -84,7 +84,7 @@ storiesOf("Organisms|SfHero", module)
           subtitle="SUMMER COLLECTION 2019"
           buttonText="Learn more"
           background="#fce4ec"
-          image="https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
+          image="assets/storybook/Banner2.png"
         ></SfHeroItem>
       </SfHero>`
     }),
