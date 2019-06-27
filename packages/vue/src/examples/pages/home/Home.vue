@@ -308,6 +308,7 @@ export default {
   }
 }
 .product-card {
+
   &:hover {
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
   }
@@ -412,4 +413,7 @@ export default {
     }
   }
 }
+  .sf-product-card{
+    max-width: unset;
+  }
 </style>
