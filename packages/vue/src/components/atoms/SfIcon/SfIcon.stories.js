@@ -104,7 +104,7 @@ storiesOf("Atoms|Icon", module)
         summary: `
         <p>Component for rendering icon from SVG path(s) or icon name from our icons list.</p>
         <h2> Usage </h2>
-        <pre><code>import SfIcon from "@storefrontui/vue/dist/SfIcon.vue"</code></pre>
+        <pre><code>import { SfIcon } from "@storefrontui/vue"</code></pre>
         <h3>SCSS variables</h3>
         ${generateStorybookTable(
           {

@@ -11,7 +11,7 @@ storiesOf("Organisms|MegaMenu", module).add(
   {
     info: {
       summary: `<h2> Usage </h2>
-      <pre><code>import SfMegaMenu from "@storefrontui/vue/dist/SfMegaMenu.vue"</code></pre>`
+      <pre><code>import { SfMegaMenu } from "@storefrontui/vue"</code></pre>`
     }
   }
 );
