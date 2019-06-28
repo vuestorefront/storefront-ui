@@ -97,7 +97,7 @@ export default storiesOf("Molecules|Filter", module)
             <li> color - (optional) color that will be displayed in a box on the left side (all valid CSS colors can be passed)</li>
           </ul>
           <h2> Usage </h2>
-          <pre><code>import SfFilter from "@storefrontui/vue/dist/SfFilter.vue"</code></pre>
+          <pre><code>import { SfFilter } from "@storefrontui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }

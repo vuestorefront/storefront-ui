@@ -9,7 +9,7 @@ import SfDivider from "./SfDivider.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$divider__color", "$c-light-primary", "Divider line color"],
+    ["$divider__color", "$c-light-primary", "Divider line color"]
   ]
 };
 
@@ -22,11 +22,11 @@ storiesOf("Atoms|Divider", module)
       template: `<SfDivider />`
     }),
     {
-     info: {
-       summary: `<p>Divider element.</p>
+      info: {
+        summary: `<p>Divider element.</p>
        <h2>Usage</h2>
-       <pre><code>import SfDivider from "@storefrontui/vue/dist/SfDivider.vue"</code></pre>
+       <pre><code>import { SfDivider } from "@storefrontui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
-     }
-   }
-);
+      }
+    }
+  );
