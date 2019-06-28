@@ -2,7 +2,7 @@
     <div class="glide" ref="glide">
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides sf-hero__slides">
-                <div v-for="item in heroItems">
+                <div v-for="item in items">
                     <SfHeroItem
                         :background="item.background"
                         :image="item.image"
@@ -21,7 +21,7 @@
     <div class="sf-hero__controls" v-if="numberOfPages > 1">
         <div @click="go('prev')">
             <!--@slot slot for icon moving to the previous item -->
-            <slot name="previousIcon">
+            <slot name="prev">
                 <SfArrow
                     class="sf-arrow sf-arrow--transparent"
                     aria-label="previous"/>
@@ -29,7 +29,7 @@
         </div>
         <div @click="go('next')">
             <!--@slot slot for icon moving to the next item -->
-            <slot name="nextIcon">
+            <slot name="next">
                 <SfArrow
                     class="sf-arrow sf-arrow--right sf-arrow--transparent"
                     aria-label="next"/>
@@ -38,17 +38,17 @@
     </div>
     <div class="sf-hero__bullets" :class="[bulletsPositionClass]" v-if="numberOfPages > 1">
         <SfBullets
-            :bulletsNumber="numberOfPages"
-            :currentBulletIndex="page-1"
+            :total="numberOfPages"
+            :current="page-1"
             @click="go($event)"
             >
             <template #inactive>
                 <!--@slot custom icon for inactive bullet -->
-                <slot name="bulletInactive"></slot>
+                <slot name="inactive"></slot>
             </template>
             <template #active>
                 <!--@slot custom icon for active bullet -->
-                <slot name="bulletActive"></slot>
+                <slot name="active"></slot>
             </template>
         </SfBullets>
     </div>
