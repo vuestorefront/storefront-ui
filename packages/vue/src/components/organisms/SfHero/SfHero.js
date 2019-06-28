@@ -24,13 +24,13 @@ export default {
     };
   },
   props: {
-    /** Carousel options like glide.js (https://glidejs.com/docs/) */
-    options: {
+    /** Slider options like glide.js (https://glidejs.com/docs/) */
+    sliderOptions: {
       type: Object,
       default: () => ({})
     },
     /** Items to display in SfHero component */
-    heroItems: {
+    items: {
       type: Array,
       default: () => []
     },

@@ -4,24 +4,24 @@ export default {
     /**
      * Number of bullets in total (active + inactive)
      */
-    bulletsNumber: {
+    total: {
       type: Number,
       default: 0
     },
     /**
      * Index of the curretly active bullet
      */
-    currentBulletIndex: {
+    current: {
       type: Number,
       default: 0
     }
   },
   computed: {
     inactiveRight() {
-      return this.bulletsNumber - 1 - this.currentBulletIndex;
+      return this.total - 1 - this.current;
     },
     inactiveLeft() {
-      return this.bulletsNumber - this.inactiveRight - 1;
+      return this.total - this.inactiveRight - 1;
     }
   }
 };
