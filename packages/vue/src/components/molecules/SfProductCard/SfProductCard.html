@@ -1,7 +1,7 @@
 <div class="sf-product-card">
-  <button aria-label="Favorite this product" @click="e => $emit('click:wishlist', e)" class="sf-product-card__wishlist-icon">
+  <button aria-label="Favorite this product" @click="toggleOnWishlist" class="sf-product-card__wishlist-icon">
     <slot name="wishlist-icon">
-      <sf-icon :path="wishlistIcon" size="sm"/>
+      <sf-icon :path="currentWishlistIcon" :color="onWishlistColor" size="sm" data-test="sf-wishlist-icon"/>
     </slot>
   </button>
   <slot name="image">
