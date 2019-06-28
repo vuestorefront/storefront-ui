@@ -10,7 +10,7 @@
   <div class="sf-carousel__controls">
     <div @click="go('prev')">
       <!--@slot slot for icon moving to the previous item -->
-      <slot name="arrow-left">
+      <slot name="prev">
         <SfArrow
           class="sf-arrow--long"
           aria-label="previous"/>
@@ -18,7 +18,7 @@
     </div>
     <div @click="go('next')">
       <!--@slot slot for icon moving to the next item -->
-      <slot name="arrow-right">
+      <slot name="next">
         <SfArrow
           class="sf-arrow--long sf-arrow--right"
           aria-label="next"/>

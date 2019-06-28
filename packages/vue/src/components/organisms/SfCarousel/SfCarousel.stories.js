@@ -76,7 +76,7 @@ storiesOf("Organisms|Carousel", module)
     }
   )
   .add(
-    "[slots] arrows",
+    "[slot] prev",
     () => ({
       components: { SfCarousel },
       data,
@@ -107,12 +107,61 @@ storiesOf("Organisms|Carousel", module)
           <SfCarouselItem>
             <div :style="style">8</div>
           </SfCarouselItem>
-          <template #arrow-left>
+          
+          <template #prev>
             <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">&lt; PREV</span>
           </template>
-          <template #arrow-right>
+
+        </SfCarousel>
+      </div>
+      `
+    }),
+    {
+      info: {
+        summary: `<h2> Usage </h2>
+        <pre><code>import { SfCarousel } from "@storefrontui/vue"</code></pre>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+        `
+      }
+    }
+  )
+  .add(
+    "[slot] next",
+    () => ({
+      components: { SfCarousel },
+      data,
+      template: `
+      <div style="max-width: 1140px">
+        <SfCarousel :options="options">
+          <SfCarouselItem>
+            <div :style="style">1</div>
+          </SfCarouselItem>
+          <SfCarouselItem>
+            <div :style="style">2</div>
+          </SfCarouselItem>
+          <SfCarouselItem>
+            <div :style="style">3</div>
+          </SfCarouselItem>
+          <SfCarouselItem>
+            <div :style="style">4</div>
+          </SfCarouselItem>
+          <SfCarouselItem>
+            <div :style="style">5</div>
+          </SfCarouselItem>
+          <SfCarouselItem>
+            <div :style="style">6</div>
+          </SfCarouselItem>
+          <SfCarouselItem>
+            <div :style="style">7</div>
+          </SfCarouselItem>
+          <SfCarouselItem>
+            <div :style="style">8</div>
+          </SfCarouselItem>
+
+          <template #next>
             <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">NEXT &gt;</span>
           </template>
+
         </SfCarousel>
       </div>
       `
