@@ -1,5 +1,4 @@
 "use strict";
-
 process.on("exit", code => {
   if (code === 0) {
     console.log(`New component is created successfully.`);
@@ -43,6 +42,7 @@ const questions = [
 
   const framework = PACKAGE_TYPE[response.framework];
   const component = ATOMIC_TYPE[response.component];
+  const fwFolder = `./packages/${framework}/scripts/component-template/`;
   const name = response.name;
 
   createComponent(framework, component, name);
@@ -50,50 +50,40 @@ const questions = [
   function createComponent(packageFolder, componentFolder, componentName) {
     const ComponentType = uppercamelcase(componentFolder);
     const ComponentName = uppercamelcase(componentName);
-    const PrefixComponentName = ComponentName.startsWith("Sf")
+    const ComponentNameCamelCase = ComponentName.startsWith("Sf")
       ? ComponentName
       : "Sf" + ComponentName;
     const PackagePath = path.resolve(
       __dirname,
       `../packages/${packageFolder}/src/components/${componentFolder}`,
-      `${PrefixComponentName}`
+      `${ComponentNameCamelCase}`
     );
     const SharedFilesPath = path.resolve(
       __dirname,
       `../packages/shared/styles/components`
     );
-    const joinedComponentName =
+    const ComponentNameKebabCase =
       "sf" +
       ComponentName.replace(
         /([A-Z])(?=\w)/g,
         (s1, s2) => "-" + s2.toLowerCase()
       );
-    const ret = glob.sync(PackagePath + "/" + PrefixComponentName + ".js");
+    const ret = glob.sync(PackagePath + "/" + ComponentNameCamelCase + ".js");
 
     if (ret.length > 0) {
-      console.warn(`${PrefixComponentName} component was already created. \n`);
+      console.warn(`${ComponentNameCamelCase} component was already created. \n`);
       process.exit(-1);
     }
 
-    const files = [
+    const sharedFiles = [
       {
-        fileName: `${PrefixComponentName}.html`,
-        content: `<div class="${joinedComponentName}"></div>`
-      },
-      {
-        fileName: `${PrefixComponentName}.js`,
-        content: `export default {
-    name: "${PrefixComponentName}"
-  };`
-      },
-      {
-        fileName: `${PrefixComponentName}.scss`,
+        fileName: `${ComponentNameCamelCase}.scss`,
         filePath: SharedFilesPath,
         content: `@import '../variables';
 
 // $component__block-property: value;
 
-// .${joinedComponentName} {
+// .${ComponentNameKebabCase} {
 //   &__element {
 
 //   }
@@ -101,94 +91,36 @@ const questions = [
 
 //   }
 // }`
-      },
-      {
-        fileName: `${PrefixComponentName}.spec.ts`,
-        content: `import { shallowMount } from "@vue/test-utils";
-import ${PrefixComponentName} from "@/components/${componentFolder}/${PrefixComponentName}.vue";
-
-describe("${PrefixComponentName}.vue", () => {
-  it("renders a component", () => {
-    const component = shallowMount(${PrefixComponentName});
-    expect(component.contains(".${joinedComponentName}")).toBe(true);
-  });
-});`
-      },
-      {
-        fileName: `${PrefixComponentName}.stories.js`,
-        content: `// /* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
-
-import ${PrefixComponentName} from "./${PrefixComponentName}.vue";
-
-// use this to document scss vars
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["$component-size", "1.438rem", "size of checkmark"]
-  ]
-};
-
-// use this to document events
-const eventsTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["input", "event emited when option is selected"]
-  ]
-};
-
-// storiesOf("${ComponentType}|${ComponentName}", module)
-//   .addDecorator(withKnobs)
-//   .add(
-//     "[slot] default",
-//     () => ({
-//       props: {
-//         editableProp: {
-//           default: text("(prop) propname")
-//         },
-//         customClass: {
-//           default: select(
-//             "CSS Modifier",
-//             ["null", "${joinedComponentName}--modifier"],
-//             "null",
-//             "CSS-Modifiers"
-//           )
-//         }
-//       },
-//       components: { ${PrefixComponentName} },
-//       template: \`<${PrefixComponentName}
-//         :class="customClass"
-//       >
-//       </${PrefixComponentName}>\`
-//     }),
-//     {
-//      info: {
-//        summary: \`<p>Component description.</p>
-//        <h2>Usage</h2>
-//        <pre><code>import { ${PrefixComponentName} } from "@storefrontui/vue"</code></pre>
-//        \${generateStorybookTable(scssTableConfig, "SCSS variables")}
-//        \${generateStorybookTable(eventsTableConfig, "Events")}
-//        \`
-//      }
-//    }
-// );`
-      },
-      {
-        fileName: `${PrefixComponentName}.vue`,
-        content: `<script src="./${PrefixComponentName}.js"></script>
-<template lang="html" src="./${PrefixComponentName}.html"></template>
-<style lang="scss">
-@import "~@storefrontui/shared/styles/components/${PrefixComponentName}.scss";
-</style>`
       }
     ];
 
-    files.forEach(file => {
-      fileSave(path.join(file.filePath || PackagePath, file.fileName))
-        .write(file.content, "utf8")
+    if (!fs.existsSync(fwFolder)) {
+      console.warn(`\n\nSomething went wrong while generating files: no component templates available for ${framework}. Component not created. \n`);
+      process.exit(-1);
+    }
+
+    fs.readdirSync(fwFolder).forEach(file => {
+      const fileName = file.replace('component', ComponentNameCamelCase)
+      
+      let content = fs.readFileSync(fwFolder + file, 'utf8');
+      content = content.replace(/ComponentFolder/g, componentFolder)
+      content = content.replace(/ComponentNameCamelCase/g, ComponentNameCamelCase)
+      content = content.replace(/ComponentNameKebabCase/g, ComponentNameKebabCase)
+      content = content.replace(/ComponentName/g, ComponentName)
+      content = content.replace(/ComponentType/g, ComponentType)
+
+      fileSave(path.join(PackagePath, fileName))
+        .write(content, "utf8")
         .end("\n");
+    });
+
+    sharedFiles.forEach(file => {
+      let filePath = path.join(file.filePath || PackagePath, file.fileName)
+      if (!fs.existsSync(filePath)) {
+        fileSave(filePath)
+          .write(file.content, "utf8")
+          .end("\n");
+      }
     });
   }
 })();
