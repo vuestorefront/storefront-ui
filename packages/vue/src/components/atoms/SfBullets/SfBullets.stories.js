@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, text, number } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfBullets from "./SfBullets.vue";
@@ -9,13 +9,13 @@ import SfBullets from "./SfBullets.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT"],
   tableBodyConfig: [
-    ["$border-radius", "50%"],
-    ["$inactive-size", "8px"],
-    ["$active-size", "10px"],
-    ["$inactive-margin", "4px"],
-    ["$active-margin", "3px"],
-    ["$inactive-color", "$c-gray-primary"],
-    ["$active-color", "$c-green-secondary"]
+    ["$bullet-border-radius", "50%"],
+    ["$bullet-size", "8px"],
+    ["$bullet-margin", "6px"],
+    ["$bullet-color", "$c-gray-primary"],
+    ["$bullet-size--active", "10px"],
+    ["$bullet-margin--active", "5px"],
+    ["$bullet-color--active", "$c-green-secondary"]
   ]
 };
 
@@ -31,20 +31,20 @@ storiesOf("Atoms|Bullets", module)
     "Basic",
     () => ({
       props: {
-        bulletsNumber: {
-          default: text("bulletsNumber", "3")
+        total: {
+          default: number("total", 3)
         },
-        currentBulletIndex: {
-          default: text("currentBulletIndex", "1")
+        current: {
+          default: number("current", 1)
         }
       },
       components: { SfBullets },
       template: `<SfBullets
-        :bulletsNumber="bulletsNumber"
-        :currentBulletIndex="currentBulletIndex"
-        @click="currentBulletIndex = $event"
+        :total="total"
+        :current="current"
+        @click="current = $event"
         >
-      </Sf Bullets>`
+      </SfBullets>`
     }),
     {
       info: {
@@ -61,23 +61,23 @@ storiesOf("Atoms|Bullets", module)
     "[slot] active",
     () => ({
       props: {
-        bulletsNumber: {
-          default: text("bulletsNumber", "3")
+        total: {
+          default: number("total", 3)
         },
-        currentBulletIndex: {
-          default: text("currentBulletIndex", "1")
+        current: {
+          default: number("current", 1)
         }
       },
       components: { SfBullets },
       template: `<SfBullets
-        :bulletsNumber="bulletsNumber"
-        :currentBulletIndex="currentBulletIndex"
-        @click="currentBulletIndex = $event"
+        :total="total"
+        :current="current"
+        @click="current = $event"
         >
         <template #active>
-          <div style="width: 10px; height: 10px; margin: 3px; background: lime;"></div>
+          <div style="width: 10px; height: 10px; margin: 5px; background: #9EE2B0; transform: rotate(45deg)"></div>
         </template>
-      </Sf Bullets>`
+      </SfBullets>`
     }),
     {
       info: true
@@ -87,23 +87,23 @@ storiesOf("Atoms|Bullets", module)
     "[slot] inactive",
     () => ({
       props: {
-        bulletsNumber: {
-          default: text("bulletsNumber", "3")
+        total: {
+          default: number("total", 3)
         },
-        currentBulletIndex: {
-          default: text("currentBulletIndex", "1")
+        current: {
+          default: number("current", 1)
         }
       },
       components: { SfBullets },
       template: `<SfBullets
-        :bulletsNumber="bulletsNumber"
-        :currentBulletIndex="currentBulletIndex"
-        @click="currentBulletIndex = $event"
+        :total="total"
+        :current="current"
+        @click="current = $event"
         >
         <template #inactive>
-          <div style="width: 10px; height: 10px; margin: 3px; background: red;"></div>
+          <div style="width: 10px; height: 10px; margin: 6px; background: #E22326;"></div>
         </template>
-      </Sf Bullets>`
+      </SfBullets>`
     }),
     {
       info: true

@@ -48,11 +48,49 @@ const data = () => {
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$carousel-mobile-breakpoint", "$mobile-max"],
-    ["$controls-top", "50%"],
-    ["$controls-width", "100%"],
-    ["$bullets-position-offset", "16px"],
-    ["$bullets-width", "100%"]
+    ["$hero--mobile-breakpoint", "$mobile-max"],
+
+    ["$hero__controls-top", "50%"],
+    ["$hero__controls-padding-h", "1rem"],
+    ["$hero__controls-width", "calc(100% - 2 * #{$hero__controls-padding-h})"],
+
+    ["$hero__bullets-position-offset", "0.5rem"],
+    ["$hero__bullets-position-offset--desktop", "2.5rem"],
+    ["$hero__bullets-width", "100%"],
+    [("$hero-item-height", "14rem")],
+    ["$hero-item-height--desktop", "30rem"],
+    ["$hero-item-width", "100%"],
+    ["$hero-item-padding", "1rem"],
+    ["$hero-item-padding--desktop", "5rem"],
+    ["$hero-item-bg-size", "cover"],
+    ["$hero-item-bg-repeat", "no-repeat"],
+
+    ["$hero-item__container-width--desktop", "50%"],
+    ["$hero-item__container-width", "60%"],
+    ["$hero-item__container-height", "100%"],
+    ["$hero-item__container-padding--desktop", "0 2rem"],
+    ["$hero-item__container-padding", "0"],
+
+    ["$hero-item__subtitle-width", "100%"],
+    ["$hero-item__subtitle-width--desktop", "min-content"],
+    ["$hero-item__subtitle-color", "$c-gray-secondary"],
+    [
+      "$hero-item__subtitle-border-left",
+      "$hero-item__subtitle-color solid 1px"
+    ],
+    ["$hero-item__subtitle-border", "0"],
+    ["$hero-item__subtitle-font", "10px"],
+    ["$hero-item__subtitle-font--desktop", "12px"],
+    ["$hero-item__subtitle-line-height--desktop", "17px"],
+    ["$hero-item__subtitle-line-height", "14px"],
+    ["$hero-item__subtitle-padding-left--desktop", "36px"],
+    ["$hero-item__subtitle-padding-left", "18px"],
+
+    ["$hero-item__title-font", "18px"],
+    ["$hero-item__title-font--desktop", "36px"],
+    ["$hero-item__title-line-height--desktop", "50px"],
+    ["$hero-item__title-line-height", "25px"],
+    ["$hero-item__title-color", "$c-dark-primary"]
   ]
 };
 
@@ -101,13 +139,14 @@ storiesOf("Organisms|SfHero", module)
           <br><br>
           <code>
           title?: string,<br>
-          subtitle?: string,<br>
           buttonText?: string,<br>
+          subtitle?: string,<br>
           background?: string,<br>
           image?: string,<br>
-          backgroundPosition?: string,<br>
-          containerPosition?: string<br>
-          </code><br>
+          bgPosition?: string,<br>
+          containerPosition?: string,<br>
+          </code>
+          <br><br>
         </p>
         <h2>Usage</h2>
         <pre><code>import { SfHero } from "@storefrontui/vue/dist/SfHero.vue"</code></pre>
@@ -117,11 +156,11 @@ storiesOf("Organisms|SfHero", module)
     }
   )
   .add(
-    "[props] heroItems",
+    "[props] items",
     () => ({
       components: { SfHero },
       data,
-      template: `<SfHero :heroItems="items">
+      template: `<SfHero :items="items">
         </SfHero>`
     }),
     {
@@ -133,7 +172,7 @@ storiesOf("Organisms|SfHero", module)
           <br><br>
           This story shows how to use it with <code>props</code>.
           <br><br>
-          You passes an array of objects (<code>heroItems</code>) with the format below:
+          You passes an array of objects (<code>items</code>) with the format below:
           <br><br>
           <code>
           items: [<br>
@@ -186,7 +225,7 @@ storiesOf("Organisms|SfHero", module)
     }
   )
   .add(
-    "[props] options",
+    "[props] sliderOptions",
     () => ({
       components: { SfHero },
       props: {
@@ -195,7 +234,7 @@ storiesOf("Organisms|SfHero", module)
         }
       },
       data,
-      template: `<SfHero :heroItems="items" :options="{ autoplay }">
+      template: `<SfHero :items="items" :sliderOptions="{ autoplay }">
         </SfHero>`
     }),
     {
@@ -218,7 +257,7 @@ storiesOf("Organisms|SfHero", module)
       },
       data,
       template: `
-      <SfHero :heroItems="items" :bulletsPosition="bulletsPosition">
+      <SfHero :items="items" :bulletsPosition="bulletsPosition">
         </SfHero>`
     }),
     {
@@ -236,12 +275,12 @@ storiesOf("Organisms|SfHero", module)
       components: { SfHero },
       data,
       template: `
-      <SfHero :heroItems="items">
-        <template #previousIcon>
+      <SfHero :items="items">
+        <template #prev>
           <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">&lt; PREV</span>
         </template>
-        <template #nextIcon>
-        <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">NEXT &gt;</span>
+        <template #next>
+          <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">NEXT &gt;</span>
         </template>
       </SfHero>`
     }),
@@ -260,11 +299,11 @@ storiesOf("Organisms|SfHero", module)
       components: { SfHero },
       data,
       template: `
-      <SfHero :heroItems="items">
-        <template #bulletInactive>
+      <SfHero :items="items">
+        <template #inactive>
           <span style="margin: 3px; cursor: pointer;">O</span>
         </template>
-        <template #bulletActive>
+        <template #active>
           <span style="margin: 3px; cursor: pointer;">X</span>
         </template>
       </SfHero>`
