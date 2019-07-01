@@ -1,0 +1,17 @@
+<div
+  class="sf-image"
+  :style="{maxWidth: maxWidth}"
+  @mouseover="hoverHandler(true)"
+  @mouseleave="hoverHandler(false)">
+  <transition :name="transition">
+    <div v-if="hasOverlay && loaded" class="sf-image__overlay">
+      <!--@slot slot for overlay content, if is empty the overlay is off -->
+      <slot />
+    </div>
+  </transition>
+  <img
+    ref="img"
+    loading="lazy"
+    class="sf-image__img"
+  >
+</div>

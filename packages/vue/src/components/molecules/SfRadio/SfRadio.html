@@ -13,9 +13,18 @@
             <span class="sf-radio__checkmark"></span>
         </slot>
         
-        <!--@slot slot for customized option content layout -->
-        <slot name="content" :option="option">
-            <span class="sf-radio__label">{{ option.label }}</span>
-        </slot>
+        <div class="sf-radio__container__content">
+            <!--@slot slot for customized option content layout -->
+            <slot name="content" :option="option">
+                <span class="sf-radio__container__content__label">{{ option.label }}</span>
+            </slot>
+
+            <!--@slot slot for customized option description layout -->
+            <slot name="description" :option="option" :isActive="option.value === value">
+                <p v-if="option.description" class="sf-radio__container__content__description">
+                    {{ option.description }}
+                </p>
+            </slot>
+        </div>
     </label>
 </div>
