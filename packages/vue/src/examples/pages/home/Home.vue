@@ -296,23 +296,36 @@ body {
   box-sizing: border-box;
   max-width: 1240px;
   margin: auto;
+  padding: 0 $spacer-big;
+
+  @media screen and (min-width: $desktop-min) {
+    padding: 0;
+  }
 }
 
 .banners-grid {
   margin: $spacer-medium 0;
+
   @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big 0;
     display: flex;
   }
+
   &__row {
-    display: flex;
+    @media screen and (min-width: $desktop-min) {
+      display: flex;
+    }
+
     &--vertical {
+      width: 100%;
       flex-direction: column;
+
       .banners-grid {
         &__col {
           &:not(:first-child) {
             margin-left: 0;
             margin-top: $spacer-medium;
+
             @media screen and (min-width: $desktop-min) {
               margin-top: $spacer-extra-big;
             }
@@ -323,22 +336,30 @@ body {
   }
   &__col {
     display: flex;
-    flex: 0 1 330px;
+    flex: 1 1 330px;
+
     &:not(:first-child) {
+      margin-top: $spacer-medium;
+
       @media screen and (min-width: $desktop-min) {
-        margin-left: 40px;
+        margin-top: 0;
+        margin-left: $spacer-extra-big;
       }
     }
     &--big {
-      flex: 0 1 500px;
+      flex: 1 1 500px;
     }
   }
 }
 .banner {
+  width: 100%;
+  min-height: 144px;
   font-family: $body-font-family-secondary;
+
   @media screen and (min-width: $desktop-min) {
-    padding: 2.5rem;
+    padding: $spacer-big;
   }
+
   &__subtitle,
   &__title,
   &__description {
@@ -346,28 +367,45 @@ body {
     padding: 0;
     font-weight: 300;
   }
+
   &__subtitle {
     margin-top: $spacer-extra-big;
     color: $c-dark-secondary;
     font-family: $body-font-family-primary;
-    font-size: 1.5rem;
+    font-size: 0.875rem;
     line-height: 1.167;
+
+    @media screen and (min-width: $desktop-min) {
+      font-size: 1.5rem;
+    }
   }
+
   &__title {
-    font-size: 2.25rem;
-    line-height: 1.6;
-    text-transform: uppercase;
-  }
-  &__description {
     font-size: 1.125rem;
     line-height: 1.6;
-    margin: $spacer-extra-big 0;
+    text-transform: uppercase;
+    @media screen and (min-width: $desktop-min) {
+      font-size: 2.25rem;
+    }
   }
+
+  &__description {
+    display: none;
+    margin: $spacer-extra-big 0;
+    font-size: 1.125rem;
+    line-height: 1.6;
+
+    @media screen and (min-width: $desktop-min) {
+      display: block;
+    }
+  }
+
   &/deep/.sf-banner__container {
     @media screen and (min-width: $desktop-min) {
       width: 70%;
     }
   }
+
   &--full /deep/.sf-banner {
     &__container {
       @media screen and (min-width: $desktop-min) {
@@ -377,18 +415,23 @@ body {
     }
   }
 }
+
 .newsletter {
   margin: $spacer-extra-big 0;
+
   @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big * 2 0;
   }
 }
 
 .carousel {
-  margin: -20px 0;
+  margin: -20px;
 
   /deep/ .sf-carousel__wrapper {
-    padding: 20px;
+    padding: 20px 0;
+    @media screen and (min-width: $desktop-min) {
+      padding: 20px;
+    }
   }
 }
 
@@ -418,7 +461,7 @@ body {
   }
 
   &__col {
-    max-width: 470px;
+    flex: 1 1 470px;
 
     &:not(:first-child) {
       margin-left: $spacer;
@@ -451,7 +494,7 @@ body {
   }
 }
 
-/* shame */
+/* wip / shame section */
 .sf-banner {
   /*
   /deep/ &__container {
@@ -488,6 +531,7 @@ body {
   }
   */
 }
+
 .sf-section {
   margin: $spacer-extra-big 0;
   padding: 0;
