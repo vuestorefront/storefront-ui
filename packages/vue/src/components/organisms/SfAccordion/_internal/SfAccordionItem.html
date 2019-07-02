@@ -1,15 +1,18 @@
 <div>
-  <div class="sf-accordion__header" @click="e => $emit('toggle', e)">
-    <slot name="header">
-      {{ header }}
-    </slot>
+  <div @click="onHeaderClick" class="sf-accordion-item__header">
+    <slot name="header"/>
+    <div v-show="isOpen">
+        <slot name="iconOpen">
+            <img style="transform: rotate(-180deg)" src="/assets/chevron_down.svg" alt="Open this tab"/>
+        </slot>
+    </div>
+    <div v-show="!isOpen">
+        <slot name="iconClose">
+            <img src="/assets/chevron_down.svg" alt="Open this tab"/>
+        </slot>
+    </div>
   </div>
-  <div
-    class="sf-accordion__content"
-    @click="e => $emit('contentClicked', e)"
-  >
-    <slot name="content">
-      {{ content }}
-    </slot>
+  <div class="sf-accordion-item__content" :class="isOpen ? 'sf-accordion-item__content--show' : ''">
+    <slot name="content"/>
   </div>
 </div>

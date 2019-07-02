@@ -1,13 +1,13 @@
 export default {
   name: "SfAccordionItem",
-  props: {
-    header: {
-      type: String,
-      default: ""
-    },
-    content: {
-      type: String,
-      default: ""
+  data() {
+    return {
+      isOpen: false
+    };
+  },
+  methods: {
+    onHeaderClick() {
+      this.$parent.$emit("toggle", this._uid);
     }
   }
 };

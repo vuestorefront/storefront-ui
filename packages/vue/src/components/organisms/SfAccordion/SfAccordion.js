@@ -1,38 +1,41 @@
-import Vue from 'vue';
-import SfAccordionItem from './_internal/SfAccordionItem.vue';
+import Vue from "vue";
+import SfAccordionItem from "./_internal/SfAccordionItem.vue";
 
 Vue.component("SfAccordionItem", SfAccordionItem);
 
 export default {
   name: "SfAccordion",
   props: {
-    items: {
-      type: Array,
-      default: () => []
+    multiple: {
+      type: Boolean,
+      default: false
+    },
+    firstOpen: {
+      type: Boolean,
+      default: false
     }
   },
-  // data() {
-  //   return {};
-  // },
   methods: {
-    toggleCurrent($event) {
-      console.log($event);
-      const clickedAccordionContent = $event.target.nextElementSibling;
-      if (clickedAccordionContent.className.includes("sf-accordion__content--show")) {
-        clickedAccordionContent.classList.remove("sf-accordion__content--show");
+    toggle(slotId) {
+      if (!this.multiple) {
+        this.$children.forEach(child => {
+          child._uid === slotId
+            ? (child.isOpen = !child.isOpen)
+            : (child.isOpen = false);
+        });
       } else {
-        const openedAccordionElement = Array.prototype.slice.call(document.getElementsByClassName('sf-accordion__content--show'), 0)[0];
-        openedAccordionElement
-          ? openedAccordionElement.classList.remove("sf-accordion__content--show")
-          : '';
-        clickedAccordionContent.classList.add("sf-accordion__content--show");
+        const clickedHeader = this.$children.find(child => {
+          return child._uid === slotId;
+        });
+        clickedHeader.isOpen = !clickedHeader.isOpen;
       }
     },
-    print($event) {
-      console.log($event)
+    openFirst() {
+      this.firstOpen ? (this.$children[0].isOpen = true) : "";
     }
   },
-  components: {
-    SfAccordionItem
+  mounted: function() {
+    this.$on("toggle", this.toggle);
+    this.openFirst();
   }
 };
