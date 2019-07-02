@@ -1,0 +1,19 @@
+.sf-accordion {
+  width: 50%;
+  margin: 100px auto;
+  &__header {
+    padding: 1rem;
+    background-color: #f1f2f3;
+    &--active {
+      background-color: #ffffff;
+    }
+  }
+  &__content {
+    padding: 1rem;
+    border: #f1f2f3 1px solid;
+    display: none;
+    &--show {
+      display: block;
+    }
+  }
+}

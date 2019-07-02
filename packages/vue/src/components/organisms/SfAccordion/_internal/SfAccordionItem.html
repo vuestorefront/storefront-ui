@@ -1,0 +1,15 @@
+<div>
+  <div class="sf-accordion__header" @click="e => $emit('toggle', e)">
+    <slot name="header">
+      {{ header }}
+    </slot>
+  </div>
+  <div
+    class="sf-accordion__content"
+    @click="e => $emit('contentClicked', e)"
+  >
+    <slot name="content">
+      {{ content }}
+    </slot>
+  </div>
+</div>
