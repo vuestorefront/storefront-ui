@@ -33,7 +33,7 @@
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="Shop now"
             image="assets/storybook/homepage/bannerF.png"
-            class="sf-banner--left sf-banner--top banner"
+            class="sf-banner--left sf-banner--top banner banner--coctail"
           >
             <template #subtitle>
               <h2 class="banner__subtitle">Scarves</h2>
@@ -304,7 +304,7 @@ body {
 }
 
 .banners-grid {
-  margin: $spacer-medium 0;
+  margin: $spacer-big 0;
 
   @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big 0;
@@ -324,7 +324,7 @@ body {
         &__col {
           &:not(:first-child) {
             margin-left: 0;
-            margin-top: $spacer-medium;
+            margin-top: $spacer;
 
             @media screen and (min-width: $desktop-min) {
               margin-top: $spacer-extra-big;
@@ -339,7 +339,7 @@ body {
     flex: 1 1 330px;
 
     &:not(:first-child) {
-      margin-top: $spacer-medium;
+      margin-top: $spacer;
 
       @media screen and (min-width: $desktop-min) {
         margin-top: 0;
@@ -355,9 +355,9 @@ body {
   width: 100%;
   min-height: 144px;
   font-family: $body-font-family-secondary;
-
+  padding: $spacer-big;
   @media screen and (min-width: $desktop-min) {
-    padding: $spacer-big;
+    padding: $spacer-extra-big;
   }
 
   &__subtitle,
@@ -417,7 +417,7 @@ body {
 }
 
 .newsletter {
-  margin: $spacer-extra-big 0;
+  margin: $spacer-big 0;
 
   @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big * 2 0;
