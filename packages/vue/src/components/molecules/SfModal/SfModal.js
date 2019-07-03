@@ -46,16 +46,6 @@ export default {
       default: "fade"
     }
   },
-  computed: {
-    visible: {
-      get() {
-        return this.value;
-      },
-      set(val) {
-        this.$emit("input", val);
-      }
-    }
-  },
   methods: {
     toggle() {
       const keydownHandler = e => {
@@ -81,14 +71,14 @@ export default {
   watch: {
     visible: {
       handler: visibility => {
-        if (value && typeof window !== "undefined") {
-          window.body.style.setProperty(
+        if (visibility && typeof window !== "undefined") {
+          document.body.style.setProperty(
             "margin-right",
             `${window.innerWidth - document.body.clientWidth}px`
           ); // better UX
-          window.body.style.setProperty("overflow", "hidden");
+          document.body.style.setProperty("overflow", "hidden");
         }
-        if (!value && typeof window !== "undefined") {
+        if (!visibility && typeof window !== "undefined") {
           document.body.style.removeProperty("margin-right");
           document.body.style.removeProperty("overflow");
         }

@@ -48,10 +48,30 @@ storiesOf("Molecules|Modal", module)
           default: boolean("persistent (prop)", false)
         },
         transitionOverlay: {
-          default: text("transitionOverlay (prop)", "fade")
+          default: select(
+            "transitionOverlay (prop)",
+            {
+              fade: "fade",
+              "collapse-top": "collapse-top",
+              "collapse-bottom": "collapse-bottom",
+              "fade-slide": "fade-slide",
+              "fade-collapse": "fade-collapse"
+            },
+            "fade"
+          )
         },
         transitionModal: {
-          default: text("transitionModal (prop)", "collapse-top")
+          default: select(
+            "transitionModal (prop)",
+            {
+              fade: "fade",
+              "collapse-top": "collapse-top",
+              "collapse-bottom": "collapse-bottom",
+              "fade-slide": "fade-slide",
+              "fade-collapse": "fade-collapse"
+            },
+            "fade"
+          )
         }
       },
       template: `
