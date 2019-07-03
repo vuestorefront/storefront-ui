@@ -33,12 +33,7 @@ export default {
     items: {
       type: Array,
       default: () => []
-    },
-    // /** Position of the bullets, either 'top' or 'bottom' */
-    // bulletsPosition: {
-    //   type: String,
-    //   default: ""
-    // }
+    }
   },
   components: {
     SfArrow,

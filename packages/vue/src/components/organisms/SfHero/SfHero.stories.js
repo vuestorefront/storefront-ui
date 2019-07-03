@@ -19,7 +19,7 @@ const data = () => {
         buttonText: "Learn more",
         subtitle: "SUMMER COLLECTION 2019",
         background: "#eceff1",
-        image: "https://i.ibb.co/Jn6JRGh/hero-bg-left.png",
+        image: "https://i.ibb.co/Jn6JRGh/hero-bg-left.png"
       },
       {
         title: "Colorful summer dresses are already in store",
