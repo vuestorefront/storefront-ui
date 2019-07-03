@@ -1,7 +1,7 @@
 "use strict";
 process.on("exit", code => {
   if (code === 0) {
-    console.log(`New component is created successfully.`);
+    console.log(`\n\nNew component created successfully. Refresh your files tree, if you can't see the new files :)\n\n`);
   }
 });
 
