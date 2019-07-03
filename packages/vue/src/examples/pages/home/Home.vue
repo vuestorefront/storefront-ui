@@ -402,7 +402,7 @@ body {
 
   &/deep/.sf-banner__container {
     @media screen and (min-width: $desktop-min) {
-      width: 70%;
+      width: 72%;
     }
   }
 
