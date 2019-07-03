@@ -1,3 +1,7 @@
 <transition :name="transition">
-    <div class="sf-overlay" @click="$emit('click')"></div>
+    <div 
+      v-if="visible
+      class="sf-overlay" 
+      @click="$emit('click')">
+    </div>
   </transition>

@@ -13,7 +13,7 @@ export default {
     /**
      * Visibility of the modal
      */
-    value: {
+    visible: {
       type: Boolean,
       default: () => false
     },
@@ -80,12 +80,17 @@ export default {
   },
   watch: {
     visible: {
-      handler: value => {
+      handler: visibility => {
         if (value && typeof window !== "undefined") {
-          window.document.querySelector("body").style.overflow = "hidden";
+          window.body.style.setProperty(
+            "margin-right",
+            `${window.innerWidth - document.body.clientWidth}px`
+          ); // better UX
+          window.body.style.setProperty("overflow", "hidden");
         }
         if (!value && typeof window !== "undefined") {
-          window.document.querySelector("body").style.overflow = "visible";
+          document.body.style.removeProperty("margin-right");
+          document.body.style.removeProperty("overflow");
         }
       },
       immediate: true

@@ -7,6 +7,10 @@ export default {
     transition: {
       type: String,
       default: "fade"
+    },
+    visible: {
+      type: Boolean,
+      default: false
     }
   }
-};
+}
