@@ -34,11 +34,11 @@ export default {
       type: Array,
       default: () => []
     },
-    /** Position of the bullets, either 'top' or 'bottom' */
-    bulletsPosition: {
-      type: String,
-      default: ""
-    }
+    // /** Position of the bullets, either 'top' or 'bottom' */
+    // bulletsPosition: {
+    //   type: String,
+    //   default: ""
+    // }
   },
   components: {
     SfArrow,
@@ -82,11 +82,6 @@ export default {
         return this.glide.index + 1;
       }
       return 1;
-    },
-    bulletsPositionClass() {
-      return BULLETS_POSITION.includes(this.bulletsPosition)
-        ? `sf-hero__bullets--${this.bulletsPosition}`
-        : "sf-hero__bullets--bottom";
     }
   },
   mounted: function() {
