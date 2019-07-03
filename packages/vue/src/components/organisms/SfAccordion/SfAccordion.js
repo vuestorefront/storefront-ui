@@ -6,10 +6,16 @@ Vue.component("SfAccordionItem", SfAccordionItem);
 export default {
   name: "SfAccordion",
   props: {
+    /**
+     * Allows to open multiple accordion items if set to "true"
+     */
     multiple: {
       type: Boolean,
       default: false
     },
+    /**
+     * Opens the first accordion item if set to "true"
+     */
     firstOpen: {
       type: Boolean,
       default: false

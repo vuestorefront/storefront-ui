@@ -1,18 +1,18 @@
 <div>
-  <div @click="onHeaderClick" class="sf-accordion-item__header">
-    <slot name="header"/>
+  <div @click="onHeaderClick" class="sf-accordion-item__header" :class="isOpen ? 'sf-accordion-item__header--active' : ''">
+    <slot name="header" />
     <div v-show="isOpen">
-        <slot name="iconOpen">
-            <img style="transform: rotate(-180deg)" src="/assets/chevron_down.svg" alt="Open this tab"/>
-        </slot>
+      <slot name="iconOpen">
+        <img style="transform: rotate(-180deg)" src="/assets/chevron_down.svg" alt="Open this tab" />
+      </slot>
     </div>
     <div v-show="!isOpen">
-        <slot name="iconClose">
-            <img src="/assets/chevron_down.svg" alt="Open this tab"/>
-        </slot>
+      <slot name="iconClose">
+        <img src="/assets/chevron_down.svg" alt="Open this tab" />
+      </slot>
     </div>
   </div>
   <div class="sf-accordion-item__content" :class="isOpen ? 'sf-accordion-item__content--show' : ''">
-    <slot name="content"/>
+    <slot name="content" />
   </div>
 </div>
