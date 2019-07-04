@@ -1,7 +1,6 @@
 @import '../variables';
 
 $sf-accordion-item__header-padding: 1rem 2rem;
-$sf-accordion-item__header-padding--active: 1rem 2rem 0;
 $sf-accordion-item__header-bg-color: $c-light-primary;
 $sf-accordion-item__header-bg-color--active: #ffffff;
 $sf-accordion-item__header-font-weight: 900;
@@ -12,8 +11,8 @@ $sf-accordion-item__header-justify-content: space-between;
 $sf-accordion-item__content-color: $c-dark-primary;
 $sf-accordion-item__content-font-size: 1rem;
 $sf-accordion-item__content-padding: 0.5rem 2rem;
-$sf-accordion-item__content-padding--first: 2rem 2rem 0.5rem;
-$sf-accordion-item__content-padding--last: 0.5rem 2rem 2rem;
+$sf-accordion-item__content-padding--first: 1rem 2rem 0.5rem;
+$sf-accordion-item__content-padding--last: 0.5rem 2rem 1rem;
 
 .sf-accordion {
   &-item__header {
@@ -26,7 +25,6 @@ $sf-accordion-item__content-padding--last: 0.5rem 2rem 2rem;
     cursor: pointer;
     &--active {
       background-color: $sf-accordion-item__header-bg-color--active;
-      padding: $sf-accordion-item__header-padding--active;
     }
   }
   &-item__content-wrapper {
