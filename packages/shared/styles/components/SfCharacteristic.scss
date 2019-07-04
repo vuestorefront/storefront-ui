@@ -1,0 +1,24 @@
+@import '../variables';
+
+$characteristic-margin-right: 20px;
+
+.sf-characteristic {
+  display: flex;
+  justify-content: center;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    margin-right: $characteristic-margin-right;
+  }
+
+  &__title {
+    font-size: $font-size-small-desktop;
+    margin: 0;
+  }
+
+  &__description {
+    font-size: $font-size-extra-small-desktop;
+    margin: 0;
+  }
+}

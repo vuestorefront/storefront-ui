@@ -68,7 +68,14 @@ describe("SfRadio.vue", () => {
   it("renders a component with description slot", () => {
     const component = shallowMount(SfRadio, {
       propsData: {
-        options: [{ label: "Orange", value: "orange", price: "2", description: 'description of orange' }],
+        options: [
+          {
+            label: "Orange",
+            value: "orange",
+            price: "2",
+            description: "description of orange"
+          }
+        ],
         value
       },
       scopedSlots: {

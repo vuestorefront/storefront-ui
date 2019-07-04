@@ -16,6 +16,7 @@ import SfRating from "./src/components/atoms/SfRating/SfRating.vue";
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.vue";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.vue";
 import SfCallToAction from "./src/components/molecules/SfCallToAction/SfCallToAction.vue";
+import SfCharacteristic from "./src/components/molecules/SfCharacteristic/SfCharacteristic.vue";
 import SfCounter from "./src/components/molecules/SfCounter/SfCounter.vue";
 import SfFilter from "./src/components/molecules/SfFilter/SfFilter.vue";
 import SfGallery from "./src/components/molecules/SfGallery/SfGallery.vue";
@@ -53,6 +54,7 @@ export {
   SfAlert,
   SfBanner,
   SfCallToAction,
+  SfCharacteristic,
   SfCounter,
   SfFilter,
   SfGallery,

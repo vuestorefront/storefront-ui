@@ -1,0 +1,15 @@
+<div class="sf-characteristic">
+  <slot name="icon">
+    <div class="sf-characteristic__icon">
+      <SfIcon :color="color" :size="size" :path="path" />
+    </div>
+  </slot>
+  <div class="sf-characteristic__text">
+    <slot name="title">
+      <p class="sf-characteristic__title">{{title}}</p>
+    </slot>
+    <slot name="description">
+      <p class="sf-characteristic__description">{{description}}</p>
+    </slot>
+  </div>
+</div>
