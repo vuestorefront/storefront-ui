@@ -1,18 +1,29 @@
 <div>
-  <div @click="onHeaderClick" class="sf-accordion-item__header" :class="isOpen ? 'sf-accordion-item__header--active' : ''">
-    <slot name="header" />
-    <div v-show="isOpen">
-      <slot name="iconOpen">
-        <img style="transform: rotate(-180deg)" src="/assets/chevron_down.svg" alt="Open this tab" />
+  <div @click="onHeaderClick">
+    <div v-if="!isOpen">
+      <slot name="header">
+        <div class="sf-accordion-item__header">
+          {{ headerText }}
+          <img src="/assets/chevron_down.svg" alt="Open this tab" />
+        </div>
       </slot>
     </div>
-    <div v-show="!isOpen">
-      <slot name="iconClose">
-        <img src="/assets/chevron_down.svg" alt="Open this tab" />
+    <div v-if="isOpen">
+      <slot name="headerOpen">
+        <div class="sf-accordion-item__header sf-accordion-item__header--active">
+          {{ headerText }}
+          <img style="transform: rotate(-180deg)" src="/assets/chevron_down.svg" alt="Open this tab" />
+        </div>
       </slot>
     </div>
   </div>
-  <div class="sf-accordion-item__content" :class="isOpen ? 'sf-accordion-item__content--show' : ''">
-    <slot name="content" />
+  <div class="sf-accordion-item__content-wrapper" :class="isOpen ? 'sf-accordion-item__content-wrapper--show' : ''">
+    <slot name="content">
+      <div class="sf-accordion-item__content">
+        <div v-for="item of contentItems">
+          {{ item }}
+        </div>
+      </div>
+    </slot>
   </div>
 </div>
