@@ -15,6 +15,7 @@ $sf-input__invalid-color              : rgba(240, 140, 125, 1) !default;
   position: relative;
 
   & > input {
+    width: 100%;
     font-size: $sf-input__input-font-size;
     padding: 0.625rem 0;
     display: block;
