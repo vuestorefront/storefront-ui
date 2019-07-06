@@ -13,7 +13,7 @@ export default {
     },
     valid: {
       type: Boolean,
-      default: true
+      default: undefined
     },
     errorMessage: {
       type: String,

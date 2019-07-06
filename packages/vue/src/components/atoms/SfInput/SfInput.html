@@ -1,10 +1,12 @@
-<div class="sf-input" :class="{ 'sf-input--invalid': !valid }">
+<div
+  class="sf-input"
+  :class="{ 'sf-input--invalid': valid === false }">
   <input v-bind="$attrs" v-on="listeners" :value="value">
   <span class="sf-input__bar"></span>
   <label class="sf-input__label"><slot>{{ label }}</slot></label>
   <div class="sf-input__error-message">
     <transition name="fade">
-      <span v-if="!valid">
+      <span v-if="valid === false">
         <slot name="errorMessage">{{ errorMessage }}</slot>
       </span>
     </transition>
