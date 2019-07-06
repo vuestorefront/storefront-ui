@@ -1,6 +1,9 @@
 <div
   class="sf-input"
-  :class="{ 'sf-input--invalid': valid === false }">
+  :class="{
+    'sf-input--has-text': !!value,
+    'sf-input--invalid': valid === false
+  }">
   <input v-bind="$attrs" v-on="listeners" :value="value">
   <span class="sf-input__bar"></span>
   <label class="sf-input__label"><slot>{{ label }}</slot></label>

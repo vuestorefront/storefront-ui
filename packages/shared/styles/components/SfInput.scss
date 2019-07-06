@@ -11,6 +11,11 @@ $sf-input__error-message-min-height   : 0.875rem !default;
 $sf-input__active-color               : $c-accent-primary !default;
 $sf-input__invalid-color              : rgba(240, 140, 125, 1) !default;
 
+@mixin move-label-up {
+  top: -20px;
+  font-size: $sf-input__label-focus-font-size;
+}
+
 .sf-input {
   position: relative;
 
@@ -36,9 +41,8 @@ $sf-input__invalid-color              : rgba(240, 140, 125, 1) !default;
       width: 50%;
     }
 
-    &:focus ~ .sf-input__label, &:valid ~ .sf-input__label {
-      top: -20px;
-      font-size: $sf-input__label-focus-font-size;
+    &:focus ~ .sf-input__label {
+      @include move-label-up();
       color: $sf-input__active-color;
     }
   }
@@ -95,5 +99,13 @@ $sf-input__invalid-color              : rgba(240, 140, 125, 1) !default;
     & > .sf-input__bar::before, .sf-input__bar::after {
       background-color: $sf-input__invalid-color;
     }
+  }
+
+  &--has-text > &__label {
+    @include move-label-up();
+  }
+
+  &--invalid.sf-input--has-text > &__label {
+    color: $sf-input__invalid-color;
   }
 }
