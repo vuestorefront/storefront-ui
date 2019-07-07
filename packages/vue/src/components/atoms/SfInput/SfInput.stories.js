@@ -3,12 +3,21 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 import SfInput from "./SfInput.vue";
 
+const vm = {
+  components: { SfInput },
+  data: () => {
+    return {
+      value: ""
+    };
+  }
+};
+
 storiesOf("Atoms|Input", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
     () => ({
-      components: { SfInput },
+      ...vm,
       props: {
         label: {
           default: text("Label", "Name")
@@ -22,11 +31,6 @@ storiesOf("Atoms|Input", module)
         errorMessage: {
           default: text("Error message", "Field is required.")
         }
-      },
-      data() {
-        return {
-          value: ""
-        };
       },
       template: `
       <div :style="{ width: '300px', margin: '50px' }">
@@ -46,7 +50,7 @@ storiesOf("Atoms|Input", module)
   .add(
     "[slot] default",
     () => ({
-      components: { SfInput },
+      ...vm,
       props: {
         valid: {
           default: boolean("Valid")
@@ -57,11 +61,6 @@ storiesOf("Atoms|Input", module)
         errorMessage: {
           default: text("Error message", "Field is required.")
         }
-      },
-      data() {
-        return {
-          value: ""
-        };
       },
       template: `
         <div :style="{ width: '300px', margin: '50px' }">
@@ -78,7 +77,7 @@ storiesOf("Atoms|Input", module)
   .add(
     "[slot] with error message",
     () => ({
-      components: { SfInput },
+      ...vm,
       props: {
         label: {
           default: text("Label", "Name")
@@ -89,11 +88,6 @@ storiesOf("Atoms|Input", module)
         required: {
           default: boolean("Required", true)
         }
-      },
-      data() {
-        return {
-          value: ""
-        };
       },
       template: `
         <div :style="{ width: '300px', margin: '50px' }">
