@@ -10,6 +10,7 @@ $sf-input__error-message-min-height   : 0.875rem !default;
 
 $sf-input__active-color               : $c-accent-primary !default;
 $sf-input__invalid-color              : rgba(240, 140, 125, 1) !default;
+$sf-input__disabled-color              : rgba(115, 118, 128, 1) !default;
 
 @mixin move-label-up {
   top: -20px;
@@ -44,6 +45,10 @@ $sf-input__invalid-color              : rgba(240, 140, 125, 1) !default;
     &:focus ~ .sf-input__label {
       @include move-label-up();
       color: $sf-input__active-color;
+    }
+
+    &:disabled ~ .sf-input__label {
+      color: $sf-input__disabled-color;
     }
   }
 
