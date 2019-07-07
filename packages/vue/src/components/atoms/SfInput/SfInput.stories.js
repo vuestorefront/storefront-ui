@@ -1,6 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
+import { generateStorybookTable } from "@/helpers";
+
 import SfInput from "./SfInput.vue";
 
 const vm = {
@@ -10,6 +12,36 @@ const vm = {
       value: ""
     };
   }
+};
+
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    ["$sf-input__transition", "all 0.3s ease-in-out", "Input transition"],
+    ["$sf-input__input-font-size", "$font-size-big-desktop", "Input font size"],
+    ["$sf-input__label-font-size", "$font-size-big-desktop", "Label font size"],
+    [
+      "$sf-input__label-focus-font-size",
+      "0.625rem",
+      "Focus input label font size"
+    ],
+    [
+      "$sf-input__error-message-min-height",
+      "0.875rem",
+      "Error message min-height"
+    ],
+    ["$sf-input__active-color", "$c-accent-primary", "Active input color"],
+    [
+      "$sf-input__invalid-color",
+      "rgba(240, 140, 125, 1)",
+      "Invalid input color"
+    ],
+    [
+      "$sf-input__disabled-color",
+      "rgba(115, 118, 128, 1)",
+      "Disabled input color"
+    ]
+  ]
 };
 
 storiesOf("Atoms|Input", module)
@@ -43,6 +75,7 @@ storiesOf("Atoms|Input", module)
         <p>Single form input component.</p>
         <h2> Usage </h2>
         <pre><code>import SfInput from "@storefrontui/vue/dist/SfInput.vue"</code></pre>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }
     }
