@@ -4,7 +4,7 @@
     'sf-input--has-text': !!value,
     'sf-input--invalid': valid === false
   }">
-  <input v-bind="$attrs" v-on="listeners" :value="value">
+  <input v-bind="$attrs" v-on="listeners" :value="value" :required="required" :disabled="disabled">
   <span class="sf-input__bar"></span>
   <label class="sf-input__label">
     <!-- @slot Custom input label -->
