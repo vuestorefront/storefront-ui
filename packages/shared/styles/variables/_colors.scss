@@ -36,27 +36,27 @@ $c-bg-secondary: $c-light-secondary !default;
 $c-border: $c-light-primary;
 
 // Theme colors
-$primary: $c-green-primary !default;
-$secondary: $c-dark-primary !default;
-$info: $c-blue-primary !default;
-$success: $c-green-primary !default;
-$warning: $c-yellow-primary !default;
-$danger: $c-pink-primary !default;
-$light: $c-light-primary !default;
-$dark: $c-dark-primary !default;
+$c-primary: $c-green-primary !default;
+$c-secondary: $c-dark-primary !default;
+$c-info: $c-blue-primary !default;
+$c-success: $c-green-primary !default;
+$c-warning: $c-yellow-primary !default;
+$c-danger: $c-pink-primary !default;
+$c-light: $c-light-primary !default;
+$c-dark: $c-dark-primary !default;
 
 // Map colors palette
 $colors: () !default;
 $colors: map-merge(
   (
-    'primary': $primary,
-    'secondary': $secondary,
-    'info': $info,
-    'success': $success,
-    'warning': $warning,
-    'danger': $danger,
-    'light': $light,
-    'dark': $dark,
+    'primary': $c-primary,
+    'secondary': $c-secondary,
+    'info': $c-info,
+    'success': $c-success,
+    'warning': $c-warning,
+    'danger': $c-danger,
+    'light': $c-light,
+    'dark': $c-dark,
     'white': $c-white,
     'black': $c-black
   ),
