@@ -7,6 +7,20 @@ export default {
   name: "SfAccordion",
   props: {
     /**
+     * Array of items to populate the default markup
+     */
+    items: {
+      type: Array,
+      default: []
+    },
+    /**
+     * Callback function to handle click on accordion item content element
+     */
+    contentClickedCallback: {
+      type: Function,
+      default: () => {}
+    },
+    /**
      * Allows to open multiple accordion items if set to "true"
      */
     multiple: {
@@ -19,13 +33,6 @@ export default {
     firstOpen: {
       type: Boolean,
       default: false
-    },
-    /**
-     * Array of items to populate the default markup
-     */
-    items: {
-      type: Array,
-      default: []
     },
     /**
      * Allows to use two different markups for opened and closed header
@@ -56,6 +63,7 @@ export default {
   },
   mounted: function() {
     this.$on("toggle", this.toggle);
+    this.$on("contentClicked", this.contentClickedCallback);
     this.openFirst();
   }
 };

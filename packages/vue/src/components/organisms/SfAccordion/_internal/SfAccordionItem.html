@@ -20,8 +20,8 @@
   <div class="sf-accordion-item__content-wrapper" :class="isOpen ? 'sf-accordion-item__content-wrapper--show' : ''">
     <slot name="content">
       <div class="sf-accordion-item__content">
-        <div v-for="item of contentItems">
-          {{ item }}
+        <div v-for="item of contentItems" @click="onContentItemClick(item.id)">
+          {{ item.text }}
         </div>
       </div>
     </slot>
