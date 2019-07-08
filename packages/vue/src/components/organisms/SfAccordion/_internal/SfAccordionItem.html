@@ -1,6 +1,6 @@
 <div>
   <div @click="onHeaderClick">
-    <div v-if="!isOpen">
+    <div v-if="!isOpen || !$parent.openHeaderStyle">
       <slot name="header">
         <div class="sf-accordion-item__header">
           {{ headerText }}
@@ -8,7 +8,7 @@
         </div>
       </slot>
     </div>
-    <div v-if="isOpen">
+    <div v-if="isOpen && $parent.openHeaderStyle">
       <slot name="headerOpen">
         <div class="sf-accordion-item__header sf-accordion-item__header--active">
           {{ headerText }}

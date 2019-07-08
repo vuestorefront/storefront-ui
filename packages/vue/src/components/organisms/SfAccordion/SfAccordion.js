@@ -19,6 +19,20 @@ export default {
     firstOpen: {
       type: Boolean,
       default: false
+    },
+    /**
+     * Array of items to populate the default markup
+     */
+    items: {
+      type: Array,
+      default: []
+    },
+    /**
+     * Allows to use two different markups for opened and closed header
+     */
+    openHeaderStyle: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
