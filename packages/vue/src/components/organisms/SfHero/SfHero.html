@@ -8,9 +8,7 @@
                         :image="item.image"
                         :title="item.title"
                         :subtitle="item.subtitle"
-                        :buttonText="item.buttonText"
-                        :bgPosition="item.bgPosition"
-                        :containerPosition="item.containerPosition">
+                        :buttonText="item.buttonText">
                     </SfHeroItem>
                 </div>
                 <!--@slot default slot for SfHeroItems tags -->
@@ -36,7 +34,7 @@
             </slot>
         </div>
     </div>
-    <div class="sf-hero__bullets" :class="[bulletsPositionClass]" v-if="numberOfPages > 1">
+    <div class="sf-hero__bullets" v-if="numberOfPages > 1">
         <SfBullets
             :total="numberOfPages"
             :current="page-1"

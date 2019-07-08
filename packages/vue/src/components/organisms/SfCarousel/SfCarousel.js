@@ -42,10 +42,10 @@ export default {
   methods: {
     go(direct) {
       switch (direct) {
-        case "<":
+        case "prev":
           this.glide.go("<");
           break;
-        case ">":
+        case "next":
           this.glide.go(">");
           break;
       }

@@ -2,9 +2,7 @@
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
-  text,
   select,
-  object,
   number,
   optionsKnob as options
 } from "@storybook/addon-knobs";
@@ -21,16 +19,13 @@ const data = () => {
         buttonText: "Learn more",
         subtitle: "SUMMER COLLECTION 2019",
         background: "#eceff1",
-        image: "https://i.ibb.co/Jn6JRGh/hero-bg-left.png",
-        bgPosition: "bottom left",
-        containerPosition: "right"
+        image: "https://i.ibb.co/Jn6JRGh/hero-bg-left.png"
       },
       {
         title: "Colorful summer dresses are already in store",
         subtitle: "SUMMER COLLECTION 2019",
         buttonText: "Learn more",
         background: "#efebe9",
-        bgPosition: "bottom right",
         image: "https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
       },
       {
@@ -100,6 +95,50 @@ storiesOf("Organisms|SfHero", module)
     "Basic",
     () => ({
       components: { SfHero },
+      props: {
+        customClass_1: {
+          default: options(
+            "CSS Modifier for 1st item",
+            {
+              null: "null",
+              "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
+              "bg-top-right": "sf-hero-item--position-bg-top-right",
+              "bg-top-left": "sf-hero-item--position-bg-top-left",
+              "align-right": "sf-hero-item--align-right"
+            },
+            "sf-hero-item--position-bg-top-right",
+            { display: "multi-select" }
+          )
+        },
+        customClass_2: {
+          default: options(
+            "CSS Modifier for 2nd item",
+            {
+              null: "null",
+              "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
+              "bg-top-right": "sf-hero-item--position-bg-top-right",
+              "bg-top-left": "sf-hero-item--position-bg-top-left",
+              "align-right": "sf-hero-item--align-right"
+            },
+            "sf-hero-item--position-bg-bottom-left sf-hero-item--align-right",
+            { display: "multi-select" }
+          )
+        },
+        customClass_3: {
+          default: options(
+            "CSS Modifier for 3rd item",
+            {
+              null: "null",
+              "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
+              "bg-top-right": "sf-hero-item--position-bg-top-right",
+              "bg-top-left": "sf-hero-item--position-bg-top-left",
+              "align-right": "sf-hero-item--align-right"
+            },
+            "null",
+            { display: "multi-select" }
+          )
+        }
+      },
       template: `<SfHero>
         <SfHeroItem 
           title="Colorful summer dresses are already in store"
@@ -107,6 +146,7 @@ storiesOf("Organisms|SfHero", module)
           buttonText="Learn more"
           background="#eceff1"
           image="https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
+          :class="customClass_1"
         ></SfHeroItem>
         <SfHeroItem 
           title="Colorful summer dresses are already in store"
@@ -114,8 +154,7 @@ storiesOf("Organisms|SfHero", module)
           buttonText="Learn more"
           background="#efebe9"
           image="assets/storybook/Banner1.png"
-          backgroundPosition="bottom left"
-          containerPosition="right"
+          :class="customClass_2"
         ></SfHeroItem>
         <SfHeroItem 
           title="Colorful summer dresses are already in store"
@@ -123,6 +162,7 @@ storiesOf("Organisms|SfHero", module)
           buttonText="Learn more"
           background="#fce4ec"
           image="assets/storybook/Banner2.png"
+          :class="customClass_3"
         ></SfHeroItem>
       </SfHero>`
     }),
@@ -143,8 +183,6 @@ storiesOf("Organisms|SfHero", module)
           subtitle?: string,<br>
           background?: string,<br>
           image?: string,<br>
-          bgPosition?: string,<br>
-          containerPosition?: string,<br>
           </code>
           <br><br>
         </p>
@@ -182,8 +220,6 @@ storiesOf("Organisms|SfHero", module)
             &nbsp;&nbsp;subtitle?: string,<br>
             &nbsp;&nbsp;background?: string,<br>
             &nbsp;&nbsp;image?: string,<br>
-            &nbsp;&nbsp;bgPosition?: string,<br>
-            &nbsp;&nbsp;containerPosition?: string,<br>
             &nbsp;}<br>
             ];
           </code>
@@ -198,8 +234,6 @@ storiesOf("Organisms|SfHero", module)
             &nbsp;&nbsp;subtitle: "SUMMER COLLECTION 2019",<br>
             &nbsp;&nbsp;background: "#eceff1",<br>
             &nbsp;&nbsp;image: "https://i.ibb.co/Jn6JRGh/hero-bg-left.png",<br>
-            &nbsp;&nbsp;bgPosition: "bottom left",<br>
-            &nbsp;&nbsp;containerPosition: "right"<br>
             &nbsp;},<br>
             &nbsp;{<br>
             &nbsp;&nbsp;title: "Colorful summer dresses are already in store",<br>
@@ -235,29 +269,6 @@ storiesOf("Organisms|SfHero", module)
       },
       data,
       template: `<SfHero :items="items" :sliderOptions="{ autoplay }">
-        </SfHero>`
-    }),
-    {
-      info: {
-        summary: `
-        <h2>Usage</h2>
-        <pre><code>import { SfHero } from "@storefrontui/vue/dist/SfHero.vue"</code></pre>
-        `
-      }
-    }
-  )
-  .add(
-    "[props] bulletPosition",
-    () => ({
-      components: { SfHero },
-      props: {
-        bulletsPosition: {
-          default: select("bulletsPosition options", ["default", "top"], "null")
-        }
-      },
-      data,
-      template: `
-      <SfHero :items="items" :bulletsPosition="bulletsPosition">
         </SfHero>`
     }),
     {
