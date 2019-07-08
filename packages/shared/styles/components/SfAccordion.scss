@@ -1,30 +1,30 @@
 @import '../variables';
 
-$sf-accordion-item__header-padding: 1rem 2rem;
-$sf-accordion-item__header-bg-color: $c-light-primary;
-$sf-accordion-item__header-bg-color--active: #ffffff;
-$sf-accordion-item__header-font-weight: 900;
-$sf-accordion-item__header-text-transform: uppercase;
-$sf-accordion-item__header-display: flex;
-$sf-accordion-item__header-justify-content: space-between;
+$accordion-item__header-padding: 1rem 2rem !default;
+$accordion-item__header-bg-color: $c-light-primary !default;
+$accordion-item__header-bg-color--active: #ffffff !default;
+$accordion-item__header-font-weight: 900 !default;
+$accordion-item__header-text-transform: uppercase !default;
+$accordion-item__header-display: flex !default;
+$accordion-item__header-justify-content: space-between !default;
 
-$sf-accordion-item__content-color: $c-dark-primary;
-$sf-accordion-item__content-font-size: 1rem;
-$sf-accordion-item__content-padding: 0.5rem 2rem;
-$sf-accordion-item__content-padding--first: 1rem 2rem 0.5rem;
-$sf-accordion-item__content-padding--last: 0.5rem 2rem 1rem;
+$accordion-item__content-color: $c-dark-primary !default;
+$accordion-item__content-font-size: 1rem !default;
+$accordion-item__content-padding: 0.5rem 2rem !default;
+$accordion-item__content-padding--first: 1rem 2rem 0.5rem !default;
+$accordion-item__content-padding--last: 0.5rem 2rem 1rem !default;
 
 .sf-accordion {
   &-item__header {
-    padding: $sf-accordion-item__header-padding;
-    background-color: $sf-accordion-item__header-bg-color;
-    font-weight: $sf-accordion-item__header-font-weight;
-    text-transform: $sf-accordion-item__header-text-transform;
-    display: $sf-accordion-item__header-display;
-    justify-content: $sf-accordion-item__header-justify-content;
+    padding: $accordion-item__header-padding;
+    background-color: $accordion-item__header-bg-color;
+    font-weight: $accordion-item__header-font-weight;
+    text-transform: $accordion-item__header-text-transform;
+    display: $accordion-item__header-display;
+    justify-content: $accordion-item__header-justify-content;
     cursor: pointer;
     &--active {
-      background-color: $sf-accordion-item__header-bg-color--active;
+      background-color: $accordion-item__header-bg-color--active;
     }
   }
   &-item__content-wrapper {
@@ -34,17 +34,17 @@ $sf-accordion-item__content-padding--last: 0.5rem 2rem 1rem;
     }
   }
   &-item__content {
-    color: $sf-accordion-item__content-color;
-    font-size: $sf-accordion-item__content-font-size;
+    color: $accordion-item__content-color;
+    font-size: $accordion-item__content-font-size;
     cursor: pointer;
     
     > * {
-      padding: $sf-accordion-item__content-padding;
+      padding: $accordion-item__content-padding;
       &:first-child {
-        padding: $sf-accordion-item__content-padding--first;
+        padding: $accordion-item__content-padding--first;
       }
       &:last-child {
-        padding: $sf-accordion-item__content-padding--last;
+        padding: $accordion-item__content-padding--last;
       }
     }
   }
