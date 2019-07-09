@@ -493,45 +493,6 @@ body {
     margin-left: 10px;
   }
 }
-
-/* wip / shame section */
-.sf-banner {
-  /*
-  /deep/ &__container {
-    @media screen and (min-width: $desktop-min) {
-      width: 70%;
-    }
-  }
-
-  /deep/ &__subtitle,
-  /deep/ &__title{
-    margin: 0;
-    padding: 0;
-  }
-  /deep/ &__subtitle{
-    line-height: 1.167;
-  }
-  /deep/ &__title{
-    font-size: 2.25rem;
-    line-height: 1.6;
-  }
-  /deep/ &__description{
-    padding: 0;
-    margin: $spacer-extra-big 0;
-  }
-  /deep/ &--full {
-    .sf-banner {
-      &__container {
-        @media screen and (min-width: $desktop-min) {
-          flex: 0 0 100%;
-          width: 100%;
-        }
-      }
-    }
-  }
-  */
-}
-
 .sf-section {
   margin: $spacer-extra-big 0;
   padding: 0;
