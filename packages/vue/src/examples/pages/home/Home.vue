@@ -480,13 +480,13 @@ body {
       margin-left: $spacer-medium;
     }
   }
-  &__subtitle{
+  &__subtitle {
     padding: 0;
     margin-bottom: $spacer-big;
-    color: #A3A5AD;
+    color: #a3a5ad;
     font-weight: 300;
   }
-  &__title{
+  &__title {
     padding: 0;
     margin-bottom: $spacer-extra-big;
     color: $c-dark-primary;
