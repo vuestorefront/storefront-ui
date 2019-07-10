@@ -227,7 +227,7 @@
       class="sf-banner--left desktop-only app-banner"
     >
       <template #subtitle>
-        <h2 class="app-banner__title">
+        <h2 class="app-banner__subtitle">
           Fashion to Take Away
         </h2>
       </template>
@@ -430,7 +430,7 @@ body {
   /deep/ .sf-carousel__wrapper {
     padding: 20px 0;
     @media screen and (min-width: $desktop-min) {
-      max-width: calc(100% - 216px);
+      max-width: calc(100% - 176px);
       padding: 20px;
     }
   }
@@ -480,7 +480,18 @@ body {
       margin-left: $spacer-medium;
     }
   }
-
+  &__subtitle{
+    padding: 0;
+    margin-bottom: $spacer-big;
+    color: #A3A5AD;
+    font-weight: 300;
+  }
+  &__title{
+    padding: 0;
+    margin-bottom: $spacer-extra-big;
+    color: $c-dark-primary;
+    line-height: 1.38;
+  }
   /deep/ .sf-banner__container {
     @media screen and (min-width: $desktop-min) {
       margin-left: 64px;
