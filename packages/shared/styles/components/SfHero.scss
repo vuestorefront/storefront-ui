@@ -17,7 +17,7 @@ $hero-item-width: 100% !default;
 $hero-item-padding: 1rem !default;
 $hero-item-padding--desktop: 5rem !default;
 $hero-item-bg-size: cover !default;
-$hero-item-bg-position: bottom right !default;
+$hero-item-bg-position: top left !default;
 $hero-item-bg-repeat: no-repeat !default;
 
 $hero-item__container-width--desktop: 50% !default;
@@ -94,11 +94,11 @@ $hero-item__title-color: $c-dark-primary !default;
     background-position: $hero-item-bg-position;
     background-repeat: $hero-item-bg-repeat;
 
-    &--position-bg-top-left {
-      background-position: top left;
-    }
     &--position-bg-top-right {
       background-position: top right;
+    }
+    &--position-bg-bottom-right {
+      background-position: bottom right;
     }
     &--position-bg-bottom-left {
       background-position: bottom left;
