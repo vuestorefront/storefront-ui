@@ -3,16 +3,14 @@
     <div v-if="!isOpen || !$parent.openHeaderStyle">
       <slot name="header">
         <div class="sf-accordion-item__header">
-          {{ headerText }}
-          <img src="/assets/chevron_down.svg" alt="Open this tab" />
+          {{ header }}
         </div>
       </slot>
     </div>
     <div v-if="isOpen && $parent.openHeaderStyle">
       <slot name="headerOpen">
         <div class="sf-accordion-item__header sf-accordion-item__header--active">
-          {{ headerText }}
-          <img style="transform: rotate(-180deg)" src="/assets/chevron_down.svg" alt="Open this tab" />
+          {{ header }}
         </div>
       </slot>
     </div>

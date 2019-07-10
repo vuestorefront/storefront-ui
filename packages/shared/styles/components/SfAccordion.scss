@@ -1,6 +1,8 @@
-@import '../variables';
+@import "../variables";
 
-$accordion-item__header-padding: 1rem 2rem !default;
+$accordion-item__header-padding: 0.5rem 0 !default;
+$accordion-header-font-size: 18px;
+
 $accordion-item__header-bg-color: $c-light-primary !default;
 $accordion-item__header-bg-color--active: #ffffff !default;
 $accordion-item__header-font-weight: 900 !default;
@@ -9,23 +11,16 @@ $accordion-item__header-display: flex !default;
 $accordion-item__header-justify-content: space-between !default;
 
 $accordion-item__content-color: $c-dark-primary !default;
-$accordion-item__content-font-size: 1rem !default;
-$accordion-item__content-padding: 0.5rem 2rem !default;
-$accordion-item__content-padding--first: 1rem 2rem 0.5rem !default;
-$accordion-item__content-padding--last: 0.5rem 2rem 1rem !default;
+$accordion-item__content-font-size: 14px !default;
+$accordion-item__content-padding: 0.5rem 0 !default;
+$accordion-item__content-padding--first: 1.5rem 0 0.5rem !default;
+$accordion-item__content-padding--last: 0.5rem 0 1.5rem !default;
 
 .sf-accordion {
   &-item__header {
     padding: $accordion-item__header-padding;
-    background-color: $accordion-item__header-bg-color;
-    font-weight: $accordion-item__header-font-weight;
-    text-transform: $accordion-item__header-text-transform;
-    display: $accordion-item__header-display;
-    justify-content: $accordion-item__header-justify-content;
+    font-size: $accordion-header-font-size;
     cursor: pointer;
-    &--active {
-      background-color: $accordion-item__header-bg-color--active;
-    }
   }
   &-item__content-wrapper {
     display: none;
@@ -37,7 +32,7 @@ $accordion-item__content-padding--last: 0.5rem 2rem 1rem !default;
     color: $accordion-item__content-color;
     font-size: $accordion-item__content-font-size;
     cursor: pointer;
-    
+
     > * {
       padding: $accordion-item__content-padding;
       &:first-child {
@@ -47,5 +42,9 @@ $accordion-item__content-padding--last: 0.5rem 2rem 1rem !default;
         padding: $accordion-item__content-padding--last;
       }
     }
+  }
+
+  &-item__content--active {
+    font-weight: 900;
   }
 }

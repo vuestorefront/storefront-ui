@@ -11,7 +11,7 @@ export default {
      */
     items: {
       type: Array,
-      default: []
+      default: () => []
     },
     /**
      * Callback function to handle click on accordion item content element
@@ -58,7 +58,7 @@ export default {
       }
     },
     openFirst() {
-      this.firstOpen ? (this.$children[0].isOpen = true) : "";
+      this.$children[0].isOpen = this.firstOpen;
     }
   },
   mounted: function() {
