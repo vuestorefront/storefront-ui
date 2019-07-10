@@ -31,6 +31,8 @@ $call-to-action--secondary__button-background-color: $c-dark-primary !default;
   flex-direction: column;
   padding: $spacer-big $spacer-medium;
   background-color: $call-to-action-background-color;
+  background-repeat: no-repeat;
+
   @media screen and (min-width: $desktop-min) {
     flex-direction: row;
     padding: $call-to-action-padding;
@@ -49,7 +51,7 @@ $call-to-action--secondary__button-background-color: $c-dark-primary !default;
     text-transform: $call-to-action__title-text-transform;
     @media screen and (min-width: $desktop-min) {
       text-align: left;
-      margin-bottom: 0; 
+      margin-bottom: 0;
       font-size: $call-to-action__title-font-size;
     }
   }
