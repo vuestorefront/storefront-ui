@@ -18,7 +18,7 @@ export default {
         perView: 4,
         slidePerPage: true,
         breakpoints: {
-          767: {
+          1023: {
             perView: 2,
             peek: {
               before: 0,
