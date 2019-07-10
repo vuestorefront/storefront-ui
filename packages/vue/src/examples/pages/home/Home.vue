@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <!-- SfHero -->
-    <SfHero :sliderOptions="{autoplay: false}">
+    <SfHero>
       <SfHeroItem
         title="Colorful summer dresses are already in store"
         subtitle="SUMMER COLLECTION 2019"
@@ -481,7 +481,7 @@ body {
     }
   }
 
-  /deep/ .sf-banner__container{
+  /deep/ .sf-banner__container {
     @media screen and (min-width: $desktop-min) {
       margin-left: 64px;
     }
