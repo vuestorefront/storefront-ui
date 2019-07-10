@@ -430,6 +430,7 @@ body {
   /deep/ .sf-carousel__wrapper {
     padding: 20px 0;
     @media screen and (min-width: $desktop-min) {
+      max-width: calc(100% - 216px);
       padding: 20px;
     }
   }
@@ -444,14 +445,10 @@ body {
 }
 
 .images-grid {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
   &__row {
     flex: 1;
     display: flex;
-
+    justify-content: center;
     &:not(:first-child) {
       margin-top: $spacer;
       @media screen and (min-width: $desktop-min) {
@@ -461,7 +458,7 @@ body {
   }
 
   &__col {
-    flex: 1 1 470px;
+    flex: 0 1 470px;
 
     &:not(:first-child) {
       margin-left: $spacer;
