@@ -39,66 +39,32 @@ const singleItem = [
 
 describe("SfHero.vue", () => {
   describe("with items array passed as props", () => {
-    it("renders a component", () => {
-      const component = shallowMount(SfHero, {
+    let component;
+    beforeEach(() => {
+      component = shallowMount(SfHero, {
         propsData: {
           items
         }
       });
+    });
+
+    it("renders a component", () => {
       expect(component.contains(".sf-hero")).toBe(true);
     });
 
     it("renders three SfHeroItem components when passed three items", () => {
-      const component = shallowMount(SfHero, {
-        propsData: {
-          items
-        }
-      });
       expect(component.findAll(SfHeroItem)).toHaveLength(items.length);
     });
 
     it("renders two SfArrow components", () => {
-      const component = shallowMount(SfHero, {
-        propsData: {
-          items
-        }
-      });
       expect(component.findAll(SfArrow)).toHaveLength(2);
     });
 
-    it("doesn't render any SfArrow components if only one item passed as prop", () => {
-      const component = shallowMount(SfHero, {
-        propsData: {
-          items: singleItem
-        }
-      });
-      expect(component.findAll(SfArrow)).toHaveLength(0);
-    });
-
     it("renders SfBullets component", () => {
-      const component = shallowMount(SfHero, {
-        propsData: {
-          items
-        }
-      });
       expect(component.findAll(SfBullets)).toHaveLength(1);
     });
 
-    it("doesn't render SfBullets component if only one item passed as prop", () => {
-      const component = shallowMount(SfHero, {
-        propsData: {
-          items: singleItem
-        }
-      });
-      expect(component.findAll(SfBullets)).toHaveLength(0);
-    });
-
     it("calls #go with 'prev' when clicked on left arrow", () => {
-      const component = shallowMount(SfHero, {
-        propsData: {
-          items
-        }
-      });
       jest.spyOn(component.vm, "go");
       expect(component.vm.go).not.toHaveBeenCalled();
       component
@@ -109,11 +75,6 @@ describe("SfHero.vue", () => {
     });
 
     it("calls #go with 'next' when clicked on right arrow", () => {
-      const component = shallowMount(SfHero, {
-        propsData: {
-          items
-        }
-      });
       jest.spyOn(component.vm, "go");
       expect(component.vm.go).not.toHaveBeenCalled();
       component
@@ -123,49 +84,57 @@ describe("SfHero.vue", () => {
       expect(component.vm.go).toHaveBeenCalledWith("next");
     });
 
-    it("renders 'prev' and 'next' slots instead of SfArrow", () => {
-      const component = shallowMount(SfHero, {
+    describe("with 'prev' and 'next' slots populated", () => {
+      let component;
+      beforeEach(() => {
+        component = shallowMount(SfHero, {
+          propsData: {
+            items
+          },
+          slots: {
+            prev: "<div class='forPrevSlot'></div>",
+            next: "<div class='forNextSlot'></div>"
+          }
+        });
+
+        jest.spyOn(component.vm, "go");
+        expect(component.vm.go).not.toHaveBeenCalled();
+      });
+
+      it("renders 'prev' and 'next' slots instead of SfArrow", () => {
+        expect(component.findAll(".forPrevSlot")).toHaveLength(1);
+        expect(component.findAll(".forNextSlot")).toHaveLength(1);
+        expect(component.findAll(SfArrow)).toHaveLength(0);
+      });
+
+      it("calls #go with 'prev' when clicked on 'prev' slot", () => {
+        component.find(".forPrevSlot").trigger("click");
+        expect(component.vm.go).toHaveBeenCalledWith("prev");
+      });
+
+      it("calls #go with 'next' when clicked on 'next' slot", () => {
+        component.find(".forNextSlot").trigger("click");
+        expect(component.vm.go).toHaveBeenCalledWith("next");
+      });
+    });
+  });
+
+  describe("with items array of length 1 passed as props", () => {
+    let component;
+    beforeEach(() => {
+      component = shallowMount(SfHero, {
         propsData: {
-          items
-        },
-        slots: {
-          prev: "<div class='forPrevSlot'></div>",
-          next: "<div class='forNextSlot'></div>"
+          items: singleItem
         }
       });
-      expect(component.findAll(".forPrevSlot")).toHaveLength(1);
-      expect(component.findAll(".forNextSlot")).toHaveLength(1);
+    });
+
+    it("doesn't render any SfArrow components if only one item passed as prop", () => {
       expect(component.findAll(SfArrow)).toHaveLength(0);
     });
 
-    it("calls #go with 'prev' when clicked on 'prev' slot", () => {
-      const component = shallowMount(SfHero, {
-        propsData: {
-          items
-        },
-        slots: {
-          prev: "<div class='forPrevSlot'></div>"
-        }
-      });
-      jest.spyOn(component.vm, "go");
-      expect(component.vm.go).not.toHaveBeenCalled();
-      component.find(".forPrevSlot").trigger("click");
-      expect(component.vm.go).toHaveBeenCalledWith("prev");
-    });
-
-    it("calls #go with 'next' when clicked on 'next' slot", () => {
-      const component = shallowMount(SfHero, {
-        propsData: {
-          items
-        },
-        slots: {
-          next: "<div class='forNextSlot'></div>"
-        }
-      });
-      jest.spyOn(component.vm, "go");
-      expect(component.vm.go).not.toHaveBeenCalled();
-      component.find(".forNextSlot").trigger("click");
-      expect(component.vm.go).toHaveBeenCalledWith("next");
+    it("doesn't render SfBullets component if only one item passed as prop", () => {
+      expect(component.findAll(SfBullets)).toHaveLength(0);
     });
   });
 
