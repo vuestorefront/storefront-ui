@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <!-- SfHero -->
-    <SfHero>
+    <SfHero :sliderOptions="{autoplay: false}">
       <SfHeroItem
         title="Colorful summer dresses are already in store"
         subtitle="SUMMER COLLECTION 2019"
@@ -15,8 +15,7 @@
         buttonText="Learn more"
         background="#efebe9"
         image="assets/storybook/homepage/bannerA.png"
-        backgroundPosition="bottom left"
-        containerPosition="right"
+        class="sf-hero-item--position-bg-top-left sf-hero-item--align-right"
       ></SfHeroItem>
       <SfHeroItem
         title="Colorful summer dresses are already in store"
