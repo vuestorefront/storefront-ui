@@ -107,6 +107,7 @@
       button-text="Subscribe"
       description="Be aware of upcoming sales and events. Receive gifts and special offers!"
       class="newsletter"
+      image="assets/storybook/homepage/newsletter.png"
     />
     <SfSection
       :heading="{
