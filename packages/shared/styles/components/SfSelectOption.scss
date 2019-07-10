@@ -1,12 +1,12 @@
 @import '../variables';
 
-$select-option-padding: 0.75rem 1.875rem;
+$select-option-padding: 0.75rem 1.875rem !default;
 
-$select-color-primary: $c-green-primary;
-$select-color-secondary: $c-light-primary;
+$select-color-primary: $c-green-primary !default;
+$select-color-secondary: $c-light-primary !default;
 
-$select-option-font-size: $font-size-big-mobile;
-$select-option-font-family: $body-font-family-secondary;
+$select-option-font-size: $font-size-big-mobile !default;
+$select-option-font-family: $body-font-family-secondary !default;
 
 .sf-select-option {
   display: flex;

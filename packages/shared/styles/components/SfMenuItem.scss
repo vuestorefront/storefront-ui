@@ -1,11 +1,11 @@
 @import '../variables';
 
-$sf-menu-item-padding     : $spacer 0;
-$sf-menu-item-font-size   : $font-size-big-mobile;
-$sf-menu-item-font-family : $body-font-family-secondary;
-$sf-label-font-size       : 1rem;
-$sf-count-font-color      : $c-gray-primary;
-$sf-count-font-size       : 0.875rem;
+$sf-menu-item-padding     : $spacer 0 !default;
+$sf-menu-item-font-size   : $font-size-big-mobile !default;
+$sf-menu-item-font-family : $body-font-family-secondary !default;
+$sf-label-font-size       : 1rem !default;
+$sf-count-font-color      : $c-gray-primary !default;
+$sf-count-font-size       : 0.875rem !default;
 
 .sf-menu-item {
     display: flex;

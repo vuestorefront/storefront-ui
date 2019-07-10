@@ -1,7 +1,7 @@
 @import '../variables';
 @import '~@glidejs/glide/src/assets/sass/glide.core';
 
-$carousel__controls-size: 240px;
+$carousel__controls-size: 240px !default;
 
 .sf-carousel{
   position: relative;

@@ -369,7 +369,6 @@ body {
   }
 
   &__subtitle {
-
     color: $c-dark-secondary;
     font-family: $body-font-family-primary;
     font-size: 0.875rem;
