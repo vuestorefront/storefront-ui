@@ -425,7 +425,7 @@ body {
 }
 
 .carousel {
-  margin: -20px;
+  margin: -20px 0;
 
   /deep/ .sf-carousel__wrapper {
     padding: 20px 0;
@@ -471,10 +471,7 @@ body {
 
 .app-banner {
   min-height: 420px;
-  max-width: 980px;
-  margin: auto;
-  padding: 0;
-  background-position: 0%;
+  background-position: 100%;
 
   &__platform {
     max-height: 47px;
@@ -484,10 +481,10 @@ body {
     }
   }
 
-  &__title,
-  &__subtitle,
-  &__platform {
-    margin-left: 10px;
+  /deep/ .sf-banner__container{
+    @media screen and (min-width: $desktop-min) {
+      margin-left: 64px;
+    }
   }
 }
 .sf-section {
