@@ -233,8 +233,7 @@
       </template>
       <template #title>
         <h1 class="app-banner__title">
-          Download our application to<br />
-          your mobile
+          Download our application to your&nbsp;mobile
         </h1>
       </template>
       <template #call-to-action>
@@ -356,6 +355,7 @@ body {
   min-height: 144px;
   font-family: $body-font-family-secondary;
   padding: $spacer-big;
+  justify-content: flex-start;
   @media screen and (min-width: $desktop-min) {
     padding: $spacer-extra-big;
   }
@@ -369,13 +369,14 @@ body {
   }
 
   &__subtitle {
-    margin-top: $spacer-extra-big;
+
     color: $c-dark-secondary;
     font-family: $body-font-family-primary;
     font-size: 0.875rem;
     line-height: 1.167;
 
     @media screen and (min-width: $desktop-min) {
+      margin-top: $spacer-extra-big;
       font-size: 1.5rem;
     }
   }
