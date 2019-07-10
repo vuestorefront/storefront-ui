@@ -32,6 +32,8 @@ $call-to-action--secondary__button-background-color: $c-dark-primary !default;
   padding: $spacer-big $spacer-medium;
   background-color: $call-to-action-background-color;
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   font-size: 1.125rem;
 
   @media screen and (min-width: $desktop-min) {
@@ -45,6 +47,7 @@ $call-to-action--secondary__button-background-color: $c-dark-primary !default;
     }
   }
   &__title {
+    margin-bottom: $spacer-medium;
     margin-top: 0;
     padding: 0;
     font-size: $font-size-big-mobile;
