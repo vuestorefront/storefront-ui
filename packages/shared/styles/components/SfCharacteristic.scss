@@ -2,7 +2,10 @@
 
 $characteristic-margin-right: 20px !default;
 $characteristic__title-font-size: $font-size-small-desktop !default;
+$characteristic__title-line-height: 20px !default;
 $characteristic__description-font-size: $font-size-extra-small-desktop !default;
+$characteristic__description-font-weight: 300 !default;
+$characteristic__description-line-height: 15px !default;
 
 .sf-characteristic {
   display: flex;
@@ -22,6 +25,7 @@ $characteristic__description-font-size: $font-size-extra-small-desktop !default;
 
   &__description {
     font-size: $characteristic__description-font-size;
+    font-weight: $characteristic__description-font-weight;
     margin: 0;
   }
 }
