@@ -68,18 +68,20 @@ storiesOf("Organisms|Accordion", module)
         firstOpen: {
           default: boolean("firstOpen", false)
         },
-        openHeaderStyle: {
-          default: boolean("openHeaderStyle", false)
+        showChevron: {
+          default: boolean("showChevron", true)
         }
       },
       components: { SfAccordion },
       template: `
-      <SfAccordion 
-        :items="items"
-        :multiple="multiple"
-        :firstOpen="firstOpen"
-        :openHeaderStyle="openHeaderStyle">
-      </SfAccordion>`
+      <div style="width: 300px; padding: 1rem; background: #F1F2F3">
+        <SfAccordion 
+          :items="items"
+          :multiple="multiple"
+          :firstOpen="firstOpen"
+          :showChevron="showChevron">
+        </SfAccordion>
+      </div>`
     }),
     {
       info: {
@@ -111,8 +113,12 @@ storiesOf("Organisms|Accordion", module)
     () => ({
       data() {
         return {
-          headerStyle:
-            "padding: 1rem; background-color: #efebe9; cursor: pointer; display: flex; justify-content: space-between;",
+          headerStyle: `padding: 1rem;
+            background-color: #efebe9;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            width: 100%`,
           headerOne: "About Us",
           contentItemsOne: [
             { id: "about_1", text: "About us (Magento CMS)" },
@@ -141,68 +147,57 @@ storiesOf("Organisms|Accordion", module)
         firstOpen: {
           default: boolean("firstOpen", false)
         },
-        openHeaderStyle: {
-          default: boolean("openHeaderStyle", true)
+        showChevron: {
+          default: boolean("showChevron", false)
         }
       },
       components: { SfAccordion },
       template: `
-      <SfAccordion
-        :multiple="multiple"
-        :firstOpen="firstOpen"
-        :openHeaderStyle="openHeaderStyle">
-        <template #items>
-          <SfAccordionItem :contentItems="contentItemsOne">
-            <template #header>
-              <div :style="headerStyle">
-                <div>{{ headerOne }}</div>
-                <img style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
-              </div>
-            </template>
-            <template #headerOpen>
-              <div :style="headerStyle">
-                <div>{{ headerOne }}</div>
-                <img style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
-              </div>
-            </template>
-          </SfAccordionItem>
-          <SfAccordionItem :contentItems="contentItemsTwo">
-            <template #header>
-              <div :style="headerStyle">
-                <div>{{ headerTwo }}</div>
-                <img style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
-              </div>
-            </template>
-            <template #headerOpen>
-              <div :style="headerStyle">
-                <div>{{ headerTwo }}</div>
-                <img style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
-              </div>
-            </template>
-          </SfAccordionItem>
-          <SfAccordionItem :contentItems="contentItemsThree">
-            <template #header>
-              <div :style="headerStyle">
-                <div>{{ headerThree }}</div>
-                <img style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
-              </div>
-            </template>
-            <template #headerOpen>
-              <div :style="headerStyle">
-                <div>{{ headerThree }}</div>
-                <img style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
-              </div>
-            </template>
-          </SfAccordionItem>
-        </template>
-      </SfAccordion>`
+      <div style="width: 300px;">
+        <SfAccordion
+          :multiple="multiple"
+          :firstOpen="firstOpen"
+          :showChevron="showChevron">
+          <template #items>
+            <SfAccordionItem :contentItems="contentItemsOne">
+              <template #header>
+                <div :style="headerStyle">
+                  <div>{{ headerOne }}</div>
+                  <img class="sf-accordion-item__header-slot--open" style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
+                  <img class="sf-accordion-item__header-slot--close" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
+                </div>
+              </template>
+            </SfAccordionItem>
+            <SfAccordionItem :contentItems="contentItemsTwo">
+              <template #header>
+                <div :style="headerStyle">
+                  <div>{{ headerTwo }}</div>
+                  <img class="sf-accordion-item__header-slot--open" style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
+                  <img class="sf-accordion-item__header-slot--close" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
+                </div>
+              </template>
+            </SfAccordionItem>
+            <SfAccordionItem :contentItems="contentItemsThree">
+              <template #header>
+                <div :style="headerStyle">
+                  <div>{{ headerThree }}</div>
+                  <img class="sf-accordion-item__header-slot--open" style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
+                  <img class="sf-accordion-item__header-slot--close" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
+                </div>
+              </template>
+            </SfAccordionItem>
+          </template>
+        </SfAccordion>
+      </div>`
     }),
     {
       info: {
         summary: `
         <p>Custom styling can be achieved by using <code>#items</code> slot inside <code>SfAccordion</code>.</p>
-        <p>To use custom styling for header populate <code>#header</code> slot inside <code>SfAccordionItem</code> tag.<br><br>
-        To use custom styling for opened header state, beside above, populate also <code>#headerOpen</code> slot and set <code>openHeaderStyle</code> property to true.</p>
+        <p>To use custom styling for header populate <code>#header</code> slot inside <code>SfAccordionItem</code> tag and set <code>showChevron</code> to false in <code>SfAccordion</code> tag.<br><br>
+        To use custom styling for opened and closed header states use classes:<br><br>
+        <code>sf-accordion-item__header-slot--close</code><br><br>
+        <code>sf-accordion-item__header-slot--open</code><br><br>
        <h2>Usage</h2>
        <pre><code>import { SfAccordion } from "@storefrontui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
@@ -245,36 +240,38 @@ storiesOf("Organisms|Accordion", module)
         firstOpen: {
           default: boolean("firstOpen", false)
         },
-        openHeaderStyle: {
-          default: boolean("openHeaderStyle", true)
+        showChevron: {
+          default: boolean("showChevron", true)
         }
       },
       components: { SfAccordion },
       template: `
-      <SfAccordion :multiple="multiple" :firstOpen="firstOpen">
-        <template #items>
-          <SfAccordionItem :header="headerOne">
-            <template #content>
-              <div v-for="item of contentItemsOne" :style="contentStyle">{{item.text}}</div>
-            </template>
-          </SfAccordionItem>
-          <SfAccordionItem :header="headerTwo">
-            <template #content>
-              <div v-for="item of contentItemsTwo" :style="contentStyle">{{item.text}}</div>
-            </template>
-          </SfAccordionItem>
-          <SfAccordionItem :header="headerThree">
-            <template #content>
-              <div v-for="item of contentItemsThree" :style="contentStyle">{{item.text}}</div>
-            </template>
-          </SfAccordionItem>
-        </template>
-      </SfAccordion>`
+      <div style="width: 300px; padding: 1rem; background: #F1F2F3">
+        <SfAccordion :multiple="multiple" :firstOpen="firstOpen">
+          <template #items>
+            <SfAccordionItem :header="headerOne">
+              <template #content>
+                <div v-for="item of contentItemsOne" :style="contentStyle">{{item.text}}</div>
+              </template>
+            </SfAccordionItem>
+            <SfAccordionItem :header="headerTwo">
+              <template #content>
+                <div v-for="item of contentItemsTwo" :style="contentStyle">{{item.text}}</div>
+              </template>
+            </SfAccordionItem>
+            <SfAccordionItem :header="headerThree">
+              <template #content>
+                <div v-for="item of contentItemsThree" :style="contentStyle">{{item.text}}</div>
+              </template>
+            </SfAccordionItem>
+          </template>
+        </SfAccordion>
+      </div>`
     }),
     {
       info: {
         summary: `
-        <p>Custom styling can be achieved by using <b>items</b> <code>slot</code> inside <code>SfAccordion</code>.</p>
+        <p>Custom styling can be achieved by using <code>#items</code> slot inside <code>SfAccordion</code>.</p>
         <p>To use custom styling for content items populate <code>#content</code> slot inside <code>SfAccordionItem</code> tag.</p>
        <h2>Usage</h2>
        <pre><code>import { SfAccordion } from "@storefrontui/vue"</code></pre>
@@ -302,13 +299,13 @@ storiesOf("Organisms|Accordion", module)
       },
       props: {
         multiple: {
-          default: boolean("multiple", false)
+          default: boolean("multiple", true)
         },
         firstOpen: {
           default: boolean("firstOpen", true)
         },
-        openHeaderStyle: {
-          default: boolean("openHeaderStyle", false)
+        showChevron: {
+          default: boolean("showChevron", true)
         }
       },
       methods: {
@@ -318,15 +315,17 @@ storiesOf("Organisms|Accordion", module)
       },
       components: { SfAccordion },
       template: `
-      <SfAccordion 
-        :items="items"
+      <div style="width: 300px; padding: 1rem; background: #F1F2F3">
+        <SfAccordion 
+          :items="items"
 
-        :contentClickedCallback="storyMethod"
-        
-        :multiple="multiple"
-        :firstOpen="firstOpen"
-        :openHeaderStyle="openHeaderStyle">
-      </SfAccordion>`
+          :contentClickedCallback="storyMethod"
+          
+          :multiple="multiple"
+          :firstOpen="firstOpen"
+          :showChevron="showChevron">
+        </SfAccordion>
+      </div>`
     }),
     {
       info: {

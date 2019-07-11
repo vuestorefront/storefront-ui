@@ -1,5 +1,9 @@
 <div>
-  <div @click="onHeaderClick" class="sf-accordion-item__header-wrapper">
+  <div
+    @click="onHeaderClick"
+    class="sf-accordion-item__header-wrapper"
+    :class="isOpen ? 'sf-accordion-item__header-wrapper--open' : 'sf-accordion-item__header-wrapper--close'"
+  >
     <slot name="header">
       <div class="sf-accordion-item__header">
         {{ header }}
@@ -7,12 +11,15 @@
     </slot>
     <img
       v-if="$parent.showChevron"
-      :class="isOpen ? '' : 'sf-accordion-item__header-icon--up'"
+      :class="isOpen ? 'sf-accordion-item__header-icon--up' : ''"
       src="../../../../../public/assets/chevron_down.svg"
       alt="Toggle this section"
     />
   </div>
-  <div class="sf-accordion-item__content-wrapper" :class="isOpen ? 'sf-accordion-item__content-wrapper--show' : ''">
+  <div
+    class="sf-accordion-item__content-wrapper"
+    :class="isOpen ? 'sf-accordion-item__content-wrapper--show' : ''"
+  >
     <slot name="content">
       <div class="sf-accordion-item__content">
         <div v-for="item of contentItems" @click="onContentItemClick(item.id)">

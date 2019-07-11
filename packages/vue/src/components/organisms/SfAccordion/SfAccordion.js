@@ -13,9 +13,7 @@ export default {
       type: Array,
       default: () => []
     },
-    /**
-     * Callback function to handle click on accordion item content element
-     */
+    /** Callback function to handle click on accordion item content element */
     contentClickedCallback: {
       type: Function,
       default: () => {}
