@@ -27,7 +27,7 @@ describe("SfMenuItem.vue", () => {
 
   it("renders correctly left icon slot", () => {
     const iconLeftMarkup =
-      "<img class='sf-menu-item__right' src='/assets/arrow-alt_right.svg' alt=''>";
+      "<img class='sf-menu-item__right' src='/assets/chevron_down.svg' alt=''>";
     const component = shallowMount(SfMenuItem, {
       slots: {
         iconLeft: iconLeftMarkup

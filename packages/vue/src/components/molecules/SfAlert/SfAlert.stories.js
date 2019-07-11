@@ -10,7 +10,7 @@ const scssTableConfig = {
     ["$sf-alert-font-size", "0.875rem", "alert font-size"],
     ["$sf-alert__text-margin", "0", "alert text margin"],
     ["$sf-alert__text-font-size", "0.875rem", "font-size of alert text"],
-    ["$sf-alert__icon-padding-right", "0.625rem", "padding around alert icon"],
+    ["$sf-alert__text-padding-left", "0.625rem", "alert text padding left"],
     [
       "$sf-alert--info-background-color",
       "$c-yellow-secondary",
@@ -74,7 +74,7 @@ storiesOf("Molecules|Alert", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import SfAlert from "@storefrontui/vue/dist/SfAlert.vue"</code></pre>
+        <pre><code>import { SfAlert } from "@storefrontui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `
@@ -107,7 +107,7 @@ storiesOf("Molecules|Alert", module)
       template: `
       <SfAlert>
         <template slot="message">
-          <span>Custom message <b>with custom HTML</b></span>
+          <span class="sf-alert__text">Custom message <b>with custom HTML</b></span>
         </div>
       </SfAlert>
     `

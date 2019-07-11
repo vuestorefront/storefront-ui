@@ -65,6 +65,28 @@ describe("SfRadio.vue", () => {
     expect(component.find(".custom-content").text()).toMatch("Orange");
   });
 
+  it("renders a component with description slot", () => {
+    const component = shallowMount(SfRadio, {
+      propsData: {
+        options: [
+          {
+            label: "Orange",
+            value: "orange",
+            price: "2",
+            description: "description of orange"
+          }
+        ],
+        value
+      },
+      scopedSlots: {
+        description: `<div class="custom-description" slot-scope="{ option }">{{ option.description }}</div>`
+      }
+    });
+    expect(component.contains(".custom-description")).toBe(true);
+    expect(component.contains(".sf-radio__content__description")).toBe(false);
+    expect(component.find(".custom-description").text()).toMatch("Orange");
+  });
+
   it("renders a component with css modifier", () => {
     const component = shallowMount(SfRadio, {
       propsData: {
