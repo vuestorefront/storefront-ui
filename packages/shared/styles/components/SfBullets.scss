@@ -1,12 +1,12 @@
 @import '../variables';
 
-$bullet-border-radius: 50%;
-$bullet-size: 8px;
-$bullet-margin: 6px;
-$bullet-color: $c-gray-primary;
-$bullet-size--active: 10px;
-$bullet-margin--active: 5px;
-$bullet-color--active: $c-green-secondary;
+$bullet-border-radius: 50% !default;
+$bullet-size: 8px !default;
+$bullet-margin: 6px !default;
+$bullet-color: $c-gray-primary !default;
+$bullet-size--active: 10px !default;
+$bullet-margin--active: 5px !default;
+$bullet-color--active: $c-green-secondary !default;
 
 .sf-bullets {
     display: flex;
@@ -19,7 +19,7 @@ $bullet-color--active: $c-green-secondary;
     height: $bullet-size;
     margin: $bullet-margin;
     cursor: pointer;
-    
+
     &--active {
         background-color: $bullet-color--active;
         width: $bullet-size--active;

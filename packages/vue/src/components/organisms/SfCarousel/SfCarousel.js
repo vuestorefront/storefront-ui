@@ -12,13 +12,13 @@ export default {
   data() {
     return {
       glide: null,
-      defaultOptions: {
+      defaultSettings: {
         type: "carousel",
         rewind: true,
         perView: 4,
         slidePerPage: true,
         breakpoints: {
-          768: {
+          1023: {
             perView: 2,
             peek: {
               before: 0,
@@ -31,7 +31,7 @@ export default {
   },
   props: {
     /** Carousel options like glide.js (https://glidejs.com/docs/) */
-    options: {
+    settings: {
       type: Object,
       default: () => ({})
     }
@@ -53,15 +53,15 @@ export default {
   },
   computed: {
     mergedOptions() {
-      let breakpoints = { ...this.defaultOptions.breakpoints };
+      let breakpoints = { ...this.defaultSettings.breakpoints };
 
-      if (this.options.breakpoints) {
-        breakpoints = { ...breakpoints, ...this.options.breakpoints };
+      if (this.settings.breakpoints) {
+        breakpoints = { ...breakpoints, ...this.settings.breakpoints };
       }
 
       return {
-        ...this.defaultOptions,
-        ...this.options,
+        ...this.defaultSettings,
+        ...this.settings,
         breakpoints: breakpoints
       };
     }

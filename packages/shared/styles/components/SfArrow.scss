@@ -1,13 +1,13 @@
 @import '../variables';
 
-$arrow__button-color: $c-light-primary;
-$arrow__button-color--hover: $c-dark-primary;
+$arrow__button-color: $c-light-primary !default;
+$arrow__button-color--hover: $c-dark-primary !default;
 
-$arrow__button-shadow: 0 5px 12px -6px rgba($c-dark-primary, 0);
-$arrow__button-shadow--right: 0 -5px 12px -5px rgba($c-dark-primary, 0.6);
+$arrow__button-shadow: 0 5px 12px -6px rgba($c-dark-primary, 0) !default;
+$arrow__button-shadow--right: 0 -5px 12px -5px rgba($c-dark-primary, 0.6) !default;
 
-$arrow__icon-color: $c-white;
-$arrow__icon-color--hover: $c-dark-primary;
+$arrow__icon-color: $c-white !default;
+$arrow__icon-color--hover: $c-dark-primary !default;
 
 .sf-arrow {
 
