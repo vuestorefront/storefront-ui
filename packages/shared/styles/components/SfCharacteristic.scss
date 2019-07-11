@@ -1,6 +1,8 @@
 @import '../variables';
 
-$characteristic-margin-right: 20px;
+$characteristic-margin-right: 20px !default;
+$characteristic__title-font-size: $font-size-small-desktop !default;
+$characteristic__description-font-size: $font-size-extra-small-desktop !default;
 
 .sf-characteristic {
   display: flex;
@@ -14,12 +16,12 @@ $characteristic-margin-right: 20px;
   }
 
   &__title {
-    font-size: $font-size-small-desktop;
+    font-size: $characteristic__title-font-size;
     margin: 0;
   }
 
   &__description {
-    font-size: $font-size-extra-small-desktop;
+    font-size: $characteristic__description-font-size;
     margin: 0;
   }
 }
