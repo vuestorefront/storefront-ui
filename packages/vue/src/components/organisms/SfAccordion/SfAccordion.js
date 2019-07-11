@@ -35,11 +35,11 @@ export default {
       default: false
     },
     /**
-     * Allows to use two different markups for opened and closed header
+     * Toggles chevron icon in accordion item header
      */
-    openHeaderStyle: {
+    showChevron: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   methods: {

@@ -17,10 +17,17 @@ $accordion-item__content-padding--first: 1.5rem 0 0.5rem !default;
 $accordion-item__content-padding--last: 0.5rem 0 1.5rem !default;
 
 .sf-accordion {
+  &-item__header-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
   &-item__header {
     padding: $accordion-item__header-padding;
     font-size: $accordion-header-font-size;
     cursor: pointer;
+  }
+  &-item__header-icon--up {
+    transform: rotate(180deg);
   }
   &-item__content-wrapper {
     display: none;
