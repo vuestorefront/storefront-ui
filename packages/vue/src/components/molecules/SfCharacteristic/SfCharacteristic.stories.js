@@ -51,7 +51,7 @@ storiesOf("Molecules|Characteristic", module)
         SfCharacteristic
       },
       template: `
-      <SfCharacteristic :color="color" :size="size" :iconPath="iconPath" :title="title" :description="description">
+      <SfCharacteristic>
       <template v-slot:icon>
       <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="sf-characteristic__icon">
       <path d="M18.9984 5.32429L14.8448 0H4.15359L0 5.32429V20H19L18.9984 5.32429ZM17.3555 4.96661H10.0457V1.10343H14.329L17.3555 4.96661ZM4.66801 1.10343H8.95138V4.96661H1.64154L4.66801 1.10343ZM1.06155 18.8955V6.03711H17.9355V18.8955H1.06155ZM9.49852 8.40898L12.3 11.2335L11.5276 12.0123L10.0143 10.4865V16.2663H8.95132V10.4865L7.43802 12.0123L6.66565 11.2335L9.49852 8.40898Z" fill="#5ECE7B"/>
@@ -72,7 +72,7 @@ storiesOf("Molecules|Characteristic", module)
         SfCharacteristic
       },
       template: `
-      <SfCharacteristic :color="color" :size="size" :iconPath="iconPath" :title="title" :description="description"><template v-slot:text><h1>All Text</h1></template>
+      <SfCharacteristic><template v-slot:text><h1>All Text</h1></template>
       </SfCharacteristic/>
     `
     }),
@@ -87,7 +87,7 @@ storiesOf("Molecules|Characteristic", module)
         SfCharacteristic
       },
       template: `
-      <SfCharacteristic :color="color" :size="size" :iconPath="iconPath" :title="title" :description="description"><template v-slot:title><small>Alternative text</small></template></SfCharacteristic/>
+      <SfCharacteristic><template v-slot:title><small>Alternative text</small></template></SfCharacteristic/>
     `
     }),
     {
@@ -101,7 +101,7 @@ storiesOf("Molecules|Characteristic", module)
         SfCharacteristic
       },
       template: `
-      <SfCharacteristic :color="color" :size="size" :iconPath="iconPath" :title="title" :description="description"><template v-slot:description><strong>Alternative description</strong></template></SfCharacteristic/>
+      <SfCharacteristic><template v-slot:description><strong>Alternative description</strong></template></SfCharacteristic/>
     `
     }),
     {
