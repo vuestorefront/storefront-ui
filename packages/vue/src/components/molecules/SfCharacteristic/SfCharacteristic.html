@@ -1,6 +1,6 @@
 <div class="sf-characteristic">
   <!--@slot Icon. Slot content will replace SfIcon atom component-->
-  <slot name="icon">
+  <slot name="icon" v-bind="{color, size, iconPath}">
     <div class="sf-characteristic__icon">
       <SfIcon :color="color" :size="size" :path="iconPath" />
     </div>
@@ -9,11 +9,11 @@
   <slot name="text">
     <div class="sf-characteristic__text">
       <!--@slot Characteristic title. Slot content will replace default title text-->
-      <slot name="title">
+      <slot name="title" v-bind="{title}">
         <p class="sf-characteristic__title">{{title}}</p>
       </slot>
       <!--@slot Characteristic description. Slot content will replace default description text-->
-      <slot name="description">
+      <slot name="description" v-bind="{description}">
         <p class="sf-characteristic__description">{{description}}</p>
       </slot>
     </div>
