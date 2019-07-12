@@ -23,6 +23,10 @@ describe("SfHeroItem.vue", () => {
       });
     });
 
+    afterEach(() => {
+      component.destroy();
+    });
+
     it("renders a component", () => {
       expect(component.contains(".sf-hero-item")).toBe(true);
     });
@@ -63,6 +67,10 @@ describe("SfHeroItem.vue", () => {
           "call-to-action": `<div>halabala</div>`
         }
       });
+    });
+
+    afterEach(() => {
+      component.destroy();
     });
 
     it("renders 'title' slot correctly", () => {

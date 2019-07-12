@@ -48,6 +48,10 @@ describe("SfHero.vue", () => {
       });
     });
 
+    afterEach(() => {
+      component.destroy();
+    });
+
     it("renders a component", () => {
       expect(component.contains(".sf-hero")).toBe(true);
     });
@@ -96,23 +100,30 @@ describe("SfHero.vue", () => {
             next: "<div class='forNextSlot'></div>"
           }
         });
+      });
 
-        jest.spyOn(component.vm, "go");
-        expect(component.vm.go).not.toHaveBeenCalled();
+      afterEach(() => {
+        component.destroy();
       });
 
       it("renders 'prev' and 'next' slots instead of SfArrow", () => {
+        jest.spyOn(component.vm, "go");
+        expect(component.vm.go).not.toHaveBeenCalled();
         expect(component.findAll(".forPrevSlot")).toHaveLength(1);
         expect(component.findAll(".forNextSlot")).toHaveLength(1);
         expect(component.findAll(SfArrow)).toHaveLength(0);
       });
 
       it("calls #go with 'prev' when clicked on 'prev' slot", () => {
+        jest.spyOn(component.vm, "go");
+        expect(component.vm.go).not.toHaveBeenCalled();
         component.find(".forPrevSlot").trigger("click");
         expect(component.vm.go).toHaveBeenCalledWith("prev");
       });
 
       it("calls #go with 'next' when clicked on 'next' slot", () => {
+        jest.spyOn(component.vm, "go");
+        expect(component.vm.go).not.toHaveBeenCalled();
         component.find(".forNextSlot").trigger("click");
         expect(component.vm.go).toHaveBeenCalledWith("next");
       });
@@ -127,6 +138,10 @@ describe("SfHero.vue", () => {
           items: singleItem
         }
       });
+    });
+
+    afterEach(() => {
+      component.destroy();
     });
 
     it("doesn't render any SfArrow components if only one item passed as prop", () => {
