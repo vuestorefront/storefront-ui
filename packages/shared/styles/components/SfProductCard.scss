@@ -1,11 +1,11 @@
 @import '../variables';
 
-$product-card-max-width:          200px;
-$product-card-hover-box-shadow:   0px 4px 35px rgba(168, 172, 176, 0.19);
-$product-card-desktop-max-width:  240px;
+$product-card-max-width:          200px !default;
+$product-card-hover-box-shadow:   0px 4px 35px rgba(168, 172, 176, 0.19) !default;
+$product-card-desktop-max-width:  240px !default;
 
-$product__image-background-color: $c-bg-primary;
-$product__image-blend-mode:       darken;
+$product__image-background-color: $c-bg-primary !default;
+$product__image-blend-mode:       darken !default;
 
 .sf-product-card {
   max-width: $product-card-max-width;

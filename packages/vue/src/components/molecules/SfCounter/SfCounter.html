@@ -4,13 +4,14 @@
     class="sf-counter__control sf-counter__control--down"
     @click="decrease">
     <slot name="down">
-      <img src="/assets/chevron_left.svg" alt="Decrease" />
+      <sf-icon path="chevron_left" size="23px"/>
     </slot>
   </div>
 
   <slot v-bind:value="currentValue">
     <input
       class="sf-counter__field"
+      aria-label="current value"
       v-model="stringValue"
       @keyup.up="increase"
       @keyup.down="decrease"
@@ -25,9 +26,11 @@
   <div
     v-if="controls"
     class="sf-counter__control sf-counter__control--up"
+    role="button"
+    aria-label="Increase"
     @click="increase">
     <slot name="up">
-      <img src="/assets/chevron_right.svg" alt="Increase" />
+      <sf-icon path="chevron_right" size="23px"/>
     </slot>
   </div>
 </div>
