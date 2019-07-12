@@ -71,7 +71,7 @@ storiesOf("Molecules|ProductCard", module)
         :wishlistIcon="wishlistIcon"
         :onWishlistIcon="onWishlistIcon"
         :onWishlistColor="onWishlistColor"
-        v-model="onWishlist"
+        :onWishlist="onWishlist"
       />`
     }),
     {

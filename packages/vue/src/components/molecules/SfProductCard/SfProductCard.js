@@ -69,13 +69,6 @@ export default {
       type: String
     }
   },
-  /**
-   * Binded to event "click:wishlist" to toggle adding on wishlist
-   */
-  model: {
-    prop: "onWishlist",
-    event: "click:wishlist"
-  },
   components: {
     SfPrice,
     SfRating,
@@ -84,6 +77,9 @@ export default {
   computed: {
     currentWishlistIcon() {
       return this.onWishlist ? this.onWishlistIcon : this.wishlistIcon;
+    },
+    ariaLabel() {
+      return this.onWishlist ? "Remove from wishlist" : "Add to wishlist";
     }
   },
   methods: {
