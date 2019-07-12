@@ -1,8 +1,8 @@
 @import '../variables';
 
-$heading--border-color: #F1F2F4;
-$heading--underline-subtitle-color: #A3A5AD;
-$heading--mobile-breakpoint: $mobile-max;
+$heading--border-color: #F1F2F4 !default;
+$heading--underline-subtitle-color: #A3A5AD !default;
+$heading--mobile-breakpoint: $mobile-max !default;
 
 .sf-heading {
     text-align: left;
