@@ -14,14 +14,7 @@ $product__image-blend-mode:       darken !default;
   position: relative;
   background: white;
   box-sizing: border-box;
-  &:hover {
-    box-shadow: $product-card-hover-box-shadow;
-    transition: 0.3s all;
-    z-index: 2;
-  }
-  @media (min-width: $desktop-min) {
-    max-width: $product-card-desktop-max-width;
-  }
+
   &__title {
     margin-top: 0.5rem;
     margin-bottom: 0.25rem;
@@ -33,6 +26,7 @@ $product__image-blend-mode:       darken !default;
     align-items: center;
     justify-content: center;
     display: flex;
+    z-index: 2;
     img {
       mix-blend-mode: $product__image-blend-mode;
       max-width: 100%;
@@ -58,5 +52,36 @@ $product__image-blend-mode:       darken !default;
   &__reviews-count {
     font-size: $font-size-small-desktop;
     margin-left: 0.5rem;
+  }
+
+  &__wishlist-icon {
+    position: absolute;
+    right: 20px;
+    margin: 10px;
+    padding: 0;
+    cursor: pointer;
+    visibility: visible;
+    outline: none;
+    background: transparent;
+    z-index: 3;
+    border: none;
+
+    @media (min-width: $desktop-min) {
+      visibility: hidden;
+    }
+  }
+
+  &:hover {
+    box-shadow: $product-card-hover-box-shadow;
+    transition: 0.3s all;
+    z-index: 2;
+
+    .sf-product-card__wishlist-icon {
+      visibility: visible;
+      outline: none;
+    }
+  }
+  @media (min-width: $desktop-min) {
+    max-width: $product-card-desktop-max-width;
   }
 }
