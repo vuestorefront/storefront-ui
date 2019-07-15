@@ -42,6 +42,8 @@ import "@storefrontui/vue/src/css/_all.scss";
 import { SfComponentName } from "@storefrontui/vue"
 ```
 
+**If your project is neither of them, please see the [doc](the-path-of-demo-doc).**
+
 - You can find detailed information about every component inside each components
 [stories](http://storybook.storefrontui.io/)
 
