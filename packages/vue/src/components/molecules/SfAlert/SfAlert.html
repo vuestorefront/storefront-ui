@@ -1,11 +1,10 @@
 <div class="sf-alert" :class="`sf-alert--${type}`">
     <!--@slot Custom alert icon. Slot content will replace default icon <img> tag.-->
-    <slot name="icon" :icon="icon">
+    <slot name="icon" v-bind="{ icon }">
         <img :src="iconSrc" class="sf-alert__icon" v-if="icon">
     </slot>
-    <!--@slot Custom message . Slot content will replace default message <p> tag.-->
-    <slot name="message" :message="message">
-        <p class="sf-alert__text"  v-if="message">{{ message }}</p>
+    <!--@slot Custom message . Slot content will replace default message <span> tag.-->
+    <slot name="message" v-bind="{ message }">
+        <span class="sf-alert__text"  v-if="message">{{ message }}</span>
     </slot>
-    <slot />
 </div>

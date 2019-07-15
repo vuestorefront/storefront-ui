@@ -3,7 +3,7 @@
     v-if="controls"
     class="sf-counter__control sf-counter__control--down"
     @click="decrease">
-    <slot name="down">
+    <slot name="decrease">
       <img src="/assets/chevron_left.svg" alt="Decrease" />
     </slot>
   </div>
@@ -26,7 +26,7 @@
     v-if="controls"
     class="sf-counter__control sf-counter__control--up"
     @click="increase">
-    <slot name="up">
+    <slot name="increase">
       <img src="/assets/chevron_right.svg" alt="Increase" />
     </slot>
   </div>
