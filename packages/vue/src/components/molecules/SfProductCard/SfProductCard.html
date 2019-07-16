@@ -1,4 +1,9 @@
 <div class="sf-product-card">
+  <button :aria-label="ariaLabel" @click="toggleOnWishlist" class="sf-product-card__wishlist-icon">
+    <slot name="wishlist-icon">
+      <sf-icon :path="currentWishlistIcon" :color="onWishlistColor" size="sm" data-test="sf-wishlist-icon"/>
+    </slot>
+  </button>
   <slot name="image">
     <div class="sf-product-card__image">
       <img :src="image" :alt="title">

@@ -33,7 +33,7 @@ export default {
     },
     /** Background image. Influenced by $banner-background-size, $banner-background-position CSS props. */
     image: {
-      tyoe: String,
+      type: String,
       default: ""
     }
   },

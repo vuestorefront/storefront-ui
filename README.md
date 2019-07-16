@@ -81,10 +81,6 @@ and amazing [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/co
 
 Thank you! There would be no Storefront UI without you
 
-# Cooperation with Alpacas
-
-Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-storybook) are common efforts. We joined forces in figuring out how to make things right to deliver best possible experience to the users.
-
 # Supporters
 <a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="40px"></a>
 

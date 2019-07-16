@@ -1,7 +1,7 @@
 @import '../variables';
 
-$product-option-font-size    : $font-size-big-mobile;
-$product-option-font-family  : $body-font-family-secondary;
+$product-option-font-size    : $font-size-big-mobile !default;
+$product-option-font-family  : $body-font-family-secondary !default;
 
 .sf-product-option {
     display: flex;
