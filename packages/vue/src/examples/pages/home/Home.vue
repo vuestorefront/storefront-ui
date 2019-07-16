@@ -12,6 +12,7 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
+    <!-- TODO: create SfGrid, SfBannersGrid? -->
     <div class="banners-grid">
       <div class="banners-grid__row">
         <div class="banners-grid__col">
@@ -119,6 +120,7 @@
         subtitle: '#YOURLOOK'
       }"
     >
+      <!-- TODO: create SfGrid, SfImagesGrid? -->
       <div class="images-grid">
         <div class="images-grid__row">
           <div class="images-grid__col">
@@ -221,50 +223,50 @@ export default {
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
-          price: "{ regularPrice: '50.00 $' }",
-          rating: "{ max: 5, score: 4 }"
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
-          price: "{ regularPrice: '50.00 $' }",
-          rating: "{ max: 5, score: 4 }"
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
-          price: "{ regularPrice: '50.00 $' }",
-          rating: "{ max: 5, score: 4 }"
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
-          price: "{ regularPrice: '50.00 $' }",
-          rating: "{ max: 5, score: 4 }"
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
-          price: "{ regularPrice: '50.00 $' }",
-          rating: "{ max: 5, score: 4 }"
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
-          price: "{ regularPrice: '50.00 $' }",
-          rating: "{ max: 5, score: 4 }"
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
-          price: "{ regularPrice: '50.00 $' }",
-          rating: "{ max: 5, score: 4 }"
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
-          price: "{ regularPrice: '50.00 $' }",
-          rating: "{ max: 5, score: 4 }"
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
         }
       ]
     };
@@ -462,6 +464,7 @@ export default {
   }
 }
 
+// full custom banner component, need more attention
 .app-banner {
   min-height: 420px;
   background-position: 100%;
@@ -501,7 +504,6 @@ export default {
 
   /deep/ &__content {
     margin: $spacer-extra-big 0;
-
     @media screen and (min-width: $desktop-min) {
       margin: $spacer-extra-big * 2 0;
     }
