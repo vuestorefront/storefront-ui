@@ -1,6 +1,5 @@
 <template>
   <div id="home">
-    <!-- SfHero -->
     <SfHero>
       <SfHeroItem
         v-for="(hero, i) in heroes"
@@ -103,75 +102,12 @@
       }"
     >
       <SfCarousel :settings="{ gap: 0 }" class="carousel">
-        <SfCarouselItem>
+        <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productA.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productB.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productC.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productA.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productB.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productC.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productA.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productB.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
+            :title="product.title"
+            :image="product.image"
+            :price="product.price"
+            :rating="product.rating"
             class="product-card"
           />
         </SfCarouselItem>
@@ -279,6 +215,56 @@ export default {
           buttonText: "Learn more",
           background: "#fce4ec",
           image: "assets/storybook/homepage/bannerB.png"
+        }
+      ],
+      products: [
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: "{ regularPrice: '50.00 $' }",
+          rating: "{ max: 5, score: 4 }"
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: "{ regularPrice: '50.00 $' }",
+          rating: "{ max: 5, score: 4 }"
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productC.png",
+          price: "{ regularPrice: '50.00 $' }",
+          rating: "{ max: 5, score: 4 }"
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: "{ regularPrice: '50.00 $' }",
+          rating: "{ max: 5, score: 4 }"
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: "{ regularPrice: '50.00 $' }",
+          rating: "{ max: 5, score: 4 }"
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productC.png",
+          price: "{ regularPrice: '50.00 $' }",
+          rating: "{ max: 5, score: 4 }"
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: "{ regularPrice: '50.00 $' }",
+          rating: "{ max: 5, score: 4 }"
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: "{ regularPrice: '50.00 $' }",
+          rating: "{ max: 5, score: 4 }"
         }
       ]
     };
