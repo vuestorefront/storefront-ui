@@ -70,7 +70,7 @@ We are currently in a process of building the library. If you want to help shapi
 
 # Maintainers
 
-Those awesome people are maintaining Storefront UI. Their ensuring that it performs smooth and looks awesome!
+Those awesome people are maintaining Storefront UI. They're ensuring that it performs smooth and looks awesome!
 
 - Filip Rakowski ([@filrak](https://github.com/filrak))
 - Leonardo Matos ([@leomp12](https://github.com/leomp12))
