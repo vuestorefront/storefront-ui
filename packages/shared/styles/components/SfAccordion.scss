@@ -1,7 +1,7 @@
 @import "../variables";
 
 $accordion-item__header-padding: 0.5rem 0 !default;
-$accordion-header-font-size: 18px;
+$accordion-item__header-font-size: 18px;
 
 $accordion-item__header-bg-color: $c-light-primary !default;
 $accordion-item__header-bg-color--active: #ffffff !default;
@@ -34,7 +34,7 @@ $accordion-item__content-padding--last: 0.5rem 0 1.5rem !default;
   }
   &-item__header {
     padding: $accordion-item__header-padding;
-    font-size: $accordion-header-font-size;
+    font-size: $accordion-item__header-font-size;
   }
   &-item__header-icon--up {
     transform: rotate(180deg);
