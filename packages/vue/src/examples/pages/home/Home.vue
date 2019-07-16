@@ -3,26 +3,14 @@
     <!-- SfHero -->
     <SfHero>
       <SfHeroItem
-        title="Colorful summer dresses are already in store"
-        subtitle="SUMMER COLLECTION 2019"
-        buttonText="Learn more"
-        background="#eceff1"
-        image="assets/storybook/homepage/bannerH.png"
-      ></SfHeroItem>
-      <SfHeroItem
-        title="Colorful summer dresses are already in store"
-        subtitle="SUMMER COLLECTION 2019"
-        buttonText="Learn more"
-        background="#efebe9"
-        image="assets/storybook/homepage/bannerA.png"
-        class="sf-hero-item--position-bg-top-left sf-hero-item--align-right"
-      ></SfHeroItem>
-      <SfHeroItem
-        title="Colorful summer dresses are already in store"
-        subtitle="SUMMER COLLECTION 2019"
-        buttonText="Learn more"
-        background="#fce4ec"
-        image="assets/storybook/homepage/bannerB.png"
+        v-for="(hero, i) in heroes"
+        :key="i"
+        :title="hero.title"
+        :subtitle="hero.subtitle"
+        :buttonText="hero.buttonText"
+        :background="hero.background"
+        :image="hero.image"
+        :class="hero.className"
       ></SfHeroItem>
     </SfHero>
     <div class="banners-grid">
@@ -266,6 +254,35 @@ import {
 
 export default {
   name: "Home",
+  data() {
+    return {
+      heroes: [
+        {
+          title: "Colorful summer dresses are already in store",
+          subtitle: "SUMMER COLLECTION 2019",
+          buttonText: "Learn more",
+          background: "#eceff1",
+          image: "assets/storybook/homepage/bannerH.png"
+        },
+        {
+          title: "Colorful summer dresses are already in store",
+          subtitle: "SUMMER COLLECTION 2019",
+          buttonText: "Learn more",
+          background: "#efebe9",
+          image: "assets/storybook/homepage/bannerA.png",
+          className:
+            "sf-hero-item--position-bg-top-left sf-hero-item--align-right"
+        },
+        {
+          title: "Colorful summer dresses are already in store",
+          subtitle: "SUMMER COLLECTION 2019",
+          buttonText: "Learn more",
+          background: "#fce4ec",
+          image: "assets/storybook/homepage/bannerB.png"
+        }
+      ]
+    };
+  },
   components: {
     SfHero,
     SfBanner,
