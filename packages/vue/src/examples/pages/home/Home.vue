@@ -254,13 +254,15 @@
   </div>
 </template>
 <script>
-import SfHero from "@/components/organisms/SfHero/SfHero.vue";
-import SfBanner from "@/components/molecules/SfBanner/SfBanner.vue";
-import SfCallToAction from "@/components/molecules/SfCallToAction/SfCallToAction.vue";
-import SfSection from "@/components/molecules/SfSection/SfSection.vue";
-import SfCarousel from "@/components/organisms/SfCarousel/SfCarousel.vue";
-import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
-import SfImage from "@/components/molecules/SfImage/SfImage.vue";
+import {
+  SfHero,
+  SfBanner,
+  SfCallToAction,
+  SfSection,
+  SfCarousel,
+  SfProductCard,
+  SfImage
+} from "@storefrontui/vue";
 
 export default {
   name: "Home",
