@@ -277,18 +277,6 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-body {
-  box-sizing: border-box;
-}
-</style>
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefrontui/shared/styles/helpers/visibility";
