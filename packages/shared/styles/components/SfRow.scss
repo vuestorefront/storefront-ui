@@ -1,24 +1,23 @@
 @import '../variables';
 
+$row-spacer: $spacer-extra-big;
 $row-column-spacer: $spacer-extra-big;
 
 .sf-row {
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
+  & + & {
+    margin-top: $row-spacer;
+  }
 }
 
 .sf-row-column{
-  flex: 0 0 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  @media screen and (min-width: $desktop-min){
-    flex: 1;
-  }
   & + & {
-    margin-left: 0;
-    @media screen and (min-width: $desktop-min){
-      margin-left: $row-column-spacer;
-    }
+    margin-left: $row-column-spacer;
   }
   & > * {
     flex: 1;
