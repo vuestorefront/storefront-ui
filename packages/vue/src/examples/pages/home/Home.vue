@@ -12,7 +12,7 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <template v-if="bannerGrid === 1">
+    <div class="banner-grid" v-if="bannerGrid === 1">
       <SfRow>
         <SfRowColumn>
           <SfBanner
@@ -45,8 +45,8 @@
           />
         </SfRowColumn>
       </SfRow>
-    </template>
-    <template v-if="bannerGrid === 2">
+    </div>
+    <div class="banner-grid" v-if="bannerGrid === 2">
       <SfRow>
         <SfRowColumn>
           <SfBanner
@@ -81,8 +81,8 @@
           />
         </SfRowColumn>
       </SfRow>
-    </template>
-    <template v-if="bannerGrid === 3">
+    </div>
+    <div class="banner-grid" v-if="bannerGrid === 3">
       <SfRow>
         <SfRowColumn>
           <SfBanner
@@ -161,8 +161,8 @@
           </SfRow>
         </SfRowColumn>
       </SfRow>
-    </template>
-    <template v-if="bannerGrid === 4">
+    </div>
+    <div class="banner-grid" v-if="bannerGrid === 4">
       <SfRow>
         <SfRowColumn>
           <SfBanner
@@ -208,7 +208,7 @@
           </SfRow>
         </SfRowColumn>
       </SfRow>
-    </template>
+    </div>
 
     <SfCallToAction
       title="Subscribe to Newsletters"
@@ -503,7 +503,9 @@ export default {
     }
   }
 }
-
+.banner-grid {
+  margin: $spacer-extra-big 0;
+}
 .newsletter {
   margin: $spacer-big 0;
 
