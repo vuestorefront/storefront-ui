@@ -172,7 +172,6 @@
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerF.png"
             class="sf-banner--left"
-            style="min-height: 1000px"
           />
         </SfRowColumn>
         <SfRowColumn>
