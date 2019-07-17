@@ -1,5 +1,7 @@
 @import '../variables';
 
+$row-column-spacer: $spacer-extra-big;
+
 .sf-row {
   display: flex;
   flex-wrap: wrap;
@@ -15,7 +17,7 @@
   & + & {
     margin-left: 0;
     @media screen and (min-width: $desktop-min){
-      margin-left: 40px;
+      margin-left: $row-column-spacer;
     }
   }
   & > * {
