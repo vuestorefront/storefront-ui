@@ -4,7 +4,7 @@ $row__gutter-size: $spacer-extra-big!default;
 $row-column__gutter-size: $spacer-extra-big!default;
 .sf-row {
   display: flex;
-  margin: $row__gutter-size;
+  margin: $row__gutter-size 0;
 }
 
 .sf-row-column{
