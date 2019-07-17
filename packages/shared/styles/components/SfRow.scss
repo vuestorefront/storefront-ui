@@ -1,31 +1,24 @@
 @import '../variables';
 
-$sf-row-spacer-y: $spacer-extra-big!default;
-$sf-row-spacer-x: $spacer-extra-big!default;
-
 .sf-row {
-  @media screen and (min-width: $desktop-min){
-    display: flex;
-    margin: $sf-row-spacer-y 0;
-  }
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .sf-row-column{
-  margin-top: $sf-row-spacer-y / 2;
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
   @media screen and (min-width: $desktop-min){
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-top: 0;
   }
   & + & {
-    @media screen and (min-width: $desktop-min) {
-      margin-left: $sf-row-spacer-x;
+    margin-left: 0;
+    @media screen and (min-width: $desktop-min){
+      margin-left: 40px;
     }
   }
   & > * {
-    @media screen and (min-width: $desktop-min) {
-      flex: 1;
-    }
+    flex: 1;
   }
 }
