@@ -129,7 +129,7 @@
           </SfBanner>
         </SfRowColumn>
         <SfRowColumn>
-          <SfRow>
+          <SfRow class="spacer-custom-row">
             <SfRowColumn>
               <SfBanner
                 image="assets/storybook/homepage/bannerC.png"
@@ -144,7 +144,7 @@
               </SfBanner>
             </SfRowColumn>
           </SfRow>
-          <SfRow>
+          <SfRow class="spacer-custom-row">
             <SfRowColumn>
               <SfBanner
                 image="assets/storybook/homepage/bannerG.png"
@@ -176,7 +176,7 @@
           />
         </SfRowColumn>
         <SfRowColumn>
-          <SfRow>
+          <SfRow class="spacer-custom-row">
             <SfRowColumn>
               <SfBanner
                 title="ECO SANDALS"
@@ -196,7 +196,7 @@
               />
             </SfRowColumn>
           </SfRow>
-          <SfRow>
+          <SfRow class="spacer-custom-row">
             <SfRowColumn>
               <SfBanner
                 title="ECO SANDALS"
@@ -532,7 +532,15 @@ export default {
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
   }
 }
-
+.spacer-custom-row{
+  @media screen and (min-width: $desktop-min){
+    margin-top: 0;
+    margin-bottom: 0;
+    & + & {
+      margin-top: 40px;
+    }
+  }
+}
 // full custom banner component, need more attention
 .app-banner {
   min-height: 420px;
