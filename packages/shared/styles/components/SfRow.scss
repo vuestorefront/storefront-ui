@@ -1,28 +1,28 @@
 @import '../variables';
 
-$row__gutter-size: $spacer-extra-big!default;
-$row-column__gutter-size: $spacer-extra-big!default;
 .sf-row {
-  display: flex;
-  margin: $row__gutter-size 0;
+  @media screen and (min-width: $desktop-min){
+    display: flex;
+    margin: 40px 0;
+  }
 }
 
 .sf-row-column{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  & + & {
-    margin-left: $row-column__gutter-size;
-  }
-
-  & > * {
+  margin-top: $spacer-big;
+  @media screen and (min-width: $desktop-min){
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
   }
-
-  .sf-row{
-    margin: 0;
-    & + .sf-row{
-      margin-top: $row__gutter-size;
+  & + & {
+    @media screen and (min-width: $desktop-min) {
+      margin-left: $spacer-extra-big;
+    }
+  }
+  & > * {
+    @media screen and (min-width: $desktop-min) {
+      flex: 1;
     }
   }
 }
