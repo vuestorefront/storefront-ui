@@ -13,7 +13,7 @@
       ></SfHeroItem>
     </SfHero>
     <template v-if="bannerGrid === 1">
-      <SfGridRow style="margin-top: 40px">
+      <SfGridRow style="">
         <SfGridColumn>
           <SfBanner
             title="ECO SANDALS"
@@ -25,7 +25,7 @@
           />
         </SfGridColumn>
       </SfGridRow>
-      <SfGridRow style="margin-top: 40px">
+      <SfGridRow style="">
         <SfGridColumn>
           <SfBanner
             title="ECO SANDALS"
@@ -40,14 +40,14 @@
             title="ECO SANDALS"
             subtitle="Summer shoes"
             button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerG .png"
+            image="assets/storybook/homepage/bannerG.png"
             class="sf-banner--left"
           />
         </SfGridColumn>
       </SfGridRow>
     </template>
     <template v-if="bannerGrid === 2">
-      <SfGridRow style="margin-top: 40px">
+      <SfGridRow style="">
         <SfGridColumn>
           <SfBanner
             title="ECO SANDALS"
@@ -58,7 +58,7 @@
           />
         </SfGridColumn>
       </SfGridRow>
-      <SfGridRow style="margin-top: 40px">
+      <SfGridRow style="">
         <SfGridColumn>
           <SfBanner
             title="ECO SANDALS"
@@ -70,7 +70,7 @@
           />
         </SfGridColumn>
       </SfGridRow>
-      <SfGridRow style="margin: 40px 0">
+      <SfGridRow style="">
         <SfGridColumn>
           <SfBanner
             title="ECO SANDALS"
@@ -83,7 +83,7 @@
       </SfGridRow>
     </template>
     <template v-if="bannerGrid === 3">
-      <SfGridRow style="margin: 40px 0;">
+      <SfGridRow style="">
         <SfGridColumn>
           <SfBanner
             descriptio
@@ -144,7 +144,7 @@
               </SfBanner>
             </SfGridColumn>
           </SfGridRow>
-          <SfGridRow style="margin-top: 40px">
+          <SfGridRow style="">
             <SfGridColumn>
               <SfBanner
                 image="assets/storybook/homepage/bannerG.png"
@@ -163,7 +163,7 @@
       </SfGridRow>
     </template>
     <template v-if="bannerGrid === 4">
-      <SfGridRow style="margin: 40px 0">
+      <SfGridRow style="">
         <SfGridColumn>
           <SfBanner
             title="ECO SANDALS"
@@ -196,7 +196,7 @@
               />
             </SfGridColumn>
           </SfGridRow>
-          <SfGridRow style="margin-top: 40px">
+          <SfGridRow style="">
             <SfGridColumn>
               <SfBanner
                 title="ECO SANDALS"
@@ -253,7 +253,7 @@
           >
         </SfGridColumn>
       </SfGridRow>
-      <SfGridRow style="justify-content: center; margin-top: 40px">
+      <SfGridRow style="justify-content: center;">
         <SfGridColumn style="flex: 0 1 470px;">
           <SfImage src="assets/storybook/homepage/imageC.png"
             >angelina_trn</SfImage
@@ -313,8 +313,8 @@ export default {
   name: "Home",
   data() {
     return {
+      bannerGrid: 4,
       debugMode: false,
-      bannerGrid: 1,
       heroes: [
         {
           title: "Colorful summer dresses are already in store",
