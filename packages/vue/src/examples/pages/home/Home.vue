@@ -13,7 +13,7 @@
       ></SfHeroItem>
     </SfHero>
     <template v-if="bannerGrid === 1">
-      <SfRow style="">
+      <SfRow>
         <SfRowColumn>
           <SfBanner
             title="ECO SANDALS"
@@ -25,7 +25,7 @@
           />
         </SfRowColumn>
       </SfRow>
-      <SfRow style="">
+      <SfRow>
         <SfRowColumn>
           <SfBanner
             title="ECO SANDALS"
@@ -47,7 +47,7 @@
       </SfRow>
     </template>
     <template v-if="bannerGrid === 2">
-      <SfRow style="">
+      <SfRow>
         <SfRowColumn>
           <SfBanner
             title="ECO SANDALS"
@@ -58,7 +58,7 @@
           />
         </SfRowColumn>
       </SfRow>
-      <SfRow style="">
+      <SfRow>
         <SfRowColumn>
           <SfBanner
             title="ECO SANDALS"
@@ -70,7 +70,7 @@
           />
         </SfRowColumn>
       </SfRow>
-      <SfRow style="">
+      <SfRow>
         <SfRowColumn>
           <SfBanner
             title="ECO SANDALS"
@@ -83,7 +83,7 @@
       </SfRow>
     </template>
     <template v-if="bannerGrid === 3">
-      <SfRow style="">
+      <SfRow>
         <SfRowColumn>
           <SfBanner
             descriptio
@@ -144,7 +144,7 @@
               </SfBanner>
             </SfRowColumn>
           </SfRow>
-          <SfRow style="">
+          <SfRow>
             <SfRowColumn>
               <SfBanner
                 image="assets/storybook/homepage/bannerG.png"
@@ -163,7 +163,7 @@
       </SfRow>
     </template>
     <template v-if="bannerGrid === 4">
-      <SfRow style="">
+      <SfRow>
         <SfRowColumn>
           <SfBanner
             title="ECO SANDALS"
@@ -196,7 +196,7 @@
               />
             </SfRowColumn>
           </SfRow>
-          <SfRow style="">
+          <SfRow>
             <SfRowColumn>
               <SfBanner
                 title="ECO SANDALS"
@@ -311,9 +311,14 @@ import {
 
 export default {
   name: "Home",
+  props: {
+    bannerGrid: {
+      type: Number,
+      default: 3
+    }
+  },
   data() {
     return {
-      bannerGrid: 4,
       debugMode: false,
       heroes: [
         {
