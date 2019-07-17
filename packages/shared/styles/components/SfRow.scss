@@ -1,0 +1,28 @@
+@import '../variables';
+
+$row__gutter-size: $spacer-extra-big!default;
+$row-column__gutter-size: $spacer-extra-big!default;
+.sf-row {
+  display: flex;
+  margin: $row__gutter-size;
+}
+
+.sf-row-column{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  & + & {
+    margin-left: $row-column__gutter-size;
+  }
+
+  & > * {
+    flex: 1;
+  }
+
+  .sf-row{
+    margin: 0;
+    & + .sf-row{
+      margin-top: $row__gutter-size;
+    }
+  }
+}
