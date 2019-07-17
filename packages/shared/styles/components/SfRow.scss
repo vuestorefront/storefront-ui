@@ -1,28 +1,26 @@
 @import '../variables';
 
+$row-column-spacer: $spacer-extra-big;
+
 .sf-row {
-  @media screen and (min-width: $desktop-min){
-    display: flex;
-    margin: 40px 0;
-  }
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .sf-row-column{
-  margin-top: $spacer-big;
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
   @media screen and (min-width: $desktop-min){
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-top: 0;
   }
   & + & {
-    @media screen and (min-width: $desktop-min) {
-      margin-left: $spacer-extra-big;
+    margin-left: 0;
+    @media screen and (min-width: $desktop-min){
+      margin-left: $row-column-spacer;
     }
   }
   & > * {
-    @media screen and (min-width: $desktop-min) {
-      flex: 1;
-    }
+    flex: 1;
   }
 }
