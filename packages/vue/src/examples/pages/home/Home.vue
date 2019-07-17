@@ -13,8 +13,8 @@
       ></SfHeroItem>
     </SfHero>
     <template v-if="bannerGrid === 1">
-      <SfGridRow style="">
-        <SfGridColumn>
+      <SfRow style="">
+        <SfRowColumn>
           <SfBanner
             title="ECO SANDALS"
             description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
@@ -23,10 +23,10 @@
             image="assets/storybook/homepage/bannerB.png"
             class="sf-banner--left"
           />
-        </SfGridColumn>
-      </SfGridRow>
-      <SfGridRow style="">
-        <SfGridColumn>
+        </SfRowColumn>
+      </SfRow>
+      <SfRow style="">
+        <SfRowColumn>
           <SfBanner
             title="ECO SANDALS"
             subtitle="Summer shoes"
@@ -34,8 +34,8 @@
             image="assets/storybook/homepage/bannerC.png"
             class="sf-banner--left"
           />
-        </SfGridColumn>
-        <SfGridColumn>
+        </SfRowColumn>
+        <SfRowColumn>
           <SfBanner
             title="ECO SANDALS"
             subtitle="Summer shoes"
@@ -43,12 +43,12 @@
             image="assets/storybook/homepage/bannerG.png"
             class="sf-banner--left"
           />
-        </SfGridColumn>
-      </SfGridRow>
+        </SfRowColumn>
+      </SfRow>
     </template>
     <template v-if="bannerGrid === 2">
-      <SfGridRow style="">
-        <SfGridColumn>
+      <SfRow style="">
+        <SfRowColumn>
           <SfBanner
             title="ECO SANDALS"
             description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
@@ -56,10 +56,10 @@
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerA.png"
           />
-        </SfGridColumn>
-      </SfGridRow>
-      <SfGridRow style="">
-        <SfGridColumn>
+        </SfRowColumn>
+      </SfRow>
+      <SfRow style="">
+        <SfRowColumn>
           <SfBanner
             title="ECO SANDALS"
             description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
@@ -68,10 +68,10 @@
             image="assets/storybook/homepage/bannerB.png"
             class="sf-banner--left"
           />
-        </SfGridColumn>
-      </SfGridRow>
-      <SfGridRow style="">
-        <SfGridColumn>
+        </SfRowColumn>
+      </SfRow>
+      <SfRow style="">
+        <SfRowColumn>
           <SfBanner
             title="ECO SANDALS"
             description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
@@ -79,12 +79,12 @@
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerC.png"
           />
-        </SfGridColumn>
-      </SfGridRow>
+        </SfRowColumn>
+      </SfRow>
     </template>
     <template v-if="bannerGrid === 3">
-      <SfGridRow style="">
-        <SfGridColumn>
+      <SfRow style="">
+        <SfRowColumn>
           <SfBanner
             descriptio
             n="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
@@ -106,8 +106,8 @@
               </p>
             </template>
           </SfBanner>
-        </SfGridColumn>
-        <SfGridColumn>
+        </SfRowColumn>
+        <SfRowColumn>
           <SfBanner
             button-text="Shop now"
             image="assets/storybook/homepage/bannerE.png"
@@ -127,10 +127,10 @@
               </p>
             </template>
           </SfBanner>
-        </SfGridColumn>
-        <SfGridColumn>
-          <SfGridRow>
-            <SfGridColumn>
+        </SfRowColumn>
+        <SfRowColumn>
+          <SfRow>
+            <SfRowColumn>
               <SfBanner
                 image="assets/storybook/homepage/bannerC.png"
                 class="sf-banner--left banner--full banner"
@@ -142,10 +142,10 @@
                   <h1 class="banner__title">The office life</h1>
                 </template>
               </SfBanner>
-            </SfGridColumn>
-          </SfGridRow>
-          <SfGridRow style="">
-            <SfGridColumn>
+            </SfRowColumn>
+          </SfRow>
+          <SfRow style="">
+            <SfRowColumn>
               <SfBanner
                 image="assets/storybook/homepage/bannerG.png"
                 class="sf-banner--left banner--full banner"
@@ -157,14 +157,14 @@
                   <h1 class="banner__title">Eco sandals</h1>
                 </template>
               </SfBanner>
-            </SfGridColumn>
-          </SfGridRow>
-        </SfGridColumn>
-      </SfGridRow>
+            </SfRowColumn>
+          </SfRow>
+        </SfRowColumn>
+      </SfRow>
     </template>
     <template v-if="bannerGrid === 4">
-      <SfGridRow style="">
-        <SfGridColumn>
+      <SfRow style="">
+        <SfRowColumn>
           <SfBanner
             title="ECO SANDALS"
             description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
@@ -174,10 +174,10 @@
             class="sf-banner--left"
             style="min-height: 1000px"
           />
-        </SfGridColumn>
-        <SfGridColumn>
-          <SfGridRow>
-            <SfGridColumn>
+        </SfRowColumn>
+        <SfRowColumn>
+          <SfRow>
+            <SfRowColumn>
               <SfBanner
                 title="ECO SANDALS"
                 subtitle="Summer shoes"
@@ -185,8 +185,8 @@
                 image="assets/storybook/homepage/bannerI.png"
                 class="sf-banner--left"
               />
-            </SfGridColumn>
-            <SfGridColumn>
+            </SfRowColumn>
+            <SfRowColumn>
               <SfBanner
                 title="ECO SANDALS"
                 subtitle="Summer shoes"
@@ -194,10 +194,10 @@
                 image="assets/storybook/homepage/bannerJ.png"
                 class="sf-banner--left"
               />
-            </SfGridColumn>
-          </SfGridRow>
-          <SfGridRow style="">
-            <SfGridColumn>
+            </SfRowColumn>
+          </SfRow>
+          <SfRow style="">
+            <SfRowColumn>
               <SfBanner
                 title="ECO SANDALS"
                 subtitle="Summer shoes"
@@ -205,10 +205,10 @@
                 image="assets/storybook/homepage/bannerA.png"
                 class="sf-banner--left"
               />
-            </SfGridColumn>
-          </SfGridRow>
-        </SfGridColumn>
-      </SfGridRow>
+            </SfRowColumn>
+          </SfRow>
+        </SfRowColumn>
+      </SfRow>
     </template>
 
     <SfCallToAction
@@ -241,30 +241,30 @@
         subtitle: '#YOURLOOK'
       }"
     >
-      <SfGridRow style="justify-content: center;">
-        <SfGridColumn style="flex: 0 1 470px;">
+      <SfRow style="justify-content: center;">
+        <SfRowColumn style="flex: 0 1 470px;">
           <SfImage src="assets/storybook/homepage/imageA.png"
             >maria_trn</SfImage
           >
-        </SfGridColumn>
-        <SfGridColumn style="flex: 0 1 470px;">
+        </SfRowColumn>
+        <SfRowColumn style="flex: 0 1 470px;">
           <SfImage src="assets/storybook/homepage/imageB.png"
             >katherina_trn</SfImage
           >
-        </SfGridColumn>
-      </SfGridRow>
-      <SfGridRow style="justify-content: center;">
-        <SfGridColumn style="flex: 0 1 470px;">
+        </SfRowColumn>
+      </SfRow>
+      <SfRow style="justify-content: center;">
+        <SfRowColumn style="flex: 0 1 470px;">
           <SfImage src="assets/storybook/homepage/imageC.png"
             >angelina_trn</SfImage
           >
-        </SfGridColumn>
-        <SfGridColumn style="flex: 0 1 470px;">
+        </SfRowColumn>
+        <SfRowColumn style="flex: 0 1 470px;">
           <SfImage src="assets/storybook/homepage/imageD.png"
             >julia_trn</SfImage
           >
-        </SfGridColumn>
-      </SfGridRow>
+        </SfRowColumn>
+      </SfRow>
     </SfSection>
     <SfBanner
       image="assets/storybook/homepage/bannerD.png"
@@ -306,7 +306,7 @@ import {
   SfCarousel,
   SfProductCard,
   SfImage,
-  SfGrid
+  SfRow
 } from "@storefrontui/vue";
 
 export default {
@@ -400,7 +400,7 @@ export default {
     SfCarousel,
     SfProductCard,
     SfImage,
-    SfGrid
+    SfRow
   },
   mounted: function() {
     if (this.debugMode) {
