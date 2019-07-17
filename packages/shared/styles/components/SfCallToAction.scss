@@ -31,6 +31,11 @@ $call-to-action--secondary__button-background-color: $c-dark-primary !default;
   flex-direction: column;
   padding: $spacer-big $spacer-medium;
   background-color: $call-to-action-background-color;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-size: 1.125rem;
+
   @media screen and (min-width: $desktop-min) {
     flex-direction: row;
     padding: $call-to-action-padding;
@@ -42,14 +47,16 @@ $call-to-action--secondary__button-background-color: $c-dark-primary !default;
     }
   }
   &__title {
+    margin-bottom: $spacer-medium;
+    margin-top: 0;
+    padding: 0;
     font-size: $font-size-big-mobile;
     font-family: $call-to-action__title-font-family;
-    margin-top: 0;
     font-weight: $call-to-action__title-font-weight;
     text-transform: $call-to-action__title-text-transform;
     @media screen and (min-width: $desktop-min) {
       text-align: left;
-      margin-bottom: 0; 
+      margin-bottom: $spacer-big;
       font-size: $call-to-action__title-font-size;
     }
   }

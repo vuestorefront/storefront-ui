@@ -1,8 +1,8 @@
 @import '../variables';
 
-$filter-item-padding     : $spacer 0;
-$filter-item-font-size   : $font-size-big-mobile;
-$filter-item-font-family : $body-font-family-secondary;
+$filter-item-padding     : $spacer 0 !default;
+$filter-item-font-size   : $font-size-big-mobile !default;
+$filter-item-font-family : $body-font-family-secondary !default;
 
 .sf-filter-item {
     display: flex;

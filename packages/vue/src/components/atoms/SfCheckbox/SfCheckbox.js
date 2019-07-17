@@ -1,6 +1,10 @@
+import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
+
 export default {
   name: "SfCheckbox",
-
+  components: {
+    SfIcon
+  },
   props: {
     /**
      * Current input value (`v-model`)

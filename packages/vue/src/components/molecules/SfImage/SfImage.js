@@ -45,7 +45,7 @@ export default {
     this.$refs.img.addEventListener("load", () => {
       this.loaded = true;
       this.$refs.img.setAttribute("alt", this.alt);
-      this.maxWidth = `${this.$refs.img.offsetWidth}px`;
+      this.maxWidth = `${this.$refs.img.naturalWidth}px`;
     });
   }
 };
