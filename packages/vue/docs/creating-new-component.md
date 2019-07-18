@@ -31,7 +31,7 @@ SCSS file must be placed at `packages/shared/styles/components/{SfComponent}.scs
 If you're picking an already existent
 component, just follow the tutorial and finish the missing parts.
 
-### Tests
+### Running tests
 
 You should test your component importing it inside `packages/vue/src/Playground.vue`,
 then running `npm run serve`.
@@ -40,9 +40,26 @@ then running `npm run serve`.
 
 Start with creating a proper CSS/HTML markup
 without worrying about the slots and SCSS variables.
-Use [BEM methodology](http://getbem.com/) but try to keep up to 2 BEM levels at most.
+
 Once you have semantically correct and good looking
 component it's time to make it customizable.
+
+### Edit styles
+
+Use [BEM methodology](http://getbem.com/)
+but try to keep up to 2 BEM levels (elements) at most.
+
+For color modifiers (if it's applied to your component)
+you should use common classes, by convention:
+`color-primary`, `color-secondary`, `color-info`, `color-success`,
+`color-warning`, `color-danger`.
+
+We already have these color helpers declared globally, and it may
+work by default for your component, in this case you should just add
+these classes as `CSS Modifier` on your component documentation,
+without adding new styles for that
+([SfButton](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/components/atoms/SfButton/SfButton.stories.js)
+is an example).
 
 ### Make the content customizable with slots
 
