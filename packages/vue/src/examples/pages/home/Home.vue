@@ -12,38 +12,48 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <div class="grid grid-banner">
+    <div class="grid" style="margin: 40px 0;">
       <div class="grid__row">
-        <SfBanner
-          subtitle="Dresses"
-          title="COCKTAIL PARTY"
-          description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands."
-          button-text="SHOP NOW"
-          image="assets/storybook/homepage/bannerF.png"
-          class="sf-banner--left grid__col"
-        />
-        <SfBanner
-          subtitle="Dresses"
-          title="LINEN DRESSES"
-          description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-          button-text="SHOP NOW"
-          image="assets/storybook/homepage/bannerE.png"
-          class="sf-banner--left grid__col"
-        />
         <div class="grid__col">
-          <div class="grid__row grid__row--column">
-            <SfBanner
-              subtitle="T-Shirts"
-              title="THE OFFICE LIFE"
-              image="assets/storybook/homepage/bannerC.png"
-              class="sf-banner--left sf-banner--container-full grid__col"
-            />
-            <SfBanner
-              subtitle="Summer shoes"
-              title="ECO SANDALS"
-              image="assets/storybook/homepage/bannerG.png"
-              class="sf-banner--left sf-banner--container-full grid__col"
-            />
+          <SfBanner
+            subtitle="Dresses"
+            title="COCKTAIL PARTY"
+            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands."
+            button-text="SHOP NOW"
+            image="assets/storybook/homepage/bannerF.png"
+            class="sf-banner--left"
+          />
+        </div>
+        <div class="grid__col">
+          <SfBanner
+            subtitle="Dresses"
+            title="LINEN DRESSES"
+            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+            button-text="SHOP NOW"
+            image="assets/storybook/homepage/bannerE.png"
+            class="sf-banner--left"
+          />
+        </div>
+        <div class="grid__col">
+          <div class="grid__row">
+            <div class="grid__col">
+              <SfBanner
+                subtitle="T-Shirts"
+                title="THE OFFICE LIFE"
+                image="assets/storybook/homepage/bannerC.png"
+                class="sf-banner--left sf-banner--container-full grid__col"
+              />
+            </div>
+          </div>
+          <div class="grid__row">
+            <div class="grid__col">
+              <SfBanner
+                subtitle="Summer shoes"
+                title="ECO SANDALS"
+                image="assets/storybook/homepage/bannerG.png"
+                class="sf-banner--left sf-banner--container-full grid__col"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -78,22 +88,30 @@
         subtitle: '#YOURLOOK'
       }"
     >
-      <div class="grid grid-image">
+      <div class="grid" style="max-width: 960px; margin: auto">
         <div class="grid__row">
-          <SfImage class="grid__col" src="assets/storybook/homepage/imageA.png"
-            >katherina_trn</SfImage
-          >
-          <SfImage class="grid__col" src="assets/storybook/homepage/imageB.png"
-            >katherina_trn</SfImage
-          >
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageA.png"
+              >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageB.png"
+              >katherina_trn</SfImage
+            >
+          </div>
         </div>
         <div class="grid__row">
-          <SfImage class="grid__col" src="assets/storybook/homepage/imageC.png"
-            >katherina_trn</SfImage
-          >
-          <SfImage class="grid__col" src="assets/storybook/homepage/imageD.png"
-            >katherina_trn</SfImage
-          >
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageC.png"
+              >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageD.png"
+              >katherina_trn</SfImage
+            >
+          </div>
         </div>
       </div>
     </SfSection>
@@ -305,53 +323,36 @@ export default {
     }
   }
 }
+// the best grid idea
 .grid {
-  $this: &;
-  $gutter: $spacer-extra-big; // how changes gutter for images grid
   &__row {
-    @media screen and (min-width: $desktop-min) {
+    @media screen and (min-width: $desktop-min){
       display: flex;
-      justify-content: center;
+      flex-wrap: wrap;
+      flex: 0 0 100%;
     }
     & + & {
-      margin-top: $gutter / 2;
       @media screen and (min-width: $desktop-min) {
-        margin-top: $gutter;
+        margin-top: 20px;
       }
     }
-    &--column {
-      flex-direction: column;
-      #{$this}__col {
-        & + #{$this}__col {
-          margin-left: 0;
-          margin-top: $gutter / 2;
-          @media screen and (min-width: $desktop-min) {
-            margin-top: $gutter;
-          }
-        }
-      }
+    .grid > &:first-of-type > .grid__col:first-of-type{
+      margin-top: 0;
     }
   }
   &__col {
-    margin: 0 auto;
-    @media screen and (min-width: $desktop-min) {
-      flex: 1;
+    margin-top: 20px;
+    @media screen and (min-width: $desktop-min){
+      flex-wrap: wrap;
       display: flex;
+      flex: 1;
+      margin-top: 0;
     }
     & + & {
-      margin-top: $gutter / 2;
       @media screen and (min-width: $desktop-min) {
-        margin-left: $gutter;
-        margin-top: 0;
+        margin-left: 20px;
       }
     }
   }
-}
-.grid-image {
-  max-width: 960px;
-  margin: auto;
-}
-.grid-banner {
-  margin: $spacer-extra-big 0;
 }
 </style>
