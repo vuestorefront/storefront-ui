@@ -9,7 +9,7 @@
 
   // General color modifiers
   // May be overwritten by specific component modifiers
-  .is-#{$color} {
+  .color-#{$color} {
     color: color-yiq($value) !important;
     background-color: $value !important;
     border-color: darken($value, 5) !important;
