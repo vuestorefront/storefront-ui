@@ -12,11 +12,36 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
+    <!-- BANNERS GRID -->
+    <div class="grid">
+      <div class="grid__row">
+        <div
+          class="grid__col"
+          style="background-color: #5ECE7B; width: 470px; height: 470px;"
+        ></div>
+        <div
+          class="grid__col"
+          style="background-color: #5ECE7B; width: 470px; height: 470px;"
+        ></div>
+        <div class="grid__col">
+          <div class="grid__row grid__row--column">
+            <div
+              class="grid__col"
+              style="background-color: #5ECE7B; width: 470px; height: 470px;"
+            ></div>
+            <div
+              class="grid__col"
+              style="background-color: #5ECE7B; width: 470px; height: 470px;"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <SfCallToAction
       title="Subscribe to Newsletters"
       button-text="Subscribe"
       description="Be aware of upcoming sales and events. Receive gifts and special offers!"
-      class="newsletter"
+      class="call-to-action-newsletter"
       image="assets/storybook/homepage/newsletter.png"
     />
     <SfSection
@@ -24,7 +49,7 @@
         title: 'Best Sellers'
       }"
     >
-      <SfCarousel :settings="{ gap: 0 }" class="carousel">
+      <SfCarousel :settings="{ gap: 0 }" class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
             :title="product.title"
@@ -42,54 +67,45 @@
         subtitle: '#YOURLOOK'
       }"
     >
-      <SfRow style="justify-content: center;">
-        <SfRowColumn style="flex: 0 1 470px;">
-          <SfImage src="assets/storybook/homepage/imageA.png"
-            >maria_trn</SfImage
-          >
-        </SfRowColumn>
-        <SfRowColumn style="flex: 0 1 470px;">
-          <SfImage src="assets/storybook/homepage/imageB.png"
+      <div class="grid grid-image">
+        <div class="grid__row">
+          <SfImage class="grid__col" src="assets/storybook/homepage/imageB.png"
             >katherina_trn</SfImage
           >
-        </SfRowColumn>
-      </SfRow>
-      <SfRow style="justify-content: center;">
-        <SfRowColumn style="flex: 0 1 470px;">
-          <SfImage src="assets/storybook/homepage/imageC.png"
-            >angelina_trn</SfImage
+          <SfImage class="grid__col" src="assets/storybook/homepage/imageB.png"
+            >katherina_trn</SfImage
           >
-        </SfRowColumn>
-        <SfRowColumn style="flex: 0 1 470px;">
-          <SfImage src="assets/storybook/homepage/imageD.png"
-            >julia_trn</SfImage
+        </div>
+        <div class="grid__row">
+          <SfImage class="grid__col" src="assets/storybook/homepage/imageB.png"
+            >katherina_trn</SfImage
           >
-        </SfRowColumn>
-      </SfRow>
+          <SfImage class="grid__col" src="assets/storybook/homepage/imageB.png"
+            >katherina_trn</SfImage
+          >
+        </div>
+      </div>
     </SfSection>
     <SfBanner
+      title="Download our application to your mobile"
+      subtitle="Fashion to Take Away"
       image="assets/storybook/homepage/bannerD.png"
-      class="sf-banner--left desktop-only app-banner"
+      class="banner-application sf-banner--left sf-banner--center desktop-only"
     >
-      <template #subtitle>
-        <h2 class="app-banner__subtitle">
-          Fashion to Take Away
-        </h2>
-      </template>
       <template #title>
-        <h1 class="app-banner__title">
+        <h1 class="banner-application__title">
           Download our application to your&nbsp;mobile
         </h1>
       </template>
       <template #call-to-action>
-        <div class="app-banner__cta">
+        <div>
           <img
-            class="app-banner__platform"
+            class="banner-application__download"
             src="assets/storybook/homepage/google.png"
             alt=""
           />
           <img
-            class="app-banner__platform"
+            class="banner-application__download"
             src="assets/storybook/homepage/apple.png"
             alt=""
           />
@@ -106,8 +122,7 @@ import {
   SfSection,
   SfCarousel,
   SfProductCard,
-  SfImage,
-  SfRow
+  SfImage
 } from "@storefrontui/vue";
 
 export default {
@@ -205,8 +220,7 @@ export default {
     SfSection,
     SfCarousel,
     SfProductCard,
-    SfImage,
-    SfRow
+    SfImage
   },
   mounted: function() {
     if (this.debugMode) {
@@ -228,9 +242,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefrontui/shared/styles/helpers/visibility";
-/**
- * OK
- */
+
 #home {
   max-width: 1240px;
   margin: auto;
@@ -240,14 +252,7 @@ export default {
     padding: 0;
   }
 }
-.banner-grid {
-  margin: $spacer-extra-big 0;
-}
-.column-big {
-  flex: 0 1 500px;
-}
-
-.newsletter {
+.call-to-action-newsletter {
   margin: $spacer-big 0;
   @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big * 2 0;
@@ -259,50 +264,77 @@ export default {
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
   }
 }
-
-/**
- * BAD
- */
-// /deep/ is not look sexi
-.carousel {
+.product-carousel {
   margin: -20px 0;
-
   /deep/ .sf-carousel__wrapper {
     padding: 20px 0;
     @media screen and (min-width: $desktop-min) {
-      max-width: calc(100% - 176px);
       padding: 20px;
+      max-width: calc(100% - 216px);
     }
   }
 }
-
-// full custom banner component, need more attention
-.app-banner {
+.banner-application {
   min-height: 420px;
-  background-position: 100%;
-
-  &__platform {
-    max-height: 47px;
-
-    &:not(:first-child) {
-      margin-left: $spacer-medium;
-    }
-  }
-  &__subtitle {
-    padding: 0;
-    margin-bottom: $spacer-big;
-    color: #a3a5ad;
-    font-weight: 300;
-  }
+  max-width: 1040px;
+  margin: auto;
   &__title {
     padding: 0;
-    margin-bottom: $spacer-extra-big;
-    color: $c-dark-primary;
-    line-height: 1.38;
+    margin: 0;
+    margin-top: $spacer-big;
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.388;
   }
-  /deep/ .sf-banner__container {
+  &__download {
+    max-height: 47px;
+    margin-top: $spacer-extra-big;
+    & + & {
+      margin-left: $spacer-big;
+    }
+  }
+}
+.grid-image {
+  max-width: 960px;
+  margin: auto;
+}
+.grid-banner {
+}
+.grid {
+  $this: &;
+  $gutter: $spacer-extra-big;
+  &__row {
     @media screen and (min-width: $desktop-min) {
-      margin-left: 64px;
+      display: flex;
+      justify-content: center;
+    }
+    & + & {
+      //@media screen and (min-width: $desktop-min) {
+      margin-top: $gutter;
+      //}
+    }
+    &--column {
+      flex-direction: column;
+      #{$this}__col {
+        & + #{$this}__col {
+          margin-left: 0;
+          margin-top: $gutter;
+        }
+      }
+    }
+  }
+  &__col {
+    margin: auto;
+    @media screen and (min-width: $desktop-min) {
+      flex: 1;
+      display: flex;
+    }
+    & + & {
+      margin-top: $gutter;
+      @media screen and (min-width: $desktop-min) {
+        margin-left: $gutter;
+        margin-top: 0;
+      }
     }
   }
 }

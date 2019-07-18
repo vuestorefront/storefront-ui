@@ -8,11 +8,13 @@ $section__content-margin-top--mobile: $spacer-extra-big !default;
 
 .sf-section {
   margin: $section-margin-y--mobile 0;
+
  @media screen and (min-width: $desktop-min){
    margin: $section-margin-y 0;
  }
  &__content{
    margin-top: $section__content-margin-top--mobile;
+
    @media screen and (min-width: $desktop-min) {
      margin-top: $section__content-margin-top;
    }

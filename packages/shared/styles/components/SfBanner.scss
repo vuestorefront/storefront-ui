@@ -111,6 +111,9 @@ $banner--secondary__button-background-color : $c-green-primary !default;
   &--bottom {
     justify-content: flex-end;
   }
+  &--center {
+    justify-content: center;
+  }
   &--left {
     align-items: flex-start;
   }
