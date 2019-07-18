@@ -16,9 +16,9 @@
       <SfRow>
         <SfRowColumn>
           <SfBanner
-            title="ECO SANDALS"
-            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
-            subtitle="Summer shoes"
+            title="COCKTAIL & PARTY"
+            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands."
+            subtitle="Scarves"
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerB.png"
             class="sf-banner--left"
@@ -32,7 +32,7 @@
             subtitle="Summer shoes"
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerC.png"
-            class="sf-banner--left"
+            class="sf-banner--left sf-banner--full-container"
           />
         </SfRowColumn>
         <SfRowColumn>
@@ -41,7 +41,7 @@
             subtitle="Summer shoes"
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerG.png"
-            class="sf-banner--left"
+            class="sf-banner--left sf-banner--full-container"
           />
         </SfRowColumn>
       </SfRow>
@@ -86,77 +86,43 @@
       <SfRow>
         <SfRowColumn>
           <SfBanner
-            descriptio
-            n="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-            button-text="Shop now"
+            title="ECO SANDALS"
+            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
+            subtitle="Summer shoes"
+            button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerF.png"
-            class="sf-banner--left sf-banner--top banner banner--coctail"
-          >
-            <template #subtitle>
-              <h2 class="banner__subtitle">Scarves</h2>
-            </template>
-            <template #title>
-              <h1 class="banner__title">Coktail & party</h1>
-            </template>
-            <template #description>
-              <p class="banner__description">
-                Find stunning women's cocktail dresses and party dresses. Stand
-                out in lace and metallic cocktail dresses from all your favorite
-                brands.
-              </p>
-            </template>
-          </SfBanner>
+            class="sf-banner--left"
+          />
         </SfRowColumn>
         <SfRowColumn>
           <SfBanner
-            button-text="Shop now"
+            title="ECO SANDALS"
+            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
+            subtitle="Summer shoes"
+            button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerE.png"
-            class="sf-banner--left sf-banner--top banner"
-          >
-            <template #subtitle>
-              <h2 class="banner__subtitle">Dresses</h2>
-            </template>
-            <template #title>
-              <h1 class="banner__title">Linen dresses</h1>
-            </template>
-            <template #description>
-              <p class="banner__description">
-                Find stunning women's cocktail dresses and party dresses. Stand
-                out in lace and metallic cocktail dresses from all your favorite
-                brands.
-              </p>
-            </template>
-          </SfBanner>
+            class="sf-banner--left"
+          />
         </SfRowColumn>
         <SfRowColumn>
           <SfRow>
             <SfRowColumn>
               <SfBanner
+                title="THE OFFICE LIFE"
+                subtitle="T-Shirts"
                 image="assets/storybook/homepage/bannerC.png"
-                class="sf-banner--left banner--full banner"
-              >
-                <template #subtitle>
-                  <h2 class="banner__subtitle">T-Shirts</h2>
-                </template>
-                <template #title>
-                  <h1 class="banner__title">The office life</h1>
-                </template>
-              </SfBanner>
+                class="sf-banner--left sf-banner--full-container"
+              />
             </SfRowColumn>
           </SfRow>
           <SfRow>
             <SfRowColumn>
               <SfBanner
+                title="ECO SANDALS"
+                subtitle="Summer shoes"
                 image="assets/storybook/homepage/bannerG.png"
-                class="sf-banner--left banner--full banner"
-              >
-                <template #subtitle>
-                  <h2 class="banner__subtitle">Summer shoes</h2>
-                </template>
-                <template #title>
-                  <h1 class="banner__title">Eco sandals</h1>
-                </template>
-              </SfBanner>
+                class="sf-banner--left sf-banner--full-container"
+              />
             </SfRowColumn>
           </SfRow>
         </SfRowColumn>
@@ -174,7 +140,7 @@
             class="sf-banner--left"
           />
         </SfRowColumn>
-        <SfRowColumn>
+        <SfRowColumn style="flex: 2" >
           <SfRow>
             <SfRowColumn>
               <SfBanner
@@ -313,7 +279,7 @@ export default {
   props: {
     bannerGrid: {
       type: Number,
-      default: 3
+      default: 1
     }
   },
   data() {
@@ -426,19 +392,40 @@ export default {
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefrontui/shared/styles/helpers/visibility";
-
+/**
+ * OK
+ */
 #home {
-  box-sizing: border-box;
   max-width: 1240px;
   margin: auto;
   padding: 0 $spacer-big;
-
+  box-sizing: border-box;
   @media screen and (min-width: $desktop-min) {
     padding: 0;
   }
 }
+.banner-grid {
+  margin: $spacer-extra-big 0;
+}
+.newsletter {
+  margin: $spacer-big 0;
+  @media screen and (min-width: $desktop-min) {
+    margin: $spacer-extra-big * 2 0;
+  }
+}
+.product-card {
+  max-width: unset;
+  &:hover {
+    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+  }
+}
 
-.banner {
+/**
+ * BAD
+ */
+
+// pass to design is not easy
+/*.banner {
   width: 100%;
   min-height: 144px;
   font-family: $body-font-family-secondary;
@@ -487,33 +474,9 @@ export default {
       display: block;
     }
   }
+}*/
 
-  &/deep/.sf-banner__container {
-    @media screen and (min-width: $desktop-min) {
-      width: 72%;
-    }
-  }
-
-  &--full /deep/.sf-banner {
-    &__container {
-      @media screen and (min-width: $desktop-min) {
-        flex: 0 0 100%;
-        width: 100%;
-      }
-    }
-  }
-}
-.banner-grid {
-  margin: $spacer-extra-big 0;
-}
-.newsletter {
-  margin: $spacer-big 0;
-
-  @media screen and (min-width: $desktop-min) {
-    margin: $spacer-extra-big * 2 0;
-  }
-}
-
+// /deep/ is not look sexi
 .carousel {
   margin: -20px 0;
 
@@ -526,13 +489,6 @@ export default {
   }
 }
 
-.product-card {
-  max-width: unset;
-
-  &:hover {
-    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
-  }
-}
 // full custom banner component, need more attention
 .app-banner {
   min-height: 420px;
