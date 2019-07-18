@@ -1,60 +1,78 @@
 # How to create Storefront UI component
 
-At this point I assume you are already familiar with composition rules and know how to work with our Figma designs.
-
+At this point I assume you're already familiar with
+[composition rules](https://docs.storefrontui.io/component-rules.html)
+and know how to
+[work with our Figma designs](https://docs.storefrontui.io/creating-new-component.html).
 
 ### Start with template
 
-If you're creating a new componet start with `npm run create-component` which accepts two arguments, the first is atomic
-type, the second is component name. When running the command, it will generate boilerplate and help you create a component in standarized way and save a lot of work.
+To create a new component you may start with
+`npm run create-component` which accepts two arguments,
+the first is the
+[Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) type,
+the second is component name.
+When running the command, it will generate boilerplate and help you
+create a component in standardized way and save a lot of work.
 
 For example:
+
 ```bash
 npm run create-component atoms button
 npm run create-component molecules input-number
 ```
 
-If you're picking already existing just follow the tutorial and finish the missing parts.
+The component source files must be placed
+inside respective atomic type folder
+at `packages/vue/src/{type}/{SfComponent}`.
+SCSS file must be placed at `packages/shared/styles/components/{SfComponent}.scss`.
+`create-component` script will do that automatically for you.
 
-Depending on what type of component you're creating place it in appropiate subfolder of `src/components` according to [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) rules and design. 
+If you're picking an already existent
+component, just follow the tutorial and finish the missing parts.
 
-Then rename the folder, CSS classes and component name. At this point you should have properly created component.
+### Tests
 
-If you want to test your compoennt just import it inside `Playground.vue`.
-
-**IMPORTANT** Currently create-component script will create scss file inside `vue` package. Please move it to `packages/shared/styles/components`. There is an issue to fix this ;)
+You should test your component importing it inside `packages/vue/src/Playground.vue`,
+then running `npm run serve`.
 
 ### Create proper markup
 
-Start with creating a proper CSS/HTML markup without worrying about the slots and SCSS variables. Use BEM methodology. Once you have semantically correct and good looking component it's time to make it customizable.
+Start with creating a proper CSS/HTML markup
+without worrying about the slots and SCSS variables.
+Use [BEM methodology](http://getbem.com/) but try to keep up to 2 BEM levels at most.
+Once you have semantically correct and good looking
+component it's time to make it customizable.
 
 ### Make the content customizable with slots
 
-Now it's time to figure out which content should be customizable. By design try not to pass any content into props - instead use slots. Every text field should be a slot. Take a look at [this](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.html) component for inspiration.
+Now it's time to figure out which content should be customizable.
+By design try not to pass any content into props - instead use slots.
+Every text field should be a slot.
+Take a look at
+[SfBanner](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/components/molecules/SfBanner/SfBanner.html)
+component for inspiration.
 
-### Add unit tests 
+### Add unit tests
 
-Minimal set of tests conteins:
+Minimal set of tests contains:
 
-- External API: props, slots, events
-- Internal API: methods
+- External API: props, slots, events;
+- Internal API: methods;
 
-Some of the most common cases can be found in a template.
+Some of the most common cases can be found in a
+[template](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/scripts/component-template/component.spec.ts).
 
 ### Add documentation and stories
 
-Document the components according to documentation template in `components/template` folder. In `src/utilities/js-helpers` you can find function `createStorybookTable.js`, as name suggests this function returns html for Storybook table. how to use function:
+Document the components according to
+[documentation template](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/scripts/component-template/component.stories.js)
+in `packages/vue/scripts/component-template` folder.
 
-```javascript
-createStorybookTable({
-    tableHeadConfig: ['first th', 'second th', 'third th'],
-    tableBodyConfig: [
-        ['first tr, first td', 'first tr, second td', 'first tr,third td'],
-        ['second tr, first td', 'second tr, second td', 'second tr,third td'],
-    ]
-})
-```
+### Export components
 
-### Export comonents
+Add your components code in:
 
-Add your components code in `packages/vue/js.js` (js part), `packages/vue/html.js` (template part) and `packages/vue/index.js` (sfc)
+- `packages/vue/js.js` (JS part);
+- `packages/vue/html.js` (Template part);
+- `packages/vue/index.js` (SfComponent);
