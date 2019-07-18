@@ -1,7 +1,7 @@
 @import '../variables';
 
-$section-padding-y: 100px;
-$section__content-margin-top: 30px;
+$section-padding-y: 100px !default;
+$section__content-margin-top: 30px !default;
 .sf-section {
  @media screen and (min-width: $desktop-min){
    padding: $section-padding-y 0;

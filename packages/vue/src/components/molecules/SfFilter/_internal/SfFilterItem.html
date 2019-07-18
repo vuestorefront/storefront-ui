@@ -1,6 +1,6 @@
 <div 
 	class="sf-filter-item" 
-	@click="clicked($)"
+	@click="clicked($event)"
 	:class="{ 'sf-filter-item--active' : selected.includes(value) }"
 >
 	<slot>

@@ -70,7 +70,7 @@ We are currently in a process of building the library. If you want to help shapi
 
 # Maintainers
 
-Those awesome people are maintaining Storefront UI. Their ensuring that it performs smooth and looks awesome!
+Those awesome people are maintaining Storefront UI. They're ensuring that it performs smooth and looks awesome!
 
 - Filip Rakowski ([@filrak](https://github.com/filrak))
 - Leonardo Matos ([@leomp12](https://github.com/leomp12))
@@ -80,10 +80,6 @@ Those awesome people are maintaining Storefront UI. Their ensuring that it perfo
 and amazing [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) commiting their time to make it better.
 
 Thank you! There would be no Storefront UI without you
-
-# Cooperation with Alpacas
-
-Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-storybook) are common efforts. We joined forces in figuring out how to make things right to deliver best possible experience to the users.
 
 # Supporters
 <a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="40px"></a>
