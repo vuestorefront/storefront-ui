@@ -36,6 +36,7 @@ $banner--secondary__button-background-color : $c-green-primary !default;
 .sf-banner {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   box-sizing: border-box;
   min-height: 9rem;
   padding: $banner-mobile-padding;
@@ -119,14 +120,14 @@ $banner--secondary__button-background-color : $c-green-primary !default;
       background-color: $banner--secondary__button-background-color;
     }
   }
-  &--medium{
+  &--container-medium{
     .sf-banner__container{
       @media (min-width: $desktop-min) {
-        width: 70%;
+        width: 75%;
       }
     }
   }
-  &--full{
+  &--container-full{
     .sf-banner__container{
       @media (min-width: $desktop-min) {
         width: 100%;
