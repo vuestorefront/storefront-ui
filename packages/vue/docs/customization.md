@@ -1,6 +1,7 @@
 # Customization of Storefron UI components
 
-We put a lot of efforts to let you customize any aspect of the UI. Let's see how to do this from top to bottom.
+We put a lot of efforts to let you customize any aspect of the UI.
+Let's see how to do this from top to bottom.
 
 ## Standard customization (typical usage)
 

@@ -1,4 +1,4 @@
-# How to create Storefront UI component
+# How to create/edit Storefront UI component
 
 At this point I assume you're already familiar with
 [composition rules](https://docs.storefrontui.io/component-rules.html)
