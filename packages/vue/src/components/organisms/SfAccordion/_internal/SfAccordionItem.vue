@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sf-accordion__item">
     <span class="sf-accordion__label" @click="isOpen = !isOpen">
       <slot name="label" />
     </span>
@@ -34,7 +34,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-@import "~@storefrontui/shared/styles/components/SfAccordionItem.scss";
-</style>

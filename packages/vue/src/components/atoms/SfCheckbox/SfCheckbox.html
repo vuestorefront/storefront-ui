@@ -8,16 +8,13 @@
     v-model="isChecked"
     :disabled="disabled" />
   <label :for="id" class="sf-checkbox__label">
-    <!-- @slot Custom checked button markup (binds `checked` boolean) -->
-    <slot name="button" :checked="isChecked">
+    <!-- @slot Custom checked button markup (binds `isChecked` boolean) -->
+    <slot name="button" v-bind="{ isChecked }">
       <span class="sf-checkbox__icon">
-        <img
-          class="sf-checkbox__icon-svg"
-          src="/assets/check.svg"
-          alt="Check icon" />
+        <sf-icon class="sf-checkbox__icon-svg" path="check" size="xxs" color="white"/>
       </span>
     </slot>
     <!-- @slot Custom checkbox label content (binds `checked` boolean) -->
-    <slot name="content" :checked="isChecked" />
+    <slot name="content" v-bind="{ isChecked }" />
   </label>
 </div>

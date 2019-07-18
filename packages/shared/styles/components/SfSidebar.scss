@@ -1,7 +1,7 @@
 @import '../variables';
 
-$sidebar-background : $c-white;
-$sidebar-padding    : 3.5rem;
+$sidebar-background : $c-white !default;
+$sidebar-padding    : 3.5rem !default;
 
 .sf-sidebar {
   position: fixed;

@@ -1,14 +1,14 @@
 @import '../variables';
 
 
-$badge--text-color: $c-white;
+$badge--text-color: $c-white !default;
 
-$badge--alert: $c-pink-primary;
-$badge--warning: $c-blue-primary;
-$badge--info: $c-green-primary;
-$badge--font-size: 0.875rem;
-$badge--padding: 0.3125rem 0.625rem;
-$badge--line-height: 1.3;
+$badge--alert: $c-pink-primary !default;
+$badge--warning: $c-blue-primary !default;
+$badge--info: $c-green-primary !default;
+$badge--font-size: 0.875rem !default;
+$badge--padding: 0.3125rem 0.625rem !default;
+$badge--line-height: 1.3 !default;
 
 
 .sf-badge {

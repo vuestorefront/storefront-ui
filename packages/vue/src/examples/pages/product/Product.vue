@@ -18,20 +18,26 @@
 
     <SfSection :heading="{ title: 'You may also like' }">
       <SfCarousel>
-          <SfCarouselItem v-for="i in 6" :key="i">
-            <SfProductCard
-              title="Cream Beach Bag"
-              :price="{ regularPrice: '10,99 $' }"
-              :rating="{ max: 5, score: 4 }"
-            />
-          </SfCarouselItem>
-        </SfCarousel>
+        <SfCarouselItem v-for="i in 6" :key="i">
+          <SfProductCard
+            title="Cream Beach Bag"
+            :price="{ regularPrice: '10,99 $' }"
+            :rating="{ max: 5, score: 4 }"
+          />
+        </SfCarouselItem>
+      </SfCarousel>
     </SfSection>
   </div>
 </template>
 
 <script>
-import { SfCarousel, SfProductCard, SfPrice, SfRating, SfSection } from "../../../../index.js"
+import {
+  SfCarousel,
+  SfProductCard,
+  SfPrice,
+  SfRating,
+  SfSection
+} from "../../../../index.js";
 
 export default {
   data() {
@@ -73,5 +79,4 @@ export default {
     justify-content: space-between;
   }
 }
-
 </style>

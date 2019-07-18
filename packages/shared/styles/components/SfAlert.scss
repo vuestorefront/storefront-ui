@@ -5,7 +5,7 @@ $sf-alert-font-size                 : 0.875rem !default;
 
 $sf-alert__text-margin              : 0 !default;
 
-$sf-alert__icon-padding-right       : 0.625rem !default;
+$sf-alert__text-padding-left       : 0.625rem !default;
 
 $sf-alert--info-background-color    : $c-yellow-secondary !default;
 $sf-alert--info-color               : $c-yellow-primary !default;
@@ -16,6 +16,7 @@ $sf-alert--warning-color            : $c-pink-primary !default;
 $sf-alert--alert-background-color   : $c-blue-secondary !default;
 $sf-alert--alert-color              : $c-blue-primary !default;
 
+
 .sf-alert {
     display: flex;
     align-items: center;
@@ -24,10 +25,7 @@ $sf-alert--alert-color              : $c-blue-primary !default;
 
     &__text {
         margin: $sf-alert__text-margin;
-    }
-    
-    &__icon {
-        padding-right: $sf-alert__icon-padding-right;
+        padding-left: $sf-alert__text-padding-left;
     }
 
     &--info {
