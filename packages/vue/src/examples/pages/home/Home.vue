@@ -80,7 +80,7 @@
     >
       <div class="grid grid-image">
         <div class="grid__row">
-          <SfImage class="grid__col" src="assets/storybook/homepage/imageB.png"
+          <SfImage class="grid__col" src="assets/storybook/homepage/imageA.png"
             >katherina_trn</SfImage
           >
           <SfImage class="grid__col" src="assets/storybook/homepage/imageB.png"
@@ -88,10 +88,10 @@
           >
         </div>
         <div class="grid__row">
-          <SfImage class="grid__col" src="assets/storybook/homepage/imageB.png"
+          <SfImage class="grid__col" src="assets/storybook/homepage/imageC.png"
             >katherina_trn</SfImage
           >
-          <SfImage class="grid__col" src="assets/storybook/homepage/imageB.png"
+          <SfImage class="grid__col" src="assets/storybook/homepage/imageD.png"
             >katherina_trn</SfImage
           >
         </div>
@@ -307,7 +307,7 @@ export default {
 }
 .grid {
   $this: &;
-  $gutter: $spacer-extra-big;
+  $gutter: $spacer-extra-big; // how changes gutter for images grid
   &__row {
     @media screen and (min-width: $desktop-min) {
       display: flex;
