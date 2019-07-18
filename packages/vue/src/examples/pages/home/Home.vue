@@ -12,170 +12,6 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <div class="banner-grid" v-if="bannerGrid === 1">
-      <SfRow>
-        <SfRowColumn>
-          <SfBanner
-            title="COCKTAIL & PARTY"
-            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands."
-            subtitle="Scarves"
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerB.png"
-            class="sf-banner--left"
-          />
-        </SfRowColumn>
-      </SfRow>
-      <SfRow>
-        <SfRowColumn>
-          <SfBanner
-            title="ECO SANDALS"
-            subtitle="Summer shoes"
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerC.png"
-            class="sf-banner--left sf-banner--full-container"
-          />
-        </SfRowColumn>
-        <SfRowColumn>
-          <SfBanner
-            title="ECO SANDALS"
-            subtitle="Summer shoes"
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerG.png"
-            class="sf-banner--left sf-banner--full-container"
-          />
-        </SfRowColumn>
-      </SfRow>
-    </div>
-    <div class="banner-grid" v-if="bannerGrid === 2">
-      <SfRow>
-        <SfRowColumn>
-          <SfBanner
-            title="ECO SANDALS"
-            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
-            subtitle="Summer shoes"
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerA.png"
-          />
-        </SfRowColumn>
-      </SfRow>
-      <SfRow>
-        <SfRowColumn>
-          <SfBanner
-            title="ECO SANDALS"
-            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
-            subtitle="Summer shoes"
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerB.png"
-            class="sf-banner--left"
-          />
-        </SfRowColumn>
-      </SfRow>
-      <SfRow>
-        <SfRowColumn>
-          <SfBanner
-            title="ECO SANDALS"
-            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
-            subtitle="Summer shoes"
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerC.png"
-          />
-        </SfRowColumn>
-      </SfRow>
-    </div>
-    <div class="banner-grid" v-if="bannerGrid === 3">
-      <SfRow>
-        <SfRowColumn>
-          <SfBanner
-            title="ECO SANDALS"
-            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
-            subtitle="Summer shoes"
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerF.png"
-            class="sf-banner--left"
-          />
-        </SfRowColumn>
-        <SfRowColumn>
-          <SfBanner
-            title="ECO SANDALS"
-            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
-            subtitle="Summer shoes"
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerE.png"
-            class="sf-banner--left"
-          />
-        </SfRowColumn>
-        <SfRowColumn>
-          <SfRow>
-            <SfRowColumn>
-              <SfBanner
-                title="THE OFFICE LIFE"
-                subtitle="T-Shirts"
-                image="assets/storybook/homepage/bannerC.png"
-                class="sf-banner--left sf-banner--full-container"
-              />
-            </SfRowColumn>
-          </SfRow>
-          <SfRow>
-            <SfRowColumn>
-              <SfBanner
-                title="ECO SANDALS"
-                subtitle="Summer shoes"
-                image="assets/storybook/homepage/bannerG.png"
-                class="sf-banner--left sf-banner--full-container"
-              />
-            </SfRowColumn>
-          </SfRow>
-        </SfRowColumn>
-      </SfRow>
-    </div>
-    <div class="banner-grid" v-if="bannerGrid === 4">
-      <SfRow>
-        <SfRowColumn>
-          <SfBanner
-            title="ECO SANDALS"
-            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
-            subtitle="Summer shoes"
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerF.png"
-            class="sf-banner--left"
-          />
-        </SfRowColumn>
-        <SfRowColumn style="flex: 2" >
-          <SfRow>
-            <SfRowColumn>
-              <SfBanner
-                title="ECO SANDALS"
-                subtitle="Summer shoes"
-                button-text="SHOP NOW"
-                image="assets/storybook/homepage/bannerI.png"
-                class="sf-banner--left"
-              />
-            </SfRowColumn>
-            <SfRowColumn>
-              <SfBanner
-                title="ECO SANDALS"
-                subtitle="Summer shoes"
-                button-text="SHOP NOW"
-                image="assets/storybook/homepage/bannerJ.png"
-                class="sf-banner--left"
-              />
-            </SfRowColumn>
-          </SfRow>
-          <SfRow>
-            <SfRowColumn>
-              <SfBanner
-                title="ECO SANDALS"
-                subtitle="Summer shoes"
-                button-text="SHOP NOW"
-                image="assets/storybook/homepage/bannerA.png"
-                class="sf-banner--left"
-              />
-            </SfRowColumn>
-          </SfRow>
-        </SfRowColumn>
-      </SfRow>
-    </div>
-
     <SfCallToAction
       title="Subscribe to Newsletters"
       button-text="Subscribe"
@@ -407,6 +243,10 @@ export default {
 .banner-grid {
   margin: $spacer-extra-big 0;
 }
+.column-big {
+  flex: 0 1 500px;
+}
+
 .newsletter {
   margin: $spacer-big 0;
   @media screen and (min-width: $desktop-min) {
@@ -423,59 +263,6 @@ export default {
 /**
  * BAD
  */
-
-// pass to design is not easy
-/*.banner {
-  width: 100%;
-  min-height: 144px;
-  font-family: $body-font-family-secondary;
-  padding: $spacer-big;
-  justify-content: flex-start;
-  @media screen and (min-width: $desktop-min) {
-    padding: $spacer-extra-big;
-  }
-
-  &__subtitle,
-  &__title,
-  &__description {
-    margin: 0;
-    padding: 0;
-    font-weight: 300;
-  }
-
-  &__subtitle {
-    color: $c-dark-secondary;
-    font-family: $body-font-family-primary;
-    font-size: 0.875rem;
-    line-height: 1.167;
-
-    @media screen and (min-width: $desktop-min) {
-      margin-top: $spacer-extra-big;
-      font-size: 1.5rem;
-    }
-  }
-
-  &__title {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    text-transform: uppercase;
-    @media screen and (min-width: $desktop-min) {
-      font-size: 2.25rem;
-    }
-  }
-
-  &__description {
-    display: none;
-    margin: $spacer-extra-big 0;
-    font-size: 1.125rem;
-    line-height: 1.6;
-
-    @media screen and (min-width: $desktop-min) {
-      display: block;
-    }
-  }
-}*/
-
 // /deep/ is not look sexi
 .carousel {
   margin: -20px 0;
@@ -516,22 +303,6 @@ export default {
   /deep/ .sf-banner__container {
     @media screen and (min-width: $desktop-min) {
       margin-left: 64px;
-    }
-  }
-}
-
-.sf-section {
-  margin: $spacer-extra-big 0;
-  padding: 0;
-
-  @media screen and (min-width: $desktop-min) {
-    margin: $spacer-extra-big * 4 0;
-  }
-
-  /deep/ &__content {
-    margin: $spacer-extra-big 0;
-    @media screen and (min-width: $desktop-min) {
-      margin: $spacer-extra-big * 2 0;
     }
   }
 }
