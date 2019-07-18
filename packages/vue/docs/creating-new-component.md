@@ -5,7 +5,7 @@ At this point I assume you're already familiar with
 and know how to
 [work with our Figma designs](https://docs.storefrontui.io/creating-new-component.html).
 
-### Start with template
+## Start with template
 
 To create a new component you may start with
 `npm run create-component` which accepts two arguments,
@@ -31,20 +31,23 @@ SCSS file must be placed at `packages/shared/styles/components/{SfComponent}.scs
 If you're picking an already existent
 component, just follow the tutorial and finish the missing parts.
 
-### Running tests
-
-You should test your component importing it inside `packages/vue/src/Playground.vue`,
-then running `npm run serve`.
-
-### Create proper markup
+## Create proper markup
 
 Start with creating a proper CSS/HTML markup
 without worrying about the slots and SCSS variables.
-
 Once you have semantically correct and good looking
 component it's time to make it customizable.
 
-### Edit styles
+### Make the content customizable with slots
+
+Now it's time to figure out which content should be customizable.
+By design try not to pass any content into props - instead use slots.
+Every text field should be a slot.
+Take a look at
+[SfBanner](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/components/molecules/SfBanner/SfBanner.html)
+component for inspiration.
+
+## Edit styles
 
 Use [BEM methodology](http://getbem.com/)
 but try to keep up to 2 BEM levels (elements) at most.
@@ -61,16 +64,7 @@ without adding new styles for that
 ([SfButton](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/components/atoms/SfButton/SfButton.stories.js)
 is an example).
 
-### Make the content customizable with slots
-
-Now it's time to figure out which content should be customizable.
-By design try not to pass any content into props - instead use slots.
-Every text field should be a slot.
-Take a look at
-[SfBanner](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/components/molecules/SfBanner/SfBanner.html)
-component for inspiration.
-
-### Add unit tests
+## Add unit tests
 
 Minimal set of tests contains:
 
@@ -80,13 +74,18 @@ Minimal set of tests contains:
 Some of the most common cases can be found in a
 [template](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/scripts/component-template/component.spec.ts).
 
-### Add documentation and stories
+## Documentation and stories
 
 Document the components according to
 [documentation template](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/scripts/component-template/component.stories.js)
 in `packages/vue/scripts/component-template` folder.
 
-### Export components
+## Running tests
+
+You should test your component importing it inside `packages/vue/src/Playground.vue`,
+then running `npm run serve`.
+
+## Export components
 
 Add your components code in:
 
