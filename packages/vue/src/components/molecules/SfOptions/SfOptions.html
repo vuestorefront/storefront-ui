@@ -1,8 +1,8 @@
 <div class="sf-options">
-  <slot name="label">
-    <sf-label v-if="label" class="sf-options__label">
+  <slot name="label" v-bind="{ label }">
+    <SfLabel v-if="label" class="sf-options__label">
       {{ label }}
-    </sf-label>
+    </SfLabel>
   </slot>
   <div class="sf-options__wrapper">
     <div
