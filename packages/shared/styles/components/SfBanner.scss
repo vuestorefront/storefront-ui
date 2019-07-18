@@ -119,9 +119,18 @@ $banner--secondary__button-background-color : $c-green-primary !default;
       background-color: $banner--secondary__button-background-color;
     }
   }
-  &--full-container{
+  &--medium{
     .sf-banner__container{
-      width: 100%;
+      @media (min-width: $desktop-min) {
+        width: 70%;
+      }
+    }
+  }
+  &--full{
+    .sf-banner__container{
+      @media (min-width: $desktop-min) {
+        width: 100%;
+      }
     }
   }
 }
