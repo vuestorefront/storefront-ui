@@ -65,12 +65,12 @@ storiesOf("Atoms|Button", module)
             "CSS Modifier",
             [
               "null",
-              "is-primary",
-              "is-secondary",
-              "is-warning",
-              "is-danger",
-              "is-info",
-              "is-success",
+              "color-primary",
+              "color-secondary",
+              "color-warning",
+              "color-danger",
+              "color-info",
+              "color-success",
               "sf-button--full-width",
               "sf-button--full-width"
             ],
