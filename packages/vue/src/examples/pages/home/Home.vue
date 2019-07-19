@@ -135,7 +135,7 @@
         subtitle: '#YOURLOOK'
       }"
     >
-      <div class="grid grid-images" style="max-width: 960px; margin: auto">
+      <div class="grid grid-images">
         <div class="grid__row">
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageA.png"
@@ -403,6 +403,8 @@ export default {
   }
 }
 .grid-images {
+  max-width: 960px;
+  margin: auto;
   &.grid {
     .grid__row {
       display: flex;
