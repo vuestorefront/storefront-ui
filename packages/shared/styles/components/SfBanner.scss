@@ -64,7 +64,7 @@ $banner--secondary__button-background-color : $c-green-primary !default;
     font-weight: $banner__subtitle-font-weight;
     text-transform: none;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: $desktop-min) {
       font-size: $banner__subtitle-font-size;
     }
   }
@@ -78,7 +78,7 @@ $banner--secondary__button-background-color : $c-green-primary !default;
     line-height: 1.6;
     color: $banner__title-color;
 
-    @media (min-width: $tablet-min) {
+    @media (min-width: $desktop-min) {
       font-size: $banner__title-font-size;
     }
   }
