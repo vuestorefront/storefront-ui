@@ -12,7 +12,7 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <SfBannerGrid :bannerGrid="bannerGrid" class="banners">
+    <SfBannerGrid :bannerGrid="1" class="banners">
       <template #bannerA>
         <SfBanner
           subtitle="Dresses"
@@ -149,12 +149,6 @@ import {
 
 export default {
   name: "Home",
-  props: {
-    bannerGrid: {
-      type: Number,
-      default: 1
-    }
-  },
   data() {
     return {
       heroes: [
