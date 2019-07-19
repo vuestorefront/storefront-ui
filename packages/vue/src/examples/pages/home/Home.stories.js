@@ -12,7 +12,7 @@ storiesOf("Examples|Pages|Home", module)
       components: { Home },
       props: {
         bannerGrid: {
-          default: select("Banner Grid", [1, 2, 3, 4], 3)
+          default: select("Banner Grid", [1, 2], 2)
         }
       },
       template: `

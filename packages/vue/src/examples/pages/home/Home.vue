@@ -12,19 +12,19 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <div class="grid grid-banners">
+    <div v-if="bannerGrid === 1" class="grid grid-banners">
       <div class="grid__row">
         <div class="grid__col">
           <SfBanner
             subtitle="Dresses"
             title="COCKTAIL PARTY"
-            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands."
+            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerF.png"
-            class="sf-banner--left"
+            class="sf-banner--left sf-banner--container-full"
           />
         </div>
-        <div class="grid__col">
+        <div class="grid__col grid__col--medium">
           <SfBanner
             subtitle="Dresses"
             title="LINEN DRESSES"
@@ -52,6 +52,53 @@
                 title="ECO SANDALS"
                 image="assets/storybook/homepage/bannerG.png"
                 class="sf-banner--left sf-banner--container-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="bannerGrid === 2" class="grid grid-banners">
+      <div class="grid__row">
+        <div class="grid__col grid__col--medium">
+          <SfBanner
+            title="ECO SANDALS"
+            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
+            subtitle="Summer shoes"
+            button-text="SHOP NOW"
+            image="assets/storybook/homepage/bannerF.png"
+            class="sf-banner--left"
+          />
+        </div>
+        <div class="grid__col">
+          <div class="grid__row">
+            <div class="grid__col">
+              <SfBanner
+                title="ECO SANDALS"
+                subtitle="Summer shoes"
+                button-text="SHOP NOW"
+                image="assets/storybook/homepage/bannerI.png"
+                class="sf-banner--left"
+              />
+            </div>
+            <div class="grid__col">
+              <SfBanner
+                title="ECO SANDALS"
+                subtitle="Summer shoes"
+                button-text="SHOP NOW"
+                image="assets/storybook/homepage/bannerJ.png"
+                class="sf-banner--left"
+              />
+            </div>
+          </div>
+          <div class="grid__row">
+            <div class="grid__col">
+              <SfBanner
+                title="ECO SANDALS"
+                subtitle="Summer shoes"
+                button-text="SHOP NOW"
+                image="assets/storybook/homepage/bannerA.png"
+                class="sf-banner--left"
               />
             </div>
           </div>
@@ -164,7 +211,6 @@ export default {
   },
   data() {
     return {
-      debugMode: false,
       heroes: [
         {
           title: "Colorful summer dresses are already in store",
@@ -250,29 +296,9 @@ export default {
     SfCarousel,
     SfProductCard,
     SfImage
-  },
-  mounted: function() {
-    if (this.debugMode) {
-      document.body.classList.add("debug");
-    }
   }
 };
 </script>
-<style>
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-.debug *:not(g):not(path) {
-  color: hsla(210, 100%, 100%, 0.9) !important;
-  background: hsla(210, 100%, 50%, 0.5) !important;
-  outline: solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;
-
-  box-shadow: none !important;
-  filter: none !important;
-}
-</style>
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefrontui/shared/styles/helpers/visibility";
@@ -328,6 +354,9 @@ export default {
     }
   }
 }
+.sf-banner{
+  flex: 1;
+}
 .grid {
   &__row {
     @media screen and (min-width: $desktop-min) {
@@ -356,6 +385,10 @@ export default {
       @media screen and (min-width: $desktop-min) {
         margin-left: $spacer-extra-big;
       }
+    }
+    &--medium{
+      flex-basis: 500px;
+      flex-grow: 0;
     }
   }
 }
