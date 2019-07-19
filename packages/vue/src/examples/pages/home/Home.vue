@@ -12,99 +12,44 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <div v-if="bannerGrid === 1" class="grid grid-banners">
-      <div class="grid__row">
-        <div class="grid__col">
-          <SfBanner
-            subtitle="Dresses"
-            title="COCKTAIL PARTY"
-            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerF.png"
-            class="sf-banner--left sf-banner--container-full"
-          />
-        </div>
-        <div class="grid__col grid__col--medium">
-          <SfBanner
-            subtitle="Dresses"
-            title="LINEN DRESSES"
-            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerE.png"
-            class="sf-banner--left"
-          />
-        </div>
-        <div class="grid__col">
-          <div class="grid__row">
-            <div class="grid__col">
-              <SfBanner
-                subtitle="T-Shirts"
-                title="THE OFFICE LIFE"
-                image="assets/storybook/homepage/bannerC.png"
-                class="sf-banner--left sf-banner--container-full"
-              />
-            </div>
-          </div>
-          <div class="grid__row">
-            <div class="grid__col">
-              <SfBanner
-                subtitle="Summer shoes"
-                title="ECO SANDALS"
-                image="assets/storybook/homepage/bannerG.png"
-                class="sf-banner--left sf-banner--container-full"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div v-if="bannerGrid === 2" class="grid grid-banners">
-      <div class="grid__row">
-        <div class="grid__col grid__col--small">
-          <SfBanner
-            title="ECO SANDALS"
-            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
-            subtitle="Summer shoes"
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerF.png"
-            class="sf-banner--left sf-banner--container-full"
-          />
-        </div>
-        <div class="grid__col">
-          <div class="grid__row">
-            <div class="grid__col">
-              <SfBanner
-                title="ECO SANDALS"
-                subtitle="Summer shoes"
-                button-text="SHOP NOW"
-                image="assets/storybook/homepage/bannerI.png"
-                class="sf-banner--left sf-banner--container-full"
-              />
-            </div>
-            <div class="grid__col">
-              <SfBanner
-                title="ECO SANDALS"
-                subtitle="Summer shoes"
-                button-text="SHOP NOW"
-                image="assets/storybook/homepage/bannerJ.png"
-                class="sf-banner--left sf-banner--container-full"
-              />
-            </div>
-          </div>
-          <div class="grid__row">
-            <div class="grid__col">
-              <SfBanner
-                title="ECO SANDALS"
-                subtitle="Summer shoes"
-                button-text="SHOP NOW"
-                image="assets/storybook/homepage/bannerK.png"
-                class="sf-banner--left sf-banner--container-full"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <SfBannerGrid :bannerGrid="bannerGrid" class="banners">
+      <template #bannerA>
+        <SfBanner
+          subtitle="Dresses"
+          title="COCKTAIL PARTY"
+          description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+          button-text="SHOP NOW"
+          image="assets/storybook/homepage/bannerF.png"
+          class="sf-banner--left sf-banner--container-full"
+        />
+      </template>
+      <template #bannerB>
+        <SfBanner
+          subtitle="Dresses"
+          title="LINEN DRESSES"
+          description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+          button-text="SHOP NOW"
+          image="assets/storybook/homepage/bannerE.png"
+          class="sf-banner--left"
+        />
+      </template>
+      <template #bannerC>
+        <SfBanner
+          subtitle="T-Shirts"
+          title="THE OFFICE LIFE"
+          image="assets/storybook/homepage/bannerC.png"
+          class="sf-banner--left sf-banner--container-full"
+        />
+      </template>
+      <template #bannerD>
+        <SfBanner
+          subtitle="Summer shoes"
+          title="ECO SANDALS"
+          image="assets/storybook/homepage/bannerG.png"
+          class="sf-banner--left sf-banner--container-full"
+        />
+      </template>
+    </SfBannerGrid>
     <SfCallToAction
       title="Subscribe to Newsletters"
       button-text="Subscribe"
@@ -198,7 +143,8 @@ import {
   SfSection,
   SfCarousel,
   SfProductCard,
-  SfImage
+  SfImage,
+  SfBannerGrid
 } from "@storefrontui/vue";
 
 export default {
@@ -295,7 +241,8 @@ export default {
     SfSection,
     SfCarousel,
     SfProductCard,
-    SfImage
+    SfImage,
+    SfBannerGrid
   }
 };
 </script>
@@ -354,76 +301,35 @@ export default {
     }
   }
 }
-.sf-banner {
-  flex: 1;
-}
-.grid {
-  &__row {
-    @media screen and (min-width: $desktop-min) {
-      display: flex;
-      flex-wrap: wrap;
-      flex: 0 0 100%;
-    }
-    & + & {
-      @media screen and (min-width: $desktop-min) {
-        margin-top: $spacer-extra-big;
-      }
-    }
-    .grid > &:first-of-type > .grid__col:first-of-type {
-      margin-top: 0;
-    }
-  }
-  &__col {
-    margin-top: $spacer-big / 2;
-    @media screen and (min-width: $desktop-min) {
-      flex-wrap: wrap;
-      display: flex;
-      flex: 1;
-      margin-top: 0;
-    }
-    & + & {
-      @media screen and (min-width: $desktop-min) {
-        margin-left: $spacer-extra-big;
-      }
-    }
-    &--small {
-      flex-basis: 450px;
-      flex-grow: 0;
-    }
-    &--medium {
-      flex-basis: 500px;
-      flex-grow: 0;
-    }
-  }
-}
-.grid-banners {
+.banners {
   margin: $spacer-big 0;
   @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big 0;
   }
 }
-.grid-images {
+.grid {
   max-width: 960px;
   margin: auto;
-  &.grid {
-    .grid__row {
-      display: flex;
-      & + .grid__row {
-        margin-top: $spacer-big / 2;
-        @media screen and (min-width: $desktop-min) {
-          margin-top: $spacer-big;
-        }
-      }
-    }
-    .grid__col {
-      margin: 0;
-      & + .grid__col {
-        margin-left: $spacer-big / 2;
-        @media screen and (min-width: $desktop-min) {
-          margin-left: $spacer-big;
-        }
+  &__row {
+    display: flex;
+    & + & {
+      margin-top: $spacer-big / 2;
+      @media screen and (min-width: $desktop-min) {
+        margin-top: $spacer-big;
       }
     }
   }
+  &__col {
+    margin: 0;
+    & + & {
+      margin-left: $spacer-big / 2;
+      @media screen and (min-width: $desktop-min) {
+        margin-left: $spacer-big;
+      }
+    }
+  }
+}
+.sf-banner {
+  flex: 1;
 }
 </style>
