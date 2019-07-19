@@ -12,7 +12,7 @@ storiesOf("Examples|Pages|Home", module)
       components: { Home },
       props: {
         bannerGrid: {
-          default: select("Banner Grid", [1, 2], 2)
+          default: select("Banner Grid", [1, 2], 1)
         }
       },
       template: `
@@ -22,7 +22,7 @@ storiesOf("Examples|Pages|Home", module)
     {
       info: {
         summary:
-          "Check https://github.com/DivanteLtd/storefront-ui/blob/master/src/examples/pages/category/Home.vue to see full code"
+          "Check https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/examples/pages/home/Home.vue to see full code"
       }
     }
   );
