@@ -14,8 +14,7 @@ storiesOf("Organisms|TopBar", module)
           }
         };
       },
-      template:
-        `<sf-top-bar>
+      template: `<sf-top-bar>
           <template slot="center">Download our application.<a :style='style'>Find out more.</a></template>
         </sf-top-bar>`,
       components: {
