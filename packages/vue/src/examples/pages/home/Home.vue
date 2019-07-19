@@ -12,7 +12,7 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <div class="grid" style="margin: 40px 0;">
+    <div class="grid grid-banners">
       <div class="grid__row">
         <div class="grid__col">
           <SfBanner
@@ -41,7 +41,7 @@
                 subtitle="T-Shirts"
                 title="THE OFFICE LIFE"
                 image="assets/storybook/homepage/bannerC.png"
-                class="sf-banner--left sf-banner--container-full grid__col"
+                class="sf-banner--left sf-banner--container-full"
               />
             </div>
           </div>
@@ -51,7 +51,7 @@
                 subtitle="Summer shoes"
                 title="ECO SANDALS"
                 image="assets/storybook/homepage/bannerG.png"
-                class="sf-banner--left sf-banner--container-full grid__col"
+                class="sf-banner--left sf-banner--container-full"
               />
             </div>
           </div>
@@ -88,7 +88,7 @@
         subtitle: '#YOURLOOK'
       }"
     >
-      <div class="grid" style="max-width: 960px; margin: auto">
+      <div class="grid grid-images" style="max-width: 960px; margin: auto">
         <div class="grid__row">
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageA.png"
@@ -259,6 +259,11 @@ export default {
 };
 </script>
 <style>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .debug *:not(g):not(path) {
   color: hsla(210, 100%, 100%, 0.9) !important;
   background: hsla(210, 100%, 50%, 0.5) !important;
@@ -323,26 +328,25 @@ export default {
     }
   }
 }
-// the best grid idea
 .grid {
   &__row {
-    @media screen and (min-width: $desktop-min){
+    @media screen and (min-width: $desktop-min) {
       display: flex;
       flex-wrap: wrap;
       flex: 0 0 100%;
     }
     & + & {
       @media screen and (min-width: $desktop-min) {
-        margin-top: 20px;
+        margin-top: $spacer-extra-big;
       }
     }
-    .grid > &:first-of-type > .grid__col:first-of-type{
+    .grid > &:first-of-type > .grid__col:first-of-type {
       margin-top: 0;
     }
   }
   &__col {
-    margin-top: 20px;
-    @media screen and (min-width: $desktop-min){
+    margin-top: $spacer-big / 2;
+    @media screen and (min-width: $desktop-min) {
       flex-wrap: wrap;
       display: flex;
       flex: 1;
@@ -350,7 +354,35 @@ export default {
     }
     & + & {
       @media screen and (min-width: $desktop-min) {
-        margin-left: 20px;
+        margin-left: $spacer-extra-big;
+      }
+    }
+  }
+}
+.grid-banners {
+  margin: $spacer-big 0;
+  @media screen and (min-width: $desktop-min) {
+    margin: $spacer-extra-big 0;
+  }
+}
+.grid-images {
+  &.grid {
+    .grid__row {
+      display: flex;
+      & + .grid__row {
+        margin-top: $spacer-big / 2;
+        @media screen and (min-width: $desktop-min) {
+          margin-top: $spacer-big;
+        }
+      }
+    }
+    .grid__col {
+      margin: 0;
+      & + .grid__col {
+        margin-left: $spacer-big / 2;
+        @media screen and (min-width: $desktop-min) {
+          margin-left: $spacer-big;
+        }
       }
     }
   }
