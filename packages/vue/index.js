@@ -80,5 +80,5 @@ export {
   SfTopBar,
   SfHero,
   SfImage,
-  SfBannerGrid,
+  SfBannerGrid
 };
