@@ -354,7 +354,7 @@ export default {
     }
   }
 }
-.sf-banner{
+.sf-banner {
   flex: 1;
 }
 .grid {
@@ -386,7 +386,7 @@ export default {
         margin-left: $spacer-extra-big;
       }
     }
-    &--medium{
+    &--medium {
       flex-basis: 500px;
       flex-grow: 0;
     }
