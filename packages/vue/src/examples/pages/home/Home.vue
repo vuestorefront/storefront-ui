@@ -60,14 +60,14 @@
     </div>
     <div v-if="bannerGrid === 2" class="grid grid-banners">
       <div class="grid__row">
-        <div class="grid__col grid__col--medium">
+        <div class="grid__col grid__col--small">
           <SfBanner
             title="ECO SANDALS"
             description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
             subtitle="Summer shoes"
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerF.png"
-            class="sf-banner--left"
+            class="sf-banner--left sf-banner--container-full"
           />
         </div>
         <div class="grid__col">
@@ -78,7 +78,7 @@
                 subtitle="Summer shoes"
                 button-text="SHOP NOW"
                 image="assets/storybook/homepage/bannerI.png"
-                class="sf-banner--left"
+                class="sf-banner--left sf-banner--container-full"
               />
             </div>
             <div class="grid__col">
@@ -87,7 +87,7 @@
                 subtitle="Summer shoes"
                 button-text="SHOP NOW"
                 image="assets/storybook/homepage/bannerJ.png"
-                class="sf-banner--left"
+                class="sf-banner--left sf-banner--container-full"
               />
             </div>
           </div>
@@ -98,7 +98,7 @@
                 subtitle="Summer shoes"
                 button-text="SHOP NOW"
                 image="assets/storybook/homepage/bannerA.png"
-                class="sf-banner--left"
+                class="sf-banner--left sf-banner--container-full"
               />
             </div>
           </div>
@@ -385,6 +385,10 @@ export default {
       @media screen and (min-width: $desktop-min) {
         margin-left: $spacer-extra-big;
       }
+    }
+    &--small {
+      flex-basis: 450px;
+      flex-grow: 0;
     }
     &--medium {
       flex-basis: 500px;
