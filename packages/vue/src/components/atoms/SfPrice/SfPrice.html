@@ -10,7 +10,7 @@
       </ins>
     </slot>
     <!--@slot Custom old price (value from regularPrice)-->
-    <slot name="oldPrice" v-bind="{ oldPrice }">
+    <slot name="oldPrice" v-bind="{ regularPrice }">
       <span
         v-if="specialPrice"
         :aria-label="oldPriceAriaLabel"
