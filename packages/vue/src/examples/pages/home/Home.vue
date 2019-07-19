@@ -97,7 +97,7 @@
                 title="ECO SANDALS"
                 subtitle="Summer shoes"
                 button-text="SHOP NOW"
-                image="assets/storybook/homepage/bannerA.png"
+                image="assets/storybook/homepage/bannerK.png"
                 class="sf-banner--left sf-banner--container-full"
               />
             </div>
