@@ -34,7 +34,13 @@
     <div class="sf-store-locator__map-wrapper">
       <l-map class="sf-store-locator__map" v-if="loaded" :center="center" :zoom="zoom">
         <l-tilelayer :url="tileServerUrl" />
-        <l-marker v-for="(store, index) in stores" :key="index" :lat-lng="store.latlng" />
+        <l-marker v-for="(store, index) in stores" :key="index" :lat-lng="store.latlng" >
+          <l-icon>
+            <slot name="marker-icon" >
+              <sf-icon path="marker" />
+            </slot>
+          </l-icon>
+        </l-marker>
       </l-map>
     </div>
   </div>
