@@ -4,38 +4,41 @@
   </div>
   <div class="sf-store-locator__wrapper">
     <div class="sf-store-locator__list">
-      <div  class="sf-store-locator__list-item-wrapper" v-for="(store, index) in stores" :key="index">
+      <div  class="sf-store-locator__list-item-wrapper" v-for="(store, index) in parsedStores" :key="index">
         <slot name="store" :store="store" :distance="store.distance">
           <div class="sf-store-locator__list-item">
             <div class="sf-store-locator__list-item-media">
               <sf-image :src="store.picture" :alt="store.name" />
             </div>
             <div class="sf-store-locator__list-item-info">
-              <h2 class="sf-store-locator__list-item-info-name" >
+              <div class="sf-store-locator__list-item-info-name" >
                 {{ store.name }}
-              </h2>
-              <h3 class="sf-store-locator__list-item-info-address" >
+              </div>
+              <div class="sf-store-locator__list-item-info-address" >
                 {{ store.address }}
-              </h3>
+              </div>
               <div class="sf-store-locator__list-item-info-phone" >
-                <sf-icon path="phone" />
-                {{ store.phone }}
+                <sf-icon path="phone" size="13px" color="green-primary" />
+                <span>{{ store.phone }}</span>
               </div>
               <div class="sf-store-locator__list-item-info-email" >
-                <sf-icon path="mail" />
-                {{ store.email }}
+                <sf-icon path="mail" size="13px" color="green-primary" />
+                <span>{{ store.email }}</span>
               </div>
-
+            </div>
+            <div class="sf-store-locator__list-item-distance" v-show="userPosition">
+              <span>{{store.distance}}km</span> away from you
             </div>
           </div>
+          <sf-divider />
         </slot>
       </div>
     </div>
     <div class="sf-store-locator__map-wrapper">
-      <l-map class="sf-store-locator__map" v-if="loaded" :center="center" :zoom="zoom">
-        <l-tilelayer :url="tileServerUrl" />
-        <l-marker v-for="(store, index) in stores" :key="index" :lat-lng="store.latlng" >
-          <l-icon>
+      <l-map class="sf-store-locator__map-wrapper-map" v-if="loaded" :center="center" :zoom="zoom" v-bind="mapOptions" @ready="mapReady" @locationfound="locationFound" @locationerror="locationError">
+        <l-tilelayer :url="tileServerUrl" v-bind="tileLayerOptions"  />
+        <l-marker v-for="(store, index) in parsedStores" :key="index" :lat-lng="store.latlng" v-bind="markerOptions"  >
+          <l-icon :icon-size="markerIconSize" :icon-anchor="markerIconAnchor">
             <slot name="marker-icon" >
               <sf-icon path="marker" />
             </slot>
