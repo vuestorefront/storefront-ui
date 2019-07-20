@@ -95,6 +95,9 @@ export default {
           Math.sin(dLng / 2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
       return R * c * 1000;
+    },
+    centerOn(store) {
+      this.$refs.map.mapObject.flyTo(store.latlng);
     }
   },
   async mounted() {
