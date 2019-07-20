@@ -1,5 +1,41 @@
 <div class="sf-store-locator">
-  <l-map class="sf-store-locator__map" v-if="loaded" :center="center" :zoom="zoom">
-    <l-tilelayer :url="tileServerUrl" />
-  </l-map>
+  <div class="sf-store-locator__title">
+    Found stores: <span>{{stores.length}}</span>
+  </div>
+  <div class="sf-store-locator__wrapper">
+    <div class="sf-store-locator__list">
+      <div  class="sf-store-locator__list-item-wrapper" v-for="(store, index) in stores" :key="index">
+        <slot name="store" :store="store" :distance="store.distance">
+          <div class="sf-store-locator__list-item">
+            <div class="sf-store-locator__list-item-media">
+              <sf-image :src="store.picture" :alt="store.name" />
+            </div>
+            <div class="sf-store-locator__list-item-info">
+              <h2 class="sf-store-locator__list-item-info-name" >
+                {{ store.name }}
+              </h2>
+              <h3 class="sf-store-locator__list-item-info-address" >
+                {{ store.address }}
+              </h3>
+              <div class="sf-store-locator__list-item-info-phone" >
+                <sf-icon path="phone" />
+                {{ store.phone }}
+              </div>
+              <div class="sf-store-locator__list-item-info-email" >
+                <sf-icon path="mail" />
+                {{ store.email }}
+              </div>
+
+            </div>
+          </div>
+        </slot>
+      </div>
+    </div>
+    <div class="sf-store-locator__map-wrapper">
+      <l-map class="sf-store-locator__map" v-if="loaded" :center="center" :zoom="zoom">
+        <l-tilelayer :url="tileServerUrl" />
+        <l-marker v-for="(store, index) in stores" :key="index" :lat-lng="store.latlng" />
+      </l-map>
+    </div>
+  </div>
 </div>
