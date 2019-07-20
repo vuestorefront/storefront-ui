@@ -4,8 +4,22 @@
 // $component__block-property: value;
 
 .sf-store-locator {
-    .sf-store-locator__map {
-        width: 100%;
-        min-height: 500px;
+    .sf-store-locator__wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        border-top: 1px solid #F1F2F3;
+    }
+
+    .sf-store-locator__list {
+        width: 33%;
+    }
+    .sf-store-locator__map-wrapper {
+        width: 66%;
+
+        .sf-store-locator__map {
+            min-height: 550px;
+        }
     }
 }
