@@ -4,22 +4,82 @@
 // $component__block-property: value;
 
 .sf-store-locator {
-    .sf-store-locator__wrapper {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: flex-start;
-        border-top: 1px solid #F1F2F3;
-    }
+  &__title {
+    margin-bottom: 0.625rem;
+  }
 
-    .sf-store-locator__list {
-        width: 33%;
-    }
-    .sf-store-locator__map-wrapper {
-        width: 66%;
+  &__wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 
-        .sf-store-locator__map {
-            min-height: 550px;
+  &__list {
+    width: 33%;
+    max-width: 26.25rem;
+    padding-top: 0.625rem;
+    border-top: 1px solid $c-light-primary;
+
+    &-item {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      font-size: $font-size-extra-small-desktop;
+
+      &-media {
+        width: 5.125rem;
+        height: 7rem;
+        margin-right: 1.25rem;
+        overflow: hidden;
+      }
+
+      &-info {
+        flex: 1;
+
+        &-name {
+          font-size: $font-size-regular-desktop;
+          color: $c-dark-primary;
+          margin-bottom: 0.625rem;
+          font-family: $body-font-family-secondary;
+          font-weight: $h1-font-weight-desktop;
         }
+
+        &-address {
+          color: $c-gray-secondary;
+          margin-bottom: 1.25rem;
+        }
+        &-phone, &-email {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: flex-start;
+          align-items: center;
+					margin-bottom: 0.625rem;
+
+
+          span {
+            font-family: $body-font-family-secondary;
+            margin-left: 0.3125rem;
+            font-weight: 300;
+          }
+        }
+      }
+      &-distance {
+        width: 70px;
+        color: $c-gray-secondary;
+        span {
+          color: $c-dark-primary;
+        }
+      }
     }
+  }
+  &__map-wrapper {
+    width: 66%;
+    max-width: 43.75rem;
+
+    &-map {
+      min-height: 550px;
+    }
+  }
 }
