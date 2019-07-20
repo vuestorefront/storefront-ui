@@ -1,0 +1,11 @@
+@import '../variables';
+@import '~leaflet/dist/leaflet.css';
+
+// $component__block-property: value;
+
+.sf-store-locator {
+    .sf-store-locator__map {
+        width: 100%;
+        min-height: 500px;
+    }
+}

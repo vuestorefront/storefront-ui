@@ -1,0 +1,5 @@
+<div class="sf-store-locator">
+  <l-map class="sf-store-locator__map" v-if="loaded" :center="center" :zoom="zoom">
+    <l-tilelayer :url="tileServerUrl" />
+  </l-map>
+</div>
