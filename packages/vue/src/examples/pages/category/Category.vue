@@ -13,6 +13,7 @@
           <FiltersIcon />
           Filters
         </SfButton>
+        <div>Sort by: <SfSelect></SfSelect></div>
         <span class="navbar__products-count"><strong>256</strong> items</span>
       </div>
     </div>
@@ -170,7 +171,8 @@ import {
   SfFilterItem,
   SfProductCard,
   SfPagination,
-  SfAccordion
+  SfAccordion,
+  SfSelect
 } from "@storefrontui/vue";
 import FiltersIcon from "./components/FiltersIcon.vue";
 
@@ -195,6 +197,7 @@ export default {
     SfPagination,
     SfMenuItem,
     SfAccordion,
+    SfSelect,
     FiltersIcon
   }
 };
