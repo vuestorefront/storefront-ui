@@ -70,7 +70,7 @@ export default {
       options = [],
       indexes = {};
     let i = 0;
-
+    if (!this.$slots.length) return;
     this.$on("update", this.update);
 
     this.$slots.default.forEach(slot => {
