@@ -5,6 +5,11 @@ Vue.component("SfAccordionItem", SfAccordionItem);
 
 export default {
   name: "SfAccordion",
+  data() {
+    return {
+      selectedContentItem: "xyz"
+    };
+  },
   props: {
     /**
      * Array of items to populate the default markup
@@ -12,11 +17,6 @@ export default {
     items: {
       type: Array,
       default: () => []
-    },
-    /** Callback function to handle click on accordion item content element */
-    contentClickedCallback: {
-      type: Function,
-      default: () => {}
     },
     /**
      * Allows to open multiple accordion items if set to "true"
@@ -61,7 +61,9 @@ export default {
   },
   mounted: function() {
     this.$on("toggle", this.toggle);
-    this.$on("contentClicked", this.contentClickedCallback);
+    this.$on("click", id => {
+      this.selectedContentItem = id;
+    });
     this.openFirst();
   }
 };

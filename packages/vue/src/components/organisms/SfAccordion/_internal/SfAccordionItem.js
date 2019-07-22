@@ -10,6 +10,10 @@ export default {
       type: String,
       default: ""
     },
+    selected: {
+      type: String,
+      default: ""
+    },
     contentItems: {
       type: Array,
       default: () => []
@@ -19,16 +23,8 @@ export default {
     onHeaderClick() {
       this.$parent.$emit("toggle", this._uid);
     },
-    setActiveElement() {
-      const prevActive = document.getElementsByClassName("sf-accordion-item__content--active")[0];
-      if (prevActive) {
-        prevActive.classList.remove("sf-accordion-item__content--active");
-      }
-      event.target.classList.add("sf-accordion-item__content--active");
-    },
     onContentItemClick(id) {
-      this.setActiveElement();
-      this.$parent.$emit("contentClicked", id);
+      this.$parent.$emit("click", id);
     }
   }
 };

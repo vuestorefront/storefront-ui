@@ -22,7 +22,11 @@
   >
     <slot name="content">
       <div class="sf-accordion-item__content">
-        <div v-for="item of contentItems" @click="onContentItemClick(item.id)">
+        <div
+          v-for="item of contentItems"
+          :key="item.id"
+          @click="onContentItemClick(item.id)"
+          :class="{'sf-accordion-item__content--active': item.id === selected}">
           {{ item.text }}
         </div>
       </div>

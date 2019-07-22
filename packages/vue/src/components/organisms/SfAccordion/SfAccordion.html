@@ -3,9 +3,11 @@
     <SfAccordionItem v-for="(item, index) of items"
       v-bind:key="index"
       :header="item.header"
-      :contentItems="item.content">
+      :contentItems="item.content"
+      :selected="selectedContentItem"
+    >
     </SfAccordionItem>
   </div>
   <!--@slot "Items" slot for multiple SfAccordionItem elements-->
-  <slot name="items"></slot>
+  <slot name="items" v-bind="{selected:selectedContentItem}"></slot>
 </div>

@@ -158,8 +158,8 @@ storiesOf("Organisms|Accordion", module)
           :multiple="multiple"
           :firstOpen="firstOpen"
           :showChevron="showChevron">
-          <template #items>
-            <SfAccordionItem :contentItems="contentItemsOne">
+          <template v-slot:items="{selected}">
+            <SfAccordionItem :selected="selected" :contentItems="contentItemsOne">
               <template #header>
                 <div :style="headerStyle">
                   <div>{{ headerOne }}</div>
@@ -168,7 +168,7 @@ storiesOf("Organisms|Accordion", module)
                 </div>
               </template>
             </SfAccordionItem>
-            <SfAccordionItem :contentItems="contentItemsTwo">
+            <SfAccordionItem :selected="selected" :contentItems="contentItemsTwo">
               <template #header>
                 <div :style="headerStyle">
                   <div>{{ headerTwo }}</div>
@@ -177,7 +177,7 @@ storiesOf("Organisms|Accordion", module)
                 </div>
               </template>
             </SfAccordionItem>
-            <SfAccordionItem :contentItems="contentItemsThree">
+            <SfAccordionItem :selected="selected" :contentItems="contentItemsThree">
               <template #header>
                 <div :style="headerStyle">
                   <div>{{ headerThree }}</div>
@@ -318,12 +318,10 @@ storiesOf("Organisms|Accordion", module)
       <div style="width: 300px; padding: 1rem; background: #F1F2F3">
         <SfAccordion 
           :items="items"
-
-          :contentClickedCallback="storyMethod"
-          
           :multiple="multiple"
           :firstOpen="firstOpen"
-          :showChevron="showChevron">
+          :showChevron="showChevron"
+          @click="storyMethod">
         </SfAccordion>
       </div>`
     }),
@@ -332,7 +330,7 @@ storiesOf("Organisms|Accordion", module)
         summary: `
         <p>If user populate content through <code>items</code> array in <code>SfAccordion</code> 
         or through <code>contentItems</code> array in <code>SfAccordionItem</code>, 
-        he can pass his own callback function as <code>contentClickedCallback</code> property. 
+        he can bind <code>v-on:click</code>. 
         This function gets one argument - the id of clicked content item.</p>
        <h2>Usage</h2>
        <pre><code>import { SfAccordion } from "@storefrontui/vue"</code></pre>
