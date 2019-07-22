@@ -1,6 +1,6 @@
-import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
-import SfPrice from "@/components/atoms/SfPrice/SfPrice.vue";
-import SfRating from "@/components/atoms/SfRating/SfRating.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
+import SfRating from "../../atoms/SfRating/SfRating.vue";
 
 export default {
   name: "SfProductCard",
