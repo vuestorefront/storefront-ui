@@ -1,12 +1,22 @@
 @import '../variables';
 
-$section-padding-y: 100px !default;
-$section__content-margin-top: 30px !default;
+$section-margin-y: $spacer-extra-big * 4 !default;
+$section-margin-y--mobile: $spacer-extra-big !default;
+
+$section__content-margin-top: $spacer-extra-big * 2 !default;
+$section__content-margin-top--mobile: $spacer-extra-big !default;
+
 .sf-section {
+  margin: $section-margin-y--mobile 0;
+
  @media screen and (min-width: $desktop-min){
-   padding: $section-padding-y 0;
+   margin: $section-margin-y 0;
  }
  &__content{
-   margin-top: $section__content-margin-top;
+   margin-top: $section__content-margin-top--mobile;
+
+   @media screen and (min-width: $desktop-min) {
+     margin-top: $section__content-margin-top;
+   }
  }
 }
