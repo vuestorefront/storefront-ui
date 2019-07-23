@@ -50,10 +50,10 @@ storiesOf("Molecules|ProductCard", module)
           default: text("specialPrice (prop)", "$5,99")
         },
         maxRating: {
-          default: text("minRating (prop)", "5")
+          default: number("minRating (prop)", 5)
         },
         rating: {
-          default: text("maxRating (prop)", "4")
+          default: number("maxRating (prop)", 4)
         },
         wishlistIcon: {
           default: text("wishlistIcon (prop)", "heart")
@@ -75,7 +75,7 @@ storiesOf("Molecules|ProductCard", module)
         :regular-price="regularPrice"
         :special-price="specialPrice"
         :rating="rating"
-        :max-rating="maxrating"
+        :max-rating="maxRating"
         :wishlistIcon="wishlistIcon"
         :onWishlistIcon="onWishlistIcon"
         :onWishlistColor="onWishlistColor"
