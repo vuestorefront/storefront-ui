@@ -1,4 +1,4 @@
-import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
+import SfIcon from "../SfIcon/SfIcon.vue";
 
 export default {
   name: "SfCheckbox",
