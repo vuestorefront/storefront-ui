@@ -47,12 +47,14 @@ export default {
     }
   },
   methods: {
-    toggle() {
-      const keydownHandler = e => {
-        if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
-          this.toggle();
-        }
-      };
+    close() {
+      this.$emit("close");
+      // remove left code
+    },
+    keydownHandler(e) {
+      if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
+        this.close();
+      }
       if (this.visible) {
         document.addEventListener("keydown", keydownHandler);
         this.$emit("close");
@@ -60,27 +62,28 @@ export default {
         document.removeEventListener("keydown", keydownHandler);
         this.$emit("open");
       }
-      this.visible = !this.visible;
     },
     checkPersistence() {
       if (this.persistent === false) {
-        this.toggle();
+        this.close();
       }
     }
   },
   watch: {
     visible: {
-      handler: visibility => {
+      handler: function(visibility) {
         if (visibility && typeof window !== "undefined") {
           document.body.style.setProperty(
             "margin-right",
             `${window.innerWidth - document.body.clientWidth}px`
-          ); // better UX
+          );
+          document.addEventListener("keydown", this.keydownHandler);
           document.body.style.setProperty("overflow", "hidden");
         }
         if (!visibility && typeof window !== "undefined") {
           document.body.style.removeProperty("margin-right");
           document.body.style.removeProperty("overflow");
+          document.removeEventListener("keydown", this.keydownHandler);
         }
       },
       immediate: true
