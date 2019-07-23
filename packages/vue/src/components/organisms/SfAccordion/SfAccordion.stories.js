@@ -74,7 +74,7 @@ storiesOf("Organisms|Accordion", module)
       },
       components: { SfAccordion },
       template: `
-      <div style="width: 300px; padding: 1rem; background: #F1F2F3">
+      <div style="width: 300px; padding: 1rem;">
         <SfAccordion 
           :items="items"
           :multiple="multiple"
@@ -246,7 +246,7 @@ storiesOf("Organisms|Accordion", module)
       },
       components: { SfAccordion },
       template: `
-      <div style="width: 300px; padding: 1rem; background: #F1F2F3">
+      <div style="width: 300px; padding: 1rem;">
         <SfAccordion :multiple="multiple" :firstOpen="firstOpen">
           <template #items>
             <SfAccordionItem :header="headerOne">
@@ -315,7 +315,7 @@ storiesOf("Organisms|Accordion", module)
       },
       components: { SfAccordion },
       template: `
-      <div style="width: 300px; padding: 1rem; background: #F1F2F3">
+      <div style="width: 300px; padding: 1rem;">
         <SfAccordion 
           :items="items"
           :multiple="multiple"
