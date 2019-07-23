@@ -4,7 +4,7 @@
     class="sf-accordion-item__header-wrapper"
     :class="isOpen ? 'sf-accordion-item__header-wrapper--open' : 'sf-accordion-item__header-wrapper--close'"
   >
-    <slot name="header">
+    <slot name="header" v-bind="{isOpen, header}">
       <div class="sf-accordion-item__header">
         {{ header }}
       </div>
@@ -18,9 +18,9 @@
   </div>
   <div
     class="sf-accordion-item__content-wrapper"
-    :class="isOpen ? 'sf-accordion-item__content-wrapper--show' : ''"
+    v-if="isOpen"
   >
-    <slot name="content">
+    <slot name="content" v-bind="{contentItems}">
       <div class="sf-accordion-item__content">
         <div
           v-for="item of contentItems"

@@ -160,29 +160,29 @@ storiesOf("Organisms|Accordion", module)
           :showChevron="showChevron">
           <template v-slot:items="{selected}">
             <SfAccordionItem :selected="selected" :contentItems="contentItemsOne">
-              <template #header>
+              <template v-slot:header="{isOpen}">
                 <div :style="headerStyle">
                   <div>{{ headerOne }}</div>
-                  <img class="sf-accordion-item__header-slot--open" style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
-                  <img class="sf-accordion-item__header-slot--close" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
+                  <img v-if="isOpen" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
+                  <img v-else style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
                 </div>
               </template>
             </SfAccordionItem>
             <SfAccordionItem :selected="selected" :contentItems="contentItemsTwo">
-              <template #header>
+              <template v-slot:header="{isOpen}">
                 <div :style="headerStyle">
                   <div>{{ headerTwo }}</div>
-                  <img class="sf-accordion-item__header-slot--open" style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
-                  <img class="sf-accordion-item__header-slot--close" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
+                  <img v-if="isOpen" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
+                  <img v-else style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
                 </div>
               </template>
             </SfAccordionItem>
             <SfAccordionItem :selected="selected" :contentItems="contentItemsThree">
-              <template #header>
+              <template v-slot:header="{isOpen}">
                 <div :style="headerStyle">
                   <div>{{ headerThree }}</div>
-                  <img class="sf-accordion-item__header-slot--open" style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
-                  <img class="sf-accordion-item__header-slot--close" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
+                  <img v-if="isOpen" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
+                  <img v-else style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
                 </div>
               </template>
             </SfAccordionItem>

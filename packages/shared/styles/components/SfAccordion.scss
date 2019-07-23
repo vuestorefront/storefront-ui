@@ -21,16 +21,6 @@ $accordion-item__content-padding--last: 0.5rem 0 1.5rem !default;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    &--close {
-      .sf-accordion-item__header-slot--close {
-        display: none;
-      }
-    }
-    &--open {
-      .sf-accordion-item__header-slot--open {
-        display: none;
-      }
-    }
   }
   &-item__header {
     padding: $accordion-item__header-padding;
@@ -38,12 +28,6 @@ $accordion-item__content-padding--last: 0.5rem 0 1.5rem !default;
   }
   &-item__header-icon--up {
     transform: rotate(180deg);
-  }
-  &-item__content-wrapper {
-    display: none;
-    &--show {
-      display: block;
-    }
   }
   &-item__content {
     color: $accordion-item__content-color;
