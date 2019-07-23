@@ -16,20 +16,22 @@
       alt="Toggle this section"
     />
   </div>
-  <div
-    class="sf-accordion-item__content-wrapper"
-    v-if="isOpen"
-  >
-    <slot name="content" v-bind="{contentItems}">
-      <div class="sf-accordion-item__content">
-        <div
-          v-for="item of contentItems"
-          :key="item.id"
-          @click="onContentItemClick(item.id)"
-          :class="{'sf-accordion-item__content--active': item.id === selected}">
-          {{ item.text }}
+  <transition name="fade" mode="out-in">
+    <div
+      class="sf-accordion-item__content-wrapper"
+      v-if="isOpen"
+    >
+      <slot name="content" v-bind="{contentItems}">
+        <div class="sf-accordion-item__content">
+          <div
+            v-for="item of contentItems"
+            :key="item.id"
+            @click="onContentItemClick(item.id)"
+            :class="{'sf-accordion-item__content--active': item.id === selected}">
+            {{ item.text }}
+          </div>
         </div>
-      </div>
-    </slot>
-  </div>
+      </slot>
+    </div>
+  </transition>
 </div>
