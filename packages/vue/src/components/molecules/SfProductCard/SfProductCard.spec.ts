@@ -3,7 +3,7 @@ import SfOptions from "@/components/molecules/SfProductCard/SfProductCard.vue";
 
 describe("SfProductCard.vue", () => {
   const rating = { max: 5, score: 4 };
-  const price = { regularPrice: "$10,99" };
+  const price = { regular: "$10,99" };
   const title = "Product A";
   let onWishlist = false;
 

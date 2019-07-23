@@ -119,8 +119,8 @@
           v-for="i in 6"
           :key="i"
           title="Cream Beach Bag"
-          :price="{ regularPrice: '10,99 $' }"
-          :rating="{ max: 5, score: 4 }"
+          regular-price="10,99 $"
+          rating="4"
         />
         <SfPagination
           class="products__pagination"
