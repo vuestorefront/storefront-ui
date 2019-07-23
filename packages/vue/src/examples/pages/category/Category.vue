@@ -13,11 +13,21 @@
           <FiltersIcon />
           Filters
         </SfButton>
-        <div>Sort by: <SfSelect></SfSelect></div>
+        <div class="sort-by">
+          <span class="sort-by__label">Sort by:</span>
+          <SfSelect v-model="sortBy">
+            <SfSelectOption value="latest">Latest</SfSelectOption>
+            <SfSelectOption value="price-up"
+              >Price from low to high</SfSelectOption
+            >
+            <SfSelectOption value="price-down"
+              >Price from high to low</SfSelectOption
+            >
+          </SfSelect>
+        </div>
         <span class="navbar__products-count"><strong>256</strong> items</span>
       </div>
     </div>
-
     <div class="main">
       <div class="sidebar desktop-only">
         <SfAccordion :firstOpen="true">
@@ -162,7 +172,6 @@
     </SfSidebar>
   </div>
 </template>
-
 <script>
 import {
   SfSidebar,
@@ -181,6 +190,7 @@ import FiltersIcon from "./components/FiltersIcon.vue";
 export default {
   data() {
     return {
+      sortBy: "price-up",
       isFilterSidebarOpen: false,
       filters: {
         color: [],
@@ -204,7 +214,6 @@ export default {
   }
 };
 </script>
-
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefrontui/shared/styles/helpers/visibility";
@@ -312,6 +321,16 @@ export default {
 .filters {
   &__title:first-letter {
     text-transform: uppercase;
+  }
+}
+.sort-by {
+  display: flex;
+  margin-left: $spacer-extra-big;
+  margin-right: auto;
+  align-items: center;
+  font-size: $font-size-small-desktop;
+  &__label {
+    color: $c-gray-secondary;
   }
 }
 </style>
