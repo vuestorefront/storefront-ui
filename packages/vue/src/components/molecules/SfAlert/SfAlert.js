@@ -21,13 +21,13 @@ export default {
       default: true
     },
     /**
-     * Alert type ("alert", "warning", "info"). Check "Knobs" section to see how they look like.
+     * Alert type ("alert", "warning", "info", "success"). Check "Knobs" section to see how they look like.
      */
     type: {
       type: String,
       default: "alert",
       validator: function(value) {
-        return ["alert", "warning", "info"].indexOf(value) !== -1;
+        return ["alert", "warning", "info", "success"].indexOf(value) !== -1;
       }
     }
   },
