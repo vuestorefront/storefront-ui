@@ -1,4 +1,4 @@
-import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 export default {
   name: "SfAlert",
@@ -9,7 +9,10 @@ export default {
     /**
      * Message that will be displayed in Alert.
      */
-    message: String,
+    message: {
+      type: String,
+      default: ""
+    },
     /**
      * Show/hide icon or pass different URL.
      */
