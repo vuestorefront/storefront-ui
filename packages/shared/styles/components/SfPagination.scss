@@ -31,12 +31,14 @@ $pagination__link--next-margin: $pagination__link--prev-margin !default;
 
   &__item {
     display: flex;
-    flex-basis: $pagination__item-size;
     margin: $pagination__item-margin;
     padding: 0;
     color: $pagination__item-color;
     align-items: center;
     justify-content: center;
+    border: $pagination__item--current-border;
+    border-width: $pagination__item--current-border-width;
+    border-color: transparent;
 
     &:first-child {
       margin-left: 0;
@@ -50,7 +52,6 @@ $pagination__link--next-margin: $pagination__link--prev-margin !default;
       color: $pagination__item--current-color;
       border: $pagination__item--current-border;
       border-width: $pagination__item--current-border-width;
-
       .sf-pagination__link {
         cursor: default;
       }
