@@ -116,8 +116,9 @@
     <SfSidebar
       :visible="isFilterSidebarOpen"
       @close="isFilterSidebarOpen = false"
+      class="filters"
     >
-      <h3>Collection</h3>
+      <h3 class="filters__title">Collection</h3>
       <SfFilter v-model="filters.collection">
         <SfFilterItem
           v-for="(filter, i) in filtersOptions.collection"
@@ -127,7 +128,7 @@
           :count="filter.count"
         />
       </SfFilter>
-      <h3>Color</h3>
+      <h3 class="filters__title">Color</h3>
       <SfFilter v-model="filters.color">
         <SfFilterItem
           v-for="(filter, i) in filtersOptions.color"
@@ -137,7 +138,7 @@
           :color="filter.color"
         />
       </SfFilter>
-      <h3>Size</h3>
+      <h3 class="filters__title">Size</h3>
       <SfFilter v-model="filters.size">
         <SfFilterItem
           v-for="(filter, i) in filtersOptions.size"
@@ -147,7 +148,7 @@
           :count="filter.count"
         />
       </SfFilter>
-      <h3>Price</h3>
+      <h3 class="filters__title">Price</h3>
       <SfFilter v-model="filters.price">
         <SfFilterItem
           v-for="(filter, i) in filtersOptions.price"
@@ -157,7 +158,7 @@
           :count="filter.count"
         />
       </SfFilter>
-      <h3>Material</h3>
+      <h3 class="filters__title">Material</h3>
       <SfFilter v-model="filters.material">
         <SfFilterItem
           v-for="(filter, i) in filtersOptions.material"
@@ -167,10 +168,14 @@
           :count="filter.count"
         />
       </SfFilter>
-      <SfButton class="sf-button--full-width">Done</SfButton>
-      <SfButton class="sf-button--full-width button-clear-all"
-        >Clear all</SfButton
-      >
+      <div class="filters__buttons">
+        <SfButton class="sf-button--full-width">Done</SfButton>
+        <SfButton
+          @click="clearAllFilters"
+          class="sf-button--full-width filters__button-clear"
+          >Clear all</SfButton
+        >
+      </div>
     </SfSidebar>
   </div>
 </template>
@@ -253,57 +258,57 @@ export default {
           ]
         }
       ],
+      products: [
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regular: "$50.00", special: "$20.00" },
+          rating: { max: 5, score: false }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regular: "$50.00" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productC.png",
+          price: { regular: "$50.00" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regular: "$50.00" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regular: "$50.00" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productC.png",
+          price: { regular: "$50.00" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regular: "$50.00" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regular: "$50.00" },
+          rating: { max: 5, score: 4 }
+        }
+      ],
       filtersOptions: {
-        products: [
-          {
-            title: "Cream Beach Bag",
-            image: "assets/storybook/homepage/productA.png",
-            price: { regular: "$50.00", special: "$20.00" },
-            rating: { max: 5, score: false }
-          },
-          {
-            title: "Cream Beach Bag",
-            image: "assets/storybook/homepage/productB.png",
-            price: { regular: "$50.00" },
-            rating: { max: 5, score: 4 }
-          },
-          {
-            title: "Cream Beach Bag",
-            image: "assets/storybook/homepage/productC.png",
-            price: { regular: "$50.00" },
-            rating: { max: 5, score: 4 }
-          },
-          {
-            title: "Cream Beach Bag",
-            image: "assets/storybook/homepage/productA.png",
-            price: { regular: "$50.00" },
-            rating: { max: 5, score: 4 }
-          },
-          {
-            title: "Cream Beach Bag",
-            image: "assets/storybook/homepage/productB.png",
-            price: { regular: "$50.00" },
-            rating: { max: 5, score: 4 }
-          },
-          {
-            title: "Cream Beach Bag",
-            image: "assets/storybook/homepage/productC.png",
-            price: { regular: "$50.00" },
-            rating: { max: 5, score: 4 }
-          },
-          {
-            title: "Cream Beach Bag",
-            image: "assets/storybook/homepage/productA.png",
-            price: { regular: "$50.00" },
-            rating: { max: 5, score: 4 }
-          },
-          {
-            title: "Cream Beach Bag",
-            image: "assets/storybook/homepage/productB.png",
-            price: { regular: "$50.00" },
-            rating: { max: 5, score: 4 }
-          }
-        ],
         collection: [
           { label: "Summer fly", value: "summer-fly", count: "10" },
           { label: "Best 2018", value: "best-2018", count: "23" },
@@ -332,12 +337,20 @@ export default {
         ],
         material: [
           { label: "Cotton", value: "coton", count: "33" },
-          { label: "Silk", value: "silk", count: "73" },
-          { label: "Cotton", value: "cotton", count: "54" },
-          { label: "Silk", value: "silk", count: "109" }
+          { label: "Silk", value: "silk", count: "73" }
         ]
       }
     };
+  },
+  methods: {
+    clearAllFilters() {
+      const filters = {};
+      const keys = Object.keys(this.filters);
+      keys.forEach(key => {
+        filters[key] = [];
+      });
+      this.filters = filters;
+    }
   },
   components: {
     SfButton,
@@ -408,9 +421,18 @@ export default {
     /*flex-basis: 100%;*/
   }
 }
-.button-clear-all {
-  background-color: $c-light-primary;
-  color: #a3a5ad;
+.filters {
+  &__title:not(:first-child) {
+    margin-top: $spacer-big * 3;
+  }
+  &__buttons {
+    margin-top: $spacer-big * 3;
+  }
+  &__button-clear {
+    margin-top: 10px;
+    background-color: $c-light-primary;
+    color: #a3a5ad;
+  }
 }
 /* Deep */
 .sf-button {
