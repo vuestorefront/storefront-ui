@@ -81,13 +81,13 @@
     <div class="main">
       <div class="sidebar desktop-only">
         <SfAccordion :firstOpen="true">
-          <template v-slot:items>
+          <template #items>
             <SfAccordionItem
               v-for="(accordion, i) in sidebarAccordion"
               :key="i"
               :header="accordion.header"
             >
-              <template v-slot:content>
+              <template #content>
                 <SfList>
                   <SfListItem v-for="(item, j) in accordion.items" :key="j">
                     <SfMenuItem
@@ -518,7 +518,6 @@ export default {
     padding: 10px;
   }
 }
-/* Deep */
 .menu-item {
   &--active,
   &:hover {
