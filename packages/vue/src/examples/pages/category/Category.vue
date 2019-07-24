@@ -107,7 +107,7 @@
         </div>
         <SfPagination
           class="products__pagination"
-          :current.sync="currentPage"
+          v-model="currentPage"
           :total="20"
           :visible="5"
         />
@@ -169,7 +169,7 @@
         />
       </SfFilter>
       <div class="filters__buttons">
-        <SfButton class="sf-button--full-width">Done</SfButton>
+        <SfButton @click="isFilterSidebarOpen = false" class="sf-button--full-width">Done</SfButton>
         <SfButton
           @click="clearAllFilters"
           class="sf-button--full-width filters__button-clear"
@@ -205,7 +205,7 @@ export default {
         price: [],
         material: []
       },
-      currentPage: 2,
+      currentPage: 1,
       sortByOptions: [
         {
           value: "latest",
