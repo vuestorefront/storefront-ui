@@ -1,7 +1,7 @@
 <template>
   <div id="category">
     <div class="navbar">
-      <div class="navbar__asside desktop-only">
+      <div class="navbar__aside desktop-only">
         <h1 class="navbar__title">Categories</h1>
       </div>
       <div class="navbar__main">
@@ -379,7 +379,7 @@ export default {
   display: flex;
   border-top: 1px solid $c-border;
   border-bottom: 1px solid $c-border;
-  &__asside {
+  &__aside {
     display: flex;
     align-items: center;
     flex: 0 0 15%;
@@ -434,6 +434,13 @@ export default {
     color: #a3a5ad;
   }
 }
+.sf-menu-item {
+  &:hover {
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
 /* Deep */
 .sf-button {
   &--transparent {
@@ -468,11 +475,5 @@ export default {
     padding: 10px;
   }
 }
-.sf-menu-item {
-  &:hover {
-    text-decoration: underline;
-    font-weight: 500;
-    cursor: pointer;
-  }
-}
+
 </style>
