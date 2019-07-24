@@ -5,9 +5,10 @@
         <h1 class="navbar__title">Categories</h1>
       </div>
       <div class="navbar__main">
-        <!-- Fixme: adjust to design -->
+        <!-- Todo: adjust to design -->
         <SfButton
           class="sf-button--transparent"
+          style="margin-left: 30px"
           @click="isFilterSidebarOpen = true"
         >
           <SfIcon size="15px" style="margin-right: 10px">
@@ -39,11 +40,9 @@
           </SfIcon>
           Filters
         </SfButton>
-        <div
-          style="margin-left: 40px; margin-right: auto; display: flex; align-items: center"
-        >
+        <div class="navbar__sort">
           <span class="navbar__label">Sort by:</span>
-          <!-- Todo: adjust SfSelect to design and fix'ed width bug-->
+          <!-- Todo: fix width bug-->
           <SfSelect v-model="sortBy">
             <SfSelectOption
               v-for="option in sortByOptions"
@@ -53,24 +52,32 @@
             >
           </SfSelect>
         </div>
-        <div style="margin-left: auto">
+        <div class="navbar__counter">
           <span class="navbar__label">Products found: </span>
           <strong>280</strong>
         </div>
-        <div style="margin-left: 40px; display: flex; align-items: center">
+        <div class="navbar__view">
           <span>View </span>
-          <!-- Todo: add view like grid ico n-->
-          <button
-            style="width: 14px; height: 14px; background-color: #1D1F22; display: inline-block; margin-left: 10px; border: 0; cursor: pointer"
-          >
-            &nbsp;
-          </button>
-          <!-- Todo: add view like list icon-->
-          <button
-            style="width: 14px; height: 14px; background-color: #BEBFC4; display: inline-block; margin-left: 10px; border: 0; cursor: pointer"
-          >
-            &nbsp;
-          </button>
+          <SfIcon class="navbar__view-icon" size="10px">
+            <svg viewBox="0 0 10 10">
+              <rect width="2" height="2" fill="#1D1F22" />
+              <rect y="4" width="2" height="2" fill="#1D1F22" />
+              <rect y="8" width="2" height="2" fill="#1D1F22" />
+              <rect x="4" width="2" height="2" fill="#1D1F22" />
+              <rect x="4" y="4" width="2" height="2" fill="#1D1F22" />
+              <rect x="4" y="8" width="2" height="2" fill="#1D1F22" />
+              <rect x="8" width="2" height="2" fill="#1D1F22" />
+              <rect x="8" y="4" width="2" height="2" fill="#1D1F22" />
+              <rect x="8" y="8" width="2" height="2" fill="#1D1F22" />
+            </svg>
+          </SfIcon>
+          <SfIcon class="navbar__view-icon" size="11px">
+            <svg viewBox="0 0 11 10" fill="none">
+              <rect width="11" height="2" fill="#BEBFC4" />
+              <rect y="8" width="11" height="2" fill="#BEBFC4" />
+              <rect y="4" width="7" height="2" fill="#BEBFC4" />
+            </svg>
+          </SfIcon>
         </div>
       </div>
     </div>
@@ -94,7 +101,7 @@
           </template>
         </SfAccordion>
       </div>
-      <div class="products">
+      <div class="products" style="">
         <div class="products__list">
           <SfProductCard
             v-for="(product, i) in products"
@@ -169,7 +176,11 @@
         />
       </SfFilter>
       <div class="filters__buttons">
-        <SfButton @click="isFilterSidebarOpen = false" class="sf-button--full-width">Done</SfButton>
+        <SfButton
+          @click="isFilterSidebarOpen = false"
+          class="sf-button--full-width"
+          >Done</SfButton
+        >
         <SfButton
           @click="clearAllFilters"
           class="sf-button--full-width filters__button-clear"
@@ -197,7 +208,7 @@ export default {
   data() {
     return {
       sortBy: "price-up",
-      isFilterSidebarOpen: true,
+      isFilterSidebarOpen: false,
       filters: {
         color: [],
         collection: [],
@@ -400,6 +411,23 @@ export default {
   &__label {
     color: $c-gray-secondary;
   }
+  &__sort {
+    display: flex;
+    align-items: center;
+    margin-left: $spacer-extra-big;
+    margin-right: auto;
+  }
+  &__counter {
+    margin-left: auto;
+  }
+  &__view {
+    display: flex;
+    align-items: center;
+    margin-left: $spacer-extra-big;
+    &-icon {
+      margin-left: 10px;
+    }
+  }
 }
 .main {
   display: flex;
@@ -410,6 +438,7 @@ export default {
   border-right: 1px solid $c-border;
 }
 .products {
+  margin-left: 10px;
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -418,7 +447,6 @@ export default {
     @media (min-width: $desktop-min) {
       margin-top: $spacer-extra-big;
     }
-    /*flex-basis: 100%;*/
   }
 }
 .filters {
@@ -434,6 +462,8 @@ export default {
     color: #a3a5ad;
   }
 }
+
+/* Deep */
 .sf-menu-item {
   &:hover {
     text-decoration: underline;
@@ -441,10 +471,10 @@ export default {
     cursor: pointer;
   }
 }
-/* Deep */
 .sf-button {
   &--transparent {
     margin: 0;
+    padding: 0;
     color: inherit;
     background: transparent;
     font-size: inherit;
@@ -475,5 +505,4 @@ export default {
     padding: 10px;
   }
 }
-
 </style>
