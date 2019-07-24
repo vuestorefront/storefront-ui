@@ -11,7 +11,7 @@
       <button class="sf-modal__cross" @click="close" v-if="cross">
         <!--@slot Use this slot to place content inside the close button.-->
         <slot name="close">
-          <img src="/assets/close.svg" class="sf-modal__icon" alt="">
+          <SfIcon path="cross" size="15px" color="gray-secondary"/>
         </slot>
       </button>
       <div class="sf-modal__content">

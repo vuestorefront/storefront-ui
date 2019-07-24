@@ -26,8 +26,8 @@ $modal-border                              : solid 1px rgba($c-black, 0.5);
   &__cross {
     background: none;
     border: none;
-    width: 30px;
-    height: 30px;
+    //width: 30px;
+    //height: 30px;
     position: absolute;
     right: 20px;
     top: 20px;
@@ -35,10 +35,6 @@ $modal-border                              : solid 1px rgba($c-black, 0.5);
     &:focus {
       outline: none;
     }
-    img {
-      filter: invert(0.3);
-      width: 100%;
-    }
   }
-}        
-        
+}
+

@@ -1,5 +1,6 @@
-import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 
+import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfModal",
   props: {
@@ -90,6 +91,7 @@ export default {
     }
   },
   components: {
-    SfOverlay
+    SfOverlay,
+    SfIcon
   }
 };
