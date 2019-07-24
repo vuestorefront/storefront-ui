@@ -7,6 +7,13 @@ export default {
     transition: {
       type: String,
       default: "fade"
+    },
+    /**
+     * overlay visible
+     */
+    visible: {
+      type: Boolean,
+      default: false
     }
   }
 };
