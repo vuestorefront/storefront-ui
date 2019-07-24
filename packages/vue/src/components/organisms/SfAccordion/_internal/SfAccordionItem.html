@@ -5,9 +5,7 @@
     :class="isOpen ? 'sf-accordion-item__header-wrapper--open' : 'sf-accordion-item__header-wrapper--close'"
   >
     <slot name="header" v-bind="{isOpen, header}">
-      <div class="sf-accordion-item__header">
-        {{ header }}
-      </div>
+      <div class="sf-accordion-item__header">{{ header }}</div>
     </slot>
     <img
       v-if="$parent.showChevron"
