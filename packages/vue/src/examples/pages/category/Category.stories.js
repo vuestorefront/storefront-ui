@@ -17,7 +17,7 @@ storiesOf("Examples|Pages", module)
     {
       info: {
         summary:
-          "Check https://github.com/DivanteLtd/storefront-ui/blob/master/src/examples/pages/category/Category.vue to see full code"
+          "Check https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/examples/pages/home/Category.vue to see full code"
       }
     }
   );

@@ -44,7 +44,7 @@
         >
           <span class="navbar__label">Sort by:</span>
           <!-- Todo: adjust SfSelect to design and fix'ed width bug-->
-          <SfSelect v-model="sortBy" class="sf-select">
+          <SfSelect v-model="sortBy">
             <SfSelectOption
               v-for="option in sortByOptions"
               :key="option.value"
@@ -113,57 +113,75 @@
         />
       </div>
     </div>
-
-    <!--    <SfSidebar-->
-    <!--      :visible="isFilterSidebarOpen"-->
-    <!--      @close="isFilterSidebarOpen = false"-->
-    <!--    >-->
-    <!--      <h3>Collection</h3>-->
-    <!--      <SfFilter v-model="filters.collection">-->
-    <!--        <SfList>-->
-    <!--          <SfListItem>-->
-    <!--            <SfFilterItem label="Summer fly" value="summer-fly" count="10" />-->
-    <!--          </SfListItem>-->
-    <!--          <SfListItem>-->
-    <!--            <SfFilterItem label="Best 2018" value="best-2018" count="23" />-->
-    <!--          </SfListItem>-->
-    <!--          <SfListItem>-->
-    <!--            <SfFilterItem label="Your choice" value="your-choice" count="54" />-->
-    <!--          </SfListItem>-->
-    <!--        </SfList>-->
-    <!--      </SfFilter>-->
-    <!--      <h3>Color</h3>-->
-    <!--      <SfFilter v-model="filters.color">-->
-    <!--        <SfList>-->
-    <!--          <SfListItem>-->
-    <!--            <SfFilterItem label="Red" value="red" color="#990611" />-->
-    <!--          </SfListItem>-->
-    <!--          <SfListItem>-->
-    <!--            <SfFilterItem label="Yellow" value="yellow" color="#DCA742" />-->
-    <!--          </SfListItem>-->
-    <!--          <SfListItem>-->
-    <!--            <SfFilterItem label="Black" value="black" color="black" />-->
-    <!--          </SfListItem>-->
-    <!--          <SfListItem>-->
-    <!--            <SfFilterItem label="Blue" value="blue" color="#004F97" />-->
-    <!--          </SfListItem>-->
-    <!--          <SfListItem>-->
-    <!--            <SfFilterItem label="White" value="white" color="white" />-->
-    <!--          </SfListItem>-->
-    <!--        </SfList>-->
-    <!--      </SfFilter>-->
-    <!--    </SfSidebar>-->
+    <SfSidebar
+      :visible="isFilterSidebarOpen"
+      @close="isFilterSidebarOpen = false"
+    >
+      <h3>Collection</h3>
+      <SfFilter v-model="filters.collection">
+        <SfFilterItem
+          v-for="(filter, i) in filtersOptions.collection"
+          :key="i"
+          :value="filter.value"
+          :label="filter.label"
+          :count="filter.count"
+        />
+      </SfFilter>
+      <h3>Color</h3>
+      <SfFilter v-model="filters.color">
+        <SfFilterItem
+          v-for="(filter, i) in filtersOptions.color"
+          :key="i"
+          :value="filter.value"
+          :label="filter.label"
+          :color="filter.color"
+        />
+      </SfFilter>
+      <h3>Size</h3>
+      <SfFilter v-model="filters.size">
+        <SfFilterItem
+          v-for="(filter, i) in filtersOptions.size"
+          :key="i"
+          :value="filter.value"
+          :label="filter.label"
+          :count="filter.count"
+        />
+      </SfFilter>
+      <h3>Price</h3>
+      <SfFilter v-model="filters.price">
+        <SfFilterItem
+          v-for="(filter, i) in filtersOptions.price"
+          :key="i"
+          :value="filter.value"
+          :label="filter.label"
+          :count="filter.count"
+        />
+      </SfFilter>
+      <h3>Material</h3>
+      <SfFilter v-model="filters.material">
+        <SfFilterItem
+          v-for="(filter, i) in filtersOptions.material"
+          :key="i"
+          :value="filter.value"
+          :label="filter.label"
+          :count="filter.count"
+        />
+      </SfFilter>
+      <SfButton class="sf-button--full-width">Done</SfButton>
+      <SfButton class="sf-button--full-width button-clear-all"
+        >Clear all</SfButton
+      >
+    </SfSidebar>
   </div>
 </template>
 <script>
 import {
-  // SfSidebar,
+  SfSidebar,
   SfButton,
   SfList,
   SfIcon,
   SfMenuItem,
-  // SfFilter,
-  // SfFilterItem,
+  SfFilter,
   SfProductCard,
   SfPagination,
   SfAccordion,
@@ -174,10 +192,13 @@ export default {
   data() {
     return {
       sortBy: "price-up",
-      isFilterSidebarOpen: false,
+      isFilterSidebarOpen: true,
       filters: {
         color: [],
-        collection: []
+        collection: [],
+        size: [],
+        price: [],
+        material: []
       },
       currentPage: 2,
       sortByOptions: [
@@ -198,99 +219,132 @@ export default {
         {
           header: "Clothing",
           items: [
-            { label: "All", count: 280 },
-            { label: "Skirts", count: 23 },
-            { label: "Sweaters", count: 54 },
-            { label: "Dresses", count: 34 },
-            { label: "T-shirts", count: 56 },
-            { label: "Pants", count: 7 },
-            { label: "Underwear", count: 12 }
+            { label: "All", count: "280" },
+            { label: "Skirts", count: "23" },
+            { label: "Sweaters", count: "54" },
+            { label: "Dresses", count: "34" },
+            { label: "T-shirts", count: "56" },
+            { label: "Pants", count: "7" },
+            { label: "Underwear", count: "12" }
           ]
         },
         {
           header: "Accesorries",
           items: [
-            { label: "All", count: 280 },
-            { label: "Skirts", count: 23 },
-            { label: "Sweaters", count: 54 },
-            { label: "Dresses", count: 34 },
-            { label: "T-shirts", count: 56 },
-            { label: "Pants", count: 7 },
-            { label: "Underwear", count: 12 }
+            { label: "All", count: "280" },
+            { label: "Skirts", count: "23" },
+            { label: "Sweaters", count: "54" },
+            { label: "Dresses", count: "34" },
+            { label: "T-shirts", count: "56" },
+            { label: "Pants", count: "7" },
+            { label: "Underwear", count: "12" }
           ]
         },
         {
           header: "Shoes",
           items: [
-            { label: "All", count: 280 },
-            { label: "Skirts", count: 23 },
-            { label: "Sweaters", count: 54 },
-            { label: "Dresses", count: 34 },
-            { label: "T-shirts", count: 56 },
-            { label: "Pants", count: 7 },
-            { label: "Underwear", count: 12 }
+            { label: "All", count: "280" },
+            { label: "Skirts", count: "23" },
+            { label: "Sweaters", count: "54" },
+            { label: "Dresses", count: "34" },
+            { label: "T-shirts", count: "56" },
+            { label: "Pants", count: "7" },
+            { label: "Underwear", count: "12" }
           ]
         }
       ],
-      products: [
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
-          price: { regular: "$50.00", special: "$20.00" },
-          rating: { max: 5, score: false }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
-          price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.png",
-          price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
-          price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
-          price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.png",
-          price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
-          price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
-          price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
-        }
-      ]
+      filtersOptions: {
+        products: [
+          {
+            title: "Cream Beach Bag",
+            image: "assets/storybook/homepage/productA.png",
+            price: { regular: "$50.00", special: "$20.00" },
+            rating: { max: 5, score: false }
+          },
+          {
+            title: "Cream Beach Bag",
+            image: "assets/storybook/homepage/productB.png",
+            price: { regular: "$50.00" },
+            rating: { max: 5, score: 4 }
+          },
+          {
+            title: "Cream Beach Bag",
+            image: "assets/storybook/homepage/productC.png",
+            price: { regular: "$50.00" },
+            rating: { max: 5, score: 4 }
+          },
+          {
+            title: "Cream Beach Bag",
+            image: "assets/storybook/homepage/productA.png",
+            price: { regular: "$50.00" },
+            rating: { max: 5, score: 4 }
+          },
+          {
+            title: "Cream Beach Bag",
+            image: "assets/storybook/homepage/productB.png",
+            price: { regular: "$50.00" },
+            rating: { max: 5, score: 4 }
+          },
+          {
+            title: "Cream Beach Bag",
+            image: "assets/storybook/homepage/productC.png",
+            price: { regular: "$50.00" },
+            rating: { max: 5, score: 4 }
+          },
+          {
+            title: "Cream Beach Bag",
+            image: "assets/storybook/homepage/productA.png",
+            price: { regular: "$50.00" },
+            rating: { max: 5, score: 4 }
+          },
+          {
+            title: "Cream Beach Bag",
+            image: "assets/storybook/homepage/productB.png",
+            price: { regular: "$50.00" },
+            rating: { max: 5, score: 4 }
+          }
+        ],
+        collection: [
+          { label: "Summer fly", value: "summer-fly", count: "10" },
+          { label: "Best 2018", value: "best-2018", count: "23" },
+          { label: "Your choice", value: "your-choice", count: "54" }
+        ],
+        color: [
+          { label: "Red", value: "red", color: "#990611" },
+          { label: "Black", value: "black", color: "#000000" },
+          { label: "Yellow", value: "yellow", color: "#DCA742" },
+          { label: "Blue", value: "blue", color: "#004F97" },
+          { label: "Navy", value: "navy", color: "#656466" },
+          { label: "White", value: "white", color: "#FFFFFF" }
+        ],
+        size: [
+          { label: "Size 2 (XXS)", value: "xxs", count: "10" },
+          { label: "Size 4-6 (XS)", value: "xs", count: "23" },
+          { label: "Size 8-10 (S)", value: "s", count: "54" },
+          { label: "Size 12-14 (M)", value: "m", count: "109" },
+          { label: "Size 16-18 (L)", value: "l", count: "23" },
+          { label: "Size 20-22(XL)", value: "xl", count: "12" },
+          { label: "Size 24-26 (XXL)", value: "xxl", count: "2" }
+        ],
+        price: [
+          { label: "Under $200", value: "under-200", count: "23" },
+          { label: "Under $300", value: "under-300", count: "54" }
+        ],
+        material: [
+          { label: "Cotton", value: "coton", count: "33" },
+          { label: "Silk", value: "silk", count: "73" },
+          { label: "Cotton", value: "cotton", count: "54" },
+          { label: "Silk", value: "silk", count: "109" }
+        ]
+      }
     };
   },
   components: {
     SfButton,
-    // SfSidebar,
+    SfSidebar,
     SfIcon,
     SfList,
-    // SfFilter,
-    // SfFilterItem,
+    SfFilter,
     SfProductCard,
     SfPagination,
     SfMenuItem,
@@ -308,7 +362,6 @@ export default {
   margin: auto;
   box-sizing: border-box;
 }
-
 .navbar {
   display: flex;
   border-top: 1px solid $c-border;
@@ -316,7 +369,7 @@ export default {
   &__asside {
     display: flex;
     align-items: center;
-    flex-basis: 20%;
+    flex: 0 0 15%;
     padding: 0 $spacer-extra-big;
     border-right: 1px solid $c-border;
   }
@@ -339,7 +392,7 @@ export default {
   display: flex;
 }
 .sidebar {
-  flex-basis: 20%;
+  flex: 0 0 15%;
   padding: $spacer-extra-big;
   border-right: 1px solid $c-border;
 }
@@ -354,6 +407,10 @@ export default {
     }
     /*flex-basis: 100%;*/
   }
+}
+.button-clear-all {
+  background-color: $c-light-primary;
+  color: #a3a5ad;
 }
 /* Deep */
 .sf-button {
@@ -379,14 +436,21 @@ export default {
     }
   }
 }
-
 .sf-select {
+  width: 175px;
   /deep/ &__selected {
     padding: 10px;
   }
 
   /deep/ &-option {
     padding: 10px;
+  }
+}
+.sf-menu-item {
+  &:hover {
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
   }
 }
 </style>

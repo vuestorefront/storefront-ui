@@ -42,7 +42,7 @@ $select-option-font-family: $body-font-family-secondary;
     &:after{
       flex: 0 0 7px;
       height: 7px;
-      margin-left: 14px;
+      margin-left: auto;
       border: 0px solid $c-dark-primary;
       border-width: 0px 2px 2px 0px;
       transform: rotate(45deg) translateX(calc(-7px / 2));
