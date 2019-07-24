@@ -63,7 +63,6 @@ $product__image-blend-mode:       darken !default;
     visibility: visible;
     outline: none;
     background: transparent;
-    z-index: 3;
     border: none;
 
     @media (min-width: $desktop-min) {
