@@ -5,13 +5,11 @@
         <h1 class="navbar__title">Categories</h1>
       </div>
       <div class="navbar__main">
-        <!-- Todo: adjust to design -->
         <SfButton
-          class="sf-button--transparent"
-          style="margin-left: 30px"
+          class="navbar__filters-button"
           @click="isFilterSidebarOpen = true"
         >
-          <SfIcon size="15px" style="margin-right: 10px">
+          <SfIcon size="15px">
             <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0)">
                 <path
@@ -40,10 +38,9 @@
           </SfIcon>
           Filters
         </SfButton>
-        <div class="navbar__sort">
+        <div class="navbar__sort desktop-only">
           <span class="navbar__label">Sort by:</span>
-          <!-- Todo: fix width bug-->
-          <SfSelect v-model="sortBy">
+          <SfSelect class="sort-by" v-model="sortBy">
             <SfSelectOption
               v-for="option in sortByOptions"
               :key="option.value"
@@ -53,10 +50,10 @@
           </SfSelect>
         </div>
         <div class="navbar__counter">
-          <span class="navbar__label">Products found: </span>
+          <span class="navbar__label ">Products found: </span>
           <strong>280</strong>
         </div>
-        <div class="navbar__view">
+        <div class="navbar__view desktop-only">
           <span>View </span>
           <SfIcon class="navbar__view-icon" size="10px">
             <svg viewBox="0 0 10 10">
@@ -93,7 +90,11 @@
               <template v-slot:content>
                 <SfList>
                   <SfListItem v-for="(item, j) in accordion.items" :key="j">
-                    <SfMenuItem :label="item.label" :count="item.count" />
+                    <SfMenuItem
+                      class="menu-item"
+                      :label="item.label"
+                      :count="item.count"
+                    />
                   </SfListItem>
                 </SfList>
               </template>
@@ -110,10 +111,11 @@
             :regular-price="product.price.regular"
             :special-price="product.price.special"
             :rating="product.rating.score"
+            class="products__product-card"
           />
         </div>
         <SfPagination
-          class="products__pagination"
+          class="products__pagination desktop-only"
           v-model="currentPage"
           :total="20"
           :visible="5"
@@ -384,12 +386,17 @@ export default {
 #category {
   max-width: 1240px;
   margin: auto;
+  padding: 0 $spacer-big;
   box-sizing: border-box;
+  @media screen and (min-width: $desktop-min) {
+    padding: 0;
+  }
 }
 .navbar {
   display: flex;
   border-top: 1px solid $c-border;
   border-bottom: 1px solid $c-border;
+  padding: $spacer 0;
   &__aside {
     display: flex;
     align-items: center;
@@ -407,6 +414,34 @@ export default {
     padding: 0;
     font-size: $font-size-big-desktop;
     line-height: 2.23;
+  }
+  &__filters-button {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    background: transparent;
+    font-size: inherit;
+
+    display: flex;
+    align-items: center;
+    @media (min-width: $desktop-min) {
+      text-transform: none;
+      margin: 0 0 0 $spacer-extra-big;
+    }
+    .sf-icon {
+      margin-right: 10px;
+    }
+    svg {
+      fill: $c-gray-secondary;
+    }
+
+    &:hover {
+      color: $c-accent-primary;
+
+      svg {
+        fill: $c-accent-primary;
+      }
+    }
   }
   &__label {
     color: $c-gray-secondary;
@@ -438,10 +473,21 @@ export default {
   border-right: 1px solid $c-border;
 }
 .products {
-  margin-left: 10px;
+  flex: 1;
+  @media (min-width: $desktop-min) {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
   &__list {
     display: flex;
     flex-wrap: wrap;
+  }
+  &__product-card {
+    flex: 0 0 50%;
+    @media (min-width: $desktop-min) {
+      flex: 0 0 25%;
+    }
   }
   &__pagination {
     @media (min-width: $desktop-min) {
@@ -462,47 +508,23 @@ export default {
     color: #a3a5ad;
   }
 }
-
+.sort-by {
+  flex: unset;
+  width: 175px;
+  /deep/ .sf-select__selected {
+    padding: 10px;
+  }
+  /deep/ .sf-select-option {
+    padding: 10px;
+  }
+}
 /* Deep */
-.sf-menu-item {
+.menu-item {
+  &--active,
   &:hover {
     text-decoration: underline;
     font-weight: 500;
     cursor: pointer;
-  }
-}
-.sf-button {
-  &--transparent {
-    margin: 0;
-    padding: 0;
-    color: inherit;
-    background: transparent;
-    font-size: inherit;
-    text-transform: none;
-    display: flex;
-    align-items: center;
-
-    svg {
-      fill: $c-gray-secondary;
-    }
-
-    &:hover {
-      color: $c-accent-primary;
-
-      svg {
-        fill: $c-accent-primary;
-      }
-    }
-  }
-}
-.sf-select {
-  width: 175px;
-  /deep/ &__selected {
-    padding: 10px;
-  }
-
-  /deep/ &-option {
-    padding: 10px;
   }
 }
 </style>
