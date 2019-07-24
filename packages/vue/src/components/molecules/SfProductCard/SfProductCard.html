@@ -1,4 +1,9 @@
 <div class="sf-product-card">
+  <button :aria-label="ariaLabel" @click="toggleOnWishlist" class="sf-product-card__wishlist-icon">
+    <slot name="wishlist-icon">
+      <sf-icon :path="currentWishlistIcon" :color="onWishlistColor" size="sm" data-test="sf-wishlist-icon"/>
+    </slot>
+  </button>
   <slot name="image">
     <div class="sf-product-card__image">
       <img :src="image" :alt="title">
@@ -9,21 +14,21 @@
       {{ title }}
     </span>
   </slot>
-  <slot name="price" :price="price">
+  <slot name="price" v-bind="{ specialPrice, regularPrice }">
     <SfPrice
       class="sf-product-card__price"
-      v-if="price"
-      :regular-price="price.regularPrice"
-      :special-price="price.specialPrice"
+      v-if="regularPrice"
+      :regular="regularPrice"
+      :special="specialPrice"
     />
   </slot>
-  <slot name="rating" :rating="rating">
+  <slot name="rating" v-bind="{ maxRating, rating }">
     <div class="sf-product-card__reviews">
       <SfRating
       class="sf-product-card__rating"
       v-if="rating"
-      :max="rating.max"
-      :score="rating.score"
+      :max="maxRating"
+      :score="rating"
     />
     <a v-if="rating" class="sf-product-card__reviews-count">(8)</a>
     </div>

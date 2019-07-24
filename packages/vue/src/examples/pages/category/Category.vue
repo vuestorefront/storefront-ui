@@ -19,85 +19,87 @@
 
     <div class="main">
       <div class="sidebar desktop-only">
-        <SfAccordion>
-          <SfAccordionItem :open="true">
-            <h3 slot="label">Clothing</h3>
-            <SfList slot="content" class="sidebar__category-list">
-              <SfListItem>
-                <SfMenuItem label="All" count="280" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Skirts" count="23" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Sweaters" count="54" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Dresses" count="34" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="T-shirts" count="56" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Pants" count="7" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Underwear" count="12" />
-              </SfListItem>
-            </SfList>
-          </SfAccordionItem>
-          <SfAccordionItem>
-            <h3 slot="label">Accesorries</h3>
-            <SfList slot="content" class="sidebar__category-list">
-              <SfListItem>
-                <SfMenuItem label="All" count="280" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Skirts" count="23" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Sweaters" count="54" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Dresses" count="34" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="T-shirts" count="56" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Pants" count="7" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Underwear" count="12" />
-              </SfListItem>
-            </SfList>
-          </SfAccordionItem>
-          <SfAccordionItem>
-            <h3 slot="label">Shoes</h3>
-            <SfList slot="content" class="sidebar__category-list">
-              <SfListItem>
-                <SfMenuItem label="All" count="280" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Skirts" count="23" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Sweaters" count="54" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Dresses" count="34" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="T-shirts" count="56" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Pants" count="7" />
-              </SfListItem>
-              <SfListItem>
-                <SfMenuItem label="Underwear" count="12" />
-              </SfListItem>
-            </SfList>
-          </SfAccordionItem>
+        <SfAccordion :firstOpen="true">
+          <template #items>
+            <SfAccordionItem>
+              <h3 slot="header">Clothing</h3>
+              <SfList slot="content" class="sidebar__category-list">
+                <SfListItem>
+                  <SfMenuItem label="All" count="280" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Skirts" count="23" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Sweaters" count="54" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Dresses" count="34" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="T-shirts" count="56" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Pants" count="7" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Underwear" count="12" />
+                </SfListItem>
+              </SfList>
+            </SfAccordionItem>
+            <SfAccordionItem>
+              <h3 slot="header">Accesorries</h3>
+              <SfList slot="content" class="sidebar__category-list">
+                <SfListItem>
+                  <SfMenuItem label="All" count="280" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Skirts" count="23" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Sweaters" count="54" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Dresses" count="34" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="T-shirts" count="56" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Pants" count="7" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Underwear" count="12" />
+                </SfListItem>
+              </SfList>
+            </SfAccordionItem>
+            <SfAccordionItem>
+              <h3 slot="header">Shoes</h3>
+              <SfList slot="content" class="sidebar__category-list">
+                <SfListItem>
+                  <SfMenuItem label="All" count="280" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Skirts" count="23" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Sweaters" count="54" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Dresses" count="34" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="T-shirts" count="56" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Pants" count="7" />
+                </SfListItem>
+                <SfListItem>
+                  <SfMenuItem label="Underwear" count="12" />
+                </SfListItem>
+              </SfList>
+            </SfAccordionItem>
+          </template>
         </SfAccordion>
       </div>
       <div class="products">
@@ -106,8 +108,8 @@
           v-for="i in 6"
           :key="i"
           title="Cream Beach Bag"
-          :price="{ regularPrice: '10,99 $' }"
-          :rating="{ max: 5, score: 4 }"
+          regular-price="10,99 $"
+          rating="4"
         />
         <SfPagination
           class="products__pagination"
@@ -161,7 +163,7 @@
 </template>
 
 <script>
-import SfSidebar from "@/components/molecules/SfSidebar/SfSidebar.vue";
+import SfSidebar from "@/components/organisms/SfSidebar/SfSidebar.vue";
 import SfButton from "@/components/atoms/SfButton/SfButton.vue";
 import SfList from "@/components/organisms/SfList/SfList.vue";
 import SfMenuItem from "@/components/molecules/SfMenuItem/SfMenuItem.vue";

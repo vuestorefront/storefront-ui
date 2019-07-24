@@ -1,3 +1,5 @@
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+
 export default {
   name: "SfPagination",
 
@@ -96,5 +98,8 @@ export default {
     setCurrentPage(value) {
       this.currentPage = value;
     }
+  },
+  components: {
+    SfIcon
   }
 };

@@ -25,22 +25,21 @@ storiesOf("Atoms|Price", module)
     "Basic",
     () => ({
       props: {
-        specialPrice: {
-          default: text("specialPrice (prop)", "$50.00")
+        special: {
+          default: text("special (prop)", "$50.00")
         },
-        regularPrice: {
-          default: text("regularPrice (prop)", "$100.00")
+        regular: {
+          default: text("regular (prop)", "$100.00")
         }
       },
       components: { SfPrice },
-      template:
-        '<SfPrice :regular-price="regularPrice" :special-price="specialPrice"/>'
+      template: '<SfPrice :regular="regular" :special="special"/>'
     }),
     {
       info: {
         summary: `<p>Component for displaying product price.</p>
         <h2> Usage </h2>
-        <pre><code>import SfPrice from "@storefrontui/vue/dist/SfPrice.vue"</code></pre>
+        <pre><code>import { SfPrice } from "@storefrontui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }

@@ -1,0 +1,40 @@
+@import '../variables';
+
+$heading--border-color: #F1F2F4 !default;
+$heading--underline-subtitle-color: #A3A5AD !default;
+$heading--mobile-breakpoint: $mobile-max !default;
+
+.sf-heading {
+    text-align: left;
+  @media screen and (min-width: $heading--mobile-breakpoint){
+    text-align: center;
+  }
+  &__title {
+    line-height: 1.38;
+    padding: 0;
+  }
+  &__subtitle {
+    margin-top: 5px;
+    line-height: 1.64;
+    font-weight: 300;
+  }
+
+  &--underline {
+    padding-bottom: 10px;
+    border-bottom: 1px solid $heading--border-color;
+
+    @media screen and (min-width: $heading--mobile-breakpoint) {
+      display: block;
+      padding-bottom: 0;
+      border: 0;
+    }
+  }
+
+  &--left{
+    text-align: left;
+  }
+
+  &--right{
+    text-align: right;
+  }
+}

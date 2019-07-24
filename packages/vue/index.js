@@ -1,18 +1,23 @@
 /** Package root */
 import SfArrow from "./src/components/atoms/SfArrow/SfArrow.vue";
 import SfBadge from "./src/components/atoms/SfBadge/SfBadge.vue";
+import SfBreadcrumbs from "./src/components/atoms/SfBreadcrumbs/SfBreadcrumbs.vue";
+import SfBullets from "./src/components/atoms/SfBullets/SfBullets.vue";
 import SfButton from "./src/components/atoms/SfButton/SfButton.vue";
 import SfCheckbox from "./src/components/atoms/SfCheckbox/SfCheckbox.vue";
+import SfCircleIcon from "./src/components/atoms/SfCircleIcon/SfCircleIcon.vue";
+import SfHeading from "./src/components/atoms/SfHeading/SfHeading.vue";
+import SfIcon from "./src/components/atoms//SfIcon/SfIcon.vue";
 import SfLabel from "./src/components/atoms//SfLabel/SfLabel.vue";
 import SfLoader from "./src/components/atoms/SfLoader/SfLoader.vue";
 import SfPrice from "./src/components/atoms/SfPrice/SfPrice.vue";
 import SfProperty from "./src/components/atoms/SfProperty/SfProperty.vue";
 import SfRating from "./src/components/atoms/SfRating/SfRating.vue";
-import SfIcon from "./src/components/atoms/SfIcon/SfIcon.vue";
 
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.vue";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.vue";
 import SfCallToAction from "./src/components/molecules/SfCallToAction/SfCallToAction.vue";
+import SfCharacteristic from "./src/components/molecules/SfCharacteristic/SfCharacteristic.vue";
 import SfCounter from "./src/components/molecules/SfCounter/SfCounter.vue";
 import SfFilter from "./src/components/molecules/SfFilter/SfFilter.vue";
 import SfGallery from "./src/components/molecules/SfGallery/SfGallery.vue";
@@ -22,29 +27,39 @@ import SfPagination from "./src/components/molecules/SfPagination/SfPagination.v
 import SfProductCard from "./src/components/molecules/SfProductCard/SfProductCard.vue";
 import SfProductOption from "./src/components/molecules/SfProductOption/SfProductOption.vue";
 import SfRadio from "./src/components/molecules/SfRadio/SfRadio.vue";
+import SfSection from "./src/components/molecules/SfSection/SfSection.vue";
 import SfSelect from "./src/components/molecules/SfSelect/SfSelect.vue";
-import SfSidebar from "./src/components/molecules/SfSidebar/SfSidebar.vue";
+import SfSticky from "./src/components/molecules/SfSticky/SfSticky.vue";
+import SfImage from "./src/components/molecules/SfImage/SfImage.vue";
 
 import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.vue";
 import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.vue";
 import SfList from "./src/components/organisms/SfList/SfList.vue";
 import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.vue";
+import SfSidebar from "./src/components/organisms/SfSidebar/SfSidebar.vue";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.vue";
+import SfHero from "./src/components/organisms/SfHero/SfHero.vue";
+import SfBannerGrid from "./src/components/organisms/SfBannerGrid/SfBannerGrid.vue";
 
 export {
   SfArrow,
   SfBadge,
+  SfBullets,
   SfButton,
+  SfBreadcrumbs,
   SfCheckbox,
+  SfCircleIcon,
+  SfHeading,
+  SfIcon,
   SfLabel,
   SfLoader,
   SfPrice,
   SfProperty,
   SfRating,
-  SfIcon,
   SfAlert,
   SfBanner,
   SfCallToAction,
+  SfCharacteristic,
   SfCounter,
   SfFilter,
   SfGallery,
@@ -54,11 +69,16 @@ export {
   SfProductCard,
   SfProductOption,
   SfRadio,
+  SfSection,
   SfSelect,
+  SfSticky,
   SfSidebar,
   SfAccordion,
   SfCarousel,
   SfList,
   SfMegaMenu,
-  SfTopBar
+  SfTopBar,
+  SfHero,
+  SfImage,
+  SfBannerGrid
 };

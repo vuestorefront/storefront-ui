@@ -6,24 +6,14 @@ import SfBanner from "./SfBanner.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    [
-      "$banner-padding",
-      "(calc( #{$spacer-extra-big} * 2)) (4rem)",
-      "padding for banner"
-    ],
+    ["$banner-padding", "$spacer-extra-big", "padding for banner"],
     ["$banner-background-size", "cover", "background size for banner"],
     [
       "$banner-background-position",
       "bottom left",
       "background position for banner"
     ],
-    [
-      "$banner-align-items",
-      "flex-end",
-      "container displays as flex, you can customize here how items should be aligned"
-    ],
-    ["$banner-width", "100%", "width of banner"],
-    ["$banner-mobile-padding", "1.25rem", "banner padding on mobile"],
+    ["$banner-mobile-padding", "$spacer-big", "banner padding on mobile"],
     [
       "$banner__subtitle-font-family",
       "$body-font-family-primary",
@@ -32,7 +22,7 @@ const scssTableConfig = {
     ["$banner__subtitle-font-size", "1.5rem", "font-size of subtitle"],
     ["$banner__subtitle-font-weight", "300", "font-weight of subtitle"],
     ["$banner__subtitle-color", "$c-dark-secondary", "text color for subtitle"],
-    ["$banner__subtitle-text-transform", "none", "text trnasform for subtitle"],
+    ["$banner__subtitle-text-transform", "none", "text transform for subtitle"],
     [
       "banner-mobile__subtitle-font-size",
       "0.875rem",
@@ -41,7 +31,7 @@ const scssTableConfig = {
     [
       "$banner__title-text-transform",
       "uppercase",
-      "text trnasform for title text"
+      "text transform for title text"
     ],
     ["$banner__title-font-weight", "300", "font-weight of title"],
     ["$banner__title-font-size", "3rem", "font-size of title"],
@@ -51,6 +41,23 @@ const scssTableConfig = {
       "font-family of title"
     ],
     ["$banner__title-color", "$c-dark-primary", "color of title text"],
+    [
+      "$banner__description-font-family",
+      "$body-font-family-secondary",
+      "font-family for subtitle"
+    ],
+    ["$banner__description-font-size", "1.125rem", "font-size of description"],
+    [
+      "$banner__description-color",
+      "$c-dark-primary",
+      "text color for description"
+    ],
+    ["$banner__description-font-weight", "300", "font-weight of description"],
+    [
+      "$banner__description-text-transform",
+      "none",
+      "text transform for subtitle"
+    ],
     [
       "$banner__call-to-action-font-size",
       "0.875rem",
@@ -69,8 +76,11 @@ const cssTableConfig = {
   tableBodyConfig: [
     [".sf-banner--top", "aligns content to top (visible on mobile)"],
     [".sf-banner--bottom", "aligns content to bottom (visible on mobile)"],
+    [".sf-banner--center", "aligns content to y center (visible on mobile)"],
     [".sf-banner--left", "aligns content to left"],
-    [".sf-banner--secondary", "changes button color to accent"]
+    [".sf-banner--secondary", "changes button color to accent"],
+    [".sf-banner--container-medium", "changes container width to 75%"],
+    [".sf-banner--container-full", "changes container width to 100%"]
   ]
 };
 
@@ -82,16 +92,19 @@ storiesOf("Molecules|Banner", module)
       components: { SfBanner },
       props: {
         title: {
-          default: text("title (prop)", "Title prop")
+          default: text("title (prop)", "Eco Sandals")
         },
         subtitle: {
-          default: text("subtitle (prop)", "Subtitle prop")
+          default: text("subtitle (prop)", "Summer shoes")
         },
         description: {
-          default: text("description (prop)", "Descriptiom prop")
+          default: text(
+            "description (prop)",
+            "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
+          )
         },
         buttonText: {
-          default: text("buttonText (prop)", "Button text")
+          default: text("buttonText (prop)", "Shop Now")
         },
         background: {
           default: text("background (prop)", "#e1e3e2")
@@ -107,7 +120,10 @@ storiesOf("Molecules|Banner", module)
               "sf-banner--left",
               "sf-banner--top",
               "sf-banner--bottom",
-              "sf-banner--secondary"
+              "sf-banner--center",
+              "sf-banner--secondary",
+              "sf-banner--container-medium",
+              "sf-banner--container-full"
             ],
             "null"
           )
@@ -128,7 +144,7 @@ storiesOf("Molecules|Banner", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import SfBanner from "@storefrontui/vue/dist/SfBanner.vue"</code></pre>
+        <pre><code>import { SfBanner } from "@storefrontui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `

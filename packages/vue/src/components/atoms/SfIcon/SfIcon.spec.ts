@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
+import SfIcon from "./SfIcon.vue";
 
 describe("SfIcon.vue", () => {
   it("renders a component", () => {
@@ -53,5 +53,29 @@ describe("SfIcon.vue", () => {
     });
 
     expect(component.contains(`.sf-icon--color-${color}`)).toBe(true);
+  });
+
+  it("renders viewBox default when not passed", () => {
+    const color = "primary";
+
+    const component = shallowMount(SfIcon, {
+      propsData: {
+        color: color
+      }
+    });
+
+    expect(component.find("svg").attributes("viewBox")).toEqual("0 0 24 24");
+  });
+
+  it("renders viewBox when passed", () => {
+    const viewBox = "0 12 12 12";
+
+    const component = shallowMount(SfIcon, {
+      propsData: {
+        viewBox: viewBox
+      }
+    });
+
+    expect(component.find("svg").attributes("viewBox")).toEqual(viewBox);
   });
 });
