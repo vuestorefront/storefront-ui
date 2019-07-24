@@ -9,7 +9,7 @@
           class="navbar__filters-button"
           @click="isFilterSidebarOpen = true"
         >
-          <SfIcon size="15px">
+          <SfIcon size="15px" style="margin-right: 10px;">
             <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0)">
                 <path
@@ -50,8 +50,9 @@
           </SfSelect>
         </div>
         <div class="navbar__counter">
-          <span class="navbar__label ">Products found: </span>
-          <strong>280</strong>
+          <span class="navbar__label desktop-only">Products found: </span>
+          <strong class="desktop-only">280</strong>
+          <span class="navbar__label mobile-only">280 Items</span>
         </div>
         <div class="navbar__view desktop-only">
           <span>View </span>
@@ -76,6 +77,19 @@
             </svg>
           </SfIcon>
         </div>
+        <SfButton
+          class="navbar__filters-button mobile-only"
+          @click="isFilterSidebarOpen = true"
+        >
+          Sort by
+          <SfIcon size="15px" style="margin-left: 10px;">
+            <svg viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8.32809 15.2897L12 11.7644V12.2892L8.13547 16L4.27094 12.2892V11.7644L7.94285 15.2897V6.83165H8.32809L8.32809 15.2897ZM3.67191 0.710288L0 4.23556V3.71082L3.86453 0L7.72906 3.71082V4.23556L4.05715 0.710288V9.16835H3.67191L3.67191 0.710288Z"
+              />
+            </svg>
+          </SfIcon>
+        </SfButton>
       </div>
     </div>
     <div class="main">
@@ -384,19 +398,19 @@ export default {
 @import "~@storefrontui/shared/styles/helpers/visibility";
 
 #category {
+  box-sizing: border-box;
   max-width: 1240px;
   margin: auto;
   padding: 0 $spacer-big;
-  box-sizing: border-box;
   @media screen and (min-width: $desktop-min) {
     padding: 0;
   }
 }
 .navbar {
   display: flex;
+  padding: $spacer 0;
   border-top: 1px solid $c-border;
   border-bottom: 1px solid $c-border;
-  padding: $spacer 0;
   &__aside {
     display: flex;
     align-items: center;
@@ -416,28 +430,27 @@ export default {
     line-height: 2.23;
   }
   &__filters-button {
-    margin: 0;
-    padding: 0;
-    color: inherit;
-    background: transparent;
-    font-size: inherit;
-
     display: flex;
     align-items: center;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font-size: inherit;
+    font-weight: 500;
     @media (min-width: $desktop-min) {
-      text-transform: none;
       margin: 0 0 0 $spacer-extra-big;
-    }
-    .sf-icon {
-      margin-right: 10px;
+      font-weight: 400;
+      text-transform: none;
     }
     svg {
-      fill: $c-gray-secondary;
+      fill: $c-dark-primary;
+      @media (min-width: $desktop-min) {
+        fill: $c-gray-secondary;
+      }
     }
-
     &:hover {
       color: $c-accent-primary;
-
       svg {
         fill: $c-accent-primary;
       }
@@ -453,7 +466,10 @@ export default {
     margin-right: auto;
   }
   &__counter {
-    margin-left: auto;
+    margin: auto;
+    @media (min-width: $desktop-min) {
+      margin-right: 0;
+    }
   }
   &__view {
     display: flex;
@@ -475,9 +491,7 @@ export default {
 .products {
   flex: 1;
   @media (min-width: $desktop-min) {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
+    margin: $spacer-big;
   }
   &__list {
     display: flex;
@@ -496,15 +510,17 @@ export default {
   }
 }
 .filters {
-  &__title:not(:first-child) {
-    margin-top: $spacer-big * 3;
-  }
+  &__title:not(:first-child),
   &__buttons {
     margin-top: $spacer-big * 3;
   }
+  &__title {
+    font-size: $font-size-big-desktop;
+    line-height: 2.23;
+  }
   &__button-clear {
     margin-top: 10px;
-    background-color: $c-light-primary;
+    background: $c-light-primary;
     color: #a3a5ad;
   }
 }
@@ -521,8 +537,8 @@ export default {
 .menu-item {
   &--active,
   &:hover {
-    text-decoration: underline;
     font-weight: 500;
+    text-decoration: underline;
     cursor: pointer;
   }
 }
