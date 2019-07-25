@@ -45,20 +45,57 @@ $c-danger: $c-pink-primary !default;
 $c-light: $c-light-primary !default;
 $c-dark: $c-dark-primary !default;
 
+// Text colors on theme colors bg
+// Using YIQ by default
+$c-on-primary: color-yiq($c-primary) !default;
+$c-on-secondary: color-yiq($c-secondary) !default;
+$c-on-info: color-yiq($c-info) !default;
+$c-on-success: color-yiq($c-success) !default;
+$c-on-warning: color-yiq($c-warning) !default;
+$c-on-danger: color-yiq($c-danger) !default;
+$c-on-light: color-yiq($c-light) !default;
+$c-on-dark: color-yiq($c-dark) !default;
+
 // Map colors palette
-$colors: () !default;
-$colors: map-merge(
-  (
-    'primary': $c-primary,
-    'secondary': $c-secondary,
-    'info': $c-info,
-    'success': $c-success,
-    'warning': $c-warning,
-    'danger': $c-danger,
-    'light': $c-light,
-    'dark': $c-dark,
-    'white': $c-white,
-    'black': $c-black
+$colors-map: (
+  'primary': (
+    'bg': $c-primary,
+    'text': $c-on-primary
   ),
-  $colors
+  'secondary': (
+    'bg': $c-secondary,
+    'text': $c-on-secondary
+  ),
+  'info': (
+    'bg': $c-info,
+    'text': $c-on-info
+  ),
+  'success': (
+    'bg': $c-success,
+    'text': $c-on-success
+  ),
+  'warning': (
+    'bg': $c-warning,
+    'text': $c-on-warning
+  ),
+  'danger': (
+    'bg': $c-danger,
+    'text': $c-on-danger
+  ),
+  'light': (
+    'bg': $c-light,
+    'text': $c-on-light
+  ),
+  'dark': (
+    'bg': $c-dark,
+    'text': $c-on-dark
+  ),
+  'white': (
+    'bg': $c-white,
+    'text': $c-black
+  ),
+  'black': (
+    'bg': $c-black,
+    'text': $c-white
+  )
 );
