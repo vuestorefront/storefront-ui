@@ -95,20 +95,31 @@
     <div class="main">
       <div class="sidebar desktop-only">
         <SfAccordion :firstOpen="true">
-          <template #items>
+          <template v-slot:items="{ selected }">
             <SfAccordionItem
               v-for="(accordion, i) in sidebarAccordion"
               :key="i"
               :header="accordion.header"
             >
-              <template #content>
+              <template v-slot:content="{ handler }">
                 <SfList>
                   <SfListItem v-for="(item, j) in accordion.items" :key="j">
-                    <SfMenuItem
-                      class="menu-item"
-                      :label="item.label"
-                      :count="item.count"
-                    />
+                    <div
+                      @click="
+                        () => {
+                          handler(item.label);
+                        }
+                      "
+                    >
+                      <SfMenuItem
+                        class="menu-item"
+                        :class="{
+                          'menu-item--active': selected === item.label
+                        }"
+                        :label="item.label"
+                        :count="item.count"
+                      />
+                    </div>
                   </SfListItem>
                 </SfList>
               </template>
