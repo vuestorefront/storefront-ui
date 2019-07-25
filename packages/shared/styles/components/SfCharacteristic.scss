@@ -1,0 +1,31 @@
+@import '../variables';
+
+$characteristic-margin-right: 20px !default;
+$characteristic__title-font-size: $font-size-small-desktop !default;
+$characteristic__title-line-height: 20px !default;
+$characteristic__description-font-size: $font-size-extra-small-desktop !default;
+$characteristic__description-font-weight: 300 !default;
+$characteristic__description-line-height: 15px !default;
+
+.sf-characteristic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    margin-right: $characteristic-margin-right;
+  }
+
+  &__title {
+    font-size: $characteristic__title-font-size;
+    margin: 0;
+  }
+
+  &__description {
+    font-size: $characteristic__description-font-size;
+    font-weight: $characteristic__description-font-weight;
+    margin: 0;
+  }
+}

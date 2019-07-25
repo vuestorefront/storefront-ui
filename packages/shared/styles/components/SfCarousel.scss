@@ -3,20 +3,9 @@
 
 $carousel__controls-size: 240px !default;
 
-// $component__block-property: value;
-
-// .sf-component {
-//   &__element {
-
-//   }
-//   &--modifier {
-
-//   }
-// }
-
-
 .sf-carousel{
   position: relative;
+
   &__wrapper{
     max-width: 100%;
     margin: auto;

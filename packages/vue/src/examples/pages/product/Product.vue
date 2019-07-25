@@ -21,8 +21,8 @@
         <SfCarouselItem v-for="i in 6" :key="i">
           <SfProductCard
             title="Cream Beach Bag"
-            :price="{ regularPrice: '10,99 $' }"
-            :rating="{ max: 5, score: 4 }"
+            regular-price="10,99 $"
+            :rating="5"
           />
         </SfCarouselItem>
       </SfCarousel>
