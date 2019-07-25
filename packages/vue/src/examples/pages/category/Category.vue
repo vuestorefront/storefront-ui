@@ -505,7 +505,7 @@ export default {
   &__view {
     display: flex;
     align-items: center;
-    margin-left: $spacer-extra-big;
+    margin: 0 $spacer-extra-big;
     &-icon {
       margin-left: 10px;
     }
