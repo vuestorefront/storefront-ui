@@ -125,6 +125,12 @@
             :regular-price="product.price.regular"
             :special-price="product.price.special"
             :rating="product.rating.score"
+            :onWishlist="product.onWishlist"
+            @click:wishlist="
+              () => {
+                toggleWishlist(i);
+              }
+            "
             class="products__product-card"
           />
         </div>
@@ -223,6 +229,7 @@ import {
 export default {
   data() {
     return {
+      currentPage: 1,
       sortBy: "price-up",
       isFilterSidebarOpen: false,
       filters: {
@@ -232,7 +239,6 @@ export default {
         price: [],
         material: []
       },
-      currentPage: 1,
       sortByOptions: [
         {
           value: "latest",
@@ -290,49 +296,57 @@ export default {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00", special: "$20.00" },
-          rating: { max: 5, score: false }
+          rating: { max: 5, score: false },
+          onWishlist: true
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          onWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
           price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          onWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          onWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          onWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
           price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          onWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          onWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          onWishlist: false
         }
       ],
       filtersOptions: {
@@ -377,6 +391,9 @@ export default {
         filters[key] = [];
       });
       this.filters = filters;
+    },
+    toggleWishlist(index) {
+      this.products[index].onWishlist = !this.products[index].onWishlist;
     }
   },
   components: {
