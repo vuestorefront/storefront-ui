@@ -148,7 +148,7 @@
         <SfPagination
           class="products__pagination desktop-only"
           v-model="currentPage"
-          :total="20"
+          :total="4"
           :visible="5"
         />
       </div>
@@ -429,16 +429,19 @@ export default {
   box-sizing: border-box;
   max-width: 1240px;
   margin: auto;
-  padding: 0 $spacer-big;
+  /*padding: 0 $spacer-big;
   @media screen and (min-width: $desktop-min) {
     padding: 0;
-  }
+  }*/
 }
 .navbar {
   display: flex;
-  padding: $spacer 0;
+  padding: $spacer;
   border-top: 1px solid $c-border;
   border-bottom: 1px solid $c-border;
+  @media screen and (min-width: $desktop-min) {
+    padding: 0;
+  }
   &__aside {
     display: flex;
     align-items: center;
@@ -527,8 +530,10 @@ export default {
   }
   &__product-card {
     flex: 0 0 50%;
+    padding: $spacer;
     @media (min-width: $desktop-min) {
       flex: 0 0 25%;
+      padding: $spacer-big;
     }
   }
   &__pagination {
