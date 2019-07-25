@@ -28,7 +28,7 @@ $sf-tabs-content-font-family: $body-font-family-primary !default;
     border-bottom: $sf-tabs-title-border-width solid $sf-tabs-title-color;
 
     @media (max-width: $mobile-max) {
-      top: calc(2*#{$sf-tabs-title-padding} + #{$sf-tabs-title-border-width} + #{$body-font-size-mobile} + 2px);
+      display: none;
     }
   }
 
@@ -41,6 +41,10 @@ $sf-tabs-content-font-family: $body-font-family-primary !default;
     border-bottom: $sf-tabs-title-border-width solid $sf-tabs-title-color;
     margin-right: 2rem;
 
+    @media (max-width: $mobile-max) {
+      border-bottom: none;
+    }
+
     &:hover {
       color: $sf-tabs-title-color-hover;
     }
@@ -48,6 +52,17 @@ $sf-tabs-content-font-family: $body-font-family-primary !default;
     &--active {
       border-bottom: $sf-tabs-title-border-width solid $sf-tabs-title-color-active;
       color: $sf-tabs-title-color-active;
+
+      @media (max-width: $mobile-max) {
+        border-bottom: none;
+      }
+    }
+
+    @media (max-width: $mobile-max) {
+      width: 100%;
+      margin-right: 0;
+      margin-top: 0.2rem;
+      order: initial;
     }
   }
 
@@ -58,6 +73,10 @@ $sf-tabs-content-font-family: $body-font-family-primary !default;
     display: none;
     background: #fff;
     font-family: $sf-tabs-content-font-family;
+
+    @media (max-width: $mobile-max) {
+      order: initial;
+    }
   }
 }
 
@@ -65,16 +84,16 @@ $sf-tabs-content-font-family: $body-font-family-primary !default;
   display: block;
 }
 
-@media (max-width: 45em) {
+// @media (max-width: 45em) {
 
-  .tab__title,
-  .tab__content {
-    order: initial;
-  }
+//   .tab__title,
+//   .tab__content {
+//     order: initial;
+//   }
 
-  .tab__title {
-    width: 100%;
-    margin-right: 0;
-    margin-top: 0.2rem;
-  }
-}
+//   .tab__title {
+//     width: 100%;
+//     margin-right: 0;
+//     margin-top: 0.2rem;
+//   }
+// }
