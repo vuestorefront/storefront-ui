@@ -20,11 +20,14 @@ $sidebar-padding    : 3.5rem !default;
     top: 3rem;
   }
   &__content {
-    overflow: scroll;
+    overflow-y: scroll;
     height: 100vh;
     width: 100%;
     padding: $sidebar-padding;
     box-sizing: border-box;
+    &::-webkit-scrollbar{
+      width: 0;
+    }
   }
   &--right {
     left: auto;

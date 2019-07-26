@@ -7,7 +7,7 @@ export default {
   name: "SfAccordion",
   data() {
     return {
-      selectedContentItem: "xyz"
+      selectedContentItem: ""
     };
   },
   props: {
