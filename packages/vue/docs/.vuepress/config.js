@@ -19,7 +19,7 @@ module.exports = {
         children: [
           ['/component-rules', 'Component Rules'],
           ['/working-with-designs', 'Working With Designs'],
-          ['/creating-new-component', 'Creating New Component'],
+          ['/creating-new-component', 'Create/Edit Component'],
         ],
       },
 
