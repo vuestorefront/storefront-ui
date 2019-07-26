@@ -54,13 +54,21 @@ $select-option-font-family: $body-font-family-secondary;
   }
 
   &__options {
-    position: absolute;
-    top: calc(100% + 20px);
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left:0;
     z-index: 100;
     width: 100%;
     background-color: #FFF;
     outline: 0;
     box-shadow: 0px 4px 11px rgba(157, 157, 157, 0.21);
+    @media screen and (min-width: $desktop-min){
+      position: absolute;
+      top: calc(100% + 20px);
+      bottom: auto;
+    }
+
   }
 
   &--bordered{
