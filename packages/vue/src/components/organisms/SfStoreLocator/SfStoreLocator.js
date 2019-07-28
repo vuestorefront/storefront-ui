@@ -8,7 +8,8 @@ export default {
   props: {
     tileServerUrl: {
       type: String,
-      default: "http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+      default:
+        "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
     },
     center: {
       type: [Array, Object],
@@ -17,6 +18,10 @@ export default {
     zoom: {
       type: Number,
       default: 6
+    },
+    maxZoom: {
+      type: Number,
+      default: 16
     },
     stores: {
       type: Array,
@@ -41,6 +46,10 @@ export default {
     markerOptions: {
       type: Object,
       default: () => ({})
+    },
+    flyToStoreZoom: {
+      type: Number,
+      default: 15
     }
   },
   data() {
@@ -73,7 +82,7 @@ export default {
   },
   methods: {
     mapReady(mapObject) {
-      mapObject.locate();
+      mapObject.locate({ timeout: 20000 });
     },
     locationFound(location) {
       this.userPosition = { ...location.latlng };
@@ -97,7 +106,7 @@ export default {
       return R * c * 1000;
     },
     centerOn(store) {
-      this.$refs.map.mapObject.flyTo(store.latlng);
+      this.$refs.map.mapObject.flyTo(store.latlng, this.flyToStoreZoom);
     }
   },
   async mounted() {
