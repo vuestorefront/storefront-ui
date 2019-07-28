@@ -11,6 +11,10 @@ export default {
       default:
         "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
     },
+    tileServerAttribution: {
+      type: String,
+      default: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ"
+    },
     center: {
       type: [Array, Object],
       default: () => [0, 0]
