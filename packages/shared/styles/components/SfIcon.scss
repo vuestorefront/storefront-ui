@@ -55,9 +55,8 @@ $sf-icon-colors : (
             --icon-size: #{$size};
         }
     }
-
-    :not(path) {
-        width: inherit;
-        height: inherit;
+    svg{
+      width: inherit;
+      height: inherit;
     }
 }

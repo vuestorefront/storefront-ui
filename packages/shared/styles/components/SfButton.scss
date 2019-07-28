@@ -9,9 +9,6 @@ $button-desktop-font-size           : 1.125rem !default;
 $button-mobile-padding              : 0.5rem 1.7rem !default;
 $button-mobile-font-size            : 0.75rem !default;
 
-$button--secondary-color            : $c-text-on-dark !default;
-$button--secondary-background-color : $c-dark-primary !default;
-
 .sf-button {
   padding: $button-mobile-padding;
   font-size: $button-mobile-font-size;
@@ -29,13 +26,6 @@ $button--secondary-background-color : $c-dark-primary !default;
   }
   &:hover {
     background-color: lighten($button-background-color, 5);
-  }
-  &--secondary {
-    color: $button--secondary-color;
-    background-color: $button--secondary-background-color; 
-    &:hover {
-      background-color: lighten($button--secondary-background-color, 5);
-    }
   }
   &--full-width {
     width: 100%;

@@ -1,4 +1,4 @@
-import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 export default {
   name: "SfMenuItem",
