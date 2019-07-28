@@ -35,9 +35,9 @@
       </div>
     </div>
     <div class="sf-store-locator__map-wrapper">
-      <l-map class="sf-store-locator__map-wrapper-map" v-if="loaded" ref="map" :center="center" :zoom="zoom" v-bind="mapOptions" @ready="mapReady" @locationfound="locationFound" @locationerror="locationError">
-        <l-tilelayer :url="tileServerUrl" v-bind="tileLayerOptions"  />
-        <l-marker v-for="(store, index) in parsedStores" :key="index" :lat-lng="store.latlng" v-bind="markerOptions"  >
+      <l-map class="sf-store-locator__map-wrapper-map" v-if="loaded" ref="map" v-bind="mapOptions" :center="center" :zoom="zoom" :max-zoom="maxZoom" @ready="mapReady" @locationfound="locationFound" @locationerror="locationError">
+        <l-tilelayer v-bind="tileLayerOptions" :url="tileServerUrl"  />
+        <l-marker v-for="(store, index) in parsedStores" :key="index"  v-bind="markerOptions" :lat-lng="store.latlng">
           <l-icon :icon-size="markerIconSize" :icon-anchor="markerIconAnchor">
             <slot name="marker-icon" >
               <sf-icon path="marker" />
