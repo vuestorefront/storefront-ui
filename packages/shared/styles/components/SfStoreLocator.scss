@@ -10,16 +10,44 @@
 
   &__wrapper {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column-reverse nowrap;
     justify-content: flex-start;
     align-items: flex-start;
+
+    @media screen and (min-width: $desktop-min) {
+      flex-flow: row nowrap;
+
+      .sf-divider:first-of-type {
+        margin-top: 0;
+        max-width: 100%;
+      }
+    }
   }
 
+
   &__list {
-    width: 33%;
-    max-width: 26.25rem;
-    padding-top: 0.625rem;
-    border-top: 1px solid $c-light-primary;
+    width: 100%;
+
+    .sf-divider {
+      max-width: 230px;
+      margin: 7px 0 7px auto;
+    }
+    .sf-store-locator__first-divider .sf-divider {
+      max-width: 100%;
+      margin: 8px 0;
+    }
+
+    @media screen and (min-width: $desktop-min) {
+      width: 33%;
+      max-width: 26.25rem;
+
+      .sf-divider {
+        max-width: 100%;  
+      }
+      .sf-store-locator__first-divider .sf-divider {
+        margin-top: 0;
+      }
+    }
 
     &-item {
       display: flex;
@@ -39,13 +67,32 @@
       &-info {
         flex: 1;
 
-        &-name {
-          font-size: $font-size-regular-desktop;
-          color: $c-dark-primary;
-          margin-bottom: 0.625rem;
-          font-family: $body-font-family-secondary;
-          font-weight: $h1-font-weight-desktop;
+        &-heading {
+
+          @media screen and (min-width: $desktop-min) {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+          }
+
+          &-name {
+            font-size: $font-size-regular-desktop;
+            color: $c-dark-primary;
+            font-family: $body-font-family-secondary;
+            font-weight: $h1-font-weight-desktop;
+          }
+
+          &-distance {
+            color: $c-gray-secondary;
+            span {
+              color: $c-dark-primary;
+            }
+            @media screen and (min-width: $desktop-min) {
+              width: 80px;
+            }
+          }
         }
+
 
         &-address {
           color: $c-gray-secondary;
@@ -66,21 +113,22 @@
           }
         }
       }
-      &-distance {
-        width: 70px;
-        color: $c-gray-secondary;
-        span {
-          color: $c-dark-primary;
-        }
-      }
     }
   }
   &__map-wrapper {
-    width: 66%;
-    max-width: 43.75rem;
+      width: 100%;
+
+    @media screen and (min-width: $desktop-min) {
+      width: 66%;
+      max-width: 43.75rem;
+    }
 
     &-map {
-      min-height: 550px;
+      min-height: 430px;
+
+      @media screen and (min-width: $desktop-min) {
+        min-height: 550px;
+      }
     }
   }
 }
