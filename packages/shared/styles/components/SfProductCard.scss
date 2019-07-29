@@ -61,10 +61,16 @@ $product__image-blend-mode:       darken !default;
     margin: 10px;
     padding: 0;
     cursor: pointer;
+    visibility: visible;
     outline: none;
     background: transparent;
     border: none;
-    fill: $c-pink-primary
+
+    @media (min-width: $desktop-min) {
+      &:not(.__on-wishlist) {
+        visibility: hidden;
+      }
+    }
   }
 
   &:hover {

@@ -85,6 +85,11 @@ export default {
     },
     ariaLabel() {
       return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
+    },
+    wishlistIconClasses() {
+      const defaultClass = "sf-product-card__wishlist-icon";
+
+      return `${defaultClass} ${this.isOnWishlist ? "__on-wishlist" : ""}`;
     }
   },
   methods: {

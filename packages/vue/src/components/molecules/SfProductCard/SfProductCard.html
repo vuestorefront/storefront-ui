@@ -1,5 +1,9 @@
 <div class="sf-product-card">
-  <button v-if="wishlistIcon !== false" :aria-label="ariaLabel" @click="toggleOnWishlist" class="sf-product-card__wishlist-icon">
+  <button 
+    v-if="wishlistIcon !== false" 
+    :aria-label="ariaLabel" 
+    @click="toggleOnWishlist"  
+    :class="wishlistIconClasses">
     <slot name="wishlist-icon">
       <sf-icon :path="currentWishlistIcon" color="black" rsize="sm" data-test="sf-wishlist-icon"/>
     </slot>
