@@ -1,17 +1,16 @@
-<div class="sf-sf-add-to-cart">
-  <SfButton v-on="$listeners">
-    Add to cart
+<div class="sf-add-to-cart">
+  <SfButton v-on="$listeners" class="sf-add-to-cart__button">
+    <!--@slot Custom content that will replace default Add to cart button design.-->
+    <slot name="add-to-cart-btn">
+      Add to cart
+      </slot>
   </SfButton>
-  <SfSelect v-model="quantity">
-    <SfSelectOption value="1">
-      <div>1</div>
-    </SfSelectOption>
-    <SfSelectOption value="2">
-      <div>2</div>
-      </SfSelectOption>
-      <SfSelectOption value="3">
-    
-    <div>3</div>
+  <SfSelect :selected="qty" v-on:change="$emit('input', $event)" class="sf-add-to-cart__select-quantity">
+    <SfSelectOption v-for="value in quantity" :value="value.toString()" :key="value">
+      <!--@slot Custom content that will replace default quantity select option design.-->
+      <slot name="quantity-select-option" v-bind="{ value }">
+        <div class="sf-add-to-cart__select-option">{{value}}</div>
+      </slot>
     </SfSelectOption>
   </SfSelect>
 </div>

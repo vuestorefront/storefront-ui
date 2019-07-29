@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, number, select, text } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfAddToCart from "./SfAddToCart.vue";
@@ -14,7 +14,25 @@ const scssTableConfig = {
 // use this to document events
 const eventsTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [["input", "event emited when option is selected"]]
+  tableBodyConfig: [
+    ["click", "event triggered when Add To Cart button is clicked"]
+  ]
+};
+
+const cssTableConfig = {
+  tableHeadConfig: ["NAME", "DESCRIPTION"],
+  tableBodyConfig: [
+    [".sf-add-to-cart", "to set blue color for alert message"],
+    [
+      ".sf-add-to-cart__select-quantity",
+      "to set styles of quantity select button"
+    ],
+    [
+      ".sf-add-to-cart__select-option",
+      "to set styles of each dropdown option of quantity for selection"
+    ],
+    [".sf-add-to-cart__button", "to set styles of add to cart button"]
+  ]
 };
 
 storiesOf("Molecules|AddToCart", module)
@@ -24,25 +42,32 @@ storiesOf("Molecules|AddToCart", module)
     () => ({
       data() {
         return {
-          selected: "1"
+          qty: "1"
         };
+      },
+      methods: {
+        addToCart() {
+          console.log(this.qty);
+        }
       },
       props: {
         quantity: {
-          default: text("1")
+          default: number("quantity (prop)", 3)
         }
       },
       components: { SfAddToCart },
       template: `<SfAddToCart 
         :quantity="quantity"
+        @click="addToCart"
+        v-model="qty"
       />`
     }),
     {
       info: {
-        summary: `<p>Component description.</p>
+        summary: `<p>Component for selecting quantity and add a product to cart.</p>
        <h2>Usage</h2>
        <pre><code>import { SfAddToCart } from "@storefrontui/vue"</code></pre>
-       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+       ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
        ${generateStorybookTable(eventsTableConfig, "Events")}`
       }
     }

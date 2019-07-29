@@ -1,12 +1,26 @@
 @import '../variables';
 
-// $component__block-property: value;
+.sf-add-to-cart {
+  display: flex;
 
-.sf-sf-add-to-cart {
-  &__element {
+  &__select-quantity {
+    margin-left: 0.5rem;
 
+    .sf-select-option {
+      padding: 0.5rem 1.15rem 0.5rem 0.5rem;
+
+      &:not(.sf-select-option--active) {
+        border: 1px solid $c-light-primary;
+      }
+    }
+
+    .sf-select__options {
+      top: 100%;
+    }
   }
-  &--modifier {
 
+  &__select-option {
+    margin: 0.5rem 1.5rem 0.5rem 0.75rem;
+    font-size: $font-size-big-desktop;
   }
 }
