@@ -1,1 +1,17 @@
-<div class="sf-sf-add-to-cart"></div>
+<div class="sf-sf-add-to-cart">
+  <SfButton v-on="$listeners">
+    Add to cart
+  </SfButton>
+  <SfSelect v-model="quantity">
+    <SfSelectOption value="1">
+      <div>1</div>
+    </SfSelectOption>
+    <SfSelectOption value="2">
+      <div>2</div>
+      </SfSelectOption>
+      <SfSelectOption value="3">
+    
+    <div>3</div>
+    </SfSelectOption>
+  </SfSelect>
+</div>

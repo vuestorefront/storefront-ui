@@ -17,37 +17,33 @@ const eventsTableConfig = {
   tableBodyConfig: [["input", "event emited when option is selected"]]
 };
 
-// storiesOf("Molecules|SfAddToCart", module)
-//   .addDecorator(withKnobs)
-//   .add(
-//     "[slot] default",
-//     () => ({
-//       props: {
-//         editableProp: {
-//           default: text("(prop) propname")
-//         },
-//         customClass: {
-//           default: select(
-//             "CSS Modifier",
-//             ["null", "sf-sf-add-to-cart--modifier"],
-//             "null",
-//             "CSS-Modifiers"
-//           )
-//         }
-//       },
-//       components: { SfAddToCart },
-//       template: `<SfAddToCart
-//         :class="customClass"
-//       >
-//       </SfAddToCart>`
-//     }),
-//     {
-//       info: {
-//         summary: `<p>Component description.</p>
-//        <h2>Usage</h2>
-//        <pre><code>import { SfAddToCart } from "@storefrontui/vue"</code></pre>
-//        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-//        ${generateStorybookTable(eventsTableConfig, "Events")}`
-//       }
-//     }
-//   );
+storiesOf("Molecules|AddToCart", module)
+  .addDecorator(withKnobs)
+  .add(
+    "Basic",
+    () => ({
+      data() {
+        return {
+          selected: "1"
+        };
+      },
+      props: {
+        quantity: {
+          default: text("1")
+        }
+      },
+      components: { SfAddToCart },
+      template: `<SfAddToCart 
+        :quantity="quantity"
+      />`
+    }),
+    {
+      info: {
+        summary: `<p>Component description.</p>
+       <h2>Usage</h2>
+       <pre><code>import { SfAddToCart } from "@storefrontui/vue"</code></pre>
+       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+       ${generateStorybookTable(eventsTableConfig, "Events")}`
+      }
+    }
+  );
