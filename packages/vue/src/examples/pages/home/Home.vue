@@ -67,8 +67,8 @@
           <SfProductCard
             :title="product.title"
             :image="product.image"
-            :price="product.price"
-            :rating="product.rating"
+            :regular-price="product.price.regular"
+            :rating="product.rating.score"
             class="product-card"
           />
         </SfCarouselItem>
@@ -180,49 +180,49 @@ export default {
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
-          price: { regularPrice: "50.00 $" },
+          price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
-          price: { regularPrice: "50.00 $" },
+          price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
-          price: { regularPrice: "50.00 $" },
+          price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
-          price: { regularPrice: "50.00 $" },
+          price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
-          price: { regularPrice: "50.00 $" },
+          price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
-          price: { regularPrice: "50.00 $" },
+          price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
-          price: { regularPrice: "50.00 $" },
+          price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 }
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
-          price: { regularPrice: "50.00 $" },
+          price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 }
         }
       ]
