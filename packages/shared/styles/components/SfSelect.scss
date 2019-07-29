@@ -1,6 +1,6 @@
 @import '../variables';
 
-$select-color-primary: $c-green-primary !default;
+$select-color-primary: $c-light-primary !default;
 $select-color-secondary: $c-light-primary !default;
 
 $select-font-size: $font-size-big-mobile !default;
@@ -8,8 +8,8 @@ $select-font-family: $body-font-family-secondary !default;
 
 $select-option-padding: 0.75rem 1.875rem;
 
-$select-color-primary: $c-green-primary;
-$select-color-secondary: $c-light-primary;
+//$select-color-primary: $c-green-primary;
+//$select-color-secondary: $c-light-primary;
 
 $select-option-font-size: $font-size-big-mobile;
 $select-option-font-family: $body-font-family-secondary;
@@ -20,7 +20,7 @@ $select-option-font-family: $body-font-family-secondary;
   padding: $select-option-padding;
   user-select: none;
   &--active{
-    color: #FFF;
+    //color: #FFF;
     background-color: $select-color-primary;
   }
   &:hover{
@@ -66,14 +66,14 @@ $select-option-font-family: $body-font-family-secondary;
   &--bordered{
 
     .sf-select__selected{
-      border: 1px solid $select-color-secondary;
+      border: 1px solid $select-color-primary;
     }
   }
 
   &--underlined{
 
     .sf-select__selected{
-      border-bottom: 1px solid $select-color-secondary;
+      border-bottom: 1px solid $select-color-primary;
     }
   }
 }
