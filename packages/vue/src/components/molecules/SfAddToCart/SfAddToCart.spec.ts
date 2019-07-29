@@ -4,6 +4,6 @@ import SfAddToCart from "@/components/molecules/SfAddToCart.vue";
 describe("SfAddToCart.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfAddToCart);
-    expect(component.contains(".sf-sf-add-to-cart")).toBe(true);
+    expect(component.contains("[data-test='sf-add-to-card']")).toBe(true);
   });
 });

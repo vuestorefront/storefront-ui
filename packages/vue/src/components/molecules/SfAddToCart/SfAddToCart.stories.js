@@ -4,12 +4,7 @@ import { withKnobs, number, select, text } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfAddToCart from "./SfAddToCart.vue";
-
-// use this to document scss vars
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [["$component-size", "1.438rem", "size of checkmark"]]
-};
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 // use this to document events
 const eventsTableConfig = {
@@ -69,6 +64,81 @@ storiesOf("Molecules|AddToCart", module)
        <pre><code>import { SfAddToCart } from "@storefrontui/vue"</code></pre>
        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
        ${generateStorybookTable(eventsTableConfig, "Events")}`
+      }
+    }
+  )
+  .add(
+    "[slot] Add to cart Button",
+    () => ({
+      components: { SfAddToCart },
+      data() {
+        return {
+          qty: "1"
+        };
+      },
+      methods: {
+        addToCart() {
+          console.log(this.qty);
+        }
+      },
+      props: {
+        quantity: {
+          default: number("quantity (prop)", 3)
+        }
+      },
+      template: `
+      <SfAddToCart 
+        :quantity="quantity"
+        @click="addToCart"
+        v-model="qty">
+        <template slot="add-to-cart-btn">
+          <img src="assets/storybook/doge.svg" style="height: 25px; margin-right: 10px;"/>
+        </template>
+      </SfAddToCart>
+    `
+    }),
+    {
+      info: true,
+      knobs: {
+        escapeHTML: false
+      }
+    }
+  )
+  .add(
+    "[slot] Quantity Option",
+    () => ({
+      components: { SfAddToCart, SfIcon },
+      data() {
+        return {
+          qty: "1"
+        };
+      },
+      methods: {
+        addToCart() {
+          console.log(this.qty);
+        }
+      },
+      props: {
+        quantity: {
+          default: number("quantity (prop)", 3)
+        }
+      },
+      template: `
+      <SfAddToCart 
+        :quantity="quantity"
+        @click="addToCart"
+        v-model="qty">
+        <template slot="quantity-select-option" slot-scope="{ value }">
+          <sf-icon path="heart_fill" color="pink-primary"/>
+          <div class="sf-add-to-cart__select-option">{{value}}</div>
+        </template>
+      </SfAddToCart>
+    `
+    }),
+    {
+      info: true,
+      knobs: {
+        escapeHTML: false
       }
     }
   );
