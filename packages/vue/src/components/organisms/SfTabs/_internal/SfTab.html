@@ -1,0 +1,14 @@
+  <Fragment>
+    <transition name="slide-left" mode="out-in">
+      <div class="tabs__title" @click="tabClick" :class="{'tabs__title--active': tab.isActive}">
+        {{tab.title}}
+        <div class="tabs__chevron">
+          <SfChevron size="20px" :isActive="tab.isActive" />
+        </div>
+      </div>
+    </transition>
+
+    <div class="tabs__content">
+      <p>{{tab.content}}</p>
+    </div>
+  </Fragment>

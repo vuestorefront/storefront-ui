@@ -2,11 +2,13 @@ import {
   Fragment
 } from 'vue-fragment'
 
+import SfChevron from '../../../atoms/SfChevron/SfChevron.vue'
+
 export default {
   name: 'Sftab',
-  // inject: ["sharedState"],
   components: {
-    Fragment
+    Fragment,
+    SfChevron
   },
   props: {
     tab: {
@@ -23,12 +25,4 @@ export default {
       this.$emit('tabClick', this.index)
     }
   },
-  // computed: {
-  //   isActive() {
-  //     return this.valueComputed === this.sharedState.activeTabValue;
-  //   },
-  //   valueComputed() {
-  //     return this.value || this._uid;
-  //   }
-  // }
 }

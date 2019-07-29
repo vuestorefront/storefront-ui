@@ -1,8 +1,8 @@
-<div>
-    <!--@slot slot for replacing default navigation with custom one -->
-    <slot name="navigation">
-        <SfTabsNavigation/>
+<div class="tabs">
+  <slot>
+    <div class="tabs__border"></div>
+    <slot name="tabs">
+      <SfTab v-for="(tab, index) in tabs" :key="index" :tab="tab" @tabClick="activate(index)" :index="index" />
     </slot>
-    <!--@slot slot for Tabs -->
-    <slot/>
+  </slot>
 </div>
