@@ -29,31 +29,33 @@ storiesOf("Molecules|Select", module)
       },
       template: `
       <div>
-        <p><b>Selected: {{selected}}</b></p>
         <div style="max-width: 509px">
           <SfSelect v-model="selected" :class="customClass">
             <SfSelectOption value="xs">
-              <SfProductOption label="XS"/>
+              XS
             </SfSelectOption>
             <SfSelectOption value="s">
-              <SfProductOption label="S"/>
+              S
             </SfSelectOption>
             <SfSelectOption value="m">
-              <SfProductOption label="M"/>
+              M
             </SfSelectOption>
             <SfSelectOption value="l">
-              <SfProductOption label="L"/>
+              L
             </SfSelectOption>
             <SfSelectOption value="xl">
-              <SfProductOption label="XL"/>
+              XL
             </SfSelectOption>
             <SfSelectOption value="xxl">
-              <SfProductOption label="XXL"/>
+              XXL
             </SfSelectOption>
           </SfSelect>
         </div>
       </div>
-      `
+      `,
+      mounted: function(){
+        document.body.style="background: #F1F2F4; height: 100%";
+      }
     }),
     {
       info: true,
