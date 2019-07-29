@@ -14,7 +14,7 @@ storiesOf("Molecules|Select", module)
     () => ({
       data() {
         return {
-          selected: "amber"
+          selected: "s"
         };
       },
       components: { SfSelect, SfProductOption },
@@ -32,23 +32,23 @@ storiesOf("Molecules|Select", module)
         <p><b>Selected: {{selected}}</b></p>
         <div style="max-width: 509px">
           <SfSelect v-model="selected" :class="customClass">
-            <SfSelectOption value="amaranth">
-              <SfProductOption color="#E52B50" label="Amaranth"/>
+            <SfSelectOption value="xs">
+              <SfProductOption label="XS"/>
             </SfSelectOption>
-            <SfSelectOption value="amber">
-              <SfProductOption color="#FFBF00" label="Amber"/>
+            <SfSelectOption value="s">
+              <SfProductOption label="S"/>
             </SfSelectOption>
-            <SfSelectOption value="arctic-lime">
-              <SfProductOption color="#D0FF14" label="Arctic lime"/>
+            <SfSelectOption value="m">
+              <SfProductOption label="M"/>
             </SfSelectOption>
-            <SfSelectOption value="bluetiful">
-              <SfProductOption color="#3C69E7" label="Bluetiful"/>
+            <SfSelectOption value="l">
+              <SfProductOption label="L"/>
             </SfSelectOption>
-            <SfSelectOption value="brilliant-rose">
-              <SfProductOption color="#FF55A3" label="Brilliant rose"/>
+            <SfSelectOption value="xl">
+              <SfProductOption label="XL"/>
             </SfSelectOption>
-            <SfSelectOption value="buff">
-              <SfProductOption color="#F0DC82" label="Buff"/>
+            <SfSelectOption value="xxl">
+              <SfProductOption label="XXL"/>
             </SfSelectOption>
           </SfSelect>
         </div>
