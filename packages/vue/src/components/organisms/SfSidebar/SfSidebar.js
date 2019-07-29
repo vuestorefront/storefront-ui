@@ -32,10 +32,10 @@ export default {
     visible: {
       handler: value => {
         if (value && typeof window !== "undefined") {
-          window.document.querySelector("body").style.overflow = "hidden";
+          document.body.style.setProperty("overflow", "hidden");
         }
         if (!value && typeof window !== "undefined") {
-          window.document.querySelector("body").style.overflow = "visible";
+          document.body.style.removeProperty("overflow");
         }
       },
       immediate: true
