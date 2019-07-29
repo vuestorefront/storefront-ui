@@ -62,7 +62,7 @@ storiesOf("Molecules|ProductCard", module)
           default: number("maxRating (prop)", 4)
         },
         wishlistIcon: {
-          default: select("wishlistIcon (prop)", [false, "heart"])
+          default: select("wishlistIcon (prop)", [false, "heart"], "heart")
         },
         isOnWishlist: {
           default: boolean("isOnWishlist (prop)", false)
