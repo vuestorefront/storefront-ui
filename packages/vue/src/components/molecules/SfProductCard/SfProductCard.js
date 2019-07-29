@@ -54,7 +54,7 @@ export default {
      * It can be a icon name from our icons list, or array or string as SVG path(s).
      */
     wishlistIcon: {
-      type: [String, Array],
+      type: [String, Array, Boolean],
       default: "heart"
     },
     /**
@@ -62,23 +62,16 @@ export default {
      * This is the icon for product added to wish list. Default visible on mobile. Visible only on hover on desktop.
      * It can be a icon name from our icons list, or array or string as SVG path(s).
      */
-    onWishlistIcon: {
+    isOnWishlistIcon: {
       type: [String, Array],
       default: "heart_fill"
     },
     /**
      * Status of whether product is on wish list or not
      */
-    onWishlist: {
+    isOnWishlist: {
       type: [Boolean],
       default: false
-    },
-    /**
-     * Custom color of the wish list icon, can be HEX, RGB or any color in our colors list for SfIcon.
-     * By default it will be black.``
-     */
-    onWishlistColor: {
-      type: String
     }
   },
   components: {
@@ -88,15 +81,15 @@ export default {
   },
   computed: {
     currentWishlistIcon() {
-      return this.onWishlist ? this.onWishlistIcon : this.wishlistIcon;
+      return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
     },
     ariaLabel() {
-      return this.onWishlist ? "Remove from wishlist" : "Add to wishlist";
+      return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
     }
   },
   methods: {
     toggleOnWishlist() {
-      this.$emit("click:wishlist", !this.onWishlist);
+      this.$emit("click:wishlist", !this.isOnWishlist);
     }
   }
 };

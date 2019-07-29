@@ -61,14 +61,10 @@ $product__image-blend-mode:       darken !default;
     margin: 10px;
     padding: 0;
     cursor: pointer;
-    visibility: visible;
     outline: none;
     background: transparent;
     border: none;
-
-    @media (min-width: $desktop-min) {
-      visibility: hidden;
-    }
+    fill: $c-pink-primary
   }
 
   &:hover {

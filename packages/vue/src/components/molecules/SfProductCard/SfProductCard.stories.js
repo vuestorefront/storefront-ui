@@ -1,7 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { generateStorybookTable } from "@/helpers";
-import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  boolean,
+  number,
+  select
+} from "@storybook/addon-knobs";
 import SfProductCard from "./SfProductCard.vue";
 
 const scssTableConfig = {
@@ -34,7 +40,7 @@ const scssTableConfig = {
 storiesOf("Molecules|ProductCard", module)
   .addDecorator(withKnobs)
   .add(
-    "Template",
+    "Basic",
     () => ({
       props: {
         image: {
@@ -56,16 +62,13 @@ storiesOf("Molecules|ProductCard", module)
           default: number("maxRating (prop)", 4)
         },
         wishlistIcon: {
-          default: text("wishlistIcon (prop)", "heart")
+          default: select("wishlistIcon (prop)", [false, "heart"])
         },
-        onWishlist: {
-          default: boolean("onWishlist (prop)", false)
+        isOnWishlist: {
+          default: boolean("isOnWishlist (prop)", false)
         },
-        onWishlistIcon: {
-          default: text("onWishlistIcon (prop)", "heart_fill")
-        },
-        onWishlistColor: {
-          default: text("onWishlistColor (prop)", "pink-primary")
+        isOnWishlistIcon: {
+          default: text("isOnWishlistIcon (prop)", "heart_fill")
         }
       },
       components: { SfProductCard },
@@ -77,9 +80,8 @@ storiesOf("Molecules|ProductCard", module)
         :rating="rating"
         :max-rating="maxRating"
         :wishlistIcon="wishlistIcon"
-        :onWishlistIcon="onWishlistIcon"
-        :onWishlistColor="onWishlistColor"
-        :onWishlist="onWishlist"
+        :isOnWishlistIcon="isOnWishlistIcon"
+        :isOnWishlist="isOnWishlist"
       />`
     }),
     {
