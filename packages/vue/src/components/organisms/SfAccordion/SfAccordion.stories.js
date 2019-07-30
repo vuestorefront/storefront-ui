@@ -158,7 +158,7 @@ storiesOf("Organisms|Accordion", module)
           :multiple="multiple"
           :firstOpen="firstOpen"
           :showChevron="showChevron">
-          <template v-slot:items="{selected}">
+          <template v-slot="{selected}">
             <SfAccordionItem :selected="selected" :contentItems="contentItemsOne">
               <template v-slot:header="{isOpen}">
                 <div :style="headerStyle">
