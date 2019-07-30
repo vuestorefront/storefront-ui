@@ -95,111 +95,8 @@ storiesOf("Organisms|Hero", module)
     "Basic",
     () => ({
       components: { SfHero },
-      props: {
-        customClass_1: {
-          default: options(
-            "CSS Modifier for 1st item",
-            {
-              null: "null",
-              "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
-              "bg-top-right": "sf-hero-item--position-bg-top-right",
-              "bg-top-left": "sf-hero-item--position-bg-top-left",
-              "align-right": "sf-hero-item--align-right"
-            },
-            "sf-hero-item--position-bg-top-right",
-            { display: "multi-select" }
-          )
-        },
-        customClass_2: {
-          default: options(
-            "CSS Modifier for 2nd item",
-            {
-              null: "null",
-              "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
-              "bg-top-right": "sf-hero-item--position-bg-top-right",
-              "bg-top-left": "sf-hero-item--position-bg-top-left",
-              "align-right": "sf-hero-item--align-right"
-            },
-            "sf-hero-item--position-bg-bottom-left sf-hero-item--align-right",
-            { display: "multi-select" }
-          )
-        },
-        customClass_3: {
-          default: options(
-            "CSS Modifier for 3rd item",
-            {
-              null: "null",
-              "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
-              "bg-top-right": "sf-hero-item--position-bg-top-right",
-              "bg-top-left": "sf-hero-item--position-bg-top-left",
-              "align-right": "sf-hero-item--align-right"
-            },
-            "null",
-            { display: "multi-select" }
-          )
-        }
-      },
-      template: `<SfHero>
-        <SfHeroItem 
-          title="Colorful summer dresses are already in store"
-          subtitle="SUMMER COLLECTION 2019"
-          buttonText="Learn more"
-          background="#eceff1"
-          image="https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
-          :class="customClass_1"
-        ></SfHeroItem>
-        <SfHeroItem 
-          title="Colorful summer dresses are already in store"
-          subtitle="SUMMER COLLECTION 2019"
-          buttonText="Learn more"
-          background="#efebe9"
-          image="assets/storybook/Banner1.png"
-          :class="customClass_2"
-        ></SfHeroItem>
-        <SfHeroItem 
-          title="Colorful summer dresses are already in store"
-          subtitle="SUMMER COLLECTION 2019"
-          buttonText="Learn more"
-          background="#fce4ec"
-          image="assets/storybook/Banner2.png"
-          :class="customClass_3"
-        ></SfHeroItem>
-      </SfHero>`
-    }),
-    {
-      info: {
-        summary: `
-        <h2>Description</h2>
-        <p>
-          Swappable gallery for large web banner images.
-          <br><br>
-          This story shows how to use it with <code>slots</code>.
-          <br><br>
-          You passes any number of <code>&lt;SfHeroItem&gt;</code> with the optional <code>props</code> as below:
-          <br><br>
-          <code>
-          title?: string,<br>
-          buttonText?: string,<br>
-          subtitle?: string,<br>
-          background?: string,<br>
-          image?: string,<br>
-          </code>
-          <br><br>
-        </p>
-        <h2>Usage</h2>
-        <pre><code>import { SfHero } from "@storefrontui/vue/dist/SfHero.vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
-      }
-    }
-  )
-  .add(
-    "[props] items",
-    () => ({
-      components: { SfHero },
       data,
-      template: `<SfHero :items="items">
-        </SfHero>`
+      template: `<SfHero :items="items"/>`
     }),
     {
       info: {
@@ -224,7 +121,7 @@ storiesOf("Organisms|Hero", module)
             ];
           </code>
           <br><br>
-          
+
           This example uses below items props:<br><br>
           <code>
           items: [<br>
@@ -281,17 +178,110 @@ storiesOf("Organisms|Hero", module)
     }
   )
   .add(
+    "[slot] items",
+    () => ({
+      data,
+      components: { SfHero },
+      props: {
+        customClass1: {
+          default: options(
+            "CSS Modifier for 1st item",
+            {
+              null: "null",
+              "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
+              "bg-top-right": "sf-hero-item--position-bg-top-right",
+              "bg-top-left": "sf-hero-item--position-bg-top-left",
+              "align-right": "sf-hero-item--align-right"
+            },
+            "sf-hero-item--position-bg-top-right",
+            { display: "multi-select" }
+          )
+        },
+        customClass2: {
+          default: options(
+            "CSS Modifier for 2nd item",
+            {
+              null: "null",
+              "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
+              "bg-top-right": "sf-hero-item--position-bg-top-right",
+              "bg-top-left": "sf-hero-item--position-bg-top-left",
+              "align-right": "sf-hero-item--align-right"
+            },
+            "sf-hero-item--position-bg-bottom-left sf-hero-item--align-right",
+            { display: "multi-select" }
+          )
+        },
+        customClass3: {
+          default: options(
+            "CSS Modifier for 3rd item",
+            {
+              null: "null",
+              "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
+              "bg-top-right": "sf-hero-item--position-bg-top-right",
+              "bg-top-left": "sf-hero-item--position-bg-top-left",
+              "align-right": "sf-hero-item--align-right"
+            },
+            "null",
+            { display: "multi-select" }
+          )
+        }
+      },
+      template: `<SfHero :items="items">
+        <template v-slot:item="{ item, index }">
+          <SfHeroItem
+            :title="item.title"
+            :subtitle="item.subtitle"
+            :buttonText="item.buttonText"
+            background="#C8F3F3"
+            :image="item.image"
+            :class="index === 0 ? customClass1 : index === 1 ? customClass2 : customClass3"
+          />
+        </template>
+      </SfHero>`
+    }),
+    {
+      info: {
+        summary: `
+        <h2>Description</h2>
+        <p>
+          Swappable gallery for large web banner images.
+          <br><br>
+          This story shows how to use it with <code>slots</code>.
+          <br><br>
+          You passes any number of <code>&lt;SfHeroItem&gt;</code> with the optional <code>props</code> as below:
+          <br><br>
+          <code>
+          title?: string,<br>
+          buttonText?: string,<br>
+          subtitle?: string,<br>
+          background?: string,<br>
+          image?: string,<br>
+          </code>
+          <br><br>
+        </p>
+        <h2>Usage</h2>
+        <pre><code>import { SfHero } from "@storefrontui/vue/dist/SfHero.vue"</code></pre>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+        `
+      }
+    }
+  )
+  .add(
     "[slot] controls icons",
     () => ({
       components: { SfHero },
       data,
       template: `
       <SfHero :items="items">
-        <template #prev>
-          <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">&lt; PREV</span>
+        <template v-slot:prev="{ go }">
+          <div @click="go">
+            <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">&lt; PREV</span>
+          </div>
         </template>
-        <template #next>
-          <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">NEXT &gt;</span>
+        <template v-slot:next="{ go }">
+          <div @click="go">
+            <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">NEXT &gt;</span>
+          </div>
         </template>
       </SfHero>`
     }),
@@ -311,11 +301,17 @@ storiesOf("Organisms|Hero", module)
       data,
       template: `
       <SfHero :items="items">
-        <template #inactive>
-          <span style="margin: 3px; cursor: pointer;">O</span>
-        </template>
-        <template #active>
-          <span style="margin: 3px; cursor: pointer;">X</span>
+        <template v-slot:bullets="{ numberOfPages, page, go }">
+          <span v-for="n in numberOfPages">
+            <span @click="go(n - 1)" style="margin-right: 5px">
+              <template v-if="page === n">
+                &lt; {{ n }} &gt;
+              </template>
+              <template v-else>
+                {{ n }}
+              </template>
+            </span>
+          </span>
         </template>
       </SfHero>`
     }),
