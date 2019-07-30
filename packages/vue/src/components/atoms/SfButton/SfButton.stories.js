@@ -9,26 +9,14 @@ import SfButton from "./SfButton.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    [
-      "$button-color",
-      "$c-text-on-dark",
-      "Default button text color"
-    ],
+    ["$button-color", "$c-text-on-dark", "Default button text color"],
     [
       "$button-background-color",
       "$c-green-primary",
       "Default button background color"
     ],
-    [
-      "$button-border-radius",
-      "0",
-      "Button border radius"
-    ],
-    [
-      "$button-text-transform",
-      "uppercase",
-      "Transform button text"
-    ],
+    ["$button-border-radius", "0", "Button border radius"],
+    ["$button-text-transform", "uppercase", "Transform button text"],
     [
       "$button-desktop-padding",
       "0.9375rem 2.5rem",

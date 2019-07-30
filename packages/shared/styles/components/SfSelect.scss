@@ -22,15 +22,6 @@ $select-option-font-family: $body-font-family-secondary;
   &--active{
     color: #FFF;
     background-color: $select-color-primary;
-    &:after{
-      flex: 0 0 7px;
-      height: 14px;
-      margin-left: auto;
-      border: 0px solid #FFF;
-      border-width: 0px 2px 2px 0px;
-      transform: rotate(45deg) translateX(calc(-7px / 2));
-      content: "";
-    }
   }
   &:hover{
     outline: 1px solid $select-color-primary;
@@ -40,7 +31,7 @@ $select-option-font-family: $body-font-family-secondary;
 .sf-select {
   position: relative;
   user-select: none;
-
+  white-space: nowrap;
   &:focus{
     outline: 0;
   }

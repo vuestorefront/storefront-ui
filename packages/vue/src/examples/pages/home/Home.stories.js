@@ -11,13 +11,13 @@ storiesOf("Examples|Pages|Home", module)
     () => ({
       components: { Home },
       template: `
-      <Home />
+      <Home/>
     `
     }),
     {
       info: {
         summary:
-          "Check https://github.com/DivanteLtd/storefront-ui/blob/master/src/examples/pages/category/Home.vue to see full code"
+          "Check https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/examples/pages/home/Home.vue to see full code"
       }
     }
   );
