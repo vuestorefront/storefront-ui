@@ -248,7 +248,7 @@ storiesOf("Organisms|Accordion", module)
       template: `
       <div style="width: 300px; padding: 1rem;">
         <SfAccordion :multiple="multiple" :firstOpen="firstOpen">
-          <template #items>
+          <template>
             <SfAccordionItem :header="headerOne">
               <template #content>
                 <div v-for="item of contentItemsOne" :style="contentStyle">{{item.text}}</div>
