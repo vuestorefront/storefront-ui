@@ -235,7 +235,7 @@ import {
   SfPagination,
   SfAccordion,
   SfSelect
-} from "@storefrontui/vue";
+} from "../../../../index.js";
 
 export default {
   data() {
