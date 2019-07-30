@@ -71,6 +71,8 @@ export default {
       indexes = {};
     let i = 0;
 
+    if (!this.$slots.default) return;
+
     this.$on("update", this.update);
 
     this.$slots.default.forEach(slot => {

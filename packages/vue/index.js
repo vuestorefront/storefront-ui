@@ -30,6 +30,7 @@ import SfRadio from "./src/components/molecules/SfRadio/SfRadio.vue";
 import SfSection from "./src/components/molecules/SfSection/SfSection.vue";
 import SfSelect from "./src/components/molecules/SfSelect/SfSelect.vue";
 import SfSticky from "./src/components/molecules/SfSticky/SfSticky.vue";
+import SfImage from "./src/components/molecules/SfImage/SfImage.vue";
 
 import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.vue";
 import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.vue";
@@ -38,6 +39,7 @@ import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.vue";
 import SfSidebar from "./src/components/organisms/SfSidebar/SfSidebar.vue";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.vue";
 import SfHero from "./src/components/organisms/SfHero/SfHero.vue";
+import SfBannerGrid from "./src/components/organisms/SfBannerGrid/SfBannerGrid.vue";
 
 export {
   SfArrow,
@@ -76,5 +78,7 @@ export {
   SfList,
   SfMegaMenu,
   SfTopBar,
-  SfHero
+  SfHero,
+  SfImage,
+  SfBannerGrid
 };

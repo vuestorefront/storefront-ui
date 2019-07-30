@@ -2,19 +2,19 @@
 
 $sf-icon-sizes : (
     "xxs": 1rem,
-    "xs": 1.4rem, 
-    "sm": 1.625rem, 
-    "md": 1.8rem, 
-    "lg": 2rem, 
-    "xl": 2.2rem, 
-    "xxl": 2.5rem, 
-    "xl3": 2.8rem, 
+    "xs": 1.4rem,
+    "sm": 1.625rem,
+    "md": 1.8rem,
+    "lg": 2rem,
+    "xl": 2.2rem,
+    "xxl": 2.5rem,
+    "xl3": 2.8rem,
     "xl4": 3.25rem
 );
 $sf-icon-colors : (
-    "primary" : $c-green-primary, 
-    "secondary": $c-dark-primary, 
-    "white": $c-white, 
+    "primary" : $c-green-primary,
+    "secondary": $c-dark-primary,
+    "white": $c-white,
     "black": $c-black,
     "accent": $c-accent-secondary,
     "gray-primary": $c-gray-primary,
@@ -27,8 +27,8 @@ $sf-icon-colors : (
     "yellow-secondary": $c-yellow-secondary,
     "blue-primary": $c-blue-primary,
     "blue-secondary": $c-blue-secondary
-);       
-                            
+);
+
 .sf-icon {
     --icon-color: #{map-get($sf-icon-colors, "black")};
     --icon-size: #{map-get($sf-icon-sizes, "sm")};
@@ -37,7 +37,7 @@ $sf-icon-colors : (
     background-color: transparent;
     box-sizing: border-box;
     display: flex;
-    
+
     fill: var(--icon-color);
     width: var(--icon-size);
     height: var(--icon-size);
@@ -53,9 +53,8 @@ $sf-icon-colors : (
             --icon-size: #{$size};
         }
     }
-
-    :not(path) {
-        width: inherit;
-        height: inherit;
+    svg{
+      width: inherit;
+      height: inherit;
     }
 }

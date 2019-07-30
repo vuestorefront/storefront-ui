@@ -1,5 +1,5 @@
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 export default {
   name: "SfSidebar",
@@ -32,10 +32,10 @@ export default {
     visible: {
       handler: value => {
         if (value && typeof window !== "undefined") {
-          window.document.querySelector("body").style.overflow = "hidden";
+          document.body.style.setProperty("overflow", "hidden");
         }
         if (!value && typeof window !== "undefined") {
-          window.document.querySelector("body").style.overflow = "visible";
+          document.body.style.removeProperty("overflow");
         }
       },
       immediate: true
