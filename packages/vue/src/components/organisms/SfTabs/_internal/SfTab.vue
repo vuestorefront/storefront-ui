@@ -1,7 +1,5 @@
-<template lang="html" src="./SfTab.html">
-</template>
-<script src="./SfTab.js">
-</script>
+<template lang="html" src="./SfTab.html"> </template>
+<script src="./SfTab.js"></script>
 <style>
 /* @import '../../../../utilities/transitions/transitions.scss'; */
 .slide-left-enter-active {

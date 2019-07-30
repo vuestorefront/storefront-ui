@@ -1,8 +1,7 @@
-<div class="tabs">
-  <slot>
-    <div class="tabs__border"></div>
-    <slot name="tabs">
-      <SfTab v-for="(tab, index) in tabs" :key="index" :tab="tab" @tabClick="activate(index)" :index="index" />
-    </slot>
+<div class="sf-tabs">
+  <!--@slot Default. Slot content will replace SfTabs component-->
+  <slot v-bind="{tabs}">
+    <div class="sf-tabs__border"></div>
+    <SfTab v-for="(tab, index) in tabs" :key="index" :tab="tab" @tabClick="activate(index)" :index="index" />
   </slot>
 </div>

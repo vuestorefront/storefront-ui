@@ -13,7 +13,7 @@ $sf-tabs-title-color-active: $c-dark-primary !default;
 
 $sf-tabs-content-font-family: $body-font-family-primary !default;
 
-.tabs {
+.sf-tabs {
   font-family: $sf-tabs-title-font-family;
   display: flex;
   flex-wrap: wrap;
@@ -90,20 +90,6 @@ $sf-tabs-content-font-family: $body-font-family-primary !default;
   }
 }
 
-.tabs__title--active+.tabs__content {
+.sf-tabs__title--active+.sf-tabs__content {
   display: block;
 }
-
-// @media (max-width: 45em) {
-
-//   .tab__title,
-//   .tab__content {
-//     order: initial;
-//   }
-
-//   .tab__title {
-//     width: 100%;
-//     margin-right: 0;
-//     margin-top: 0.2rem;
-//   }
-// }

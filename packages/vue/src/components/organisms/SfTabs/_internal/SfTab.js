@@ -1,11 +1,9 @@
-import {
-  Fragment
-} from 'vue-fragment'
+import { Fragment } from "vue-fragment";
 
-import SfChevron from '../../../atoms/SfChevron/SfChevron.vue'
+import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 
 export default {
-  name: 'Sftab',
+  name: "Sftab",
   components: {
     Fragment,
     SfChevron
@@ -22,7 +20,7 @@ export default {
   },
   methods: {
     tabClick() {
-      this.$emit('tabClick', this.index)
+      this.$emit("tabClick", this.index);
     }
-  },
-}
+  }
+};
