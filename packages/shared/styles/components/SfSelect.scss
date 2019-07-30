@@ -120,16 +120,17 @@ $select-option-font-family: $body-font-family-secondary;
     }
   }
 }
+// todo: refactor name
 .bounce-enter-active {
-  animation: bounce-in .5s;
+  animation: bounce-in .15s;
   @media screen and (min-width:$desktop-min){
-    animation: fade-in .5s;
+    animation: fade-in .15s;
   }
 }
 .bounce-leave-active {
-  animation: bounce-in .5s reverse;
+  animation: bounce-in .15s reverse;
   @media screen and (min-width:$desktop-min){
-    animation: fade-in .5s reverse;
+    animation: fade-in .15s reverse;
   }
 }
 @keyframes fade-in {
