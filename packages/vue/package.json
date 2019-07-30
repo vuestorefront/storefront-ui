@@ -1,7 +1,7 @@
 {
   "name": "@storefrontui/vue",
   "sideEffects": "false",
-  "version": "0.0.4-aplha.9",
+  "version": "0.0.4-aplha.10",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefrontui/shared": "^0.0.3-alpha.6",
+    "@storefrontui/shared": "^0.0.3-alpha.7",
     "@vue/babel-preset-app": "^4.0.0-alpha.1",
     "core-js": "^3.1.3",
     "lerna": "^3.0.0-rc.0",
