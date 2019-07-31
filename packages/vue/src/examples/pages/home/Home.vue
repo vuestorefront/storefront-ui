@@ -145,7 +145,7 @@ import {
   SfProductCard,
   SfImage,
   SfBannerGrid
-} from "@storefrontui/vue";
+} from "../../../../index.js";
 
 export default {
   name: "Home",
