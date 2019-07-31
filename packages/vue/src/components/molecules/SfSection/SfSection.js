@@ -34,7 +34,7 @@ export default {
   },
   mounted: function() {
     this.hasUnderlinedModifier = this.$el.classList.contains(
-      "sf-section--underline"
+      "sf-section--no-underline"
     );
   }
 };

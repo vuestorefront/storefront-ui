@@ -45,8 +45,8 @@ storiesOf("Molecules|Section", module)
         customClass: {
           default: select(
             "CSS Modifier",
-            ["null", "sf-section--underline"],
-            "null",
+            ["null", "sf-section--no-underline"],
+            "sf-section--no-underline",
             "CSS-Modifiers"
           )
         }
