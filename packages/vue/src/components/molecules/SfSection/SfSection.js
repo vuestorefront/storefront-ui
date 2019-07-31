@@ -3,15 +3,25 @@ export default {
   name: "SfSection",
   props: {
     /**
-     * Section heading
+     * Heading title
      */
-    heading: {
-      type: Object,
-      default: () => ({
-        title: "",
-        subtitle: "",
-        level: 2
-      })
+    title: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Heading subtitle
+     */
+    subtitle:{
+      type: String,
+      default: ""
+    },
+    /**
+     * Heading tag level
+     */
+    level: {
+      type: Number,
+      default: ""
     }
   },
   data() {
