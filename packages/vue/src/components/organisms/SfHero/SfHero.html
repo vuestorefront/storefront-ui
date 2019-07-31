@@ -2,7 +2,7 @@
   <div class="glide" ref="glide">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides sf-hero__slides">
-        <!--@slot item slot for custom banner markup -->
+        <!--@slot items slot for custom banner markup (can use SfHeroItem element) -->
         <slot name="items" v-bind="{ items }">
           <div v-for="(item, i) in items" :key="i">
             <SfHeroItem
