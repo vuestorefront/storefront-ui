@@ -67,7 +67,9 @@ $product__image-blend-mode:       darken !default;
     border: none;
 
     @media (min-width: $desktop-min) {
-      visibility: hidden;
+      &:not(.sf-product-card--on-wishlist) {
+        visibility: hidden;
+      }
     }
   }
 
