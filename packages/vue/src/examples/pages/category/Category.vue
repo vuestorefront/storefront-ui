@@ -101,7 +101,7 @@
               :key="i"
               :header="accordion.header"
             >
-              <template v-slot:content="{ handler }">
+              <template v-slot="{ handler }">
                 <SfList>
                   <SfListItem v-for="(item, j) in accordion.items" :key="j">
                     <div

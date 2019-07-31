@@ -206,7 +206,7 @@ storiesOf("Organisms|Accordion", module)
     }
   )
   .add(
-    "[slot] content",
+    "[slot] default",
     () => ({
       data() {
         return {
@@ -250,19 +250,13 @@ storiesOf("Organisms|Accordion", module)
         <SfAccordion :multiple="multiple" :firstOpen="firstOpen">
           <template>
             <SfAccordionItem :header="headerOne">
-              <template #content>
-                <div v-for="item of contentItemsOne" :style="contentStyle">{{item.text}}</div>
-              </template>
+              <div v-for="item of contentItemsOne" :style="contentStyle">{{item.text}}</div>
             </SfAccordionItem>
             <SfAccordionItem :header="headerTwo">
-              <template #content>
-                <div v-for="item of contentItemsTwo" :style="contentStyle">{{item.text}}</div>
-              </template>
+              <div v-for="item of contentItemsTwo" :style="contentStyle">{{item.text}}</div>
             </SfAccordionItem>
             <SfAccordionItem :header="headerThree">
-              <template #content>
-                <div v-for="item of contentItemsThree" :style="contentStyle">{{item.text}}</div>
-              </template>
+              <div v-for="item of contentItemsThree" :style="contentStyle">{{item.text}}</div>
             </SfAccordionItem>
           </template>
         </SfAccordion>
