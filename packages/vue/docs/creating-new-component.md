@@ -8,18 +8,18 @@ and know how to
 ## Start with template
 
 To create a new component you may start with
-`npm run create-component` which accepts two arguments,
-the first is the
-[Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) type,
-the second is component name.
+`npm run create-component` on repository root,
+it'll ask you the framework (only Vue for now),
+the [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) type
+and finally the component name.
 When running the command, it will generate boilerplate and help you
 create a component in standardized way and save a lot of work.
 
 For example:
 
 ```bash
-npm run create-component atoms button
-npm run create-component molecules input-number
+cd storefront-ui
+npm run create-component
 ```
 
 The component source files must be placed
