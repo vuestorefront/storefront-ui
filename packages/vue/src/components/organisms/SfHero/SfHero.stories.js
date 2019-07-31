@@ -165,8 +165,7 @@ storiesOf("Organisms|Hero", module)
         }
       },
       data,
-      template: `<SfHero :items="items" :sliderOptions="{ autoplay }">
-        </SfHero>`
+      template: `<SfHero :items="items" :sliderOptions="{ autoplay }"/>`
     }),
     {
       info: {
@@ -227,15 +226,17 @@ storiesOf("Organisms|Hero", module)
         }
       },
       template: `<SfHero :items="items">
-        <template v-slot:item="{ item, index }">
-          <SfHeroItem
-            :title="item.title"
-            :subtitle="item.subtitle"
-            :buttonText="item.buttonText"
-            background="#C8F3F3"
-            :image="item.image"
-            :class="index === 0 ? customClass1 : index === 1 ? customClass2 : customClass3"
-          />
+        <template #items>
+          <div v-for="(item, index) in items">
+            <SfHeroItem
+              :title="item.title"
+              :subtitle="item.subtitle"
+              :buttonText="item.buttonText"
+              background="#C8F3F3"
+              :image="item.image"
+              :class="index === 0 ? customClass1 : index === 1 ? customClass2 : customClass3"
+            />
+          </div>
         </template>
       </SfHero>`
     }),
@@ -267,7 +268,7 @@ storiesOf("Organisms|Hero", module)
     }
   )
   .add(
-    "[slot] controls icons",
+    "[slot] controls",
     () => ({
       components: { SfHero },
       data,

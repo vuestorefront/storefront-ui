@@ -2,9 +2,9 @@
   <div class="glide" ref="glide">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides sf-hero__slides">
-        <div v-for="(item, index) in items">
-          <!--@slot item slot for custom banner markup -->
-          <slot name="item" v-bind="{ item, index }">
+        <!--@slot item slot for custom banner markup -->
+        <slot name="items" v-bind="{ items }">
+          <div v-for="item in items">
             <SfHeroItem
               :background="item.background"
               :image="item.image"
@@ -12,8 +12,8 @@
               :subtitle="item.subtitle"
               :buttonText="item.buttonText"
             />
-          </slot>
-        </div>
+          </div>
+        </slot>
       </ul>
     </div>
   </div>
