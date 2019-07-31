@@ -12,7 +12,7 @@ export default {
     /**
      * Heading subtitle
      */
-    subtitle:{
+    subtitle: {
       type: String,
       default: ""
     },
