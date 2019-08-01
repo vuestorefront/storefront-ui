@@ -81,13 +81,13 @@ export default {
         ...slot.componentOptions.propsData,
         html: slot.elm.innerHTML
       });
-      indexes[slot.componentOptions.propsData.value] = i;
+      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
       i++;
     });
 
     this.options = options;
     this.indexes = indexes;
-    this.index = indexes[selected];
+    this.index = indexes[JSON.stringify(selected)];
   },
   beforeDestroy: function() {
     this.$off("update", this.update);
