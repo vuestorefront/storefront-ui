@@ -14,17 +14,20 @@
     </SfHero>
     <SfBannerGrid :bannerGrid="1" class="banners">
       <template #bannerA>
-        <SfBanner
-          subtitle="Dresses"
-          title="COCKTAIL PARTY"
-          description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-          button-text="SHOP NOW"
-          image="assets/storybook/homepage/bannerF.png"
-          class="sf-banner--left sf-banner--container-full"
-        />
+        <a href="#">
+          <SfBanner
+            subtitle="Dresses"
+            title="COCKTAIL PARTY"
+            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+            button-text="SHOP NOW"
+            image="assets/storybook/homepage/bannerF.png"
+            class="sf-banner--left sf-banner--container-full"
+          />
+        </a>
       </template>
       <template #bannerB>
-        <SfBanner
+        <a href="#">
+          <SfBanner
           subtitle="Dresses"
           title="LINEN DRESSES"
           description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
@@ -32,6 +35,7 @@
           image="assets/storybook/homepage/bannerE.png"
           class="sf-banner--left"
         />
+        </a>
       </template>
       <template #bannerC>
         <a href="#">
