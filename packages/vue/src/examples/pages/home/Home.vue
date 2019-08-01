@@ -65,11 +65,7 @@
       class="call-to-action-newsletter"
       image="assets/storybook/homepage/newsletter.png"
     />
-    <SfSection
-      :heading="{
-        title: 'Best Sellers'
-      }"
-    >
+    <SfSection title="Best Sellers">
       <SfCarousel :settings="{ gap: 0 }" class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -82,12 +78,7 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection
-      :heading="{
-        title: 'Share Your Look',
-        subtitle: '#YOURLOOK'
-      }"
-    >
+    <SfSection title="Share Your Look" subtitle="#YOURLOOK">
       <div class="grid grid-images">
         <div class="grid__row">
           <div class="grid__col">

@@ -21,7 +21,7 @@ export default {
      */
     level: {
       type: Number,
-      default: ""
+      default: 2
     }
   },
   data() {
