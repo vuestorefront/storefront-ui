@@ -2,7 +2,7 @@ export default {
   name: "SfSelectOption",
   props: {
     value: {
-      type: String,
+      type: [String, Object],
       default: ""
     }
   },

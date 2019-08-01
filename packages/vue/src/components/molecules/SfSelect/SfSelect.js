@@ -10,7 +10,7 @@ export default {
   },
   props: {
     selected: {
-      type: String,
+      type: [String, Object],
       default: ""
     }
   },
