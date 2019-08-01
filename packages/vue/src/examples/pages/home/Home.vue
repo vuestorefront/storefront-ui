@@ -34,20 +34,24 @@
         />
       </template>
       <template #bannerC>
-        <SfBanner
-          subtitle="T-Shirts"
-          title="THE OFFICE LIFE"
-          image="assets/storybook/homepage/bannerC.png"
-          class="sf-banner--left sf-banner--container-full"
-        />
+        <a href="#">
+          <SfBanner
+            subtitle="T-Shirts"
+            title="THE OFFICE LIFE"
+            image="assets/storybook/homepage/bannerC.png"
+            class="sf-banner--left sf-banner--container-full"
+          />
+        </a>
       </template>
       <template #bannerD>
-        <SfBanner
-          subtitle="Summer shoes"
-          title="ECO SANDALS"
-          image="assets/storybook/homepage/bannerG.png"
-          class="sf-banner--left sf-banner--container-full"
-        />
+        <a href="#">
+          <SfBanner
+            subtitle="Summer shoes"
+            title="ECO SANDALS"
+            image="assets/storybook/homepage/bannerG.png"
+            class="sf-banner--left sf-banner--container-full"
+          />
+        </a>
       </template>
     </SfBannerGrid>
     <SfCallToAction
