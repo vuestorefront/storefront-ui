@@ -28,13 +28,13 @@
       <template #bannerB>
         <a href="#">
           <SfBanner
-          subtitle="Dresses"
-          title="LINEN DRESSES"
-          description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-          button-text="SHOP NOW"
-          image="assets/storybook/homepage/bannerE.png"
-          class="sf-banner--left"
-        />
+            subtitle="Dresses"
+            title="LINEN DRESSES"
+            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+            button-text="SHOP NOW"
+            image="assets/storybook/homepage/bannerE.png"
+            class="sf-banner--left"
+          />
         </a>
       </template>
       <template #bannerC>
