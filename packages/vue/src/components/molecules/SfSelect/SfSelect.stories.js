@@ -88,8 +88,86 @@ storiesOf("Molecules|Select", module)
         <p><b>Selected: {{selected}}</b></p>
         <div style="max-width: 509px">
           <SfSelect v-model="selected" :class="customClass">
-            <SfSelectOption v-for="option in options" :value="option">
+            <SfSelectOption v-for="option in options" :key="option.label" :value="option">
               <SfProductOption :color="option.color" :label="option.label"/>
+            </SfSelectOption>
+          </SfSelect>
+          
+        </div>
+      </div>
+      `
+    }),
+    {
+      info: true,
+      notes
+    }
+  )
+  .add(
+    "Object from VSF",
+    () => ({
+      data() {
+        return {
+          options: [
+            {
+              id: "1",
+              label: "Amaranth",
+              type: "type1",
+              "from?": "from1",
+              "to?": "to1",
+              "single?": true
+            },
+            {
+              id: "2",
+              label: "Amber",
+              type: "type2",
+              "from?": "from2",
+              "to?": "to2",
+              "single?": false
+            },
+            {
+              id: "3",
+              label: "Arctic lime",
+              type: "type3",
+              "from?": "from3",
+              "to?": "to3",
+              "single?": true
+            },
+            {
+              id: "4",
+              label: "Bluetiful",
+              type: "type4",
+              "from?": "from4",
+              "to?": "to4",
+              "single?": true
+            }
+          ],
+          selected: {
+            id: "1",
+            label: "Amaranth",
+            type: "type1",
+            "from?": "from1",
+            "to?": "to1",
+            "single?": true
+          }
+        };
+      },
+      components: { SfSelect, SfProductOption },
+      props: {
+        customClass: {
+          default: select(
+            "CSS Modifier",
+            ["null", "sf-select--bordered", "sf-select--underlined"],
+            "null"
+          )
+        }
+      },
+      template: `
+      <div>
+        <p><b>Selected: {{selected}}</b></p>
+        <div style="max-width: 509px">
+          <SfSelect v-model="selected" :class="customClass">
+            <SfSelectOption v-for="option in options" :key="option.id" :value="option">
+              <SfProductOption :label="option.label"/>
             </SfSelectOption>
           </SfSelect>
           
