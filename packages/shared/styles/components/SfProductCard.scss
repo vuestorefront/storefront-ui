@@ -10,7 +10,7 @@ $product__image-blend-mode:       darken !default;
 .sf-product-card {
   max-width: $product-card-max-width;
   transition: 0.3s all;
-  padding: $spacer-big;
+  padding: $spacer-small;
   position: relative;
   background: white;
   box-sizing: border-box;
@@ -83,5 +83,6 @@ $product__image-blend-mode:       darken !default;
   }
   @media (min-width: $desktop-min) {
     max-width: $product-card-desktop-max-width;
+    padding: $spacer-big;
   }
 }

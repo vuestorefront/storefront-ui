@@ -12,16 +12,21 @@
     "url": "git+https://github.com/DivanteLtd/storefront-ui.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/DivanteLtd/storefront-ui/issues"
   },
   "homepage": "https://github.com/DivanteLtd/storefront-ui#readme",
   "dependencies": {
-    "lerna": "^3.0.0-rc.0",
-    "prompts": "^2.1.0"
+    "lerna": "^3.16.4"
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "file-save": "^0.2.0",
+    "glob": "^7.1.4",
+    "prompts": "^2.1.0",
+    "uppercamelcase": "^3.0.0"
+  }
 }
