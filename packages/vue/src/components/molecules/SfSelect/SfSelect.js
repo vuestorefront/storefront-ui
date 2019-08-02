@@ -87,7 +87,7 @@ export default {
 
     this.options = options;
     this.indexes = indexes;
-    if (!indexes[JSON.stringify(selected)]) return;
+    if (typeof indexes[JSON.stringify(selected)] === "undefined") return;
     this.index = indexes[JSON.stringify(selected)];
   },
   beforeDestroy: function() {
