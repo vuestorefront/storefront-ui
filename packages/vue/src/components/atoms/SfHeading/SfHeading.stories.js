@@ -114,7 +114,7 @@ storiesOf("Atoms|Heading", module)
       components: { SfHeading },
       template: `<div style="max-width: 1140px">
         <sf-heading :title="title" :subtitle="subtitle" :level="level" :class="customClass">
-          <tenplate #title="title">{{title}}</title>
+          <template v-slot:title>{{title}}</template>
         </sf-heading>
       </div>`
     }),
