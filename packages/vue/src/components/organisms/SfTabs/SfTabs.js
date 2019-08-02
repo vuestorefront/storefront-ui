@@ -10,28 +10,7 @@ export default {
     /** Array of tabs objects  */
     tabs: {
       type: Array,
-      default: [
-        {
-          title: "Apple",
-          content: "Apple is a great fruit",
-          isActive: false
-        },
-        {
-          title: "Banana",
-          content: "Banana is a great fruit",
-          isActive: false
-        },
-        {
-          title: "Peach",
-          content: "Peach is a great fruit",
-          isActive: false
-        },
-        {
-          title: "Orange",
-          content: "Orange is a great fruit",
-          isActive: false
-        }
-      ]
+      default: () => []
     }
   },
 

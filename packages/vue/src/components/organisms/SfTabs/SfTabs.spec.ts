@@ -37,13 +37,12 @@ describe("SfTabs.vue", () => {
       }
     ];
 
-    const component = shallowMount(SfTabs, {
+    const component = mount(SfTabs, {
       propsData: {
         tabs
       }
     });
-    console.log("siema", component);
 
-    expect(component.findAll(".sf-tabs__chevron").length).toBe(2);
+    expect(component.findAll(".sf-tabs__title").length).toBe(3);
   });
 });
