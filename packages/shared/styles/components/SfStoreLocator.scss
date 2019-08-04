@@ -139,18 +139,24 @@ $sf-store-locator__map-min-height-mobile: 26.875rem !default;
   }
   &__map-wrapper {
     width: $sf-store-locator__map-width-mobile;
+    min-height: $sf-store-locator__map-min-height-mobile;
+    position: relative;
 
     @media screen and (min-width: $desktop-min) {
       width: $sf-store-locator__map-width-desktop;
       max-width: $sf-store-locator__map-max-width-desktop;
+      min-height: $sf-store-locator__map-min-height-desktop;
     }
 
     &-map {
-      min-height: $sf-store-locator__map-min-height-mobile;
-
-      @media screen and (min-width: $desktop-min) {
-        min-height: $sf-store-locator__map-min-height-desktop;
-      }
+      // Workaround to known bug about min-height / height interaction in Chrome / Firefox
+      position: absolute;
+      height: 100%;
     }
+
+    .sf-loader {
+      position: absolute;
+    }
+
   }
 }
