@@ -45,11 +45,24 @@ export default {
       default: 16
     },
     /**
-     * Array of stores
+     * Array of stores, it must contain an object with at least a \`latlng\` array
      */
     stores: {
       type: Array,
-      default: () => []
+      default: () => [],
+      validator: value => {
+        return (
+          value.length === 0 ||
+          value.reduce((a, c) => {
+            return (
+              a &&
+              c.hasOwnProperty("latlng") &&
+              Array.isArray(c.latlng) &&
+              Array.length === 2
+            );
+          }, true)
+        );
+      }
     },
     /**
      * Size of the icon [width, height]

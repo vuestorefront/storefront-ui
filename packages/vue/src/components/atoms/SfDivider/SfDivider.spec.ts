@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfDivider from "@/components/atoms/SfDivider.vue";
+import SfDivider from "@/components/atoms/SfDivider/SfDivider.vue";
 
 describe("SfDivider.vue", () => {
   it("renders a component", () => {
