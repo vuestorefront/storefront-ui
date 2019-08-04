@@ -1,56 +1,94 @@
 import SfImage from "@/components/molecules/SfImage/SfImage.vue";
 import SfDivider from "@/components/atoms/SfDivider/SfDivider.vue";
 import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
+import SfLoader from "@/components/atoms/SfLoader/SfLoader.vue";
+
 import Vue from "vue";
 
 export default {
   name: "SfStoreLocator",
   props: {
+    /**
+     * Url of selected tileserver
+     */
     tileServerUrl: {
       type: String,
       default:
         "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
     },
+    /**
+     * Attribution line of selected tileserver
+     */
     tileServerAttribution: {
       type: String,
       default: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ"
     },
+    /**
+     * Initial center of the map, overriden when the user position is captured, supports sync modifier
+     */
     center: {
       type: [Array, Object],
       default: () => [0, 0]
     },
+    /**
+     * Initial zoom of the map
+     */
     zoom: {
       type: Number,
       default: 6
     },
+    /**
+     * Max zoom allowed, consider tileserver limitation when setting this
+     */
     maxZoom: {
       type: Number,
       default: 16
     },
+    /**
+     * Array of stores
+     */
     stores: {
       type: Array,
       default: () => []
     },
+    /**
+     * Size of the icon [width, height]
+     */
     markerIconSize: {
       type: Array,
       default: () => [21, 28]
     },
+    /**
+     *  Position of the anchor in the icon [x, y]
+     */
     markerIconAnchor: {
       type: Array,
       default: () => [10.5, 0]
     },
+    /**
+     * Options to pass to leaflet map
+     */
     mapOptions: {
       type: Object,
       default: () => ({})
     },
+    /**
+     * Options to pass to leaflet tile-layer
+     */
     tileLayerOptions: {
       type: Object,
       default: () => ({})
     },
+    /**
+     * Options to pass to leaflet marker
+     */
     markerOptions: {
       type: Object,
       default: () => ({})
     },
+    /**
+     * Zoom to be set when centering map on clicked store
+     */
     flyToStoreZoom: {
       type: Number,
       default: 15
@@ -59,7 +97,8 @@ export default {
   data() {
     return {
       loaded: false,
-      userPosition: null
+      userPosition: null,
+      mapReady: false
     };
   },
   computed: {
@@ -85,15 +124,35 @@ export default {
     }
   },
   methods: {
-    mapReady(mapObject) {
+    onMapReady(mapObject) {
+      /**
+       * Map ready and displayed event
+       *
+       * @event 'map:ready'
+       * @type {object}
+       */
+      this.mapReady = true;
+      this.$emit("map:ready", mapObject);
       mapObject.locate({ timeout: 20000 });
     },
     locationFound(location) {
       this.userPosition = { ...location.latlng };
+      /**
+       * Update center with user position event,
+       *
+       * @event 'update:center'
+       * @type {object}
+       */
       this.$emit("update:center", { ...location.latlng });
     },
     locationError(error) {
-      console.error(error);
+      /**
+       * Location error event.
+       *
+       * @event 'location:errors'
+       * @type {object}
+       */
+      this.$emit("location:error", error);
     },
     getGeoDistance(start, end) {
       const deg2rad = deg => deg * (Math.PI / 180);
@@ -120,10 +179,18 @@ export default {
     Vue.component("l-marker", LMarker);
     Vue.component("l-icon", LIcon);
     this.loaded = true;
+    /**
+     * Library loaded event, the library is ready and the map is initialising
+     *
+     * @event 'library:loaded'
+     * @type null
+     */
+    this.$emit("library:loaded");
   },
   components: {
     SfImage,
     SfDivider,
-    SfIcon
+    SfIcon,
+    SfLoader
   }
 };
