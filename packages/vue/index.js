@@ -81,7 +81,7 @@ export {
   SfMegaMenu,
   SfTopBar,
   SfHero,
-  SfStoreLocator
+  SfStoreLocator,
   SfImage,
   SfBannerGrid
 };
