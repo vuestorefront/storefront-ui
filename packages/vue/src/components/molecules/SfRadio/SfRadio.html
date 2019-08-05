@@ -15,12 +15,12 @@
 
         <div class="sf-radio__container__content">
             <!--@slot slot for customized option content layout -->
-            <slot name="content" v-bind="{label: option.label}">
+            <slot name="content" v-bind="{option}">
                 <span class="sf-radio__container__content__label">{{ option.label }}</span>
             </slot>
 
             <!--@slot slot for customized option description layout -->
-            <slot name="description" v-bind="{description: option.description, isActive: (option.value === value)}">
+            <slot name="description" v-bind="{option, isActive: (option.value === value)}">
                 <p v-if="option.description" class="sf-radio__container__content__description">
                     {{ option.description }}
                 </p>
