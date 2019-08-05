@@ -1,19 +1,19 @@
 <div class="sf-product-card">
-  <button 
-    v-if="wishlistIcon !== false" 
-    :aria-label="ariaLabel" 
-    @click="toggleOnWishlist"  
+  <button
+    v-if="wishlistIcon !== false"
+    :aria-label="ariaLabel"
+    @click="toggleOnWishlist"
     :class="wishlistIconClasses">
-    <slot name="wishlist-icon">
+    <slot name="wishlist-icon" v-bind="{path: currentWishlistIcon}">
       <sf-icon :path="currentWishlistIcon" color="black" size="sm" data-test="sf-wishlist-icon"/>
     </slot>
   </button>
-  <slot name="image">
+  <slot name="image" v-bind="{image, title}">
     <div class="sf-product-card__image">
       <img :src="image" :alt="title">
     </div>
   </slot>
-  <slot name="title">
+  <slot name="title" v-bind="{title}">
     <span class="sf-product-card__title">
       {{ title }}
     </span>

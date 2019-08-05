@@ -15,7 +15,7 @@
     <template v-if="showFirst">
       <li class="sf-pagination__item">
         <a class="sf-pagination__link" @click="setCurrentPage(1)">
-          <slot name="number" v-bind:number="1">1</slot>
+          <slot name="number" >1</slot>
         </a>
       </li>
       <li class="sf-pagination__item">
@@ -36,7 +36,7 @@
         class="sf-pagination__link"
         @click="() => { if (currentPage !== number) setCurrentPage(number) }">
         <!-- @slot Pagination item with page number (binds `number`) -->
-        <slot name="number" v-bind:number="number">{{ number }}</slot>
+        <slot name="number" v-bind="{number}">{{ number }}</slot>
       </a>
     </li>
 
@@ -46,7 +46,7 @@
       </li>
       <li class="sf-pagination__item">
         <a class="sf-pagination__link" @click="setCurrentPage(total)">
-          <slot name="number" v-bind:number="total">{{ total }}</slot>
+          <slot name="number" v-bind="{total}">{{ total }}</slot>
         </a>
       </li>
     </template>
