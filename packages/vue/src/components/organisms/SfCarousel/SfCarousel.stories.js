@@ -61,7 +61,6 @@ storiesOf("Organisms|Carousel", module)
           <SfCarouselItem>
             <div :style="style">8</div>
           </SfCarouselItem>
-
         </SfCarousel>
       </div>
       `
