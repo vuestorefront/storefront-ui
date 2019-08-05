@@ -30,8 +30,8 @@ $banner__description-font-weight            : 300 !default;
 $banner__call-to-action-font-size           : 0.875rem !default;
 $banner__call-to-action-background-color    : $c-dark-primary !default;
 
-$banner--secondary__button-color            : $c-text-on-dark !default;
-$banner--secondary__button-background-color : $c-green-primary !default;
+$banner--secondary__call-to-action-color            : $c-text-on-dark !default;
+$banner--secondary__call-to-action-background-color : $c-green-primary !default;
 
 .sf-banner {
   display: flex;
@@ -95,7 +95,7 @@ $banner--secondary__button-background-color : $c-green-primary !default;
       display: flex;
     }
   }
-  &__button {
+  &__call-to-action {
     display: none;
     margin-top: $spacer-big;
     background-color: $banner__call-to-action-background-color;
@@ -118,9 +118,9 @@ $banner--secondary__button-background-color : $c-green-primary !default;
     align-items: flex-start;
   }
   &--secondary {
-    .sf-banner__button {
-      color: $banner--secondary__button-color;
-      background-color: $banner--secondary__button-background-color;
+    .sf-banner__call-to-action {
+      color: $banner--secondary__call-to-action-color;
+      background-color: $banner--secondary__call-to-action-background-color;
     }
   }
   &--container-medium{

@@ -76,7 +76,7 @@ storiesOf("Molecules|Image", module)
         alt="angelina_trn"
         transition="slide-left"
       >
-        angelina_trn
+          angelina_trn
       </SfImage>`
     }),
     {

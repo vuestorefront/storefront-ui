@@ -13,15 +13,15 @@
             <span class="sf-radio__checkmark"></span>
         </slot>
 
-        <div class="sf-radio__container__content">
+        <div class="sf-radio__content">
             <!--@slot slot for customized option content layout -->
             <slot name="content" v-bind="{option}">
-                <span class="sf-radio__container__content__label">{{ option.label }}</span>
+                <span class="sf-radio__label">{{ option.label }}</span>
             </slot>
 
             <!--@slot slot for customized option description layout -->
             <slot name="description" v-bind="{option, isActive: (option.value === value)}">
-                <p v-if="option.description" class="sf-radio__container__content__description">
+                <p v-if="option.description" class="sf-radio__description">
                     {{ option.description }}
                 </p>
             </slot>

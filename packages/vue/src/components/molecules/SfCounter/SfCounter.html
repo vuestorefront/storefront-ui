@@ -8,7 +8,7 @@
     </slot>
   </div>
 
-  <slot v-bind="{stringValue, increase, decrease, keypress, type, name, required, disabled, placeholde}">
+  <slot name="field" v-bind="{stringValue, increase, decrease, keypress, type, name, required, disabled, placeholder}">
     <input
       class="sf-counter__field"
       aria-label="current value"

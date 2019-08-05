@@ -3,9 +3,9 @@
 $sf-alert-padding                   : 0.625rem !default;
 $sf-alert-font-size                 : 0.875rem !default;
 
-$sf-alert__text-margin              : 0 !default;
+$sf-alert__message-margin              : 0 !default;
 
-$sf-alert__text-padding-left       : 0.625rem !default;
+$sf-alert__message-padding-left       : 0.625rem !default;
 
 $sf-alert--info-color    : $c-dark-primary !default;
 $sf-alert--warning-color : #D12727 !default;
@@ -19,14 +19,14 @@ $sf-alert--success-color: #128830 !default;
     font-size: $sf-alert-font-size;
     background-color: $c-white;
 
-    &__text {
-        margin: $sf-alert__text-margin;
-        padding-left: $sf-alert__text-padding-left;
+    &__message {
+        margin: $sf-alert__message-margin;
+        padding-left: $sf-alert__message-padding-left;
     }
 
     &--info {
         color: $sf-alert--info-color;
-        fill: $sf-alert--info-color;     
+        fill: $sf-alert--info-color;
     }
     &--alert {
         fill: $sf-alert--alert-color;

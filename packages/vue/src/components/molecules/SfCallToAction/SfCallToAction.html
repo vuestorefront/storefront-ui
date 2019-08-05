@@ -1,21 +1,19 @@
 <section class="sf-call-to-action" :style="'background-image: url(' + image + '); background-color: ' + background +';'">
-  <slot>
-    <div class="sf-call-to-action__text-container">
-      <slot name="title" v-bind="{title}">
-        <h2 class="sf-call-to-action__title" v-if="title">
-          {{ title }}
-        </h2>
-      </slot>
-      <slot name="description" v-bind="{ description }">
-        <p class="sf-call-to-action__description" v-if="description">
-          {{ description }}
-        </p>
-      </slot>
-    </div>
-    <slot name="action" v-bind="{ buttonText }">
-      <SfButton class="sf-call-to-action__button" v-if="buttonText">
-        {{ buttonText }}
-      </SfButton>
+  <div class="sf-call-to-action__text-container">
+    <slot name="title" v-bind="{title}">
+      <h2 class="sf-call-to-action__title" v-if="title">
+        {{ title }}
+      </h2>
     </slot>
+    <slot name="description" v-bind="{ description }">
+      <p class="sf-call-to-action__description" v-if="description">
+        {{ description }}
+      </p>
+    </slot>
+  </div>
+  <slot name="button" v-bind="{ buttonText }">
+    <SfButton class="sf-call-to-action__button" v-if="buttonText">
+      {{ buttonText }}
+    </SfButton>
   </slot>
 </section>

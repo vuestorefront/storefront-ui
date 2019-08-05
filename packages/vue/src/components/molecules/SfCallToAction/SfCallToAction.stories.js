@@ -97,7 +97,7 @@ storiesOf("Molecules|CallToAction", module)
         title="Title prop"
         description="Description prop lorem ipsum dolor sit amet"
       >
-        <template #action>
+        <template #button>
           <button>Custom CTA</button>
         </template>
       </SfCallToAction>

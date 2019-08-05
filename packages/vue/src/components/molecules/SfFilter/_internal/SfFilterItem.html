@@ -3,7 +3,6 @@
 	@click="clicked($event)"
 	:class="{ 'sf-filter-item--active' : selected.includes(value) }"
 >
-  <slot>
     <slot name="color" v-bind="{color}">
       <div
         v-if="color"
@@ -14,8 +13,7 @@
     <slot name="label" v-bind="label">
       <div class="sf-filter-item__label">{{ label }}</div>
     </slot>
-    <slot name="cont" v-bind="count">
+    <slot name="count" v-bind="count">
       <div class="sf-filter-item__count">{{ count }}</div>
     </slot>
-  </slot>
 </div>
