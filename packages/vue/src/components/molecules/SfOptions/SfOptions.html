@@ -11,7 +11,7 @@
       class="sf-options__option-container"
       @click="setActiveValue(option.value)"
     >
-      <slot name="text" :text="option.text">
+      <slot name="text" v-bind="{text: option.text, value: option.value, isTypeText, isOptionSelected}">
         <div
           v-if="isTypeText"
           class="sf-options__option-text"
@@ -20,7 +20,7 @@
           {{ option.text }}
         </div>
       </slot>
-      <slot name="color" :color="option.color">
+      <slot name="color" v-bind="{color: option.color}">
         <div v-if="isTypeColor" class="sf-options__option-color-wrapper">
           <div
             class="sf-options__option-color"
@@ -30,7 +30,7 @@
           <div class="sf-options__option-color-check"></div>
         </div>
       </slot>
-      <slot name="image" :image="option.image">
+      <slot name="image" v-bind="{image: option.image}">
         <div v-if="isTypeImage" class="sf-options__option-image-wrapper">
           <div
             class="sf-options__option sf-options__option-image"

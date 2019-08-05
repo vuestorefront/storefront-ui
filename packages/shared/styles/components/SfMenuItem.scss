@@ -15,9 +15,6 @@ $sf-count-font-size       : 0.875rem !default;
     padding: $sf-menu-item-padding;
     font-size: $sf-menu-item-font-size;
     font-family: $sf-menu-item-font-family;
-    &__right {
-        align-self: flex-end;
-    }
     &__count {
         color: $sf-count-font-color;
         font-size: $sf-count-font-size;
@@ -39,6 +36,7 @@ $sf-count-font-size       : 0.875rem !default;
 }
 
 .sf-menu-item__count {
+    margin-left: auto;
     color: $sf-count-font-color;
     font-size: $sf-count-font-size;
 }

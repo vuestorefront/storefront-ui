@@ -1,7 +1,7 @@
 <section class="sf-call-to-action" :style="'background-image: url(' + image + '); background-color: ' + background +';'">
   <slot>
     <div class="sf-call-to-action__text-container">
-      <slot name="title" :title="title">
+      <slot name="title" v-bind="{title}">
         <h2 class="sf-call-to-action__title" v-if="title">
           {{ title }}
         </h2>

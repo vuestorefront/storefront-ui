@@ -1,6 +1,6 @@
 <section class="sf-section">
   <!--@slot Section heading. Slot content will replace default <sf-heading> component-->
-  <slot name="heading">
+  <slot name="heading" v-bind="{level, title, subtitle}">
     <sf-heading :level="level" :title="title" :subtitle="subtitle" :class="{'sf-heading--no-underline': hasUnderlinedModifier}"/>
   </slot>
   <!--@slot Section content.-->

@@ -1,6 +1,6 @@
 <div class="sf-alert" :class="`sf-alert--${type}`">
     <!--@slot Custom alert icon. Slot content will replace default icon <img> tag.-->
-    <slot name="icon" :icon="icon">
+    <slot name="icon" :icon="icon" v-bind="{iconSrc, hasIconSrc, type}">
         <img :src="iconSrc" class="sf-alert__icon" v-if="hasIconSrc">
         <sf-icon path="notify" size="xs" :class="`sf-alert--${type}`" color="black" v-else/>
     </slot>
