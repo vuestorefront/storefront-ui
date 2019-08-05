@@ -8,9 +8,6 @@ $select-font-family: $body-font-family-secondary !default;
 
 $select-option-padding: 0.75rem 1.875rem;
 
-//$select-color-primary: $c-green-primary;
-//$select-color-secondary: $c-light-primary;
-
 $select-option-font-size: $font-size-big-mobile;
 $select-option-font-family: $body-font-family-secondary;
 
@@ -24,14 +21,12 @@ $select-option-font-family: $body-font-family-secondary;
     justify-content: flex-start;
   }
   &--active{
-    //color: #FFF;
     background-color: $select-color-primary;
   }
   &:hover{
     outline: 1px solid $select-color-primary;
   }
 }
-
 .sf-select {
   position: relative;
   user-select: none;
@@ -39,7 +34,6 @@ $select-option-font-family: $body-font-family-secondary;
   &:focus{
     outline: 0;
   }
-
   &__selected {
     background-color: #FFF;
     &:after{
@@ -55,13 +49,11 @@ $select-option-font-family: $body-font-family-secondary;
       outline: 0px;
     }
   }
-
   &__options {
     list-style-type:none;
     padding: 0;
     margin: 0;
   }
-
   &__dropdown{
     position: fixed;
     top: auto;
@@ -85,7 +77,6 @@ $select-option-font-family: $body-font-family-secondary;
       transform: translate(0, 0);
     }
   }
-
   &__bottom{
     position: relative;
     display: flex;
@@ -106,37 +97,31 @@ $select-option-font-family: $body-font-family-secondary;
       background-color: $c-light-primary;
       content: "";
     }
-
   }
-
   &--bordered{
-
     .sf-select__selected{
       border: 1px solid $select-color-primary;
     }
   }
-
   &--underlined{
-
     .sf-select__selected{
       border-bottom: 1px solid $select-color-primary;
     }
   }
-}
-// todo: refactor name
-.bounce-enter-active {
-  animation: bounce-in .15s;
-  @media screen and (min-width:$desktop-min){
-    animation: fade-in .15s;
+  &-enter-active {
+    animation: sf-select--mobile .15s;
+    @media screen and (min-width:$desktop-min){
+      animation: sf-select--dekstop .15s;
+    }
+  }
+  &-leave-active {
+    animation: sf-select--mobile .15s reverse;
+    @media screen and (min-width:$desktop-min){
+      animation: sf-select--dekstop .15s reverse;
+    }
   }
 }
-.bounce-leave-active {
-  animation: bounce-in .15s reverse;
-  @media screen and (min-width:$desktop-min){
-    animation: fade-in .15s reverse;
-  }
-}
-@keyframes fade-in {
+@keyframes sf-select--desktop {
   0% {
     opacity: 0;
   }
@@ -144,7 +129,7 @@ $select-option-font-family: $body-font-family-secondary;
     opacity: 1;
   }
 }
-@keyframes bounce-in {
+@keyframes sf-select--mobile {
   0% {
     transform: translate(-50%, 100%);
   }
@@ -152,3 +137,4 @@ $select-option-font-family: $body-font-family-secondary;
     transform: translate(-50%, 0);
   }
 }
+
