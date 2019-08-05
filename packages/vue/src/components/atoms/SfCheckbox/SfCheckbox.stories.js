@@ -88,7 +88,7 @@ export default storiesOf("Atoms|Checkbox", module)
   )
 
   .add(
-    "[slot] button",
+    "[slot] icon",
     () => ({
       ...vm,
 
@@ -100,7 +100,7 @@ export default storiesOf("Atoms|Checkbox", module)
          <template #content>
            Accept terms
          </template>
-         <template #button="{ checked }">
+         <template #icon="{ checked }">
            <span v-if="checked">x</span>
          </template>
        </SfCheckbox>`
