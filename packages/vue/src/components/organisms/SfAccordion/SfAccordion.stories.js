@@ -178,7 +178,7 @@ storiesOf("Organisms|Accordion", module)
               </template>
             </SfAccordionItem>
             <SfAccordionItem :selected="selected" :header="headerThree">
-              <template #content>
+              <template>
                 <div v-for="item of contentItemsThree" :style="contentStyle">
                   {{item.text}}
                 </div>
@@ -191,8 +191,8 @@ storiesOf("Organisms|Accordion", module)
     {
       info: {
         summary: `
-        <p>Custom styling can be achieved by using <code>#items</code> slot inside <code>SfAccordion</code>.</p>
-        <p>To use custom styling for content items populate <code>#content</code> slot inside <code>SfAccordionItem</code> tag.</p>
+        <p>Custom styling can be achieved by using <code>default</code> slot inside <code>SfAccordion</code>.</p>
+        <p>To use custom styling for content items populate <code>default</code> slot inside <code>SfAccordionItem</code> tag.</p>
        <h2>Usage</h2>
        <pre><code>import { SfAccordion } from "@storefrontui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
@@ -286,7 +286,7 @@ storiesOf("Organisms|Accordion", module)
     {
       info: {
         summary: `
-        <p>Custom styling can be achieved by using <code>#items</code> slot inside <code>SfAccordion</code>.</p>
+        <p>Custom styling can be achieved by using <code>default</code> slot inside <code>SfAccordion</code>.</p>
         <p>To use custom styling for header populate <code>#header</code> slot inside <code>SfAccordionItem</code> tag and set <code>showChevron</code> to false in <code>SfAccordion</code> tag.<br><br>
         To use custom styling for opened and closed header states use classes:<br><br>
         <code>sf-accordion-item__header-slot--close</code><br><br>
