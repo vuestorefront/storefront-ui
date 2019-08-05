@@ -20,6 +20,9 @@ $select-option-font-family: $body-font-family-secondary;
   justify-content: center;
   padding: $select-option-padding;
   user-select: none;
+  @media screen and (min-width: $desktop-min){
+    justify-content: flex-start;
+  }
   &--active{
     //color: #FFF;
     background-color: $select-color-primary;
