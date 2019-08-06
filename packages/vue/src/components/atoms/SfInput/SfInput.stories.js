@@ -64,10 +64,12 @@ storiesOf("Atoms|Input", module)
           default: text("Error message", "Field is required.")
         }
       },
-      template: `
-      <div :style="{ width: '300px', margin: '50px' }">
-        <SfInput v-model="value" :label="label" :valid="valid" :errorMessage="errorMessage" :required="required" />
-      </div>`
+      template: `<SfInput 
+        v-model="value" 
+        :label="label" 
+        :valid="valid" 
+        :errorMessage="errorMessage" 
+        :required="required" />`
     }),
     {
       info: {
@@ -81,7 +83,7 @@ storiesOf("Atoms|Input", module)
     }
   )
   .add(
-    "[slot] default",
+    "[slot] label",
     () => ({
       ...vm,
       props: {
@@ -95,14 +97,14 @@ storiesOf("Atoms|Input", module)
           default: text("Error message", "Field is required.")
         }
       },
-      template: `
-        <div :style="{ width: '300px', margin: '50px' }">
-          <SfInput v-model="value" :valid="valid" :required="required">
-          <template #label>
-            <span style="color: salmon;">Address</span>
-            </template>
-          </SfInput>
-        </div>
+      template: `<SfInput 
+        v-model="value" 
+        :valid="valid" 
+        :required="required">
+        <template #label>
+          <span style="color: salmon;">Address</span>
+        </template>
+      </SfInput>
       `
     }),
     {
@@ -110,7 +112,7 @@ storiesOf("Atoms|Input", module)
     }
   )
   .add(
-    "[slot] with error message",
+    "[slot] error",
     () => ({
       ...vm,
       props: {
@@ -125,13 +127,15 @@ storiesOf("Atoms|Input", module)
         }
       },
       template: `
-        <div :style="{ width: '300px', margin: '50px' }">
-          <SfInput v-model="value" :label="label" :valid="valid" :required="required">
-            <template #error>
-              <span style="color: orange;">This field is not correct.</span>
-            </template>
-          </SfInput>
-        </div>
+        <SfInput 
+          v-model="value" 
+          :label="label" 
+          :valid="valid" 
+          :required="required">
+          <template #error>
+            <span style="color: orange;">This field is not correct.</span>
+          </template>
+        </SfInput>
       `
     }),
     {

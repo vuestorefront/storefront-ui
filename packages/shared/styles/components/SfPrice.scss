@@ -16,12 +16,12 @@ $price__old-desktop-font-size: $font-size-small-mobile !default;
   &__special {
     color: $c-pink-primary;
     text-decoration: none;
+    margin-right: $spacer-small;
   }
   &__old {
     text-decoration: line-through;
     color: $c-gray-primary;
     font-size: $price__old-mobile-font-size;
-    margin-right: 5px;
     @media (min-width: $desktop-min) {
       font-size: $price__old-desktop-font-size;
     }

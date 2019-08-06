@@ -69,9 +69,11 @@ storiesOf("Atoms|Heading", module)
         }
       },
       components: { SfHeading },
-      template: `<div style="max-width: 1140px">
-        <sf-heading :title="title" :subtitle="subtitle" :level="level" :class="customClass" />
-      </div>`
+      template: `<SfHeading 
+        :title="title" 
+        :subtitle="subtitle" 
+        :level="level" 
+        :class="customClass" />`
     }),
     {
       info: {
@@ -112,11 +114,9 @@ storiesOf("Atoms|Heading", module)
         }
       },
       components: { SfHeading },
-      template: `<div style="max-width: 1140px">
-        <sf-heading :title="title" :subtitle="subtitle" :level="level" :class="customClass">
-          <template v-slot:title>{{title}}</template>
-        </sf-heading>
-      </div>`
+      template: `<SfHeading :level="level" :class="customClass">
+        <template #title>{{title}}</template>
+      </SfHeading>`
     }),
     {
       info: true
@@ -151,11 +151,9 @@ storiesOf("Atoms|Heading", module)
         }
       },
       components: { SfHeading },
-      template: `<div style="max-width: 1140px">
-        <sf-heading :title="title" :level="level" :class="customClass">
-          <template v-slot:subtitle>{{subtitle}}</template>
-        </sf-heading>
-      </div>`
+      template: `<SfHeading :level="level" :class="customClass">
+        <template #subtitle>{{subtitle}}</template>
+      </SfHeading>`
     }),
     {
       info: true

@@ -1,5 +1,5 @@
 <div :class="['sf-icon', iconColor, iconSize]" ref="icon" >
-  <slot v-bind="{viewBox, iconPaths }">
+  <slot v-bind="{ viewBox, iconPaths }">
     <svg class="sf-icon-path" :viewBox="iconViewBox" preserveAspectRatio="none">
         <path :d="path" v-for="(path, index) in iconPaths" :key="index" style="height: 100%;"/>
     </svg>

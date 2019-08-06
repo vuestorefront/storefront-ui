@@ -95,13 +95,12 @@ storiesOf("Atoms|Icon", module)
         }
       },
       components: { SfIcon },
-      template: `<sf-icon
+      template: `<SfIcon
         :class="customClass"
         :path="path"
         :color="color"
         :size="size"
-        :viewBox="viewBox"
-      />`
+        :viewBox="viewBox"/>`
     }),
     {
       info: {
@@ -147,12 +146,11 @@ storiesOf("Atoms|Icon", module)
         }
       },
       components: { SfIcon },
-      template: `<sf-icon
+      template: `<SfIcon
         :path="path"
         :color="color"
         :size="size"
-        :viewBox="viewBox"
-      />`
+        :viewBox="viewBox"/>`
     }),
     {
       info: {
@@ -174,7 +172,9 @@ storiesOf("Atoms|Icon", module)
     "[slot] default",
     () => ({
       components: { SfIcon },
-      template: `<sf-icon><img src='assets/empty_cart.svg' alt="Cart icon"></sf-icon>`
+      template: `<SfIcon>
+        <img src='assets/empty_cart.svg' alt="Cart icon">
+       </SfIcon>`
     }),
     {
       info: {
@@ -192,9 +192,9 @@ storiesOf("Atoms|Icon", module)
           default: text("size (prop)", "sm")
         }
       },
-      template: `<sf-icon :size="size">
+      template: `<SfIcon :size="size">
         <img src='assets/empty_cart.svg' alt="Cart icon">
-      </sf-icon>`
+      </SfIcon>`
     }),
     {
       info: {
