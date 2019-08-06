@@ -1,23 +1,23 @@
-@import '../variables';
+@import "../variables";
 
-$product-option-font-size    : $font-size-big-mobile !default;
-$product-option-font-family  : $body-font-family-secondary !default;
+$product-option-font-size: $font-size-big-mobile !default;
+$product-option-font-family: $body-font-family-secondary !default;
 
 .sf-product-option {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    font-size: $product-option-font-size;
-    font-family: $product-option-font-family;
-    &__label {
-        flex-grow: 1;
-    }
-    &__color {
-        width: 1.125rem;
-        height: 1.125rem;
-        background: black;
-        margin-right: $spacer-big;
-        border: 1px solid $c-gray-secondary;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: $product-option-font-size;
+  font-family: $product-option-font-family;
+  &__label {
+    flex-grow: 1;
+  }
+  &__color {
+    width: 1.125rem;
+    height: 1.125rem;
+    background: black;
+    margin-right: $spacer-big;
+    border: 1px solid $c-gray-secondary;
+  }
 }

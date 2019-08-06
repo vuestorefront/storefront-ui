@@ -1,7 +1,7 @@
-@import '../variables';
+@import "../variables";
 
-$breadcrumbs__item-separator: '|' !default;
-$breadcrumbs__item-padding: .75rem !default;
+$breadcrumbs__item-separator: "|" !default;
+$breadcrumbs__item-padding: 0.75rem !default;
 $breadcrumbs__link-color: $c-dark-primary !default;
 $breadcrumbs__item-color: $c-gray-primary !default;
 $breadcrumbs__item-separator-color: $breadcrumbs__link-color !default;
@@ -12,14 +12,11 @@ $breadcrumbs__item-separator-color: $breadcrumbs__link-color !default;
     padding: 0;
     margin: 0;
   }
-
   &__item {
     display: inline-block;
     color: $breadcrumbs__item-color;
-
     &:not(:first-child) {
       padding-left: $breadcrumbs__item-padding;
-
       &::before {
         content: $breadcrumbs__item-separator;
         display: inline-block;
@@ -28,7 +25,6 @@ $breadcrumbs__item-separator-color: $breadcrumbs__link-color !default;
       }
     }
   }
-
   &__link {
     cursor: pointer;
     color: $breadcrumbs__link-color;

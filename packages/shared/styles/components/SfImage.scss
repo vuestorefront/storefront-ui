@@ -1,8 +1,8 @@
-@import '../variables';
+@import "../variables";
 
-$image__overlay-justify-content: center!default;
-$image__overlay-align-items: center!default;
-$image__overlay-background-color: rgba(29, 31, 34, 0.8)!default;
+$image__overlay-justify-content: center !default;
+$image__overlay-align-items: center !default;
+$image__overlay-background-color: rgba(29, 31, 34, 0.8) !default;
 $image__overlay-color: $c-white !default;
 
 .sf-image {
@@ -13,7 +13,7 @@ $image__overlay-color: $c-white !default;
     max-width: 100%;
     height: auto;
   }
-  &__overlay{
+  &__overlay {
     position: absolute;
     top: 0;
     left: 0;

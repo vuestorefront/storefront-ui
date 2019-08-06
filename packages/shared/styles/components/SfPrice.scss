@@ -1,9 +1,9 @@
-@import '../variables';
+@import "../variables";
 
-$price-desktop-font-size : $font-size-big-desktop !default;
-$price-mobile-font-size  : $font-size-big-mobile !default;
-$price__old-mobile-font-size  : $font-size-small-mobile !default;
-$price__old-desktop-font-size  : $font-size-small-mobile !default;
+$price-desktop-font-size: $font-size-big-desktop !default;
+$price-mobile-font-size: $font-size-big-mobile !default;
+$price__old-mobile-font-size: $font-size-small-mobile !default;
+$price__old-desktop-font-size: $font-size-small-mobile !default;
 
 .sf-price {
   font-size: $price-mobile-font-size;

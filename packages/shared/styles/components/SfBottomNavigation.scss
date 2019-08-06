@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 .sf-bottom-navigation {
   position: fixed;
@@ -7,8 +7,8 @@
   justify-content: space-between;
   width: 100%;
   background-color: $c-white;
-  @media ( min-width: $tablet-min ) {
-    display: none
+  @media (min-width: $tablet-min) {
+    display: none;
   }
   .sf-bottom-navigation__elements {
     display: flex;
@@ -32,6 +32,5 @@
     background-color: $c-green-primary;
     border-radius: 50%;
     box-shadow: 0px 4px 6px rgba(66, 66, 66, 0.2);
-
   }
 }

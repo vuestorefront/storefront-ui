@@ -1,12 +1,11 @@
-@import '../variables';
+@import "../variables";
 
-$radio__checkmark-size:  1.438rem !default;
+$radio__checkmark-size: 1.438rem !default;
 $radio__checkmark-border-color: $c-gray-secondary !default;
 $radio__checkmark-border-width: 0.0625rem !default;
 $radio__checkmark-border-color--checked: $c-green-primary !default;
-$radio__checkmark-border-width--checked:  0.5625rem !default;
+$radio__checkmark-border-width--checked: 0.5625rem !default;
 $radio__checkmark-margin: 0.625rem !default;
-
 $radio__container-align-items: flex-start !default;
 $radio__description-font-weight: 300 !default;
 $radio__description-line-height: 1.25rem !default;
@@ -19,53 +18,44 @@ $radio__description-size: $font-size-extra-small-desktop !default;
     display: flex;
     align-items: $radio__container-align-items;
     padding: $radio__checkmark-margin 0;
-
     &__content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        &__label {
-          height: 100%;
-          line-height: $radio__checkmark-size;
-        }
-
-        &__description {
-            color: $radio__description-color;
-            font-size: $radio__description-size;
-            line-height: $radio__description-line-height;
-            font-weight: $radio__description-font-weight;
-        }
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      &__label {
+        height: 100%;
+        line-height: $radio__checkmark-size;
       }
+      &__description {
+        color: $radio__description-color;
+        font-size: $radio__description-size;
+        line-height: $radio__description-line-height;
+        font-weight: $radio__description-font-weight;
+      }
+    }
   }
-
   &__input {
-      display: none;
+    display: none;
   }
-
   &__checkmark {
-      min-width: $radio__checkmark-size;
-      min-height: $radio__checkmark-size;
-      border: $radio__checkmark-border-width solid $radio__checkmark-border-color;
-      border-radius: 50%;
-      margin: 0 $radio__checkmark-margin;
-      box-sizing: border-box;
-      cursor: pointer;
+    min-width: $radio__checkmark-size;
+    min-height: $radio__checkmark-size;
+    border: $radio__checkmark-border-width solid $radio__checkmark-border-color;
+    border-radius: 50%;
+    margin: 0 $radio__checkmark-margin;
+    box-sizing: border-box;
+    cursor: pointer;
   }
-
   &--checked {
     background-color: $radio__container-background-color--checked;
-
     .sf-radio__checkmark {
-        border: $radio__checkmark-border-width--checked solid $radio__checkmark-border-color--checked;
+      border: $radio__checkmark-border-width--checked solid
+        $radio__checkmark-border-color--checked;
     }
-
   }
-
   &--center {
     .sf-radio__container {
       align-items: center;
     }
   }
-
 }

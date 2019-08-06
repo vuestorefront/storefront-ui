@@ -1,16 +1,12 @@
-@import '../variables';
+@import "../variables";
 
 $select-color-primary: $c-green-primary !default;
 $select-color-secondary: $c-light-primary !default;
-
 $select-font-size: $font-size-big-mobile !default;
 $select-font-family: $body-font-family-secondary !default;
-
 $select-option-padding: 0.75rem 1.875rem;
-
 $select-color-primary: $c-green-primary;
 $select-color-secondary: $c-light-primary;
-
 $select-option-font-size: $font-size-big-mobile;
 $select-option-font-family: $body-font-family-secondary;
 
@@ -19,27 +15,26 @@ $select-option-font-family: $body-font-family-secondary;
   align-items: center;
   padding: $select-option-padding;
   user-select: none;
-  &--active{
-    color: #FFF;
+  &--active {
+    color: #fff;
     background-color: $select-color-primary;
   }
-  &:hover{
+  &:hover {
     outline: 1px solid $select-color-primary;
   }
 }
-
 .sf-select {
   position: relative;
   user-select: none;
   white-space: nowrap;
-  &:focus{
+  &:focus {
     outline: 0;
   }
-
   &__selected {
-    background-color: #FFF;
-    @at-root :focus &{}
-    &:after{
+    background-color: #fff;
+    @at-root :focus & {
+    }
+    &:after {
       flex: 0 0 7px;
       height: 7px;
       margin-left: auto;
@@ -48,31 +43,26 @@ $select-option-font-family: $body-font-family-secondary;
       transform: rotate(45deg) translateX(calc(-7px / 2));
       content: "";
     }
-    &:hover{
+    &:hover {
       outline: 0px;
     }
   }
-
   &__options {
     position: absolute;
     top: calc(100% + 20px);
     z-index: 100;
     width: 100%;
-    background-color: #FFF;
+    background-color: #fff;
     outline: 0;
     box-shadow: 0px 4px 11px rgba(157, 157, 157, 0.21);
   }
-
-  &--bordered{
-
-    .sf-select__selected{
+  &--bordered {
+    .sf-select__selected {
       border: 1px solid $select-color-secondary;
     }
   }
-
-  &--underlined{
-
-    .sf-select__selected{
+  &--underlined {
+    .sf-select__selected {
       border-bottom: 1px solid $select-color-secondary;
     }
   }

@@ -1,44 +1,38 @@
-@import '../variables';
+@import "../variables";
 
-$sf-alert-padding                   : 0.625rem !default;
-$sf-alert-font-size                 : 0.875rem !default;
-
-$sf-alert__message-margin              : 0 !default;
-
-$sf-alert__message-padding-left       : 0.625rem !default;
-
-$sf-alert--info-color    : $c-dark-primary !default;
-$sf-alert--warning-color : #D12727 !default;
-$sf-alert--alert-color   : #0468DB !default;
+$sf-alert-padding: 0.625rem !default;
+$sf-alert-font-size: 0.875rem !default;
+$sf-alert__message-margin: 0 !default;
+$sf-alert__message-padding-left: 0.625rem !default;
+$sf-alert--info-color: $c-dark-primary !default;
+$sf-alert--warning-color: #d12727 !default;
+$sf-alert--alert-color: #0468db !default;
 $sf-alert--success-color: #128830 !default;
 
 .sf-alert {
-    display: flex;
-    align-items: center;
-    padding: $sf-alert-padding;
-    font-size: $sf-alert-font-size;
-    background-color: $c-white;
-
-    &__message {
-        margin: $sf-alert__message-margin;
-        padding-left: $sf-alert__message-padding-left;
-    }
-
-    &--info {
-        color: $sf-alert--info-color;
-        fill: $sf-alert--info-color;
-    }
-    &--alert {
-        fill: $sf-alert--alert-color;
-        color: $sf-alert--alert-color;
-    }
-    &--warning {
-        fill: $sf-alert--warning-color;
-        color: $sf-alert--warning-color;
-    }
-
-    &--success {
-        fill: $sf-alert--success-color;
-        color: $sf-alert--success-color;
-    }
+  display: flex;
+  align-items: center;
+  padding: $sf-alert-padding;
+  font-size: $sf-alert-font-size;
+  background-color: $c-white;
+  &__message {
+    margin: $sf-alert__message-margin;
+    padding-left: $sf-alert__message-padding-left;
+  }
+  &--info {
+    color: $sf-alert--info-color;
+    fill: $sf-alert--info-color;
+  }
+  &--alert {
+    fill: $sf-alert--alert-color;
+    color: $sf-alert--alert-color;
+  }
+  &--warning {
+    fill: $sf-alert--warning-color;
+    color: $sf-alert--warning-color;
+  }
+  &--success {
+    fill: $sf-alert--success-color;
+    color: $sf-alert--success-color;
+  }
 }

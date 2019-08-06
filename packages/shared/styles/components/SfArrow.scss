@@ -1,17 +1,14 @@
-@import '../variables';
+@import "../variables";
 
 $arrow__button-color: $c-light-primary !default;
 $arrow__button-color--hover: $c-dark-primary !default;
-
 $arrow__button-shadow: 0 5px 12px -6px rgba($c-dark-primary, 0) !default;
 $arrow__button-shadow--right: 0 -5px 12px -5px rgba($c-dark-primary, 0.6) !default;
-
 $arrow__icon-color: $c-white !default;
 $arrow__icon-color--hover: $c-dark-primary !default;
 
 .sf-arrow {
-
-  &__button{
+  &__button {
     position: relative;
     display: flex;
     border: 0;
@@ -19,16 +16,13 @@ $arrow__icon-color--hover: $c-dark-primary !default;
     background-color: $arrow__button-color;
     cursor: pointer;
     outline: 0;
-    transition: padding 150ms linear,
-      background-color 150ms linear,
+    transition: padding 150ms linear, background-color 150ms linear,
       box-shadow 150ms linear;
     box-shadow: 0 5px 12px -6px rgba(29, 31, 34, 0);
-
-    &:hover{
+    &:hover {
       background-color: $arrow__button-color--hover;
       box-shadow: 0 5px 12px -5px rgba(29, 31, 34, 0.6);
-
-      .sf-arrow__icon{
+      .sf-arrow__icon {
         fill: $arrow__icon-color;
       }
     }
@@ -41,45 +35,39 @@ $arrow__icon-color--hover: $c-dark-primary !default;
     fill: $arrow__icon-color--hover;
     transition: fill 150ms linear;
   }
-
-  &--long{
+  &--long {
     width: 70px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
-    .sf-arrow{
-      &__button{
+    .sf-arrow {
+      &__button {
         padding: 9px 26px 9px 10px;
         background-color: $arrow__icon-color;
-
-        &:hover{
+        &:hover {
           padding: 14px 36px 14px 10px;
           background-color: $arrow__icon-color--hover;
         }
       }
     }
   }
-  &--right{
+  &--right {
     justify-content: flex-end;
-
-    .sf-arrow{
-      &__button{
+    .sf-arrow {
+      &__button {
         transform: rotate(180deg);
-
-        &:hover{
+        &:hover {
           box-shadow: $arrow__button-shadow--right;
         }
       }
     }
   }
-  &--transparent{
-    .sf-arrow{
-      &__button{
+  &--transparent {
+    .sf-arrow {
+      &__button {
         background-color: transparent;
-
-        &:hover{
+        &:hover {
           box-shadow: none;
         }
       }
