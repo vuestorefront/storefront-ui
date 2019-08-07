@@ -10,9 +10,6 @@
     "test:dev": "vue-cli-service test:unit --watch",
     "storybook:serve": "vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
     "storybook:build": "vue-cli-service storybook:build -s ./public -c config/storybook",
-    "postinstall": "node scripts/postinstall.js",
-    "version": "node scripts/version.js",
-    "postpublish": "node scripts/postpublish.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "create-component": "node ./scripts/create-component.js"
@@ -62,7 +59,6 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.5",
-    "core-js": "^3.1.4",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.3",
     "html-loader": "^0.5.5",
