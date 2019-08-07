@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, text, select, number } from "@storybook/addon-knobs";
 import { withA11y } from "@storybook/addon-a11y";
 import notes from "./SfSelect.md";
 import SfSelect from "./SfSelect.vue";
@@ -37,13 +37,16 @@ storiesOf("Molecules|Select", module)
             ["null", "sf-select--bordered", "sf-select--underlined"],
             "null"
           )
+        },
+        size: {
+          default: number("size (prop)", 5)
         }
       },
       template: `
       <div>
         <p><b>Selected: {{selected}}</b></p>
         <div style="max-width: 509px">
-          <SfSelect v-model="selected" :class="customClass">
+          <SfSelect v-model="selected" :class="customClass" :size="size">
             <SfSelectOption v-for="option in options" :key="option.value" :value="option.value">
               <SfProductOption :color="option.color" :label="option.label"/>
             </SfSelectOption>
