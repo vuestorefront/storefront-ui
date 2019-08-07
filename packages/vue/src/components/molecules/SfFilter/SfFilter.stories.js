@@ -64,25 +64,20 @@ export default storiesOf("Molecules|Filter", module)
           )
         }
       },
-      template: `
-      <div style="width: 300px">
+      template: `<div :style="{width: '300px'}">
         <SfFilter v-model="activeFilters">
           <SfFilterItem
             :color="color_1"
             :label="title_1"
             :count="count_1"
-            value="filter_1_red"
-          />
+            value="filter_1_red" />
           <SfFilterItem
             :color="color_2"
             :label="title_2"
             :count="count_2"
-            value="filter_2_blue"
-          />
+            value="filter_2_blue" />
         </SfFilter>
-        <p><b>Active filters:</b> {{ activeFilters }}</p>
-      </div>
-    `
+      </div>`
     }),
     {
       info: {

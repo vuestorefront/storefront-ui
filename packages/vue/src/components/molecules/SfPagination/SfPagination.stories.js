@@ -131,7 +131,7 @@ storiesOf("Molecules|Pagination", module)
       v-model="page"
       :total="numberOfPages"
       :visible="visiblePageNumbers">
-      <template v-slot:number="{ number }">
+      <template #number="{ number }">
         [{{ number }}]
       </template>
     </sf-pagination>`
