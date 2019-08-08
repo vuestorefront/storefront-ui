@@ -1,0 +1,35 @@
+
+@import '../variables';
+
+$footer__title-font-size: $font-size-regular-desktop !default;
+$characteristic__description-font-size: $font-size-extra-small-desktop !default;
+
+.sf-footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: stretch;
+  margin-top: 60px;
+}
+
+.sf-footer-column {
+  margin-right: 10px;
+  &__title {
+    font-size: $footer__title-font-size;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+  }
+  &__content {
+    font-size: $characteristic__description-font-size;
+  }
+  &__list {
+    list-style-type: none;
+    padding-inline-start: unset;
+  }
+}
+
+.sf-footer-column-element {
+  padding: 5px 0;
+}
