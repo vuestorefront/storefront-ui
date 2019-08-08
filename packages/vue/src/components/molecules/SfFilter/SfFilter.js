@@ -1,39 +1,25 @@
-import Vue from "vue";
-import SfFilterItem from "./_internal/SfFilterItem.vue";
-
-Vue.component("SfFilterItem", SfFilterItem);
-
 export default {
+  name: "SfFilter",
   props: {
+    label: {
+      type: String,
+      default: ""
+    },
+    value: {
+      type: String,
+      default: ""
+    },
+    count: {
+      type: String,
+      default: ""
+    },
+    color: {
+      type: String,
+      defult: ""
+    },
     selected: {
-      type: [String, Array],
-      default: () => []
-    },
-    multiple: {
       type: Boolean,
-      default: true
+      default: false
     }
-  },
-  model: {
-    event: "change",
-    prop: "selected"
-  },
-  methods: {
-    getSelected: function() {
-      return this.selected;
-    },
-    updateSelected: function(data) {
-      this.$emit("change", data);
-    },
-    isMultiple: function() {
-      return this.multiple;
-    }
-  },
-  provide() {
-    return {
-      getSelected: this.getSelected,
-      updateSelected: this.updateSelected,
-      isMultiple: this.isMultiple
-    };
   }
 };
