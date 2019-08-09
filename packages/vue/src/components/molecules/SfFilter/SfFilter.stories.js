@@ -49,7 +49,6 @@ export default storiesOf("Molecules|Filter", module)
             :label="label"
             :count="count"
             :selected="selected"
-            value="filter_value"
           />
       </div>
     `
