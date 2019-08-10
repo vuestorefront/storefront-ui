@@ -43,11 +43,11 @@
     <div class="sf-store-locator__map-wrapper">
       <l-map class="sf-store-locator__map-wrapper-map" v-if="loaded" ref="map" :options="mapOptions" :center="center" :zoom="zoom" :max-zoom="maxZoom" @ready="onMapReady" @locationfound="locationFound" @locationerror="locationError">
         <l-tilelayer v-bind="tileLayerOptions" :url="tileServerUrl" :attribution="tileServerAttribution"  />
-        <l-marker v-for="(store, index) in parsedStores" :key="index" :options="{alt: store.name}" v-bind="markerOptions" :lat-lng="store.latlng">
+        <l-marker v-for="(store, index) in parsedStores" :lat-lng="store.latlng" :key="index" v-bind="markerOptions">
           <l-icon :icon-size="markerIconSize" :icon-anchor="markerIconAnchor">
             <!-- @slot Use this slot to change the icon of the stores, remember to update `markerIconSize` and `markerIconAnchor` accordingly-->
               <slot name="marker-icon" >
-                <sf-icon path="marker" />
+                <sf-icon :aria-label="`${store.name} located at ${store.address}`" path="marker" />
               </slot>
           </l-icon>
         </l-marker>
