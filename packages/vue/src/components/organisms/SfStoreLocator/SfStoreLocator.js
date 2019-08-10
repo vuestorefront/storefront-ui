@@ -55,10 +55,7 @@ export default {
           value.length === 0 ||
           value.reduce((a, c) => {
             return (
-              a &&
-              c.hasOwnProperty("latlng") &&
-              Array.isArray(c.latlng) &&
-              Array.length === 2
+              a && c.latlng && Array.isArray(c.latlng) && c.latlng.length === 2
             );
           }, true)
         );
