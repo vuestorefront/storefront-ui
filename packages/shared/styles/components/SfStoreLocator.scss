@@ -152,6 +152,18 @@ $sf-store-locator__map-min-height-mobile: 26.875rem !default;
       // Workaround to known bug about min-height / height interaction in Chrome / Firefox
       position: absolute;
       height: 100%;
+
+      &-my-location-btn {
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          
+          &:hover {
+             display: flex;
+          }
+        }
+      }
     }
 
     .sf-loader {

@@ -131,6 +131,25 @@ export default {
         });
       }
       return this.stores;
+    },
+    computedMapOptions() {
+      return { zoomControl: false, ...this.mapOptions };
+    },
+    internalCenter: {
+      get() {
+        return this.center;
+      },
+      set(value) {
+        this.updateCenter(value);
+      }
+    },
+    internalZoom: {
+      get() {
+        return this.zoom;
+      },
+      set(value) {
+        this.$emit("update:zoom", value);
+      }
     }
   },
   methods: {
@@ -143,7 +162,10 @@ export default {
        */
       this.mapReady = true;
       this.$emit("map:ready", mapObject);
-      mapObject.locate({ timeout: 20000 });
+      this.locateUser();
+    },
+    locateUser() {
+      this.$refs.map.mapObject.locate({ timeout: 20000 });
     },
     locationFound(location) {
       this.userPosition = { ...location.latlng };
@@ -153,7 +175,7 @@ export default {
        * @event 'update:center'
        * @type {object}
        */
-      this.$emit("update:center", { ...location.latlng });
+      this.updateCenter({ ...location.latlng });
     },
     locationError(error) {
       /**
@@ -163,6 +185,9 @@ export default {
        * @type {object}
        */
       this.$emit("location:error", error);
+    },
+    updateCenter(latlng) {
+      this.$emit("update:center", { ...latlng });
     },
     getGeoDistance(start, end) {
       const deg2rad = deg => deg * (Math.PI / 180);
@@ -183,11 +208,20 @@ export default {
     }
   },
   async mounted() {
-    const { LMap, LTileLayer, LMarker, LIcon } = await import("vue2-leaflet");
+    const {
+      LMap,
+      LTileLayer,
+      LMarker,
+      LIcon,
+      LControl,
+      LControlZoom
+    } = await import("vue2-leaflet");
     Vue.component("l-map", LMap);
     Vue.component("l-tilelayer", LTileLayer);
     Vue.component("l-marker", LMarker);
     Vue.component("l-icon", LIcon);
+    Vue.component("l-control", LControl);
+    Vue.component("l-control-zoom", LControlZoom);
     this.loaded = true;
     /**
      * Library loaded event, the library is ready and the map is initialising
