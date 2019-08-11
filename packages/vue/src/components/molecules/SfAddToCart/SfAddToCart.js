@@ -12,6 +12,14 @@ export default {
   },
   props: {
     /**
+     * Boolean to indicate whether product
+     * can be added to cart
+     */
+    canAddToCart: {
+      type: Boolean,
+      default: false
+    },
+    /**
      * Stock quantity of product
      */
     quantity: {
