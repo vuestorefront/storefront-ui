@@ -12,13 +12,18 @@
   role="combobox"
   tabindex="0">
   <div
-    role="textbox"
-    class="sf-select__selected sf-select-option"
-    v-html="html"
-    ></div>
+  role="textbox"
+  class="sf-select__selected sf-select-option"
+  v-html="html"></div>
+  <transition name="fade">
+    <div
+      v-show="open"
+      class="sf-select__overlay"></div>
+  </transition>
   <transition name="sf-select">
-    <div v-show="open" class="sf-select__dropdown">
-      <div class="sf-select__overlay"></div>
+    <div
+      v-show="open"
+      class="sf-select__dropdown">
       <ul
         :id="'lbox_'+_uid"
         role="listbox"
@@ -26,13 +31,7 @@
         :style="{maxHeight}">
         <slot/>
       </ul>
-      <div class="sf-select__bottom">
-        <SfButton @click="closeHandler" class="sf-select__button-cancel">Cancel</SfButton>
-      </div>
-
-<!--
-<!--        <slot name="options-bottom">Check size guide <span style="width: 25px; height: 25px; border-radius: 50%; background-color: #5ECE7B; margin-left: 10px"></span></slot>-->
-<!--      </div>-->
+      <SfButton @click="closeHandler" class="sf-select__button-cancel">Cancel</SfButton>
     </div>
   </transition>
 </div>

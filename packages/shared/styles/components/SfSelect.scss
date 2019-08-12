@@ -1,30 +1,20 @@
 @import '../variables';
 
-$select-color-primary: $c-light-primary !default;
-$select-color-secondary: $c-light-primary !default;
-
-$select-font-size: $font-size-big-mobile !default;
-$select-font-family: $body-font-family-secondary !default;
-
 $select-option-padding: 0.75rem 1.875rem;
+$select-color-primary: $c-light-primary !default;
+$select-color-secondary: $c-dark-primary !default;
 
-$select-option-font-size: $font-size-big-mobile;
-$select-option-font-family: $body-font-family-secondary;
-
-.sf-select-option {
+.sf-select-option{
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
   padding: $select-option-padding;
   user-select: none;
   & + & {
-    border-top: 1px solid $c-light-primary;
+    border-top: 1px solid $select-color-primary;
     @media screen and (min-width: $desktop-min){
       border-top: 0;
     }
-  }
-  @media screen and (min-width: $desktop-min){
-    justify-content: flex-start;
   }
   &--active{
     background-color: $select-color-primary;
@@ -33,116 +23,109 @@ $select-option-font-family: $body-font-family-secondary;
     outline: 1px solid $select-color-primary;
   }
 }
-.sf-select {
+.sf-select{
+  $this: &;
   position: relative;
-  user-select: none;
   white-space: nowrap;
+  user-select: none;
   &:focus{
     outline: 0;
   }
-  &__selected {
-    background-color: #FFF;
-    &:after{
+  &__selected{
+    padding: $select-option-padding;
+    display: flex;
+    justify-content: flex-start;
+    &:hover{
+      outline: 0;
+    }
+    &::after{
       flex: 0 0 7px;
       height: 7px;
       margin-left: auto;
-      border: 0px solid $c-dark-primary;
+      border: 0px solid $select-color-secondary;
       border-width: 0px 2px 2px 0px;
       transform: rotate(45deg) translateX(calc(-7px / 2));
       content: "";
-    }
-    &:hover{
-      outline: 0px;
-    }
-  }
-  &__options {
-    position: relative;
-    z-index: 1;
-    list-style-type:none;
-    padding: 0;
-    margin: 0;
-    overflow: auto;
-    background-color: #FFF;
-    &::-webkit-scrollbar{
-      width: 0;
-    }
-  }
-  &__dropdown{
-    position: fixed;
-    top: auto;
-    bottom: 0;
-    left: 0;
-    right: auto;
-    width: 100%;
-    background-color: #FFF;
-    box-shadow: 0 8px 11px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    @media screen and (min-width: $desktop-min){
-      position: absolute;
-      top: calc(100% + 20px);
-      bottom: auto;
-      left: 0;
-      z-index: 100;
-      width: 100%;
-      background-color: #FFF;
-      outline: 0;
-      transform: translate(0, 0);
-    }
-  }
-  &__bottom{
-    position: relative;
-    z-index: 1;
-    @media screen and (min-width: $desktop-min){
-      display: none;
     }
   }
   &__overlay{
     position: fixed;
     top: 0;
-    left:0;
-    height: 100%;
+    left: 0;
     width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.8);
     @media screen and (min-width: $desktop-min){
       display: none;
     }
   }
-  &__button-cancel{
-    width:100%;
-    height: 100%;
-    padding: $select-option-padding;
-    background-color: $c-light-primary;
-    color: #A3A5AD;
-    font-size: 1rem;
-    text-transform: none;
-    &:hover{
-      background-color: $c-light-primary;
+  &__dropdown{
+    position: fixed;
+    top: auto;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #FFF;
+    @media screen and (min-width: $desktop-min){
+      position: absolute;
+      top: calc(100% + #{$spacer-big});
+      bottom: auto;
+      left: 0;
+      box-shadow: 0 8px 11px rgba(0, 0, 0, 0.1);
     }
   }
+  &__options{
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    list-style-type: none;
+    &::-webkit-scrollbar{
+      width: 0;
+    }
+  }
+  &__button-cancel{
+    width: 100%;
+    background-color: $select-color-primary;
+    color: #A3A5AD;
+    text-transform: none;
+    padding: $select-option-padding;
+    font-size: 1rem;
+    &:hover{
+      background-color: $select-color-primary;
+    }
+    @media screen and (min-width: $desktop-min){
+      display: none;
+    }
+  }
+
   &--bordered{
-    .sf-select__selected{
+    #{$this}__selected{
       border: 1px solid $select-color-primary;
     }
   }
   &--underlined{
-    .sf-select__selected{
+    #{$this}__selected{
       border-bottom: 1px solid $select-color-primary;
     }
   }
-  &-enter-active {
+
+  &-enter-active{
     animation: sf-select--mobile .15s;
     @media screen and (min-width:$desktop-min){
       animation: sf-select--dekstop .15s;
     }
   }
-  &-leave-active {
+  &-leave-active{
     animation: sf-select--mobile .15s reverse;
     @media screen and (min-width:$desktop-min){
       animation: sf-select--dekstop .15s reverse;
     }
   }
 }
-@keyframes sf-select--desktop {
+
+@keyframes sf-select--desktop{
   0% {
     opacity: 0;
   }
@@ -150,7 +133,7 @@ $select-option-font-family: $body-font-family-secondary;
     opacity: 1;
   }
 }
-@keyframes sf-select--mobile {
+@keyframes sf-select--mobile{
   0% {
     transform: translate(0, 100%);
   }
@@ -158,4 +141,3 @@ $select-option-font-family: $body-font-family-secondary;
     transform: translate(0, 0);
   }
 }
-

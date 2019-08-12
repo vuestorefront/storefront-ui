@@ -41,11 +41,14 @@ export default {
     index(index) {
       this.$emit("change", this.options[index].value);
     },
-    open(visible) {
-      if (visible) {
-        this.$nextTick(() => {
-          this.optionHeight = this.$slots.default[0].elm.offsetHeight;
-        });
+    open: {
+      immediate: true,
+      handler: function(visible) {
+        if (visible) {
+          this.$nextTick(() => {
+            this.optionHeight = this.$slots.default[0].elm.offsetHeight;
+          });
+        }
       }
     }
   },
