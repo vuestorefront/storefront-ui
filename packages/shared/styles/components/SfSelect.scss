@@ -17,10 +17,14 @@ $select-option-font-family: $body-font-family-secondary;
   justify-content: center;
   padding: $select-option-padding;
   user-select: none;
-  border-top: 1px solid $c-light-primary;
+  & + & {
+    border-top: 1px solid $c-light-primary;
+    @media screen and (min-width: $desktop-min){
+      border-top: 0;
+    }
+  }
   @media screen and (min-width: $desktop-min){
     justify-content: flex-start;
-    border-top: 0;
   }
   &--active{
     background-color: $select-color-primary;
@@ -103,7 +107,7 @@ $select-option-font-family: $body-font-family-secondary;
       display: none;
     }
   }
-  &__cancel{
+  &__button-cancel{
     width:100%;
     height: 100%;
     padding: $select-option-padding;
