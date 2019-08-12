@@ -17,8 +17,10 @@ $select-option-font-family: $body-font-family-secondary;
   justify-content: center;
   padding: $select-option-padding;
   user-select: none;
+  border-top: 1px solid $c-light-primary;
   @media screen and (min-width: $desktop-min){
     justify-content: flex-start;
+    border-top: 0;
   }
   &--active{
     background-color: $select-color-primary;
@@ -86,24 +88,9 @@ $select-option-font-family: $body-font-family-secondary;
   &__bottom{
     position: relative;
     z-index: 1;
-    //list-style-type:none;
-    //display: flex;
-    //align-items: center;
-    //justify-content: center;
-    //user-select: none;
-    //@media screen and (min-width: $desktop-min){
-    //  display: none;
-    //}
-    //&::before{
-    //  position: absolute;
-    //  top: 0;
-    //  left: 50%;
-    //  transform: translateX(50%);
-    //  width: calc(100% - 30px);
-    //  height: 1px;
-    //  background-color: $c-light-primary;
-    //  content: "";
-    //}
+    @media screen and (min-width: $desktop-min){
+      display: none;
+    }
   }
   &__overlay{
     position: fixed;
