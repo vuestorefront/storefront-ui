@@ -81,9 +81,9 @@ export default {
       }
     },
     closeHandler() {
-      if (this.open) {
-        this.toggle();
-      }
+      // if (this.open) {
+      //   this.toggle();
+      // }
     }
   },
   created: function() {},

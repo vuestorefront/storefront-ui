@@ -102,6 +102,17 @@ $select-option-font-family: $body-font-family-secondary;
       content: "";
     }
   }
+  &__overlay{
+    position: fixed;
+    bottom: 100%;
+    left:0;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    @media screen and (min-width: $desktop-min){
+      display: none;
+    }
+  }
   &--bordered{
     .sf-select__selected{
       border: 1px solid $select-color-primary;

@@ -18,6 +18,7 @@
     ></div>
   <transition name="sf-select">
     <div v-show="open" class="sf-select__dropdown">
+      <div class="sf-select__overlay"></div>
       <ul
         :id="'lbox_'+_uid"
         role="listbox"
