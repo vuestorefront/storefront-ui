@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      open: true,
+      open: false,
       index: -1,
       options: [],
       indexes: {},
@@ -88,9 +88,9 @@ export default {
       }
     },
     closeHandler() {
-      // if (this.open) {
-      //   this.toggle();
-      // }
+      if (this.open) {
+        this.toggle();
+      }
     }
   },
   created: function() {},
