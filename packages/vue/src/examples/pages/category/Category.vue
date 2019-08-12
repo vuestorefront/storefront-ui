@@ -95,13 +95,13 @@
     <div class="main">
       <div class="sidebar desktop-only">
         <SfAccordion :firstOpen="true">
-          <template v-slot:items="{ selected }">
+          <template v-slot="{ selected }">
             <SfAccordionItem
               v-for="(accordion, i) in sidebarAccordion"
               :key="i"
               :header="accordion.header"
             >
-              <template v-slot:content="{ handler }">
+              <template v-slot="{ handler }">
                 <SfList>
                   <SfListItem v-for="(item, j) in accordion.items" :key="j">
                     <div
@@ -136,7 +136,7 @@
             :regular-price="product.price.regular"
             :special-price="product.price.special"
             :rating="product.rating.score"
-            :onWishlist="product.onWishlist"
+            :isOnWishlist="product.isOnWishlist"
             @click:wishlist="
               () => {
                 toggleWishlist(i);
@@ -235,7 +235,7 @@ import {
   SfPagination,
   SfAccordion,
   SfSelect
-} from "@storefrontui/vue";
+} from "../../../../index.js";
 
 export default {
   data() {
@@ -308,56 +308,56 @@ export default {
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00", special: "$20.00" },
           rating: { max: 5, score: false },
-          onWishlist: true
+          isOnWishlist: true
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
-          onWishlist: false
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
-          onWishlist: false
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
-          onWishlist: false
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
-          onWishlist: false
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
-          onWishlist: false
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
-          onWishlist: false
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
-          onWishlist: false
+          isOnWishlist: false
         }
       ],
       filtersOptions: {
@@ -404,7 +404,7 @@ export default {
       this.filters = filters;
     },
     toggleWishlist(index) {
-      this.products[index].onWishlist = !this.products[index].onWishlist;
+      this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
     }
   },
   components: {
