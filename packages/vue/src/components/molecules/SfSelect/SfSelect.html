@@ -27,8 +27,12 @@
         <slot/>
       </ul>
       <div class="sf-select__bottom">
-        <slot name="options-bottom">Check size guide <span style="width: 25px; height: 25px; border-radius: 50%; background-color: #5ECE7B; margin-left: 10px"></span></slot>
+        <SfButton @click="closeHandler" class="sf-select__cancel">Cancel</SfButton>
       </div>
+
+<!--
+<!--        <slot name="options-bottom">Check size guide <span style="width: 25px; height: 25px; border-radius: 50%; background-color: #5ECE7B; margin-left: 10px"></span></slot>-->
+<!--      </div>-->
     </div>
   </transition>
 </div>

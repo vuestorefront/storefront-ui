@@ -50,10 +50,13 @@ $select-option-font-family: $body-font-family-secondary;
     }
   }
   &__options {
+    position: relative;
+    z-index: 1;
     list-style-type:none;
     padding: 0;
     margin: 0;
     overflow: auto;
+    background-color: #FFF;
     &::-webkit-scrollbar{
       width: 0;
     }
@@ -62,10 +65,9 @@ $select-option-font-family: $body-font-family-secondary;
     position: fixed;
     top: auto;
     bottom: 0;
-    left: 50%;
+    left: 0;
     right: auto;
-    transform: translate(-50%, 0);
-    width: calc(100% - 20px);
+    width: 100%;
     background-color: #FFF;
     box-shadow: 0 8px 11px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -83,34 +85,47 @@ $select-option-font-family: $body-font-family-secondary;
   }
   &__bottom{
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: $select-option-padding;
-    user-select: none;
-    @media screen and (min-width: $desktop-min){
-      display: none;
-    }
-    &::before{
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(50%);
-      width: calc(100% - 30px);
-      height: 1px;
-      background-color: $c-light-primary;
-      content: "";
-    }
+    z-index: 1;
+    //list-style-type:none;
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
+    //user-select: none;
+    //@media screen and (min-width: $desktop-min){
+    //  display: none;
+    //}
+    //&::before{
+    //  position: absolute;
+    //  top: 0;
+    //  left: 50%;
+    //  transform: translateX(50%);
+    //  width: calc(100% - 30px);
+    //  height: 1px;
+    //  background-color: $c-light-primary;
+    //  content: "";
+    //}
   }
   &__overlay{
     position: fixed;
-    bottom: 100%;
+    top: 0;
     left:0;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background: rgba(0, 0, 0, 0.8);
     @media screen and (min-width: $desktop-min){
       display: none;
+    }
+  }
+  &__cancel{
+    width:100%;
+    height: 100%;
+    padding: $select-option-padding;
+    background-color: $c-light-primary;
+    color: #A3A5AD;
+    font-size: 1rem;
+    text-transform: none;
+    &:hover{
+      background-color: $c-light-primary;
     }
   }
   &--bordered{
@@ -146,10 +161,10 @@ $select-option-font-family: $body-font-family-secondary;
 }
 @keyframes sf-select--mobile {
   0% {
-    transform: translate(-50%, 100%);
+    transform: translate(0, 100%);
   }
   100% {
-    transform: translate(-50%, 0);
+    transform: translate(0, 0);
   }
 }
 

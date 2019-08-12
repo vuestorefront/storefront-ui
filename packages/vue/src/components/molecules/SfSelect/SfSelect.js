@@ -1,4 +1,5 @@
 import SfSelectOption from "./_internal/SfSelectOption.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import Vue from "vue";
 
 Vue.component("SfSelectOption", SfSelectOption);
@@ -7,6 +8,9 @@ export default {
   model: {
     prop: "selected",
     event: "change"
+  },
+  components: {
+    SfButton
   },
   props: {
     /**
