@@ -5,21 +5,27 @@ export default {
   components: {
     SfTab
   },
-
   props: {
-    /** Array of tabs objects  */
-    tabs: {
-      type: Array,
-      default: () => []
+    openTab: {
+      type: Number
     }
   },
-
   methods: {
-    activate(index) {
-      this.tabs.forEach((tab, tabIndex) => {
-        tab.isActive = false;
-        if (tabIndex === index) tab.isActive = true;
+    toggle(id) {
+      this.$children.forEach(child => {
+        child._uid === id
+          ? (child.isActive = !child.isActive)
+          : (child.isActive = false);
       });
+    },
+    openChild() {
+      if (this.openTab < this.$children.length + 1) {
+        this.$children[this.openTab - 1].isActive = true;
+      }
     }
+  },
+  mounted() {
+    this.$on("toggle", this.toggle);
+    if (this.openTab) this.openChild();
   }
 };

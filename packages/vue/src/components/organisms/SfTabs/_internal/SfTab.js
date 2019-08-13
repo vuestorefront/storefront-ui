@@ -4,23 +4,33 @@ import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 
 export default {
   name: "Sftab",
+  data() {
+    return {
+      isActive: false
+    };
+  },
   components: {
     Fragment,
     SfChevron
   },
   props: {
-    tab: {
-      type: Object,
-      required: true
+    header: {
+      type: String,
+      default: "MenuItem"
     },
-    index: {
-      type: Number,
-      required: true
+    active: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
     tabClick() {
-      this.$emit("tabClick", this.index);
+      this.$parent.$emit("toggle", this._uid);
+    }
+  },
+  mounted() {
+    if (this.active) {
+      this.$parent.$emit("toggle", this._uid);
     }
   }
 };

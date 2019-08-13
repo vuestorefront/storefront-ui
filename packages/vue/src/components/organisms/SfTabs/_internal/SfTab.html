@@ -1,12 +1,12 @@
   <Fragment>
-    <div class="sf-tabs__title" @click="tabClick" :class="{'sf-tabs__title--active': tab.isActive}">
-      {{tab.title}}
+    <div class="sf-tabs__title" @click="tabClick" :class="{'sf-tabs__title--active': isActive}">
+      {{header}}
       <div class="sf-tabs__chevron">
-        <SfChevron size="20px" :isActive="tab.isActive" />
+        <SfChevron :isActive="isActive" />
       </div>
     </div>
 
     <div class="sf-tabs__content">
-      <p>{{tab.content}}</p>
+      <slot></slot>
     </div>
   </Fragment>

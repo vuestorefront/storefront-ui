@@ -10,18 +10,12 @@ storiesOf("Atoms|Chevron", module)
       props: {
         isActive: {
           default: boolean("isActive (prop)", "false")
-        },
-        color: {
-          default: text("color (prop)", "#000000")
-        },
-        size: {
-          default: text("size (prop)", "40px")
         }
       },
       components: {
         SfChevron
       },
-      template: '<SfChevron :color="color" :size="size" :isActive="isActive"/>'
+      template: '<SfChevron :isActive="isActive"/>'
     }),
     {
       info: {
