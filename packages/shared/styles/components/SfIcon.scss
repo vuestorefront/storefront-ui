@@ -53,7 +53,7 @@ $sf-icon-colors : (
             --icon-size: #{$size};
         }
     }
-    svg{
+    svg, img{
       width: inherit;
       height: inherit;
     }
