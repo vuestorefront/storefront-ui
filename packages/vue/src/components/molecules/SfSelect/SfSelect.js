@@ -1,4 +1,5 @@
 import SfSelectOption from "./_internal/SfSelectOption.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import Vue from "vue";
 
 Vue.component("SfSelectOption", SfSelectOption);
@@ -32,6 +33,9 @@ export default {
       indexes: {},
       optionHeight: 0
     };
+  },
+  components: {
+    SfButton
   },
   watch: {
     index(index) {
@@ -76,17 +80,17 @@ export default {
       this.toggle();
     },
     toggle(event) {
+      if (event.target.contains(this.$refs.cancel.$el)) return;
+      console.error("toggle");
       this.open = !this.open;
     },
     openHandler() {
-      if (!this.open) {
-        this.toggle();
-      }
+      console.error("openHandler");
+      this.open = true;
     },
     closeHandler() {
-      // if (this.open) {
-      //   this.toggle();
-      // }
+      console.error("closeHandler");
+      this.open = false;
     }
   },
   created: function() {},

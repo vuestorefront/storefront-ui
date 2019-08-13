@@ -10,28 +10,32 @@
   :aria-owns="'lbox_'+_uid"
   aria-autocomplete="none"
   role="combobox"
-  tabindex="0">
+  tabindex="0"
+>
   <div
-  role="textbox"
-  class="sf-select__selected sf-select-option"
-  v-html="html"></div>
+    role="textbox"
+    class="sf-select__selected sf-select-option"
+    v-html="html"
+  ></div>
   <transition name="fade">
-    <div
-      v-show="open"
-      class="sf-select__overlay"></div>
+    <div v-show="open" class="sf-select__overlay"></div>
   </transition>
   <transition name="sf-select">
-    <div
-      v-show="open"
-      class="sf-select__dropdown">
+    <div v-show="open" class="sf-select__dropdown">
       <ul
         :id="'lbox_'+_uid"
         role="listbox"
         class="sf-select__options"
-        :style="{maxHeight}">
-        <slot/>
+        :style="{maxHeight}"
+      >
+        <slot />
       </ul>
-      <button class="sf-select__cancel">Cancel</button>
+      <SfButton
+        @click="closeHandler"
+        class="sf-select__cancel"
+        ref="cancel">
+        Cancel
+      </SfButton>
     </div>
   </transition>
 </div>
