@@ -2,7 +2,7 @@
 
 $chevron-duration: .5s !default;
 $chevron-easing: cubic-bezier(.25, 1.7, .35, .8) !default;
-$chevron-size: 40px !default;
+$chevron-size: 20px !default;
 $chevron__bar-width: calc(#{$chevron-size} / 2) !default;
 $chevron__bar-height: calc(#{$chevron__bar-width} / 4) !default;
 
