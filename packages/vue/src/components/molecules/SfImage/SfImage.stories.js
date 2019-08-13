@@ -9,14 +9,14 @@ import SfImage from "./SfImage.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["image__overlay-justify-content", "center", "size of checkmark"],
-    ["$image__overlay-align-items", "center", "size of checkmark"],
+    ["image__overlay-justify-content", "center", "overlay content horizontal justify"],
+    ["$image__overlay-align-items", "center", "overlay content vertical align"],
     [
       "$image__overlay-background-color",
       "rgba(29, 31, 34, 0.8)",
-      "size of checkmark"
+      "overlay background color"
     ],
-    ["$image__overlay-color", "$c-white", "size of checkmark"]
+    ["$image__overlay-color", "$c-white", "overlay content color"]
   ]
 };
 
@@ -26,23 +26,17 @@ storiesOf("Molecules|Image", module)
     "Basic",
     () => ({
       props: {
-        editableProp: {
-          default: text("(prop) propname")
+        src: {
+          default: text("src (prop)", "assets/storybook/product_thumb.png")
         },
-        customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-image--modifier"],
-            "null",
-            "CSS-Modifiers"
-          )
+        alt: {
+          default: text("alt (prop)", "angelina_trn")
         }
       },
       components: { SfImage },
       template: `<SfImage
-        src="assets/storybook/product_thumb.png"
-        alt="angelina_trn"
-        transition="slide-left"/>`
+        :src="src"
+        alt="angelina_trn"/>`
     }),
     {
       info: {
@@ -57,23 +51,33 @@ storiesOf("Molecules|Image", module)
     "[slot] default",
     () => ({
       props: {
-        editableProp: {
-          default: text("(prop) propname")
+        src: {
+          default: text("src (prop)", "assets/storybook/product_thumb.png")
         },
-        customClass: {
+        alt: {
+          default: text("alt (prop)", "angelina_trn")
+        },
+        transition: {
           default: select(
-            "CSS Modifier",
-            ["null", "sf-image--modifier"],
-            "null",
-            "CSS-Modifiers"
+            "transition (prop)",
+            {
+              "fade": "fade",
+              "slide-left": "slide-left",
+              "slide-right": "slide-right",
+              "collapse-top": "collapse-top",
+              "collapse-bottom": "collapse-bottom",
+              "fade-slide": "fade-slide",
+              "fade-collapse": "fade-collapse"
+            },
+            "fade"
           )
         }
       },
       components: { SfImage },
       template: `<SfImage
-        src="assets/storybook/product_thumb.png"
-        alt="angelina_trn"
-        transition="slide-left"
+        :src="src"
+        :alt="alt"
+        :transition="transition"
       >angelina_trn</SfImage>`
     }),
     {
