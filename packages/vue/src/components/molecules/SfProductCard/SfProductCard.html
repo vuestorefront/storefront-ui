@@ -34,14 +34,14 @@
       :special="specialPrice"/>
   </slot>
   <!-- @slot -->
-  <slot name="reviews" v-bind="{ maxRating, rating }">
+  <slot name="reviews" v-bind="{ maxRating, scoreRating }">
     <div class="sf-product-card__reviews">
       <SfRating
         class="sf-product-card__rating"
-        v-if="rating"
+        v-if="scoreRating"
         :max="maxRating"
-        :score="rating"/>
-      <a v-if="rating" class="sf-product-card__reviews-count">(8)</a>
+        :score="scoreRating"/>
+      <a v-if="scoreRating" class="sf-product-card__reviews-count">(8)</a>
     </div>
   </slot>
 </div>
