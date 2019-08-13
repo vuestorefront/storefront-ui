@@ -35,6 +35,7 @@ $select-color-secondary: $c-dark-primary !default;
     padding: $select-option-padding;
     display: flex;
     justify-content: flex-start;
+    padding-left: 0;
     &:hover{
       outline: 0;
     }
