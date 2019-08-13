@@ -1,22 +1,23 @@
 @import '../variables';
 
-$select-color-primary: $c-green-primary !default;
+$select-color-primary: $c-light-primary !default;
 $select-color-secondary: $c-light-primary !default;
 $select-font-size: $font-size-big-mobile !default;
 $select-font-family: $body-font-family-secondary !default;
 $select-option-padding: 0.75rem 1.875rem;
-$select-color-primary: $c-green-primary;
-$select-color-secondary: $c-light-primary;
 $select-option-font-size: $font-size-big-mobile;
 $select-option-font-family: $body-font-family-secondary;
 
 .sf-select-option {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: $select-option-padding;
   user-select: none;
+  @media screen and (min-width: $desktop-min) {
+    justify-content: flex-start;
+  }
   &--active {
-    color: #fff;
     background-color: $select-color-primary;
   }
   &:hover {
@@ -32,8 +33,6 @@ $select-option-font-family: $body-font-family-secondary;
   }
   &__selected {
     background-color: #fff;
-    @at-root :focus & {
-    }
     &:after {
       flex: 0 0 7px;
       height: 7px;
@@ -48,22 +47,94 @@ $select-option-font-family: $body-font-family-secondary;
     }
   }
   &__options {
-    position: absolute;
-    top: calc(100% + 20px);
-    z-index: 100;
-    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+  &__dropdown {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, 0);
+    width: calc(100% - 20px);
     background-color: #fff;
-    outline: 0;
-    box-shadow: 0px 4px 11px rgba(157, 157, 157, 0.21);
+    box-shadow: 0 8px 11px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    @media screen and (min-width: $desktop-min) {
+      position: absolute;
+      top: calc(100% + 20px);
+      bottom: auto;
+      left: 0;
+      z-index: 100;
+      width: 100%;
+      background-color: #fff;
+      outline: 0;
+      transform: translate(0, 0);
+    }
+  }
+  &__bottom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $select-option-padding;
+    user-select: none;
+    @media screen and (min-width: $desktop-min) {
+      display: none;
+    }
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(50%);
+      width: calc(100% - 30px);
+      height: 1px;
+      background-color: $c-light-primary;
+      content: "";
+    }
   }
   &--bordered {
     .sf-select__selected {
-      border: 1px solid $select-color-secondary;
+      border: 1px solid $select-color-primary;
     }
   }
   &--underlined {
     .sf-select__selected {
-      border-bottom: 1px solid $select-color-secondary;
+      border-bottom: 1px solid $select-color-primary;
     }
+  }
+  &-enter-active {
+    animation: sf-select--mobile 0.15s;
+    @media screen and (min-width: $desktop-min) {
+      animation: sf-select--dekstop 0.15s;
+    }
+  }
+  &-leave-active {
+    animation: sf-select--mobile 0.15s reverse;
+    @media screen and (min-width: $desktop-min) {
+      animation: sf-select--dekstop 0.15s reverse;
+    }
+  }
+}
+@keyframes sf-select--desktop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes sf-select--mobile {
+  0% {
+    transform: translate(-50%, 100%);
+  }
+  100% {
+    transform: translate(-50%, 0);
   }
 }

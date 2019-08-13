@@ -1,17 +1,17 @@
 @import '../variables';
 
-$filter-item-padding: $spacer 0 !default;
-$filter-item-font-size: $font-size-big-mobile !default;
-$filter-item-font-family: $body-font-family-secondary !default;
+$filter-padding: $spacer 0 !default;
+$filter-font-size: $font-size-big-mobile !default;
+$filter-font-family: $body-font-family-secondary !default;
 
-.sf-filter-item {
+.sf-filter {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: $filter-item-padding;
-  font-size: $filter-item-font-size;
-  font-family: $filter-item-font-family;
+  padding: $filter-padding;
+  font-size: $filter-font-size;
+  font-family: $filter-font-family;
   &__label {
     flex-grow: 1;
   }

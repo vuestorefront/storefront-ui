@@ -20,4 +20,11 @@ $loader__overlay-color: white !default;
   &__spinner {
     stroke: $c-accent-primary;
   }
+  &--top {
+    .sf-loader__overlay {
+      align-items: flex-start;
+      box-sizing: border-box;
+      padding-top: 50px;
+    }
+  }
 }

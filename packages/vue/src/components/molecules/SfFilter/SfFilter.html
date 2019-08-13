@@ -1,3 +1,14 @@
-<div class="sf-filter">
-  <slot />
+<div 
+	class="sf-filter" 
+	:class="{ 'sf-filter--active' : selected }"
+>
+	<slot>
+		<div 
+			v-if="color" 
+			class="sf-filter__color" 
+			:style="'background-color:' + color ">
+		</div>
+		<div class="sf-filter__label">{{ label }}</div>
+		<div class="sf-filter__count">{{ count }}</div>
+	</slot>
 </div>
