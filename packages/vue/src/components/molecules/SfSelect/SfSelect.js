@@ -79,7 +79,7 @@ export default {
     enter() {
       this.toggle();
     },
-    toggle() {
+    toggle(event) {
       this.open = !this.open;
     },
     openHandler() {
@@ -88,9 +88,9 @@ export default {
       }
     },
     closeHandler() {
-      if (this.open) {
-        this.toggle();
-      }
+      // if (this.open) {
+      //   this.toggle();
+      // }
     }
   },
   created: function() {},

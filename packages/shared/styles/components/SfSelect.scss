@@ -85,13 +85,15 @@ $select-color-secondary: $c-dark-primary !default;
       width: 0;
     }
   }
-  &__button-cancel{
+  &__cancel{
+    box-sizing: border-box;
     width: 100%;
+    padding: $select-option-padding;
     background-color: $select-color-primary;
     color: #A3A5AD;
-    text-transform: none;
-    padding: $select-option-padding;
     font-size: 1rem;
+    text-transform: none;
+    text-align: center;
     &:hover{
       background-color: $select-color-primary;
     }
@@ -99,7 +101,6 @@ $select-color-secondary: $c-dark-primary !default;
       display: none;
     }
   }
-
   &--bordered{
     #{$this}__selected{
       border: 1px solid $select-color-primary;
@@ -110,7 +111,6 @@ $select-color-secondary: $c-dark-primary !default;
       border-bottom: 1px solid $select-color-primary;
     }
   }
-
   &-enter-active{
     animation: sf-select--mobile .15s;
     @media screen and (min-width:$desktop-min){
