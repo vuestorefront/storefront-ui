@@ -81,15 +81,12 @@ export default {
     },
     toggle(event) {
       if (event.target.contains(this.$refs.cancel.$el)) return;
-      console.error("toggle");
       this.open = !this.open;
     },
     openHandler() {
-      console.error("openHandler");
       this.open = true;
     },
     closeHandler() {
-      console.error("closeHandler");
       this.open = false;
     }
   },
