@@ -89,11 +89,15 @@ $select-color-secondary: $c-dark-primary !default;
     box-sizing: border-box;
     width: 100%;
     padding: $select-option-padding;
+    border: 0;
     background-color: $select-color-primary;
     color: #A3A5AD;
     font-size: 1rem;
     text-transform: none;
     text-align: center;
+    &:focus{
+      outline: 0;
+    }
     &:hover{
       background-color: $select-color-primary;
     }
