@@ -9,28 +9,50 @@ export default {
     event: "change"
   },
   props: {
+    /**
+     * Selected item value
+     */
     selected: {
-      type: String,
+      type: [String, Object],
       default: ""
+    },
+    /**
+     * Dropdown list size
+     */
+    size: {
+      type: Number,
+      default: 5
     }
   },
   data() {
     return {
-      open: false,
+      open: true,
       index: -1,
       options: [],
-      indexes: {}
+      indexes: {},
+      optionHeight: 0
     };
   },
   watch: {
     index(index) {
       this.$emit("change", this.options[index].value);
+    },
+    open(visible) {
+      if (visible) {
+        this.$nextTick(() => {
+          this.optionHeight = this.$slots.default[0].elm.offsetHeight;
+        });
+      }
     }
   },
   computed: {
     html() {
       if (this.index < 0) return;
       return this.options[this.index].html;
+    },
+    maxHeight() {
+      if (!this.size) return;
+      return `${this.optionHeight * this.size}px`;
     }
   },
   methods: {
@@ -81,13 +103,14 @@ export default {
         ...slot.componentOptions.propsData,
         html: slot.elm.innerHTML
       });
-      indexes[slot.componentOptions.propsData.value] = i;
+      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
       i++;
     });
 
     this.options = options;
     this.indexes = indexes;
-    this.index = indexes[selected];
+    if (typeof indexes[JSON.stringify(selected)] === "undefined") return;
+    this.index = indexes[JSON.stringify(selected)];
   },
   beforeDestroy: function() {
     this.$off("update", this.update);
