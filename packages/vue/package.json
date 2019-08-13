@@ -1,6 +1,10 @@
 {
   "name": "@storefrontui/vue",
-  "sideEffects": "false",
+  "sideEffects": [
+    "*.vue",
+    "*.scss",
+    "*.css"
+  ],
   "version": "0.0.4-aplha.11",
   "scripts": {
     "serve": "vue-cli-service serve",
