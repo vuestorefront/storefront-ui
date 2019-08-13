@@ -1,6 +1,6 @@
 @import '../variables';
 
-$sf-icon-sizes: (
+$icon-sizes: (
   "xxs": 1rem,
   "xs": 1.4rem,
   "sm": 1.625rem,
@@ -11,7 +11,7 @@ $sf-icon-sizes: (
   "xl3": 2.8rem,
   "xl4": 3.25rem
 );
-$sf-icon-colors: (
+$icon-colors: (
   "primary": $c-green-primary,
   "secondary": $c-dark-primary,
   "white": $c-white,
@@ -30,8 +30,8 @@ $sf-icon-colors: (
 );
 
 .sf-icon {
-  --icon-color: #{map-get($sf-icon-colors, "black")};
-  --icon-size: #{map-get($sf-icon-sizes, "sm")};
+  --icon-color: #{map-get($icon-colors, "black")};
+  --icon-size: #{map-get($icon-sizes, "sm")};
 
   outline: none;
   background-color: transparent;
@@ -42,13 +42,13 @@ $sf-icon-colors: (
   width: var(--icon-size);
   height: var(--icon-size);
 
-  @each $pallete, $color in $sf-icon-colors {
+  @each $pallete, $color in $icon-colors {
     &--color-#{$pallete} {
       --icon-color: #{$color};
     }
   }
 
-  @each $profile, $size in $sf-icon-sizes {
+  @each $profile, $size in $icon-sizes {
     &--size-#{$profile} {
       --icon-size: #{$size};
     }

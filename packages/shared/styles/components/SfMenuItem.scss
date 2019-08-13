@@ -1,23 +1,23 @@
 @import '../variables';
 
-$sf-menu-item-padding: $spacer 0 !default;
-$sf-menu-item-font-size: $font-size-big-mobile !default;
-$sf-menu-item-font-family: $body-font-family-secondary !default;
-$sf-label-font-size: 1rem !default;
-$sf-count-font-color: $c-gray-primary !default;
-$sf-count-font-size: 0.875rem !default;
+$menu-item-padding: $spacer 0 !default;
+$menu-item-font-size: $font-size-big-mobile !default;
+$menu-item-font-family: $body-font-family-secondary !default;
+$label-font-size: 1rem !default;
+$count-font-color: $c-gray-primary !default;
+$count-font-size: 0.875rem !default;
 
 .sf-menu-item {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: $sf-menu-item-padding;
-  font-size: $sf-menu-item-font-size;
-  font-family: $sf-menu-item-font-family;
+  padding: $menu-item-padding;
+  font-size: $menu-item-font-size;
+  font-family: $menu-item-font-family;
   &__count {
-    color: $sf-count-font-color;
-    font-size: $sf-count-font-size;
+    color: $count-font-color;
+    font-size: $count-font-size;
   }
   &__mobile-nav-icon {
     display: inline-flex;
@@ -31,10 +31,10 @@ $sf-count-font-size: 0.875rem !default;
   }
 }
 .sf-menu-item__label {
-  font-size: $sf-label-font-size;
+  font-size: $label-font-size;
 }
 .sf-menu-item__count {
   margin-left: auto;
-  color: $sf-count-font-color;
-  font-size: $sf-count-font-size;
+  color: $count-font-color;
+  font-size: $count-font-size;
 }

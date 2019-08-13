@@ -9,7 +9,11 @@ import SfImage from "./SfImage.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["image__overlay-justify-content", "center", "overlay content horizontal justify"],
+    [
+      "image__overlay-justify-content",
+      "center",
+      "overlay content horizontal justify"
+    ],
     ["$image__overlay-align-items", "center", "overlay content vertical align"],
     [
       "$image__overlay-background-color",
@@ -61,7 +65,7 @@ storiesOf("Molecules|Image", module)
           default: select(
             "transition (prop)",
             {
-              "fade": "fade",
+              fade: "fade",
               "slide-left": "slide-left",
               "slide-right": "slide-right",
               "collapse-top": "collapse-top",

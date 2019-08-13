@@ -1,47 +1,47 @@
 @import '../variables';
 
-$sf-tabs-navigation-font-family: $body-font-family-secondary !default;
-$sf-tabs-navigation-font-size: $font-size-regular-desktop !default;
-$sf-tabs-navigation-padding: $spacer-big !default;
-$sf-tabs-navigation-border-width: 2px !default;
-$sf-tabs-navigation-color: $c-gray-secondary !default;
-$sf-tabs-navigation-color-hover: $c-dark-primary !default;
-$sf-tabs-navigation-color-active: $c-dark-primary !default;
+$tabs-navigation-font-family: $body-font-family-secondary !default;
+$tabs-navigation-font-size: $font-size-regular-desktop !default;
+$tabs-navigation-padding: $spacer-big !default;
+$tabs-navigation-border-width: 2px !default;
+$tabs-navigation-color: $c-gray-secondary !default;
+$tabs-navigation-color-hover: $c-dark-primary !default;
+$tabs-navigation-color-active: $c-dark-primary !default;
 
 .sf-tabs-navigation {
-  font-family: $sf-tabs-navigation-font-family;
+  font-family: $tabs-navigation-font-family;
   width: 100%;
   &__list {
     display: flex;
     padding: 0;
-    border-bottom: $sf-tabs-navigation-border-width solid
-      $sf-tabs-navigation-color;
+    border-bottom: $tabs-navigation-border-width solid
+      $tabs-navigation-color;
   }
   &__item {
     list-style-type: none;
-    padding: $sf-tabs-navigation-padding 5px
-      calc(#{$sf-tabs-navigation-padding} + #{$sf-tabs-navigation-border-width})
+    padding: $tabs-navigation-padding 5px
+      calc(#{$tabs-navigation-padding} + #{$tabs-navigation-border-width})
       0;
-    color: $sf-tabs-navigation-color;
+    color: $tabs-navigation-color;
     margin-right: 2rem;
     cursor: pointer;
     position: relative;
-    top: $sf-tabs-navigation-border-width;
+    top: $tabs-navigation-border-width;
     @media screen and (max-width: $mobile-max) {
       padding-bottom: calc(
-        #{$sf-tabs-navigation-padding} + #{$sf-tabs-navigation-border-width}
+        #{$tabs-navigation-padding} + #{$tabs-navigation-border-width}
       );
     }
     &:hover {
-      color: $sf-tabs-navigation-color-hover;
+      color: $tabs-navigation-color-hover;
     }
     p {
       margin: 0;
     }
     &--active {
-      border-bottom: $sf-tabs-navigation-border-width solid
-        $sf-tabs-navigation-color-active;
-      color: $sf-tabs-navigation-color-active;
+      border-bottom: $tabs-navigation-border-width solid
+        $tabs-navigation-color-active;
+      color: $tabs-navigation-color-active;
     }
   }
 }
