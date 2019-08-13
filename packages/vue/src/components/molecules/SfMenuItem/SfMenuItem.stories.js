@@ -29,10 +29,10 @@ const scssTableConfig = {
   ]
 };
 
-export default storiesOf("Molecules|[WIP]MenuItem", module)
+export default storiesOf("Molecules|MenuItem", module)
   .addDecorator(withKnobs)
   .add(
-    "Props",
+    "Basic",
     () => ({
       components: { SfMenuItem },
       props: {

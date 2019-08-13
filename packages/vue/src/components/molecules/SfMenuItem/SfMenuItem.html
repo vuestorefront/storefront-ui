@@ -1,14 +1,20 @@
 <div class="sf-menu-item">
-	<slot>
-		<slot name="icon" />
-    <slot name="label" v-bind="label">
-		  <span class="sf-menu-item__label">{{ label }}</span>
-    </slot>
-    <slot name="count" v-bind="count">
-      <span class="sf-menu-item__count">{{ count }}</span>
-    </slot>
-    <slot name="mobile-nav-icon" v-bind="{mobileNavIcon}">
-      <sf-icon :path="mobileNavIcon" v-if="mobileNavIcon" class="sf-menu-item__mobile-nav-icon" size="14px"/>
-    </slot>
-	</slot>
+  <!-- @slot -->
+  <slot name="icon" />
+  <!-- @slot -->
+  <slot name="label" v-bind="label">
+    <span class="sf-menu-item__label">{{ label }}</span>
+  </slot>
+  <!-- @slot -->
+  <slot name="count" v-bind="count">
+    <span class="sf-menu-item__count">{{ count }}</span>
+  </slot>
+  <!-- @slot -->
+  <slot name="mobile-nav-icon" v-bind="{mobileNavIcon}">
+    <SfIcon
+    :path="mobileNavIcon"
+    v-if="mobileNavIcon"
+    class="sf-menu-item__mobile-nav-icon"
+    size="14px"/>
+  </slot>
 </div>
