@@ -46,10 +46,10 @@ storiesOf("Molecules|SearchBar", module)
           default: text("image (prop)", "assets/storybook/clear.svg")
         }
       },
-      data(){
+      data() {
         return {
           value: ""
-        }
+        };
       },
       components: { SfSearchBar },
       template: "<SfSearchBar :placeholder='placeholder' v-model='value'/>"
