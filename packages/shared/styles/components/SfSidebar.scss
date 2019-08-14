@@ -13,7 +13,7 @@ $sidebar-padding: 3.5rem !default;
   box-sizing: border-box;
   box-shadow: 0px 4px 56px rgba(87, 87, 87, 0.32);
   z-index: 2;
-  &__button {
+  &__close {
     position: absolute;
     right: -1.625rem;
     padding: 10px;
@@ -37,7 +37,7 @@ $sidebar-padding: 3.5rem !default;
     }
   }
   &--mobile-only {
-    &__button {
+    &__close {
       display: none;
     }
   }
