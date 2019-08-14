@@ -14,22 +14,16 @@ export default {
     SfChevron
   },
   props: {
+    /**
+     * Tab header.
+     */
     header: {
       type: String,
       default: "MenuItem"
-    },
-    active: {
-      type: Boolean,
-      default: false
     }
   },
   methods: {
     tabClick() {
-      this.$parent.$emit("toggle", this._uid);
-    }
-  },
-  mounted() {
-    if (this.active) {
       this.$parent.$emit("toggle", this._uid);
     }
   }

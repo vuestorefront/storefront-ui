@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, object } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfTabs from "./SfTabs.vue";
+import SfTab from "./_internal/SfTab.vue";
 
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
@@ -44,36 +45,32 @@ storiesOf("Organisms|Tabs", module)
     "Basic",
     () => ({
       components: {
-        SfTabs
-      },
-      props: {
-        tabs: {
-          default: object("tabs (prop)", [
-            {
-              title: "Apple",
-              content: "Apple is a great fruit",
-              isActive: false
-            },
-            {
-              title: "Banana",
-              content: "Banana is a great fruit",
-              isActive: false
-            },
-            {
-              title: "Peach",
-              content: "Peach is a great fruit",
-              isActive: false
-            },
-            {
-              title: "Orange",
-              content: "Orange is a great fruit",
-              isActive: false
-            }
-          ])
-        }
+        SfTabs,
+        SfTab
       },
       template: `
-      <SfTabs :tabs="tabs"></SfTabs>`
+      <SfTabs :openTab="1">
+      <SfTab :header="'Hello'">Hello</SfTab>
+      <SfTab :header="'List'">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
+      </SfTab>
+      <SfTab :header="'Test'">
+        <strong>Test</strong>
+      </SfTab>
+      <SfTab :header="'Image'">
+        <img
+          src="https://docs.storefrontui.io/logo.png"
+          alt="Storefront UI"
+          style="width: 100%"
+        />
+      </SfTab>
+    </SfTabs>`
     }),
     {
       info: {
@@ -81,87 +78,14 @@ storiesOf("Organisms|Tabs", module)
         <h2> Description </h2>
         <p>Tabs component.</p>
         <h2> Usage </h2>
-        <pre><code>import { SfTabs } from "@storefrontui/vue"</code></pre>
+        <pre>
+          <code>
+            import { SfTabs } from "@storefrontui/vue"
+            import { SfTabs } from "@storefrontui/vue"
+          </code>
+        </pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
-      }
-    }
-  )
-  .add(
-    "[slot] default",
-    () => ({
-      components: {
-        SfTabs
-      },
-      data: () => ({
-        selected: 0,
-        style: {
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-between",
-          cursor: "pointer",
-          borderRight: "1px solid black",
-          paddingRight: "10px",
-          marginRight: "10px"
-        },
-        tabs: [
-          {
-            title: "Apple",
-            content: "Apple is a great fruit",
-            isActive: false
-          },
-          {
-            title: "Banana",
-            content: "Banana is a great fruit",
-            isActive: false
-          },
-          {
-            title: "Peach",
-            content: "Peach is a great fruit",
-            isActive: false
-          },
-          {
-            title: "Orange",
-            content: "Orange is a great fruit",
-            isActive: false
-          }
-        ],
-        contentStyle: {
-          width: "100px",
-          height: "100px"
-        },
-        containerStyle: {
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%"
-        },
-        selectedStyle: {
-          color: "red"
-        }
-      }),
-      methods: {
-        changeTab(index) {
-          this.selected = index;
-        }
-      },
-      template: `
-    <SfTabs v-model="selected" style="display: flex;" :tabs="tabs">
-        <div :style="style">
-          <h1 v-for="(tab, index) in tabs" :key="index" @click="changeTab(index)" :style="index===selected ? selectedStyle : ''">{{ tab.title }}</h1>
-        </div>
-        <div :style="selected === 0 ? contentStyle : ''" style="background-color: #C72E30" />
-        <div :style="selected === 1 ? contentStyle : ''" style="background-color: #F9F494"/>
-        <div :style="selected === 2 ? contentStyle : ''" style="background-color: #E8914D"/>
-        <div :style="selected === 3 ? contentStyle : ''" style="background-color: #E0601D"/>
-    </SfTabs>`
-    }),
-    {
-      info: {
-        summary: `<p>Tab Component with fully customized navigation.</p>
-      ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-      `
       }
     }
   );

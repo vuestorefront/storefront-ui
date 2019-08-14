@@ -6,8 +6,10 @@ export default {
     SfTab
   },
   props: {
+    /** Which tab should be open at the beginning  */
     openTab: {
-      type: Number
+      type: Number,
+      required: false
     }
   },
   methods: {
