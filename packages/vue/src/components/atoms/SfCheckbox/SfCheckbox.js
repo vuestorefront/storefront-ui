@@ -41,6 +41,10 @@ export default {
       type: String,
       default: ""
     },
+    label: {
+      type: String,
+      default: null
+    },
     /**
      * Native input disabled attribute
      */

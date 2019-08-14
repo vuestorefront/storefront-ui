@@ -18,6 +18,13 @@ export default {
       default: null
     },
     /**
+     * Form input name
+     */
+    name: {
+      type: String,
+      default: null
+    },
+    /**
      * Validate value of form input
      */
     valid: {
