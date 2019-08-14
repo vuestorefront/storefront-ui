@@ -221,7 +221,7 @@ storiesOf("Molecules|Options", module)
         ]"
       >
         <template #label><h1>Size</h1></template>
-        <template #text="{ option }"><h2>{{ option.text }}</h2></template>
+        <template #text="{ text }"><h2>{{ text }}</h2></template>
       </SfOptions>`,
       data() {
         return {
@@ -265,10 +265,10 @@ storiesOf("Molecules|Options", module)
         ]"
       >
         <template #label><h1>Color</h1></template>
-        <template #color="{ option }">
+        <template #color="{ color }">
           <div
             :style="{
-              width: '32px', height: '32px', borderRadius: '10px', backgroundColor: option.color
+              width: '32px', height: '32px', borderRadius: '10px', backgroundColor: color
             }"
           />
         </template>
@@ -311,10 +311,10 @@ storiesOf("Molecules|Options", module)
         ]"
       >
         <template #label><h1>Image</h1></template>
-        <template #image="{ option }">
+        <template #image="{ image }">
           <div
             :style="{
-              width: '32px', height: '32px', border: '1px solid green', background: 'url(' + option.image + ')', backgroundSize: 'cover'
+              width: '32px', height: '32px', border: '1px solid green', background: 'url(' + image + ')', backgroundSize: 'cover'
             }"
           />
         </template>
