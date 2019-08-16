@@ -2,6 +2,7 @@
 
 
 .sf-bottom-navigation {
+  z-index: 2;
   display: flex;
   height: 60px;
   background: white;
@@ -14,7 +15,10 @@
   justify-content: space-around;
   align-items: baseline;
   &__item {
-    width: auto;
+    opacity: 0.7;
+    &--active {
+      opacity: 1;
+    }
   }
   &__floating-icon {
     position: relative;

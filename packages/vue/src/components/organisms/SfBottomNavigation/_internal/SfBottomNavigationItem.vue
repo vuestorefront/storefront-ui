@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-bottom-navigation__icon">
+  <div class="sf-bottom-navigation__item">
     <slot />
   </div>
 </template>

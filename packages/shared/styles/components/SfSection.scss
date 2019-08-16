@@ -4,7 +4,7 @@ $section-margin-y: $spacer-extra-big * 3 !default;
 $section-margin-y--mobile: $spacer-extra-big !default;
 
 $section__content-margin-top: $spacer-extra-big * 1.5 !default;
-$section__content-margin-top--mobile: $spacer-extra-big !default;
+$section__content-margin-top--mobile: $spacer-big !default;
 
 .sf-section {
   margin: $section-margin-y--mobile 0;
