@@ -1,4 +1,4 @@
-@import "../variables";
+@import '../variables';
 
 $checkbox__label-font-size: 1.125rem !default;
 $checkbox__checkmark-transition: background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1), border-color 0.25s cubic-bezier(1, 0.5, 0.8, 1) !default;
@@ -19,7 +19,7 @@ $checkbox__checkmark-secondary-color: $c-gray-secondary !default;;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 #{$checkbox__checkmark-size};
+    flex: 0 0 $checkbox__checkmark-size;
     height: $checkbox__checkmark-size;
     border: 1px solid $checkbox__checkmark-secondary-color;
     box-sizing: border-box;
