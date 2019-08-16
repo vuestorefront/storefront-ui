@@ -44,7 +44,7 @@ storiesOf("Atoms|Checkbox", module)
             {
               name: "invoce",
               value: "invoce",
-              label: "I want to generate invoce for the company",
+              label: "I want to generate invoce for the company"
             }
           ]
         };
