@@ -1,36 +1,23 @@
 @import '../variables';
 
+
 .sf-bottom-navigation {
+  display: flex;
+  width: 100%;
+  padding: 0 1rem;
   position: fixed;
   bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: $c-white;
-  @media (min-width: $tablet-min) {
-    display: none;
+  left: 0;
+  box-shadow: 0px -2px 10px rgba(154, 154, 154, 0.15);
+  justify-content: space-around;
+  align-items: baseline;
+  &__icon {
+    padding: 15px 0;
+    width: auto;
   }
-  .sf-bottom-navigation__elements {
-    display: flex;
-  }
-  .sf-bottom-navigation__element {
-    padding: 0 0.7rem;
-    opacity: 0.5;
-    transition: 0.3s all;
-
-    &.active,
-    &.cart-button {
-      opacity: 1;
-    }
-  }
-  .sf-bottom-navigation__element img {
-    width: 1.5rem;
-    height: auto;
-    padding: 0.5rem;
-  }
-  .sf-bottom-navigation-cart-button {
-    background-color: $c-green-primary;
-    border-radius: 50%;
-    box-shadow: 0px 4px 6px rgba(66, 66, 66, 0.2);
+  &__cart-icon {
+    position: relative;
+    top: -1.75rem;
+    right: 1rem;
   }
 }

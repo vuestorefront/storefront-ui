@@ -4,7 +4,7 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfBannerGrid from "./SfBannerGrid.vue";
-import SfBanner from "../../molecules/SfBanner/SfBanner.vue"
+import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
 // use this to document scss vars
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
