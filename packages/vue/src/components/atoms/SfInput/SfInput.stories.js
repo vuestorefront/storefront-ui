@@ -51,8 +51,8 @@ storiesOf("Atoms|Input", module)
     () => ({
       ...vm,
       props: {
-        label: {
-          default: text("Label", "Name")
+        name: {
+          default: text("Name", "Name")
         },
         valid: {
           default: boolean("Valid", true)
@@ -66,7 +66,7 @@ storiesOf("Atoms|Input", module)
       },
       template: `
       <div :style="{ width: '300px', margin: '50px' }">
-        <SfInput v-model="value" :label="label" :valid="valid" :errorMessage="errorMessage" :required="required" />
+        <SfInput v-model="value" :name="label" :valid="valid" :errorMessage="errorMessage" :required="required" />
       </div>`
     }),
     {

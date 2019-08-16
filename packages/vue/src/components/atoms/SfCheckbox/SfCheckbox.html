@@ -1,4 +1,4 @@
-<div class="sf-checkbox">
+<div class="sf-checkbox" @click="isChecked = !isChecked">
   <input
     :id="id"
     :name="name"
@@ -15,6 +15,6 @@
       </span>
     </slot>
     <!-- @slot Custom checkbox label content (binds `checked` boolean) -->
-    <slot name="content" v-bind="{ isChecked }" />
+    <slot>{{ label }}</slot>
   </label>
 </div>
