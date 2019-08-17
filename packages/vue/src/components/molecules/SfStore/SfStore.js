@@ -1,0 +1,85 @@
+import SfImage from "@/components/molecules/SfImage/SfImage.vue";
+import SfDivider from "@/components/atoms/SfDivider/SfDivider.vue";
+import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
+
+export default {
+  name: "SfStore",
+  inject: [
+    "registerStore",
+    "removeStore",
+    "centerOn",
+    "locatorData",
+    "getGeoDistance"
+  ],
+  props: {
+    /**
+     * Name of the store
+     */
+    latlng: {
+      type: Array,
+      required: true
+    },
+    /**
+     * Name of the store
+     */
+    name: {
+      type: String,
+      required: true
+    },
+    /**
+     * Url of the picture of the store
+     */
+    picture: {
+      type: String,
+      default: null
+    },
+    /**
+     * Address of the store
+     */
+    address: {
+      type: String,
+      required: true
+    },
+    /**
+     * Phone number of the store
+     */
+    phone: {
+      type: String,
+      default: null
+    },
+    /**
+     * Email of the store
+     */
+    email: {
+      type: String,
+      default: null
+    }
+  },
+  computed: {
+    distance() {
+      if (this.locatorData && this.locatorData.userPosition) {
+        const dictLatLng = {
+          lat: this.latlng[0],
+          lng: this.latlng[1]
+        };
+        return this.getGeoDistance(this.locatorData.userPosition, dictLatLng);
+      }
+      return null;
+    }
+  },
+  created() {
+    if (this.registerStore) {
+      this.registerStore(this.$props);
+    }
+  },
+  beforeDestroy() {
+    if (this.removeStore) {
+      this.removeStore(this.$props);
+    }
+  },
+  components: {
+    SfImage,
+    SfDivider,
+    SfIcon
+  }
+};

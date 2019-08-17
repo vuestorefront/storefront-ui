@@ -4,40 +4,8 @@
   </div>
   <div class="sf-store-locator__wrapper">
     <div class="sf-store-locator__list">
-      <!-- @slot Use this slot to replace how the store card are drawn -->
-      <slot name="stores" :parsed-stores="parsedStores" :center-on="centerOn">
-        <sf-divider class="sf-store-locator__first-divider" />
-        <div class="sf-store-locator__list-item-wrapper" v-for="(store, index) in parsedStores" :key="index">
-          <div class="sf-store-locator__list-item">
-            <div class="sf-store-locator__list-item-media" @click="centerOn(store)">
-              <sf-image :src="store.picture" :alt="`${store.name} picture`" tabindex="0" />
-            </div>
-            <div class="sf-store-locator__list-item-info">
-              <div class="sf-store-locator__list-item-info-heading">
-                <div class="sf-store-locator__list-item-info-heading-name" tabindex="0" >
-                  {{ store.name }}
-                </div>
-                <div class="sf-store-locator__list-item-info-heading-distance" v-show="store.distance" tabindex="0">
-                  <span>{{store.distance}}km</span> away from you
-                </div>
-              </div>
-              <div class="sf-store-locator__list-item-info-address" tabindex="0">
-                {{ store.address }}
-              </div>
-              <div class="sf-store-locator__list-item-info-phone" >
-                <sf-icon path="phone" size="13px" color="green-primary" />
-                <span tabindex="0">{{ store.phone }}</span>
-              </div>
-              <div class="sf-store-locator__list-item-info-email" >
-                <sf-icon path="mail" size="13px" color="green-primary" />
-                <span tabindex="0">{{ store.email }}</span>
-              </div>
-              <sf-divider class="sf-store-locator__mobile-divider" />
-            </div>
-          </div>
-          <sf-divider class="sf-store-locator__desktop-divider" />
-        </div>
-      </slot>
+      <!-- @slot Use this slot to show stores cards -->
+      <slot :center-on="centerOn" :register-store="registerStore" :remove-store="removeStore" :user-position="userPosition" :calculate-distance="getGeoDistance"></slot>
     </div>
     <div class="sf-store-locator__map-wrapper">
       <l-map class="sf-store-locator__map-wrapper-map" v-if="loaded" ref="map" :options="computedMapOptions" :center.sync="internalCenter" :zoom.sync="internalZoom" :max-zoom="maxZoom"
@@ -49,7 +17,7 @@
             <sf-icon path="home" />
           </a>
         </l-control>
-        <l-marker v-for="(store, index) in parsedStores" :lat-lng="store.latlng" :key="index" v-bind="markerOptions">
+        <l-marker v-for="(store, index) in stores" :lat-lng="store.latlng" :key="index" v-bind="markerOptions">
           <l-icon :icon-size="markerIconSize" :icon-anchor="markerIconAnchor">
             <!-- @slot Use this slot to change the icon of the stores, remember to update `markerIconSize` and `markerIconAnchor` accordingly-->
               <slot name="marker-icon" >

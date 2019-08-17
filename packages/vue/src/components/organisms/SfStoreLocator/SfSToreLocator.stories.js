@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, object, number, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfStoreLocator from "./SfStoreLocator.vue";
+import SfStore from "../../molecules/SfStore/SfStore.vue";
 
 const stores = [
   {
@@ -23,110 +24,13 @@ const stores = [
   }
 ];
 
-const props = {
-  zoom: {
-    default: number("zoom", 6, {
-      range: true,
-      min: 1,
-      max: 16,
-      step: 1
-    })
-  },
-  maxZoom: {
-    default: number("maxZoom", 16, {
-      range: true,
-      min: 1,
-      max: 16,
-      step: 1
-    })
-  },
-  flyToStoreZoom: {
-    default: number("flyToStoreZoom", 15, {
-      range: true,
-      min: 1,
-      max: 16,
-      step: 1
-    })
-  },
-  tileServerUrl: {
-    default: select(
-      "tileServerUrl",
-      {
-        Default:
-          "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
-        OpenStreetMaps: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        Wikimedia: "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"
-      },
-      "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
-    )
-  },
-  center: {
-    default: object("center", [47.5104387, 19.0444433])
-  },
-  stores: {
-    default: object("stores", stores)
-  },
-  markerIconSize: {
-    default: object("markerIconSize", [21, 28])
-  },
-  markerIconAnchor: {
-    default: object("markerIconAnchor", [10.5, 0])
-  },
-  mapOptions: {
-    default: object("mapOptions", {})
-  },
-  tileLayerOptions: {
-    default: object("tileLayerOptions", {})
-  },
-  markerOptions: {
-    default: object("markerOptions", {})
-  }
-};
-
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$sf-store-locator__media-width", "5.125rem", "Store card media width"],
-    ["$sf-store-locator__media-height", "7rem", "Store card media height"],
-    [
-      "$sf-store-locator__media-margin",
-      "0 1.25rem 0 0",
-      "Store card media margin"
-    ],
-    [
-      "$sf-store-locator__item-font-size",
-      "$font-size-extra-small-desktop",
-      "Store card font size"
-    ],
-    [
-      "$sf-store-locator__name-font-size",
-      "$font-size-regular-desktop",
-      "Store name font size"
-    ],
-    [
-      "$sf-store-locator__name-font-weight",
-      "$h1-font-weight-desktop",
-      "Store name font weight"
-    ],
-    [
-      "$sf-store-locator__color-primary",
-      "$c-dark-primary",
-      "Store card primary color"
-    ],
-    [
-      "$sf-store-locator__color-secondary",
-      "$c-gray-secondary",
-      "Store card secondary color"
-    ],
     [
       "$sf-store-locator__font-family-primary",
       "$body-font-family-primary",
       "Store card primary font family"
-    ],
-    [
-      "$sf-store-locator__font-family-secondary",
-      "$body-font-family-secondary",
-      "Store card secondary font family"
     ],
     [
       "$sf-store-locator__list-width-desktop",
@@ -164,10 +68,72 @@ storiesOf("Organisms|StoreLocator", module)
   .add(
     "Basic",
     () => ({
-      props,
-      components: { SfStoreLocator },
+      props: {
+        zoom: {
+          default: number("zoom", 6, {
+            range: true,
+            min: 1,
+            max: 16,
+            step: 1
+          })
+        },
+        maxZoom: {
+          default: number("maxZoom", 16, {
+            range: true,
+            min: 1,
+            max: 16,
+            step: 1
+          })
+        },
+        flyToStoreZoom: {
+          default: number("flyToStoreZoom", 15, {
+            range: true,
+            min: 1,
+            max: 16,
+            step: 1
+          })
+        },
+        tileServerUrl: {
+          default: select(
+            "tileServerUrl",
+            {
+              Default:
+                "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+              OpenStreetMaps:
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              Wikimedia:
+                "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"
+            },
+            "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+          )
+        },
+        center: {
+          default: object("center", [47.5104387, 19.0444433])
+        },
+        stores: {
+          default: object("stores", stores)
+        },
+        markerIconSize: {
+          default: object("markerIconSize", [21, 28])
+        },
+        markerIconAnchor: {
+          default: object("markerIconAnchor", [10.5, 0])
+        },
+        mapOptions: {
+          default: object("mapOptions", {})
+        },
+        tileLayerOptions: {
+          default: object("tileLayerOptions", {})
+        },
+        markerOptions: {
+          default: object("markerOptions", {})
+        }
+      },
+      components: { SfStoreLocator, SfStore },
       template: `
-      <sf-store-locator :stores="stores" :center="center" :zoom="zoom" :max-zoom="maxZoom" :fly-to-store-zoom="flyToStoreZoom" :tile-server-url="tileServerUrl" />
+      <sf-store-locator :center="center" :zoom="zoom" :max-zoom="maxZoom" :fly-to-store-zoom="flyToStoreZoom" :tile-server-url="tileServerUrl" >
+        <sf-store v-for="(store, index) in stores" :key="index" v-bind="store" />
+      </sf-store-locator>
       `
     }),
     {
@@ -177,23 +143,40 @@ storiesOf("Organisms|StoreLocator", module)
           center the map on it, distance is calculated based on the user position.
           Even if Leaflet and Vue2Leaflet do not support SSR this component defer the loading of the library to the mounted lifecycle event
           <h2> Usage </h2>
-          <pre><code>import { SfStoreLocator } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfStoreLocator, SfStore } from "@storefrontui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }
     }
   )
   .add(
-    "Stores slot",
+    "Default slot (stores)",
     () => ({
-      props,
+      props: {
+        zoom: {
+          default: number("zoom", 6, {
+            range: true,
+            min: 1,
+            max: 16,
+            step: 1
+          })
+        },
+        center: {
+          default: object("center", [47.5104387, 19.0444433])
+        },
+        stores: {
+          default: object("stores", stores)
+        }
+      },
       components: { SfStoreLocator },
       template: `
-      <sf-store-locator :stores="stores" :center="center" :zoom="zoom" :max-zoom="maxZoom" :fly-to-store-zoom="flyToStoreZoom" :tile-server-url="tileServerUrl" >
-        <template #stores="{parsedStores, centerOn}">
-          <div v-for="(store, index) in parsedStores" :key="index">
+      <sf-store-locator :stores="stores" :center="center" :zoom="zoom" >
+        <template #default="{centerOn, registerStore}">
+          <div v-for="(store, index) in stores" :key="index">
+            <!-- This is just an example showing that is necessary to trigger register store function to have the store appear on the map -->
+            {{registerStore(store)}}
             <img :style="{height: '150px'}" :src="store.picture" :alt="store.title" />
-            <button @click="centerOn(store)">{{ store.distance }} km click to zoom</button>
+            <button @click="centerOn(store)">click to zoom</button>
           </div>
         </template>
       </sf-store-locator>
@@ -214,10 +197,26 @@ storiesOf("Organisms|StoreLocator", module)
   .add(
     "Marker icon slot",
     () => ({
-      props,
-      components: { SfStoreLocator },
+      props: {
+        zoom: {
+          default: number("zoom", 6, {
+            range: true,
+            min: 1,
+            max: 16,
+            step: 1
+          })
+        },
+        center: {
+          default: object("center", [47.5104387, 19.0444433])
+        },
+        stores: {
+          default: object("stores", stores)
+        }
+      },
+      components: { SfStoreLocator, SfStore },
       template: `
-      <sf-store-locator :stores="stores" :center="center" :zoom="zoom" :max-zoom="maxZoom" :fly-to-store-zoom="flyToStoreZoom" :tile-server-url="tileServerUrl" >
+      <sf-store-locator :center="center" :zoom="zoom">
+        <sf-store v-for="(store, index) in stores" :key="index" v-bind="store" />
         <template #marker-icon>
           <div :style="{fontSize: '30px'}">🏬</div>
         </template>
@@ -230,7 +229,7 @@ storiesOf("Organisms|StoreLocator", module)
           \`SfStoreLocator\` allow to customise how the store icon is shown on the map by the use of the \`marker-icon\` slot.
           See the story source for an example
           <h2> Usage </h2>
-          <pre><code>import { SfStoreLocator } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfStoreLocator, SfStore } from "@storefrontui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }
@@ -239,10 +238,26 @@ storiesOf("Organisms|StoreLocator", module)
   .add(
     "Loading indicator",
     () => ({
-      props,
-      components: { SfStoreLocator },
+      props: {
+        zoom: {
+          default: number("zoom", 6, {
+            range: true,
+            min: 1,
+            max: 16,
+            step: 1
+          })
+        },
+        center: {
+          default: object("center", [47.5104387, 19.0444433])
+        },
+        stores: {
+          default: object("stores", stores)
+        }
+      },
+      components: { SfStoreLocator, SfStore },
       template: `
-      <sf-store-locator :stores="stores" :center="center" :zoom="zoom" :max-zoom="maxZoom" :fly-to-store-zoom="flyToStoreZoom" :tile-server-url="tileServerUrl" >
+      <sf-store-locator :center="center" :zoom="zoom">
+        <sf-store v-for="(store, index) in stores" :key="index" v-bind="store" />
         <template #map-loading>
           <div :style="{fontSize: '30px'}">LOADING</div>
         </template>
@@ -255,7 +270,7 @@ storiesOf("Organisms|StoreLocator", module)
           \`SfStoreLocator\` allow to customise the loading indicator by the use of the \`map-loading\` slot.
           See the story source for an example
           <h2> Usage </h2>
-          <pre><code>import { SfStoreLocator } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfStoreLocator, SfStore } from "@storefrontui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }

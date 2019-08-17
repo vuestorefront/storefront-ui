@@ -39,9 +39,4 @@ describe("SfStoreLocator.vue", () => {
     component.vm.locationError("error");
     expect(component.emitted("location:error")[0]).toEqual(["error"]);
   });
-  it("validates the stores prop to at least have a valid latlng", () => {
-    const component = shallowMount(SfStoreLocator);
-    console.log(component.vm.$options.props.validator);
-    // expect(stores.validator([{ wrong: 1 }])).toBeFalsy();
-  });
 });

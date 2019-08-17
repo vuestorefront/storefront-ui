@@ -1,0 +1,124 @@
+@import '../variables';
+
+$sf-store__media-width: 5.125rem !default;
+$sf-store__media-height: 7rem !default;
+$sf-store__media-margin: 0 1.25rem 0 0  !default;
+
+$sf-store__item-font-size: $font-size-extra-small-desktop !default;
+
+$sf-store__name-font-size: $font-size-regular-desktop !default;
+$sf-store__name-font-weight: $h1-font-weight-desktop !default;
+
+$sf-store__color-primary: $c-dark-primary !default;
+$sf-store__color-secondary: $c-gray-secondary !default;
+
+$sf-store__font-family-primary: $body-font-family-primary !default;
+$sf-store__font-family-secondary: $body-font-family-secondary !default;
+
+.sf-store {
+
+  .sf-divider {
+    margin: 7px 0 7px auto;
+  }
+
+  &:first-of-type {
+    .sf-store__first-divider {
+      display: block;
+    }
+  }
+
+  &__first-divider {
+    display: none;
+    max-width: unset;
+    margin: 8px 0;
+  }
+
+  &__desktop-divider {
+    display: none;
+  }
+
+  @media screen and (min-width: $desktop-min) {
+
+    .sf-divider {
+      max-width: 100%;
+    }
+    &__desktop-divider {
+      display: block;
+    }
+    &__mobile-divider {
+        display: none;
+    }
+    &__first-divider {
+      margin-top: 0;
+      width: calc(100% + 2.5rem);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: $sf-store__item-font-size;
+
+    &-media {
+      width: $sf-store__media-width;
+      height: $sf-store__media-height;
+      margin: $sf-store__media-margin;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    &-info {
+      flex: 1;
+
+      &-heading {
+
+      @media screen and (min-width: $desktop-min) {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+      }
+
+      &-name {
+        font-size: $sf-store__name-font-size;
+        color: $sf-store__color-primary;
+        font-family: $sf-store__font-family-secondary;
+        font-weight: $sf-store__name-font-weight;
+      }
+
+        &-distance {
+          color: $sf-store__color-secondary;
+          span {
+          color: $sf-store__color-primary;
+        }
+
+        @media screen and (min-width: $desktop-min) {
+            width: 80px;
+          }
+        }
+      }
+
+
+      &-address {
+        color: $sf-store__color-secondary;
+        margin-bottom: 1.25rem;
+      }
+
+      &-phone, &-email {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 0.625rem;
+
+
+        span {
+          font-family: $sf-store__font-family-secondary;
+          margin-left: 0.3125rem;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}

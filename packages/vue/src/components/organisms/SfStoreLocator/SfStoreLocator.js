@@ -1,5 +1,3 @@
-import SfImage from "@/components/molecules/SfImage/SfImage.vue";
-import SfDivider from "@/components/atoms/SfDivider/SfDivider.vue";
 import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
 import SfLoader from "@/components/atoms/SfLoader/SfLoader.vue";
 
@@ -7,6 +5,20 @@ import Vue from "vue";
 
 export default {
   name: "SfStoreLocator",
+  provide() {
+    const locatorData = {};
+    Object.defineProperty(locatorData, "userPosition", {
+      enumerable: true,
+      get: () => this.userPosition
+    });
+    return {
+      registerStore: this.registerStore,
+      removeStore: this.removeStore,
+      centerOn: this.centerOn,
+      getGeoDistance: this.getGeoDistance,
+      locatorData
+    };
+  },
   props: {
     /**
      * Url of selected tileserver
@@ -43,23 +55,6 @@ export default {
     maxZoom: {
       type: Number,
       default: 16
-    },
-    /**
-     * Array of stores, it must contain an object with at least a \`latlng\` array
-     */
-    stores: {
-      type: Array,
-      default: () => [],
-      validator: value => {
-        return (
-          value.length === 0 ||
-          value.reduce((a, c) => {
-            return (
-              a && c.latlng && Array.isArray(c.latlng) && c.latlng.length === 2
-            );
-          }, true)
-        );
-      }
     },
     /**
      * Size of the icon [width, height]
@@ -108,30 +103,11 @@ export default {
     return {
       loaded: false,
       userPosition: null,
-      mapReady: false
+      mapReady: false,
+      stores: []
     };
   },
   computed: {
-    parsedStores() {
-      if (this.userPosition) {
-        return this.stores.map(s => {
-          let distance = undefined;
-          if (s.latlng.length === 2) {
-            distance = this.getGeoDistance(this.userPosition, {
-              lat: s.latlng[0],
-              lng: s.latlng[1]
-            });
-            distance = distance / 1000;
-            distance = Math.round(distance * 100) / 100;
-          }
-          return {
-            ...s,
-            distance
-          };
-        });
-      }
-      return this.stores;
-    },
     computedMapOptions() {
       return { zoomControl: false, ...this.mapOptions };
     },
@@ -153,6 +129,17 @@ export default {
     }
   },
   methods: {
+    latLngEquality(a, b) {
+      return a.latlng[0] === b.latlng[0] && a.latlng[1] === b.latlng[1];
+    },
+    registerStore(store) {
+      if (!this.stores.some(s => this.latLngEquality(store, s))) {
+        this.stores = [...this.stores, store];
+      }
+    },
+    removeStore(store) {
+      this.stores = this.stores.filter(s => !this.latLngEquality(s, store));
+    },
     onMapReady(mapObject) {
       /**
        * Map ready and displayed event
@@ -189,6 +176,9 @@ export default {
     updateCenter(latlng) {
       this.$emit("update:center", { ...latlng });
     },
+    centerOn(latlng) {
+      this.$refs.map.mapObject.flyTo(latlng, this.flyToStoreZoom);
+    },
     getGeoDistance(start, end) {
       const deg2rad = deg => deg * (Math.PI / 180);
       const R = 6371;
@@ -201,10 +191,9 @@ export default {
           Math.sin(dLng / 2) *
           Math.sin(dLng / 2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      return R * c * 1000;
-    },
-    centerOn(store) {
-      this.$refs.map.mapObject.flyTo(store.latlng, this.flyToStoreZoom);
+      let distance = R * c * 1000;
+      distance = distance / 1000;
+      return Math.round(distance * 100) / 100;
     }
   },
   async mounted() {
@@ -232,8 +221,6 @@ export default {
     this.$emit("library:loaded");
   },
   components: {
-    SfImage,
-    SfDivider,
     SfIcon,
     SfLoader
   }

@@ -1,20 +1,7 @@
 @import '../variables';
 @import '~leaflet/dist/leaflet.css';
 
-$sf-store-locator__media-width: 5.125rem !default;
-$sf-store-locator__media-height: 7rem !default;
-$sf-store-locator__media-margin: 0 1.25rem 0 0  !default;
-
-$sf-store-locator__item-font-size: $font-size-extra-small-desktop !default;
-
-$sf-store-locator__name-font-size: $font-size-regular-desktop !default;
-$sf-store-locator__name-font-weight: $h1-font-weight-desktop !default;
-
-$sf-store-locator__color-primary: $c-dark-primary !default;
-$sf-store-locator__color-secondary: $c-gray-secondary !default;
-
 $sf-store-locator__font-family-primary: $body-font-family-primary !default;
-$sf-store-locator__font-family-secondary: $body-font-family-secondary !default;
 
 $sf-store-locator__list-width-desktop: 33% !default;
 $sf-store-locator__list-max-width-desktop: 26.25rem !default;
@@ -47,103 +34,10 @@ $sf-store-locator__map-min-height-mobile: 26.875rem !default;
   &__list {
     width: $sf-store-locator__list-width-mobile;
 
-    .sf-divider {
-      margin: 7px 0 7px auto;
-    }
-    .sf-store-locator__first-divider {
-      max-width: unset;
-      margin: 8px 0;
-    }
-
-    .sf-store-locator__desktop-divider {
-      display: none;
-    }
-
     @media screen and (min-width: $desktop-min) {
       width: $sf-store-locator__list-width-desktop;
       max-width: $sf-store-locator__list-max-width-desktop;
       margin-right: 2.5rem;
-
-      .sf-divider {
-        max-width: 100%;
-      }
-      .sf-store-locator__desktop-divider {
-        display: block;
-      }
-      .sf-store-locator__mobile-divider {
-         display: none;
-      }
-      .sf-store-locator__first-divider {
-        margin-top: 0;
-        width: calc(100% + 2.5rem);
-      }
-    }
-
-    &-item {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: flex-start;
-      align-items: flex-start;
-      font-size: $sf-store-locator__item-font-size;
-
-      &-media {
-        width: $sf-store-locator__media-width;
-        height: $sf-store-locator__media-height;
-        margin: $sf-store-locator__media-margin;
-        overflow: hidden;
-        cursor: pointer;
-      }
-
-      &-info {
-        flex: 1;
-
-        &-heading {
-
-          @media screen and (min-width: $desktop-min) {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
-          }
-
-          &-name {
-            font-size: $sf-store-locator__name-font-size;
-            color: $sf-store-locator__color-primary;
-            font-family: $sf-store-locator__font-family-secondary;
-            font-weight: $sf-store-locator__name-font-weight;
-          }
-
-          &-distance {
-            color: $sf-store-locator__color-secondary;
-            span {
-              color: $sf-store-locator__color-primary;
-            }
-            @media screen and (min-width: $desktop-min) {
-              width: 80px;
-            }
-          }
-        }
-
-
-        &-address {
-          color: $sf-store-locator__color-secondary;
-          margin-bottom: 1.25rem;
-        }
-
-        &-phone, &-email {
-          display: flex;
-          flex-flow: row nowrap;
-          justify-content: flex-start;
-          align-items: center;
-					margin-bottom: 0.625rem;
-
-
-          span {
-            font-family: $sf-store-locator__font-family-secondary;
-            margin-left: 0.3125rem;
-            font-weight: 300;
-          }
-        }
-      }
     }
   }
   &__map-wrapper {
