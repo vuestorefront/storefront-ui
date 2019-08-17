@@ -1,71 +1,59 @@
 @import '../variables';
 
-$radio__checkmark-size:  1.438rem !default;
-$radio__checkmark-border-color: $c-gray-secondary !default;
-$radio__checkmark-border-width: 0.0625rem !default;
-$radio__checkmark-border-color--checked: $c-green-primary !default;
-$radio__checkmark-border-width--checked:  0.5625rem !default;
-$radio__checkmark-margin: 0.625rem !default;
-
-$radio__container-align-items: flex-start !default;
-$radio__container__content__description-font-weight: 300 !default;
-$radio__container__content__description-line-height: 1.25rem !default;
-$radio__container-background-color--checked: $c-light-primary !default;
-$radio__container__content__description-color: $c-dark-primary !default;
-$radio__container__content__description-size: $font-size-extra-small-desktop !default;
+$radio--active-background: $c-light-primary !default;
+$radio-transition: background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1) !default;
+$radio__checkmark-transition: border 0.25s cubic-bezier(1, 0.5, 0.8, 1) !default;
+$radio__checkmark-size: 1.4375rem !default;
+$radio__checkmark-primary-color: $c-green-primary !default;
+$radio__checkmark-secondary-color: $c-gray-secondary !default;
+$radio__label-font-size: 1.125rem !default;
+$radio__description-font-size: 0.75rem !default;
 
 .sf-radio {
+  $this: &;
+  transition: $radio-transition;
+  &__input {
+    display: none;
+  }
   &__container {
     display: flex;
-    align-items: $radio__container-align-items;
-    padding: $radio__checkmark-margin 0;
-
-    &__content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    
-        &__label {
-          height: 100%;
-          line-height: $radio__checkmark-size;
-        }
-
-        &__description {
-            color: $radio__container__content__description-color;
-            font-size: $radio__container__content__description-size;
-            line-height: $radio__container__content__description-line-height;
-            font-weight: $radio__container__content__description-font-weight;
-        }
-      }
+    padding: $spacer-big;
+    cursor: pointer;
   }
-
-  &__input {
-      display: none;
-  }
-
   &__checkmark {
-      min-width: $radio__checkmark-size;
-      min-height: $radio__checkmark-size;
-      border: $radio__checkmark-border-width solid $radio__checkmark-border-color;
-      border-radius: 50%;
-      margin: 0 $radio__checkmark-margin;
-      box-sizing: border-box;
-      cursor: pointer;
-  }
-
-  &--checked {
-    background-color: $radio__container-background-color--checked;
-
-    .sf-radio__checkmark {
-        border: $radio__checkmark-border-width--checked solid $radio__checkmark-border-color--checked;
+    flex: 0 0 $radio__checkmark-size;
+    height: $radio__checkmark-size;
+    border: 1px solid $radio__checkmark-secondary-color;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition: $radio__checkmark-transition;
+    &.is-active {
+      border: 9px solid $radio__checkmark-primary-color;
     }
-
-  }
-
-  &--center {
-    .sf-radio__container {
-      align-items: center;
+    &:hover{
+      border-color: $radio__checkmark-primary-color;
     }
   }
-
+  &__content {
+    margin-left: $spacer-big;
+  }
+  &__label {
+    font-size: $radio__label-font-size;
+    font-family: $body-font-family-secondary;
+  }
+  &__description {
+    margin: $spacer-medium 0 0 0;
+    font-size: $radio__description-font-size;
+    font-weight: 300;
+    line-height: 1.0625rem;
+    font-family: $body-font-family-secondary;
+  }
+  &.is-active {
+    background-color: $radio--active-background;
+  }
+  &--transparent {
+    &#{$this}.is-active {
+      background-color: transparent;
+    }
+  }
 }
