@@ -1,5 +1,8 @@
 import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
 import SfLoader from "@/components/atoms/SfLoader/SfLoader.vue";
+import SfStore from "./_internal/SfStore.vue";
+
+Vue.component("SfStore", SfStore);
 
 import Vue from "vue";
 
