@@ -1,52 +1,41 @@
 @import '../variables';
 
-$checkbox-margin: $spacer !default;
-$checkbox__icon-size: 19px !default;
-$checkbox__icon-border-radius: 0 !default;
-$checkbox__icon-border: 1px $c-gray-secondary solid !default;
-$checkbox__icon-bg-color: $c-white !default;
-$checkbox__icon-svg-width: 11px !default;
-$checkbox__icon-svg-height: 9px !default;
-$checkbox__icon-transition: all 0.25s cubic-bezier(1, 0.5, 0.8, 1) !default;
-$checkbox__icon-border--checked: 1px $c-accent-primary solid !default;
-$checkbox__icon-bg-color--checked: $c-accent-primary !default;
-$checkbox__icon-border--hover: 1px $c-accent-primary solid !default;
-$checkbox__icon-bg-color--hover: $c-white !default;
+$checkbox__label-font-size: 1.125rem !default;
+$checkbox__checkmark-transition: background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1), border-color 0.25s cubic-bezier(1, 0.5, 0.8, 1) !default;
+$checkbox__checkmark-size: 1.4375rem !default;
+$checkbox__checkmark-primary-color: $c-green-primary !default;;
+$checkbox__checkmark-secondary-color: $c-gray-secondary !default;;
 
 .sf-checkbox {
-  &__field {
+  &__input {
     display: none;
   }
-  &__label {
+  &__container {
     display: flex;
     align-items: center;
     cursor: pointer;
   }
-  &__icon {
+  &__checkmark {
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    width: $checkbox__icon-size;
-    height: $checkbox__icon-size;
-    margin-right: $checkbox-margin;
-    border-radius: $checkbox__icon-border-radius;
-    border: $checkbox__icon-border;
-    background-color: $checkbox__icon-bg-color;
-    cursor: pointer;
-    opacity: 1;
-    transition: $checkbox__icon-transition;
-    &:hover {
-      border: $checkbox__icon-border--hover;
-      background-color: $checkbox__icon-bg-color--hover;
-    }
+    flex: 0 0 $checkbox__checkmark-size;
+    height: $checkbox__checkmark-size;
+    border: 1px solid $checkbox__checkmark-secondary-color;
+    box-sizing: border-box;
+    transition: $checkbox__checkmark-transition;
     &.is-active {
-      border: $checkbox__icon-border--checked;
-      background-color: $checkbox__icon-bg-color--checked;
-      opacity: 1;
+      background-color: $checkbox__checkmark-primary-color;
+      border-color: transparent;
+    }
+    &:hover {
+      border-color: $checkbox__checkmark-primary-color;
+      transition: $checkbox__checkmark-transition;
     }
   }
-  &__icon-svg {
-    width: $checkbox__icon-svg-width;
-    height: $checkbox__icon-svg-height;
+  &__label {
+    font-size: $checkbox__label-font-size;
+    margin-left: $spacer-big;
+    font-family: $body-font-family-secondary;
   }
 }

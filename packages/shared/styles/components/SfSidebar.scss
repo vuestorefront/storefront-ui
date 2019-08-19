@@ -1,7 +1,7 @@
 @import '../variables';
 
-$sidebar-background: $c-white !default;
-$sidebar-padding: 3.5rem !default;
+$sidebar-background : $c-white !default;
+$sidebar-padding    : 3.5rem !default;
 
 .sf-sidebar {
   position: fixed;
@@ -12,8 +12,8 @@ $sidebar-padding: 3.5rem !default;
   background: $sidebar-background;
   box-sizing: border-box;
   box-shadow: 0px 4px 56px rgba(87, 87, 87, 0.32);
-  z-index: 2;
-  &__close {
+  z-index: 3;
+  &__button {
     position: absolute;
     right: -1.625rem;
     padding: 10px;
@@ -25,7 +25,7 @@ $sidebar-padding: 3.5rem !default;
     width: 100%;
     padding: $sidebar-padding;
     box-sizing: border-box;
-    &::-webkit-scrollbar {
+    &::-webkit-scrollbar{
       width: 0;
     }
   }
@@ -37,8 +37,8 @@ $sidebar-padding: 3.5rem !default;
     }
   }
   &--mobile-only {
-    &__close {
-      display: none;
+    &__button {
+      display: none
     }
   }
 }

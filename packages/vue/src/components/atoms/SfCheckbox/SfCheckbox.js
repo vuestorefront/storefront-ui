@@ -2,70 +2,54 @@ import SfIcon from "../SfIcon/SfIcon.vue";
 
 export default {
   name: "SfCheckbox",
-  components: {
-    SfIcon
+  model: {
+    prop: "selected",
+    event: "input"
   },
   props: {
-    /**
-     * Current input value (`v-model`)
-     */
-    value: {
-      type: [String, Boolean, Number, Object],
-      default: false
-    },
-    /**
-     * Value emitted when input is checked
-     */
-    checkedValue: {
-      type: [String, Boolean, Number, Object],
-      default: true
-    },
-    /**
-     * Value emitted when input is unchecked
-     */
-    uncheckedValue: {
-      type: [String, Boolean, Number, Object],
-      default: false
-    },
-    /**
-     * Native input ID attribute
-     */
-    id: {
+    name: {
       type: String,
       default: ""
     },
-    /**
-     * Native input name attribute
-     */
-    name: {
+    value: {
       type: String,
       default: ""
     },
     label: {
       type: String,
-      default: null
+      default: ""
     },
-    /**
-     * Native input disabled attribute
-     */
+    required: {
+      type: Boolean,
+      default: false
+    },
     disabled: {
       type: Boolean,
       default: false
+    },
+    selected: {
+      type: Array,
+      default: () => []
     }
   },
-
-  computed: {
-    isChecked: {
-      get() {
-        return this.value === this.checkedValue;
-      },
-      set(checked) {
-        /**
-         * Event for check/uncheck (`v-model`)
-         * @type {Event}
-         */
-        this.$emit("input", checked ? this.checkedValue : this.uncheckedValue);
+  components: {
+    SfIcon
+  },
+  methods: {
+    inputHandler() {
+      const selected = [...this.selected];
+      const index = selected.indexOf(this.value);
+      if (index > -1) {
+        selected.splice(index, 1);
+      } else {
+        selected.push(this.value);
       }
+      this.$emit("input", selected);
+    }
+  },
+  computed: {
+    isChecked() {
+      return this.selected.indexOf(this.value) > -1;
     }
   }
 };
