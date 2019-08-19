@@ -131,8 +131,8 @@ storiesOf("Molecules|Gallery", module)
     () => ({
       data,
       components: { SfGallery },
-      template: `
-       <SfGallery :images="images">
+      template: `<SfGallery 
+        :images="images">
          <template #thumb="{ image, index }">
            #{{ index }}
            <img class="sf-gallery__thumb" :src="image.small.url" />

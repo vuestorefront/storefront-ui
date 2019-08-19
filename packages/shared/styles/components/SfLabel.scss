@@ -1,16 +1,16 @@
 @import '../variables';
 
-$sf-label-margin-bottom : 0.5rem !default;
-$sf-label-color         : $c-dark-primary !default;
-$sf-label-font-family   : $body-font-family-primary !default;
-$sf-label-font-weight   : $body-font-weight-primary !default;
-$sf-label-line-height   : 1.5 !default;
+$label-margin-bottom: 0.5rem !default;
+$label-color: $c-dark-primary !default;
+$label-font-family: $body-font-family-primary !default;
+$label-font-weight: $body-font-weight-primary !default;
+$label-line-height: 1.5 !default;
 
 .sf-label {
   display: block;
-  margin-bottom: $sf-label-margin-bottom;
-  color: $sf-label-color;
-  font-family: $sf-label-font-family;
-  font-weight: $sf-label-font-weight;
-  line-height: $sf-label-line-height;
+  margin-bottom: $label-margin-bottom;
+  color: $label-color;
+  font-family: $label-font-family;
+  font-weight: $label-font-weight;
+  line-height: $label-line-height;
 }

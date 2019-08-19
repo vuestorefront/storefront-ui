@@ -1,6 +1,5 @@
 export default {
   name: "SfBreadcrumbs",
-
   props: {
     /**
      * List of breadcrumbs (array of nested objects: `[ { text, route } ]`)
@@ -10,13 +9,11 @@ export default {
       required: true
     }
   },
-
   computed: {
     last() {
       return this.breadcrumbs.length - 1;
     }
   },
-
   methods: {
     click(breadcrumb) {
       /**

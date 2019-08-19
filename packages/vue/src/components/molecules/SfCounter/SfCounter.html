@@ -4,11 +4,12 @@
     class="sf-counter__control sf-counter__control--down"
     @click="decrease">
     <slot name="down">
-      <sf-icon path="chevron_left" size="23px"/>
+      <SfIcon path="chevron_left" size="23px" />
     </slot>
   </div>
-
-  <slot v-bind:value="currentValue">
+  <slot
+    name="field"
+    v-bind="{stringValue, increase, decrease, keypress, type, name, required, disabled, placeholder}">
     <input
       class="sf-counter__field"
       aria-label="current value"
@@ -20,9 +21,8 @@
       :name="name"
       :required="required"
       :disabled="disabled"
-      :placeholder="placeholder" />
+      :placeholder="placeholder"/>
   </slot>
-
   <div
     v-if="controls"
     class="sf-counter__control sf-counter__control--up"
@@ -30,7 +30,7 @@
     aria-label="Increase"
     @click="increase">
     <slot name="up">
-      <sf-icon path="chevron_right" size="23px"/>
+      <SfIcon path="chevron_right" size="23px" />
     </slot>
   </div>
 </div>

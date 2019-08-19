@@ -8,13 +8,13 @@
   <span class="sf-input__bar"></span>
   <label class="sf-input__label">
     <!-- @slot Custom input label -->
-    <slot>{{ label }}</slot>
+    <slot name="label" v-bind="{label}">{{ label }}</slot>
   </label>
   <div class="sf-input__error-message">
     <transition name="fade">
       <span v-if="valid === false">
         <!-- @slot Custom error message of form input -->
-        <slot name="errorMessage">{{ errorMessage }}</slot>
+        <slot name="error" v-bind="{errorMessage}">{{ errorMessage }}</slot>
       </span>
     </transition>
   </div>

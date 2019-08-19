@@ -1,21 +1,22 @@
 <nav class="sf-pagination">
   <ul class="sf-pagination__list">
     <li class="sf-pagination__item">
-      <a class="sf-pagination__link sf-pagination__link--prev"
+      <a
+        class="sf-pagination__link sf-pagination__link--prev"
         aria-label="Go to previous page"
         :disabled="currentPage < 2"
-        @click="setCurrentPage(currentPage - 1)">
+        @click="setCurrentPage(currentPage - 1)"
+      >
         <!-- @slot Custom markup for previous page icon -->
         <slot name="prev">
-          <sf-icon path="chevron_left" size="14px"/>
+          <SfIcon path="chevron_left" size="14px" />
         </slot>
       </a>
     </li>
-
     <template v-if="showFirst">
       <li class="sf-pagination__item">
         <a class="sf-pagination__link" @click="setCurrentPage(1)">
-          <slot name="number" v-bind:number="1">1</slot>
+          <slot name="number">1</slot>
         </a>
       </li>
       <li class="sf-pagination__item">
@@ -25,40 +26,42 @@
         </slot>
       </li>
     </template>
-
-    <li v-for="number in limitedPageNumbers"
+    <li
+      v-for="number in limitedPageNumbers"
       :key="number"
       :class="[
         'sf-pagination__item',
         { 'sf-pagination__item--current': currentPage === number }
-      ]">
+      ]"
+    >
       <a
         class="sf-pagination__link"
-        @click="() => { if (currentPage !== number) setCurrentPage(number) }">
+        @click="() => { if (currentPage !== number) setCurrentPage(number) }"
+      >
         <!-- @slot Pagination item with page number (binds `number`) -->
-        <slot name="number" v-bind:number="number">{{ number }}</slot>
+        <slot name="number" v-bind="{number}">{{ number }}</slot>
       </a>
     </li>
-
     <template v-if="showLast">
       <li class="sf-pagination__item">
         <slot name="points">...</slot>
       </li>
       <li class="sf-pagination__item">
         <a class="sf-pagination__link" @click="setCurrentPage(total)">
-          <slot name="number" v-bind:number="total">{{ total }}</slot>
+          <slot name="number" v-bind="{total}">{{ total }}</slot>
         </a>
       </li>
     </template>
-
     <li class="sf-pagination__item">
-      <a class="sf-pagination__link sf-pagination__link--next"
+      <a
+        class="sf-pagination__link sf-pagination__link--next"
         aria-label="Go to next page"
         :disabled="currentPage > total - 1"
-        @click="setCurrentPage(currentPage + 1)">
+        @click="setCurrentPage(currentPage + 1)"
+      >
         <!-- @slot Custom markup for next page icon -->
         <slot name="next">
-          <sf-icon path="chevron_right" size="14px"/>
+          <SfIcon path="chevron_right" size="14px" />
         </slot>
       </a>
     </li>

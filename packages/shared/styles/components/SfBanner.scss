@@ -1,37 +1,29 @@
 @import '../variables';
 
-$banner-padding                             : $spacer-extra-big !default;
-$banner-background-size                     : cover !default;
-$banner-background-position                 : bottom left !default;
-
-$banner-mobile-padding                      : $spacer-big !default;
-
-$banner__subtitle-font-family               : $body-font-family-primary !default;
-$banner__subtitle-font-size                 : 1.5rem !default;
-$banner__subtitle-font-weight               : 300 !default;
-$banner__subtitle-color                     : $c-dark-secondary !default;
-$banner__subtitle-text-transform            : none !default;
-
-$banner-mobile__subtitle-font-size          : 0.875rem !default;
-
-$banner__title-text-transform               : uppercase !default;
-$banner__title-font-weight                  : 300  !default;
-$banner__title-font-size                    : 3rem !default;
-$banner__title-font-family                  : $body-font-family-secondary !default;
-$banner__title-color                        : $c-dark-primary !default;
-
-$banner-mobile__title-font-size             : 1.125rem !default;
-
-$banner__description-font-family            : $body-font-family-secondary !default;
-$banner__description-font-size              : 1.125rem !default;
-$banner__description-color                  : $c-dark-primary !default;
-$banner__description-font-weight            : 300 !default;
-
-$banner__call-to-action-font-size           : 0.875rem !default;
-$banner__call-to-action-background-color    : $c-dark-primary !default;
-
-$banner--secondary__button-color            : $c-text-on-dark !default;
-$banner--secondary__button-background-color : $c-green-primary !default;
+$banner-padding: $spacer-extra-big !default;
+$banner-background-size: cover !default;
+$banner-background-position: bottom left !default;
+$banner-mobile-padding: $spacer-big !default;
+$banner__subtitle-font-family: $body-font-family-primary !default;
+$banner__subtitle-font-size: 1.5rem !default;
+$banner__subtitle-font-weight: 300 !default;
+$banner__subtitle-color: $c-dark-secondary !default;
+$banner__subtitle-text-transform: none !default;
+$banner-mobile__subtitle-font-size: 0.875rem !default;
+$banner__title-text-transform: uppercase !default;
+$banner__title-font-weight: 300 !default;
+$banner__title-font-size: 3rem !default;
+$banner__title-font-family: $body-font-family-secondary !default;
+$banner__title-color: $c-dark-primary !default;
+$banner-mobile__title-font-size: 1.125rem !default;
+$banner__description-font-family: $body-font-family-secondary !default;
+$banner__description-font-size: 1.125rem !default;
+$banner__description-color: $c-dark-primary !default;
+$banner__description-font-weight: 300 !default;
+$banner__call-to-action-font-size: 0.875rem !default;
+$banner__call-to-action-background-color: $c-dark-primary !default;
+$banner--secondary__call-to-action-color: $c-text-on-dark !default;
+$banner--secondary__call-to-action-background-color: $c-green-primary !default;
 
 .sf-banner {
   display: flex;
@@ -43,12 +35,10 @@ $banner--secondary__button-background-color : $c-green-primary !default;
   background-size: $banner-background-size;
   background-position: $banner-background-position;
   text-align: left;
-
   @media (min-width: $desktop-min) {
     min-height: 20rem;
     padding: $banner-padding;
   }
-
   &__container {
     width: 100%;
     @media (min-width: $desktop-min) {
@@ -63,7 +53,6 @@ $banner--secondary__button-background-color : $c-green-primary !default;
     font-size: $banner-mobile__subtitle-font-size;
     font-weight: $banner__subtitle-font-weight;
     text-transform: none;
-
     @media (min-width: $desktop-min) {
       font-size: $banner__subtitle-font-size;
     }
@@ -77,7 +66,6 @@ $banner--secondary__button-background-color : $c-green-primary !default;
     font-weight: $banner__title-font-weight;
     line-height: 1.6;
     color: $banner__title-color;
-
     @media (min-width: $desktop-min) {
       font-size: $banner__title-font-size;
     }
@@ -95,7 +83,7 @@ $banner--secondary__button-background-color : $c-green-primary !default;
       display: flex;
     }
   }
-  &__button {
+  &__call-to-action {
     display: none;
     margin-top: $spacer-big;
     background-color: $banner__call-to-action-background-color;
@@ -104,7 +92,6 @@ $banner--secondary__button-background-color : $c-green-primary !default;
       display: flex;
     }
   }
-
   &--top {
     justify-content: flex-start;
   }
@@ -118,20 +105,20 @@ $banner--secondary__button-background-color : $c-green-primary !default;
     align-items: flex-start;
   }
   &--secondary {
-    .sf-banner__button {
-      color: $banner--secondary__button-color;
-      background-color: $banner--secondary__button-background-color;
+    .sf-banner__call-to-action {
+      color: $banner--secondary__call-to-action-color;
+      background-color: $banner--secondary__call-to-action-background-color;
     }
   }
-  &--container-medium{
-    .sf-banner__container{
+  &--container-medium {
+    .sf-banner__container {
       @media (min-width: $desktop-min) {
         width: 75%;
       }
     }
   }
-  &--container-full{
-    .sf-banner__container{
+  &--container-full {
+    .sf-banner__container {
       @media (min-width: $desktop-min) {
         width: 100%;
       }

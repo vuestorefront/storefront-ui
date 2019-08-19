@@ -6,20 +6,14 @@ $call-to-action-color: $c-text-on-dark !default;
 $call-to-action-align-items: center !default;
 $call-to-action-justify-content: space-between !default;
 $call-to-action-align-content: center !default;
-
 $call-to-action__title-font-family: $body-font-family-secondary !default;
 $call-to-action__title-font-size: 2.25rem !default;
-
 $call-to-action__title-font-weight: 400 !default;
 $call-to-action__title-text-transform: none !default;
-
 $call-to-action__description-font-family: $body-font-family-secondary !default;
-
 $call-to-action__button-padding: 1.125rem 3.375rem !default;
 $call-to-action__button-font-size: 0.875rem !default;
-
 $call-to-action-mobile__button-padding: 0.675rem 2rem !default;
-
 $call-to-action--secondary__button-color: $c-text-on-dark !default;
 $call-to-action--secondary__button-background-color: $c-dark-primary !default;
 
@@ -35,7 +29,6 @@ $call-to-action--secondary__button-background-color: $c-dark-primary !default;
   background-size: cover;
   background-position: center;
   font-size: 1.125rem;
-
   @media screen and (min-width: $desktop-min) {
     flex-direction: row;
     padding: $call-to-action-padding;
@@ -68,7 +61,6 @@ $call-to-action--secondary__button-background-color: $c-dark-primary !default;
       text-align: left;
       margin-bottom: 0;
     }
-
   }
   &__button {
     display: flex;
@@ -91,6 +83,6 @@ $call-to-action--secondary__button-background-color: $c-dark-primary !default;
   }
   &--light {
     color: $c-text-on-light;
-    background: $c-light-primary
+    background: $c-light-primary;
   }
 }

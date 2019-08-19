@@ -10,13 +10,11 @@
   :aria-owns="'lbox_'+_uid"
   aria-autocomplete="none"
   role="combobox"
-  tabindex="0"
->
+  tabindex="0">
   <div
     role="textbox"
     class="sf-select__selected sf-select-option"
-    v-html="html"
-  ></div>
+    v-html="html"></div>
   <transition name="fade">
     <div v-show="open" class="sf-select__overlay"></div>
   </transition>
@@ -28,6 +26,7 @@
         class="sf-select__options"
         :style="{maxHeight}"
       >
+        <!-- @slot -->
         <slot />
       </ul>
       <SfButton

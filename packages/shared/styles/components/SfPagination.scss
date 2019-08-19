@@ -2,24 +2,20 @@
 
 $pagination__list-padding: 1rem !default;
 $pagination__list-justify: center !default;
-
 $pagination__item-size: 1.25rem !default;
-$pagination__item-margin: 0 .25rem !default;
+$pagination__item-margin: 0 0.25rem !default;
 $pagination__item-color: $c-text-secondary !default;
 $pagination__item-hover-color: $c-text-primary !default;
-$pagination__item-transition: all .15s linear !default; // $transition-base
-
+$pagination__item-transition: all 0.15s linear !default; // $transition-base
 $pagination__item--current-color: $pagination__item-hover-color !default;
 $pagination__item--current-border: 1px solid $pagination__item--current-color !default;
 $pagination__item--current-border-width: 0 0 1px 0 !default;
-
 $pagination__link--prev-margin: 3rem !default;
 $pagination__link--next-margin: $pagination__link--prev-margin !default;
 
 .sf-pagination {
   width: 100%;
   text-align: center;
-
   &__list {
     display: flex;
     align-items: $pagination__list-justify;
@@ -28,7 +24,6 @@ $pagination__link--next-margin: $pagination__link--prev-margin !default;
     padding: $pagination__list-padding;
     margin: 0;
   }
-
   &__item {
     display: flex;
     margin: $pagination__item-margin;
@@ -39,15 +34,12 @@ $pagination__link--next-margin: $pagination__link--prev-margin !default;
     border: $pagination__item--current-border;
     border-width: $pagination__item--current-border-width;
     border-color: transparent;
-
     &:first-child {
       margin-left: 0;
     }
-
     &:last-child {
       margin-right: 0;
     }
-
     &--current {
       color: $pagination__item--current-color;
       border: $pagination__item--current-border;
@@ -57,7 +49,6 @@ $pagination__link--next-margin: $pagination__link--prev-margin !default;
       }
     }
   }
-
   &__link {
     width: 100%;
     border-radius: 0;
@@ -67,24 +58,20 @@ $pagination__link--next-margin: $pagination__link--prev-margin !default;
     cursor: pointer;
     color: inherit;
     transition: $pagination__item-transition;
-
     &:focus,
     &:hover {
       color: $pagination__item-hover-color;
     }
-
     &--prev {
       margin-right: $pagination__link--prev-margin;
     }
-
     &--next {
       margin-left: $pagination__link--next-margin;
     }
-
     &[disabled] {
       pointer-events: none;
       cursor: default;
-      opacity: .7;
+      opacity: 0.7;
     }
   }
 }
