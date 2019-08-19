@@ -49,8 +49,9 @@ $pagination__link--next-margin: $pagination__link--prev-margin !default;
       }
     }
   }
-  &__link {
+  &__button {
     width: 100%;
+    padding: 0;
     border-radius: 0;
     border: none;
     background-color: transparent;
@@ -58,6 +59,7 @@ $pagination__link--next-margin: $pagination__link--prev-margin !default;
     cursor: pointer;
     color: inherit;
     transition: $pagination__item-transition;
+    outline: none;
     &:focus,
     &:hover {
       color: $pagination__item-hover-color;

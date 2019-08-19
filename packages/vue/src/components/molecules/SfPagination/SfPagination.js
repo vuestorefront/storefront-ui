@@ -1,4 +1,5 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import direction from "@glidejs/glide/src/components/direction";
 
 export default {
   name: "SfPagination",
@@ -94,9 +95,27 @@ export default {
         this.currentPage + Math.floor(this.visible / 2)
       );
     },
-
-    setCurrentPage(value) {
-      this.currentPage = value;
+    go(direct) {
+      switch (direct) {
+        case "prev":
+          this.currentPage = this.currentPage - 1;
+          break;
+        case "next":
+          this.currentPage = this.currentPage + 1;
+          break;
+        default:
+          if (this.currentPage !== direct) this.currentPage = direct;
+      }
+    },
+    isDisabled(direct) {
+      switch (direct) {
+        case "prev":
+          return this.currentPage < 2;
+        case "next":
+          return this.currentPage > this.total - 1;
+        default:
+          return true;
+      }
     }
   },
   components: {
