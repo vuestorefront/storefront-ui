@@ -251,15 +251,13 @@ storiesOf("Organisms|StoreLocator", module)
       },
       components: { SfStoreLocator },
       template: `
-      <sf-store-locator :stores="stores" :center="center" :zoom="zoom" >
-        <template #default="{centerOn, registerStore}">
+      <sf-store-locator :stores="stores" :center="center" :zoom="zoom" v-slot="{centerOn, registerStore}" >
           <div v-for="(store, index) in stores" :key="index">
             <!-- This is just an example showing that is necessary to trigger register store function to have the store appear on the map -->
             {{registerStore(store)}}
             <img :style="{height: '150px'}" :src="store.picture" :alt="store.title" />
-            <button @click="centerOn(store)">click to zoom</button>
+            <button @click="centerOn(store.latlng)">click to zoom</button>
           </div>
-        </template>
       </sf-store-locator>
       `
     }),
