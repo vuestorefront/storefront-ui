@@ -1,6 +1,6 @@
-import SfImage from "@/components/molecules/SfImage/SfImage.vue";
-import SfDivider from "@/components/atoms/SfDivider/SfDivider.vue";
-import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
+import SfImage from "../../../molecules/SfImage/SfImage.vue";
+import SfDivider from "../../../atoms/SfDivider/SfDivider.vue";
+import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 
 export default {
   name: "SfStore",
