@@ -11,11 +11,12 @@ export default {
     visible: {
       type: Boolean,
       default: false
-    },
-    position: {
-      type: String,
-      default: "left"
     }
+  },
+  data() {
+    return {
+      position: "left"
+    };
   },
   mounted() {
     const keydownHandler = e => {
@@ -27,6 +28,9 @@ export default {
     this.$once("hook:destroyed", () => {
       document.removeEventListener("keydown", keydownHandler);
     });
+    this.position = this.$el.classList.contains("sf-sidebar--right")
+      ? "right"
+      : "left";
   },
   watch: {
     visible: {
