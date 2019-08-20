@@ -11,6 +11,10 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    },
+    overlay: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -43,6 +47,11 @@ export default {
         }
       },
       immediate: true
+    }
+  },
+  computed: {
+    visibleOverlay() {
+      return this.visible && this.overlay;
     }
   },
   components: {

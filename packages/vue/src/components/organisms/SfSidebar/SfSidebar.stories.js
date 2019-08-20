@@ -46,14 +46,18 @@ storiesOf("Organisms|Sidebar", module)
         },
         button: {
           default: select("button (prop)", [true, false], true)
+        },
+        overlay: {
+          default: select("overlay (prop)", [true, false], true)
         }
       },
       components: { SfSidebar, SfButton },
       template: `<div>
         <SfButton @click="isSidebarOpen = true">Open sidebar</SfButton>
         <SfSidebar
-          :visible="isSidebarOpen"
           @close="isSidebarOpen = false"
+          :visible="isSidebarOpen"
+          :overlay="overlay"
           :button="button"
           :class="customClass"
         >
