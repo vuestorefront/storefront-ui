@@ -1,6 +1,12 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  select,
+  number,
+  boolean
+} from "@storybook/addon-knobs";
 import { withA11y } from "@storybook/addon-a11y";
 import notes from "./SfSelect.md";
 import SfSelect from "./SfSelect.vue";
@@ -14,7 +20,78 @@ storiesOf("Molecules|Select", module)
     () => ({
       data() {
         return {
-          selected: "amber"
+          options: [
+            { value: "amaranth", color: "#E52B50", label: "Amaranth" },
+            { value: "amber", color: "#FFBF00", label: "Amber" },
+            { value: "arctic-lime", color: "#D0FF14", label: "Arctic lime" },
+            { value: "bluetiful", color: "#3C69E7", label: "Bluetiful" },
+            {
+              value: "brilliant-rose",
+              color: "#FF55A3",
+              label: "Brilliant rose"
+            },
+            { value: "buff", color: "#F0DC82", label: "Buff" }
+          ],
+          selected: ""
+        };
+      },
+      components: { SfSelect, SfProductOption },
+      props: {
+        customClass: {
+          default: select(
+            "CSS Modifier",
+            ["null", "sf-select--bordered", "sf-select--underlined"],
+            "sf-select--underlined"
+          )
+        },
+        size: {
+          default: number("size (prop)", 5)
+        },
+        required: {
+          default: boolean("required (prop)", true)
+        },
+        valid: {
+          default: boolean("valid (prop)", true)
+        },
+        label: {
+          default: text("label (prop)", "Color")
+        },
+        errorMessage: {
+          default: text("errorMessage (prop)", "This field is not correct.")
+        }
+      },
+      template: `
+      <div>
+        <p><b>Selected: {{selected}}</b></p>
+        <div style="max-width: 509px">
+          <SfSelect v-model="selected" :label="label" :class="customClass" :size="size" :required="required" :valid="valid" :errorMessage="errorMessage">
+            <SfSelectOption v-for="option in options" :key="option.value" :value="option.value">
+              <SfProductOption :color="option.color" :label="option.label"/>
+            </SfSelectOption>
+          </SfSelect>
+        </div>
+      </div>
+      `
+    }),
+    {
+      info: true,
+      notes
+    }
+  )
+  .add(
+    "Object",
+    () => ({
+      data() {
+        return {
+          options: [
+            { color: "#E52B50", label: "Amaranth" },
+            { color: "#FFBF00", label: "Amber" },
+            { color: "#D0FF14", label: "Arctic lime" },
+            { color: "#3C69E7", label: "Bluetiful" },
+            { color: "#FF55A3", label: "Brilliant rose" },
+            { color: "#F0DC82", label: "Buff" }
+          ],
+          selected: { color: "#E52B50", label: "Amaranth" }
         };
       },
       components: { SfSelect, SfProductOption },
@@ -32,25 +109,11 @@ storiesOf("Molecules|Select", module)
         <p><b>Selected: {{selected}}</b></p>
         <div style="max-width: 509px">
           <SfSelect v-model="selected" :class="customClass">
-            <SfSelectOption value="amaranth">
-              <SfProductOption color="#E52B50" label="Amaranth"/>
-            </SfSelectOption>
-            <SfSelectOption value="amber">
-              <SfProductOption color="#FFBF00" label="Amber"/>
-            </SfSelectOption>
-            <SfSelectOption value="arctic-lime">
-              <SfProductOption color="#D0FF14" label="Arctic lime"/>
-            </SfSelectOption>
-            <SfSelectOption value="bluetiful">
-              <SfProductOption color="#3C69E7" label="Bluetiful"/>
-            </SfSelectOption>
-            <SfSelectOption value="brilliant-rose">
-              <SfProductOption color="#FF55A3" label="Brilliant rose"/>
-            </SfSelectOption>
-            <SfSelectOption value="buff">
-              <SfProductOption color="#F0DC82" label="Buff"/>
+            <SfSelectOption v-for="option in options" :key="option.label" :value="option">
+              <SfProductOption :color="option.color" :label="option.label"/>
             </SfSelectOption>
           </SfSelect>
+          
         </div>
       </div>
       `

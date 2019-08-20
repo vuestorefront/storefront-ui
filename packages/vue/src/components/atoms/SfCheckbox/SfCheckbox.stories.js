@@ -1,111 +1,69 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
+import { withKnobs } from "@storybook/addon-knobs";
+import { generateStorybookTable } from "@/helpers";
 import SfCheckbox from "./SfCheckbox.vue";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
-const vm = {
-  components: { SfCheckbox },
-  data: () => {
-    return {
-      status: false
-    };
-  }
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    ["$checkbox__label-font-size", "1.125rem", "font size for label"],
+    [
+      "$checkbox__checkmark-transition",
+      "background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1), border-color 0.25s cubic-bezier(1, 0.5, 0.8, 1)",
+      "transition for checkmark"
+    ],
+    ["$checkbox__checkmark-size", "1.4375rem ", "size for checkmark"],
+    [
+      "$checkbox__checkmark-primary-color",
+      "$c-green-primary",
+      "primary color for checkmark"
+    ],
+    [
+      "$checkbox__checkmark-secondary-color",
+      "$c-gray-secondary",
+      "secondary color for checkmark"
+    ]
+  ]
 };
 
-export default storiesOf("Atoms|Checkbox", module)
+storiesOf("Atoms|Checkbox", module)
   .addDecorator(withKnobs)
-
   .add(
     "Basic",
     () => ({
-      ...vm,
-
-      props: {
-        checkedValue: {
-          default: boolean("checkedValue (prop)", true)
-        },
-        uncheckedValue: {
-          default: boolean("uncheckedValue (prop)", false)
-        },
-        id: {
-          default: text("id (prop)", "sf-checkbox-default")
-        },
-        name: {
-          default: text("id (prop)", "sf-checkbox-default")
-        },
-        disabled: {
-          default: boolean("disabled (prop)", false)
-        }
+      data() {
+        return {
+          checked: [],
+          checkboxes: [
+            {
+              name: "shipping",
+              value: "shipping-addres",
+              label: "Copy address data from shipping"
+            },
+            {
+              name: "invoce",
+              value: "invoce",
+              label: "I want to generate invoce for the company"
+            }
+          ]
+        };
       },
-
-      template: `
-        <SfCheckbox
-          :id="id"
-          :name="name"
-          :disabled="disabled"
-          v-model="status"
-          />`
+      components: {
+        SfCheckbox
+      },
+      template: `<div>
+        <p><b>Checked: {{checked}}</b></p>
+        <p v-for="(checkbox, key) in checkboxes" :key="key">
+          <SfCheckbox v-model="checked" :disabled="checkbox.disabled" :name="checkbox.name" :value="checkbox.value" :label="checkbox.label"/>
+        </p>
+      </div>`
     }),
-
     {
       info: {
-        summary: `
-          <h2>
-            Description
-          </h2>
-          <p>
-            Single input checkbox component,
-            called by \`<SfCheckbox>\`.
-            <br>
-            You should use it with \`v-model\`, default value is boolean
-            (false when unchecked and true when checked), and may also use default slot
-            to fill label content.
-          </p>
-          <h2> Usage </h2>
+        summary: `<h2> Usage </h2>
           <pre><code>import { SfCheckbox } from "@storefrontui/vue"</code></pre>
-          `
+          ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
       }
-    }
-  )
-
-  .add(
-    "[slot] content",
-    () => ({
-      ...vm,
-
-      template: `
-       <SfCheckbox
-         id="sf-checkbox-slot"
-         name="sf-checkbox-slot"
-         v-model="status">
-         <template #content>
-           Accept terms
-         </template>
-       </SfCheckbox>`
-    }),
-    {
-      info: true
-    }
-  )
-
-  .add(
-    "[slot] button",
-    () => ({
-      ...vm,
-
-      template: `
-       <SfCheckbox
-         id="sf-checkbox-slot-icon"
-         name="sf-checkbox-slot-icon"
-         v-model="status">
-         <template #content>
-           Accept terms
-         </template>
-         <template #button="{ checked }">
-           <span v-if="checked">x</span>
-         </template>
-       </SfCheckbox>`
-    }),
-    {
-      info: true
     }
   );

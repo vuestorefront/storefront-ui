@@ -59,11 +59,16 @@ export default {
       this.$children[0].isOpen = this.firstOpen;
     }
   },
+  created() {
+    this.$on("accordion-item-ready", () => {
+      this.$off("accordion-item-ready");
+      this.openFirst();
+    });
+  },
   mounted: function() {
     this.$on("toggle", this.toggle);
     this.$on("click", id => {
       this.selectedContentItem = id;
     });
-    this.openFirst();
   }
 };

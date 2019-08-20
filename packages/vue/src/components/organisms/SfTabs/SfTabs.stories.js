@@ -1,40 +1,40 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, object } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfTabs from "./SfTabs.vue";
+import SfTab from "./_internal/SfTab.vue";
 
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$sf-tabs-navigation-color", "$c-light-primary", "navigation items color"],
     [
-      "$sf-tabs-navigation-color-hover",
-      "$c-dark-primary",
-      "navigation item color on hover"
-    ],
-    [
-      "$sf-tabs-navigation-color-active",
-      "$c-dark-primary",
-      "active navigation item color"
-    ],
-    [
-      "$sf-tabs-navigation-font-family",
+      "$sf-tabs-title-font-family",
       "$body-font-family-secondary",
-      "font family"
+      "tabs title font family"
     ],
-    ["$sf-tabs-navigation-font-size", "1.125rem", "font size"],
-    ["$sf-tabs-navigation-padding", "1.563rem", "top and bottom padding"],
-    ["$sf-tabs-navigation-border-width", "0.125rem", "border width"]
-  ]
-};
-
-const eventsTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [
     [
-      "change",
-      "returns value of the selected tab. this event has v-model support"
+      "$sf-tabs-title-font-size",
+      "$font-size-regular-desktop",
+      "tabs title font size"
+    ],
+    ["$sf-tabs-title-padding", "$spacer-big", "top and bottom padding"],
+    ["$sf-tabs-title-border-width", "2px", "border width"],
+    ["$sf-tabs-title-color", "$c-gray-secondary", "tabs title color"],
+    [
+      "$sf-tabs-title-color-hover",
+      "$c-dark-primary",
+      "tabs title color on hover"
+    ],
+    [
+      "$sf-tabs-title-color-active",
+      "$c-dark-primary",
+      "tabs title color when active"
+    ],
+    [
+      "$sf-tabs-content-font-family",
+      " $body-font-family-primary",
+      "tabs content font family"
     ]
   ]
 };
@@ -44,132 +44,47 @@ storiesOf("Organisms|Tabs", module)
   .add(
     "Basic",
     () => ({
-      components: { SfTabs },
+      components: {
+        SfTabs,
+        SfTab
+      },
       template: `
-      <SfTabs>
-        <SfTab title="Apple" :style="containerStyle">
-          Apple is a great fruit.
-        </SfTab>
-        <SfTab title="Banana" :style="containerStyle">
-         Banana is a great fruit.
-        </SfTab>
-        <SfTab title="Peach" :style="containerStyle">
-          Peach is a great fruit.
-        </SfTab>
-        <SfTab title="Orange" :style="containerStyle">
-          Orange is a great fruit.
-        </SfTab>
-      </SfTabs>`
+      <SfTabs :openTab="1">
+      <SfTab :header="'Hello'">Hello</SfTab>
+      <SfTab :header="'List'">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
+      </SfTab>
+      <SfTab :header="'Test'">
+        <strong>Test</strong>
+      </SfTab>
+      <SfTab :header="'Image'">
+        <img
+          src="https://docs.storefrontui.io/logo.png"
+          alt="Storefront UI"
+          style="width: 100%"
+        />
+      </SfTab>
+    </SfTabs>`
     }),
     {
       info: {
         summary: `
+        <h2> Description </h2>
+        <p>Tabs component.</p>
+        <h2> Usage </h2>
+        <pre>
+          <code>
+            import { SfTabs } from "@storefrontui/vue"
+            import { SfTabs } from "@storefrontui/vue"
+          </code>
+        </pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(eventsTableConfig, "Events")}
-        `
-      }
-    }
-  )
-  .add(
-    "[slot] navigation",
-    () => ({
-      components: { SfTabs },
-      data: () => ({
-        selected: "bananaValue",
-        style: {
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-between",
-          cursor: "pointer",
-          borderRight: "1px solid black",
-          paddingRight: "10px",
-          marginRight: "10px"
-        },
-        contentStyle: {
-          width: "100px",
-          height: "100px"
-        },
-        containerStyle: {
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%"
-        },
-        selectedStyle: {
-          color: "red"
-        }
-      }),
-      template: `
-      <SfTabs v-model="selected" style="display: flex;">
-        <SfTabsNavigation slot="navigation" style="width: 250px">
-          <div :style="style" slot-scope="{ tabs, changeTab, activeTabValue }">
-            <h1 v-for="(tab, index) in tabs" :key="index" @click="changeTab(tab.valueComputed)" :style="tab.valueComputed === activeTabValue && selectedStyle">{{ tab.title }}</h1>
-          </div>
-        </SfTabsNavigation>
-        <SfTab value="appleValue" title="apple" :style="containerStyle">
-          <div :style="contentStyle" style="background-color: #C72E30" />
-        </SfTab>
-        <SfTab value="bananaValue" title="banana" :style="containerStyle">
-          <div :style="contentStyle" style="background-color: #F9F494"/>
-        </SfTab>
-        <SfTab value="peachValue" title="peach" :style="containerStyle">
-          <div :style="contentStyle" style="background-color: #E8914D"/>
-        </SfTab>
-        <SfTab value="orangeValue" title="orange" :style="containerStyle">
-          <div :style="contentStyle" style="background-color: #E0601D"/>
-        </SfTab>
-      </SfTabs>`
-    }),
-    {
-      info: {
-        summary: `<p>Tab Component with fully customized navigation.</p>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(eventsTableConfig, "Events")}
-        `
-      }
-    }
-  )
-  .add(
-    "[slot] navigation item",
-    () => ({
-      components: { SfTabs },
-      data: () => ({
-        contentStyle: {
-          width: "100px",
-          height: "100px"
-        },
-        containerStyle: {
-          display: "flex",
-          justifyContent: "center"
-        }
-      }),
-      template: `
-      <SfTabs>
-        <SfTabsNavigation slot="navigation">
-          <div slot="item" slot-scope="{ tab }">
-            <i>Tab Title:</i> <b>{{ tab.title }}</b>
-          </div>
-        </SfTabsNavigation>
-        <SfTab value="appleValue" title="apple" :style="containerStyle">
-          <div :style="contentStyle" style="background-color: #C72E30" />
-        </SfTab>
-        <SfTab value="bananaValue" title="banana" :style="containerStyle">
-          <div :style="contentStyle" style="background-color: #F9F494"/>
-        </SfTab>
-        <SfTab value="peachValue" title="peach" :style="containerStyle">
-          <div :style="contentStyle" style="background-color: #E8914D"/>
-        </SfTab>
-        <SfTab value="orangeValue" title="orange" :style="containerStyle">
-          <div :style="contentStyle" style="background-color: #E0601D"/>
-        </SfTab>
-      </SfTabs>`
-    }),
-    {
-      info: {
-        summary: `<p>Tab Component with customized navigation item</p>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(eventsTableConfig, "Events")}
         `
       }
     }

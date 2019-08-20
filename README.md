@@ -76,7 +76,6 @@ Those awesome people are maintaining Storefront UI. They're ensuring that it per
 - Przemek Spaczek ([@przespa](https://github.com/przespa))
 - Leonardo Matos ([@leomp12](https://github.com/leomp12))
 - Maya Shavin ([@mayashavin](https://github.com/mayashavin))
-- Gift Egwenu ([@lauragify21](https://github.com/lauragift21))
 
 and amazing [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) commiting their time to make it better.
 
