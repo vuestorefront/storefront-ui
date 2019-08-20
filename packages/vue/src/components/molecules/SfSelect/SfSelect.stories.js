@@ -1,6 +1,12 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select, number } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  select,
+  number,
+  boolean
+} from "@storybook/addon-knobs";
 import { withA11y } from "@storybook/addon-a11y";
 import notes from "./SfSelect.md";
 import SfSelect from "./SfSelect.vue";
@@ -26,7 +32,7 @@ storiesOf("Molecules|Select", module)
             },
             { value: "buff", color: "#F0DC82", label: "Buff" }
           ],
-          selected: "amber"
+          selected: ""
         };
       },
       components: { SfSelect, SfProductOption },
@@ -35,18 +41,30 @@ storiesOf("Molecules|Select", module)
           default: select(
             "CSS Modifier",
             ["null", "sf-select--bordered", "sf-select--underlined"],
-            "null"
+            "sf-select--underlined"
           )
         },
         size: {
           default: number("size (prop)", 5)
+        },
+        required: {
+          default: boolean("required (prop)", true)
+        },
+        valid: {
+          default: boolean("valid (prop)", true)
+        },
+        label: {
+          default: text("label (prop)", "Color")
+        },
+        errorMessage: {
+          default: text("errorMessage (prop)", "This field is not correct.")
         }
       },
       template: `
       <div>
         <p><b>Selected: {{selected}}</b></p>
         <div style="max-width: 509px">
-          <SfSelect v-model="selected" :class="customClass" :size="size">
+          <SfSelect v-model="selected" :label="label" :class="customClass" :size="size" :required="required" :valid="valid" :errorMessage="errorMessage">
             <SfSelectOption v-for="option in options" :key="option.value" :value="option.value">
               <SfProductOption :color="option.color" :label="option.label"/>
             </SfSelectOption>

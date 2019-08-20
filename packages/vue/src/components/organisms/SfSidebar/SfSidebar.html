@@ -1,20 +1,17 @@
-<transition :name="'slide-' + position">
-  <aside
-    v-if="visible"
-    class="sf-sidebar"
-    :class="{ 'sf-sidebar--right': position === 'right' }">
-    <!--@slot slot to handle custom markup for close icon -->
-    <slot name="close">
-      <SfCircleIcon
-        v-if="button"
-        class="sf-sidebar__close"
-        @click="$emit('close')">
-        <SfIcon path="cross" color="white" size="14px" />
+<div class="sf-sidebar">
+  <SfOverlay
+    :visible="visibleOverlay"
+    @click="$emit('close')"
+  >
+  </SfOverlay>
+  <transition :name="'slide-' + position">
+    <aside v-if="visible" class="sf-sidebar__aside">
+      <SfCircleIcon v-if="button" class="sf-sidebar__button" @click="$emit('close')">
+        <sf-icon path="cross" color="white" size="14px"/>
       </SfCircleIcon>
-    </slot>
-    <div class="sf-sidebar__content">
-      <!--@slot defaul slot for sidebar content -->
-      <slot />
-    </div>
-  </aside>
-</transition>
+      <div class="sf-sidebar__content">
+        <slot />
+      </div>
+    </aside>
+  </transition>
+</div>
