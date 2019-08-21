@@ -1,14 +1,4 @@
 <div class="sf-accordion">
   <!--@slot default slot to setup SfAccordionItem elements -->
-  <slot v-bind="{ selected }">
-    <!--
-    <SfAccordionItem
-      v-for="(item, i) of items"
-      :key="i"
-      :header="item.header"
-      :contentItems="item.content"
-      :selected="selected"
-    />
-    -->
-  </slot>
+  <slot v-bind="{ selected }"/>
 </div>
