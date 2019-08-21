@@ -90,7 +90,10 @@ export default {
       return `${this.optionHeight * this.size}px`;
     },
     labelIsActive() {
-      return this.open || this.selected;
+      return this.open;
+    },
+    labelIsSelected() {
+      return this.selected;
     }
   },
   methods: {

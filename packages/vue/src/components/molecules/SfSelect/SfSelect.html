@@ -14,7 +14,7 @@
 >
   <label v-if="label"
     class="sf-select__label"
-    :class="{'sf-select__label--is-active':labelIsActive, 'sf-select__label--is-required': required}"
+    :class="{'sf-select__label--is-active':labelIsActive, 'sf-select__label--is-required': required, 'sf-select__label--is-selected':labelIsSelected}"
   >
     <!-- @slot Custom label of form select -->
     <slot name="label">{{label}}</slot>

@@ -70,6 +70,9 @@ $select__error-message-min-height: 0.875rem !default;
     &::after {
       color: $select-color-primary;
     }
+    &--is-selected{
+      @include move-label-up();
+    }
     &--is-active{
       @include move-label-up();
       color: $c-accent-primary;
@@ -77,7 +80,7 @@ $select__error-message-min-height: 0.875rem !default;
     &--is-required{
       &::after{
         content: " *";
-        color: inherit;
+        color: $c-accent-primary;
       }
     }
   }
