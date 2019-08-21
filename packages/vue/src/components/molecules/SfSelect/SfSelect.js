@@ -43,7 +43,7 @@ export default {
      */
     valid: {
       type: Boolean,
-      default: true
+      default: undefined
     },
     /**
      * Error message value of form select. It will be appeared if `valid` is `true`.
