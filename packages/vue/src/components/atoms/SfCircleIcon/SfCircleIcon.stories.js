@@ -69,7 +69,6 @@ storiesOf("Atoms|CircleIcon", module)
       components: { SfCircleIcon },
       template: `<SfCircleIcon 
         :pathIcon="pathIcon" 
-        :colorIcon="colorIcon"
         :class="customClass" />`
     }),
     {

@@ -14,7 +14,13 @@ export default {
      */
     colorIcon: {
       type: String,
-      default: ""
+      default: "white"
+    },
+    /**
+     */
+    sizeIcon: {
+      type: String,
+      default: "100%"
     }
   },
   components: {
