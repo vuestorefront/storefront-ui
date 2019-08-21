@@ -7,8 +7,8 @@ export default {
       type: String,
       default: ""
     },
-    mobileNavIcon: {
-      type: [String, Boolean],
+    pathIcon: {
+      type: String,
       default: "chevron_right"
     },
     count: {
