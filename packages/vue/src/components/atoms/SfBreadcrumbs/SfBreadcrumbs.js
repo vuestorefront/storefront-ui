@@ -15,7 +15,7 @@ export default {
     }
   },
   methods: {
-    click(breadcrumb) {
+    go(breadcrumb) {
       /**
        * Event for breadcrumb click, passes `breadcrumb.route` as value
        * @type {Event}
