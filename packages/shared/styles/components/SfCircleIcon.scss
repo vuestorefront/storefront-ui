@@ -27,7 +27,7 @@ $sf-circle-icon-size-big               : 4rem !default;
         box-shadow: 0 0 0 0.625rem rgba($sf-circle-icon-background-primary, 0.4);
     }
     &__icon {
-        height: 45%
+      padding: 15px
     }
     &--secondary {
         background-color: $sf-circle-icon-background-secondary;
@@ -41,6 +41,9 @@ $sf-circle-icon-size-big               : 4rem !default;
     &--small {
         width: $sf-circle-icon-size-small;
         height: $sf-circle-icon-size-small;
+      & .sf-circle-icon__icon{
+        padding: 3px;
+      }
     }
     &--big {
         width: $sf-circle-icon-size-big;

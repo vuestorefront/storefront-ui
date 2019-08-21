@@ -25,7 +25,7 @@ export default {
     }
   },
   methods: {
-    go(index){
+    go(index) {
       this.$emit("click", index);
     }
   }
