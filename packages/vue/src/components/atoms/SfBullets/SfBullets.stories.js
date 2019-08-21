@@ -26,6 +26,7 @@ const eventsTableConfig = {
 };
 
 const click = function(index) {
+  console.log(index);
   this.index = index;
 };
 storiesOf("Atoms|Bullets", module)
@@ -89,17 +90,24 @@ storiesOf("Atoms|Bullets", module)
         click
       },
       template: `<SfBullets
-        :total="total"
-        :current="current"
-        @click="index"
-        >
+      :total="total"
+      :current="index"
+      @click="click"
+      >
         <template #active>
-          <div style="width: 10px; height: 10px; margin: 5px; background: #9EE2B0; transform: rotate(45deg)"></div>
+          <li style="width: 10px; height: 10px; margin: 5px; background: #9EE2B0; transform: rotate(45deg); cursor: pointer"></li>   
         </template>
       </SfBullets>`
     }),
     {
-      info: true
+      info: {
+        summary: `<p>Component for bullet-pagination.</p>
+       <h2>Usage</h2>
+       <pre><code>import { SfBullets } from "@storefrontui/dist/SfBullets.vue"</code></pre>
+       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+       ${generateStorybookTable(eventsTableConfig, "Events")}
+       `
+      }
     }
   )
   .add(
@@ -123,16 +131,23 @@ storiesOf("Atoms|Bullets", module)
         click
       },
       template: `<SfBullets
-        :total="total"
-        :current="index"
-        @click="click"
-        >
-        <template #inactive>
-          <div style="width: 10px; height: 10px; margin: 6px; background: #E22326;"></div>
+      :total="total"
+      :current="index"
+      @click="click"
+      >
+        <template #inactive="{index, go}">
+          <li style="width: 10px; height: 10px; margin: 6px; background: #E22326; cursor: pointer" @click="go(index)"></li>   
         </template>
       </SfBullets>`
     }),
     {
-      info: true
+      info: {
+        summary: `<p>Component for bullet-pagination.</p>
+       <h2>Usage</h2>
+       <pre><code>import { SfBullets } from "@storefrontui/dist/SfBullets.vue"</code></pre>
+       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+       ${generateStorybookTable(eventsTableConfig, "Events")}
+       `
+      }
     }
   );

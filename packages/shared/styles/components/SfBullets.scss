@@ -10,6 +10,9 @@ $bullet-color--active: $c-green-secondary !default;
 
 .sf-bullets {
   display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .sf-bullet {
   border-radius: $bullet-border-radius;
