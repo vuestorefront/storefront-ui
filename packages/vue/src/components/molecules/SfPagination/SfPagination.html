@@ -31,7 +31,7 @@
         v-for="number in limitedPageNumbers"
         :key="number"
         class="sf-pagination__item"
-        :class="{'sf-pagination__item--current': (currentPage === number)}"
+        :class="{'sf-pagination__item--current': (current === number)}"
       >
         <slot name="number" v-bind="{go, number}">
           <button @click="go(number)" class="sf-pagination__button">

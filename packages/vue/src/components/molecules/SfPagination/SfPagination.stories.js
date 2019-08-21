@@ -76,7 +76,8 @@ storiesOf("Molecules|Pagination", module)
       ...vm,
       template: `
     <SfPagination
-      v-model="page"
+      :current="page"
+      @click="(page)=>{this.page=page}"
       :total="numberOfPages"
       :visible="visiblePageNumbers"/>`
     }),
@@ -96,7 +97,8 @@ storiesOf("Molecules|Pagination", module)
       ...vm,
       template: `
     <SfPagination
-      v-model="page"
+      :current="page"
+      @click="(page)=>{this.page=page}"
       :total="numberOfPages"
       :visible="visiblePageNumbers">
       <template #prev="{go}" >
@@ -114,7 +116,8 @@ storiesOf("Molecules|Pagination", module)
       ...vm,
       template: `
     <SfPagination
-      v-model="page"
+      :current="page"
+      @click="(page)=>{this.page=page}"
       :total="numberOfPages"
       :visible="visiblePageNumbers">
       <template #next="{go}" >
@@ -132,7 +135,8 @@ storiesOf("Molecules|Pagination", module)
       ...vm,
       template: `
     <SfPagination
-      v-model="page"
+      :current="page"
+      @click="(page)=>{this.page=page}"
       :total="numberOfPages"
       :visible="visiblePageNumbers">
       <template #number="{ number, go }">
