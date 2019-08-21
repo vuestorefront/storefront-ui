@@ -92,7 +92,8 @@ storiesOf("Molecules|Gallery", module)
       components: { SfGallery },
       template: `<SfGallery
         :sliderOptions="{ autoplay, rewind }"
-        v-model="current"
+        :current="current"
+        @click="(index)=>{this.current=index}"
         :images="images" />`
     }),
     {

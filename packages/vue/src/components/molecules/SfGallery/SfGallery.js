@@ -3,12 +3,6 @@ import lozad from "lozad";
 
 export default {
   name: "SfGallery",
-
-  model: {
-    prop: "current",
-    event: "change"
-  },
-
   props: {
     /**
      * Images list
@@ -53,7 +47,7 @@ export default {
        * Event for current image change (`v-model`)
        * @type {Event}
        */
-      this.$emit("change", index + 1);
+      this.$emit("click", index + 1);
       if (this.glide) {
         this.glide.go("=" + index);
       }
