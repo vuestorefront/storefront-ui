@@ -1,19 +1,19 @@
 <div class="sf-gallery">
   <div class="sf-gallery__thumbs">
-    <div
-      v-for="(image, i) in images"
-      :key="'img-' + i"
-      class="sf-gallery__item"
-      :class="{ 'sf-gallery__item--selected': i === activeIndex }"
-      @click="setCurrentImage(i)">
-      <!-- @slot Custom markup for thumbnails (binds `image` object and `index` number) -->
-      <slot name="thumb" v-bind="{image, index:i}">
-        <img
-          class="sf-gallery__thumb"
-          :src="image.small.url"
-          :alt="image.small.alt"/>
-      </slot>
-    </div>
+    <slot name="thumbs" v-bind="{images, active: activeIndex, go}">
+      <div
+        v-for="(image, index) in images"
+        :key="'img-' + index"
+        class="sf-gallery__item"
+        :class="{ 'sf-gallery__item--selected': index === activeIndex }"
+        @click="go(index)">
+        <!-- @slot Custom markup for thumbnails (binds `image` object and `index` number) -->
+          <img
+            class="sf-gallery__thumb"
+            :src="image.small.url"
+            :alt="image.small.alt"/>
+      </div>
+    </slot>
   </div>
   <div class="sf-gallery__stage">
     <div class="glide" ref="glide">

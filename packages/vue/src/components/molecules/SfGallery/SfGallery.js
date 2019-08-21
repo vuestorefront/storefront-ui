@@ -47,7 +47,7 @@ export default {
   },
 
   methods: {
-    setCurrentImage(index) {
+    go(index) {
       this.activeIndex = index;
       /**
        * Event for current image change (`v-model`)
@@ -65,7 +65,7 @@ export default {
     // https://glidejs.com/docs/
     const glide = new Glide(this.$refs.glide, this.sliderOptions);
     glide.on("run", () => {
-      this.setCurrentImage(glide.index);
+      this.go(glide.index);
     });
     glide.mount();
     this.glide = glide;

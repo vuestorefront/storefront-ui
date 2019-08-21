@@ -133,9 +133,19 @@ storiesOf("Molecules|Gallery", module)
       components: { SfGallery },
       template: `<SfGallery 
         :images="images">
-         <template #thumb="{ image, index }">
-           #{{ index }}
-           <img class="sf-gallery__thumb" :src="image.small.url" />
+         <template #thumbs="{ images, active, go }">
+           <div
+              v-for="(image, index) in images"
+              :key="'img-' + index"
+              class=""
+              :class="{ 'sf-gallery__item--selected': index === active }"
+              @click="go(index)">
+                #{{index}}
+                <img
+                  class="sf-gallery__thumb"
+                  :src="image.small.url"
+                  :alt="image.small.alt"/>
+            </div>
          </template>
        </SfGallery>`
     }),
