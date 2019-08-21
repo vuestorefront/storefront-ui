@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import {withKnobs, text, select, boolean} from "@storybook/addon-knobs";
+import { withKnobs, text, select, boolean } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfFilter from "./SfFilter.vue";
 

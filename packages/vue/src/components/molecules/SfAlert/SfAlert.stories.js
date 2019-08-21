@@ -54,13 +54,8 @@ storiesOf("Molecules|Alert", module)
         message: {
           default: text("message (prop)", "Message prop")
         },
-        icon: {
-          default: select("icon (prop)", [
-            true,
-            false,
-            "/assets/profile.svg",
-            "https://img.icons8.com/material/4ac144/256/camera.png"
-          ])
+        pathIcon: {
+          default: text("pathIcon (prop)", "clock")
         },
         type: {
           default: select("type (prop)", [
@@ -73,7 +68,7 @@ storiesOf("Molecules|Alert", module)
       },
       template: `<SfAlert
         :message="message"
-        :icon="icon"
+        :pathIcon="pathIcon"
         :type="type" />`
     }),
     {

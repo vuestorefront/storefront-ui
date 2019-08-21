@@ -13,12 +13,20 @@ export default {
       type: String,
       default: ""
     },
-    /**
-     * Show/hide icon or pass different URL.
-     */
-    icon: {
-      type: [Boolean, String],
-      default: true
+    /** One of predefined SfIcon colors, default is black.  */
+    colorIcon: {
+      type: String,
+      default: "white"
+    },
+    /** One of predefined SfIcon sizes.  */
+    sizeIcon: {
+      type: String,
+      default: "xs"
+    },
+    /** Svg file iconPath  */
+    pathIcon: {
+      type: String,
+      default: "clock"
     },
     /**
      * Alert type ("alert", "warning", "info", "success"). Check "Knobs" section to see how they look like.

@@ -15,5 +15,5 @@ export default {
       type: [String, Number],
       default: null
     }
-  },
+  }
 };

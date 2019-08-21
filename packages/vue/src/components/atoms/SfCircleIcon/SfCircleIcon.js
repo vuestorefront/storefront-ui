@@ -8,7 +8,7 @@ export default {
      */
     pathIcon: {
       type: [String, Array],
-      default: ""
+      default: "home"
     },
     /**
      */
