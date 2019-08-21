@@ -20,9 +20,9 @@
   </label>
   <div class="sf-input__error-message">
     <transition name="fade">
-      <span v-if="valid === false">
+      <span v-if="!valid">
         <!-- @slot Custom error message of form input -->
-        <slot name="error" v-bind="{errorMessage}">{{ errorMessage }}</slot>
+        <slot name="errorMessage" v-bind="{errorMessage}">{{ errorMessage }}</slot>
       </span>
     </transition>
   </div>
