@@ -1,52 +1,56 @@
 @import '../variables';
 
-$sf-circle-icon-background-primary     : $c-green-primary !default;
-$sf-circle-icon-background-secondary   : $c-dark-primary !default;
-$sf-circle-icon-icon-color             : $c-white !default;
-$sf-circle-icon-size                   : 3.25rem !default;
-$sf-circle-icon-size-small             : 1.625rem !default;
-$sf-circle-icon-size-big               : 4rem !default;
+$sf-circle-icon-background-primary: $c-green-primary !default;
+$sf-circle-icon-background-secondary: $c-dark-primary !default;
+$sf-circle-icon-icon-color: $c-white !default;
+$sf-circle-icon-size: 3.25rem !default;
+$sf-circle-icon-size-small: 1.625rem !default;
+$sf-circle-icon-size-big: 4rem !default;
 
 .sf-circle-icon {
-    padding: 5px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: $sf-circle-icon-size;
-    height: $sf-circle-icon-size;
-    transition: box-shadow .3s ease;
-    outline: none;
-    background-color: $sf-circle-icon-background-primary;
+  padding: 5px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $sf-circle-icon-size;
+  height: $sf-circle-icon-size;
+  transition: box-shadow 0.3s ease;
+  outline: none;
+  background-color: $sf-circle-icon-background-primary;
+  &:hover {
+    box-shadow: 0 0 0 0.3125rem rgba($sf-circle-icon-background-primary, 0.4);
+  }
+  &:active {
+    box-shadow: 0 0 0 0.625rem rgba($sf-circle-icon-background-primary, 0.4);
+  }
+  &__icon {
+    padding: 10px;
+  }
+  &--secondary {
+    background-color: $sf-circle-icon-background-secondary;
     &:hover {
-        box-shadow: 0 0 0 0.3125rem rgba($sf-circle-icon-background-primary, 0.4);
+      box-shadow: 0 0 0 0.3125rem
+        rgba($sf-circle-icon-background-secondary, 0.4);
     }
     &:active {
-        box-shadow: 0 0 0 0.625rem rgba($sf-circle-icon-background-primary, 0.4);
+      box-shadow: 0 0 0 0.625rem rgba($sf-circle-icon-background-secondary, 0.4);
     }
-    &__icon {
-      padding: 15px
+  }
+  &--small {
+    width: $sf-circle-icon-size-small;
+    height: $sf-circle-icon-size-small;
+    & .sf-circle-icon__icon {
+      padding: 3px;
     }
-    &--secondary {
-        background-color: $sf-circle-icon-background-secondary;
-        &:hover {
-            box-shadow: 0 0 0 0.3125rem rgba($sf-circle-icon-background-secondary, 0.4);
-        }
-        &:active {
-            box-shadow: 0 0 0 0.625rem rgba($sf-circle-icon-background-secondary, 0.4);
-        }
+  }
+  &--big {
+    width: $sf-circle-icon-size-big;
+    height: $sf-circle-icon-size-big;
+    & .sf-circle-icon__icon {
+      padding: 15px;
     }
-    &--small {
-        width: $sf-circle-icon-size-small;
-        height: $sf-circle-icon-size-small;
-      & .sf-circle-icon__icon{
-        padding: 3px;
-      }
-    }
-    &--big {
-        width: $sf-circle-icon-size-big;
-        height: $sf-circle-icon-size-big;
   }
 }
