@@ -25,6 +25,8 @@ const colors = [
   ["white", "$c-white"],
   ["black", "$c-black (!default)"],
   ["accent", "$c-accent-secondary"],
+  ["green-primary", "$c-green-primary"],
+  ["green-secondary", "$c-green-secondary"],
   ["gray-primary", "$c-gray-primary"],
   ["gray-secondary", "$c-gray-secondary"],
   ["light-primary", "$c-light-primary"],
@@ -116,14 +118,14 @@ storiesOf("Atoms|Icon", module)
             tableBodyConfig: sizes
           },
           "`$sf-icon-sizes` - map of icon sizes"
-        )} 
+        )}
         ${generateStorybookTable(
           {
             tableHeadConfig: tableHeaderConfig,
             tableBodyConfig: colors
           },
           "`$sf-icon-colors` - map of icon colors"
-        )}   
+        )}
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `
       }
