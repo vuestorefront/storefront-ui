@@ -50,14 +50,8 @@ storiesOf("Atoms|CircleIcon", module)
         pathIcon: {
           default: text("pathIcon (prop)", "home")
         },
-        sizeIcon: {
-          default: text("sizeIcon (prop)", "100%")
-        },
         colorIcon: {
           default: text("colorIcon (prop)", "white")
-        },
-        viewBoxIcon: {
-          default: text("colorIcon (prop)", "")
         },
         customClass: {
           default: select(
@@ -74,10 +68,8 @@ storiesOf("Atoms|CircleIcon", module)
       },
       components: { SfCircleIcon },
       template: `<SfCircleIcon 
-        :pathIcon="pathIcon"
-        :sizeIcon="sizeIcon" 
+        :pathIcon="pathIcon" 
         :colorIcon="colorIcon"
-        :viewBoxIcon="viewBoxIcon"
         :class="customClass" />`
     }),
     {

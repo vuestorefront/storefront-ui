@@ -12,21 +12,9 @@ export default {
     },
     /**
      */
-    sizeIcon: {
-      type: String,
-      default: ""
-    },
-    /**
-     */
     colorIcon: {
       type: String,
       default: ""
-    },
-    /**
-     */
-    viewBoxIcon: {
-      type: String,
-      default: "0 0 24 24"
     }
   },
   components: {
