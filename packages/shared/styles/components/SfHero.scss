@@ -1,14 +1,12 @@
-@import "../variables";
+@import '../variables';
 @import "~@glidejs/glide/src/assets/sass/glide.core";
 
 $hero__controls-top: 50% !default;
 $hero__controls-padding-h: 1rem !default;
 $hero__controls-width: calc(100% - 2 * #{$hero__controls-padding-h}) !default;
-
 $hero__bullets-position-offset: 0.5rem !default;
 $hero__bullets-position-offset--desktop: 2.5rem !default;
 $hero__bullets-width: 100% !default;
-
 $hero-item-height: 14rem !default;
 $hero-item-height--desktop: 30rem !default;
 $hero-item-width: 100% !default;
@@ -17,13 +15,11 @@ $hero-item-padding--desktop: 5rem !default;
 $hero-item-bg-size: cover !default;
 $hero-item-bg-position: top left !default;
 $hero-item-bg-repeat: no-repeat !default;
-
 $hero-item__container-width--desktop: 50% !default;
 $hero-item__container-width: 60% !default;
 $hero-item__container-height: 100% !default;
 $hero-item__container-padding--desktop: 0 2rem !default;
 $hero-item__container-padding: 0 !default;
-
 $hero-item__subtitle-width: 100% !default;
 $hero-item__subtitle-width--desktop: min-content !default;
 $hero-item__subtitle-color: $c-gray-secondary !default;
@@ -35,7 +31,6 @@ $hero-item__subtitle-line-height--desktop: 17px !default;
 $hero-item__subtitle-line-height: 14px !default;
 $hero-item__subtitle-padding-left--desktop: 36px !default;
 $hero-item__subtitle-padding-left: 18px !default;
-
 $hero-item__title-font: 18px !default;
 $hero-item__title-font--desktop: 36px !default;
 $hero-item__title-line-height--desktop: 50px !default;
@@ -44,14 +39,11 @@ $hero-item__title-color: $c-dark-primary !default;
 
 .sf-hero {
   position: relative;
-
   &__slides {
     margin: 0;
   }
-
   &__controls {
     display: none;
-
     @media screen and (min-width: $desktop-min) {
       position: absolute;
       top: $hero__controls-top;
@@ -63,7 +55,6 @@ $hero-item__title-color: $c-dark-primary !default;
       padding: 0 $hero__controls-padding-h;
     }
   }
-
   &__bullets {
     position: absolute;
     width: $hero__bullets-width;
@@ -75,9 +66,7 @@ $hero-item__title-color: $c-dark-primary !default;
       bottom: $hero__bullets-position-offset--desktop;
     }
   }
-
   &-item {
-
     width: $hero-item-width;
     display: flex;
     flex-direction: column;
@@ -88,11 +77,9 @@ $hero-item__title-color: $c-dark-primary !default;
       padding: $hero-item-padding--desktop;
       height: $hero-item-height--desktop;
     }
-
     background-size: $hero-item-bg-size;
     background-position: $hero-item-bg-position;
     background-repeat: $hero-item-bg-repeat;
-
     &--position-bg-top-right {
       background-position: top right;
     }
@@ -102,11 +89,9 @@ $hero-item__title-color: $c-dark-primary !default;
     &--position-bg-bottom-left {
       background-position: bottom left;
     }
-
     &--align-right {
       align-items: flex-end;
     }
-
     &__container {
       height: $hero-item__container-height;
       display: flex;
@@ -121,9 +106,7 @@ $hero-item__title-color: $c-dark-primary !default;
         justify-content: space-evenly;
       }
     }
-
     &__subtitle {
-
       color: $hero-item__subtitle-color;
       border: $hero-item__subtitle-border-left;
       border-top: $hero-item__subtitle-border;
@@ -133,7 +116,6 @@ $hero-item__title-color: $c-dark-primary !default;
       padding-left: $hero-item__subtitle-padding-left;
       width: $hero-item__subtitle-width;
       font-size: $hero-item__subtitle-font;
-
       @media screen and (min-width: $desktop-min) {
         font-size: $hero-item__subtitle-font--desktop;
         width: $hero-item__subtitle-width--desktop;
@@ -141,18 +123,15 @@ $hero-item__title-color: $c-dark-primary !default;
         padding-left: $hero-item__subtitle-padding_left--desktop;
       }
     }
-
     &__title {
       color: $hero-item__title-color;
       font-size: $hero-item__title-font;
       line-height: $hero-item__title-line-height;
-
       @media screen and (min-width: $desktop-min) {
         font-size: $hero-item__title-font--desktop;
         line-height: $hero-item__title-line-height--desktop;
       }
     }
-
     &__button {
       display: none;
       @media screen and (min-width: $desktop-min) {

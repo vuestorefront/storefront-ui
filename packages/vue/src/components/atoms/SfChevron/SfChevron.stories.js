@@ -9,13 +9,13 @@ storiesOf("Atoms|Chevron", module)
     () => ({
       props: {
         isActive: {
-          default: boolean("isActive (prop)", "false")
+          default: boolean("isActive (prop)", false)
         }
       },
       components: {
         SfChevron
       },
-      template: '<SfChevron :isActive="isActive"/>'
+      template: '<SfChevron :active="isActive"/>'
     }),
     {
       info: {

@@ -11,7 +11,7 @@
         >
           <SfIcon size="15px" style="margin-right: 10px;">
             <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-              <g clip-path="url(#clip0)">
+              <g clip-icon="url(#clip0)">
                 <path
                   d="m2.461 6.9416e-6h-0.1786c-1.113 0.0021094-2.0151 0.90421-2.0173 2.018v0.17859c-0.001406 0.53649 0.21024 1.0512 0.58851 1.4316 0.37829 0.38039 0.89226 0.59414 1.4287 0.59555h0.1786c0.53859 0.0014 1.0547-0.21165 1.4358-0.59204 0.38039-0.38039 0.59344-0.89719 0.59203-1.4351v-0.17859c-0.0014-0.53649-0.21585-1.0505-0.59554-1.4295-0.3804-0.37829-0.89581-0.58991-1.4323-0.58851zm1.452 2.1965c0.00141 0.38531-0.15047 0.75585-0.42329 1.028-0.27281 0.27281-0.64265 0.42539-1.0287 0.42329h-0.1786c-0.3839-7.1e-4 -0.75164-0.15399-1.0223-0.4261-0.27-0.27281-0.42117-0.64125-0.41906-1.0252v-0.1786c7.03e-4 -0.79594 0.64616-1.4407 1.4414-1.4421h0.1786c0.3839-0.00211 0.75305 0.14906 1.0252 0.41976 0.27281 0.27 0.4261 0.63844 0.4268 1.0223v0.1786z"
                 />
@@ -147,7 +147,12 @@
         </div>
         <SfPagination
           class="products__pagination desktop-only"
-          v-model="currentPage"
+          :current="currentPage"
+          @click="
+            page => {
+              this.currentPage = page;
+            }
+          "
           :total="4"
           :visible="5"
         />
@@ -159,55 +164,44 @@
       class="filters"
     >
       <h3 class="filters__title">Collection</h3>
-      <SfFilter v-model="filters.collection">
-        <SfFilterItem
-          v-for="(filter, i) in filtersOptions.collection"
-          :key="i"
-          :value="filter.value"
-          :label="filter.label"
-          :count="filter.count"
-        />
-      </SfFilter>
+      <SfFilter
+        v-for="filter in filtersOptions.collection"
+        :key="filter.value"
+        :label="filter.label"
+        :count="filter.count"
+      />
       <h3 class="filters__title">Color</h3>
-      <SfFilter v-model="filters.color">
-        <SfFilterItem
-          v-for="(filter, i) in filtersOptions.color"
-          :key="i"
-          :value="filter.value"
-          :label="filter.label"
-          :color="filter.color"
-        />
-      </SfFilter>
+      <SfFilter
+        v-for="filter in filtersOptions.color"
+        :key="filter.value"
+        :value="filter.value"
+        :label="filter.label"
+        :color="filter.color"
+      />
       <h3 class="filters__title">Size</h3>
-      <SfFilter v-model="filters.size">
-        <SfFilterItem
-          v-for="(filter, i) in filtersOptions.size"
-          :key="i"
-          :value="filter.value"
-          :label="filter.label"
-          :count="filter.count"
-        />
-      </SfFilter>
+      <SfFilter
+        v-for="filter in filtersOptions.size"
+        :key="filter.value"
+        :value="filter.value"
+        :label="filter.label"
+        :count="filter.count"
+      />
       <h3 class="filters__title">Price</h3>
-      <SfFilter v-model="filters.price">
-        <SfFilterItem
-          v-for="(filter, i) in filtersOptions.price"
-          :key="i"
-          :value="filter.value"
-          :label="filter.label"
-          :count="filter.count"
-        />
-      </SfFilter>
+      <SfFilter
+        v-for="filter in filtersOptions.price"
+        :key="filter.value"
+        :value="filter.value"
+        :label="filter.label"
+        :count="filter.count"
+      />
       <h3 class="filters__title">Material</h3>
-      <SfFilter v-model="filters.material">
-        <SfFilterItem
-          v-for="(filter, i) in filtersOptions.material"
-          :key="i"
-          :value="filter.value"
-          :label="filter.label"
-          :count="filter.count"
-        />
-      </SfFilter>
+      <SfFilter
+        v-for="filter in filtersOptions.material"
+        :key="filter.value"
+        :value="filter.value"
+        :label="filter.label"
+        :count="filter.count"
+      />
       <div class="filters__buttons">
         <SfButton
           @click="isFilterSidebarOpen = false"
@@ -242,7 +236,7 @@ export default {
     return {
       currentPage: 1,
       sortBy: "price-up",
-      isFilterSidebarOpen: false,
+      isFilterSidebarOpen: true,
       filters: {
         color: [],
         collection: [],

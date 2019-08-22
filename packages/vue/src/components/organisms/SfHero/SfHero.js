@@ -10,6 +10,12 @@ Vue.component("SfHeroItem", SfHeroItem);
 
 export default {
   name: "SfHero",
+
+  components: {
+    SfArrow,
+    SfBullets
+  },
+
   data() {
     return {
       glide: null,
@@ -21,22 +27,17 @@ export default {
       }
     };
   },
+
   props: {
-    /** Slider options like glide.js (https://glidejs.com/docs/) */
+    /**
+     * Slider options like glide.js (https://glidejs.com/docs/)
+     */
     sliderOptions: {
       type: Object,
       default: () => ({})
-    },
-    /** Items to display in SfHero component */
-    items: {
-      type: Array,
-      default: () => []
     }
   },
-  components: {
-    SfArrow,
-    SfBullets
-  },
+
   methods: {
     go(direct) {
       switch (direct) {
@@ -52,6 +53,7 @@ export default {
       }
     }
   },
+
   computed: {
     mergedOptions() {
       return {
@@ -59,17 +61,13 @@ export default {
         ...this.sliderOptions
       };
     },
+
     numberOfPages() {
-      // eslint-disable-next-line no-extra-boolean-cast
-      if (!!this.$slots.default) {
-        return (
-          this.$slots.default.filter(slot => slot.tag).length +
-          this.items.length
-        );
-      } else {
-        return this.items.length;
-      }
+      return this.$slots.default
+        ? this.$slots.default.filter(slot => slot.tag).length
+        : 0;
     },
+
     page() {
       if (this.glide) {
         return this.glide.index + 1;
@@ -77,10 +75,12 @@ export default {
       return 1;
     }
   },
-  mounted: function() {
-    const glide = new Glide(this.$refs.glide, this.mergedOptions);
-    glide.mount();
 
-    this.glide = glide;
+  mounted() {
+    if (this.numberOfPages) {
+      const glide = new Glide(this.$refs.glide, this.mergedOptions);
+      glide.mount();
+      this.glide = glide;
+    }
   }
 };

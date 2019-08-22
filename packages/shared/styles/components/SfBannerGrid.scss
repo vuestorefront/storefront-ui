@@ -4,7 +4,7 @@
   &__row {
     @media screen and (min-width: $desktop-min) {
       display: flex;
-      flex: 0 0 100%;
+      flex: 0 0 100%!important;
     }
     & + & {
       @media screen and (min-width: $desktop-min) {
@@ -28,10 +28,13 @@
         margin-left: $spacer-extra-big;
       }
     }
-    & > * {
+    & > a {
       @media screen and (min-width: $desktop-min) {
         display: flex;
         flex: 1;
+        & > * {
+          flex: 1;
+        }
       }
     }
     &--small {
