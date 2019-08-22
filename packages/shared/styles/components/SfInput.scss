@@ -1,16 +1,13 @@
-@import "../variables";
+@import '../variables';
 
-$sf-input__transition                 : all 0.3s ease-in-out !default;
-
-$sf-input__input-font-size            : $font-size-big-desktop !default;
-$sf-input__label-font-size            : $font-size-big-desktop !default;
-$sf-input__label-focus-font-size      : 0.625rem !default;
-
-$sf-input__error-message-min-height   : 0.875rem !default;
-
-$sf-input__active-color               : $c-accent-primary !default;
-$sf-input__invalid-color              : rgba(240, 140, 125, 1) !default;
-$sf-input__disabled-color              : rgba(115, 118, 128, 1) !default;
+$sf-input__transition: all 0.3s ease-in-out !default;
+$sf-input__input-font-size: $font-size-big-desktop !default;
+$sf-input__label-font-size: $font-size-big-desktop !default;
+$sf-input__label-focus-font-size: 0.625rem !default;
+$sf-input__error-message-min-height: 0.875rem !default;
+$sf-input__active-color: $c-accent-primary !default;
+$sf-input__invalid-color: rgba(240, 140, 125, 1) !default;
+$sf-input__disabled-color: rgba(115, 118, 128, 1) !default;
 
 @mixin move-label-up {
   top: -3px;
@@ -19,7 +16,6 @@ $sf-input__disabled-color              : rgba(115, 118, 128, 1) !default;
 
 .sf-input {
   position: relative;
-
   & > input {
     width: 100%;
     font-size: $sf-input__input-font-size;
@@ -27,54 +23,46 @@ $sf-input__disabled-color              : rgba(115, 118, 128, 1) !default;
     display: block;
     border-width: 0 0 1px 0;
     border-style: solid;
-    border-color: #F1F2F3;
+    border-color: #f1f2f3;
     box-sizing: border-box;
-
     &:required ~ .sf-input__label::after {
-      content: ' *';
+      content: " *";
     }
-
     &:focus {
-      outline:none;
+      outline: none;
     }
-
-    &:focus ~ .sf-input__bar:before, &:focus ~ .sf-input__bar:after {
+    &:focus ~ .sf-input__bar:before,
+    &:focus ~ .sf-input__bar:after {
       width: 50%;
     }
-
     &:focus ~ .sf-input__label {
       @include move-label-up();
       color: $sf-input__active-color;
     }
-
     &:disabled ~ .sf-input__label {
       color: $sf-input__disabled-color;
     }
   }
-
   &__bar {
     position: relative;
     display: block;
-
-    &:before, &:after {
-      content: '';
-      height: 1px; 
+    &:before,
+    &:after {
+      content: "";
+      height: 1px;
       width: 0;
-      bottom: 0; 
+      bottom: 0;
       position: absolute;
-      background-color: $sf-input__active-color; 
-      transition: $sf-input__transition; 
+      background-color: $sf-input__active-color;
+      transition: $sf-input__transition;
     }
-
     &:before {
       left: 50%;
     }
-
     &:after {
       right: 50%;
     }
   }
-
   &__label {
     font-size: $sf-input__label-font-size;
     font-weight: normal;
@@ -86,14 +74,12 @@ $sf-input__disabled-color              : rgba(115, 118, 128, 1) !default;
       color: $sf-input__active-color;
     }
   }
-
   &__error-message {
     padding-top: $spacer-small;
     color: $sf-input__invalid-color;
     font-size: $font-size-extra-small-desktop;
     min-height: $sf-input__error-message-min-height;
   }
-
   &--invalid {
     & > input:focus ~ .sf-input__label {
       color: $sf-input__invalid-color;
@@ -101,15 +87,14 @@ $sf-input__disabled-color              : rgba(115, 118, 128, 1) !default;
     & > .sf-input__label::after {
       color: $sf-input__invalid-color;
     }
-    & > .sf-input__bar::before, .sf-input__bar::after {
+    & > .sf-input__bar::before,
+    .sf-input__bar::after {
       background-color: $sf-input__invalid-color;
     }
   }
-
   &--has-text > &__label {
     @include move-label-up();
   }
-
   &--invalid.sf-input--has-text > &__label {
     color: $sf-input__invalid-color;
   }

@@ -97,13 +97,12 @@ storiesOf("Atoms|Icon", module)
         }
       },
       components: { SfIcon },
-      template: `<sf-icon
+      template: `<SfIcon
         :class="customClass"
         :icon="icon"
         :color="color"
         :size="size"
-        :viewBox="viewBox"
-      />`
+        :viewBox="viewBox"/>`
     }),
     {
       info: {
@@ -149,24 +148,23 @@ storiesOf("Atoms|Icon", module)
         }
       },
       components: { SfIcon },
-      template: `<sf-icon
+      template: `<SfIcon
         :icon="icon"
         :color="color"
         :size="size"
-        :viewBox="viewBox"
-      />`
+        :viewBox="viewBox"/>`
     }),
     {
       info: {
         summary: `
-        <p>Choose an icon from this list and pass it as path for rendering.</p>
+        <p>Choose an icon from this list and pass it as icon for rendering.</p>
         <h2> Icons list </h2>
         ${generateStorybookTable(
           {
             tableHeadConfig: tableHeaderConfig,
             tableBodyConfig: iconsList
           },
-          "`icon` - icon name or SVG path(s)"
+          "`path` - icon name or SVG path(s)"
         )}
         `
       }
@@ -176,12 +174,14 @@ storiesOf("Atoms|Icon", module)
     "[slot] default",
     () => ({
       components: { SfIcon },
-      template: `<sf-icon><img src='assets/empty_cart.svg' alt="Cart icon"></sf-icon>`
+      template: `<SfIcon>
+        <img src='assets/empty_cart.svg' alt="Cart icon">
+       </SfIcon>`
     }),
     {
       info: {
         summary:
-          "Use this slot if passing icon SVG icon is not enough. **Note** that need to provide also alt attribute or arial-label."
+          "Use this slot if passing icon SVG path is not enough. **Note** that need to provide also alt attribute or arial-label."
       }
     }
   )
@@ -194,9 +194,9 @@ storiesOf("Atoms|Icon", module)
           default: text("size (prop)", "sm")
         }
       },
-      template: `<sf-icon :size="size">
+      template: `<SfIcon :size="size">
         <img src='assets/empty_cart.svg' alt="Cart icon">
-      </sf-icon>`
+      </SfIcon>`
     }),
     {
       info: {

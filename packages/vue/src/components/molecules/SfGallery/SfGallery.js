@@ -3,12 +3,6 @@ import lozad from "lozad";
 
 export default {
   name: "SfGallery",
-
-  model: {
-    prop: "current",
-    event: "change"
-  },
-
   props: {
     /**
      * Images list
@@ -47,13 +41,13 @@ export default {
   },
 
   methods: {
-    setCurrentImage(index) {
+    go(index) {
       this.activeIndex = index;
       /**
        * Event for current image change (`v-model`)
        * @type {Event}
        */
-      this.$emit("change", index + 1);
+      this.$emit("click", index + 1);
       if (this.glide) {
         this.glide.go("=" + index);
       }
@@ -65,7 +59,7 @@ export default {
     // https://glidejs.com/docs/
     const glide = new Glide(this.$refs.glide, this.sliderOptions);
     glide.on("run", () => {
-      this.setCurrentImage(glide.index);
+      this.go(glide.index);
     });
     glide.mount();
     this.glide = glide;

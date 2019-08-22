@@ -48,9 +48,9 @@ storiesOf("Molecules|Sticky", module)
             <div :style="content"></div>
           </div>
           <div :style="col">
-            <sf-sticky>
+            <SfSticky>
               <div :style="sticky"></div>
-            </sf-sticky>
+            </SfSticky>
           </div>
         </div>
         <div :style="bottom"></div>

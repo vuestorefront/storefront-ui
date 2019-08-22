@@ -9,20 +9,16 @@ $characteristic__description-line-height: 15px !default;
 
 .sf-characteristic {
   display: flex;
-  justify-content: center;
   align-items: center;
-
   &__icon {
     display: flex;
     align-items: center;
     margin-right: $characteristic-margin-right;
   }
-
   &__title {
     font-size: $characteristic__title-font-size;
     margin: 0;
   }
-
   &__description {
     font-size: $characteristic__description-font-size;
     font-weight: $characteristic__description-font-weight;

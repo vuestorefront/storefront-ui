@@ -23,7 +23,7 @@ export default {
     /**
      * Product rating
      */
-    rating: {
+    scoreRating: {
       type: [Number, String, Boolean],
       default: false
     },

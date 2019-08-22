@@ -53,7 +53,6 @@ storiesOf("Atoms|Checkbox", module)
         SfCheckbox
       },
       template: `<div>
-        <p><b>Checked: {{checked}}</b></p>
         <p v-for="(checkbox, key) in checkboxes" :key="key">
           <SfCheckbox v-model="checked" :disabled="checkbox.disabled" :name="checkbox.name" :value="checkbox.value" :label="checkbox.label"/>
         </p>
