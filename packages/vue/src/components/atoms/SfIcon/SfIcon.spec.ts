@@ -24,7 +24,7 @@ describe("SfIcon.vue", () => {
 
     const component = shallowMount(SfIcon, {
       propsData: {
-        path: path
+        icon: path
       }
     });
 

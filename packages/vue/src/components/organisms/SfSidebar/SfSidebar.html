@@ -7,7 +7,7 @@
   <transition :name="'slide-' + position">
     <aside v-if="visible" class="sf-sidebar__aside">
       <SfCircleIcon v-if="button" class="sf-sidebar__button" @click="$emit('close')">
-        <sf-icon path="cross" color="white" size="14px"/>
+        <sf-icon icon="cross" color="white" size="14px"/>
       </SfCircleIcon>
       <div class="sf-sidebar__content">
         <slot />
