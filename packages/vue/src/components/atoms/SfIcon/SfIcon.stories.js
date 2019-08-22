@@ -164,7 +164,7 @@ storiesOf("Atoms|Icon", module)
             tableHeadConfig: tableHeaderConfig,
             tableBodyConfig: iconsList
           },
-          "`path` - icon name or SVG path(s)"
+          "`icons` - icon name or SVG path(s)"
         )}
         `
       }
