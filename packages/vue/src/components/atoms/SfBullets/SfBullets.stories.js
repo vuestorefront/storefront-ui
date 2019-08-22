@@ -26,7 +26,6 @@ const eventsTableConfig = {
 };
 
 const click = function(index) {
-  console.log(index);
   this.index = index;
 };
 storiesOf("Atoms|Bullets", module)
