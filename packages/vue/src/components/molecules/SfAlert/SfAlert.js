@@ -24,7 +24,7 @@ export default {
       default: "xs"
     },
     /** Svg file iconPath  */
-    pathIcon: {
+    icon: {
       type: String,
       default: "clock"
     },

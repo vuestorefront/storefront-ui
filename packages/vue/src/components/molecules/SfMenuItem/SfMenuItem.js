@@ -7,7 +7,7 @@ export default {
       type: String,
       default: ""
     },
-    pathIcon: {
+    icon: {
       type: String,
       default: "chevron_right"
     },

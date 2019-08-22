@@ -47,8 +47,8 @@ storiesOf("Atoms|CircleIcon", module)
     "Basic",
     () => ({
       props: {
-        pathIcon: {
-          default: text("pathIcon (prop)", "home")
+        icon: {
+          default: text("icon (prop)", "home")
         },
         colorIcon: {
           default: text("colorIcon (prop)", "white")
@@ -68,7 +68,7 @@ storiesOf("Atoms|CircleIcon", module)
       },
       components: { SfCircleIcon },
       template: `<SfCircleIcon 
-        :pathIcon="pathIcon" 
+        :icon="icon" 
         :class="customClass" />`
     }),
     {

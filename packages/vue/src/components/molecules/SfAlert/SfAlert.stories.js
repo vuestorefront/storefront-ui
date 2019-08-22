@@ -54,8 +54,8 @@ storiesOf("Molecules|Alert", module)
         message: {
           default: text("message (prop)", "Message prop")
         },
-        pathIcon: {
-          default: text("pathIcon (prop)", "clock")
+        icon: {
+          default: text("icon (prop)", "clock")
         },
         type: {
           default: select("type (prop)", [
@@ -68,7 +68,7 @@ storiesOf("Molecules|Alert", module)
       },
       template: `<SfAlert
         :message="message"
-        :pathIcon="pathIcon"
+        :icon="icon"
         :type="type" />`
     }),
     {

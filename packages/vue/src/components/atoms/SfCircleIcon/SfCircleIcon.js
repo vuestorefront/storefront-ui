@@ -6,7 +6,7 @@ export default {
   props: {
     /**
      */
-    pathIcon: {
+    icon: {
       type: [String, Array],
       default: "home"
     },
