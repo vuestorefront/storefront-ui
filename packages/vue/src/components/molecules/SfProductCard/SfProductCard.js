@@ -89,7 +89,9 @@ export default {
     wishlistIconClasses() {
       const defaultClass = "sf-product-card__wishlist-icon";
 
-      return `${defaultClass} ${this.isOnWishlist ? "sf-product-card--on-wishlist" : ""}`;
+      return `${defaultClass} ${
+        this.isOnWishlist ? "sf-product-card--on-wishlist" : ""
+      }`;
     }
   },
   methods: {

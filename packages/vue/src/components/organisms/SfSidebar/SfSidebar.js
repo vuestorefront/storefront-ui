@@ -1,6 +1,6 @@
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-
+import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 export default {
   name: "SfSidebar",
   props: {
@@ -12,10 +12,15 @@ export default {
       type: Boolean,
       default: false
     },
-    position: {
-      type: String,
-      default: "left"
+    overlay: {
+      type: Boolean,
+      default: true
     }
+  },
+  data() {
+    return {
+      position: "left"
+    };
   },
   mounted() {
     const keydownHandler = e => {
@@ -27,6 +32,9 @@ export default {
     this.$once("hook:destroyed", () => {
       document.removeEventListener("keydown", keydownHandler);
     });
+    this.position = this.$el.classList.contains("sf-sidebar--right")
+      ? "right"
+      : "left";
   },
   watch: {
     visible: {
@@ -41,8 +49,14 @@ export default {
       immediate: true
     }
   },
+  computed: {
+    visibleOverlay() {
+      return this.visible && this.overlay;
+    }
+  },
   components: {
     SfCircleIcon,
-    SfIcon
+    SfIcon,
+    SfOverlay
   }
 };

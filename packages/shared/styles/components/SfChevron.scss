@@ -1,0 +1,85 @@
+@import '../variables';
+
+$chevron-duration: .5s !default;
+$chevron-easing: cubic-bezier(.25, 1.7, .35, .8) !default;
+$chevron-size: 20px !default;
+$chevron__bar-width: calc(#{$chevron-size} / 2) !default;
+$chevron__bar-height: calc(#{$chevron__bar-width} / 4) !default;
+
+$chevron__bar-top: calc(calc(#{$chevron-size} / 2) - calc(#{$chevron__bar-height} / 2)) !default;
+$chevron__bar-left-right: calc(#{$chevron-size} / 9) !default;
+$chevron__bar-rotate: 45deg !default;
+$chevron__bar-color: $c-black !default;
+
+.sf-chevron {
+  height: $chevron-size;
+  width: $chevron-size;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+
+  &__left-bar {
+    position: absolute;
+    background-color: transparent;
+    top: $chevron__bar-top;
+    left: $chevron__bar-left-right;
+    width: $chevron__bar-width;
+    height: $chevron__bar-height;
+    display: block;
+    transform: rotate($chevron__bar-rotate);
+    float: right;
+    border-radius: 50%;
+
+    &:after {
+      content: "";
+      background-color: $chevron__bar-color;
+      width: $chevron__bar-width;
+      height: $chevron__bar-height;
+      display: block;
+      float: right;
+      border-radius: 6px 10px 10px 6px;
+      transition: all $chevron-duration $chevron-easing;
+      z-index: -1;
+    }
+
+    &--active {
+      &:after {
+        transform-origin: center center;
+        transform: rotate(-2*$chevron__bar-rotate);
+      }
+    }
+  }
+
+  &__right-bar {
+    position: absolute;
+    background-color: transparent;
+    top: $chevron__bar-top;
+    right: $chevron__bar-left-right;
+    width: $chevron__bar-width;
+    height: $chevron__bar-height;
+    display: block;
+    transform: rotate(-$chevron__bar-rotate);
+    float: right;
+    border-radius: 2px;
+
+    &:after {
+      content: "";
+      background-color: $chevron__bar-color;
+      width: $chevron__bar-width;
+      height: $chevron__bar-height;
+      display: block;
+      float: right;
+      border-radius: 10px 6px 6px 10px;
+      transition: all $chevron-duration $chevron-easing;
+      z-index: -1;
+    }
+
+    &--active {
+      &:after {
+        transform-origin: center center;
+        transform: rotate(2*$chevron__bar-rotate);
+      }
+    }
+  }
+}

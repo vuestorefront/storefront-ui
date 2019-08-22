@@ -1,50 +1,95 @@
 @import '../variables';
 
-$sf-tabs-navigation-font-family: $body-font-family-secondary !default;
-$sf-tabs-navigation-font-size: $font-size-regular-desktop !default;
+$sf-tabs-title-font-family: $body-font-family-secondary !default;
+$sf-tabs-title-font-size: $font-size-regular-desktop !default;
 
-$sf-tabs-navigation-padding: $spacer-big !default;
+$sf-tabs-title-padding: $spacer-big !default;
 
-$sf-tabs-navigation-border-width: 2px !default;
+$sf-tabs-title-border-width: 2px !default;
 
-$sf-tabs-navigation-color: $c-gray-secondary !default;
-$sf-tabs-navigation-color-hover: $c-dark-primary !default;
-$sf-tabs-navigation-color-active: $c-dark-primary !default;
+$sf-tabs-title-color: $c-gray-secondary !default;
+$sf-tabs-title-color-hover: $c-dark-primary !default;
+$sf-tabs-title-color-active: $c-dark-primary !default;
 
-.sf-tabs-navigation {
-  font-family: $sf-tabs-navigation-font-family;
-  width: 100%;
+$sf-tabs-content-font-family: $body-font-family-primary !default;
 
-  &__list {
-    display: flex;
-    padding: 0;
-    border-bottom: $sf-tabs-navigation-border-width solid $sf-tabs-navigation-color;
+.sf-tabs {
+  font-family: $sf-tabs-title-font-family;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  &__border {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    top: calc(2*#{$sf-tabs-title-padding} + #{$sf-tabs-title-border-width} + #{$font-size-regular-desktop} + 3px);
+    border-bottom: $sf-tabs-title-border-width solid $sf-tabs-title-color;
+
+    @media (max-width: $mobile-max) {
+      display: none;
+    }
   }
 
-  &__item {
-    list-style-type: none;
-    padding: $sf-tabs-navigation-padding 5px calc(#{$sf-tabs-navigation-padding} + #{$sf-tabs-navigation-border-width}) 0;
-    color: $sf-tabs-navigation-color;
-    margin-right: 2rem;
+  &__title {
+    order: 1; // Put the labels first
+    display: flex;
+    justify-content: space-between;
+    font-size: $sf-tabs-title-font-size;
+    padding: $sf-tabs-title-padding 5px calc(#{$sf-tabs-title-padding} + #{$sf-tabs-title-border-width}) 0;
     cursor: pointer;
-    position: relative;
-    top: $sf-tabs-navigation-border-width;
+    color: $sf-tabs-title-color;
+    border-bottom: $sf-tabs-title-border-width solid $sf-tabs-title-color;
+    margin-right: 2rem;
+    transition: border-bottom-color .15s linear, color .15s linear;
 
-    @media screen and (max-width: $mobile-max){
-      padding-bottom: calc(#{$sf-tabs-navigation-padding} + #{$sf-tabs-navigation-border-width});
+    @media (max-width: $mobile-max) {
+      border-bottom: none;
     }
 
     &:hover {
-      color: $sf-tabs-navigation-color-hover;
-    }
-
-    p {
-      margin: 0;
+      color: $sf-tabs-title-color-hover;
     }
 
     &--active {
-      border-bottom: $sf-tabs-navigation-border-width solid $sf-tabs-navigation-color-active;
-      color: $sf-tabs-navigation-color-active;
+      border-bottom: $sf-tabs-title-border-width solid $sf-tabs-title-color-active;
+      color: $sf-tabs-title-color-active;
+
+      @media (max-width: $mobile-max) {
+        border-bottom: none;
+      }
+    }
+
+    @media (max-width: $mobile-max) {
+      width: 100%;
+      margin-right: 0;
+      margin-top: 0.2rem;
+      order: initial;
     }
   }
+
+  &__content {
+    order: 99; // Put the tabs last
+    flex-grow: 1;
+    width: 100%;
+    display: none;
+    background: #fff;
+    font-family: $sf-tabs-content-font-family;
+
+    @media (max-width: $mobile-max) {
+      order: initial;
+    }
+  }
+
+  &__chevron {
+    display: none;
+
+    @media (max-width: $mobile-max) {
+      display: block;
+    }
+  }
+}
+
+.sf-tabs__title--active+.sf-tabs__content {
+  display: block;
 }

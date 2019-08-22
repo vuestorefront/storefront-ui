@@ -25,6 +25,7 @@ $accordion-item__content-padding--last: 0.5rem 0 1.5rem !default;
   &-item__header {
     padding: $accordion-item__header-padding;
     font-size: $accordion-item__header-font-size;
+    font-weight: 400;
   }
   &-item__header-icon--up {
     transform: rotate(180deg);

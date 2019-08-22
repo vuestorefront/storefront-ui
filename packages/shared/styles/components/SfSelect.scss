@@ -1,79 +1,186 @@
-@import '../variables';
-
-$select-color-primary: $c-green-primary !default;
-$select-color-secondary: $c-light-primary !default;
-
-$select-font-size: $font-size-big-mobile !default;
-$select-font-family: $body-font-family-secondary !default;
+@import "../variables";
 
 $select-option-padding: 0.75rem 1.875rem;
+$select-color-primary: $c-light-primary !default;
+$select-color-secondary: $c-dark-primary !default;
+$select-color-invalid: rgba(240, 140, 125, 1) !default;
+$select-transition: all 0.3s ease-in-out !default;
+$select__label-font-size: $font-size-big-desktop !default;
+$select__label--active-font-size: 0.625rem !default;
+$select__error-message-min-height: 0.875rem !default;
 
-$select-color-primary: $c-green-primary;
-$select-color-secondary: $c-light-primary;
-
-$select-option-font-size: $font-size-big-mobile;
-$select-option-font-family: $body-font-family-secondary;
+@mixin move-label-up {
+  top: -3px;
+  font-size: $select__label--active-font-size;
+}
 
 .sf-select-option {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   padding: $select-option-padding;
   user-select: none;
-  &--active{
-    color: #FFF;
+  & + & {
+    border-top: 1px solid $select-color-primary;
+    @media screen and (min-width: $desktop-min) {
+      border-top: 0;
+    }
+  }
+  &--active {
     background-color: $select-color-primary;
   }
-  &:hover{
+  &:hover {
     outline: 1px solid $select-color-primary;
   }
 }
 
 .sf-select {
+  $this: &;
   position: relative;
-  user-select: none;
   white-space: nowrap;
-  &:focus{
+  user-select: none;
+  &:focus {
     outline: 0;
   }
-
   &__selected {
-    background-color: #FFF;
-    @at-root :focus &{}
-    &:after{
+    padding: $select-option-padding;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0;
+    &:hover {
+      outline: 0;
+    }
+    &::after {
       flex: 0 0 7px;
       height: 7px;
       margin-left: auto;
-      border: 0px solid $c-dark-primary;
+      border: 0px solid $select-color-secondary;
       border-width: 0px 2px 2px 0px;
       transform: rotate(45deg) translateX(calc(-7px / 2));
       content: "";
     }
-    &:hover{
-      outline: 0px;
-    }
   }
-
-  &__options {
+  &__label {
+    font-size: $select__label-font-size;
+    font-weight: normal;
     position: absolute;
-    top: calc(100% + 20px);
-    z-index: 100;
+    pointer-events: none;
+    top: 10px;
+    transition: $select-transition;
+    &::after {
+      color: $select-color-primary;
+    }
+    &--is-active{
+      @include move-label-up();
+      color: $c-accent-primary;
+    }
+    &--is-required{
+      &::after{
+        content: " *";
+        color: inherit;
+      }
+    }
+  }
+  &__error-message {
+    padding-top: $spacer-small;
+    color: $select-color-invalid;
+    font-size: $font-size-extra-small-desktop;
+    min-height: $select__error-message-min-height;
+  }
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    background-color: #FFF;
-    outline: 0;
-    box-shadow: 0px 4px 11px rgba(157, 157, 157, 0.21);
-  }
-
-  &--bordered{
-
-    .sf-select__selected{
-      border: 1px solid $select-color-secondary;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    @media screen and (min-width: $desktop-min) {
+      display: none;
     }
   }
-
-  &--underlined{
-
-    .sf-select__selected{
-      border-bottom: 1px solid $select-color-secondary;
+  &__dropdown {
+    position: fixed;
+    top: auto;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    @media screen and (min-width: $desktop-min) {
+      position: absolute;
+      top: 100%;
+      bottom: auto;
+      left: 0;
+      box-shadow: 0 8px 11px rgba(0, 0, 0, 0.1);
     }
+  }
+  &__options {
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    list-style-type: none;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+  &__cancel {
+    box-sizing: border-box;
+    width: 100%;
+    padding: $select-option-padding;
+    border: 0;
+    background-color: $select-color-primary;
+    color: #a3a5ad;
+    font-size: 1rem;
+    text-transform: none;
+    text-align: center;
+    &:focus {
+      outline: 0;
+    }
+    &:hover {
+      background-color: $select-color-primary;
+    }
+    @media screen and (min-width: $desktop-min) {
+      display: none;
+    }
+  }
+  &--bordered {
+    #{$this}__selected {
+      border: 1px solid $select-color-primary;
+    }
+  }
+  &--underlined {
+    #{$this}__selected {
+      border-bottom: 1px solid $select-color-primary;
+    }
+  }
+  &-enter-active {
+    animation: sf-select--mobile 0.15s;
+    @media screen and (min-width: $desktop-min) {
+      animation: sf-select--dekstop 0.15s;
+    }
+  }
+  &-leave-active {
+    animation: sf-select--mobile 0.15s reverse;
+    @media screen and (min-width: $desktop-min) {
+      animation: sf-select--dekstop 0.15s reverse;
+    }
+  }
+}
+
+@keyframes sf-select--desktop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes sf-select--mobile {
+  0% {
+    transform: translate(0, 100%);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
