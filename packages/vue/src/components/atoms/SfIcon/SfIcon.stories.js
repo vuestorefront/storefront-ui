@@ -2,7 +2,7 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
-import { icons } from "@storefrontui/shared/icons/icons.js";
+import { icons } from "@/assets/icons";
 import SfIcon from "./SfIcon.vue";
 
 const tableHeaderConfig = ["NAME", "DEFAULT"];
@@ -164,7 +164,7 @@ storiesOf("Atoms|Icon", module)
             tableHeadConfig: tableHeaderConfig,
             tableBodyConfig: iconsList
           },
-          "`icons` - icon name or SVG path(s)"
+          "`path` - icon name or SVG path(s)"
         )}
         `
       }
