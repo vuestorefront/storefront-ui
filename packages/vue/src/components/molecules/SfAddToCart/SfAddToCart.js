@@ -1,11 +1,11 @@
 import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfSelect from "../SfSelect/SfSelect.vue";
+import SfInput from "../../atoms/SfInput/SfInput.vue";
 
 export default {
   name: "SfAddToCart",
   components: {
     SfButton,
-    SfSelect
+    SfInput
   },
   model: {
     prop: "qty"

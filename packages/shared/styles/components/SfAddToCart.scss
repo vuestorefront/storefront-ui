@@ -6,21 +6,18 @@
   &__select-quantity {
     margin-left: 0.5rem;
 
-    .sf-select-option {
-      padding: 0.5rem 1.15rem 0.5rem 0.5rem;
+    input {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      width: auto;
+      height: 100%;
+      max-width: 90px;
+      border: 1px solid $c-light-primary;
+      transition: all 0.3s ease-in-out;
 
-      &:not(.sf-select-option--active) {
-        border: 1px solid $c-light-primary;
+      &:focus {
+        border-color: $c-accent-primary;
       }
     }
-
-    .sf-select__options {
-      top: 100%;
-    }
-  }
-
-  &__select-option {
-    margin: 0.5rem 1.5rem 0.5rem 0.75rem;
-    font-size: $font-size-big-desktop;
   }
 }

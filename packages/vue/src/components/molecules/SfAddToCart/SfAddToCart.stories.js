@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number, select, text } from "@storybook/addon-knobs";
+import { withKnobs, number, boolean } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfAddToCart from "./SfAddToCart.vue";
@@ -48,12 +48,16 @@ storiesOf("Molecules|AddToCart", module)
       props: {
         quantity: {
           default: number("quantity (prop)", 3)
+        },
+        canAddToCart: {
+          default: boolean("canAddToCart (prop)", true)
         }
       },
       components: { SfAddToCart },
       template: `<SfAddToCart 
         :quantity="quantity"
         @click="addToCart"
+        :canAddToCart="canAddToCart"
         v-model="qty"
       />`
     }),
@@ -84,12 +88,16 @@ storiesOf("Molecules|AddToCart", module)
       props: {
         quantity: {
           default: number("quantity (prop)", 3)
+        },
+        canAddToCart: {
+          default: boolean("canAddToCart (prop)", true)
         }
       },
       template: `
       <SfAddToCart 
         :quantity="quantity"
         @click="addToCart"
+        :canAddToCart="canAddToCart"
         v-model="qty">
         <template slot="add-to-cart-btn">
           <img src="assets/storybook/doge.svg" style="height: 25px; margin-right: 10px;"/>
@@ -121,16 +129,22 @@ storiesOf("Molecules|AddToCart", module)
       props: {
         quantity: {
           default: number("quantity (prop)", 3)
+        },
+        canAddToCart: {
+          default: boolean("canAddToCart (prop)", true)
         }
       },
       template: `
       <SfAddToCart 
         :quantity="quantity"
         @click="addToCart"
+        :canAddToCart="canAddToCart"
         v-model="qty">
-        <template slot="quantity-select-option" slot-scope="{ value }">
-          <sf-icon path="heart_fill" color="pink-primary"/>
-          <div class="sf-add-to-cart__select-option">{{value}}</div>
+        <template slot="quantity-select-input" slot-scope="{ qty }">
+          <div class="sf-add-to-cart__select-quantity" :style="{ display: 'flex', 'align-items': 'center' }">
+            <sf-icon icon="heart_fill" color="pink-primary"/>
+            <div :style="{'margin-left': '0.5rem'}">{{qty}}</div>
+          </div>
         </template>
       </SfAddToCart>
     `
