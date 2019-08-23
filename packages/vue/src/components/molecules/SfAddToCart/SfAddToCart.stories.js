@@ -20,11 +20,7 @@ const cssTableConfig = {
     [".sf-add-to-cart", "to set blue color for alert message"],
     [
       ".sf-add-to-cart__select-quantity",
-      "to set styles of quantity select button"
-    ],
-    [
-      ".sf-add-to-cart__select-option",
-      "to set styles of each dropdown option of quantity for selection"
+      "to set styles of quantity input button"
     ],
     [".sf-add-to-cart__button", "to set styles of add to cart button"]
   ]
