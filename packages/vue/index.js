@@ -13,6 +13,7 @@ import SfLoader from "./src/components/atoms/SfLoader/SfLoader.vue";
 import SfPrice from "./src/components/atoms/SfPrice/SfPrice.vue";
 import SfProperty from "./src/components/atoms/SfProperty/SfProperty.vue";
 import SfRating from "./src/components/atoms/SfRating/SfRating.vue";
+import SfInput from "./src/components/atoms/SfInput/SfInput.vue";
 
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.vue";
 import SfAddToCart from "./src/components/molecules/SfAddToCart/SfAddToCart.vue";
@@ -40,7 +41,10 @@ import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.vue";
 import SfSidebar from "./src/components/organisms/SfSidebar/SfSidebar.vue";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.vue";
 import SfHero from "./src/components/organisms/SfHero/SfHero.vue";
+
+import SfStoreLocator from "./src/components/organisms/SfStoreLocator/SfStoreLocator.vue";
 import SfBannerGrid from "./src/components/organisms/SfBannerGrid/SfBannerGrid.vue";
+import SfBottomNavigation from "./src/components/organisms/SfBottomNavigation/SfBottomNavigation.vue";
 
 export {
   SfArrow,
@@ -58,6 +62,7 @@ export {
   SfProperty,
   SfRating,
   SfAddToCart,
+  SfInput,
   SfAlert,
   SfBanner,
   SfCallToAction,
@@ -81,6 +86,8 @@ export {
   SfMegaMenu,
   SfTopBar,
   SfHero,
+  SfStoreLocator,
   SfImage,
-  SfBannerGrid
+  SfBannerGrid,
+  SfBottomNavigation
 };

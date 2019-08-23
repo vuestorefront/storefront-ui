@@ -1,4 +1,4 @@
-@import '../../../css/variables';
+@import "../variables";
 
 $sf-input__transition                 : all 0.3s ease-in-out !default;
 
@@ -13,7 +13,7 @@ $sf-input__invalid-color              : rgba(240, 140, 125, 1) !default;
 $sf-input__disabled-color              : rgba(115, 118, 128, 1) !default;
 
 @mixin move-label-up {
-  top: -20px;
+  top: -3px;
   font-size: $sf-input__label-focus-font-size;
 }
 
@@ -23,7 +23,7 @@ $sf-input__disabled-color              : rgba(115, 118, 128, 1) !default;
   & > input {
     width: 100%;
     font-size: $sf-input__input-font-size;
-    padding: 0.625rem 0;
+    padding: 0.75rem 0;
     display: block;
     border-width: 0 0 1px 0;
     border-style: solid;

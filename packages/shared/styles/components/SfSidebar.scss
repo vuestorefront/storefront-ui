@@ -1,18 +1,20 @@
 @import '../variables';
 
 $sidebar-background : $c-white !default;
-$sidebar-padding    : 3.5rem !default;
+$sidebar-padding    : 3rem !default;
 
 .sf-sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 320px;
-  height: 100%;
-  background: $sidebar-background;
-  box-sizing: border-box;
-  box-shadow: 0px 4px 56px rgba(87, 87, 87, 0.32);
-  z-index: 2;
+  &__aside{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 100%;
+    background: $sidebar-background;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 56px rgba(87, 87, 87, 0.32);
+    z-index: 3;
+  }
   &__button {
     position: absolute;
     right: -1.625rem;
@@ -30,8 +32,10 @@ $sidebar-padding    : 3.5rem !default;
     }
   }
   &--right {
-    left: auto;
-    right: 0;
+    .sf-sidebar__aside {
+      left: auto;
+      right: 0;
+    }
     .sf-sidebar__button {
       left: -1.625rem;
     }

@@ -1,130 +1,173 @@
-@import '../variables';
-
-$select-color-primary: $c-light-primary !default;
-$select-color-secondary: $c-light-primary !default;
-
-$select-font-size: $font-size-big-mobile !default;
-$select-font-family: $body-font-family-secondary !default;
+@import "../variables";
 
 $select-option-padding: 0.75rem 1.875rem;
+$select-color-primary: $c-light-primary !default;
+$select-color-secondary: $c-dark-primary !default;
+$select-color-invalid: rgba(240, 140, 125, 1) !default;
+$select-transition: all 0.3s ease-in-out !default;
+$select__label-font-size: $font-size-big-desktop !default;
+$select__label--active-font-size: 0.625rem !default;
+$select__error-message-min-height: 0.875rem !default;
 
-$select-option-font-size: $font-size-big-mobile;
-$select-option-font-family: $body-font-family-secondary;
+@mixin move-label-up {
+  top: -3px;
+  font-size: $select__label--active-font-size;
+}
 
 .sf-select-option {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
   padding: $select-option-padding;
   user-select: none;
-  @media screen and (min-width: $desktop-min){
-    justify-content: flex-start;
+  & + & {
+    border-top: 1px solid $select-color-primary;
+    @media screen and (min-width: $desktop-min) {
+      border-top: 0;
+    }
   }
-  &--active{
+  &--active {
     background-color: $select-color-primary;
   }
-  &:hover{
+  &:hover {
     outline: 1px solid $select-color-primary;
   }
 }
+
 .sf-select {
+  $this: &;
   position: relative;
-  user-select: none;
   white-space: nowrap;
-  &:focus{
+  user-select: none;
+  &:focus {
     outline: 0;
   }
   &__selected {
-    background-color: #FFF;
-    &:after{
+    padding: $select-option-padding;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0;
+    &:hover {
+      outline: 0;
+    }
+    &::after {
       flex: 0 0 7px;
       height: 7px;
       margin-left: auto;
-      border: 0px solid $c-dark-primary;
+      border: 0px solid $select-color-secondary;
       border-width: 0px 2px 2px 0px;
       transform: rotate(45deg) translateX(calc(-7px / 2));
       content: "";
     }
-    &:hover{
-      outline: 0px;
+  }
+  &__label {
+    font-size: $select__label-font-size;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    top: 10px;
+    transition: $select-transition;
+    &::after {
+      color: $select-color-primary;
+    }
+    &--is-active{
+      @include move-label-up();
+      color: $c-accent-primary;
+    }
+    &--is-required{
+      &::after{
+        content: " *";
+        color: inherit;
+      }
+    }
+  }
+  &__error-message {
+    padding-top: $spacer-small;
+    color: $select-color-invalid;
+    font-size: $font-size-extra-small-desktop;
+    min-height: $select__error-message-min-height;
+  }
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    @media screen and (min-width: $desktop-min) {
+      display: none;
+    }
+  }
+  &__dropdown {
+    position: fixed;
+    top: auto;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    @media screen and (min-width: $desktop-min) {
+      position: absolute;
+      top: 100%;
+      bottom: auto;
+      left: 0;
+      box-shadow: 0 8px 11px rgba(0, 0, 0, 0.1);
     }
   }
   &__options {
-    list-style-type:none;
     padding: 0;
     margin: 0;
     overflow: auto;
-    &::-webkit-scrollbar{
+    list-style-type: none;
+    &::-webkit-scrollbar {
       width: 0;
     }
   }
-  &__dropdown{
-    position: fixed;
-    top: auto;
-    bottom: 0;
-    left: 50%;
-    right: auto;
-    transform: translate(-50%, 0);
-    width: calc(100% - 20px);
-    background-color: #FFF;
-    box-shadow: 0 8px 11px rgba(0, 0, 0, 0.1);
+  &__cancel {
     box-sizing: border-box;
-    @media screen and (min-width: $desktop-min){
-      position: absolute;
-      top: calc(100% + 20px);
-      bottom: auto;
-      left: 0;
-      z-index: 100;
-      width: 100%;
-      background-color: #FFF;
-      outline: 0;
-      transform: translate(0, 0);
-    }
-  }
-  &__bottom{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
     padding: $select-option-padding;
-    user-select: none;
-    @media screen and (min-width: $desktop-min){
+    border: 0;
+    background-color: $select-color-primary;
+    color: #a3a5ad;
+    font-size: 1rem;
+    text-transform: none;
+    text-align: center;
+    &:focus {
+      outline: 0;
+    }
+    &:hover {
+      background-color: $select-color-primary;
+    }
+    @media screen and (min-width: $desktop-min) {
       display: none;
     }
-    &::before{
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(50%);
-      width: calc(100% - 30px);
-      height: 1px;
-      background-color: $c-light-primary;
-      content: "";
-    }
   }
-  &--bordered{
-    .sf-select__selected{
+  &--bordered {
+    #{$this}__selected {
       border: 1px solid $select-color-primary;
     }
   }
-  &--underlined{
-    .sf-select__selected{
+  &--underlined {
+    #{$this}__selected {
       border-bottom: 1px solid $select-color-primary;
     }
   }
   &-enter-active {
-    animation: sf-select--mobile .15s;
-    @media screen and (min-width:$desktop-min){
-      animation: sf-select--dekstop .15s;
+    animation: sf-select--mobile 0.15s;
+    @media screen and (min-width: $desktop-min) {
+      animation: sf-select--dekstop 0.15s;
     }
   }
   &-leave-active {
-    animation: sf-select--mobile .15s reverse;
-    @media screen and (min-width:$desktop-min){
-      animation: sf-select--dekstop .15s reverse;
+    animation: sf-select--mobile 0.15s reverse;
+    @media screen and (min-width: $desktop-min) {
+      animation: sf-select--dekstop 0.15s reverse;
     }
   }
 }
+
 @keyframes sf-select--desktop {
   0% {
     opacity: 0;
@@ -135,10 +178,9 @@ $select-option-font-family: $body-font-family-secondary;
 }
 @keyframes sf-select--mobile {
   0% {
-    transform: translate(-50%, 100%);
+    transform: translate(0, 100%);
   }
   100% {
-    transform: translate(-50%, 0);
+    transform: translate(0, 0);
   }
 }
-

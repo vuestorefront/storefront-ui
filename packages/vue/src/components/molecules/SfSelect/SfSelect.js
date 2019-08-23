@@ -1,4 +1,5 @@
 import SfSelectOption from "./_internal/SfSelectOption.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import Vue from "vue";
 
 Vue.component("SfSelectOption", SfSelectOption);
@@ -9,6 +10,13 @@ export default {
     event: "change"
   },
   props: {
+    /**
+     * Select field label
+     */
+    label: {
+      type: String,
+      default: ""
+    },
     /**
      * Selected item value
      */
@@ -22,26 +30,53 @@ export default {
     size: {
       type: Number,
       default: 5
+    },
+    /**
+     * Required attribute
+     */
+    required: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Validate value of form input
+     */
+    valid: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * Error message value of form select. It will be appeared if `valid` is `true`.
+     */
+    errorMessage: {
+      type: String,
+      default: "This field is not correct."
     }
   },
   data() {
     return {
-      open: true,
+      open: false,
       index: -1,
       options: [],
       indexes: {},
       optionHeight: 0
     };
   },
+  components: {
+    SfButton
+  },
   watch: {
     index(index) {
       this.$emit("change", this.options[index].value);
     },
-    open(visible) {
-      if (visible) {
-        this.$nextTick(() => {
-          this.optionHeight = this.$slots.default[0].elm.offsetHeight;
-        });
+    open: {
+      immediate: true,
+      handler: function(visible) {
+        if (visible) {
+          this.$nextTick(() => {
+            this.optionHeight = this.$slots.default[0].elm.offsetHeight;
+          });
+        }
       }
     }
   },
@@ -53,6 +88,9 @@ export default {
     maxHeight() {
       if (!this.size) return;
       return `${this.optionHeight * this.size}px`;
+    },
+    labelIsActive() {
+      return this.open || this.selected;
     }
   },
   methods: {
@@ -72,18 +110,15 @@ export default {
     enter() {
       this.toggle();
     },
-    toggle() {
+    toggle(event) {
+      if (event.target.contains(this.$refs.cancel.$el)) return;
       this.open = !this.open;
     },
     openHandler() {
-      if (!this.open) {
-        this.toggle();
-      }
+      this.open = true;
     },
     closeHandler() {
-      if (this.open) {
-        this.toggle();
-      }
+      this.open = false;
     }
   },
   created: function() {},

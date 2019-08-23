@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfBullets from "@/components/atoms/SfBullets.vue";
+import SfBullets from "@/components/atoms/SfBullets/SfBullets.vue";
 
 describe("SfBullets.vue", () => {
   it("renders a component", () => {

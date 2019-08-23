@@ -7,6 +7,7 @@ $price__old-desktop-font-size  : $font-size-small-mobile !default;
 
 .sf-price {
   font-size: $price-mobile-font-size;
+  font-weight: 400;
   @media (min-width: $desktop-min) {
     font-size: $price-desktop-font-size;
   }
