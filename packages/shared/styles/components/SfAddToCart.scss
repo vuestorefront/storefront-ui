@@ -3,6 +3,13 @@
 .sf-add-to-cart {
   display: flex;
 
+  &__button {
+    &:disabled {
+      background-color: $c-accent-secondary;
+      cursor: default;
+    }
+  }
+
   &__select-quantity {
     margin-left: 0.5rem;
 
