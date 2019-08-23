@@ -17,9 +17,10 @@ module.exports = {
         title: 'Contributing',
         collapsable: false,
         children: [
-          ['/component-rules', 'Component Rules'],
-          ['/working-with-designs', 'Working With Designs'],
-          ['/creating-new-component', 'Create/Edit Component'],
+          ['/contributing/getting-started', 'Getting started'],
+          ['/contributing/component-rules', 'Component Rules'],
+          ['/contributing/working-with-designs', 'Working With Designs'],
+          ['/contributing/creating-new-component', 'Create/Edit Component'],
         ],
       },
 
