@@ -1,7 +1,7 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 export default {
-  name: "SfCounter",
+  name: "SfQuantitySelect",
 
   props: {
     step: {

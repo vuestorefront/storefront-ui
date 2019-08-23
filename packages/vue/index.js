@@ -18,7 +18,7 @@ import SfAlert from "./src/components/molecules/SfAlert/SfAlert.vue";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.vue";
 import SfCallToAction from "./src/components/molecules/SfCallToAction/SfCallToAction.vue";
 import SfCharacteristic from "./src/components/molecules/SfCharacteristic/SfCharacteristic.vue";
-import SfCounter from "./src/components/molecules/SfCounter/SfCounter.vue";
+import SfQuantitySelect from "./src/components/molecules/SfQuantitySelect/SfQuantitySelect.vue";
 import SfFilter from "./src/components/molecules/SfFilter/SfFilter.vue";
 import SfGallery from "./src/components/molecules/SfGallery/SfGallery.vue";
 import SfMenuItem from "./src/components/molecules/SfMenuItem/SfMenuItem.vue";
@@ -63,7 +63,7 @@ export {
   SfBanner,
   SfCallToAction,
   SfCharacteristic,
-  SfCounter,
+  SfQuantitySelect,
   SfFilter,
   SfGallery,
   SfMenuItem,

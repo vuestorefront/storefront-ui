@@ -12,7 +12,7 @@ import SfIcon from "./src/components/atoms/SfIcon/SfIcon.js";
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.js";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.js";
 import SfCallToAction from "./src/components/molecules/SfCallToAction/SfCallToAction.js";
-import SfCounter from "./src/components/molecules/SfCounter/SfCounter.js";
+import SfQuantitySelect from "./src/components/molecules/SfQuantitySelect/SfQuantitySelect.js";
 import SfFilter from "./src/components/molecules/SfFilter/SfFilter.js";
 import SfGallery from "./src/components/molecules/SfGallery/SfGallery.js";
 import SfMenuItem from "./src/components/molecules/SfMenuItem/SfMenuItem.js";
@@ -44,7 +44,7 @@ export {
   SfAlert,
   SfBanner,
   SfCallToAction,
-  SfCounter,
+  SfQuantitySelect,
   SfFilter,
   SfGallery,
   SfMenuItem,

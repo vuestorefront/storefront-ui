@@ -7,7 +7,7 @@ import {
   boolean,
   select
 } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "./node_modules/@/helpers";
+import { generateStorybookTable } from "@/helpers";
 import SfQuantitySelect from "./SfQuantitySelect.vue";
 
 const scssTableConfig = {
@@ -40,7 +40,7 @@ const eventTableConfig = {
   ]
 };
 
-storiesOf("Molecules|Counter", module)
+storiesOf("Molecules|QuantitySelect", module)
   .addDecorator(withKnobs)
   .add(
     "Props / CSS Modifiers",
