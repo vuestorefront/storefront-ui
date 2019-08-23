@@ -1,12 +1,6 @@
 <SfButton class="sf-circle-icon" v-on="$listeners">
   <!--@slot Custom content that will replace default icon. can be used for inlined SVG's-->
   <slot>
-    <img
-      class="sf-circle-icon__icon"
-      :src="icon"
-      :alt="alt"
-      tabindex="-1"
-      aria-labelledby="sf-circle-icon"
-    />
+    <SfIcon class="sf-circle-icon__icon" :icon="icon" :color="colorIcon" :size="sizeIcon"/>
   </slot>
 </SfButton>

@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, text, select, boolean } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfFilter from "./SfFilter.vue";
 
@@ -39,7 +39,7 @@ export default storiesOf("Molecules|Filter", module)
           default: select("color (prop)", ["red", "null"], "red")
         },
         selected: {
-          default: select("selected (prop)", ["true", "false"], "false")
+          default: boolean("selected (prop)", true)
         }
       },
       template: `
@@ -59,7 +59,7 @@ export default storiesOf("Molecules|Filter", module)
           <h2> Description </h2>
           <p>This component should be used for filtering products on listings.</p>
           <h2> Usage </h2>
-          <pre><code>import { SfFilter } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfFilter } from "@storefront-ui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }

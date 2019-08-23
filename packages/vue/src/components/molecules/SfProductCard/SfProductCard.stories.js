@@ -58,7 +58,7 @@ storiesOf("Molecules|ProductCard", module)
         maxRating: {
           default: number("minRating (prop)", 5)
         },
-        rating: {
+        scoreRating: {
           default: number("maxRating (prop)", 4)
         },
         wishlistIcon: {
@@ -77,7 +77,7 @@ storiesOf("Molecules|ProductCard", module)
         :title="title"
         :regular-price="regularPrice"
         :special-price="specialPrice"
-        :rating="rating"
+        :score-rating="scoreRating"
         :max-rating="maxRating"
         :wishlistIcon="wishlistIcon"
         :isOnWishlistIcon="isOnWishlistIcon"
@@ -89,7 +89,7 @@ storiesOf("Molecules|ProductCard", module)
         summary: `
         <p>Component for rendering Product Card.</p>
         <h2> Usage </h2>
-        <pre><code>import { SfProductCard } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfProductCard } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS Variables")}`
       }
     }

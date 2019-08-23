@@ -80,8 +80,8 @@ storiesOf("Organisms|Tabs", module)
         <h2> Usage </h2>
         <pre>
           <code>
-            import { SfTabs } from "@storefrontui/vue"
-            import { SfTabs } from "@storefrontui/vue"
+            import { SfTabs } from "@storefront-ui/vue"
+            import { SfTabs } from "@storefront-ui/vue"
           </code>
         </pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}

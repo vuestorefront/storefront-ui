@@ -33,14 +33,14 @@ storiesOf("Molecules|Section", module)
     "Basic",
     () => ({
       props: {
-        title: {
-          default: text("(prop) title", "Share your look")
+        titleHeading: {
+          default: text("(prop) titleHeading", "Share your look")
         },
-        subtitle: {
-          default: text("(prop) subtitle", "#YOURLOOK")
+        subtitleHeading: {
+          default: text("(prop) subtitleHeading", "#YOURLOOK")
         },
-        level: {
-          default: number("(prop) level", 2)
+        levelHeading: {
+          default: number("(prop) levelHeading", 2)
         },
         customClass: {
           default: select(
@@ -83,7 +83,7 @@ storiesOf("Molecules|Section", module)
       components: { SfSection },
       template: `
       <div>
-        <SfSection :class="customClass" :title="title" :subtitle="subtitle" :level="level">
+        <SfSection :class="customClass" :titleHeading="titleHeading" :subtitleHeading="subtitleHeading" :levelHeading="levelHeading">
           <div :style="row">
             <div :style="colFirst">1</div>
             <div :style="col">2</div>
@@ -96,7 +96,7 @@ storiesOf("Molecules|Section", module)
       info: {
         summary: `<p>Component description.</p>
        <h2>Usage</h2>
-       <pre><code>import { SfSection } from "@storefrontui/vue"</code></pre>
+       <pre><code>import { SfSection } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
        `

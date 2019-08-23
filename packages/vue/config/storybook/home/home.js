@@ -30,13 +30,13 @@ storiesOf(" |Introduction", module)
       <h2> How to start? </h2>
       <ol>
         <li> Add the package: 
-          <pre>npm install --save @storefrontui/vue</pre> 
+          <pre>npm install --save @storefront-ui/vue</pre> 
         </li>
         <li> Import stylesheets in App.vue or main.js: 
-          <pre>import "@storefrontui/vue/dist/css/all.scss";</pre>
+          <pre>import "@storefront-ui/vue/dist/css/all.scss";</pre>
         </li>
         <li> It's done! Now you can import and use any of the components: 
-          <pre> import { SfComponentName } from "@storefrontui/vue"</pre>
+          <pre> import { SfComponentName } from "@storefront-ui/vue"</pre>
         </li>
         <li> You can find detailed information about every component inside each component's story. </li>
       </ol>

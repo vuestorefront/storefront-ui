@@ -29,7 +29,7 @@ export default storiesOf("Atoms|Property", module)
       info: {
         summary: `<p>Simple label and data component created for product description</p>
         <h2> Usage </h2>
-        <pre><code>import { SfProperty } from "@storefrontui/vue"</code></pre>`
+        <pre><code>import { SfProperty } from "@storefront-ui/vue"</code></pre>`
       }
     }
   );

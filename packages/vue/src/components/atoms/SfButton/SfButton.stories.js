@@ -42,7 +42,6 @@ const scssTableConfig = {
 
 storiesOf("Atoms|Button", module)
   .addDecorator(withKnobs)
-
   .add(
     "Basic",
     () => ({
@@ -66,8 +65,7 @@ storiesOf("Atoms|Button", module)
           )
         }
       },
-      template: `
-        <SfButton :class="customClass">Hello world</SfButton>`
+      template: `<SfButton :class="customClass">Hello world</SfButton>`
     }),
     {
       info: {
@@ -80,7 +78,7 @@ storiesOf("Atoms|Button", module)
           called by <code>&lt;SfButton&gt;</code>.
         </p>
         <h2>Usage</h2>
-        <pre><code>import { SfButton } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfButton } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }

@@ -10,9 +10,9 @@ export default storiesOf("Utilities|Transitions", module)
       components: { SfButton },
       template: `
     <div>
-      <sf-button v-on:click="show = !show">
+      <SfButton v-on:click="show = !show">
         Fade
-      </sf-button>
+      </SfButton>
       <transition name="fade">
         <p v-if="show">hello</p>
       </transition>
@@ -31,9 +31,9 @@ export default storiesOf("Utilities|Transitions", module)
       components: { SfButton },
       template: `
     <div>
-      <sf-button v-on:click="show = !show">
+      <SfButton v-on:click="show = !show">
         Slide left
-      </sf-button>
+      </SfButton>
       <transition name="slide-left">
         <p v-if="show">hello</p>
       </transition>
@@ -52,9 +52,9 @@ export default storiesOf("Utilities|Transitions", module)
       components: { SfButton },
       template: `
     <div>
-      <sf-button v-on:click="show = !show">
+      <SfButton v-on:click="show = !show">
         Slide right
-      </sf-button>
+      </SfButton>
       <transition name="slide-right">
         <p v-if="show">hello</p>
       </transition>
@@ -73,9 +73,9 @@ export default storiesOf("Utilities|Transitions", module)
       components: { SfButton },
       template: `
     <div>
-      <sf-button v-on:click="show = !show">
+      <SfButton v-on:click="show = !show">
         Collapse top
-      </sf-button>
+      </SfButton>
       <transition name="collapse-top">
         <p v-if="show">hello</p>
       </transition>
@@ -94,9 +94,9 @@ export default storiesOf("Utilities|Transitions", module)
       components: { SfButton },
       template: `
     <div>
-      <sf-button v-on:click="show = !show">
+      <SfButton v-on:click="show = !show">
         Collapse bottom
-      </sf-button>
+      </SfButton>
       <transition name="collapse-bottom">
         <p v-if="show">hello</p>
       </transition>
@@ -115,9 +115,9 @@ export default storiesOf("Utilities|Transitions", module)
       components: { SfButton },
       template: `
     <div>
-      <sf-button v-on:click="show = !show">
+      <SfButton v-on:click="show = !show">
         Fade/slide
-      </sf-button>
+      </SfButton>
       <transition name="fade-slide">
         <p v-if="show">hello</p>
       </transition>
@@ -136,9 +136,9 @@ export default storiesOf("Utilities|Transitions", module)
       components: { SfButton },
       template: `
     <div>
-      <sf-button v-on:click="show = !show">
+      <SfButton v-on:click="show = !show">
         Fade/collapse
-      </sf-button>
+      </SfButton>
       <transition name="fade-collapse">
         <p v-if="show">hello</p>
       </transition>

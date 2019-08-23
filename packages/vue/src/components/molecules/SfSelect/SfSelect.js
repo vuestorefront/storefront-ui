@@ -43,7 +43,7 @@ export default {
      */
     valid: {
       type: Boolean,
-      default: true
+      default: undefined
     },
     /**
      * Error message value of form select. It will be appeared if `valid` is `true`.
@@ -90,7 +90,10 @@ export default {
       return `${this.optionHeight * this.size}px`;
     },
     labelIsActive() {
-      return this.open || this.selected;
+      return this.open;
+    },
+    labelIsSelected() {
+      return this.selected;
     }
   },
   methods: {

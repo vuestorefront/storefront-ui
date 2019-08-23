@@ -12,9 +12,10 @@
   role="combobox"
   tabindex="0"
 >
-  <label v-if="label"
+  <label
+    v-if="label"
     class="sf-select__label"
-    :class="{'sf-select__label--is-active':labelIsActive, 'sf-select__label--is-required': required}"
+    :class="{'sf-select__label--is-active':labelIsActive, 'sf-select__label--is-required': required, 'sf-select__label--is-selected':labelIsSelected}"
   >
     <!-- @slot Custom label of form select -->
     <slot name="label">{{label}}</slot>
@@ -24,7 +25,7 @@
     class="sf-select__selected sf-select-option"
     v-html="html"
   ></div>
-  <div class="sf-select__error-message">
+  <div class="sf-select__error-message" v-if="valid!== undefined">
     <transition name="fade">
       <span v-if="valid === false">
         <!-- @slot Custom error message of form select -->

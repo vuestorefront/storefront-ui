@@ -86,9 +86,7 @@ Thank you! There would be no Storefront UI without you
 # Supporters
 <a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="40px"></a>
 
-# Roadmap
+# Contributing
 
-Check our [documentation](https://docs.storefrontui.io/introduction.html)
-
-Want to help and make it even faster? Read [how to start](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) and become part of our amazing community ;)
+Read [how to start](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) and become part of our amazing community ;)
 

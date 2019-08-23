@@ -5,15 +5,12 @@ $header-mobile-height: 50px !default;
 $header-mobile-justify-content: space-between !default;
 $header-mobile-align-items: center !default;
 $header-mobile-padding-x: 1rem !default;
-
 $header-tablet-justify-content: flex-start !default;
-
 $header__logo-width: 21px !default;
 $header__logo-height: auto !default;
 
 .sf-header {
   display: flex;
-
   @media (max-width: $mobile-max) {
     background: $header-mobile-background;
     height: $header-mobile-height;
@@ -22,11 +19,9 @@ $header__logo-height: auto !default;
     padding-left: $header-mobile-padding-x;
     padding-right: $header-mobile-padding-x;
   }
-
   @media (min-width: $tablet-min) {
     justify-content: $header-tablet-justify-content;
   }
-
   &__column {
     &--left {
       order: 1;
@@ -44,13 +39,11 @@ $header__logo-height: auto !default;
       }
     }
   }
-
   &__logo {
     width: $header__logo-width;
     height: $header__logo-height;
     padding-right: 0.5rem;
   }
-
   &__nav,
   &__search,
   &__icon {

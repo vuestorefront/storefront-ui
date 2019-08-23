@@ -45,19 +45,19 @@ yarn storybook:serve
 - Add the package:
 
 ```bash
-npm install --save @storefrontui/vue
+npm install --save @storefront-ui/vue
 ```
 
 - Import stylesheets in App.vue or main.js:
 
 ```scss
-import "@storefrontui/vue/src/css/_all.scss";
+import "@storefront-ui/vue/src/css/_all.scss";
 ```
 
 - It's done! Now you can import and use any of the components:
 
 ```js
-import { SfComponentName } from "@storefrontui/vue"
+import { SfComponentName } from "@storefront-ui/vue"
 ```
 
 - You can find detailed information about every component inside each components
@@ -85,20 +85,6 @@ The project is open source and free to use.
 
 If you'd like to support us and join the team please write to me:
 **filip [at] vuestorefront.io** ;)
-
-# Roadmap 
-
-- Category page components (April) - Done
-- Product Page components (May) (alpha release) - Done
-- Homepage, form elements, monorepo setup, product page example (June)
-- Last polishments and focus on documentation (July) (beta release)
-
-**Other things to include in the meantime:**
-- include additional build for every compoennt so they can also be imported separately but after a build step (useful for apps that don't have a build step at all)
-- webpack build that can be merged into your current one with everything that is needed to consume SFUI webpack source
-
-**In consideration**
-- SCSS - CSS vars transition
 
 ## Useful links
 

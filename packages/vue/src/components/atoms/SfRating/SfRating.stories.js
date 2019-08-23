@@ -34,12 +34,14 @@ storiesOf("Atoms|Rating", module)
         }
       },
       components: { SfRating },
-      template: '<SfRating :score="rating" :max="max"/>'
+      template: `<SfRating 
+        :score="rating" 
+        :max="max" s/>`
     }),
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfRating } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfRating } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }
@@ -57,7 +59,9 @@ storiesOf("Atoms|Rating", module)
         }
       },
       components: { SfRating },
-      template: `<SfRating :score="rating" :max="max">
+      template: `<SfRating 
+        :score="rating" 
+        :max="max">
         <template #icon-positive>
           <img src="assets/storybook/cat_green.svg" height="14px" />
         </template>
@@ -79,11 +83,13 @@ storiesOf("Atoms|Rating", module)
         }
       },
       components: { SfRating },
-      template: `<SfRating :score="rating" :max="max">
-      <template #icon-negative>
-        <img src="assets/storybook/cat.svg" height="14px" />
-      </template>
-    </SfRating>`
+      template: `<SfRating 
+        :score="rating" 
+        :max="max">
+        <template #icon-negative>
+          <img src="assets/storybook/cat.svg" height="14px" />
+        </template>
+      </SfRating>`
     }),
     {
       info: true
