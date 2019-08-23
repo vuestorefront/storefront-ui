@@ -2,5 +2,5 @@
 <template lang="html" src="./SfLoader.html"></template>
 <style lang="scss">
 @import "../../../utilities/transitions/transitions.scss";
-@import "~@storefrontui/shared/styles/components/SfLoader.scss";
+@import "~@storefront-ui/shared/styles/components/SfLoader.scss";
 </style>

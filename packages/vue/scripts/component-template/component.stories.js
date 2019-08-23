@@ -45,7 +45,7 @@ const eventsTableConfig = {
 //       info: {
 //         summary: `<p>Component description.</p>
 //        <h2>Usage</h2>
-//        <pre><code>import { ComponentNameCamelCase } from "@storefrontui/vue"</code></pre>
+//        <pre><code>import { ComponentNameCamelCase } from "@storefront-ui/vue"</code></pre>
 //        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
 //        ${generateStorybookTable(eventsTableConfig, "Events")}`
 //       }

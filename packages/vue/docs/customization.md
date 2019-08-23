@@ -104,19 +104,19 @@ import `Button` partials.
 
 ```html
 <script>
-import instance from "@storefrontui/vue/dist/SfButton.js";
+import instance from "@storefront-ui/vue/dist/SfButton.js";
 
 export default {
   ...instance
 };
 </script>
 
-<template lang="html" src="~@storefrontui/vue/dist/SfButton.html"></template>
+<template lang="html" src="~@storefront-ui/vue/dist/SfButton.html"></template>
 
 <style lang="scss" scoped>
 // scoped only for this component
 $c-accent-primary: blue;
-@import "~@storefrontui/vue/dist/SfButton.scss";
+@import "~@storefront-ui/vue/dist/SfButton.scss";
 </style>
 ```
 
@@ -140,7 +140,7 @@ and add new properties (like here we added data property `message`)
 
 ```html
 <script>
-import instance from "@storefrontui/vue/dist/SfButton.js";
+import instance from "@storefront-ui/vue/dist/SfButton.js";
 
 instance.name = 'CustomizedComponent'
 
@@ -162,7 +162,7 @@ or even write completely new stylesheet and get rid of the import.
 ```html
 <style lang="scss" scoped>
 $c-primary: blue;
-@import "~@storefrontui/shared/styles/components/SfButton.scss";
+@import "~@storefront-ui/shared/styles/components/SfButton.scss";
 </style>
 ```
 
