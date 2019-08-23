@@ -25,7 +25,7 @@ storiesOf("Atoms|Divider", module)
       info: {
         summary: `<p>Divider element.</p>
        <h2>Usage</h2>
-       <pre><code>import { SfDivider } from "@storefrontui/vue"</code></pre>
+       <pre><code>import { SfDivider } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
       }
     }

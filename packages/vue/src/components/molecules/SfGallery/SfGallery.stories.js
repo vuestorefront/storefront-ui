@@ -120,7 +120,7 @@ storiesOf("Molecules|Gallery", module)
             </code>
           </p>
           <h2> Usage </h2>
-          <pre><code>import { SfGallery } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfGallery } from "@storefront-ui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }

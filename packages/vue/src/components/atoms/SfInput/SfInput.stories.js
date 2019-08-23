@@ -74,7 +74,7 @@ storiesOf("Atoms|Input", module)
         summary: `
         <p>Single form input component.</p>
         <h2> Usage </h2>
-        <pre><code>import SfInput from "@storefrontui/vue/dist/SfInput.vue"</code></pre>
+        <pre><code>import SfInput from "@storefront-ui/vue/dist/SfInput.vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }

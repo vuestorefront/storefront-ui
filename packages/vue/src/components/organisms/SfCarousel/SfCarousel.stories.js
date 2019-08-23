@@ -69,7 +69,7 @@ storiesOf("Organisms|Carousel", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfCarousel } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfCarousel } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }
@@ -119,7 +119,7 @@ storiesOf("Organisms|Carousel", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfCarousel } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfCarousel } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }
@@ -169,7 +169,7 @@ storiesOf("Organisms|Carousel", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfCarousel } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfCarousel } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }

@@ -39,7 +39,7 @@ storiesOf("Atoms|Rating", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfRating } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfRating } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }

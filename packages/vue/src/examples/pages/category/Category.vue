@@ -423,7 +423,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "../../../css/variables";
-@import "~@storefrontui/shared/styles/helpers/visibility";
+@import "~@storefront-ui/shared/styles/helpers/visibility";
 
 #category {
   box-sizing: border-box;

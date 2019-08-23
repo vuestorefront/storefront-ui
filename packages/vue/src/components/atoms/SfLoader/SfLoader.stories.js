@@ -40,7 +40,7 @@ storiesOf("Atoms|Loader", module)
       info: {
         summary: `<p>Component to indicate loading state. Use it to cover content until data is fetched. Set **isLoading** to false once data is fetched.</p>
         <h2> Usage </h2>
-        <pre><code>import { SfLoader } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfLoader } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }

@@ -39,7 +39,7 @@ storiesOf("Atoms|Price", module)
       info: {
         summary: `<p>Component for displaying product price.</p>
         <h2> Usage </h2>
-        <pre><code>import { SfPrice } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfPrice } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }

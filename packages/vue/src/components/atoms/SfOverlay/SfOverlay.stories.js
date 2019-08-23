@@ -30,7 +30,7 @@ storiesOf("Atoms|Overlay", module)
       info: {
         summary: `<p>Overlay.</p>
        <h2>Usage</h2>
-       <pre><code>import { SfOverlay } from "@storefrontui/vue"</code></pre>
+       <pre><code>import { SfOverlay } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `
       }

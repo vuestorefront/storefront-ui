@@ -115,7 +115,7 @@ storiesOf("Molecules|Counter", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfCounter } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfCounter } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         ${generateStorybookTable(eventTableConfig, "Events")}

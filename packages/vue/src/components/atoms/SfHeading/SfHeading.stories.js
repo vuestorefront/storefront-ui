@@ -76,7 +76,7 @@ storiesOf("Atoms|Heading", module)
     {
       info: {
         summary: `<h2>Usage</h2>
-       <pre><code>import { SfHeading } from "@storefrontui/vue"</code></pre>
+       <pre><code>import { SfHeading } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
        `

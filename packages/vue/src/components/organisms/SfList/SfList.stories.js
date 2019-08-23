@@ -18,7 +18,7 @@ storiesOf("Organisms|List", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfList } from "@storefrontui/vue"</code></pre>`
+        <pre><code>import { SfList } from "@storefront-ui/vue"</code></pre>`
       }
     }
   )

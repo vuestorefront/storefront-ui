@@ -102,7 +102,7 @@ storiesOf("Organisms|Accordion", module)
 </pre>
         </p>
        <h2>Usage</h2>
-       <pre><code>import { SfAccordion } from "@storefrontui/vue"</code></pre>
+       <pre><code>import { SfAccordion } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `
       }
@@ -199,7 +199,7 @@ storiesOf("Organisms|Accordion", module)
         <code>sf-accordion-item__header-slot--close</code><br><br>
         <code>sf-accordion-item__header-slot--open</code><br><br>
        <h2>Usage</h2>
-       <pre><code>import { SfAccordion } from "@storefrontui/vue"</code></pre>
+       <pre><code>import { SfAccordion } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `
       }
@@ -268,7 +268,7 @@ storiesOf("Organisms|Accordion", module)
         <p>Custom styling can be achieved by using <code>#items</code> slot inside <code>SfAccordion</code>.</p>
         <p>To use custom styling for content items populate <code>#content</code> slot inside <code>SfAccordionItem</code> tag.</p>
        <h2>Usage</h2>
-       <pre><code>import { SfAccordion } from "@storefrontui/vue"</code></pre>
+       <pre><code>import { SfAccordion } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `
       }
@@ -327,7 +327,7 @@ storiesOf("Organisms|Accordion", module)
         he can bind <code>v-on:click</code>. 
         This function gets one argument - the id of clicked content item.</p>
        <h2>Usage</h2>
-       <pre><code>import { SfAccordion } from "@storefrontui/vue"</code></pre>
+       <pre><code>import { SfAccordion } from "@storefront-ui/vue"</code></pre>
        `
       }
     }

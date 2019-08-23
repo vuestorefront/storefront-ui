@@ -23,7 +23,7 @@ storiesOf("Atoms|Chevron", module)
             <h2> Description </h2>
             <p>Chevron component. Place desired content into slot.</p>
             <h2> Usage </h2>
-            <pre><code>import { SfChevron } from "@storefrontui/vue"</code></pre>
+            <pre><code>import { SfChevron } from "@storefront-ui/vue"</code></pre>
             `
       }
     }

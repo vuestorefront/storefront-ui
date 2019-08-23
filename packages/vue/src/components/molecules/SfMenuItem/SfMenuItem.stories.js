@@ -55,7 +55,7 @@ export default storiesOf("Molecules|[WIP]MenuItem", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfMenuItem } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfMenuItem } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }

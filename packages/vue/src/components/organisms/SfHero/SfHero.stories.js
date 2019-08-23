@@ -187,7 +187,7 @@ storiesOf("Organisms|Hero", module)
           <br><br>
         </p>
         <h2>Usage</h2>
-        <pre><code>import { SfHero } from "@storefrontui/vue/dist/SfHero.vue"</code></pre>
+        <pre><code>import { SfHero } from "@storefront-ui/vue/dist/SfHero.vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }
@@ -253,7 +253,7 @@ storiesOf("Organisms|Hero", module)
           </code>
         </p>
         <h2>Usage</h2>
-        <pre><code>import { SfHero } from "@storefrontui/vue/dist/SfHero.vue"</code></pre>
+        <pre><code>import { SfHero } from "@storefront-ui/vue/dist/SfHero.vue"</code></pre>
         `
       }
     }
@@ -275,7 +275,7 @@ storiesOf("Organisms|Hero", module)
       info: {
         summary: `
         <h2>Usage</h2>
-        <pre><code>import { SfHero } from "@storefrontui/vue/dist/SfHero.vue"</code></pre>
+        <pre><code>import { SfHero } from "@storefront-ui/vue/dist/SfHero.vue"</code></pre>
         `
       }
     }
@@ -299,7 +299,7 @@ storiesOf("Organisms|Hero", module)
       info: {
         summary: `
         <h2>Usage</h2>
-        <pre><code>import { SfHero } from "@storefrontui/vue/dist/SfHero.vue"</code></pre>
+        <pre><code>import { SfHero } from "@storefront-ui/vue/dist/SfHero.vue"</code></pre>
         `
       }
     }
@@ -323,7 +323,7 @@ storiesOf("Organisms|Hero", module)
       info: {
         summary: `
         <h2>Usage</h2>
-        <pre><code>import { SfHero } from "@storefrontui/vue/dist/SfHero.vue"</code></pre>
+        <pre><code>import { SfHero } from "@storefront-ui/vue/dist/SfHero.vue"</code></pre>
         `
       }
     }

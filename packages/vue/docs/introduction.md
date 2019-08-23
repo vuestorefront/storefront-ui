@@ -45,19 +45,19 @@ yarn storybook:serve
 - Add the package:
 
 ```bash
-npm install --save @storefrontui/vue
+npm install --save @storefront-ui/vue
 ```
 
 - Import stylesheets in App.vue or main.js:
 
 ```scss
-import "@storefrontui/vue/src/css/_all.scss";
+import "@storefront-ui/vue/src/css/_all.scss";
 ```
 
 - It's done! Now you can import and use any of the components:
 
 ```js
-import { SfComponentName } from "@storefrontui/vue"
+import { SfComponentName } from "@storefront-ui/vue"
 ```
 
 - You can find detailed information about every component inside each components

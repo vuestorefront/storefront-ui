@@ -107,7 +107,7 @@ storiesOf("Molecules|Radio", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-          <pre><code>import { SfRadio } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfRadio } from "@storefront-ui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           ${generateStorybookTable(cssTableConfig, "CSS modifiers")}`
       }

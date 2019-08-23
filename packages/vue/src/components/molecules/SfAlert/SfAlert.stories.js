@@ -82,7 +82,7 @@ storiesOf("Molecules|Alert", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfAlert } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfAlert } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `

@@ -69,7 +69,7 @@ storiesOf("Atoms|CircleIcon", module)
         summary: `
         <p>Rounded button with icon as content.</p>
         <h2> Usage </h2>
-        <pre><code>import { SfCircleIcon } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfCircleIcon } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `

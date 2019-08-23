@@ -57,7 +57,7 @@ export default storiesOf("Molecules|ProductOption", module)
       info: {
         summary: `
           <h2> Usage </h2>
-          <pre><code>import { SfProductOption } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfProductOption } from "@storefront-ui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }

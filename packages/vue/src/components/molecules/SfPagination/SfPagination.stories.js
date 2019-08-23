@@ -83,7 +83,7 @@ storiesOf("Molecules|Pagination", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfPagination } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfPagination } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(eventTableConfig, "Events")}
         `

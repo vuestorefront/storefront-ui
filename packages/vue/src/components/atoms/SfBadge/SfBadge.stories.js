@@ -57,7 +57,7 @@ storiesOf("Atoms|Badge", module)
         <h2> Description </h2>
         <p>Badge component. Place desired content into its default slot.</p>
         <h2> Usage </h2>
-        <pre><code>import { SfBadge } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfBadge } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `
