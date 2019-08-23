@@ -52,7 +52,10 @@ storiesOf("Atoms|Input", module)
       ...vm,
       props: {
         name: {
-          default: text("Name", "Name")
+          default: text("Name", "name")
+        },
+        label: {
+          default: text("Label", "label")
         },
         valid: {
           default: boolean("Valid", true)
@@ -66,7 +69,14 @@ storiesOf("Atoms|Input", module)
       },
       template: `
       <div :style="{ width: '300px', margin: '50px' }">
-        <SfInput v-model="value" :name="label" :valid="valid" :errorMessage="errorMessage" :required="required" />
+        <SfInput 
+          v-model="value" 
+          :name="name" 
+          :label="label" 
+          :valid="valid" 
+          :errorMessage="errorMessage" 
+          :required="required" 
+        />
       </div>`
     }),
     {
@@ -81,7 +91,7 @@ storiesOf("Atoms|Input", module)
     }
   )
   .add(
-    "[slot] default",
+    "[slot] label",
     () => ({
       ...vm,
       props: {
@@ -98,7 +108,10 @@ storiesOf("Atoms|Input", module)
       template: `
         <div :style="{ width: '300px', margin: '50px' }">
           <SfInput v-model="value" :valid="valid" :required="required">
+          <template #label>
             <span style="color: salmon;">Address</span>
+          </template>
+            
           </SfInput>
         </div>
       `
@@ -125,7 +138,9 @@ storiesOf("Atoms|Input", module)
       template: `
         <div :style="{ width: '300px', margin: '50px' }">
           <SfInput v-model="value" :label="label" :valid="valid" :required="required">
-            <span slot="errorMessage" style="color: orange;">This field is not correct.</span>
+          <template #errorMessage>
+            <span  style="color: orange;">This field is not correct.</span>
+          </template>
           </SfInput>
         </div>
       `

@@ -1,10 +1,20 @@
-@import '../variables';
+@import "../variables";
 
 $select-option-padding: 0.75rem 1.875rem;
 $select-color-primary: $c-light-primary !default;
 $select-color-secondary: $c-dark-primary !default;
+$select-color-invalid: rgba(240, 140, 125, 1) !default;
+$select-transition: all 0.3s ease-in-out !default;
+$select__label-font-size: $font-size-big-desktop !default;
+$select__label--active-font-size: 0.625rem !default;
+$select__error-message-min-height: 0.875rem !default;
 
-.sf-select-option{
+@mixin move-label-up {
+  top: -3px;
+  font-size: $select__label--active-font-size;
+}
+
+.sf-select-option {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -12,34 +22,35 @@ $select-color-secondary: $c-dark-primary !default;
   user-select: none;
   & + & {
     border-top: 1px solid $select-color-primary;
-    @media screen and (min-width: $desktop-min){
+    @media screen and (min-width: $desktop-min) {
       border-top: 0;
     }
   }
-  &--active{
+  &--active {
     background-color: $select-color-primary;
   }
-  &:hover{
+  &:hover {
     outline: 1px solid $select-color-primary;
   }
 }
-.sf-select{
+
+.sf-select {
   $this: &;
   position: relative;
   white-space: nowrap;
   user-select: none;
-  &:focus{
+  &:focus {
     outline: 0;
   }
-  &__selected{
+  &__selected {
     padding: $select-option-padding;
     display: flex;
     justify-content: flex-start;
     padding-left: 0;
-    &:hover{
+    &:hover {
       outline: 0;
     }
-    &::after{
+    &::after {
       flex: 0 0 7px;
       height: 7px;
       margin-left: auto;
@@ -49,88 +60,118 @@ $select-color-secondary: $c-dark-primary !default;
       content: "";
     }
   }
-  &__overlay{
+  &__label {
+    font-size: $select__label-font-size;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    top: 10px;
+    transition: $select-transition;
+    &::after {
+      color: $select-color-primary;
+    }
+    &--is-selected{
+      @include move-label-up();
+    }
+    &--is-active{
+      @include move-label-up();
+      color: $c-accent-primary;
+    }
+    &--is-required{
+      &::after{
+        content: " *";
+        color: $c-accent-primary;
+      }
+    }
+  }
+  &__error-message {
+    padding-top: $spacer-small;
+    color: $select-color-invalid;
+    font-size: $font-size-extra-small-desktop;
+    min-height: $select__error-message-min-height;
+  }
+  &__overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
-    @media screen and (min-width: $desktop-min){
+    @media screen and (min-width: $desktop-min) {
       display: none;
     }
   }
-  &__dropdown{
+  &__dropdown {
     position: fixed;
     top: auto;
     left: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 3;
     width: 100%;
     box-sizing: border-box;
-    background-color: #FFF;
-    @media screen and (min-width: $desktop-min){
+    background-color: #fff;
+    @media screen and (min-width: $desktop-min) {
       position: absolute;
-      top: calc(100% + #{$spacer-big});
+      top: 100%;
       bottom: auto;
       left: 0;
       box-shadow: 0 8px 11px rgba(0, 0, 0, 0.1);
     }
   }
-  &__options{
+  &__options {
     padding: 0;
     margin: 0;
     overflow: auto;
     list-style-type: none;
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
       width: 0;
     }
   }
-  &__cancel{
+  &__cancel {
     box-sizing: border-box;
     width: 100%;
     padding: $select-option-padding;
     border: 0;
     background-color: $select-color-primary;
-    color: #A3A5AD;
+    color: #a3a5ad;
     font-size: 1rem;
     text-transform: none;
     text-align: center;
-    &:focus{
+    &:focus {
       outline: 0;
     }
-    &:hover{
+    &:hover {
       background-color: $select-color-primary;
     }
-    @media screen and (min-width: $desktop-min){
+    @media screen and (min-width: $desktop-min) {
       display: none;
     }
   }
-  &--bordered{
-    #{$this}__selected{
+  &--bordered {
+    #{$this}__selected {
       border: 1px solid $select-color-primary;
     }
   }
-  &--underlined{
-    #{$this}__selected{
+  &--underlined {
+    #{$this}__selected {
       border-bottom: 1px solid $select-color-primary;
     }
   }
-  &-enter-active{
-    animation: sf-select--mobile .15s;
-    @media screen and (min-width:$desktop-min){
-      animation: sf-select--dekstop .15s;
+  &-enter-active {
+    animation: sf-select--mobile 0.15s;
+    @media screen and (min-width: $desktop-min) {
+      animation: sf-select--dekstop 0.15s;
     }
   }
-  &-leave-active{
-    animation: sf-select--mobile .15s reverse;
-    @media screen and (min-width:$desktop-min){
-      animation: sf-select--dekstop .15s reverse;
+  &-leave-active {
+    animation: sf-select--mobile 0.15s reverse;
+    @media screen and (min-width: $desktop-min) {
+      animation: sf-select--dekstop 0.15s reverse;
     }
   }
 }
 
-@keyframes sf-select--desktop{
+@keyframes sf-select--desktop {
   0% {
     opacity: 0;
   }
@@ -138,7 +179,7 @@ $select-color-secondary: $c-dark-primary !default;
     opacity: 1;
   }
 }
-@keyframes sf-select--mobile{
+@keyframes sf-select--mobile {
   0% {
     transform: translate(0, 100%);
   }

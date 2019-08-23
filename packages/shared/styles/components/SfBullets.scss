@@ -9,21 +9,22 @@ $bullet-margin--active: 5px !default;
 $bullet-color--active: $c-green-secondary !default;
 
 .sf-bullets {
-    display: flex;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
 .sf-bullet {
-    border-radius: $bullet-border-radius;
-    background: $bullet-color;
-    width: $bullet-size;
-    height: $bullet-size;
-    margin: $bullet-margin;
-    cursor: pointer;
-
-    &--active {
-        background-color: $bullet-color--active;
-        width: $bullet-size--active;
-        height: $bullet-size--active;
-        margin: $bullet-margin--active;
-    }
+  border-radius: $bullet-border-radius;
+  background: $bullet-color;
+  width: $bullet-size;
+  height: $bullet-size;
+  margin: $bullet-margin;
+  cursor: pointer;
+  &--active {
+    background-color: $bullet-color--active;
+    width: $bullet-size--active;
+    height: $bullet-size--active;
+    margin: $bullet-margin--active;
+  }
 }

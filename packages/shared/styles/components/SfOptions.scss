@@ -1,55 +1,52 @@
 @import '../variables';
 
-$sf-options__transition                     : all 0.3s ease-in-out !default;
-
-$sf-options__label-margin-bottom            : 0.5rem !default;
-$sf-options__label-font-size                : $font-size-big-mobile !default;
-
-$sf-options__option-size                    : 2rem !default;
-$sf-options-desktop__option-color-size      : 1rem !default;
-
-$sf-options__option-font-size               : $font-size-regular-mobile !default;
-$sf-options__option-margin                  : 0.75rem !default;
-
-$sf-options-mobile__option-text-color       : $c-gray-primary;
-$sf-options-desktop__option-text-color      : $c-black;
+$options__transition: all 0.3s ease-in-out !default;
+$options__label-margin-bottom: 0.5rem !default;
+$options__label-font-size: $font-size-big-mobile !default;
+$options__option-size: 2rem !default;
+$options-desktop__option-color-size: 1rem !default;
+$options__option-font-size: $font-size-regular-mobile !default;
+$options__option-margin: 0.75rem !default;
+$options-mobile__option-text-color: $c-gray-primary;
+$options-desktop__option-text-color: $c-black;
 
 .sf-options {
   display: flex;
   flex-wrap: wrap;
-
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
   }
-
   &__option {
-    &-text, &-color, &-image {
+    &-text,
+    &-color,
+    &-image {
       display: flex;
       justify-content: center;
       align-items: center;
-      min-width: $sf-options__option-size;
-      min-height: $sf-options__option-size;
-      transition: $sf-options__transition;
+      min-width: $options__option-size;
+      min-height: $options__option-size;
+      transition: $options__transition;
     }
-
     &-text {
-      font-size: $sf-options__option-font-size;
-      color: $sf-options-mobile__option-text-color;
-      &--selected, &:hover, &:focus {
-        color: $sf-options-desktop__option-text-color;
+      font-size: $options__option-font-size;
+      color: $options-mobile__option-text-color;
+      &--selected,
+      &:hover,
+      &:focus {
+        color: $options-desktop__option-text-color;
         background-color: rgba(241, 242, 243, 1);
         @media (min-width: $desktop-min) {
           background-color: $c-white;
         }
       }
     }
-
-    &-color, &-image {
+    &-color,
+    &-image {
       @media (min-width: $desktop-min) {
-        min-width: $sf-options-desktop__option-color-size;
-        min-height: $sf-options-desktop__option-color-size;
+        min-width: $options-desktop__option-color-size;
+        min-height: $options-desktop__option-color-size;
       }
     }
     &-image {
@@ -57,8 +54,8 @@ $sf-options-desktop__option-text-color      : $c-black;
       background-position: center;
       background-size: 100%;
     }
-
-    &-color, &-image {
+    &-color,
+    &-image {
       &-check {
         position: absolute;
         top: -30%;
@@ -68,47 +65,45 @@ $sf-options-desktop__option-text-color      : $c-black;
         height: 23px;
         width: 23px;
         opacity: 0;
-        transition: $sf-options__transition;
-        background-image: url('/assets/check.svg');
+        transition: $options__transition;
+        background-image: url("/assets/check.svg");
         background-repeat: no-repeat;
         background-position: center;
         background-color: $c-green-primary;
         border-radius: 50%;
       }
-
       &-wrapper {
         position: relative;
       }
-
-      &--selected + &-check, &-wrapper:hover > &-check {
+      &--selected + &-check,
+      &-wrapper:hover > &-check {
         opacity: 1;
         @media (min-width: $desktop-min) {
           opacity: 0;
         }
       }
-      &--selected, &:hover, &:focus {
+      &--selected,
+      &:hover,
+      &:focus {
         @media (min-width: $desktop-min) {
-          min-width: calc(#{$sf-options-desktop__option-color-size} * 2);
-          min-height: calc(#{$sf-options-desktop__option-color-size} * 2);
-          box-shadow: 0 4px 4px -2px #C8C9CB;
+          min-width: calc(#{$options-desktop__option-color-size} * 2);
+          min-height: calc(#{$options-desktop__option-color-size} * 2);
+          box-shadow: 0 4px 4px -2px #c8c9cb;
         }
       }
     }
   }
-
   &__option-container {
     display: flex;
     align-items: center;
-    margin-right: $sf-options__option-margin;
+    margin-right: $options__option-margin;
     cursor: pointer;
-
     &:last-child {
       margin-right: 0;
     }
   }
-
   &__label {
-    margin-bottom: $sf-options__label-margin-bottom;
-    font-size: $sf-options__label-font-size;
+    margin-bottom: $options__label-margin-bottom;
+    font-size: $options__label-font-size;
   }
 }

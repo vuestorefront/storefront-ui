@@ -10,12 +10,10 @@ $property__value-font-weight: 500 !default;
 .sf-property {
   display: flex;
   margin: $property-margin-y $property-margin-x;
-
   &__name {
     margin-right: 0.5rem;
   }
-
   &__value {
-    font-weight: $property__value-font-weight; 
+    font-weight: $property__value-font-weight;
   }
 }

@@ -1,5 +1,1 @@
-<template>
-  <li class="sf-list__item">
-    <slot />
-  </li>
-</template>
+<template lang="html" src="./SfListItem.html"></template>

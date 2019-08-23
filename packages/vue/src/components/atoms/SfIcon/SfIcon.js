@@ -1,4 +1,4 @@
-import { icons } from "../../../assets/icons";
+import { icons } from "@storefrontui/shared/icons/icons";
 
 const HEX_REGEX = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
 const RGB_REGEX = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/;
@@ -13,7 +13,7 @@ export default {
      * It can be single SVG path (string) or array of SVG paths or icon name
      * from our icons list (such as 'added_to_cart`)
      */
-    path: {
+    icon: {
       type: [String, Array],
       default: ""
     },
@@ -29,7 +29,7 @@ export default {
     /**
      * Custom color of the icon
      * It can be according to our standard colors, or `#fff` or `rgb(255,255,255)` or nothing.
-     * Standard colors: `primary`, `secondary`, `white`, `black`, `accent`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`.
+     * Standard colors: `primary`, `secondary`, `white`, `black`, `accent`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`.
      */
     color: {
       type: String,
@@ -64,18 +64,18 @@ export default {
       return this.isSFSizes ? `sf-icon--size-${this.size.trim()}` : "";
     },
     isSFIcons() {
-      return SF_ICONS.includes(this.path.trim());
+      return SF_ICONS.includes(this.icon.trim());
     },
     iconViewBox() {
       return this.isSFIcons
-        ? icons[this.path].viewBox || this.viewBox
+        ? icons[this.icon].viewBox || this.viewBox
         : this.viewBox;
     },
     iconPaths() {
       if (this.isSFIcons) {
-        return icons[this.path].paths;
+        return icons[this.icon].paths;
       } else {
-        return Array.isArray(this.path) ? this.path : [this.path];
+        return Array.isArray(this.icon) ? this.icon : [this.icon];
       }
     }
   },

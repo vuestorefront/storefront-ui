@@ -12,11 +12,10 @@ $chevron__bar-rotate: 45deg !default;
 $chevron__bar-color: $c-black !default;
 
 .sf-chevron {
+  position: relative;
+  display: block;
   height: $chevron-size;
   width: $chevron-size;
-  display: block;
-  margin: 0 auto;
-  position: relative;
   cursor: pointer;
 
   &__left-bar {

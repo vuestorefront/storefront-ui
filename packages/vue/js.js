@@ -3,7 +3,6 @@ import SfArrow from "./src/components/atoms/SfArrow/SfArrow.js";
 import SfBadge from "./src/components/atoms/SfBadge/SfBadge.js";
 import SfButton from "./src/components/atoms/SfButton/SfButton.js";
 import SfCheckbox from "./src/components/atoms/SfCheckbox/SfCheckbox.js";
-import SfLabel from "./src/components/atoms//SfLabel/SfLabel.js";
 import SfLoader from "./src/components/atoms/SfLoader/SfLoader.js";
 import SfPrice from "./src/components/atoms/SfPrice/SfPrice.js";
 import SfProperty from "./src/components/atoms/SfProperty/SfProperty.js";
@@ -30,13 +29,13 @@ import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.js";
 import SfList from "./src/components/organisms/SfList/SfList.js";
 import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.js";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.js";
+import SfStoreLocator from "./src/components/organisms/SfStoreLocator/SfStoreLocator.js";
 
 export {
   SfArrow,
   SfBadge,
   SfButton,
   SfCheckbox,
-  SfLabel,
   SfLoader,
   SfPrice,
   SfProperty,
@@ -60,5 +59,6 @@ export {
   SfCarousel,
   SfList,
   SfMegaMenu,
-  SfTopBar
+  SfTopBar,
+  SfStoreLocator
 };
