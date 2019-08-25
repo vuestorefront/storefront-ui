@@ -1,12 +1,88 @@
-@import '../variables';
+@import "../variables";
 
 // $component__block-property: value;
 
-// .sf-steps {
-//   &__element {
+$sf-steps__active-line-height-mobile: 3px;
+$sf-steps__active-line-height-desktop: 2px;
 
-//   }
-//   &--modifier {
+%sf-store-active-line {
+  position: absolute;
+  content: "";
+  display: block;
+  height: $sf-steps__active-line-height-mobile;
+  width: 100%;
+  bottom: -$sf-steps__active-line-height-mobile /2;
+  left: 0px;
+  background-color: #1d1f22;
 
-//   }
-// }
+  @media screen and (min-width: $desktop-min) {
+    height: $sf-steps__active-line-height-desktop;
+    bottom: -$sf-steps__active-line-height-desktop /2;
+  }
+}
+
+.sf-steps {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #f1f2f4;
+
+  &__step {
+    position: relative;
+    padding: 20px 0;
+    font-size: 12px;
+    color: $c-gray-secondary;
+    font-weight: 500;
+    text-transform: uppercase;
+    flex: 1;
+    cursor: pointer;
+
+    &:last-of-type {
+      &.sf-steps__step-current {
+        span:after {
+          display: none;
+        }
+        &:after {
+          @extend %sf-store-active-line;
+        }
+      }
+    }
+
+    span {
+      position: relative;
+      text-align: right;
+      display: block;
+      width: 50%;
+      transform: translate(25%);
+    }
+
+    &-done {
+      &:after {
+        @extend %sf-store-active-line;
+      }
+    }
+
+    &-current {
+      color: $c-dark-primary;
+
+      span {
+        &:after {
+          @extend %sf-store-active-line;
+          width: calc(100% + 25%);
+          bottom: -(20px + ($sf-steps__active-line-height-mobile / 2));
+          left: -25%;
+
+          @media screen and (min-width: $desktop-min) {
+            bottom: -(20px + ($sf-steps__active-line-height-desktop / 2));
+          }
+        }
+      }
+    }
+
+    &-disabled {
+      cursor: not-allowed;
+    }
+  }
+}
