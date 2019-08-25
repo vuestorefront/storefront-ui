@@ -1,1 +1,11 @@
-<div class="sf-steps"></div>
+<div class="sf-steps">
+  <slot v-for="step in parsedSteps" :step-click="stepClick">
+    <div
+      :key="step.index"
+      :class="{'sf-steps__step': true, 'sf-steps__step-done': step.done, 'sf-steps__step-current': step.current, 'sf-steps__step-disabled': step.disabled}"
+      @click="stepClick(step)"
+    >
+      <span>{{ step.step }}</span>
+    </div>
+  </slot>
+</div>
