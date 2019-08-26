@@ -5,14 +5,14 @@
       <slot />
     </div>
   </transition>
-  <img v-if="src" :alt="alt" :data-src="src" class="sf-image__img sf-image-lozad">
-  <span class="sf-image__pictures" v-else-if="!src && images">
-    <span v-for="(imagem, index) in images.slice(0, 2)" class="sf-image__picture">
-      <picture ref="picture" class="sf-image-lozad" :data-iesrc="imagem.normal.url" :data-alt="imagem.normal.alt">
-        <source :srcset="imagem.small.url" media="(max-width: 767px)">
-        <source :srcset="imagem.normal.url" media="(min-width: 768px)">
+  <img v-if="typeof src === 'string'" :alt="alt" :src="src" :class="lazy === true ? 'sf-image__img sf-image-lozad' : 'sf-image__img'">
+  <span class="sf-image__pictures" v-else-if="typeof src === 'object'">
+    <span v-for="(imagem, index) in src.slice(0, 2)" class="sf-image__picture">
+      <picture ref="picture" :class="lazy ? 'sf-image__img sf-image-lozad' : 'sf-image__img'" :data-iesrc="imagem.normal.url" :data-alt="imagem.normal.alt">
+        <source v-if="imagem.small.url" :srcset="imagem.small.url" :media="`(max-width: ${pictureBreakpoint - 0.02}px)`">
+        <source :srcset="imagem.normal.url" :media="`(min-width: ${pictureBreakpoint}px)`">
       </picture>
     </span>
   </span>
-  <img v-else :alt="alt" :data-src="placeholder" class="sf-image__img sf-image-lozad">
-</div>
+  <img v-else :alt="alt" :src="placeholder" class="sf-image__img">
+</div> 
