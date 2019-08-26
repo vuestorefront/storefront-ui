@@ -6,7 +6,6 @@ export default {
      * Image url
      */
     src: {
-      type: String,
       default: ""
     },
     /**
@@ -38,10 +37,11 @@ export default {
       default: "/assets/placeholder.png"
     },
     /**
-     * Array of images
+     * Picture tag breakpoint
      */
-    images: {
-      type: Array
+    pictureBreakpoint: {
+      type: Number,
+      default: 576
     }
   },
   data() {
