@@ -64,9 +64,15 @@ export default {
   mounted: function () {
     if (this.lazy !== false) {
       let observer
-      observer = lozad(".sf-image-lozad");
+      let self = this
+      observer = lozad(".sf-image-lozad", {
+        loaded: function () {
+          self.loaded = true;
+        }
+      });
       observer.observe();
+    } else {
+      this.loaded = true;
     }
-    this.loaded = true;
   }
 };
