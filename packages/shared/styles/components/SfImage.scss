@@ -29,7 +29,7 @@ $image__overlay-color: $c-white !default;
     display: block;
     opacity: 0;
     &:first-child{
-      opacity: 1 !important;
+      opacity: 1;
     }
   }
   &__pictures{
