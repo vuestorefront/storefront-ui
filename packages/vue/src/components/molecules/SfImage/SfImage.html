@@ -5,9 +5,14 @@
       <slot />
     </div>
   </transition>
-  <img ref="img" loading="lazy" class="sf-image__img" v-if="src" />
-  <picture ref="picture" loading="lazy" class="sf-image__img" v-else>
-    <source ref="pictureSmall" media="(max-width: 767px)">
-    <source ref="pictureNormal" media="(min-width: 768px)">
-  </picture>
+  <img v-if="src" :alt="alt" :data-src="src" class="sf-image__img sf-image-lozad">
+  <span class="sf-image__pictures" v-else-if="!src && images">
+    <span v-for="(imagem, index) in images.slice(0, 2)" class="sf-image__picture">
+      <picture ref="picture" class="sf-image-lozad" :data-iesrc="imagem.normal.url" :data-alt="imagem.normal.alt">
+        <source :srcset="imagem.small.url" media="(max-width: 767px)">
+        <source :srcset="imagem.normal.url" media="(min-width: 768px)">
+      </picture>
+    </span>
+  </span>
+  <img v-else :alt="alt" :data-src="placeholder" class="sf-image__img sf-image-lozad">
 </div>
