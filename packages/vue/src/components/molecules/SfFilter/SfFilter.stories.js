@@ -59,7 +59,7 @@ export default storiesOf("Molecules|Filter", module)
           <h2> Description </h2>
           <p>This component should be used for filtering products on listings.</p>
           <h2> Usage </h2>
-          <pre><code>import { SfFilter } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfFilter } from "@storefront-ui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }

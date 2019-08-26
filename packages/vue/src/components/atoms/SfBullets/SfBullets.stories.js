@@ -61,7 +61,7 @@ storiesOf("Atoms|Bullets", module)
       info: {
         summary: `<p>Component for bullet-pagination.</p>
        <h2>Usage</h2>
-       <pre><code>import { SfBullets } from "@storefrontui/dist/SfBullets.vue"</code></pre>
+       <pre><code>import { SfBullets } from "@storefront-ui/dist/SfBullets.vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        ${generateStorybookTable(eventsTableConfig, "Events")}
        `
@@ -102,7 +102,7 @@ storiesOf("Atoms|Bullets", module)
       info: {
         summary: `<p>Component for bullet-pagination.</p>
        <h2>Usage</h2>
-       <pre><code>import { SfBullets } from "@storefrontui/dist/SfBullets.vue"</code></pre>
+       <pre><code>import { SfBullets } from "@storefront-ui/dist/SfBullets.vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        ${generateStorybookTable(eventsTableConfig, "Events")}
        `
@@ -143,7 +143,7 @@ storiesOf("Atoms|Bullets", module)
       info: {
         summary: `<p>Component for bullet-pagination.</p>
        <h2>Usage</h2>
-       <pre><code>import { SfBullets } from "@storefrontui/dist/SfBullets.vue"</code></pre>
+       <pre><code>import { SfBullets } from "@storefront-ui/dist/SfBullets.vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        ${generateStorybookTable(eventsTableConfig, "Events")}
        `
