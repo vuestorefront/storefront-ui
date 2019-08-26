@@ -3,11 +3,9 @@ export default {
   name: "SfImage",
   props: {
     /**
-     * Image url
+     * Images list or image url
      */
-    src: {
-      default: ""
-    },
+    src: [Array, String],
     /**
      * Alt attribute value
      */
@@ -30,7 +28,7 @@ export default {
       default: true
     },
     /**
-     * Placeholder
+     * Src image placeholder
      */
     placeholder: {
       type: String,
@@ -61,12 +59,12 @@ export default {
       this.overlay = state;
     }
   },
-  mounted: function () {
+  mounted: function() {
     if (this.lazy !== false) {
-      let observer
-      let self = this
+      let observer;
+      let self = this;
       observer = lozad(".sf-image-lozad", {
-        loaded: function () {
+        loaded: function() {
           self.loaded = true;
         }
       });
