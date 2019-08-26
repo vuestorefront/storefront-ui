@@ -1,17 +1,46 @@
-<div
-  class="sf-image"
-  :style="{maxWidth: maxWidth}"
-  @mouseover="hoverHandler(true)"
-  @mouseleave="hoverHandler(false)">
+<div class="sf-image" :style="{maxWidth: maxWidth}" @mouseover="hoverHandler(true)" @mouseleave="hoverHandler(false)">
   <transition :name="transition">
     <div v-if="hasOverlay && loaded" class="sf-image__overlay">
       <!--@slot slot for overlay content, if is empty the overlay is off -->
-      <slot/>
+      <slot />
     </div>
   </transition>
-  <img
-    ref="img"
-    loading="lazy"
+  <template v-if="lazy">
+    <img
+    v-if="typeof src === 'string'"
+    :alt="alt"
+    :data-src="src"
+    class="sf-image__img sf-image-lozad"
+    >
+    <span class="sf-image__pictures" v-else-if="Array.isArray(src)">
+      <span v-for="(imagem, index) in src.slice(0, 2)" class="sf-image__picture" :key="index">
+        <picture class="sf-image__img sf-image-lozad"
+          :data-iesrc="imagem.normal.url" :data-alt="imagem.normal.alt">
+          <source v-if="imagem.small.url" :srcset="imagem.small.url"
+            :media="`(max-width: ${pictureBreakpoint - 0.02}px)`">
+          <source :srcset="imagem.normal.url" :media="`(min-width: ${pictureBreakpoint}px)`">
+        </picture>
+      </span>
+    </span>
+    <img v-else :src="placeholder" class="sf-image__img">
+  </template>
+  <template v-else>
+    <img
+    v-if="typeof src === 'string'"
+    :alt="alt"
+    :src="src"
     class="sf-image__img"
-  >
+    >
+    <span class="sf-image__pictures" v-else-if="typeof src === 'object'">
+      <span v-for="(imagem, index) in src.slice(0, 2)" class="sf-image__picture">
+        <picture class="sf-image__img">
+          <source v-if="imagem.small.url" :srcset="imagem.small.url"
+            :media="`(max-width: ${pictureBreakpoint - 0.02}px)`">
+          <source :srcset="imagem.normal.url" :media="`(min-width: ${pictureBreakpoint}px)`">
+          <img :src="imagem.normal.url" class="sf-image__img">
+        </picture>
+      </span>
+    </span>
+    <img v-else :src="placeholder" class="sf-image__img">
+  </template>
 </div>
