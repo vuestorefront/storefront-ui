@@ -33,7 +33,6 @@ $image__overlay-color: $c-white !default;
     }
   }
   &__pictures{
-    display: -webkit-box;
     display: flex;
     align-items: center;
     overflow: hidden;
