@@ -14,7 +14,7 @@
     >
     <span class="sf-image__pictures" v-else-if="typeof src === 'object'">
       <span v-for="(imagem, index) in src.slice(0, 2)" class="sf-image__picture">
-        <picture ref="picture" class="sf-image__img sf-image-lozad"
+        <picture class="sf-image__img sf-image-lozad"
           :data-iesrc="imagem.normal.url" :data-alt="imagem.normal.alt">
           <source v-if="imagem.small.url" :srcset="imagem.small.url"
             :media="`(max-width: ${pictureBreakpoint - 0.02}px)`">
@@ -28,13 +28,12 @@
     <img
     v-if="typeof src === 'string'"
     :alt="alt"
-    :data-src="src"
+    :src="src"
     class="sf-image__img"
     >
     <span class="sf-image__pictures" v-else-if="typeof src === 'object'">
       <span v-for="(imagem, index) in src.slice(0, 2)" class="sf-image__picture">
-        <picture ref="picture" class="sf-image__img"
-          :data-iesrc="imagem.normal.url" :data-alt="imagem.normal.alt">
+        <picture class="sf-image__img">
           <source v-if="imagem.small.url" :srcset="imagem.small.url"
             :media="`(max-width: ${pictureBreakpoint - 0.02}px)`">
           <source :srcset="imagem.normal.url" :media="`(min-width: ${pictureBreakpoint}px)`">
