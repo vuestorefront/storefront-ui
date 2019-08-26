@@ -41,7 +41,7 @@ $image__overlay-color: $c-white !default;
         display: none;
         &:last-child{
           display: block;
-          opacity: 1 !important;
+          opacity: 1;
         }
       }
     }
