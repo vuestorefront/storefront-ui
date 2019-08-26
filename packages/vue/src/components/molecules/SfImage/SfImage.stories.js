@@ -24,40 +24,43 @@ const scssTableConfig = {
   ]
 };
 
+const data = () => {
+  return {
+    src: [
+      {
+        normal: {
+          url:
+            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+          alt: "Macbook PRO Apple"
+        },
+        small: {
+          url:
+            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+          alt: "Macbook PRO Apple"
+        }
+      },
+      {
+        normal: {
+          url:
+            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+          alt: "Macbook PRO Apple (keyboard)"
+        },
+        small: {
+          url:
+            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+          alt: "Macbook PRO Apple (keyboard)"
+        }
+      }
+    ]
+  };
+};
+
 storiesOf("Molecules|Image", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
     () => ({
       props: {
-        src: {
-          default: text("src (prop)", "assets/storybook/product_thumb.png")
-        },
-        alt: {
-          default: text("alt (prop)", "angelina_trn")
-        }
-      },
-      components: { SfImage },
-      template: `<SfImage
-        :src="src"
-        alt="angelina_trn"/>`
-    }),
-    {
-      info: {
-        summary: `<h2>Usage</h2>
-       <pre><code>import { SfImage } from "@storefrontui/vue"</code></pre>
-       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-       `
-      }
-    }
-  )
-  .add(
-    "[slot] default",
-    () => ({
-      props: {
-        src: {
-          default: text("src (prop)", "assets/storybook/product_thumb.png")
-        },
         alt: {
           default: text("alt (prop)", "angelina_trn")
         },
@@ -77,6 +80,58 @@ storiesOf("Molecules|Image", module)
           )
         }
       },
+      data,
+      components: { SfImage },
+      template: `<SfImage
+        :src="src"
+        />`
+    }),
+    {
+      info: {
+        summary: `<h2>Usage</h2>
+       <pre><code>import { SfImage } from "@storefrontui/vue"</code></pre>
+            You can pass an array of objects (images) with the format below:
+            <code>
+          let src = [
+            {
+              small: { url, alt },
+              normal: { url, alt }
+            }
+          ]
+        </code>
+        <br>
+        <br>
+        Or a string with the image url like the example: <code>let src = "assets/storybook/product_thumb.png"</code>
+        <br>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+       `
+      }
+    }
+  )
+  .add(
+    "[slot] default",
+    () => ({
+      props: {
+        alt: {
+          default: text("alt (prop)", "angelina_trn")
+        },
+        transition: {
+          default: select(
+            "transition (prop)",
+            {
+              fade: "fade",
+              "slide-left": "slide-left",
+              "slide-right": "slide-right",
+              "collapse-top": "collapse-top",
+              "collapse-bottom": "collapse-bottom",
+              "fade-slide": "fade-slide",
+              "fade-collapse": "fade-collapse"
+            },
+            "fade"
+          )
+        }
+      },
+      data,
       components: { SfImage },
       template: `<SfImage
         :src="src"
