@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $image__overlay-justify-content: center !default;
 $image__overlay-align-items: center !default;
@@ -25,21 +25,21 @@ $image__overlay-color: $c-white !default;
     background-color: $image__overlay-background-color;
     color: $image__overlay-color;
   }
-  &__picture{
+  &__picture {
     display: block;
     opacity: 0;
-    &:first-child{
+    &:first-child {
       opacity: 1;
     }
   }
-  &__pictures{
+  &__pictures {
     display: flex;
     align-items: center;
     overflow: hidden;
     &:hover {
-      .sf-image__picture{
+      .sf-image__picture {
         display: none;
-        &:last-child{
+        &:last-child {
           display: block;
           opacity: 1;
         }
