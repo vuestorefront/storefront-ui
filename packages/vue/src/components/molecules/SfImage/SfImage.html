@@ -12,7 +12,7 @@
     :data-src="src"
     class="sf-image__img sf-image-lozad"
     >
-    <span class="sf-image__pictures" v-else-if="typeof src === 'object'">
+    <span class="sf-image__pictures" v-else-if="Array.isArray(src)">
       <span v-for="(imagem, index) in src.slice(0, 2)" class="sf-image__picture">
         <picture class="sf-image__img sf-image-lozad"
           :data-iesrc="imagem.normal.url" :data-alt="imagem.normal.alt">
