@@ -62,13 +62,11 @@ export default {
     }
   },
   mounted: function () {
-    let observer
-    let self = this
-    observer = lozad(".sf-image-lozad", {
-      loaded: function () {
-        self.loaded = true;
-      }
-    });
-    observer.observe();
+    if (this.lazy !== false) {
+      let observer
+      observer = lozad(".sf-image-lozad");
+      observer.observe();
+    }
+    this.loaded = true;
   }
 };

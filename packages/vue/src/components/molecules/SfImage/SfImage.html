@@ -5,14 +5,43 @@
       <slot />
     </div>
   </transition>
-  <img v-if="typeof src === 'string'" :alt="alt" :src="src" :class="lazy === true ? 'sf-image__img sf-image-lozad' : 'sf-image__img'">
-  <span class="sf-image__pictures" v-else-if="typeof src === 'object'">
-    <span v-for="(imagem, index) in src.slice(0, 2)" class="sf-image__picture">
-      <picture ref="picture" :class="lazy ? 'sf-image__img sf-image-lozad' : 'sf-image__img'" :data-iesrc="imagem.normal.url" :data-alt="imagem.normal.alt">
-        <source v-if="imagem.small.url" :srcset="imagem.small.url" :media="`(max-width: ${pictureBreakpoint - 0.02}px)`">
-        <source :srcset="imagem.normal.url" :media="`(min-width: ${pictureBreakpoint}px)`">
-      </picture>
+  <template v-if="lazy">
+    <img
+    v-if="typeof src === 'string'"
+    :alt="alt"
+    :data-src="src"
+    class="sf-image__img sf-image-lozad"
+    >
+    <span class="sf-image__pictures" v-else-if="typeof src === 'object'">
+      <span v-for="(imagem, index) in src.slice(0, 2)" class="sf-image__picture">
+        <picture ref="picture" class="sf-image__img sf-image-lozad"
+          :data-iesrc="imagem.normal.url" :data-alt="imagem.normal.alt">
+          <source v-if="imagem.small.url" :srcset="imagem.small.url"
+            :media="`(max-width: ${pictureBreakpoint - 0.02}px)`">
+          <source :srcset="imagem.normal.url" :media="`(min-width: ${pictureBreakpoint}px)`">
+        </picture>
+      </span>
     </span>
-  </span>
-  <img v-else :src="placeholder" class="sf-image__img">
+    <img v-else :src="placeholder" class="sf-image__img">
+  </template>
+  <template v-else>
+    <img
+    v-if="typeof src === 'string'"
+    :alt="alt"
+    :data-src="src"
+    class="sf-image__img"
+    >
+    <span class="sf-image__pictures" v-else-if="typeof src === 'object'">
+      <span v-for="(imagem, index) in src.slice(0, 2)" class="sf-image__picture">
+        <picture ref="picture" class="sf-image__img"
+          :data-iesrc="imagem.normal.url" :data-alt="imagem.normal.alt">
+          <source v-if="imagem.small.url" :srcset="imagem.small.url"
+            :media="`(max-width: ${pictureBreakpoint - 0.02}px)`">
+          <source :srcset="imagem.normal.url" :media="`(min-width: ${pictureBreakpoint}px)`">
+          <img :src="imagem.normal.url" class="sf-image__img">
+        </picture>
+      </span>
+    </span>
+    <img v-else :src="placeholder" class="sf-image__img">
+  </template>
 </div>
