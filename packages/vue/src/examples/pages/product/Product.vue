@@ -10,20 +10,16 @@
           <div class="box"></div>
           <SfTabs :openTab="1">
             <SfTab header="Description">
-              <div>
-                The Karissa V-Neck Tee features a semi-fitted shape that's
+              <div>The Karissa V-Neck Tee features a semi-fitted shape that's
                 flattering for every figure. You can hit the gym with confidence
                 while it hugs curves and hides common "problem" areas. Find
-                stunning women's cocktail dresses and party dresses.
-              </div>
-              <div>
-                <SfProperty
-                  :name="property.name"
-                  :value="property.value"
-                  v-for="(property, i) in properties"
-                  :key="i"
-                ></SfProperty>
-              </div>
+                stunning women's cocktail dresses and party dresses.</div>
+              <SfProperty
+                :name="property.name"
+                :value="property.value"
+                v-for="(property, i) in properties"
+                :key="i"
+              ></SfProperty>
             </SfTab>
             <SfTab header="Reviews">Reviews</SfTab>
             <SfTab header="Additional Information"
@@ -243,10 +239,5 @@ export default {
       margin-left: $spacer-big;
     }
   }
-}
-.box {
-  width: 100%;
-  height: 50vh;
-  background-color: #5ece7b;
 }
 </style>
