@@ -6,7 +6,7 @@
 
 Base button component.
 
-## Most common use case example 
+## Most common usage scenario
 <br />
 <SfButton>Hello World!</SfButton>
 
