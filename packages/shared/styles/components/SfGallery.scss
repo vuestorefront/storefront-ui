@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 @import "~@glidejs/glide/src/assets/sass/glide.core";
 
 $gallery-flex-direction: row !default;
@@ -16,19 +16,24 @@ $gallery__stage-width: 400px !default;
   display: flex;
   flex-direction: $gallery-flex-direction;
   position: relative;
+  @media (max-width: $mobile-max) {
+    justify-content: center;
+  }
   &__thumbs {
     width: $gallery__nav-width;
     padding: 0;
     margin: $gallery__nav-margin;
+    overflow-y: auto;
     @media (max-width: $mobile-max) {
       z-index: 2;
       position: absolute;
       width: auto;
       margin: 0;
       padding: 0;
-      left: $spacer-medium;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 100%;
+      display: inline-flex;
+      bottom: 0;
+      overflow: inherit;
     }
   }
   &__item {
@@ -53,6 +58,9 @@ $gallery__stage-width: 400px !default;
         width: $gallery__item-mobile-size;
         background: $c-gray-secondary;
         border-radius: 50%;
+        @media (max-width: $mobile-max) {
+          margin: 0 5px;
+        }
       }
       &--selected::before {
         background: $c-accent-primary;
@@ -62,6 +70,7 @@ $gallery__stage-width: 400px !default;
   &__stage {
     width: $gallery__stage-width;
     max-width: 100%;
+    overflow: hidden;
   }
   &__thumb {
     display: block;
