@@ -39,6 +39,7 @@ import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.vue";
 import SfSidebar from "./src/components/organisms/SfSidebar/SfSidebar.vue";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.vue";
 import SfHero from "./src/components/organisms/SfHero/SfHero.vue";
+import SfTabs from "./src/components/organisms/SfTabs/SfTabs.vue";
 
 import SfStoreLocator from "./src/components/organisms/SfStoreLocator/SfStoreLocator.vue";
 import SfBannerGrid from "./src/components/organisms/SfBannerGrid/SfBannerGrid.vue";
@@ -85,5 +86,6 @@ export {
   SfStoreLocator,
   SfImage,
   SfBannerGrid,
-  SfBottomNavigation
+  SfBottomNavigation,
+  SfTabs
 };
