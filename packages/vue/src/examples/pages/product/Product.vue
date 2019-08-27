@@ -1,5 +1,23 @@
 <template>
   <div id="product">
+    <div class="grid">
+      <div class="grid__col">
+        <SfImage src="assets/storybook/productpage/productA.png" />
+        <SfImage src="assets/storybook/productpage/productB.png" />
+      </div>
+      <div class="grid__col">
+        <SfSticky>
+          <div class="box"></div>
+          <SfTabs :openTab="1">
+            <SfTab header="Description">Description</SfTab>
+            <SfTab header="Reviews">Reviews</SfTab>
+            <SfTab header="Additional Information"
+              >Additional Information</SfTab
+            >
+          </SfTabs>
+        </SfSticky>
+      </div>
+    </div>
     <SfSection titleHeading="Match it with">
       <SfCarousel :settings="{ gap: 0 }" class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
@@ -26,10 +44,45 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
+    <!-- SfImages Grid   -->
+    <SfBanner
+      title="Download our application to your mobile"
+      subtitle="Fashion to Take Away"
+      image="assets/storybook/homepage/bannerD.png"
+      class="banner-application sf-banner--left sf-banner--center desktop-only"
+    >
+      <template #title>
+        <h1 class="banner-application__title">
+          Download our application to your&nbsp;mobile
+        </h1>
+      </template>
+      <template #call-to-action>
+        <div>
+          <img
+            class="banner-application__download"
+            src="assets/storybook/homepage/google.png"
+            alt=""
+          />
+          <img
+            class="banner-application__download"
+            src="assets/storybook/homepage/apple.png"
+            alt=""
+          />
+        </div>
+      </template>
+    </SfBanner>
   </div>
 </template>
 <script>
-import { SfSection, SfCarousel, SfProductCard } from "@storefront-ui/vue";
+import {
+  SfSection,
+  SfCarousel,
+  SfProductCard,
+  SfBanner,
+  SfImage,
+  SfSticky,
+  SfTabs
+} from "@storefront-ui/vue";
 
 export default {
   name: "Product",
@@ -88,9 +141,13 @@ export default {
     };
   },
   components: {
+    SfBanner,
     SfSection,
     SfCarousel,
-    SfProductCard
+    SfProductCard,
+    SfImage,
+    SfSticky,
+    SfTabs
   }
 };
 </script>
@@ -106,5 +163,55 @@ export default {
   @media screen and (min-width: $desktop-min) {
     padding: 0;
   }
+}
+.grid {
+  display: flex;
+  &__col {
+    flex: 1;
+    & + & {
+      margin-left: 100px;
+    }
+  }
+}
+.product-card {
+  max-width: unset;
+  &:hover {
+    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+  }
+}
+.product-carousel {
+  margin: -20px 0;
+  /deep/ .sf-carousel__wrapper {
+    padding: 20px 0;
+    @media screen and (min-width: $desktop-min) {
+      padding: 20px;
+      max-width: calc(100% - 216px);
+    }
+  }
+}
+.banner-application {
+  min-height: 420px;
+  max-width: 1040px;
+  margin: auto;
+  &__title {
+    padding: 0;
+    margin: 0;
+    margin-top: $spacer-big;
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.388;
+  }
+  &__download {
+    max-height: 47px;
+    margin-top: $spacer-extra-big;
+    & + & {
+      margin-left: $spacer-big;
+    }
+  }
+}
+.box {
+  width: 100%;
+  height: 50vh;
+  background-color: #5ece7b;
 }
 </style>
