@@ -8,6 +8,7 @@
       <div style="margin-left: 100px; flex: 1">
         <SfSticky>
           <SfHeading title="Cashmere Sweater" class="sf-heading--left" />
+          <!-- -->
           <div style="display:flex; align-items: center">
             <SfPrice regular="$50.00" />
             <SfRating :score="4" :max="5" style="margin-left: auto" />
@@ -17,9 +18,43 @@
               Read all 28 reviews
             </div>
           </div>
-          <SfTabs :openTab="1">
+          <!-- -->
+          <div style="margin-top: 40px">
+            Find stunning women cocktail and party dresses. Stand out in lace
+            and metallic cocktail dresses and party dresses from all your
+            favorite brands.
+          </div>
+          <!-- -->
+          <div style="margin-top: 60px">
+            <SfSelect
+              v-model="size"
+              label="Size"
+              class="sf-select--bordered"
+              style="margin-bottom: 20px"
+            >
+              <SfSelectOption
+                v-for="(option, i) in sizes"
+                :key="i"
+                :value="option.value"
+              >
+                <span>{{ option.label }}</span>
+              </SfSelectOption>
+            </SfSelect>
+            <!-- -->
+            <SfSelect v-model="color" label="Color" class="sf-select--bordered">
+              <SfSelectOption
+                v-for="(option, i) in colors"
+                :key="i"
+                :value="option.value"
+              >
+                <SfProductOption :color="option.color" :label="option.label" />
+              </SfSelectOption>
+            </SfSelect>
+          </div>
+          <!-- -->
+          <SfTabs style="margin-top: 100px" :openTab="1">
             <SfTab header="Description">
-              <div class="description">
+              <div style="margin: 40px 0;">
                 The Karissa V-Neck Tee features a semi-fitted shape that's
                 flattering for every figure. You can hit the gym with confidence
                 while it hugs curves and hides common "problem" areas. Find
@@ -101,13 +136,13 @@ import {
   SfPrice,
   SfProperty,
   SfRating,
-
   SfBanner,
   SfImage,
   SfProductCard,
+  SfProductOption,
   SfSection,
+  SfSelect,
   SfSticky,
-
   SfCarousel,
   SfTabs
 } from "@storefront-ui/vue";
@@ -116,6 +151,38 @@ export default {
   name: "Product",
   data() {
     return {
+      size: "l",
+      color: "red",
+      colors: [
+        { label: "Red", value: "red", color: "#990611" },
+        { label: "Black", value: "black", color: "#000000" },
+        { label: "Yellow", value: "yellow", color: "#DCA742" },
+        { label: "Blue", value: "blue", color: "#004F97" },
+        { label: "Navy", value: "navy", color: "#656466" },
+        { label: "White", value: "white", color: "#FFFFFF" }
+      ],
+      sizes: [
+        {
+          label: "XS",
+          value: "xs"
+        },
+        {
+          label: "S",
+          value: "s"
+        },
+        {
+          label: "M",
+          value: "m"
+        },
+        {
+          label: "L",
+          value: "l"
+        },
+        {
+          label: "XL",
+          value: "xl"
+        }
+      ],
       properties: [
         {
           name: "Product Code",
@@ -195,7 +262,9 @@ export default {
     SfBanner,
     SfImage,
     SfProductCard,
+    SfProductOption,
     SfSection,
+    SfSelect,
     SfSticky,
 
     SfCarousel,
@@ -216,6 +285,7 @@ export default {
     padding: 0;
   }
 }
+/* copied from home page */
 .product-card {
   max-width: unset;
   &:hover {
@@ -251,8 +321,5 @@ export default {
       margin-left: $spacer-big;
     }
   }
-}
-.description {
-  margin: 40px 0;
 }
 </style>
