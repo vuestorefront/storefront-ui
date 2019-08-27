@@ -9,7 +9,22 @@
         <SfSticky>
           <div class="box"></div>
           <SfTabs :openTab="1">
-            <SfTab header="Description">Description</SfTab>
+            <SfTab header="Description">
+              <div>
+                The Karissa V-Neck Tee features a semi-fitted shape that's
+                flattering for every figure. You can hit the gym with confidence
+                while it hugs curves and hides common "problem" areas. Find
+                stunning women's cocktail dresses and party dresses.
+              </div>
+              <div>
+                <SfProperty
+                  :name="property.name"
+                  :value="property.value"
+                  v-for="(property, i) in properties"
+                  :key="i"
+                ></SfProperty>
+              </div>
+            </SfTab>
             <SfTab header="Reviews">Reviews</SfTab>
             <SfTab header="Additional Information"
               >Additional Information</SfTab
@@ -81,13 +96,32 @@ import {
   SfBanner,
   SfImage,
   SfSticky,
-  SfTabs
+  SfTabs,
+  SfProperty
 } from "@storefront-ui/vue";
 
 export default {
   name: "Product",
   data() {
     return {
+      properties: [
+        {
+          name: "Product Code",
+          value: "578902-00"
+        },
+        {
+          name: "Category",
+          value: "Pants"
+        },
+        {
+          name: "Material",
+          value: "Cotton"
+        },
+        {
+          name: "Country",
+          value: "Germany"
+        }
+      ],
       products: [
         {
           title: "Cream Beach Bag",
@@ -147,7 +181,8 @@ export default {
     SfProductCard,
     SfImage,
     SfSticky,
-    SfTabs
+    SfTabs,
+    SfProperty
   }
 };
 </script>
