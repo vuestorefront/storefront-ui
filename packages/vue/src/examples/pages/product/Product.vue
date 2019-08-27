@@ -1,19 +1,30 @@
 <template>
   <div id="product">
-    <div class="grid">
-      <div class="grid__col">
+    <div style="display: flex">
+      <div style="margin-left: 100px; flex: 1">
         <SfImage src="assets/storybook/productpage/productA.png" />
         <SfImage src="assets/storybook/productpage/productB.png" />
       </div>
-      <div class="grid__col">
+      <div style="margin-left: 100px; flex: 1">
         <SfSticky>
-          <div class="box"></div>
+          <SfHeading title="Cashmere Sweater" class="sf-heading--left" />
+          <div style="display:flex; align-items: center">
+            <SfPrice regular="$50.00" />
+            <SfRating :score="4" :max="5" style="margin-left: auto" />
+            <div
+              style="margin-left: 10px; font-size: 12px; text-decoration: underline"
+            >
+              Read all 28 reviews
+            </div>
+          </div>
           <SfTabs :openTab="1">
             <SfTab header="Description">
-              <div class="description">The Karissa V-Neck Tee features a semi-fitted shape that's
+              <div class="description">
+                The Karissa V-Neck Tee features a semi-fitted shape that's
                 flattering for every figure. You can hit the gym with confidence
                 while it hugs curves and hides common "problem" areas. Find
-                stunning women's cocktail dresses and party dresses.</div>
+                stunning women's cocktail dresses and party dresses.
+              </div>
               <SfProperty
                 :name="property.name"
                 :value="property.value"
@@ -86,14 +97,19 @@
 </template>
 <script>
 import {
-  SfSection,
-  SfCarousel,
-  SfProductCard,
+  SfHeading,
+  SfPrice,
+  SfProperty,
+  SfRating,
+
   SfBanner,
   SfImage,
+  SfProductCard,
+  SfSection,
   SfSticky,
-  SfTabs,
-  SfProperty
+
+  SfCarousel,
+  SfTabs
 } from "@storefront-ui/vue";
 
 export default {
@@ -171,14 +187,19 @@ export default {
     };
   },
   components: {
+    SfHeading,
+    SfPrice,
+    SfProperty,
+    SfRating,
+
     SfBanner,
-    SfSection,
-    SfCarousel,
-    SfProductCard,
     SfImage,
+    SfProductCard,
+    SfSection,
     SfSticky,
-    SfTabs,
-    SfProperty
+
+    SfCarousel,
+    SfTabs
   }
 };
 </script>
@@ -193,15 +214,6 @@ export default {
   box-sizing: border-box;
   @media screen and (min-width: $desktop-min) {
     padding: 0;
-  }
-}
-.grid {
-  display: flex;
-  &__col {
-    flex: 1;
-    & + & {
-      margin-left: 100px;
-    }
   }
 }
 .product-card {
@@ -240,7 +252,7 @@ export default {
     }
   }
 }
-  .description{
-    margin: 40px 0;
-  }
+.description {
+  margin: 40px 0;
+}
 </style>
