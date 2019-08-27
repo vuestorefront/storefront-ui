@@ -1,82 +1,110 @@
 <template>
   <div id="product">
-    <div class="product-info">
-      <div class="product-gallery"></div>
-      <div class="product-details">
-        <h1>Cashmere Sweater</h1>
-        <div class="product-details__sub">
-          <SfPrice regular-price="$ 50,00" />
-          <SfRating score="4" />
-        </div>
-        <p class="product-details__description">
-          Find stunning women cocktail and party dresses. Stand out in lace and
-          metallic cocktail dresses and party dresses from all your favorite
-          brands.
-        </p>
-      </div>
-    </div>
-
-    <SfSection :heading="{ title: 'You may also like' }">
-      <SfCarousel>
-        <SfCarouselItem v-for="i in 6" :key="i">
+    <SfSection titleHeading="Match it with">
+      <SfCarousel :settings="{ gap: 0 }" class="product-carousel">
+        <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
-            title="Cream Beach Bag"
-            regular-price="10,99 $"
-            :rating="5"
+            :title="product.title"
+            :image="product.image"
+            :regular-price="product.price.regular"
+            :rating="product.rating.score"
+            class="product-card"
+          />
+        </SfCarouselItem>
+      </SfCarousel>
+    </SfSection>
+    <SfSection titleHeading="You might also like">
+      <SfCarousel :settings="{ gap: 0 }" class="product-carousel">
+        <SfCarouselItem v-for="(product, i) in products" :key="i">
+          <SfProductCard
+            :title="product.title"
+            :image="product.image"
+            :regular-price="product.price.regular"
+            :rating="product.rating.score"
+            class="product-card"
           />
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
   </div>
 </template>
-
 <script>
-import {
-  SfCarousel,
-  SfProductCard,
-  SfPrice,
-  SfRating,
-  SfSection
-} from "../../../../index.js";
+import { SfSection, SfCarousel, SfProductCard } from "@storefront-ui/vue";
 
 export default {
+  name: "Product",
   data() {
-    return {};
+    return {
+      products: [
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productC.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productC.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        }
+      ]
+    };
   },
   components: {
-    SfCarousel,
-    SfProductCard,
     SfSection,
-    SfPrice,
-    SfRating
+    SfCarousel,
+    SfProductCard
   }
 };
 </script>
-
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
 
 #product {
-  box-sizing: border-box;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: auto;
-  overflow: hidden;
-}
-.product-info {
-  display: flex;
-  align-items: flex-start;
-}
-.product-gallery,
-.product-details {
-  width: 50%;
-  display: inline-block;
-}
-
-.product-details {
-  &__sub {
-    display: flex;
-    justify-content: space-between;
+  padding: 0 $spacer-big;
+  box-sizing: border-box;
+  @media screen and (min-width: $desktop-min) {
+    padding: 0;
   }
 }
 </style>
