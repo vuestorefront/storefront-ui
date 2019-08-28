@@ -79,7 +79,7 @@
       </SfCarousel>
     </SfSection>
     <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
-      <div class="grid grid-images">
+      <div class="grid">
         <div class="grid__row">
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageA.png"
