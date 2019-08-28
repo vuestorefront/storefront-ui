@@ -3,7 +3,6 @@ import SfArrow from "./src/components/atoms/SfArrow/SfArrow.js";
 import SfBadge from "./src/components/atoms/SfBadge/SfBadge.js";
 import SfButton from "./src/components/atoms/SfButton/SfButton.js";
 import SfCheckbox from "./src/components/atoms/SfCheckbox/SfCheckbox.js";
-import SfLabel from "./src/components/atoms//SfLabel/SfLabel.js";
 import SfLoader from "./src/components/atoms/SfLoader/SfLoader.js";
 import SfPrice from "./src/components/atoms/SfPrice/SfPrice.js";
 import SfProperty from "./src/components/atoms/SfProperty/SfProperty.js";
@@ -38,7 +37,6 @@ export {
   SfBadge,
   SfButton,
   SfCheckbox,
-  SfLabel,
   SfLoader,
   SfPrice,
   SfProperty,

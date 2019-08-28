@@ -55,12 +55,7 @@ storiesOf("Molecules|Alert", module)
           default: text("message (prop)", "Message prop")
         },
         icon: {
-          default: select("icon (prop)", [
-            true,
-            false,
-            "/assets/profile.svg",
-            "https://img.icons8.com/material/4ac144/256/camera.png"
-          ])
+          default: text("icon (prop)", "clock")
         },
         type: {
           default: select("type (prop)", [
@@ -71,18 +66,15 @@ storiesOf("Molecules|Alert", module)
           ])
         }
       },
-      template: `
-      <SfAlert
+      template: `<SfAlert
         :message="message"
         :icon="icon"
-        :type="type">
-      </SfAlert>
-    `
+        :type="type" />`
     }),
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfAlert } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfAlert } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `
@@ -93,13 +85,11 @@ storiesOf("Molecules|Alert", module)
     "[slot] Icon",
     () => ({
       components: { SfAlert },
-      template: `
-      <SfAlert message="Message prop">
-        <template slot="icon">
+      template: `<SfAlert message="Message prop">
+        <template #icon>
           <img src="assets/storybook/doge.svg" style="height: 25px; margin-right: 10px;"/>
         </template>
-      </SfAlert>
-    `
+      </SfAlert>`
     }),
     {
       info: true,
@@ -112,13 +102,11 @@ storiesOf("Molecules|Alert", module)
     "[slot] Message",
     () => ({
       components: { SfAlert },
-      template: `
-      <SfAlert>
-        <template slot="message">
+      template: `<SfAlert>
+        <template #message>
           <span class="sf-alert__text">Custom message <b>with custom HTML</b></span>
-        </div>
-      </SfAlert>
-    `
+        </template>
+      </SfAlert>`
     }),
     {
       info: true,

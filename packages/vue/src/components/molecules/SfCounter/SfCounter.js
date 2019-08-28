@@ -43,7 +43,7 @@ export default {
     // native input attributes
     type: {
       type: String,
-      default: "tel"
+      default: "text"
     },
     name: {
       type: String

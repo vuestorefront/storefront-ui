@@ -61,7 +61,6 @@ storiesOf("Organisms|Carousel", module)
           <SfCarouselItem>
             <div :style="style">8</div>
           </SfCarouselItem>
-          
         </SfCarousel>
       </div>
       `
@@ -69,7 +68,7 @@ storiesOf("Organisms|Carousel", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfCarousel } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfCarousel } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }
@@ -107,9 +106,11 @@ storiesOf("Organisms|Carousel", module)
           <SfCarouselItem>
             <div :style="style">8</div>
           </SfCarouselItem>
-          
-          <template #prev>
-            <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">&lt; PREV</span>
+
+          <template v-slot:prev="{ go }">
+            <div @click="go">
+              <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">&lt; PREV</span>
+            </div>
           </template>
 
         </SfCarousel>
@@ -119,7 +120,7 @@ storiesOf("Organisms|Carousel", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfCarousel } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfCarousel } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }
@@ -158,8 +159,10 @@ storiesOf("Organisms|Carousel", module)
             <div :style="style">8</div>
           </SfCarouselItem>
 
-          <template #next>
-            <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">NEXT &gt;</span>
+          <template v-slot:next="{ go }">
+            <div @click="go">
+              <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">NEXT &gt;</span>
+            </div>
           </template>
 
         </SfCarousel>
@@ -169,7 +172,7 @@ storiesOf("Organisms|Carousel", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfCarousel } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfCarousel } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }

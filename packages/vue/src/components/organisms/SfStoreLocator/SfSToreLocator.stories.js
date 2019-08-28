@@ -182,7 +182,7 @@ storiesOf("Organisms|StoreLocator", module)
           center the map on it, distance is calculated based on the user position.
           Even if Leaflet and Vue2Leaflet do not support SSR this component defer the loading of the library to the mounted lifecycle event
           <h2> Usage </h2>
-          <pre><code>import { SfStoreLocator } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfStoreLocator } from "@storefront-ui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }
@@ -224,7 +224,7 @@ storiesOf("Organisms|StoreLocator", module)
           \`SfStore\` is a part of SfStoreLocator, and it allow to add stores to the map and the list at the same time.
           Deeply configurable both with props and scss variables
           <h2> Usage </h2>
-          <pre><code>import { SfStoreLocator } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfStoreLocator } from "@storefront-ui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }
@@ -267,7 +267,7 @@ storiesOf("Organisms|StoreLocator", module)
           \`SfStoreLocator\` allow to customise how the store list is drawn by the use of the \`stores\` slot.
           See the story source for an example
           <h2> Usage </h2>
-          <pre><code>import { SfStoreLocator } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfStoreLocator } from "@storefront-ui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }
@@ -308,7 +308,7 @@ storiesOf("Organisms|StoreLocator", module)
           \`SfStoreLocator\` allow to customise how the store icon is shown on the map by the use of the \`marker-icon\` slot.
           See the story source for an example
           <h2> Usage </h2>
-          <pre><code>import { SfStoreLocator } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfStoreLocator } from "@storefront-ui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }
@@ -349,7 +349,7 @@ storiesOf("Organisms|StoreLocator", module)
           \`SfStoreLocator\` allow to customise the loading indicator by the use of the \`map-loading\` slot.
           See the story source for an example
           <h2> Usage </h2>
-          <pre><code>import { SfStoreLocator } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfStoreLocator } from "@storefront-ui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           `
       }

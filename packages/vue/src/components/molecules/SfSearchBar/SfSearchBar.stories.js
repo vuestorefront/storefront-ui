@@ -46,6 +46,11 @@ storiesOf("Molecules|SearchBar", module)
           default: text("image (prop)", "assets/storybook/clear.svg")
         }
       },
+      data() {
+        return {
+          value: ""
+        };
+      },
       components: { SfSearchBar },
       template: "<SfSearchBar :placeholder='placeholder' v-model='value'/>"
     }),
@@ -72,7 +77,6 @@ storiesOf("Molecules|SearchBar", module)
           )
         }
       },
-
       components: { SfSearchBar },
       template: `<SfSearchBar :class="customClass"/>`
     }),
@@ -81,7 +85,7 @@ storiesOf("Molecules|SearchBar", module)
 
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfSearchBar } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfSearchBar } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
       }
     }

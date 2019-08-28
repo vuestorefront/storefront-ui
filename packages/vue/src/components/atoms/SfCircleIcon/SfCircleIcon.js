@@ -1,24 +1,30 @@
 import SfButton from "../SfButton/SfButton.vue";
+import SfIcon from "../SfIcon/SfIcon.vue";
 
 export default {
   name: "SfCircleIcon",
   props: {
     /**
-     * Icon URL
      */
     icon: {
-      type: String,
-      default: ""
+      type: [String, Array],
+      default: "home"
     },
     /**
-     * Alt text for icon
      */
-    alt: {
+    colorIcon: {
       type: String,
-      default: "circle icon"
+      default: "white"
+    },
+    /**
+     */
+    sizeIcon: {
+      type: String,
+      default: "100%"
     }
   },
   components: {
-    SfButton
+    SfButton,
+    SfIcon
   }
 };

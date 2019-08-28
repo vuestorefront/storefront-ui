@@ -36,6 +36,7 @@ const cssTableConfig = {
   ]
 };
 
+const style = {};
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
   .add(
@@ -47,25 +48,20 @@ storiesOf("Atoms|Arrow", module)
           default: options(
             "CSS Modifiers",
             {
-              null: "null",
               "sf-arrow--right": "sf-arrow--right",
               "sf-arrow--long": "sf-arrow--long"
             },
-            "null",
+            "",
             { display: "multi-select" }
           )
         }
       },
-      template: `
-      <div :style="{padding: '1rem', 'background-color': customClass.indexOf('sf-arrow--long') ? '' : '#F1F2F3'}">
-      <SfArrow :class="customClass" />
-      </div>
-      `
+      template: `<SfArrow :class="customClass" />`
     }),
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfArrow } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfArrow } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `

@@ -2,5 +2,5 @@
 <template lang="html" src="./SfTabs.html"></template>
 <style lang="scss">
 @import "../../../utilities/transitions/transitions.scss";
-@import "~@storefrontui/shared/styles/components/SfTabs.scss";
+@import "~@storefront-ui/shared/styles/components/SfTabs.scss";
 </style>

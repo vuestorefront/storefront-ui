@@ -32,10 +32,6 @@ export default {
     selected: {
       type: String,
       default: ""
-    },
-    type: {
-      type: String,
-      default: "radio"
     }
   },
   methods: {

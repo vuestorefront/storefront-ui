@@ -99,15 +99,14 @@ storiesOf("Molecules|Radio", module)
       components: {
         SfRadio
       },
-      template: `<div :style="{maxWidth: '710px'}">
-        <p><b>Checked: {{checked}}</b></p>
+      template: `<div>
         <SfRadio v-for="(radio, key) in radios" :key="key" v-model="checked" :disabled="radio.disabled" :name="radio.name" :value="radio.value" :label="radio.label" :description="radio.description" :class="customClass"/>
       </div>`
     }),
     {
       info: {
         summary: `<h2> Usage </h2>
-          <pre><code>import { SfRadio } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfRadio } from "@storefront-ui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           ${generateStorybookTable(cssTableConfig, "CSS modifiers")}`
       }

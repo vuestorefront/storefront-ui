@@ -2,7 +2,7 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
-import { icons } from "@/assets/icons";
+import { icons } from "@storefront-ui/shared/icons/icons";
 import SfIcon from "./SfIcon.vue";
 
 const tableHeaderConfig = ["NAME", "DEFAULT"];
@@ -80,9 +80,9 @@ storiesOf("Atoms|Icon", module)
             "null"
           )
         },
-        path: {
+        icon: {
           default: text(
-            "path (prop)",
+            "icon (prop)",
             "M10 0C4.48561 0 0 4.48561 0 10C0 15.5144 4.48561 20 10 20C15.5144 20 20 15.5144 20 10C20 4.48561 15.5144 0 10 0ZM10 1.46341C14.7237 1.46341 18.5366 5.27634 18.5366 10C18.5366 14.7237 14.7237 18.5366 10 18.5366C5.27634 18.5366 1.46341 14.7237 1.46341 10C1.46341 5.27634 5.27634 1.46341 10 1.46341ZM10 2.68293C9.59605 2.68293 9.26829 3.01068 9.26829 3.41463V10C9.26829 10.2706 9.41597 10.5059 9.63415 10.6326L14.9161 13.6814C15.2658 13.8834 15.7126 13.7643 15.9146 13.4146C16.1166 13.065 15.9975 12.6181 15.6478 12.4161L10.7317 9.58078V3.41468C10.7317 3.01073 10.404 2.68298 10 2.68298V2.68293Z"
           )
         },
@@ -97,20 +97,19 @@ storiesOf("Atoms|Icon", module)
         }
       },
       components: { SfIcon },
-      template: `<sf-icon
+      template: `<SfIcon
         :class="customClass"
-        :path="path"
+        :icon="icon"
         :color="color"
         :size="size"
-        :viewBox="viewBox"
-      />`
+        :viewBox="viewBox"/>`
     }),
     {
       info: {
         summary: `
         <p>Component for rendering icon from SVG path(s) or icon name from our icons list.</p>
         <h2> Usage </h2>
-        <pre><code>import { SfIcon } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfIcon } from "@storefront-ui/vue"</code></pre>
         <h3>SCSS variables</h3>
         ${generateStorybookTable(
           {
@@ -132,11 +131,11 @@ storiesOf("Atoms|Icon", module)
     }
   )
   .add(
-    "[path] - Icons list",
+    "[icon] - Icons list",
     () => ({
       props: {
-        path: {
-          default: text("path (prop)", "add_to_cart")
+        icon: {
+          default: text("icon (prop)", "add_to_cart")
         },
         color: {
           default: text("color (prop)", "pink-primary")
@@ -149,17 +148,16 @@ storiesOf("Atoms|Icon", module)
         }
       },
       components: { SfIcon },
-      template: `<sf-icon
-        :path="path"
+      template: `<SfIcon
+        :icon="icon"
         :color="color"
         :size="size"
-        :viewBox="viewBox"
-      />`
+        :viewBox="viewBox"/>`
     }),
     {
       info: {
         summary: `
-        <p>Choose an icon from this list and pass it as path for rendering.</p>
+        <p>Choose an icon from this list and pass it as icon for rendering.</p>
         <h2> Icons list </h2>
         ${generateStorybookTable(
           {
@@ -176,7 +174,9 @@ storiesOf("Atoms|Icon", module)
     "[slot] default",
     () => ({
       components: { SfIcon },
-      template: `<sf-icon><img src='assets/empty_cart.svg' alt="Cart icon"></sf-icon>`
+      template: `<SfIcon>
+        <img src='assets/empty_cart.svg' alt="Cart icon">
+       </SfIcon>`
     }),
     {
       info: {
@@ -194,9 +194,9 @@ storiesOf("Atoms|Icon", module)
           default: text("size (prop)", "sm")
         }
       },
-      template: `<sf-icon :size="size">
+      template: `<SfIcon :size="size">
         <img src='assets/empty_cart.svg' alt="Cart icon">
-      </sf-icon>`
+      </SfIcon>`
     }),
     {
       info: {

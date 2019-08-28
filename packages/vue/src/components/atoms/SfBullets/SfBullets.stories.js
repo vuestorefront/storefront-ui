@@ -25,6 +25,9 @@ const eventsTableConfig = {
   tableBodyConfig: [["click", "emits the index of clicked bullet"]]
 };
 
+const click = function(index) {
+  this.index = index;
+};
 storiesOf("Atoms|Bullets", module)
   .addDecorator(withKnobs)
   .add(
@@ -38,11 +41,19 @@ storiesOf("Atoms|Bullets", module)
           default: number("current", 1)
         }
       },
+      data() {
+        return {
+          index: this.current
+        };
+      },
       components: { SfBullets },
+      methods: {
+        click
+      },
       template: `<SfBullets
         :total="total"
-        :current="current"
-        @click="current = $event"
+        :current="index"
+        @click="click"
         >
       </SfBullets>`
     }),
@@ -50,7 +61,7 @@ storiesOf("Atoms|Bullets", module)
       info: {
         summary: `<p>Component for bullet-pagination.</p>
        <h2>Usage</h2>
-       <pre><code>import { SfBullets } from "@storefrontui/dist/SfBullets.vue"</code></pre>
+       <pre><code>import { SfBullets } from "@storefront-ui/dist/SfBullets.vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        ${generateStorybookTable(eventsTableConfig, "Events")}
        `
@@ -68,19 +79,34 @@ storiesOf("Atoms|Bullets", module)
           default: number("current", 1)
         }
       },
+      data() {
+        return {
+          index: this.current
+        };
+      },
       components: { SfBullets },
+      methods: {
+        click
+      },
       template: `<SfBullets
-        :total="total"
-        :current="current"
-        @click="current = $event"
-        >
+      :total="total"
+      :current="index"
+      @click="click"
+      >
         <template #active>
-          <div style="width: 10px; height: 10px; margin: 5px; background: #9EE2B0; transform: rotate(45deg)"></div>
+          <li style="width: 10px; height: 10px; margin: 5px; background: #9EE2B0; transform: rotate(45deg); cursor: pointer"></li>   
         </template>
       </SfBullets>`
     }),
     {
-      info: true
+      info: {
+        summary: `<p>Component for bullet-pagination.</p>
+       <h2>Usage</h2>
+       <pre><code>import { SfBullets } from "@storefront-ui/dist/SfBullets.vue"</code></pre>
+       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+       ${generateStorybookTable(eventsTableConfig, "Events")}
+       `
+      }
     }
   )
   .add(
@@ -94,18 +120,33 @@ storiesOf("Atoms|Bullets", module)
           default: number("current", 1)
         }
       },
+      data() {
+        return {
+          index: this.current
+        };
+      },
       components: { SfBullets },
+      methods: {
+        click
+      },
       template: `<SfBullets
-        :total="total"
-        :current="current"
-        @click="current = $event"
-        >
-        <template #inactive>
-          <div style="width: 10px; height: 10px; margin: 6px; background: #E22326;"></div>
+      :total="total"
+      :current="index"
+      @click="click"
+      >
+        <template #inactive="{index, go}">
+          <li style="width: 10px; height: 10px; margin: 6px; background: #E22326; cursor: pointer" @click="go(index)"></li>   
         </template>
       </SfBullets>`
     }),
     {
-      info: true
+      info: {
+        summary: `<p>Component for bullet-pagination.</p>
+       <h2>Usage</h2>
+       <pre><code>import { SfBullets } from "@storefront-ui/dist/SfBullets.vue"</code></pre>
+       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+       ${generateStorybookTable(eventsTableConfig, "Events")}
+       `
+      }
     }
   );

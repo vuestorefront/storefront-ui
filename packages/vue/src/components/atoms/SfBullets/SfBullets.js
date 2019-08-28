@@ -23,5 +23,10 @@ export default {
     inactiveLeft() {
       return this.total - this.inactiveRight - 1;
     }
+  },
+  methods: {
+    go(index) {
+      this.$emit("click", index);
+    }
   }
 };

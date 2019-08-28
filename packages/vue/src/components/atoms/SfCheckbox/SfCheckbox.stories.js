@@ -53,7 +53,6 @@ storiesOf("Atoms|Checkbox", module)
         SfCheckbox
       },
       template: `<div>
-        <p><b>Checked: {{checked}}</b></p>
         <p v-for="(checkbox, key) in checkboxes" :key="key">
           <SfCheckbox v-model="checked" :disabled="checkbox.disabled" :name="checkbox.name" :value="checkbox.value" :label="checkbox.label"/>
         </p>
@@ -62,7 +61,7 @@ storiesOf("Atoms|Checkbox", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-          <pre><code>import { SfCheckbox } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfCheckbox } from "@storefront-ui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
       }
     }
