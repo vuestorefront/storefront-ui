@@ -65,7 +65,7 @@
       class="call-to-action-newsletter"
       image="assets/storybook/homepage/newsletter.png"
     />
-    <SfSection title="Best Sellers">
+    <SfSection titleHeading="Best Sellers">
       <SfCarousel :settings="{ gap: 0 }" class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
