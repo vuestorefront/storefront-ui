@@ -2,7 +2,7 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
-import { icons } from "@/assets/icons";
+import { icons } from "@storefront-ui/shared/icons/icons";
 import SfIcon from "./SfIcon.vue";
 
 const tableHeaderConfig = ["NAME", "DEFAULT"];
@@ -109,7 +109,7 @@ storiesOf("Atoms|Icon", module)
         summary: `
         <p>Component for rendering icon from SVG path(s) or icon name from our icons list.</p>
         <h2> Usage </h2>
-        <pre><code>import { SfIcon } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfIcon } from "@storefront-ui/vue"</code></pre>
         <h3>SCSS variables</h3>
         ${generateStorybookTable(
           {

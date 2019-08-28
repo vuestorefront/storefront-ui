@@ -89,7 +89,7 @@ storiesOf("Molecules|ProductCard", module)
         summary: `
         <p>Component for rendering Product Card.</p>
         <h2> Usage </h2>
-        <pre><code>import { SfProductCard } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfProductCard } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS Variables")}`
       }
     }
