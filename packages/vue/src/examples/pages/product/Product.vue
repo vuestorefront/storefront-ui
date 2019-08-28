@@ -1,8 +1,9 @@
 <template>
   <div id="product">
-    <section class="row">
+    <section style="margin-bottom: 200px" class="row">
       <!-- row -->
       <div class="column">
+        <!-- we need two different sizes for images? one for mobile second for other?-->
         <SfImage src="assets/storybook/productpage/productA.png" />
         <SfImage src="assets/storybook/productpage/productB.png" />
       </div>
@@ -149,8 +150,9 @@
       </SfCarousel>
     </SfSection>
     <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
-      <!-- TODO: need better way -->
-      <div class="grid grid-images">
+      <!-- TODO: need find better way -->
+      <!-- TODO: change images to wider -->
+      <div class="grid">
         <div class="grid__row">
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageA.png"
@@ -213,6 +215,26 @@
         </div>
       </template>
     </SfBanner>
+    <!-- TODO: add SfBottomNaviagtion height to page to prevent hiding last element -->
+    <SfBottomNavigation class="mobile-only">
+      <SfBottomNavigationItem>
+        <SfIcon icon="home" size="20px"/>
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="menu" size="20px" style="width: 25px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="heart" size="20px"/>
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="profile" size="20px"/>
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfCircleIcon class="sf-bottom-navigation__floating-icon sf-circle-icon--big">
+          <SfIcon icon="add_to_cart" size="20px" color="white" style="margin-right: 4px;"/>
+        </SfCircleIcon>
+      </SfBottomNavigationItem>
+    </SfBottomNavigation>
   </div>
 </template>
 <script>
@@ -220,6 +242,8 @@ import {
   SfHeading,
   SfPrice,
   SfProperty,
+  SfIcon,
+  SfCircleIcon,
   SfRating,
   SfBanner,
   SfImage,
@@ -228,6 +252,7 @@ import {
   SfSection,
   SfSelect,
   SfSticky,
+  SfBottomNavigation,
   SfCarousel,
   SfTabs
 } from "@storefront-ui/vue";
@@ -342,8 +367,9 @@ export default {
     SfHeading,
     SfPrice,
     SfProperty,
+    SfIcon,
+    SfCircleIcon,
     SfRating,
-
     SfBanner,
     SfImage,
     SfProductCard,
@@ -351,7 +377,7 @@ export default {
     SfSection,
     SfSelect,
     SfSticky,
-
+    SfBottomNavigation,
     SfCarousel,
     SfTabs
   },
@@ -367,11 +393,6 @@ export default {
 #product {
   max-width: 1240px;
   margin: auto;
-  padding: 0 $spacer-big;
-  box-sizing: border-box;
-  @media screen and (min-width: $desktop-min) {
-    padding: 0;
-  }
 }
 /* WIP */
 .row{
