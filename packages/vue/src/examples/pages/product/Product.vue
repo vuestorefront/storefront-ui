@@ -26,7 +26,11 @@
           </div>
           <!-- -->
           <div style="margin-top: 60px">
-            <div style="text-decoration: underline; display: flex; justify-content: flex-end">Size guide</div>
+            <div
+              style="text-decoration: underline; display: flex; justify-content: flex-end"
+            >
+              Size guide
+            </div>
             <!-- -->
             <SfSelect
               v-model="size"
@@ -43,7 +47,12 @@
               </SfSelectOption>
             </SfSelect>
             <!-- -->
-            <SfSelect style="margin-top: 20px" v-model="color" label="Color" class="sf-select--bordered">
+            <SfSelect
+              style="margin-top: 20px"
+              v-model="color"
+              label="Color"
+              class="sf-select--bordered"
+            >
               <SfSelectOption
                 v-for="(option, i) in colors"
                 :key="i"
@@ -52,8 +61,16 @@
                 <SfProductOption :color="option.color" :label="option.label" />
               </SfSelectOption>
             </SfSelect>
-            <div style="text-decoration: underline; display: flex; justify-content: flex-end; margin-top: 20px">Save for later</div>
-            <div style="text-decoration: underline; display: flex; justify-content: flex-end; margin-top: 20px">Add to compare</div>
+            <div
+              style="text-decoration: underline; display: flex; justify-content: flex-end; margin-top: 20px"
+            >
+              Save for later
+            </div>
+            <div
+              style="text-decoration: underline; display: flex; justify-content: flex-end; margin-top: 20px"
+            >
+              Add to compare
+            </div>
           </div>
           <!-- -->
           <SfTabs style="margin-top: 100px" :openTab="1">

@@ -37,7 +37,7 @@ import {
   SfPrice,
   SfRating,
   SfSection
-} from "../../../../index.js";
+} from "@storefront-ui/vue";
 
 export default {
   data() {

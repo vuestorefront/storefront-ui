@@ -136,15 +136,15 @@
 </template>
 <script>
 import {
-  SfHero,
   SfBanner,
   SfCallToAction,
-  SfSection,
-  SfCarousel,
-  SfProductCard,
   SfImage,
-  SfBannerGrid
-} from "../../../../index.js";
+  SfProductCard,
+  SfSection,
+  SfBannerGrid,
+  SfCarousel,
+  SfHero
+} from "@storefront-ui/vue";
 
 export default {
   name: "Home",
@@ -228,14 +228,14 @@ export default {
     };
   },
   components: {
-    SfHero,
     SfBanner,
     SfCallToAction,
-    SfSection,
-    SfCarousel,
-    SfProductCard,
     SfImage,
-    SfBannerGrid
+    SfProductCard,
+    SfSection,
+    SfBannerGrid,
+    SfCarousel,
+    SfHero
   }
 };
 </script>

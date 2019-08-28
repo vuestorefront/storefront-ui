@@ -219,17 +219,17 @@
 </template>
 <script>
 import {
-  SfSidebar,
   SfButton,
-  SfList,
   SfIcon,
-  SfMenuItem,
+  SfSidebar,
   SfFilter,
-  SfProductCard,
+  SfMenuItem,
   SfPagination,
+  SfProductCard,
+  SfSelect,
   SfAccordion,
-  SfSelect
-} from "../../../../index.js";
+  SfList
+} from "@storefront-ui/vue";
 
 export default {
   data() {
@@ -403,15 +403,15 @@ export default {
   },
   components: {
     SfButton,
-    SfSidebar,
     SfIcon,
-    SfList,
+    SfSidebar,
     SfFilter,
-    SfProductCard,
-    SfPagination,
     SfMenuItem,
+    SfPagination,
+    SfProductCard,
+    SfSelect,
     SfAccordion,
-    SfSelect
+    SfList
   }
 };
 </script>
