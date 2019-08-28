@@ -25,25 +25,4 @@ $image__overlay-color: $c-white !default;
     background-color: $image__overlay-background-color;
     color: $image__overlay-color;
   }
-  &__picture {
-    display: block;
-    opacity: 0;
-    &:first-child {
-      opacity: 1;
-    }
-  }
-  &__pictures {
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    &:hover {
-      .sf-image__picture {
-        display: none;
-        &:last-child {
-          display: block;
-          opacity: 1;
-        }
-      }
-    }
-  }
 }

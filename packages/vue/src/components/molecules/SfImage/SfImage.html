@@ -13,7 +13,7 @@
     class="sf-image__img sf-image-lozad"
     >
     <span class="sf-image__pictures" v-else-if="Array.isArray(src)">
-      <span v-for="(imagem, index) in src.slice(0, 2)" class="sf-image__picture" :key="index">
+      <span v-for="(imagem, index) in src.slice(0, 1)" class="sf-image__picture" :key="index">
         <picture class="sf-image__img sf-image-lozad"
           :data-iesrc="imagem.normal.url" :data-alt="imagem.normal.alt">
           <source v-if="imagem.small.url" :srcset="imagem.small.url"
@@ -32,7 +32,7 @@
     class="sf-image__img"
     >
     <span class="sf-image__pictures" v-else-if="typeof src === 'object'">
-      <span v-for="(imagem, index) in src.slice(0, 2)" class="sf-image__picture">
+      <span v-for="(imagem, index) in src.slice(0, 1)" class="sf-image__picture">
         <picture class="sf-image__img">
           <source v-if="imagem.small.url" :srcset="imagem.small.url"
             :media="`(max-width: ${pictureBreakpoint - 0.02}px)`">
