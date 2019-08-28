@@ -1,14 +1,15 @@
 <template>
   <div id="product">
-    <div style="display: flex">
-      <div style="margin-left: 100px; flex: 1">
+    <section class="row"> <!-- row -->
+      <div class="column">
         <SfImage src="assets/storybook/productpage/productA.png" />
         <SfImage src="assets/storybook/productpage/productB.png" />
-      </div>
-      <div style="margin-left: 100px; flex: 1">
+      </div> <!-- column -->
+      <div class="column"> <!-- column -->
         <SfSticky>
-          <SfHeading title="Cashmere Sweater" class="sf-heading--left" />
-          <!-- -->
+          <!-- product__name -->
+          <SfHeading title="Cashmere Sweater" class="sf-heading--left" :level="1" />
+          <!-- product__sub -->
           <div style="display:flex; align-items: center">
             <SfPrice regular="$50.00" />
             <SfRating :score="4" :max="5" style="margin-left: auto" />
@@ -18,13 +19,13 @@
               Read all 28 reviews
             </div>
           </div>
-          <!-- -->
+          <!-- product__descriptions -->
           <div style="margin-top: 40px">
             Find stunning women cocktail and party dresses. Stand out in lace
             and metallic cocktail dresses and party dresses from all your
             favorite brands.
           </div>
-          <!-- -->
+          <!-- product__attributes -->
           <div style="margin-top: 60px">
             <div
               style="text-decoration: underline; display: flex; justify-content: flex-end"
@@ -72,7 +73,7 @@
               Add to compare
             </div>
           </div>
-          <!-- -->
+          <!-- product__details -->
           <SfTabs style="margin-top: 100px" :openTab="3">
             <SfTab header="Description">
               <div style="margin: 40px 0;">
@@ -112,7 +113,8 @@
           </SfTabs>
         </SfSticky>
       </div>
-    </div>
+    </section>
+    <!-- bottom section   -->
     <SfSection titleHeading="Match it with">
       <SfCarousel :settings="{ gap: 0 }" class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
@@ -139,7 +141,44 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <!-- SfImages Grid   -->
+    <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
+      <div class="grid grid-images">
+        <div class="grid__row">
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageA.png"
+            >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageB.png"
+            >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageC.png"
+            >katherina_trn</SfImage
+            >
+          </div>
+        </div>
+        <div class="grid__row">
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageC.png"
+            >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageD.png"
+            >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageA.png"
+            >katherina_trn</SfImage
+            >
+          </div>
+        </div>
+      </div>
+    </SfSection>
     <SfBanner
       title="Download our application to your mobile"
       subtitle="Fashion to Take Away"
@@ -323,6 +362,16 @@ export default {
     padding: 0;
   }
 }
+/* WIP */
+.row{
+  display: flex;
+}
+.column{
+  flex: 1;
+  & + &{
+    margin-left: 100px;
+  }
+}
 /* copied from home page */
 .product-card {
   max-width: unset;
@@ -357,6 +406,29 @@ export default {
     margin-top: $spacer-extra-big;
     & + & {
       margin-left: $spacer-big;
+    }
+  }
+}
+/* for images */
+.grid {
+  max-width: 960px;
+  margin: auto;
+  &__row {
+    display: flex;
+    & + & {
+      margin-top: $spacer-big / 2;
+      @media screen and (min-width: $desktop-min) {
+        margin-top: $spacer-big;
+      }
+    }
+  }
+  &__col {
+    margin: 0;
+    & + & {
+      margin-left: $spacer-big / 2;
+      @media screen and (min-width: $desktop-min) {
+        margin-left: $spacer-big;
+      }
     }
   }
 }
