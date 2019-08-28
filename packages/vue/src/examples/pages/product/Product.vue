@@ -73,7 +73,7 @@
             </div>
           </div>
           <!-- -->
-          <SfTabs style="margin-top: 100px" :openTab="1">
+          <SfTabs style="margin-top: 100px" :openTab="3">
             <SfTab header="Description">
               <div style="margin: 40px 0;">
                 The Karissa V-Neck Tee features a semi-fitted shape that's
@@ -88,10 +88,27 @@
                 :key="i"
               ></SfProperty>
             </SfTab>
-            <SfTab header="28 Reviews">Reviews</SfTab>
-            <SfTab header="Additional Information"
-              >Additional Information</SfTab
-            >
+            <SfTab header="28 Reviews"></SfTab>
+            <SfTab header="Additional Information">
+              <div style="margin: 40px 0;">
+                <b>Brand</b>
+                <p>
+                  <u>Brand name</u> is the perfect pairing of quality and
+                  design. This label creates major everyday vibes with its
+                  collection of modern brooches, silver and gold jewellery, or
+                  clips it back with hair accessories in geo styles.
+                </p>
+              </div>
+              <div style="margin: 40px 0;">
+                <b>Take care of me</b>
+                <p>
+                  Just here for the care instructions?<br />Yeah, we thought so
+                </p>
+                <p>
+                  Do not wash!
+                </p>
+              </div>
+            </SfTab>
           </SfTabs>
         </SfSticky>
       </div>
