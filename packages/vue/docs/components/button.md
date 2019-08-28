@@ -1,5 +1,3 @@
-<RegisterExternals />
-
 # Button
 
 [[toc]]
