@@ -412,6 +412,9 @@ export default {
     SfSelect,
     SfAccordion,
     SfList
+  },
+  mounted() {
+    document.body.style.setProperty("margin", "0");
   }
 };
 </script>

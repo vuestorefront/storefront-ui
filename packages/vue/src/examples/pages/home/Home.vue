@@ -236,6 +236,9 @@ export default {
     SfBannerGrid,
     SfCarousel,
     SfHero
+  },
+  mounted() {
+    document.body.style.setProperty("margin", "0");
   }
 };
 </script>

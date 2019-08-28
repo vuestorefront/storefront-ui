@@ -1,14 +1,21 @@
 <template>
   <div id="product">
-    <section class="row"> <!-- row -->
+    <section class="row">
+      <!-- row -->
       <div class="column">
         <SfImage src="assets/storybook/productpage/productA.png" />
         <SfImage src="assets/storybook/productpage/productB.png" />
-      </div> <!-- column -->
-      <div class="column"> <!-- column -->
+      </div>
+      <!-- column -->
+      <div class="column">
+        <!-- column -->
         <SfSticky>
           <!-- product__name -->
-          <SfHeading title="Cashmere Sweater" class="sf-heading--left" :level="1" />
+          <SfHeading
+            title="Cashmere Sweater"
+            class="sf-heading--left"
+            :level="1"
+          />
           <!-- product__sub -->
           <div style="display:flex; align-items: center">
             <SfPrice regular="$50.00" />
@@ -142,38 +149,39 @@
       </SfCarousel>
     </SfSection>
     <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
+      <!-- TODO: need better way -->
       <div class="grid grid-images">
         <div class="grid__row">
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageA.png"
-            >katherina_trn</SfImage
+              >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageB.png"
-            >katherina_trn</SfImage
+              >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageC.png"
-            >katherina_trn</SfImage
+              >katherina_trn</SfImage
             >
           </div>
         </div>
         <div class="grid__row">
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageC.png"
-            >katherina_trn</SfImage
+              >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageD.png"
-            >katherina_trn</SfImage
+              >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageA.png"
-            >katherina_trn</SfImage
+              >katherina_trn</SfImage
             >
           </div>
         </div>
@@ -346,6 +354,9 @@ export default {
 
     SfCarousel,
     SfTabs
+  },
+  mounted() {
+    document.body.style.setProperty("margin", "0");
   }
 };
 </script>
@@ -364,12 +375,19 @@ export default {
 }
 /* WIP */
 .row{
-  display: flex;
+  @media screen and (min-width: $desktop-min) {
+    display: flex;
+  }
 }
 .column{
-  flex: 1;
+
+  @media screen and (min-width: $desktop-min) {
+    flex: 1;
+  }
   & + &{
-    margin-left: 100px;
+    @media screen and (min-width: $desktop-min) {
+      margin-left: 100px;
+    }
   }
 }
 /* copied from home page */
