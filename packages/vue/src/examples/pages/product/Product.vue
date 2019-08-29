@@ -95,6 +95,7 @@
 </template>
 <script>
 import {
+  SfSection,
   SfImage,
   SfBanner,
   SfBottomNavigation,
@@ -108,6 +109,7 @@ export default {
     return {};
   },
   components: {
+    SfSection,
     SfImage,
     SfBanner,
     SfBottomNavigation,
