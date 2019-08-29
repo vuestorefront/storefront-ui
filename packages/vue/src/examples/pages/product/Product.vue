@@ -1,14 +1,11 @@
 <template>
   <div id="product">
-    <section style="margin-bottom: 200px" class="row">
-      <!-- row gallery -->
-      <div class="column">
+    <section class="product-section">
+      <div class="gallery" :class="{'gallery--has-overlay':hasOverlay}">
         <!-- we need two different sizes for images? one for mobile second for other?-->
         <SfGallery :images="images"></SfGallery>
       </div>
-      <!-- column description -->
-      <div class="column">
-        <!-- column -->
+      <div class="details" @click="overlayToggle">
         <SfSticky>
           <!-- product__name -->
           <SfHeading
@@ -268,6 +265,7 @@ export default {
   name: "Product",
   data() {
     return {
+      hasOverlay: true,
       size: "l",
       color: "red",
       colors: [
@@ -399,6 +397,11 @@ export default {
     SfCarousel,
     SfTabs
   },
+  methods:{
+    overlayToggle(){
+      this.hasOverlay = !this.hasOverlay;
+    }
+  },
   mounted() {
     document.body.style.setProperty("margin", "0");
   }
@@ -426,6 +429,30 @@ export default {
     @media screen and (min-width: $desktop-min) {
       margin-left: 100px;
     }
+  }
+}
+.product-section{
+  @media screen and (min-width: $desktop-min) {
+    display: flex;
+  }
+}
+.gallery,
+.details{
+  flex: 1;
+}
+.gallery{
+  &--has-overlay{
+    height: 0;
+    overflow: hidden;
+    @media screen and (min-width: $desktop-min) {
+      height: 100%;
+    }
+  }
+}
+.details{
+  padding-top: 20px;
+  @media screen and (min-width: $desktop-min) {
+    margin-left: 100px;
   }
 }
 /* copied from home page */
@@ -490,6 +517,11 @@ export default {
 }
 /*  deep */
 .sf-gallery {
+  /deep/ &__thumbs {
+    @media (min-width: $desktop-min) {
+      display: none;
+    }
+  }
   /deep/ &__stage {
     flex: 1;
   }
