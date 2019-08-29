@@ -149,6 +149,7 @@ $select__error-message-min-height: 0.875rem !default;
   }
   &--bordered {
     #{$this}__selected {
+      padding: $select-option-padding;
       border: 1px solid $select-color-primary;
     }
   }
