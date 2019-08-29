@@ -1,5 +1,44 @@
 <template>
   <div id="product">
+    <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
+      <!-- .grid shoud be refactored -->
+      <div class="grid">
+        <div class="grid__row">
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageA.png"
+            >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageB.png"
+            >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageC.png"
+            >katherina_trn</SfImage
+            >
+          </div>
+        </div>
+        <div class="grid__row">
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageC.png"
+            >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageD.png"
+            >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageA.png"
+            >katherina_trn</SfImage
+            >
+          </div>
+        </div>
+      </div>
+    </SfSection>
     <SfBanner
       title="Download our application to your mobile"
       subtitle="Fashion to Take Away"
@@ -56,6 +95,7 @@
 </template>
 <script>
 import {
+  SfImage,
   SfBanner,
   SfBottomNavigation,
   SfCircleIcon,
@@ -68,6 +108,7 @@ export default {
     return {};
   },
   components: {
+    SfImage,
     SfBanner,
     SfBottomNavigation,
     SfCircleIcon,
@@ -107,6 +148,27 @@ export default {
     margin-top: $spacer-extra-big;
     & + & {
       margin-left: $spacer-big;
+    }
+  }
+}
+/*  TODO: .grid shoud be refactored */
+.grid {
+  &__row {
+    display: flex;
+    & + & {
+      margin-top: $spacer-big / 2;
+      @media screen and (min-width: $desktop-min) {
+        margin-top: $spacer-big;
+      }
+    }
+  }
+  &__col {
+    margin: 0;
+    & + & {
+      margin-left: $spacer-big / 2;
+      @media screen and (min-width: $desktop-min) {
+        margin-left: $spacer-big;
+      }
     }
   }
 }
