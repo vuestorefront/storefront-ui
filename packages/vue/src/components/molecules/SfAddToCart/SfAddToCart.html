@@ -5,7 +5,7 @@
         Add to cart
     </SfButton>
   </slot>
-  <slot name="quantity-select-input" v-bind="{ qty }">
+  <slot name="quantity-select-input" v-bind="{ qty, quantity }">
     <SfInput 
       :value="qty" 
       v-on:change="$emit('input', qty)"
