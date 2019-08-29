@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <SfHero>
+    <SfHero class="hero">
       <SfHeroItem
         v-for="(hero, i) in heroes"
         :key="i"
@@ -65,8 +65,8 @@
       class="call-to-action-newsletter"
       image="assets/storybook/homepage/newsletter.png"
     />
-    <SfSection title="Best Sellers">
-      <SfCarousel :settings="{ gap: 0 }" class="product-carousel">
+    <SfSection titleHeading="Best Sellers" class="best-sellers">
+      <SfCarousel :settings="{ gap: 0, peek: {before: 100, after: 0} }" class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
             :title="product.title"
@@ -78,7 +78,11 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection title="Share Your Look" subtitle="#YOURLOOK">
+    <SfSection
+      titleHeading="Share Your Look"
+      subtitleHeading="#YOURLOOK"
+      class="share-your-look"
+    >
       <div class="grid grid-images">
         <div class="grid__row">
           <div class="grid__col">
@@ -268,25 +272,36 @@ export default {
     SfBottomNavigation,
     SfIcon,
     SfCircleIcon
+  },
+  mounted() {
+    document.body.style.setProperty("margin", "0");
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
-
-#home {
-  max-width: 1240px;
-  margin: auto;
+@mixin mobile-padding {
   box-sizing: border-box;
   padding: 0 $spacer-big;
-
   @media screen and (min-width: $desktop-min) {
     padding: 0;
   }
 }
+#home {
+  max-width: 1240px;
+  margin: auto;
+  box-sizing: border-box;
+}
+.hero,
+.banners,
+.best-sellers,
+.share-your-look {
+  @include mobile-padding;
+}
 .call-to-action-newsletter {
   margin: $spacer-big 0;
+  box-sizing: border-box;
   @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big * 2 0;
   }
@@ -298,7 +313,10 @@ export default {
   }
 }
 .product-carousel {
-  margin: -20px 0;
+  margin: -20px -#{$spacer-big} -20px 0;
+  @media screen and (min-width: $desktop-min){
+    margin: -20px 0;
+  }
   /deep/ .sf-carousel__wrapper {
     padding: 20px 0;
     @media screen and (min-width: $desktop-min) {
