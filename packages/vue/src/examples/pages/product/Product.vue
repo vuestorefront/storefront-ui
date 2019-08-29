@@ -1,5 +1,31 @@
 <template>
   <div id="product">
+    <SfBanner
+      title="Download our application to your mobile"
+      subtitle="Fashion to Take Away"
+      image="assets/storybook/homepage/bannerD.png"
+      class="banner-application sf-banner--left sf-banner--center desktop-only"
+    >
+      <template #title>
+        <h1 class="banner-application__title">
+          Download our application to your&nbsp;mobile
+        </h1>
+      </template>
+      <template #call-to-action>
+        <div>
+          <img
+            class="banner-application__download"
+            src="assets/storybook/homepage/google.png"
+            alt=""
+          />
+          <img
+            class="banner-application__download"
+            src="assets/storybook/homepage/apple.png"
+            alt=""
+          />
+        </div>
+      </template>
+    </SfBanner>
     <SfBottomNavigation class="mobile-only">
       <SfBottomNavigationItem>
         <SfIcon icon="home" size="20px" />
@@ -30,6 +56,7 @@
 </template>
 <script>
 import {
+  SfBanner,
   SfBottomNavigation,
   SfCircleIcon,
   SfIcon
@@ -41,6 +68,7 @@ export default {
     return {};
   },
   components: {
+    SfBanner,
     SfBottomNavigation,
     SfCircleIcon,
     SfIcon
@@ -60,6 +88,26 @@ export default {
   padding: 0 $spacer-big;
   @media screen and (min-width: $desktop-min) {
     padding: 0;
+  }
+}
+.banner-application {
+  min-height: 420px;
+  max-width: 1040px;
+  margin: auto;
+  &__title {
+    padding: 0;
+    margin: 0;
+    margin-top: $spacer-big;
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.388;
+  }
+  &__download {
+    max-height: 47px;
+    margin-top: $spacer-extra-big;
+    & + & {
+      margin-left: $spacer-big;
+    }
   }
 }
 </style>
