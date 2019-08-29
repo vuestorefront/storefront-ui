@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <SfHero class="hero">
+    <SfHero>
       <SfHeroItem
         v-for="(hero, i) in heroes"
         :key="i"
@@ -65,7 +65,7 @@
       class="call-to-action-newsletter"
       image="assets/storybook/homepage/newsletter.png"
     />
-    <SfSection titleHeading="Best Sellers" class="best-sellers">
+    <SfSection titleHeading="Best Sellers">
       <SfCarousel :settings="{ gap: 0, peek: {before: 100, after: 0} }" class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -81,7 +81,6 @@
     <SfSection
       titleHeading="Share Your Look"
       subtitleHeading="#YOURLOOK"
-      class="share-your-look"
     >
       <div class="grid grid-images">
         <div class="grid__row">
@@ -281,26 +280,17 @@ export default {
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
-@mixin mobile-padding {
+#home {
+  max-width: 1240px;
+  margin: auto;
   box-sizing: border-box;
   padding: 0 $spacer-big;
   @media screen and (min-width: $desktop-min) {
     padding: 0;
   }
 }
-#home {
-  max-width: 1240px;
-  margin: auto;
-  box-sizing: border-box;
-}
-.hero,
-.banners,
-.best-sellers,
-.share-your-look {
-  @include mobile-padding;
-}
 .call-to-action-newsletter {
-  margin: $spacer-big 0;
+  margin: $spacer-big -#{$spacer-big};
   box-sizing: border-box;
   @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big * 2 0;
