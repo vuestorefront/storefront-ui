@@ -8,7 +8,7 @@
   <slot name="quantity-select-input" v-bind="{ qty, quantity }">
     <SfInput 
       :value="qty" 
-      v-on:change="$emit('input', qty)"
+    @input="(value)=>{$emit('input', value)}"
       class="sf-add-to-cart__select-quantity"
       type="number"
       min="1"
