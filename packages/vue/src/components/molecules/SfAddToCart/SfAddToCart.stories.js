@@ -29,7 +29,11 @@ const cssTableConfig = {
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$add-to-cart__quantity-select__max-width", "90px", "Maximum width of the quantity input field."]
+    [
+      "$add-to-cart__quantity-select__max-width",
+      "90px",
+      "Maximum width of the quantity input field."
+    ]
   ]
 };
 

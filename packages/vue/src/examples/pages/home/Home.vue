@@ -66,7 +66,10 @@
       image="assets/storybook/homepage/newsletter.png"
     />
     <SfSection titleHeading="Best Sellers">
-      <SfCarousel :settings="{ gap: 0, peek: {before: 100, after: 0} }" class="product-carousel">
+      <SfCarousel
+        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
+        class="product-carousel"
+      >
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
             :title="product.title"
@@ -78,10 +81,7 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection
-      titleHeading="Share Your Look"
-      subtitleHeading="#YOURLOOK"
-    >
+    <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
       <div class="grid grid-images">
         <div class="grid__row">
           <div class="grid__col">
@@ -304,7 +304,7 @@ export default {
 }
 .product-carousel {
   margin: -20px -#{$spacer-big} -20px 0;
-  @media screen and (min-width: $desktop-min){
+  @media screen and (min-width: $desktop-min) {
     margin: -20px 0;
   }
   /deep/ .sf-carousel__wrapper {
