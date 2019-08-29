@@ -1,13 +1,12 @@
 <template>
   <div id="product">
     <section style="margin-bottom: 200px" class="row">
-      <!-- row -->
+      <!-- row gallery -->
       <div class="column">
         <!-- we need two different sizes for images? one for mobile second for other?-->
-        <SfImage src="assets/storybook/productpage/productA.png" />
-        <SfImage src="assets/storybook/productpage/productB.png" />
+        <SfGallery :images="images"></SfGallery>
       </div>
-      <!-- column -->
+      <!-- column description -->
       <div class="column">
         <!-- column -->
         <SfSticky>
@@ -218,20 +217,27 @@
     <!-- TODO: add SfBottomNaviagtion height to page to prevent hiding last element -->
     <SfBottomNavigation class="mobile-only">
       <SfBottomNavigationItem>
-        <SfIcon icon="home" size="20px"/>
+        <SfIcon icon="home" size="20px" />
       </SfBottomNavigationItem>
       <SfBottomNavigationItem>
         <SfIcon icon="menu" size="20px" style="width: 25px" />
       </SfBottomNavigationItem>
       <SfBottomNavigationItem>
-        <SfIcon icon="heart" size="20px"/>
+        <SfIcon icon="heart" size="20px" />
       </SfBottomNavigationItem>
       <SfBottomNavigationItem>
-        <SfIcon icon="profile" size="20px"/>
+        <SfIcon icon="profile" size="20px" />
       </SfBottomNavigationItem>
       <SfBottomNavigationItem>
-        <SfCircleIcon class="sf-bottom-navigation__floating-icon sf-circle-icon--big">
-          <SfIcon icon="add_to_cart" size="20px" color="white" style="margin-right: 4px;"/>
+        <SfCircleIcon
+          class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
+        >
+          <SfIcon
+            icon="add_to_cart"
+            size="20px"
+            color="white"
+            style="margin-right: 4px;"
+          />
         </SfCircleIcon>
       </SfBottomNavigationItem>
     </SfBottomNavigation>
@@ -246,6 +252,7 @@ import {
   SfCircleIcon,
   SfRating,
   SfBanner,
+  SfGallery,
   SfImage,
   SfProductCard,
   SfProductOption,
@@ -291,6 +298,16 @@ export default {
         {
           label: "XL",
           value: "xl"
+        }
+      ],
+      images: [
+        {
+          small: { url: "assets/storybook/productpage/productA.png" },
+          big: { url: "assets/storybook/productpage/productA.png" }
+        },
+        {
+          small: { url: "assets/storybook/productpage/productB.png" },
+          big: { url: "assets/storybook/productpage/productB.png" }
         }
       ],
       properties: [
@@ -371,6 +388,7 @@ export default {
     SfCircleIcon,
     SfRating,
     SfBanner,
+    SfGallery,
     SfImage,
     SfProductCard,
     SfProductOption,
@@ -395,17 +413,16 @@ export default {
   margin: auto;
 }
 /* WIP */
-.row{
+.row {
   @media screen and (min-width: $desktop-min) {
     display: flex;
   }
 }
-.column{
-
+.column {
   @media screen and (min-width: $desktop-min) {
     flex: 1;
   }
-  & + &{
+  & + & {
     @media screen and (min-width: $desktop-min) {
       margin-left: 100px;
     }
@@ -448,7 +465,7 @@ export default {
     }
   }
 }
-/* for images */
+/* for images, need new idea */
 .grid {
   max-width: 960px;
   margin: auto;
@@ -471,4 +488,15 @@ export default {
     }
   }
 }
+/*  deep */
+.sf-gallery{
+  /deep/ &__stage{
+    flex: 1;
+  }
+}
+</style>
+<style lang="scss">
+  .glide__slides{
+    margin: 0;
+  }
 </style>
