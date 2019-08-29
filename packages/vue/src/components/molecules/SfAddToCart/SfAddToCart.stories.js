@@ -26,6 +26,13 @@ const cssTableConfig = {
   ]
 };
 
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    ["$add-to-cart__quantity-select__max-width", "90px", "Maximum width of the quantity input field."]
+  ]
+};
+
 storiesOf("Molecules|AddToCart", module)
   .addDecorator(withKnobs)
   .add(
@@ -42,8 +49,8 @@ storiesOf("Molecules|AddToCart", module)
         }
       },
       props: {
-        quantity: {
-          default: number("quantity (prop)", 3)
+        stock: {
+          default: number("stock (prop)", 3)
         },
         canAddToCart: {
           default: boolean("canAddToCart (prop)", true)
@@ -51,7 +58,7 @@ storiesOf("Molecules|AddToCart", module)
       },
       components: { SfAddToCart },
       template: `<SfAddToCart 
-        :quantity="quantity"
+        :stock="stock"
         @click="addToCart"
         :canAddToCart="canAddToCart"
         v-model="qty"
@@ -59,9 +66,10 @@ storiesOf("Molecules|AddToCart", module)
     }),
     {
       info: {
-        summary: `<p>Component for selecting quantity and add a product to cart.</p>
+        summary: `<p>Component for adding a product with a selected quantity to cart.</p>
        <h2>Usage</h2>
        <pre><code>import { SfAddToCart } from "@storefrontui/vue"</code></pre>
+       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
        ${generateStorybookTable(eventsTableConfig, "Events")}`
       }
@@ -123,8 +131,8 @@ storiesOf("Molecules|AddToCart", module)
         }
       },
       props: {
-        quantity: {
-          default: number("quantity (prop)", 3)
+        stock: {
+          default: number("stock (prop)", 3)
         },
         canAddToCart: {
           default: boolean("canAddToCart (prop)", true)
@@ -132,7 +140,7 @@ storiesOf("Molecules|AddToCart", module)
       },
       template: `
       <SfAddToCart 
-        :quantity="quantity"
+        :stock="stock"
         @click="addToCart"
         :canAddToCart="canAddToCart"
         v-model="qty">

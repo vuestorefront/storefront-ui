@@ -1,5 +1,7 @@
 @import '../variables';
 
+$add-to-cart__quantity-select__max-width: 90px !default;
+
 .sf-add-to-cart {
   display: flex;
 
@@ -18,7 +20,7 @@
       padding-right: 0.5rem;
       width: auto;
       height: 100%;
-      max-width: 90px;
+      max-width: $add-to-cart__quantity-select__max-width;
       border: 1px solid $c-light-primary;
       transition: border-color 0.3s ease-in-out;
 

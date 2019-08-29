@@ -5,14 +5,14 @@
         Add to cart
     </SfButton>
   </slot>
-  <slot name="quantity-select-input" v-bind="{ qty, quantity }">
+  <slot name="quantity-select-input" v-bind="{ qty, stock }">
     <SfInput 
       :value="qty" 
     @input="(value)=>{$emit('input', value)}"
       class="sf-add-to-cart__select-quantity"
       type="number"
       min="1"
-    :max="quantity"
+      :max="stock"
     />
   </slot>
 
