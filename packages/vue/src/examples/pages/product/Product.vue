@@ -1,39 +1,71 @@
 <template>
   <div id="product">
+    <SfSection titleHeading="Match it with">
+      <SfCarousel
+        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
+        class="product-carousel"
+      >
+        <SfCarouselItem v-for="(product, i) in products" :key="i">
+          <SfProductCard
+            :title="product.title"
+            :image="product.image"
+            :regular-price="product.price.regular"
+            :rating="product.rating.score"
+            class="product-card"
+          />
+        </SfCarouselItem>
+      </SfCarousel>
+    </SfSection>
+    <SfSection titleHeading="You might also like">
+      <SfCarousel
+        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
+        class="product-carousel"
+      >
+        <SfCarouselItem v-for="(product, i) in products" :key="i">
+          <SfProductCard
+            :title="product.title"
+            :image="product.image"
+            :regular-price="product.price.regular"
+            :rating="product.rating.score"
+            class="product-card"
+          />
+        </SfCarouselItem>
+      </SfCarousel>
+    </SfSection>
     <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
       <!-- .grid shoud be refactored -->
       <div class="grid">
         <div class="grid__row">
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageA.png"
-            >katherina_trn</SfImage
+              >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageB.png"
-            >katherina_trn</SfImage
+              >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageC.png"
-            >katherina_trn</SfImage
+              >katherina_trn</SfImage
             >
           </div>
         </div>
         <div class="grid__row">
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageC.png"
-            >katherina_trn</SfImage
+              >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageD.png"
-            >katherina_trn</SfImage
+              >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col">
             <SfImage src="assets/storybook/homepage/imageA.png"
-            >katherina_trn</SfImage
+              >katherina_trn</SfImage
             >
           </div>
         </div>
@@ -95,6 +127,8 @@
 </template>
 <script>
 import {
+  SfProductCard,
+  SfCarousel,
   SfSection,
   SfImage,
   SfBanner,
@@ -106,9 +140,62 @@ import {
 export default {
   name: "Product",
   data() {
-    return {};
+    return {
+      products: [
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productC.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productC.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        }
+      ]
+    };
   },
   components: {
+    SfProductCard,
+    SfCarousel,
     SfSection,
     SfImage,
     SfBanner,
@@ -131,6 +218,25 @@ export default {
   padding: 0 $spacer-big;
   @media screen and (min-width: $desktop-min) {
     padding: 0;
+  }
+}
+.product-card {
+  max-width: unset; // TODO: test this property and fix if it required
+  &:hover {
+    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+  }
+}
+.product-carousel {
+  margin: -20px -#{$spacer-big} -20px 0;
+  @media screen and (min-width: $desktop-min) {
+    margin: -20px 0;
+  }
+  /deep/ .sf-carousel__wrapper {
+    padding: 20px 0;
+    @media screen and (min-width: $desktop-min) {
+      padding: 20px;
+      max-width: calc(100% - 216px);
+    }
   }
 }
 .banner-application {
