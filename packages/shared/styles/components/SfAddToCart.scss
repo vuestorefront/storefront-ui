@@ -20,7 +20,7 @@
       height: 100%;
       max-width: 90px;
       border: 1px solid $c-light-primary;
-      transition: all 0.3s ease-in-out;
+      transition: border-color 0.3s ease-in-out;
 
       &:focus {
         border-color: $c-accent-primary;
