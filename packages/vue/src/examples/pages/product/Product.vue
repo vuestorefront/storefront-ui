@@ -489,14 +489,14 @@ export default {
   }
 }
 /*  deep */
-.sf-gallery{
-  /deep/ &__stage{
+.sf-gallery {
+  /deep/ &__stage {
     flex: 1;
   }
 }
 </style>
 <style lang="scss">
-  .glide__slides{
-    margin: 0;
-  }
+.glide__slides {
+  margin: 0;
+}
 </style>
