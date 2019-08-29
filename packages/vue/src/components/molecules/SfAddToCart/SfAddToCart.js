@@ -22,7 +22,7 @@ export default {
     /**
      * Stock quantity of product
      */
-    quantity: {
+    stock: {
       type: Number,
       default: 1
     },
