@@ -4,6 +4,7 @@ $sf-tabs__content-padding-y: 3 * $spacer-big !default;
 $sf-tabs__title-color: $c-gray-secondary !default;
 $sf-tabs__title-color--active: $c-dark-primary !default;
 $sf-tabs__title-color--hover: $c-dark-primary !default;
+$sf-tabs-border-color: $c-light-primary !default;
 $sf-tabs__title-font-size: $font-size-regular-desktop !default;
 $sf-tabs__title-font-family: $body-font-family-secondary !default;
 $sf-tabs__content-font-family: $body-font-family-primary !default;
@@ -27,7 +28,7 @@ $sf-tabs__content-font-family: $body-font-family-primary !default;
     justify-content: space-between;
     align-items: center;
     padding: calc(#{$sf-tabs__title-padding-y} - 5px) 0;
-    border-bottom: 1px solid #F1F2F3;
+    border-bottom: 1px solid $sf-tabs-border-color;
     color: $c-dark-primary;
     font-family: $sf-tabs__title-font-family;
     font-size: $sf-tabs__title-font-size;
@@ -52,7 +53,7 @@ $sf-tabs__content-font-family: $body-font-family-primary !default;
       }
       & + #{$this}__content{
         display: block;
-        border-bottom: 1px solid #F1F2F3;
+        border-bottom: 1px solid $sf-tabs-border-color;
         @include for-desktop{
           border-bottom: 0;
         }
@@ -71,7 +72,7 @@ $sf-tabs__content-font-family: $body-font-family-primary !default;
     @include for-desktop{
       order: 99;
       padding: $sf-tabs__content-padding-y 0;
-      border-top: 2px solid #F1F2F3;
+      border-top: 2px solid $sf-tabs-border-color;
     }
   }
   &__chevron{
