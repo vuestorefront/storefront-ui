@@ -1,95 +1,83 @@
-@import '../variables';
+@import "../variables";
+$sf-tabs__title-padding-y: $spacer-big !default;
+$sf-tabs__content-padding-y: 3 * $spacer-big !default;
+$sf-tabs__title-color: $c-gray-secondary !default;
+$sf-tabs__title-color--active: $c-dark-primary !default;
+$sf-tabs__title-color--hover: $c-dark-primary !default;
+$sf-tabs-border-color: $c-light-primary !default;
+$sf-tabs__title-font-size: $font-size-regular-desktop !default;
+$sf-tabs__title-font-family: $body-font-family-secondary !default;
+$sf-tabs__content-font-family: $body-font-family-primary !default;
 
-$sf-tabs-title-font-family: $body-font-family-secondary !default;
-$sf-tabs-title-font-size: $font-size-regular-desktop !default;
-
-$sf-tabs-title-padding: $spacer-big !default;
-
-$sf-tabs-title-border-width: 2px !default;
-
-$sf-tabs-title-color: $c-gray-secondary !default;
-$sf-tabs-title-color-hover: $c-dark-primary !default;
-$sf-tabs-title-color-active: $c-dark-primary !default;
-
-$sf-tabs-content-font-family: $body-font-family-primary !default;
-
-.sf-tabs {
-  font-family: $sf-tabs-title-font-family;
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-
-  &__border {
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    top: calc(2*#{$sf-tabs-title-padding} + #{$sf-tabs-title-border-width} + #{$font-size-regular-desktop} + 3px);
-    border-bottom: $sf-tabs-title-border-width solid $sf-tabs-title-color;
-
-    @media (max-width: $mobile-max) {
-      display: none;
-    }
-  }
-
-  &__title {
-    order: 1; // Put the labels first
-    display: flex;
-    justify-content: space-between;
-    font-size: $sf-tabs-title-font-size;
-    padding: $sf-tabs-title-padding 5px calc(#{$sf-tabs-title-padding} + #{$sf-tabs-title-border-width}) 0;
-    cursor: pointer;
-    color: $sf-tabs-title-color;
-    border-bottom: $sf-tabs-title-border-width solid $sf-tabs-title-color;
-    margin-right: 2rem;
-    transition: border-bottom-color .15s linear, color .15s linear;
-
-    @media (max-width: $mobile-max) {
-      border-bottom: none;
-    }
-
-    &:hover {
-      color: $sf-tabs-title-color-hover;
-    }
-
-    &--active {
-      border-bottom: $sf-tabs-title-border-width solid $sf-tabs-title-color-active;
-      color: $sf-tabs-title-color-active;
-
-      @media (max-width: $mobile-max) {
-        border-bottom: none;
-      }
-    }
-
-    @media (max-width: $mobile-max) {
-      width: 100%;
-      margin-right: 0;
-      margin-top: 0.2rem;
-      order: initial;
-    }
-  }
-
-  &__content {
-    order: 99; // Put the tabs last
-    flex-grow: 1;
-    width: 100%;
-    display: none;
-    background: #fff;
-    font-family: $sf-tabs-content-font-family;
-
-    @media (max-width: $mobile-max) {
-      order: initial;
-    }
-  }
-
-  &__chevron {
-    display: none;
-
-    @media (max-width: $mobile-max) {
-      display: block;
-    }
+@mixin for-desktop{
+  @media screen and (min-width: $desktop-min){
+    @content;
   }
 }
 
-.sf-tabs__title--active+.sf-tabs__content {
-  display: block;
+.sf-tabs{
+  $this: &;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: $sf-tabs__content-font-family;
+  line-height: 1.6;
+  &__title{
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(#{$sf-tabs__title-padding-y} - 5px) 0;
+    border-bottom: 1px solid $sf-tabs-border-color;
+    color: $c-dark-primary;
+    font-family: $sf-tabs__title-font-family;
+    font-size: $sf-tabs__title-font-size;
+    cursor: pointer;
+    transition: border-color 150ms ease-in-out, color 150ms ease-in-out;
+    @include for-desktop{
+      flex-basis: auto;
+      margin-right: 2rem;
+      margin-bottom: -2px;
+      padding: $sf-tabs__title-padding-y 0;
+      border-width: 2px;
+      border-color: transparent;
+      color: $c-gray-secondary;
+    }
+    &--active{
+      border-color: transparent;
+      @include for-desktop{
+        z-index: 1;
+        border-width: 2px;
+        border-color: $c-dark-primary;
+        color: $c-dark-primary;
+      }
+      & + #{$this}__content{
+        display: block;
+        border-bottom: 1px solid $sf-tabs-border-color;
+        @include for-desktop{
+          border-bottom: 0;
+        }
+      }
+    }
+    &:hover{
+      @include for-desktop {
+        color: $c-dark-primary;
+      }
+    }
+  }
+  &__content{
+    display: none;
+    flex-basis: 100%;
+    padding: ($sf-tabs__content-padding-y / 2) 0;
+    @include for-desktop{
+      order: 99;
+      padding: $sf-tabs__content-padding-y 0;
+      border-top: 2px solid $sf-tabs-border-color;
+    }
+  }
+  &__chevron{
+    @include for-desktop{
+      display: none;
+    }
+  }
 }
