@@ -1,5 +1,118 @@
 <template>
   <div id="product">
+    <section class="product">
+      <div class="gallery">
+        <!-- SFGallery -->
+      </div>
+      <div class="details">
+        <SfHeading
+          title="Cashmere Sweater"
+          :level="1"
+          class="sf-heading--no-underline sf-heading--left"
+        />
+        <div>
+          <SfPrice regular="$50.00" />
+          <SfRating :score="4" :max="5" />
+          <span>Read all 1 review</span>
+        </div>
+        <div>
+          <p>
+            Find stunning women cocktail and party dresses. Stand out in lace
+            and metallic cocktail dresses and party dresses from all your
+            favorite brands.
+          </p>
+        </div>
+        <div>
+          <!-- Size guide-->
+          <SfSelect v-model="size" label="Size" class="sf-select--bordered">
+            <SfSelectOption
+              v-for="size in sizes"
+              :key="size.value"
+              :value="size.value"
+              >{{ size.label }}</SfSelectOption
+            >
+          </SfSelect>
+          <SfSelect v-model="color" label="Color" class="sf-select--bordered">
+            <SfSelectOption
+              v-for="color in colors"
+              :key="color.value"
+              :value="color.value"
+            >
+              <SfProductOption :label="color.label" :color="color.color" />
+            </SfSelectOption>
+          </SfSelect>
+          <SfAddToCart :stock="5" v-model="qty" :canAddToCart="stock > 0" />
+          <!-- Save for later -->
+          <!-- Add to compare -->
+        </div>
+        <SfTabs :openTab="2">
+          <SfTab header="Description">
+            <div>
+              <p>
+                The Karissa V-Neck Tee features a semi-fitted shape that's
+                flattering for every figure. You can hit the gym with confidence
+                while it hugs curves and hides common "problem" areas. Find
+                stunning women's cocktail dresses and party dresses.
+              </p>
+            </div>
+            <SfProperty
+              v-for="(property, i) in properties"
+              :key="i"
+              :name="property.name"
+              :value="property.value"
+            />
+          </SfTab>
+          <SfTab header="1 Review">
+            <div>
+              <SfHeading
+                title="Mari"
+                :level="3"
+                class="sf-heading--no-underline sf-heading--left"
+              />
+              <div style="display: flex">
+                <SfRating :score="4" :max="5" />
+                <small>Jan 2018</small>
+              </div>
+              <p>
+                Excellent light output from this led fitting. Relatively easy to
+                fix to the ceiling,but having two people makes it easier, to
+                complete the installation. Unable to comment on reliability at
+                this time, but I am hopeful of years of use with good light
+                levels... <span style="color: #5ECE7B">Read more</span>
+              </p>
+            </div>
+          </SfTab>
+          <SfTab header="Additional Information">
+            <SfHeading
+              title="Brand"
+              :level="3"
+              class="sf-heading--no-underline sf-heading--left"
+            />
+            <div>
+              <p>
+                <u>Brand name</u> is the perfect pairing of quality and design.
+                This label creates major everyday vibes with its collection of
+                modern brooches, silver and gold jewellery, or clips it back
+                with hair accessories in geo styles.
+              </p>
+            </div>
+            <SfHeading
+              title="Take care of me"
+              :level="3"
+              class="sf-heading--no-underline sf-heading--left"
+            />
+            <div>
+              <p>
+                Just here for the care instructions? Yeah, we thought so
+              </p>
+              <p>
+                Do not wash!
+              </p>
+            </div>
+          </SfTab>
+        </SfTabs>
+      </div>
+    </section>
     <SfSection titleHeading="Match it with">
       <SfCarousel
         :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
@@ -127,6 +240,14 @@
 </template>
 <script>
 import {
+  SfProperty,
+  SfHeading,
+  SfPrice,
+  SfRating,
+  SfSelect,
+  SfProductOption,
+  SfAddToCart,
+  SfTabs,
   SfProductCard,
   SfCarousel,
   SfSection,
@@ -141,6 +262,45 @@ export default {
   name: "Product",
   data() {
     return {
+      qty: 1,
+      stock: 5,
+      size: "",
+      sizes: [
+        { label: "XXS", value: "xxs" },
+        { label: "XS", value: "xs" },
+        { label: "S", value: "s" },
+        { label: "M", value: "m" },
+        { label: "L", value: "l" },
+        { label: "XL", value: "xl" },
+        { label: "XXL", value: "xxl" }
+      ],
+      color: "",
+      colors: [
+        { label: "Red", value: "red", color: "#990611" },
+        { label: "Black", value: "black", color: "#000000" },
+        { label: "Yellow", value: "yellow", color: "#DCA742" },
+        { label: "Blue", value: "blue", color: "#004F97" },
+        { label: "Navy", value: "navy", color: "#656466" },
+        { label: "White", value: "white", color: "#FFFFFF" }
+      ],
+      properties: [
+        {
+          name: "Product Code",
+          value: "578902-00"
+        },
+        {
+          name: "Category",
+          value: "Pants"
+        },
+        {
+          name: "Material",
+          value: "Cotton"
+        },
+        {
+          name: "Country",
+          value: "Germany"
+        }
+      ],
       products: [
         {
           title: "Cream Beach Bag",
@@ -194,6 +354,14 @@ export default {
     };
   },
   components: {
+    SfProperty,
+    SfTabs,
+    SfHeading,
+    SfPrice,
+    SfRating,
+    SfSelect,
+    SfProductOption,
+    SfAddToCart,
     SfProductCard,
     SfCarousel,
     SfSection,
@@ -209,17 +377,42 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../../../css/variables";
+@import "~@storefront-ui/shared/styles/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
+
+@mixin for-desktop {
+  @media screen and (min-width: $desktop-min) {
+    @content;
+  }
+}
+
 #product {
   max-width: 1240px;
   margin: auto;
   box-sizing: border-box;
   padding: 0 $spacer-big;
-  @media screen and (min-width: $desktop-min) {
+  @include for-desktop {
     padding: 0;
   }
 }
+
+.product {
+  display: flex;
+}
+.gallery,
+.details {
+  @media screen and (min-width: $desktop-min) {
+    flex: 1;
+  }
+}
+.gallery {
+}
+.details {
+  @include for-desktop {
+    margin-left: 100px;
+  }
+}
+/* copied from Home */
 .product-card {
   max-width: unset; // TODO: test this property and fix if it required
   &:hover {
@@ -228,12 +421,12 @@ export default {
 }
 .product-carousel {
   margin: -20px -#{$spacer-big} -20px 0;
-  @media screen and (min-width: $desktop-min) {
+  @include for-desktop {
     margin: -20px 0;
   }
   /deep/ .sf-carousel__wrapper {
     padding: 20px 0;
-    @media screen and (min-width: $desktop-min) {
+    @include for-desktop {
       padding: 20px;
       max-width: calc(100% - 216px);
     }
@@ -265,7 +458,7 @@ export default {
     display: flex;
     & + & {
       margin-top: $spacer-big / 2;
-      @media screen and (min-width: $desktop-min) {
+      @include for-desktop {
         margin-top: $spacer-big;
       }
     }
@@ -274,7 +467,7 @@ export default {
     margin: 0;
     & + & {
       margin-left: $spacer-big / 2;
-      @media screen and (min-width: $desktop-min) {
+      @include for-desktop {
         margin-left: $spacer-big;
       }
     }
