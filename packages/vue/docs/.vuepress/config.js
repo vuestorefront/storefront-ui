@@ -14,7 +14,7 @@ module.exports = {
       ['/introduction', 'Introduction'],
       ['/customization', 'Customization'],
       {
-        title: 'Contributing',
+        title: 'Contribution Guide',
         collapsable: false,
         children: [
           ['/contributing/getting-started', 'Getting started'],
