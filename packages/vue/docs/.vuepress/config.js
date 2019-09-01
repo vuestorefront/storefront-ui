@@ -14,9 +14,10 @@ module.exports = {
       ['/introduction', 'Introduction'],
       ['/customization', 'Customization'],
       {
-        title: 'Components',
+        title: 'Components [WIP]',
         collapsable: false,
         children: [
+          ['/components/arrow', 'Arrow'],
           ['/components/button', 'Button'],
         ],
       },

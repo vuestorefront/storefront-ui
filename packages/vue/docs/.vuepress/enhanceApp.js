@@ -1,3 +1,4 @@
+import SfArrow from '../../src/components/atoms/SfArrow/SfArrow.vue'
 import SfButton from '../../src/components/atoms/SfButton/SfButton.vue'
 
 export default ({
@@ -6,5 +7,6 @@ export default ({
   router, 
   siteData 
 }) => {
+  Vue.component('SfArrow', SfArrow)
   Vue.component('SfButton', SfButton)
 }
