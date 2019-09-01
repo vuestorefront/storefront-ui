@@ -19,6 +19,7 @@ module.exports = {
         collapsable: false,
         children: [
           ['/contributing/getting-started', 'How to contribute'],
+          ['/contributing/github-guidelines', 'Working with Github'],
           ['/contributing/component-rules', 'Component Rules'],
           ['/contributing/working-with-designs', 'Working With Designs'],
           ['/contributing/creating-new-component', 'Create/Edit Component'],

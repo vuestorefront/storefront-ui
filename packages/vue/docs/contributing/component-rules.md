@@ -2,6 +2,18 @@
 
 Below you can find rules that needs to be applied into every component from Storefront UI to ensure that they are highly customizable, follow common format and coding standards.
 
+## Coding conventions
+
+The good news is that for basic coding, we have `prettier` run automatically on each commit made. Besides we do have `eslint` check enabled, so you can know exactly where you code doesn't fit our conventions.
+
+For component, you can refer to [our component rules](component-rules.md) for detailed convention.
+
+In general, this is an open source project, hence:
+
+* Readability is extremly important. Please consider the next random developer who will read your code, and keep it simple for them.
+* No complex logic in `template` view. If there is, please use `computed` properties.
+
+
 # Common rules for components
 
 ### General rules
