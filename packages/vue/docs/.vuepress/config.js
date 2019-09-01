@@ -13,11 +13,12 @@ module.exports = {
     sidebar: [
       ['/introduction', 'Introduction'],
       ['/customization', 'Customization'],
+      ['/meet-the-team', 'Meet the core team'],
       {
         title: 'Contribution Guide',
         collapsable: false,
         children: [
-          ['/contributing/getting-started', 'Getting started'],
+          ['/contributing/getting-started', 'How to contribute'],
           ['/contributing/component-rules', 'Component Rules'],
           ['/contributing/working-with-designs', 'Working With Designs'],
           ['/contributing/creating-new-component', 'Create/Edit Component'],

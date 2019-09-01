@@ -1,25 +1,25 @@
 # How to contribute
 
-_First and foremost, thank you so much for thinking of contributing to **StorefrontUI** ❤️👍._
+_Welcome and thank you so much for thinking of contributing to **StorefrontUI**_ ❤️👍.
 
-Before you get started, let's go over a few important guidelines. We want you to have fun contributing with us, and be ready as fast as possible.
+We want you to have fun contributing with us, so let's go over a few important guidelines before getting started.
 
 [[toc]]
 
 ## Important resources
 
-* You are invited to join our [Our Discord Server](https://discord.gg/GS8hqFS). This is the place where we discussed about new features, exchanging questions between contributors (`#contributors`) and StorefrontUI users.
-* [Our component storybook](http://storefrontui-storybook.netlify.com/)
-* [Our current issues](https://github.com/DivanteLtd/storefront-ui/issues)
-* [Our current Roadmap](https://github.com/DivanteLtd/storefront-ui/projects/1)
+* [Our Discord Server](https://discord.gg/GS8hqFS). This is the place where we discussed about new features, exchanging questions between the core team, contributors (`#contributors`) and StorefrontUI users.
+* [Our component storybook](http://storefrontui-storybook.netlify.com/) - Playground for our components
+* [Our current issues](https://github.com/DivanteLtd/storefront-ui/issues) - Where we keep track of all the bugs, feature requests reported by our community members.
+* [Our current Roadmap](https://github.com/DivanteLtd/storefront-ui/projects/1) - The status of our library in long term.
 
-* [Our Figma component design](https://www.figma.com/file/hrwE3VsMBHgdJoS86rVr4W/Desktop-%26-Mobile-Vue-Storefront?node-id=99%3A0) - where contains the designs of all the existing/future components in the library.
+* [Our Figma component design](https://www.figma.com/file/hrwE3VsMBHgdJoS86rVr4W/Desktop-%26-Mobile-Vue-Storefront?node-id=99%3A0) - Where contains the designs of all the existing/future components in the library.
 
 ## Repository's structure
 
-StorefrontUI is an open-source UI library which is written **initially for Vue.js developers**. Like any other Vue.js project, you should be familiar with the basic of [Vue.js](https://vuejs.org). This is to help you **understand** the code **faster** and thus make it **easier** for you in contributing.
+StorefrontUI is an open-source UI library which is written **initially for Vue.js developers**. Like any other Vue.js project, you should be familiar with the basic of [Vue.js](https://vuejs.org) before starting to contribute. This is to help you **understand** the code **faster** and thus make it **easier** for you in contributing.
 
-Our repo structure intentionally follows [monorepo development strategy](https://www.atlassian.com/git/tutorials/monorepos). It consists of two main projects: **shared** and **vue**, both located under `packages` folder.
+Our repo structure follows [monorepo development strategy](https://www.atlassian.com/git/tutorials/monorepos). It consists of two main projects: **shared** and **vue**, both located under `packages` folder.
 
 ```
 storefrontUI
@@ -29,9 +29,9 @@ storefrontUI
 ```
 * **shared** - Contains all CSS stylings of components and icons used within StorefrontUI. This is to ensure design consistency between our future projects.
 
-* **vue** - This is the main project that contains Storefront UI Vue components code and main documentation.
+* **vue** - This is the main project that contains Storefront UI Vue components code and main documentation. 
 
-We selected this strategy to enable the reusability of resources between future extension to different frameworks such as React.js.
+We selected this strategy to enable the reusability of resources between future extension to other frameworks such as React.js.
 
 ## Ways of contribution
 
