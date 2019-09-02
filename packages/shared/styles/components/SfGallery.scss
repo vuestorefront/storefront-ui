@@ -90,7 +90,7 @@ $gallery__stage-cursor: zoom-in !default;
     width: $gallery__stage-width;
     max-width: 100%;
     overflow: hidden;
-    cursor: $gallery__stage-cursor;
+    user-select: none;
   }
 
   &__thumb {
@@ -107,7 +107,7 @@ $gallery__stage-cursor: zoom-in !default;
     max-width: 100%;
     width: auto;
     height: auto;
-    pointer-events: none;
+    cursor: $gallery__stage-cursor;
   }
 
   img {
