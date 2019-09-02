@@ -441,7 +441,7 @@ export default {
   }
   &__description {
     margin: (3 * $spacer-big) 0;
-    font-size: 1.125rem;
+    font-size: 1rem;
     line-height: 1.6;
   }
   &__attribute {
@@ -456,26 +456,27 @@ export default {
     margin-top: 5 * $spacer-big;
   }
   &__action {
-    & + & {
-      margin-top: $spacer-big;
-    }
     display: flex;
     justify-content: flex-end;
+    margin: $spacer-big 0 ($spacer-big / 2);
   }
 }
 
+/* SfAction Component ??? */
 .sf-action {
   border: 0;
   background: none;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-family: $body-font-family-primary;
   line-height: 1.6;
   font-weight: 300;
   text-decoration: underline;
+  cursor: pointer;
   &:focus{
     outline: 0;
   }
 }
+
 /* copied from Home Page */
 .product-card {
   max-width: unset; // TODO: test this property and fix if it required
