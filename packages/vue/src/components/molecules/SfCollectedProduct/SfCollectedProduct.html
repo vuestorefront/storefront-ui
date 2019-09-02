@@ -1,0 +1,36 @@
+<div class="sf-collected-product">
+  <!-- @slot -->
+  <slot name="remove">
+    <SfCircleIcon colorIcon="white" sizeIcon="50%" class="sf-collected-product__remove">
+      <SfIcon icon="cross" size="15px" color="white" />
+    </SfCircleIcon>
+  </slot>
+  <div class="sf-collected-product__container">
+    <slot name="image" v-bind="{image, title}">
+      <div class="sf-collected-product__image">
+        <img :src="image" :alt="title">
+        <!-- @slot -->
+        <SfCounter />
+      </div>
+    </slot>
+    <div class="sf-collected-product__contents">
+      <div>
+        <!-- @slot -->
+        <slot name="title" v-bind="{title}">
+          <span class="sf-collected-product__title">
+            {{ title }}
+          </span>
+        </slot>
+        <!-- @slot -->
+        <slot name="price" v-bind="{ specialPrice, regularPrice }">
+          <SfPrice class="sf-collected-product__price" v-if="regularPrice" :regular="regularPrice"
+            :special="specialPrice" />
+        </slot>
+      </div>
+      <!-- @slot -->
+      <slot name="configuration"></slot>
+      <!-- @slot -->
+      <slot name="actions"></slot>
+    </div>
+  </div>
+</div>
