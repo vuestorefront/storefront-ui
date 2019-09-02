@@ -10,7 +10,7 @@
       <div class="sf-collected-product__image">
         <img :src="image" :alt="title">
         <!-- @slot -->
-        <SfCounter />
+        <SfCounter :value="quantity" />
       </div>
     </slot>
     <div class="sf-collected-product__contents">
