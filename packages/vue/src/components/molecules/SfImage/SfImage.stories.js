@@ -26,32 +26,18 @@ const scssTableConfig = {
 
 const data = () => {
   return {
-    src: [
-      {
-        normal: {
-          url:
-            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-          alt: "Macbook PRO Apple"
-        },
-        small: {
-          url:
-            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-          alt: "Macbook PRO Apple"
-        }
+    src: {
+      normal: {
+        url:
+          "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+        alt: "Macbook PRO Apple"
       },
-      {
-        normal: {
-          url:
-            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-          alt: "Macbook PRO Apple (keyboard)"
-        },
-        small: {
-          url:
-            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-          alt: "Macbook PRO Apple (keyboard)"
-        }
+      small: {
+        url:
+          "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+        alt: "Macbook PRO Apple"
       }
-    ]
+    }
   };
 };
 
@@ -89,19 +75,20 @@ storiesOf("Molecules|Image", module)
     {
       info: {
         summary: `<h2>Usage</h2>
-       <pre><code>import { SfImage } from "@storefrontui/vue"</code></pre>
-            You can pass an array of objects (images) with the format below:
-            <code>
-          let src = [
-            {
-              small: { url, alt },
-              normal: { url, alt }
-            }
-          ]
+        <pre><code>import { SfImage } from "@storefrontui/vue"</code></pre>
+        To render a picture tag with different img sizes for mobile and desktop
+        you should pass an object with the format below:
+        <code>
+        let src = {
+          small: { url, alt },
+          normal: { url, alt }
+        }
         </code>
         <br>
         <br>
-        Or a string with the image url like the example: <code>let src = "assets/storybook/product_thumb.png"</code>
+        To render a simple img tag you should pass
+        an src string with the image url:
+        <code>let src = "assets/storybook/product_thumb.png"</code>
         <br>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `
