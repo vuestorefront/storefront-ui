@@ -39,7 +39,6 @@ $select__label-transition: all 0.3s ease-in-out !default;
     }
   }
   box-sizing: border-box;
-  margin-top: $select-font-size-sub / 2;
   font-size: $select-font-size;
   &:focus {
     outline: 0;
@@ -87,6 +86,10 @@ $select__label-transition: all 0.3s ease-in-out !default;
     list-style-type: none;
     margin: 0;
     padding: 0;
+    overflow: auto;
+    &::-webkit-scrollbar{
+      width: 0;
+    }
   }
   &__cancel {
     box-sizing: border-box;
