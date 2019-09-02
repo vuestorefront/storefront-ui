@@ -1,4 +1,4 @@
-# How to contribute
+# Become a contributor
 
 _Welcome and thank you so much for thinking of contributing to **StorefrontUI**_ ❤️👍.
 

@@ -1,6 +1,9 @@
 module.exports = {
   title: 'Storefront UI',
   description: 'Customizable and performant Vue.js UI library for eCommerce',
+  head: [
+    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "https://divante.com/open-graph/favicons_storefrontui/sfui_favicon-32x32.png"}],
+  ],
   themeConfig: {
     logo: '/logo.png',
     nav: [
@@ -18,7 +21,7 @@ module.exports = {
         title: 'Contribution Guide',
         collapsable: false,
         children: [
-          ['/contributing/getting-started', 'How to contribute'],
+          ['/contributing/getting-started', 'Become a contributor'],
           ['/contributing/github-guidelines', 'Working with Github'],
           ['/contributing/component-rules', 'Component Rules'],
           ['/contributing/working-with-designs', 'Working With Designs'],
