@@ -1,51 +1,61 @@
 <template>
   <div id="product">
     <section class="product">
-      <div class="gallery">
+      <div class="product-gallery">
         <!-- SFGallery -->
       </div>
-      <div class="details">
+      <div class="product-details">
         <SfHeading
           title="Cashmere Sweater"
           :level="1"
           class="sf-heading--no-underline sf-heading--left"
         />
-        <div>
+        <div class="product-details__sub">
           <SfPrice regular="$50.00" />
-          <SfRating :score="4" :max="5" />
-          <span>Read all 1 review</span>
+          <SfRating class="product-details__sub-rating" :score="4" :max="5" />
+          <span class="product-details__sub-reviews">Read all 1 review</span>
         </div>
-        <div>
-          <p>
-            Find stunning women cocktail and party dresses. Stand out in lace
-            and metallic cocktail dresses and party dresses from all your
-            favorite brands.
-          </p>
-        </div>
-        <div>
-          <!-- Size guide-->
-          <SfSelect v-model="size" label="Size" class="sf-select--bordered">
-            <SfSelectOption
-              v-for="size in sizes"
-              :key="size.value"
-              :value="size.value"
-              >{{ size.label }}</SfSelectOption
-            >
-          </SfSelect>
-          <SfSelect v-model="color" label="Color" class="sf-select--bordered">
-            <SfSelectOption
-              v-for="color in colors"
-              :key="color.value"
-              :value="color.value"
-            >
-              <SfProductOption :label="color.label" :color="color.color" />
-            </SfSelectOption>
-          </SfSelect>
-          <SfAddToCart :stock="5" v-model="qty" :canAddToCart="stock > 0" />
-          <!-- Save for later -->
-          <!-- Add to compare -->
-        </div>
-        <SfTabs :openTab="2">
+        <!-- short description -->
+        <p class="product-details__description">
+          Find stunning women cocktail and party dresses. Stand out in lace and
+          metallic cocktail dresses and party dresses from all your favorite
+          brands.
+        </p>
+        <!-- Action: Size guide -->
+        <SfSelect
+          v-model="size"
+          label="Size"
+          class="sf-select--bordered product-details__attribute"
+        >
+          <SfSelectOption
+            v-for="size in sizes"
+            :key="size.value"
+            :value="size.value"
+            >{{ size.label }}</SfSelectOption
+          >
+        </SfSelect>
+        <SfSelect
+          v-model="color"
+          label="Color"
+          class="sf-select--bordered product-details__attribute"
+        >
+          <SfSelectOption
+            v-for="color in colors"
+            :key="color.value"
+            :value="color.value"
+          >
+            <SfProductOption :label="color.label" :color="color.color" />
+          </SfSelectOption>
+        </SfSelect>
+        <SfAddToCart
+          :stock="5"
+          v-model="qty"
+          :canAddToCart="stock > 0"
+          class="product-details__add-to-cart"
+        />
+        <!-- Action: Save for later -->
+        <!-- Action: Add to compare -->
+        <SfTabs class="product-details__tabs" :openTab="2">
           <SfTab header="Description">
             <div>
               <p>
@@ -113,6 +123,7 @@
         </SfTabs>
       </div>
     </section>
+    <!--
     <SfSection titleHeading="Match it with">
       <SfCarousel
         :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
@@ -146,7 +157,6 @@
       </SfCarousel>
     </SfSection>
     <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
-      <!-- .grid shoud be refactored -->
       <div class="grid">
         <div class="grid__row">
           <div class="grid__col">
@@ -235,7 +245,7 @@
           />
         </SfCircleIcon>
       </SfBottomNavigationItem>
-    </SfBottomNavigation>
+    </SfBottomNavigation> -->
   </div>
 </template>
 <script>
@@ -361,15 +371,15 @@ export default {
     SfRating,
     SfSelect,
     SfProductOption,
-    SfAddToCart,
-    SfProductCard,
+    SfAddToCart
+    /*SfProductCard,
     SfCarousel,
     SfSection,
     SfImage,
     SfBanner,
     SfBottomNavigation,
     SfCircleIcon,
-    SfIcon
+    SfIcon*/
   },
   mounted() {
     document.body.style.setProperty("margin", "0");
@@ -395,24 +405,52 @@ export default {
     padding: 0;
   }
 }
-
 .product {
   display: flex;
 }
-.gallery,
-.details {
+.product-gallery,
+.product-details {
   @media screen and (min-width: $desktop-min) {
     flex: 1;
   }
 }
-.gallery {
+.product-gallery {
 }
-.details {
+.product-details {
   @include for-desktop {
-    margin-left: 100px;
+    margin-left: 5 * $spacer-big;
+  }
+  &__sub {
+    display: flex;
+    align-items: center;
+    margin-top: $spacer-big / 2;
+  }
+  &__sub-rating {
+    margin-left: auto;
+  }
+  &__sub-reviews {
+    margin-left: 10px;
+    font-size: 0.75rem;
+  }
+  &__description {
+    margin: (3 * $spacer-big) 0;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+  &__attribute {
+    & + & {
+      margin-top: $spacer-big;
+    }
+  }
+  &__add-to-cart {
+    margin-top: $spacer-extra-big;
+  }
+  &__tabs {
+    margin-top: 5 * $spacer-big;
   }
 }
-/* copied from Home */
+
+/* copied from Home Page */
 .product-card {
   max-width: unset; // TODO: test this property and fix if it required
   &:hover {
@@ -452,6 +490,7 @@ export default {
     }
   }
 }
+
 /*  TODO: .grid shoud be refactored */
 .grid {
   &__row {
