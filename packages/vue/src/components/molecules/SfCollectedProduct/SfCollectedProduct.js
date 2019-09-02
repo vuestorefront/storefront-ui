@@ -33,6 +33,13 @@ export default {
     specialPrice: {
       type: [Number, String],
       default: null
+    },
+    /**
+     * Product quantity
+     */
+    quantity: {
+      type: [Number, String],
+      default: 0
     }
   },
   components: {
