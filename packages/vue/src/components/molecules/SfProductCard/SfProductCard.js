@@ -23,6 +23,12 @@ export default {
       required: true
     },
     /**
+     * Link to product page
+     */
+    link: {
+      type: String
+    },
+    /**
      * Product rating
      */
     scoreRating: {
@@ -33,7 +39,7 @@ export default {
      * Product reviews count
      */
     reviewsCount: {
-      type: [Number],
+      type: [Number, Boolean],
       default: false
     },
     /**
