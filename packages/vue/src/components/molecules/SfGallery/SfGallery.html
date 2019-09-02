@@ -23,13 +23,12 @@
         <ul class="glide__slides">
           <li
             class="glide__slide"
-            v-for="(image, index) in images"
+            v-for="(picture, index) in mapPictures"
             :key="'slide-' + index"
           >
-            <img
+            <SfImage
               class="sf-gallery__big-image"
-              :data-src="image.big.url"
-              :alt="image.big.alt"
+              :src="picture"
               @click="$emit('click:stage', { image, index })"
             />
           </li>
