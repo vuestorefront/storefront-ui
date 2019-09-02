@@ -3,6 +3,7 @@
   :style="{ maxWidth }"
   @mouseover="hoverHandler(true)"
   @mouseleave="hoverHandler(false)"
+  @click="$emit('click')"
 >
   <transition :name="transition">
     <div v-if="hasOverlay && loaded" class="sf-image__overlay">

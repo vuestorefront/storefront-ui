@@ -4,6 +4,7 @@ $product-card-background: white !default;
 $product-card-max-width: 200px !default;
 $product-card-hover-box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
 $product-card-desktop-max-width: 240px !default;
+$product__title-color: inherit !default;
 $product__image-background-color: $c-bg-primary !default;
 $product__image-blend-mode: darken !default;
 $product__pictures-height: 250px !default;
@@ -21,6 +22,7 @@ $product__pictures-height: 250px !default;
     margin-bottom: 0.25rem;
     display: flex;
     font-weight: 300;
+    color: $product__title-color;
   }
 
   &__image {
@@ -40,6 +42,7 @@ $product__pictures-height: 250px !default;
 
   &__pictures {
     display: flex;
+    background-color: $product__image-background-color;
     height: $product__pictures-height;
     align-items: center;
     text-align: center;
@@ -57,7 +60,7 @@ $product__pictures-height: 250px !default;
   }
 
   &:hover {
-    .product-item__picture {
+    .sf-product-card__picture {
       display: none;
 
       &:last-child {

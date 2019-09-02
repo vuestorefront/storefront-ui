@@ -1,7 +1,7 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
-import SfImage from "../../atoms/SfRating/SfImage.vue";
+import SfImage from "../../atoms/SfImage/SfImage.vue";
 
 export default {
   name: "SfProductCard",
@@ -23,6 +23,12 @@ export default {
       required: true
     },
     /**
+     * Link to product page
+     */
+    link: {
+      type: String
+    },
+    /**
      * Product rating
      */
     scoreRating: {
@@ -33,7 +39,7 @@ export default {
      * Product reviews count
      */
     reviewsCount: {
-      type: [Number],
+      type: [Number, Boolean],
       default: false
     },
     /**

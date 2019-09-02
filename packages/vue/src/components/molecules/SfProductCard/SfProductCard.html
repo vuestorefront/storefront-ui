@@ -16,26 +16,28 @@
     </slot>
   </button>
 
-  <!-- @slot -->
-  <slot name="image" v-bind="{ image, title }">
-    <div v-if="Array.isArray(image)" class="sf-product-card__pictures">
-      <div class="sf-product-card__picture" v-for="picture in image">
-        <div class="sf-product-card__image">
-          <SfImage :src="picture" />
+  <component :is="link ? 'a' : 'span'" :href="link">
+    <!-- @slot -->
+    <slot name="image" v-bind="{ image, title }">
+      <div v-if="Array.isArray(image)" class="sf-product-card__pictures">
+        <div class="sf-product-card__picture" v-for="picture in image.slice(0, 2)">
+          <div class="sf-product-card__image">
+            <SfImage :src="picture" />
+          </div>
         </div>
       </div>
-    </div>
-    <div v-else class="sf-product-card__image">
-      <SfImage :src="image" :alt="title" />
-    </div>
-  </slot>
+      <div v-else class="sf-product-card__image">
+        <SfImage :src="image" :alt="title" />
+      </div>
+    </slot>
 
-  <!-- @slot -->
-  <slot name="title" v-bind="{ title }">
-    <h3 class="sf-product-card__title">
-      {{ title }}
-    </h3>
-  </slot>
+    <!-- @slot -->
+    <slot name="title" v-bind="{ title }">
+      <h3 class="sf-product-card__title">
+        {{ title }}
+      </h3>
+    </slot>
+  </component>
 
   <!-- @slot -->
   <slot name="price" v-bind="{ specialPrice, regularPrice }">
