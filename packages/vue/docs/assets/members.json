@@ -1,0 +1,63 @@
+[{
+    "name": "Filip Rakowski",
+    "role": "Maintainer",
+    "work": {
+        "title": "Co-founder @Vue Storefront ",
+        "org": "Vue Storefront",
+        "orgUrl": "",
+        "subTitle": "& T-shirt designer"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl", "en"],
+    "socials": {
+        "github": "filrak",
+        "twitter": "filrakowski"
+    }
+}, {
+    "name": "Przemysław Spaczek",
+    "role": "Maintainer",
+    "work": {
+        "title": "Frontend Master",
+        "org": "Vue Storefront",
+        "orgUrl": ""
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl", "en"],
+    "socials": {
+        "github": "przspa",
+        "twitter": "przemekspaczek"
+    }
+}, {
+    "name": "Maya Shavin",
+    "role": "Maintainer",
+    "work": {
+        "title": "Senior Frontend Developer",
+        "org": "Cloudinary",
+        "orgUrl": "https://cloudinary.com"
+    },
+    "location": "Israel",
+    "languages": ["vi", "he", "en"],
+    "links": ["https://mayashavin.com", "https://m16yproject.io", "https://vuejsisrael.com"],
+    "socials": {
+        "github": "mayashavin",
+        "twitter": "mayashavin"
+    }
+}, {
+    "name": "Leonardo Matos",
+    "role": "Maintainer",
+    "location": "Brazil",
+    "languages": ["pt", "en"],
+    "socials": {
+        "github": "leomp12",
+        "twitter": ""
+    }
+}, {
+    "name": "Nicolò Maria Mezzopera",
+    "role": "Maintainer",
+    "location": "Sofia, Hungary",
+    "languages": ["it", "en"],
+    "socials": {
+        "github": "DonNicoJs",
+        "twitter": "DonNicoJs"
+    }
+}]
