@@ -28,8 +28,7 @@ storiesOf("Molecules|Footer", module)
         }
       },
       data() {
-        return {
-        };
+        return {};
       },
       components: { SfFooter },
       template: `
