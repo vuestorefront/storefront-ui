@@ -48,7 +48,7 @@
           </SfSelectOption>
         </SfSelect>
         <SfAddToCart
-          :stock="5"
+          :stock="stock"
           v-model="qty"
           :canAddToCart="stock > 0"
           class="product-details__add-to-cart"
@@ -272,7 +272,7 @@ export default {
   name: "Product",
   data() {
     return {
-      qty: 1,
+      qty: "1",
       stock: 5,
       size: "",
       sizes: [
