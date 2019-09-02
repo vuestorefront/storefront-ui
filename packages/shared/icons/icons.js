@@ -136,7 +136,3 @@ export const icons = {
     ]
   }
 };
-
-const defineIcons = () => {};
-
-export default defineIcons;
