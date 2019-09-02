@@ -1,155 +1,128 @@
 @import "../variables";
 
-$select-option-padding: 0.75rem 1.875rem;
+$select-option-padding-y: 0.75rem !default;
+$select-option-padding-x: 1.875rem !default;
 $select-color-primary: $c-light-primary !default;
-$select-color-secondary: $c-dark-primary !default;
-$select-color-invalid: rgba(240, 140, 125, 1) !default;
-$select-transition: all 0.3s ease-in-out !default;
-$select__label-font-size: $font-size-big-desktop !default;
-$select__label--active-font-size: 0.625rem !default;
-$select__error-message-min-height: 0.875rem !default;
+$select-color-accent: $c-accent-primary !default;
+$select-color-invalid: #d12727 !default;
+$select-font-size: 1rem !default;
+$select-font-size-sub: 0.6rem !default;
+$select__label-transition: all 0.3s ease-in-out !default;
 
-@mixin move-label-up {
-  top: -3px;
-  font-size: $select__label--active-font-size;
-}
-
-.sf-select-option {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: $select-option-padding;
-  user-select: none;
-  & + & {
-    border-top: 1px solid $select-color-primary;
-    @media screen and (min-width: $desktop-min) {
-      border-top: 0;
-    }
-  }
-  &--active {
-    background-color: $select-color-primary;
-  }
-  &:hover {
-    outline: 1px solid $select-color-primary;
+@mixin for-desktop {
+  @media screen and (min-width: $desktop-min) {
+    @content;
   }
 }
 
 .sf-select {
   $this: &;
-  position: relative;
-  white-space: nowrap;
-  user-select: none;
-  &:focus {
-    outline: 0;
-  }
-  &__selected {
-    padding: $select-option-padding;
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 0;
+  &-option {
+    padding: $select-option-padding-y $select-option-padding-x;
+    user-select: none;
+    @include for-desktop {
+      padding: $select-option-padding-y 0;
+    }
+    & + & {
+      border-top: 1px solid $select-color-primary;
+      @include for-desktop {
+        border-top: 0;
+      }
+    }
+    &--active {
+      background-color: $select-color-primary;
+    }
     &:hover {
-      outline: 0;
-    }
-    &::after {
-      flex: 0 0 7px;
-      height: 7px;
-      margin-left: auto;
-      border: 0px solid $select-color-secondary;
-      border-width: 0px 2px 2px 0px;
-      transform: rotate(45deg) translateX(calc(-7px / 2));
-      content: "";
-    }
-  }
-  &__label {
-    font-size: $select__label-font-size;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    top: 10px;
-    transition: $select-transition;
-    &::after {
-      color: $select-color-primary;
-    }
-    &--is-selected{
-      @include move-label-up();
-    }
-    &--is-active{
-      @include move-label-up();
-      color: $c-accent-primary;
-    }
-    &--is-required{
-      &::after{
-        content: " *";
-        color: $c-accent-primary;
+      @include for-desktop {
+        background-color: lighten($select-color-primary, 3%);
       }
     }
   }
-  &__error-message {
-    padding-top: $spacer-small;
-    color: $select-color-invalid;
-    font-size: $font-size-extra-small-desktop;
-    min-height: $select__error-message-min-height;
+  box-sizing: border-box;
+  margin-top: $select-font-size-sub / 2;
+  font-size: $select-font-size;
+  &:focus {
+    outline: 0;
   }
-  &__overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    @media screen and (min-width: $desktop-min) {
+  &__label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: $select__label-transition;
+  }
+  &__selected {
+    min-height: 20px; // TODO: use js to set height
+    padding: $select-option-padding-y 0;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  &__overlay{
+    @include for-desktop {
       display: none;
     }
   }
   &__dropdown {
     position: fixed;
     top: auto;
-    left: 0;
     bottom: 0;
+    left: 0;
     z-index: 3;
-    width: 100%;
     box-sizing: border-box;
+    width: 100%;
     background-color: #fff;
-    @media screen and (min-width: $desktop-min) {
+    @include for-desktop {
       position: absolute;
       top: 100%;
       bottom: auto;
-      left: 0;
       box-shadow: 0 8px 11px rgba(0, 0, 0, 0.1);
     }
   }
+  &__error-message {
+    padding-top: $spacer-small;
+    color: $select-color-invalid;
+    font-size: $select-font-size-sub;
+  }
   &__options {
-    padding: 0;
-    margin: 0;
-    overflow: auto;
     list-style-type: none;
-    &::-webkit-scrollbar {
-      width: 0;
-    }
+    margin: 0;
+    padding: 0;
   }
   &__cancel {
     box-sizing: border-box;
     width: 100%;
-    padding: $select-option-padding;
-    border: 0;
+    padding: $select-option-padding-y 0;
     background-color: $select-color-primary;
     color: #a3a5ad;
-    font-size: 1rem;
+    font-size: $select-font-size;
     text-transform: none;
-    text-align: center;
     &:focus {
       outline: 0;
     }
     &:hover {
       background-color: $select-color-primary;
     }
-    @media screen and (min-width: $desktop-min) {
+    @include for-desktop {
       display: none;
     }
   }
   &--bordered {
     #{$this}__selected {
+      padding: $select-option-padding-y $select-option-padding-x;
       border: 1px solid $select-color-primary;
+    }
+    #{$this}-option {
+      padding: $select-option-padding-y $select-option-padding-x;
+    }
+    #{$this}__label {
+      left: calc(#{$select-option-padding-x} - 6px);
+      padding: 6px;
+    }
+    &#{$this}--is-active,
+    &#{$this}--is-selected {
+      #{$this}__label {
+        background-color: $c-white;
+      }
     }
   }
   &--underlined {
@@ -157,15 +130,36 @@ $select__error-message-min-height: 0.875rem !default;
       border-bottom: 1px solid $select-color-primary;
     }
   }
+  &--is-active,
+  &--is-selected {
+    #{$this}__label {
+      top: 0;
+      color: inherit;
+      font-size: $select-font-size-sub;
+    }
+  }
+  &--is-active {
+    #{$this}__label {
+      color: $select-color-accent;
+    }
+  }
+  &--is-required {
+    #{$this}__label {
+      &::after {
+        content: " *";
+        color: $select-color-accent;
+      }
+    }
+  }
   &-enter-active {
     animation: sf-select--mobile 0.15s;
-    @media screen and (min-width: $desktop-min) {
+    @include for-desktop {
       animation: sf-select--dekstop 0.15s;
     }
   }
   &-leave-active {
     animation: sf-select--mobile 0.15s reverse;
-    @media screen and (min-width: $desktop-min) {
+    @include for-desktop {
       animation: sf-select--dekstop 0.15s reverse;
     }
   }
