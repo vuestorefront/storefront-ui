@@ -10,6 +10,7 @@ $gallery__item-mobile-size: 10px !default;
 $gallery__item-mobile-background: $c-gray-secondary !default;
 $gallery__item-mobile--selected-background: $c-accent-primary !default;
 $gallery__stage-width: 400px !default;
+$gallery__stage-cursor: zoom-in !default;
 
 .sf-gallery {
   width: 100%;
@@ -18,16 +19,20 @@ $gallery__stage-width: 400px !default;
   flex-direction: $gallery-flex-direction;
   position: relative;
   justify-content: center;
+  margin-bottom: $gallery__item-mobile-size;
+
+  @media (min-width: $desktop-min) {
+    margin-bottom: 0;
+  }
 
   &__thumbs {
     z-index: 2;
     position: absolute;
     width: auto;
-    margin: $gallery__nav-margin 0 0;
+    margin: 0;
     padding: 0;
-    top: 100%;
     display: inline-flex;
-    bottom: 0;
+    top: 100%;
 
     @media (min-width: $desktop-min) {
       position: static;
@@ -44,7 +49,11 @@ $gallery__stage-width: 400px !default;
     opacity: $gallery__item-opacity;
     transition: $gallery__item-transition;
     cursor: pointer;
-    user-select: none;
+    margin-right: $gallery__item-margin-bottom;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
 
     &::before {
       display: block;
@@ -53,7 +62,6 @@ $gallery__stage-width: 400px !default;
       width: $gallery__item-mobile-size;
       background: $gallery__item-mobile-background;
       border-radius: 50%;
-      margin: 0 $gallery__item-margin-bottom;
     }
 
     &--selected {
@@ -71,6 +79,10 @@ $gallery__stage-width: 400px !default;
       &:last-of-type {
         margin-bottom: 0;
       }
+
+      &::before {
+        display: none;
+      }
     }
   }
 
@@ -78,6 +90,7 @@ $gallery__stage-width: 400px !default;
     width: $gallery__stage-width;
     max-width: 100%;
     overflow: hidden;
+    cursor: $gallery__stage-cursor;
   }
 
   &__thumb {
@@ -94,7 +107,11 @@ $gallery__stage-width: 400px !default;
     max-width: 100%;
     width: auto;
     height: auto;
-    user-select: none;
     pointer-events: none;
+  }
+
+  img {
+    user-drag: none;
+    user-select: none;
   }
 }
