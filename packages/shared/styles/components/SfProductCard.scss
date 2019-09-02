@@ -1,56 +1,97 @@
 @import '../variables';
 
+$product-card-background: white !default;
 $product-card-max-width: 200px !default;
 $product-card-hover-box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
 $product-card-desktop-max-width: 240px !default;
 $product__image-background-color: $c-bg-primary !default;
 $product__image-blend-mode: darken !default;
+$product__pictures-height: 250px !default;
 
 .sf-product-card {
   max-width: $product-card-max-width;
   transition: 0.3s all;
   padding: $spacer-small;
   position: relative;
-  background: white;
+  background: $product-card-background;
   box-sizing: border-box;
+
   &__title {
     margin-top: 0.5rem;
     margin-bottom: 0.25rem;
     display: flex;
     font-weight: 300;
   }
+
   &__image {
     background-color: $product__image-background-color;
     align-items: center;
     justify-content: center;
     display: flex;
     z-index: 2;
+
     img {
       mix-blend-mode: $product__image-blend-mode;
       max-width: 100%;
-      background-color: $c-light-primary;
+      max-height: 100%;
+      background-color: $product__image-background-color;
     }
   }
+
+  &__pictures {
+    display: flex;
+    height: $product__pictures-height;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  &__picture {
+    display: block;
+    flex: 0 0 100%;
+    opacity: 0;
+
+    &:first-child {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    .product-item__picture {
+      display: none;
+
+      &:last-child {
+        display: block;
+        opacity: 1;
+      }
+    }
+  }
+
   &__cart-button {
     position: absolute;
     right: 25px;
     margin-top: -30px;
   }
+
   &__price {
     margin: 0.25rem 0;
   }
+
   &__reviews {
     display: flex;
     align-items: center;
     margin-top: 0.25rem;
   }
+
   &__rating {
     display: inline-flex;
   }
+
   &__reviews-count {
     font-size: $font-size-small-desktop;
     margin-left: 0.5rem;
   }
+
   &__wishlist-icon {
     position: absolute;
     z-index: 1;
@@ -62,21 +103,25 @@ $product__image-blend-mode: darken !default;
     outline: none;
     background: transparent;
     border: none;
+
     @media (min-width: $desktop-min) {
       &:not(.sf-product-card--on-wishlist) {
         visibility: hidden;
       }
     }
   }
+
   &:hover {
     box-shadow: $product-card-hover-box-shadow;
     transition: 0.3s all;
     z-index: 2;
+
     .sf-product-card__wishlist-icon {
       visibility: visible;
       outline: none;
     }
   }
+
   @media (min-width: $desktop-min) {
     max-width: $product-card-desktop-max-width;
     padding: $spacer-big;
