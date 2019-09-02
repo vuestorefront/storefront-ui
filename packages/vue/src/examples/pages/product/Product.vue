@@ -472,7 +472,7 @@ export default {
   font-weight: 300;
   text-decoration: underline;
   cursor: pointer;
-  &:focus{
+  &:focus {
     outline: 0;
   }
 }
