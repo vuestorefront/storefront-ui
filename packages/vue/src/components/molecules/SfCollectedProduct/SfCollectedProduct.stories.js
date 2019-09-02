@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { withKnobs, text, number } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfCollectedProduct from "./SfCollectedProduct.vue";
@@ -22,7 +22,8 @@ const data = () => {
       "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
     title: "Product name",
     regularPrice: 12.99,
-    specialPrice: 1.99
+    specialPrice: 1.99,
+    quantity: 1
   };
 };
 
@@ -43,6 +44,9 @@ storiesOf("Molecules|CollectedProduct", module)
         },
         specialPrice: {
           default: text("specialPrice (prop)", "$5,99")
+        },
+        quantity: {
+          default: number("quantity (prop)", 1)
         }
       },
       data,
@@ -51,7 +55,8 @@ storiesOf("Molecules|CollectedProduct", module)
       :image="image"
       :title="title"
       :specialPrice="specialPrice"
-      :regularPrice="regularPrice"/>`
+      :regularPrice="regularPrice"
+      :quantity="quantity"/>`
     }),
     {
       info: {
