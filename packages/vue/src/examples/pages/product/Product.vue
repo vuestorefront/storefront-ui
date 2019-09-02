@@ -11,12 +11,16 @@
           class="sf-heading--no-underline sf-heading--left"
         />
         <div class="product-details__sub">
-          <SfPrice regular="$50.00" />
-          <SfRating class="product-details__sub-rating" :score="4" :max="5" />
+          <SfPrice
+            regular="$95.00"
+            special="$50.00"
+            class="product-details__sub-price"
+          />
+          <SfRating :score="4" :max="5" class="product-details__sub-rating" />
           <span class="product-details__sub-reviews">Read all 1 review</span>
         </div>
         <!-- short description -->
-        <p class="product-details__description">
+        <p class="product-details__description desktop-only">
           Find stunning women cocktail and party dresses. Stand out in lace and
           metallic cocktail dresses and party dresses from all your favorite
           brands.
@@ -50,6 +54,7 @@
             <SfProductOption :label="color.label" :color="color.color" />
           </SfSelectOption>
         </SfSelect>
+        <SfDivider />
         <SfAddToCart
           :stock="stock"
           v-model="qty"
@@ -265,6 +270,7 @@ import {
   SfProductOption,
   SfAddToCart,
   SfTabs,
+  SfDivider,
   SfProductCard,
   SfCarousel,
   SfSection,
@@ -378,7 +384,8 @@ export default {
     SfRating,
     SfSelect,
     SfProductOption,
-    SfAddToCart
+    SfAddToCart,
+    SfDivider
     /*SfProductCard,
     SfCarousel,
     SfSection,
@@ -429,13 +436,26 @@ export default {
   }
   &__sub {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    margin-top: $spacer-big / 2;
+  }
+  &__sub-price {
+    flex-basis: 100%;
+    margin-top: $spacer-big / 4;
+    @include for-desktop {
+      flex-basis: auto;
+      margin-top: $spacer-big / 2;
+    }
   }
   &__sub-rating {
-    margin-left: auto;
+    margin-top: $spacer-big / 2;
+    @include for-desktop {
+      margin-left: auto;
+      margin-top: $spacer-big / 2;
+    }
   }
   &__sub-reviews {
+    margin-top: $spacer-big / 2;
     margin-left: 10px;
     font-size: 0.75rem;
   }
