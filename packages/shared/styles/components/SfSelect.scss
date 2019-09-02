@@ -106,6 +106,7 @@ $select__label-transition: all 0.3s ease-in-out !default;
       display: none;
     }
   }
+
   &--bordered {
     #{$this}__selected {
       padding: $select-option-padding-y $select-option-padding-x;
@@ -118,10 +119,16 @@ $select__label-transition: all 0.3s ease-in-out !default;
       left: calc(#{$select-option-padding-x} - 6px);
       padding: 6px;
     }
-    &#{$this}--is-active,
+    &#{$this}--is-active{
+      #{$this}__label {
+        top: 50%;
+        font-size: initial;
+        color: inherit;
+      }
+    }
     &#{$this}--is-selected {
       #{$this}__label {
-        background-color: $c-white;
+        display: none;
       }
     }
   }
@@ -130,6 +137,7 @@ $select__label-transition: all 0.3s ease-in-out !default;
       border-bottom: 1px solid $select-color-primary;
     }
   }
+
   &--is-active,
   &--is-selected {
     #{$this}__label {
