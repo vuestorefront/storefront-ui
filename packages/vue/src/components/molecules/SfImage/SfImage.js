@@ -1,11 +1,13 @@
 import lozad from "lozad";
+
 export default {
   name: "SfImage",
+
   props: {
     /**
-     * Images list or image url
+     * Image url or pictures object (`{ small: { url, alt }, normal: { url, alt } }`)
      */
-    src: [Array, String],
+    src: [String, Object],
     /**
      * Alt attribute value
      */
@@ -35,13 +37,14 @@ export default {
       default: "/assets/placeholder.png"
     },
     /**
-     * Picture tag breakpoint
+     * Screen width breakpoint for picture tag media query
      */
     pictureBreakpoint: {
       type: Number,
       default: 576
     }
   },
+
   data() {
     return {
       loaded: false,
@@ -49,23 +52,25 @@ export default {
       maxWidth: "unset"
     };
   },
+
   computed: {
     hasOverlay() {
       return this.$slots.hasOwnProperty("default") && this.overlay;
     }
   },
+
   methods: {
     hoverHandler(state) {
       this.overlay = state;
     }
   },
-  mounted: function() {
+
+  mounted() {
     if (this.lazy !== false) {
-      let observer;
-      let self = this;
-      observer = lozad(".sf-image-lozad", {
+      const vm = this;
+      const observer = lozad(".sf-image-lozad", {
         loaded: function() {
-          self.loaded = true;
+          vm.loaded = true;
         }
       });
       observer.observe();
