@@ -22,6 +22,9 @@
           brands.
         </p>
         <!-- Action: Size guide -->
+        <div class="product-details__action">
+          <button class="sf-action">Size guide</button>
+        </div>
         <SfSelect
           v-model="size"
           label="Size"
@@ -53,8 +56,12 @@
           :canAddToCart="stock > 0"
           class="product-details__add-to-cart"
         />
-        <!-- Action: Save for later -->
-        <!-- Action: Add to compare -->
+        <div class="product-details__action">
+          <button class="sf-action">Save for later</button>
+        </div>
+        <div class="product-details__action">
+          <button class="sf-action">Add to compare</button>
+        </div>
         <SfTabs class="product-details__tabs" :openTab="2">
           <SfTab header="Description">
             <div>
@@ -448,8 +455,27 @@ export default {
   &__tabs {
     margin-top: 5 * $spacer-big;
   }
+  &__action {
+    & + & {
+      margin-top: $spacer-big;
+    }
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
+.sf-action {
+  border: 0;
+  background: none;
+  font-size: 1.125rem;
+  font-family: $body-font-family-primary;
+  line-height: 1.6;
+  font-weight: 300;
+  text-decoration: underline;
+  &:focus{
+    outline: 0;
+  }
+}
 /* copied from Home Page */
 .product-card {
   max-width: unset; // TODO: test this property and fix if it required
