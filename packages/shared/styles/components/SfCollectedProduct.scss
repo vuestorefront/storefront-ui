@@ -1,0 +1,59 @@
+@import "../variables";
+
+$collected-card-hover-box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
+$sf-circle-icon-background-primary: $c-gray-primary;
+$sf-circle-icon-background-secondary: $c-gray-secondary;
+.sf-collected-product {
+  @media (max-width: $mobile-max) {
+    margin-right: 25px;
+  }
+  max-width: 100%;
+  position: relative;
+  transition: 0.3s all;
+  .sf-collected-product__remove {
+    @media (max-width: $mobile-max) {
+      visibility: visible;
+    }
+    position: absolute;
+    right: -25px;
+    top: 10px;
+    visibility: hidden;
+  }
+  &__container {
+    display: flex;
+    .sf-collected-product__image {
+      max-width: 100%;
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      padding: 10px;
+      align-items: flex-end;
+      justify-content: end;
+      img {
+        max-width: 100%;
+      }
+      .sf-counter {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+      }
+    }
+    .sf-collected-product__contents {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .sf-collected-product__title {
+        margin-top: 0.5rem;
+        margin-bottom: 0.25rem;
+        display: flex;
+        font-weight: 300;
+      }
+    }
+  }
+  &:hover {
+    box-shadow: $collected-card-hover-box-shadow;
+    transition: 0.3s all;
+    z-index: 2;
+  }
+}
