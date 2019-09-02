@@ -1,23 +1,29 @@
 @import "../variables";
 
 $collected-card-hover-box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
-$sf-circle-icon-background-primary: $c-gray-primary;
-$sf-circle-icon-background-secondary: $c-gray-secondary;
+$sf-collected-product-icon-background-primary: $c-gray-primary;
+$sf-collected-product-icon-background-secondary: $c-gray-secondary;
 .sf-collected-product {
-  @media (max-width: $mobile-max) {
-    margin-right: 25px;
-  }
+  margin-right: 25px;
   max-width: 100%;
   position: relative;
   transition: 0.3s all;
-  .sf-collected-product__remove {
-    @media (max-width: $mobile-max) {
-      visibility: visible;
-    }
+  &__remove {
+    visibility: visible;
     position: absolute;
     right: -25px;
     top: 10px;
-    visibility: hidden;
+    background-color: $sf-collected-product-icon-background-secondary;
+    &:hover {
+      box-shadow: 0 0 0 0.3125rem $sf-collected-product-icon-background-secondary;
+      background-color: $sf-collected-product-icon-background-primary;
+    }
+    &:active {
+      box-shadow: 0 0 0 0.625rem $sf-collected-product-icon-background-primary;
+    }
+    @media (min-width: $desktop-min) {
+      visibility: hidden;
+    }
   }
   &__container {
     display: flex;
@@ -55,5 +61,8 @@ $sf-circle-icon-background-secondary: $c-gray-secondary;
     box-shadow: $collected-card-hover-box-shadow;
     transition: 0.3s all;
     z-index: 2;
+  }
+  @media (min-width: $desktop-min) {
+    margin-right: 0;
   }
 }
