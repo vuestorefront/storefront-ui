@@ -86,12 +86,7 @@
               <SfProductOption :label="color.label" :color="color.color" />
             </SfSelectOption>
           </SfSelect>
-          <SfDivider class="product-details__divider" />
-          <SfAlert
-            message="Low in stock"
-            type="warning"
-            class="product-details__alert mobile-only"
-          />
+          <SfDivider class="product-details__divider mobile-only" />
           <SfAddToCart
             :stock="stock"
             v-model="qty"
@@ -306,7 +301,6 @@ import {
   SfAddToCart,
   SfTabs,
   SfDivider,
-  SfAlert,
   SfGallery,
   SfProductCard,
   SfCarousel,
@@ -429,7 +423,6 @@ export default {
     SfProductOption,
     SfAddToCart,
     SfDivider,
-    SfAlert,
     SfBottomNavigation,
     SfCircleIcon,
     SfProductCard,
@@ -494,17 +487,16 @@ export default {
   }
   &__action {
     display: flex;
-    justify-content: flex-end;
     margin: $spacer-big 0 ($spacer-big / 2);
+    @include for-desktop {
+      justify-content: flex-end;
+    }
   }
   &__add-to-cart {
     margin-top: $spacer-big;
     @include for-desktop {
       margin-top: $spacer-extra-big;
     }
-  }
-  &__alert {
-    margin-top: $spacer-big;
   }
   &__attribute {
     & + & {
@@ -517,7 +509,7 @@ export default {
     line-height: 1.6;
   }
   &__divider {
-    margin-top: $spacer-big;
+    margin-top: 30px;
   }
   &__heading {
     margin-top: $spacer-big;
@@ -569,12 +561,15 @@ export default {
 .sf-action {
   border: 0;
   background: none;
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-family: $body-font-family-primary;
   line-height: 1.6;
   font-weight: 300;
   text-decoration: underline;
   cursor: pointer;
+  @include for-desktop {
+    font-size: 1rem;
+  }
   &:focus {
     outline: 0;
   }
