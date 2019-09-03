@@ -1,9 +1,26 @@
 <template>
   <div id="product">
     <section :class="{ 'product--is-active': detailsIsActive }" class="product">
-      <div class="product-gallery" style="height: 73vh">
-        <!-- SFGallery -->
-        <div style="height: 73vh; background-color: #5ECE7B; width:100%"></div>
+      <div class="product-gallery">
+        <!-- SfImages for desktop -->
+        <div class="desktop-only">
+          <SfImage src="assets/storybook/productpage/productA.png" />
+          <SfImage src="assets/storybook/productpage/productB.png" />
+        </div>
+        <div class="mobile-only">
+          <SfGallery
+            :images="[
+              {
+                small: { url: 'assets/storybook/productpage/productM.png' },
+                big: { url: 'assets/storybook/productpage/productM.png' }
+              },
+              {
+                small: { url: 'assets/storybook/productpage/productM.png' },
+                big: { url: 'assets/storybook/productpage/productM.png' }
+              }
+            ]"
+          />
+        </div>
       </div>
       <div
         class="product-details"
@@ -13,148 +30,147 @@
           }
         "
       >
-        <div class="product-details__mobile-bar">
-          <SfIcon icon="cross" size="xxs" />
-        </div>
-        <SfHeading
-          title="Cashmere Sweater"
-          :level="1"
-          class="sf-heading--no-underline sf-heading--left product-details__heading"
-        />
-        <div class="product-details__sub">
-          <SfPrice
-            regular="$95.00"
-            special="$50.00"
-            class="product-details__sub-price"
+        <SfSticky>
+          <div class="product-details__mobile-bar">
+            <SfIcon icon="cross" size="xxs" />
+          </div>
+          <SfHeading
+            title="Cashmere Sweater"
+            :level="1"
+            class="sf-heading--no-underline sf-heading--left product-details__heading"
           />
-          <SfRating :score="4" :max="5" class="product-details__sub-rating" />
-          <span class="product-details__sub-reviews desktop-only"
-            >Read all 1 review</span
-          >
-          <span class="product-details__sub-reviews mobile-only">(1)</span>
-        </div>
-        <!-- short description -->
-        <p class="product-details__description desktop-only">
-          Find stunning women cocktail and party dresses. Stand out in lace and
-          metallic cocktail dresses and party dresses from all your favorite
-          brands.
-        </p>
-        <!-- Action: Size guide -->
-        <div class="product-details__action">
-          <button class="sf-action">Size guide</button>
-        </div>
-        <SfSelect
-          v-model="size"
-          label="Size"
-          class="sf-select--bordered product-details__attribute"
-        >
-          <SfSelectOption
-            v-for="size in sizes"
-            :key="size.value"
-            :value="size.value"
-            >{{ size.label }}</SfSelectOption
-          >
-        </SfSelect>
-        <SfSelect
-          v-model="color"
-          label="Color"
-          class="sf-select--bordered product-details__attribute"
-        >
-          <SfSelectOption
-            v-for="color in colors"
-            :key="color.value"
-            :value="color.value"
-          >
-            <SfProductOption :label="color.label" :color="color.color" />
-          </SfSelectOption>
-        </SfSelect>
-        <SfDivider class="product-details__divider" />
-        <SfAlert
-          message="Low in stock"
-          type="warning"
-          class="product-details__alert mobile-only"
-        />
-        <SfAddToCart
-          :stock="stock"
-          v-model="qty"
-          :canAddToCart="stock > 0"
-          class="product-details__add-to-cart"
-        />
-        <div class="product-details__action">
-          <button class="sf-action">Save for later</button>
-        </div>
-        <div class="product-details__action">
-          <button class="sf-action">Add to compare</button>
-        </div>
-        <SfTabs class="product-details__tabs" :openTab="2">
-          <SfTab header="Description">
-            <div>
-              <p>
-                The Karissa V-Neck Tee features a semi-fitted shape that's
-                flattering for every figure. You can hit the gym with confidence
-                while it hugs curves and hides common "problem" areas. Find
-                stunning women's cocktail dresses and party dresses.
-              </p>
-            </div>
-            <SfProperty
-              v-for="(property, i) in properties"
-              :key="i"
-              :name="property.name"
-              :value="property.value"
+          <div class="product-details__sub">
+            <SfPrice
+              regular="$95.00"
+              special="$50.00"
+              class="product-details__sub-price"
             />
-          </SfTab>
-          <SfTab header="1 Review">
-            <div>
+            <SfRating :score="4" :max="5" class="product-details__sub-rating" />
+            <span class="product-details__sub-reviews desktop-only"
+              >Read all 1 review</span
+            >
+            <span class="product-details__sub-reviews mobile-only">(1)</span>
+          </div>
+          <!-- short description -->
+          <p class="product-details__description desktop-only">
+            Find stunning women cocktail and party dresses. Stand out in lace
+            and metallic cocktail dresses and party dresses from all your
+            favorite brands.
+          </p>
+          <!-- Action: Size guide -->
+          <div class="product-details__action">
+            <button class="sf-action">Size guide</button>
+          </div>
+          <SfSelect
+            v-model="size"
+            label="Size"
+            class="sf-select--bordered product-details__attribute"
+          >
+            <SfSelectOption
+              v-for="size in sizes"
+              :key="size.value"
+              :value="size.value"
+              >{{ size.label }}</SfSelectOption
+            >
+          </SfSelect>
+          <SfSelect
+            v-model="color"
+            label="Color"
+            class="sf-select--bordered product-details__attribute"
+          >
+            <SfSelectOption
+              v-for="color in colors"
+              :key="color.value"
+              :value="color.value"
+            >
+              <SfProductOption :label="color.label" :color="color.color" />
+            </SfSelectOption>
+          </SfSelect>
+          <SfDivider class="product-details__divider" />
+          <SfAlert
+            message="Low in stock"
+            type="warning"
+            class="product-details__alert mobile-only"
+          />
+          <SfAddToCart
+            :stock="stock"
+            v-model="qty"
+            :canAddToCart="stock > 0"
+            class="product-details__add-to-cart"
+          />
+          <div class="product-details__action">
+            <button class="sf-action">Save for later</button>
+          </div>
+          <div class="product-details__action">
+            <button class="sf-action">Add to compare</button>
+          </div>
+          <SfTabs class="product-details__tabs" :openTab="2">
+            <SfTab header="Description">
+              <div>
+                <p>
+                  The Karissa V-Neck Tee features a semi-fitted shape that's
+                  flattering for every figure. You can hit the gym with
+                  confidence while it hugs curves and hides common "problem"
+                  areas. Find stunning women's cocktail dresses and party
+                  dresses.
+                </p>
+              </div>
+              <SfProperty
+                v-for="(property, i) in properties"
+                :key="i"
+                :name="property.name"
+                :value="property.value"
+              />
+            </SfTab>
+            <SfTab header="1 Review">
+              <div>
+                <SfHeading
+                  title="Mari"
+                  :level="3"
+                  class="sf-heading--no-underline sf-heading--left"
+                />
+                <div style="display: flex">
+                  <SfRating :score="4" :max="5" />
+                  <small>Jan 2018</small>
+                </div>
+                <p>
+                  Excellent light output from this led fitting. Relatively easy
+                  to fix to the ceiling,but having two people makes it easier,
+                  to complete the installation. Unable to comment on reliability
+                  at this time, but I am hopeful of years of use with good light
+                  levels... <span style="color: #5ECE7B">Read more</span>
+                </p>
+              </div>
+            </SfTab>
+            <SfTab header="Additional Information">
               <SfHeading
-                title="Mari"
+                title="Brand"
                 :level="3"
                 class="sf-heading--no-underline sf-heading--left"
               />
-              <div style="display: flex">
-                <SfRating :score="4" :max="5" />
-                <small>Jan 2018</small>
-              </div>
-              <p>
-                Excellent light output from this led fitting. Relatively easy to
-                fix to the ceiling,but having two people makes it easier, to
-                complete the installation. Unable to comment on reliability at
-                this time, but I am hopeful of years of use with good light
-                levels... <span style="color: #5ECE7B">Read more</span>
-              </p>
-            </div>
-          </SfTab>
-          <SfTab header="Additional Information">
-            <SfHeading
-              title="Brand"
-              :level="3"
-              class="sf-heading--no-underline sf-heading--left"
-            />
-            <div>
               <p>
                 <u>Brand name</u> is the perfect pairing of quality and design.
                 This label creates major everyday vibes with its collection of
                 modern brooches, silver and gold jewellery, or clips it back
                 with hair accessories in geo styles.
               </p>
-            </div>
-            <SfHeading
-              title="Take care of me"
-              :level="3"
-              class="sf-heading--no-underline sf-heading--left"
-            />
-            <div>
+              <SfHeading
+                title="Take care of me"
+                :level="3"
+                class="sf-heading--no-underline sf-heading--left"
+              />
               <p>
                 Just here for the care instructions? Yeah, we thought so
               </p>
               <p>
                 Do not wash!
               </p>
-            </div>
-          </SfTab>
-        </SfTabs>
+            </SfTab>
+          </SfTabs>
+        </SfSticky>
       </div>
     </section>
-    <!--
+    <!-- OTHER -->
     <SfSection titleHeading="Match it with">
       <SfCarousel
         :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
@@ -250,7 +266,7 @@
           />
         </div>
       </template>
-    </SfBanner> -->
+    </SfBanner>
     <SfBottomNavigation class="mobile-only">
       <SfBottomNavigationItem>
         <SfIcon icon="home" size="20px" />
@@ -291,6 +307,7 @@ import {
   SfTabs,
   SfDivider,
   SfAlert,
+  SfGallery,
   SfProductCard,
   SfCarousel,
   SfSection,
@@ -298,7 +315,8 @@ import {
   SfBanner,
   SfBottomNavigation,
   SfCircleIcon,
-  SfIcon
+  SfIcon,
+  SfSticky
 } from "@storefront-ui/vue";
 
 export default {
@@ -394,10 +412,13 @@ export default {
           rating: { max: 5, score: 4 }
         }
       ],
-      detailsIsActive: false
+      detailsIsActive: false,
+      images: [{}, {}, {}]
     };
   },
   components: {
+    SfImage,
+    SfGallery,
     SfIcon,
     SfProperty,
     SfTabs,
@@ -410,12 +431,12 @@ export default {
     SfDivider,
     SfAlert,
     SfBottomNavigation,
-    SfCircleIcon
-    /*SfProductCard,
+    SfCircleIcon,
+    SfProductCard,
     SfCarousel,
     SfSection,
-    SfImage,
-    SfBanner,*/
+    SfBanner,
+    SfSticky
   },
   mounted() {
     document.body.style.setProperty("margin", "0");
@@ -456,6 +477,10 @@ export default {
   overflow: hidden;
   margin: 0 -#{$spacer-big};
   transition: height 150ms ease-in-out;
+  height: calc(100vh - 177px);
+  @include for-desktop {
+    height: auto;
+  }
   .product--is-active & {
     height: 0 !important;
     @include for-desktop {
@@ -502,6 +527,12 @@ export default {
     padding: $spacer-big 0;
     .product--is-active & {
       display: block;
+      @include for-desktop {
+        display: none;
+      }
+    }
+    @include for-desktop {
+      display: none;
     }
   }
   &__sub {
@@ -609,6 +640,12 @@ export default {
         margin-left: $spacer-big;
       }
     }
+  }
+}
+/* Shame */
+.sf-gallery {
+  /deep/ ul {
+    margin: 0;
   }
 }
 </style>
