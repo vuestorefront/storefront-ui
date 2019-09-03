@@ -143,3 +143,6 @@ More information: [https://help.github.com/en/articles/syncing-a-fork](https://h
 ## 4. Create an issue branch
 
 ## 5. Create PR from branch
+
+## Troubleshootings
+Blah blah

@@ -17,9 +17,9 @@
     "name": "Przemysław Spaczek",
     "role": "Maintainer",
     "work": {
-        "title": "Frontend Master",
-        "org": "Vue Storefront",
-        "orgUrl": ""
+        "title": "Frontend Developer",
+        "org": "DivanteLtd",
+        "orgUrl": "https://github.com/DivanteLtd"
     },
     "location": "Wrocław, Poland",
     "languages": ["pl", "en"],
@@ -45,11 +45,17 @@
 }, {
     "name": "Leonardo Matos",
     "role": "Maintainer",
-    "location": "Brazil",
+    "work": {
+        "title": "CEO",
+        "org": "E-com Club",
+        "orgUrl": "https://github.com/ecomclub"
+    },
+    "location": "BH - Minas Gerais - Brasil",
     "languages": ["pt", "en"],
+    "links": ["https://ecom.bhz.br"],
     "socials": {
         "github": "leomp12",
-        "twitter": ""
+        "linkedin": "leonardo-matos-13248810b"
     }
 }, {
     "name": "Nicolò Maria Mezzopera",

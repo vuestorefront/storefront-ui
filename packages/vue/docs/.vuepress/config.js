@@ -13,6 +13,7 @@ module.exports = {
       { text: 'Storybook', link: 'http://storybook.storefrontui.io' },
       { text: 'GitHub', link: 'https://github.com/DivanteLtd/storefront-ui' }
     ],
+    sidebarDepth: 2,
     sidebar: [
       ['/introduction', 'Introduction'],
       ['/customization', 'Customization'],
@@ -21,9 +22,10 @@ module.exports = {
         title: 'Contribution Guide',
         collapsable: false,
         children: [
-          ['/contributing/getting-started', 'Become a contributor'],
+          ['/contributing/become-a-contributor', 'Become a contributor'],
           ['/contributing/github-guidelines', 'Working with Github'],
-          ['/contributing/component-rules', 'Component Rules'],
+          ['/contributing/coding-guidelines', 'Coding guidelines'],
+          ['/contributing/issue-report-guidelines', 'How to report an issue'],
           ['/contributing/working-with-designs', 'Working With Designs'],
           ['/contributing/creating-new-component', 'Create/Edit Component'],
         ],
