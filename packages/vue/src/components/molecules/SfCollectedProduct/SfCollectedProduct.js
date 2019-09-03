@@ -45,7 +45,6 @@ export default {
   },
   methods: {
     removeProduct () {
-      console.log(this)
       this.$emit("remove", this);
     }
   },
