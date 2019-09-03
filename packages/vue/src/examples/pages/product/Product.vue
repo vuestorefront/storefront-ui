@@ -1,14 +1,25 @@
 <template>
   <div id="product">
-    <section class="product">
-      <div class="product-gallery">
+    <section :class="{ 'product--is-active': detailsIsActive }" class="product">
+      <div class="product-gallery" style="height: 73vh">
         <!-- SFGallery -->
+        <div style="height: 73vh; background-color: #5ECE7B; width:100%"></div>
       </div>
-      <div class="product-details">
+      <div
+        class="product-details"
+        @click="
+          () => {
+            this.detailsIsActive = !this.detailsIsActive;
+          }
+        "
+      >
+        <div class="product-details__mobile-bar">
+          <SfIcon icon="cross" size="xxs" />
+        </div>
         <SfHeading
           title="Cashmere Sweater"
           :level="1"
-          class="sf-heading--no-underline sf-heading--left"
+          class="sf-heading--no-underline sf-heading--left product-details__heading"
         />
         <div class="product-details__sub">
           <SfPrice
@@ -17,7 +28,10 @@
             class="product-details__sub-price"
           />
           <SfRating :score="4" :max="5" class="product-details__sub-rating" />
-          <span class="product-details__sub-reviews">Read all 1 review</span>
+          <span class="product-details__sub-reviews desktop-only"
+            >Read all 1 review</span
+          >
+          <span class="product-details__sub-reviews mobile-only">(1)</span>
         </div>
         <!-- short description -->
         <p class="product-details__description desktop-only">
@@ -54,7 +68,12 @@
             <SfProductOption :label="color.label" :color="color.color" />
           </SfSelectOption>
         </SfSelect>
-        <SfDivider />
+        <SfDivider class="product-details__divider" />
+        <SfAlert
+          message="Low in stock"
+          type="warning"
+          class="product-details__alert mobile-only"
+        />
         <SfAddToCart
           :stock="stock"
           v-model="qty"
@@ -231,7 +250,7 @@
           />
         </div>
       </template>
-    </SfBanner>
+    </SfBanner> -->
     <SfBottomNavigation class="mobile-only">
       <SfBottomNavigationItem>
         <SfIcon icon="home" size="20px" />
@@ -257,7 +276,7 @@
           />
         </SfCircleIcon>
       </SfBottomNavigationItem>
-    </SfBottomNavigation> -->
+    </SfBottomNavigation>
   </div>
 </template>
 <script>
@@ -271,6 +290,7 @@ import {
   SfAddToCart,
   SfTabs,
   SfDivider,
+  SfAlert,
   SfProductCard,
   SfCarousel,
   SfSection,
@@ -373,10 +393,12 @@ export default {
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 }
         }
-      ]
+      ],
+      detailsIsActive: false
     };
   },
   components: {
+    SfIcon,
     SfProperty,
     SfTabs,
     SfHeading,
@@ -385,15 +407,15 @@ export default {
     SfSelect,
     SfProductOption,
     SfAddToCart,
-    SfDivider
+    SfDivider,
+    SfAlert,
+    SfBottomNavigation,
+    SfCircleIcon
     /*SfProductCard,
     SfCarousel,
     SfSection,
     SfImage,
-    SfBanner,
-    SfBottomNavigation,
-    SfCircleIcon,
-    SfIcon*/
+    SfBanner,*/
   },
   mounted() {
     document.body.style.setProperty("margin", "0");
@@ -420,7 +442,9 @@ export default {
   }
 }
 .product {
-  display: flex;
+  @include for-desktop {
+    display: flex;
+  }
 }
 .product-gallery,
 .product-details {
@@ -429,6 +453,12 @@ export default {
   }
 }
 .product-gallery {
+  overflow: hidden;
+  margin: 0 -#{$spacer-big};
+  transition: height 150ms ease-in-out;
+  .product--is-active & {
+    height: 0 !important;
+  }
 }
 .product-details {
   @include for-desktop {
@@ -470,7 +500,10 @@ export default {
     }
   }
   &__add-to-cart {
-    margin-top: $spacer-extra-big;
+    margin-top: $spacer-big;
+    @include for-desktop {
+      margin-top: $spacer-extra-big;
+    }
   }
   &__tabs {
     margin-top: 5 * $spacer-big;
@@ -479,6 +512,22 @@ export default {
     display: flex;
     justify-content: flex-end;
     margin: $spacer-big 0 ($spacer-big / 2);
+  }
+  &__divider {
+    margin-top: $spacer-big;
+  }
+  &__alert {
+    margin-top: $spacer-big;
+  }
+  &__mobile-bar {
+    display: none;
+    padding: $spacer-big 0;
+    .product--is-active & {
+      display: block;
+    }
+  }
+  &__heading {
+    margin-top: $spacer-big;
   }
 }
 
