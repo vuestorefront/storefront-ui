@@ -458,11 +458,51 @@ export default {
   transition: height 150ms ease-in-out;
   .product--is-active & {
     height: 0 !important;
+    @include for-desktop {
+      height: auto !important;
+    }
   }
 }
 .product-details {
   @include for-desktop {
     margin-left: 5 * $spacer-big;
+  }
+  &__action {
+    display: flex;
+    justify-content: flex-end;
+    margin: $spacer-big 0 ($spacer-big / 2);
+  }
+  &__add-to-cart {
+    margin-top: $spacer-big;
+    @include for-desktop {
+      margin-top: $spacer-extra-big;
+    }
+  }
+  &__alert {
+    margin-top: $spacer-big;
+  }
+  &__attribute {
+    & + & {
+      margin-top: $spacer-big;
+    }
+  }
+  &__description {
+    margin: (3 * $spacer-big) 0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  &__divider {
+    margin-top: $spacer-big;
+  }
+  &__heading {
+    margin-top: $spacer-big;
+  }
+  &__mobile-bar {
+    display: none;
+    padding: $spacer-big 0;
+    .product--is-active & {
+      display: block;
+    }
   }
   &__sub {
     display: flex;
@@ -489,49 +529,12 @@ export default {
     margin-left: 10px;
     font-size: 0.75rem;
   }
-  &__description {
-    margin: (3 * $spacer-big) 0;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-  &__attribute {
-    & + & {
-      margin-top: $spacer-big;
-    }
-  }
-  &__add-to-cart {
-    margin-top: $spacer-big;
-    @include for-desktop {
-      margin-top: $spacer-extra-big;
-    }
-  }
   &__tabs {
     margin-top: 5 * $spacer-big;
   }
-  &__action {
-    display: flex;
-    justify-content: flex-end;
-    margin: $spacer-big 0 ($spacer-big / 2);
-  }
-  &__divider {
-    margin-top: $spacer-big;
-  }
-  &__alert {
-    margin-top: $spacer-big;
-  }
-  &__mobile-bar {
-    display: none;
-    padding: $spacer-big 0;
-    .product--is-active & {
-      display: block;
-    }
-  }
-  &__heading {
-    margin-top: $spacer-big;
-  }
 }
 
-/* SfAction Component ??? */
+/* TODO: Add SfAction component */
 .sf-action {
   border: 0;
   background: none;
@@ -546,26 +549,7 @@ export default {
   }
 }
 
-/* copied from Home Page */
-.product-card {
-  max-width: unset; // TODO: test this property and fix if it required
-  &:hover {
-    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
-  }
-}
-.product-carousel {
-  margin: -20px -#{$spacer-big} -20px 0;
-  @include for-desktop {
-    margin: -20px 0;
-  }
-  /deep/ .sf-carousel__wrapper {
-    padding: 20px 0;
-    @include for-desktop {
-      padding: 20px;
-      max-width: calc(100% - 216px);
-    }
-  }
-}
+/* Just copied from Home Page */
 .banner-application {
   min-height: 420px;
   max-width: 1040px;
@@ -586,8 +570,27 @@ export default {
     }
   }
 }
+.product-card {
+  max-width: unset; // TODO: test this property and fix if it required
+  &:hover {
+    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+  }
+}
+.product-carousel {
+  margin: -20px -#{$spacer-big} -20px 0;
+  @include for-desktop {
+    margin: -20px 0;
+  }
+  /deep/ .sf-carousel__wrapper {
+    padding: 20px 0;
+    @include for-desktop {
+      padding: 20px;
+      max-width: calc(100% - 216px);
+    }
+  }
+}
 
-/*  TODO: .grid shoud be refactored */
+/*  TODO: CSS class grid should be refactored */
 .grid {
   &__row {
     display: flex;
