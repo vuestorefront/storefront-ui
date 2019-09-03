@@ -65,11 +65,33 @@ In order to maintain an effective workflow and make sure all issues reported wil
 
 If you are sure your issue is a bug, or a valid feature request, [file a new issue in our Github issue tracker](https://github.com/DivanteLtd/storefront-ui/issues/new) following the [template](issue-report-guidelines#issue-template) and guidelines.
 
-
 ### Work on Documentation
+
+Good and friendly documentation is **extremply significant** for our community, for every reason. Currently we have lots of work needed to be done on this matter. Would you like to help us a hand to build the best documentation? 😉
+
+StorefrontUI aims to be an international community, with the core team coming from different timezones across the globe. Thus, we are actively looking for contributors on the following:
+
+* **Translating docs** into different languages. We do want you to be able to read this section in your preferred language. And that surely needs some help!
+
+* **Review** our documentation Pull Requests.
+
+* **Fix current documentation** (on dictation error, word usage, etc)
+
+* **Write documentation** for our components, or [select an docs issue](https://github.com/DivanteLtd/storefront-ui/issues?q=is%3Aopen+is%3Aissue+label%3Adocs) to start.
+
+:::warning WORK WITH DOCUMENTATION
+
+Certainly, make sure you read and follow [our documentation guidelines](documentation-guidelines.md). 
+:::
 
 ### Speard the words
 
-### Making coffee (virtually)
-☕ ☕
+There is a lot more you can help StorefrontUI community grow besides the above:
 
+* **Write and publish blog posts** about StorefrontUI best practices, use cases. If you like StorefrontUI, why not share it to the world?
+
+* **Talk** about how awesome StorefrontUI is to you in a conference, meetup or simple at your work 😉.
+
+* **Integrate** StorefrontUI with other awesome frameworks, such as Nuxt.js, Gridsome.js. Write a StorefrontUI plugin for any of the frameworks you work with, and we will love to add it in our ecosystem.
+
+If you have any question on how you can be more involved in contributing other than these, reach out to us [@StorefrontUI](https://twitter.com/StorefrontUI) or in [our Discord Server](https://discord.gg/GS8hqFS)
