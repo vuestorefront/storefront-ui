@@ -15,7 +15,7 @@ storiesOf("Organisms|TopBar", module)
         };
       },
       template: `<SfTopBar>
-        <template slot="center">Download our application.<a :style='style'>Find out more.</a></template>
+        Download our application.<a :style='style'>Find out more.</a>
       </SfTopBar>`,
       components: {
         SfTopBar
