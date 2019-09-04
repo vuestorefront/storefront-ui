@@ -222,7 +222,11 @@ You can trigger closing the issue automatically once the PR (Pull Request) is me
 Fixes <issue number>
 ``` 
 
-More information: [https://github.blog/2013-01-22-closing-issues-via-commit-messages/](https://github.blog/2013-01-22-closing-issues-via-commit-messages/)
+More information: 
+
+* [https://github.blog/2013-01-22-closing-issues-via-commit-messages/](https://github.blog/2013-01-22-closing-issues-via-commit-messages/)
+
+* [Closing issues using keywords](https://help.github.com/en/articles/closing-issues-using-keywords)
 
 ### Rename a branch locally and remotely
 
@@ -259,4 +263,4 @@ Behind the back, it actually does the followings:
 * **Reset the upstream** reference for the renamed branch
 
 ### FAQs
-Blah blah
+TBD
