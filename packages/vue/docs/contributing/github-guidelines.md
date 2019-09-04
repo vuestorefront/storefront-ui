@@ -117,7 +117,7 @@ We will add the original repository as another upstream remote by:
 git remote add upstream git@github.com:DivanteLtd/storefront-ui.git
 ```
 
-That's it! Running the command `git remote --v` will yeild:
+That's it! Running the command `git remote --v` will now yield:
 
 ```bash
 origin git@github.com:username/storefront-ui.git (fetch)
@@ -139,10 +139,124 @@ More information: [https://help.github.com/en/articles/syncing-a-fork](https://h
 :::
 
 ## 3. Select a Github issue
+### Select issue by its label
+
+We know it's not easy to pick an issue that is most suitable to you to work with, especially when it comes to first-timer. Thus we came up with labelling system to help addressing this problem. Below are the main labels which are grouped by:
+
+#### Difficulty level
+
+<Labels groupByType="difficulty"/>
+
+We recommend first-time contributor to select issues with label `Good first issue` to start. But it's entirely up to you.
+
+::: tip ANY TROUBLE?
+Feeling some issue's level **does not** match the label assigned? [Drop us a message in Discord](https://discord.gg/GS8hqFS) or leave a comment inside the issue.
+:::
+
+#### Type of the issue
+
+<Labels groupByType="issue"/>
+
+#### Status of the issue
+
+<Labels groupByType="status"/>
+
+::: tip 
+You can review the **full list** of labels and the issues attached to them [on our Github labels](https://github.com/DivanteLtd/storefront-ui/labels) 
+:::
+
+**Notes**: 
+* You can **filter** our Github issues according to a specific labels by clicking at column `Labels` and selecting the desired label from the dropdown list.
+
+![Filter issues by click on column Labels](https://res.cloudinary.com/mayashavin/image/upload/v1567540808/StorefrontUI/filter_by_label.jpg)
+
+* Make sure that issue is **not** assigned to any other contributor by checking the `Assignee` column is empty.
+
+![Make sure it is not taken by anyone yet](https://res.cloudinary.com/mayashavin/image/upload/v1567541615/StorefrontUI/check_assignee.png)
+
+or by checking the `Assignee section` on the right side inside the issue page.
+
+![Check assignee inside issue page](https://res.cloudinary.com/mayashavin/image/upload/v1567542175/StorefrontUI/check_assignee_inside.png)
+
+
+### Get assigned to selected issue
+
+Once you found the issue you want to work and it's not yet assigned, let's get it assigned to you properly.
+
+#### First time contribute to our codebase
+If this is your first time in StorefrontUI codebase, you need to either:
+
+* **make a comment** inside the issue page. In that comment, tag anyone in [our core team] by typing `@<select-a-core-team-member>` and ask to be assigned.
+
+or
+
+* **copy the link** to the issue and **drop it" inside [Discord server - #contributors](https://discord.gg/GS8hqFS) with a note that you'd like to take it. 
+
+And we will make sure it happen.
+*
+#### Contributed to our codebase before
+
+It'll be extremely easy. Inside the issue page, simply click on `assign yourself` in `Assignee section`, and 🎉you are assigned!
+
+![Click on Assign to yourself link](https://res.cloudinary.com/mayashavin/image/upload/v1567543045/StorefrontUI/self_assign.jpg)
 
 ## 4. Create an issue branch
 
+
+
 ## 5. Create PR from branch
 
-## Troubleshootings
+### Make a commit and push your branch
+
+### Create Pull Request (PR)
+
+### Code review
+
+## Troubleshootings (FAQs and tips)
+
+### Close issue through commit message
+
+You can trigger closing the issue automatically once the PR (Pull Request) is merged to master. All you need to do is to ensure there will be a commit with message in the following format:
+
+```
+Fixes <issue number>
+``` 
+
+More information: [https://github.blog/2013-01-22-closing-issues-via-commit-messages/](https://github.blog/2013-01-22-closing-issues-via-commit-messages/)
+
+### Rename a branch locally and remotely
+
+To rename your branch and make sure your repo is synced, only two steps are required:
+
+* **Rename locally** by using 
+
+```bash
+$ git branch -m <old-branch-name> <new-branch-name>
+```
+in which, `-m` flag stands for `--move` command.
+
+:::warning BE CAREFUL!
+A capitalized `-M` flag will indicate `--move` with `--force` flag enabled to "force" the change". This will allow you to rename **even if the name already exists in your repository**.
+:::
+
+If you want to rename the branch that is currently checked out, just omit the `<old-branch-name>` option, which looks like this:
+
+```bash
+$ git branch -m <new-branch-name>
+```
+
+* **Rename remotely**
+Once the local branch has been renamed, just run the below command:
+
+```bash
+$ git push origin :<old-branch-name> <new-branch-name>
+```
+
+Behind the back, it actually does the followings:
+* **Delete the remote branch** that is to be renamed
+* **Push** the new branch to the remote repo
+* **Switch** to the new branch
+* **Reset the upstream** reference for the renamed branch
+
+### FAQs
 Blah blah
