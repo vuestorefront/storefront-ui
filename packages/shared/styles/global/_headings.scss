@@ -2,7 +2,6 @@ h1 {
   font-size: $h1-font-size-desktop;
   font-family: $heading-font-family;
   font-weight: $h2-font-weight-desktop;
-  padding: $spacer-big 0;
   margin: 0;
   @media ( max-width: $tablet-max ) {
     font-size: $h1-font-size-mobile;
@@ -14,7 +13,6 @@ h2 {
   font-size: $h2-font-size-desktop;
   font-family: $heading-font-family;
   font-weight: $h2-font-weight-desktop;
-  padding: $spacer-big 0;
   margin: 0;
   @media ( max-width: $tablet-max ) {
     font-size: $h2-font-size-mobile;
@@ -26,7 +24,6 @@ h3 {
   font-size: $h3-font-size-desktop;
   font-family: $heading-font-family;
   font-weight: $h2-font-weight-desktop;
-  padding: $spacer 0;
   margin: 0;
   @media ( max-width: $tablet-max ) {
     font-size: $h3-font-size-mobile;
@@ -38,7 +35,6 @@ h4 {
   font-size: $h4-font-size-desktop;
   font-family: $heading-font-family;
   font-weight: $h2-font-weight-desktop;
-  padding: $spacer 0;
   margin: 0;
   @media ( max-width: $tablet-max ) {
     font-size: $h4-font-size-mobile;
