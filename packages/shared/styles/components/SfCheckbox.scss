@@ -18,7 +18,7 @@ $checkbox__checkmark-transition: background-color 0.25s cubic-bezier(1, 0.5, 0.8
   font-weight: $checkbox-font-weight;
   line-height: $checkbox-line-height;
   @media screen and (min-width: $desktop-min){
-    font-size: $checkbox-font-size;
+    font-size: $checkbox-font-size--desktop;
   }
   &__input {
     display: none;
