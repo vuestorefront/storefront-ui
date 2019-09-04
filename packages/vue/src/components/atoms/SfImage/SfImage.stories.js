@@ -41,7 +41,7 @@ const data = () => {
   };
 };
 
-storiesOf("Molecules|Image", module)
+storiesOf("Atoms|Image", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
