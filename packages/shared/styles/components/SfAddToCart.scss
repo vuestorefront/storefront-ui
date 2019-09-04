@@ -1,0 +1,32 @@
+@import '../variables';
+
+$add-to-cart__quantity-select__max-width: 90px !default;
+
+.sf-add-to-cart {
+  display: flex;
+
+  &__button {
+    &:disabled {
+      background-color: $c-accent-secondary;
+      cursor: default;
+    }
+  }
+
+  &__select-quantity {
+    margin-left: 0.5rem;
+
+    input {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      width: auto;
+      height: 100%;
+      max-width: $add-to-cart__quantity-select__max-width;
+      border: 1px solid $c-light-primary;
+      transition: border-color 0.3s ease-in-out;
+
+      &:focus {
+        border-color: $c-accent-primary;
+      }
+    }
+  }
+}

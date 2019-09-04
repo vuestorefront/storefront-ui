@@ -44,7 +44,7 @@ describe("SfProductCard.vue", () => {
       }
     });
 
-    expect(component.contains("[data-test='sf-wishlist-icon'")).toBe(true);
+    expect(component.contains("[data-test='sf-wishlist-icon']")).toBe(true);
   });
 
   it("render custom wish list icon", () => {
