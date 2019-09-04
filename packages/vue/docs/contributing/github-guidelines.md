@@ -15,7 +15,7 @@ If you already have an account, we recommend you to add [Two-Factor Authenticati
 Forking a repository will copy the current state (**at the moment of forking**) into your Github account's respository list. During contributing to StorefrontUI, this is **required** for you to keep track your issue branches and code.
 
 ::: warning
-Forked repository is **not** updated automatically when the original one changes, you will need to [**keep it updated manually**](#keep-your- forked-repo-updated) once in a while.
+Forked repository is **not** updated automatically when the original one changes, you will need to [**keep it updated manually**](#keep-your-forked-repo-updated) once in a while.
 :::
 
 ### Fork the repo
@@ -29,7 +29,7 @@ Forked repository is **not** updated automatically when the original one changes
 
 ```
 https://github.com/username/storefront-ui
-```
+```kk
 
 in which `username` is your Github username.
 
@@ -193,7 +193,7 @@ or
 * **copy the link** to the issue and **drop it" inside [Discord server - #contributors](https://discord.gg/GS8hqFS) with a note that you'd like to take it. 
 
 And we will make sure it happen.
-*
+
 #### Contributed to our codebase before
 
 It'll be extremely easy. Inside the issue page, simply click on `assign yourself` in `Assignee section`, and 🎉you are assigned!
