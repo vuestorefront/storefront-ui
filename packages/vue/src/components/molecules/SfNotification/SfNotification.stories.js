@@ -17,37 +17,37 @@ const eventsTableConfig = {
   tableBodyConfig: [["input", "event emited when option is selected"]]
 };
 
-// storiesOf("Molecules|Notification", module)
-//   .addDecorator(withKnobs)
-//   .add(
-//     "[slot] default",
-//     () => ({
-//       props: {
-//         editableProp: {
-//           default: text("(prop) propname")
-//         },
-//         customClass: {
-//           default: select(
-//             "CSS Modifier",
-//             ["null", "sf-notification--modifier"],
-//             "null",
-//             "CSS-Modifiers"
-//           )
-//         }
-//       },
-//       components: { SfNotification },
-//       template: `<SfNotification
-//         :class="customClass"
-//       >
-//       </SfNotification>`
-//     }),
-//     {
-//       info: {
-//         summary: `<p>Component description.</p>
-//        <h2>Usage</h2>
-//        <pre><code>import { SfNotification } from "@storefront-ui/vue"</code></pre>
-//        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-//        ${generateStorybookTable(eventsTableConfig, "Events")}`
-//       }
-//     }
-//   );
+storiesOf("Molecules|Notification", module)
+  .addDecorator(withKnobs)
+  .add(
+    "[slot] default",
+    () => ({
+      props: {
+        editableProp: {
+          default: text("(prop) propname")
+        },
+        customClass: {
+          default: select(
+            "CSS Modifier",
+            ["null", "sf-notification--modifier"],
+            "null",
+            "CSS-Modifiers"
+          )
+        }
+      },
+      components: { SfNotification },
+      template: `<SfNotification
+        :class="customClass"
+      >
+      </SfNotification>`
+    }),
+    {
+      info: {
+        summary: `<p>Component description.</p>
+       <h2>Usage</h2>
+       <pre><code>import { SfNotification } from "@storefront-ui/vue"</code></pre>
+       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+       ${generateStorybookTable(eventsTableConfig, "Events")}`
+      }
+    }
+  );

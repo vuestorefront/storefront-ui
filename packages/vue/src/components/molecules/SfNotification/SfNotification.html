@@ -1,1 +1,15 @@
-<div class="sf-notification"></div>
+<div class="sf-notification sf-notification__container sf-notification--${type}">
+    <slot name="icon" v-bind="{ icon }">
+        <SfIcon class="`sf-notification--${type}`"></SfIcon>
+    </slot>
+    <header name="message" class="sf-notification__heading">
+        <component :is="`h${level}`" class="sf-notification__title">
+            <slot name="title" v-bind="{ title }">{{ title }}</slot>
+        </component>
+        <div v-if="hasSubtitle" class="sf-notification__subtitle">
+            <slot name="subtitle" v-bind="{ subtitle }">{{ subtitle }}</slot>
+        </div>
+        <slot />        
+    </header>   
+    <sf-icon class="sf-notification__close" icon="cross" color="white" size="14px"/> 
+</div>
