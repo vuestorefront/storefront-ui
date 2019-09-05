@@ -1,15 +1,15 @@
 @import '../variables';
 
 
-$checkbox__checkmark-size: 1.25rem !default;
-$checkbox__checkmark-size--desktop: 1.5rem !default;
-$checkbox__checkmark-primary-color: $c-green-primary !default;;
-$checkbox__checkmark-secondary-color: $c-gray-secondary !default;;
 $checkbox-font-family: $body-font-family-secondary !default;
 $checkbox-font-size: $font-size-big-mobile !default;
 $checkbox-font-size--desktop: $font-size-big-desktop !default;
 $checkbox-font-weight: $body-font-weight-primary !default;
 $checkbox-line-height: 1.6 !default;
+$checkbox__checkmark-size: 1.25rem !default;
+$checkbox__checkmark-size--desktop: 1.5rem !default;
+$checkbox__checkmark-primary-color: $c-green-primary !default;;
+$checkbox__checkmark-secondary-color: $c-gray-secondary !default;;
 $checkbox__checkmark-transition: background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1), border-color 0.25s cubic-bezier(1, 0.5, 0.8, 1) !default;
 
 .sf-checkbox {
