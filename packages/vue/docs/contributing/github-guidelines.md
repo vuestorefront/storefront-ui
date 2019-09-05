@@ -219,7 +219,7 @@ For example: `#290-contribution-guide`, and description of the issue **should no
 
 There are lots of way to create a local branch, below are two most common ways:
 
-### Using terminal (or command line for Windows)**
+### Using terminal (or command line for Windows)
 
 * **Navigate** to your folder cloned from your forked repo.
 
@@ -252,17 +252,38 @@ git branch --set-upstream <your-branch-name> origin/<your-branch-name>
 
 The good news is VS Code has Git support built-in. 
 
-![How Github plugin looks in VS code](https://res.cloudinary.com/mayashavin/image/upload/v1567617576/StorefrontUI/Screen_Shot_2019-09-04_at_19.25.05.png)
+![How Github plugin looks in VS code](https://res.cloudinary.com/mayashavin/image/upload/h_300,c_scale/v1567617576/StorefrontUI/Screen_Shot_2019-09-04_at_19.25.05.png)
+
+#### Create branch 
+
+* It can be done easily by clicking the **bottom left corner** of VS Code, where the current Github local branch is shown.
+
+![Click on the bottom left to change branch](https://res.cloudinary.com/mayashavin/image/upload/h_300,c_scale/v1567706380/StorefrontUI/Screen_Shot_2019-09-05_at_15.51.06.png)
+
+* A new input dropdown will be opened at **the top** of VS Code with an input field for branch name and several options for selecting. After **typing the new branch name** and select whether to branch out from current branch (_first option_) or from a different branch (_second option_), a local branch will be created.
+
+![Checkout different branch or create new branch](https://res.cloudinary.com/mayashavin/image/upload/v1567706380/StorefrontUI/Screen_Shot_2019-09-05_at_15.51.21.png)
+
+:::tip SWITCH TO ANOTHER BRANCH
+There is **autocomplete enabled** for this branch name input field. You can also **check out** (switch to) another **existing** branch by do exact the same and **select the matched branch** shown in the dropdown instead of the above options.
+:::
+
+:::warning DO NOT FORGET
+Click on the **cloud icon** at the bottom, next to the branch name to set the remote branch and have it tied to the local one.
+:::
+
+![]()
+
 
 It allows you to do basic features, such as:
 * Initialize a repository.
 * Clone a repository.
-* Create branches and tags.
-
+* Create branches and tags. 
 * Stage and commit changes.
 * Push/pull/sync with a remote branch.
 * Resolve merge conflicts.
 * **View differences** made.
+
 
 
 ## 5. Create PR from branch
