@@ -1,82 +1,283 @@
 <template>
   <div id="product">
-    <div class="product-info">
-      <div class="product-gallery"></div>
-      <div class="product-details">
-        <h1>Cashmere Sweater</h1>
-        <div class="product-details__sub">
-          <SfPrice regular-price="$ 50,00" />
-          <SfRating score="4" />
-        </div>
-        <p class="product-details__description">
-          Find stunning women cocktail and party dresses. Stand out in lace and
-          metallic cocktail dresses and party dresses from all your favorite
-          brands.
-        </p>
-      </div>
-    </div>
-
-    <SfSection :heading="{ title: 'You may also like' }">
-      <SfCarousel>
-        <SfCarouselItem v-for="i in 6" :key="i">
+    <SfSection titleHeading="Match it with">
+      <SfCarousel
+        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
+        class="product-carousel"
+      >
+        <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
-            title="Cream Beach Bag"
-            regular-price="10,99 $"
-            :rating="5"
+            :title="product.title"
+            :image="product.image"
+            :regular-price="product.price.regular"
+            :rating="product.rating.score"
+            class="product-card"
           />
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
+    <SfSection titleHeading="You might also like">
+      <SfCarousel
+        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
+        class="product-carousel"
+      >
+        <SfCarouselItem v-for="(product, i) in products" :key="i">
+          <SfProductCard
+            :title="product.title"
+            :image="product.image"
+            :regular-price="product.price.regular"
+            :rating="product.rating.score"
+            class="product-card"
+          />
+        </SfCarouselItem>
+      </SfCarousel>
+    </SfSection>
+    <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
+      <!-- .grid shoud be refactored -->
+      <div class="grid">
+        <div class="grid__row">
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageA.png"
+              >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageB.png"
+              >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageC.png"
+              >katherina_trn</SfImage
+            >
+          </div>
+        </div>
+        <div class="grid__row">
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageC.png"
+              >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageD.png"
+              >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageA.png"
+              >katherina_trn</SfImage
+            >
+          </div>
+        </div>
+      </div>
+    </SfSection>
+    <SfBanner
+      title="Download our application to your mobile"
+      subtitle="Fashion to Take Away"
+      image="assets/storybook/homepage/bannerD.png"
+      class="banner-application sf-banner--left sf-banner--center desktop-only"
+    >
+      <template #title>
+        <h1 class="banner-application__title">
+          Download our application to your&nbsp;mobile
+        </h1>
+      </template>
+      <template #call-to-action>
+        <div>
+          <img
+            class="banner-application__download"
+            src="assets/storybook/homepage/google.png"
+            alt=""
+          />
+          <img
+            class="banner-application__download"
+            src="assets/storybook/homepage/apple.png"
+            alt=""
+          />
+        </div>
+      </template>
+    </SfBanner>
+    <SfBottomNavigation class="mobile-only">
+      <SfBottomNavigationItem>
+        <SfIcon icon="home" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="menu" size="20px" style="width: 25px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="heart" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="profile" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfCircleIcon
+          class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
+        >
+          <SfIcon
+            icon="add_to_cart"
+            size="20px"
+            color="white"
+            style="margin-right: 4px;"
+          />
+        </SfCircleIcon>
+      </SfBottomNavigationItem>
+    </SfBottomNavigation>
   </div>
 </template>
-
 <script>
 import {
-  SfCarousel,
   SfProductCard,
-  SfPrice,
-  SfRating,
-  SfSection
-} from "../../../../index.js";
+  SfCarousel,
+  SfSection,
+  SfImage,
+  SfBanner,
+  SfBottomNavigation,
+  SfCircleIcon,
+  SfIcon
+} from "@storefront-ui/vue";
 
 export default {
+  name: "Product",
   data() {
-    return {};
+    return {
+      products: [
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productC.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productC.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        }
+      ]
+    };
   },
   components: {
-    SfCarousel,
     SfProductCard,
+    SfCarousel,
     SfSection,
-    SfPrice,
-    SfRating
+    SfImage,
+    SfBanner,
+    SfBottomNavigation,
+    SfCircleIcon,
+    SfIcon
+  },
+  mounted() {
+    document.body.style.setProperty("margin", "0");
   }
 };
 </script>
-
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
-
 #product {
-  box-sizing: border-box;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: auto;
-  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 $spacer-big;
+  @media screen and (min-width: $desktop-min) {
+    padding: 0;
+  }
 }
-.product-info {
-  display: flex;
-  align-items: flex-start;
+.product-card {
+  max-width: unset; // TODO: test this property and fix if it required
+  &:hover {
+    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+  }
 }
-.product-gallery,
-.product-details {
-  width: 50%;
-  display: inline-block;
+.product-carousel {
+  margin: -20px -#{$spacer-big} -20px 0;
+  @media screen and (min-width: $desktop-min) {
+    margin: -20px 0;
+  }
+  /deep/ .sf-carousel__wrapper {
+    padding: 20px 0;
+    @media screen and (min-width: $desktop-min) {
+      padding: 20px;
+      max-width: calc(100% - 216px);
+    }
+  }
 }
-
-.product-details {
-  &__sub {
+.banner-application {
+  min-height: 420px;
+  max-width: 1040px;
+  margin: auto;
+  &__title {
+    padding: 0;
+    margin: 0;
+    margin-top: $spacer-big;
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.388;
+  }
+  &__download {
+    max-height: 47px;
+    margin-top: $spacer-extra-big;
+    & + & {
+      margin-left: $spacer-big;
+    }
+  }
+}
+/*  TODO: .grid shoud be refactored */
+.grid {
+  &__row {
     display: flex;
-    justify-content: space-between;
+    & + & {
+      margin-top: $spacer-big / 2;
+      @media screen and (min-width: $desktop-min) {
+        margin-top: $spacer-big;
+      }
+    }
+  }
+  &__col {
+    margin: 0;
+    & + & {
+      margin-left: $spacer-big / 2;
+      @media screen and (min-width: $desktop-min) {
+        margin-left: $spacer-big;
+      }
+    }
   }
 }
 </style>
