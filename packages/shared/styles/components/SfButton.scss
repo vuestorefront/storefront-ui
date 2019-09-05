@@ -21,6 +21,7 @@ $button-line-height: 1.6 !default;
   font-weight: $button-font-weight;
   line-height: $button-line-height;
   text-transform: uppercase;
+  cursor: pointer;
   @media screen and (min-width: $desktop-min) {
     padding: $button-padding;
     font-size: $button-font-size--desktop;
