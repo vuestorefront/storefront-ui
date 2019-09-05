@@ -29,7 +29,7 @@ Forked repository is **not** updated automatically when the original one changes
 
 ```
 https://github.com/username/storefront-ui
-```kk
+```
 
 in which `username` is your Github username.
 
@@ -40,6 +40,7 @@ Once done with forking, it's time to set up your local environment in order to s
 #### Using SSH 
 
 This is the most common and secured way. You can copy the SSH link by clicking on the right green button `Clone or download`. The link will be in the format: 
+
 ```
 git@github.com:username/storefront-ui.git
 ```
@@ -49,14 +50,14 @@ git@github.com:username/storefront-ui.git
 Then in the terminal, simply use the following command:
 
 ```bash
-git clone git@github.com:username/storefront-ui.git
+$ git clone git@github.com:username/storefront-ui.git
 ```
 
 :::tip
 By default this will clone the repo into `storefront-ui` folder in the current directory. If you wish to define a different folder name, you can pass the desired name as an optional parameter in the clone command.
 
 ```bash
-git clone git@github.com:username/storefront-ui.git <your-folder-name>
+$ git clone git@github.com:username/storefront-ui.git <your-folder-name>
 ```
 :::
 
@@ -202,11 +203,73 @@ It'll be extremely easy. Inside the issue page, simply click on `assign yourself
 
 ## 4. Create an issue branch
 
+Now that you are assigned to an issue, it's time to get to work :smile:
+
+We **strongly** recommend you to **create a new branch** from your `master` branch instead of working directly on the `master` branch of your **forked**.
+
+This allows you to work on different issues, with each of them attached to a specific branch. Keeping your `master` clean and synced with `master` of StorefrontUI ensures you **will always have a clean state** to start working on new or fallback to when needed.
+
+:::tip NAME YOUR BRANCH
+We suggest naming your branch according to the following format:
+```
+#<issue-number>-<brief-description-of-issue>
+```
+For example: `#290-contribution-guide`, and description of the issue **should not more than 5 words**.
+:::
+
+There are lots of way to create a local branch, below are two most common ways:
+
+### Using terminal (or command line for Windows)**
+
+* **Navigate** to your folder cloned from your forked repo.
+
+:::warning VERIFY YOUR CURRENT BRANCH
+You should **verify** that your current branch is `master` before continuing, to avoid including unlated changes for different issue branch. It can be done using:
+
+```bash
+git status
+```
+:::
+
+* **Run** the command:
+
+```bash
+$ git checkout -b <your-branch-name>
+```
+in which, `-b` is the flag indicating it's a command to create a new branch.
+
+:::warning BE CAREFUL
+`git checkout <branch-name>` **without** a flag will simply just **switch to an existing `<brand-name>` branch**.
+:::
+
+* **Setup remote** branch and **attach** local branch to that remote branch
+
+```bash
+git branch --set-upstream <your-branch-name> origin/<your-branch-name>
+```
+
+### Using Visual Studio Code (VS Code)
+
+The good news is VS Code has Git support built-in. 
+
+![How Github plugin looks in VS code](https://res.cloudinary.com/mayashavin/image/upload/v1567617576/StorefrontUI/Screen_Shot_2019-09-04_at_19.25.05.png)
+
+It allows you to do basic features, such as:
+* Initialize a repository.
+* Clone a repository.
+* Create branches and tags.
+
+* Stage and commit changes.
+* Push/pull/sync with a remote branch.
+* Resolve merge conflicts.
+* **View differences** made.
 
 
 ## 5. Create PR from branch
 
 ### Make a commit and push your branch
+
+### Sync branch with `master`
 
 ### Create Pull Request (PR)
 
@@ -222,6 +285,8 @@ You can trigger closing the issue automatically once the PR (Pull Request) is me
 Fixes <issue number>
 ``` 
 
+There other possible keywords are `fixes`, `fix`, `closes`, `close`, etc. 
+
 More information: 
 
 * [https://github.blog/2013-01-22-closing-issues-via-commit-messages/](https://github.blog/2013-01-22-closing-issues-via-commit-messages/)
@@ -235,7 +300,7 @@ To rename your branch and make sure your repo is synced, only two steps are requ
 * **Rename locally** by using 
 
 ```bash
-$ git branch -m <old-branch-name> <new-branch-name>
+git branch -m <old-branch-name> <new-branch-name>
 ```
 in which, `-m` flag stands for `--move` command.
 
@@ -246,14 +311,14 @@ A capitalized `-M` flag will indicate `--move` with `--force` flag enabled to "f
 If you want to rename the branch that is currently checked out, just omit the `<old-branch-name>` option, which looks like this:
 
 ```bash
-$ git branch -m <new-branch-name>
+git branch -m <new-branch-name>
 ```
 
 * **Rename remotely**
 Once the local branch has been renamed, just run the below command:
 
 ```bash
-$ git push origin :<old-branch-name> <new-branch-name>
+git push origin :<old-branch-name> <new-branch-name>
 ```
 
 Behind the back, it actually does the followings:
