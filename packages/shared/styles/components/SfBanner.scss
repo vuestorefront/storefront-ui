@@ -19,8 +19,8 @@ $banner__title-font-size: $font-size-extra-big-mobile !default;
 $banner__title-font-size--desktop: 3rem !default;
 $banner__title-font-weight: $body-font-weight-primary !default;
 $banner__description-line-height: 1.6;
-$banner__description-margin-yx: 1.875rem 0 0 0;
-$banner--slim-padding-yx: 5rem 2.5rem;
+$banner__description-margin: 1.875rem 0 0 0;
+$banner--slim-padding: 5rem 2.5rem;
 $banner--slim__title-font-size: $h1-font-size-desktop;
 
 .sf-banner {
@@ -62,7 +62,7 @@ $banner--slim__title-font-size: $h1-font-size-desktop;
     display: none;
     @media screen and (min-width: $desktop-min) {
       display: block;
-      margin: $banner__description-margin-yx;
+      margin: $banner__description-margin;
     }
   }
   &__call-to-action {
@@ -80,7 +80,7 @@ $banner--slim__title-font-size: $h1-font-size-desktop;
     }
   }
   &--slim {
-    padding: $banner--slim-padding-yx;
+    padding: $banner--slim-padding;
     #{$this}__container {
       @media screen and (min-width: $desktop-min) {
         flex-basis: 100%;

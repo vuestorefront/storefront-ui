@@ -1,6 +1,6 @@
 @import "../variables";
-$call-to-action-padding-xy: $spacer-big $spacer-medium!default;
-$call-to-action-padding-xy--desktop: 3.4rem 8.75rem !default;
+$call-to-action-padding: $spacer-big $spacer-medium!default;
+$call-to-action-padding--desktop: 3.4rem 8.75rem !default;
 $call-to-action-background-color: $c-black !default;
 $call-to-action-color: $c-text-on-dark !default;
 $call-to-action-font-family: $body-font-family-secondary !default;
@@ -21,7 +21,7 @@ $call-to-action--light-background-color: $c-light-primary !default;
   flex-direction: column;
   align-items: center;
   align-content: center;
-  padding: $call-to-action-padding-xy;
+  padding: $call-to-action-padding;
   background-color: $call-to-action-background-color;
   background-repeat: no-repeat;
   background-position: center;
@@ -33,7 +33,7 @@ $call-to-action--light-background-color: $c-light-primary !default;
   @media screen and (min-width: $desktop-min) {
     flex-direction: row;
     justify-content: space-between;
-    padding: $call-to-action-padding-xy--desktop;
+    padding: $call-to-action-padding--desktop;
   }
   &__text-container {
     @media screen and (min-width: $desktop-min) {
