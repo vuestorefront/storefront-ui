@@ -254,7 +254,7 @@ The good news is VS Code has Git support built-in.
 
 ![How Github plugin looks in VS code](https://res.cloudinary.com/mayashavin/image/upload/h_300,c_scale/v1567617576/StorefrontUI/Screen_Shot_2019-09-04_at_19.25.05.png)
 
-#### Create branch 
+#### Create branches
 
 * It can be done easily by clicking the **bottom left corner** of VS Code, where the current Github local branch is shown.
 
@@ -270,27 +270,113 @@ There is **autocomplete enabled** for this branch name input field. You can also
 
 :::warning DO NOT FORGET
 Click on the **cloud icon** at the bottom, next to the branch name to set the remote branch and have it tied to the local one.
+
+![Set upstream for new local branch](https://res.cloudinary.com/mayashavin/image/upload/v1567710443/StorefrontUI/cloud_icon.png)
 :::
 
-![]()
-
-
-It allows you to do basic features, such as:
+In addition, it allows you to do other basic features, such as:
 * Initialize a repository.
 * Clone a repository.
-* Create branches and tags. 
+* Create tags. 
 * Stage and commit changes.
 * Push/pull/sync with a remote branch.
 * Resolve merge conflicts.
 * **View differences** made.
 
-
-
 ## 5. Create PR from branch
 
-### Make a commit and push your branch
+### Make a commit and push to remote branch
+
+:::warning
+1. You have **maximum 50 characters** for a commit message. Be concise!
+2. Make sure your issue number will be presented in one of the commits and [follow the guide to enable auto-closing the referenced issue after your PR is merged](#close-issue-through-commit-message).
+:::
+
+### By terminal (or command line for Windows users)
+
+* Use the following command to **stage** a **single** changed file:
+
+```bash
+git add <file-path>
+```
+
+ Or **all** the changed files for a commit by using `-a` flag:
+
+```bash
+git add -a
+```
+
+* **Create a commit** with a **meaningful** message by using `-m` flag:
+
+```bash
+git commit -m <your-message>
+```
+
+:::tip
+You can also combine staging all files and writing a commit message into **one** command with two flags `-a` and `-m`:
+
+```bash
+git commit -a -m <your-message>
+```
+:::
+
+* **Push** that commit to remote branch
+
+```bash
+git push
+
+//OR
+
+git push origin <your-branch-name>
+```
+
+:::danger STAGE THE WRONG FILE?
+If there is a staged file that wasn't supposed to be staged in the commit, you can **unstage** it by using `checkout` command. See [Troubleshootings - Unstaged unwanted file(s)](#unstaged-unwanted-file(s)) for more information.
+:::
+
+#### By VSCode UI
+
+While working in local branch, your changes will be reflected on the left side column of VSCode (after selecting Github plugin ![Github plugin icon on VSCode](https://res.cloudinary.com/mayashavin/image/upload/w_40/v1567710713/StorefrontUI/github_plugin_icon.png) icon).
+
+![](https://res.cloudinary.com/mayashavin/image/upload/v1567706057/StorefrontUI/commit.png)
+
+* **Enter** a **meaningful** commit message in the `Message` field.
+
+* You can **select specific changes** to stage by hovering on the changed file and click on `+` icon. 
+
+Or **select all** by hovering at the `CHANGES` tab and click on `+` icon.
+
+* **Commit** the selected changes to the branch by clicking on the ![confirm icon](https://res.cloudinary.com/mayashavin/image/upload/w_40/v1567711450/StorefrontUI/confirm%20icon.png) icon at the top.
+
+:::tip
+Click on that icon **without** pre-selecting changes will **auto commit all** the changes listed.
+:::
+
+* Once done, **push that commit** to the **remote** branch by clicking the sync area at the bottom left of VSCode, next to the branch name.
+
+![push the commit](https://res.cloudinary.com/mayashavin/image/upload/v1567706380/StorefrontUI/sync.png)
+
+Confirm the action and here we go, the commit will be synced.
 
 ### Sync branch with `master`
+
+Syncing with `master` is simple, and we **strongly** suggest to do it frequently to avoid conflicts.
+
+After you set up [synchronization between your forked repo and StorefrontUI repo](#keep-your-forked-repo-updated) and have your `master` branch up-to-date, simply use `git merge` to **merge** the latest `master` changes into your branch.
+
+```bash
+git merge master
+```
+
+:::tip
+You can also use `git merge <branch-name>` to merge changes of another branch into your branch.
+:::
+
+If the merge is done **without** conflict, terminal will switch to [vim](http://www.vim.org/) editor with a basic information about the merge as a commit. You can start editing it by hitting `i` key.
+
+Once done, hit `ESC` key and type `:wq` to save (`-w`) and quit the editor (`-q`).
+
+Then **push to the remote branch** using `git push` command mentioned in the previous section.
 
 ### Create Pull Request (PR)
 
@@ -347,6 +433,44 @@ Behind the back, it actually does the followings:
 * **Push** the new branch to the remote repo
 * **Switch** to the new branch
 * **Reset the upstream** reference for the renamed branch
+
+### Unstage unwanted file(s)
+
+Use `reset` command to:
+
+* Removed a **single staged file** from the staging area
+```bash
+git reset HEAD -- <file>
+```
+* Removed **whole directory** from the staging area
+```bash
+git reset HEAD -- <directoryName>
+```
+
+:::warning
+This **must** be done **before** you make a commit.
+:::
+
+More information: [Git reset Manual](https://git-scm.com/docs/git-reset)
+
+### Undo file(s) changes
+
+Use `checkout --` command to undo your changes on a **single** file or on **all files in a single directory**:
+
+```bash
+git checkout -- <file-path-or-directory>
+```
+
+Or **all** the files
+
+```bash
+git checkout -- .
+```
+:::warning
+This **must** be done **before** you make a commit.
+:::
+
+More information: [Git checkout Manual](https://git-scm.com/docs/git-checkout)
 
 ### FAQs
 TBD
