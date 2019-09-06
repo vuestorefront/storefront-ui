@@ -2,8 +2,15 @@
 
 // $component__block-property: value;
 
-$sf-steps__active-line-height-mobile: 3px;
-$sf-steps__active-line-height-desktop: 2px;
+$sf-steps__active-line-height-mobile: 0.1875rem;
+$sf-steps__active-line-height-desktop: 0.125rem;
+$sf-steps__active-line-color: #1d1f22;
+$sf-steps__default-border: 0.0625rem solid #f1f2f4;
+
+$sf-steps__step-font-weight: 500;
+$sf-steps__step-font-size: 0.75rem;
+$sf-steps__step-font-color: $c-gray-secondary;
+
 
 %sf-store-active-line {
   position: absolute;
@@ -12,8 +19,8 @@ $sf-steps__active-line-height-desktop: 2px;
   height: $sf-steps__active-line-height-mobile;
   width: 100%;
   bottom: -$sf-steps__active-line-height-mobile /2;
-  left: 0px;
-  background-color: #1d1f22;
+  left: 0;
+  background-color: $sf-steps__active-line-color;
 
   @media screen and (min-width: $desktop-min) {
     height: $sf-steps__active-line-height-desktop;
@@ -28,14 +35,14 @@ $sf-steps__active-line-height-desktop: 2px;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: 1px solid #f1f2f4;
+    border-bottom: $sf-steps__default-border;
 
     &-step {
       position: relative;
-      padding: 20px 0;
-      font-size: 12px;
-      color: $c-gray-secondary;
-      font-weight: 500;
+      padding: 1.25rem 0;
+      font-size: $sf-steps__step-font-size;
+      color: $sf-steps__step-font-color;
+      font-weight: $sf-steps__step-font-weight;
       text-transform: uppercase;
       flex: 1;
       cursor: pointer;
@@ -72,11 +79,11 @@ $sf-steps__active-line-height-desktop: 2px;
           &:after {
             @extend %sf-store-active-line;
             width: calc(100% + 25%);
-            bottom: -(20px + ($sf-steps__active-line-height-mobile / 2));
+            bottom: -(1.25rem + ($sf-steps__active-line-height-mobile / 2));
             left: -25%;
 
             @media screen and (min-width: $desktop-min) {
-              bottom: -(20px + ($sf-steps__active-line-height-desktop / 2));
+              bottom: -(1.25rem + ($sf-steps__active-line-height-desktop / 2));
             }
           }
         }
@@ -88,10 +95,10 @@ $sf-steps__active-line-height-desktop: 2px;
     }
   }
   &__wrapper {
-    padding: 40px 0 0 0;
+    padding: 2.5rem 0 0 0;
 
     @media screen and (min-width: $desktop-min) {
-      padding: 80px 0 0 0;
+      padding: 5rem 0 0 0;
     }
   }
 }
