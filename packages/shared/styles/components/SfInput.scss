@@ -1,9 +1,9 @@
 @import "../variables";
 
 $input-color: $c-text-primary !default;
-$input-active-color: $c-accent-primary !default;
-$input-invalid-color: #d12727 !default;
-$input-disabled-color: $c-dark-secondary !default;
+$input-color-active: $c-accent-primary !default;
+$input-color-invalid: #d12727 !default;
+$input-color-disabled: $c-dark-secondary !default;
 $input-font-family: $body-font-family-secondary !default;
 $input-font-size: $font-size-big-mobile !default;
 $input-font-size-desktop: $font-size-big-desktop !default;
@@ -26,6 +26,7 @@ $input__error-message-font-size: $font-size-small-mobile !default;
 
 .sf-input {
   $this: &;
+  box-sizing: border-box;
   position: relative;
   margin-top: 5px;
   color: $input-color;
@@ -37,7 +38,6 @@ $input__error-message-font-size: $font-size-small-mobile !default;
     font-size: $input-font-size-desktop;
   }
   & input {
-    box-sizing: border-box;
     display: block;
     width: 100%;
     padding: 5px 0;
@@ -51,7 +51,7 @@ $input__error-message-font-size: $font-size-small-mobile !default;
     line-height: inherit;
     &:focus ~ #{$this}__label {
       @include move-label-up;
-      color: $input-active-color;
+      color: $input-color-active;
     }
     &:focus ~ #{$this}__bar::before,
     &:focus ~ #{$this}__bar::after {
@@ -61,7 +61,7 @@ $input__error-message-font-size: $font-size-small-mobile !default;
       content: " *";
     }
     &:disabled ~ #{$this}__label {
-      color: $input-disabled-color;
+      color: $input-color-disabled;
     }
   }
   &__bar {
@@ -73,7 +73,7 @@ $input__error-message-font-size: $font-size-small-mobile !default;
       bottom: 0;
       width: 0;
       height: 1px;
-      background-color: $input-active-color;
+      background-color: $input-color-active;
       transition: $input__bar-transition;
       content: "";
     }
@@ -90,12 +90,12 @@ $input__error-message-font-size: $font-size-small-mobile !default;
     transform: translateY(-50%);
     transition: $input__label-transition;
     &::after {
-      color: $input-active-color;
+      color: $input-color-active;
     }
   }
   &__error-message {
     margin-top: 5px;
-    color: $input-invalid-color;
+    color: $input-color-invalid;
     font-family: $input__error-message-font-family;
     font-size: $input__error-message-font-size;
   }
@@ -103,18 +103,18 @@ $input__error-message-font-size: $font-size-small-mobile !default;
     input:focus ~ #{$this}__label {
       &,
       &:after {
-        color: $input-invalid-color;
+        color: $input-color-invalid;
       }
     }
     #{$this}__bar {
       &::before,
       &::after {
-        background-color: $input-invalid-color;
+        background-color: $input-color-invalid;
       }
     }
     @at-root #{&}#{$this}--has-text {
       #{$this}__label {
-        color: $input-invalid-color;
+        color: $input-color-invalid;
       }
     }
   }
