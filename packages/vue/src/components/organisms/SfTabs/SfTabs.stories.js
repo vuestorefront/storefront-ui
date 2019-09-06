@@ -3,7 +3,6 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, object } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfTabs from "./SfTabs.vue";
-import SfTab from "./_internal/SfTab.vue";
 
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
@@ -45,30 +44,21 @@ storiesOf("Organisms|Tabs", module)
     "Basic",
     () => ({
       components: {
-        SfTabs,
-        SfTab
+        SfTabs
       },
       template: `
       <SfTabs :openTab="1">
-      <SfTab :header="'Hello'">Hello</SfTab>
-      <SfTab :header="'List'">
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-        </ul>
+      <SfTab header="Description">
+      The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common "problem" areas. Find stunning women's cocktail dresses and party dresses.</SfTab>
+      <SfTab header="Read reviews">
+        <h3 style="padding: 0">Maria</h3> 
+        <p>I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can't comment on interlation as I had an electrition instal it. Would recommend.. Read more</p>
       </SfTab>
-      <SfTab :header="'Test'">
-        <strong>Test</strong>
-      </SfTab>
-      <SfTab :header="'Image'">
-        <img
-          src="https://docs.storefrontui.io/logo.png"
-          alt="Storefront UI"
-          style="width: 100%"
-        />
+      <SfTab header="Additional Information">
+        <h3 style="padding: 0">Brand</h3>
+        <p>
+        <u>Brand name</u> is the perfect pairing of quality and design. This label creates major everyday vibes with its collection of modern brooches, silver and gold jewellery, or clips it back with hair accessories in geo styles.
+</p>
       </SfTab>
     </SfTabs>`
     }),

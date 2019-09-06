@@ -6,7 +6,6 @@ $hero__controls-padding-h: 1rem !default;
 $hero__controls-width: calc(100% - 2 * #{$hero__controls-padding-h}) !default;
 $hero__bullets-position-offset: 0.5rem !default;
 $hero__bullets-position-offset--desktop: 2.5rem !default;
-$hero__bullets-width: 100% !default;
 $hero-item-height: 14rem !default;
 $hero-item-height--desktop: 30rem !default;
 $hero-item-width: 100% !default;
@@ -57,7 +56,8 @@ $hero-item__title-color: $c-dark-primary !default;
   }
   &__bullets {
     position: absolute;
-    width: $hero__bullets-width;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
     align-content: center;
