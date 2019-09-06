@@ -19,7 +19,15 @@ module.exports = {
       ['/customization', 'Customization'],
       ['/meet-the-team', 'Meet the core team'],
       {
-        title: 'Contribution Guide',
+        title: 'Components [WIP]',
+        collapsable: false,
+        children: [
+          ['/components/arrow', 'Arrow'],
+          ['/components/button', 'Button'],
+        ],
+      },
+      {
+        title: 'Contributing Guide',
         collapsable: false,
         children: [
           ['/contributing/become-a-contributor', 'Become a contributor'],
@@ -31,7 +39,6 @@ module.exports = {
           ['/contributing/creating-new-component', 'Create/Edit Component'],
         ],
       },
-
     ]
   }
 }
