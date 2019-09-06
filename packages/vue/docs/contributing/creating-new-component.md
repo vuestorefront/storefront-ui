@@ -1,78 +1,62 @@
 # How to create/edit Storefront UI component
 
-At this point I assume you're already familiar with
-[composition rules](https://docs.storefrontui.io/component-rules.html)
-and know how to
-[work with our Figma designs](https://docs.storefrontui.io/creating-new-component.html).
+At this point we assume you're already familiar with [our coding guidelines](coding-guidelines.md) and know how to [work with our Figma designs](working-with-designs.md). The below section will guide you through how to create your first component for the library!
 
-## Start with template
+## Generate the component's template
 
-To create a new component you may start with
-`npm run create-component` on repository root,
-it'll ask you the framework (only Vue for now),
-the [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) type
-and finally the component name.
-When running the command, it will generate boilerplate and help you
-create a component in standardized way and save a lot of work.
-
-For example:
-
+Run `create-component` script at the respository's root level to generate all the files needed.
 ```bash
-cd storefront-ui
-npm run create-component
+$storefront-ui npm run create-component
 ```
+You will need to select the correct configurations for your component, such as:
 
-The component source files must be placed
-inside respective atomic type folder
-at `packages/vue/src/{type}/{SfComponent}`.
-SCSS file must be placed at `packages/shared/styles/components/{SfComponent}.scss`.
-`create-component` script will do that automatically for you.
+1. **Framework** (at the moment we only have Vue.js)
+2. Which **group directory** this component belongs to - according to [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) and from the component's requirements.
+3. **Name** of the component (**WITHOUT** the prefix `Sf`)
 
-If you're picking an already existent
-component, just follow the tutorial and finish the missing parts.
+Once done, it will generate boilerplates and help you create a component in standardized way without a lot of effort.
+* All the files **except** `.scss` will be located in `packages/vue/src/components/{group-type}/{Sf<ComponentName>/}`.
+* The `scss` file will automatically reside in `packages/shared/styles/components/` directory.
 
 ## Create proper markup
 
-Start with creating a proper CSS/HTML markup
-without worrying about the slots and SCSS variables.
-Once you have semantically correct and good looking
-component it's time to make it customizable.
+Start with creating a proper CSS/HTML markup without worrying about the slots and SCSS variables.
+Once you have semantical-correct and good-looking component, it's time to make it customizable.
 
 ### Make the content customizable with slots
 
 Now it's time to figure out which content should be customizable.
-By design try not to pass any content into props - instead use slots.
-Every text field should be a slot.
-Take a look at
+By design try **not** to pass any content into `props` - instead use `slots`.
+
+:::tip
+ Every **text field** should be a `slot`. Take a look at
 [SfBanner](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/components/molecules/SfBanner/SfBanner.html)
 component for inspiration.
+:::
 
 ## Edit styles
 
-Use [BEM methodology](http://getbem.com/)
-but try to keep up to 2 BEM levels (elements) at most.
+:::warning
+You should read and follow our [CSS Coding guidelines](coding-guidelines.md#CSS-Rules).
+:::
 
-For color modifiers (if it's applied to your component)
-you should use common classes, by convention:
+For color modifiers (_if it's applied to your component_)
+you should use common classes, by the following convention:
 `color-primary`, `color-secondary`, `color-info`, `color-success`,
 `color-warning`, `color-danger`.
 
 We already have these color helpers declared globally, and it may
-work by default for your component, in this case you should just add
+work by default for your component. In this case you should just add
 these classes as `CSS Modifier` on your component documentation,
-without adding new styles for that
-([SfButton](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/components/atoms/SfButton/SfButton.stories.js)
-is an example).
+without adding new styles for that.
+
+Example: [SfButton](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/components/atoms/SfButton/SfButton.stories.js)
 
 ## Add unit tests
 
-Minimal set of tests contains:
+Please follow [our Unit tests guidelines](coding-guidelines.md#Unit-tests)
 
-- External API: props, slots, events;
-- Internal API: methods;
-
-Some of the most common cases can be found in a
-[template](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/scripts/component-template/component.spec.ts).
+Some of the most common cases can be found in an [example template](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/scripts/component-template/component.spec.ts).
 
 ## Documentation and stories
 
@@ -82,8 +66,10 @@ in `packages/vue/scripts/component-template` folder.
 
 ## Running tests
 
-You should test your component importing it inside `packages/vue/src/Playground.vue`,
+You should test your component by importing it inside `packages/vue/src/Playground.vue`,
 then running `npm run serve`.
+
+Or do `yarn test:unit` to run all the unit tests.
 
 ## Export components
 
