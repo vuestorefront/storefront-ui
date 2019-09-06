@@ -1,8 +1,26 @@
+import Vue from "vue";
+import SfStep from "./_internal/SfStep.vue";
+
+Vue.component("SfStep", SfStep);
 export default {
   name: "SfSteps",
   model: {
     prop: "active",
     event: "change"
+  },
+  provide() {
+    const stepsData = {};
+    Object.defineProperty(stepsData, "index", {
+      enumerable: false,
+      get: () => this.active
+    });
+    Object.defineProperty(stepsData, "name", {
+      enumerable: false,
+      get: () => this.steps[this.active]
+    });
+    return {
+      stepsData
+    };
   },
   props: {
     /**
