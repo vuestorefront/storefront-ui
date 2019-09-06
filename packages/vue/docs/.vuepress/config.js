@@ -33,10 +33,10 @@ module.exports = {
           ['/contributing/become-a-contributor', 'Become a contributor'],
           ['/contributing/github-guidelines', 'Working with Github'],
           ['/contributing/coding-guidelines', 'Coding guidelines'],
+          ['/contributing/creating-new-component', 'Create/Edit Component'],
+          ['/contributing/working-with-designs', 'Working With Designs'],
           ['/contributing/documentation-guidelines', 'Documetation guidelines'],
           ['/contributing/issue-report-guidelines', 'How to report an issue'],
-          ['/contributing/working-with-designs', 'Working With Designs'],
-          ['/contributing/creating-new-component', 'Create/Edit Component'],
         ],
       },
     ]
