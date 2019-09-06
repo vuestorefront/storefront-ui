@@ -2,6 +2,9 @@ export default {
   name: "SfStep",
   inject: ["stepsData"],
   props: {
+    /**
+     * Name of the step
+     */
     name: {
       type: String,
       required: true
@@ -9,10 +12,16 @@ export default {
   },
   computed: {
     internalName() {
-      return this.stepsData.name;
+      if (this.stepsData) {
+        return this.stepsData.name;
+      }
+      return null;
     },
     index() {
-      return this.stepsData.index;
+      if (this.stepsData) {
+        return this.stepsData.index;
+      }
+      return null;
     },
     active() {
       return this.internalName === this.name;
