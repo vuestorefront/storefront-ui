@@ -1,11 +1,17 @@
 <div class="sf-steps">
-  <slot v-for="step in parsedSteps" :step-click="stepClick">
-    <div
-      :key="step.index"
-      :class="{'sf-steps__step': true, 'sf-steps__step-done': step.done, 'sf-steps__step-current': step.current, 'sf-steps__step-disabled': step.disabled}"
-      @click="stepClick(step)"
-    >
-      <span>{{ step.step }}</span>
-    </div>
-  </slot>
+  <div class="sf-steps__steps">
+  <!-- @slot Use this slot to customise the steps -->
+    <slot name="steps" v-for="step in parsedSteps" :step-click="stepClick">
+      <div
+        :key="step.index"
+        :class="{'sf-steps__steps-step': true, 'sf-steps__steps-step-done': step.done, 'sf-steps__steps-step-current': step.current, 'sf-steps__steps-step-disabled': step.disabled}"
+        @click="stepClick(step)"
+      >
+        <span>{{ step.step }}</span>
+      </div>
+    </slot>
+  </div>
+  <div class="sf-steps__wrapper">
+    <slot></slot>
+  </div>
 </div>
