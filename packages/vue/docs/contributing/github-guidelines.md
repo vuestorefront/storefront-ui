@@ -372,7 +372,7 @@ git merge master
 You can also use `git merge <branch-name>` to merge changes of another branch into your branch.
 :::
 
-If the merge is done **without** conflict, terminal will switch to [vim](http://www.vim.org/) editor with a basic information about the merge as a commit. You can start editing it by hitting `i` key.
+If the merge is done **without** conflict, terminal may switch to [vim](http://www.vim.org/) editor with a basic information about the merge as a commit. If so, you can start editing it by hitting `i` key.
 
 Once done, hit `ESC` key and type `:wq` to save (`-w`) and quit the editor (`-q`).
 
@@ -380,8 +380,55 @@ Then **push to the remote branch** using `git push` command mentioned in the pre
 
 ### Create Pull Request (PR)
 
+* Navigate to [**Pull Requests Tab**]() in StorefrontUI repo and click on "New pull request" button (located on the right side)
+
+![New pull request](https://res.cloudinary.com/mayashavin/image/upload/v1567771580/StorefrontUI/create_PR.jpg)
+
+* **Search** for your branch name and select from the dropdown
+
+![Search for branch](https://res.cloudinary.com/mayashavin/image/upload/v1567771580/StorefrontUI/type_select_branch.jpg)
+
+* **Review** your changes (files comparison are available by scrolling the page down) and **confirm** by clicking on `Create pull request` button
+
+![Create pull request after review](https://res.cloudinary.com/mayashavin/image/upload/v1567771579/StorefrontUI/confirm_create_pr.jpg)
+
+* **Fill in** the following details before submitting the Pull Request:
+
+![Fill in pull request details](https://res.cloudinary.com/mayashavin/image/upload/v1567772707/StorefrontUI/pr_steps_2.jpg)
+
+1. Write the **title** of your pull request in the following format:
+
+```
+#[Issue-number] - [Issue title]
+```
+
+:::tip WORK-IN-PROGRESS PR
+You can also create pull request while working on an issue, just remember to add `[WIP]` at the beginning of the issue title. This will let us know not to review it until it's ready.
+:::
+
+2. Write the issue **description** according to our template.
+
+3. **Add a reviewer** to review your PR by searching for their Github account or selecting from the suggestion list. This will send the assigned reviewer(s) a notification on every changes made to the PR hereafter, as well as to start reviewing.
+
+:::tip
+There can be multiple reviewers assigned to one PR, depending on how complex that PR is and how many reviewers you would like to review your Pull Request. But **minimum one is required**.  
+:::
+
+4. **Confirm** create the pull request.
+
 ### Code review
 
+:::warning
+Make sure your code follows our [**Coding guidelines**](coding-guidelines.md).
+:::
+
+After the pull request is created and assigned, the selected reviewer(s) will go over the changes, whether it's code or documentation fixes. They will leave the comments at the relevant area if needed to:
+* Request for a code change.
+* Ask a question.
+
+This step is required to ensure the consistency in coding standards, readability and avoid unseen bug(s) that may occur along the way from a fresher look. 
+
+Once it's done and approved, one of our core team members will merge it to master and that's it! Congratulations, you just make a contribution :tada: !
 ## Troubleshootings (FAQs and tips)
 
 ### Close issue through commit message
