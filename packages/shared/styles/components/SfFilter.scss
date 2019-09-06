@@ -3,7 +3,7 @@
 $filter-padding: $spacer 0 !default;
 $filter-font-family: $body-font-family-secondary !default;
 $filter-font-size: $font-size-big-mobile !default;
-$filter-font-size--desktop: $font-size-small-desktop !default;
+$filter-font-size-desktop: $font-size-small-desktop !default;
 $filter-font-weight: $body-font-weight-secondary !default;
 $filter-line-height: 1.6 !default;
 $filter__color-size: 1.125rem !default;
@@ -19,7 +19,7 @@ $filter__color-size: 1.125rem !default;
   line-height: $filter-line-height;
   cursor: pointer;
   @media screen and (min-width: $desktop-min) {
-    font-size: $filter-font-size--desktop;
+    font-size: $filter-font-size-desktop;
   }
   &__label {
     flex-grow: 1;

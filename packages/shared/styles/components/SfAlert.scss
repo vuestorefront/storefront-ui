@@ -5,7 +5,7 @@ $alert__message-margin: 0 !default;
 $alert__message-padding-left: 0.625rem !default;
 $alert-font-family: $body-font-family-secondary !default;
 $alert-font-size: $font-size-regular-mobile !default;
-$alert-font-size--desktop: $font-size-big-desktop !default;
+$alert-font-size-desktop: $font-size-big-desktop !default;
 $alert-font-weight: $body-font-weight-primary !default;
 $alert-line-height: 1.6 !default;
 
@@ -22,7 +22,7 @@ $alert--success-color: #128830 !default;
   font-size: $alert-font-size;
   line-height: $alert-line-height;
   @media screen and (min-width: $desktop-min){
-    font-size: $alert-font-size--desktop;
+    font-size: $alert-font-size-desktop;
   }
   &__message {
     margin: $alert__message-margin;

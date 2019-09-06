@@ -2,11 +2,11 @@
 
 $pagination-font-family: $body-font-family-secondary !default;
 $pagination-font-size: $font-size-big-mobile !default;
-$pagination-font-size--desktop: $font-size-big-desktop !default;
+$pagination-font-size-desktop: $font-size-big-desktop !default;
 $pagination-font-weight: $body-font-weight-secondary !default;
 $pagination-line-height: 1.6;
 $pagination__item-margin: 0 ($spacer-big / 4) !default;
-$pagination__item-margin--desktop: 0 ($spacer-big / 2) !default;
+$pagination__item-margin-desktop: 0 ($spacer-big / 2) !default;
 $pagination__item-color: $c-text-secondary !default;
 $pagination__button--current-color: $c-text-primary !default;
 $pagination__button--navigation-margin: 3rem;
@@ -19,7 +19,7 @@ $pagination__button-transition: color 150ms ease-in-out,
   font-weight: $pagination-font-weight;
   line-height: $pagination-line-height;
   @media screen and (min-width: $desktop-min) {
-    font-size: $pagination-font-size--desktop;
+    font-size: $pagination-font-size-desktop;
   }
   &__list {
     display: flex;
@@ -35,7 +35,7 @@ $pagination__button-transition: color 150ms ease-in-out,
     margin: $pagination__item-margin;
     color: $pagination__item-color;
     @media screen and (min-width: $desktop-min) {
-      margin: $pagination__item-margin--desktop;
+      margin: $pagination__item-margin-desktop;
     }
   }
   &__button {

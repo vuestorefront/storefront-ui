@@ -1,10 +1,10 @@
 @import "../variables";
 $banner-min-height: 9rem !default;
-$banner-min-height--desktop: 20rem !default;
+$banner-min-height-desktop: 20rem !default;
 $banner-padding-x: 1.25rem !default;
 $banner-padding-y: 1.25rem !default;
-$banner-padding-y--desktop: 4rem !default;
-$banner-padding-x--desktop: 5rem !default;
+$banner-padding-y-desktop: 4rem !default;
+$banner-padding-x-desktop: 5rem !default;
 $banner-font-family: $body-font-family-secondary !default;
 $banner-font-weight: $body-font-weight-primary !default;
 $banner-line-height: 1.6 !default;
@@ -12,11 +12,11 @@ $banner-font-size: $font-size-big-desktop !default;
 $banner__subtitle-color: $c-dark-secondary !default;
 $banner__subtitle-font-family: $body-font-family-primary !default;
 $banner__subtitle-font-size: $font-size-regular-mobile !default;
-$banner__subtitle-font-size--desktop: $font-size-extra-big-desktop !default;
+$banner__subtitle-font-size-desktop: $font-size-extra-big-desktop !default;
 $banner__subtitle-font-weight: $body-font-weight-primary !default;
 $banner__subtitle-line-height: 1.16 !default;
 $banner__title-font-size: $font-size-extra-big-mobile !default;
-$banner__title-font-size--desktop: 3rem !default;
+$banner__title-font-size-desktop: 3rem !default;
 $banner__title-font-weight: $body-font-weight-primary !default;
 $banner__description-line-height: 1.6;
 $banner__description-margin: 1.875rem 0 0 0;
@@ -37,9 +37,9 @@ $banner--slim__title-font-size: $h1-font-size-desktop;
   font-weight: $banner-font-weight;
   line-height: $banner-line-height;
   @media (min-width: $desktop-min) {
-    min-height: $banner-min-height--desktop;
-    padding: $banner-padding-y--desktop $banner-padding-x--desktop
-      $banner-padding-y--desktop calc(50% + #{$banner-padding-x--desktop});
+    min-height: $banner-min-height-desktop;
+    padding: $banner-padding-y-desktop $banner-padding-x-desktop
+      $banner-padding-y-desktop calc(50% + #{$banner-padding-x-desktop});
   }
   &__container {
     flex-basis: 100%;
@@ -55,7 +55,7 @@ $banner--slim__title-font-size: $h1-font-size-desktop;
     font-size: $banner__title-font-size;
     font-weight: $banner__title-font-weight;
     @media screen and (min-width: $desktop-min) {
-      font-size: $banner__title-font-size--desktop;
+      font-size: $banner__title-font-size-desktop;
     }
   }
   &__description {
@@ -74,9 +74,9 @@ $banner--slim__title-font-size: $h1-font-size-desktop;
   }
   &--left {
     @media screen and (min-width: $desktop-min) {
-      padding: $banner-padding-y--desktop
-        calc(50% + #{$banner-padding-x--desktop}) $banner-padding-y--desktop
-        $banner-padding-x--desktop;
+      padding: $banner-padding-y-desktop
+        calc(50% + #{$banner-padding-x-desktop}) $banner-padding-y-desktop
+        $banner-padding-x-desktop;
     }
   }
   &--slim {

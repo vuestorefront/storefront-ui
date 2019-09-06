@@ -4,7 +4,7 @@ $menu-item-padding: $spacer 0 !default;
 $menu-item-color: $c-gray-primary !default;
 $menu-item-font-family: $body-font-family-secondary !default;
 $menu-item-font-size: $font-size-big-mobile !default;
-$menu-item-font-size--desktop: $font-size-small-desktop !default;
+$menu-item-font-size-desktop: $font-size-small-desktop !default;
 $menu-item-font-weight: $body-font-weight-secondary !default;
 $menu-item-line-height: 1.6 !default;
 
@@ -19,7 +19,7 @@ $menu-item-line-height: 1.6 !default;
   font-weight: $menu-item-font-weight;
   line-height: $menu-item-line-height;
   @media screen and (min-width: $desktop-min) {
-    font-size: $menu-item-font-size--desktop;
+    font-size: $menu-item-font-size-desktop;
   }
   &__count {
     margin-left: auto;
