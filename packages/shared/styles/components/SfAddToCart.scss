@@ -1,6 +1,6 @@
 @import "../variables";
-
-$add-to-cart__quantity-select__max-width: 90px !default;
+$add-to-cart__select-quantity-min-width: 74px !default;
+$add-to-cart__select-quantity-max-width: 90px !default;
 
 .sf-add-to-cart {
   display: flex;
@@ -17,7 +17,8 @@ $add-to-cart__quantity-select__max-width: 90px !default;
       height: 100%;
       padding-left: 0.5rem;
       padding-right: 0.5rem;
-      max-width: $add-to-cart__quantity-select__max-width;
+      min-width: $add-to-cart__select-quantity-min-width;
+      max-width: $add-to-cart__select-quantity-max-width;
       border: 1px solid $c-light-primary;
       transition: border-color 0.3s ease-in-out;
       &:focus {
