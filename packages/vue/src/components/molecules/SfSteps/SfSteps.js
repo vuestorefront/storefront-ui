@@ -62,6 +62,12 @@ export default {
   methods: {
     stepClick({ index, disabled }) {
       if (!disabled) {
+        /**
+         * Active step changed event
+         *
+         * @event 'change'
+         * @type {Number}
+         */
         this.$emit("change", index);
       }
     }
