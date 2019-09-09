@@ -315,7 +315,7 @@ export default {
     }
   }
 }
-.banner-central{
+.banner-central {
   @media screen and (min-width: $desktop-min) {
     padding-right: 30%;
   }
