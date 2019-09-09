@@ -11,7 +11,6 @@ $tabs__title-color: $c-gray-secondary !default;
 $tabs__title-color--active: $c-dark-primary !default;
 $tabs__title-color--hover: $c-dark-primary !default;
 $tabs__title-font-size: $font-size-big-mobile !default;
-$tabs__title-line-height: 1.6 !default;
 $tabs__content-padding-y: 3 * $spacer-big !default;
 
 @mixin for-desktop{
@@ -42,7 +41,6 @@ $tabs__content-padding-y: 3 * $spacer-big !default;
     cursor: pointer;
     transition: border-color 150ms ease-in-out, color 150ms ease-in-out;
     font-size: $tabs__title-font-size;
-    line-height: $tabs__title-line-height;
     @include for-desktop{
       flex-basis: auto;
       margin-right: 2rem;
