@@ -5,6 +5,7 @@ $banner-padding-x: 1.25rem !default;
 $banner-padding-y: 1.25rem !default;
 $banner-padding-y-desktop: 4rem !default;
 $banner-padding-x-desktop: 5rem !default;
+$banner-color: $c-text-primary !default;
 $banner-font-family: $body-font-family-secondary !default;
 $banner-font-weight: $body-font-weight-primary !default;
 $banner-line-height: 1.6 !default;
@@ -29,8 +30,9 @@ $banner--slim__title-font-size: $h1-font-size-desktop;
   display: flex;
   min-height: $banner-min-height;
   padding: $banner-padding-y $banner-padding-x;
+  color: $banner-color;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 0 100%;
   background-size: cover;
   font-family: $banner-font-family;
   font-size: $banner-font-size;
@@ -80,7 +82,10 @@ $banner--slim__title-font-size: $h1-font-size-desktop;
     }
   }
   &--slim {
-    padding: $banner--slim-padding;
+    padding: $banner-padding-y $banner-padding-x;
+    @media (min-width: $desktop-min) {
+      padding: $banner--slim-padding;
+    }
     #{$this}__container {
       @media screen and (min-width: $desktop-min) {
         flex-basis: 100%;
