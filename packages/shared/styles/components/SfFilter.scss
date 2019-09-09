@@ -1,6 +1,5 @@
 @import "../variables";
 
-$filter-padding: $spacer 0 !default;
 $filter-font-family: $body-font-family-secondary !default;
 $filter-font-size: $font-size-big-mobile !default;
 $filter-font-size-desktop: $font-size-small-desktop !default;
@@ -12,7 +11,6 @@ $filter__color-size: 1.125rem !default;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: $filter-padding;
   font-family: $filter-font-family;
   font-size: $filter-font-size;
   font-weight: $filter-font-weight;

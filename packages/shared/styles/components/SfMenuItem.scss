@@ -1,6 +1,5 @@
 @import '../variables';
 
-$menu-item-padding: $spacer 0 !default;
 $menu-item-color: $c-gray-primary !default;
 $menu-item-font-family: $body-font-family-secondary !default;
 $menu-item-font-size: $font-size-big-mobile !default;
@@ -12,7 +11,6 @@ $menu-item-line-height: 1.6 !default;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $menu-item-padding;
   color: $menu-item-color;
   font-family: $menu-item-font-family;
   font-size: $menu-item-font-size;
