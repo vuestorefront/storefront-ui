@@ -1,7 +1,6 @@
 @import '../variables';
 
-$sf-circle-icon-background-primary: $c-green-primary !default;
-$sf-circle-icon-background-secondary: $c-dark-primary !default;
+$sf-circle-icon-background: $c-green-primary !default;
 $sf-circle-icon-icon-color: $c-white !default;
 $sf-circle-icon-size: 3.25rem !default;
 $sf-circle-icon-size-small: 1.625rem !default;
@@ -19,25 +18,15 @@ $sf-circle-icon-size-big: 4rem !default;
   height: $sf-circle-icon-size;
   transition: box-shadow 0.3s ease;
   outline: none;
-  background-color: $sf-circle-icon-background-primary;
+  background-color: $sf-circle-icon-background;
   &:hover {
-    box-shadow: 0 0 0 0.3125rem rgba($sf-circle-icon-background-primary, 0.4);
+    box-shadow: 0 0 0 0.3125rem rgba($sf-circle-icon-background, 0.4);
   }
   &:active {
-    box-shadow: 0 0 0 0.625rem rgba($sf-circle-icon-background-primary, 0.4);
+    box-shadow: 0 0 0 0.625rem rgba($sf-circle-icon-background, 0.4);
   }
   &__icon {
     padding: 10px;
-  }
-  &--secondary {
-    background-color: $sf-circle-icon-background-secondary;
-    &:hover {
-      box-shadow: 0 0 0 0.3125rem
-        rgba($sf-circle-icon-background-secondary, 0.4);
-    }
-    &:active {
-      box-shadow: 0 0 0 0.625rem rgba($sf-circle-icon-background-secondary, 0.4);
-    }
   }
   &--small {
     width: $sf-circle-icon-size-small;
@@ -51,6 +40,22 @@ $sf-circle-icon-size-big: 4rem !default;
     height: $sf-circle-icon-size-big;
     & .sf-circle-icon__icon {
       padding: 15px;
+    }
+  }
+  @each $color, $map in $colors-map {
+    $bg: map-get($map, 'bg');
+    $text: map-get($map, 'text');
+
+    &.color-#{$color} {
+      color: $text !important;
+      background-color: $bg !important;
+      &:hover {
+        background-color: lighten($bg, 5) !important;
+        box-shadow: 0 0 0 0.3125rem rgba($bg, 0.4);
+      }
+      &:active {
+        box-shadow: 0 0 0 0.625rem rgba($bg, 0.4);
+      }
     }
   }
 }
