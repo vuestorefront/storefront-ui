@@ -99,7 +99,7 @@
           <div class="product-details__action">
             <button class="sf-action">Add to compare</button>
           </div>
-          <SfTabs class="product-details__tabs" :openTab="2">
+          <SfTabs class="product-details__tabs" :openTab="1">
             <SfTab header="Description">
               <div>
                 <p>
@@ -115,6 +115,7 @@
                 :key="i"
                 :name="property.name"
                 :value="property.value"
+                class="product-property"
               />
             </SfTab>
             <SfTab header="1 Review">
@@ -462,7 +463,7 @@ export default {
 }
 .product-gallery,
 .product-details {
-  @include for-desktop{
+  @include for-desktop {
     flex: 1;
   }
 }
@@ -514,6 +515,9 @@ export default {
   }
   &__heading {
     margin-top: $spacer-big;
+    @include for-desktop {
+      margin-top: 0;
+    }
   }
   &__mobile-bar {
     display: none;
@@ -557,7 +561,9 @@ export default {
     margin-top: 5 * $spacer-big;
   }
 }
-
+.product-property {
+  padding: $spacer-small 0;
+}
 /* TODO: Add SfAction component */
 .sf-action {
   border: 0;
