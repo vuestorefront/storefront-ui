@@ -1,88 +1,72 @@
-@import '../variables';
-
-$call-to-action-padding: 3.375rem 8.75rem !default;
+@import "../variables";
+$call-to-action-padding: $spacer-big $spacer-medium!default;
+$call-to-action-padding-desktop: 3.4rem 8.75rem !default;
 $call-to-action-background-color: $c-black !default;
 $call-to-action-color: $c-text-on-dark !default;
-$call-to-action-align-items: center !default;
-$call-to-action-justify-content: space-between !default;
-$call-to-action-align-content: center !default;
-$call-to-action__title-font-family: $body-font-family-secondary !default;
-$call-to-action__title-font-size: 2.25rem !default;
-$call-to-action__title-font-weight: 400 !default;
-$call-to-action__title-text-transform: none !default;
-$call-to-action__description-font-family: $body-font-family-secondary !default;
-$call-to-action__button-padding: 1.125rem 3.375rem !default;
-$call-to-action__button-font-size: 0.875rem !default;
-$call-to-action-mobile__button-padding: 0.675rem 2rem !default;
+$call-to-action-font-family: $body-font-family-secondary !default;
+$call-to-action-line-height: 1.6 !default;
+$call-to-action-font-size: $font-size-big-desktop !default;
+$call-to-action__title-font-size: $font-size-big-mobile !default;
+$call-to-action__title-font-size-desktop: $h1-font-size-desktop !default;
+$call-to-action__title-font-weight: $h1-font-weight-desktop;
+$call-to-action__title-line-height: 1.4 !default;
 $call-to-action--secondary__button-color: $c-text-on-dark !default;
 $call-to-action--secondary__button-background-color: $c-dark-primary !default;
+$call-to-action--light-color: $c-text-on-light !default;
+$call-to-action--light-background-color: $c-light-primary !default;
 
 .sf-call-to-action {
+  $this: &;
   display: flex;
-  color: $call-to-action-color;
-  align-content: $call-to-action-align-content;
-  align-items: $call-to-action-align-items;
   flex-direction: column;
-  padding: $spacer-big $spacer-medium;
+  align-items: center;
+  align-content: center;
+  padding: $call-to-action-padding;
   background-color: $call-to-action-background-color;
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
-  font-size: 1.125rem;
+  background-size: cover;
+  color: $call-to-action-color;
+  font-family: $call-to-action-font-family;
+  font-size: $call-to-action-font-size;
+  line-height: $call-to-action-line-height;
   @media screen and (min-width: $desktop-min) {
     flex-direction: row;
-    padding: $call-to-action-padding;
-    justify-content: $call-to-action-justify-content;
+    justify-content: space-between;
+    padding: $call-to-action-padding-desktop;
   }
   &__text-container {
     @media screen and (min-width: $desktop-min) {
-      padding-right: $spacer;
+      margin-right: $spacer-big;
     }
   }
   &__title {
-    margin-bottom: $spacer-medium;
-    margin-top: 0;
-    padding: 0;
-    font-size: $font-size-big-mobile;
-    font-family: $call-to-action__title-font-family;
+    font-size: $call-to-action__title-font-size;
     font-weight: $call-to-action__title-font-weight;
-    text-transform: $call-to-action__title-text-transform;
+    line-height: $call-to-action__title-line-height;
     @media screen and (min-width: $desktop-min) {
-      text-align: left;
-      margin-bottom: $spacer-big;
-      font-size: $call-to-action__title-font-size;
+      font-size: $call-to-action__title-font-size-desktop;
     }
   }
   &__description {
     display: none;
     @media screen and (min-width: $desktop-min) {
-      font-family: $call-to-action__description-font-family;
-      display: flex;
-      text-align: left;
-      margin-bottom: 0;
+      display: block;
+      margin: $spacer-big 0 0 0;
     }
   }
   &__button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: $call-to-action-mobile__button-padding;
-    font-size: $font-size-small-mobile;
+    margin: $spacer-big 0 0 0;
     white-space: nowrap;
-    @media screen and (min-width: $desktop-min) {
-      display: block;
-      padding: $call-to-action__button-padding;
-      font-size: $call-to-action__button-font-size;
-    }
   }
   &--secondary {
-    .sf-call-to-action__button {
+    #{$this}__button{
       color: $call-to-action--secondary__button-color;
       background: $call-to-action--secondary__button-background-color;
     }
   }
   &--light {
-    color: $c-text-on-light;
-    background: $c-light-primary;
+    color: $call-to-action--light-color;
+    background: $call-to-action--light-background-color;
   }
 }

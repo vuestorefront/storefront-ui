@@ -1,13 +1,17 @@
 @import "../variables";
-$sf-tabs__title-padding-y: $spacer-big !default;
-$sf-tabs__content-padding-y: 3 * $spacer-big !default;
-$sf-tabs__title-color: $c-gray-secondary !default;
-$sf-tabs__title-color--active: $c-dark-primary !default;
-$sf-tabs__title-color--hover: $c-dark-primary !default;
-$sf-tabs-border-color: $c-light-primary !default;
-$sf-tabs__title-font-size: $font-size-regular-desktop !default;
-$sf-tabs__title-font-family: $body-font-family-secondary !default;
-$sf-tabs__content-font-family: $body-font-family-primary !default;
+
+$tabs-border-color: $c-light-primary !default;
+$tabs-font-family: $body-font-family-secondary !default;
+$tabs-font-size: $font-size-regular-mobile !default;
+$tabs-font-size-desktop: $font-size-big-desktop !default;
+$tabs-font-weight: $body-font-weight-secondary !default;
+$tabs-line-height: 1.6 !default;
+$tabs__title-padding-y: $spacer-big !default;
+$tabs__title-color: $c-gray-secondary !default;
+$tabs__title-color--active: $c-dark-primary !default;
+$tabs__title-color--hover: $c-dark-primary !default;
+$tabs__title-font-size: $font-size-big-mobile !default;
+$tabs__content-padding-y: 3 * $spacer-big !default;
 
 @mixin for-desktop{
   @media screen and (min-width: $desktop-min){
@@ -20,28 +24,32 @@ $sf-tabs__content-font-family: $body-font-family-primary !default;
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  font-family: $sf-tabs__content-font-family;
-  line-height: 1.6;
+  font-family: $tabs-font-family;
+  font-size: $tabs-font-size;
+  line-height: $tabs-line-height;
+  @include for-desktop{
+    font-size: $tabs-font-size-desktop;
+  }
   &__title{
     display: flex;
     flex-basis: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: calc(#{$sf-tabs__title-padding-y} - 5px) 0;
-    border-bottom: 1px solid $sf-tabs-border-color;
+    padding: calc(#{$tabs__title-padding-y} - 5px) 0;
+    border-bottom: 1px solid $tabs-border-color;
     color: $c-dark-primary;
-    font-family: $sf-tabs__title-font-family;
-    font-size: $sf-tabs__title-font-size;
     cursor: pointer;
     transition: border-color 150ms ease-in-out, color 150ms ease-in-out;
+    font-size: $tabs__title-font-size;
     @include for-desktop{
       flex-basis: auto;
       margin-right: 2rem;
       margin-bottom: -2px;
-      padding: $sf-tabs__title-padding-y 0;
+      padding: $tabs__title-padding-y 0;
       border-width: 2px;
       border-color: transparent;
       color: $c-gray-secondary;
+      font-size: inherit;
     }
     &--active{
       border-color: transparent;
@@ -53,7 +61,7 @@ $sf-tabs__content-font-family: $body-font-family-primary !default;
       }
       & + #{$this}__content{
         display: block;
-        border-bottom: 1px solid $sf-tabs-border-color;
+        border-bottom: 1px solid $tabs-border-color;
         @include for-desktop{
           border-bottom: 0;
         }
@@ -68,11 +76,11 @@ $sf-tabs__content-font-family: $body-font-family-primary !default;
   &__content{
     display: none;
     flex-basis: 100%;
-    padding: ($sf-tabs__content-padding-y / 2) 0;
+    padding: ($tabs__content-padding-y / 2) 0;
     @include for-desktop{
       order: 99;
-      padding: $sf-tabs__content-padding-y 0;
-      border-top: 2px solid $sf-tabs-border-color;
+      padding: $tabs__content-padding-y 0;
+      border-top: 2px solid $tabs-border-color;
     }
   }
   &__chevron{

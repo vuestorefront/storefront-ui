@@ -31,12 +31,13 @@
         v-for="number in limitedPageNumbers"
         :key="number"
         class="sf-pagination__item"
-        :class="{'sf-pagination__item--current': (current === number)}"
       >
         <slot name="number" v-bind="{go, number}">
-          <button @click="go(number)" class="sf-pagination__button">
-            {{number}}
-          </button>
+          <button
+            @click="go(number)"
+            class="sf-pagination__button"
+            :class="{'sf-pagination__button--current': (current === number)}"
+          >{{number}}</button>
         </slot>
       </li>
     </slot>
@@ -54,7 +55,10 @@
     </template>
     <li class="sf-pagination__item">
       <!-- @slot Custom markup for previous page button -->
-      <slot name="next" v-bind="{isDisabled: ()=>isDisabled('next'), go: ()=>go('next')}">
+      <slot
+        name="next"
+        v-bind="{isDisabled: ()=>isDisabled('next'), go: ()=>go('next')}"
+      >
         <button
           @click="go('next')"
           aria-label="Go to next page"

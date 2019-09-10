@@ -18,13 +18,13 @@
   class="sf-select">
   <div style="position: relative">
     <div
+      v-html="html"
+      class="sf-select__selected sf-select-option"></div>
+    <div
       v-if="label"
       class="sf-select__label">
       <slot name="label">{{label}}</slot>
     </div>
-    <div
-      v-html="html"
-      class="sf-select__selected sf-select-option"></div>
     <transition name="sf-select">
       <div v-show="open" class="sf-select__dropdown">
         <!--  sf-select__option -->
@@ -36,7 +36,7 @@
         <SfButton
           @click="closeHandler"
           ref="cancel"
-          class="sf-select__cancel">
+          class="sf-select__cancel sf-button--full-width">
           Cancel
         </SfButton>
       </div>

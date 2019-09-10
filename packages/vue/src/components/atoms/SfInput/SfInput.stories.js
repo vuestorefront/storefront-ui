@@ -68,7 +68,7 @@ storiesOf("Atoms|Input", module)
         }
       },
       template: `
-      <div :style="{ width: '300px', margin: '50px' }">
+      <div :style="{ width: '300px' }">
         <SfInput 
           v-model="value" 
           :name="name" 

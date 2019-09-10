@@ -1,77 +1,67 @@
-@import '../variables';
+@import "../variables";
 
-$pagination__list-padding: 1rem !default;
-$pagination__list-justify: center !default;
-$pagination__item-size: 1.25rem !default;
-$pagination__item-margin: 0 0.25rem !default;
+$pagination-font-family: $body-font-family-secondary !default;
+$pagination-font-size: $font-size-big-mobile !default;
+$pagination-font-size-desktop: $font-size-big-desktop !default;
+$pagination-font-weight: $body-font-weight-secondary !default;
+$pagination-line-height: 1.6;
+$pagination__item-margin: 0 ($spacer-big / 4) !default;
+$pagination__item-margin-desktop: 0 ($spacer-big / 2) !default;
 $pagination__item-color: $c-text-secondary !default;
-$pagination__item-hover-color: $c-text-primary !default;
-$pagination__item-transition: all 0.15s linear !default; // $transition-base
-$pagination__item--current-color: $pagination__item-hover-color !default;
-$pagination__item--current-border: 1px solid $pagination__item--current-color !default;
-$pagination__item--current-border-width: 0 0 1px 0 !default;
-$pagination__link--prev-margin: 3rem !default;
-$pagination__link--next-margin: $pagination__link--prev-margin !default;
+$pagination__button--current-color: $c-text-primary !default;
+$pagination__button--navigation-margin: 3rem;
+$pagination__button-transition: color 150ms ease-in-out,
+  border-color 150ms ease-in-out !default;
 
 .sf-pagination {
-  width: 100%;
-  text-align: center;
+  font-family: $pagination-font-family;
+  font-size: $pagination-font-size;
+  font-weight: $pagination-font-weight;
+  line-height: $pagination-line-height;
+  @media screen and (min-width: $desktop-min) {
+    font-size: $pagination-font-size-desktop;
+  }
   &__list {
     display: flex;
-    align-items: $pagination__list-justify;
-    justify-content: $pagination__list-justify;
+    align-items: center;
+    justify-content: center;
     list-style-type: none;
-    padding: $pagination__list-padding;
     margin: 0;
+    padding: 0;
   }
   &__item {
     display: flex;
-    margin: $pagination__item-margin;
-    padding: 0;
-    color: $pagination__item-color;
     align-items: center;
-    justify-content: center;
-    border: $pagination__item--current-border;
-    border-width: $pagination__item--current-border-width;
-    border-color: transparent;
-    &:first-child {
-      margin-left: 0;
-    }
-    &:last-child {
-      margin-right: 0;
-    }
-    &--current {
-      color: $pagination__item--current-color;
-      border: $pagination__item--current-border;
-      border-width: $pagination__item--current-border-width;
-      .sf-pagination__link {
-        cursor: default;
-      }
+    margin: $pagination__item-margin;
+    color: $pagination__item-color;
+    @media screen and (min-width: $desktop-min) {
+      margin: $pagination__item-margin-desktop;
     }
   }
   &__button {
-    width: 100%;
     padding: 0;
-    border-radius: 0;
-    border: none;
+    border: 0;
     background-color: transparent;
-    text-decoration: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
     cursor: pointer;
     color: inherit;
-    transition: $pagination__item-transition;
     outline: none;
-    &:focus,
-    &:hover {
-      color: $pagination__item-hover-color;
-    }
+    border-bottom: 1px solid transparent;
+    transition: $pagination__button-transition;
     &--prev {
-      margin-right: $pagination__link--prev-margin;
+      margin-right: $pagination__button--navigation-margin;
     }
     &--next {
-      margin-left: $pagination__link--next-margin;
+      margin-left: $pagination__button--navigation-margin;
+    }
+    &--current {
+      color: $pagination__button--current-color;
+      border-color: $pagination__button--current-color;
     }
     &[disabled] {
-      pointer-events: none;
       cursor: default;
       opacity: 0.7;
     }
