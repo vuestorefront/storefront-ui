@@ -2,27 +2,43 @@
 $add-to-cart__select-quantity-min-width: 74px !default;
 $add-to-cart__select-quantity-max-width: 90px !default;
 
+@mixin for-desktop {
+  @media screen and (min-width: $desktop-min) {
+    @content;
+  }
+}
+
 .sf-add-to-cart {
   display: flex;
   &__button {
+    flex: 1;
     &:disabled {
       background-color: $c-accent-secondary;
       cursor: default;
+    }
+    @include for-desktop {
+      order: 1;
     }
   }
   &__select-quantity {
     display: flex;
     margin: 0 0 0 0.5rem;
+    @include for-desktop {
+      margin-left: 0;
+    }
     input {
-      height: 100%;
       padding-left: 0.5rem;
       padding-right: 0.5rem;
-      min-width: $add-to-cart__select-quantity-min-width;
-      max-width: $add-to-cart__select-quantity-max-width;
+      width: auto;
+      height: 100%;
+      max-width: $add-to-cart__quantity-select__max-width;
       border: 1px solid $c-light-primary;
       transition: border-color 0.3s ease-in-out;
       &:focus {
         border-color: $c-accent-primary;
+      }
+      @include for-desktop {
+        background-color: $c-light-primary;
       }
     }
   }
