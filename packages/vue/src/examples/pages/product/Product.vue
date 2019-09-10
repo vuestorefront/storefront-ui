@@ -505,7 +505,8 @@ export default {
   }
   &__description {
     margin: (3 * $spacer-big) 0;
-    font-size: 1rem;
+    font-family: $body-font-family-secondary;
+    font-size: $font-size-big-desktop;
     line-height: 1.6;
   }
   &__divider {
