@@ -556,7 +556,7 @@ export default {
     background: $c-light-primary;
     color: #a3a5ad;
   }
-  &__item{
+  &__item {
     padding: $spacer-small 0;
   }
 }
