@@ -58,10 +58,7 @@ export default {
   mounted() {
     // handle slider with swipe and transitions with Glide.js
     // https://glidejs.com/docs/
-    const glide = new Glide(this.$refs.glide, {
-      gap: 0,
-      ...this.sliderOptions
-    });
+    const glide = new Glide(this.$refs.glide, this.sliderOptions);
     glide.on("run", () => {
       this.go(glide.index);
     });
