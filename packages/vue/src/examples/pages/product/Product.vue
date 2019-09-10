@@ -276,7 +276,7 @@
       <SfBottomNavigationItem>
         <SfIcon icon="profile" size="20px" />
       </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
+      <SfBottomNavigationItem class="bottom-navigation-circle">
         <SfCircleIcon
           class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
         >
@@ -563,6 +563,9 @@ export default {
 }
 .product-property {
   padding: $spacer-small 0;
+}
+.bottom-navigation-circle{
+  opacity: 1;
 }
 /* TODO: Add SfAction component */
 .sf-action {
