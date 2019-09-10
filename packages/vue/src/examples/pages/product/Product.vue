@@ -462,7 +462,7 @@ export default {
 }
 .product-gallery,
 .product-details {
-  @media screen and (min-width: $desktop-min) {
+  @include for-desktop{
     flex: 1;
   }
 }
@@ -580,6 +580,8 @@ export default {
   min-height: 420px;
   max-width: 1040px;
   margin: auto;
+  padding-right: calc(25% + 5rem);
+  padding-left: 2.5rem;
   &__title {
     padding: 0;
     margin: 0;
