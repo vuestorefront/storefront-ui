@@ -1,6 +1,6 @@
 @import "../variables";
-$add-to-cart__select-quantity-min-width: 74px !default;
-$add-to-cart__select-quantity-max-width: 90px !default;
+$add-to-cart__select-quantity-min-width: 4.625rem !default;
+$add-to-cart__select-quantity-max-width: 5.625rem !default;
 
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
@@ -31,7 +31,8 @@ $add-to-cart__select-quantity-max-width: 90px !default;
       padding-right: 0.5rem;
       width: auto;
       height: 100%;
-      max-width: $add-to-cart__quantity-select__max-width;
+      min-width: $add-to-cart__select-quantity-min-width;
+      max-width: $add-to-cart__select-quantity-max-width;
       border: 1px solid $c-light-primary;
       transition: border-color 0.3s ease-in-out;
       &:focus {
