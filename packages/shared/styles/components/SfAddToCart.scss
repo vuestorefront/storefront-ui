@@ -34,6 +34,7 @@ $add-to-cart__select-quantity-max-width: 5.625rem !default;
       min-width: $add-to-cart__select-quantity-min-width;
       max-width: $add-to-cart__select-quantity-max-width;
       border: 1px solid $c-light-primary;
+      text-align: center;
       transition: border-color 0.3s ease-in-out;
       &:focus {
         border-color: $c-accent-primary;
