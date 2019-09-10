@@ -448,11 +448,12 @@ export default {
 }
 
 #product {
-  max-width: 1240px;
-  margin: auto;
   box-sizing: border-box;
+  margin: 0 0 60px 0;
   padding: 0 $spacer-big;
   @include for-desktop {
+    max-width: 1240px;
+    margin: auto;
     padding: 0;
   }
 }
@@ -471,7 +472,7 @@ export default {
   overflow: hidden;
   margin: 0 -#{$spacer-big};
   transition: height 150ms ease-in-out;
-  height: calc(100vh - 177px);
+  /*height: calc(100vh - 177px);*/
   @include for-desktop {
     height: auto;
   }
@@ -564,7 +565,7 @@ export default {
 .product-property {
   padding: $spacer-small 0;
 }
-.bottom-navigation-circle{
+.bottom-navigation-circle {
   opacity: 1;
 }
 /* TODO: Add SfAction component */
