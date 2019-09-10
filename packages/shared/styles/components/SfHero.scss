@@ -7,7 +7,7 @@ $hero__controls-width: calc(100% - 2 * #{$hero__controls-padding-h}) !default;
 $hero__bullets-position-offset: 0.5rem !default;
 $hero__bullets-position-offset-desktop: 2.5rem !default;
 $hero-item-width: 100% !default;
-$hero-item-padding: 1rem !default;
+$hero-item-padding: $spacer-extra-big !default;
 $hero-item-padding-desktop: 5rem !default;
 $hero-item-bg-size: cover !default;
 $hero-item-bg-position: top left !default;
@@ -116,7 +116,9 @@ $hero-item__title-line-height: 1.38 !default;
       color: $hero-item__title-color;
       font-size: $hero-item__title-font-size;
       line-height: $hero-item__title-line-height;
+      margin-bottom: $spacer-extra-big;
       @media screen and (min-width: $desktop-min) {
+        margin-bottom: 0;
         font-size: $hero-item__title-font-size-desktop;
       }
     }
