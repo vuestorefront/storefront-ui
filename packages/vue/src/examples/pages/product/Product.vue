@@ -43,7 +43,7 @@
             <SfPrice
               regular="$95.00"
               special="$50.00"
-              class="product-details__sub-price"
+              class="sf-price--big product-details__sub-price"
             />
             <SfRating :score="4" :max="5" class="product-details__sub-rating" />
             <span class="product-details__sub-reviews desktop-only"
