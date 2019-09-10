@@ -79,9 +79,11 @@ export default {
 
   mounted() {
     if (this.numberOfPages) {
-      const glide = new Glide(this.$refs.glide, this.mergedOptions);
-      glide.mount();
-      this.glide = glide;
+      this.$nextTick(() => {
+        const glide = new Glide(this.$refs.glide, this.mergedOptions);
+        glide.mount();
+        this.glide = glide;
+      });
     }
   }
 };
