@@ -1,5 +1,5 @@
 <div class="sf-steps">
-  <div class="sf-steps__steps">
+  <div class="sf-steps__header">
   <!-- @slot Use this slot to customise the steps -->
     <slot name="steps" v-for="step in parsedSteps" :step-click="stepClick">
       <div
@@ -11,7 +11,7 @@
       </div>
     </slot>
   </div>
-  <div class="sf-steps__wrapper">
+  <div class="sf-steps__items">
     <slot></slot>
   </div>
 </div>
