@@ -6,8 +6,6 @@ $hero__controls-padding-h: 1rem !default;
 $hero__controls-width: calc(100% - 2 * #{$hero__controls-padding-h}) !default;
 $hero__bullets-position-offset: 0.5rem !default;
 $hero__bullets-position-offset-desktop: 2.5rem !default;
-$hero-item-height: 14rem !default;
-$hero-item-height-desktop: 30rem !default;
 $hero-item-width: 100% !default;
 $hero-item-padding: 1rem !default;
 $hero-item-padding-desktop: 5rem !default;
@@ -73,12 +71,10 @@ $hero-item__title-line-height: 1.38 !default;
     flex-direction: column;
     justify-content: center;
     padding: $hero-item-padding;
-    height: $hero-item-height;
     font-weight: $hero-item-font-weight;
     line-height: $hero-item-line-height;
     @media screen and (min-width: $desktop-min) {
       padding: $hero-item-padding-desktop;
-      height: $hero-item-height-desktop;
     }
     background-size: $hero-item-bg-size;
     background-position: $hero-item-bg-position;
@@ -127,6 +123,7 @@ $hero-item__title-line-height: 1.38 !default;
       display: none;
       @media screen and (min-width: $desktop-min) {
         margin-top: $spacer-extra-big;
+        margin-bottom: $spacer-extra-big * 2;
         display: block;
       }
     }
