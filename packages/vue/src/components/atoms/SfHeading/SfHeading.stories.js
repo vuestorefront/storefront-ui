@@ -45,7 +45,7 @@ storiesOf("Atoms|Heading", module)
     () => ({
       props: {
         title: {
-          default: text("(prop) title", "Share your look")
+          default: text("(prop) title", "Show how YOU wear it")
         },
         subtitle: {
           default: text("(prop) subtitle", "#YOURLOOK")

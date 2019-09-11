@@ -23,7 +23,8 @@ export default {
         type: "slider",
         rewind: true,
         autoplay: 5000,
-        perView: 1
+        perView: 1,
+        gap: 0
       }
     };
   },
