@@ -30,7 +30,7 @@
           }
         "
       >
-        <SfSticky>
+        <div style="position: sticky; top: 0;">
           <div class="product-details__mobile-bar">
             <SfIcon icon="cross" size="xxs" />
           </div>
@@ -163,7 +163,7 @@
               </p>
             </SfTab>
           </SfTabs>
-        </SfSticky>
+        </div>
       </div>
     </section>
     <!-- OTHER -->
@@ -412,24 +412,24 @@ export default {
     };
   },
   components: {
-    SfImage,
-    SfGallery,
-    SfIcon,
     SfProperty,
-    SfTabs,
     SfHeading,
     SfPrice,
     SfRating,
     SfSelect,
     SfProductOption,
     SfAddToCart,
+    SfTabs,
     SfDivider,
-    SfBottomNavigation,
-    SfCircleIcon,
+    SfGallery,
     SfProductCard,
     SfCarousel,
     SfSection,
+    SfImage,
     SfBanner,
+    SfBottomNavigation,
+    SfCircleIcon,
+    SfIcon,
     SfSticky
   },
   mounted() {
