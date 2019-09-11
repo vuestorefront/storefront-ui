@@ -30,6 +30,7 @@
           }
         "
       >
+        <!-- TODO: fix SfSticky-->
         <div style="position: sticky; top: 0;">
           <div class="product-details__mobile-bar">
             <SfIcon icon="cross" size="xxs" />
@@ -45,11 +46,13 @@
               special="$50.00"
               class="sf-price--big product-details__sub-price"
             />
-            <SfRating :score="4" :max="5" class="product-details__sub-rating" />
-            <span class="product-details__sub-reviews desktop-only"
-              >Read all 1 review</span
-            >
-            <span class="product-details__sub-reviews mobile-only">(1)</span>
+            <div class="product-details__sub-rating">
+              <SfRating :score="4" :max="5" />
+              <div class="product-details__sub-reviews desktop-only">
+                Read all 1 review
+              </div>
+              <div class="product-details__sub-reviews mobile-only">(1)</div>
+            </div>
           </div>
           <!-- short description -->
           <p class="product-details__description desktop-only">
@@ -61,43 +64,46 @@
           <div class="product-details__action">
             <button class="sf-action">Size guide</button>
           </div>
-          <SfSelect
-            v-model="size"
-            label="Size"
-            class="sf-select--bordered product-details__attribute"
-          >
-            <SfSelectOption
-              v-for="size in sizes"
-              :key="size.value"
-              :value="size.value"
-              >{{ size.label }}</SfSelectOption
+          <div class="product-details__section">
+            <SfSelect
+              v-model="size"
+              label="Size"
+              class="sf-select--bordered product-details__attribute"
             >
-          </SfSelect>
-          <SfSelect
-            v-model="color"
-            label="Color"
-            class="sf-select--bordered product-details__attribute"
-          >
-            <SfSelectOption
-              v-for="color in colors"
-              :key="color.value"
-              :value="color.value"
+              <SfSelectOption
+                v-for="size in sizes"
+                :key="size.value"
+                :value="size.value"
+                >{{ size.label }}</SfSelectOption
+              >
+            </SfSelect>
+            <SfSelect
+              v-model="color"
+              label="Color"
+              class="sf-select--bordered product-details__attribute"
             >
-              <SfProductOption :label="color.label" :color="color.color" />
-            </SfSelectOption>
-          </SfSelect>
-          <SfDivider class="product-details__divider mobile-only" />
-          <SfAddToCart
-            :stock="stock"
-            v-model="qty"
-            :canAddToCart="stock > 0"
-            class="product-details__add-to-cart"
-          />
-          <div class="product-details__action">
-            <button class="sf-action">Save for later</button>
+              <SfSelectOption
+                v-for="color in colors"
+                :key="color.value"
+                :value="color.value"
+              >
+                <SfProductOption :label="color.label" :color="color.color" />
+              </SfSelectOption>
+            </SfSelect>
           </div>
-          <div class="product-details__action">
-            <button class="sf-action">Add to compare</button>
+          <div class="product-details__section">
+            <SfAddToCart
+              :stock="stock"
+              v-model="qty"
+              :canAddToCart="stock > 0"
+              class="product-details__add-to-cart"
+            />
+            <div class="product-details__action">
+              <button class="sf-action">Save for later</button>
+            </div>
+            <div class="product-details__action">
+              <button class="sf-action">Add to compare</button>
+            </div>
           </div>
           <SfTabs class="product-details__tabs" :openTab="1">
             <SfTab header="Description">
@@ -110,13 +116,15 @@
                   dresses.
                 </p>
               </div>
-              <SfProperty
-                v-for="(property, i) in properties"
-                :key="i"
-                :name="property.name"
-                :value="property.value"
-                class="product-property"
-              />
+              <div class="product-details__properties">
+                <SfProperty
+                  v-for="(property, i) in properties"
+                  :key="i"
+                  :name="property.name"
+                  :value="property.value"
+                  class="product-property"
+                />
+              </div>
             </SfTab>
             <SfTab header="1 Review">
               <div>
@@ -301,7 +309,6 @@ import {
   SfProductOption,
   SfAddToCart,
   SfTabs,
-  SfDivider,
   SfGallery,
   SfProductCard,
   SfCarousel,
@@ -420,7 +427,6 @@ export default {
     SfProductOption,
     SfAddToCart,
     SfTabs,
-    SfDivider,
     SfGallery,
     SfProductCard,
     SfCarousel,
@@ -429,7 +435,7 @@ export default {
     SfBanner,
     SfBottomNavigation,
     SfCircleIcon,
-    SfIcon,
+    SfIcon
     // SfSticky
   },
   mounted() {
@@ -470,9 +476,10 @@ export default {
 }
 .product-gallery {
   overflow: hidden;
+  height: calc(100vh - 177px);
   margin: 0 -#{$spacer-big};
   transition: height 150ms ease-in-out;
-  height: calc(100vh - 190px);
+  background-color: #f1f2f4;
   @include for-desktop {
     height: auto;
   }
@@ -501,9 +508,7 @@ export default {
     }
   }
   &__attribute {
-    & + & {
-      margin-top: $spacer-big;
-    }
+    margin-bottom: $spacer-big;
   }
   &__description {
     margin: (3 * $spacer-big) 0;
@@ -516,13 +521,18 @@ export default {
   }
   &__heading {
     margin-top: $spacer-big;
+    /deep/ .sf-heading__title {
+      font-size: $font-size-big-mobile;
+      font-weight: $body-font-weight-primary;
+    }
     @include for-desktop {
       margin-top: 0;
     }
   }
   &__mobile-bar {
     display: none;
-    padding: $spacer-big 0;
+    padding: $spacer-medium 0;
+    box-sizing: border-box;
     .product--is-active & {
       display: block;
       @include for-desktop {
@@ -546,20 +556,32 @@ export default {
       margin-top: $spacer-big / 2;
     }
   }
+  &__tabs {
+    margin-top: $spacer-big;
+    @include for-desktop {
+      margin-top: 5 * $spacer-big;
+    }
+    p {
+      margin: 0;
+    }
+  }
+  &__section {
+    border-bottom: 1px solid #f1f2f3;
+    padding-bottom: 10px;
+  }
+  &__properties {
+    margin-top: $spacer-big;
+  }
   &__sub-rating {
+    display: flex;
     margin-top: $spacer-big / 2;
     @include for-desktop {
       margin-left: auto;
-      margin-top: $spacer-big / 2;
     }
   }
   &__sub-reviews {
-    margin-top: $spacer-big / 2;
     margin-left: 10px;
     font-size: 0.75rem;
-  }
-  &__tabs {
-    margin-top: 5 * $spacer-big;
   }
 }
 .product-property {
@@ -571,18 +593,16 @@ export default {
 /* TODO: Add SfAction component */
 .sf-action {
   border: 0;
-  background: none;
-  font-size: 0.75rem;
-  font-family: $body-font-family-primary;
+  outline: none;
+  background-color: transparent;
+  font-family: $body-font-family-secondary;
+  font-size: $font-size-small-mobile;
+  font-width: $body-font-weight-primary;
   line-height: 1.6;
-  font-weight: 300;
   text-decoration: underline;
   cursor: pointer;
   @include for-desktop {
-    font-size: 1rem;
-  }
-  &:focus {
-    outline: 0;
+    font-size: $font-size-big-desktop;
   }
 }
 
