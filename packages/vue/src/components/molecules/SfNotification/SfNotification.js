@@ -1,3 +1,6 @@
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
+
 export default {
   name: "SfNotification",
   components: {

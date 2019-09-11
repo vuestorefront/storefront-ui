@@ -1,12 +1,106 @@
 @import '../variables';
-
+// @import '../components/SfIcon.scss';
+// @import '../components/SfHeading.scss';
 // $component__block-property: value;
-
 // .sf-notification {
 //   &__element {
-
 //   }
 //   &--modifier {
-
 //   }
 // }
+$notification__message-padding-left: 0.625rem !default;
+$notification--info-color: $c-dark-primary !default;
+$notification--warning-color: #d12727 !default;
+$notification--alert-color: #0468db !default;
+$notification--success-color: #128830 !default;
+$notification-mobile-padding: $spacer-big !default;
+$notification-background-size: cover !default;
+$notification-background-position: bottom left !default;
+$notification__title-font-size: 3rem !default;
+
+.sf-notification {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    border-radius: 10%;
+    min-height: 9rem;
+    padding: $notification-mobile-padding;
+    background-size: $notification-background-size;
+    background-position: $notification-background-position;    
+    
+    &__container {
+        width: 100%;
+        // background: rgba(0, 0, 0, 0.8);
+        position: relative;
+        @media screen and (min-width: $desktop-min) {
+            display: block;
+            min-width: 25%;
+            padding-bottom: 0;
+            border: 0;
+            text-align: center;
+        }
+    }
+    // &__message {
+        
+    // }
+    &__heading {
+        text-align: left;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.02em;
+        @media (min-width: $desktop-min) {
+            font-size: $notification__title-font-size;
+        }
+    }
+    &__title {
+        font-weight: 600;
+        line-height: 1.38;
+        padding: 0;
+    }
+    &__subtitle {
+        margin-top: 5px;
+        line-height: 1.64;
+        font-weight: 300;
+    }
+    &__icon {
+        @media (min-width: $desktop-min) {
+            display: flex;
+        }
+    }
+    &__close {
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        @media (min-width: $desktop-min) {
+            font-size: $notification__title-font-size;
+            right: 4px;
+            top: 4px;
+        }
+    }
+    &--left {
+        text-align: left;
+    }
+    &--right {
+        text-align: right;
+    }
+    &--info {
+        color: $notification--info-color;
+        fill: $notification--info-color;
+    }
+    &--alert {
+        fill: $notification--alert-color;
+        color: $notification--alert-color;
+    }
+    &--warning {
+        fill: $notification--warning-color;
+        color: $notification--warning-color;
+    }
+    &--success {
+        fill: $notification--success-color;
+        color: $notification--success-color;
+    }
+}
