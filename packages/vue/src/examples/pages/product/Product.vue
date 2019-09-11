@@ -472,14 +472,14 @@ export default {
   overflow: hidden;
   margin: 0 -#{$spacer-big};
   transition: height 150ms ease-in-out;
-  /*height: calc(100vh - 177px);*/
+  /*height: calc(100vh - 190px);*/
   @include for-desktop {
-    height: auto;
+    /*height: auto;*/
   }
   .product--is-active & {
-    height: 0 !important;
+    /*height: 0 !important;*/
     @include for-desktop {
-      height: auto !important;
+      /*height: auto !important;*/
     }
   }
 }
