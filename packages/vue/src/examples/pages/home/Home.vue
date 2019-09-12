@@ -75,7 +75,8 @@
             :title="product.title"
             :image="product.image"
             :regular-price="product.price.regular"
-            :rating="product.rating.score"
+            :max-rating="product.rating.max"
+            :score-rating="product.rating.score"
             class="product-card"
           />
         </SfCarouselItem>

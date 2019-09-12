@@ -90,7 +90,11 @@
             </SfSelect>
           </div>
           <div class="product-details__section">
-            <SfAlert message="Low in stock" type="warning" class="product-details__alert"/>
+            <SfAlert
+              message="Low in stock"
+              type="warning"
+              class="product-details__alert"
+            />
             <SfAddToCart
               :stock="stock"
               v-model="qty"
@@ -125,7 +129,7 @@
                 />
               </div>
             </SfTab>
-            <SfTab header="1 Review">
+            <SfTab header="Read reviews">
               <div>
                 <SfHeading
                   title="Mari"
@@ -174,7 +178,7 @@
       </div>
     </section>
     <!-- OTHER -->
-    <SfSection titleHeading="Match it with">
+    <SfSection titleHeading="Match it with" class="other-section">
       <SfCarousel
         :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
         class="product-carousel"
@@ -184,7 +188,8 @@
             :title="product.title"
             :image="product.image"
             :regular-price="product.price.regular"
-            :rating="product.rating.score"
+            :max-rating="product.rating.max"
+            :score-rating="product.rating.score"
             class="product-card"
           />
         </SfCarouselItem>
@@ -200,7 +205,8 @@
             :title="product.title"
             :image="product.image"
             :regular-price="product.price.regular"
-            :rating="product.rating.score"
+            :max-rating="product.rating.max"
+            :score-rating="product.rating.score"
             class="product-card"
           />
         </SfCarouselItem>
@@ -441,9 +447,12 @@ export default {
   },
   methods: {
     toggleMobileCard(event) {
-      const {target} = event;
-      const mobileCross =  this.$refs.mobileCross.$el;
-      if (mobileCross.contains(target) || (!mobileCross.contains(target) && !this.detailsIsActive)) {
+      const { target } = event;
+      const mobileCross = this.$refs.mobileCross.$el;
+      if (
+        mobileCross.contains(target) ||
+        (!mobileCross.contains(target) && !this.detailsIsActive)
+      ) {
         this.detailsIsActive = !this.detailsIsActive;
       }
     }
@@ -512,7 +521,7 @@ export default {
     }
   }
   &__add-to-cart {
-    margin-top: 1.5rem;;
+    margin-top: 1.5rem;
     @include for-desktop {
       margin-top: $spacer-extra-big;
     }
@@ -593,7 +602,7 @@ export default {
     margin-left: 10px;
     font-size: 0.75rem;
   }
-  &__alert{
+  &__alert {
     margin-top: 1.5rem;
   }
 }
@@ -603,14 +612,17 @@ export default {
 .bottom-navigation-circle {
   opacity: 1;
 }
+
 /* TODO: Add SfAction component */
 .sf-action {
+  padding: 0;
   border: 0;
   outline: none;
   background-color: transparent;
+  color: $c-text-primary;
   font-family: $body-font-family-secondary;
   font-size: $font-size-small-mobile;
-  font-width: $body-font-weight-primary;
+  font-width: $body-font-weight-secondary;
   line-height: 1.6;
   text-decoration: underline;
   cursor: pointer;
@@ -618,7 +630,9 @@ export default {
     font-size: $font-size-big-desktop;
   }
 }
-
+.sf-section {
+  margin: ($spacer-big * 3) 0;
+}
 /* Just copied from Home Page */
 .banner-application {
   min-height: 420px;
@@ -683,7 +697,7 @@ export default {
     }
   }
 }
-/* Shame */
+/* TODO: Change it inside SfGallery */
 .sf-gallery {
   /deep/ ul {
     margin: 0;
