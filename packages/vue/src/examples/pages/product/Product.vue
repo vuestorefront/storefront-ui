@@ -90,6 +90,7 @@
             </SfSelect>
           </div>
           <div class="product-details__section">
+            <SfAlert message="Low in stock" type="warning" class="product-details__alert"/>
             <SfAddToCart
               :stock="stock"
               v-model="qty"
@@ -316,6 +317,7 @@ import {
   SfBottomNavigation,
   SfCircleIcon,
   SfIcon,
+  SfAlert,
   SfSticky
 } from "@storefront-ui/vue";
 
@@ -417,6 +419,7 @@ export default {
     };
   },
   components: {
+    SfAlert,
     SfProperty,
     SfHeading,
     SfPrice,
@@ -509,7 +512,7 @@ export default {
     }
   }
   &__add-to-cart {
-    margin-top: $spacer-big;
+    margin-top: 1.5rem;;
     @include for-desktop {
       margin-top: $spacer-extra-big;
     }
@@ -589,6 +592,9 @@ export default {
   &__sub-reviews {
     margin-left: 10px;
     font-size: 0.75rem;
+  }
+  &__alert{
+    margin-top: 1.5rem;
   }
 }
 .product-property {
