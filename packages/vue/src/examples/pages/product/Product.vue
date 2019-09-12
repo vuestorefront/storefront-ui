@@ -161,17 +161,6 @@
                 modern brooches, silver and gold jewellery, or clips it back
                 with hair accessories in geo styles.
               </p>
-              <SfHeading
-                title="Take care of me"
-                :level="3"
-                class="sf-heading--no-underline sf-heading--left"
-              />
-              <p>
-                Just here for the care instructions? Yeah, we thought so
-              </p>
-              <p>
-                Do not wash!
-              </p>
             </SfTab>
           </SfTabs>
         </div>
@@ -630,10 +619,7 @@ export default {
     font-size: $font-size-big-desktop;
   }
 }
-.sf-section {
-  margin: ($spacer-big * 3) 0;
-}
-/* Just copied from Home Page */
+
 .banner-application {
   min-height: 420px;
   max-width: 1040px;
@@ -657,7 +643,7 @@ export default {
   }
 }
 .product-card {
-  max-width: unset; // TODO: test this property and fix if it required
+  max-width: unset; /* TODO: test this property and fix if it required */
   &:hover {
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
   }
@@ -675,8 +661,6 @@ export default {
     }
   }
 }
-
-/*  TODO: CSS class grid should be refactored */
 .grid {
   &__row {
     display: flex;
@@ -697,10 +681,22 @@ export default {
     }
   }
 }
-/* TODO: Change it inside SfGallery */
+/* #302 fixed it */
 .sf-gallery {
   /deep/ ul {
     margin: 0;
+  }
+  /deep/ &__thumbs {
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    bottom: 10px;
+    display: flex;
+  }
+  /deep/ &__item {
+    &:not(:first-child) {
+      margin: 0 0 0 $spacer;
+    }
   }
 }
 </style>
