@@ -133,6 +133,7 @@ $select__cancel-color: #a3a5ad !default;
     font-size: $select__error-message-font-size;
   }
   &__overlay {
+    z-index: 1;
     @media screen and (min-width: $desktop-min) {
       display: none;
     }
