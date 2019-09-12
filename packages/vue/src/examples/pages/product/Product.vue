@@ -167,10 +167,7 @@
     </section>
     <!-- OTHER -->
     <SfSection titleHeading="Match it with" class="other-section">
-      <SfCarousel
-        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
-        class="product-carousel"
-      >
+      <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
             :title="product.title"
@@ -184,10 +181,7 @@
       </SfCarousel>
     </SfSection>
     <SfSection titleHeading="You might also like">
-      <SfCarousel
-        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
-        class="product-carousel"
-      >
+      <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
             :title="product.title"
@@ -522,7 +516,7 @@ export default {
     margin-bottom: $spacer-big;
   }
   &__description {
-    margin: $spacer-extra-big  0 ($spacer-big * 3) 0;
+    margin: $spacer-extra-big 0 ($spacer-big * 3) 0;
     font-family: $body-font-family-secondary;
     font-size: $font-size-big-desktop;
     line-height: 1.6;
@@ -643,7 +637,6 @@ export default {
     margin: $spacer-big 0 0 0;
     font-size: $h1-font-size-desktop;
     font-weight: $h1-font-weight-desktop;
-
   }
   &__subtitle {
     color: #a3a5ad;

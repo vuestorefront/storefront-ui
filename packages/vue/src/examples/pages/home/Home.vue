@@ -66,10 +66,7 @@
       image="assets/storybook/homepage/newsletter.png"
     />
     <SfSection titleHeading="Best Sellers">
-      <SfCarousel
-        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
-        class="product-carousel"
-      >
+      <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
             :title="product.title"
