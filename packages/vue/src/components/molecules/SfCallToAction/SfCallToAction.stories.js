@@ -10,16 +10,16 @@ storiesOf("Molecules|CallToAction", module)
       components: { SfCallToAction },
       props: {
         title: {
-          default: text("title (prop)", "Title prop")
+          default: text("title (prop)", "Subscribe to Newsletters")
         },
         description: {
           default: text(
             "description (prop)",
-            "Description prop lorem ipsum dolor sit amet"
+            "Be aware of upcoming sales and events. Receive gifts and special offers!"
           )
         },
         buttonText: {
-          default: text("buttonText (prop)", "ButtonText prop")
+          default: text("buttonText (prop)", "Subscripe")
         },
         customClass: {
           default: select(
@@ -33,11 +33,12 @@ storiesOf("Molecules|CallToAction", module)
           )
         }
       },
-      template: `<SfCallToAction
+      template: `<div style="max-width:1240px"><SfCallToAction
         :title="title"
         :button-text="buttonText"
         :description="description"
-        :class="customClass"/>`
+        :class="customClass"
+        image="assets/storybook/homepage/newsletter.png"/></div>`
     }),
     {
       info: {
