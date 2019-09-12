@@ -31,6 +31,7 @@ import SfList from "./src/components/organisms/SfList/SfList.js";
 import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.js";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.js";
 import SfStoreLocator from "./src/components/organisms/SfStoreLocator/SfStoreLocator.js";
+import SfReview from "./src/components/molecules/SfReview/SfReview.js";
 
 export {
   SfArrow,
@@ -62,5 +63,6 @@ export {
   SfList,
   SfMegaMenu,
   SfTopBar,
-  SfStoreLocator
+  SfStoreLocator,
+  SfReview
 };

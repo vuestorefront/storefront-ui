@@ -1,0 +1,27 @@
+<section class="sf-review">
+    <!-- @slot -->
+    <slot name="author" v-bind="{author}">
+        <div class="sf-review__author">{{ author }}</div>
+    </slot>
+    <!-- @slot -->
+    <slot name="info" v-bind="{finalRating, maxRating, date}">
+        <div class="sf-review__info">
+            <div class="sf-review__rating">
+                <SfRating
+                v-if="rating"
+                :max="maxRating"
+                :score="finalRating"
+                />
+            </div>
+            <div class="sf-review__date">{{ date }}</div>
+        </div>
+    </slot>
+    <!-- @slot -->
+    <slot name="message" v-bind="{finalMessage, readMoreText, hideFullText}">
+        <div v-if="message">
+            <span class="sf-review__message">{{ finalMessage }} &nbsp;</span> 
+            <a href="#" v-show="showReadMore" @click="showFullMessage" class="sf-review__message_read_more">{{ readMoreText }}</a>
+            <a href="#" v-show="showHide" @click="hideFullMessage" class="sf-review__message_hide">{{ hideFullText }}</a>
+        </div>
+    </slot>
+</section>

@@ -45,6 +45,7 @@ import SfTabs from "./src/components/organisms/SfTabs/SfTabs.vue";
 import SfStoreLocator from "./src/components/organisms/SfStoreLocator/SfStoreLocator.vue";
 import SfBannerGrid from "./src/components/organisms/SfBannerGrid/SfBannerGrid.vue";
 import SfBottomNavigation from "./src/components/organisms/SfBottomNavigation/SfBottomNavigation.vue";
+import SfReview from "./src/components/molecules/SfReview/SfReview.vue";
 
 export {
   SfArrow,
@@ -89,5 +90,6 @@ export {
   SfImage,
   SfBannerGrid,
   SfBottomNavigation,
-  SfTabs
+  SfTabs,
+  SfReview
 };
