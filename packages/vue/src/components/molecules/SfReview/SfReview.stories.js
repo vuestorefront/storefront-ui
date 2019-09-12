@@ -154,10 +154,10 @@ storiesOf("Molecules|Review", module)
           :date="date"
           :message="message"
           :rating="rating"
-          :maxRating="maxRating"
-          :charLimit="charLimit"
-          :readMoreText="readMoreText"
-          :hideFullText="hideFullText"
+          :max-rating="maxRating"
+          :char-imit="charLimit"
+          :read-more-text="readMoreText"
+          :hide-full-text="hideFullText"
         >
         </SfReview>
       </div>`
