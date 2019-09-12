@@ -40,8 +40,7 @@
           />
           <div class="product-details__sub">
             <SfPrice
-              regular="$95.00"
-              special="$50.00"
+              regular="$50.00"
               class="sf-price--big product-details__sub-price"
             />
             <div class="product-details__sub-rating">
@@ -93,7 +92,7 @@
             <SfAlert
               message="Low in stock"
               type="warning"
-              class="product-details__alert"
+              class="product-details__alert mobile-only"
             />
             <SfAddToCart
               :stock="stock"
@@ -241,10 +240,12 @@
     </SfSection>
     <SfBanner
       title="Download our application to your mobile"
-      subtitle="Fashion to Take Away"
       image="assets/storybook/homepage/bannerD.png"
       class="banner-application sf-banner--left sf-banner--center desktop-only"
     >
+      <template #subtitle>
+        <div class="banner-application__subtitle">Fashion to Take Away</div>
+      </template>
       <template #title>
         <h1 class="banner-application__title">
           Download our application to your&nbsp;mobile
@@ -476,12 +477,14 @@ export default {
     display: flex;
   }
 }
+
 .product-gallery,
 .product-details {
   @include for-desktop {
     flex: 1;
   }
 }
+
 .product-gallery {
   overflow: hidden;
   height: calc(100vh - 177px);
@@ -519,7 +522,7 @@ export default {
     margin-bottom: $spacer-big;
   }
   &__description {
-    margin: (3 * $spacer-big) 0;
+    margin: $spacer-extra-big  0 ($spacer-big * 3) 0;
     font-family: $body-font-family-secondary;
     font-size: $font-size-big-desktop;
     line-height: 1.6;
@@ -532,6 +535,10 @@ export default {
     /deep/ .sf-heading__title {
       font-size: $font-size-big-mobile;
       font-weight: $body-font-weight-primary;
+      @include for-desktop {
+        font-size: $h1-font-size-desktop;
+        font-weight: $body-font-weight-secondary;
+      }
     }
     @include for-desktop {
       margin-top: 0;
@@ -576,6 +583,10 @@ export default {
   &__section {
     border-bottom: 1px solid #f1f2f3;
     padding-bottom: 10px;
+    @include for-desktop {
+      border: 0;
+      padding-bottom: 0;
+    }
   }
   &__properties {
     margin-top: $spacer-big;
@@ -595,6 +606,7 @@ export default {
     margin-top: 1.5rem;
   }
 }
+
 .product-property {
   padding: $spacer-small 0;
 }
@@ -626,13 +638,18 @@ export default {
   margin: auto;
   padding-right: calc(25% + 5rem);
   padding-left: 2.5rem;
+  line-height: 1.6;
   &__title {
-    padding: 0;
-    margin: 0;
-    margin-top: $spacer-big;
-    font-size: 2.25rem;
-    font-weight: 400;
-    line-height: 1.388;
+    margin: $spacer-big 0 0 0;
+    font-size: $h1-font-size-desktop;
+    font-weight: $h1-font-weight-desktop;
+
+  }
+  &__subtitle {
+    color: #a3a5ad;
+    font-family: $body-font-family-primary;
+    font-size: $font-size-extra-big-desktop;
+    font-weight: $body-font-weight-primary;
   }
   &__download {
     max-height: 47px;
