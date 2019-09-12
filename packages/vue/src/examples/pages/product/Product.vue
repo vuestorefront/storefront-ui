@@ -24,7 +24,7 @@
       </div>
       <div class="product-details" @click="toggleMobileCard">
         <!-- TODO: fix SfSticky-->
-        <div style="position: sticky; top: 0;">
+        <SfSticky>
           <div class="product-details__mobile-bar">
             <SfIcon
               icon="cross"
@@ -162,10 +162,9 @@
               </p>
             </SfTab>
           </SfTabs>
-        </div>
+        </SfSticky>
       </div>
     </section>
-    <!-- OTHER -->
     <SfSection titleHeading="Match it with" class="other-section">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
@@ -426,8 +425,8 @@ export default {
     SfBanner,
     SfBottomNavigation,
     SfCircleIcon,
-    SfIcon
-    // SfSticky
+    SfIcon,
+    SfSticky
   },
   methods: {
     toggleMobileCard(event) {
