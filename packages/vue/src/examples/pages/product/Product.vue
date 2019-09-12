@@ -511,6 +511,9 @@ export default {
       margin-top: $spacer-extra-big;
     }
   }
+  &__alert {
+    margin-top: 1.5rem;
+  }
   &__attribute {
     margin-bottom: $spacer-big;
   }
@@ -551,6 +554,9 @@ export default {
       display: none;
     }
   }
+  &__properties {
+    margin-top: $spacer-big;
+  }
   &__sub {
     display: flex;
     flex-wrap: wrap;
@@ -564,26 +570,6 @@ export default {
       margin-top: $spacer-big / 2;
     }
   }
-  &__tabs {
-    margin-top: $spacer-big;
-    @include for-desktop {
-      margin-top: 5 * $spacer-big;
-    }
-    p {
-      margin: 0;
-    }
-  }
-  &__section {
-    border-bottom: 1px solid #f1f2f3;
-    padding-bottom: 10px;
-    @include for-desktop {
-      border: 0;
-      padding-bottom: 0;
-    }
-  }
-  &__properties {
-    margin-top: $spacer-big;
-  }
   &__sub-rating {
     display: flex;
     margin-top: $spacer-big / 2;
@@ -595,11 +581,24 @@ export default {
     margin-left: 10px;
     font-size: 0.75rem;
   }
-  &__alert {
-    margin-top: 1.5rem;
+  &__section {
+    border-bottom: 1px solid #f1f2f3;
+    padding-bottom: 10px;
+    @include for-desktop {
+      border: 0;
+      padding-bottom: 0;
+    }
+  }
+  &__tabs {
+    margin-top: $spacer-big;
+    @include for-desktop {
+      margin-top: 5 * $spacer-big;
+    }
+    p {
+      margin: 0;
+    }
   }
 }
-
 .product-property {
   padding: $spacer-small 0;
 }
@@ -624,7 +623,6 @@ export default {
     font-size: $font-size-big-desktop;
   }
 }
-
 .banner-application {
   min-height: 420px;
   max-width: 1040px;
@@ -652,7 +650,7 @@ export default {
   }
 }
 .product-card {
-  max-width: unset; /* TODO: test this property and fix if it required */
+  max-width: unset;
   &:hover {
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
   }
@@ -690,6 +688,7 @@ export default {
     }
   }
 }
+
 /* #302 fixed it */
 .sf-gallery {
   /deep/ ul {
