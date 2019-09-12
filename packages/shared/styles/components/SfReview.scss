@@ -14,7 +14,6 @@ $review__date-color: $c-dark-secondary !default;
 $reivew__date-margin-left: $spacer-medium !default;
 $review__message-font-weight: $body-font-weight-primary !default;
 $review__message-font-size: $font-size-big-desktop !default;
-$review__message-text-transform: capitalize !default;
 $review__message-color: $c-dark-secondary !default;
 $review__message_read_more-font-weight: $body-font-weight-primary !default;
 $review__message_read_more-font-size: $font-size-big-desktop !default;
@@ -51,7 +50,6 @@ $review__message_hide-color: $c-green-primary !default;
         font-weight: $review__message-font-weight;
         font-size: $review__message-font-size;
         color: $review__message-color;
-        text-transform: $review__message-text-transform;
     }
     &__message_read_more {
         font-weight: $review__message_read_more-font-weight;
