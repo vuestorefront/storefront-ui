@@ -466,6 +466,8 @@ export default {
   }
 }
 .product {
+  position: relative;
+  z-index: 1;
   @include for-desktop {
     display: flex;
   }
