@@ -70,11 +70,6 @@ const scssTableConfig = {
       "font-size of review's message"
     ],
     [
-      "$review__messsage-text-transform",
-      "capitalize",
-      "text transform for review's message"
-    ],
-    [
       "$review__message-color",
       "$c-dark-secondary",
       "text color for review's message"
