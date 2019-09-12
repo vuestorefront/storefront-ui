@@ -1,6 +1,5 @@
 @import '../variables';
 
-$alert-padding: 0.625rem !default;
 $alert__message-margin: 0 !default;
 $alert__message-padding-left: 0.625rem !default;
 $alert-font-family: $body-font-family-secondary !default;
@@ -17,7 +16,6 @@ $alert--success-color: #128830 !default;
 .sf-alert {
   display: flex;
   align-items: center;
-  padding: $alert-padding;
   font-family: $alert-font-family;
   font-size: $alert-font-size;
   font-weight: $alert-font-weight;
