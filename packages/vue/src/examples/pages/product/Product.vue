@@ -22,18 +22,16 @@
           />
         </div>
       </div>
-      <div
-        class="product-details"
-        @click="
-          () => {
-            this.detailsIsActive = !this.detailsIsActive;
-          }
-        "
-      >
+      <div class="product-details" @click="toggleMobileCard">
         <!-- TODO: fix SfSticky-->
         <div style="position: sticky; top: 0;">
           <div class="product-details__mobile-bar">
-            <SfIcon icon="cross" size="xxs" />
+            <SfIcon
+              icon="cross"
+              size="xxs"
+              @click="toggleMobileCard"
+              ref="mobileCross"
+            />
           </div>
           <SfHeading
             title="Cashmere Sweater"
@@ -437,6 +435,15 @@ export default {
     SfCircleIcon,
     SfIcon
     // SfSticky
+  },
+  methods: {
+    toggleMobileCard(event) {
+      const {target} = event;
+      const mobileCross =  this.$refs.mobileCross.$el;
+      if (mobileCross.contains(target) || (!mobileCross.contains(target) && !this.detailsIsActive)) {
+        this.detailsIsActive = !this.detailsIsActive;
+      }
+    }
   },
   mounted() {
     document.body.style.setProperty("margin", "0");
