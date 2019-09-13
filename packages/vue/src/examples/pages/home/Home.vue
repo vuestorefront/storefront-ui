@@ -148,7 +148,7 @@
       <SfBottomNavigationItem>
         <SfIcon icon="profile" size="20px" />
       </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
+      <SfBottomNavigationItem class="bottom-navigation-circle">
         <SfCircleIcon
           class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
         >
@@ -376,5 +376,8 @@ export default {
 }
 .sf-banner {
   flex: 1;
+}
+.bottom-navigation-circle {
+  opacity: 1;
 }
 </style>
