@@ -1,7 +1,8 @@
 @import "../variables";
 
-$select-option-padding-y: 0.75rem !default;
+$select-option-padding-y: 1rem !default;
 $select-option-padding-x: 1.875rem !default;
+
 $select-color: $c-text-primary !default;
 $select-color-primary: $c-light-primary !default;
 $select-color-active: $c-accent-primary !default;
@@ -19,6 +20,9 @@ $select__error-message-font-family: $body-font-family-primary !default;
 $select__error-message-font-size: $font-size-small-mobile !default;
 $select__cancel-color: #a3a5ad !default;
 
+$select-option-padding-y-desktop: 0.75rem !default;
+$select-option-padding-x-desktop: 0 !default;
+
 @mixin move-label-up {
   top: calc((#{$select__label-focus-font-size / 2}) - 5px);
   font-size: $select__label-focus-font-size;
@@ -31,7 +35,7 @@ $select__cancel-color: #a3a5ad !default;
   padding: $select-option-padding-y $select-option-padding-x;
   user-select: none;
   @media screen and (min-width: $desktop-min) {
-    padding: $select-option-padding-y 0;
+    padding: $select-option-padding-y-desktop $select-option-padding-x-desktop;
   }
   & + & {
     border-top: 1px solid $select-color-primary;
