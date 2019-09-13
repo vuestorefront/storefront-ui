@@ -139,11 +139,7 @@
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
             :isOnWishlist="product.isOnWishlist"
-            @click:wishlist="
-              () => {
-                toggleWishlist(i);
-              }
-            "
+            @click:wishlist="toggleWishlist(i)"
             class="products__product-card"
           />
         </div>

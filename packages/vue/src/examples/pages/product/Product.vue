@@ -189,6 +189,8 @@
             :regular-price="product.price.regular"
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
+            :isOnWishlist="product.isOnWishlist"
+            @click:wishlist="toggleWishlist(i)"
             class="product-card"
           />
         </SfCarouselItem>
@@ -203,6 +205,8 @@
             :regular-price="product.price.regular"
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
+            :isOnWishlist="product.isOnWishlist"
+            @click:wishlist="toggleWishlist(i)"
             class="product-card"
           />
         </SfCarouselItem>
@@ -373,49 +377,57 @@ export default {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         }
       ],
       detailsIsActive: false,
@@ -444,6 +456,9 @@ export default {
     SfSticky
   },
   methods: {
+    toggleWishlist(index) {
+      this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
+    },
     toggleMobileCard(event) {
       const { target } = event;
       const mobileCross = this.$refs.mobileCross.$el;
@@ -632,6 +647,9 @@ export default {
 }
 .hand-icon {
   margin-left: auto;
+  @include for-desktop {
+    display: none;
+  }
 }
 /* TODO: Add SfAction component */
 .sf-action {
@@ -641,7 +659,7 @@ export default {
   background-color: transparent;
   color: $c-text-primary;
   font-family: $body-font-family-secondary;
-  font-size: $font-size-small-mobile;
+  font-size: $font-size-regular-mobile;
   font-width: $body-font-weight-secondary;
   line-height: 1.6;
   text-decoration: underline;
