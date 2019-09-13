@@ -55,7 +55,7 @@ We have a lot of features that need good helping hand, as always. However, there
 Then you'll be ready to [pick your first issue](https://github.com/DivanteLtd/storefront-ui/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) and contribute to [StorefrontUI](https://github.com/DivanteLtd/storefront-ui) core respository.
 
 ::: tip DON'T KNOW WHICH ISSUE TO SELECT?
-We **have our issues labelled** to make it easier in selecting an issue to work with. You can also check about [our labels system](github-guidelines#_3-select-a-github-issue) for more information.
+We **have our issues labelled** to make it easier in selecting an issue to work with. You can also check about [our labels system](github-guidelines.md#_3-select-a-github-issue) for more information.
 :::
 
 ### Report bug or request a feature
