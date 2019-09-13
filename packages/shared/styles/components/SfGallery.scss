@@ -11,11 +11,12 @@ $gallery__item-mobile-size: 10px !default;
 $gallery__stage-width: 400px !default;
 
 .sf-gallery {
+  position: relative;
+  z-index: 0;
   width: 100%;
   text-align: center;
   display: flex;
   flex-direction: $gallery-flex-direction;
-  position: relative;
   &__thumbs {
     width: $gallery__nav-width;
     padding: 0;
