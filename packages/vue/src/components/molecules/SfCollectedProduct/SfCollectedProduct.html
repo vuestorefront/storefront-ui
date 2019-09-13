@@ -1,20 +1,18 @@
 <div class="sf-collected-product">
   <!-- @slot -->
   <slot name="remove">
-    <div class="sf-collected-product__remove" @click="removeProduct">
-      <SfIcon icon="cross" size="15px" color="gray-secondary" />
-    </div>
+    <SfCircleIcon color="gray-secondary" class="sf-collected-product__remove" @click="removeProduct">
+      <sf-icon icon="cross" color="white" size="8px" />
+    </SfCircleIcon>
   </slot>
   <div class="sf-collected-product__container">
     <slot name="image" v-bind="{image, title}">
       <div class="sf-collected-product__image">
         <SfImage :src="image"></SfImage>
         <!-- @slot -->
-        <div class="sf-collected-product__quantity">
-          <slot name="input">
-            <SfCounter :value="quantity" />
-          </slot>
-        </div>
+        <slot name="input" class="sf-collected-product__quantity">
+          <SfCounter :value="quantity" />
+        </slot>
       </div>
     </slot>
     <div class="sf-collected-product__contents">

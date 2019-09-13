@@ -1,28 +1,31 @@
 @import "../variables";
 
 $collected-product-hover-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
-$collected-product__remove-bg: $c-gray-secondary !default;
+$collected-product-remove-hover-bg: $c-gray-secondary !default;
+$collected-product-desktop-max-width: 240px !default;
 .sf-collected-product {
   max-width: 100%;
   position: relative;
   transition: 0.3s all;
-  margin-right: 0;
+  background: white;
   &__remove {
-    visibility: visible;
+    visibility: hidden;
     position: absolute;
-    right: 0;
-    padding: 10px;
+    right: -12px;
+    top: 8px;
     cursor: pointer;
+    width: 26px;
+    height: 26px;
+    background: $collected-product-remove-hover-bg;
+    &:hover {
+      box-shadow: none;
+      background-color: $collected-product-remove-hover-bg;
+    }
+    &:active {
+      box-shadow: none;
+    }
     @media (min-width: $desktop-min) {
-      background: $collected-product__remove-bg;
-      border-radius: 50%;
-      right: -18px;
-      top: 10px;
-      svg {
-        path {
-          fill: white;
-        }
-      }
+      visibility: visible;
     }
   }
   &__container {
@@ -54,6 +57,8 @@ $collected-product__remove-bg: $c-gray-secondary !default;
         margin-bottom: 0.25rem;
         display: flex;
         font-weight: 300;
+        font-size: 14px;
+        line-height: 23px;
       }
     }
   }
@@ -63,6 +68,6 @@ $collected-product__remove-bg: $c-gray-secondary !default;
     z-index: 2;
   }
   @media (min-width: $desktop-min) {
-    margin-right: 10px;
+    max-width: $collected-product-desktop-max-width;
   }
 }
