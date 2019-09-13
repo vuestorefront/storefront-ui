@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
+import SfProductCard from "@/components/organisms/SfProductCard/SfProductCard.vue";
 
 describe("SfProductCard.vue", () => {
   const rating = { max: 5, score: 4 };
