@@ -22,26 +22,29 @@ export default {
      */
     message: {
       type: String,
-      required: false
+      required: true
     },
     /**
      * Rating from the reviewer
      */
     rating: {
-      type: [Number, String]
+      type: Number,
+      required: true
     },
     /**
      * Max rating for the review
      */
     maxRating: {
-      type: [Number, String],
+      type: Number,
+      required: true,
       default: 5
     },
     /**
      * Char limit for the review
      */
     charLimit: {
-      type: [Number, String],
+      type: Number,
+      required: true,
       default: 250
     },
     /**
@@ -84,18 +87,12 @@ export default {
   },
   computed: {
     finalRating() {
-      if (this.rating > this.maxRating) {
-        this.rating = this.maxRating;
-
-        return this.rating;
-      }
-      return this.rating;
+      return this.rating > this.maxRating ? this.maxRating : this.rating;
     },
     finalMessage() {
-      if (this.message.length > this.charLimit && this.showReadMore) {
-        return this.message.slice(0, this.charLimit) + "...";
-      }
-      return this.message;
+      return this.message.length > this.charLimit && this.showReadMore
+        ? this.message.slice(0, this.charLimit) + "..."
+        : this.message;
     }
   },
   created: function() {
