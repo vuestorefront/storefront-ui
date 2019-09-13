@@ -521,7 +521,7 @@ export default {
   &__description {
     margin: $spacer-extra-big 0 ($spacer-big * 3) 0;
     font-family: $body-font-family-secondary;
-    font-size: $font-size-big-desktop;
+    font-size: $font-size-regular-desktop;
     line-height: 1.6;
   }
   &__divider {
@@ -621,7 +621,7 @@ export default {
   text-decoration: underline;
   cursor: pointer;
   @include for-desktop {
-    font-size: $font-size-big-desktop;
+    font-size: $font-size-regular-desktop;
   }
 }
 .banner-application {
