@@ -14,6 +14,16 @@ const scssTableConfig = {
       "margin bottom for some div tags of the review"
     ],
     [
+      "$review__div_tags-display-inline-block",
+      "inline-block",
+      "display inline block for some div tags of the review"
+    ],
+    [
+      "$review__margin-left",
+      "$spacer-medium",
+      "margin left for some elements of the review"
+    ],
+    [
       "$review__author-text-transform",
       "capitalize",
       "text transform for author's name of the review"

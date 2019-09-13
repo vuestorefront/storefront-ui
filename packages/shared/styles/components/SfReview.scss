@@ -1,6 +1,8 @@
 @import '../variables';
 
 $review__div_tags-margin-bottom: $spacer-medium !default;
+$review__div_tags-display-inline-block: inline-block !default;
+$reivew__margin-left: $spacer-medium !default;
 $review__author-text-transform: capitalize !default;
 $review__author-font-weight: 450 !default;
 $review__author-font-size: $font-size-extra-big-desktop !default;
@@ -11,7 +13,6 @@ $review__date-font-weight: $body-font-weight-primary !default;
 $review__date-font-size: $font-size-small-desktop !default;
 $review__date-font-family: $body-font-family-secondary !default;
 $review__date-color: $c-dark-secondary !default;
-$reivew__date-margin-left: $spacer-medium !default;
 $review__message-font-weight: $body-font-weight-primary !default;
 $review__message-font-size: $font-size-big-desktop !default;
 $review__message-color: $c-dark-secondary !default;
@@ -33,14 +34,12 @@ $review__message_hide-color: $c-green-primary !default;
         margin-bottom: $review__div_tags-margin-bottom;
     }
     &__rating {
-        display: inline-block;
+        display: $review__div_tags-display-inline-block;
     }
     &__info {
         margin-bottom: $review__div_tags-margin-bottom;
     }
     &__date {
-        display: inline-block;
-        margin-left: $reivew__date-margin-left;
         text-transform: $review__date-text-transform;
         font-weight: $review__date-font-weight;
         font-size: $review__date-font-size;
@@ -60,5 +59,11 @@ $review__message_hide-color: $c-green-primary !default;
         font-weight: $review__message_hide-font-weight;
         font-size: $review__message_hide-font-size;
         color: $review__message_hide-color;
+    }
+    &__display-inline-block {
+        display: $review__div_tags-display-inline-block;
+    }
+    &__margin-left {
+        margin-left: $reivew__margin-left; 
     }
 }

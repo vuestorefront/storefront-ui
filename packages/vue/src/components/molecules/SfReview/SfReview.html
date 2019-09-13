@@ -4,16 +4,19 @@
         <div class="sf-review__author">{{ author }}</div>
     </slot>
     <!-- @slot -->
-    <slot name="info" v-bind="{finalRating, maxRating, date}">
+    <slot name="info" v-bind="{finalRating, finalMaxRating, date}">
         <div class="sf-review__info">
-            <div class="sf-review__rating">
+            <div v-bind:class="{ 'sf-review__rating': finalRating }">
                 <SfRating
-                v-if="rating"
-                :max="maxRating"
+                v-if="finalRating"
+                :max="finalMaxRating"
                 :score="finalRating"
                 />
             </div>
-            <div class="sf-review__date">{{ date }}</div>
+            <div 
+              class="sf-review__date" 
+              v-bind:class="{ 'sf-review__display-inline-block': finalRating, 'sf-review__margin-left': finalRating }"
+            >{{ date }}</div>
         </div>
     </slot>
     <!-- @slot -->
