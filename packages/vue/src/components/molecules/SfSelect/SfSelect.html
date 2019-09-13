@@ -25,6 +25,7 @@
       class="sf-select__label">
       <slot name="label">{{label}}</slot>
     </div>
+    <SfOverlay :visible="open" @click="" class="sf-select__overlay"/>
     <transition name="sf-select">
       <div v-show="open" class="sf-select__dropdown">
         <!--  sf-select__option -->
@@ -51,5 +52,4 @@
       </span>
     </transition>
   </div>
-  <SfOverlay :visible="open" @click="" class="sf-select__overlay"/>
 </div>
