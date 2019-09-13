@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     removeProduct () {
-      this.$emit("remove", this);
+      this.$emit("remove");
     }
   },
   components: {
