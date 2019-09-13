@@ -432,9 +432,10 @@ export default {
     toggleMobileCard(event) {
       const { target } = event;
       const mobileCross = this.$refs.mobileCross.$el;
+      const offsetTop = window.pageYOffset;
       if (
         mobileCross.contains(target) ||
-        (!mobileCross.contains(target) && !this.detailsIsActive)
+        (!mobileCross.contains(target) && !this.detailsIsActive && offsetTop <= 10)
       ) {
         this.detailsIsActive = !this.detailsIsActive;
       }
