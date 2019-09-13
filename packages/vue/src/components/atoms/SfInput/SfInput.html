@@ -5,24 +5,29 @@
     'sf-input--invalid': valid === false
   }"
 >
-  <input
-    v-bind="$attrs"
-    v-on="listeners"
-    :value="value"
-    :required="required"
-    :disabled="disabled"
-    :name="name"
-  />
-  <span class="sf-input__bar"></span>
-  <label class="sf-input__label">
-    <!-- @slot Custom input label -->
-    <slot name="label" v-bind="{label}">{{ label }}</slot>
-  </label>
+  <div style="position: relative;">
+    <input
+      v-bind="$attrs"
+      v-on="listeners"
+      :value="value"
+      :required="required"
+      :disabled="disabled"
+      :name="name"
+      :id="name"
+    />
+    <span class="sf-input__bar"></span>
+    <label class="sf-input__label" :for="name">
+      <!-- @slot Custom input label -->
+      <slot name="label" v-bind="{label}">{{ label }}</slot>
+    </label>
+  </div>
   <div class="sf-input__error-message" v-if="valid!== undefined">
     <transition name="fade">
       <span v-if="!valid">
         <!-- @slot Custom error message of form input -->
-        <slot name="errorMessage" v-bind="{errorMessage}">{{ errorMessage }}</slot>
+        <slot name="errorMessage" v-bind="{errorMessage}"
+          >{{ errorMessage }}</slot
+        >
       </span>
     </transition>
   </div>

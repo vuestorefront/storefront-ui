@@ -21,7 +21,7 @@
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerF.png"
-            class="sf-banner--left sf-banner--container-full"
+            class="sf-banner--slim"
           />
         </a>
       </template>
@@ -33,7 +33,7 @@
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerE.png"
-            class="sf-banner--left"
+            class="sf-banner--slim banner-central"
           />
         </a>
       </template>
@@ -43,7 +43,7 @@
             subtitle="T-Shirts"
             title="THE OFFICE LIFE"
             image="assets/storybook/homepage/bannerC.png"
-            class="sf-banner--left sf-banner--container-full"
+            class="sf-banner--slim"
           />
         </a>
       </template>
@@ -53,7 +53,7 @@
             subtitle="Summer shoes"
             title="ECO SANDALS"
             image="assets/storybook/homepage/bannerG.png"
-            class="sf-banner--left sf-banner--container-full"
+            class="sf-banner--slim"
           />
         </a>
       </template>
@@ -113,7 +113,7 @@
       title="Download our application to your mobile"
       subtitle="Fashion to Take Away"
       image="assets/storybook/homepage/bannerD.png"
-      class="banner-application sf-banner--left sf-banner--center desktop-only"
+      class="banner-application sf-banner--left desktop-only"
     >
       <template #title>
         <h1 class="banner-application__title">
@@ -315,10 +315,17 @@ export default {
     }
   }
 }
+.banner-central {
+  @media screen and (min-width: $desktop-min) {
+    padding-right: 30%;
+  }
+}
 .banner-application {
   min-height: 420px;
   max-width: 1040px;
   margin: auto;
+  padding-right: calc(25% + 5rem);
+  padding-left: 2.5rem;
   &__title {
     padding: 0;
     margin: 0;
