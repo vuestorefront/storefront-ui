@@ -22,13 +22,14 @@ export default {
      */
     message: {
       type: String,
-      required: false
+      required: true
     },
     /**
      * Rating from the reviewer
      */
     rating: {
-      type: [Number, String]
+      type: [Number, String, Boolean],
+      default: false
     },
     /**
      * Max rating for the review
@@ -49,7 +50,6 @@ export default {
      */
     readMoreText: {
       type: String,
-      required: false,
       default: "Read more"
     },
     /**
@@ -57,7 +57,6 @@ export default {
      */
     hideFullText: {
       type: String,
-      required: false,
       default: "Read less"
     }
   },
@@ -84,18 +83,23 @@ export default {
   },
   computed: {
     finalRating() {
-      if (this.rating > this.maxRating) {
-        this.rating = this.maxRating;
-
+      if (this.rating < 0) {
+        return false;
+      } else if (this.rating > this.maxRating && this.maxRating > 0) {
+        return this.maxRating;
+      } else if (this.maxRating <= 0) {
+        return false;
+      } else {
         return this.rating;
       }
-      return this.rating;
     },
     finalMessage() {
-      if (this.message.length > this.charLimit && this.showReadMore) {
-        return this.message.slice(0, this.charLimit) + "...";
-      }
-      return this.message;
+      return this.message.length > this.charLimit && this.showReadMore
+        ? this.message.slice(0, this.charLimit) + "..."
+        : this.message;
+    },
+    finalMaxRating() {
+      return this.maxRating <= 0 ? 1 : this.maxRating;
     }
   },
   created: function() {
