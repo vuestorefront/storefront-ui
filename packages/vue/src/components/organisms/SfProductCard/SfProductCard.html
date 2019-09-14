@@ -2,7 +2,7 @@
   <button
     v-if="wishlistIcon !== false"
     :aria-label="ariaLabel"
-    @click="toggleOnWishlist"
+    @click="toggleIsOnWishlist"
     :class="wishlistIconClasses">
     <!-- @slot -->
     <slot name="wishlist-icon" v-bind="{currentWishlistIcon}">
