@@ -1,138 +1,201 @@
 import { shallowMount } from "@vue/test-utils";
 import SfProductCard from "@/components/organisms/SfProductCard/SfProductCard.vue";
 
+const title = "Product A";
+const wishlistIconButtonClass = ".sf-product-card__wishlist-icon";
+const clickEventName = "click:wishlist";
+
 describe("SfProductCard.vue", () => {
-  const rating = { max: 5, score: 4 };
-  const price = { regular: "$10,99" };
-  const title = "Product A";
-  let isOnWishlist = false;
-
   it("renders Product Card", () => {
-    isOnWishlist = false;
     const component = shallowMount(SfProductCard, {
       propsData: {
-        rating,
-        price,
-        title,
-        isOnWishlist
+        title
       }
     });
 
-    expect(component.contains(".sf-product-card")).toBe(true);
+    expect(component.exists()).toBe(true);
+    expect(component.isVueInstance()).toBe(true);
+    expect(component.isVisible()).toBe(true);
   });
-  it("renders default wishlist icon", () => {
+});
+
+describe("SfProductCard.vue: Wish list icon button", () => {
+  it("renders Product Card", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
-        rating,
-        price,
-        title,
-        isOnWishlist
+        title
       }
     });
 
-    expect(component.contains(".sf-product-card")).toBe(true);
+    expect(component.exists()).toBe(true);
+    expect(component.isVueInstance()).toBe(true);
+    expect(component.isVisible()).toBe(true);
   });
 
-  it("renders default wish list icon when none is passed", () => {
-    isOnWishlist = false;
+  it("has correct CSS class for container", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
-        rating,
-        price,
-        title,
-        isOnWishlist
+        title
       }
     });
 
-    expect(component.contains("[data-test='sf-wishlist-icon']")).toBe(true);
+    expect(component.classes()).toContain("sf-product-card");
   });
 
-  it("render custom wish list icon", () => {
-    isOnWishlist = false;
-    const path =
-      "M10 0C4.48561 0 0 4.48561 0 10C0 15.5144 4.48561 20 10 20C15.5144 20 20 15.5144 20 10C20 4.48561 15.5144 0 10 0ZM10 1.46341C14.7237 1.46341 18.5366 5.27634 18.5366 10C18.5366 14.7237 14.7237 18.5366 10 18.5366C5.27634 18.5366 1.46341 14.7237 1.46341 10C1.46341 5.27634 5.27634 1.46341 10 1.46341ZM10 2.68293C9.59605 2.68293 9.26829 3.01068 9.26829 3.41463V10C9.26829 10.2706 9.41597 10.5059 9.63415 10.6326L14.9161 13.6814C15.2658 13.8834 15.7126 13.7643 15.9146 13.4146C16.1166 13.065 15.9975 12.6181 15.6478 12.4161L10.7317 9.58078V3.41468C10.7317 3.01073 10.404 2.68298 10 2.68298V2.68293Z";
-
+  it("has default slot content when no custom content for wish list icon is passed", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
-        rating,
-        price,
-        title,
-        isOnWishlist,
-        wishlistIcon: path
+        title
       }
     });
 
-    expect(
-      component
-        .find("[data-test='sf-wishlist-icon'")
-        .find("path")
-        .attributes("d")
-    ).toEqual(path);
+    const wishlistIconButton = component.find(wishlistIconButtonClass);
+    const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
+    expect(sfIconForWishlist.exists()).toBe(true);
   });
 
-  it("renders default on wish list icon when none is passed", () => {
-    isOnWishlist = true;
+  it("has default wish list icon when none is passed (isOnWishlist=false)", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
-        rating,
-        price,
-        title,
-        isOnWishlist
+        title
       }
     });
 
-    expect(component.contains("[data-test='sf-wishlist-icon'")).toBe(true);
+    const defaultWishlistIcon = component.props().wishlistIcon;
+    const wishlistIconButton = component.find(wishlistIconButtonClass);
+    const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
+    const iconInSfIconForWishlist = sfIconForWishlist.props().icon;
+    expect(iconInSfIconForWishlist).toBe(defaultWishlistIcon);
   });
 
-  it("does not render wish list icon when false is passed", () => {
-    isOnWishlist = true;
+  it("has default wish list icon when none is passed (isOnWishlist=true)", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
-        rating,
-        price,
         title,
-        isOnWishlist,
+        isOnWishlist: true
+      }
+    });
+
+    const defaultIsOnWishlistIcon = component.props().isOnWishlistIcon;
+    const wishlistIconButton = component.find(wishlistIconButtonClass);
+    const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
+    const iconInSfIconForWishlist = sfIconForWishlist.props().icon;
+    expect(iconInSfIconForWishlist).toBe(defaultIsOnWishlistIcon);
+  });
+
+  it("has custom wish list icon when SVG path is passed (isOnWishlist=false)", () => {
+    const customWishlistIconPath =
+      "M6.04545 0L7 1.12025L1.92207 7L7 12.8798L6.04545 14L0 6.99994L6.04545 0Z";
+
+    const component = shallowMount(SfProductCard, {
+      propsData: {
+        title,
+        wishlistIcon: customWishlistIconPath
+      }
+    });
+
+    const wishlistIconButton = component.find(wishlistIconButtonClass);
+    const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
+    const iconInSfIconForWishlist = sfIconForWishlist.props().icon;
+    expect(iconInSfIconForWishlist).toBe(customWishlistIconPath);
+  });
+
+  it("has custom wish list icon when SVG path is passed (isOnWishlist=true)", () => {
+    const customIsOnWishlistIconPath =
+      "M0.954545 14L0 12.8798L5.07793 7L0 1.12024L0.954545 0L7 7.00006L0.954545 14Z";
+
+    const component = shallowMount(SfProductCard, {
+      propsData: {
+        title,
+        isOnWishlistIcon: customIsOnWishlistIconPath,
+        isOnWishlist: true
+      }
+    });
+
+    const wishlistIconButton = component.find(wishlistIconButtonClass);
+    const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
+    const iconInSfIconForWishlist = sfIconForWishlist.props().icon;
+    expect(iconInSfIconForWishlist).toBe(customIsOnWishlistIconPath);
+  });
+
+  it("has no wish list button when wishlistIcon is false (isOnWishlist=false)", () => {
+    const component = shallowMount(SfProductCard, {
+      propsData: {
+        title,
         wishlistIcon: false
       }
     });
 
-    expect(component.contains("[data-test='sf-wishlist-icon'")).toBe(false);
+    const wishlistIconButton = component.find(wishlistIconButtonClass);
+    expect(wishlistIconButton.exists()).toBe(false);
   });
 
-  it("render custom on wish list icon", () => {
-    isOnWishlist = true;
-    const path =
-      "M10 0C4.48561 0 0 4.48561 0 10C0 15.5144 4.48561 20 10 20C15.5144 20 20 15.5144 20 10C20 4.48561 15.5144 0 10 0ZM10 1.46341C14.7237 1.46341 18.5366 5.27634 18.5366 10C18.5366 14.7237 14.7237 18.5366 10 18.5366C5.27634 18.5366 1.46341 14.7237 1.46341 10C1.46341 5.27634 5.27634 1.46341 10 1.46341ZM10 2.68293C9.59605 2.68293 9.26829 3.01068 9.26829 3.41463V10C9.26829 10.2706 9.41597 10.5059 9.63415 10.6326L14.9161 13.6814C15.2658 13.8834 15.7126 13.7643 15.9146 13.4146C16.1166 13.065 15.9975 12.6181 15.6478 12.4161L10.7317 9.58078V3.41468C10.7317 3.01073 10.404 2.68298 10 2.68298V2.68293Z";
-
+  it("has no wish list button when wishlistIcon is false (isOnWishlist=true)", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
-        rating,
-        price,
         title,
-        isOnWishlist,
-        onWishlistIcon: path
+        wishlistIcon: false,
+        isOnWishlist: true
       }
     });
 
-    expect(
-      component
-        .find("[data-test='sf-wishlist-icon'")
-        .find("path")
-        .attributes("d")
-    ).toEqual(path);
+    const wishlistIconButton = component.find(wishlistIconButtonClass);
+    expect(wishlistIconButton.exists()).toBe(false);
   });
 
-  it("renders default wish list icon when none is passed", () => {
-    isOnWishlist = false;
+  it("has custom slot content when slot is used", () => {
+    const customSlotContentText = "Wish List";
+    const customSlotContent = `<b>${customSlotContentText}</b>`;
+
     const component = shallowMount(SfProductCard, {
       propsData: {
-        rating,
-        price,
-        title,
-        isOnWishlist
+        title
+      },
+      slots: {
+        "wishlist-icon": customSlotContent
       }
     });
-    (component.vm as any).toggleOnWishlist();
-    expect(component.emitted()["click:wishlist"][0]).toBe(true);
+
+    const wishlistIconButton = component.find(wishlistIconButtonClass);
+    const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
+    expect(sfIconForWishlist.exists()).toBe(false);
+    expect(wishlistIconButton.text()).toBe(customSlotContentText);
+  });
+
+  it("emits click:wishlist event on button click", () => {
+    const component = shallowMount(SfProductCard, {
+      propsData: {
+        title
+      }
+    });
+
+    const wishlistIconButton = component.find(wishlistIconButtonClass);
+    wishlistIconButton.trigger("click");
+    expect(component.emitted()[clickEventName].length).toBe(1);
+  });
+
+  it("emits click:wishlist event with payload=true on button click when isOnWishlist=false", () => {
+    const component = shallowMount(SfProductCard, {
+      propsData: {
+        title
+      }
+    });
+
+    const wishlistIconButton = component.find(wishlistIconButtonClass);
+    wishlistIconButton.trigger("click");
+    expect(component.emitted()[clickEventName][0][0]).toBe(true);
+  });
+
+  it("emits click:wishlist event with payload=false on button click when isOnWishlist=true", () => {
+    const component = shallowMount(SfProductCard, {
+      propsData: {
+        title,
+        isOnWishlist: true
+      }
+    });
+
+    const wishlistIconButton = component.find(wishlistIconButtonClass);
+    wishlistIconButton.trigger("click");
+    expect(component.emitted()[clickEventName][0][0]).toBe(false);
   });
 });
