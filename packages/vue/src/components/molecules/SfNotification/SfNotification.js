@@ -13,6 +13,10 @@ export default {
       type: String,
       default: ""
     },
+    level: {
+      type: Number,
+      default: 2
+    },
     // the body of the message showed as subtitle
     subtitle: {
       type: String,
@@ -25,7 +29,7 @@ export default {
     },
     sizeIcon: {
       type: String,
-      default: "XS"
+      default: "lg"
     },
     colorIcon: {
       type: String,
@@ -38,6 +42,10 @@ export default {
         return ["alert", "warning", "info", "success"].indexOf(value) !== -1;
       }
     }
-  }
-  
+  },
+  computed: {
+    hasSubtitle() {
+      return !!this.subtitle || this.$slots.hasOwnProperty("subtitle");
+    }
+  }  
 };

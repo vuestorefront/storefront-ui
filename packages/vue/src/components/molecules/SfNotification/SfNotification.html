@@ -1,6 +1,6 @@
 <div class="sf-notification sf-notification__container sf-notification--${type}">
-    <slot name="icon" v-bind="{ icon }">
-        <SfIcon class="`sf-notification--${type}`"></SfIcon>
+    <slot name="icon" v-bind="{ icon, sizeIcon, colorIcon, type }">
+        <SfIcon :icon="icon" :size="sizeIcon" :color="colorIcon" :class="`sf-notification__icon sf-notification--${type}`"></SfIcon>
     </slot>
     <header name="message" class="sf-notification__heading">
         <component :is="`h${level}`" class="sf-notification__title">

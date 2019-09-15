@@ -96,7 +96,7 @@ storiesOf("Molecules|Notification", module)
         subtitle="Subtitle prop"
         icon="public/assets/added_to_cart.png">
         <header name="message" class="sf-notification__heading">
-          <component :is="h${level}" class="sf-notification__title">
+          <component :is="level" class="sf-notification__title">
               <slot name="title" v-bind="{ title }">{{ title }}</slot>
           </component>
         </header>   
@@ -134,8 +134,8 @@ storiesOf("Molecules|Notification", module)
         subtitle="Subtitle prop"
         icon="public/assets/added_to_cart.png">
           <slot name="icon" v-bind="{ icon }">
-            <SfIcon class="sf-notification--${type}"></SfIcon>
-        </slot>   
+            <SfIcon src="assets/added_to_cart.svg" class="sf-notification--type"></SfIcon>
+          </slot>   
       </SfNotification>`
     }),
     {

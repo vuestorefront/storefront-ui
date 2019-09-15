@@ -8,7 +8,7 @@ $notification--success-color: #128830 !default;
 $notification-mobile-padding: $spacer-big !default;
 $notification-background-size: cover !default;
 $notification-background-position: bottom left !default;
-$notification__title-font-size: 3rem !default;
+$notification__title-font-size: 2rem !default;
 
 .sf-notification {
     display: flex;
@@ -19,26 +19,25 @@ $notification__title-font-size: 3rem !default;
     min-height: 9rem;
     padding: $notification-mobile-padding;
     background-size: $notification-background-size;
-    background-position: $notification-background-position;  
-     
+    background-position: $notification-background-position;       
     
     &__container {
         width: 100%;
-        background: rgba(0, 0, 0, 0.8);        
+        background: rgba(0, 0, 0, 0.8); 
+        color: $c-white;       
         @media screen and (min-width: $desktop-min) {
-            display: block;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             min-width: 25%;
             padding-bottom: 0;
             border: 0;
             text-align: center;
         }
     }
-    // &__message {
-        
-    // }
     &__heading {
         text-align: left;
-        font-family: Roboto;
+        font-family: $body-font-family-primary;
         font-style: normal;
         font-weight: 300;
         font-size: 16px;
@@ -59,8 +58,12 @@ $notification__title-font-size: 3rem !default;
         font-weight: 300;
     }
     &__icon {
+        display: none;
         @media (min-width: $desktop-min) {
             display: flex;
+            height: 50%;
+            width: auto;
+            padding: $spacer;
         }
     }
     &__close {
@@ -80,19 +83,15 @@ $notification__title-font-size: 3rem !default;
         text-align: right;
     }
     &--info {
-        color: $notification--info-color;
-        fill: $notification--info-color;
+        background-color: $notification--info-color;
     }
     &--alert {
-        fill: $notification--alert-color;
-        color: $notification--alert-color;
+        background-color: $notification--alert-color;
     }
     &--warning {
-        fill: $notification--warning-color;
-        color: $notification--warning-color;
+        background-color: $notification--warning-color;
     }
     &--success {
-        fill: $notification--success-color;
-        color: $notification--success-color;
+        background-color: $notification--success-color;
     }
 }
