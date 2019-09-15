@@ -8,12 +8,9 @@
     <slot name="header" v-bind="{isOpen, header}">
       <div class="sf-accordion-item__header">{{ header }}</div>
     </slot>
-    <img
-      v-if="$parent.showChevron"
-      :class="isOpen ? 'sf-accordion-item__header-icon--up' : ''"
-      src="../../../../../public/assets/chevron_down.svg"
-      alt="Toggle this section"
-    />
+    <div v-if="$parent.showChevron" class="sf-accordion-item__chevron">
+      <SfChevron :active="isOpen" />
+    </div>
   </div>
   <transition :name="$parent.transition">
     <div class="sf-accordion-item__content-wrapper" v-if="isOpen">

@@ -18,6 +18,7 @@ $accordion-item__content-padding--last: 0.5rem 0 1.5rem !default;
   &-item__header-wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     cursor: pointer;
   }
   &-item__header {

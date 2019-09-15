@@ -1,29 +1,26 @@
-@import '../variables';
-
-$add-to-cart__quantity-select__max-width: 90px !default;
+@import "../variables";
+$add-to-cart__select-quantity-min-width: 74px !default;
+$add-to-cart__select-quantity-max-width: 90px !default;
 
 .sf-add-to-cart {
   display: flex;
-
   &__button {
     &:disabled {
       background-color: $c-accent-secondary;
       cursor: default;
     }
   }
-
   &__select-quantity {
-    margin-left: 0.5rem;
-
+    display: flex;
+    margin: 0 0 0 0.5rem;
     input {
+      height: 100%;
       padding-left: 0.5rem;
       padding-right: 0.5rem;
-      width: auto;
-      height: 100%;
-      max-width: $add-to-cart__quantity-select__max-width;
+      min-width: $add-to-cart__select-quantity-min-width;
+      max-width: $add-to-cart__select-quantity-max-width;
       border: 1px solid $c-light-primary;
       transition: border-color 0.3s ease-in-out;
-
       &:focus {
         border-color: $c-accent-primary;
       }

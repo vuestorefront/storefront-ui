@@ -1,15 +1,25 @@
-@import '../variables';
+@import "../variables";
 
-$price-desktop-font-size: $font-size-big-desktop !default;
-$price-mobile-font-size: $font-size-big-mobile !default;
-$price__old-mobile-font-size: $font-size-small-mobile !default;
-$price__old-desktop-font-size: $font-size-small-mobile !default;
+$price-font-family: $body-font-family-primary !default;
+$price-font-size: $font-size-big-mobile !default;
+$price-font-size-desktop: $font-size-big-desktop !default;
+$price-font-weight: $body-font-weight-secondary !default;
+$price-line-height: 1.6 !default;
+$price__old-font-size: $font-size-small-mobile !default;
+$price__old-font-size-desktop: $font-size-small-desktop !default;
+$price--big-font-size: $font-size-big-desktop !default;
+$price--big-font-size-desktop: $font-size-extra-big-desktop !default;
+$price--big__old-font-size: $font-size-regular-mobile !default;
+$price--big__old-font-size-desktop: $font-size-regular-desktop !default;
 
 .sf-price {
-  font-size: $price-mobile-font-size;
-  font-weight: 400;
+  $this:&;
+  font-family: $price-font-family;
+  line-height: $price-line-height;
+  font-weight: $price-font-weight;
+  font-size: $price-font-size;
   @media (min-width: $desktop-min) {
-    font-size: $price-desktop-font-size;
+    font-size: $price-font-size-desktop;
   }
   &__regular {
     text-decoration: none;
@@ -20,11 +30,23 @@ $price__old-desktop-font-size: $font-size-small-mobile !default;
     margin-right: $spacer-small;
   }
   &__old {
-    text-decoration: line-through;
     color: $c-gray-primary;
-    font-size: $price__old-mobile-font-size;
+    font-size: $price__old-font-size;
     @media (min-width: $desktop-min) {
-      font-size: $price__old-desktop-font-size;
+      font-size: $price__old-font-size-desktop;
+    }
+    text-decoration: line-through;
+  }
+  &--big{
+    font-size: $price--big-font-size;
+    @media (min-width: $desktop-min) {
+      font-size: $price--big-font-size-desktop;
+    }
+    #{$this}__old{
+      font-size: $price--big__old-font-size;
+      @media (min-width: $desktop-min) {
+        font-size: $price--big__old-font-size-desktop;
+      }
     }
   }
 }
