@@ -1,58 +1,65 @@
 @import "../variables";
 
 
-$sf-steps__active-line-height-mobile: 0.1875rem;
-$sf-steps__active-line-height-desktop: 0.125rem;
-$sf-steps__active-line-color: #1d1f22;
-$sf-steps__default-border: 0.0625rem solid #f1f2f4;
+$steps__active-line-height-mobile: 0.1875rem;
+$steps__active-line-height-desktop: 0.125rem;
+$steps__active-line-color: $c-dark-primary;
+$steps__default-border: 0.0625rem solid #f1f2f4;
 
-$sf-steps__step-font-weight: 500;
-$sf-steps__step-font-size: 0.75rem;
-$sf-steps__step-font-color: $c-gray-secondary;
+$steps__step-font-weight: 500;
+$steps__step-font-size: 0.75rem;
+$steps__step-font-color: $c-gray-secondary;
+$steps__step-padding: 1.25rem 0;
+$steps__step-text-transform: uppercase;
 
 
 %sf-store-active-line {
   position: absolute;
   content: "";
   display: block;
-  height: $sf-steps__active-line-height-mobile;
+  height: $steps__active-line-height-mobile;
   width: 100%;
-  bottom: -$sf-steps__active-line-height-mobile /2;
+  bottom: -$steps__active-line-height-mobile /2;
   left: 0;
-  background-color: $sf-steps__active-line-color;
+  background-color: $steps__active-line-color;
 
   @media screen and (min-width: $desktop-min) {
-    height: $sf-steps__active-line-height-desktop;
-    bottom: -$sf-steps__active-line-height-desktop /2;
+    height: $steps__active-line-height-desktop;
+    bottom: -$steps__active-line-height-desktop /2;
   }
 }
 
 .sf-steps {
-  &__steps {
+  &__header {
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: $sf-steps__default-border;
+    border-bottom: $steps__default-border;
 
     &-step {
       position: relative;
-      padding: 1.25rem 0;
-      font-size: $sf-steps__step-font-size;
-      color: $sf-steps__step-font-color;
-      font-weight: $sf-steps__step-font-weight;
-      text-transform: uppercase;
+      padding: $steps__step-padding;
+      font-size: $steps__step-font-size;
+      color: $steps__step-font-color;
+      font-weight: $steps__step-font-weight;
+      text-transform: $steps__step-text-transform;
       flex: 1;
       cursor: pointer;
 
+      &:after {
+        @extend %sf-store-active-line;
+        width: 0%;
+      }
+
       &:last-of-type {
-        &.sf-steps__steps-step-current {
+        &.sf-steps__header-step-current {
           span:after {
-            display: none;
+            opacity: 0;
           }
           &:after {
-            @extend %sf-store-active-line;
+            width: 100%;
           }
         }
       }
@@ -63,11 +70,22 @@ $sf-steps__step-font-color: $c-gray-secondary;
         display: block;
         width: 50%;
         transform: translate(25%);
+        &:after {
+          @extend %sf-store-active-line;
+          opacity: 0;
+          width: calc(100% + 25%);
+          bottom: -(1.25rem + ($steps__active-line-height-mobile / 2));
+          left: -25%;
+
+          @media screen and (min-width: $desktop-min) {
+            bottom: -(1.25rem + ($steps__active-line-height-desktop / 2));
+          }
+        }
       }
 
       &-done {
         &:after {
-          @extend %sf-store-active-line;
+          width: 100%;
         }
       }
 
@@ -76,14 +94,7 @@ $sf-steps__step-font-color: $c-gray-secondary;
 
         span {
           &:after {
-            @extend %sf-store-active-line;
-            width: calc(100% + 25%);
-            bottom: -(1.25rem + ($sf-steps__active-line-height-mobile / 2));
-            left: -25%;
-
-            @media screen and (min-width: $desktop-min) {
-              bottom: -(1.25rem + ($sf-steps__active-line-height-desktop / 2));
-            }
+            opacity: 1;
           }
         }
       }
@@ -93,7 +104,7 @@ $sf-steps__step-font-color: $c-gray-secondary;
       }
     }
   }
-  &__wrapper {
+  &__content {
     padding: 2.5rem 0 0 0;
 
     @media screen and (min-width: $desktop-min) {

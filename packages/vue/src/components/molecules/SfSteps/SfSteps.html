@@ -4,14 +4,14 @@
     <slot name="steps" v-for="step in parsedSteps" :step-click="stepClick">
       <div
         :key="step.index"
-        :class="{'sf-steps__steps-step': true, 'sf-steps__steps-step-done': step.done, 'sf-steps__steps-step-current': step.current, 'sf-steps__steps-step-disabled': step.disabled}"
+        :class="{'sf-steps__header-step': true, 'sf-steps__header-step-done': step.done, 'sf-steps__header-step-current': step.current, 'sf-steps__header-step-disabled': step.disabled}"
         @click="stepClick(step)"
       >
         <span>{{ step.step }}</span>
       </div>
     </slot>
   </div>
-  <div class="sf-steps__items">
+  <div class="sf-steps__content">
     <slot></slot>
   </div>
 </div>
