@@ -1,0 +1,11 @@
+<section class="sf-card" :class="{'sf-card--is-active': isActive}">
+  <div class="sf-card__top" :style="style" ref="top">
+    <slot name="top" v-bind="{isActive}" />
+  </div>
+  <div class="sf-card__bottom" @click="toggleActive">
+    <slot name="cross">
+      <SfIcon icon="cross" size="xxs" ref="cross" class="sf-card__cross" />
+    </slot>
+    <slot name="bottom" v-bind="{isActive}" />
+  </div>
+</section>
