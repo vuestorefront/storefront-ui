@@ -1,5 +1,4 @@
 @import '../variables';
-
 $notification__message-padding-left: 0.625rem !default;
 $notification--info-color: $c-dark-primary !default;
 $notification--warning-color: #d12727 !default;
@@ -9,7 +8,6 @@ $notification-mobile-padding: $spacer-big !default;
 $notification-background-size: cover !default;
 $notification-background-position: bottom left !default;
 $notification__title-font-size: 2rem !default;
-
 .sf-notification {
     display: flex;
     flex-direction: column;
@@ -19,12 +17,12 @@ $notification__title-font-size: 2rem !default;
     min-height: 9rem;
     padding: $notification-mobile-padding;
     background-size: $notification-background-size;
-    background-position: $notification-background-position;       
-    
+    background-position: $notification-background-position;
     &__container {
+        position: relative;
         width: 100%;
-        background: rgba(0, 0, 0, 0.8); 
-        color: $c-white;       
+        background: rgba(0, 0, 0, 0.8);
+        color: $c-white;
         @media screen and (min-width: $desktop-min) {
             display: flex;
             flex-direction: row;
@@ -33,6 +31,7 @@ $notification__title-font-size: 2rem !default;
             padding-bottom: 0;
             border: 0;
             text-align: center;
+            box-shadow: 0px 8px 11px rgba(0, 0, 0, 0.1);
         }
     }
     &__heading {
@@ -60,7 +59,7 @@ $notification__title-font-size: 2rem !default;
     &__icon {
         display: none;
         @media (min-width: $desktop-min) {
-            display: flex;
+            display: block;
             height: 50%;
             width: auto;
             padding: $spacer;
@@ -75,9 +74,6 @@ $notification__title-font-size: 2rem !default;
             right: 10px;
             top: 10px;
         }
-    }
-    &--left {
-        text-align: left;
     }
     &--right {
         text-align: right;

@@ -1,14 +1,16 @@
-<div class="sf-notification sf-notification__container sf-notification--${type}">
-    <slot name="icon" v-bind="{ icon, sizeIcon, colorIcon, type }">
-        <SfIcon :icon="icon" :size="sizeIcon" :color="colorIcon" :class="`sf-notification__icon sf-notification--${type}`"></SfIcon>
-    </slot>
-    <header name="message" class="sf-notification__heading">
-        <component :is="`h${level}`" class="sf-notification__title">
-            <slot name="title" v-bind="{ title }">{{ title }}</slot>
-        </component>
-        <div v-if="hasSubtitle" class="sf-notification__subtitle">
-            <slot name="subtitle" v-bind="{ subtitle }">{{ subtitle }}</slot>
-        </div>
-    </header>   
-    <sf-icon class="sf-notification__close" icon="cross" color="white" size="14px"/> 
-</div>
+<transition :name="transitionNotification">
+    <div class="sf-notification sf-notification__container" :class="`sf-notification--${type}`">
+        <slot name="icon" v-bind="{ icon, sizeIcon, colorIcon, type }">
+            <SfIcon class="sf-notification__icon" :icon="icon" :size="sizeIcon" :color="colorIcon" :class="`sf-notification--${type}`"></SfIcon>
+        </slot>
+        <header name="message" class="sf-notification__heading">
+            <component :is="`h${level}`" class="sf-notification__title">
+                <slot name="title" v-bind="{ title }">{{ title }}</slot>
+            </component>
+            <div v-if="hasSubtitle" class="sf-notification__subtitle">
+                <slot name="subtitle" v-bind="{ subtitle }">{{ subtitle }}</slot>
+            </div>
+        </header>
+        <SfIcon class="sf-notification__close" icon="cross" color="white" size="14px" @click="close" />
+    </div>
+</transition>
