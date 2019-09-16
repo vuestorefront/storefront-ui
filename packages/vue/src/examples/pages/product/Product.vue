@@ -7,8 +7,9 @@
           <SfImage src="assets/storybook/productpage/productA.png" />
           <SfImage src="assets/storybook/productpage/productB.png" />
         </div>
-        <div class="mobile-only">
+        <div class="product-gallery-mobile mobile-only">
           <SfGallery
+            class="mobile-gallery"
             :images="[
               {
                 small: { url: 'assets/storybook/productpage/productM.png' },
@@ -527,6 +528,9 @@ export default {
     }
   }
 }
+.product-gallery-mobile {
+  height: 100%;
+}
 .product-details {
   @include for-desktop {
     margin-left: 5 * $spacer-big;
@@ -651,6 +655,28 @@ export default {
     display: none;
   }
 }
+/* TODO: Change it inside SfGallery*/
+.mobile-gallery {
+  height: 100%;
+  /deep/ .glide {
+    &,
+    * {
+      height: 100%;
+    }
+  }
+  /deep/ .glide__slide {
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  }
+  /deep/ .glide__slide > img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: calc((375 / 490) * (100vh - 177px));
+    width: 100%;
+  }
+}
 /* TODO: Add SfAction component */
 .sf-action {
   padding: 0;
@@ -668,6 +694,7 @@ export default {
     font-size: $font-size-regular-desktop;
   }
 }
+
 .banner-application {
   min-height: 420px;
   max-width: 1040px;
