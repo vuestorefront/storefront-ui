@@ -655,7 +655,7 @@ export default {
     display: none;
   }
 }
-/* TODO: Change it inside SfGallery*/
+/* TODO: Adjust SfGallery*/
 .mobile-gallery {
   height: 100%;
   /deep/ .glide {
@@ -674,7 +674,7 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     min-width: calc((375 / 490) * (100vh - 177px));
-    width: 100%;
+    width: 100vw;
   }
 }
 /* TODO: Add SfAction component */
