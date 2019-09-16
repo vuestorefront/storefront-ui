@@ -57,15 +57,7 @@ storiesOf("Molecules|Notification", module)
                 // },
                 icon: {
                     default: text("icon (prop)", "added_to_cart")
-                },
-                sizeIcon: {
-                    type: String,
-                    default: "lg"
-                },
-                colorIcon: {
-                    type: String,
-                    default: "white"
-                },
+                },                
                 type: {
                     default: select("type (prop)", [
                         "alert",
@@ -76,19 +68,20 @@ storiesOf("Molecules|Notification", module)
                 }
             },
             components: { SfNotification, SfIcon },
-            template: `<SfNotification
+            template: `
+            <transition :name="transitionNotification">
+                <SfNotification
                     class="sf-notification sf-notification__container" 
                     :visible="isNotificationOpen"
                     @close="isNotificationOpen = false"
-                    :title="title"
-                    // :level="level"
+                    :title="title"                    
                     :subtitle="subtitle"
                     :icon="icon"  
-                    :type="type"
-                    transitionNotification="fade"            
+                    :type="type"            
                 >
                     <SfIcon class="sf-notification__close" icon="cross" color="white" size="14px" @click="close" /> 
-                </SfNotification>`
+                </SfNotification>
+            </transition>`
         }), {
             info: {
                 summary: `<p>Component description.</p>
@@ -106,15 +99,15 @@ storiesOf("Molecules|Notification", module)
                 title: {
                     default: text("title (prop)", "Added to Cart")
                 },
-                // level: {
-                //     default: number("level (prop)", 2)
-                // }
+                level: {
+                    default: number("level (prop)", 2)
+                }
             },
             components: { SfNotification },
             template: `<SfNotification>
                 <header name="message" class="sf-notification__heading">
-                    <component 
-                    // :is="{level}"
+                    <component  
+                    :is="level"                   
                     class="sf-notification__title"> 
                         <slot 
                             name="title"
@@ -157,11 +150,39 @@ storiesOf("Molecules|Notification", module)
                 },
                 sizeIcon: {
                     type: String,
-                    default: "lg"
+                    default: select("icon size (prop)", [
+                        "xxs",
+                        "xs", 
+                        "sm", 
+                        "md", 
+                        "lg", 
+                        "xl", 
+                        "xxl", 
+                        "xl3", 
+                        "xl4", 
+                      ])
                 },
                 colorIcon: {
                     type: String,
-                    default: "white"
+                    default: select("icon color (prop)", [
+                        "primary", 
+                        "secondary", 
+                        "white", 
+                        "black", 
+                        "accent", 
+                        "green-primary", 
+                        "green-secondary", 
+                        "gray-primary",
+                        "gray-secondary", 
+                        "light-primary", 
+                        "light-secondary", 
+                        "pink-primary", 
+                        "pink-secondary", 
+                        "yellow-primary", 
+                        "yellow-secondary", 
+                        "blue-primary", 
+                        "blue-secondary", 
+                    ])
                 },
                 type: {
                     default: select("type (prop)", [

@@ -11,7 +11,11 @@ export default {
         // visibility of notification
         visible: {
             type: Boolean,
-            default: () => false
+            default: false
+        },
+        transition: {
+            type: String,
+            default: "fade"
         },
         // title of the message that will be showed as header 
         title: {
