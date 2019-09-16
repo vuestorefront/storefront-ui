@@ -40,7 +40,7 @@ const scssTableConfig = {
     ],
     [
       "$review__author-font-size",
-      "$font-size-extra-big-desktop",
+      "$font-size-regular-desktop",
       "font-size of author's name of the review"
     ],
     [

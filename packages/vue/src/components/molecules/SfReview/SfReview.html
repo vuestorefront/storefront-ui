@@ -3,19 +3,19 @@
     <slot name="author" v-bind="{author}">
         <div class="sf-review__author">{{ author }}</div>
     </slot>
-    <!-- @slot Review information. Slot content will replace default <div> tag and its inner <div> tags (bind 'finalRating' computed property- boolean|number, 'finalMaxRating' computed propery- number, 'date' string). -->
-    <slot name="info" v-bind="{finalRating, finalMaxRating, date}">
+    <!-- @slot Review information. Slot content will replace default <div> tag and its inner <div> tags (bind 'rating' boolean|number, 'maxRating' number, 'date' string). -->
+    <slot name="info" v-bind="{rating, maxRating, date}">
         <div class="sf-review__info">
-            <div v-bind:class="{ 'sf-review__rating': finalRating }">
+            <div v-bind:class="{ 'sf-review__rating': rating > 0 && maxRating > 0 }">
                 <SfRating
-                v-if="finalRating"
-                :max="finalMaxRating"
-                :score="finalRating"
+                v-if="rating"
+                :max="maxRating"
+                :score="rating"
                 />
             </div>
             <div 
               class="sf-review__date" 
-              v-bind:class="{ 'sf-review__display-inline-block': finalRating, 'sf-review__margin-left': finalRating }"
+              v-bind:class="[ rating > 0 && maxRating > 0 ? 'sf-review__display-inline-block sf-review__margin-left' : '']"
             >{{ date }}</div>
         </div>
     </slot>

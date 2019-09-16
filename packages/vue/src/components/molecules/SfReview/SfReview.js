@@ -82,24 +82,10 @@ export default {
     }
   },
   computed: {
-    finalRating() {
-      if (this.rating < 0) {
-        return false;
-      } else if (this.rating > this.maxRating && this.maxRating > 0) {
-        return this.maxRating;
-      } else if (this.maxRating <= 0) {
-        return false;
-      } else {
-        return this.rating;
-      }
-    },
     finalMessage() {
       return this.message.length > this.charLimit && this.showReadMore
         ? this.message.slice(0, this.charLimit) + "..."
         : this.message;
-    },
-    finalMaxRating() {
-      return this.maxRating <= 0 ? 1 : this.maxRating;
     }
   },
   created: function() {
