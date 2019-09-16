@@ -65,7 +65,7 @@ storiesOf("Atoms|CircleIcon", module)
               "color-warning",
               "color-danger",
               "color-info",
-              "color-success",
+              "color-success"
             ],
             "null"
           )
