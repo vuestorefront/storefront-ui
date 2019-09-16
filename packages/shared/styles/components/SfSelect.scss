@@ -1,8 +1,9 @@
 @import "../variables";
 
-$select-option-padding-y: 0.75rem !default;
-$select-option-padding-x: $spacer-big !default;
-$select-option-padding-x-desktop: 1.875rem !default;
+$select-option-padding-y: 1rem !default;
+$select-option-padding-x: 1.875rem !default;
+$select-option-padding-y-desktop: 0.75rem !default;
+$select-option-padding-x-desktop: 0 !default;
 $select-color: $c-text-primary !default;
 $select-color-primary: $c-light-primary !default;
 $select-color-active: $c-accent-primary !default;
@@ -32,7 +33,7 @@ $select__cancel-color: #a3a5ad !default;
   padding: $select-option-padding-y $select-option-padding-x;
   user-select: none;
   @media screen and (min-width: $desktop-min) {
-    padding: $select-option-padding-y 0;
+    padding: $select-option-padding-y-desktop $select-option-padding-x-desktop;
   }
   & + & {
     border-top: 1px solid $select-color-primary;
