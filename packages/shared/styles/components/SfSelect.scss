@@ -1,6 +1,6 @@
 @import "../variables";
 
-$select-option-padding-y: 1rem !default;
+$select-option-padding-y: 0.75rem !default;
 $select-option-padding-x: 1.875rem !default;
 $select-option-padding-y-desktop: 0.75rem !default;
 $select-option-padding-x-desktop: 0 !default;
@@ -9,9 +9,9 @@ $select-color-primary: $c-light-primary !default;
 $select-color-active: $c-accent-primary !default;
 $select-color-invalid: #d12727 !default;
 $select-font-family: $body-font-family-secondary !default;
-$select-font-size: $font-size-regular-mobile !default;
-$select-font-size-desktop: $font-size-regular-desktop !default;
-$select-font-weight: 500 !default;
+$select-font-size: $font-size-big-mobile !default;
+$select-font-size-desktop: $font-size-big-desktop !default;
+$select-font-weight: $body-font-weight-secondary !default;
 $select-line-height: 1.6 !default;
 $select__label-focus-font-size: $font-size-small-mobile !default;
 $select__label-focus-font-size-desktop: $font-size-extra-small-desktop !default;
@@ -51,9 +51,6 @@ $select__cancel-color: #a3a5ad !default;
   }
   @at-root .sf-select--bordered & {
     padding: $select-option-padding-y $select-option-padding-x;
-    @media screen and (min-width: $desktop-min){
-      padding: $select-option-padding-y $select-option-padding-x-desktop;
-    }
   }
 }
 .sf-select {
@@ -73,15 +70,13 @@ $select__cancel-color: #a3a5ad !default;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    display: flex;
-    align-items: center;
     transition: $select__label-transition;
     &::after {
       color: $select-color-active;
     }
   }
   &__selected {
-    min-height: #{$select-line-height}em;
+    min-height: 28px; // TODO: none-selected height
     padding: 5px 0;
     &:hover {
       background-color: transparent;
@@ -93,7 +88,7 @@ $select__cancel-color: #a3a5ad !default;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 2;
+    z-index: 3;
     box-sizing: border-box;
     background-color: #fff;
     @media screen and (min-width: $desktop-min) {
@@ -140,13 +135,13 @@ $select__cancel-color: #a3a5ad !default;
   }
 
   &--bordered {
-    margin-top: 0;
     #{$this}__selected {
       padding: $select-option-padding-y $select-option-padding-x;
       border: 1px solid $select-color-primary;
     }
     #{$this}__label {
-      left: calc(#{$select-option-padding-x});
+      left: calc(#{$select-option-padding-x} - 6px);
+      padding: 6px;
       transition: unset;
     }
     &#{$this}--is-active {
