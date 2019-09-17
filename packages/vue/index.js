@@ -32,7 +32,7 @@ import SfSection from "./src/components/molecules/SfSection/SfSection.vue";
 import SfSelect from "./src/components/molecules/SfSelect/SfSelect.vue";
 import SfSticky from "./src/components/molecules/SfSticky/SfSticky.vue";
 import SfImage from "./src/components/molecules/SfImage/SfImage.vue";
-import SfCard from "./src/components/molecules/SfCard/SfCard.vue";
+import SfMobileCard from "./src/components/molecules/SfMobileCard/SfMobileCard.vue";
 import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.vue";
 import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.vue";
 import SfList from "./src/components/organisms/SfList/SfList.vue";
@@ -90,5 +90,5 @@ export {
   SfBannerGrid,
   SfBottomNavigation,
   SfTabs,
-  SfCard
+  SfMobileCard
 };

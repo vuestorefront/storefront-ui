@@ -8,7 +8,7 @@ $card-margin-left-desktop: $spacer-big * 5!default;
   }
 }
 
-.sf-card {
+.sf-mobile-card {
   $this: &;
   @include for-desktop {
     display: flex;
