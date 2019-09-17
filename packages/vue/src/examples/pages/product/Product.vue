@@ -1,6 +1,6 @@
 <template>
   <div id="product">
-    <SfCard>
+    <SfMobileCard class="product">
       <template #top>
         <SfImage
           src="assets/storybook/productpage/productA.png"
@@ -11,7 +11,7 @@
           class="desktop-only"
         />
         <SfGallery
-          class="mobile-gallery mobile-only"
+          class="gallery-mobile mobile-only"
           :images="[
             {
               small: { url: 'assets/storybook/productpage/productM.png' },
@@ -25,7 +25,7 @@
         />
       </template>
       <template #bottom="{isActive}">
-        <SfSticky>
+        <SfSticky class="product-details">
           <div class="product-details__mobile-top">
             <div>
               <SfHeading
@@ -54,7 +54,7 @@
                 v-if="!isActive"
                 color="gray-secondary"
                 size="40px"
-                class="hand-icon"
+                class="icon-hand"
               >
                 <svg viewBox="0 0 40 40">
                   <path
@@ -67,13 +67,11 @@
               </SfIcon>
             </transition>
           </div>
-          <!-- short description -->
           <p class="product-details__description desktop-only">
             Find stunning women cocktail and party dresses. Stand out in lace
             and metallic cocktail dresses and party dresses from all your
             favorite brands.
           </p>
-          <!-- Action: Size guide -->
           <div class="product-details__action">
             <button class="sf-action">Size guide</button>
           </div>
@@ -180,7 +178,7 @@
           </SfTabs>
         </SfSticky>
       </template>
-    </SfCard>
+    </SfMobileCard>
     <SfSection titleHeading="Match it with" class="other-section">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
@@ -328,7 +326,7 @@ import {
   SfIcon,
   SfAlert,
   SfSticky,
-  SfCard
+  SfMobileCard
 } from "@storefront-ui/vue";
 
 export default {
@@ -432,8 +430,7 @@ export default {
           isOnWishlist: false
         }
       ],
-      detailsIsActive: false,
-      images: [{}, {}, {}]
+      detailsIsActive: false
     };
   },
   components: {
@@ -456,24 +453,11 @@ export default {
     SfCircleIcon,
     SfIcon,
     SfSticky,
-    SfCard
+    SfMobileCard
   },
   methods: {
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
-    },
-    toggleMobileCard(event) {
-      const { target } = event;
-      const mobileCross = this.$refs.mobileCross.$el;
-      const offsetTop = window.pageYOffset;
-      if (
-        mobileCross.contains(target) ||
-        (!mobileCross.contains(target) &&
-          !this.detailsIsActive &&
-          offsetTop <= 10)
-      ) {
-        this.detailsIsActive = !this.detailsIsActive;
-      }
     }
   }
 };
@@ -499,42 +483,7 @@ export default {
     padding: 0;
   }
 }
-.product {
-  @include for-desktop {
-    display: flex;
-  }
-}
-
-.product-gallery,
 .product-details {
-  @include for-desktop {
-    flex: 1;
-  }
-}
-
-.product-gallery {
-  overflow: hidden;
-  height: calc(100vh - 177px);
-  margin: 0 -#{$spacer-big};
-  transition: height 150ms ease-in-out;
-  background-color: #f1f2f4;
-  @include for-desktop {
-    height: auto;
-  }
-  .product--is-active & {
-    height: 0 !important;
-    @include for-desktop {
-      height: auto !important;
-    }
-  }
-}
-.product-gallery-mobile {
-  height: 100%;
-}
-.product-details {
-  @include for-desktop {
-    margin-left: 5 * $spacer-big;
-  }
   &__action {
     display: flex;
     margin: $spacer-big 0 ($spacer-big / 2);
@@ -646,55 +595,60 @@ export default {
 .product-property {
   padding: $spacer-small 0;
 }
-.bottom-navigation-circle {
-  opacity: 1;
-}
-.hand-icon {
-  margin-left: auto;
-  @include for-desktop {
-    display: none;
-  }
-}
-/* TODO: Adjust SfGallery*/
-.mobile-gallery {
+.gallery-mobile {
   height: calc(100vh - 177px);
   /deep/ .glide {
     &,
     * {
       height: 100%;
     }
-  }
-  /deep/ .glide__slide {
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
-  }
-  /deep/ .glide__slide > img {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: calc((375 / 490) * (100vh - 177px));
-    width: 100vw;
+    &__slide {
+      position: relative;
+      overflow: hidden;
+      & > img {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: calc(
+          (375 / 490) * (100vh - 177px)
+        ); // (oldWidth / oldHeight) * newHeight = newWidth
+      }
+    }
   }
 }
-/* TODO: Add SfAction component */
-.sf-action {
-  padding: 0;
-  border: 0;
-  outline: none;
-  background-color: transparent;
-  color: $c-text-primary;
-  font-family: $body-font-family-secondary;
-  font-size: $font-size-regular-mobile;
-  font-width: $body-font-weight-secondary;
-  line-height: 1.6;
-  text-decoration: underline;
-  cursor: pointer;
+.icon-hand {
+  margin-left: auto;
   @include for-desktop {
-    font-size: $font-size-regular-desktop;
+    display: none;
   }
 }
 
+/* we have PR to fix bullets position */
+.sf-gallery {
+  $this: &;
+  /deep/ {
+    ul {
+      margin: 0;
+    }
+    #{$this}__thumbs {
+      left: 50%;
+      transform: translateX(-50%);
+      top: auto;
+      bottom: 10px;
+      display: flex;
+    }
+    #{$this}__item {
+      &:not(:first-child) {
+        margin: 0 0 0 $spacer;
+      }
+    }
+  }
+}
+/* same on the home, category */
+.bottom-navigation-circle {
+  opacity: 1;
+}
+/* same on the home */
 .banner-application {
   min-height: 420px;
   max-width: 1040px;
@@ -722,7 +676,7 @@ export default {
   }
 }
 .product-card {
-  max-width: unset;
+  max-width: unset; // ?
   &:hover {
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
   }
@@ -760,23 +714,21 @@ export default {
     }
   }
 }
-
-/* #302 fixed it */
-.sf-gallery {
-  /deep/ ul {
-    margin: 0;
-  }
-  /deep/ &__thumbs {
-    left: 50%;
-    transform: translateX(-50%);
-    top: auto;
-    bottom: 10px;
-    display: flex;
-  }
-  /deep/ &__item {
-    &:not(:first-child) {
-      margin: 0 0 0 $spacer;
-    }
+/* TODO: Add SfAction component or add SfButton modifier */
+.sf-action {
+  padding: 0;
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  color: $c-text-primary;
+  font-family: $body-font-family-secondary;
+  font-size: $font-size-regular-mobile;
+  font-width: $body-font-weight-secondary;
+  line-height: 1.6;
+  text-decoration: underline;
+  cursor: pointer;
+  @include for-desktop {
+    font-size: $font-size-regular-desktop;
   }
 }
 </style>
