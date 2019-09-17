@@ -17,7 +17,7 @@ export default {
     /**
      * Tab header.
      */
-    header: {
+    title: {
       type: String,
       default: "MenuItem"
     }
