@@ -21,7 +21,7 @@ export default {
     /** One of predefined SfIcon sizes.  */
     sizeIcon: {
       type: String,
-      default: "xs"
+      default: "24px"
     },
     /** Svg file iconPath  */
     icon: {

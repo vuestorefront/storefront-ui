@@ -1,3 +1,4 @@
+import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 export default {
   name: "SfAccordionItem",
   data() {
@@ -18,6 +19,9 @@ export default {
       type: Array,
       default: () => []
     }
+  },
+  components: {
+    SfChevron
   },
   mounted() {
     this.$parent.$emit("accordion-item-ready");

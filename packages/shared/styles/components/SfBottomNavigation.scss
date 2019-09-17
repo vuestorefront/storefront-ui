@@ -2,18 +2,18 @@
 
 
 .sf-bottom-navigation {
-  z-index: 2;
-  display: flex;
-  height: 60px;
-  background: white;
-  width: 100%;
-  padding: 0 1rem;
   position: fixed;
   bottom: 0;
   left: 0;
-  box-shadow: 0px -2px 10px rgba(154, 154, 154, 0.15);
+  z-index: 1;
+  display: flex;
   justify-content: space-around;
-  align-items: baseline;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  padding: 0 1rem;
+  background: white;
+  box-shadow: 0px -2px 10px rgba(154, 154, 154, 0.15);
   &__item {
     opacity: 0.7;
     &--active {

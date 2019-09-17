@@ -1,21 +1,19 @@
 @import '../variables';
 
-$section-margin-y: $spacer-extra-big * 3 !default;
-$section-margin-y--mobile: $spacer-extra-big !default;
-$section__content-margin-top: $spacer-extra-big * 1.5 !default;
-$section__content-margin-top--mobile: $spacer-big !default;
+$section-margin-y: $spacer-big * 3 !default;
+$section-margin-y-desktop: 10rem !default;
+$section__content-margin-top: $spacer-big !default;
+$section__content-margin-top-desktop: $spacer-extra-big * 1.5 !default;
 
 .sf-section {
-  margin: $section-margin-y--mobile 0;
-
+  margin: $section-margin-y 0;
   @media screen and (min-width: $desktop-min) {
-    margin: $section-margin-y 0;
+    margin: $section-margin-y-desktop 0;
   }
   &__content {
-    margin-top: $section__content-margin-top--mobile;
-
+    margin-top: $section__content-margin-top;
     @media screen and (min-width: $desktop-min) {
-      margin-top: $section__content-margin-top;
+      margin-top: $section__content-margin-top-desktop;
     }
   }
 }

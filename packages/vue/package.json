@@ -69,6 +69,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.3",
     "html-loader": "^0.5.5",
+    "jest": "^24.9.0",
     "lint-staged": "^8.2.1",
     "markdown-loader": "^5.0.0",
     "node-sass": "^4.12.0",
