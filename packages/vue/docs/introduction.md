@@ -89,5 +89,5 @@ If you'd like to support us and join the team please write to me:
 ## Useful links
 
 - [StorefrontUI Github](https://github.com/Divanteltd/storefront-ui)
-- [Contribution guide](contributing/getting-started.md)
+- [Contribution guide](contributing/become-a-contributor.md)
 - [Storybook docs](https://storybook.js.org/docs/basics/introduction/)

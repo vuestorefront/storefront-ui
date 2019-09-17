@@ -67,44 +67,46 @@ export default {
     }
   },
   mounted: function() {
-    const glide = new Glide(this.$refs.glide, this.mergedOptions);
-    glide.mount();
+    this.$nextTick(() => {
+      const glide = new Glide(this.$refs.glide, this.mergedOptions);
+      glide.mount();
+      glide.on("run.before", move => {
+        const { slidePerPage, rewind, type } = this.mergedOptions;
 
-    glide.on("run.before", move => {
-      const { slidePerPage, rewind, type } = this.mergedOptions;
+        if (!slidePerPage) return;
 
-      if (!slidePerPage) return;
+        const { perView } = glide.settings;
+        if (!perView > 1) return;
 
-      const { perView } = glide.settings;
-      if (!perView > 1) return;
+        const size = this.$slots.default.filter(slot => slot.tag).length;
+        const { direction } = move;
+        let page, newIndex;
 
-      const size = this.$slots.default.filter(slot => slot.tag).length;
-      const { direction } = move;
-      let page, newIndex;
-
-      switch (direction) {
-        case ">":
-        case "<":
-          page = Math.ceil(glide.index / perView);
-          newIndex = page * perView + (direction === ">" ? perView : -perView);
-          if (newIndex >= size) {
-            if (type === "slider" && !rewind) {
-              newIndex = glide.index;
-            } else {
-              newIndex = 0;
+        switch (direction) {
+          case ">":
+          case "<":
+            page = Math.ceil(glide.index / perView);
+            newIndex =
+              page * perView + (direction === ">" ? perView : -perView);
+            if (newIndex >= size) {
+              if (type === "slider" && !rewind) {
+                newIndex = glide.index;
+              } else {
+                newIndex = 0;
+              }
+            } else if (newIndex < 0 || newIndex + perView > size) {
+              if (type === "slider" && !rewind) {
+                newIndex = glide.index;
+              } else {
+                newIndex = size - perView;
+              }
             }
-          } else if (newIndex < 0 || newIndex + perView > size) {
-            if (type === "slider" && !rewind) {
-              newIndex = glide.index;
-            } else {
-              newIndex = size - perView;
-            }
-          }
 
-          move.direction = "=";
-          move.steps = newIndex;
-      }
+            move.direction = "=";
+            move.steps = newIndex;
+        }
+      });
+      this.glide = glide;
     });
-    this.glide = glide;
   }
 };
