@@ -12,7 +12,7 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <SfBannerGrid :bannerGrid="1" class="banners">
+    <SfBannerGrid :banner-grid="1" class="banners">
       <template #bannerA>
         <a href="#">
           <SfBanner
@@ -65,7 +65,7 @@
       class="call-to-action-newsletter"
       image="assets/storybook/homepage/newsletter.png"
     />
-    <SfSection titleHeading="Best Sellers">
+    <SfSection title-heading="Best Sellers">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -74,14 +74,14 @@
             :regular-price="product.price.regular"
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
-            :isOnWishlist="product.isOnWishlist"
+            :is-on-wishlist="product.isOnWishlist"
             @click:wishlist="toggleWishlist(i)"
             class="product-card"
           />
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
+    <SfSection title-heading="Share Your Look" subtitle-heading="#YOURLOOK">
       <div class="grid grid-images">
         <div class="grid__row">
           <div class="grid__col">

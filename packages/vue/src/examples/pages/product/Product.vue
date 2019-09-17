@@ -1,7 +1,7 @@
 <template>
   <div id="product">
-    <SfMobileCard class="product">
-      <template #top>
+    <SfSlidingSection class="product">
+      <template #static>
         <SfImage
           src="assets/storybook/productpage/productA.png"
           class="desktop-only"
@@ -24,7 +24,7 @@
           ]"
         />
       </template>
-      <template #bottom="{isActive}">
+      <template #sliding="{isActive}">
         <SfSticky class="product-details">
           <div class="product-details__mobile-top">
             <div>
@@ -85,8 +85,9 @@
                 v-for="size in sizes"
                 :key="size.value"
                 :value="size.value"
-                >{{ size.label }}</SfSelectOption
               >
+                <SfProductOption :label="size.label" />
+              </SfSelectOption>
             </SfSelect>
             <SfSelect
               v-model="color"
@@ -178,8 +179,8 @@
           </SfTabs>
         </SfSticky>
       </template>
-    </SfMobileCard>
-    <SfSection titleHeading="Match it with" class="other-section">
+    </SfSlidingSection>
+    <SfSection title-heading="Match it with" class="other-section">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -188,14 +189,14 @@
             :regular-price="product.price.regular"
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
-            :isOnWishlist="product.isOnWishlist"
+            :is-on-wishlist="product.isOnWishlist"
             @click:wishlist="toggleWishlist(i)"
             class="product-card"
           />
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection titleHeading="You might also like">
+    <SfSection title-heading="You might also like">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -204,14 +205,14 @@
             :regular-price="product.price.regular"
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
-            :isOnWishlist="product.isOnWishlist"
+            :is-on-wishlist="product.isOnWishlist"
             @click:wishlist="toggleWishlist(i)"
             class="product-card"
           />
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
+    <SfSection title-heading="Share Your Look" subtitle-heading="#YOURLOOK">
       <div class="grid">
         <div class="grid__row">
           <div class="grid__col">
@@ -326,7 +327,7 @@ import {
   SfIcon,
   SfAlert,
   SfSticky,
-  SfMobileCard
+  SfSlidingSection
 } from "@storefront-ui/vue";
 
 export default {
@@ -453,7 +454,7 @@ export default {
     SfCircleIcon,
     SfIcon,
     SfSticky,
-    SfMobileCard
+    SfSlidingSection
   },
   methods: {
     toggleWishlist(index) {
