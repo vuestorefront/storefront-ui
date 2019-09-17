@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
-import SfMobileCard from "./SfMobileCard.vue";
+import SfSlidingSection from "./SfSlidingSection.vue";
 
 // use this to document scss vars
 const scssTableConfig = {
@@ -35,9 +35,9 @@ storiesOf("Molecules|Card", module)
           )
         }
       },
-      components: { SfMobileCard },
+      components: { SfSlidingSection },
       template: `<div style="max-width: 1240px; margin: auto;">
-        <SfMobileCard>
+        <SfSlidingSection>
           <template #top>
               <div style="background-color: #5ECE7B; height: 150px"></div>
           </template>
@@ -46,14 +46,14 @@ storiesOf("Molecules|Card", module)
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac nisl id felis consectetur accumsan. In porttitor consequat sollicitudin. Praesent condimentum augue sem, id eleifend elit efficitur sed. Nam fringilla quis felis sit amet rutrum. Vivamus consequat eros lacus, quis mattis felis posuere nec. In pellentesque velit justo, vel ultrices diam laoreet eget. Donec vel efficitur velit, ut feugiat magna. In et lectus vitae odio semper aliquam non at nunc. Sed semper pellentesque auctor. Phasellus augue purus, pretium id pretium eu, ullamcorper nec magna.
             </div>
           </template>
-        </SfMobileCard>
+        </SfSlidingSection>
       </div>`
     }),
     {
       info: {
         summary: `<p>Component description.</p>
        <h2>Usage</h2>
-       <pre><code>import { SfMobileCard } from "@storefront-ui/vue"</code></pre>
+       <pre><code>import { SfSlidingSection } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        ${generateStorybookTable(eventsTableConfig, "Events")}`
       }
