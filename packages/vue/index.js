@@ -25,7 +25,6 @@ import SfGallery from "./src/components/molecules/SfGallery/SfGallery.vue";
 import SfMenuItem from "./src/components/molecules/SfMenuItem/SfMenuItem.vue";
 import SfOptions from "./src/components/molecules/SfOptions/SfOptions.vue";
 import SfPagination from "./src/components/molecules/SfPagination/SfPagination.vue";
-import SfProductCard from "./src/components/molecules/SfProductCard/SfProductCard.vue";
 import SfProductOption from "./src/components/molecules/SfProductOption/SfProductOption.vue";
 import SfRadio from "./src/components/molecules/SfRadio/SfRadio.vue";
 import SfSection from "./src/components/molecules/SfSection/SfSection.vue";
@@ -37,6 +36,7 @@ import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.vue"
 import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.vue";
 import SfList from "./src/components/organisms/SfList/SfList.vue";
 import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.vue";
+import SfProductCard from "./src/components/organisms/SfProductCard/SfProductCard.vue";
 import SfSidebar from "./src/components/organisms/SfSidebar/SfSidebar.vue";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.vue";
 import SfHero from "./src/components/organisms/SfHero/SfHero.vue";
