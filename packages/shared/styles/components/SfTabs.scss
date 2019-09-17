@@ -11,6 +11,7 @@ $tabs__title-color: $c-gray-secondary !default;
 $tabs__title-color--active: $c-dark-primary !default;
 $tabs__title-color--hover: $c-dark-primary !default;
 $tabs__title-font-size: $font-size-big-mobile !default;
+$tabs__title-font-size-desktop: $font-size-big-desktop !default;
 $tabs__content-padding-y: 3 * $spacer-big !default;
 
 @mixin for-desktop{
@@ -49,7 +50,7 @@ $tabs__content-padding-y: 3 * $spacer-big !default;
       border-width: 2px;
       border-color: transparent;
       color: $c-gray-secondary;
-      font-size: inherit;
+      font-size: $tabs__title-font-size-desktop;
     }
     &--active{
       border-color: transparent;

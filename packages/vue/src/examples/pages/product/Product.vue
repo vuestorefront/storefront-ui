@@ -123,7 +123,7 @@
             </div>
           </div>
           <SfTabs class="product-details__tabs" :openTab="1">
-            <SfTab header="Description">
+            <SfTab title="Description">
               <div>
                 <p>
                   The Karissa V-Neck Tee features a semi-fitted shape that's
@@ -143,7 +143,7 @@
                 />
               </div>
             </SfTab>
-            <SfTab header="Read reviews">
+            <SfTab title="Read reviews">
               <div>
                 <SfHeading
                   title="Mari"
@@ -163,7 +163,7 @@
                 </p>
               </div>
             </SfTab>
-            <SfTab header="Additional Information">
+            <SfTab title="Additional Information">
               <SfHeading
                 title="Brand"
                 :level="3"
@@ -507,8 +507,11 @@ export default {
   &__description {
     margin: $spacer-extra-big 0 ($spacer-big * 3) 0;
     font-family: $body-font-family-secondary;
-    font-size: $font-size-regular-desktop;
+    font-size: $font-size-regular-mobile;
     line-height: 1.6;
+    @include for-desktop {
+      font-size: $font-size-regular-desktop;
+    }
   }
   &__divider {
     margin-top: 30px;
