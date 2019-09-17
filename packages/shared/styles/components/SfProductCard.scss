@@ -41,20 +41,16 @@ $product-card__image-blend-mode: darken !default;
     align-items: center;
     align-content: center;
     background-color: $product-card__image-background-color;
+    margin: $spacer 0;
     img {
       max-width: 100%;
       mix-blend-mode: $product-card__image-blend-mode;
       background-color: $c-light-primary;
     }
   }
-  &__cart-btton{}
-  &__price{
-    margin: $spacer-small 0;
-  }
   &__reviews{
     display: flex;
     align-items: center;
-    margin-top: $spacer-small;
   }
   &__rating {
     display: inline-flex;
