@@ -60,7 +60,12 @@ storiesOf("Atoms|CircleIcon", module)
               "null",
               "sf-circle-icon--small",
               "sf-circle-icon--big",
-              "sf-circle-icon--secondary"
+              "color-primary",
+              "color-secondary",
+              "color-warning",
+              "color-danger",
+              "color-info",
+              "color-success"
             ],
             "null"
           )
