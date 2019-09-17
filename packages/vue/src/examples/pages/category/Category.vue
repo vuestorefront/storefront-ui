@@ -454,12 +454,13 @@ export default {
 
 #category {
   box-sizing: border-box;
-  max-width: 1240px;
-  margin: auto;
-  /*padding: 0 $spacer-big;
+  margin: 0 0 60px 0;
+  padding: 0 $spacer-big;
   @media screen and (min-width: $desktop-min) {
+    max-width: 1240px;
+    margin: auto;
     padding: 0;
-  }*/
+  }
 }
 .navbar {
   display: flex;

@@ -293,11 +293,12 @@ export default {
 @import "../../../css/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
 #home {
-  max-width: 1240px;
-  margin: auto;
   box-sizing: border-box;
+  margin: 0 0 60px 0;
   padding: 0 $spacer-big;
   @media screen and (min-width: $desktop-min) {
+    max-width: 1240px;
+    margin: auto;
     padding: 0;
   }
 }
