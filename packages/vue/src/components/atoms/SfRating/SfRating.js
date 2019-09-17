@@ -18,7 +18,9 @@ export default {
   },
   computed: {
     finalScore() {
-      if (this.score < 0) {
+      if (!this.score) {
+        return 0;
+      } else if (this.score < 0) {
         return 0;
       } else if (this.score > this.max && this.max > 0) {
         return this.max;
@@ -29,7 +31,7 @@ export default {
       }
     },
     finalMax() {
-      return this.max <= 0 ? 1 : this.max;
+      return !this.max || this.max <= 0 ? 1 : this.max;
     }
   }
 };
