@@ -37,7 +37,7 @@ const scssTableConfig = {
   ]
 };
 
-storiesOf("Molecules|ProductCard", module)
+storiesOf("Organisms|ProductCard", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",

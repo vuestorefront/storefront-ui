@@ -2,15 +2,12 @@
   <button
     v-if="wishlistIcon !== false"
     :aria-label="ariaLabel"
-    @click="toggleOnWishlist"
-    :class="wishlistIconClasses">
+    @click="toggleIsOnWishlist"
+    :class="wishlistIconClasses"
+  >
     <!-- @slot -->
     <slot name="wishlist-icon" v-bind="{currentWishlistIcon}">
-      <SfIcon
-        :icon="currentWishlistIcon"
-        color="black"
-        size="22px"
-        data-test="sf-wishlist-icon"/>
+      <SfIcon :icon="currentWishlistIcon" color="black" size="22px" />
     </slot>
   </button>
   <!-- @slot -->
@@ -31,7 +28,8 @@
       class="sf-product-card__price"
       v-if="regularPrice"
       :regular="regularPrice"
-      :special="specialPrice"/>
+      :special="specialPrice"
+    />
   </slot>
   <!-- @slot -->
   <slot name="reviews" v-bind="{ maxRating, scoreRating }">
