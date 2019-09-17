@@ -475,9 +475,6 @@ export default {
         this.detailsIsActive = !this.detailsIsActive;
       }
     }
-  },
-  mounted() {
-    document.body.style.setProperty("margin", "0");
   }
 };
 </script>

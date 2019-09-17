@@ -10,6 +10,9 @@ storiesOf("Examples|Pages|Product", module)
     "Product",
     () => ({
       components: { Product },
+      mounted() {
+        document.body.style.setProperty("margin", "0");
+      },
       template: `
       <Product/>
     `

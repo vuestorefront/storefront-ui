@@ -286,9 +286,6 @@ export default {
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
     }
-  },
-  mounted() {
-    document.body.style.setProperty("margin", "0");
   }
 };
 </script>
