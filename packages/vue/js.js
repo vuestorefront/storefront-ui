@@ -37,6 +37,7 @@ import SfReview from "./src/components/molecules/SfReview/SfReview.js";
 import SfSearchBar from "./src/components/molecules/SfSearchBar/SfSearchBar.js";
 import SfSection from "./src/components/molecules/SfSection/SfSection.js";
 import SfSelect from "./src/components/molecules/SfSelect/SfSelect.js";
+import SfSlidingSection from "./src/components/molecules/SfSlidingSection/SfSlidingSection.js";
 import SfSticky from "./src/components/molecules/SfSticky/SfSticky.js";
 
 import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.js";
@@ -89,6 +90,7 @@ export {
   SfSearchBar,
   SfSection,
   SfSelect,
+  SfSlidingSection,
   SfSticky,
   SfAccordion,
   SfBannerGrid,
@@ -103,4 +105,3 @@ export {
   SfTabs,
   SfTopBar
 };
-

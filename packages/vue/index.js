@@ -36,6 +36,7 @@ import SfReview from "./src/components/molecules/SfReview/SfReview.vue";
 import SfSearchBar from "./src/components/molecules/SfSearchBar/SfSearchBar.vue";
 import SfSection from "./src/components/molecules/SfSection/SfSection.vue";
 import SfSelect from "./src/components/molecules/SfSelect/SfSelect.vue";
+import SfSlidingSection from "./src/components/molecules/SfSlidingSection/SfSlidingSection.vue";
 import SfSticky from "./src/components/molecules/SfSticky/SfSticky.vue";
 
 import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.vue";
@@ -88,6 +89,7 @@ export {
   SfSearchBar,
   SfSection,
   SfSelect,
+  SfSlidingSection,
   SfSticky,
   SfAccordion,
   SfBannerGrid,

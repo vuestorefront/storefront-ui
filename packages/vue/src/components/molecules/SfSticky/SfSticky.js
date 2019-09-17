@@ -19,9 +19,10 @@ export default {
     };
   },
   computed: {
-    isSupportedSticky() {
-      const computed = window.getComputedStyle(this.$el);
-      return computed.position === "sticky";
+    isIE() {
+      if (typeof window === "undefined") return;
+      const ua = window.navigator.userAgent;
+      return ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/ ") > -1;
     },
     maxWidth() {
       return this.width - (this.padding.right + this.padding.left);
@@ -109,8 +110,8 @@ export default {
     }
   },
   mounted: function() {
+    if (!this.isIE) return;
     const computed = window.getComputedStyle(this.$el);
-    if (this.isSupportedSticky) return;
     this.$el.parentElement.style.position = "relative";
     this.padding = this.computedPadding();
     this.parentTop = this.$el.parentElement.offsetTop;
