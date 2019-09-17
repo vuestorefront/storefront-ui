@@ -15,7 +15,7 @@ export default {
   },
   props: {
     /**
-     * Tab header.
+     * Tab title.
      */
     title: {
       type: String,
