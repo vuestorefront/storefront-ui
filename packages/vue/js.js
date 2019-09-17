@@ -19,7 +19,6 @@ import SfGallery from "./src/components/molecules/SfGallery/SfGallery.js";
 import SfMenuItem from "./src/components/molecules/SfMenuItem/SfMenuItem.js";
 import SfOptions from "./src/components/molecules/SfOptions/SfOptions.js";
 import SfPagination from "./src/components/molecules/SfPagination/SfPagination.js";
-import SfProductCard from "./src/components/molecules/SfProductCard/SfProductCard.js";
 import SfProductOption from "./src/components/molecules/SfProductOption/SfProductOption.js";
 import SfRadio from "./src/components/molecules/SfRadio/SfRadio.js";
 import SfSelect from "./src/components/molecules/SfSelect/SfSelect.js";
@@ -29,6 +28,7 @@ import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.js";
 import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.js";
 import SfList from "./src/components/organisms/SfList/SfList.js";
 import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.js";
+import SfProductCard from "./src/components/organisms/SfProductCard/SfProductCard.js";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.js";
 import SfStoreLocator from "./src/components/organisms/SfStoreLocator/SfStoreLocator.js";
 

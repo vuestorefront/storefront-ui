@@ -70,7 +70,7 @@ export default {
      * Status of whether product is on wish list or not
      */
     isOnWishlist: {
-      type: [Boolean],
+      type: Boolean,
       default: false
     }
   },
@@ -95,7 +95,7 @@ export default {
     }
   },
   methods: {
-    toggleOnWishlist() {
+    toggleIsOnWishlist() {
       this.$emit("click:wishlist", !this.isOnWishlist);
     }
   }
