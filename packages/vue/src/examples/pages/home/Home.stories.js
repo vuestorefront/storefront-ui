@@ -10,6 +10,9 @@ storiesOf("Examples|Pages|Home", module)
     "Home",
     () => ({
       components: { Home },
+      mounted() {
+        document.body.style.setProperty("margin", "0");
+      },
       template: `
       <Home/>
     `

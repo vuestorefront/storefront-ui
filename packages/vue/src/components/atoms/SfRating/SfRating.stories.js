@@ -36,7 +36,7 @@ storiesOf("Atoms|Rating", module)
       components: { SfRating },
       template: `<SfRating 
         :score="rating" 
-        :max="max" s/>`
+        :max="max" />`
     }),
     {
       info: {
