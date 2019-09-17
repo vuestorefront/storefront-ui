@@ -1,13 +1,9 @@
 @import '../variables';
 $notification__message-padding-left: 0.625rem !default;
-$notification--info-color: $c-dark-primary !default;
 $notification--warning-color: #d12727 !default;
 $notification--alert-color: #0468db !default;
-$notification--success-color: #128830 !default;
-$notification-mobile-padding: $spacer-big !default;
-$notification-background-size: cover !default;
-$notification-background-position: bottom left !default;
-$notification__title-font-size: 2rem !default;
+$notification-padding: $spacer-big !default;
+$notification__title-font-size: $h2-font-size-desktop !default;
 .sf-notification {
     display: flex;
     flex-direction: column;
@@ -15,9 +11,7 @@ $notification__title-font-size: 2rem !default;
     box-sizing: border-box;
     border-radius: 15px;
     min-height: 9rem;
-    padding: $notification-mobile-padding;
-    background-size: $notification-background-size;
-    background-position: $notification-background-position;
+    padding: $notification-padding;
     &__container {
         position: relative;
         width: 100%;
@@ -34,12 +28,12 @@ $notification__title-font-size: 2rem !default;
             box-shadow: 0px 8px 11px rgba(0, 0, 0, 0.1);
         }
     }
-    &__heading {
+    &__content {
         text-align: left;
         font-family: $body-font-family-primary;
         font-style: normal;
         font-weight: 300;
-        font-size: 16px;
+        font-size: $notification__title-font-size;
         line-height: 24px;
         letter-spacing: 0.02em;
         @media (min-width: $desktop-min) {
@@ -51,7 +45,7 @@ $notification__title-font-size: 2rem !default;
         line-height: 1.38;
         padding: 0;
     }
-    &__subtitle {
+    &__message {
         margin-top: 5px;
         line-height: 1.64;
         font-weight: 300;
@@ -79,7 +73,7 @@ $notification__title-font-size: 2rem !default;
         text-align: right;
     }
     &--info {
-        background-color: $notification--info-color;
+        background-color: $c-secondary;
     }
     &--alert {
         background-color: $notification--alert-color;
@@ -88,6 +82,6 @@ $notification__title-font-size: 2rem !default;
         background-color: $notification--warning-color;
     }
     &--success {
-        background-color: $notification--success-color;
+        background-color: $c-success;
     }
 }

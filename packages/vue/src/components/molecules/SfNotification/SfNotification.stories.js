@@ -28,9 +28,9 @@ const cssTableConfig = {
     tableHeadConfig: ["NAME", "DESCRIPTION"],
     tableBodyConfig: [
         [".sf-notification--right", "aligns content to the right"],
-        [".sf-notification--info", "to set blue color for notification message"],
-        [".sf-notification--alert", "to set red color for notification message"],
-        [".sf-notification--warning", "to set default color for notification message"],
+        [".sf-notification--info", "to set black color for notification message"],
+        [".sf-notification--alert", "to set blue color for notification message"],
+        [".sf-notification--warning", "to set red color for notification message"],
         [".sf-notification--success", "to set green color for notification message"]
     ]
 };
@@ -49,15 +49,15 @@ storiesOf("Molecules|Notification", module)
                 title: {
                     default: text("title (prop)", "Added to Cart")
                 },
-                subtitle: {
-                    default: text("subtitle (prop)", "This is informative message for the user. View cart")
+                message: {
+                    default: text("message (prop)", "This is informative message for the user. View cart")
                 },
                 // level: {
                 //     default: number("level (prop)", 2)
                 // },
                 icon: {
                     default: text("icon (prop)", "added_to_cart")
-                },                
+                },
                 type: {
                     default: select("type (prop)", [
                         "alert",
@@ -75,7 +75,7 @@ storiesOf("Molecules|Notification", module)
                     :visible="isNotificationOpen"
                     @close="isNotificationOpen = false"
                     :title="title"                    
-                    :subtitle="subtitle"
+                    :massage="massage"
                     :icon="icon"  
                     :type="type"            
                 >
@@ -105,7 +105,7 @@ storiesOf("Molecules|Notification", module)
             },
             components: { SfNotification },
             template: `<SfNotification>
-                <header name="message" class="sf-notification__heading">
+                <div name="content" class="sf-notification__content">
                     <component  
                     :is="level"                   
                     class="sf-notification__title"> 
@@ -115,27 +115,27 @@ storiesOf("Molecules|Notification", module)
                             {{ title }} 
                         </slot> 
                     </component> 
-                </header>    
+                </div>    
             </SfNotification>`
         }), {
             info: true
         }
     )
     .add(
-        "[slot] subtitle",
+        "[slot] massage",
         () => ({
             props: {
-                subtitle: {
-                    default: text("subtitle (prop)", "This is informative message for the user. View cart")
+                massage: {
+                    default: text("massage (prop)", "This is informative message for the user. View cart")
                 }
             },
             components: { SfNotification },
             template: `<SfNotification>
-              <header name="message" class="sf-notification__heading">          
-                <div class="sf-notification__subtitle">
-                    <slot name="subtitle" v-bind="{ subtitle }">{{ subtitle }}</slot>
+              <div name="content" class="sf-notification__content">          
+                <div class="sf-notification__massage">
+                    <slot name="massage" v-bind="{ massage }">{{ massage }}</slot>
                 </div>
-              </header>   
+              </div>   
             </SfNotification>`
         }), {
             info: true
@@ -152,36 +152,36 @@ storiesOf("Molecules|Notification", module)
                     type: String,
                     default: select("icon size (prop)", [
                         "xxs",
-                        "xs", 
-                        "sm", 
-                        "md", 
-                        "lg", 
-                        "xl", 
-                        "xxl", 
-                        "xl3", 
-                        "xl4", 
-                      ])
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                        "xxl",
+                        "xl3",
+                        "xl4",
+                    ])
                 },
                 colorIcon: {
                     type: String,
                     default: select("icon color (prop)", [
-                        "primary", 
-                        "secondary", 
-                        "white", 
-                        "black", 
-                        "accent", 
-                        "green-primary", 
-                        "green-secondary", 
+                        "primary",
+                        "secondary",
+                        "white",
+                        "black",
+                        "accent",
+                        "green-primary",
+                        "green-secondary",
                         "gray-primary",
-                        "gray-secondary", 
-                        "light-primary", 
-                        "light-secondary", 
-                        "pink-primary", 
-                        "pink-secondary", 
-                        "yellow-primary", 
-                        "yellow-secondary", 
-                        "blue-primary", 
-                        "blue-secondary", 
+                        "gray-secondary",
+                        "light-primary",
+                        "light-secondary",
+                        "pink-primary",
+                        "pink-secondary",
+                        "yellow-primary",
+                        "yellow-secondary",
+                        "blue-primary",
+                        "blue-secondary",
                     ])
                 },
                 type: {

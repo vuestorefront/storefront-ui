@@ -3,14 +3,12 @@
         <slot name="icon" v-bind="{ icon, sizeIcon, colorIcon, type }">
             <SfIcon class="sf-notification__icon" :icon="icon" :size="sizeIcon" :color="colorIcon" :class="`sf-notification--${type}`"></SfIcon>
         </slot>
-        <header name="message" class="sf-notification__heading">
-            <component :is="`h${level}`" class="sf-notification__title">
-                <slot name="title" v-bind="{ title }">{{ title }}</slot>
-            </component>
-            <div v-if="hasSubtitle" class="sf-notification__subtitle">
-                <slot name="subtitle" v-bind="{ subtitle }">{{ subtitle }}</slot>
-            </div>
-        </header>
+        <div class="sf-notification__title">
+            <slot name="title" v-bind="{ title }">{{ title }}</slot>
+        </div>
+        <div v-if="hasMassage" class="sf-notification__message">
+            <slot name="message" v-bind="{ message }">{{ message }}</slot>
+        </div>
         <SfIcon class="sf-notification__close" icon="cross" color="white" size="14px" @click="close" />
     </div>
 </transition>

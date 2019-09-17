@@ -26,8 +26,8 @@ export default {
             type: Number,
             default: 2
         },
-        // the body of the message showed as subtitle
-        subtitle: {
+        // the body of the message
+        message: {
             type: String,
             default: ""
         },
@@ -53,8 +53,8 @@ export default {
         }
     },
     computed: {
-        hasSubtitle() {
-            return this.subtitle || this.$slots.hasOwnProperty("subtitle");
+        hasMessage() {
+            return this.massage || this.$slots.hasOwnProperty("massage");
         }
     },
     methods: {
