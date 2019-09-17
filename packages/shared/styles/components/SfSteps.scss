@@ -36,7 +36,7 @@ $steps__step-text-transform: uppercase;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: $steps__default-border;
+    border-bottom: $steps-border;
 
     &-step {
       position: relative;
