@@ -10,7 +10,7 @@ import SfChevron from "./src/components/atoms/SfChevron/SfChevron.js";
 import SfCircleIcon from "./src/components/atoms/SfCircleIcon/SfCircleIcon.js";
 import SfDivider from "./src/components/atoms/SfDivider/SfDivider.js";
 import SfHeading from "./src/components/atoms/SfHeading/SfHeading.js";
-import SfIcon from "./src/components/atoms//SfIcon/SfIcon.js";
+import SfIcon from "./src/components/atoms/SfIcon/SfIcon.js";
 import SfInput from "./src/components/atoms/SfInput/SfInput.js";
 import SfLoader from "./src/components/atoms/SfLoader/SfLoader.js";
 import SfOverlay from "./src/components/atoms/SfOverlay/SfOverlay.js";

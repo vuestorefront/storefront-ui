@@ -9,7 +9,7 @@ import SfChevron from "./src/components/atoms/SfChevron/SfChevron.vue";
 import SfCircleIcon from "./src/components/atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfDivider from "./src/components/atoms/SfDivider/SfDivider.vue";
 import SfHeading from "./src/components/atoms/SfHeading/SfHeading.vue";
-import SfIcon from "./src/components/atoms//SfIcon/SfIcon.vue";
+import SfIcon from "./src/components/atoms/SfIcon/SfIcon.vue";
 import SfInput from "./src/components/atoms/SfInput/SfInput.vue";
 import SfLoader from "./src/components/atoms/SfLoader/SfLoader.vue";
 import SfOverlay from "./src/components/atoms/SfOverlay/SfOverlay.vue";
