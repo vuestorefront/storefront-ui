@@ -17,6 +17,7 @@ export default {
         rewind: true,
         perView: 4,
         slidePerPage: true,
+        gap: 0,
         breakpoints: {
           1023: {
             perView: 2,

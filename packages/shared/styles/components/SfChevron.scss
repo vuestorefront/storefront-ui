@@ -26,7 +26,6 @@ $chevron__bar-color: $c-black !default;
     background-color: transparent;
     transform: rotate($chevron__bar-rotate * $direction);
     &:after {
-      z-index: -1;
       display: block;
       width: $chevron__bar-width;
       height: $chevron__bar-height;

@@ -77,7 +77,6 @@ $search-bar-font-size: 0.875rem;
     text-align: center;
     outline: none;
     position: relative;
-    z-index: 3;
     @include placeholder {
       color: $search-bar-placeholder-color;
       transition: color 0.2s ease-in;
