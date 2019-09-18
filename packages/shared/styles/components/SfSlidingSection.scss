@@ -49,4 +49,7 @@ $card-margin-left-desktop: $spacer-big * 5!default;
       }
     }
   }
+  &-scroll--is-disabled{
+    overflow: hidden;
+  }
 }

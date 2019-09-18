@@ -2,9 +2,11 @@
   <div class="sf-sliding-section__top" :style="style" ref="top">
     <slot name="static" v-bind="{isActive}" />
   </div>
-  <div class="sf-sliding-section__bottom" @click="toggleActive">
+  <div class="sf-sliding-section__bottom">
     <slot name="cross">
-      <SfIcon icon="cross" size="xxs" ref="cross" class="sf-sliding-section__cross" />
+      <span @click="closeHandler">
+        <SfIcon icon="cross" size="xxs" ref="cross" class="sf-sliding-section__cross" />
+      </span>
     </slot>
     <slot name="sliding" v-bind="{isActive}" />
   </div>
