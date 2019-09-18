@@ -75,9 +75,9 @@ $product-card__image-blend-mode: darken !default;
     background-color: transparent;
     cursor: pointer;
     outline: none;
-    opacity: 0;
     transition: opacity 150ms ease-in-out;
     @media (min-width: $desktop-min){
+      opacity: 0;
       top: $product-card-padding-desktop * 2;
       right: $product-card-padding-desktop * 2;
     }
