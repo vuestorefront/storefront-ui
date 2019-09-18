@@ -50,13 +50,9 @@ $product-card__image-blend-mode: darken !default;
       background-color: $c-light-primary;
     }
   }
-  &__price{
-    margin: $spacer-small 0;
-  }
   &__reviews{
     display: flex;
     align-items: center;
-    margin: $spacer-small 0;
   }
   &__rating {
     display: inline-flex;
