@@ -459,7 +459,17 @@ export default {
   methods: {
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
+    },
+    resizeHandler() {
+      const vh = window.innerHeight * 0.01;
+      window.document.documentElement.style.setProperty('--vh', `${vh}px`)
     }
+  },
+  mounted: function() {
+    window.addEventListener("resize", this.resizeHandler, {passive: true});
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.resizeHandler);
   }
 };
 </script>
@@ -601,6 +611,7 @@ export default {
 }
 .gallery-mobile {
   height: calc(100vh - 177px);
+  height: calc(var(--vh, 1vh) * 100 - 177px);
   /deep/ .glide {
     &,
     * {
@@ -615,6 +626,9 @@ export default {
         transform: translateX(-50%);
         min-width: calc(
           (375 / 490) * (100vh - 177px)
+        );
+        min-width: calc(
+          (375 / 490) * (var(--vh, 1vh) * 100 - 177px)
         ); // (oldWidth / oldHeight) * newHeight = newWidth
       }
     }
