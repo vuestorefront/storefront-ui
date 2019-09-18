@@ -17,7 +17,7 @@ const eventsTableConfig = {
   tableBodyConfig: [["input", "event emited when option is selected"]]
 };
 
-storiesOf("Molecules|SfSlidingSection", module)
+storiesOf("Molecules|SlidingSection", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
