@@ -21,7 +21,9 @@ $product-card__image-blend-mode: darken !default;
     padding: $product-card-padding-desktop;
   }
   &:hover{
-    box-shadow: $product-card-hover-box-shadow;
+    @media (min-width: $desktop-min) {
+      box-shadow: $product-card-hover-box-shadow;
+    }
     #{$this}__wishlist-icon{
       opacity: 1;
     }
@@ -31,8 +33,9 @@ $product-card__image-blend-mode: darken !default;
     font-size: $font-size-regular-mobile;
     font-weight: 300;
     line-height: 1.6;
+    margin: $spacer-small 0;
     @media (min-width: $desktop-min){
-      margin: $spacer 0;
+      margin: $spacer 0 $spacer-small;
       font-size: $font-size-regular-desktop;
     }
   }
@@ -41,16 +44,19 @@ $product-card__image-blend-mode: darken !default;
     align-items: center;
     align-content: center;
     background-color: $product-card__image-background-color;
-    margin: $spacer 0;
     img {
       max-width: 100%;
       mix-blend-mode: $product-card__image-blend-mode;
       background-color: $c-light-primary;
     }
   }
+  &__price{
+    margin: $spacer-small 0;
+  }
   &__reviews{
     display: flex;
     align-items: center;
+    margin: $spacer-small 0;
   }
   &__rating {
     display: inline-flex;
@@ -61,8 +67,8 @@ $product-card__image-blend-mode: darken !default;
   }
   &__wishlist-icon{
     position: absolute;
-    top: $product-card-padding * 2;
-    right: $product-card-padding * 2;
+    top: $product-card-padding * 4;
+    right: $product-card-padding * 4;
     z-index: 1;
     padding: 0;
     border: 0;
