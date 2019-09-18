@@ -21,8 +21,7 @@ const data = () => {
     image:
       "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
     title: "Product name",
-    regularPrice: 12.99,
-    specialPrice: 1.99,
+    regularPrice: "$ 50.00",
     quantity: 1
   };
 };
