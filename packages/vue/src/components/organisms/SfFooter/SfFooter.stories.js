@@ -5,7 +5,7 @@ import { generateStorybookTable } from "@/helpers";
 
 import SfFooter from "./SfFooter.vue";
 
-storiesOf("Molecules|Footer", module)
+storiesOf("Organisms|Footer", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
@@ -40,20 +40,17 @@ storiesOf("Molecules|Footer", module)
                         <SfFooterColumnElement>Kidswear</SfFooterColumnElement>
                         <SfFooterColumnElement>Home</SfFooterColumnElement>
                     </SfFooterColumn>
-            <SfFooterColumn :style="col" title="ABOUT US"> 
-                    
+            <SfFooterColumn :style="col" title="ABOUT US">                    
                         <SfFooterColumnElement>Who we are</SfFooterColumnElement>
                         <SfFooterColumnElement>Quality in the details</SfFooterColumnElement>
                         <SfFooterColumnElement>Customer Reviews</SfFooterColumnElement>
                     </SfFooterColumn>
-            <SfFooterColumn :style="col" title="HELP">
-                    
+            <SfFooterColumn :style="col" title="HELP">    
                         <SfFooterColumnElement>Customer service</SfFooterColumnElement>
                         <SfFooterColumnElement>Size guide</SfFooterColumnElement>
                         <SfFooterColumnElement>Contact us</SfFooterColumnElement>
                     </SfFooterColumn>
-            <SfFooterColumn :style="col" title="PAYMENT & DELEVERY">
-                     
+            <SfFooterColumn :style="col" title="PAYMENT & DELEVERY">          
                         <SfFooterColumnElement>Purchase terms</SfFooterColumnElement>
                         <SfFooterColumnElement>Guarantee</SfFooterColumnElement>
                     </SfFooterColumn>
