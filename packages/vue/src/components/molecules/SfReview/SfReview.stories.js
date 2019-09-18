@@ -87,32 +87,42 @@ const scssTableConfig = {
     [
       "$review__message_read_more-font-weight",
       "$body-font-weight-primary",
-      "font-weight of reviews's read more text"
+      "font-weight of reviews's read more button's text"
     ],
     [
       "$review__message_read_more-font-size",
       "$font-size-regular-desktop",
-      "font-size of review's read more text"
+      "font-size of review's read more button's text"
     ],
     [
       "$review__message_read_more-color",
       "$c-green-primary",
-      "text-color for read more's text"
+      "text-color for read more button's text"
     ],
     [
-      "$review__message_hide-font-weight",
-      "$body-font-weight-primary",
-      "font-weight of reviews's hide full message text"
+      "$review__message_read_more-background-color",
+      "Transparent",
+      "background-color for read more button's text"
     ],
     [
-      "$review__message_hide-font-size",
-      "$font-size-regular-desktop",
-      "font-size of review's hide full message text"
+      "$review__message_read_more-border",
+      "none",
+      "border for read more button's text"
     ],
     [
-      "$review__message_hide-color",
-      "$c-green-primary",
-      "text-color for review's full message text"
+      "$review__message_read_more-cursor",
+      "pointer",
+      "cursor for read more button's text"
+    ],
+    [
+      "$review__message_read_more-outline",
+      "none",
+      "outline for read more button's text"
+    ],
+    [
+      "$review__message_read_more-font-family",
+      "$body-font-family-primary",
+      "font-family for read more button's text"
     ]
   ]
 };

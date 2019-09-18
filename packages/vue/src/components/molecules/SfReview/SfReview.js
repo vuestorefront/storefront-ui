@@ -8,21 +8,21 @@ export default {
      */
     author: {
       type: String,
-      required: true
+      default: ""
     },
     /**
      * Date of the review
      */
     date: {
       type: String,
-      required: true
+      default: ""
     },
     /**
      * Message from the reviewer
      */
     message: {
       type: String,
-      required: true
+      default: ""
     },
     /**
      * Rating from the reviewer
@@ -62,35 +62,31 @@ export default {
   },
   data() {
     return {
-      showReadMore: false,
-      showHide: false
+      isOpen: false
     };
   },
   methods: {
-    showFullMessage() {
-      this.showReadMore = false;
-      this.showHide = true;
-    },
-    hideFullMessage() {
-      if (this.message.length > this.charLimit) {
-        this.showHide = false;
-        this.showReadMore = true;
-      } else {
-        this.showHide = false;
-        this.showReadMore = false;
-      }
+    toggleMessage() {
+      this.isOpen = !this.isOpen;
     }
   },
   computed: {
+    showButton() {
+      return this.message.length > this.charLimit;
+    },
+    buttonText() {
+      let buttonText = this.readMoreText;
+
+      if (this.isOpen) {
+        buttonText = this.hideFullText;
+      }
+      return buttonText;
+    },
     finalMessage() {
-      return this.message.length > this.charLimit && this.showReadMore
+      return this.message.length > this.charLimit && !this.isOpen
         ? this.message.slice(0, this.charLimit) + "..."
         : this.message;
     }
-  },
-  created: function() {
-    // It hides full message if needed- default
-    this.hideFullMessage();
   },
   components: {
     SfRating

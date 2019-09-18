@@ -2,7 +2,7 @@
 
 $review__div_tags-margin-bottom: $spacer-medium !default;
 $review__div_tags-display-inline-block: inline-block !default;
-$reivew__margin-left: $spacer-medium !default;
+$review__margin-left: $spacer-medium !default;
 $review__author-text-transform: capitalize !default;
 $review__author-font-weight: 450 !default;
 $review__author-font-size: $font-size-big-desktop !default;
@@ -17,11 +17,13 @@ $review__message-font-weight: $body-font-weight-primary !default;
 $review__message-font-size: $font-size-regular-desktop !default;
 $review__message-color: $c-dark-secondary !default;
 $review__message_read_more-font-weight: $body-font-weight-primary !default;
-$review__message_read_more-font-size: $font-size-big-desktop !default;
+$review__message_read_more-font-size: $font-size-regular-desktop !default;
 $review__message_read_more-color: $c-green-primary !default;
-$review__message_hide-font-weight: $body-font-weight-primary !default;
-$review__message_hide-font-size: $font-size-big-desktop !default;
-$review__message_hide-color: $c-green-primary !default;
+$review__message_read_more-background-color: Transparent !default;
+$review__message_read_more-border: none !default;
+$review__message_read_more-cursor: pointer !default;
+$review__message_read_more-outline: none !default;
+$review__message_read_more-font-family: $body-font-family-primary !default;
 
 .sf-review {
     position: relative;
@@ -54,16 +56,16 @@ $review__message_hide-color: $c-green-primary !default;
         font-weight: $review__message_read_more-font-weight;
         font-size: $review__message_read_more-font-size;
         color: $review__message_read_more-color;
-    }
-    &__message_hide {
-        font-weight: $review__message_hide-font-weight;
-        font-size: $review__message_hide-font-size;
-        color: $review__message_hide-color;
+        background-color: $review__message_read_more-background-color;
+        border: $review__message_read_more-border;
+        cursor: $review__message_read_more-cursor;
+        outline: $review__message_read_more-outline;
+        font-family: $review__message_read_more-font-family;
     }
     &__display-inline-block {
         display: $review__div_tags-display-inline-block;
     }
     &__margin-left {
-        margin-left: $reivew__margin-left; 
+        margin-left: $review__margin-left;
     }
 }
