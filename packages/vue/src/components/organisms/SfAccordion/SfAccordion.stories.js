@@ -1,6 +1,12 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import {withKnobs, boolean, select, number, text} from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  boolean,
+  select,
+  number,
+  text
+} from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfAccordion from "./SfAccordion.vue";
