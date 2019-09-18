@@ -32,6 +32,7 @@ import SfOptions from "./src/components/molecules/SfOptions/SfOptions.vue";
 import SfPagination from "./src/components/molecules/SfPagination/SfPagination.vue";
 import SfProductOption from "./src/components/molecules/SfProductOption/SfProductOption.vue";
 import SfRadio from "./src/components/molecules/SfRadio/SfRadio.vue";
+import SfReview from "./src/components/molecules/SfReview/SfReview.vue";
 import SfSearchBar from "./src/components/molecules/SfSearchBar/SfSearchBar.vue";
 import SfSection from "./src/components/molecules/SfSection/SfSection.vue";
 import SfSelect from "./src/components/molecules/SfSelect/SfSelect.vue";
@@ -84,6 +85,7 @@ export {
   SfPagination,
   SfProductOption,
   SfRadio,
+  SfReview,
   SfSearchBar,
   SfSection,
   SfSelect,

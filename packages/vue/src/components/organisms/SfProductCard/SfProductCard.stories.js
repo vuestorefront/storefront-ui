@@ -56,10 +56,10 @@ storiesOf("Organisms|ProductCard", module)
           default: text("specialPrice (prop)", "$5,99")
         },
         maxRating: {
-          default: number("minRating (prop)", 5)
+          default: number("maxRating (prop)", 5)
         },
         scoreRating: {
-          default: number("maxRating (prop)", 4)
+          default: number("scoreRating (prop)", 4)
         },
         wishlistIcon: {
           default: select("wishlistIcon (prop)", [false, "heart"], "heart")
