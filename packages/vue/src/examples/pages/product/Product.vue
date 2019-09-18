@@ -462,11 +462,11 @@ export default {
     },
     resizeHandler() {
       const vh = window.innerHeight * 0.01;
-      window.document.documentElement.style.setProperty('--vh', `${vh}px`)
+      window.document.documentElement.style.setProperty("--vh", `${vh}px`);
     }
   },
   mounted: function() {
-    window.addEventListener("resize", this.resizeHandler, {passive: true});
+    window.addEventListener("resize", this.resizeHandler, { passive: true });
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.resizeHandler);
@@ -624,9 +624,7 @@ export default {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        min-width: calc(
-          (375 / 490) * (100vh - 177px)
-        );
+        min-width: calc((375 / 490) * (100vh - 177px));
         min-width: calc(
           (375 / 490) * (var(--vh, 1vh) * 100 - 177px)
         ); // (oldWidth / oldHeight) * newHeight = newWidth

@@ -53,7 +53,6 @@ storiesOf("Atoms|Arrow", module)
               "sf-arrow--transparent": "sf-arrow--transparent",
               "sf-arrow--rounded": "sf-arrow--rounded",
               "sf-arrow--no-shadow": "sf-arrow--no-shadow"
-
             },
             "",
             { display: "multi-select" }
