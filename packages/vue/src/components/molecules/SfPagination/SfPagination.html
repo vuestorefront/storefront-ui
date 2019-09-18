@@ -4,7 +4,7 @@
       <!-- @slot Custom markup for previous page button -->
       <slot
         name="prev"
-        v-bind="{isDisabled: ()=>isDisabled('prev'), go: ()=>go('prev')}"
+        v-bind="{isDisabled: canGoPrev, go: goPrev}"
       >
         <button
           @click="go('prev')"
@@ -57,7 +57,7 @@
       <!-- @slot Custom markup for previous page button -->
       <slot
         name="next"
-        v-bind="{isDisabled: ()=>isDisabled('next'), go: ()=>go('next')}"
+        v-bind="{isDisabled: canGoNext, go: goNext}"
       >
         <button
           @click="go('next')"

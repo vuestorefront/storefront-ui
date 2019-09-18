@@ -1,7 +1,9 @@
-# About
+# About the project
 
 Storefront UI is developer-friendly, customization-first and performance oriented component library that ships raw source.
 Designs are based on [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf).
+
+Below you can find information about key concepts behind the project. If you want to start using Storefront UI please visit the [getting started](getting-started.md) section.
 
 **StorefrontUI key characteristics**
 
@@ -15,54 +17,10 @@ We are building Storefront UI based on the following 5 fundamentals:
 
 ## Current state of the project
 
-StorefrontUI is currently in ALPHA which means
-it is not suitable for production!
-Expect things to be broken and APIs to possibly change. 
+StorefrontUI is currently in BETA which means it is not suitable for production!
+The package is stable but some breaking changes may occur.
 
-
-## How to test StorefrontUI standalone
-
-- checkout the repository and branch you want to test from https://github.com/DivanteLtd/storefront-ui
-- install dependencies
-```bash
-yarn install
-```
-- change into directory
-```bash
-cd ./packages/vue/
-```
-- start Storybook Server
-
-```bash
-yarn storybook:serve
-```
-
-
-## How to test StorefrontUI on your own Application?
-
-**Right now StorefrontUI is working only with Nuxt and Vue CLI!**
-
-- Add the package:
-
-```bash
-npm install --save @storefront-ui/vue
-```
-
-- Import stylesheets in App.vue or main.js:
-
-```scss
-import "@storefront-ui/vue/styles.scss";
-```
-
-- It's done! Now you can import and use any of the components:
-
-```js
-import { SfComponentName } from "@storefront-ui/vue"
-```
-
-- You can find detailed information about every component inside each components
-[stories](http://storybook.storefrontui.io/)
-
+Currently we are focusing on polishments and docs.
 
 
 ## How to customize?
