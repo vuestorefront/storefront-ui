@@ -1,31 +1,34 @@
 @import "../variables";
-
 $collected-product-hover-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
-$collected-product-remove-hover-bg: $c-gray-secondary !default;
-$collected-product-desktop-max-width: 240px !default;
+$collected-product-desktop-max-width: 360px !default;
+$collected-product-remove-bg: #BEBFC4;
+$collected-product-remove-hover: #737680;
+$collected-product-remove-active: #1D1F22;
+
 .sf-collected-product {
+  $this: &;
   max-width: 100%;
   position: relative;
   transition: 0.3s all;
-  background: white;
+  background: transparent;
   &__remove {
-    visibility: hidden;
+    opacity: 0;
     position: absolute;
     right: -12px;
     top: 8px;
     cursor: pointer;
     width: 26px;
     height: 26px;
-    background: $collected-product-remove-hover-bg;
+    background: $collected-product-remove-bg;
+    box-shadow: none !important;
     &:hover {
-      box-shadow: none;
-      background-color: $collected-product-remove-hover-bg;
+      background-color: $collected-product-remove-hover;
     }
     &:active {
-      box-shadow: none;
+      background-color: $collected-product-remove-active;
     }
     @media (min-width: $desktop-min) {
-      visibility: visible;
+      opacity: 1;
     }
   }
   &__container {
@@ -56,16 +59,25 @@ $collected-product-desktop-max-width: 240px !default;
         margin-top: 0.5rem;
         margin-bottom: 0.25rem;
         display: flex;
+        font-family: $body-font-family-secondary;
+        font-size: $font-size-regular-mobile;
         font-weight: 300;
-        font-size: 14px;
-        line-height: 23px;
+        line-height: 1.6;
+        @media (min-width: $desktop-min){
+          margin: $spacer 0;
+          font-size: $font-size-regular-desktop;
+        }
       }
     }
   }
   &:hover {
-    box-shadow: $collected-product-hover-shadow;
     transition: 0.3s all;
     z-index: 2;
+    background: #ffffff;
+    box-shadow: $collected-product-hover-shadow;
+    #{$this}__remove {
+      opacity: 1;
+    }
   }
   @media (min-width: $desktop-min) {
     max-width: $collected-product-desktop-max-width;
