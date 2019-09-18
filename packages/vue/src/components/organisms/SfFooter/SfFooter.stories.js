@@ -5,6 +5,27 @@ import { generateStorybookTable } from "@/helpers";
 
 import SfFooter from "./SfFooter.vue";
 
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    [
+      "$footer__title-font-size",
+      "$font-size-regular-desktop",
+      "font-size of footer title"
+    ],
+    [
+      "$characteristic__description-font-size",
+      "$font-size-extra-small-desktop",
+      "font-size of characteristic description"
+    ],
+    [
+      "$mobile_background-color",
+      "#F2F2F2",
+      "background-color for mobile devices"
+    ]
+  ]
+};
+
 storiesOf("Organisms|Footer", module)
   .addDecorator(withKnobs)
   .add(
@@ -59,9 +80,10 @@ storiesOf("Organisms|Footer", module)
     }),
     {
       info: {
-        summary: `<p>Component description.</p>
+        summary: `<p><code>SfFooter</code> can be used for footer.</p>
        <h2>Usage</h2>
        <pre><code>import { SfFooter } from "@storefrontui/vue"</code></pre>
+       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `
       }
     }
