@@ -2,15 +2,16 @@
   <div id="product">
     <SfSlidingSection class="product">
       <template #static>
-        <SfImage
+          <SfImage
           src="assets/storybook/productpage/productA.png"
           class="desktop-only"
         />
-        <SfImage
+          <SfImage
           src="assets/storybook/productpage/productB.png"
           class="desktop-only"
         />
-        <SfGallery
+        <keep-alive>
+          <SfGallery
           class="gallery-mobile mobile-only"
           :images="[
             {
@@ -23,6 +24,7 @@
             }
           ]"
         />
+        </keep-alive>
       </template>
       <template #sliding="{isActive}">
         <SfSticky class="product-details">
