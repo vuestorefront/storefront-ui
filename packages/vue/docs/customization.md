@@ -56,23 +56,33 @@ This is a result of above modification:
 
 The same way you can customize any other Storefront UI component. Default markup is no longer a problem for us but sometimes you want to customize your components even heavier. Let's see what Storefront UI can offer in this matter.
 
-### Use partials to fully customize any component
+### Use Storefront UI partials to build new components
 
 Every Storefront UI component is divided into three parts: Vue template, CSS and JavaScript. All of them are in the separate files. We will call each of them a **partial**.
 
-In Vue we have a concept of Single File Components letting us keep all of the above in one file which means we can **compose** our komponents from those partials. 
+In Vue we have a concept of Single File Components letting us keep all of the above in one file which means we can **compose** our components from those partials. 
 
-You can use Storefront UI components partials as a base for new components and take only the needed parts to not write them froms cratch and add rest by yourself.
+This is how `SfButton.vue` component look like. As you can see it's composed from it's independent partials.
+
+```html
+<template lang="html" src="@storefront-ui/vue/src/components/atoms/SfButton.html"></template>
+<script src="@storefront-ui/vue/src/components/atoms/SfButton.js"></script>
+<style lang="scss" scoped>
+@import "~@storefront-ui/shared/styles/components/SfButton.scss";
+</style>
+```
+Knowing this you can use Storefront UI components partials as a base for new components and take only the needed parts. 
 
 Let's see some examples to understand possible use cases for this feature:
 
-#### Keeping functionality and replacing CSS
+#### Keeping functionality and replacing/overriding CSS
 
-Sometimes you need a component that behaves exactly like other component but looks differently. You can either use global SCSS variables or create new component that will inherit template and Javascript from some of the Storefront UI ones.
+Sometimes you need a component that behaves exactly like other component but looks differently. To achieve this you should create new component that will inherit template and Javascript from some of the Storefront UI ones.
 
-Let's see an example. We will create custom button component based on `SfButton`. Let's call it `ButtonCustomized`.
+Let's see an example. We will create custom button component based on `SfButton` but with our own CSS. Let's call it `ButtonCustomized`.
 
 ```html
+<!-- ButtonCustomized.vue -->
 <template lang="html" src="@storefront-ui/vue/src/components/atoms/SfButton.html"></template>
 <script src="@storefront-ui/vue/src/components/atoms/SfButton.js"></script>
 <style lang="scss" scoped>
@@ -88,3 +98,20 @@ Now you can use this component the same way as you used `SfButton`:
 <ButtonCustomized>Hello!</ButtonCustomized>
 ```
 <ButtonCustomized>Hello!</ButtonCustomized>
+
+If you want to override only certain parts of default CSS for your new component you can still import the defaults and override only part of them:
+```html
+<!-- ButtonCustomized.vue -->
+<style lang="scss" scoped>
+@import "~@storefront-ui/shared/styles/components/SfButton.scss";
+.sf-button {
+  background-color: gray;
+}
+</style>
+```
+Once you're done you can use this component as before
+```html
+<ButtonCustomized>Hello!</ButtonCustomized>
+```
+<SfButton style="background-color: gray">Hello!</SfButton>
+
