@@ -27,4 +27,17 @@ $card-margin-left-desktop: $spacer-big * 5!default;
       margin-left: $card-margin-left-desktop;
     }
   }
+  &__bar{
+    padding: $spacer-medium 0;
+    @include for-desktop {
+      display: none;
+    }
+  }
+  &__button{
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+  }
 }

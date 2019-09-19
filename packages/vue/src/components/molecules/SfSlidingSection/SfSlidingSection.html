@@ -7,16 +7,14 @@
   </transition>
   <div class="sf-sliding-section__sliding">
     <transition>
-      <slot name="cross">
-        <span v-if="!isActive" @click="close">
-          <SfIcon
-            icon="cross"
-            size="xxs"
-            ref="cross"
-          />
-        </span>
-      </slot>
+      <div v-if="isActive" class="sf-sliding-section__bar">
+        <slot name="cross">
+          <button @click="close" class="sf-sliding-section__button">
+            <SfIcon icon="cross" size="xxs" ref="cross" />
+          </button>
+        </slot>
+      </div>
     </transition>
-    <slot name="sliding" />
+    <slot name="sliding" v-bind="{isActive}"/>
   </div>
 </section>

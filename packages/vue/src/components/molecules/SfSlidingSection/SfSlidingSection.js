@@ -8,7 +8,7 @@ export default {
     return {
       isMobile: false,
       isScrollLock: false,
-      isActive: false,
+      isActive: false, // can't set init true value
       desktopMin: 1024,
       style: {}
     };
@@ -19,14 +19,10 @@ export default {
         this.isActive = false;
         if (!mobile) {
           this.isScrollLock = false;
-          // unregister eventsA & eventsB
-          console.log("unregister eventsA & eventsB");
           this.clearMobileEvents();
           return;
         }
         this.isScrollLock = true;
-        // register eventsA
-        console.log("register eventsA");
         this.notActiveEvents();
       }
     },
@@ -43,14 +39,10 @@ export default {
       handler(active) {
         if (!active) {
           this.isScrollLock = this.isMobile;
-          // register eventsA
-          console.log("register eventsA");
           this.notActiveEvents();
           return;
         }
         this.isScrollLock = false;
-        // register eventsB
-        console.log("register eventsB");
         this.activeEvents();
       }
     }
@@ -89,29 +81,23 @@ export default {
         this.close();
       }
     },
-    // events A
     notActiveEvents() {
-      // unregister events B
       window.removeEventListener("touchend", this.scrollOverload, {
         passive: true
       });
-      // register events A
       window.addEventListener("touchend", this.open, { passive: true });
-      window.addEventListener("wheel", this.open, { passive: true });
     },
-    // events B
     activeEvents() {
-      // unregister events A
       window.removeEventListener("touchend", this.open, { passive: true });
-      window.removeEventListener("wheel", this.open, { passive: true });
-      // register events B
       window.addEventListener("touchend", this.scrollOverload, {
         passive: true
       });
     },
     clearMobileEvents() {
-      //unregiser events A
-      // uregister events B
+      window.removeEventListener("touchend", this.open, { passive: true });
+      window.removeEventListener("touchend", this.scrollOverload, {
+        passive: true
+      });
     }
   },
   mounted() {
