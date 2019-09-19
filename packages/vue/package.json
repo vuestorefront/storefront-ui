@@ -14,6 +14,7 @@
     "test:dev": "vue-cli-service test:unit --watch",
     "storybook:serve": "vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
     "storybook:build": "vue-cli-service storybook:build -s ./public -c config/storybook",
+    "docs:vuecomponents": "node scripts/create-vue-components-docs.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
@@ -79,7 +80,8 @@
     "typescript": "^3.5.3",
     "vue-cli-plugin-storybook": "^0.6.0",
     "vue-template-compiler": "^2.6.8",
-    "vuepress": "^0.14.10"
+    "vuepress": "^0.14.10",
+    "vue-docgen-api": "^3.22.3"
   },
   "peerDependencies": {
     "vue": "^2.6.x"
