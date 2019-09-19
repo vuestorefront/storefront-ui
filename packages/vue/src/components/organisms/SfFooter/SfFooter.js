@@ -1,11 +1,10 @@
 import Vue from "vue";
 import SfFooterColumn from "./_internal/SfFooterColumn.vue";
-import SfFooterColumnElement from "./_internal/SfFooterColumnElement.vue";
 
 Vue.component("SfFooterColumn", SfFooterColumn);
-Vue.component("SfFooterColumnElement", SfFooterColumnElement);
 
 export default {
+  name: "SfFooter",
   props: {
     selected: {
       type: [String, Array],

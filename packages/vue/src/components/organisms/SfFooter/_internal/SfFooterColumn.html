@@ -8,8 +8,6 @@
     </div>
     <div class="sf-footer-column__content"
         :class="{'sf-footer-column__content--active': isActive, 'sf-footer-column__content--not-active': !isActive}">
-        <ul class="sf-footer-column__list">
-            <slot />
-        </ul>
+        <slot />
     </div>
 </div>

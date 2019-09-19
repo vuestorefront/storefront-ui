@@ -3,13 +3,13 @@
 .sf-list {
   list-style-type: none;
   padding-left: 0;
-  .sf-list__item {
+  &__item {
     font-size: $font-size-big-mobile;
     @media (min-width: $desktop-min) {
       font-size: $font-size-small-desktop;
     }
   }
-  .sf-list__item-content {
+  &__item-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -17,5 +17,16 @@
     padding: $spacer 0;
     font-size: $font-size-big-mobile;
     font-family: $body-font-family-secondary;
+  }
+  &__item-padding {
+    padding-top: $spacer-small;
+    padding-bottom: $spacer-small;
+    @media (min-width: $mobile-max) {
+      padding-top: $spacer;
+      padding-bottom: $spacer;
+    }
+  }
+  &__inline {
+    display:inline;
   }
 }

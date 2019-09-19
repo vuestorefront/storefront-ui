@@ -4,6 +4,8 @@ import { withKnobs, object, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfFooter from "./SfFooter.vue";
+import SfList from "../SfList/SfList.vue";
+import SfReview from "../../molecules/SfReview/SfReview.vue";
 
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
@@ -51,30 +53,38 @@ storiesOf("Organisms|Footer", module)
       data() {
         return {};
       },
-      components: { SfFooter },
+      components: { SfFooter, SfList },
       template: `
       <div>
         <SfFooter :class="customClass" :heading="heading">
-            <SfFooterColumn :style="colFirst" title="DEPARTMENT">
-                        <SfFooterColumnElement>Women fashion</SfFooterColumnElement>
-                        <SfFooterColumnElement>men fashion</SfFooterColumnElement>
-                        <SfFooterColumnElement>Kidswear</SfFooterColumnElement>
-                        <SfFooterColumnElement>Home</SfFooterColumnElement>
-                    </SfFooterColumn>
-            <SfFooterColumn :style="col" title="ABOUT US">                    
-                        <SfFooterColumnElement>Who we are</SfFooterColumnElement>
-                        <SfFooterColumnElement>Quality in the details</SfFooterColumnElement>
-                        <SfFooterColumnElement>Customer Reviews</SfFooterColumnElement>
-                    </SfFooterColumn>
-            <SfFooterColumn :style="col" title="HELP">    
-                        <SfFooterColumnElement>Customer service</SfFooterColumnElement>
-                        <SfFooterColumnElement>Size guide</SfFooterColumnElement>
-                        <SfFooterColumnElement>Contact us</SfFooterColumnElement>
-                    </SfFooterColumn>
-            <SfFooterColumn :style="col" title="PAYMENT & DELEVERY">          
-                        <SfFooterColumnElement>Purchase terms</SfFooterColumnElement>
-                        <SfFooterColumnElement>Guarantee</SfFooterColumnElement>
-                    </SfFooterColumn>
+            <SfFooterColumn class="sf-footer__item-padding" :style="colFirst" title="DEPARTMENT">
+              <SfList>
+                  <SfListItem class="sf-list__item-padding">Women fashion</SfListItem>
+                  <SfListItem class="sf-list__item-padding">men fashion</SfListItem>
+                  <SfListItem class="sf-list__item-padding">Kidswear</SfListItem>
+                  <SfListItem class="sf-list__item-padding">Home</SfListItem>
+              </SfList>
+            </SfFooterColumn>
+            <SfFooterColumn :style="col" title="ABOUT US">
+              <SfList>                        
+                <SfListItem class="sf-list__item-padding">Who we are</SfListItem>
+                <SfListItem class="sf-list__item-padding">Quality in the details</SfListItem>
+                <SfListItem class="sf-list__item-padding">Customer Reviews</SfListItem>
+              </SfList>
+            </SfFooterColumn>
+            <SfFooterColumn :style="col" title="HELP">
+              <SfList>    
+                <SfListItem class="sf-list__item-padding">Customer service</SfListItem>
+                <SfListItem class="sf-list__item-padding">Size guide</SfListItem>
+                <SfListItem class="sf-list__item-padding">Contact us</SfListItem>
+              </SfList>
+            </SfFooterColumn>
+            <SfFooterColumn :style="col" title="PAYMENT & DELEVERY">  
+              <SfList>        
+                <SfListItem class="sf-list__item-padding">Purchase terms</SfListItem>
+                <SfListItem class="sf-list__item-padding">Guarantee</SfListItem>
+              </SfList>
+            </SfFooterColumn>
         </SfFooter>
       </div>`
     }),
