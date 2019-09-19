@@ -3,6 +3,7 @@
 const fs = require("fs");
 const glob = require("glob");
 const path = require("path");
+const sass = require("node-sass");
 const vueDocs = require("vue-docgen-api");
 
 const pathComponentsDocsRoot = path.join(__dirname, "components-docs");
@@ -10,6 +11,14 @@ const pathTemplateFile = pathInsideComponentsDocsDir(
   "component-docs-template.md"
 );
 const pathTargetMdsRoot = path.resolve(__dirname, "..", "docs/components");
+const pathComponentsScssRoot = path.resolve(
+  __dirname,
+  "../..",
+  "shared/styles/components"
+);
+const pathsSassIncludes = [
+  path.resolve(__dirname, "../..", "shared/styles/variables")
+];
 const pathVueComponentsRoot = path.resolve(__dirname, "..", "src/components");
 const pathsVueComponents = glob.sync("**/Sf*.vue", {
   cwd: pathVueComponentsRoot
@@ -54,11 +63,20 @@ function getFullComponentInfo(pathComponentVue) {
     throw new Error(`Cannot read "${filenameComponentMd}": ${e.message}`);
   }
 
+  const filenameComponentScss = componentInfoFromPath.sfComponentName + ".scss";
+  let componentInfoFromScss;
+  try {
+    componentInfoFromScss = getComponentInfoFromScss(filenameComponentScss);
+  } catch (e) {
+    throw new Error(`Cannot read "${filenameComponentScss}": ${e.message}`);
+  }
+
   const componentInfoFromVue = getComponentInfoFromVue(pathComponentVue);
 
   return {
     ...componentInfoFromPath,
     ...componentInfoFromMd,
+    ...componentInfoFromScss,
     ...componentInfoFromVue
   };
 }
@@ -84,6 +102,16 @@ function getComponentInfoFromMd(filename) {
   }
 }
 
+function getComponentInfoFromScss(filename) {
+  const contentScssFile = readComponentScss(filename);
+  try {
+    return parseScssFile(contentScssFile);
+  } catch (e) {
+    console.error(`ERROR: Cannot parse "${filename}": ${e.message}`);
+    process.exit(1);
+  }
+}
+
 function getComponentInfoFromVue(pathVueFile) {
   const fullPathVueFile = pathInsideComponentsRoot(pathVueFile);
   const componentDoc = vueDocs.parse(fullPathVueFile);
@@ -101,6 +129,11 @@ function getComponentInfoFromVue(pathVueFile) {
 function readComponentMd(filename) {
   const pathComponentMd = pathInsideComponentsDocsDir(filename);
   return fs.readFileSync(pathComponentMd, "utf8");
+}
+
+function readComponentScss(filename) {
+  const pathComponentScss = pathInsideComponentsScssRoot(filename);
+  return fs.readFileSync(pathComponentScss, "utf8");
 }
 
 function parseComponentFile(contentComponentFile) {
@@ -128,6 +161,113 @@ function parseComponentFile(contentComponentFile) {
     commonUsage: reResult[2],
     storybookLink: reResult[3]
   };
+}
+
+function parseScssFile(contentScssFile) {
+  const scssVariables = extractScssVariables(contentScssFile);
+  const cssModifier = extractCssModifiers(contentScssFile);
+
+  return {
+    scssVariables: scssVariables,
+    cssModifiers: cssModifier
+  };
+}
+
+function extractScssVariables(contentScssFile) {
+  const lines = contentScssFile.split("\n");
+
+  // account for multiline variable definition (a variable is considered terminated when the line ends with a semicolon)
+  let lastLineNotTerminated = false;
+  let scssVariables = "";
+  for (const line of lines) {
+    if (lastLineNotTerminated || /^\$/.test(line)) {
+      scssVariables += line + "\n";
+      lastLineNotTerminated = !/(^$)|(;$)/.test(line);
+    }
+  }
+
+  if (!scssVariables) {
+    return "";
+  }
+
+  return "```scss\n" + scssVariables + "```";
+}
+
+function extractCssModifiers(contentScssFile) {
+  const { css } = sass.renderSync({
+    data: contentScssFile,
+    includePaths: pathsSassIncludes,
+    outputStyle: "expanded"
+  });
+
+  const lines = css.toString().split("\n");
+
+  // collect all unique modifiers and search for modifier descriptions in comments
+  const uniqueModifiers = new Map();
+  for (let i = 0; i < lines.length; ++i) {
+    const line = lines[i];
+    const regExp = /(\w+--[^\s,:]+)/g;
+    let partialReResult;
+    let lastModifierFound;
+    // as multiple modifiers may be on one line, we have to make this (stateful) reg exp. search
+    while ((partialReResult = regExp.exec(line)) !== null) {
+      if (!uniqueModifiers.has(partialReResult[0])) {
+        uniqueModifiers.set(partialReResult[0], null);
+        lastModifierFound = partialReResult[0];
+      }
+    }
+    // go on with modifier search if no modifier was found or we already have a description for this modifier
+    if (!lastModifierFound || uniqueModifiers.get(lastModifierFound)) {
+      continue;
+    }
+    // otherwise find next opening-brace; the line after that may contain a modifier comment
+    for (let j = i; j < lines.length; ++j) {
+      if (!lines[j].endsWith("{")) {
+        continue;
+      }
+      // opening-brace found; if the line after it doesn't contain a @modifier annotation, break
+      if (!lines[j + 1].trim().includes("@modifier")) {
+        break;
+      }
+      // modifier found; extract whole comment block (even if multi-line)
+      let comment = "";
+      do {
+        comment += lines[++j] + "\n";
+      } while (j < lines.length && !lines[j].includes("*/"));
+
+      // replace line breaks inside description with a space
+      // and remove spurious whitespace, the modifier annotation and the comment marks.
+      // Expected syntax (though the Reg. Exp. is less strict):
+      //   .sf-badge--full-width {
+      //     /* @modifier This is the full-width modifier.
+      //      * (Multiple lines get concatenated) */
+      //     width: 100%;
+      //   }
+      const description = comment
+        .trim()
+        .replace(/\s*\/\*\s*?@modifier */, "")
+        .replace(/\n\s*(\*\s*)?/g, " ")
+        .replace(/\s*\*?\/$/, "")
+        .trim();
+
+      uniqueModifiers.set(lastModifierFound, description);
+      break;
+    }
+  }
+
+  if (!uniqueModifiers.size) {
+    return "";
+  }
+
+  let cssModifiers = "";
+  for (const [modifier, description] of uniqueModifiers) {
+    cssModifiers += `- **\`${modifier}\`**\n`;
+    if (description) {
+      cssModifiers += `  - _${description}_\n`;
+    }
+  }
+
+  return cssModifiers.trim();
 }
 
 function extractPropsFromComponentDoc(componentDoc) {
@@ -262,6 +402,10 @@ function pathInsideComponentsDocsDir(filename) {
 
 function pathInsideComponentsRoot(subPath) {
   return path.join(pathVueComponentsRoot, subPath);
+}
+
+function pathInsideComponentsScssRoot(subPath) {
+  return path.join(pathComponentsScssRoot, subPath);
 }
 
 createVueComponentsDocs();
