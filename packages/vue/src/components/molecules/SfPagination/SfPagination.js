@@ -98,7 +98,7 @@ export default {
           if (this.current !== direct) this.$emit("click", direct);
       }
     },
-    goNext () {
+    goNext() {
       this.$emit(
         "click",
         this.current > this.total - 1 ? this.total : this.current + 1

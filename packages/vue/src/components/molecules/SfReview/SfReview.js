@@ -1,4 +1,4 @@
-import SfRating from "../atoms/SfRating/SfRating.vue";
+import SfRating from "../../atoms/SfRating/SfRating.vue";
 
 export default {
   name: "SfReview",
