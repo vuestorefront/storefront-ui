@@ -12,6 +12,7 @@ export default {
       isActive: false, // can't set init true value
       desktopMin: 1024,
       staticHeight: -1,
+      hammer: undefined
     };
   },
   watch: {
@@ -20,11 +21,11 @@ export default {
         this.isActive = false;
         if (!mobile) {
           this.isScrollLock = false;
-          this.clearMobileEvents();
+          this.hammer.set({ enable: false });
           return;
         }
         this.isScrollLock = true;
-        this.notActiveEvents();
+        this.hammer.set({ enable: true });
       }
     },
     isScrollLock: {
@@ -40,11 +41,9 @@ export default {
       handler(active) {
         if (!active) {
           this.isScrollLock = this.isMobile;
-          this.notActiveEvents();
           return;
         }
         this.isScrollLock = false;
-        this.activeEvents();
       }
     }
   },
@@ -70,53 +69,17 @@ export default {
         passive: false
       });
     },
-    open() {
-      this.isActive = true;
-    },
-    close() {
-      this.isActive = false;
-    },
-    scrollOverload(e) {
-      const { pageYOffset } = window;
-      if (pageYOffset < 0) {
-        this.close();
+    hammerHandler(e) {
+      if (this.isActive && e.isFinal && window.pageYOffset < -50) {
+        this.isActive = false;
+        return;
       }
-    },
-    notActiveEvents() {
-      const sliding = new Hammer(this.$refs.sliding);
-      sliding.on('pan', (e)=>{
-        console.log(e.distance, e.angle);
-        if(this.staticHeight < 0){
-          this.staticHeight = this.$refs.static.offsetHeight;
-        }
-        if(e.angle < 0){
-          this.$refs.static.style = `height: ${this.staticHeight - Math.round(e.distance)}px`
-        }
-        if(e.isFinal){
-          this.staticHeight = -1;
-          this.isActive = true
-        }
-      })
-      // window.removeEventListener("touchend", this.scrollOverload, {
-      //   passive: true
-      // });
-      // window.addEventListener("touchend", this.open, { passive: true });
-    },
-    activeEvents() {
-      // window.removeEventListener("touchend", this.open, { passive: true });
-      // window.addEventListener("touchend", this.scrollOverload, {
-      //   passive: true
-      // });
-    },
-    clearMobileEvents() {
-      window.removeEventListener("touchend", this.open, { passive: true });
-      window.removeEventListener("touchend", this.scrollOverload, {
-        passive: true
-      });
-    },
-    foo(){
-      const h = this.$refs.static.offsetHeight;
-      console.log(h);
+      if (this.staticHeight < 0) {
+        this.staticHeight = this.$refs.static.offsetHeight;
+      }
+      if (e.isFinal) {
+        this.isActive = true;
+      }
     }
   },
   mounted() {
@@ -134,5 +97,7 @@ export default {
       },
       { passive: true }
     );
+    this.hammer = new Hammer(this.$refs.sliding, { enable: false });
+    this.hammer.on("pan", this.hammerHandler);
   }
 };

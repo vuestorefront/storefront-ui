@@ -600,7 +600,7 @@ export default {
   padding: $spacer-small 0;
 }
 .gallery-mobile {
-  height: calc(100vh - 177px);
+  height: calc(100vh - 277px);
   /deep/ .glide {
     &,
     * {
