@@ -1,7 +1,7 @@
 <section class="sf-sliding-section">
   <!-- https://markus.oberlehner.net/blog/transition-to-height-auto-with-vue/  -->
   <transition>
-    <div v-if="!isActive" class="sf-sliding-section__static">
+    <div v-if="!isActive" class="sf-sliding-section__static" ref="static">
       <slot name="static" />
     </div>
   </transition>

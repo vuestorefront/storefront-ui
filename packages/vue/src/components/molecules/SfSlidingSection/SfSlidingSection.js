@@ -1,4 +1,5 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import Hammer from "hammerjs";
 export default {
   name: "SfSlidingSection",
   components: {
@@ -10,7 +11,7 @@ export default {
       isScrollLock: false,
       isActive: false, // can't set init true value
       desktopMin: 1024,
-      style: {}
+      staticHeight: -1,
     };
   },
   watch: {
@@ -82,22 +83,26 @@ export default {
       }
     },
     notActiveEvents() {
-      window.removeEventListener("touchend", this.scrollOverload, {
-        passive: true
-      });
-      window.addEventListener("touchend", this.open, { passive: true });
+      // window.removeEventListener("touchend", this.scrollOverload, {
+      //   passive: true
+      // });
+      // window.addEventListener("touchend", this.open, { passive: true });
     },
     activeEvents() {
-      window.removeEventListener("touchend", this.open, { passive: true });
-      window.addEventListener("touchend", this.scrollOverload, {
-        passive: true
-      });
+      // window.removeEventListener("touchend", this.open, { passive: true });
+      // window.addEventListener("touchend", this.scrollOverload, {
+      //   passive: true
+      // });
     },
     clearMobileEvents() {
       window.removeEventListener("touchend", this.open, { passive: true });
       window.removeEventListener("touchend", this.scrollOverload, {
         passive: true
       });
+    },
+    foo(){
+      const h = this.$refs.static.offsetHeight;
+      console.log(h);
     }
   },
   mounted() {
@@ -115,5 +120,19 @@ export default {
       },
       { passive: true }
     );
+    const h = new Hammer(window);
+    h.on("pan", (e) => {
+      console.log(e.isFirst)
+      if(this.staticHeight < 0){
+        this.staticHeight = this.$refs.static.offsetHeight
+      }
+      console.log(this.$refs.static);
+      this.$refs.static.style = `height:${this.staticHeight - Math.round(e.distance)}px`
+      console.log(this.staticHeight - Math.round(e.distance));
+      if(e.isFinal){
+        this.staticHeight = -1;
+        this.isActive =true
+      }
+    });
   }
 };
