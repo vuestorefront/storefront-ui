@@ -115,3 +115,6 @@ Once you're done you can use this component as before
 ```
 <SfButton style="background-color: gray">Hello!</SfButton>
 
+### Change component API
+
+TBD
