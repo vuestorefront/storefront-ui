@@ -33,12 +33,6 @@ $chevron__bar-color: $c-black !default;
       transition: all $chevron-duration $chevron-easing;
       content: "";
     }
-    &--active {
-      &:after {
-        transform-origin: center center;
-        transform: rotate(-2 * $chevron__bar-rotate * $direction);
-      }
-    }
   }
 }
 
@@ -50,4 +44,19 @@ $chevron__bar-color: $c-black !default;
   cursor: pointer;
   @include chevron-bar($half-name: left);
   @include chevron-bar($half-name: right);
+
+  &--top {
+    .sf-chevron__left-bar {
+      &:after {
+        transform-origin: center center;
+        transform: rotate(-2*$chevron__bar-rotate);
+      }
+    }
+    .sf-chevron__right-bar {
+      &:after {
+        transform-origin: center center;
+        transform: rotate(2*$chevron__bar-rotate);
+      }
+    }
+  }
 }
