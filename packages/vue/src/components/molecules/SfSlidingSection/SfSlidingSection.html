@@ -1,11 +1,22 @@
-<section class="sf-sliding-section" :class="{'sf-sliding-section--is-active': isActive}">
-  <div class="sf-sliding-section__top" :style="style" ref="top">
-    <slot name="static" v-bind="{isActive}" />
-  </div>
-  <div class="sf-sliding-section__bottom" @click="toggleActive">
-    <slot name="cross">
-      <SfIcon icon="cross" size="xxs" ref="cross" class="sf-sliding-section__cross" />
-    </slot>
-    <slot name="sliding" v-bind="{isActive}" />
+<section class="sf-sliding-section">
+  <!-- https://markus.oberlehner.net/blog/transition-to-height-auto-with-vue/  -->
+  <transition>
+    <div v-if="!isActive" class="sf-sliding-section__static">
+      <slot name="static" />
+    </div>
+  </transition>
+  <div class="sf-sliding-section__sliding">
+    <transition>
+      <slot name="cross">
+        <span v-if="!isActive" @click="close">
+          <SfIcon
+            icon="cross"
+            size="xxs"
+            ref="cross"
+          />
+        </span>
+      </slot>
+    </transition>
+    <slot name="sliding" />
   </div>
 </section>
