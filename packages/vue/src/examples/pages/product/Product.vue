@@ -614,7 +614,7 @@ export default {
         left: 50%;
         transform: translateX(-50%);
         min-width: calc(
-          (375 / 490) * (100vh - 177px)
+          (375 / 490) * (100vh - 277px)
         ); // (oldWidth / oldHeight) * newHeight = newWidth
       }
     }

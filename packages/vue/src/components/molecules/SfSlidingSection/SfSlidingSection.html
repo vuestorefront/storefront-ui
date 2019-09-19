@@ -8,13 +8,13 @@
   <div class="sf-sliding-section__sliding" ref="sliding">
     <transition>
       <div v-if="isActive" class="sf-sliding-section__bar">
-        <slot name="cross">
+        <slot name="cross" v-bind="{isActive}">
           <button @click="isActive = false" class="sf-sliding-section__button">
             <SfIcon icon="cross" size="xxs" ref="cross" />
           </button>
         </slot>
       </div>
     </transition>
-    <slot name="sliding" v-bind="{isActive}"/>
+    <slot name="sliding" v-bind="{isActive}" />
   </div>
 </section>
