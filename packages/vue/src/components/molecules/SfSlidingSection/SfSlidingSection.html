@@ -5,7 +5,7 @@
       <slot name="static" />
     </div>
   </transition>
-  <div class="sf-sliding-section__sliding">
+  <div class="sf-sliding-section__sliding" ref="sliding">
     <transition>
       <div v-if="isActive" class="sf-sliding-section__bar">
         <slot name="cross">

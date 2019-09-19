@@ -83,6 +83,20 @@ export default {
       }
     },
     notActiveEvents() {
+      const sliding = new Hammer(this.$refs.sliding);
+      sliding.on('pan', (e)=>{
+        console.log(e.distance, e.angle);
+        if(this.staticHeight < 0){
+          this.staticHeight = this.$refs.static.offsetHeight;
+        }
+        if(e.angle < 0){
+          this.$refs.static.style = `height: ${this.staticHeight - Math.round(e.distance)}px`
+        }
+        if(e.isFinal){
+          this.staticHeight = -1;
+          this.isActive = true
+        }
+      })
       // window.removeEventListener("touchend", this.scrollOverload, {
       //   passive: true
       // });
@@ -120,19 +134,5 @@ export default {
       },
       { passive: true }
     );
-    const h = new Hammer(window);
-    h.on("pan", (e) => {
-      console.log(e.isFirst)
-      if(this.staticHeight < 0){
-        this.staticHeight = this.$refs.static.offsetHeight
-      }
-      console.log(this.$refs.static);
-      this.$refs.static.style = `height:${this.staticHeight - Math.round(e.distance)}px`
-      console.log(this.staticHeight - Math.round(e.distance));
-      if(e.isFinal){
-        this.staticHeight = -1;
-        this.isActive =true
-      }
-    });
   }
 };
