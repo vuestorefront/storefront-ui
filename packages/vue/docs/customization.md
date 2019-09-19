@@ -11,7 +11,7 @@ To share common design principles across whole library we highly rely on SCSS va
 ```scss
 $c-accent-primary: blue;
 ```
-- **Components variables** are meant to customize behavior of certain type of a component. You can find them in documents about certain components. For example below code in `sfui.scss` will change default (not modified by other CSS rules) background color of every `SfButton` component in your project to `red`.
+- **Components variables** are meant to customize behavior of certain component type (like `SfButton`). You can find them in documents about certain components. For example below code in `sfui.scss` will change default (not modified by other CSS rules) background color of every `SfButton` component in your project to `red`.
 ```scss
 $button-background-color: red;
 ```
