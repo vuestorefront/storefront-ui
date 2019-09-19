@@ -74,15 +74,19 @@ export default {
         this.isActive = false;
         return;
       }
-      console.log(Math.round(e.deltaY), );
       if (this.staticHeight < 0) {
         this.staticHeight = this.$refs.static.offsetHeight;
       }
-      if(e.deltaY <= 0){
-        this.$refs.static.style.setProperty("height", `${this.staticHeight + e.deltaY}px`)
+      if (e.deltaY <= 0) {
+        this.$refs.static.style.setProperty(
+          "height",
+          `${this.staticHeight + e.deltaY}px`
+        );
       }
       if (e.isFinal && e.distance > 50 && e.deltaY <= 0) {
         this.isActive = true;
+        this.staticHeight = -1;
+        this.$refs.static.style.removeProperty("height");
       }
     }
   },
