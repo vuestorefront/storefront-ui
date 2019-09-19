@@ -2,28 +2,28 @@
   <div id="product">
     <SfSlidingSection class="product">
       <template #static>
-          <SfImage
+        <SfImage
           src="assets/storybook/productpage/productA.png"
           class="desktop-only"
         />
-          <SfImage
+        <SfImage
           src="assets/storybook/productpage/productB.png"
           class="desktop-only"
         />
         <keep-alive>
           <SfGallery
-          class="gallery-mobile mobile-only"
-          :images="[
-            {
-              small: { url: 'assets/storybook/productpage/productM.png' },
-              big: { url: 'assets/storybook/productpage/productM.png' }
-            },
-            {
-              small: { url: 'assets/storybook/productpage/productM.png' },
-              big: { url: 'assets/storybook/productpage/productM.png' }
-            }
-          ]"
-        />
+            class="gallery-mobile mobile-only"
+            :images="[
+              {
+                small: { url: 'assets/storybook/productpage/productM.png' },
+                big: { url: 'assets/storybook/productpage/productM.png' }
+              },
+              {
+                small: { url: 'assets/storybook/productpage/productM.png' },
+                big: { url: 'assets/storybook/productpage/productM.png' }
+              }
+            ]"
+          />
         </keep-alive>
       </template>
       <template #sliding="{isActive}">
@@ -602,7 +602,7 @@ export default {
   padding: $spacer-small 0;
 }
 .gallery-mobile {
-  height: calc(100vh - 277px);
+  height: calc(100vh - 177px);
   /deep/ .glide {
     &,
     * {
@@ -616,7 +616,7 @@ export default {
         left: 50%;
         transform: translateX(-50%);
         min-width: calc(
-          (375 / 490) * (100vh - 277px)
+          (375 / 490) * (100vh - 177px)
         ); // (oldWidth / oldHeight) * newHeight = newWidth
       }
     }

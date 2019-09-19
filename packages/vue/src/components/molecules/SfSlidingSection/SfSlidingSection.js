@@ -11,7 +11,6 @@ export default {
       isScrollLock: false,
       isActive: false, // can't set init true value
       desktopMin: 1024,
-      staticHeight: -1,
       hammer: undefined
     };
   },
@@ -70,23 +69,12 @@ export default {
       });
     },
     hammerHandler(e) {
-      if (this.isActive && e.isFinal && window.pageYOffset < -50) {
-        this.isActive = false;
-        return;
-      }
-      if (this.staticHeight < 0) {
-        this.staticHeight = this.$refs.static.offsetHeight;
-      }
-      if (e.deltaY <= 0) {
-        this.$refs.static.style.setProperty(
-          "height",
-          `${this.staticHeight + e.deltaY}px`
-        );
-      }
-      if (e.isFinal && e.distance > 50 && e.deltaY <= 0) {
+      if (!e.isFinal) return;
+      if (e.direction === 8 && !this.isActive) {
         this.isActive = true;
-        this.staticHeight = -1;
-        this.$refs.static.style.removeProperty("height");
+      }
+      if (e.direction === 16 && this.isActive && window.pageYOffset <= 0) {
+        this.isActive = false;
       }
     }
   },
@@ -105,7 +93,7 @@ export default {
       },
       { passive: true }
     );
-    this.hammer = new Hammer(this.$refs.sliding, { enable: false });
+    this.hammer = new Hammer(window, { enable: true });
     this.hammer.on("pan", this.hammerHandler);
   }
 };
