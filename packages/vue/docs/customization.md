@@ -6,7 +6,7 @@ Let's see how to do this from top to bottom.
 [[toc]]
 ## Global customization 
 
-To share common design principles across whole library we highly rely on SCSS variables. You can override them to shape the look and feel of your project There are two groups of available SCSS variables in Storefront UI.
+To share common design principles across whole library we highly rely on SCSS variables. You can override them to shape the look and feel of your project. There are two groups of available SCSS variables in Storefront UI:
 - **Global variables** like colors, fonts or sizes are influencing whole library. For example below code in `sfui.scss` will change accent color in your whole project to `blue`.
 ```scss
 $c-accent-primary: blue;
