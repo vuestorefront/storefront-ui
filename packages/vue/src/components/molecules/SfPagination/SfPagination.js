@@ -41,11 +41,11 @@ export default {
     limitedPageNumbers() {
       return this.setLimitedPageNumber();
     },
-    canGoPrev () {
-      return this.current === 1
+    canGoPrev() {
+      return this.current === 1;
     },
-    canGoNext () {
-      return this.current > this.total - 1
+    canGoNext() {
+      return this.current > this.total - 1;
     }
   },
 
@@ -104,7 +104,7 @@ export default {
         this.current > this.total - 1 ? this.total : this.current + 1
       );
     },
-    goPrev () {
+    goPrev() {
       this.$emit("click", this.current < 2 ? 1 : this.current - 1);
     },
     isDisabled(direct) {
