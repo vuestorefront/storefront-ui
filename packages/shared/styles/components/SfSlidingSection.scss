@@ -20,7 +20,7 @@ $card-margin-left-desktop: $spacer-big * 5!default;
   &__static {
     margin: 0 -#{$spacer-big};
     overflow: hidden;
-    transition: height 150ms ease-in-out;
+    transition: height 50ms linear;
   }
   &__sliding {
     @include for-desktop {
@@ -41,5 +41,12 @@ $card-margin-left-desktop: $spacer-big * 5!default;
   }
   &--has-scroll-lock{
     overflow: hidden;
+  }
+  &--isActive{
+    #{$this}{
+      &__static{
+        height: 0!important;
+      }
+    }
   }
 }

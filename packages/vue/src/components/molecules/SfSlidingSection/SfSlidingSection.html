@@ -1,4 +1,4 @@
-<section class="sf-sliding-section">
+<section class="sf-sliding-section" :class="{'sf-sliding-section--is-active':isActive}">
   <div class="sf-sliding-section__static" ref="static">
     <slot name="static" />
   </div>
@@ -6,7 +6,7 @@
     <slot name="cross">
       <div class="sf-sliding-section__mobile-bar">
         <button class="sf-sliding-section__close">
-          <SfIcon icon="cross" size="xxs" ref="cross" />
+          <SfIcon icon="cross" size="xxs" />
         </button>
       </div>
     </slot>

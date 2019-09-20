@@ -12,7 +12,8 @@ export default {
       isMobile: false,
       hasScrollLock: false,
       desktopMin: 1024,
-      hammer: undefined
+      hammer: undefined,
+      staticHeight: -1
     };
   },
   watch: {
@@ -70,21 +71,30 @@ export default {
       });
     },
     touchHandler(event) {
-      const { distance, direction } = event;
-      console.log(direction, this.isActive);
-      if (!this.isActive && direction === 8) {
-        this.isActive = true;
+      const { distance, direction, isFinal } = event;
+      console.log({ distance, direction, isFinal });
+      if (this.staticHeight < 0) {
+        this.staticHeight = this.$refs.static.offsetHeight;
       }
-      console.log(this.isActive && direction === 16);
+      if (!this.isActive && direction === 8) {
+        this.$refs.static.style.setProperty(
+          "height",
+          `${this.staticHeight - distance}px`
+        );
+      }
       if (this.isActive && direction === 16) {
-        this.isActive = false;
+        this.$refs.static.style.setProperty("height", `${distance}px`);
+      }
+      if (isFinal) {
+        this.staticHeight = -1;
+        this.isActive = !this.isActive;
       }
     }
   },
   mounted() {
     this.isMobileHandler();
     window.addEventListener("resize", this.isMobileHandler, { passive: true });
-    this.hammer = new Hammer(window, { enable: false }).on(
+    this.hammer = new Hammer(document, { enable: false }).on(
       "pan",
       this.touchHandler
     );
