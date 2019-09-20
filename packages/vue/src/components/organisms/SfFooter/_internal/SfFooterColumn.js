@@ -4,16 +4,17 @@ export default {
   name: "SfFooterColumn",
   props: {
     /**
-     * Footer column heading
+     * Column heading
      */
     title: {
-      type: String
+      type: String,
+      default: ""
     }
   },
   data() {
     return {
       isActive: false,
-      hasAdditionalContentPadding: false,
+      hasAdditionalContentPadding: true,
       hasAdditionalInline: false
     };
   },

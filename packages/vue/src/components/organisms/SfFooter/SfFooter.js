@@ -6,10 +6,16 @@ Vue.component("SfFooterColumn", SfFooterColumn);
 export default {
   name: "SfFooter",
   props: {
+    /**
+     * Selected prop
+     */
     selected: {
       type: [String, Array],
       default: () => []
     },
+    /**
+     * Multiple items prop
+     */
     multiple: {
       type: Boolean,
       default: true
