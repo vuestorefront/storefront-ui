@@ -1,11 +1,15 @@
-<section class="sf-sliding-section" :class="{'sf-sliding-section--is-active': isActive}">
-  <div class="sf-sliding-section__top" :style="style" ref="top">
-    <slot name="static" v-bind="{isActive}" />
+<section class="sf-sliding-section">
+  <div class="sf-sliding-section__static" ref="static">
+    <slot name="static" />
   </div>
-  <div class="sf-sliding-section__bottom" @click="toggleActive">
+  <div class="sf-sliding-section__sliding">
     <slot name="cross">
-      <SfIcon icon="cross" size="xxs" ref="cross" class="sf-sliding-section__cross" />
+      <div class="sf-sliding-section__mobile-bar">
+        <button class="sf-sliding-section__close">
+          <SfIcon icon="cross" size="xxs" ref="cross" />
+        </button>
+      </div>
     </slot>
-    <slot name="sliding" v-bind="{isActive}" />
+    <slot name="sliding" />
   </div>
 </section>
