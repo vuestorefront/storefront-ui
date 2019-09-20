@@ -10,21 +10,19 @@
           src="assets/storybook/productpage/productB.png"
           class="desktop-only"
         />
-        <keep-alive>
-          <SfGallery
-            class="gallery-mobile mobile-only"
-            :images="[
-              {
-                small: { url: 'assets/storybook/productpage/productM.png' },
-                big: { url: 'assets/storybook/productpage/productM.png' }
-              },
-              {
-                small: { url: 'assets/storybook/productpage/productM.png' },
-                big: { url: 'assets/storybook/productpage/productM.png' }
-              }
-            ]"
-          />
-        </keep-alive>
+        <SfGallery
+          class="gallery-mobile mobile-only"
+          :images="[
+            {
+              small: { url: 'assets/storybook/productpage/productM.png' },
+              big: { url: 'assets/storybook/productpage/productM.png' }
+            },
+            {
+              small: { url: 'assets/storybook/productpage/productM.png' },
+              big: { url: 'assets/storybook/productpage/productM.png' }
+            }
+          ]"
+        />
       </template>
       <template #sliding="{isActive}">
         <SfSticky class="product-details">

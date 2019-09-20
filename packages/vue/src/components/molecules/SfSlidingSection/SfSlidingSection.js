@@ -13,7 +13,7 @@ export default {
       hasScrollLock: false,
       desktopMin: 1024,
       hammer: undefined,
-      staticHeight: -1
+      hasStaticHeight: false
     };
   },
   watch: {
@@ -29,7 +29,7 @@ export default {
     },
     isActive(active) {
       if (!active) {
-        this.$refs.static.style.removeProperty("height");
+        this.hasStaticHeight = false;
         if (!this.isMobile) {
           this.hasScrollLock = false;
           return;
@@ -37,7 +37,6 @@ export default {
         this.hasScrollLock = true;
         return;
       }
-      this.$refs.static.style.setProperty("height", 0);
       this.hasScrollLock = false;
     },
     hasScrollLock(scrollLock) {
@@ -72,31 +71,27 @@ export default {
     },
     touchHandler(event) {
       const { distance, direction, isFinal } = event;
-      console.log({ distance, direction, isFinal });
-      if (this.staticHeight < 0) {
-        this.staticHeight = this.$refs.static.offsetHeight;
-      }
-      if (!this.isActive && direction === 8) {
+      if (!this.hasStaticHeight && this.$refs.static.offsetHeight > 0) {
+        this.hasStaticHeight = true;
         this.$refs.static.style.setProperty(
           "height",
-          `${this.staticHeight - distance}px`
+          `${this.$refs.static.offsetHeight}px`
         );
       }
-      // if (this.isActive && direction === 16) {
-      //   this.$refs.static.style.setProperty("height", `${distance}px`);
-      // }
-      // if (isFinal) {
-      //   this.staticHeight = -1;
-      //   this.isActive = !this.isActive;
-      // }
+      if (!this.isActive && isFinal && direction === 8) {
+        this.isActive = true;
+      }
+      if (this.isActive && isFinal && direction === 16) {
+        this.isActive = false;
+      }
     }
   },
   mounted() {
     this.isMobileHandler();
     window.addEventListener("resize", this.isMobileHandler, { passive: true });
-    this.hammer = new Hammer(document, { enable: false }).on(
-      "pan",
-      this.touchHandler
-    );
+    this.hammer = new Hammer(document, {
+      enable: false,
+      direction: Hammer.DIRECTION_VERTICAL
+    }).on("pan", this.touchHandler);
   }
 };
