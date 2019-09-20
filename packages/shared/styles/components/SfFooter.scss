@@ -4,9 +4,10 @@
 $footer__title-font-size: $font-size-regular-desktop !default;
 $characteristic__description-font-size: $font-size-extra-small-desktop !default;
 $mobile_background-color: #F2F2F2;
+$footer__margin-top: $spacer-extra-big !default;
 
 .sf-footer {
-  margin-top: 10%;
+  margin-top: $footer__margin-top;
   margin-left: 10%;
   margin-right: 10%;
   box-sizing: border-box;
@@ -21,28 +22,13 @@ $mobile_background-color: #F2F2F2;
 .sf-footer-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin-bottom: 30px;
-
-  @media (max-width: $mobile-max) {
-    display: block;
-    grid-template-columns: unset;
-  }
-}
-
-.sf-footer-row-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-bottom: 30px;
-
-  @media (max-width: $mobile-max) {
-    display: block;
-    grid-template-columns: unset;
-  }
-}
-
-.sf-footer-row {
   margin: 0 auto;
   vertical-align: top;
+
+  @media (max-width: $mobile-max) {
+    display: block;
+    grid-template-columns: unset;
+  }
 }
 
 .sf-footer-column {
@@ -74,6 +60,15 @@ $mobile_background-color: #F2F2F2;
   &__inline {
     display: inline-block;
   }
+  &__right {
+    float: right;
+  }
+  &__left {
+    float: left;
+  }
+  &__accordion-only {
+    display: none;
+  }
 
   @media (max-width: $mobile-max) {
     display: block;
@@ -83,6 +78,12 @@ $mobile_background-color: #F2F2F2;
 
     &--active {
       background-color: $c-white;
+    }
+    &__accordion-only {
+      display: block;
+    }
+    &__main-only {
+      display: none;
     }
     &__chevron {
       float:right;

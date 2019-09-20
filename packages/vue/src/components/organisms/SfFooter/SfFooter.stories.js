@@ -14,6 +14,7 @@ const scssTableConfig = {
       "$font-size-regular-desktop",
       "font-size of footer title"
     ],
+    ["$footer__margin-top", "$spacer-extra-big", "margin-top for footer"],
     [
       "$characteristic__description-font-size",
       "$font-size-extra-small-desktop",
