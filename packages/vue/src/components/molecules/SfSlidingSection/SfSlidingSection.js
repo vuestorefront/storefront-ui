@@ -82,13 +82,13 @@ export default {
           `${this.staticHeight - distance}px`
         );
       }
-      if (this.isActive && direction === 16) {
-        this.$refs.static.style.setProperty("height", `${distance}px`);
-      }
-      if (isFinal) {
-        this.staticHeight = -1;
-        this.isActive = !this.isActive;
-      }
+      // if (this.isActive && direction === 16) {
+      //   this.$refs.static.style.setProperty("height", `${distance}px`);
+      // }
+      // if (isFinal) {
+      //   this.staticHeight = -1;
+      //   this.isActive = !this.isActive;
+      // }
     }
   },
   mounted() {
