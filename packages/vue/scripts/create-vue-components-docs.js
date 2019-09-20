@@ -49,6 +49,11 @@ function createVueComponentsDocs() {
     successCount += saveResultMd(targetFilepath, resultMd);
   }
 
+  if (successCount === 0) {
+    console.error("ERROR: No component docs were generated. Quit.");
+    process.exit(2);
+  }
+
   console.log(`Done. Created ${successCount} component docs.`);
 }
 
@@ -94,6 +99,12 @@ function getComponentInfoFromPath(pathComponentVue) {
 
 function getComponentInfoFromMd(filename) {
   const contentComponentFile = readComponentMd(filename);
+  if (!contentComponentFile) {
+    console.warn(
+      `WARN: Descriptive file (${filename}) for extra component info not found. Some fields might be missing in the target Markdown file.`
+    );
+    return null;
+  }
   try {
     return parseComponentFile(contentComponentFile);
   } catch (e) {
@@ -104,6 +115,9 @@ function getComponentInfoFromMd(filename) {
 
 function getComponentInfoFromScss(filename) {
   const contentScssFile = readComponentScss(filename);
+  if (!contentScssFile) {
+    return null;
+  }
   try {
     return parseScssFile(contentScssFile);
   } catch (e) {
@@ -128,11 +142,17 @@ function getComponentInfoFromVue(pathVueFile) {
 
 function readComponentMd(filename) {
   const pathComponentMd = pathInsideComponentsDocsDir(filename);
+  if (!fs.existsSync(pathComponentMd)) {
+    return null;
+  }
   return fs.readFileSync(pathComponentMd, "utf8");
 }
 
 function readComponentScss(filename) {
   const pathComponentScss = pathInsideComponentsScssRoot(filename);
+  if (!fs.existsSync(pathComponentScss)) {
+    return null;
+  }
   return fs.readFileSync(pathComponentScss, "utf8");
 }
 
@@ -367,9 +387,11 @@ function generateComponentDetailsInfo(rawDetails) {
 }
 
 function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
+  const componentDescription =
+    componentInfo.componentDescription || "<!-- No Component description -->";
   const replaceMap = new Map([
     ["[[component-name]]", componentInfo.componentName],
-    ["[[component-description]]", componentInfo.componentDescription || ""],
+    ["[[component-description]]", componentDescription],
     ["[[sf-component-name]]", componentInfo.sfComponentName],
     ["[[common-usage]]", componentInfo.commonUsage || "tbd."],
     ["[[props]]", componentInfo.props || "None."],
