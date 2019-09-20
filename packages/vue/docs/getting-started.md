@@ -2,7 +2,7 @@
 ## Installation
 :::warning 
 To achieve best extendibility and performance we ship Storofront UI as a raw source which means you need webpack in your project to process the library.
-It's StorefrontUI is working out of the box  with **Nuxt** and **Vue CLI 2 & 3**!
+Storefront UI is working out of the box  with **Nuxt** and **Vue CLI 2 & 3**!
 To use it in custom project you need following webpack loaders to process it's raw source: `css-loader`, `scss-loader`, `sass-loader`, `vue-loader`
 :::
 To start working with Storefront UI you need to install the package itself containing raw source of the library:
