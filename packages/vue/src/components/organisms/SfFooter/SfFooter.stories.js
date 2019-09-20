@@ -96,12 +96,6 @@ storiesOf("Organisms|Footer", module)
               </SfFooterColumn>
             </template>
             <template v-slot:columns-2>
-              <SfFooterColumn class="sf-footer-column__placeholder"> 
-              </SfFooterColumn>
-              <SfFooterColumn class="sf-footer-column__placeholder"> 
-              </SfFooterColumn>
-              <SfFooterColumn class="sf-footer-column__placeholder"> 
-              </SfFooterColumn>
               <SfFooterColumn class="sf-footer-social" title="SOCIAL"> 
                 <template v-slot:content> 
                   <SfList>        

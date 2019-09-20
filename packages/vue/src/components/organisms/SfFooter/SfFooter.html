@@ -1,8 +1,14 @@
 <div class="sf-footer">
-   <div class="sf-footer-row"> 
-    <slot name="columns" />
-   </div>
-   <div class="sf-footer-row">
-     <slot name="columns-2" />
+    <div class="sf-footer-row">
+        <slot name="columns" />
+    </div>
+    <div class="sf-footer-row">
+        <SfFooterColumn class="sf-footer-column__placeholder">
+        </SfFooterColumn>
+        <SfFooterColumn class="sf-footer-column__placeholder">
+        </SfFooterColumn>
+        <SfFooterColumn class="sf-footer-column__placeholder">
+        </SfFooterColumn>
+        <slot name="columns-2" />
     </div>
 </div>
