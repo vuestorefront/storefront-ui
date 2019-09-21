@@ -11,6 +11,7 @@ const pathTemplateFile = pathInsideComponentsDocsDir(
   "component-docs-template.md"
 );
 const pathTargetMdsRoot = path.resolve(__dirname, "..", "docs/components");
+const pathVuepressConfigRoot = path.resolve(__dirname, "..", "docs/.vuepress");
 const pathComponentsScssRoot = path.resolve(
   __dirname,
   "../..",
@@ -30,6 +31,7 @@ function createVueComponentsDocs() {
   const contentTemplateFile = fs.readFileSync(pathTemplateFile, "utf8");
 
   let successCount = 0;
+  const sfComponents = [];
   for (const pathComponentVue of pathsVueComponents) {
     let componentInfoFull;
     try {
@@ -48,7 +50,14 @@ function createVueComponentsDocs() {
       pathTargetMdsRoot,
       componentInfoFull.sfComponentName + ".md"
     );
-    successCount += saveResultMd(targetFilepath, resultMd);
+    const success = saveResultMd(targetFilepath, resultMd);
+    if (success) {
+      successCount++;
+      sfComponents.push({
+        sfComponentName: componentInfoFull.sfComponentName,
+        pathComponentVue
+      });
+    }
   }
 
   if (successCount === 0) {
@@ -56,7 +65,22 @@ function createVueComponentsDocs() {
     process.exit(2);
   }
 
-  console.log(`Done. Created ${successCount} component docs.`);
+  if (successCount === pathsVueComponents.length) {
+    console.log(`Successfully generated ${successCount} component docs.`);
+  } else {
+    console.warn(
+      `WARN: Generated component docs for ${successCount} but found ${pathsVueComponents.length} components.`
+    );
+  }
+
+  try {
+    editVuepressConfigFiles(sfComponents);
+  } catch (e) {
+    console.warn(`WARN: Cannot update VuePress config files: ${e.message}`);
+    process.exit(3);
+  }
+
+  console.log("Successfully updated VuePress config files. Done.");
 }
 
 function getFullComponentInfo(pathComponentVue) {
@@ -156,6 +180,14 @@ function readComponentScss(filename) {
     return null;
   }
   return fs.readFileSync(pathComponentScss, "utf8");
+}
+
+function readVuepressConfig(filename) {
+  const pathVuepressConfig = pathInsideVuepressConfigRoot(filename);
+  if (!fs.existsSync(pathVuepressConfig)) {
+    return null;
+  }
+  return fs.readFileSync(pathVuepressConfig, "utf8");
 }
 
 function parseComponentFile(contentComponentFile) {
@@ -423,6 +455,93 @@ function saveResultMd(targetFilepath, resultMd) {
   return true;
 }
 
+function editVuepressConfigFiles(sfComponents) {
+  const contentConfigJs = readVuepressConfig("config.js");
+  const contentEnhanceApp = readVuepressConfig("enhanceApp.js");
+
+  if (!contentConfigJs || !contentEnhanceApp) {
+    throw new Error("Error reading VuePress config files");
+  }
+
+  /* config.js */
+  // divide content into:
+  // - (1) everything before the line with the start tag,
+  // - (2) the indentation of the start tag (needed for nice indentation),
+  // - (3) the components part (including start and end tag)
+  // - (4) everything after the end tag
+  let regExp = /([\s\S]+)\n(\s*)(\/\/\s*@components-docs-start.*[\s\S]*@components-docs-end)\n([\s\S]+)/g;
+  let reResult = regExp.exec(contentConfigJs);
+
+  if (!reResult || reResult.length !== 5) {
+    throw new Error("Error parsing VuePress config.js: Reg. Exp. mismatch");
+  }
+
+  // skip the components part (index 3) because we replace it entirely anyway
+  let [, before, indent, , after] = reResult;
+
+  sfComponents.sort();
+  let components = [];
+  for (const { sfComponentName } of sfComponents) {
+    const path = "/components/" + sfComponentName;
+    const componentName = sfComponentName.slice(2);
+    // put spaces between words for title
+    const title = componentName.replace(/([A-Z])/g, " $1").trim();
+
+    components.push(`["${path}", "${title}"]`);
+  }
+  let startTag = `\n${indent}// @components-docs-start (keep comment and indentation for auto-generated component docs)\n`;
+  let endTag = `\n${indent}// @components-docs-end\n`;
+  let formattedComponents = indent + components.join(`,\n${indent}`);
+  let newContent = before + startTag + formattedComponents + endTag + after;
+  let pathVuepressConfig = pathInsideVuepressConfigRoot("config.js");
+  fs.writeFileSync(pathVuepressConfig, newContent);
+
+  /* enhanceApp.js */
+  // divide content into:
+  // - (1) everything before the line with the start tag (for other imports),
+  // - (2) the components imports part (including start and end tag)
+  // - (3) everything between the end tag and the line with the next start tag
+  // - (4) the indentation of the start tag (needed for nice indentation)
+  // - (5) the components part (including start and end tag)
+  // - (6) everything after the end tag
+  regExp = /([\s\S]*?)\n?(\/\/\s*@components-docs-start.*[\s\S]*?@components-docs-end)\n([\s\S]+?)\n(\s*)(\/\/\s*@components-docs-start.*[\s\S]*@components-docs-end)\n([\s\S]+)/g;
+  reResult = regExp.exec(contentEnhanceApp);
+
+  if (!reResult || reResult.length !== 7) {
+    throw new Error("Error parsing VuePress enhanceApp.js: Reg. Exp. mismatch");
+  }
+
+  let beforeImports, middle;
+  // skip the component imports part (index 2) and components part (index 5) because we replace them entirely anyway
+  [, beforeImports, , middle, indent, , after] = reResult;
+
+  const importStatements = [];
+  components = [];
+  for (const { sfComponentName, pathComponentVue } of sfComponents) {
+    const importStatement = `import ${sfComponentName} from "../../src/components/${pathComponentVue}"`;
+    importStatements.push(importStatement);
+    components.push(`Vue.component("${sfComponentName}", ${sfComponentName});`);
+  }
+  const importStartTag = `\n// @components-docs-start (keep comment and indentation for auto-generated component docs)\n`;
+  const importEndTag = `\n// @components-docs-end\n`;
+  const formattedImports = importStatements.join("\n");
+  startTag = `\n${indent}// @components-docs-start (keep comment and indentation for auto-generated component docs)\n`;
+  endTag = `\n${indent}// @components-docs-end\n`;
+  formattedComponents = indent + components.join(`\n${indent}`);
+  newContent =
+    beforeImports +
+    importStartTag +
+    formattedImports +
+    importEndTag +
+    middle +
+    startTag +
+    formattedComponents +
+    endTag +
+    after;
+  pathVuepressConfig = pathInsideVuepressConfigRoot("enhanceApp.js");
+  fs.writeFileSync(pathVuepressConfig, newContent);
+}
+
 function pathInsideComponentsDocsDir(filename) {
   return path.join(pathComponentsDocsRoot, filename);
 }
@@ -433,6 +552,10 @@ function pathInsideComponentsRoot(subPath) {
 
 function pathInsideComponentsScssRoot(subPath) {
   return path.join(pathComponentsScssRoot, subPath);
+}
+
+function pathInsideVuepressConfigRoot(subPath) {
+  return path.join(pathVuepressConfigRoot, subPath);
 }
 
 createVueComponentsDocs();
