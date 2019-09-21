@@ -1,0 +1,62 @@
+# Step
+
+<!-- No Component description -->
+
+
+[[toc]]
+
+
+## Most common usage scenario
+
+tbd.
+
+
+## Props
+
+- **`name`**
+  - _Name of the step_
+  - **type:** `string`
+  - **required:** `true`
+
+
+## Slots
+
+- **`default`**
+  - **bindings:** `index`
+
+
+## Events
+
+None.
+
+
+## CSS modifiers
+
+None.
+
+
+## SCSS variables
+
+None.
+
+You can override SCSS variable values bound to this component in `sfui.scss` in the root of your project.
+
+
+## Partials
+
+If you want to customize this component even more you can use its partials for limitless customization.
+
+```html
+<template lang="html" src="@storefront-ui/vue/src/components/molecules/SfStep.html"></template>
+<script src="@storefront-ui/vue/src/components/molecules/SfStep.js"></script>
+<style lang="scss">
+@import "~@storefront-ui/shared/styles/components/SfStep.scss";
+</style>
+```
+
+You can read about using component partials [here](docs.storefrontui.io/customization)
+
+
+## Play with this component
+
+See all available configurations and play with this component on <a href="https://storybook.storefrontui.io/?path=/story/">Storybook</a>.
