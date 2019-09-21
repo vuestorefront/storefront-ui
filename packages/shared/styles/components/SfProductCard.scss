@@ -21,7 +21,9 @@ $product-card__image-blend-mode: darken !default;
     padding: $product-card-padding-desktop;
   }
   &:hover{
-    box-shadow: $product-card-hover-box-shadow;
+    @media (min-width: $desktop-min) {
+      box-shadow: $product-card-hover-box-shadow;
+    }
     #{$this}__wishlist-icon{
       opacity: 1;
     }
@@ -31,8 +33,9 @@ $product-card__image-blend-mode: darken !default;
     font-size: $font-size-regular-mobile;
     font-weight: 300;
     line-height: 1.6;
+    margin: $spacer-small 0;
     @media (min-width: $desktop-min){
-      margin: $spacer 0;
+      margin: $spacer 0 $spacer-small;
       font-size: $font-size-regular-desktop;
     }
   }
@@ -47,14 +50,9 @@ $product-card__image-blend-mode: darken !default;
       background-color: $c-light-primary;
     }
   }
-  &__cart-btton{}
-  &__price{
-    margin: $spacer-small 0;
-  }
   &__reviews{
     display: flex;
     align-items: center;
-    margin-top: $spacer-small;
   }
   &__rating {
     display: inline-flex;
@@ -65,17 +63,17 @@ $product-card__image-blend-mode: darken !default;
   }
   &__wishlist-icon{
     position: absolute;
-    top: $product-card-padding * 2;
-    right: $product-card-padding * 2;
+    top: $product-card-padding * 4;
+    right: $product-card-padding * 4;
     z-index: 1;
     padding: 0;
     border: 0;
     background-color: transparent;
     cursor: pointer;
     outline: none;
-    opacity: 0;
     transition: opacity 150ms ease-in-out;
     @media (min-width: $desktop-min){
+      opacity: 0;
       top: $product-card-padding-desktop * 2;
       right: $product-card-padding-desktop * 2;
     }

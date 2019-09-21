@@ -18,9 +18,9 @@
   </slot>
   <!-- @slot -->
   <slot name="title" v-bind="{title}">
-    <span class="sf-product-card__title">
+    <div class="sf-product-card__title">
       {{ title }}
-    </span>
+    </div>
   </slot>
   <!-- @slot -->
   <slot name="price" v-bind="{ specialPrice, regularPrice }">
@@ -36,11 +36,10 @@
     <div class="sf-product-card__reviews">
       <SfRating
         class="sf-product-card__rating"
-        v-if="scoreRating"
+        v-if="scoreRating > 0 && maxRating > 0"
         :max="maxRating"
-        :score="scoreRating"
-      />
-      <a v-if="scoreRating" class="sf-product-card__reviews-count">(8)</a>
+        :score="scoreRating"/>
+      <a v-if="scoreRating > 0 && maxRating > 0" class="sf-product-card__reviews-count">(8)</a>
     </div>
   </slot>
 </div>
