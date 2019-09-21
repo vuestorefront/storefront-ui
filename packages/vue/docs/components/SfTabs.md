@@ -60,8 +60,8 @@ You can override SCSS variable values bound to this component in `sfui.scss` in 
 If you want to customize this component even more you can use its partials for limitless customization.
 
 ```html
-<template lang="html" src="@storefront-ui/vue/src/components/organisms/SfTabs.html"></template>
-<script src="@storefront-ui/vue/src/components/organisms/SfTabs.js"></script>
+<template lang="html" src="@storefront-ui/vue/src/components/organisms/SfTabs/SfTabs.html"></template>
+<script src="@storefront-ui/vue/src/components/organisms/SfTabs/SfTabs.js"></script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/SfTabs.scss";
 </style>

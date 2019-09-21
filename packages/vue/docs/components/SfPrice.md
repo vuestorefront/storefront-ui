@@ -73,8 +73,8 @@ You can override SCSS variable values bound to this component in `sfui.scss` in 
 If you want to customize this component even more you can use its partials for limitless customization.
 
 ```html
-<template lang="html" src="@storefront-ui/vue/src/components/atoms/SfPrice.html"></template>
-<script src="@storefront-ui/vue/src/components/atoms/SfPrice.js"></script>
+<template lang="html" src="@storefront-ui/vue/src/components/atoms/SfPrice/SfPrice.html"></template>
+<script src="@storefront-ui/vue/src/components/atoms/SfPrice/SfPrice.js"></script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/SfPrice.scss";
 </style>

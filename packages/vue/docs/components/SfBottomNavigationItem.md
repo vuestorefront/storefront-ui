@@ -43,8 +43,8 @@ You can override SCSS variable values bound to this component in `sfui.scss` in 
 If you want to customize this component even more you can use its partials for limitless customization.
 
 ```html
-<template lang="html" src="@storefront-ui/vue/src/components/organisms/SfBottomNavigationItem.html"></template>
-<script src="@storefront-ui/vue/src/components/organisms/SfBottomNavigationItem.js"></script>
+<template lang="html" src="@storefront-ui/vue/src/components/organisms/SfBottomNavigation/_internal/SfBottomNavigationItem.html"></template>
+<script src="@storefront-ui/vue/src/components/organisms/SfBottomNavigation/_internal/SfBottomNavigationItem.js"></script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/SfBottomNavigationItem.scss";
 </style>

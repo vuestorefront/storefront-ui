@@ -51,8 +51,8 @@ You can override SCSS variable values bound to this component in `sfui.scss` in 
 If you want to customize this component even more you can use its partials for limitless customization.
 
 ```html
-<template lang="html" src="@storefront-ui/vue/src/components/atoms/SfOverlay.html"></template>
-<script src="@storefront-ui/vue/src/components/atoms/SfOverlay.js"></script>
+<template lang="html" src="@storefront-ui/vue/src/components/atoms/SfOverlay/SfOverlay.html"></template>
+<script src="@storefront-ui/vue/src/components/atoms/SfOverlay/SfOverlay.js"></script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/SfOverlay.scss";
 </style>

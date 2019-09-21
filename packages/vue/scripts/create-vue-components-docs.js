@@ -114,12 +114,12 @@ function getFullComponentInfo(pathComponentVue) {
 
 function getComponentInfoFromPath(pathComponentVue) {
   const pathParts = pathComponentVue.split("/");
-  const atomicType = pathParts[0];
   const componentFilename = pathParts[pathParts.length - 1];
   return {
-    atomicType,
-    sfComponentName: componentFilename.replace(/(.+)\.vue/, "$1"),
-    componentName: componentFilename.replace(/Sf(.+)\.vue/, "$1")
+    sfComponentName: componentFilename.replace(/(.+)\.vue$/, "$1"),
+    componentName: componentFilename.replace(/Sf(.+)\.vue$/, "$1"),
+    pathComponentHtml: pathComponentVue.replace(/(.+)\.vue$/, "$1.html"),
+    pathComponentJs: pathComponentVue.replace(/(.+)\.vue$/, "$1.js")
   };
 }
 
@@ -436,7 +436,8 @@ function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
     ["[[events]]", componentInfo.events || "None."],
     ["[[css-modifiers]]", componentInfo.cssModifiers || "None."],
     ["[[scss-variables]]", componentInfo.scssVariables || "None."],
-    ["[[atomic-type]]", componentInfo.atomicType],
+    ["[[path-component-html]]", componentInfo.pathComponentHtml],
+    ["[[path-component-js]]", componentInfo.pathComponentJs],
     ["[[storybook-link]]", componentInfo.storybookLink || ""]
   ]);
   let renderedTemplate = contentTemplateFile;

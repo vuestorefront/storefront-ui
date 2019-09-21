@@ -83,8 +83,8 @@ You can override SCSS variable values bound to this component in `sfui.scss` in 
 If you want to customize this component even more you can use its partials for limitless customization.
 
 ```html
-<template lang="html" src="@storefront-ui/vue/src/components/molecules/SfModal.html"></template>
-<script src="@storefront-ui/vue/src/components/molecules/SfModal.js"></script>
+<template lang="html" src="@storefront-ui/vue/src/components/molecules/SfModal/SfModal.html"></template>
+<script src="@storefront-ui/vue/src/components/molecules/SfModal/SfModal.js"></script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/SfModal.scss";
 </style>
