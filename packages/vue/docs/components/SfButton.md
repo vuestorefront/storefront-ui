@@ -1,6 +1,6 @@
 # Button
 
-<!-- No Component description -->
+Base button component.
 
 
 [[toc]]
@@ -8,7 +8,23 @@
 
 ## Most common usage scenario
 
-tbd.
+<br><SfButton>Hello World!</SfButton>
+
+```html 
+<template>
+  <SfButton>Hello World!</SfButton>
+</template>
+
+<script>
+import { SfButton } from '@storefront-ui/vue'
+
+export default {
+  components: {
+    SfButton
+  }
+}
+</script>
+```
 
 
 ## Props
@@ -66,4 +82,4 @@ You can read about using component partials [here](docs.storefrontui.io/customiz
 
 ## Play with this component
 
-See all available configurations and play with this component on <a href="https://storybook.storefrontui.io/?path=/story/">Storybook</a>.
+See all available configurations and play with this component on <a href="https://storybook.storefrontui.io/?path=/story/atoms-button--basic">Storybook</a>.

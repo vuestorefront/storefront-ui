@@ -1,6 +1,6 @@
 # Arrow
 
-<!-- No Component description -->
+Arrow component for sliders and navigation.
 
 
 [[toc]]
@@ -8,7 +8,23 @@
 
 ## Most common usage scenario
 
-tbd.
+<br><SfArrow />
+
+```html 
+<template>
+  <SfArrow />
+</template>
+
+<script>
+import { SfArrow } from '@storefront-ui/vue'
+
+export default {
+  components: {
+    SfArrow
+  }
+}
+</script>
+```
 
 
 ## Props
@@ -67,4 +83,4 @@ You can read about using component partials [here](docs.storefrontui.io/customiz
 
 ## Play with this component
 
-See all available configurations and play with this component on <a href="https://storybook.storefrontui.io/?path=/story/">Storybook</a>.
+See all available configurations and play with this component on <a href="https://storybook.storefrontui.io/?path=/story/atoms-arrow--basic">Storybook</a>.
