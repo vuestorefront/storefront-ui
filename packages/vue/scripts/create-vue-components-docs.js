@@ -479,7 +479,7 @@ function editVuepressConfigFiles(sfComponents) {
   // skip the components part (index 3) because we replace it entirely anyway
   let [, before, indent, , after] = reResult;
 
-  sfComponents.sort();
+  sfComponents.sort((a, b) => (a.sfComponentName > b.sfComponentName ? 1 : -1));
   let components = [];
   for (const { sfComponentName } of sfComponents) {
     const path = "/components/" + sfComponentName;
