@@ -49,7 +49,10 @@ storiesOf("Atoms|Arrow", module)
             "CSS Modifiers",
             {
               "sf-arrow--right": "sf-arrow--right",
-              "sf-arrow--long": "sf-arrow--long"
+              "sf-arrow--long": "sf-arrow--long",
+              "sf-arrow--transparent": "sf-arrow--transparent",
+              "sf-arrow--rounded": "sf-arrow--rounded",
+              "sf-arrow--no-shadow": "sf-arrow--no-shadow"
             },
             "",
             { display: "multi-select" }

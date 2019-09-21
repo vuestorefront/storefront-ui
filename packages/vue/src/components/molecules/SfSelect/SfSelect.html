@@ -18,25 +18,26 @@
   class="sf-select">
   <div style="position: relative">
     <div
+      v-html="html"
+      class="sf-select__selected sf-select-option"></div>
+    <div
       v-if="label"
       class="sf-select__label">
       <slot name="label">{{label}}</slot>
     </div>
-    <div
-      v-html="html"
-      class="sf-select__selected sf-select-option"></div>
+    <SfOverlay :visible="open" @click="" class="sf-select__overlay"/>
     <transition name="sf-select">
       <div v-show="open" class="sf-select__dropdown">
         <!--  sf-select__option -->
         <ul
-          :style=""
+          :style="{ maxHeight }"
           class="sf-select__options">
           <slot/>
         </ul>
         <SfButton
           @click="closeHandler"
           ref="cancel"
-          class="sf-select__cancel">
+          class="sf-select__cancel sf-button--full-width">
           Cancel
         </SfButton>
       </div>
@@ -51,5 +52,4 @@
       </span>
     </transition>
   </div>
-  <SfOverlay :visible="open" @click="" class="sf-select__overlay"/>
 </div>

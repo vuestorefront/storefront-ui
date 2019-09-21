@@ -2,15 +2,12 @@
   <button
     v-if="wishlistIcon !== false"
     :aria-label="ariaLabel"
-    @click="toggleOnWishlist"
-    :class="wishlistIconClasses">
+    @click="toggleIsOnWishlist"
+    :class="wishlistIconClasses"
+  >
     <!-- @slot -->
     <slot name="wishlist-icon" v-bind="{currentWishlistIcon}">
-      <SfIcon
-        :icon="currentWishlistIcon"
-        color="black"
-        size="22px"
-        data-test="sf-wishlist-icon"/>
+      <SfIcon :icon="currentWishlistIcon" color="black" size="22px" />
     </slot>
   </button>
   <!-- @slot -->
@@ -21,9 +18,9 @@
   </slot>
   <!-- @slot -->
   <slot name="title" v-bind="{title}">
-    <span class="sf-product-card__title">
+    <div class="sf-product-card__title">
       {{ title }}
-    </span>
+    </div>
   </slot>
   <!-- @slot -->
   <slot name="price" v-bind="{ specialPrice, regularPrice }">
@@ -31,17 +28,18 @@
       class="sf-product-card__price"
       v-if="regularPrice"
       :regular="regularPrice"
-      :special="specialPrice"/>
+      :special="specialPrice"
+    />
   </slot>
   <!-- @slot -->
   <slot name="reviews" v-bind="{ maxRating, scoreRating }">
     <div class="sf-product-card__reviews">
       <SfRating
         class="sf-product-card__rating"
-        v-if="scoreRating"
+        v-if="scoreRating > 0 && maxRating > 0"
         :max="maxRating"
         :score="scoreRating"/>
-      <a v-if="scoreRating" class="sf-product-card__reviews-count">(8)</a>
+      <a v-if="scoreRating > 0 && maxRating > 0" class="sf-product-card__reviews-count">(8)</a>
     </div>
   </slot>
 </div>

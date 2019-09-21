@@ -48,13 +48,13 @@ storiesOf("Organisms|Tabs", module)
       },
       template: `
       <SfTabs :openTab="1">
-      <SfTab header="Description">
+      <SfTab title="Description">
       The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common "problem" areas. Find stunning women's cocktail dresses and party dresses.</SfTab>
-      <SfTab header="Read reviews">
+      <SfTab title="Read reviews">
         <h3 style="padding: 0">Maria</h3> 
         <p>I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can't comment on interlation as I had an electrition instal it. Would recommend.. Read more</p>
       </SfTab>
-      <SfTab header="Additional Information">
+      <SfTab title="Additional Information">
         <h3 style="padding: 0">Brand</h3>
         <p>
         <u>Brand name</u> is the perfect pairing of quality and design. This label creates major everyday vibes with its collection of modern brooches, silver and gold jewellery, or clips it back with hair accessories in geo styles.

@@ -1,11 +1,11 @@
 @import '../variables';
 
-$sf-circle-icon-background-primary: $c-green-primary !default;
-$sf-circle-icon-background-secondary: $c-dark-primary !default;
-$sf-circle-icon-icon-color: $c-white !default;
-$sf-circle-icon-size: 3.25rem !default;
-$sf-circle-icon-size-small: 1.625rem !default;
-$sf-circle-icon-size-big: 4rem !default;
+$circle-icon-background-primary: $c-green-primary !default;
+$circle-icon-background-secondary: $c-dark-primary !default;
+$circle-icon-icon-color: $c-white !default;
+$circle-icon-size: 3.25rem !default;
+$circle-icon-size-small: 1.625rem !default;
+$circle-icon-size-big: 4rem !default;
 
 .sf-circle-icon {
   padding: 5px;
@@ -15,42 +15,48 @@ $sf-circle-icon-size-big: 4rem !default;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: $sf-circle-icon-size;
-  height: $sf-circle-icon-size;
+  width: $circle-icon-size;
+  height: $circle-icon-size;
   transition: box-shadow 0.3s ease;
   outline: none;
-  background-color: $sf-circle-icon-background-primary;
+  background-color: $circle-icon-background-primary;
   &:hover {
-    box-shadow: 0 0 0 0.3125rem rgba($sf-circle-icon-background-primary, 0.4);
+    box-shadow: 0 0 0 0.3125rem rgba($circle-icon-background-primary, 0.4);
   }
   &:active {
-    box-shadow: 0 0 0 0.625rem rgba($sf-circle-icon-background-primary, 0.4);
+    box-shadow: 0 0 0 0.625rem rgba($circle-icon-background-primary, 0.4);
   }
   &__icon {
     padding: 10px;
   }
-  &--secondary {
-    background-color: $sf-circle-icon-background-secondary;
-    &:hover {
-      box-shadow: 0 0 0 0.3125rem
-        rgba($sf-circle-icon-background-secondary, 0.4);
-    }
-    &:active {
-      box-shadow: 0 0 0 0.625rem rgba($sf-circle-icon-background-secondary, 0.4);
-    }
-  }
   &--small {
-    width: $sf-circle-icon-size-small;
-    height: $sf-circle-icon-size-small;
+    width: $circle-icon-size-small;
+    height: $circle-icon-size-small;
     & .sf-circle-icon__icon {
       padding: 3px;
     }
   }
   &--big {
-    width: $sf-circle-icon-size-big;
-    height: $sf-circle-icon-size-big;
+    width: $circle-icon-size-big;
+    height: $circle-icon-size-big;
     & .sf-circle-icon__icon {
       padding: 15px;
+    }
+  }
+  @each $color, $map in $colors-map {
+    $bg: map-get($map, 'bg');
+    $text: map-get($map, 'text');
+
+    &.color-#{$color} {
+      color: $text !important;
+      background-color: $bg !important;
+      &:hover {
+        background-color: lighten($bg, 5) !important;
+        box-shadow: 0 0 0 0.3125rem rgba($bg, 0.4);
+      }
+      &:active {
+        box-shadow: 0 0 0 0.625rem rgba($bg, 0.4);
+      }
     }
   }
 }

@@ -1,101 +1,127 @@
-@import '../variables';
+@import "../variables";
 
-$sf-input__transition: all 0.3s ease-in-out !default;
-$sf-input__input-font-size: $font-size-big-desktop !default;
-$sf-input__label-font-size: $font-size-big-desktop !default;
-$sf-input__label-focus-font-size: 0.625rem !default;
-$sf-input__error-message-min-height: 0.875rem !default;
-$sf-input__active-color: $c-accent-primary !default;
-$sf-input__invalid-color: rgba(240, 140, 125, 1) !default;
-$sf-input__disabled-color: rgba(115, 118, 128, 1) !default;
+$input-color: $c-text-primary !default;
+$input-color-active: $c-accent-primary !default;
+$input-color-invalid: #d12727 !default;
+$input-color-disabled: $c-dark-secondary !default;
+$input-font-family: $body-font-family-secondary !default;
+$input-font-size: $font-size-big-mobile !default;
+$input-font-size-desktop: $font-size-big-desktop !default;
+$input-font-weight: $body-font-weight-secondary !default;
+$input-line-height: 1.6 !default;
+$input__label-focus-font-size: $font-size-small-mobile !default;
+$input__label-focus-font-size-desktop: $font-size-extra-small-desktop !default;
+$input__label-transition: all 150ms ease-in-out !default;
+$input__bar-transition: all 150ms ease-in-out !default;
+$input__error-message-font-family: $body-font-family-primary !default;
+$input__error-message-font-size: $font-size-small-mobile !default;
 
 @mixin move-label-up {
-  top: -3px;
-  font-size: $sf-input__label-focus-font-size;
+  top: calc((#{$input__label-focus-font-size / 2}) - 5px);
+  font-size: $input__label-focus-font-size;
+  @media screen and (min-width: $desktop-min) {
+    font-size: $input__label-focus-font-size-desktop;
+  }
 }
 
 .sf-input {
+  $this: &;
+  box-sizing: border-box;
   position: relative;
-  & > input {
-    width: 100%;
-    font-size: $sf-input__input-font-size;
-    padding: 0.75rem 0;
-    display: block;
-    border-width: 0 0 1px 0;
-    border-style: solid;
-    border-color: #f1f2f3;
+  margin-top: 5px;
+  color: $input-color;
+  font-family: $input-font-family;
+  font-size: $input-font-size;
+  font-weight: $input-font-weight;
+  line-height: $input-line-height;
+  @media screen and (min-width: $desktop-min) {
+    font-size: $input-font-size-desktop;
+  }
+  & input {
     box-sizing: border-box;
-    &:required ~ .sf-input__label::after {
-      content: " *";
+    display: block;
+    width: 100%;
+    padding: 5px 0;
+    border-width: 0 0 1px 0;
+    border-color: $c-light-primary;
+    background-color: transparent;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    &:focus ~ #{$this}__label {
+      @include move-label-up;
+      color: $input-color-active;
     }
-    &:focus {
-      outline: none;
-    }
-    &:focus ~ .sf-input__bar:before,
-    &:focus ~ .sf-input__bar:after {
+    &:focus ~ #{$this}__bar::before,
+    &:focus ~ #{$this}__bar::after {
       width: 50%;
     }
-    &:focus ~ .sf-input__label {
-      @include move-label-up();
-      color: $sf-input__active-color;
+    &:required ~ #{$this}__label::after {
+      content: " *";
     }
-    &:disabled ~ .sf-input__label {
-      color: $sf-input__disabled-color;
+    &:disabled ~ #{$this}__label {
+      color: $input-color-disabled;
     }
   }
   &__bar {
     position: relative;
     display: block;
-    &:before,
-    &:after {
-      content: "";
-      height: 1px;
-      width: 0;
-      bottom: 0;
+    &::before,
+    &::after {
       position: absolute;
-      background-color: $sf-input__active-color;
-      transition: $sf-input__transition;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background-color: $input-color-active;
+      transition: $input__bar-transition;
+      content: "";
     }
-    &:before {
+    &::before {
       left: 50%;
     }
-    &:after {
+    &::after {
       right: 50%;
     }
   }
   &__label {
-    font-size: $sf-input__label-font-size;
-    font-weight: normal;
     position: absolute;
-    pointer-events: none;
-    top: 10px;
-    transition: $sf-input__transition;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: $input__label-transition;
     &::after {
-      color: $sf-input__active-color;
+      color: $input-color-active;
     }
   }
   &__error-message {
-    padding-top: $spacer-small;
-    color: $sf-input__invalid-color;
-    font-size: $font-size-extra-small-desktop;
-    min-height: $sf-input__error-message-min-height;
+    margin-top: 5px;
+    color: $input-color-invalid;
+    font-family: $input__error-message-font-family;
+    font-size: $input__error-message-font-size;
   }
   &--invalid {
-    & > input:focus ~ .sf-input__label {
-      color: $sf-input__invalid-color;
+    input:focus ~ #{$this}__label {
+      &,
+      &:after {
+        color: $input-color-invalid;
+      }
     }
-    & > .sf-input__label::after {
-      color: $sf-input__invalid-color;
+    #{$this}__bar {
+      &::before,
+      &::after {
+        background-color: $input-color-invalid;
+      }
     }
-    & > .sf-input__bar::before,
-    .sf-input__bar::after {
-      background-color: $sf-input__invalid-color;
+    @at-root #{&}#{$this}--has-text {
+      #{$this}__label {
+        color: $input-color-invalid;
+      }
     }
   }
-  &--has-text > &__label {
-    @include move-label-up();
-  }
-  &--invalid.sf-input--has-text > &__label {
-    color: $sf-input__invalid-color;
+  &--has-text {
+    #{$this}__label {
+      @include move-label-up;
+    }
   }
 }

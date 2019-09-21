@@ -141,7 +141,7 @@ storiesOf("Organisms|Hero", module)
           )
         }
       },
-      template: `<SfHero>
+      template: `<div style="max-width: 1240px; margin: auto"><SfHero :sliderOptions="{autoplay: false}">
         <template>
           <div v-for="(item, index) in items">
             <SfHeroItem
@@ -154,7 +154,7 @@ storiesOf("Organisms|Hero", module)
             />
           </div>
         </template>
-      </SfHero>`
+      </SfHero></div>`
     }),
     {
       info: {
