@@ -57,15 +57,15 @@ tbd.
 ## Slots
 
 - **`author`**
-  - _Review author. Slot content will replace default <div> tag (bind 'author' string)._
+  - _Review author. Slot content will replace default &lt;div&gt; tag (bind 'author' string)._
   - **bindings:** `author`
 
 - **`info`**
-  - _Review information. Slot content will replace default <div> tag and its inner <div> tags (bind 'rating' boolean|number, 'maxRating' number, 'date' string)._
+  - _Review information. Slot content will replace default &lt;div&gt; tag and its inner &lt;div&gt; tags (bind 'rating' boolean|number, 'maxRating' number, 'date' string)._
   - **bindings:** `rating`, `maxRating`, `date`
 
 - **`message`**
-  - _Review message. Slot content will replace default <div> tag and its inner <span> and <a> tags (bind 'finalMessage' computed property, 'buttonText' computed property)._
+  - _Review message. Slot content will replace default &lt;div&gt; tag and its inner &lt;span&gt; and &lt;a&gt; tags (bind 'finalMessage' computed property, 'buttonText' computed property)._
   - **bindings:** `finalMessage`, `buttonText`
 
 

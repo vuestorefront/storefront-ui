@@ -42,10 +42,10 @@ tbd.
 ## Slots
 
 - **`subtitle`**
-  - _hero item subtitle. Slot content will replace default <h2> tag_
+  - _hero item subtitle. Slot content will replace default &lt;h2&gt; tag_
 
 - **`title`**
-  - _hero item title. Slot content will replace default <h1> tag_
+  - _hero item title. Slot content will replace default &lt;h1&gt; tag_
 
 - **`call-to-action`**
   - _Call to action section. Slot content will replace default SfButton component_

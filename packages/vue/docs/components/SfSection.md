@@ -32,7 +32,7 @@ tbd.
 ## Slots
 
 - **`heading`**
-  - _Section heading. Slot content will replace default <sf-heading> component_
+  - _Section heading. Slot content will replace default &lt;sf-heading&gt; component_
   - **bindings:** `levelHeading`, `titleHeading`, `subtitleHeading`
 
 - **`default`**

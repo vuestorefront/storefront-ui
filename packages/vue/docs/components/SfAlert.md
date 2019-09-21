@@ -42,11 +42,11 @@ tbd.
 ## Slots
 
 - **`icon`**
-  - _Custom alert icon. Slot content will replace default icon <img> tag._
+  - _Custom alert icon. Slot content will replace default icon &lt;img&gt; tag._
   - **bindings:** `icon`, `sizeIcon`, `colorIcon`, `type`
 
 - **`message`**
-  - _Custom message . Slot content will replace default message <span> tag._
+  - _Custom message . Slot content will replace default message &lt;span&gt; tag._
   - **bindings:** `message`
 
 

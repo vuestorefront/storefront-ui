@@ -320,7 +320,7 @@ function extractCssModifiers(contentScssFile) {
   for (const [modifier, description] of uniqueModifiers) {
     cssModifiers += `- **\`${modifier}\`**\n`;
     if (description) {
-      cssModifiers += `  - _${description}_\n`;
+      cssModifiers += `  - _${escapeHtmlAngleBrackets(description)}_\n`;
     }
   }
 
@@ -337,7 +337,7 @@ function extractPropsFromComponentDoc(componentDoc) {
     const prop = componentDoc.props[propName];
     const propInfo = {
       name: prop.name,
-      description: prop.description,
+      description: escapeHtmlAngleBrackets(prop.description),
       type: prop.type.name,
       defaultValue: prop.defaultValue && prop.defaultValue.value,
       required: !!prop.required
@@ -357,7 +357,7 @@ function extractSlotsFromComponentDoc(componentDoc) {
     const slot = componentDoc.slots[slotName];
     const slotInfo = {
       name: slotName,
-      description: slot.description,
+      description: escapeHtmlAngleBrackets(slot.description),
       bindings: Object.keys(slot.bindings)
     };
     slots.push(slotInfo);
@@ -375,7 +375,7 @@ function extractEventsFromComponentDoc(componentDoc) {
     const event = componentDoc.events[eventName];
     const eventInfo = {
       name: eventName,
-      description: event.description
+      description: escapeHtmlAngleBrackets(event.description)
     };
     events.push(eventInfo);
   }
@@ -556,6 +556,10 @@ function pathInsideComponentsScssRoot(subPath) {
 
 function pathInsideVuepressConfigRoot(subPath) {
   return path.join(pathVuepressConfigRoot, subPath);
+}
+
+function escapeHtmlAngleBrackets(rawString) {
+  return rawString.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
 createVueComponentsDocs();

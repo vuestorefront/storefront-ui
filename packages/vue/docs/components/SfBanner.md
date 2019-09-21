@@ -46,15 +46,15 @@ tbd.
 ## Slots
 
 - **`subtitle`**
-  - _Banner subtitle. Slot content will replace default <h2> tag_
+  - _Banner subtitle. Slot content will replace default &lt;h2&gt; tag_
   - **bindings:** `subtitle`
 
 - **`title`**
-  - _Banner title. Slot content will replace default <h1> tag_
+  - _Banner title. Slot content will replace default &lt;h1&gt; tag_
   - **bindings:** `title`
 
 - **`description`**
-  - _Banner description. Slot content will replace default <p> tag_
+  - _Banner description. Slot content will replace default &lt;p&gt; tag_
   - **bindings:** `description`
 
 - **`call-to-action`**

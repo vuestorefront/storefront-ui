@@ -32,11 +32,11 @@ tbd.
 ## Slots
 
 - **`title`**
-  - _Heading title. Slot content will replace default <h> tag_
+  - _Heading title. Slot content will replace default &lt;h&gt; tag_
   - **bindings:** `title`
 
 - **`subtitle`**
-  - _Heading subtitle. Slot content will replace default <div> tag_
+  - _Heading subtitle. Slot content will replace default &lt;div&gt; tag_
   - **bindings:** `subtitle`
 
 
