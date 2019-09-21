@@ -98,10 +98,10 @@ $banner__subtitle-line-height: 1.16 !default;
 $banner__title-font-size: $font-size-extra-big-mobile !default;
 $banner__title-font-size-desktop: 3rem !default;
 $banner__title-font-weight: $body-font-weight-primary !default;
-$banner__description-line-height: 1.6;
-$banner__description-margin: 1.875rem 0 0 0;
-$banner--slim-padding: 5rem 2.5rem;
-$banner--slim__title-font-size: $h1-font-size-desktop;
+$banner__description-line-height: 1.6 !default;
+$banner__description-margin: 1.875rem 0 0 0 !default;
+$banner--slim-padding: 5rem 2.5rem !default;
+$banner--slim__title-font-size: $h1-font-size-desktop !default;
 ```
 
 You can override SCSS variable values bound to this component in `sfui.scss` in the root of your project.

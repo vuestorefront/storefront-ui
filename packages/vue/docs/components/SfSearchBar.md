@@ -57,7 +57,7 @@ $search-bar-width: 20rem !default;
 $search-bar-height: 2.25rem !default;
 $search-bar-border-radius: 1.6875rem !default;
 $search-bar-text-align: center !default;
-$search-bar-font-size: 0.875rem;
+$search-bar-font-size: 0.875rem !default;
 ```
 
 You can override SCSS variable values bound to this component in `sfui.scss` in the root of your project.

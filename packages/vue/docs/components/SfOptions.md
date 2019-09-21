@@ -70,8 +70,8 @@ $options__label-font-size: $font-size-big-mobile !default;
 $options__option-size: 2rem !default;
 $options__option-color-size-desktop: 1rem !default;
 $options__option-margin: 0.75rem !default;
-$options__option-text-color: #BDBDBD;
-$options__option--selected-text-color: $c-text-primary;
+$options__option-text-color: #BDBDBD !default;
+$options__option--selected-text-color: $c-text-primary !default;
 ```
 
 You can override SCSS variable values bound to this component in `sfui.scss` in the root of your project.

@@ -68,11 +68,11 @@ None.
 ## SCSS variables
 
 ```scss
-$modal-background-color: $c-white;
-$modal-width: 430px;
-$modal-height: auto;
-$modal-padding: 2.5em 5em;
-$modal-border: solid 1px rgba($c-black, 0.5);
+$modal-background-color: $c-white !default;
+$modal-width: 430px !default;
+$modal-height: auto !default;
+$modal-padding: 2.5em 5em !default;
+$modal-border: solid 1px rgba($c-black, 0.5) !default;
 ```
 
 You can override SCSS variable values bound to this component in `sfui.scss` in the root of your project.
