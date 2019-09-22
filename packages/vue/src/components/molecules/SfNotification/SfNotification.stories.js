@@ -4,7 +4,6 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfNotification from "./SfNotification.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 
 // use this to document scss vars
@@ -52,9 +51,6 @@ storiesOf("Molecules|Notification", module)
                 message: {
                     default: text("message (prop)", "This is informative message for the user. View cart")
                 },
-                // level: {
-                //     default: number("level (prop)", 2)
-                // },
                 icon: {
                     default: text("icon (prop)", "added_to_cart")
                 },
@@ -65,88 +61,6 @@ storiesOf("Molecules|Notification", module)
                         "info",
                         "success"
                     ])
-                }
-            },
-            components: { SfNotification, SfIcon },
-            template: `
-            <transition :name="transitionNotification">
-                <SfNotification
-                    class="sf-notification sf-notification__container" 
-                    :visible="isNotificationOpen"
-                    @close="isNotificationOpen = false"
-                    :title="title"                    
-                    :massage="massage"
-                    :icon="icon"  
-                    :type="type"            
-                >
-                    <SfIcon class="sf-notification__close" icon="cross" color="white" size="14px" @click="close" /> 
-                </SfNotification>
-            </transition>`
-        }), {
-            info: {
-                summary: `<p>Component description.</p>
-       <h2>Usage</h2>
-       <pre><code>import { SfNotification } from "@storefront-ui/vue"</code></pre>
-       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-       ${generateStorybookTable(cssTableConfig, "CSS modifiers")}`
-            }
-        }
-    )
-    .add(
-        "[slot] title",
-        () => ({
-            props: {
-                title: {
-                    default: text("title (prop)", "Added to Cart")
-                },
-                level: {
-                    default: number("level (prop)", 2)
-                }
-            },
-            components: { SfNotification },
-            template: `<SfNotification>
-                <div name="content" class="sf-notification__content">
-                    <component  
-                    :is="level"                   
-                    class="sf-notification__title"> 
-                        <slot 
-                            name="title"
-                            v-bind="{ title }"> 
-                            {{ title }} 
-                        </slot> 
-                    </component> 
-                </div>    
-            </SfNotification>`
-        }), {
-            info: true
-        }
-    )
-    .add(
-        "[slot] massage",
-        () => ({
-            props: {
-                massage: {
-                    default: text("massage (prop)", "This is informative message for the user. View cart")
-                }
-            },
-            components: { SfNotification },
-            template: `<SfNotification>
-              <div name="content" class="sf-notification__content">          
-                <div class="sf-notification__massage">
-                    <slot name="massage" v-bind="{ massage }">{{ massage }}</slot>
-                </div>
-              </div>   
-            </SfNotification>`
-        }), {
-            info: true
-        }
-    )
-    .add(
-        "[slot] icon",
-        () => ({
-            props: {
-                icon: {
-                    default: text("icon (prop)", "added_to_cart")
                 },
                 sizeIcon: {
                     type: String,
@@ -183,23 +97,41 @@ storiesOf("Molecules|Notification", module)
                         "blue-primary",
                         "blue-secondary",
                     ])
-                },
-                type: {
-                    default: select("type (prop)", [
-                        "alert",
-                        "warning",
-                        "info",
-                        "success"
-                    ])
                 }
             },
-            components: { SfNotification, SfIcon },
-            template: `<SfNotification>
-                <slot name="icon" v-bind="{ icon, sizeIcon, colorIcon, type }">
-                    <SfIcon class="sf-notification__icon" :icon="icon" :size="sizeIcon" :color="colorIcon"></SfIcon>
-                </slot>  
-            </SfNotification>`
+            components: { SfNotification },
+            template: `<SfNotification
+                    class="sf-notification sf-notification__container" 
+                    :visible="isNotificationOpen"
+                    @close="isNotificationOpen = false"
+                    :title="title"                    
+                    :message="message"
+                    :icon="icon"  
+                    :type="type"            
+                >
+                    <div name="content" class="sf-notification__content">
+                        <div class="sf-notification__title"> 
+                            <slot 
+                                name="title"
+                                v-bind="{ title }"> 
+                                {{ title }} 
+                            </slot> 
+                        </div> 
+                        <div class="sf-notification__message">
+                            <slot name="message" v-bind="{ message }">{{ message }}</slot>
+                        </div>
+                    </div>
+                    <slot name="icon" v-bind="{ icon, sizeIcon, colorIcon, type }">
+                        <SfIcon class="sf-notification__icon" :icon="icon" :size="sizeIcon" :color="colorIcon" :class="sf-notification--type"></SfIcon>
+                    </slot>
+                </SfNotification>`
         }), {
-            info: true
+            info: {
+                summary: `<p>Component description.</p>
+                        <h2>Usage</h2>
+                        <pre><code>import { SfNotification } from "@storefront-ui/vue"</code></pre>
+                        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+                        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}`
+            }
         }
     )

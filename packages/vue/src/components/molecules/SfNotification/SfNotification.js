@@ -13,18 +13,10 @@ export default {
             type: Boolean,
             default: false
         },
-        transition: {
-            type: String,
-            default: "fade"
-        },
         // title of the message that will be showed as header 
         title: {
             type: String,
             default: ""
-        },
-        level: {
-            type: Number,
-            default: 2
         },
         // the body of the message
         message: {
@@ -34,7 +26,7 @@ export default {
         // icon added to the message in desktop mode
         icon: {
             type: String,
-            default: "added_to_cart"
+            default: chooseIcon
         },
         sizeIcon: {
             type: String,
@@ -54,7 +46,20 @@ export default {
     },
     computed: {
         hasMessage() {
-            return this.massage || this.$slots.hasOwnProperty("massage");
+            return this.message || this.$slots.hasOwnProperty("message");
+        },
+        chooseIcon() {
+            switch (this.type) {
+                case "alert":
+                case "info":
+                    "info_circle";
+                    break
+                case "warning":
+                    "info_shield";
+                    break
+                default:
+                    "added_to_cart";
+            }
         }
     },
     methods: {

@@ -1,4 +1,4 @@
-<transition :name="fade">
+<transition name="fade">
     <div v-if="visible" @close="visible = false" class="sf-notification sf-notification__container" :class="`sf-notification--${type}`">
         <slot name="icon" v-bind="{ icon, sizeIcon, colorIcon, type }">
             <SfIcon class="sf-notification__icon" :icon="icon" :size="sizeIcon" :color="colorIcon" :class="`sf-notification--${type}`"></SfIcon>
@@ -6,7 +6,7 @@
         <div class="sf-notification__title">
             <slot name="title" v-bind="{ title }">{{ title }}</slot>
         </div>
-        <div v-if="hasMassage" class="sf-notification__message">
+        <div v-if="hasMessage" class="sf-notification__message">
             <slot name="message" v-bind="{ message }">{{ message }}</slot>
         </div>
         <SfIcon class="sf-notification__close" icon="cross" color="white" size="14px" @click="close" />
