@@ -267,7 +267,7 @@ export default {
     return {
       currentPage: 1,
       sortBy: "price-up",
-      isFilterSidebarOpen: true,
+      isFilterSidebarOpen: false,
       filters: {
         color: [],
         collection: [],

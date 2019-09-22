@@ -33,6 +33,7 @@ import SfOptions from "./src/components/molecules/SfOptions/SfOptions.js";
 import SfPagination from "./src/components/molecules/SfPagination/SfPagination.js";
 import SfProductOption from "./src/components/molecules/SfProductOption/SfProductOption.js";
 import SfRadio from "./src/components/molecules/SfRadio/SfRadio.js";
+import SfReview from "./src/components/molecules/SfReview/SfReview.js";
 import SfSearchBar from "./src/components/molecules/SfSearchBar/SfSearchBar.js";
 import SfSection from "./src/components/molecules/SfSection/SfSection.js";
 import SfSelect from "./src/components/molecules/SfSelect/SfSelect.js";
@@ -85,6 +86,7 @@ export {
   SfPagination,
   SfProductOption,
   SfRadio,
+  SfReview,
   SfSearchBar,
   SfSection,
   SfSelect,

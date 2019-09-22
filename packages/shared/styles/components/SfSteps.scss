@@ -1,0 +1,114 @@
+@import "../variables";
+
+
+$steps__active-line-height-mobile: 0.1875rem;
+$steps__active-line-height-desktop: 0.125rem;
+$steps__active-line-color: $c-dark-primary;
+$steps-border: 0.0625rem solid #f1f2f4;
+
+$steps__step-font-weight: 500;
+$steps__step-font-size: 0.75rem;
+$steps__step-font-color: $c-gray-secondary;
+$steps__step-padding: 1.25rem 0;
+$steps__step-text-transform: uppercase;
+
+
+%sf-store-active-line {
+  position: absolute;
+  content: "";
+  display: block;
+  height: $steps__active-line-height-mobile;
+  width: 100%;
+  bottom: -$steps__active-line-height-mobile /2;
+  left: 0;
+  background-color: $steps__active-line-color;
+
+  @media screen and (min-width: $desktop-min) {
+    height: $steps__active-line-height-desktop;
+    bottom: -$steps__active-line-height-desktop /2;
+  }
+}
+
+.sf-steps {
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: $steps-border;
+
+    &-step {
+      position: relative;
+      padding: $steps__step-padding;
+      font-size: $steps__step-font-size;
+      color: $steps__step-font-color;
+      font-weight: $steps__step-font-weight;
+      text-transform: $steps__step-text-transform;
+      flex: 1;
+      cursor: pointer;
+
+      &:after {
+        @extend %sf-store-active-line;
+        width: 0%;
+      }
+
+      &:last-of-type {
+        &.sf-steps__header-step-current {
+          span:after {
+            opacity: 0;
+          }
+          &:after {
+            width: 100%;
+          }
+        }
+      }
+
+      span {
+        position: relative;
+        text-align: right;
+        display: block;
+        width: 50%;
+        transform: translate(25%);
+        &:after {
+          @extend %sf-store-active-line;
+          opacity: 0;
+          width: calc(100% + 25%);
+          bottom: -(1.25rem + ($steps__active-line-height-mobile / 2));
+          left: -25%;
+
+          @media screen and (min-width: $desktop-min) {
+            bottom: -(1.25rem + ($steps__active-line-height-desktop / 2));
+          }
+        }
+      }
+
+      &-done {
+        &:after {
+          width: 100%;
+        }
+      }
+
+      &-current {
+        color: $c-dark-primary;
+
+        span {
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+
+      &-disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+  &__content {
+    padding: 2.5rem 0 0 0;
+
+    @media screen and (min-width: $desktop-min) {
+      padding: 5rem 0 0 0;
+    }
+  }
+}

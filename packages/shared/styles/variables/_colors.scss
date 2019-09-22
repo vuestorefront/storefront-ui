@@ -47,14 +47,23 @@ $c-dark: $c-dark-primary !default;
 
 // Text colors on theme colors bg
 // Using YIQ by default
-$c-on-primary: color-yiq($c-primary) !default;
-$c-on-secondary: color-yiq($c-secondary) !default;
-$c-on-info: color-yiq($c-info) !default;
-$c-on-success: color-yiq($c-success) !default;
-$c-on-warning: color-yiq($c-warning) !default;
-$c-on-danger: color-yiq($c-danger) !default;
-$c-on-light: color-yiq($c-light) !default;
-$c-on-dark: color-yiq($c-dark) !default;
+// $c-on-primary: color-yiq($c-primary) !default;
+// $c-on-secondary: color-yiq($c-secondary) !default;
+// $c-on-info: color-yiq($c-info) !default;
+// $c-on-success: color-yiq($c-success) !default;
+// $c-on-warning: color-yiq($c-warning) !default;
+// $c-on-danger: color-yiq($c-danger) !default;
+// $c-on-light: color-yiq($c-light) !default;
+// $c-on-dark: color-yiq($c-dark) !default;
+
+$c-on-primary: $c-white !default;
+$c-on-secondary: $c-white !default;
+$c-on-info: $c-white !default;
+$c-on-success: $c-white !default;
+$c-on-warning: $c-white !default;
+$c-on-danger: $c-white !default;
+$c-on-light: $c-white !default;
+$c-on-dark: $c-white !default;
 
 // Map colors palette
 $colors-map: (

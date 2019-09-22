@@ -102,7 +102,7 @@ storiesOf("Molecules|Pagination", module)
       :total="numberOfPages"
       :visible="visiblePageNumbers">
       <template #prev="{go}" >
-        <button @click="go" class="sf-pagination__button sf-pagination__button--prev">prev</button>
+        <button @click="go()" class="sf-pagination__button sf-pagination__button--prev">prev</button>
       </template>
     </SfPagination>`
     }),
@@ -121,7 +121,7 @@ storiesOf("Molecules|Pagination", module)
       :total="numberOfPages"
       :visible="visiblePageNumbers">
       <template #next="{go}" >
-        <button @click="go" class="sf-pagination__button sf-pagination__button--next">next</button>
+        <button @click="go()" class="sf-pagination__button sf-pagination__button--next">next</button>
       </template>
     </SfPagination>`
     }),
