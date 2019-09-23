@@ -13,7 +13,7 @@ export default {
             type: Boolean,
             default: false
         },
-        // title of the message that will be showed as header 
+        // title of the message that will be showed as header
         title: {
             type: String,
             default: ""
@@ -22,19 +22,6 @@ export default {
         message: {
             type: String,
             default: ""
-        },
-        // icon added to the message in desktop mode
-        icon: {
-            type: String,
-            default: chooseIcon
-        },
-        sizeIcon: {
-            type: String,
-            default: "lg"
-        },
-        colorIcon: {
-            type: String,
-            default: "white"
         },
         type: {
             type: String,
@@ -50,15 +37,14 @@ export default {
         },
         chooseIcon() {
             switch (this.type) {
-                case "alert":
-                case "info":
-                    "info_circle";
-                    break
+                case "success":
+                    "added_to_cart";
+                    break;
                 case "warning":
                     "info_shield";
-                    break
+                    break;
                 default:
-                    "added_to_cart";
+                    "info_circle";
             }
         }
     },
