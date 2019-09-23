@@ -125,4 +125,6 @@ Once you're done you can use this component as before
 
 TBD
 
-###
+### Create a new Storefront UI "theme"
+
+TBD
