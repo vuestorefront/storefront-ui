@@ -533,7 +533,7 @@ export default {
       font-weight: $body-font-weight-primary;
       @include for-desktop {
         font-size: $h1-font-size-desktop;
-        font-weight: $body-font-weight-secondary;
+        // font-weight: $body-font-weight-secondary;
       }
     }
     @include for-desktop {
@@ -754,7 +754,7 @@ export default {
   color: $c-text-primary;
   font-family: $body-font-family-secondary;
   font-size: $font-size-regular-mobile;
-  font-width: $body-font-weight-secondary;
+  // font-width: $body-font-weight-secondary;
   line-height: 1.6;
   text-decoration: underline;
   cursor: pointer;

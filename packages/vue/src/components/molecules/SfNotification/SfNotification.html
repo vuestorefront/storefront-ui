@@ -1,13 +1,16 @@
 <transition name="fade">
     <div v-if="visible" @close="visible = false" class="sf-notification sf-notification__container" :class="`sf-notification--${type}`">
+        <!--@slot Custom notification icon. Slot content will replace default icon <img> tag.-->
         <slot name="icon" v-bind="{ chooseIcon }">
             <SfIcon class="sf-notification__icon" :icon="chooseIcon" size="lg" color="white"></SfIcon>
         </slot>
         <div>
             <div class="sf-notification__title">
+                <!--@slot Custom title. Slot content will replace default title.-->
                 <slot name="title" v-bind="{ title }">{{ title }}</slot>
             </div>
             <div v-if="hasMessage" class="sf-notification__message">
+                <!--@slot Custom message. Slot content will replace default message.-->
                 <slot name="message" v-bind="{ message }">{{ message }}</slot>
             </div>
         </div>

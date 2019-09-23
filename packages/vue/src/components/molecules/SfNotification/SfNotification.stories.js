@@ -86,7 +86,6 @@ storiesOf("Molecules|Notification", module)
                     @close="isNotificationOpen = false"
                     :title="title"                    
                     :message="message"
-                    :icon="chooseIcon"  
                     :type="type"            
                 />`
         }), {

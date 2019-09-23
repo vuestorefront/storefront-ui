@@ -13,13 +13,13 @@ $notification__title-font-size: $h2-font-size-desktop !default;
     padding: $notification-padding;
     &__container {
         position: relative;
-        width: 100%;
         background: rgba(0, 0, 0, 0.8);
         color: $c-white;
         @media screen and (min-width: $desktop-min) {
             display: flex;
             flex-direction: row;
             align-items: center;
+            width: 500px;
             min-width: 25%;
             border: 0;
             box-shadow: 0px 8px 11px rgba(0, 0, 0, 0.1);
@@ -63,7 +63,7 @@ $notification__title-font-size: $h2-font-size-desktop !default;
         }
     }
     &--info {
-        background-color: $c-secondary;
+        background-color: $c-dark-primary;
     }
     &--alert {
         background-color: $notification--alert-color;
@@ -72,6 +72,6 @@ $notification__title-font-size: $h2-font-size-desktop !default;
         background-color: $notification--warning-color;
     }
     &--success {
-        background-color: $c-success;
+        background-color: $c-green-primary;
     }
 }

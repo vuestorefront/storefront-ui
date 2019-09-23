@@ -8,21 +8,30 @@ export default {
         SfHeading
     },
     props: {
-        // visibility of notification
+        /**
+         * Visibility of the Notification. Default value is false.
+         */
         visible: {
             type: Boolean,
             default: false
         },
-        // title of the message that will be showed as header
+        /**
+         * Title that will be displayed in Notification.
+         */
         title: {
             type: String,
             default: ""
         },
-        // the body of the message
+        /**
+         * Message that will be displayed in Notification.
+         */
         message: {
             type: String,
             default: ""
         },
+        /**
+         * Notification type ("alert", "warning", "info", "success"). Check "Knobs" section to see how they look like.
+         */
         type: {
             type: String,
             default: "alert",
@@ -38,13 +47,13 @@ export default {
         chooseIcon() {
             switch (this.type) {
                 case "success":
-                    "added_to_cart";
+                    this.icon = "added_to_cart";
                     break;
                 case "warning":
-                    "info_shield";
+                    this.icon = "info_shield";
                     break;
                 default:
-                    "info_circle";
+                    this.icon = "info_circle";
             }
         }
     },
