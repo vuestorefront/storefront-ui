@@ -10,11 +10,14 @@ $image__overlay-color: $c-white !default;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+
   &__img {
     flex: unset;
     max-width: 100%;
     height: auto;
   }
+
   &__overlay {
     position: absolute;
     top: 0;
