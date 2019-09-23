@@ -12,6 +12,7 @@ $chevron__bar-color: $c-black !default;
 
 @mixin chevron-bar($half-name) {
   $direction: 1;
+  $this: &;
   @if $half-name == "right" {
     $direction: -1;
   }
@@ -25,6 +26,14 @@ $chevron__bar-color: $c-black !default;
     height: $chevron__bar-height;
     background-color: transparent;
     transform: rotate($chevron__bar-rotate * $direction);
+
+    @at-root #{$this}--top & {
+      &:after {
+        transform-origin: center center;
+        transform: rotate(-2 * $chevron__bar-rotate * $direction);
+      }
+    }
+
     &:after {
       display: block;
       width: $chevron__bar-width;
@@ -44,19 +53,4 @@ $chevron__bar-color: $c-black !default;
   cursor: pointer;
   @include chevron-bar($half-name: left);
   @include chevron-bar($half-name: right);
-
-  &--top {
-    .sf-chevron__left-bar {
-      &:after {
-        transform-origin: center center;
-        transform: rotate(-2*$chevron__bar-rotate);
-      }
-    }
-    .sf-chevron__right-bar {
-      &:after {
-        transform-origin: center center;
-        transform: rotate(2*$chevron__bar-rotate);
-      }
-    }
-  }
 }
