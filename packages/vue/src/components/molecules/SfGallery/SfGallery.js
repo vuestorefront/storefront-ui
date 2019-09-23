@@ -83,16 +83,11 @@ export default {
       glide.mount();
       this.glide = glide;
     });
-<<<<<<< HEAD
-    glide.mount();
-    this.glide = glide;
-=======
 
     // handle lazy load for big images with lozad
     // https://apoorv.pro/lozad.js/
     const observer = lozad(".sf-gallery__big-image");
     observer.observe();
->>>>>>> sfui-master
   },
 
   beforeDestroy() {
