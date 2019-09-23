@@ -7,13 +7,14 @@ Below you can find information about key concepts behind the project. If you wan
 
 **StorefrontUI key characteristics**
 
-We are building Storefront UI based on the following 5 fundamentals:
-
-- **Performance**: You’re importing ONLY what you need, and in a raw format which means you can benefit from all build-time optimizations like tree shaking or grouping common chunks. Unused components are treeshaked and global CSS is just < 0,1 kB unminified. Thanks to this initial footprint of the library is unnoticable. You can use the library for how many components you want, even a single slider. You bundle only what you import.
+We are building Storefront UI based on the following 6 fundamentals:
 - **Customization**: Along with standard prop-based customization, every component has a set of slots that let you replace any part of it with your own images, icons or even custom HTML markup. You can also customize whole library from a single SCSS file by overriding set of variables. In addition, every component is divided into separate HTML, CSS and JS files so you can compose your own components from it's partsupdate docs.
+- **Mobile-first**: Every Storefront UI component is highly optimized for mobile user experience and in many cases behaves completely different on desktop and mobile. Select list becomes full-screen drop-down, tabs are becoming accordion etc.
+- **Performance**: You’re importing ONLY what you need, and in a raw format which means you can benefit from all build-time optimizations like tree shaking or grouping common chunks. Unused components are treeshaked and global CSS is just < 0,1 kB unminified. Thanks to this initial footprint of the library is unnoticable. You can use the library for how many components you want, even a single slider. You bundle only what you import.
 - **Best practices**: Storefront UI components follow best practices in terms of design and core. Every component is based on the Google Retail UX Playbook and is accessibility-friendly.
 - **E-commerce**: As a UI library dedicated to eCommerce, Storefront UI along with standard UI components has all the elements necessary for building modern online stores.
 - **Open Source**: Storefront UI is a community effort to deliver the best possible experience to modern web applications and e-commerce shops, with carefully crafted components following best practices. Our team consists of agencies and volunteer contributors from all over the world.
+
 
 ## Current state of the project
 
