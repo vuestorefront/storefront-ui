@@ -17,7 +17,9 @@ $button-background-color: red;
 ```
 You can override any of those variables in `sfui.scss` file in a root of your project.
 
-
+:::tip 
+You can use `sfui.scss` to create and share completely new design system for Storefront UI
+:::
 
 ## Per-instance component customization
 
@@ -71,15 +73,19 @@ This is how `SfButton.vue` component look like. As you can see it's composed fro
 @import "~@storefront-ui/shared/styles/components/SfButton.scss";
 </style>
 ```
-Knowing this you can use Storefront UI components partials as a base for new components and take only the needed parts. 
+Knowing this you can use Storefront UI components partials as a base for new components so you're writing only the necessary code and take rest parts of it's implemtation from the already existing code. Cool isn't it?  
 
 Let's see some examples to understand possible use cases for this feature:
 
+:::tip Good for performance
+Please note that we are not overriding anything but creating new components. Thanks to this avoided parts are not bundled which results in smaller output bundle.
+:::
+
 #### Keeping functionality and replacing/overriding CSS
 
-Sometimes you need a component that behaves exactly like other component but looks differently. To achieve this you should create new component that will inherit template and Javascript from some of the Storefront UI ones.
+Sometimes you need a component that behaves exactly like other component but looks differently. Let's say we want to create new type of button. We like the way it is done in Storefront UI with `SfButton` so we will take it's API and template (because hey, writing a button is a complex task, isn't it?) and just replace the styles with one we need. To achieve this you should create new component that will inherit template and Javascript from some of the Storefront UI ones.
 
-Let's see an example. We will create custom button component based on `SfButton` but with our own CSS. Let's call it `ButtonCustomized`.
+Let's call it `ButtonCustomized`.
 
 ```html
 <!-- ButtonCustomized.vue -->
@@ -118,3 +124,5 @@ Once you're done you can use this component as before
 ### Change component API
 
 TBD
+
+###

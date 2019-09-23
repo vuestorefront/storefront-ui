@@ -1,3 +1,6 @@
+---
+sidebarDepth: 0
+---
 # Arrow
 Arrow component for sliders and navigation.
 
