@@ -35,6 +35,7 @@ If you'd like to support us and join the team please write to me:
 
 ## Useful links
 
-- [StorefrontUI Github](https://github.com/Divanteltd/storefront-ui)
-- [Contribution guide](contributing/become-a-contributor.md)
-- [Storybook docs](https://storybook.js.org/docs/basics/introduction/)
+- [Website](http://storefrontui.io/)
+- [Documentation](http://docs.storefrontui.io/)
+- [Storybook](http://storybook.storefrontui.io/)
+- [Discord server](https://discord.gg/GS8hqFS)

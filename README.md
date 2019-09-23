@@ -9,7 +9,7 @@
 Customization-first, performance-oriented and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team and contributors.
 
 - [Website](http://storefrontui.io/)
-- [Documentation](http://docs.storefrontui.io/) (still in very early stages)
+- [Documentation](http://docs.storefrontui.io/)
 - [Storybook](http://storybook.storefrontui.io/)
 - [Discord server](https://discord.gg/GS8hqFS)
 
