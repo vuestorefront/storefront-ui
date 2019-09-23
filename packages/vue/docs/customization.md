@@ -17,7 +17,9 @@ $button-background-color: red;
 ```
 You can override any of those variables in `sfui.scss` file in a root of your project.
 
-
+:::tip 
+You can use `sfui.scss` to create and share completely new design system for Storefront UI
+:::
 
 ## Per-instance component customization
 
