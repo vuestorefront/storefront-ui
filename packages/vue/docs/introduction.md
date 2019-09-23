@@ -1,11 +1,15 @@
-# About the project
+# Introduction
+
+::: tip
+If you want to start using Storefront UI rather than reading about it's concepts please visit the [getting started](getting-started.md) section.
+:::
 
 Storefront UI is developer-friendly, customization-first and performance oriented component library that ships raw source.
 Designs are based on [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf).
 
-Below you can find information about key concepts behind the project. If you want to start using Storefront UI please visit the [getting started](getting-started.md) section.
+Below you can find information about key concepts behind the project. 
 
-**StorefrontUI key characteristics**
+## StorefrontUI key characteristics
 
 We are building Storefront UI based on the following 6 fundamentals:
 - **Customization**: Along with standard prop-based customization, every component has a set of slots that let you replace any part of it with your own images, icons or even custom HTML markup. You can also customize whole library from a single SCSS file by overriding set of variables. In addition, every component is divided into separate HTML, CSS and JS files so you can compose your own components from it's partsupdate docs.
