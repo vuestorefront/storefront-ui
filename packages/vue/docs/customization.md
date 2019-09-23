@@ -107,7 +107,6 @@ Now you can use this component the same way as you used `SfButton`:
 
 If you want to override only certain parts of default CSS for your new component you can still import the defaults and override only part of them:
 ```html
-<!-- ButtonCustomized.vue -->
 <style lang="scss" scoped>
 @import "~@storefront-ui/shared/styles/components/SfButton.scss";
 .sf-button {
