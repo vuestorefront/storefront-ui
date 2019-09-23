@@ -15,13 +15,15 @@
   <template v-if="lazy">
     <img
       v-if="typeof src === 'string'"
+      ref="imgLazy"
       :alt="alt"
       :data-src="src"
-      class="sf-image__img sf-image-lozad"
+      class="sf-image__img"
     >
     <picture
       v-else-if="src && src.normal"
-      class="sf-image__img sf-image-lozad"
+      ref="imgLazy"
+      class="sf-image__img"
       :data-iesrc="src.normal.url"
       :data-alt="src.normal.alt"
     >

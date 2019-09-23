@@ -68,7 +68,7 @@ export default {
   mounted() {
     if (this.lazy !== false) {
       const vm = this;
-      const observer = lozad(".sf-image-lozad", {
+      const observer = lozad(vm.$refs.imgLazy, {
         loaded: function() {
           vm.loaded = true;
         }
