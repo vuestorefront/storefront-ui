@@ -7,7 +7,7 @@ features:
 - title: Performance
   details: You’re importing ONLY what you need, and in a raw format which means you can benefit from all build-time optimizations like tree shaking or grouping common chunks.
 - title: Customization
-  details: Along with standard prop-based customization, every component has a set of slots that let you replace any part of it with your own images, icons or even custom HTML markup. In addition, every component is divided into separate HTML, CSS and JS files so you can compose your own components from only Storefront UI partials.
+  details: Along with standard prop-based customization, every component has a set of slots that let you replace any part of it with your own images, icons or even custom HTML markup. In addition, every component is divided into separate HTML, CSS and JS files so you can compose your own components from Storefront UI partials or override certain components.
 - title: Best practices
   details: Storefront UI components follow best practices in terms of design and core. Every component is based on the Google Retail UX Playbook and is accessibility-friendly.
 footer: MIT Licensed
@@ -21,7 +21,7 @@ npm install --save @storefront-ui/vue
 ```
 Import styles (optional)
 ```scss
-import "@storefront-ui/vue/src/css/_all.scss"
+import "@storefront-ui/vue/styles.scss"
 ```
 Import and register components that you need
 ```js

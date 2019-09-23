@@ -32,7 +32,8 @@ export default {
         return {
           type: "slider",
           autoplay: false,
-          rewind: false
+          rewind: false,
+          gap: 0
         };
       }
     }
@@ -72,14 +73,26 @@ export default {
   },
 
   mounted() {
-    // handle slider with swipe and transitions with Glide.js
-    // https://glidejs.com/docs/
-    const glide = new Glide(this.$refs.glide, this.sliderOptions);
-    glide.on("run", () => {
-      this.go(glide.index);
+    this.$nextTick(() => {
+      // handle slider with swipe and transitions with Glide.js
+      // https://glidejs.com/docs/
+      const glide = new Glide(this.$refs.glide, this.sliderOptions);
+      glide.on("run", () => {
+        this.go(glide.index);
+      });
+      glide.mount();
+      this.glide = glide;
     });
+<<<<<<< HEAD
     glide.mount();
     this.glide = glide;
+=======
+
+    // handle lazy load for big images with lozad
+    // https://apoorv.pro/lozad.js/
+    const observer = lozad(".sf-gallery__big-image");
+    observer.observe();
+>>>>>>> sfui-master
   },
 
   beforeDestroy() {

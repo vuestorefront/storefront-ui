@@ -1,6 +1,12 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, boolean } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  boolean,
+  select,
+  number,
+  text
+} from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfAccordion from "./SfAccordion.vue";
@@ -70,6 +76,9 @@ storiesOf("Organisms|Accordion", module)
         },
         showChevron: {
           default: boolean("showChevron", true)
+        },
+        transition: {
+          default: text("transition", "fade")
         }
       },
       components: { SfAccordion },
@@ -80,6 +89,7 @@ storiesOf("Organisms|Accordion", module)
           :multiple="multiple"
           :firstOpen="firstOpen"
           :showChevron="showChevron"
+          :transition="transition"
         >
           <template v-slot="{ selected }">
             <SfAccordionItem
@@ -156,34 +166,46 @@ storiesOf("Organisms|Accordion", module)
         },
         showChevron: {
           default: boolean("showChevron", true)
+        },
+        transition: {
+          default: text("transition", "fade")
         }
       },
       components: { SfAccordion },
       template: `
       <div style="width: 300px; padding: 1rem;">
-        <SfAccordion :multiple="multiple" :firstOpen="firstOpen">
+        <SfAccordion 
+        :multiple="multiple" 
+        :firstOpen="firstOpen"
+        :transition="transition">
           <template v-slot="{ selected }">
-            <SfAccordionItem :selected="selected" :header="headerOne">
-              <template>
-                <div v-for="item of contentItemsOne" :style="contentStyle">
-                  {{item.text}}
-                </div>
-              </template>
-            </SfAccordionItem>
-            <SfAccordionItem :selected="selected" :header="headerTwo">
-              <template>
-                <div v-for="item of contentItemsTwo" :style="contentStyle">
-                  {{item.text}}
-                </div>
-              </template>
-            </SfAccordionItem>
-            <SfAccordionItem :selected="selected" :header="headerThree">
-              <template>
-                <div v-for="item of contentItemsThree" :style="contentStyle">
-                  {{item.text}}
-                </div>
-              </template>
-            </SfAccordionItem>
+            <transition :name="transition">
+              <SfAccordionItem :selected="selected" :header="headerOne">
+                <template>
+                  <div v-for="item of contentItemsOne" :style="contentStyle">
+                    {{item.text}}
+                  </div>
+                </template>
+              </SfAccordionItem>
+            </transition>
+            <transition :name="transition">
+              <SfAccordionItem :selected="selected" :header="headerTwo">
+                <template>
+                  <div v-for="item of contentItemsTwo" :style="contentStyle">
+                    {{item.text}}
+                  </div>
+                </template>
+              </SfAccordionItem>
+            </transition>
+            <transition :name="transition">
+              <SfAccordionItem :selected="selected" :header="headerThree">
+                <template>
+                  <div v-for="item of contentItemsThree" :style="contentStyle">
+                    {{item.text}}
+                  </div>
+                </template>
+              </SfAccordionItem>
+            </transition>
           </template>
         </SfAccordion>
       </div>`
@@ -242,6 +264,9 @@ storiesOf("Organisms|Accordion", module)
         },
         showChevron: {
           default: boolean("showChevron", false)
+        },
+        transition: {
+          default: text("transition", "fade")
         }
       },
       components: { SfAccordion },
@@ -250,35 +275,42 @@ storiesOf("Organisms|Accordion", module)
         <SfAccordion
           :multiple="multiple"
           :firstOpen="firstOpen"
-          :showChevron="showChevron">
+          :showChevron="showChevron"
+          :transition="transition">
           <template v-slot="{selected}">
-            <SfAccordionItem :selected="selected" :contentItems="contentItemsOne">
-              <template v-slot:header="{isOpen}">
-                <div :style="headerStyle">
-                  <div>{{ headerOne }}</div>
-                  <img v-if="isOpen" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
-                  <img v-else style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
-                </div>
-              </template>
-            </SfAccordionItem>
-            <SfAccordionItem :selected="selected" :contentItems="contentItemsTwo">
-              <template v-slot:header="{isOpen}">
-                <div :style="headerStyle">
-                  <div>{{ headerTwo }}</div>
-                  <img v-if="isOpen" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
-                  <img v-else style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
-                </div>
-              </template>
-            </SfAccordionItem>
-            <SfAccordionItem :selected="selected" :contentItems="contentItemsThree">
-              <template v-slot:header="{isOpen}">
-                <div :style="headerStyle">
-                  <div>{{ headerThree }}</div>
-                  <img v-if="isOpen" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
-                  <img v-else style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
-                </div>
-              </template>
-            </SfAccordionItem>
+            <transition :name="transition">
+              <SfAccordionItem :selected="selected" :contentItems="contentItemsOne">
+                <template v-slot:header="{isOpen}">
+                  <div :style="headerStyle">
+                    <div>{{ headerOne }}</div>
+                    <img v-if="isOpen" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
+                    <img v-else style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
+                  </div>
+                </template>
+              </SfAccordionItem>
+            </transition>
+            <transition :name="transition">
+              <SfAccordionItem :selected="selected" :contentItems="contentItemsTwo">
+                <template v-slot:header="{isOpen}">
+                  <div :style="headerStyle">
+                    <div>{{ headerTwo }}</div>
+                    <img v-if="isOpen" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
+                    <img v-else style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
+                  </div>
+                </template>
+              </SfAccordionItem>
+            </transition>
+            <transition :name="transition">
+              <SfAccordionItem :selected="selected" :contentItems="contentItemsThree">
+                <template v-slot:header="{isOpen}">
+                  <div :style="headerStyle">
+                    <div>{{ headerThree }}</div>
+                    <img v-if="isOpen" style="width: 16px; height: 16px;" src="assets/storybook/times.svg" alt="">
+                    <img v-else style="width: 16px; height: 16px;" src="assets/storybook/plus.svg" alt="">
+                  </div>
+                </template>
+              </SfAccordionItem>
+            </transition>
           </template>
         </SfAccordion>
       </div>`
@@ -325,6 +357,9 @@ storiesOf("Organisms|Accordion", module)
         },
         showChevron: {
           default: boolean("showChevron", true)
+        },
+        transition: {
+          default: text("transition", "fade")
         }
       },
       methods: {
@@ -339,16 +374,19 @@ storiesOf("Organisms|Accordion", module)
           :multiple="multiple"
           :firstOpen="firstOpen"
           :showChevron="showChevron"
+          :transition="transition"
           @click="storyMethod"
         >
           <template v-slot="{ selected }">
-            <SfAccordionItem
-              v-for="(item, i) of items"
-              :key="i"
-              :header="item.header"
-              :contentItems="item.content"
-              :selected="selected"
-            />
+            <transition :name="transition">
+              <SfAccordionItem
+                v-for="(item, i) of items"
+                :key="i"
+                :header="item.header"
+                :contentItems="item.content"
+                :selected="selected"
+              />
+            </transition>
           </template>
         </SfAccordion>
       </div>`

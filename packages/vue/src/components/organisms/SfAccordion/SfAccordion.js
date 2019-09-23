@@ -33,6 +33,13 @@ export default {
     showChevron: {
       type: Boolean,
       default: true
+    },
+    /**
+     * Overlay transition effect
+     */
+    transition: {
+      type: String,
+      default: "fade"
     }
   },
 

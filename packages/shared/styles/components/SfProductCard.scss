@@ -1,89 +1,58 @@
-@import '../variables';
+@import "../variables";
 
-$product-card-background: white !default;
-$product-card-max-width: 200px !default;
+$product-card-max-width: 200px!default;
+$product-card-max-width-desktop: 240px!default;
+$product-card-padding:$spacer-small!default;
+$product-card-padding-desktop:$spacer-big!default;
 $product-card-hover-box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
-$product-card-desktop-max-width: 240px !default;
-$product__title-color: inherit !default;
-$product__image-background-color: $c-bg-primary !default;
-$product__image-blend-mode: darken !default;
-$product__pictures-height: 250px !default;
+$product-card__image-background-color: $c-bg-primary !default;
+$product-card__image-blend-mode: darken !default;
 
 .sf-product-card {
-  max-width: $product-card-max-width;
-  transition: 0.3s all;
-  padding: $spacer-small;
+  $this: &;
   position: relative;
-  background: $product-card-background;
   box-sizing: border-box;
-
-  &__title {
-    margin-top: 0.5rem;
-    margin-bottom: 0.25rem;
-    display: flex;
-    font-weight: 300;
-    color: $product__title-color;
+  max-width: $product-card-max-width;
+  padding: $product-card-padding;
+  background-color: $c-white;
+  transition: box-shadow 150ms ease-in-out;
+  @media (min-width: $desktop-min){
+    max-width: $product-card-max-width-desktop;
+    padding: $product-card-padding-desktop;
   }
-
-  &__image {
-    background-color: $product__image-background-color;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    z-index: 2;
-
-    img {
-      mix-blend-mode: $product__image-blend-mode;
-      max-width: 100%;
-      max-height: 100%;
-      background-color: $product__image-background-color;
+  &:hover{
+    @media (min-width: $desktop-min) {
+      box-shadow: $product-card-hover-box-shadow;
     }
-  }
-
-  &__pictures {
-    display: flex;
-    background-color: $product__image-background-color;
-    height: $product__pictures-height;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-  }
-
-  &__picture {
-    display: block;
-    flex: 0 0 100%;
-    opacity: 0;
-
-    &:first-child {
+    #{$this}__wishlist-icon{
       opacity: 1;
     }
   }
-
-  &:hover {
-    .sf-product-card__picture {
-      display: none;
-
-      &:last-child {
-        display: block;
-        opacity: 1;
-      }
+  &__title{
+    font-family: $body-font-family-secondary;
+    font-size: $font-size-regular-mobile;
+    font-weight: 300;
+    line-height: 1.6;
+    margin: $spacer-small 0;
+    @media (min-width: $desktop-min){
+      margin: $spacer 0 $spacer-small;
+      font-size: $font-size-regular-desktop;
     }
   }
-
-  &__cart-button {
-    position: absolute;
-    right: 25px;
-    margin-top: -30px;
-  }
-
-  &__price {
-    margin: 0.25rem 0;
-  }
-
-  &__reviews {
+  &__image{
     display: flex;
     align-items: center;
-    margin-top: 0.25rem;
+    align-content: center;
+    background-color: $product-card__image-background-color;
+    img {
+      max-width: 100%;
+      mix-blend-mode: $product-card__image-blend-mode;
+      background-color: $c-light-primary;
+    }
+  }
+  &__reviews{
+    display: flex;
+    align-items: center;
   }
 
   &__rating {
@@ -91,42 +60,27 @@ $product__pictures-height: 250px !default;
   }
 
   &__reviews-count {
-    font-size: $font-size-small-desktop;
+    font-size: $font-size-regular-mobile;
     margin-left: 0.5rem;
   }
-
-  &__wishlist-icon {
+  &__wishlist-icon{
     position: absolute;
+    top: $product-card-padding * 4;
+    right: $product-card-padding * 4;
     z-index: 1;
-    right: 20px;
-    margin: 10px;
     padding: 0;
+    border: 0;
+    background-color: transparent;
     cursor: pointer;
-    visibility: visible;
     outline: none;
-    background: transparent;
-    border: none;
-
-    @media (min-width: $desktop-min) {
-      &:not(.sf-product-card--on-wishlist) {
-        visibility: hidden;
-      }
+    transition: opacity 150ms ease-in-out;
+    @media (min-width: $desktop-min){
+      opacity: 0;
+      top: $product-card-padding-desktop * 2;
+      right: $product-card-padding-desktop * 2;
     }
-  }
-
-  &:hover {
-    box-shadow: $product-card-hover-box-shadow;
-    transition: 0.3s all;
-    z-index: 2;
-
-    .sf-product-card__wishlist-icon {
-      visibility: visible;
-      outline: none;
+    &#{$this}--on-wishlist{
+      opacity: 1;
     }
-  }
-
-  @media (min-width: $desktop-min) {
-    max-width: $product-card-desktop-max-width;
-    padding: $spacer-big;
   }
 }

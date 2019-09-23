@@ -29,7 +29,6 @@ $arrow__icon-color--hover: $c-dark-primary !default;
   }
   &__icon {
     position: relative;
-    z-index: 1;
     flex: 0 0 24px;
     height: 12px;
     fill: $arrow__icon-color--hover;
@@ -63,6 +62,13 @@ $arrow__icon-color--hover: $c-dark-primary !default;
       }
     }
   }
+  &--rounded {
+    .sf-arrow {
+      &__button {
+        border-radius: 50%;
+      }
+    }
+  }
   &--transparent {
     .sf-arrow {
       &__button {
@@ -70,6 +76,13 @@ $arrow__icon-color--hover: $c-dark-primary !default;
         &:hover {
           box-shadow: none;
         }
+      }
+    }
+  }
+  &--no-shadow {
+    .sf-arrow {
+      &__button:hover {
+        box-shadow: none;
       }
     }
   }

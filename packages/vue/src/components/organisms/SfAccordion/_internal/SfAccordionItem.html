@@ -8,26 +8,25 @@
     <slot name="header" v-bind="{isOpen, header}">
       <div class="sf-accordion-item__header">{{ header }}</div>
     </slot>
-    <img
-      v-if="$parent.showChevron"
-      :class="isOpen ? 'sf-accordion-item__header-icon--up' : ''"
-      src="../../../../../public/assets/chevron_down.svg"
-      alt="Toggle this section"
-    />
+    <div v-if="$parent.showChevron" class="sf-accordion-item__chevron">
+      <SfChevron :class="{'sf-chevron--top': isOpen}" />
+    </div>
   </div>
-  <div class="sf-accordion-item__content-wrapper" v-if="isOpen">
-    <!-- @slot -->
-    <slot v-bind="{items: contentItems, handler: onContentItemClick}">
-      <div class="sf-accordion-item__content">
-        <div
-          v-for="item of contentItems"
-          :key="item.id"
-          @click="onContentItemClick(item.id)"
-          :class="{'sf-accordion-item__content--active': item.id === selected}"
-        >
-          {{ item.text }}
+  <transition :name="$parent.transition">
+    <div class="sf-accordion-item__content-wrapper" v-if="isOpen">
+      <!-- @slot -->
+      <slot v-bind="{items: contentItems, handler: onContentItemClick}">
+        <div class="sf-accordion-item__content">
+          <div
+            v-for="item of contentItems"
+            :key="item.id"
+            @click="onContentItemClick(item.id)"
+            :class="{'sf-accordion-item__content--active': item.id === selected}"
+          >
+            {{ item.text }}
+          </div>
         </div>
-      </div>
-    </slot>
-  </div>
+      </slot>
+    </div>
+  </transition>
 </div>
