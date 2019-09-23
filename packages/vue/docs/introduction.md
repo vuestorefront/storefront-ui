@@ -20,19 +20,7 @@ We are building Storefront UI based on the following 5 fundamentals:
 StorefrontUI is currently in BETA which means it is not suitable for production!
 The package is stable but some breaking changes may occur.
 
-Currently we are focusing on polishments and docs.
-
-
-## How to customize?
-
-StorefrontUI components can be customized in many ways:
-
-- Global customization through SCSS variables
-- Standard component customization with filling the props
-- Replacement of default HTML with slots
-- Heavy customization with usage of HTML, CSS and JS partials
-
-You can find [detailed customization info here](customization.md).
+Currently we are focusing on  API & component polishments and docs.
 
 ## Join us!
 
