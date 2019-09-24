@@ -1,9 +1,12 @@
 
 @import '../variables';
 
-$footer__title-font-size: $font-size-regular-desktop !default;
+$footer__title-font-size: $font-size-big-desktop !default;
 $footer__margin-top: $spacer-extra-big !default;
 $footer__grid-column-gap: $spacer !default;
+$footer__title-color: $c-dark-primary !default;
+$footer__title-font-family: $body-font-family-primary !default;
+$footer__column-font-family: $body-font-family-secondary !default;
 $characteristic__description-font-size: $font-size-extra-small-desktop !default;
 $mobile_background-color: #F2F2F2;
 
@@ -38,6 +41,7 @@ $mobile_background-color: #F2F2F2;
 
 .sf-footer-column {
   margin-right: 10px;
+  font-family: $footer__column-font-family;
   &__placeholder {
     @media (max-width: $mobile-max) {
       display: none!important;
@@ -47,6 +51,8 @@ $mobile_background-color: #F2F2F2;
     font-size: $footer__title-font-size;
     text-transform: uppercase;
     font-weight: bold;
+    color: $footer__title-color;
+    font-family: $body-font-family-primary;
     margin: 0;
   }
   &__chevron {

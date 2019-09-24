@@ -20,6 +20,17 @@ const scssTableConfig = {
       "$spacer",
       "grid-column-gap of footer columns"
     ],
+    ["$footer__title-color", "$c-dark-primary", "color of footer column title"],
+    [
+      "$footer__title-font-family",
+      "$body-font-family-primary",
+      "font-family of footer column title"
+    ],
+    [
+      "$footer__column-font-family",
+      "$body-font-family-secondary",
+      "font-family of footer column"
+    ],
     [
       "$characteristic__description-font-size",
       "$font-size-extra-small-desktop",
@@ -53,6 +64,15 @@ storiesOf("Organisms|Footer", module)
       <div>
         <SfFooter :multiple="multiple">
           <div class="sf-footer-row">
+            <SfFooterColumn title="ABOUT US">
+              <template v-slot:content>
+                <SfList>                        
+                  <SfListItem class="sf-list__item-padding">Who we are</SfListItem>
+                  <SfListItem class="sf-list__item-padding">Quality in the details</SfListItem>
+                  <SfListItem class="sf-list__item-padding">Customer Reviews</SfListItem>
+                </SfList>
+              </template>
+            </SfFooterColumn>
               <SfFooterColumn title="DEPARTMENT">
                 <template v-slot:content>
                   <SfList>
@@ -60,15 +80,6 @@ storiesOf("Organisms|Footer", module)
                     <SfListItem class="sf-list__item-padding">men fashion</SfListItem>
                     <SfListItem class="sf-list__item-padding">Kidswear</SfListItem>
                     <SfListItem class="sf-list__item-padding">Home</SfListItem>
-                  </SfList>
-                </template>
-              </SfFooterColumn>
-              <SfFooterColumn title="ABOUT US">
-                <template v-slot:content>
-                  <SfList>                        
-                    <SfListItem class="sf-list__item-padding">Who we are</SfListItem>
-                    <SfListItem class="sf-list__item-padding">Quality in the details</SfListItem>
-                    <SfListItem class="sf-list__item-padding">Customer Reviews</SfListItem>
                   </SfList>
                 </template>
               </SfFooterColumn>
