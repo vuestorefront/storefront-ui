@@ -12,6 +12,13 @@ export default {
     selected: {
       type: [String, Array],
       default: () => []
+    },
+    /**
+     * Multiple prop
+     */
+    multiple: {
+      type: Boolean,
+      default: false
     }
   },
   model: {
@@ -24,12 +31,26 @@ export default {
     },
     updateSelected: function(data) {
       this.$emit("update:selected", data);
+    },
+    isMultiple: function() {
+      return this.multiple;
+    },
+    tabClicked(slotId) {
+      if (!this.multiple) {
+        this.$children.forEach(child => {
+          child._uid === slotId
+            ? (child.isActive = !child.isActive)
+            : (child.isActive = false);
+        });
+      } else {
+        const clickedHeader = this.$children.find(child => {
+          return child._uid === slotId;
+        });
+        clickedHeader.isActive = !clickedHeader.isActive;
+      }
     }
   },
-  provide() {
-    return {
-      getSelected: this.getSelected,
-      updateSelected: this.updateSelected
-    };
+  mounted: function() {
+    this.$on("tabClicked", this.tabClicked);
   }
 };

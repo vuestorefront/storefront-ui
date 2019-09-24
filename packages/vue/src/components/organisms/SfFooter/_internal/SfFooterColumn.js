@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     tabClick() {
-      this.isActive = !this.isActive;
+      this.$parent.$emit("tabClicked", this._uid);
     }
   }
 };

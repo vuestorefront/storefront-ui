@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs } from "@storybook/addon-knobs";
+import { withKnobs, boolean } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfFooter from "./SfFooter.vue";
@@ -43,10 +43,15 @@ storiesOf("Organisms|Footer", module)
   .add(
     "Basic",
     () => ({
+      props: {
+        multiple: {
+          default: boolean("multiple", false)
+        }
+      },
       components: { SfFooter, SfList },
       template: `
       <div>
-        <SfFooter :multiple="false">
+        <SfFooter :multiple="multiple">
           <div class="sf-footer-row">
               <SfFooterColumn title="DEPARTMENT">
                 <template v-slot:content>
@@ -118,7 +123,8 @@ storiesOf("Organisms|Footer", module)
        </p>
        <p>
        You may use <pre><code>SfFooterColumn</code></pre> internal component to create new columns and class
-       <pre><code>sf-footer-column__placeholder</code> for placeholder columns</pre>
+       <pre><code>sf-footer-column__placeholder</code></pre>
+       for placeholder columns
        </p>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `

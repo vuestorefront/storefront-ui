@@ -2,7 +2,7 @@
     <div class="sf-footer-column__title">
         {{ title }}
         <div @click="tabClick" class="sf-footer-column__chevron" :class="{'sf-footer-column__chevron--active': isActive}">
-            <SfChevron :isActive="isActive" />
+            <SfChevron :class="{'sf-chevron--top': isActive}" />
         </div>
     </div>
     <div class="sf-footer-column__content"
