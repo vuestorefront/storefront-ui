@@ -1,19 +1,37 @@
 <transition name="fade">
-    <div v-if="visible" @close="visible = false" class="sf-notification sf-notification__container" :class="`sf-notification--${type}`">
-        <!--@slot Custom notification icon. Slot content will replace default icon <img> tag.-->
-        <slot name="icon" v-bind="{ chooseIcon }">
-            <SfIcon class="sf-notification__icon" :icon="chooseIcon" size="lg" color="white"></SfIcon>
-        </slot>
-        <div>
-            <div class="sf-notification__title">
-                <!--@slot Custom title. Slot content will replace default title.-->
-                <slot name="title" v-bind="{ title }">{{ title }}</slot>
-            </div>
-            <div v-if="hasMessage" class="sf-notification__message">
-                <!--@slot Custom message. Slot content will replace default message.-->
-                <slot name="message" v-bind="{ message }">{{ message }}</slot>
-            </div>
-        </div>
-        <SfIcon class="sf-notification__close" icon="cross" color="white" size="14px" @click="close" />
+  <div v-if="visible" class="sf-notification" :class="`color-${type}`">
+    <!--@slot Custom notification icon. Slot content will replace default icon.-->
+    <slot name="icon" v-bind="{ icon }">
+      <SfIcon
+        class="sf-notification__icon"
+        :icon="icon"
+        size="lg"
+        color="white"
+      />
+    </slot>
+    <div>
+      <!--@slot Custom title. Slot content will replace default title.-->
+      <slot v-if="title" name="title" v-bind="{ title }">
+        <div class="sf-notification__title">{{ title }}</div>
+      </slot>
+      <!--@slot Custom message. Slot content will replace default message.-->
+      <slot v-if="message" name="message" v-bind="{ message }">
+        <span class="sf-notification__message">{{ message }}</span>
+      </slot>
+      <!--@slot Custom action. Slot content will replace default action.-->
+      <slot v-if="action" name="action" v-bind="{ action, actionHandler }">
+        <button class="sf-notification__action" @click="actionHandler">{{ action }}</button>
+      </slot>
     </div>
+    <!--@slot Custom notification close icon. Slot content will replace default close icon.-->
+    <slot name="close" v-bind="{closeHandler}">
+      <SfIcon
+        @click="closeHandler"
+        class="sf-notification__close"
+        icon="cross"
+        color="white"
+        size="14px"
+      />
+    </slot>
+  </div>
 </transition>

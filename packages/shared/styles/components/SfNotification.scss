@@ -1,77 +1,84 @@
-@import '../variables';
-$notification__message-padding-left: 0.625rem !default;
-$notification--warning-color: #d12727 !default;
-$notification--alert-color: #0468db !default;
-$notification-padding: $spacer-big !default;
-$notification__title-font-size: $h2-font-size-desktop !default;
+@import "../variables";
+
+$notification-max-width-desktop: 35rem !default;
+$notification-border-radius-desktop: 5px !default;
+$notification-font-family: $body-font-family-primary !default;
+$notification-font-family-desktop: $body-font-family-secondary !default;
+$notification-font-size: $font-size-regular-desktop !default;
+$notification-font-weight: $body-font-weight-secondary !default;
+$notification-font-weight-desktop: $body-font-weight-primary !default;
+$notification-box-shadow-desktop: 0 8px 11px rgba(0, 0, 0, 0.1) !default;
+$notification__title-font-size-desktop: $font-size-big-desktop !default;
+$notification__title-font-weight: 300 !default;
+$notification__title-font-weight-desktop: 700 !default;
+$notification__action-font-weight: 500 !default;
+
 .sf-notification {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    box-sizing: border-box;
-    border-radius: 15px;
-    padding: $notification-padding;
-    &__container {
-        position: relative;
-        background: rgba(0, 0, 0, 0.8);
-        color: $c-white;
-        @media screen and (min-width: $desktop-min) {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            width: 500px;
-            min-width: 25%;
-            border: 0;
-            box-shadow: 0px 8px 11px rgba(0, 0, 0, 0.1);
-        }
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  padding: $spacer-big;
+  padding-right: $spacer-big * 5;
+  font-family: $notification-font-family;
+  font-size: $notification-font-size;
+  font-weight: $notification-font-weight;
+  line-height: 1.6;
+  opacity: 0.8;
+  @media (min-width: $desktop-min) {
+    max-width: $notification-max-width-desktop;
+    align-items: center;
+    padding: $spacer-medium;
+    border-radius: $notification-border-radius-desktop;
+    font-family: $notification-font-family-desktop;
+    font-weight: $notification-font-weight-desktop;
+    opacity: 1;
+    box-shadow: $notification-box-shadow-desktop;
+  }
+  &__title {
+    display: inline;
+    font-weight: $notification__title-font-weight;
+    &::after {
+      content: " ";
+      @media (min-width: $desktop-min) {
+        content: none;
+      }
     }
-    &__content {
-        font-family: $body-font-family-primary;
-        font-style: normal;
-        font-weight: $body-font-weight-primary;
-        font-size: $notification__title-font-size;
-        line-height: 24px;
-        letter-spacing: 0.02em;
-        @media (min-width: $desktop-min) {
-            font-size: $notification__title-font-size;
-        }
+    @media (min-width: $desktop-min) {
+      display: block;
+      font-size: $notification__title-font-size-desktop;
+      font-weight: $notification__title-font-weight-desktop;
     }
-    &__title {
-        font-weight: 600;
-        line-height: 1.38;
+  }
+  &__action {
+    display: none;
+    @media (min-width: $desktop-min) {
+      display: inline;
+      padding: 0;
+      margin-left: $spacer-big;
+      border: 0;
+      color: inherit;
+      background-color: transparent;
+      font: inherit;
+      text-decoration: underline;
+      outline: none;
     }
-    &__message {
-        margin-top: 5px;
-        line-height: 1.64;
-        font-weight: 300;
+  }
+  &__icon {
+    display: none;
+    @media (min-width: $desktop-min) {
+      display: block;
+      margin-right: $spacer-big;
     }
-    &__icon {
-        display: none;
-        @media (min-width: $desktop-min) {
-            display: block;
-            padding: $spacer;
-        }
+  }
+  &__close {
+    position: absolute;
+    right: $spacer-big;
+    top: $spacer-big;
+    cursor: pointer;
+    @media (min-width: $desktop-min) {
+      right: $spacer-medium;
+      top: $spacer-medium;
     }
-    &__close {
-        position: absolute;
-        right: 4px;
-        top: 4px;
-        @media (min-width: $desktop-min) {
-            font-size: $notification__title-font-size;
-            right: 10px;
-            top: 10px;
-        }
-    }
-    &--info {
-        background-color: $c-dark-primary;
-    }
-    &--alert {
-        background-color: $notification--alert-color;
-    }
-    &--warning {
-        background-color: $notification--warning-color;
-    }
-    &--success {
-        background-color: $c-green-primary;
-    }
+  }
 }

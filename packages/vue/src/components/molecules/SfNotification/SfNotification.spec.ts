@@ -7,7 +7,7 @@ describe("SfNotification.vue", () => {
     expect(component.contains(".sf-notification")).toBe(true);
   });
   it("renders the message when passed via props", () => {
-    const message = 'Hello World';
+    const message = "Hello World";
     const component = shallowMount(SfNotification, {
       propsData: {
         message
