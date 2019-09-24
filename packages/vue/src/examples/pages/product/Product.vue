@@ -604,8 +604,8 @@ export default {
   padding: $spacer-small 0;
 }
 .gallery-mobile {
-  height: calc(100vh - 177px);
-  height: calc(var(--vh, 1vh) * 100 - 177px);
+  /*height: calc(100vh - 177px);*/
+  height: calc((var(--vh, 1vh) * 100) - 177px);
   /deep/ .glide {
     &,
     * {
@@ -618,10 +618,8 @@ export default {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        min-width: calc(
-          (375 / 490) * (100vh - 177px)
-        ); // (oldWidth / oldHeight) * newHeight = newWidth
-        height: calc((var(--vh, 1vh) * 100 - 177px) * (375px / 490));
+        min-width: calc((375 / 490) * (100vh - 177px)); // (oldWidth / oldHeight) * newHeight = newWidth
+        min-width: calc(((var(--vh, 1vh) * 100) - 177px) * (375 / 490));
       }
     }
   }
