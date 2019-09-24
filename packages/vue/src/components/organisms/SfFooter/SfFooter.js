@@ -12,13 +12,6 @@ export default {
     selected: {
       type: [String, Array],
       default: () => []
-    },
-    /**
-     * Multiple items prop
-     */
-    multiple: {
-      type: Boolean,
-      default: true
     }
   },
   model: {
@@ -31,16 +24,12 @@ export default {
     },
     updateSelected: function(data) {
       this.$emit("update:selected", data);
-    },
-    isMultiple: function() {
-      return this.multiple;
     }
   },
   provide() {
     return {
       getSelected: this.getSelected,
-      updateSelected: this.updateSelected,
-      isMultiple: this.isMultiple
+      updateSelected: this.updateSelected
     };
   }
 };

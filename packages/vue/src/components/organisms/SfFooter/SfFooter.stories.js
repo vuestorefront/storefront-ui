@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, object, select } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfFooter from "./SfFooter.vue";
@@ -16,6 +16,11 @@ const scssTableConfig = {
     ],
     ["$footer__margin-top", "$spacer-extra-big", "margin-top for footer"],
     [
+      "$footer__grid-column-gap",
+      "$spacer",
+      "grid-column-gap of footer columns"
+    ],
+    [
       "$characteristic__description-font-size",
       "$font-size-extra-small-desktop",
       "font-size of characteristic description"
@@ -24,6 +29,11 @@ const scssTableConfig = {
       "$mobile_background-color",
       "#F2F2F2",
       "background-color for mobile devices"
+    ],
+    [
+      "$characteristic__description-font-size",
+      "$font-size-extra-small-desktop",
+      "font-size of characteristic description"
     ]
   ]
 };
@@ -33,31 +43,11 @@ storiesOf("Organisms|Footer", module)
   .add(
     "Basic",
     () => ({
-      props: {
-        heading: {
-          default: object("Heading", {
-            title: "Title here",
-            subtitle: "#SUBTITLE",
-            level: 2
-          })
-        },
-        customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-footer--underline"],
-            "null",
-            "CSS-Modifiers"
-          )
-        }
-      },
-      data() {
-        return {};
-      },
       components: { SfFooter, SfList },
       template: `
       <div>
-        <SfFooter :class="customClass">
-            <template v-slot:columns>
+        <SfFooter :multiple="false">
+          <div class="sf-footer-row">
               <SfFooterColumn title="DEPARTMENT">
                 <template v-slot:content>
                   <SfList>
@@ -94,8 +84,14 @@ storiesOf("Organisms|Footer", module)
                   </SfList>
                 </template>
               </SfFooterColumn>
-            </template>
-            <template v-slot:columns-2>
+              </div>
+              <div class="sf-footer-row">
+              <SfFooterColumn class="sf-footer-column__placeholder">
+              </SfFooterColumn>
+              <SfFooterColumn class="sf-footer-column__placeholder">
+              </SfFooterColumn>
+              <SfFooterColumn class="sf-footer-column__placeholder">
+              </SfFooterColumn>
               <SfFooterColumn class="sf-footer-social" title="SOCIAL"> 
                 <template v-slot:content> 
                   <SfList>        
@@ -107,7 +103,7 @@ storiesOf("Organisms|Footer", module)
                   </SfList>
                 </template>
               </SfFooterColumn>
-            </template>
+              </div>
         </SfFooter>
       </div>`
     }),
@@ -116,6 +112,14 @@ storiesOf("Organisms|Footer", module)
         summary: `<p><code>SfFooter</code> can be used for footer.</p>
        <h2>Usage</h2>
        <pre><code>import { SfFooter } from "@storefrontui/vue"</code></pre>
+       <p>
+       You may use 
+       <pre><code>sf-footer-row</code></pre> class to create new rows.
+       </p>
+       <p>
+       You may use <pre><code>SfFooterColumn</code></pre> internal component to create new columns and class
+       <pre><code>sf-footer-column__placeholder</code> for placeholder columns</pre>
+       </p>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `
       }
