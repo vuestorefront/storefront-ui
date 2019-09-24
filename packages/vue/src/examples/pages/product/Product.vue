@@ -682,7 +682,9 @@ export default {
 .product-card {
   max-width: unset; // ?
   &:hover {
-    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+    @include for-desktop {
+      box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+    }
   }
 }
 .product-carousel {
