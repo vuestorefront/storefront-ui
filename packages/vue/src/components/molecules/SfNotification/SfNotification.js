@@ -1,11 +1,9 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 
 export default {
     name: "SfNotification",
     components: {
         SfIcon,
-        SfHeading
     },
     props: {
         /**
@@ -47,13 +45,11 @@ export default {
         chooseIcon() {
             switch (this.type) {
                 case "success":
-                    this.icon = "added_to_cart";
-                    break;
+                    return "added_to_cart";
                 case "warning":
-                    this.icon = "info_shield";
-                    break;
+                    return "info_shield";
                 default:
-                    this.icon = "info_circle";
+                    return "info_circle";
             }
         }
     },
