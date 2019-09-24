@@ -112,14 +112,15 @@ A **safe** set of properties to customize are: `font-size`, `text-align`, `color
 
 ### Template rules
 
-1. We use **slots** and **props** for content composition. 
+1. HTML should be semantic and not tied to CSS implementation. Total repalcement of CSS should be possible without using semantic meaning of markup.
+2. We use **slots** and **props** for content composition. 
 * Props should be used to fulfil most common use case
 * Instead of providing multiple props and configurations for different use cases try to add slots with general usage
 * Slots are also meant to be used for markup **replacement**. In other words every default markup **should be replacable** with slots.
 
-2. One slot is usually a **single** BEM element.
-3. **DO NOT** use props for setting properties that can be set by css (except for background images).
-4. **Provide a default slot** (usually empty) for a **full** customization support.
+3. One slot is usually a **single** BEM element.
+4. **DO NOT** use props for setting properties that can be set by css (except for background images).
+5. **Provide a default slot** (usually empty) for a **full** customization support.
 
 :::warning
 Try to make components as customizable as possible **without complicating** them. Think about the parts that are usually customized and allow simple way to change their look.
