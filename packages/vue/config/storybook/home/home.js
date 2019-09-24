@@ -51,10 +51,10 @@ storiesOf(" |Introduction", module)
       <p>You can find detailed information in <a href="https://github.com/Divanteltd/storefront-ui/blob/master/packages/vue/docs/customization.md">this doc</a>.
       <h2>Useful links</h2>
       <ul>
+        <li><a href="https://docs.storefrontui.io" target="_blank">Documentation</a></li>
         <li><a href="https://github.com/Divanteltd/storefront-ui" target="_blank">StorefrontUI Github</a></li>
+        <li><a href="https://discord.gg/GS8hqFS" target="_blank">Discord server</a></li>
         <li><a href="https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md" target="_blank">Contribution guide</a></li>
-        <li><a href="https://docs.storefrontui.io" target="_blank">Documentation (work in progress)</a></li>
-        <li><a href="https://storybook.js.org/docs/basics/introduction/" target="_blank">Storybook docs</a></li>
       </ul>
     </div>
 
