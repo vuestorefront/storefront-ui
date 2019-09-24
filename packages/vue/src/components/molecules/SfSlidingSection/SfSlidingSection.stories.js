@@ -22,6 +22,14 @@ storiesOf("Molecules|SlidingSection", module)
   .add(
     "Basic",
     () => ({
+      data() {
+        return {
+          static: {
+            height: "490px",
+            backgroundColor: "rgb(94, 206, 123)"
+          }
+        };
+      },
       props: {
         editableProp: {
           default: text("(prop) propname")
@@ -38,16 +46,21 @@ storiesOf("Molecules|SlidingSection", module)
       components: { SfSlidingSection },
       template: `<div style="max-width: 1240px; margin: auto;">
         <SfSlidingSection>
-          <template #top>
-              <div style="background-color: #5ECE7B; height: 150px"></div>
+          <template #static>
+            <div :style="static"></div>
           </template>
-          <template #bottom>
-            <div>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac nisl id felis consectetur accumsan. In porttitor consequat sollicitudin. Praesent condimentum augue sem, id eleifend elit efficitur sed. Nam fringilla quis felis sit amet rutrum. Vivamus consequat eros lacus, quis mattis felis posuere nec. In pellentesque velit justo, vel ultrices diam laoreet eget. Donec vel efficitur velit, ut feugiat magna. In et lectus vitae odio semper aliquam non at nunc. Sed semper pellentesque auctor. Phasellus augue purus, pretium id pretium eu, ullamcorper nec magna.
-            </div>
+          <template #sliding>
+            <h1>Cashmere Sweater</h1>
+            <p>Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.</p>
+            <p>The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common "problem" areas. Find stunning women's cocktail dresses and party dresses.</p>
+            <h2>Brand</h2>
+            <p>Brand name is the perfect pairing of quality and design. This label creates major everyday vibes with its collection of modern brooches, silver and gold jewellery, or clips it back with hair accessories in geo styles.</p>
           </template>
         </SfSlidingSection>
-      </div>`
+      </div>`,
+      mounted() {
+        document.body.style.setProperty("margin", "0");
+      }
     }),
     {
       info: {
