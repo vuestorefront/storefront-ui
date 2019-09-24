@@ -8,7 +8,13 @@ import SfSlidingSection from "./SfSlidingSection.vue";
 // use this to document scss vars
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [["$card-margin-left-desktop", "$spacer-big * 5", "size of desktop column spacer"]]
+  tableBodyConfig: [
+    [
+      "$card-margin-left-desktop",
+      "$spacer-big * 5",
+      "size of desktop column spacer"
+    ]
+  ]
 };
 
 storiesOf("Molecules|SlidingSection", module)
