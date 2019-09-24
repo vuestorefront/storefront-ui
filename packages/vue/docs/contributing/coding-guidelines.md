@@ -87,24 +87,25 @@ Keep up to 2 BEM levels (elements) at **most**.
 
 ### CSS structure
 
-1. Always import a global variables at the **top**.
-2. Start with mobile view and write **mobile-first** CSS. It means that media queries should be **only** for a desktop view.
-3. **DO NOT** use **scoped** styles.
-4. Use global css variables **whenever it's possible**.
-5. Component-specific SCSS variables should be **at the top** of the component `.scss` file.
+1. Use flexbox
+2. Always import a global variables at the **top**.
+3. Start with mobile view and write **mobile-first** CSS. It means that media queries should be **only** for a desktop view.
+4. **DO NOT** use **scoped** styles.
+5. Use global css variables **whenever it's possible**.
+6. Component-specific SCSS variables should be **at the top** of the component `.scss` file.
 
 :::warning
 Use use global SCSS variables inside SCSS variables for common properties like colors. All the global variables are found in `shared/styles/global/_variables/`.
 :::
 
-6. Properties that **may broke the design** in future changes **shouldn't be customizable**. 
+7. Properties that **may broke the design** in future changes **shouldn't be customizable**. 
 
 :::tip 
 A **safe** set of properties to customize are: `font-size`, `text-align`, `color`, `background-color`, `background-image`, `padding` (_not always_), `margin` (_not always_), `text-transform`, `font-weight`, `font-family`, `background-size`, `align-content` (_not always_), `align-items`(_not always_)
 :::
 
-7. **Provide** CSS modifiers for most common modifications. (`component__black--modifier`)
-8. **DO NOT** use any outer positioning for components (like outer margins). The way they're positioned in layout should be determined in outer environment.
+8. **Provide** CSS modifiers for most common modifications. (`component__black--modifier`)
+9. **DO NOT** use any outer positioning for components (like outer margins). The way they're positioned in layout should be determined in outer environment.
 
 :::tip SAMPLE CSS FILE
 [Here](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.scss) you can find an example of properly styled component with all rules applied.
