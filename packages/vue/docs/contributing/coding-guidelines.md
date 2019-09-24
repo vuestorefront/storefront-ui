@@ -117,6 +117,7 @@ A **safe** set of properties to customize are: `font-size`, `text-align`, `color
 * Props should be used to fulfil most common use case
 * Instead of providing multiple props and configurations for different use cases try to add slots with general usage
 * Slots are also meant to be used for markup **replacement**. In other words every default markup **should be replacable** with slots.
+* Always provide proper slot-scope. For example when we have pagination component with slot `next` allowing to replace arrow to next page we would like to provide things like  `next()` function or `canGoFurther` variable. Then if someone will choose to replace slot content with his/her own it's much easier to know how to keep same behavior.
 
 3. One slot is usually a **single** BEM element.
 4. **DO NOT** use props for setting properties that can be set by css (except for background images).
