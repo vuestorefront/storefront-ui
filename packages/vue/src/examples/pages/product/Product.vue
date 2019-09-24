@@ -618,7 +618,9 @@ export default {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        min-width: calc((375 / 490) * (100vh - 177px)); // (oldWidth / oldHeight) * newHeight = newWidth
+        min-width: calc(
+          (375 / 490) * (100vh - 177px)
+        ); // (oldWidth / oldHeight) * newHeight = newWidth
         min-width: calc(((var(--vh, 1vh) * 100) - 177px) * (375 / 490));
       }
     }
