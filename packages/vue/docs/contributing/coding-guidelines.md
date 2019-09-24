@@ -75,10 +75,10 @@ For the purpose of sharing our component design between projects, all the **`.sc
 We **strictly** follow [BEMs](http://getbem.com/introduction/) for naming SCSS modifiers and CSS classes. And the CSS class names should **match** `slot`'s names.
 
 ```css
-sf-<component>__<block>--modifier
+<component>__<block>--modifier
 ```
 
-For example: `.sf-gallery__item--selected`
+For example: `.gallery__item--selected`
 
 :::warning
 Keep up to 2 BEM levels (elements) at **most**.
@@ -103,23 +103,23 @@ Use use global SCSS variables inside SCSS variables for common properties like c
 A **safe** set of properties to customize are: `font-size`, `text-align`, `color`, `background-color`, `background-image`, `padding` (_not always_), `margin` (_not always_), `text-transform`, `font-weight`, `font-family`, `background-size`, `align-content` (_not always_), `align-items`(_not always_)
 :::
 
-7. **Provide** CSS modifiers for most common modifications.
+7. **Provide** CSS modifiers for most common modifications. (`component__black--modifier`)
 8. **DO NOT** use any outer positioning for components (like outer margins). The way they're positioned in layout should be determined in outer environment.
 
-:::tip SAMLE CSS FILE
+:::tip SAMPLE CSS FILE
 [Here](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.scss) you can find an example of properly styled component with all rules applied.
 :::
 
 ### Template rules
 
 1. We use **slots** and **props** for content composition. 
-* Props should be used to fill **default** slots content
-* Slots are meant for markup **replacement**. In other words every default markup **should be replacable** with slots. 
+* Props should be used to fulfil most common use case
+* Instead of providing multiple props and configurations for different use cases try to add slots with general usage
+* Slots are also meant to be used for markup **replacement**. In other words every default markup **should be replacable** with slots.
 
 2. One slot is usually a **single** BEM element.
-3. Make slots **optional** if it's possible.
-4. **DO NOT** use props for setting properties that can be set by css (except for background images).
-5. **Provide a default slot** (usually empty) for a **full** customization support.
+3. **DO NOT** use props for setting properties that can be set by css (except for background images).
+4. **Provide a default slot** (usually empty) for a **full** customization support.
 
 :::warning
 Try to make components as customizable as possible **without complicating** them. Think about the parts that are usually customized and allow simple way to change their look.
@@ -134,7 +134,7 @@ The minimum set of tests should contain component:
 ## Stories for Storybook
 
 Component stories should contain at least these following stories:
-1. Default for all props, with props and CSS modifiers fillable as knobs.
+1. Default called `basic` for all props, with props and CSS modifiers fillable as knobs.
 2. One for every customisable `slot` in the component
 
 :::tip
