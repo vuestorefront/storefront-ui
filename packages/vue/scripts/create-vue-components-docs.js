@@ -452,6 +452,10 @@ function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
 }
 
 function saveResultMd(targetFilepath, resultMd) {
+  const pathWithoutFilename = path.dirname(targetFilepath);
+  if (!fs.existsSync(pathWithoutFilename)) {
+    fs.mkdirSync(pathWithoutFilename, { recursive: true });
+  }
   fs.writeFileSync(targetFilepath, resultMd);
   return true;
 }
