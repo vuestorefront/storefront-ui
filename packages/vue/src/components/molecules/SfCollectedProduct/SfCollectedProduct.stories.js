@@ -4,6 +4,7 @@ import { withKnobs, text, number } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfCollectedProduct from "./SfCollectedProduct.vue";
+
 // use this to document scss vars
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
@@ -51,11 +52,22 @@ storiesOf("Molecules|CollectedProduct", module)
       data,
       components: { SfCollectedProduct },
       template: `    <SfCollectedProduct
-      :image="image"
-      :title="title"
-      :specialPrice="specialPrice"
-      :regularPrice="regularPrice"
-      :quantity="quantity"/>`
+        :image="image"
+        :title="title"
+        :specialPrice="specialPrice"
+        :regularPrice="regularPrice"
+        :quantity="quantity">
+        <template #configuration>
+          <div :style="{marginTop: '20px'}">
+            @slot configuration
+          </div>
+        </template>
+        <template #actions>
+          <div :style="{marginTop: 'auto'}">
+            @slot actions
+          </div>
+        </template>
+      </SfCollectedProduct>`
     }),
     {
       info: {
@@ -67,5 +79,3 @@ storiesOf("Molecules|CollectedProduct", module)
       }
     }
   )
-  .add("[slot] configuration")
-  .add("[slot] actions");
