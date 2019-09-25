@@ -16,6 +16,12 @@ $collected-product__remove-background--hover: $c-dark-secondary !default;
   @media (min-width: $desktop-min) {
     padding: 10px;
   }
+  &::after{
+    content: "";
+    @media (min-width: $desktop-min) {
+      transition: box-shadow 150ms ease-in-out;
+    }
+  }
   &:hover {
     background: $c-white;
     &::after {
@@ -47,6 +53,7 @@ $collected-product__remove-background--hover: $c-dark-secondary !default;
       box-shadow: none;
       cursor: pointer;
       opacity: 0;
+      transition: opacity 150ms ease-in-out;
     }
     &:hover,
     &:active {
