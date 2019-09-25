@@ -5,12 +5,12 @@
   </div>
   <div class="sf-sliding-section__sliding">
       <div class="sf-sliding-section__mobile-bar">
-        <button class="sf-sliding-section__close" @click="isActive = false">
           <!-- @slot Use this slot to replace close icon -->
-          <slot name="close">
-            <SfIcon icon="cross" size="xxs" />
+          <slot name="close" v-bind="{closeHandler}">
+            <button class="sf-sliding-section__close" @click="closeHandler">
+              <SfIcon icon="cross" size="xxs" />
+            </button>
           </slot>
-        </button>
       </div>
     <!-- @slot Use this slot to place sliding content. -->
     <slot name="sliding" v-bind="{isActive}"/>

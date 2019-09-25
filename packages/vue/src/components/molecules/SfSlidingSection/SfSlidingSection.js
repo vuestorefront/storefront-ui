@@ -1,4 +1,5 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import { isActive } from "vuepress/lib/default-theme/util";
 
 export default {
   name: "SfSlidingSection",
@@ -83,6 +84,9 @@ export default {
       if (this.isActive && isFinal && direction === 16) {
         this.isActive = false;
       }
+    },
+    closeHandler() {
+      this.isActive = false;
     }
   },
   async mounted() {

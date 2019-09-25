@@ -18,11 +18,11 @@ $card-margin-left-desktop: $spacer-big * 5!default;
     flex: 1;
   }
   &__static {
-    margin: 0 -#{$spacer-big};
     overflow: hidden;
     transition: height 150ms ease-in-out;
   }
   &__sliding {
+    padding: 0 $spacer-big;
     @include for-desktop {
       margin-left: $card-margin-left-desktop;
     }
