@@ -48,13 +48,14 @@ function createVueComponentsDocs() {
 
     const targetFilepath = path.join(
       pathTargetMdsRoot,
-      componentInfoFull.sfComponentName + ".md"
+      componentInfoFull.componentName + ".md"
     );
     const success = saveResultMd(targetFilepath, resultMd);
     if (success) {
       successCount++;
       sfComponents.push({
         sfComponentName: componentInfoFull.sfComponentName,
+        componentName: componentInfoFull.componentName,
         pathComponentVue
       });
     }
@@ -486,9 +487,8 @@ function editVuepressConfigFiles(sfComponents) {
 
   sfComponents.sort((a, b) => (a.sfComponentName > b.sfComponentName ? 1 : -1));
   let components = [];
-  for (const { sfComponentName } of sfComponents) {
-    const path = "/components/" + sfComponentName;
-    const componentName = sfComponentName.slice(2);
+  for (const { componentName } of sfComponents) {
+    const path = "/components/" + componentName;
     // put spaces between words for title
     const title = componentName.replace(/([A-Z])/g, " $1").trim();
 
