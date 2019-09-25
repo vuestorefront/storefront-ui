@@ -1,3 +1,8 @@
-<footer class="sf-footer">
-    <slot />
+<footer>
+    <div v-if="isMobileWidth" class="sf-footer-mobile">
+        <slot name="footer-mobile" />
+    </div>
+    <div v-else>
+        <slot name="footer-desktop" />
+    </div>
 </footer>

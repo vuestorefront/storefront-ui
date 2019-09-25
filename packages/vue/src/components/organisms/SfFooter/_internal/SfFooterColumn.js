@@ -10,26 +10,5 @@ export default {
       type: String,
       default: ""
     }
-  },
-  data() {
-    return {
-      isActive: false,
-      hasAdditionalContentPadding: true,
-      hasAdditionalInline: false
-    };
-  },
-  components: {
-    SfChevron
-  },
-  mounted: function() {
-    this.hasAdditionalContentPadding = this.$el.classList.contains(
-      "sf-footer__item-padding"
-    );
-    this.hasAdditionalInline = this.$el.classList.contains("sf-footer__inline");
-  },
-  methods: {
-    tabClick() {
-      this.$parent.$emit("tabClicked", this._uid);
-    }
   }
 };

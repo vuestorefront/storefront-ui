@@ -18,16 +18,4 @@
     font-size: $font-size-big-mobile;
     font-family: $body-font-family-secondary;
   }
-  &__item-padding {
-    padding-top: $spacer-small;
-    padding-bottom: $spacer-small;
-    @media (min-width: $mobile-max) {
-      padding-top: $spacer;
-      padding-bottom: $spacer;
-    }
-  }
-  &__inline {
-    display:inline;
-    padding-right: $spacer-big;
-  }
 }

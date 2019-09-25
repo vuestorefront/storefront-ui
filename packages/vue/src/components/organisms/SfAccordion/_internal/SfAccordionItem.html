@@ -21,9 +21,9 @@
             v-for="item of contentItems"
             :key="item.id"
             @click="onContentItemClick(item.id)"
-            :class="{'sf-accordion-item__content--active': item.id === selected}"
+            :class="{'sf-accordion-item__content--active': item.id === selected, 'sf-accordion-item__content--inline': contentInline}"
           >
-            {{ item.text }}
+            <span v-html="item.text"></span>
           </div>
         </div>
       </slot>

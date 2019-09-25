@@ -46,4 +46,8 @@ $accordion-item__content-padding--last: 0.5rem 0 1.5rem !default;
   &-item__content--active {
     font-weight: 900;
   }
+  &-item__content--inline {
+    display: inline-block;
+    padding-right: $spacer-big !important;
+  }
 }

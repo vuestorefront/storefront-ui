@@ -18,6 +18,10 @@ export default {
     contentItems: {
       type: Array,
       default: () => []
+    },
+    contentInline: {
+      type: Boolean,
+      default: false
     }
   },
   components: {

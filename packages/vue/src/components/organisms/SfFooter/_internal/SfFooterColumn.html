@@ -1,12 +1,8 @@
-<div class="sf-footer-column" :class="{'sf-footer-column--active': isActive, 'sf-footer-column--not-active': !isActive}">
+<div class="sf-footer-column">
     <div class="sf-footer-column__title">
         {{ title }}
-        <div @click="tabClick" class="sf-footer-column__chevron" :class="{'sf-footer-column__chevron--active': isActive}">
-            <SfChevron :class="{'sf-chevron--top': isActive}" />
-        </div>
     </div>
-    <div class="sf-footer-column__content"
-        :class="{'sf-footer-column__content--active': isActive, 'sf-footer-column__content--not-active': !isActive}">
+    <div class="sf-footer-column__content">
         <!-- @slot Content of column. -->
         <slot name="content"></slot>
     </div>

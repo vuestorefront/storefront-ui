@@ -5,52 +5,42 @@ Vue.component("SfFooterColumn", SfFooterColumn);
 
 export default {
   name: "SfFooter",
+  data() {
+    return {
+      widthOfWindow: window.innerWidth
+    };
+  },
   props: {
     /**
-     * Selected prop
+     * Styles for columns
      */
-    selected: {
-      type: [String, Array],
+    columnItemsStyle: {
+      type: Object,
+      default: () => ({ lineHeight: "1.8" })
+    },
+    /**
+     * Column items
+     */
+    columnItems: {
+      type: Array,
       default: () => []
     },
     /**
-     * Multiple prop
+     * Social items
      */
-    multiple: {
-      type: Boolean,
-      default: false
-    }
-  },
-  model: {
-    event: "update:selected",
-    prop: "selected"
-  },
-  methods: {
-    getSelected: function() {
-      return this.selected;
-    },
-    updateSelected: function(data) {
-      this.$emit("update:selected", data);
-    },
-    isMultiple: function() {
-      return this.multiple;
-    },
-    tabClicked(slotId) {
-      if (!this.multiple) {
-        this.$children.forEach(child => {
-          child._uid === slotId
-            ? (child.isActive = !child.isActive)
-            : (child.isActive = false);
-        });
-      } else {
-        const clickedHeader = this.$children.find(child => {
-          return child._uid === slotId;
-        });
-        clickedHeader.isActive = !clickedHeader.isActive;
-      }
+    socialItems: {
+      type: Object,
+      default: () => ({})
     }
   },
   mounted: function() {
-    this.$on("tabClicked", this.tabClicked);
+    window.addEventListener("resize", () => {
+      this.widthOfWindow = window.innerWidth;
+    });
+  },
+  computed: {
+    isMobileWidth() {
+      return this.widthOfWindow <= 768;
+    }
   }
 };
