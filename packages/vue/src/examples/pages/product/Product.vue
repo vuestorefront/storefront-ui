@@ -212,7 +212,11 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection title-heading="Share Your Look" subtitle-heading="#YOURLOOK" class="container">
+    <SfSection
+      title-heading="Share Your Look"
+      subtitle-heading="#YOURLOOK"
+      class="container"
+    >
       <div class="grid">
         <div class="grid__row">
           <div class="grid__col">
@@ -630,7 +634,7 @@ export default {
     display: none;
   }
 }
-.container{
+.container {
   @media (max-width: $desktop-min) {
     padding-left: $spacer-big;
     padding-right: $spacer-big;
