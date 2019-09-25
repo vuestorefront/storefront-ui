@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <SfHero>
+    <SfHero class="container">
       <SfHeroItem
         v-for="(hero, i) in heroes"
         :key="i"
@@ -12,7 +12,7 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <SfBannerGrid :banner-grid="1" class="banners">
+    <SfBannerGrid :banner-grid="1" class="banners container">
       <template #bannerA>
         <a href="#">
           <SfBanner
@@ -65,7 +65,7 @@
       class="call-to-action-newsletter"
       image="assets/storybook/homepage/newsletter.png"
     />
-    <SfSection title-heading="Best Sellers">
+    <SfSection title-heading="Best Sellers" class="container">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -81,7 +81,11 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection title-heading="Share Your Look" subtitle-heading="#YOURLOOK">
+    <SfSection
+      title-heading="Share Your Look"
+      subtitle-heading="#YOURLOOK"
+      class="container"
+    >
       <div class="grid grid-images">
         <div class="grid__row">
           <div class="grid__col">
@@ -292,46 +296,51 @@ export default {
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
+
+@mixin for-desktop {
+  @media screen and (min-width: $desktop-min) {
+    @content;
+  }
+}
+
 #home {
   box-sizing: border-box;
   margin: 0 0 60px 0;
-  padding: 0 $spacer-big;
-  @media screen and (min-width: $desktop-min) {
+  @include for-desktop {
     max-width: 1240px;
     margin: auto;
-    padding: 0;
   }
 }
 .call-to-action-newsletter {
-  margin: $spacer-big -#{$spacer-big};
+  margin: $spacer-big 0;
   box-sizing: border-box;
-  @media screen and (min-width: $desktop-min) {
+  @include for-desktop {
     margin: $spacer-extra-big * 2 0;
   }
 }
 .product-card {
   max-width: unset;
   &:hover {
-    @media screen and (min-width: $desktop-min) {
+    @include for-desktop {
       box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
     }
   }
 }
 .product-carousel {
   margin: -20px -#{$spacer-big} -20px 0;
-  @media screen and (min-width: $desktop-min) {
+  @include for-desktop {
     margin: -20px 0;
   }
   /deep/ .sf-carousel__wrapper {
     padding: 20px 0;
-    @media screen and (min-width: $desktop-min) {
+    @include for-desktop {
       padding: 20px;
       max-width: calc(100% - 216px);
     }
   }
 }
 .banner-central {
-  @media screen and (min-width: $desktop-min) {
+  @include for-desktop {
     padding-right: 30%;
   }
 }
@@ -363,7 +372,7 @@ export default {
 }
 .banners {
   margin: $spacer-big 0;
-  @media screen and (min-width: $desktop-min) {
+  @include for-desktop {
     margin: $spacer-extra-big 0;
   }
 }
@@ -374,7 +383,7 @@ export default {
     display: flex;
     & + & {
       margin-top: $spacer-big / 2;
-      @media screen and (min-width: $desktop-min) {
+      @include for-desktop {
         margin-top: $spacer-big;
       }
     }
@@ -383,7 +392,7 @@ export default {
     margin: 0;
     & + & {
       margin-left: $spacer-big / 2;
-      @media screen and (min-width: $desktop-min) {
+      @include for-desktop {
         margin-left: $spacer-big;
       }
     }
@@ -394,5 +403,11 @@ export default {
 }
 .bottom-navigation-circle {
   opacity: 1;
+}
+.container {
+  @media (max-width: $desktop-min) {
+    padding-left: $spacer-big;
+    padding-right: $spacer-big;
+  }
 }
 </style>

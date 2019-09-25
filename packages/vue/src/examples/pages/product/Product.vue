@@ -180,7 +180,7 @@
         </SfSticky>
       </template>
     </SfSlidingSection>
-    <SfSection title-heading="Match it with" class="other-section">
+    <SfSection title-heading="Match it with" class="container">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -196,7 +196,7 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection title-heading="You might also like">
+    <SfSection title-heading="You might also like" class="container">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -212,7 +212,7 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection title-heading="Share Your Look" subtitle-heading="#YOURLOOK">
+    <SfSection title-heading="Share Your Look" subtitle-heading="#YOURLOOK" class="container">
       <div class="grid">
         <div class="grid__row">
           <div class="grid__col">
@@ -481,11 +481,9 @@ export default {
 #product {
   box-sizing: border-box;
   margin: 0 0 60px 0;
-  padding: 0 $spacer-big;
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
-    padding: 0;
   }
 }
 .product-details {
@@ -632,7 +630,12 @@ export default {
     display: none;
   }
 }
-
+.container{
+  @media (max-width: $desktop-min) {
+    padding-left: $spacer-big;
+    padding-right: $spacer-big;
+  }
+}
 /* we have PR to fix bullets position */
 .sf-gallery {
   $this: &;
