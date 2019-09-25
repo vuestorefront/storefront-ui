@@ -1,104 +1,137 @@
-
 @import '../variables';
 
-$footer__title-font-size: $font-size-big-desktop !default;
+$footer__background-color-mobile: #F2F2F2;
 $footer__margin-top: $spacer-extra-big !default;
-$footer__grid-column-gap: $spacer !default;
+$footer__title-font-size: $font-size-big-desktop !default;
 $footer__title-color: $c-dark-primary !default;
 $footer__title-font-family: $body-font-family-primary !default;
-$footer__column-font-family: $body-font-family-secondary !default;
-$characteristic__description-font-size: $font-size-extra-small-desktop !default;
-$mobile_background-color: #F2F2F2;
+$footer__content-font-family: $body-font-family-secondary !default;
+$footer__content-font-size: $font-size-extra-small-desktop !default;
 
 .sf-footer {
-  margin-top: $footer__margin-top;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  box-sizing: border-box;
-  
-  @media (max-width: $mobile-max) {
-    margin-top: unset;
-    margin-left: unset;
-    margin-right: unset;
-    width: unset;
+  @media (min-width: $mobile-max) {
+    margin-top: $footer__margin-top;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
+
 
 .sf-footer-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: $footer__grid-column-gap;
-  margin: 0 auto;
-  vertical-align: top;
+  display: block;
 
-  @media (max-width: $mobile-max) {
-    display: block;
-    grid-template-columns: unset;
-    grid-column-gap: unset;
+  @media (min-width: $mobile-max) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
   }
 }
 
+
 .sf-footer-column {
-  margin-right: 10px;
-  font-family: $footer__column-font-family;
+  display: block;
+  background-color: $footer__background-color-mobile;
+  padding: 21px 45px 21px 40px;
+  margin-right: 0px;
+
   &__placeholder {
-    @media (max-width: $mobile-max) {
-      display: none!important;
-    }
+    display: none !important;
   }
-  &__title {
-    font-size: $footer__title-font-size;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: $footer__title-color;
-    font-family: $body-font-family-primary;
-    margin: 0;
+
+  &--active {
+    background-color: $c-white;
   }
-  &__chevron {
-    display: none;
-    &--active {
-      transform: rotate(180deg);
-    }
-  }
-  &__content {
-    font-size: $characteristic__description-font-size;
-  }
-  &__list {
-    list-style-type: none;
-    padding-inline-start: unset;
-  }
-  &__inline {
-    display: inline-block;
-  }
+
   &__accordion-only {
+    display: block;
+  }
+
+  &__main-only {
     display: none;
   }
 
-  @media (max-width: $mobile-max) {
+  &__chevron {
+    float: right;
     display: block;
-    background-color: $mobile_background-color;
-    padding: 21px 45px 21px 40px;
-    margin-right: 0px;
+  }
 
-    &--active {
-      background-color: $c-white;
-    }
-    &__accordion-only {
-      display: block;
-    }
-    &__main-only {
+  &__content {
+    padding-top: 15px;
+
+    &--not-active {
       display: none;
     }
-    &__chevron {
-      float:right;
-      display: block;
+  }
+
+  @media (min-width: $mobile-max) {
+
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+
+    background-color: unset;
+    padding: unset;
+    margin-right: unset;
+
+    font-family: $footer__content-font-family;
+
+    &__title {
+      font-size: $footer__title-font-size;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: $footer__title-color;
+      font-family: $footer__title-font-family;
+      margin: 0;
     }
-    &__content{
-      padding-top:15px;
-      &--not-active {
-        display:none;
+
+    &--active {
+      background-color: unset;
+    }
+  
+    &__accordion-only {
+      display: none;
+    }
+  
+    &__main-only {
+      display: flex;
+    }
+  
+
+    &__placeholder {
+      display: flex !important;
+    }
+
+    &__chevron {
+      display: none;
+
+      &--active {
+        transform: rotate(180deg);
       }
     }
+
+    &__content {
+      padding-top: unset;
+      font-size: $footer__content-font-size;
+
+      &--not-active {
+        display: flex;
+      }
+    }
+
+    &__list {
+      list-style-type: none;
+      padding-inline-start: unset;
+    }
+
+    &__inline {
+      display: inline-block;
+    }
+
+    &__accordion-only {
+      display: none;
+    }
   }
+
 }

@@ -10,15 +10,15 @@ const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
     [
-      "$footer__title-font-size",
-      "$font-size-regular-desktop",
-      "font-size of footer title"
+      "$footer__background-color-mobile",
+      "#F2F2F2",
+      "background-color for mobile devices"
     ],
     ["$footer__margin-top", "$spacer-extra-big", "margin-top for footer"],
     [
-      "$footer__grid-column-gap",
-      "$spacer",
-      "grid-column-gap of footer columns"
+      "$footer__title-font-size",
+      "$font-size-regular-desktop",
+      "font-size of footer title"
     ],
     ["$footer__title-color", "$c-dark-primary", "color of footer column title"],
     [
@@ -27,24 +27,14 @@ const scssTableConfig = {
       "font-family of footer column title"
     ],
     [
-      "$footer__column-font-family",
+      "$footer__content-font-family",
       "$body-font-family-secondary",
       "font-family of footer column"
     ],
     [
-      "$characteristic__description-font-size",
+      "$footer__content-font-size",
       "$font-size-extra-small-desktop",
-      "font-size of characteristic description"
-    ],
-    [
-      "$mobile_background-color",
-      "#F2F2F2",
-      "background-color for mobile devices"
-    ],
-    [
-      "$characteristic__description-font-size",
-      "$font-size-extra-small-desktop",
-      "font-size of characteristic description"
+      "font-size of content"
     ]
   ]
 };
