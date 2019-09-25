@@ -1,9 +1,9 @@
 @import "../variables";
 $collected-product-hover-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
 $collected-product-desktop-max-width: 360px !default;
-$collected-product-remove-bg: #BEBFC4;
+$collected-product-remove-bg: #bebfc4;
 $collected-product-remove-hover: #737680;
-$collected-product-remove-active: #1D1F22;
+$collected-product-remove-active: #1d1f22;
 
 .sf-collected-product {
   $this: &;
@@ -33,41 +33,41 @@ $collected-product-remove-active: #1D1F22;
   }
   &__container {
     display: flex;
-    .sf-collected-product__image {
+  }
+  &__image {
+    max-width: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 10px;
+    align-items: flex-end;
+    justify-content: end;
+    img {
       max-width: 100%;
-      display: flex;
-      position: relative;
-      flex-direction: column;
-      padding: 10px;
-      align-items: flex-end;
-      justify-content: end;
-      img {
-        max-width: 100%;
-      }
-      .sf-counter {
-        position: absolute;
-        right: 1rem;
-        bottom: 1rem;
-      }
     }
-    .sf-collected-product__contents {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      .sf-collected-product__title {
-        margin-top: 0.5rem;
-        margin-bottom: 0.25rem;
-        display: flex;
-        font-family: $body-font-family-secondary;
-        font-size: $font-size-regular-mobile;
-        font-weight: 300;
-        line-height: 1.6;
-        @media (min-width: $desktop-min){
-          margin: $spacer 0;
-          font-size: $font-size-regular-desktop;
-        }
-      }
+  }
+  .sf-counter {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+  }
+  &__contents {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__title {
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    display: flex;
+    font-family: $body-font-family-secondary;
+    font-size: $font-size-regular-mobile;
+    font-weight: 300;
+    line-height: 1.6;
+    @media (min-width: $desktop-min) {
+      margin: $spacer 0;
+      font-size: $font-size-regular-desktop;
     }
   }
   &:hover {
