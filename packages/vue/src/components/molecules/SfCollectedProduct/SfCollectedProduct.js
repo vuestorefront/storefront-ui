@@ -2,7 +2,6 @@ import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../molecules/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-import SfCounter from "../../molecules/SfCounter/SfCounter.vue";
 export default {
   name: "SfCollectedProduct",
   props: {
@@ -44,15 +43,14 @@ export default {
     }
   },
   methods: {
-    removeProduct () {
-      this.$emit("remove");
+    removeHandler() {
+      this.$emit("click:remove");
     }
   },
   components: {
     SfIcon,
     SfImage,
     SfCircleIcon,
-    SfPrice,
-    SfCounter
+    SfPrice
   }
 };

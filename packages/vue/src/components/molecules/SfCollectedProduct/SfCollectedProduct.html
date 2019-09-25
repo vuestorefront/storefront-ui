@@ -1,45 +1,51 @@
 <div class="sf-collected-product">
-  <slot name="remove">
+  <slot name="remove" v-bind="{removeHandler}">
     <SfCircleIcon
-      @click="removeProduct"
+      @click="removeHandler"
       color="gray-secondary"
       class="sf-collected-product__remove"
     >
       <SfIcon icon="cross" color="white" size="8px" />
     </SfCircleIcon>
   </slot>
-  <div class="sf-collected-product__container">
+  <slot name="dots">
+    <SfIcon color="white" size="4px" class="sf-collected-product__dots">
+      <svg viewBox="0 0 4 16">
+        <path
+          d="M3.84015 7.99965C3.84015 9.01487 3.01537 9.83965 2.00015 9.83965C0.984935 9.83965 0.160156 9.01487 0.160156 7.99965C0.160156 6.98443 0.984935 6.15965 2.00015 6.15965C3.01537 6.15965 3.84015 6.98443 3.84015 7.99965ZM2.00015 4.31965C3.01537 4.31965 3.84015 3.49487 3.84015 2.47965C3.84015 1.46443 3.01537 0.639648 2.00015 0.639648C0.984935 0.639648 0.160156 1.46443 0.160156 2.47965C0.160156 3.49487 0.984935 4.31965 2.00015 4.31965ZM2.00015 11.6797C0.984935 11.6797 0.160156 12.5044 0.160156 13.5197C0.160156 14.5349 0.984935 15.3597 2.00015 15.3597C3.01537 15.3597 3.84015 14.5349 3.84015 13.5197C3.84015 12.5044 3.01537 11.6797 2.00015 11.6797Z"
+          fill="#1D1F22"
+        />
+      </svg>
+    </SfIcon>
+  </slot>
+  <div class="sf-collected-product__aside">
     <slot name="image" v-bind="{image, title}">
-      <div class="sf-collected-product__image">
-        <SfImage :src="image"></SfImage>
-        <!-- @slot -->
-        <slot name="input" class="sf-collected-product__quantity">
-          <SfCounter :value="quantity" />
-        </slot>
-      </div>
+      <SfImage :src="image" :alt="title" class="sf-collected-product__image" />
     </slot>
-    <div class="sf-collected-product__contents">
-      <div>
-        <!-- @slot -->
-        <slot name="title" v-bind="{title}">
-          <span class="sf-collected-product__title">
-            {{ title }}
-          </span>
-        </slot>
-        <!-- @slot -->
-        <slot name="price" v-bind="{ specialPrice, regularPrice }">
-          <SfPrice
-            class="sf-collected-product__price"
-            v-if="regularPrice"
-            :regular="regularPrice"
-            :special="specialPrice"
-          />
-        </slot>
-      </div>
-      <!-- @slot -->
-      <slot name="configuration"></slot>
-      <!-- @slot -->
-      <slot name="actions"></slot>
+    <slot name="input">
+      <input
+        type="number"
+        :value="quantity"
+        min="1"
+        max="5"
+        class="sf-collected-product__quantity"
+      />
+    </slot>
+  </div>
+  <div class="sf-collected-product__main">
+    <slot name="title" v-bind="{title}">
+      <div class="sf-collected-product__title">{{ title }}</div>
+    </slot>
+    <slot name="price" v-bind="{ specialPrice, regularPrice }">
+      <SfPrice
+        v-if="regularPrice"
+        :regular="regularPrice"
+        :special="specialPrice"
+      />
+    </slot>
+    <div class="sf-collected-product__details">
+      <slot name="configuration"> </slot>
+      <slot name="actions"> </slot>
     </div>
   </div>
 </div>

@@ -1,17 +1,39 @@
 @import "../variables";
-$collected-product-hover-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
-$collected-product-desktop-max-width: 360px !default;
+
+$collected-product-max-width: 350px !default;
+$collected-product-box-shadow--hover: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
 $collected-product__remove-size: 1.625rem !default;
-$collected-product__remove-background: $c-gray-secondary!default;
-$collected-product__remove-background--hover: $c-dark-secondary!default;
-$collected-product-remove-active: #1d1f22;
+$collected-product__remove-background: $c-gray-secondary !default;
+$collected-product__remove-background--hover: $c-dark-secondary !default;
 
 .sf-collected-product {
   $this: &;
-  max-width: 100%;
   position: relative;
-  transition: 0.3s all;
-  background: transparent;
+  box-sizing: border-box;
+  display: flex;
+  max-width: $collected-product-max-width;
+  padding: $spacer-small;
+  @media (min-width: $desktop-min) {
+    padding: 10px;
+  }
+  &:hover {
+    background: $c-white;
+    &::after {
+      @media (min-width: $desktop-min) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        content: "";
+        box-shadow: $collected-product-box-shadow--hover;
+      }
+    }
+    #{$this}__remove {
+      opacity: 1;
+    }
+  }
   &__remove {
     display: none;
     @media (min-width: $desktop-min) {
@@ -27,62 +49,67 @@ $collected-product-remove-active: #1d1f22;
       opacity: 0;
     }
     &:hover,
-    &:active{
+    &:active {
       @media (min-width: $desktop-min) {
         box-shadow: none;
         background-color: $collected-product__remove-background--hover;
       }
     }
   }
-  &__container {
-    display: flex;
+  &__dots {
+    position: absolute;
+    top: $spacer;
+    right: $spacer;
+    height: 1rem;
+    @media (min-width: $desktop-min){
+      display: none;
+    }
+  }
+  &__aside {
+    position: relative;
   }
   &__image {
-    max-width: 100%;
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    padding: 10px;
-    align-items: flex-end;
-    justify-content: end;
-    img {
-      max-width: 100%;
+    max-width: 85px;
+    height: 127px;
+    overflow: hidden;
+    @media (min-width: $desktop-min) {
+      max-width: 140px;
+      height: 200px;
     }
   }
-  .sf-counter {
+  &__quantity {
+    box-sizing: border-box;
+    bottom: $spacer;
+    right: $spacer;
     position: absolute;
-    right: 1rem;
-    bottom: 1rem;
+    width: 60px;
+    height: 30px;
+    padding: 0 $spacer-small;
+    text-align: center;
+    background-color: $c-white;
+    border: 0;
   }
-  &__contents {
-    width: 100%;
+  &__main {
+    flex: 1;
+    margin-left: $spacer-big;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
   &__title {
-    margin-top: 0.5rem;
-    margin-bottom: 0.25rem;
-    display: flex;
+    margin-bottom: 5px;
     font-family: $body-font-family-secondary;
     font-size: $font-size-regular-mobile;
-    font-weight: 300;
+    font-weight: $body-font-weight-primary;
     line-height: 1.6;
-    @media (min-width: $desktop-min) {
-      margin: $spacer 0;
-      font-size: $font-size-regular-desktop;
-    }
   }
-  &:hover {
-    transition: 0.3s all;
-    z-index: 2;
-    background: #ffffff;
-    box-shadow: $collected-product-hover-shadow;
-    #{$this}__remove {
-      opacity: 1;
+  &__details {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    @media (min-width: $desktop-min){
+      flex: 1;
+      flex-direction: column;
+      margin-top: unset;
     }
-  }
-  @media (min-width: $desktop-min) {
-    max-width: $collected-product-desktop-max-width;
   }
 }
