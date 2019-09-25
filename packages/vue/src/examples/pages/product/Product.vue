@@ -172,7 +172,7 @@
         </SfSticky>
       </template>
     </SfSlidingSection>
-    <SfSection title-heading="Match it with" class="container">
+    <SfSection title-heading="Match it with" class="section">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -188,7 +188,7 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection title-heading="You might also like" class="container">
+    <SfSection title-heading="You might also like" class="section">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -207,7 +207,7 @@
     <SfSection
       title-heading="Share Your Look"
       subtitle-heading="#YOURLOOK"
-      class="container"
+      class="section"
     >
       <div class="grid">
         <div class="grid__row">
@@ -659,7 +659,7 @@ export default {
     display: none;
   }
 }
-.container {
+.section {
   @media (max-width: $desktop-min) {
     padding-left: $spacer-big;
     padding-right: $spacer-big;

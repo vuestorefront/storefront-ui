@@ -1,6 +1,6 @@
 <template>
   <div id="category">
-    <div class="navbar container">
+    <div class="navbar section">
       <div class="navbar__aside desktop-only">
         <h1 class="navbar__title">Categories</h1>
       </div>
@@ -93,7 +93,7 @@
         </SfButton>
       </div>
     </div>
-    <div class="main container">
+    <div class="main section">
       <div class="sidebar desktop-only">
         <SfAccordion :firstOpen="true" :showChevron="false">
           <template v-slot="{ selected }">
@@ -128,7 +128,7 @@
           </template>
         </SfAccordion>
       </div>
-      <div class="products" style="">
+      <div class="products">
         <div class="products__list">
           <SfProductCard
             v-for="(product, i) in products"
@@ -461,11 +461,9 @@ export default {
 #category {
   box-sizing: border-box;
   margin: 0 0 60px 0;
-  //padding: 0 $spacer-big;
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
-    //padding: 0;
   }
 }
 .navbar {
@@ -635,7 +633,7 @@ export default {
 .bottom-navigation-circle {
   opacity: 1;
 }
-.container {
+.section {
   @media (max-width: $desktop-min) {
     padding-left: $spacer-big;
     padding-right: $spacer-big;

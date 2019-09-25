@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <SfHero class="container">
+    <SfHero class="section">
       <SfHeroItem
         v-for="(hero, i) in heroes"
         :key="i"
@@ -12,7 +12,7 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <SfBannerGrid :banner-grid="1" class="banners container">
+    <SfBannerGrid :banner-grid="1" class="banners section">
       <template #bannerA>
         <a href="#">
           <SfBanner
@@ -65,7 +65,7 @@
       class="call-to-action-newsletter"
       image="assets/storybook/homepage/newsletter.png"
     />
-    <SfSection title-heading="Best Sellers" class="container">
+    <SfSection title-heading="Best Sellers" class="section">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -84,7 +84,7 @@
     <SfSection
       title-heading="Share Your Look"
       subtitle-heading="#YOURLOOK"
-      class="container"
+      class="section"
     >
       <div class="grid grid-images">
         <div class="grid__row">
@@ -114,9 +114,8 @@
       </div>
     </SfSection>
     <SfBanner
-      title="Download our application to your mobile"
       image="assets/storybook/homepage/bannerD.png"
-      class="banner-application sf-banner--left sf-banner--center desktop-only"
+      class="banner-application desktop-only"
     >
       <template #subtitle>
         <div class="banner-application__subtitle">Fashion to Take Away</div>
@@ -401,13 +400,13 @@ export default {
 .sf-banner {
   flex: 1;
 }
-.bottom-navigation-circle {
-  opacity: 1;
-}
-.container {
+.section {
   @media (max-width: $desktop-min) {
     padding-left: $spacer-big;
     padding-right: $spacer-big;
   }
+}
+.bottom-navigation-circle {
+  opacity: 1;
 }
 </style>
