@@ -1,4 +1,3 @@
-import Hammer from "hammerjs";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 export default {
@@ -86,12 +85,14 @@ export default {
       }
     }
   },
-  mounted() {
-    this.isMobileHandler();
-    window.addEventListener("resize", this.isMobileHandler, { passive: true });
+  async mounted() {
+    const hammer = await import("hammerjs");
+    const Hammer = hammer.default;
     this.hammer = new Hammer(document, {
       enable: false,
       direction: Hammer.DIRECTION_VERTICAL
     }).on("pan", this.touchHandler);
+    this.isMobileHandler();
+    window.addEventListener("resize", this.isMobileHandler, { passive: true });
   }
 };
