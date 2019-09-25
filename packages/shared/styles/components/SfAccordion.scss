@@ -1,7 +1,7 @@
 @import '../variables';
 
 $accordion-item__header-padding: 0.5rem 0 !default;
-$accordion-item__header-font-size: 18px !default;
+$accordion-item__header-font-size: $font-size-big-desktop !default;
 $accordion-item__header-bg-color: $c-light-primary !default;
 $accordion-item__header-bg-color--active: #ffffff !default;
 $accordion-item__header-font-weight: 900 !default;
@@ -9,7 +9,7 @@ $accordion-item__header-text-transform: uppercase !default;
 $accordion-item__header-display: flex !default;
 $accordion-item__header-justify-content: space-between !default;
 $accordion-item__content-color: $c-dark-primary !default;
-$accordion-item__content-font-size: 14px !default;
+$accordion-item__content-font-size: $font-size-regular-desktop !default;
 $accordion-item__content-padding: 0.5rem 0 !default;
 $accordion-item__content-padding--first: 1.5rem 0 0.5rem !default;
 $accordion-item__content-padding--last: 0.5rem 0 1.5rem !default;
