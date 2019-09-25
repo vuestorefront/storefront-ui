@@ -430,7 +430,7 @@ function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
     ["[[component-name]]", componentInfo.componentName],
     ["[[component-description]]", componentDescription],
     ["[[sf-component-name]]", componentInfo.sfComponentName],
-    ["[[common-usage]]", componentInfo.commonUsage || "tbd."],
+    ["[[common-usage]]", componentInfo.commonUsage || getFallbackCommonUsage()],
     ["[[props]]", componentInfo.props || "None."],
     ["[[slots]]", componentInfo.slots || "None."],
     ["[[events]]", componentInfo.events || "None."],
@@ -565,6 +565,12 @@ function pathInsideVuepressConfigRoot(subPath) {
 
 function escapeHtmlAngleBrackets(rawString) {
   return rawString.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function getFallbackCommonUsage() {
+  return `:::warning NOT YET DOCUMENTED 
+This section is not fully documented yet. We are doing our best to make our documentation a good and complete source of knowledge about Storefront UI. If you would like to help us, please don't hesitate to contribute to our docs. You can read more about it [here](https://docs.storefrontui.io/contributing/become-a-contributor.html#work-on-documentation).
+:::`;
 }
 
 createVueComponentsDocs();
