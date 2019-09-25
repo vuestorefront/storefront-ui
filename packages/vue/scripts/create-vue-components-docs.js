@@ -220,11 +220,11 @@ function parseComponentFile(contentComponentFile) {
 
 function parseScssFile(contentScssFile) {
   const scssVariables = extractScssVariables(contentScssFile);
-  const cssModifier = extractCssModifiers(contentScssFile);
+  const cssModifiers = extractCssModifiers(contentScssFile);
 
   return {
-    scssVariables: scssVariables,
-    cssModifiers: cssModifier
+    scssVariables,
+    cssModifiers
   };
 }
 
