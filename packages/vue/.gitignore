@@ -1,6 +1,9 @@
 docs/.vuepress/dist
 package-lock.json
 
+# auto-generated components docs
+docs/components
+
 .DS_Store
 node_modules
 /dist
