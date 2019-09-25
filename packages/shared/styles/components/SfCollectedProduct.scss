@@ -1,8 +1,9 @@
 @import "../variables";
 $collected-product-hover-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
 $collected-product-desktop-max-width: 360px !default;
-$collected-product-remove-bg: #bebfc4;
-$collected-product-remove-hover: #737680;
+$collected-product__remove-size: 1.625rem !default;
+$collected-product__remove-background: $c-gray-secondary!default;
+$collected-product__remove-background--hover: $c-dark-secondary!default;
 $collected-product-remove-active: #1d1f22;
 
 .sf-collected-product {
@@ -12,23 +13,25 @@ $collected-product-remove-active: #1d1f22;
   transition: 0.3s all;
   background: transparent;
   &__remove {
-    opacity: 0;
-    position: absolute;
-    right: -12px;
-    top: 8px;
-    cursor: pointer;
-    width: 26px;
-    height: 26px;
-    background: $collected-product-remove-bg;
-    box-shadow: none !important;
-    &:hover {
-      background-color: $collected-product-remove-hover;
-    }
-    &:active {
-      background-color: $collected-product-remove-active;
-    }
+    display: none;
     @media (min-width: $desktop-min) {
-      opacity: 1;
+      position: absolute;
+      right: calc(#{$collected-product__remove-size} / -2);
+      top: 10px;
+      display: flex;
+      width: $collected-product__remove-size;
+      height: $collected-product__remove-size;
+      background-color: $collected-product__remove-background;
+      box-shadow: none;
+      cursor: pointer;
+      opacity: 0;
+    }
+    &:hover,
+    &:active{
+      @media (min-width: $desktop-min) {
+        box-shadow: none;
+        background-color: $collected-product__remove-background--hover;
+      }
     }
   }
   &__container {

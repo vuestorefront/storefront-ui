@@ -1,8 +1,11 @@
 <div class="sf-collected-product">
-  <!-- @slot -->
   <slot name="remove">
-    <SfCircleIcon color="gray-secondary" class="sf-collected-product__remove" @click="removeProduct">
-      <sf-icon icon="cross" color="white" size="8px" />
+    <SfCircleIcon
+      @click="removeProduct"
+      color="gray-secondary"
+      class="sf-collected-product__remove"
+    >
+      <SfIcon icon="cross" color="white" size="8px" />
     </SfCircleIcon>
   </slot>
   <div class="sf-collected-product__container">
@@ -25,8 +28,12 @@
         </slot>
         <!-- @slot -->
         <slot name="price" v-bind="{ specialPrice, regularPrice }">
-          <SfPrice class="sf-collected-product__price" v-if="regularPrice" :regular="regularPrice"
-            :special="specialPrice" />
+          <SfPrice
+            class="sf-collected-product__price"
+            v-if="regularPrice"
+            :regular="regularPrice"
+            :special="specialPrice"
+          />
         </slot>
       </div>
       <!-- @slot -->
