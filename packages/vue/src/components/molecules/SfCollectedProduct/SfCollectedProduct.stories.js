@@ -49,7 +49,6 @@ storiesOf("Molecules|CollectedProduct", module)
           default: number("quantity (prop)", 1)
         }
       },
-      data,
       components: { SfCollectedProduct },
       template: `    <SfCollectedProduct
         :image="image"
