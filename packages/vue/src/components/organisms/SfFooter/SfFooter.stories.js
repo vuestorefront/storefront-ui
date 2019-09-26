@@ -54,121 +54,123 @@ const scssTableConfig = {
   ]
 };
 
+const data = () => {
+  return {
+    accordionColumnHeaderStyle: {
+      fontSize: "18px",
+      fontWeight: "420",
+      textTransform: "uppercase",
+      padding: "1rem",
+      color: "#1D1F2"
+    },
+    accordionColumnContentStyle: {
+      padding: "0.5rem 0.5rem 0.5rem 1rem",
+      backgroundColor: "#ffffff"
+    },
+    accordionColumnInlineContentStyle: {
+      display: "inline-block",
+      padding: "0.5rem 1.25rem 0.5rem 1rem",
+      backgroundColor: "#ffffff"
+    },
+    accordionChevronActive: {
+      transform: "rotate(90deg)",
+      position: "absolute",
+      right: "1rem"
+    },
+    accordionChevronInactive: {
+      transform: "rotate(-90deg)",
+      position: "absolute",
+      right: "1rem"
+    },
+    columnItemsStyle: {
+      lineHeight: "1.8"
+    },
+    columnItems: [
+      {
+        header: "About Us",
+        content: [
+          {
+            id: "about_1",
+            text: "<a href='#'>Who we are</a>"
+          },
+          {
+            id: "about_2",
+            text: "<a href='#'>Store locator</a>"
+          }
+        ]
+      },
+      {
+        header: "Departaments",
+        content: [
+          { id: "dep_1", text: "<a href='#'>Women fashion</a>" },
+          { id: "dep_2", text: "<a href='#'>Men fashion</a>" },
+          { id: "dep_3", text: "<a href='#'>Kidswear</a>" },
+          { id: "dep_4", text: "<a href='#'>Home</a>" },
+          { id: "dep_5", text: "<a href='#'>Dogswear</a>" }
+        ]
+      },
+      {
+        header: "Help",
+        content: [
+          { id: "help_1", text: "<a href='#'>Customer service</a>" },
+          { id: "help_2", text: "<a href='#'>Size guide</a>" },
+          { id: "help_3", text: "<a href='#'>Contact us</a>" }
+        ]
+      },
+      {
+        header: "Payment & Delivery",
+        content: [
+          { id: "payment_1", text: "<a href='#'>Purchase terms</a>" },
+          { id: "payment_2", text: "<a href='#'>Guarantee</a>" }
+        ]
+      }
+    ],
+    socialItems: {
+      header: "Social",
+      content: [
+        {
+          id: "social_1",
+          text:
+            "<a href='#'><img src='/assets/social_facebook.png' alt='facebook social link' /></a>"
+        },
+        {
+          id: "social_2",
+          text:
+            "<a href='#'><img src='/assets/social_google.png' alt='google social link' /></a>"
+        },
+        {
+          id: "social_3",
+          text:
+            "<a href='#'><img src='/assets/social_pinterest.png' alt='pinterest social link' /></a>"
+        },
+        {
+          id: "social_4",
+          text:
+            "<a href='#'><img src='/assets/social_twitter.png' alt='twitter social link' /></a>"
+        },
+        {
+          id: "social_5",
+          text:
+            "<a href='#'><img src='/assets/social_youtube.png' alt='youtube social link' /></a>"
+        }
+      ],
+      style: {
+        display: "inline",
+        paddingRight: "1.25rem"
+      }
+    },
+    accordionStyle: {
+      width: "100%"
+    }
+  };
+};
+
 storiesOf("Organisms|Footer", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
     () => ({
-      data: () => {
-        return {
-          accordionColumnHeaderStyle: {
-            fontSize: "18px",
-            fontWeight: "420",
-            textTransform: "uppercase",
-            padding: "1rem",
-            color: "#1D1F2"
-          },
-          accordionColumnContentStyle: {
-            padding: "0.5rem 0.5rem 0.5rem 1rem",
-            backgroundColor: "#ffffff"
-          },
-          accordionColumnInlineContentStyle: {
-            display: "inline-block",
-            padding: "0.5rem 1.25rem 0.5rem 1rem",
-            backgroundColor: "#ffffff"
-          },
-          accordionChevronActive: {
-            transform: "rotate(90deg)",
-            position: "absolute",
-            right: "1rem"
-          },
-          accordionChevronInactive: {
-            transform: "rotate(-90deg)",
-            position: "absolute",
-            right: "1rem"
-          },
-          columnItemsStyle: {
-            lineHeight: "1.8"
-          },
-          columnItems: [
-            {
-              header: "About Us",
-              content: [
-                {
-                  id: "about_1",
-                  text: "<a href='#'>Who we are</a>"
-                },
-                {
-                  id: "about_2",
-                  text: "<a href='#'>Store locator</a>"
-                }
-              ]
-            },
-            {
-              header: "Departaments",
-              content: [
-                { id: "dep_1", text: "<a href='#'>Women fashion</a>" },
-                { id: "dep_2", text: "<a href='#'>Men fashion</a>" },
-                { id: "dep_3", text: "<a href='#'>Kidswear</a>" },
-                { id: "dep_4", text: "<a href='#'>Home</a>" },
-                { id: "dep_5", text: "<a href='#'>Dogswear</a>" }
-              ]
-            },
-            {
-              header: "Help",
-              content: [
-                { id: "help_1", text: "<a href='#'>Customer service</a>" },
-                { id: "help_2", text: "<a href='#'>Size guide</a>" },
-                { id: "help_3", text: "<a href='#'>Contact us</a>" }
-              ]
-            },
-            {
-              header: "Payment & Delivery",
-              content: [
-                { id: "payment_1", text: "<a href='#'>Purchase terms</a>" },
-                { id: "payment_2", text: "<a href='#'>Guarantee</a>" }
-              ]
-            }
-          ],
-          socialItems: {
-            header: "Social",
-            content: [
-              {
-                id: "social_1",
-                text:
-                  "<a href='#'><img src='/assets/social_facebook.png' alt='facebook social link' /></a>"
-              },
-              {
-                id: "social_2",
-                text:
-                  "<a href='#'><img src='/assets/social_google.png' alt='google social link' /></a>"
-              },
-              {
-                id: "social_3",
-                text:
-                  "<a href='#'><img src='/assets/social_pinterest.png' alt='pinterest social link' /></a>"
-              },
-              {
-                id: "social_4",
-                text:
-                  "<a href='#'><img src='/assets/social_twitter.png' alt='twitter social link' /></a>"
-              },
-              {
-                id: "social_5",
-                text:
-                  "<a href='#'><img src='/assets/social_youtube.png' alt='youtube social link' /></a>"
-              }
-            ],
-            style: {
-              display: "inline",
-              paddingRight: "1.25rem"
-            }
-          },
-          accordionStyle: {
-            width: "100%"
-          }
-        };
-      },
+      data,
       components: { SfFooter, SfList, SfAccordion },
       template: `
       <div>
