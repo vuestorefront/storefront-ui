@@ -17,7 +17,6 @@ const scssTableConfig = {
   ]
 };
 
-const data = () => {
   return {
     image:
       "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
