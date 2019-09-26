@@ -5,6 +5,7 @@ $footer__column-title-color: $c-dark-primary !default;
 $footer__column-title-font-family: $body-font-family-primary !default;
 $footer__column-content-font-family: $body-font-family-secondary !default;
 $footer__column-content-font-size: $font-size-extra-small-desktop !default;
+$footer__column-max-width: 300px !default;
 $acoordion--close-background-color: $c-light-primary !default;
 $acoordion--open-background-color: $c-light-secondary !default;
 
@@ -21,6 +22,7 @@ $acoordion--open-background-color: $c-light-secondary !default;
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
+  max-width: $footer__column-max-width;
 
   background-color: unset;
   padding: unset;

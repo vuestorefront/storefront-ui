@@ -40,6 +40,7 @@ const scssTableConfig = {
       "$font-size-extra-small-desktop",
       "font-size of content"
     ],
+    ["$footer__column-max-width", "300px", "max-width of footer column"],
     [
       "$acoordion--close-background-color",
       "$c-light-primary",
