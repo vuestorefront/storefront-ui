@@ -39,6 +39,16 @@ const scssTableConfig = {
       "$footer__column-content-font-size",
       "$font-size-extra-small-desktop",
       "font-size of content"
+    ],
+    [
+      "$acoordion--close-background-color",
+      "$c-light-primary",
+      "background-color of closed accordion for mobile"
+    ],
+    [
+      "$acoordion--open-background-color",
+      "$$c-light-secondary",
+      "background-color of open accordion for mobile"
     ]
   ]
 };
@@ -50,6 +60,32 @@ storiesOf("Organisms|Footer", module)
     () => ({
       data: () => {
         return {
+          accordionColumnHeaderStyle: {
+            fontSize: "18px",
+            fontWeight: "420",
+            textTransform: "uppercase",
+            padding: "1rem",
+            color: "#1D1F2"
+          },
+          accordionColumnContentStyle: {
+            padding: "0.5rem 0.5rem 0.5rem 1rem",
+            backgroundColor: "#ffffff"
+          },
+          accordionColumnInlineContentStyle: {
+            display: "inline-block",
+            padding: "0.5rem 1.25rem 0.5rem 1rem",
+            backgroundColor: "#ffffff"
+          },
+          accordionChevronActive: {
+            transform: "rotate(90deg)",
+            position: "absolute",
+            right: "1rem"
+          },
+          accordionChevronInactive: {
+            transform: "rotate(-90deg)",
+            position: "absolute",
+            right: "1rem"
+          },
           columnItemsStyle: {
             lineHeight: "1.8"
           },
@@ -143,24 +179,49 @@ storiesOf("Organisms|Footer", module)
                 :items="columnItems"
                 :multiple="false"
                 :firstOpen="false"
-                :showChevron="true"
+                :showChevron="false"
                 transition="fade"
               >
                 <template v-slot="{ selected }">
                   <SfAccordionItem
                     v-for="(item, i) of columnItems"
                     :key="i"
-                    :header="item.header"
-                    :contentItems="item.content"
                     :selected="selected"
-                  />
+                    class="sf-accordion-item__header-wrapper--close sf-accordion-item__header-wrapper--open"
+                  >
+                  <template v-slot:header="{isOpen}">
+                  <div :style="accordionColumnHeaderStyle">
+                  {{ item.header }}
+                  <img v-if="isOpen" :style="accordionChevronActive" style="width: 16px; height: 16px;" src="/assets/chevron_left.svg" alt="open">
+                  <img v-else :style="accordionChevronInactive" style="width: 16px; height: 16px;" src="/assets/chevron_left.svg" alt="close">
+                  </div>
+                  </template>
+                  <template>
+                  <div v-for="it of item.content" :style="accordionColumnContentStyle">
+                    <span v-html="it.text"></span>
+                  </div>
+                  </template>
+                  </SfAccordionItem>
                   <SfAccordionItem
                     key="social"
-                    :header="socialItems.header"
                     :contentItems="socialItems.content"
                     :selected="selected"
                     :contentInline="true"
-                  />
+                    class="sf-accordion-item__header-slot--close sf-accordion-item__header-slot--open"
+                   >
+                   <template v-slot:header="{isOpen}">
+                   <div :style="accordionColumnHeaderStyle">
+                   {{ socialItems.header }}
+                   <img v-if="isOpen" :style="accordionChevronActive" style="width: 16px; height: 16px;" src="/assets/chevron_left.svg" alt="open">
+                   <img v-else :style="accordionChevronInactive" style="width: 16px; height: 16px;" src="/assets/chevron_left.svg" alt="close">
+                   </div>
+                   </template>
+                   <template>
+                    <div v-for="socialItem of socialItems.content" :style="accordionColumnInlineContentStyle">
+                      <span v-html="socialItem.text"></span>
+                    </div>
+                    </template> 
+                   </SfAccordionItem>
                 </template>
               </SfAccordion>
             </div>
@@ -193,7 +254,7 @@ storiesOf("Organisms|Footer", module)
                 <SfFooterColumn class="sf-footer-social" :title="socialItems.header"> 
                   <template v-slot:content> 
                     <SfList>        
-                      <SfListItem :style="socialItems.style" v-for="socialContent in socialItems.content" :key="socialContent.id" class="sf-list__inline"><span v-html="socialContent.text"></span></SfListItem>
+                      <SfListItem :style="socialItems.style" v-for="socialContent in socialItems.content" :key="socialContent.id"><span v-html="socialContent.text"></span></SfListItem>
                     </SfList>
                   </template>
                 </SfFooterColumn>
@@ -208,13 +269,19 @@ storiesOf("Organisms|Footer", module)
        <h2>Usage</h2>
        <pre><code>import { SfFooter } from "@storefrontui/vue"</code></pre>
        <p>
+       For mobile you can use <pre><code>footer-mobile</code></pre> slot and <pre><code>SfAccordion</code></pre>.
+       </p>
+       <p>
+       For desktop you can use <pre><code>footer-desktop</code></pre> slot.
+       </p>
+       <p>
        You may use 
        <pre><code>sf-footer-row</code></pre> class to create new rows.
        </p>
        <p>
        You may use <pre><code>SfFooterColumn</code></pre> internal component to create new columns and class
        <pre><code>sf-footer-column__placeholder</code></pre>
-       for placeholder columns
+       for placeholder columns.
        </p>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `

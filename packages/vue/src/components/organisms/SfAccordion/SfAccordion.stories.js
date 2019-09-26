@@ -321,8 +321,8 @@ storiesOf("Organisms|Accordion", module)
         <p>Custom styling can be achieved by using <code>default</code> slot inside <code>SfAccordion</code>.</p>
         <p>To use custom styling for header populate <code>#header</code> slot inside <code>SfAccordionItem</code> tag and set <code>showChevron</code> to false in <code>SfAccordion</code> tag.<br><br>
         To use custom styling for opened and closed header states use classes:<br><br>
-        <code>sf-accordion-item__header-slot--close</code><br><br>
-        <code>sf-accordion-item__header-slot--open</code><br><br>
+        <code>sf-accordion-item__header-wrapper--close</code><br><br>
+        <code>sf-accordion-item__header-wrapper--open</code><br><br>
        <h2>Usage</h2>
        <pre><code>import { SfAccordion } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}

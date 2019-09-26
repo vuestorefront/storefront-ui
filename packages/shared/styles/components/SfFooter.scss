@@ -5,11 +5,14 @@ $footer__column-title-color: $c-dark-primary !default;
 $footer__column-title-font-family: $body-font-family-primary !default;
 $footer__column-content-font-family: $body-font-family-secondary !default;
 $footer__column-content-font-size: $font-size-extra-small-desktop !default;
+$acoordion--close-background-color: $c-light-primary !default;
+$acoordion--open-background-color: $c-light-secondary !default;
 
 .sf-footer-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
 }
 
@@ -81,4 +84,12 @@ $footer__column-content-font-size: $font-size-extra-small-desktop !default;
     display: none;
   }
 
+}
+
+.sf-accordion-item__header-wrapper--close {
+  background-color: $acoordion--close-background-color;
+}
+
+.sf-accordion-item__header-wrapper--open {
+  background-color: $acoordion--open-background-color;
 }

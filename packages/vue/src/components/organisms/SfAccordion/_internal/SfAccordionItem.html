@@ -23,7 +23,7 @@
             @click="onContentItemClick(item.id)"
             :class="{'sf-accordion-item__content--active': item.id === selected, 'sf-accordion-item__content--inline': contentInline}"
           >
-            <span v-html="item.text"></span>
+            {{ item.text }}
           </div>
         </div>
       </slot>
