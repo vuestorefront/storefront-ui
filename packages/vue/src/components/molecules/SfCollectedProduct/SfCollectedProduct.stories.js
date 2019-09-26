@@ -17,15 +17,6 @@ const scssTableConfig = {
   ]
 };
 
-  return {
-    image:
-      "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-    title: "Product name",
-    regularPrice: "$ 50.00",
-    quantity: 1
-  };
-};
-
 storiesOf("Molecules|CollectedProduct", module)
   .addDecorator(withKnobs)
   .add(
@@ -76,4 +67,4 @@ storiesOf("Molecules|CollectedProduct", module)
         ${generateStorybookTable(scssTableConfig, "SCSS Variables")}`
       }
     }
-  )
+  );
