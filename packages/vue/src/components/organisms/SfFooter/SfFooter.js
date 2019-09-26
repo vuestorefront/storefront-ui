@@ -46,25 +46,14 @@ export default {
       })
     },
     /**
-     * Style for accordion chevron active
+     * Style for accordion chevron
      */
-    accordionChevronActive: {
+    accordionChevronStyle: {
       type: Object,
       default: () => ({
-        transform: "rotate(90deg)",
         position: "absolute",
-        right: "1rem"
-      })
-    },
-    /**
-     * Style for accordion chevron inactive
-     */
-    accordionChevronInactive: {
-      type: Object,
-      default: () => ({
-        transform: "rotate(-90deg)",
-        position: "absolute",
-        right: "1rem"
+        right: "1rem",
+        top: "1rem"
       })
     },
     /**

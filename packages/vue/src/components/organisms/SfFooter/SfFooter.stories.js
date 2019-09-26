@@ -6,6 +6,7 @@ import { generateStorybookTable } from "@/helpers";
 import SfFooter from "./SfFooter.vue";
 import SfList from "../SfList/SfList.vue";
 import SfAccordion from "../SfAccordion/SfAccordion.vue";
+import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
@@ -72,13 +73,7 @@ const data = () => {
       padding: "0.5rem 1.25rem 0.5rem 1rem",
       backgroundColor: "#ffffff"
     },
-    accordionChevronActive: {
-      transform: "rotate(90deg)",
-      position: "absolute",
-      right: "1rem"
-    },
-    accordionChevronInactive: {
-      transform: "rotate(-90deg)",
+    accordionChevronStyle: {
       position: "absolute",
       right: "1rem"
     },
@@ -171,7 +166,7 @@ storiesOf("Organisms|Footer", module)
     "Basic",
     () => ({
       data,
-      components: { SfFooter, SfList, SfAccordion },
+      components: { SfFooter, SfList, SfAccordion, SfChevron },
       template: `
       <div>
         <SfFooter>
@@ -195,9 +190,8 @@ storiesOf("Organisms|Footer", module)
                   <template v-slot:header="{isOpen}">
                   <div :style="accordionColumnHeaderStyle">
                   {{ item.header }}
-                  <img v-if="isOpen" :style="accordionChevronActive" style="width: 16px; height: 16px;" src="/assets/chevron_left.svg" alt="open">
-                  <img v-else :style="accordionChevronInactive" style="width: 16px; height: 16px;" src="/assets/chevron_left.svg" alt="close">
                   </div>
+                  <SfChevron :style="accordionChevronStyle" :active="isOpen" />
                   </template>
                   <template>
                   <div v-for="it of item.content" :style="accordionColumnContentStyle">
@@ -215,9 +209,8 @@ storiesOf("Organisms|Footer", module)
                    <template v-slot:header="{isOpen}">
                    <div :style="accordionColumnHeaderStyle">
                    {{ socialItems.header }}
-                   <img v-if="isOpen" :style="accordionChevronActive" style="width: 16px; height: 16px;" src="/assets/chevron_left.svg" alt="open">
-                   <img v-else :style="accordionChevronInactive" style="width: 16px; height: 16px;" src="/assets/chevron_left.svg" alt="close">
                    </div>
+                   <SfChevron :style="accordionChevronStyle" :active="isOpen" />
                    </template>
                    <template>
                     <div v-for="socialItem of socialItems.content" :style="accordionColumnInlineContentStyle">
