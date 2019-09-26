@@ -51,7 +51,6 @@ export default {
     accordionChevronStyle: {
       type: Object,
       default: () => ({
-        position: "absolute",
         right: "1rem",
         top: "1rem"
       })
