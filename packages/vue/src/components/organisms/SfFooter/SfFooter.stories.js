@@ -58,6 +58,7 @@ const scssTableConfig = {
 const data = () => {
   return {
     accordionColumnHeaderStyle: {
+      maxWidth: "80%",
       fontSize: "18px",
       fontWeight: "420",
       textTransform: "uppercase",
