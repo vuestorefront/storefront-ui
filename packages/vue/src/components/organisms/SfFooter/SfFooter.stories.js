@@ -203,7 +203,6 @@ storiesOf("Organisms|Footer", module)
                     key="social"
                     :contentItems="socialItems.content"
                     :selected="selected"
-                    :contentInline="true"
                     class="sf-accordion-item__header-slot--close sf-accordion-item__header-slot--open"
                    >
                    <template v-slot:header="{isOpen}">
