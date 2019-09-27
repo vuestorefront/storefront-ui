@@ -5,11 +5,6 @@ Vue.component("SfFooterColumn", SfFooterColumn);
 
 export default {
   name: "SfFooter",
-  data() {
-    return {
-      widthOfWindow: window.innerWidth
-    };
-  },
   props: {
     /**
      * Column items
@@ -24,16 +19,6 @@ export default {
     socialItems: {
       type: Object,
       default: () => ({})
-    }
-  },
-  mounted: function() {
-    window.addEventListener("resize", () => {
-      this.widthOfWindow = window.innerWidth;
-    });
-  },
-  computed: {
-    isMobileWidth() {
-      return this.widthOfWindow <= 768;
     }
   }
 };

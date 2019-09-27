@@ -9,6 +9,23 @@ $footer__column-max-width: 300px !default;
 $acoordion--close-background-color: $c-light-primary !default;
 $acoordion--open-background-color: $c-light-secondary !default;
 
+.sf-footer-mobile {
+  display: block;
+
+  @media screen and (min-width: $tablet-min) {
+    display: none;
+  }
+}
+
+
+.sf-footer-desktop {
+  display: block;
+
+  @media screen and (max-width: $mobile-max) {
+    display: none;
+  }
+}
+
 .sf-footer-row {
   display: flex;
   flex-direction: row;
