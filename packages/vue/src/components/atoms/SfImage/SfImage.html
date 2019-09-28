@@ -20,23 +20,34 @@
       :data-src="src"
       class="sf-image__img"
     >
-    <picture
-      v-else-if="src && src.normal"
-      ref="imgLazy"
-      class="sf-image__img"
-      :data-iesrc="src.normal.url"
-      :data-alt="src.normal.alt"
-    >
-      <source
+
+    <template v-else-if="src && src.normal">
+      <picture
         v-if="src.small"
-        :srcset="src.small.url"
-        :media="`(max-width: ${pictureBreakpoint - 0.02}px)`"
+        ref="imgLazy"
+        class="sf-image__img"
+        :data-iesrc="src.normal.url"
+        :data-alt="src.normal.alt"
       >
-      <source
-        :srcset="src.normal.url"
-        :media="`(min-width: ${pictureBreakpoint}px)`"
+        <source
+          :srcset="src.small.url"
+          :media="`(max-width: ${pictureBreakpoint - 0.02}px)`"
+        >
+        <source
+          :srcset="src.normal.url"
+          :media="`(min-width: ${pictureBreakpoint}px)`"
+        >
+      </picture>
+
+      <img
+        v-else
+        ref="imgLazy"
+        :alt="src.normal.alt"
+        :data-src="src.normal.url"
+        class="sf-image__img"
       >
-    </picture>
+    </template>
+
     <img v-else :src="placeholder" alt="No image" class="sf-image__img">
   </template>
 
