@@ -16,7 +16,8 @@
     "storybook:build": "vue-cli-service storybook:build -s ./public -c config/storybook",
     "docs:vuecomponents": "node scripts/create-vue-components-docs.js",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "version": "node scripts/version.js"
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",

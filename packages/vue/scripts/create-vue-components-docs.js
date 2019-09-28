@@ -573,5 +573,9 @@ This section is not fully documented yet. We are doing our best to make our docu
 :::`;
 }
 
+module.exports = {
+  createVueComponentsDocs
+};
+
 createVueComponentsDocs();
 process.exit(0);
