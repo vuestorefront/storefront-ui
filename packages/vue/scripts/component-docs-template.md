@@ -38,6 +38,9 @@
 You can override SCSS variable values bound to this component in `sfui.scss` in the root of your project.
 
 
+<!-- No _internal components -->
+
+
 ## Partials
 
 If you want to customize this component even more you can use its partials for limitless customization.

@@ -20,14 +20,13 @@ const pathsSassIncludes = [
   path.resolve(__dirname, "../../..", "node_modules/" + nodePathGlidejsIncludes)
 ];
 const pathVueComponentsRoot = path.resolve(__dirname, "..", "src/components");
-const pathsVueComponents = glob.sync("**/Sf*.vue", {
+const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
   cwd: pathVueComponentsRoot
 });
 
 function createVueComponentsDocs() {
   const contentTemplateFile = fs.readFileSync(pathTemplateFile, "utf8");
 
-  let successCount = 0;
   const sfComponents = [];
   for (const pathComponentVue of pathsVueComponents) {
     let componentInfoFull;
@@ -38,10 +37,17 @@ function createVueComponentsDocs() {
       continue;
     }
 
-    const resultMd = replacePlaceholdersInTemplate(
+    let resultMd = replacePlaceholdersInTemplate(
       contentTemplateFile,
       componentInfoFull
     );
+
+    if (componentInfoFull.internalComponentsInfo) {
+      resultMd = addInternalComponentsToTargetMd(
+        componentInfoFull.internalComponentsInfo,
+        resultMd
+      );
+    }
 
     const targetFilepath = path.join(
       pathTargetMdsRoot,
@@ -49,7 +55,6 @@ function createVueComponentsDocs() {
     );
     const success = saveResultMd(targetFilepath, resultMd);
     if (success) {
-      successCount++;
       sfComponents.push({
         sfComponentName: componentInfoFull.sfComponentName,
         componentName: componentInfoFull.componentName,
@@ -58,6 +63,7 @@ function createVueComponentsDocs() {
     }
   }
 
+  const successCount = sfComponents.length;
   if (successCount === 0) {
     console.error("ERROR: No component docs were generated. Quit.");
     process.exit(2);
@@ -92,7 +98,7 @@ function getFullComponentInfo(pathComponentVue) {
     throw new Error(`Cannot read "${pathComponentMd}": ${e.message}`);
   }
 
-  const filenameComponentScss = componentInfoFromPath.sfComponentName + ".scss";
+  const filenameComponentScss = componentInfoFromPath.pathComponentScss;
   let componentInfoFromScss;
   try {
     componentInfoFromScss = getComponentInfoFromScss(filenameComponentScss);
@@ -102,23 +108,31 @@ function getFullComponentInfo(pathComponentVue) {
 
   const componentInfoFromVue = getComponentInfoFromVue(pathComponentVue);
 
+  const internalComponentsInfo =
+    getInternalComponentsInfo(componentInfoFromPath.pathInternalComponents) ||
+    {};
+
   return {
     ...componentInfoFromPath,
     ...componentInfoFromMd,
     ...componentInfoFromScss,
-    ...componentInfoFromVue
+    ...componentInfoFromVue,
+    ...internalComponentsInfo
   };
 }
 
 function getComponentInfoFromPath(pathComponentVue) {
-  const pathParts = pathComponentVue.split("/");
-  const componentFilename = pathParts[pathParts.length - 1];
+  const componentDirname = path.dirname(pathComponentVue);
+  const componentFilename = path.basename(pathComponentVue);
+
   return {
     sfComponentName: componentFilename.replace(/(.+)\.vue$/, "$1"),
     componentName: componentFilename.replace(/Sf(.+)\.vue$/, "$1"),
     pathComponentHtml: pathComponentVue.replace(/(.+)\.vue$/, "$1.html"),
     pathComponentJs: pathComponentVue.replace(/(.+)\.vue$/, "$1.js"),
-    pathComponentMd: pathComponentVue.replace(/(.+)\.vue$/, "$1.md")
+    pathComponentScss: pathComponentVue.replace(/(.+)\.vue$/, "$1.scss"),
+    pathComponentMd: pathComponentVue.replace(/(.+)\.vue$/, "$1.md"),
+    pathInternalComponents: path.join(componentDirname, "_internal")
   };
 }
 
@@ -162,6 +176,22 @@ function getComponentInfoFromVue(pathVueFile) {
     props: generateComponentDetailsInfo(props),
     slots: generateComponentDetailsInfo(slots),
     events: generateComponentDetailsInfo(events)
+  };
+}
+
+function getInternalComponentsInfo(pathInternalComponent) {
+  const fullPath = pathInsideComponentsRoot(pathInternalComponent);
+  if (!fs.existsSync(fullPath)) {
+    return null;
+  }
+
+  const internalComponentsVue = glob.sync("**/Sf*.vue", { cwd: fullPath });
+  const internalComponentsInfo = internalComponentsVue.map(component =>
+    getFullComponentInfo(path.join(pathInternalComponent, component))
+  );
+
+  return {
+    internalComponentsInfo
   };
 }
 
@@ -450,6 +480,37 @@ function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
   return renderedTemplate;
 }
 
+function addInternalComponentsToTargetMd(internalComponentsInfo, renderedMd) {
+  const internalComponentTemplate = getInternalComponentTemplate();
+
+  const internalSections = [];
+  for (const componentInfo of internalComponentsInfo) {
+    const replaceMap = new Map([
+      ["[[internal-component-name]]", componentInfo.componentName],
+      ["[[internal-props]]", componentInfo.props || "None."],
+      ["[[internal-slots]]", componentInfo.slots || "None."],
+      ["[[internal-events]]", componentInfo.events || "None."],
+      ["[[internal-css-modifiers]]", componentInfo.cssModifiers || "None."],
+      ["[[internal-scss-variables]]", componentInfo.scssVariables || "None."]
+    ]);
+    let renderedTemplate = internalComponentTemplate;
+    for (const [placeholder, value] of replaceMap.entries()) {
+      const escapedKey = placeholder.replace(/\[/g, "\\[").replace(/]/g, "\\]");
+      const regExp = new RegExp(escapedKey, "g");
+      renderedTemplate = renderedTemplate.replace(regExp, value);
+    }
+    internalSections.push(renderedTemplate);
+  }
+
+  const renderedInternalSections =
+    "## Internal components\n\n" + internalSections.join("\n\n");
+
+  return renderedMd.replace(
+    "<!-- No _internal components -->",
+    renderedInternalSections
+  );
+}
+
 function saveResultMd(targetFilepath, resultMd) {
   const pathWithoutFilename = path.dirname(targetFilepath);
   if (!fs.existsSync(pathWithoutFilename)) {
@@ -565,6 +626,34 @@ function getFallbackCommonUsage() {
   return `:::warning NOT YET DOCUMENTED 
 This section is not fully documented yet. We are doing our best to make our documentation a good and complete source of knowledge about Storefront UI. If you would like to help us, please don't hesitate to contribute to our docs. You can read more about it [here](https://docs.storefrontui.io/contributing/become-a-contributor.html#work-on-documentation).
 :::`;
+}
+
+function getInternalComponentTemplate() {
+  return `### [[internal-component-name]]
+
+#### Props
+
+[[internal-props]]
+
+
+#### Slots
+
+[[internal-slots]]
+
+
+#### Events
+
+[[internal-events]]
+
+
+#### CSS modifiers
+
+[[internal-css-modifiers]]
+
+
+#### SCSS variables
+
+[[internal-scss-variables]]`;
 }
 
 module.exports = {
