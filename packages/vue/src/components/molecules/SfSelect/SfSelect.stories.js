@@ -8,7 +8,7 @@ import {
   boolean
 } from "@storybook/addon-knobs";
 import { withA11y } from "@storybook/addon-a11y";
-import notes from "./SfSelect.md";
+import notes from "./storybook-notes.md";
 import SfSelect from "./SfSelect.vue";
 import SfProductOption from "../SfProductOption/SfProductOption.vue";
 
