@@ -6,10 +6,7 @@ const path = require("path");
 const sass = require("node-sass");
 const vueDocs = require("vue-docgen-api");
 
-const pathComponentsDocsRoot = path.join(__dirname, "components-docs");
-const pathTemplateFile = pathInsideComponentsDocsDir(
-  "component-docs-template.md"
-);
+const pathTemplateFile = path.resolve(__dirname, "component-docs-template.md");
 const pathTargetMdsRoot = path.resolve(__dirname, "..", "docs/components");
 const pathVuepressConfigRoot = path.resolve(__dirname, "..", "docs/.vuepress");
 const pathComponentsScssRoot = path.resolve(
@@ -87,12 +84,12 @@ function createVueComponentsDocs() {
 function getFullComponentInfo(pathComponentVue) {
   const componentInfoFromPath = getComponentInfoFromPath(pathComponentVue);
 
-  const filenameComponentMd = componentInfoFromPath.sfComponentName + ".md";
+  const pathComponentMd = componentInfoFromPath.pathComponentMd;
   let componentInfoFromMd;
   try {
-    componentInfoFromMd = getComponentInfoFromMd(filenameComponentMd);
+    componentInfoFromMd = getComponentInfoFromMd(pathComponentMd);
   } catch (e) {
-    throw new Error(`Cannot read "${filenameComponentMd}": ${e.message}`);
+    throw new Error(`Cannot read "${pathComponentMd}": ${e.message}`);
   }
 
   const filenameComponentScss = componentInfoFromPath.sfComponentName + ".scss";
@@ -120,22 +117,23 @@ function getComponentInfoFromPath(pathComponentVue) {
     sfComponentName: componentFilename.replace(/(.+)\.vue$/, "$1"),
     componentName: componentFilename.replace(/Sf(.+)\.vue$/, "$1"),
     pathComponentHtml: pathComponentVue.replace(/(.+)\.vue$/, "$1.html"),
-    pathComponentJs: pathComponentVue.replace(/(.+)\.vue$/, "$1.js")
+    pathComponentJs: pathComponentVue.replace(/(.+)\.vue$/, "$1.js"),
+    pathComponentMd: pathComponentVue.replace(/(.+)\.vue$/, "$1.md")
   };
 }
 
-function getComponentInfoFromMd(filename) {
-  const contentComponentFile = readComponentMd(filename);
+function getComponentInfoFromMd(pathComponentMd) {
+  const contentComponentFile = readComponentMd(pathComponentMd);
   if (!contentComponentFile) {
     console.warn(
-      `WARN: Descriptive file (${filename}) for extra component info not found. Some fields might be missing in the target Markdown file.`
+      `WARN: Descriptive file (${pathComponentMd}) for extra component info not found. Some fields might be missing in the target Markdown file.`
     );
     return null;
   }
   try {
     return parseComponentFile(contentComponentFile);
   } catch (e) {
-    console.error(`ERROR: Cannot parse "${filename}": ${e.message}`);
+    console.error(`ERROR: Cannot parse "${pathComponentMd}": ${e.message}`);
     process.exit(1);
   }
 }
@@ -167,12 +165,12 @@ function getComponentInfoFromVue(pathVueFile) {
   };
 }
 
-function readComponentMd(filename) {
-  const pathComponentMd = pathInsideComponentsDocsDir(filename);
-  if (!fs.existsSync(pathComponentMd)) {
+function readComponentMd(pathComponentMd) {
+  const fullPathComponentMd = pathInsideComponentsRoot(pathComponentMd);
+  if (!fs.existsSync(fullPathComponentMd)) {
     return null;
   }
-  return fs.readFileSync(pathComponentMd, "utf8");
+  return fs.readFileSync(fullPathComponentMd, "utf8");
 }
 
 function readComponentScss(filename) {
@@ -545,10 +543,6 @@ function editVuepressConfigFiles(sfComponents) {
     after;
   pathVuepressConfig = pathInsideVuepressConfigRoot("enhanceApp.js");
   fs.writeFileSync(pathVuepressConfig, newContent);
-}
-
-function pathInsideComponentsDocsDir(filename) {
-  return path.join(pathComponentsDocsRoot, filename);
 }
 
 function pathInsideComponentsRoot(subPath) {
