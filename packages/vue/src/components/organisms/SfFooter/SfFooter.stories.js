@@ -157,7 +157,8 @@ const data = () => {
     },
     accordionStyle: {
       width: "100%"
-    }
+    },
+    isOpen: false
   };
 };
 
