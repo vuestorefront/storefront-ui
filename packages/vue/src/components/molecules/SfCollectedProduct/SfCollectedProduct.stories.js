@@ -24,7 +24,10 @@ storiesOf("Molecules|CollectedProduct", module)
     () => ({
       props: {
         image: {
-          default: text("image (prop)", "/assets/storybook/homepage/productB.png")
+          default: text(
+            "image (prop)",
+            "/assets/storybook/homepage/productB.png"
+          )
         },
         title: {
           default: text("title (prop)", "Product name")
