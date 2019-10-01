@@ -56,6 +56,7 @@ module.exports = {
           ["/components/MegaMenu", "Mega Menu"],
           ["/components/MenuItem", "Menu Item"],
           ["/components/Modal", "Modal"],
+          ["/components/Notification", "Notification"],
           ["/components/Options", "Options"],
           ["/components/Overlay", "Overlay"],
           ["/components/Pagination", "Pagination"],
