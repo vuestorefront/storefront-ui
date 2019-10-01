@@ -5,7 +5,7 @@
     "*.scss",
     "*.css"
   ],
-  "version": "0.2.1",
+  "version": "0.2.2",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -21,9 +21,10 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "^0.2.1",
+    "@storefront-ui/shared": "^0.2.2",
     "@vue/babel-preset-app": "^4.0.0-alpha.1",
     "core-js": "^3.1.3",
+    "hammerjs": "^2.0.8",
     "leaflet": "^1.5.1",
     "lerna": "^3.0.0-rc.0",
     "lozad": "^1.9.0",
