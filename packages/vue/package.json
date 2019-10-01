@@ -15,8 +15,8 @@
     "storybook:serve": "vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
     "storybook:build": "vue-cli-service storybook:build -s ./public -c config/storybook",
     "docs:vuecomponents": "node scripts/create-vue-components-docs.js",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
+    "docs:dev": "$npm_execpath docs:vuecomponents && vuepress dev docs",
+    "docs:build": "$npm_execpath docs:vuecomponents && vuepress build docs",
     "version": "node scripts/version.js"
   },
   "dependencies": {
