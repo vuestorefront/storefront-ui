@@ -2,6 +2,8 @@ import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../molecules/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
+import SfInput from "../../atoms/SfInput/SfInput.vue";
+
 export default {
   name: "SfCollectedProduct",
   props: {
@@ -51,6 +53,7 @@ export default {
     SfIcon,
     SfImage,
     SfCircleIcon,
-    SfPrice
+    SfPrice,
+    SfInput
   }
 };

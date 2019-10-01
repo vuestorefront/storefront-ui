@@ -5,7 +5,12 @@
       color="gray-secondary"
       class="sf-collected-product__remove"
     >
-      <SfIcon icon="cross" color="#A3A5AD" size="14px" class="sf-collected-product__icon"/>
+      <SfIcon
+        icon="cross"
+        color="#A3A5AD"
+        size="14px"
+        class="sf-collected-product__icon"
+      />
     </SfCircleIcon>
   </slot>
   <div class="sf-collected-product__aside">
@@ -13,13 +18,20 @@
       <SfImage :src="image" :alt="title" class="sf-collected-product__image" />
     </slot>
     <slot name="input">
-      <input
+      <SfInput
         type="number"
         :value="quantity"
         min="1"
         max="5"
-        class="sf-collected-product__quantity"
+        class="sf-collected-product__select-quantity"
       />
+      <!--      <input-->
+      <!--        type="number"-->
+      <!--        :value="quantity"-->
+      <!--        min="1"-->
+      <!--        max="5"-->
+      <!--        class="sf-collected-product__quantity"-->
+      <!--      />-->
     </slot>
   </div>
   <div class="sf-collected-product__main">
