@@ -3,6 +3,7 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../molecules/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfInput from "../../atoms/SfInput/SfInput.vue";
+import { toInt } from "@glidejs/glide/src/utils/unit";
 
 export default {
   name: "SfCollectedProduct",
@@ -37,16 +38,39 @@ export default {
       default: null
     },
     /**
-     * Product quantity
+     * Selected quantity
      */
-    quantity: {
-      type: [Number, String],
-      default: 0
+    qty: {
+      type: String,
+      default: "1"
+    },
+    /**
+     * Stock quantity of product
+     */
+    stock: {
+      type: Number,
+      default: 1
     }
+  },
+  model: {
+    prop: "qty"
   },
   methods: {
     removeHandler() {
       this.$emit("click:remove");
+    }
+  },
+  watch: {
+    qty(value) {
+      const qty = toInt(value);
+      if (qty <= 0) {
+        this.$emit("input", "1");
+        return;
+      }
+      if (qty > this.stock) {
+        this.$emit("input", "" + this.stock);
+        return;
+      }
     }
   },
   components: {

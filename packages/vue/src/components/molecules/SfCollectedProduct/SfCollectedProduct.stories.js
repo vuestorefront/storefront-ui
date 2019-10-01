@@ -22,6 +22,11 @@ storiesOf("Molecules|CollectedProduct", module)
   .add(
     "Props",
     () => ({
+      data() {
+        return {
+          qty: "1"
+        };
+      },
       props: {
         image: {
           default: text(
@@ -38,8 +43,8 @@ storiesOf("Molecules|CollectedProduct", module)
         specialPrice: {
           default: text("specialPrice (prop)", "$5,99")
         },
-        quantity: {
-          default: number("quantity (prop)", 1)
+        stock: {
+          default: number("stock (prop)", 3)
         }
       },
       components: { SfCollectedProduct },
@@ -48,7 +53,8 @@ storiesOf("Molecules|CollectedProduct", module)
         :title="title"
         :specialPrice="specialPrice"
         :regularPrice="regularPrice"
-        :quantity="quantity">
+        :stock="stock"
+        v-model="qty">
         <template #configuration>
           <div :style="{marginTop: '20px'}">
             @slot configuration
