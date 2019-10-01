@@ -15,10 +15,15 @@ $product-card__image-blend-mode: darken !default;
   max-width: $product-card-max-width;
   padding: $product-card-padding;
   background-color: $c-white;
-  transition: box-shadow 150ms ease-in-out;
   @media (min-width: $desktop-min){
     max-width: $product-card-max-width-desktop;
     padding: $product-card-padding-desktop;
+  }
+  &::after{
+    @media (min-width: $desktop-min) {
+      content: "";
+      transition: box-shadow 150ms ease-in-out;
+    }
   }
   &:hover{
     &::after{
