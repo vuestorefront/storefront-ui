@@ -41,9 +41,16 @@ $collected-product__remove-background--hover: $c-dark-secondary !default;
     }
   }
   &__remove {
-    display: none;
+    position: absolute;
+    top: $spacer;
+    right: $spacer;
+    width: 14px;
+    height: 14px;
+    background-color: transparent;
+    @media (max-width: $desktop-min){
+      padding: 0;
+    }
     @media (min-width: $desktop-min) {
-      position: absolute;
       right: calc(#{$collected-product__remove-size} / -2);
       top: 10px;
       display: flex;
@@ -57,10 +64,17 @@ $collected-product__remove-background--hover: $c-dark-secondary !default;
     }
     &:hover,
     &:active {
+      box-shadow: none;
+      background-color: transparent;
       @media (min-width: $desktop-min) {
-        box-shadow: none;
         background-color: $collected-product__remove-background--hover;
       }
+    }
+  }
+  &__icon{
+    @media (min-width: $desktop-min) {
+      --icon-size: 8px!important;
+      --icon-color: #FFFFFF!important;
     }
   }
   &__dots {
