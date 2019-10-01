@@ -172,7 +172,7 @@
         </SfSticky>
       </template>
     </SfSlidingSection>
-    <SfSection title-heading="Match it with" class="other-section">
+    <SfSection title-heading="Match it with" class="section">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -188,7 +188,7 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection title-heading="You might also like">
+    <SfSection title-heading="You might also like" class="section">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -204,7 +204,11 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection title-heading="Share Your Look" subtitle-heading="#YOURLOOK">
+    <SfSection
+      title-heading="Share Your Look"
+      subtitle-heading="#YOURLOOK"
+      class="section"
+    >
       <div class="grid">
         <div class="grid__row">
           <div class="grid__col">
@@ -470,6 +474,10 @@ export default {
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
     }
+  },
+  mounted() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
   }
 };
 </script>
@@ -487,11 +495,9 @@ export default {
 #product {
   box-sizing: border-box;
   margin: 0 0 60px 0;
-  padding: 0 $spacer-big;
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
-    padding: 0;
   }
 }
 .product-details {
@@ -625,7 +631,8 @@ export default {
   padding: $spacer-small 0;
 }
 .gallery-mobile {
-  height: calc(100vh - 177px);
+  /*height: calc(100vh - 177px);*/
+  height: calc((var(--vh, 1vh) * 100) - 177px);
   /deep/ .glide {
     &,
     * {
@@ -641,6 +648,7 @@ export default {
         min-width: calc(
           (375 / 490) * (100vh - 177px)
         ); // (oldWidth / oldHeight) * newHeight = newWidth
+        min-width: calc(((var(--vh, 1vh) * 100) - 177px) * (375 / 490));
       }
     }
   }
@@ -651,7 +659,12 @@ export default {
     display: none;
   }
 }
-
+.section {
+  @media (max-width: $desktop-min) {
+    padding-left: $spacer-big;
+    padding-right: $spacer-big;
+  }
+}
 /* we have PR to fix bullets position */
 .sf-gallery {
   $this: &;
@@ -754,7 +767,7 @@ export default {
   color: $c-text-primary;
   font-family: $body-font-family-secondary;
   font-size: $font-size-regular-mobile;
-  font-width: $body-font-weight-secondary;
+  font-weight: $body-font-weight-secondary;
   line-height: 1.6;
   text-decoration: underline;
   cursor: pointer;
