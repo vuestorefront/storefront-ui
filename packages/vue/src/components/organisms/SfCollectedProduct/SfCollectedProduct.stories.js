@@ -10,9 +10,44 @@ const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
     [
-      "$collected-product-card-box-shadow",
+      "$collected-product-max-width",
+      "350px",
+      "Maximum width on Collected Product"
+    ],
+    [
+      ("$collected-product-box-shadow--hover",
       "0px 4px 35px rgba(168, 172, 176, 0.19)",
-      "Shadow effect on collected product"
+      "Shadow for Collected Product visible on desktop")
+    ],
+    [
+      ("$collected-product__remove-size",
+      "0.875rem",
+      "Remove icon size on mobile")
+    ],
+    [
+      ("$collected-product__remove-size-desktop",
+      "1.625rem",
+      "Remove icon size on desktop")
+    ],
+    [
+      ("$collected-product__remove-background",
+      "$c-gray-secondary",
+      "Remove icon background on desktop")
+    ],
+    [
+      ("$collected-product__remove-background--hover",
+      "$c-dark-secondary",
+      "Remove icon background hover on desktop")
+    ],
+    [
+      ("$collected-product__select-quantity-width",
+      "3.125rem",
+      "Quantity selector width")
+    ],
+    [
+      ("$collected-product__select-quantity-height",
+      "1.875rem",
+      "Quantity selector height")
     ]
   ]
 };
