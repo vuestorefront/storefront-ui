@@ -5,8 +5,8 @@ $collected-product-box-shadow--hover: 0px 4px 35px rgba(168, 172, 176, 0.19) !de
 $collected-product__remove-size: 1.625rem !default;
 $collected-product__remove-background: $c-gray-secondary !default;
 $collected-product__remove-background--hover: $c-dark-secondary !default;
-$collected-product__select-quantity-width: 3.125rem;
-$collected-product__select-quantity-height: 1.875rem;
+$collected-product__select-quantity-width: 3.125rem !default;
+$collected-product__select-quantity-height: 1.875rem !default;
 
 .sf-collected-product {
   $this: &;
@@ -18,7 +18,7 @@ $collected-product__select-quantity-height: 1.875rem;
   @media (min-width: $desktop-min) {
     padding: 10px;
   }
-  &::after{
+  &::after {
     content: "";
     @media (min-width: $desktop-min) {
       transition: box-shadow 150ms ease-in-out;
@@ -49,7 +49,7 @@ $collected-product__select-quantity-height: 1.875rem;
     width: 14px;
     height: 14px;
     background-color: transparent;
-    @media (max-width: $desktop-min){
+    @media (max-width: $desktop-min) {
       padding: 0;
     }
     @media (min-width: $desktop-min) {
@@ -73,10 +73,10 @@ $collected-product__select-quantity-height: 1.875rem;
       }
     }
   }
-  &__icon{
+  &__icon {
     @media (min-width: $desktop-min) {
-      --icon-size: 8px!important;
-      --icon-color: #FFFFFF!important;
+      --icon-size: 8px !important;
+      --icon-color: #ffffff !important;
     }
   }
   &__aside {
@@ -131,7 +131,7 @@ $collected-product__select-quantity-height: 1.875rem;
     margin-top: auto;
     display: flex;
     justify-content: space-between;
-    @media (min-width: $desktop-min){
+    @media (min-width: $desktop-min) {
       flex: 1;
       flex-direction: column;
       margin-top: unset;
