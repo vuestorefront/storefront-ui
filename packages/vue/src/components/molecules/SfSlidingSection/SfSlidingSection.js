@@ -97,5 +97,8 @@ export default {
     }).on("pan", this.touchHandler);
     this.isMobileHandler();
     window.addEventListener("resize", this.isMobileHandler, { passive: true });
+  },
+  beforeDestroy() {
+    this.hammer.destroy();
   }
 };
