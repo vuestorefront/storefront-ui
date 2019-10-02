@@ -594,6 +594,8 @@ export default {
   }
 }
 .filters {
+  position: relative;
+  z-index: 10;
   &__title:not(:first-child),
   &__buttons {
     margin-top: $spacer-big * 3;
