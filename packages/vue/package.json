@@ -37,12 +37,9 @@
     "webpack-dev-middleware": "3.6.0"
   },
   "files": [
-    "dist/*",
     "scripts/*",
-    "public/*",
     "src/*",
     "index.js",
-    "html.js",
     "js.js"
   ],
   "devDependencies": {
