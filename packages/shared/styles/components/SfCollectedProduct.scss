@@ -5,6 +5,8 @@ $collected-product-box-shadow--hover: 0px 4px 35px rgba(168, 172, 176, 0.19) !de
 $collected-product__remove-size: 1.625rem !default;
 $collected-product__remove-background: $c-gray-secondary !default;
 $collected-product__remove-background--hover: $c-dark-secondary !default;
+$collected-product__select-quantity-width: 3.125rem;
+$collected-product__select-quantity-height: 1.875rem;
 
 .sf-collected-product {
   $this: &;
@@ -96,8 +98,8 @@ $collected-product__remove-background--hover: $c-dark-secondary !default;
     z-index: 2;
     input {
       box-sizing: border-box;
-      width: 60px;
-      height: 30px;
+      width: $collected-product__select-quantity-width;
+      height: $collected-product__select-quantity-height;
       padding: 0 $spacer-small;
       border: 1px solid transparent;
       background-color: $c-white;

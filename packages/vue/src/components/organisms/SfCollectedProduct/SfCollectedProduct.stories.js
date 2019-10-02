@@ -44,7 +44,7 @@ storiesOf("Organisms|CollectedProduct", module)
           default: text("specialPrice (prop)", "$5,99")
         },
         stock: {
-          default: number("stock (prop)", 3)
+          default: number("stock (prop)", 99)
         }
       },
       components: { SfCollectedProduct },
