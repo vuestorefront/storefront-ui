@@ -94,7 +94,7 @@ $acoordion--open-background-color: $c-light-secondary !default;
   }
 
   &__inline {
-    display: inline-block;
+    display: inline-flex;
   }
 
   &__accordion-only {
