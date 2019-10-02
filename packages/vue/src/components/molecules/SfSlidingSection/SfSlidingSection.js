@@ -1,5 +1,4 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import { isActive } from "vuepress/lib/default-theme/util";
 
 export default {
   name: "SfSlidingSection",
