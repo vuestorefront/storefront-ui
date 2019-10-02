@@ -1,6 +1,12 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
+import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
+import { generateStorybookTable } from "@/helpers";
 import SfChevron from "@/components/atoms/SfChevron/SfChevron.vue";
+
+const cssTableConfig = {
+  tableHeadConfig: ["NAME", "DESCRIPTION"],
+  tableBodyConfig: [[".sf-chevron--top", "change chevron direction to top"]]
+};
 
 storiesOf("Atoms|Chevron", module)
   .addDecorator(withKnobs)
@@ -8,14 +14,21 @@ storiesOf("Atoms|Chevron", module)
     "Basic",
     () => ({
       props: {
-        isActive: {
-          default: boolean("isActive (prop)", false)
+        customClass: {
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-chevron--top": "sf-chevron--top"
+            },
+            "",
+            { display: "multi-select" }
+          )
         }
       },
       components: {
         SfChevron
       },
-      template: '<SfChevron :active="isActive"/>'
+      template: '<SfChevron :class="customClass" />'
     }),
     {
       info: {
@@ -24,6 +37,7 @@ storiesOf("Atoms|Chevron", module)
             <p>Chevron component. Place desired content into slot.</p>
             <h2> Usage </h2>
             <pre><code>import { SfChevron } from "@storefront-ui/vue"</code></pre>
+            ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
             `
       }
     }

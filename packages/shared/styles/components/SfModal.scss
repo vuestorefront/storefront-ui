@@ -1,10 +1,10 @@
 @import '../variables';
 
-$modal-background-color: $c-white;
-$modal-width: 430px;
-$modal-height: auto;
-$modal-padding: 2.5em 5em;
-$modal-border: solid 1px rgba($c-black, 0.5);
+$modal-background-color: $c-white !default;
+$modal-width: 430px !default;
+$modal-height: auto !default;
+$modal-padding: 2.5em 5em !default;
+$modal-border: solid 1px rgba($c-black, 0.5) !default;
 
 .sf-modal {
   &__container {

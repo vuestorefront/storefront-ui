@@ -122,7 +122,7 @@
               <button class="sf-action">Add to compare</button>
             </div>
           </div>
-          <SfTabs class="product-details__tabs" :openTab="1">
+          <SfTabs class="product-details__tabs" :openTab="2">
             <SfTab title="Description">
               <div>
                 <p>
@@ -144,24 +144,16 @@
               </div>
             </SfTab>
             <SfTab title="Read reviews">
-              <div>
-                <SfHeading
-                  title="Mari"
-                  :level="3"
-                  class="sf-heading--no-underline sf-heading--left"
-                />
-                <div style="display: flex">
-                  <SfRating :score="4" :max="5" />
-                  <small>Jan 2018</small>
-                </div>
-                <p>
-                  Excellent light output from this led fitting. Relatively easy
-                  to fix to the ceiling,but having two people makes it easier,
-                  to complete the installation. Unable to comment on reliability
-                  at this time, but I am hopeful of years of use with good light
-                  levels... <span style="color: #5ECE7B">Read more</span>
-                </p>
-              </div>
+              <SfReview
+                class="product-details__review"
+                v-for="(review, i) in reviews"
+                :key="i"
+                :author="review.author"
+                :date="review.date"
+                :message="review.message"
+                :rating="review.rating"
+                :max-rating="5"
+              />
             </SfTab>
             <SfTab title="Additional Information">
               <SfHeading
@@ -180,7 +172,7 @@
         </SfSticky>
       </template>
     </SfSlidingSection>
-    <SfSection title-heading="Match it with" class="other-section">
+    <SfSection title-heading="Match it with" class="section">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -196,7 +188,7 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection title-heading="You might also like">
+    <SfSection title-heading="You might also like" class="section">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -212,7 +204,11 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection title-heading="Share Your Look" subtitle-heading="#YOURLOOK">
+    <SfSection
+      title-heading="Share Your Look"
+      subtitle-heading="#YOURLOOK"
+      class="section"
+    >
       <div class="grid">
         <div class="grid__row">
           <div class="grid__col">
@@ -327,7 +323,8 @@ import {
   SfIcon,
   SfAlert,
   SfSticky,
-  SfSlidingSection
+  SfSlidingSection,
+  SfReview
 } from "@storefront-ui/vue";
 
 export default {
@@ -431,6 +428,22 @@ export default {
           isOnWishlist: false
         }
       ],
+      reviews: [
+        {
+          author: "Jane D.Smith",
+          date: "April 2019",
+          message:
+            "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can't comment on interlation as I had an electrition instal it. Would recommend",
+          rating: 4
+        },
+        {
+          author: "Mari",
+          date: "Jan 2018",
+          message:
+            "Excellent light output from this led fitting. Relatively easy to fix to the ceiling,but having two people makes it easier, to complete the installation. Unable to comment on reliability at this time, but I am hopeful of years of use with good light levels. Excellent light output from this led fitting. Relatively easy to fix to the ceiling,",
+          rating: 5
+        }
+      ],
       detailsIsActive: false
     };
   },
@@ -454,12 +467,17 @@ export default {
     SfCircleIcon,
     SfIcon,
     SfSticky,
-    SfSlidingSection
+    SfSlidingSection,
+    SfReview
   },
   methods: {
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
     }
+  },
+  mounted() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
   }
 };
 </script>
@@ -477,11 +495,9 @@ export default {
 #product {
   box-sizing: border-box;
   margin: 0 0 60px 0;
-  padding: 0 $spacer-big;
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
-    padding: 0;
   }
 }
 .product-details {
@@ -595,12 +611,28 @@ export default {
       margin: 0;
     }
   }
+  &__review {
+    padding-bottom: $spacer-big;
+    @include for-desktop {
+      padding-bottom: $spacer-extra-big;
+      border-bottom: 1px solid $c-light-primary;
+    }
+    & + & {
+      padding-top: $spacer-extra-big;
+      border-top: 1px solid $c-light-primary;
+      @include for-desktop {
+        border-top: 0;
+        padding-top: $spacer-extra-big;
+      }
+    }
+  }
 }
 .product-property {
   padding: $spacer-small 0;
 }
 .gallery-mobile {
-  height: calc(100vh - 177px);
+  /*height: calc(100vh - 177px);*/
+  height: calc((var(--vh, 1vh) * 100) - 177px);
   /deep/ .glide {
     &,
     * {
@@ -616,6 +648,7 @@ export default {
         min-width: calc(
           (375 / 490) * (100vh - 177px)
         ); // (oldWidth / oldHeight) * newHeight = newWidth
+        min-width: calc(((var(--vh, 1vh) * 100) - 177px) * (375 / 490));
       }
     }
   }
@@ -626,7 +659,12 @@ export default {
     display: none;
   }
 }
-
+.section {
+  @media (max-width: $desktop-min) {
+    padding-left: $spacer-big;
+    padding-right: $spacer-big;
+  }
+}
 /* we have PR to fix bullets position */
 .sf-gallery {
   $this: &;
@@ -729,7 +767,7 @@ export default {
   color: $c-text-primary;
   font-family: $body-font-family-secondary;
   font-size: $font-size-regular-mobile;
-  font-width: $body-font-weight-secondary;
+  font-weight: $body-font-weight-secondary;
   line-height: 1.6;
   text-decoration: underline;
   cursor: pointer;
