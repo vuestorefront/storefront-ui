@@ -17,7 +17,7 @@ const scssTableConfig = {
   ]
 };
 
-storiesOf("Molecules|CollectedProduct", module)
+storiesOf("Organisms|CollectedProduct", module)
   .addDecorator(withKnobs)
   .add(
     "Props",

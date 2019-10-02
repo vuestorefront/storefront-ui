@@ -44,6 +44,7 @@ import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.js";
 import SfBannerGrid from "./src/components/organisms/SfBannerGrid/SfBannerGrid.js";
 import SfBottomNavigation from "./src/components/organisms/SfBottomNavigation/SfBottomNavigation.js";
 import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.js";
+import SfCollectedProduct from "./src/components/organisms/SfCollectedProduct/SfCollectedProduct.js";
 import SfHero from "./src/components/organisms/SfHero/SfHero.js";
 import SfList from "./src/components/organisms/SfList/SfList.js";
 import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.js";
@@ -96,6 +97,7 @@ export {
   SfBannerGrid,
   SfBottomNavigation,
   SfCarousel,
+  SfCollectedProduct,
   SfHero,
   SfList,
   SfMegaMenu,
