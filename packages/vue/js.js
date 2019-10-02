@@ -11,6 +11,7 @@ import SfCircleIcon from "./src/components/atoms/SfCircleIcon/SfCircleIcon.js";
 import SfDivider from "./src/components/atoms/SfDivider/SfDivider.js";
 import SfHeading from "./src/components/atoms/SfHeading/SfHeading.js";
 import SfIcon from "./src/components/atoms/SfIcon/SfIcon.js";
+import SfImage from "./src/components/atoms/SfImage/SfImage.js";
 import SfInput from "./src/components/atoms/SfInput/SfInput.js";
 import SfLoader from "./src/components/atoms/SfLoader/SfLoader.js";
 import SfOverlay from "./src/components/atoms/SfOverlay/SfOverlay.js";
@@ -26,7 +27,6 @@ import SfCharacteristic from "./src/components/molecules/SfCharacteristic/SfChar
 import SfCounter from "./src/components/molecules/SfCounter/SfCounter.js";
 import SfFilter from "./src/components/molecules/SfFilter/SfFilter.js";
 import SfGallery from "./src/components/molecules/SfGallery/SfGallery.js";
-import SfImage from "./src/components/molecules/SfImage/SfImage.js";
 import SfMenuItem from "./src/components/molecules/SfMenuItem/SfMenuItem.js";
 import SfModal from "./src/components/molecules/SfModal/SfModal.js";
 import SfOptions from "./src/components/molecules/SfOptions/SfOptions.js";
