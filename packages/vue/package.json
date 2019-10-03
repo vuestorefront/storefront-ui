@@ -5,7 +5,7 @@
     "*.scss",
     "*.css"
   ],
-  "version": "0.2.2",
+  "version": "0.3.0",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "^0.2.2",
+    "@storefront-ui/shared": "^0.3.0",
     "@vue/babel-preset-app": "^4.0.0-alpha.1",
     "core-js": "^3.1.3",
     "hammerjs": "^2.0.8",
@@ -39,13 +39,11 @@
     "webpack-dev-middleware": "3.6.0"
   },
   "files": [
-    "dist/*",
     "scripts/*",
-    "public/*",
     "src/*",
     "index.js",
-    "html.js",
-    "js.js"
+    "js.js",
+    "styles.scss"
   ],
   "devDependencies": {
     "@babel/core": "^7.5.5",
