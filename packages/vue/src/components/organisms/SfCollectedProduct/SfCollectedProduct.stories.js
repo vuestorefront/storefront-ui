@@ -21,12 +21,12 @@ const scssTableConfig = {
     ],
     [
       ("$collected-product__remove-size",
-      "0.875rem",
+      "1.625rem",
       "Remove icon size on mobile")
     ],
     [
       ("$collected-product__remove-size-desktop",
-      "1.625rem",
+      "0.875rem",
       "Remove icon size on desktop")
     ],
     [
