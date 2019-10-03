@@ -1,5 +1,4 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import { isActive } from "vuepress/lib/default-theme/util";
 
 export default {
   name: "SfSlidingSection",
@@ -59,13 +58,13 @@ export default {
     scrollLock() {
       window.scrollTo(0, 0);
       document.body.classList.add("sf-sliding-section--has-scroll-lock");
-      window.addEventListener("touchstart", this.touchPreventDefault, {
+      window.addEventListener("touchmove", this.touchPreventDefault, {
         passive: false
       });
     },
     scrollUnlock() {
       document.body.classList.remove("sf-sliding-section--has-scroll-lock");
-      window.removeEventListener("touchstart", this.touchPreventDefault, {
+      window.removeEventListener("touchmove", this.touchPreventDefault, {
         passive: false
       });
     },
@@ -93,10 +92,12 @@ export default {
     const hammer = await import("hammerjs");
     const Hammer = hammer.default;
     this.hammer = new Hammer(document, {
-      enable: false,
-      direction: Hammer.DIRECTION_VERTICAL
+      enable: false
     }).on("pan", this.touchHandler);
     this.isMobileHandler();
     window.addEventListener("resize", this.isMobileHandler, { passive: true });
+  },
+  beforeDestroy() {
+    this.hammer.destroy();
   }
 };
