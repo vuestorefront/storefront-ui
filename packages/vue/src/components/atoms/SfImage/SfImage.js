@@ -52,7 +52,6 @@ export default {
     return {
       loaded: false,
       overlay: false,
-      maxWidth: "unset"
     };
   },
 
