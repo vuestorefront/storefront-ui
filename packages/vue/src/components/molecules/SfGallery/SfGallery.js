@@ -53,8 +53,8 @@ export default {
         return {
           small: normal,
           normal: big
-        }
-      })
+        };
+      });
     }
   },
 

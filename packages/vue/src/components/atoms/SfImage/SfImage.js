@@ -8,8 +8,8 @@ export default {
      * Image url or pictures object (`{ small: { url, alt }, normal: { url, alt } }`)
      */
     src: {
-    type: [String, Object],
-    default: ()=>{}
+      type: [String, Object],
+      default: () => {}
     },
     /**
      * Alt attribute value
