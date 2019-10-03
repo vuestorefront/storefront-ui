@@ -43,6 +43,7 @@ import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.vue"
 import SfBannerGrid from "./src/components/organisms/SfBannerGrid/SfBannerGrid.vue";
 import SfBottomNavigation from "./src/components/organisms/SfBottomNavigation/SfBottomNavigation.vue";
 import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.vue";
+import SfCollectedProduct from "./src/components/organisms/SfCollectedProduct/SfCollectedProduct.vue";
 import SfHero from "./src/components/organisms/SfHero/SfHero.vue";
 import SfList from "./src/components/organisms/SfList/SfList.vue";
 import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.vue";
@@ -95,6 +96,7 @@ export {
   SfBannerGrid,
   SfBottomNavigation,
   SfCarousel,
+  SfCollectedProduct,
   SfHero,
   SfList,
   SfMegaMenu,

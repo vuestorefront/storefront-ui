@@ -51,7 +51,7 @@ export default {
   data() {
     return {
       loaded: false,
-      overlay: false,
+      overlay: false
     };
   },
 
