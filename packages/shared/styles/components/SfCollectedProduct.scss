@@ -2,8 +2,8 @@
 
 $collected-product-max-width: 350px !default;
 $collected-product-box-shadow--hover: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
-$collected-product__remove-size: 1.625rem !default;
-$collected-product__remove-size-desktop: 0.875rem !default;
+$collected-product__remove-size: 0.875rem !default;
+$collected-product__remove-size-desktop: 1.625rem !default;
 $collected-product__remove-background: $c-gray-secondary !default;
 $collected-product__remove-background--hover: $c-dark-secondary !default;
 $collected-product__select-quantity-width: 3.125rem !default;
@@ -54,7 +54,7 @@ $collected-product__select-quantity-height: 1.875rem !default;
       padding: 0;
     }
     @media (min-width: $desktop-min) {
-      right: calc(#{$collected-product__remove-size} / -2);
+      right: calc(#{$collected-product__remove-size-desktop} / -2);
       top: 10px;
       display: flex;
       width: $collected-product__remove-size-desktop;
