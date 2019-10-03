@@ -2,7 +2,8 @@
 Base button component.
 
 # common-usage
-<br><SfButton>Hello World!</SfButton>
+<br>
+<SfButton>Hello World!</SfButton>
 
 ```html 
 <template>

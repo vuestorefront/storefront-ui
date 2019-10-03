@@ -2,7 +2,8 @@
 Arrow component for sliders and navigation.
 
 # common-usage
-<br><SfArrow />
+<br>
+<SfArrow />
 
 ```html 
 <template>

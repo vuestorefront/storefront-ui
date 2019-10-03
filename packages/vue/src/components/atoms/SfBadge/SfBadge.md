@@ -2,7 +2,8 @@
 Badge component. Place desired content into its default slot.
 
 # common-usage
-<br><SfBadge>LIMITED</SfBadge>
+<br>
+<SfBadge>LIMITED</SfBadge>
 
 ```html 
 <template>
