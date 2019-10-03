@@ -3,9 +3,9 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  select,
   number,
-  boolean
+  boolean,
+  optionsKnob as options
 } from "@storybook/addon-knobs";
 import { withA11y } from "@storybook/addon-a11y";
 import notes from "./storybook-notes.md";
@@ -38,10 +38,14 @@ storiesOf("Molecules|Select", module)
       components: { SfSelect, SfProductOption },
       props: {
         customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-select--bordered", "sf-select--underlined"],
-            "sf-select--underlined"
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-select--bordered": "sf-select--bordered",
+              "sf-select--underlined": "sf-select--underlined"
+            },
+            "sf-select--underlined",
+            { display: "multi-select" }
           )
         },
         size: {
@@ -97,10 +101,14 @@ storiesOf("Molecules|Select", module)
       components: { SfSelect, SfProductOption },
       props: {
         customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-select--bordered", "sf-select--underlined"],
-            "null"
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-select--bordered": "sf-select--bordered",
+              "sf-select--underlined": "sf-select--underlined"
+            },
+            "",
+            { display: "multi-select" }
           )
         }
       },
@@ -113,7 +121,7 @@ storiesOf("Molecules|Select", module)
               <SfProductOption :color="option.color" :label="option.label"/>
             </SfSelectOption>
           </SfSelect>
-          
+
         </div>
       </div>
       `

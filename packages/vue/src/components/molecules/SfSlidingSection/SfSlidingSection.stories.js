@@ -1,6 +1,10 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfSlidingSection from "./SfSlidingSection.vue";
@@ -35,11 +39,13 @@ storiesOf("Molecules|SlidingSection", module)
           default: text("(prop) propname")
         },
         customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-card--modifier"],
-            "null",
-            "CSS-Modifiers"
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-card--modifier": "sf-card--modifier"
+            },
+            "",
+            { display: "multi-select" }
           )
         }
       },

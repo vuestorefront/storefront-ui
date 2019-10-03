@@ -1,6 +1,10 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfBannerGrid from "./SfBannerGrid.vue";
@@ -27,11 +31,13 @@ storiesOf("Organisms|BannerGrid", module)
           default: text("(prop) propname")
         },
         customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-banner-grud--modifier"],
-            "null",
-            "CSS-Modifiers"
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-banner-grud--modifier": "sf-banner-grud--modifier"
+            },
+            "",
+            { display: "multi-select" }
           )
         }
       },
@@ -104,11 +110,13 @@ storiesOf("Organisms|BannerGrid", module)
           default: text("(prop) propname")
         },
         customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-banner-grud--modifier"],
-            "null",
-            "CSS-Modifiers"
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-banner-grud--modifier": "sf-banner-grud--modifier"
+            },
+            "",
+            { display: "multi-select" }
           )
         }
       },
