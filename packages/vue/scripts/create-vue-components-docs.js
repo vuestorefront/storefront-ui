@@ -124,15 +124,19 @@ function getFullComponentInfo(pathComponentVue) {
 function getComponentInfoFromPath(pathComponentVue) {
   const componentDirname = path.dirname(pathComponentVue);
   const componentFilename = path.basename(pathComponentVue);
+  const componentName = componentFilename.replace(/Sf(.+)\.vue$/, "$1");
+  const atomicType = componentDirname.replace(/\/.*/, "");
+  const storybookLink = `${atomicType}-${componentName}--basic`.toLowerCase();
 
   return {
-    sfComponentName: componentFilename.replace(/(.+)\.vue$/, "$1"),
-    componentName: componentFilename.replace(/Sf(.+)\.vue$/, "$1"),
+    componentName,
+    sfComponentName: "Sf" + componentName,
     pathComponentHtml: pathComponentVue.replace(/(.+)\.vue$/, "$1.html"),
     pathComponentJs: pathComponentVue.replace(/(.+)\.vue$/, "$1.js"),
     pathComponentScss: pathComponentVue.replace(/(.+)\.vue$/, "$1.scss"),
     pathComponentMd: pathComponentVue.replace(/(.+)\.vue$/, "$1.md"),
-    pathInternalComponents: path.join(componentDirname, "_internal")
+    pathInternalComponents: path.join(componentDirname, "_internal"),
+    storybookLink
   };
 }
 
@@ -220,12 +224,8 @@ function readVuepressConfig(filename) {
 }
 
 function parseComponentFile(contentComponentFile) {
-  const headlines = [
-    "# component-description",
-    "# common-usage",
-    "# storybook-link"
-  ];
-  const reString = headlines.join("\\n([\\s\\S]+?)\\s*?") + "\\n(.+)";
+  const headlines = ["# component-description", "# common-usage"];
+  const reString = headlines.join("\\n([\\s\\S]+?)\\s*?") + "\\n([\\s\\S]+)";
   const regExp = new RegExp(reString, "m");
   const reResult = regExp.exec(contentComponentFile);
 
@@ -241,8 +241,7 @@ function parseComponentFile(contentComponentFile) {
 
   return {
     componentDescription: reResult[1],
-    commonUsage: reResult[2],
-    storybookLink: reResult[3]
+    commonUsage: reResult[2]
   };
 }
 

@@ -20,6 +20,3 @@ export default {
 }
 </script>
 ```
-
-# storybook-link
-atoms-button--basic
