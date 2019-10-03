@@ -10,6 +10,7 @@ import SfCircleIcon from "./src/components/atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfDivider from "./src/components/atoms/SfDivider/SfDivider.vue";
 import SfHeading from "./src/components/atoms/SfHeading/SfHeading.vue";
 import SfIcon from "./src/components/atoms/SfIcon/SfIcon.vue";
+import SfImage from "./src/components/atoms/SfImage/SfImage.vue";
 import SfInput from "./src/components/atoms/SfInput/SfInput.vue";
 import SfLoader from "./src/components/atoms/SfLoader/SfLoader.vue";
 import SfOverlay from "./src/components/atoms/SfOverlay/SfOverlay.vue";
@@ -25,7 +26,6 @@ import SfCharacteristic from "./src/components/molecules/SfCharacteristic/SfChar
 import SfCounter from "./src/components/molecules/SfCounter/SfCounter.vue";
 import SfFilter from "./src/components/molecules/SfFilter/SfFilter.vue";
 import SfGallery from "./src/components/molecules/SfGallery/SfGallery.vue";
-import SfImage from "./src/components/molecules/SfImage/SfImage.vue";
 import SfMenuItem from "./src/components/molecules/SfMenuItem/SfMenuItem.vue";
 import SfModal from "./src/components/molecules/SfModal/SfModal.vue";
 import SfOptions from "./src/components/molecules/SfOptions/SfOptions.vue";

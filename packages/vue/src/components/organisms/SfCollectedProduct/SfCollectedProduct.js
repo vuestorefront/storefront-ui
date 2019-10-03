@@ -1,6 +1,6 @@
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import SfImage from "../../molecules/SfImage/SfImage.vue";
+import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfInput from "../../atoms/SfInput/SfInput.vue";
 import { toInt } from "@glidejs/glide/src/utils/unit";
