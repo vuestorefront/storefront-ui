@@ -1,49 +1,47 @@
-@import '../variables';
+@import "../variables";
 
-$accordion-item__header-padding: 0.5rem 0 !default;
-$accordion-item__header-font-size: $font-size-big-desktop !default;
-$accordion-item__header-bg-color: $c-light-primary !default;
-$accordion-item__header-bg-color--active: #ffffff !default;
-$accordion-item__header-font-weight: 900 !default;
-$accordion-item__header-text-transform: uppercase !default;
-$accordion-item__header-display: flex !default;
-$accordion-item__header-justify-content: space-between !default;
-$accordion-item__content-color: $c-dark-primary !default;
-$accordion-item__content-font-size: $font-size-regular-desktop !default;
-$accordion-item__content-padding: 0.5rem 0 !default;
-$accordion-item__content-padding--first: 1.5rem 0 0.5rem !default;
-$accordion-item__content-padding--last: 0.5rem 0 1.5rem !default;
+$accordion-border-color: $c-light-primary !default;
+$accordion-font-family: $body-font-family-secondary !default;
+$accordion-font-size: $font-size-regular-mobile !default;
+$accordion-font-size-desktop: $font-size-regular-desktop !default;
+$accordion-font-weight: $body-font-weight-secondary !default;
+$accordion-line-height: 1.6 !default;
+$accordion__title-padding-y: $spacer-big !default;
+$accordion__title-color: $c-gray-secondary !default;
+$accordion__title-color--active: $c-dark-primary !default;
+$accordion__title-color--hover: $c-dark-primary !default;
+$accordion__title-font-size: $font-size-big-mobile !default;
+$accordion__title-font-size-desktop: $font-size-big-desktop !default;
+$accordion__content-padding-y: 3 * $spacer-big !default;
+
+@mixin for-desktop{
+  @media screen and (min-width: $desktop-min){
+    @content;
+  }
+}
 
 .sf-accordion {
-  &-item__header-wrapper {
+  $this: &;
+  font-family: $accordion-font-family;
+  font-size: $accordion-font-size;
+  font-weight: $accordion-font-weight;
+  line-height: $accordion-line-height;
+  &__header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: calc(#{$accordion__title-padding-y} - 5px) 0;
+    border-bottom: 1px solid $accordion-border-color;
+    color: $c-dark-primary;
     cursor: pointer;
-  }
-  &-item__header {
-    padding: $accordion-item__header-padding;
-    font-size: $accordion-item__header-font-size;
-    font-weight: 400;
-  }
-  &-item__header-icon--up {
-    transform: rotate(180deg);
-  }
-  &-item__content {
-    color: $accordion-item__content-color;
-    font-size: $accordion-item__content-font-size;
-    cursor: pointer;
-    > * {
-      padding: $accordion-item__content-padding;
-      &:first-child {
-        padding: $accordion-item__content-padding--first;
-      }
-      &:last-child {
-        padding: $accordion-item__content-padding--last;
-      }
+    transition: border-color 150ms ease-in-out, color 150ms ease-in-out;
+    font-size: $accordion__title-font-size;
+    @include for-desktop{
+      padding: $accordion__title-padding-y 0;
+      font-size: $accordion__title-font-size-desktop;
     }
-  }
-  &-item__content--active {
-    font-weight: 900;
+    &--open{
+      border-color: transparent;
+    }
   }
 }
