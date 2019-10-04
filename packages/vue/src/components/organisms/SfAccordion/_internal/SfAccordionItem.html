@@ -1,14 +1,7 @@
-<div>
-  <div
-    @click="onHeaderClick"
-    class="sf-accordion-item__header-wrapper"
-    :class="isOpen ? 'sf-accordion-item__header-wrapper--open' : 'sf-accordion-item__header-wrapper--close'"
-  >
-    <!-- @slot -->
-    <slot name="header" v-bind="{isOpen, header}">
-      <div class="sf-accordion-item__header">{{ header }}</div>
-    </slot>
-    <div v-if="$parent.showChevron" class="sf-accordion-item__chevron">
+<Fragment>
+  <div @click="" class="sf-accordion__header">
+    {{ header }}
+    <div class="sf-accordion__chevron">
       <SfChevron :class="{'sf-chevron--top': isOpen}" />
     </div>
   </div>
@@ -29,4 +22,4 @@
       </slot>
     </div>
   </transition>
-</div>
+</Fragment>
