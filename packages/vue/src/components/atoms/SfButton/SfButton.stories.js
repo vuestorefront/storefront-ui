@@ -57,7 +57,8 @@ storiesOf("Atoms|Button", module)
               "color-danger": "color-danger",
               "color-info": "color-info",
               "color-success": "color-success",
-              "sf-button--full-width": "sf-button--full-width"
+              "sf-button--full-width": "sf-button--full-width",
+              "sf-button--outline": "sf-button--outline"
             },
             "",
             { display: "multi-select" }
