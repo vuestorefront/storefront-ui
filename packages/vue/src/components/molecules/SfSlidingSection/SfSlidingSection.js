@@ -98,6 +98,7 @@ export default {
     window.addEventListener("resize", this.isMobileHandler, { passive: true });
   },
   beforeDestroy() {
+    this.scrollUnlock();
     this.hammer.destroy();
   }
 };
