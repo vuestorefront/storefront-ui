@@ -125,15 +125,16 @@ function getComponentInfoFromPath(pathComponentVue) {
   const componentDirname = path.dirname(pathComponentVue);
   const componentFilename = path.basename(pathComponentVue);
   const componentName = componentFilename.replace(/Sf(.+)\.vue$/, "$1");
+  const sfComponentName = "Sf" + componentName;
   const atomicType = componentDirname.replace(/\/.*/, "");
   const storybookLink = `${atomicType}-${componentName}--basic`.toLowerCase();
 
   return {
     componentName,
-    sfComponentName: "Sf" + componentName,
+    sfComponentName,
     pathComponentHtml: pathComponentVue.replace(/(.+)\.vue$/, "$1.html"),
     pathComponentJs: pathComponentVue.replace(/(.+)\.vue$/, "$1.js"),
-    pathComponentScss: pathComponentVue.replace(/(.+)\.vue$/, "$1.scss"),
+    pathComponentScss: sfComponentName + ".scss",
     pathComponentMd: pathComponentVue.replace(/(.+)\.vue$/, "$1.md"),
     pathInternalComponents: path.join(componentDirname, "_internal"),
     storybookLink
