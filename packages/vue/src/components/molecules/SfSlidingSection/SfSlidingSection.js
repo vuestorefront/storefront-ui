@@ -49,6 +49,19 @@ export default {
       this.scrollLock();
     }
   },
+  async mounted() {
+    const hammer = await import("hammerjs");
+    const Hammer = hammer.default;
+    this.hammer = new Hammer(document, {
+      enable: false
+    }).on("pan", this.touchHandler);
+    this.isMobileHandler();
+    window.addEventListener("resize", this.isMobileHandler, { passive: true });
+  },
+  beforeDestroy() {
+    this.scrollUnlock();
+    this.hammer.destroy();
+  },
   methods: {
     touchPreventDefault(e) {
       e.preventDefault();
@@ -90,18 +103,5 @@ export default {
     closeHandler() {
       this.isActive = false;
     }
-  },
-  async mounted() {
-    const hammer = await import("hammerjs");
-    const Hammer = hammer.default;
-    this.hammer = new Hammer(document, {
-      enable: false
-    }).on("pan", this.touchHandler);
-    this.isMobileHandler();
-    window.addEventListener("resize", this.isMobileHandler, { passive: true });
-  },
-  beforeDestroy() {
-    this.scrollUnlock();
-    this.hammer.destroy();
   }
 };
