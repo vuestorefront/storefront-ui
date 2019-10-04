@@ -62,7 +62,7 @@ const pictures = [
       alt: "Macbook PRO Apple (keyboard)"
     }
   }
-]
+];
 
 storiesOf("Organisms|ProductCard", module)
   .addDecorator(withKnobs)
@@ -151,8 +151,8 @@ storiesOf("Organisms|ProductCard", module)
           default: text("isOnWishlistIcon (prop)", "heart_fill")
         }
       },
-      data () {
-        return { pictures }
+      data() {
+        return { pictures };
       },
       components: { SfProductCard },
       template: `<SfProductCard

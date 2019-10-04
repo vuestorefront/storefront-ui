@@ -8,8 +8,8 @@ export default {
      * Image url or pictures object (`{ small: { url, alt }, normal: { url, alt } }`)
      */
     src: {
-    type: [String, Object],
-    default: ()=>{}
+      type: [String, Object],
+      default: () => {}
     },
     /**
      * Alt attribute value
@@ -51,8 +51,7 @@ export default {
   data() {
     return {
       loaded: false,
-      overlay: false,
-      maxWidth: "unset"
+      overlay: false
     };
   },
 

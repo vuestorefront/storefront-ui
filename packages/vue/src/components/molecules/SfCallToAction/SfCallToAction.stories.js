@@ -1,5 +1,9 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 import SfCallToAction from "./SfCallToAction.vue";
 
 storiesOf("Molecules|CallToAction", module)
@@ -22,14 +26,14 @@ storiesOf("Molecules|CallToAction", module)
           default: text("buttonText (prop)", "Subscripe")
         },
         customClass: {
-          default: select(
-            "CSS Modifier",
-            [
-              "null",
-              "sf-call-to-action--secondary",
-              "sf-call-to-action--light"
-            ],
-            "null"
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-call-to-action--secondary": "sf-call-to-action--secondary",
+              "sf-call-to-action--light": "sf-call-to-action--light"
+            },
+            "",
+            { display: "multi-select" }
           )
         }
       },

@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, select } from "@storybook/addon-knobs";
+import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfButton from "./SfButton.vue";
@@ -48,20 +48,19 @@ storiesOf("Atoms|Button", module)
       components: { SfButton },
       props: {
         customClass: {
-          default: select(
-            "CSS Modifier",
-            [
-              "null",
-              "color-primary",
-              "color-secondary",
-              "color-warning",
-              "color-danger",
-              "color-info",
-              "color-success",
-              "sf-button--full-width",
-              "sf-button--full-width"
-            ],
-            "null"
+          default: options(
+            "CSS Modifiers",
+            {
+              "color-primary": "color-primary",
+              "color-secondary": "color-secondary",
+              "color-warning": "color-warning",
+              "color-danger": "color-danger",
+              "color-info": "color-info",
+              "color-success": "color-success",
+              "sf-button--full-width": "sf-button--full-width"
+            },
+            "",
+            { display: "multi-select" }
           )
         }
       },
