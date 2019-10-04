@@ -12,36 +12,34 @@ $accordion__title-color--active: $c-dark-primary !default;
 $accordion__title-color--hover: $c-dark-primary !default;
 $accordion__title-font-size: $font-size-big-mobile !default;
 $accordion__title-font-size-desktop: $font-size-big-desktop !default;
-$accordion__content-padding-y: 3 * $spacer-big !default;
+$accordion__content-padding-y: $spacer-big !default;
 
-@mixin for-desktop{
-  @media screen and (min-width: $desktop-min){
+@mixin for-desktop {
+  @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
 
-.sf-accordion {
+.sf-accordion-item {
   $this: &;
   font-family: $accordion-font-family;
   font-size: $accordion-font-size;
   font-weight: $accordion-font-weight;
   line-height: $accordion-line-height;
-  &__header{
+  &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: calc(#{$accordion__title-padding-y} - 5px) 0;
-    border-bottom: 1px solid $accordion-border-color;
     color: $c-dark-primary;
     cursor: pointer;
-    transition: border-color 150ms ease-in-out, color 150ms ease-in-out;
     font-size: $accordion__title-font-size;
-    @include for-desktop{
+    @include for-desktop {
       padding: $accordion__title-padding-y 0;
       font-size: $accordion__title-font-size-desktop;
     }
-    &--open{
-      border-color: transparent;
-    }
+  }
+  &__content {
+    padding: $accordion__content-padding-y 0;
   }
 }
