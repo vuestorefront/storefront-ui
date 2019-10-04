@@ -72,7 +72,7 @@ storiesOf("Organisms|Accordion", module)
           default: boolean("multiple", false)
         },
         firstOpen: {
-          default: boolean("firstOpen", false)
+          default: boolean("firstOpen", true)
         },
         showChevron: {
           default: boolean("showChevron", true)
@@ -83,7 +83,7 @@ storiesOf("Organisms|Accordion", module)
       },
       components: { SfAccordion },
       template: `
-      <div style="width: 300px; padding: 1rem;">
+      <div style="w">
         <SfAccordion
           :items="items"
           :multiple="multiple"
