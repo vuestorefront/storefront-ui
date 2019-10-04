@@ -1,3 +1,4 @@
+import {Fragment} from "vue-fragment";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 export default {
   name: "SfAccordionItem",
@@ -21,7 +22,8 @@ export default {
     }
   },
   components: {
-    SfChevron
+    SfChevron,
+    Fragment
   },
   mounted() {
     this.$parent.$emit("accordion-item-ready");
