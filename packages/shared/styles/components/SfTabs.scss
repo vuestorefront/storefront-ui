@@ -27,6 +27,7 @@ $tabs__content-padding-y: 3 * $spacer-big !default;
   flex-wrap: wrap;
   font-family: $tabs-font-family;
   font-size: $tabs-font-size;
+  font-weight: $tabs-font-weight;
   line-height: $tabs-line-height;
   @include for-desktop{
     font-size: $tabs-font-size-desktop;
