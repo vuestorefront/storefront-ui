@@ -59,7 +59,8 @@ storiesOf("Atoms|Button", module)
               "color-info",
               "color-success",
               "sf-button--full-width",
-              "sf-button--full-width"
+              "sf-button--full-width",
+              "sf-button--outline"
             ],
             "null"
           )
