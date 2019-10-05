@@ -5,7 +5,7 @@
     "*.scss",
     "*.css"
   ],
-  "version": "0.2.2",
+  "version": "0.3.0",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -14,14 +14,17 @@
     "test:dev": "vue-cli-service test:unit --watch",
     "storybook:serve": "vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
     "storybook:build": "vue-cli-service storybook:build -s ./public -c config/storybook",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:vuecomponents": "node scripts/create-vue-components-docs.js",
+    "docs:dev": "$npm_execpath docs:vuecomponents && vuepress dev docs",
+    "docs:build": "$npm_execpath docs:vuecomponents && vuepress build docs",
+    "version": "node scripts/version.js"
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "^0.2.2",
+    "@storefront-ui/shared": "^0.3.0",
     "@vue/babel-preset-app": "^4.0.0-alpha.1",
     "core-js": "^3.1.3",
+    "hammerjs": "^2.0.8",
     "leaflet": "^1.5.1",
     "lerna": "^3.0.0-rc.0",
     "lozad": "^1.9.0",
@@ -36,13 +39,11 @@
     "webpack-dev-middleware": "3.6.0"
   },
   "files": [
-    "dist/*",
     "scripts/*",
-    "public/*",
     "src/*",
     "index.js",
-    "html.js",
-    "js.js"
+    "js.js",
+    "styles.scss"
   ],
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -79,7 +80,8 @@
     "typescript": "^3.5.3",
     "vue-cli-plugin-storybook": "^0.6.0",
     "vue-template-compiler": "^2.6.8",
-    "vuepress": "^0.14.10"
+    "vuepress": "^0.14.10",
+    "vue-docgen-api": "^3.22.3"
   },
   "peerDependencies": {
     "vue": "^2.6.x"

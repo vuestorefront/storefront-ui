@@ -1,8 +1,10 @@
 <header class="sf-header">
   <div class="sf-header__column sf-header__column--left">
-    <slot name="left"></slot>
+    <!-- @slot Left column for mobile view, hidden on desktop, usage dependent of page context, but usually intended for nav menu icon or arrow left (back). -->
+    <slot name="left" />
   </div>
   <div class="sf-header__column sf-header__column--middle">
+    <!-- @slot Intended to contain logo image. -->
     <slot name="middle">
       <img src="/assets/logo.svg" alt="logo" class="sf-header__logo"/>
       <svg width="111" height="14" viewBox="0 0 111 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -11,7 +13,9 @@
     </slot>
   </div>
   <div class="sf-header__column sf-header__column--right">
-    <slot name="right"></slot>
+    <!-- @slot Right column for mobile view, hidden on desktop, usage dependent of page context. -->
+    <slot name="right" />
   </div>
+  <!-- @slot Should contain desktop version of header by default. -->
   <slot />
 </header>

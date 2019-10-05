@@ -1,6 +1,6 @@
 <template>
   <div id="category">
-    <div class="navbar">
+    <div class="navbar section">
       <div class="navbar__aside desktop-only">
         <h1 class="navbar__title">Categories</h1>
       </div>
@@ -93,7 +93,7 @@
         </SfButton>
       </div>
     </div>
-    <div class="main">
+    <div class="main section">
       <div class="sidebar desktop-only">
         <SfAccordion :firstOpen="true" :showChevron="false">
           <template v-slot="{ selected }">
@@ -128,7 +128,7 @@
           </template>
         </SfAccordion>
       </div>
-      <div class="products" style="">
+      <div class="products">
         <div class="products__list">
           <SfProductCard
             v-for="(product, i) in products"
@@ -452,36 +452,56 @@ export default {
 @import "../../../css/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
 
+@mixin for-desktop {
+  @media screen and (min-width: $desktop-min) {
+    @content;
+  }
+}
+
 #category {
   box-sizing: border-box;
   margin: 0 0 60px 0;
-  padding: 0 $spacer-big;
-  @media screen and (min-width: $desktop-min) {
+  @include for-desktop {
     max-width: 1240px;
     margin: auto;
-    padding: 0;
   }
 }
 .navbar {
+  position: relative;
   display: flex;
-  padding: $spacer;
-  border-top: 1px solid $c-border;
-  border-bottom: 1px solid $c-border;
-  @media screen and (min-width: $desktop-min) {
-    padding: 0;
+  @include for-desktop {
+    border-top: 1px solid $c-border;
+    border-bottom: 1px solid $c-border;
   }
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: $spacer-big;
+    width: calc(100% - (#{$spacer-big} * 2));
+    height: 1px;
+    background-color: $c-border;
+    content: "";
+    @include for-desktop {
+      content: none;
+    }
+  }
+
   &__aside {
     display: flex;
     align-items: center;
     flex: 0 0 15%;
-    padding: 0 $spacer-extra-big;
+    padding: 1.85rem $spacer-extra-big;
     border-right: 1px solid $c-border;
   }
   &__main {
     flex: 1;
     display: flex;
     align-items: center;
+    padding: $spacer-medium 0;
     font-size: $font-size-small-desktop;
+    @include for-desktop {
+      padding: 1.85rem 0;
+    }
   }
   &__title {
     padding: 0;
@@ -497,14 +517,14 @@ export default {
     color: inherit;
     font-size: inherit;
     font-weight: 500;
-    @media (min-width: $desktop-min) {
+    @include for-desktop {
       margin: 0 0 0 $spacer-extra-big;
       font-weight: 400;
       text-transform: none;
     }
     svg {
       fill: $c-dark-primary;
-      @media (min-width: $desktop-min) {
+      @include for-desktop {
         fill: $c-gray-secondary;
       }
     }
@@ -526,7 +546,7 @@ export default {
   }
   &__counter {
     margin: auto;
-    @media (min-width: $desktop-min) {
+    @include for-desktop {
       margin-right: 0;
     }
   }
@@ -548,29 +568,36 @@ export default {
   border-right: 1px solid $c-border;
 }
 .products {
+  box-sizing: border-box;
   flex: 1;
-  @media (min-width: $desktop-min) {
+  margin: 0 -#{$spacer};
+  @include for-desktop {
     margin: $spacer-big;
   }
   &__list {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 1.875rem - 0.5rem;
   }
   &__product-card {
     flex: 0 0 50%;
     padding: $spacer;
-    @media (min-width: $desktop-min) {
+    @include for-desktop {
       flex: 0 0 25%;
       padding: $spacer-big;
     }
   }
   &__pagination {
-    @media (min-width: $desktop-min) {
+    @include for-desktop {
+      display: flex;
+      justify-content: center;
       margin-top: $spacer-extra-big;
     }
   }
 }
 .filters {
+  position: relative;
+  z-index: 10;
   &__title:not(:first-child),
   &__buttons {
     margin-top: $spacer-big * 3;
@@ -609,5 +636,11 @@ export default {
 }
 .bottom-navigation-circle {
   opacity: 1;
+}
+.section {
+  @media (max-width: $desktop-min) {
+    padding-left: $spacer-big;
+    padding-right: $spacer-big;
+  }
 }
 </style>
