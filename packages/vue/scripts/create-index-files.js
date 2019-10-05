@@ -53,4 +53,8 @@ function saveJsJs(contentJsJs) {
   fs.writeFileSync(pathTargetJsJs, contentJsJs);
 }
 
+module.exports = {
+  createIndexFiles
+};
+
 createIndexFiles();
