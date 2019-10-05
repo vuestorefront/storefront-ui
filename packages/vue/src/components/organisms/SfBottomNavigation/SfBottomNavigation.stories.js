@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
@@ -18,18 +18,41 @@ const eventsTableConfig = {
   tableBodyConfig: [["input", "event emited when option is selected"]]
 };
 
+const eventsModifiers = {
+  tableHeadConfig: ["NAME", "DESCRIPTION"],
+  tableBodyConfig: [
+    [
+      ".sf-bottom-navigation__item--active",
+      "set sf-bottom-navigation__item to active"
+    ]
+  ]
+};
+
 storiesOf("Organisms|BottomNavigation", module)
   .addDecorator(withKnobs)
   .add(
     "[slot] default",
     () => ({
       components: { SfBottomNavigation, SfIcon, SfCircleIcon },
+      props: {
+        customClass: {
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-bottom-navigation__item--active":
+                "sf-bottom-navigation__item--active"
+            },
+            "sf-bottom-navigation__item--active",
+            { display: "multi-select" }
+          )
+        }
+      },
       template: `<SfBottomNavigation
       >
         <SfBottomNavigationItem>
           <SfIcon icon="home" size="20px"/>
         </SfBottomNavigationItem>
-        <SfBottomNavigationItem class="sf-bottom-navigation__item--active">
+        <SfBottomNavigationItem :class="customClass">
           <SfIcon icon="menu" size="20px" style="width: 25px" />
         </SfBottomNavigationItem>
         <SfBottomNavigationItem>
@@ -51,7 +74,8 @@ storiesOf("Organisms|BottomNavigation", module)
        <h2>Usage</h2>
        <pre><code>import { SfBottomNavigation } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-       ${generateStorybookTable(eventsTableConfig, "Events")}`
+       ${generateStorybookTable(eventsTableConfig, "Events")}
+       ${generateStorybookTable(eventsModifiers, "CSS Modifiers")}`
       }
     }
   );
