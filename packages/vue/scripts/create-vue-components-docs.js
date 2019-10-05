@@ -292,7 +292,7 @@ function extractCssModifiers(contentScssFile) {
   const uniqueModifiers = new Map();
   for (let i = 0; i < lines.length; ++i) {
     const line = lines[i];
-    const regExp = /(\w+--[^\s,:]+)/g;
+    const regExp = /(\S+--[^\s,:]+)/g;
     let partialReResult;
     let lastModifierFound;
     // as multiple modifiers may be on one line, we have to make this (stateful) reg exp. search
