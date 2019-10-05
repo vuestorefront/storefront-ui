@@ -77,9 +77,9 @@ Documentation contributors need to know, where to add which type of documentatio
 /**
  * Product title
  */
-title: {
-  type: String,
-  required: true
+{
+  String,
+  required;: true
 }
 ```
 
@@ -113,18 +113,27 @@ Use normal block-comment style (with single-asterisk) for descriptions. _Example
 }
 ```
 
+By using the `@no-docs` annotation instead, you can exclude a modifier from being added to the modifiers list.
+```css
+.sf-accordion-item__header-icon--up {
+  /* @no-docs */
+  transform: rotate(180deg);
+}
+```
+
 Single-asterisk style was chosen so it doesn't interfere with the SASS parser logic. For the same reason, the comment has to be _inside_ the modifier definition block it belongs to.
 
 ##### Additional Component Info
 
-The MD file for additional component information has to be named exactly like the component (with _Sf_ prefix) and contain all of the (h1) headlines `component-description`, `common-usage` and `storybook-link`. _Example:_
+The MD file for additional component information has to be named exactly like the component (with _Sf_ prefix) and contain both (h1) headlines `component-description` and `common-usage`. _Example:_
 
 ````markdown
 # component-description
 Arrow component for sliders and navigation.
 
 # common-usage
-<br><SfArrow />
+<br>
+<SfArrow />
 
 ```html 
 <template>
@@ -141,7 +150,4 @@ export default {
 }
 </script>
 ```
-
-# storybook-link
-atoms-arrow--basic
 ````
