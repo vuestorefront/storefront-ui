@@ -29,7 +29,7 @@ storiesOf("Organisms|BottomNavigation", module)
         <SfBottomNavigationItem>
           <SfIcon icon="home" size="20px"/>
         </SfBottomNavigationItem>
-        <SfBottomNavigationItem>
+        <SfBottomNavigationItem class="sf-bottom-navigation__item--active">
           <SfIcon icon="menu" size="20px" style="width: 25px" />
         </SfBottomNavigationItem>
         <SfBottomNavigationItem>

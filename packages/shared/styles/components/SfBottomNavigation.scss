@@ -1,5 +1,5 @@
 @import '../variables';
-
+@import './SfIcon.scss';
 
 .sf-bottom-navigation {
   position: fixed;
@@ -14,11 +14,11 @@
   padding: 0 1rem;
   background: white;
   box-shadow: 0px -2px 10px rgba(154, 154, 154, 0.15);
-  &__item {
-    opacity: 0.7;
-    &--active {
-      opacity: 1;
-    }
+  &__item > .sf-icon {
+    --icon-color: #{map-get($icon-colors, "gray-secondary")};
+  }
+  &__item--active > .sf-icon {
+    --icon-color: #{map-get($icon-colors, "black")};
   }
   &__floating-icon {
     position: relative;
