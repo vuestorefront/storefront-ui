@@ -57,4 +57,6 @@ module.exports = {
   createIndexFiles
 };
 
-createIndexFiles();
+if (require.main === module) {
+  createIndexFiles();
+}
