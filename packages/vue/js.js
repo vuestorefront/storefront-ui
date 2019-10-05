@@ -1,5 +1,4 @@
-/** HTMK partials */
-/** Package root */
+// Auto-generated file by create-index-files.js. Do not edit manually
 import SfArrow from "./src/components/atoms/SfArrow/SfArrow.js";
 import SfBadge from "./src/components/atoms/SfBadge/SfBadge.js";
 import SfBreadcrumbs from "./src/components/atoms/SfBreadcrumbs/SfBreadcrumbs.js";
@@ -18,7 +17,6 @@ import SfOverlay from "./src/components/atoms/SfOverlay/SfOverlay.js";
 import SfPrice from "./src/components/atoms/SfPrice/SfPrice.js";
 import SfProperty from "./src/components/atoms/SfProperty/SfProperty.js";
 import SfRating from "./src/components/atoms/SfRating/SfRating.js";
-
 import SfAddToCart from "./src/components/molecules/SfAddToCart/SfAddToCart.js";
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.js";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.js";
@@ -29,6 +27,7 @@ import SfFilter from "./src/components/molecules/SfFilter/SfFilter.js";
 import SfGallery from "./src/components/molecules/SfGallery/SfGallery.js";
 import SfMenuItem from "./src/components/molecules/SfMenuItem/SfMenuItem.js";
 import SfModal from "./src/components/molecules/SfModal/SfModal.js";
+import SfNotification from "./src/components/molecules/SfNotification/SfNotification.js";
 import SfOptions from "./src/components/molecules/SfOptions/SfOptions.js";
 import SfPagination from "./src/components/molecules/SfPagination/SfPagination.js";
 import SfProductOption from "./src/components/molecules/SfProductOption/SfProductOption.js";
@@ -38,13 +37,14 @@ import SfSearchBar from "./src/components/molecules/SfSearchBar/SfSearchBar.js";
 import SfSection from "./src/components/molecules/SfSection/SfSection.js";
 import SfSelect from "./src/components/molecules/SfSelect/SfSelect.js";
 import SfSlidingSection from "./src/components/molecules/SfSlidingSection/SfSlidingSection.js";
+import SfSteps from "./src/components/molecules/SfSteps/SfSteps.js";
 import SfSticky from "./src/components/molecules/SfSticky/SfSticky.js";
-
 import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.js";
 import SfBannerGrid from "./src/components/organisms/SfBannerGrid/SfBannerGrid.js";
 import SfBottomNavigation from "./src/components/organisms/SfBottomNavigation/SfBottomNavigation.js";
 import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.js";
 import SfCollectedProduct from "./src/components/organisms/SfCollectedProduct/SfCollectedProduct.js";
+import SfHeader from "./src/components/organisms/SfHeader/SfHeader.js";
 import SfHero from "./src/components/organisms/SfHero/SfHero.js";
 import SfList from "./src/components/organisms/SfList/SfList.js";
 import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.js";
@@ -55,8 +55,8 @@ import SfTabs from "./src/components/organisms/SfTabs/SfTabs.js";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.js";
 
 export {
-  SfBadge,
   SfArrow,
+  SfBadge,
   SfBreadcrumbs,
   SfBullets,
   SfButton,
@@ -66,6 +66,7 @@ export {
   SfDivider,
   SfHeading,
   SfIcon,
+  SfImage,
   SfInput,
   SfLoader,
   SfOverlay,
@@ -80,9 +81,9 @@ export {
   SfCounter,
   SfFilter,
   SfGallery,
-  SfImage,
   SfMenuItem,
   SfModal,
+  SfNotification,
   SfOptions,
   SfPagination,
   SfProductOption,
@@ -92,12 +93,14 @@ export {
   SfSection,
   SfSelect,
   SfSlidingSection,
+  SfSteps,
   SfSticky,
   SfAccordion,
   SfBannerGrid,
   SfBottomNavigation,
   SfCarousel,
   SfCollectedProduct,
+  SfHeader,
   SfHero,
   SfList,
   SfMegaMenu,
