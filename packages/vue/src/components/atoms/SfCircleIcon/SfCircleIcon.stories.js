@@ -40,7 +40,6 @@ const scssTableConfig = {
 const cssTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
   tableBodyConfig: [
-    [".sf-circle-icon--secondary", "change color to dark"],
     [".sf-ciricle-button--small", "change size, color and hover / active state"]
   ]
 };

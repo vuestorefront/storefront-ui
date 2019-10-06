@@ -82,7 +82,6 @@ const cssTableConfig = {
     [".sf-banner--bottom", "aligns content to bottom (visible on mobile)"],
     [".sf-banner--center", "aligns content to y center (visible on mobile)"],
     [".sf-banner--left", "aligns content to left"],
-    [".sf-banner--secondary", "changes button color to accent"],
     [".sf-banner--container-medium", "changes container width to 75%"],
     [".sf-banner--container-full", "changes container width to 100%"]
   ]
@@ -124,7 +123,6 @@ storiesOf("Molecules|Banner", module)
               "sf-banner--top": "sf-banner--top",
               "sf-banner--bottom": "sf-banner--bottom",
               "sf-banner--center": "sf-banner--center",
-              "sf-banner--secondary": "sf-banner--secondary",
               "sf-banner--container-medium": "sf-banner--container-medium",
               "sf-banner--container-full": "sf-banner--container-full"
             },

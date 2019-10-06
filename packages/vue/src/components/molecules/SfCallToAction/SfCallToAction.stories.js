@@ -29,7 +29,6 @@ storiesOf("Molecules|CallToAction", module)
           default: options(
             "CSS Modifiers",
             {
-              "sf-call-to-action--secondary": "sf-call-to-action--secondary",
               "sf-call-to-action--light": "sf-call-to-action--light"
             },
             "",

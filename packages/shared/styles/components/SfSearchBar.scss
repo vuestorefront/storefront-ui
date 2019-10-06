@@ -54,9 +54,6 @@ $search-bar-font-size: 0.875rem !default;
   @media (min-width: $mobile-max) {
     width: $search-bar-width;
   }
-  &--secondary {
-    background-color: $search-bar-background-secondary;
-  }
   &--position-right {
     @include iconPosition();
   }
