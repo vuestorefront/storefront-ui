@@ -7,8 +7,8 @@
   ],
   "version": "0.3.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
+    "serve": "$npm_execpath create-index-files && vue-cli-service serve",
+    "build": "$npm_execpath create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test:dev": "vue-cli-service test:unit --watch",
