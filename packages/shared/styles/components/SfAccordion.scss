@@ -27,6 +27,7 @@ $accordion-item__content-padding--last: 0.5rem 0 1.5rem !default;
     font-weight: 400;
   }
   &-item__header-icon--up {
+    /* @no-docs */
     transform: rotate(180deg);
   }
   &-item__content {
