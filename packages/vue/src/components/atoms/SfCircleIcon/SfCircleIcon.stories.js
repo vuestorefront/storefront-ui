@@ -97,7 +97,7 @@ storiesOf("Atoms|CircleIcon", module)
     () => ({
       components: { SfCircleIcon },
       template: `<SfCircleIcon>
-        <img src='assets/storybook/menu.svg'>
+        <img alt="Menu" src='assets/storybook/menu.svg'>
       </SfCircleIcon>`
     }),
     {
