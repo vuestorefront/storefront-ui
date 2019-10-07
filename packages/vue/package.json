@@ -18,6 +18,7 @@
     "docs:dev": "$npm_execpath docs:vuecomponents && vuepress dev docs",
     "docs:build": "$npm_execpath docs:vuecomponents && vuepress build docs",
     "create-index-files": "node scripts/create-index-files.js",
+    "postinstall": "node scripts/postinstall.js",
     "version": "node scripts/version.js"
   },
   "dependencies": {
