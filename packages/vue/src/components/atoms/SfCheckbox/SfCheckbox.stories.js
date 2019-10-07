@@ -47,6 +47,7 @@ const scssTableConfig = {
     ]
   ]
 };
+
 const data = () => {
   return {
     checked: [],
