@@ -162,6 +162,7 @@ storiesOf("Organisms|Footer", module)
             v-for="(item, i) of columnItems"
             :key="i"
             :title="item.header"
+            class="sf-footer-column-width"
             >
               <SfList>
                 <SfListItem
@@ -173,13 +174,13 @@ storiesOf("Organisms|Footer", module)
             </SfFooterColumn>
           </div>
           <div class="sf-footer-row">
-          <SfFooterColumn class="sf-footer-column__placeholder">
+          <SfFooterColumn class="sf-footer-column-width sf-footer-column__placeholder">
           </SfFooterColumn>
-          <SfFooterColumn class="sf-footer-column__placeholder">
+          <SfFooterColumn class="sf-footer-column-width sf-footer-column__placeholder">
           </SfFooterColumn>
-          <SfFooterColumn class="sf-footer-column__placeholder">
+          <SfFooterColumn class="sf-footer-column-width sf-footer-column__placeholder">
           </SfFooterColumn>
-          <SfFooterColumn class="sf-footer-social" :title="socialItems.header">
+          <SfFooterColumn class="sf-footer-column-width" :title="socialItems.header">
               <SfList>
                 <SfListItem :style="socialItems.style" v-for="socialContent in socialItems.content" :key="socialContent.id"><span v-html="socialContent.text"></span></SfListItem>
               </SfList>
@@ -194,19 +195,16 @@ storiesOf("Organisms|Footer", module)
        <h2>Usage</h2>
        <pre><code>import { SfFooter } from "@storefrontui/vue"</code></pre>
        <p>
-       For mobile you can use <pre><code>footer-mobile</code></pre> slot and <pre><code>SfAccordion</code></pre>.
-       </p>
-       <p>
-       For desktop you can use <pre><code>footer-desktop</code></pre> slot.
-       </p>
-       <p>
-       You may use 
+       You may use
        <pre><code>sf-footer-row</code></pre> class to create new rows.
        </p>
        <p>
        You may use <pre><code>SfFooterColumn</code></pre> internal component to create new columns and class
        <pre><code>sf-footer-column__placeholder</code></pre>
        for placeholder columns.
+       </p>
+       <p>
+        You may use <pre><code>sf-footer-column-width</code></pre> class for column alignment
        </p>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `

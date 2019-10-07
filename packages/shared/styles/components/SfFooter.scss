@@ -5,34 +5,16 @@ $footer__column-title-color: $c-dark-primary !default;
 $footer__column-title-font-family: $body-font-family-primary !default;
 $footer__column-content-font-family: $body-font-family-secondary !default;
 $footer__column-content-font-size: $font-size-extra-small-desktop !default;
-$footer__column-width: 150px !default;
+$footer__column-max-width: 300px !default;
 $footer__column-margin: 38px;
 $acoordion--close-background-color: $c-light-primary !default;
 $acoordion--open-background-color: $c-light-secondary !default;
 
-.sf-footer-mobile {
-  display: block;
-
-  @media screen and (min-width: $tablet-min) {
-    display: none;
-  }
-}
-
-.sf-footer-desktop {
-  display: block;
-
-  @media screen and (max-width: $mobile-max) {
-    display: none;
-  }
-}
 
 .sf-footer-row {
   @media screen and (min-width: $tablet-min) {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
   }
 }
 
@@ -44,18 +26,21 @@ $acoordion--open-background-color: $c-light-secondary !default;
 
 .sf-footer-column {
 
-  @media screen and (max-width: $mobile-max) {
-    display: none;
+  display: none;
+
+  @media screen and (min-width: $tablet-min) {
+    display: unset;
+    justify-content: flex-start;
   }
 
-  width: $footer__column-width;
+  max-width: $footer__column-max-width;
 
   background-color: unset;
   padding: unset;
   margin-right: unset;
 
   font-family: $footer__column-content-font-family;
-  line-height: "1.8";
+  line-height: 1.8;
 
   &__title {
     font-size: $footer__column-title-font-size;
@@ -82,7 +67,14 @@ $acoordion--open-background-color: $c-light-secondary !default;
     display: none;
 
     @media screen and (min-width: $tablet-min) {
-      display: block !important;
+      display: unset;
+      justify-content: flex-start;
+    }
+  }
+
+  &-width {
+    @media screen and (min-width: $tablet-min) {
+      width: calc((100% / 4));
     }
   }
 
@@ -127,7 +119,7 @@ $acoordion--open-background-color: $c-light-secondary !default;
 }
 
 .sf-accordion {
-  width: "100%";
+  width: 100%;
 }
 
 .sf-accordion-item {
@@ -140,17 +132,23 @@ $acoordion--open-background-color: $c-light-secondary !default;
     background-color: $acoordion--open-background-color;
   }
 
+  &__content {
+    line-height: 1.8;
+    padding-left: $spacer-medium;
+    padding-right: $spacer-medium;
+  }
+
   &__header {
-    max-width: "80%";
-    font-size: "18px";
-    font-weight: "420";
+    max-width: 80%;
+    font-size: 18px;
+    font-weight: 420;
     text-transform: "uppercase";
-    padding: "1rem";
+    padding: $spacer-medium;;
     color: "#1D1F2"
   }
 
   &-chevron {
     position: "absolute";
-    right: "1rem"
+    right: 1rem
   }
 }
