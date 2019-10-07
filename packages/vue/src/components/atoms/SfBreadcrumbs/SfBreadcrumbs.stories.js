@@ -9,27 +9,16 @@ import SfBreadcrumbs from "./SfBreadcrumbs.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$breadcrumbs__item-separator", "|", "Separator between breadcrumb items"],
-    [
-      "$breadcrumbs__item-padding",
-      ".75rem",
-      "Space between breadcrumbs and separator"
-    ],
-    [
-      "$breadcrumbs__item-color",
-      "$c-gray-primary",
-      "Default color breadcrumb items"
-    ],
-    [
-      "$breadcrumbs__link-color",
-      "$c-dark-primary",
-      "Color for breadcrumb links"
-    ],
-    [
-      "$breadcrumbs__item-separator-color",
-      "$breadcrumbs__link-color",
-      "Breadcrumbs separator color"
-    ]
+    ["$breadcrumbs-font-family", "$body-font-family-secondary", ""],
+    ["$breadcrumbs-font-size", "$font-size-small-desktop", ""],
+    ["$breadcrumbs-font-weight", "$body-font-weight-secondary", ""],
+    ["$breadcrumbs-line-height", "1.6", ""],
+    ["$breadcrumbs__link-color", "$c-dark-primary", ""],
+    ["$breadcrumbs__item-padding", "0.75rem", ""],
+    ["$breadcrumbs__item-color", "$c-gray-primary", ""],
+    ["$breadcrumbs__item-separator-color", "$breadcrumbs__link-color", ""],
+    ["$breadcrumbs__item-separator", "'|'", ""],
+    ["$breadcrumbs__current-color", "$c-gray-secondary!default;", ""]
   ]
 };
 
@@ -74,41 +63,24 @@ storiesOf("Atoms|Breadcrumbs", module)
       methods,
       components: { SfBreadcrumbs },
       template: `<SfBreadcrumbs
-          :breadcrumbs="breadcrumbs"
-          @click="click"/>`
+      @click="click"
+      :breadcrumbs="breadcrumbs" />`
     }),
     {
       info: {
-        summary: `
-        <h2>
-          Description
-        </h2>
-        <p>
-          Indicate the current page’s
-          location within a navigational hierarchy,
-          called by <code>&lt;SfBreadcrumbs&gt;</code>.
-        </p>
-        <p>
-          You <b>must</b> pass an array of objects (breadcrumbs) with the format:
-          <code>
-          [
-            {
-              text: 'Some page',
-              route: {}
-            }
-          ]
-          </code>
-          <br>
-          <code>route</code> property is optional and may be anything you want, it'll be passed
-          as argument on click events.
-          <br>
-          The last array element will be the current item (current page)
-          on breadcrumbs nav.
-        </p>
+        summary: `<h2>Description</h2>
+        <p>Indicate the current page’s
+        location within a navigational hierarchy,
+        called by <code>&lt;SfBreadcrumbs&gt;</code>.</p>
+        <p>You <b>must</b> pass an array of objects (breadcrumbs) with the format:
+        <code>[{text: 'Some page',route: {}}]</code><br>
+        <code>route</code> property is optional and may be anything you want, it'll be passed
+        as argument on click events.<br>
+        The last array element will be the current item (current page)
+        on breadcrumbs nav.</p>
         <h2>Usage</h2>
         <pre><code>import { SfBreadcrumbs } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
       }
     }
   );
