@@ -27,6 +27,7 @@ export default {
      */
     alt: {
       type: String,
+      default: ""
     },
   },
   components: {
