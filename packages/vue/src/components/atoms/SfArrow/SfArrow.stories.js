@@ -21,18 +21,21 @@ const scssTableConfig = {
     [
       "$arrow__button-shadow--right",
       "0 -5px 12px -5px rgba($c-dark-primary, 0.6)",
-      "shadow for hovered right arrow"
+      "shadow for hovered right arrow button"
     ],
     ["$arrow__icon-color", "$c-white", "color for icon"],
-    ["$arrow__icon-color--hover", "$c-dark-primary", "color for hovered icon"]
+    ["$arrow__icon-color--hover", "$c-dark-primary", "color for hovered"]
   ]
 };
 
 const cssTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
   tableBodyConfig: [
-    [".sf-arrow--long", "change short to long arrow"],
-    [".sf-arrow--right", "transform left to right arrow"]
+    ["sf-arrow--right", "right arrow direction"],
+    ["sf-arrow--long", "longest arrow button"],
+    ["sf-arrow--transparent", "transparent button"],
+    ["sf-arrow--rounded", "rounded button"],
+    ["sf-arrow--no-shadow", "no shadow button"]
   ]
 };
 
@@ -66,8 +69,7 @@ storiesOf("Atoms|Arrow", module)
         summary: `<h2> Usage </h2>
         <pre><code>import { SfArrow } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
-        `
+        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}`
       }
     }
   );
