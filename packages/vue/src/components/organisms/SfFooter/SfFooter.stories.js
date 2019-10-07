@@ -57,14 +57,6 @@ const scssTableConfig = {
 
 const data = () => {
   return {
-    accordionColumnHeaderStyle: {
-      maxWidth: "80%",
-      fontSize: "18px",
-      fontWeight: "420",
-      textTransform: "uppercase",
-      padding: "1rem",
-      color: "#1D1F2"
-    },
     accordionColumnContentStyle: {
       padding: "0.5rem 0.5rem 0.5rem 1rem",
       backgroundColor: "#ffffff"
@@ -73,13 +65,6 @@ const data = () => {
       display: "inline-block",
       padding: "0.5rem 1.25rem 0.5rem 1rem",
       backgroundColor: "#ffffff"
-    },
-    accordionChevronStyle: {
-      position: "absolute",
-      right: "1rem"
-    },
-    columnItemsStyle: {
-      lineHeight: "1.8"
     },
     columnItems: [
       {
@@ -172,91 +157,34 @@ storiesOf("Organisms|Footer", module)
       template: `
       <div>
         <SfFooter>
-          <template v-slot:footer-mobile>
-            <div>
-              <SfAccordion
-                :style="accordionStyle"
-                :items="columnItems"
-                :multiple="false"
-                :firstOpen="false"
-                :showChevron="false"
-                transition="fade"
-              >
-                <template v-slot="{ selected }">
-                  <SfAccordionItem
-                    v-for="(item, i) of columnItems"
-                    :key="i"
-                    :selected="selected"
-                    class="sf-accordion-item__header-wrapper--close sf-accordion-item__header-wrapper--open"
-                  >
-                  <template v-slot:header="{isOpen}">
-                  <div :style="accordionColumnHeaderStyle">
-                  {{ item.header }}
-                  </div>
-                  <SfChevron :style="accordionChevronStyle" :active="isOpen" />
-                  </template>
-                  <template>
-                  <div v-for="it of item.content" :style="accordionColumnContentStyle">
-                    <span v-html="it.text"></span>
-                  </div>
-                  </template>
-                  </SfAccordionItem>
-                  <SfAccordionItem
-                    key="social"
-                    :contentItems="socialItems.content"
-                    :selected="selected"
-                    class="sf-accordion-item__header-slot--close sf-accordion-item__header-slot--open"
-                   >
-                   <template v-slot:header="{isOpen}">
-                   <div :style="accordionColumnHeaderStyle">
-                   {{ socialItems.header }}
-                   </div>
-                   <SfChevron :style="accordionChevronStyle" :active="isOpen" />
-                   </template>
-                   <template>
-                    <div v-for="socialItem of socialItems.content" :style="accordionColumnInlineContentStyle">
-                      <span v-html="socialItem.text"></span>
-                    </div>
-                    </template> 
-                   </SfAccordionItem>
-                </template>
-              </SfAccordion>
-            </div>
-          </template>
-          <template v-slot:footer-desktop>
-            <div class="sf-footer-row">
-              <SfFooterColumn 
-              :style="columnItemsStyle"
-              v-for="(item, i) of columnItems"
-              :key="i"
-              :title="item.header">
-                <template v-slot:content>
-                  <SfList>                        
-                    <SfListItem 
-                    v-for="itemContent in item.content"
-                    :key="itemContent.id">
-                    <span v-html="itemContent.text"></span>
-                    </SfListItem>
-                  </SfList>
-                </template>
-              </SfFooterColumn>
-              </div>
-              <div class="sf-footer-row">
-                <SfFooterColumn class="sf-footer-column__placeholder">
-                </SfFooterColumn>
-                <SfFooterColumn class="sf-footer-column__placeholder">
-                </SfFooterColumn>
-                <SfFooterColumn class="sf-footer-column__placeholder">
-                </SfFooterColumn>
-                <SfFooterColumn class="sf-footer-social" :title="socialItems.header"> 
-                  <template v-slot:content> 
-                    <SfList>        
-                      <SfListItem :style="socialItems.style" v-for="socialContent in socialItems.content" :key="socialContent.id"><span v-html="socialContent.text"></span></SfListItem>
-                    </SfList>
-                  </template>
-                </SfFooterColumn>
-              </div>
-          </template>
+          <div class="sf-footer-row">
+            <SfFooterColumn
+            v-for="(item, i) of columnItems"
+            :key="i"
+            :title="item.header"
+            >
+              <SfList>
+                <SfListItem
+                v-for="itemContent in item.content"
+                :key="itemContent.id">
+                <span v-html="itemContent.text"></span>
+                </SfListItem>
+              </SfList>
+            </SfFooterColumn>
+          </div>
+          <div class="sf-footer-row">
+          <SfFooterColumn class="sf-footer-column__placeholder">
+          </SfFooterColumn>
+          <SfFooterColumn class="sf-footer-column__placeholder">
+          </SfFooterColumn>
+          <SfFooterColumn class="sf-footer-column__placeholder">
+          </SfFooterColumn>
+          <SfFooterColumn class="sf-footer-social" :title="socialItems.header">
+              <SfList>
+                <SfListItem :style="socialItems.style" v-for="socialContent in socialItems.content" :key="socialContent.id"><span v-html="socialContent.text"></span></SfListItem>
+              </SfList>
+          </SfFooterColumn>
+          </div>
         </SfFooter>
       </div>`
     }),

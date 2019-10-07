@@ -5,7 +5,8 @@ $footer__column-title-color: $c-dark-primary !default;
 $footer__column-title-font-family: $body-font-family-primary !default;
 $footer__column-content-font-family: $body-font-family-secondary !default;
 $footer__column-content-font-size: $font-size-extra-small-desktop !default;
-$footer__column-max-width: 300px !default;
+$footer__column-width: 150px !default;
+$footer__column-margin: 38px;
 $acoordion--close-background-color: $c-light-primary !default;
 $acoordion--open-background-color: $c-light-secondary !default;
 
@@ -26,25 +27,35 @@ $acoordion--open-background-color: $c-light-secondary !default;
 }
 
 .sf-footer-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
+  @media screen and (min-width: $tablet-min) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.sf-footer-column-mobile {
+  @media screen and (min-width: $tablet-min) {
+    display: none;
+  }
 }
 
 .sf-footer-column {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
-  max-width: $footer__column-max-width;
+
+  @media screen and (max-width: $mobile-max) {
+    display: none;
+  }
+
+  width: $footer__column-width;
 
   background-color: unset;
   padding: unset;
   margin-right: unset;
 
   font-family: $footer__column-content-font-family;
+  line-height: "1.8";
 
   &__title {
     font-size: $footer__column-title-font-size;
@@ -68,7 +79,11 @@ $acoordion--open-background-color: $c-light-secondary !default;
   }
 
   &__placeholder {
-    display: flex !important;
+    display: none;
+
+    @media screen and (min-width: $tablet-min) {
+      display: block !important;
+    }
   }
 
   &__chevron {
@@ -101,12 +116,41 @@ $acoordion--open-background-color: $c-light-secondary !default;
     display: none;
   }
 
+  &-margin {
+    margin: unset;
+
+    @media screen and (min-width: $tablet-min) {
+      margin: $footer__column-margin;
+    }
+  }
+
 }
 
-.sf-accordion-item__header-wrapper--close {
-  background-color: $acoordion--close-background-color;
+.sf-accordion {
+  width: "100%";
 }
 
-.sf-accordion-item__header-wrapper--open {
-  background-color: $acoordion--open-background-color;
+.sf-accordion-item {
+
+  &__header-wrapper--close {
+    background-color: $acoordion--close-background-color;
+  }
+
+  &__header-wrapper--open {
+    background-color: $acoordion--open-background-color;
+  }
+
+  &__header {
+    max-width: "80%";
+    font-size: "18px";
+    font-weight: "420";
+    text-transform: "uppercase";
+    padding: "1rem";
+    color: "#1D1F2"
+  }
+
+  &-chevron {
+    position: "absolute";
+    right: "1rem"
+  }
 }
