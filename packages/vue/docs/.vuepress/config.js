@@ -41,6 +41,7 @@ module.exports = {
           ["/components/Checkbox", "Checkbox"],
           ["/components/Chevron", "Chevron"],
           ["/components/CircleIcon", "Circle Icon"],
+          ["/components/CollectedProduct", "Collected Product"],
           ["/components/Counter", "Counter"],
           ["/components/Divider", "Divider"],
           ["/components/Filter", "Filter"],
