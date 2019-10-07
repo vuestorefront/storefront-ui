@@ -39,7 +39,6 @@ const cssTableConfig = {
   ]
 };
 
-const style = {};
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
   .add(
