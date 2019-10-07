@@ -7,22 +7,24 @@ import SfBadge from "./SfBadge.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$badge--text-color", "$c-white", "badge text color"],
-    ["$badge--alert", "$c-pink-primary", "alert badge color"],
-    ["$badge--warning", "$c-blue-primary", "warning badge color"],
-    ["$badge--info", "$c-green-primary", "info badge color"],
-    ["$badge--font-size", "0.875rem", "badge font-size"],
-    ["$badge--padding", "0.3125rem 0.625rem", "badge padding"],
-    ["$badge--line-height", "1.3", "line height of badge"]
+    ["$badge-padding", "0.3125rem 0.625rem", "padding for badge"],
+    ["$badge-color", "$c-white", "color for text"],
+    ["$badge-background-color", "$c-primary;", "color for badge"],
+    [
+      "$badge-font-family",
+      "$body-font-family-secondary",
+      "font family for badge"
+    ],
+    ["$badge-font-size", "$font-size-small-desktop", "font size for badge"],
+    ["$badge-font-weight", "500", "font weight for badge"],
+    ["$badge-line-height", "1.6", "line height for badge"]
   ]
 };
 
 const cssTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
   tableBodyConfig: [
-    [".sf-badge--warning", "sets blue color for badge"],
-    [".sf-badge--alert", "sets pink color for badge"],
-    [".sf-badge--full-width", "sets the badge with 100%"]
+    [".sf-badge--full-width", "change short badge to full width badge"]
   ]
 };
 
@@ -37,8 +39,6 @@ storiesOf("Atoms|Badge", module)
           default: options(
             "CSS Modifiers",
             {
-              "sf-badge--alert": "sf-badge--alert",
-              "sf-badge--warning": "sf-badge--warning",
               "sf-button--full-width": "sf-button--full-width"
             },
             "",
@@ -50,14 +50,10 @@ storiesOf("Atoms|Badge", module)
     }),
     {
       info: {
-        summary: `
-        <h2> Description </h2>
-        <p>Badge component. Place desired content into its default slot.</p>
-        <h2> Usage </h2>
+        summary: `<h2> Usage </h2>
         <pre><code>import { SfBadge } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
-        `
+        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}`
       }
     }
   );
