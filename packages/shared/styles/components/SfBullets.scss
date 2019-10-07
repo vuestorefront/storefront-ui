@@ -3,10 +3,10 @@
 $bullet-border-radius: 50% !default;
 $bullet-size: 8px !default;
 $bullet-margin: 6px !default;
-$bullet-color: $c-gray-primary !default;
+$bullet-background-color: $c-gray-primary !default;
 $bullet-size--active: 10px !default;
 $bullet-margin--active: 5px !default;
-$bullet-color--active: $c-green-secondary !default;
+$bullet-background-color--active: $c-green-secondary !default;
 
 .sf-bullets {
   display: flex;
@@ -16,13 +16,13 @@ $bullet-color--active: $c-green-secondary !default;
 }
 .sf-bullet {
   border-radius: $bullet-border-radius;
-  background: $bullet-color;
+  background: $bullet-background-color;
   width: $bullet-size;
   height: $bullet-size;
   margin: $bullet-margin;
   cursor: pointer;
   &--active {
-    background-color: $bullet-color--active;
+    background-color: $bullet-background-color--active;
     width: $bullet-size--active;
     height: $bullet-size--active;
     margin: $bullet-margin--active;
