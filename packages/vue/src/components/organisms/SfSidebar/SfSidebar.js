@@ -1,8 +1,14 @@
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
+
 export default {
   name: "SfSidebar",
+  components: {
+    SfCircleIcon,
+    SfIcon,
+    SfOverlay
+  },
   props: {
     button: {
       type: Boolean,
@@ -22,6 +28,24 @@ export default {
       position: "left"
     };
   },
+  computed: {
+    visibleOverlay() {
+      return this.visible && this.overlay;
+    }
+  },
+  watch: {
+    visible: {
+      handler: value => {
+        if (typeof window === "undefined") return;
+        if (value) {
+          document.body.classList.add("sf-sidebar--has-scroll-lock");
+        } else {
+          document.body.classList.remove("sf-sidebar--has-scroll-lock");
+        }
+      },
+      immediate: true
+    }
+  },
   mounted() {
     const keydownHandler = e => {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
@@ -36,27 +60,7 @@ export default {
       ? "right"
       : "left";
   },
-  watch: {
-    visible: {
-      handler: value => {
-        if (value && typeof window !== "undefined") {
-          document.body.style.setProperty("overflow", "hidden");
-        }
-        if (!value && typeof window !== "undefined") {
-          document.body.style.removeProperty("overflow");
-        }
-      },
-      immediate: true
-    }
-  },
-  computed: {
-    visibleOverlay() {
-      return this.visible && this.overlay;
-    }
-  },
-  components: {
-    SfCircleIcon,
-    SfIcon,
-    SfOverlay
+  beforeDestroy() {
+    document.body.classList.remove("sf-sidebar--has-scroll-lock");
   }
 };
