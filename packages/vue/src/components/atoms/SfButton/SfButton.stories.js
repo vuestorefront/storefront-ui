@@ -5,38 +5,55 @@ import { generateStorybookTable } from "@/helpers";
 
 import SfButton from "./SfButton.vue";
 
-// use this to document scss vars
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$button-color", "$c-text-on-dark", "Default button text color"],
+    ["$button-padding", "1rem 2.5rem !default;", "padding for button"],
+    [
+      "$button-padding-desktop",
+      "0.9375rem 2.5rem !default;",
+      "padding for button on desktop"
+    ],
+    ["$button-color", "$c-text-on-dark !default;", "color for button"],
     [
       "$button-background-color",
-      "$c-green-primary",
-      "Default button background color"
-    ],
-    ["$button-border-radius", "0", "Button border radius"],
-    ["$button-text-transform", "uppercase", "Transform button text"],
-    [
-      "$button-desktop-padding",
-      "0.9375rem 2.5rem",
-      "Button spacing on desktop screens"
+      "$c-green-primary !default;",
+      "background-color for button"
     ],
     [
-      "$button-desktop-font-size",
-      "1.125rem",
-      "Button font size on desktop screens"
+      "$button-font-family",
+      "$body-font-family-secondary !default;",
+      "font family for button"
     ],
     [
-      "$button-mobile-padding",
-      "0.5rem 1.7rem",
-      "Button spacing on mobile screens"
+      "$button-font-size",
+      "$font-size-small-mobile !default;",
+      "font size for button"
     ],
     [
-      "$button-mobile-font-size",
-      "0.75rem",
-      "Button font size on mobile screens"
+      "$button-font-size-desktop",
+      "$font-size-small-desktop !default;",
+      "font size for button on mobile"
+    ],
+    [
+      "$button-font-weight",
+      "$body-font-weight-secondary !default;",
+      "font weight for btton"
+    ],
+    ["$button-line-height", "1.6 !default;", "line height for button"],
+    [
+      "$button--outline-border",
+      "2px !default;",
+      "border width for outline button"
     ]
+  ]
+};
+
+const cssTableConfig = {
+  tableHeadConfig: ["NAME", "DESCRIPTION"],
+  tableBodyConfig: [
+    [".sf-button--full-width", "change short button to full width button"],
+    [".sf-button--outline", "transform fill button to outline button"]
   ]
 };
 
@@ -51,14 +68,14 @@ storiesOf("Atoms|Button", module)
           default: options(
             "CSS Modifiers",
             {
+              "sf-button--full-width": "sf-button--full-width",
+              "sf-button--outline": "sf-button--outline",
               "color-primary": "color-primary",
               "color-secondary": "color-secondary",
               "color-warning": "color-warning",
               "color-danger": "color-danger",
               "color-info": "color-info",
-              "color-success": "color-success",
-              "sf-button--full-width": "sf-button--full-width",
-              "sf-button--outline": "sf-button--outline"
+              "color-success": "color-success"
             },
             "",
             { display: "multi-select" }
@@ -69,18 +86,10 @@ storiesOf("Atoms|Button", module)
     }),
     {
       info: {
-        summary: `
-        <h2>
-          Description
-        </h2>
-        <p>
-          Basic button component,
-          called by <code>&lt;SfButton&gt;</code>.
-        </p>
-        <h2>Usage</h2>
+        summary: `<h2>Usage</h2>
         <pre><code>import { SfButton } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
+        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}`
       }
     }
   );
