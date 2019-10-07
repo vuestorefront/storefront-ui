@@ -9,7 +9,7 @@
 Customization-first, performance-oriented and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team and contributors.
 
 - [Website](http://storefrontui.io/)
-- [Documentation](http://docs.storefrontui.io/) (still in very early stages)
+- [Documentation](http://docs.storefrontui.io/)
 - [Storybook](http://storybook.storefrontui.io/)
 - [Discord server](https://discord.gg/GS8hqFS)
 
@@ -25,10 +25,10 @@ With SfUI you can change almost every aspect of provided components and use them
 
 **Here are the key characteristics of Storefront UI:**
 
-We are building Storefront UI based on the following 5 fundamentals:
-
-- **Performance**: You’re importing ONLY what you need, and in a raw format which means you can benefit from all build-time optimizations like tree shaking or grouping common chunks.
-- **Customization**: Along with standard prop-based customization, every component has a set of slots that let you replace any part of it with your own images, icons or even custom HTML markup. In addition, every component is divided into separate HTML, CSS and JS files so you can compose your own components from only Storefront UI partials.
+We are building Storefront UI based on the following 6 fundamentals:
+- **Customization**: Along with standard prop-based customization, every component has a set of slots that let you replace any part of it with your own images, icons or even custom HTML markup. You can also customize whole library from a single SCSS file by overriding set of variables. In addition, every component is divided into separate HTML, CSS and JS files so you can compose your own components from it's partsupdate docs.
+- **Mobile-first**: Every Storefront UI component is highly optimized for mobile user experience and in many cases behaves completely different on desktop and mobile. Select list becomes full-screen drop-down, tabs are becoming accordion etc.
+- **Performance**: You’re importing ONLY what you need, and in a raw format which means you can benefit from all build-time optimizations like tree shaking or grouping common chunks. Unused components are treeshaked and global CSS is just < 0,1 kB unminified. Thanks to this initial footprint of the library is unnoticable. You can use the library for how many components you want, even a single slider. You bundle only what you import.
 - **Best practices**: Storefront UI components follow best practices in terms of design and core. Every component is based on the Google Retail UX Playbook and is accessibility-friendly.
 - **E-commerce**: As a UI library dedicated to eCommerce, Storefront UI along with standard UI components has all the elements necessary for building modern online stores.
 - **Open Source**: Storefront UI is a community effort to deliver the best possible experience to modern web applications and e-commerce shops, with carefully crafted components following best practices. Our team consists of agencies and volunteer contributors from all over the world.
@@ -36,7 +36,7 @@ We are building Storefront UI based on the following 5 fundamentals:
 Storefront UI is based on atomic design which means every component is built from tiny atoms that you can use in your application! You’re not limited to big UI components anymore. Use Storefront UI atoms to quickly build your own, great-looking components!
 
 
-Read about [code design concepts](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) behind Storefront UI and [how it can be customized](./docs/customization.md).
+Rea [how it can be customized](./docs/customization.md).
 
 ![](https://i.ibb.co/7SKbz5K/123457.png)
 ![](https://i.ibb.co/VHTcyrw/1234.png)
@@ -47,21 +47,6 @@ You can find the stunning designs we are using for Storefront UI components [her
 
 [![image](https://user-images.githubusercontent.com/15185752/58185795-06b51900-7cb4-11e9-883f-2571cace575c.png)
 ](https://www.youtube.com/watch?v=8FO6tm9rEdo&feature=youtu.be)
-
-
-# How to try it?
-
-Storefront UI is not ready to use in production projects yet. We plan to release working alpha before the end of June 2019.
-If you want to check current state of components just check [storybook](https://storybook.storefrontui.io/)
-
-You can read more about the installation [here](https://docs.storefrontui.io/introduction.html#how-to-test-storefrontui)
-
-
-# Documentation
-
-The documentation is always THE HARDEST PART of each open source project! But we're trying hard. Feel free to contribute to the documentation if you like.
-
-**Please find out what we've already managed to prepare:** [available here](https://docs.storefrontui.io/). Please note that the documentation is not yet finished as this project is still in the early stages of development and will be continuously updated. You can find them also under the `docs/` folder.
 
 
 # Contributing
@@ -76,7 +61,7 @@ Those awesome people are maintaining Storefront UI. They're ensuring that it per
 - Przemek Spaczek ([@przespa](https://github.com/przespa))
 - Leonardo Matos ([@leomp12](https://github.com/leomp12))
 - Maya Shavin ([@mayashavin](https://github.com/mayashavin))
-- Nicolò Maria Mezzopera [@DonNicoJS](https://github.com/DonNicoJs)
+- Nicolò Maria Mezzopera ([@DonNicoJS](https://github.com/DonNicoJs))
 
 
 and amazing [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) commiting their time to make it better.
