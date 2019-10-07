@@ -26,6 +26,10 @@ export default {
     transition: {
       type: String,
       default: "fade"
+    },
+    showChevron: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {

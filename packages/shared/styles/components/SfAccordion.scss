@@ -42,4 +42,16 @@ $accordion__content-padding-y: 3 * $spacer-big !default;
   &__content {
     padding: ($accordion__content-padding-y / 2) 0;
   }
+  &__chevron {
+    display: none;
+  }
+}
+
+.sf-accordion {
+  $this: &;
+  &--has-chevron {
+    #{$this}-item__chevron {
+      display: block;
+    }
+  }
 }
