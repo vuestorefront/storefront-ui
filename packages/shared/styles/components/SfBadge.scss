@@ -1,7 +1,7 @@
 @import "../variables";
 
 $badge-padding: 0.3125rem 0.625rem !default;
-$badge-text-color: $c-white !default;
+$badge-color: $c-white !default;
 $badge-background-color: $c-primary;
 $badge-font-family: $body-font-family-secondary !default;
 $badge-font-size: $font-size-small-desktop !default;
@@ -13,7 +13,7 @@ $badge-line-height: 1.6 !default;
   display: inline-block;
   padding: $badge-padding;
   background-color: $badge-background-color;
-  color: $badge-text-color;
+  color: $badge-color;
   font-family: $badge-font-family;
   font-size: $badge-font-size;
   font-weight: $badge-font-weight;
