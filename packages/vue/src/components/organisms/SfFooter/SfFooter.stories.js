@@ -57,15 +57,6 @@ const scssTableConfig = {
 
 const data = () => {
   return {
-    accordionColumnContentStyle: {
-      padding: "0.5rem 0.5rem 0.5rem 1rem",
-      backgroundColor: "#ffffff"
-    },
-    accordionColumnInlineContentStyle: {
-      display: "inline-block",
-      padding: "0.5rem 1.25rem 0.5rem 1rem",
-      backgroundColor: "#ffffff"
-    },
     columnItems: [
       {
         header: "About Us",
@@ -139,11 +130,7 @@ const data = () => {
         display: "inline",
         paddingRight: "1.25rem"
       }
-    },
-    accordionStyle: {
-      width: "100%"
-    },
-    isOpen: false
+    }
   };
 };
 
