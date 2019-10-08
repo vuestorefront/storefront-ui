@@ -11,6 +11,7 @@ import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
+    ["$footer__row-line-height", "1.6", "line-height of footer row"],
     [
       "$footer__column-title-font-size",
       "$font-size-regular-desktop",

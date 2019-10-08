@@ -1,16 +1,18 @@
 @import '../variables';
 
+$footer__row-line-height: 1.6 !default;
 $footer__column-title-font-size: $font-size-big-desktop !default;
 $footer__column-title-color: $c-dark-primary !default;
 $footer__column-title-font-family: $body-font-family-primary !default;
 $footer__column-content-font-family: $body-font-family-secondary !default;
 $footer__column-content-font-size: $font-size-extra-small-desktop !default;
 $footer__column-max-width: 300px !default;
-$footer__column-margin: 38px;
 $acoordion--close-background-color: $c-light-primary !default;
 $acoordion--open-background-color: $c-light-secondary !default;
 
 .sf-footer-row {
+  line-height: $footer__row-line-height;
+
   @media screen and (min-width: $tablet-min) {
     display: flex;
     flex-direction: row;
@@ -21,11 +23,7 @@ $acoordion--open-background-color: $c-light-secondary !default;
   @media screen and (min-width: $tablet-min) {
     display: none;
   }
-  background-color: unset;
-  padding: unset;
-  margin-right: unset;
   font-family: $footer__column-content-font-family;
-  line-height: 1.8;
   &-wrapper {
     @media screen and (min-width: $tablet-min) {
       width: calc((100% / 4));
@@ -85,12 +83,6 @@ $acoordion--open-background-color: $c-light-secondary !default;
   &__accordion-only {
     display: none;
   }
-  &-margin {
-    margin: unset;
-    @media screen and (min-width: $tablet-min) {
-      margin: $footer__column-margin;
-    }
-  }
 }
 .sf-accordion {
   width: 100%;
@@ -103,7 +95,7 @@ $acoordion--open-background-color: $c-light-secondary !default;
     background-color: $acoordion--open-background-color;
   }
   &__content {
-    line-height: 1.8;
+    line-height: $footer__row-line-height;
     padding-left: $spacer-medium;
     padding-right: $spacer-medium;
   }
