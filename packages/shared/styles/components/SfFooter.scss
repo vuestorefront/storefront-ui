@@ -14,6 +14,7 @@ $acoordion--open-background-color: $c-light-secondary !default;
 .sf-footer-row {
   @media screen and (min-width: $tablet-min) {
     display: flex;
+    flex-direction: row;
     justify-content: center;
   }
 }
@@ -42,6 +43,12 @@ $acoordion--open-background-color: $c-light-secondary !default;
   font-family: $footer__column-content-font-family;
   line-height: 1.8;
 
+  &-wrapper {
+    @media screen and (min-width: $tablet-min) {
+      width: calc((100% / 4));
+    }
+  }
+
   &__title {
     font-size: $footer__column-title-font-size;
     text-transform: uppercase;
@@ -69,12 +76,6 @@ $acoordion--open-background-color: $c-light-secondary !default;
     @media screen and (min-width: $tablet-min) {
       display: unset;
       justify-content: flex-start;
-    }
-  }
-
-  &-width {
-    @media screen and (min-width: $tablet-min) {
-      width: calc((100% / 4));
     }
   }
 

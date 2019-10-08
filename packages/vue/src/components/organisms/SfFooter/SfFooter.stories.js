@@ -162,7 +162,6 @@ storiesOf("Organisms|Footer", module)
             v-for="(item, i) of columnItems"
             :key="i"
             :title="item.header"
-            class="sf-footer-column-width"
             >
               <SfList>
                 <SfListItem
@@ -174,13 +173,13 @@ storiesOf("Organisms|Footer", module)
             </SfFooterColumn>
           </div>
           <div class="sf-footer-row">
-          <SfFooterColumn class="sf-footer-column-width sf-footer-column__placeholder">
+          <SfFooterColumn class="sf-footer-column__placeholder">
           </SfFooterColumn>
-          <SfFooterColumn class="sf-footer-column-width sf-footer-column__placeholder">
+          <SfFooterColumn class="sf-footer-column__placeholder">
           </SfFooterColumn>
-          <SfFooterColumn class="sf-footer-column-width sf-footer-column__placeholder">
+          <SfFooterColumn class="sf-footer-column__placeholder">
           </SfFooterColumn>
-          <SfFooterColumn class="sf-footer-column-width" :title="socialItems.header">
+          <SfFooterColumn :title="socialItems.header">
               <SfList>
                 <SfListItem :style="socialItems.style" v-for="socialContent in socialItems.content" :key="socialContent.id"><span v-html="socialContent.text"></span></SfListItem>
               </SfList>
