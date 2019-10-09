@@ -18,7 +18,7 @@
     --icon-color:  #{$c-gray-secondary};
   }
   &__item--active > .sf-icon {
-    --icon-color: #{c-black};
+    --icon-color: #{$c-black};
   }
   &__floating-icon {
     position: relative;
