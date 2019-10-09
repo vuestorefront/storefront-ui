@@ -58,11 +58,9 @@
     "@types/jest": "^24.0.16",
     "@vue/cli-plugin-babel": "^3.9.2",
     "@vue/cli-plugin-eslint": "^3.9.2",
-    "@vue/cli-plugin-typescript": "^3.9.0",
     "@vue/cli-plugin-unit-jest": "^3.9.0",
     "@vue/cli-service": "^3.9.3",
     "@vue/eslint-config-prettier": "^4.0.1",
-    "@vue/eslint-config-typescript": "^4.0.0",
     "@vue/test-utils": "^1.0.0-beta.29",
     "@vuepress/plugin-register-components": "^1.0.0-rc.1",
     "babel-core": "7.0.0-bridge.0",
@@ -77,8 +75,6 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "storybook-addon-vue-info": "^1.2.2",
-    "ts-jest": "^24.0.1",
-    "typescript": "^3.5.3",
     "vue-cli-plugin-storybook": "^0.6.0",
     "vue-template-compiler": "^2.6.8",
     "vuepress": "^0.14.10",
@@ -89,7 +85,7 @@
   },
   "main": "./index.js",
   "lint-staged": {
-    "*.{js,vue,html,scss,ts}": [
+    "*.{js,vue,html,scss}": [
       "vue-cli-service lint",
       "git add"
     ]
