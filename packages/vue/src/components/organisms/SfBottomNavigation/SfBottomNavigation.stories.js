@@ -52,10 +52,10 @@ storiesOf("Organisms|BottomNavigation", module)
         <SfBottomNavigationItem>
           <SfIcon icon="home" size="20px"/>
         </SfBottomNavigationItem>
-        <SfBottomNavigationItem :class="customClass">
+        <SfBottomNavigationItem>
           <SfIcon icon="menu" size="20px" style="width: 25px" />
         </SfBottomNavigationItem>
-        <SfBottomNavigationItem>
+        <SfBottomNavigationItem :class="customClass">
           <SfIcon icon="heart" size="20px"/>
         </SfBottomNavigationItem>
         <SfBottomNavigationItem>
