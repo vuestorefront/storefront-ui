@@ -35,7 +35,6 @@ $accordion__content-padding-y: 3 * $spacer-big !default;
     cursor: pointer;
     font-size: $accordion__title-font-size;
     @include for-desktop {
-      padding: $accordion__title-padding-y 0;
       font-size: $accordion__title-font-size-desktop;
     }
   }
