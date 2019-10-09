@@ -1,12 +1,14 @@
-var fs = require('fs')
+"use strict";
 
-fs.readFile('./styles/_variables.scss', 'utf8', function (err,data) {
-  if (err) {
-    return console.log(err);
-  }
-  var result = data.replace('../../../../sfui.scss', '../../vue/sfui.scss');
-  fs.writeFile('./styles/_variables.scss', result, 'utf8', function (err) {
-    if (err) return console.log(err);
+const fs = require("fs");
+const path = require("path");
+const stylesPath = path.resolve("../styles/_variables.scss");
+
+fs.readFile(pathVariables, "utf8", function(err, data) {
+  if (err) return console.error(err);
+  const result = data.replace("../../../../sfui.scss", "../../vue/sfui.scss");
+  fs.writeFile(pathVariables, result, "utf8", function(err) {
+    if (err) return console.error(err);
     console.log(result);
   });
 });
