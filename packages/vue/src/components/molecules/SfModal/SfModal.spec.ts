@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfModal from "@/components/molecules/SfModal/SfModal.vue";
+import SfModal from "./SfModal.vue";
 
 describe("SfModal.vue", () => {
   it("renders a component", () => {

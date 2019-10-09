@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfSlidingSection from "@/components/molecules/SfSlidingSection/SfSlidingSection.vue";
+import SfSlidingSection from "./SfSlidingSection.vue";
 
 describe("SfSlidingSection.vue", () => {
   it("renders a component", () => {

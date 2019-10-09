@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfSearchBar from "@/components/molecules/SfSearchBar/SfSearchBar.vue";
+import SfSearchBar from "./SfSearchBar.vue";
 
 describe.only("SfSearchBar.vue", () => {
   it("renders a search bar", () => {

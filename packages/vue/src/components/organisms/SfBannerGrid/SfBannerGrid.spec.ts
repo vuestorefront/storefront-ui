@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfBannerGrid from "@/components/organisms/SfBannerGrid/SfBannerGrid.vue";
+import SfBannerGrid from "./SfBannerGrid.vue";
 
 describe("SfBannerGrid.vue", () => {
   it("renders a component", () => {

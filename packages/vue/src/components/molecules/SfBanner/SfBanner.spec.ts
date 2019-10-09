@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfBanner from "@/components/molecules/SfBanner/SfBanner.vue";
+import SfBanner from "./SfBanner.vue";
 
 describe("SfBanner.vue", () => {
   it("renders a banner", () => {

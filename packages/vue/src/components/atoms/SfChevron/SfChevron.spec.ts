@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfChevron from "@/components/atoms/SfChevron/SfChevron.vue";
+import SfChevron from "./SfChevron.vue";
 
 describe.only("SfChevron.vue", () => {
   it("renders a chevron", () => {

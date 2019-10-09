@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfCollectedProduct from "@/components/molecules/SfCollectedProduct.vue";
+import SfCollectedProduct from "./SfCollectedProduct.vue";
 
 describe("SfCollectedProduct.vue", () => {
   it("renders a component", () => {

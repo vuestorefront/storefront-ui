@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfNotification from "@/components/molecules/SfNotification/SfNotification.vue";
+import SfNotification from "./SfNotification.vue";
 
 describe("SfNotification.vue", () => {
   it("renders the notification", () => {

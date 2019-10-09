@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfMenuItem from "@/components/molecules/SfMenuItem/SfMenuItem.vue";
+import SfMenuItem from "./SfMenuItem.vue";
 
 describe("SfMenuItem.vue", () => {
   it("renders a div with correct class", () => {

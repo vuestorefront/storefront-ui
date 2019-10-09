@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfImage from "@/components/atoms/SfImage/SfImage.vue";
+import SfImage from "./SfImage.vue";
 
 describe("SfImage.vue", () => {
   it("renders a component", () => {

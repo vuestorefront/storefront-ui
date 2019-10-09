@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfCharacteristic from "@/components/molecules/SfCharacteristic/SfCharacteristic.vue";
+import SfCharacteristic from "./SfCharacteristic.vue";
 
 describe.only("SfCharacteristic.vue", () => {
   it("renders a characteristic", () => {

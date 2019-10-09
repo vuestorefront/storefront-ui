@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfCircleIcon from "@/components/atoms/SfCircleIcon/SfCircleIcon.vue";
+import SfCircleIcon from "./SfCircleIcon.vue";
 
 describe.only("SfCircleIcon.vue", () => {
   it("renders a button", () => {

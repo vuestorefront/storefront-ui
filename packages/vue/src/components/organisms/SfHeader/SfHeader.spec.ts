@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfHeader from "@/components/organisms/SfHeader/SfHeader.vue";
+import SfHeader from "./SfHeader.vue";
 
 describe("SfHeader.vue", () => {
   // DOM Element render check
