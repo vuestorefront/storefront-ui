@@ -17,6 +17,7 @@
     "docs:vuecomponents": "node scripts/create-vue-components-docs.js",
     "docs:dev": "$npm_execpath docs:vuecomponents && vuepress dev docs",
     "docs:build": "$npm_execpath docs:vuecomponents && vuepress build docs",
+    "postinstall": "node scripts/postinstall.js",
     "version": "node scripts/version.js"
   },
   "dependencies": {
