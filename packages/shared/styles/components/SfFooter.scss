@@ -26,7 +26,8 @@ $acoordion--open-background-color: $c-light-secondary !default;
   font-family: $footer__column-content-font-family;
   &-wrapper {
     @media screen and (min-width: $tablet-min) {
-      width: calc((100% / 4));
+      max-width: 24.9999%;
+      flex-basis: 24.9999%
     }
   }
   &-desktop {
@@ -57,7 +58,6 @@ $acoordion--open-background-color: $c-light-secondary !default;
     display: none;
     @media screen and (min-width: $tablet-min) {
       display: unset;
-      justify-content: flex-start;
     }
   }
   &__chevron {
