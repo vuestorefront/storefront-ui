@@ -12,7 +12,6 @@ $acoordion--open-background-color: $c-light-secondary !default;
 
 .sf-footer-row {
   line-height: $footer__row-line-height;
-
   @media screen and (min-width: $tablet-min) {
     display: flex;
     flex-direction: row;
@@ -27,7 +26,7 @@ $acoordion--open-background-color: $c-light-secondary !default;
   &-wrapper {
     @media screen and (min-width: $tablet-min) {
       max-width: 24.9999%;
-      flex-basis: 24.9999%
+      flex: 1 1 auto;
     }
   }
   &-desktop {
