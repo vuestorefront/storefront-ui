@@ -10,6 +10,10 @@
         <span>{{ step.step }}</span>
       </div>
     </slot>
+    <div
+      class="sf-steps__progress"
+      :style="{ width: progressWidth, transform: `scaleX(${progress})` }">
+    </div>
   </div>
   <div class="sf-steps__content">
     <slot></slot>
