@@ -1,5 +1,37 @@
 @import '../variables';
 
+$icon-sizes : (
+    "xxs": 1rem,
+    "xs": 1.4rem,
+    "sm": 1.625rem,
+    "md": 1.8rem,
+    "lg": 2rem,
+    "xl": 2.2rem,
+    "xxl": 2.5rem,
+    "xl3": 2.8rem,
+    "xl4": 3.25rem
+);
+
+$icon-colors : (
+    "primary" : $c-green-primary,
+    "secondary": $c-dark-primary,
+    "white": $c-white,
+    "black": $c-black,
+    "accent": $c-accent-secondary,
+    "green-primary": $c-green-primary,
+    "green-secondary": $c-green-secondary,
+    "gray-primary": $c-gray-primary,
+    "gray-secondary": $c-gray-secondary,
+    "light-primary": $c-light-primary,
+    "light-secondary": $c-light-secondary,
+    "pink-primary": $c-pink-primary,
+    "pink-secondary": $c-pink-secondary,
+    "yellow-primary": $c-yellow-primary,
+    "yellow-secondary": $c-yellow-secondary,
+    "blue-primary": $c-blue-primary,
+    "blue-secondary": $c-blue-secondary
+);
+
 .sf-icon {
     --icon-color: #{map-get($icon-colors, "black")};
     --icon-size: #{map-get($icon-sizes, "sm")};
