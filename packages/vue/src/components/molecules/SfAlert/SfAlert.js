@@ -38,13 +38,5 @@ export default {
         return ["alert", "warning", "info", "success"].indexOf(value) !== -1;
       }
     }
-  },
-  computed: {
-    hasIconSrc() {
-      return this.icon && typeof this.icon === "string";
-    },
-    iconSrc() {
-      return typeof this.icon === "string" ? this.icon : "";
-    }
   }
 };
