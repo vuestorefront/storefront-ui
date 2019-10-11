@@ -6,13 +6,13 @@ $accordion-font-size: $font-size-regular-mobile !default;
 $accordion-font-size-desktop: $font-size-regular-desktop !default;
 $accordion-font-weight: $body-font-weight-secondary !default;
 $accordion-line-height: 1.6 !default;
-$accordion__title-padding-y: $spacer-big !default;
+$accordion__title-padding-y: 0.625rem !default;
 $accordion__title-color: $c-gray-secondary !default;
 $accordion__title-color--active: $c-dark-primary !default;
 $accordion__title-color--hover: $c-dark-primary !default;
 $accordion__title-font-size: $font-size-big-mobile !default;
 $accordion__title-font-size-desktop: $font-size-big-desktop !default;
-$accordion__content-padding-y: 3 * $spacer-big !default;
+$accordion__content-padding-y: 1.875rem !default;
 
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
@@ -30,7 +30,7 @@ $accordion__content-padding-y: 3 * $spacer-big !default;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: calc(#{$accordion__title-padding-y / 2} - 5px) 0;
+    padding: $accordion__title-padding-y 0;
     color: $c-dark-primary;
     cursor: pointer;
     font-size: $accordion__title-font-size;
@@ -39,7 +39,7 @@ $accordion__content-padding-y: 3 * $spacer-big !default;
     }
   }
   &__content {
-    padding: ($accordion__content-padding-y / 2) 0;
+    padding: $accordion__content-padding-y 0;
   }
   &__chevron {
     display: none;
