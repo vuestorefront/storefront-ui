@@ -1,4 +1,4 @@
-<div class="sf-accordion">
+<div class="sf-accordion" :class="{'sf-accordion--has-chevron': showChevron}">
   <!--@slot default slot to setup SfAccordionItem elements -->
-  <slot v-bind="{ selected }"/>
+  <slot />
 </div>
