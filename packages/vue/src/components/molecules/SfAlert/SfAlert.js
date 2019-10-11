@@ -13,38 +13,29 @@ export default {
       type: String,
       default: ""
     },
-    /** One of predefined SfIcon colors, default is black.  */
-    colorIcon: {
-      type: String,
-      default: "white"
-    },
-    /** One of predefined SfIcon sizes.  */
-    sizeIcon: {
-      type: String,
-      default: "24px"
-    },
-    /** Svg file iconPath  */
-    icon: {
-      type: String,
-      default: "clock"
-    },
     /**
-     * Alert type ("alert", "warning", "info", "success"). Check "Knobs" section to see how they look like.
+     * Alert type ("secondary", "info", "success", "warning", "danger"). Check "Knobs" section to see how they look like.
      */
     type: {
       type: String,
-      default: "alert",
+      default: "secondary",
       validator: function(value) {
-        return ["alert", "warning", "info", "success"].indexOf(value) !== -1;
+        return ["secondary", "info", "success", "warning", "danger"].includes(
+          value
+        );
       }
     }
   },
   computed: {
-    hasIconSrc() {
-      return this.icon && typeof this.icon === "string";
-    },
-    iconSrc() {
-      return typeof this.icon === "string" ? this.icon : "";
+    icon() {
+      switch (this.type) {
+        case "success":
+          return "added_to_cart";
+        case "danger":
+          return "info_shield";
+        default:
+          return "info_circle";
+      }
     }
   }
 };

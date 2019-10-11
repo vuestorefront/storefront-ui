@@ -6,41 +6,12 @@ import SfAlert from "./SfAlert.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$sf-alert-padding", "0.625rem", "padding of alert"],
-    ["$sf-alert-font-size", "0.875rem", "alert font-size"],
-    ["$sf-alert__text-margin", "0", "alert text margin"],
-    ["$sf-alert__text-font-size", "0.875rem", "font-size of alert text"],
-    ["$sf-alert__text-padding-left", "0.625rem", "alert text padding left"],
-    [
-      "$sf-alert--info-color",
-      "$c-dark-primary",
-      "color for text and icon for Information alert message"
-    ],
-    [
-      "sf-alert--warning-color",
-      "#D12727",
-      "color for text and icon for Warning alert message"
-    ],
-    [
-      "$sf-alert--alert-color",
-      "#0468DB",
-      "color for text and icon for Normal alert message"
-    ],
-    [
-      "$sf-alert--success-color",
-      "#128830",
-      "color for text and icon for Success alert message"
-    ]
-  ]
-};
-
-const cssTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [
-    [".sf-alert--info", "to set blue color for alert message"],
-    [".sf-alert--warning", "to set red color for alert message"],
-    [".sf-alert--alert", "to set default color for alert message"],
-    [".sf-alert--success", "to set green color for alert message"]
+    ["$alert-font-family", "$body-font-family-secondary", ""],
+    ["$alert-font-size", "$font-size-regular-mobile", ""],
+    ["$alert-font-size-desktop", "$font-size-big-desktop", ""],
+    ["$alert-font-weight", "$body-font-weight-secondary", ""],
+    ["$alert-line-height", "1.6", ""],
+    ["$alert__message-margin-left", "0.625rem", ""]
   ]
 };
 
@@ -52,31 +23,26 @@ storiesOf("Molecules|Alert", module)
       components: { SfAlert },
       props: {
         message: {
-          default: text("message (prop)", "Message prop")
-        },
-        icon: {
-          default: text("icon (prop)", "clock")
+          default: text("message (prop)", "Low in stock")
         },
         type: {
-          default: select("type (prop)", [
-            "alert",
-            "warning",
-            "info",
-            "success"
-          ])
+          default: select(
+            "type (prop)",
+            ["secondary", "info", "success", "warning", "danger"],
+            "secondary"
+          )
         }
       },
       template: `<SfAlert
+        :type="type"
         :message="message"
-        :icon="icon"
-        :type="type" />`
+         />`
     }),
     {
       info: {
         summary: `<h2> Usage </h2>
         <pre><code>import { SfAlert } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `
       }
     }
@@ -104,7 +70,7 @@ storiesOf("Molecules|Alert", module)
       components: { SfAlert },
       template: `<SfAlert>
         <template #message>
-          <span class="sf-alert__text">Custom message <b>with custom HTML</b></span>
+          <span class="sf-alert__message">Custom message <b>with custom HTML</b></span>
         </template>
       </SfAlert>`
     }),
