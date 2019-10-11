@@ -10,7 +10,44 @@ import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 // use this to document scss vars
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: []
+  tableBodyConfig: [
+    [
+      "$accordion-font-family",
+      "$body-font-family-secondary",
+      "font family for accordion"
+    ],
+    [
+      "$accordion-font-size",
+      "$font-size-regular-mobile",
+      "font size for accordion"
+    ],
+    [
+      "$accordion-font-size-desktop",
+      "$font-size-regular-desktop",
+      "font size for accordion on desktop"
+    ],
+    [
+      "$accordion-font-weight",
+      "$body-font-weight-secondary",
+      "font weight for accordion"
+    ],
+    ["$accordion-line-height: 1.6", "line height for accordion"],
+    ["$accordion__title-padding-y: 0.625rem", "padding y for accordion title"],
+    [
+      "$accordion__title-font-size",
+      "$font-size-big-mobile",
+      "font size for accordion title"
+    ],
+    [
+      "$accordion__title-font-size-desktop",
+      "$font-size-big-desktop",
+      "font size for accordion title on desktop"
+    ],
+    [
+      "$accordion__content-padding-y: 1.875rem",
+      "padding y for accordion content"
+    ]
+  ]
 };
 
 storiesOf("Organisms|Accordion", module)
@@ -64,7 +101,7 @@ storiesOf("Organisms|Accordion", module)
         }
       },
       components: { SfAccordion, SfList, SfMenuItem },
-      template: `<div :style="{width: '300px'}">
+      template: `<div :style="{width: '300px', padding: '1rem'}">
         <SfAccordion :multiple="multiple" :firstOpen="firstOpen" :showChevron="showChevron" :transition="transition">
           <SfAccordionItem v-for="(accordion, i) of accordions" :header="accordion.header" :key="i">
             <SfList>
