@@ -1,15 +1,11 @@
 @import "../variables";
 
-$accordion-border-color: $c-light-primary !default;
 $accordion-font-family: $body-font-family-secondary !default;
 $accordion-font-size: $font-size-regular-mobile !default;
 $accordion-font-size-desktop: $font-size-regular-desktop !default;
 $accordion-font-weight: $body-font-weight-secondary !default;
 $accordion-line-height: 1.6 !default;
 $accordion__title-padding-y: 0.625rem !default;
-$accordion__title-color: $c-gray-secondary !default;
-$accordion__title-color--active: $c-dark-primary !default;
-$accordion__title-color--hover: $c-dark-primary !default;
 $accordion__title-font-size: $font-size-big-mobile !default;
 $accordion__title-font-size-desktop: $font-size-big-desktop !default;
 $accordion__content-padding-y: 1.875rem !default;
@@ -26,6 +22,9 @@ $accordion__content-padding-y: 1.875rem !default;
   font-size: $accordion-font-size;
   font-weight: $accordion-font-weight;
   line-height: $accordion-line-height;
+  @include for-desktop {
+    font-size: $accordion-font-size-desktop;
+  }
   &__header {
     display: flex;
     justify-content: space-between;
