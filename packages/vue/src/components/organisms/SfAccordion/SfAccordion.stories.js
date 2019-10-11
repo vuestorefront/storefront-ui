@@ -68,7 +68,7 @@ storiesOf("Organisms|Accordion", module)
         <SfAccordion :multiple="multiple" :firstOpen="firstOpen" :showChevron="showChevron" :transition="transition">
           <SfAccordionItem v-for="(accordion, i) of accordions" :header="accordion.header" :key="i">
             <SfList>
-              <SfListItem v-for="(item, j) of accordion.items" :key="j" style="margin: .25rem 0">
+              <SfListItem v-for="(item, j) of accordion.items" :key="j">
                 <SfMenuItem :label="item.label" :count="item.count"/>
               </SfListItem>
             </SfList>

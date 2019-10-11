@@ -103,11 +103,7 @@
           >
             <template>
               <SfList>
-                <SfListItem
-                  v-for="(item, j) in accordion.items"
-                  :key="j"
-                  class="list-item"
-                >
+                <SfListItem v-for="(item, j) in accordion.items" :key="j">
                   <SfMenuItem :label="item.label" :count="item.count" />
                 </SfListItem>
               </SfList>
@@ -611,9 +607,6 @@ export default {
     padding: 10px;
     font-size: inherit;
   }
-}
-.list-item {
-  padding: $spacer-small 0;
 }
 .bottom-navigation-circle {
   opacity: 1;
