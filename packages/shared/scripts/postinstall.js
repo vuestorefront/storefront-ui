@@ -11,15 +11,6 @@ const stylesContent = `/* Here you can override global SCSS variables */
 // global override including scoped componentss
 // $button-desktop-padding: 50px;`;
 
-const playgroundContent = `<template>
-  <div id="playground"></div>
-</template>
-  
-<script>
-// Use this component to play with other components
-export default {};
-</script>`;
-
 if (isDependency && !fs.existsSync(stylesPath)) {
   fs.appendFile("../../../sfui.scss", stylesContent, err => {
     if (err) throw err;

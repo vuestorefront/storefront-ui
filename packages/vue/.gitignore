@@ -4,6 +4,10 @@ package-lock.json
 # auto-generated components docs
 docs/components
 
+# auto-generated index files
+/index.js
+/js.js
+
 .DS_Store
 node_modules
 /dist
