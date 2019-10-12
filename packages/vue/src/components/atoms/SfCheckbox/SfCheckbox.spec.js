@@ -7,11 +7,11 @@ describe("SfCheckbox.vue", () => {
     expect(component.contains("input[type='checkbox']")).toBe(true);
   });
 
-  it("renders content slot text when passed", () => {
+  it("renders label text when passed", () => {
     const msg = "HelloWorld";
     const component = shallowMount(SfCheckbox, {
-      slots: {
-        content: msg
+      propsData: {
+        label: msg
       }
     });
     expect(component.find(".sf-checkbox__label").text()).toMatch(msg);

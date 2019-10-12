@@ -3,7 +3,12 @@ import SfCollectedProduct from "./SfCollectedProduct.vue";
 
 describe("SfCollectedProduct.vue", () => {
   it("renders a component", () => {
-    const component = shallowMount(SfCollectedProduct);
-    expect(component.contains(".sf-sf-collected-product")).toBe(true);
+    const title = "Product";
+    const component = shallowMount(SfCollectedProduct, {
+      propsData: {
+        title
+      }
+    });
+    expect(component.contains(".sf-collected-product")).toBe(true);
   });
 });

@@ -3,7 +3,11 @@ import SfSteps from "./SfSteps.vue";
 
 describe("SfSteps.vue", () => {
   it("renders a component", () => {
-    const component = shallowMount(SfSteps);
+    const component = shallowMount(SfSteps, {
+      propsData: {
+        steps: ["one", "two"]
+      }
+    });
     expect(component.contains(".sf-steps")).toBe(true);
   });
 });

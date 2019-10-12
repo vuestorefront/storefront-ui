@@ -7,14 +7,14 @@ describe("SfInput.vue", () => {
     expect(component.contains(".sf-input")).toBe(true);
   });
 
-  it("renders default slot as label when passed", () => {
+  it("renders label text when passed", () => {
     const label = "HelloWorld";
     const component = shallowMount(SfInput, {
-      slots: {
-        default: label
+      propsData: {
+        label
       }
     });
-    expect(component.find(".sf-input__label").text()).toMatch(label);
+    expect(component.find(".sf-input__label").text()).toBe(label);
   });
 
   it("renders errorMessage slot with valid is false when passed", () => {

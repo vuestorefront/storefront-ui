@@ -3,36 +3,40 @@ import SfNotification from "./SfNotification.vue";
 
 describe("SfNotification.vue", () => {
   it("renders the notification", () => {
-    const component = shallowMount(SfNotification);
+    const component = shallowMount(SfNotification, {
+      propsData: {
+        visible: true
+      }
+    });
     expect(component.contains(".sf-notification")).toBe(true);
   });
+
   it("renders the message when passed via props", () => {
     const message = "Hello World";
     const component = shallowMount(SfNotification, {
       propsData: {
+        visible: true,
         message
       }
     });
-    expect(component.find(".sf-notification__text").text()).toMatch(message);
+    expect(component.find(".sf-notification__message").text()).toMatch(message);
   });
+
   it("renders the icon when passed via props", () => {
     const component = shallowMount(SfNotification, {
       propsData: {
-        icon: "/assets/img.jpg"
+        visible: true,
+        icon: "info"
       }
     });
     expect(component.contains(".sf-notification__icon")).toBe(true);
   });
-  it("renders the notification without icon when false prop passed", () => {
-    const component = shallowMount(SfNotification, {
-      propsData: {
-        icon: false
-      }
-    });
-    expect(component.contains(".sf-notification__icon")).toBe(false);
-  });
+
   it("renders an alert icon when passed via slot", () => {
     const component = shallowMount(SfNotification, {
+      propsData: {
+        visible: true
+      },
       slots: {
         icon: "<img class='slotImg' src='/assets/img.jpg' />"
       }
@@ -42,6 +46,9 @@ describe("SfNotification.vue", () => {
 
   it("renders an alert message when passed via slot", () => {
     const component = shallowMount(SfNotification, {
+      propsData: {
+        visible: true
+      },
       slots: {
         message: "<p class='slotMessage'>text</p>"
       }
