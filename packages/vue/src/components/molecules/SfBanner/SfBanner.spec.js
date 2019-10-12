@@ -44,7 +44,9 @@ describe("SfBanner.vue", () => {
         buttonText
       }
     });
-    expect(component.find(".sf-banner__button").text()).toContain(buttonText);
+    expect(component.find(".sf-banner__call-to-action").text()).toEqual(
+      buttonText
+    );
   });
 
   it("renders call to action slot text when passed", () => {
