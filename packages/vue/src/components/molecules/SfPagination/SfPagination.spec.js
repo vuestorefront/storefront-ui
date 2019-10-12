@@ -13,7 +13,6 @@ describe("SfPagination.vue", () => {
     expect(component.contains("nav")).toBe(true);
   });
 
-  // 'prev' slot check
   it("renders prev slot text when passed", () => {
     const msg = "prev";
     const component = shallowMount(SfPagination, {
@@ -22,10 +21,10 @@ describe("SfPagination.vue", () => {
         prev: msg
       }
     });
-    expect(component.find(".sf-pagination__link--prev").text()).toMatch(msg);
+    const paginationItems = component.findAll(".sf-pagination__item");
+    expect(paginationItems.at(0).text()).toEqual(msg);
   });
 
-  // 'next' slot check
   it("renders next slot text when passed", () => {
     const msg = "next";
     const component = shallowMount(SfPagination, {
@@ -34,6 +33,7 @@ describe("SfPagination.vue", () => {
         next: msg
       }
     });
-    expect(component.find(".sf-pagination__link--next").text()).toMatch(msg);
+    const paginationItems = component.findAll(".sf-pagination__item");
+    expect(paginationItems.at(paginationItems.length - 1).text()).toEqual(msg);
   });
 });
