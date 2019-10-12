@@ -2,7 +2,6 @@
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
-  select,
   text,
   number,
   optionsKnob as options

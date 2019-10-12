@@ -37,7 +37,7 @@ export default {
     }
   },
   watch: {
-    scrollY(value) {
+    scrollY() {
       this.toggleSticky();
       this.toggleBound();
     },
@@ -111,7 +111,6 @@ export default {
   },
   mounted: function() {
     if (!this.isIE) return;
-    const computed = window.getComputedStyle(this.$el);
     this.$el.parentElement.style.position = "relative";
     this.padding = this.computedPadding();
     this.parentTop = this.$el.parentElement.offsetTop;

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number, select } from "@storybook/addon-knobs";
+import { withKnobs, number } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfRating from "./SfRating.vue";
 

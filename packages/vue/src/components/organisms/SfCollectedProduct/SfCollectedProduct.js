@@ -68,7 +68,6 @@ export default {
       }
       if (qty > this.stock) {
         this.$emit("input", "" + this.stock);
-
       }
     }
   },
