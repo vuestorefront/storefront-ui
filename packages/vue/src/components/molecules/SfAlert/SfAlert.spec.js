@@ -30,19 +30,10 @@ describe("SfAlert.vue", () => {
   it("renders an alert icon when passed via props", () => {
     const component = shallowMount(SfAlert, {
       propsData: {
-        type: "alert"
+        type: "secondary"
       }
     });
-    expect(component.contains(".sf-alert--alert")).toBe(true);
-  });
-
-  it("renders an alert without icon when empty prop passed", () => {
-    const component = shallowMount(SfAlert, {
-      propsData: {
-        icon: ""
-      }
-    });
-    expect(component.contains(".sf-alert__icon")).toBe(false);
+    expect(component.contains(".sf-alert--secondary")).toBe(true);
   });
 
   it("renders an alert icon when passed via slot", () => {
