@@ -5,7 +5,7 @@ import SfButton from "../../../atoms/SfButton/SfButton";
 const title = "title_single";
 const subtitle = "subtitle_single";
 const buttonText = "button_single";
-const background = "#eceff1";
+const background = "rgb(236, 239, 241)";
 const image = "https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png";
 
 describe("SfHeroItem.vue", () => {
@@ -49,9 +49,8 @@ describe("SfHeroItem.vue", () => {
       );
     });
 
-    // TODO: rendered style is converted from hex to rgb
-    xit("renders background color correctly", () => {
-      expect(component.find("li").element.style.backgroundColor).toContain(
+    it("renders background color correctly", () => {
+      expect(component.find("li").element.style.backgroundColor).toBe(
         background
       );
     });

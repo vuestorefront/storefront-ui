@@ -17,23 +17,25 @@ describe.only("SfCircleIcon.vue", () => {
     expect(component.contains(".sf-circle-icon__icon")).toBe(true);
   });
 
-  it("renders icon props when passed", () => {
-    const iconSrc = "../../../assets/add_to_cart.svg";
+  it("renders SfIcon with correct icon prop when passed", () => {
+    const icon = "heart";
     const component = shallowMount(SfCircleIcon, {
       propsData: {
-        icon: iconSrc
+        icon
       }
     });
-    expect(component.find("img").attributes("src")).toEqual(iconSrc);
+    expect(component.find("sficon-stub").attributes("icon")).toEqual(icon);
   });
 
-  it("renders alt props when passed", () => {
-    const msg = "IamAltText";
+  it("renders SfIcon with correct iconColor when passed", () => {
+    const colorIcon = "black";
     const component = shallowMount(SfCircleIcon, {
       propsData: {
-        alt: msg
+        colorIcon
       }
     });
-    expect(component.find("img").attributes("alt")).toEqual(msg);
+    expect(component.find("sficon-stub").attributes("color")).toEqual(
+      colorIcon
+    );
   });
 });

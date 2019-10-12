@@ -20,19 +20,13 @@ describe("SfMenuItem.vue", () => {
     expect(component.find(".sf-menu-item__count").text()).toMatch(countText);
   });
 
-  it("renders defualt right icon", () => {
-    const component = shallowMount(SfMenuItem);
-    expect(component.find(".sf-menu-item__right").exists()).toBe(true);
-  });
-
-  it("renders correctly left icon slot", () => {
-    const iconLeftMarkup =
-      "<img class='sf-menu-item__right' src='/assets/chevron_down.svg' alt=''>";
+  it("renders icon slot", () => {
+    const iconHtml = "<img class='test-icon' src='/assets/chevron_down.svg'>";
     const component = shallowMount(SfMenuItem, {
       slots: {
-        iconLeft: iconLeftMarkup
+        icon: iconHtml
       }
     });
-    expect(component.find(".sf-menu-item__right").exists()).toBe(true);
+    expect(component.find(".test-icon").exists()).toBe(true);
   });
 });

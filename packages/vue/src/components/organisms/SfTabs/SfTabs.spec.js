@@ -1,4 +1,3 @@
-import Vue from "vue";
 import { mount, shallowMount } from "@vue/test-utils";
 import SfTabs from "./SfTabs.vue";
 
@@ -19,30 +18,13 @@ describe("SfTabs.vue", () => {
   });
 
   it("check if navigation contains title passed in tab", () => {
-    const tabs = [
-      {
-        title: "Apple",
-        content: "Apple is a great fruit",
-        isActive: false
-      },
-      {
-        title: "Banana",
-        content: "Banana is a great fruit",
-        isActive: false
-      },
-      {
-        title: "Peach",
-        content: "Peach is a great fruit",
-        isActive: false
-      }
-    ];
-
+    const tabsHtml = "<SfTab title='Tab1' /><SfTab title='Tab2' />";
     const component = mount(SfTabs, {
-      propsData: {
-        tabs
+      slots: {
+        default: tabsHtml
       }
     });
 
-    expect(component.findAll(".sf-tabs__title").length).toBe(3);
+    expect(component.findAll(".sf-tabs__title").length).toBe(2);
   });
 });
