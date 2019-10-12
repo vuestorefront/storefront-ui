@@ -1,22 +1,29 @@
 @import '../variables';
 
-$product-option-font-size: $font-size-big-mobile !default;
 $product-option-font-family: $body-font-family-secondary !default;
+$product-option-font-size: $font-size-regular-mobile  !default;
+$product-option-font-size-desktop: $font-size-regular-desktop !default;
+$product-option-font-weight: $body-font-weight-secondary !default;
+$product-option-line-height: 1.6 !default;
+$product-option__color-size: 1.125rem !default;
 
 .sf-product-option {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
-  font-size: $product-option-font-size;
+  justify-content: space-between;
   font-family: $product-option-font-family;
+  font-size: $product-option-font-size;
+  font-weight: $product-option-font-weight;
+  line-height: $product-option-line-height;
+  @media screen and (min-width: $desktop-min) {
+    font-size: $product-option-font-size-desktop;
+  }
   &__label {
     flex-grow: 1;
   }
   &__color {
-    width: 1.125rem;
-    height: 1.125rem;
-    background: black;
+    width: $product-option__color-size;
+    height: $product-option__color-size;
     margin-right: $spacer-big;
     border: 1px solid $c-gray-secondary;
   }

@@ -41,7 +41,7 @@ const data = () => {
   };
 };
 
-storiesOf("Molecules|Image", module)
+storiesOf("Atoms|Image", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
@@ -129,7 +129,7 @@ storiesOf("Molecules|Image", module)
     {
       info: {
         summary: `<h2>Usage</h2>
-       <pre><code>import { SfImage } from "@storefrontui/vue"</code></pre>
+       <pre><code>import { SfImage } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `
       }

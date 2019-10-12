@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <SfHero>
+    <SfHero class="section">
       <SfHeroItem
         v-for="(hero, i) in heroes"
         :key="i"
@@ -12,7 +12,7 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <SfBannerGrid :bannerGrid="1" class="banners">
+    <SfBannerGrid :banner-grid="1" class="banners section">
       <template #bannerA>
         <a href="#">
           <SfBanner
@@ -21,7 +21,7 @@
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerF.png"
-            class="sf-banner--left sf-banner--container-full"
+            class="sf-banner--slim"
           />
         </a>
       </template>
@@ -33,7 +33,7 @@
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerE.png"
-            class="sf-banner--left"
+            class="sf-banner--slim banner-central"
           />
         </a>
       </template>
@@ -43,7 +43,7 @@
             subtitle="T-Shirts"
             title="THE OFFICE LIFE"
             image="assets/storybook/homepage/bannerC.png"
-            class="sf-banner--left sf-banner--container-full"
+            class="sf-banner--slim"
           />
         </a>
       </template>
@@ -53,7 +53,7 @@
             subtitle="Summer shoes"
             title="ECO SANDALS"
             image="assets/storybook/homepage/bannerG.png"
-            class="sf-banner--left sf-banner--container-full"
+            class="sf-banner--slim"
           />
         </a>
       </template>
@@ -65,23 +65,27 @@
       class="call-to-action-newsletter"
       image="assets/storybook/homepage/newsletter.png"
     />
-    <SfSection titleHeading="Best Sellers">
-      <SfCarousel
-        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
-        class="product-carousel"
-      >
+    <SfSection title-heading="Best Sellers" class="section">
+      <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
             :title="product.title"
             :image="product.image"
             :regular-price="product.price.regular"
-            :rating="product.rating.score"
+            :max-rating="product.rating.max"
+            :score-rating="product.rating.score"
+            :is-on-wishlist="product.isOnWishlist"
+            @click:wishlist="toggleWishlist(i)"
             class="product-card"
           />
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
+    <SfSection
+      title-heading="Share Your Look"
+      subtitle-heading="#YOURLOOK"
+      class="section"
+    >
       <div class="grid grid-images">
         <div class="grid__row">
           <div class="grid__col">
@@ -110,11 +114,12 @@
       </div>
     </SfSection>
     <SfBanner
-      title="Download our application to your mobile"
-      subtitle="Fashion to Take Away"
       image="assets/storybook/homepage/bannerD.png"
-      class="banner-application sf-banner--left sf-banner--center desktop-only"
+      class="banner-application desktop-only"
     >
+      <template #subtitle>
+        <div class="banner-application__subtitle">Fashion to Take Away</div>
+      </template>
       <template #title>
         <h1 class="banner-application__title">
           Download our application to your&nbsp;mobile
@@ -148,7 +153,7 @@
       <SfBottomNavigationItem>
         <SfIcon icon="profile" size="20px" />
       </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
+      <SfBottomNavigationItem class="bottom-navigation-circle">
         <SfCircleIcon
           class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
         >
@@ -212,49 +217,57 @@ export default {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: true
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         }
       ]
     };
@@ -272,60 +285,81 @@ export default {
     SfIcon,
     SfCircleIcon
   },
-  mounted() {
-    document.body.style.setProperty("margin", "0");
+  methods: {
+    toggleWishlist(index) {
+      this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
+    }
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
-#home {
-  max-width: 1240px;
-  margin: auto;
-  box-sizing: border-box;
-  padding: 0 $spacer-big;
+
+@mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
-    padding: 0;
+    @content;
+  }
+}
+
+#home {
+  box-sizing: border-box;
+  margin: 0 0 60px 0;
+  @include for-desktop {
+    max-width: 1240px;
+    margin: auto;
   }
 }
 .call-to-action-newsletter {
-  margin: $spacer-big -#{$spacer-big};
+  margin: $spacer-big 0;
   box-sizing: border-box;
-  @media screen and (min-width: $desktop-min) {
+  @include for-desktop {
     margin: $spacer-extra-big * 2 0;
   }
 }
 .product-card {
   max-width: unset;
   &:hover {
-    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+    @include for-desktop {
+      box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+    }
   }
 }
 .product-carousel {
   margin: -20px -#{$spacer-big} -20px 0;
-  @media screen and (min-width: $desktop-min) {
+  @include for-desktop {
     margin: -20px 0;
   }
   /deep/ .sf-carousel__wrapper {
     padding: 20px 0;
-    @media screen and (min-width: $desktop-min) {
+    @include for-desktop {
       padding: 20px;
       max-width: calc(100% - 216px);
     }
+  }
+}
+.banner-central {
+  @include for-desktop {
+    padding-right: 30%;
   }
 }
 .banner-application {
   min-height: 420px;
   max-width: 1040px;
   margin: auto;
+  padding-right: calc(25% + 5rem);
+  padding-left: 2.5rem;
+  line-height: 1.6;
   &__title {
-    padding: 0;
-    margin: 0;
-    margin-top: $spacer-big;
-    font-size: 2.25rem;
-    font-weight: 400;
-    line-height: 1.388;
+    margin: $spacer-big 0 0 0;
+    font-size: $h1-font-size-desktop;
+    font-weight: $h1-font-weight-desktop;
+  }
+  &__subtitle {
+    color: #a3a5ad;
+    font-family: $body-font-family-primary;
+    font-size: $font-size-extra-big-desktop;
+    font-weight: $body-font-weight-primary;
   }
   &__download {
     max-height: 47px;
@@ -337,7 +371,7 @@ export default {
 }
 .banners {
   margin: $spacer-big 0;
-  @media screen and (min-width: $desktop-min) {
+  @include for-desktop {
     margin: $spacer-extra-big 0;
   }
 }
@@ -348,7 +382,7 @@ export default {
     display: flex;
     & + & {
       margin-top: $spacer-big / 2;
-      @media screen and (min-width: $desktop-min) {
+      @include for-desktop {
         margin-top: $spacer-big;
       }
     }
@@ -357,7 +391,7 @@ export default {
     margin: 0;
     & + & {
       margin-left: $spacer-big / 2;
-      @media screen and (min-width: $desktop-min) {
+      @include for-desktop {
         margin-left: $spacer-big;
       }
     }
@@ -365,5 +399,14 @@ export default {
 }
 .sf-banner {
   flex: 1;
+}
+.section {
+  @media (max-width: $desktop-min) {
+    padding-left: $spacer-big;
+    padding-right: $spacer-big;
+  }
+}
+.bottom-navigation-circle {
+  opacity: 1;
 }
 </style>

@@ -7,7 +7,10 @@ export default {
     /**
      * Image url or pictures object (`{ small: { url, alt }, normal: { url, alt } }`)
      */
-    src: [String, Object],
+    src: {
+      type: [String, Object],
+      default: () => {}
+    },
     /**
      * Alt attribute value
      */
@@ -48,8 +51,7 @@ export default {
   data() {
     return {
       loaded: false,
-      overlay: false,
-      maxWidth: "unset"
+      overlay: false
     };
   },
 
@@ -68,7 +70,7 @@ export default {
   mounted() {
     if (this.lazy !== false) {
       const vm = this;
-      const observer = lozad(".sf-image-lozad", {
+      const observer = lozad(vm.$refs.imgLazy, {
         loaded: function() {
           vm.loaded = true;
         }

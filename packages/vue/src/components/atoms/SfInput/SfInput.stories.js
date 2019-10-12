@@ -68,7 +68,7 @@ storiesOf("Atoms|Input", module)
         }
       },
       template: `
-      <div :style="{ width: '300px', margin: '50px' }">
+      <div :style="{ width: '300px' }">
         <SfInput 
           v-model="value" 
           :name="name" 
@@ -106,7 +106,7 @@ storiesOf("Atoms|Input", module)
         }
       },
       template: `
-        <div :style="{ width: '300px', margin: '50px' }">
+        <div :style="{ width: '300px' }">
           <SfInput v-model="value" :valid="valid" :required="required">
           <template #label>
             <span style="color: salmon;">Address</span>
@@ -136,7 +136,7 @@ storiesOf("Atoms|Input", module)
         }
       },
       template: `
-        <div :style="{ width: '300px', margin: '50px' }">
+        <div :style="{ width: '300px'}">
           <SfInput v-model="value" :label="label" :valid="valid" :required="required">
           <template #errorMessage>
             <span  style="color: orange;">This field is not correct.</span>

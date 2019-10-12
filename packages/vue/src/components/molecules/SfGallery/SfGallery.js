@@ -32,7 +32,8 @@ export default {
         return {
           type: "slider",
           autoplay: false,
-          rewind: false
+          rewind: false,
+          gap: 0
         };
       }
     }
@@ -52,8 +53,8 @@ export default {
         return {
           small: normal,
           normal: big
-        }
-      })
+        };
+      });
     }
   },
 
@@ -72,14 +73,16 @@ export default {
   },
 
   mounted() {
-    // handle slider with swipe and transitions with Glide.js
-    // https://glidejs.com/docs/
-    const glide = new Glide(this.$refs.glide, this.sliderOptions);
-    glide.on("run", () => {
-      this.go(glide.index);
+    this.$nextTick(() => {
+      // handle slider with swipe and transitions with Glide.js
+      // https://glidejs.com/docs/
+      const glide = new Glide(this.$refs.glide, this.sliderOptions);
+      glide.on("run", () => {
+        this.go(glide.index);
+      });
+      glide.mount();
+      this.glide = glide;
     });
-    glide.mount();
-    this.glide = glide;
   },
 
   beforeDestroy() {

@@ -13,6 +13,7 @@ $gallery__stage-width: 400px !default;
 $gallery__stage-cursor: zoom-in !default;
 
 .sf-gallery {
+  position: relative;
   width: 100%;
   text-align: center;
   display: flex;
@@ -32,7 +33,7 @@ $gallery__stage-cursor: zoom-in !default;
     margin: 0;
     padding: 0;
     display: inline-flex;
-    top: 100%;
+    bottom: $gallery__item-mobile-size;
 
     @media (min-width: $desktop-min) {
       position: static;
@@ -57,7 +58,7 @@ $gallery__stage-cursor: zoom-in !default;
 
     &::before {
       display: block;
-      content: " ";
+      content: "";
       height: $gallery__item-mobile-size;
       width: $gallery__item-mobile-size;
       background: $gallery__item-mobile-background;

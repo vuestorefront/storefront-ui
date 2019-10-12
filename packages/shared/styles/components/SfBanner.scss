@@ -1,126 +1,99 @@
-@import '../variables';
-
-$banner-padding: $spacer-extra-big !default;
-$banner-background-size: cover !default;
-$banner-background-position: bottom left !default;
-$banner-mobile-padding: $spacer-big !default;
-$banner__subtitle-font-family: $body-font-family-primary !default;
-$banner__subtitle-font-size: 1.5rem !default;
-$banner__subtitle-font-weight: 300 !default;
+@import "../variables";
+$banner-min-height: 9rem !default;
+$banner-min-height-desktop: 20rem !default;
+$banner-padding-x: 1.25rem !default;
+$banner-padding-y: 1.25rem !default;
+$banner-padding-y-desktop: 4rem !default;
+$banner-padding-x-desktop: 5rem !default;
+$banner-color: $c-text-primary !default;
+$banner-font-family: $body-font-family-secondary !default;
+$banner-font-weight: $body-font-weight-primary !default;
+$banner-line-height: 1.6 !default;
+$banner-font-size: $font-size-big-desktop !default;
 $banner__subtitle-color: $c-dark-secondary !default;
-$banner__subtitle-text-transform: none !default;
-$banner-mobile__subtitle-font-size: 0.875rem !default;
-$banner__title-text-transform: uppercase !default;
-$banner__title-font-weight: 300 !default;
-$banner__title-font-size: 3rem !default;
-$banner__title-font-family: $body-font-family-secondary !default;
-$banner__title-color: $c-dark-primary !default;
-$banner-mobile__title-font-size: 1.125rem !default;
-$banner__description-font-family: $body-font-family-secondary !default;
-$banner__description-font-size: 1.125rem !default;
-$banner__description-color: $c-dark-primary !default;
-$banner__description-font-weight: 300 !default;
-$banner__call-to-action-font-size: 0.875rem !default;
-$banner__call-to-action-background-color: $c-dark-primary !default;
-$banner--secondary__call-to-action-color: $c-text-on-dark !default;
-$banner--secondary__call-to-action-background-color: $c-green-primary !default;
+$banner__subtitle-font-family: $body-font-family-primary !default;
+$banner__subtitle-font-size: $font-size-regular-mobile !default;
+$banner__subtitle-font-size-desktop: $font-size-extra-big-desktop !default;
+$banner__subtitle-font-weight: $body-font-weight-primary !default;
+$banner__subtitle-line-height: 1.16 !default;
+$banner__title-font-size: $font-size-extra-big-mobile !default;
+$banner__title-font-size-desktop: 3rem !default;
+$banner__title-font-weight: $body-font-weight-primary !default;
+$banner__description-line-height: 1.6 !default;
+$banner__description-margin: 1.875rem 0 0 0 !default;
+$banner--slim-padding: 5rem 2.5rem !default;
+$banner--slim__title-font-size: $h1-font-size-desktop !default;
 
 .sf-banner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  $this: &;
   box-sizing: border-box;
-  min-height: 9rem;
-  padding: $banner-mobile-padding;
-  background-size: $banner-background-size;
-  background-position: $banner-background-position;
-  text-align: left;
+  display: flex;
+  min-height: $banner-min-height;
+  padding: $banner-padding-y $banner-padding-x;
+  color: $banner-color;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: cover;
+  font-family: $banner-font-family;
+  font-size: $banner-font-size;
+  font-weight: $banner-font-weight;
+  line-height: $banner-line-height;
   @media (min-width: $desktop-min) {
-    min-height: 20rem;
-    padding: $banner-padding;
+    min-height: $banner-min-height-desktop;
+    padding: $banner-padding-y-desktop $banner-padding-x-desktop
+      $banner-padding-y-desktop calc(50% + #{$banner-padding-x-desktop});
   }
   &__container {
-    width: 100%;
-    @media (min-width: $desktop-min) {
-      width: 50%;
-    }
+    flex-basis: 100%;
   }
   &__subtitle {
-    margin: 0;
-    padding: 0;
     color: $banner__subtitle-color;
     font-family: $banner__subtitle-font-family;
-    font-size: $banner-mobile__subtitle-font-size;
+    font-size: $banner__subtitle-font-size;
     font-weight: $banner__subtitle-font-weight;
-    text-transform: none;
-    @media (min-width: $desktop-min) {
-      font-size: $banner__subtitle-font-size;
-    }
+    line-height: $banner__subtitle-line-height;
   }
   &__title {
-    margin: 0;
-    padding: 0;
-    text-transform: $banner__title-text-transform;
-    font-family: $banner__title-font-family;
-    font-size: $banner-mobile__title-font-size;
+    font-size: $banner__title-font-size;
     font-weight: $banner__title-font-weight;
-    line-height: 1.6;
-    color: $banner__title-color;
-    @media (min-width: $desktop-min) {
-      font-size: $banner__title-font-size;
+    @media screen and (min-width: $desktop-min) {
+      font-size: $banner__title-font-size-desktop;
     }
   }
   &__description {
     display: none;
-    margin: 0;
-    padding: 0;
-    color: $banner__description-color;
-    font-family: $banner__description-font-family;
-    font-weight: $banner__description-font-weight;
-    font-size: $banner__description-font-size;
-    line-height: 1.6;
-    @media (min-width: $desktop-min) {
-      display: flex;
+    @media screen and (min-width: $desktop-min) {
+      display: block;
+      margin: $banner__description-margin;
     }
   }
   &__call-to-action {
     display: none;
-    margin-top: $spacer-big;
-    background-color: $banner__call-to-action-background-color;
-    font-size: $banner__call-to-action-font-size;
-    @media (min-width: $desktop-min) {
-      display: flex;
+    @media screen and (min-width: $desktop-min) {
+      display: block;
+      margin-top: $spacer-big;
     }
-  }
-  &--top {
-    justify-content: flex-start;
-  }
-  &--bottom {
-    justify-content: flex-end;
-  }
-  &--center {
-    justify-content: center;
   }
   &--left {
-    align-items: flex-start;
-  }
-  &--secondary {
-    .sf-banner__call-to-action {
-      color: $banner--secondary__call-to-action-color;
-      background-color: $banner--secondary__call-to-action-background-color;
+    @media screen and (min-width: $desktop-min) {
+      padding: $banner-padding-y-desktop
+        calc(50% + #{$banner-padding-x-desktop}) $banner-padding-y-desktop
+        $banner-padding-x-desktop;
     }
   }
-  &--container-medium {
-    .sf-banner__container {
-      @media (min-width: $desktop-min) {
-        width: 75%;
+  &--slim {
+    padding: $banner-padding-y $banner-padding-x;
+    @media (min-width: $desktop-min) {
+      padding: $banner--slim-padding;
+    }
+    #{$this}__container {
+      @media screen and (min-width: $desktop-min) {
+        flex-basis: 100%;
       }
     }
-  }
-  &--container-full {
-    .sf-banner__container {
-      @media (min-width: $desktop-min) {
-        width: 100%;
+    #{$this}__title {
+      @media screen and (min-width: $desktop-min) {
+        font-size: $banner--slim__title-font-size;
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <div id="category">
-    <div class="navbar">
+    <div class="navbar section">
       <div class="navbar__aside desktop-only">
         <h1 class="navbar__title">Categories</h1>
       </div>
@@ -45,6 +45,7 @@
               v-for="option in sortByOptions"
               :key="option.value"
               :value="option.value"
+              class="sort-by__option"
               >{{ option.label }}</SfSelectOption
             >
           </SfSelect>
@@ -92,42 +93,25 @@
         </SfButton>
       </div>
     </div>
-    <div class="main">
+    <div class="main section">
       <div class="sidebar desktop-only">
-        <SfAccordion :firstOpen="true">
-          <template v-slot="{ selected }">
-            <SfAccordionItem
-              v-for="(accordion, i) in sidebarAccordion"
-              :key="i"
-              :header="accordion.header"
-            >
-              <template v-slot="{ handler }">
-                <SfList>
-                  <SfListItem v-for="(item, j) in accordion.items" :key="j">
-                    <div
-                      @click="
-                        () => {
-                          handler(item.label);
-                        }
-                      "
-                    >
-                      <SfMenuItem
-                        class="menu-item"
-                        :class="{
-                          'menu-item--active': selected === item.label
-                        }"
-                        :label="item.label"
-                        :count="item.count"
-                      />
-                    </div>
-                  </SfListItem>
-                </SfList>
-              </template>
-            </SfAccordionItem>
-          </template>
+        <SfAccordion :firstOpen="true" :showChevron="false">
+          <SfAccordionItem
+            v-for="(accordion, i) in sidebarAccordion"
+            :key="i"
+            :header="accordion.header"
+          >
+            <template>
+              <SfList>
+                <SfListItem v-for="(item, j) in accordion.items" :key="j">
+                  <SfMenuItem :label="item.label" :count="item.count" />
+                </SfListItem>
+              </SfList>
+            </template>
+          </SfAccordionItem>
         </SfAccordion>
       </div>
-      <div class="products" style="">
+      <div class="products">
         <div class="products__list">
           <SfProductCard
             v-for="(product, i) in products"
@@ -135,13 +119,10 @@
             :title="product.title"
             :regular-price="product.price.regular"
             :special-price="product.price.special"
-            :rating="product.rating.score"
+            :max-rating="product.rating.max"
+            :score-rating="product.rating.score"
             :isOnWishlist="product.isOnWishlist"
-            @click:wishlist="
-              () => {
-                toggleWishlist(i);
-              }
-            "
+            @click:wishlist="toggleWishlist(i)"
             class="products__product-card"
           />
         </div>
@@ -169,6 +150,7 @@
         :key="filter.value"
         :label="filter.label"
         :count="filter.count"
+        class="filters__item"
       />
       <h3 class="filters__title">Color</h3>
       <SfFilter
@@ -177,6 +159,7 @@
         :value="filter.value"
         :label="filter.label"
         :color="filter.color"
+        class="filters__item"
       />
       <h3 class="filters__title">Size</h3>
       <SfFilter
@@ -185,6 +168,7 @@
         :value="filter.value"
         :label="filter.label"
         :count="filter.count"
+        class="filters__item"
       />
       <h3 class="filters__title">Price</h3>
       <SfFilter
@@ -193,6 +177,7 @@
         :value="filter.value"
         :label="filter.label"
         :count="filter.count"
+        class="filters__item"
       />
       <h3 class="filters__title">Material</h3>
       <SfFilter
@@ -201,6 +186,7 @@
         :value="filter.value"
         :label="filter.label"
         :count="filter.count"
+        class="filters__item"
       />
       <div class="filters__buttons">
         <SfButton
@@ -215,6 +201,32 @@
         >
       </div>
     </SfSidebar>
+    <SfBottomNavigation class="mobile-only">
+      <SfBottomNavigationItem>
+        <SfIcon icon="home" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="menu" size="20px" style="width: 25px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="heart" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="profile" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem class="bottom-navigation-circle">
+        <SfCircleIcon
+          class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
+        >
+          <SfIcon
+            icon="add_to_cart"
+            size="20px"
+            color="white"
+            style="margin-right: 4px;"
+          />
+        </SfCircleIcon>
+      </SfBottomNavigationItem>
+    </SfBottomNavigation>
   </div>
 </template>
 <script>
@@ -228,7 +240,9 @@ import {
   SfProductCard,
   SfPagination,
   SfAccordion,
-  SfSelect
+  SfSelect,
+  SfBottomNavigation,
+  SfCircleIcon
 } from "../../../../index.js";
 
 export default {
@@ -236,7 +250,7 @@ export default {
     return {
       currentPage: 1,
       sortBy: "price-up",
-      isFilterSidebarOpen: true,
+      isFilterSidebarOpen: false,
       filters: {
         color: [],
         collection: [],
@@ -411,7 +425,9 @@ export default {
     SfPagination,
     SfMenuItem,
     SfAccordion,
-    SfSelect
+    SfSelect,
+    SfBottomNavigation,
+    SfCircleIcon
   }
 };
 </script>
@@ -419,35 +435,56 @@ export default {
 @import "../../../css/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
 
+@mixin for-desktop {
+  @media screen and (min-width: $desktop-min) {
+    @content;
+  }
+}
+
 #category {
   box-sizing: border-box;
-  max-width: 1240px;
-  margin: auto;
-  /*padding: 0 $spacer-big;
-  @media screen and (min-width: $desktop-min) {
-    padding: 0;
-  }*/
+  margin: 0 0 60px 0;
+  @include for-desktop {
+    max-width: 1240px;
+    margin: auto;
+  }
 }
 .navbar {
+  position: relative;
   display: flex;
-  padding: $spacer;
-  border-top: 1px solid $c-border;
-  border-bottom: 1px solid $c-border;
-  @media screen and (min-width: $desktop-min) {
-    padding: 0;
+  @include for-desktop {
+    border-top: 1px solid $c-border;
+    border-bottom: 1px solid $c-border;
   }
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: $spacer-big;
+    width: calc(100% - (#{$spacer-big} * 2));
+    height: 1px;
+    background-color: $c-border;
+    content: "";
+    @include for-desktop {
+      content: none;
+    }
+  }
+
   &__aside {
     display: flex;
     align-items: center;
     flex: 0 0 15%;
-    padding: 0 $spacer-extra-big;
+    padding: 1.85rem $spacer-extra-big;
     border-right: 1px solid $c-border;
   }
   &__main {
     flex: 1;
     display: flex;
     align-items: center;
+    padding: $spacer-medium 0;
     font-size: $font-size-small-desktop;
+    @include for-desktop {
+      padding: 1.85rem 0;
+    }
   }
   &__title {
     padding: 0;
@@ -463,14 +500,14 @@ export default {
     color: inherit;
     font-size: inherit;
     font-weight: 500;
-    @media (min-width: $desktop-min) {
+    @include for-desktop {
       margin: 0 0 0 $spacer-extra-big;
       font-weight: 400;
       text-transform: none;
     }
     svg {
       fill: $c-dark-primary;
-      @media (min-width: $desktop-min) {
+      @include for-desktop {
         fill: $c-gray-secondary;
       }
     }
@@ -492,7 +529,7 @@ export default {
   }
   &__counter {
     margin: auto;
-    @media (min-width: $desktop-min) {
+    @include for-desktop {
       margin-right: 0;
     }
   }
@@ -514,29 +551,36 @@ export default {
   border-right: 1px solid $c-border;
 }
 .products {
+  box-sizing: border-box;
   flex: 1;
-  @media (min-width: $desktop-min) {
+  margin: 0 -#{$spacer};
+  @include for-desktop {
     margin: $spacer-big;
   }
   &__list {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 1.875rem - 0.5rem;
   }
   &__product-card {
     flex: 0 0 50%;
     padding: $spacer;
-    @media (min-width: $desktop-min) {
+    @include for-desktop {
       flex: 0 0 25%;
       padding: $spacer-big;
     }
   }
   &__pagination {
-    @media (min-width: $desktop-min) {
+    @include for-desktop {
+      display: flex;
+      justify-content: center;
       margin-top: $spacer-extra-big;
     }
   }
 }
 .filters {
+  position: relative;
+  z-index: 10;
   &__title:not(:first-child),
   &__buttons {
     margin-top: $spacer-big * 3;
@@ -550,23 +594,27 @@ export default {
     background: $c-light-primary;
     color: #a3a5ad;
   }
+  &__item {
+    padding: $spacer-small 0;
+  }
 }
 .sort-by {
   flex: unset;
-  width: 175px;
-  /deep/ .sf-select__selected {
+  width: 190px;
+  padding: 0 10px;
+  font-size: inherit;
+  &__option {
     padding: 10px;
-  }
-  /deep/ .sf-select-option {
-    padding: 10px;
+    font-size: inherit;
   }
 }
-.menu-item {
-  &--active,
-  &:hover {
-    font-weight: 500;
-    text-decoration: underline;
-    cursor: pointer;
+.bottom-navigation-circle {
+  opacity: 1;
+}
+.section {
+  @media (max-width: $desktop-min) {
+    padding-left: $spacer-big;
+    padding-right: $spacer-big;
   }
 }
 </style>

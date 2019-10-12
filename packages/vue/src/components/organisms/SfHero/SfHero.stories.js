@@ -102,7 +102,6 @@ storiesOf("Organisms|Hero", module)
           default: options(
             "CSS Modifier for 1st item",
             {
-              null: "null",
               "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
               "bg-top-right": "sf-hero-item--position-bg-top-right",
               "bg-top-left": "sf-hero-item--position-bg-top-left",
@@ -116,7 +115,6 @@ storiesOf("Organisms|Hero", module)
           default: options(
             "CSS Modifier for 2nd item",
             {
-              null: "null",
               "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
               "bg-top-right": "sf-hero-item--position-bg-top-right",
               "bg-top-left": "sf-hero-item--position-bg-top-left",
@@ -130,7 +128,6 @@ storiesOf("Organisms|Hero", module)
           default: options(
             "CSS Modifier for 3rd item",
             {
-              null: "null",
               "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
               "bg-top-right": "sf-hero-item--position-bg-top-right",
               "bg-top-left": "sf-hero-item--position-bg-top-left",
@@ -141,7 +138,7 @@ storiesOf("Organisms|Hero", module)
           )
         }
       },
-      template: `<SfHero>
+      template: `<div style="max-width: 1240px; margin: auto"><SfHero :sliderOptions="{autoplay: false}">
         <template>
           <div v-for="(item, index) in items">
             <SfHeroItem
@@ -154,7 +151,7 @@ storiesOf("Organisms|Hero", module)
             />
           </div>
         </template>
-      </SfHero>`
+      </SfHero></div>`
     }),
     {
       info: {
