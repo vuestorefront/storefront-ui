@@ -8,19 +8,18 @@ cache:
     - node_modules
     - packages/vue/node_modules
 
-script:
-  - yarn
-
 jobs:
   include:
+    - stage: Precache
+      script: yarn install --frozen-lockfile
+
     - stage: Build
-    - script:
+      script:
         - cd packages/vue
         - yarn lint
         - yarn build
 
-    - stage: Tests
-    - scripts: 
-      - cd packages/vue
-      - yarn test:unit
-      name: "Unit Tests"
+    - stage: Test
+      script:
+        - cd packages/vue
+        - yarn test:unit
