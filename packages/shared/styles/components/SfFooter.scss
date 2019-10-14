@@ -12,7 +12,7 @@ $acoordion--open-background-color: $c-light-secondary !default;
 
 .sf-footer-row {
   line-height: $footer__row-line-height;
-  @media screen and (min-width: $tablet-min) {
+  @media screen and (min-width: $desktop-min) {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -21,7 +21,7 @@ $acoordion--open-background-color: $c-light-secondary !default;
 .sf-footer-column {
   font-family: $footer__column-content-font-family;
   &-wrapper {
-    @media screen and (min-width: $tablet-min) {
+    @media screen and (min-width: $desktop-min) {
       max-width: 24.9999%;
       flex: 1 1 auto;
       justify-content: flex-start;
@@ -37,7 +37,7 @@ $acoordion--open-background-color: $c-light-secondary !default;
   }
   &__placeholder {
     display: none;
-    @media screen and (min-width: $tablet-min) {
+    @media screen and (min-width: $desktop-min) {
       display: unset;
     }
   }
