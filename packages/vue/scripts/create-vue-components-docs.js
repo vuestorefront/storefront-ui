@@ -226,7 +226,7 @@ function readVuepressConfig(filename) {
 
 function parseComponentFile(contentComponentFile) {
   const headlines = ["# component-description", "# common-usage"];
-  const reString = headlines.join("\\n([\\s\\S]+?)\\s*?") + "\\n([\\s\\S]+)";
+  const reString = headlines.join("\\r\\n|\\n([\\s\\S]+?)\\s*?") + "\\r\\n|\\n([\\s\\S]+)";
   const regExp = new RegExp(reString, "m");
   const reResult = regExp.exec(contentComponentFile);
 
@@ -539,7 +539,7 @@ function editVuepressConfigFiles(sfComponents) {
   // - (2) the indentation of the start tag (needed for nice indentation),
   // - (3) the components part (including start and end tag)
   // - (4) everything after the end tag
-  let regExp = /([\s\S]+)\n(\s*)(\/\/\s*@components-docs-start.*[\s\S]*@components-docs-end)\n([\s\S]+)/g;
+  let regExp = /([\s\S]+)\r\n|\n(\s*)(\/\/\s*@components-docs-start.*[\s\S]*@components-docs-end)\r\n|\n([\s\S]+)/g;
   let reResult = regExp.exec(contentConfigJs);
 
   if (!reResult || reResult.length !== 5) {
@@ -573,7 +573,7 @@ function editVuepressConfigFiles(sfComponents) {
   // - (4) the indentation of the start tag (needed for nice indentation)
   // - (5) the components part (including start and end tag)
   // - (6) everything after the end tag
-  regExp = /([\s\S]*?)\n?(\/\/\s*@components-docs-start.*[\s\S]*?@components-docs-end)\n([\s\S]+?)\n(\s*)(\/\/\s*@components-docs-start.*[\s\S]*@components-docs-end)\n([\s\S]+)/g;
+  regExp = /([\s\S]*?)\r\n|\n?(\/\/\s*@components-docs-start.*[\s\S]*?@components-docs-end)\r\n|\n([\s\S]+?)\n(\s*)(\/\/\s*@components-docs-start.*[\s\S]*@components-docs-end)\n([\s\S]+)/g;
   reResult = regExp.exec(contentEnhanceApp);
 
   if (!reResult || reResult.length !== 7) {
