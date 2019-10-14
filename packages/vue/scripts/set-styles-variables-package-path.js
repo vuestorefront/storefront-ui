@@ -8,7 +8,7 @@ const stylesPath = path.resolve(
   "../../shared/styles/_variables.scss"
 );
 
-function setStylesVariablePackagePath() {
+function setStylesVariablesPackagePath() {
   fs.readFile(stylesPath, "utf8", function(err, data) {
     if (err) return console.error(err);
     const result = data.replace("../../../../sfui.scss", "../../vue/sfui.scss");
@@ -20,5 +20,5 @@ function setStylesVariablePackagePath() {
 }
 
 module.exports = {
-  setStylesVariablePackagePath
+  setStylesVariablesPackagePath
 };

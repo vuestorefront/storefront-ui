@@ -2,7 +2,7 @@
 
 const {
   setStylesVariablesPackagePath
-} = require("./set-styles-variables-root-path");
+} = require("./set-styles-variables-package-path");
 
 function runPostPublish() {
   setStylesVariablesPackagePath();
