@@ -1,5 +1,5 @@
-<div class="sf-footer-column-wrapper">
-    <div class="sf-footer-column">
+<section class="sf-footer-column-wrapper">
+    <div class="sf-footer-column mobile-only">
         <SfAccordion class="sf-accordion" :multiple="false" :firstOpen="false"
             :showChevron="false" transition="fade">
             <template v-slot="{ selected }">
@@ -20,7 +20,7 @@
             </template>
         </SfAccordion>
     </div>
-    <div class="sf-footer-column-desktop">
+    <div class="sf-footer-column-desktop desktop-only">
         <div class="sf-footer-column__title">
             {{ title }}
         </div>
@@ -28,4 +28,4 @@
             <slot />
         </div>
     </div>
-</div>
+</section>

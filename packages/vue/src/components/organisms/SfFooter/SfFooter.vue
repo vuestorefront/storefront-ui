@@ -2,4 +2,5 @@
 <template lang="html" src="./SfFooter.html"></template>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/SfFooter.scss";
+@import "~@storefront-ui/shared/styles/helpers/visibility";
 </style>
