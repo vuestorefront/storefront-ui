@@ -19,7 +19,8 @@
     "docs:build": "cross-var $npm_execpath docs:vuecomponents && vuepress build docs",
     "create-index-files": "node scripts/create-index-files.js",
     "postinstall": "node scripts/postinstall.js",
-    "version": "node scripts/version.js"
+    "version": "node scripts/version.js",
+    "postpublish": "node scripts/postpublish.js"
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
