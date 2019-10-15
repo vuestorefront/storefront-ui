@@ -43,17 +43,14 @@ const colors = [
   ["blue-secondary", "$c-blue-secondary"]
 ];
 
-const iconsList = (() => {
-  //TODO: Get icon svg files all in black color as default.
-  const needInverted = ["add_to_cart", "added_to_cart", "check", "close"];
+const getIconPaths = paths => paths.reduce((str, path) => `${str}<path d="${path}"></path>`, '')
 
-  return Object.keys(icons).map(icon => [
+const iconsList = (() => Object.keys(icons).map(icon => [
     icon,
-    `<img alt="${icon}" width="20px" height="20px" src="assets/${icon}.svg" ${
-      needInverted.includes(icon) ? 'style="filter:invert(1);"' : ""
-    }/>`
-  ]);
-})();
+    `<svg width="20px" height="20px" viewBox="${icons[icon].viewBox}" xmlns="http://www.w3.org/2000/svg">
+      ${getIconPaths(icons[icon].paths)}
+    </svg>`
+  ]))();
 
 const cssTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
