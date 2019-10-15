@@ -7,16 +7,16 @@
   ],
   "version": "0.3.0",
   "scripts": {
-    "serve": "$npm_execpath create-index-files && vue-cli-service serve",
-    "build": "$npm_execpath create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
+    "serve": "yarpm create-index-files && vue-cli-service serve",
+    "build": "yarpm create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test:dev": "vue-cli-service test:unit --watch",
-    "storybook:serve": "$npm_execpath create-index-files && vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
-    "storybook:build": "$npm_execpath create-index-files && vue-cli-service storybook:build -s ./public -c config/storybook",
+    "storybook:serve": "yarpm create-index-files && vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
+    "storybook:build": "yarpm create-index-files && vue-cli-service storybook:build -s ./public -c config/storybook",
     "docs:vuecomponents": "node scripts/create-vue-components-docs.js",
-    "docs:dev": "$npm_execpath docs:vuecomponents && vuepress dev docs",
-    "docs:build": "$npm_execpath docs:vuecomponents && vuepress build docs",
+    "docs:dev": "yarpm docs:vuecomponents && vuepress dev docs",
+    "docs:build": "yarpm docs:vuecomponents && vuepress build docs",
     "create-index-files": "node scripts/create-index-files.js",
     "postinstall": "node scripts/postinstall.js",
     "version": "node scripts/version.js",
@@ -84,7 +84,8 @@
     "vue-cli-plugin-storybook": "^0.6.0",
     "vue-docgen-api": "^3.22.3",
     "vue-template-compiler": "^2.6.8",
-    "vuepress": "^0.14.10"
+    "vuepress": "^0.14.10",
+    "yarpm": "^0.2.1"
   },
   "peerDependencies": {
     "vue": "^2.6.x"
