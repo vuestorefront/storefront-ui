@@ -3,11 +3,6 @@
   "version": "0.3.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "postinstall": "node scripts/postinstall.js",
-    "version": "node scripts/version.js",
-    "postpublish": "node scripts/postpublish.js"
-  },
   "author": "Filip Rakowski",
   "license": "ISC",
   "publishConfig": {

@@ -19,7 +19,8 @@
     "docs:build": "$npm_execpath docs:vuecomponents && vuepress build docs",
     "create-index-files": "node scripts/create-index-files.js",
     "postinstall": "node scripts/postinstall.js",
-    "version": "node scripts/version.js"
+    "version": "node scripts/version.js",
+    "postpublish": "node scripts/postpublish.js"
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
@@ -81,9 +82,9 @@
     "ts-jest": "^24.0.1",
     "typescript": "^3.5.3",
     "vue-cli-plugin-storybook": "^0.6.0",
+    "vue-docgen-api": "^3.22.3",
     "vue-template-compiler": "^2.6.8",
-    "vuepress": "^0.14.10",
-    "vue-docgen-api": "^3.22.3"
+    "vuepress": "^0.14.10"
   },
   "peerDependencies": {
     "vue": "^2.6.x"
