@@ -43,11 +43,15 @@ const colors = [
   ["blue-secondary", "$c-blue-secondary"]
 ];
 
-const getIconPaths = paths => paths.reduce((str, path) => `${str}<path d="${path}"></path>`, '')
+const getIconPaths = paths =>
+  paths.reduce((str, path) => `${str}<path d="${path}"></path>`, "");
 
-const iconsList = (() => Object.keys(icons).map(icon => [
+const iconsList = (() =>
+  Object.keys(icons).map(icon => [
     icon,
-    `<svg width="20px" height="20px" viewBox="${icons[icon].viewBox}" xmlns="http://www.w3.org/2000/svg">
+    `<svg width="20px" height="20px" viewBox="${
+      icons[icon].viewBox
+    }" xmlns="http://www.w3.org/2000/svg">
       ${getIconPaths(icons[icon].paths)}
     </svg>`
   ]))();
