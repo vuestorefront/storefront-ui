@@ -20,12 +20,10 @@ $acoordion--open-background-color: $c-light-secondary !default;
 }
 .sf-footer-column {
   font-family: $footer__column-content-font-family;
-  &-wrapper {
-    @media screen and (min-width: $desktop-min) {
-      max-width: 24.9999%;
-      flex: 1 1 auto;
-      justify-content: flex-start;
-    }
+  @media screen and (min-width: $desktop-min) {
+    max-width: 24.9999%;
+    flex: 1 1 auto;
+    justify-content: flex-start;
   }
   &__title {
     font-size: $footer__column-title-font-size;
