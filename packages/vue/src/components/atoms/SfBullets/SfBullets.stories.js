@@ -46,6 +46,10 @@ const methods = {
     this.index = index;
   }
 };
+const summary = `<h2>Usage</h2>
+<pre><code>import { SfBullets } from "@storefront-ui/dist/SfBullets.vue"</code></pre>
+${generateStorybookTable(scssTableConfig, "SCSS variables")}
+${generateStorybookTable(eventsTableConfig, "Events")}`;
 
 storiesOf("Atoms|Bullets", module)
   .addDecorator(withKnobs)
@@ -67,10 +71,7 @@ storiesOf("Atoms|Bullets", module)
     }),
     {
       info: {
-        summary: `<h2>Usage</h2>
-        <pre><code>import { SfBullets } from "@storefront-ui/dist/SfBullets.vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(eventsTableConfig, "Events")}`
+        summary
       }
     }
   )
@@ -104,10 +105,7 @@ storiesOf("Atoms|Bullets", module)
     }),
     {
       info: {
-        summary: `<h2>Usage</h2>
-        <pre><code>import { SfBullets } from "@storefront-ui/dist/SfBullets.vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(eventsTableConfig, "Events")}`
+        summary
       }
     }
   )
@@ -140,10 +138,7 @@ storiesOf("Atoms|Bullets", module)
     }),
     {
       info: {
-        summary: `<h2>Usage</h2>
-        <pre><code>import { SfBullets } from "@storefront-ui/dist/SfBullets.vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(eventsTableConfig, "Events")}`
+        summary
       }
     }
   );

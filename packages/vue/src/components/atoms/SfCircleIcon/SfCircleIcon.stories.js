@@ -28,6 +28,12 @@ const cssTableConfig = {
     ["sf-circle-button--big", "transform normal circle icon to big"]
   ]
 };
+
+const summary = `<h2> Usage </h2>
+<pre><code>import { SfCircleIcon } from "@storefront-ui/vue"</code></pre>
+${generateStorybookTable(scssTableConfig, "SCSS variables")}
+${generateStorybookTable(cssTableConfig, "CSS modifiers")}`;
+
 storiesOf("Atoms|CircleIcon", module)
   .addDecorator(withKnobs)
   .add(
@@ -65,16 +71,21 @@ storiesOf("Atoms|CircleIcon", module)
     }),
     {
       info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import { SfCircleIcon } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}`
+        summary
       }
     }
   )
-  .add("[slot] default", () => ({
-    components: { SfCircleIcon },
-    template: `<SfCircleIcon>
+  .add(
+    "[slot] default",
+    () => ({
+      components: { SfCircleIcon },
+      template: `<SfCircleIcon>
         <img src='assets/storybook/menu.svg'>
       </SfCircleIcon>`
-  }));
+    }),
+    {
+      info: {
+        summary
+      }
+    }
+  );
