@@ -1,34 +1,24 @@
-/* eslint-disable import/no-extraneous-dependencies */
+// /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfArrow from "./SfArrow.vue";
 
+// use this to document scss vars
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
     ["$arrow__button-color", "$c-light-primary", "color for button"],
-    [
-      "$arrow__button-color--hover",
-      "$c-dark-primary",
-      "color for hovered button"
-    ],
-    [
-      "$arrow__button-shadow",
-      "0 5px 12px -6px rgba($c-dark-primary, 0)",
-      "shadow for hovered button"
-    ],
-    [
-      "$arrow__button-shadow--right",
-      "0 -5px 12px -5px rgba($c-dark-primary, 0.6)",
-      "shadow for hovered right arrow button"
-    ],
+    ["$arrow__button-color--hover", "$c-dark-primary", "color for hovered button"],
+    ["$arrow__button-shadow", "0 5px 12px -6px rgba($c-dark-primary, 0)", "shadow for hovered button"],
+    ["$arrow__button-shadow--right", "0 -5px 12px -5px rgba($c-dark-primary, 0.6)", "shadow for hovered right arrow button"],
     ["$arrow__icon-color", "$c-white", "color for icon"],
     ["$arrow__icon-color--hover", "$c-dark-primary", "color for hovered"]
   ]
 };
 
+// use this to document css modifier
 const cssTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
   tableBodyConfig: [
@@ -43,13 +33,15 @@ const cssTableConfig = {
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
   .add(
-    "Basic",
+    "Default",
     () => ({
-      components: { SfArrow },
+      components: {
+        SfArrow
+      },
       props: {
         customClass: {
           default: options(
-            "CSS Modifiers",
+            "CSS Modifier",
             {
               "sf-arrow--right": "sf-arrow--right",
               "sf-arrow--long": "sf-arrow--long",
@@ -62,14 +54,16 @@ storiesOf("Atoms|Arrow", module)
           )
         }
       },
-      template: `<SfArrow :class="customClass" />`
+      template: `<SfArrow
+        :class="customClass" />`
     }),
-    {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import { SfArrow } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}`
-      }
-    }
+    // {
+    //   info: {
+    //     summary: `<p><!-- Component description. --></p>
+    //    <h2>Usage</h2>
+    //    <pre><code>import { SfArrow } from "@storefront-ui/vue"</code></pre>
+    //    ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+    //    ${generateStorybookTable(cssTableConfig, "CSS modifier")}`
+    //   }
+    // }
   );
