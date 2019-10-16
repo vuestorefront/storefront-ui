@@ -96,36 +96,19 @@
     <div class="main section">
       <div class="sidebar desktop-only">
         <SfAccordion :firstOpen="true" :showChevron="false">
-          <template v-slot="{ selected }">
-            <SfAccordionItem
-              v-for="(accordion, i) in sidebarAccordion"
-              :key="i"
-              :header="accordion.header"
-            >
-              <template v-slot="{ handler }">
-                <SfList>
-                  <SfListItem v-for="(item, j) in accordion.items" :key="j">
-                    <div
-                      @click="
-                        () => {
-                          handler(item.label);
-                        }
-                      "
-                    >
-                      <SfMenuItem
-                        class="menu-item"
-                        :class="{
-                          'menu-item--active': selected === item.label
-                        }"
-                        :label="item.label"
-                        :count="item.count"
-                      />
-                    </div>
-                  </SfListItem>
-                </SfList>
-              </template>
-            </SfAccordionItem>
-          </template>
+          <SfAccordionItem
+            v-for="(accordion, i) in sidebarAccordion"
+            :key="i"
+            :header="accordion.header"
+          >
+            <template>
+              <SfList>
+                <SfListItem v-for="(item, j) in accordion.items" :key="j">
+                  <SfMenuItem :label="item.label" :count="item.count" />
+                </SfListItem>
+              </SfList>
+            </template>
+          </SfAccordionItem>
         </SfAccordion>
       </div>
       <div class="products">
@@ -589,11 +572,15 @@ export default {
   }
   &__pagination {
     @include for-desktop {
+      display: flex;
+      justify-content: center;
       margin-top: $spacer-extra-big;
     }
   }
 }
 .filters {
+  position: relative;
+  z-index: 10;
   &__title:not(:first-child),
   &__buttons {
     margin-top: $spacer-big * 3;
@@ -619,15 +606,6 @@ export default {
   &__option {
     padding: 10px;
     font-size: inherit;
-  }
-}
-.menu-item {
-  padding: $spacer-small 0;
-  &--active,
-  &:hover {
-    font-weight: 500;
-    text-decoration: underline;
-    cursor: pointer;
   }
 }
 .bottom-navigation-circle {

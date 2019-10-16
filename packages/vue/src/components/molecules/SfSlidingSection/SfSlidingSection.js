@@ -1,5 +1,4 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import { isActive } from "vuepress/lib/default-theme/util";
 
 export default {
   name: "SfSlidingSection",
@@ -18,6 +17,7 @@ export default {
   },
   watch: {
     isMobile(mobile) {
+      if (typeof window === "undefined") return;
       if (!mobile) {
         this.isActive = false;
         this.hasScrollLock = false;
@@ -28,6 +28,7 @@ export default {
       this.hammer.set({ enable: true });
     },
     isActive(active) {
+      if (typeof window === "undefined") return;
       if (!active) {
         this.hasStaticHeight = false;
         if (!this.isMobile) {
@@ -40,12 +41,26 @@ export default {
       this.hasScrollLock = false;
     },
     hasScrollLock(scrollLock) {
+      if (typeof window === "undefined") return;
       if (!scrollLock) {
         this.scrollUnlock();
         return;
       }
       this.scrollLock();
     }
+  },
+  async mounted() {
+    const hammer = await import("hammerjs");
+    const Hammer = hammer.default;
+    this.hammer = new Hammer(document, {
+      enable: false
+    }).on("pan", this.touchHandler);
+    this.isMobileHandler();
+    window.addEventListener("resize", this.isMobileHandler, { passive: true });
+  },
+  beforeDestroy() {
+    this.scrollUnlock();
+    this.hammer.destroy();
   },
   methods: {
     touchPreventDefault(e) {
@@ -59,13 +74,13 @@ export default {
     scrollLock() {
       window.scrollTo(0, 0);
       document.body.classList.add("sf-sliding-section--has-scroll-lock");
-      window.addEventListener("touchstart", this.touchPreventDefault, {
+      window.addEventListener("touchmove", this.touchPreventDefault, {
         passive: false
       });
     },
     scrollUnlock() {
       document.body.classList.remove("sf-sliding-section--has-scroll-lock");
-      window.removeEventListener("touchstart", this.touchPreventDefault, {
+      window.removeEventListener("touchmove", this.touchPreventDefault, {
         passive: false
       });
     },
@@ -88,15 +103,5 @@ export default {
     closeHandler() {
       this.isActive = false;
     }
-  },
-  async mounted() {
-    const hammer = await import("hammerjs");
-    const Hammer = hammer.default;
-    this.hammer = new Hammer(document, {
-      enable: false,
-      direction: Hammer.DIRECTION_VERTICAL
-    }).on("pan", this.touchHandler);
-    this.isMobileHandler();
-    window.addEventListener("resize", this.isMobileHandler, { passive: true });
   }
 };

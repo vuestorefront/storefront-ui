@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import notes from "./README.md";
+import notes from "./storybook-notes.md";
 import SfHeader from "./SfHeader.vue";
 
 // Work in progress

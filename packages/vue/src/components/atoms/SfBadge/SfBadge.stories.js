@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfBadge from "./SfBadge.vue";
 
@@ -34,16 +34,15 @@ storiesOf("Atoms|Badge", module)
       components: { SfBadge },
       props: {
         customClass: {
-          default: select(
-            "CSS Modifier",
-            [
-              "null",
-              "sf-badge--alert",
-              "sf-badge--warning",
-              "sf-button--full-width",
-              "sf-button--full-width  sf-badge--warning"
-            ],
-            "null"
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-badge--alert": "sf-badge--alert",
+              "sf-badge--warning": "sf-badge--warning",
+              "sf-button--full-width": "sf-button--full-width"
+            },
+            "",
+            { display: "multi-select" }
           )
         }
       },

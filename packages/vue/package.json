@@ -5,21 +5,26 @@
     "*.scss",
     "*.css"
   ],
-  "version": "0.2.2",
+  "version": "0.3.1",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
+    "serve": "yarpm create-index-files && vue-cli-service serve",
+    "build": "yarpm create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test:dev": "vue-cli-service test:unit --watch",
-    "storybook:serve": "vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
-    "storybook:build": "vue-cli-service storybook:build -s ./public -c config/storybook",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "storybook:serve": "yarpm create-index-files && vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
+    "storybook:build": "yarpm create-index-files && vue-cli-service storybook:build -s ./public -c config/storybook",
+    "docs:vuecomponents": "node scripts/create-vue-components-docs.js",
+    "docs:dev": "yarpm docs:vuecomponents && vuepress dev docs",
+    "docs:build": "yarpm docs:vuecomponents && vuepress build docs",
+    "create-index-files": "node scripts/create-index-files.js",
+    "postinstall": "node scripts/postinstall.js",
+    "version": "node scripts/version.js",
+    "postpublish": "node scripts/postpublish.js"
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "^0.2.2",
+    "@storefront-ui/shared": "^0.3.1",
     "@vue/babel-preset-app": "^4.0.0-alpha.1",
     "core-js": "^3.1.3",
     "hammerjs": "^2.0.8",
@@ -37,13 +42,11 @@
     "webpack-dev-middleware": "3.6.0"
   },
   "files": [
-    "dist/*",
     "scripts/*",
-    "public/*",
     "src/*",
     "index.js",
-    "html.js",
-    "js.js"
+    "js.js",
+    "styles.scss"
   ],
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -79,8 +82,10 @@
     "ts-jest": "^24.0.1",
     "typescript": "^3.5.3",
     "vue-cli-plugin-storybook": "^0.6.0",
+    "vue-docgen-api": "^3.22.3",
     "vue-template-compiler": "^2.6.8",
-    "vuepress": "^0.14.10"
+    "vuepress": "^0.14.10",
+    "yarpm": "^0.2.1"
   },
   "peerDependencies": {
     "vue": "^2.6.x"
