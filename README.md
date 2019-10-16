@@ -10,6 +10,7 @@ Customization-first, performance-oriented and elegant UI framework for eCommerce
 
 - [Website](http://storefrontui.io/)
 - [Documentation](http://docs.storefrontui.io/)
+- [How to contribute](https://docs.storefrontui.io/contributing/become-a-contributor.html)
 - [Storybook](http://storybook.storefrontui.io/)
 - [Discord server](https://discord.gg/GS8hqFS)
 
@@ -51,27 +52,28 @@ You can find the stunning designs we are using for Storefront UI components [her
 
 # Contributing
 
-We are currently in a process of building the library. If you want to help shaping future of vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) you can find all the required information.
+We are currently in a process of building the library. If you want to help shaping future of vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://docs.storefrontui.io/contributing/become-a-contributor.html) you can find all the required information.
 
 # Maintainers
 
-Those awesome people are maintaining Storefront UI. They're ensuring that it performs smooth and looks awesome!
+[These awesome people](https://docs.storefrontui.io/meet-the-team.html) are maintaining Storefront UI. They're ensuring that it performs smooth and looks awesome!
 
 - Filip Rakowski ([@filrak](https://github.com/filrak))
 - Przemek Spaczek ([@przespa](https://github.com/przespa))
 - Leonardo Matos ([@leomp12](https://github.com/leomp12))
 - Maya Shavin ([@mayashavin](https://github.com/mayashavin))
 - Nicolò Maria Mezzopera ([@DonNicoJS](https://github.com/DonNicoJs))
+- Eduard Dopler ([@EduardDopler](https://github.com/EduardDopler))
 
 
-and amazing [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) commiting their time to make it better.
+and amazing [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) who are commiting their time to make it better.
 
-Thank you! There would be no Storefront UI without you
+Thank you! There would be no Storefront UI without you.
 
 # Supporters
 <a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="40px"></a>
 
 # Contributing
 
-Read [how to start](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) and become part of our amazing community ;)
+Read [how to start](https://docs.storefrontui.io/contributing/become-a-contributor.html) and become part of our amazing community ;)
 
