@@ -102,10 +102,10 @@ export default {
     computedPadding() {
       const computed = window.getComputedStyle(this.$el.parentElement);
       return {
-        top: parseInt(computed["padding-top"]),
-        right: parseInt(computed["padding-right"]),
-        bottom: parseInt(computed["padding-bottom"]),
-        left: parseInt(computed["padding-left"])
+        top: parseInt(computed["padding-top"], 10),
+        right: parseInt(computed["padding-right"], 10),
+        bottom: parseInt(computed["padding-bottom"], 10),
+        left: parseInt(computed["padding-left"], 10)
       };
     }
   },

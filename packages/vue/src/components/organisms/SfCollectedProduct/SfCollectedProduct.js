@@ -61,7 +61,7 @@ export default {
   },
   watch: {
     qty(value) {
-      const qty = parseInt(value);
+      const qty = parseInt(value, 10);
       if (qty <= 0) {
         this.$emit("input", "1");
         return;
