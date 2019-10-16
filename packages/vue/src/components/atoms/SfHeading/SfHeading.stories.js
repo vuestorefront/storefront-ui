@@ -13,36 +13,36 @@ import SfHeading from "./SfHeading.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$heading-border-color", "#f1f2f4 !default;", "border color for heading"],
-    ["$heading-line-height", "1.6 !default;", "line height for heading"],
+    ["$heading-border-color", "#f1f2f4", "border color for heading"],
+    ["$heading-line-height", "1.6", "line height for heading"],
     [
       "$heading__title-font-family",
-      "$body-font-family-primary !default;",
+      "$body-font-family-primary",
       "font family for heading title"
     ],
     [
       "$heading__title-font-size",
-      "$font-size-extra-big-mobile !default;",
+      "$font-size-extra-big-mobile",
       "font size for heading title"
     ],
     [
       "$heading__title-font-size-desktop",
-      "$font-size-extra-big-desktop !default;",
+      "$font-size-extra-big-desktop",
       "font size for heading title on desktop"
     ],
     [
       "$heading__subtitle-font-family",
-      "$body-font-family-primary !default;",
+      "$body-font-family-primary",
       "font family for subtitle"
     ],
     [
       "$heading__subtitle-font-size",
-      "$font-size-regular-mobile !default;",
+      "$font-size-regular-mobile",
       "font size for subtitle"
     ],
     [
       "$heading__subtitle-font-size-desktop",
-      "$font-size-big-desktop !default;",
+      "$font-size-big-desktop",
       "font size for subtitle on desktop"
     ]
   ]

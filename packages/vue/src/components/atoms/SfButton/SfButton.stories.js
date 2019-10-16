@@ -8,42 +8,42 @@ import SfButton from "./SfButton.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$button-padding", "1rem 2.5rem !default;", "padding for button"],
+    ["$button-padding", "1rem 2.5rem", "padding for button"],
     [
       "$button-padding-desktop",
-      "0.9375rem 2.5rem !default;",
+      "0.9375rem 2.5rem",
       "padding for button on desktop"
     ],
-    ["$button-color", "$c-text-on-dark !default;", "color for button"],
+    ["$button-color", "$c-text-on-dark", "color for button"],
     [
       "$button-background-color",
-      "$c-green-primary !default;",
+      "$c-green-primary",
       "background-color for button"
     ],
     [
       "$button-font-family",
-      "$body-font-family-secondary !default;",
+      "$body-font-family-secondary",
       "font family for button"
     ],
     [
       "$button-font-size",
-      "$font-size-small-mobile !default;",
+      "$font-size-small-mobile",
       "font size for button"
     ],
     [
       "$button-font-size-desktop",
-      "$font-size-small-desktop !default;",
+      "$font-size-small-desktop",
       "font size for button on mobile"
     ],
     [
       "$button-font-weight",
-      "$body-font-weight-secondary !default;",
+      "$body-font-weight-secondary",
       "font weight for btton"
     ],
-    ["$button-line-height", "1.6 !default;", "line height for button"],
+    ["$button-line-height", "1.6", "line height for button"],
     [
       "$button--outline-border",
-      "2px !default;",
+      "2px",
       "border width for outline button"
     ]
   ]

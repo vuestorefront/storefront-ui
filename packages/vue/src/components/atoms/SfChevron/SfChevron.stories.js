@@ -7,14 +7,14 @@ import SfChevron from "@/components/atoms/SfChevron/SfChevron.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$chevron-duration", "0.5s !default;", "transition duration for chevron"],
+    ["$chevron-duration", "0.5s", "transition duration for chevron"],
     [
       "$chevron-easing",
-      "cubic-bezier(0.25, 1.7, 0.35, 0.8) !default;",
+      "cubic-bezier(0.25, 1.7, 0.35, 0.8)",
       "transition easing for chevron"
     ],
-    ["$chevron-size", "20px !default;", "size for chevron"],
-    ["$chevron__bar-color", "$c-black !default;", "color fill for chevron"]
+    ["$chevron-size", "20px", "size for chevron"],
+    ["$chevron__bar-color", "$c-black", "color fill for chevron"]
   ]
 };
 const cssTableConfig = {
