@@ -5,51 +5,78 @@ import { generateStorybookTable } from "@/helpers";
 
 import SfInput from "./SfInput.vue";
 
-const vm = {
-  components: { SfInput },
-  data: () => {
-    return {
-      value: ""
-    };
-  }
-};
-
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$sf-input__transition", "all 0.3s ease-in-out", "Input transition"],
-    ["$sf-input__input-font-size", "$font-size-big-desktop", "Input font size"],
-    ["$sf-input__label-font-size", "$font-size-big-desktop", "Label font size"],
+    ["$input-color", "$c-text-primary", "color for input"],
+    ["$input-color-active", "$c-accent-primary", "color for active input"],
+    ["$input-color-invalid", "#d12727", "color for invalid input"],
+    ["$input-color-disabled", "$c-dark-secondary", "color for disabled input"],
     [
-      "$sf-input__label-focus-font-size",
-      "0.625rem",
-      "Focus input label font size"
+      "$input-font-family",
+      "$body-font-family-secondary",
+      "font family for input"
+    ],
+    ["$input-font-size", "$font-size-big-mobile", "font size for input"],
+    [
+      "$input-font-size-desktop",
+      "$font-size-big-desktop",
+      "font size for input on desktop"
     ],
     [
-      "$sf-input__error-message-min-height",
-      "0.875rem",
-      "Error message min-height"
+      "$input-font-weight",
+      "$body-font-weight-secondary",
+      "font weight for input"
     ],
-    ["$sf-input__active-color", "$c-accent-primary", "Active input color"],
+    ["$input-line-height", "1.6", "line height for input"],
     [
-      "$sf-input__invalid-color",
-      "rgba(240, 140, 125, 1)",
-      "Invalid input color"
+      "$input__label-focus-font-size",
+      "$font-size-small-mobile",
+      "font size for input label"
     ],
     [
-      "$sf-input__disabled-color",
-      "rgba(115, 118, 128, 1)",
-      "Disabled input color"
+      "$input__label-focus-font-size-desktop",
+      "$font-size-extra-small-desktop",
+      "font size for input label on desktop"
+    ],
+    [
+      "$input__label-transition",
+      "all 150ms ease-in-out",
+      "transition for input label"
+    ],
+    [
+      "$input__bar-transition",
+      "all 150ms ease-in-out",
+      "transition for input transition"
+    ],
+    [
+      "$input__error-message-font-family",
+      "$body-font-family-primary",
+      "font family for input error"
+    ],
+    [
+      "$input__error-message-font-size",
+      "$font-size-small-mobile",
+      "font size for input error"
     ]
   ]
 };
+
+const components = { SfInput };
+const data = () => ({
+  value: ""
+});
+const summary = `<h2> Usage </h2>
+<pre><code>import SfInput from "@storefront-ui/vue/dist/SfInput.vue"</code></pre>
+${generateStorybookTable(scssTableConfig, "SCSS variables")}`;
 
 storiesOf("Atoms|Input", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
     () => ({
-      ...vm,
+      components,
+      data,
       props: {
         name: {
           default: text("Name", "name")
@@ -67,8 +94,7 @@ storiesOf("Atoms|Input", module)
           default: text("Error message", "Field is required.")
         }
       },
-      template: `
-      <div :style="{ width: '300px' }">
+      template: `<div :style="{ width: '300px' }">
         <SfInput 
           v-model="value" 
           :name="name" 
@@ -81,22 +107,18 @@ storiesOf("Atoms|Input", module)
     }),
     {
       info: {
-        summary: `
-        <p>Single form input component.</p>
-        <h2> Usage </h2>
-        <pre><code>import SfInput from "@storefront-ui/vue/dist/SfInput.vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
+        summary
       }
     }
   )
   .add(
     "[slot] label",
     () => ({
-      ...vm,
+      components,
+      data,
       props: {
         valid: {
-          default: boolean("Valid")
+          default: boolean("Valid", true)
         },
         required: {
           default: boolean("Required", true)
@@ -105,25 +127,28 @@ storiesOf("Atoms|Input", module)
           default: text("Error message", "Field is required.")
         }
       },
-      template: `
-        <div :style="{ width: '300px' }">
-          <SfInput v-model="value" :valid="valid" :required="required">
+      template: `<div :style="{ width: '300px' }">
+        <SfInput 
+          v-model="value" 
+          :valid="valid" 
+          :required="required">
           <template #label>
             <span style="color: salmon;">Address</span>
           </template>
-            
-          </SfInput>
-        </div>
-      `
+        </SfInput>
+      </div>`
     }),
     {
-      info: true
+      info: {
+        summary
+      }
     }
   )
   .add(
     "[slot] with error message",
     () => ({
-      ...vm,
+      components,
+      data,
       props: {
         label: {
           default: text("Label", "Name")
@@ -135,17 +160,21 @@ storiesOf("Atoms|Input", module)
           default: boolean("Required", true)
         }
       },
-      template: `
-        <div :style="{ width: '300px'}">
-          <SfInput v-model="value" :label="label" :valid="valid" :required="required">
+      template: `<div :style="{ width: '300px'}">
+        <SfInput 
+          v-model="value" 
+          :label="label" 
+          :valid="valid" 
+          :required="required">
           <template #errorMessage>
-            <span  style="color: orange;">This field is not correct.</span>
+            <span style="color: orange;">This field is not correct.</span>
           </template>
-          </SfInput>
-        </div>
-      `
+        </SfInput>
+      </div>`
     }),
     {
-      info: true
+      info: {
+        summary
+      }
     }
   );
