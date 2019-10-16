@@ -7,10 +7,10 @@ import {
 } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import { icons } from "@storefront-ui/shared/icons/icons";
+
 import SfIcon from "./SfIcon.vue";
 
 const tableHeaderConfig = ["NAME", "DEFAULT"];
-
 const sizes = [
   ["xxs", "1rem"],
   ["xs", "1.4rem"],
@@ -22,7 +22,6 @@ const sizes = [
   ["xl3", "2.8rem"],
   ["xl4", "3.25rem"]
 ];
-
 const colors = [
   ["primary", "$c-green-primary"],
   ["secondary", "$c-dark-primary"],
@@ -42,10 +41,8 @@ const colors = [
   ["blue-primary", "$c-blue-primary"],
   ["blue-secondary", "$c-blue-secondary"]
 ];
-
 const getIconPaths = paths =>
   paths.reduce((str, path) => `${str}<path d="${path}"></path>`, "");
-
 const iconsList = (() =>
   Object.keys(icons).map(icon => [
     icon,
@@ -55,20 +52,19 @@ const iconsList = (() =>
       ${getIconPaths(icons[icon].paths)}
     </svg>`
   ]))();
-
 const cssTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
   tableBodyConfig: [
     [
       ".sf-icon--color-<palette>",
-      "Change color to a specific preset pallete (see above)"
+      "change color to a specific preset pallete (see above)"
     ],
     [
       ".sf-icon--size-<size>",
-      "Change size to specific preset size (see above)"
+      "change size to specific preset size (see above)"
     ],
-    ["--icon-color: <color>", "Modify CSS Variable for icon color"],
-    ["--icon-size: <size>", "Modify CSS Variable for icon size"]
+    ["--icon-color: <color>", "modify CSS Variable for icon color"],
+    ["--icon-size: <size>", "modify CSS Variable for icon size"]
   ]
 };
 
@@ -111,31 +107,25 @@ storiesOf("Atoms|Icon", module)
         :icon="icon"
         :color="color"
         :size="size"
-        :viewBox="viewBox"/>`
+        :viewBox="viewBox" />`
     }),
     {
       info: {
-        summary: `
-        <p>Component for rendering icon from SVG path(s) or icon name from our icons list.</p>
-        <h2> Usage </h2>
-        <pre><code>import { SfIcon } from "@storefront-ui/vue"</code></pre>
-        <h3>SCSS variables</h3>
-        ${generateStorybookTable(
-          {
-            tableHeadConfig: tableHeaderConfig,
-            tableBodyConfig: sizes
-          },
-          "`$sf-icon-sizes` - map of icon sizes"
-        )}
-        ${generateStorybookTable(
-          {
-            tableHeadConfig: tableHeaderConfig,
-            tableBodyConfig: colors
-          },
-          "`$sf-icon-colors` - map of icon colors"
-        )}
-        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
-        `
+        summary: `<h2> Usage </h2>
+          <pre><code>import { SfIcon } from "@storefront-ui/vue"</code></pre>
+          <h3>SCSS variables</h3>
+          ${generateStorybookTable(
+            { tableHeadConfig: tableHeaderConfig, tableBodyConfig: sizes },
+            "`$sf-icon-sizes` - map of icon sizes"
+          )}
+          ${generateStorybookTable(
+            {
+              tableHeadConfig: tableHeaderConfig,
+              tableBodyConfig: colors
+            },
+            "`$sf-icon-colors` - map of icon colors"
+          )}
+          ${generateStorybookTable(cssTableConfig, "CSS modifiers")}`
       }
     }
   )
@@ -161,21 +151,19 @@ storiesOf("Atoms|Icon", module)
         :icon="icon"
         :color="color"
         :size="size"
-        :viewBox="viewBox"/>`
+        :viewBox="viewBox" />`
     }),
     {
       info: {
-        summary: `
-        <p>Choose an icon from this list and pass it as icon for rendering.</p>
-        <h2> Icons list </h2>
-        ${generateStorybookTable(
-          {
-            tableHeadConfig: tableHeaderConfig,
-            tableBodyConfig: iconsList
-          },
-          "`path` - icon name or SVG path(s)"
-        )}
-        `
+        summary: `<p>Choose an icon from this list and pass it as icon for rendering.</p>
+          <h2> Icons list </h2>
+          ${generateStorybookTable(
+            {
+              tableHeadConfig: tableHeaderConfig,
+              tableBodyConfig: iconsList
+            },
+            "`path` - icon name or SVG path(s)"
+          )}`
       }
     }
   )
