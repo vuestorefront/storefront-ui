@@ -14,6 +14,7 @@ $notification__title-font-weight-desktop: 700 !default;
 $notification__action-font-weight: 500 !default;
 
 .sf-notification {
+  $this: &;
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -79,6 +80,17 @@ $notification__action-font-weight: 500 !default;
     @media (min-width: $desktop-min) {
       right: $spacer-medium;
       top: $spacer-medium;
+    }
+  }
+  @each $name, $pair in $colors-map {
+    $bg: map-get($pair, "bg");
+    $color: map-get($pair, "text");
+    &--#{$name} {
+      background-color: $bg;
+      color: $color;
+      #{$this}__icon {
+        fill: $color;
+      }
     }
   }
 }
