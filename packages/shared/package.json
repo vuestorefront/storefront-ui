@@ -1,13 +1,8 @@
 {
   "name": "@storefront-ui/shared",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "postinstall": "node scripts/postinstall.js",
-    "version": "node scripts/version.js",
-    "postpublish": "node scripts/postpublish.js"
-  },
   "author": "Filip Rakowski",
   "license": "ISC",
   "publishConfig": {
