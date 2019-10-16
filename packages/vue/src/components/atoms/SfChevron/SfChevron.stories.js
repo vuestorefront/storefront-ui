@@ -1,6 +1,7 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
+
 import SfChevron from "@/components/atoms/SfChevron/SfChevron.vue";
 
 const scssTableConfig = {

@@ -2,6 +2,7 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
+
 import SfCheckbox from "./SfCheckbox.vue";
 
 const scssTableConfig = {

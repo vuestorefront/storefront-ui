@@ -66,9 +66,9 @@ storiesOf("Atoms|CircleIcon", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-      <pre><code>import { SfCircleIcon } from "@storefront-ui/vue"</code></pre>
-      ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-      ${generateStorybookTable(cssTableConfig, "CSS modifiers")}`
+        <pre><code>import { SfCircleIcon } from "@storefront-ui/vue"</code></pre>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}`
       }
     }
   )
