@@ -22,11 +22,11 @@ const scssTableConfig = {
 const cssTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
   tableBodyConfig: [
-    ["sf-arrow--right", "transform left to right arrow"],
-    ["sf-arrow--long", "change short to long arrow"],
-    ["sf-arrow--transparent", "removed background from button"],
-    ["sf-arrow--rounded", "changed to circle button"],
-    ["sf-arrow--no-shadow", "removed shadow from hovered button"]
+    [".sf-arrow--right", "transform left to right arrow"],
+    [".sf-arrow--long", "change short to long arrow"],
+    [".sf-arrow--transparent", "removed background from button"],
+    [".sf-arrow--rounded", "changed to circle button"],
+    [".sf-arrow--no-shadow", "removed shadow from hovered button"]
   ]
 };
 
