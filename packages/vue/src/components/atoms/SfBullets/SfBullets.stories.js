@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number } from "@storybook/addon-knobs";
+import { withKnobs, text, optionsKnob as options } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfBullets from "./SfBullets.vue";
@@ -12,133 +12,96 @@ const scssTableConfig = {
     ["$bullet-border-radius", "50%", "border radius for bullet"],
     ["$bullet-size", "8px", "bullet size"],
     ["$bullet-margin:", "6px", "margin for bullet"],
-    [
-      "$bullet-background-color",
-      "$c-gray-primary",
-      "background-color for bullet"
-    ],
+    ["$bullet-background-color", "$c-gray-primary", "background-color for bullet"],
     ["$bullet-size--active", "10px", "active bullet size"],
     ["$bullet-margin--active", "5px", "margin for active bullet"],
-    [
-      "$bullet-background-color--active",
-      "$c-green-secondary",
-      "background-color for active bullet"
-    ]
+    ["$bullet-background-color--active", "$c-green-secondary", "background-color for active bullet"]
   ]
 };
 
-// use this to document events
-const eventsTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [["click", "emits the index of clicked bullet"]]
-};
-
 const props = {
+  customClass: {
+    default: options(
+      "CSS Modifier",
+      {
+        "sf-foo--modifier":"sf-foo--modifier"
+      },
+      "",
+      { display: "multi-select" }
+    )
+  },
   total: {
-    default: number("total", 3)
+    default: text("(props) total", 3)
   },
   current: {
-    default: number("current", 1)
+    default: text("(props) current", 1)
   }
 };
-const methods = {
-  click(index) {
-    this.index = index;
-  }
-};
-const summary = `<h2>Usage</h2>
-<pre><code>import { SfBullets } from "@storefront-ui/dist/SfBullets.vue"</code></pre>
-${generateStorybookTable(scssTableConfig, "SCSS variables")}
-${generateStorybookTable(eventsTableConfig, "Events")}`;
 
 storiesOf("Atoms|Bullets", module)
   .addDecorator(withKnobs)
   .add(
-    "Basic",
+    "Default",
     () => ({
       props,
-      data() {
-        return {
-          index: this.current
-        };
-      },
       components: { SfBullets },
-      methods,
       template: `<SfBullets
+        :class="customClass"
         :total="total"
-        :current="index"
-        @click="click" />`
+        :current="current" />`
     }),
-    {
-      info: {
-        summary
-      }
-    }
+    // {
+    //   info: {
+    //     summary: `<p>Component description.</p>
+    //    <h2>Usage</h2>
+    //    <pre><code>import { SfBullets } from "@storefront-ui/vue"</code></pre>
+    //    ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
+    //   }
+    // }
   )
   .add(
     "[slot] active",
     () => ({
       props,
-      data() {
-        return {
-          index: this.current,
-          style: {
-            width: "10px",
-            height: "10px",
-            margin: "5px",
-            background: "#9EE2B0",
-            transform: "rotate(45deg)",
-            cursor: "pointer"
-          }
-        };
-      },
       components: { SfBullets },
-      methods,
       template: `<SfBullets
-      :total="total"
-      :current="index"
-      @click="click">
+        :class="customClass"
+        :total="total"
+        :current="current">
         <template #active>
-          <li :style="style"></li> 
+          <li></li>
         </template>
       </SfBullets>`
     }),
-    {
-      info: {
-        summary
-      }
-    }
+    // {
+    //   info: {
+    //     summary: `<p>Component description.</p>
+    //    <h2>Usage</h2>
+    //    <pre><code>import { SfBullets } from "@storefront-ui/vue"</code></pre>
+    //    ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
+    //   }
+    // }
   )
   .add(
     "[slot] inactive",
     () => ({
       props,
-      data() {
-        return {
-          index: this.current,
-          style: {
-            width: "10px",
-            height: "10px",
-            margin: "6px",
-            background: "#E22326",
-            cursor: "pointer"
-          }
-        };
-      },
       components: { SfBullets },
-      methods,
       template: `<SfBullets
-      :total="total"
-      :current="index"
-      @click="click">
-        <template #inactive="{index, go}">
-          <li :style="style" @click="go(index)"></li> 
+        :class="customClass"
+        :total="total"
+        :current="current">
+        <template #inactive>
+          <li></li>
         </template>
       </SfBullets>`
     }),
-    {
-      info: {
-        summary
-      }
-    }
+    // {
+    //   info: {
+    //     summary: `<p>Component description.</p>
+    //    <h2>Usage</h2>
+    //    <pre><code>import { SfBullets } from "@storefront-ui/vue"</code></pre>
+    //    ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
+    //   }
+    // }
   );
