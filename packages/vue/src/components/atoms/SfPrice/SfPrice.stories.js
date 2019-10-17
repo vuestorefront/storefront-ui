@@ -1,50 +1,132 @@
-/* eslint-disable import/no-extraneous-dependencies */
+// /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
+import { withKnobs, text, optionsKnob as options } from "@storybook/addon-knobs";
+
 import SfPrice from "./SfPrice.vue";
 
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    [
-      "$price-desktop-font-size",
-      "$font-size-regular-desktop",
-      "font size (desktop)"
-    ],
-    [
-      "$price-mobile-font-size",
-      "$font-size-regular-mobile",
-      "font size (mobile)"
-    ]
-  ]
-};
 storiesOf("Atoms|Price", module)
   .addDecorator(withKnobs)
   .add(
-    "Basic",
+    "Default",
     () => ({
+      components: { SfPrice },
       props: {
-        special: {
-          default: text("special (prop)", "$50.00")
+        customClass: {
+          default: options(
+            "CSS modifier",
+            {
+              "sf-price--big": "sf-price--big"
+            },
+            "",
+            { display: "multi-select" }
+          )
         },
         regular: {
-          default: text("regular (prop)", "$100.00")
-        }
+          default: text("regular (prop)", "$50.00")
+        },
+        special: {
+          default: text("special (prop)", "$100.00")
+        },
       },
+      template: `<SfPrice
+        :class="customClass"
+        :regular="regular"
+        :special="special"/>`
+    })
+  )
+  .add(
+    "[slot] special",
+    () => ({
       components: { SfPrice },
-      template: `<SfPrice 
-        :regular="regular" 
-        :special="special"
-        class="sf-price--big"/>`
-    }),
-    {
-      info: {
-        summary: `<p>Component for displaying product price.</p>
-        <h2> Usage </h2>
-        <pre><code>import { SfPrice } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
-      }
-    }
-  );
+      props: {
+        customClass: {
+          default: options(
+            "CSS modifier",
+            {
+              "sf-price--big": "sf-price--big"
+            },
+            "",
+            { display: "multi-select" }
+          )
+        },
+        regular: {
+          default: text("regular (prop)", "$50.00")
+        },
+        special: {
+          default: text("special (prop)", "$100.00")
+        },
+      },
+      template: `<SfPrice
+        :class="customClass"
+        :regular="regular"
+        :special="special">
+        <template #special>
+          <span></span>
+        </template>  
+      </SfPrice>`
+    })
+  )
+  .add(
+    "[slot] old",
+    () => ({
+      components: { SfPrice },
+      props: {
+        customClass: {
+          default: options(
+            "CSS modifier",
+            {
+              "sf-price--big": "sf-price--big"
+            },
+            "",
+            { display: "multi-select" }
+          )
+        },
+        regular: {
+          default: text("regular (prop)", "$50.00")
+        },
+        special: {
+          default: text("special (prop)", "$100.00")
+        },
+      },
+      template: `<SfPrice
+        :class="customClass"
+        :regular="regular"
+        :special="special">
+        <template #old>
+          <span></span>
+        </template>
+      </SfPrice>`
+    })
+  )
+  .add(
+    "[slot] regular",
+    () => ({
+      components: { SfPrice },
+      props: {
+        customClass: {
+          default: options(
+            "CSS modifier",
+            {
+              "sf-price--big": "sf-price--big"
+            },
+            "",
+            { display: "multi-select" }
+          )
+        },
+        regular: {
+          default: text("regular (prop)", "$50.00")
+        },
+        special: {
+          default: text("special (prop)", "")
+        },
+      },
+      template: `<SfPrice
+        :class="customClass"
+        :regular="regular"
+        :special="special">
+        <template #regular>
+          <span></span>
+        </template>
+      </SfPrice>`
+    })
+  )
