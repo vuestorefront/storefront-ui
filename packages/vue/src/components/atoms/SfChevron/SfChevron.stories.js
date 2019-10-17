@@ -1,43 +1,19 @@
+// /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
 
-import SfChevron from "@/components/atoms/SfChevron/SfChevron.vue";
-
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["$chevron-duration", "0.5s", "transition duration for chevron"],
-    [
-      "$chevron-easing",
-      "cubic-bezier(0.25, 1.7, 0.35, 0.8)",
-      "transition easing for chevron"
-    ],
-    ["$chevron-size", "20px", "size for chevron"],
-    ["$chevron__bar-color", "$c-black", "color fill for chevron"]
-  ]
-};
-const cssTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["sf-chevron--top", "change chevron direction from bottom to top"]
-  ]
-};
-
-const summary = `<h2>Usage</h2>
-<pre><code>import { SfChevron } from "@storefront-ui/vue"</code></pre>
-${generateStorybookTable(scssTableConfig, "SCSS variables")}
-${generateStorybookTable(cssTableConfig, "CSS modifiers")}`;
+import SfChevron from "./SfChevron.vue";
 
 storiesOf("Atoms|Chevron", module)
   .addDecorator(withKnobs)
   .add(
-    "Basic",
+    "Default",
     () => ({
+      components: { SfChevron },
       props: {
         customClass: {
           default: options(
-            "CSS Modifiers",
+            "CSS modifier",
             {
               "sf-chevron--top": "sf-chevron--top"
             },
@@ -46,30 +22,29 @@ storiesOf("Atoms|Chevron", module)
           )
         }
       },
-      components: {
-        SfChevron
-      },
-      template: '<SfChevron :class="customClass" />'
-    }),
-    {
-      info: {
-        summary
-      }
-    }
+      template: `<SfChevron
+        :class="customClass" />`
+    })
   )
   .add(
     "[slot] default",
     () => ({
-      components: {
-        SfChevron
+      components: { SfChevron },
+      props: {
+        customClass: {
+          default: options(
+            "CSS modifier",
+            {
+              "sf-chevron--top": "sf-chevron--top"
+            },
+            "",
+            { display: "multi-select" }
+          )
+        }
       },
-      template: `<SfChevron>
-        <img src='assets/chevron_down.svg' alt="">
+      template: `<SfChevron
+        :class="customClass">
+        <span></span>  
       </SfChevron>`
-    }),
-    {
-      info: {
-        summary
-      }
-    }
+    })
   );
