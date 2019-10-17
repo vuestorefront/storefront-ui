@@ -11,10 +11,10 @@ storiesOf("Atoms|Bullets", module)
     () => ({
       props: {
         total: {
-          default: number("(props) total", 3)
+          default: number("total (props)", 3)
         },
         current: {
-          default: number("(props) current", 1)
+          default: number("current (props)", 1)
         }
       },
       components: { SfBullets },
@@ -28,10 +28,10 @@ storiesOf("Atoms|Bullets", module)
     () => ({
       props: {
         total: {
-          default: number("(props) total", 3)
+          default: number("total (props)", 3)
         },
         current: {
-          default: number("(props) current", 1)
+          default: number("current (props)", 1)
         }
       },
       components: { SfBullets },
@@ -49,10 +49,10 @@ storiesOf("Atoms|Bullets", module)
     () => ({
       props: {
         total: {
-          default: number("(props) total", 3)
+          default: number("total (props)", 3)
         },
         current: {
-          default: number("(props) current", 1)
+          default: number("current (props)", 1)
         }
       },
       components: { SfBullets },

@@ -12,7 +12,7 @@ storiesOf("Atoms|Image", module)
       components: { SfImage },
       props: {
         src: {
-          default: object( "(prop) src", {
+          default: object( "src (prop)", {
             small: {
               url: "/assets/storybook/product-109x164.png",
               alt: "Vila stripe maxi shirt dress"
@@ -24,16 +24,16 @@ storiesOf("Atoms|Image", module)
           })
         },
         placeholder: {
-          default: text("(prop) placeholder", "/assets/placeholder.png")
+          default: text("placeholder (prop)", "/assets/placeholder.png")
         },
         transition: {
-          default: text("(prop) transition", "fade")
+          default: text("transition (prop)", "fade")
         },
         lazy: {
-          default: boolean("(prop) lazy", true)
+          default: boolean("lazy (prop)", true)
         },
         pictureBreakpoint: {
-          default: number("(prop) pictureBreakpoint", 576)
+          default: number("pictureBreakpoint (prop)", 576)
         }
       },
       template: `<SfImage
@@ -51,7 +51,7 @@ storiesOf("Atoms|Image", module)
       components: { SfImage },
       props: {
         src: {
-          default: object( "(prop) src", {
+          default: object( "src (prop)", {
             small: {
               url: "/assets/storybook/product-109x164.png",
               alt: "Vila stripe maxi shirt dress"
@@ -63,16 +63,16 @@ storiesOf("Atoms|Image", module)
           })
         },
         placeholder: {
-          default: text("(prop) placeholder", "/assets/placeholder.png")
+          default: text("placeholder (prop)", "/assets/placeholder.png")
         },
         transition: {
-          default: text("(prop) transition", "fade")
+          default: text("transition (prop)", "fade")
         },
         lazy: {
-          default: boolean("(prop) lazy", true)
+          default: boolean("lazy (prop)", true)
         },
         pictureBreakpoint: {
-          default: number("(prop) pictureBreakpoint", 576)
+          default: number("picture-breakpoint (prop)", 576)
         }
       },
       template: `<SfImage

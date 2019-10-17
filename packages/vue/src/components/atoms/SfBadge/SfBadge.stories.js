@@ -27,7 +27,7 @@ storiesOf("Atoms|Badge", module)
           )
         },
         customLabel: {
-          default: text("(slot) default", "Limited")
+          default: text("default (slot)", "Limited")
         }
       },
       components: { SfBadge },

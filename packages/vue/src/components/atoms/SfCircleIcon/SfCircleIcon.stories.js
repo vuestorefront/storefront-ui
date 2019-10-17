@@ -68,7 +68,7 @@ storiesOf("Atoms|CircleIcon", module)
         },
         icon: {
           default: select(
-            "(prop) icon",
+            "icon (prop)",
             icon,
             "home",
           )

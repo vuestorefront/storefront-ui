@@ -1,16 +1,18 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
+import { withKnobs, object } from "@storybook/addon-knobs";
 
 import SfBreadcrumbs from "./SfBreadcrumbs.vue";
 
 storiesOf("Atoms|Breadcrumbs", module)
+  .addDecorator(withKnobs)
   .add(
     "Default",
     () => ({
       components: { SfBreadcrumbs },
-      data(){
-        return {
-          breadcrumbs: [{text: 'Home',route: {link: '#'}},{text: 'Category',route: {link: '#'}},{text: 'Pants',route: {link: '#'}}]
+      props: {
+        breadcrumbs: {
+          default: object("breadcrumbs (prop)", [{text: 'Home',route: {link: '#'}},{text: 'Category',route: {link: '#'}},{text: 'Pants',route: {link: '#'}}])
         }
       },
       template: `<SfBreadcrumbs
@@ -21,9 +23,9 @@ storiesOf("Atoms|Breadcrumbs", module)
     "[slot] link",
     () => ({
       components: { SfBreadcrumbs },
-      data(){
-        return {
-          breadcrumbs: [{text: 'Home',route: {link: '#'}},{text: 'Category',route: {link: '#'}},{text: 'Pants',route: {link: '#'}}]
+      props: {
+        breadcrumbs: {
+          default: object("breadcrumbs (prop)", [{text: 'Home',route: {link: '#'}},{text: 'Category',route: {link: '#'}},{text: 'Pants',route: {link: '#'}}])
         }
       },
       template: `<SfBreadcrumbs
@@ -38,9 +40,9 @@ storiesOf("Atoms|Breadcrumbs", module)
     "[slot] current",
     () => ({
       components: { SfBreadcrumbs },
-      data(){
-        return {
-          breadcrumbs: [{text: 'Home',route: {link: '#'}},{text: 'Category',route: {link: '#'}},{text: 'Pants',route: {link: '#'}}]
+      props: {
+        breadcrumbs: {
+          default: object("breadcrumbs (prop)", [{text: 'Home',route: {link: '#'}},{text: 'Category',route: {link: '#'}},{text: 'Pants',route: {link: '#'}}])
         }
       },
       template: `<SfBreadcrumbs

@@ -28,7 +28,7 @@ storiesOf("Atoms|Button", module)
           )
         },
         customLabel: {
-          default: text("(slot) default", "Shop now")
+          default: text("default (slot)", "Shop now")
         },
       },
       components: { SfButton },
