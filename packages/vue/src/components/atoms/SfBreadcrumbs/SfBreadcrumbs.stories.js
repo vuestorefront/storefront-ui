@@ -32,7 +32,7 @@ storiesOf("Atoms|Breadcrumbs", module)
         }
       },
       template: `<SfBreadcrumbs
-      :breadcrumbs="breadcrumbs" />`
+        :breadcrumbs="breadcrumbs" />`
     }),
     // {
     //   info: {
