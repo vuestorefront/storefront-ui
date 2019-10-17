@@ -6,35 +6,30 @@ import SfArrow from "./SfArrow.vue";
 
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
-  .add(
-    "Default",
-    () => ({
-      components: {
-        SfArrow
-      },
-      props: {
-        customClass: {
-          default: options(
-            "CSS modifier",
-            {
-              "sf-arrow--right": "sf-arrow--right",
-              "sf-arrow--long": "sf-arrow--long",
-              "sf-arrow--transparent": "sf-arrow--transparent",
-              "sf-arrow--rounded": "sf-arrow--rounded",
-              "sf-arrow--no-shadow": "sf-arrow--no-shadow"
-            },
-            "",
-            { display: "multi-select" }
-          )
-        }
-      },
-      template: `<SfArrow
+  .add("Default", () => ({
+    components: {
+      SfArrow
+    },
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifier",
+          {
+            "sf-arrow--right": "sf-arrow--right",
+            "sf-arrow--long": "sf-arrow--long",
+            "sf-arrow--transparent": "sf-arrow--transparent",
+            "sf-arrow--rounded": "sf-arrow--rounded",
+            "sf-arrow--no-shadow": "sf-arrow--no-shadow"
+          },
+          "",
+          { display: "multi-select" }
+        )
+      }
+    },
+    template: `<SfArrow
         :class="customClass" />`
-    })
-  )
-  .add(
-  "[slot] default",
-  () => ({
+  }))
+  .add("[slot] default", () => ({
     components: {
       SfArrow
     },
@@ -58,5 +53,4 @@ storiesOf("Atoms|Arrow", module)
       :class="customClass">
       <div></div>
     </SfArrow>`
-  })
-)
+  }));

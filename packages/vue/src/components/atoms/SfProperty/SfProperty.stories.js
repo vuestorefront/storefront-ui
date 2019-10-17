@@ -1,62 +1,61 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, optionsKnob as options } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 
 import SfProperty from "./SfProperty.vue";
 
 storiesOf("Atoms|Property", module)
   .addDecorator(withKnobs)
-  .add(
-    "Default",
-    () => ({
-      components: { SfProperty },
-      props: {
-        customClass: {
-          default: options(
-            "CSS modifier",
-            {
-              "sf-property--full-width": "sf-property--full-width"
-            },
-            "",
-            { display: "multi-select" }
-          )
-        },
-        name: {
-          default: text("name (prop)", "Material")
-        },
-        value: {
-          default: text("value (prop)", "Cotton")
-        }
+  .add("Default", () => ({
+    components: { SfProperty },
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifier",
+          {
+            "sf-property--full-width": "sf-property--full-width"
+          },
+          "",
+          { display: "multi-select" }
+        )
       },
-      template: `<SfProperty
+      name: {
+        default: text("name (prop)", "Material")
+      },
+      value: {
+        default: text("value (prop)", "Cotton")
+      }
+    },
+    template: `<SfProperty
         :class="customClass"
         :name="name"
         :value="value" />`
-    })
-  )
-  .add(
-    "[slot] name",
-    () => ({
-      components: { SfProperty },
-      props: {
-        customClass: {
-          default: options(
-            "CSS modifier",
-            {
-              "sf-property--full-width": "sf-property--full-width"
-            },
-            "",
-            { display: "multi-select" }
-          )
-        },
-        name: {
-          default: text("name (prop)", "Material")
-        },
-        value: {
-          default: text("value (prop)", "Cotton")
-        }
+  }))
+  .add("[slot] name", () => ({
+    components: { SfProperty },
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifier",
+          {
+            "sf-property--full-width": "sf-property--full-width"
+          },
+          "",
+          { display: "multi-select" }
+        )
       },
-      template: `<SfProperty
+      name: {
+        default: text("name (prop)", "Material")
+      },
+      value: {
+        default: text("value (prop)", "Cotton")
+      }
+    },
+    template: `<SfProperty
         :class="customClass"
         :name="name"
         :value="value">
@@ -64,31 +63,28 @@ storiesOf("Atoms|Property", module)
           <span></span>
         </template>
       </SfProperty>`
-    })
-  )
-  .add(
-    "[slot] value",
-    () => ({
-      components: { SfProperty },
-      props: {
-        customClass: {
-          default: options(
-            "CSS modifier",
-            {
-              "sf-property--full-width": "sf-property--full-width"
-            },
-            "",
-            { display: "multi-select" }
-          )
-        },
-        name: {
-          default: text("name (prop)", "Material")
-        },
-        value: {
-          default: text("value (prop)", "Cotton")
-        }
+  }))
+  .add("[slot] value", () => ({
+    components: { SfProperty },
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifier",
+          {
+            "sf-property--full-width": "sf-property--full-width"
+          },
+          "",
+          { display: "multi-select" }
+        )
       },
-      template: `<SfProperty
+      name: {
+        default: text("name (prop)", "Material")
+      },
+      value: {
+        default: text("value (prop)", "Cotton")
+      }
+    },
+    template: `<SfProperty
         :class="customClass"
         :name="name"
         :value="value">
@@ -96,5 +92,4 @@ storiesOf("Atoms|Property", module)
           <span></span>
         </template>
       </SfProperty>`
-    })
-  );
+  }));

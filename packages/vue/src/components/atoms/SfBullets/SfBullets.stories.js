@@ -6,62 +6,53 @@ import SfBullets from "./SfBullets.vue";
 
 storiesOf("Atoms|Bullets", module)
   .addDecorator(withKnobs)
-  .add(
-    "Default",
-    () => ({
-      props: {
-        total: {
-          default: number("total (props)", 3)
-        },
-        current: {
-          default: number("current (props)", 1)
-        }
+  .add("Default", () => ({
+    props: {
+      total: {
+        default: number("total (props)", 3)
       },
-      components: { SfBullets },
-      template: `<SfBullets
+      current: {
+        default: number("current (props)", 1)
+      }
+    },
+    components: { SfBullets },
+    template: `<SfBullets
         :total="total"
         :current="current" />`
-    })
-  )
-  .add(
-    "[slot] active",
-    () => ({
-      props: {
-        total: {
-          default: number("total (props)", 3)
-        },
-        current: {
-          default: number("current (props)", 1)
-        }
+  }))
+  .add("[slot] active", () => ({
+    props: {
+      total: {
+        default: number("total (props)", 3)
       },
-      components: { SfBullets },
-      template: `<SfBullets
+      current: {
+        default: number("current (props)", 1)
+      }
+    },
+    components: { SfBullets },
+    template: `<SfBullets
         :total="total"
         :current="current">
         <template #active>
           <li></li>
         </template>
       </SfBullets>`
-    })
-  )
-  .add(
-    "[slot] inactive",
-    () => ({
-      props: {
-        total: {
-          default: number("total (props)", 3)
-        },
-        current: {
-          default: number("current (props)", 1)
-        }
+  }))
+  .add("[slot] inactive", () => ({
+    props: {
+      total: {
+        default: number("total (props)", 3)
       },
-      components: { SfBullets },
-      template: `<SfBullets
+      current: {
+        default: number("current (props)", 1)
+      }
+    },
+    components: { SfBullets },
+    template: `<SfBullets
         :total="total"
         :current="current">
         <template #inactive>
           <li></li>
         </template>
       </SfBullets>`
-    })
-  );
+  }));
