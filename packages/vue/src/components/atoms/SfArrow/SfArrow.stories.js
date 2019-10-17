@@ -41,7 +41,7 @@ storiesOf("Atoms|Arrow", module)
     props: {
       customClass: {
         default: options(
-          "CSS Modifier",
+          "CSS modifier",
           {
             "sf-arrow--right": "sf-arrow--right",
             "sf-arrow--long": "sf-arrow--long",

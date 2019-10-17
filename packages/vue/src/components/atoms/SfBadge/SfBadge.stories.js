@@ -12,7 +12,7 @@ storiesOf("Atoms|Badge", module)
       props: {
         customClass: {
           default: options(
-            "CSS Modifier",
+            "CSS modifier",
             {
               "sf-badge--full-width": "sf-badge--full-width",
               "color-primary": "color-primary",
@@ -27,7 +27,7 @@ storiesOf("Atoms|Badge", module)
           )
         },
         customLabel: {
-          default: text("(slot) default", "LIMITED")
+          default: text("(slot) default", "Limited")
         }
       },
       components: { SfBadge },
