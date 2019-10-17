@@ -16,7 +16,7 @@ const scssTableConfig = {
     ["$breadcrumbs__item-padding", "0.75rem", "padding for breadcrumbs item"],
     ["$breadcrumbs__item-color", "$c-gray-primary", "color for breadcrumbs item"],
     ["$breadcrumbs__item-separator-color", "$breadcrumbs__link-color", "color for breadcrumbs item separator"],
-    ["$breadcrumbs__item-separator", "'|'", "char for breadcrumbs item separator"],
+    ["$breadcrumbs__item-separator", "|", "char for breadcrumbs item separator"],
     ["$breadcrumbs__current-color", "$c-gray-secondary!default;", "color for current breadcrumbs"]
   ]
 };
@@ -26,15 +26,20 @@ storiesOf("Atoms|Breadcrumbs", module)
     "Default",
     () => ({
       components: { SfBreadcrumbs },
+      data(){
+        return {
+          breadcrumbs: [{text: 'Home',route: {link: '#'}},{text: 'Category',route: {link: '#'}},{text: 'Pants',route: {link: '#'}}]
+        }
+      },
       template: `<SfBreadcrumbs
-      :breadcrumbs="[{text: 'Home',route: {link: '#'}},{text: 'Category',route: {link: '#'}},{text: 'Pants',route: {link: '#'}}]" />`
+      :breadcrumbs="breadcrumbs" />`
     }),
-    {
-      info: {
-        summary: `<p><!--Component description.--></p>
-       <h2>Usage</h2>
-       <pre><code>import { SfBreadcrumbs } from "@storefront-ui/vue"</code></pre>
-       ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
-      }
-    }
+    // {
+    //   info: {
+    //     summary: `<p><!--Component description.--></p>
+    //     <h2>Usage</h2>
+    //     <pre><code>import { SfBreadcrumbs } from "@storefront-ui/vue"</code></pre>
+    //     ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
+    //   }
+    // }
   );
