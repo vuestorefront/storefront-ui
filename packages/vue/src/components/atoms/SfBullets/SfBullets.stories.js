@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, optionsKnob as options } from "@storybook/addon-knobs";
+import { withKnobs, number, optionsKnob as options } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfBullets from "./SfBullets.vue";
@@ -31,10 +31,10 @@ const props = {
     )
   },
   total: {
-    default: text("(props) total", 3)
+    default: number("(props) total", 3)
   },
   current: {
-    default: text("(props) current", 1)
+    default: number("(props) current", 1)
   }
 };
 
