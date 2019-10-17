@@ -7,12 +7,9 @@ import SfBadge from "./SfBadge.vue";
 storiesOf("Atoms|Badge", module)
   .addDecorator(withKnobs)
   .add(
-    "Default",
+    "[slot] default",
     () => ({
       props: {
-        customLabel: {
-          default: text("(slot) default", "LIMITED")
-        },
         customClass: {
           default: options(
             "CSS Modifier",
@@ -28,6 +25,9 @@ storiesOf("Atoms|Badge", module)
             "",
             { display: "multi-select" }
           )
+        },
+        customLabel: {
+          default: text("(slot) default", "LIMITED")
         }
       },
       components: { SfBadge },
