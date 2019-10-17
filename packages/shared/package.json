@@ -3,8 +3,15 @@
   "version": "0.3.1",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "precommit": "lint-staged"
+  },
   "author": "Filip Rakowski",
   "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "lint-staged": "^9.4.2"
+  },
   "publishConfig": {
     "access": "public"
   },
