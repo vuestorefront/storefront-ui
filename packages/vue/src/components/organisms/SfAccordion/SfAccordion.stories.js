@@ -1,33 +1,52 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  boolean,
-  select,
-  number,
-  text
-} from "@storybook/addon-knobs";
+import { withKnobs, boolean, text } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfAccordion from "./SfAccordion.vue";
+import SfList from "../SfList/SfList.vue";
+import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 
 // use this to document scss vars
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$sf-accordion-item__header-padding", "0.5rem 0", ""],
-    ["$accordion-header-font-size", "18px", ""],
-    ["$sf-accordion-item__header-bg-color", "$c-light-primary", ""],
-    ["$sf-accordion-item__header-bg-color--active", "#ffffff", ""],
-    ["$sf-accordion-item__header-font-weight", "900", ""],
-    ["$sf-accordion-item__header-text-transform", "uppercase", ""],
-    ["$sf-accordion-item__header-display", "flex", ""],
-    ["$sf-accordion-item__header-justify-content", "space-between", ""],
-    ["$sf-accordion-item__content-color", "$c-dark-primary", ""],
-    ["$sf-accordion-item__content-font-size", "14px", ""],
-    ["$sf-accordion-item__content-padding", "0.5rem 0", ""],
-    ["$sf-accordion-item__content-padding--first", "1.5rem 0 0.5rem", ""],
-    ["$sf-accordion-item__content-padding--last", "0.5rem 0 1.5rem", ""]
+    [
+      "$accordion-font-family",
+      "$body-font-family-secondary",
+      "font family for accordion"
+    ],
+    [
+      "$accordion-font-size",
+      "$font-size-regular-mobile",
+      "font size for accordion"
+    ],
+    [
+      "$accordion-font-size-desktop",
+      "$font-size-regular-desktop",
+      "font size for accordion on desktop"
+    ],
+    [
+      "$accordion-font-weight",
+      "$body-font-weight-secondary",
+      "font weight for accordion"
+    ],
+    ["$accordion-line-height: 1.6", "line height for accordion"],
+    ["$accordion__title-padding-y: 0.625rem", "padding y for accordion title"],
+    [
+      "$accordion__title-font-size",
+      "$font-size-big-mobile",
+      "font size for accordion title"
+    ],
+    [
+      "$accordion__title-font-size-desktop",
+      "$font-size-big-desktop",
+      "font size for accordion title on desktop"
+    ],
+    [
+      "$accordion__content-padding-y: 1.875rem",
+      "padding y for accordion content"
+    ]
   ]
 };
 
@@ -38,30 +57,30 @@ storiesOf("Organisms|Accordion", module)
     () => ({
       data: () => {
         return {
-          items: [
+          accordions: [
             {
               header: "About Us",
-              content: [
-                { id: "about_1", text: "About us (Magento CMS)" },
-                { id: "about_2", text: "Store locator" }
+              items: [
+                { label: "About us (Magento CMS)", count: "280" },
+                { label: "Store locator", count: "34" }
               ]
             },
             {
               header: "Departaments",
-              content: [
-                { id: "dep_1", text: "Women fashion" },
-                { id: "dep_2", text: "Men fashion" },
-                { id: "dep_3", text: "Kidswear" },
-                { id: "dep_4", text: "Home" },
-                { id: "dep_5", text: "Dogswear" }
+              items: [
+                { label: "Women fashion", count: "2" },
+                { label: "Men fashion", count: "56" },
+                { label: "Kidswear", count: "16" },
+                { label: "Home", count: "166" },
+                { label: "Dogswear", count: "24" }
               ]
             },
             {
               header: "Help",
-              content: [
-                { id: "help_1", text: "Customer service" },
-                { id: "help_2", text: "Size guide" },
-                { id: "help_3", text: "Contact us" }
+              items: [
+                { label: "Customer service", count: "54" },
+                { label: "Size guide", count: "4" },
+                { label: "Contact us", count: "76" }
               ]
             }
           ]
@@ -362,45 +381,24 @@ storiesOf("Organisms|Accordion", module)
           default: text("transition", "fade")
         }
       },
-      methods: {
-        storyMethod(id) {
-          alert("You have clicked item with id: " + id);
-        }
-      },
-      components: { SfAccordion },
-      template: `
-      <div style="width: 300px; padding: 1rem;">
-        <SfAccordion
-          :multiple="multiple"
-          :firstOpen="firstOpen"
-          :showChevron="showChevron"
-          :transition="transition"
-          @click="storyMethod"
-        >
-          <template v-slot="{ selected }">
-            <transition :name="transition">
-              <SfAccordionItem
-                v-for="(item, i) of items"
-                :key="i"
-                :header="item.header"
-                :contentItems="item.content"
-                :selected="selected"
-              />
-            </transition>
-          </template>
+      components: { SfAccordion, SfList, SfMenuItem },
+      template: `<div :style="{width: '300px', padding: '1rem'}">
+        <SfAccordion :multiple="multiple" :firstOpen="firstOpen" :showChevron="showChevron" :transition="transition">
+          <SfAccordionItem v-for="(accordion, i) of accordions" :header="accordion.header" :key="i">
+            <SfList>
+              <SfListItem v-for="(item, j) of accordion.items" :key="j">
+                <SfMenuItem :label="item.label" :count="item.count"/>
+              </SfListItem>
+            </SfList>
+          </SfAccordionItem>
         </SfAccordion>
       </div>`
     }),
     {
       info: {
-        summary: `
-        <p>If user populate content through <code>items</code> array in <code>SfAccordion</code>
-        or through <code>contentItems</code> array in <code>SfAccordionItem</code>,
-        he can bind <code>v-on:click</code>.
-        This function gets one argument - the id of clicked content item.</p>
-       <h2>Usage</h2>
-       <pre><code>import { SfAccordion } from "@storefront-ui/vue"</code></pre>
-       `
+        summary: `<h2>Usage</h2>
+        <pre><code>import { SfAccordion } from "@storefront-ui/vue"</code></pre>
+        ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
       }
     }
   );

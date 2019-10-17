@@ -1,7 +1,7 @@
-import { storiesOf } from "@storybook/vue";
-import notes from "./README.md";
-import SfHeader from "./SfHeader.vue";
-
+// import { storiesOf } from "@storybook/vue";
+// import notes from "./storybook-notes.md";
+// import SfHeader from "./SfHeader.vue";
+//
 // Work in progress
 // export default storiesOf("Organisms/Header", module)
 //   .add("mobile with icons", () => ({

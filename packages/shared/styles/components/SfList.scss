@@ -1,10 +1,11 @@
-@import '../variables';
+@import "../variables";
 
 .sf-list {
   list-style-type: none;
   padding-left: 0;
   &__item {
     font-size: $font-size-big-mobile;
+    padding: $spacer 0;
     @media (min-width: $desktop-min) {
       font-size: $font-size-small-desktop;
     }

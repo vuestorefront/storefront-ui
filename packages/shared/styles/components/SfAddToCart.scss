@@ -34,12 +34,17 @@ $add-to-cart__select-quantity-max-width: 5.625rem !default;
       min-width: $add-to-cart__select-quantity-min-width;
       max-width: $add-to-cart__select-quantity-max-width;
       border: 1px solid $c-light-primary;
+      font-family: $body-font-family-primary;
+      font-size: $font-size-extra-big-mobile;
+      font-weight: $body-font-weight-primary;
+      line-height: 1.6;
       text-align: center;
       transition: border-color 0.3s ease-in-out;
       &:focus {
         border-color: $c-accent-primary;
       }
       @include for-desktop {
+        font-size: $font-size-extra-big-desktop;
         background-color: $c-light-primary;
       }
     }

@@ -2,13 +2,13 @@ export function generateStorybookTable(config, label) {
   const { tableHeadConfig, tableBodyConfig } = config;
 
   const getTableBodyRow = item =>
-    item.reduce((acc, item, index) => (acc = acc + `<td>${item}</td>`), "");
+    item.reduce((acc, item) => (acc = acc + `<td>${item}</td>`), "");
 
   const getTableHead = () => `
   <thead>
     <tr>
     ${tableHeadConfig.reduce(
-      (acc, item, index) => (acc = acc + `<th>${item}</th>`),
+      (acc, item) => (acc = acc + `<th>${item}</th>`),
       ""
     )}
     </tr>
@@ -17,7 +17,7 @@ export function generateStorybookTable(config, label) {
   const getTableBody = () => `
   <tbody>
     ${tableBodyConfig.reduce(
-      (acc, item, index) => (acc = acc + `<tr>${getTableBodyRow(item)}</tr>`),
+      (acc, item) => (acc = acc + `<tr>${getTableBodyRow(item)}</tr>`),
       ""
     )}
   </tbody>
