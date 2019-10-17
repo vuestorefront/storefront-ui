@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number, optionsKnob as options } from "@storybook/addon-knobs";
+import { withKnobs, number } from "@storybook/addon-knobs";
 
 import SfBullets from "./SfBullets.vue";
 
@@ -10,16 +10,6 @@ storiesOf("Atoms|Bullets", module)
     "Default",
     () => ({
       props: {
-        customClass: {
-          default: options(
-            "CSS Modifier",
-            {
-              "sf-foo--modifier":"sf-foo--modifier"
-            },
-            "",
-            { display: "multi-select" }
-          )
-        },
         total: {
           default: number("(props) total", 3)
         },
@@ -29,7 +19,6 @@ storiesOf("Atoms|Bullets", module)
       },
       components: { SfBullets },
       template: `<SfBullets
-        :class="customClass"
         :total="total"
         :current="current" />`
     })
@@ -38,16 +27,6 @@ storiesOf("Atoms|Bullets", module)
     "[slot] active",
     () => ({
       props: {
-        customClass: {
-          default: options(
-            "CSS Modifier",
-            {
-              "sf-foo--modifier":"sf-foo--modifier"
-            },
-            "",
-            { display: "multi-select" }
-          )
-        },
         total: {
           default: number("(props) total", 3)
         },
@@ -57,7 +36,6 @@ storiesOf("Atoms|Bullets", module)
       },
       components: { SfBullets },
       template: `<SfBullets
-        :class="customClass"
         :total="total"
         :current="current">
         <template #active>
@@ -70,16 +48,6 @@ storiesOf("Atoms|Bullets", module)
     "[slot] inactive",
     () => ({
       props: {
-        customClass: {
-          default: options(
-            "CSS Modifier",
-            {
-              "sf-foo--modifier":"sf-foo--modifier"
-            },
-            "",
-            { display: "multi-select" }
-          )
-        },
         total: {
           default: number("(props) total", 3)
         },
@@ -89,7 +57,6 @@ storiesOf("Atoms|Bullets", module)
       },
       components: { SfBullets },
       template: `<SfBullets
-        :class="customClass"
         :total="total"
         :current="current">
         <template #inactive>
