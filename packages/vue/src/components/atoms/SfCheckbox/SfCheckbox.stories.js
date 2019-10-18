@@ -70,8 +70,9 @@ storiesOf("Atoms|Checkbox", module)
       :label="label"
       :required="required"
       :disabled="disabled">
-      <template #checkmark>
-        <!-- add content to replace slot fallback -->
+      <template #checkmark="{ isChecked }">
+        <span v-if="isChecked">👍🏻</span>
+        <span v-else>👎🏻</spanv>
       </template>
     </SfCheckbox>`
   }))
@@ -106,8 +107,9 @@ storiesOf("Atoms|Checkbox", module)
       :label="label"
       :required="required"
       :disabled="disabled">
-      <template #label>
-        <!-- add content to replace slot fallback -->
+      <template #label="{ isChecked }">
+        <span v-if="isChecked" style="margin-left: 1rem">🎉 I'm checked</span>
+        <span v-else style="margin-left: 1rem">👈 Please check me</span>
       </template>
     </SfCheckbox>`
   }));
