@@ -83,6 +83,6 @@ storiesOf("Atoms|Image", module)
       :lazy="lazy"
       :placeholder="placeholder"
       :picture-breakpoint="pictureBreakpoint">
-      <!-- add content to replace slot fallback -->
+      <span>angelina_trn</span>
     </SfImage>`
   }));
