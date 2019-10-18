@@ -44,12 +44,12 @@ const scssTableConfig = {
     ],
     ["$footer__column-max-width", "300px", "max-width of footer column"],
     [
-      "$acoordion--close-background-color",
+      "$accordion--close-background-color",
       "$c-light-primary",
       "background-color of closed accordion for mobile"
     ],
     [
-      "$acoordion--open-background-color",
+      "$accordion--open-background-color",
       "$$c-light-secondary",
       "background-color of open accordion for mobile"
     ]
