@@ -31,12 +31,12 @@ storiesOf("Atoms|Checkbox", module)
       };
     },
     template: `<SfCheckbox 
-        v-model="checked"
-        :name="name"
-        :value="value"
-        :label="label"
-        :required="required"
-        :disabled="disabled"
+      v-model="checked"
+      :name="name"
+      :value="value"
+      :label="label"
+      :required="required"
+      :disabled="disabled"
       />`
   }))
   .add("[slot] checkmark", () => ({
@@ -64,16 +64,16 @@ storiesOf("Atoms|Checkbox", module)
       };
     },
     template: `<SfCheckbox 
-        v-model="checked"
-        :name="name"
-        :value="value"
-        :label="label"
-        :required="required"
-        :disabled="disabled">
-        <template #checkmark>
-          <span></span>
-        </template>
-      </SfCheckbox>`
+      v-model="checked"
+      :name="name"
+      :value="value"
+      :label="label"
+      :required="required"
+      :disabled="disabled">
+      <template #checkmark>
+        <!-- add content to replace slot fallback -->
+      </template>
+    </SfCheckbox>`
   }))
   .add("[slot] label", () => ({
     components: { SfCheckbox },
@@ -100,14 +100,14 @@ storiesOf("Atoms|Checkbox", module)
       };
     },
     template: `<SfCheckbox 
-        v-model="checked"
-        :name="name"
-        :value="value"
-        :label="label"
-        :required="required"
-        :disabled="disabled">
-        <template #label>
-          <span></span>
-        </template>
-      </SfCheckbox>`
+      v-model="checked"
+      :name="name"
+      :value="value"
+      :label="label"
+      :required="required"
+      :disabled="disabled">
+      <template #label>
+        <!-- add content to replace slot fallback -->
+      </template>
+    </SfCheckbox>`
   }));

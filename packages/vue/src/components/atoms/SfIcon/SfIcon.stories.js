@@ -100,6 +100,6 @@ storiesOf("Atoms|Icon", module)
       :size="size"
       :color="color"
       :view-box="viewBox">
-      <span></span>
+      <!-- add content to replace slot fallback -->
     </SfIcon>`
   }));

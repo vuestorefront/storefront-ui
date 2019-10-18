@@ -77,12 +77,12 @@ storiesOf("Atoms|Image", module)
       }
     },
     template: `<SfImage
-        :src="src"
-        :alt="alt"
-        :transition="transition"
-        :lazy="lazy"
-        :placeholder="placeholder"
-        :picture-breakpoint="pictureBreakpoint">
-        <span></span>
-      </SfImage>`
+      :src="src"
+      :alt="alt"
+      :transition="transition"
+      :lazy="lazy"
+      :placeholder="placeholder"
+      :picture-breakpoint="pictureBreakpoint">
+      <!-- add content to replace slot fallback -->
+    </SfImage>`
   }));

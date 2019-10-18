@@ -17,8 +17,8 @@ storiesOf("Atoms|Rating", module)
       }
     },
     template: `<SfRating
-        :max="max"
-        :score="score"/>`
+      :max="max"
+      :score="score" />`
   }))
   .add("[slot] icon-positive", () => ({
     components: { SfRating },
@@ -31,12 +31,12 @@ storiesOf("Atoms|Rating", module)
       }
     },
     template: `<SfRating
-        :max="max"
-        :score="score">
-        <template #icon-positive>
-          <span></span>  
-        </template>  
-      </SfRating>`
+      :max="max"
+      :score="score">
+      <template #icon-positive>
+        <!-- add content to replace slot fallback -->  
+      </template>  
+    </SfRating>`
   }))
   .add("[slot] icon-negative", () => ({
     components: { SfRating },
@@ -49,10 +49,10 @@ storiesOf("Atoms|Rating", module)
       }
     },
     template: `<SfRating
-        :max="max"
-        :score="score">
-        <template #icon-positive>
-          <span></span>
-        </template>  
-      </SfRating>`
+      :max="max"
+      :score="score">
+      <template #icon-positive>
+        <!-- add content to replace slot fallback -->
+      </template>  
+    </SfRating>`
   }));

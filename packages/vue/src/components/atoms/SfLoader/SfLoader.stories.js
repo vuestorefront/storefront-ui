@@ -16,7 +16,7 @@ storiesOf("Atoms|Loader", module).add("[slot] default", () => ({
     }, 3000);
   },
   template: `<SfLoader
-        :loading="isLoading">
-        <span></span>
-      </SfLoader>`
+    :loading="isLoading">
+    <!-- add content to replace slot fallback -->
+  </SfLoader>`
 }));

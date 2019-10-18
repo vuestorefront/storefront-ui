@@ -34,5 +34,7 @@ storiesOf("Atoms|Badge", module)
     },
     components: { SfBadge },
     template: `<SfBadge
-        :class="customClass">{{customLabel}}</SfBadge>`
+      :class="customClass">
+      {{customLabel}}
+     </SfBadge>`
   }));

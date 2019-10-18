@@ -17,6 +17,6 @@ storiesOf("Atoms|Overlay", module)
       }
     },
     template: `<SfOverlay
-        :visible="visible"
-        :transition="transition" />`
+      :visible="visible"
+      :transition="transition" />`
   }));

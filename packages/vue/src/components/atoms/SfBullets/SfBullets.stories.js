@@ -17,8 +17,8 @@ storiesOf("Atoms|Bullets", module)
     },
     components: { SfBullets },
     template: `<SfBullets
-        :total="total"
-        :current="current" />`
+      :total="total"
+      :current="current" />`
   }))
   .add("[slot] active", () => ({
     props: {
@@ -31,12 +31,12 @@ storiesOf("Atoms|Bullets", module)
     },
     components: { SfBullets },
     template: `<SfBullets
-        :total="total"
-        :current="current">
-        <template #active>
-          <li></li>
-        </template>
-      </SfBullets>`
+      :total="total"
+      :current="current">
+      <template #active>
+        <!-- add content to replace slot fallback -->
+      </template>
+    </SfBullets>`
   }))
   .add("[slot] inactive", () => ({
     props: {
@@ -49,10 +49,10 @@ storiesOf("Atoms|Bullets", module)
     },
     components: { SfBullets },
     template: `<SfBullets
-        :total="total"
-        :current="current">
-        <template #inactive>
-          <li></li>
-        </template>
-      </SfBullets>`
+      :total="total"
+      :current="current">
+      <template #inactive>
+        <!-- add content to replace slot fallback -->
+      </template>
+    </SfBullets>`
   }));

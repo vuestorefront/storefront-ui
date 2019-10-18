@@ -18,7 +18,7 @@ storiesOf("Atoms|Breadcrumbs", module)
       }
     },
     template: `<SfBreadcrumbs
-        :breadcrumbs="breadcrumbs" />`
+      :breadcrumbs="breadcrumbs" />`
   }))
   .add("[slot] link", () => ({
     components: { SfBreadcrumbs },
@@ -32,11 +32,11 @@ storiesOf("Atoms|Breadcrumbs", module)
       }
     },
     template: `<SfBreadcrumbs
-        :breadcrumbs="breadcrumbs">
-        <template #link>
-          <span></span>
-        </template>
-      </SfBreadcrumbs>`
+      :breadcrumbs="breadcrumbs">
+      <template #link>
+        <!-- add content to replace slot fallback -->
+      </template>
+    </SfBreadcrumbs>`
   }))
   .add("[slot] current", () => ({
     components: { SfBreadcrumbs },
@@ -50,9 +50,9 @@ storiesOf("Atoms|Breadcrumbs", module)
       }
     },
     template: `<SfBreadcrumbs
-        :breadcrumbs="breadcrumbs">
-        <template #current>
-          <span></span>
-        </template>
-      </SfBreadcrumbs>`
+      :breadcrumbs="breadcrumbs">
+      <template #current>
+        <!-- add content to replace slot fallback -->
+      </template>
+    </SfBreadcrumbs>`
   }));

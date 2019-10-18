@@ -35,6 +35,7 @@ storiesOf("Atoms|Button", module)
     },
     components: { SfButton },
     template: `<SfButton
-        :class="customClass"
-      >{{customLabel}}</SfButton>`
+      :class="customClass">
+      {{customLabel}}
+    </SfButton>`
   }));

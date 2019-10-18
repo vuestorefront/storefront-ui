@@ -37,10 +37,10 @@ storiesOf("Atoms|Heading", module)
       }
     },
     template: `<SfHeading
-        :class="customClass"
-        :level="level"
-        :title="title"
-        :subtitle="subtitle"/>`
+      :class="customClass"
+      :level="level"
+      :title="title"
+      :subtitle="subtitle"/>`
   }))
   .add("[slot] title", () => ({
     components: { SfHeading },
@@ -68,14 +68,14 @@ storiesOf("Atoms|Heading", module)
       }
     },
     template: `<SfHeading
-        :class="customClass"
-        :level="level"
-        :title="title"
-        :subtitle="subtitle">
-        <template #title>
-          <span></span>
-        </template>  
-      </SfHeading>`
+      :class="customClass"
+      :level="level"
+      :title="title"
+      :subtitle="subtitle">
+      <template #title>
+        <!-- add content to replace slot fallback -->
+      </template>  
+    </SfHeading>`
   }))
   .add("[slot] subtitle", () => ({
     components: { SfHeading },
@@ -103,12 +103,12 @@ storiesOf("Atoms|Heading", module)
       }
     },
     template: `<SfHeading
-        :class="customClass"
-        :level="level"
-        :title="title"
-        :subtitle="subtitle">
-        <template #subtitle>
-          <span></span>
-        </template>        
-      </SfHeading>`
+      :class="customClass"
+      :level="level"
+      :title="title"
+      :subtitle="subtitle">
+      <template #subtitle>
+        <!-- add content to replace slot fallback -->
+      </template>        
+    </SfHeading>`
   }));

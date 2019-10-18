@@ -34,13 +34,13 @@ storiesOf("Atoms|Input", module)
       };
     },
     template: `<SfInput
-        v-model="value"
-        :label="label"
-        :name="name"
-        :valid="valid"
-        :error-message="errorMessage"
-        :required="required"
-        :disabled="disabled"/>`
+      v-model="value"
+      :label="label"
+      :name="name"
+      :valid="valid"
+      :error-message="errorMessage"
+      :required="required"
+      :disabled="disabled"/>`
   }))
   .add("[slot] label", () => ({
     components: { SfInput },
@@ -70,17 +70,17 @@ storiesOf("Atoms|Input", module)
       };
     },
     template: `<SfInput
-        v-model="value"
-        :label="label"
-        :name="name"
-        :valid="valid"
-        :error-message="errorMessage"
-        :required="required"
-        :disabled="disabled">
-        <template #label>
-          <span></span>
-        </template>
-      </SfInput>`
+      v-model="value"
+      :label="label"
+      :name="name"
+      :valid="valid"
+      :error-message="errorMessage"
+      :required="required"
+      :disabled="disabled">
+      <template #label>
+        <!-- add content to replace slot fallback -->
+      </template>
+    </SfInput>`
   }))
   .add("[slote] errorMessage", () => ({
     components: { SfInput },
@@ -110,15 +110,15 @@ storiesOf("Atoms|Input", module)
       };
     },
     template: `<SfInput
-        v-model="value"
-        :label="label"
-        :name="name"
-        :valid="valid"
-        :error-message="errorMessage"
-        :required="required"
-        :disabled="disabled">
-        <template #errorMessage>
-          <span></span>
-        </template>
-      </SfInput>`
+      v-model="value"
+      :label="label"
+      :name="name"
+      :valid="valid"
+      :error-message="errorMessage"
+      :required="required"
+      :disabled="disabled">
+      <template #errorMessage>
+        <!-- add content to replace slot fallback -->
+      </template>
+    </SfInput>`
   }));

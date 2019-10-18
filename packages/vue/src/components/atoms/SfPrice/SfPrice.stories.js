@@ -31,9 +31,9 @@ storiesOf("Atoms|Price", module)
       }
     },
     template: `<SfPrice
-        :class="customClass"
-        :regular="regular"
-        :special="special"/>`
+      :class="customClass"
+      :regular="regular"
+      :special="special"/>`
   }))
   .add("[slot] special", () => ({
     components: { SfPrice },
@@ -56,13 +56,13 @@ storiesOf("Atoms|Price", module)
       }
     },
     template: `<SfPrice
-        :class="customClass"
-        :regular="regular"
-        :special="special">
-        <template #special>
-          <span></span>
-        </template>  
-      </SfPrice>`
+      :class="customClass"
+      :regular="regular"
+      :special="special">
+      <template #special>
+        <!-- add content to replace slot fallback -->
+      </template>  
+    </SfPrice>`
   }))
   .add("[slot] old", () => ({
     components: { SfPrice },
@@ -85,13 +85,13 @@ storiesOf("Atoms|Price", module)
       }
     },
     template: `<SfPrice
-        :class="customClass"
-        :regular="regular"
-        :special="special">
-        <template #old>
-          <span></span>
-        </template>
-      </SfPrice>`
+      :class="customClass"
+      :regular="regular"
+      :special="special">
+      <template #old>
+        <!-- add content to replace slot fallback -->
+      </template>
+    </SfPrice>`
   }))
   .add("[slot] regular", () => ({
     components: { SfPrice },
@@ -114,11 +114,11 @@ storiesOf("Atoms|Price", module)
       }
     },
     template: `<SfPrice
-        :class="customClass"
-        :regular="regular"
-        :special="special">
-        <template #regular>
-          <span></span>
-        </template>
-      </SfPrice>`
+      :class="customClass"
+      :regular="regular"
+      :special="special">
+      <template #regular>
+        <!-- add content to replace slot fallback -->
+      </template>
+    </SfPrice>`
   }));

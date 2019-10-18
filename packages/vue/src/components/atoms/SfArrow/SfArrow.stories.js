@@ -27,7 +27,7 @@ storiesOf("Atoms|Arrow", module)
       }
     },
     template: `<SfArrow
-        :class="customClass" />`
+      :class="customClass" />`
   }))
   .add("[slot] default", () => ({
     components: {
@@ -51,6 +51,6 @@ storiesOf("Atoms|Arrow", module)
     },
     template: `<SfArrow
       :class="customClass">
-      <div></div>
+      <!-- add content to replace slot fallback -->
     </SfArrow>`
   }));

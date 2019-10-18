@@ -56,13 +56,13 @@ storiesOf("Atoms|Property", module)
       }
     },
     template: `<SfProperty
-        :class="customClass"
-        :name="name"
-        :value="value">
-        <template #name>
-          <span></span>
-        </template>
-      </SfProperty>`
+      :class="customClass"
+      :name="name"
+      :value="value">
+      <template #name>
+        <!-- add content to replace slot fallback -->
+      </template>
+    </SfProperty>`
   }))
   .add("[slot] value", () => ({
     components: { SfProperty },
@@ -85,11 +85,11 @@ storiesOf("Atoms|Property", module)
       }
     },
     template: `<SfProperty
-        :class="customClass"
-        :name="name"
-        :value="value">
-        <template #value>
-          <span></span>
-        </template>
-      </SfProperty>`
+      :class="customClass"
+      :name="name"
+      :value="value">
+      <template #value>
+        <!-- add content to replace slot fallback -->
+      </template>
+    </SfProperty>`
   }));
