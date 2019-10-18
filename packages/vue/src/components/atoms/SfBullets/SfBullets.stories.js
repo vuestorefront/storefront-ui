@@ -34,7 +34,7 @@ storiesOf("Atoms|Bullets", module)
       :total="total"
       :current="current">
       <template #active>
-        <!-- add content to replace slot fallback -->
+        <li style="width: 10px; height: 10px; background-color:#9EE2B0"></li>
       </template>
     </SfBullets>`
   }))
@@ -52,7 +52,7 @@ storiesOf("Atoms|Bullets", module)
       :total="total"
       :current="current">
       <template #inactive>
-        <!-- add content to replace slot fallback -->
+        <li style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"></li>
       </template>
     </SfBullets>`
   }));
