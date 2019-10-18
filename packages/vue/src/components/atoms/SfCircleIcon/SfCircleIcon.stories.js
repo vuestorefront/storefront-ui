@@ -9,7 +9,7 @@ import { icons } from "@storefront-ui/shared/icons/icons";
 
 import SfCircleIcon from "./SfCircleIcon.vue";
 
-const icon = Object.keys(icons);
+const iconsNames = Object.keys(icons);
 
 storiesOf("Atoms|CircleIcon", module)
   .addDecorator(withKnobs)
@@ -34,12 +34,12 @@ storiesOf("Atoms|CircleIcon", module)
         )
       },
       icon: {
-        default: select("(prop) icon", icon, "home")
+        default: select("(prop) icon", iconsNames, "home")
       }
     },
     template: `<SfCircleIcon
         :class="customClass"
-        :icon="icon" />`
+        :icon="icons" />`
   }))
   .add("[slot] default", () => ({
     components: { SfCircleIcon },
@@ -62,11 +62,12 @@ storiesOf("Atoms|CircleIcon", module)
         )
       },
       icon: {
-        default: select("icon (prop)", icon, "home")
+        default: select("icon (prop)", iconsNames, "home")
       }
     },
     template: `<SfCircleIcon
-        :class="customClass">
+        :class="customClass"
+        :icon="icons" >
         <span></span>
       </SfCircleIcon>`
   }));
