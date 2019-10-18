@@ -18,6 +18,7 @@
     "docs:dev": "yarpm docs:vuecomponents && vuepress dev docs",
     "docs:build": "yarpm docs:vuecomponents && vuepress build docs",
     "create-index-files": "node scripts/create-index-files.js",
+    "precommit": "lint-staged",
     "postinstall": "node scripts/postinstall.js",
     "version": "node scripts/version.js",
     "postpublish": "node scripts/postpublish.js"
@@ -72,7 +73,7 @@
     "eslint-plugin-vue": "^5.2.3",
     "html-loader": "^0.5.5",
     "jest": "^24.9.0",
-    "lint-staged": "^8.2.1",
+    "lint-staged": "^9.4.2",
     "markdown-loader": "^5.0.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
@@ -87,17 +88,7 @@
     "vue": "^2.6.x"
   },
   "main": "./index.js",
-  "lint-staged": {
-    "*.{js,vue,html,scss}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "85b200d4981615ee7dc0682a7ad2d26fc0de2866"
+  }
 }
