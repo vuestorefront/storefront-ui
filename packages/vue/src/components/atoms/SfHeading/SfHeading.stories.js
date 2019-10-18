@@ -8,6 +8,7 @@ import {
 } from "@storybook/addon-knobs";
 
 import SfHeading from "./SfHeading.vue";
+import SfIcon from "../SfIcon/SfIcon.vue";
 
 storiesOf("Atoms|Heading", module)
   .addDecorator(withKnobs)
@@ -43,7 +44,10 @@ storiesOf("Atoms|Heading", module)
       :subtitle="subtitle"/>`
   }))
   .add("[slot] title", () => ({
-    components: { SfHeading },
+    components: {
+      SfHeading,
+      SfIcon
+    },
     props: {
       customClass: {
         default: options(
@@ -72,13 +76,18 @@ storiesOf("Atoms|Heading", module)
       :level="level"
       :title="title"
       :subtitle="subtitle">
-      <template #title>
-        <!-- add content to replace slot fallback -->
+      <template #title="{ title }">
+        <h2 style="display: flex; align-items: center">
+          <SfIcon icon="heart" size="xxs" style="margin-right: 1rem"/> {{title}}
+        </h2>
       </template>  
     </SfHeading>`
   }))
   .add("[slot] subtitle", () => ({
-    components: { SfHeading },
+    components: {
+      SfHeading,
+      SfIcon
+    },
     props: {
       customClass: {
         default: options(
@@ -107,8 +116,10 @@ storiesOf("Atoms|Heading", module)
       :level="level"
       :title="title"
       :subtitle="subtitle">
-      <template #subtitle>
-        <!-- add content to replace slot fallback -->
+      <template #subtitle="{ subtitle }">
+        <div style="display: flex; align-items: center">
+          {{subtitle}} <SfIcon icon="notify" size="xxs" style="margin-left: 1rem"/>
+        </div>
       </template>        
     </SfHeading>`
   }));
