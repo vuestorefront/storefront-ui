@@ -7,6 +7,7 @@ import {
 } from "@storybook/addon-knobs";
 
 import SfProperty from "./SfProperty.vue";
+import SfBadge from "../SfBadge/SfBadge.vue";
 
 storiesOf("Atoms|Property", module)
   .addDecorator(withKnobs)
@@ -59,13 +60,16 @@ storiesOf("Atoms|Property", module)
       :class="customClass"
       :name="name"
       :value="value">
-      <template #name>
-        <!-- add content to replace slot fallback -->
+      <template #name="{ name }">
+        {{name}}:<br>
       </template>
     </SfProperty>`
   }))
   .add("[slot] value", () => ({
-    components: { SfProperty },
+    components: {
+      SfProperty,
+      SfBadge
+    },
     props: {
       customClass: {
         default: options(
@@ -88,8 +92,8 @@ storiesOf("Atoms|Property", module)
       :class="customClass"
       :name="name"
       :value="value">
-      <template #value>
-        <!-- add content to replace slot fallback -->
+      <template #value="{ value }">
+        <SfBadge>{{value}}</SfBadge>
       </template>
     </SfProperty>`
   }));
