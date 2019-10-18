@@ -2,7 +2,12 @@ import { storiesOf } from "@storybook/vue";
 import { action } from "@storybook/addon-actions";
 import SfSearchBar from "./SfSearchBar.vue";
 import { generateStorybookTable } from "@/helpers";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  select,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
@@ -63,17 +68,18 @@ storiesOf("Molecules|SearchBar", module)
     () => ({
       props: {
         customClass: {
-          default: select(
-            "CSS Modifier",
-            [
-              "null",
-              "sf-search-bar--secondary",
-              "sf-search-bar--position-right",
-              "sf-search-bar--position-right-mobile",
-              "sf-search-bar--position-right-desktop"
-            ],
-            "null",
-            "CSS-Modifiers"
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-search-bar--secondary": "sf-search-bar--secondary",
+              "sf-search-bar--position-right": "sf-search-bar--position-right",
+              "sf-search-bar--position-right-mobile":
+                "sf-search-bar--position-right-mobile",
+              "sf-search-bar--position-right-desktop":
+                "sf-search-bar--position-right-desktop"
+            },
+            "",
+            { display: "multi-select" }
           )
         }
       },

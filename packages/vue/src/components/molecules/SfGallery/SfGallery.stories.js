@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, number, boolean } from "@storybook/addon-knobs";
+import { withKnobs, number, boolean } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfGallery from "./SfGallery.vue";
 
@@ -35,14 +35,14 @@ const data = () => {
   return {
     images: [
       {
-        zoom: {
-          url:
-            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-          alt: "Macbook PRO Apple"
-        },
         small: {
           url:
             "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+          alt: "Macbook PRO Apple"
+        },
+        normal: {
+          url:
+            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
           alt: "Macbook PRO Apple"
         },
         big: {
@@ -52,14 +52,14 @@ const data = () => {
         }
       },
       {
-        zoom: {
-          url:
-            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-          alt: "Macbook PRO Apple (keyboard)"
-        },
         small: {
           url:
             "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+          alt: "Macbook PRO Apple (keyboard)"
+        },
+        normal: {
+          url:
+            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
           alt: "Macbook PRO Apple (keyboard)"
         },
         big: {
@@ -114,8 +114,8 @@ storiesOf("Molecules|Gallery", module)
           let images = [
             {
               small: { url, alt },
-              big: { url, alt },
-              zoom: { url, alt }
+              normal: { url, alt },
+              big: { url, alt }
             }
           ]
             </code>
@@ -132,7 +132,7 @@ storiesOf("Molecules|Gallery", module)
     () => ({
       data,
       components: { SfGallery },
-      template: `<SfGallery 
+      template: `<SfGallery
         :images="images">
          <template #thumbs="{ images, active, go }">
            <div

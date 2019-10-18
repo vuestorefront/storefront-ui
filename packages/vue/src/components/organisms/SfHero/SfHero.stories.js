@@ -2,14 +2,12 @@
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
-  select,
   number,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfHero from "./SfHero.vue";
-import { string } from "postcss-selector-parser";
 
 const data = () => {
   return {
@@ -52,7 +50,7 @@ const scssTableConfig = {
     ["$hero__bullets-position-offset", "0.5rem"],
     ["$hero__bullets-position-offset--desktop", "2.5rem"],
     ["$hero__bullets-width", "100%"],
-    [("$hero-item-height", "14rem")],
+    ["$hero-item-height", "14rem"],
     ["$hero-item-height--desktop", "30rem"],
     ["$hero-item-width", "100%"],
     ["$hero-item-padding", "1rem"],
@@ -102,7 +100,6 @@ storiesOf("Organisms|Hero", module)
           default: options(
             "CSS Modifier for 1st item",
             {
-              null: "null",
               "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
               "bg-top-right": "sf-hero-item--position-bg-top-right",
               "bg-top-left": "sf-hero-item--position-bg-top-left",
@@ -116,7 +113,6 @@ storiesOf("Organisms|Hero", module)
           default: options(
             "CSS Modifier for 2nd item",
             {
-              null: "null",
               "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
               "bg-top-right": "sf-hero-item--position-bg-top-right",
               "bg-top-left": "sf-hero-item--position-bg-top-left",
@@ -130,7 +126,6 @@ storiesOf("Organisms|Hero", module)
           default: options(
             "CSS Modifier for 3rd item",
             {
-              null: "null",
               "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
               "bg-top-right": "sf-hero-item--position-bg-top-right",
               "bg-top-left": "sf-hero-item--position-bg-top-left",

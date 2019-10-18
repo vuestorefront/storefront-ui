@@ -8,19 +8,23 @@ cache:
     - node_modules
     - packages/vue/node_modules
 
-script:
-  - yarn
+before_cache:
+  - rm -rf $TRAVIS_BUILD_DIR/packages/vue/node_modules/.cache/babel-loader
 
 jobs:
   include:
+    - stage: Precache
+      script: yarn install --frozen-lockfile
+
     - stage: Build
-    - script:
+      name: Lint + Test
+      script:
         - cd packages/vue
         - yarn lint
-        - yarn build
+        - yarn test:unit
 
-    - stage: Tests
-    - scripts: 
-      - cd packages/vue
-      - yarn test:unit
-      name: "Unit Tests"
+    - stage: Build
+      name: Build
+      script:
+        - cd packages/vue
+        - yarn build

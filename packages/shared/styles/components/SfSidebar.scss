@@ -45,4 +45,7 @@ $sidebar-padding    : 3rem !default;
       display: none
     }
   }
+  &--has-scroll-lock{
+    overflow: hidden;
+  }
 }

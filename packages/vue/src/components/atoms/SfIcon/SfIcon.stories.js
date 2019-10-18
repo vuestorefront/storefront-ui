@@ -1,6 +1,10 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import { icons } from "@storefront-ui/shared/icons/icons";
 import SfIcon from "./SfIcon.vue";
@@ -39,17 +43,18 @@ const colors = [
   ["blue-secondary", "$c-blue-secondary"]
 ];
 
-const iconsList = (() => {
-  //TODO: Get icon svg files all in black color as default.
-  const needInverted = ["add_to_cart", "added_to_cart", "check", "close"];
+const getIconPaths = paths =>
+  paths.reduce((str, path) => `${str}<path d="${path}"></path>`, "");
 
-  return Object.keys(icons).map(icon => [
+const iconsList = (() =>
+  Object.keys(icons).map(icon => [
     icon,
-    `<img alt="${icon}" width="20px" height="20px" src="assets/${icon}.svg" ${
-      needInverted.includes(icon) ? 'style="filter:invert(1);"' : ""
-    }/>`
-  ]);
-})();
+    `<svg width="20px" height="20px" viewBox="${
+      icons[icon].viewBox
+    }" xmlns="http://www.w3.org/2000/svg">
+      ${getIconPaths(icons[icon].paths)}
+    </svg>`
+  ]))();
 
 const cssTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
@@ -74,10 +79,14 @@ storiesOf("Atoms|Icon", module)
     () => ({
       props: {
         customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-icon--color-primary", "sf-icon--color-secondary"],
-            "null"
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-icon--color-primary": "sf-icon--color-primary",
+              "sf-icon--color-secondary": "sf-icon--color-secondary"
+            },
+            "",
+            { display: "multi-select" }
           )
         },
         icon: {
