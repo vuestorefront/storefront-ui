@@ -7,6 +7,7 @@ import {
 } from "@storybook/addon-knobs";
 
 import SfPrice from "./SfPrice.vue";
+import SfBadge from "../SfBadge/SfBadge.vue";
 
 storiesOf("Atoms|Price", module)
   .addDecorator(withKnobs)
@@ -24,7 +25,7 @@ storiesOf("Atoms|Price", module)
         )
       },
       regular: {
-        default: text("regular (prop)", "$50.00")
+        default: text("regular (prop)", "$200.00")
       },
       special: {
         default: text("special (prop)", "$100.00")
@@ -36,7 +37,10 @@ storiesOf("Atoms|Price", module)
       :special="special"/>`
   }))
   .add("[slot] special", () => ({
-    components: { SfPrice },
+    components: {
+      SfPrice,
+      SfBadge
+    },
     props: {
       customClass: {
         default: options(
@@ -49,7 +53,7 @@ storiesOf("Atoms|Price", module)
         )
       },
       regular: {
-        default: text("regular (prop)", "$50.00")
+        default: text("regular (prop)", "$200.00")
       },
       special: {
         default: text("special (prop)", "$100.00")
@@ -59,13 +63,16 @@ storiesOf("Atoms|Price", module)
       :class="customClass"
       :regular="regular"
       :special="special">
-      <template #special>
-        <!-- add content to replace slot fallback -->
+      <template #special="{ special }">
+        <SfBadge class="color-warning">{{special}}</SfBadge>
       </template>  
     </SfPrice>`
   }))
   .add("[slot] old", () => ({
-    components: { SfPrice },
+    components: {
+      SfPrice,
+      SfBadge
+    },
     props: {
       customClass: {
         default: options(
@@ -78,7 +85,7 @@ storiesOf("Atoms|Price", module)
         )
       },
       regular: {
-        default: text("regular (prop)", "$50.00")
+        default: text("regular (prop)", "$200.00")
       },
       special: {
         default: text("special (prop)", "$100.00")
@@ -88,13 +95,16 @@ storiesOf("Atoms|Price", module)
       :class="customClass"
       :regular="regular"
       :special="special">
-      <template #old>
-        <!-- add content to replace slot fallback -->
+      <template #old="{ regular }">
+        <SfBadge class="color-secondary">{{regular}}</SfBadge>
       </template>
     </SfPrice>`
   }))
   .add("[slot] regular", () => ({
-    components: { SfPrice },
+    components: {
+      SfPrice,
+      SfBadge
+    },
     props: {
       customClass: {
         default: options(
@@ -107,7 +117,7 @@ storiesOf("Atoms|Price", module)
         )
       },
       regular: {
-        default: text("regular (prop)", "$50.00")
+        default: text("regular (prop)", "$200.00")
       },
       special: {
         default: text("special (prop)", "")
@@ -117,8 +127,8 @@ storiesOf("Atoms|Price", module)
       :class="customClass"
       :regular="regular"
       :special="special">
-      <template #regular>
-        <!-- add content to replace slot fallback -->
+      <template #regular="{ regular }">
+        <SfBadge>{{regular}}</SfBadge>
       </template>
     </SfPrice>`
   }));
