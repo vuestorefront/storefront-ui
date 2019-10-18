@@ -31,7 +31,7 @@ storiesOf("Atoms|Input", module)
     },
     data() {
       return {
-        value: "Adam"
+        value: ""
       };
     },
     template: `<SfInput
@@ -70,7 +70,7 @@ storiesOf("Atoms|Input", module)
     },
     data() {
       return {
-        value: "Adam"
+        value: ""
       };
     },
     template: `<SfInput
