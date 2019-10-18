@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
 import SfInput from "./SfInput.vue";
+import SfIcon from "../SfIcon/SfIcon.vue";
 
 storiesOf("Atoms|Input", module)
   .addDecorator(withKnobs)
@@ -30,7 +31,7 @@ storiesOf("Atoms|Input", module)
     },
     data() {
       return {
-        value: ""
+        value: "Adam"
       };
     },
     template: `<SfInput
@@ -43,7 +44,10 @@ storiesOf("Atoms|Input", module)
       :disabled="disabled"/>`
   }))
   .add("[slot] label", () => ({
-    components: { SfInput },
+    components: {
+      SfInput,
+      SfIcon
+    },
     props: {
       label: {
         default: text("label (prop)", "First name")
@@ -66,7 +70,7 @@ storiesOf("Atoms|Input", module)
     },
     data() {
       return {
-        value: ""
+        value: "Adam"
       };
     },
     template: `<SfInput
@@ -77,13 +81,16 @@ storiesOf("Atoms|Input", module)
       :error-message="errorMessage"
       :required="required"
       :disabled="disabled">
-      <template #label>
-        <!-- add content to replace slot fallback -->
+      <template #label="{ label }">
+            <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
       </template>
     </SfInput>`
   }))
-  .add("[slote] errorMessage", () => ({
-    components: { SfInput },
+  .add("[slot] errorMessage", () => ({
+    components: {
+      SfInput,
+      SfIcon
+    },
     props: {
       label: {
         default: text("label (prop)", "First name")
@@ -98,7 +105,7 @@ storiesOf("Atoms|Input", module)
         default: boolean("valid (prop)", false)
       },
       required: {
-        default: boolean("required (prop)", true)
+        default: boolean("required (prop)", false)
       },
       disabled: {
         default: boolean("disabled (prop)", false)
@@ -106,7 +113,7 @@ storiesOf("Atoms|Input", module)
     },
     data() {
       return {
-        value: ""
+        value: "Adam"
       };
     },
     template: `<SfInput
@@ -117,8 +124,8 @@ storiesOf("Atoms|Input", module)
       :error-message="errorMessage"
       :required="required"
       :disabled="disabled">
-      <template #errorMessage>
-        <!-- add content to replace slot fallback -->
+      <template #errorMessage="{ errorMessage }">
+        <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> {{errorMessage}}
       </template>
     </SfInput>`
   }));
