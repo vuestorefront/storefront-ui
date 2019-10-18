@@ -68,6 +68,6 @@ storiesOf("Atoms|CircleIcon", module)
     template: `<SfCircleIcon
       :class="customClass"
       :icon="icons">
-      <!-- add content to replace slot fallback -->
+      <span style="font-size: 1.5rem">1</span>
     </SfCircleIcon>`
   }));
