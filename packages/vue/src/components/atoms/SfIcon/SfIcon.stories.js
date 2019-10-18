@@ -100,6 +100,6 @@ storiesOf("Atoms|Icon", module)
       :size="size"
       :color="color"
       :view-box="viewBox">
-      <img src="/assets/storybook/vue.ico" alt="Storefront UI">
+      <img src="/assets/storybook/vue.ico" alt="Vue.js">
     </SfIcon>`
   }));
