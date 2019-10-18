@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $bullet-border-radius: 50% !default;
 $bullet-size: 8px !default;
@@ -11,6 +11,7 @@ $bullet-background-color--active: $c-green-secondary !default;
 .sf-bullets {
   display: flex;
   list-style: none;
+  align-items: center;
   margin: 0;
   padding: 0;
 }
