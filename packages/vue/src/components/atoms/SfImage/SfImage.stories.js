@@ -88,7 +88,7 @@ storiesOf("Atoms|Image", module)
         <br>
         To render a simple img tag you should pass
         an src string with the image url:
-        <code>let src = "assets/storybook/product_thumb.png"</code>
+        <code>let src = "assets/storybook/product_thumb.jpg"</code>
         <br>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `
