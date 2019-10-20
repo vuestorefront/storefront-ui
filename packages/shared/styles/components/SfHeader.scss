@@ -7,29 +7,49 @@ $header-desktop-height: 80px !default;
 
 $header-mobile-justify-content: space-between !default;
 $header-mobile-align-items: center !default;
+
 $header-mobile-padding-x: 1rem !default;
-$header-tablet-justify-content: flex-start !default;
-$header__logo-width: 21px !default;
+
+$header-mobile-logo-width: 21px !default;
+$header-desktop-logo-width: 34px !default;
+
 $header__logo-height: auto !default;
 
 .sf-header {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   @media (max-width: $mobile-max) {
     background: $header-mobile-background;
     height: $header-mobile-height;
-    justify-content: $header-mobile-justify-content;
     align-items: $header-mobile-align-items;
-    padding-left: $header-mobile-padding-x;
-    padding-right: $header-mobile-padding-x;
   }
   @media (min-width: $tablet-min) {
     height: $header-desktop-height;
-    justify-content: $header-tablet-justify-content;
   }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    width: 1160px;
+    max-width: 100%;
+    margin: {
+      left: auto;
+      right: auto;
+    }
+  }
+
   &__column {
     &--left {
-      order: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media (min-width: $tablet-min) {
+        justify-content: flex-start;
+      }
     }
     &--middle {
       order: 2;
@@ -37,17 +57,15 @@ $header__logo-height: auto !default;
     &--right {
       order: 3;
     }
-    &--left,
-    &--right {
-      @media (min-width: $tablet-min) {
-        display: none;
-      }
-    }
   }
   &__logo {
-    width: $header__logo-width;
+    width: $header-mobile-logo-width;
     height: $header__logo-height;
     padding-right: 0.5rem;
+
+    @media (min-width: $tablet-min) {
+      width: $header-desktop-logo-width;
+    }
   }
   &__nav,
   &__search,
