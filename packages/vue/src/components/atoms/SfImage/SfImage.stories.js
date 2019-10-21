@@ -27,6 +27,9 @@ storiesOf("Atoms|Image", module)
           }
         })
       },
+      alt: {
+        default: text("alt (prop)", "Vila stripe maxi shirt dress")
+      },
       placeholder: {
         default: text("placeholder (prop)", "/assets/placeholder.png")
       },
@@ -54,14 +57,15 @@ storiesOf("Atoms|Image", module)
       src: {
         default: object("src (prop)", {
           small: {
-            url: "/assets/storybook/product-109x164.png",
-            alt: "Vila stripe maxi shirt dress"
+            url: "/assets/storybook/product-109x164.png"
           },
           normal: {
-            url: "/assets/storybook/product-216x326.png",
-            alt: "Vila stripe maxi shirt dress"
+            url: "/assets/storybook/product-216x326.png"
           }
         })
+      },
+      alt: {
+        default: text("alt (prop)", "Vila stripe maxi shirt dress")
       },
       placeholder: {
         default: text("placeholder (prop)", "/assets/placeholder.png")
