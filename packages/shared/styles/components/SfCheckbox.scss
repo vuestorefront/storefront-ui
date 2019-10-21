@@ -43,14 +43,25 @@ $checkbox__checkmark-transition: background-color 0.25s
       flex-basis: $checkbox__checkmark-size-desktop;
       height: $checkbox__checkmark-size-desktop;
     }
-    &.is-active {
-      background-color: $checkbox__checkmark-primary-color;
-      border-color: transparent;
-    }
     &:hover {
       border-color: $checkbox__checkmark-primary-color;
       transition: $checkbox__checkmark-transition;
     }
+    .is-active &{
+      background-color: $checkbox__checkmark-primary-color;
+      border-color: transparent;
+    }
+    .is-disabled &{
+      &:hover{
+        border-color: $c-dark-secondary;
+        transition: $checkbox__checkmark-transition;
+      }
+    }
+    .is-active.is-disabled &{
+      background-color: $c-dark-secondary;
+      border-color: transparent;
+    }
+
   }
   &__label {
     margin-left: $spacer-big;
