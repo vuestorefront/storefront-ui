@@ -88,6 +88,7 @@ storiesOf("Organisms|Accordion", module)
       },
       props: {
         multiple: {
+<<<<<<< HEAD
           default: boolean("multiple", false)
         },
         firstOpen: {
@@ -369,6 +370,8 @@ storiesOf("Organisms|Accordion", module)
       },
       props: {
         multiple: {
+=======
+>>>>>>> b0d05281a72f4d33b1d69173232087143533aee2
           default: boolean("multiple", true)
         },
         firstOpen: {

@@ -1,6 +1,7 @@
 <div class="sf-footer-column">
     <div :style="{width: '100%', padding: '0px'}" class="mobile-only">
         <SfAccordion class="sf-accordion" :multiple="false" :firstOpen="false"
+<<<<<<< HEAD
             :showChevron="false" transition="fade">
                 <SfAccordionItem
                     ref="accordionItem">
@@ -10,11 +11,23 @@
                         :class="{'sf-accordion-item__header--open': isOpen}"
                         class="sf-accordion-item__header"
                         >
+=======
+                     :showChevron="false" transition="fade">
+            <SfAccordionItem
+                    ref="accordionItem">
+                <template v-slot:header="{isOpen}">
+                    <div
+                            @click="accordionClick"
+                            :class="{'sf-accordion-item__header--open': isOpen}"
+                            class="sf-accordion-item__header"
+                    >
+>>>>>>> b0d05281a72f4d33b1d69173232087143533aee2
                         <span calss="sf-accordion-item__title">
                             {{ title }}
                         </span>
                         <div>
                             <SfChevron :class="{'sf-chevron--top': isOpen}" />
+<<<<<<< HEAD
                         </div>
                         </div>
                     </template>
@@ -24,6 +37,17 @@
                         </div>
                     </template>
                 </SfAccordionItem>
+=======
+                        </div>
+                    </div>
+                </template>
+                <template>
+                    <div class="sf-accordion-item__content">
+                        <slot />
+                    </div>
+                </template>
+            </SfAccordionItem>
+>>>>>>> b0d05281a72f4d33b1d69173232087143533aee2
         </SfAccordion>
     </div>
     <div class="sf-footer-column-desktop desktop-only">
