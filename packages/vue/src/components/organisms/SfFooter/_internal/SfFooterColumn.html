@@ -1,15 +1,22 @@
 <div class="sf-footer-column">
-    <div class="mobile-only">
+    <div :style="{width: '100%', padding: '0px'}" class="mobile-only">
         <SfAccordion class="sf-accordion" :multiple="false" :firstOpen="false"
             :showChevron="false" transition="fade">
-            <template v-slot="{ selected }">
-                <SfAccordionItem :selected="selected"
-                    class="sf-accordion-item__header-wrapper--close sf-accordion-item__header-wrapper--open">
+                <SfAccordionItem
+                    ref="accordionItem">
                     <template v-slot:header="{isOpen}">
-                        <div class="sf-accordion-item__header">
+                        <div
+                        @click="accordionClick"
+                        :class="{'sf-accordion-item__header--open': isOpen}"
+                        class="sf-accordion-item__header"
+                        >
+                        <span calss="sf-accordion-item__title">
                             {{ title }}
+                        </span>
+                        <div>
+                            <SfChevron :class="{'sf-chevron--top': isOpen}" />
                         </div>
-                        <SfChevron class="sf-accordion-item-chevron" />
+                        </div>
                     </template>
                     <template>
                         <div class="sf-accordion-item__content">
@@ -17,7 +24,6 @@
                         </div>
                     </template>
                 </SfAccordionItem>
-            </template>
         </SfAccordion>
     </div>
     <div class="sf-footer-column-desktop desktop-only">

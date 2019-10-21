@@ -57,27 +57,25 @@ $acoordion--open-background-color: $c-light-secondary !default;
   width: 100%;
 }
 .sf-accordion-item {
-  &__header-wrapper--close {
-    background-color: $acoordion--close-background-color;
-  }
-  &__header-wrapper--open {
-    background-color: $acoordion--open-background-color;
-  }
   &__content {
     line-height: $footer__row-line-height;
-    padding-left: $spacer-medium;
-    padding-right: $spacer-medium;
+    padding-left: $spacer;
+    padding-right: $spacer;
+    padding-top: 0;
+    padding-bottom: 0;
   }
   &__header {
-    max-width: 80%;
     font-size: 18px;
     font-weight: 420;
     text-transform: "uppercase";
     padding: $spacer-medium;;
-    color: "#1D1F2"
+    color: "#1D1F2";
+    background-color: $acoordion--close-background-color;
+    &--open {
+      background-color: $acoordion--open-background-color;
+    }
   }
-  &-chevron {
-    position: "absolute";
-    right: 1rem
+  &__title {
+    max-width: 80%;
   }
 }
