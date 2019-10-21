@@ -39,7 +39,7 @@ storiesOf("Atoms|CircleIcon", module)
     },
     template: `<SfCircleIcon
         :class="customClass"
-        :icon="icons" />`
+        :icon="icon" />`
   }))
   .add("[slot] default", () => ({
     components: { SfCircleIcon },
@@ -67,7 +67,7 @@ storiesOf("Atoms|CircleIcon", module)
     },
     template: `<SfCircleIcon
       :class="customClass"
-      :icon="icons">
+      :icon="icon">
       <span style="font-size: 1.5rem">1</span>
     </SfCircleIcon>`
   }));
