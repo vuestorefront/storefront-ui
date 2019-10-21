@@ -14,10 +14,5 @@ export default {
       type: String,
       default: ""
     }
-  },
-  methods: {
-    accordionClick() {
-      this.$refs.accordionItem.accordionClick();
-    }
   }
 };

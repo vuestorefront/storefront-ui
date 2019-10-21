@@ -2,9 +2,8 @@
     <div class="mobile-only">
         <SfAccordion class="sf-accordion" :multiple="false" :firstOpen="false"
             :showChevron="false" transition="fade">
-                <SfAccordionItem
-                    ref="accordionItem">
-                    <template v-slot:header="{isOpen}">
+                <SfAccordionItem>
+                    <template v-slot:header="{isOpen, accordionClick}">
                         <div
                         @click="accordionClick"
                         :class="{'sf-accordion-item__header--open': isOpen}"
