@@ -20,7 +20,11 @@ $accordion--open-background-color: $c-light-secondary !default;
 }
 .sf-footer-column {
   font-family: $footer__column-content-font-family;
+  width: 100%;
+  padding: 0;
   @media screen and (min-width: $desktop-min) {
+    width: unset;
+    padding: unset;
     max-width: 24.9999%;
     flex: 1 1 auto;
     justify-content: flex-start;
@@ -37,12 +41,6 @@ $accordion--open-background-color: $c-light-secondary !default;
     display: none;
     @media screen and (min-width: $desktop-min) {
       display: unset;
-    }
-  }
-  &__chevron {
-    display: none;
-    &--active {
-      transform: rotate(180deg);
     }
   }
   &__content {
@@ -70,15 +68,9 @@ $accordion--open-background-color: $c-light-secondary !default;
     text-transform: "uppercase";
     padding: $spacer-medium;;
     color: "#1D1F2";
-<<<<<<< HEAD
-    background-color: $acoordion--close-background-color;
-    &--open {
-      background-color: $acoordion--open-background-color;
-=======
     background-color: $accordion--close-background-color;
     &--open {
       background-color: $accordion--open-background-color;
->>>>>>> b0d05281a72f4d33b1d69173232087143533aee2
     }
   }
   &__title {
