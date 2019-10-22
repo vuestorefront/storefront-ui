@@ -1,3 +1,18 @@
 export default {
-  name: "SfContentPage"
+  name: "SfContentPage",
+  inject: ["provided"],
+  props: {
+    title: {
+      type: String,
+      default: ""
+    }
+  },
+  computed: {
+    isActive() {
+      return this.provided.active === this.title;
+    }
+  },
+  mounted() {
+    this.provided.updatePages(this.title);
+  }
 };

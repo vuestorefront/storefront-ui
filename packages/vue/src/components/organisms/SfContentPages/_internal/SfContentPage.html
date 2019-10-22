@@ -1,1 +1,4 @@
-<div class="sf-content-page"></div>;
+<div v-if="isActive" class="sf-content-page">
+  <h2 class="sf-content-page__title mobile-only">{{ title }}</h2>
+  <slot />
+</div>;
