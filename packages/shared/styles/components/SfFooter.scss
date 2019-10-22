@@ -50,30 +50,30 @@ $accordion--open-background-color: $c-light-secondary !default;
       display: flex;
     }
   }
-}
-.sf-accordion {
-  width: 100%;
-}
-.sf-accordion-item {
-  &__content {
-    line-height: $footer__row-line-height;
-    padding-left: $spacer;
-    padding-right: $spacer;
-    padding-top: 0;
-    padding-bottom: 0;
+  .sf-accordion {
+    width: 100%;
   }
-  &__header {
-    font-size: 18px;
-    font-weight: 420;
-    text-transform: "uppercase";
-    padding: $spacer-medium;;
-    color: "#1D1F2";
-    background-color: $accordion--close-background-color;
-    &--open {
-      background-color: $accordion--open-background-color;
+  .sf-accordion-item {
+    &__content {
+      line-height: $footer__row-line-height;
+      padding-left: $spacer;
+      padding-right: $spacer;
+      padding-top: 0;
+      padding-bottom: 0;
     }
-  }
-  &__title {
-    max-width: 80%;
+    &__header {
+      font-size: 18px;
+      font-weight: 420;
+      text-transform: "uppercase";
+      padding: $spacer-medium;;
+      color: "#1D1F2";
+      background-color: $accordion--close-background-color;
+      &--open {
+        background-color: $accordion--open-background-color;
+      }
+    }
+    &__title {
+      max-width: 80%;
+    }
   }
 }
