@@ -15,7 +15,7 @@ $content-pages__title-line-height: 1.6 !default;
   font-weight: $content-pages__title-font-weight;
   line-height: $content-pages__title-line-height;
   @media (min-width: $desktop-min) {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.25rem;
     font-size: $content-pages__title-font-size-desktop;
   }
 }
@@ -40,10 +40,10 @@ $content-pages__title-line-height: 1.6 !default;
   &__content {
     box-sizing: border-box;
     flex: 0 0 100vw;
-    padding: 1.875rem;
+    padding: 0 1.875rem;
     @media (min-width: $desktop-min) {
       flex: 1;
-      padding: 2.5rem;
+      padding: 1.25rem 2.5rem;
     }
   }
   &__sidebar {
