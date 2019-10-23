@@ -1,7 +1,7 @@
 <template>
   <div id="product">
-    <SfSlidingSection class="product">
-      <template #static>
+    <div class="product">
+      <div class="product__gallery">
         <SfImage
           src="assets/storybook/productpage/productA.png"
           class="desktop-only"
@@ -23,8 +23,8 @@
             }
           ]"
         />
-      </template>
-      <template #sliding="{isActive}">
+      </div>
+      <div class="product__description">
         <SfSticky class="product-details">
           <div class="product-details__mobile-top">
             <div>
@@ -170,8 +170,8 @@
             </SfTab>
           </SfTabs>
         </SfSticky>
-      </template>
-    </SfSlidingSection>
+      </div>
+    </div>
     <SfSection title-heading="Match it with" class="section">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
@@ -323,7 +323,6 @@ import {
   SfIcon,
   SfAlert,
   SfSticky,
-  SfSlidingSection,
   SfReview
 } from "@storefront-ui/vue";
 
@@ -467,7 +466,6 @@ export default {
     SfCircleIcon,
     SfIcon,
     SfSticky,
-    SfSlidingSection,
     SfReview
   },
   methods: {
