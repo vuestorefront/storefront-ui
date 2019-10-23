@@ -1,38 +1,22 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
 import SfOverlay from "./SfOverlay.vue";
 
-// use this to document scss vars
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    [
-      "$overlay__overlay-background-color",
-      "$c-black",
-      "background color of the overlay"
-    ],
-    ["$overlay__opacity", "0.8", "opacity of the overlay"]
-  ]
-};
-
 storiesOf("Atoms|Overlay", module)
   .addDecorator(withKnobs)
-  .add(
-    "Basic",
-    () => ({
-      components: { SfOverlay },
-      template: `<SfOverlay :visible="true"></SfOverlay>`
-    }),
-    {
-      info: {
-        summary: `<p>Overlay.</p>
-       <h2>Usage</h2>
-       <pre><code>import { SfOverlay } from "@storefront-ui/vue"</code></pre>
-       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-       `
+  .add("Default", () => ({
+    components: { SfOverlay },
+    props: {
+      transition: {
+        default: text("transition (prop)", "fade")
+      },
+      visible: {
+        default: boolean("visible (prop)", true)
       }
-    }
-  );
+    },
+    template: `<SfOverlay
+      :visible="visible"
+      :transition="transition" />`
+  }));
