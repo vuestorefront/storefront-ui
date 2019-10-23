@@ -612,8 +612,8 @@ export default {
   padding: $spacer-small 0;
 }
 .gallery-mobile {
-  /*height: calc(100vh - 177px);*/
-  height: calc((var(--vh, 1vh) * 100) - 177px);
+  height: calc(100vh - 180px);
+  height: calc((var(--vh, 1vh) * 100) - 180px);
   /deep/ .glide {
     &,
     * {
@@ -622,28 +622,37 @@ export default {
     &__slide {
       position: relative;
       overflow: hidden;
-      & > img {
+      & img {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
         min-width: calc(
-          (375 / 490) * (100vh - 177px)
+          (375 / 490) * (100vh - 180px)
         ); // (oldWidth / oldHeight) * newHeight = newWidth
-        min-width: calc(((var(--vh, 1vh) * 100) - 177px) * (375 / 490));
+        min-width: calc(((var(--vh, 1vh) * 100) - 180px) * (375 / 490));
       }
     }
-  }
-}
-.icon-hand {
-  margin-left: auto;
-  @include for-desktop {
-    display: none;
   }
 }
 .section {
   @media (max-width: $desktop-min) {
     padding-left: $spacer-big;
     padding-right: $spacer-big;
+  }
+}
+.product {
+  @include for-desktop {
+    display: flex;
+  }
+  &__gallery,
+  &__description {
+    flex: 1;
+  }
+  &__description {
+    padding: 0 $spacer-big;
+    @include for-desktop {
+      margin-left: $spacer-big * 5;
+    }
   }
 }
 /* we have PR to fix bullets position */
