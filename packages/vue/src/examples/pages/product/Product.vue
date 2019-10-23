@@ -454,11 +454,20 @@ export default {
   methods: {
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
+    },
+    viewportHeight() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
     }
   },
   mounted() {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
+    this.viewportHeight();
+    window.addEventListener("resize", this.viewportHeight, { passive: true });
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.viewportHeight, {
+      passive: true
+    });
   }
 };
 </script>
