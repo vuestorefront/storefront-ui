@@ -3,23 +3,23 @@
     <SfSlidingSection class="product">
       <template #static>
         <SfImage
-          src="assets/storybook/productpage/productA.png"
+          src="assets/storybook/productpage/productA.jpg"
           class="desktop-only"
         />
         <SfImage
-          src="assets/storybook/productpage/productB.png"
+          src="assets/storybook/productpage/productB.jpg"
           class="desktop-only"
         />
         <SfGallery
           class="gallery-mobile mobile-only"
           :images="[
             {
-              small: { url: 'assets/storybook/productpage/productM.png' },
-              big: { url: 'assets/storybook/productpage/productM.png' }
+              small: { url: 'assets/storybook/productpage/productM.jpg' },
+              big: { url: 'assets/storybook/productpage/productM.jpg' }
             },
             {
-              small: { url: 'assets/storybook/productpage/productM.png' },
-              big: { url: 'assets/storybook/productpage/productM.png' }
+              small: { url: 'assets/storybook/productpage/productM.jpg' },
+              big: { url: 'assets/storybook/productpage/productM.jpg' }
             }
           ]"
         />
@@ -212,34 +212,34 @@
       <div class="grid">
         <div class="grid__row">
           <div class="grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.png"
+            <SfImage src="assets/storybook/homepage/imageA.jpg"
               >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col">
-            <SfImage src="assets/storybook/homepage/imageB.png"
+            <SfImage src="assets/storybook/homepage/imageB.jpg"
               >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.png"
+            <SfImage src="assets/storybook/homepage/imageC.jpg"
               >katherina_trn</SfImage
             >
           </div>
         </div>
         <div class="grid__row">
           <div class="grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.png"
+            <SfImage src="assets/storybook/homepage/imageC.jpg"
               >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col">
-            <SfImage src="assets/storybook/homepage/imageD.png"
+            <SfImage src="assets/storybook/homepage/imageD.jpg"
               >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.png"
+            <SfImage src="assets/storybook/homepage/imageA.jpg"
               >katherina_trn</SfImage
             >
           </div>
@@ -373,56 +373,56 @@ export default {
       products: [
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
+          image: "assets/storybook/homepage/productA.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
+          image: "assets/storybook/homepage/productB.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.png",
+          image: "assets/storybook/homepage/productC.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
+          image: "assets/storybook/homepage/productA.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
+          image: "assets/storybook/homepage/productB.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.png",
+          image: "assets/storybook/homepage/productC.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
+          image: "assets/storybook/homepage/productA.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
+          image: "assets/storybook/homepage/productB.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
