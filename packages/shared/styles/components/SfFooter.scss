@@ -15,7 +15,7 @@ $accordion--open-background-color: $c-light-secondary !default;
   @media screen and (min-width: $desktop-min) {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
   }
 }
 .sf-footer-column {
