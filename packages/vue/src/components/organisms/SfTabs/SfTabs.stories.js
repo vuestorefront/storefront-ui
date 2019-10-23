@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, object } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfTabs from "./SfTabs.vue";
 

@@ -1,49 +1,54 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, select } from "@storybook/addon-knobs";
-import SfLoader from "./SfLoader.vue";
-import { generateStorybookTable } from "@/helpers";
 
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["$loader__spinner-color", "$c-accent-primary", "color of spinner"],
-    ["$loader__overlay-color", "white", "color of overlay"]
-  ]
-};
+import SfLoader from "./SfLoader.vue";
+import SfImage from "../SfImage/SfImage.vue";
 
 storiesOf("Atoms|Loader", module)
-  .addDecorator(withKnobs)
-  .add(
-    "Basic",
-    () => ({
-      data() {
-        return {
-          isLoading: select("isLoading (prop)", [true, false], true),
-          style: { width: "400px", height: "200px", border: "1px solid #eee" }
-        };
-      },
-      created() {
-        setTimeout(() => {
-          this.isLoading = false;
-        }, 3000);
-      },
-      components: { SfLoader },
-      template: `
-      <!-- it adjusts to any wrapper -->
-      <div :style="style">
-        <SfLoader :loading="isLoading">
-          <p>Content is loaded</p>
-        </SfLoader>
-      </div>`
-    }),
-    {
-      info: {
-        summary: `<p>Component to indicate loading state. Use it to cover content until data is fetched. Set **isLoading** to false once data is fetched.</p>
-        <h2> Usage </h2>
-        <pre><code>import { SfLoader } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
-      }
-    }
-  );
+  .add("[slot] default", () => ({
+    components: {
+      SfLoader,
+      SfImage
+    },
+    data() {
+      return {
+        isLoading: true
+      };
+    },
+    mounted() {
+      window.setTimeout(() => {
+        this.isLoading = false;
+      }, 3000);
+    },
+    template: `<div style="width: 236px; height: 366px; border: 1px solid #F2F2F2">
+      <SfLoader
+      :loading="isLoading">
+          <SfImage src="/assets/storybook/product-216x326.png" />
+      </SfLoader>
+    </div>`
+  }))
+  .add("[slot] loader", () => ({
+    components: {
+      SfLoader,
+      SfImage
+    },
+    data() {
+      return {
+        isLoading: true
+      };
+    },
+    mounted() {
+      window.setTimeout(() => {
+        this.isLoading = false;
+      }, 3000);
+    },
+    template: `<div style="width: 236px; height: 366px; border: 1px solid #F2F2F2">
+      <SfLoader
+        :loading="isLoading">
+        <SfImage src="/assets/storybook/product-216x326.png" />
+        <template #loader>
+          loading...
+        </template>
+      </SfLoader>
+    </div>`
+  }));
