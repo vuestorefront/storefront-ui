@@ -380,6 +380,9 @@ Then **push to the remote branch** using `git push` command mentioned in the pre
 
 ### Create Pull Request (PR)
 
+:::warning
+Always propose a Pull Request against **develop** branch
+:::
 * Navigate to [**Pull Requests Tab**]() in StorefrontUI repo and click on "New pull request" button (located on the right side)
 
 ![New pull request](https://res.cloudinary.com/mayashavin/image/upload/v1567771580/StorefrontUI/create_PR.jpg)
