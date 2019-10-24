@@ -614,7 +614,7 @@ export default {
 }
 .gallery-mobile {
   $height-other: 240px;
-  $height-iOS: 260px;
+  $height-iOS: 265px;
 
   height: calc(100vh - #{$height-other});
   @supports (-webkit-overflow-scrolling: touch) {
