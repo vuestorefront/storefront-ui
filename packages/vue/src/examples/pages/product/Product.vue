@@ -613,9 +613,12 @@ export default {
   padding: $spacer-small 0;
 }
 .gallery-mobile {
-  height: calc(100vh - 211px);
+  $height-other: 240px;
+  $height-iOS: 260px;
+
+  height: calc(100vh - #{$height-other});
   @supports (-webkit-overflow-scrolling: touch) {
-    height: calc(100vh - 266px);
+    height: calc(100vh - #{$height-iOS});
   }
   ::v-deep .glide {
     &,
@@ -630,9 +633,9 @@ export default {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      min-width: calc((375 / 490) * (100vh - 211px));
+      min-width: calc((375 / 490) * (100vh - #{$height-other}));
       @supports (-webkit-overflow-scrolling: touch) {
-        min-width: calc((375 / 490) * (100vh - 266px));
+        min-width: calc((375 / 490) * (100vh - #{$height-iOS}));
       }
     }
   }
