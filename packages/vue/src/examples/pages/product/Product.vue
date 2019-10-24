@@ -636,6 +636,9 @@ export default {
       }
     }
   }
+  ::v-deep .sf-gallery__stage {
+    width: 100%;
+  }
 }
 .section {
   @media (max-width: $desktop-min) {
