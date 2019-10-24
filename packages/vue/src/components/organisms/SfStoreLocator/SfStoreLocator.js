@@ -207,6 +207,7 @@ export default {
       LControl,
       LControlZoom
     } = await import("vue2-leaflet");
+    await import("leaflet/dist/leaflet.css");
     Vue.component("l-map", LMap);
     Vue.component("l-tilelayer", LTileLayer);
     Vue.component("l-marker", LMarker);
