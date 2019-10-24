@@ -330,7 +330,7 @@ export default {
   @include for-desktop {
     margin: -20px 0;
   }
-  /deep/ .sf-carousel__wrapper {
+  ::v-deep .sf-carousel__wrapper {
     padding: 20px 0;
     @include for-desktop {
       padding: 20px;
