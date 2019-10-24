@@ -524,7 +524,7 @@ export default {
   }
   &__heading {
     margin-top: $spacer-big;
-    /deep/ .sf-heading__title {
+    ::v-deep .sf-heading__title {
       font-size: $font-size-big-mobile;
       font-weight: $body-font-weight-primary;
       @include for-desktop {
@@ -623,7 +623,7 @@ export default {
 .gallery-mobile {
   height: calc(100vh - 180px);
   height: calc((var(--vh, 1vh) * 100) - 180px);
-  /deep/ .glide {
+  ::v-deep .glide {
     &,
     * {
       height: 100%;
@@ -667,7 +667,7 @@ export default {
 /* we have PR to fix bullets position */
 .sf-gallery {
   $this: &;
-  /deep/ {
+  ::v-deep {
     ul {
       margin: 0;
     }
@@ -729,7 +729,7 @@ export default {
   @include for-desktop {
     margin: -20px 0;
   }
-  /deep/ .sf-carousel__wrapper {
+  ::v-deep .sf-carousel__wrapper {
     padding: 20px 0;
     @include for-desktop {
       padding: 20px;
