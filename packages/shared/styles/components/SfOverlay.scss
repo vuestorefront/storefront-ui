@@ -1,7 +1,7 @@
-@import '../../../css/variables';
+@import '../variables';
 
-$overlay__background-color           : $c-black;
-$overlay__opacity                    : 0.8;
+$overlay__background-color: $c-black;
+$overlay__opacity: 0.8;
 
 .sf-overlay {
   background: $overlay__background-color;
