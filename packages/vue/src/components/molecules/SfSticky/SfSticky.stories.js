@@ -10,7 +10,6 @@ storiesOf("Molecules|Sticky", module)
     "Basic",
     () => ({
       data() {
-        const mixin = {};
         return {
           row: {
             display: "flex",

@@ -2,14 +2,12 @@
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
-  select,
   number,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfHero from "./SfHero.vue";
-import { string } from "postcss-selector-parser";
 
 const data = () => {
   return {
@@ -52,7 +50,7 @@ const scssTableConfig = {
     ["$hero__bullets-position-offset", "0.5rem"],
     ["$hero__bullets-position-offset--desktop", "2.5rem"],
     ["$hero__bullets-width", "100%"],
-    [("$hero-item-height", "14rem")],
+    ["$hero-item-height", "14rem"],
     ["$hero-item-height--desktop", "30rem"],
     ["$hero-item-width", "100%"],
     ["$hero-item-padding", "1rem"],

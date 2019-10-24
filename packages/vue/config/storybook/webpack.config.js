@@ -1,10 +1,10 @@
-const path = require('path')
+const path = require("path");
 
-module.exports = async ({ config, mode }) => {
+module.exports = async ({ config }) => {
   config.module.rules.push({
-    test: /\.vue$/,
-    loader: "storybook-addon-vue-info/loader",
-    enforce: "post"
+    test: /\.stories\.js?$/,
+    loaders: [require.resolve("@storybook/source-loader")],
+    enforce: "pre"
   });
 
   config.module.rules.push({
@@ -25,9 +25,7 @@ module.exports = async ({ config, mode }) => {
   config.module.rules.push({
     test: /\.scss$/,
     sideEffects: true,
-    loaders: [
-      "sass-loader"
-    ],
+    loaders: ["sass-loader"],
     include: path.resolve(__dirname, "../../")
   });
 
