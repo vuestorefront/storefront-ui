@@ -1,6 +1,9 @@
 <template>
   <div id="category">
-    <SfBreadcrumbs class="breadcrumbs" :breadcrumbs="breadcrumbs" />
+    <SfBreadcrumbs
+      class="breadcrumbs desktop-only"
+      :breadcrumbs="breadcrumbs"
+    />
     <div class="navbar section">
       <div class="navbar__aside desktop-only">
         <h1 class="navbar__title">Categories</h1>
