@@ -491,12 +491,11 @@ export default {
       content: none;
     }
   }
-
   &__aside {
     display: flex;
     align-items: center;
     flex: 0 0 15%;
-    padding: 1.85rem $spacer-extra-big;
+    padding: $spacer-big $spacer-extra-big;
     border-right: 1px solid $c-border;
   }
   &__main {
@@ -506,7 +505,7 @@ export default {
     padding: $spacer-medium 0;
     font-size: $font-size-small-desktop;
     @include for-desktop {
-      padding: 1.85rem 0;
+      padding: $spacer-big 0;
     }
   }
   &__title {
