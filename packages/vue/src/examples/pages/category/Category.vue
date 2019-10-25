@@ -1,5 +1,6 @@
 <template>
   <div id="category">
+    <SfBreadcrumbs class="breadcrumbs" :breadcrumbs="breadcrumbs" />
     <div class="navbar section">
       <div class="navbar__aside desktop-only">
         <h1 class="navbar__title">Categories</h1>
@@ -242,10 +243,26 @@ import {
   SfAccordion,
   SfSelect,
   SfBottomNavigation,
-  SfCircleIcon
+  SfCircleIcon,
+  SfBreadcrumbs
 } from "../../../../index.js";
 
 export default {
+  components: {
+    SfButton,
+    SfSidebar,
+    SfIcon,
+    SfList,
+    SfFilter,
+    SfProductCard,
+    SfPagination,
+    SfMenuItem,
+    SfAccordion,
+    SfSelect,
+    SfBottomNavigation,
+    SfCircleIcon,
+    SfBreadcrumbs
+  },
   data() {
     return {
       currentPage: 1,
@@ -399,7 +416,21 @@ export default {
           { label: "Cotton", value: "coton", count: "33" },
           { label: "Silk", value: "silk", count: "73" }
         ]
-      }
+      },
+      breadcrumbs: [
+        {
+          text: "Home",
+          route: {
+            link: "#"
+          }
+        },
+        {
+          text: "Women",
+          route: {
+            link: "#"
+          }
+        }
+      ]
     };
   },
   methods: {
@@ -414,20 +445,6 @@ export default {
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
     }
-  },
-  components: {
-    SfButton,
-    SfSidebar,
-    SfIcon,
-    SfList,
-    SfFilter,
-    SfProductCard,
-    SfPagination,
-    SfMenuItem,
-    SfAccordion,
-    SfSelect,
-    SfBottomNavigation,
-    SfCircleIcon
   }
 };
 </script>
@@ -448,6 +465,9 @@ export default {
     max-width: 1240px;
     margin: auto;
   }
+}
+.breadcrumbs {
+  padding: $spacer-big $spacer-extra-big $spacer-extra-big;
 }
 .navbar {
   position: relative;
