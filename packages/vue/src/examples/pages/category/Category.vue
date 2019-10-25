@@ -433,7 +433,6 @@ export default {
 
 #category {
   box-sizing: border-box;
-  margin: 0 0 60px 0;
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
