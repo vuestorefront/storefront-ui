@@ -1,5 +1,9 @@
 <template>
   <div id="product">
+    <SfBreadcrumbs
+      class="breadcrumbs desktop-only"
+      :breadcrumbs="breadcrumbs"
+    />
     <div class="product">
       <div class="product__gallery">
         <SfImage
@@ -306,11 +310,35 @@ import {
   SfIcon,
   SfAlert,
   SfSticky,
-  SfReview
+  SfReview,
+  SfBreadcrumbs
 } from "@storefront-ui/vue";
 
 export default {
   name: "Product",
+  components: {
+    SfAlert,
+    SfProperty,
+    SfHeading,
+    SfPrice,
+    SfRating,
+    SfSelect,
+    SfProductOption,
+    SfAddToCart,
+    SfTabs,
+    SfGallery,
+    SfProductCard,
+    SfCarousel,
+    SfSection,
+    SfImage,
+    SfBanner,
+    SfBottomNavigation,
+    SfCircleIcon,
+    SfIcon,
+    SfSticky,
+    SfReview,
+    SfBreadcrumbs
+  },
   data() {
     return {
       qty: "1",
@@ -426,30 +454,28 @@ export default {
           rating: 5
         }
       ],
-      detailsIsActive: false
+      detailsIsActive: false,
+      breadcrumbs: [
+        {
+          text: "Home",
+          route: {
+            link: "#"
+          }
+        },
+        {
+          text: "Category",
+          route: {
+            link: "#"
+          }
+        },
+        {
+          text: "Pants",
+          route: {
+            link: "#"
+          }
+        }
+      ]
     };
-  },
-  components: {
-    SfAlert,
-    SfProperty,
-    SfHeading,
-    SfPrice,
-    SfRating,
-    SfSelect,
-    SfProductOption,
-    SfAddToCart,
-    SfTabs,
-    SfGallery,
-    SfProductCard,
-    SfCarousel,
-    SfSection,
-    SfImage,
-    SfBanner,
-    SfBottomNavigation,
-    SfCircleIcon,
-    SfIcon,
-    SfSticky,
-    SfReview
   },
   methods: {
     toggleWishlist(index) {
@@ -468,11 +494,6 @@ export default {
     @content;
   }
 }
-@mixin for-iOS {
-  @supports (-webkit-overflow-scrolling: touch) {
-    @content;
-  }
-}
 
 #product {
   box-sizing: border-box;
@@ -481,6 +502,9 @@ export default {
     max-width: 1240px;
     margin: auto;
   }
+}
+.breadcrumbs {
+  padding: $spacer-big $spacer-extra-big $spacer-extra-big;
 }
 .product-details {
   &__action {
