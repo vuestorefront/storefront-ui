@@ -140,32 +140,6 @@
         </div>
       </template>
     </SfBanner>
-    <SfBottomNavigation class="mobile-only">
-      <SfBottomNavigationItem>
-        <SfIcon icon="home" size="20px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfIcon icon="menu" size="20px" style="width: 25px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfIcon icon="heart" size="20px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfIcon icon="profile" size="20px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem class="bottom-navigation-circle">
-        <SfCircleIcon
-          class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
-        >
-          <SfIcon
-            icon="add_to_cart"
-            size="20px"
-            color="white"
-            style="margin-right: 4px;"
-          />
-        </SfCircleIcon>
-      </SfBottomNavigationItem>
-    </SfBottomNavigation>
   </div>
 </template>
 <script>
@@ -177,10 +151,7 @@ import {
   SfCarousel,
   SfProductCard,
   SfImage,
-  SfBannerGrid,
-  SfBottomNavigation,
-  SfIcon,
-  SfCircleIcon
+  SfBannerGrid
 } from "../../../../index.js";
 
 export default {
@@ -280,10 +251,7 @@ export default {
     SfCarousel,
     SfProductCard,
     SfImage,
-    SfBannerGrid,
-    SfBottomNavigation,
-    SfIcon,
-    SfCircleIcon
+    SfBannerGrid
   },
   methods: {
     toggleWishlist(index) {
@@ -405,8 +373,5 @@ export default {
     padding-left: $spacer-big;
     padding-right: $spacer-big;
   }
-}
-.bottom-navigation-circle {
-  opacity: 1;
 }
 </style>
