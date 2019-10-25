@@ -1,1 +1,32 @@
-<div class="sf-grouped-product"></div>
+<div class="sf-grouped-product">
+  <div>
+    <slot name="image" v-bind="{image, title}">
+      <SfImage :src="image" :alt="title" class="sf-collected-product__image" />
+    </slot>
+  </div>
+  <div>
+    <slot name="title" v-bind="{title}">
+      <div class="sf-collected-product__title">{{ title }}</div>
+    </slot>
+    <slot name="input">
+      <SfInput
+        type="number"
+        :value="qty"
+        @input="(value)=>{$emit('input', value)}"
+        min="1"
+        :max="stock"
+        class="sf-collected-product__select-quantity"
+      />
+    </slot>
+  </div>
+  <div></div>
+  <div>
+    <slot name="price" v-bind="{ specialPrice, regularPrice }">
+      <SfPrice
+        v-if="regularPrice"
+        :regular="regularPrice"
+        :special="specialPrice"
+      />
+    </slot>
+  </div>
+</div>
