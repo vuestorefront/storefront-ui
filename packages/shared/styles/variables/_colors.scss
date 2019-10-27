@@ -1,22 +1,22 @@
-$c-black: #000000 !default;
-$c-white: #FFFFFF !default;
+$c-black: hsl(0, 0%, 0%) !default;
+$c-white: hsl(0, 0%, 100%) !default;
 
 // Internal color variables
 // Should NOT be used directly for theming or component styles
-$_c-green-primary:     #5ECE7B;
-$_c-green-secondary:   #9EE2B0;
-$_c-dark-primary:      #1D1F22;
-$_c-dark-secondary:    #737680;
-$_c-gray-primary:      #6A6E7E;
-$_c-gray-secondary:    #BEBFC4;
-$_c-light-primary:     #F1F2F3;
-$_c-light-secondary:   #FFFFFF;
-$_c-pink-primary:      #E22326;
-$_c-pink-secondary:    #FFF8F7;
-$_c-yellow-primary:    #FFDE3B;
-$_c-yellow-secondary:  #FFFCED;
-$_c-blue-primary:      #6699CC;
-$_c-blue-secondary:    #F5F7FA;
+$_c-green-primary:    hsl(136, 53%, 59%);
+$_c-green-secondary:  hsl(136, 54%, 75%);
+$_c-dark-primary:     hsl(216, 8%, 12%);
+$_c-dark-secondary:   hsl(226, 5%, 48%);
+$_c-gray-primary:     hsl(228, 9%, 45%);
+$_c-gray-secondary:   hsl(230, 5%, 76%);
+$_c-light-primary:    hsl(210, 8%, 95%);
+$_c-light-secondary:  hsl(0, 0%, 100%);
+$_c-pink-primary:     hsl(359, 77%, 51%);
+$_c-pink-secondary:   hsl(7, 100%, 98%);
+$_c-yellow-primary:   hsl(50, 100%, 62%);
+$_c-yellow-secondary: hsl(50, 100%, 96%);
+$_c-blue-primary:     hsl(210, 50%, 60%);
+$_c-blue-secondary:   hsl(216, 33%, 97%);
 
 /* START: Theme color variables */
 
