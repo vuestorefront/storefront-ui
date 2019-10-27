@@ -11,7 +11,7 @@ $options__option-size: 2rem !default;
 $options__option-color-size-desktop: 1rem !default;
 $options__option-margin: 0.75rem !default;
 $options__option-text-color: #BDBDBD !default;
-$options__option--selected-text-color: $c-text-primary !default;
+$options__option--selected-text-color: $c-text !default;
 
 .sf-options {
   display: flex;
@@ -71,7 +71,7 @@ $options__option--selected-text-color: $c-text-primary !default;
         background-image: url("/assets/check.svg");
         background-repeat: no-repeat;
         background-position: center;
-        background-color: $c-green-primary;
+        background-color: $c-primary;
         border-radius: 50%;
       }
       &-wrapper {

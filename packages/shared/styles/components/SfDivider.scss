@@ -1,7 +1,7 @@
 @import '../variables';
 
-$divider__color: $c-light-primary !default;
+$divider__color: $c-light !default;
 
 .sf-divider {
-  border-top: 1px solid $c-light-primary;
+  border-top: 1px solid $c-light;
 }

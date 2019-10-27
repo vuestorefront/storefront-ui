@@ -6,9 +6,9 @@ $badge-font-family: $body-font-family-secondary !default;
 $badge-font-size: $font-size-small-desktop !default;
 $badge-font-weight: 500 !default;
 $badge-line-height: 1.6 !default;
-$badge--alert: $c-pink-primary !default;
-$badge--warning: $c-blue-primary !default;
-$badge--info: $c-green-primary !default;
+$badge--alert: $c-danger !default;
+$badge--warning: $c-info !default;
+$badge--info: $c-primary !default;
 
 .sf-badge {
   box-sizing: border-box;

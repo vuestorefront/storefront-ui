@@ -2,7 +2,7 @@
 $call-to-action-padding: $spacer-big $spacer-medium!default;
 $call-to-action-padding-desktop: 3.4rem 8.75rem !default;
 $call-to-action-background-color: $c-black !default;
-$call-to-action-color: $c-text-on-dark !default;
+$call-to-action-color: $c-on-dark !default;
 $call-to-action-font-family: $body-font-family-secondary !default;
 $call-to-action-line-height: 1.6 !default;
 $call-to-action-font-size: $font-size-big-desktop !default;
@@ -10,10 +10,10 @@ $call-to-action__title-font-size: $font-size-big-mobile !default;
 $call-to-action__title-font-size-desktop: $h1-font-size-desktop !default;
 $call-to-action__title-font-weight: $h1-font-weight-desktop !default;
 $call-to-action__title-line-height: 1.4 !default;
-$call-to-action--secondary__button-color: $c-text-on-dark !default;
-$call-to-action--secondary__button-background-color: $c-dark-primary !default;
-$call-to-action--light-color: $c-text-on-light !default;
-$call-to-action--light-background-color: $c-light-primary !default;
+$call-to-action--secondary__button-color: $c-on-dark !default;
+$call-to-action--secondary__button-background-color: $c-dark !default;
+$call-to-action--light-color: $c-on-light !default;
+$call-to-action--light-background-color: $c-light !default;
 
 .sf-call-to-action {
   $this: &;
