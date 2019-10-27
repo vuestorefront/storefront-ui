@@ -18,6 +18,33 @@
         </li>
       </ul>
     </div>
-    <div class="sf-header__column--right desktop-only"></div>
+    <div class="sf-header__column--right desktop-only">
+      <div class="sf-header__icon-group">
+        <slot name="accountIcon">
+          <sf-icon
+            class="sf-header__icon"
+            size="xs"
+            :icon="accountIcon"
+            @click="onClickEmit('account')">
+          </sf-icon>
+        </slot>
+        <slot name="wishlistIcon">
+          <sf-icon
+            class="sf-header__icon"
+            size="xs"
+            :icon="wishlistIcon"
+            @click="onClickEmit('wishlist')">
+          </sf-icon>
+        </slot>
+        <slot name="cartIcon">
+          <sf-icon
+            class="sf-header__icon"
+            size="xs"
+            :icon="cartIcon"
+            @click="onClickEmit('cart')">
+          </sf-icon>
+        </slot>
+      </div>
+    </div>
   </div>
 </header>

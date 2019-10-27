@@ -12,6 +12,9 @@ $header-navigation-list-font-size: $font-size-regular-mobile !default;
 $header-navigation-list-font-weight: 500 !default;
 $header-navigation-list-color: $c-dark-primary !default;
 
+$header-icon-margin: 30px !default;
+$header-icon-cursor: pointer !default;
+
 $header-mobile-justify-content: space-between !default;
 $header-mobile-align-items: center !default;
 
@@ -74,6 +77,15 @@ $header__logo-height: auto !default;
     font-size: $header-navigation-list-font-size;
     font-weight: $header-navigation-list-font-weight;
     color: $header-navigation-list-color;
+  }
+
+  &__icon-group {
+    display: flex;
+  }
+
+  &__icon {
+    margin-left: $header-icon-margin;
+    cursor: $header-icon-cursor;
   }
 
   &__logo {
