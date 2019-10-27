@@ -8,6 +8,7 @@ $arrow__icon-color: $c-white !default;
 $arrow__icon-color--hover: $c-dark !default;
 
 .sf-arrow {
+  $this: &;
   &__button {
     position: relative;
     display: flex;
@@ -75,6 +76,9 @@ $arrow__icon-color--hover: $c-dark !default;
         background-color: transparent;
         &:hover {
           box-shadow: none;
+          #{$this}__icon{
+            fill: rgba($arrow__icon-color--hover, .65);
+          }
         }
       }
     }

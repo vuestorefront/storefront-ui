@@ -85,7 +85,7 @@ export default {
       });
     },
     touchHandler(event) {
-      const { distance, direction, isFinal } = event;
+      const { direction, isFinal } = event;
       if (!this.hasStaticHeight && this.$refs.static.offsetHeight > 0) {
         this.hasStaticHeight = true;
         this.$refs.static.style.setProperty(

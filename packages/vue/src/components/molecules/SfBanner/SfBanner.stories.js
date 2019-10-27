@@ -114,7 +114,7 @@ storiesOf("Molecules|Banner", module)
           default: text("background (prop)", "#e1e3e2")
         },
         image: {
-          default: text("image (prop)", "assets/storybook/Banner1.png")
+          default: text("image (prop)", "assets/storybook/Banner1.jpg")
         },
         customClass: {
           default: options(
@@ -165,7 +165,7 @@ storiesOf("Molecules|Banner", module)
         subtitle="Subtitle prop"
         button-text="Button Text"
         background="#e1e3e2"
-        image="assets/storybook/Banner1.png">
+        image="assets/storybook/Banner1.jpg">
         <template #title="{ title }">
           <h1>{{ title }}</h1>
         </template>
@@ -185,7 +185,7 @@ storiesOf("Molecules|Banner", module)
         subtitle="Subtitle prop"
         button-text="Button Text"
         background="#e1e3e2"
-        image="assets/storybook/Banner1.png">
+        image="assets/storybook/Banner1.jpg">
         <template #subtitle="{ subtitle }">
           <b>{{ subtitle }}</b>
         </template>
@@ -205,7 +205,7 @@ storiesOf("Molecules|Banner", module)
         subtitle="Subtitle prop"
         button-text="Button Text"
         background="#e1e3e2"
-        image="assets/storybook/Banner1.png">
+        image="assets/storybook/Banner1.jpg">
         <template #description="{ description }">
           <b> {{ description }} </b>
         </template>
@@ -225,7 +225,7 @@ storiesOf("Molecules|Banner", module)
         subtitle="Subtitle prop"
         button-text="Button Text"
         background="#e1e3e2"
-        image="assets/storybook/Banner1.png"
+        image="assets/storybook/Banner1.jpg"
       >
         <template #call-to-action>
           <button>Custom CTA</button>

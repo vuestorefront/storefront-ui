@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 // If you don;t have this file run `yarn` cmd to create it
 import Playground from "./Playground.vue";
