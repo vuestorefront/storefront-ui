@@ -5,6 +5,13 @@ $header-mobile-background: $c-bg-primary !default;
 $header-mobile-height: 50px !default;
 $header-desktop-height: 80px !default;
 
+$header-navigation-padding: 40px !default;
+$header-navigation-list-padding: 40px !default;
+
+$header-navigation-list-font-size: $font-size-regular-mobile !default;
+$header-navigation-list-font-weight: 500 !default;
+$header-navigation-list-color: $c-dark-primary !default;
+
 $header-mobile-justify-content: space-between !default;
 $header-mobile-align-items: center !default;
 
@@ -41,7 +48,7 @@ $header__logo-height: auto !default;
   }
 
   &__column {
-    &--left {
+    &--left, &--right {
       width: 100%;
       display: flex;
       justify-content: center;
@@ -51,13 +58,24 @@ $header__logo-height: auto !default;
         justify-content: flex-start;
       }
     }
-    &--middle {
-      order: 2;
-    }
-    &--right {
-      order: 3;
-    }
   }
+
+  &__navigation {
+    display: flex;
+    list-style-type: none;
+    padding-left: $header-navigation-padding;
+  }
+
+  &__navigation-list {
+    padding-left: $header-navigation-list-padding;
+  }
+
+  &__navigation-link {
+    font-size: $header-navigation-list-font-size;
+    font-weight: $header-navigation-list-font-weight;
+    color: $header-navigation-list-color;
+  }
+
   &__logo {
     width: $header-mobile-logo-width;
     height: $header__logo-height;

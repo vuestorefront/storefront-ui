@@ -6,6 +6,10 @@ export default {
     logo: {
       type: String,
       default: DEFAULT_LOGO
+    },
+    navigations: {
+      type: Array,
+      default: () => []
     }
   },
   computed: {
