@@ -10,7 +10,11 @@
           v-for="(navigation, index) in navigations"
           :key="index"
           class="sf-header__navigation-list">
-          <a class="sf-header__navigation-link" :href="navigation.href">{{ navigation.text }}</a>
+          <slot name="navigation" :item="navigation">
+            <a class="sf-header__navigation-link" :href="navigation.href">
+              {{ navigation.text }}
+            </a>
+          </slot>
         </li>
       </ul>
     </div>
