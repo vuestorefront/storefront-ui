@@ -9,12 +9,12 @@ const scssTableConfig = {
   tableBodyConfig: [
     [
       "$rating__icon-positive-fill",
-      "$c-green-primary",
+      "$c-primary",
       "positive star icon color"
     ],
     [
       "$rating__icon-negative-fill",
-      "$c-dark-primary",
+      "$c-dark",
       "negative star icon color"
     ]
   ]

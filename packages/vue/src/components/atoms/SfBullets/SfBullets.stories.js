@@ -12,10 +12,10 @@ const scssTableConfig = {
     ["$bullet-border-radius", "50%"],
     ["$bullet-size", "8px"],
     ["$bullet-margin", "6px"],
-    ["$bullet-color", "$c-gray-primary"],
+    ["$bullet-color", "$c-gray"],
     ["$bullet-size--active", "10px"],
     ["$bullet-margin--active", "5px"],
-    ["$bullet-color--active", "$c-green-secondary"]
+    ["$bullet-color--active", "$c-primary-variant"]
   ]
 };
 

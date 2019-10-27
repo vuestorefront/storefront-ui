@@ -25,7 +25,7 @@ const scssTableConfig = {
     ],
     ["$banner__subtitle-font-size", "1.5rem", "font-size of subtitle"],
     ["$banner__subtitle-font-weight", "300", "font-weight of subtitle"],
-    ["$banner__subtitle-color", "$c-dark-secondary", "text color for subtitle"],
+    ["$banner__subtitle-color", "$c-dark-variant", "text color for subtitle"],
     ["$banner__subtitle-text-transform", "none", "text transform for subtitle"],
     [
       "banner-mobile__subtitle-font-size",
@@ -44,7 +44,7 @@ const scssTableConfig = {
       "$body-font-family-secondary",
       "font-family of title"
     ],
-    ["$banner__title-color", "$c-dark-primary", "color of title text"],
+    ["$banner__title-color", "$c-dark", "color of title text"],
     [
       "$banner__description-font-family",
       "$body-font-family-secondary",
@@ -53,7 +53,7 @@ const scssTableConfig = {
     ["$banner__description-font-size", "1.125rem", "font-size of description"],
     [
       "$banner__description-color",
-      "$c-dark-primary",
+      "$c-dark",
       "text color for description"
     ],
     ["$banner__description-font-weight", "300", "font-weight of description"],
@@ -69,7 +69,7 @@ const scssTableConfig = {
     ],
     [
       "$banner__call-to-action-background-color",
-      "$c-dark-primary",
+      "$c-dark",
       "background-color for call to action"
     ]
   ]

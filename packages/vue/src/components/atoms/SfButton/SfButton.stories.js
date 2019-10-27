@@ -12,7 +12,7 @@ const scssTableConfig = {
     ["$button-color", "$c-text-on-dark", "Default button text color"],
     [
       "$button-background-color",
-      "$c-green-primary",
+      "$c-primary",
       "Default button background color"
     ],
     ["$button-border-radius", "0", "Button border radius"],

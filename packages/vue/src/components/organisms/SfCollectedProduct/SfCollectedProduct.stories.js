@@ -31,12 +31,12 @@ const scssTableConfig = {
     ],
     [
       ("$collected-product__remove-background",
-      "$c-gray-secondary",
+      "$c-gray-variant",
       "Remove icon background on desktop")
     ],
     [
       ("$collected-product__remove-background--hover",
-      "$c-dark-secondary",
+      "$c-dark-variant",
       "Remove icon background hover on desktop")
     ],
     [

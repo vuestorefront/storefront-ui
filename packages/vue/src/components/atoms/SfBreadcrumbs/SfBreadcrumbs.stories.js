@@ -17,12 +17,12 @@ const scssTableConfig = {
     ],
     [
       "$breadcrumbs__item-color",
-      "$c-gray-primary",
+      "$c-gray",
       "Default color breadcrumb items"
     ],
     [
       "$breadcrumbs__link-color",
-      "$c-dark-primary",
+      "$c-dark",
       "Color for breadcrumb links"
     ],
     [

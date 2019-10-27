@@ -12,12 +12,12 @@ const scssTableConfig = {
   tableBodyConfig: [
     [
       "$sf-circle-icon-background-primary",
-      "$c-green-primary",
+      "$c-primary",
       "circle icon background"
     ],
     [
       "$sf-circle-icon-background-secondary",
-      "$c-dark-primary",
+      "$c-dark",
       "circle icon background"
     ],
     ["$sf-circle-icon-icon-color", "$c-white", "warning badge color"],
@@ -26,12 +26,12 @@ const scssTableConfig = {
     ["$sf-circle-icon-small-size", "1.625rem !default", "small size icon"],
     [
       "$sf-circle-icon-background-small",
-      "$c-gray-secondary",
+      "$c-gray-variant",
       "icon background color"
     ],
     [
       "$sf-circle-icon-background-small-hover",
-      "$c-dark-secondary",
+      "$c-dark-variant",
       "icon background color on hover"
     ]
   ]

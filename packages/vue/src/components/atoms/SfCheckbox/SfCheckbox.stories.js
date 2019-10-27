@@ -16,12 +16,12 @@ const scssTableConfig = {
     ["$checkbox__checkmark-size", "1.4375rem ", "size for checkmark"],
     [
       "$checkbox__checkmark-primary-color",
-      "$c-green-primary",
+      "$c-primary",
       "primary color for checkmark"
     ],
     [
       "$checkbox__checkmark-secondary-color",
-      "$c-gray-secondary",
+      "$c-gray-variant",
       "secondary color for checkmark"
     ]
   ]

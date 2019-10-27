@@ -9,7 +9,7 @@ import SfDivider from "./SfDivider.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$divider__color", "$c-light-primary", "Divider line color"]
+    ["$divider__color", "$c-light", "Divider line color"]
   ]
 };
 

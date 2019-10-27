@@ -8,9 +8,9 @@ const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
     ["$badge--text-color", "$c-white", "badge text color"],
-    ["$badge--alert", "$c-pink-primary", "alert badge color"],
-    ["$badge--warning", "$c-blue-primary", "warning badge color"],
-    ["$badge--info", "$c-green-primary", "info badge color"],
+    ["$badge--alert", "$c-danger", "alert badge color"],
+    ["$badge--warning", "$c-info", "warning badge color"],
+    ["$badge--info", "$c-primary", "info badge color"],
     ["$badge--font-size", "0.875rem", "badge font-size"],
     ["$badge--padding", "0.3125rem 0.625rem", "badge padding"],
     ["$badge--line-height", "1.3", "line height of badge"]

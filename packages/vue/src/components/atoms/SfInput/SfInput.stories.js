@@ -30,7 +30,7 @@ const scssTableConfig = {
       "0.875rem",
       "Error message min-height"
     ],
-    ["$sf-input__active-color", "$c-accent-primary", "Active input color"],
+    ["$sf-input__active-color", "$c-primary", "Active input color"],
     [
       "$sf-input__invalid-color",
       "rgba(240, 140, 125, 1)",

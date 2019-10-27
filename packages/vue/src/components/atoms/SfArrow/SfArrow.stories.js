@@ -7,24 +7,24 @@ import SfArrow from "./SfArrow.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$arrow__button-color", "$c-light-primary", "color for button"],
+    ["$arrow__button-color", "$c-light", "color for button"],
     [
       "$arrow__button-color--hover",
-      "$c-dark-primary",
+      "$c-dark",
       "color for hovered button"
     ],
     [
       "$arrow__button-shadow",
-      "0 5px 12px -6px rgba($c-dark-primary, 0)",
+      "0 5px 12px -6px rgba($c-black, 0)",
       "shadow for hovered button"
     ],
     [
       "$arrow__button-shadow--right",
-      "0 -5px 12px -5px rgba($c-dark-primary, 0.6)",
+      "0 -5px 12px -5px rgba($c-black, 0.6)",
       "shadow for hovered right arrow"
     ],
     ["$arrow__icon-color", "$c-white", "color for icon"],
-    ["$arrow__icon-color--hover", "$c-dark-primary", "color for hovered icon"]
+    ["$arrow__icon-color--hover", "$c-dark", "color for hovered icon"]
   ]
 };
 

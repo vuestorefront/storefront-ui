@@ -7,7 +7,7 @@ import { generateStorybookTable } from "@/helpers";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$loader__spinner-color", "$c-accent-primary", "color of spinner"],
+    ["$loader__spinner-color", "$c-primary", "color of spinner"],
     ["$loader__overlay-color", "white", "color of overlay"]
   ]
 };
