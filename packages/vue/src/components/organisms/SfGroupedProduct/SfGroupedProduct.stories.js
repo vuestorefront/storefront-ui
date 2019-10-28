@@ -6,20 +6,23 @@ import SfGroupedProduct from "./SfGroupedProduct.vue";
 
 storiesOf("Organisms|GroupedProduct", module)
   .addDecorator(withKnobs)
-  .add("[slot] default", () => ({
+  .add("Default", () => ({
     components: { SfGroupedProduct },
     props: {
       image: {
         default: text("image (prop)", "/assets/storybook/homepage/productB.jpg")
       },
       title: {
-        default: text("title (prop)", "Product name")
+        default: text("title (prop)", "Leave white brooch")
+      },
+      sku: {
+        default: text("sku (prop)", "MSD23-345-324")
       },
       regularPrice: {
         default: text("regularPrice (prop)", "$10,99")
       },
       specialPrice: {
-        default: text("specialPrice (prop)", "$5,99")
+        default: text("specialPrice (prop)", "")
       },
       stock: {
         default: number("stock (prop)", 99)
@@ -31,10 +34,11 @@ storiesOf("Organisms|GroupedProduct", module)
       };
     },
     template: `<SfGroupedProduct
-      :image="image"
-      :title="title"
-      :specialPrice="specialPrice"
-      :regularPrice="regularPrice"
-      :stock="stock"
-      v-model="qty" />`
+        image="/assets/storybook/product-white.png"
+        :title="title"
+        :sku="sku"
+        :specialPrice="specialPrice"
+        :regularPrice="regularPrice"
+        :stock="stock"
+        v-model="qty" />`
   }));
