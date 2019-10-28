@@ -283,7 +283,7 @@ import {
   SfSticky,
   SfReview,
   SfBreadcrumbs
-} from "@storefront-ui/vue";
+} from "../../../../index.js";
 
 export default {
   name: "Product",
