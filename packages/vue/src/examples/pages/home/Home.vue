@@ -86,26 +86,26 @@
       subtitle-heading="#YOURLOOK"
       class="section"
     >
-      <div class="grid grid-images">
-        <div class="grid__row">
-          <div class="grid__col">
+      <div class="images-grid">
+        <div class="images-grid__row">
+          <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageA.jpg"
               >katherina_trn</SfImage
             >
           </div>
-          <div class="grid__col">
+          <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageB.jpg"
               >katherina_trn</SfImage
             >
           </div>
         </div>
-        <div class="grid__row">
-          <div class="grid__col">
+        <div class="images-grid__row">
+          <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageC.jpg"
               >katherina_trn</SfImage
             >
           </div>
-          <div class="grid__col">
+          <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageD.jpg"
               >katherina_trn</SfImage
             >
@@ -261,8 +261,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../../../css/variables";
-@import "~@storefront-ui/shared/styles/helpers/visibility";
+@import "~@storefront-ui/vue/styles";
 
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
@@ -282,27 +281,6 @@ export default {
   box-sizing: border-box;
   @include for-desktop {
     margin: $spacer-extra-big * 2 0;
-  }
-}
-.product-card {
-  max-width: unset;
-  &:hover {
-    @include for-desktop {
-      box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
-    }
-  }
-}
-.product-carousel {
-  margin: -20px -#{$spacer-big} -20px 0;
-  @include for-desktop {
-    margin: -20px 0;
-  }
-  ::v-deep .sf-carousel__wrapper {
-    padding: 20px 0;
-    @include for-desktop {
-      padding: 20px;
-      max-width: calc(100% - 216px);
-    }
   }
 }
 .banner-central {
@@ -342,7 +320,7 @@ export default {
     margin: $spacer-extra-big 0;
   }
 }
-.grid {
+.images-grid {
   max-width: 960px;
   margin: auto;
   &__row {
@@ -364,13 +342,33 @@ export default {
     }
   }
 }
-.sf-banner {
-  flex: 1;
+.product-card {
+  max-width: unset;
+  &:hover {
+    @include for-desktop {
+      box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+    }
+  }
+}
+.product-carousel {
+  margin: -20px -#{$spacer-big} -20px 0;
+  @include for-desktop {
+    margin: -20px 0;
+  }
+  ::v-deep .sf-carousel__wrapper {
+    padding: 20px 0;
+    @include for-desktop {
+      padding: 20px;
+      max-width: calc(100% - 216px);
+    }
+  }
 }
 .section {
-  @media (max-width: $desktop-min) {
-    padding-left: $spacer-big;
-    padding-right: $spacer-big;
+  padding-left: $spacer-big;
+  padding-right: $spacer-big;
+  @include for-desktop {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 </style>
