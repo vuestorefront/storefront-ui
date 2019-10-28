@@ -26,25 +26,32 @@ export default {
       required: true
     },
     /**
+     * Product title
+     */
+    sku: {
+      type: String,
+      default: ""
+    },
+    /**
      * Product regular price
      */
     regularPrice: {
       type: [Number, String],
-      default: null
+      default: ""
     },
     /**
      * Product special price
      */
     specialPrice: {
       type: [Number, String],
-      default: null
+      default: ""
     },
     /**
      * Selected quantity
      */
     qty: {
       type: String,
-      default: "1"
+      default: "0"
     },
     /**
      * Stock quantity of product
