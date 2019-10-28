@@ -171,7 +171,7 @@ export default {
           subtitle: "SUMMER COLLECTION 2019",
           buttonText: "Learn more",
           background: "#efebe9",
-          image: "assets/storybook/homepage/bannerA.jpg",
+          image: "assets/storybook/homepage/bannerHM.jpg",
           className:
             "sf-hero-item--position-bg-top-left sf-hero-item--align-right"
         },
@@ -180,7 +180,7 @@ export default {
           subtitle: "SUMMER COLLECTION 2019",
           buttonText: "Learn more",
           background: "#fce4ec",
-          image: "assets/storybook/homepage/bannerB.jpg"
+          image: "assets/storybook/homepage/bannerH.jpg"
         }
       ],
       products: [
