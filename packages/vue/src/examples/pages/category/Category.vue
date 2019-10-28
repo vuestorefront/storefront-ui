@@ -422,8 +422,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../../../css/variables";
-@import "~@storefront-ui/shared/styles/helpers/visibility";
+@import "~@storefront-ui/vue/styles";
 
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
@@ -440,6 +439,9 @@ export default {
 }
 .breadcrumbs {
   padding: $spacer-big $spacer-extra-big $spacer-extra-big;
+}
+.main {
+  display: flex;
 }
 .navbar {
   position: relative;
@@ -533,14 +535,6 @@ export default {
     }
   }
 }
-.main {
-  display: flex;
-}
-.sidebar {
-  flex: 0 0 15%;
-  padding: $spacer-extra-big;
-  border-right: 1px solid $c-border;
-}
 .products {
   box-sizing: border-box;
   flex: 1;
@@ -569,6 +563,29 @@ export default {
     }
   }
 }
+.section {
+  padding-left: $spacer-big;
+  padding-right: $spacer-big;
+  @include for-desktop {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.sidebar {
+  flex: 0 0 15%;
+  padding: $spacer-extra-big;
+  border-right: 1px solid $c-border;
+}
+.sort-by {
+  flex: unset;
+  width: 190px;
+  padding: 0 10px;
+  font-size: inherit;
+  &__option {
+    padding: 10px;
+    font-size: inherit;
+  }
+}
 .filters {
   position: relative;
   z-index: 10;
@@ -587,22 +604,6 @@ export default {
   }
   &__item {
     padding: $spacer-small 0;
-  }
-}
-.sort-by {
-  flex: unset;
-  width: 190px;
-  padding: 0 10px;
-  font-size: inherit;
-  &__option {
-    padding: 10px;
-    font-size: inherit;
-  }
-}
-.section {
-  @media (max-width: $desktop-min) {
-    padding-left: $spacer-big;
-    padding-right: $spacer-big;
   }
 }
 </style>
