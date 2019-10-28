@@ -1,5 +1,6 @@
 {
   "name": "@storefront-ui/vue",
+  "module": "./index.js",
   "sideEffects": [
     "*.vue",
     "*.scss",
