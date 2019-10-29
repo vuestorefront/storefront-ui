@@ -59,6 +59,13 @@ export default {
     stock: {
       type: Number,
       default: 1
+    },
+    /**
+     * Product attributes
+     */
+    attributes: {
+      type: Array,
+      default: () => []
     }
   },
   model: {
