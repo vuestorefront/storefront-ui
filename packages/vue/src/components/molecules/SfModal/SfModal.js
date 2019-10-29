@@ -49,47 +49,23 @@ export default {
   methods: {
     close() {
       this.$emit("close");
-      // remove left code
-    },
-    keydownHandler(e) {
-      if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
-        this.close();
-      }
-      if (this.visible) {
-        // TODO: this is an error right now. what shall it do?
-        //  document.addEventListener("keydown", keydownHandler);
-        this.$emit("close");
-      } else {
-        // TODO: this is an error right now. what shall it do?
-        //  document.removeEventListener("keydown", keydownHandler);
-        this.$emit("open");
-      }
     },
     checkPersistence() {
-      if (this.persistent === false) {
+      if (!this.persistent) {
         this.close();
       }
     }
   },
-  watch: {
-    visible: {
-      handler: function(visibility) {
-        if (visibility && typeof window !== "undefined") {
-          document.body.style.setProperty(
-            "margin-right",
-            `${window.innerWidth - document.body.clientWidth}px`
-          );
-          document.addEventListener("keydown", this.keydownHandler);
-          document.body.style.setProperty("overflow", "hidden");
-        }
-        if (!visibility && typeof window !== "undefined") {
-          document.body.style.removeProperty("margin-right");
-          document.body.style.removeProperty("overflow");
-          document.removeEventListener("keydown", this.keydownHandler);
-        }
-      },
-      immediate: true
-    }
+  created() {
+    const escapeHandler = e => {
+      if (e.key === "Escape" && this.visible) {
+        this.close();
+      }
+    };
+    document.addEventListener("keydown", escapeHandler);
+    this.$once("hook:destroyed", () => {
+      document.removeEventListener("keydown", escapeHandler);
+    });
   },
   components: {
     SfOverlay,
