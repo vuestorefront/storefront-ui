@@ -454,20 +454,7 @@ export default {
   methods: {
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
-    },
-    viewportHeight() {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
     }
-  },
-  mounted() {
-    this.viewportHeight();
-    window.addEventListener("resize", this.viewportHeight, { passive: true });
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.viewportHeight, {
-      passive: true
-    });
   }
 };
 </script>
@@ -478,6 +465,11 @@ export default {
 
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
+    @content;
+  }
+}
+@mixin for-iOS {
+  @supports (-webkit-overflow-scrolling: touch) {
     @content;
   }
 }
@@ -621,8 +613,13 @@ export default {
   padding: $spacer-small 0;
 }
 .gallery-mobile {
-  height: calc(100vh - 180px);
-  height: calc((var(--vh, 1vh) * 100) - 180px);
+  $height-other: 240px;
+  $height-iOS: 265px;
+
+  height: calc(100vh - #{$height-other});
+  @supports (-webkit-overflow-scrolling: touch) {
+    height: calc(100vh - #{$height-iOS});
+  }
   ::v-deep .glide {
     &,
     * {
@@ -631,16 +628,19 @@ export default {
     &__slide {
       position: relative;
       overflow: hidden;
-      & img {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        min-width: calc(
-          (375 / 490) * (100vh - 180px)
-        ); // (oldWidth / oldHeight) * newHeight = newWidth
-        min-width: calc(((var(--vh, 1vh) * 100) - 180px) * (375 / 490));
+    }
+    img {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: calc((375 / 490) * (100vh - #{$height-other}));
+      @supports (-webkit-overflow-scrolling: touch) {
+        min-width: calc((375 / 490) * (100vh - #{$height-iOS}));
       }
     }
+  }
+  ::v-deep .sf-gallery__stage {
+    width: 100%;
   }
 }
 .section {
