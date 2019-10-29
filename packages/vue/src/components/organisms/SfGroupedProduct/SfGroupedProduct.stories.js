@@ -1,44 +1,68 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, number } from "@storybook/addon-knobs";
 
 import SfGroupedProduct from "./SfGroupedProduct.vue";
 
-storiesOf("Organisms|GroupedProduct", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => ({
-    components: { SfGroupedProduct },
-    props: {
-      image: {
-        default: text("image (prop)", "/assets/storybook/homepage/productB.jpg")
-      },
-      title: {
-        default: text("title (prop)", "Leave white brooch")
-      },
-      sku: {
-        default: text("sku (prop)", "MSD23-345-324")
-      },
-      regularPrice: {
-        default: text("regularPrice (prop)", "$10,99")
-      },
-      specialPrice: {
-        default: text("specialPrice (prop)", "")
-      },
-      stock: {
-        default: number("stock (prop)", 99)
-      }
-    },
-    data() {
-      return {
-        qty: "1"
-      };
-    },
-    template: `<SfGroupedProduct
-        image="/assets/storybook/product-white.png"
-        :title="title"
-        :sku="sku"
-        :specialPrice="specialPrice"
-        :regularPrice="regularPrice"
-        :stock="stock"
-        v-model="qty" />`
-  }));
+storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
+  components: { SfGroupedProduct },
+  data() {
+    return {
+      qty: "1",
+      groupedProduct: [
+        {
+          image: "/assets/storybook/product-white.png",
+          title: "Leave white brooch",
+          sku: "MSD23-345-324",
+          specialPrice: "",
+          regularPrice: "$10,99",
+          stock: "99",
+          attributes: [
+            {
+              color: "White"
+            }
+          ]
+        },
+        {
+          image: "/assets/storybook/product-green.png",
+          title: "Leave green brooch",
+          sku: "MSD23-345-324",
+          specialPrice: "",
+          regularPrice: "$11,99",
+          stock: "99",
+          attributes: [
+            {
+              color: "Green"
+            }
+          ]
+        },
+        {
+          image: "/assets/storybook/product-black.png",
+          title: "Leave black brooch",
+          sku: "MSD23-345-324",
+          specialPrice: "",
+          regularPrice: "$20,99",
+          stock: "99",
+          attributes: [
+            {
+              color: "Black"
+            }
+          ]
+        }
+      ]
+    };
+  },
+  template: `<div style="max-width: 509px">
+       <SfGroupedProduct>
+          <SfGroupedProductItem 
+          v-for="(product, key) in groupedProduct"
+          :key="key"
+          :image="product.image"
+          :title="product.title"
+          :sku="product.sku"
+          :specialPrice="product.specialPrice"
+          :regularPrice="product.regularPrice"
+          :stock="product.stock"
+          :attributes="product.attributes"/>
+      </SfGroupedProduct>
+    </div>`
+}));
