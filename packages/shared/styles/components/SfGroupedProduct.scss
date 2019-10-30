@@ -1,7 +1,7 @@
 @import "../variables";
 
-$grouped-product-max-width: 125px !default;
-$grouped-product-max-width-desktop: 82px !default;
+$grouped-product-max-width: 7.8125rem !default;
+$grouped-product-max-width-desktop: 5.125rem !default;
 $grouped-product-font-family: $body-font-family-secondary !default;
 $grouped-product-font-size: $font-size-regular-mobile !default;
 $grouped-product-font-size-desktop: $font-size-extra-small-desktop !default;
@@ -17,7 +17,9 @@ $grouped-product__select-quantity-height: 1.875rem !default;
   font-weight: $grouped-product-font-weight;
   line-height: $grouped-product-line-height;
   @media (min-width: $desktop-min) {
-    padding: unset;
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid $c-light-primary;
     font-size: $grouped-product-font-size-desktop;
   }
   &__aside {
@@ -25,19 +27,21 @@ $grouped-product__select-quantity-height: 1.875rem !default;
   }
   &__image {
     display: flex;
-    flex: 0 0 $grouped-product-max-width;
+    //max-width: $grouped-product-max-width;
     @media (min-width: $desktop-min) {
-      flex: 0 0 $grouped-product-max-width-desktop;
+      max-width: $grouped-product-max-width-desktop;
     }
   }
   &__select-quantity {
     position: absolute;
     right: $spacer;
     bottom: $spacer;
+    z-index: 1;
     width: $grouped-product__select-quantity-width;
     height: $grouped-product__select-quantity-height;
     @media (min-width: $desktop-min) {
-      position: static;
+      bottom: 0;
+      left: $grouped-product-max-width-desktop + $spacer-big;
     }
     input {
       box-sizing: border-box;
@@ -58,16 +62,36 @@ $grouped-product__select-quantity-height: 1.875rem !default;
       }
     }
   }
-  &__sku {
-    display: none;
+  &__description {
     @media (min-width: $desktop-min) {
-      display: flex;
+      margin-left: $spacer-big;
     }
   }
+  &__title {
+    margin: $spacer-small 0;
+    @media (min-width: $desktop-min) {
+      margin: 0;
+    }
+  }
+  &__sku {
+    color: #a3a5ad;
+  }
+  &__sku,
   &__attributes {
     display: none;
     @media (min-width: $desktop-min) {
-      display: flex;
+      display: block;
+    }
+  }
+  &__attributes {
+    @media (min-width: $desktop-min) {
+      margin-left: auto;
+    }
+  }
+  &__price {
+    @media (min-width: $desktop-min) {
+      margin-left: auto;
+      font: inherit;
     }
   }
 }
@@ -76,6 +100,8 @@ $grouped-product__select-quantity-height: 1.875rem !default;
     .glide {
       &__slides {
         display: block !important;
+        width: auto !important;
+        margin: 0 !important;
         transform: unset !important;
       }
     }

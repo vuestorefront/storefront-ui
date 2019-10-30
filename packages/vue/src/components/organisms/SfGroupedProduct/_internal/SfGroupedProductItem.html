@@ -1,39 +1,42 @@
 <li class="glide__slide sf-grouped-product-item">
   <div class="sf-grouped-product-item__aside">
     <slot name="image" v-bind="{image, title}">
-      <SfImage :src="image" :alt="title" class="sf-grouped-product-item__image"/>
+      <SfImage
+        :src="image"
+        :alt="title"
+        class="sf-grouped-product-item__image"
+      />
     </slot>
     <slot name="input">
       <SfInput
-              type="number"
-              :value="qty"
-              @input="(value)=>{$emit('input', value)}"
-              min="1"
-              :max="stock"
-              class="sf-grouped-product-item__select-quantity"
+        type="number"
+        :value="qty"
+        @input="(value)=>{$emit('input', value)}"
+        min="1"
+        :max="stock"
+        class="sf-grouped-product-item__select-quantity"
       />
     </slot>
   </div>
   <div class="sf-grouped-product-item__description">
     <slot name="title" v-bind="{title}">
-      <div>{{title}}</div>
+      <div class="sf-grouped-product-item__title">{{title}}</div>
     </slot>
     <slot name="sku">
       <div class="sf-grouped-product-item__sku">{{sku}}</div>
     </slot>
   </div>
-  <div class="sf-grouped-product-item__attributes">
-    <slot name="attributes"></slot>
-    Green
-  </div>
-  <div class="sf-grouped-product-item__price">
-    <slot name="price" v-bind="{ specialPrice, regularPrice }">
-      <SfPrice
-        v-if="regularPrice"
-        :regular="regularPrice"
-        :special="specialPrice"
-        class="sf-grouped-product-item__price"
-      />
-    </slot>
-  </div>
+  <slot name="attributes">
+    <div class="sf-grouped-product-item__attributes">
+      <div v-for="(attribute, key) in attributes" :key="key">{{attribute.color}}</div>
+    </div>
+  </slot>
+  <slot name="price" v-bind="{ specialPrice, regularPrice }">
+    <SfPrice
+      v-if="regularPrice"
+      :regular="regularPrice"
+      :special="specialPrice"
+      class="sf-grouped-product-item__price"
+    />
+  </slot>
 </li>
