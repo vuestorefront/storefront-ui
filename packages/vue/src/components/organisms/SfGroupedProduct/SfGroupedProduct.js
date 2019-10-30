@@ -34,19 +34,19 @@ export default {
   },
   provide() {
     const provided = {};
-    Object.defineProperty(provided, "input", {
-      value: this.input
+    Object.defineProperty(provided, "inputHandler", {
+      value: this.inputHandler
     });
     return { provided };
   },
   methods: {
-    input(payload) {
+    inputHandler(payload) {
       const groupedProduct = [...this.value];
       const index = groupedProduct.findIndex(product => {
         return product.sku === payload.sku && product.name === payload.name;
       });
-
-      groupedProduct[index] = payload;
+      const product = { ...groupedProduct[index], qty: payload.qty };
+      groupedProduct[index] = product;
 
       this.$emit("input", groupedProduct);
     }

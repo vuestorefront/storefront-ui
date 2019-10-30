@@ -79,7 +79,7 @@ export default {
         stock: this.stock,
         attributes: this.attributes
       };
-      this.provided.input(product);
+      this.provided.inputHandler(product);
     }
   }
 };
