@@ -9,6 +9,7 @@ export default {
     SfPrice,
     SfInput
   },
+  inject: ["provided"],
   props: {
     /**
      * Product image
@@ -46,9 +47,7 @@ export default {
       type: [Number, String],
       default: ""
     },
-    /**
-     * Selected quantity
-     */
+    /** Product qty */
     qty: {
       type: String,
       default: "0"
@@ -68,7 +67,19 @@ export default {
       default: () => []
     }
   },
-  model: {
-    prop: "qty"
+  methods: {
+    qtyHandler(qty) {
+      const product = {
+        image: this.image,
+        title: this.title,
+        sku: this.sku,
+        specialPrice: this.specialPrice,
+        regularPrice: this.regularPrice,
+        qty: qty,
+        stock: this.stock,
+        attributes: this.attributes
+      };
+      this.provided.input(product);
+    }
   }
 };

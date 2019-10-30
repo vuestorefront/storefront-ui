@@ -11,8 +11,8 @@
       <SfInput
         type="number"
         :value="qty"
-        @input="(value)=>{$emit('input', value)}"
-        min="1"
+        @input="qtyHandler"
+        min="0"
         :max="stock"
         class="sf-grouped-product-item__select-quantity"
       />
@@ -28,7 +28,9 @@
   </div>
   <slot name="attributes">
     <div class="sf-grouped-product-item__attributes">
-      <div v-for="(attribute, key) in attributes" :key="key">{{attribute.color}}</div>
+      <div v-for="(attribute, key) in attributes" :key="key">
+        {{attribute.color}}
+      </div>
     </div>
   </slot>
   <slot name="price" v-bind="{ specialPrice, regularPrice }">

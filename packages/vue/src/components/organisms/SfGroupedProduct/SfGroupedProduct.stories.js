@@ -7,7 +7,6 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
   components: { SfGroupedProduct },
   data() {
     return {
-      qty: "1",
       groupedProduct: [
         {
           image: "/assets/storybook/product-white.png",
@@ -16,6 +15,7 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
           specialPrice: "",
           regularPrice: "$10,99",
           stock: 99,
+          qty: "0",
           attributes: [
             {
               color: "White"
@@ -25,9 +25,10 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
         {
           image: "/assets/storybook/product-green.png",
           title: "Leave green brooch",
-          sku: "MSD23-345-324",
+          sku: "MSD23-345-325",
           specialPrice: "",
           regularPrice: "$11,99",
+          qty: "0",
           stock: 99,
           attributes: [
             {
@@ -38,39 +39,14 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
         {
           image: "/assets/storybook/product-black.png",
           title: "Leave black brooch",
-          sku: "MSD23-345-324",
+          sku: "MSD23-345-326",
           specialPrice: "",
           regularPrice: "$20,99",
+          qty: "0",
           stock: 99,
           attributes: [
             {
               color: "Black"
-            }
-          ]
-        },
-        {
-          image: "/assets/storybook/product-white.png",
-          title: "Leave white brooch",
-          sku: "MSD23-345-324",
-          specialPrice: "",
-          regularPrice: "$10,99",
-          stock: 99,
-          attributes: [
-            {
-              color: "White"
-            }
-          ]
-        },
-        {
-          image: "/assets/storybook/product-green.png",
-          title: "Leave green brooch",
-          sku: "MSD23-345-324",
-          specialPrice: "",
-          regularPrice: "$11,99",
-          stock: 99,
-          attributes: [
-            {
-              color: "Green"
             }
           ]
         }
@@ -78,10 +54,11 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
     };
   },
   template: `<div style="max-width: 509px">
-       <SfGroupedProduct>
+       <SfGroupedProduct v-model="groupedProduct">
           <SfGroupedProductItem 
           v-for="(product, key) in groupedProduct"
           :key="key"
+          :qty="product.qty"
           :image="product.image"
           :title="product.title"
           :sku="product.sku"
