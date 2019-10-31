@@ -1,24 +1,43 @@
 <template>
   <div id="checkout" style="display: flex">
     <div style="flex: 1">
-      <SfSteps>
-        <SfStep name="Personal Detail"></SfStep>
-        <SfStep name="Shipping"></SfStep>
-        <SfStep name="Payment"></SfStep>
+      <SfSteps :active="active" @change="active = $event">
+        <SfStep name="Personal Detail">
+          <PersonalDetails />
+        </SfStep>
+        <SfStep name="Shipping">
+          <Shipping />
+        </SfStep>
+        <SfStep name="Payment">
+          <Payment />
+        </SfStep>
         <SfStep name="Review orders"></SfStep>
       </SfSteps>
     </div>
-    <div style="flex-basis: 430px; margin-left: 100px">
-      <div style="background-color: #F1F2F3">...</div>
+    <div
+      style="flex-basis: 26.875rem; margin-left: 6.25rem; background-color: #F1F2F3"
+    >
+      <!-- placeholder -->
     </div>
   </div>
 </template>
 <script>
+import PersonalDetails from "./components/PersonalDetails";
+import Shipping from "./components/Shipping";
+import Payment from "./components/Payment";
 import { SfSteps } from "../../../../index.js";
 export default {
   name: "Checkout",
   components: {
-    SfSteps
+    SfSteps,
+    PersonalDetails,
+    Shipping,
+    Payment
+  },
+  data() {
+    return {
+      active: 0
+    };
   }
 };
 </script>
