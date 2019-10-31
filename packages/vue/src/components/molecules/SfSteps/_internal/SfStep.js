@@ -26,5 +26,8 @@ export default {
     active() {
       return this.internalName === this.name;
     }
+  },
+  mounted() {
+    this.stepsData.updateSteps(this.name);
   }
 };

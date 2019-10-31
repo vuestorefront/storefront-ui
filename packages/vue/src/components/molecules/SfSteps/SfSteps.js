@@ -18,18 +18,15 @@ export default {
       enumerable: false,
       get: () => this.steps[this.active]
     });
+    Object.defineProperty(stepsData, "updateSteps", {
+      enumerable: false,
+      value: this.updateSteps
+    });
     return {
       stepsData
     };
   },
   props: {
-    /**
-     * Steps to show
-     */
-    steps: {
-      type: Array,
-      required: true
-    },
     /**
      * Current active step
      */
@@ -44,6 +41,11 @@ export default {
       type: Boolean,
       default: true
     }
+  },
+  data() {
+    return {
+      steps: []
+    };
   },
   computed: {
     parsedSteps() {
@@ -66,6 +68,10 @@ export default {
     }
   },
   methods: {
+    updateSteps(step) {
+      if (this.steps.includes(step)) return;
+      this.steps.push(step);
+    },
     stepClick({ index, disabled }) {
       if (!disabled) {
         /**
