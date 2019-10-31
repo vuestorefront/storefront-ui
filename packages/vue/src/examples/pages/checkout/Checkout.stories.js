@@ -4,7 +4,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 
 import Checkout from "./Checkout.vue";
 
-storiesOf("Examples|Pages|Home", module)
+storiesOf("Pages|Checkout", module)
   .addDecorator(withKnobs)
   .add(
     "Checkout",
