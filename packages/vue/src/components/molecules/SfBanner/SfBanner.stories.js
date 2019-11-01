@@ -2,6 +2,7 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
+  color,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 
@@ -40,6 +41,9 @@ storiesOf("Molecules|Banner", module)
       },
       image: {
         default: text("image (prop)", "assets/storybook/Banner1.jpg")
+      },
+      background: {
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 1240px">
@@ -49,6 +53,7 @@ storiesOf("Molecules|Banner", module)
       :subtitle="subtitle"
       :description="description"
       :image="image"
+      :background="background"
       />
     </div>`
   }))
@@ -83,6 +88,9 @@ storiesOf("Molecules|Banner", module)
       },
       image: {
         default: text("image (prop)", "assets/storybook/Banner1.jpg")
+      },
+      background: {
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 1240px">
@@ -91,7 +99,8 @@ storiesOf("Molecules|Banner", module)
       :title="title"
       :subtitle="subtitle"
       :description="description"
-      :image="image">
+      :image="image"
+      :background="background">
         <template #subtitle>
               <!-- slot content -->
         </template>
@@ -129,6 +138,9 @@ storiesOf("Molecules|Banner", module)
       },
       image: {
         default: text("image (prop)", "assets/storybook/Banner1.jpg")
+      },
+      background: {
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 1240px">
@@ -137,7 +149,8 @@ storiesOf("Molecules|Banner", module)
       :title="title"
       :subtitle="subtitle"
       :description="description"
-      :image="image">
+      :image="image"
+      :background="background">
         <template #title>
               <!-- slot content -->
         </template>
@@ -175,6 +188,9 @@ storiesOf("Molecules|Banner", module)
       },
       image: {
         default: text("image (prop)", "assets/storybook/Banner1.jpg")
+      },
+      background: {
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 1240px">
@@ -183,7 +199,8 @@ storiesOf("Molecules|Banner", module)
       :title="title"
       :subtitle="subtitle"
       :description="description"
-      :image="image">
+      :image="image"
+      :background="background">
         <template #description>
               <!-- slot content -->
         </template>
@@ -221,6 +238,9 @@ storiesOf("Molecules|Banner", module)
       },
       image: {
         default: text("image (prop)", "assets/storybook/Banner1.jpg")
+      },
+      background: {
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 1240px">
@@ -229,7 +249,8 @@ storiesOf("Molecules|Banner", module)
       :title="title"
       :subtitle="subtitle"
       :description="description"
-      :image="image">
+      :image="image"
+      :background="background">
         <template #call-to-action>
               <!-- slot content -->
         </template>
