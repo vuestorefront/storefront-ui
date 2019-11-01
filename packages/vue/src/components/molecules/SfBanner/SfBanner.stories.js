@@ -52,6 +52,7 @@ storiesOf("Molecules|Banner", module)
       :title="title"
       :subtitle="subtitle"
       :description="description"
+      :button-text="buttonText"
       :image="image"
       :background="background"
       />
@@ -99,6 +100,7 @@ storiesOf("Molecules|Banner", module)
       :title="title"
       :subtitle="subtitle"
       :description="description"
+      :button-text="buttonText"
       :image="image"
       :background="background">
         <template #subtitle>
@@ -149,6 +151,7 @@ storiesOf("Molecules|Banner", module)
       :title="title"
       :subtitle="subtitle"
       :description="description"
+      :button-text="buttonText"
       :image="image"
       :background="background">
         <template #title>
@@ -199,6 +202,7 @@ storiesOf("Molecules|Banner", module)
       :title="title"
       :subtitle="subtitle"
       :description="description"
+      :button-text="buttonText"
       :image="image"
       :background="background">
         <template #description>
@@ -249,6 +253,7 @@ storiesOf("Molecules|Banner", module)
       :title="title"
       :subtitle="subtitle"
       :description="description"
+      :button-text="buttonText"
       :image="image"
       :background="background">
         <template #call-to-action>
