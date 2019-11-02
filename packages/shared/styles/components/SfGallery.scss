@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $gallery-flex-direction: row !default;
 $gallery__nav-width: 100px !default;
@@ -114,5 +114,10 @@ $gallery__stage-cursor: zoom-in !default;
   img {
     user-drag: none;
     user-select: none;
+  }
+  .glide {
+    &__slides {
+      margin: 0;
+    }
   }
 }

@@ -9,7 +9,7 @@ export default {
      */
     src: {
       type: [String, Object],
-      default: () => {}
+      default: () => ({})
     },
     /**
      * Alt attribute value
@@ -67,17 +67,22 @@ export default {
     }
   },
 
-  mounted() {
-    if (this.lazy !== false) {
-      const vm = this;
-      const observer = lozad(vm.$refs.imgLazy, {
-        loaded: function() {
-          vm.loaded = true;
+  watch: {
+    src: {
+      handler: function() {
+        if (this.lazy !== false) {
+          const vm = this;
+          const observer = lozad(vm.$refs.imgLazy, {
+            loaded: function() {
+              vm.loaded = true;
+            }
+          });
+          observer.observe();
+        } else {
+          this.loaded = true;
         }
-      });
-      observer.observe();
-    } else {
-      this.loaded = true;
+      },
+      immediate: true
     }
   }
 };

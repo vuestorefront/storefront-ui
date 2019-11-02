@@ -1,5 +1,4 @@
-@import '../variables';
-@import '~leaflet/dist/leaflet.css';
+@import "../variables";
 
 $store-locator__font-family-primary: $body-font-family-primary !default;
 
@@ -15,7 +14,7 @@ $store-locator__map-min-height-mobile: 26.875rem !default;
 
 $store__media-width: 5.125rem !default;
 $store__media-height: 7rem !default;
-$store__media-margin: 0 1.25rem 0 0  !default;
+$store__media-margin: 0 1.25rem 0 0 !default;
 
 $store__item-font-size: $font-size-extra-small-desktop !default;
 
@@ -78,7 +77,7 @@ $store__font-family-secondary: $body-font-family-secondary !default;
           justify-content: center;
 
           &:hover {
-             display: flex;
+            display: flex;
           }
         }
       }
@@ -87,19 +86,11 @@ $store__font-family-secondary: $body-font-family-secondary !default;
     .sf-loader {
       position: absolute;
     }
-
   }
 
   .sf-store {
-
     .sf-divider {
       margin: 7px 0 7px auto;
-    }
-
-    &:first-of-type {
-      .sf-store__first-divider {
-        display: block;
-      }
     }
 
     &__first-divider {
@@ -108,12 +99,17 @@ $store__font-family-secondary: $body-font-family-secondary !default;
       margin: 8px 0;
     }
 
+    &:first-of-type {
+      .sf-store__first-divider {
+        display: block;
+      }
+    }
+
     &__desktop-divider {
       display: none;
     }
 
     @media screen and (min-width: $desktop-min) {
-
       .sf-divider {
         max-width: 100%;
       }
@@ -121,7 +117,7 @@ $store__font-family-secondary: $body-font-family-secondary !default;
         display: block;
       }
       &__mobile-divider {
-          display: none;
+        display: none;
       }
       &__first-divider {
         margin-top: 0;
@@ -148,45 +144,43 @@ $store__font-family-secondary: $body-font-family-secondary !default;
         flex: 1;
 
         &-heading {
+          @media screen and (min-width: $desktop-min) {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+          }
 
-        @media screen and (min-width: $desktop-min) {
-          display: flex;
-          flex-flow: row nowrap;
-          justify-content: space-between;
-        }
-
-        &-name {
-          font-size: $store__name-font-size;
-          color: $store__color-primary;
-          font-family: $store__font-family-secondary;
-          font-weight: $store__name-font-weight;
-        }
+          &-name {
+            font-size: $store__name-font-size;
+            color: $store__color-primary;
+            font-family: $store__font-family-secondary;
+            font-weight: $store__name-font-weight;
+          }
 
           &-distance {
             color: $store__color-secondary;
             span {
-            color: $store__color-primary;
-          }
+              color: $store__color-primary;
+            }
 
-          @media screen and (min-width: $desktop-min) {
+            @media screen and (min-width: $desktop-min) {
               width: 80px;
             }
           }
         }
-
 
         &-address {
           color: $store__color-secondary;
           margin-bottom: 1.25rem;
         }
 
-        &-phone, &-email {
+        &-phone,
+        &-email {
           display: flex;
           flex-flow: row nowrap;
           justify-content: flex-start;
           align-items: center;
           margin-bottom: 0.625rem;
-
 
           span {
             font-family: $store__font-family-secondary;
