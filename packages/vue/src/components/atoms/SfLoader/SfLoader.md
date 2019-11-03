@@ -3,9 +3,7 @@ Overlay loading spinner, wrapped around elements for indicating long running tas
 
 # common-usage
 <br>
-<div style="width: 200px; height: 100px; border: 1px solid #ddd">
-  <SfLoader loading />
-</div>
+<SfDocsLoader />
 
 ```html
 <template>
