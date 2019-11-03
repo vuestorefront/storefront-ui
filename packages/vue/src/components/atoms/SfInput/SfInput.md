@@ -15,17 +15,17 @@ Input form field with validation and built-in label animation
   />
 </template>
 <script>
-  import { SfInput } from "@storefront-ui/vue";
+import { SfInput } from "@storefront-ui/vue";
 
-  export default {
-    components: {
-      SfInput
-    },
-    data() {
-      return {
-        required: true;
-      }
+export default {
+  components: {
+    SfInput
+  },
+  data() {
+    return {
+      required: true;
     }
-  };
+  }
+};
 </script>
 ```

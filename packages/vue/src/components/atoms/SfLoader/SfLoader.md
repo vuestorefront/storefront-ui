@@ -12,18 +12,18 @@ Overlay loading spinner, wrapped around elements for indicating long running tas
   </SfLoader>
 </template>
 <script>
-  import { SfLoader, SfImage } from "@storefront-ui/vue";
+import { SfLoader, SfImage } from "@storefront-ui/vue";
 
-  export default {
-    components: {
-      SfLoader,
-      SfImage
-    },
-    data() {
-      return {
-        isLoading: true;
-      }
+export default {
+  components: {
+    SfLoader,
+    SfImage
+  },
+  data() {
+    return {
+      isLoading: true;
     }
-  };
+  }
+};
 </script>
 ```
