@@ -3,7 +3,7 @@ Checkbox component
 
 # common-usage
 <br>
-<SfCheckbox label="Receive newsletter" />
+<SfDocsCheckbox label="Receive newsletter" value="agreed" />
 
 ```html
 <template>
