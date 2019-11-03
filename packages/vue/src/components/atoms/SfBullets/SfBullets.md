@@ -3,7 +3,7 @@ Bullet-style indicator for paginated view containers.
 
 # common-usage
 <br>
-<SfBullets :total="5" :current="1" />
+<SfDocsBullets :total="5" />
 
 ```html
 <template>
