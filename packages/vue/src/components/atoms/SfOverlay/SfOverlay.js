@@ -2,14 +2,14 @@ export default {
   name: "SfOverlay",
   props: {
     /**
-     * overlay transition effect
+     * Transition effect to apply when overlay visibility is changed
      */
     transition: {
       type: String,
       default: "fade"
     },
     /**
-     * overlay visible
+     * Visibility state
      */
     visible: {
       type: Boolean,
