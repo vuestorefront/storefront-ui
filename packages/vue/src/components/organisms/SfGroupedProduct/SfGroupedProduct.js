@@ -50,7 +50,7 @@ export default {
       /**
        * Grouped Product Item quantity updated event
        *
-       * @event 'input'
+       * @event input
        * @type Object
        */
       this.$emit("input", groupedProduct);
