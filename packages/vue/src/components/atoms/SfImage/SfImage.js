@@ -9,7 +9,7 @@ export default {
      */
     src: {
       type: [String, Object],
-      default: () => {}
+      default: () => ({})
     },
     /**
      * Alt attribute value
@@ -37,7 +37,7 @@ export default {
      */
     placeholder: {
       type: String,
-      default: "/assets/placeholder.png"
+      default: "/assets/placeholder.jpg"
     },
     /**
      * Screen width breakpoint for picture tag media query
@@ -67,17 +67,22 @@ export default {
     }
   },
 
-  mounted() {
-    if (this.lazy !== false) {
-      const vm = this;
-      const observer = lozad(vm.$refs.imgLazy, {
-        loaded: function() {
-          vm.loaded = true;
+  watch: {
+    src: {
+      handler: function() {
+        if (this.lazy !== false) {
+          const vm = this;
+          const observer = lozad(vm.$refs.imgLazy, {
+            loaded: function() {
+              vm.loaded = true;
+            }
+          });
+          observer.observe();
+        } else {
+          this.loaded = true;
         }
-      });
-      observer.observe();
-    } else {
-      this.loaded = true;
+      },
+      immediate: true
     }
   }
 };

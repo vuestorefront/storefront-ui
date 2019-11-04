@@ -4,12 +4,12 @@ $breadcrumbs-font-family: $body-font-family-secondary !default;
 $breadcrumbs-font-size: $font-size-small-desktop !default;
 $breadcrumbs-font-weight: $body-font-weight-secondary !default;
 $breadcrumbs-line-height: 1.6 !default;
-$breadcrumbs__link-color: $c-dark-primary !default;
+$breadcrumbs__link-color: $c-dark !default;
 $breadcrumbs__item-padding: 0.75rem !default;
-$breadcrumbs__item-color: $c-gray-primary !default;
+$breadcrumbs__item-color: $c-gray !default;
 $breadcrumbs__item-separator-color: $breadcrumbs__link-color !default;
 $breadcrumbs__item-separator: "|" !default;
-$breadcrumbs__current-color: $c-gray-secondary!default;
+$breadcrumbs__current-color: $c-gray-variant!default;
 
 .sf-breadcrumbs {
   font-family: $breadcrumbs-font-family;
