@@ -47,7 +47,12 @@ export default {
       });
       const product = { ...groupedProduct[index], qty: payload.qty };
       groupedProduct[index] = product;
-
+      /**
+       * Grouped Product Item quantity updated event
+       *
+       * @event 'input'
+       * @type Object
+       */
       this.$emit("input", groupedProduct);
     }
   },

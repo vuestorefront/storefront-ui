@@ -47,7 +47,7 @@ export default {
       required: true
     },
     /**
-     * Product title
+     * Product sku
      */
     sku: {
       type: String,
@@ -67,7 +67,7 @@ export default {
       type: [Number, String],
       default: ""
     },
-    /** Product qty */
+    /** Product quantity */
     qty: {
       type: String,
       default: "0"
@@ -77,7 +77,7 @@ export default {
      */
     stock: {
       type: Number,
-      default: 1
+      default: 0
     },
     /**
      * Product attributes

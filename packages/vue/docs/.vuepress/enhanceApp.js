@@ -22,6 +22,7 @@ import SfCounter from "../../src/components/molecules/SfCounter/SfCounter.vue"
 import SfDivider from "../../src/components/atoms/SfDivider/SfDivider.vue"
 import SfFilter from "../../src/components/molecules/SfFilter/SfFilter.vue"
 import SfGallery from "../../src/components/molecules/SfGallery/SfGallery.vue"
+import SfGroupedProduct from "../../src/components/organisms/SfGroupedProduct/SfGroupedProduct.vue"
 import SfHeader from "../../src/components/organisms/SfHeader/SfHeader.vue"
 import SfHeading from "../../src/components/atoms/SfHeading/SfHeading.vue"
 import SfHero from "../../src/components/organisms/SfHero/SfHero.vue"
@@ -85,6 +86,7 @@ export default ({
   Vue.component("SfDivider", SfDivider);
   Vue.component("SfFilter", SfFilter);
   Vue.component("SfGallery", SfGallery);
+  Vue.component("SfGroupedProduct", SfGroupedProduct);
   Vue.component("SfHeader", SfHeader);
   Vue.component("SfHeading", SfHeading);
   Vue.component("SfHero", SfHero);
