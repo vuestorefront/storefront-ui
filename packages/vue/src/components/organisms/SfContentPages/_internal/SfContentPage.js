@@ -2,6 +2,9 @@ export default {
   name: "SfContentPage",
   inject: ["provided"],
   props: {
+    /**
+     * Page title
+     */
     title: {
       type: String,
       default: ""

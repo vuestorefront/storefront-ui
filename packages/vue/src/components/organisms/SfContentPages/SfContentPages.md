@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     updateActive(title) {
-      this.activePage = title;
+      // logic for changing to active page 'title'
     }
   }
 }

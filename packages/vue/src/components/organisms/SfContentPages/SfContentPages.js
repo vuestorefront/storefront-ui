@@ -13,10 +13,16 @@ export default {
     SfMenuItem
   },
   props: {
+    /**
+     * Pages title
+     */
     title: {
       type: String,
       default: ""
     },
+    /**
+     * Active page
+     */
     active: {
       type: String,
       default: ""
@@ -57,6 +63,12 @@ export default {
       this.pages.push(title);
     },
     updatePage(title) {
+      /**
+       * Active page updated event
+       *
+       * @event click:change
+       * @type String
+       */
       this.$emit("click:change", title);
     },
     isMobileHandler() {

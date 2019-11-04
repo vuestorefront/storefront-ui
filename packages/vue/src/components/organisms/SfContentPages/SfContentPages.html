@@ -9,7 +9,7 @@
           v-for="page in pages"
           :key="page"
           class="sf-content-pages__list-item">
-          <!-- @slot -->
+          <!-- @slot Custom menu-item markup -->
           <slot
             name="menu-item"
             v-bind="{updatePage, page, active}">
@@ -25,7 +25,7 @@
       </SfList>
     </div>
     <div class="sf-content-pages__content">
-      <!-- @slot -->
+      <!-- @slot Slot for Content Page -->
       <slot />
     </div>
   </section>
