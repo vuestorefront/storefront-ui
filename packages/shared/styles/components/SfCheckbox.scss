@@ -53,12 +53,12 @@ $checkbox__checkmark-transition: background-color 0.25s
       border-color: transparent;
     }
     .is-disabled & {
-      border-color: $c-dark-secondary;
+      border-color: $c-dark-variant;
       transition: $checkbox__checkmark-transition;
       opacity: 0.25;
     }
     .is-active.is-disabled & {
-      background-color: $c-dark-secondary;
+      background-color: $c-dark-variant;
       border-color: transparent;
       opacity: 0.25;
     }
