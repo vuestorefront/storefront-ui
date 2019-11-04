@@ -575,7 +575,7 @@ export default {
 .sidebar {
   flex: 0 0 15%;
   padding: $spacer-extra-big;
-  border-right: 1px solid $c-border;
+  border-right: 1px solid $c-light;
 }
 .sort-by {
   flex: unset;
