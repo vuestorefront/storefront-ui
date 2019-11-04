@@ -8,7 +8,7 @@ $content-pages__title-font-size-desktop: $font-size-extra-big-desktop !default;
 $content-pages__title-font-weight: 500 !default;
 $content-pages__title-line-height: 1.6 !default;
 
-%title{
+%title {
   padding: 1.25rem 0;
   font-family: $content-pages__title-font-family;
   font-size: $content-pages__title-font-size;
@@ -20,9 +20,9 @@ $content-pages__title-line-height: 1.6 !default;
   }
 }
 
-.sf-content-page{
-  &__title{
-    @extend %title
+.sf-content-page {
+  &__title {
+    @extend %title;
   }
 }
 
@@ -49,11 +49,12 @@ $content-pages__title-line-height: 1.6 !default;
   &__sidebar {
     @media (min-width: $desktop-min) {
       flex: 0 0 $content-pages__sidebar-width;
+      padding: 1.25rem 2.5rem 2.5rem;
       background-color: $content-pages__sidebar-background-color;
     }
   }
   &__title {
-   @extend %title
+    @extend %title;
   }
   &__list-item {
     padding: 0.5rem 0;
