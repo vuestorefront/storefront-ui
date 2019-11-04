@@ -23,6 +23,10 @@ $content-pages__title-line-height: 1.6 !default;
 .sf-content-page {
   &__title {
     @extend %title;
+    display: block;
+    @media (min-width: $desktop-min) {
+      display: none;
+    }
   }
 }
 
