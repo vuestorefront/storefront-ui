@@ -13,11 +13,31 @@ export default {
   props: {
     /**
      * Product image
-     * It should be an url of the product
      */
     image: {
       type: String,
-      default: "assets/storybook/product_thumb.jpg"
+      default: ""
+    },
+    /**
+     * Product image placeholder
+     */
+    placeholderImage: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Product image lazy loading
+     */
+    lazyImage: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * Product image picture breakpoint
+     */
+    pictureBreakpointImage: {
+      type: Number,
+      default: 576
     },
     /**
      * Product title

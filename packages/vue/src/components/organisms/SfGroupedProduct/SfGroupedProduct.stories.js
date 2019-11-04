@@ -50,7 +50,12 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
             }
           ]
         }
-      ]
+      ],
+      imageSetup: {
+        placeholderImage: "",
+        lazyImage: true,
+        pictureBreakpointImage: 576
+      }
     };
   },
   template: `<div style="max-width: 509px">
@@ -60,6 +65,9 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
           :key="key"
           :qty="product.qty"
           :image="product.image"
+          :placeholderImage="imageSetup.placeholderImage"
+          :lazyImage="imageSetup.lazyImage"
+          :pictureBreakpointImage="imageSetup.pictureBreakpointImage"
           :title="product.title"
           :sku="product.sku"
           :specialPrice="product.specialPrice"

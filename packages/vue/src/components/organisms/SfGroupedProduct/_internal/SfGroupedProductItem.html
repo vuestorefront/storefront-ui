@@ -1,13 +1,16 @@
 <li class="glide__slide sf-grouped-product-item">
   <div class="sf-grouped-product-item__aside">
-    <slot name="image" v-bind="{image, title}">
+    <slot name="image" v-bind="{image, title, placeholderImage, lazyImage, pictureBreakpointImage}">
       <SfImage
         :src="image"
         :alt="title"
+        :placeholder="placeholderImage"
+        :lazy="lazyImage"
+        :pictureBreakpoint="pictureBreakpointImage"
         class="sf-grouped-product-item__image"
       />
     </slot>
-    <slot name="input" v-bind="{qty}">
+    <slot name="input" v-bind="{qty, stock, qtyHandler }">
       <SfInput
         type="number"
         :value="qty"
