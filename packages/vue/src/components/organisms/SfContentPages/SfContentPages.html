@@ -12,7 +12,7 @@
           <!-- @slot -->
           <slot
             name="menu-item"
-            v-bind="{updatePage, page}">
+            v-bind="{updatePage, page, active}">
             <span @click="updatePage(page)">
               <SfMenuItem
                 :label="page"
