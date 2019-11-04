@@ -31,7 +31,7 @@ $content-pages__title-line-height: 1.6 !default;
   display: flex;
   transition: transform 150ms ease-in-out;
   &--is-active {
-    transform: translateX(-100vw);
+    transform: translateX(-100%);
     @media (min-width: $desktop-min) {
       transform: translateX(0);
     }
@@ -39,7 +39,7 @@ $content-pages__title-line-height: 1.6 !default;
   &__sidebar,
   &__content {
     box-sizing: border-box;
-    flex: 0 0 100vw;
+    flex: 0 0 100%;
     padding: 0 1.875rem;
     @media (min-width: $desktop-min) {
       flex: 1;
