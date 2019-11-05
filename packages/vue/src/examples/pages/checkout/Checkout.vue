@@ -18,6 +18,7 @@
     </div>
     <div style="flex-basis: 26.875rem; margin-left: 6.25rem;">
       <OrderSummary style="margin-bottom: 1.25rem" />
+      <Summary style="margin-bottom: 1.25rem" />
       <CharacteristicBox />
     </div>
   </div>
@@ -29,6 +30,7 @@ import Payment from "./components/Payment";
 import ReviewOrder from "./components/ReviewOrder";
 import OrderSummary from "./components/OrderSummary";
 import CharacteristicBox from "./components/CharacteristicBox";
+import Summary from "./components/Summary";
 
 import { SfSteps } from "../../../../index.js";
 export default {
@@ -40,7 +42,8 @@ export default {
     Payment,
     ReviewOrder,
     OrderSummary,
-    CharacteristicBox
+    CharacteristicBox,
+    Summary
   },
   data() {
     return {
