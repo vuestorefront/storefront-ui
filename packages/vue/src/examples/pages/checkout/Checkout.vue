@@ -24,7 +24,8 @@
       </template>
       <template v-else>
         <OrderReview style="margin-bottom: 1.25rem" />
-        <ShippingDetails />
+        <ShippingDetails style="margin-bottom: 1.25rem" />
+        <BillingAddress />
       </template>
     </div>
     <SfModal :visible="false">
@@ -43,6 +44,7 @@ import Summary from "./components/Summary";
 import AccountBenefits from "./components/AccountBenefits";
 import OrderReview from "./components/OrderReview";
 import ShippingDetails from "./components/ShippingDetails";
+import BillingAddress from "./components/BillingAddress";
 import { SfSteps, SfModal } from "../../../../index.js";
 
 export default {
@@ -59,7 +61,8 @@ export default {
     Summary,
     AccountBenefits,
     OrderReview,
-    ShippingDetails
+    ShippingDetails,
+    BillingAddress
   },
   data() {
     return {
