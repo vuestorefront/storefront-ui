@@ -17,9 +17,14 @@
       </SfSteps>
     </div>
     <div style="flex-basis: 26.875rem; margin-left: 6.25rem;">
-      <OrderSummary style="margin-bottom: 1.25rem" />
-      <Summary style="margin-bottom: 1.25rem" />
-      <CharacteristicBox />
+      <template v-if="active <= 2">
+        <OrderSummary style="margin-bottom: 1.25rem" />
+        <Summary style="margin-bottom: 1.25rem" />
+        <CharacteristicBox />
+      </template>
+      <template v-else>
+        <OrderReview />
+      </template>
     </div>
     <SfModal :visible="false">
       <AccountBenefits />
@@ -35,6 +40,7 @@ import OrderSummary from "./components/OrderSummary";
 import CharacteristicBox from "./components/CharacteristicBox";
 import Summary from "./components/Summary";
 import AccountBenefits from "./components/AccountBenefits";
+import OrderReview from "./components/OrderReview";
 import { SfSteps, SfModal } from "../../../../index.js";
 
 export default {
@@ -49,11 +55,12 @@ export default {
     OrderSummary,
     CharacteristicBox,
     Summary,
-    AccountBenefits
+    AccountBenefits,
+    OrderReview
   },
   data() {
     return {
-      active: 0
+      active: 3
     };
   }
 };

@@ -4,13 +4,13 @@
       :level="2"
       title="Order Summary"
       class="sf-heading--left"
-      style="padding: 0 20px"
+      style="padding: 0 1.25rem; margin-bottom: 1.875rem"
     />
     <SfCircleIcon class="order-summary__counter">
       <span style="font-size: 1.5rem">2</span>
     </SfCircleIcon>
     <div
-      style="padding: 20px; display: flex; align-items: center; justify-content: space-between"
+      style="padding: 0 20px; display: flex; align-items: center; justify-content: space-between"
     >
       <SfHeading :level="3" title="Total items" class="sf-heading--left" />
       <span>Hide item list</span>
@@ -70,7 +70,7 @@ export default {
   &__counter {
     position: absolute;
     left: calc(-52px / 2);
-    top: 90px;
+    top: 6.25rem;
   }
 }
 </style>
