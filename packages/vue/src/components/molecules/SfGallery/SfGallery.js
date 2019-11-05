@@ -107,7 +107,7 @@ export default {
     removeImg() {
       this.pictureSelected = '';
       this.$refs.sfGalleryBigImage.forEach(el => {
-        el.$el.style.transform = '';
+        el.$refs.imgLazy.style.transform = 'scale(1)';
       })
     },
   },
