@@ -116,3 +116,14 @@ $gallery__stage-cursor: zoom-in !default;
     user-select: none;
   }
 }
+
+.glide__zoom {
+  z-index: 1000;
+  transition: 0.3s;
+  position: fixed;
+  overflow: hidden;
+  
+  img {
+    transform: scale(2)
+  }
+}

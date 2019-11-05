@@ -1,6 +1,5 @@
 <div class="sf-gallery">
   <div class="sf-gallery__thumbs">
-    <!-- @slot Custom markup for thumbnails (binds `image` object and `index` number) -->
     <slot name="thumbs" v-bind="{ images, active: activeIndex, go }">
       <div
         v-for="(image, index) in images"
@@ -25,14 +24,25 @@
             class="glide__slide"
             v-for="(picture, index) in mapPictures"
             :key="'slide-' + index"
+            @mouseover="addImg(picture)"
+            @mousemove="changeImg($event,index)"
+            @mouseout="removeImg"
           >
             <SfImage
+              ref="sfGalleryBigImage"
               class="sf-gallery__big-image"
-              :src="picture"
-              @click="$emit('click:stage', { image, index })"
+              :src="picture.normal.url"
+              @click="$emit('click:stage', { picture, index })"
+
             />
           </li>
         </ul>
+      </div>
+      <div v-if="!inside" ref="outSide" class="glide__zoom">
+        <img
+          ref="imgZoom"
+          :src="pictureSelected"
+          />
       </div>
     </div>
   </div>
