@@ -11,7 +11,9 @@
         <SfStep name="Payment">
           <Payment />
         </SfStep>
-        <SfStep name="Review orders"></SfStep>
+        <SfStep name="Review order">
+          <ReviewOrder />
+        </SfStep>
       </SfSteps>
     </div>
     <div
@@ -25,6 +27,7 @@
 import PersonalDetails from "./components/PersonalDetails";
 import Shipping from "./components/Shipping";
 import Payment from "./components/Payment";
+import ReviewOrder from "./components/ReviewOrder";
 import { SfSteps } from "../../../../index.js";
 export default {
   name: "Checkout",
@@ -32,7 +35,8 @@ export default {
     SfSteps,
     PersonalDetails,
     Shipping,
-    Payment
+    Payment,
+    ReviewOrder
   },
   data() {
     return {
