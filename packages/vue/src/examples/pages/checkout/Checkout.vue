@@ -17,7 +17,8 @@
       </SfSteps>
     </div>
     <div style="flex-basis: 26.875rem; margin-left: 6.25rem;">
-      <OrderSummary />
+      <OrderSummary style="margin-bottom: 1.25rem" />
+      <CharacteristicBox />
     </div>
   </div>
 </template>
@@ -27,6 +28,8 @@ import Shipping from "./components/Shipping";
 import Payment from "./components/Payment";
 import ReviewOrder from "./components/ReviewOrder";
 import OrderSummary from "./components/OrderSummary";
+import CharacteristicBox from "./components/CharacteristicBox";
+
 import { SfSteps } from "../../../../index.js";
 export default {
   name: "Checkout",
@@ -36,7 +39,8 @@ export default {
     Shipping,
     Payment,
     ReviewOrder,
-    OrderSummary
+    OrderSummary,
+    CharacteristicBox
   },
   data() {
     return {
