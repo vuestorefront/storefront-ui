@@ -17,7 +17,7 @@ $collected-product__select-quantity-height: 1.875rem !default;
   max-width: $collected-product-max-width;
   padding: $spacer-small;
   @media (min-width: $desktop-min) {
-    padding: 10px;
+    padding: 10px $spacer-big;
   }
   &::after {
     content: "";
