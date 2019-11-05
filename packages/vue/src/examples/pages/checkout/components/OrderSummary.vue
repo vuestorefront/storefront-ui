@@ -23,6 +23,9 @@
       regular-price="$50.00"
       style="margin-bottom: 10px"
     >
+      <template #input>
+        <span></span>
+      </template>
       <template #configuration>
         <div style="margin-top: 1.25rem">
           <SfProperty name="Size" value="XS" />
