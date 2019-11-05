@@ -21,6 +21,9 @@
       <Summary style="margin-bottom: 1.25rem" />
       <CharacteristicBox />
     </div>
+    <SfModal :visible="false">
+      <AccountBenefits />
+    </SfModal>
   </div>
 </template>
 <script>
@@ -31,19 +34,22 @@ import ReviewOrder from "./components/ReviewOrder";
 import OrderSummary from "./components/OrderSummary";
 import CharacteristicBox from "./components/CharacteristicBox";
 import Summary from "./components/Summary";
+import AccountBenefits from "./components/AccountBenefits";
+import { SfSteps, SfModal } from "../../../../index.js";
 
-import { SfSteps } from "../../../../index.js";
 export default {
   name: "Checkout",
   components: {
     SfSteps,
+    SfModal,
     PersonalDetails,
     Shipping,
     Payment,
     ReviewOrder,
     OrderSummary,
     CharacteristicBox,
-    Summary
+    Summary,
+    AccountBenefits
   },
   data() {
     return {
