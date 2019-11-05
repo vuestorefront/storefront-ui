@@ -23,7 +23,8 @@
         <CharacteristicBox />
       </template>
       <template v-else>
-        <OrderReview />
+        <OrderReview style="margin-bottom: 1.25rem" />
+        <ShippingDetails />
       </template>
     </div>
     <SfModal :visible="false">
@@ -41,6 +42,7 @@ import CharacteristicBox from "./components/CharacteristicBox";
 import Summary from "./components/Summary";
 import AccountBenefits from "./components/AccountBenefits";
 import OrderReview from "./components/OrderReview";
+import ShippingDetails from "./components/ShippingDetails";
 import { SfSteps, SfModal } from "../../../../index.js";
 
 export default {
@@ -56,7 +58,8 @@ export default {
     CharacteristicBox,
     Summary,
     AccountBenefits,
-    OrderReview
+    OrderReview,
+    ShippingDetails
   },
   data() {
     return {
