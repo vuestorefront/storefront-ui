@@ -20,7 +20,7 @@ export default {
      */
     title: {
       type: String,
-      default: ""
+      required: true
     },
     /**
      * Link to product page
