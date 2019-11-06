@@ -8,7 +8,7 @@ export default {
      */
     src: {
       type: [String, Object],
-      default: () => {}
+      default: () => ({})
     },
     /**
      * Alt attribute value
