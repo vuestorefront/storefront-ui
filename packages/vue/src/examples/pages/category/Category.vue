@@ -120,6 +120,7 @@
           <SfProductCard
             v-for="(product, i) in products"
             :key="i"
+            :image="product.image"
             :title="product.title"
             :regular-price="product.price.regular"
             :special-price="product.price.special"
