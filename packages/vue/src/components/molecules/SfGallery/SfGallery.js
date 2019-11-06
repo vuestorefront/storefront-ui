@@ -40,9 +40,16 @@ export default {
     /**
      * Image zoom inside or overlap the stage
      */
-    inside: {
+    insideZoom: {
       type: Boolean,
       default: false,
+    },
+    /**
+     * Toogle for image zoom or overlap the stage
+     */
+    toggleZoom: {
+      type: Boolean,
+      default: true
     }
   },
 
@@ -89,7 +96,8 @@ export default {
       }
     },
     addImg(picture) {
-      this.pictureSelected = picture.normal.url;
+      const { zoom, big, normal } = picture
+      this.pictureSelected = (zoom || big || normal).url
     },
     changeImg($event, index) {
       this.eventHover = $event;

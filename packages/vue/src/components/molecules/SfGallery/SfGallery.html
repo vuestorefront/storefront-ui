@@ -24,9 +24,9 @@
             class="glide__slide"
             v-for="(picture, index) in mapPictures"
             :key="'slide-' + index"
-            @mouseover="addImg(picture)"
-            @mousemove="changeImg($event,index)"
-            @mouseout="removeImg"
+            @mouseover="toggleZoom ? addImg(picture) : null"
+            @mousemove="toggleZoom ? changeImg($event,index) : null"
+            @mouseout="toggleZoom ? removeImg : null"
           >
             <SfImage
               ref="sfGalleryBigImage"
@@ -38,7 +38,7 @@
           </li>
         </ul>
       </div>
-      <div v-if="!inside" ref="outSide" class="glide__zoom">
+      <div v-if="!insideZoom" ref="outSide" class="sf-gallery__zoom">
         <img
           ref="imgZoom"
           :src="pictureSelected"
