@@ -33,9 +33,9 @@ $transition-slide-transform-size: 400px;
   &-leave-to {
     @if $direction == "bottom" {
       transform: translateY($transition-slide-transform-size);
-    } @elseif $direction == "top" {
+    } @else if $direction == "top" {
       transform: translateY(-$transition-slide-transform-size);
-    } @elseif $direction == "left" {
+    } @else if $direction == "left" {
       transform: translateX(-$transition-slide-transform-size);
     } @else {
       transform: translateX($transition-slide-transform-size);

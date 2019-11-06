@@ -1,110 +1,129 @@
-// General color names
-$c-green-primary: #5ECE7B !default;
-$c-green-secondary: #9EE2B0 !default;
-$c-dark-primary: #1D1F22 !default;
-$c-dark-secondary: #737680 !default;
-$c-gray-primary: #6A6E7E !default;
-$c-gray-secondary: #BEBFC4 !default;
-$c-light-primary: #F1F2F3 !default;
-$c-light-secondary: #FFFFFF !default;
-$c-pink-primary: #E22326 !default;
-$c-pink-secondary: #FFF8F7 !default;
-$c-yellow-primary: #FFDE3B !default;
-$c-yellow-secondary:#FFFCED !default;
-$c-blue-primary: #6699CC !default;
-$c-blue-secondary: #F5F7FA !default;
-$c-black: #000000 !default;
-$c-white: #FFFFFF !default;
+$c-black: hsl(0, 0%, 0%) !default;
+$c-white: hsl(0, 0%, 100%) !default;
 
-// Accent
-$c-accent-primary: $c-green-primary !default;
-$c-accent-secondary: $c-green-secondary !default;
+// Internal color variables
+// Should NOT be used directly for theming or component styles
+$_c-green-primary:    hsl(136, 53%, 59%);
+$_c-green-secondary:  hsl(136, 54%, 75%);
+$_c-dark-primary:     hsl(216, 8%, 12%);
+$_c-dark-secondary:   hsl(226, 5%, 48%);
+$_c-gray-primary:     hsl(228, 9%, 45%);
+$_c-gray-secondary:   hsl(230, 5%, 76%);
+$_c-light-primary:    hsl(210, 8%, 95%);
+$_c-light-secondary:  hsl(0, 0%, 100%);
+$_c-pink-primary:     hsl(359, 77%, 51%);
+$_c-pink-secondary:   hsl(7, 100%, 98%);
+$_c-yellow-primary:   hsl(50, 100%, 62%);
+$_c-yellow-secondary: hsl(50, 100%, 96%);
+$_c-blue-primary:     hsl(210, 50%, 60%);
+$_c-blue-secondary:   hsl(216, 33%, 97%);
 
-// Text
-$c-text-primary: $c-dark-primary !default;
-$c-text-secondary: $c-gray-secondary !default;
-$c-text-on-light: $c-black !default;
-$c-text-on-dark: $c-white !default;
-$c-text-link: $c-dark-secondary !default;
-$c-text-link-hover: $c-dark-primary !default;
+/* START: Theme color variables */
 
-// Background
-$c-bg-primary: $c-light-primary !default;
-$c-bg-secondary: $c-light-secondary !default;
+// Body and text defaults
+$c-body: $c-white !default;
+$c-text: $_c-dark-primary !default;
+$c-text-muted: $_c-gray-primary !default;
+$c-link: $_c-dark-secondary !default;
+$c-link-hover: $c-black !default;
 
-// Border
-$c-border: $c-light-primary;
+/* Brand colors */
 
-// Theme colors
-$c-primary: $c-green-primary !default;
-$c-secondary: $c-dark-primary !default;
-$c-info: $c-blue-primary !default;
-$c-success: $c-green-primary !default;
-$c-warning: $c-yellow-primary !default;
-$c-danger: $c-pink-primary !default;
-$c-light: $c-light-primary !default;
-$c-dark: $c-dark-primary !default;
-
-// Text colors on theme colors bg
-// Using YIQ by default
-// $c-on-primary: color-yiq($c-primary) !default;
-// $c-on-secondary: color-yiq($c-secondary) !default;
-// $c-on-info: color-yiq($c-info) !default;
-// $c-on-success: color-yiq($c-success) !default;
-// $c-on-warning: color-yiq($c-warning) !default;
-// $c-on-danger: color-yiq($c-danger) !default;
-// $c-on-light: color-yiq($c-light) !default;
-// $c-on-dark: color-yiq($c-dark) !default;
-
+// Primary
+/* Should be used to drive attention to the main tasks that should be done while using the app.
+ * It is meant to be used in major interactive elements of the page. */
+$c-primary: $_c-green-primary !default;
+$c-primary-variant: $_c-green-secondary !default;
 $c-on-primary: $c-white !default;
+
+// Secondary
+/* Should be used to drive attention in the elements with relevant info,
+ * but where the user is not intended to take action. */
+$c-secondary: $_c-dark-primary !default;
+$c-secondary-variant: $_c-dark-secondary !default;
 $c-on-secondary: $c-white !default;
-$c-on-info: $c-white !default;
-$c-on-success: $c-white !default;
-$c-on-warning: $c-white !default;
-$c-on-danger: $c-white !default;
-$c-on-light: $c-white !default;
+
+/* Base colors */
+
+// Light
+$c-light: $_c-light-primary !default;
+$c-light-variant: $_c-light-secondary !default;
+$c-on-light: $c-black !default;
+
+// Gray
+$c-gray: $_c-gray-primary !default;
+$c-gray-variant: $_c-gray-secondary !default;
+$c-on-gray: $c-black !default;
+
+// Dark
+$c-dark: $_c-dark-primary !default;
+$c-dark-variant: $_c-dark-secondary !default;
 $c-on-dark: $c-white !default;
 
-// Map colors palette
+/* Context colors */
+
+// Info
+$c-info: $_c-blue-primary !default;
+$c-info-variant: $_c-blue-secondary !default;
+$c-on-info: $c-white !default;
+
+// Success
+$c-success: $_c-green-primary !default;
+$c-success-variant: $_c-green-secondary !default;
+$c-on-success: $c-white !default;
+
+// Warning
+$c-warning: $_c-yellow-primary !default;
+$c-warning-variant: $_c-yellow-secondary !default;
+$c-on-warning: $c-white !default;
+
+// Danger
+$c-danger: $_c-pink-primary !default;
+$c-danger-variant: $_c-pink-secondary !default;
+$c-on-danger: $c-white !default;
+
+/* END: Theme color variables */
+
+// Map theme colors palette
 $colors-map: (
   'primary': (
     'bg': $c-primary,
+    'variant': $c-primary-variant,
     'text': $c-on-primary
   ),
   'secondary': (
     'bg': $c-secondary,
+    'variant': $c-secondary-variant,
     'text': $c-on-secondary
-  ),
-  'info': (
-    'bg': $c-info,
-    'text': $c-on-info
-  ),
-  'success': (
-    'bg': $c-success,
-    'text': $c-on-success
-  ),
-  'warning': (
-    'bg': $c-warning,
-    'text': $c-on-warning
-  ),
-  'danger': (
-    'bg': $c-danger,
-    'text': $c-on-danger
   ),
   'light': (
     'bg': $c-light,
+    'variant': $c-light-variant,
     'text': $c-on-light
   ),
   'dark': (
     'bg': $c-dark,
+    'variant': $c-dark-variant,
     'text': $c-on-dark
   ),
-  'white': (
-    'bg': $c-white,
-    'text': $c-black
+  'info': (
+    'bg': $c-info,
+    'variant': $c-info-variant,
+    'text': $c-on-info
   ),
-  'black': (
-    'bg': $c-black,
-    'text': $c-white
+  'success': (
+    'bg': $c-success,
+    'variant': $c-success-variant,
+    'text': $c-on-success
+  ),
+  'warning': (
+    'bg': $c-warning,
+    'variant': $c-warning-variant,
+    'text': $c-on-warning
+  ),
+  'danger': (
+    'bg': $c-danger,
+    'variant': $c-danger-variant,
+    'text': $c-on-danger
   )
 );

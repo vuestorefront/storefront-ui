@@ -1,15 +1,15 @@
 @import "../variables";
 
-$tabs-border-color: $c-light-primary !default;
+$tabs-border-color: $c-light !default;
 $tabs-font-family: $body-font-family-secondary !default;
 $tabs-font-size: $font-size-regular-mobile !default;
 $tabs-font-size-desktop: $font-size-regular-desktop !default;
 $tabs-font-weight: $body-font-weight-secondary !default;
 $tabs-line-height: 1.6 !default;
 $tabs__title-padding-y: $spacer-big !default;
-$tabs__title-color: $c-gray-secondary !default;
-$tabs__title-color--active: $c-dark-primary !default;
-$tabs__title-color--hover: $c-dark-primary !default;
+$tabs__title-color: $c-gray-variant !default;
+$tabs__title-color--active: $c-dark !default;
+$tabs__title-color--hover: $c-dark !default;
 $tabs__title-font-size: $font-size-big-mobile !default;
 $tabs__title-font-size-desktop: $font-size-big-desktop !default;
 $tabs__content-padding-y: 3 * $spacer-big !default;
@@ -39,7 +39,7 @@ $tabs__content-padding-y: 3 * $spacer-big !default;
     align-items: center;
     padding: calc(#{$tabs__title-padding-y} - 5px) 0;
     border-bottom: 1px solid $tabs-border-color;
-    color: $c-dark-primary;
+    color: $c-dark;
     cursor: pointer;
     transition: border-color 150ms ease-in-out, color 150ms ease-in-out;
     font-size: $tabs__title-font-size;
@@ -50,7 +50,7 @@ $tabs__content-padding-y: 3 * $spacer-big !default;
       padding: $tabs__title-padding-y 0;
       border-width: 2px;
       border-color: transparent;
-      color: $c-gray-secondary;
+      color: $c-gray-variant;
       font-size: $tabs__title-font-size-desktop;
     }
     &--active{
@@ -58,8 +58,8 @@ $tabs__content-padding-y: 3 * $spacer-big !default;
       @include for-desktop{
         z-index: 1;
         border-width: 2px;
-        border-color: $c-dark-primary;
-        color: $c-dark-primary;
+        border-color: $c-dark;
+        color: $c-dark;
       }
       & + #{$this}__content{
         display: block;
@@ -71,7 +71,7 @@ $tabs__content-padding-y: 3 * $spacer-big !default;
     }
     &:hover{
       @include for-desktop {
-        color: $c-dark-primary;
+        color: $c-dark;
       }
     }
   }

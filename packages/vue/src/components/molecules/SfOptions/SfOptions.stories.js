@@ -32,7 +32,7 @@ const scssTableConfig = {
     ],
     [
       "$sf-options-mobile__option-text-color",
-      "$c-gray-primary",
+      "$c-gray",
       "color of text option on mobile"
     ],
     [

@@ -1,6 +1,6 @@
 @import '../variables';
 
-$loader__spinner-color: $c-accent-primary !default;
+$loader__spinner-color: $c-primary !default;
 $loader__overlay-color: white !default;
 
 .sf-loader {
@@ -18,7 +18,7 @@ $loader__overlay-color: white !default;
     align-items: center;
   }
   &__spinner {
-    stroke: $c-accent-primary;
+    stroke: $c-primary;
   }
   &--top {
     .sf-loader__overlay {

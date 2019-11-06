@@ -24,7 +24,7 @@ const scssTableConfig = {
       "font family for menu item"
     ],
     ["$sf-title-font-size", "1rem", "font-size for title"],
-    ["$sf-count-font-color", "$c-gray-primary", "font-color for count"],
+    ["$sf-count-font-color", "$c-gray", "font-color for count"],
     ["$sf-count-font-size", "0.875rem", "font-size for count"]
   ]
 };
