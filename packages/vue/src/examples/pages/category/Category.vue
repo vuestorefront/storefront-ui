@@ -447,8 +447,8 @@ export default {
   position: relative;
   display: flex;
   @include for-desktop {
-    border-top: 1px solid $c-border;
-    border-bottom: 1px solid $c-border;
+    border-top: 1px solid $c-light;
+    border-bottom: 1px solid $c-light;
   }
   &::after {
     position: absolute;
@@ -456,7 +456,7 @@ export default {
     left: $spacer-big;
     width: calc(100% - (#{$spacer-big} * 2));
     height: 1px;
-    background-color: $c-border;
+    background-color: $c-light;
     content: "";
     @include for-desktop {
       content: none;
@@ -467,7 +467,7 @@ export default {
     align-items: center;
     flex: 0 0 15%;
     padding: $spacer-big $spacer-extra-big;
-    border-right: 1px solid $c-border;
+    border-right: 1px solid $c-light;
   }
   &__main {
     flex: 1;
@@ -499,20 +499,20 @@ export default {
       text-transform: none;
     }
     svg {
-      fill: $c-dark-primary;
+      fill: $c-dark;
       @include for-desktop {
-        fill: $c-gray-secondary;
+        fill: $c-gray-variant;
       }
     }
     &:hover {
-      color: $c-accent-primary;
+      color: $c-primary;
       svg {
-        fill: $c-accent-primary;
+        fill: $c-primary;
       }
     }
   }
   &__label {
-    color: $c-gray-secondary;
+    color: $c-gray-variant;
   }
   &__sort {
     display: flex;
@@ -535,6 +535,7 @@ export default {
     }
   }
 }
+
 .products {
   box-sizing: border-box;
   flex: 1;
@@ -574,7 +575,7 @@ export default {
 .sidebar {
   flex: 0 0 15%;
   padding: $spacer-extra-big;
-  border-right: 1px solid $c-border;
+  border-right: 1px solid $c-light;
 }
 .sort-by {
   flex: unset;
@@ -599,7 +600,7 @@ export default {
   }
   &__button-clear {
     margin-top: 10px;
-    background: $c-light-primary;
+    background: $c-light;
     color: #a3a5ad;
   }
   &__item {

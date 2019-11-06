@@ -15,7 +15,7 @@
   background: white;
   box-shadow: 0px -2px 10px rgba(154, 154, 154, 0.15);
   &__item > .sf-icon {
-    --icon-color: #{$c-gray-secondary};
+    --icon-color: #{$c-gray-variant};
   }
   &__item--active > .sf-icon {
     --icon-color: #{$c-black};
