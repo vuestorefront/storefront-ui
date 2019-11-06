@@ -1,44 +1,100 @@
 <template>
-  <div class="sf-highlighted-box order-summary">
-    <SfHeading
-      :level="2"
-      title="Order Summary"
-      class="sf-heading--left"
-      style="padding: 0 1.25rem; margin-bottom: 1.875rem"
-    />
-    <SfCircleIcon class="order-summary__counter">
-      <span style="font-size: 1.5rem">2</span>
-    </SfCircleIcon>
+  <div>
     <div
-      style="padding: 0 20px; display: flex; align-items: center; justify-content: space-between"
+      class="sf-highlighted-box order-summary"
+      style="margin-bottom: 1.25rem"
     >
-      <SfHeading :level="3" title="Total items" class="sf-heading--left" />
-      <span>Hide item list</span>
+      <SfHeading
+        :level="2"
+        title="Order Summary"
+        class="sf-heading--left"
+        style="padding: 0 1.25rem; margin-bottom: 1.875rem"
+      />
+      <SfCircleIcon class="order-summary__counter">
+        <span style="font-size: 1.5rem">2</span>
+      </SfCircleIcon>
+      <div
+        style="padding: 0 20px; display: flex; align-items: center; justify-content: space-between"
+      >
+        <SfHeading :level="3" title="Total items" class="sf-heading--left" />
+        <span>Hide item list</span>
+      </div>
+      <SfCollectedProduct
+        v-for="(product, key) in ['', '']"
+        :key="key"
+        image="assets/storybook/product_thumb.jpg"
+        title="Summer Bag"
+        regular-price="$50.00"
+        style="margin-bottom: 10px"
+      >
+        <template #input>
+          <span></span>
+        </template>
+        <template #configuration>
+          <div style="margin-top: 1.25rem">
+            <SfProperty name="Size" value="XS" />
+            <SfProperty name="Color" value="White" />
+          </div>
+        </template>
+        <template #actions>
+          <div style="color: #A3A5AD">
+            <div>MSD23-345-324</div>
+            <div>Quantity: <span style="color: #1D1F22">1</span></div>
+          </div>
+        </template>
+      </SfCollectedProduct>
     </div>
-    <SfCollectedProduct
-      v-for="(product, key) in ['', '']"
-      :key="key"
-      image="assets/storybook/product_thumb.jpg"
-      title="Summer Bag"
-      regular-price="$50.00"
-      style="margin-bottom: 10px"
+    <div class="sf-highlighted-box order-summary" style="margin-bottom: 1px">
+      <SfProperty
+        name="Products"
+        value="3"
+        class="sf-property--full-width"
+        style="margin-bottom: 1rem"
+      />
+      <SfProperty
+        name="Subtotal"
+        value="$150.00"
+        class="sf-property--full-width"
+        style="margin-bottom: 1rem"
+      />
+      <SfProperty
+        name="Products"
+        value="free"
+        class="sf-property--full-width"
+        style="margin-bottom: 3.125rem"
+      />
+      <SfProperty
+        name="Total"
+        value="$150.00"
+        class="sf-property--full-width"
+        style="font-size: 24px; font-weight: 400;"
+      />
+    </div>
+    <div
+      class="sf-highlighted-box order-summary"
+      style="margin-bottom: 1.25rem"
     >
-      <template #input>
-        <span></span>
-      </template>
-      <template #configuration>
-        <div style="margin-top: 1.25rem">
-          <SfProperty name="Size" value="XS" />
-          <SfProperty name="Color" value="White" />
-        </div>
-      </template>
-      <template #actions>
-        <div style="color: #A3A5AD">
-          <div>MSD23-345-324</div>
-          <div>Quantity: <span style="color: #1D1F22">1</span></div>
-        </div>
-      </template>
-    </SfCollectedProduct>
+      <span style="font-size: 18px; color: #5ECE7B;">+ Promo Code</span>
+    </div>
+    <div class="sf-highlighted-box order-summary">
+      <SfCharacteristic
+        title="Safety"
+        description="It carefully packaged with a personal touch"
+        sizeIcon="sm"
+        style="margin-bottom: 1.25rem;"
+      />
+      <SfCharacteristic
+        title="Easy shipping"
+        description="You’ll receive dispatch confirmation and an arrival date"
+        sizeIcon="sm"
+        style="margin-bottom: 1.25rem;"
+      />
+      <SfCharacteristic
+        title="Changed your mind?"
+        description="Rest assured, we offer free returns within 30 days"
+        sizeIcon="sm"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -46,7 +102,8 @@ import {
   SfHeading,
   SfCircleIcon,
   SfCollectedProduct,
-  SfProperty
+  SfProperty,
+  SfCharacteristic
 } from "../../../../../index.js";
 export default {
   name: "OrderSummary",
@@ -54,7 +111,8 @@ export default {
     SfHeading,
     SfCircleIcon,
     SfCollectedProduct,
-    SfProperty
+    SfProperty,
+    SfCharacteristic
   }
 };
 </script>

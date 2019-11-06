@@ -1,26 +1,82 @@
 <template>
-  <div class="sf-highlighted-box order-summary">
-    <SfHeading
-      :level="2"
-      title="Order review"
-      class="sf-heading--left"
-      style="margin-bottom: 1.875rem"
-    />
-    <div
-      style="display: flex; align-items: center; justify-content: space-between"
-    >
-      <SfHeading :level="3" title="Personal details" class="sf-heading--left" />
-      <span>Edit</span>
+  <div>
+    <div class="sf-highlighted-box" style="margin-bottom: 1.25rem">
+      <SfHeading
+        :level="2"
+        title="Order review"
+        class="sf-heading--left"
+        style="margin-bottom: 1.875rem"
+      />
+      <div
+        style="display: flex; align-items: center; justify-content: space-between"
+      >
+        <SfHeading
+          :level="3"
+          title="Personal details"
+          class="sf-heading--left"
+        />
+        <span>Edit</span>
+      </div>
+      <p style="line-height: 1.6; color: #737680; font-size: 12px;">
+        Sviatlana Havaka<br />
+        Zielinskiego 30 – 41, 53-345<br />
+        Wroclaw, Poland
+      </p>
+      <p style="line-height: 1.6; color: #737680; font-size: 12px;">
+        sviatlana.example@gmail.com<br />
+        (00) 468 900 300
+      </p>
     </div>
-    <p style="line-height: 1.6; color: #737680; font-size: 12px;">
-      Sviatlana Havaka<br />
-      Zielinskiego 30 – 41, 53-345<br />
-      Wroclaw, Poland
-    </p>
-    <p style="line-height: 1.6; color: #737680; font-size: 12px;">
-      sviatlana.example@gmail.com<br />
-      (00) 468 900 300
-    </p>
+    <div
+      class="sf-highlighted-box order-summary"
+      style="margin-bottom: 1.25rem"
+    >
+      <div
+        style="display: flex; align-items: center; justify-content: space-between"
+      >
+        <SfHeading
+          :level="3"
+          title="Shipping details"
+          class="sf-heading--left"
+        />
+        <span>Edit</span>
+      </div>
+      <p style="line-height: 1.6; color: #737680; font-size: 12px;">
+        <span style="color:#737680">Paczkomat Inpost</span><br />
+        Zielinskiego 30 – 41, 53-345<br />
+        Wroclaw, Poland
+      </p>
+      <p style="line-height: 1.6; color: #737680; font-size: 12px;">
+        sviatlana.example@gmail.com<br />
+        (00) 468 900 300
+      </p>
+    </div>
+    <div class="sf-highlighted-box order-summary">
+      <div
+        style="display: flex; align-items: center; justify-content: space-between"
+      >
+        <SfHeading
+          :level="3"
+          title="Billing address"
+          class="sf-heading--left"
+        />
+        <span>Edit</span>
+      </div>
+      <p style="line-height: 1.6; color: #737680; font-size: 12px;">
+        Same as shipping address
+      </p>
+    </div>
+    <div class="sf-highlighted-box order-summary">
+      <div
+        style="display: flex; align-items: center; justify-content: space-between"
+      >
+        <SfHeading :level="3" title="Payment method" class="sf-heading--left" />
+        <span>Edit</span>
+      </div>
+      <p style="line-height: 1.6; color: #737680; font-size: 12px;">
+        Cash on delivery
+      </p>
+    </div>
   </div>
 </template>
 <script>
@@ -38,13 +94,5 @@ export default {
 .sf-highlighted-box {
   background-color: #f1f2f3;
   padding: $spacer-extra-big;
-}
-.order-summary {
-  position: relative;
-  &__counter {
-    position: absolute;
-    left: calc(-52px / 2);
-    top: 90px;
-  }
 }
 </style>
