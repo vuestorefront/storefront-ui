@@ -13,9 +13,9 @@ export default {
     /**
      * Visibility of the modal
      */
-    visible: {
+    value: {
       type: Boolean,
-      default: () => false
+      default: false
     },
     /**
      * Whether to show the overlay
@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     close() {
-      this.$emit("close");
+      this.$emit("input", !this.value);
     },
     checkPersistence() {
       if (!this.persistent) {
@@ -58,7 +58,7 @@ export default {
   },
   created() {
     const escapeHandler = e => {
-      if (e.key === "Escape" && this.visible) {
+      if (e.key === "Escape" && this.value) {
         this.close();
       }
     };
