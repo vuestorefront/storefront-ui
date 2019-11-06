@@ -77,6 +77,7 @@ export default {
     observerHandler() {
       const vm = this;
       const el = vm.$refs.imgLazy;
+      if (!el) return;
       const img = el.querySelector("img");
       if (img) {
         img.remove();
