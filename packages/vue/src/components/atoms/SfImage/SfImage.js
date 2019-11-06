@@ -2,7 +2,6 @@ import lozad from "lozad";
 
 export default {
   name: "SfImage",
-
   props: {
     /**
      * Image url or pictures object (`{ small: { url, alt }, normal: { url, alt } }`)
@@ -47,37 +46,51 @@ export default {
       default: 576
     }
   },
-
   data() {
     return {
       loaded: false,
       overlay: false
     };
   },
-
   computed: {
     hasOverlay() {
       return this.$slots.hasOwnProperty("default") && this.overlay;
     }
   },
-
-  methods: {
-    hoverHandler(state) {
-      this.overlay = state;
+  watch: {
+    src() {
+      if (!this.lazy) {
+        this.loaded = true;
+        return;
+      }
+      this.observerHandler();
     }
   },
-
   mounted() {
-    if (this.lazy !== false) {
+    if (!this.lazy) {
+      this.loaded = true;
+      return;
+    }
+    this.observerHandler();
+  },
+  methods: {
+    observerHandler() {
       const vm = this;
-      const observer = lozad(vm.$refs.imgLazy, {
+      const el = vm.$refs.imgLazy;
+      const img = el.querySelector("img");
+      if (img) {
+        img.remove();
+      }
+      el.setAttribute("data-loaded", "false");
+      const observer = lozad(el, {
         loaded: function() {
           vm.loaded = true;
         }
       });
       observer.observe();
-    } else {
-      this.loaded = true;
+    },
+    hoverHandler(state) {
+      this.overlay = state;
     }
   }
 };

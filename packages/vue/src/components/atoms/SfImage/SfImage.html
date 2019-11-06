@@ -10,7 +10,6 @@
       <slot />
     </div>
   </transition>
-
   <template v-if="lazy">
     <img
       v-if="typeof src === 'string'"
@@ -19,7 +18,6 @@
       :data-src="src"
       class="sf-image__img"
     >
-
     <template v-else-if="src && src.normal">
       <picture
         v-if="src.small"
@@ -37,7 +35,6 @@
           :media="`(min-width: ${pictureBreakpoint}px)`"
         >
       </picture>
-
       <img
         v-else
         ref="imgLazy"
@@ -46,10 +43,8 @@
         class="sf-image__img"
       >
     </template>
-
     <img v-else :src="placeholder" alt="No image" class="sf-image__img">
   </template>
-
   <template v-else>
     <img
       v-if="typeof src === 'string'"
