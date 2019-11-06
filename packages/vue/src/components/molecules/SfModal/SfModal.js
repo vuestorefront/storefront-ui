@@ -4,18 +4,18 @@ export default {
   name: "SfModal",
   props: {
     /**
-     * Cross closing modal button
-     */
-    cross: {
-      type: Boolean,
-      default: true
-    },
-    /**
      * Visibility of the modal
      */
     value: {
       type: Boolean,
       default: false
+    },
+    /**
+     * Cross closing modal button
+     */
+    cross: {
+      type: Boolean,
+      default: true
     },
     /**
      * Whether to show the overlay
