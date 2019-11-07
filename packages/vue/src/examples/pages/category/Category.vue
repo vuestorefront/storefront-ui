@@ -313,56 +313,56 @@ export default {
       products: [
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
+          image: "assets/storybook/homepage/productA.jpg",
           price: { regular: "$50.00", special: "$20.00" },
           rating: { max: 5, score: false },
           isOnWishlist: true
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
+          image: "assets/storybook/homepage/productB.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.png",
+          image: "assets/storybook/homepage/productC.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
+          image: "assets/storybook/homepage/productA.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
+          image: "assets/storybook/homepage/productB.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.png",
+          image: "assets/storybook/homepage/productC.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
+          image: "assets/storybook/homepage/productA.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
+          image: "assets/storybook/homepage/productB.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false

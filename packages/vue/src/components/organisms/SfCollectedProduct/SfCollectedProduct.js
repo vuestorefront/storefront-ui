@@ -13,7 +13,7 @@ export default {
      */
     image: {
       type: String,
-      default: "assets/storybook/product_thumb.png"
+      default: ""
     },
     /**
      * Product title
