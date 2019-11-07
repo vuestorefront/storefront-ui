@@ -1,9 +1,9 @@
 @import '../variables';
 
-$search-bar-background-primary: $c-light-primary !default;
-$search-bar-background-secondary: $c-light-secondary !default;
-$search-bar-placeholder-color: $c-dark-primary !default;
-$search-bar-placeholder-color-focus: $c-gray-primary !default;
+$search-bar-background-primary: $c-light !default;
+$search-bar-background-secondary: $c-light-variant !default;
+$search-bar-placeholder-color: $c-dark !default;
+$search-bar-placeholder-color-focus: $c-gray !default;
 $search-bar-width: 20rem !default;
 $search-bar-height: 2.25rem !default;
 $search-bar-border-radius: 1.6875rem !default;

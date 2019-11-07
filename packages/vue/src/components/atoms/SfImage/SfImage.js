@@ -9,7 +9,7 @@ export default {
      */
     src: {
       type: [String, Object],
-      default: () => ({})
+      default: () => {}
     },
     /**
      * Alt attribute value
@@ -37,7 +37,7 @@ export default {
      */
     placeholder: {
       type: String,
-      default: "/assets/placeholder.jpg"
+      default: ""
     },
     /**
      * Screen width breakpoint for picture tag media query
@@ -64,25 +64,43 @@ export default {
   methods: {
     hoverHandler(state) {
       this.overlay = state;
+    },
+
+    initLozad: function() {
+      const vm = this;
+      this.$nextTick(() => {
+        const observer = lozad(vm.$refs.imgLazy, {
+          loaded: function() {
+            vm.loaded = true;
+          }
+        });
+        observer.observe();
+      });
+    }
+  },
+
+  mounted() {
+    if (this.lazy !== false) {
+      this.initLozad();
+    } else {
+      this.loaded = true;
     }
   },
 
   watch: {
-    src: {
-      handler: function() {
-        if (this.lazy !== false) {
-          const vm = this;
-          const observer = lozad(vm.$refs.imgLazy, {
-            loaded: function() {
-              vm.loaded = true;
-            }
-          });
-          observer.observe();
-        } else {
-          this.loaded = true;
+    lazy: function(newValue, oldValue) {
+      // init lozad if lazy loading was previously disabled
+      if (!oldValue && newValue) {
+        this.initLozad();
+      }
+      // if lazy loading was previously enabled, remove lozad classes and
+      // remove spurious img tag added by lozad if src is a multi-size object
+      if (oldValue && !newValue) {
+        this.$refs.imgLazy.removeAttribute("data-loaded");
+        if (this.$refs.imgLazy.tagName === "PICTURE") {
+          this.$refs.imgLazy.querySelector("img").remove();
         }
-      },
-      immediate: true
+      }
     }
   }
 };

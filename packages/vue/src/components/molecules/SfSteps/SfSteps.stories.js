@@ -28,7 +28,7 @@ const scssTableConfig = {
       "0.125rem",
       "Active line height desktop"
     ],
-    ["$steps__active-line-coilor", "$c-dark-primary", "Active line color"],
+    ["$steps__active-line-coilor", "$c-dark", "Active line color"],
     [
       "$steps__default-border",
       "0.0625rem solid #f1f2f4",
@@ -36,7 +36,7 @@ const scssTableConfig = {
     ],
     ["$steps__step-font-weight", "500", "Step font weight"],
     ["$steps__step-font-size", "0.75rem", "Step font size"],
-    ["$steps__step-font-color", "$c-gray-secondary", "Step font color"],
+    ["$steps__step-font-color", "$c-gray-variant", "Step font color"],
     ["$steps__step-padding", "1.23rem 0", "Step padding"],
     ["$steps__step-text-transform", "uppercase", "Step text transform"]
   ]
