@@ -121,6 +121,7 @@
             v-for="(product, i) in products"
             :key="i"
             :title="product.title"
+            :image="product.image"
             :regular-price="product.price.regular"
             :special-price="product.price.special"
             :max-rating="product.rating.max"
@@ -146,63 +147,64 @@
     <SfSidebar
       :visible="isFilterSidebarOpen"
       @close="isFilterSidebarOpen = false"
-      class="filters"
     >
-      <h3 class="filters__title">Collection</h3>
-      <SfFilter
-        v-for="filter in filtersOptions.collection"
-        :key="filter.value"
-        :label="filter.label"
-        :count="filter.count"
-        class="filters__item"
-      />
-      <h3 class="filters__title">Color</h3>
-      <SfFilter
-        v-for="filter in filtersOptions.color"
-        :key="filter.value"
-        :value="filter.value"
-        :label="filter.label"
-        :color="filter.color"
-        class="filters__item"
-      />
-      <h3 class="filters__title">Size</h3>
-      <SfFilter
-        v-for="filter in filtersOptions.size"
-        :key="filter.value"
-        :value="filter.value"
-        :label="filter.label"
-        :count="filter.count"
-        class="filters__item"
-      />
-      <h3 class="filters__title">Price</h3>
-      <SfFilter
-        v-for="filter in filtersOptions.price"
-        :key="filter.value"
-        :value="filter.value"
-        :label="filter.label"
-        :count="filter.count"
-        class="filters__item"
-      />
-      <h3 class="filters__title">Material</h3>
-      <SfFilter
-        v-for="filter in filtersOptions.material"
-        :key="filter.value"
-        :value="filter.value"
-        :label="filter.label"
-        :count="filter.count"
-        class="filters__item"
-      />
-      <div class="filters__buttons">
-        <SfButton
-          @click="isFilterSidebarOpen = false"
-          class="sf-button--full-width"
-          >Done</SfButton
-        >
-        <SfButton
-          @click="clearAllFilters"
-          class="sf-button--full-width filters__button-clear"
-          >Clear all</SfButton
-        >
+      <div class="filters">
+        <h3 class="filters__title">Collection</h3>
+        <SfFilter
+          v-for="filter in filtersOptions.collection"
+          :key="filter.value"
+          :label="filter.label"
+          :count="filter.count"
+          class="filters__item"
+        />
+        <h3 class="filters__title">Color</h3>
+        <SfFilter
+          v-for="filter in filtersOptions.color"
+          :key="filter.value"
+          :value="filter.value"
+          :label="filter.label"
+          :color="filter.color"
+          class="filters__item"
+        />
+        <h3 class="filters__title">Size</h3>
+        <SfFilter
+          v-for="filter in filtersOptions.size"
+          :key="filter.value"
+          :value="filter.value"
+          :label="filter.label"
+          :count="filter.count"
+          class="filters__item"
+        />
+        <h3 class="filters__title">Price</h3>
+        <SfFilter
+          v-for="filter in filtersOptions.price"
+          :key="filter.value"
+          :value="filter.value"
+          :label="filter.label"
+          :count="filter.count"
+          class="filters__item"
+        />
+        <h3 class="filters__title">Material</h3>
+        <SfFilter
+          v-for="filter in filtersOptions.material"
+          :key="filter.value"
+          :value="filter.value"
+          :label="filter.label"
+          :count="filter.count"
+          class="filters__item"
+        />
+        <div class="filters__buttons">
+          <SfButton
+            @click="isFilterSidebarOpen = false"
+            class="sf-button--full-width"
+            >Done</SfButton
+          >
+          <SfButton
+            @click="clearAllFilters"
+            class="sf-button--full-width filters__button-clear"
+            >Clear all</SfButton
+          >
+        </div>
       </div>
     </SfSidebar>
   </div>
@@ -588,23 +590,32 @@ export default {
   }
 }
 .filters {
-  position: relative;
-  z-index: 10;
-  &__title:not(:first-child),
-  &__buttons {
-    margin-top: $spacer-big * 3;
+  box-sizing: border-box;
+  width: 20rem;
+  padding: 0 $spacer-big * 3;
+  height: 100%;
+  overflow-y: auto;
+  @include for-desktop {
+    width: 22.875rem;
+  }
+  &::-webkit-scrollbar {
+    width: 0;
   }
   &__title {
+    margin: $spacer-big * 3 0 $spacer-big;
     font-size: $font-size-big-desktop;
-    line-height: 2.23;
-  }
-  &__button-clear {
-    margin-top: 10px;
-    background: $c-light;
-    color: #a3a5ad;
+    line-height: 1.6;
   }
   &__item {
     padding: $spacer-small 0;
+  }
+  &__buttons {
+    margin: $spacer-big * 3 0;
+  }
+  &__button-clear {
+    color: #a3a5ad;
+    margin-top: 10px;
+    background-color: $c-light;
   }
 }
 </style>

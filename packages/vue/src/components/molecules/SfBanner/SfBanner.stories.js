@@ -51,11 +51,7 @@ const scssTableConfig = {
       "font-family for subtitle"
     ],
     ["$banner__description-font-size", "1.125rem", "font-size of description"],
-    [
-      "$banner__description-color",
-      "$c-dark",
-      "text color for description"
-    ],
+    ["$banner__description-color", "$c-dark", "text color for description"],
     ["$banner__description-font-weight", "300", "font-weight of description"],
     [
       "$banner__description-text-transform",

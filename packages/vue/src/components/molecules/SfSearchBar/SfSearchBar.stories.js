@@ -12,11 +12,7 @@ import {
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    [
-      "$search-bar-background-primary",
-      "$c-light",
-      "background color primary"
-    ],
+    ["$search-bar-background-primary", "$c-light", "background color primary"],
     [
       "$search-bar-background-secondary",
       "$c-light-variant",
