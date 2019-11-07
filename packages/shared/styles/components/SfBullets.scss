@@ -3,10 +3,10 @@
 $bullet-border-radius: 50% !default;
 $bullet-size: 8px !default;
 $bullet-margin: 6px !default;
-$bullet-background-color: $c-gray-primary !default;
+$bullet-background-color: $c-gray !default;
 $bullet-size--active: 10px !default;
 $bullet-margin--active: 5px !default;
-$bullet-background-color--active: $c-green-secondary !default;
+$bullet-background-color--active: $c-primary-variant !default;
 
 .sf-bullets {
   display: flex;
