@@ -121,6 +121,7 @@
             v-for="(product, i) in products"
             :key="i"
             :title="product.title"
+            :image="product.image"
             :regular-price="product.price.regular"
             :special-price="product.price.special"
             :max-rating="product.rating.max"
