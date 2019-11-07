@@ -13,7 +13,7 @@ export default {
      */
     image: {
       type: [Array, Object, String],
-      default: "assets/storybook/product_thumb.jpg"
+      default: ""
     },
     /**
      * Product title
