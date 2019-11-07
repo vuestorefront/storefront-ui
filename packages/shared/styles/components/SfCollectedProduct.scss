@@ -4,8 +4,8 @@ $collected-product-max-width: 350px !default;
 $collected-product-box-shadow--hover: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
 $collected-product__remove-size: 0.875rem !default;
 $collected-product__remove-size-desktop: 1.625rem !default;
-$collected-product__remove-background: $c-gray-secondary !default;
-$collected-product__remove-background--hover: $c-dark-secondary !default;
+$collected-product__remove-background: $c-gray-variant !default;
+$collected-product__remove-background--hover: $c-dark-variant !default;
 $collected-product__select-quantity-width: 3.125rem !default;
 $collected-product__select-quantity-height: 1.875rem !default;
 
@@ -111,7 +111,7 @@ $collected-product__select-quantity-height: 1.875rem !default;
       text-align: center;
       transition: border-color 0.3s ease-in-out;
       &:focus {
-        border-color: $c-accent-primary;
+        border-color: $c-primary;
       }
     }
   }
