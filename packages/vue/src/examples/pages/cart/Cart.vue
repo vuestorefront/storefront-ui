@@ -5,10 +5,9 @@
       class="sf-sidebar--right"
       @close="isCartSidebarOpen = false"
     >
-      <!-- total-items -->
       <template #circle-icon>
         <SfCircleIcon class="my-cart__total-count sf-sidebar__circle-icon">
-          2
+          {{ totalItems }}
         </SfCircleIcon>
       </template>
       <div class="my-cart">
@@ -25,7 +24,6 @@
           <h3 class="my-cart__total-heading">Total items</h3>
         </div>
         <div class="my-cart__product-list">
-          <!-- Collected Product -->
           <SfCollectedProduct
             v-for="(product, key) in products"
             :key="key"
@@ -48,7 +46,7 @@
               <span class="sf-property__name">TOTAL</span>
             </template>
             <template #value>
-              <SfPrice regular="$100.00" class="sf-price--big" />
+              <SfPrice :regular="totalPrice" class="sf-price--big" />
             </template>
           </SfProperty>
           <SfButton class="sf-button--full-width">Go to checkout</SfButton>
@@ -85,6 +83,14 @@ export default {
       isCartSidebarOpen: true,
       products: ["", "", "", ""]
     };
+  },
+  computed: {
+    totalItems() {
+      return 2;
+    },
+    totalPrice() {
+      return "$100.00";
+    }
   }
 };
 </script>
