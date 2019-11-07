@@ -38,6 +38,12 @@
                 <SfProperty name="Color" value="White" />
               </div>
             </template>
+            <template #actions>
+              <div class="product__actions">
+                <div>Save for later</div>
+                <div>Add to compare</div>
+              </div>
+            </template>
           </SfCollectedProduct>
         </div>
         <div class="my-cart__summary">
@@ -168,6 +174,13 @@ export default {
   }
   &__properties {
     margin-top: $spacer-big;
+  }
+  &__actions {
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+    @at-root .sf-collected-product:hover & {
+      opacity: 1;
+    }
   }
 }
 </style>
