@@ -1,51 +1,38 @@
-@import '../variables';
+@import "../variables";
 
-$sidebar-background : $c-white !default;
-$sidebar-padding    : 3rem !default;
+$sidebar-background-color: $c-white !default;
 
 .sf-sidebar {
-  &__aside{
+  $this: &;
+  &__aside {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
-    width: 320px;
+    background-color: $sidebar-background-color;
     height: 100%;
-    background: $sidebar-background;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 56px rgba(87, 87, 87, 0.32);
   }
-  &__button {
+  &__circle-icon {
     position: absolute;
-    right: -1.625rem;
-    padding: 10px;
-    top: 3rem;
-  }
-  &__content {
-    overflow-y: scroll;
-    height: 100vh;
-    width: 100%;
-    padding: $sidebar-padding;
-    box-sizing: border-box;
-    &::-webkit-scrollbar{
-      width: 0;
-    }
+    right: 3.25rem / 2 * -1;
+    top: 5.625rem;
+    box-shadow: 0 4px 56px rgba(87, 87, 87, 0.32);
   }
   &--right {
-    .sf-sidebar__aside {
+    #{$this}__aside {
       left: auto;
       right: 0;
     }
-    .sf-sidebar__button {
-      left: -1.625rem;
+    #{$this}__circle-icon {
+      left: 3.25rem / 2 * -1;
     }
   }
   &--mobile-only {
-    &__button {
-      display: none
+    #{$this}__circle-icon {
+      display: none;
     }
   }
-  &--has-scroll-lock{
+  &--has-scroll-lock {
     overflow: hidden;
   }
 }

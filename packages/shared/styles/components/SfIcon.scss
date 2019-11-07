@@ -12,23 +12,23 @@ $icon-sizes : (
     "xl4": 3.25rem
 );
 $icon-colors : (
-    "primary" : $c-green-primary,
-    "secondary": $c-dark-primary,
+    "primary" : $c-primary,
+    "secondary": $c-dark,
     "white": $c-white,
     "black": $c-black,
-    "accent": $c-accent-secondary,
-    "green-primary": $c-green-primary,
-    "green-secondary": $c-green-secondary,
-    "gray-primary": $c-gray-primary,
-    "gray-secondary": $c-gray-secondary,
-    "light-primary": $c-light-primary,
-    "light-secondary": $c-light-secondary,
-    "pink-primary": $c-pink-primary,
-    "pink-secondary": $c-pink-secondary,
-    "yellow-primary": $c-yellow-primary,
-    "yellow-secondary": $c-yellow-secondary,
-    "blue-primary": $c-blue-primary,
-    "blue-secondary": $c-blue-secondary
+    "accent": $c-primary-variant,
+    "green-primary": $c-primary,
+    "green-secondary": $c-primary-variant,
+    "gray-primary": $c-gray,
+    "gray-secondary": $c-gray-variant,
+    "light-primary": $c-light,
+    "light-secondary": $c-light-variant,
+    "pink-primary": $c-danger,
+    "pink-secondary": $c-danger-variant,
+    "yellow-primary": $c-warning,
+    "yellow-secondary": $c-warning-variant,
+    "blue-primary": $c-info,
+    "blue-secondary": $c-info-variant
 );
 
 .sf-icon {

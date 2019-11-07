@@ -699,11 +699,11 @@ export default {
     padding-bottom: $spacer-big;
     @include for-desktop {
       padding-bottom: $spacer-extra-big;
-      border-bottom: 1px solid $c-light-primary;
+      border-bottom: 1px solid $c-light;
     }
     & + & {
       padding-top: $spacer-extra-big;
-      border-top: 1px solid $c-light-primary;
+      border-top: 1px solid $c-light;
       @include for-desktop {
         border-top: 0;
         padding-top: $spacer-extra-big;
@@ -729,7 +729,7 @@ export default {
   border: 0;
   outline: none;
   background-color: transparent;
-  color: $c-text-primary;
+  color: $c-text;
   font-family: $body-font-family-secondary;
   font-size: $font-size-regular-mobile;
   font-weight: $body-font-weight-secondary;

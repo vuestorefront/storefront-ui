@@ -1,9 +1,9 @@
 @import "../variables";
 
-$input-color: $c-text-primary !default;
-$input-color-active: $c-accent-primary !default;
+$input-color: $c-text !default;
+$input-color-active: $c-primary !default;
 $input-color-invalid: #d12727 !default;
-$input-color-disabled: $c-dark-secondary !default;
+$input-color-disabled: $c-dark-variant !default;
 $input-font-family: $body-font-family-secondary !default;
 $input-font-size: $font-size-big-mobile !default;
 $input-font-size-desktop: $font-size-big-desktop !default;
@@ -43,7 +43,7 @@ $input__error-message-font-size: $font-size-small-mobile !default;
     width: 100%;
     padding: 5px 0;
     border-width: 0 0 1px 0;
-    border-color: $c-light-primary;
+    border-color: $c-light;
     background-color: transparent;
     outline: none;
     font-family: inherit;

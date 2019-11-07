@@ -28,7 +28,7 @@ export default {
      */
     steps: {
       type: Array,
-      required: true
+      default: () => []
     },
     /**
      * Current active step
