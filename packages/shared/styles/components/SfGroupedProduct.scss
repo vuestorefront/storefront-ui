@@ -20,7 +20,7 @@ $grouped-product__sku-color: #a3a5ad !default;
   @media (min-width: $desktop-min) {
     display: flex;
     padding: 10px 0;
-    border-bottom: 1px solid $c-light-primary;
+    border-bottom: 1px solid $c-light;
     font-size: $grouped-product-font-size-desktop;
   }
   &__aside {
@@ -56,10 +56,10 @@ $grouped-product__sku-color: #a3a5ad !default;
       text-align: center;
       transition: border-color 0.3s ease-in-out;
       @media (min-width: $desktop-min) {
-        background-color: $c-light-primary;
+        background-color: $c-light;
       }
       &:focus {
-        border-color: $c-accent-primary;
+        border-color: $c-primary;
       }
     }
   }
