@@ -1,26 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs } from "@storybook/addon-knobs";
+import Product from "./Product";
 
-import Product from "./Product.vue";
-
-storiesOf("Examples|Pages|Product", module)
-  .addDecorator(withKnobs)
-  .add(
-    "Product",
-    () => ({
-      components: { Product },
-      mounted() {
-        document.body.style.setProperty("margin", "0");
-      },
-      template: `
-      <Product/>
-    `
-    }),
-    {
-      info: {
-        summary:
-          "Check https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/examples/pages/product/Product.vue to see full code"
-      }
-    }
-  );
+storiesOf("Pages|Product", module).add("Default", () => ({
+  components: { Product },
+  mounted() {
+    document.body.style.setProperty("margin", "0");
+  },
+  beforeDestroy() {
+    document.body.style.removeProperty("margin");
+  },
+  template: `<Product />`
+}));

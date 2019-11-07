@@ -19,17 +19,9 @@ const scssTableConfig = {
     ],
     ["$sf-tabs-title-padding", "$spacer-big", "top and bottom padding"],
     ["$sf-tabs-title-border-width", "2px", "border width"],
-    ["$sf-tabs-title-color", "$c-gray-secondary", "tabs title color"],
-    [
-      "$sf-tabs-title-color-hover",
-      "$c-dark-primary",
-      "tabs title color on hover"
-    ],
-    [
-      "$sf-tabs-title-color-active",
-      "$c-dark-primary",
-      "tabs title color when active"
-    ],
+    ["$sf-tabs-title-color", "$c-gray-variant", "tabs title color"],
+    ["$sf-tabs-title-color-hover", "$c-dark", "tabs title color on hover"],
+    ["$sf-tabs-title-color-active", "$c-dark", "tabs title color when active"],
     [
       "$sf-tabs-content-font-family",
       " $body-font-family-primary",

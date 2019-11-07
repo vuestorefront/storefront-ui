@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $gallery-flex-direction: row !default;
 $gallery__nav-width: 100px !default;
@@ -7,8 +7,8 @@ $gallery__item-margin-bottom: $spacer-medium !default;
 $gallery__item-opacity: 0.5 !default;
 $gallery__item-transition: opacity 0.15s linear !default;
 $gallery__item-mobile-size: 10px !default;
-$gallery__item-mobile-background: $c-gray-secondary !default;
-$gallery__item-mobile--selected-background: $c-accent-primary !default;
+$gallery__item-mobile-background: $c-gray-variant !default;
+$gallery__item-mobile--selected-background: $c-primary !default;
 $gallery__stage-width: 400px !default;
 $gallery__stage-cursor: zoom-in !default;
 
@@ -114,5 +114,10 @@ $gallery__stage-cursor: zoom-in !default;
   img {
     user-drag: none;
     user-select: none;
+  }
+  .glide {
+    &__slides {
+      margin: 0;
+    }
   }
 }

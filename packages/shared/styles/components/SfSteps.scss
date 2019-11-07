@@ -2,12 +2,12 @@
 
 $steps__active-line-height-mobile: 0.1875rem;
 $steps__active-line-height-desktop: 0.125rem;
-$steps__active-line-color: $c-dark-primary;
+$steps__active-line-color: $c-dark;
 $steps-border: 0.0625rem solid #f1f2f4;
 
 $steps__step-font-weight: 500;
 $steps__step-font-size: 0.75rem;
-$steps__step-font-color: $c-gray-secondary;
+$steps__step-font-color: $c-gray-variant;
 $steps__step-padding: 1.25rem 0;
 $steps__step-text-transform: uppercase;
 
@@ -38,7 +38,7 @@ $steps__step-text-transform: uppercase;
       }
 
       &-current {
-        color: $c-dark-primary;
+        color: $c-dark;
       }
 
       &-disabled {

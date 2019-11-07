@@ -66,7 +66,7 @@ const scssTableConfig = {
 
     ["$hero-item__subtitle-width", "100%"],
     ["$hero-item__subtitle-width--desktop", "min-content"],
-    ["$hero-item__subtitle-color", "$c-gray-secondary"],
+    ["$hero-item__subtitle-color", "$c-gray-variant"],
     [
       "$hero-item__subtitle-border-left",
       "$hero-item__subtitle-color solid 1px"
@@ -83,7 +83,7 @@ const scssTableConfig = {
     ["$hero-item__title-font--desktop", "36px"],
     ["$hero-item__title-line-height--desktop", "50px"],
     ["$hero-item__title-line-height", "25px"],
-    ["$hero-item__title-color", "$c-dark-primary"]
+    ["$hero-item__title-color", "$c-dark"]
   ]
 };
 

@@ -7,8 +7,8 @@ $pagination-font-weight: $body-font-weight-secondary !default;
 $pagination-line-height: 1.6 !default;
 $pagination__item-margin: 0 ($spacer-big / 4) !default;
 $pagination__item-margin-desktop: 0 ($spacer-big / 2) !default;
-$pagination__item-color: $c-text-secondary !default;
-$pagination__button--current-color: $c-text-primary !default;
+$pagination__item-color: $c-text-muted !default;
+$pagination__button--current-color: $c-text !default;
 $pagination__button--navigation-margin: 3rem !default;
 $pagination__button-transition: color 150ms ease-in-out,
   border-color 150ms ease-in-out !default;
