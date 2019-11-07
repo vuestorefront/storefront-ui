@@ -30,7 +30,7 @@ $accordion__content-padding-y: 1.875rem !default;
     justify-content: space-between;
     align-items: center;
     padding: $accordion__title-padding-y 0;
-    color: $c-dark-primary;
+    color: $c-dark;
     cursor: pointer;
     font-size: $accordion__title-font-size;
     @include for-desktop {

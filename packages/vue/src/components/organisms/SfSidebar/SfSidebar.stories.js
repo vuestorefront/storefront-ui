@@ -60,7 +60,9 @@ storiesOf("Organisms|Sidebar", module)
           :button="button"
           :class="customClass"
         >
-          Hello World
+          <div style="box-sizing: border-box; padding: 2.5rem; width: 20rem">
+            Hello World
+          </div>
         </SfSidebar>
       </div>`
     }),
