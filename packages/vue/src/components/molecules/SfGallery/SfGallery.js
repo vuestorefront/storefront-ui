@@ -40,16 +40,16 @@ export default {
     /**
      * Image zoom inside or overlap the stage
      */
-    insideZoom: {
+    outsideZoom: {
       type: Boolean,
       default: false,
     },
     /**
      * Toogle for image zoom or overlap the stage
      */
-    toggleZoom: {
+    disableZoom: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
 
@@ -76,10 +76,10 @@ export default {
   methods: {
     positionObject(index) {
       if (this.$refs.sfGalleryBigImage) {
-        if(this.inside){
-          return this.$refs.sfGalleryBigImage[index].$el.getBoundingClientRect();
-        }else{
+        if(this.outsideZoom){
           return this.$refs.sfGalleryBigImage[index].$refs.imgLazy.getBoundingClientRect();
+        } else {
+          return this.$refs.sfGalleryBigImage[index].$el.getBoundingClientRect();
         }
       }
       return '';
@@ -96,27 +96,33 @@ export default {
       }
     },
     addImg(picture) {
-      const { zoom, big, normal } = picture
-      this.pictureSelected = (zoom || big || normal).url
-    },
-    changeImg($event, index) {
-      this.eventHover = $event;
-      if(this.inside) {
-        this.positionStatic = this.positionObject(index);
-        this.$refs.sfGalleryBigImage[index].$refs.imgLazy.style.transform = "scale(2)";
-        this.$refs.sfGalleryBigImage[index].$refs.imgLazy.style.transformOrigin = `${$event.clientX - this.positionStatic.x}px ${$event.clientY - this.positionStatic.y}px`;
-      }else{
-        this.positionStatic = this.positionObject(index);
-        this.$refs.imgZoom.style.transformOrigin = `${$event.clientX - this.positionStatic.x}px ${$event.clientY - this.positionStatic.y }px`;
-        this.$refs.outSide.style.top = `${this.positionStatic.y + this.$refs.sfGalleryBigImage[index].$refs.imgLazy.offsetHeight}px`
-        this.$refs.outSide.style.left = `${this.positionStatic.x}px`
+      if(!this.disableZoom){
+        const { zoom, big, normal } = picture
+        this.pictureSelected = (zoom || big || normal).url
       }
     },
+    changeImg($event, index) {
+      if(!this.disableZoom){
+        this.eventHover = $event;
+        if (this.outsideZoom){
+          this.positionStatic = this.positionObject(index);
+          this.$refs.imgZoom.style.transformOrigin = `${$event.clientX - this.positionStatic.x}px ${$event.clientY - this.positionStatic.y }px`;
+          this.$refs.outSide.style.top = `${this.positionStatic.y + this.$refs.sfGalleryBigImage[index].$refs.imgLazy.offsetHeight}px`
+          this.$refs.outSide.style.left = `${this.positionStatic.x}px`
+        } else {
+          this.positionStatic = this.positionObject(index);
+          this.$refs.sfGalleryBigImage[index].$refs.imgLazy.style.transform = "scale(2)";
+          this.$refs.sfGalleryBigImage[index].$refs.imgLazy.style.transformOrigin = `${$event.clientX - this.positionStatic.x}px ${$event.clientY - this.positionStatic.y}px`;
+        }
+      }  
+    },
     removeImg() {
-      this.pictureSelected = '';
-      this.$refs.sfGalleryBigImage.forEach(el => {
-        el.$refs.imgLazy.style.transform = 'scale(1)';
-      })
+      if(!this.disableZoom){
+        this.pictureSelected = '';
+        this.$refs.sfGalleryBigImage.forEach(el => {
+          el.$refs.imgLazy.style.transform = 'scale(1)';
+        })
+      }
     },
   },
 
