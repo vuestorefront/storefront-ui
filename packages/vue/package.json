@@ -5,23 +5,27 @@
     "*.scss",
     "*.css"
   ],
-  "version": "0.3.0",
+  "version": "0.3.2",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
+    "serve": "yarpm create-index-files && vue-cli-service serve",
+    "build": "yarpm create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test:dev": "vue-cli-service test:unit --watch",
-    "storybook:serve": "vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
-    "storybook:build": "vue-cli-service storybook:build -s ./public -c config/storybook",
+    "storybook:serve": "yarpm create-index-files && vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
+    "storybook:build": "yarpm create-index-files && vue-cli-service storybook:build -s ./public -c config/storybook",
     "docs:vuecomponents": "node scripts/create-vue-components-docs.js",
-    "docs:dev": "$npm_execpath docs:vuecomponents && vuepress dev docs",
-    "docs:build": "$npm_execpath docs:vuecomponents && vuepress build docs",
-    "version": "node scripts/version.js"
+    "docs:dev": "yarpm docs:vuecomponents && vuepress dev docs",
+    "docs:build": "yarpm docs:vuecomponents && vuepress build docs",
+    "create-index-files": "node scripts/create-index-files.js",
+    "precommit": "lint-staged",
+    "postinstall": "node scripts/postinstall.js",
+    "version": "node scripts/version.js",
+    "postpublish": "node scripts/postpublish.js"
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "^0.3.0",
+    "@storefront-ui/shared": "^0.3.2",
     "@vue/babel-preset-app": "^4.0.0-alpha.1",
     "core-js": "^3.1.3",
     "hammerjs": "^2.0.8",
@@ -53,15 +57,14 @@
     "@storybook/addon-knobs": "^5.1.9",
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addon-notes": "^5.1.9",
+    "@storybook/addon-storysource": "^5.2.4",
     "@storybook/addon-viewport": "^5.1.9",
     "@types/jest": "^24.0.16",
     "@vue/cli-plugin-babel": "^3.9.2",
     "@vue/cli-plugin-eslint": "^3.9.2",
-    "@vue/cli-plugin-typescript": "^3.9.0",
     "@vue/cli-plugin-unit-jest": "^3.9.0",
     "@vue/cli-service": "^3.9.3",
     "@vue/eslint-config-prettier": "^4.0.1",
-    "@vue/eslint-config-typescript": "^4.0.0",
     "@vue/test-utils": "^1.0.0-beta.29",
     "@vuepress/plugin-register-components": "^1.0.0-rc.1",
     "babel-core": "7.0.0-bridge.0",
@@ -71,33 +74,22 @@
     "eslint-plugin-vue": "^5.2.3",
     "html-loader": "^0.5.5",
     "jest": "^24.9.0",
-    "lint-staged": "^8.2.1",
+    "lint-staged": "^9.4.2",
     "markdown-loader": "^5.0.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "storybook-addon-vue-info": "^1.2.2",
-    "ts-jest": "^24.0.1",
-    "typescript": "^3.5.3",
     "vue-cli-plugin-storybook": "^0.6.0",
+    "vue-docgen-api": "^3.22.3",
     "vue-template-compiler": "^2.6.8",
     "vuepress": "^0.14.10",
-    "vue-docgen-api": "^3.22.3"
+    "yarpm": "^0.2.1"
   },
   "peerDependencies": {
     "vue": "^2.6.x"
   },
   "main": "./index.js",
-  "lint-staged": {
-    "*.{js,vue,html,scss,ts}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "85b200d4981615ee7dc0682a7ad2d26fc0de2866"
+  }
 }

@@ -79,5 +79,20 @@
       "github": "DonNicoJs",
       "twitter": "DonNicoJs"
     }
+  },
+  {
+    "name": "Eduard Dopler",
+    "role": "Maintainer",
+    "work": {
+      "title": "Senior Full-Stack Engineer",
+      "org": "IFM Electronic",
+      "orgUrl": "https://www.ifm.com"
+    },
+    "location": "Essen, Germany",
+    "languages": ["de", "en"],
+    "socials": {
+      "github": "EduardDopler",
+      "twitter": "quotingeddie"
+    }
   }
 ]

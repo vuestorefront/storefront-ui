@@ -5,7 +5,6 @@ import {
   text,
   number,
   boolean,
-  select,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
@@ -15,7 +14,7 @@ const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
     ["$counter-background", "$c-white", "background of counter"],
-    ["$counter-color", "$c-dark-primary", "color of counter"],
+    ["$counter-color", "$c-dark", "color of counter"],
     ["$counter-width", "3.7rem", "width of counter"],
     ["$counter-border", "none", "border of counter"],
     [

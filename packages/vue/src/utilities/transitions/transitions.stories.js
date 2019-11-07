@@ -1,5 +1,4 @@
 import { storiesOf } from "@storybook/vue";
-import { linkTo } from "@storybook/addon-links";
 
 import SfButton from "./../../../src/components/atoms/SfButton/SfButton.vue";
 

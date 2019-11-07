@@ -13,14 +13,14 @@ export default {
      */
     image: {
       type: [Array, Object, String],
-      default: "assets/storybook/product_thumb.png"
+      default: ""
     },
     /**
      * Product title
      */
     title: {
       type: String,
-      required: true
+      default: ""
     },
     /**
      * Link to product page
