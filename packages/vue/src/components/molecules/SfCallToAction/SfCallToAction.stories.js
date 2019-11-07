@@ -42,7 +42,7 @@ storiesOf("Molecules|CallToAction", module)
         :button-text="buttonText"
         :description="description"
         :class="customClass"
-        image="assets/storybook/homepage/newsletter.png"/></div>`
+        image="assets/storybook/homepage/newsletter.jpg"/></div>`
     }),
     {
       info: {

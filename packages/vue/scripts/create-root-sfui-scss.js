@@ -10,9 +10,9 @@ function getStylesContent() {
   return `/* Here you can override global SCSS variables */
 
 // global override excluding scoped components
-// $button-desktop-padding: 5px !default;
+// $button-padding: 5px !default;
 // global override including scoped componentss
-// $button-desktop-padding: 50px;`;
+// $button-padding: 50px;`;
 }
 function createRootSfuiScss() {
   if (isDependency && !fs.existsSync(stylesPath)) {

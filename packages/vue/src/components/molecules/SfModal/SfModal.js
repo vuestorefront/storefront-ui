@@ -56,10 +56,12 @@ export default {
         this.close();
       }
       if (this.visible) {
-        document.addEventListener("keydown", keydownHandler);
+        // TODO: this is an error right now. what shall it do?
+        //  document.addEventListener("keydown", keydownHandler);
         this.$emit("close");
       } else {
-        document.removeEventListener("keydown", keydownHandler);
+        // TODO: this is an error right now. what shall it do?
+        //  document.removeEventListener("keydown", keydownHandler);
         this.$emit("open");
       }
     },
