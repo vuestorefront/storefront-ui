@@ -32,4 +32,7 @@ $sidebar-background-color: $c-white !default;
       display: none;
     }
   }
+  &--has-scroll-lock {
+    overflow: hidden;
+  }
 }

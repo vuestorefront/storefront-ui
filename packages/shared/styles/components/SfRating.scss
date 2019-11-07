@@ -1,7 +1,7 @@
 @import '../variables';
 
-$rating__icon-positive-fill: $c-green-primary !default;
-$rating__icon-negative-fill: $c-dark-primary !default;
+$rating__icon-positive-fill: $c-primary !default;
+$rating__icon-negative-fill: $c-dark !default;
 
 .sf-rating {
   &__icon-positive {
