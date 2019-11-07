@@ -161,12 +161,6 @@ storiesOf("Organisms|Footer", module)
             </SfFooterColumn>
           </SfFooterRow>
           <SfFooterRow>
-            <SfFooterColumn class="sf-footer-column__placeholder">
-            </SfFooterColumn>
-            <SfFooterColumn class="sf-footer-column__placeholder">
-            </SfFooterColumn>
-            <SfFooterColumn class="sf-footer-column__placeholder">
-            </SfFooterColumn>
             <SfFooterColumn :title="socialItems.header">
                 <SfList>
                   <SfListItem :style="socialItems.style" v-for="socialContent in socialItems.content" :key="socialContent.id"><span v-html="socialContent.text"></span></SfListItem>

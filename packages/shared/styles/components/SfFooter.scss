@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $footer__row-line-height: 1.6 !default;
 $footer__column-title-font-size: $font-size-big-desktop !default;
@@ -14,8 +14,7 @@ $accordion--open-background-color: $c-light-secondary !default;
   line-height: $footer__row-line-height;
   @media screen and (min-width: $desktop-min) {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 }
 .sf-footer-column {
@@ -26,8 +25,9 @@ $accordion--open-background-color: $c-light-secondary !default;
     width: unset;
     padding: unset;
     max-width: 24.9999%;
-    flex: 1 1 auto;
-    justify-content: flex-start;
+    word-wrap: break-word;
+    overflow: hidden;
+    flex: 1;
   }
   &__title {
     font-size: $footer__column-title-font-size;
@@ -36,12 +36,6 @@ $accordion--open-background-color: $c-light-secondary !default;
     color: $footer__column-title-color;
     font-family: $footer__column-title-font-family;
     margin: 0;
-  }
-  &__placeholder {
-    display: none;
-    @media screen and (min-width: $desktop-min) {
-      display: unset;
-    }
   }
   &__content {
     padding-top: unset;
@@ -65,7 +59,7 @@ $accordion--open-background-color: $c-light-secondary !default;
       font-size: 18px;
       font-weight: 420;
       text-transform: "uppercase";
-      padding: $spacer-medium;;
+      padding: $spacer-medium;
       color: "#1D1F2";
       background-color: $accordion--close-background-color;
       &--open {
