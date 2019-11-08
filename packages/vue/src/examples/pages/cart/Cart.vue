@@ -361,7 +361,6 @@ export default {
   }
   @include for-desktop {
     width: 25.5rem;
-    /*overflow: hidden;*/
   }
   &__header {
     padding: $spacer-extra-big;
@@ -383,6 +382,7 @@ export default {
     font-weight: 400;
     line-height: 1.6;
     cursor: default;
+    top: 5.1875rem;
     &--is-hidden {
       display: none;
     }
@@ -396,9 +396,10 @@ export default {
   }
   &__product-list {
     flex: 1;
-    padding: 0 1.875rem;
+    padding: 0 0.625rem;
     @include for-desktop {
       overflow-y: auto;
+      padding: 0 1.875rem;
     }
     &::-webkit-scrollbar {
       width: 0;
@@ -420,8 +421,12 @@ export default {
     margin-top: $spacer-big;
   }
   &__actions {
-    opacity: 0;
-    transition: opacity 150ms ease-in-out;
+    display: none;
+    @include for-desktop {
+      display: block;
+      opacity: 0;
+      transition: opacity 150ms ease-in-out;
+    }
     @at-root .sf-collected-product:hover & {
       opacity: 1;
     }
