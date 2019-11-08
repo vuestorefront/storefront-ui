@@ -68,12 +68,12 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
           :key="key"
           v-model="product.qty"
           :image="product.image"
-          :placeholderImage="imageSetup.placeholderImage"
-          :lazyImage="imageSetup.lazyImage"
-          :pictureBreakpointImage="imageSetup.pictureBreakpointImage"
+          :placeholder-image="imageSetup.placeholderImage"
+          :lazy-image="imageSetup.lazyImage"
+          :picture-breakpoint-image="imageSetup.pictureBreakpointImage"
           :title="product.title"
-          :specialPrice="product.specialPrice"
-          :regularPrice="product.regularPrice"
+          :special-price="product.specialPrice"
+          :regular-price="product.regularPrice"
           :stock="product.stock">
           <template #details><div style="color: #a3a5ad">{{product.sku}}</div></template>
           <template #configuration>
