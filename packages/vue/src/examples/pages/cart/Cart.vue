@@ -30,21 +30,33 @@
           <SfCollectedProduct
             v-for="(product, key) in products"
             :key="key"
-            image="/assets/storybook/homepage/productB.jpg"
-            title="Cashmere Sweater"
-            regularPrice="$50.00"
+            :image="product.image"
+            :title="product.title"
+            :regular-price="product.price.regular | price"
+            :special-price="product.price.special | price"
+            :stock="product.stock"
+            v-model="product.qty"
+            @click:remove="removeHandler(product)"
             class="product"
           >
             <template #configuration>
               <div class="product__properties">
-                <SfProperty name="Size" value="XS" />
-                <SfProperty name="Color" value="White" />
+                <SfProperty
+                  v-for="(property, key) in product.configuration"
+                  :key="key"
+                  :name="property.name"
+                  :value="property.value"
+                />
               </div>
             </template>
             <template #actions>
               <div class="product__actions">
-                <div>Save for later</div>
-                <div>Add to compare</div>
+                <div style="text-decoration: underline; line-height: 1.6">
+                  Save for later
+                </div>
+                <div style="text-decoration: underline; line-height: 1.6">
+                  Add to compare
+                </div>
               </div>
             </template>
           </SfCollectedProduct>
@@ -55,7 +67,7 @@
               <span class="sf-property__name">TOTAL</span>
             </template>
             <template #value>
-              <SfPrice :regular="totalPrice" class="sf-price--big" />
+              <SfPrice :regular="totalPrice | price" class="sf-price--big" />
             </template>
           </SfProperty>
           <SfButton class="sf-button--full-width">Go to checkout</SfButton>
@@ -74,7 +86,6 @@
           </div>
         </div>
         <div class="empty-cart">
-          <SfImage src="./assets/empty-cart.svg" style="width: 100%" />
           <svg class="empty-cart__icon">
             <path
               opacity=".1"
@@ -248,18 +259,78 @@ export default {
     SfCircleIcon,
     SfIcon
   },
+  filters: {
+    price: function(price) {
+      if (!price) return;
+      return `$${price}`;
+    }
+  },
   data() {
     return {
       isCartSidebarOpen: true,
-      products: ["", "", "", ""]
+      products: [
+        {
+          title: "Cream Beach Bag",
+          id: "CBB1",
+          image: "assets/storybook/homepage/productA.jpg",
+          price: { regular: "50.00" },
+          configuration: [
+            { name: "Size", value: "XS" },
+            { name: "Color", value: "White" }
+          ],
+          qty: "3",
+          stock: 44
+        },
+        {
+          title: "Cream Beach Bag",
+          id: "CBB2",
+          image: "assets/storybook/homepage/productB.jpg",
+          price: { regular: "50.00", special: "20.05" },
+          configuration: [
+            { name: "Size", value: "XS" },
+            { name: "Color", value: "White" }
+          ],
+          qty: "1",
+          stock: 10
+        },
+        {
+          title: "Cream Beach Bag",
+          id: "CBB3",
+          image: "assets/storybook/homepage/productC.jpg",
+          price: { regular: "50.00", special: "20.50" },
+          configuration: [
+            { name: "Size", value: "XS" },
+            { name: "Color", value: "White" }
+          ],
+          qty: "1",
+          stock: 20
+        }
+      ]
     };
   },
   computed: {
     totalItems() {
-      return 2;
+      return this.products.reduce(
+        (totalItems, product) => totalItems + parseInt(product.qty, 10),
+        0
+      );
     },
     totalPrice() {
-      return "$100.00";
+      return this.products
+        .reduce((totalPrice, product) => {
+          const price = product.price.special
+            ? product.price.special
+            : product.price.regular;
+          const summary = parseFloat(price).toFixed(2) * product.qty;
+          return totalPrice + summary;
+        }, 0)
+        .toFixed(2);
+    }
+  },
+  methods: {
+    removeHandler(product) {
+      const products = [...this.products];
+      this.products = products.filter(element => element.id !== product.id);
     }
   }
 };
@@ -283,9 +354,14 @@ export default {
   display: flex;
   flex-direction: column;
   width: 20rem;
+  overflow-y: auto;
   height: 100%;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
   @include for-desktop {
     width: 25.5rem;
+    /*overflow: hidden;*/
   }
   &__header {
     padding: $spacer-extra-big;
@@ -320,9 +396,10 @@ export default {
   }
   &__product-list {
     flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
     padding: 0 1.875rem;
+    @include for-desktop {
+      overflow-y: auto;
+    }
     &::-webkit-scrollbar {
       width: 0;
     }
