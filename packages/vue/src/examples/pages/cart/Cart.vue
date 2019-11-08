@@ -380,12 +380,15 @@ export default {
     cursor: pointer;
   }
   &__total-count {
+    z-index: 1;
     font-family: $body-font-family-primary;
     font-size: $font-size-extra-big-desktop;
     font-weight: 400;
     line-height: 1.6;
     cursor: default;
-    top: 5.1875rem;
+    @media (max-width: $mobile-max) {
+      top: 5.1875rem;
+    }
     &--is-hidden {
       display: none;
     }
