@@ -1,5 +1,8 @@
 <template>
   <div id="cart">
+    <SfButton style="margin: 1rem" @click="isCartSidebarOpen = true"
+      >Open My cart</SfButton
+    >
     <SfSidebar
       :visible="isCartSidebarOpen"
       class="sf-sidebar--right"
