@@ -6,12 +6,6 @@ Vue.component("SfGroupedProductItem", SfGroupedProductItem);
 
 export default {
   name: "SfGroupedProduct",
-  props: {
-    value: {
-      type: Array,
-      default: () => []
-    }
-  },
   data() {
     return {
       glide: null,
@@ -31,30 +25,6 @@ export default {
         }
       }
     };
-  },
-  provide() {
-    const provided = {};
-    Object.defineProperty(provided, "inputHandler", {
-      value: this.inputHandler
-    });
-    return { provided };
-  },
-  methods: {
-    inputHandler(payload) {
-      const groupedProduct = [...this.value];
-      const index = groupedProduct.findIndex(product => {
-        return product.sku === payload.sku && product.name === payload.name;
-      });
-      const product = { ...groupedProduct[index], qty: payload.qty };
-      groupedProduct[index] = product;
-      /**
-       * Grouped Product Item quantity updated event
-       *
-       * @event input
-       * @type Object
-       */
-      this.$emit("input", groupedProduct);
-    }
   },
   mounted() {
     this.$nextTick(() => {

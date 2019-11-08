@@ -9,7 +9,6 @@ export default {
     SfPrice,
     SfInput
   },
-  inject: ["provided"],
   props: {
     /**
      * Product image
@@ -72,6 +71,5 @@ export default {
       type: Number,
       default: 0
     }
-  },
-  methods: {}
+  }
 };

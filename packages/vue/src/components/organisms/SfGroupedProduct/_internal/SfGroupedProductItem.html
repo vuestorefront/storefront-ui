@@ -1,24 +1,27 @@
 <li class="glide__slide sf-grouped-product-item">
   <div class="sf-grouped-product-item__aside">
     <!-- @slot Custom image markup -->
-    <slot name="image" v-bind="{image, title, placeholderImage, lazyImage, pictureBreakpointImage}">
+    <slot
+      name="image"
+      v-bind="{image, title, placeholderImage, lazyImage, pictureBreakpointImage}"
+    >
       <SfImage
-          :src="image"
-          :alt="title"
-          :placeholder="placeholderImage"
-          :lazy="lazyImage"
-          :pictureBreakpoint="pictureBreakpointImage"
-          class="sf-grouped-product-item__image"
+        :src="image"
+        :alt="title"
+        :placeholder="placeholderImage"
+        :lazy="lazyImage"
+        :pictureBreakpoint="pictureBreakpointImage"
+        class="sf-grouped-product-item__image"
       />
     </slot>
     <!-- @slot Custom input markup -->
-    <slot name="input" v-bind="{qty, stock }">
+    <slot name="input" v-bind="{qty, stock}">
       <SfInput
-          type="number"
-          :value="qty"
-          min="0"
-          :max="stock"
-          class="sf-grouped-product-item__select-quantity"
+        type="number"
+        :value="qty"
+        min="0"
+        :max="stock"
+        class="sf-grouped-product-item__select-quantity"
       />
     </slot>
   </div>
@@ -27,16 +30,16 @@
     <slot name="title" v-bind="{title}">
       <div class="sf-grouped-product-item__title">{{title}}</div>
     </slot>
-    <slot name="details"/>
+    <slot name="details" />
   </div>
   <!-- @slot Custom configuration markup -->
-  <slot name="configuration"/>
+  <slot name="configuration" />
   <!-- @slot Custom price markup -->
   <slot name="price" v-bind="{ specialPrice, regularPrice }">
     <SfPrice
-        :regular="regularPrice"
-        :special="specialPrice"
-        class="sf-grouped-product-item__price"
+      :regular="regularPrice"
+      :special="specialPrice"
+      class="sf-grouped-product-item__price"
     />
   </slot>
 </li>

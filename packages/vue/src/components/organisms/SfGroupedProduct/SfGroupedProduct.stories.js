@@ -62,7 +62,7 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
     };
   },
   template: `<div style="max-width: 509px">
-       <SfGroupedProduct v-model="groupedProduct">
+       <SfGroupedProduct>
           <SfGroupedProductItem 
           v-for="(product, key) in groupedProduct"
           :key="key"
