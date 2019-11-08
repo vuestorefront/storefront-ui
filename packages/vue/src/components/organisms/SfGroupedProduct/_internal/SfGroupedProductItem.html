@@ -19,6 +19,7 @@
       <SfInput
         type="number"
         :value="qty"
+        @input="(value)=>{$emit('input', value)}"
         min="0"
         :max="stock"
         class="sf-grouped-product-item__select-quantity"

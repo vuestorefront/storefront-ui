@@ -66,7 +66,7 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
           <SfGroupedProductItem 
           v-for="(product, key) in groupedProduct"
           :key="key"
-          :qty="product.qty"
+          v-model="product.qty"
           :image="product.image"
           :placeholderImage="imageSetup.placeholderImage"
           :lazyImage="imageSetup.lazyImage"
