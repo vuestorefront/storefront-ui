@@ -75,7 +75,7 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
           :specialPrice="product.specialPrice"
           :regularPrice="product.regularPrice"
           :stock="product.stock">
-          <template #details>{{product.sku}}</template>
+          <template #details><div style="color: #a3a5ad">{{product.sku}}</div></template>
           <template #configuration>
             <div style="margin-left: auto;">
               <div v-for="(attribute, key) in product.attributes" :key="key">{{attribute.value}}</div>

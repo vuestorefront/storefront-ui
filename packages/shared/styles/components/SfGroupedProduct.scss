@@ -9,7 +9,6 @@ $grouped-product-font-weight: $body-font-weight-secondary !default;
 $grouped-product-line-height: 1.6 !default;
 $grouped-product__select-quantity-width: 3.125rem !default;
 $grouped-product__select-quantity-height: 1.875rem !default;
-$grouped-product__sku-color: #a3a5ad !default;
 
 .sf-grouped-product-item {
   padding: $spacer-small;
@@ -73,21 +72,6 @@ $grouped-product__sku-color: #a3a5ad !default;
       margin: 0;
     }
   }
-  //&__sku {
-  //  color: $grouped-product__sku-color;
-  //}
-  //&__sku,
-  //&__attributes {
-  //  display: none;
-  //  @media (min-width: $desktop-min) {
-  //    display: block;
-  //  }
-  //}
-  //&__attributes {
-  //  @media (min-width: $desktop-min) {
-  //    margin-left: auto;
-  //  }
-  //}
   &__price {
     @media (min-width: $desktop-min) {
       margin-left: auto;
