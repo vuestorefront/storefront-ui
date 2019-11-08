@@ -18,7 +18,8 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
           qty: "0",
           attributes: [
             {
-              color: "White"
+              name: "color",
+              value: "White"
             }
           ]
         },
@@ -32,7 +33,8 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
           stock: 99,
           attributes: [
             {
-              color: "Green"
+              name: "color",
+              value: "Green"
             }
           ]
         },
@@ -46,7 +48,8 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
           stock: 99,
           attributes: [
             {
-              color: "Black"
+              name: "color",
+              value: "Black"
             }
           ]
         }
@@ -69,11 +72,16 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
           :lazyImage="imageSetup.lazyImage"
           :pictureBreakpointImage="imageSetup.pictureBreakpointImage"
           :title="product.title"
-          :sku="product.sku"
           :specialPrice="product.specialPrice"
           :regularPrice="product.regularPrice"
-          :stock="product.stock"
-          :attributes="product.attributes"/>
+          :stock="product.stock">
+          <template #details>{{product.sku}}</template>
+          <template #configuration>
+            <div style="margin-left: auto;">
+              <div v-for="(attribute, key) in product.attributes" :key="key">{{attribute.value}}</div>
+            </div>
+          </template>
+        </SfGroupedProductItem>
       </SfGroupedProduct>
     </div>`
 }));

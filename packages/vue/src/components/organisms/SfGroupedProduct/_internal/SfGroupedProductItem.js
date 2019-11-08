@@ -47,13 +47,6 @@ export default {
       required: true
     },
     /**
-     * Product sku
-     */
-    sku: {
-      type: String,
-      default: ""
-    },
-    /**
      * Product regular price
      */
     regularPrice: {
@@ -78,28 +71,7 @@ export default {
     stock: {
       type: Number,
       default: 0
-    },
-    /**
-     * Product attributes
-     */
-    attributes: {
-      type: Array,
-      default: () => []
     }
   },
-  methods: {
-    qtyHandler(qty) {
-      const product = {
-        image: this.image,
-        title: this.title,
-        sku: this.sku,
-        specialPrice: this.specialPrice,
-        regularPrice: this.regularPrice,
-        qty: qty,
-        stock: this.stock,
-        attributes: this.attributes
-      };
-      this.provided.inputHandler(product);
-    }
-  }
+  methods: {}
 };

@@ -28,7 +28,6 @@ $grouped-product__sku-color: #a3a5ad !default;
   }
   &__image {
     display: flex;
-    //max-width: $grouped-product-max-width;
     @media (min-width: $desktop-min) {
       max-width: $grouped-product-max-width-desktop;
     }
@@ -74,21 +73,21 @@ $grouped-product__sku-color: #a3a5ad !default;
       margin: 0;
     }
   }
-  &__sku {
-    color: $grouped-product__sku-color;
-  }
-  &__sku,
-  &__attributes {
-    display: none;
-    @media (min-width: $desktop-min) {
-      display: block;
-    }
-  }
-  &__attributes {
-    @media (min-width: $desktop-min) {
-      margin-left: auto;
-    }
-  }
+  //&__sku {
+  //  color: $grouped-product__sku-color;
+  //}
+  //&__sku,
+  //&__attributes {
+  //  display: none;
+  //  @media (min-width: $desktop-min) {
+  //    display: block;
+  //  }
+  //}
+  //&__attributes {
+  //  @media (min-width: $desktop-min) {
+  //    margin-left: auto;
+  //  }
+  //}
   &__price {
     @media (min-width: $desktop-min) {
       margin-left: auto;
