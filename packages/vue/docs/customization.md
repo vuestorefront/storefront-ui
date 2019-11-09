@@ -31,10 +31,17 @@ Almost every Storefront UI component is divided into sections (following BEM con
 
 Take a look at below example. This is how `SfPagination` component look like out of the box:
 
-<SfPagination :current="1" :total="20" :visible="5"  @click="page => this.currentPage = page"/>
+<SfPagination :current="1" :total="20" :visible="5"  @click="page => currentPage = page"/>
 
 ````html
-<SfPagination :current="1" :total="20" :visible="5"  @click="page => this.currentPage = page"/>
+
+<SfPagination 
+  :current="currentPage" 
+  :total="20" 
+  :visible="5"  
+  @click="page => currentPage = page"
+/>
+
 ````
 
 Let's say we want to display `prev` and `next` buttons instead of default arrow icons. 
@@ -43,7 +50,8 @@ In component documentation we can read that it has `next` and `prev` slots. We c
 We can use the latest to disable buttons when they're not usable.
 
 ```html
-<SfPagination :current="currentPage" :total="20" :visible="5"  @click="page => this.currentPage = page">
+
+<SfPagination :current="currentPage" :total="20" :visible="5"  @click="page => currentPage = page">
   <template #prev="{ isDisabled, go }">
     <button @click="go()" :disabled="isDisabled ? true : false">prev</button>
   </template>
@@ -51,6 +59,8 @@ We can use the latest to disable buttons when they're not usable.
     <button @click="go()" :disabled="isDisabled ? true : false">next</button>
   </template>
 </SfPagination>
+
+
 ```
 This is a result of above modification:
 
