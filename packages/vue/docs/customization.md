@@ -50,7 +50,6 @@ In component documentation we can read that it has `next` and `prev` slots. We c
 We can use the latest to disable buttons when they're not usable.
 
 ```html
-
 <SfPagination :current="currentPage" :total="20" :visible="5"  @click="page => currentPage = page">
   <template #prev="{ isDisabled, go }">
     <button @click="go()" :disabled="isDisabled ? true : false">prev</button>
@@ -59,8 +58,6 @@ We can use the latest to disable buttons when they're not usable.
     <button @click="go()" :disabled="isDisabled ? true : false">next</button>
   </template>
 </SfPagination>
-
-
 ```
 This is a result of above modification:
 
