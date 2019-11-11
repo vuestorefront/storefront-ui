@@ -118,9 +118,8 @@ $gallery__stage-cursor: zoom-in !default;
 }
 
 .sf-gallery__zoom {
-  z-index: 1000;
-  transition: 0.3s;
-  position: fixed;
+  z-index: 1;
+  position: absolute;
   overflow: hidden;
   
   img {
