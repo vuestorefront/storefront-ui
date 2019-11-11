@@ -24,9 +24,9 @@
             class="glide__slide"
             v-for="(picture, index) in mapPictures"
             :key="'slide-' + index"
-            @mouseover="addImg(picture)"
-            @mousemove="changeImg($event,index)"
-            @mouseout="removeImg()"
+            @mouseover="startZoom(picture)"
+            @mousemove="moveZoom($event,index)"
+            @mouseout="removeZoom()"
           >
             <SfImage
               ref="sfGalleryBigImage"
@@ -38,12 +38,15 @@
           </li>
         </ul>
       </div>
-      <div v-if="outsideZoom" ref="outSide" class="sf-gallery__zoom">
-        <img
-          ref="imgZoom"
-          :src="pictureSelected"
-          />
-      </div>
     </div>
+    <transition name="fade">
+        <div v-if="outsideZoom && pictureSelected" ref="outSide" class="sf-gallery__zoom">
+          <img
+            ref="imgZoom"
+            :src="pictureSelected"
+            />
+        </div>
+    </transition>
   </div>
+  <div ref="nothingDiv"></div>
 </div>

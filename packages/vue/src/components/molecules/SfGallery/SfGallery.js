@@ -1,11 +1,11 @@
-import Glide from '@glidejs/glide';
-import SfImage from '../../atoms/SfImage/SfImage.vue';
+import Glide from "@glidejs/glide";
+import SfImage from "../../atoms/SfImage/SfImage.vue";
 
 export default {
-  name: 'SfGallery',
+  name: "SfGallery",
 
   components: {
-    SfImage,
+    SfImage
   },
 
   props: {
@@ -14,14 +14,14 @@ export default {
      */
     images: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     /**
      * Initial image number (starting from 1)
      */
     current: {
       type: Number,
-      default: 1,
+      default: 1
     },
     /**
      * Glide slider options (https://glidejs.com/docs/options/)
@@ -30,19 +30,19 @@ export default {
       type: Object,
       default() {
         return {
-          type: 'slider',
+          type: "slider",
           autoplay: false,
           rewind: false,
-          gap: 0,
+          gap: 0
         };
-      },
+      }
     },
     /**
      * Image zoom inside or overlap the stage
      */
     outsideZoom: {
       type: Boolean,
-      default: false,
+      default: false
     },
     /**
      * Toogle for image zoom or overlap the stage
@@ -55,11 +55,11 @@ export default {
 
   data() {
     return {
-      positionStatic: '',
-      eventHover: '',
-      pictureSelected: '',
+      positionStatic: {},
+      eventHover: {},
+      pictureSelected: "",
       glide: null,
-      activeIndex: this.current - 1,
+      activeIndex: this.current - 1
     };
   },
 
@@ -68,21 +68,23 @@ export default {
       // map images to handle picture tags with SfImage
       return this.images.map(({ normal, big }) => ({
         small: normal,
-        normal: big,
+        normal: big
       }));
-    },
+    }
   },
 
   methods: {
     positionObject(index) {
       if (this.$refs.sfGalleryBigImage) {
-        if(this.outsideZoom){
-          return this.$refs.sfGalleryBigImage[index].$refs.imgLazy.getBoundingClientRect();
+        if (this.outsideZoom) {
+          return this.$refs.glide.getBoundingClientRect();
         } else {
-          return this.$refs.sfGalleryBigImage[index].$el.getBoundingClientRect();
+          return this.$refs.sfGalleryBigImage[
+            index
+          ].$el.getBoundingClientRect();
         }
       }
-      return '';
+      return "";
     },
     go(index) {
       this.activeIndex = index;
@@ -90,40 +92,45 @@ export default {
        * Event for current image change (`v-model`)
        * @type {Event}
        */
-      this.$emit('click', index + 1);
+      this.$emit("click", index + 1);
       if (this.glide) {
         this.glide.go(`=${index}`);
       }
     },
-    addImg(picture) {
-      if(!this.disableZoom){
-        const { zoom, big, normal } = picture
-        this.pictureSelected = (zoom || big || normal).url
+    startZoom(picture) {
+      if (!this.disableZoom) {
+        const { zoom, big, normal } = picture;
+        this.pictureSelected = (zoom || big || normal).url;
       }
     },
-    changeImg($event, index) {
-      if(!this.disableZoom){
+    moveZoom($event, index) {
+      if (!this.disableZoom) {
         this.eventHover = $event;
-        if (this.outsideZoom){
+        if (this.outsideZoom) {
           this.positionStatic = this.positionObject(index);
-          this.$refs.imgZoom.style.transformOrigin = `${$event.clientX - this.positionStatic.x}px ${$event.clientY - this.positionStatic.y }px`;
-          this.$refs.outSide.style.top = `${this.positionStatic.y + this.$refs.sfGalleryBigImage[index].$refs.imgLazy.offsetHeight}px`
-          this.$refs.outSide.style.left = `${this.positionStatic.x}px`
+          this.$refs.imgZoom.style.transformOrigin = `${$event.clientX -
+            this.positionStatic.x}px ${$event.clientY -
+            this.positionStatic.y}px`;
         } else {
           this.positionStatic = this.positionObject(index);
-          this.$refs.sfGalleryBigImage[index].$refs.imgLazy.style.transform = "scale(2)";
-          this.$refs.sfGalleryBigImage[index].$refs.imgLazy.style.transformOrigin = `${$event.clientX - this.positionStatic.x}px ${$event.clientY - this.positionStatic.y}px`;
+          this.$refs.sfGalleryBigImage[index].$refs.imgLazy.style.transform =
+            "scale(2)";
+          this.$refs.sfGalleryBigImage[
+            index
+          ].$refs.imgLazy.style.transformOrigin = `${$event.clientX -
+            this.positionStatic.x}px ${$event.clientY -
+            this.positionStatic.y}px`;
         }
-      }  
-    },
-    removeImg() {
-      if(!this.disableZoom){
-        this.pictureSelected = '';
-        this.$refs.sfGalleryBigImage.forEach(el => {
-          el.$refs.imgLazy.style.transform = 'scale(1)';
-        })
       }
     },
+    removeZoom() {
+      if (!this.disableZoom) {
+        this.pictureSelected = "";
+        this.$refs.sfGalleryBigImage.forEach(el => {
+          el.$refs.imgLazy.style.transform = "scale(1)";
+        });
+      }
+    }
   },
 
   mounted() {
@@ -131,7 +138,7 @@ export default {
       // handle slider with swipe and transitions with Glide.js
       // https://glidejs.com/docs/
       const glide = new Glide(this.$refs.glide, this.sliderOptions);
-      glide.on('run', () => {
+      glide.on("run", () => {
         this.go(glide.index);
       });
       glide.mount();
@@ -143,5 +150,5 @@ export default {
     if (this.glide) {
       this.glide.destroy();
     }
-  },
+  }
 };
