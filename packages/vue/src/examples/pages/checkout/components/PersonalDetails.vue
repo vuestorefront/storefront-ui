@@ -1,11 +1,11 @@
 <template>
   <div class="personal-details">
-    <SfHeading
-      :level="2"
-      title="1. Personal Details"
-      class="sf-heading--left sf-heading--no-underline"
-    />
     <div class="form">
+      <SfHeading
+        :level="2"
+        title="1. Personal Details"
+        class="sf-heading--left sf-heading--no-underline form__element"
+      />
       <SfInput
         v-model="personalDetails.firstName"
         class="form__element"
@@ -43,7 +43,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import {
   SfHeading,
@@ -71,7 +70,6 @@ export default {
   }
 };
 </script>
-
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .form {
