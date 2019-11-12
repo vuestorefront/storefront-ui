@@ -1,8 +1,6 @@
 <template>
   <div id="cart">
-    <SfButton style="margin: 1rem" @click="isCartSidebarOpen = true"
-      >Open My cart</SfButton
-    >
+    <SfButton @click="isCartSidebarOpen = true">Open My cart</SfButton>
     <SfSidebar
       :visible="isCartSidebarOpen"
       class="sf-sidebar--right"
@@ -53,11 +51,11 @@
               </div>
             </template>
             <template #actions>
-              <div class="product__actions">
-                <div style="text-decoration: underline; line-height: 1.6">
+              <div class="product__action-list">
+                <div class="product__action">
                   Save for later
                 </div>
-                <div style="text-decoration: underline; line-height: 1.6">
+                <div class="product__action">
                   Add to compare
                 </div>
               </div>
@@ -426,7 +424,7 @@ export default {
   &__properties {
     margin-top: $spacer-big;
   }
-  &__actions {
+  &__action-list {
     display: none;
     @include for-desktop {
       display: block;
@@ -436,6 +434,10 @@ export default {
     @at-root .sf-collected-product:hover & {
       opacity: 1;
     }
+  }
+  &__action {
+    line-height: 1.6;
+    text-decoration: underline;
   }
 }
 .empty-cart {
