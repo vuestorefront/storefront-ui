@@ -34,8 +34,17 @@ $banner--secondary__call-to-action-background-color: $c-green-primary !default;
   padding: $banner-mobile-padding;
   background-size: $banner-background-size;
   background-position: $banner-background-position;
+  background: --background-color;
+  @if --m {
+    background-image: var(--m);
+  } @else if --image-background-banner {
+    background-image: var(--image-background-banner);
+  }
   text-align: left;
   @media (min-width: $desktop-min) {
+    @if --d {
+      background-image: var(--d);
+    }
     min-height: 20rem;
     padding: $banner-padding;
   }
