@@ -265,11 +265,4 @@ export default {
     }
   }
 }
-.sf-sidebar {
-  ::v-deep &__circle-icon {
-    @media (max-width: $mobile-max) {
-      top: 4.925rem;
-    }
-  }
-}
 </style>
