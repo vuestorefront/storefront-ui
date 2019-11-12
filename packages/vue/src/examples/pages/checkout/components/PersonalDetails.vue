@@ -7,34 +7,39 @@
     />
     <div class="form">
       <SfInput
+        v-model="personalDetails.firstName"
         class="form__element"
         label="First name"
         name="first-name"
         required
       />
       <SfInput
+        v-model="personalDetails.lastName"
         class="form__element form__element--half"
         label="Last name"
         name="last-name"
         required
       />
       <SfInput
+        v-model="personalDetails.email"
         class="form__element form__element--half"
         label="Your email"
         name="email"
         required
       />
       <SfCheckbox
+        v-model="personalDetails.createAccount"
         class="form__element"
         label="I want to create an account"
+        value="create"
         name="create-account"
       />
       <SfButton class="form__element form__element--half"
         >Continue to shopping</SfButton
       >
-      <span class="form__element form__element--half"
-        >or log in to your account</span
-      >
+      <div class="form__element form__element--half">
+        or <SfButton class="sf-button--text">log in to your account</SfButton>
+      </div>
     </div>
   </div>
 </template>
@@ -53,6 +58,16 @@ export default {
     SfInput,
     SfCheckbox,
     SfButton
+  },
+  data() {
+    return {
+      personalDetails: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        createAccount: []
+      }
+    };
   }
 };
 </script>
