@@ -9,7 +9,7 @@
         <h3 v-if="totalItems" class="my-cart__total-items">
           Total items: {{ totalItems }}
         </h3>
-        <div v-if="totalItems" class="my-cart__product-list">
+        <div v-if="totalItems" class="collected-product-list">
           <transition-group name="collapse-bottom" :duration="300" tag="div">
             <SfCollectedProduct
               v-for="product in products"
@@ -214,12 +214,12 @@ export default {
   &__total-price {
     margin-bottom: $spacer-big;
   }
-  &__product-list {
-    margin: $spacer-big;
-  }
   &__summary {
-    margin: 0 $spacer-extra-big $spacer-extra-big;
+    margin: auto $spacer-extra-big $spacer-extra-big;
   }
+}
+.collected-product-list {
+  margin: $spacer-big;
 }
 .empty-cart {
   overflow: hidden;
