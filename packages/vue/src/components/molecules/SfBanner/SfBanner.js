@@ -33,11 +33,23 @@ export default {
     },
     /** Background image. Influenced by $banner-background-size, $banner-background-position CSS props. */
     image: {
-      type: String,
+      type: [String, Object],
       default: ""
     }
   },
   components: {
     SfButton
+  },
+  mounted() {
+    if (typeof this.image === "object") {
+      if (this.image.mobile && this.image.desktop) {
+        this.$el.style.setProperty("--m", `url(${this.image.mobile})`);
+        this.$el.style.setProperty("--d", `url(${this.image.desktop})`);
+      }
+    } else if (typeof this.image == "string") {
+      this.$el.style.setProperty("--m", `url(${this.image})`);
+      this.$el.style.setProperty("--d", `url(${this.image})`);
+    }
+    this.$el.style.setProperty("--background-color", this.background);
   }
 };
