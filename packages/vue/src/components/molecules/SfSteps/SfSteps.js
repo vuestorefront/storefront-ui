@@ -28,13 +28,6 @@ export default {
   },
   props: {
     /**
-     * Steps to show
-     */
-    steps: {
-      type: Array,
-      default: () => []
-    },
-    /**
      * Current active step
      */
     active: {
