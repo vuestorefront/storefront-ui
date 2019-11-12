@@ -65,5 +65,15 @@ $button--outline-border: 2px !default;
     &:hover {
       background-color: transparent;
     }
+    @each $color, $map in $colors-map {
+      $text: map-get($map, "bg");
+      &.color-#{$color} {
+        color: $text !important;
+        background-color: transparent !important;
+        &:hover {
+          background-color: transparent !important;
+        }
+      }
+    }
   }
 }
