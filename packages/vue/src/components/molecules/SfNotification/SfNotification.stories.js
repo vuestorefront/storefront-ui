@@ -90,7 +90,7 @@ storiesOf("Molecules|Notification", module)
         type: {
           default: select(
             "type (prop)",
-            ["success", "info", "secondary", "danger"],
+            ["secondary", "info", "success", "warning", "danger"],
             "secondary"
           )
         }

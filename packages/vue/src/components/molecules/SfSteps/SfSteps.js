@@ -28,7 +28,7 @@ export default {
      */
     steps: {
       type: Array,
-      required: true
+      default: () => []
     },
     /**
      * Current active step
@@ -57,6 +57,12 @@ export default {
         }));
       }
       return [];
+    },
+    progress() {
+      return this.active + 1;
+    },
+    progressWidth() {
+      return `${100 / this.steps.length}%`;
     }
   },
   methods: {

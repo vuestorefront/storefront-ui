@@ -5,7 +5,7 @@ $product-card-max-width-desktop: 240px !default;
 $product-card-padding: $spacer-small !default;
 $product-card-padding-desktop: $spacer-big !default;
 $product-card-hover-box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
-$product-card__image-background-color: $c-bg-primary !default;
+$product-card__image-background-color: $c-light !default;
 $product-card__image-blend-mode: darken !default;
 $product-card__pictures-height: 180px !default;
 $product-card__pictures-height-desktop: 250px !default;
@@ -19,14 +19,14 @@ $product-card__pictures-height-desktop: 250px !default;
   padding: $product-card-padding;
   background-color: $c-white;
   transition: box-shadow 150ms ease-in-out;
-  &:hover{
-    @media (min-width: $desktop-min) {
-      z-index: 1;
-    }
-  }
+
   @media (min-width: $desktop-min) {
     max-width: $product-card-max-width-desktop;
     padding: $product-card-padding-desktop;
+  }
+
+  &__link {
+    outline: none;
   }
 
   &__pictures {
@@ -45,7 +45,7 @@ $product-card__pictures-height-desktop: 250px !default;
     display: block;
     flex: 0 0 100%;
     opacity: 0;
-    transition: opacity .25s;
+    transition: opacity 0.25s;
     max-height: $product-card__pictures-height;
 
     &:first-child {
@@ -59,15 +59,15 @@ $product-card__pictures-height-desktop: 250px !default;
 
   &:hover {
     @media (min-width: $desktop-min) {
+      z-index: 1;
       content: "";
       transition: box-shadow 150ms ease-in-out;
     }
-  }
-  &:hover{
-    &::after{
+
+    &::after {
       @media (min-width: $desktop-min) {
         position: absolute;
-        z-index: 1;
+        z-index: -1;
         top: 0;
         left: 0;
         right: 0;
@@ -113,7 +113,7 @@ $product-card__pictures-height-desktop: 250px !default;
     img {
       max-width: 100%;
       mix-blend-mode: $product-card__image-blend-mode;
-      background-color: $c-light-primary;
+      background-color: $c-light;
     }
   }
 

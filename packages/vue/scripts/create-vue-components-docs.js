@@ -292,7 +292,7 @@ function extractCssModifiers(contentScssFile) {
   const uniqueModifiers = new Map();
   for (let i = 0; i < lines.length; ++i) {
     const line = lines[i];
-    const regExp = /(\w+--[^\s,:]+)/g;
+    const regExp = /(\S+--[^\s,:]+)/g;
     let partialReResult;
     let lastModifierFound;
     // as multiple modifiers may be on one line, we have to make this (stateful) reg exp. search
@@ -311,7 +311,12 @@ function extractCssModifiers(contentScssFile) {
       if (!lines[j].endsWith("{")) {
         continue;
       }
-      // opening-brace found; if the line after it doesn't contain a @modifier annotation, break
+      // opening-brace found; but if the line after it contains a @no-docs annotation, remove it again from the found modifiers
+      if (lines[j + 1].trim().includes("@no-docs")) {
+        uniqueModifiers.delete(lastModifierFound);
+        break;
+      }
+      // if it doesn't contain a @modifier annotation, keep it in the found modifiers, but break (don't look for description)
       if (!lines[j + 1].trim().includes("@modifier")) {
         break;
       }
@@ -660,5 +665,6 @@ module.exports = {
   createVueComponentsDocs
 };
 
-createVueComponentsDocs();
-process.exit(0);
+if (require.main === module) {
+  createVueComponentsDocs();
+}

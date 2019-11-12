@@ -86,7 +86,7 @@ export default {
   props: {
     member: {
       type: Object,
-      required: true,
+      default: ()=>({}),
     },
   },
   computed: {

@@ -10,9 +10,9 @@ $radio__label-font-weight: 500 !default;
 $radio__label-line-height: 1.3 !default;
 $radio__checkmark-transition: border 0.25s cubic-bezier(1, 0.5, 0.8, 1) !default;
 $radio__checkmark-size: 1.4375rem !default;
-$radio__checkmark-color-primary: $c-green-primary !default;
-$radio__checkmark-color-secondary: $c-gray-secondary !default;
-$radio--active-background: $c-light-primary !default;
+$radio__checkmark-color-primary: $c-primary !default;
+$radio__checkmark-color-secondary: $c-gray-variant !default;
+$radio--active-background: $c-light !default;
 
 .sf-radio {
   $this: &;
