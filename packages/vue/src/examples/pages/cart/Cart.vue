@@ -1,6 +1,10 @@
 <template>
   <div id="cart">
-    <SfSidebar :visible="isCartSidebarOpen" class="sf-sidebar--right">
+    <SfSidebar
+      :visible="isCartSidebarOpen"
+      @close="() => {}"
+      class="sf-sidebar--right"
+    >
       <div class="my-cart">
         <SfHeading
           title="My Account"
