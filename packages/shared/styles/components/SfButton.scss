@@ -55,4 +55,15 @@ $button--outline-border: 2px !default;
       }
     }
   }
+  &--text {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    color: $c-text;
+    text-transform: none;
+    text-decoration: underline;
+    &:hover {
+      background-color: transparent;
+    }
+  }
 }
