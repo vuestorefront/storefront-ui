@@ -1,151 +1,131 @@
-/* eslint-disable import/no-extraneous-dependencies */
+// /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
 
 import SfInput from "./SfInput.vue";
-
-const vm = {
-  components: { SfInput },
-  data: () => {
-    return {
-      value: ""
-    };
-  }
-};
-
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["$sf-input__transition", "all 0.3s ease-in-out", "Input transition"],
-    ["$sf-input__input-font-size", "$font-size-big-desktop", "Input font size"],
-    ["$sf-input__label-font-size", "$font-size-big-desktop", "Label font size"],
-    [
-      "$sf-input__label-focus-font-size",
-      "0.625rem",
-      "Focus input label font size"
-    ],
-    [
-      "$sf-input__error-message-min-height",
-      "0.875rem",
-      "Error message min-height"
-    ],
-    ["$sf-input__active-color", "$c-accent-primary", "Active input color"],
-    [
-      "$sf-input__invalid-color",
-      "rgba(240, 140, 125, 1)",
-      "Invalid input color"
-    ],
-    [
-      "$sf-input__disabled-color",
-      "rgba(115, 118, 128, 1)",
-      "Disabled input color"
-    ]
-  ]
-};
+import SfIcon from "../SfIcon/SfIcon.vue";
 
 storiesOf("Atoms|Input", module)
   .addDecorator(withKnobs)
-  .add(
-    "Basic",
-    () => ({
-      ...vm,
-      props: {
-        name: {
-          default: text("Name", "name")
-        },
-        label: {
-          default: text("Label", "label")
-        },
-        valid: {
-          default: boolean("Valid", true)
-        },
-        required: {
-          default: boolean("Required", true)
-        },
-        errorMessage: {
-          default: text("Error message", "Field is required.")
-        }
+  .add("Default", () => ({
+    components: { SfInput },
+    props: {
+      label: {
+        default: text("label (prop)", "First name")
       },
-      template: `
-      <div :style="{ width: '300px', margin: '50px' }">
-        <SfInput 
-          v-model="value" 
-          :name="name" 
-          :label="label" 
-          :valid="valid" 
-          :errorMessage="errorMessage" 
-          :required="required" 
-        />
-      </div>`
-    }),
-    {
-      info: {
-        summary: `
-        <p>Single form input component.</p>
-        <h2> Usage </h2>
-        <pre><code>import SfInput from "@storefront-ui/vue/dist/SfInput.vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
+      name: {
+        default: text("name (prop)", "first-name")
+      },
+      errorMessage: {
+        default: text("error-message (prop)", "Field is required.")
+      },
+      valid: {
+        default: boolean("valid (prop)", true)
+      },
+      required: {
+        default: boolean("required (prop)", true)
+      },
+      disabled: {
+        default: boolean("disabled (prop)", false)
       }
-    }
-  )
-  .add(
-    "[slot] label",
-    () => ({
-      ...vm,
-      props: {
-        valid: {
-          default: boolean("Valid")
-        },
-        required: {
-          default: boolean("Required", true)
-        },
-        errorMessage: {
-          default: text("Error message", "Field is required.")
-        }
+    },
+    data() {
+      return {
+        value: ""
+      };
+    },
+    template: `<SfInput
+      v-model="value"
+      :label="label"
+      :name="name"
+      :valid="valid"
+      :error-message="errorMessage"
+      :required="required"
+      :disabled="disabled"/>`
+  }))
+  .add("[slot] label", () => ({
+    components: {
+      SfInput,
+      SfIcon
+    },
+    props: {
+      label: {
+        default: text("label (prop)", "First name")
       },
-      template: `
-        <div :style="{ width: '300px', margin: '50px' }">
-          <SfInput v-model="value" :valid="valid" :required="required">
-          <template #label>
-            <span style="color: salmon;">Address</span>
-          </template>
-            
-          </SfInput>
-        </div>
-      `
-    }),
-    {
-      info: true
-    }
-  )
-  .add(
-    "[slot] with error message",
-    () => ({
-      ...vm,
-      props: {
-        label: {
-          default: text("Label", "Name")
-        },
-        valid: {
-          default: boolean("Valid", false)
-        },
-        required: {
-          default: boolean("Required", true)
-        }
+      name: {
+        default: text("name (prop)", "first-name")
       },
-      template: `
-        <div :style="{ width: '300px', margin: '50px' }">
-          <SfInput v-model="value" :label="label" :valid="valid" :required="required">
-          <template #errorMessage>
-            <span  style="color: orange;">This field is not correct.</span>
-          </template>
-          </SfInput>
-        </div>
-      `
-    }),
-    {
-      info: true
-    }
-  );
+      errorMessage: {
+        default: text("error-message (prop)", "Field is required.")
+      },
+      valid: {
+        default: boolean("valid (prop)", true)
+      },
+      required: {
+        default: boolean("required (prop)", true)
+      },
+      disabled: {
+        default: boolean("disabled (prop)", false)
+      }
+    },
+    data() {
+      return {
+        value: ""
+      };
+    },
+    template: `<SfInput
+      v-model="value"
+      :label="label"
+      :name="name"
+      :valid="valid"
+      :error-message="errorMessage"
+      :required="required"
+      :disabled="disabled">
+      <template #label="{ label }">
+            <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
+      </template>
+    </SfInput>`
+  }))
+  .add("[slot] errorMessage", () => ({
+    components: {
+      SfInput,
+      SfIcon
+    },
+    props: {
+      label: {
+        default: text("label (prop)", "First name")
+      },
+      name: {
+        default: text("name (prop)", "first-name")
+      },
+      errorMessage: {
+        default: text("error-message (prop)", "Field is required.")
+      },
+      valid: {
+        default: boolean("valid (prop)", false)
+      },
+      required: {
+        default: boolean("required (prop)", false)
+      },
+      disabled: {
+        default: boolean("disabled (prop)", false)
+      }
+    },
+    data() {
+      return {
+        value: "Adam"
+      };
+    },
+    template: `<SfInput
+      v-model="value"
+      :label="label"
+      :name="name"
+      :valid="valid"
+      :error-message="errorMessage"
+      :required="required"
+      :disabled="disabled">
+      <template #errorMessage="{ errorMessage }">
+        <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> {{errorMessage}}
+      </template>
+    </SfInput>`
+  }));

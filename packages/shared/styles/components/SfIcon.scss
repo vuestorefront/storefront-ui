@@ -1,6 +1,6 @@
 @import '../variables';
 
-$sf-icon-sizes : (
+$icon-sizes : (
     "xxs": 1rem,
     "xs": 1.4rem,
     "sm": 1.625rem,
@@ -11,29 +11,29 @@ $sf-icon-sizes : (
     "xl3": 2.8rem,
     "xl4": 3.25rem
 );
-$sf-icon-colors : (
-    "primary" : $c-green-primary,
-    "secondary": $c-dark-primary,
+$icon-colors : (
+    "primary" : $c-primary,
+    "secondary": $c-dark,
     "white": $c-white,
     "black": $c-black,
-    "accent": $c-accent-secondary,
-    "green-primary": $c-green-primary,
-    "green-secondary": $c-green-secondary,
-    "gray-primary": $c-gray-primary,
-    "gray-secondary": $c-gray-secondary,
-    "light-primary": $c-light-primary,
-    "light-secondary": $c-light-secondary,
-    "pink-primary": $c-pink-primary,
-    "pink-secondary": $c-pink-secondary,
-    "yellow-primary": $c-yellow-primary,
-    "yellow-secondary": $c-yellow-secondary,
-    "blue-primary": $c-blue-primary,
-    "blue-secondary": $c-blue-secondary
+    "accent": $c-primary-variant,
+    "green-primary": $c-primary,
+    "green-secondary": $c-primary-variant,
+    "gray-primary": $c-gray,
+    "gray-secondary": $c-gray-variant,
+    "light-primary": $c-light,
+    "light-secondary": $c-light-variant,
+    "pink-primary": $c-danger,
+    "pink-secondary": $c-danger-variant,
+    "yellow-primary": $c-warning,
+    "yellow-secondary": $c-warning-variant,
+    "blue-primary": $c-info,
+    "blue-secondary": $c-info-variant
 );
 
 .sf-icon {
-    --icon-color: #{map-get($sf-icon-colors, "black")};
-    --icon-size: #{map-get($sf-icon-sizes, "sm")};
+    --icon-color: #{map-get($icon-colors, "black")};
+    --icon-size: #{map-get($icon-sizes, "sm")};
 
     outline: none;
     background-color: transparent;
@@ -44,13 +44,13 @@ $sf-icon-colors : (
     width: var(--icon-size);
     height: var(--icon-size);
 
-    @each $pallete, $color in $sf-icon-colors {
+    @each $pallete, $color in $icon-colors {
         &--color-#{$pallete} {
             --icon-color: #{$color};
         }
     }
 
-    @each $profile, $size in $sf-icon-sizes {
+    @each $profile, $size in $icon-sizes {
         &--size-#{$profile} {
             --icon-size: #{$size};
         }

@@ -27,23 +27,30 @@ const items = [
     image: "https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
   }
 ];
-const singleItem = [
-  {
-    title: "title_single",
-    subtitle: "subtitle_single",
-    buttonText: "button_single",
-    background: "#eceff1",
-    image: "https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
-  }
-];
+
+const defaultSlot = `
+<template>
+  <div v-for="(item, index) in items">
+    <SfHeroItem
+      :title="item.title"
+      :subtitle="item.subtitle"
+      :buttonText="item.buttonText"
+      :background="item.background"
+      :image="item.image"
+    />
+  </div>
+</template>`;
 
 describe("SfHero.vue", () => {
   describe("with items array passed as props", () => {
     let component;
     beforeEach(() => {
       component = shallowMount(SfHero, {
-        propsData: {
+        mocks: {
           items
+        },
+        slots: {
+          default: defaultSlot
         }
       });
     });
@@ -87,46 +94,49 @@ describe("SfHero.vue", () => {
         .trigger("click");
       expect(component.vm.go).toHaveBeenCalledWith("next");
     });
+  });
 
-    describe("with 'prev' and 'next' slots populated", () => {
-      let component;
-      beforeEach(() => {
-        component = shallowMount(SfHero, {
-          propsData: {
-            items
-          },
-          slots: {
-            prev: "<div class='forPrevSlot'></div>",
-            next: "<div class='forNextSlot'></div>"
-          }
-        });
+  describe("with 'prev' and 'next' slots populated", () => {
+    let component;
+    beforeEach(() => {
+      component = shallowMount(SfHero, {
+        mocks: {
+          items
+        },
+        slots: {
+          default: defaultSlot
+        },
+        scopedSlots: {
+          prev: `<button class="forPrevSlot" @click="props.go()"></button>`,
+          next: `<button class='forNextSlot' @click="props.go()"></button>`
+        }
       });
+    });
 
-      afterEach(() => {
-        component.destroy();
-      });
+    afterEach(() => {
+      component.destroy();
+    });
 
-      it("renders 'prev' and 'next' slots instead of SfArrow", () => {
-        jest.spyOn(component.vm, "go");
-        expect(component.vm.go).not.toHaveBeenCalled();
-        expect(component.findAll(".forPrevSlot")).toHaveLength(1);
-        expect(component.findAll(".forNextSlot")).toHaveLength(1);
-        expect(component.findAll(SfArrow)).toHaveLength(0);
-      });
+    it("renders 'prev' and 'next' slots instead of SfArrow", () => {
+      jest.spyOn(component.vm, "go");
+      expect(component.vm.go).not.toHaveBeenCalled();
+      expect(component.findAll(".forPrevSlot")).toHaveLength(1);
+      expect(component.findAll(".forNextSlot")).toHaveLength(1);
+      expect(component.findAll(SfArrow)).toHaveLength(0);
+    });
 
-      it("calls #go with 'prev' when clicked on 'prev' slot", () => {
-        jest.spyOn(component.vm, "go");
-        expect(component.vm.go).not.toHaveBeenCalled();
-        component.find(".forPrevSlot").trigger("click");
-        expect(component.vm.go).toHaveBeenCalledWith("prev");
-      });
+    it("calls #go with 'prev' when clicked on 'prev' slot", () => {
+      jest.spyOn(component.vm, "go");
+      expect(component.vm.go).not.toHaveBeenCalled();
+      component.find(".forPrevSlot").trigger("click");
+      expect(component.vm.go).toHaveBeenCalledWith("prev");
+    });
 
-      it("calls #go with 'next' when clicked on 'next' slot", () => {
-        jest.spyOn(component.vm, "go");
-        expect(component.vm.go).not.toHaveBeenCalled();
-        component.find(".forNextSlot").trigger("click");
-        expect(component.vm.go).toHaveBeenCalledWith("next");
-      });
+    it("calls #go with 'next' when clicked on 'next' slot", () => {
+      jest.spyOn(component.vm, "go");
+      expect(component.vm.go).not.toHaveBeenCalled();
+      component.find(".forNextSlot").trigger("click");
+      expect(component.vm.go).toHaveBeenCalledWith("next");
     });
   });
 
@@ -134,8 +144,11 @@ describe("SfHero.vue", () => {
     let component;
     beforeEach(() => {
       component = shallowMount(SfHero, {
-        propsData: {
-          items: singleItem
+        mocks: {
+          items: [items[0]]
+        },
+        slots: {
+          default: defaultSlot
         }
       });
     });

@@ -1,41 +1,38 @@
 @import '../variables';
-@import "~@glidejs/glide/src/assets/sass/glide.core";
 
 $hero__controls-top: 50% !default;
 $hero__controls-padding-h: 1rem !default;
 $hero__controls-width: calc(100% - 2 * #{$hero__controls-padding-h}) !default;
 $hero__bullets-position-offset: 0.5rem !default;
-$hero__bullets-position-offset--desktop: 2.5rem !default;
-$hero__bullets-width: 100% !default;
-$hero-item-height: 14rem !default;
-$hero-item-height--desktop: 30rem !default;
+$hero__bullets-position-offset-desktop: 2.5rem !default;
 $hero-item-width: 100% !default;
-$hero-item-padding: 1rem !default;
-$hero-item-padding--desktop: 5rem !default;
+$hero-item-padding: $spacer-extra-big !default;
+$hero-item-padding-desktop: 5rem !default;
 $hero-item-bg-size: cover !default;
-$hero-item-bg-position: top left !default;
-$hero-item-bg-repeat: no-repeat !default;
-$hero-item__container-width--desktop: 50% !default;
+$hero-item-bg-position: center !default;
+$hero-item-font-weight: 500 !default;
+$hero-item-line-height: 1.6 !default;
+$hero-item__container-width-desktop: 50% !default;
 $hero-item__container-width: 60% !default;
 $hero-item__container-height: 100% !default;
-$hero-item__container-padding--desktop: 0 2rem !default;
+$hero-item__container-padding-desktop: 0 2rem !default;
 $hero-item__container-padding: 0 !default;
 $hero-item__subtitle-width: 100% !default;
-$hero-item__subtitle-width--desktop: min-content !default;
-$hero-item__subtitle-color: $c-gray-secondary !default;
+$hero-item__subtitle-width-desktop: min-content !default;
+$hero-item__subtitle-color: $c-gray-variant !default;
 $hero-item__subtitle-border-left: $hero-item__subtitle-color solid 1px !default;
 $hero-item__subtitle-border: 0 !default;
-$hero-item__subtitle-font: 10px !default;
-$hero-item__subtitle-font--desktop: 12px !default;
-$hero-item__subtitle-line-height--desktop: 17px !default;
-$hero-item__subtitle-line-height: 14px !default;
-$hero-item__subtitle-padding-left--desktop: 36px !default;
+$hero-item__subtitle-font-family: $body-font-family-primary !default;
+$hero-item__subtitle-font-size: $font-size-extra-small-mobile !default;
+$hero-item__subtitle-font-size-desktop: $font-size-extra-small-desktop !default;
+$hero-item__subtitle-padding-left-desktop: 36px !default;
 $hero-item__subtitle-padding-left: 18px !default;
-$hero-item__title-font: 18px !default;
-$hero-item__title-font--desktop: 36px !default;
-$hero-item__title-line-height--desktop: 50px !default;
-$hero-item__title-line-height: 25px !default;
-$hero-item__title-color: $c-dark-primary !default;
+$hero-item__title-font-desktop: 36px !default;
+$hero-item__title-color: $c-dark !default;
+$hero-item__title-font-family: $body-font-family-primary !default;
+$hero-item__title-font-size: $font-size-extra-big-mobile !default;
+$hero-item__title-font-size-desktop: $h1-font-size-desktop !default;
+$hero-item__title-line-height: 1.38 !default;
 
 .sf-hero {
   position: relative;
@@ -57,13 +54,14 @@ $hero-item__title-color: $c-dark-primary !default;
   }
   &__bullets {
     position: absolute;
-    width: $hero__bullets-width;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
     align-content: center;
     bottom: $hero__bullets-position-offset;
     @media screen and (min-width: $desktop-min) {
-      bottom: $hero__bullets-position-offset--desktop;
+      bottom: $hero__bullets-position-offset-desktop;
     }
   }
   &-item {
@@ -72,14 +70,64 @@ $hero-item__title-color: $c-dark-primary !default;
     flex-direction: column;
     justify-content: center;
     padding: $hero-item-padding;
-    height: $hero-item-height;
+    font-weight: $hero-item-font-weight;
+    line-height: $hero-item-line-height;
     @media screen and (min-width: $desktop-min) {
-      padding: $hero-item-padding--desktop;
-      height: $hero-item-height--desktop;
+      padding: $hero-item-padding-desktop;
     }
     background-size: $hero-item-bg-size;
     background-position: $hero-item-bg-position;
-    background-repeat: $hero-item-bg-repeat;
+    background-repeat: no-repeat;
+    &__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      width: $hero-item__container-width;
+      height: $hero-item__container-height;
+      padding: $hero-item__container-padding;
+      @media screen and (min-width: $desktop-min) {
+        justify-content: space-evenly;
+        width: $hero-item__container-width-desktop;
+        padding: $hero-item__container-padding-desktop;
+      }
+    }
+    &__subtitle {
+      width: $hero-item__subtitle-width;
+      padding-left: $hero-item__subtitle-padding-left;
+      margin-bottom: $spacer-medium * 2;
+      border: $hero-item__subtitle-border-left;
+      border-top: $hero-item__subtitle-border;
+      border-right: $hero-item__subtitle-border;
+      border-bottom: $hero-item__subtitle-border;
+      color: $hero-item__subtitle-color;
+      text-transform: uppercase;
+      font-size: $hero-item__subtitle-font-size;
+      @media screen and (min-width: $desktop-min) {
+        margin-bottom: $spacer-extra-big * 2;
+        width: $hero-item__subtitle-width-desktop;
+        padding-left: $hero-item__subtitle-padding_left-desktop;
+        font-size: $hero-item__subtitle-font-size-desktop;
+      }
+    }
+    &__title {
+      color: $hero-item__title-color;
+      font-size: $hero-item__title-font-size;
+      line-height: $hero-item__title-line-height;
+      margin-bottom: $spacer-extra-big;
+      @media screen and (min-width: $desktop-min) {
+        margin-bottom: 0;
+        font-size: $hero-item__title-font-size-desktop;
+      }
+    }
+    &__button {
+      display: none;
+      @media screen and (min-width: $desktop-min) {
+        margin-top: $spacer-extra-big;
+        margin-bottom: $spacer-extra-big * 2;
+        display: block;
+      }
+    }
     &--position-bg-top-right {
       background-position: top right;
     }
@@ -91,52 +139,6 @@ $hero-item__title-color: $c-dark-primary !default;
     }
     &--align-right {
       align-items: flex-end;
-    }
-    &__container {
-      height: $hero-item__container-height;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: $hero-item__container-padding;
-      width: $hero-item__container-width;
-      justify-content: center;
-      @media screen and (min-width: $desktop-min) {
-        padding: $hero-item__container-padding--desktop;
-        width: $hero-item__container-width--desktop;
-        justify-content: space-evenly;
-      }
-    }
-    &__subtitle {
-      color: $hero-item__subtitle-color;
-      border: $hero-item__subtitle-border-left;
-      border-top: $hero-item__subtitle-border;
-      border-right: $hero-item__subtitle-border;
-      border-bottom: $hero-item__subtitle-border;
-      line-height: $hero-item__subtitle-line-height;
-      padding-left: $hero-item__subtitle-padding-left;
-      width: $hero-item__subtitle-width;
-      font-size: $hero-item__subtitle-font;
-      @media screen and (min-width: $desktop-min) {
-        font-size: $hero-item__subtitle-font--desktop;
-        width: $hero-item__subtitle-width--desktop;
-        line-height: $hero-item__subtitle-line_height--desktop;
-        padding-left: $hero-item__subtitle-padding_left--desktop;
-      }
-    }
-    &__title {
-      color: $hero-item__title-color;
-      font-size: $hero-item__title-font;
-      line-height: $hero-item__title-line-height;
-      @media screen and (min-width: $desktop-min) {
-        font-size: $hero-item__title-font--desktop;
-        line-height: $hero-item__title-line-height--desktop;
-      }
-    }
-    &__button {
-      display: none;
-      @media screen and (min-width: $desktop-min) {
-        display: inline;
-      }
     }
   }
 }

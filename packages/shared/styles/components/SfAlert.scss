@@ -1,38 +1,33 @@
-@import '../variables';
+@import "../variables";
 
-$alert-padding: 0.625rem !default;
-$alert-font-size: 0.875rem !default;
-$alert__message-margin: 0 !default;
-$alert__message-padding-left: 0.625rem !default;
-$alert--info-color: $c-dark-primary !default;
-$alert--warning-color: #d12727 !default;
-$alert--alert-color: #0468db !default;
-$alert--success-color: #128830 !default;
+$alert-font-family: $body-font-family-secondary !default;
+$alert-font-size: $font-size-regular-mobile !default;
+$alert-font-size-desktop: $font-size-big-desktop !default;
+$alert-font-weight: $body-font-weight-secondary !default;
+$alert-line-height: 1.6 !default;
+$alert__message-margin-left: 0.625rem !default;
 
 .sf-alert {
+  $this: &;
   display: flex;
   align-items: center;
-  padding: $alert-padding;
+  font-family: $alert-font-family;
   font-size: $alert-font-size;
-  background-color: $c-white;
+  font-weight: $alert-font-weight;
+  line-height: $alert-line-height;
+  @media screen and (min-width: $desktop-min) {
+    font-size: $alert-font-size-desktop;
+  }
   &__message {
-    margin: $alert__message-margin;
-    padding-left: $alert__message-padding-left;
+    margin-left: $alert__message-margin-left;
   }
-  &--info {
-    color: $alert--info-color;
-    fill: $alert--info-color;
-  }
-  &--alert {
-    fill: $alert--alert-color;
-    color: $alert--alert-color;
-  }
-  &--warning {
-    fill: $alert--warning-color;
-    color: $alert--warning-color;
-  }
-  &--success {
-    fill: $alert--success-color;
-    color: $alert--success-color;
+  @each $name, $pair in $colors-map {
+    $color: map-get($pair, "bg");
+    &--#{$name} {
+      color: $color;
+      #{$this}__icon {
+        fill: $color;
+      }
+    }
   }
 }

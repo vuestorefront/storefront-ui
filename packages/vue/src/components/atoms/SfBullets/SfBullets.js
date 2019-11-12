@@ -9,7 +9,7 @@ export default {
       default: 0
     },
     /**
-     * Index of the curretly active bullet
+     * Index of the currently active bullet (0-indexed)
      */
     current: {
       type: Number,

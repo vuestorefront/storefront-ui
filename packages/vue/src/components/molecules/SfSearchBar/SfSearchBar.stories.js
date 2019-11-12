@@ -2,25 +2,26 @@ import { storiesOf } from "@storybook/vue";
 import { action } from "@storybook/addon-actions";
 import SfSearchBar from "./SfSearchBar.vue";
 import { generateStorybookTable } from "@/helpers";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  select,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    [
-      "$search-bar-background-primary",
-      "$c-light-primary",
-      "background color primary"
-    ],
+    ["$search-bar-background-primary", "$c-light", "background color primary"],
     [
       "$search-bar-background-secondary",
-      "$c-light-secondary",
+      "$c-light-variant",
       "background color secondary"
     ],
-    ["$search-bar-placeholder-color", "$c-dark-primary", "placeholder color"],
+    ["$search-bar-placeholder-color", "$c-dark", "placeholder color"],
     [
       "$search-bar-placeholder-color-focus",
-      "$c-gray-primary ",
+      "$c-gray ",
       "placeholder in focus color"
     ],
     ["$search-bar-width", "20rem", "search bar width"],
@@ -63,17 +64,18 @@ storiesOf("Molecules|SearchBar", module)
     () => ({
       props: {
         customClass: {
-          default: select(
-            "CSS Modifier",
-            [
-              "null",
-              "sf-search-bar--secondary",
-              "sf-search-bar--position-right",
-              "sf-search-bar--position-right-mobile",
-              "sf-search-bar--position-right-desktop"
-            ],
-            "null",
-            "CSS-Modifiers"
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-search-bar--secondary": "sf-search-bar--secondary",
+              "sf-search-bar--position-right": "sf-search-bar--position-right",
+              "sf-search-bar--position-right-mobile":
+                "sf-search-bar--position-right-mobile",
+              "sf-search-bar--position-right-desktop":
+                "sf-search-bar--position-right-desktop"
+            },
+            "",
+            { display: "multi-select" }
           )
         }
       },

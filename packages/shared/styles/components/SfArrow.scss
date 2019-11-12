@@ -1,13 +1,14 @@
 @import '../variables';
 
-$arrow__button-color: $c-light-primary !default;
-$arrow__button-color--hover: $c-dark-primary !default;
-$arrow__button-shadow: 0 5px 12px -6px rgba($c-dark-primary, 0) !default;
-$arrow__button-shadow--right: 0 -5px 12px -5px rgba($c-dark-primary, 0.6) !default;
+$arrow__button-color: $c-light !default;
+$arrow__button-color--hover: $c-dark !default;
+$arrow__button-shadow: 0 5px 12px -6px rgba($c-black, 0) !default;
+$arrow__button-shadow--right: 0 -5px 12px -5px rgba($c-black, 0.6) !default;
 $arrow__icon-color: $c-white !default;
-$arrow__icon-color--hover: $c-dark-primary !default;
+$arrow__icon-color--hover: $c-dark !default;
 
 .sf-arrow {
+  $this: &;
   &__button {
     position: relative;
     display: flex;
@@ -29,7 +30,6 @@ $arrow__icon-color--hover: $c-dark-primary !default;
   }
   &__icon {
     position: relative;
-    z-index: 1;
     flex: 0 0 24px;
     height: 12px;
     fill: $arrow__icon-color--hover;
@@ -63,13 +63,30 @@ $arrow__icon-color--hover: $c-dark-primary !default;
       }
     }
   }
+  &--rounded {
+    .sf-arrow {
+      &__button {
+        border-radius: 50%;
+      }
+    }
+  }
   &--transparent {
     .sf-arrow {
       &__button {
         background-color: transparent;
         &:hover {
           box-shadow: none;
+          #{$this}__icon{
+            fill: rgba($arrow__icon-color--hover, .65);
+          }
         }
+      }
+    }
+  }
+  &--no-shadow {
+    .sf-arrow {
+      &__button:hover {
+        box-shadow: none;
       }
     }
   }

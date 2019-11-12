@@ -14,7 +14,7 @@
     </slot>
     <!--@slot Call to action section. Slot content will replace default SfButton component-->
     <slot name="call-to-action" v-bind="{buttonText}">
-      <SfButton class="sf-banner__call-to-action" v-if="buttonText">{{ buttonText }}</SfButton>
+      <SfButton class="sf-banner__call-to-action color-secondary" v-if="buttonText">{{ buttonText }}</SfButton>
     </slot>
     <slot />
   </div>

@@ -2,10 +2,9 @@
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
-  object,
-  select,
   text,
-  number
+  number,
+  optionsKnob as options
 } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
@@ -43,11 +42,13 @@ storiesOf("Molecules|Section", module)
           default: number("(prop) levelHeading", 2)
         },
         customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-section--no-underline"],
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-section--no-underline": "sf-section--no-underline"
+            },
             "sf-section--no-underline",
-            "CSS-Modifiers"
+            { display: "multi-select" }
           )
         }
       },
