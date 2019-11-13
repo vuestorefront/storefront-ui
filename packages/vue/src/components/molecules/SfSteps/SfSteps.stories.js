@@ -34,4 +34,36 @@ storiesOf("Molecules|Steps", module)
         </div>
       </SfStep>
     </SfSteps>`
+  }))
+  .add("[slot] steps", () => ({
+    components: { SfSteps },
+    props: {
+      canGoBack: {
+        default: boolean("can-go-back (prop)", true)
+      }
+    },
+    data() {
+      return {
+        active: 0,
+        steps: [
+          "Personal details",
+          "Shipping",
+          "Billing address",
+          "Order review"
+        ]
+      };
+    },
+    template: `<SfSteps
+       v-model="active" 
+       :steps="steps" 
+       :can-go-back="canGoBack">
+       <template #steps>
+        <!-- slot content --> 
+      </template>
+      <SfStep v-for="(step, key) in steps" :key="key" :name="step">
+        <div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
+          [#default slot content] {{step}}
+        </div>
+      </SfStep>
+    </SfSteps>`
   }));
