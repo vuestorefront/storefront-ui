@@ -14,6 +14,7 @@ $sidebar-background-color: $c-white !default;
   }
   &__circle-icon {
     position: absolute;
+    z-index: 1;
     right: 3.25rem / 2 * -1;
     top: 4.925rem;
     box-shadow: 0 4px 56px rgba(87, 87, 87, 0.32);
