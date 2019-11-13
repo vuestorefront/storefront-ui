@@ -31,13 +31,16 @@ $content-pages__title-line-height: 1.6 !default;
 }
 
 .sf-content-pages {
-  box-sizing: border-box;
-  display: flex;
-  transition: transform 150ms ease-in-out;
-  &--is-active {
-    transform: translateX(-100%);
-    @media (min-width: $desktop-min) {
-      transform: translateX(0);
+  overflow: hidden;
+  &__section {
+    box-sizing: border-box;
+    display: flex;
+    transition: transform 150ms ease-in-out;
+    &--is-active {
+      transform: translateX(-100%);
+      @media (min-width: $desktop-min) {
+        transform: translateX(0);
+      }
     }
   }
   &__sidebar,
@@ -51,6 +54,7 @@ $content-pages__title-line-height: 1.6 !default;
     }
   }
   &__sidebar {
+    padding: 1.25rem;
     @media (min-width: $desktop-min) {
       flex: 0 0 $content-pages__sidebar-width;
       padding: 1.25rem 2.5rem 2.5rem;
