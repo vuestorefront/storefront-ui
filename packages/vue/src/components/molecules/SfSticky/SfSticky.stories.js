@@ -1,64 +1,21 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs } from "@storybook/addon-knobs";
 
 import SfSticky from "./SfSticky.vue";
 
-storiesOf("Molecules|Sticky", module)
-  .addDecorator(withKnobs)
-  .add(
-    "Basic",
-    () => ({
-      data() {
-        return {
-          row: {
-            display: "flex",
-            flexWrap: "wrap",
-            maxWidth: "600px",
-            margin: "auto"
-          },
-          col: {
-            flex: "0 0 300px"
-          },
-          content: {
-            height: "880px",
-            backgroundColor: "#F2F2F2"
-          },
-          sticky: {
-            height: "300px",
-            backgroundColor: "#5ECE7B"
-          },
-          top: {
-            height: "5rem"
-          },
-          bottom: {
-            height: "35rem"
-          }
-        };
-      },
-      components: { SfSticky },
-      template: `
-      <div>
-        <div :style="top"></div>
-        <div :style="row">
-          <div :style="col"> 
-            <div :style="content"></div>
-            <p></p>
-            <div :style="content"></div>
-          </div>
-          <div :style="col">
-            <SfSticky>
-              <div :style="sticky"></div>
-            </SfSticky>
-          </div>
+storiesOf("Molecules|Sticky", module).add("[slot] default", () => ({
+  components: { SfSticky },
+  template: `<div style="display: flex;">
+    <div style="flex: 1; margin-right: 1.25rem">
+      <div style="height: 25rem; border: 1px solid #f2f2f2;"></div>
+      <div style="height: 25rem; margin-top: 1.25rem; border: 1px solid #f2f2f2;"></div>
+    </div>
+    <div style="flex: 1">
+      <SfSticky>
+        <div style="display: flex; flex: 1; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
+          [#default slot content]
         </div>
-        <div :style="bottom"></div>
-      </div>`
-    }),
-    {
-      info: {
-        summary: `<h2>Usage</h2>
-       <pre><code>import { SfSticky } from "@storefront-ui/vue"</code></pre>`
-      }
-    }
-  );
+      </SfSticky>
+    </div>
+  </div>`
+}));
