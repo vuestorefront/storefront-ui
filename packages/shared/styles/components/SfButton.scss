@@ -2,8 +2,8 @@
 
 $button-padding: 1rem 2.5rem !default;
 $button-padding-desktop: 0.9375rem 2.5rem !default;
-$button-color: $c-text-on-dark !default;
-$button-background-color: $c-green-primary !default;
+$button-color: $c-on-dark !default;
+$button-background-color: $c-primary !default;
 $button-font-family: $body-font-family-secondary !default;
 $button-font-size: $font-size-small-mobile !default;
 $button-font-size-desktop: $font-size-small-desktop !default;
@@ -34,22 +34,44 @@ $button--outline-border: 2px !default;
     width: 100%;
   }
   &--outline {
-    color: $c-green-primary;
-    border: solid $button--outline-border $c-green-primary;
+    color: $c-primary;
+    border: solid $button--outline-border $c-primary;
     background-color: transparent !important;
     &:hover {
-      background-color: lighten($c-green-primary, 5) !important;
-      color: $c-white !important;
+      background-color: $c-primary-variant !important;
+      color: $c-on-primary !important;
     }
     @each $color, $map in $colors-map {
       $bg: map-get($map, "bg");
+      $variant: map-get($map, "variant");
       $text: map-get($map, "text");
       &.color-#{$color} {
         color: $bg !important;
         border: solid $button--outline-border $bg;
         &:hover {
-          background-color: lighten($bg, 5) !important;
+          background-color: $variant !important;
           color: $text !important;
+        }
+      }
+    }
+  }
+  &--text {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    color: $c-text;
+    text-transform: none;
+    text-decoration: underline;
+    &:hover {
+      background-color: transparent;
+    }
+    @each $color, $map in $colors-map {
+      $text: map-get($map, "bg");
+      &.color-#{$color} {
+        color: $text !important;
+        background-color: transparent !important;
+        &:hover {
+          background-color: transparent !important;
         }
       }
     }

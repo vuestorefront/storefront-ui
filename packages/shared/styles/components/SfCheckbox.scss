@@ -7,8 +7,8 @@ $checkbox-font-weight: $body-font-weight-primary !default;
 $checkbox-line-height: 1.6 !default;
 $checkbox__checkmark-size: 1.25rem !default;
 $checkbox__checkmark-size-desktop: 1.5rem !default;
-$checkbox__checkmark-primary-color: $c-green-primary !default;
-$checkbox__checkmark-secondary-color: $c-gray-secondary !default;
+$checkbox__checkmark-primary-color: $c-primary !default;
+$checkbox__checkmark-secondary-color: $c-gray-variant !default;
 $checkbox__checkmark-transition: background-color 0.25s
     cubic-bezier(1, 0.5, 0.8, 1),
   border-color 0.25s cubic-bezier(1, 0.5, 0.8, 1),
@@ -53,12 +53,12 @@ $checkbox__checkmark-transition: background-color 0.25s
       border-color: transparent;
     }
     .is-disabled & {
-      border-color: $c-dark-secondary;
+      border-color: $c-dark-variant;
       transition: $checkbox__checkmark-transition;
       opacity: 0.25;
     }
     .is-active.is-disabled & {
-      background-color: $c-dark-secondary;
+      background-color: $c-dark-variant;
       border-color: transparent;
       opacity: 0.25;
     }
