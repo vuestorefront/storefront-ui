@@ -27,6 +27,9 @@ export default {
       type: Boolean,
       default: false
     },
+    /**
+     * Array storing the checked values (usable for multiple grouped checkboxes).
+     */
     selected: {
       type: Array,
       default: () => []

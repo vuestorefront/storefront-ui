@@ -66,20 +66,18 @@ In order to include the components docs in the VuePress navigation, they are als
 Make sure to run the generation script when adding/moving/removing components and after manual changes to the VuePress configuration files. On success, these changes need to be committed to VCS.
 :::
 
-#### Syntax
+Documentation contributors need to know, where to add which type of documentation in which format. See the following _Syntax_ chapters for reference.
 
-Documentation contributors need to know, where to add which type of documentation in which format.
-
-##### Inside Vue files
+#### Syntax inside Inside Vue files
 
 **Props:** Use normal block-comment style (with double-asterisk) for descriptions. _Example:_
 ```js
 /**
  * Product title
  */
-{
-  String,
-  required;: true
+title: {
+  type: String,
+  required: true
 }
 ```
 
@@ -102,7 +100,7 @@ this.$emit("library:loaded");
 
 Multiline descriptions are merged into a single line, joined by dots (if necessary).
 
-##### CSS Modifiers
+#### Syntax inside CSS Modifiers
 
 Use normal block-comment style (with single-asterisk) for descriptions. _Example:_
 ```css
@@ -123,7 +121,7 @@ By using the `@no-docs` annotation instead, you can exclude a modifier from bein
 
 Single-asterisk style was chosen so it doesn't interfere with the SASS parser logic. For the same reason, the comment has to be _inside_ the modifier definition block it belongs to.
 
-##### Additional Component Info
+#### Syntax inside Additional Component Info
 
 The MD file for additional component information has to be named exactly like the component (with _Sf_ prefix) and contain both (h1) headlines `component-description` and `common-usage`. _Example:_
 
