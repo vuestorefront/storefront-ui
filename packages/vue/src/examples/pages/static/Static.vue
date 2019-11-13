@@ -144,8 +144,8 @@ export default {
 .back-bar {
   display: flex;
   justify-content: space-between;
-  padding: 1rem $spacer-big;
-  background-color: #f1f2f3;
+  padding: $spacer-medium $spacer-big;
+  background-color: $c-light;
   &__button {
     padding: 0;
     margin: 0;
@@ -157,7 +157,7 @@ export default {
   &__title {
     font-family: $body-font-family-secondary;
     font-size: $font-size-big-mobile;
-    font-weight: 500;
+    font-weight: $h2-font-weight-mobile;
   }
 }
 </style>
