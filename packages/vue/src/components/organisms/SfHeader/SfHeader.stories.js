@@ -1,5 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, array } from "@storybook/addon-knobs";
+
 import SfHeader from "./SfHeader.vue";
 
 storiesOf("Organisms/Header", module)
@@ -8,7 +9,7 @@ storiesOf("Organisms/Header", module)
     components: { SfHeader },
     props: {
       logo: {
-        default: text("(prop) logo", "")
+        default: text("(prop) logo", "/assets/logo.svg")
       },
       navigations: {
         default: array("(prop) navigations", [
@@ -32,11 +33,22 @@ storiesOf("Organisms/Header", module)
         default: text("(prop) accountIcon", "profile")
       }
     },
-    template: `
-        <SfHeader :navigations="navigations" :cart-icon="cartIcon" :wishlist-icon="wishlistIcon" :account-icon="accountIcon">
-          <img src="arrow_left.svg" alt="arrow" slot="left"/>
-          <img src="arrow_right.svg" alt="arrow" slot="right"/>
-        </SfHeader>`
+    template: `<SfHeader 
+      :logo="logo"
+      :navigations="navigations" 
+      :cart-icon="cartIcon" 
+      :wishlist-icon="wishlistIcon" 
+      :account-icon="accountIcon" />`
+  }))
+  .add("[slot] mobile", () => ({
+    components: { SfHeader },
+    props: {
+      logo: {
+        default: text("(prop) logo", "/assets/logo.svg")
+      }
+    },
+    template: `<SfHeader 
+      :logo="logo" />`
   }));
 
 // export default storiesOf("Organisms/Header", module)

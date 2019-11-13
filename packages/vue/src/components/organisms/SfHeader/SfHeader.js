@@ -8,7 +8,7 @@ export default {
   props: {
     logo: {
       type: String,
-      default: "assets/logo.svg"
+      default: ""
     },
     navigations: {
       type: Array,
