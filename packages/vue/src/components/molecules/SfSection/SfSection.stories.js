@@ -73,7 +73,7 @@ storiesOf("Molecules|Section", module)
       <template #heading>
         <!-- slot content -->
       </template>
-      <div style="display: flex; align-items:center; justify-content:center; height: 300px; background-color: #f2f2f2;">
+      <div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
         [#default slot content]
       </div>
     </SfSection>`
