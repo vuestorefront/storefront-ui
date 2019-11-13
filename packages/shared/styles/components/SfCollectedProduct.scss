@@ -16,9 +16,6 @@ $collected-product__select-quantity-height: 1.875rem !default;
   display: flex;
   max-width: $collected-product-max-width;
   padding: $spacer-small;
-  @media (min-width: $desktop-min) {
-    padding: 10px;
-  }
   &::after {
     content: "";
     @media (min-width: $desktop-min) {
@@ -45,6 +42,9 @@ $collected-product__select-quantity-height: 1.875rem !default;
     #{$this}__remove {
       opacity: 1;
     }
+  }
+  @media (min-width: $desktop-min) {
+    padding: 10px;
   }
   &__remove {
     position: absolute;
