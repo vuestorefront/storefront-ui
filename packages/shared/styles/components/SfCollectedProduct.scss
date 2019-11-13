@@ -27,6 +27,9 @@ $collected-product__select-quantity-height: 1.875rem !default;
   }
   &:hover {
     background: $c-white;
+    @media (min-width: $desktop-min) {
+      z-index: 1;
+    }
     &::after {
       @media (min-width: $desktop-min) {
         position: absolute;
@@ -34,7 +37,7 @@ $collected-product__select-quantity-height: 1.875rem !default;
         right: 0;
         bottom: 0;
         left: 0;
-        z-index: 1;
+        z-index: -1;
         content: "";
         box-shadow: $collected-product-box-shadow--hover;
       }
