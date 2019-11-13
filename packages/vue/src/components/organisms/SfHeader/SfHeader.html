@@ -2,7 +2,7 @@
   <slot name="logo">
     <SfImage :src="logo" class="sf-header__logo" />
   </slot>
-  <slot name="navigation">
+  <slot name="navigations">
     <nav class="sf-header__navigation">
       <a class="sf-header__navigation-link" v-for="(navigation, index) in navigations" :key="index" :href="navigation.href" v-text="navigation.text"></a>
     </nav>

@@ -40,13 +40,108 @@ storiesOf("Organisms/Header", module)
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon" />`
   }))
-  .add("[slot] mobile", () => ({
+  .add("[slot] logo", () => ({
+    components: { SfHeader },
+    props: {
+      logo: {
+        default: text("(prop) logo", "/assets/heart.svg")
+      },
+      navigations: {
+        default: array("(prop) navigations", [
+          {
+            text: "WOMEN",
+            href: ""
+          },
+          {
+            text: "MEN",
+            href: ""
+          }
+        ])
+      },
+      cartIcon: {
+        default: text("(prop) cartIcon", "empty_cart")
+      },
+      wishlistIcon: {
+        default: text("(prop) wishlistIcon", "heart")
+      },
+      accountIcon: {
+        default: text("(prop) accountIcon", "profile")
+      }
+    },
+    template: `<SfHeader 
+      :logo="logo"
+      :navigations="navigations"
+      :cart-icon="cartIcon" 
+      :wishlist-icon="wishlistIcon" 
+      :account-icon="accountIcon" />`
+  }))
+  .add("[slot] navigations", () => ({
     components: { SfHeader },
     props: {
       logo: {
         default: text("(prop) logo", "/assets/logo.svg")
+      },
+      navigations: {
+        default: array("(prop) navigations", [
+          {
+            text: "KIDS",
+            href: ""
+          },
+          {
+            text: "SALE",
+            href: ""
+          }
+        ])
+      },
+      cartIcon: {
+        default: text("(prop) cartIcon", "empty_cart")
+      },
+      wishlistIcon: {
+        default: text("(prop) wishlistIcon", "heart")
+      },
+      accountIcon: {
+        default: text("(prop) accountIcon", "profile")
       }
     },
     template: `<SfHeader 
-      :logo="logo" />`
+      :logo="logo"
+      :navigations="navigations"
+      :cart-icon="cartIcon" 
+      :wishlist-icon="wishlistIcon" 
+      :account-icon="accountIcon" />`
+  }))
+  .add("[slot] search", () => ({
+    components: { SfHeader },
+    props: {
+      logo: {
+        default: text("(prop) logo", "/assets/logo.svg")
+      },
+      navigations: {
+        default: array("(prop) navigations", [
+          {
+            text: "WOMEN",
+            href: ""
+          },
+          {
+            text: "MEN",
+            href: ""
+          }
+        ])
+      },
+      cartIcon: {
+        default: text("(prop) cartIcon", "empty_cart")
+      },
+      wishlistIcon: {
+        default: text("(prop) wishlistIcon", "heart")
+      },
+      accountIcon: {
+        default: text("(prop) accountIcon", "profile")
+      }
+    },
+    template: `<SfHeader 
+      :logo="logo"
+      :navigations="navigations"
+      :cart-icon="cartIcon" 
+      :wishlist-icon="wishlistIcon" 
+      :account-icon="accountIcon" />`
   }));

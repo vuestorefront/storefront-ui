@@ -22,28 +22,28 @@ export default {
      */
     navigations: {
       type: Array,
-      default: () => []
+      default: []
     },
     /**
      * Heading cartIcon
      */
     cartIcon: {
       type: String,
-      default: "empty_cart"
+      default: ""
     },
     /**
      * Heading wishlistIcon
      */
     wishlistIcon: {
       type: String,
-      default: "heart"
+      default: ""
     },
     /**
      * Heading accountIcon
      */
     accountIcon: {
       type: String,
-      default: "profile"
+      default: ""
     }
   },
   methods: {
