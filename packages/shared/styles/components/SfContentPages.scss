@@ -35,6 +35,7 @@ $content-pages__title-line-height: 1.6 !default;
   &__section {
     box-sizing: border-box;
     display: flex;
+    height: 100%;
     transition: transform 150ms ease-in-out;
     &--is-active {
       transform: translateX(-100%);
