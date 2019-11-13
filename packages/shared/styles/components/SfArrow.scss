@@ -1,14 +1,21 @@
 @import '../variables';
 
-$arrow__button-color: $c-light-primary !default;
-$arrow__button-color--hover: $c-dark-primary !default;
-$arrow__button-shadow: 0 5px 12px -6px rgba($c-dark-primary, 0) !default;
-$arrow__button-shadow--right: 0 -5px 12px -5px rgba($c-dark-primary, 0.6) !default;
+$arrow__button-color: $c-light !default;
+$arrow__button-color--hover: $c-dark !default;
+$arrow__button-shadow: 0 5px 12px -6px rgba($c-black, 0) !default;
+$arrow__button-shadow--right: 0 -5px 12px -5px rgba($c-black, 0.6) !default;
 $arrow__icon-color: $c-white !default;
-$arrow__icon-color--hover: $c-dark-primary !default;
+$arrow__icon-color--hover: $c-dark !default;
 
 .sf-arrow {
   $this: &;
+  &__icon {
+    position: relative;
+    flex: 0 0 24px;
+    height: 12px;
+    fill: $arrow__icon-color--hover;
+    transition: fill 150ms linear;
+  }
   &__button {
     position: relative;
     display: flex;
@@ -28,12 +35,12 @@ $arrow__icon-color--hover: $c-dark-primary !default;
       }
     }
   }
-  &__icon {
-    position: relative;
-    flex: 0 0 24px;
-    height: 12px;
-    fill: $arrow__icon-color--hover;
-    transition: fill 150ms linear;
+  &--rounded {
+    .sf-arrow {
+      &__button {
+        border-radius: 50%;
+      }
+    }
   }
   &--long {
     width: 70px;
@@ -60,13 +67,6 @@ $arrow__icon-color--hover: $c-dark-primary !default;
         &:hover {
           box-shadow: $arrow__button-shadow--right;
         }
-      }
-    }
-  }
-  &--rounded {
-    .sf-arrow {
-      &__button {
-        border-radius: 50%;
       }
     }
   }
