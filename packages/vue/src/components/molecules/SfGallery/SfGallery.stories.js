@@ -79,10 +79,10 @@ storiesOf("Molecules|Gallery", module)
     () => ({
       props: {
         autoplay: {
-          default: number("sliderOptions (prop) autoplay")
+          default: number("autoplay (prop)")
         },
         rewind: {
-          default: boolean("sliderOptions (prop) rewind", false)
+          default: boolean("rewind (prop)", false)
         },
         current: {
           default: number("current (prop)", 1)

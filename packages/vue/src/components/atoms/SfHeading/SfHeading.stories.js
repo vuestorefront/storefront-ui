@@ -28,13 +28,13 @@ storiesOf("Atoms|Heading", module)
         )
       },
       level: {
-        default: number("(prop) level", 2, { min: 1, max: 6 })
+        default: number("level (prop)", 2, { min: 1, max: 6 })
       },
       title: {
-        default: text("(prop) title", "Show how YOU wear it")
+        default: text("title (prop)", "Show how YOU wear it")
       },
       subtitle: {
-        default: text("(prop) subtitle", "#YOURLOOK")
+        default: text("subtitle (prop)", "#YOURLOOK")
       }
     },
     template: `<SfHeading
@@ -62,13 +62,13 @@ storiesOf("Atoms|Heading", module)
         )
       },
       level: {
-        default: number("(prop) level", 2, { min: 1, max: 6 })
+        default: number("level (prop)", 2, { min: 1, max: 6 })
       },
       title: {
-        default: text("(prop) title", "Show how YOU wear it")
+        default: text("title (prop)", "Show how YOU wear it")
       },
       subtitle: {
-        default: text("(prop) subtitle", "#YOURLOOK")
+        default: text("subtitle (prop)", "#YOURLOOK")
       }
     },
     template: `<SfHeading

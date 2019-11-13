@@ -10,19 +10,19 @@ storiesOf("Atoms|Checkbox", module)
     components: { SfCheckbox },
     props: {
       name: {
-        default: text("(prop) name", "shipping")
+        default: text("name (prop)", "shipping")
       },
       value: {
-        default: text("(prop) value", "shipping-address")
+        default: text("value (prop)", "shipping-address")
       },
       label: {
-        default: text("(prop) label", "Copy address data from shipping")
+        default: text("label (prop)", "Copy address data from shipping")
       },
       required: {
-        default: boolean("(prop) required", false)
+        default: boolean("required (prop)", false)
       },
       disabled: {
-        default: boolean("(prop) disabled", false)
+        default: boolean("disabled (prop)", false)
       }
     },
     data() {
@@ -43,19 +43,19 @@ storiesOf("Atoms|Checkbox", module)
     components: { SfCheckbox },
     props: {
       name: {
-        default: text("(prop) name", "shipping")
+        default: text("name (prop)", "shipping")
       },
       value: {
-        default: text("(prop) value", "shipping-address")
+        default: text("value (prop)", "shipping-address")
       },
       label: {
-        default: text("(prop) label", "Copy address data from shipping")
+        default: text("label (prop)", "Copy address data from shipping")
       },
       required: {
-        default: boolean("(prop) required", false)
+        default: boolean("required (prop)", false)
       },
       disabled: {
-        default: boolean("(prop) disabled", false)
+        default: boolean("disabled (prop)", false)
       }
     },
     data() {
