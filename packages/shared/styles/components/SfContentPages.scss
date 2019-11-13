@@ -9,13 +9,13 @@ $content-pages__title-font-weight: 500 !default;
 $content-pages__title-line-height: 1.6 !default;
 
 %title {
-  padding: 1.25rem 0;
+  padding: $spacer-big 0;
   font-family: $content-pages__title-font-family;
   font-size: $content-pages__title-font-size;
   font-weight: $content-pages__title-font-weight;
   line-height: $content-pages__title-line-height;
   @media (min-width: $desktop-min) {
-    margin-bottom: 1.25rem;
+    margin-bottom: $spacer-big;
     font-size: $content-pages__title-font-size-desktop;
   }
 }
@@ -51,14 +51,14 @@ $content-pages__title-line-height: 1.6 !default;
     padding: 0 1.875rem;
     @media (min-width: $desktop-min) {
       flex: 1;
-      padding: 1.25rem 2.5rem;
+      padding: $spacer-big $spacer-extra-big;
     }
   }
   &__sidebar {
-    padding: 1.25rem;
+    padding: $spacer-big;
     @media (min-width: $desktop-min) {
       flex: 0 0 $content-pages__sidebar-width;
-      padding: 1.25rem 2.5rem 2.5rem;
+      padding: $spacer-big $spacer-extra-big $spacer-extra-big;
       background-color: $content-pages__sidebar-background-color;
     }
   }
