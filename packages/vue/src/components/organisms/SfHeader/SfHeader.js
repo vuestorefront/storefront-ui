@@ -1,5 +1,4 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-const DEFAULT_LOGO = "/assets/logo.svg";
 
 export default {
   name: "SfHeader",
@@ -9,7 +8,7 @@ export default {
   props: {
     logo: {
       type: String,
-      default: DEFAULT_LOGO
+      default: "assets/logo.svg"
     },
     navigations: {
       type: Array,
@@ -28,13 +27,8 @@ export default {
       default: "profile"
     }
   },
-  computed: {
-    isDefaultLogo() {
-      return this.logo === DEFAULT_LOGO;
-    }
-  },
   methods: {
-    onClickEmit(name) {
+    onClickHandler(name) {
       this.$emit(`click:${name}`);
     }
   }
