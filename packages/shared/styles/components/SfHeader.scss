@@ -5,7 +5,6 @@ $header-mobile-height: 50px !default;
 $header-desktop-height: 80px !default;
 
 $header-navigation-padding: 40px !default;
-$header-navigation-list-padding: 40px !default;
 $header-navigation-justify-content: center !default;
 $header-navigation-list-font-size: $font-size-regular-mobile !default;
 $header-navigation-list-font-weight: 500 !default;
@@ -39,7 +38,6 @@ $header__logo-height: auto !default;
     align-items: $header-mobile-align-items;
   }
   @media (min-width: $tablet-min) {
-    width: 1160px;
     height: $header-desktop-height;
   }
 
@@ -56,7 +54,7 @@ $header__logo-height: auto !default;
 
   &__icons {
     display: flex;
-    right: 0;
+    margin-right: $header-icon-margin;
   }
 
   &__icon {

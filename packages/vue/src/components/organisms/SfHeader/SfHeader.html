@@ -1,27 +1,39 @@
 <header class="sf-header">
-  <SfImage :src="logo" class="sf-header__logo" />
-  <nav class="sf-header__navigation">
-    <a class="sf-header__navigation-link" v-for="(navigation, index) in navigations" :key="index" :href="navigation.href" v-text="navigation.text"></a>
-  </nav>
-  <SfSearchBar class="sf-header__search" />
+  <slot name="logo">
+    <SfImage :src="logo" class="sf-header__logo" />
+  </slot>
+  <slot name="navigation">
+    <nav class="sf-header__navigation">
+      <a class="sf-header__navigation-link" v-for="(navigation, index) in navigations" :key="index" :href="navigation.href" v-text="navigation.text"></a>
+    </nav>
+  </slot>
+  <slot name="search">
+    <SfSearchBar class="sf-header__search" />
+  </slot>
   <div class="sf-header__icons">
+    <slot name ="accountIcon">
     <SfIcon
       class="sf-header__icon"
       size="xs"
       :icon="accountIcon"
       @click="onClickHandler('account')">
     </SfIcon>
+  </slot>
+  <slot name ="wishlistIcon">
     <SfIcon
       class="sf-header__icon"
       size="xs"
       :icon="wishlistIcon"
       @click="onClickHandler('wishlist')">
     </SfIcon>
+  </slot>
+  <slot name ="cartIcon">
     <SfIcon
       class="sf-header__icon"
       size="xs"
       :icon="cartIcon"
       @click="onClickHandler('cart')">
     </SfIcon>
+  </slot>
   </div>
 </header>
