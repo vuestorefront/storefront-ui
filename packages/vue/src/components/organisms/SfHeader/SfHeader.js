@@ -1,9 +1,13 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfImage from "../../atoms/SfImage/SfImage.vue";
+import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
 
 export default {
   name: "SfHeader",
   components: {
-    SfIcon
+    SfIcon,
+    SfImage,
+    SfSearchBar
   },
   props: {
     /**

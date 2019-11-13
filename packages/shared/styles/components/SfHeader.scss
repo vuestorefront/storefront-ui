@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $header-mobile-background: $c-light !default;
 $header-mobile-height: 50px !default;
@@ -14,7 +14,6 @@ $header-navigation-list-color: $c-dark !default;
 $header-icon-margin: 30px !default;
 $header-icon-cursor: pointer !default;
 
-$header-mobile-justify-content: space-between !default;
 $header-mobile-align-items: center !default;
 
 $header-mobile-padding-x: 1rem !default;
@@ -26,60 +25,37 @@ $header__logo-height: auto !default;
 
 .sf-header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
   width: 100%;
+  margin: {
+    left: auto;
+    right: auto;
+  }
   @media (max-width: $mobile-max) {
+    flex-direction: row;
     background: $header-mobile-background;
     height: $header-mobile-height;
     align-items: $header-mobile-align-items;
   }
   @media (min-width: $tablet-min) {
-    height: $header-desktop-height;
-  }
-
-  &__container {
-    display: flex;
-    align-items: center;
     width: 1160px;
-    max-width: 100%;
-    margin: {
-      left: auto;
-      right: auto;
-    }
-  }
-
-  &__column {
-    &--left, &--right {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      @media (min-width: $tablet-min) {
-        justify-content: flex-start;
-      }
-    }
+    height: $header-desktop-height;
   }
 
   &__navigation {
     display: flex;
-    list-style-type: none;
-    padding-left: $header-navigation-padding;
-  }
-
-  &__navigation-list {
-    padding-left: $header-navigation-list-padding;
   }
 
   &__navigation-link {
     font-size: $header-navigation-list-font-size;
     font-weight: $header-navigation-list-font-weight;
+    padding-left: $header-navigation-padding;
     color: $header-navigation-list-color;
   }
 
-  &__icon-group {
+  &__icons {
     display: flex;
+    right: 0;
   }
 
   &__icon {
@@ -87,18 +63,22 @@ $header__logo-height: auto !default;
     cursor: $header-icon-cursor;
   }
 
+  &__search {
+    margin-left: $spacer-extra-big * 10;
+  }
+
   &__logo {
     width: $header-mobile-logo-width;
     height: $header__logo-height;
-    padding-right: 0.5rem;
+    padding: 0 0.5rem;
 
     @media (min-width: $tablet-min) {
       width: $header-desktop-logo-width;
     }
   }
-  &__nav,
+  &__navigation,
   &__search,
-  &__icon {
+  &__icons {
     @media (max-width: $mobile-max) {
       display: none;
     }
