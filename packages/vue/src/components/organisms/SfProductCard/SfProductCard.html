@@ -16,7 +16,12 @@
     </slot>
   </button>
 
-  <component :is="link ? 'a' : 'div'" :href="link">
+  <component
+    :is="linkComponentTag"
+    :href="linkComponentTag === 'a' ? link : null"
+    :to="link && linkComponentTag !== 'a' ? link : null"
+    class="sf-product-card__link"
+  >
     <!-- @slot -->
     <slot name="image" v-bind="{ image, title }">
       <div v-if="Array.isArray(image)" class="sf-product-card__pictures">
