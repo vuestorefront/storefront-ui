@@ -3,7 +3,7 @@ Full width hover-animated component with icons and tabs, e.g. usable for navigat
 
 # common-usage
 <br>
-<SfHeader :logo="/assets/logo.svg" :navigations="["WOMAN", "MEN"]" :cart-icon="cartIcon" :wishlist-icon="wishlistIcon" :account-icon="accountIcon" />
+<SfHeader logo="/assets/logo.svg" navigations="["WOMAN", "MEN"]" cart-icon="cartIcon" wishlist-icon="wishlistIcon" account-icon="accountIcon" />
 
 ```html
 <template>
