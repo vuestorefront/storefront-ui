@@ -4,10 +4,28 @@
       class="breadcrumbs desktop-only"
       :breadcrumbs="breadcrumbs"
     />
+    <div class="back-bar mobile-only">
+      <div>
+        <button
+          v-if="activePage"
+          @click="activePage = ''"
+          class="back-bar__button"
+        >
+          <SfIcon icon="chevron_left" size="14px" />
+        </button>
+      </div>
+      <div class="back-bar__title">{{ barTitle }}</div>
+      <div>
+        <button v-if="false" class="back-bar__button">
+          <SfIcon icon="cross" size="14px" />
+        </button>
+      </div>
+    </div>
     <SfContentPages
       :active="activePage"
       @click:change="updateActive"
       title="Help"
+      class="static-content"
     >
       <SfContentPage title="About us">
         <SfTabs :open-tab="1">
@@ -63,13 +81,19 @@
   </div>
 </template>
 <script>
-import { SfBreadcrumbs, SfContentPages, SfTabs } from "../../../../index.js";
+import {
+  SfBreadcrumbs,
+  SfContentPages,
+  SfTabs,
+  SfIcon
+} from "../../../../index.js";
 export default {
   name: "Static",
   components: {
     SfBreadcrumbs,
     SfContentPages,
-    SfTabs
+    SfTabs,
+    SfIcon
   },
   data() {
     return {
@@ -79,6 +103,11 @@ export default {
         { text: "Help", route: { link: "#" } }
       ]
     };
+  },
+  computed: {
+    barTitle() {
+      return this.activePage ? this.activePage : "Home";
+    }
   },
   methods: {
     updateActive(title) {
@@ -98,6 +127,9 @@ export default {
 
 #static {
   box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
@@ -105,5 +137,27 @@ export default {
 }
 .breadcrumbs {
   padding: $spacer-big $spacer-extra-big $spacer-extra-big;
+}
+.static-content {
+  flex: 1;
+}
+.back-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem $spacer-big;
+  background-color: #f1f2f3;
+  &__button {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+  }
+  &__title {
+    font-family: $body-font-family-secondary;
+    font-size: $font-size-big-mobile;
+    font-weight: 500;
+  }
 }
 </style>
