@@ -43,7 +43,7 @@ export default {
      */
     accountIcon: {
       type: String,
-      default: ""
+      default: "profile"
     }
   },
   methods: {
