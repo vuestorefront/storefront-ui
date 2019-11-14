@@ -36,7 +36,7 @@ export default {
      */
     wishlistIcon: {
       type: String,
-      default: ""
+      default: "heart"
     },
     /**
      * Heading accountIcon
