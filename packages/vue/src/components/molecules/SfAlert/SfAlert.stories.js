@@ -42,7 +42,7 @@ storiesOf("Molecules|Alert", module)
       :message="message"
       :type="type">
       <template #icon>
-        <!-- slot content -->
+        ❤️
       </template>  
     </SfAlert>`
   }))
@@ -64,7 +64,7 @@ storiesOf("Molecules|Alert", module)
       :message="message"
       :type="type">
       <template #message>
-        <!-- slot content -->
+        Low in <span style="font-weight: 500; text-transform: uppercase; font-size: 1.5rem; margin-left: 5px">stock</span>
       </template>  
     </SfAlert>`
   }));
