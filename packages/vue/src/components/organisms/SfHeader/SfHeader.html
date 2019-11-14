@@ -16,7 +16,7 @@
       class="sf-header__icon"
       size="xs"
       :icon="accountIcon"
-      @click="onClickHandler('account')">
+      @click="$emit('click:account')">
     </SfIcon>
   </slot>
   <slot name ="wishlistIcon">
