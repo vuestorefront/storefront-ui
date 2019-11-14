@@ -29,10 +29,7 @@ $header__logo-height: auto !default;
   align-items: center;
   width: 100%;
   background: $header-mobile-background;
-  margin: {
-    left: auto;
-    right: auto;
-  }
+
   @media (min-width: $desktop-min) {
     background: $header-desktop-background;
     justify-content: space-between;
@@ -72,7 +69,7 @@ $header__logo-height: auto !default;
   &__logo {
     width: $header-mobile-logo-width;
     height: $header__logo-height;
-    padding: 0 0.5rem;
+    padding: 0.5rem;
 
     @media (min-width: $tablet-min) {
       width: $header-desktop-logo-width;

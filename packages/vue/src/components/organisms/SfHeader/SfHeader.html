@@ -1,6 +1,6 @@
 <header class="sf-header">
   <slot name="logo">
-    <SfImage :src="logo" class="sf-header__logo" />
+    <SfImage v-if="logo" :src="logo" class="sf-header__logo" />
   </slot>
   <slot name="navigations">
     <nav class="sf-header__navigation">
