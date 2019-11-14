@@ -7,12 +7,18 @@ import {
   optionsKnob as options
 } from "@storybook/addon-knobs";
 
+const StoriesPlaceholder = {
+  template: `<div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
+    [#default slot content]
+  </div>`
+};
+
 import SfSection from "./SfSection.vue";
 
 storiesOf("Molecules|Section", module)
   .addDecorator(withKnobs)
   .add("[slot] default", () => ({
-    components: { SfSection },
+    components: { SfSection, StoriesPlaceholder },
     props: {
       customClass: {
         default: options(
@@ -38,13 +44,11 @@ storiesOf("Molecules|Section", module)
       :title-heading="titleHeading"
       :subtitle-heading="subtitleHeading"
       :level-heading="levelHeading">
-      <div style="display: flex; align-items:center; justify-content:center; height: 300px; background-color: #f2f2f2;">
-        [#default slot content]
-      </div>
+      <StoriesPlaceholder />
     </SfSection>`
   }))
   .add("[slot] heading", () => ({
-    components: { SfSection },
+    components: { SfSection, StoriesPlaceholder },
     props: {
       customClass: {
         default: options(
@@ -71,10 +75,8 @@ storiesOf("Molecules|Section", module)
       :subtitle-heading="subtitleHeading"
       :level-heading="levelHeading">
       <template #heading>
-        <!-- slot content -->
+        <h1>Custom Heading</h1>
       </template>
-      <div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
-        [#default slot content]
-      </div>
+      <StoriesPlaceholder/>
     </SfSection>`
   }));
