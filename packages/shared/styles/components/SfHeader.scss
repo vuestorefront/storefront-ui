@@ -1,6 +1,7 @@
 @import "../variables";
 
 $header-mobile-background: $c-light !default;
+$header-desktop-background: $c-white !default;
 $header-mobile-height: 50px !default;
 $header-desktop-height: 80px !default;
 
@@ -24,19 +25,22 @@ $header__logo-height: auto !default;
 
 .sf-header {
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 100%;
+  background: $header-mobile-background;
   margin: {
     left: auto;
     right: auto;
   }
   @media (min-width: $desktop-min) {
-    justify-content:  space-between;
-    background: $header-mobile-background;
+    background: $header-desktop-background;
+    justify-content: space-between;
     height: $header-mobile-height;
     align-items: center;
   }
   @media (min-width: $tablet-min) {
+    background: $header-desktop-background;
     height: $header-desktop-height;
   }
 
