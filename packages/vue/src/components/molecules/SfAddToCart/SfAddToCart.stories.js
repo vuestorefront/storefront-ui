@@ -17,13 +17,14 @@ storiesOf("Molecules|AddToCart", module)
     },
     data() {
       return {
-        qty: "1"
+        value: "1"
       };
     },
     template: `<SfAddToCart 
       :disabled="disabled"
       :stock="stock"
-      v-model="qty" />`
+      v-model="value" 
+      @click="()=>{}"/>`
   }))
   .add("[slot] add-to-cart-btn", () => ({
     components: { SfAddToCart },
@@ -37,15 +38,15 @@ storiesOf("Molecules|AddToCart", module)
     },
     data() {
       return {
-        qty: "1"
+        value: "1"
       };
     },
     template: `<SfAddToCart 
       :disabled="disabled"
       :stock="stock"
-      v-model="qty">
+      v-model="value">
       <template #add-to-cart-btn>
-        <button>Add To Cart</button>
+        <button  @click="()=>{}">Add To Cart</button>
       </template>
     </SfAddToCart>`
   }))
@@ -61,15 +62,15 @@ storiesOf("Molecules|AddToCart", module)
     },
     data() {
       return {
-        qty: "1"
+        value: "1"
       };
     },
     template: `<SfAddToCart 
       :disabled="disabled"
       :stock="stock"
-      v-model="qty">
+      @click="()=>{}">
       <template #quantity-select-input="{qty, stock}">
-        <select>
+        <select v-model="value">
           <option value="1">1</option>
           <option value="5">5</option>
           <option value="25">25</option>
