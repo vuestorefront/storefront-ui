@@ -11,7 +11,7 @@ export default {
   },
   props: {
     /**
-     * Heading logo
+     * Header logo
      */
     logo: {
       type: [String, Object],
