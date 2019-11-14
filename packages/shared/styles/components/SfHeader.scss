@@ -31,7 +31,7 @@ $header__logo-height: auto !default;
     right: auto;
   }
   @media (min-width: $desktop-min) {
-    justify-content: $header-navigation-justify-content;
+    justify-content:  space-between;
     background: $header-mobile-background;
     height: $header-mobile-height;
     align-items: center;
