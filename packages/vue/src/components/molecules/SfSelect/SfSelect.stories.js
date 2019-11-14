@@ -121,12 +121,12 @@ storiesOf("Molecules|Select", module)
         :required="required"
         :valid="valid"
         :error-message="errorMessage">
-        <template #label>
-          <!-- slot content -->
-        </template>
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
+        <template #label>
+          <!-- slot content -->
+        </template>
       </SfSelect>
     </div>`
   }))
@@ -154,7 +154,7 @@ storiesOf("Molecules|Select", module)
         default: boolean("required (prop)", false)
       },
       valid: {
-        default: boolean("valid (prop)", true)
+        default: boolean("valid (prop)", false)
       },
       errorMessage: {
         default: text("label (prop)", "Color")
@@ -181,12 +181,12 @@ storiesOf("Molecules|Select", module)
         :required="required"
         :valid="valid"
         :error-message="errorMessage">
-        <template #errorMessage>
-          <!-- slot content -->
-        </template>
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
+        <template #errorMessage>
+          <!-- slot content -->
+        </template>
       </SfSelect>
     </div>`
   }));
