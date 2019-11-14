@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, array } from "@storybook/addon-knobs";
+import { withKnobs, text, object } from "@storybook/addon-knobs";
 
 import SfHeader from "./SfHeader.vue";
 
@@ -12,7 +12,7 @@ storiesOf("Organisms/Header", module)
         default: text("(prop) logo", "/assets/logo.svg")
       },
       navigations: {
-        default: array("(prop) navigations", [
+        default: object("(prop) navigations", [
           {
             text: "WOMEN",
             href: ""
@@ -47,7 +47,7 @@ storiesOf("Organisms/Header", module)
         default: text("(prop) logo", "/assets/heart.svg")
       },
       navigations: {
-        default: array("(prop) navigations", [
+        default: object("(prop) navigations", [
           {
             text: "WOMEN",
             href: ""
@@ -82,7 +82,7 @@ storiesOf("Organisms/Header", module)
         default: text("(prop) logo", "/assets/logo.svg")
       },
       navigations: {
-        default: array("(prop) navigations", [
+        default: object("(prop) navigations", [
           {
             text: "KIDS",
             href: ""
@@ -117,7 +117,7 @@ storiesOf("Organisms/Header", module)
         default: text("(prop) logo", "/assets/logo.svg")
       },
       navigations: {
-        default: array("(prop) navigations", [
+        default: object("(prop) navigations", [
           {
             text: "WOMEN",
             href: ""
@@ -156,7 +156,7 @@ storiesOf("Organisms/Header", module)
         default: text("(prop) logo", "/assets/logo.svg")
       },
       navigations: {
-        default: array("(prop) navigations", [
+        default: object("(prop) navigations", [
           {
             text: "WOMEN",
             href: ""
@@ -192,7 +192,7 @@ storiesOf("Organisms/Header", module)
         default: text("(prop) logo", "/assets/logo.svg")
       },
       navigations: {
-        default: array("(prop) navigations", [
+        default: object("(prop) navigations", [
           {
             text: "WOMEN",
             href: ""
@@ -228,7 +228,7 @@ storiesOf("Organisms/Header", module)
         default: text("(prop) logo", "/assets/logo.svg")
       },
       navigations: {
-        default: array("(prop) navigations", [
+        default: object("(prop) navigations", [
           {
             text: "WOMEN",
             href: ""
