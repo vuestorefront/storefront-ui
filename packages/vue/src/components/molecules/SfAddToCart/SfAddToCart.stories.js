@@ -46,7 +46,7 @@ storiesOf("Molecules|AddToCart", module)
       :stock="stock"
       v-model="value">
       <template #add-to-cart-btn>
-        <button  @click="()=>{}">Add To Cart</button>
+        <button  @click="()=>{}">Custom Add To Cart</button>
       </template>
     </SfAddToCart>`
   }))
