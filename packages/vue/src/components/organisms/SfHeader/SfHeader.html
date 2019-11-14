@@ -24,7 +24,7 @@
       class="sf-header__icon"
       size="xs"
       :icon="wishlistIcon"
-      @click="onClickHandler('wishlist')">
+      @click="$emit('click:wishlist')">
     </SfIcon>
   </slot>
   <slot name ="cartIcon">
