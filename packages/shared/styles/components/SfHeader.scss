@@ -31,14 +31,13 @@ $header__logo-height: auto !default;
   background: $header-mobile-background;
 
   @media (min-width: $desktop-min) {
-    background: $header-desktop-background;
     justify-content: space-between;
     height: $header-mobile-height;
-    align-items: center;
+    background: $header-desktop-background;
   }
   @media (min-width: $tablet-min) {
-    background: $header-desktop-background;
     height: $header-desktop-height;
+    background: $header-desktop-background;
   }
 
   &__navigation {
@@ -46,9 +45,9 @@ $header__logo-height: auto !default;
   }
 
   &__navigation-link {
+    padding-left: $header-navigation-padding;
     font-size: $header-navigation-list-font-size;
     font-weight: $header-navigation-list-font-weight;
-    padding-left: $header-navigation-padding;
     color: $header-navigation-list-color;
   }
 
