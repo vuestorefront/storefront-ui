@@ -31,7 +31,6 @@ $header__logo-height: auto !default;
     right: auto;
   }
   @media (max-width: $mobile-max) {
-    flex-direction: row;
     justify-content: $header-navigation-justify-content;
     background: $header-mobile-background;
     height: $header-mobile-height;
