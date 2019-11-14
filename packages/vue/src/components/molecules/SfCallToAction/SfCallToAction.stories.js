@@ -101,7 +101,7 @@ storiesOf("Molecules|CallToAction", module)
       :image="image"
       :background="background">
         <template #title="{title}">
-          <!-- slot content -->
+          <div style="font-size: 2rem">CUSTOM <span style="font-size: 1rem; font-weight: 300">TITLE</span></div>
          </template>
       </SfCallToAction>
     </div>`
@@ -151,7 +151,7 @@ storiesOf("Molecules|CallToAction", module)
       :image="image"
       :background="background">
         <template #description="{description}">
-          <!-- slot content -->
+          CUSTOM DESCRIPTION
          </template>
       </SfCallToAction>
     </div>`
@@ -201,7 +201,7 @@ storiesOf("Molecules|CallToAction", module)
       :image="image"
       :background="background">
         <template #button="{buttonText}">
-          <!-- slot content -->
+          <button>CUSTOM BUTTON</button>
          </template>
       </SfCallToAction>
     </div>`
