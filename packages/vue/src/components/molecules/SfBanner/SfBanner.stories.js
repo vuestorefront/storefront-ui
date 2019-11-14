@@ -46,7 +46,7 @@ storiesOf("Molecules|Banner", module)
         default: color("background (prop)", "#e1e3e2")
       }
     },
-    template: `<div style="max-width: 1240px">
+    template: `<div style="max-width: 77.5rem">
       <SfBanner 
       :class="customClass"
       :title="title"
@@ -94,7 +94,7 @@ storiesOf("Molecules|Banner", module)
         default: color("background (prop)", "#e1e3e2")
       }
     },
-    template: `<div style="max-width: 1240px">
+    template: `<div style="max-width: 77.5rem">
       <SfBanner 
       :class="customClass"
       :title="title"
@@ -104,7 +104,7 @@ storiesOf("Molecules|Banner", module)
       :image="image"
       :background="background">
         <template #subtitle="{subtitle}">
-              <!-- slot content -->
+          <div style="font-size: 1rem">CUSTOM SUBTITLE</div>
         </template>
       </SfBanner>
     </div>`
@@ -145,7 +145,7 @@ storiesOf("Molecules|Banner", module)
         default: color("background (prop)", "#e1e3e2")
       }
     },
-    template: `<div style="max-width: 1240px">
+    template: `<div style="max-width: 77.5rem">
       <SfBanner 
       :class="customClass"
       :title="title"
@@ -155,7 +155,7 @@ storiesOf("Molecules|Banner", module)
       :image="image"
       :background="background">
         <template #title="{title}">
-              <!-- slot content -->
+          <div style="font-size: 2rem">CUSTOM <span style="font-size: 1rem; font-weight: 300">TITLE</span></div>
         </template>
       </SfBanner>
     </div>`
@@ -196,7 +196,7 @@ storiesOf("Molecules|Banner", module)
         default: color("background (prop)", "#e1e3e2")
       }
     },
-    template: `<div style="max-width: 1240px">
+    template: `<div style="max-width: 77.5rem">
       <SfBanner 
       :class="customClass"
       :title="title"
@@ -206,7 +206,7 @@ storiesOf("Molecules|Banner", module)
       :image="image"
       :background="background">
         <template #description="{description}">
-              <!-- slot content -->
+          CUSTOM DESCRIPTION
         </template>
       </SfBanner>
     </div>`
@@ -247,7 +247,7 @@ storiesOf("Molecules|Banner", module)
         default: color("background (prop)", "#e1e3e2")
       }
     },
-    template: `<div style="max-width: 1240px">
+    template: `<div style="max-width: 77.5rem">
       <SfBanner 
       :class="customClass"
       :title="title"
@@ -257,7 +257,10 @@ storiesOf("Molecules|Banner", module)
       :image="image"
       :background="background">
         <template #call-to-action="{buttonText}">
-              <!-- slot content -->
+          <div style="display: flex; margin-top: 1.25rem">
+            <button>CUSTOM CTA</button>
+            <button style="margin-left: 0.625rem">CUSTOM CTA</button>
+          </div>
         </template>
       </SfBanner>
     </div>`
