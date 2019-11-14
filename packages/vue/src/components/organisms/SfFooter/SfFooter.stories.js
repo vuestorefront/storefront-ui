@@ -22,11 +22,7 @@ const scssTableConfig = {
       "$font-size-big-desktop",
       "font-size of footer title"
     ],
-    [
-      "$footer__column-title-color",
-      "$c-dark-primary",
-      "color of footer column title"
-    ],
+    ["$footer__column-title-color", "$c-text", "color of footer column title"],
     [
       "$footer__column-title-font-family",
       "$body-font-family-primary",
@@ -45,12 +41,12 @@ const scssTableConfig = {
     ["$footer__column-max-width", "300px", "max-width of footer column"],
     [
       "$accordion--close-background-color",
-      "$c-light-primary",
+      "$_c-light-primary",
       "background-color of closed accordion for mobile"
     ],
     [
       "$accordion--open-background-color",
-      "$$c-light-secondary",
+      "$_c-light-secondary",
       "background-color of open accordion for mobile"
     ]
   ]

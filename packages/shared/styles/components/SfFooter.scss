@@ -2,13 +2,13 @@
 
 $footer__row-line-height: 1.6 !default;
 $footer__column-title-font-size: $font-size-big-desktop !default;
-$footer__column-title-color: $c-dark-primary !default;
+$footer__column-title-color: $c-text !default;
 $footer__column-title-font-family: $body-font-family-primary !default;
 $footer__column-content-font-family: $body-font-family-secondary !default;
 $footer__column-content-font-size: $font-size-extra-small-desktop !default;
 $footer__column-max-width: 300px !default;
-$accordion--close-background-color: $c-light-primary !default;
-$accordion--open-background-color: $c-light-secondary !default;
+$accordion--close-background-color: $_c-light-primary !default;
+$accordion--open-background-color: $_c-light-secondary !default;
 
 .sf-footer-row {
   line-height: $footer__row-line-height;
