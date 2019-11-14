@@ -22,7 +22,7 @@ export default {
      */
     navigations: {
       type: Array,
-      default: []
+      default: ()=>([])
     },
     /**
      * Heading cartIcon
