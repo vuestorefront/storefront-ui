@@ -32,7 +32,7 @@
       class="sf-header__icon"
       size="xs"
       :icon="cartIcon"
-      @click="onClickHandler('cart')">
+      @click="$emit('click:cart')">
     </SfIcon>
   </slot>
   </div>
