@@ -14,7 +14,7 @@ export default {
      * Heading logo
      */
     logo: {
-      type: String,
+      type: [String, Object],
       default: ""
     },
     /**
