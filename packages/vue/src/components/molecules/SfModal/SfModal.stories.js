@@ -53,7 +53,7 @@ storiesOf("Molecules|Modal", module)
       :persistent="persistent">
       HELLO STOREFRONT UI!
       <template #close>
-          <!-- -->
+          close
       </template>
     </SfModal>`
   }));
