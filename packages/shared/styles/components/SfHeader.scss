@@ -30,7 +30,7 @@ $header__logo-height: auto !default;
     left: auto;
     right: auto;
   }
-  @media (max-width: $mobile-max) {
+  @media (min-width: $desktop-min) {
     justify-content: $header-navigation-justify-content;
     background: $header-mobile-background;
     height: $header-mobile-height;
