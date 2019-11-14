@@ -29,7 +29,7 @@ export default {
      */
     cartIcon: {
       type: String,
-      default: ""
+      default: "empty_cart"
     },
     /**
      * Heading wishlistIcon
