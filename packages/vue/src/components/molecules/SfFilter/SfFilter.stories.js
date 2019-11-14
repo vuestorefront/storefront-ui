@@ -55,7 +55,7 @@ export default storiesOf("Molecules|Filter", module)
         :label="label"
         :count="count"
         :selected="selected">
-        <template #color>
+        <template #color="{color}">
             <!-- -->  
         </template>
       </SfFilter>
@@ -85,7 +85,7 @@ export default storiesOf("Molecules|Filter", module)
         :label="label"
         :count="count"
         :selected="selected">
-        <template #label>
+        <template #label="{label}">
             <!-- -->  
         </template>
       </SfFilter>
@@ -115,7 +115,7 @@ export default storiesOf("Molecules|Filter", module)
         :label="label"
         :count="count"
         :selected="selected">
-        <template #count>
+        <template #count="{count}">
             <!-- -->  
         </template>
       </SfFilter>

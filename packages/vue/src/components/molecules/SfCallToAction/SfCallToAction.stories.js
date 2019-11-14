@@ -100,7 +100,7 @@ storiesOf("Molecules|CallToAction", module)
       :button-text="buttonText"
       :image="image"
       :background="background">
-        <template #title>
+        <template #title="{title}">
           <!-- slot content -->
          </template>
       </SfCallToAction>
@@ -150,7 +150,7 @@ storiesOf("Molecules|CallToAction", module)
       :button-text="buttonText"
       :image="image"
       :background="background">
-        <template #description>
+        <template #description="{description}">
           <!-- slot content -->
          </template>
       </SfCallToAction>
@@ -200,7 +200,7 @@ storiesOf("Molecules|CallToAction", module)
       :button-text="buttonText"
       :image="image"
       :background="background">
-        <template #button>
+        <template #button="{buttonText}">
           <!-- slot content -->
          </template>
       </SfCallToAction>

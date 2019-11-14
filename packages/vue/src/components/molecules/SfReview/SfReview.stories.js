@@ -86,7 +86,7 @@ storiesOf("Molecules|Review", module)
       :char-limit="charLimit"
       read-more-text="readMoreText"
       hide-full-text="hideFullText">
-      <template #author>
+      <template #author="{author}">
         <!-- slot content -->
       </template>  
     </SfReview>`
@@ -131,7 +131,7 @@ storiesOf("Molecules|Review", module)
       :char-limit="charLimit"
       read-more-text="readMoreText"
       hide-full-text="hideFullText">
-      <template #info>
+      <template #info="{rating, maxRating, date}">
         <!-- slot content -->
       </template>  
     </SfReview>`
@@ -176,7 +176,7 @@ storiesOf("Molecules|Review", module)
       :char-limit="charLimit"
       read-more-text="readMoreText"
       hide-full-text="hideFullText">
-      <template #message>
+      <template #message="{finalMessage, buttonText}">
         <!-- slot content -->
       </template>  
     </SfReview>`

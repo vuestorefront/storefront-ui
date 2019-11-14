@@ -92,7 +92,7 @@ storiesOf("Molecules|Options", module)
       :options="options[type]"
       :type="type"
       :label="label">
-      <template #label>
+      <template #label="{label}">
         <!-- slot content -->
       </template>
     </SfOptions>`
@@ -140,7 +140,7 @@ storiesOf("Molecules|Options", module)
       :options="options[type]"
       :type="type"
       :label="label">
-      <template #text>
+      <template #text="{text, value, isOptionSelected}">
         <!-- slot content -->
       </template>
     </SfOptions>`
@@ -188,7 +188,7 @@ storiesOf("Molecules|Options", module)
       :options="options[type]"
       :type="type"
       :label="label">
-      <template #color>
+      <template #color="{color, value, isOptionSelected}">
         <!-- slot content -->
       </template>
     </SfOptions>`
@@ -236,7 +236,7 @@ storiesOf("Molecules|Options", module)
       :options="options[type]"
       :type="type"
       :label="label">
-      <template #image>
+      <template #image="{image, value, isOptionSelected}">
         <!-- slot content -->
       </template>
     </SfOptions>`

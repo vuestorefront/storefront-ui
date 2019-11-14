@@ -57,7 +57,7 @@ storiesOf("Molecules|Steps", module)
        v-model="active" 
        :steps="steps" 
        :can-go-back="canGoBack">
-       <template #steps>
+       <template #steps="{steps}">
         <!-- slot content --> 
       </template>
       <SfStep v-for="(step, key) in steps" :key="key" :name="step">

@@ -117,7 +117,7 @@ storiesOf("Molecules|Gallery", module)
     :images="images"
     :slider-options="sliderOptions"
     :current="current">
-    <template #thumbs>
+    <template #thumbs="{images, active: activeIndex, go}">
       <!-- slot content -->
     </template>
   </SfGallery>`

@@ -83,7 +83,7 @@ storiesOf("Molecules|Characteristic", module)
       :icon="icon"
       :size-icon="sizeIcon"
       :color-icon="colorIcon">
-      <template #icon>
+      <template #icon="{colorIcon, sizeIcon, icon}">
       <!-- slot content -->
       </template>
     </SfCharacteristic>`
@@ -116,7 +116,7 @@ storiesOf("Molecules|Characteristic", module)
       :icon="icon"
       :size-icon="sizeIcon"
       :color-icon="colorIcon">
-      <template #text>
+      <template #text="{title, description}">
       <!-- slot content -->
       </template>
     </SfCharacteristic>`
@@ -149,7 +149,7 @@ storiesOf("Molecules|Characteristic", module)
       :icon="icon"
       :size-icon="sizeIcon"
       :color-icon="colorIcon">
-      <template #title>
+      <template #title="{title}">
       <!-- slot content -->
       </template>
     </SfCharacteristic>`
@@ -182,7 +182,7 @@ storiesOf("Molecules|Characteristic", module)
       :icon="icon"
       :size-icon="sizeIcon"
       :color-icon="colorIcon">
-      <template #description>
+      <template #description="{description}">
       <!-- slot content -->
       </template>
     </SfCharacteristic>`

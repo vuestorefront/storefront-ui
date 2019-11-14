@@ -73,7 +73,7 @@ export default storiesOf("Molecules|MenuItem", module)
         :label="label"
         :count="count"
         :icon="icon">
-        <template #label>
+        <template #label="{label}">
           <!-- -->
         </template>
       </SfMenuItem>
@@ -99,7 +99,7 @@ export default storiesOf("Molecules|MenuItem", module)
         :label="label"
         :count="count"
         :icon="icon">
-        <template #count>
+        <template #count="{count}">
           <!-- -->
         </template>
       </SfMenuItem>
@@ -125,7 +125,7 @@ export default storiesOf("Molecules|MenuItem", module)
         :label="label"
         :count="count"
         :icon="icon">
-        <template #mobile-nav-icon>
+        <template #mobile-nav-icon="{icon}">
           <!-- -->
         </template>
       </SfMenuItem>

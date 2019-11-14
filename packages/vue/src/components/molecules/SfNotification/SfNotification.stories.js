@@ -70,7 +70,7 @@ storiesOf("Molecules|Notification", module)
       :message="message"
       :action="action"
       :type="type">
-      <template #icon>
+      <template #icon="{icon}">
         <!-- -->
       </template>
     </SfNotification>`
@@ -107,7 +107,7 @@ storiesOf("Molecules|Notification", module)
       :message="message"
       :action="action"
       :type="type">
-      <template #title>
+      <template #title="{title}">
         <!-- -->
       </template>
     </SfNotification>`
@@ -144,7 +144,7 @@ storiesOf("Molecules|Notification", module)
       :message="message"
       :action="action"
       :type="type">
-      <template #message>
+      <template #message="{message}">
         <!-- -->
       </template>
     </SfNotification>`
@@ -181,7 +181,7 @@ storiesOf("Molecules|Notification", module)
       :message="message"
       :action="action"
       :type="type">
-      <template #action>
+      <template #action="{action, actionHandler}">
         <!-- -->
       </template>
     </SfNotification>`
@@ -218,7 +218,7 @@ storiesOf("Molecules|Notification", module)
       :message="message"
       :action="action"
       :type="type">
-      <template #close>
+      <template #close="closeHandler">
         <!-- -->
       </template>
     </SfNotification>`

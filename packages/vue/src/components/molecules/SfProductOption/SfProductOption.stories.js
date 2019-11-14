@@ -43,7 +43,7 @@ export default storiesOf("Molecules|ProductOption", module)
         :color="color"
         :label="label"
         :value="value">
-        <template #color>
+        <template #color="{color}">
           <!-- -->
         </template>
       </SfProductOption>
@@ -67,7 +67,7 @@ export default storiesOf("Molecules|ProductOption", module)
         :color="color"
         :label="label"
         :value="value">
-        <template #label>
+        <template #label="{label}">
           <!-- -->
         </template>
       </SfProductOption>

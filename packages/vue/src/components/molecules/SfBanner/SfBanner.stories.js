@@ -103,7 +103,7 @@ storiesOf("Molecules|Banner", module)
       :button-text="buttonText"
       :image="image"
       :background="background">
-        <template #subtitle>
+        <template #subtitle="{subtitle}">
               <!-- slot content -->
         </template>
       </SfBanner>
@@ -154,7 +154,7 @@ storiesOf("Molecules|Banner", module)
       :button-text="buttonText"
       :image="image"
       :background="background">
-        <template #title>
+        <template #title="{title}">
               <!-- slot content -->
         </template>
       </SfBanner>
@@ -205,7 +205,7 @@ storiesOf("Molecules|Banner", module)
       :button-text="buttonText"
       :image="image"
       :background="background">
-        <template #description>
+        <template #description="{description}">
               <!-- slot content -->
         </template>
       </SfBanner>
@@ -256,7 +256,7 @@ storiesOf("Molecules|Banner", module)
       :button-text="buttonText"
       :image="image"
       :background="background">
-        <template #call-to-action>
+        <template #call-to-action="{buttonText}">
               <!-- slot content -->
         </template>
       </SfBanner>

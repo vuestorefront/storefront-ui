@@ -41,7 +41,7 @@ storiesOf("Molecules|Alert", module)
     template: `<SfAlert
       :message="message"
       :type="type">
-      <template #icon>
+      <template #icon="{icon}">
         ❤️
       </template>  
     </SfAlert>`
@@ -63,7 +63,7 @@ storiesOf("Molecules|Alert", module)
     template: `<SfAlert
       :message="message"
       :type="type">
-      <template #message>
+      <template #message="{message}">
         Low in <span style="font-weight: 500; text-transform: uppercase; font-size: 1.5rem; margin-left: 5px">stock</span>
       </template>  
     </SfAlert>`

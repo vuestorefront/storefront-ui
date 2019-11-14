@@ -40,7 +40,7 @@ storiesOf("Molecules|Pagination", module)
       :current="current"
       :visible="visible"
       :total="total">
-        <!-- -->
+        <template #default="{go}">
     </SfPagination>`
   }))
   .add("[slot] prev", () => ({
@@ -60,8 +60,8 @@ storiesOf("Molecules|Pagination", module)
       :current="current"
       :visible="visible"
       :total="total">
-      <template #prev>
-        <!-- -->
+      <template #prev="{isDisabled, go}">
+        prev
       </template>
     </SfPagination>`
   }))
@@ -82,8 +82,8 @@ storiesOf("Molecules|Pagination", module)
       :current="current"
       :visible="visible"
       :total="total">
-      <template #next>
-        <!-- -->
+      <template #next="{isDisabled, go}">
+        next
       </template>
     </SfPagination>`
   }))
@@ -104,7 +104,7 @@ storiesOf("Molecules|Pagination", module)
       :current="current"
       :visible="visible"
       :total="total">
-      <template #number>
+      <template #number="{number, go}">
         <!-- -->
       </template>
     </SfPagination>`
