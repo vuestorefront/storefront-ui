@@ -45,7 +45,7 @@ storiesOf("Molecules|AddToCart", module)
       :stock="stock"
       v-model="qty">
       <template #add-to-cart-btn>
-        <!-- slot content -->
+        <button>Add To Cart</button>
       </template>
     </SfAddToCart>`
   }))
@@ -69,7 +69,11 @@ storiesOf("Molecules|AddToCart", module)
       :stock="stock"
       v-model="qty">
       <template #quantity-select-input>
-        <!-- slot content -->
+        <select>
+          <option value="1">1</option>
+          <option value="5">5</option>
+          <option value="25">25</option>
+        </select>
       </template>
     </SfAddToCart>`
   }));
