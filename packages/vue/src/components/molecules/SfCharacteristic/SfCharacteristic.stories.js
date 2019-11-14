@@ -84,7 +84,7 @@ storiesOf("Molecules|Characteristic", module)
       :size-icon="sizeIcon"
       :color-icon="colorIcon">
       <template #icon="{colorIcon, sizeIcon, icon}">
-      <!-- slot content -->
+        ❤️
       </template>
     </SfCharacteristic>`
   }))
@@ -117,7 +117,7 @@ storiesOf("Molecules|Characteristic", module)
       :size-icon="sizeIcon"
       :color-icon="colorIcon">
       <template #text="{title, description}">
-      <!-- slot content -->
+        CUSTOM TEXT
       </template>
     </SfCharacteristic>`
   }))
@@ -150,7 +150,7 @@ storiesOf("Molecules|Characteristic", module)
       :size-icon="sizeIcon"
       :color-icon="colorIcon">
       <template #title="{title}">
-      <!-- slot content -->
+        CUSTOM TITLE
       </template>
     </SfCharacteristic>`
   }))
@@ -183,7 +183,7 @@ storiesOf("Molecules|Characteristic", module)
       :size-icon="sizeIcon"
       :color-icon="colorIcon">
       <template #description="{description}">
-      <!-- slot content -->
+        CUSTOM DESCRIPTION
       </template>
     </SfCharacteristic>`
   }));
