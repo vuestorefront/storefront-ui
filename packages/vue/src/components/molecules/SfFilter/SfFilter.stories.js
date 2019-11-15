@@ -36,7 +36,7 @@ export default storiesOf("Molecules|Filter", module)
           default: text("count (prop)", "30")
         },
         color: {
-          default: select("color (prop)", ["red", "null"], "red")
+          default: select("color (prop)", ["", "red", "blue"], "red")
         },
         selected: {
           default: boolean("selected (prop)", true)
