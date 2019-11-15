@@ -43,6 +43,11 @@ storiesOf("Molecules|Radio", module)
         default: boolean("required (prop)", false)
       }
     },
+    data() {
+      return {
+        checked: ""
+      };
+    },
     template: `<SfRadio 
        :class="customClass"
        :label="label"
@@ -51,7 +56,7 @@ storiesOf("Molecules|Radio", module)
        :value="value"
        :disbled="disabled"
        :required="required"
-       v-model="value"/>`
+       v-model="checked"/>`
   }))
   .add("[slot] checkmark", () => ({
     components: { SfRadio },
@@ -86,6 +91,11 @@ storiesOf("Molecules|Radio", module)
         default: boolean("required (prop)", false)
       }
     },
+    data() {
+      return {
+        checked: ""
+      };
+    },
     template: `<SfRadio 
        :class="customClass"
        :label="label"
@@ -94,9 +104,10 @@ storiesOf("Molecules|Radio", module)
        :value="value"
        :disbled="disabled"
        :required="required"
-       v-model="value">
+       v-model="checked">
        <template #checkmark="{isChecked, disabled}">
-          <!-- -->
+          <div v-if="isChecked">😀</div>
+          <div v-else>😔</div>
        </template>
     </SfRadio>`
   }))
@@ -133,6 +144,11 @@ storiesOf("Molecules|Radio", module)
         default: boolean("required (prop)", false)
       }
     },
+    data() {
+      return {
+        checked: ""
+      };
+    },
     template: `<SfRadio 
        :class="customClass"
        :label="label"
@@ -141,9 +157,9 @@ storiesOf("Molecules|Radio", module)
        :value="value"
        :disbled="disabled"
        :required="required"
-       v-model="value">
+       v-model="checked">
        <template #label="{label, isChecked, disabled}">
-          <!-- -->
+          CUSTOM LABEL
        </template>
     </SfRadio>`
   }))
@@ -180,6 +196,11 @@ storiesOf("Molecules|Radio", module)
         default: boolean("required (prop)", false)
       }
     },
+    data() {
+      return {
+        checked: ""
+      };
+    },
     template: `<SfRadio 
        :class="customClass"
        :label="label"
@@ -188,9 +209,9 @@ storiesOf("Molecules|Radio", module)
        :value="value"
        :disbled="disabled"
        :required="required"
-       v-model="value">
+       v-model="checked">
        <template #description="{description}">
-          <!-- -->
+          CUSTOM DESCRIPTION
        </template>
     </SfRadio>`
   }));
