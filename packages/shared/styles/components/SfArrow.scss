@@ -6,13 +6,16 @@ $arrow__button-shadow: 0 5px 12px -6px rgba($c-black, 0) !default;
 $arrow__button-shadow--right: 0 -5px 12px -5px rgba($c-black, 0.6) !default;
 $arrow__icon-color: $c-white !default;
 $arrow__icon-color--hover: $c-dark !default;
+$arrow__icon-height: 12px !default;
+$arrow__icon-height--long: 40px !default;
+$arrow__icon-width--long: 70px !default;
 
 .sf-arrow {
   $this: &;
   &__icon {
     position: relative;
     flex: 0 0 24px;
-    height: 12px;
+    height: $arrow__icon-height;
     fill: $arrow__icon-color--hover;
     transition: fill 150ms linear;
   }
@@ -43,8 +46,8 @@ $arrow__icon-color--hover: $c-dark !default;
     }
   }
   &--long {
-    width: 70px;
-    height: 40px;
+    width: $arrow__icon-width--long;
+    height: $arrow__icon-height--long;
     display: flex;
     align-items: center;
     justify-content: flex-start;

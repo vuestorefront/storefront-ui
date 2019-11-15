@@ -18,37 +18,39 @@ export default {
       default: ""
     },
     /**
-     * Heading navigations
+     * Header title
+     */
+    title: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Header navigations
      */
     navigations: {
       type: Array,
       default: () => []
     },
     /**
-     * Heading cartIcon
+     * Header cartIcon
      */
     cartIcon: {
       type: [String, Boolean],
       default: "empty_cart"
     },
     /**
-     * Heading wishlistIcon
+     * Header wishlistIcon
      */
     wishlistIcon: {
-      type: String,
+      type: [String, Boolean],
       default: "heart"
     },
     /**
-     * Heading accountIcon
+     * Header accountIcon
      */
     accountIcon: {
-      type: String,
+      type: [String, Boolean],
       default: "profile"
-    }
-  },
-  methods: {
-    onClickHandler(name) {
-      this.$emit(`click:${name}`);
     }
   }
 };

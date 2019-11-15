@@ -21,7 +21,8 @@ $header-mobile-padding-x: 1rem !default;
 $header-mobile-logo-width: 21px !default;
 $header-desktop-logo-width: 34px !default;
 
-$header__logo-height: auto !default;
+$header-logo-height: auto !default;
+$header-logo-margin: 30px !default;
 
 .sf-header {
   display: flex;
@@ -42,6 +43,9 @@ $header__logo-height: auto !default;
 
   &__navigation {
     display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
   &__navigation-link {
@@ -67,8 +71,9 @@ $header__logo-height: auto !default;
 
   &__logo {
     width: $header-mobile-logo-width;
-    height: $header__logo-height;
+    height: $header-logo-height;
     padding: 0.5rem;
+    margin-left: $header-logo-margin;
 
     @media (min-width: $tablet-min) {
       width: $header-desktop-logo-width;

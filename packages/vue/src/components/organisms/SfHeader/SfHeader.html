@@ -1,11 +1,14 @@
 <header class="sf-header">
-  <slot name="logo" v-bind="{logo}">
-    <SfImage v-if="logo" :src="logo" class="sf-header__logo" />
+  <slot name="logo" v-bind="{logo, title}">
+    <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo" />
+    <h1 v-else class="sf-header__title">{{ title }}</h1>
   </slot>
   <slot name="navigations">
-    <nav class="sf-header__navigation">
-      <a class="sf-header__navigation-link" v-for="(navigation, index) in navigations" :key="index" :href="navigation.href">{{navigation.text}}</a>
-    </nav>
+    <ul class="sf-header__navigation">
+      <li v-for="(navigation, index) in navigations" :key="index" v-if="navigation">
+        <a class="sf-header__navigation-link" :href="navigation.href">{{navigation.text}}</a>
+      </li>
+    </ul>
   </slot>
   <slot name="search">
     <SfSearchBar class="sf-header__search" />
@@ -15,18 +18,21 @@
       <SfIcon
         class="sf-header__icon"
         size="xs"
+        v-if="accountIcon"
         :icon="accountIcon"
         @click="$emit('click:account')">
       </SfIcon>
       <SfIcon
         class="sf-header__icon"
         size="xs"
+        v-if="wishlistIcon"
         :icon="wishlistIcon"
         @click="$emit('click:wishlist')">
       </SfIcon>
       <SfIcon
         class="sf-header__icon"
         size="xs"
+        v-if="cartIcon"
         :icon="cartIcon"
         @click="$emit('click:cart')">
       </SfIcon>
