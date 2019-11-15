@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, object, number } from "@storybook/addon-knobs";
+import { withKnobs, object } from "@storybook/addon-knobs";
 
 import SfGallery from "./SfGallery.vue";
 
@@ -52,10 +52,12 @@ storiesOf("Molecules|Gallery", module)
           autoplay: false,
           rewind: true
         })
-      },
-      current: {
-        default: number("current (prop)", 0)
       }
+    },
+    data() {
+      return {
+        current: 0
+      };
     },
     template: `<SfGallery
       :images="images"
@@ -108,17 +110,22 @@ storiesOf("Molecules|Gallery", module)
           autoplay: false,
           rewind: true
         })
-      },
-      current: {
-        default: number("current (prop)", 0)
       }
+    },
+    data() {
+      return {
+        current: 0
+      };
     },
     template: `<SfGallery
     :images="images"
     :slider-options="sliderOptions"
     :current="current">
-    <template #thumbs="{images, active: activeIndex, go}">
-      <!-- slot content -->
+    <template #thumbs="{images, active, go}">
+      <div v-for="(image, key) in images" :key="key" @click="go(key)" style="position: relative">
+        <img :src="image.small.url" :alt="image.small.alt">
+        <div v-if="active === key" style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%">🔍</div>
+      </div>
     </template>
   </SfGallery>`
   }));
