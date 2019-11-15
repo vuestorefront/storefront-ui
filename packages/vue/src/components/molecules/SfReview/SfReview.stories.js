@@ -17,7 +17,7 @@ storiesOf("Molecules|Review", module)
       message: {
         default: text(
           "message (prop)",
-          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can't comment on interlation as I had an electrition instal it. Would recommend."
+          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend."
         )
       },
       maxRating: {
@@ -58,7 +58,7 @@ storiesOf("Molecules|Review", module)
       message: {
         default: text(
           "message (prop)",
-          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can't comment on interlation as I had an electrition instal it. Would recommend."
+          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend."
         )
       },
       maxRating: {
@@ -87,7 +87,7 @@ storiesOf("Molecules|Review", module)
       read-more-text="readMoreText"
       hide-full-text="hideFullText">
       <template #author="{author}">
-        <!-- slot content -->
+        CUSTOM AUTHOR
       </template>  
     </SfReview>`
   }))
@@ -103,7 +103,7 @@ storiesOf("Molecules|Review", module)
       message: {
         default: text(
           "message (prop)",
-          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can't comment on interlation as I had an electrition instal it. Would recommend."
+          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend."
         )
       },
       maxRating: {
@@ -132,7 +132,7 @@ storiesOf("Molecules|Review", module)
       read-more-text="readMoreText"
       hide-full-text="hideFullText">
       <template #info="{rating, maxRating, date}">
-        <!-- slot content -->
+        CUSTOM INFO
       </template>  
     </SfReview>`
   }))
@@ -148,7 +148,7 @@ storiesOf("Molecules|Review", module)
       message: {
         default: text(
           "message (prop)",
-          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can't comment on interlation as I had an electrition instal it. Would recommend."
+          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend."
         )
       },
       maxRating: {
@@ -177,7 +177,7 @@ storiesOf("Molecules|Review", module)
       read-more-text="readMoreText"
       hide-full-text="hideFullText">
       <template #message="{finalMessage, buttonText}">
-        <!-- slot content -->
+        CUSTOM MESSAGE
       </template>  
     </SfReview>`
   }));
