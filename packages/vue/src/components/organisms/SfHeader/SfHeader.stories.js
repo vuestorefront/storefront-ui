@@ -147,6 +147,9 @@ storiesOf("Organisms/Header", module)
         </li>
       </ul>
       </template>
+      <template #search>
+        <img src="assets/storybook/doge.svg" style="height: 25px; margin-left: auto;" />
+      </template>
       </SfHeader>`
   }))
   .add("[slot] accountIcon", () => ({
