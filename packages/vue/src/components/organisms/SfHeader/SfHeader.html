@@ -1,5 +1,5 @@
 <header class="sf-header">
-  <slot name="logo">
+  <slot name="logo" v-bind="{logo}">
     <SfImage v-if="logo" :src="logo" class="sf-header__logo" />
   </slot>
   <slot name="navigations">
