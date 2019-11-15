@@ -125,7 +125,7 @@ storiesOf("Molecules|Select", module)
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
         <template #label>
-          <!-- slot content -->
+          CUSTOM LABEL
         </template>
       </SfSelect>
     </div>`
@@ -185,7 +185,7 @@ storiesOf("Molecules|Select", module)
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
         <template #errorMessage>
-          <!-- slot content -->
+          CUSTOM ERROR MESSAGE
         </template>
       </SfSelect>
     </div>`
