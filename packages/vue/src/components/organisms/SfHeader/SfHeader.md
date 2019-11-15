@@ -19,7 +19,7 @@ export default {
   data() {
     return {
         logo: "/assets/logo.svg",
-        navigations: [{text: "WOMEN", href: ""}, {text: "MEN", , href: ""}],
+        navigations: [{text: "WOMEN", href: ""}, {text: "MEN", href: ""}],
         cartIcon: "cartIcon",
         wishlistIcon: "wishlistIcon",
         accountIcon: "accountIcon",

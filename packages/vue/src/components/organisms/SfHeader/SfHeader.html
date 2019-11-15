@@ -10,30 +10,26 @@
   <slot name="search">
     <SfSearchBar class="sf-header__search" />
   </slot>
-  <div class="sf-header__icons">
-    <slot name ="accountIcon">
-    <SfIcon
-      class="sf-header__icon"
-      size="xs"
-      :icon="accountIcon"
-      @click="$emit('click:account')">
-    </SfIcon>
-  </slot>
-  <slot name ="wishlistIcon">
-    <SfIcon
-      class="sf-header__icon"
-      size="xs"
-      :icon="wishlistIcon"
-      @click="$emit('click:wishlist')">
-    </SfIcon>
-  </slot>
-  <slot name ="cartIcon">
-    <SfIcon
-      class="sf-header__icon"
-      size="xs"
-      :icon="cartIcon"
-      @click="$emit('click:cart')">
-    </SfIcon>
-  </slot>
-  </div>
+  <slot name="icons" v-bind="{accountIcon, wishlistIcon, cartIcon}">
+    <div class="sf-header__icons">
+      <SfIcon
+        class="sf-header__icon"
+        size="xs"
+        :icon="accountIcon"
+        @click="$emit('click:account')">
+      </SfIcon>
+      <SfIcon
+        class="sf-header__icon"
+        size="xs"
+        :icon="wishlistIcon"
+        @click="$emit('click:wishlist')">
+      </SfIcon>
+      <SfIcon
+        class="sf-header__icon"
+        size="xs"
+        :icon="cartIcon"
+        @click="$emit('click:cart')">
+      </SfIcon>
+    </div>
+</slot>
 </header>
