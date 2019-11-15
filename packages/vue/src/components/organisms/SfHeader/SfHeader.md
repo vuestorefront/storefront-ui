@@ -3,11 +3,19 @@ Full width hover-animated component with icons and tabs, e.g. usable for navigat
 
 # common-usage
 <br>
-  <SfHeader :logo="logo" :navigations="navigations" :cart-icon="cartIcon" :wishlist-icon="wishlistIcon" :account-icon="accountIcon" />
+  <SfHeader :logo="logo" :cart-icon="cartIcon" :wishlist-icon="wishlistIcon" :account-icon="accountIcon">
+    <template #navigations>
+      Women
+    </template>
+  </SfHeader>
 
 ```html
 <template>
-  <SfHeader :logo="logo" :navigations="navigations" :cart-icon="cartIcon" :wishlist-icon="wishlistIcon" :account-icon="accountIcon" />
+  <SfHeader :logo="logo" :cart-icon="cartIcon" :wishlist-icon="wishlistIcon" :account-icon="accountIcon">
+    <template #navigations>
+      Women
+    </template>
+  </SfHeader>
 </template>
 <script>
 import { SfHeader } from "@storefront-ui/vue";
@@ -19,7 +27,6 @@ export default {
   data() {
     return {
         logo: "/assets/logo.svg",
-        navigations: [{text: "WOMEN", href: ""}],
         cartIcon: "cartIcon",
         wishlistIcon: "wishlistIcon",
         accountIcon: "accountIcon",
