@@ -2,6 +2,7 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
 
 import SfMenuItem from "./SfMenuItem.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 export default storiesOf("Molecules|MenuItem", module)
   .addDecorator(withKnobs)
@@ -48,7 +49,7 @@ export default storiesOf("Molecules|MenuItem", module)
         :count="count"
         :icon="icon">
         <template #icon>
-          <!-- -->
+          ❤️
         </template>
       </SfMenuItem>
     </div>`
@@ -74,7 +75,7 @@ export default storiesOf("Molecules|MenuItem", module)
         :count="count"
         :icon="icon">
         <template #label="{label}">
-          <!-- -->
+          CUSTOM LABEL
         </template>
       </SfMenuItem>
     </div>`
@@ -100,14 +101,15 @@ export default storiesOf("Molecules|MenuItem", module)
         :count="count"
         :icon="icon">
         <template #count="{count}">
-          <!-- -->
+          CUSTOM COUNT
         </template>
       </SfMenuItem>
     </div>`
   }))
   .add("[slot] mobile-nav-icon", () => ({
     components: {
-      SfMenuItem
+      SfMenuItem,
+      SfIcon
     },
     props: {
       label: {
@@ -126,7 +128,7 @@ export default storiesOf("Molecules|MenuItem", module)
         :count="count"
         :icon="icon">
         <template #mobile-nav-icon="{icon}">
-          <!-- -->
+          <SfIcon icon="arrow_right" size="xxs" style="margin-left: 0.625rem"/>
         </template>
       </SfMenuItem>
     </div>`
