@@ -3,40 +3,40 @@
 $header-mobile-background: $c-light !default;
 $header-desktop-background: $c-white !default;
 $header-mobile-height: 3.125rem !default;
-$header-desktop-height: 80px !default;
+$header-desktop-height: 5rem !default;
+$header-desktop-padding: 1.875rem !default;
 
-$header-navigation-padding: 40px !default;
+$header-navigation-padding: 2.5rem !default;
 $header-navigation-justify-content: center !default;
 $header-navigation-list-font-size: $font-size-regular-mobile !default;
 $header-navigation-list-font-weight: 500 !default;
 $header-navigation-list-color: $c-dark !default;
 
-$header-icon-margin: 30px !default;
+$header-icon-margin: 1.875rem !default;
 $header-icon-cursor: pointer !default;
 
 $header-mobile-align-items: center !default;
 
 $header-mobile-padding-x: 1rem !default;
 
-$header-mobile-logo-width: 21px !default;
-$header-desktop-logo-width: 34px !default;
+$header-mobile-logo-width: 1.3125rem !default;
+$header-desktop-logo-width: 2.125rem !default;
 
 $header-logo-height: auto !default;
-$header-logo-margin: 30px !default;
+$header-logo-margin: 1.875rem !default;
 
 .sf-header {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: $header-mobile-height;
+  padding: 0 $header-desktop-padding;
+  box-sizing: border-box;
   background: $header-mobile-background;
 
   @media (min-width: $desktop-min) {
     justify-content: space-between;
-    height: $header-mobile-height;
-    background: $header-desktop-background;
-  }
-  @media (min-width: $tablet-min) {
     height: $header-desktop-height;
     background: $header-desktop-background;
   }
