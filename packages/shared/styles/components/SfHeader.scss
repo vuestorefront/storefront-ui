@@ -59,7 +59,6 @@ $header-logo-margin: 30px !default;
     width: $header-mobile-logo-width;
     height: $header-logo-height;
     padding: 0.5rem;
-    margin-left: $header-logo-margin;
 
     @media (min-width: $tablet-min) {
       width: $header-desktop-logo-width;
