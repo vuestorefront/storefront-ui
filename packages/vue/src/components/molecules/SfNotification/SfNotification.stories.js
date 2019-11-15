@@ -2,6 +2,7 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select, boolean } from "@storybook/addon-knobs";
 
 import SfNotification from "./SfNotification.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 storiesOf("Molecules|Notification", module)
   .addDecorator(withKnobs)
@@ -39,7 +40,7 @@ storiesOf("Molecules|Notification", module)
       :type="type"/>`
   }))
   .add("[slot] icon", () => ({
-    components: { SfNotification },
+    components: { SfNotification, SfIcon },
     props: {
       title: {
         default: text("title (prop)", "Added to Cart")
@@ -71,7 +72,7 @@ storiesOf("Molecules|Notification", module)
       :action="action"
       :type="type">
       <template #icon="{icon}">
-        <!-- -->
+        <SfIcon icon="heart" color="white" size="sm" style="margin-right: 1.25rem">
       </template>
     </SfNotification>`
   }))
@@ -108,7 +109,7 @@ storiesOf("Molecules|Notification", module)
       :action="action"
       :type="type">
       <template #title="{title}">
-        <!-- -->
+        CUSTOM TITLE
       </template>
     </SfNotification>`
   }))
@@ -145,7 +146,7 @@ storiesOf("Molecules|Notification", module)
       :action="action"
       :type="type">
       <template #message="{message}">
-        <!-- -->
+        CUSTOM MESSAGE
       </template>
     </SfNotification>`
   }))
@@ -182,7 +183,7 @@ storiesOf("Molecules|Notification", module)
       :action="action"
       :type="type">
       <template #action="{action, actionHandler}">
-        <!-- -->
+        CUSTOM ACTION
       </template>
     </SfNotification>`
   }))
@@ -219,7 +220,7 @@ storiesOf("Molecules|Notification", module)
       :action="action"
       :type="type">
       <template #close="closeHandler">
-        <!-- -->
+        <div style="position: absolute; top: 1rem; right: 1rem">close</div>
       </template>
     </SfNotification>`
   }));
