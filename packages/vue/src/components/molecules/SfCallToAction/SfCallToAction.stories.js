@@ -101,7 +101,7 @@ storiesOf("Molecules|CallToAction", module)
       :image="image"
       :background="background">
         <template #title="{title}">
-          <div style="font-size: 2rem">CUSTOM <span style="font-size: 1rem; font-weight: 300">TITLE</span></div>
+          CUSTOM TITLE
          </template>
       </SfCallToAction>
     </div>`

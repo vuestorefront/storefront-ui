@@ -161,7 +161,7 @@ storiesOf("Molecules|Counter", module)
       :disabled="disabled"
       :required="required">
       <template #field="{stringValue, increase, decrease, keypress, type, name, required, disabled, placeholder}">
-        <!-- slot content -->
+        ❤️
        </template>
     </SfCounter>`
   }))

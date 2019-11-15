@@ -155,7 +155,7 @@ storiesOf("Molecules|Banner", module)
       :image="image"
       :background="background">
         <template #title="{title}">
-          <div style="font-size: 2rem">CUSTOM <span style="font-size: 1rem; font-weight: 300">TITLE</span></div>
+          CUSTOM TITLE
         </template>
       </SfBanner>
     </div>`
@@ -257,10 +257,7 @@ storiesOf("Molecules|Banner", module)
       :image="image"
       :background="background">
         <template #call-to-action="{buttonText}">
-          <div style="display: flex; margin-top: 1.25rem">
-            <button>CUSTOM CTA</button>
-            <button style="margin-left: 0.625rem">CUSTOM CTA</button>
-          </div>
+          <button>CUSTOM CALL TO ACTION</button>
         </template>
       </SfBanner>
     </div>`
