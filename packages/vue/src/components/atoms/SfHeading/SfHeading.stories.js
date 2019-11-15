@@ -76,7 +76,7 @@ storiesOf("Atoms|Heading", module)
       :level="level"
       :title="title"
       :subtitle="subtitle">
-      <template #title="{ title }">
+      <template #title="{title}">
         <h2 style="display: flex; align-items: center">
           <SfIcon icon="heart" size="xxs" style="margin-right: 1rem"/> {{title}}
         </h2>
@@ -116,7 +116,7 @@ storiesOf("Atoms|Heading", module)
       :level="level"
       :title="title"
       :subtitle="subtitle">
-      <template #subtitle="{ subtitle }">
+      <template #subtitle="{subtitle}">
         <div style="display: flex; align-items: center">
           {{subtitle}} <SfIcon icon="notify" size="xxs" style="margin-left: 1rem"/>
         </div>

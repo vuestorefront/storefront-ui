@@ -33,7 +33,7 @@ storiesOf("Atoms|Breadcrumbs", module)
     },
     template: `<SfBreadcrumbs
       :breadcrumbs="breadcrumbs">
-      <template #link="{ breadcrumb }">
+      <template #link="{ breadcrumb, go }">
         <span style="text-transform: lowercase">'{{breadcrumb.text}}'<span>
       </template>
     </SfBreadcrumbs>`
