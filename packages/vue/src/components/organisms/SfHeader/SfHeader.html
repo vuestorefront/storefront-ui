@@ -3,13 +3,9 @@
     <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo" />
     <h1 v-else class="sf-header__title">{{ title }}</h1>
   </slot>
-  <slot name="navigations">
-    <ul class="sf-header__navigation">
-      <li v-for="(navigation, index) in navigations" :key="index" v-if="navigation">
-        <a class="sf-header__navigation-link" :href="navigation.href">{{navigation.text}}</a>
-      </li>
-    </ul>
-  </slot>
+    <nav>
+      <slot name="navigations" />
+   </nav>
   <slot name="search">
     <SfSearchBar class="sf-header__search" />
   </slot>

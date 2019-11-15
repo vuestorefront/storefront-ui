@@ -25,13 +25,6 @@ export default {
       default: ""
     },
     /**
-     * Header navigations
-     */
-    navigations: {
-      type: Array,
-      default: () => []
-    },
-    /**
      * Header cartIcon
      */
     cartIcon: {

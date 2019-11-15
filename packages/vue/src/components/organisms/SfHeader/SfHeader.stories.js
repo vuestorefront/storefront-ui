@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, object } from "@storybook/addon-knobs";
+import { withKnobs, text } from "@storybook/addon-knobs";
 
 import SfHeader from "./SfHeader.vue";
 
@@ -11,18 +11,6 @@ storiesOf("Organisms/Header", module)
       logo: {
         default: text("(prop) logo", "/assets/logo.svg")
       },
-      navigations: {
-        default: object("(prop) navigations", [
-          {
-            text: "WOMEN",
-            href: ""
-          },
-          {
-            text: "MEN",
-            href: ""
-          }
-        ])
-      },
       cartIcon: {
         default: text("(prop) cartIcon", "empty_cart")
       },
@@ -35,98 +23,29 @@ storiesOf("Organisms/Header", module)
     },
     template: `<SfHeader 
       :logo="logo"
-      :navigations="navigations" 
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
-      :account-icon="accountIcon" />`
+      :account-icon="accountIcon">
+        <template #navigations>
+        <ul style="display: flex; margin: 0; padding: 0; list-style: none;">
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">WOMEN</a>
+        </li>
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">MEN</a>
+        </li>
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">KIDS</a>
+        </li>
+      </ul>
+        </template>
+      </SfHeader>`
   }))
   .add("[slot] logo", () => ({
     components: { SfHeader },
     props: {
       logo: {
         default: text("(prop) logo", "/assets/heart.svg")
-      },
-      navigations: {
-        default: object("(prop) navigations", [
-          {
-            text: "WOMEN",
-            href: ""
-          },
-          {
-            text: "MEN",
-            href: ""
-          }
-        ])
-      },
-      cartIcon: {
-        default: text("(prop) cartIcon", "empty_cart")
-      },
-      wishlistIcon: {
-        default: text("(prop) wishlistIcon", "heart")
-      },
-      accountIcon: {
-        default: text("(prop) accountIcon", "profile")
-      }
-    },
-    template: `<SfHeader 
-      :logo="logo"
-      :navigations="navigations"
-      :cart-icon="cartIcon" 
-      :wishlist-icon="wishlistIcon" 
-      :account-icon="accountIcon" />`
-  }))
-  .add("[slot] navigations", () => ({
-    components: { SfHeader },
-    props: {
-      logo: {
-        default: text("(prop) logo", "/assets/logo.svg")
-      },
-      navigations: {
-        default: object("(prop) navigations", [
-          {
-            text: "KIDS",
-            href: ""
-          },
-          {
-            text: "SALE",
-            href: ""
-          }
-        ])
-      },
-      cartIcon: {
-        default: text("(prop) cartIcon", "empty_cart")
-      },
-      wishlistIcon: {
-        default: text("(prop) wishlistIcon", "heart")
-      },
-      accountIcon: {
-        default: text("(prop) accountIcon", "profile")
-      }
-    },
-    template: `<SfHeader 
-      :logo="logo"
-      :navigations="navigations"
-      :cart-icon="cartIcon" 
-      :wishlist-icon="wishlistIcon" 
-      :account-icon="accountIcon" />`
-  }))
-  .add("[slot] search", () => ({
-    components: { SfHeader },
-    props: {
-      logo: {
-        default: text("(prop) logo", "/assets/logo.svg")
-      },
-      navigations: {
-        default: object("(prop) navigations", [
-          {
-            text: "WOMEN",
-            href: ""
-          },
-          {
-            text: "MEN",
-            href: ""
-          }
-        ])
       },
       cartIcon: {
         default: text("(prop) cartIcon", "empty_cart")
@@ -144,8 +63,89 @@ storiesOf("Organisms/Header", module)
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon">
-      <template slot="search">
-          <img src="assets/storybook/doge.svg" style="height: 25px; margin-left: auto;"/>
+      <template #navigations>
+        <ul style="display: flex; margin: 0; padding: 0; list-style: none;">
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">WOMEN</a>
+        </li>
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">MEN</a>
+        </li>
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">KIDS</a>
+        </li>
+      </ul>
+      </template>
+      </SfHeader>`
+  }))
+  .add("[slot] navigations", () => ({
+    components: { SfHeader },
+    props: {
+      logo: {
+        default: text("(prop) logo", "/assets/logo.svg")
+      },
+      cartIcon: {
+        default: text("(prop) cartIcon", "empty_cart")
+      },
+      wishlistIcon: {
+        default: text("(prop) wishlistIcon", "heart")
+      },
+      accountIcon: {
+        default: text("(prop) accountIcon", "profile")
+      }
+    },
+    template: `<SfHeader 
+      :logo="logo"
+      :navigations="navigations"
+      :cart-icon="cartIcon" 
+      :wishlist-icon="wishlistIcon" 
+      :account-icon="accountIcon">
+      <template #navigations>
+        <ul style="display: flex; margin: 0; padding: 0; list-style: none;">
+        <li>
+          <a style="color: hsl(136, 53%, 59%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">SHOES</a>
+        </li>
+        <li>
+          <a style="color: hsl(205, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">ACCESSORIES</a>
+        </li>
+      </ul>
+      </template>
+      </SfHeader>`
+  }))
+  .add("[slot] search", () => ({
+    components: { SfHeader },
+    props: {
+      logo: {
+        default: text("(prop) logo", "/assets/logo.svg")
+      },
+      cartIcon: {
+        default: text("(prop) cartIcon", "empty_cart")
+      },
+      wishlistIcon: {
+        default: text("(prop) wishlistIcon", "heart")
+      },
+      accountIcon: {
+        default: text("(prop) accountIcon", "profile")
+      }
+    },
+    template: `<SfHeader 
+      :logo="logo"
+      :navigations="navigations"
+      :cart-icon="cartIcon" 
+      :wishlist-icon="wishlistIcon" 
+      :account-icon="accountIcon">
+      <template #navigations>
+        <ul style="display: flex; margin: 0; padding: 0; list-style: none;">
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">WOMEN</a>
+        </li>
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">MEN</a>
+        </li>
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">KIDS</a>
+        </li>
+      </ul>
       </template>
       </SfHeader>`
   }))
@@ -154,18 +154,6 @@ storiesOf("Organisms/Header", module)
     props: {
       logo: {
         default: text("(prop) logo", "/assets/logo.svg")
-      },
-      navigations: {
-        default: object("(prop) navigations", [
-          {
-            text: "WOMEN",
-            href: ""
-          },
-          {
-            text: "MEN",
-            href: ""
-          }
-        ])
       },
       cartIcon: {
         default: text("(prop) cartIcon", "empty_cart")
@@ -183,6 +171,19 @@ storiesOf("Organisms/Header", module)
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon">
+      <template #navigations>
+        <ul style="display: flex; margin: 0; padding: 0; list-style: none;">
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">WOMEN</a>
+        </li>
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">MEN</a>
+        </li>
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">KIDS</a>
+        </li>
+      </ul>
+      </template>
       </SfHeader>`
   }))
   .add("[slot] cartIcon", () => ({
@@ -190,18 +191,6 @@ storiesOf("Organisms/Header", module)
     props: {
       logo: {
         default: text("(prop) logo", "/assets/logo.svg")
-      },
-      navigations: {
-        default: object("(prop) navigations", [
-          {
-            text: "WOMEN",
-            href: ""
-          },
-          {
-            text: "MEN",
-            href: ""
-          }
-        ])
       },
       cartIcon: {
         default: text("(prop) cartIcon", "cross")
@@ -219,6 +208,19 @@ storiesOf("Organisms/Header", module)
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon">
+      <template #navigations>
+        <ul style="display: flex; margin: 0; padding: 0; list-style: none;">
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">WOMEN</a>
+        </li>
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">MEN</a>
+        </li>
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">KIDS</a>
+        </li>
+      </ul>
+      </template>
       </SfHeader>`
   }))
   .add("[slot] wishlistIcon", () => ({
@@ -226,18 +228,6 @@ storiesOf("Organisms/Header", module)
     props: {
       logo: {
         default: text("(prop) logo", "/assets/logo.svg")
-      },
-      navigations: {
-        default: object("(prop) navigations", [
-          {
-            text: "WOMEN",
-            href: ""
-          },
-          {
-            text: "MEN",
-            href: ""
-          }
-        ])
       },
       cartIcon: {
         default: text("(prop) cartIcon", "empty_cart")
@@ -255,5 +245,18 @@ storiesOf("Organisms/Header", module)
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon">
+      <template #navigations>
+        <ul style="display: flex; margin: 0; padding: 0; list-style: none;">
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">WOMEN</a>
+        </li>
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">MEN</a>
+        </li>
+        <li>
+          <a style="color: hsl(216, 8%, 12%); font-size: 0.875rem; font-weight: 500; padding-left: 40px;">KIDS</a>
+        </li>
+      </ul>
+      </template>
       </SfHeader>`
   }));

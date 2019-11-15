@@ -41,20 +41,6 @@ $header-logo-margin: 30px !default;
     background: $header-desktop-background;
   }
 
-  &__navigation {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  &__navigation-link {
-    padding-left: $header-navigation-padding;
-    font-size: $header-navigation-list-font-size;
-    font-weight: $header-navigation-list-font-weight;
-    color: $header-navigation-list-color;
-  }
-
   &__icons {
     display: flex;
     margin-right: $header-icon-margin;
@@ -79,7 +65,7 @@ $header-logo-margin: 30px !default;
       width: $header-desktop-logo-width;
     }
   }
-  &__navigation,
+
   &__search,
   &__icons {
     @media (max-width: $mobile-max) {
