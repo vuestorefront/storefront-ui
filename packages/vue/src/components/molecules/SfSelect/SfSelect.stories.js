@@ -55,7 +55,7 @@ storiesOf("Molecules|Select", module)
         ]
       };
     },
-    template: `<div style="max-width: 18.75rem">
+    template: `<div style="max-width: 18.75rem; padding: 1rem">
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -112,7 +112,7 @@ storiesOf("Molecules|Select", module)
         ]
       };
     },
-    template: `<div style="max-width: 18.75rem">
+    template: `<div style="max-width: 18.75rem; padding: 1rem">
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -172,7 +172,7 @@ storiesOf("Molecules|Select", module)
         ]
       };
     },
-    template: `<div style="max-width: 18.75rem">
+    template: `<div style="max-width: 18.75rem; padding: 1rem">
       <SfSelect
         v-model="selected"
         :class="customClass"
