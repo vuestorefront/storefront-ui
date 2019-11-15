@@ -75,7 +75,7 @@ storiesOf("Molecules|Section", module)
       :subtitle-heading="subtitleHeading"
       :level-heading="levelHeading">
       <template #heading="{levelHeading, titleHeading, subtitleHeading}">
-        <h1>Custom Heading</h1>
+        CUSTOM HEADING
       </template>
       <StoriesPlaceholder/>
     </SfSection>`
