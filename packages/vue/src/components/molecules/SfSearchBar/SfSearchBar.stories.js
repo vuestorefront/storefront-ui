@@ -81,9 +81,7 @@ storiesOf("Molecules|SearchBar", module)
       :placeholder="placeholder"
       :icon="icon"
       v-model="value">
-      <template #icon>
-        <!-- sot content -->
-      </template>
+      <template #icon>👀</template>
     </SfSearchBar>`
   }))
   .add("[slot] clear-icon", () => ({
@@ -121,8 +119,6 @@ storiesOf("Molecules|SearchBar", module)
       :placeholder="placeholder"
       :icon="icon"
       v-model="value">
-      <template #clear-icon>
-        <!-- sot content -->
-      </template>
+      <template #clear-icon>🧹</template>
     </SfSearchBar>`
   }));
