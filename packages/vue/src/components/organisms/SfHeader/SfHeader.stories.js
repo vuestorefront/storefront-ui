@@ -248,6 +248,7 @@ storiesOf("Organisms/Header", module)
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon">
+      <template #wishlistIcon>wishlist</template>
       <template #navigations>
         <ul style="display: flex; margin: 0; padding: 0; list-style: none;">
         <li>
