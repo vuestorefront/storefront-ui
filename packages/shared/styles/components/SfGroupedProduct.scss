@@ -88,6 +88,11 @@ $grouped-product__select-quantity-height: 1.875rem !default;
         margin: 0 !important;
         transform: unset !important;
       }
+      &__slide {
+        &--clone {
+          display: none;
+        }
+      }
     }
   }
 }
