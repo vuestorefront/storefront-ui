@@ -72,7 +72,7 @@ storiesOf("Atoms|Checkbox", module)
       :disabled="disabled">
       <template #checkmark="{isChecked, disabled}">
         <span v-if="isChecked">👍🏻</span>
-        <span v-else>👎🏻</spanv>
+        <span v-else>👎🏻</span>
       </template>
     </SfCheckbox>`
   }))
