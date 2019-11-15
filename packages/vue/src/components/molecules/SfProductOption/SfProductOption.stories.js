@@ -44,7 +44,7 @@ export default storiesOf("Molecules|ProductOption", module)
         :label="label"
         :value="value">
         <template #color="{color}">
-          <!-- -->
+          <div :style="{width: '20px', height:'20px', backgroundColor: color, borderRadius: '100%', marginRight: '10px'}"></div>
         </template>
       </SfProductOption>
     </div>`
@@ -68,7 +68,7 @@ export default storiesOf("Molecules|ProductOption", module)
         :label="label"
         :value="value">
         <template #label="{label}">
-          <!-- -->
+          CUSTOM LABEL
         </template>
       </SfProductOption>
     </div>`
