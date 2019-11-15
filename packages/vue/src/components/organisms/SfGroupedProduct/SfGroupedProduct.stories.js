@@ -12,8 +12,8 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
           image: "/assets/storybook/product-white.png",
           title: "Leave white brooch",
           sku: "MSD23-345-324",
-          specialPrice: "",
-          regularPrice: "$10,99",
+          priceSpecial: "",
+          priceRegular: "$10,99",
           stock: 99,
           qty: "0",
           attributes: [
@@ -27,8 +27,8 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
           image: "/assets/storybook/product-green.png",
           title: "Leave green brooch",
           sku: "MSD23-345-325",
-          specialPrice: "",
-          regularPrice: "$11,99",
+          priceSpecial: "",
+          priceRegular: "$11,99",
           qty: "0",
           stock: 99,
           attributes: [
@@ -42,8 +42,8 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
           image: "/assets/storybook/product-black.png",
           title: "Leave black brooch",
           sku: "MSD23-345-326",
-          specialPrice: "",
-          regularPrice: "$20,99",
+          priceSpecial: "",
+          priceRegular: "$20,99",
           qty: "0",
           stock: 99,
           attributes: [
@@ -55,9 +55,9 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
         }
       ],
       imageSetup: {
-        placeholderImage: "",
-        lazyImage: true,
-        pictureBreakpointImage: 576
+        imagePlaceholder: "",
+        imageLazy: true,
+        imagePictureBreakpoint: 576
       }
     };
   },
@@ -68,12 +68,12 @@ storiesOf("Organisms|GroupedProduct", module).add("Default", () => ({
           :key="key"
           v-model="product.qty"
           :image="product.image"
-          :placeholder-image="imageSetup.placeholderImage"
-          :lazy-image="imageSetup.lazyImage"
-          :picture-breakpoint-image="imageSetup.pictureBreakpointImage"
+          :image-placeholder="imageSetup.imagePlaceholder"
+          :image-lazy="imageSetup.imageLazy"
+          :image-picture-breakpoint="imageSetup.imagePictureBreakpoint"
           :title="product.title"
-          :special-price="product.specialPrice"
-          :regular-price="product.regularPrice"
+          :price-special="product.priceSpecial"
+          :price-regular="product.priceRegular"
           :stock="product.stock">
           <template #details><div style="color: #a3a5ad">{{product.sku}}</div></template>
           <template #configuration>

@@ -9,16 +9,16 @@ Grouped Product component
     image="https://deploy-preview-415--storefrontui-storybook.netlify.com/assets/storybook/product-white.png"
     title="Leave white brooch"
     :stock="10"
-    regular-price="$10.99"
-    special-price=""
+    price-regular="$10.99"
+    price-special=""
   />
   <SfGroupedProductItem
       qty="4"
       image="https://deploy-preview-415--storefrontui-storybook.netlify.com/assets/storybook/product-black.png"
       title="Leave black brooch"
       :stock="10"
-      regular-price="$10.99"
-      special-price=""
+      price-regular="$10.99"
+      price-special=""
     />
 </SfGrupedProduct>
 
@@ -32,8 +32,8 @@ Grouped Product component
     :image="product.image"
     :title="product.title"
     :stock="product.stock"
-    :regular-price="product.regularPrice"
-    :special-price="product.specialPrice">
+    :price-regular="product.regularPrice"
+    :price-special="product.specialPrice">
     </SfGroupedProductItem>
   </SfGroupedProduct>
 </template>

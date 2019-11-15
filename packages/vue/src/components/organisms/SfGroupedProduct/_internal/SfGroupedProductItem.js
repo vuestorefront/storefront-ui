@@ -20,21 +20,21 @@ export default {
     /**
      * Product image placeholder
      */
-    placeholderImage: {
+    imagePlaceholder: {
       type: String,
       default: ""
     },
     /**
      * Product image lazy loading
      */
-    lazyImage: {
+    imageLazy: {
       type: Boolean,
       default: true
     },
     /**
      * Product image picture breakpoint
      */
-    pictureBreakpointImage: {
+    imagePictureBreakpoint: {
       type: Number,
       default: 576
     },
@@ -48,14 +48,14 @@ export default {
     /**
      * Product regular price
      */
-    regularPrice: {
+    priceRegular: {
       type: [Number, String],
       default: ""
     },
     /**
      * Product special price
      */
-    specialPrice: {
+    priceSpecial: {
       type: [Number, String],
       default: ""
     },
