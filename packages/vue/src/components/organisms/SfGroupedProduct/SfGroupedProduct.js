@@ -6,10 +6,16 @@ Vue.component("SfGroupedProductItem", SfGroupedProductItem);
 
 export default {
   name: "SfGroupedProduct",
+  props: {
+    settings: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   data() {
     return {
       glide: null,
-      options: {
+      defaultSettings: {
         type: "slider",
         rewind: true,
         gap: 0,
@@ -26,9 +32,22 @@ export default {
       }
     };
   },
+  computed: {
+    glideSettings() {
+      let breakpoints = { ...this.defaultSettings.breakpoints };
+      if (this.settings.breakpoints) {
+        breakpoints = { ...breakpoints, ...this.settings.breakpoints };
+      }
+      return {
+        ...this.defaultSettings,
+        ...this.settings,
+        breakpoints
+      };
+    }
+  },
   mounted() {
     this.$nextTick(() => {
-      const glide = new Glide(this.$refs.glide, this.options);
+      const glide = new Glide(this.$refs.glide, this.glideSettings);
 
       glide.mount();
       glide.on("run.before", move => {
