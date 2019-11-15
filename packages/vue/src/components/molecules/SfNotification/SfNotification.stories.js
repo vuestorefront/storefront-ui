@@ -72,7 +72,7 @@ storiesOf("Molecules|Notification", module)
       :action="action"
       :type="type">
       <template #icon="{icon}">
-        <SfIcon icon="heart" color="white" size="sm" style="margin-right: 1.25rem">
+        <SfIcon icon="heart" color="white" size="sm" style="margin-right: 1.25rem"/>
       </template>
     </SfNotification>`
   }))
