@@ -93,7 +93,7 @@ storiesOf("Molecules|Options", module)
       :type="type"
       :label="label">
       <template #label="{label}">
-        <!-- slot content -->
+        CUSTOM LABEL
       </template>
     </SfOptions>`
   }))
@@ -141,7 +141,7 @@ storiesOf("Molecules|Options", module)
       :type="type"
       :label="label">
       <template #text="{text, value, isOptionSelected}">
-        <!-- slot content -->
+        <div style="width: 1.25rem; height: 1.25rem; display: flex; align-items: center; justify-content: center; background-color: #5ECE7B; color: #FFF">{{value}}</div>
       </template>
     </SfOptions>`
   }))
@@ -189,7 +189,7 @@ storiesOf("Molecules|Options", module)
       :type="type"
       :label="label">
       <template #color="{color, value, isOptionSelected}">
-        <!-- slot content -->
+        <div :style="{backgroundColor: color, borderRadius: '100%', width: '20px', height: '20px'}"></div>
       </template>
     </SfOptions>`
   }))
@@ -237,7 +237,7 @@ storiesOf("Molecules|Options", module)
       :type="type"
       :label="label">
       <template #image="{image, value, isOptionSelected}">
-        <!-- slot content -->
+        <img :src="image" :alt="value" style="width: 1.5rem; border: 1px solid #F2F2F2; padding: 5px">
       </template>
     </SfOptions>`
   }));
