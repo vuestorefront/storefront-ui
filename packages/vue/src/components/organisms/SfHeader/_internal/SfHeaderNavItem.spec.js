@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import SfHeaderNavItem from "./internal/SfHeaderNavItem.vue";
+import SfHeaderNavItem from "./SfHeaderNavItem.vue";
 
-describe("SfHeader.vue", () => {
+describe("SfHeaderNavItem.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfHeaderNavItem);
-    expect(component.contains("sf-header__nav-item")).toBe(true);
+    expect(component.contains(".sf-header__nav-item")).toBe(true);
   });
 });

@@ -3,7 +3,7 @@
     <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo" />
     <h1 v-else class="sf-header__title">{{ title }}</h1>
   </slot>
-    <nav>
+    <nav class="sf-header__nav">
       <ul class="sf-header__nav-items">
         <slot name="navigation" />
       </ul>

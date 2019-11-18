@@ -7,6 +7,7 @@ $header-desktop-height: 5rem !default;
 $header-desktop-padding: 1.875rem !default;
 
 $header-navigation-padding: 2.5rem !default;
+$header-navigation-margin: 2.5rem !default;
 $header-navigation-justify-content: center !default;
 $header-navigation-list-font-size: $font-size-regular-mobile !default;
 $header-navigation-list-font-weight: 500 !default;
@@ -49,18 +50,34 @@ $header-logo-height: auto !default;
     margin-left: auto;
   }
 
+  &__nav {
+    height: 100%;
+  }
+
   &__nav-items {
     display: flex; 
+    height: 100%;
     margin: 0; 
     padding: 0; 
     list-style: none;
+
+    &:hover > :not(:hover) {
+      color: $c-gray;
+    }
   }
 
   &__nav-item {
+    display: flex;
+    align-items: center;
+    height: 100%;
     color: $c-dark; 
     font-size: $font-size-small-desktop; 
     font-weight: $header-navigation-item__font-weight; 
-    padding-left: $header-navigation-padding;
+    margin-left: $header-navigation-margin;
+
+    &:hover {
+      border-bottom: 2px solid $c-dark;
+    }
   }
 
   &__logo {
