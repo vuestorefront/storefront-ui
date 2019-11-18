@@ -19,7 +19,6 @@
     "docs:dev": "yarpm docs:vuecomponents && vuepress dev docs",
     "docs:build": "yarpm docs:vuecomponents && vuepress build docs",
     "create-index-files": "node scripts/create-index-files.js",
-    "precommit": "lint-staged",
     "postinstall": "node scripts/postinstall.js",
     "version": "node scripts/version.js",
     "postpublish": "node scripts/postpublish.js"
