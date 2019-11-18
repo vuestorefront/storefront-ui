@@ -4,12 +4,14 @@
     <h1 v-else class="sf-header__title">{{ title }}</h1>
   </slot>
     <nav>
-      <slot name="navigation" />
+      <ul class="sf-header__nav-items">
+        <slot name="navigation" />
+      </ul>
     </nav>
   <slot name="search">
     <SfSearchBar class="sf-header__search" />
   </slot>
-  <slot name="icons" v-bind="{accountIcon, wishlistIcon, cartIcon}">
+  <slot name="header-icons" v-bind="{accountIcon, wishlistIcon, cartIcon}">
     <div class="sf-header__icons">
       <SfIcon
         class="sf-header__icon"

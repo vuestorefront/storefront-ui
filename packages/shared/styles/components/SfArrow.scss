@@ -7,7 +7,6 @@ $arrow__button-shadow--right: 0 -5px 12px -5px rgba($c-black, 0.6) !default;
 $arrow__icon-color: $c-white !default;
 $arrow__icon-color--hover: $c-dark !default;
 $arrow__icon-height: 0.75rem !default;
-$arrow__icon-height--long: 2.5rem !default;
 $arrow__icon-width--long: 4.375rem !default;
 
 .sf-arrow {
@@ -46,8 +45,6 @@ $arrow__icon-width--long: 4.375rem !default;
     }
   }
   &--long {
-    width: $arrow__icon-width--long;
-    height: $arrow__icon-height--long;
     display: flex;
     align-items: center;
     justify-content: flex-start;

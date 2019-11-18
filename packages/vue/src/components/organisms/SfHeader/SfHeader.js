@@ -11,7 +11,7 @@ export default {
   },
   props: {
     /**
-     * Header logo
+     * Header logo path
      */
     logo: {
       type: [String, Object],
@@ -25,21 +25,21 @@ export default {
       default: ""
     },
     /**
-     * Header cartIcon
+     * Header cartIcon (accepts same value as SfIcon)
      */
     cartIcon: {
       type: [String, Boolean],
       default: "empty_cart"
     },
     /**
-     * Header wishlistIcon
+     * Header wishlistIcon (accepts same value as SfIcon)
      */
     wishlistIcon: {
       type: [String, Boolean],
       default: "heart"
     },
     /**
-     * Header accountIcon
+     * Header accountIcon (accepts same value as SfIcon)
      */
     accountIcon: {
       type: [String, Boolean],
