@@ -1,12 +1,16 @@
 # How to customize Storefront UI components
 
-We put a lot of efforts to let you customize any aspect of the Storefront UI.
-Let's see how to do this from top to bottom.
+One of the key goals of Storefront Ui si to provide you with a ready to use design system with which you can recreate almost every design. 
+
+Below you can read how you can customize different aspects of styles and components.
 
 [[toc]]
-## Global customization 
+## Global styles
+Usually when you're designing a new app you're starting with a style guide. A style guide is a set of common design standards and design principles used in a whole projet. It usually covers things such as typography or colors. 
 
-To share common design principles across whole library we highly rely on SCSS variables. You can override them to shape the look and feel of your project. There are two groups of available SCSS variables in Storefront UI:
+If we want to translate style guide into web we can represent it as a set of global SCSS variables.
+
+You can override them to shape the look and feel of your project. There are two groups of available SCSS variables in Storefront UI:
 - **Global variables** like colors, fonts or sizes are influencing whole library. For example below code in `sfui.scss` will change accent color in your whole project to `blue`.
 ```scss
 $c-accent-primary: blue;

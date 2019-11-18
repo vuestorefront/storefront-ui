@@ -76,6 +76,12 @@ storiesOf("Organisms|ProductCard", module)
         title: {
           default: text("title (prop)", "Product name")
         },
+        link: {
+          default: text("link (prop)", "")
+        },
+        linkTag: {
+          default: text("linkTag (prop)", "")
+        },
         regularPrice: {
           default: text("regularPrice (prop)", "$10,99")
         },
@@ -102,6 +108,8 @@ storiesOf("Organisms|ProductCard", module)
       template: `<SfProductCard
         :image="image"
         :title="title"
+        :link="link"
+        :linkTag="linkTag"
         :regular-price="regularPrice"
         :special-price="specialPrice"
         :score-rating="scoreRating"
@@ -128,6 +136,12 @@ storiesOf("Organisms|ProductCard", module)
       props: {
         title: {
           default: text("title (prop)", "Product name")
+        },
+        link: {
+          default: text("link (prop)", "javascript:window.alert();")
+        },
+        linkTag: {
+          default: text("linkTag (prop)", "")
         },
         regularPrice: {
           default: text("regularPrice (prop)", "$10,99")
@@ -158,6 +172,8 @@ storiesOf("Organisms|ProductCard", module)
       template: `<SfProductCard
         :image="pictures"
         :title="title"
+        :link="link"
+        :linkTag="linkTag"
         :regular-price="regularPrice"
         :special-price="specialPrice"
         :score-rating="scoreRating"

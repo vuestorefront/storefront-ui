@@ -1,5 +1,9 @@
 <template>
   <div id="product">
+    <SfBreadcrumbs
+      class="breadcrumbs desktop-only"
+      :breadcrumbs="breadcrumbs"
+    />
     <div class="product">
       <div class="product__gallery">
         <SfImage
@@ -192,36 +196,36 @@
       subtitle-heading="#YOURLOOK"
       class="section"
     >
-      <div class="grid">
-        <div class="grid__row">
-          <div class="grid__col">
+      <div class="images-grid">
+        <div class="images-grid__row">
+          <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageA.jpg"
               >katherina_trn</SfImage
             >
           </div>
-          <div class="grid__col">
+          <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageB.jpg"
               >katherina_trn</SfImage
             >
           </div>
-          <div class="grid__col">
+          <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageC.jpg"
               >katherina_trn</SfImage
             >
           </div>
         </div>
-        <div class="grid__row">
-          <div class="grid__col">
+        <div class="images-grid__row">
+          <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageC.jpg"
               >katherina_trn</SfImage
             >
           </div>
-          <div class="grid__col">
+          <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageD.jpg"
               >katherina_trn</SfImage
             >
           </div>
-          <div class="grid__col">
+          <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageA.jpg"
               >katherina_trn</SfImage
             >
@@ -257,32 +261,6 @@
         </div>
       </template>
     </SfBanner>
-    <SfBottomNavigation class="mobile-only">
-      <SfBottomNavigationItem>
-        <SfIcon icon="home" size="20px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfIcon icon="menu" size="20px" style="width: 25px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfIcon icon="heart" size="20px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfIcon icon="profile" size="20px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem class="bottom-navigation-circle">
-        <SfCircleIcon
-          class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
-        >
-          <SfIcon
-            icon="add_to_cart"
-            size="20px"
-            color="white"
-            style="margin-right: 4px;"
-          />
-        </SfCircleIcon>
-      </SfBottomNavigationItem>
-    </SfBottomNavigation>
   </div>
 </template>
 <script>
@@ -301,16 +279,34 @@ import {
   SfSection,
   SfImage,
   SfBanner,
-  SfBottomNavigation,
-  SfCircleIcon,
-  SfIcon,
   SfAlert,
   SfSticky,
-  SfReview
-} from "@storefront-ui/vue";
+  SfReview,
+  SfBreadcrumbs
+} from "../../../../index.js";
 
 export default {
   name: "Product",
+  components: {
+    SfAlert,
+    SfProperty,
+    SfHeading,
+    SfPrice,
+    SfRating,
+    SfSelect,
+    SfProductOption,
+    SfAddToCart,
+    SfTabs,
+    SfGallery,
+    SfProductCard,
+    SfCarousel,
+    SfSection,
+    SfImage,
+    SfBanner,
+    SfSticky,
+    SfReview,
+    SfBreadcrumbs
+  },
   data() {
     return {
       qty: "1",
@@ -426,30 +422,28 @@ export default {
           rating: 5
         }
       ],
-      detailsIsActive: false
+      detailsIsActive: false,
+      breadcrumbs: [
+        {
+          text: "Home",
+          route: {
+            link: "#"
+          }
+        },
+        {
+          text: "Category",
+          route: {
+            link: "#"
+          }
+        },
+        {
+          text: "Pants",
+          route: {
+            link: "#"
+          }
+        }
+      ]
     };
-  },
-  components: {
-    SfAlert,
-    SfProperty,
-    SfHeading,
-    SfPrice,
-    SfRating,
-    SfSelect,
-    SfProductOption,
-    SfAddToCart,
-    SfTabs,
-    SfGallery,
-    SfProductCard,
-    SfCarousel,
-    SfSection,
-    SfImage,
-    SfBanner,
-    SfBottomNavigation,
-    SfCircleIcon,
-    SfIcon,
-    SfSticky,
-    SfReview
   },
   methods: {
     toggleWishlist(index) {
@@ -459,27 +453,135 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/shared/styles/variables";
-@import "~@storefront-ui/shared/styles/helpers/visibility";
-@import "~@storefront-ui/vue/src/utilities/transitions/transitions.scss";
+@import "~@storefront-ui/vue/styles";
 
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
-@mixin for-iOS {
-  @supports (-webkit-overflow-scrolling: touch) {
-    @content;
-  }
-}
 
 #product {
   box-sizing: border-box;
-  margin: 0 0 60px 0;
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
+  }
+}
+.banner-application {
+  min-height: 420px;
+  max-width: 1040px;
+  margin: auto;
+  padding-right: calc(25% + 5rem);
+  padding-left: 2.5rem;
+  line-height: 1.6;
+  &__title {
+    margin: $spacer-big 0 0 0;
+    font-size: $h1-font-size-desktop;
+    font-weight: $h1-font-weight-desktop;
+  }
+  &__subtitle {
+    color: #a3a5ad;
+    font-family: $body-font-family-primary;
+    font-size: $font-size-extra-big-desktop;
+    font-weight: $body-font-weight-primary;
+  }
+  &__download {
+    max-height: 47px;
+    margin-top: $spacer-extra-big;
+    & + & {
+      margin-left: $spacer-big;
+    }
+  }
+}
+.breadcrumbs {
+  padding: $spacer-big $spacer-extra-big $spacer-extra-big;
+}
+.gallery-mobile {
+  $height-other: 240px;
+  $height-iOS: 265px;
+
+  height: calc(100vh - #{$height-other});
+  @supports (-webkit-overflow-scrolling: touch) {
+    height: calc(100vh - #{$height-iOS});
+  }
+  ::v-deep .glide {
+    &,
+    * {
+      height: 100%;
+    }
+    &__slide {
+      position: relative;
+      overflow: hidden;
+    }
+    img {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: calc((375 / 490) * (100vh - #{$height-other}));
+      @supports (-webkit-overflow-scrolling: touch) {
+        min-width: calc((375 / 490) * (100vh - #{$height-iOS}));
+      }
+    }
+  }
+  ::v-deep .sf-gallery__stage {
+    width: 100%;
+  }
+}
+.images-grid {
+  &__row {
+    display: flex;
+    & + & {
+      margin-top: $spacer-big / 2;
+      @include for-desktop {
+        margin-top: $spacer-big;
+      }
+    }
+  }
+  &__col {
+    margin: 0;
+    & + & {
+      margin-left: $spacer-big / 2;
+      @include for-desktop {
+        margin-left: $spacer-big;
+      }
+    }
+  }
+}
+.product {
+  @include for-desktop {
+    display: flex;
+  }
+  &__gallery,
+  &__description {
+    flex: 1;
+  }
+  &__description {
+    padding: 0 $spacer-big;
+    @include for-desktop {
+      margin-left: $spacer-big * 5;
+    }
+  }
+}
+.product-card {
+  max-width: unset; // ?
+  &:hover {
+    @include for-desktop {
+      box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+    }
+  }
+}
+.product-carousel {
+  margin: -20px -#{$spacer-big} -20px 0;
+  @include for-desktop {
+    margin: -20px 0;
+  }
+  ::v-deep .sf-carousel__wrapper {
+    padding: 20px 0;
+    @include for-desktop {
+      padding: 20px;
+      max-width: calc(100% - 216px);
+    }
   }
 }
 .product-details {
@@ -597,11 +699,11 @@ export default {
     padding-bottom: $spacer-big;
     @include for-desktop {
       padding-bottom: $spacer-extra-big;
-      border-bottom: 1px solid $c-light-primary;
+      border-bottom: 1px solid $c-light;
     }
     & + & {
       padding-top: $spacer-extra-big;
-      border-top: 1px solid $c-light-primary;
+      border-top: 1px solid $c-light;
       @include for-desktop {
         border-top: 0;
         padding-top: $spacer-extra-big;
@@ -612,158 +714,22 @@ export default {
 .product-property {
   padding: $spacer-small 0;
 }
-.gallery-mobile {
-  $height-other: 240px;
-  $height-iOS: 265px;
-
-  height: calc(100vh - #{$height-other});
-  @supports (-webkit-overflow-scrolling: touch) {
-    height: calc(100vh - #{$height-iOS});
-  }
-  ::v-deep .glide {
-    &,
-    * {
-      height: 100%;
-    }
-    &__slide {
-      position: relative;
-      overflow: hidden;
-    }
-    img {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      min-width: calc((375 / 490) * (100vh - #{$height-other}));
-      @supports (-webkit-overflow-scrolling: touch) {
-        min-width: calc((375 / 490) * (100vh - #{$height-iOS}));
-      }
-    }
-  }
-  ::v-deep .sf-gallery__stage {
-    width: 100%;
-  }
-}
 .section {
-  @media (max-width: $desktop-min) {
-    padding-left: $spacer-big;
-    padding-right: $spacer-big;
-  }
-}
-.product {
+  padding-left: $spacer-big;
+  padding-right: $spacer-big;
   @include for-desktop {
-    display: flex;
-  }
-  &__gallery,
-  &__description {
-    flex: 1;
-  }
-  &__description {
-    padding: 0 $spacer-big;
-    @include for-desktop {
-      margin-left: $spacer-big * 5;
-    }
+    padding-left: 0;
+    padding-right: 0;
   }
 }
-/* we have PR to fix bullets position */
-.sf-gallery {
-  $this: &;
-  ::v-deep {
-    ul {
-      margin: 0;
-    }
-    #{$this}__thumbs {
-      left: 50%;
-      transform: translateX(-50%);
-      top: auto;
-      bottom: 10px;
-      display: flex;
-    }
-    #{$this}__item {
-      &:not(:first-child) {
-        margin: 0 0 0 $spacer;
-      }
-    }
-  }
-}
-/* same on the home, category */
-.bottom-navigation-circle {
-  opacity: 1;
-}
-/* same on the home */
-.banner-application {
-  min-height: 420px;
-  max-width: 1040px;
-  margin: auto;
-  padding-right: calc(25% + 5rem);
-  padding-left: 2.5rem;
-  line-height: 1.6;
-  &__title {
-    margin: $spacer-big 0 0 0;
-    font-size: $h1-font-size-desktop;
-    font-weight: $h1-font-weight-desktop;
-  }
-  &__subtitle {
-    color: #a3a5ad;
-    font-family: $body-font-family-primary;
-    font-size: $font-size-extra-big-desktop;
-    font-weight: $body-font-weight-primary;
-  }
-  &__download {
-    max-height: 47px;
-    margin-top: $spacer-extra-big;
-    & + & {
-      margin-left: $spacer-big;
-    }
-  }
-}
-.product-card {
-  max-width: unset; // ?
-  &:hover {
-    @include for-desktop {
-      box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
-    }
-  }
-}
-.product-carousel {
-  margin: -20px -#{$spacer-big} -20px 0;
-  @include for-desktop {
-    margin: -20px 0;
-  }
-  ::v-deep .sf-carousel__wrapper {
-    padding: 20px 0;
-    @include for-desktop {
-      padding: 20px;
-      max-width: calc(100% - 216px);
-    }
-  }
-}
-.grid {
-  &__row {
-    display: flex;
-    & + & {
-      margin-top: $spacer-big / 2;
-      @include for-desktop {
-        margin-top: $spacer-big;
-      }
-    }
-  }
-  &__col {
-    margin: 0;
-    & + & {
-      margin-left: $spacer-big / 2;
-      @include for-desktop {
-        margin-left: $spacer-big;
-      }
-    }
-  }
-}
-/* TODO: Add SfAction component or add SfButton modifier */
+
+/* SfAction or SfButton modifier */
 .sf-action {
   padding: 0;
   border: 0;
   outline: none;
   background-color: transparent;
-  color: $c-text-primary;
+  color: $c-text;
   font-family: $body-font-family-secondary;
   font-size: $font-size-regular-mobile;
   font-weight: $body-font-weight-secondary;

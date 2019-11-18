@@ -1,17 +1,17 @@
 <div class="sf-sidebar">
-  <SfOverlay
-    :visible="visibleOverlay"
-    @click="$emit('close')"
-  >
-  </SfOverlay>
+  <SfOverlay :visible="visibleOverlay" @click="$emit('close')" />
   <transition :name="'slide-' + position">
     <aside v-if="visible" class="sf-sidebar__aside">
-      <SfCircleIcon v-if="button" class="sf-sidebar__button" @click="$emit('close')">
-        <sf-icon icon="cross" color="white" size="14px"/>
-      </SfCircleIcon>
-      <div class="sf-sidebar__content">
-        <slot />
-      </div>
+      <slot name="circle-icon">
+        <SfCircleIcon
+          v-if="button"
+          class="sf-sidebar__circle-icon"
+          @click="$emit('close')"
+        >
+          <SfIcon icon="cross" color="white" size="0.875rem" />
+        </SfCircleIcon>
+      </slot>
+      <slot />
     </aside>
   </transition>
 </div>

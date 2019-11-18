@@ -17,6 +17,7 @@ storiesOf("Atoms|Button", module)
           "CSS modifier",
           {
             "sf-button--outline": "sf-button--outline",
+            "sf-button--text": "sf-button--text",
             "sf-button--full-width": "sf-button--full-width",
             "color-primary": "color-primary",
             "color-secondary": "color-secondary",
