@@ -7,7 +7,7 @@
   "license": "ISC",
   "devDependencies": {
     "eslint": "^5.16.0",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-prettier": "^3.1.1"
   },
   "publishConfig": {
     "access": "public"
