@@ -1,5 +1,5 @@
 # component-description
-Full width hover-animated component with icons and tabs, e.g. usable for navigation
+Full-width component for header navigation
 
 # common-usage
 <br>
