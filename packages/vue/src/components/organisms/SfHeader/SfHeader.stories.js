@@ -52,7 +52,6 @@ storiesOf("Organisms/Header", module)
     },
     template: `<SfHeader 
       :logo="logo"
-      :navigations="navigations"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon">
@@ -84,7 +83,6 @@ storiesOf("Organisms/Header", module)
     },
     template: `<SfHeader 
       :logo="logo"
-      :navigations="navigations"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon">
@@ -116,7 +114,6 @@ storiesOf("Organisms/Header", module)
     },
     template: `<SfHeader 
       :logo="logo"
-      :navigations="navigations"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon">
