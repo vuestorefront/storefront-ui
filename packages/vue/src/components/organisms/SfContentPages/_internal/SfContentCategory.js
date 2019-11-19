@@ -25,6 +25,7 @@ export default {
   computed: {},
   methods: {
     updatePages(page) {
+      if(this.pages.includes(page)) return;
       this.pages.push(page);
     }
   },

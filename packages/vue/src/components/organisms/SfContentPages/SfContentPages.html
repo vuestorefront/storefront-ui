@@ -1,32 +1,31 @@
 <div class="sf-content-pages">
   <section
     class="sf-content-pages__section"
-    :class="{'sf-content-pages__section--is-active': active}">
+    :class="{'sf-content-pages__section--is-active': active}"
+  >
     <div class="sf-content-pages__sidebar">
       <h1 class="sf-content-pages__title">{{title}}</h1>
-      <template v-for="category in categories">
+      <div v-for="category in categories" :key="category.title">
         <h2 class="sf-content-pages__category-title">{{category.title}}</h2>
         <SfList class="sf-content-pages__list">
           <SfList
-              v-for="page in category.pages"
-              :key="page"
-              class="sf-content-pages__list-item">
+            v-for="page in category.pages"
+            :key="page.title"
+            class="sf-content-pages__list-item"
+          >
             <!-- @slot Custom menu-item markup -->
-            <slot
-                name="menu-item"
-                v-bind="{updatePage, page, active}">
-            <span @click="updatePage(page.title)">
-              <SfMenuItem
+            <slot name="menu-item" v-bind="{updatePage, page, active}">
+              <span @click="updatePage(page.title)">
+                <SfMenuItem
                   :label="page.title"
                   class="sf-content-pages__menu-item"
                   :class="{'sf-content-pages__menu-item--is-active': page.title === active}"
-              />
-            </span>
+                />
+              </span>
             </slot>
           </SfList>
         </SfList>
-      </template>
-
+      </div>
     </div>
     <div class="sf-content-pages__content">
       <!-- @slot Slot for Content Page -->
