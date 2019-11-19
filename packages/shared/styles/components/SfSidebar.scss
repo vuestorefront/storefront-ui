@@ -1,6 +1,9 @@
 @import "../variables";
 
+$sidebar-padding: $spacer-big !default;
+$sidebar-padding-desktop: $spacer-extra-big !default;
 $sidebar-background-color: $c-white !default;
+$sidebar__title-margin-bottom: 1.5rem !default;
 
 .sf-sidebar {
   $this: &;
@@ -10,11 +13,14 @@ $sidebar-background-color: $c-white !default;
     left: 0;
     z-index: 1;
     height: 100%;
-    padding: $spacer-extra-big ;
+    padding: $sidebar-padding;
     background-color: $sidebar-background-color;
+    @media (min-width: $desktop-min) {
+      padding: $sidebar-padding-desktop;
+    }
   }
-  &__title{
-    margin-bottom: 1.5rem ;
+  &__title {
+    margin-bottom: $sidebar__title-margin-bottom;
   }
   &__circle-icon {
     position: absolute;
