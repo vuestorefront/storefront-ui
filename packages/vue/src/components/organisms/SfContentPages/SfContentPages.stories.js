@@ -117,6 +117,9 @@ storiesOf("Organisms|ContentPages", module).add("[slot] default", () => ({
           </SfTabs>
           </SfContentPage>
         </SfContentCategory>
+        <SfContentCategory>
+          <SfContentPage title="Logout"/>
+        </SfContentCategory>
       </SfContentPages>
       <button 
         v-if="activePage" 
@@ -126,6 +129,10 @@ storiesOf("Organisms|ContentPages", module).add("[slot] default", () => ({
     </div>`,
   methods: {
     updateActive(title) {
+      if (title === "Logout") {
+        alert("You have been logged out");
+        return;
+      }
       this.activePage = title;
     }
   }
