@@ -13,19 +13,27 @@ export default {
      */
     image: {
       type: [Array, Object, String],
-      default: "assets/storybook/product_thumb.jpg"
+      default: ""
     },
     /**
      * Product title
      */
     title: {
       type: String,
-      required: true
+      default: ""
     },
     /**
      * Link to product page
      */
     link: {
+      type: [String, Object]
+    },
+    /**
+     * Link element tag
+     * By default it'll be 'router-link' if Vue Router
+     * is available on instance, or 'a' otherwise.
+     */
+    linkTag: {
       type: String
     },
     /**
@@ -101,15 +109,29 @@ export default {
     currentWishlistIcon() {
       return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
     },
+
     ariaLabel() {
       return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
+
     wishlistIconClasses() {
       const defaultClass = "sf-product-card__wishlist-icon";
 
       return `${defaultClass} ${
         this.isOnWishlist ? "sf-product-card--on-wishlist" : ""
       }`;
+    },
+
+    linkComponentTag() {
+      if (this.linkTag) {
+        return this.linkTag;
+      }
+      if (this.link) {
+        return typeof this.link === "object" || this.$router
+          ? "router-link"
+          : "a";
+      }
+      return "div";
     }
   },
 

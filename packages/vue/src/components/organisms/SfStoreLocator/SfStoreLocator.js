@@ -198,30 +198,28 @@ export default {
       return Math.round(distance * 100) / 100;
     }
   },
-  async mounted() {
-    const {
-      LMap,
-      LTileLayer,
-      LMarker,
-      LIcon,
-      LControl,
-      LControlZoom
-    } = await import("vue2-leaflet");
-    await import("leaflet/dist/leaflet.css");
-    Vue.component("l-map", LMap);
-    Vue.component("l-tilelayer", LTileLayer);
-    Vue.component("l-marker", LMarker);
-    Vue.component("l-icon", LIcon);
-    Vue.component("l-control", LControl);
-    Vue.component("l-control-zoom", LControlZoom);
-    this.loaded = true;
-    /**
-     * Library loaded event, the library is ready and the map is initialising
-     *
-     * @event 'library:loaded'
-     * @type null
-     */
-    this.$emit("library:loaded");
+  mounted() {
+    Promise.all([
+      import("vue2-leaflet"),
+      import("leaflet/dist/leaflet.css")
+    ]).then(
+      ([{ LMap, LTileLayer, LMarker, LIcon, LControl, LControlZoom }]) => {
+        Vue.component("l-map", LMap);
+        Vue.component("l-tilelayer", LTileLayer);
+        Vue.component("l-marker", LMarker);
+        Vue.component("l-icon", LIcon);
+        Vue.component("l-control", LControl);
+        Vue.component("l-control-zoom", LControlZoom);
+        this.loaded = true;
+        /**
+         * Library loaded event, the library is ready and the map is initialising
+         *
+         * @event 'library:loaded'
+         * @type null
+         */
+        this.$emit("library:loaded");
+      }
+    );
   },
   components: {
     SfIcon,
