@@ -60,6 +60,30 @@ export default {
       }
     }
   },
+  watch: {
+    // visible: {
+    //   handler: value => {
+    //     if (typeof window === "undefined") return;
+    //     if (value) {
+    //       document.body.classList.add("sf-sidebar--has-scroll-lock");
+    //     } else {
+    //       document.body.classList.remove("sf-sidebar--has-scroll-lock");
+    //     }
+    //   },
+    //   immediate: true
+    // }
+    visible: {
+      handler: value => {
+        if (typeof window === "undefined") return;
+        if (value) {
+          document.body.style.setProperty("overflow", "hidden");
+        } else {
+          document.body.style.removeProperty("overflow");
+        }
+      },
+      immediate: true
+    }
+  },
   created() {
     const escapeHandler = e => {
       if (e.key === "Escape" && this.visible) {
