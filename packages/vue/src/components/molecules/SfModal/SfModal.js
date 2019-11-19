@@ -2,11 +2,15 @@ import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfModal",
+  model: {
+    prop: "visible",
+    event: "toggle"
+  },
   props: {
     /**
      * Visibility of the modal
      */
-    value: {
+    visible: {
       type: Boolean,
       default: false
     },
@@ -48,7 +52,7 @@ export default {
   },
   methods: {
     close() {
-      this.$emit("input", !this.value);
+      this.$emit("toggle", !this.visible);
     },
     checkPersistence() {
       if (!this.persistent) {
@@ -58,7 +62,7 @@ export default {
   },
   created() {
     const escapeHandler = e => {
-      if (e.key === "Escape" && this.value) {
+      if (e.key === "Escape" && this.visible) {
         this.close();
       }
     };
