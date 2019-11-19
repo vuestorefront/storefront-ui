@@ -4,6 +4,7 @@
     <aside v-if="visible" class="sf-sidebar__aside">
       <slot name="title">
         <SfHeading
+          v-if="headingTitle"
           :title="headingTitle"
           :subtitle="headingSubtitle"
           :level="headingLevel"
