@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     close() {
-      this.$emit("toggle", !this.visible);
+      this.$emit("toggle", false);
     },
     checkPersistence() {
       if (!this.persistent) {
