@@ -42,7 +42,6 @@ module.exports = {
           ["/components/Chevron", "Chevron"],
           ["/components/CircleIcon", "Circle Icon"],
           ["/components/CollectedProduct", "Collected Product"],
-          ["/components/ContentPages", "Content Pages"],
           ["/components/Counter", "Counter"],
           ["/components/Divider", "Divider"],
           ["/components/Filter", "Filter"],

@@ -8,7 +8,7 @@ const scssTableConfig = {
   tableBodyConfig: [
     [
       "$radio--active-background",
-      "$c-light",
+      "$c-light-primary",
       "background-color for active option"
     ],
     [
@@ -24,12 +24,12 @@ const scssTableConfig = {
     ["$radio__checkmark-size", "1.4375rem", "size for checkmark"],
     [
       "$radio__checkmark-primary-color",
-      "$c-primary",
+      "$c-green-primary",
       "primary color for checkmark"
     ],
     [
       "$radio__checkmark-secondary-color",
-      "$c-gray-variant",
+      "$c-gray-secondary",
       "secondary color for checkmark"
     ],
     ["$radio__label-font-size", "1.125rem", "font size for label"],

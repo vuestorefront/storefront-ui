@@ -6,7 +6,7 @@ export default {
      */
     total: {
       type: Number,
-      default: 0
+      required: true
     },
     /**
      * Index of the currently active bullet (0-indexed)

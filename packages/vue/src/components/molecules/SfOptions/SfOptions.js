@@ -3,7 +3,7 @@ export default {
   props: {
     options: {
       type: Array,
-      default: () => []
+      required: true
     },
     type: {
       type: String,

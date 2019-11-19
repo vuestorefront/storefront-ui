@@ -49,17 +49,14 @@ export default {
       this.scrollLock();
     }
   },
-  mounted() {
-    import("hammerjs").then(h => {
-      const Hammer = h.default;
-      this.hammer = new Hammer(document, {
-        enable: false
-      }).on("pan", this.touchHandler);
-      this.isMobileHandler();
-      window.addEventListener("resize", this.isMobileHandler, {
-        passive: true
-      });
-    });
+  async mounted() {
+    const hammer = await import("hammerjs");
+    const Hammer = hammer.default;
+    this.hammer = new Hammer(document, {
+      enable: false
+    }).on("pan", this.touchHandler);
+    this.isMobileHandler();
+    window.addEventListener("resize", this.isMobileHandler, { passive: true });
   },
   beforeDestroy() {
     this.scrollUnlock();

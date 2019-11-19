@@ -12,16 +12,20 @@ import {
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$search-bar-background-primary", "$c-light", "background color primary"],
+    [
+      "$search-bar-background-primary",
+      "$c-light-primary",
+      "background color primary"
+    ],
     [
       "$search-bar-background-secondary",
-      "$c-light-variant",
+      "$c-light-secondary",
       "background color secondary"
     ],
-    ["$search-bar-placeholder-color", "$c-dark", "placeholder color"],
+    ["$search-bar-placeholder-color", "$c-dark-primary", "placeholder color"],
     [
       "$search-bar-placeholder-color-focus",
-      "$c-gray ",
+      "$c-gray-primary ",
       "placeholder in focus color"
     ],
     ["$search-bar-width", "20rem", "search bar width"],

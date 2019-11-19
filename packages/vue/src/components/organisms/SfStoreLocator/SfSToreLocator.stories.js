@@ -83,10 +83,10 @@ const scssTableConfig = {
       "$h1-font-weight-desktop",
       "Store name font weight"
     ],
-    ["$sf-store__color-primary", "$c-dark", "Store card primary color"],
+    ["$sf-store__color-primary", "$c-dark-primary", "Store card primary color"],
     [
       "$sf-store__color-secondary",
-      "$c-gray-variant",
+      "$c-gray-secondary",
       "Store card secondary color"
     ],
     [

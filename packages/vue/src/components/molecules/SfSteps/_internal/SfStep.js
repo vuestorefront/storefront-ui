@@ -7,7 +7,7 @@ export default {
      */
     name: {
       type: String,
-      default: ""
+      required: true
     }
   },
   computed: {

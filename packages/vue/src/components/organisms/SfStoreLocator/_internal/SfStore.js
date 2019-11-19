@@ -17,14 +17,14 @@ export default {
      */
     latlng: {
       type: Array,
-      default: () => []
+      required: true
     },
     /**
      * Name of the store
      */
     name: {
       type: String,
-      default: ""
+      required: true
     },
     /**
      * Url of the picture of the store
@@ -38,7 +38,7 @@ export default {
      */
     address: {
       type: String,
-      default: ""
+      required: true
     },
     /**
      * Phone number of the store

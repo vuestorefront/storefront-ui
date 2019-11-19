@@ -20,7 +20,7 @@ export default {
      */
     title: {
       type: String,
-      default: ""
+      required: true
     },
     /**
      * Product regular price
