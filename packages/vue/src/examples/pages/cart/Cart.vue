@@ -14,7 +14,7 @@
           Total items: {{ totalItems }}
         </h3>
         <div v-if="totalItems" class="collected-product-list">
-          <transition-group name="collapse-bottom" :duration="300" tag="div">
+          <transition-group name="fade" tag="div">
             <SfCollectedProduct
               v-for="product in products"
               :key="product.id"
