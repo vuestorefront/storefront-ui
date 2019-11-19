@@ -2,71 +2,51 @@
   <div id="cart">
     <SfSidebar
       :visible="isCartSidebarOpen"
+      headingTitle="My Cart"
       @close="() => {}"
       class="sf-sidebar--right"
     >
-      <div class="my-cart">
-        <SfHeading
-          title="My Cart"
-          class="sf-heading--left sf-heading--no-underline my-cart__title"
-        />
-        <h3 v-if="totalItems" class="my-cart__total-items">
-          Total items: {{ totalItems }}
-        </h3>
-        <div v-if="totalItems" class="collected-product-list">
-          <transition-group name="fade" tag="div">
-            <SfCollectedProduct
-              v-for="product in products"
-              :key="product.id"
-              :image="product.image"
-              :title="product.title"
-              :regular-price="product.price.regular | price"
-              :special-price="product.price.special | price"
-              :stock="product.stock"
-              v-model="product.qty"
-              @click:remove="removeHandler(product)"
-              class="collected-product"
-            >
-              <template #configuration>
-                <div class="collected-product__properties">
-                  <SfProperty
-                    v-for="(property, key) in product.configuration"
-                    :key="key"
-                    :name="property.name"
-                    :value="property.value"
-                  />
-                </div>
-              </template>
-              <template #actions>
-                <div class="collected-product__actions">
-                  <SfButton class="sf-button--text product__action">
-                    Save for later
-                  </SfButton>
-                  <SfButton class="sf-button--text product__action">
-                    Add to compare
-                  </SfButton>
-                </div>
-              </template>
-            </SfCollectedProduct>
-          </transition-group>
-        </div>
-        <div v-else class="empty-cart">
-          <img
-            src="@storefront-ui/shared/icons/empty_cart.svg"
-            alt=""
-            class="empty-cart__icon"
-          />
-          <h3 class="empty-cart__label">Your bag is empty</h3>
-          <p class="empty-cart__description">
-            Looks like you haven’t added any items to the bag yet. Start
-            shopping to fill it in.
-          </p>
-        </div>
-        <div class="my-cart__summary">
-          <SfProperty
-            v-if="totalItems"
-            class="sf-property--full-width my-cart__total-price"
-          >
+      <transition name="fade" mode="out-in">
+        <div v-if="totalItems" class="my-cart" key="my-cart">
+          <h3 class="my-cart__total-items">Total items: {{ totalItems }}</h3>
+          <div class="collected-product-list">
+            <transition-group name="fade" tag="div">
+              <SfCollectedProduct
+                v-for="product in products"
+                :key="product.id"
+                :image="product.image"
+                :title="product.title"
+                :regular-price="product.price.regular | price"
+                :special-price="product.price.special | price"
+                :stock="product.stock"
+                v-model="product.qty"
+                @click:remove="removeHandler(product)"
+                class="collected-product"
+              >
+                <template #configuration>
+                  <div class="collected-product__properties">
+                    <SfProperty
+                      v-for="(property, key) in product.configuration"
+                      :key="key"
+                      :name="property.name"
+                      :value="property.value"
+                    />
+                  </div>
+                </template>
+                <template #actions>
+                  <div class="collected-product__actions">
+                    <SfButton class="sf-button--text product__action">
+                      Save for later
+                    </SfButton>
+                    <SfButton class="sf-button--text product__action">
+                      Add to compare
+                    </SfButton>
+                  </div>
+                </template>
+              </SfCollectedProduct>
+            </transition-group>
+          </div>
+          <SfProperty class="sf-property--full-width my-cart__total-price">
             <template #name>
               <span class="sf-property__name">TOTAL</span>
             </template>
@@ -74,16 +54,26 @@
               <SfPrice :regular="totalPrice | price" class="sf-price--big" />
             </template>
           </SfProperty>
-          <SfButton v-if="totalItems" class="sf-button--full-width"
-            >Go to checkout</SfButton
-          >
-          <SfButton
-            v-else
-            class="sf-button--full-width color-secondary my-cart__button"
+          <SfButton class="sf-button--full-width">Go to checkout</SfButton>
+        </div>
+        <div v-else class="empty-cart" key="empty-cart">
+          <div class="empty-cart__banner">
+            <img
+              src="@storefront-ui/shared/icons/empty_cart.svg"
+              alt=""
+              class="empty-cart__icon"
+            />
+            <h3 class="empty-cart__label">Your bag is empty</h3>
+            <p class="empty-cart__description">
+              Looks like you haven’t added any items to the bag yet. Start
+              shopping to fill it in.
+            </p>
+          </div>
+          <SfButton class="sf-button--full-width color-secondary"
             >Start shopping</SfButton
           >
         </div>
-      </div>
+      </transition>
     </SfSidebar>
   </div>
 </template>
@@ -93,7 +83,6 @@ import {
   SfButton,
   SfProperty,
   SfPrice,
-  SfHeading,
   SfCollectedProduct
 } from "../../../../index.js";
 export default {
@@ -103,7 +92,6 @@ export default {
     SfButton,
     SfProperty,
     SfPrice,
-    SfHeading,
     SfCollectedProduct
   },
   filters: {
@@ -197,46 +185,44 @@ export default {
   }
 }
 .my-cart {
-  box-sizing: border-box;
-  overflow-y: auto;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  width: 20rem;
-  height: 100%;
-  &::-webkit-scrollbar {
-    width: 0;
-  }
-  @include for-desktop {
-    width: 25.5rem;
-  }
-  &__title {
-    margin: $spacer-extra-big $spacer-extra-big 0 $spacer-extra-big;
-  }
-  &__total-items {
-    margin: 1.5625rem $spacer-extra-big 0 $spacer-extra-big;
-  }
-  &__total-price {
-    margin-bottom: $spacer-big;
-  }
-  &__summary {
-    margin: auto $spacer-extra-big $spacer-extra-big;
-  }
 }
 .collected-product-list {
-  margin: $spacer-big;
+  flex: 1;
+  margin: $spacer-big -#{$spacer-big};
+}
+.collected-product {
+  margin: $spacer-big 0;
+  &__properties {
+    margin-top: $spacer-big;
+  }
+  &__actions {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    @at-root.collected-product:hover & {
+      @include for-desktop {
+        opacity: 1;
+      }
+    }
+  }
 }
 .empty-cart {
-  overflow: hidden;
-  display: flex;
   flex: 1;
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: $spacer-extra-big;
+  &__banner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   &__icon {
     width: 18.125rem;
     height: 12.3125rem;
-    margin-left: 70%;
+    margin-left: 60%;
     @include for-desktop {
       margin-left: 50%;
     }
@@ -252,21 +238,6 @@ export default {
   }
   &__description {
     margin-top: $spacer-big;
-  }
-}
-.collected-product {
-  margin: $spacer-big 0;
-  &__properties {
-    margin-top: $spacer-big;
-  }
-  &__actions {
-    opacity: 0;
-    transition: opacity 300ms ease-in-out;
-    @at-root.collected-product:hover & {
-      @include for-desktop {
-        opacity: 1;
-      }
-    }
   }
 }
 </style>
