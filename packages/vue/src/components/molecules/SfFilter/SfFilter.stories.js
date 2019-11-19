@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, color, boolean } from "@storybook/addon-knobs";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
 import SfFilter from "./SfFilter.vue";
 
@@ -11,7 +11,7 @@ export default storiesOf("Molecules|Filter", module)
     },
     props: {
       color: {
-        default: color("color (prop)", "red")
+        default: text("color (prop)", "red")
       },
       label: {
         default: text("label (prop)", "Red")
@@ -37,7 +37,7 @@ export default storiesOf("Molecules|Filter", module)
     },
     props: {
       color: {
-        default: color("color (prop)", "red")
+        default: text("color (prop)", "red")
       },
       label: {
         default: text("label (prop)", "Red")
@@ -67,7 +67,7 @@ export default storiesOf("Molecules|Filter", module)
     },
     props: {
       color: {
-        default: color("color (prop)", "red")
+        default: text("color (prop)", "red")
       },
       label: {
         default: text("label (prop)", "Red")
@@ -95,7 +95,7 @@ export default storiesOf("Molecules|Filter", module)
     },
     props: {
       color: {
-        default: color("color (prop)", "red")
+        default: text("color (prop)", "red")
       },
       label: {
         default: text("label (prop)", "Red")

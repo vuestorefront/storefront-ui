@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, color } from "@storybook/addon-knobs";
+import { withKnobs, text } from "@storybook/addon-knobs";
 
 import SfProductOption from "./SfProductOption.vue";
 
@@ -9,7 +9,7 @@ export default storiesOf("Molecules|ProductOption", module)
     components: { SfProductOption },
     props: {
       color: {
-        default: color("color (prop)", "red")
+        default: text("color (prop)", "red")
       },
       label: {
         default: text("label (prop)", "Red")
@@ -29,7 +29,7 @@ export default storiesOf("Molecules|ProductOption", module)
     components: { SfProductOption },
     props: {
       color: {
-        default: color("color (prop)", "red")
+        default: text("color (prop)", "red")
       },
       label: {
         default: text("label (prop)", "Red")
@@ -53,7 +53,7 @@ export default storiesOf("Molecules|ProductOption", module)
     components: { SfProductOption },
     props: {
       color: {
-        default: color("color (prop)", "red")
+        default: text("color (prop)", "red")
       },
       label: {
         default: text("label (prop)", "Red")
