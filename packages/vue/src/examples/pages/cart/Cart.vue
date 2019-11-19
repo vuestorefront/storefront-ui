@@ -188,6 +188,18 @@ export default {
   flex: 1;
   display: flex;
   flex-direction: column;
+  &__total-items{
+    font-family: $body-font-family-secondary;
+    font-size: $font-size-big-mobile;
+    font-weight: $body-font-weight-secondary;
+    @include for-desktop{
+      font-size: $font-size-big-desktop;
+    }
+
+  }
+  &__total-price{
+    margin-bottom: $spacer-big;
+  }
 }
 .collected-product-list {
   flex: 1;
