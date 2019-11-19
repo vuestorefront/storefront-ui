@@ -2551,6 +2551,13 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@linusborg/vue-simple-portal@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@linusborg/vue-simple-portal/-/vue-simple-portal-0.1.4.tgz#08d1396b34690c7d82ba461e5c46dbdb463b4084"
+  integrity sha512-vYeWYIT9RQ+Lyg6SECPf5+rMeqni7QfXVT/srPkK5NqbpKhppLtkBsPo+VlP61ZecsS1fQQxlfu6Fng/eNukQQ==
+  dependencies:
+    nanoid "^2.0.1"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -12866,6 +12873,11 @@ nanobus@^4.3.1:
     nanotiming "^7.2.0"
     remove-array-items "^1.0.0"
 
+nanoid@^2.0.1:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-2.1.7.tgz#d775e3e7c6470bbaaae3da9a647a80e228e0abf7"
+  integrity sha512-fmS3qwDldm4bE01HCIRqNk+f255CNjnAoeV3Zzzv0KemObHKqYgirVaZA9DtKcjogicWjYcHkJs4D5A8CjnuVQ==
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -15209,7 +15221,7 @@ randomfill@^1.0.3:
     randombytes "^2.0.5"
     safe-buffer "^5.1.0"
 
-range-parser@^1.0.3, range-parser@^1.2.1, range-parser@~1.2.1:
+range-parser@^1.0.3, range-parser@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
@@ -18691,7 +18703,7 @@ webpack-chain@^4.11.0, webpack-chain@^4.6.0:
     deepmerge "^1.5.2"
     javascript-stringify "^1.6.0"
 
-webpack-dev-middleware@3.6.0:
+webpack-dev-middleware@3.6.0, webpack-dev-middleware@^3.0.0, webpack-dev-middleware@^3.7.0, webpack-dev-middleware@^3.7.2:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.6.0.tgz#71f1b04e52ff8d442757af2be3a658237d53a3e5"
   integrity sha512-oeXA3m+5gbYbDBGo4SvKpAHJJEGMoekUbHgo1RK7CP1sz7/WOSeu/dWJtSTk+rzDCLkPwQhGocgIq6lQqOyOwg==
@@ -18699,17 +18711,6 @@ webpack-dev-middleware@3.6.0:
     memory-fs "^0.4.1"
     mime "^2.3.1"
     range-parser "^1.0.3"
-    webpack-log "^2.0.0"
-
-webpack-dev-middleware@^3.0.0, webpack-dev-middleware@^3.7.0, webpack-dev-middleware@^3.7.2:
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.7.2.tgz#0019c3db716e3fa5cecbf64f2ab88a74bab331f3"
-  integrity sha512-1xC42LxbYoqLNAhV6YzTYacicgMZQTqRd27Sim9wn5hJrX3I5nxYy1SxSd4+gjUFsz1dQFj+yEe6zEVmSkeJjw==
-  dependencies:
-    memory-fs "^0.4.1"
-    mime "^2.4.4"
-    mkdirp "^0.5.1"
-    range-parser "^1.2.1"
     webpack-log "^2.0.0"
 
 webpack-dev-server@^3.4.1:
