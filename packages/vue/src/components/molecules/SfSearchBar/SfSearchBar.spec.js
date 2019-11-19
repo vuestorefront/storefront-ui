@@ -27,15 +27,6 @@ describe.only("SfSearchBar.vue", () => {
     expect(component.contains(".sf-search-bar__clear-icon")).toBe(true);
   });
 
-  it("renders a search bar without icon when false prop passed", () => {
-    const component = shallowMount(SfSearchBar, {
-      propsData: {
-        icon: false
-      }
-    });
-    expect(component.contains(".sf-search-bar__icon")).toBe(false);
-  });
-
   it("renders placeholder props when passed", () => {
     const placeholder = "Search for...";
     const component = shallowMount(SfSearchBar, {

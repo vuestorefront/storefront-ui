@@ -8,10 +8,12 @@ export default {
     value: {
       type: [Number, String],
       default: null
-    },
-    icon: {
-      type: Boolean,
-      default: true
+    }
+  },
+  methods: {
+    clearSearchBar() {
+      this.$emit("input", "");
+      this.$el.blur();
     }
   }
 };
