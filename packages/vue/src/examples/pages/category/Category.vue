@@ -594,7 +594,7 @@ export default {
     margin: $spacer-big * 3 0 $spacer-big;
     font-size: $font-size-big-desktop;
     line-height: 1.6;
-    &:first-child{
+    &:first-child {
       margin: 0 0 $spacer-big 0;
     }
   }

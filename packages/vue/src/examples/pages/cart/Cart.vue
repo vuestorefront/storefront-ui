@@ -188,16 +188,15 @@ export default {
   flex: 1;
   display: flex;
   flex-direction: column;
-  &__total-items{
+  &__total-items {
     font-family: $body-font-family-secondary;
     font-size: $font-size-big-mobile;
     font-weight: $body-font-weight-secondary;
-    @include for-desktop{
+    @include for-desktop {
       font-size: $font-size-big-desktop;
     }
-
   }
-  &__total-price{
+  &__total-price {
     margin-bottom: $spacer-big;
   }
 }
