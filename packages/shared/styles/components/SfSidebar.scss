@@ -17,11 +17,24 @@ $sidebar__title-margin-bottom: 1.5rem !default;
     box-sizing: border-box;
     width: $sidebar-width;
     height: 100%;
-    padding: $sidebar-padding;
     background-color: $sidebar-background-color;
     @media (min-width: $desktop-min) {
       width: $sidebar-width-desktop;
+    }
+  }
+  &__content{
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: $sidebar-padding;
+    @media (min-width: $desktop-min) {
       padding: $sidebar-padding-desktop;
+    }
+    &::-webkit-scrollbar {
+      width: 0;
+
     }
   }
   &__title {
