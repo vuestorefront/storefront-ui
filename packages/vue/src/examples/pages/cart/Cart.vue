@@ -7,7 +7,7 @@
     >
       <div class="my-cart">
         <SfHeading
-          title="My Account"
+          title="My Cart"
           class="sf-heading--left sf-heading--no-underline my-cart__title"
         />
         <h3 v-if="totalItems" class="my-cart__total-items">
