@@ -1,6 +1,13 @@
 export default {
   name: "SfContentCategory",
-  inject: ["provided"],
+  inject: ["categories"],
+  provide() {
+    const pages = {};
+    Object.defineProperty(pages, "updatePages", {
+      value: this.updatePages
+    });
+    return { pages };
+  },
   props: {
     /**
      * Category title
@@ -10,12 +17,22 @@ export default {
       default: ""
     }
   },
-  computed: {
-    isActive() {
-      return this.provided.active === this.title;
+  data() {
+    return {
+      pages: []
+    };
+  },
+  computed: {},
+  methods: {
+    updatePages(page) {
+      this.pages.push(page);
     }
   },
   mounted() {
-    this.provided.updatePages(this.title);
+    const category = {
+      title: this.title,
+      pages: this.pages
+    };
+    this.categories.updateCategories(category);
   }
 };
