@@ -9,8 +9,12 @@ $sidebar-background-color: $c-white !default;
     top: 0;
     left: 0;
     z-index: 1;
-    background-color: $sidebar-background-color;
     height: 100%;
+    padding: $spacer-extra-big ;
+    background-color: $sidebar-background-color;
+  }
+  &__title{
+    margin-bottom: 1.5rem ;
   }
   &__circle-icon {
     position: absolute;
