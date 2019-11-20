@@ -8,6 +8,13 @@ export default {
     title: {
       type: String,
       default: ""
+    },
+    /**
+     * Page nav title
+     */
+    icon: {
+      type: String,
+      default: ""
     }
   },
   computed: {
@@ -17,7 +24,8 @@ export default {
   },
   mounted() {
     const page = {
-      title: this.title
+      title: this.title,
+      icon: this.icon
     };
     this.pages.updatePages(page);
   }

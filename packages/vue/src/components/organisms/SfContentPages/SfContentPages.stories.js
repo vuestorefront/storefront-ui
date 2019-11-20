@@ -21,7 +21,7 @@ storiesOf("Organisms|ContentPages", module).add("[slot] default", () => ({
         @click:change="updateActive"
         title="Help">
         <SfContentCategory title="Personal Details">
-          <SfContentPage title="My profile">
+          <SfContentPage title="My profile" icon="heart" >
             <SfTabs :open-tab="1">
             <SfTab title="Security">
               This website ("website") is operated by Luma Inc., which includes
@@ -46,7 +46,7 @@ storiesOf("Organisms|ContentPages", module).add("[slot] default", () => ({
             </SfTab>
           </SfTabs>
         </SfContentPage>
-          <SfContentPage title="Shopping details">
+          <SfContentPage title="Shopping details" icon="home">
             <SfTabs :open-tab="1">
             <SfTab title="Size guide">
               This website ("website") is operated by Luma Inc., which includes
@@ -64,7 +64,7 @@ storiesOf("Organisms|ContentPages", module).add("[slot] default", () => ({
             </SfTab>
           </SfTabs>
           </SfContentPage>
-          <SfContentPage title="Loyalty Card">
+          <SfContentPage title="Loyalty Card" icon="clock">
           This website ("website") is operated by Luma Inc., which includes
           Luma stores, and Luma Private Sales. This privacy policy only covers
           information collected at this website, and does not cover any

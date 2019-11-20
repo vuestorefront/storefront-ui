@@ -8,22 +8,30 @@
       <div v-for="category in categories" :key="category.title">
         <h2 class="sf-content-pages__category-title">{{category.title}}</h2>
         <SfList class="sf-content-pages__list">
-          <SfList
+          <SfListItem
             v-for="page in category.pages"
             :key="page.title"
             class="sf-content-pages__list-item"
           >
             <!-- @slot Custom menu-item markup -->
             <slot name="menu-item" v-bind="{updatePage, page, active}">
-              <span @click="updatePage(page.title)">
                 <SfMenuItem
+                  @click="updatePage(page.title)"
                   :label="page.title"
-                  class="sf-content-pages__menu-item"
-                  :class="{'sf-content-pages__menu-item--is-active': page.title === active}"
-                />
-              </span>
+                  class="sf-content-pages__menu"
+                  :class="{'sf-content-pages__menu--is-active': page.title === active}"
+                >
+                  <template #icon>
+                    <SfIcon
+                      v-if="page.icon"
+                      size="xxs"
+                      color="#686d7d"
+                      :icon="page.icon"
+                      class="sf-content-pages__menu-icon" />
+                  </template>
+                </SfMenuItem>
             </slot>
-          </SfList>
+          </SfListItem>
         </SfList>
       </div>
     </div>
