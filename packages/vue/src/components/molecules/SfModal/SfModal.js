@@ -4,7 +4,7 @@ export default {
   name: "SfModal",
   model: {
     prop: "visible",
-    event: "toggle"
+    event: "close"
   },
   props: {
     /**
@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     close() {
-      this.$emit("toggle", false);
+      this.$emit("close", false);
     },
     checkPersistence() {
       if (!this.persistent) {
