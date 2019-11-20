@@ -58,7 +58,7 @@ export default {
         this.$emit("click:change", "");
         return;
       }
-      this.$emit("click:change", this.categories[0].title);
+      this.$emit("click:change", this.categories[0].pages[0].title);
     }
   },
   methods: {
