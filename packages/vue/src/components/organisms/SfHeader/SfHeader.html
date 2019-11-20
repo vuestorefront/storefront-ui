@@ -4,9 +4,7 @@
     <h1 v-else class="sf-header__title">{{ title }}</h1>
   </slot>
     <nav class="sf-header__nav">
-      <ul class="sf-header__nav-items">
-        <slot name="navigation" />
-      </ul>
+      <slot name="navigation" />
     </nav>
   <slot name="search">
     <SfSearchBar class="sf-header__search" />

@@ -15,8 +15,8 @@ $header-navigation-list-color: $c-dark !default;
 
 $header-navigation-item__font-weight: 500 !default;
 
-$header-icon-margin: 1.875rem !default;
-
+$header-icon-margin: 1rem !default;
+$header-icon-container-width: 2.125rem !default;
 $header-mobile-logo-width: 1.3125rem !default;
 $header-desktop-logo-width: 2.125rem !default;
 
@@ -41,10 +41,20 @@ $header-logo-height: auto !default;
 
   &__icons {
     display: flex;
+    align-items: center;
+    height: 100%;
   }
 
   &__icon {
-    margin-left: $header-icon-margin;
+     margin: $header-icon-margin; 
+     width: $header-icon-container-width;
+     height: auto;
+     padding: 6px;
+
+    &:hover {
+      background-color: $c-light;
+      border-radius: 50%;
+    }
   }
 
   &__search {
@@ -52,15 +62,8 @@ $header-logo-height: auto !default;
   }
 
   &__nav {
-    height: 100%;
-  }
-
-  &__nav-items {
     display: flex; 
     height: 100%;
-    margin: 0; 
-    padding: 0; 
-    list-style: none;
 
     &:hover > :not(:hover) {
       color: $c-gray;
