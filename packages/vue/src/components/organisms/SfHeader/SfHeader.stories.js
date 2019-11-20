@@ -10,23 +10,27 @@ storiesOf("Organisms/Header", module)
     components: { SfHeader, SfHeaderNavItem },
     props: {
       logo: {
-        default: text("(prop) logo", "/assets/logo.svg")
+        default: text("logo (prop)", "/assets/logo.svg")
       },
       cartIcon: {
-        default: text("(prop) cartIcon", "empty_cart")
+        default: text("cartIcon (prop)", "empty_cart")
       },
       wishlistIcon: {
-        default: text("(prop) wishlistIcon", "heart")
+        default: text("wishlistIcon (prop)", "heart")
       },
       accountIcon: {
-        default: text("(prop) accountIcon", "profile")
+        default: text("accountIcon (prop)", "profile")
+      },
+      activeIcon: {
+        default: text("activeIcon (prop)", "account")
       }
     },
     template: `<SfHeader 
       :logo="logo"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
-      :account-icon="accountIcon">
+      :account-icon="accountIcon"
+      :active-icon="activeIcon">
         <template #navigation>
           <SfHeaderNavItem>WOMEN</SfHeaderNavItem>
           <SfHeaderNavItem>MEN</SfHeaderNavItem>
@@ -38,16 +42,19 @@ storiesOf("Organisms/Header", module)
     components: { SfHeader, SfHeaderNavItem },
     props: {
       logo: {
-        default: text("(prop) logo", "/assets/heart.svg")
+        default: text("logo (prop) ", "/assets/heart.svg")
       },
       cartIcon: {
-        default: text("(prop) cartIcon", "empty_cart")
+        default: text("cartIcon (prop)", "empty_cart")
       },
       wishlistIcon: {
-        default: text("(prop) wishlistIcon", "heart")
+        default: text("wishlistIcon (prop)", "heart")
       },
       accountIcon: {
-        default: text("(prop) accountIcon", "profile")
+        default: text("accountIcon (prop)", "profile")
+      },
+      activeIcon: {
+        default: text("activeIcon (prop)", "account")
       }
     },
     template: `<SfHeader 
@@ -69,23 +76,27 @@ storiesOf("Organisms/Header", module)
     components: { SfHeader, SfHeaderNavItem },
     props: {
       logo: {
-        default: text("(prop) logo", "/assets/logo.svg")
+        default: text("logo (prop)", "/assets/logo.svg")
       },
       cartIcon: {
-        default: text("(prop) cartIcon", "empty_cart")
+        default: text("cartIcon (prop)", "empty_cart")
       },
       wishlistIcon: {
-        default: text("(prop) wishlistIcon", "heart")
+        default: text("wishlistIcon (prop)", "heart")
       },
       accountIcon: {
-        default: text("(prop) accountIcon", "profile")
+        default: text("accountIcon (prop)", "profile")
+      },
+      activeIcon: {
+        default: text("activeIcon (prop)", "account")
       }
     },
     template: `<SfHeader 
       :logo="logo"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
-      :account-icon="accountIcon">
+      :account-icon="accountIcon"
+      :active-icon="activeIcon">
       <template #navigation>
         <SfHeaderNavItem>WOMEN</SfHeaderNavItem>
         <SfHeaderNavItem>MEN</SfHeaderNavItem>
@@ -100,23 +111,27 @@ storiesOf("Organisms/Header", module)
     components: { SfHeader, SfHeaderNavItem },
     props: {
       logo: {
-        default: text("(prop) logo", "/assets/logo.svg")
+        default: text("logo (prop)", "/assets/logo.svg")
       },
       cartIcon: {
-        default: text("(prop) cartIcon", "empty_cart")
+        default: text("cartIcon (prop)", "empty_cart")
       },
       wishlistIcon: {
-        default: text("(prop) wishlistIcon", "heart")
+        default: text("wishlistIcon (prop)", "heart")
       },
       accountIcon: {
-        default: text("(prop) accountIcon", "mail")
+        default: text("accountIcon (prop)", "mail")
+      },
+      activeIcon: {
+        default: text("activeIcon (prop)", "account")
       }
     },
     template: `<SfHeader 
       :logo="logo"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
-      :account-icon="accountIcon">
+      :account-icon="accountIcon"
+      :active-icon="activeIcon">
       <template #navigation>
         <SfHeaderNavItem>WOMEN</SfHeaderNavItem>
         <SfHeaderNavItem>MEN</SfHeaderNavItem>

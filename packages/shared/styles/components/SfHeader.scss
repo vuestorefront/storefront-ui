@@ -51,8 +51,15 @@ $header-logo-height: auto !default;
      height: auto;
      padding: 6px;
 
+     &--is-active {
+       background-color: $c-primary;
+       fill: $c-white;
+       border-radius: 50%;
+     }
+
     &:hover {
       background-color: $c-light;
+      fill: $c-black;
       border-radius: 50%;
     }
   }

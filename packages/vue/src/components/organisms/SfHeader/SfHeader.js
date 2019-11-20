@@ -44,6 +44,10 @@ export default {
     accountIcon: {
       type: [String, Boolean],
       default: "profile"
+    },
+    activeIcon: {
+      type: String,
+      default: ""
     }
   }
 };
