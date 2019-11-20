@@ -73,7 +73,7 @@ export default {
       immediate: true
     }
   },
-  created() {
+  mounted() {
     const escapeHandler = e => {
       if (e.key === "Escape" && this.visible) {
         this.close();
