@@ -50,15 +50,9 @@ export default {
       default: "fade"
     }
   },
-  methods: {
-    close() {
-      this.$emit("close", false);
-    },
-    checkPersistence() {
-      if (!this.persistent) {
-        this.close();
-      }
-    }
+  components: {
+    SfOverlay,
+    SfIcon
   },
   watch: {
     visible: {
@@ -73,19 +67,14 @@ export default {
       immediate: true
     }
   },
-  mounted() {
-    const escapeHandler = e => {
-      if (e.key === "Escape" && this.visible) {
+  methods: {
+    close() {
+      this.$emit("close", false);
+    },
+    checkPersistence() {
+      if (!this.persistent) {
         this.close();
       }
-    };
-    document.addEventListener("keydown", escapeHandler);
-    this.$once("hook:destroyed", () => {
-      document.removeEventListener("keydown", escapeHandler);
-    });
-  },
-  components: {
-    SfOverlay,
-    SfIcon
+    }
   }
 };
