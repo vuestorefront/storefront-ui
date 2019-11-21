@@ -56,7 +56,7 @@ export default {
   },
   watch: {
     visible: {
-      handler: value => {
+      handler: function(value) {
         if (typeof window === "undefined") return;
         if (value) {
           document.body.style.setProperty("overflow", "hidden");
