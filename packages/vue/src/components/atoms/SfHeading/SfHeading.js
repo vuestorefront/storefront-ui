@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     hasSubtitle() {
-      return !!this.subtitle || this.$slots.hasOwnProperty("subtitle");
+      return !!this.subtitle || this.$slots.subtitle;
     }
   }
 };

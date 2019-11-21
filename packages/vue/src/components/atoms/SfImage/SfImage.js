@@ -57,7 +57,7 @@ export default {
 
   computed: {
     hasOverlay() {
-      return this.$slots.hasOwnProperty("default") && this.overlay;
+      return this.$slots.default && this.overlay;
     }
   },
 
