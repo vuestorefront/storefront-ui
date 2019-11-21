@@ -1,5 +1,8 @@
 <script src="./SfLoader.js"></script>
-<template lang="html" src="./SfLoader.html"></template>
+<template
+  lang="html"
+  src="./SfLoader.html"
+/>
 <style lang="scss">
 @import "../../../utilities/transitions/transitions.scss";
 @import "~@storefront-ui/shared/styles/components/SfLoader.scss";

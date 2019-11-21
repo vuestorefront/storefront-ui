@@ -8,24 +8,35 @@
       <div>
         <button
           v-if="activePage"
-          @click="activePage = ''"
           class="back-bar__button"
+          @click="activePage = ''"
         >
-          <SfIcon icon="chevron_left" size="14px" />
+          <SfIcon
+            icon="chevron_left"
+            size="14px"
+          />
         </button>
       </div>
-      <div class="back-bar__title">{{ barTitle }}</div>
+      <div class="back-bar__title">
+        {{ barTitle }}
+      </div>
       <div>
-        <button v-if="false" class="back-bar__button">
-          <SfIcon icon="cross" size="14px" />
+        <button
+          v-if="false"
+          class="back-bar__button"
+        >
+          <SfIcon
+            icon="cross"
+            size="14px"
+          />
         </button>
       </div>
     </div>
     <SfContentPages
       :active="activePage"
-      @click:change="updateActive"
       title="Help"
       class="static-content"
+      @click:change="updateActive"
     >
       <SfContentPage title="About us">
         <SfTabs :open-tab="1">

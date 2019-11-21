@@ -6,15 +6,23 @@
     />
     <div class="navbar section">
       <div class="navbar__aside desktop-only">
-        <h1 class="navbar__title">Categories</h1>
+        <h1 class="navbar__title">
+          Categories
+        </h1>
       </div>
       <div class="navbar__main">
         <SfButton
           class="navbar__filters-button"
           @click="isFilterSidebarOpen = true"
         >
-          <SfIcon size="15px" style="margin-right: 10px;">
-            <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+          <SfIcon
+            size="15px"
+            style="margin-right: 10px;"
+          >
+            <svg
+              viewBox="0 0 18 18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <g clip-icon="url(#clip0)">
                 <path
                   d="m2.461 6.9416e-6h-0.1786c-1.113 0.0021094-2.0151 0.90421-2.0173 2.018v0.17859c-0.001406 0.53649 0.21024 1.0512 0.58851 1.4316 0.37829 0.38039 0.89226 0.59414 1.4287 0.59555h0.1786c0.53859 0.0014 1.0547-0.21165 1.4358-0.59204 0.38039-0.38039 0.59344-0.89719 0.59203-1.4351v-0.17859c-0.0014-0.53649-0.21585-1.0505-0.59554-1.4295-0.3804-0.37829-0.89581-0.58991-1.4323-0.58851zm1.452 2.1965c0.00141 0.38531-0.15047 0.75585-0.42329 1.028-0.27281 0.27281-0.64265 0.42539-1.0287 0.42329h-0.1786c-0.3839-7.1e-4 -0.75164-0.15399-1.0223-0.4261-0.27-0.27281-0.42117-0.64125-0.41906-1.0252v-0.1786c7.03e-4 -0.79594 0.64616-1.4407 1.4414-1.4421h0.1786c0.3839-0.00211 0.75305 0.14906 1.0252 0.41976 0.27281 0.27 0.4261 0.63844 0.4268 1.0223v0.1786z"
@@ -44,14 +52,18 @@
         </SfButton>
         <div class="navbar__sort desktop-only">
           <span class="navbar__label">Sort by:</span>
-          <SfSelect class="sort-by" v-model="sortBy">
+          <SfSelect
+            v-model="sortBy"
+            class="sort-by"
+          >
             <SfSelectOption
               v-for="option in sortByOptions"
               :key="option.value"
               :value="option.value"
               class="sort-by__option"
-              >{{ option.label }}</SfSelectOption
             >
+              {{ option.label }}
+            </SfSelectOption>
           </SfSelect>
         </div>
         <div class="navbar__counter">
@@ -61,24 +73,95 @@
         </div>
         <div class="navbar__view desktop-only">
           <span>View </span>
-          <SfIcon class="navbar__view-icon" size="10px">
+          <SfIcon
+            class="navbar__view-icon"
+            size="10px"
+          >
             <svg viewBox="0 0 10 10">
-              <rect width="2" height="2" fill="#1D1F22" />
-              <rect y="4" width="2" height="2" fill="#1D1F22" />
-              <rect y="8" width="2" height="2" fill="#1D1F22" />
-              <rect x="4" width="2" height="2" fill="#1D1F22" />
-              <rect x="4" y="4" width="2" height="2" fill="#1D1F22" />
-              <rect x="4" y="8" width="2" height="2" fill="#1D1F22" />
-              <rect x="8" width="2" height="2" fill="#1D1F22" />
-              <rect x="8" y="4" width="2" height="2" fill="#1D1F22" />
-              <rect x="8" y="8" width="2" height="2" fill="#1D1F22" />
+              <rect
+                width="2"
+                height="2"
+                fill="#1D1F22"
+              />
+              <rect
+                y="4"
+                width="2"
+                height="2"
+                fill="#1D1F22"
+              />
+              <rect
+                y="8"
+                width="2"
+                height="2"
+                fill="#1D1F22"
+              />
+              <rect
+                x="4"
+                width="2"
+                height="2"
+                fill="#1D1F22"
+              />
+              <rect
+                x="4"
+                y="4"
+                width="2"
+                height="2"
+                fill="#1D1F22"
+              />
+              <rect
+                x="4"
+                y="8"
+                width="2"
+                height="2"
+                fill="#1D1F22"
+              />
+              <rect
+                x="8"
+                width="2"
+                height="2"
+                fill="#1D1F22"
+              />
+              <rect
+                x="8"
+                y="4"
+                width="2"
+                height="2"
+                fill="#1D1F22"
+              />
+              <rect
+                x="8"
+                y="8"
+                width="2"
+                height="2"
+                fill="#1D1F22"
+              />
             </svg>
           </SfIcon>
-          <SfIcon class="navbar__view-icon" size="11px">
-            <svg viewBox="0 0 11 10" fill="none">
-              <rect width="11" height="2" fill="#BEBFC4" />
-              <rect y="8" width="11" height="2" fill="#BEBFC4" />
-              <rect y="4" width="7" height="2" fill="#BEBFC4" />
+          <SfIcon
+            class="navbar__view-icon"
+            size="11px"
+          >
+            <svg
+              viewBox="0 0 11 10"
+              fill="none"
+            >
+              <rect
+                width="11"
+                height="2"
+                fill="#BEBFC4"
+              />
+              <rect
+                y="8"
+                width="11"
+                height="2"
+                fill="#BEBFC4"
+              />
+              <rect
+                y="4"
+                width="7"
+                height="2"
+                fill="#BEBFC4"
+              />
             </svg>
           </SfIcon>
         </div>
@@ -87,8 +170,14 @@
           @click="isFilterSidebarOpen = true"
         >
           Sort by
-          <SfIcon size="15px" style="margin-left: 10px;">
-            <svg viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
+          <SfIcon
+            size="15px"
+            style="margin-left: 10px;"
+          >
+            <svg
+              viewBox="0 0 12 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M8.32809 15.2897L12 11.7644V12.2892L8.13547 16L4.27094 12.2892V11.7644L7.94285 15.2897V6.83165H8.32809L8.32809 15.2897ZM3.67191 0.710288L0 4.23556V3.71082L3.86453 0L7.72906 3.71082V4.23556L4.05715 0.710288V9.16835H3.67191L3.67191 0.710288Z"
               />
@@ -99,7 +188,10 @@
     </div>
     <div class="main section">
       <div class="sidebar desktop-only">
-        <SfAccordion :firstOpen="true" :showChevron="false">
+        <SfAccordion
+          :first-open="true"
+          :show-chevron="false"
+        >
           <SfAccordionItem
             v-for="(accordion, i) in sidebarAccordion"
             :key="i"
@@ -107,8 +199,14 @@
           >
             <template>
               <SfList>
-                <SfListItem v-for="(item, j) in accordion.items" :key="j">
-                  <SfMenuItem :label="item.label" :count="item.count" />
+                <SfListItem
+                  v-for="(item, j) in accordion.items"
+                  :key="j"
+                >
+                  <SfMenuItem
+                    :label="item.label"
+                    :count="item.count"
+                  />
                 </SfListItem>
               </SfList>
             </template>
@@ -126,21 +224,21 @@
             :special-price="product.price.special"
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
-            :isOnWishlist="product.isOnWishlist"
-            @click:wishlist="toggleWishlist(i)"
+            :is-on-wishlist="product.isOnWishlist"
             class="products__product-card"
+            @click:wishlist="toggleWishlist(i)"
           />
         </div>
         <SfPagination
           class="products__pagination desktop-only"
           :current="currentPage"
+          :total="4"
+          :visible="5"
           @click="
             page => {
               this.currentPage = page;
             }
           "
-          :total="4"
-          :visible="5"
         />
       </div>
     </div>
@@ -149,7 +247,9 @@
       @close="isFilterSidebarOpen = false"
     >
       <div class="filters">
-        <h3 class="filters__title">Collection</h3>
+        <h3 class="filters__title">
+          Collection
+        </h3>
         <SfFilter
           v-for="filter in filtersOptions.collection"
           :key="filter.value"
@@ -157,7 +257,9 @@
           :count="filter.count"
           class="filters__item"
         />
-        <h3 class="filters__title">Color</h3>
+        <h3 class="filters__title">
+          Color
+        </h3>
         <SfFilter
           v-for="filter in filtersOptions.color"
           :key="filter.value"
@@ -166,7 +268,9 @@
           :color="filter.color"
           class="filters__item"
         />
-        <h3 class="filters__title">Size</h3>
+        <h3 class="filters__title">
+          Size
+        </h3>
         <SfFilter
           v-for="filter in filtersOptions.size"
           :key="filter.value"
@@ -175,7 +279,9 @@
           :count="filter.count"
           class="filters__item"
         />
-        <h3 class="filters__title">Price</h3>
+        <h3 class="filters__title">
+          Price
+        </h3>
         <SfFilter
           v-for="filter in filtersOptions.price"
           :key="filter.value"
@@ -184,7 +290,9 @@
           :count="filter.count"
           class="filters__item"
         />
-        <h3 class="filters__title">Material</h3>
+        <h3 class="filters__title">
+          Material
+        </h3>
         <SfFilter
           v-for="filter in filtersOptions.material"
           :key="filter.value"
@@ -195,15 +303,17 @@
         />
         <div class="filters__buttons">
           <SfButton
-            @click="isFilterSidebarOpen = false"
             class="sf-button--full-width"
-            >Done</SfButton
+            @click="isFilterSidebarOpen = false"
           >
+            Done
+          </SfButton>
           <SfButton
-            @click="clearAllFilters"
             class="sf-button--full-width filters__button-clear"
-            >Clear all</SfButton
+            @click="clearAllFilters"
           >
+            Clear all
+          </SfButton>
         </div>
       </div>
     </SfSidebar>

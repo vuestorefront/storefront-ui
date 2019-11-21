@@ -6,13 +6,16 @@
         :key="i"
         :title="hero.title"
         :subtitle="hero.subtitle"
-        :buttonText="hero.buttonText"
+        :button-text="hero.buttonText"
         :background="hero.background"
         :image="hero.image"
         :class="hero.className"
-      ></SfHeroItem>
+      />
     </SfHero>
-    <SfBannerGrid :banner-grid="1" class="banners section">
+    <SfBannerGrid
+      :banner-grid="1"
+      class="banners section"
+    >
       <template #bannerA>
         <a href="#">
           <SfBanner
@@ -65,9 +68,15 @@
       class="call-to-action-newsletter"
       image="assets/storybook/homepage/newsletter.jpg"
     />
-    <SfSection title-heading="Best Sellers" class="section">
+    <SfSection
+      title-heading="Best Sellers"
+      class="section"
+    >
       <SfCarousel class="product-carousel">
-        <SfCarouselItem v-for="(product, i) in products" :key="i">
+        <SfCarouselItem
+          v-for="(product, i) in products"
+          :key="i"
+        >
           <SfProductCard
             :title="product.title"
             :image="product.image"
@@ -75,8 +84,8 @@
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
             :is-on-wishlist="product.isOnWishlist"
-            @click:wishlist="toggleWishlist(i)"
             class="product-card"
+            @click:wishlist="toggleWishlist(i)"
           />
         </SfCarouselItem>
       </SfCarousel>
@@ -89,26 +98,34 @@
       <div class="images-grid">
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.jpg"
-              >katherina_trn</SfImage
+            <SfImage
+              src="assets/storybook/homepage/imageA.jpg"
             >
+              katherina_trn
+            </SfImage>
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageB.jpg"
-              >katherina_trn</SfImage
+            <SfImage
+              src="assets/storybook/homepage/imageB.jpg"
             >
+              katherina_trn
+            </SfImage>
           </div>
         </div>
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.jpg"
-              >katherina_trn</SfImage
+            <SfImage
+              src="assets/storybook/homepage/imageC.jpg"
             >
+              katherina_trn
+            </SfImage>
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageD.jpg"
-              >katherina_trn</SfImage
+            <SfImage
+              src="assets/storybook/homepage/imageD.jpg"
             >
+              katherina_trn
+            </SfImage>
           </div>
         </div>
       </div>
@@ -118,7 +135,9 @@
       class="banner-application desktop-only"
     >
       <template #subtitle>
-        <div class="banner-application__subtitle">Fashion to Take Away</div>
+        <div class="banner-application__subtitle">
+          Fashion to Take Away
+        </div>
       </template>
       <template #title>
         <h1 class="banner-application__title">
@@ -131,12 +150,12 @@
             class="banner-application__download"
             src="assets/storybook/homepage/google.png"
             alt=""
-          />
+          >
           <img
             class="banner-application__download"
             src="assets/storybook/homepage/apple.png"
             alt=""
-          />
+          >
         </div>
       </template>
     </SfBanner>
@@ -156,6 +175,16 @@ import {
 
 export default {
   name: "Home",
+  components: {
+    SfHero,
+    SfBanner,
+    SfCallToAction,
+    SfSection,
+    SfCarousel,
+    SfProductCard,
+    SfImage,
+    SfBannerGrid
+  },
   data() {
     return {
       heroes: [
@@ -242,16 +271,6 @@ export default {
         }
       ]
     };
-  },
-  components: {
-    SfHero,
-    SfBanner,
-    SfCallToAction,
-    SfSection,
-    SfCarousel,
-    SfProductCard,
-    SfImage,
-    SfBannerGrid
   },
   methods: {
     toggleWishlist(index) {

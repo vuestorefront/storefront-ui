@@ -1,2 +1,5 @@
 <script src="./SfCarouselItem.js"></script>
-<template lang="html" src="./SfCarouselItem.html"></template>
+<template
+  lang="html"
+  src="./SfCarouselItem.html"
+/>

@@ -43,7 +43,10 @@
                   class="sf-price--big product-details__sub-price"
                 />
                 <div class="product-details__sub-rating">
-                  <SfRating :score="4" :max="5" />
+                  <SfRating
+                    :score="4"
+                    :max="5"
+                  />
                   <div class="product-details__sub-reviews desktop-only">
                     Read all 1 review
                   </div>
@@ -60,7 +63,9 @@
             favorite brands.
           </p>
           <div class="product-details__action">
-            <button class="sf-action">Size guide</button>
+            <button class="sf-action">
+              Size guide
+            </button>
           </div>
           <div class="product-details__section">
             <SfSelect
@@ -86,7 +91,10 @@
                 :key="color.value"
                 :value="color.value"
               >
-                <SfProductOption :label="color.label" :color="color.color" />
+                <SfProductOption
+                  :label="color.label"
+                  :color="color.color"
+                />
               </SfSelectOption>
             </SfSelect>
           </div>
@@ -97,19 +105,26 @@
               class="product-details__alert mobile-only"
             />
             <SfAddToCart
-              :stock="stock"
               v-model="qty"
-              :canAddToCart="stock > 0"
+              :stock="stock"
+              :can-add-to-cart="stock > 0"
               class="product-details__add-to-cart"
             />
             <div class="product-details__action">
-              <button class="sf-action">Save for later</button>
+              <button class="sf-action">
+                Save for later
+              </button>
             </div>
             <div class="product-details__action">
-              <button class="sf-action">Add to compare</button>
+              <button class="sf-action">
+                Add to compare
+              </button>
             </div>
           </div>
-          <SfTabs class="product-details__tabs" :openTab="2">
+          <SfTabs
+            class="product-details__tabs"
+            :open-tab="2"
+          >
             <SfTab title="Description">
               <div>
                 <p>
@@ -132,9 +147,9 @@
             </SfTab>
             <SfTab title="Read reviews">
               <SfReview
-                class="product-details__review"
                 v-for="(review, i) in reviews"
                 :key="i"
+                class="product-details__review"
                 :author="review.author"
                 :date="review.date"
                 :message="review.message"
@@ -159,9 +174,15 @@
         </SfSticky>
       </div>
     </div>
-    <SfSection title-heading="Match it with" class="section">
+    <SfSection
+      title-heading="Match it with"
+      class="section"
+    >
       <SfCarousel class="product-carousel">
-        <SfCarouselItem v-for="(product, i) in products" :key="i">
+        <SfCarouselItem
+          v-for="(product, i) in products"
+          :key="i"
+        >
           <SfProductCard
             :title="product.title"
             :image="product.image"
@@ -169,15 +190,21 @@
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
             :is-on-wishlist="product.isOnWishlist"
-            @click:wishlist="toggleWishlist(i)"
             class="product-card"
+            @click:wishlist="toggleWishlist(i)"
           />
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection title-heading="You might also like" class="section">
+    <SfSection
+      title-heading="You might also like"
+      class="section"
+    >
       <SfCarousel class="product-carousel">
-        <SfCarouselItem v-for="(product, i) in products" :key="i">
+        <SfCarouselItem
+          v-for="(product, i) in products"
+          :key="i"
+        >
           <SfProductCard
             :title="product.title"
             :image="product.image"
@@ -185,8 +212,8 @@
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
             :is-on-wishlist="product.isOnWishlist"
-            @click:wishlist="toggleWishlist(i)"
             class="product-card"
+            @click:wishlist="toggleWishlist(i)"
           />
         </SfCarouselItem>
       </SfCarousel>
@@ -199,36 +226,48 @@
       <div class="images-grid">
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.jpg"
-              >katherina_trn</SfImage
+            <SfImage
+              src="assets/storybook/homepage/imageA.jpg"
             >
+              katherina_trn
+            </SfImage>
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageB.jpg"
-              >katherina_trn</SfImage
+            <SfImage
+              src="assets/storybook/homepage/imageB.jpg"
             >
+              katherina_trn
+            </SfImage>
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.jpg"
-              >katherina_trn</SfImage
+            <SfImage
+              src="assets/storybook/homepage/imageC.jpg"
             >
+              katherina_trn
+            </SfImage>
           </div>
         </div>
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.jpg"
-              >katherina_trn</SfImage
+            <SfImage
+              src="assets/storybook/homepage/imageC.jpg"
             >
+              katherina_trn
+            </SfImage>
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageD.jpg"
-              >katherina_trn</SfImage
+            <SfImage
+              src="assets/storybook/homepage/imageD.jpg"
             >
+              katherina_trn
+            </SfImage>
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.jpg"
-              >katherina_trn</SfImage
+            <SfImage
+              src="assets/storybook/homepage/imageA.jpg"
             >
+              katherina_trn
+            </SfImage>
           </div>
         </div>
       </div>
@@ -239,7 +278,9 @@
       class="banner-application sf-banner--left sf-banner--center desktop-only"
     >
       <template #subtitle>
-        <div class="banner-application__subtitle">Fashion to Take Away</div>
+        <div class="banner-application__subtitle">
+          Fashion to Take Away
+        </div>
       </template>
       <template #title>
         <h1 class="banner-application__title">
@@ -252,12 +293,12 @@
             class="banner-application__download"
             src="assets/storybook/homepage/google.png"
             alt=""
-          />
+          >
           <img
             class="banner-application__download"
             src="assets/storybook/homepage/apple.png"
             alt=""
-          />
+          >
         </div>
       </template>
     </SfBanner>

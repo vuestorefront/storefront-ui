@@ -1,4 +1,7 @@
-<template lang="html" src="./SfTab.html"> </template>
+<template
+  lang="html"
+  src="./SfTab.html"
+/>
 <script src="./SfTab.js"></script>
 <style>
 /* @import '../../../../utilities/transitions/transitions.scss'; */

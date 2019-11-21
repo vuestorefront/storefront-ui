@@ -1,1 +1,4 @@
-<template lang="html" src="./SfListItem.html"></template>
+<template
+  lang="html"
+  src="./SfListItem.html"
+/>
