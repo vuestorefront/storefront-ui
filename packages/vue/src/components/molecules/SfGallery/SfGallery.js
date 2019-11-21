@@ -1,3 +1,4 @@
+// @vue/component
 import Glide from "@glidejs/glide";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 

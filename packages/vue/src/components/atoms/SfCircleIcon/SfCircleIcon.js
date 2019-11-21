@@ -1,3 +1,4 @@
+// @vue/component
 import SfButton from "../SfButton/SfButton.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
 

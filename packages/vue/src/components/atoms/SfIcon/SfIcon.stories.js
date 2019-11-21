@@ -1,3 +1,4 @@
+// @vue/component
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";

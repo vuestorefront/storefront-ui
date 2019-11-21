@@ -1,3 +1,4 @@
+// @vue/component
 import { icons } from "@storefront-ui/shared/icons/icons";
 
 const HEX_REGEX = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
