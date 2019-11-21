@@ -17,10 +17,9 @@ jobs:
       script: yarn install --frozen-lockfile
 
     - stage: Build
-      name: Lint + Test
+      name: Test
       script:
         - cd packages/vue
-        - yarn lint
         - yarn test:unit
 
     - stage: Build
