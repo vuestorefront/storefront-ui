@@ -74,11 +74,11 @@
               class="sf-select--bordered product-details__attribute"
             >
               <SfSelectOption
-                v-for="size in sizes"
-                :key="size.value"
-                :value="size.value"
+                v-for="sizeOption in sizes"
+                :key="sizeOption.value"
+                :value="sizeOption.value"
               >
-                <SfProductOption :label="size.label" />
+                <SfProductOption :label="sizeOption.label" />
               </SfSelectOption>
             </SfSelect>
             <SfSelect
@@ -87,13 +87,13 @@
               class="sf-select--bordered product-details__attribute"
             >
               <SfSelectOption
-                v-for="color in colors"
-                :key="color.value"
-                :value="color.value"
+                v-for="colorOption in colors"
+                :key="colorOption.value"
+                :value="colorOption.value"
               >
                 <SfProductOption
-                  :label="color.label"
-                  :color="color.color"
+                  :label="colorOption.label"
+                  :color="colorOption.color"
                 />
               </SfSelectOption>
             </SfSelect>

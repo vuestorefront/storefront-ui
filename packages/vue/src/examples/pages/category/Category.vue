@@ -236,7 +236,7 @@
           :visible="5"
           @click="
             page => {
-              this.currentPage = page;
+              currentPage = page;
             }
           "
         />
