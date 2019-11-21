@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { configure, addDecorator, addParameters } from "@storybook/vue";
 import { withA11y } from "@storybook/addon-a11y";
 
