@@ -60,8 +60,10 @@ export default {
         if (typeof window === "undefined") return;
         if (value) {
           document.body.style.setProperty("overflow", "hidden");
+          document.addEventListener("keydown", this.keydownHandler);
         } else {
           document.body.style.removeProperty("overflow");
+          document.removeEventListener("keydown", this.keydownHandler);
         }
       },
       immediate: true
@@ -73,6 +75,11 @@ export default {
     },
     checkPersistence() {
       if (!this.persistent) {
+        this.close();
+      }
+    },
+    keydownHandler(e) {
+      if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
         this.close();
       }
     }
