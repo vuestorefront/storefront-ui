@@ -81,23 +81,9 @@ $content-pages__title-line-height: 1.6 !default;
     border-bottom: 1px solid $c-light;
   }
   &__menu {
-    cursor: pointer;
     padding: $spacer-big $spacer-big $spacer-big 10px;
     @media (min-width: $desktop-min) {
       padding: $spacer 0;
-    }
-    &--is-active {
-      @media (min-width: $desktop-min) {
-        color: $c-dark;
-        font-weight: 400;
-        text-decoration: underline;
-      }
-    }
-  }
-  &__menu-icon {
-    margin-right: $spacer-big;
-    #{$this}__menu--is-active & {
-      fill: $c-dark;
     }
   }
 }

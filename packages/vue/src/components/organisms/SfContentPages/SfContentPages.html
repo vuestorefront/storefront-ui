@@ -19,7 +19,7 @@
                   @click="updatePage(page.title)"
                   :label="page.title"
                   class="sf-content-pages__menu"
-                  :class="{'sf-content-pages__menu--is-active': page.title === active}"
+                  :class="{'sf-menu-item--is-active': page.title === active}"
                 >
                   <template #icon>
                     <SfIcon
@@ -27,7 +27,7 @@
                       size="xxs"
                       color="#686d7d"
                       :icon="page.icon"
-                      class="sf-content-pages__menu-icon" />
+                      class="sf-menu-item__icon" />
                   </template>
                 </SfMenuItem>
             </slot>
