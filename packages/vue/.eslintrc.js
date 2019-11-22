@@ -5,11 +5,7 @@ module.exports = {
     node: true,
     browser: true
   },
-  extends: [
-    "plugin:vue/essential",
-    "plugin:vue/strongly-recommended",
-    "plugin:vue/recommended",
-  ],
+  extends: ["eslint:recommended", "plugin:vue/essential", "plugin:vue/strongly-recommended", "plugin:vue/recommended"],
   rules: {},
   parserOptions: {
     parser: "babel-eslint",
