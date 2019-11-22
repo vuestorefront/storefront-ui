@@ -1,4 +1,3 @@
-// /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 
 import SfContentPages from "./SfContentPages.vue";
@@ -117,9 +116,8 @@ storiesOf("Organisms|ContentPages", module).add("[slot] default", () => ({
           </SfTabs>
           </SfContentPage>
         </SfContentCategory>
-        <SfContentCategory>
           <SfContentPage title="Logout"/>
-        </SfContentCategory>
+          <SfContentPage title="Newsletter"/>
       </SfContentPages>
       <button 
         v-if="activePage" 

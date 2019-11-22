@@ -34,22 +34,44 @@ export default {
   },
   data() {
     return {
-      categories: [],
+      items: [],
       isMobile: false,
       desktopMin: 1024
     };
   },
+  computed: {
+    categories() {
+      const items = [];
+      const orphans = { items: [] };
+      const reduceOrphans = () => {
+        if(orphans.items.length > 0){
+          const category = {...orphans};
+          items.push(category)
+          orphans.items = [];
+        }
+      };
+
+      this.items.forEach((item)=>{
+        if(item.items){
+          reduceOrphans();
+          const category = {...item};
+          items.push(category);
+          return
+        }
+        orphans.items.push(item)
+      })
+      reduceOrphans();
+
+      return items;
+    }
+  },
   provide() {
-    const categories = {};
-    const component = {};
-    Object.defineProperty(component, "active", {
+    const provided = {};
+
+    Object.defineProperty(provided, "active", {
       get: () => this.active
     });
-    Object.defineProperty(categories, "updateCategories", {
-      value: this.updateCategories
-    });
-
-    return { categories, component };
+    return { provided };
   },
   watch: {
     isMobile(mobile) {
@@ -62,9 +84,6 @@ export default {
     }
   },
   methods: {
-    updateCategories(page) {
-      this.categories.push(page);
-    },
     updatePage(title) {
       /**
        * Active page updated event

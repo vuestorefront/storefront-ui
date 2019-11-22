@@ -1,13 +1,5 @@
 export default {
   name: "SfContentCategory",
-  inject: ["categories"],
-  provide() {
-    const pages = {};
-    Object.defineProperty(pages, "updatePages", {
-      value: this.updatePages
-    });
-    return { pages };
-  },
   props: {
     /**
      * Category title
@@ -19,21 +11,15 @@ export default {
   },
   data() {
     return {
-      pages: []
+      items: []
     };
   },
-  computed: {},
-  methods: {
-    updatePages(page) {
-      if (this.pages.includes(page)) return;
-      this.pages.push(page);
-    }
-  },
+  methods: {},
   mounted() {
-    const category = {
+    const item = {
       title: this.title,
-      pages: this.pages
+      items: this.items
     };
-    this.categories.updateCategories(category);
+    this.$parent.items.push(item);
   }
 };
