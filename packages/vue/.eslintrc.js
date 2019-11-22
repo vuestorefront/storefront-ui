@@ -6,14 +6,26 @@ module.exports = {
     browser: true
   },
   extends: [
-    'eslint:recommended',
-    'plugin:vue/recommended'
+    "plugin:vue/essential",
+    "plugin:vue/strongly-recommended",
+    "plugin:vue/recommended",
+    "@vue/prettier"
   ],
   rules: {
+    "vue/max-attributes-per-line": [
+      "error",
+      {
+        singleline: 1,
+        multiline: {
+          max: 1,
+          allowFirstLine: false
+        }
+      }
+    ]
   },
   parserOptions: {
     parser: "babel-eslint",
     sourceType: "module"
   },
   plugins: ["vue"]
-}
+};
