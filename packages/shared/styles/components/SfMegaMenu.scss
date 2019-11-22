@@ -1,8 +1,18 @@
 @import "../variables";
 
-$mega-menu-background-color: $c-white !default;
+$mega-menu__background-color: $c-white !default;
+$mega-menu__padding-desktop: 2.5rem !default;
 
 .sf-mega-menu {
-  background-color: $mega-menu-background-color;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
   width: 100%;
+  padding: $mega-menu__padding-desktop;
+  background-color: $mega-menu__background-color;
+
+  &-column {
+    display: flex;
+    width: 100%;
+  }
 }
