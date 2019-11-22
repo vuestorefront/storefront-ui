@@ -1,7 +1,8 @@
 @import "../variables";
 
 $mega-menu__background-color: $c-white !default;
-$mega-menu__padding-desktop: 2.5rem !default;
+$mega-menu__padding-desktop: 3rem !default;
+$mega-menu__separator-color: $c-light !default;
 
 .sf-mega-menu {
   display: flex;
@@ -13,6 +14,12 @@ $mega-menu__padding-desktop: 2.5rem !default;
 
   &-column {
     display: flex;
+    justify-content: space-between;
     width: 100%;
+    border-right: 2px solid $mega-menu__separator-color;
+
+    &:last-child {
+      border: none;
+    }
   }
 }
