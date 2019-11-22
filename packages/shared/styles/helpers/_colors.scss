@@ -1,7 +1,7 @@
 @each $color, $map in $colors-map {
-  $bg: map-get($map, 'bg');
-  $variant: map-get($map, 'variant');
-  $text: map-get($map, 'text');
+  $bg: map-get($map, "bg");
+  $variant: map-get($map, "variant");
+  $text: map-get($map, "text");
 
   // Atomic utility classes for text and bg colors
   .text-#{$color} {
