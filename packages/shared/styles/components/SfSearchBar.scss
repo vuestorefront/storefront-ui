@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $search-bar-background-primary: $c-light !default;
 $search-bar-background-secondary: $c-light-variant !default;
@@ -13,9 +13,6 @@ $search-bar-icon-display: block !default;
 
 @mixin placeholder {
   &::-webkit-input-placeholder {
-    @content;
-  }
-  &:-moz-placeholder {
     @content;
   }
   &::-moz-placeholder {

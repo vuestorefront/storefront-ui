@@ -1,8 +1,0 @@
-"*.{js,html}":
-  - eslint --fix
-  - prettier --write
-  - git add
-"*.scss":
-  - stylelint --syntax=scss --fix
-  - prettier --write
-  - git add
