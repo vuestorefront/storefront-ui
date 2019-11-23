@@ -44,22 +44,22 @@ export default {
       const items = [];
       const orphans = { items: [] };
       const reduceOrphans = () => {
-        if(orphans.items.length > 0){
-          const category = {...orphans};
-          items.push(category)
+        if (orphans.items.length > 0) {
+          const category = { ...orphans };
+          items.push(category);
           orphans.items = [];
         }
       };
 
-      this.items.forEach((item)=>{
-        if(item.items){
+      this.items.forEach(item => {
+        if (item.items) {
           reduceOrphans();
-          const category = {...item};
+          const category = { ...item };
           items.push(category);
-          return
+          return;
         }
-        orphans.items.push(item)
-      })
+        orphans.items.push(item);
+      });
       reduceOrphans();
 
       return items;
