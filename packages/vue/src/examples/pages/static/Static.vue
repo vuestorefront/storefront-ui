@@ -31,24 +31,24 @@
         <SfTabs :open-tab="1">
           <SfTab title="Security">
             This website ("website") is operated by Luma Inc., which includes
-            Luma stores, and Luma Private Sales. This privacy policy only
-            covers information collected at this website, and does not cover
-            any information collected offline by Luma. All Luma websites are
-            covered by this privacy policy.
+            Luma stores, and Luma Private Sales. This privacy policy only covers
+            information collected at this website, and does not cover any
+            information collected offline by Luma. All Luma websites are covered
+            by this privacy policy.
           </SfTab>
           <SfTab title="Privacy Policy">
             This website ("website") is operated by Luma Inc., which includes
-            Luma stores, and Luma Private Sales. This privacy policy only
-            covers information collected at this website, and does not cover
-            any information collected offline by Luma. All Luma websites are
-            covered by this privacy policy.
+            Luma stores, and Luma Private Sales. This privacy policy only covers
+            information collected at this website, and does not cover any
+            information collected offline by Luma. All Luma websites are covered
+            by this privacy policy.
           </SfTab>
           <SfTab title="Additional Information ">
             This website ("website") is operated by Luma Inc., which includes
-            Luma stores, and Luma Private Sales. This privacy policy only
-            covers information collected at this website, and does not cover
-            any information collected offline by Luma. All Luma websites are
-            covered by this privacy policy.
+            Luma stores, and Luma Private Sales. This privacy policy only covers
+            information collected at this website, and does not cover any
+            information collected offline by Luma. All Luma websites are covered
+            by this privacy policy.
           </SfTab>
         </SfTabs>
       </SfContentPage>
@@ -56,17 +56,17 @@
         <SfTabs :open-tab="1">
           <SfTab title="Size guide">
             This website ("website") is operated by Luma Inc., which includes
-            Luma stores, and Luma Private Sales. This privacy policy only
-            covers information collected at this website, and does not cover
-            any information collected offline by Luma. All Luma websites are
-            covered by this privacy policy.
+            Luma stores, and Luma Private Sales. This privacy policy only covers
+            information collected at this website, and does not cover any
+            information collected offline by Luma. All Luma websites are covered
+            by this privacy policy.
           </SfTab>
           <SfTab title="Where's my order?">
             This website ("website") is operated by Luma Inc., which includes
-            Luma stores, and Luma Private Sales. This privacy policy only
-            covers information collected at this website, and does not cover
-            any information collected offline by Luma. All Luma websites are
-            covered by this privacy policy.
+            Luma stores, and Luma Private Sales. This privacy policy only covers
+            information collected at this website, and does not cover any
+            information collected offline by Luma. All Luma websites are covered
+            by this privacy policy.
           </SfTab>
         </SfTabs>
       </SfContentPage>
@@ -74,8 +74,8 @@
         This website ("website") is operated by Luma Inc., which includes Luma
         stores, and Luma Private Sales. This privacy policy only covers
         information collected at this website, and does not cover any
-        information collected offline by Luma. All Luma websites are covered
-        by this privacy policy.
+        information collected offline by Luma. All Luma websites are covered by
+        this privacy policy.
       </SfContentPage>
     </SfContentPages>
   </div>
