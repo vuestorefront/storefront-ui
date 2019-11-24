@@ -4,7 +4,7 @@
     :class="{'sf-content-pages__section--is-active': active}"
   >
     <div class="sf-content-pages__sidebar">
-      <h1 class="sf-content-pages__title">{{title}}</h1>
+      <h1 class="sf-content-pages__title desktop-only">{{title}}</h1>
       <div v-for="(category, key) in categories" :key="key">
         <h2 v-if="category.title" class="sf-content-pages__category-title">
           {{category.title}}

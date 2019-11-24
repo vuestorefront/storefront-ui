@@ -8,27 +8,6 @@ $content-pages__title-font-size-desktop: $font-size-extra-big-desktop !default;
 $content-pages__title-font-weight: 500 !default;
 $content-pages__title-line-height: 1.6 !default;
 
-%title {
-  padding: $spacer-big 0;
-  font-family: $content-pages__title-font-family;
-  font-size: $content-pages__title-font-size;
-  font-weight: $content-pages__title-font-weight;
-  line-height: $content-pages__title-line-height;
-  @media (min-width: $desktop-min) {
-    margin-bottom: $spacer-big;
-    font-size: $content-pages__title-font-size-desktop;
-  }
-}
-
-.sf-content-page {
-  &__title {
-    @extend %title;
-    display: block;
-    @media (min-width: $desktop-min) {
-      display: none;
-    }
-  }
-}
 .sf-content-pages {
   $this: &;
   overflow: hidden;
@@ -63,7 +42,15 @@ $content-pages__title-line-height: 1.6 !default;
     }
   }
   &__title {
-    @extend %title;
+    padding: $spacer-big 0;
+    font-family: $content-pages__title-font-family;
+    font-size: $content-pages__title-font-size;
+    font-weight: $content-pages__title-font-weight;
+    line-height: $content-pages__title-line-height;
+    @media (min-width: $desktop-min) {
+      margin-bottom: $spacer-big;
+      font-size: $content-pages__title-font-size-desktop;
+    }
   }
   &__category-title {
     margin-bottom: $spacer-big;

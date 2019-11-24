@@ -19,8 +19,8 @@ const StoriesMobileBar = {
         <SfIcon icon="chevron_left" size="14px" />
       </button>
     </div>
-    <div :style="{fontSize: '1rem', fontWeight: '500'}">{{ title }}</div>
-    <div :style="{ display: 'flex' }">
+    <div :style="{ fontSize: '1rem', fontWeight: '500', fontFamily: 'Raleway, sans-serif' }">{{ title }}</div>
+    <div :style="{ display: 'flex', width: '14px' }">
       <button v-if="false" :style="{ padding: '0', margin: '0', border: '0', backgroundColor: 'transparent', outline: 'none', cursor: 'pointer' }">
         <SfIcon icon="cross" size="14px" />
       </button>

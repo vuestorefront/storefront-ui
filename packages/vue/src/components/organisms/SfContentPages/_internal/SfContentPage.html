@@ -1,8 +1,4 @@
 <div v-if="isActive" class="sf-content-page">
-  <!-- @slot Custom title markup -->
-  <slot name="title" v-bind="{ title }">
-    <h2 class="sf-content-page__title">{{ title }}</h2>
-  </slot>
   <!-- @slot Custom page markup -->
   <slot />
 </div>
