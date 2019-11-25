@@ -36,6 +36,7 @@ $mega-menu__padding-desktop: 3rem !default;
     @media (min-width: $desktop-min) {
       flex-direction: row;
       justify-content: space-between;
+      padding-right: $mega-menu__padding-desktop;
       width: 100%;
     }
   }
