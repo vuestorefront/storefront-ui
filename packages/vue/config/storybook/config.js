@@ -8,6 +8,13 @@ import "../../src/css/_all.scss";
 
 const req = require.context("../../src/", true, /.stories.js$/);
 
+function PaddingDecorator() {
+  return {
+    template: '<div style="padding: 20px"><story/></div>'
+  };
+}
+
+addDecorator(PaddingDecorator);
 addDecorator(withA11y);
 
 addParameters({

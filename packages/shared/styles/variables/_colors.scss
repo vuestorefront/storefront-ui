@@ -3,20 +3,20 @@ $c-white: hsl(0, 0%, 100%) !default;
 
 // Internal color variables
 // Should NOT be used directly for theming or component styles
-$_c-green-primary:    hsl(136, 53%, 59%);
-$_c-green-secondary:  hsl(136, 54%, 75%);
-$_c-dark-primary:     hsl(216, 8%, 12%);
-$_c-dark-secondary:   hsl(226, 5%, 48%);
-$_c-gray-primary:     hsl(228, 9%, 45%);
-$_c-gray-secondary:   hsl(230, 5%, 76%);
-$_c-light-primary:    hsl(210, 8%, 95%);
-$_c-light-secondary:  hsl(0, 0%, 100%);
-$_c-pink-primary:     hsl(359, 77%, 51%);
-$_c-pink-secondary:   hsl(7, 100%, 98%);
-$_c-yellow-primary:   hsl(50, 100%, 62%);
+$_c-green-primary: hsl(136, 53%, 59%);
+$_c-green-secondary: hsl(136, 54%, 75%);
+$_c-dark-primary: hsl(216, 8%, 12%);
+$_c-dark-secondary: hsl(226, 5%, 48%);
+$_c-gray-primary: hsl(228, 9%, 45%);
+$_c-gray-secondary: hsl(230, 5%, 76%);
+$_c-light-primary: hsl(210, 8%, 95%);
+$_c-light-secondary: hsl(0, 0%, 100%);
+$_c-pink-primary: hsl(359, 77%, 51%);
+$_c-pink-secondary: hsl(7, 100%, 98%);
+$_c-yellow-primary: hsl(50, 100%, 62%);
 $_c-yellow-secondary: hsl(50, 100%, 96%);
-$_c-blue-primary:     hsl(210, 50%, 60%);
-$_c-blue-secondary:   hsl(216, 33%, 97%);
+$_c-blue-primary: hsl(210, 50%, 60%);
+$_c-blue-secondary: hsl(216, 33%, 97%);
 
 /* START: Theme color variables */
 
@@ -86,44 +86,44 @@ $c-on-danger: $c-white !default;
 
 // Map theme colors palette
 $colors-map: (
-  'primary': (
-    'bg': $c-primary,
-    'variant': $c-primary-variant,
-    'text': $c-on-primary
+  "primary": (
+    "bg": $c-primary,
+    "variant": $c-primary-variant,
+    "text": $c-on-primary
   ),
-  'secondary': (
-    'bg': $c-secondary,
-    'variant': $c-secondary-variant,
-    'text': $c-on-secondary
+  "secondary": (
+    "bg": $c-secondary,
+    "variant": $c-secondary-variant,
+    "text": $c-on-secondary
   ),
-  'light': (
-    'bg': $c-light,
-    'variant': $c-light-variant,
-    'text': $c-on-light
+  "light": (
+    "bg": $c-light,
+    "variant": $c-light-variant,
+    "text": $c-on-light
   ),
-  'dark': (
-    'bg': $c-dark,
-    'variant': $c-dark-variant,
-    'text': $c-on-dark
+  "dark": (
+    "bg": $c-dark,
+    "variant": $c-dark-variant,
+    "text": $c-on-dark
   ),
-  'info': (
-    'bg': $c-info,
-    'variant': $c-info-variant,
-    'text': $c-on-info
+  "info": (
+    "bg": $c-info,
+    "variant": $c-info-variant,
+    "text": $c-on-info
   ),
-  'success': (
-    'bg': $c-success,
-    'variant': $c-success-variant,
-    'text': $c-on-success
+  "success": (
+    "bg": $c-success,
+    "variant": $c-success-variant,
+    "text": $c-on-success
   ),
-  'warning': (
-    'bg': $c-warning,
-    'variant': $c-warning-variant,
-    'text': $c-on-warning
+  "warning": (
+    "bg": $c-warning,
+    "variant": $c-warning-variant,
+    "text": $c-on-warning
   ),
-  'danger': (
-    'bg': $c-danger,
-    'variant': $c-danger-variant,
-    'text': $c-on-danger
+  "danger": (
+    "bg": $c-danger,
+    "variant": $c-danger-variant,
+    "text": $c-on-danger
   )
 );

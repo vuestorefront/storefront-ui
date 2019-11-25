@@ -14,13 +14,13 @@ $tabs__title-font-size: $font-size-big-mobile !default;
 $tabs__title-font-size-desktop: $font-size-big-desktop !default;
 $tabs__content-padding-y: 3 * $spacer-big !default;
 
-@mixin for-desktop{
-  @media screen and (min-width: $desktop-min){
+@mixin for-desktop {
+  @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
 
-.sf-tabs{
+.sf-tabs {
   $this: &;
   position: relative;
   display: flex;
@@ -29,10 +29,10 @@ $tabs__content-padding-y: 3 * $spacer-big !default;
   font-size: $tabs-font-size;
   font-weight: $tabs-font-weight;
   line-height: $tabs-line-height;
-  @include for-desktop{
+  @include for-desktop {
     font-size: $tabs-font-size-desktop;
   }
-  &__title{
+  &__title {
     display: flex;
     flex-basis: 100%;
     justify-content: space-between;
@@ -43,7 +43,7 @@ $tabs__content-padding-y: 3 * $spacer-big !default;
     cursor: pointer;
     transition: border-color 150ms ease-in-out, color 150ms ease-in-out;
     font-size: $tabs__title-font-size;
-    @include for-desktop{
+    @include for-desktop {
       flex-basis: auto;
       margin-right: 2rem;
       margin-bottom: -2px;
@@ -53,40 +53,40 @@ $tabs__content-padding-y: 3 * $spacer-big !default;
       color: $c-gray-variant;
       font-size: $tabs__title-font-size-desktop;
     }
-    &--active{
+    &--active {
       border-color: transparent;
-      @include for-desktop{
+      @include for-desktop {
         z-index: 1;
         border-width: 2px;
         border-color: $c-dark;
         color: $c-dark;
       }
-      & + #{$this}__content{
+      & + #{$this}__content {
         display: block;
         border-bottom: 1px solid $tabs-border-color;
-        @include for-desktop{
+        @include for-desktop {
           border-bottom: 0;
         }
       }
     }
-    &:hover{
+    &:hover {
       @include for-desktop {
         color: $c-dark;
       }
     }
   }
-  &__content{
+  &__content {
     display: none;
     flex-basis: 100%;
     padding: ($tabs__content-padding-y / 2) 0;
-    @include for-desktop{
+    @include for-desktop {
       order: 99;
       padding: $tabs__content-padding-y 0;
       border-top: 2px solid $tabs-border-color;
     }
   }
-  &__chevron{
-    @include for-desktop{
+  &__chevron {
+    @include for-desktop {
       display: none;
     }
   }

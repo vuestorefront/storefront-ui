@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $steps__active-line-height-mobile: 0.1875rem;
 $steps__active-line-height-desktop: 0.125rem;
@@ -49,7 +49,7 @@ $steps__step-text-transform: uppercase;
 
   &__progress {
     position: absolute;
-    content: '';
+    content: "";
     display: block;
     height: $steps__active-line-height-mobile;
     bottom: -$steps__active-line-height-mobile / 2;

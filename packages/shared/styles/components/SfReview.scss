@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $review__div_tags-margin-bottom: $spacer-medium !default;
 $review__div_tags-display-inline-block: inline-block !default;
@@ -26,46 +26,46 @@ $review__message_read_more-outline: none !default;
 $review__message_read_more-font-family: $body-font-family-primary !default;
 
 .sf-review {
-    position: relative;
-    &__author {
-        text-transform: $review__author-text-transform;
-        font-weight: $review__author-font-weight;
-        font-size: $review__author-font-size;
-        font-family: $review__author-font-family;
-        color: $review__author-color;
-        margin-bottom: $review__div_tags-margin-bottom;
-    }
-    &__rating {
-        display: $review__div_tags-display-inline-block;
-    }
-    &__info {
-        margin-bottom: $review__div_tags-margin-bottom;
-    }
-    &__date {
-        text-transform: $review__date-text-transform;
-        font-weight: $review__date-font-weight;
-        font-size: $review__date-font-size;
-        color: $review__date-color;
-    }
-    &__message {
-        font-weight: $review__message-font-weight;
-        font-size: $review__message-font-size;
-        color: $review__message-color;
-    }
-    &__message_read_more {
-        font-weight: $review__message_read_more-font-weight;
-        font-size: $review__message_read_more-font-size;
-        color: $review__message_read_more-color;
-        background-color: $review__message_read_more-background-color;
-        border: $review__message_read_more-border;
-        cursor: $review__message_read_more-cursor;
-        outline: $review__message_read_more-outline;
-        font-family: $review__message_read_more-font-family;
-    }
-    &__display-inline-block {
-        display: $review__div_tags-display-inline-block;
-    }
-    &__margin-left {
-        margin-left: $review__margin-left;
-    }
+  position: relative;
+  &__author {
+    text-transform: $review__author-text-transform;
+    font-weight: $review__author-font-weight;
+    font-size: $review__author-font-size;
+    font-family: $review__author-font-family;
+    color: $review__author-color;
+    margin-bottom: $review__div_tags-margin-bottom;
+  }
+  &__rating {
+    display: $review__div_tags-display-inline-block;
+  }
+  &__info {
+    margin-bottom: $review__div_tags-margin-bottom;
+  }
+  &__date {
+    text-transform: $review__date-text-transform;
+    font-weight: $review__date-font-weight;
+    font-size: $review__date-font-size;
+    color: $review__date-color;
+  }
+  &__message {
+    font-weight: $review__message-font-weight;
+    font-size: $review__message-font-size;
+    color: $review__message-color;
+  }
+  &__message_read_more {
+    font-weight: $review__message_read_more-font-weight;
+    font-size: $review__message_read_more-font-size;
+    color: $review__message_read_more-color;
+    background-color: $review__message_read_more-background-color;
+    border: $review__message_read_more-border;
+    cursor: $review__message_read_more-cursor;
+    outline: $review__message_read_more-outline;
+    font-family: $review__message_read_more-font-family;
+  }
+  &__display-inline-block {
+    display: $review__div_tags-display-inline-block;
+  }
+  &__margin-left {
+    margin-left: $review__margin-left;
+  }
 }
