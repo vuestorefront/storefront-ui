@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $breadcrumbs-font-family: $body-font-family-secondary !default;
 $breadcrumbs-font-size: $font-size-small-desktop !default;
@@ -9,7 +9,7 @@ $breadcrumbs__item-padding: 0.75rem !default;
 $breadcrumbs__item-color: $c-gray !default;
 $breadcrumbs__item-separator-color: $breadcrumbs__link-color !default;
 $breadcrumbs__item-separator: "|" !default;
-$breadcrumbs__current-color: $c-gray-variant!default;
+$breadcrumbs__current-color: $c-gray-variant !default;
 
 .sf-breadcrumbs {
   font-family: $breadcrumbs-font-family;
@@ -37,7 +37,7 @@ $breadcrumbs__current-color: $c-gray-variant!default;
     cursor: pointer;
     color: $breadcrumbs__link-color;
   }
-  &__current{
+  &__current {
     cursor: default;
     color: $breadcrumbs__current-color;
   }

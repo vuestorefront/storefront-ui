@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $options-font-family: $body-font-family-secondary !default;
 $options-font-size: $font-size-regular-mobile !default;
@@ -10,8 +10,9 @@ $options__label-font-size: $font-size-big-mobile !default;
 $options__option-size: 2rem !default;
 $options__option-color-size-desktop: 1rem !default;
 $options__option-margin: 0.75rem !default;
-$options__option-text-color: #BDBDBD !default;
+$options__option-text-color: #bdbdbd !default;
 $options__option--selected-text-color: $c-text !default;
+/* stylelint-disable */
 
 .sf-options {
   display: flex;
@@ -109,3 +110,4 @@ $options__option--selected-text-color: $c-text !default;
     font-size: $options__label-font-size;
   }
 }
+/* stylelint-enable */
