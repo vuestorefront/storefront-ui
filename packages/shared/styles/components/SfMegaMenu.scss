@@ -6,20 +6,42 @@ $mega-menu__padding-desktop: 3rem !default;
 
 .sf-mega-menu {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
   width: 100%;
-  padding: $mega-menu__padding-desktop;
   background-color: $mega-menu__background-color;
 
   &-column {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    border-right: 2px solid $mega-menu__separator-color;
+    border: none;
 
-    &:last-child {
-      border: none;
+    @media (min-width: $desktop-min) {
+      flex-direction: row;
+      border-right: 2px solid $mega-menu__separator-color;
+
+      &:last-child {
+        border: none;
+      }
     }
+  }
+
+  &--extended {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $desktop-min) {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $desktop-min) {
+    flex-direction: row;
+    padding: $mega-menu__padding-desktop;
   }
 }

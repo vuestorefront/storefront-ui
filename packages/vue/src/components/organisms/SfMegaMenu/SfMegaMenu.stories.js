@@ -4,6 +4,8 @@ import SfMegaMenu from "./SfMegaMenu.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
+import SfAccordion from "../SfAccordion/SfAccordion.vue";
+import SfList from "../../organisms/SfList/SfList.vue";
 
 storiesOf("Organisms|MegaMenu", module).add("Default", () => ({
   data: () => {
@@ -46,8 +48,26 @@ storiesOf("Organisms|MegaMenu", module).add("Default", () => ({
       ]
     };
   },
-  components: { SfMegaMenu, SfMenuItem, SfMegaMenuColumn, SfImage },
+  components: {
+    SfMegaMenu,
+    SfMenuItem,
+    SfMegaMenuColumn,
+    SfImage,
+    SfAccordion,
+    SfList
+  },
   template: `<SfMegaMenu>
+  <SfMegaMenuColumn>
+    <SfAccordion class="sf-mega-menu--extended" :showChevron="true" :transition="transition">
+      <SfAccordionItem v-for="category, i) in categories" :header="category.header" :key="i">
+        <SfList>
+          <SfListItem v-for="(item, j) of category.items" :key="j">
+            <SfMenuItem :label="item.label" :count="item.count"/>
+          </SfListItem>
+        </SfList>
+      </SfAccordionItem>
+    </SfAccordion>
+    </SfMegaMenuColumn>
     <SfMegaMenuColumn style="padding: 0 6rem 0 2rem;">
       <div v-for="category in categories">
         <h3>{{ category.header }}</h3>
@@ -57,7 +77,7 @@ storiesOf("Organisms|MegaMenu", module).add("Default", () => ({
     <SfMegaMenuColumn style="padding: 0 2rem 0 6rem;">
       <div>
         <h3>LAST PAIRS LEFT</h3>
-        <SfImage style="margin: 1rem 1rem 0 0 ;" src="assets/storybook/megamenu/bannerSandals.jpg"/>
+        <SfImage style="margin: 1rem 1rem 0 0;" src="assets/storybook/megamenu/bannerSandals.jpg"/>
       </div>
       <div>
         <h3>BEACH BAGS 2=1</h3>
