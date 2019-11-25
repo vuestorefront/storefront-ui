@@ -1,5 +1,4 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import direction from "@glidejs/glide/src/components/direction";
 
 export default {
   name: "SfPagination",

@@ -1,8 +1,8 @@
-@import '../variables';
+@import "../variables";
 
 $top-bar-height: 2.5rem !default;
 $top-bar-hidden-max-width: $desktop-min !default;
-$top-bar-background-color: $c-light-primary !default;
+$top-bar-background-color: $c-light !default;
 $top-bar-horizontal-padding: $spacer-extra-big !default;
 
 .sf-topbar {

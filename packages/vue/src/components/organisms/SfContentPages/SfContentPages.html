@@ -1,0 +1,32 @@
+<div class="sf-content-pages">
+  <section
+    class="sf-content-pages__section"
+    :class="{'sf-content-pages__section--is-active': active}">
+    <div class="sf-content-pages__sidebar">
+      <h1 class="sf-content-pages__title">{{title}}</h1>
+      <SfList>
+        <SfList
+          v-for="page in pages"
+          :key="page"
+          class="sf-content-pages__list-item">
+          <!-- @slot Custom menu-item markup -->
+          <slot
+            name="menu-item"
+            v-bind="{updatePage, page, active}">
+            <span @click="updatePage(page)">
+              <SfMenuItem
+                :label="page"
+                class="sf-content-pages__menu-item"
+                :class="{'sf-content-pages__menu-item--is-active': page === active}"
+              />
+            </span>
+          </slot>
+        </SfList>
+      </SfList>
+    </div>
+    <div class="sf-content-pages__content">
+      <!-- @slot Slot for Content Page -->
+      <slot />
+    </div>
+  </section>
+</div>

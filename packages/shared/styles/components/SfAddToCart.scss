@@ -13,7 +13,7 @@ $add-to-cart__select-quantity-max-width: 5.625rem !default;
   &__button {
     flex: 1;
     &:disabled {
-      background-color: $c-accent-secondary;
+      background-color: $c-primary-variant;
       cursor: default;
     }
     @include for-desktop {
@@ -33,7 +33,7 @@ $add-to-cart__select-quantity-max-width: 5.625rem !default;
       height: 100%;
       min-width: $add-to-cart__select-quantity-min-width;
       max-width: $add-to-cart__select-quantity-max-width;
-      border: 1px solid $c-light-primary;
+      border: 1px solid $c-light;
       font-family: $body-font-family-primary;
       font-size: $font-size-extra-big-mobile;
       font-weight: $body-font-weight-primary;
@@ -41,11 +41,11 @@ $add-to-cart__select-quantity-max-width: 5.625rem !default;
       text-align: center;
       transition: border-color 0.3s ease-in-out;
       &:focus {
-        border-color: $c-accent-primary;
+        border-color: $c-primary;
       }
       @include for-desktop {
         font-size: $font-size-extra-big-desktop;
-        background-color: $c-light-primary;
+        background-color: $c-light;
       }
     }
   }

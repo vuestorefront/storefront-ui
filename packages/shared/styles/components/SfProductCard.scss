@@ -1,15 +1,13 @@
 @import "../variables";
-
 $product-card-max-width: 200px !default;
 $product-card-max-width-desktop: 240px !default;
 $product-card-padding: $spacer-small !default;
 $product-card-padding-desktop: $spacer-big !default;
 $product-card-hover-box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
-$product-card__image-background-color: $c-bg-primary !default;
+$product-card__image-background-color: $c-light !default;
 $product-card__image-blend-mode: darken !default;
 $product-card__pictures-height: 180px !default;
 $product-card__pictures-height-desktop: 250px !default;
-
 .sf-product-card {
   $this: &;
   position: relative;
@@ -18,119 +16,102 @@ $product-card__pictures-height-desktop: 250px !default;
   max-width: $product-card-max-width;
   padding: $product-card-padding;
   background-color: $c-white;
-  transition: box-shadow 150ms ease-in-out;
-  &:hover{
+  &::after {
+    content: "";
+    @media (min-width: $desktop-min) {
+      transition: box-shadow 150ms ease-in-out;
+    }
+  }
+  &:hover {
     @media (min-width: $desktop-min) {
       z-index: 1;
+    }
+    &::after {
+      @media (min-width: $desktop-min) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        content: "";
+        box-shadow: $product-card-hover-box-shadow;
+      }
+    }
+    #{$this}__picture {
+      display: none;
+      &:last-child {
+        display: block;
+        opacity: 1;
+      }
+    }
+    #{$this}__wishlist-icon {
+      opacity: 1;
     }
   }
   @media (min-width: $desktop-min) {
     max-width: $product-card-max-width-desktop;
     padding: $product-card-padding-desktop;
   }
-
+  &__link {
+    outline: none;
+  }
   &__pictures {
     display: flex;
     align-items: center;
     text-align: center;
     overflow: hidden;
     height: $product-card__pictures-height;
-
     @media (min-width: $desktop-min) {
       height: $product-card__pictures-height-desktop;
     }
   }
-
   &__picture {
     display: block;
     flex: 0 0 100%;
     opacity: 0;
-    transition: opacity .25s;
+    transition: opacity 0.25s;
     max-height: $product-card__pictures-height;
-
     &:first-child {
       opacity: 1;
     }
-
     @media (min-width: $desktop-min) {
       max-height: $product-card__pictures-height-desktop;
     }
   }
-
-  &:hover {
-    @media (min-width: $desktop-min) {
-      content: "";
-      transition: box-shadow 150ms ease-in-out;
-    }
-  }
-  &:hover{
-    &::after{
-      @media (min-width: $desktop-min) {
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        content: "";
-        box-shadow: $product-card-hover-box-shadow;
-      }
-    }
-
-    #{$this}__picture {
-      display: none;
-
-      &:last-child {
-        display: block;
-        opacity: 1;
-      }
-    }
-
-    #{$this}__wishlist-icon {
-      opacity: 1;
-    }
-  }
-
   &__title {
     font-family: $body-font-family-secondary;
     font-size: $font-size-regular-mobile;
     font-weight: 300;
     line-height: 1.6;
     margin: $spacer-small 0;
-
     @media (min-width: $desktop-min) {
       margin: $spacer 0 $spacer-small;
       font-size: $font-size-regular-desktop;
     }
   }
-
   &__image {
     display: flex;
     align-items: center;
     align-content: center;
     background-color: $product-card__image-background-color;
-
     img {
       max-width: 100%;
       mix-blend-mode: $product-card__image-blend-mode;
-      background-color: $c-light-primary;
+      background-color: $c-light;
     }
   }
-
   &__reviews {
     display: flex;
     align-items: center;
   }
-
   &__rating {
     display: inline-flex;
   }
-
   &__reviews-count {
     font-size: $font-size-regular-mobile;
     margin-left: 0.5rem;
   }
-
   &__wishlist-icon {
     position: absolute;
     top: $product-card-padding * 4;
@@ -142,13 +123,11 @@ $product-card__pictures-height-desktop: 250px !default;
     cursor: pointer;
     outline: none;
     transition: opacity 150ms ease-in-out;
-
     @media (min-width: $desktop-min) {
       opacity: 0;
       top: $product-card-padding-desktop * 2;
       right: $product-card-padding-desktop * 2;
     }
-
     &#{$this}--on-wishlist {
       opacity: 1;
     }

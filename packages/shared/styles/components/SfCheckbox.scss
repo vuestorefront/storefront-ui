@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $checkbox-font-family: $body-font-family-secondary !default;
 $checkbox-font-size: $font-size-big-mobile !default;
@@ -7,16 +7,19 @@ $checkbox-font-weight: $body-font-weight-primary !default;
 $checkbox-line-height: 1.6 !default;
 $checkbox__checkmark-size: 1.25rem !default;
 $checkbox__checkmark-size-desktop: 1.5rem !default;
-$checkbox__checkmark-primary-color: $c-green-primary !default;;
-$checkbox__checkmark-secondary-color: $c-gray-secondary !default;;
-$checkbox__checkmark-transition: background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1), border-color 0.25s cubic-bezier(1, 0.5, 0.8, 1) !default;
+$checkbox__checkmark-primary-color: $c-primary !default;
+$checkbox__checkmark-secondary-color: $c-gray-variant !default;
+$checkbox__checkmark-transition: background-color 0.25s
+    cubic-bezier(1, 0.5, 0.8, 1),
+  border-color 0.25s cubic-bezier(1, 0.5, 0.8, 1),
+  opacity 0.25s cubic-bezier(1, 0.5, 0.8, 1) !default;
 
 .sf-checkbox {
   font-family: $checkbox-font-family;
   font-size: $checkbox-font-size;
   font-weight: $checkbox-font-weight;
   line-height: $checkbox-line-height;
-  @media screen and (min-width: $desktop-min){
+  @media screen and (min-width: $desktop-min) {
     font-size: $checkbox-font-size-desktop;
   }
   &__input {
@@ -28,7 +31,6 @@ $checkbox__checkmark-transition: background-color 0.25s cubic-bezier(1, 0.5, 0.8
     cursor: pointer;
   }
   &__checkmark {
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,17 +39,27 @@ $checkbox__checkmark-transition: background-color 0.25s cubic-bezier(1, 0.5, 0.8
     border: 1px solid $checkbox__checkmark-secondary-color;
     box-sizing: border-box;
     transition: $checkbox__checkmark-transition;
-    @media screen and (min-width: $desktop-min){
+    @media screen and (min-width: $desktop-min) {
       flex-basis: $checkbox__checkmark-size-desktop;
       height: $checkbox__checkmark-size-desktop;
-    }
-    &.is-active {
-      background-color: $checkbox__checkmark-primary-color;
-      border-color: transparent;
     }
     &:hover {
       border-color: $checkbox__checkmark-primary-color;
       transition: $checkbox__checkmark-transition;
+    }
+    .is-active & {
+      background-color: $checkbox__checkmark-primary-color;
+      border-color: transparent;
+    }
+    .is-disabled & {
+      border-color: $c-dark-variant;
+      transition: $checkbox__checkmark-transition;
+      opacity: 0.25;
+    }
+    .is-active.is-disabled & {
+      background-color: $c-dark-variant;
+      border-color: transparent;
+      opacity: 0.25;
     }
   }
   &__label {
