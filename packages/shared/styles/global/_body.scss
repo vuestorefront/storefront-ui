@@ -6,13 +6,15 @@ body {
   font-weight: $body-font-weight-primary;
   margin: 0;
   padding: 0;
-  @media (max-width: $mobile-max) {
-    font-size: $body-font-size-mobile;
+  @media (min-width: $desktop-min) {
+    font-size: $body-font-size-desktop;
   }
 }
+
 a {
   text-decoration: none;
   color: $c-link;
+
   &:hover {
     color: $c-link-hover;
   }
