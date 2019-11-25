@@ -58,7 +58,7 @@ storiesOf("Organisms|MegaMenu", module).add("Default", () => ({
   },
   template: `<SfMegaMenu>
   <SfMegaMenuColumn>
-    <SfAccordion class="sf-mega-menu--extended" :showChevron="true" :transition="transition">
+    <SfAccordion class="sf-mega-menu--extended" :multiple="true" :showChevron="false" :transition="transition">
       <SfAccordionItem v-for="category, i) in categories" :header="category.header" :key="i">
         <SfList>
           <SfListItem v-for="(item, j) of category.items" :key="j">
@@ -67,12 +67,6 @@ storiesOf("Organisms|MegaMenu", module).add("Default", () => ({
         </SfList>
       </SfAccordionItem>
     </SfAccordion>
-    </SfMegaMenuColumn>
-    <SfMegaMenuColumn style="padding: 0 6rem 0 2rem;">
-      <div v-for="category in categories">
-        <h3>{{ category.header }}</h3>
-        <SfMenuItem style="margin: 1rem 0;" v-for="item in category.items" :label="item.label"></SfMenuItem>
-      </div>
     </SfMegaMenuColumn>
     <SfMegaMenuColumn style="padding: 0 2rem 0 6rem;">
       <div>
