@@ -18132,7 +18132,7 @@ webpack-chain@^4.11.0, webpack-chain@^4.6.0:
     deepmerge "^1.5.2"
     javascript-stringify "^1.6.0"
 
-webpack-dev-middleware@3.6.0:
+webpack-dev-middleware@3.6.0, webpack-dev-middleware@^3.0.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.6.0.tgz#71f1b04e52ff8d442757af2be3a658237d53a3e5"
   integrity sha512-oeXA3m+5gbYbDBGo4SvKpAHJJEGMoekUbHgo1RK7CP1sz7/WOSeu/dWJtSTk+rzDCLkPwQhGocgIq6lQqOyOwg==
@@ -18142,7 +18142,7 @@ webpack-dev-middleware@3.6.0:
     range-parser "^1.0.3"
     webpack-log "^2.0.0"
 
-webpack-dev-middleware@^3.0.0, webpack-dev-middleware@^3.7.0, webpack-dev-middleware@^3.7.2:
+webpack-dev-middleware@^3.7.0, webpack-dev-middleware@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.7.2.tgz#0019c3db716e3fa5cecbf64f2ab88a74bab331f3"
   integrity sha512-1xC42LxbYoqLNAhV6YzTYacicgMZQTqRd27Sim9wn5hJrX3I5nxYy1SxSd4+gjUFsz1dQFj+yEe6zEVmSkeJjw==

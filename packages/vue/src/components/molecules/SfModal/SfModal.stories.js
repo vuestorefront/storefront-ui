@@ -33,7 +33,7 @@ storiesOf("Molecules|Modal", module)
     () => ({
       data() {
         return {
-          isModalOpen: true
+          isModalOpen: false
         };
       },
       components: { SfModal, SfButton },
@@ -52,8 +52,7 @@ storiesOf("Molecules|Modal", module)
       <div>
       <SfButton @click="isModalOpen = true">Open modal</SfButton>
       <SfModal
-        :visible="isModalOpen"
-        @close="isModalOpen = false"
+        v-model="isModalOpen"
         :cross="cross"
         :overlay="overlay"
         :persistent="persistent"
