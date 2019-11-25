@@ -4,6 +4,5 @@
   src="./SfInput.html"
 />
 <style lang="scss">
-@import "../../../utilities/transitions/transitions.scss";
 @import "~@storefront-ui/shared/styles/components/SfInput.scss";
 </style>

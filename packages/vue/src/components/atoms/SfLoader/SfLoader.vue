@@ -4,6 +4,5 @@
   src="./SfLoader.html"
 />
 <style lang="scss">
-@import "../../../utilities/transitions/transitions.scss";
 @import "~@storefront-ui/shared/styles/components/SfLoader.scss";
 </style>

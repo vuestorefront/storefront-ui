@@ -4,6 +4,5 @@
   src="./SfTabs.html"
 />
 <style lang="scss">
-@import "../../../utilities/transitions/transitions.scss";
 @import "~@storefront-ui/shared/styles/components/SfTabs.scss";
 </style>
