@@ -45,7 +45,7 @@ const scssTableConfig = {
     ],
     [
       "$review__author-color",
-      "$c-text-primary",
+      "$c-text",
       "color of author's name of the review"
     ],
     [
@@ -68,7 +68,7 @@ const scssTableConfig = {
       "$spacer-medium",
       "margin-left of review's date"
     ],
-    ["$review__date-color", "$c-dark-secondary", "font color of review's date"],
+    ["$review__date-color", "$c-dark-variant", "font color of review's date"],
     [
       "$review__message-font-weight",
       "$body-font-weight-primary",
@@ -81,7 +81,7 @@ const scssTableConfig = {
     ],
     [
       "$review__message-color",
-      "$c-dark-secondary",
+      "$c-dark-variant",
       "text color for review's message"
     ],
     [
@@ -96,7 +96,7 @@ const scssTableConfig = {
     ],
     [
       "$review__message_read_more-color",
-      "$c-green-primary",
+      "$c-primary",
       "text-color for read more button's text"
     ],
     [
