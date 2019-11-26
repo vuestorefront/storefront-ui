@@ -13,7 +13,7 @@
     <div class="sf-header__icons">
       <SfIcon
         class="sf-header__icon"
-        :class="{'sf-header__icon--is-active' : activeIcon === 'account'}"
+        :class="{'sf-header__icon--is-active' : activeSidebar === 'account'}"
         size="20px"
         v-if="accountIcon"
         :icon="accountIcon"
@@ -21,7 +21,7 @@
       </SfIcon>
       <SfIcon
         class="sf-header__icon"
-        :class="{'sf-header__icon--is-active' : activeIcon === 'wishlist'}"
+        :class="{'sf-header__icon--is-active' : activeSidebar === 'wishlist'}"
         size="20px"
         v-if="wishlistIcon"
         :icon="wishlistIcon"
@@ -29,7 +29,7 @@
       </SfIcon>
       <SfIcon
         class="sf-header__icon"
-        :class="{'sf-header__icon--is-active' : activeIcon === 'cart'}"
+        :class="{'sf-header__icon--is-active' : activeSidebar === 'cart'}"
         size="20px"
         v-if="cartIcon"
         :icon="cartIcon"

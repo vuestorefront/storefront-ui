@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 
 import SfHeader from "./SfHeader.vue";
 
@@ -8,11 +8,14 @@ storiesOf("Organisms/Header", module)
   .add("Default", () => ({
     components: { SfHeader },
     props: {
+      title: {
+        default: text("title (prop)", "Storefront UI")
+      },
       logo: {
         default: text("logo (prop)", "/assets/logo.svg")
       },
       cartIcon: {
-        default: text("cartIcon (prop)", "empty_cart")
+        default: text("a (prop)", "empty_cart")
       },
       wishlistIcon: {
         default: text("wishlistIcon (prop)", "heart")
@@ -20,17 +23,18 @@ storiesOf("Organisms/Header", module)
       accountIcon: {
         default: text("accountIcon (prop)", "profile")
       },
-      activeIcon: {
-        default: text("activeIcon (prop)", "account")
+      activeSidebar: {
+        default: select("active-sidebar (prop)", ["","account", "wishlist", "cart"], "account")
       }
     },
     template: `<div style="margin: -20px">
-      <SfHeader 
+      <SfHeader
+        :title="title" 
         :logo="logo"
         :cart-icon="cartIcon" 
         :wishlist-icon="wishlistIcon" 
         :account-icon="accountIcon"
-        :active-icon="activeIcon"
+        :active-sidebar="activeSidebar"
       >
         <template #navigation>
           <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
@@ -43,6 +47,9 @@ storiesOf("Organisms/Header", module)
   .add("[slot] logo", () => ({
     components: { SfHeader },
     props: {
+      title: {
+        default: text("title (prop)", "Storefront UI")
+      },
       logo: {
         default: text("logo (prop) ", "/assets/heart.svg")
       },
@@ -55,16 +62,18 @@ storiesOf("Organisms/Header", module)
       accountIcon: {
         default: text("accountIcon (prop)", "profile")
       },
-      activeIcon: {
-        default: text("activeIcon (prop)", "account")
+      activeSidebar: {
+        default: select("active-sidebar (prop)", ["","account", "wishlist", "cart"], "account")
       }
     },
     template: `<div style="margin: -20px">
-      <SfHeader 
+      <SfHeader
+        :title="title"  
         :logo="logo"
         :cart-icon="cartIcon" 
         :wishlist-icon="wishlistIcon" 
         :account-icon="accountIcon"
+        :active-sidebar="activeSidebar"
       >
         <template #logo>
           CUSTOM LOGO 
@@ -80,6 +89,9 @@ storiesOf("Organisms/Header", module)
   .add("[slot] search", () => ({
     components: { SfHeader },
     props: {
+      title: {
+        default: text("title (prop)", "Storefront UI")
+      },
       logo: {
         default: text("logo (prop)", "/assets/logo.svg")
       },
@@ -97,12 +109,13 @@ storiesOf("Organisms/Header", module)
       }
     },
     template: `<div style="margin: -20px">
-      <SfHeader 
+      <SfHeader
+        :title="title"  
         :logo="logo"
         :cart-icon="cartIcon" 
         :wishlist-icon="wishlistIcon" 
         :account-icon="accountIcon"
-        :active-icon="activeIcon"
+        :active-sidebar="activeSidebar"
       >
         <template #navigation>
           <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
@@ -118,6 +131,9 @@ storiesOf("Organisms/Header", module)
   .add("[slot] icons", () => ({
     components: { SfHeader },
     props: {
+      title: {
+        default: text("title (prop)", "Storefront UI")
+      },
       logo: {
         default: text("logo (prop)", "/assets/logo.svg")
       },
@@ -130,17 +146,18 @@ storiesOf("Organisms/Header", module)
       accountIcon: {
         default: text("accountIcon (prop)", "mail")
       },
-      activeIcon: {
-        default: text("activeIcon (prop)", "account")
+      activeSidebar: {
+        default: select("active-sidebar (prop)", ["","account", "wishlist", "cart"], "account")
       }
     },
     template: `<div style="margin: -20px">
-      <SfHeader 
+      <SfHeader
+        :title="title" 
         :logo="logo"
         :cart-icon="cartIcon" 
         :wishlist-icon="wishlistIcon" 
         :account-icon="accountIcon"
-        :active-icon="activeIcon"
+        :active-sidebar="activeSidebar"
       >
         <template #navigation>
           <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
