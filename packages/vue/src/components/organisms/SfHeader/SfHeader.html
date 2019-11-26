@@ -3,7 +3,7 @@
     <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo" />
     <h1 v-else class="sf-header__title">{{ title }}</h1>
   </slot>
-    <nav class="sf-header__nav">
+    <nav class="sf-header__navigation">
       <slot name="navigation" />
     </nav>
   <slot name="search">
@@ -14,7 +14,7 @@
       <SfIcon
         class="sf-header__icon"
         :class="{'sf-header__icon--is-active' : activeIcon === 'account'}"
-        size="xs"
+        size="20px"
         v-if="accountIcon"
         :icon="accountIcon"
         @click="$emit('click:account')">
@@ -22,7 +22,7 @@
       <SfIcon
         class="sf-header__icon"
         :class="{'sf-header__icon--is-active' : activeIcon === 'wishlist'}"
-        size="xs"
+        size="20px"
         v-if="wishlistIcon"
         :icon="wishlistIcon"
         @click="$emit('click:wishlist')">
@@ -30,7 +30,7 @@
       <SfIcon
         class="sf-header__icon"
         :class="{'sf-header__icon--is-active' : activeIcon === 'cart'}"
-        size="xs"
+        size="20px"
         v-if="cartIcon"
         :icon="cartIcon"
         @click="$emit('click:cart')">

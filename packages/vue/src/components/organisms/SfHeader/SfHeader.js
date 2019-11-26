@@ -1,6 +1,10 @@
+import Vue from "vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
+import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem";
+
+Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 
 export default {
   name: "SfHeader",
