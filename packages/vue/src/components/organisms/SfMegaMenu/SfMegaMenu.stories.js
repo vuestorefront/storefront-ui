@@ -68,7 +68,7 @@ storiesOf("Organisms|MegaMenu", module).add("Default", () => ({
       </SfAccordionItem>
     </SfAccordion>
     </SfMegaMenuColumn>
-    <SfMegaMenuColumn style="padding: 0 2rem 0 6rem;">
+    <SfMegaMenuColumn style="padding: 0.5rem 2rem 0 6rem;">
       <div>
         <h3>LAST PAIRS LEFT</h3>
         <SfImage style="margin: 1rem 1rem 0 0;" src="assets/storybook/megamenu/bannerSandals.jpg"/>
