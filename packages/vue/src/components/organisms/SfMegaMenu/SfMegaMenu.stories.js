@@ -44,7 +44,8 @@ storiesOf("Organisms|MegaMenu", module).add("Default", () => ({
             { label: "Trainers" }
           ]
         }
-      ]
+      ],
+      activeColumn: "Shoes"
     };
   },
   components: {
@@ -54,22 +55,9 @@ storiesOf("Organisms|MegaMenu", module).add("Default", () => ({
     SfImage,
     SfList
   },
-  template: `<SfMegaMenu>
-    <SfMegaMenuColumn style="padding: 0 6rem 0 2rem;">
-      <div v-for="category in categories">
-        <h3>{{ category.header }}</h3>
+  template: `<SfMegaMenu :active="activeColumn" @click:change="updateActive">
+    <SfMegaMenuColumn v-for="(category, j) in categories" :title="category.header" :key="j">
         <SfMenuItem style="margin: 1rem 0;" v-for="item in category.items" :label="item.label"></SfMenuItem>
-      </div>
-    </SfMegaMenuColumn>
-    <SfMegaMenuColumn style="padding: 0 2rem 0 6rem;">
-      <div>
-        <h3>LAST PAIRS LEFT</h3>
-        <SfImage style="margin: 1rem 1rem 0 0;" src="assets/storybook/megamenu/bannerSandals.jpg"/>
-      </div>
-      <div>
-        <h3>BEACH BAGS 2=1</h3>
-        <SfImage style="margin: 1rem 1rem 0 0;" src="assets/storybook/megamenu/bannerBeachBag.jpg"/>
-      </div>
     </SfMegaMenuColumn>
     </SfMegaMenu>`
 }));
