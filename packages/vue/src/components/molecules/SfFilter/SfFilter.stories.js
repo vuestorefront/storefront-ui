@@ -1,67 +1,119 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select, boolean } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
-import SfFilter from "./SfFilter.vue";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    [
-      "$filter-item-padding",
-      "$spacing-big $spacing-extra-big",
-      "padding for filter item"
-    ],
-    ["$filter-item-icon-spacing", "0.75rem", "spacing for filter icon"],
-    ["$filter-item-min-height", "35px", "minimum height for filter"],
-    ["$filter-item-font-size", "$font-size-big-mobile", "font-size for filter"],
-    [
-      "$filter-item-font-family",
-      "$body-font-family-secondary",
-      "font-family for filter"
-    ]
-  ]
-};
+import SfFilter from "./SfFilter.vue";
 
 export default storiesOf("Molecules|Filter", module)
   .addDecorator(withKnobs)
-  .add(
-    "Basic",
-    () => ({
-      components: { SfFilter },
-      props: {
-        label: {
-          default: text("label (prop)", "Red")
-        },
-        count: {
-          default: text("count (prop)", "30")
-        },
-        color: {
-          default: select("color (prop)", ["red", "null"], "red")
-        },
-        selected: {
-          default: boolean("selected (prop)", true)
-        }
+  .add("Default", () => ({
+    components: {
+      SfFilter
+    },
+    props: {
+      color: {
+        default: text("color (prop)", "red")
       },
-      template: `
-      <div style="width: 300px">
-          <SfFilter
-            :color="color"
-            :label="label"
-            :count="count"
-            :selected="selected"
-          />
-      </div>
-    `
-    }),
-    {
-      info: {
-        summary: `
-          <h2> Description </h2>
-          <p>This component should be used for filtering products on listings.</p>
-          <h2> Usage </h2>
-          <pre><code>import { SfFilter } from "@storefront-ui/vue"</code></pre>
-          ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-          `
+      label: {
+        default: text("label (prop)", "Red")
+      },
+      count: {
+        default: text("count (prop)", "30")
+      },
+      selected: {
+        default: boolean("selected (prop)", true)
       }
-    }
-  );
+    },
+    template: `<div style="max-width: 300px">
+       <SfFilter
+        :color="color"
+        :label="label"
+        :count="count"
+        :selected="selected" />
+    </div>`
+  }))
+  .add("[slot] color", () => ({
+    components: {
+      SfFilter
+    },
+    props: {
+      color: {
+        default: text("color (prop)", "red")
+      },
+      label: {
+        default: text("label (prop)", "Red")
+      },
+      count: {
+        default: text("count (prop)", "30")
+      },
+      selected: {
+        default: boolean("selected (prop)", true)
+      }
+    },
+    template: `<div style="max-width: 300px">
+       <SfFilter
+        :color="color"
+        :label="label"
+        :count="count"
+        :selected="selected">
+        <template #color="{color}">
+            <div :style="{width: '20px', height:'20px', backgroundColor: color, borderRadius: '100%', marginRight: '10px'}"></div>
+        </template>
+      </SfFilter>
+    </div>`
+  }))
+  .add("[slot] label", () => ({
+    components: {
+      SfFilter
+    },
+    props: {
+      color: {
+        default: text("color (prop)", "red")
+      },
+      label: {
+        default: text("label (prop)", "Red")
+      },
+      count: {
+        default: text("count (prop)", "30")
+      },
+      selected: {
+        default: boolean("selected (prop)", true)
+      }
+    },
+    template: `<div style="max-width: 300px">
+       <SfFilter
+        :color="color"
+        :label="label"
+        :count="count"
+        :selected="selected">
+        <template #label="{label}">CUSTOM LABEL</template>
+      </SfFilter>
+    </div>`
+  }))
+  .add("[slot] count", () => ({
+    components: {
+      SfFilter
+    },
+    props: {
+      color: {
+        default: text("color (prop)", "red")
+      },
+      label: {
+        default: text("label (prop)", "Red")
+      },
+      count: {
+        default: text("count (prop)", "30")
+      },
+      selected: {
+        default: boolean("selected (prop)", true)
+      }
+    },
+    template: `<div style="max-width: 300px">
+       <SfFilter
+        :color="color"
+        :label="label"
+        :count="count"
+        :selected="selected">
+        <template #count="{count}">CUSTOM COUNT</template>
+      </SfFilter>
+    </div>`
+  }));

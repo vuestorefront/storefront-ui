@@ -51,7 +51,7 @@ storiesOf("Atoms|Bullets", module)
     template: `<SfBullets
       :total="total"
       :current="current">
-      <template #inactive>
+      <template #inactive="{index, go}">
         <li style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"></li>
       </template>
     </SfBullets>`

@@ -81,7 +81,7 @@ storiesOf("Atoms|Input", module)
       :error-message="errorMessage"
       :required="required"
       :disabled="disabled">
-      <template #label="{ label }">
+      <template #label="{label}">
             <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
       </template>
     </SfInput>`
@@ -124,8 +124,8 @@ storiesOf("Atoms|Input", module)
       :error-message="errorMessage"
       :required="required"
       :disabled="disabled">
-      <template #errorMessage="{ errorMessage }">
-        <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> {{errorMessage}}
+      <template #errorMessage="{errorMessage}">
+        <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> CUSTOM ERROR MESSAGE
       </template>
     </SfInput>`
   }));
