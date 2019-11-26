@@ -2,10 +2,15 @@
 
 $header-height: 3.125rem !default;
 $header-desktop-height: 5rem !default;
+$header-padding: 10px 1.875rem !default;
+$header-desktop-padding: $spacer-big 1.875rem !default;
 $header-padding: 1.875rem !default;
 $header-background: $c-light !default;
 $header-desktop-background: $c-white !default;
+$header__icon-padding: 10px !default;
+$header__icon-margin-left: $spacer-big !default;
 $header-navigation-item-font-weight: 500 !default;
+$header-navigation-item-margin-left: 2.5rem !default;
 
 .sf-header-nav-item {
   display: flex;
@@ -14,7 +19,7 @@ $header-navigation-item-font-weight: 500 !default;
   color: $c-dark;
   font-size: $font-size-small-desktop;
   font-weight: $header-navigation-item-font-weight;
-  margin-left: 2.5rem;
+  margin-left: $header-navigation-item-margin-left;
   &:hover {
     border-bottom: 2px solid $c-dark;
   }
@@ -30,12 +35,12 @@ $header-navigation-item-font-weight: 500 !default;
   align-items: center;
   width: 100%;
   height: $header-height;
-  padding: 10px $header-padding;
+  padding: $header-padding;
   background: $header-background;
   @media (min-width: $mobile-max) {
     justify-content: space-between;
     height: $header-desktop-height;
-    padding: $spacer-big $header-padding;
+    padding: $header-desktop-padding;
     background: $header-desktop-background;
   }
   &__navigation {
@@ -54,8 +59,8 @@ $header-navigation-item-font-weight: 500 !default;
   }
   &__icon {
     box-sizing: content-box;
-    padding: 10px;
-    margin-left: $spacer-big;
+    padding: $header__icon-padding;
+    margin-left: $header__icon-margin-left;
     cursor: pointer;
     &--is-active {
       border-radius: 50%;
