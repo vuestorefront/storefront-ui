@@ -117,6 +117,9 @@ $input__error-message-font-size: $font-size-small-mobile !default;
           color: $input-color-invalid;
         }
       }
+      &:required ~ #{$this}__label::after {
+        color: $input-color-invalid;
+      }
     }
     #{$this}__bar {
       &::before,
