@@ -13,7 +13,7 @@ $price--big__old-font-size: $font-size-regular-mobile !default;
 $price--big__old-font-size-desktop: $font-size-regular-desktop !default;
 
 .sf-price {
-  $this:&;
+  $this: &;
   font-family: $price-font-family;
   line-height: $price-line-height;
   font-weight: $price-font-weight;
@@ -37,12 +37,12 @@ $price--big__old-font-size-desktop: $font-size-regular-desktop !default;
     }
     text-decoration: line-through;
   }
-  &--big{
+  &--big {
     font-size: $price--big-font-size;
     @media (min-width: $desktop-min) {
       font-size: $price--big-font-size-desktop;
     }
-    #{$this}__old{
+    #{$this}__old {
       font-size: $price--big__old-font-size;
       @media (min-width: $desktop-min) {
         font-size: $price--big__old-font-size-desktop;
