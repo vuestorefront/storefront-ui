@@ -20,8 +20,6 @@ $header-icon-container-width: 2.125rem !default;
 $header-mobile-logo-width: 1.3125rem !default;
 $header-desktop-logo-width: 2.125rem !default;
 
-$header-logo-height: auto !default;
-
 .sf-header {
   display: flex;
   justify-content: center;
@@ -33,7 +31,7 @@ $header-logo-height: auto !default;
   box-sizing: border-box;
   background: $header-mobile-background;
 
-  @media (min-width: $desktop-min) {
+  @media (min-width: $mobile-max) {
     justify-content: space-between;
     height: $header-desktop-height;
     background: $header-desktop-background;
@@ -77,7 +75,7 @@ $header-logo-height: auto !default;
     }
   }
 
-  &__nav-item {
+  &-nav-item {
     display: flex;
     align-items: center;
     height: 100%;
@@ -92,8 +90,9 @@ $header-logo-height: auto !default;
   }
 
   &__logo {
+    display: block;
     width: $header-mobile-logo-width;
-    height: $header-logo-height;
+    height: auto;
 
     @media (min-width: $tablet-min) {
       width: $header-desktop-logo-width;
@@ -102,7 +101,7 @@ $header-logo-height: auto !default;
 
   &__search,
   &__icons,
-  &__nav-item {
+  &-nav-item {
     @media (max-width: $mobile-max) {
       display: none;
     }
