@@ -112,7 +112,7 @@ storiesOf("Organisms/Header", module)
       accountIcon: {
         default: text("accountIcon (prop)", "profile")
       },
-      activeIcon: {
+      activeSidebar: {
         default: text("activeIcon (prop)", "account")
       }
     },
