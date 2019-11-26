@@ -1,37 +1,43 @@
 # component-description
-Full-width component for header navigation
+Header component for page navigation.
 
 # common-usage
 <br>
-  <SfHeader :logo="logo" :cart-icon="cartIcon" :wishlist-icon="wishlistIcon" :account-icon="accountIcon">
-    <template #navigations>
-      Women
-    </template>
-  </SfHeader>
+<SfHeader
+  title="Storefront UI" 
+  logo="https://storybook.storefrontui.io/assets/logo.svg"
+  active-sidebar="account"
+  :style="{position: 'static'}"
+>
+  <template #navigation>
+    <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
+    <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
+    <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
+  </template>
+</SfHeader>
 
 ```html
 <template>
-  <SfHeader :logo="logo" :cart-icon="cartIcon" :wishlist-icon="wishlistIcon" :account-icon="accountIcon">
-    <template #navigations>
-      Women
+  <SfHeader
+    title="Storefront UI"
+    logo="/assets/logo.svg"
+    active-sidebar="activeSidebar"
+  >
+    <template #navigation>
+      <SfHeaderNavigationItem>WOMAN</SfHeaderNavigationItem>
+      <SfHeaderNavigationItem>MAN</SfHeaderNavigationItem>
     </template>
   </SfHeader>
 </template>
 <script>
-import { SfHeader } from "@storefront-ui/vue";
-
+import { SfHeader } from "@storefront-ui/vue"
 export default {
-  components: {
-    SfHeader,
-  },
-  data() {
+  components: { SfHeader }
+  data(){
     return {
-        logo: "/assets/logo.svg",
-        cartIcon: "cartIcon",
-        wishlistIcon: "wishlistIcon",
-        accountIcon: "accountIcon",
+      activeSidebar: "account"
     }
-  }
-};
+  }  
+}
 </script>
 ```
