@@ -1,331 +1,243 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
+import { withKnobs, text, select, object } from "@storybook/addon-knobs";
+
 import SfOptions from "./SfOptions.vue";
 
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    [
-      "$sf-options__label-font-size",
-      "$font-size-big-mobile",
-      "font-size for label"
-    ],
-    [
-      "sf-options__label-margin-bottom",
-      "0.5rem",
-      "margin between label and options"
-    ],
-    ["$sf-options__transition", "all 0.3s ease-in-out", "transistion on label"],
-    ["sf-options__option-margin", "0.75rem", "margin between options"],
-    ["$sf-options__option-size", "2rem", "width and height of option"],
-    [
-      "$sf-options-desktop__option-color-size",
-      "1rem",
-      "width and height of color"
-    ],
-    [
-      "$sf-options__option-font-size",
-      "$font-size-regular-mobile",
-      "font size of text option"
-    ],
-    [
-      "$sf-options-mobile__option-text-color",
-      "$c-gray",
-      "color of text option on mobile"
-    ],
-    [
-      "$sf-options-desktop__option-text-color",
-      "$c-black",
-      "color of text option on desktop"
-    ]
-  ]
-};
-
-const cssTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["sf-options__option-text--selected", "sets selected for text option"],
-    ["sf-options__option-color--selected", "sets selected for color option"],
-    ["sf-options__option-image--selected", "sets selected for image option"]
-  ]
-};
 storiesOf("Molecules|Options", module)
   .addDecorator(withKnobs)
-  .add(
-    "Text",
-    () => ({
-      components: { SfOptions },
-      props: {
-        label: {
-          default: text("Label", "Size")
-        },
-        options: {
-          default: [
-            {
-              text: "XS",
-              value: "XS"
-            },
-            {
-              text: "S",
-              value: "S"
-            },
-            {
-              text: "M",
-              value: "M"
-            },
-            {
-              text: "L",
-              value: "L"
-            },
-            {
-              text: "XL",
-              value: "XL"
-            }
-          ]
-        }
+  .add("Default", () => ({
+    components: { SfOptions },
+    props: {
+      label: {
+        default: text("label (prop)", "Size")
       },
-      template:
-        '<SfOptions :label="label" v-model="selected" :options="options" />',
-      data() {
-        return {
-          selected: "XS"
-        };
-      }
-    }),
-    {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import { SfOptions } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
-        `
-      }
-    }
-  )
-  .add(
-    "Color",
-    () => ({
-      components: { SfOptions },
-      props: {
-        label: {
-          default: text("Label", "Color")
-        },
-        options: {
-          default: [
-            {
-              color: "Orange",
-              value: "Orange"
-            },
-            {
-              color: "Pink",
-              value: "Pink"
-            },
-            {
-              color: "Yellow",
-              value: "Yellow"
-            },
-            {
-              color: "Blue",
-              value: "Blue"
-            },
-            {
-              color: "Green",
-              value: "Green"
-            }
-          ]
-        }
+      type: {
+        default: select("type (prop)", ["text", "color", "image"], "text")
       },
-      template:
-        '<SfOptions type="color" :label="label" v-model="selected" :options="options" />',
-      data() {
-        return {
-          selected: "Orange"
-        };
-      }
-    }),
-    {
-      info: true
-    }
-  )
-  .add(
-    "Image",
-    () => ({
-      components: { SfOptions },
-      props: {
-        label: {
-          default: text("Label", "Image")
-        },
-        options: {
-          default: [
-            {
-              image: "/assets/logo.svg",
-              value: "logo"
-            },
-            {
-              image: "/assets/heart.svg",
-              value: "heart"
-            },
-            {
-              image: "/assets/home.svg",
-              value: "home"
-            },
-            {
-              image: "/assets/profile.svg",
-              value: "profile"
-            }
+      options: {
+        default: object("options (prop)", {
+          text: [
+            { value: "xs", text: "XS" },
+            { value: "s", text: "S" },
+            { value: "m", text: "M" },
+            { value: "l", text: "L" }
+          ],
+          color: [
+            { value: "orange", color: "orange" },
+            { value: "pink", color: "pink" },
+            { value: "yellow", color: "yellow" },
+            { value: "blue", color: "blue" },
+            { value: "green", color: "green" }
+          ],
+          image: [
+            { value: "logo", image: "/assets/logo.svg" },
+            { value: "heart", image: "/assets/heart.svg" },
+            { value: "home", image: "/assets/home.svg" },
+            { value: "profile", image: "/assets/profile.svg" }
           ]
-        }
+        })
+      }
+    },
+    data() {
+      return {
+        value: ""
+      };
+    },
+    template: `<SfOptions
+      v-model="value"
+      :options="options[type]"
+      :type="type"
+      :label="label" />`
+  }))
+  .add("[slot] label", () => ({
+    components: { SfOptions },
+    props: {
+      label: {
+        default: text("label (prop)", "Size")
       },
-      template:
-        '<SfOptions type="image" :label="label" v-model="selected" :options="options" />',
-      data() {
-        return {
-          selected: "heart"
-        };
+      type: {
+        default: select("type (prop)", ["text", "color", "image"], "text")
+      },
+      options: {
+        default: object("options (prop)", {
+          text: [
+            { value: "xs", text: "XS" },
+            { value: "s", text: "S" },
+            { value: "m", text: "M" },
+            { value: "l", text: "L" }
+          ],
+          color: [
+            { value: "orange", color: "orange" },
+            { value: "pink", color: "pink" },
+            { value: "yellow", color: "yellow" },
+            { value: "blue", color: "blue" },
+            { value: "green", color: "green" }
+          ],
+          image: [
+            { value: "logo", image: "/assets/logo.svg" },
+            { value: "heart", image: "/assets/heart.svg" },
+            { value: "home", image: "/assets/home.svg" },
+            { value: "profile", image: "/assets/profile.svg" }
+          ]
+        })
       }
-    }),
-    {
-      info: true
-    }
-  )
-  .add(
-    "[slot] Text",
-    () => ({
-      components: { SfOptions },
-      template: `
-      <SfOptions
-        v-model="selected"
-        :options="[
-          {
-            text: 'XS',
-            value: 'XS'
-          },
-          {
-            text: 'S',
-            value: 'S'
-          },
-          {
-            text: 'M',
-            value: 'M'
-          },
-          {
-            text: 'L',
-            value: 'L'
-          },
-          {
-            text: 'XL',
-            value: 'XL'
-          }
-        ]"
-      >
-        <template #label><h1>Size</h1></template>
-        <template #text="{ text }"><h2>{{ text }}</h2></template>
-      </SfOptions>`,
-      data() {
-        return {
-          selected: "XS"
-        };
+    },
+    data() {
+      return {
+        value: ""
+      };
+    },
+    template: `<SfOptions
+      v-model="value"
+      :options="options[type]"
+      :type="type"
+      :label="label">
+      <template #label="{label}">
+        CUSTOM LABEL
+      </template>
+    </SfOptions>`
+  }))
+  .add("[slot] text", () => ({
+    components: { SfOptions },
+    props: {
+      label: {
+        default: text("label (prop)", "Size")
+      },
+      type: {
+        default: select("type (prop)", ["text", "color", "image"], "text")
+      },
+      options: {
+        default: object("options (prop)", {
+          text: [
+            { value: "xs", text: "XS" },
+            { value: "s", text: "S" },
+            { value: "m", text: "M" },
+            { value: "l", text: "L" }
+          ],
+          color: [
+            { value: "orange", color: "orange" },
+            { value: "pink", color: "pink" },
+            { value: "yellow", color: "yellow" },
+            { value: "blue", color: "blue" },
+            { value: "green", color: "green" }
+          ],
+          image: [
+            { value: "logo", image: "/assets/logo.svg" },
+            { value: "heart", image: "/assets/heart.svg" },
+            { value: "home", image: "/assets/home.svg" },
+            { value: "profile", image: "/assets/profile.svg" }
+          ]
+        })
       }
-    }),
-    {
-      info: true
-    }
-  )
-  .add(
-    "[slot] Color",
-    () => ({
-      components: { SfOptions },
-      template: `
-      <SfOptions
-        type="color"
-        v-model="selected"
-        :options="[
-          {
-            color: 'Orange',
-            value: 'Orange'
-          },
-          {
-            color: 'Pink',
-            value: 'Pink'
-          },
-          {
-            color: 'Yellow',
-            value: 'Yellow'
-          },
-          {
-            color: 'Blue',
-            value: 'Blue'
-          },
-          {
-            color: 'Green',
-            value: 'Green'
-          }
-        ]"
-      >
-        <template #label><h1>Color</h1></template>
-        <template #color="{ color }">
-          <div
-            :style="{
-              width: '32px', height: '32px', borderRadius: '10px', backgroundColor: color
-            }"
-          />
-        </template>
-      </SfOptions>`,
-      data() {
-        return {
-          selected: "Orange"
-        };
+    },
+    data() {
+      return {
+        value: ""
+      };
+    },
+    template: `<SfOptions
+      v-model="value"
+      :options="options[type]"
+      :type="type"
+      :label="label">
+      <template #text="{text, value, isOptionSelected}">
+        <div style="width: 1.25rem; height: 1.25rem; display: flex; align-items: center; justify-content: center; background-color: #5ECE7B; color: #FFF">{{value}}</div>
+      </template>
+    </SfOptions>`
+  }))
+  .add("[slot] color", () => ({
+    components: { SfOptions },
+    props: {
+      label: {
+        default: text("label (prop)", "Size")
+      },
+      type: {
+        default: select("type (prop)", ["text", "color", "image"], "color")
+      },
+      options: {
+        default: object("options (prop)", {
+          text: [
+            { value: "xs", text: "XS" },
+            { value: "s", text: "S" },
+            { value: "m", text: "M" },
+            { value: "l", text: "L" }
+          ],
+          color: [
+            { value: "orange", color: "orange" },
+            { value: "pink", color: "pink" },
+            { value: "yellow", color: "yellow" },
+            { value: "blue", color: "blue" },
+            { value: "green", color: "green" }
+          ],
+          image: [
+            { value: "logo", image: "/assets/logo.svg" },
+            { value: "heart", image: "/assets/heart.svg" },
+            { value: "home", image: "/assets/home.svg" },
+            { value: "profile", image: "/assets/profile.svg" }
+          ]
+        })
       }
-    }),
-    {
-      info: true
-    }
-  )
-  .add(
-    "[slot] Image",
-    () => ({
-      components: { SfOptions },
-      template: `
-      <SfOptions
-        type="image"
-        v-model="selected"
-        :options="[
-          {
-            image: '/assets/logo.svg',
-            value: 'logo'
-          },
-          {
-            image: '/assets/heart.svg',
-            value: 'heart'
-          },
-          {
-            image: '/assets/home.svg',
-            value: 'home'
-          },
-          {
-            image: '/assets/profile.svg',
-            value: 'profile'
-          }
-        ]"
-      >
-        <template #label><h1>Image</h1></template>
-        <template #image="{ image }">
-          <div
-            :style="{
-              width: '32px', height: '32px', border: '1px solid green', background: 'url(' + image + ')', backgroundSize: 'cover'
-            }"
-          />
-        </template>
-      </SfOptions>`,
-      data() {
-        return {
-          selected: "heart"
-        };
+    },
+    data() {
+      return {
+        value: ""
+      };
+    },
+    template: `<SfOptions
+      v-model="value"
+      :options="options[type]"
+      :type="type"
+      :label="label">
+      <template #color="{color, value, isOptionSelected}">
+        <div :style="{backgroundColor: color, borderRadius: '100%', width: '20px', height: '20px'}"></div>
+      </template>
+    </SfOptions>`
+  }))
+  .add("[slot] image", () => ({
+    components: { SfOptions },
+    props: {
+      label: {
+        default: text("label (prop)", "Size")
+      },
+      type: {
+        default: select("type (prop)", ["text", "color", "image"], "image")
+      },
+      options: {
+        default: object("options (prop)", {
+          text: [
+            { value: "xs", text: "XS" },
+            { value: "s", text: "S" },
+            { value: "m", text: "M" },
+            { value: "l", text: "L" }
+          ],
+          color: [
+            { value: "orange", color: "orange" },
+            { value: "pink", color: "pink" },
+            { value: "yellow", color: "yellow" },
+            { value: "blue", color: "blue" },
+            { value: "green", color: "green" }
+          ],
+          image: [
+            { value: "logo", image: "/assets/logo.svg" },
+            { value: "heart", image: "/assets/heart.svg" },
+            { value: "home", image: "/assets/home.svg" },
+            { value: "profile", image: "/assets/profile.svg" }
+          ]
+        })
       }
-    }),
-    {
-      info: true
-    }
-  );
+    },
+    data() {
+      return {
+        value: ""
+      };
+    },
+    template: `<SfOptions
+      v-model="value"
+      :options="options[type]"
+      :type="type"
+      :label="label">
+      <template #image="{image, value, isOptionSelected}">
+        <img :src="image" :alt="value" style="width: 1.5rem; border: 1px solid #F2F2F2; padding: 5px">
+      </template>
+    </SfOptions>`
+  }));

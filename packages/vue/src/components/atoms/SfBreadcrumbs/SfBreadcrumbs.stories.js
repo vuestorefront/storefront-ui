@@ -33,8 +33,8 @@ storiesOf("Atoms|Breadcrumbs", module)
     },
     template: `<SfBreadcrumbs
       :breadcrumbs="breadcrumbs">
-      <template #link="{ breadcrumb }">
-        <span style="text-transform: lowercase">'{{breadcrumb.text}}'<span>
+      <template #link="{breadcrumb, go}">
+        <span style="text-transform: lowercase">'{{breadcrumb.text}}'</span>
       </template>
     </SfBreadcrumbs>`
   }))
@@ -51,8 +51,8 @@ storiesOf("Atoms|Breadcrumbs", module)
     },
     template: `<SfBreadcrumbs
       :breadcrumbs="breadcrumbs">
-      <template #current="{ breadcrumb }">
-        <span style="text-transform: uppercase">"{{breadcrumb.text}}"<span>
+      <template #current="{breadcrumb}">
+        <span style="text-transform: uppercase">"{{breadcrumb.text}}"</span>
       </template>
     </SfBreadcrumbs>`
   }));

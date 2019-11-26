@@ -1,61 +1,135 @@
 import { storiesOf } from "@storybook/vue";
-import SfMenuItem from "./SfMenuItem.vue";
-import { generateStorybookTable } from "@/helpers";
 import { withKnobs, text } from "@storybook/addon-knobs";
 
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    [
-      "$sf-menu-item-padding",
-      "$spacing-big $spacing-extra-big",
-      "padding for menu item"
-    ],
-    ["$sf-menu-item-icon-spacing", "0.75rem", "spacing for icon"],
-    ["$sf-menu-item-min-height", "35px", "minimum height for menu item"],
-    [
-      "$sf-menu-item-font-size",
-      "$font-size-big-mobile",
-      "font size for menu item"
-    ],
-    [
-      "$sf-menu-item-font-family",
-      "$body-font-family-secondary",
-      "font family for menu item"
-    ],
-    ["$sf-title-font-size", "1rem", "font-size for title"],
-    ["$sf-count-font-color", "$c-gray", "font-color for count"],
-    ["$sf-count-font-size", "0.875rem", "font-size for count"]
-  ]
-};
+import SfMenuItem from "./SfMenuItem.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 export default storiesOf("Molecules|MenuItem", module)
   .addDecorator(withKnobs)
-  .add(
-    "Basic",
-    () => ({
-      components: { SfMenuItem },
-      props: {
-        label: {
-          default: text("label (prop)", "label prop")
-        },
-        count: {
-          default: text("count (prop)", "30")
-        }
+  .add("Default", () => ({
+    components: {
+      SfMenuItem
+    },
+    props: {
+      label: {
+        default: text("label (prop)", "Red")
       },
-      template: `<div :style="{width: '300px'}">
-        <SfMenuItem
-          :label="label"
-          :count="count"
-        />
-      </div>`
-    }),
-    {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import { SfMenuItem } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
+      count: {
+        default: text("count (prop)", "30")
+      },
+      icon: {
+        default: text("icon (prop)", "chevron_right")
       }
-    }
-  );
+    },
+    template: `<div style="max-width: 300px">
+      <SfMenuItem
+      :label="label"
+      :count="count"
+      :icon="icon"/>
+    </div>`
+  }))
+  .add("[slot] icon", () => ({
+    components: {
+      SfMenuItem
+    },
+    props: {
+      label: {
+        default: text("label (prop)", "Red")
+      },
+      count: {
+        default: text("count (prop)", "30")
+      },
+      icon: {
+        default: text("icon (prop)", "chevron_right")
+      }
+    },
+    template: `<div style="max-width: 300px">
+      <SfMenuItem
+        :label="label"
+        :count="count"
+        :icon="icon">
+        <template #icon>
+          ❤️
+        </template>
+      </SfMenuItem>
+    </div>`
+  }))
+  .add("[slot] label", () => ({
+    components: {
+      SfMenuItem
+    },
+    props: {
+      label: {
+        default: text("label (prop)", "Red")
+      },
+      count: {
+        default: text("count (prop)", "30")
+      },
+      icon: {
+        default: text("icon (prop)", "chevron_right")
+      }
+    },
+    template: `<div style="max-width: 300px">
+      <SfMenuItem
+        :label="label"
+        :count="count"
+        :icon="icon">
+        <template #label="{label}">
+          CUSTOM LABEL
+        </template>
+      </SfMenuItem>
+    </div>`
+  }))
+  .add("[slot] count", () => ({
+    components: {
+      SfMenuItem
+    },
+    props: {
+      label: {
+        default: text("label (prop)", "Red")
+      },
+      count: {
+        default: text("count (prop)", "30")
+      },
+      icon: {
+        default: text("icon (prop)", "chevron_right")
+      }
+    },
+    template: `<div style="max-width: 300px">
+      <SfMenuItem
+        :label="label"
+        :count="count"
+        :icon="icon">
+        <template #count="{count}">
+          CUSTOM COUNT
+        </template>
+      </SfMenuItem>
+    </div>`
+  }))
+  .add("[slot] mobile-nav-icon", () => ({
+    components: {
+      SfMenuItem,
+      SfIcon
+    },
+    props: {
+      label: {
+        default: text("label (prop)", "Red")
+      },
+      count: {
+        default: text("count (prop)", "30")
+      },
+      icon: {
+        default: text("icon (prop)", "chevron_right")
+      }
+    },
+    template: `<div style="max-width: 300px">
+      <SfMenuItem
+        :label="label"
+        :count="count"
+        :icon="icon">
+        <template #mobile-nav-icon="{icon}">
+          <SfIcon icon="arrow_right" size="xxs" style="margin-left: 0.625rem"/>
+        </template>
+      </SfMenuItem>
+    </div>`
+  }));

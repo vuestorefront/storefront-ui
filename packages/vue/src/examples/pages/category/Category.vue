@@ -590,27 +590,19 @@ export default {
   }
 }
 .filters {
-  box-sizing: border-box;
-  width: 20rem;
-  padding: 0 $spacer-big * 3;
-  height: 100%;
-  overflow-y: auto;
-  @include for-desktop {
-    width: 22.875rem;
-  }
-  &::-webkit-scrollbar {
-    width: 0;
-  }
   &__title {
     margin: $spacer-big * 3 0 $spacer-big;
     font-size: $font-size-big-desktop;
     line-height: 1.6;
+    &:first-child {
+      margin: 0 0 $spacer-big 0;
+    }
   }
   &__item {
     padding: $spacer-small 0;
   }
   &__buttons {
-    margin: $spacer-big * 3 0;
+    margin: $spacer-big * 3 0 0 0;
   }
   &__button-clear {
     color: #a3a5ad;

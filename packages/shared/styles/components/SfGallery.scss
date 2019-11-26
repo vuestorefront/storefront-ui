@@ -13,7 +13,6 @@ $gallery__stage-width: 400px !default;
 $gallery__stage-cursor: zoom-in !default;
 
 .sf-gallery {
-  position: relative;
   width: 100%;
   text-align: center;
   display: flex;
@@ -112,7 +111,6 @@ $gallery__stage-cursor: zoom-in !default;
   }
 
   img {
-    user-drag: none;
     user-select: none;
   }
   .glide {

@@ -1,15 +1,29 @@
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
+import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 
 export default {
   name: "SfSidebar",
   components: {
     SfCircleIcon,
     SfIcon,
-    SfOverlay
+    SfOverlay,
+    SfHeading
   },
   props: {
+    headingTitle: {
+      type: String,
+      default: ""
+    },
+    headingSubtitle: {
+      type: String,
+      default: ""
+    },
+    headingLevel: {
+      type: Number,
+      default: 2
+    },
     button: {
       type: Boolean,
       default: true

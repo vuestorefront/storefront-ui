@@ -1,5 +1,5 @@
 <template>
-  <SfPagination :current="currentPage" :total="20" :visible="5"  @click="page => this.currentPage = page">
+  <SfPagination :current="currentPage" :total="20" :visible="5"  @click="page => currentPage = page">
       <template #prev="{ isDisabled, go }">
         <button @click="go()" :disabled="isDisabled ? true : false">prev</button>
       </template>
