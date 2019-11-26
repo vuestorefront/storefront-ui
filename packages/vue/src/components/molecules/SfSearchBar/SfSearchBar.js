@@ -4,7 +4,7 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: "Search for..."
+      default: ""
     },
     value: {
       type: [Number, String],

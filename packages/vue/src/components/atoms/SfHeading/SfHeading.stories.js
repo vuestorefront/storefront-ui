@@ -27,13 +27,13 @@ storiesOf("Atoms|Heading", module)
         )
       },
       level: {
-        default: number("(prop) level", 2, { min: 1, max: 6 })
+        default: number("level (prop)", 2, { min: 1, max: 6 })
       },
       title: {
-        default: text("(prop) title", "Show how YOU wear it")
+        default: text("title (prop)", "Show how YOU wear it")
       },
       subtitle: {
-        default: text("(prop) subtitle", "#YOURLOOK")
+        default: text("subtitle (prop)", "#YOURLOOK")
       }
     },
     template: `<SfHeading
@@ -61,13 +61,13 @@ storiesOf("Atoms|Heading", module)
         )
       },
       level: {
-        default: number("(prop) level", 2, { min: 1, max: 6 })
+        default: number("level (prop)", 2, { min: 1, max: 6 })
       },
       title: {
-        default: text("(prop) title", "Show how YOU wear it")
+        default: text("title (prop)", "Show how YOU wear it")
       },
       subtitle: {
-        default: text("(prop) subtitle", "#YOURLOOK")
+        default: text("subtitle (prop)", "#YOURLOOK")
       }
     },
     template: `<SfHeading
@@ -75,7 +75,7 @@ storiesOf("Atoms|Heading", module)
       :level="level"
       :title="title"
       :subtitle="subtitle">
-      <template #title="{ title }">
+      <template #title="{title}">
         <h2 style="display: flex; align-items: center">
           <SfIcon icon="heart" size="xxs" style="margin-right: 1rem"/> {{title}}
         </h2>
@@ -115,7 +115,7 @@ storiesOf("Atoms|Heading", module)
       :level="level"
       :title="title"
       :subtitle="subtitle">
-      <template #subtitle="{ subtitle }">
+      <template #subtitle="{subtitle}">
         <div style="display: flex; align-items: center">
           {{subtitle}} <SfIcon icon="notify" size="xxs" style="margin-left: 1rem"/>
         </div>
