@@ -30,11 +30,12 @@ $header-navigation-item-font-weight: 500 !default;
   align-items: center;
   width: 100%;
   height: $header-height;
-  padding: 0 $header-padding;
+  padding: 10px $header-padding;
   background: $header-background;
   @media (min-width: $mobile-max) {
     justify-content: space-between;
     height: $header-desktop-height;
+    padding: $spacer-big $header-padding;
     background: $header-desktop-background;
   }
   &__navigation {
@@ -68,11 +69,11 @@ $header-navigation-item-font-weight: 500 !default;
     }
   }
   &__logo {
-    //width: $header-mobile-logo-width;
-    //height: auto;
-    //@media (min-width: $tablet-min) {
-    //  width: $header-desktop-logo-width;
-    //}
+    &,
+    img,
+    picture {
+      height: 100%;
+    }
   }
   &__search,
   &__icons{
