@@ -2,10 +2,10 @@
 
 $heading-border-color: #f1f2f4 !default;
 $heading-line-height: 1.6 !default;
-$heading__title-font-family: $body-font-family-primary !default;
+$heading__title-font-family: $body-font-family-secondary !default;
 $heading__title-font-size: $font-size-extra-big-mobile !default;
 $heading__title-font-size-desktop: $font-size-extra-big-desktop !default;
-$heading__subtitle-font-family: $body-font-family-primary !default;
+$heading__subtitle-font-family: $body-font-family-secondary !default;
 $heading__subtitle-font-size: $font-size-regular-mobile !default;
 $heading__subtitle-font-size-desktop: $font-size-big-desktop !default;
 
@@ -19,7 +19,7 @@ $heading__subtitle-font-size-desktop: $font-size-big-desktop !default;
     border: 0;
     text-align: center;
   }
-  &__title{
+  &__title {
     font-family: $heading__title-font-family;
     font-size: $heading__title-font-size;
     font-weight: 500;
