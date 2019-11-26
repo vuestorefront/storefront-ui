@@ -2,17 +2,19 @@
 
 $header-height: 3.125rem !default;
 $header-desktop-height: 5rem !default;
-$header-padding: 10px 1.875rem !default;
-$header-desktop-padding: $spacer-big 1.875rem !default;
+$header-padding: 0 1.875rem !default;
+$header-desktop-padding: 0 1.875rem !default;
 $header-padding: 1.875rem !default;
 $header-background: $c-light !default;
 $header-desktop-background: $c-white !default;
+$header__logo-padding: 10px 0 !default;
+$header__logo-desktop-padding: $spacer-big 0 !default;
 $header__icon-padding: 10px !default;
 $header__icon-margin-left: $spacer-big !default;
 $header-navigation-item-font-weight: 500 !default;
 $header-navigation-item-margin-left: 2.5rem !default;
 
-.sf-header-nav-item {
+.sf-header-navigation-item {
   display: flex;
   align-items: center;
   height: 100%;
@@ -37,7 +39,7 @@ $header-navigation-item-margin-left: 2.5rem !default;
   height: $header-height;
   padding: $header-padding;
   background: $header-background;
-  @media (min-width: $mobile-max) {
+  @media (min-width: $desktop-min) {
     justify-content: space-between;
     height: $header-desktop-height;
     padding: $header-desktop-padding;
@@ -74,6 +76,11 @@ $header-navigation-item-margin-left: 2.5rem !default;
     }
   }
   &__logo {
+    box-sizing: border-box;
+    padding: $header__logo-padding;
+    @media (min-width: $desktop-min) {
+      padding: $header__logo-desktop-padding;
+    }
     &,
     img,
     picture {

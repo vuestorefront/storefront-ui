@@ -24,7 +24,11 @@ storiesOf("Organisms/Header", module)
         default: text("accountIcon (prop)", "profile")
       },
       activeSidebar: {
-        default: select("active-sidebar (prop)", ["","account", "wishlist", "cart"], "account")
+        default: select(
+          "active-sidebar (prop)",
+          ["", "account", "wishlist", "cart"],
+          "account"
+        )
       }
     },
     template: `<div style="margin: -20px">
@@ -63,7 +67,11 @@ storiesOf("Organisms/Header", module)
         default: text("accountIcon (prop)", "profile")
       },
       activeSidebar: {
-        default: select("active-sidebar (prop)", ["","account", "wishlist", "cart"], "account")
+        default: select(
+          "active-sidebar (prop)",
+          ["", "account", "wishlist", "cart"],
+          "account"
+        )
       }
     },
     template: `<div style="margin: -20px">
@@ -147,7 +155,11 @@ storiesOf("Organisms/Header", module)
         default: text("accountIcon (prop)", "mail")
       },
       activeSidebar: {
-        default: select("active-sidebar (prop)", ["","account", "wishlist", "cart"], "account")
+        default: select(
+          "active-sidebar (prop)",
+          ["", "account", "wishlist", "cart"],
+          "account"
+        )
       }
     },
     template: `<div style="margin: -20px">
