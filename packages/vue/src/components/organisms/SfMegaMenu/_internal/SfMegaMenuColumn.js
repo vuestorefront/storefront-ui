@@ -3,7 +3,7 @@ export default {
   inject: ["provided"],
   props: {
     /**
-     * Column, title
+     * Column title
      */
     title: {
       type: String,

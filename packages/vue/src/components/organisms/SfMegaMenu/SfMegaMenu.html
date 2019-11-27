@@ -1,4 +1,33 @@
-<section class="sf-mega-menu">
-  <!-- @slot -->
-  <slot/>
-</section>
+<div class="sf-mega-menu">
+    <section
+      class="sf-mega-menu__section"
+      :class="{'sf-mega-menu__section--is-active': active}">
+      <div class="sf-mega-menu__sidebar">
+        <h1 class="sf-mega-menu__title">{{title}}</h1>
+        <SfList>
+          <SfList
+            v-for="column in columns"
+            :key="column"
+            class="sf-mega-menu__list-item">
+            <!-- @slot Custom menu-item markup -->
+            <slot
+              name="menu-item"
+              v-bind="{updateColumn, column, active}">
+              <span @click="updateColumn(column)">
+                <SfMenuItem
+                  :label="column"
+                  class="sf-mega-menu__menu-item"
+                  :class="{'sf-mega-menu__menu-item--is-active': column === active}"
+                />
+              </span>
+            </slot>
+          </SfList>
+        </SfList>
+      </div>
+      <div class="sf-mega-menu__content">
+        <!-- @slot Slot for other content -->
+        <slot />
+      </div>
+    </section>
+  </div>
+  

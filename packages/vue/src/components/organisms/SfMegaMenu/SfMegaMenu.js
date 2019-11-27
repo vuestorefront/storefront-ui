@@ -3,9 +3,23 @@ import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn.vue";
 
 Vue.component("SfMegaMenuColumn", SfMegaMenuColumn);
 
+import SfList from "../SfList/SfList.vue";
+import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
+
 export default {
   name: "SfMegaMenu",
+  components: {
+    SfList,
+    SfMenuItem
+  },
   props: {
+    /**
+     * Column title
+     */
+    title: {
+      type: String,
+      default: ""
+    },
     /**
      * Active column
      */

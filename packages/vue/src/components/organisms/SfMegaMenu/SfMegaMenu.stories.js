@@ -1,14 +1,21 @@
+// /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 
-import SfMegaMenu from "./SfMegaMenu.vue";
-import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn.vue";
-import SfImage from "../../atoms/SfImage/SfImage.vue";
-import SfList from "../../organisms/SfList/SfList.vue";
+import SfMegaMenu from "./SfMegaMenu.vue";
 
-storiesOf("Organisms|MegaMenu", module).add("Default", () => ({
-  data: () => {
+import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
+
+storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
+  components: {
+    SfMegaMenu,
+    SfMenuItem,
+    SfMegaMenuColumn
+  },
+  props: {},
+  data() {
     return {
+      activePage: "About us",
       categories: [
         {
           header: "Clothing",
@@ -44,22 +51,23 @@ storiesOf("Organisms|MegaMenu", module).add("Default", () => ({
             { label: "Trainers" }
           ]
         }
-      ],
-      activeColumn: "Shoes"
+      ]
     };
   },
-  components: {
-    SfMegaMenu,
-    SfMenuItem,
-    SfMegaMenuColumn,
-    SfImage,
-    SfList
-  },
-  template: `<SfMegaMenu :active="activeColumn">
-    <SfMegaMenuColumn v-for="(category, index) in categories" :title="category.header" :key="index">
-        <SfMenuItem style="margin: 1rem 0;" v-for="item in category.items" :label="item.label"></SfMenuItem>
-    </SfMegaMenuColumn>
-    </SfMegaMenu>`,
+  template: `<div>
+      <SfMegaMenu
+        :active="activePage"
+        @click:change="updateActive">
+        <SfMegaMenuColumn v-for="category in categories" :title="category.header">
+          <SfMenuItem v-for="item in category.items" :label="item.label"></SfMenuItem>
+        </SfMegaMenuColumn>
+      </SfMegaMenu>
+      <button 
+        v-if="activePage" 
+        @click="activePage = ''" 
+        style="position: absolute; bottom: .5rem; left: .5rem; border: 0; background-color: transparent" 
+        class="mobile-only">back</button>
+    </div>`,
   methods: {
     updateActive(title) {
       this.activePage = title;
