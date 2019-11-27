@@ -55,9 +55,14 @@ storiesOf("Organisms|MegaMenu", module).add("Default", () => ({
     SfImage,
     SfList
   },
-  template: `<SfMegaMenu :active="activeColumn" @click:change="updateActive">
-    <SfMegaMenuColumn v-for="(category, j) in categories" :title="category.header" :key="j">
+  template: `<SfMegaMenu :active="activeColumn">
+    <SfMegaMenuColumn v-for="(category, index) in categories" :title="category.header" :key="index">
         <SfMenuItem style="margin: 1rem 0;" v-for="item in category.items" :label="item.label"></SfMenuItem>
     </SfMegaMenuColumn>
-    </SfMegaMenu>`
+    </SfMegaMenu>`,
+  methods: {
+    updateActive(title) {
+      this.activePage = title;
+    }
+  }
 }));
