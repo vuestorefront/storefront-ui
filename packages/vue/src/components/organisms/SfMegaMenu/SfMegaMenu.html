@@ -3,8 +3,7 @@
       class="sf-mega-menu__section"
       :class="{'sf-mega-menu__section--is-active': active}">
       <div class="sf-mega-menu__sidebar">
-        <h1 class="sf-mega-menu__title">{{title}}</h1>
-        <SfList>
+        <SfList class="sf-mega-menu__headers">
           <SfList
             v-for="column in columns"
             :key="column"
@@ -24,10 +23,13 @@
           </SfList>
         </SfList>
       </div>
-      <div class="sf-mega-menu__content">
+      <div class="sf-mega-menu__sidebar-content">
         <!-- @slot Slot for other content -->
-        <slot />
+        <slot name="menu-content"/>
       </div>
+    </section>
+    <section class="sf-mega-menu__custom-section">
+      <slot />
     </section>
   </div>
   

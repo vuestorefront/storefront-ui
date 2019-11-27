@@ -3,14 +3,15 @@ import { storiesOf } from "@storybook/vue";
 
 import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn.vue";
 import SfMegaMenu from "./SfMegaMenu.vue";
-
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
+import SfImage from "../../atoms/SfImage/SfImage.vue";
 
 storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
   components: {
     SfMegaMenu,
     SfMenuItem,
-    SfMegaMenuColumn
+    SfMegaMenuColumn,
+    SfImage
   },
   props: {},
   data() {
@@ -55,18 +56,28 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
     };
   },
   template: `<div>
+      <button 
+      v-if="activePage" 
+      @click="activePage = ''" 
+      style="bottom: .5rem; left: .5rem; border: 0; background-color: transparent" 
+      class="mobile-only">back</button>
       <SfMegaMenu
         :active="activePage"
         @click:change="updateActive">
-        <SfMegaMenuColumn v-for="category in categories" :title="category.header">
-          <SfMenuItem v-for="item in category.items" :label="item.label"></SfMenuItem>
-        </SfMegaMenuColumn>
+        <template #menu-content>
+          <SfMegaMenuColumn v-for="category in categories" :title="category.header">
+            <SfMenuItem v-for="item in category.items" :label="item.label"></SfMenuItem>
+          </SfMegaMenuColumn>
+        </template>
+        <div>
+          <h3>LAST PAIRS LEFT</h3>
+          <SfImage src="assets/storybook/megamenu/bannerSandals.jpg" />
+        </div>
+        <div>
+          <h3>BEACH BAGS 2=1</h3>
+          <SfImage src="assets/storybook/megamenu/bannerBeachBag.jpg" />
+        </div>
       </SfMegaMenu>
-      <button 
-        v-if="activePage" 
-        @click="activePage = ''" 
-        style="position: absolute; bottom: .5rem; left: .5rem; border: 0; background-color: transparent" 
-        class="mobile-only">back</button>
     </div>`,
   methods: {
     updateActive(title) {

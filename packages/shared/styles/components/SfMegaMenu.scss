@@ -1,22 +1,21 @@
 @import "../variables";
 
-$content-pages__sidebar-width: 18.4375rem !default;
-$content-pages__sidebar-background-color: $c-light !default;
-$content-pages__title-font-family: $heading-font-family !default;
-$content-pages__title-font-size: $font-size-big-mobile !default;
-$content-pages__title-font-size-desktop: $font-size-extra-big-desktop !default;
-$content-pages__title-font-weight: 500 !default;
-$content-pages__title-line-height: 1.6 !default;
+$mega-menu__sidebar-width: 18.4375rem !default;
+$mega-menu__title-font-family: $heading-font-family !default;
+$mega-menu__title-font-size: $font-size-big-mobile !default;
+$mega-menu__title-font-size-desktop: $font-size-extra-big-desktop !default;
+$mega-menu__title-font-weight: 500 !default;
+$mega-menu__title-line-height: 1.6 !default;
 
 %title {
   padding: $spacer-big 0;
-  font-family: $content-pages__title-font-family;
-  font-size: $content-pages__title-font-size;
-  font-weight: $content-pages__title-font-weight;
-  line-height: $content-pages__title-line-height;
+  font-family: $mega-menu__title-font-family;
+  font-size: $mega-menu__title-font-size;
+  font-weight: $mega-menu__title-font-weight;
+  line-height: $mega-menu__title-line-height;
   @media (min-width: $desktop-min) {
     margin-bottom: $spacer-big;
-    font-size: $content-pages__title-font-size-desktop;
+    font-size: $mega-menu__title-font-size-desktop;
   }
 }
 
@@ -32,16 +31,34 @@ $content-pages__title-line-height: 1.6 !default;
 
 .sf-mega-menu {
   overflow: hidden;
+  @media (min-width: $desktop-min) {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__section {
     box-sizing: border-box;
     display: flex;
+    width: 100%;
     height: 100%;
     transition: transform 150ms ease-in-out;
+
     &--is-active {
       transform: translateX(-100%);
       @media (min-width: $desktop-min) {
+        flex-direction: column;
         transform: translateX(0);
       }
+    }
+  }
+
+  &__custom-section {
+    @media (min-width: $desktop-min) {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      border-left: 2px solid $c-light;
+      padding: 0 $spacer-extra-big;
     }
   }
   &__sidebar,
@@ -57,9 +74,16 @@ $content-pages__title-line-height: 1.6 !default;
   &__sidebar {
     padding: $spacer-big;
     @media (min-width: $desktop-min) {
-      flex: 0 0 $content-pages__sidebar-width;
       padding: $spacer-big $spacer-extra-big $spacer-extra-big;
-      background-color: $content-pages__sidebar-background-color;
+    }
+  }
+  &__headers {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $desktop-min) {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
     }
   }
   &__title {
@@ -69,13 +93,9 @@ $content-pages__title-line-height: 1.6 !default;
     padding: 0.5rem 0;
   }
   &__menu-item {
-    cursor: pointer;
-    &--is-active {
       @media (min-width: $desktop-min) {
         color: $c-dark;
-        font-weight: 400;
-        text-decoration: underline;
-      }
+        font-weight: $mega-menu__title-font-weight;
     }
   }
 }
