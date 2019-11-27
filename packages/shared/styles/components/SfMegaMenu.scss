@@ -1,6 +1,5 @@
 @import "../variables";
 
-$mega-menu__sidebar-width: 18.4375rem !default;
 $mega-menu__title-font-family: $heading-font-family !default;
 $mega-menu__title-font-size: $font-size-big-mobile !default;
 $mega-menu__title-font-size-desktop: $font-size-extra-big-desktop !default;
@@ -13,6 +12,7 @@ $mega-menu__title-line-height: 1.6 !default;
   font-size: $mega-menu__title-font-size;
   font-weight: $mega-menu__title-font-weight;
   line-height: $mega-menu__title-line-height;
+
   @media (min-width: $desktop-min) {
     margin-bottom: $spacer-big;
     font-size: $mega-menu__title-font-size-desktop;
@@ -31,14 +31,15 @@ $mega-menu__title-line-height: 1.6 !default;
 
 .sf-mega-menu {
   overflow: hidden;
+
   @media (min-width: $desktop-min) {
     display: flex;
     justify-content: space-between;
   }
 
   &__section {
-    box-sizing: border-box;
     display: flex;
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
     transition: transform 150ms ease-in-out;
@@ -58,24 +59,23 @@ $mega-menu__title-line-height: 1.6 !default;
       justify-content: space-between;
       width: 100%;
       border-left: 2px solid $c-light;
-      padding: 0 $spacer-extra-big;
     }
   }
   &__sidebar,
   &__content {
     box-sizing: border-box;
     flex: 0 0 100%;
-    padding: 0 1.875rem;
     @media (min-width: $desktop-min) {
       flex: 1;
-      padding: $spacer-big $spacer-extra-big;
     }
   }
-  &__sidebar {
+  &__sidebar,
+  &__custom-section {
     padding: $spacer-big;
     @media (min-width: $desktop-min) {
-      padding: $spacer-big $spacer-extra-big $spacer-extra-big;
+      padding: 0 $spacer-extra-big;;
     }
+
   }
   &__headers {
     display: flex;
@@ -91,6 +91,9 @@ $mega-menu__title-line-height: 1.6 !default;
   }
   &__list-item {
     padding: 0.5rem 0;
+    @media (min-width: $desktop-min) {
+      padding: 0;
+    }
   }
   &__menu-item {
       @media (min-width: $desktop-min) {
