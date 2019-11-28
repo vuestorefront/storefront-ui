@@ -1,6 +1,7 @@
-// @vue/component
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfSearchBar",
+  components: { SfIcon },
   props: {
     placeholder: {
       type: String,
@@ -9,10 +10,12 @@ export default {
     value: {
       type: [Number, String],
       default: null
-    },
-    icon: {
-      type: Boolean,
-      default: true
+    }
+  },
+  methods: {
+    clearSearchBar() {
+      this.$emit("input", "");
+      this.$el.blur();
     }
   }
 };
