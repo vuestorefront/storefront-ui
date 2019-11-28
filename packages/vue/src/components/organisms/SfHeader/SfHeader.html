@@ -1,14 +1,18 @@
 <header class="sf-header">
+  <!--@slot Use this slot to replace logo with text or icon-->
   <slot name="logo" v-bind="{logo, title}">
     <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo" />
     <h1 v-else class="sf-header__title">{{ title }}</h1>
   </slot>
     <nav class="sf-header__navigation">
+      <!--@slot Use this slot to replace default navigation links -->
       <slot name="navigation" />
     </nav>
+  <!--@slot Use this slot to replace default search bar-->
   <slot name="search">
     <SfSearchBar class="sf-header__search" />
   </slot>
+  <!--@slot Use this slot to replace default header icons with content passed as props -->
   <slot name="header-icons" v-bind="{accountIcon, wishlistIcon, cartIcon}">
     <div class="sf-header__icons">
       <SfIcon
