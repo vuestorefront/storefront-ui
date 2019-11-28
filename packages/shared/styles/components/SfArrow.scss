@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $arrow__button-color: $c-light !default;
 $arrow__button-color--hover: $c-dark !default;
@@ -76,8 +76,8 @@ $arrow__icon-color--hover: $c-dark !default;
         background-color: transparent;
         &:hover {
           box-shadow: none;
-          #{$this}__icon{
-            fill: rgba($arrow__icon-color--hover, .65);
+          #{$this}__icon {
+            fill: rgba($arrow__icon-color--hover, 0.65);
           }
         }
       }
