@@ -15,7 +15,7 @@ export default {
      * Boolean to indicate whether product
      * can be added to cart
      */
-    canAddToCart: {
+    disabled: {
       type: Boolean,
       default: false
     },

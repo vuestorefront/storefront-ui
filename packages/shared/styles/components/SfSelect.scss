@@ -3,7 +3,7 @@
 $select-option-padding-y: 0.75rem !default;
 $select-option-padding-x: 1.875rem !default;
 $select-option-padding-y-desktop: 0.75rem !default;
-$select-option-padding-x-desktop: 0 !default;
+$select-option-padding-x-desktop: 0.75rem !default;
 $select-color: $c-text !default;
 $select-color-primary: $c-light !default;
 $select-color-active: $c-primary !default;
@@ -79,7 +79,7 @@ $select__cancel-color: #a3a5ad !default;
     display: flex;
     align-content: center;
     min-height: 28px;
-    padding: 5px 0;
+    padding: 0.75rem 1px;
     &:hover {
       background-color: transparent;
     }

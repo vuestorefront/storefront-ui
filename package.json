@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "create-component": "node ./scripts/create-component.js",
-    "storybook:serve": "cd packages/vue && yarn storybook:serve"
+    "storybook:serve": "cd packages/vue && yarn storybook:serve",
+    "vue-docs:dev": "cd packages/vue && yarn docs:dev"
   },
   "repository": {
     "type": "git",
@@ -24,14 +25,8 @@
   "devDependencies": {
     "file-save": "^0.2.0",
     "glob": "^7.1.4",
-    "husky": "^3.0.9",
     "lerna": "^3.16.4",
     "prompts": "^2.1.0",
     "uppercamelcase": "^3.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lerna run --concurrency 1 --stream precommit"
-    }
   }
 }
