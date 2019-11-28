@@ -9,7 +9,6 @@ $search-bar-height: 2.25rem !default;
 $search-bar-border-radius: 1.6875rem !default;
 $search-bar-text-align: center !default;
 $search-bar-font-size: 0.875rem !default;
-$search-bar-icon-display: block !default;
 
 @mixin placeholder {
   &::-webkit-input-placeholder {
@@ -68,9 +67,10 @@ $search-bar-icon-display: block !default;
       @include iconPosition();
     }
   }
-
-  &__icon {
-    display: $search-bar-icon-display;
+  &--no-icon {
+    .sf-search-bar__icon {
+      display: none;
+    }
   }
 
   &__input {
