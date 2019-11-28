@@ -2,7 +2,6 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  boolean,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 
@@ -22,7 +21,8 @@ storiesOf("Molecules|SearchBar", module)
             "sf-search-bar--position-right-mobile":
               "sf-search-bar--position-right-mobile",
             "sf-search-bar--position-right-desktop":
-              "sf-search-bar--position-right-desktop"
+              "sf-search-bar--position-right-desktop",
+            "sf-search-bar--no-icon": "sf-search-bar--no-icon"
           },
           "null",
           { display: "multi-select" }
@@ -30,9 +30,6 @@ storiesOf("Molecules|SearchBar", module)
       },
       placeholder: {
         default: text("placeholder (prop)", "Search for items")
-      },
-      icon: {
-        default: boolean("icon (prop)", true)
       }
     },
     data() {
@@ -43,7 +40,6 @@ storiesOf("Molecules|SearchBar", module)
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
-      :icon="icon"
       v-model="value"/>`
   }))
   .add("[slot] icon", () => ({
@@ -58,7 +54,8 @@ storiesOf("Molecules|SearchBar", module)
             "sf-search-bar--position-right-mobile":
               "sf-search-bar--position-right-mobile",
             "sf-search-bar--position-right-desktop":
-              "sf-search-bar--position-right-desktop"
+              "sf-search-bar--position-right-desktop",
+            "sf-search-bar--no-icon": "sf-search-bar--no-icon"
           },
           "null",
           { display: "multi-select" }
@@ -66,9 +63,6 @@ storiesOf("Molecules|SearchBar", module)
       },
       placeholder: {
         default: text("placeholder (prop)", "Search for items")
-      },
-      icon: {
-        default: boolean("icon (prop)", true)
       }
     },
     data() {
@@ -76,10 +70,9 @@ storiesOf("Molecules|SearchBar", module)
         value: ""
       };
     },
-    template: `<SfSearchBar 
+    template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
-      :icon="icon"
       v-model="value">
       <template #icon>👀</template>
     </SfSearchBar>`
@@ -96,7 +89,8 @@ storiesOf("Molecules|SearchBar", module)
             "sf-search-bar--position-right-mobile":
               "sf-search-bar--position-right-mobile",
             "sf-search-bar--position-right-desktop":
-              "sf-search-bar--position-right-desktop"
+              "sf-search-bar--position-right-desktop",
+            "sf-search-bar--no-icon": "sf-search-bar--no-icon"
           },
           "null",
           { display: "multi-select" }
@@ -104,9 +98,6 @@ storiesOf("Molecules|SearchBar", module)
       },
       placeholder: {
         default: text("placeholder (prop)", "Search for items")
-      },
-      icon: {
-        default: boolean("icon (prop)", true)
       }
     },
     data() {
@@ -115,9 +106,8 @@ storiesOf("Molecules|SearchBar", module)
       };
     },
     template: `<SfSearchBar
-      :class="customClass" 
+      :class="customClass"
       :placeholder="placeholder"
-      :icon="icon"
       v-model="value">
       <template #clear-icon>🧹</template>
     </SfSearchBar>`
