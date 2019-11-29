@@ -65,12 +65,12 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
           </SfMegaMenuColumn>
         </template>
         <div>
-          <h3 style="margin: 1.25rem 0;">LAST PAIRS LEFT</h3>
-          <SfImage style="width: 100%;" src="assets/storybook/megamenu/bannerSandals.jpg" />
+          <h3>LAST PAIRS LEFT</h3>
+          <SfImage style="margin: 1.25rem 0;" src="assets/storybook/megamenu/bannerSandals.jpg" />
         </div>
         <div>
-          <h3 style="margin: 1.25rem 0;">BEACH BAGS 2=1</h3>
-          <SfImage src="assets/storybook/megamenu/bannerBeachBag.jpg" />
+          <h3>BEACH BAGS 2=1</h3>
+          <SfImage style="margin: 1.25rem 0;" src="assets/storybook/megamenu/bannerBeachBag.jpg" />
         </div>
       </SfMegaMenu>
       <button 
