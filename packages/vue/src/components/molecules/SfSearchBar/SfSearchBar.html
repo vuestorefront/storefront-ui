@@ -2,6 +2,7 @@
   <input
     class="sf-search-bar__input"
     type="search"
+    aria-label="search"
     :value="value"
     :placeholder="placeholder"
     @input="$emit('input', $event.target.value)"
