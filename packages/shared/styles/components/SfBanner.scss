@@ -34,11 +34,14 @@ $banner--slim__title-font-size: $h1-font-size-desktop !default;
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: cover;
+  background-color: var(--background-color);
+  background-image: var(--background-image);
   font-family: $banner-font-family;
   font-size: $banner-font-size;
   font-weight: $banner-font-weight;
   line-height: $banner-line-height;
   @media (min-width: $desktop-min) {
+    background-image: var(--background-image-desktop);
     min-height: $banner-min-height-desktop;
     padding: $banner-padding-y-desktop $banner-padding-x-desktop
       $banner-padding-y-desktop calc(50% + #{$banner-padding-x-desktop});
