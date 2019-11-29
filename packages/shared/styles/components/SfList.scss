@@ -6,7 +6,6 @@
   margin: 0;
   .sf-list__item {
     font-size: $font-size-big-mobile;
-    padding: $spacer 0;
     @media (min-width: $desktop-min) {
       font-size: $font-size-small-desktop;
     }

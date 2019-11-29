@@ -5,7 +5,7 @@ export default {
      * Current input value (`v-model`)
      */
     value: {
-      type: String,
+      type: [String, Number],
       default: null
     },
     /**
