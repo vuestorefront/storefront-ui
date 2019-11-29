@@ -25,24 +25,30 @@
         size="20px"
         v-if="accountIcon"
         :icon="accountIcon"
-        @click="$emit('click:account')">
-      </SfIcon>
+        role="button"
+        aria-label="account"
+        :aria-pressed="activeIcon === 'account' ? 'true' :'false'"
+        @click="$emit('click:account')"/>
       <SfIcon
         class="sf-header__icon"
         :class="{'sf-header__icon--is-active' : activeIcon === 'wishlist'}"
         size="20px"
         v-if="wishlistIcon"
         :icon="wishlistIcon"
-        @click="$emit('click:wishlist')">
-      </SfIcon>
+        role="button"
+        aria-label="wishlist"
+        :aria-pressed="activeIcon === 'wishlist' ? 'true' :'false'"
+        @click="$emit('click:wishlist')"/>
       <SfIcon
         class="sf-header__icon"
         :class="{'sf-header__icon--is-active' : activeIcon === 'cart'}"
         size="20px"
         v-if="cartIcon"
         :icon="cartIcon"
-        @click="$emit('click:cart')">
-      </SfIcon>
+        role="button"
+        aria-label="cart"
+        :aria-pressed="activeIcon === 'cart' ? 'true' :'false'"
+        @click="$emit('click:cart')"/>
     </div>
 </slot>
 </header>
