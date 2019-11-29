@@ -8,29 +8,8 @@ $content-pages__title-font-size-desktop: $font-size-extra-big-desktop !default;
 $content-pages__title-font-weight: 500 !default;
 $content-pages__title-line-height: 1.6 !default;
 
-%title {
-  padding: $spacer-big 0;
-  font-family: $content-pages__title-font-family;
-  font-size: $content-pages__title-font-size;
-  font-weight: $content-pages__title-font-weight;
-  line-height: $content-pages__title-line-height;
-  @media (min-width: $desktop-min) {
-    margin-bottom: $spacer-big;
-    font-size: $content-pages__title-font-size-desktop;
-  }
-}
-
-.sf-content-page {
-  &__title {
-    @extend %title;
-    display: block;
-    @media (min-width: $desktop-min) {
-      display: none;
-    }
-  }
-}
-
 .sf-content-pages {
+  $this: &;
   overflow: hidden;
   &__section {
     box-sizing: border-box;
@@ -63,19 +42,35 @@ $content-pages__title-line-height: 1.6 !default;
     }
   }
   &__title {
-    @extend %title;
+    padding: $spacer-big 0;
+    font-family: $content-pages__title-font-family;
+    font-size: $content-pages__title-font-size;
+    font-weight: $content-pages__title-font-weight;
+    line-height: $content-pages__title-line-height;
+    @media (min-width: $desktop-min) {
+      margin-bottom: $spacer-big;
+      font-size: $content-pages__title-font-size-desktop;
+    }
+  }
+  &__category-title {
+    margin-bottom: $spacer-big;
+    font-size: $font-size-big-mobile;
+    font-family: $body-font-family-secondary;
+    font-weight: $body-font-weight-secondary;
+    @media (min-width: $desktop-min) {
+      font-size: $font-size-big-desktop;
+    }
+  }
+  &__list {
+    margin-bottom: $spacer-extra-big;
   }
   &__list-item {
-    padding: 0.5rem 0;
+    border-bottom: 1px solid $c-light;
   }
-  &__menu-item {
-    cursor: pointer;
-    &--is-active {
-      @media (min-width: $desktop-min) {
-        color: $c-dark;
-        font-weight: 400;
-        text-decoration: underline;
-      }
+  &__menu {
+    padding: $spacer-big $spacer-big $spacer-big 10px;
+    @media (min-width: $desktop-min) {
+      padding: $spacer 0;
     }
   }
 }
