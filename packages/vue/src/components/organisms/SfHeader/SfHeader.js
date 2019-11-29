@@ -52,7 +52,10 @@ export default {
     },
     activeIcon: {
       type: String,
-      default: ""
+      default: "",
+      validator(value) {
+        return ["account", "wishlist", "cart"].includes(value);
+      }
     }
   }
 };
