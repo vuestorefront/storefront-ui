@@ -50,7 +50,7 @@ export default {
       type: [String, Boolean],
       default: "profile"
     },
-    activeSidebar: {
+    activeIcon: {
       type: String,
       default: ""
     }

@@ -23,9 +23,9 @@ storiesOf("Organisms/Header", module)
       accountIcon: {
         default: text("accountIcon (prop)", "profile")
       },
-      activeSidebar: {
+      activeIcon: {
         default: select(
-          "active-sidebar (prop)",
+          "active-icon (prop)",
           ["", "account", "wishlist", "cart"],
           "account"
         )
@@ -38,7 +38,7 @@ storiesOf("Organisms/Header", module)
         :cart-icon="cartIcon" 
         :wishlist-icon="wishlistIcon" 
         :account-icon="accountIcon"
-        :active-sidebar="activeSidebar"
+        :active-icon="activeIcon"
       >
         <template #navigation>
           <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
@@ -66,9 +66,9 @@ storiesOf("Organisms/Header", module)
       accountIcon: {
         default: text("accountIcon (prop)", "profile")
       },
-      activeSidebar: {
+      activeIcon: {
         default: select(
-          "active-sidebar (prop)",
+          "active-icon (prop)",
           ["", "account", "wishlist", "cart"],
           "account"
         )
@@ -81,7 +81,7 @@ storiesOf("Organisms/Header", module)
         :cart-icon="cartIcon" 
         :wishlist-icon="wishlistIcon" 
         :account-icon="accountIcon"
-        :active-sidebar="activeSidebar"
+        :active-icon="activeIcon"
       >
         <template #logo>
           CUSTOM LOGO 
@@ -112,7 +112,7 @@ storiesOf("Organisms/Header", module)
       accountIcon: {
         default: text("accountIcon (prop)", "profile")
       },
-      activeSidebar: {
+      activeIcon: {
         default: text("activeIcon (prop)", "account")
       }
     },
@@ -123,7 +123,7 @@ storiesOf("Organisms/Header", module)
         :cart-icon="cartIcon" 
         :wishlist-icon="wishlistIcon" 
         :account-icon="accountIcon"
-        :active-sidebar="activeSidebar"
+        :active-icon="activeIcon"
       >
         <template #navigation>
           <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
@@ -154,9 +154,9 @@ storiesOf("Organisms/Header", module)
       accountIcon: {
         default: text("accountIcon (prop)", "mail")
       },
-      activeSidebar: {
+      activeIcon: {
         default: select(
-          "active-sidebar (prop)",
+          "active-icon (prop)",
           ["", "account", "wishlist", "cart"],
           "account"
         )
@@ -169,7 +169,7 @@ storiesOf("Organisms/Header", module)
         :cart-icon="cartIcon" 
         :wishlist-icon="wishlistIcon" 
         :account-icon="accountIcon"
-        :active-sidebar="activeSidebar"
+        :active-icon="activeIcon"
       >
         <template #navigation>
           <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
