@@ -46,7 +46,7 @@ export default {
         this.$nextTick(() => {
           if (typeof image === "object") {
             this.$el.style.setProperty(
-              "--background-image-mobile",
+              "--background-image",
               `url(${image.small})`
             );
             this.$el.style.setProperty(
@@ -55,7 +55,7 @@ export default {
             );
           } else {
             this.$el.style.setProperty(
-              "--background-image-mobile",
+              "--background-image",
               `url(${image})`
             );
             this.$el.style.setProperty(
