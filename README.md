@@ -59,7 +59,7 @@ We are currently in a process of building the library. If you want to help shapi
 [These awesome people](https://docs.storefrontui.io/meet-the-team.html) are maintaining Storefront UI. They're ensuring that it performs smooth and looks awesome!
 
 - Filip Rakowski ([@filrak](https://github.com/filrak))
-- Przemek Spaczek ([@przespa](https://github.com/przespa))
+- Przemek Spaczek ([@przspa](https://github.com/przspa))
 - Leonardo Matos ([@leomp12](https://github.com/leomp12))
 - Maya Shavin ([@mayashavin](https://github.com/mayashavin))
 - Nicolò Maria Mezzopera ([@DonNicoJS](https://github.com/DonNicoJs))
