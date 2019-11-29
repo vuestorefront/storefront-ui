@@ -45,16 +45,14 @@ export default {
       handler(image) {
         this.$nextTick(() => {
           if (typeof image === "object") {
-            if (image.mobile && image.desktop) {
-              this.$el.style.setProperty(
-                "--background-image-mobile",
-                `url(${image.mobile})`
-              );
-              this.$el.style.setProperty(
-                "--background-image-desktop",
-                `url(${image.desktop})`
-              );
-            }
+            this.$el.style.setProperty(
+              "--background-image-mobile",
+              `url(${image.small})`
+            );
+            this.$el.style.setProperty(
+              "--background-image-desktop",
+              `url(${image.normal})`
+            );
           } else {
             this.$el.style.setProperty(
               "--background-image-mobile",
