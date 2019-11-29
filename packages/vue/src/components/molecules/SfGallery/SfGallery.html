@@ -27,9 +27,10 @@
             @mouseover="startZoom(picture)"
             @mousemove="moveZoom($event,index)"
             @mouseout="removeZoom()"
-          >
+            >
             <SfImage
               ref="sfGalleryBigImage"
+              :class="{'disable-pointer-zoom': disableZoom}"
               class="sf-gallery__big-image"
               :src="picture.normal.url"
               @click="$emit('click:stage', { picture, index })"
