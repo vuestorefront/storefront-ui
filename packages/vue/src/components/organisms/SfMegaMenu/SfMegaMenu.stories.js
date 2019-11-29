@@ -19,7 +19,7 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
       activePage: "About us",
       categories: [
         {
-          header: "Clothing",
+          header: "CLOTHING",
           items: [
             { label: "Skirts" },
             { label: "Sweaters" },
@@ -32,7 +32,7 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
           ]
         },
         {
-          header: "Accessories",
+          header: "ACCESSORIES",
           items: [
             { label: "Bags & Purses" },
             { label: "Belts" },
@@ -41,7 +41,7 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
           ]
         },
         {
-          header: "Shoes",
+          header: "SHOES",
           items: [
             { label: "Boots" },
             { label: "Heels" },
@@ -56,11 +56,6 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
     };
   },
   template: `<div>
-      <button 
-      v-if="activePage" 
-      @click="activePage = ''" 
-      style="bottom: .5rem; left: .5rem; border: 0; background-color: transparent" 
-      class="mobile-only">back</button>
       <SfMegaMenu
         :active="activePage"
         @click:change="updateActive">
@@ -70,14 +65,19 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
           </SfMegaMenuColumn>
         </template>
         <div>
-          <h3>LAST PAIRS LEFT</h3>
-          <SfImage src="assets/storybook/megamenu/bannerSandals.jpg" />
+          <h3 style="margin: 1.25rem 0;">LAST PAIRS LEFT</h3>
+          <SfImage style="width: 100%;" src="assets/storybook/megamenu/bannerSandals.jpg" />
         </div>
         <div>
-          <h3>BEACH BAGS 2=1</h3>
+          <h3 style="margin: 1.25rem 0;">BEACH BAGS 2=1</h3>
           <SfImage src="assets/storybook/megamenu/bannerBeachBag.jpg" />
         </div>
       </SfMegaMenu>
+      <button 
+      v-if="activePage" 
+      @click="activePage = ''" 
+      style="bottom: .5rem; left: .5rem; border: 0; background-color: transparent" 
+      class="mobile-only">back</button>
     </div>`,
   methods: {
     updateActive(title) {
