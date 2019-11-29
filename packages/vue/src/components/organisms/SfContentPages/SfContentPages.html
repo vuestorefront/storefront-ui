@@ -1,28 +1,42 @@
 <div class="sf-content-pages">
   <section
     class="sf-content-pages__section"
-    :class="{'sf-content-pages__section--is-active': active}">
+    :class="{'sf-content-pages__section--is-active': active}"
+  >
     <div class="sf-content-pages__sidebar">
-      <h1 class="sf-content-pages__title">{{title}}</h1>
-      <SfList>
-        <SfList
-          v-for="page in pages"
-          :key="page"
-          class="sf-content-pages__list-item">
-          <!-- @slot Custom menu-item markup -->
-          <slot
-            name="menu-item"
-            v-bind="{updatePage, page, active}">
-            <span @click="updatePage(page)">
+      <h1 class="sf-content-pages__title desktop-only">{{title}}</h1>
+      <div v-for="(category, key) in categories" :key="key">
+        <h2 v-if="category.title" class="sf-content-pages__category-title">
+          {{category.title}}
+        </h2>
+        <SfList class="sf-content-pages__list">
+          <SfListItem
+            v-for="page in category.items"
+            :key="page.title"
+            class="sf-content-pages__list-item"
+          >
+            <!-- @slot Custom menu-item markup -->
+            <slot name="menu-item" v-bind="{updatePage, page, active}">
               <SfMenuItem
-                :label="page"
-                class="sf-content-pages__menu-item"
-                :class="{'sf-content-pages__menu-item--is-active': page === active}"
-              />
-            </span>
-          </slot>
+                @click="updatePage(page.title)"
+                :label="page.title"
+                class="sf-content-pages__menu"
+                :class="{'sf-menu-item--is-active': page.title === active}"
+              >
+                <template #icon>
+                  <SfIcon
+                    v-if="page.icon"
+                    size="xxs"
+                    color="#686d7d"
+                    :icon="page.icon"
+                    class="sf-menu-item__icon"
+                  />
+                </template>
+              </SfMenuItem>
+            </slot>
+          </SfListItem>
         </SfList>
-      </SfList>
+      </div>
     </div>
     <div class="sf-content-pages__content">
       <!-- @slot Slot for Content Page -->
