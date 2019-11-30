@@ -17,9 +17,7 @@
       cursor: default;
     }
   }
-  &__content{
-    //display: none;
-  }
+  &__content{}
   &__chevron{
     @media (min-width: $desktop-min){
       display: none;
@@ -30,5 +28,6 @@
   @media (min-width: $desktop-min){
     display: flex;
     justify-content: space-between;
+    margin: 6.25rem 0;
   }
 }
