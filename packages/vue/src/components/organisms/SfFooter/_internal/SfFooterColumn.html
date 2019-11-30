@@ -8,7 +8,9 @@
         :class="{ 'sf-chevron--top': opened }"/>
     </div>
   </div>
-  <div v-if="opened" class="sf-footer-column__content">
-    <slot/>
-  </div>
+  <transition name="fade">
+    <div v-if="opened" class="sf-footer-column__content">
+      <slot/>
+    </div>
+  </transition>
 </div>
