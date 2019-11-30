@@ -10,9 +10,11 @@
     font-family: $body-font-family-secondary;
     font-weight: 500;
     text-transform: uppercase;
+    cursor: pointer;
     @media (min-width: $desktop-min){
       background-color: transparent;
       padding: $spacer-big 0;
+      cursor: default;
     }
   }
   &__content{
