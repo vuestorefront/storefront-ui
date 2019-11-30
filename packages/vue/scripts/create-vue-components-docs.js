@@ -225,7 +225,7 @@ function readVuepressConfig(filename) {
 }
 
 function parseComponentFile(contentComponentFile) {
-  const headlines = ["# component-description", "# common-usage"];
+  const headlines = ["# component-description", "# storybook-iframe-height"];
   const reString = headlines.join("\\n([\\s\\S]+?)\\s*?") + "\\n([\\s\\S]+)";
   const regExp = new RegExp(reString, "m");
   const reResult = regExp.exec(contentComponentFile);
@@ -242,7 +242,7 @@ function parseComponentFile(contentComponentFile) {
 
   return {
     componentDescription: reResult[1],
-    commonUsage: reResult[2]
+    storybookIFrameHeight: reResult[2].trim()
   };
 }
 
@@ -460,11 +460,17 @@ function generateComponentDetailsInfo(rawDetails) {
 function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
   const componentDescription =
     componentInfo.componentDescription || "<!-- No Component description -->";
+  const storybookIFrame = getStorybookIFrameMarkup(
+    componentInfo.storybookLink,
+    componentInfo.storybookIFrameHeight
+  );
+
   const replaceMap = new Map([
     ["[[component-name]]", componentInfo.componentName],
     ["[[component-description]]", componentDescription],
     ["[[sf-component-name]]", componentInfo.sfComponentName],
-    ["[[common-usage]]", componentInfo.commonUsage || getFallbackCommonUsage()],
+    ["[[storybook-code]]", componentInfo.storybookCode || ""],
+    ["[[storybook-iframe]]", storybookIFrame],
     ["[[props]]", componentInfo.props || "None."],
     ["[[slots]]", componentInfo.slots || "None."],
     ["[[events]]", componentInfo.events || "None."],
@@ -631,6 +637,14 @@ function getFallbackCommonUsage() {
   return `:::warning NOT YET DOCUMENTED 
 This section is not fully documented yet. We are doing our best to make our documentation a good and complete source of knowledge about Storefront UI. If you would like to help us, please don't hesitate to contribute to our docs. You can read more about it [here](https://docs.storefrontui.io/contributing/become-a-contributor.html#work-on-documentation).
 :::`;
+}
+
+function getStorybookIFrameMarkup(storybookLink, storybookIFrameHeight) {
+  let style = "width: 100%; border: 0; border-bottom: 1px solid #eee;";
+  if (storybookIFrameHeight) {
+    style += `height: ${storybookIFrameHeight}`;
+  }
+  return `<iframe src="https://storybook.storefrontui.io/iframe.html?id=${storybookLink}" style="${style}"></iframe>`;
 }
 
 function getInternalComponentTemplate() {
