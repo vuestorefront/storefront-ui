@@ -5,6 +5,12 @@ import SfFooterColumn from "./_internal/SfFooterColumn.vue";
 Vue.component("SfFooterColumn", SfFooterColumn);
 export default {
   name: "SfFooter",
+  props: {
+    column: {
+      type: Number,
+      default: 4
+    }
+  },
   data() {
     return {
       opened: [],
@@ -24,6 +30,14 @@ export default {
             this.opened = [...this.items];
           }
         });
+      },
+      immediate: true
+    },
+    column: {
+      handler(column){
+        this.$nextTick(()=>{
+          this.$el.style.setProperty('--col-width', `${100/column}%`)
+        })
       },
       immediate: true
     }

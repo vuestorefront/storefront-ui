@@ -15,55 +15,51 @@ storiesOf("Organisms|Footer", module)
         departments: ["Women fashion", "Men fashion", "Kidswear", "Home"],
         help: ["Customer service", "Size guide", "Contact us"],
         paymentsDelivery: ["Purchase terms", "Guarantee"],
-        mobile: {padding: "1.25rem 2.5rem"},
-        desktop: {padding: "6px 0"},
         isMobile: false,
         desktopMin: 1024
       };
     },
     computed: {
-      style(){
-        return this.isMobile ? this.mobile : this.desktop;
+      style() {
+        return this.isMobile ? { padding: "1.25rem 2.5rem" } : { padding: "6px 0" };
       }
     },
     template: `<div style="margin: -20px;">
-      <div style="max-width: 64rem; margin: auto">
-        <SfFooter>
-          <SfFooterColumn title="About us">
-            <SfList>
-              <SfListItem v-for="item in aboutUs" :key="item">
-                <SfMenuItem :style="style" :label="item"/>
-              </SfListItem>
-            </SfList>
-          </SfFooterColumn>
-          <SfFooterColumn title="Departments">
-            <SfList>
-              <SfListItem v-for="item in departments" :key="item">
-                <SfMenuItem :style="style" :label="item"/>
-              </SfListItem>
-            </SfList>
-          </SfFooterColumn>
-          <SfFooterColumn title="Help">
-            <SfList>
-              <SfListItem v-for="item in help" :key="item">
-                <SfMenuItem :style="style" :label="item"/>
-              </SfListItem>
-            </SfList>
-          </SfFooterColumn>
-          <SfFooterColumn title="Payment & delivery">
-            <SfList>
-              <SfListItem v-for="item in paymentsDelivery" :key="item">
-                <SfMenuItem :style="style" :label="item"/>
-              </SfListItem>
-            </SfList>
-          </SfFooterColumn>
-          <!-- <SfFooterColumn title="Social">
-            <div :style="style">
-              Social
-            </div>
-          </SfFooterColumn> -->
-        </SfFooter>
-      </div>  
+      <SfFooter style="max-width: 64rem; margin-left: auto; margin-right: auto" :column="4">  
+        <SfFooterColumn title="About us">
+          <SfList>
+            <SfListItem v-for="item in aboutUs" :key="item">
+              <SfMenuItem :style="style" :label="item"/>
+            </SfListItem>
+          </SfList>
+        </SfFooterColumn>
+        <SfFooterColumn title="Departments">
+          <SfList>
+            <SfListItem v-for="item in departments" :key="item">
+              <SfMenuItem :style="style" :label="item"/>
+            </SfListItem>
+          </SfList>
+        </SfFooterColumn>
+        <SfFooterColumn title="Help">
+          <SfList>
+            <SfListItem v-for="item in help" :key="item">
+              <SfMenuItem :style="style" :label="item"/>
+            </SfListItem>
+          </SfList>
+        </SfFooterColumn>
+        <SfFooterColumn title="Payment & delivery">
+          <SfList>
+            <SfListItem v-for="item in paymentsDelivery" :key="item">
+              <SfMenuItem :style="style" :label="item"/>
+            </SfListItem>
+          </SfList>
+        </SfFooterColumn>
+        <SfFooterColumn title="Social" style="margin-left: auto">
+          <div :style="style">
+            Social
+          </div>
+        </SfFooterColumn>
+      </SfFooter>
     </div>`,
     methods: {
       isMobileHandler(e) {
@@ -74,7 +70,9 @@ storiesOf("Organisms|Footer", module)
       this.isMobile =
         Math.max(document.documentElement.clientWidth, window.innerWidth) <
         this.desktopMin;
-      window.matchMedia("(max-width: 1024px)").addListener(this.isMobileHandler);
+      window
+        .matchMedia("(max-width: 1024px)")
+        .addListener(this.isMobileHandler);
     },
     beforeDestroy() {
       window

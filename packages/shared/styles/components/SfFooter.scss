@@ -1,5 +1,6 @@
 @import "../variables";
 .sf-footer-column{
+  flex: 0 0 var(--col-width);
   &__title{
     display: flex;
     justify-content: space-between;
@@ -27,6 +28,7 @@
 .sf-footer {
   @media (min-width: $desktop-min){
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 6.25rem 0;
   }
