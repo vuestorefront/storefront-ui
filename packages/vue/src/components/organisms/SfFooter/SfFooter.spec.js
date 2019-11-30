@@ -1,0 +1,9 @@
+import { shallowMount } from "@vue/test-utils";
+import SfFooter from "@/components/organisms/SfFooter.vue";
+
+describe("SfFooter.vue", () => {
+  it("renders a component", () => {
+    const component = shallowMount(SfFooter);
+    expect(component.contains(".sf-footer")).toBe(true);
+  });
+});

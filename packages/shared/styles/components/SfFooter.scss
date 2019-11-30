@@ -1,0 +1,31 @@
+@import "../variables";
+.sf-footer-column{
+  &__title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacer-big $spacer-extra-big;
+    background-color: hsl(0%, 0%, 90%);
+    font-size: $font-size-extra-big-mobile;
+    font-family: $body-font-family-secondary;
+    text-transform: uppercase;
+    @media (min-width: $desktop-min){
+      background-color: transparent;
+      padding: $spacer-big 0;
+    }
+  }
+  &__content{
+    //display: none;
+  }
+  &__chevron{
+    @media (min-width: $desktop-min){
+      display: none;
+    }
+  }
+}
+.sf-footer {
+  @media (min-width: $desktop-min){
+    display: flex;
+    justify-content: space-between;
+  }
+}
