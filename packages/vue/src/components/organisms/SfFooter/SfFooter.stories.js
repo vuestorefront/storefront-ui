@@ -16,12 +16,14 @@ storiesOf("Organisms|Footer", module)
         help: ["Customer service", "Size guide", "Contact us"],
         paymentsDelivery: ["Purchase terms", "Guarantee"],
         mobile: {padding: "1.25rem 2.5rem"},
-        desktop: {padding: "6px 0"}
+        desktop: {padding: "6px 0"},
+        isMobile: false,
+        desktopMin: 1024
       };
     },
     computed: {
       style(){
-        return this.mobile;
+        return this.isMobile ? this.mobile : this.desktop;
       }
     },
     template: `<div style="margin: -20px;">
@@ -62,5 +64,21 @@ storiesOf("Organisms|Footer", module)
           </SfFooterColumn> -->
         </SfFooter>
       </div>  
-    </div>`
+    </div>`,
+    methods: {
+      isMobileHandler(e) {
+        this.isMobile = e.matches;
+      }
+    },
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <
+        this.desktopMin;
+      window.matchMedia("(max-width: 1024px)").addListener(this.isMobileHandler);
+    },
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1024px)")
+        .removeListener(this.isMobileHandler);
+    }
   }));

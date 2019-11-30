@@ -8,8 +8,25 @@ export default {
   data() {
     return {
       opened: [],
-      items: []
+      items: [],
+      desktopMin: 1024,
+      isMobile: false,
+      mql: undefined
     };
+  },
+  watch: {
+    isMobile: {
+      handler(mobile) {
+        this.$nextTick(() => {
+          if (mobile) {
+            this.opened = [];
+          } else {
+            this.opened = [...this.items];
+          }
+        });
+      },
+      immediate: true
+    }
   },
   methods: {
     toggle(payload) {
@@ -20,11 +37,20 @@ export default {
         opened.push(payload);
       }
       this.opened = opened;
+    },
+    isMobileHandler(e) {
+      this.isMobile = e.matches;
     }
   },
   mounted() {
-    // desktop -> mobile opened = [];
-    // mobile -> desktop opened = items
-    this.opened = this.items;
+    this.isMobile =
+      Math.max(document.documentElement.clientWidth, window.innerWidth) <
+      this.desktopMin;
+    window.matchMedia("(max-width: 1024px)").addListener(this.isMobileHandler);
+  },
+  beforeDestroy() {
+    window
+      .matchMedia("(max-width: 1024px)")
+      .removeListener(this.isMobileHandler);
   }
 };
