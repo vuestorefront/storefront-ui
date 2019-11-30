@@ -3,18 +3,20 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 
 import SfFooter from "./SfFooter.vue";
 import SfList from "../SfList/SfList.vue";
+import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 
 storiesOf("Organisms|Footer", module)
   .addDecorator(withKnobs)
   .add("Default", () => ({
-    components: { SfFooter, SfList, SfMenuItem },
+    components: { SfFooter, SfList, SfMenuItem, SfImage },
     data() {
       return {
         aboutUs: ["Who we are", "Quality in the details", "Customer Reviews"],
         departments: ["Women fashion", "Men fashion", "Kidswear", "Home"],
         help: ["Customer service", "Size guide", "Contact us"],
         paymentsDelivery: ["Purchase terms", "Guarantee"],
+        social: ["facebook", "pinterest", "twitter", "youtube"],
         isMobile: false,
         desktopMin: 1024
       };
@@ -56,7 +58,7 @@ storiesOf("Organisms|Footer", module)
         </SfFooterColumn>
         <SfFooterColumn title="Social" style="margin-left: auto">
           <div :style="style">
-            Social
+            <img v-for="item in social":src="'/assets/storybook/footer/'+item+'.png'" style="height: 0.75rem; margin-right: 1.25rem"/>
           </div>
         </SfFooterColumn>
       </SfFooter>
