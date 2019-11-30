@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfFooter from "@/components/organisms/SfFooter.vue";
+import SfFooter from "@/components/organisms/SfFooter/SfFooter.vue";
 
 describe("SfFooter.vue", () => {
   it("renders a component", () => {
