@@ -11,7 +11,7 @@ import SfBadge from "../SfBadge/SfBadge.vue";
 
 storiesOf("Atoms|Price", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfPrice },
     props: {
       customClass: {

@@ -11,7 +11,7 @@ const StoriesPlaceholder = {
 
 storiesOf("Molecules|Steps", module)
   .addDecorator(withKnobs)
-  .add("[slot] default", () => ({
+  .add("Common", () => ({
     components: { SfSteps, StoriesPlaceholder },
     props: {
       canGoBack: {

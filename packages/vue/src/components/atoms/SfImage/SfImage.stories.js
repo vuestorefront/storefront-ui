@@ -12,7 +12,7 @@ import SfImage from "./SfImage.vue";
 
 storiesOf("Atoms|Image", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfImage },
     props: {
       src: {

@@ -30,7 +30,7 @@ const stores = [
 
 storiesOf("Organisms|StoreLocator", module)
   .addDecorator(withKnobs)
-  .add("Basic", () => ({
+  .add("Common", () => ({
     props: {
       zoom: {
         default: number(

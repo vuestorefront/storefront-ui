@@ -6,7 +6,7 @@ import SfBullets from "./SfBullets.vue";
 
 storiesOf("Atoms|Bullets", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     props: {
       total: {
         default: number("total", 3, {}, "Props")

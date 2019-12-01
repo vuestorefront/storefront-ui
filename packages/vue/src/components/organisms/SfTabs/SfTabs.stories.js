@@ -5,13 +5,11 @@ import SfTabs from "./SfTabs.vue";
 
 storiesOf("Organisms|Tabs", module)
   .addDecorator(withKnobs)
-  .add(
-    "Basic",
-    () => ({
-      components: {
-        SfTabs
-      },
-      template: `
+  .add("Common", () => ({
+    components: {
+      SfTabs
+    },
+    template: `
       <SfTabs :openTab="1">
       <SfTab title="Description">
       The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common "problem" areas. Find stunning women's cocktail dresses and party dresses.</SfTab>
@@ -26,4 +24,4 @@ storiesOf("Organisms|Tabs", module)
 </p>
       </SfTab>
     </SfTabs>`
-    }));
+  }));

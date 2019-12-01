@@ -6,7 +6,7 @@ import SfCheckbox from "./SfCheckbox.vue";
 
 storiesOf("Atoms|Checkbox", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfCheckbox },
     props: {
       name: {

@@ -5,7 +5,7 @@ import SfReview from "./SfReview.vue";
 
 storiesOf("Molecules|Review", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfReview },
     props: {
       author: {

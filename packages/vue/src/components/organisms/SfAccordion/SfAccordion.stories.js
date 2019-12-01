@@ -8,7 +8,7 @@ import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 
 storiesOf("Organisms|Accordion", module)
   .addDecorator(withKnobs)
-  .add("Basic", () => ({
+  .add("Common", () => ({
     data: () => {
       return {
         accordions: [

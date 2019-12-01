@@ -29,7 +29,7 @@ const colors = [
 
 storiesOf("Atoms|Icon", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     props: {
       icon: {
         default: select("icon", iconsNames, "home", "Props")

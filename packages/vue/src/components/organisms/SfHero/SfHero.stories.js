@@ -38,7 +38,7 @@ const data = () => {
 
 storiesOf("Organisms|Hero", module)
   .addDecorator(withKnobs)
-  .add("Basic", () => ({
+  .add("Common", () => ({
     data,
     components: { SfHero },
     props: {

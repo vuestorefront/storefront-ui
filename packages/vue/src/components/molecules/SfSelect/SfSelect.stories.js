@@ -13,7 +13,7 @@ import SfProductOption from "../SfProductOption/SfProductOption.vue";
 
 storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
-  .add("[slot] default", () => ({
+  .add("Common", () => ({
     components: { SfSelect, SfProductOption },
     props: {
       customClass: {

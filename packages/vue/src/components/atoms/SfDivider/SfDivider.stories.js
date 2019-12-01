@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/vue";
 
 import SfDivider from "./SfDivider.vue";
 
-storiesOf("Atoms|Divider", module).add("Default", () => ({
+storiesOf("Atoms|Divider", module).add("Common", () => ({
   components: { SfDivider },
   template: `<SfDivider />`
 }));

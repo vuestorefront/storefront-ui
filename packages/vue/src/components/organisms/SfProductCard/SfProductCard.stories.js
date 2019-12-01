@@ -39,7 +39,7 @@ const pictures = [
 
 storiesOf("Organisms|ProductCard", module)
   .addDecorator(withKnobs)
-  .add("Basic", () => ({
+  .add("Common", () => ({
     props: {
       image: {
         default: text("image", "assets/storybook/product_thumb.jpg", "Props")

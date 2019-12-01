@@ -10,7 +10,7 @@ import SfRadio from "./SfRadio.vue";
 
 storiesOf("Molecules|Radio", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfRadio },
     props: {
       customClass: {

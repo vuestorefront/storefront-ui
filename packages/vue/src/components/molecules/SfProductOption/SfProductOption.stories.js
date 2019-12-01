@@ -5,7 +5,7 @@ import SfProductOption from "./SfProductOption.vue";
 
 storiesOf("Molecules|ProductOption", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfProductOption },
     props: {
       color: {

@@ -12,7 +12,7 @@ import SfCounter from "./SfCounter.vue";
 
 storiesOf("Molecules|Counter", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfCounter },
     props: {
       customClass: {

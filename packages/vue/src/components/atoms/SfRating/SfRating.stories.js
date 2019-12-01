@@ -7,7 +7,7 @@ import SfIcon from "../SfIcon/SfIcon.vue";
 
 storiesOf("Atoms|Rating", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfRating },
     props: {
       max: {

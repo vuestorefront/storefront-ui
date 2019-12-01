@@ -5,7 +5,7 @@ import SfGroupedProduct from "./SfGroupedProduct.vue";
 
 storiesOf("Organisms|GroupedProduct", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfGroupedProduct },
     props: {
       settings: {

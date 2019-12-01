@@ -5,7 +5,7 @@ import SfAddToCart from "./SfAddToCart.vue";
 
 storiesOf("Molecules|AddToCart", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfAddToCart },
     props: {
       disabled: {

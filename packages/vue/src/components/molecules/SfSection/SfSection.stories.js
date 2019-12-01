@@ -17,7 +17,7 @@ const StoriesPlaceholder = {
 
 storiesOf("Molecules|Section", module)
   .addDecorator(withKnobs)
-  .add("[slot] default", () => ({
+  .add("Common", () => ({
     components: { SfSection, StoriesPlaceholder },
     props: {
       customClass: {

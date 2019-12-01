@@ -10,7 +10,7 @@ import SfBadge from "./SfBadge.vue";
 
 storiesOf("Atoms|Badge", module)
   .addDecorator(withKnobs)
-  .add("[slot] default", () => ({
+  .add("Common", () => ({
     props: {
       customClass: {
         default: options(

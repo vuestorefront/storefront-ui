@@ -26,7 +26,7 @@ const colors = [
 
 storiesOf("Molecules|Characteristic", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfCharacteristic },
     props: {
       title: {

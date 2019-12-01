@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/vue";
 import SfTopBar from "./SfTopBar.vue";
 
 storiesOf("Organisms|TopBar", module)
-  .add("Basic", () => ({
+  .add("Common", () => ({
     data() {
       return {
         style: {

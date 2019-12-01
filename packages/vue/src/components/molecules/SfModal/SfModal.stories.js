@@ -6,7 +6,7 @@ import SfModal from "./SfModal.vue";
 
 storiesOf("Molecules|Modal", module)
   .addDecorator(withKnobs)
-  .add("[slot] default", () => ({
+  .add("Common", () => ({
     components: { SfModal },
     props: {
       visible: {

@@ -19,7 +19,7 @@ const StoriesPlaceholder = {
 
 storiesOf("Atoms|CircleIcon", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfCircleIcon },
     props: {
       customClass: {

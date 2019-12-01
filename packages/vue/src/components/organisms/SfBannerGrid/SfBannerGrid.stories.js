@@ -7,7 +7,7 @@ import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
 
 storiesOf("Organisms|BannerGrid", module)
   .addDecorator(withKnobs)
-  .add("Grid 1", () => ({
+  .add("Common", () => ({
     props: {
       customClass: {
         default: options(

@@ -6,7 +6,7 @@ import SfGallery from "./SfGallery.vue";
 
 storiesOf("Molecules|Gallery", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfGallery },
     props: {
       images: {

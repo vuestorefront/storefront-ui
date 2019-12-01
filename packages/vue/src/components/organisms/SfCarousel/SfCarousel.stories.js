@@ -22,12 +22,10 @@ const data = () => {
 
 storiesOf("Organisms|Carousel", module)
   .addDecorator(withKnobs)
-  .add(
-    "Basic",
-    () => ({
-      components: { SfCarousel },
-      data,
-      template: `
+  .add("Common", () => ({
+    components: { SfCarousel },
+    data,
+    template: `
       <div style="max-width: 1140px">
         <SfCarousel :options="options">
           <SfCarouselItem>
@@ -57,13 +55,11 @@ storiesOf("Organisms|Carousel", module)
         </SfCarousel>
       </div>
       `
-    }))
-  .add(
-    "[slot] prev",
-    () => ({
-      components: { SfCarousel },
-      data,
-      template: `
+  }))
+  .add("[slot] prev", () => ({
+    components: { SfCarousel },
+    data,
+    template: `
       <div style="max-width: 1140px">
         <SfCarousel :options="options">
           <SfCarouselItem>
@@ -100,13 +96,11 @@ storiesOf("Organisms|Carousel", module)
         </SfCarousel>
       </div>
       `
-    }))
-  .add(
-    "[slot] next",
-    () => ({
-      components: { SfCarousel },
-      data,
-      template: `
+  }))
+  .add("[slot] next", () => ({
+    components: { SfCarousel },
+    data,
+    template: `
       <div style="max-width: 1140px">
         <SfCarousel :options="options">
           <SfCarouselItem>
@@ -143,4 +137,4 @@ storiesOf("Organisms|Carousel", module)
         </SfCarousel>
       </div>
       `
-    }));
+  }));

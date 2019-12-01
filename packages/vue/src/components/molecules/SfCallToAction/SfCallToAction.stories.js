@@ -10,7 +10,7 @@ import SfCallToAction from "./SfCallToAction.vue";
 
 storiesOf("Molecules|CallToAction", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfCallToAction },
     props: {
       customClass: {
