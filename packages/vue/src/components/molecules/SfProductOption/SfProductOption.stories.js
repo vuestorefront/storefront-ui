@@ -3,7 +3,7 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 
 import SfProductOption from "./SfProductOption.vue";
 
-export default storiesOf("Molecules|ProductOption", module)
+storiesOf("Molecules|ProductOption", module)
   .addDecorator(withKnobs)
   .add("Default", () => ({
     components: { SfProductOption },

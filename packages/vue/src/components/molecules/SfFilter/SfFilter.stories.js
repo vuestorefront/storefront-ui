@@ -3,7 +3,7 @@ import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
 import SfFilter from "./SfFilter.vue";
 
-export default storiesOf("Molecules|Filter", module)
+storiesOf("Molecules|Filter", module)
   .addDecorator(withKnobs)
   .add("Default", () => ({
     components: {
