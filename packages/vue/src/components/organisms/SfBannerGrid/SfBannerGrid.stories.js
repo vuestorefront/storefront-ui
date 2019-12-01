@@ -15,9 +15,6 @@ storiesOf("Organisms|BannerGrid", module)
     "Grid 1",
     () => ({
       props: {
-        editableProp: {
-          default: text("propname (prop)")
-        },
         customClass: {
           default: options(
             "CSS Modifiers",
@@ -84,9 +81,6 @@ storiesOf("Organisms|BannerGrid", module)
     "Grid 2",
     () => ({
       props: {
-        editableProp: {
-          default: text("propname (prop)")
-        },
         customClass: {
           default: options(
             "CSS Modifiers",
