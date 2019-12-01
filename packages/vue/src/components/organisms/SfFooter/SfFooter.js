@@ -5,7 +5,15 @@ import SfFooterColumn from "./_internal/SfFooterColumn.vue";
 Vue.component("SfFooterColumn", SfFooterColumn);
 export default {
   name: "SfFooter",
+  model: {
+    prop: "opened",
+    event: "change"
+  },
   props: {
+    opened: {
+      type: Array,
+      default: () => []
+    },
     column: {
       type: Number,
       default: 4
@@ -13,7 +21,6 @@ export default {
   },
   data() {
     return {
-      opened: [],
       items: [],
       desktopMin: 1024,
       isMobile: false,
@@ -23,21 +30,23 @@ export default {
   watch: {
     isMobile: {
       handler(mobile) {
+        let opened;
         this.$nextTick(() => {
           if (mobile) {
-            this.opened = [];
+            opened = [];
           } else {
-            this.opened = [...this.items];
+            opened = [...this.items];
           }
+          this.$emit("change", opened);
         });
       },
       immediate: true
     },
     column: {
-      handler(column){
-        this.$nextTick(()=>{
-          this.$el.style.setProperty('--col-width', `${100/column}%`)
-        })
+      handler(column) {
+        this.$nextTick(() => {
+          this.$el.style.setProperty("--col-width", `${100 / column}%`);
+        });
       },
       immediate: true
     }
@@ -50,7 +59,7 @@ export default {
       } else {
         opened.push(payload);
       }
-      this.opened = opened;
+      this.$emit("change", opened);
     },
     isMobileHandler(e) {
       this.isMobile = e.matches;
