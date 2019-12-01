@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { withKnobs, number, boolean } from "@storybook/addon-knobs";
 
 import SfFooter from "./SfFooter.vue";
 import SfList from "../SfList/SfList.vue";
@@ -10,6 +10,14 @@ storiesOf("Organisms|Footer", module)
   .addDecorator(withKnobs)
   .add("Default", () => ({
     components: { SfFooter, SfList, SfMenuItem, SfImage },
+    props: {
+      column: {
+        default: number("column (prop)", 4)
+      },
+      multiple: {
+        default: boolean("multiple (prop)", true)
+      }
+    },
     data() {
       return {
         aboutUs: ["Who we are", "Quality in the details", "Customer Reviews"],
@@ -18,7 +26,8 @@ storiesOf("Organisms|Footer", module)
         paymentsDelivery: ["Purchase terms", "Guarantee"],
         social: ["facebook", "pinterest", "twitter", "youtube"],
         isMobile: false,
-        desktopMin: 1024
+        desktopMin: 1024,
+        opened: []
       };
     },
     computed: {
@@ -27,7 +36,7 @@ storiesOf("Organisms|Footer", module)
       }
     },
     template: `<div style="margin: -20px;">
-      <SfFooter style="max-width: 64rem; margin-left: auto; margin-right: auto" :column="4">  
+      <SfFooter v-model="opened" :column="column" :multiple="multiple" style="max-width: 64rem; margin-left: auto; margin-right: auto">  
         <SfFooterColumn title="About us">
           <SfList>
             <SfListItem v-for="item in aboutUs" :key="item">
