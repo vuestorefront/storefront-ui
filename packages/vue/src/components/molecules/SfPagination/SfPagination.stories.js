@@ -9,13 +9,13 @@ storiesOf("Molecules|Pagination", module)
     components: { SfPagination },
     props: {
       current: {
-        default: number("current (prop)", 2)
+        default: number("current", 2, {}, "Props")
       },
       visible: {
-        default: number("visible (prop)", 5)
+        default: number("visible", 5, {}, "Props")
       },
       total: {
-        default: number("total (prop)", 12)
+        default: number("total", 12, {}, "Props")
       }
     },
     template: `<SfPagination
@@ -27,13 +27,13 @@ storiesOf("Molecules|Pagination", module)
     components: { SfPagination },
     props: {
       current: {
-        default: number("current (prop)", 2)
+        default: number("current", 2, {}, "Props")
       },
       visible: {
-        default: number("visible (prop)", 5)
+        default: number("visible", 5, {}, "Props")
       },
       total: {
-        default: number("total (prop)", 12)
+        default: number("total", 12, {}, "Props")
       }
     },
     template: `<SfPagination
@@ -47,13 +47,13 @@ storiesOf("Molecules|Pagination", module)
     components: { SfPagination },
     props: {
       current: {
-        default: number("current (prop)", 2)
+        default: number("current", 2, {}, "Props")
       },
       visible: {
-        default: number("visible (prop)", 5)
+        default: number("visible", 5, {}, "Props")
       },
       total: {
-        default: number("total (prop)", 12)
+        default: number("total", 12, {}, "Props")
       }
     },
     template: `<SfPagination
@@ -69,13 +69,13 @@ storiesOf("Molecules|Pagination", module)
     components: { SfPagination },
     props: {
       current: {
-        default: number("current (prop)", 2)
+        default: number("current", 2, {}, "Props")
       },
       visible: {
-        default: number("visible (prop)", 5)
+        default: number("visible", 5, {}, "Props")
       },
       total: {
-        default: number("total (prop)", 12)
+        default: number("total", 12, {}, "Props")
       }
     },
     template: `<SfPagination
@@ -91,13 +91,13 @@ storiesOf("Molecules|Pagination", module)
     components: { SfPagination },
     props: {
       current: {
-        default: number("current (prop)", 2)
+        default: number("current", 2, {}, "Props")
       },
       visible: {
-        default: number("visible (prop)", 5)
+        default: number("visible", 5, {}, "Props")
       },
       total: {
-        default: number("total (prop)", 12)
+        default: number("total", 12, {}, "Props")
       }
     },
     template: `<SfPagination

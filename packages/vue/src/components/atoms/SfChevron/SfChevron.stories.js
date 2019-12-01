@@ -12,12 +12,13 @@ storiesOf("Atoms|Chevron", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-chevron--top": "sf-chevron--top"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       }
     },
@@ -32,12 +33,13 @@ storiesOf("Atoms|Chevron", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-chevron--top": "sf-chevron--top"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       }
     },

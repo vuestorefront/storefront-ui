@@ -10,7 +10,7 @@ storiesOf("Atoms|Breadcrumbs", module)
     components: { SfBreadcrumbs },
     props: {
       breadcrumbs: {
-        default: object("breadcrumbs (prop)", [
+        default: object("breadcrumbs", [
           { text: "Home", route: { link: "#" } },
           { text: "Category", route: { link: "#" } },
           { text: "Pants", route: { link: "#" } }
@@ -24,11 +24,15 @@ storiesOf("Atoms|Breadcrumbs", module)
     components: { SfBreadcrumbs },
     props: {
       breadcrumbs: {
-        default: object("breadcrumbs (prop)", [
-          { text: "Home", route: { link: "#" } },
-          { text: "Category", route: { link: "#" } },
-          { text: "Pants", route: { link: "#" } }
-        ])
+        default: object(
+          "breadcrumbs",
+          [
+            { text: "Home", route: { link: "#" } },
+            { text: "Category", route: { link: "#" } },
+            { text: "Pants", route: { link: "#" } }
+          ],
+          "Props"
+        )
       }
     },
     template: `<SfBreadcrumbs
@@ -42,11 +46,15 @@ storiesOf("Atoms|Breadcrumbs", module)
     components: { SfBreadcrumbs },
     props: {
       breadcrumbs: {
-        default: object("breadcrumbs (prop)", [
-          { text: "Home", route: { link: "#" } },
-          { text: "Category", route: { link: "#" } },
-          { text: "Pants", route: { link: "#" } }
-        ])
+        default: object(
+          "breadcrumbs",
+          [
+            { text: "Home", route: { link: "#" } },
+            { text: "Category", route: { link: "#" } },
+            { text: "Pants", route: { link: "#" } }
+          ],
+          "Props"
+        )
       }
     },
     template: `<SfBreadcrumbs

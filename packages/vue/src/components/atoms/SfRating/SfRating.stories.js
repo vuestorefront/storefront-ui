@@ -11,10 +11,10 @@ storiesOf("Atoms|Rating", module)
     components: { SfRating },
     props: {
       max: {
-        default: number("max (prop)", 5)
+        default: number("max", 5, {}, "Props")
       },
       score: {
-        default: number("score (prop)", 3, { min: 0 })
+        default: number("score", 3, { min: 0 }, "Props")
       }
     },
     template: `<SfRating
@@ -28,10 +28,10 @@ storiesOf("Atoms|Rating", module)
     },
     props: {
       max: {
-        default: number("max (prop)", 5)
+        default: number("max", 5, {}, "Props")
       },
       score: {
-        default: number("score (prop)", 3, { min: 0 })
+        default: number("score", 3, { min: 0 }, "Props")
       }
     },
     template: `<SfRating
@@ -49,10 +49,10 @@ storiesOf("Atoms|Rating", module)
     },
     props: {
       max: {
-        default: number("max (prop)", 5)
+        default: number("max", 5, {}, "Props")
       },
       score: {
-        default: number("score (prop)", 3, { min: 0 })
+        default: number("score", 3, { min: 0 }, "Props")
       }
     },
     template: `<SfRating

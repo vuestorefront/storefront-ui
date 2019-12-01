@@ -14,13 +14,14 @@ storiesOf("ComponentType|ComponentName", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "ComponentNameKebabCase--modifier":
               "ComponentNameKebabCase--modifier"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       }
     },

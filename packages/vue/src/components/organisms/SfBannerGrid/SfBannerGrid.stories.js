@@ -1,33 +1,28 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
+import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 
 import SfBannerGrid from "./SfBannerGrid.vue";
 import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
 
 storiesOf("Organisms|BannerGrid", module)
   .addDecorator(withKnobs)
-  .add(
-    "Grid 1",
-    () => ({
-      props: {
-        customClass: {
-          default: options(
-            "CSS Modifiers",
-            {
-              "sf-banner-grud--modifier": "sf-banner-grud--modifier"
-            },
-            "",
-            { display: "multi-select" }
-          )
-        }
-      },
-      components: { SfBannerGrid, SfBanner },
-      template: `<div style="max-width:1240px; margin: auto">
+  .add("Grid 1", () => ({
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-banner-grud--modifier": "sf-banner-grud--modifier"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      }
+    },
+    components: { SfBannerGrid, SfBanner },
+    template: `<div style="max-width:1240px; margin: auto">
         <SfBannerGrid :bannerGrid="1">
           <template #bannerA>
             <a href="#">
@@ -76,24 +71,23 @@ storiesOf("Organisms|BannerGrid", module)
           </template>
         </SfBannerGrid>
       </div>`
-    }))
-  .add(
-    "Grid 2",
-    () => ({
-      props: {
-        customClass: {
-          default: options(
-            "CSS Modifiers",
-            {
-              "sf-banner-grud--modifier": "sf-banner-grud--modifier"
-            },
-            "",
-            { display: "multi-select" }
-          )
-        }
-      },
-      components: { SfBannerGrid, SfBanner },
-      template: `<div style="max-width:1240px; margin: auto"><SfBannerGrid :bannerGrid="2">
+  }))
+  .add("Grid 2", () => ({
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-banner-grud--modifier": "sf-banner-grud--modifier"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      }
+    },
+    components: { SfBannerGrid, SfBanner },
+    template: `<div style="max-width:1240px; margin: auto"><SfBannerGrid :bannerGrid="2">
         <template #bannerA>
           <a href="#">
             <SfBanner
@@ -138,4 +132,4 @@ storiesOf("Organisms|BannerGrid", module)
           </a>
         </template>
       </SfBannerGrid></div>`
-    }));
+  }));

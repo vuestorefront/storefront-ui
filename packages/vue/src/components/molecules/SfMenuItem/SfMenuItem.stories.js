@@ -12,13 +12,13 @@ storiesOf("Molecules|MenuItem", module)
     },
     props: {
       label: {
-        default: text("label (prop)", "Red")
+        default: text("label", "Red", "Props")
       },
       count: {
-        default: text("count (prop)", "30")
+        default: text("count", "30", "Props")
       },
       icon: {
-        default: text("icon (prop)", "chevron_right")
+        default: text("icon", "chevron_right", "Props")
       }
     },
     template: `<div style="max-width: 300px">
@@ -34,13 +34,13 @@ storiesOf("Molecules|MenuItem", module)
     },
     props: {
       label: {
-        default: text("label (prop)", "Red")
+        default: text("label", "Red", "Props")
       },
       count: {
-        default: text("count (prop)", "30")
+        default: text("count", "30", "Props")
       },
       icon: {
-        default: text("icon (prop)", "chevron_right")
+        default: text("icon", "chevron_right", "Props")
       }
     },
     template: `<div style="max-width: 300px">
@@ -60,13 +60,13 @@ storiesOf("Molecules|MenuItem", module)
     },
     props: {
       label: {
-        default: text("label (prop)", "Red")
+        default: text("label", "Red", "Props")
       },
       count: {
-        default: text("count (prop)", "30")
+        default: text("count", "30", "Props")
       },
       icon: {
-        default: text("icon (prop)", "chevron_right")
+        default: text("icon", "chevron_right", "Props")
       }
     },
     template: `<div style="max-width: 300px">
@@ -86,13 +86,13 @@ storiesOf("Molecules|MenuItem", module)
     },
     props: {
       label: {
-        default: text("label (prop)", "Red")
+        default: text("label", "Red", "Props")
       },
       count: {
-        default: text("count (prop)", "30")
+        default: text("count", "30", "Props")
       },
       icon: {
-        default: text("icon (prop)", "chevron_right")
+        default: text("icon", "chevron_right", "Props")
       }
     },
     template: `<div style="max-width: 300px">
@@ -113,13 +113,13 @@ storiesOf("Molecules|MenuItem", module)
     },
     props: {
       label: {
-        default: text("label (prop)", "Red")
+        default: text("label", "Red", "Props")
       },
       count: {
-        default: text("count (prop)", "30")
+        default: text("count", "30", "Props")
       },
       icon: {
-        default: text("icon (prop)", "chevron_right")
+        default: text("icon", "chevron_right", "Props")
       }
     },
     template: `<div style="max-width: 300px">

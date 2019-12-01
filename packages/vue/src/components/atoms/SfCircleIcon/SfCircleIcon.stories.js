@@ -18,7 +18,7 @@ storiesOf("Atoms|CircleIcon", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-circle-icon--small": "sf-circle-icon--small",
             "sf-circle-icon--big": "sf-circle-icon--big",
@@ -30,11 +30,12 @@ storiesOf("Atoms|CircleIcon", module)
             "color-success": "color-success"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       icon: {
-        default: select("icon (prop)", iconsNames, "home")
+        default: select("icon", iconsNames, "home", "Props")
       }
     },
     template: `<SfCircleIcon
@@ -46,7 +47,7 @@ storiesOf("Atoms|CircleIcon", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-circle-icon--small": "sf-circle-icon--small",
             "sf-circle-icon--big": "sf-circle-icon--big",
@@ -58,11 +59,12 @@ storiesOf("Atoms|CircleIcon", module)
             "color-success": "color-success"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       icon: {
-        default: select("icon (prop)", iconsNames, "home")
+        default: select("icon", iconsNames, "home", "Props")
       }
     },
     template: `<SfCircleIcon

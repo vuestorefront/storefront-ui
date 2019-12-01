@@ -9,13 +9,13 @@ storiesOf("Molecules|ProductOption", module)
     components: { SfProductOption },
     props: {
       color: {
-        default: text("color (prop)", "red")
+        default: text("color", "red", "Props")
       },
       label: {
-        default: text("label (prop)", "Red")
+        default: text("label", "Red", "Props")
       },
       value: {
-        default: text("value (prop)", "red")
+        default: text("value", "red", "Props")
       }
     },
     template: `<div style="max-width: 300px">
@@ -29,13 +29,13 @@ storiesOf("Molecules|ProductOption", module)
     components: { SfProductOption },
     props: {
       color: {
-        default: text("color (prop)", "red")
+        default: text("color", "red", "Props")
       },
       label: {
-        default: text("label (prop)", "Red")
+        default: text("label", "Red", "Props")
       },
       value: {
-        default: text("value (prop)", "red")
+        default: text("value", "red", "Props")
       }
     },
     template: `<div style="max-width: 300px">
@@ -53,13 +53,13 @@ storiesOf("Molecules|ProductOption", module)
     components: { SfProductOption },
     props: {
       color: {
-        default: text("color (prop)", "red")
+        default: text("color", "red", "Props")
       },
       label: {
-        default: text("label (prop)", "Red")
+        default: text("label", "Red", "Props")
       },
       value: {
-        default: text("value (prop)", "red")
+        default: text("value", "red", "Props")
       }
     },
     template: `<div style="max-width: 300px">
