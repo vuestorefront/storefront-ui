@@ -9,10 +9,10 @@ storiesOf("Atoms|Bullets", module)
   .add("Default", () => ({
     props: {
       total: {
-        default: number("total (props)", 3)
+        default: number("total", 3, {}, "Props")
       },
       current: {
-        default: number("current (props)", 1)
+        default: number("current", 1, {}, "Props")
       }
     },
     components: { SfBullets },
@@ -23,10 +23,10 @@ storiesOf("Atoms|Bullets", module)
   .add("[slot] active", () => ({
     props: {
       total: {
-        default: number("total (props)", 3)
+        default: number("total", 3, {}, "Props")
       },
       current: {
-        default: number("current (props)", 1)
+        default: number("current", 1, {}, "Props")
       }
     },
     components: { SfBullets },
@@ -41,10 +41,10 @@ storiesOf("Atoms|Bullets", module)
   .add("[slot] inactive", () => ({
     props: {
       total: {
-        default: number("total (props)", 3)
+        default: number("total", 3, {}, "Props")
       },
       current: {
-        default: number("current (props)", 1)
+        default: number("current", 1, {}, "Props")
       }
     },
     components: { SfBullets },

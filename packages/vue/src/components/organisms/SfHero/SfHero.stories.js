@@ -38,54 +38,54 @@ const data = () => {
 
 storiesOf("Organisms|Hero", module)
   .addDecorator(withKnobs)
-
-  .add(
-    "Basic",
-    () => ({
-      data,
-      components: { SfHero },
-      props: {
-        customClass1: {
-          default: options(
-            "CSS Modifier for 1st item",
-            {
-              "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
-              "bg-top-right": "sf-hero-item--position-bg-top-right",
-              "bg-top-left": "sf-hero-item--position-bg-top-left",
-              "align-right": "sf-hero-item--align-right"
-            },
-            "sf-hero-item--position-bg-top-right",
-            { display: "multi-select" }
-          )
-        },
-        customClass2: {
-          default: options(
-            "CSS Modifier for 2nd item",
-            {
-              "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
-              "bg-top-right": "sf-hero-item--position-bg-top-right",
-              "bg-top-left": "sf-hero-item--position-bg-top-left",
-              "align-right": "sf-hero-item--align-right"
-            },
-            "sf-hero-item--position-bg-bottom-left sf-hero-item--align-right",
-            { display: "multi-select" }
-          )
-        },
-        customClass3: {
-          default: options(
-            "CSS Modifier for 3rd item",
-            {
-              "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
-              "bg-top-right": "sf-hero-item--position-bg-top-right",
-              "bg-top-left": "sf-hero-item--position-bg-top-left",
-              "align-right": "sf-hero-item--align-right"
-            },
-            "null",
-            { display: "multi-select" }
-          )
-        }
+  .add("Basic", () => ({
+    data,
+    components: { SfHero },
+    props: {
+      customClass1: {
+        default: options(
+          "CSS Modifier for 1st item",
+          {
+            "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
+            "bg-top-right": "sf-hero-item--position-bg-top-right",
+            "bg-top-left": "sf-hero-item--position-bg-top-left",
+            "align-right": "sf-hero-item--align-right"
+          },
+          "sf-hero-item--position-bg-top-right",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
       },
-      template: `<div style="max-width: 1240px; margin: auto"><SfHero :sliderOptions="{autoplay: false}">
+      customClass2: {
+        default: options(
+          "CSS Modifier for 2nd item",
+          {
+            "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
+            "bg-top-right": "sf-hero-item--position-bg-top-right",
+            "bg-top-left": "sf-hero-item--position-bg-top-left",
+            "align-right": "sf-hero-item--align-right"
+          },
+          "sf-hero-item--position-bg-bottom-left sf-hero-item--align-right",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
+      customClass3: {
+        default: options(
+          "CSS Modifier for 3rd item",
+          {
+            "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
+            "bg-top-right": "sf-hero-item--position-bg-top-right",
+            "bg-top-left": "sf-hero-item--position-bg-top-left",
+            "align-right": "sf-hero-item--align-right"
+          },
+          "null",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      }
+    },
+    template: `<div style="max-width: 1240px; margin: auto"><SfHero :sliderOptions="{autoplay: false}">
         <template>
           <div v-for="(item, index) in items">
             <SfHeroItem
@@ -99,18 +99,16 @@ storiesOf("Organisms|Hero", module)
           </div>
         </template>
       </SfHero></div>`
-    }))
-  .add(
-    "[props] sliderOptions",
-    () => ({
-      components: { SfHero },
-      props: {
-        autoplay: {
-          default: number("autoplay option for glide.js", 1000)
-        }
-      },
-      data,
-      template: `<SfHero :sliderOptions="{ autoplay }">
+  }))
+  .add("[props] sliderOptions", () => ({
+    components: { SfHero },
+    props: {
+      autoplay: {
+        default: number("autoplay option for glide.js", 1000, {}, "Props")
+      }
+    },
+    data,
+    template: `<SfHero :sliderOptions="{ autoplay }">
         <template>
           <div v-for="(item, index) in items">
             <SfHeroItem
@@ -123,14 +121,12 @@ storiesOf("Organisms|Hero", module)
           </div>
         </template>
       </SfHero>`
-    }))
+  }))
 
-  .add(
-    "[slot] controls",
-    () => ({
-      components: { SfHero },
-      data,
-      template: `
+  .add("[slot] controls", () => ({
+    components: { SfHero },
+    data,
+    template: `
       <SfHero>
         <template>
           <div v-for="(item, index) in items">
@@ -155,14 +151,12 @@ storiesOf("Organisms|Hero", module)
           </div>
         </template>
       </SfHero>`
-    }))
+  }))
 
-  .add(
-    "[slot] bullets",
-    () => ({
-      components: { SfHero },
-      data,
-      template: `
+  .add("[slot] bullets", () => ({
+    components: { SfHero },
+    data,
+    template: `
       <SfHero>
         <template>
           <div v-for="(item, index) in items">
@@ -189,4 +183,4 @@ storiesOf("Organisms|Hero", module)
           </span>
         </template>
       </SfHero>`
-    }));
+  }));

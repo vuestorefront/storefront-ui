@@ -5,39 +5,39 @@ import {
   select,
   optionsKnob as options
 } from "@storybook/addon-knobs";
+
 import SfSidebar from "./SfSidebar.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 
 storiesOf("Organisms|Sidebar", module)
   .addDecorator(withKnobs)
-  .add(
-    "Basic",
-    () => ({
-      data() {
-        return {
-          isSidebarOpen: true
-        };
+  .add("Basic", () => ({
+    data() {
+      return {
+        isSidebarOpen: true
+      };
+    },
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-sidebar--right": "sf-sidebar--right"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
       },
-      props: {
-        customClass: {
-          default: options(
-            "CSS Modifiers",
-            {
-              "sf-sidebar--right": "sf-sidebar--right"
-            },
-            "",
-            { display: "multi-select" }
-          )
-        },
-        button: {
-          default: select("button (prop)", [true, false], true)
-        },
-        overlay: {
-          default: select("overlay (prop)", [true, false], true)
-        }
+      button: {
+        default: select("button", [true, false], true, "Props")
       },
-      components: { SfSidebar, SfButton },
-      template: `<div>
+      overlay: {
+        default: select("overlay", [true, false], true, "Props")
+      }
+    },
+    components: { SfSidebar, SfButton },
+    template: `<div>
         <SfButton @click="isSidebarOpen = true">Open sidebar</SfButton>
         <SfSidebar
           @close="isSidebarOpen = false"
@@ -51,4 +51,4 @@ storiesOf("Organisms|Sidebar", module)
           </div>
         </SfSidebar>
       </div>`
-    }));
+  }));

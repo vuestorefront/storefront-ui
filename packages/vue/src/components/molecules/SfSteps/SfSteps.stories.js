@@ -2,12 +2,12 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
 
+import SfSteps from "./SfSteps.vue";
+
 const StoriesPlaceholder = {
   props: ["name"],
   template: `<div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">[#default slot content] {{name}}</div>`
 };
-
-import SfSteps from "./SfSteps.vue";
 
 storiesOf("Molecules|Steps", module)
   .addDecorator(withKnobs)
@@ -15,7 +15,7 @@ storiesOf("Molecules|Steps", module)
     components: { SfSteps, StoriesPlaceholder },
     props: {
       canGoBack: {
-        default: boolean("can-go-back (prop)", true)
+        default: boolean("can-go-back", true, "Props")
       }
     },
     data() {
@@ -42,7 +42,7 @@ storiesOf("Molecules|Steps", module)
     components: { SfSteps, StoriesPlaceholder },
     props: {
       canGoBack: {
-        default: boolean("can-go-back (prop)", true)
+        default: boolean("can-go-back", true, "Props")
       }
     },
     data() {

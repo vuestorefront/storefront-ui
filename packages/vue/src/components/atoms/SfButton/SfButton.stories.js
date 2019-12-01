@@ -14,7 +14,7 @@ storiesOf("Atoms|Button", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-button--outline": "sf-button--outline",
             "sf-button--text": "sf-button--text",
@@ -27,11 +27,12 @@ storiesOf("Atoms|Button", module)
             "color-success": "color-success"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       customLabel: {
-        default: text("default (slot)", "Shop now")
+        default: text("default", "Shop now", "Slots")
       }
     },
     components: { SfButton },

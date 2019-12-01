@@ -6,36 +6,35 @@ import SfCollectedProduct from "./SfCollectedProduct.vue";
 
 storiesOf("Organisms|CollectedProduct", module)
   .addDecorator(withKnobs)
-  .add(
-    "Props",
-    () => ({
-      data() {
-        return {
-          qty: "1"
-        };
+  .add("Props", () => ({
+    data() {
+      return {
+        qty: "1"
+      };
+    },
+    props: {
+      image: {
+        default: text(
+          "image",
+          "/assets/storybook/homepage/productB.jpg",
+          "Props"
+        )
       },
-      props: {
-        image: {
-          default: text(
-            "image (prop)",
-            "/assets/storybook/homepage/productB.jpg"
-          )
-        },
-        title: {
-          default: text("title (prop)", "Product name")
-        },
-        regularPrice: {
-          default: text("regularPrice (prop)", "$10,99")
-        },
-        specialPrice: {
-          default: text("specialPrice (prop)", "$5,99")
-        },
-        stock: {
-          default: number("stock (prop)", 99)
-        }
+      title: {
+        default: text("title", "Product name", "Props")
       },
-      components: { SfCollectedProduct },
-      template: `    <SfCollectedProduct
+      regularPrice: {
+        default: text("regularPrice", "$10,99", "Props")
+      },
+      specialPrice: {
+        default: text("specialPrice", "$5,99", "Props")
+      },
+      stock: {
+        default: number("stock", 99, {}, "Props")
+      }
+    },
+    components: { SfCollectedProduct },
+    template: `    <SfCollectedProduct
         :image="image"
         :title="title"
         :specialPrice="specialPrice"
@@ -53,4 +52,4 @@ storiesOf("Organisms|CollectedProduct", module)
           </div>
         </template>
       </SfCollectedProduct>`
-    }));
+  }));

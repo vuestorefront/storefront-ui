@@ -10,16 +10,16 @@ storiesOf("Molecules|Modal", module)
     components: { SfModal },
     props: {
       visible: {
-        default: boolean("visible (data)", true)
+        default: boolean("visible", true, "Props")
       },
       overlay: {
-        default: boolean("overlay (prop)", true)
+        default: boolean("overlay", true, "Props")
       },
       cross: {
-        default: boolean("cross (prop)", true)
+        default: boolean("cross", true, "Props")
       },
       persistent: {
-        default: boolean("persistent (prop)", true)
+        default: boolean("persistent", true, "Props")
       }
     },
     template: `<SfModal
@@ -34,16 +34,16 @@ storiesOf("Molecules|Modal", module)
     components: { SfModal },
     props: {
       visible: {
-        default: boolean("visible (data)", true)
+        default: boolean("visible", true, "Props")
       },
       overlay: {
-        default: boolean("overlay (prop)", true)
+        default: boolean("overlay", true, "Props")
       },
       cross: {
-        default: boolean("cross (prop)", true)
+        default: boolean("cross", true, "Props")
       },
       persistent: {
-        default: boolean("persistent (prop)", true)
+        default: boolean("persistent", true, "Props")
       }
     },
     template: `<SfModal

@@ -8,13 +8,14 @@ import {
   optionsKnob as options
 } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
+
+import SfCircleIcon from "./SfCircleIcon.vue";
+
 const iconsNames = Object.keys(icons);
 
 const StoriesPlaceholder = {
   template: `<span style="font-size: 1.5rem; width: 20px; height: 20px; line-height: 0; display: flex; justify-content: center; align-items: center">1</span>`
 };
-
-import SfCircleIcon from "./SfCircleIcon.vue";
 
 storiesOf("Atoms|CircleIcon", module)
   .addDecorator(withKnobs)
@@ -23,7 +24,7 @@ storiesOf("Atoms|CircleIcon", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "color-primary": "color-primary",
             "color-secondary": "color-secondary",
@@ -33,17 +34,18 @@ storiesOf("Atoms|CircleIcon", module)
             "color-success": "color-success"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       icon: {
-        default: select("icon (prop)", iconsNames, "home")
+        default: select("icon", iconsNames, "home", "Props")
       },
       iconSize: {
-        default: text("icon-size (prop)", "20px")
+        default: text("icon-size", "20px", "Props")
       },
       iconColor: {
-        default: color("icon-color (prop)", "#FFFFFF")
+        default: color("icon-color", "#FFFFFF", "Props")
       }
     },
     template: `<SfCircleIcon
@@ -58,7 +60,7 @@ storiesOf("Atoms|CircleIcon", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "color-primary": "color-primary",
             "color-secondary": "color-secondary",
@@ -68,17 +70,18 @@ storiesOf("Atoms|CircleIcon", module)
             "color-success": "color-success"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       icon: {
-        default: select("icon (prop)", iconsNames, "home")
+        default: select("icon", iconsNames, "home", "Props")
       },
       iconSize: {
-        default: text("icon-size (prop)", "20px")
+        default: text("icon-size", "20px", "Props")
       },
       iconColor: {
-        default: text("icon-color (prop)", "#FFFFFF")
+        default: text("icon-color", "#FFFFFF", "Props")
       }
     },
     template: `<SfCircleIcon

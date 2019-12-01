@@ -10,19 +10,19 @@ storiesOf("Atoms|Checkbox", module)
     components: { SfCheckbox },
     props: {
       name: {
-        default: text("name (prop)", "shipping")
+        default: text("name", "shipping", "Props")
       },
       value: {
-        default: text("value (prop)", "shipping-address")
+        default: text("value", "shipping-address", "Props")
       },
       label: {
-        default: text("label (prop)", "Copy address data from shipping")
+        default: text("label", "Copy address data from shipping", "Props")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("required", false, "Props")
       },
       disabled: {
-        default: boolean("disabled (prop)", false)
+        default: boolean("disabled", false, "Props")
       }
     },
     data() {
@@ -43,19 +43,19 @@ storiesOf("Atoms|Checkbox", module)
     components: { SfCheckbox },
     props: {
       name: {
-        default: text("name (prop)", "shipping")
+        default: text("name", "shipping", "Props")
       },
       value: {
-        default: text("value (prop)", "shipping-address")
+        default: text("value", "shipping-address", "Props")
       },
       label: {
-        default: text("label (prop)", "Copy address data from shipping")
+        default: text("label", "Copy address data from shipping", "Props")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("required", false, "Props")
       },
       disabled: {
-        default: boolean("disabled (prop)", false)
+        default: boolean("disabled", false, "Props")
       }
     },
     data() {
@@ -80,19 +80,19 @@ storiesOf("Atoms|Checkbox", module)
     components: { SfCheckbox },
     props: {
       name: {
-        default: text("name (prop)", "shipping")
+        default: text("name", "shipping", "Props")
       },
       value: {
-        default: text("value (prop)", "shipping-address")
+        default: text("value", "shipping-address", "Props")
       },
       label: {
-        default: text("label (prop)", "Copy address data from shipping")
+        default: text("label", "Copy address data from shipping", "Props")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("required", false, "Props")
       },
       disabled: {
-        default: boolean("disabled (prop)", false)
+        default: boolean("disabled", false, "Props")
       }
     },
     data() {
