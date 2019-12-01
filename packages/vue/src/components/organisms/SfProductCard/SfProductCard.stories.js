@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { generateStorybookTable } from "@/helpers";
 import {
   withKnobs,
   text,
@@ -9,33 +8,6 @@ import {
   select
 } from "@storybook/addon-knobs";
 import SfProductCard from "./SfProductCard.vue";
-
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    [
-      "$product-card-max-width",
-      "200px",
-      "Maximum width of Product Card in small screens"
-    ],
-    [
-      "$product-card-hover-box-shadow",
-      "0px 4px 35px rgba(168, 172, 176, 0.19)",
-      "Shadow effect when hovering on Product Card"
-    ],
-    [
-      "$product-card-desktop-max-width",
-      "240px",
-      "Maximum width of Product Card for desktop"
-    ],
-    [
-      "$product__image-background-color",
-      "$c-bg-primary",
-      "Background color of the product's image"
-    ],
-    ["$product__image-blend-mode", "darken", "Blend mode of product's image"]
-  ]
-};
 
 const pictures = [
   {
@@ -118,17 +90,7 @@ storiesOf("Organisms|ProductCard", module)
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
       />`
-    }),
-    {
-      info: {
-        summary: `
-        <p>Component for rendering Product Card.</p>
-        <h2> Usage </h2>
-        <pre><code>import { SfProductCard } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS Variables")}`
-      }
-    }
-  )
+    }))
 
   .add(
     "With 2 pictures",
@@ -182,23 +144,4 @@ storiesOf("Organisms|ProductCard", module)
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
       />`
-    }),
-    {
-      info: {
-        summary: `
-        <h2> Usage </h2>
-        <pre><code>import { SfProductCard } from "@storefront-ui/vue"</code></pre>
-        <p>You can pass <code>image</code> prop as array of picture objects with following model:</p>
-        <pre><code>[ { small: { url, alt }, normal: { url, alt } } ]</code></pre>
-        <p>
-          Then product card will use <code>SfImage</code> to render
-          <code>&lt;picture&gt;</code> tag with media query todo load image
-          on different sizes on mobile/desktop.
-          <br>
-          If the array has more than one picture, the image will be
-          switched (the first and second array elements) on card hover.
-        </p>
-        ${generateStorybookTable(scssTableConfig, "SCSS Variables")}`
-      }
-    }
-  );
+    }));

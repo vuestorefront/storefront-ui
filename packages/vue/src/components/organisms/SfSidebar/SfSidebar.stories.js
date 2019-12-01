@@ -5,22 +5,8 @@ import {
   select,
   optionsKnob as options
 } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
 import SfSidebar from "./SfSidebar.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
-
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["$sidebar-background", "$c-white", "background for sidebar"],
-    ["$sidebar-padding", "$spacer-inner", "padding for sidebar"]
-  ]
-};
-
-const cssTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [["sf-sidebar--right", "places sidebar on the right side"]]
-};
 
 storiesOf("Organisms|Sidebar", module)
   .addDecorator(withKnobs)
@@ -65,16 +51,4 @@ storiesOf("Organisms|Sidebar", module)
           </div>
         </SfSidebar>
       </div>`
-    }),
-    {
-      info: {
-        summary:
-          "`SfSidebar` will add `overflow: hidden` CSS property to body once instantiated. This is why you should always use `v-if`." +
-          `<h2> Usage </h2>
-          <pre><code>import { SfSidebar } from "@storefront-ui/vue"</code></pre>
-          ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-          ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
-          `
-      }
-    }
-  );
+    }));

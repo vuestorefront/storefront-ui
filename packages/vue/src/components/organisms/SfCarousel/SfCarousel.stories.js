@@ -1,14 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
 import SfCarousel from "./SfCarousel.vue";
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["$carousel-mobile-breakpoint", "$mobile-max", "default mobile breakpoint"]
-  ]
-};
 
 const data = () => {
   return {
@@ -64,16 +57,7 @@ storiesOf("Organisms|Carousel", module)
         </SfCarousel>
       </div>
       `
-    }),
-    {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import { SfCarousel } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
-      }
-    }
-  )
+    }))
   .add(
     "[slot] prev",
     () => ({
@@ -116,16 +100,7 @@ storiesOf("Organisms|Carousel", module)
         </SfCarousel>
       </div>
       `
-    }),
-    {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import { SfCarousel } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
-      }
-    }
-  )
+    }))
   .add(
     "[slot] next",
     () => ({
@@ -168,13 +143,4 @@ storiesOf("Organisms|Carousel", module)
         </SfCarousel>
       </div>
       `
-    }),
-    {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import { SfCarousel } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
-      }
-    }
-  );
+    }));
