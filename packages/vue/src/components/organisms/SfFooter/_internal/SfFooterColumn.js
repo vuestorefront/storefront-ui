@@ -21,8 +21,8 @@ export default {
       this.$parent.toggle(payload);
     }
   },
-  mounted(){
+  mounted() {
     const title = this.title;
-    this.$parent.items.push(title)
+    this.$parent.items.push(title);
   }
 };

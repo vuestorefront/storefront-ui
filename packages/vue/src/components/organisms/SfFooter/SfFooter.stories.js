@@ -32,7 +32,9 @@ storiesOf("Organisms|Footer", module)
     },
     computed: {
       style() {
-        return this.isMobile ? { padding: "1.25rem 2.5rem" } : { padding: "6px 0" };
+        return this.isMobile
+          ? { padding: "1.25rem 2.5rem" }
+          : { padding: "6px 0" };
       }
     },
     template: `<div style="margin: -20px;">
