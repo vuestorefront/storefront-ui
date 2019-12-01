@@ -12,7 +12,7 @@ import SfIcon from "../SfIcon/SfIcon.vue";
 
 storiesOf("Atoms|Heading", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfHeading },
     props: {
       customClass: {

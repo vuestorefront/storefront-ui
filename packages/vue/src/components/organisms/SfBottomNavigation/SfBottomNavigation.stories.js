@@ -8,7 +8,7 @@ import SfBottomNavigation from "./SfBottomNavigation.vue";
 
 storiesOf("Organisms|BottomNavigation", module)
   .addDecorator(withKnobs)
-  .add("[slot] default", () => ({
+  .add("Common", () => ({
     components: { SfBottomNavigation, SfIcon, SfCircleIcon },
     props: {
       customClass: {

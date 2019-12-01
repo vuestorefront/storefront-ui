@@ -6,7 +6,7 @@ import SfBreadcrumbs from "./SfBreadcrumbs.vue";
 
 storiesOf("Atoms|Breadcrumbs", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfBreadcrumbs },
     props: {
       breadcrumbs: {

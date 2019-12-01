@@ -7,7 +7,7 @@ import SfIcon from "../SfIcon/SfIcon.vue";
 
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: {
       SfArrow
     },

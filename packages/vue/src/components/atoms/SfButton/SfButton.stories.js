@@ -10,7 +10,7 @@ import SfButton from "./SfButton.vue";
 
 storiesOf("Atoms|Button", module)
   .addDecorator(withKnobs)
-  .add("[slot] default", () => ({
+  .add("Common", () => ({
     props: {
       customClass: {
         default: options(

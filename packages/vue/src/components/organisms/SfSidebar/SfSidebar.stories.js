@@ -11,7 +11,7 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 
 storiesOf("Organisms|Sidebar", module)
   .addDecorator(withKnobs)
-  .add("Basic", () => ({
+  .add("Common", () => ({
     data() {
       return {
         isSidebarOpen: true

@@ -10,7 +10,7 @@ import ComponentNameCamelCase from "./ComponentNameCamelCase.vue";
 
 storiesOf("ComponentType|ComponentName", module)
   .addDecorator(withKnobs)
-  .add("[slot] default", () => ({
+  .add("Common", () => ({
     props: {
       customClass: {
         default: options(

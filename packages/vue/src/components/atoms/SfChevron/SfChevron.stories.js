@@ -7,7 +7,7 @@ import SfIcon from "../SfIcon/SfIcon.vue";
 
 storiesOf("Atoms|Chevron", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfChevron },
     props: {
       customClass: {

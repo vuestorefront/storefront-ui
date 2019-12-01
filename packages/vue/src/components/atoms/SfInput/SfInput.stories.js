@@ -7,7 +7,7 @@ import SfIcon from "../SfIcon/SfIcon.vue";
 
 storiesOf("Atoms|Input", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfInput },
     props: {
       label: {

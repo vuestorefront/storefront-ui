@@ -11,7 +11,7 @@ import SfBanner from "./SfBanner.vue";
 
 storiesOf("Molecules|Banner", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfBanner },
     props: {
       customClass: {

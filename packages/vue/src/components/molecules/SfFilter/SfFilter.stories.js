@@ -5,7 +5,7 @@ import SfFilter from "./SfFilter.vue";
 
 storiesOf("Molecules|Filter", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: {
       SfFilter
     },

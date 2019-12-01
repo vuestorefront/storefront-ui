@@ -5,7 +5,7 @@ import SfPagination from "./SfPagination.vue";
 
 storiesOf("Molecules|Pagination", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfPagination },
     props: {
       current: {

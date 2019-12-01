@@ -6,7 +6,7 @@ import SfCollectedProduct from "./SfCollectedProduct.vue";
 
 storiesOf("Organisms|CollectedProduct", module)
   .addDecorator(withKnobs)
-  .add("Props", () => ({
+  .add("Common", () => ({
     data() {
       return {
         qty: "1"

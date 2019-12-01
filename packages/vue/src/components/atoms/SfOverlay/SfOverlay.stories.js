@@ -6,7 +6,7 @@ import SfOverlay from "./SfOverlay.vue";
 
 storiesOf("Atoms|Overlay", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfOverlay },
     props: {
       transition: {

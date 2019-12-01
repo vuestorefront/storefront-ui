@@ -6,7 +6,7 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 storiesOf("Molecules|MenuItem", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: {
       SfMenuItem
     },

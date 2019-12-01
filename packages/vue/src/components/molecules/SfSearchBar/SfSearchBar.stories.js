@@ -9,7 +9,7 @@ import SfSearchBar from "./SfSearchBar.vue";
 
 storiesOf("Molecules|SearchBar", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfSearchBar },
     props: {
       customClass: {
