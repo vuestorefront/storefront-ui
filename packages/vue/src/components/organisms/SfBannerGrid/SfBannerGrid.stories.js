@@ -13,7 +13,7 @@ storiesOf("Organisms|BannerGrid", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-banner-grud--modifier": "sf-banner-grud--modifier"
+            "sf-banner-grid--modifier": "sf-banner-grid--modifier"
           },
           "",
           { display: "multi-select" },
@@ -78,7 +78,7 @@ storiesOf("Organisms|BannerGrid", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-banner-grud--modifier": "sf-banner-grud--modifier"
+            "sf-banner-grid--modifier": "sf-banner-grid--modifier"
           },
           "",
           { display: "multi-select" },
