@@ -17,6 +17,10 @@ export default {
     column: {
       type: Number,
       default: 4
+    },
+    multiple: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -54,7 +58,9 @@ export default {
   methods: {
     toggle(payload) {
       let opened = [...this.opened];
-      if (opened.includes(payload)) {
+      if (!this.multiple) {
+        opened = [payload];
+      } else if (opened.includes(payload)) {
         opened = opened.filter(item => item !== payload);
       } else {
         opened.push(payload);
