@@ -40,9 +40,6 @@ $card-margin-left-desktop: $spacer-big * 5!default;
     background-color: transparent;
     cursor: pointer;
   }
-  &--has-scroll-lock{
-    overflow: hidden;
-  }
   &--is-active{
     #{$this}{
       &__static{
