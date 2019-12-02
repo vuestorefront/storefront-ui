@@ -17,5 +17,8 @@ export default {
     isMobile() {
       return this.provided.isMobile;
     }
+  },
+  mounted() {
+    this.provided.updateColumns(this.title);
   }
 };
