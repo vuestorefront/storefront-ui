@@ -19,7 +19,7 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
       activePage: "About us",
       categories: [
         {
-          header: "CLOTHING",
+          header: "Clothing",
           items: [
             { label: "Skirts" },
             { label: "Sweaters" },
@@ -32,7 +32,7 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
           ]
         },
         {
-          header: "ACCESSORIES",
+          header: "Accessories",
           items: [
             { label: "Bags & Purses" },
             { label: "Belts" },
@@ -41,7 +41,7 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
           ]
         },
         {
-          header: "SHOES",
+          header: "Shoes",
           items: [
             { label: "Boots" },
             { label: "Heels" },
@@ -65,11 +65,11 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
           </SfMegaMenuColumn>
         </template>
         <div>
-          <h3>LAST PAIRS LEFT</h3>
-          <SfImage style="margin: 1.25rem 0;" src="assets/storybook/megamenu/bannerSandals.jpg" />
+          <h3 style="text-transform: uppercase;">Last pairs left</h3>
+          <SfImage style="margin: 1.25rem 2rem 1.25rem 0;" src="assets/storybook/megamenu/bannerSandals.jpg" />
         </div>
         <div>
-          <h3>BEACH BAGS 2=1</h3>
+          <h3 style="text-transform: uppercase;">Beach bags 2=1</h3>
           <SfImage style="margin: 1.25rem 0;" src="assets/storybook/megamenu/bannerBeachBag.jpg" />
         </div>
       </SfMegaMenu>
