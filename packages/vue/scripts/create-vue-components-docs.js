@@ -394,15 +394,14 @@ function parseStoriesFile(contentStoriesFile) {
   let storyImportsString = storyImports.join("\n");
 
   // merge props and data from the story into a single data object
-  let componentData = {
-    ...storyData,
-    ...Object.fromEntries(storyProps)
-  };
-  const componentDataEntries = [];
-  for (const [k, v] of Object.entries(componentData)) {
-    componentDataEntries.push(`${k}: ${JSON.stringify(v)}`);
+  const componentData = [];
+  for (const [k, v] of Object.entries(storyData)) {
+    componentData.push(`${k}: ${JSON.stringify(v)}`);
   }
-  const componentDataString = componentDataEntries.join(",\n");
+  for (const [k, v] of storyProps.entries()) {
+    componentData.push(`${k}: ${JSON.stringify(v)}`);
+  }
+  const componentDataString = componentData.join(",\n");
 
   const codeBlock = getCommonUsageCodeBlock(
     storyTemplate,
