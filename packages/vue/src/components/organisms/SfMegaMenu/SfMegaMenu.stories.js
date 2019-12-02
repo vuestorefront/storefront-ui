@@ -52,6 +52,22 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
             { label: "Trainers" }
           ]
         }
+      ],
+      tiles: [
+        {
+          title: "Last pairs left",
+          pictures: {
+            full: "assets/storybook/megamenu/bannerSandals-full.png",
+            normal: "assets/storybook/megamenu/bannerSandals.jpg"
+          }
+        },
+        {
+          title: "Beach bags 2=1",
+          pictures: {
+            full: "assets/storybook/megamenu/bannerBeachBag-full.png",
+            normal: "assets/storybook/megamenu/bannerBeachBag.jpg"
+          }
+        }
       ]
     };
   },
@@ -63,13 +79,10 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
           <SfMenuItem v-for="item in category.items" :label="item.label" :key="item.label" class="sf-mega-menu__subitem" />
         </SfMegaMenuColumn>
         <template #custom-section>
-        <div>
-          <h3 style="text-transform: uppercase;">Last pairs left</h3>
-          <SfImage style="margin: 1.25rem 2rem 1.25rem 0;" src="assets/storybook/megamenu/bannerSandals.jpg" />
-        </div>
-        <div>
-          <h3 style="text-transform: uppercase;">Beach bags 2=1</h3>
-          <SfImage style="margin: 1.25rem 2rem 1.25rem 0;" src="assets/storybook/megamenu/bannerBeachBag.jpg" />
+        <div v-for="tile in tiles" :key="tile.title" style="text-transform: uppercase;">
+          <h3>{{ tile.title }}</h3>
+          <SfImage class="mobile-only" style="margin: 1.25rem 2rem 1.25rem 0;" :src="tile.pictures.full" />
+          <SfImage class="desktop-only" style="margin: 1.25rem 2rem 1.25rem 0;" :src="tile.pictures.normal" />
         </div>
         </template>
       </SfMegaMenu>
