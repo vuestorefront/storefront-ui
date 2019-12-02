@@ -81,7 +81,27 @@ $header-navigation-item-font-weight: 500 !default;
     align-items: center;
   }
   &__icon{
-    // todo: fix SfCircleIcon
+    $this: &;
+    padding: 10px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    margin-left: $spacer-big;
+    .sf-icon{
+      --icon-color: #{$c-text};
+    }
+    &:hover{
+      background-color: $c-light;
+      box-shadow: none;
+      .sf-icon{
+        --icon-color: #{$c-text};
+      }
+    }
+    &--is-active{
+      background-color: $c-primary;
+      .sf-icon{
+        --icon-color: #{$c-white};
+      }
+    }
   }
   &__navigation,
   &__search,
