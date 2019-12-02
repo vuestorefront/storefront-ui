@@ -18,7 +18,7 @@ export default {
   },
   props: {
     /**
-     * Header logo path
+     * Header logo
      */
     logo: {
       type: [String, Object],

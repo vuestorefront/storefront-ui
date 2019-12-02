@@ -1,7 +1,8 @@
 @import "../variables";
 
 $header-height: 3.125rem !default;
-$header-padding: 0 $spacer-extra-big!default;
+$header-padding: 0 1.875rem!default;
+$header-desktop-padding: 0 $spacer-extra-big!default;
 $header-desktop-height: 5rem !default;
 $header-background-color: $c-light !default;
 $header-desktop-background-color: $c-white !default;
@@ -45,15 +46,18 @@ $header-navigation-item-font-weight: 500 !default;
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  justify-content: center;
   height: $header-height;
+  padding: $header-padding ;
   background-color: $header-background-color;
   @media (min-width: $desktop-min) {
+    justify-content: flex-start;
     height: $header-desktop-height;
     padding: $header-padding;
     background-color: $header-desktop-background-color;
   }
   &__logo {
-    height: 100%;
+    height: calc(100% - 1.25rem);
     @media (min-width: $desktop-min) {
       height: calc(100% - 2.5rem);
     }
