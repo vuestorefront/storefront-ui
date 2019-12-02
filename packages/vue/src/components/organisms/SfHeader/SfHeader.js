@@ -56,7 +56,7 @@ export default {
       type: String,
       default: "",
       validator(value) {
-        return ["account", "wishlist", "cart"].includes(value);
+        return ["", "account", "wishlist", "cart"].includes(value);
       }
     }
   }
