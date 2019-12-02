@@ -2,6 +2,7 @@
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
+  text,
   select,
   optionsKnob as options
 } from "@storybook/addon-knobs";
@@ -35,11 +36,15 @@ storiesOf("Atoms|CircleIcon", module)
       },
       icon: {
         default: select("icon (prop)", iconsNames, "home")
+      },
+      iconSize: {
+        default: text("icon-size (prop)", "20px")
       }
     },
     template: `<SfCircleIcon
         :class="customClass"
-        :icon="icon" />`
+        :icon="icon" 
+        :icon-size="iconSize"/>`
   }))
   .add("[slot] default", () => ({
     components: { SfCircleIcon },
@@ -48,8 +53,6 @@ storiesOf("Atoms|CircleIcon", module)
         default: options(
           "CSS modifier",
           {
-            "sf-circle-icon--small": "sf-circle-icon--small",
-            "sf-circle-icon--big": "sf-circle-icon--big",
             "color-primary": "color-primary",
             "color-secondary": "color-secondary",
             "color-warning": "color-warning",
@@ -68,6 +71,6 @@ storiesOf("Atoms|CircleIcon", module)
     template: `<SfCircleIcon
       :class="customClass"
       :icon="icon">
-      <span style="font-size: 1.5rem">1</span>
+      <span style="font-size: 1.5rem; width: 20px; height: 20px; line-height: 0; display: flex; justify-content: center; align-items: center">1</span>
     </SfCircleIcon>`
   }));
