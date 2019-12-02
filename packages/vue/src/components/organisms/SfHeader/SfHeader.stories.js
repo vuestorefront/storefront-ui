@@ -39,6 +39,7 @@ storiesOf("Organisms/Header", module)
         :wishlist-icon="wishlistIcon" 
         :account-icon="accountIcon"
         :active-icon="activeIcon"
+        style="max-width: 1024px; margin: auto"
       >
         <template #navigation>
           <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
@@ -46,6 +47,7 @@ storiesOf("Organisms/Header", module)
           <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
         </template>
       </SfHeader>
+      <div style="max-width: 1024px; margin: auto; height: 30px; background-color: #a3a5ad">&nbsp;</div>
     </div>`
   }))
   .add("[slot] logo", () => ({

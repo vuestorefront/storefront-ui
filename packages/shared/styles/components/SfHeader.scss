@@ -1,95 +1,88 @@
 @import "../variables";
 
 $header-height: 3.125rem !default;
+$header-padding: 0 $spacer-extra-big!default;
 $header-desktop-height: 5rem !default;
-$header-padding: 0 1.875rem !default;
-$header-desktop-padding: 0 1.875rem !default;
-$header-padding: 1.875rem !default;
-$header-background: $c-light !default;
-$header-desktop-background: $c-white !default;
-$header__logo-padding: 10px 0 !default;
-$header__logo-desktop-padding: $spacer-big 0 !default;
-$header__icon-padding: 10px !default;
-$header__icon-margin-left: $spacer-big !default;
-$header-navigation-item-font-weight: 500 !default;
+$header-background-color: $c-light !default;
+$header-desktop-background-color: $c-white !default;
 $header-navigation-item-margin-left: 2.5rem !default;
+$header-navigation-item-font-family: $font-size-small-desktop !default;
+$header-navigation-item-font-size: $font-size-small-desktop !default;
+$header-navigation-item-font-weight: 500 !default;
 
 .sf-header-navigation-item {
+  $this: &;
+  position: relative;
+  height: 100%;
   display: flex;
   align-items: center;
-  height: 100%;
-  color: $c-dark;
-  font-size: $font-size-small-desktop;
-  font-weight: $header-navigation-item-font-weight;
   margin-left: $header-navigation-item-margin-left;
-  &:hover {
-    border-bottom: 2px solid $c-dark;
+  color: $c-text;
+  font-family: $header-navigation-item-font-family;
+  font-size: $header-navigation-item-font-size;
+  font-weight: $header-navigation-item-font-weight;
+  line-height: 1.6;
+  cursor: pointer;
+  transition: color 150ms linear;
+  &::after{
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    bottom: -2px;
+    height: 2px;
+    width: 100%;
+    background-color: transparent;
+    content: "";
+    transition: background-color 150ms linear;
   }
-  @media (max-width: $mobile-max) {
-    display: none;
+  &:hover{
+    &::after{
+      background-color: $c-dark;
+    }
   }
 }
 .sf-header {
-  position: fixed;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 100%;
   height: $header-height;
-  padding: $header-padding;
-  background: $header-background;
+  background-color: $header-background-color;
   @media (min-width: $desktop-min) {
-    justify-content: space-between;
     height: $header-desktop-height;
-    padding: $header-desktop-padding;
-    background: $header-desktop-background;
+    padding: $header-padding;
+    background-color: $header-desktop-background-color;
+  }
+  &__logo {
+    height: 100%;
+    @media (min-width: $desktop-min) {
+      height: calc(100% - 2.5rem);
+    }
+    & > *{
+      height: 100%;
+    }
   }
   &__navigation {
     display: flex;
+    align-items: center;
     height: 100%;
-    &:hover > :not(:hover) {
+    &:hover > *:not(:hover){
       color: $c-gray;
     }
   }
   &__search {
     margin: 0 10px 0 auto;
   }
-  &__icons {
+  &__icons{
     display: flex;
     align-items: center;
   }
-  &__icon {
-    box-sizing: content-box;
-    padding: $header__icon-padding;
-    margin-left: $header__icon-margin-left;
-    cursor: pointer;
-    &--is-active {
-      border-radius: 50%;
-      background-color: $c-primary;
-      fill: $c-white;
-    }
-    &:hover {
-      border-radius: 50%;
-      background-color: $c-light;
-      fill: $c-black;
-    }
+  &__icon{
+    // todo: fix SfCircleIcon
   }
-  &__logo {
-    box-sizing: border-box;
-    padding: $header__logo-padding;
-    @media (min-width: $desktop-min) {
-      padding: $header__logo-desktop-padding;
-    }
-    &,
-    img,
-    picture {
-      height: 100%;
-    }
-  }
+  &__navigation,
   &__search,
   &__icons{
-    @media (max-width: $mobile-max) {
+    @media (max-width: $desktop-min) {
       display: none;
     }
   }
