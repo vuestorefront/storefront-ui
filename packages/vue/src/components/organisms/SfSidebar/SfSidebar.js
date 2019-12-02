@@ -2,6 +2,7 @@ import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 export default {
   name: "SfSidebar",
@@ -52,9 +53,9 @@ export default {
       handler: value => {
         if (typeof window === "undefined") return;
         if (value) {
-          document.body.classList.add("sf-sidebar--has-scroll-lock");
+          disableBodyScroll(document.body);
         } else {
-          document.body.classList.remove("sf-sidebar--has-scroll-lock");
+          enableBodyScroll(document.body);
         }
       },
       immediate: true
@@ -75,6 +76,6 @@ export default {
       : "left";
   },
   beforeDestroy() {
-    document.body.classList.remove("sf-sidebar--has-scroll-lock");
+    enableBodyScroll(document.body);
   }
 };

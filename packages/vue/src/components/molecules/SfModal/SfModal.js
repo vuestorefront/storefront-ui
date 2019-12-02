@@ -1,5 +1,7 @@
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+
 export default {
   name: "SfModal",
   model: {
@@ -57,12 +59,13 @@ export default {
   watch: {
     visible: {
       handler: function(value) {
+        const body = document.body;
         if (typeof window === "undefined") return;
         if (value) {
-          document.body.style.setProperty("overflow", "hidden");
+          disableBodyScroll(body);
           document.addEventListener("keydown", this.keydownHandler);
         } else {
-          document.body.style.removeProperty("overflow");
+          enableBodyScroll(body);
           document.removeEventListener("keydown", this.keydownHandler);
         }
       },

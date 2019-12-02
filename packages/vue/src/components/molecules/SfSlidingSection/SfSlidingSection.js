@@ -1,4 +1,5 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 export default {
   name: "SfSlidingSection",
@@ -76,13 +77,13 @@ export default {
     },
     scrollLock() {
       window.scrollTo(0, 0);
-      document.body.classList.add("sf-sliding-section--has-scroll-lock");
+      disableBodyScroll(document.body);
       window.addEventListener("touchmove", this.touchPreventDefault, {
         passive: false
       });
     },
     scrollUnlock() {
-      document.body.classList.remove("sf-sliding-section--has-scroll-lock");
+      enableBodyScroll(document.body);
       window.removeEventListener("touchmove", this.touchPreventDefault, {
         passive: false
       });
