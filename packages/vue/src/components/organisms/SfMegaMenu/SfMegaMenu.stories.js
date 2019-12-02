@@ -59,11 +59,10 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
       <SfMegaMenu
         :active="activePage"
         @click:change="updateActive">
-        <template #menu-content>
-          <SfMegaMenuColumn v-for="category in categories" :title="category.header">
-            <SfMenuItem v-for="item in category.items" :label="item.label" />
-          </SfMegaMenuColumn>
-        </template>
+        <SfMegaMenuColumn v-for="category in categories" :title="category.header">
+          <SfMenuItem v-for="item in category.items" :label="item.label" />
+        </SfMegaMenuColumn>
+        <template #custom-section>
         <div>
           <h3 style="text-transform: uppercase;">Last pairs left</h3>
           <SfImage style="margin: 1.25rem 2rem 1.25rem 0;" src="assets/storybook/megamenu/bannerSandals.jpg" />
@@ -72,6 +71,7 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
           <h3 style="text-transform: uppercase;">Beach bags 2=1</h3>
           <SfImage style="margin: 1.25rem 2rem 1.25rem 0;" src="assets/storybook/megamenu/bannerBeachBag.jpg" />
         </div>
+        </template>
       </SfMegaMenu>
       <button 
       v-if="activePage" 
