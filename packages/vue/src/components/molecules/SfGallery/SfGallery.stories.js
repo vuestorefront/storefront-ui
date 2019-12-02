@@ -53,7 +53,7 @@ storiesOf("Molecules|Gallery", module)
       },
       sliderOptions: {
         default: object(
-          "slider-options",
+          "sliderOptions",
           {
             autoplay: false,
             rewind: true
@@ -119,7 +119,7 @@ storiesOf("Molecules|Gallery", module)
       },
       sliderOptions: {
         default: object(
-          "slider-options",
+          "sliderOptions",
           {
             autoplay: false,
             rewind: true

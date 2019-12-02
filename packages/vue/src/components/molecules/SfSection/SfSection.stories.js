@@ -32,10 +32,10 @@ storiesOf("Molecules|Section", module)
         )
       },
       titleHeading: {
-        default: text("title-heading", "Share your look", "Props")
+        default: text("titleHeading", "Share your look", "Props")
       },
       subtitleHeading: {
-        default: text("subtitle-heading", "#YOURLOOK", "Props")
+        default: text("subtitleHeading", "#YOURLOOK", "Props")
       },
       levelHeading: {
         default: number("level-heading", 2, {}, "Props")
@@ -63,10 +63,10 @@ storiesOf("Molecules|Section", module)
         )
       },
       titleHeading: {
-        default: text("title-heading", "Share your look", "Props")
+        default: text("titleHeading", "Share your look", "Props")
       },
       subtitleHeading: {
-        default: text("subtitle-heading", "#YOURLOOK", "Props")
+        default: text("subtitleHeading", "#YOURLOOK", "Props")
       },
       levelHeading: {
         default: number("level-heading", 2, {}, "Props")

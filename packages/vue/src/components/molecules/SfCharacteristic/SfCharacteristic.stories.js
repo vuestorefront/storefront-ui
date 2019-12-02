@@ -43,10 +43,10 @@ storiesOf("Molecules|Characteristic", module)
         default: text("icon", "info_shield", "Props")
       },
       sizeIcon: {
-        default: select("size-icon", sizes, "xs", "Props")
+        default: select("sizeIcon", sizes, "xs", "Props")
       },
       colorIcon: {
-        default: select("color-icon", colors, "primary", "Props")
+        default: select("colorIcon", colors, "primary", "Props")
       }
     },
     template: `<SfCharacteristic 
@@ -73,10 +73,10 @@ storiesOf("Molecules|Characteristic", module)
         default: text("icon", "info_shield", "Props")
       },
       sizeIcon: {
-        default: select("size-icon", sizes, "xs", "Props")
+        default: select("sizeIcon", sizes, "xs", "Props")
       },
       colorIcon: {
-        default: select("color-icon", colors, "primary", "Props")
+        default: select("colorIcon", colors, "primary", "Props")
       }
     },
     template: `<SfCharacteristic 
@@ -107,10 +107,10 @@ storiesOf("Molecules|Characteristic", module)
         default: text("icon", "info_shield", "Props")
       },
       sizeIcon: {
-        default: select("size-icon", sizes, "xs", "Props")
+        default: select("sizeIcon", sizes, "xs", "Props")
       },
       colorIcon: {
-        default: select("color-icon", colors, "primary", "Props")
+        default: select("colorIcon", colors, "primary", "Props")
       }
     },
     template: `<SfCharacteristic 
@@ -141,10 +141,10 @@ storiesOf("Molecules|Characteristic", module)
         default: text("icon", "info_shield", "Props")
       },
       sizeIcon: {
-        default: select("size-icon", sizes, "xs", "Props")
+        default: select("sizeIcon", sizes, "xs", "Props")
       },
       colorIcon: {
-        default: select("color-icon", colors, "primary", "Props")
+        default: select("colorIcon", colors, "primary", "Props")
       }
     },
     template: `<SfCharacteristic 
@@ -175,10 +175,10 @@ storiesOf("Molecules|Characteristic", module)
         default: text("icon", "info_shield", "Props")
       },
       sizeIcon: {
-        default: select("size-icon", sizes, "xs", "Props")
+        default: select("sizeIcon", sizes, "xs", "Props")
       },
       colorIcon: {
-        default: select("color-icon", colors, "primary", "Props")
+        default: select("colorIcon", colors, "primary", "Props")
       }
     },
     template: `<SfCharacteristic 

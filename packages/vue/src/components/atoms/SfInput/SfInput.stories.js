@@ -17,7 +17,7 @@ storiesOf("Atoms|Input", module)
         default: text("name", "first-name", "Props")
       },
       errorMessage: {
-        default: text("error-message", "Field is required.", "Props")
+        default: text("errorMessage", "Field is required.", "Props")
       },
       valid: {
         default: boolean("valid", true, "Props")
@@ -56,7 +56,7 @@ storiesOf("Atoms|Input", module)
         default: text("name", "first-name", "Props")
       },
       errorMessage: {
-        default: text("error-message", "Field is required.", "Props")
+        default: text("errorMessage", "Field is required.", "Props")
       },
       valid: {
         default: boolean("valid", true, "Props")
@@ -99,7 +99,7 @@ storiesOf("Atoms|Input", module)
         default: text("name", "first-name", "Props")
       },
       errorMessage: {
-        default: text("error-message", "Field is required.", "Props")
+        default: text("errorMessage", "Field is required.", "Props")
       },
       valid: {
         default: boolean("valid", false, "Props")

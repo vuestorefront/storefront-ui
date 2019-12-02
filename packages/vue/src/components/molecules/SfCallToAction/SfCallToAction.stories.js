@@ -36,7 +36,7 @@ storiesOf("Molecules|CallToAction", module)
         )
       },
       buttonText: {
-        default: text("button-text", "Subscribe", "Props")
+        default: text("buttonText", "Subscribe", "Props")
       },
       image: {
         default: text(
@@ -85,7 +85,7 @@ storiesOf("Molecules|CallToAction", module)
         )
       },
       buttonText: {
-        default: text("button-text", "Subscribe", "Props")
+        default: text("buttonText", "Subscribe", "Props")
       },
       image: {
         default: text(
@@ -138,7 +138,7 @@ storiesOf("Molecules|CallToAction", module)
         )
       },
       buttonText: {
-        default: text("button-text", "Subscribe", "Props")
+        default: text("buttonText", "Subscribe", "Props")
       },
       image: {
         default: text(
@@ -191,7 +191,7 @@ storiesOf("Molecules|CallToAction", module)
         )
       },
       buttonText: {
-        default: text("button-text", "Subscribe", "Props")
+        default: text("buttonText", "Subscribe", "Props")
       },
       image: {
         default: text(

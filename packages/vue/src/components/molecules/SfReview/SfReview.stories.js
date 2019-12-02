@@ -22,19 +22,19 @@ storiesOf("Molecules|Review", module)
         )
       },
       maxRating: {
-        default: number("max-rating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       rating: {
         default: number("rating", 4, {}, "Props")
       },
       charLimit: {
-        default: number("char-limit", 250, {}, "Props")
+        default: number("charLimit", 250, {}, "Props")
       },
       readMoreText: {
-        default: text("read-more-text", "Read more", "Props")
+        default: text("readMoreText", "Read more", "Props")
       },
       hideFullText: {
-        default: text("hide-full-text", "Read less", "Props")
+        default: text("hideFullText", "Read less", "Props")
       }
     },
     template: `<SfReview
@@ -64,19 +64,19 @@ storiesOf("Molecules|Review", module)
         )
       },
       maxRating: {
-        default: number("max-rating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       rating: {
         default: number("rating", 4, {}, "Props")
       },
       charLimit: {
-        default: number("char-limit", 250, {}, "Props")
+        default: number("charLimit", 250, {}, "Props")
       },
       readMoreText: {
-        default: text("read-more-text", "Read more", "Props")
+        default: text("readMoreText", "Read more", "Props")
       },
       hideFullText: {
-        default: text("hide-full-text", "Read less", "Props")
+        default: text("hideFullText", "Read less", "Props")
       }
     },
     template: `<SfReview
@@ -110,19 +110,19 @@ storiesOf("Molecules|Review", module)
         )
       },
       maxRating: {
-        default: number("max-rating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       rating: {
         default: number("rating", 4, {}, "Props")
       },
       charLimit: {
-        default: number("char-limit", 250, {}, "Props")
+        default: number("charLimit", 250, {}, "Props")
       },
       readMoreText: {
-        default: text("read-more-text", "Read more", "Props")
+        default: text("readMoreText", "Read more", "Props")
       },
       hideFullText: {
-        default: text("hide-full-text", "Read less", "Props")
+        default: text("hideFullText", "Read less", "Props")
       }
     },
     template: `<SfReview
@@ -156,19 +156,19 @@ storiesOf("Molecules|Review", module)
         )
       },
       maxRating: {
-        default: number("max-rating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       rating: {
         default: number("rating", 4, {}, "Props")
       },
       charLimit: {
-        default: number("char-limit", 250, {}, "Props")
+        default: number("charLimit", 250, {}, "Props")
       },
       readMoreText: {
-        default: text("read-more-text", "Read more", "Props")
+        default: text("readMoreText", "Read more", "Props")
       },
       hideFullText: {
-        default: text("hide-full-text", "Read less", "Props")
+        default: text("hideFullText", "Read less", "Props")
       }
     },
     template: `<SfReview

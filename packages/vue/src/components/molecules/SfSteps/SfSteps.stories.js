@@ -15,7 +15,7 @@ storiesOf("Molecules|Steps", module)
     components: { SfSteps, StoriesPlaceholder },
     props: {
       canGoBack: {
-        default: boolean("can-go-back", true, "Props")
+        default: boolean("canGoBack", true, "Props")
       }
     },
     data() {
@@ -42,7 +42,7 @@ storiesOf("Molecules|Steps", module)
     components: { SfSteps, StoriesPlaceholder },
     props: {
       canGoBack: {
-        default: boolean("can-go-back", true, "Props")
+        default: boolean("canGoBack", true, "Props")
       }
     },
     data() {

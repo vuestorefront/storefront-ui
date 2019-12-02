@@ -41,7 +41,7 @@ storiesOf("Atoms|Icon", module)
         default: select("color", colors, "primary", "Props")
       },
       viewBox: {
-        default: text("view-box", "0 0 24 24", "Props")
+        default: text("viewBox", "0 0 24 24", "Props")
       }
     },
     components: { SfIcon },
@@ -67,7 +67,7 @@ storiesOf("Atoms|Icon", module)
         default: text("color", "#FF6F61", "Props")
       },
       viewBox: {
-        default: text("view-box", "0 0 24 24", "Props")
+        default: text("viewBox", "0 0 24 24", "Props")
       }
     },
     components: { SfIcon },
@@ -93,7 +93,7 @@ storiesOf("Atoms|Icon", module)
         default: text("color", "#FF6F61", "Props")
       },
       viewBox: {
-        default: text("view-box", "0 0 24 24", "Props")
+        default: text("viewBox", "0 0 24 24", "Props")
       }
     },
     components: { SfIcon },
