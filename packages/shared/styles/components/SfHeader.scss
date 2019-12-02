@@ -61,7 +61,7 @@ $header-navigation-item-font-weight: 500 !default;
     @media (min-width: $desktop-min) {
       height: calc(100% - 2.5rem);
     }
-    & > *{
+    img, picture{
       height: 100%;
     }
   }
