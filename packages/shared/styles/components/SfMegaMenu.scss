@@ -1,5 +1,6 @@
 @import "../variables";
 
+$mega-menu__wrapper-padding: 1.625rem !default;
 $mega-menu__title-font-family: $heading-font-family !default;
 $mega-menu__title-font-size: $font-size-big-mobile !default;
 $mega-menu__title-font-size-desktop: $font-size-extra-big-desktop !default;
@@ -39,6 +40,7 @@ $mega-menu__section-padding: 4rem !default;
   @media (min-width: $desktop-min) {
     display: flex;
     justify-content: space-between;
+    padding: $mega-menu__wrapper-padding 0;
   }
 
   &__section {
