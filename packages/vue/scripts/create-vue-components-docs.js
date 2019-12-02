@@ -852,7 +852,7 @@ function getStorybookIFrameMarkup(storybookLink, storybookIFrameHeight) {
   if (storybookIFrameHeight) {
     style += `height: ${storybookIFrameHeight}`;
   }
-  return `<iframe src="https://storybook.storefrontui.io/iframe.html?id=${storybookLink}" style="${style}"></iframe>`;
+  return `<iframe src="https://deploy-preview-480--storefrontui-storybook.netlify.com/iframe.html?id=${storybookLink}" style="${style}"></iframe>`;
 }
 
 function getInternalComponentTemplate() {
