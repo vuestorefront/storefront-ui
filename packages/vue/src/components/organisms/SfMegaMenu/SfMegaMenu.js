@@ -37,6 +37,9 @@ export default {
     Object.defineProperty(provided, "updateColumns", {
       value: this.updateColumns
     });
+    Object.defineProperty(provided, "isMobile", {
+      get: () => this.isMobile
+    });
 
     return { provided };
   },
