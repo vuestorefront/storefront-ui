@@ -16,7 +16,6 @@ export default {
     /**
      * Column title
      */
-    title: {
       type: String,
       default: ""
     },
