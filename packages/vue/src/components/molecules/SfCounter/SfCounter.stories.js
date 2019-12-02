@@ -30,7 +30,7 @@ storiesOf("Molecules|Counter", module)
         default: number("step", 1, {}, "Props")
       },
       autoFill: {
-        default: boolean("auto-fill", false, "Props")
+        default: boolean("autoFill", false, "Props")
       },
       min: {
         default: number("min", 1, {}, "Props")
@@ -106,7 +106,7 @@ storiesOf("Molecules|Counter", module)
         default: number("step", 1, {}, "Props")
       },
       autoFill: {
-        default: boolean("auto-fill", false, "Props")
+        default: boolean("autoFill", false, "Props")
       },
       min: {
         default: number("min", 1, {}, "Props")
@@ -185,7 +185,7 @@ storiesOf("Molecules|Counter", module)
         default: number("step", 1, {}, "Props")
       },
       autoFill: {
-        default: boolean("auto-fill", false, "Props")
+        default: boolean("autoFill", false, "Props")
       },
       min: {
         default: number("min", 1, {}, "Props")
@@ -262,7 +262,7 @@ storiesOf("Molecules|Counter", module)
         default: number("step", 1, {}, "Props")
       },
       autoFill: {
-        default: boolean("auto-fill", false, "Props")
+        default: boolean("autoFill", false, "Props")
       },
       min: {
         default: number("min", 1, {}, "Props")

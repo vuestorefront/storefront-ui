@@ -40,7 +40,7 @@ storiesOf("Molecules|Banner", module)
         )
       },
       buttonText: {
-        default: text("button-text", "Shop Now", "Props")
+        default: text("buttonText", "Shop Now", "Props")
       },
       image: {
         default: object(
@@ -97,7 +97,7 @@ storiesOf("Molecules|Banner", module)
         )
       },
       buttonText: {
-        default: text("button-text", "Shop Now", "Props")
+        default: text("buttonText", "Shop Now", "Props")
       },
       image: {
         default: object(
@@ -157,7 +157,7 @@ storiesOf("Molecules|Banner", module)
         )
       },
       buttonText: {
-        default: text("button-text", "Shop Now", "Props")
+        default: text("buttonText", "Shop Now", "Props")
       },
       image: {
         default: object(
@@ -217,7 +217,7 @@ storiesOf("Molecules|Banner", module)
         )
       },
       buttonText: {
-        default: text("button-text", "Shop Now", "Props")
+        default: text("buttonText", "Shop Now", "Props")
       },
       image: {
         default: object(
@@ -277,7 +277,7 @@ storiesOf("Molecules|Banner", module)
         )
       },
       buttonText: {
-        default: text("button-text", "Shop Now", "Props")
+        default: text("buttonText", "Shop Now", "Props")
       },
       image: {
         default: object(
