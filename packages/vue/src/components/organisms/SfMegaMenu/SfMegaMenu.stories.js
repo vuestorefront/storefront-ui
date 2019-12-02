@@ -60,7 +60,7 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
         :active="activePage"
         @click:change="updateActive">
         <SfMegaMenuColumn v-for="category in categories" :title="category.header" :key="category.header">
-          <SfMenuItem v-for="item in category.items" :label="item.label" :key="item.label" />
+          <SfMenuItem v-for="item in category.items" :label="item.label" :key="item.label" class="sf-mega-menu__subitem" />
         </SfMegaMenuColumn>
         <template #custom-section>
         <div>

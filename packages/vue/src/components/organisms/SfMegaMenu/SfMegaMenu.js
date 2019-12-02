@@ -34,8 +34,8 @@ export default {
     Object.defineProperty(provided, "active", {
       get: () => this.active
     });
-    Object.defineProperty(provided, "updateColumns", {
-      value: this.updateColumns
+    Object.defineProperty(provided, "updateItems", {
+      value: this.updateItems
     });
     Object.defineProperty(provided, "isMobile", {
       get: () => this.isMobile
@@ -54,11 +54,11 @@ export default {
     }
   },
   methods: {
-    updateColumns(title) {
+    updateItems(title) {
       if (this.columns.includes(title)) return;
       this.columns.push(title);
     },
-    updateColumn(title) {
+    updateItem(title) {
       /**
        * Active column updated event
        *

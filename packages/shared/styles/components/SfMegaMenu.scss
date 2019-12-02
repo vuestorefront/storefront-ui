@@ -23,6 +23,7 @@ $mega-menu__section-padding: 4rem !default;
 
 .sf-mega-menu-column {
   width: 100%;
+  padding: $mega-menu__wrapper-padding;
 
   &__title {
     margin-bottom: $spacer-medium;
@@ -31,6 +32,7 @@ $mega-menu__section-padding: 4rem !default;
 
   @media (min-width: $desktop-min) {
     width: unset;
+    padding: 0;
   }
 }
 
@@ -101,12 +103,21 @@ $mega-menu__section-padding: 4rem !default;
     }
   }
   &__menu-item {
-    padding: 0.5rem 0;
+    padding: 1.25rem $mega-menu__wrapper-padding;
     font-weight: $mega-menu__title-font-weight;
     color: $c-dark;
     border-bottom: 1px solid $c-light;
       @media (min-width: $desktop-min) {
+        padding: 0;
         border: none;
     }
+  }
+  &__subitem {
+    padding: 1rem 0;
+    border-bottom: 1px solid $c-light;
+    @media (min-width: $desktop-min) {
+      padding: 0.5rem 0;
+      border: none;
+    } 
   }
 }

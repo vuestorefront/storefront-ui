@@ -19,6 +19,6 @@ export default {
     }
   },
   mounted() {
-    this.provided.updateColumns(this.title);
+    this.provided.updateItems(this.title);
   }
 };
