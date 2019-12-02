@@ -70,7 +70,7 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
         </div>
         <div>
           <h3 style="text-transform: uppercase;">Beach bags 2=1</h3>
-          <SfImage style="margin: 1.25rem 0;" src="assets/storybook/megamenu/bannerBeachBag.jpg" />
+          <SfImage style="margin: 1.25rem 2rem 1.25rem 0;" src="assets/storybook/megamenu/bannerBeachBag.jpg" />
         </div>
       </SfMegaMenu>
       <button 
