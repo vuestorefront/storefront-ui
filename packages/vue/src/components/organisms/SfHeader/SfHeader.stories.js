@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, text, select, object } from "@storybook/addon-knobs";
 
 import SfHeader from "./SfHeader.vue";
 
@@ -12,7 +12,10 @@ storiesOf("Organisms/Header", module)
         default: text("title (prop)", "Storefront UI")
       },
       logo: {
-        default: text("logo (prop)", "/assets/logo.svg")
+        default: object("logo (prop)", {
+          small: { url: "/assets/logo.svg" },
+          normal: { url: "/assets/logo.svg" }
+        })
       },
       cartIcon: {
         default: text("a (prop)", "empty_cart")
@@ -56,7 +59,10 @@ storiesOf("Organisms/Header", module)
         default: text("title (prop)", "Storefront UI")
       },
       logo: {
-        default: text("logo (prop) ", "/assets/heart.svg")
+        default: object("logo (prop)", {
+          small: { url: "/assets/logo.svg" },
+          normal: { url: "/assets/logo.svg" }
+        })
       },
       cartIcon: {
         default: text("cartIcon (prop)", "empty_cart")
@@ -83,6 +89,7 @@ storiesOf("Organisms/Header", module)
         :wishlist-icon="wishlistIcon" 
         :account-icon="accountIcon"
         :active-icon="activeIcon"
+        style="max-width: 1024px; margin: auto"
       >
         <template #logo>
           CUSTOM LOGO 
@@ -102,7 +109,10 @@ storiesOf("Organisms/Header", module)
         default: text("title (prop)", "Storefront UI")
       },
       logo: {
-        default: text("logo (prop)", "/assets/logo.svg")
+        default: object("logo (prop)", {
+          small: { url: "/assets/logo.svg" },
+          normal: { url: "/assets/logo.svg" }
+        })
       },
       cartIcon: {
         default: text("cartIcon (prop)", "empty_cart")
@@ -125,6 +135,7 @@ storiesOf("Organisms/Header", module)
         :wishlist-icon="wishlistIcon" 
         :account-icon="accountIcon"
         :active-icon="activeIcon"
+        style="max-width: 1024px; margin: auto"
       >
         <template #navigation>
           <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
@@ -132,7 +143,7 @@ storiesOf("Organisms/Header", module)
           <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
         </template>
         <template #search>
-          <img src="assets/storybook/doge.svg" style="height: 25px; margin-left: auto;" />
+          CUSTOM SEARCH
         </template>
       </SfHeader>
     </div>`
@@ -144,7 +155,10 @@ storiesOf("Organisms/Header", module)
         default: text("title (prop)", "Storefront UI")
       },
       logo: {
-        default: text("logo (prop)", "/assets/logo.svg")
+        default: object("logo (prop)", {
+          small: { url: "/assets/logo.svg" },
+          normal: { url: "/assets/logo.svg" }
+        })
       },
       cartIcon: {
         default: text("cartIcon (prop)", "empty_cart")
@@ -171,6 +185,7 @@ storiesOf("Organisms/Header", module)
         :wishlist-icon="wishlistIcon" 
         :account-icon="accountIcon"
         :active-icon="activeIcon"
+        style="max-width: 1024px; margin: auto"
       >
         <template #navigation>
           <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
