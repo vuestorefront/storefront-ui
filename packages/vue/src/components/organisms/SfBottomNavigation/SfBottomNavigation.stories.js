@@ -62,8 +62,8 @@ storiesOf("Organisms|BottomNavigation", module)
           <SfIcon icon="profile" size="20px"/>
         </SfBottomNavigationItem>
         <SfBottomNavigationItem>
-          <SfCircleIcon class="sf-bottom-navigation__floating-icon sf-circle-icon--big">
-            <SfIcon icon="add_to_cart" size="20px" color="white" style="margin-right: 4px;"/>
+          <SfCircleIcon class="sf-bottom-navigation__floating-icon">
+            <SfIcon icon="add_to_cart" size="20px" color="white" style="margin-left: -2px; margin-right: 2px;"/>
           </SfCircleIcon>
         </SfBottomNavigationItem>
       </SfBottomNavigation>`
