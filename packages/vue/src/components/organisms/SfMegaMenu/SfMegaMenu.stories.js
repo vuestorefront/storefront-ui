@@ -55,7 +55,7 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
       ]
     };
   },
-  template: `<div>
+  template: `<div style="margin: -20px">
       <SfMegaMenu
         :active="activePage"
         @click:change="updateActive">
