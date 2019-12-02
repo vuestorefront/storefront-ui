@@ -14,12 +14,6 @@ export default {
   },
   props: {
     /**
-     * Column title
-     */
-      type: String,
-      default: ""
-    },
-    /**
      * Active column
      */
     active: {
