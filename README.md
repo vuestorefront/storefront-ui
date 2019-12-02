@@ -37,7 +37,7 @@ We are building Storefront UI based on the following 6 fundamentals:
 Storefront UI is based on atomic design which means every component is built from tiny atoms that you can use in your application! You’re not limited to big UI components anymore. Use Storefront UI atoms to quickly build your own, great-looking components!
 
 
-Read [how it can be customized](./docs/customization.md).
+Read [how it can be customized](https://docs.storefrontui.io/customization.html).
 
 ![](https://i.ibb.co/7SKbz5K/123457.png)
 ![](https://i.ibb.co/VHTcyrw/1234.png)
