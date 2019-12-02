@@ -47,8 +47,7 @@ storiesOf("Organisms|BottomNavigation", module)
           )
         }
       },
-      template: `<SfBottomNavigation
-      >
+      template: `<SfBottomNavigation>
         <SfBottomNavigationItem>
           <SfIcon icon="home" size="20px"/>
         </SfBottomNavigationItem>
