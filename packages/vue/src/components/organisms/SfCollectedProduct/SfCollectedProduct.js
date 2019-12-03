@@ -3,6 +3,7 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfInput from "../../atoms/SfInput/SfInput.vue";
+import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
 
 export default {
   name: "SfCollectedProduct",
@@ -76,6 +77,7 @@ export default {
     SfImage,
     SfCircleIcon,
     SfPrice,
-    SfInput
+    SfInput,
+    SfQuantitySelector
   }
 };

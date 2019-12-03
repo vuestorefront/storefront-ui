@@ -18,14 +18,7 @@
       <SfImage :src="image" :alt="title" class="sf-collected-product__image" />
     </slot>
     <slot name="input">
-      <SfInput
-        type="number"
-        :value="qty"
-        @input="(value)=>{$emit('input', value)}"
-        min="1"
-        :max="stock"
-        class="sf-collected-product__select-quantity"
-      />
+      <SfQuantitySelector :qty="qty" :stock="stock"/>
     </slot>
   </div>
   <div class="sf-collected-product__main">
