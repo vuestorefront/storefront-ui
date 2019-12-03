@@ -41,7 +41,7 @@ export default {
      */
     qty: {
       type: [Number, String],
-      default: "1"
+      default: 1
     },
     /**
      * Stock quantity of product
