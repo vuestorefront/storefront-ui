@@ -1,0 +1,10 @@
+<div class="sf-quantity-selector">
+    <SfInput
+        type="number"
+        :value="qty"
+        @input="(value)=>{$emit('input', value)}"
+        min="0"
+        :max="stock"
+        class="sf-quantity-selector__input"
+    />
+</div>

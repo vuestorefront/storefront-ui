@@ -1,0 +1,40 @@
+@import "../variables";
+
+$quantity-selector__width: 3.125rem !default;
+$quantity-selector__height: 1.875rem !default;
+$quantity-selector__max-width-desktop: 5.125rem !default;
+
+.sf-quantity-selector {
+  &__input {
+    position: absolute;
+    right: $spacer;
+    bottom: $spacer;
+    z-index: 1;
+    width: $quantity-selector__width;
+    height: $quantity-selector__height;
+
+    @media (min-width: $desktop-min) {
+      bottom: 0;
+      left: $quantity-selector__max-width-desktop + $spacer-big;
+    }
+  }
+
+  input {
+    box-sizing: border-box;
+    padding: 0 $spacer-small;
+    border: 1px solid transparent;
+    background-color: $c-white;
+    font-family: $body-font-family-primary;
+    font-size: $font-size-big-desktop;
+    font-weight: $body-font-weight-primary;
+    line-height: 1.6;
+    text-align: center;
+    transition: border-color 0.3s ease-in-out;
+    @media (min-width: $desktop-min) {
+      background-color: $c-light;
+    }
+    &:focus {
+      border-color: $c-primary;
+    }
+  }
+}
