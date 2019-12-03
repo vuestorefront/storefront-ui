@@ -56,6 +56,10 @@ export default {
     }
   },
   methods: {
+    updateItems(title) {
+      if (this.items.includes(title)) return;
+      this.items.push(title);
+    },
     toggle(payload) {
       let opened = [...this.opened];
       if (!this.multiple) {

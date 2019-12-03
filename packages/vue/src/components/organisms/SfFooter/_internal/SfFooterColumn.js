@@ -12,8 +12,7 @@ export default {
   },
   computed: {
     opened() {
-      const title = this.title;
-      return this.$parent.opened.includes(title);
+      return this.$parent.opened.includes(this.title);
     }
   },
   methods: {
@@ -22,7 +21,6 @@ export default {
     }
   },
   mounted() {
-    const title = this.title;
-    this.$parent.items.push(title);
+    this.$parent.updateItems(this.title);
   }
 };
