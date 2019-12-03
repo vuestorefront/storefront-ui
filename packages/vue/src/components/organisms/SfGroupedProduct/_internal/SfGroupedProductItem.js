@@ -1,13 +1,13 @@
 import SfPrice from "../../../atoms/SfPrice/SfPrice.vue";
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
-import SfInput from "../../../atoms/SfInput/SfInput.vue";
+import SfQuantitySelector from "../../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
 
 export default {
   name: "SfGroupedProductItem",
   components: {
     SfImage,
     SfPrice,
-    SfInput
+    SfQuantitySelector
   },
   props: {
     /**
