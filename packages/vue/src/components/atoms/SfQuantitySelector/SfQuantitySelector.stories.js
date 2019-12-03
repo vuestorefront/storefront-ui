@@ -4,7 +4,7 @@ import { withKnobs, text, number } from "@storybook/addon-knobs";
 
 import SfQuantitySelector from "./SfQuantitySelector.vue";
 
-storiesOf("Molecules|QuantitySelector", module)
+storiesOf("Atoms|QuantitySelector", module)
   .addDecorator(withKnobs)
   .add("Default", () => ({
     components: { SfQuantitySelector },
@@ -16,5 +16,5 @@ storiesOf("Molecules|QuantitySelector", module)
         default: number("stock (prop)", 0)
       }
     },
-    template: `<SfQuantitySelector />`
+    template: `<SfQuantitySelector :qty="qty" :stock="stock"/>`
   }));
