@@ -102,6 +102,49 @@ storiesOf("Organisms/Header", module)
       </SfHeader>
     </div>`
   }))
+  .add("[slot] navigation", () => ({
+    components: { SfHeader },
+    props: {
+      title: {
+        default: text("title (prop)", "Storefront UI")
+      },
+      logo: {
+        default: object("logo (prop)", {
+          small: { url: "/assets/logo.svg" },
+          normal: { url: "/assets/logo.svg" }
+        })
+      },
+      cartIcon: {
+        default: text("cartIcon (prop)", "empty_cart")
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon (prop)", "heart")
+      },
+      accountIcon: {
+        default: text("accountIcon (prop)", "profile")
+      },
+      activeIcon: {
+        default: text("activeIcon (prop)", "account")
+      }
+    },
+    template: `<div style="margin: -20px">
+    <SfHeader
+      :title="title" 
+      :logo="logo"
+      :cart-icon="cartIcon" 
+      :wishlist-icon="wishlistIcon" 
+      :account-icon="accountIcon"
+      :active-icon="activeIcon"
+      style="max-width: 1024px; margin: auto"
+    >
+      <template #navigation>
+        <SfHeaderNavigationItem>CLOTHES</SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
+      </template>
+    </SfHeader>
+  </div>`
+  }))
   .add("[slot] search", () => ({
     components: { SfHeader },
     props: {
