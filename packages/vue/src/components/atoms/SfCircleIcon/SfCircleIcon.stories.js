@@ -51,8 +51,8 @@ storiesOf("Atoms|CircleIcon", module)
     template: `<SfCircleIcon
         :class="customClass"
         :icon="icon" 
-        :icon-size="iconSize"
-        :icon-color="iconColor"
+        :iconSize="iconSize"
+        :iconColor="iconColor"
      />`
   }))
   .add("[slot] default", () => ({
@@ -87,8 +87,8 @@ storiesOf("Atoms|CircleIcon", module)
     template: `<SfCircleIcon
       :class="customClass"
       :icon="icon"
-      :icon-size="iconSize"
-      :icon-color="iconColor"
+      :iconSize="iconSize"
+      :iconColor="iconColor"
     >
       <StoriesPlaceholder/>
     </SfCircleIcon>`
