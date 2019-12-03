@@ -1,35 +1,45 @@
 <div class="sf-mega-menu">
-    <div
-      class="sf-mega-menu__section"
-      :class="{'sf-mega-menu__section--is-active': active}">
-      <div class="sf-mega-menu__sidebar">
-        <SfList class="sf-mega-menu__headers">
-          <SfList
-            v-for="column in columns"
-            :key="column"
-            class="sf-mega-menu__list-item">
-            <!-- @slot Custom menu-item markup -->
-            <slot
-              name="menu-item"
-              v-bind="{updateItem, column, active}">
-              <span @click="updateItem(column)">
-                <SfMenuItem
-                  :label="column"
-                  class="sf-mega-menu__menu-item"
-                  :class="{'sf-mega-menu__menu-item--is-active': column === active}"
-                />
-              </span>
-            </slot>
-          </SfList>
-        </SfList>
-      </div>
-      <div class="sf-mega-menu__sidebar-content">
-        <!-- @slot Slot for other content -->
-        <slot/>
-      </div>
+  <div class="sf-mega-menu-bar" >
+    <div class="sf-mega-menu-bar__icon">
+      <SfIcon v-if="isActive" @click="change([])" icon="chevron_left" size="14px" />
     </div>
-    <div class="sf-mega-menu__custom-section">
-      <slot name="custom-section"/>
+    <div class="sf-mega-menu-bar__title">{{this.root}}</div>
+    <div class="sf-mega-menu-bar__icon">
+      <SfIcon v-if="false" icon="cross" size="14px" />
     </div>
   </div>
-  
+  <div
+    class="sf-mega-menu__content"
+    :class="{ 'sf-mega-menu__content--is-active': isActive }"
+  >
+    <div class="sf-mega-menu__aside">
+      <SfList class="sf-mega-menu__menu-mobile">
+        <SfListItem
+          v-for="item in items"
+          :key="item"
+        >
+          <!-- @slot Custom menu-item markup -->
+          <slot
+            name="menu-item"
+            v-bind="{ change, item, active }"
+          >
+            <div @click="change([item])">
+              <SfMenuItem
+                :label="item"
+                class="sf-mega-menu__menu-item sf-mega-menu__menu-item--primary"
+              />
+            </div>
+          </slot>
+        </SfListItem>
+      </SfList>
+      <div class="sf-mega-menu__aside-content">
+        <slot name="aside"/>
+      </div>
+    </div>
+    <div class="sf-mega-menu__menu">
+      <!-- @slot Slot for menu column -->
+      <slot/>
+    </div>
+  </div>
+</div>
+

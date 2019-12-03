@@ -16,7 +16,7 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
   props: {},
   data() {
     return {
-      activePage: "About us",
+      activeMenu: [],
       categories: [
         {
           header: "Clothing",
@@ -71,27 +71,25 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
       ]
     };
   },
-  template: `<div style="margin: -20px">
-      <SfMegaMenu
-        :active="activePage"
-        @click:change="updateActive">
-        <SfMegaMenuColumn v-for="category in categories" :title="category.header" :key="category.header">
-          <SfMenuItem v-for="item in category.items" :label="item.label" :key="item.label" class="sf-mega-menu__subitem" />
-        </SfMegaMenuColumn>
-        <template #custom-section>
-        <div v-for="tile in tiles" :key="tile.title" style="text-transform: uppercase;">
-          <h3>{{ tile.title }}</h3>
-          <SfImage class="mobile-only" style="margin: 1.25rem 2rem 1.25rem 0;" :src="tile.pictures.full" />
-          <SfImage class="desktop-only" style="margin: 1.25rem 2rem 1.25rem 0;" :src="tile.pictures.normal" />
+  template: `<div style="margin: -20px;">
+    <SfMegaMenu
+      v-model="activeMenu"
+      root="Women"
+    >
+      <SfMegaMenuColumn v-for="category in categories" :title="category.header" :key="category.header">
+        <SfMenuItem v-for="item in category.items" :label="item.label" :key="item.label" class="sf-mega-menu__menu-item" />
+      </SfMegaMenuColumn>
+      <template #aside>
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+          <div v-for="tile in tiles" :key="tile.title" style="text-transform: uppercase; margin-bottom: 1.25rem">
+            <h3 style="margin-bottom: 1.25rem">{{ tile.title }}</h3>
+            <SfImage class="mobile-only" :src="tile.pictures.full" />
+            <SfImage class="desktop-only" :src="tile.pictures.normal" />
         </div>
-        </template>
-      </SfMegaMenu>
-      <button 
-      v-if="activePage" 
-      @click="activePage = ''" 
-      style="bottom: .5rem; left: .5rem; border: 0; background-color: transparent" 
-      class="mobile-only">back</button>
-    </div>`,
+        </div>
+      </template>
+    </SfMegaMenu>
+  </div>`,
   methods: {
     updateActive(title) {
       this.activePage = title;

@@ -1,6 +1,5 @@
 export default {
   name: "SfMegaMenuColumn",
-  inject: ["provided"],
   props: {
     /**
      * Column title
@@ -12,13 +11,10 @@ export default {
   },
   computed: {
     isActive() {
-      return this.provided.active === this.title;
-    },
-    isMobile() {
-      return this.provided.isMobile;
+      return this.$parent.active.includes(this.title);
     }
   },
   mounted() {
-    this.provided.updateItems(this.title);
+    this.$parent.updateItems(this.title);
   }
 };
