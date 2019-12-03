@@ -41,9 +41,9 @@
           class="sf-header__icon"
           :class="{'sf-header__icon--is-active' : activeIcon === 'cart'}"
           role="button"
-          aria-label="wishlist"
+          aria-label="cart"
           :aria-pressed="activeIcon === 'cart' ? 'true' :'false'"
-          @click="$emit('click:wishlist')"
+          @click="$emit('click:cart')"
       />
     </div>
   </slot>
