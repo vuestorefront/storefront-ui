@@ -1,45 +1,20 @@
 @import "../variables";
 
 $circle-icon-background: $c-primary !default;
-$circle-icon-size: 3.25rem !default;
-$circle-icon-size-small: 1.625rem !default;
-$circle-icon-size-big: 4rem !default;
 
 .sf-circle-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: $circle-icon-size;
-  height: $circle-icon-size;
-  padding: 5px;
+  box-sizing: border-box;
+  padding: $spacer-big;
   border-radius: 50%;
-  border: none;
-  background-color: $circle-icon-background;
   transition: box-shadow 0.3s ease;
-  cursor: pointer;
-  outline: none;
   &:hover {
     box-shadow: 0 0 0 0.3125rem rgba($circle-icon-background, 0.4);
   }
   &:active {
     box-shadow: 0 0 0 0.625rem rgba($circle-icon-background, 0.4);
-  }
-  &__icon {
-    padding: 10px;
-  }
-  &--small {
-    width: $circle-icon-size-small;
-    height: $circle-icon-size-small;
-    & .sf-circle-icon__icon {
-      padding: 3px;
-    }
-  }
-  &--big {
-    width: $circle-icon-size-big;
-    height: $circle-icon-size-big;
-    & .sf-circle-icon__icon {
-      padding: 15px;
-    }
   }
   @each $color, $map in $colors-map {
     $bg: map-get($map, "bg");
