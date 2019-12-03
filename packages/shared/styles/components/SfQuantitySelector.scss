@@ -1,22 +1,15 @@
 @import "../variables";
 
-$quantity-selector__width: 3.125rem !default;
-$quantity-selector__height: 1.875rem !default;
-$quantity-selector__max-width-desktop: 5.125rem !default;
+$quantity-selector__width: 1.875rem !default;
+$quantity-selector__height: 1.6875rem !default;
+$quantity-selector__width-desktop: 3.125rem !default;
 
 .sf-quantity-selector {
-  &__input {
-    position: absolute;
-    right: $spacer;
-    bottom: $spacer;
-    z-index: 1;
-    width: $quantity-selector__width;
-    height: $quantity-selector__height;
+  width: $quantity-selector__width;
+  height: $quantity-selector__height;
 
-    @media (min-width: $desktop-min) {
-      bottom: 0;
-      left: $quantity-selector__max-width-desktop + $spacer-big;
-    }
+  @media (min-width: $desktop-min) {
+    width: $quantity-selector__width-desktop;
   }
 
   input {
@@ -30,6 +23,7 @@ $quantity-selector__max-width-desktop: 5.125rem !default;
     line-height: 1.6;
     text-align: center;
     transition: border-color 0.3s ease-in-out;
+
     @media (min-width: $desktop-min) {
       background-color: $c-light;
     }
