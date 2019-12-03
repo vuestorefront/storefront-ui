@@ -1,5 +1,5 @@
 @import "../variables";
-$call-to-action-padding: $spacer-big $spacer-medium!default;
+$call-to-action-padding: $spacer-big $spacer-medium !default;
 $call-to-action-padding-desktop: 3.4rem 8.75rem !default;
 $call-to-action-background-color: $c-black !default;
 $call-to-action-color: $c-on-dark !default;
@@ -60,7 +60,7 @@ $call-to-action--light-background-color: $c-light !default;
     white-space: nowrap;
   }
   &--secondary {
-    #{$this}__button{
+    #{$this}__button {
       color: $call-to-action--secondary__button-color;
       background: $call-to-action--secondary__button-background-color;
     }

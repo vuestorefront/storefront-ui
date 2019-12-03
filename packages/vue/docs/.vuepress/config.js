@@ -47,6 +47,7 @@ module.exports = {
           ["/components/Divider", "Divider"],
           ["/components/Filter", "Filter"],
           ["/components/Gallery", "Gallery"],
+          ["/components/GroupedProduct", "Grouped Product"],
           ["/components/Header", "Header"],
           ["/components/Heading", "Heading"],
           ["/components/Hero", "Hero"],

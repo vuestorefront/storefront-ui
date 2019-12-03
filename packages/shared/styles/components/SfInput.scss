@@ -66,7 +66,7 @@ $input__error-message-font-size: $font-size-small-mobile !default;
     }
     &[type="number"] {
       &::-webkit-inner-spin-button,
-      &::-webkit-outer-spin-button{
+      &::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
       }
@@ -108,9 +108,16 @@ $input__error-message-font-size: $font-size-small-mobile !default;
     font-size: $input__error-message-font-size;
   }
   &--invalid {
-    input:focus ~ #{$this}__label {
-      &,
-      &:after {
+    input {
+      border-color: $input-color-invalid;
+
+      &:focus ~ #{$this}__label {
+        &,
+        &:after {
+          color: $input-color-invalid;
+        }
+      }
+      &:required ~ #{$this}__label::after {
         color: $input-color-invalid;
       }
     }

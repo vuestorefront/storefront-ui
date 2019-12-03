@@ -2,16 +2,11 @@
   <slot name="remove" v-bind="{removeHandler}">
     <SfCircleIcon
       @click="removeHandler"
-      color="gray-secondary"
+      icon="cross"
+      icon-size="8px"
+      icon-color="white"
       class="sf-collected-product__remove"
-    >
-      <SfIcon
-        icon="cross"
-        color="#A3A5AD"
-        size="14px"
-        class="sf-collected-product__icon"
-      />
-    </SfCircleIcon>
+    />
   </slot>
   <div class="sf-collected-product__aside">
     <slot name="image" v-bind="{image, title}">
