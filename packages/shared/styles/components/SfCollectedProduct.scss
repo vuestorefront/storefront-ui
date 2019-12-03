@@ -50,21 +50,18 @@ $collected-product__select-quantity-height: 1.875rem !default;
     position: absolute;
     top: $spacer;
     right: $spacer;
-    width: $collected-product__remove-size;
-    height: $collected-product__remove-size;
     background-color: transparent;
-    @media (max-width: $desktop-min) {
-      padding: 0;
+    padding: 0;
+    .sf-icon{
+      --icon-size: #{$collected-product__remove-size} !important;
+      --icon-color: #{$c-gray} !important;
     }
     @media (min-width: $desktop-min) {
       right: calc(#{$collected-product__remove-size-desktop} / -2);
       top: 10px;
-      display: flex;
-      width: $collected-product__remove-size-desktop;
-      height: $collected-product__remove-size-desktop;
+      padding: 10px;
       background-color: $collected-product__remove-background;
       box-shadow: none;
-      cursor: pointer;
       opacity: 0;
       transition: opacity 150ms ease-in-out;
     }

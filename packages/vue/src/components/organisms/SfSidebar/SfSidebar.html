@@ -17,11 +17,11 @@
       <slot name="circle-icon">
         <SfCircleIcon
           v-if="button"
+          icon-size="14px"
+          icon="cross"
           class="sf-sidebar__circle-icon"
           @click="$emit('close')"
-        >
-          <SfIcon icon="cross" color="white" size="0.875rem" />
-        </SfCircleIcon>
+        />
       </slot>
     </aside>
   </transition>

@@ -2,7 +2,9 @@
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
+  text,
   select,
+  color,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
@@ -10,6 +12,10 @@ import { icons } from "@storefront-ui/shared/icons/icons";
 import SfCircleIcon from "./SfCircleIcon.vue";
 
 const iconsNames = Object.keys(icons);
+
+const StoriesPlaceholder = {
+  template: `<span style="font-size: 1.5rem; width: 20px; height: 20px; line-height: 0; display: flex; justify-content: center; align-items: center">1</span>`
+};
 
 storiesOf("Atoms|CircleIcon", module)
   .addDecorator(withKnobs)
@@ -20,8 +26,6 @@ storiesOf("Atoms|CircleIcon", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-circle-icon--small": "sf-circle-icon--small",
-            "sf-circle-icon--big": "sf-circle-icon--big",
             "color-primary": "color-primary",
             "color-secondary": "color-secondary",
             "color-warning": "color-warning",
@@ -36,21 +40,28 @@ storiesOf("Atoms|CircleIcon", module)
       },
       icon: {
         default: select("icon", iconsNames, "home", "Props")
+      },
+      iconSize: {
+        default: text("iconSize", "20px", "Props")
+      },
+      iconColor: {
+        default: color("iconColor", "#FFFFFF", "Props")
       }
     },
     template: `<SfCircleIcon
         :class="customClass"
-        :icon="icon" />`
+        :icon="icon" 
+        :icon-size="iconSize"
+        :icon-color="iconColor"
+     />`
   }))
   .add("[slot] default", () => ({
-    components: { SfCircleIcon },
+    components: { SfCircleIcon, StoriesPlaceholder },
     props: {
       customClass: {
         default: options(
           "CSS modifiers",
           {
-            "sf-circle-icon--small": "sf-circle-icon--small",
-            "sf-circle-icon--big": "sf-circle-icon--big",
             "color-primary": "color-primary",
             "color-secondary": "color-secondary",
             "color-warning": "color-warning",
@@ -65,11 +76,20 @@ storiesOf("Atoms|CircleIcon", module)
       },
       icon: {
         default: select("icon", iconsNames, "home", "Props")
+      },
+      iconSize: {
+        default: text("iconSize", "20px", "Props")
+      },
+      iconColor: {
+        default: text("iconColor", "#FFFFFF", "Props")
       }
     },
     template: `<SfCircleIcon
       :class="customClass"
-      :icon="icon">
-      <span style="font-size: 1.5rem">1</span>
+      :icon="icon"
+      :icon-size="iconSize"
+      :icon-color="iconColor"
+    >
+      <StoriesPlaceholder/>
     </SfCircleIcon>`
   }));
