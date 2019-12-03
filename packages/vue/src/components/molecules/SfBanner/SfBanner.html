@@ -21,7 +21,8 @@
       <SfButton
         class="sf-banner__call-to-action color-secondary"
         v-if="buttonText"
-      >
+        v-on="$listeners"
+        @click="onClick">
         {{ buttonText }}
       </SfButton>
     </slot>
