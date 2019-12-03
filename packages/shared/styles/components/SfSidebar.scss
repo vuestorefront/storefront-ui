@@ -1,6 +1,11 @@
 @import "../variables";
 
+$sidebar-width: 20rem !default;
+$sidebar-width-desktop: 25.5rem !default;
+$sidebar-padding: $spacer-extra-big !default;
+$sidebar-padding-desktop: $spacer-extra-big !default;
 $sidebar-background-color: $c-white !default;
+$sidebar__title-margin-bottom: 1.5rem !default;
 
 .sf-sidebar {
   $this: &;
@@ -9,14 +14,40 @@ $sidebar-background-color: $c-white !default;
     top: 0;
     left: 0;
     z-index: 1;
-    background-color: $sidebar-background-color;
+    box-sizing: border-box;
+    width: $sidebar-width;
     height: 100%;
+    background-color: $sidebar-background-color;
+    @media (min-width: $desktop-min) {
+      width: $sidebar-width-desktop;
+    }
+  }
+  &__content{
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: $sidebar-padding;
+    @media (min-width: $desktop-min) {
+      padding: $sidebar-padding-desktop;
+    }
+    &::-webkit-scrollbar {
+      width: 0;
+
+    }
+  }
+  &__title {
+    margin-bottom: $sidebar__title-margin-bottom;
   }
   &__circle-icon {
     position: absolute;
+    z-index: 10;
     right: 3.25rem / 2 * -1;
-    top: 5.625rem;
-    box-shadow: 0 4px 56px rgba(87, 87, 87, 0.32);
+    top: 4.925rem;
+    @media (min-width: $desktop-min) {
+      top: 5.625rem;
+    }
   }
   &--right {
     #{$this}__aside {

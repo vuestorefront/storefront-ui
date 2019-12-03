@@ -16,26 +16,4 @@ describe.only("SfCircleIcon.vue", () => {
     });
     expect(component.contains(".sf-circle-icon__icon")).toBe(true);
   });
-
-  it("renders SfIcon with correct icon prop when passed", () => {
-    const icon = "heart";
-    const component = shallowMount(SfCircleIcon, {
-      propsData: {
-        icon
-      }
-    });
-    expect(component.find("sficon-stub").attributes("icon")).toEqual(icon);
-  });
-
-  it("renders SfIcon with correct iconColor when passed", () => {
-    const colorIcon = "black";
-    const component = shallowMount(SfCircleIcon, {
-      propsData: {
-        colorIcon
-      }
-    });
-    expect(component.find("sficon-stub").attributes("color")).toEqual(
-      colorIcon
-    );
-  });
 });

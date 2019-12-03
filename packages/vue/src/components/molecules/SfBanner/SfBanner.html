@@ -1,21 +1,31 @@
-<section class="sf-banner" :style="'background-image: url(' + image + '); background-color: ' + background +';'">
+<section class="sf-banner">
   <div class="sf-banner__container">
-    <!--@slot Banner subtitle. Slot content will replace default <h2> tag-->
     <slot name="subtitle" v-bind="{subtitle}">
-      <h2 class="sf-banner__subtitle" v-if="subtitle">{{ subtitle }}</h2>
+      <h2 class="sf-banner__subtitle" v-if="subtitle">
+        {{ subtitle }}
+      </h2>
     </slot>
-    <!--@slot Banner title. Slot content will replace default <h1> tag-->
     <slot name="title" v-bind="{title}">
-      <h1 class="sf-banner__title" v-if="title">{{ title }}</h1>
+      <h1 class="sf-banner__title" v-if="title">
+        {{ title }}
+      </h1>
     </slot>
-    <!--@slot Banner description. Slot content will replace default <p> tag-->
+
     <slot name="description" v-bind="{description}">
-      <p class="sf-banner__description" v-if="description">{{ description }}</p>
+      <p class="sf-banner__description" v-if="description">
+        {{ description }}
+      </p>
     </slot>
-    <!--@slot Call to action section. Slot content will replace default SfButton component-->
+
     <slot name="call-to-action" v-bind="{buttonText}">
-      <SfButton class="sf-banner__call-to-action color-secondary" v-if="buttonText">{{ buttonText }}</SfButton>
+      <SfButton
+        class="sf-banner__call-to-action color-secondary"
+        v-if="buttonText"
+      >
+        {{ buttonText }}
+      </SfButton>
     </slot>
+
     <slot />
   </div>
 </section>

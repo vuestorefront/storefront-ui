@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 $arrow__button-color: $c-light !default;
 $arrow__button-color--hover: $c-dark !default;
@@ -18,12 +18,12 @@ $arrow__icon-color--hover: $c-dark !default;
     cursor: pointer;
     outline: 0;
     transition: padding 150ms linear, background-color 150ms linear,
-      box-shadow 150ms linear;
+    box-shadow 150ms linear;
     box-shadow: 0 5px 12px -6px rgba(29, 31, 34, 0);
     &:hover {
       background-color: $arrow__button-color--hover;
       box-shadow: 0 5px 12px -5px rgba(29, 31, 34, 0.6);
-      .sf-arrow__icon {
+      #{$this}__icon {
         fill: $arrow__icon-color;
       }
     }
@@ -41,53 +41,43 @@ $arrow__icon-color--hover: $c-dark !default;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    .sf-arrow {
-      &__button {
-        padding: 9px 26px 9px 10px;
-        background-color: $arrow__icon-color;
-        &:hover {
-          padding: 14px 36px 14px 10px;
-          background-color: $arrow__icon-color--hover;
-        }
+    #{$this}__button {
+      padding: 9px 26px 9px 10px;
+      background-color: $arrow__icon-color;
+      &:hover {
+        padding: 14px 36px 14px 10px;
+        background-color: $arrow__icon-color--hover;
       }
     }
   }
   &--right {
     justify-content: flex-end;
-    .sf-arrow {
-      &__button {
-        transform: rotate(180deg);
-        &:hover {
-          box-shadow: $arrow__button-shadow--right;
-        }
+    #{$this}__button {
+      transform: rotate(180deg);
+      &:hover {
+        box-shadow: $arrow__button-shadow--right;
       }
     }
   }
   &--rounded {
-    .sf-arrow {
-      &__button {
-        border-radius: 50%;
-      }
+    #{$this}__button {
+      border-radius: 50%;
     }
   }
   &--transparent {
-    .sf-arrow {
-      &__button {
-        background-color: transparent;
-        &:hover {
-          box-shadow: none;
-          #{$this}__icon{
-            fill: rgba($arrow__icon-color--hover, .65);
-          }
+    #{$this}_button {
+      background-color: transparent;
+      &:hover {
+        box-shadow: none;
+        #{$this}__icon {
+          fill: rgba($arrow__icon-color--hover, 0.65);
         }
       }
     }
   }
   &--no-shadow {
-    .sf-arrow {
-      &__button:hover {
-        box-shadow: none;
-      }
+    #{$this}__button:hover {
+      box-shadow: none;
     }
   }
 }

@@ -1,156 +1,131 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number, boolean } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
+import { withKnobs, object } from "@storybook/addon-knobs";
+
 import SfGallery from "./SfGallery.vue";
-
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["$pagination__list-padding", "1rem", "padding for paginated list"],
-    ["$gallery-flex-direction", "row", "flex direction for gallery"],
-    ["$gallery__nav-width", "100px", "minimum height for menu item"],
-    [
-      "$gallery__nav-margin",
-      "0 $spacing-extra-big 0 0",
-      "nav margin for gallery"
-    ],
-    [
-      "$gallery__item-margin-bottom",
-      "$spacing-medium",
-      "margin for gsllery item"
-    ],
-    ["$gallery__item-opacity", ".5", "opacity for gallery item"],
-    [
-      "$gallery__item-transition",
-      "opacity .15s linear",
-      "transistion for gallery item"
-    ],
-    ["$gallery__item-mobile-size", "10px", "size of gallery item on mobile"],
-    ["$gallery__stage-width", "400px", "width of gallery stage"]
-  ]
-};
-
-const data = () => {
-  return {
-    images: [
-      {
-        small: {
-          url:
-            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-          alt: "Macbook PRO Apple"
-        },
-        normal: {
-          url:
-            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-          alt: "Macbook PRO Apple"
-        },
-        big: {
-          url:
-            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-          alt: "Macbook PRO Apple"
-        }
-      },
-      {
-        small: {
-          url:
-            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-          alt: "Macbook PRO Apple (keyboard)"
-        },
-        normal: {
-          url:
-            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-          alt: "Macbook PRO Apple (keyboard)"
-        },
-        big: {
-          url:
-            "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-          alt: "Macbook PRO Apple (keyboard)"
-        }
-      }
-    ]
-  };
-};
 
 storiesOf("Molecules|Gallery", module)
   .addDecorator(withKnobs)
-  .add(
-    "Props",
-    () => ({
-      props: {
-        autoplay: {
-          default: number("sliderOptions (prop) autoplay")
-        },
-        rewind: {
-          default: boolean("sliderOptions (prop) rewind", false)
-        },
-        current: {
-          default: number("current (prop)", 1)
-        }
-      },
-      data,
-      components: { SfGallery },
-      template: `<SfGallery
-        :sliderOptions="{ autoplay, rewind }"
-        :current="current"
-        @click="(index)=>{this.current=index}"
-        :images="images" />`
-    }),
-    {
-      info: {
-        summary: `
-          <h2>
-            Description
-          </h2>
-          <p>
-            Swappable gallery for product images,
-            called by <code>&lt;SfGallery&gt;</code>.
-            <br>
-            You may use it with <code>v-model</code> to control current image,
-            by default it starts with the first image.
-            <br>
-            You <b>must</b> pass an array of objects (images) with the format below:
-            <code>
-          let images = [
-            {
-              small: { url, alt },
-              normal: { url, alt },
-              big: { url, alt }
+  .add("Default", () => ({
+    components: { SfGallery },
+    props: {
+      images: {
+        default: object("images (prop)", [
+          {
+            small: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple"
+            },
+            normal: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple"
+            },
+            big: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple"
             }
-          ]
-            </code>
-          </p>
-          <h2> Usage </h2>
-          <pre><code>import { SfGallery } from "@storefront-ui/vue"</code></pre>
-          ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-          `
+          },
+          {
+            small: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple (keyboard)"
+            },
+            normal: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple (keyboard)"
+            },
+            big: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple (keyboard)"
+            }
+          }
+        ])
+      },
+      sliderOptions: {
+        default: object("slider-options (prop)", {
+          autoplay: false,
+          rewind: true
+        })
       }
-    }
-  )
-  .add(
-    "[slot] thumb",
-    () => ({
-      data,
-      components: { SfGallery },
-      template: `<SfGallery
-        :images="images">
-         <template #thumbs="{ images, active, go }">
-           <div
-              v-for="(image, index) in images"
-              :key="'img-' + index"
-              class=""
-              :class="{ 'sf-gallery__item--selected': index === active }"
-              @click="go(index)">
-                #{{index}}
-                <img
-                  class="sf-gallery__thumb"
-                  :src="image.small.url"
-                  :alt="image.small.alt"/>
-            </div>
-         </template>
-       </SfGallery>`
-    }),
-    {
-      info: true
-    }
-  );
+    },
+    data() {
+      return {
+        current: 0
+      };
+    },
+    template: `<SfGallery
+      :images="images"
+      :slider-options="sliderOptions"
+      :current="current" />`
+  }))
+  .add("[slot] thumbs", () => ({
+    components: { SfGallery },
+    props: {
+      images: {
+        default: object("images (prop)", [
+          {
+            small: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple"
+            },
+            normal: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple"
+            },
+            big: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple"
+            }
+          },
+          {
+            small: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple (keyboard)"
+            },
+            normal: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple (keyboard)"
+            },
+            big: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple (keyboard)"
+            }
+          }
+        ])
+      },
+      sliderOptions: {
+        default: object("slider-options (prop)", {
+          autoplay: false,
+          rewind: true
+        })
+      }
+    },
+    data() {
+      return {
+        current: 0
+      };
+    },
+    template: `<SfGallery
+    :images="images"
+    :slider-options="sliderOptions"
+    :current="current">
+    <template #thumbs="{images, active, go}">
+      <div v-for="(image, key) in images" :key="key" @click="go(key)" style="position: relative">
+        <img :src="image.small.url" :alt="image.small.alt">
+        <div v-if="active === key" style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%">🔍</div>
+      </div>
+    </template>
+  </SfGallery>`
+  }));

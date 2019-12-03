@@ -1,9 +1,9 @@
-@import '../variables';
+@import "../variables";
 
 $search-bar-background-primary: $c-light !default;
 $search-bar-background-secondary: $c-light-variant !default;
 $search-bar-placeholder-color: $c-dark !default;
-$search-bar-placeholder-color-focus: $c-gray !default;
+$search-bar-placeholder-color-focus: transparent !default;
 $search-bar-width: 20rem !default;
 $search-bar-height: 2.25rem !default;
 $search-bar-border-radius: 1.6875rem !default;
@@ -12,9 +12,6 @@ $search-bar-font-size: 0.875rem !default;
 
 @mixin placeholder {
   &::-webkit-input-placeholder {
-    @content;
-  }
-  &:-moz-placeholder {
     @content;
   }
   &::-moz-placeholder {
@@ -70,6 +67,12 @@ $search-bar-font-size: 0.875rem !default;
       @include iconPosition();
     }
   }
+  &--no-icon {
+    .sf-search-bar__icon {
+      display: none;
+    }
+  }
+
   &__input {
     border: none;
     flex-grow: 1;
@@ -86,7 +89,7 @@ $search-bar-font-size: 0.875rem !default;
         color: $search-bar-placeholder-color-focus;
       }
       & ~ .sf-search-bar__clear-icon {
-        display: block;
+        opacity: 1;
         padding-right: 0.4rem;
         position: absolute;
         right: 0.9375rem;
@@ -100,6 +103,10 @@ $search-bar-font-size: 0.875rem !default;
     }
   }
   &__clear-icon {
-    display: none;
+    opacity: 0;
+    padding-right: 0.4rem;
+    position: absolute;
+    right: 0.9375rem;
+    transition: all 0.2s ease-in;
   }
 }
