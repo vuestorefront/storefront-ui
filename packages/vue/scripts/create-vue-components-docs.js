@@ -127,7 +127,7 @@ function getComponentInfoFromPath(pathComponentVue) {
   const componentName = componentFilename.replace(/Sf(.+)\.vue$/, "$1");
   const sfComponentName = "Sf" + componentName;
   const atomicType = componentDirname.replace(/\/.*/, "");
-  const storybookLink = `${atomicType}-${componentName}--basic`.toLowerCase();
+  const storybookLink = `${atomicType}-${componentName}--common`.toLowerCase();
 
   return {
     componentName,
