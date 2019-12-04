@@ -1,4 +1,4 @@
-// /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
