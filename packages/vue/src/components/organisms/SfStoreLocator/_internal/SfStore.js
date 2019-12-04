@@ -1,4 +1,4 @@
-import SfImage from "../../../molecules/SfImage/SfImage.vue";
+import SfImage from "../../../atoms/SfImage/SfImage.vue";
 import SfDivider from "../../../atoms/SfDivider/SfDivider.vue";
 import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 
@@ -17,14 +17,14 @@ export default {
      */
     latlng: {
       type: Array,
-      required: true
+      default: () => []
     },
     /**
      * Name of the store
      */
     name: {
       type: String,
-      required: true
+      default: ""
     },
     /**
      * Url of the picture of the store
@@ -38,7 +38,7 @@ export default {
      */
     address: {
       type: String,
-      required: true
+      default: ""
     },
     /**
      * Phone number of the store

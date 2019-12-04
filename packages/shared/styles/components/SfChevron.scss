@@ -1,15 +1,44 @@
-@import '../variables';
+@import "../variables";
 
-$chevron-duration: .5s !default;
-$chevron-easing: cubic-bezier(.25, 1.7, .35, .8) !default;
+$chevron-duration: 0.5s !default;
+$chevron-easing: cubic-bezier(0.25, 1.7, 0.35, 0.8) !default;
 $chevron-size: 20px !default;
-$chevron__bar-width: calc(#{$chevron-size} / 2) !default;
-$chevron__bar-height: calc(#{$chevron__bar-width} / 4) !default;
-
-$chevron__bar-top: calc(calc(#{$chevron-size} / 2) - calc(#{$chevron__bar-height} / 2)) !default;
-$chevron__bar-left-right: calc(#{$chevron-size} / 9) !default;
-$chevron__bar-rotate: 45deg !default;
 $chevron__bar-color: $c-black !default;
+
+@mixin chevron-bar($half-name) {
+  $direction: 1;
+  $this: &;
+  @if $half-name == "right" {
+    $direction: -1;
+  }
+
+  &__#{$half-name}-bar {
+    position: absolute;
+    top: calc( calc(#{$chevron-size} / 2) - calc(calc(calc(#{$chevron-size} / 2) / 5) / 2));
+    #{$half-name}: calc(#{$chevron-size} / 10);
+    display: block;
+    width: calc(#{$chevron-size} / 2);
+    height: calc(calc(#{$chevron-size} / 2) / 5);
+    background-color: transparent;
+    transform: rotate(45deg * $direction);
+
+    @at-root #{$this}--top & {
+      &:after {
+        transform-origin: center center;
+        transform: rotate(-2 * 45deg * $direction);
+      }
+    }
+
+    &:after {
+      display: block;
+      width: calc(#{$chevron-size} / 2);
+      height: calc(calc(#{$chevron-size} / 2) / 5);
+      background-color: $chevron__bar-color;
+      transition: all $chevron-duration $chevron-easing;
+      content: "";
+    }
+  }
+}
 
 .sf-chevron {
   position: relative;
@@ -17,68 +46,6 @@ $chevron__bar-color: $c-black !default;
   height: $chevron-size;
   width: $chevron-size;
   cursor: pointer;
-
-  &__left-bar {
-    position: absolute;
-    background-color: transparent;
-    top: $chevron__bar-top;
-    left: $chevron__bar-left-right;
-    width: $chevron__bar-width;
-    height: $chevron__bar-height;
-    display: block;
-    transform: rotate($chevron__bar-rotate);
-    float: right;
-    border-radius: 50%;
-
-    &:after {
-      content: "";
-      background-color: $chevron__bar-color;
-      width: $chevron__bar-width;
-      height: $chevron__bar-height;
-      display: block;
-      float: right;
-      border-radius: 6px 10px 10px 6px;
-      transition: all $chevron-duration $chevron-easing;
-      z-index: -1;
-    }
-
-    &--active {
-      &:after {
-        transform-origin: center center;
-        transform: rotate(-2*$chevron__bar-rotate);
-      }
-    }
-  }
-
-  &__right-bar {
-    position: absolute;
-    background-color: transparent;
-    top: $chevron__bar-top;
-    right: $chevron__bar-left-right;
-    width: $chevron__bar-width;
-    height: $chevron__bar-height;
-    display: block;
-    transform: rotate(-$chevron__bar-rotate);
-    float: right;
-    border-radius: 2px;
-
-    &:after {
-      content: "";
-      background-color: $chevron__bar-color;
-      width: $chevron__bar-width;
-      height: $chevron__bar-height;
-      display: block;
-      float: right;
-      border-radius: 10px 6px 6px 10px;
-      transition: all $chevron-duration $chevron-easing;
-      z-index: -1;
-    }
-
-    &--active {
-      &:after {
-        transform-origin: center center;
-        transform: rotate(2*$chevron__bar-rotate);
-      }
-    }
-  }
+  @include chevron-bar($half-name: left);
+  @include chevron-bar($half-name: right);
 }

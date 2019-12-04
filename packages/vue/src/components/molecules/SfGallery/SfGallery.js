@@ -1,8 +1,13 @@
 import Glide from "@glidejs/glide";
-import lozad from "lozad";
+import SfImage from "../../atoms/SfImage/SfImage.vue";
 
 export default {
   name: "SfGallery",
+
+  components: {
+    SfImage
+  },
+
   props: {
     /**
      * Images list
@@ -27,7 +32,8 @@ export default {
         return {
           type: "slider",
           autoplay: false,
-          rewind: false
+          rewind: false,
+          gap: 0
         };
       }
     }
@@ -38,6 +44,18 @@ export default {
       glide: null,
       activeIndex: this.current - 1
     };
+  },
+
+  computed: {
+    mapPictures() {
+      // map images to handle picture tags with SfImage
+      return this.images.map(({ normal, big }) => {
+        return {
+          small: normal,
+          normal: big
+        };
+      });
+    }
   },
 
   methods: {
@@ -55,18 +73,16 @@ export default {
   },
 
   mounted() {
-    // handle slider with swipe and transitions with Glide.js
-    // https://glidejs.com/docs/
-    const glide = new Glide(this.$refs.glide, this.sliderOptions);
-    glide.on("run", () => {
-      this.go(glide.index);
+    this.$nextTick(() => {
+      // handle slider with swipe and transitions with Glide.js
+      // https://glidejs.com/docs/
+      const glide = new Glide(this.$refs.glide, this.sliderOptions);
+      glide.on("run", () => {
+        this.go(glide.index);
+      });
+      glide.mount();
+      this.glide = glide;
     });
-    glide.mount();
-    this.glide = glide;
-    // handle lazy load for big images with lozad
-    // https://apoorv.pro/lozad.js/
-    const observer = lozad(".sf-gallery__big-image");
-    observer.observe();
   },
 
   beforeDestroy() {

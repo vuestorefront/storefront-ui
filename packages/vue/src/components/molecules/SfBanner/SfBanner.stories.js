@@ -1,5 +1,9 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfBanner from "./SfBanner.vue";
 
@@ -21,7 +25,7 @@ const scssTableConfig = {
     ],
     ["$banner__subtitle-font-size", "1.5rem", "font-size of subtitle"],
     ["$banner__subtitle-font-weight", "300", "font-weight of subtitle"],
-    ["$banner__subtitle-color", "$c-dark-secondary", "text color for subtitle"],
+    ["$banner__subtitle-color", "$c-dark-variant", "text color for subtitle"],
     ["$banner__subtitle-text-transform", "none", "text transform for subtitle"],
     [
       "banner-mobile__subtitle-font-size",
@@ -40,18 +44,14 @@ const scssTableConfig = {
       "$body-font-family-secondary",
       "font-family of title"
     ],
-    ["$banner__title-color", "$c-dark-primary", "color of title text"],
+    ["$banner__title-color", "$c-dark", "color of title text"],
     [
       "$banner__description-font-family",
       "$body-font-family-secondary",
       "font-family for subtitle"
     ],
     ["$banner__description-font-size", "1.125rem", "font-size of description"],
-    [
-      "$banner__description-color",
-      "$c-dark-primary",
-      "text color for description"
-    ],
+    ["$banner__description-color", "$c-dark", "text color for description"],
     ["$banner__description-font-weight", "300", "font-weight of description"],
     [
       "$banner__description-text-transform",
@@ -65,7 +65,7 @@ const scssTableConfig = {
     ],
     [
       "$banner__call-to-action-background-color",
-      "$c-dark-primary",
+      "$c-dark",
       "background-color for call to action"
     ]
   ]
@@ -110,34 +110,36 @@ storiesOf("Molecules|Banner", module)
           default: text("background (prop)", "#e1e3e2")
         },
         image: {
-          default: text("image (prop)", "assets/storybook/Banner1.png")
+          default: text("image (prop)", "assets/storybook/Banner1.jpg")
         },
         customClass: {
-          default: select(
-            "CSS Modifier",
-            [
-              "null",
-              "sf-banner--left",
-              "sf-banner--top",
-              "sf-banner--bottom",
-              "sf-banner--center",
-              "sf-banner--secondary",
-              "sf-banner--container-medium",
-              "sf-banner--container-full"
-            ],
-            "null"
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-banner--left": "sf-banner--left",
+              "sf-banner--top": "sf-banner--top",
+              "sf-banner--bottom": "sf-banner--bottom",
+              "sf-banner--center": "sf-banner--center",
+              "sf-banner--secondary": "sf-banner--secondary",
+              "sf-banner--container-medium": "sf-banner--container-medium",
+              "sf-banner--container-full": "sf-banner--container-full"
+            },
+            "",
+            { display: "multi-select" }
           )
         }
       },
-      template: `<SfBanner
-        :title="title"
-        :description="description"
-        :subtitle="subtitle"
-        :button-text="buttonText"
-        :background="background"
-        :image="image"
-        :class="customClass"
-      />`
+      template: `<div style="max-width: 1240px;">
+        <SfBanner
+                :title="title"
+                :description="description"
+                :subtitle="subtitle"
+                :button-text="buttonText"
+                :background="background"
+                :image="image"
+                :class="customClass"
+              />
+        </div>`
     }),
     {
       info: {
@@ -159,7 +161,7 @@ storiesOf("Molecules|Banner", module)
         subtitle="Subtitle prop"
         button-text="Button Text"
         background="#e1e3e2"
-        image="assets/storybook/Banner1.png">
+        image="assets/storybook/Banner1.jpg">
         <template #title="{ title }">
           <h1>{{ title }}</h1>
         </template>
@@ -179,7 +181,7 @@ storiesOf("Molecules|Banner", module)
         subtitle="Subtitle prop"
         button-text="Button Text"
         background="#e1e3e2"
-        image="assets/storybook/Banner1.png">
+        image="assets/storybook/Banner1.jpg">
         <template #subtitle="{ subtitle }">
           <b>{{ subtitle }}</b>
         </template>
@@ -199,7 +201,7 @@ storiesOf("Molecules|Banner", module)
         subtitle="Subtitle prop"
         button-text="Button Text"
         background="#e1e3e2"
-        image="assets/storybook/Banner1.png">
+        image="assets/storybook/Banner1.jpg">
         <template #description="{ description }">
           <b> {{ description }} </b>
         </template>
@@ -219,7 +221,7 @@ storiesOf("Molecules|Banner", module)
         subtitle="Subtitle prop"
         button-text="Button Text"
         background="#e1e3e2"
-        image="assets/storybook/Banner1.png"
+        image="assets/storybook/Banner1.jpg"
       >
         <template #call-to-action>
           <button>Custom CTA</button>

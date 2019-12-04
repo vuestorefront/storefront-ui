@@ -6,7 +6,7 @@ export default {
      */
     breadcrumbs: {
       type: Array,
-      required: true
+      default: () => []
     }
   },
   computed: {

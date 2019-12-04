@@ -118,7 +118,7 @@ export default {
             let parts = value.split(this.delimiter, 2);
             if (parts.length === 1) {
               // no decimals
-              return parseInt(value);
+              return parseInt(value, 10);
             }
             // fix up to maximum precision on decimal places
             let decimalPlaces = parts[1].length;

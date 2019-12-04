@@ -1,9 +1,9 @@
 <div class="sf-loader">
   <transition name="fade" mode="out-in">
-    <!--@slot Use this slot to insert loaded content -->
+    <!--@slot Slot for the actual content being loaded -->
     <slot v-if="!loading"></slot>
     <div v-else class="sf-loader__overlay">
-      <!--@slot Use this slot to replace loader -->
+      <!--@slot Use this slot to replace the loader -->
       <slot name="loader">
         <svg
           width="38"
