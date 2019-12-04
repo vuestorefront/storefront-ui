@@ -297,7 +297,7 @@ function parseComponentFile(contentComponentFile) {
 }
 
 function parseStoriesFile(contentStoriesFile) {
-  // remove imports and other non-relevant parts before evaluating the story
+  // remove non-relevant parts before evaluating the story
   const nonrelevantParts = [
     /\.addDecorator\((.+?)\)/gm,
     /\.addParameters\((.+?)\)/gm
