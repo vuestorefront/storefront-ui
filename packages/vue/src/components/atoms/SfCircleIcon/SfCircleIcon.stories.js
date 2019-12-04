@@ -42,10 +42,10 @@ storiesOf("Atoms|CircleIcon", module)
         default: select("icon", iconsNames, "home", "Props")
       },
       iconSize: {
-        default: text("icon-size", "20px", "Props")
+        default: text("iconSize", "20px", "Props")
       },
       iconColor: {
-        default: color("icon-color", "#FFFFFF", "Props")
+        default: color("iconColor", "#FFFFFF", "Props")
       }
     },
     template: `<SfCircleIcon
@@ -78,10 +78,10 @@ storiesOf("Atoms|CircleIcon", module)
         default: select("icon", iconsNames, "home", "Props")
       },
       iconSize: {
-        default: text("icon-size", "20px", "Props")
+        default: text("iconSize", "20px", "Props")
       },
       iconColor: {
-        default: text("icon-color", "#FFFFFF", "Props")
+        default: text("iconColor", "#FFFFFF", "Props")
       }
     },
     template: `<SfCircleIcon
