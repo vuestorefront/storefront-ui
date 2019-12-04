@@ -25,7 +25,7 @@ export default {
      */
     active: {
       type: Array,
-      default: () => { [] }
+      default: () => ( [] )
     },
     root: {
       type: String,
