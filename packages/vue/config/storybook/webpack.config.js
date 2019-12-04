@@ -1,9 +1,16 @@
 const path = require("path");
 
 module.exports = async ({ config }) => {
-  config.module.rules.push({
+  config.module.rules.unshift({
     test: /\.stories\.js?$/,
-    loaders: [require.resolve("@storybook/source-loader")],
+    loaders: [
+      {
+        loader: require.resolve("@storybook/addon-storysource/loader"),
+        options: {
+          uglyCommentsRegex: [/^eslint-.*/]
+        }
+      }
+    ],
     enforce: "pre"
   });
 

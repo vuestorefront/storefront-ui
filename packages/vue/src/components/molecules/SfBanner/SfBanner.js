@@ -54,10 +54,7 @@ export default {
               `url(${image.normal})`
             );
           } else {
-            this.$el.style.setProperty(
-              "--background-image",
-              `url(${image})`
-            );
+            this.$el.style.setProperty("--background-image", `url(${image})`);
             this.$el.style.setProperty(
               "--background-image-desktop",
               `url(${image})`
