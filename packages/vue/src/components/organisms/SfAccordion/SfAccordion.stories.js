@@ -42,16 +42,16 @@ storiesOf("Organisms|Accordion", module)
     },
     props: {
       multiple: {
-        default: boolean("multiple", true)
+        default: boolean("multiple", true, "Props")
       },
       firstOpen: {
-        default: boolean("firstOpen", true)
+        default: boolean("firstOpen", true, "Props")
       },
       showChevron: {
-        default: boolean("showChevron", true)
+        default: boolean("showChevron", true, "Props")
       },
       transition: {
-        default: text("transition", "fade")
+        default: text("transition", "fade", "Props")
       }
     },
     components: { SfAccordion, SfList, SfMenuItem },
