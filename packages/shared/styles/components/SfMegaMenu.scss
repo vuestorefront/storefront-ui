@@ -49,6 +49,7 @@
 .sf-mega-menu{
   overflow: hidden;
   height: 100vh;
+  background-color: $c-white;
   @media (min-width: $desktop-min) {
     overflow: auto;
     height: auto;
