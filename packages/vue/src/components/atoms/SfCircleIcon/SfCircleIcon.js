@@ -12,13 +12,13 @@ export default {
     },
     /**
      */
-    colorIcon: {
+    iconColor: {
       type: String,
       default: "white"
     },
     /**
      */
-    sizeIcon: {
+    iconSize: {
       type: String,
       default: "100%"
     },
