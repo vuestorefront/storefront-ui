@@ -6,8 +6,8 @@ MegaMenu component for page navigation.
 ```html
 <template>
   <SfMegaMenu
-    :active="activePage"
-    @click:change="updateActive">
+    :parentMenu="Man"
+  >
     <SfMegaMenuColumn v-for="category in categories" :title="category.header" :key="category.header">
         <SfMenuItem v-for="item in category.items" :label="item.label" :key="item.label" class="sf-mega-menu__subitem" />
     </SfMegaMenuColumn>
