@@ -3,53 +3,102 @@ Content Pages for static content
 
 # common-usage
 <br>
-<SfContentPages
+<SfContentPages 
+  title="Help"
   active="About us"
-  title="Help">
+>
   <SfContentPage title="About us">
-    This website ("website") is operated by Luma Inc., which includes
-    Luma stores, and Luma Private Sales. This privacy policy only covers
-    information collected at this website, and does not cover any
-    information collected offline by Luma. All Luma websites are covered
-    by this privacy policy.
+    <SfTabs :open-tab="1">
+      <SfTab title="Security">
+        This website ("website") is operated by Luma Inc., which includes
+        Luma stores, and Luma Private Sales. This privacy policy only covers
+        information collected at this website, and does not cover any
+        information collected offline by Luma. All Luma websites are covered
+        by this privacy policy.
+      </SfTab>
+      <SfTab title="Privacy Policy">
+        This website ("website") is operated by Luma Inc., which includes
+        Luma stores, and Luma Private Sales. This privacy policy only covers
+        information collected at this website, and does not cover any
+        information collected offline by Luma. All Luma websites are covered
+        by this privacy policy.
+      </SfTab>
+    </SfTabs>
   </SfContentPage>
-  <SfContentPage title="Customer service"/>
-  <SfContentPage title="Store locator"/>
+  <SfContentPage title="Customer service">
+    <SfTabs :open-tab="1">
+      <SfTab title="Size guide">
+        This website ("website") is operated by Luma Inc., which includes
+        Luma stores, and Luma Private Sales. This privacy policy only covers
+        information collected at this website, and does not cover any
+        information collected offline by Luma. All Luma websites are covered
+        by this privacy policy.
+      </SfTab>
+      <SfTab title="Where's my order?">
+        This website ("website") is operated by Luma Inc., which includes
+        Luma stores, and Luma Private Sales. This privacy policy only covers
+        information collected at this website, and does not cover any
+        information collected offline by Luma. All Luma websites are covered
+        by this privacy policy.
+      </SfTab>
+    </SfTabs>
+  </SfContentPage>
+  <SfContentPage title="Store locator">
+    This website ("website") is operated by Luma Inc., which includes Luma
+    stores, and Luma Private Sales. This privacy policy only covers
+    information collected at this website, and does not cover any
+    information collected offline by Luma. All Luma websites are covered by
+    this privacy policy.
+  </SfContentPage>
 </SfContentPages>
 
-```html 
+```html
 <template>
-  <SfContentPages
+  <SfContentPages 
+    title="Help"
     :active="activePage"
-    @click:change="updateActive"
-    title="Help">
+    @click:change="updateActivePage"
+  >
     <SfContentPage title="About us">
-      This website ("website") is operated by Luma Inc., which includes
-      Luma stores, and Luma Private Sales. This privacy policy only covers
-      information collected at this website, and does not cover any
-      information collected offline by Luma. All Luma websites are covered
-      by this privacy policy.
+      <SfTabs :open-tab="1">
+        <SfTab title="Security">
+          This website ("website") is operated by Luma Inc.
+        </SfTab>
+        <SfTab title="Privacy Policy">
+          This website ("website") is operated by Luma Inc.
+        </SfTab>
+        <SfTab title="Additional Information ">
+          This website ("website") is operated by Luma Inc.
+        </SfTab>
+      </SfTabs>
     </SfContentPage>
-    <SfContentPage title="Customer service"/>
-    <SfContentPage title="Store locator"/>
+    <SfContentPage title="Customer service">
+      <SfTabs :open-tab="1">
+        <SfTab title="Size guide">
+          This website ("website") is operated by Luma Inc.
+        </SfTab>
+        <SfTab title="Where's my order?">
+          This website ("website") is operated by Luma Inc.
+        </SfTab>
+      </SfTabs>
+    </SfContentPage>
+    <SfContentPage title="Store locator">
+      This website ("website") is operated by Luma Inc.
+    </SfContentPage>
   </SfContentPages>
 </template>
-
 <script>
-import { SfContentPages } from '@storefront-ui/vue'
-
+import { SfContentPages, SfTabs } from "@storefront-ui/vue";
 export default {
-  components: {
-   SfContentPages
-  },
-  data() {
-    return {
-      activePage: "About us"
-     };
+  components: { SfContentPages, SfTabs },
+  data(){
+      return {
+        activePage: "About us"
+      };
   },
   methods: {
-    updateActive(title) {
-      // logic for changing to active page 'title'
+    updateActivePage(title) {
+      this.activePage = title;
     }
   }
 }

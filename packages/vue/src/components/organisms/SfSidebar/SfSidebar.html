@@ -2,16 +2,27 @@
   <SfOverlay :visible="visibleOverlay" @click="$emit('close')" />
   <transition :name="'slide-' + position">
     <aside v-if="visible" class="sf-sidebar__aside">
+      <div class="sf-sidebar__content">
+        <slot name="title">
+          <SfHeading
+              v-if="headingTitle"
+              :title="headingTitle"
+              :subtitle="headingSubtitle"
+              :level="headingLevel"
+              class="sf-heading--left sf-heading--no-underline sf-sidebar__title"
+          />
+        </slot>
+        <slot />
+      </div>
       <slot name="circle-icon">
         <SfCircleIcon
           v-if="button"
+          icon-size="14px"
+          icon="cross"
           class="sf-sidebar__circle-icon"
           @click="$emit('close')"
-        >
-          <SfIcon icon="cross" color="white" size="0.875rem" />
-        </SfCircleIcon>
+        />
       </slot>
-      <slot />
     </aside>
   </transition>
 </div>

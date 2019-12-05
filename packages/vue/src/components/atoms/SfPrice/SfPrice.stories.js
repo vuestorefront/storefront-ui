@@ -1,4 +1,4 @@
-// /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
@@ -63,7 +63,7 @@ storiesOf("Atoms|Price", module)
       :class="customClass"
       :regular="regular"
       :special="special">
-      <template #special="{ special }">
+      <template #special="{special}">
         <SfBadge class="color-warning">{{special}}</SfBadge>
       </template>  
     </SfPrice>`
@@ -95,7 +95,7 @@ storiesOf("Atoms|Price", module)
       :class="customClass"
       :regular="regular"
       :special="special">
-      <template #old="{ regular }">
+      <template #old="{regular, special}">
         <SfBadge class="color-secondary">{{regular}}</SfBadge>
       </template>
     </SfPrice>`
@@ -127,7 +127,7 @@ storiesOf("Atoms|Price", module)
       :class="customClass"
       :regular="regular"
       :special="special">
-      <template #regular="{ regular }">
+      <template #regular="{regular, special}">
         <SfBadge>{{regular}}</SfBadge>
       </template>
     </SfPrice>`

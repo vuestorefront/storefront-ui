@@ -3,8 +3,8 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  number,
   boolean,
+  number,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
@@ -25,20 +25,7 @@ const scssTableConfig = {
   ]
 };
 
-const cssTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [[".sf-counter--large", "double the default width"]]
-};
-
-const eventTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [
-    [
-      "change",
-      "triggered when native input is changed and validated,returns the new number value"
-    ]
-  ]
-};
+import SfCounter from "./SfCounter.vue";
 
 storiesOf("Molecules|QuantitySelect", module)
   .addDecorator(withKnobs)

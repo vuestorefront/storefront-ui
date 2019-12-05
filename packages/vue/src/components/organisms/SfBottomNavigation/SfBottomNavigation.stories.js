@@ -1,4 +1,4 @@
-// /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
@@ -47,8 +47,7 @@ storiesOf("Organisms|BottomNavigation", module)
           )
         }
       },
-      template: `<SfBottomNavigation
-      >
+      template: `<SfBottomNavigation>
         <SfBottomNavigationItem>
           <SfIcon icon="home" size="20px"/>
         </SfBottomNavigationItem>
@@ -62,8 +61,8 @@ storiesOf("Organisms|BottomNavigation", module)
           <SfIcon icon="profile" size="20px"/>
         </SfBottomNavigationItem>
         <SfBottomNavigationItem>
-          <SfCircleIcon class="sf-bottom-navigation__floating-icon sf-circle-icon--big">
-            <SfIcon icon="add_to_cart" size="20px" color="white" style="margin-right: 4px;"/>
+          <SfCircleIcon class="sf-bottom-navigation__floating-icon">
+            <SfIcon icon="add_to_cart" size="20px" color="white" style="margin-left: -2px; margin-right: 2px;"/>
           </SfCircleIcon>
         </SfBottomNavigationItem>
       </SfBottomNavigation>`
