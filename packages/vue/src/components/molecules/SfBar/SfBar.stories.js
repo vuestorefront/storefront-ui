@@ -19,13 +19,11 @@ storiesOf("Molecules|Bar", module)
         default: boolean("close", true, "Props")
       }
     },
-    template: `<div style="margin: -20px">
-      <SfBar
+    template: `<SfBar
         :title="title"
         :back="back"
         :close="close"
-      />
-    </div>`
+      />`
   }))
   .add("[slot] back", () => ({
     components: { SfBar },
@@ -40,15 +38,13 @@ storiesOf("Molecules|Bar", module)
         default: boolean("close", true, "Props")
       }
     },
-    template: `<div style="margin: -20px">
-      <SfBar
+    template: `<SfBar
         :title="title"
         :back="back"
         :close="close"
       >
         <template #back>CUSTOM BACK</template>
-      </SfBar>
-    </div>`
+      </SfBar>`
   }))
   .add("[slot] title", () => ({
     components: { SfBar },
@@ -63,15 +59,13 @@ storiesOf("Molecules|Bar", module)
         default: boolean("close", true, "Props")
       }
     },
-    template: `<div style="margin: -20px">
-      <SfBar
+    template: `<SfBar
         :title="title"
         :back="back"
         :close="close"
       >
         <template #title="{title}">CUSTOM TITLE</template>
-      </SfBar>
-    </div>`
+      </SfBar>`
   }))
   .add("[slot] close", () => ({
     components: { SfBar },
@@ -86,13 +80,11 @@ storiesOf("Molecules|Bar", module)
         default: boolean("close", true, "Props")
       }
     },
-    template: `<div style="margin: -20px">
-      <SfBar
+    template: `<SfBar
         :title="title"
         :back="back"
         :close="close"
       >
         <template #close>CUSTOM CLOSE</template>
-      </SfBar>
-    </div>`
+      </SfBar>`
   }))
