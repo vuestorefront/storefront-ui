@@ -1,68 +1,68 @@
 // /* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from '@storybook/vue';
+import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   select,
   optionsKnob as options
-} from '@storybook/addon-knobs';
-import { icons } from '@storefront-ui/shared/icons/icons';
+} from "@storybook/addon-knobs";
+import { icons } from "@storefront-ui/shared/icons/icons";
 
-import SfCircleIcon from './SfCircleIcon.vue';
+import SfCircleIcon from "./SfCircleIcon.vue";
 
 const iconsNames = Object.keys(icons);
 
-storiesOf('Atoms|CircleIcon', module)
+storiesOf("Atoms|CircleIcon", module)
   .addDecorator(withKnobs)
-  .add('Default', () => ({
+  .add("Default", () => ({
     components: { SfCircleIcon },
     props: {
       customClass: {
         default: options(
-          'CSS modifier',
+          "CSS modifier",
           {
-            'sf-circle-icon--small': 'sf-circle-icon--small',
-            'sf-circle-icon--big': 'sf-circle-icon--big',
-            'color-primary': 'color-primary',
-            'color-secondary': 'color-secondary',
-            'color-warning': 'color-warning',
-            'color-danger': 'color-danger',
-            'color-info': 'color-info',
-            'color-success': 'color-success'
+            "sf-circle-icon--small": "sf-circle-icon--small",
+            "sf-circle-icon--big": "sf-circle-icon--big",
+            "color-primary": "color-primary",
+            "color-secondary": "color-secondary",
+            "color-warning": "color-warning",
+            "color-danger": "color-danger",
+            "color-info": "color-info",
+            "color-success": "color-success"
           },
-          '',
-          { display: 'multi-select' }
+          "",
+          { display: "multi-select" }
         )
       },
       icon: {
-        default: select('(prop) icon', iconsNames, 'home')
+        default: select("(prop) icon", iconsNames, "home")
       }
     },
     template: `<SfCircleIcon
         :class="customClass"
         :icon="icon" />`
   }))
-  .add('[slot] default', () => ({
+  .add("[slot] default", () => ({
     components: { SfCircleIcon },
     props: {
       customClass: {
         default: options(
-          'CSS modifier',
+          "CSS modifier",
           {
-            'sf-circle-icon--small': 'sf-circle-icon--small',
-            'sf-circle-icon--big': 'sf-circle-icon--big',
-            'color-primary': 'color-primary',
-            'color-secondary': 'color-secondary',
-            'color-warning': 'color-warning',
-            'color-danger': 'color-danger',
-            'color-info': 'color-info',
-            'color-success': 'color-success'
+            "sf-circle-icon--small": "sf-circle-icon--small",
+            "sf-circle-icon--big": "sf-circle-icon--big",
+            "color-primary": "color-primary",
+            "color-secondary": "color-secondary",
+            "color-warning": "color-warning",
+            "color-danger": "color-danger",
+            "color-info": "color-info",
+            "color-success": "color-success"
           },
-          '',
-          { display: 'multi-select' }
+          "",
+          { display: "multi-select" }
         )
       },
       icon: {
-        default: select('icon (prop)', iconsNames, 'home')
+        default: select("icon (prop)", iconsNames, "home")
       }
     },
     template: `<SfCircleIcon
