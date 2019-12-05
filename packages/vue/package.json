@@ -19,8 +19,9 @@
     "docs:dev": "yarpm docs:vuecomponents && vuepress dev docs",
     "docs:build": "yarpm docs:vuecomponents && vuepress build docs",
     "create-index-files": "node scripts/create-index-files.js",
-    "postinstall": "node scripts/postinstall.js",
+    "postinstall": "node scripts/postinstall.js && yarpm create-index-files",
     "version": "node scripts/version.js",
+    "prepublish": "yarn create-index-files",
     "postpublish": "node scripts/postpublish.js"
   },
   "dependencies": {
