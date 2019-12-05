@@ -25,7 +25,7 @@ export default {
     /**
      * Sets aria-label for button icon
      */
-    alt: {
+    ariaLabel: {
       type: String,
       required: true
     }
