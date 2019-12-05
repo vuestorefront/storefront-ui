@@ -41,7 +41,10 @@ storiesOf("Molecules|Banner", module)
         default: text("button-text (prop)", "Shop Now")
       },
       image: {
-        default: object("image (prop)", {small:"/assets/storybook/Banner1.jpg", normal: "/assets/storybook/Banner1.jpg"})
+        default: object("image (prop)", {
+          small: "/assets/storybook/Banner1.jpg",
+          normal: "/assets/storybook/Banner1.jpg"
+        })
       },
       background: {
         default: color("background (prop)", "#e1e3e2")
@@ -89,7 +92,10 @@ storiesOf("Molecules|Banner", module)
         default: text("button-text (prop)", "Shop Now")
       },
       image: {
-        default: object("image (prop)", {small:"/assets/storybook/Banner1.jpg", normal: "/assets/storybook/Banner1.jpg"})
+        default: object("image (prop)", {
+          small: "/assets/storybook/Banner1.jpg",
+          normal: "/assets/storybook/Banner1.jpg"
+        })
       },
       background: {
         default: color("background (prop)", "#e1e3e2")
@@ -140,7 +146,10 @@ storiesOf("Molecules|Banner", module)
         default: text("button-text (prop)", "Shop Now")
       },
       image: {
-        default: object("image (prop)", {small:"/assets/storybook/Banner1.jpg", normal: "/assets/storybook/Banner1.jpg"})
+        default: object("image (prop)", {
+          small: "/assets/storybook/Banner1.jpg",
+          normal: "/assets/storybook/Banner1.jpg"
+        })
       },
       background: {
         default: color("background (prop)", "#e1e3e2")
@@ -191,7 +200,10 @@ storiesOf("Molecules|Banner", module)
         default: text("button-text (prop)", "Shop Now")
       },
       image: {
-        default: object("image (prop)", {small:"/assets/storybook/Banner1.jpg", normal: "/assets/storybook/Banner1.jpg"})
+        default: object("image (prop)", {
+          small: "/assets/storybook/Banner1.jpg",
+          normal: "/assets/storybook/Banner1.jpg"
+        })
       },
       background: {
         default: color("background (prop)", "#e1e3e2")
@@ -242,7 +254,10 @@ storiesOf("Molecules|Banner", module)
         default: text("button-text (prop)", "Shop Now")
       },
       image: {
-        default: object("image (prop)", {small:"/assets/storybook/Banner1.jpg", normal: "/assets/storybook/Banner1.jpg"})
+        default: object("image (prop)", {
+          small: "/assets/storybook/Banner1.jpg",
+          normal: "/assets/storybook/Banner1.jpg"
+        })
       },
       background: {
         default: color("background (prop)", "#e1e3e2")
