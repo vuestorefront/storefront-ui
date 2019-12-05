@@ -6,14 +6,14 @@ Vue.component("SfMegaMenuColumn", SfMegaMenuColumn);
 
 import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfBar from "../../molecules/SfBar/SfBar.vue";
 
 export default {
   name: "SfMegaMenu",
   components: {
     SfList,
     SfMenuItem,
-    SfIcon
+    SfBar
   },
   model: {
     prop: "active",

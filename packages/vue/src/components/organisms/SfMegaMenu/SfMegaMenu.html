@@ -1,13 +1,5 @@
 <div class="sf-mega-menu">
-  <div class="sf-mega-menu-bar" >
-    <div class="sf-mega-menu-bar__icon">
-      <SfIcon v-if="isActive" @click="change([])" icon="chevron_left" size="14px" />
-    </div>
-    <div class="sf-mega-menu-bar__title">{{this.root}}</div>
-    <div class="sf-mega-menu-bar__icon">
-      <SfIcon v-if="false" icon="cross" size="14px" />
-    </div>
-  </div>
+  <SfBar :title="root" :back="isActive" @click:back="change([])"/>
   <div
     class="sf-mega-menu__content"
     :class="{ 'sf-mega-menu__content--is-active': isActive }"
