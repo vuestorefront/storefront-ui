@@ -21,6 +21,7 @@
     "create-index-files": "node scripts/create-index-files.js",
     "postinstall": "node scripts/postinstall.js",
     "version": "node scripts/version.js",
+    "prepublish": "node scripts/create-index-files.js",
     "postpublish": "node scripts/postpublish.js"
   },
   "dependencies": {
