@@ -36,8 +36,7 @@ storiesOf("Organisms|Footer", module)
           : { padding: "6px 0" };
       }
     },
-    template: `<div style="margin: -20px;">
-      <SfFooter 
+    template: `<SfFooter 
         :column="column" 
         :multiple="multiple" 
         style="max-width: 64rem; margin-left: auto; margin-right: auto"
@@ -103,8 +102,7 @@ storiesOf("Organisms|Footer", module)
             />
           </div>
         </SfFooterColumn>
-      </SfFooter>
-    </div>`,
+      </SfFooter>`,
     methods: {
       isMobileHandler(e) {
         this.isMobile = e.matches;
