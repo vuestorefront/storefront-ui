@@ -15,33 +15,26 @@ export default {
     SfMenuItem,
     SfBar
   },
-  model: {
-    prop: "active",
-    event: "change"
-  },
   props: {
     /**
-     * Active column
+     * Parent menu
      */
-    active: {
-      type: Array,
-      default: () => ( [] )
-    },
-    root: {
+    parentMenu: {
       type: String,
       default: ""
     }
   },
   data() {
     return {
+      active: [],
       items: [],
       isMobile: false,
       desktopMin: 1024
     };
   },
   computed: {
-    isActive(){
-      return this.active.length > 0
+    isActive() {
+      return this.active.length > 0;
     }
   },
   watch: {
@@ -54,7 +47,7 @@ export default {
           } else {
             active = [...this.items];
           }
-          this.$emit("change", active);
+          this.active = active;
         });
       },
       immediate: true
@@ -66,7 +59,8 @@ export default {
       this.items.push(title);
     },
     change(payload) {
-      this.$emit("change", payload);
+      this.active = payload ? [payload] : [];
+      this.$emit("change", payload ? payload : "");
     },
     isMobileHandler(e) {
       this.isMobile = e.matches;

@@ -16,7 +16,7 @@
     "storybook:serve": "yarpm create-index-files && vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
     "storybook:build": "yarpm create-index-files && vue-cli-service storybook:build -s ./public -c config/storybook",
     "docs:vuecomponents": "node scripts/create-vue-components-docs.js",
-    "docs:dev": "yarpm docs:vuecomponents && vuepress dev docs",
+    "docs:dev": "yarpm docs:vueacomponents && vuepress dev docs",
     "docs:build": "yarpm docs:vuecomponents && vuepress build docs",
     "create-index-files": "node scripts/create-index-files.js",
     "postinstall": "node scripts/postinstall.js",

@@ -1,80 +1,83 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
+import { withKnobs, text } from "@storybook/addon-knobs";
 
-import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn.vue";
 import SfMegaMenu from "./SfMegaMenu.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 
-storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
-  components: {
-    SfMegaMenu,
-    SfMenuItem,
-    SfMegaMenuColumn,
-    SfImage
-  },
-  props: {},
-  data() {
-    return {
-      activeMenu: [],
-      categories: [
-        {
-          header: "Clothing",
-          items: [
-            { label: "Skirts" },
-            { label: "Sweaters" },
-            { label: "Dresses" },
-            { label: "TShirts" },
-            { label: "Pants" },
-            { label: "Underwear" },
-            { label: "Jackets" },
-            { label: "Blouses" }
-          ]
-        },
-        {
-          header: "Accessories",
-          items: [
-            { label: "Bags & Purses" },
-            { label: "Belts" },
-            { label: "Gloves" },
-            { label: "Hats" }
-          ]
-        },
-        {
-          header: "Shoes",
-          items: [
-            { label: "Boots" },
-            { label: "Heels" },
-            { label: "Flat shoes" },
-            { label: "Loafers" },
-            { label: "Sandals" },
-            { label: "Slippers" },
-            { label: "Trainers" }
-          ]
-        }
-      ],
-      tiles: [
-        {
-          title: "Last pairs left",
-          pictures: {
-            full: "assets/storybook/megamenu/bannerSandals-full.png",
-            normal: "assets/storybook/megamenu/bannerSandals.jpg"
+storiesOf("Organisms|MegaMenu", module)
+  .addDecorator(withKnobs)
+  .add("Common", () => ({
+    components: {
+      SfMegaMenu,
+      SfMenuItem,
+      SfImage
+    },
+    props: {
+      parentMenu: {
+        default: text("parent-menu", "Women", "Props")
+      }
+    },
+    data() {
+      return {
+        categories: [
+          {
+            header: "Clothing",
+            items: [
+              { label: "Skirts" },
+              { label: "Sweaters" },
+              { label: "Dresses" },
+              { label: "TShirts" },
+              { label: "Pants" },
+              { label: "Underwear" },
+              { label: "Jackets" },
+              { label: "Blouses" }
+            ]
+          },
+          {
+            header: "Accessories",
+            items: [
+              { label: "Bags & Purses" },
+              { label: "Belts" },
+              { label: "Gloves" },
+              { label: "Hats" }
+            ]
+          },
+          {
+            header: "Shoes",
+            items: [
+              { label: "Boots" },
+              { label: "Heels" },
+              { label: "Flat shoes" },
+              { label: "Loafers" },
+              { label: "Sandals" },
+              { label: "Slippers" },
+              { label: "Trainers" }
+            ]
           }
-        },
-        {
-          title: "Beach bags 2=1",
-          pictures: {
-            full: "assets/storybook/megamenu/bannerBeachBag-full.png",
-            normal: "assets/storybook/megamenu/bannerBeachBag.jpg"
+        ],
+        tiles: [
+          {
+            title: "Last pairs left",
+            pictures: {
+              full: "assets/storybook/megamenu/bannerSandals-full.png",
+              normal: "assets/storybook/megamenu/bannerSandals.jpg"
+            }
+          },
+          {
+            title: "Beach bags 2=1",
+            pictures: {
+              full: "assets/storybook/megamenu/bannerBeachBag-full.png",
+              normal: "assets/storybook/megamenu/bannerBeachBag.jpg"
+            }
           }
-        }
-      ]
-    };
-  },
-  template: `<div style="margin: -20px;">
+        ]
+      };
+    },
+    template: `<div style="margin: -20px;">
     <SfMegaMenu
-      v-model="activeMenu"
-      root="Women"
+      :parent-menu="parentMenu"
     >
       <SfMegaMenuColumn v-for="category in categories" :title="category.header" :key="category.header">
         <SfMenuItem v-for="item in category.items" :label="item.label" :key="item.label" class="sf-mega-menu__menu-item" />
@@ -90,9 +93,9 @@ storiesOf("Organisms|MegaMenu", module).add("[slot] default", () => ({
       </template>
     </SfMegaMenu>
   </div>`,
-  methods: {
-    updateActive(title) {
-      this.activePage = title;
+    methods: {
+      updateActive(title) {
+        this.activePage = title;
+      }
     }
-  }
-}));
+  }));

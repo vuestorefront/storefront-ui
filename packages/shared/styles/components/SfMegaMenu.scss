@@ -12,27 +12,6 @@
     border-bottom: 0;
   }
 }
-.sf-mega-menu-bar{
-  box-sizing: border-box;
-  display: flex;
-  height: 3.125rem;
-  padding: 0 $spacer-big;
-  align-items: center;
-  justify-content: space-between;
-  background-color: $c-light;
-  @media (min-width: $desktop-min) {
-    display: none;
-  }
-  &__title{
-    font-family: $body-font-family-secondary;
-    font-size: $font-size-big-mobile;
-    font-weight: 500;
-    line-height: 1.6;
-  }
-  &__icon{
-    flex: 0 0 0.875rem
-  }
-}
 .sf-mega-menu-column{
   @media (min-width: $desktop-min) {
     margin-right: $spacer-extra-big;
