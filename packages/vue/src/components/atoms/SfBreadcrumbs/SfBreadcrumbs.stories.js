@@ -1,4 +1,4 @@
-// /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, object } from "@storybook/addon-knobs";
 
@@ -33,8 +33,8 @@ storiesOf("Atoms|Breadcrumbs", module)
     },
     template: `<SfBreadcrumbs
       :breadcrumbs="breadcrumbs">
-      <template #link="{ breadcrumb }">
-        <span style="text-transform: lowercase">'{{breadcrumb.text}}'<span>
+      <template #link="{breadcrumb, go}">
+        <span style="text-transform: lowercase">'{{breadcrumb.text}}'</span>
       </template>
     </SfBreadcrumbs>`
   }))
@@ -51,8 +51,8 @@ storiesOf("Atoms|Breadcrumbs", module)
     },
     template: `<SfBreadcrumbs
       :breadcrumbs="breadcrumbs">
-      <template #current="{ breadcrumb }">
-        <span style="text-transform: uppercase">"{{breadcrumb.text}}"<span>
+      <template #current="{breadcrumb}">
+        <span style="text-transform: uppercase">"{{breadcrumb.text}}"</span>
       </template>
     </SfBreadcrumbs>`
   }));

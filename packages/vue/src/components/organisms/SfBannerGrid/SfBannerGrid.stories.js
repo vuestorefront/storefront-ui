@@ -1,4 +1,4 @@
-// /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
@@ -28,7 +28,7 @@ storiesOf("Organisms|BannerGrid", module)
     () => ({
       props: {
         editableProp: {
-          default: text("(prop) propname")
+          default: text("propname (prop)")
         },
         customClass: {
           default: options(
@@ -107,7 +107,7 @@ storiesOf("Organisms|BannerGrid", module)
     () => ({
       props: {
         editableProp: {
-          default: text("(prop) propname")
+          default: text("propname (prop)")
         },
         customClass: {
           default: options(
