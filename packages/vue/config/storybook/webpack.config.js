@@ -6,9 +6,6 @@ module.exports = async ({ config }) => {
     loaders: [
       {
         loader: require.resolve("@storybook/addon-storysource/loader"),
-        options: {
-          uglyCommentsRegex: [/^eslint-.*/]
-        }
       }
     ],
     enforce: "pre"
