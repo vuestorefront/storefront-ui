@@ -27,19 +27,17 @@ storiesOf("Organisms|Footer", module)
         social: ["facebook", "pinterest", "twitter", "youtube"],
         isMobile: false,
         desktopMin: 1024,
-        opened: []
       };
     },
     computed: {
       style() {
         return this.isMobile
-          ? { padding: "1.25rem 2.5rem" }
+          ? { padding: "20px 40px" }
           : { padding: "6px 0" };
       }
     },
     template: `<div style="margin: -20px;">
       <SfFooter 
-        v-model="opened" 
         :column="column" 
         :multiple="multiple" 
         style="max-width: 64rem; margin-left: auto; margin-right: auto"
@@ -51,7 +49,7 @@ storiesOf("Organisms|Footer", module)
               :key="item"
             >
               <SfMenuItem 
-                :style="style" 
+                class="sf-footer__menu-item" 
                 :label="item"
               />
             </SfListItem>
@@ -64,7 +62,7 @@ storiesOf("Organisms|Footer", module)
               :key="item"
             >
               <SfMenuItem 
-                :style="style" 
+                class="sf-footer__menu-item" 
                 :label="item"
               />
             </SfListItem>
@@ -77,7 +75,7 @@ storiesOf("Organisms|Footer", module)
               :key="item"
             >
               <SfMenuItem 
-                :style="style" 
+                class="sf-footer__menu-item" 
                 :label="item"
               />
             </SfListItem>
@@ -90,7 +88,7 @@ storiesOf("Organisms|Footer", module)
               :key="item"
             >
               <SfMenuItem 
-                :style="style" 
+                class="sf-footer__menu-item" 
                 :label="item"
               />
             </SfListItem>
