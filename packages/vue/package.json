@@ -21,7 +21,7 @@
     "create-index-files": "node scripts/create-index-files.js",
     "postinstall": "node scripts/postinstall.js && yarn create-index-files",
     "version": "node scripts/version.js",
-    "prepublish": "yarn create-index-files",
+    "prepublish": "node scripts/prepublish.js",
     "postpublish": "node scripts/postpublish.js"
   },
   "dependencies": {
