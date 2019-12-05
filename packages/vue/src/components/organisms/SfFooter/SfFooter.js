@@ -48,6 +48,7 @@ export default {
     },
     column: {
       handler(column) {
+        if (typeof window === "undefined") return;
         this.$nextTick(() => {
           this.$el.style.setProperty("--col-width", `${100 / column}%`);
         });
