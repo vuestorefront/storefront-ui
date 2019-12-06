@@ -39,23 +39,21 @@ storiesOf("Organisms|Header", module)
         )
       }
     },
-    template: `<div style="margin: -20px">
-      <SfHeader
-        :title="title" 
-        :logo="logo"
-        :cart-icon="cartIcon" 
-        :wishlist-icon="wishlistIcon" 
-        :account-icon="accountIcon"
-        :active-icon="activeIcon"
-        style="max-width: 1024px; margin: auto"
-      >
-        <template #navigation>
-          <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
-          <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
-          <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
-        </template>
-      </SfHeader>
-    </div>`
+    template: `<SfHeader
+      :title="title" 
+      :logo="logo"
+      :cart-icon="cartIcon" 
+      :wishlist-icon="wishlistIcon" 
+      :account-icon="accountIcon"
+      :active-icon="activeIcon"
+      style="max-width: 1024px; margin: auto"
+     >
+      <template #navigation>
+        <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
+      </template>
+    </SfHeader>`
   }))
   .add("[slot] logo", () => ({
     components: { SfHeader },
@@ -91,26 +89,24 @@ storiesOf("Organisms|Header", module)
         )
       }
     },
-    template: `<div style="margin: -20px">
-      <SfHeader
-        :title="title"  
-        :logo="logo"
-        :cart-icon="cartIcon" 
-        :wishlist-icon="wishlistIcon" 
-        :account-icon="accountIcon"
-        :active-icon="activeIcon"
-        style="max-width: 1024px; margin: auto"
-      >
-        <template #logo>
-          CUSTOM LOGO 
-        </template>
-        <template #navigation>
-        <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
-        <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
-        <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
+    template: `<SfHeader
+      :title="title"  
+      :logo="logo"
+      :cart-icon="cartIcon" 
+      :wishlist-icon="wishlistIcon" 
+      :account-icon="accountIcon"
+      :active-icon="activeIcon"
+      style="max-width: 1024px; margin: auto"
+    >
+      <template #logo>
+        CUSTOM LOGO 
       </template>
-      </SfHeader>
-    </div>`
+      <template #navigation>
+      <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
+      <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
+      <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
+    </template>
+    </SfHeader>`
   }))
   .add("[slot] navigation", () => ({
     components: { SfHeader },
@@ -141,8 +137,7 @@ storiesOf("Organisms|Header", module)
         default: text("activeIcon", "account", "Props")
       }
     },
-    template: `<div style="margin: -20px">
-    <SfHeader
+    template: `<SfHeader
       :title="title" 
       :logo="logo"
       :cart-icon="cartIcon" 
@@ -156,8 +151,7 @@ storiesOf("Organisms|Header", module)
         <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
         <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
       </template>
-    </SfHeader>
-  </div>`
+    </SfHeader>`
   }))
   .add("[slot] search", () => ({
     components: { SfHeader },
@@ -188,26 +182,24 @@ storiesOf("Organisms|Header", module)
         default: text("activeIcon", "account", "Props")
       }
     },
-    template: `<div style="margin: -20px">
-      <SfHeader
-        :title="title"  
-        :logo="logo"
-        :cart-icon="cartIcon" 
-        :wishlist-icon="wishlistIcon" 
-        :account-icon="accountIcon"
-        :active-icon="activeIcon"
-        style="max-width: 1024px; margin: auto"
-      >
-        <template #navigation>
-          <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
-          <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
-          <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
-        </template>
-        <template #search>
-          CUSTOM SEARCH
-        </template>
-      </SfHeader>
-    </div>`
+    template: `<SfHeader
+      :title="title"  
+      :logo="logo"
+      :cart-icon="cartIcon" 
+      :wishlist-icon="wishlistIcon" 
+      :account-icon="accountIcon"
+      :active-icon="activeIcon"
+      style="max-width: 1024px; margin: auto"
+    >
+      <template #navigation>
+        <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
+      </template>
+      <template #search>
+        CUSTOM SEARCH
+      </template>
+    </SfHeader>`
   }))
   .add("[slot] icons", () => ({
     components: { SfHeader },
@@ -243,24 +235,22 @@ storiesOf("Organisms|Header", module)
         )
       }
     },
-    template: `<div style="margin: -20px">
-      <SfHeader
-        :title="title" 
-        :logo="logo"
-        :cart-icon="cartIcon" 
-        :wishlist-icon="wishlistIcon" 
-        :account-icon="accountIcon"
-        :active-icon="activeIcon"
-        style="max-width: 1024px; margin: auto"
-      >
-        <template #navigation>
-          <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
-          <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
-          <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
-        </template>
-        <template #header-icons>
-          CUSTOM ICONS
-        </template>
-      </SfHeader>
-    </div>`
+    template: `<SfHeader
+      :title="title" 
+      :logo="logo"
+      :cart-icon="cartIcon" 
+      :wishlist-icon="wishlistIcon" 
+      :account-icon="accountIcon"
+      :active-icon="activeIcon"
+      style="max-width: 1024px; margin: auto"
+    >
+      <template #navigation>
+        <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
+      </template>
+      <template #header-icons>
+        CUSTOM ICONS
+      </template>
+    </SfHeader>`
   }));

@@ -9,9 +9,6 @@ storiesOf("Molecules|Modal", module)
   .add("Common", () => ({
     components: { SfModal },
     props: {
-      visible: {
-        default: boolean("visible", true, "Props")
-      },
       overlay: {
         default: boolean("overlay", true, "Props")
       },
@@ -22,20 +19,26 @@ storiesOf("Molecules|Modal", module)
         default: boolean("persistent", true, "Props")
       }
     },
-    template: `<SfModal
-      :visible="visible"
-      :overlay="overlay"
-      :cross="cross"
-      :persistent="persistent">
-      HELLO STOREFRONT UI!
-    </SfModal>`
+    data(){
+      return {
+        visible: true
+      }
+    },
+    template: `<div>
+        <label>visible (data)<input type="checkbox" v-model="visible"></label>
+        <SfModal
+        :visible="visible"
+        :overlay="overlay"
+        :cross="cross"
+        :persistent="persistent"
+        @close="visible = false">
+        HELLO STOREFRONT UI!
+        </SfModal>
+      </div>`
   }))
   .add("[slot] close", () => ({
     components: { SfModal },
     props: {
-      visible: {
-        default: boolean("visible", true, "Props")
-      },
       overlay: {
         default: boolean("overlay", true, "Props")
       },
@@ -46,14 +49,23 @@ storiesOf("Molecules|Modal", module)
         default: boolean("persistent", true, "Props")
       }
     },
-    template: `<SfModal
-      :visible="visible"
-      :overlay="overlay"
-      :cross="cross"
-      :persistent="persistent">
-      HELLO STOREFRONT UI!
-      <template #close>
-          close
-      </template>
-    </SfModal>`
+    data(){
+      return {
+        visible: true
+      }
+    },
+    template: `<div>
+        <label>visible (data)<input type="checkbox" v-model="visible"></label>
+        <SfModal
+        :visible="visible"
+        :overlay="overlay"
+        :cross="cross"
+        :persistent="persistent"
+        @close="visible = false">
+        HELLO STOREFRONT UI!
+          <template #close>
+            close
+          </template>
+        </SfModal>
+      </div>`
   }));
