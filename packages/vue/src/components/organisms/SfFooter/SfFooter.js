@@ -61,7 +61,9 @@ export default {
     this.isMobile =
       Math.max(document.documentElement.clientWidth, window.innerWidth) <
       this.desktopMin;
-    window.matchMedia(`(max-width: ${this.desktopMin}px)`).addListener(this.isMobileHandler);
+    window
+      .matchMedia(`(max-width: ${this.desktopMin}px)`)
+      .addListener(this.isMobileHandler);
   },
   beforeDestroy() {
     window

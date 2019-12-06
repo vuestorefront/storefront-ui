@@ -26,14 +26,12 @@ storiesOf("Organisms|Footer", module)
         paymentsDelivery: ["Purchase terms", "Guarantee"],
         social: ["facebook", "pinterest", "twitter", "youtube"],
         isMobile: false,
-        desktopMin: 1024,
+        desktopMin: 1024
       };
     },
     computed: {
       style() {
-        return this.isMobile
-          ? { padding: "20px 40px" }
-          : { padding: "6px 0" };
+        return this.isMobile ? { padding: "20px 40px" } : { padding: "6px 0" };
       }
     },
     template: `<SfFooter 
