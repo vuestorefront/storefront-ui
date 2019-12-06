@@ -26,14 +26,8 @@ export default {
   watch: {
     isMobile: {
       handler(mobile) {
-        let open;
         this.$nextTick(() => {
-          if (mobile) {
-            open = [];
-          } else {
-            open = [...this.items];
-          }
-          this.open = open;
+          this.open = mobile ? [] : [...this.items];
         });
       },
       immediate: true
@@ -50,16 +44,14 @@ export default {
   },
   methods: {
     toggle(payload) {
-      let open = [...this.open];
       if (!this.multiple) {
-        open = [payload];
-      } else if (open.includes(payload)) {
-        open = open.filter(item => item !== payload);
+        this.open = [payload];
+      } else if (this.open.includes(payload)) {
+        this.open = this.open.filter(item => item !== payload);
       } else {
-        open.push(payload);
+        this.open.push(payload);
       }
-      this.open = open;
-      this.$emit("change", open);
+      this.$emit("change", this.open);
     },
     isMobileHandler(e) {
       this.isMobile = e.matches;
