@@ -19,10 +19,10 @@ storiesOf("Molecules|Modal", module)
         default: boolean("persistent", true, "Props")
       }
     },
-    data(){
+    data() {
       return {
         visible: true
-      }
+      };
     },
     template: `<div>
         <label>visible (data)<input type="checkbox" v-model="visible"></label>
@@ -49,10 +49,10 @@ storiesOf("Molecules|Modal", module)
         default: boolean("persistent", true, "Props")
       }
     },
-    data(){
+    data() {
       return {
         visible: true
-      }
+      };
     },
     template: `<div>
         <label>visible (data)<input type="checkbox" v-model="visible"></label>

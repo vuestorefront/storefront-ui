@@ -31,10 +31,10 @@ storiesOf("Molecules|Notification", module)
         )
       }
     },
-    data(){
+    data() {
       return {
         visible: true
-      }
+      };
     },
     template: `<div>
         <label>visible <input type="checkbox" v-model="visible"></label>
@@ -73,10 +73,10 @@ storiesOf("Molecules|Notification", module)
         )
       }
     },
-    data(){
+    data() {
       return {
         visible: true
-      }
+      };
     },
     template: `<div>
         <label>visible <input type="checkbox" v-model="visible"></label>
@@ -119,10 +119,10 @@ storiesOf("Molecules|Notification", module)
         )
       }
     },
-    data(){
+    data() {
       return {
         visible: true
-      }
+      };
     },
     template: `<SfNotification
       :visible="visible"
@@ -160,10 +160,10 @@ storiesOf("Molecules|Notification", module)
         )
       }
     },
-    data(){
+    data() {
       return {
         visible: true
-      }
+      };
     },
     template: `<div>
         <label>visible <input type="checkbox" v-model="visible"></label>
@@ -206,10 +206,10 @@ storiesOf("Molecules|Notification", module)
         )
       }
     },
-    data(){
+    data() {
       return {
         visible: true
-      }
+      };
     },
     template: `<div>
         <label>visible <input type="checkbox" v-model="visible"></label>
@@ -252,10 +252,10 @@ storiesOf("Molecules|Notification", module)
         )
       }
     },
-    data(){
+    data() {
       return {
         visible: true
-      }
+      };
     },
     template: `<div>
         <label>visible <input type="checkbox" v-model="visible"></label>
