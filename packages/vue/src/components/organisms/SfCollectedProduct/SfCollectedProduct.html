@@ -13,7 +13,7 @@
       <SfImage :src="image" :alt="title" class="sf-collected-product__image" />
     </slot>
     <slot name="input">
-      <SfQuantitySelector :qty="qty" :stock="stock" class="sf-collected-product__quantity-selector"/>
+      <SfQuantitySelector :qty="qty" :stock="stock" :min="min" class="sf-collected-product__quantity-selector"/>
     </slot>
   </div>
   <div class="sf-collected-product__main">

@@ -2,7 +2,7 @@
     type="number"
     :value="qty"
     @input="(value)=>{$emit('input', parseInt(value, 10))}"
-    min="0"
+    :min="min"
     :max="stock"
     class="sf-quantity-selector"
 />

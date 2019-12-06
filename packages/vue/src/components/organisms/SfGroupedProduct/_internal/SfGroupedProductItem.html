@@ -16,7 +16,7 @@
     </slot>
     <!-- @slot Custom input markup -->
     <slot name="input" v-bind="{qty, stock}">
-      <SfQuantitySelector :stock="stock" :qty="qty" class="sf-grouped-product-item__quantity-selector"/>
+      <SfQuantitySelector :stock="stock" :qty="qty" :min="min" class="sf-grouped-product-item__quantity-selector"/>
     </slot>
   </div>
   <div class="sf-grouped-product-item__description">

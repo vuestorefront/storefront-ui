@@ -15,6 +15,11 @@ export default {
     stock: {
       type: Number,
       default: 0
+    },
+    /** Minimum quantity of product */
+    min: {
+      type: Number,
+      default: 0
     }
   }
 };

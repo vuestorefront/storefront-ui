@@ -1,6 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, number } from "@storybook/addon-knobs";
+import { withKnobs, number } from "@storybook/addon-knobs";
 
 import SfQuantitySelector from "./SfQuantitySelector.vue";
 
@@ -14,7 +14,10 @@ storiesOf("Atoms|QuantitySelector", module)
       },
       stock: {
         default: number("stock", 99, "Props")
+      },
+      min: {
+        default: number("min", 0, "Props")
       }
     },
-    template: `<SfQuantitySelector :qty="qty" :stock="stock"/>`
+    template: `<SfQuantitySelector :qty="qty" :stock="stock" :min="min"/>`
   }));
