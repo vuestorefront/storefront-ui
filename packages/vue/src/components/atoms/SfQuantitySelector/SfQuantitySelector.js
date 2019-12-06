@@ -8,7 +8,7 @@ export default {
   props: {
     /** Product quantity */
     qty: {
-      type: String,
+      type: Number,
       default: 0
     },
     /** Stock quantity of product */
