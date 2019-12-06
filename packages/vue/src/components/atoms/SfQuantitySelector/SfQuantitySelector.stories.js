@@ -6,7 +6,7 @@ import SfQuantitySelector from "./SfQuantitySelector.vue";
 
 storiesOf("Atoms|QuantitySelector", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfQuantitySelector },
     props: {
       qty: {
