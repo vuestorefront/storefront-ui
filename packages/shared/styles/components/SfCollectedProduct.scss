@@ -53,8 +53,10 @@ $collected-product__select-quantity-height: 1.875rem !default;
     background-color: transparent;
     padding: 0;
     .sf-icon{
-      --icon-size: #{$collected-product__remove-size} !important;
-      --icon-color: #{$c-gray} !important;
+      @media (max-width: $desktop-min) {
+        --icon-size: #{$collected-product__remove-size} !important;
+        --icon-color: #{$c-gray} !important;
+      }
     }
     @media (min-width: $desktop-min) {
       right: calc(#{$collected-product__remove-size-desktop} / -2);

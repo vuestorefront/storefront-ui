@@ -37,34 +37,4 @@ storiesOf("Molecules|Steps", module)
         <StoriesPlaceholder :name="step"/>
       </SfStep>
     </SfSteps>`
-  }))
-  .add("[slot] steps", () => ({
-    components: { SfSteps, StoriesPlaceholder },
-    props: {
-      canGoBack: {
-        default: boolean("canGoBack", true, "Props")
-      }
-    },
-    data() {
-      return {
-        active: 0,
-        steps: [
-          "Personal details",
-          "Shipping",
-          "Billing address",
-          "Order review"
-        ]
-      };
-    },
-    template: `<SfSteps
-       v-model="active" 
-       :steps="steps" 
-       :can-go-back="canGoBack">
-       <SfStep v-for="(step, key) in steps" :key="key" :name="step">
-        <StoriesPlaceholder :name="step"/>
-      </SfStep>
-       <template #steps="{steps}">
-        <div style="padding: 1rem">CUSTOM STEPS</div> 
-       </template>
-    </SfSteps>`
   }));
