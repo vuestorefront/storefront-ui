@@ -1,5 +1,5 @@
 # component-description
-Component with add to cart button and quantity selector
+Add-to-cart [button](Button.html) and quantity input field with maximum stock validation.
 
 # storybook-iframe-height
 5rem
