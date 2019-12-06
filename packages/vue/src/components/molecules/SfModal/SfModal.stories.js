@@ -39,9 +39,6 @@ storiesOf("Molecules|Modal", module)
   .add("[slot] close", () => ({
     components: { SfModal },
     props: {
-      visible: {
-        default: boolean("visible (data)", true)
-      },
       overlay: {
         default: boolean("overlay (prop)", true)
       },
