@@ -7,7 +7,8 @@ $quantity-selector__width-desktop: 3.125rem !default;
 .sf-quantity-selector {
   width: $quantity-selector__width;
   height: $quantity-selector__height;
-margin: 0
+  margin: 0;
+  
   @media (min-width: $desktop-min) {
     width: $quantity-selector__width-desktop;
   }
