@@ -5,7 +5,7 @@ Selector input for chosing quantity of products
 # common-usage
 
 <br>
-<SfQuantitySelector stock="2" qty="1" />
+<SfQuantitySelector :stock="2"  :qty="1" />
 
 ```html
 
