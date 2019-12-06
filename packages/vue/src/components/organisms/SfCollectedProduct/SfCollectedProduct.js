@@ -59,18 +59,6 @@ export default {
       this.$emit("click:remove");
     }
   },
-  watch: {
-    qty(value) {
-      const qty = parseInt(value, 10);
-      if (qty <= 0) {
-        this.$emit("input", "1");
-        return;
-      }
-      if (qty > this.stock) {
-        this.$emit("input", "" + this.stock);
-      }
-    }
-  },
   components: {
     SfIcon,
     SfImage,
