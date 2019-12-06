@@ -9,7 +9,7 @@ export default {
     /** Product quantity */
     qty: {
       type: String,
-      default: "0"
+      default: 0
     },
     /** Stock quantity of product */
     stock: {
