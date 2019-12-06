@@ -13,15 +13,15 @@ storiesOf("Atoms|Bullets", module)
       }
     },
     components: { SfBullets },
-    data(){
+    data() {
       return {
         current: 1
-      }
+      };
     },
     template: `<SfBullets
       :total="total"
       :current="current"
-      @click="( value )=>{ current = value }"/>`
+      @click="value => current = value"/>`
   }))
   .add("[slot] active", () => ({
     props: {
@@ -33,15 +33,15 @@ storiesOf("Atoms|Bullets", module)
       }
     },
     components: { SfBullets },
-    data(){
+    data() {
       return {
         current: 1
-      }
+      };
     },
     template: `<SfBullets
       :total="total"
       :current="current"
-      @click="( value )=>{ current = value }">
+      @click="value => current = value">
       <template #active>
         <li style="width: 10px; height: 10px; background-color:#9EE2B0"></li>
       </template>
@@ -54,15 +54,15 @@ storiesOf("Atoms|Bullets", module)
       }
     },
     components: { SfBullets },
-    data(){
+    data() {
       return {
         current: 1
-      }
+      };
     },
     template: `<SfBullets
       :total="total"
       :current="current"
-      @click="( value )=>{ current = value }">
+      @click="value => current = value">
       <template #inactive="{index, go}">
         <li @click="go(index)" style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"></li>
       </template>

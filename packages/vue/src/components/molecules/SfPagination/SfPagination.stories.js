@@ -24,7 +24,7 @@ storiesOf("Molecules|Pagination", module)
         :current="current"
         :visible="visible"
         :total="total"
-        @click="(value)=>{ current = value }"/>`
+        @click="value => current = value"/>`
   }))
   .add("[slot] default", () => ({
     components: { SfPagination },
@@ -67,7 +67,7 @@ storiesOf("Molecules|Pagination", module)
       :current="current"
       :visible="visible"
       :total="total"
-      @click="(value)=>{ current = value }">
+      @click="value => current = value">
       <template #prev="{isDisabled, go}">
         <button @click="go">prev</button>
       </template>
@@ -92,7 +92,7 @@ storiesOf("Molecules|Pagination", module)
       :current="current"
       :visible="visible"
       :total="total"
-      @click="(value)=>{ current = value }">
+      @click="value => current = value">
       <template #next="{isDisabled, go}">
         <button @click="go">next</button>
       </template>
@@ -117,7 +117,7 @@ storiesOf("Molecules|Pagination", module)
       :current="current"
       :visible="visible"
       :total="total"
-      @click="(value)=>{ current = value }">
+      @click="value => current = value">
       <template #number="{number, go}">
         <button 
           class="sf-pagination__button"
