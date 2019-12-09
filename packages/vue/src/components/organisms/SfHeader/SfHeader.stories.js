@@ -21,7 +21,7 @@ storiesOf("Organisms/Header", module)
         default: text("cart-icon (prop)", "empty_cart")
       },
       wishlistIcon: {
-        default: text("wishlist-iIcon (prop)", "heart")
+        default: text("wishlist-icon (prop)", "heart")
       },
       accountIcon: {
         default: text("account-icon (prop)", "profile")
