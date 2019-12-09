@@ -86,7 +86,7 @@
 <script>
 import { SfModal, SfInput, SfButton, SfCheckbox } from "../../../../index.js";
 export default {
-  name: "SignIn",
+  name: "Login",
   components: { SfModal, SfInput, SfButton, SfCheckbox },
   data() {
     return {
