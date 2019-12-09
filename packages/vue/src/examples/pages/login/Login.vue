@@ -19,7 +19,6 @@
           <SfCheckbox
             v-model="rememberMe"
             name="remember-me"
-            value="remember-me"
             label="Remember me"
             class="form__checkbox"
           />
@@ -65,7 +64,6 @@
           <SfCheckbox
             v-model="createAccount"
             name="create-account"
-            value="create-account"
             label="I want to create an account"
             class="form__checkbox"
           />
@@ -93,8 +91,8 @@ export default {
       isLogin: true,
       email: "",
       password: "",
-      createAccount: [],
-      rememberMe: [],
+      createAccount: false,
+      rememberMe: false,
       firstName: "",
       lastName: ""
     };
@@ -103,8 +101,8 @@ export default {
     isLogin() {
       this.email = "";
       this.password = "";
-      this.createAccount = [];
-      this.rememberMe = [];
+      this.createAccount = false;
+      this.rememberMe = false;
       this.firstName = "";
       this.lastName = "";
     }
