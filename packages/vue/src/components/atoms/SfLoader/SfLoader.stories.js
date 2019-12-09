@@ -1,10 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 
+import { withCustomStyles } from "@storefront-ui/vue/scripts/decorators";
+
 import SfLoader from "./SfLoader.vue";
 import SfImage from "../SfImage/SfImage.vue";
 
 storiesOf("Atoms|Loader", module)
+  .addDecorator(withCustomStyles("margin: 20px;"))
   .add("Common", () => ({
     components: {
       SfLoader,

@@ -5,6 +5,13 @@ function centeredDecorator() {
   };
 }
 
+function withCustomStyles(styles) {
+  return {
+    template: '<div style="' + styles + '"><story/></div>'
+  };
+}
+
 module.exports = {
-  centeredDecorator
+  centeredDecorator,
+  withCustomStyles
 };
