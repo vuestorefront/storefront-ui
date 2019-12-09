@@ -23,7 +23,7 @@
             label="Remember me"
             class="form__checkbox"
           />
-          <SfButton class="sf-button--full-width">Log in</SfButton>
+          <SfButton class="sf-button--full-width">Login</SfButton>
           <div class="form__message">
             <SfButton class="sf-button--text button--muted"
               >Forgotten password?</SfButton
