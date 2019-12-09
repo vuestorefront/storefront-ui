@@ -2,13 +2,17 @@
   <div id="sign-in">
     <SfModal :visible="true">
       <template v-if="true">
-        <SfInput label="Your email" />
-        <SfInput label="First Name" />
-        <SfInput label="Last Name" />
-        <SfInput label="Password" type="password" />
-        <SfCheckbox label="I want to create an account" />
-        <SfButton>Create an account</SfButton>
-        or <SfButton class="sf-button--text">login in to your account</SfButton>
+        <SfInput v-model="email" label="Your email" class="input" />
+        <SfInput label="First Name" class="input" />
+        <SfInput label="Last Name" class="input" />
+        <SfInput v-model="password" label="Password" type="password" class="input" />
+        <SfCheckbox v-model="createAccount" value="create-account" label="I want to create an account" class="checkbox" />
+        <SfButton class="sf-button--full-width submit"
+          >Create an account</SfButton
+        >
+        <div class="message">
+          or <SfButton class="sf-button--text">login in to your account</SfButton>
+        </div>
       </template>
       <template v-else>
         <SfInput label="Your email" />
@@ -29,7 +33,11 @@ export default {
   name: "SignIn",
   components: { SfModal, SfInput, SfButton, SfCheckbox },
   data() {
-    return {};
+    return {
+      email: "",
+      password: "",
+      createAccount: []
+    };
   }
 };
 </script>
@@ -48,5 +56,15 @@ export default {
     max-width: 1240px;
     margin: auto;
   }
+}
+.input,
+.checkbox {
+  margin-bottom: $spacer-extra-big;
+}
+.submit {
+  margin-bottom: $spacer-big;
+}
+.message{
+  text-align: center;
 }
 </style>
