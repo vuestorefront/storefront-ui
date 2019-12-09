@@ -7,16 +7,15 @@ import {
 } from "@storybook/addon-knobs";
 
 import SfSidebar from "./SfSidebar.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
+import {
+  withDataToggle,
+  dataToggleMixin
+} from "../../../../config/storybook/decorators";
 
 storiesOf("Organisms|Sidebar", module)
   .addDecorator(withKnobs)
+  .addDecorator(withDataToggle("isSidebarOpen"))
   .add("Common", () => ({
-    data() {
-      return {
-        isSidebarOpen: true
-      };
-    },
     props: {
       customClass: {
         default: options(
@@ -36,19 +35,18 @@ storiesOf("Organisms|Sidebar", module)
         default: select("overlay", [true, false], true, "Props")
       }
     },
-    components: { SfSidebar, SfButton },
-    template: `<div>
-        <SfButton @click="isSidebarOpen = true">Open sidebar</SfButton>
-        <SfSidebar
-          @close="isSidebarOpen = false"
-          :visible="isSidebarOpen"
-          :overlay="overlay"
-          :button="button"
-          :class="customClass"
-        >
-          <div style="box-sizing: border-box; padding: 2.5rem; width: 20rem">
-            Hello World
-          </div>
-        </SfSidebar>
-      </div>`
+    components: { SfSidebar },
+    mixins: [dataToggleMixin("isSidebarOpen")],
+    template: `
+      <SfSidebar
+        @close="isSidebarOpen = false"
+        :visible="isSidebarOpen"
+        :overlay="overlay"
+        :button="button"
+        :class="customClass"
+      >
+        <div style="box-sizing: border-box; padding: 2.5rem; width: 20rem">
+          Hello World
+        </div>
+      </SfSidebar>`
   }));
