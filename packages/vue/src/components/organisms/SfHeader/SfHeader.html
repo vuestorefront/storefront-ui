@@ -1,6 +1,6 @@
 <header class="sf-header">
   <!--@slot Use this slot to replace logo with text or icon-->
-  <slot nae="logo" v-bind="{logo, title}">
+  <slot name="logo" v-bind="{logo, title}">
     <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo"/>
     <h1 v-else class="sf-header__title">{{title}}</h1>
   </slot>
@@ -18,6 +18,7 @@
         <SfCircleIcon
           v-if="accountIcon"
           :icon="accountIcon"
+          icon-size="20px"
           class="sf-header__icon"
           :class="{'sf-header__icon--is-active' : activeIcon === 'account'}"
           role="button"
@@ -28,6 +29,7 @@
       <SfCircleIcon
         v-if="wishlistIcon"
         :icon="wishlistIcon"
+        icon-size="20px"
         class="sf-header__icon"
         :class="{'sf-header__icon--is-active' : activeIcon === 'wishlist'}"
         role="button"
@@ -38,6 +40,7 @@
       <SfCircleIcon
           v-if="cartIcon"
           :icon="cartIcon"
+          icon-size="20px"
           class="sf-header__icon"
           :class="{'sf-header__icon--is-active' : activeIcon === 'cart'}"
           role="button"
