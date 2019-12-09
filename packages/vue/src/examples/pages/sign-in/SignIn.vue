@@ -1,36 +1,88 @@
 <template>
   <div id="sign-in">
     <SfModal :visible="true">
-      <template v-if="false">
-        <SfInput v-model="email" label="Your email" class="input" />
-        <SfInput label="First Name" class="input" />
-        <SfInput label="Last Name" class="input" />
-        <SfInput v-model="password" label="Password" type="password" class="input" />
-        <SfCheckbox v-model="createAccount" value="create-account" label="I want to create an account" class="checkbox" />
-        <SfButton class="sf-button--full-width submit"
-          >Create an account</SfButton
-        >
-        <div class="message">
-          or <SfButton class="sf-button--text">login in to your account</SfButton>
+      <transition name="fade" mode="out-in">
+        <div v-if="isLogin" key="log-in" class="form">
+          <SfInput
+            v-model="email"
+            name="email"
+            label="Your email"
+            class="form__input"
+          />
+          <SfInput
+            v-model="password"
+            name="password"
+            label="Password"
+            type="password"
+            class="form__input"
+          />
+          <SfCheckbox
+            v-model="rememberMe"
+            name="remember-me"
+            value="remember-me"
+            label="Remember me"
+            class="form__checkbox"
+          />
+          <SfButton class="sf-button--full-width">Log in</SfButton>
+          <div class="form__message">
+            <SfButton class="sf-button--text button--muted"
+              >Forgotten password?</SfButton
+            >
+          </div>
+          <div class="form__aside">
+            Don't have and account yet?
+            <SfButton class="sf-button--text" @click="isLogin = false"
+              >Register today?</SfButton
+            >
+          </div>
         </div>
-      </template>
-      <template v-else>
-        <SfInput v-model="email" label="Your email" class="input"/>
-        <SfInput v-model="password" label="Password" type="password" class="input"/>
-        <SfCheckbox v-model="rememberMe" value="remember-me" label="Remember me" class="checkbox"/>
-        <SfButton class="sf-button--full-width submit">Log in</SfButton>
-        <div class="message">
-          <SfButton class="sf-button--text muted">Forgotten password?</SfButton>
+        <div v-else key="sign-up" class="form">
+          <SfInput
+            v-model="email"
+            name="email"
+            label="Your email"
+            class="form__input"
+          />
+          <SfInput
+            v-model="firstName"
+            name="first-name"
+            label="First Name"
+            class="form__input"
+          />
+          <SfInput
+            v-model="lastName"
+            name="last-name"
+            label="Last Name"
+            class="form__input"
+          />
+          <SfInput
+            v-model="password"
+            name="password"
+            label="Password"
+            type="password"
+            class="form__input"
+          />
+          <SfCheckbox
+            v-model="createAccount"
+            name="create-account"
+            value="create-account"
+            label="I want to create an account"
+            class="form__checkbox"
+          />
+          <SfButton class="sf-button--full-width submit"
+            >Create an account</SfButton
+          >
+          <div class="form__message">
+            or
+            <SfButton class="sf-button--text" @click="isLogin = true"
+              >login in to your account</SfButton
+            >
+          </div>
         </div>
-        <div class="aside">
-          Don't have and account yet?
-          <SfButton class="sf-button--text">Register today?</SfButton>
-        </div>
-      </template>
+      </transition>
     </SfModal>
   </div>
 </template>
-
 <script>
 import { SfModal, SfInput, SfButton, SfCheckbox } from "../../../../index.js";
 export default {
@@ -38,15 +90,27 @@ export default {
   components: { SfModal, SfInput, SfButton, SfCheckbox },
   data() {
     return {
+      isLogin: true,
       email: "",
       password: "",
       createAccount: [],
-      rememberMe: []
+      rememberMe: [],
+      firstName: "",
+      lastName: ""
     };
+  },
+  watch: {
+    isLogin() {
+      this.email = "";
+      this.password = "";
+      this.createAccount = [];
+      this.rememberMe = [];
+      this.firstName = "";
+      this.lastName = "";
+    }
   }
 };
 </script>
-
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 
@@ -62,23 +126,28 @@ export default {
     margin: auto;
   }
 }
-.input,
-.checkbox {
-  margin-bottom: $spacer-extra-big;
-}
-.submit {
-}
-.message{
-  margin-top: $spacer-big;
-  text-align: center;
-}
-  .aside{
+.form {
+  &__input {
+    margin-bottom: $spacer-extra-big;
+  }
+  &__checkbox {
+    margin-bottom: 3.75rem;
+  }
+  &__message {
+    margin-top: $spacer-big;
+    text-align: center;
+  }
+  &__aside {
     padding-top: $spacer-extra-big;
     margin-top: $spacer-extra-big;
     border-top: 1px solid $c-light;
+    line-height: 1.6;
     text-align: center;
   }
-  .muted{
+}
+.button {
+  &--muted {
     color: $c-text-muted;
   }
+}
 </style>
