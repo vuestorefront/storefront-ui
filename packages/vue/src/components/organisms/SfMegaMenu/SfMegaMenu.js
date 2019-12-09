@@ -51,6 +51,17 @@ export default {
         });
       },
       immediate: true
+    },
+    parentMenu: {
+      handler(parent) {
+        console.log(this.items);
+        if(!parent) return;
+        if(this.isMobile) return;
+        this.$nextTick(() => {
+          this.active = [...this.items];
+        })
+      },
+      immediate: true
     }
   },
   methods: {
