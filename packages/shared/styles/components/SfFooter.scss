@@ -41,4 +41,10 @@ $footer-column__title-font-weight: 500 !default;
     justify-content: space-between;
     margin: $footer-desktop-margin;
   }
+  &__menu-item{
+    padding: $spacer-big $spacer-extra-big;
+    @media (min-width: $desktop-min){
+      padding: 6px 0;
+    }
+  }
 }
