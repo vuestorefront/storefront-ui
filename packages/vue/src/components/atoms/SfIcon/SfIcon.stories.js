@@ -1,4 +1,4 @@
-// /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
@@ -100,6 +100,8 @@ storiesOf("Atoms|Icon", module)
       :size="size"
       :color="color"
       :view-box="viewBox">
-      <img src="/assets/storybook/vue.ico" alt="Vue.js">
+      <template #default="{viewBox, iconPaths, icon}">
+        <img src="/assets/storybook/vue.ico" alt="Vue.js">
+      </template>
     </SfIcon>`
   }));

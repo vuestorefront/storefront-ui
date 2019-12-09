@@ -58,7 +58,7 @@ export default {
     iconColor() {
       return !this.isDecimalOrHexColor
         ? `sf-icon--color-${this.color.trim()}`
-        : this.color;
+        : "";
     },
     iconSize() {
       return this.isSFSizes ? `sf-icon--size-${this.size.trim()}` : "";
@@ -79,13 +79,19 @@ export default {
       }
     }
   },
+  updated() {
+    this.$nextTick(this.updateCustomizeColorAndSize);
+  },
   mounted() {
-    if (this.isDecimalOrHexColor) {
-      this.$refs.icon.style.setProperty("--icon-color", this.color);
-    }
+    this.updateCustomizeColorAndSize();
+  },
+  methods: {
+    updateCustomizeColorAndSize() {
+      const customColorProperty = this.isDecimalOrHexColor ? this.color : "";
+      const customSizeProperty = !this.isSFSizes ? this.size : "";
 
-    if (!this.isSFSizes) {
-      this.$refs.icon.style.setProperty("--icon-size", this.size);
+      this.$refs.icon.style.setProperty("--icon-color", customColorProperty);
+      this.$refs.icon.style.setProperty("--icon-size", customSizeProperty);
     }
   }
 };

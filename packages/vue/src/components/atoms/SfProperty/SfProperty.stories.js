@@ -1,4 +1,4 @@
-// /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
@@ -60,7 +60,7 @@ storiesOf("Atoms|Property", module)
       :class="customClass"
       :name="name"
       :value="value">
-      <template #name="{ name }">
+      <template #name="{name}">
         {{name}}:<br>
       </template>
     </SfProperty>`
@@ -92,7 +92,7 @@ storiesOf("Atoms|Property", module)
       :class="customClass"
       :name="name"
       :value="value">
-      <template #value="{ value }">
+      <template #value="{value}">
         <SfBadge>{{value}}</SfBadge>
       </template>
     </SfProperty>`
