@@ -7,14 +7,14 @@ import SfIcon from "../SfIcon/SfIcon.vue";
 
 storiesOf("Atoms|Rating", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfRating },
     props: {
       max: {
-        default: number("max", 5, {}, "Props")
+        default: number("max (prop)", 5)
       },
       score: {
-        default: number("score", 3, { min: 0 }, "Props")
+        default: number("score (prop)", 3, { min: 0 })
       }
     },
     template: `<SfRating
@@ -28,10 +28,10 @@ storiesOf("Atoms|Rating", module)
     },
     props: {
       max: {
-        default: number("max", 5, {}, "Props")
+        default: number("max (prop)", 5)
       },
       score: {
-        default: number("score", 3, { min: 0 }, "Props")
+        default: number("score (prop)", 3, { min: 0 })
       }
     },
     template: `<SfRating
@@ -49,10 +49,10 @@ storiesOf("Atoms|Rating", module)
     },
     props: {
       max: {
-        default: number("max", 5, {}, "Props")
+        default: number("max (prop)", 5)
       },
       score: {
-        default: number("score", 3, { min: 0 }, "Props")
+        default: number("score (prop)", 3, { min: 0 })
       }
     },
     template: `<SfRating

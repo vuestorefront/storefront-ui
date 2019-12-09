@@ -1,3 +1,93 @@
+// @vue/component
+import Vue from "vue";
+import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn.vue";
+
+Vue.component("SfMegaMenuColumn", SfMegaMenuColumn);
+
+import SfList from "../SfList/SfList.vue";
+import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
+import SfBar from "../../molecules/SfBar/SfBar.vue";
+
 export default {
-  name: "SfMegaMenu"
+  name: "SfMegaMenu",
+  components: {
+    SfList,
+    SfMenuItem,
+    SfBar
+  },
+  props: {
+    /**
+     * Parent menu
+     */
+    parentMenu: {
+      type: String,
+      default: ""
+    }
+  },
+  data() {
+    return {
+      active: [],
+      items: [],
+      isMobile: false,
+      desktopMin: 1024
+    };
+  },
+  computed: {
+    isActive() {
+      return this.active.length > 0;
+    }
+  },
+  watch: {
+    isMobile: {
+      handler(mobile) {
+        let active;
+        this.$nextTick(() => {
+          if (mobile) {
+            active = [];
+          } else {
+            active = [...this.items];
+          }
+          this.active = active;
+        });
+      },
+      immediate: true
+    },
+    parentMenu: {
+      handler(parent) {
+        console.log(this.items);
+        if(!parent) return;
+        if(this.isMobile) return;
+        this.$nextTick(() => {
+          this.active = [...this.items];
+        })
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    updateItems(title) {
+      if (this.items.includes(title)) return;
+      this.items.push(title);
+    },
+    change(payload) {
+      this.active = payload ? [payload] : [];
+      this.$emit("change", payload ? payload : "");
+    },
+    isMobileHandler(e) {
+      this.isMobile = e.matches;
+    }
+  },
+  mounted() {
+    this.isMobile =
+      Math.max(document.documentElement.clientWidth, window.innerWidth) <
+      this.desktopMin;
+    window
+      .matchMedia(`(max-width: ${this.desktopMin}px)`)
+      .addListener(this.isMobileHandler);
+  },
+  beforeDestroy() {
+    window
+      .matchMedia(`(max-width: ${this.desktopMin}px)`)
+      .removeListener(this.isMobileHandler);
+  }
 };

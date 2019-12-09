@@ -1,4 +1,46 @@
-<section class="sf-mega-menu">
-  <!-- @slot -->
-  <slot/>
-</section>
+<transition name="fade">
+  <div
+    v-if="parentMenu"
+    class="sf-mega-menu"
+  >
+    <SfBar
+      :title="parentMenu"
+      :back="isActive"
+      class="mobile-only"
+      @click:back="change()"
+    />
+    <div
+      class="sf-mega-menu__content"
+      :class="{ 'sf-mega-menu__content--is-active': isActive }"
+    >
+      <div class="sf-mega-menu__aside">
+        <SfList class="sf-mega-menu__menu-mobile">
+          <SfListItem
+            v-for="item in items"
+            :key="item"
+          >
+            <!-- @slot Custom menu-item markup -->
+            <slot
+              name="menu-item"
+              v-bind="{ change, item, active }"
+            >
+              <div @click="change(item)">
+                <SfMenuItem
+                  :label="item"
+                  class="sf-mega-menu__menu-item sf-mega-menu__menu-item--primary"
+                />
+              </div>
+            </slot>
+          </SfListItem>
+        </SfList>
+        <div class="sf-mega-menu__aside-content">
+          <slot name="aside"/>
+        </div>
+      </div>
+      <div class="sf-mega-menu__menu">
+        <!-- @slot Slot for menu column -->
+        <slot/>
+      </div>
+    </div>
+  </div>
+</transition>

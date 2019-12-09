@@ -1,5 +1,22 @@
 # component-description
 Badge component. Place desired content into its default slot.
 
-# storybook-iframe-height
-4.5rem
+# common-usage
+<br>
+<SfBadge>LIMITED</SfBadge>
+
+```html 
+<template>
+  <SfBadge>LIMITED</SfBadge>
+</template>
+
+<script>
+import { SfBadge } from '@storefront-ui/vue'
+
+export default {
+  components: {
+    SfBadge
+  }
+}
+</script>
+```

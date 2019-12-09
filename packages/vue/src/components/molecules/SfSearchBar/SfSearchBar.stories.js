@@ -9,12 +9,12 @@ import SfSearchBar from "./SfSearchBar.vue";
 
 storiesOf("Molecules|SearchBar", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfSearchBar },
     props: {
       customClass: {
         default: options(
-          "CSS modifiers",
+          "CSS modifier",
           {
             "sf-search-bar--secondary": "sf-search-bar--secondary",
             "sf-search-bar--position-right": "sf-search-bar--position-right",
@@ -25,12 +25,11 @@ storiesOf("Molecules|SearchBar", module)
             "sf-search-bar--no-icon": "sf-search-bar--no-icon"
           },
           "null",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       placeholder: {
-        default: text("placeholder", "Search for items", "Props")
+        default: text("placeholder (prop)", "Search for items")
       }
     },
     data() {
@@ -48,7 +47,7 @@ storiesOf("Molecules|SearchBar", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifiers",
+          "CSS modifier",
           {
             "sf-search-bar--secondary": "sf-search-bar--secondary",
             "sf-search-bar--position-right": "sf-search-bar--position-right",
@@ -59,12 +58,11 @@ storiesOf("Molecules|SearchBar", module)
             "sf-search-bar--no-icon": "sf-search-bar--no-icon"
           },
           "null",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       placeholder: {
-        default: text("placeholder", "Search for items", "Props")
+        default: text("placeholder (prop)", "Search for items")
       }
     },
     data() {
@@ -84,7 +82,7 @@ storiesOf("Molecules|SearchBar", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifiers",
+          "CSS modifier",
           {
             "sf-search-bar--secondary": "sf-search-bar--secondary",
             "sf-search-bar--position-right": "sf-search-bar--position-right",
@@ -95,12 +93,11 @@ storiesOf("Molecules|SearchBar", module)
             "sf-search-bar--no-icon": "sf-search-bar--no-icon"
           },
           "null",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       placeholder: {
-        default: text("placeholder", "Search for items", "Props")
+        default: text("placeholder (prop)", "Search for items")
       }
     },
     data() {

@@ -5,7 +5,6 @@ const glob = require("glob");
 const path = require("path");
 const sass = require("node-sass");
 const vueDocs = require("vue-docgen-api");
-const prettier = require("prettier");
 
 const pathTemplateFile = path.resolve(__dirname, "component-docs-template.md");
 const pathTargetMdsRoot = path.resolve(__dirname, "..", "docs/components");
@@ -24,8 +23,6 @@ const pathVueComponentsRoot = path.resolve(__dirname, "..", "src/components");
 const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
   cwd: pathVueComponentsRoot
 });
-const pathIconsJs = path.resolve(__dirname, "../..", "shared/icons/icons.js");
-let cachedSfUiIcons;
 
 function createVueComponentsDocs() {
   const contentTemplateFile = fs.readFileSync(pathTemplateFile, "utf8");
@@ -101,16 +98,6 @@ function getFullComponentInfo(pathComponentVue) {
     throw new Error(`Cannot read "${pathComponentMd}": ${e.message}`);
   }
 
-  const pathComponentStories = componentInfoFromPath.pathComponentStories;
-  let componentInfoFromStories;
-  try {
-    componentInfoFromStories = getComponentInfoFromStories(
-      pathComponentStories
-    );
-  } catch (e) {
-    throw new Error(`Cannot read "${pathComponentStories}": ${e.message}`);
-  }
-
   const filenameComponentScss = componentInfoFromPath.pathComponentScss;
   let componentInfoFromScss;
   try {
@@ -128,7 +115,6 @@ function getFullComponentInfo(pathComponentVue) {
   return {
     ...componentInfoFromPath,
     ...componentInfoFromMd,
-    ...componentInfoFromStories,
     ...componentInfoFromScss,
     ...componentInfoFromVue,
     ...internalComponentsInfo
@@ -141,7 +127,7 @@ function getComponentInfoFromPath(pathComponentVue) {
   const componentName = componentFilename.replace(/Sf(.+)\.vue$/, "$1");
   const sfComponentName = "Sf" + componentName;
   const atomicType = componentDirname.replace(/\/.*/, "");
-  const storybookLink = `${atomicType}-${componentName}--common`.toLowerCase();
+  const storybookLink = `${atomicType}-${componentName}--basic`.toLowerCase();
 
   return {
     componentName,
@@ -150,10 +136,6 @@ function getComponentInfoFromPath(pathComponentVue) {
     pathComponentJs: pathComponentVue.replace(/(.+)\.vue$/, "$1.js"),
     pathComponentScss: sfComponentName + ".scss",
     pathComponentMd: pathComponentVue.replace(/(.+)\.vue$/, "$1.md"),
-    pathComponentStories: pathComponentVue.replace(
-      /(.+)\.vue$/,
-      "$1.stories.js"
-    ),
     pathInternalComponents: path.join(componentDirname, "_internal"),
     storybookLink
   };
@@ -171,28 +153,6 @@ function getComponentInfoFromMd(pathComponentMd) {
     return parseComponentFile(contentComponentFile);
   } catch (e) {
     console.error(`ERROR: Cannot parse "${pathComponentMd}": ${e.message}`);
-    process.exit(1);
-  }
-}
-
-function getComponentInfoFromStories(pathComponentStories) {
-  // there is no usage section for internal components
-  if (pathComponentStories.includes("_internal")) {
-    return null;
-  }
-  const contentStoriesFile = readComponentStories(pathComponentStories);
-  if (!contentStoriesFile) {
-    console.warn(
-      `WARN: Stories file (${pathComponentStories}) not found. The common usage section in the target Markdown file will render a fallback text.`
-    );
-    return getFallbackCommonUsage();
-  }
-  try {
-    return parseStoriesFile(contentStoriesFile);
-  } catch (e) {
-    console.error(
-      `ERROR: Cannot parse "${pathComponentStories}": ${e.message}`
-    );
     process.exit(1);
   }
 }
@@ -248,16 +208,6 @@ function readComponentMd(pathComponentMd) {
   return fs.readFileSync(fullPathComponentMd, "utf8");
 }
 
-function readComponentStories(pathComponentStories) {
-  const fullPathComponentStories = pathInsideComponentsRoot(
-    pathComponentStories
-  );
-  if (!fs.existsSync(fullPathComponentStories)) {
-    return null;
-  }
-  return fs.readFileSync(fullPathComponentStories, "utf8");
-}
-
 function readComponentScss(filename) {
   const pathComponentScss = pathInsideComponentsScssRoot(filename);
   if (!fs.existsSync(pathComponentScss)) {
@@ -275,7 +225,7 @@ function readVuepressConfig(filename) {
 }
 
 function parseComponentFile(contentComponentFile) {
-  const headlines = ["# component-description", "# storybook-iframe-height"];
+  const headlines = ["# component-description", "# common-usage"];
   const reString = headlines.join("\\n([\\s\\S]+?)\\s*?") + "\\n([\\s\\S]+)";
   const regExp = new RegExp(reString, "m");
   const reResult = regExp.exec(contentComponentFile);
@@ -292,129 +242,7 @@ function parseComponentFile(contentComponentFile) {
 
   return {
     componentDescription: reResult[1],
-    storybookIFrameHeight: reResult[2].trim()
-  };
-}
-
-function parseStoriesFile(contentStoriesFile) {
-  // remove non-relevant parts before evaluating the story
-  const nonrelevantParts = [
-    /\.addDecorator\((.+?)\)/gm,
-    /\.addParameters\((.+?)\)/gm
-  ];
-  for (const part of nonrelevantParts) {
-    contentStoriesFile = contentStoriesFile.replace(part, "");
-  }
-
-  // prevent the engine from searching actual components by turning the
-  // imports and components list into strings
-  contentStoriesFile = contentStoriesFile.replace(
-    /^(import [\s\S]+?;)$/gm,
-    "`$1`;"
-  );
-  contentStoriesFile = contentStoriesFile.replace(
-    /components: {([\s\S]+?)},/gm,
-    "components: `$1`,"
-  );
-
-  // Next, we create a JS closure where we define functions which the storybook
-  // definition file expects, e.g. `number`, `text` and the complete `storiesOf`
-  // function object with its `add` method.
-  // Then, we `eval()` the whole .stories-file. It will call our overridden
-  // functions so we can gather the information we need.
-
-  function evalStoriesFile() {
-    /* eslint-disable no-unused-vars */
-    // some stories use our icons so make them available
-    const icons = getSfUiIcons();
-
-    let storyComponents = "";
-    let storyTemplate = "";
-    let storyData = {};
-    const extractComponents = data => (storyComponents = data);
-    const extractTemplate = template => (storyTemplate = template);
-    const extractData = data => (storyData = data);
-
-    // ignore options: we only use it for CSS modifiers
-    const options = () => null;
-
-    // store all props
-    const storyProps = new Map();
-    const object = (name, value) => storyProps.set(name, value);
-    const number = (name, value) => storyProps.set(name, value);
-    const text = (name, value) => storyProps.set(name, value);
-    const boolean = (name, value) => storyProps.set(name, value);
-    const color = (name, value) => storyProps.set(name, value);
-    const select = (name, _, value) => storyProps.set(name, value);
-
-    function storiesOf() {
-      // we need a returnable function object so all chained `.add()` calls work
-      const functionObject = {
-        add: function(storyName, storyFn) {
-          // use only "common" stories
-          if (storyName.toLowerCase() !== "common") {
-            return functionObject;
-          }
-          // call the "storyFn" which will call our overridden function definitions from the outer closure for all props
-          const storyFnObject = storyFn();
-          // extract other information directly from the evaluated storyFn
-          const trimmedComponents = storyFnObject.components.replace(/\s/g, "");
-          extractComponents(trimmedComponents);
-          extractTemplate(storyFnObject.template);
-          storyFnObject.data && extractData(storyFnObject.data());
-          // allow chaining
-          return functionObject;
-        }
-      };
-      return functionObject;
-    }
-    /* eslint-enable no-unused-vars */
-
-    eval(contentStoriesFile);
-    return { storyComponents, storyTemplate, storyData, storyProps };
-  }
-
-  let {
-    storyComponents,
-    storyTemplate,
-    storyData,
-    storyProps
-  } = evalStoriesFile();
-
-  /* insert story data into code block */
-
-  // rewrite imports
-  const re = /`(import Sf.+? from)/g;
-  const storyImports = [];
-  let partialReResult;
-  while ((partialReResult = re.exec(contentStoriesFile)) !== null) {
-    const importLine = `${partialReResult[1]} "@storefront-ui/vue";`;
-    storyImports.push(importLine);
-  }
-  let storyImportsString = storyImports.join("\n");
-
-  // merge props and data from the story into a single data object
-  const componentData = [];
-  for (const [k, v] of Object.entries(storyData)) {
-    componentData.push(`${k}: ${JSON.stringify(v)}`);
-  }
-  for (const [k, v] of storyProps.entries()) {
-    componentData.push(`${k}: ${JSON.stringify(v)}`);
-  }
-  const componentDataString = componentData.join(",\n");
-
-  const codeBlock = getCommonUsageCodeBlock(
-    storyTemplate,
-    storyImportsString,
-    storyComponents,
-    componentDataString
-  );
-
-  const prettified = prettier.format(codeBlock, { parser: "vue" });
-  const codeBlockMd = `\`\`\`html\n${prettified}\`\`\``;
-
-  return {
-    storybookCode: codeBlockMd
+    commonUsage: reResult[2]
   };
 }
 
@@ -632,17 +460,11 @@ function generateComponentDetailsInfo(rawDetails) {
 function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
   const componentDescription =
     componentInfo.componentDescription || "<!-- No Component description -->";
-  const storybookIFrame = getStorybookIFrameMarkup(
-    componentInfo.storybookLink,
-    componentInfo.storybookIFrameHeight
-  );
-
   const replaceMap = new Map([
     ["[[component-name]]", componentInfo.componentName],
     ["[[component-description]]", componentDescription],
     ["[[sf-component-name]]", componentInfo.sfComponentName],
-    ["[[storybook-code]]", componentInfo.storybookCode || ""],
-    ["[[storybook-iframe]]", storybookIFrame],
+    ["[[common-usage]]", componentInfo.commonUsage || getFallbackCommonUsage()],
     ["[[props]]", componentInfo.props || "None."],
     ["[[slots]]", componentInfo.slots || "None."],
     ["[[events]]", componentInfo.events || "None."],
@@ -805,54 +627,10 @@ function escapeHtmlAngleBrackets(rawString) {
   return rawString.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-function getSfUiIcons() {
-  if (!cachedSfUiIcons) {
-    cachedSfUiIcons = fs.readFileSync(pathIconsJs, "utf8");
-  }
-  return cachedSfUiIcons;
-}
-
-function getCommonUsageCodeBlock(template, imports, components, data) {
-  let codeBlock = `
-<template>
-  ${template}
-</template>
-
-<script>
-${imports}
-
-export default {
-  components: {
-    ${components}
-  }`;
-
-  if (data) {
-    codeBlock += `,
-  data() {
-    return {
-      ${data}
-    }
-  }`;
-  }
-  codeBlock += `
-};
-</script>`;
-
-  return codeBlock;
-}
-
 function getFallbackCommonUsage() {
   return `:::warning NOT YET DOCUMENTED 
 This section is not fully documented yet. We are doing our best to make our documentation a good and complete source of knowledge about Storefront UI. If you would like to help us, please don't hesitate to contribute to our docs. You can read more about it [here](https://docs.storefrontui.io/contributing/become-a-contributor.html#work-on-documentation).
 :::`;
-}
-
-function getStorybookIFrameMarkup(storybookLink, storybookIFrameHeight) {
-  let style = "width: 100%; border: 0; border-bottom: 1px solid #eee;";
-  if (storybookIFrameHeight) {
-    style += `height: ${storybookIFrameHeight}`;
-  }
-  return `<iframe src="https://deploy-preview-480--storefrontui-storybook.netlify.com/iframe.html?id=${storybookLink}" style="${style}"></iframe>`;
 }
 
 function getInternalComponentTemplate() {

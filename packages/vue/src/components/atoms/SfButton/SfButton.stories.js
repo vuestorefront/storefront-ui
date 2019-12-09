@@ -10,11 +10,11 @@ import SfButton from "./SfButton.vue";
 
 storiesOf("Atoms|Button", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("[slot] default", () => ({
     props: {
       customClass: {
         default: options(
-          "CSS modifiers",
+          "CSS modifier",
           {
             "sf-button--outline": "sf-button--outline",
             "sf-button--text": "sf-button--text",
@@ -27,12 +27,11 @@ storiesOf("Atoms|Button", module)
             "color-success": "color-success"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       customLabel: {
-        default: text("default", "Shop now", "Slots")
+        default: text("default (slot)", "Shop now")
       }
     },
     components: { SfButton },

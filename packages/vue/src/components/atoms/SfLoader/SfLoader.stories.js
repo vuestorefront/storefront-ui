@@ -5,7 +5,7 @@ import SfLoader from "./SfLoader.vue";
 import SfImage from "../SfImage/SfImage.vue";
 
 storiesOf("Atoms|Loader", module)
-  .add("Common", () => ({
+  .add("[slot] default", () => ({
     components: {
       SfLoader,
       SfImage
@@ -20,12 +20,12 @@ storiesOf("Atoms|Loader", module)
         this.isLoading = false;
       }, 3000);
     },
-    template: `
+    template: `<div style="width: 236px; height: 366px; border: 1px solid #F2F2F2">
       <SfLoader
       :loading="isLoading">
           <SfImage src="/assets/storybook/product-216x326.jpg" />
       </SfLoader>
-    `
+    </div>`
   }))
   .add("[slot] loader", () => ({
     components: {

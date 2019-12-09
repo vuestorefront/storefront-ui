@@ -3,24 +3,24 @@ import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
 import SfFilter from "./SfFilter.vue";
 
-storiesOf("Molecules|Filter", module)
+export default storiesOf("Molecules|Filter", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: {
       SfFilter
     },
     props: {
       color: {
-        default: text("color", "red", "Props")
+        default: text("color (prop)", "red")
       },
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label (prop)", "Red")
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count (prop)", "30")
       },
       selected: {
-        default: boolean("selected", true, "Props")
+        default: boolean("selected (prop)", true)
       }
     },
     template: `<div style="max-width: 300px">
@@ -37,16 +37,16 @@ storiesOf("Molecules|Filter", module)
     },
     props: {
       color: {
-        default: text("color", "red", "Props")
+        default: text("color (prop)", "red")
       },
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label (prop)", "Red")
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count (prop)", "30")
       },
       selected: {
-        default: boolean("selected", true, "Props")
+        default: boolean("selected (prop)", true)
       }
     },
     template: `<div style="max-width: 300px">
@@ -67,16 +67,16 @@ storiesOf("Molecules|Filter", module)
     },
     props: {
       color: {
-        default: text("color", "red", "Props")
+        default: text("color (prop)", "red")
       },
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label (prop)", "Red")
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count (prop)", "30")
       },
       selected: {
-        default: boolean("selected", true, "Props")
+        default: boolean("selected (prop)", true)
       }
     },
     template: `<div style="max-width: 300px">
@@ -95,16 +95,16 @@ storiesOf("Molecules|Filter", module)
     },
     props: {
       color: {
-        default: text("color", "red", "Props")
+        default: text("color (prop)", "red")
       },
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label (prop)", "Red")
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count (prop)", "30")
       },
       selected: {
-        default: boolean("selected", true, "Props")
+        default: boolean("selected (prop)", true)
       }
     },
     template: `<div style="max-width: 300px">

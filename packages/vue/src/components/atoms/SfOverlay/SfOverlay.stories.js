@@ -6,14 +6,14 @@ import SfOverlay from "./SfOverlay.vue";
 
 storiesOf("Atoms|Overlay", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfOverlay },
     props: {
       transition: {
-        default: text("transition", "fade", "Props")
+        default: text("transition (prop)", "fade")
       },
       visible: {
-        default: boolean("visible", true, "Props")
+        default: boolean("visible (prop)", true)
       }
     },
     template: `<SfOverlay

@@ -12,7 +12,7 @@ import SfCounter from "./SfCounter.vue";
 
 storiesOf("Molecules|Counter", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfCounter },
     props: {
       customClass: {
@@ -22,48 +22,47 @@ storiesOf("Molecules|Counter", module)
             "sf-counter--large": "sf-counter--large"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       step: {
-        default: number("step", 1, {}, "Props")
+        default: number("step (prop)", 1)
       },
       autoFill: {
-        default: boolean("autoFill", false, "Props")
+        default: boolean("auto-fill (prop)", false)
       },
       min: {
-        default: number("min", 1, {}, "Props")
+        default: number("min (prop)", 1)
       },
       max: {
-        default: number("max", 99, {}, "Props")
+        default: number("max (prop)", 99)
       },
       precision: {
-        default: number("precision", 0, {}, "Props")
+        default: number("precision (prop)", 0)
       },
       delimiter: {
-        default: text("delimiter", ".", "Props")
+        default: text("delimiter (prop)", ".")
       },
       thousands: {
-        default: text("thousands", ",", "Props")
+        default: text("thousands (prop)", ",")
       },
       controls: {
-        default: boolean("controls", true, "Props")
+        default: boolean("controls (prop)", true)
       },
       type: {
-        default: text("type", "text", "Props")
+        default: text("type (prop)", "text")
       },
       name: {
-        default: text("name", "counter", "Props")
+        default: text("name (prop)", "counter")
       },
       placeholder: {
-        default: text("placeholder", "", "Props")
+        default: text("placeholder (prop)", "")
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
+        default: boolean("disabled (prop)", false)
       },
       required: {
-        default: boolean("required", false, "Props")
+        default: boolean("required (prop)", false)
       }
     },
     data() {
@@ -98,48 +97,47 @@ storiesOf("Molecules|Counter", module)
             "sf-counter--large": "sf-counter--large"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       step: {
-        default: number("step", 1, {}, "Props")
+        default: number("step (prop)", 1)
       },
       autoFill: {
-        default: boolean("autoFill", false, "Props")
+        default: boolean("auto-fill (prop)", false)
       },
       min: {
-        default: number("min", 1, {}, "Props")
+        default: number("min (prop)", 1)
       },
       max: {
-        default: number("max", 99, {}, "Props")
+        default: number("max (prop)", 99)
       },
       precision: {
-        default: number("precision", 0, {}, "Props")
+        default: number("precision (prop)", 0)
       },
       delimiter: {
-        default: text("delimiter", ".", "Props")
+        default: text("delimiter (prop)", ".")
       },
       thousands: {
-        default: text("thousands", ",", "Props")
+        default: text("thousands (prop)", ",")
       },
       controls: {
-        default: boolean("controls", true, "Props")
+        default: boolean("controls (prop)", true)
       },
       type: {
-        default: text("type", "text", "Props")
+        default: text("type (prop)", "text")
       },
       name: {
-        default: text("name", "counter", "Props")
+        default: text("name (prop)", "counter")
       },
       placeholder: {
-        default: text("placeholder", "", "Props")
+        default: text("placeholder (prop)", "")
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
+        default: boolean("disabled (prop)", false)
       },
       required: {
-        default: boolean("required", false, "Props")
+        default: boolean("required (prop)", false)
       }
     },
     data() {
@@ -177,48 +175,47 @@ storiesOf("Molecules|Counter", module)
             "sf-counter--large": "sf-counter--large"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       step: {
-        default: number("step", 1, {}, "Props")
+        default: number("step (prop)", 1)
       },
       autoFill: {
-        default: boolean("autoFill", false, "Props")
+        default: boolean("auto-fill (prop)", false)
       },
       min: {
-        default: number("min", 1, {}, "Props")
+        default: number("min (prop)", 1)
       },
       max: {
-        default: number("max", 99, {}, "Props")
+        default: number("max (prop)", 99)
       },
       precision: {
-        default: number("precision", 0, {}, "Props")
+        default: number("precision (prop)", 0)
       },
       delimiter: {
-        default: text("delimiter", ".", "Props")
+        default: text("delimiter (prop)", ".")
       },
       thousands: {
-        default: text("thousands", ",", "Props")
+        default: text("thousands (prop)", ",")
       },
       controls: {
-        default: boolean("controls", true, "Props")
+        default: boolean("controls (prop)", true)
       },
       type: {
-        default: text("type", "text", "Props")
+        default: text("type (prop)", "text")
       },
       name: {
-        default: text("name", "counter", "Props")
+        default: text("name (prop)", "counter")
       },
       placeholder: {
-        default: text("placeholder", "", "Props")
+        default: text("placeholder (prop)", "")
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
+        default: boolean("disabled (prop)", false)
       },
       required: {
-        default: boolean("required", false, "Props")
+        default: boolean("required (prop)", false)
       }
     },
     data() {
@@ -254,48 +251,47 @@ storiesOf("Molecules|Counter", module)
             "sf-counter--large": "sf-counter--large"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       step: {
-        default: number("step", 1, {}, "Props")
+        default: number("step (prop)", 1)
       },
       autoFill: {
-        default: boolean("autoFill", false, "Props")
+        default: boolean("auto-fill (prop)", false)
       },
       min: {
-        default: number("min", 1, {}, "Props")
+        default: number("min (prop)", 1)
       },
       max: {
-        default: number("max", 99, {}, "Props")
+        default: number("max (prop)", 99)
       },
       precision: {
-        default: number("precision", 0, {}, "Props")
+        default: number("precision (prop)", 0)
       },
       delimiter: {
-        default: text("delimiter", ".", "Props")
+        default: text("delimiter (prop)", ".")
       },
       thousands: {
-        default: text("thousands", ",", "Props")
+        default: text("thousands (prop)", ",")
       },
       controls: {
-        default: boolean("controls", true, "Props")
+        default: boolean("controls (prop)", true)
       },
       type: {
-        default: text("type", "text", "Props")
+        default: text("type (prop)", "text")
       },
       name: {
-        default: text("name", "counter", "Props")
+        default: text("name (prop)", "counter")
       },
       placeholder: {
-        default: text("placeholder", "", "Props")
+        default: text("placeholder (prop)", "")
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
+        default: boolean("disabled (prop)", false)
       },
       required: {
-        default: boolean("required", false, "Props")
+        default: boolean("required (prop)", false)
       }
     },
     data() {

@@ -7,26 +7,26 @@ import SfIcon from "../SfIcon/SfIcon.vue";
 
 storiesOf("Atoms|Input", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfInput },
     props: {
       label: {
-        default: text("label", "First name", "Props")
+        default: text("label (prop)", "First name")
       },
       name: {
-        default: text("name", "first-name", "Props")
+        default: text("name (prop)", "first-name")
       },
       errorMessage: {
-        default: text("errorMessage", "Field is required.", "Props")
+        default: text("error-message (prop)", "Field is required.")
       },
       valid: {
-        default: boolean("valid", true, "Props")
+        default: boolean("valid (prop)", true)
       },
       required: {
-        default: boolean("required", true, "Props")
+        default: boolean("required (prop)", true)
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
+        default: boolean("disabled (prop)", false)
       }
     },
     data() {
@@ -50,22 +50,22 @@ storiesOf("Atoms|Input", module)
     },
     props: {
       label: {
-        default: text("label", "First name", "Props")
+        default: text("label (prop)", "First name")
       },
       name: {
-        default: text("name", "first-name", "Props")
+        default: text("name (prop)", "first-name")
       },
       errorMessage: {
-        default: text("errorMessage", "Field is required.", "Props")
+        default: text("error-message (prop)", "Field is required.")
       },
       valid: {
-        default: boolean("valid", true, "Props")
+        default: boolean("valid (prop)", true)
       },
       required: {
-        default: boolean("required", true, "Props")
+        default: boolean("required (prop)", true)
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
+        default: boolean("disabled (prop)", false)
       }
     },
     data() {
@@ -93,22 +93,22 @@ storiesOf("Atoms|Input", module)
     },
     props: {
       label: {
-        default: text("label", "First name", "Props")
+        default: text("label (prop)", "First name")
       },
       name: {
-        default: text("name", "first-name", "Props")
+        default: text("name (prop)", "first-name")
       },
       errorMessage: {
-        default: text("errorMessage", "Field is required.", "Props")
+        default: text("error-message (prop)", "Field is required.")
       },
       valid: {
-        default: boolean("valid", false, "Props")
+        default: boolean("valid (prop)", false)
       },
       required: {
-        default: boolean("required", false, "Props")
+        default: boolean("required (prop)", false)
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
+        default: boolean("disabled (prop)", false)
       }
     },
     data() {

@@ -32,7 +32,7 @@ import SfContentPages from "./SfContentPages.vue";
 import SfTabs from "../SfTabs/SfTabs.vue";
 
 storiesOf("Organisms|ContentPages", module)
-  .add("Common", () => ({
+  .add("Basic", () => ({
     components: { SfContentPages, SfTabs, StoriesMobileBar },
     data() {
       return {

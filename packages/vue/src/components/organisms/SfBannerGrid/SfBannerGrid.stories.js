@@ -1,28 +1,48 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
+import { generateStorybookTable } from "@/helpers";
 
 import SfBannerGrid from "./SfBannerGrid.vue";
 import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
+// use this to document scss vars
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [["$component-size", "1.438rem", "size of checkmark"]]
+};
+
+// use this to document events
+const eventsTableConfig = {
+  tableHeadConfig: ["NAME", "DESCRIPTION"],
+  tableBodyConfig: [["input", "event emited when option is selected"]]
+};
 
 storiesOf("Organisms|BannerGrid", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-banner-grid--modifier": "sf-banner-grid--modifier"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      }
-    },
-    components: { SfBannerGrid, SfBanner },
-    template: `<div style="max-width:1240px; margin: auto">
+  .add(
+    "Grid 1",
+    () => ({
+      props: {
+        editableProp: {
+          default: text("propname (prop)")
+        },
+        customClass: {
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-banner-grud--modifier": "sf-banner-grud--modifier"
+            },
+            "",
+            { display: "multi-select" }
+          )
+        }
+      },
+      components: { SfBannerGrid, SfBanner },
+      template: `<div style="max-width:1240px; margin: auto">
         <SfBannerGrid :bannerGrid="1">
           <template #bannerA>
             <a href="#">
@@ -71,23 +91,37 @@ storiesOf("Organisms|BannerGrid", module)
           </template>
         </SfBannerGrid>
       </div>`
-  }))
-  .add("Grid 2", () => ({
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-banner-grid--modifier": "sf-banner-grid--modifier"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    }),
+    {
+      info: {
+        summary: `<p>Component description.</p>
+       <h2>Usage</h2>
+       <pre><code>import { SfBannerGrid } from "@storefront-ui/vue"</code></pre>
+       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+       ${generateStorybookTable(eventsTableConfig, "Events")}`
       }
-    },
-    components: { SfBannerGrid, SfBanner },
-    template: `<div style="max-width:1240px; margin: auto"><SfBannerGrid :bannerGrid="2">
+    }
+  )
+  .add(
+    "Grid 2",
+    () => ({
+      props: {
+        editableProp: {
+          default: text("propname (prop)")
+        },
+        customClass: {
+          default: options(
+            "CSS Modifiers",
+            {
+              "sf-banner-grud--modifier": "sf-banner-grud--modifier"
+            },
+            "",
+            { display: "multi-select" }
+          )
+        }
+      },
+      components: { SfBannerGrid, SfBanner },
+      template: `<div style="max-width:1240px; margin: auto"><SfBannerGrid :bannerGrid="2">
         <template #bannerA>
           <a href="#">
             <SfBanner
@@ -132,4 +166,14 @@ storiesOf("Organisms|BannerGrid", module)
           </a>
         </template>
       </SfBannerGrid></div>`
-  }));
+    }),
+    {
+      info: {
+        summary: `<p>Component description.</p>
+       <h2>Usage</h2>
+       <pre><code>import { SfBannerGrid } from "@storefront-ui/vue"</code></pre>
+       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+       ${generateStorybookTable(eventsTableConfig, "Events")}`
+      }
+    }
+  );

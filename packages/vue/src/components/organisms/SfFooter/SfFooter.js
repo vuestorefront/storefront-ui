@@ -43,6 +43,10 @@ export default {
     }
   },
   methods: {
+    updateItems(title) {
+      if (this.items.includes(title)) return;
+      this.items.push(title);
+    },
     toggle(payload) {
       if (!this.multiple) {
         this.open = [payload];

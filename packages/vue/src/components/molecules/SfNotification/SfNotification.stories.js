@@ -6,35 +6,33 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 storiesOf("Molecules|Notification", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfNotification },
     props: {
       title: {
-        default: text("title", "Added to Cart", "Props")
+        default: text("title (prop)", "Added to Cart")
       },
       message: {
         default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
+          "message (prop)",
+          "This is informative message for the user."
         )
       },
       action: {
-        default: text("action", "View cart", "Props")
+        default: text("action (prop)", "View cart")
       },
       type: {
         default: select(
-          "type",
+          "type (prop)",
           ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
+          "info"
         )
       }
     },
-    data() {
+    data(){
       return {
         visible: true
-      };
+      }
     },
     template: `<div>
         <label>visible <input type="checkbox" v-model="visible"></label>
@@ -52,31 +50,29 @@ storiesOf("Molecules|Notification", module)
     components: { SfNotification, SfIcon },
     props: {
       title: {
-        default: text("title", "Added to Cart", "Props")
+        default: text("title (prop)", "Added to Cart")
       },
       message: {
         default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
+          "message (prop)",
+          "This is informative message for the user."
         )
       },
       action: {
-        default: text("action", "View cart", "Props")
+        default: text("action (prop)", "View cart")
       },
       type: {
         default: select(
-          "type",
+          "type (prop)",
           ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
+          "info"
         )
       }
     },
-    data() {
+    data(){
       return {
         visible: true
-      };
+      }
     },
     template: `<div>
         <label>visible <input type="checkbox" v-model="visible"></label>
@@ -98,31 +94,29 @@ storiesOf("Molecules|Notification", module)
     components: { SfNotification },
     props: {
       title: {
-        default: text("title", "Added to Cart", "Props")
+        default: text("title (prop)", "Added to Cart")
       },
       message: {
         default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
+          "message (prop)",
+          "This is informative message for the user."
         )
       },
       action: {
-        default: text("action", "View cart", "Props")
+        default: text("action (prop)", "View cart")
       },
       type: {
         default: select(
-          "type",
+          "type (prop)",
           ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
+          "info"
         )
       }
     },
-    data() {
+    data(){
       return {
         visible: true
-      };
+      }
     },
     template: `<SfNotification
       :visible="visible"
@@ -139,31 +133,29 @@ storiesOf("Molecules|Notification", module)
     components: { SfNotification },
     props: {
       title: {
-        default: text("title", "Added to Cart", "Props")
+        default: text("title (prop)", "Added to Cart")
       },
       message: {
         default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
+          "message (prop)",
+          "This is informative message for the user."
         )
       },
       action: {
-        default: text("action", "View cart", "Props")
+        default: text("action (prop)", "View cart")
       },
       type: {
         default: select(
-          "type",
+          "type (prop)",
           ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
+          "info"
         )
       }
     },
-    data() {
+    data(){
       return {
         visible: true
-      };
+      }
     },
     template: `<div>
         <label>visible <input type="checkbox" v-model="visible"></label>
@@ -185,31 +177,29 @@ storiesOf("Molecules|Notification", module)
     components: { SfNotification },
     props: {
       title: {
-        default: text("title", "Added to Cart", "Props")
+        default: text("title (prop)", "Added to Cart")
       },
       message: {
         default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
+          "message (prop)",
+          "This is informative message for the user."
         )
       },
       action: {
-        default: text("action", "View cart", "Props")
+        default: text("action (prop)", "View cart")
       },
       type: {
         default: select(
-          "type",
+          "type (prop)",
           ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
+          "info"
         )
       }
     },
-    data() {
+    data(){
       return {
         visible: true
-      };
+      }
     },
     template: `<div>
         <label>visible <input type="checkbox" v-model="visible"></label>
@@ -231,31 +221,29 @@ storiesOf("Molecules|Notification", module)
     components: { SfNotification },
     props: {
       title: {
-        default: text("title", "Added to Cart", "Props")
+        default: text("title (prop)", "Added to Cart")
       },
       message: {
         default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
+          "message (prop)",
+          "This is informative message for the user."
         )
       },
       action: {
-        default: text("action", "View cart", "Props")
+        default: text("action (prop)", "View cart")
       },
       type: {
         default: select(
-          "type",
+          "type (prop)",
           ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
+          "info"
         )
       }
     },
-    data() {
+    data(){
       return {
         visible: true
-      };
+      }
     },
     template: `<div>
         <label>visible <input type="checkbox" v-model="visible"></label>

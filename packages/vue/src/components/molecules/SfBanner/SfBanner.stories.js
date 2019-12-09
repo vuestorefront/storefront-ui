@@ -11,7 +11,7 @@ import SfBanner from "./SfBanner.vue";
 
 storiesOf("Molecules|Banner", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfBanner },
     props: {
       customClass: {
@@ -22,38 +22,32 @@ storiesOf("Molecules|Banner", module)
             "sf-banner--slim": "sf-banner-slim"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       title: {
-        default: text("title", "Eco Sandals", "Props")
+        default: text("title (prop)", "Eco Sandals")
       },
       subtitle: {
-        default: text("subtitle", "Summer shoes", "Props")
+        default: text("subtitle (prop)", "Summer shoes")
       },
       description: {
         default: text(
-          "description",
-          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-          "Props"
+          "description (prop)",
+          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
         )
       },
       buttonText: {
-        default: text("buttonText", "Shop Now", "Props")
+        default: text("button-text (prop)", "Shop Now")
       },
       image: {
-        default: object(
-          "image",
-          {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
-          },
-          "Props"
-        )
+        default: object("image (prop)", {
+          small: "/assets/storybook/Banner1.jpg",
+          normal: "/assets/storybook/Banner1.jpg"
+        })
       },
       background: {
-        default: color("background", "#e1e3e2", "Props")
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 77.5rem">
@@ -79,38 +73,32 @@ storiesOf("Molecules|Banner", module)
             "sf-banner--slim": "sf-banner-slim"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       title: {
-        default: text("title", "Eco Sandals", "Props")
+        default: text("title (prop)", "Eco Sandals")
       },
       subtitle: {
-        default: text("subtitle", "Summer shoes", "Props")
+        default: text("subtitle (prop)", "Summer shoes")
       },
       description: {
         default: text(
-          "description",
-          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-          "Props"
+          "description (prop)",
+          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
         )
       },
       buttonText: {
-        default: text("buttonText", "Shop Now", "Props")
+        default: text("button-text (prop)", "Shop Now")
       },
       image: {
-        default: object(
-          "image",
-          {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
-          },
-          "Props"
-        )
+        default: object("image (prop)", {
+          small: "/assets/storybook/Banner1.jpg",
+          normal: "/assets/storybook/Banner1.jpg"
+        })
       },
       background: {
-        default: color("background", "#e1e3e2", "Props")
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 77.5rem">
@@ -139,38 +127,32 @@ storiesOf("Molecules|Banner", module)
             "sf-banner--slim": "sf-banner-slim"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       title: {
-        default: text("title", "Eco Sandals", "Props")
+        default: text("title (prop)", "Eco Sandals")
       },
       subtitle: {
-        default: text("subtitle", "Summer shoes", "Props")
+        default: text("subtitle (prop)", "Summer shoes")
       },
       description: {
         default: text(
-          "description",
-          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-          "Props"
+          "description (prop)",
+          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
         )
       },
       buttonText: {
-        default: text("buttonText", "Shop Now", "Props")
+        default: text("button-text (prop)", "Shop Now")
       },
       image: {
-        default: object(
-          "image",
-          {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
-          },
-          "Props"
-        )
+        default: object("image (prop)", {
+          small: "/assets/storybook/Banner1.jpg",
+          normal: "/assets/storybook/Banner1.jpg"
+        })
       },
       background: {
-        default: color("background", "#e1e3e2", "Props")
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 77.5rem">
@@ -199,38 +181,32 @@ storiesOf("Molecules|Banner", module)
             "sf-banner--slim": "sf-banner-slim"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       title: {
-        default: text("title", "Eco Sandals", "Props")
+        default: text("title (prop)", "Eco Sandals")
       },
       subtitle: {
-        default: text("subtitle", "Summer shoes", "Props")
+        default: text("subtitle (prop)", "Summer shoes")
       },
       description: {
         default: text(
-          "description",
-          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-          "Props"
+          "description (prop)",
+          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
         )
       },
       buttonText: {
-        default: text("buttonText", "Shop Now", "Props")
+        default: text("button-text (prop)", "Shop Now")
       },
       image: {
-        default: object(
-          "image",
-          {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
-          },
-          "Props"
-        )
+        default: object("image (prop)", {
+          small: "/assets/storybook/Banner1.jpg",
+          normal: "/assets/storybook/Banner1.jpg"
+        })
       },
       background: {
-        default: color("background", "#e1e3e2", "Props")
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 77.5rem">
@@ -259,38 +235,32 @@ storiesOf("Molecules|Banner", module)
             "sf-banner--slim": "sf-banner-slim"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       title: {
-        default: text("title", "Eco Sandals", "Props")
+        default: text("title (prop)", "Eco Sandals")
       },
       subtitle: {
-        default: text("subtitle", "Summer shoes", "Props")
+        default: text("subtitle (prop)", "Summer shoes")
       },
       description: {
         default: text(
-          "description",
-          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-          "Props"
+          "description (prop)",
+          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
         )
       },
       buttonText: {
-        default: text("buttonText", "Shop Now", "Props")
+        default: text("button-text (prop)", "Shop Now")
       },
       image: {
-        default: object(
-          "image",
-          {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
-          },
-          "Props"
-        )
+        default: object("image (prop)", {
+          small: "/assets/storybook/Banner1.jpg",
+          normal: "/assets/storybook/Banner1.jpg"
+        })
       },
       background: {
-        default: color("background", "#e1e3e2", "Props")
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 77.5rem">
