@@ -22,7 +22,7 @@ storiesOf("Organisms|Header", module)
         )
       },
       cartIcon: {
-        default: text("a", "empty_cart", "Props")
+        default: text("cartIcon", "empty_cart", "Props")
       },
       wishlistIcon: {
         default: text("wishlistIcon", "heart", "Props")
@@ -32,7 +32,7 @@ storiesOf("Organisms|Header", module)
       },
       activeIcon: {
         default: select(
-          "active-icon",
+          "activeIcon",
           ["", "account", "wishlist", "cart"],
           "account",
           "Props"
@@ -82,7 +82,7 @@ storiesOf("Organisms|Header", module)
       },
       activeIcon: {
         default: select(
-          "active-icon",
+          "activeIcon",
           ["", "account", "wishlist", "cart"],
           "account",
           "Props"
@@ -228,7 +228,7 @@ storiesOf("Organisms|Header", module)
       },
       activeIcon: {
         default: select(
-          "active-icon",
+          "activeIcon",
           ["", "account", "wishlist", "cart"],
           "account",
           "Props"
