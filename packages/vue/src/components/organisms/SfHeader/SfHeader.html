@@ -18,6 +18,7 @@
         <SfCircleIcon
           v-if="accountIcon"
           :icon="accountIcon"
+          icon-size="20px"
           class="sf-header__icon"
           :class="{'sf-header__icon--is-active' : activeIcon === 'account'}"
           role="button"
@@ -28,6 +29,7 @@
       <SfCircleIcon
         v-if="wishlistIcon"
         :icon="wishlistIcon"
+        icon-size="20px"
         class="sf-header__icon"
         :class="{'sf-header__icon--is-active' : activeIcon === 'wishlist'}"
         role="button"
@@ -38,6 +40,7 @@
       <SfCircleIcon
           v-if="cartIcon"
           :icon="cartIcon"
+          icon-size="20px"
           class="sf-header__icon"
           :class="{'sf-header__icon--is-active' : activeIcon === 'cart'}"
           role="button"
