@@ -2,9 +2,11 @@
   <div>
     <SfHeader logo="/assets/logo.svg" class="header">
       <template #navigation>
-        <SfHeaderNavigationItem style="position: static" @mouseover="parentMenu = 'Women'" @mouseleave="parentMenu = ''">
-          <div>WOMEN</div>
-          <SfMegaMenu :parent-menu="parentMenu" class="mega-menu">
+        <SfHeaderNavigationItem
+            @mouseover="parentMenu = 'Women'"
+            @mouseleave="parentMenu = ''">
+          <a href="#">Women</a>
+          <SfMegaMenu :parent-menu="parentMenu === 'Women' ? parentMenu : ''" class="mega-menu">
             <SfMegaMenuColumn
               v-for="category in categories"
               :title="category.header"
@@ -28,11 +30,65 @@
             </template>
           </SfMegaMenu>
         </SfHeaderNavigationItem>
-        <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
-        <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
+        <SfHeaderNavigationItem
+            @mouseover="parentMenu = 'Man'"
+            @mouseleave="parentMenu = ''">
+          <a href="#">Man</a>
+          <SfMegaMenu :parent-menu="parentMenu === 'Man' ? parentMenu : ''" class="mega-menu">
+            <SfMegaMenuColumn
+                v-for="category in categories"
+                :title="category.header"
+                :key="category.header"
+            >
+              <SfMenuItem
+                  v-for="item in category.items"
+                  :label="item.label"
+                  :key="item.label"
+                  class="sf-mega-menu__menu-item"
+              />
+            </SfMegaMenuColumn>
+            <template #aside>
+              <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+                <div v-for="tile in tiles" :key="tile.title" style="text-transform: uppercase; margin-bottom: 1.25rem">
+                  <h3 style="margin-bottom: 1.25rem">{{ tile.title }}</h3>
+                  <SfImage class="mobile-only" :src="tile.pictures.full" />
+                  <SfImage class="desktop-only" :src="tile.pictures.normal" />
+                </div>
+              </div>
+            </template>
+          </SfMegaMenu>
+        </SfHeaderNavigationItem>
+        <SfHeaderNavigationItem
+            @mouseover="parentMenu = 'Kids'"
+            @mouseleave="parentMenu = ''">
+          <a href="#">Kids</a>
+          <SfMegaMenu :parent-menu="parentMenu === 'Kids' ? parentMenu : ''" class="mega-menu">
+            <SfMegaMenuColumn
+                v-for="category in categories"
+                :title="category.header"
+                :key="category.header"
+            >
+              <SfMenuItem
+                  v-for="item in category.items"
+                  :label="item.label"
+                  :key="item.label"
+                  class="sf-mega-menu__menu-item"
+              />
+            </SfMegaMenuColumn>
+            <template #aside>
+              <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+                <div v-for="tile in tiles" :key="tile.title" style="text-transform: uppercase; margin-bottom: 1.25rem">
+                  <h3 style="margin-bottom: 1.25rem">{{ tile.title }}</h3>
+                  <SfImage class="mobile-only" :src="tile.pictures.full" />
+                  <SfImage class="desktop-only" :src="tile.pictures.normal" />
+                </div>
+              </div>
+            </template>
+          </SfMegaMenu>
+        </SfHeaderNavigationItem>
       </template>
     </SfHeader>
-    <Home />
+    <Home class="content"/>
     <SfFooter class="footer">
       <SfFooterColumn title="About us">
         <SfList>
@@ -61,6 +117,11 @@
             <SfMenuItem :label="item" />
           </SfListItem>
         </SfList>
+      </SfFooterColumn>
+      <SfFooterColumn title="Social" class="social-column">
+        <div class="social-column__icons">
+          <img v-for="item in social" :src="'/assets/storybook/footer/'+item+'.svg'" class="social-column__icon" style="height: 0.75rem; margin-right: 1.25rem"/>
+        </div>
       </SfFooterColumn>
     </SfFooter>
   </div>
@@ -136,7 +197,8 @@ export default {
             normal: "assets/storybook/megamenu/bannerBeachBag.jpg"
           }
         }
-      ]
+      ],
+      social: ["facebook", "pinterest", "twitter", "youtube"],
     };
   }
 };
@@ -158,13 +220,33 @@ export default {
     margin-left: auto;
   }
 }
+.header{
+  position: relative;
+}
 .mega-menu {
   position: absolute;
-  top: 5rem;
-  left: 50%;
-  z-index: 10;
-  transform: translateX(-50%);
+  top: 100%;
+  left: 0;
+  z-index: 1;
   width: 100%;
-  max-width: 1240px;
+}
+.content{
+  margin-top: 10px;
+  @include for-desktop {
+    margin-top: 0;
+  }
+}
+.social-column{
+  margin-left: auto;
+  &__icons{
+    padding: $spacer-big $spacer-extra-big;
+    @include for-desktop {
+      padding: 6px 0;
+    }
+  }
+  &__icon{
+    height: 0.75rem;
+    margin-right: 1.25rem
+  }
 }
 </style>
