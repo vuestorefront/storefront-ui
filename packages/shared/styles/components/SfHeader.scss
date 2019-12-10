@@ -6,46 +6,9 @@ $header-desktop-padding: 0 $spacer-extra-big!default;
 $header-desktop-height: 5rem !default;
 $header-background-color: $c-light !default;
 $header-desktop-background-color: $c-white !default;
-$header-navigation-item-margin-left: 2.5rem !default;
-$header-navigation-item-font-family: $font-size-small-desktop !default;
-$header-navigation-item-font-size: $font-size-small-desktop !default;
-$header-navigation-item-font-weight: 500 !default;
 
-.sf-header-navigation-item {
-  $this: &;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  margin-left: $header-navigation-item-margin-left;
-  color: initial;
-  font-family: $header-navigation-item-font-family;
-  font-size: $header-navigation-item-font-size;
-  font-weight: $header-navigation-item-font-weight;
-  line-height: 1.6;
-  text-transform: uppercase ;
-  cursor: pointer;
-  .wrapper{
-    position: relative;
-    &::after{
-      position: absolute;
-      left: 0;
-      z-index: 10;
-      bottom: -2px;
-      height: 2px;
-      width: 100%;
-      background-color: transparent;
-      content: "";
-      transition: background-color 150ms linear;
-    }
-    &:hover{
-      &::after{
-        background-color: $c-dark;
-      }
-    }
-  }
-
-}
 .sf-header {
+  $this: &;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -78,6 +41,33 @@ $header-navigation-item-font-weight: 500 !default;
     & > *:hover{
       color: $c-text;
     }
+  }
+  &__navigation-item{
+    height: 100%;
+    margin-left: $spacer-extra-big;
+    &:first-child {
+      margin-left: 5rem;
+    }
+    &:hover {
+      #{$this}__navigation-link {
+        border-color: $c-text;
+      }
+    }
+  }
+  &__navigation-link{
+    position: relative;
+    box-sizing: border-box;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-transform: uppercase;
+    font-family: $body-font-family-secondary;
+    font-size: $font-size-small-desktop;
+    font-weight: 500;
+    line-height: 1.6;
+    border-bottom: 2px solid transparent;
+    transition: border-color 150ms linear;
   }
   &__search {
     margin: 0 10px 0 auto;

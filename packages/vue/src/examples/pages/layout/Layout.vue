@@ -2,159 +2,153 @@
   <div>
     <SfHeader logo="/assets/logo.svg" class="header">
       <template #navigation>
-        <SfHeaderNavigationItem
-          class="header-navigation-item"
+        <div
+          class="sf-header__navigation-item"
           @mouseover="parentMenu = 'Women'"
           @mouseleave="parentMenu = ''"
         >
-          <a href="#women" class="navigation-link">Women</a>
-          <template #mega-menu>
-            <SfMegaMenu
-              :parent-menu="parentMenu === 'Women' ? parentMenu : ''"
-              class="mega-menu"
+          <a href="#woman" class="sf-header__navigation-link">Women</a>
+          <SfMegaMenu
+            :parent-menu="parentMenu === 'Women' ? parentMenu : ''"
+            class="mega-menu"
+          >
+            <SfMegaMenuColumn
+              v-for="subcategory in subcategories"
+              :key="subcategory.header"
+              :title="subcategory.header"
             >
-              <SfMegaMenuColumn
-                v-for="subcategory in subcategories"
-                :key="subcategory.header"
-                :title="subcategory.header"
+              <SfMenuItem
+                v-for="item in subcategory.items"
+                :key="item.label"
+                :label="item.label"
+                class="sf-mega-menu__menu-item"
+              />
+            </SfMegaMenuColumn>
+            <template #aside>
+              <div
+                :style="{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap'
+                }"
               >
-                <SfMenuItem
-                  v-for="item in subcategory.items"
-                  :key="item.label"
-                  :label="item.label"
-                  class="sf-mega-menu__menu-item"
-                />
-              </SfMegaMenuColumn>
-              <template #aside>
                 <div
-                  :style="{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    flexWrap: 'wrap'
-                  }"
+                  v-for="tile in tiles"
+                  :key="tile.title"
+                  :style="{ marginBottom: '1.25rem' }"
                 >
-                  <div
-                    v-for="tile in tiles"
-                    :key="tile.title"
-                    :style="{ marginBottom: '1.25rem' }"
+                  <h3
+                    :style="{
+                      marginBottom: '1.25rem',
+                      textTransform: 'uppercase'
+                    }"
                   >
-                    <h3
-                      :style="{
-                        marginBottom: '1.25rem',
-                        textTransform: 'uppercase'
-                      }"
-                    >
-                      {{ tile.title }}
-                    </h3>
-                    <SfImage :src="tile.pictures" />
-                  </div>
+                    {{ tile.title }}
+                  </h3>
+                  <SfImage :src="tile.pictures" />
                 </div>
-              </template>
-            </SfMegaMenu>
-          </template>
-        </SfHeaderNavigationItem>
-        <SfHeaderNavigationItem
-          class="header-navigation-item"
+              </div>
+            </template>
+          </SfMegaMenu>
+        </div>
+        <div
+          class="sf-header__navigation-item"
           @mouseover="parentMenu = 'Man'"
           @mouseleave="parentMenu = ''"
         >
-          <a href="#man" class="navigation-link">Man</a>
-          <template #mega-menu>
-            <SfMegaMenu
-              :parent-menu="parentMenu === 'Man' ? parentMenu : ''"
-              class="mega-menu"
+          <a href="#man" class="sf-header__navigation-link">Man</a>
+          <SfMegaMenu
+            :parent-menu="parentMenu === 'Man' ? parentMenu : ''"
+            class="mega-menu"
+          >
+            <SfMegaMenuColumn
+              v-for="subcategory in subcategories"
+              :key="subcategory.header"
+              :title="subcategory.header"
             >
-              <SfMegaMenuColumn
-                v-for="subcategory in subcategories"
-                :key="subcategory.header"
-                :title="subcategory.header"
+              <SfMenuItem
+                v-for="item in subcategory.items"
+                :key="item.label"
+                :label="item.label"
+                class="sf-mega-menu__menu-item"
+              />
+            </SfMegaMenuColumn>
+            <template #aside>
+              <div
+                :style="{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap'
+                }"
               >
-                <SfMenuItem
-                  v-for="item in subcategory.items"
-                  :key="item.label"
-                  :label="item.label"
-                  class="sf-mega-menu__menu-item"
-                />
-              </SfMegaMenuColumn>
-              <template #aside>
                 <div
-                  :style="{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    flexWrap: 'wrap'
-                  }"
+                  v-for="tile in tiles"
+                  :key="tile.title"
+                  :style="{ marginBottom: '1.25rem' }"
                 >
-                  <div
-                    v-for="tile in tiles"
-                    :key="tile.title"
-                    :style="{ marginBottom: '1.25rem' }"
+                  <h3
+                    :style="{
+                      marginBottom: '1.25rem',
+                      textTransform: 'uppercase'
+                    }"
                   >
-                    <h3
-                      :style="{
-                        marginBottom: '1.25rem',
-                        textTransform: 'uppercase'
-                      }"
-                    >
-                      {{ tile.title }}
-                    </h3>
-                    <SfImage :src="tile.pictures" />
-                  </div>
+                    {{ tile.title }}
+                  </h3>
+                  <SfImage :src="tile.pictures" />
                 </div>
-              </template>
-            </SfMegaMenu>
-          </template>
-        </SfHeaderNavigationItem>
-        <SfHeaderNavigationItem
-          class="header-navigation-item"
+              </div>
+            </template>
+          </SfMegaMenu>
+        </div>
+        <div
+          class="sf-header__navigation-item"
           @mouseover="parentMenu = 'Kids'"
           @mouseleave="parentMenu = ''"
         >
-          <a href="#kids" class="navigation-link">Kids</a>
-          <template #mega-menu>
-            <SfMegaMenu
-              :parent-menu="parentMenu === 'Kids' ? parentMenu : ''"
-              class="mega-menu"
+          <a href="#kids" class="sf-header__navigation-link">Kids</a>
+          <SfMegaMenu
+            :parent-menu="parentMenu === 'Kids' ? parentMenu : ''"
+            class="mega-menu"
+          >
+            <SfMegaMenuColumn
+              v-for="subcategory in subcategories"
+              :key="subcategory.header"
+              :title="subcategory.header"
             >
-              <SfMegaMenuColumn
-                v-for="subcategory in subcategories"
-                :key="subcategory.header"
-                :title="subcategory.header"
+              <SfMenuItem
+                v-for="item in subcategory.items"
+                :key="item.label"
+                :label="item.label"
+                class="sf-mega-menu__menu-item"
+              />
+            </SfMegaMenuColumn>
+            <template #aside>
+              <div
+                :style="{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap'
+                }"
               >
-                <SfMenuItem
-                  v-for="item in subcategory.items"
-                  :key="item.label"
-                  :label="item.label"
-                  class="sf-mega-menu__menu-item"
-                />
-              </SfMegaMenuColumn>
-              <template #aside>
                 <div
-                  :style="{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    flexWrap: 'wrap'
-                  }"
+                  v-for="tile in tiles"
+                  :key="tile.title"
+                  :style="{ marginBottom: '1.25rem' }"
                 >
-                  <div
-                    v-for="tile in tiles"
-                    :key="tile.title"
-                    :style="{ marginBottom: '1.25rem' }"
+                  <h3
+                    :style="{
+                      marginBottom: '1.25rem',
+                      textTransform: 'uppercase'
+                    }"
                   >
-                    <h3
-                      :style="{
-                        marginBottom: '1.25rem',
-                        textTransform: 'uppercase'
-                      }"
-                    >
-                      {{ tile.title }}
-                    </h3>
-                    <SfImage :src="tile.pictures" />
-                  </div>
+                    {{ tile.title }}
+                  </h3>
+                  <SfImage :src="tile.pictures" />
                 </div>
-              </template>
-            </SfMegaMenu>
-          </template>
-        </SfHeaderNavigationItem>
+              </div>
+            </template>
+          </SfMegaMenu>
+        </div>
       </template>
     </SfHeader>
     <Home class="content" />
@@ -191,6 +185,7 @@
         <div class="social-column__icons">
           <img
             v-for="item in social"
+            :key="item"
             :src="'/assets/storybook/footer/' + item + '.svg'"
             :alt="item"
             class="social-column__icon"
@@ -311,6 +306,9 @@ export default {
   left: 0;
   z-index: 1;
   width: 100%;
+  @include for-desktop {
+    margin-top: -2px;
+  }
 }
 .content {
   margin-top: 10px;
@@ -330,17 +328,5 @@ export default {
     height: 0.75rem;
     margin-right: 1.25rem;
   }
-}
-.header-navigation-item {
-  &:hover {
-    a {
-      color: $c-text;
-    }
-  }
-}
-.navigation-link {
-  display: flex;
-  align-items: center;
-  justify-content: stretch;
 }
 </style>
