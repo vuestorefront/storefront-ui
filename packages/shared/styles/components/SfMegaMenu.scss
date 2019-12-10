@@ -29,6 +29,7 @@
   overflow: hidden;
   height: 100vh;
   background-color: $c-white;
+  text-transform: initial;
   @media (min-width: $desktop-min) {
     overflow: auto;
     height: auto;
