@@ -43,6 +43,7 @@ export default {
   watch: {
     image: {
       handler(image) {
+        if (typeof window === "undefined") return;
         this.$nextTick(() => {
           if (typeof image === "object") {
             this.$el.style.setProperty(
@@ -54,10 +55,7 @@ export default {
               `url(${image.normal})`
             );
           } else {
-            this.$el.style.setProperty(
-              "--background-image",
-              `url(${image})`
-            );
+            this.$el.style.setProperty("--background-image", `url(${image})`);
             this.$el.style.setProperty(
               "--background-image-desktop",
               `url(${image})`
@@ -69,6 +67,7 @@ export default {
     },
     background: {
       handler(background) {
+        if (typeof window === "undefined") return;
         this.$nextTick(() => {
           this.$el.style.setProperty("--background-color", background);
         });

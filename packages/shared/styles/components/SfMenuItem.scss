@@ -19,11 +19,12 @@ $menu-item-line-height: 1.6 !default;
   font-weight: $menu-item-font-weight;
   line-height: $menu-item-line-height;
   cursor: pointer;
+  &:hover{
+    color: $menu-item-color--is-active;
+  }
   &--is-active {
-    @media (min-width: $desktop-min) {
-      color: $menu-item-color--is-active;
-      text-decoration: underline;
-    }
+    color: $menu-item-color--is-active;
+    text-decoration: underline;
   }
   @media screen and (min-width: $desktop-min) {
     font-size: $menu-item-font-size-desktop;

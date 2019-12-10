@@ -1,0 +1,16 @@
+<div class="sf-footer-column">
+  <div
+    class="sf-footer-column__title"
+    @click="toggle(title)"
+  >{{title}}
+    <div class="sf-footer-column__chevron">
+      <SfChevron
+        :class="{ 'sf-chevron--top': open }"/>
+    </div>
+  </div>
+  <transition name="fade">
+    <div v-if="open" class="sf-footer-column__content">
+      <slot/>
+    </div>
+  </transition>
+</div>
