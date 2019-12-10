@@ -58,10 +58,9 @@ storiesOf("Organisms|MegaMenu", module)
       }
     },
     template: `<div>
-      <label>open<input v-model="open" type="checkbox" /></label>
       <SfMegaMenu :parent-menu="parentMenu">
         <SfMegaMenuColumn v-for="subcategory in subcategories" :key="subcategory.header" :title="subcategory.header">
-          <SfMenuItem v-for="item in subcategory.items" :key="item.label" :label="item.label"/>
+          <SfMenuItem v-for="item in subcategory.items" :key="item.label" :label="item.label" class="sf-mega-menu__menu-item"/>
         </SfMegaMenuColumn>
       </SfMegaMenu>
       </div>`
@@ -135,10 +134,9 @@ storiesOf("Organisms|MegaMenu", module)
       }
     },
     template: `<div>
-      <label>open<input v-model="open" type="checkbox" /></label>
       <SfMegaMenu :parent-menu="parentMenu">
         <SfMegaMenuColumn v-for="subcategory in subcategories" :key="subcategory.header" :title="subcategory.header">
-          <SfMenuItem v-for="item in subcategory.items" :key="item.label" :label="item.label"/>
+          <SfMenuItem v-for="item in subcategory.items" :key="item.label" :label="item.label" class="sf-mega-menu__menu-item"/>
         </SfMegaMenuColumn>
         <template #aside>
           <div :style="{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}">
