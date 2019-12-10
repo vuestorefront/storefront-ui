@@ -65,6 +65,11 @@
     @media (min-width: $desktop-min) {
       order: 1;
       border-left: 2px solid $c-light;
+      &--without-content{
+        flex: 0;
+        padding: 0;
+        border-left: 0;
+      }
     }
   }
   &__menu{
