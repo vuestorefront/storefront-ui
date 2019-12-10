@@ -59,8 +59,8 @@ export default {
   watch: {
     visible: {
       handler: function(value) {
-        const body = document.body;
         if (typeof window === "undefined") return;
+        const body = document.body;
         if (value) {
           disableBodyScroll(body);
           document.addEventListener("keydown", this.keydownHandler);
