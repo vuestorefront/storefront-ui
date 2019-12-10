@@ -40,26 +40,19 @@ export default {
   watch: {
     isMobile: {
       handler(mobile) {
-        let active;
         this.$nextTick(() => {
-          if (mobile) {
-            active = [];
-          } else {
-            active = [...this.items];
-          }
-          this.active = active;
+          this.active = mobile ? [] : [...this.items];
         });
       },
       immediate: true
     },
     parentMenu: {
       handler(parent) {
-        console.log(this.items);
-        if(!parent) return;
-        if(this.isMobile) return;
+        if (!parent) return;
+        if (this.isMobile) return;
         this.$nextTick(() => {
           this.active = [...this.items];
-        })
+        });
       },
       immediate: true
     }
