@@ -13,6 +13,11 @@ $image__overlay-color: $c-white !default;
     display: block;
     max-width: 100%;
     height: auto;
+    img{
+      display: inherit;
+      max-width: inherit;
+      height: inherit;
+    }
   }
   &__overlay {
     position: absolute;
