@@ -4,7 +4,9 @@ import SfMegaMenu from "./SfMegaMenu.vue";
 
 describe("SfMegaMenu.vue", () => {
   it("renders a Mega Menu", () => {
-    const component = shallowMount(SfMegaMenu, {propsData: {parentMenu: "Man"}});
+    const component = shallowMount(SfMegaMenu, {
+      propsData: { parentMenu: "Man" }
+    });
     expect(component.contains(".sf-mega-menu")).toBe(true);
   });
 });

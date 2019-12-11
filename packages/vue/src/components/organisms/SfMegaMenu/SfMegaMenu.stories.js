@@ -114,15 +114,19 @@ storiesOf("Organisms|MegaMenu", module)
           {
             title: "Last pairs left",
             pictures: {
-              small: {url:"assets/storybook/megamenu/bannerSandals-full.png"},
-              normal: {url: "assets/storybook/megamenu/bannerSandals.jpg"}
+              small: {
+                url: "assets/storybook/megamenu/bannerSandals-full.png"
+              },
+              normal: { url: "assets/storybook/megamenu/bannerSandals.jpg" }
             }
           },
           {
             title: "Beach bags 2=1",
             pictures: {
-              small: {url:"assets/storybook/megamenu/bannerBeachBag-full.png"},
-              normal: {url:"assets/storybook/megamenu/bannerBeachBag.jpg"}
+              small: {
+                url: "assets/storybook/megamenu/bannerBeachBag-full.png"
+              },
+              normal: { url: "assets/storybook/megamenu/bannerBeachBag.jpg" }
             }
           }
         ]
