@@ -17,11 +17,24 @@ storiesOf("Organisms/Table", module)
           "Amount",
           "Status"
         ]
+      },
+      content: {
+        type: [Array, Object],
+        default: [
+          ["#35767", "4th Nov", "Paypal", "12.00$", "In process"],
+          ["#35767", "4th Nov", "Visa", "15.00$", "Finalised"],
+          ["#35767", "4th Nov", "Paypal", "12.00$", "In process"]
+        ]
       }
     },
     template: `<SfTable>
     <template #headers>
       <SfTableData :is-header="true" v-for="header in headers">{{ header }}</SfTableData>
+    </template>
+    <template #content>
+      <SfTableRow v-for="data in content">
+        <SfTableData v-for="item in data">{{ item }}</SfTableData>
+      </SfTableRow>
     </template>
     </SfTable>`
   }));
