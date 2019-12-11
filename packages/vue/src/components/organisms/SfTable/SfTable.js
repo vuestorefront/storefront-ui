@@ -1,5 +1,5 @@
-import SfTableRow from "./_internal/SfTableRow";
-import SfTableData from "./_internal/SfTableData";
+import SfTableRow from "./_internal/SfTableRow.vue";
+import SfTableData from "./_internal/SfTableData.vue";
 import Vue from "vue";
 
 Vue.component("SfTableRow", SfTableRow);
