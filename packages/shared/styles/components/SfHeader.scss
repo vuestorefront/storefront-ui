@@ -29,6 +29,7 @@ $header-desktop-background-color: $c-white !default;
     }
     img, picture{
       height: 100%;
+      max-width: unset;
     }
   }
   &__navigation {
