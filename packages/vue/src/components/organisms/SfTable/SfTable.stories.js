@@ -29,7 +29,9 @@ storiesOf("Organisms/Table", module)
     },
     template: `<SfTable>
     <template #headers>
+    <SfTableRow>
       <SfTableData :is-header="true" v-for="header in headers">{{ header }}</SfTableData>
+    </SfTableRow>
     </template>
     <template #content>
       <SfTableRow v-for="data in content">

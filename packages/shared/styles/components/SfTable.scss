@@ -12,9 +12,18 @@
 }
 
 .sf-table-row {
-  
+
   th {
     border-bottom: 1px solid $c-light;
+    background-color: $c-light;
+
+    @media (min-width: $desktop-min) {
+      background-color: $c-white;
+    }
+
+    &:nth-child(even) {
+      display: block;
+    }
   }
 
   &:hover {
