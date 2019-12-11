@@ -383,15 +383,11 @@ function parseStoriesFile(contentStoriesFile) {
 
   /* insert story data into code block */
 
-  // rewrite imports
-  const re = /`(import Sf.+? from)/g;
-  const storyImports = [];
-  let partialReResult;
-  while ((partialReResult = re.exec(contentStoriesFile)) !== null) {
-    const importLine = `${partialReResult[1]} "@storefront-ui/vue";`;
-    storyImports.push(importLine);
-  }
-  let storyImportsString = storyImports.join("\n");
+  // generate imports for used components
+  const storyImportsString = storyComponents
+    .split(",")
+    .map(component => `import { ${component} } from "@storefront-ui/vue";`)
+    .join("\n");
 
   // merge props and data from the story into a single data object
   const componentData = [];
