@@ -2,4 +2,20 @@
 
 .sf-table {
   width: 100%;
+  border: none;
 }
+
+.sf-table-data {
+  text-align: center;
+  padding: 1.25rem 0;
+  border: none;
+}
+
+.sf-table-row {
+  &:hover {
+    background-color: $c-light;
+    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+  }
+}
+
+
