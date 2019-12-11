@@ -12,6 +12,11 @@
 }
 
 .sf-table-row {
+  
+  th {
+    border-bottom: 1px solid $c-light;
+  }
+
   &:hover {
     background-color: $c-light;
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
