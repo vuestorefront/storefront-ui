@@ -7,6 +7,7 @@ import SfArrow from "../../src/components/atoms/SfArrow/SfArrow.vue"
 import SfBadge from "../../src/components/atoms/SfBadge/SfBadge.vue"
 import SfBanner from "../../src/components/molecules/SfBanner/SfBanner.vue"
 import SfBannerGrid from "../../src/components/organisms/SfBannerGrid/SfBannerGrid.vue"
+import SfBar from "../../src/components/molecules/SfBar/SfBar.vue"
 import SfBottomNavigation from "../../src/components/organisms/SfBottomNavigation/SfBottomNavigation.vue"
 import SfBreadcrumbs from "../../src/components/atoms/SfBreadcrumbs/SfBreadcrumbs.vue"
 import SfBullets from "../../src/components/atoms/SfBullets/SfBullets.vue"
@@ -73,6 +74,7 @@ export default ({
   Vue.component("SfBadge", SfBadge);
   Vue.component("SfBanner", SfBanner);
   Vue.component("SfBannerGrid", SfBannerGrid);
+  Vue.component("SfBar", SfBar);
   Vue.component("SfBottomNavigation", SfBottomNavigation);
   Vue.component("SfBreadcrumbs", SfBreadcrumbs);
   Vue.component("SfBullets", SfBullets);
