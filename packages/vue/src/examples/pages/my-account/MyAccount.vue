@@ -131,7 +131,7 @@
                     required
                     class="form__input form__input--half"
                 />
-                <SfSelect v-model="country" name="country" label="Country" required class="sf-select--underlined form__input form__input--half">
+                <SfSelect v-model="country" name="country" label="Country" required class="sf-select--underlined form__input form__input--half form__select">
                   <SfSelectOption value="poland">Poland</SfSelectOption>
                   <SfSelectOption value="england">England</SfSelectOption>
                 </SfSelect>
@@ -278,6 +278,12 @@ export default {
       & + &:not(:nth-child(odd)) {
         padding-left: 3.75rem;
       }
+    }
+  }
+  &__select{
+    // todo: [bug] fix padding to adjust to rest form elements
+    ::v-deep .sf-select__selected{
+      padding: 5px 0;
     }
   }
 }
