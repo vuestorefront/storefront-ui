@@ -23,18 +23,39 @@
     class="sf-product-card__link"
   >
     <!-- @slot -->
-    <slot name="image" v-bind="{ image, title }">
-      <div v-if="Array.isArray(image)" class="sf-product-card__pictures">
-        <div class="sf-product-card__picture" v-for="picture in image.slice(0, 2)">
-          <div class="sf-product-card__image">
-            <SfImage :src="picture" />
+  
+    <div class="sf-product-card__image-wrapper" ref="productImage">
+      <slot name="image" v-bind="{ image, title }">
+        <div v-if="Array.isArray(image)" class="sf-product-card__pictures">
+          <div class="sf-product-card__picture" v-for="picture in image.slice(0, 2)">
+            <div class="sf-product-card__image">
+              <SfImage :src="picture" />
+            </div>
           </div>
         </div>
-      </div>
-      <div v-else class="sf-product-card__image">
-        <SfImage :src="image" :alt="title" />
-      </div>
-    </slot>
+        <div v-else class="sf-product-card__image">
+          <SfImage :src="image" :alt="title" />
+        </div>
+      </slot>
+
+      <template v-if="addToCart !== null">
+        <transition name="sf-product-card__add-button">
+            <!-- @slot -->
+            <slot name="add-to-cart-icon" v-bind="{ addToCart }" >
+                <SfCircleIcon 
+                  class="sf-product-card__add-button" 
+                  v-bind:key="!addToCart"
+                  @click="onAddToCart"
+                  aria-label="add-to-cart"
+                  role="button"
+                  :icon="!addToCart ? 'add_to_cart' : 'added_to_cart'"
+                  :class="{ 'sf-product-card__add-button--added-icon' : addToCart }"
+                  icon-size="20px"    
+                />
+              </slot>  
+        </transition>
+      </template>
+    </div>
 
     <!-- @slot -->
     <slot name="title" v-bind="{ title }">
