@@ -158,7 +158,7 @@
         <SfContentPage title="Loyalty Card">
           <SfTabs :open-tab="1">
             <SfTab title="Loyalty Card">
-              Loyalty Card
+              <p>This feature is not implemented yet! Please take a look at <a href="#">https://github.com/DivanteLtd/vue-storefront/issues for our Roadmap!</a></p>
             </SfTab>
           </SfTabs>
         </SfContentPage>
