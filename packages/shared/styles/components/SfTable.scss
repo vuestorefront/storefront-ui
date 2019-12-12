@@ -1,8 +1,11 @@
 @import "../variables";
 
-$table-column-count: 6 !default;
+:root {
+  --table-column-count: 6;
+}
 
 .sf-table {
+  
   width: 100%;
   border: none;
 }
@@ -10,7 +13,7 @@ $table-column-count: 6 !default;
 .sf-table-data {
   text-align: center;
   padding: 1.25rem 0;
-  flex: 0 0 calc(100% / 3);
+  flex: 0 0 calc(100% / (var(--table-column-count)/2));
   
   &:nth-child(even){
       order:1;

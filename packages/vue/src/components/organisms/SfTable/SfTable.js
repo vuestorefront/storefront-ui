@@ -21,5 +21,8 @@ export default {
   },
   mounted() {
     this.columnsCount = this.$slots.default[0].componentInstance.$children.length;
+    document
+      .querySelector(".sf-table-data")
+      .style.setProperty("--table-column-count", this.columnsCount);
   }
 };
