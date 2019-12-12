@@ -11,24 +11,41 @@
     >
       <SfContentCategory title="Personal Details">
         <SfContentPage title="My profile">
-          My profile
+          <SfTabs :open-tab="1">
+            <SfTab title="Personal data">Personal data</SfTab>
+            <SfTab title="Password change">Password change</SfTab>
+          </SfTabs>
         </SfContentPage>
         <SfContentPage title="Shipping details">
-          Shipping details
+          <SfTabs v-if="true" :open-tab="1">
+            <SfTab title="Shipping details">Shipping details</SfTab>
+          </SfTabs>
+          <SfTabs v-else :open-tab="1">
+            <SfTab title="Change the address">Change the address</SfTab>
+          </SfTabs>
         </SfContentPage>
         <SfContentPage title="Loyalty Card">
-          Loyalty Card
+          <SfTabs :open-tab="1">
+            <SfTab title="Loyalty Card">Loyalty Card</SfTab>
+          </SfTabs>
         </SfContentPage>
         <SfContentPage title="My newsletter">
-          My newsletter
+          <SfTabs :open-tab="1">
+            <SfTab title="My newsletter">My newsletter</SfTab>
+          </SfTabs>
         </SfContentPage>
       </SfContentCategory>
       <SfContentCategory title="Order details">
         <SfContentPage title="Order history">
-          Order history
+          <SfTabs :open-tab="1">
+            <SfTab title="My orders">My orders</SfTab>
+            <SfTab title="Returns">Returns </SfTab>
+          </SfTabs>
         </SfContentPage>
         <SfContentPage title="My reviews">
-          My reviews
+          <SfTabs :open-tab="1">
+            <SfTab title="My reviews">My reviews</SfTab>
+          </SfTabs>
         </SfContentPage>
       </SfContentCategory>
       <SfContentPage title="Log out" />
@@ -36,12 +53,13 @@
   </div>
 </template>
 <script>
-import { SfBreadcrumbs, SfContentPages } from "../../../../index.js";
+import { SfBreadcrumbs, SfContentPages, SfTabs } from "../../../../index.js";
 export default {
   name: "MyAccount",
   components: {
     SfBreadcrumbs,
-    SfContentPages
+    SfContentPages,
+    SfTabs,
   },
   data() {
     return {
