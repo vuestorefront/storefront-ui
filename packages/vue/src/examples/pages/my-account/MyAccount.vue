@@ -46,28 +46,28 @@
               <p>Your current email address is example@email.com</p>
               <div class="form">
                 <SfInput
-                    v-model="currentPassword"
-                    type="password"
-                    name="currentPassword"
-                    label="Current Password"
-                    required
-                    class="form__input"
+                  v-model="currentPassword"
+                  type="password"
+                  name="currentPassword"
+                  label="Current Password"
+                  required
+                  class="form__input"
                 />
                 <SfInput
-                    v-model="firstName"
-                    type="password"
-                    name="newPassword"
-                    label="New Password"
-                    required
-                    class="form__input form__input--half"
+                  v-model="firstName"
+                  type="password"
+                  name="newPassword"
+                  label="New Password"
+                  required
+                  class="form__input form__input--half"
                 />
                 <SfInput
-                    v-model="repeatPassword"
-                    type="password"
-                    name="repeatPassword"
-                    label="Repeat Password"
-                    required
-                    class="form__input form__input--half"
+                  v-model="repeatPassword"
+                  type="password"
+                  name="repeatPassword"
+                  label="Repeat Password"
+                  required
+                  class="form__input form__input--half"
                 />
                 <SfButton>Update password</SfButton>
               </div>
@@ -80,7 +80,70 @@
             :open-tab="1"
           >
             <SfTab title="Shipping details">
-              Shipping details
+              <div class="form">
+                <SfInput
+                  v-model="firstName"
+                  name="firstName"
+                  label="First Name"
+                  required
+                  class="form__input form__input--half"
+                />
+                <SfInput
+                  v-model="lastName"
+                  name="lastName"
+                  label="Last Name"
+                  required
+                  class="form__input form__input--half"
+                />
+                <SfInput
+                    v-model="streetName"
+                    type="password"
+                    name="currentPassword"
+                    label="Current Password"
+                    required
+                    class="form__input"
+                />
+                <SfInput
+                    v-model="apartment"
+                    name="apartment"
+                    label="House/Apartment number"
+                    required
+                    class="form__input"
+                />
+                <SfInput
+                    v-model="city"
+                    name="city"
+                    label="City"
+                    required
+                    class="form__input form__input--half"
+                />
+                <SfInput
+                    v-model="state"
+                    name="state"
+                    label="State/Province"
+                    required
+                    class="form__input form__input--half"
+                />
+                <SfInput
+                    v-model="zipCode"
+                    name="zipCode"
+                    label="Zip-code"
+                    required
+                    class="form__input form__input--half"
+                />
+                <SfSelect v-model="country" name="country" label="Country" required class="sf-select--underlined form__input form__input--half">
+                  <SfSelectOption value="poland">Poland</SfSelectOption>
+                  <SfSelectOption value="england">England</SfSelectOption>
+                </SfSelect>
+                <SfInput
+                    v-model="phone"
+                    name="phone"
+                    label="Phone number"
+                    required
+                    class="form__input"
+                />
+                <SfButton>Update the address</SfButton>
+              </div>
             </SfTab>
           </SfTabs>
           <SfTabs
@@ -131,7 +194,7 @@
   </div>
 </template>
 <script>
-import { SfBreadcrumbs, SfContentPages, SfTabs, SfInput, SfButton } from "../../../../index.js";
+import { SfBreadcrumbs, SfContentPages, SfTabs, SfInput, SfButton, SfSelect } from "../../../../index.js";
 export default {
   name: "MyAccount",
   components: {
@@ -139,17 +202,25 @@ export default {
     SfContentPages,
     SfTabs,
     SfInput,
-    SfButton
+    SfButton,
+    SfSelect
   },
   data() {
     return {
-      activePage: "My profile",
-      firstName: "Sviatlana",
-      lastName: "Havaka",
-      email: "example@email.com",
+      activePage: "Shipping details",
+      firstName: "",
+      lastName: "",
+      email: "",
       currentPassword: "",
       newPassword: "",
       repeatPassword: "",
+      streetName: "",
+      apartment: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      country: "",
+      phone: "",
       breadcrumbs: [
         {
           text: "Home",
@@ -204,7 +275,7 @@ export default {
     flex: 0 0 100%;
     &--half{
       flex: 0 0 50%;
-      & + & {
+      & + &:not(:nth-child(odd)) {
         padding-left: 3.75rem;
       }
     }
