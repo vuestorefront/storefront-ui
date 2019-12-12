@@ -34,6 +34,7 @@ storiesOf("Organisms/Table", module)
       <SfTableRow>
         <SfTableData :is-header="true" v-for="header in headers">{{ header }}</SfTableData>
         <SfTableData :is-header="true">
+          <span class="mobile-only">Download</span>
           <SfButton class="desktop-only">DOWNLOAD ALL</SfButton>
         </SfTableData>
       </SfTableRow>
