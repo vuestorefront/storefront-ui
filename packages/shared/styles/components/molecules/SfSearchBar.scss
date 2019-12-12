@@ -1,0 +1,119 @@
+@import '../../variables';
+
+:root {
+    --search-bar-background-primary: var(--c-light);
+    --search-bar-background-secondary: var(--c-light-variant);
+    --search-bar-placeholder-color: var(--c-dark);
+    --search-bar-placeholder-color-focus: var(--c-gray);
+    --search-bar-width: 100%;
+    --search-bar-height: 2.25rem;
+    --search-bar-border-radius: 1.6875rem;
+    --search-bar-text-align: center;
+    --search-bar-font-size: .875rem;
+
+    @media screen and (min-width: $desktop-min) {
+        --search-bar-width: 20rem;
+    }
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+@mixin iconPosition {
+    flex-direction: row;
+    .sf-search-bar {
+        &__input {
+            text-align: left;
+
+            &::placeholder {
+                text-align: left;
+            }
+
+            &:focus {
+                & ~ .sf-search-bar__clear-icon {
+                    padding-right: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+.sf-search-bar {
+    background-color: var(--search-bar-background-primary);
+    border-radius: var(--search-bar-border-radius);
+    width: var(--search-bar-width);
+    padding: 0 .9375rem;
+    height: var(--search-bar-height);
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+
+    &--secondary {
+        background-color: var(--search-bar-background-secondary);
+    }
+
+    &--position-right {
+        @include iconPosition();
+    }
+
+    &--position-right-mobile {
+        @media (max-width: $mobile-max) {
+            @include iconPosition();
+        }
+    }
+
+    &--position-right-desktop {
+        @media (min-width: $mobile-max) {
+            @include iconPosition();
+        }
+    }
+
+    &__input {
+        border: none;
+        flex-grow: 1;
+        background: transparent;
+        text-align: center;
+        outline: none;
+        position: relative;
+        @include placeholder {
+            color: var(--search-bar-placeholder-color);
+            transition: color .2s ease-in;
+        }
+
+        &:focus {
+            @include placeholder {
+                color: var(--search-bar-placeholder-color-focus);
+            }
+
+            & ~ .sf-search-bar__clear-icon {
+                display: block;
+                padding-right: .4rem;
+                position: absolute;
+                right: .9375rem;
+            }
+        }
+
+        &::-webkit-search-cancel-button {
+            opacity: 0;
+        }
+
+        &::-ms-clear {
+            opacity: 0;
+        }
+    }
+
+    &__clear-icon {
+        display: none;
+    }
+}

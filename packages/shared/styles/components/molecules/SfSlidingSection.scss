@@ -1,0 +1,65 @@
+@import '../../variables';
+
+:root {
+    --card-margin-left-desktop: calc(var(--spacer-big) * 5);
+}
+
+.sf-sliding-section {
+    $this: &;
+
+    &__static,
+    &__sliding {
+        flex: 1;
+    }
+
+    &__static {
+        overflow: hidden;
+        transition: height 150ms ease-in-out;
+    }
+
+    &__sliding {
+        padding: 0 var(--spacer-big);
+    }
+
+    &__mobile-bar {
+        padding: var(--spacer-medium) 0;
+        display: none;
+    }
+
+    &__close {
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &--has-scroll-lock {
+        overflow: hidden;
+    }
+
+    &--is-active {
+        #{$this} {
+            &__static {
+                height: 0;
+            }
+
+            &__mobile-bar {
+                display: block;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $desktop-min) {
+    .sf-sliding-section {
+        display: flex;
+
+        &__sliding {
+            margin-left: var(--card-margin-left-desktop);
+        }
+
+        &__mobile-bar {
+            display: none;
+        }
+    }
+}

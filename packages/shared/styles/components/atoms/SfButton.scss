@@ -1,0 +1,105 @@
+@import '../../variables';
+
+:root {
+    --button-padding: 1rem 2.5rem;
+    --button-color: var(--c-on-primary);
+    --button-background-color: var(--c-primary);
+    --button-font-family: var(--body-font-family-secondary);
+    --button-font-size: var(--font-size-small);
+    --button-font-weight: var(--body-font-weight-secondary);
+    --button-line-height: 1.6;
+    --button-border: 0;
+    --button-outline: 0;
+    --button-text-transform: none;
+    --button-transition: all .15s ease-in-out;
+
+    --button-hover-color: var(--c-on-secondary);
+    --button-hover-background-color: var(--c-secondary);
+    --button-hover-border: 0;
+    --button-hover-outline: 0;
+
+    --button--outline-color: var(--c-primary);
+    --button--outline-border: solid 2px;
+    --button--outline-border-color: var(--c-primary);
+    --button--outline-hover-background-color: var(--c-primary);
+    --button--outline-hover-color: var(--c-on-primary);
+
+    --button--text-color: var(--c-text);
+    --button--text-hover-color: var(--c-text);
+
+    @media screen and (min-width: $desktop-min) {
+        --button-padding: .9375rem 2.5rem;
+    }
+}
+
+.sf-button {
+    cursor: pointer;
+    padding: var(--button-padding);
+    border: var(--button-border);
+    outline: var(--button-outline);
+    color: var(--button-color);
+    background-color: var(--button-background-color);
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    line-height: var(--button-line-height);
+    text-transform: var(--button-text-transform);
+    transition: var(--button-transition);
+
+    &:hover {
+        color: var(--button-hover-color);
+        background-color: var(--button-hover-background-color);
+    }
+
+    &--full-width {
+        width: 100%;
+    }
+
+    @include color-modifiers('--button');
+
+    &--outline {
+        color: var(--button--outline-color);
+        border: var(--button--outline-border) var(--button--outline-border-color);
+        background-color: transparent;
+
+        &:hover {
+            color: var(--button--outline-hover-color);
+            background-color: var(--button--outline-hover-background-color);
+        }
+
+        @each $color, $map in $colors-map {
+            $background: map-get($map, 'bg');
+            $variant: map-get($map, 'variant');
+            $text: map-get($map, 'text');
+
+            &.color-#{$color} {
+                --button--outline-color: #{$background};
+                --button--outline-border-color: #{$background};
+                --button--outline-hover-background-color: #{$background};
+                --button--outline-hover-color: #{$text};
+            }
+        }
+    }
+
+    &--text {
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+        text-transform: none;
+        text-decoration: underline;
+        color: var(--button--text-color);
+
+        &:hover {
+            color: var(--button--text-hover-color);
+            background-color: transparent;
+        }
+
+        @each $color, $map in $colors-map {
+            $text: map-get($map, 'bg');
+
+            &.color-#{$color} {
+                --button--text-color: #{$text};
+            }
+        }
+    }
+}

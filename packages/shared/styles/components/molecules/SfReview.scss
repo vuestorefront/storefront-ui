@@ -1,0 +1,89 @@
+@import '../../variables';
+
+:root {
+    --review__div_tags-margin-bottom: var(--spacer-medium);
+    --review__div_tags-display-inline-block: inline-block;
+    --review__margin-left: var(--spacer-medium);
+    --review__author-text-transform: capitalize;
+    --review__author-font-weight: 450;
+    --review__author-font-size: var(--font-size-extra-big);
+    --review__author-font-family: var(--body-font-family-primary);
+    --review__author-color: var(--c-text);
+    --review__date-text-transform: capitalize;
+    --review__date-font-weight: var(--body-font-weight-primary);
+    --review__date-font-size: var(--font-size-regular);
+    --review__date-font-family: var(--body-font-family-secondary);
+    --review__date-color: var(--c-dark-variant);
+    --review__message-font-weight: var(--body-font-weight-primary);
+    --review__message-font-size: var(--font-size-big);
+    --review__message-color: var(--c-dark-variant);
+    --review__message_read_more-font-weight: var(--body-font-weight-primary);
+    --review__message_read_more-font-size: var(--font-size-big);
+    --review__message_read_more-color: var(--c-primary);
+    --review__message_read_more-background-color: transparent;
+    --review__message_read_more-border: none;
+    --review__message_read_more-cursor: pointer;
+    --review__message_read_more-outline: none;
+    --review__message_read_more-font-family: var(--body-font-family-primary);
+
+    @media screen and (min-width: $desktop-min) {
+        --review__author-font-size: var(--font-size-big);
+        --review__date-font-size: var(--font-size-small);
+        --review__message-font-size: var(--font-size-regular);
+        --review__message_read_more-font-size: var(--font-size-regular);
+    }
+}
+
+
+.sf-review {
+    position: relative;
+
+    &__author {
+        text-transform: var(--review__author-text-transform);
+        font-weight: var(--review__author-font-weight);
+        font-size: var(--review__author-font-size);
+        font-family: var(--review__author-font-family);
+        color: var(--review__author-color);
+        margin-bottom: var(--review__div_tags-margin-bottom);
+    }
+
+    &__rating {
+        display: var(--review__div_tags-display-inline-block);
+    }
+
+    &__info {
+        margin-bottom: var(--review__div_tags-margin-bottom);
+    }
+
+    &__date {
+        text-transform: var(--review__date-text-transform);
+        font-weight: var(--review__date-font-weight);
+        font-size: var(--review__date-font-size);
+        color: var(--review__date-color);
+    }
+
+    &__message {
+        font-weight: var(--review__message-font-weight);
+        font-size: var(--review__message-font-size);
+        color: var(--review__message-color);
+    }
+
+    &__message_read_more {
+        font-weight: var(--review__message_read_more-font-weight);
+        font-size: var(--review__message_read_more-font-size);
+        color: var(--review__message_read_more-color);
+        background-color: var(--review__message_read_more-background-color);
+        border: var(--review__message_read_more-border);
+        cursor: var(--review__message_read_more-cursor);
+        outline: var(--review__message_read_more-outline);
+        font-family: var(--review__message_read_more-font-family);
+    }
+
+    &__display-inline-block {
+        display: var(--review__div_tags-display-inline-block);
+    }
+
+    &__margin-left {
+        margin-left: var(--review__margin-left);
+    }
+}

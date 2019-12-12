@@ -1,0 +1,74 @@
+@import '../../variables';
+
+:root {
+    --circle-icon-background: var(--c-primary);
+    --circle-icon-size: 3.25rem;
+    --circle-icon-size-small: 1.625rem;
+    --circle-icon-size-big: 4rem;
+    --circle-icon-color: var(--c-on-primary);
+    --circle-icon-hover-background: var(--c-primary-lighten);
+    --circle-icon-hover-box-shadow: 0 0 0 .3125rem rgba(var(--c-primary-base), .4);
+    --circle-icon-active-box-shadow: 0 0 0 .625rem rgba(var(--c-primary-base), .4);
+}
+
+.sf-circle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--circle-icon-size);
+    height: var(--circle-icon-size);
+    padding: 5px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--circle-icon-background);
+    box-shadow: none;
+    transition: box-shadow .3s ease-in-out, background-color .3s ease-in-out;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+        box-shadow: var(--circle-icon-hover-box-shadow);
+        background-color: var(--circle-icon-hover-background);
+    }
+
+    &:active {
+        box-shadow: var(--circle-icon-active-box-shadow);
+    }
+
+    &__icon {
+        padding: 10px;
+    }
+
+    &--small {
+        width: var(--circle-icon-size-small);
+        height: var(--circle-icon-size-small);
+
+        & .sf-circle-icon__icon {
+            padding: 3px;
+        }
+    }
+
+    &--big {
+        width: var(--circle-icon-size-big);
+        height: var(--circle-icon-size-big);
+
+        & .sf-circle-icon__icon {
+            padding: 15px;
+        }
+    }
+
+    @each $color, $map in $colors-map {
+        $background: map-get($map, 'bg');
+        $backgroundBase: map-get($map, 'bg-base');
+        $backgroundLighten: map-get($map, 'bg-lighten');
+        $text: map-get($map, 'text');
+
+        &.color-#{$color} {
+            --circle-icon-color: #{$text};
+            --circle-icon-background: #{$background};
+            --circle-icon-hover-background: #{$backgroundLighten};
+            --circle-icon-hover-box-shadow: 0 0 0 .3125rem rgba(#{$backgroundBase}, .4);
+            --circle-icon-active-box-shadow: 0 0 0 .625rem rgba(#{$backgroundBase}, .4);
+        }
+    }
+}

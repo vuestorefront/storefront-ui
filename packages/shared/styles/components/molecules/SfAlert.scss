@@ -1,0 +1,39 @@
+@import '../../variables';
+
+:root {
+    --alert-font-family: var(--body-font-family-secondary);
+    --alert-font-size: var(--font-size-regular);
+    --alert-font-weight: var(--body-font-weight-secondary);
+    --alert-line-height: 1.6;
+    --alert__message-margin-left: .625rem;
+
+    @media screen and (min-width: $desktop-min) {
+        --alert-font-size: var(--font-size-big);
+    }
+}
+
+.sf-alert {
+    $this: &;
+    display: flex;
+    align-items: center;
+    font-family: var(--alert-font-family);
+    font-size: var(--alert-font-size);
+    font-weight: var(--alert-font-weight);
+    line-height: var(--alert-line-height);
+
+    &__message {
+        margin-left: var(--alert__message-margin-left);
+    }
+
+    @each $name, $pair in $colors-map {
+        $color: map-get($pair, 'bg');
+
+        &--#{$name} {
+            color: $color;
+
+            #{$this}__icon {
+                fill: $color;
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+@import '../../variables';
+
+:root {
+    --image__overlay-justify-content: center;
+    --image__overlay-align-items: center;
+    --image__overlay-background-color: rgba(29, 31, 34, .8);
+    --image__overlay-color: var(--c-white);
+}
+
+.sf-image {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+
+    &__img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        justify-content: var(--image__overlay-justify-content);
+        align-items: var(--image__overlay-align-items);
+        background-color: var(--image__overlay-background-color);
+        color: var(--image__overlay-color);
+        line-height: 1.6;
+    }
+}

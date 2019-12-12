@@ -1,0 +1,35 @@
+@import '../../variables';
+
+:root {
+    --bullet-border-radius: 50%;
+    --bullet-size: 8px;
+    --bullet-margin: 6px;
+    --bullet-background-color: var(--c-gray);
+    --bullet-size--active: 10px;
+    --bullet-margin--active: 5px;
+    --bullet-background-color--active: var(--c-primary-variant);
+}
+
+.sf-bullets {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.sf-bullet {
+    cursor: pointer;
+    border-radius: var(--bullet-border-radius);
+    background: var(--bullet-background-color);
+    width: var(--bullet-size);
+    height: var(--bullet-size);
+    margin: var(--bullet-margin);
+
+    &--active {
+        background-color: var(--bullet-background-color--active);
+        width: var(--bullet-size--active);
+        height: var(--bullet-size--active);
+        margin: var(--bullet-margin--active);
+    }
+}

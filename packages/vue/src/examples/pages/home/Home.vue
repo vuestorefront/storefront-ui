@@ -90,25 +90,25 @@
         <div class="images-grid__row">
           <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageA.jpg"
-              >katherina_trn</SfImage
-            >
+              >katherina_trn
+            </SfImage>
           </div>
           <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageB.jpg"
-              >katherina_trn</SfImage
-            >
+              >katherina_trn
+            </SfImage>
           </div>
         </div>
         <div class="images-grid__row">
           <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageC.jpg"
-              >katherina_trn</SfImage
-            >
+              >katherina_trn
+            </SfImage>
           </div>
           <div class="images-grid__col">
             <SfImage src="assets/storybook/homepage/imageD.jpg"
-              >katherina_trn</SfImage
-            >
+              >katherina_trn
+            </SfImage>
           </div>
         </div>
       </div>
@@ -276,23 +276,27 @@ export default {
     margin: auto;
   }
 }
+
 .call-to-action-newsletter {
-  margin: $spacer-big 0;
+  margin: var(--spacer-big) 0;
   box-sizing: border-box;
   @include for-desktop {
-    margin: $spacer-extra-big * 2 0;
+    margin: calc(var(--spacer-extra-big) * 2) 0;
   }
 }
+
 .banner-central {
   @include for-desktop {
     padding-right: 30%;
   }
 }
+
 .banner-custom {
   @media (max-width: $desktop-min) {
     background-image: url("../../../../public/assets/storybook/homepage/bannerB.jpg") !important;
   }
 }
+
 .banner-application {
   min-height: 420px;
   max-width: 1040px;
@@ -300,66 +304,80 @@ export default {
   padding-right: calc(25% + 5rem);
   padding-left: 2.5rem;
   line-height: 1.6;
+
   &__title {
-    margin: $spacer-big 0 0 0;
-    font-size: $h1-font-size-desktop;
-    font-weight: $h1-font-weight-desktop;
+    margin: var(--spacer-big) 0 0 0;
+    font-size: var(--h1-font-size);
+    font-weight: var(--h1-font-weight);
   }
+
   &__subtitle {
     color: #a3a5ad;
-    font-family: $body-font-family-primary;
-    font-size: $font-size-extra-big-desktop;
-    font-weight: $body-font-weight-primary;
+    font-family: var(--body-font-family-primary);
+    font-size: var(--font-size-extra-big);
+    font-weight: var(--body-font-weight-primary);
   }
+
   &__download {
     max-height: 47px;
-    margin-top: $spacer-extra-big;
+    margin-top: var(--spacer-extra-big);
+
     & + & {
-      margin-left: $spacer-big;
+      margin-left: var(--spacer-big);
     }
   }
 }
+
 .banners {
-  margin: $spacer-big 0;
+  margin: var(--spacer-big) 0;
   @include for-desktop {
-    margin: $spacer-extra-big 0;
+    margin: var(--spacer-extra-big) 0;
   }
 }
+
 .images-grid {
   max-width: 960px;
   margin: auto;
+
   &__row {
     display: flex;
+
     & + & {
-      margin-top: $spacer-big / 2;
+      margin-top: var(--spacer-big) / 2;
       @include for-desktop {
-        margin-top: $spacer-big;
+        margin-top: var(--spacer-big);
       }
     }
   }
+
   &__col {
     margin: 0;
+
     & + & {
-      margin-left: $spacer-big / 2;
+      margin-left: var(--spacer-big) / 2;
       @include for-desktop {
-        margin-left: $spacer-big;
+        margin-left: var(--spacer-big);
       }
     }
   }
 }
+
 .product-card {
   max-width: unset;
+
   &:hover {
     @include for-desktop {
-      box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+      box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
     }
   }
 }
+
 .product-carousel {
-  margin: -20px -#{$spacer-big} -20px 0;
+  margin: -20px - var(--spacer-big) -20px 0;
   @include for-desktop {
     margin: -20px 0;
   }
+
   ::v-deep .sf-carousel__wrapper {
     padding: 20px 0;
     @include for-desktop {
@@ -368,9 +386,10 @@ export default {
     }
   }
 }
+
 .section {
-  padding-left: $spacer-big;
-  padding-right: $spacer-big;
+  padding-left: var(--spacer-big);
+  padding-right: var(--spacer-big);
   @include for-desktop {
     padding-left: 0;
     padding-right: 0;

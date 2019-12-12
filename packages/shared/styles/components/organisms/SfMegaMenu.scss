@@ -1,0 +1,11 @@
+@import '../../variables';
+
+:root {
+    --mega-menu-background-color: var(--c-white);
+}
+
+.sf-mega-menu {
+    background-color: var(--mega-menu-background-color);
+    position: relative;
+    width: 100%;
+}

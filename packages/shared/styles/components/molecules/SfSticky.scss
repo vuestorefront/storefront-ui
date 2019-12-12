@@ -1,0 +1,22 @@
+@import '../../variables';
+
+@media (min-width: $desktop-min) {
+    .sf-sticky {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+
+        // For position:static non supported browsers
+        &-sticky {
+            position: fixed;
+            top: 0;
+        }
+
+        &--bound {
+            position: absolute;
+            top: auto;
+            bottom: 0;
+        }
+    }
+}

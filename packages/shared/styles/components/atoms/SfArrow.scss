@@ -1,0 +1,109 @@
+@import '../../variables';
+
+:root {
+    --arrow__button-color: var(--c-light);
+    --arrow__button-color--hover: var(--c-dark);
+    --arrow__button-shadow: 0 5px 12px -6px rgba(0, 0, 0, 0);
+    --arrow__button-shadow--right: 0 -5px 12px -5px rgba(0, 0, 0, .6);
+    --arrow__icon-color: var(--c-white);
+    --arrow__icon-color--hover: var(--c-dark);
+}
+
+.sf-arrow {
+    $this: &;
+
+    &__button {
+        position: relative;
+        display: flex;
+        border: 0;
+        padding: 14px 10px 14px;
+        background-color: var(--arrow__button-color);
+        cursor: pointer;
+        outline: 0;
+        transition: padding 150ms linear, background-color 150ms linear, box-shadow 150ms linear;
+        box-shadow: 0 5px 12px -6px rgba(29, 31, 34, 0);
+
+        &:hover {
+            background-color: var(--arrow__button-color--hover);
+            box-shadow: 0 5px 12px -5px rgba(29, 31, 34, .6);
+
+            .sf-arrow__icon {
+                fill: var(--arrow__icon-color);
+            }
+        }
+    }
+
+    &__icon {
+        position: relative;
+        flex: 0 0 24px;
+        height: 12px;
+        fill: var(--arrow__icon-color--hover);
+        transition: fill 150ms linear;
+    }
+
+    &--long {
+        width: 70px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .sf-arrow {
+            &__button {
+                padding: 9px 26px 9px 10px;
+                background-color: var(--arrow__icon-color);
+
+                &:hover {
+                    padding: 14px 36px 14px 10px;
+                    background-color: var(--arrow__icon-color--hover);
+                }
+            }
+        }
+    }
+
+    &--right {
+        justify-content: flex-end;
+
+        .sf-arrow {
+            &__button {
+                transform: rotate(180deg);
+
+                &:hover {
+                    box-shadow: var(--arrow__button-shadow--right);
+                }
+            }
+        }
+    }
+
+    &--rounded {
+        .sf-arrow {
+            &__button {
+                border-radius: 50%;
+            }
+        }
+    }
+
+    &--transparent {
+        .sf-arrow {
+            &__button {
+                background-color: transparent;
+
+                &:hover {
+                    box-shadow: none;
+
+                    #{$this}__icon {
+                        fill: rgba(var(--arrow__icon-color--hover), .65);
+                    }
+                }
+            }
+        }
+    }
+
+    &--no-shadow {
+        .sf-arrow {
+            &__button:hover {
+                box-shadow: none;
+            }
+        }
+    }
+}

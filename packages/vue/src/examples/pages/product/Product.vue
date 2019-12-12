@@ -458,7 +458,7 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 
-@mixin for-desktop {
+@mixin for {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
@@ -466,11 +466,12 @@ export default {
 
 #product {
   box-sizing: border-box;
-  @include for-desktop {
+  @include for {
     max-width: 1240px;
     margin: auto;
   }
 }
+
 .banner-application {
   min-height: 420px;
   max-width: 1040px;
@@ -478,28 +479,34 @@ export default {
   padding-right: calc(25% + 5rem);
   padding-left: 2.5rem;
   line-height: 1.6;
+
   &__title {
-    margin: $spacer-big 0 0 0;
-    font-size: $h1-font-size-desktop;
-    font-weight: $h1-font-weight-desktop;
+    margin: var(--spacer-big) 0 0 0;
+    font-size: var(--h1-font-size);
+    font-weight: var(--h1-font-weight);
   }
+
   &__subtitle {
     color: #a3a5ad;
-    font-family: $body-font-family-primary;
-    font-size: $font-size-extra-big-desktop;
-    font-weight: $body-font-weight-primary;
+    font-family: var(--body-font-family-primary);
+    font-size: var(--font-size-extra-big);
+    font-weight: var(--body-font-weight-primary);
   }
+
   &__download {
     max-height: 47px;
-    margin-top: $spacer-extra-big;
+    margin-top: var(--spacer-extra-big);
+
     & + & {
-      margin-left: $spacer-big;
+      margin-left: var(--spacer-big);
     }
   }
 }
+
 .breadcrumbs {
-  padding: $spacer-big $spacer-extra-big $spacer-extra-big;
+  padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big);
 }
+
 .gallery-mobile {
   $height-other: 240px;
   $height-iOS: 265px;
@@ -508,15 +515,18 @@ export default {
   @supports (-webkit-overflow-scrolling: touch) {
     height: calc(100vh - #{$height-iOS});
   }
+
   ::v-deep .glide {
     &,
     * {
       height: 100%;
     }
+
     &__slide {
       position: relative;
       overflow: hidden;
     }
+
     img {
       position: absolute;
       left: 50%;
@@ -527,200 +537,236 @@ export default {
       }
     }
   }
+
   ::v-deep .sf-gallery__stage {
     width: 100%;
   }
 }
+
 .images-grid {
   &__row {
     display: flex;
+
     & + & {
-      margin-top: $spacer-big / 2;
-      @include for-desktop {
-        margin-top: $spacer-big;
+      margin-top: var(--spacer-big) / 2;
+      @include for {
+        margin-top: var(--spacer-big);
       }
     }
   }
+
   &__col {
     margin: 0;
+
     & + & {
-      margin-left: $spacer-big / 2;
-      @include for-desktop {
-        margin-left: $spacer-big;
+      margin-left: var(--spacer-big) / 2;
+      @include for {
+        margin-left: var(--spacer-big);
       }
     }
   }
 }
+
 .product {
-  @include for-desktop {
+  @include for {
     display: flex;
   }
+
   &__gallery,
   &__description {
     flex: 1;
   }
+
   &__description {
-    padding: 0 $spacer-big;
-    @include for-desktop {
-      margin-left: $spacer-big * 5;
+    padding: 0 var(--spacer-big);
+    @include for {
+      margin-left: calc(var(--spacer-big) * 5);
     }
   }
 }
+
 .product-card {
   max-width: unset; // ?
   &:hover {
-    @include for-desktop {
-      box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+    @include for {
+      box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
     }
   }
 }
+
 .product-carousel {
-  margin: -20px -#{$spacer-big} -20px 0;
-  @include for-desktop {
+  margin: -20px - var(--spacer-big) -20px 0;
+  @include for {
     margin: -20px 0;
   }
+
   ::v-deep .sf-carousel__wrapper {
     padding: 20px 0;
-    @include for-desktop {
+    @include for {
       padding: 20px;
       max-width: calc(100% - 216px);
     }
   }
 }
+
 .product-details {
   &__action {
     display: flex;
-    margin: $spacer-big 0 ($spacer-big / 2);
-    @include for-desktop {
+    margin: var(--spacer-big) 0 (var(--spacer-big) / 2);
+    @include for {
       justify-content: flex-end;
     }
   }
+
   &__add-to-cart {
     margin-top: 1.5rem;
-    @include for-desktop {
-      margin-top: $spacer-extra-big;
+    @include for {
+      margin-top: var(--spacer-extra-big);
     }
   }
+
   &__alert {
     margin-top: 1.5rem;
   }
+
   &__attribute {
-    margin-bottom: $spacer-big;
+    margin-bottom: var(--spacer-big);
   }
+
   &__description {
-    margin: $spacer-extra-big 0 ($spacer-big * 3) 0;
-    font-family: $body-font-family-secondary;
-    font-size: $font-size-regular-mobile;
+    margin: var(--spacer-extra-big) 0 calc(var(--spacer-big) * 3) 0;
+    font-family: var(--body-font-family-secondary);
+    font-size: var(--font-size-regular);
     line-height: 1.6;
-    @include for-desktop {
-      font-size: $font-size-regular-desktop;
+    @include for {
+      font-size: var(--font-size-regular);
     }
   }
+
   &__divider {
     margin-top: 30px;
   }
+
   &__heading {
-    margin-top: $spacer-big;
+    margin-top: var(--spacer-big);
+
     ::v-deep .sf-heading__title {
-      font-size: $font-size-big-mobile;
-      font-weight: $body-font-weight-primary;
-      @include for-desktop {
-        font-size: $h1-font-size-desktop;
-        font-weight: $body-font-weight-secondary;
+      font-size: var(--font-size-big);
+      font-weight: var(--body-font-weight-primary);
+      @include for {
+        font-size: var(--h1-font-size);
+        font-weight: var(--body-font-weight-secondary);
       }
     }
-    @include for-desktop {
+
+    @include for {
       margin-top: 0;
     }
   }
+
   &__mobile-bar {
     display: none;
-    padding: $spacer-medium 0;
+    padding: var(--spacer-medium) 0;
     box-sizing: border-box;
+
     .product--is-active & {
       display: block;
-      @include for-desktop {
+      @include for {
         display: none;
       }
     }
-    @include for-desktop {
+
+    @include for {
       display: none;
     }
   }
+
   &__mobile-top {
     display: flex;
     align-items: center;
-    @include for-desktop {
+    @include for {
       display: block;
     }
   }
+
   &__properties {
-    margin-top: $spacer-big;
+    margin-top: var(--spacer-big);
   }
+
   &__sub {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
   }
+
   &__sub-price {
     flex-basis: 100%;
-    margin-top: $spacer-big / 4;
-    @include for-desktop {
+    margin-top: calc(var(--spacer-big) / 4);
+    @include for {
       flex-basis: auto;
-      margin-top: $spacer-big / 2;
+      margin-top: calc(var(--spacer-big) / 2);
     }
   }
+
   &__sub-rating {
     display: flex;
-    margin-top: $spacer-big / 2;
-    @include for-desktop {
+    margin-top: calc(var(--spacer-big) / 2);
+    @include for {
       margin-left: auto;
     }
   }
+
   &__sub-reviews {
     margin-left: 10px;
     font-size: 0.75rem;
   }
+
   &__section {
     border-bottom: 1px solid #f1f2f3;
     padding-bottom: 10px;
-    @include for-desktop {
+    @include for {
       border: 0;
       padding-bottom: 0;
     }
   }
+
   &__tabs {
-    margin-top: $spacer-big;
-    @include for-desktop {
-      margin-top: 5 * $spacer-big;
+    margin-top: var(--spacer-big);
+    @include for {
+      margin-top: calc(5 * var(--spacer-big));
     }
+
     p {
       margin: 0;
     }
   }
+
   &__review {
-    padding-bottom: $spacer-big;
-    @include for-desktop {
-      padding-bottom: $spacer-extra-big;
-      border-bottom: 1px solid $c-light;
+    padding-bottom: var(--spacer-big);
+    @include for {
+      padding-bottom: var(--spacer-extra-big);
+      border-bottom: 1px solid var(--c-light);
     }
+
     & + & {
-      padding-top: $spacer-extra-big;
-      border-top: 1px solid $c-light;
-      @include for-desktop {
+      padding-top: var(--spacer-extra-big);
+      border-top: 1px solid var(--c-light);
+      @include for {
         border-top: 0;
-        padding-top: $spacer-extra-big;
+        padding-top: var(--spacer-extra-big);
       }
     }
   }
 }
+
 .product-property {
-  padding: $spacer-small 0;
+  padding: var(--spacer-small) 0;
 }
+
 .section {
-  padding-left: $spacer-big;
-  padding-right: $spacer-big;
-  @include for-desktop {
+  padding-left: var(--spacer-big);
+  padding-right: var(--spacer-big);
+  @include for {
     padding-left: 0;
     padding-right: 0;
   }
@@ -732,15 +778,15 @@ export default {
   border: 0;
   outline: none;
   background-color: transparent;
-  color: $c-text;
-  font-family: $body-font-family-secondary;
-  font-size: $font-size-regular-mobile;
-  font-weight: $body-font-weight-secondary;
+  color: var(--c-text);
+  font-family: var(--body-font-family-secondary);
+  font-size: var(--font-size-regular);
+  font-weight: var(--body-font-weight-secondary);
   line-height: 1.6;
   text-decoration: underline;
   cursor: pointer;
-  @include for-desktop {
-    font-size: $font-size-regular-desktop;
+  @include for {
+    font-size: var(--font-size-regular);
   }
 }
 </style>

@@ -1,47 +1,31 @@
 h1 {
-  font-size: $h1-font-size-desktop;
-  font-family: $heading-font-family;
-  font-weight: $h2-font-weight-desktop;
-  line-height: 1.6;
-  margin: 0;
-  @media ( max-width: $tablet-max ) {
-    font-size: $h1-font-size-mobile;
-    font-weight: $h1-font-weight-mobile;
-  }
+    font-family: var(--heading-font-family);
+    font-size: var(--h1-font-size);
+    font-weight: var(--h1-font-weight);
+    line-height: 1.6;
+    margin: 0;
 }
 
 h2 {
-  font-size: $h2-font-size-desktop;
-  font-family: $heading-font-family;
-  font-weight: $h2-font-weight-desktop;
-  line-height: 1.6;
-  margin: 0;
-  @media ( max-width: $tablet-max ) {
-    font-size: $h2-font-size-mobile;
-    font-weight: $h2-font-weight-mobile;
-  }
+    font-family: var(--heading-font-family);
+    font-size: var(--h2-font-size);
+    font-weight: var(--h2-font-weight);
+    line-height: 1.6;
+    margin: 0;
 }
 
 h3 {
-  font-size: $h3-font-size-desktop;
-  font-family: $heading-font-family;
-  font-weight: $h2-font-weight-desktop;
-  line-height: 1.6;
-  margin: 0;
-  @media ( max-width: $tablet-max ) {
-    font-size: $h3-font-size-mobile;
-    font-weight: $h3-font-weight-mobile;
-  }
+    font-family: var(--heading-font-family);
+    font-size: var(--h3-font-size);
+    font-weight: var(--h3-font-weight);
+    line-height: 1.6;
+    margin: 0;
 }
 
 h4 {
-  font-size: $h4-font-size-desktop;
-  font-family: $heading-font-family;
-  font-weight: $h2-font-weight-desktop;
-  line-height: 1.6;
-  margin: 0;
-  @media ( max-width: $tablet-max ) {
-    font-size: $h4-font-size-mobile;
-    font-weight: $h4-font-weight-mobile;
-  }
+    font-family: var(--heading-font-family);
+    font-size: var(--h4-font-size);
+    font-weight: var(--h4-font-weight);
+    line-height: 1.6;
+    margin: 0;
 }

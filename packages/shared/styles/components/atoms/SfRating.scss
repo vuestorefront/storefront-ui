@@ -1,0 +1,16 @@
+@import '../../variables';
+
+:root {
+    --rating__icon-positive-fill: var(--c-primary);
+    --rating__icon-negative-fill: var(--c-dark);
+}
+
+.sf-rating {
+    &__icon-positive {
+        fill: var(--rating__icon-positive-fill);
+    }
+
+    &__icon-negative {
+        fill: var(--rating__icon-negative-fill);
+    }
+}

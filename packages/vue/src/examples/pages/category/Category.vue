@@ -44,14 +44,14 @@
         </SfButton>
         <div class="navbar__sort desktop-only">
           <span class="navbar__label">Sort by:</span>
-          <SfSelect v-model="sortBy" class="sort-by">
+          <SfSelect class="sort-by" v-model="sortBy">
             <SfSelectOption
               v-for="option in sortByOptions"
               :key="option.value"
               :value="option.value"
               class="sort-by__option"
-              >{{ option.label }}</SfSelectOption
-            >
+              >{{ option.label }}
+            </SfSelectOption>
           </SfSelect>
         </div>
         <div class="navbar__counter">
@@ -99,7 +99,7 @@
     </div>
     <div class="main section">
       <div class="sidebar desktop-only">
-        <SfAccordion :first-open="true" :show-chevron="false">
+        <SfAccordion :firstOpen="true" :showChevron="false">
           <SfAccordionItem
             v-for="(accordion, i) in sidebarAccordion"
             :key="i"
@@ -126,21 +126,21 @@
             :special-price="product.price.special"
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
-            :is-on-wishlist="product.isOnWishlist"
-            class="products__product-card"
+            :isOnWishlist="product.isOnWishlist"
             @click:wishlist="toggleWishlist(i)"
+            class="products__product-card"
           />
         </div>
         <SfPagination
           class="products__pagination desktop-only"
           :current="currentPage"
-          :total="4"
-          :visible="5"
           @click="
             page => {
-              currentPage = page;
+              this.currentPage = page;
             }
           "
+          :total="4"
+          :visible="5"
         />
       </div>
     </div>
@@ -195,15 +195,15 @@
         />
         <div class="filters__buttons">
           <SfButton
-            class="sf-button--full-width"
             @click="isFilterSidebarOpen = false"
-            >Done</SfButton
-          >
+            class="sf-button--full-width"
+            >Done
+          </SfButton>
           <SfButton
-            class="sf-button--full-width filters__button-clear"
             @click="clearAllFilters"
-            >Clear all</SfButton
-          >
+            class="sf-button--full-width filters__button-clear"
+            >Clear all
+          </SfButton>
         </div>
       </div>
     </SfSidebar>
@@ -439,53 +439,61 @@ export default {
     margin: auto;
   }
 }
+
 .breadcrumbs {
-  padding: $spacer-big $spacer-extra-big $spacer-extra-big;
+  padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big);
 }
+
 .main {
   display: flex;
 }
+
 .navbar {
   position: relative;
   display: flex;
   @include for-desktop {
-    border-top: 1px solid $c-light;
-    border-bottom: 1px solid $c-light;
+    border-top: 1px solid var(--c-light);
+    border-bottom: 1px solid var(--c-light);
   }
+
   &::after {
     position: absolute;
     bottom: 0;
-    left: $spacer-big;
-    width: calc(100% - (#{$spacer-big} * 2));
+    left: var(--spacer-big);
+    width: calc(100% - calc(var(--spacer-big) * 2));
     height: 1px;
-    background-color: $c-light;
+    background-color: var(--c-light);
     content: "";
     @include for-desktop {
       content: none;
     }
   }
+
   &__aside {
     display: flex;
     align-items: center;
     flex: 0 0 15%;
-    padding: $spacer-big $spacer-extra-big;
-    border-right: 1px solid $c-light;
+    padding: var(--spacer-big) var(--spacer-extra-big);
+    border-right: 1px solid var(--c-light);
   }
+
   &__main {
     flex: 1;
     display: flex;
     align-items: center;
-    padding: $spacer-medium 0;
-    font-size: $font-size-small-desktop;
+    padding: var(--spacer-medium) 0;
+    font-size: var(--font-size-small);
     @include for-desktop {
-      padding: $spacer-big 0;
+      padding: var(--spacer-big) 0;
     }
   }
+
   &__title {
     padding: 0;
-    font-size: $font-size-big-desktop;
+    font-size: var(--font-size-big);
     line-height: 2.23;
   }
+
   &__filters-button {
     display: flex;
     align-items: center;
@@ -496,118 +504,147 @@ export default {
     font-size: inherit;
     font-weight: 500;
     @include for-desktop {
-      margin: 0 0 0 $spacer-extra-big;
+      margin: 0 0 0 var(--spacer-extra-big);
       font-weight: 400;
       text-transform: none;
     }
+
     svg {
-      fill: $c-dark;
+      fill: var(--c-dark);
       @include for-desktop {
-        fill: $c-gray-variant;
+        fill: var(--c-gray-variant);
       }
     }
+
     &:hover {
-      color: $c-primary;
+      color: var(--c-primary);
+
       svg {
-        fill: $c-primary;
+        fill: var(--c-primary);
       }
     }
   }
+
   &__label {
-    color: $c-gray-variant;
+    color: var(--c-gray-variant);
   }
+
   &__sort {
     display: flex;
     align-items: center;
-    margin-left: $spacer-extra-big;
+    margin-left: var(--spacer-extra-big);
     margin-right: auto;
   }
+
   &__counter {
     margin: auto;
     @include for-desktop {
       margin-right: 0;
     }
   }
+
   &__view {
     display: flex;
     align-items: center;
-    margin: 0 $spacer-extra-big;
+    margin: 0 var(--spacer-extra-big);
+
     &-icon {
       margin-left: 10px;
     }
   }
 }
+
 .products {
   box-sizing: border-box;
   flex: 1;
-  margin: 0 -#{$spacer};
+  margin: 0 - var(--spacer);
   @include for-desktop {
-    margin: $spacer-big;
+    margin: var(--spacer-big);
   }
+
   &__list {
     display: flex;
     flex-wrap: wrap;
     margin-top: 1.875rem - 0.5rem;
   }
+
   &__product-card {
     flex: 0 0 50%;
-    padding: $spacer;
+    padding: var(--spacer);
     @include for-desktop {
       flex: 0 0 25%;
-      padding: $spacer-big;
+      padding: var(--spacer-big);
     }
   }
+
   &__pagination {
     @include for-desktop {
       display: flex;
       justify-content: center;
-      margin-top: $spacer-extra-big;
+      margin-top: var(--spacer-extra-big);
     }
   }
 }
+
 .section {
-  padding-left: $spacer-big;
-  padding-right: $spacer-big;
+  padding-left: var(--spacer-big);
+  padding-right: var(--spacer-big);
   @include for-desktop {
     padding-left: 0;
     padding-right: 0;
   }
 }
+
 .sidebar {
   flex: 0 0 15%;
-  padding: $spacer-extra-big;
-  border-right: 1px solid $c-light;
+  padding: var(--spacer-extra-big);
+  border-right: 1px solid var(--c-light);
 }
+
 .sort-by {
   flex: unset;
   width: 190px;
   padding: 0 10px;
   font-size: inherit;
+
   &__option {
     padding: 10px;
     font-size: inherit;
   }
 }
+
 .filters {
-  padding: $spacer-big;
+  box-sizing: border-box;
+  width: 20rem;
+  padding: 0 calc(var(--spacer-big) * 3);
+  height: 100%;
+  overflow-y: auto;
+  @include for-desktop {
+    width: 22.875rem;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
   &__title {
-    margin: $spacer-big * 3 0 $spacer-big;
-    font-size: $font-size-big-desktop;
+    margin: calc(var(--spacer-big) * 3) 0 var(--spacer-big);
+    font-size: var(--font-size-big-desktop);
     line-height: 1.6;
-    &:first-child {
-      margin: 0 0 $spacer-big 0;
-    }
   }
+
   &__item {
-    padding: $spacer-small 0;
+    padding: var(--spacer-small) 0;
   }
+
   &__buttons {
-    margin: $spacer-big * 3 0 0 0;
+    margin: calc(var(--spacer-big) * 3) 0;
   }
+
   &__button-clear {
     color: #a3a5ad;
     margin-top: 10px;
-    background-color: $c-light;
+    background-color: var(--c-light);
   }
 }
 </style>

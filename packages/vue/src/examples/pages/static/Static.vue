@@ -87,6 +87,7 @@ import {
   SfTabs,
   SfIcon
 } from "../../../../index.js";
+
 export default {
   name: "Static",
   components: {
@@ -116,6 +117,7 @@ export default {
   }
 };
 </script>
+
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 
@@ -135,17 +137,21 @@ export default {
     margin: auto;
   }
 }
+
 .breadcrumbs {
-  padding: $spacer-big $spacer-extra-big $spacer-extra-big;
+  padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big);
 }
+
 .static-content {
   flex: 1;
 }
+
 .back-bar {
   display: flex;
   justify-content: space-between;
-  padding: $spacer-medium $spacer-big;
-  background-color: $c-light;
+  padding: var(--spacer-medium) var(--spacer-big);
+  background-color: var(--c-light);
+
   &__button {
     padding: 0;
     margin: 0;
@@ -154,10 +160,11 @@ export default {
     outline: none;
     cursor: pointer;
   }
+
   &__title {
-    font-family: $body-font-family-secondary;
-    font-size: $font-size-big-mobile;
-    font-weight: $h2-font-weight-mobile;
+    font-family: var(--body-font-family-secondary);
+    font-size: var(--font-size-big);
+    font-weight: var(--h2-font-weight);
   }
 }
 </style>

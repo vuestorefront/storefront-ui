@@ -1,0 +1,108 @@
+@import '../../variables';
+
+:root {
+    --content-pages__sidebar-width: 18.4375rem;
+    --content-pages__sidebar-background-color: var(--c-light);
+    --content-pages__title-font-family: var(--heading-font-family);
+    --content-pages__title-font-size: var(--font-size-big);
+    --content-pages__title-font-weight: 500;
+    --content-pages__title-line-height: 1.6;
+
+    @media screen and (min-width: $desktop-min) {
+        --content-pages__title-font-size: var(--font-size-extra-big);
+    }
+}
+
+%title {
+    padding: var(--spacer-big) 0;
+    font-family: var(--content-pages__title-font-family);
+    font-size: var(--content-pages__title-font-size);
+    font-weight: var(--content-pages__title-font-weight);
+    line-height: var(--content-pages__title-line-height);
+}
+
+.sf-content-page {
+    &__title {
+        @extend %title;
+        display: block;
+    }
+}
+
+.sf-content-pages {
+    overflow: hidden;
+
+    &__section {
+        box-sizing: border-box;
+        display: flex;
+        height: 100%;
+        transition: transform 150ms ease-in-out;
+
+        &--is-active {
+            transform: translateX(-100%);
+        }
+    }
+
+    &__sidebar,
+    &__content {
+        box-sizing: border-box;
+        flex: 0 0 100%;
+        padding: 0 1.875rem;
+    }
+
+    &__sidebar {
+        padding: var(--spacer-big);
+    }
+
+    &__title {
+        @extend %title;
+    }
+
+    &__list-item {
+        padding: .5rem 0;
+    }
+
+    &__menu-item {
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: $desktop-min) {
+
+    %title {
+        margin-bottom: var(--spacer-big);
+    }
+
+    .sf-content-page {
+        &__title {
+            display: none;
+        }
+    }
+
+    .sf-content-pages {
+        &__section {
+            &--is-active {
+                transform: translateX(0);
+            }
+        }
+
+        &__sidebar,
+        &__content {
+            flex: 1;
+            padding: var(--spacer-big) var(--spacer-extra-big);
+        }
+
+        &__sidebar {
+            flex: 0 0 var(--content-pages__sidebar-width);
+            padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big);
+            background-color: var(--content-pages__sidebar-background-color);
+        }
+
+        &__menu-item {
+            &--is-active {
+                color: var(--c-dark);
+                font-weight: 400;
+                text-decoration: underline;
+            }
+        }
+    }
+}
