@@ -1,5 +1,7 @@
 @import "../variables";
 
+$table-column-count: 6 !default;
+
 .sf-table {
   width: 100%;
   border: none;
@@ -8,16 +10,34 @@
 .sf-table-data {
   text-align: center;
   padding: 1.25rem 0;
-  border: none;
+  flex: 0 0 calc(100% / 3);
+  
+  &:nth-child(even){
+      order:1;
+    }
+  @media (min-width: $desktop-min) {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    &:nth-child(even){
+      order:0;
+    }
+  }
 }
 
 .sf-table-row {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid $c-light;
+
   th {
     border-bottom: 1px solid $c-light;
     background-color: $c-light;
 
 
     @media (min-width: $desktop-min) {
+      border: none;
+      flex-wrap: nowrap;
       background-color: $c-white;
     }
   }
@@ -25,6 +45,10 @@
   &:hover {
     background-color: $c-light;
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+  }
+
+  @media (min-width: $desktop-min) {
+    border: none;
   }
 }
 

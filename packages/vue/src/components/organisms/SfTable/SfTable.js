@@ -9,12 +9,17 @@ Vue.component("SfTableData", SfTableData);
 
 export default {
   name: "SfTable",
+  data() {
+    return {
+      columnsCount: 0
+    };
+  },
   components: {
     SfButton,
     SfTableRow,
     SfTableData
   },
   mounted() {
-    console.log(this.$slots.default.length);
+    this.columnsCount = this.$slots.default[0].componentInstance.$children.length;
   }
 };
