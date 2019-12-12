@@ -13,5 +13,8 @@ export default {
     SfButton,
     SfTableRow,
     SfTableData
+  },
+  mounted() {
+    console.log(this.$slots.default.length);
   }
 };
