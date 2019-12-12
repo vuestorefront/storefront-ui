@@ -96,51 +96,61 @@
                   class="form__input form__input--half"
                 />
                 <SfInput
-                    v-model="streetName"
-                    type="password"
-                    name="currentPassword"
-                    label="Current Password"
-                    required
-                    class="form__input"
+                  v-model="streetName"
+                  type="password"
+                  name="currentPassword"
+                  label="Current Password"
+                  required
+                  class="form__input"
                 />
                 <SfInput
-                    v-model="apartment"
-                    name="apartment"
-                    label="House/Apartment number"
-                    required
-                    class="form__input"
+                  v-model="apartment"
+                  name="apartment"
+                  label="House/Apartment number"
+                  required
+                  class="form__input"
                 />
                 <SfInput
-                    v-model="city"
-                    name="city"
-                    label="City"
-                    required
-                    class="form__input form__input--half"
+                  v-model="city"
+                  name="city"
+                  label="City"
+                  required
+                  class="form__input form__input--half"
                 />
                 <SfInput
-                    v-model="state"
-                    name="state"
-                    label="State/Province"
-                    required
-                    class="form__input form__input--half"
+                  v-model="state"
+                  name="state"
+                  label="State/Province"
+                  required
+                  class="form__input form__input--half"
                 />
                 <SfInput
-                    v-model="zipCode"
-                    name="zipCode"
-                    label="Zip-code"
-                    required
-                    class="form__input form__input--half"
+                  v-model="zipCode"
+                  name="zipCode"
+                  label="Zip-code"
+                  required
+                  class="form__input form__input--half"
                 />
-                <SfSelect v-model="country" name="country" label="Country" required class="sf-select--underlined form__input form__input--half form__select">
-                  <SfSelectOption value="poland">Poland</SfSelectOption>
-                  <SfSelectOption value="england">England</SfSelectOption>
+                <SfSelect
+                  v-model="country"
+                  name="country"
+                  label="Country"
+                  required
+                  class="sf-select--underlined form__input form__input--half form__select"
+                >
+                  <SfSelectOption value="poland">
+                    Poland
+                  </SfSelectOption>
+                  <SfSelectOption value="england">
+                    England
+                  </SfSelectOption>
                 </SfSelect>
                 <SfInput
-                    v-model="phone"
-                    name="phone"
-                    label="Phone number"
-                    required
-                    class="form__input"
+                  v-model="phone"
+                  name="phone"
+                  label="Phone number"
+                  required
+                  class="form__input"
                 />
                 <SfButton>Update the address</SfButton>
               </div>
@@ -165,7 +175,30 @@
         <SfContentPage title="My newsletter">
           <SfTabs :open-tab="1">
             <SfTab title="My newsletter">
-              My newsletter
+              <p>Set up your newsletter and we will send you information about new products and trends from the sections you selected every week.</p>
+              <div class="form">
+                <p>Sections that interest you</p>
+                <SfCheckbox
+                  v-model="newsletter"
+                  label="Woman"
+                  value="woman"
+                  class="form__checkbox"
+                />
+                <SfCheckbox
+                  v-model="newsletter"
+                  label="Man"
+                  value="man"
+                  class="form__checkbox"
+                />
+                <SfCheckbox
+                  v-model="newsletter"
+                  label="Children"
+                  value="children"
+                  class="form__checkbox"
+                />
+                <SfButton>Join Newsletter</SfButton>
+                <p>I have read and understand the Privacy and Cookies Policy and agree to receive personalized commercial information from Brand name by email.</p>
+              </div>
             </SfTab>
           </SfTabs>
         </SfContentPage>
@@ -194,7 +227,7 @@
   </div>
 </template>
 <script>
-import { SfBreadcrumbs, SfContentPages, SfTabs, SfInput, SfButton, SfSelect } from "../../../../index.js";
+import { SfBreadcrumbs, SfContentPages, SfTabs, SfInput, SfButton, SfSelect, SfCheckbox } from "../../../../index.js";
 export default {
   name: "MyAccount",
   components: {
@@ -203,7 +236,8 @@ export default {
     SfTabs,
     SfInput,
     SfButton,
-    SfSelect
+    SfSelect,
+    SfCheckbox
   },
   data() {
     return {
@@ -221,6 +255,7 @@ export default {
       zipCode: "",
       country: "",
       phone: "",
+      newsletter: [],
       breadcrumbs: [
         {
           text: "Home",
@@ -285,6 +320,9 @@ export default {
     ::v-deep .sf-select__selected{
       padding: 5px 0;
     }
+  }
+  &__checkbox{
+    flex: 0 0 100%;
   }
 }
 </style>
