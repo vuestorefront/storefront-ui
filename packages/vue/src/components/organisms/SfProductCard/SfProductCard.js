@@ -2,6 +2,7 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
+import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 
 export default {
   name: "SfProductCard",
@@ -81,6 +82,13 @@ export default {
       default: "heart"
     },
     /**
+     * addToCart status of whether icon is showed, product is added or not
+     */
+    addToCart: {
+      type: Boolean,
+      deafult: null
+    },
+    /**
      * Wish list icon for product which has been added to wish list
      * This is the icon for product added to wish list. Default visible on mobile. Visible only on hover on desktop.
      * It can be a icon name from our icons list, or array or string as SVG path(s).
@@ -102,7 +110,8 @@ export default {
     SfPrice,
     SfRating,
     SfIcon,
-    SfImage
+    SfImage,
+    SfCircleIcon
   },
 
   computed: {
@@ -138,6 +147,10 @@ export default {
   methods: {
     toggleIsOnWishlist() {
       this.$emit("click:wishlist", !this.isOnWishlist);
+    },
+    onAddToCart(event) {
+      event.preventDefault();
+      this.$emit("click:add-to-cart");
     }
   }
 };
