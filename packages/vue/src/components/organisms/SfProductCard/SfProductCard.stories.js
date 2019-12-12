@@ -97,6 +97,9 @@ storiesOf("Organisms|ProductCard", module)
         wishlistIcon: {
           default: select("wishlistIcon (prop)", [false, "heart"], "heart")
         },
+        addToCart: {
+          default: select("addToCart (prop)", [null, false, true], null)
+        },
         isOnWishlist: {
           default: boolean("isOnWishlist (prop)", false)
         },
@@ -115,6 +118,7 @@ storiesOf("Organisms|ProductCard", module)
         :score-rating="scoreRating"
         :max-rating="maxRating"
         :wishlistIcon="wishlistIcon"
+        :addToCart="addToCart"
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
       />`
@@ -158,6 +162,9 @@ storiesOf("Organisms|ProductCard", module)
         wishlistIcon: {
           default: select("wishlistIcon (prop)", [false, "heart"], "heart")
         },
+        addToCart: {
+          default: select("addToCart (prop)", [null, false, true], null)
+        },
         isOnWishlist: {
           default: boolean("isOnWishlist (prop)", false)
         },
@@ -179,6 +186,7 @@ storiesOf("Organisms|ProductCard", module)
         :score-rating="scoreRating"
         :max-rating="maxRating"
         :wishlistIcon="wishlistIcon"
+        :addToCart="addToCart"
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
       />`
@@ -198,6 +206,73 @@ storiesOf("Organisms|ProductCard", module)
           If the array has more than one picture, the image will be
           switched (the first and second array elements) on card hover.
         </p>
+        ${generateStorybookTable(scssTableConfig, "SCSS Variables")}`
+      }
+    }
+  )
+  .add(
+    "With CircleIconButton",
+    () => ({
+      props: {
+        image: {
+          default: text("image (prop)", "assets/storybook/product_thumb.jpg")
+        },
+        title: {
+          default: text("title (prop)", "Product name")
+        },
+        link: {
+          default: text("link (prop)", "")
+        },
+        linkTag: {
+          default: text("linkTag (prop)", "")
+        },
+        regularPrice: {
+          default: text("regularPrice (prop)", "$10,99")
+        },
+        specialPrice: {
+          default: text("specialPrice (prop)", "$5,99")
+        },
+        maxRating: {
+          default: number("maxRating (prop)", 5)
+        },
+        scoreRating: {
+          default: number("scoreRating (prop)", 4)
+        },
+        wishlistIcon: {
+          default: select("wishlistIcon (prop)", [false, "heart"], "heart")
+        },
+        addToCart: {
+          default: select("addToCart (prop)", [null, false, true], false)
+        },
+        isOnWishlist: {
+          default: boolean("isOnWishlist (prop)", false)
+        },
+        isOnWishlistIcon: {
+          default: text("isOnWishlistIcon (prop)", "heart_fill")
+        }
+      },
+      components: { SfProductCard },
+      template: `<SfProductCard
+        :image="image"
+        :title="title"
+        :link="link"
+        :linkTag="linkTag"
+        :regular-price="regularPrice"
+        :special-price="specialPrice"
+        :score-rating="scoreRating"
+        :max-rating="maxRating"
+        :wishlistIcon="wishlistIcon"
+        :addToCart="addToCart"
+        :isOnWishlistIcon="isOnWishlistIcon"
+        :isOnWishlist="isOnWishlist"
+      />`
+    }),
+    {
+      info: {
+        summary: `
+        <p>Component for rendering Product Card.</p>
+        <h2> Usage </h2>
+        <pre><code>import { SfProductCard } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS Variables")}`
       }
     }
