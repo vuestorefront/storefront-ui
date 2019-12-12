@@ -11,40 +11,118 @@
     >
       <SfContentCategory title="Personal Details">
         <SfContentPage title="My profile">
-          <SfTabs :open-tab="1">
-            <SfTab title="Personal data">Personal data</SfTab>
-            <SfTab title="Password change">Password change</SfTab>
+          <SfTabs :open-tab="2">
+            <SfTab title="Personal data">
+              <p>Feel free to edit any of your details below so your account is always up to date</p>
+              <div class="form">
+                <SfInput
+                  v-model="firstName"
+                  name="firstName"
+                  label="First Name"
+                  required
+                  class="form__input form__input--half"
+                />
+                <SfInput
+                  v-model="lastName"
+                  name="lastName"
+                  label="Last Name"
+                  required
+                  class="form__input form__input--half"
+                />
+                <SfInput
+                  v-model="email"
+                  type="email"
+                  name="email"
+                  label="Your e-mail"
+                  required
+                  class="form__input"
+                />
+                <SfButton>Update personal data</SfButton>
+              </div>
+              <p>At Brand name, we attach great importance to privacy issues and are committed to protecting the personal data of our users. Learn more about how we care and use your personal data in the <a href="">Privacy Policy.</a>a</p>
+            </SfTab>
+            <SfTab title="Password change">
+              <p>If you want to change the password to access your account, enter the following information:</p>
+              <p>Your current email address is example@email.com</p>
+              <div class="form">
+                <SfInput
+                    v-model="currentPassword"
+                    type="password"
+                    name="currentPassword"
+                    label="Current Password"
+                    required
+                    class="form__input"
+                />
+                <SfInput
+                    v-model="firstName"
+                    type="password"
+                    name="newPassword"
+                    label="New Password"
+                    required
+                    class="form__input form__input--half"
+                />
+                <SfInput
+                    v-model="repeatPassword"
+                    type="password"
+                    name="repeatPassword"
+                    label="Repeat Password"
+                    required
+                    class="form__input form__input--half"
+                />
+                <SfButton>Update password</SfButton>
+              </div>
+            </SfTab>
           </SfTabs>
         </SfContentPage>
         <SfContentPage title="Shipping details">
-          <SfTabs v-if="true" :open-tab="1">
-            <SfTab title="Shipping details">Shipping details</SfTab>
+          <SfTabs
+            v-if="true"
+            :open-tab="1"
+          >
+            <SfTab title="Shipping details">
+              Shipping details
+            </SfTab>
           </SfTabs>
-          <SfTabs v-else :open-tab="1">
-            <SfTab title="Change the address">Change the address</SfTab>
+          <SfTabs
+            v-else
+            :open-tab="1"
+          >
+            <SfTab title="Change the address">
+              Change the address
+            </SfTab>
           </SfTabs>
         </SfContentPage>
         <SfContentPage title="Loyalty Card">
           <SfTabs :open-tab="1">
-            <SfTab title="Loyalty Card">Loyalty Card</SfTab>
+            <SfTab title="Loyalty Card">
+              Loyalty Card
+            </SfTab>
           </SfTabs>
         </SfContentPage>
         <SfContentPage title="My newsletter">
           <SfTabs :open-tab="1">
-            <SfTab title="My newsletter">My newsletter</SfTab>
+            <SfTab title="My newsletter">
+              My newsletter
+            </SfTab>
           </SfTabs>
         </SfContentPage>
       </SfContentCategory>
       <SfContentCategory title="Order details">
         <SfContentPage title="Order history">
           <SfTabs :open-tab="1">
-            <SfTab title="My orders">My orders</SfTab>
-            <SfTab title="Returns">Returns </SfTab>
+            <SfTab title="My orders">
+              <!-- <SfTable></SfTable> -->>
+            </SfTab>
+            <SfTab title="Returns">
+              <!-- <SfTable></SfTable> -->>
+            </SfTab>
           </SfTabs>
         </SfContentPage>
         <SfContentPage title="My reviews">
           <SfTabs :open-tab="1">
-            <SfTab title="My reviews">My reviews</SfTab>
+            <SfTab title="My reviews">
+              My reviews
+            </SfTab>
           </SfTabs>
         </SfContentPage>
       </SfContentCategory>
@@ -53,17 +131,25 @@
   </div>
 </template>
 <script>
-import { SfBreadcrumbs, SfContentPages, SfTabs } from "../../../../index.js";
+import { SfBreadcrumbs, SfContentPages, SfTabs, SfInput, SfButton } from "../../../../index.js";
 export default {
   name: "MyAccount",
   components: {
     SfBreadcrumbs,
     SfContentPages,
     SfTabs,
+    SfInput,
+    SfButton
   },
   data() {
     return {
       activePage: "My profile",
+      firstName: "Sviatlana",
+      lastName: "Havaka",
+      email: "example@email.com",
+      currentPassword: "",
+      newPassword: "",
+      repeatPassword: "",
       breadcrumbs: [
         {
           text: "Home",
@@ -109,5 +195,19 @@ export default {
 }
 .breadcrumbs {
   padding: $spacer-big $spacer-extra-big $spacer-extra-big;
+}
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  &__input{
+    margin-bottom: $spacer-extra-big;
+    flex: 0 0 100%;
+    &--half{
+      flex: 0 0 50%;
+      & + & {
+        padding-left: 3.75rem;
+      }
+    }
+  }
 }
 </style>
