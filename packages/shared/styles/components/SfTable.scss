@@ -10,6 +10,9 @@
 }
 
 .sf-table-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 1.25rem 0;
   flex: 0 0 calc(100% / (var(--table-column-count)/2));
   
@@ -18,9 +21,6 @@
   }
 
   @media (min-width: $desktop-min) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     flex: 1;
 
     &:nth-child(even){
