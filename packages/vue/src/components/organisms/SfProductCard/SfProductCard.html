@@ -18,8 +18,8 @@
 
   <component
     :is="linkComponentTag"
-    :href="linkComponentTag === 'a' ? link : null"
-    :to="link && linkComponentTag !== 'a' ? link : null"
+    :href="linkComponentTag === 'a' ? link : undefined"
+    :to="link && linkComponentTag !== 'a' ? link : undefined"
     class="sf-product-card__link"
   >
     <!-- @slot -->
