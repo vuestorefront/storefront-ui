@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfTable from "./SfInput.vue";
+import SfTable from "./SfTable.vue";
 
 describe("SfTable.vue", () => {
   it("renders a component", () => {

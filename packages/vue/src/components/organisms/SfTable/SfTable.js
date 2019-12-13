@@ -10,9 +10,7 @@ Vue.component("SfTableData", SfTableData);
 export default {
   name: "SfTable",
   components: {
-    SfButton,
-    SfTableRow,
-    SfTableData
+    SfButton
   },
   methods: {
     updateColumnsCount(columnsCount) {
