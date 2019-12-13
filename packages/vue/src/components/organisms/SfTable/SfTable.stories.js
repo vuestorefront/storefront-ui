@@ -3,12 +3,11 @@ import { withKnobs } from "@storybook/addon-knobs";
 
 import SfTable from "./SfTable.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfImage from "../../atoms/SfImage/SfImage.vue";
 
 storiesOf("Organisms/Table", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfTable, SfButton, SfImage },
+  .add("Default", () => ({
+    components: { SfTable, SfButton },
     props: {
       headers: {
         type: Array,
@@ -23,9 +22,9 @@ storiesOf("Organisms/Table", module)
       content: {
         type: [Array, Object],
         default: [
-          ["#35767", "4th Nov", "Paypal", "12.00$", "In process"],
-          ["#35767", "4th Nov", "Visa", "15.00$", "Finalised"],
-          ["#35767", "4th Nov", "Paypal", "12.00$", "In process"]
+          ["#35767", "4th Nov", "Paypal", "12.00$"],
+          ["#35767", "4th Nov", "Visa", "15.00$"],
+          ["#35767", "4th Nov", "Paypal", "12.00$"]
         ]
       }
     },
@@ -40,9 +39,10 @@ storiesOf("Organisms/Table", module)
       </SfTableRow>
       <SfTableRow v-for="data in content">
         <SfTableData v-for="item in data">{{ item }}</SfTableData>
+        <SfTableData class="text-success">In process</SfTableData>
         <SfTableData>
-          <span>VIEW</span>
-          <SfImage class="desktop-only" src="assets/storybook/download.svg"/>
+          <a class="desktop-only">VIEW</a>
+          <a class="mobile-only">Download</a>
         </SfTableData>
       </SfTableRow>
     </template>

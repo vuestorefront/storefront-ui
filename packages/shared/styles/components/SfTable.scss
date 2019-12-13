@@ -5,9 +5,9 @@
 }
 
 .sf-table {
-  
   width: 100%;
   border: none;
+  color: $c-text-muted;
 }
 
 .sf-table-data {
@@ -16,12 +16,15 @@
   flex: 0 0 calc(100% / (var(--table-column-count)/2));
   
   &:nth-child(even){
-      order:1;
-    }
+    order:1;
+  }
+
   @media (min-width: $desktop-min) {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex: 1;
+
     &:nth-child(even){
       order:0;
     }
@@ -34,12 +37,11 @@
   border-bottom: 1px solid $c-light;
 
   th {
-    border-bottom: 1px solid $c-light;
     background-color: $c-light;
-
+    color: $c-text;
 
     @media (min-width: $desktop-min) {
-      border: none;
+      border-bottom: 1px solid $c-light;
       flex-wrap: nowrap;
       background-color: $c-white;
     }
