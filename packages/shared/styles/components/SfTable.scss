@@ -10,13 +10,13 @@
   border-spacing: 0;
   border: none;
 
-  &__data {
+  &-data {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1.25rem 0;
-    flex: 0 0 calc(100% / (var(--table-column-count)/2));
-  
+    flex: 0 0 calc(100% / var(--table-column-count));
+
   &:nth-child(even){
     order:1;
   }
@@ -30,7 +30,7 @@
     }
   }
 
-  &__row {
+  &-row {
     display: flex;
   flex-wrap: wrap;
   border-bottom: 1px solid $c-light;
