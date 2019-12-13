@@ -28,6 +28,10 @@ export default {
     ariaLabel: {
       type: String,
       default: ""
+    },
+    isBadge: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
