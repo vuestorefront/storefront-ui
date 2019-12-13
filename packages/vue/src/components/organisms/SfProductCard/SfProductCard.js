@@ -82,13 +82,6 @@ export default {
       default: "heart"
     },
     /**
-     * addToCart status of whether icon is showed, product is added or not
-     */
-    addToCart: {
-      type: Boolean,
-      deafult: null
-    },
-    /**
      * Wish list icon for product which has been added to wish list
      * This is the icon for product added to wish list. Default visible on mobile. Visible only on hover on desktop.
      * It can be a icon name from our icons list, or array or string as SVG path(s).
@@ -103,6 +96,20 @@ export default {
     isOnWishlist: {
       type: Boolean,
       default: false
+    },
+    /**
+     * isAddedToCart status of whether button is showed, product is added or not
+     */
+    isAddedToCart: {
+      type: Boolean,
+      deafult: null
+    },
+    /**
+     * addToCartDisabled status of whether button is disabled when out of stock
+     */
+    addToCartDisabled: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -114,11 +121,19 @@ export default {
     SfCircleIcon
   },
 
+  data() {
+    return {
+      isAddingToCart: false
+    };
+  },
+
   computed: {
     currentWishlistIcon() {
       return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
     },
-
+    showAddedToCartBadge() {
+      return !this.isAddingToCart && this.isAddedToCart;
+    },
     ariaLabel() {
       return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
@@ -150,7 +165,11 @@ export default {
     },
     onAddToCart(event) {
       event.preventDefault();
-      this.$emit("click:add-to-cart");
+      this.isAddingToCart = true;
+      setTimeout(() => {
+        this.isAddingToCart = false;
+      }, 1000);
+      this.$emit("click:add-to-cart", (this.isAddedToCart = true));
     }
   }
 };
