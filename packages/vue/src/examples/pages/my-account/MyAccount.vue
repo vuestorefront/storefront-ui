@@ -42,8 +42,7 @@
               <p>At Brand name, we attach great importance to privacy issues and are committed to protecting the personal data of our users. Learn more about how we care and use your personal data in the <a href="">Privacy Policy.</a>a</p>
             </SfTab>
             <SfTab title="Password change">
-              <p>If you want to change the password to access your account, enter the following information:</p>
-              <p>Your current email address is example@email.com</p>
+              <p>If you want to change the password to access your account, enter the following information:<br>Your current email address is example@email.com</p>
               <div class="form">
                 <SfInput
                   v-model="currentPassword"
@@ -76,10 +75,17 @@
         </SfContentPage>
         <SfContentPage title="Shipping details">
           <SfTabs
-            v-if="true"
+            v-if="false"
             :open-tab="1"
           >
-            <SfTab title="Shipping details">
+            <SfTab title="Shipping details" />
+          </SfTabs>
+          <SfTabs
+            v-else
+            :open-tab="1"
+          >
+            <SfTab title="Change the address">
+              <p>Keep your addresses and contact details updated.</p>
               <div class="form">
                 <SfInput
                   v-model="firstName"
@@ -156,19 +162,11 @@
               </div>
             </SfTab>
           </SfTabs>
-          <SfTabs
-            v-else
-            :open-tab="1"
-          >
-            <SfTab title="Change the address">
-              Change the address
-            </SfTab>
-          </SfTabs>
         </SfContentPage>
         <SfContentPage title="Loyalty Card">
           <SfTabs :open-tab="1">
             <SfTab title="Loyalty Card">
-              <p>This feature is not implemented yet! Please take a look at <a href="#">https://github.com/DivanteLtd/vue-storefront/issues for our Roadmap!</a></p>
+              <p>This feature is not implemented yet! Please take a look at<br/><a href="#">https://github.com/DivanteLtd/vue-storefront/issues for our Roadmap!</a></p>
             </SfTab>
           </SfTabs>
         </SfContentPage>
@@ -182,19 +180,19 @@
                   v-model="newsletter"
                   label="Woman"
                   value="woman"
-                  class="form__checkbox"
+                  class="form__input form__checkbox"
                 />
                 <SfCheckbox
                   v-model="newsletter"
                   label="Man"
                   value="man"
-                  class="form__checkbox"
+                  class="form__input form__checkbox"
                 />
                 <SfCheckbox
                   v-model="newsletter"
                   label="Children"
                   value="children"
-                  class="form__checkbox"
+                  class="form__input form__checkbox"
                 />
                 <SfButton>Join Newsletter</SfButton>
                 <p>I have read and understand the Privacy and Cookies Policy and agree to receive personalized commercial information from Brand name by email.</p>
@@ -207,7 +205,13 @@
         <SfContentPage title="Order history">
           <SfTabs :open-tab="1">
             <SfTab title="My orders">
-              <!-- <SfTable></SfTable> -->>
+              <p>Check the details and status of your orders in the online store. You can also cancel your order or request a return.</p>
+              <div>
+                <p>You currently have no orders</p>
+                <p>Best get shopping pronto...</p>
+                <SfButton>Start shopping</SfButton>
+              </div>
+              <!-- <SfTable></SfTable> -->
             </SfTab>
             <SfTab title="Returns">
               <!-- <SfTable></SfTable> -->>
@@ -303,15 +307,21 @@ export default {
   padding: $spacer-big $spacer-extra-big $spacer-extra-big;
 }
 .form {
-  display: flex;
-  flex-wrap: wrap;
+  @include for-desktop{
+    display: flex;
+    flex-wrap: wrap;
+  }
   &__input{
     margin-bottom: $spacer-extra-big;
-    flex: 0 0 100%;
+    @include for-desktop {
+      flex: 0 0 100%;
+    }
     &--half{
-      flex: 0 0 50%;
-      & + &:not(:nth-child(odd)) {
-        padding-left: 3.75rem;
+      @include for-desktop {
+        flex: 0 0 50%;
+        & + &:not(:nth-child(odd)) {
+          padding-left: 3.75rem;
+        }
       }
     }
   }
@@ -322,7 +332,7 @@ export default {
     }
   }
   &__checkbox{
-    flex: 0 0 100%;
+    margin-bottom: $spacer-big;
   }
 }
 </style>
