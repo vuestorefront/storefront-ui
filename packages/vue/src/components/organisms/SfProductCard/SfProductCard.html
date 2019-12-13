@@ -38,22 +38,42 @@
         </div>
       </slot>
 
-      <template v-if="addToCart !== null">
-        <transition name="sf-product-card__add-button">
+      <template v-if="isAddedToCart !== null">
             <!-- @slot -->
-            <slot name="add-to-cart-icon" v-bind="{ addToCart }" >
+            <slot name="add-to-cart" v-bind="{ isAddedToCart, showAddedToCartBadge, isAddingToCart }" >
                 <SfCircleIcon 
                   class="sf-product-card__add-button" 
-                  v-bind:key="!addToCart"
                   @click="onAddToCart"
                   aria-label="add-to-cart"
                   role="button"
-                  :icon="!addToCart ? 'add_to_cart' : 'added_to_cart'"
-                  :class="{ 'sf-product-card__add-button--added-icon' : addToCart }"
-                  icon-size="20px"    
-                />
-              </slot>  
-        </transition>
+                  :isBadge="showAddedToCartBadge"
+                  :disabled="addToCartDisabled" 
+                >
+                <div class="sf-product-card__add-button--icons">
+                    <transition name="sf-product-card__add-button--icons" mode="out-in">
+                        <slot name="add-to-cart-icon" v-if="!isAddingToCart">
+                            <SfIcon 
+                            key="add_to_cart"
+                            icon="add_to_cart"
+                            size="20px"
+                            color="white"
+                          />
+                        </slot>
+                         <slot name="adding-to-cart-icon" v-else>
+                            <SfIcon 
+                            key="added_to_cart"
+                            icon="added_to_cart"
+                            size="20px"
+                            color="white"
+                          />
+                         </slot>
+                      </transition>
+                </div>
+                   
+           
+                
+              </SfCircleIcon>
+            </slot>   
       </template>
     </div>
 
