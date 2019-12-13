@@ -1,6 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 
 import SfArrow from "./SfArrow.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
@@ -26,10 +30,13 @@ storiesOf("Atoms|Arrow", module)
           { display: "multi-select" },
           "CSS Modifiers"
         )
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "Arrow Label", "Props")
       }
     },
     template: `<SfArrow
-      :class="customClass" />`
+      :class="customClass" :aria-label="ariaLabel />`
   }))
   .add("[slot] default", () => ({
     components: {
@@ -51,10 +58,13 @@ storiesOf("Atoms|Arrow", module)
           { display: "multi-select" },
           "CSS Modifiers"
         )
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "Arrow Label", "Props")
       }
     },
     template: `<SfArrow
-      :class="customClass">
+      :class="customClass" :aria-label="ariaLabel">
       <SfIcon icon="chevron_left" class="sf-arrow__icon" size="12px" view-box="0 0 24 12"/>
     </SfArrow>`
   }));

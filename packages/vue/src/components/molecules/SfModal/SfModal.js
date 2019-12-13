@@ -49,6 +49,13 @@ export default {
     transitionModal: {
       type: String,
       default: "fade"
+    },
+    /**
+     * aria-label of the close button
+     */
+    ariaLabelClose: {
+      type: String,
+      default: null
     }
   },
   components: {

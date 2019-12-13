@@ -52,6 +52,13 @@ export default {
       type: Boolean,
       default: false,
       description: "Native input disabled attribute"
+    },
+    /**
+     * Form input aria-label
+     */
+    ariaLabel: {
+      type: String,
+      default: null
     }
   },
   computed: {

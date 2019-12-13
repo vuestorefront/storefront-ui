@@ -33,6 +33,13 @@ export default {
     qty: {
       type: [Number, String],
       default: 1
+    },
+    /**
+     * Form input label
+     */
+    ariaLabel: {
+      type: String,
+      default: null
     }
   },
   watch: {

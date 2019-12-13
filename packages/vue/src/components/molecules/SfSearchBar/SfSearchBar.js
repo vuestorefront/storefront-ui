@@ -11,6 +11,10 @@ export default {
     value: {
       type: [Number, String],
       default: null
+    },
+    ariaLabel: {
+      type: String,
+      default: null
     }
   },
   methods: {

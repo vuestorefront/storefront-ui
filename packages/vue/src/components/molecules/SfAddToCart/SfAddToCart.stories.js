@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number, boolean } from "@storybook/addon-knobs";
+import { withKnobs, text, number, boolean } from "@storybook/addon-knobs";
 
 import SfAddToCart from "./SfAddToCart.vue";
 
@@ -13,6 +13,9 @@ storiesOf("Molecules|AddToCart", module)
       },
       stock: {
         default: number("stock", 99, {}, "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "Quantity", "Props")
       }
     },
     data() {
@@ -24,6 +27,7 @@ storiesOf("Molecules|AddToCart", module)
       <SfAddToCart 
         :disabled="disabled"
         :stock="stock"
+        :aria-label="ariaLabel"
         v-model="value" 
         @click="()=>{}"/>
       </div>`
@@ -36,6 +40,9 @@ storiesOf("Molecules|AddToCart", module)
       },
       stock: {
         default: number("stock", 99, {}, "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "Quantity", "Props")
       }
     },
     data() {
@@ -47,6 +54,7 @@ storiesOf("Molecules|AddToCart", module)
         <SfAddToCart 
           :disabled="disabled"
           :stock="stock"
+          :aria-label="ariaLabel"
           v-model="value">
         <template #add-to-cart-btn>
         <button  @click="()=>{}">Custom Add To Cart</button>
@@ -62,6 +70,9 @@ storiesOf("Molecules|AddToCart", module)
       },
       stock: {
         default: number("stock", 99, {}, "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "Quantity", "Props")
       }
     },
     data() {
@@ -73,6 +84,7 @@ storiesOf("Molecules|AddToCart", module)
         <SfAddToCart 
           :disabled="disabled"
           :stock="stock"
+          :aria-label="ariaLabel"
           @click="()=>{}">
           <template #quantity-select-input="{qty, stock}">
             <select v-model="value">

@@ -27,6 +27,9 @@ storiesOf("Atoms|Input", module)
       },
       disabled: {
         default: boolean("disabled", false, "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "First name", "Props")
       }
     },
     data() {
@@ -41,7 +44,8 @@ storiesOf("Atoms|Input", module)
       :valid="valid"
       :error-message="errorMessage"
       :required="required"
-      :disabled="disabled"/>`
+      :disabled="disabled"
+      :aria-label="ariaLabel"/>`
   }))
   .add("[slot] label", () => ({
     components: {
@@ -66,6 +70,9 @@ storiesOf("Atoms|Input", module)
       },
       disabled: {
         default: boolean("disabled", false, "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "First name", "Props")
       }
     },
     data() {
@@ -80,7 +87,8 @@ storiesOf("Atoms|Input", module)
       :valid="valid"
       :error-message="errorMessage"
       :required="required"
-      :disabled="disabled">
+      :disabled="disabled"
+      :aria-label="ariaLabel">
       <template #label="{label}">
             <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
       </template>
@@ -109,6 +117,9 @@ storiesOf("Atoms|Input", module)
       },
       disabled: {
         default: boolean("disabled", false, "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "First name", "Props")
       }
     },
     data() {
@@ -123,7 +134,8 @@ storiesOf("Atoms|Input", module)
       :valid="valid"
       :error-message="errorMessage"
       :required="required"
-      :disabled="disabled">
+      :disabled="disabled"
+      :aria-label="ariaLabel">
       <template #errorMessage="{errorMessage}">
         <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> CUSTOM ERROR MESSAGE
       </template>

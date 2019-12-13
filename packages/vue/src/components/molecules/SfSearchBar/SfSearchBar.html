@@ -5,6 +5,7 @@
     aria-label="search"
     :value="value"
     :placeholder="placeholder"
+    :aria-label="ariaLabel"
     @input="$emit('input', $event.target.value)"
     @keyup.enter="$emit('enter', $event.target.value)"
     @keyup.esc="$emit('input', '')"
