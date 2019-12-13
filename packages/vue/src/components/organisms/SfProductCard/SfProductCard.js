@@ -169,7 +169,7 @@ export default {
       setTimeout(() => {
         this.isAddingToCart = false;
       }, 1000);
-      this.$emit("click:add-to-cart", (this.isAddedToCart = true));
+      this.$emit("click:add-to-cart");
     }
   }
 };
