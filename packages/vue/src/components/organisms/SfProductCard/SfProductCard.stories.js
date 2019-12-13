@@ -97,8 +97,11 @@ storiesOf("Organisms|ProductCard", module)
         wishlistIcon: {
           default: select("wishlistIcon (prop)", [false, "heart"], "heart")
         },
-        addToCart: {
-          default: select("addToCart (prop)", [null, false, true], null)
+        isAddedToCart: {
+          default: select("isAddedToCart (prop)", [null, false, true], null)
+        },
+        addToCartDisabled: {
+          default: select("addToCartDisabled (prop)", [false, true], false)
         },
         isOnWishlist: {
           default: boolean("isOnWishlist (prop)", false)
@@ -118,7 +121,8 @@ storiesOf("Organisms|ProductCard", module)
         :score-rating="scoreRating"
         :max-rating="maxRating"
         :wishlistIcon="wishlistIcon"
-        :addToCart="addToCart"
+        :isAddedToCart="isAddedToCart"
+        :addToCartDisabled="addToCartDisabled"
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
       />`
@@ -162,8 +166,11 @@ storiesOf("Organisms|ProductCard", module)
         wishlistIcon: {
           default: select("wishlistIcon (prop)", [false, "heart"], "heart")
         },
-        addToCart: {
-          default: select("addToCart (prop)", [null, false, true], null)
+        isAddedToCart: {
+          default: select("isAddedToCart (prop)", [null, false, true], null)
+        },
+        addToCartDisabled: {
+          default: select("addToCartDisabled (prop)", [false, true], false)
         },
         isOnWishlist: {
           default: boolean("isOnWishlist (prop)", false)
@@ -186,7 +193,8 @@ storiesOf("Organisms|ProductCard", module)
         :score-rating="scoreRating"
         :max-rating="maxRating"
         :wishlistIcon="wishlistIcon"
-        :addToCart="addToCart"
+        :isAddedToCart="isAddedToCart"
+        :addToCartDisabled="addToCartDisabled"
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
       />`
@@ -241,8 +249,11 @@ storiesOf("Organisms|ProductCard", module)
         wishlistIcon: {
           default: select("wishlistIcon (prop)", [false, "heart"], "heart")
         },
-        addToCart: {
-          default: select("addToCart (prop)", [null, false, true], false)
+        isAddedToCart: {
+          default: select("isAddedToCart (prop)", [null, false, true], false)
+        },
+        addToCartDisabled: {
+          default: select("addToCartDisabled (prop)", [false, true], false)
         },
         isOnWishlist: {
           default: boolean("isOnWishlist (prop)", false)
@@ -262,7 +273,8 @@ storiesOf("Organisms|ProductCard", module)
         :score-rating="scoreRating"
         :max-rating="maxRating"
         :wishlistIcon="wishlistIcon"
-        :addToCart="addToCart"
+        :isAddedToCart="isAddedToCart"
+        :addToCartDisabled="addToCartDisabled"
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
       />`
