@@ -104,7 +104,7 @@ $product-card__pictures-height-desktop: 250px !default;
     @media (min-width: $mobile-max) {
       position: absolute;
       cursor: pointer;
-      z-index: 10;
+      z-index: 1;
       transform: translateY(-50%);
       right: 1rem;
       opacity: 0;

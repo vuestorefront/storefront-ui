@@ -1,7 +1,7 @@
 @import "../variables";
 
 $circle-icon-background: $c-primary !default;
-$circle-icon-badge-background-color: #FF3535 !default;
+$circle-icon__badge-background-color: #FF3535 !default;
 
 .sf-circle-icon {
   display: flex;
@@ -42,7 +42,7 @@ $circle-icon-badge-background-color: #FF3535 !default;
     position: absolute;
     right: 0;
     top:0;
-    background-color: $circle-icon-badge-background-color;
+    background-color: $circle-icon__badge-background-color;
     &-enter-active {
       animation: bounce-in .3s;
     }
