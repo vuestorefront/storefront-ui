@@ -6,7 +6,7 @@
     "*.scss",
     "*.css"
   ],
-  "version": "0.3.4",
+  "version": "0.3.5",
   "scripts": {
     "serve": "yarpm create-index-files && vue-cli-service serve",
     "build": "yarpm create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -19,18 +19,18 @@
     "docs:dev": "yarpm docs:vuecomponents && vuepress dev docs",
     "docs:build": "yarpm docs:vuecomponents && vuepress build docs",
     "create-index-files": "node scripts/create-index-files.js",
-    "postinstall": "node scripts/postinstall.js",
+    "postinstall": "node scripts/postinstall.js && yarn create-index-files",
     "version": "node scripts/version.js",
+    "prepublish": "yarn create-index-files",
     "postpublish": "node scripts/postpublish.js"
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "^0.3.4",
+    "@storefront-ui/shared": "^0.3.5",
     "@vue/babel-preset-app": "^4.0.0-alpha.1",
     "core-js": "^3.1.3",
     "hammerjs": "^2.0.8",
     "leaflet": "^1.5.1",
-    "lerna": "^3.0.0-rc.0",
     "lozad": "^1.9.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",

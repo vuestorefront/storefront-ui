@@ -1,4 +1,4 @@
-// /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, number } from "@storybook/addon-knobs";
 
@@ -11,28 +11,34 @@ storiesOf("Atoms|Bullets", module)
       total: {
         default: number("total (props)", 3)
       },
-      current: {
-        default: number("current (props)", 1)
-      }
     },
     components: { SfBullets },
+    data(){
+      return {
+        current: 1
+      }
+    },
     template: `<SfBullets
       :total="total"
-      :current="current" />`
+      :current="current"
+      @click="( value )=>{ current = value }"/>`
   }))
   .add("[slot] active", () => ({
     props: {
       total: {
         default: number("total (props)", 3)
       },
-      current: {
-        default: number("current (props)", 1)
-      }
     },
     components: { SfBullets },
+    data(){
+      return {
+        current: 1
+      }
+    },
     template: `<SfBullets
       :total="total"
-      :current="current">
+      :current="current"
+      @click="( value )=>{ current = value }">
       <template #active>
         <li style="width: 10px; height: 10px; background-color:#9EE2B0"></li>
       </template>
@@ -42,17 +48,20 @@ storiesOf("Atoms|Bullets", module)
     props: {
       total: {
         default: number("total (props)", 3)
-      },
-      current: {
-        default: number("current (props)", 1)
       }
     },
     components: { SfBullets },
+    data(){
+      return {
+        current: 1
+      }
+    },
     template: `<SfBullets
       :total="total"
-      :current="current">
-      <template #inactive>
-        <li style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"></li>
+      :current="current"
+      @click="( value )=>{ current = value }">
+      <template #inactive="{index, go}">
+        <li @click="go(index)" style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"></li>
       </template>
     </SfBullets>`
   }));
