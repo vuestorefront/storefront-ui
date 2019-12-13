@@ -97,8 +97,11 @@ storiesOf("Organisms|ProductCard", module)
         wishlistIcon: {
           default: select("wishlistIcon (prop)", [false, "heart"], "heart")
         },
+        showAddToCartButton: {
+          default: select("showAddToCartButton (prop)", [false, true], false)
+        },
         isAddedToCart: {
-          default: select("isAddedToCart (prop)", [null, false, true], null)
+          default: select("isAddedToCart (prop)", [false, true], false)
         },
         addToCartDisabled: {
           default: select("addToCartDisabled (prop)", [false, true], false)
@@ -123,6 +126,7 @@ storiesOf("Organisms|ProductCard", module)
         :wishlistIcon="wishlistIcon"
         :isAddedToCart="isAddedToCart"
         :addToCartDisabled="addToCartDisabled"
+        :showAddToCartButton="showAddToCartButton"
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
       />`
@@ -166,6 +170,9 @@ storiesOf("Organisms|ProductCard", module)
         wishlistIcon: {
           default: select("wishlistIcon (prop)", [false, "heart"], "heart")
         },
+        showAddToCartButton: {
+          default: select("showAddToCartButton (prop)", [false, true], false)
+        },
         isAddedToCart: {
           default: select("isAddedToCart (prop)", [null, false, true], null)
         },
@@ -193,6 +200,7 @@ storiesOf("Organisms|ProductCard", module)
         :score-rating="scoreRating"
         :max-rating="maxRating"
         :wishlistIcon="wishlistIcon"
+        :showAddToCartButton="showAddToCartButton"
         :isAddedToCart="isAddedToCart"
         :addToCartDisabled="addToCartDisabled"
         :isOnWishlistIcon="isOnWishlistIcon"
@@ -249,6 +257,9 @@ storiesOf("Organisms|ProductCard", module)
         wishlistIcon: {
           default: select("wishlistIcon (prop)", [false, "heart"], "heart")
         },
+        showAddToCartButton: {
+          default: select("showAddToCartButton (prop)", [false, true], true)
+        },
         isAddedToCart: {
           default: select("isAddedToCart (prop)", [null, false, true], false)
         },
@@ -273,11 +284,12 @@ storiesOf("Organisms|ProductCard", module)
         :score-rating="scoreRating"
         :max-rating="maxRating"
         :wishlistIcon="wishlistIcon"
+        :showAddToCartButton="showAddToCartButton"
         :isAddedToCart="isAddedToCart"
         :addToCartDisabled="addToCartDisabled"
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
-      />`
+        />`
     }),
     {
       info: {

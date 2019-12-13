@@ -98,11 +98,18 @@ export default {
       default: false
     },
     /**
+     * Status of showing add to cart button
+     */
+    showAddToCartButton: {
+      type: Boolean,
+      default: false
+    },
+    /**
      * isAddedToCart status of whether button is showed, product is added or not
      */
     isAddedToCart: {
       type: Boolean,
-      deafult: null
+      deafult: false
     },
     /**
      * addToCartDisabled status of whether button is disabled when out of stock
