@@ -15,11 +15,8 @@ export default {
     SfTableData
   },
   methods: {
-    setColumnCount() {
-      this.$el.style.setProperty("--table-column-count", this.columnsCount);
+    updateColumnsCount(columnsCount) {
+      this.$el.style.setProperty("--table-column-count", columnsCount);
     }
-  },
-  mounted() {
-    this.$on("fold", this.setColumnCount);
   }
 };

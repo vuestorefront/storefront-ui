@@ -6,7 +6,8 @@ export default {
     };
   },
   mounted() {
-    this.columnsCount = this.$slots.default.filter(node => node.tag).length;
-    this.$parent.$emit("fold", this.columnsCount);
+    this.$parent.updateColumnsCount(
+      this.$slots.default.filter(node => node.tag).length
+    );
   }
 };
