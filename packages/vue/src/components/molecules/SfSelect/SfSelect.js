@@ -116,7 +116,7 @@ export default {
       this.toggle();
     },
     toggle(event) {
-      if (event.target.contains(this.$refs.cancel.$el)) return;
+      if (this.$refs.cancel && event.target.contains(this.$refs.cancel.$el)) return;
       this.open = !this.open;
     },
     openHandler() {
