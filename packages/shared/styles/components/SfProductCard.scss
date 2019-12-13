@@ -8,7 +8,6 @@ $product-card__image-background-color: $c-light !default;
 $product-card__image-blend-mode: darken !default;
 $product-card__pictures-height: 180px !default;
 $product-card__pictures-height-desktop: 250px !default;
-$product-card__added-to-cart-background-color: #FF3535 !default;
 
 .sf-product-card {
   $this: &;
@@ -48,6 +47,9 @@ $product-card__added-to-cart-background-color: #FF3535 !default;
       }
     }
     #{$this}__wishlist-icon {
+      opacity: 1;
+    }
+    #{$this}__add-button {
       opacity: 1;
     }
   }
@@ -98,30 +100,22 @@ $product-card__added-to-cart-background-color: #FF3535 !default;
   }
 
   &__add-button {
-    position: absolute;
-    cursor: pointer;
-    z-index: 10;
-    bottom: -30px;
-    right: 1rem;
-
-    &--added-icon {
-      &:after {
-        content: "";
-        display: block;
-        width: 1rem;
-        height: 1rem;
-        border-radius: 50%;
-        position: absolute;
-        right: 0;
-        top:0;
-        background-color: $product-card__added-to-cart-background-color;
+    display: none;
+    @media (min-width: $mobile-max) {
+      position: absolute;
+      cursor: pointer;
+      z-index: 10;
+      transform: translateY(-50%);
+      right: 1rem;
+      opacity: 0;
+      display: flex;
+      padding: $spacer-medium;
+      &--icons-enter-active {
+        animation: bounce .4s;
       }
-    }
-    &-enter-active {
-      animation: bounce-in .5s;
-    }
-    &-leave-active {
-      animation: bounce-in .5s reverse;
+      &--icons-leave-active {
+        animation: bounce .4s reverse;
+      }
     }
   }
 
@@ -169,9 +163,10 @@ $product-card__added-to-cart-background-color: #FF3535 !default;
   }
 }
 
-@keyframes bounce-in {
+
+@keyframes bounce {
   0% {
-    transform: scale(0);
+    transform: scale(1);
   }
   50% {
     transform: scale(1.2);
