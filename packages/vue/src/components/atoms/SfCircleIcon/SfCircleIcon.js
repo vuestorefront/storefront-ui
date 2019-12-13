@@ -29,7 +29,7 @@ export default {
       type: String,
       default: ""
     },
-    isBadge: {
+    hasBadge: {
       type: Boolean,
       default: false
     }
