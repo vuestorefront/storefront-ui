@@ -47,6 +47,18 @@
     }
   }
 
+  td {
+    &:nth-child(odd) {
+      font-weight: 500;
+    }
+
+    @media (min-width: $desktop-min) {
+      &:nth-child(odd) {
+        font-weight: $body-font-weight-primary;
+      }
+    }
+  }
+
   &:hover {
     background-color: $c-light;
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
