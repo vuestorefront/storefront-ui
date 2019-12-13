@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     updateColumnsCount(columnsCount) {
-      this.$el.style.setProperty("--table-column-count", columnsCount);
+      this.$el.style.setProperty("--table-column-count", Math.ceil(columnsCount / 2 ));
     }
   }
 };
