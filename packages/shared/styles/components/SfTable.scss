@@ -1,15 +1,32 @@
 @import "../variables";
 
-:root {
-  --table-column-count: 1;
-}
-
 .sf-table {
   width: 100%;
   padding: 0;
   border-spacing: 0;
   border: none;
+  &-row {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid $c-light;
+    @media (min-width: $desktop-min) {
+      border: none;
+    }
+    &:hover {
+      background-color: $c-light;
+      box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
+    }
+    &--header {
+      background-color: $c-light;
+      color: $c-text;
 
+      @media (min-width: $desktop-min) {
+        border-bottom: 1px solid $c-light;
+        flex-wrap: nowrap;
+        background-color: $c-white;
+      }
+    }
+  }
   &-data {
     display: flex;
     align-items: center;
@@ -19,40 +36,9 @@
 
   &:nth-child(even){
     order:1;
-  }
-
-  @media (min-width: $desktop-min) {
-    flex: 1;
-
-      &:nth-child(even){
-        order:0;
+      @media (min-width: $desktop-min) {
+        order: 0;
       }
-    }
-  }
-
-  &-row {
-    display: flex;
-  flex-wrap: wrap;
-  border-bottom: 1px solid $c-light;
-
-  &:first-child {
-    background-color: $c-light;
-    color: $c-text;
-
-    @media (min-width: $desktop-min) {
-      border-bottom: 1px solid $c-light;
-      flex-wrap: nowrap;
-      background-color: $c-white;
-    }
-  }
-
-  &:hover {
-    background-color: $c-light;
-    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
-  }
-
-    @media (min-width: $desktop-min) {
-      border: none;
     }
   }
 }
