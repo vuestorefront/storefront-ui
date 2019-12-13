@@ -36,7 +36,7 @@
   flex-wrap: wrap;
   border-bottom: 1px solid $c-light;
 
-  th {
+  &:first-child {
     background-color: $c-light;
     color: $c-text;
 
