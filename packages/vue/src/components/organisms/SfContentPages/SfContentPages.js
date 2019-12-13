@@ -65,6 +65,9 @@ export default {
       reduceOrphans();
 
       return items;
+    },
+    isActive() {
+      return this.active.length > 0;
     }
   },
   provide() {
