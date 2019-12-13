@@ -8,13 +8,15 @@ Vue.component("SfContentCategory", SfContentCategory);
 import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfBar from "../../molecules/SfBar/SfBar.vue";
 
 export default {
   name: "SfContentPages",
   components: {
     SfList,
     SfMenuItem,
-    SfIcon
+    SfIcon,
+    SfBar
   },
   props: {
     /**
