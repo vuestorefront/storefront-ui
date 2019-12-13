@@ -1,6 +1,12 @@
 export default {
   name: "SfTableRow",
+  data() {
+    return {
+      columnsCount: 0
+    };
+  },
   mounted() {
-    console.log(this.$slots.default.filter(node => node.tag).length);
+    this.columnsCount = this.$slots.default.filter(node => node.tag).length;
+    this.$parent.$emit("fold", this.columnsCount);
   }
 };

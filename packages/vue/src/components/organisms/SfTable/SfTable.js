@@ -9,20 +9,17 @@ Vue.component("SfTableData", SfTableData);
 
 export default {
   name: "SfTable",
-  data() {
-    return {
-      columnsCount: 0
-    };
-  },
   components: {
     SfButton,
     SfTableRow,
     SfTableData
   },
+  methods: {
+    setColumnCount() {
+      this.$el.style.setProperty("--table-column-count", this.columnsCount);
+    }
+  },
   mounted() {
-    this.columnsCount = this.$slots.default[0].componentInstance.$children.length;
-    document
-      .querySelector(".sf-table-data")
-      .style.setProperty("--table-column-count", this.columnsCount);
+    this.$on("fold", this.setColumnCount);
   }
 };
