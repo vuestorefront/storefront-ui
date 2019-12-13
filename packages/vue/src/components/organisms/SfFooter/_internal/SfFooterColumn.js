@@ -11,9 +11,8 @@ export default {
     }
   },
   computed: {
-    opened() {
-      const title = this.title;
-      return this.$parent.opened.includes(title);
+    open() {
+      return this.$parent.open.includes(this.title);
     }
   },
   methods: {
@@ -22,7 +21,6 @@ export default {
     }
   },
   mounted() {
-    const title = this.title;
-    this.$parent.items.push(title);
+    this.$parent.items.push(this.title);
   }
 };
