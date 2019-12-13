@@ -4,7 +4,7 @@
 >
   <input
     type="checkbox"
-    :id="value"
+    :id="name"
     :name="name"
     :value="value"
     :checked="isChecked"
@@ -12,7 +12,7 @@
     @input="inputHandler"
     class="sf-checkbox__input"
   />
-  <label :for="value" class="sf-checkbox__container">
+  <label :for="name" class="sf-checkbox__container">
     <!-- @slot Custom check mark markup -->
     <slot name="checkmark" v-bind="{isChecked, disabled}">
       <div class="sf-checkbox__checkmark" :class="{'is-active': isChecked}">
