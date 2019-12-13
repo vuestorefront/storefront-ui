@@ -8,6 +8,8 @@ $carousel__controls-size: 240px !default;
     max-width: 100%;
     margin: auto;
     overflow: hidden;
+    position: relative;
+    z-index: 1;
     @media screen and (min-width: $desktop-min) {
       max-width: calc(100% - #{$carousel__controls-size});
     }
