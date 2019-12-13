@@ -10,7 +10,6 @@
 }
 
 .sf-table-data {
-  text-align: center;
   padding: 1.25rem 0;
   flex: 0 0 calc(100% / (var(--table-column-count)/2));
   
@@ -67,4 +66,3 @@
     border: none;
   }
 }
-
