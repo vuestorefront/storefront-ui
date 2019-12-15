@@ -100,7 +100,7 @@ storiesOf("Organisms|ProductCard", module)
         :showAddToCartButton="showAddToCartButton"
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
-      />`
+    />`
   }))
 
   .add("With 2 pictures", () => ({
@@ -164,57 +164,55 @@ storiesOf("Organisms|ProductCard", module)
         :addToCartDisabled="addToCartDisabled"
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
-      />`
+    />`
   }))
-  .add(
-    "With CircleIconButton",
-    () => ({
-      props: {
-        image: {
-          default: text("image (prop)", "assets/storybook/product_thumb.jpg")
-        },
-        title: {
-          default: text("title (prop)", "Product name")
-        },
-        link: {
-          default: text("link (prop)", "")
-        },
-        linkTag: {
-          default: text("linkTag (prop)", "")
-        },
-        regularPrice: {
-          default: text("regularPrice (prop)", "$10,99")
-        },
-        specialPrice: {
-          default: text("specialPrice (prop)", "$5,99")
-        },
-        maxRating: {
-          default: number("maxRating (prop)", 5)
-        },
-        scoreRating: {
-          default: number("scoreRating (prop)", 4)
-        },
-        wishlistIcon: {
-          default: select("wishlistIcon (prop)", [false, "heart"], "heart")
-        },
-        showAddToCartButton: {
-          default: select("showAddToCartButton (prop)", [false, true], true)
-        },
-        isAddedToCart: {
-          default: select("isAddedToCart (prop)", [null, false, true], false)
-        },
-        addToCartDisabled: {
-          default: select("addToCartDisabled (prop)", [false, true], false)
-        },
-        isOnWishlist: {
-          default: boolean("isOnWishlist (prop)", false)
-        },
-        isOnWishlistIcon: {
-          default: text("isOnWishlistIcon (prop)", "heart_fill")
-        }
+  .add("With CircleIconButton", () => ({
+    props: {
+      image: {
+        default: text("image", "assets/storybook/product_thumb.jpg", "Props")
       },
-      components: { SfProductCard },
-      template: `<SfProductCard
+      title: {
+        default: text("title", "Product name", "Props")
+      },
+      link: {
+        default: text("link", "", "Props")
+      },
+      linkTag: {
+        default: text("linkTag", "", "Props")
+      },
+      regularPrice: {
+        default: text("regularPrice", "$10,99", "Props")
+      },
+      specialPrice: {
+        default: text("specialPrice", "$5,99", "Props")
+      },
+      maxRating: {
+        default: number("maxRating", 5, {}, "Props")
+      },
+      scoreRating: {
+        default: number("scoreRating", 4, {}, "Props")
+      },
+      wishlistIcon: {
+        default: select("wishlistIcon", [false, "heart"], "heart", "Props")
+      },
+      showAddToCartButton: {
+        default: select("showAddToCartButton", [false, true], true, "Props")
+      },
+      isAddedToCart: {
+        default: select("isAddedToCart", [null, false, true], false, "Props")
+      },
+      addToCartDisabled: {
+        default: select("addToCartDisabled", [false, true], false, "Props")
+      },
+      isOnWishlist: {
+        default: boolean("isOnWishlist", false, "Props")
+      },
+      isOnWishlistIcon: {
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
+      }
+    },
+    components: { SfProductCard },
+    template: `<SfProductCard
         :image="image"
         :title="title"
         :link="link"
@@ -229,6 +227,5 @@ storiesOf("Organisms|ProductCard", module)
         :addToCartDisabled="addToCartDisabled"
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
-        />`
-    })
-  );
+    />`
+  }));
