@@ -29,6 +29,18 @@ That's all! Now you can import any of Storefront UI components like this:
 import { SfComponentName } from "@storefront-ui/vue";
 ```
 
+### Nuxt
+To use Storefront UI in a Nuxt project you need to include it's transpilation during build process using nuxt.config.js or your alternative webpack config.
+For example in Nuxt 2-edge all you have to do is to add `/^@storefront-ui/` to the [transpile.build](https://nuxtjs.org/api/configuration-build/#transpile) array e.g.
+```
+module.exports = {
+	build: {
+		transpile: [/^@storefront-ui/],
+	},
+}
+```
+Make sure that you already have all required webpack loaders.
+
 ## Customization
 
 Storefront UI is very flexible in terms of customization. You can read [here](customization.md) about its capabilities.
