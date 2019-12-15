@@ -1,0 +1,26 @@
+@import "../variables";
+
+$bar-height: 3.125rem !default;
+$bar-padding: 0 $spacer-big !default;
+$bar-background-color: $c-light !default;
+$bar-font-family: $body-font-family-secondary !default;
+$bar-font-size: $font-size-big-mobile !default;
+$bar-font-weight: 500 !default;
+$bar__icon-width: 0.875rem;
+
+.sf-bar {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $bar-height;
+  padding: $bar-padding;
+  background-color: $bar-background-color;
+  font-family: $bar-font-family;
+  font-size: $bar-font-size;
+  font-weight: $bar-font-weight;
+  line-height: 1.6;
+  &__icon{
+    width: $bar__icon-width;
+  }
+}
