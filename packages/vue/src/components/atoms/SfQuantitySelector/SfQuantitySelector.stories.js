@@ -6,18 +6,20 @@ import SfQuantitySelector from "./SfQuantitySelector.vue";
 
 storiesOf("Atoms|QuantitySelector", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfQuantitySelector },
+    data() {
+      return {
+        value: "1"
+      };
+    },
     props: {
-      qty: {
-        default: number("qty", 0, {}, "Props")
-      },
       stock: {
-        default: number("stock", 99, {}, "Props")
+        default: number("stock (props)", 99)
       },
       min: {
-        default: number("min", 1, {}, "Props")
+        default: number("min (props)", 1)
       }
     },
-    template: `<SfQuantitySelector :qty="qty" :stock="stock" :min="min"/>`
+    template: `<SfQuantitySelector :stock="stock" :min="min" v-model="value"/>`
   }));

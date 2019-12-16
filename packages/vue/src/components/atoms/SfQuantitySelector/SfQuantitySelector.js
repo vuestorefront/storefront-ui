@@ -2,17 +2,8 @@ import SfInput from "../../atoms/SfInput/SfInput.vue";
 
 export default {
   name: "SfQuantitySelector",
-  watch: {
-    qty(value) {
-      const qty = parseInt(value, 10);
-      if (qty < this.min) {
-        this.$emit("input", this.min);
-        return;
-      }
-      if (qty > this.stock) {
-        this.$emit("input", this.stock);
-      }
-    }
+  model: {
+    prop: "qty"
   },
   components: {
     SfInput
@@ -21,17 +12,29 @@ export default {
     /** Product quantity */
     qty: {
       type: [Number, String],
-      default: 0
+      default: 1
     },
     /** Stock quantity of product */
     stock: {
       type: Number,
-      default: 0
+      default: 99
     },
     /** Minimum quantity of product */
     min: {
       type: Number,
       default: 1
+    }
+  },
+  watch: {
+    qty(value) {
+      const qty = parseInt(value, 10);
+      if (qty < this.min) {
+        this.$emit("input", "" + this.min);
+        return;
+      }
+      if (qty > this.stock) {
+        this.$emit("input", "" + this.stock);
+      }
     }
   }
 };
