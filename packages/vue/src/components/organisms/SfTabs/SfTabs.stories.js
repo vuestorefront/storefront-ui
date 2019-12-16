@@ -49,8 +49,8 @@ storiesOf("Organisms|Tabs", module)
       <SfTab title="Additional Information">
         <h3 style="padding: 0">Brand</h3>
         <p>
-        <u>Brand name</u> is the perfect pairing of quality and design. This label creates major everyday vibes with its collection of modern brooches, silver and gold jewellery, or clips it back with hair accessories in geo styles.
-</p>
+          <u>Brand name</u> is the perfect pairing of quality and design. This label creates major everyday vibes with its collection of modern brooches, silver and gold jewellery, or clips it back with hair accessories in geo styles.
+        </p>
       </SfTab>
     </SfTabs>`
     }),

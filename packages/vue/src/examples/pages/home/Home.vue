@@ -20,7 +20,7 @@
             title="COCKTAIL PARTY"
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerF.jpg"
+            image="/assets/storybook/homepage/bannerF.jpg"
             class="sf-banner--slim banner-custom"
           />
         </a>
@@ -32,7 +32,7 @@
             title="LINEN DRESSES"
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerE.jpg"
+            image="/assets/storybook/homepage/bannerE.jpg"
             class="sf-banner--slim banner-central"
           />
         </a>
@@ -42,7 +42,7 @@
           <SfBanner
             subtitle="T-Shirts"
             title="THE OFFICE LIFE"
-            image="assets/storybook/homepage/bannerC.jpg"
+            image="/assets/storybook/homepage/bannerC.jpg"
             class="sf-banner--slim"
           />
         </a>
@@ -52,7 +52,7 @@
           <SfBanner
             subtitle="Summer shoes"
             title="ECO SANDALS"
-            image="assets/storybook/homepage/bannerG.jpg"
+            image="/assets/storybook/homepage/bannerG.jpg"
             class="sf-banner--slim"
           />
         </a>
@@ -114,7 +114,7 @@
       </div>
     </SfSection>
     <SfBanner
-      image="assets/storybook/homepage/bannerD.png"
+      image="/assets/storybook/homepage/bannerD.png"
       class="banner-application desktop-only"
     >
       <template #subtitle>
