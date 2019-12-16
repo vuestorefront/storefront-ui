@@ -13,7 +13,7 @@ storiesOf("Atoms|QuantitySelector", module)
         default: number("qty", 0, {}, "Props")
       },
       stock: {
-        default: number("stock", 99, "Props")
+        default: number("stock", 99, {}, "Props")
       },
       min: {
         default: number("min", 1, "Props")
