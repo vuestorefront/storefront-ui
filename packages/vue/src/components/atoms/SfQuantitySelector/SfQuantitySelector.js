@@ -9,17 +9,17 @@ export default {
     SfInput
   },
   props: {
-    /** Product quantity */
+    /** Quantity */
     qty: {
       type: [Number, String],
       default: 1
     },
-    /** Stock quantity of product */
+    /** Stock quantity */
     stock: {
       type: Number,
       default: 99
     },
-    /** Minimum quantity of product */
+    /** Minimum quantity */
     min: {
       type: Number,
       default: 1
