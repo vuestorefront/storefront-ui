@@ -27,11 +27,11 @@ storiesOf("Organisms/Table", module)
     template: `<SfTable>
     <template>
       <SfTableRow class="sf-table-row--header">
-        <SfTableData :is-header="true" v-for="header in headers">{{ header }}</SfTableData>
-        <SfTableData :is-header="true">
+        <SfTableHeader v-for="header in headers">{{ header }}</SfTableHeader>
+        <SfTableHeader>
           <span class="mobile-only">Download</span>
           <SfButton class="desktop-only">DOWNLOAD ALL</SfButton>
-        </SfTableData>
+        </SfTableHeader>
       </SfTableRow>
       <SfTableRow v-for="data in content">
         <SfTableData v-for="item in data">{{ item }}</SfTableData>

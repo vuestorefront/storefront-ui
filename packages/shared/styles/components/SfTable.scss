@@ -29,7 +29,7 @@
     }
   }
 
-  &__data {
+  &__data, &__header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,6 +43,12 @@
       @media (min-width: $desktop-min) {
         order: 0;
       }
+    }
+  }
+
+  &__header {
+    @media (min-width: $desktop-min) {
+      border-bottom: 1px solid $c-light;
     }
   }
 }
