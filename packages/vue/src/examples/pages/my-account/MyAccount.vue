@@ -86,7 +86,7 @@
           </SfTabs>
         </SfContentPage>
         <SfContentPage title="Shipping details">
-          <SfTabs v-if="true" :open-tab="1">
+          <SfTabs v-if="false" :open-tab="1">
             <SfTab title="Shipping details">
               <p class="message">
                 Manage all the shipping addresses you want (work place, home
@@ -196,7 +196,7 @@
         <SfContentPage title="Loyalty Card">
           <SfTabs :open-tab="1">
             <SfTab title="Loyalty Card">
-              <p>
+              <p class="message">
                 This feature is not implemented yet! Please take a look at<br /><a
                   href="#"
                   >https://github.com/DivanteLtd/vue-storefront/issues for our
