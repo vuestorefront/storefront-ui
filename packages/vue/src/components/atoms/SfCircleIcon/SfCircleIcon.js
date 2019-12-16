@@ -27,7 +27,11 @@ export default {
      */
     ariaLabel: {
       type: String,
-      required: true
+      default: ""
+    },
+    hasBadge: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
