@@ -10,7 +10,7 @@ storiesOf("Atoms|QuantitySelector", module)
     components: { SfQuantitySelector },
     props: {
       qty: {
-        default: number("qty", 0, "Props")
+        default: number("qty", 0, {}, "Props")
       },
       stock: {
         default: number("stock", 99, "Props")
