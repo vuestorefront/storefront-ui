@@ -5,7 +5,8 @@
   padding: 0;
   border-spacing: 0;
   border: none;
-  &-row {
+
+  &__row {
     display: flex;
     flex-wrap: wrap;
     border-bottom: 1px solid $c-light;
@@ -27,7 +28,8 @@
       }
     }
   }
-  &-data {
+
+  &__data {
     display: flex;
     align-items: center;
     justify-content: center;
