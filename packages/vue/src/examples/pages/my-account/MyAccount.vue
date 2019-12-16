@@ -245,14 +245,11 @@
         <SfContentPage title="Order history">
           <SfTabs :open-tab="1">
             <SfTab title="My orders">
-              <p>
-                Check the details and status of your orders in the online store.
-                You can also cancel your order or request a return.
-              </p>
-              <div>
-                <p>You currently have no orders</p>
-                <p>Best get shopping pronto...</p>
-                <SfButton>Start shopping</SfButton>
+              <p class="message">Check the details and status of your orders in the online store. You can also cancel your order or request a return.</p>
+              <div class="orders">
+                <p class="orders__title">You currently have no orders</p>
+                <p class="orders__message">Best get shopping pronto...</p>
+                <SfButton class="orders__button">Start shopping</SfButton>
               </div>
               <!-- <SfTable></SfTable> -->
             </SfTab>
@@ -456,5 +453,22 @@ export default {
 .color-muted {
   color: #a3a5ad;
   background-color: #f1f2f3;
+}
+.orders{
+  &__title{
+    font-family: $body-font-family-secondary;
+    font-size: $font-size-regular-desktop;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  &__message{
+    font-family: $body-font-family-primary;
+    font-size: $font-size-regular-desktop;
+    font-weight: $body-font-weight-primary;
+    line-height: 1.6;
+  }
+  &__button{
+    margin-top: $spacer-big;
+  }
 }
 </style>
