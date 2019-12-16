@@ -13,7 +13,10 @@
         <SfContentPage title="My profile">
           <SfTabs :open-tab="1">
             <SfTab title="Personal data">
-              <p class="message">Feel free to edit any of your details below so your account is always up to date</p>
+              <p class="message">
+                Feel free to edit any of your details below so your account is
+                always up to date
+              </p>
               <div class="form">
                 <SfInput
                   v-model="firstName"
@@ -39,10 +42,19 @@
                 />
                 <SfButton class="form__button">Update personal data</SfButton>
               </div>
-              <p class="notice">At Brand name, we attach great importance to privacy issues and are committed to protecting the personal data of our users. Learn more about how we care and use your personal data in the <a href="">Privacy Policy.</a></p>
+              <p class="notice">
+                At Brand name, we attach great importance to privacy issues and
+                are committed to protecting the personal data of our users.
+                Learn more about how we care and use your personal data in the
+                <a href="">Privacy Policy.</a>
+              </p>
             </SfTab>
             <SfTab title="Password change">
-              <p class="message">If you want to change the password to access your account, enter the following information:<br>Your current email address is example@email.com</p>
+              <p class="message">
+                If you want to change the password to access your account, enter
+                the following information:<br />Your current email address is
+                example@email.com
+              </p>
               <div class="form">
                 <SfInput
                   v-model="currentPassword"
@@ -74,18 +86,36 @@
           </SfTabs>
         </SfContentPage>
         <SfContentPage title="Shipping details">
-          <SfTabs
-            v-if="false"
-            :open-tab="1"
-          >
-            <SfTab title="Shipping details" />
+          <SfTabs v-if="true" :open-tab="1">
+            <SfTab title="Shipping details">
+              <p class="message">
+                Manage all the shipping addresses you want (work place, home
+                address ...) This way you won't have to enter the shipping
+                address manually with each order.
+              </p>
+              <div class="shipping-list">
+                <div class="shipping">
+                  <div class="shipping__address">
+                    <div class="shipping__address-name">Sviatlana Havaka</div>
+                    <p class="shipping__address-street">Zielinskiego 30 – 41,<br />53-345 Wroclaw,<br />Poland</p>
+                    <p class="shipping__address-contact">sviatlana.example@gmail.com<br />(00) 468 900 300</p>
+                  </div>
+                  <div class="shipping__actions">
+                    <SfButton class="shipping__action">Change</SfButton>
+                    <SfButton class="shipping__action color-muted"
+                      >Delete</SfButton
+                    >
+                  </div>
+                </div>
+              </div>
+              <SfButton class="address-button">Add new address</SfButton>
+            </SfTab>
           </SfTabs>
-          <SfTabs
-            v-else
-            :open-tab="1"
-          >
+          <SfTabs v-else :open-tab="1">
             <SfTab title="Change the address">
-              <p>Keep your addresses and contact details updated.</p>
+              <p class="message">
+                Keep your addresses and contact details updated.
+              </p>
               <div class="form">
                 <SfInput
                   v-model="firstName"
@@ -158,7 +188,7 @@
                   required
                   class="form__input"
                 />
-                <SfButton>Update the address</SfButton>
+                <SfButton class="form__button">Update the address</SfButton>
               </div>
             </SfTab>
           </SfTabs>
@@ -166,14 +196,24 @@
         <SfContentPage title="Loyalty Card">
           <SfTabs :open-tab="1">
             <SfTab title="Loyalty Card">
-              <p>This feature is not implemented yet! Please take a look at<br/><a href="#">https://github.com/DivanteLtd/vue-storefront/issues for our Roadmap!</a></p>
+              <p>
+                This feature is not implemented yet! Please take a look at<br /><a
+                  href="#"
+                  >https://github.com/DivanteLtd/vue-storefront/issues for our
+                  Roadmap!</a
+                >
+              </p>
             </SfTab>
           </SfTabs>
         </SfContentPage>
         <SfContentPage title="My newsletter">
           <SfTabs :open-tab="1">
             <SfTab title="My newsletter">
-              <p>Set up your newsletter and we will send you information about new products and trends from the sections you selected every week.</p>
+              <p>
+                Set up your newsletter and we will send you information about
+                new products and trends from the sections you selected every
+                week.
+              </p>
               <div class="form">
                 <p>Sections that interest you</p>
                 <SfCheckbox
@@ -195,7 +235,11 @@
                   class="form__input form__checkbox"
                 />
                 <SfButton>Join Newsletter</SfButton>
-                <p>I have read and understand the Privacy and Cookies Policy and agree to receive personalized commercial information from Brand name by email.</p>
+                <p>
+                  I have read and understand the Privacy and Cookies Policy and
+                  agree to receive personalized commercial information from
+                  Brand name by email.
+                </p>
               </div>
             </SfTab>
           </SfTabs>
@@ -205,7 +249,10 @@
         <SfContentPage title="Order history">
           <SfTabs :open-tab="1">
             <SfTab title="My orders">
-              <p>Check the details and status of your orders in the online store. You can also cancel your order or request a return.</p>
+              <p>
+                Check the details and status of your orders in the online store.
+                You can also cancel your order or request a return.
+              </p>
               <div>
                 <p>You currently have no orders</p>
                 <p>Best get shopping pronto...</p>
@@ -213,9 +260,7 @@
               </div>
               <!-- <SfTable></SfTable> -->
             </SfTab>
-            <SfTab title="Returns">
-              <!-- <SfTable></SfTable> -->>
-            </SfTab>
+            <SfTab title="Returns"> <!-- <SfTable></SfTable> -->> </SfTab>
           </SfTabs>
         </SfContentPage>
         <SfContentPage title="My reviews">
@@ -231,7 +276,15 @@
   </div>
 </template>
 <script>
-import { SfBreadcrumbs, SfContentPages, SfTabs, SfInput, SfButton, SfSelect, SfCheckbox } from "../../../../index.js";
+import {
+  SfBreadcrumbs,
+  SfContentPages,
+  SfTabs,
+  SfInput,
+  SfButton,
+  SfSelect,
+  SfCheckbox
+} from "../../../../index.js";
 export default {
   name: "MyAccount",
   components: {
@@ -245,7 +298,7 @@ export default {
   },
   data() {
     return {
-      activePage: "My profile",
+      activePage: "Shipping details",
       firstName: "",
       lastName: "",
       email: "",
@@ -277,8 +330,8 @@ export default {
     };
   },
   methods: {
-    changeActivePage(title){
-      if(title === "Log out"){
+    changeActivePage(title) {
+      if (title === "Log out") {
         alert("You are logged out!");
         return;
       }
@@ -312,16 +365,16 @@ export default {
   }
 }
 .form {
-  @include for-desktop{
+  @include for-desktop {
     display: flex;
     flex-wrap: wrap;
   }
-  &__input{
+  &__input {
     margin-bottom: $spacer-extra-big;
     @include for-desktop {
       flex: 0 0 100%;
     }
-    &--half{
+    &--half {
       @include for-desktop {
         flex: 0 0 50%;
         & + &:not(:nth-child(odd)) {
@@ -330,33 +383,76 @@ export default {
       }
     }
   }
-  &__select{
+  &__select {
     // todo: [bug] fix padding to adjust to rest form elements
-    ::v-deep .sf-select__selected{
+    ::v-deep .sf-select__selected {
       padding: 5px 0;
     }
   }
-  &__checkbox{
+  &__checkbox {
     margin-bottom: $spacer-big;
   }
-  &__button{
+  &__button {
     margin-top: $spacer-big;
   }
 }
 .message,
-.notice{
+.notice {
   font-family: $body-font-family-primary;
   font-weight: $body-font-weight-primary;
   line-height: 1.6;
 }
-.message{
+.message {
   margin: 0 0 $spacer-extra-big 0;
   font-size: $font-size-regular-desktop;
-
 }
-.notice{
+.notice {
   max-width: 70%;
   margin: $spacer 0 0 0;
   font-size: $font-size-extra-small-desktop;
+}
+.shipping-list{
+}
+.shipping {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid $c-light;
+  padding: $spacer-big 0;
+  &:last-child{
+    border-bottom: 1px solid $c-light;
+  }
+  &__address,
+  &__actions {
+    flex: 1;
+  }
+  &__address{
+    font-size: $font-size-extra-small-desktop;
+    line-height: 1.6;
+  }
+  &__address-name{
+    font-size: $font-size-regular-desktop;
+  }
+  &__address-street,
+  &__address-contact{
+    margin: 0;
+  }
+  &__address-contact{
+    margin-top: $spacer-big;
+  }
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__action:not(first-child) {
+    margin-left: $spacer;
+  }
+
+}
+.address-button{
+  margin-top: 3.75rem;
+}
+.color-muted {
+  color: #a3a5ad;
+  background-color: #f1f2f3;
 }
 </style>
