@@ -11,9 +11,9 @@
     >
       <SfContentCategory title="Personal Details">
         <SfContentPage title="My profile">
-          <SfTabs :open-tab="2">
+          <SfTabs :open-tab="1">
             <SfTab title="Personal data">
-              <p>Feel free to edit any of your details below so your account is always up to date</p>
+              <p class="message">Feel free to edit any of your details below so your account is always up to date</p>
               <div class="form">
                 <SfInput
                   v-model="firstName"
@@ -37,12 +37,12 @@
                   required
                   class="form__input"
                 />
-                <SfButton>Update personal data</SfButton>
+                <SfButton class="form__button">Update personal data</SfButton>
               </div>
-              <p>At Brand name, we attach great importance to privacy issues and are committed to protecting the personal data of our users. Learn more about how we care and use your personal data in the <a href="">Privacy Policy.</a>a</p>
+              <p class="notice">At Brand name, we attach great importance to privacy issues and are committed to protecting the personal data of our users. Learn more about how we care and use your personal data in the <a href="">Privacy Policy.</a></p>
             </SfTab>
             <SfTab title="Password change">
-              <p>If you want to change the password to access your account, enter the following information:<br>Your current email address is example@email.com</p>
+              <p class="message">If you want to change the password to access your account, enter the following information:<br>Your current email address is example@email.com</p>
               <div class="form">
                 <SfInput
                   v-model="currentPassword"
@@ -68,7 +68,7 @@
                   required
                   class="form__input form__input--half"
                 />
-                <SfButton>Update password</SfButton>
+                <SfButton class="form__button">Update password</SfButton>
               </div>
             </SfTab>
           </SfTabs>
@@ -245,7 +245,7 @@ export default {
   },
   data() {
     return {
-      activePage: "Shipping details",
+      activePage: "My profile",
       firstName: "",
       lastName: "",
       email: "",
@@ -306,6 +306,11 @@ export default {
 .breadcrumbs {
   padding: $spacer-big $spacer-extra-big $spacer-extra-big;
 }
+.sf-tabs {
+  ::v-deep &__content {
+    padding: $spacer-big 0;
+  }
+}
 .form {
   @include for-desktop{
     display: flex;
@@ -334,5 +339,24 @@ export default {
   &__checkbox{
     margin-bottom: $spacer-big;
   }
+  &__button{
+    margin-top: $spacer-big;
+  }
+}
+.message,
+.notice{
+  font-family: $body-font-family-primary;
+  font-weight: $body-font-weight-primary;
+  line-height: 1.6;
+}
+.message{
+  margin: 0 0 $spacer-extra-big 0;
+  font-size: $font-size-regular-desktop;
+
+}
+.notice{
+  max-width: 70%;
+  margin: $spacer 0 0 0;
+  font-size: $font-size-extra-small-desktop;
 }
 </style>
