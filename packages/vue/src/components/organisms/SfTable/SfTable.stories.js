@@ -7,27 +7,23 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 storiesOf("Organisms/Table", module)
   .addDecorator(withKnobs)
   .add("Default", () => ({
-    components: { SfTable, SfButton },
-    props: {
-      headers: {
-        type: Array,
-        default: [
+    data() {
+      return {
+        headers: [
           "Quantity",
           "Payment date",
           "Payment method",
           "Amount",
           "Status"
-        ]
-      },
-      content: {
-        type: [Array, Object],
-        default: [
+        ],
+        content: [
           ["#35767", "4th Nov", "Paypal", "12.00$"],
           ["#35767", "4th Nov", "Visa", "15.00$"],
           ["#35767", "4th Nov", "Paypal", "12.00$"]
         ]
-      }
+      };
     },
+    components: { SfTable, SfButton },
     template: `<SfTable>
     <template>
       <SfTableRow class="sf-table-row--header">
