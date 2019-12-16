@@ -8,10 +8,12 @@ $circle-icon__badge-background-color: #FF3535 !default;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding: $spacer-big;
   border-radius: 50%;
   transition: box-shadow 0.3s ease, opacity 150ms ease-in-out;
   position: relative;
+  &.sf-button{
+    padding: $spacer-big;
+  }
   &:hover {
     box-shadow: 0 0 0 0.3125rem rgba($circle-icon-background, 0.4);
   }
