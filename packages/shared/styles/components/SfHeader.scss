@@ -80,26 +80,33 @@ $header-navigation-item-font-weight: 500 !default;
     display: flex;
     align-items: center;
   }
-  &__icon{
+  &__icon {
     $this: &;
-    padding: 10px;
-    background-color: transparent;
-    transition: background-color 0.3s ease;
     margin-left: $spacer-big;
-    .sf-icon{
-      --icon-color: #{$c-text};
-    }
-    &:hover{
-      background-color: $c-light;
-      box-shadow: none;
-      .sf-icon{
+    &.sf-circle-icon {
+      background-color: transparent;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: $c-light;
+        box-shadow: none;
+      }
+      &.sf-button {
+        padding: 10px;
+      }
+      & .sf-icon {
+        --icon-size: 1.25rem;
         --icon-color: #{$c-text};
+        &:hover {
+          --icon-color: #{$c-text};
+        }
       }
     }
-    &--is-active{
-      background-color: $c-primary;
-      .sf-icon{
-        --icon-color: #{$c-white};
+    &--is-active {
+      &.sf-circle-icon {
+        background-color: $c-primary;
+        & .sf-icon {
+          --icon-color: #{$c-white};
+        }
       }
     }
   }
