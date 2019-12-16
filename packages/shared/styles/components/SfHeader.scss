@@ -94,6 +94,7 @@ $header-navigation-item-font-weight: 500 !default;
         padding: 10px;
       }
       & .sf-icon {
+        --icon-size: 1.25rem;
         --icon-color: #{$c-text};
         &:hover {
           --icon-color: #{$c-text};
