@@ -16,7 +16,7 @@ storiesOf("Atoms|QuantitySelector", module)
         default: number("stock", 99, {}, "Props")
       },
       min: {
-        default: number("min", 1, "Props")
+        default: number("min", 1, {}, "Props")
       }
     },
     template: `<SfQuantitySelector :qty="qty" :stock="stock" :min="min"/>`
