@@ -97,8 +97,12 @@
                 <div class="shipping">
                   <div class="shipping__address">
                     <div class="shipping__address-name">Sviatlana Havaka</div>
-                    <p class="shipping__address-street">Zielinskiego 30 – 41,<br />53-345 Wroclaw,<br />Poland</p>
-                    <p class="shipping__address-contact">sviatlana.example@gmail.com<br />(00) 468 900 300</p>
+                    <p class="shipping__address-street">
+                      Zielinskiego 30 – 41,<br />53-345 Wroclaw,<br />Poland
+                    </p>
+                    <p class="shipping__address-contact">
+                      sviatlana.example@gmail.com<br />(00) 468 900 300
+                    </p>
                   </div>
                   <div class="shipping__actions">
                     <SfButton class="shipping__action">Change</SfButton>
@@ -197,11 +201,8 @@
           <SfTabs :open-tab="1">
             <SfTab title="Loyalty Card">
               <p class="message">
-                This feature is not implemented yet! Please take a look at<br /><a
-                  href="#"
-                  >https://github.com/DivanteLtd/vue-storefront/issues for our
-                  Roadmap!</a
-                >
+                This feature is not implemented yet! Please take a look at<br />
+                <a href="#">https://github.com/DivanteLtd/vue-storefront/issues for ourRoadmap!</a>
               </p>
             </SfTab>
           </SfTabs>
@@ -236,7 +237,11 @@
                 />
                 <SfButton class="form__button">Join Newsletter</SfButton>
               </div>
-              <p class="notice">I have read and understand the Privacy and Cookies Policy and agree to receive personalized commercial information from Brand name by email.</p>
+              <p class="notice">
+                I have read and understand the Privacy and Cookies Policy and
+                agree to receive personalized commercial information from Brand
+                name by email.
+              </p>
             </SfTab>
           </SfTabs>
         </SfContentPage>
@@ -245,7 +250,10 @@
         <SfContentPage title="Order history">
           <SfTabs :open-tab="1">
             <SfTab title="My orders">
-              <p class="message">Check the details and status of your orders in the online store. You can also cancel your order or request a return.</p>
+              <p class="message">
+                Check the details and status of your orders in the online store.
+                You can also cancel your order or request a return.
+              </p>
               <div class="orders">
                 <p class="orders__title">You currently have no orders</p>
                 <p class="orders__message">Best get shopping pronto...</p>
@@ -253,13 +261,19 @@
               </div>
               <!-- <SfTable></SfTable> -->
             </SfTab>
-            <SfTab title="Returns"> <!-- <SfTable></SfTable> -->> </SfTab>
+            <SfTab title="Returns"> <!-- <SfTable></SfTable> --> </SfTab>
           </SfTabs>
         </SfContentPage>
         <SfContentPage title="My reviews">
           <SfTabs :open-tab="1">
             <SfTab title="My reviews">
-              My reviews
+              <p class="message">
+                This feature is not implemented yet! Please take a look at<br />
+                <a href="#"
+                  >https://github.com/DivanteLtd/vue-storefront/issues</a
+                >
+                for our Roadmap!
+              </p>
             </SfTab>
           </SfTabs>
         </SfContentPage>
@@ -347,10 +361,16 @@ export default {
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 }
 .breadcrumbs {
   padding: $spacer-big $spacer-extra-big $spacer-extra-big;
+}
+.content{
+  flex: 1;
 }
 .sf-tabs {
   ::v-deep &__content {
@@ -388,7 +408,7 @@ export default {
   &__button {
     margin-top: $spacer-big;
   }
-  &__title{
+  &__title {
     font-family: $body-font-family-secondary;
     font-size: $font-size-regular-desktop;
     font-weight: 500;
@@ -410,32 +430,32 @@ export default {
   margin: $spacer 0 0 0;
   font-size: $font-size-extra-small-desktop;
 }
-.shipping-list{
+.shipping-list {
 }
 .shipping {
   display: flex;
   align-items: center;
   border-top: 1px solid $c-light;
   padding: $spacer-big 0;
-  &:last-child{
+  &:last-child {
     border-bottom: 1px solid $c-light;
   }
   &__address,
   &__actions {
     flex: 1;
   }
-  &__address{
+  &__address {
     font-size: $font-size-extra-small-desktop;
     line-height: 1.6;
   }
-  &__address-name{
+  &__address-name {
     font-size: $font-size-regular-desktop;
   }
   &__address-street,
-  &__address-contact{
+  &__address-contact {
     margin: 0;
   }
-  &__address-contact{
+  &__address-contact {
     margin-top: $spacer-big;
   }
   &__actions {
@@ -445,29 +465,28 @@ export default {
   &__action:not(first-child) {
     margin-left: $spacer;
   }
-
 }
-.address-button{
+.address-button {
   margin-top: 3.75rem;
 }
 .color-muted {
   color: #a3a5ad;
   background-color: #f1f2f3;
 }
-.orders{
-  &__title{
+.orders {
+  &__title {
     font-family: $body-font-family-secondary;
     font-size: $font-size-regular-desktop;
     font-weight: 500;
     line-height: 1.6;
   }
-  &__message{
+  &__message {
     font-family: $body-font-family-primary;
     font-size: $font-size-regular-desktop;
     font-weight: $body-font-weight-primary;
     line-height: 1.6;
   }
-  &__button{
+  &__button {
     margin-top: $spacer-big;
   }
 }
