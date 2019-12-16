@@ -209,13 +209,13 @@
         <SfContentPage title="My newsletter">
           <SfTabs :open-tab="1">
             <SfTab title="My newsletter">
-              <p>
+              <p class="message">
                 Set up your newsletter and we will send you information about
                 new products and trends from the sections you selected every
                 week.
               </p>
               <div class="form">
-                <p>Sections that interest you</p>
+                <p class="form__title">Sections that interest you</p>
                 <SfCheckbox
                   v-model="newsletter"
                   label="Woman"
@@ -234,13 +234,9 @@
                   value="children"
                   class="form__input form__checkbox"
                 />
-                <SfButton>Join Newsletter</SfButton>
-                <p>
-                  I have read and understand the Privacy and Cookies Policy and
-                  agree to receive personalized commercial information from
-                  Brand name by email.
-                </p>
+                <SfButton class="form__button">Join Newsletter</SfButton>
               </div>
+              <p class="notice">I have read and understand the Privacy and Cookies Policy and agree to receive personalized commercial information from Brand name by email.</p>
             </SfTab>
           </SfTabs>
         </SfContentPage>
@@ -394,6 +390,12 @@ export default {
   }
   &__button {
     margin-top: $spacer-big;
+  }
+  &__title{
+    font-family: $body-font-family-secondary;
+    font-size: $font-size-regular-desktop;
+    font-weight: 500;
+    line-height: 1.6;
   }
 }
 .message,
