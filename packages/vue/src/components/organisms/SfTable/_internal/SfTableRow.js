@@ -1,7 +1,8 @@
 export default {
   name: "SfTableRow",
+  inject: ["provided"],
   mounted() {
-    this.$parent.updateColumnsCount(
+    this.provided.updateColumnsCount(
       this.$slots.default.filter(node => node.tag).length
     );
   }

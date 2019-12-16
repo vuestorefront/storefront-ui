@@ -14,6 +14,14 @@ export default {
   components: {
     SfButton
   },
+  provide() {
+    const provided = {};
+
+    Object.defineProperty(provided, "updateColumnsCount", {
+      get: () => this.updateColumnsCount
+    });
+    return { provided };
+  },
   methods: {
     updateColumnsCount(columnsCount) {
       this.$el.style.setProperty(
