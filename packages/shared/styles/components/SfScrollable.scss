@@ -1,12 +1,17 @@
 @import "../variables";
 
+$scrollable__max-width: 13.5rem !default;
+
 .sf-scrollable {
     --content-height: 2rem;
 
     &__content {
         max-height: var(--content-height);
-        max-width: 13.5rem;
+        max-width: $scrollable__max-width;
         overflow-y: scroll;
+        scrollbar-width: thin;
+        scrollbar-track-color: $c-light;
+        scrollbar-color: $c-dark;
     }
     &__button {
         margin-top: 1rem;
