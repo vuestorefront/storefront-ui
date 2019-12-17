@@ -1,16 +1,19 @@
 @import "../variables";
 
 $footer-desktop-margin: 6.25rem 0 !default;
-$footer-column__title-padding:$spacer-big $spacer-extra-big !default;
+$footer-column__title-padding: $spacer-big $spacer-extra-big !default;
 $footer-column__title-desktop-padding: $spacer-big 0 !default;
 $footer-column__title-background-color: hsl(0%, 0%, 90%) !default;
 $footer-column__title-font-family: $body-font-family-secondary !default;
-$footer-column__title-font-size: $font-size-extra-big-mobile !default;
+$footer-column__title-font-size: $font-size-regular-mobile !default;
+$footer-column__title-desktop-font-size: $font-size-big-desktop !default;
 $footer-column__title-font-weight: 500 !default;
+$footer__menu-item-font-size: $font-size-regular-mobile !default;
+$footer__menu-item-desktop-font-size: $font-size-regular-desktop !default;
 
-.sf-footer-column{
+.sf-footer-column {
   flex: 0 0 var(--col-width);
-  &__title{
+  &__title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,29 +25,32 @@ $footer-column__title-font-weight: 500 !default;
     line-height: 1.6;
     text-transform: uppercase;
     cursor: pointer;
-    @media (min-width: $desktop-min){
+    @media (min-width: $desktop-min) {
       padding: $footer-column__title-desktop-padding;
       background-color: transparent;
+      font-size: $footer-column__title-desktop-font-size;
       cursor: default;
     }
   }
-  &__chevron{
-    @media (min-width: $desktop-min){
+  &__chevron {
+    @media (min-width: $desktop-min) {
       display: none;
     }
   }
 }
 .sf-footer {
-  @media (min-width: $desktop-min){
+  @media (min-width: $desktop-min) {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: $footer-desktop-margin;
   }
-  &__menu-item{
+  &__menu-item {
     padding: $spacer-big $spacer-extra-big;
-    @media (min-width: $desktop-min){
+    font-size: $footer__menu-item-font-size;
+    @media (min-width: $desktop-min) {
       padding: 6px 0;
+      font-size: $footer__menu-item-desktop-font-size;
     }
   }
 }

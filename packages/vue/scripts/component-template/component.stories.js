@@ -10,17 +10,18 @@ import ComponentNameCamelCase from "./ComponentNameCamelCase.vue";
 
 storiesOf("ComponentType|ComponentName", module)
   .addDecorator(withKnobs)
-  .add("[slot] default", () => ({
+  .add("Common", () => ({
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "ComponentNameKebabCase--modifier":
               "ComponentNameKebabCase--modifier"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       }
     },
