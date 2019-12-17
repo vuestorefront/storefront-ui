@@ -20,7 +20,7 @@ const StoriesPlaceholder = {
 
 import SfSticky from "./SfSticky.vue";
 
-storiesOf("Molecules|Sticky", module).add("[slot] default", () => ({
+storiesOf("Molecules|Sticky", module).add("Common", () => ({
   components: { SfSticky, StoriesWrapper, StoriesPlaceholder },
   template: `<StoriesWrapper>
     <SfSticky>
