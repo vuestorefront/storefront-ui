@@ -1,0 +1,54 @@
+@import "../variables";
+
+.sf-table {
+  width: 100%;
+  padding: 0;
+  border-spacing: 0;
+  border: none;
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid $c-light;
+    @media (min-width: $desktop-min) {
+      border: none;
+    }
+    &:hover {
+      background-color: $c-light;
+      box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
+    }
+    &--header {
+      background-color: $c-light;
+      color: $c-text;
+
+      @media (min-width: $desktop-min) {
+        border-bottom: 1px solid $c-light;
+        flex-wrap: nowrap;
+        background-color: $c-white;
+      }
+    }
+  }
+
+  &__data, &__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 0;
+    flex: 0 0 calc(100% / var(--mobile-column));
+    @media (min-width: $desktop-min) {
+      flex: 1;
+    }
+    &:nth-child(even){
+    order:1;
+      @media (min-width: $desktop-min) {
+        order: 0;
+      }
+    }
+  }
+
+  &__header {
+    @media (min-width: $desktop-min) {
+      border-bottom: 1px solid $c-light;
+    }
+  }
+}
