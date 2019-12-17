@@ -263,14 +263,15 @@
                 <SfButton class="orders__button">Start shopping</SfButton>
               </div>
               <SfTable v-else class="orders">
-                <SfTableRow>
+                <SfTableRow class="sf-table__row--header">
                   <SfTableHeader
                     v-for="tableHeader in tableHeaders"
                     :key="tableHeader"
                     >{{ tableHeader }}</SfTableHeader
                   >
                   <SfTableHeader>
-                    <SfButton class="button-download-all">Download all</SfButton>
+                    <SfButton class="desktop-only button-download-all">Download all</SfButton>
+                    <span class="mobile-only">Download All</span>
                   </SfTableHeader>
                 </SfTableRow>
                 <SfTableRow v-for="order in orders" :key="order['Order ID']">
