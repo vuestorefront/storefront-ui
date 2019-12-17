@@ -85,7 +85,7 @@ $tabs__content-padding-y: 3 * $spacer-big !default;
     }
   }
   &__chevron {
-    margin-top: calc(calc(calc(#{$tabs__title-font-size} * #{$tabs-line-height}) - 20px) / 2);
+    margin-top: calc(calc(#{$tabs__title-font-size} * #{$tabs-line-height} - 20px) / 2);
     @include for-desktop {
       display: none;
     }
