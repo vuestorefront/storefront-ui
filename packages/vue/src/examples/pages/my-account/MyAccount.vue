@@ -202,7 +202,10 @@
             <SfTab title="Loyalty Card">
               <p class="message">
                 This feature is not implemented yet! Please take a look at<br />
-                <a href="#">https://github.com/DivanteLtd/vue-storefront/issues for ourRoadmap!</a>
+                <a href="#"
+                  >https://github.com/DivanteLtd/vue-storefront/issues for
+                  ourRoadmap!</a
+                >
               </p>
             </SfTab>
           </SfTabs>
@@ -254,14 +257,44 @@
                 Check the details and status of your orders in the online store.
                 You can also cancel your order or request a return.
               </p>
-              <div class="orders">
+              <div v-if="false" class="orders">
                 <p class="orders__title">You currently have no orders</p>
                 <p class="orders__message">Best get shopping pronto...</p>
                 <SfButton class="orders__button">Start shopping</SfButton>
               </div>
+              <SfTable v-else class="orders">
+                <SfTableRow>
+                  <SfTableHeader
+                    v-for="tableHeader in tableHeaders"
+                    :key="tableHeader"
+                    >{{ tableHeader }}</SfTableHeader
+                  >
+                  <SfTableHeader>
+                    <SfButton class="button-download-all">Download all</SfButton>
+                  </SfTableHeader>
+                </SfTableRow>
+                <SfTableRow v-for="order in orders" :key="order['Order ID']">
+                  <SfTableData
+                    v-for="data in Object.keys(order)"
+                    :key="order[data]"
+                  >
+                    <template v-if="data === 'Status'">
+                      <span
+                        :class="{
+                          'text-success': order[data] === 'Finalised',
+                          'text-warning': order[data] === 'In process'
+                        }"
+                        >{{ order[data] }}</span
+                      >
+                    </template>
+                    <template v-else>{{ order[data] }}</template>
+                  </SfTableData>
+                  <SfTableData>VIEW</SfTableData>
+                </SfTableRow>
+              </SfTable>
               <!-- <SfTable></SfTable> -->
             </SfTab>
-            <SfTab title="Returns"> <!-- <SfTable></SfTable> --> </SfTab>
+            <SfTab title="Returns" />
           </SfTabs>
         </SfContentPage>
         <SfContentPage title="My reviews">
@@ -290,7 +323,8 @@ import {
   SfInput,
   SfButton,
   SfSelect,
-  SfCheckbox
+  SfCheckbox,
+  SfTable
 } from "../../../../index.js";
 export default {
   name: "MyAccount",
@@ -301,11 +335,12 @@ export default {
     SfInput,
     SfButton,
     SfSelect,
-    SfCheckbox
+    SfCheckbox,
+    SfTable
   },
   data() {
     return {
-      activePage: "Shipping details",
+      activePage: "Order history",
       firstName: "",
       lastName: "",
       email: "",
@@ -333,8 +368,50 @@ export default {
             link: "#"
           }
         }
+      ],
+      orders: [
+        {
+          "Order ID": "#35765",
+          "Payment date": "4th Nov, 2019",
+          "Payment method": "Visa card",
+          Amount: "$12.00",
+          Status: "In process"
+        },
+        {
+          "Order ID": "#35766",
+          "Payment date": "4th Nov, 2019",
+          "Payment method": "Paypal",
+          Amount: "$12.00",
+          Status: "Finalised"
+        },
+        {
+          "Order ID": "#35767",
+          "Payment date": "4th Nov, 2019",
+          "Payment method": "Visa card",
+          Amount: "$12.00",
+          Status: "Finalised"
+        },
+        {
+          "Order ID": "#35768",
+          "Payment date": "4th Nov, 2019",
+          "Payment method": "Mastercard",
+          Amount: "$12.00",
+          Status: "Finalised"
+        },
+        {
+          "Order ID": "#35769",
+          "Payment date": "4th Nov, 2019",
+          "Payment method": "Paypal",
+          Amount: "$12.00",
+          Status: "Finalised"
+        }
       ]
     };
+  },
+  computed: {
+    tableHeaders() {
+      return Object.keys(this.orders[0]);
+    }
   },
   methods: {
     changeActivePage(title) {
@@ -369,7 +446,7 @@ export default {
 .breadcrumbs {
   padding: $spacer-big $spacer-extra-big $spacer-extra-big;
 }
-.content{
+.content {
   flex: 1;
 }
 .sf-tabs {
@@ -488,6 +565,12 @@ export default {
   }
   &__button {
     margin-top: $spacer-big;
+  }
+}
+.button-download-all{
+  &.sf-button{
+    padding: 10px 1.25rem;
+    font-size: 0.75rem;
   }
 }
 </style>
