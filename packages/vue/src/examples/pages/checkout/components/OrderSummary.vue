@@ -4,21 +4,7 @@
       class="sf-highlighted-box order-summary"
       style="margin-bottom: 1.25rem"
     >
-      <SfHeading
-        :level="2"
-        title="Order Summary"
-        class="sf-heading--left"
-        style="padding: 0 1.25rem; margin-bottom: 1.875rem"
-      />
-      <SfCircleIcon class="order-summary__counter">
-        <span style="font-size: 1.5rem">2</span>
-      </SfCircleIcon>
-      <div
-        style="padding: 0 20px; display: flex; align-items: center; justify-content: space-between"
-      >
-        <SfHeading :level="3" title="Total items" class="sf-heading--left" />
-        <span>Hide item list</span>
-      </div>
+      <!-- Adjust to Cart-->
       <SfCollectedProduct
         v-for="(product, key) in ['', '']"
         :key="key"
