@@ -127,7 +127,7 @@ function getComponentInfoFromPath(pathComponentVue) {
   const componentName = componentFilename.replace(/Sf(.+)\.vue$/, "$1");
   const sfComponentName = "Sf" + componentName;
   const atomicType = componentDirname.replace(/\/.*/, "");
-  const storybookLink = `${atomicType}-${componentName}--basic`.toLowerCase();
+  const storybookLink = `${atomicType}-${componentName}--common`.toLowerCase();
 
   return {
     componentName,
@@ -297,6 +297,10 @@ function extractCssModifiers(contentScssFile) {
     let lastModifierFound;
     // as multiple modifiers may be on one line, we have to make this (stateful) reg exp. search
     while ((partialReResult = regExp.exec(line)) !== null) {
+      // skip CSS vars which the simple regexp catches accidentally
+      if (partialReResult[0].includes("var(")) {
+        continue;
+      }
       if (!uniqueModifiers.has(partialReResult[0])) {
         uniqueModifiers.set(partialReResult[0], null);
         lastModifierFound = partialReResult[0];
