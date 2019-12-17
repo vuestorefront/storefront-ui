@@ -67,7 +67,9 @@
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
-      <div class="form__element form__radio-group form__radio-group--inline payment-methods">
+      <div
+        class="form__element form__radio-group form__radio-group--inline payment-methods"
+      >
         <!-- todo: adjust to design -->
         <SfRadio
           v-for="item in paymentMethods"
@@ -101,20 +103,38 @@
         </SfRadio>
       </div>
       <div
-        v-if="
-          paymentMethod === 'debit' ||
-            paymentMethod === 'mastercard' ||
-            paymentMethod === 'electron'
-        "
+        v-if="isCreditCard"
         class="form__element"
+        :style="{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          marginBottom: '40px'
+        }"
       >
-        <div>
-          <SfInput labl="Number"/>
-          <SfInput label="Card Holder"/>
-          <SfInput label="Expiry date"/>
-          <SfInput label="Expiry date"/>
-        </div>
-        <SfCheckbox name="keepcard" label="I want to keed this data for other purchases."/>
+        <SfInput
+          v-model="cardNumber"
+          :style="{ width: '500px', marginBottom: '20px' }"
+          name="cardNumber"
+          label="Number"
+        />
+        <SfInput
+          v-model="cardExpiry"
+          :style="{ width: '500px', marginBottom: '20px' }"
+          name="cardExpiry"
+          label="Expiry date"
+        />
+        <SfInput
+          v-model="cardCVC"
+          :style="{ width: '500px', marginBottom: '20px' }"
+          name="cardCVC"
+          label="Code CVC"
+        />
+        <SfCheckbox
+          v-model="keepCard"
+          name="keepcard"
+          label="I want to keed this data for other purchases."
+        />
       </div>
       <SfButton class="sf-button--text form__action form__action--left"
         >Go back to Personal details</SfButton
@@ -156,6 +176,10 @@ export default {
       country: "poland",
       phoneNumber: "+48 577 032 500",
       paymentMethod: "debit",
+      cardNumber: "4097968681276022",
+      cardExpiry: "22/24",
+      cardCVC: "678",
+      keepCard: true,
       paymentMethods: [
         {
           label: "Visa Debit",
@@ -179,6 +203,15 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    isCreditCard() {
+      return (
+        this.paymentMethod === "debit" ||
+        this.paymentMethod === "mastercard" ||
+        this.paymentMethod === "electron"
+      );
+    }
   }
 };
 </script>
@@ -196,6 +229,7 @@ export default {
   @include for-desktop {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
   }
   &__element {
