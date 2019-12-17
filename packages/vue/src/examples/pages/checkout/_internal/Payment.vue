@@ -5,6 +5,12 @@
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
+      <SfCheckbox
+        v-model="copyShippingAddress"
+        label="Copy address data from shipping"
+        name="copyShippingAddress"
+        class="form__element"
+      />
       <SfInput
         v-model="firstName"
         label="First name"
@@ -56,7 +62,9 @@
       />
       <SfSelect
         v-model="country"
+        label="Country"
         class="form__element form__element--half form__select sf-select--underlined"
+        required
       >
         <SfSelectOption value="poland">
           Poland
@@ -149,7 +157,9 @@
               </SfSelectOption>
             </SfSelect>
           </div>
-          <div class="credit-card__element credit-card__element--spacer-extra-big">
+          <div
+            class="credit-card__element credit-card__element--spacer-extra-big"
+          >
             <span class="credit-card__label credit-card__label--required"
               >Code CVC</span
             >
@@ -171,7 +181,7 @@
       <SfButton class="sf-button--text form__action form__action--left">
         Go back to Personal details
       </SfButton>
-      <SfButton>Continue to payment</SfButton>
+      <SfButton>Review order</SfButton>
     </div>
   </div>
 </template>
@@ -198,21 +208,22 @@ export default {
   },
   data() {
     return {
-      firstName: "Adam",
-      lastName: "Kowalski",
-      street: "Dmowskiego",
-      apartment: "17",
-      city: "Wrocław",
-      state: "Dolnośląskie",
-      zipCode: "50-203",
-      country: "poland",
-      phoneNumber: "+48 577 032 500",
-      paymentMethod: "debit",
-      cardNumber: "4097968681276022",
+      copyShippingAddress: false,
+      firstName: "",
+      lastName: "",
+      street: "",
+      apartment: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      country: "",
+      phoneNumber: "",
+      paymentMethod: "",
+      cardNumber: "",
       cardHolder: "",
       cardMonth: null,
       cardYear: null,
-      cardCVC: "678",
+      cardCVC: "",
       keepCard: true,
       paymentMethods: [
         {
@@ -245,6 +256,31 @@ export default {
         this.paymentMethod === "mastercard" ||
         this.paymentMethod === "electron"
       );
+    }
+  },
+  watch: {
+    copyShippingAddress(copy) {
+      if (copy) {
+        this.firstName = "Adam";
+        this.lastName = "Kowalski";
+        this.street = "Dmowskiego";
+        this.apartment = "17";
+        this.city = "Wrocław";
+        this.state = "Dolnośląskie";
+        this.zipCode = "50-203";
+        this.country = "poland";
+        this.phoneNumber = "+48 577 032 500";
+      } else {
+        this.firstName = "";
+        this.lastName = "";
+        this.street = "";
+        this.apartment = "";
+        this.city = "";
+        this.state = "";
+        this.zipCode = "";
+        this.country = "";
+        this.phoneNumber = "";
+      }
     }
   }
 };
@@ -330,7 +366,7 @@ export default {
     display: flex;
     align-items: center;
     margin-bottom: $spacer-big;
-    &--spacer-extra-big{
+    &--spacer-extra-big {
       margin-bottom: $spacer-extra-big;
     }
   }
@@ -345,7 +381,7 @@ export default {
   }
   &__input {
     flex: 0 0 21.5rem;
-    &--small{
+    &--small {
       flex: 0 0 7.5rem;
     }
   }
@@ -358,7 +394,7 @@ export default {
       margin-left: $spacer-big;
     }
   }
-  &__cvc{
+  &__cvc {
     flex: 0 0 21.5rem;
     display: flex;
   }

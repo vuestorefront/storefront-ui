@@ -173,7 +173,7 @@ export default {
     }
     &--half {
       @include for-desktop {
-        flex: 1 1 50%;
+        flex: 0 0 50%;
       }
       & + &:not(:nth-child(odd)) {
         @include for-desktop {
@@ -198,7 +198,7 @@ export default {
   }
   &__radio {
     margin-bottom: 0;
-    &-group{
+    &-group {
       margin-left: -#{$spacer-big};
       margin-right: -#{$spacer-big};
       margin-bottom: $spacer-extra-big;
