@@ -5,14 +5,14 @@ import SfAddToCart from "./SfAddToCart.vue";
 
 storiesOf("Molecules|AddToCart", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfAddToCart },
     props: {
       disabled: {
-        default: boolean("disabled (props)", false)
+        default: boolean("disabled", false, "Props")
       },
       stock: {
-        default: number("stock (props)", 99)
+        default: number("stock", 99, {}, "Props")
       }
     },
     data() {
@@ -30,10 +30,10 @@ storiesOf("Molecules|AddToCart", module)
     components: { SfAddToCart },
     props: {
       disabled: {
-        default: boolean("disabled (props)", false)
+        default: boolean("disabled", false, "Props")
       },
       stock: {
-        default: number("stock (props)", 99)
+        default: number("stock", 99, {}, "Props")
       }
     },
     data() {
@@ -54,10 +54,10 @@ storiesOf("Molecules|AddToCart", module)
     components: { SfAddToCart },
     props: {
       disabled: {
-        default: boolean("disabled (props)", false)
+        default: boolean("disabled", false, "Props")
       },
       stock: {
-        default: number("stock (props)", 99)
+        default: number("stock", 99, {}, "Props")
       }
     },
     data() {

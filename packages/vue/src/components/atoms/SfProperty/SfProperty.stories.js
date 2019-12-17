@@ -11,24 +11,25 @@ import SfBadge from "../SfBadge/SfBadge.vue";
 
 storiesOf("Atoms|Property", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfProperty },
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-property--full-width": "sf-property--full-width"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       name: {
-        default: text("name (prop)", "Material")
+        default: text("name", "Material", "Props")
       },
       value: {
-        default: text("value (prop)", "Cotton")
+        default: text("value", "Cotton", "Props")
       }
     },
     template: `<SfProperty
@@ -41,19 +42,20 @@ storiesOf("Atoms|Property", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-property--full-width": "sf-property--full-width"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       name: {
-        default: text("name (prop)", "Material")
+        default: text("name", "Material", "Props")
       },
       value: {
-        default: text("value (prop)", "Cotton")
+        default: text("value", "Cotton", "Props")
       }
     },
     template: `<SfProperty
@@ -73,19 +75,20 @@ storiesOf("Atoms|Property", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-property--full-width": "sf-property--full-width"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       name: {
-        default: text("name (prop)", "Material")
+        default: text("name", "Material", "Props")
       },
       value: {
-        default: text("value (prop)", "Cotton")
+        default: text("value", "Cotton", "Props")
       }
     },
     template: `<SfProperty

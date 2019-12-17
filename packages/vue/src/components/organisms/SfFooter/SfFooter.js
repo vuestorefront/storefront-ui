@@ -48,6 +48,7 @@ export default {
       this.items.push(title);
     },
     toggle(payload) {
+      if (!this.isMobile) return;
       if (!this.multiple) {
         this.open = [payload];
       } else if (this.open.includes(payload)) {

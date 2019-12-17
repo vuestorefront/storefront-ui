@@ -3,34 +3,39 @@ import { withKnobs, text, select, object } from "@storybook/addon-knobs";
 
 import SfHeader from "./SfHeader.vue";
 
-storiesOf("Organisms/Header", module)
+storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfHeader },
     props: {
       title: {
-        default: text("title (prop)", "Storefront UI")
+        default: text("title", "Storefront UI", "Props")
       },
       logo: {
-        default: object("logo (prop)", {
-          small: { url: "/assets/logo.svg" },
-          normal: { url: "/assets/logo.svg" }
-        })
+        default: object(
+          "logo",
+          {
+            small: { url: "/assets/logo.svg" },
+            normal: { url: "/assets/logo.svg" }
+          },
+          "Props"
+        )
       },
       cartIcon: {
-        default: text("cart-icon (prop)", "empty_cart")
+        default: text("cartIcon", "empty_cart", "Props")
       },
       wishlistIcon: {
-        default: text("wishlist-icon (prop)", "heart")
+        default: text("wishlistIcon", "heart", "Props")
       },
       accountIcon: {
-        default: text("account-icon (prop)", "profile")
+        default: text("accountIcon", "profile", "Props")
       },
       activeIcon: {
         default: select(
-          "active-icon (prop)",
+          "activeIcon",
           ["", "account", "wishlist", "cart"],
-          "account"
+          "account",
+          "Props"
         )
       }
     },
@@ -60,28 +65,33 @@ storiesOf("Organisms/Header", module)
     components: { SfHeader },
     props: {
       title: {
-        default: text("title (prop)", "Storefront UI")
+        default: text("title", "Storefront UI", "Props")
       },
       logo: {
-        default: object("logo (prop)", {
-          small: { url: "/assets/logo.svg" },
-          normal: { url: "/assets/logo.svg" }
-        })
+        default: object(
+          "logo",
+          {
+            small: { url: "/assets/logo.svg" },
+            normal: { url: "/assets/logo.svg" }
+          },
+          "Props"
+        )
       },
       cartIcon: {
-        default: text("cartIcon (prop)", "empty_cart")
+        default: text("cartIcon", "empty_cart", "Props")
       },
       wishlistIcon: {
-        default: text("wishlistIcon (prop)", "heart")
+        default: text("wishlistIcon", "heart", "Props")
       },
       accountIcon: {
-        default: text("accountIcon (prop)", "profile")
+        default: text("accountIcon", "profile", "Props")
       },
       activeIcon: {
         default: select(
-          "active-icon (prop)",
+          "activeIcon",
           ["", "account", "wishlist", "cart"],
-          "account"
+          "account",
+          "Props"
         )
       }
     },
@@ -94,6 +104,9 @@ storiesOf("Organisms/Header", module)
       :active-icon="activeIcon"
       style="max-width: 1024px; margin: auto"
     >
+      <template #logo>
+        CUSTOM LOGO 
+      </template>
       <template #navigation>
         <div class="sf-header__navigation-item">
           <a href="#women" class="sf-header__navigation-link">Women</a>
@@ -105,34 +118,35 @@ storiesOf("Organisms/Header", module)
           <a href="#kids" class="sf-header__navigation-link">Kids</a>
         </div>
       </template>
-      <template #logo>
-        CUSTOM LOGO 
-      </template>
     </SfHeader>`
   }))
   .add("[slot] search", () => ({
     components: { SfHeader },
     props: {
       title: {
-        default: text("title (prop)", "Storefront UI")
+        default: text("title", "Storefront UI", "Props")
       },
       logo: {
-        default: object("logo (prop)", {
-          small: { url: "/assets/logo.svg" },
-          normal: { url: "/assets/logo.svg" }
-        })
+        default: object(
+          "logo",
+          {
+            small: { url: "/assets/logo.svg" },
+            normal: { url: "/assets/logo.svg" }
+          },
+          "Props"
+        )
       },
       cartIcon: {
-        default: text("cartIcon (prop)", "empty_cart")
+        default: text("cartIcon", "empty_cart", "Props")
       },
       wishlistIcon: {
-        default: text("wishlistIcon (prop)", "heart")
+        default: text("wishlistIcon", "heart", "Props")
       },
       accountIcon: {
-        default: text("accountIcon (prop)", "profile")
+        default: text("accountIcon", "profile", "Props")
       },
       activeIcon: {
-        default: text("activeIcon (prop)", "account")
+        default: text("activeIcon", "account", "Props")
       }
     },
     template: `<SfHeader
@@ -144,6 +158,9 @@ storiesOf("Organisms/Header", module)
       :active-icon="activeIcon"
       style="max-width: 1024px; margin: auto"
     >
+      <template #search>
+        CUSTOM SEARCH
+      </template>
       <template #navigation>
         <div class="sf-header__navigation-item">
           <a href="#women" class="sf-header__navigation-link">Women</a>
@@ -155,37 +172,39 @@ storiesOf("Organisms/Header", module)
           <a href="#kids" class="sf-header__navigation-link">Kids</a>
         </div>
       </template>
-      <template #search>
-        <div :style="{marginLeft: 'auto'}">CUSTOM SEARCH</div>
-      </template>
     </SfHeader>`
   }))
   .add("[slot] icons", () => ({
     components: { SfHeader },
     props: {
       title: {
-        default: text("title (prop)", "Storefront UI")
+        default: text("title", "Storefront UI", "Props")
       },
       logo: {
-        default: object("logo (prop)", {
-          small: { url: "/assets/logo.svg" },
-          normal: { url: "/assets/logo.svg" }
-        })
+        default: object(
+          "logo",
+          {
+            small: { url: "/assets/logo.svg" },
+            normal: { url: "/assets/logo.svg" }
+          },
+          "Props"
+        )
       },
       cartIcon: {
-        default: text("cartIcon (prop)", "empty_cart")
+        default: text("cartIcon", "empty_cart", "Props")
       },
       wishlistIcon: {
-        default: text("wishlistIcon (prop)", "heart")
+        default: text("wishlistIcon", "heart", "Props")
       },
       accountIcon: {
-        default: text("accountIcon (prop)", "mail")
+        default: text("accountIcon", "mail", "Props")
       },
       activeIcon: {
         default: select(
-          "active-icon (prop)",
+          "activeIcon",
           ["", "account", "wishlist", "cart"],
-          "account"
+          "account",
+          "Props"
         )
       }
     },
