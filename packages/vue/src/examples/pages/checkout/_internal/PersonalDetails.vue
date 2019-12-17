@@ -36,6 +36,7 @@
         <SfInput
           v-if="createAccount"
           v-model="password"
+          type="password"
           label="Create Password"
           class="form__element"
           required
@@ -69,7 +70,7 @@ export default {
       firstName: "Adam",
       lastName: "Kowalski",
       email: "akowalski@divante.pl",
-      password: "",
+      password: "howcoolisthat?",
       createAccount: true
     };
   }
