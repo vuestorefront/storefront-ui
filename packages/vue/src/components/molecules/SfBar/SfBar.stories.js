@@ -87,4 +87,4 @@ storiesOf("Molecules|Bar", module)
       >
         <template #close>CUSTOM CLOSE</template>
       </SfBar>`
-  }))
+  }));
