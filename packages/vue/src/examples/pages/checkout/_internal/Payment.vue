@@ -58,7 +58,9 @@
         v-model="country"
         class="form__element form__element--half form__select sf-select--underlined"
       >
-        <SfSelectOption value="poland">Poland</SfSelectOption>
+        <SfSelectOption value="poland">
+          Poland
+        </SfSelectOption>
       </SfSelect>
     </div>
     <SfHeading
@@ -96,49 +98,79 @@
                 <SfImage
                   :src="`/assets/storybook/checkoutpage/${item.value}.png`"
                   class="payment-image"
-                ></SfImage>
+                />
               </template>
             </div>
           </template>
         </SfRadio>
       </div>
-      <div
-        v-if="isCreditCard"
-        class="form__element"
-        :style="{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          marginBottom: '40px'
-        }"
-      >
-        <SfInput
-          v-model="cardNumber"
-          :style="{ width: '500px', marginBottom: '20px' }"
-          name="cardNumber"
-          label="Number"
-        />
-        <SfInput
-          v-model="cardExpiry"
-          :style="{ width: '500px', marginBottom: '20px' }"
-          name="cardExpiry"
-          label="Expiry date"
-        />
-        <SfInput
-          v-model="cardCVC"
-          :style="{ width: '500px', marginBottom: '20px' }"
-          name="cardCVC"
-          label="Code CVC"
-        />
-        <SfCheckbox
-          v-model="keepCard"
-          name="keepcard"
-          label="I want to keed this data for other purchases."
-        />
-      </div>
-      <SfButton class="sf-button--text form__action form__action--left"
-        >Go back to Personal details</SfButton
-      >
+      <transition name="fade">
+        <div v-if="isCreditCard" class="form__element credit-card">
+          <div class="credit-card__element">
+            <span class="credit-card__label credit-card__label--required"
+              >Number</span
+            >
+            <SfInput
+              v-model="cardNumber"
+              name="cardNumber"
+              class="sf-input--bordered credit-card__input"
+            />
+          </div>
+          <div class="credit-card__element">
+            <span class="credit-card__label credit-card__label--required"
+              >Card holder</span
+            >
+            <SfInput
+              v-model="cardHolder"
+              name="cardHolder"
+              class="sf-input--bordered credit-card__input"
+            />
+          </div>
+          <div class="credit-card__element">
+            <span class="credit-card__label credit-card__label--required"
+              >Expiry date</span
+            >
+            <SfSelect
+              v-model="cardMonth"
+              label="Month"
+              class="sf-select--bordered credit-card__select"
+            >
+              <SfSelectOption v-for="i in 12" :key="i" :value="i">
+                {{ i }}
+              </SfSelectOption>
+            </SfSelect>
+            <SfSelect
+              v-model="cardYear"
+              label="Year"
+              class="sf-select--bordered credit-card__select"
+            >
+              <SfSelectOption v-for="i in 12" :key="i" :value="i">
+                {{ i + 12 }}
+              </SfSelectOption>
+            </SfSelect>
+          </div>
+          <div class="credit-card__element credit-card__element--spacer-extra-big">
+            <span class="credit-card__label credit-card__label--required"
+              >Code CVC</span
+            >
+            <div class="credit-card__cvc">
+              <SfInput
+                v-model="cardCVC"
+                name="cardCVC"
+                class="sf-input--bordered credit-card__input credit-card__input--small"
+              />
+            </div>
+          </div>
+          <SfCheckbox
+            v-model="keepCard"
+            name="keepcard"
+            label="I want to keed this data for other purchases."
+          />
+        </div>
+      </transition>
+      <SfButton class="sf-button--text form__action form__action--left">
+        Go back to Personal details
+      </SfButton>
       <SfButton>Continue to payment</SfButton>
     </div>
   </div>
@@ -177,7 +209,9 @@ export default {
       phoneNumber: "+48 577 032 500",
       paymentMethod: "debit",
       cardNumber: "4097968681276022",
-      cardExpiry: "22/24",
+      cardHolder: "",
+      cardMonth: null,
+      cardYear: null,
       cardCVC: "678",
       keepCard: true,
       paymentMethods: [
@@ -288,5 +322,54 @@ export default {
   padding: $spacer-big 0;
   border-top: $border;
   border-bottom: $border;
+}
+.credit-card {
+  flex: 0 0 66.666%;
+  padding: 0 calc((100% - 66.666%) / 2);
+  &__element {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacer-big;
+    &--spacer-extra-big{
+      margin-bottom: $spacer-extra-big;
+    }
+  }
+  &__label {
+    flex: 1;
+    &--required {
+      &::after {
+        content: "*";
+        color: $c-primary;
+      }
+    }
+  }
+  &__input {
+    flex: 0 0 21.5rem;
+    &--small{
+      flex: 0 0 7.5rem;
+    }
+  }
+  &__select {
+    flex: 0 0 10.125rem;
+    ::v-deep .sf-select__selected {
+      padding: 5px $spacer-big;
+    }
+    & + & {
+      margin-left: $spacer-big;
+    }
+  }
+  &__cvc{
+    flex: 0 0 21.5rem;
+    display: flex;
+  }
+}
+.sf-input {
+  &--bordered {
+    ::v-deep input {
+      box-sizing: border-box;
+      padding: 5px $spacer-big;
+      border: 1px solid $c-light;
+    }
+  }
 }
 </style>
