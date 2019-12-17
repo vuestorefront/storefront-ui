@@ -27,14 +27,14 @@
 </template>
 <script>
 // import PersonalDetails from "./components/PersonalDetails";
-import Shipping from "./components/Shipping";
+// import Shipping from "./components/Shipping";
 import Payment from "./components/Payment";
 import ReviewOrder from "./components/ReviewOrder";
 import AccountBenefits from "./components/AccountBenefits";
 import OrderSummary from "./components/OrderSummary";
 import OrderReview from "./components/OrderReview";
 import { SfSteps, SfModal } from "../../../../index.js";
-import { PersonalDetails } from "./_internal/index.js";
+import { PersonalDetails, Shipping } from "./_internal/index.js";
 export default {
   name: "Checkout",
   components: {
@@ -50,7 +50,7 @@ export default {
   },
   data() {
     return {
-      active: 0
+      active: 1
     };
   }
 };
