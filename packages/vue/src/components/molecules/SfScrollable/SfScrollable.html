@@ -1,6 +1,9 @@
 <div class="sf-scrollable">
-    <div class="sf-scrollable__content">
+    <div class="sf-scrollable__content" ref="content">
         <slot />
     </div>
-    <SfButton class="sf-scrollable__button sf-button--text" v-if="buttonText">{{ buttonText }}</SfButton>
+    <SfButton class="sf-scrollable__button sf-button--text" v-if="showText && closeText" @click="handleClick">
+        <span v-if="isHidden">{{ showText }}</span>
+        <span v-else>{{ closeText }}</span>
+    </SfButton>
 </div>

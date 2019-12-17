@@ -38,7 +38,7 @@ storiesOf("Molecules|Scrollable", module)
         ]
       };
     },
-    template: `<SfScrollable button-text="View all colors" max-content-height="6rem">
+    template: `<SfScrollable show-text="View all colors" close-text="Hide" max-content-height="6rem">
         <SfProductOption v-for="option in options" :key="option.color" :color="option.color" :label="option.label"></SfProductOption>
     </SfScrollable>`
   }));
