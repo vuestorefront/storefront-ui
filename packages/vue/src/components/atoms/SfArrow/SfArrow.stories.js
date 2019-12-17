@@ -53,6 +53,6 @@ storiesOf("Atoms|Arrow", module)
     },
     template: `<SfArrow
       :class="customClass">
-      <SfIcon icon="chevron_left" size="12px" view-box="0 0 24 12"/>
+      <SfIcon icon="chevron_left" class="sf-arrow__icon" size="12px" view-box="0 0 24 12"/>
     </SfArrow>`
   }));
