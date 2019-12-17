@@ -6,9 +6,16 @@ export default {
     SfButton
   },
   props: {
+    maxContentHeight: {
+      type: String,
+      default: ""
+    },
     buttonText: {
       type: String,
       default: ""
     }
+  },
+  mounted() {
+    this.$el.style.setProperty("--content-height", this.maxContentHeight);
   }
 };

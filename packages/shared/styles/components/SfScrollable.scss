@@ -1,6 +1,8 @@
 .sf-scrollable {
+    --content-height: 2rem;
+
     &__content {
-        max-height: 6rem;
+        max-height: var(--content-height);
         max-width: 13.5rem;
         overflow-y: scroll;
     }
