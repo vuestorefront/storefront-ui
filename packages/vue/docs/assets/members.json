@@ -30,6 +30,21 @@
     }
   },
   {
+    "name": "Anna Musiał",
+    "role": "Maintainer",
+    "work": {
+      "title": "Junior Frontend Developer",
+      "org": "DivanteLtd",
+      "orgUrl": "https://github.com/DivanteLtd"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl", "en"],
+    "socials": {
+      "github": "aniamusial",
+      "twitter": "musialania"
+    }
+  },
+  {
     "name": "Maya Shavin",
     "role": "Maintainer",
     "work": {
