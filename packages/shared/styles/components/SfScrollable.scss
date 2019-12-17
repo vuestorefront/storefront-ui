@@ -1,3 +1,5 @@
+@import "../variables";
+
 .sf-scrollable {
     --content-height: 2rem;
 
@@ -10,4 +12,19 @@
         margin-top: 1rem;
     }
 
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+     
+    ::-webkit-scrollbar-track {
+       background: $c-light;
+       border-left: 1px solid white;
+       border-right: 1px solid white;
+    }
+     
+    ::-webkit-scrollbar-thumb {
+        width: 10px;
+        border-radius: 10px;
+        background: $c-dark;
+    }
 }
