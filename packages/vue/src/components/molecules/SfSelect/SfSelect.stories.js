@@ -13,34 +13,35 @@ import SfProductOption from "../SfProductOption/SfProductOption.vue";
 
 storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
-  .add("[slot] default", () => ({
+  .add("Common", () => ({
     components: { SfSelect, SfProductOption },
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-select--bordered": "sf-select--bordered",
             "sf-select--underlined": "sf-select--underlined"
           },
           "sf-select--underlined",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       label: {
-        default: text("label (prop)", "Color")
+        default: text("label", "Color", "Props")
       },
       size: {
-        default: number("size (prop)", 5)
+        default: number("size", 5, {}, "Props")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("required", false, "Props")
       },
       valid: {
-        default: boolean("valid (prop)", true)
+        default: boolean("valid", true, "Props")
       },
       errorMessage: {
-        default: text("label (prop)", "Color")
+        default: text("label", "Color", "Props")
       }
     },
     data() {
@@ -75,29 +76,30 @@ storiesOf("Molecules|Select", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-select--bordered": "sf-select--bordered",
             "sf-select--underlined": "sf-select--underlined"
           },
           "sf-select--underlined",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       label: {
-        default: text("label (prop)", "Color")
+        default: text("label", "Color", "Props")
       },
       size: {
-        default: number("size (prop)", 5)
+        default: number("size", 5, {}, "Props")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("required", false, "Props")
       },
       valid: {
-        default: boolean("valid (prop)", true)
+        default: boolean("valid", true, "Props")
       },
       errorMessage: {
-        default: text("label (prop)", "Color")
+        default: text("label", "Color", "Props")
       }
     },
     data() {
@@ -135,29 +137,30 @@ storiesOf("Molecules|Select", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-select--bordered": "sf-select--bordered",
             "sf-select--underlined": "sf-select--underlined"
           },
           "sf-select--underlined",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       label: {
-        default: text("label (prop)", "Color")
+        default: text("label", "Color", "Props")
       },
       size: {
-        default: number("size (prop)", 5)
+        default: number("size", 5, {}, "Props")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("required", false, "Props")
       },
       valid: {
-        default: boolean("valid (prop)", false)
+        default: boolean("valid", false, "Props")
       },
       errorMessage: {
-        default: text("label (prop)", "Color")
+        default: text("label", "Color", "Props")
       }
     },
     data() {
