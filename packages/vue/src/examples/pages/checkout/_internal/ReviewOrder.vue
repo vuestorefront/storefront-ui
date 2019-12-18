@@ -5,10 +5,13 @@
       class="sf-heading--left sf-heading--no-underline title"
     />
     <SfTable>
-      <SfTableRow class="sf-table__row--header">
-        <SfTableHeader v-for="tableHeader in tableHeaders" :key="tableHeader" class="table__header">{{
-          tableHeader
-        }}</SfTableHeader>
+      <SfTableRow>
+        <SfTableHeader
+          v-for="tableHeader in tableHeaders"
+          :key="tableHeader"
+          class="table__header"
+          >{{ tableHeader }}</SfTableHeader
+        >
         <SfTableHeader></SfTableHeader>
       </SfTableRow>
       <SfTableRow>
@@ -26,7 +29,14 @@
           <SfPrice regular="$50" class="product-price" />
         </SfTableData>
         <SfTableData>
-          <SfIcon icon="cross" size="xxs" color="#BEBFC4" role="button" />
+          <SfIcon
+            icon="cross"
+            size="xxs"
+            color="#BEBFC4"
+            role="button"
+            class="button"
+            @click="removeItem"
+          />
         </SfTableData>
       </SfTableRow>
       <SfTableRow>
@@ -41,10 +51,17 @@
         <SfTableData class="table__data">One size</SfTableData>
         <SfTableData class="table__data">1</SfTableData>
         <SfTableData class="table__data">
-          <SfPrice regular="$50" class="product-price" />
+          <SfPrice regular="$150" special="$100" class="product-price" />
         </SfTableData>
         <SfTableData>
-          <SfIcon icon="cross" size="xxs" color="#BEBFC4" role="button" />
+          <SfIcon
+            icon="cross"
+            size="xxs"
+            color="#BEBFC4"
+            role="button"
+            class="button"
+            @click="removeItem"
+          />
         </SfTableData>
       </SfTableRow>
     </SfTable>
@@ -62,14 +79,18 @@
           value="$150.00"
           class="sf-property--full-width property"
         >
-          <template #name><span class="property__name">Subtotal</span></template>
+          <template #name
+            ><span class="property__name">Subtotal</span></template
+          >
         </SfProperty>
         <SfProperty
           name="Shipping"
           value="$9.90"
           class="sf-property--full-width property"
         >
-          <template #name><span class="property__name">Shipping</span></template>
+          <template #name
+            ><span class="property__name">Shipping</span></template
+          >
         </SfProperty>
         <SfProperty
           name="Total"
@@ -123,6 +144,11 @@ export default {
         "Amount"
       ]
     };
+  },
+  methods: {
+    removeItem() {
+      console.log("remove item from order");
+    }
   }
 };
 </script>
@@ -151,7 +177,7 @@ export default {
 }
 .table {
   margin-bottom: $spacer-big;
-  &__header{
+  &__header {
     font-size: $font-size-regular-desktop;
     font-weight: $body-font-weight-primary;
   }
@@ -163,28 +189,28 @@ export default {
     }
   }
 }
-.summary{
+.summary {
   display: flex;
-  margin-bottom: $spacer-extra-big  ;
-  &__column{
+  margin-bottom: $spacer-extra-big;
+  &__column {
     flex: 1;
-    &--small{
+    &--small {
       flex: 0 0 18.75rem;
     }
   }
-  &__total{
+  &__total {
     margin-top: $spacer-big;
   }
 }
-.property{
+.property {
   font-size: $font-size-small-desktop;
   line-height: 1.6;
-  &--huge{
+  &--huge {
     text-transform: uppercase;
     font-size: $font-size-regular-desktop;
     font-weight: 500;
   }
-  &__name{
+  &__name {
     color: $c-text-muted;
   }
 }
@@ -199,6 +225,15 @@ export default {
   font-size: $font-size-extra-small-desktop;
 }
 .product-price {
+  display: flex;
+  flex-direction: column;
   font-size: $font-size-small-desktop;
+  ::v-deep .sf-price__special{
+    order: 1;
+    color: $c-text;
+  }
+}
+.button {
+  cursor: pointer;
 }
 </style>
