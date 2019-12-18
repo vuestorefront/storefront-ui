@@ -23,18 +23,56 @@
     class="sf-product-card__link"
   >
     <!-- @slot -->
-    <slot name="image" v-bind="{ image, title }">
-      <div v-if="Array.isArray(image)" class="sf-product-card__pictures">
-        <div class="sf-product-card__picture" v-for="picture in image.slice(0, 2)">
-          <div class="sf-product-card__image">
-            <SfImage :src="picture" />
+  
+    <div class="sf-product-card__image-wrapper" ref="productImage">
+      <slot name="image" v-bind="{ image, title }">
+        <div v-if="Array.isArray(image)" class="sf-product-card__pictures">
+          <div class="sf-product-card__picture" v-for="picture in image.slice(0, 2)">
+            <div class="sf-product-card__image">
+              <SfImage :src="picture" />
+            </div>
           </div>
         </div>
-      </div>
-      <div v-else class="sf-product-card__image">
-        <SfImage :src="image" :alt="title" />
-      </div>
-    </slot>
+        <div v-else class="sf-product-card__image">
+          <SfImage :src="image" :alt="title" />
+        </div>
+      </slot>
+
+      <template v-if="showAddToCartButton">
+            <!-- @slot -->
+            <slot name="add-to-cart" v-bind="{ isAddedToCart, showAddedToCartBadge, isAddingToCart }" >
+                <SfCircleIcon 
+                  class="sf-product-card__add-button" 
+                  @click="onAddToCart"
+                  aria-label="add-to-cart"
+                  role="button"
+                  :hasBadge="showAddedToCartBadge"
+                  :disabled="addToCartDisabled" 
+                >
+                <div class="sf-product-card__add-button--icons">
+                    <transition name="sf-product-card__add-button--icons" mode="out-in">
+                        <slot name="add-to-cart-icon" v-if="!isAddingToCart">
+                            <SfIcon 
+                            key="add_to_cart"
+                            icon="add_to_cart"
+                            size="20px"
+                            color="white"
+                          />
+                        </slot>
+                         <slot name="adding-to-cart-icon" v-else>
+                            <SfIcon 
+                            key="added_to_cart"
+                            icon="added_to_cart"
+                            size="20px"
+                            color="white"
+                          />
+                         </slot>
+                      </transition>
+                </div>
+              </SfCircleIcon>
+            </slot>   
+      </template>
+    </div>
 
     <!-- @slot -->
     <slot name="title" v-bind="{ title }">

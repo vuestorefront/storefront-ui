@@ -235,7 +235,7 @@
     </SfSection>
     <SfBanner
       title="Download our application to your mobile"
-      image="assets/storybook/homepage/bannerD.png"
+      image="/assets/storybook/homepage/bannerD.png"
       class="banner-application sf-banner--left sf-banner--center desktop-only"
     >
       <template #subtitle>
