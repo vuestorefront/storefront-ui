@@ -10,21 +10,13 @@
     display: flex;
     flex-wrap: wrap;
     border-bottom: 1px solid $c-light;
+    
     @media (min-width: $desktop-min) {
       border: none;
-    }
-    &:hover {
-      background-color: $c-light;
-      box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
-    }
-    &--header {
-      background-color: $c-light;
-      color: $c-text;
 
-      @media (min-width: $desktop-min) {
-        border-bottom: 1px solid $c-light;
-        flex-wrap: nowrap;
-        background-color: $c-white;
+      &:hover {
+        background-color: $c-light;
+        box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
       }
     }
   }
@@ -48,8 +40,13 @@
   }
 
   &__header {
-    @media (min-width: $desktop-min) {
-      border-bottom: 1px solid $c-light;
-    }
+    background-color: $c-light;
+    color: $c-text;
+
+      @media (min-width: $desktop-min) {
+        border-bottom: 1px solid $c-light;
+        flex-wrap: nowrap;
+        background-color: $c-white;
+      }
   }
 }
