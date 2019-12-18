@@ -16,7 +16,7 @@
         v-model="lastName"
         label="Last name"
         name="lastName"
-        class="form__element form__element--half"
+        class="form__element form__element--half form__element--half-even"
         required
       />
       <SfInput
@@ -101,7 +101,7 @@ export default {
       @include for-desktop {
         flex: 1 1 50%;
       }
-      & + &:not(:nth-child(odd)) {
+      &-even {
         @include for-desktop {
           padding-left: $spacer-extra-big;
         }

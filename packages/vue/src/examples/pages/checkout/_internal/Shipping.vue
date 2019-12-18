@@ -16,7 +16,7 @@
         v-model="lastName"
         label="Last name"
         name="lastName"
-        class="form__element form__element--half"
+        class="form__element form__element--half form__element--half-even"
         required
       />
       <SfInput
@@ -44,7 +44,7 @@
         v-model="state"
         label="State/Province"
         name="state"
-        class="form__element form__element--half"
+        class="form__element form__element--half form__element--half-even"
         required
       />
       <SfInput
@@ -56,7 +56,7 @@
       />
       <SfSelect
         v-model="country"
-        class="form__element form__element--half form__select sf-select--underlined"
+        class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
       >
         <SfSelectOption value="poland">Poland</SfSelectOption>
       </SfSelect>
@@ -173,9 +173,9 @@ export default {
     }
     &--half {
       @include for-desktop {
-        flex: 0 0 50%;
+        flex: 1 1 50%;
       }
-      & + &:not(:nth-child(odd)) {
+      &-even {
         @include for-desktop {
           padding-left: $spacer-extra-big;
         }
