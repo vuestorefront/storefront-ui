@@ -66,19 +66,19 @@
       <SfCharacteristic
         title="Safety"
         description="It carefully packaged with a personal touch"
-        sizeIcon="sm"
+        size-icon="sm"
         style="margin-bottom: 1.25rem;"
       />
       <SfCharacteristic
         title="Easy shipping"
         description="You’ll receive dispatch confirmation and an arrival date"
-        sizeIcon="sm"
+        size-icon="sm"
         style="margin-bottom: 1.25rem;"
       />
       <SfCharacteristic
         title="Changed your mind?"
         description="Rest assured, we offer free returns within 30 days"
-        sizeIcon="sm"
+        size-icon="sm"
       />
     </div>
   </div>

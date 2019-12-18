@@ -178,7 +178,10 @@
           />
         </div>
       </transition>
-      <SfButton class="sf-button--text form__action form__action--left">
+      <SfButton
+        class="sf-button--text form__action form__action--left"
+        @click="$emit('click:back')"
+      >
         Go back to Personal details
       </SfButton>
       <SfButton>Review order</SfButton>

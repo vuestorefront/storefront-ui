@@ -102,7 +102,9 @@
       </div>
     </div>
     <div class="form">
-      <SfButton class="sf-button--text form__action form__action--left"
+      <SfButton
+        class="sf-button--text form__action form__action--left"
+        @click="$emit('click:back')"
         >Go back to Payment</SfButton
       >
       <SfButton>Place my order</SfButton>
@@ -231,7 +233,7 @@ export default {
   display: flex;
   flex-direction: column;
   font-size: $font-size-small-desktop;
-  ::v-deep .sf-price__special{
+  ::v-deep .sf-price__special {
     order: 1;
     color: $c-text;
   }

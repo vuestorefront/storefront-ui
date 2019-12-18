@@ -30,7 +30,12 @@ import AccountBenefits from "./components/AccountBenefits";
 import OrderSummary from "./components/OrderSummary";
 import OrderReview from "./components/OrderReview";
 import { SfSteps, SfModal } from "../../../../index.js";
-import { PersonalDetails, Shipping, Payment, ReviewOrder } from "./_internal/index.js";
+import {
+  PersonalDetails,
+  Shipping,
+  Payment,
+  ReviewOrder
+} from "./_internal/index.js";
 
 export default {
   name: "Checkout",
