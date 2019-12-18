@@ -12,10 +12,6 @@ Table component with inner rows, headers and data.
       </SfTableRow>
       <SfTableRow v-for="data in content">
         <SfTableData v-for="item in data">{{ item }}</SfTableData>
-        <SfTableData class="text-success">In process</SfTableData>
-        <SfTableData>
-          <a class="desktop-only">VIEW</a>
-        </SfTableData>
       </SfTableRow>
     </template>
     </SfTable>
