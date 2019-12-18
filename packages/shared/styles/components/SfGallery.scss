@@ -107,9 +107,8 @@ $gallery__stage-cursor: zoom-in !default;
     max-width: 100%;
     width: auto;
     height: auto;
-    cursor: $gallery__stage-cursor;
-    &.disable-pointer-zoom {
-      cursor: auto;
+    &--has-zoom {
+      cursor: $gallery__stage-cursor;
     }
   }
 

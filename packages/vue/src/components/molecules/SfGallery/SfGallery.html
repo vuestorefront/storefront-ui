@@ -30,8 +30,8 @@
             >
             <SfImage
               ref="sfGalleryBigImage"
-              :class="{'disable-pointer-zoom': disableZoom}"
               class="sf-gallery__big-image"
+              :class="{'sf-gallery__big-image--has-zoom': enableZoom}"
               :src="picture.normal.url"
               @click="$emit('click:stage', { picture, index })"
 

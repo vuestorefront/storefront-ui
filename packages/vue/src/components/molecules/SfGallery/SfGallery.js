@@ -47,7 +47,7 @@ export default {
     /**
      * Toogle for image zoom or overlap the stage
      */
-    disableZoom: {
+    enableZoom: {
       type: Boolean,
       default: false
     }
@@ -98,13 +98,13 @@ export default {
       }
     },
     startZoom(picture) {
-      if (!this.disableZoom) {
+      if (this.enableZoom) {
         const { zoom, big, normal } = picture;
         this.pictureSelected = (zoom || big || normal).url;
       }
     },
     moveZoom($event, index) {
-      if (!this.disableZoom) {
+      if (this.enableZoom) {
         this.eventHover = $event;
         if (this.outsideZoom) {
           this.positionStatic = this.positionObject(index);
@@ -124,7 +124,7 @@ export default {
       }
     },
     removeZoom() {
-      if (!this.disableZoom) {
+      if (this.enableZoom) {
         this.pictureSelected = "";
         this.$refs.sfGalleryBigImage.forEach(el => {
           el.$refs.imgLazy.style.transform = "scale(1)";
