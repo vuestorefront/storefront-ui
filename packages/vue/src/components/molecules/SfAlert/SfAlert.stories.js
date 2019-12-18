@@ -5,17 +5,18 @@ import SfAlert from "./SfAlert.vue";
 
 storiesOf("Molecules|Alert", module)
   .addDecorator(withKnobs)
-  .add("Basic", () => ({
+  .add("Common", () => ({
     components: { SfAlert },
     props: {
       message: {
-        default: text("message (prop)", "Low in stock")
+        default: text("message", "Low in stock", "Props")
       },
       type: {
         default: select(
-          "type (prop)",
+          "type",
           ["info", "success", "warning", "danger"],
-          "info"
+          "info",
+          "Props"
         )
       }
     },
@@ -28,13 +29,14 @@ storiesOf("Molecules|Alert", module)
     components: { SfAlert },
     props: {
       message: {
-        default: text("message (prop)", "Low in stock")
+        default: text("message", "Low in stock", "Props")
       },
       type: {
         default: select(
-          "type (prop)",
+          "type",
           ["info", "success", "warning", "danger"],
-          "info"
+          "info",
+          "Props"
         )
       }
     },
@@ -50,13 +52,14 @@ storiesOf("Molecules|Alert", module)
     components: { SfAlert },
     props: {
       message: {
-        default: text("message (prop)", "Low in stock")
+        default: text("message", "Low in stock", "Props")
       },
       type: {
         default: select(
-          "type (prop)",
+          "type",
           ["info", "success", "warning", "danger"],
-          "info"
+          "info",
+          "Props"
         )
       }
     },

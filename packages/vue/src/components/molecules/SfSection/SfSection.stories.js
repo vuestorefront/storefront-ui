@@ -7,37 +7,38 @@ import {
   optionsKnob as options
 } from "@storybook/addon-knobs";
 
+import SfSection from "./SfSection.vue";
+
 const StoriesPlaceholder = {
   template: `<div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
     [#default slot content]
   </div>`
 };
 
-import SfSection from "./SfSection.vue";
-
 storiesOf("Molecules|Section", module)
   .addDecorator(withKnobs)
-  .add("[slot] default", () => ({
+  .add("Common", () => ({
     components: { SfSection, StoriesPlaceholder },
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-section--no-underline": "sf-section--no-underline"
           },
           "sf-section--no-underline",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       titleHeading: {
-        default: text("title-heading (prop)", "Share your look")
+        default: text("titleHeading", "Share your look", "Props")
       },
       subtitleHeading: {
-        default: text("subtitle-heading (prop)", "#YOURLOOK")
+        default: text("subtitleHeading", "#YOURLOOK", "Props")
       },
       levelHeading: {
-        default: number("level-heading (prop)", 2)
+        default: number("level-heading", 2, {}, "Props")
       }
     },
     template: `<SfSection
@@ -52,22 +53,23 @@ storiesOf("Molecules|Section", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-section--no-underline": "sf-section--no-underline"
           },
           "sf-section--no-underline",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       titleHeading: {
-        default: text("title-heading (prop)", "Share your look")
+        default: text("titleHeading", "Share your look", "Props")
       },
       subtitleHeading: {
-        default: text("subtitle-heading (prop)", "#YOURLOOK")
+        default: text("subtitleHeading", "#YOURLOOK", "Props")
       },
       levelHeading: {
-        default: number("level-heading (prop)", 2)
+        default: number("level-heading", 2, {}, "Props")
       }
     },
     template: `<SfSection
