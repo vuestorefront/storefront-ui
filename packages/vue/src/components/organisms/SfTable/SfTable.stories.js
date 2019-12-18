@@ -26,7 +26,7 @@ storiesOf("Organisms/Table", module)
     components: { SfTable, SfButton },
     template: `<SfTable>
     <template>
-      <SfTableRow class="sf-table-row--header">
+      <SfTableRow>
         <SfTableHeader v-for="header in headers">{{ header }}</SfTableHeader>
         <SfTableHeader>
           <span class="mobile-only">Download</span>
