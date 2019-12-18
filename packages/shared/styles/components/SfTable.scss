@@ -31,6 +31,7 @@
 
   &__data, &__header {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 1.25rem 0;
