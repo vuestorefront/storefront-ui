@@ -10,7 +10,7 @@ const StoriesPlaceholderSliding = {
 
 import SfSlidingSection from "./SfSlidingSection.vue";
 
-storiesOf("Molecules|SlidingSection", module).add("Default", () => ({
+storiesOf("Molecules|SlidingSection", module).add("Common", () => ({
   components: {
     SfSlidingSection,
     StoriesPlaceholderStatic,
