@@ -4,7 +4,7 @@
       title="4. Order details"
       class="sf-heading--left sf-heading--no-underline title"
     />
-    <SfTable>
+    <SfTable class="table">
       <SfTableRow>
         <SfTableHeader
           v-for="tableHeader in tableHeaders"
@@ -158,6 +158,9 @@ export default {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
+}
+.title {
+  margin-bottom: $spacer-extra-big;
 }
 .form {
   @include for-desktop {
