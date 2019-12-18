@@ -66,7 +66,7 @@
       </SfTableRow>
     </SfTable>
     <div class="summary">
-      <SfCheckbox v-model="terms" class="summary__column">
+      <SfCheckbox v-model="terms" name="terms" class="summary__column">
         <template #label>
           <div class="sf-checkbox__label">
             I agree to <a href="#">Terms and conditions</a>
