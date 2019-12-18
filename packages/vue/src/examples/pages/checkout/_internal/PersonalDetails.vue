@@ -42,7 +42,7 @@
           required
         />
       </transition>
-      <SfButton>Continue to shipping</SfButton>
+      <SfButton @click="$emit('click:next')">Continue to shipping</SfButton>
       <div class="form__action">
         or
         <SfButton class="sf-button--text">log in to your account</SfButton>

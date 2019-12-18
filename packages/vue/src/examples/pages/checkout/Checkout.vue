@@ -1,23 +1,29 @@
 <template>
   <div id="checkout" style="display: flex">
     <div style="flex: 1">
-      <SfSteps :active="active" @change="active = $event">
+      <SfSteps :active="currentStep" @change="currentStep = $event">
         <SfStep name="Personal Detail">
-          <PersonalDetails />
+          <PersonalDetails @click:next="currentStep++" />
         </SfStep>
         <SfStep name="Shipping">
-          <Shipping />
+          <Shipping
+            @click:next="currentStep++"
+            @click:back="currentStep--"
+          />
         </SfStep>
         <SfStep name="Payment">
-          <Payment />
+          <Payment
+            @click:next="currentStep++"
+            @click:back="currentStep--"
+          />
         </SfStep>
         <SfStep name="Review order">
-          <ReviewOrder />
+          <ReviewOrder @click:back="currentStep--" />
         </SfStep>
       </SfSteps>
     </div>
     <div style="flex-basis: 26.875rem; margin-left: 6.25rem;">
-      <OrderSummary v-if="active <= 2" />
+      <OrderSummary v-if="currentStep <= 2" />
       <OrderReview v-else />
     </div>
     <SfModal :visible="false">
@@ -52,7 +58,7 @@ export default {
   },
   data() {
     return {
-      active: 3
+      currentStep: 0
     };
   }
 };

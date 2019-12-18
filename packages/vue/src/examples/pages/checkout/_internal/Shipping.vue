@@ -83,7 +83,7 @@
         @click="$emit('click:back')"
         >Go back to Personal details</SfButton
       >
-      <SfButton>Continue to payment</SfButton>
+      <SfButton @click="$emit('click:next')">Continue to payment</SfButton>
     </div>
   </div>
 </template>

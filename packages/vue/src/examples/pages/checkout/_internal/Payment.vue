@@ -184,7 +184,7 @@
       >
         Go back to Personal details
       </SfButton>
-      <SfButton>Review order</SfButton>
+      <SfButton @click="$emit('click:next')">Review order</SfButton>
     </div>
   </div>
 </template>
