@@ -31,7 +31,7 @@ storiesOf("Organisms|BannerGrid", module)
                 title="COCKTAIL PARTY"
                 description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
                 button-text="SHOP NOW"
-                image="assets/storybook/homepage/bannerF.jpg"
+                image="/assets/storybook/homepage/bannerF.jpg"
                 class="sf-banner--slim"
               />
             </a>
@@ -43,7 +43,7 @@ storiesOf("Organisms|BannerGrid", module)
                 title="LINEN DRESSES"
                 description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
                 button-text="SHOP NOW"
-                image="assets/storybook/homepage/bannerE.jpg"
+                image="/assets/storybook/homepage/bannerE.jpg"
                 class="sf-banner--slim"
                 style="padding-right: 20%"
               />
@@ -54,7 +54,7 @@ storiesOf("Organisms|BannerGrid", module)
               <SfBanner
               subtitle="T-Shirts"
               title="THE OFFICE LIFE"
-              image="assets/storybook/homepage/bannerC.jpg"
+              image="/assets/storybook/homepage/bannerC.jpg"
               class="sf-banner--slim"
             />
             </a>
@@ -64,7 +64,7 @@ storiesOf("Organisms|BannerGrid", module)
               <SfBanner
                 subtitle="Summer shoes"
                 title="ECO SANDALS"
-                image="assets/storybook/homepage/bannerG.jpg"
+                image="/assets/storybook/homepage/bannerG.jpg"
                 class="sf-banner--slim"
               />
             </a>
@@ -95,7 +95,7 @@ storiesOf("Organisms|BannerGrid", module)
               title="COCKTAIL PARTY"
               description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
               button-text="SHOP NOW"
-              image="assets/storybook/homepage/bannerF.jpg"
+              image="/assets/storybook/homepage/bannerF.jpg"
               class="sf-banner--slim"
             />
           </a>
@@ -106,7 +106,7 @@ storiesOf("Organisms|BannerGrid", module)
               subtitle="Dresses"
               title="LINEN DRESSES"
               button-text="SHOP NOW"
-              image="assets/storybook/homepage/bannerE.jpg"
+              image="/assets/storybook/homepage/bannerE.jpg"
               class="sf-banner--slim"
             />
           </a>
@@ -116,7 +116,7 @@ storiesOf("Organisms|BannerGrid", module)
             <SfBanner
               subtitle="T-Shirts"
               title="THE OFFICE LIFE"
-              image="assets/storybook/homepage/bannerC.jpg"
+              image="/assets/storybook/homepage/bannerC.jpg"
               class="sf-banner--slim"
             />
           </a>
@@ -126,7 +126,7 @@ storiesOf("Organisms|BannerGrid", module)
             <SfBanner
               subtitle="Summer shoes"
               title="ECO SANDALS"
-              image="assets/storybook/homepage/bannerK.jpg"
+              image="/assets/storybook/homepage/bannerK.jpg"
               class="sf-banner--slim"
             />
           </a>
