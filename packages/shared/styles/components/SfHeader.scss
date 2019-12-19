@@ -1,7 +1,7 @@
 @import "../variables";
 
 $header-height: 3.125rem !default;
-$header-padding: 0 1.875rem!default;
+$header-padding: 0 $spacer-extra-big!default;
 $header-desktop-padding: 0 $spacer-extra-big!default;
 $header-desktop-height: 5rem !default;
 $header-background-color: $c-light !default;
