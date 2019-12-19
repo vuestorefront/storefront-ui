@@ -1,3 +1,4 @@
+// @vue/component
 import Vue from "vue";
 
 import SfCarouselItem from "./_internal/SfCarouselItem.vue";

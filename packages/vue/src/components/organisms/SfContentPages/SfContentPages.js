@@ -1,3 +1,4 @@
+// @vue/component
 import Vue from "vue";
 import SfContentPage from "./_internal/SfContentPage.vue";
 import SfContentCategory from "./_internal/SfContentCategory.vue";
