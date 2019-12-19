@@ -1,30 +1,32 @@
 <template>
-  <div id="checkout" style="display: flex">
-    <div style="flex: 1">
-      <SfSteps :active="currentStep" @change="currentStep = $event">
-        <SfStep name="Personal Detail">
-          <PersonalDetails @click:next="currentStep++" />
-        </SfStep>
-        <SfStep name="Shipping">
-          <Shipping
-            @click:next="currentStep++"
-            @click:back="currentStep--"
-          />
-        </SfStep>
-        <SfStep name="Payment">
-          <Payment
-            @click:next="currentStep++"
-            @click:back="currentStep--"
-          />
-        </SfStep>
-        <SfStep name="Review order">
-          <ReviewOrder @click:back="currentStep--" />
-        </SfStep>
-      </SfSteps>
-    </div>
-    <div style="flex-basis: 26.875rem; margin-left: 6.25rem;">
-      <OrderSummary v-if="currentStep <= 2" />
-      <OrderReview v-else />
+  <div id="checkout">
+    <div class="checkout">
+      <div class="checkout__main">
+        <SfSteps :active="currentStep" @change="currentStep = $event">
+          <SfStep name="Personal Detail">
+            <PersonalDetails @click:next="currentStep++" />
+          </SfStep>
+          <SfStep name="Shipping">
+            <Shipping
+                @click:next="currentStep++"
+                @click:back="currentStep--"
+            />
+          </SfStep>
+          <SfStep name="Payment">
+            <Payment
+                @click:next="currentStep++"
+                @click:back="currentStep--"
+            />
+          </SfStep>
+          <SfStep name="Review order">
+            <ReviewOrder @click:back="currentStep--" />
+          </SfStep>
+        </SfSteps>
+      </div>
+      <div class="checkout__aside">
+        <OrderSummary v-if="currentStep <= 2" />
+        <OrderReview v-else />
+      </div>
     </div>
     <SfModal :visible="false">
       <AccountBenefits />
@@ -58,7 +60,7 @@ export default {
   },
   data() {
     return {
-      currentStep: 3
+      currentStep: 0
     };
   }
 };
@@ -75,10 +77,19 @@ export default {
 
 #checkout {
   box-sizing: border-box;
-  margin: 0 0 60px 0;
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
+  }
+}
+.checkout{
+  display: flex;
+  &__main{
+    flex: 1;
+  }
+  &__aside{
+    flex: 0 0 26.875rem;
+    margin-left:  6.25rem;
   }
 }
 </style>
