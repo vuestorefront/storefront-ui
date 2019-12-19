@@ -26,13 +26,13 @@ storiesOf("Organisms/Table", module)
     components: { SfTable, SfButton },
     template: `<SfTable>
     <template>
-      <SfTableRow>
+      <SfTableHeading>
         <SfTableHeader v-for="header in headers">{{ header }}</SfTableHeader>
         <SfTableHeader>
           <span class="mobile-only">Download</span>
           <SfButton class="desktop-only">DOWNLOAD ALL</SfButton>
         </SfTableHeader>
-      </SfTableRow>
+      </SfTableHeading>
       <SfTableRow v-for="data in content">
         <SfTableData v-for="item in data">{{ item }}</SfTableData>
         <SfTableData class="text-success">In process</SfTableData>

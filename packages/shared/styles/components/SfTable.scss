@@ -21,6 +21,16 @@
     }
   }
 
+  &__heading {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid $c-light;
+    
+    @media (min-width: $desktop-min) {
+      border: none;
+    }
+  }
+
   &__data, &__header {
     display: flex;
     flex-direction: column;
