@@ -21,7 +21,7 @@ export default {
     Object.defineProperty(table, "updateColumnsCount", {
       value: this.updateColumnsCount
     });
-    return {table}
+    return { table };
   },
   methods: {
     updateColumnsCount(columnsCount) {
