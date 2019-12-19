@@ -1,77 +1,63 @@
 @import "../variables";
 
 .sf-table {
+  $this: &;
   width: 100%;
-  padding: 0;
   border-spacing: 0;
   border: none;
-
-  $this: &;
-
+  &__heading,
   &__row {
     display: flex;
     flex-wrap: wrap;
+    padding: $spacer-big;
     border-bottom: 1px solid $c-light;
-  
     @media (min-width: $desktop-min) {
       border: none;
+    }
+  }
+  &__heading {
+    align-items: center;
+    background-color: $c-light;
+    @media (min-width: $desktop-min) {
+      padding: 10px $spacer-big;
+      border-bottom: 1px solid $c-light;
+      background-color: transparent;
+    }
+  }
+  &__row {
+    @media (min-width: $desktop-min) {
       &:hover {
         background-color: $c-light;
         box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
       }
     }
-}
-  
-  &__heading {
-    display: flex;
-    flex-wrap: wrap;
-    
-    @media (min-width: $desktop-min) {
-      border: 1px solid $c-light;
-    }
   }
-
-  &__data, &__header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1.25rem 0;
+  &__data,
+  &__header {
     flex: 0 0 calc(100% / var(--mobile-column));
+    padding: 0;
+    margin-bottom: 5px;
+    text-align: left;
     @media (min-width: $desktop-min) {
       flex: 1;
+      margin-bottom: 0;
     }
-    &:nth-child(even){
-    order:1;
+    &:nth-child(even) {
+      order: 1;
       @media (min-width: $desktop-min) {
         order: 0;
       }
     }
   }
-
-  &__header {
-    background-color: $c-light;
-    color: $c-text;
-
-      @media (min-width: $desktop-min) {
-        flex-wrap: nowrap;
-        background-color: $c-white;
-      }
-  }
-
-  &--bordered {
-    #{$this}__heading {
-      @media (min-width: $desktop-min) {
-        border-top: 1px solid $c-light;
-        border-bottom: 1px solid $c-light;
-      }
+  &--bordered  {
+    #{$this}__heading{
+      padding: 10px 0;
+      border: 1px solid $c-light;
+      border-width: 1px 0 1px 0;
     }
-    #{$this}__header {
-      font-weight: $body-font-weight-primary;
-      padding: 0.8rem 0;
-    }
-    #{$this}__data {
-      padding: 0.9rem 0;
+    #{$this}__row{
+      padding: 10px 0;
+      border-bottom: 1px solid $c-light;
     }
   }
 }
