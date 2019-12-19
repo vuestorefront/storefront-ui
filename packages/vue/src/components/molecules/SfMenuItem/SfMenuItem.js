@@ -12,7 +12,7 @@ export default {
       default: "chevron_right"
     },
     count: {
-      type: String,
+      type: [String, Number],
       default: ""
     }
   },
