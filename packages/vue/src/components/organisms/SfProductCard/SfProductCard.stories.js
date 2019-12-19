@@ -100,7 +100,7 @@ storiesOf("Organisms|ProductCard", module)
         :showAddToCartButton="showAddToCartButton"
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
-      />`
+    />`
   }))
 
   .add("With 2 pictures", () => ({
@@ -164,7 +164,7 @@ storiesOf("Organisms|ProductCard", module)
         :addToCartDisabled="addToCartDisabled"
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
-      />`
+    />`
   }))
   .add("With CircleIconButton", () => ({
     props: {
@@ -227,5 +227,5 @@ storiesOf("Organisms|ProductCard", module)
         :addToCartDisabled="addToCartDisabled"
         :isOnWishlistIcon="isOnWishlistIcon"
         :isOnWishlist="isOnWishlist"
-        />`
+    />`
   }));
