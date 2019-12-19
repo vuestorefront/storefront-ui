@@ -65,7 +65,7 @@ export default {
       return {
         "--icon-color": !this.isSFColors ? this.color : "",
         "--icon-size": !this.isSFSizes ? this.size : ""
-      }
+      };
     },
     isSFIcons() {
       return SF_ICONS.includes(this.icon.trim());
