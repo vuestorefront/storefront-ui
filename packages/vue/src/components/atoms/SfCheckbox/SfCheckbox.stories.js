@@ -69,9 +69,6 @@ storiesOf("Atoms|Checkbox", module)
       name: {
         default: text("name", "shipping", "Props")
       },
-      value: {
-        default: text("value", "shipping-address", "Props")
-      },
       label: {
         default: text("label", "Copy address data from shipping", "Props")
       },
@@ -84,13 +81,12 @@ storiesOf("Atoms|Checkbox", module)
     },
     data() {
       return {
-        checked: []
+        checked: false
       };
     },
     template: `<SfCheckbox 
       v-model="checked"
       :name="name"
-      :value="value"
       :label="label"
       :required="required"
       :disabled="disabled">
@@ -106,9 +102,6 @@ storiesOf("Atoms|Checkbox", module)
       name: {
         default: text("name", "shipping", "Props")
       },
-      value: {
-        default: text("value", "shipping-address", "Props")
-      },
       label: {
         default: text("label", "Copy address data from shipping", "Props")
       },
@@ -121,13 +114,12 @@ storiesOf("Atoms|Checkbox", module)
     },
     data() {
       return {
-        checked: []
+        checked: false
       };
     },
     template: `<SfCheckbox 
       v-model="checked"
       :name="name"
-      :value="value"
       :label="label"
       :required="required"
       :disabled="disabled">

@@ -1,3 +1,4 @@
+// @vue/component
 export default {
   name: "SfSticky",
   data() {
@@ -74,6 +75,24 @@ export default {
       }
     }
   },
+  mounted: function() {
+    if (!this.isIE) return;
+    this.$el.parentElement.style.position = "relative";
+    this.padding = this.computedPadding();
+    this.parentTop = this.$el.parentElement.offsetTop;
+    this.top = this.$el.offsetTop;
+    this.parentHeight = this.$el.parentElement.offsetHeight;
+
+    this.height = this.$el.offsetHeight;
+    this.width = this.$el.parentElement.offsetWidth;
+
+    window.addEventListener("scroll", this.scrollHandler, { passive: true });
+    window.addEventListener("resize", this.resizeHandler, { passive: true });
+  },
+  beforeDestroy: function() {
+    window.removeEventListener("scroll", this.scrollHandler);
+    window.removeEventListener("resize", this.resizeHandler);
+  },
   methods: {
     scrollHandler() {
       this.scrollY = Math.ceil(window.pageYOffset);
@@ -108,23 +127,5 @@ export default {
         left: parseInt(computed["padding-left"], 10)
       };
     }
-  },
-  mounted: function() {
-    if (!this.isIE) return;
-    this.$el.parentElement.style.position = "relative";
-    this.padding = this.computedPadding();
-    this.parentTop = this.$el.parentElement.offsetTop;
-    this.top = this.$el.offsetTop;
-    this.parentHeight = this.$el.parentElement.offsetHeight;
-
-    this.height = this.$el.offsetHeight;
-    this.width = this.$el.parentElement.offsetWidth;
-
-    window.addEventListener("scroll", this.scrollHandler, { passive: true });
-    window.addEventListener("resize", this.resizeHandler, { passive: true });
-  },
-  beforeDestroy: function() {
-    window.removeEventListener("scroll", this.scrollHandler);
-    window.removeEventListener("resize", this.resizeHandler);
   }
 };
