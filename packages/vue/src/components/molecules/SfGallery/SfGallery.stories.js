@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, object } from "@storybook/addon-knobs";
+import { withKnobs, object, boolean } from "@storybook/addon-knobs";
 
 import SfGallery from "./SfGallery.vue";
 
@@ -9,6 +9,12 @@ storiesOf("Molecules|Gallery", module)
   .add("Common", () => ({
     components: { SfGallery },
     props: {
+      enableZoom: {
+        default: boolean("enable-zoom", false, "Props")
+      },
+      outsideZoom: {
+        default: boolean("outside-zoom", false, "Props")
+      },
       images: {
         default: object(
           "images",
@@ -70,11 +76,19 @@ storiesOf("Molecules|Gallery", module)
     template: `<SfGallery
       :images="images"
       :slider-options="sliderOptions"
-      :current="current" />`
+      :current="current"
+      :enable-zoom="enableZoom"
+      :outside-zoom="outsideZoom"/>`
   }))
   .add("[slot] thumbs", () => ({
     components: { SfGallery },
     props: {
+      enableZoom: {
+        default: boolean("enable-zoom", false, "Props")
+      },
+      outsideZoom: {
+        default: boolean("outside-zoom", false, "Props")
+      },
       images: {
         default: object(
           "images",
@@ -136,7 +150,9 @@ storiesOf("Molecules|Gallery", module)
     template: `<SfGallery
     :images="images"
     :slider-options="sliderOptions"
-    :current="current">
+    :current="current"
+    :enable-zoom="enableZoom"
+    :outside-zoom="outsideZoom">
     <template #thumbs="{images, active, go}">
       <div v-for="(image, key) in images" :key="key" @click="go(key)" style="position: relative">
         <img :src="image.small.url" :alt="image.small.alt">
