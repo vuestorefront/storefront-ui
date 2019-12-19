@@ -590,6 +590,7 @@ export default {
   }
 }
 .filters {
+  padding: $spacer-big;
   &__title {
     margin: $spacer-big * 3 0 $spacer-big;
     font-size: $font-size-big-desktop;
