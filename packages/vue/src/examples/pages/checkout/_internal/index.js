@@ -2,4 +2,5 @@ import PersonalDetails from "./PersonalDetails.vue";
 import Shipping from "./Shipping.vue";
 import Payment from "./Payment.vue";
 import ReviewOrder from "./ReviewOrder.vue";
-export { PersonalDetails, Shipping, Payment, ReviewOrder };
+import OrderSummary from "./OrderSummary.vue";
+export { PersonalDetails, Shipping, Payment, ReviewOrder, OrderSummary };

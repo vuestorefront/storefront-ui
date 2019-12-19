@@ -35,14 +35,15 @@
 </template>
 <script>
 import AccountBenefits from "./components/AccountBenefits";
-import OrderSummary from "./components/OrderSummary";
+// import OrderSummary from "./components/OrderSummary";
 import OrderReview from "./components/OrderReview";
 import { SfSteps, SfModal } from "../../../../index.js";
 import {
   PersonalDetails,
   Shipping,
   Payment,
-  ReviewOrder
+  ReviewOrder,
+  OrderSummary
 } from "./_internal/index.js";
 
 export default {
@@ -88,7 +89,7 @@ export default {
     flex: 1;
   }
   &__aside{
-    flex: 0 0 26.875rem;
+    flex: 0 0 25.5rem ;
     margin-left:  6.25rem;
   }
 }
