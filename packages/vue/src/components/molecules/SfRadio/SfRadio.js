@@ -35,14 +35,14 @@ export default {
       default: ""
     }
   },
-  methods: {
-    inputHandler() {
-      this.$emit("input", this.value);
-    }
-  },
   computed: {
     isChecked() {
       return this.value === this.selected;
+    }
+  },
+  methods: {
+    inputHandler() {
+      this.$emit("input", this.value);
     }
   }
 };
