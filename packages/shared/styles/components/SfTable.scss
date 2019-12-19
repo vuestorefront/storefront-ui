@@ -11,8 +11,10 @@
   &__row {
     display: flex;
     flex-wrap: wrap;
+    border-bottom: 1px solid $c-light;
   
     @media (min-width: $desktop-min) {
+      border: none;
       &:hover {
         background-color: $c-light;
         box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
@@ -23,10 +25,9 @@
   &__heading {
     display: flex;
     flex-wrap: wrap;
-    border-bottom: 1px solid $c-light;
     
     @media (min-width: $desktop-min) {
-      border: none;
+      border: 1px solid $c-light;
     }
   }
 
@@ -61,14 +62,16 @@
   &--bordered {
     #{$this}__heading {
       @media (min-width: $desktop-min) {
-        border: 1px solid $c-light;
+        border-top: 1px solid $c-light;
+        border-bottom: 1px solid $c-light;
       }
     }
-    #{$this}__row {
-      border-bottom: 1px solid $c-light;
-      @media (min-width: $desktop-min) {
-        border: none;
-      }
+    #{$this}__header {
+      font-weight: $body-font-weight-primary;
+      padding: 0.8rem 0;
+    }
+    #{$this}__data {
+      padding: 0.9rem 0;
     }
   }
 }
