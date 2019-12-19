@@ -116,7 +116,6 @@ storiesOf("Organisms|Hero", module)
             :buttonText="item.buttonText"
             :background="item.background"
             :image="item.image"
-            :class="index === 0 ? customClass1 : index === 1 ? customClass2 : customClass3"
           />
         </SfHero>
       </div>`
@@ -133,7 +132,6 @@ storiesOf("Organisms|Hero", module)
               :buttonText="item.buttonText"
               :background="item.background"
               :image="item.image"
-              :class="index === 0 ? customClass1 : index === 1 ? customClass2 : customClass3"
             />
           <template v-slot:prev="{ go }">
             <div @click="go">
@@ -160,7 +158,6 @@ storiesOf("Organisms|Hero", module)
                 :buttonText="item.buttonText"
                 :background="item.background"
                 :image="item.image"
-                :class="index === 0 ? customClass1 : index === 1 ? customClass2 : customClass3"
               />
           <template v-slot:bullets="{ numberOfPages, page, go }">
             <span v-for="n in numberOfPages">
