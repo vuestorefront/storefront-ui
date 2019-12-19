@@ -12,11 +12,8 @@ storiesOf("Atoms|Checkbox", module)
       name: {
         default: text("name", "shipping", "Props")
       },
-      value: {
-        default: text("value", "shipping-address", "Props")
-      },
       label: {
-        default: text("label", "Copy address data from shipping", "Props")
+        default: text("label", "I want to create an account", "Props")
       },
       required: {
         default: boolean("required", false, "Props")
@@ -27,13 +24,12 @@ storiesOf("Atoms|Checkbox", module)
     },
     data() {
       return {
-        checked: []
+        checked: false
       };
     },
     template: `<SfCheckbox 
       v-model="checked"
-      :name="name"
-      :value="value"
+      :name="name"      
       :label="label"
       :required="required"
       :disabled="disabled"
