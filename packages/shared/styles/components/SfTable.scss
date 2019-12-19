@@ -57,7 +57,7 @@
     #{$this}__row{
       padding: $spacer-big;
       @media (min-width: $desktop-min) {
-        padding: 10px 0;
+        padding: 10px;
       }
     }
     #{$this}__heading{
