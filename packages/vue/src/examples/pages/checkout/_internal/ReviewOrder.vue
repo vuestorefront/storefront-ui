@@ -6,6 +6,7 @@
     />
     <SfTable class="sf-table--bordered table">
       <SfTableHeading class="table__row">
+        <SfTableHeader class="table__header table__image">Item</SfTableHeader>
         <SfTableHeader
           v-for="tableHeader in tableHeaders"
           :key="tableHeader"
@@ -15,7 +16,7 @@
         <SfTableHeader class="table__action"></SfTableHeader>
       </SfTableHeading>
       <SfTableRow class="table__row">
-        <SfTableData>
+        <SfTableData class="table__image">
           <SfImage src="/assets/storybook/checkoutpage/product.png" />
         </SfTableData>
         <SfTableData class="table__data table__data--left">
@@ -40,7 +41,7 @@
         </SfTableData>
       </SfTableRow>
       <SfTableRow class="table__row">
-        <SfTableData>
+        <SfTableData class="table__image">
           <SfImage src="/assets/storybook/checkoutpage/product.png" />
         </SfTableData>
         <SfTableData class="table__data">
@@ -138,7 +139,6 @@ export default {
     return {
       terms: false,
       tableHeaders: [
-        "Item",
         "Description",
         "Colour",
         "Size",
@@ -190,6 +190,9 @@ export default {
   &__data {
     font-size: $font-size-small-desktop;
     text-align: center;
+  }
+  &__image{
+    flex: 0 0 5.125rem;
   }
   &__action{
     flex: 0 0 2.5rem ;
