@@ -41,18 +41,10 @@ storiesOf("Organisms/Table", module)
         <SfTable :class="customClass">
           <SfTableHeading>
             <SfTableHeader v-for="header in headers">{{ header }}</SfTableHeader>
-            <SfTableHeader>
-              <span class="mobile-only">Download</span>
-              <SfButton class="desktop-only">DOWNLOAD ALL</SfButton>
-            </SfTableHeader>
           </SfTableHeading>
           <SfTableRow v-for="data in content">
             <SfTableData v-for="item in data">{{ item }}</SfTableData>
             <SfTableData class="text-success">Finalised</SfTableData>
-            <SfTableData>
-              <a class="desktop-only">VIEW</a>
-              <a class="mobile-only">Download</a>
-            </SfTableData>
           </SfTableRow>
         </SfTable>
       </div>`
