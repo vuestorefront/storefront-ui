@@ -6,21 +6,20 @@
   border-spacing: 0;
   border: none;
 
+  $this: &;
+
   &__row {
     display: flex;
     flex-wrap: wrap;
-    border-bottom: 1px solid $c-light;
-    
+  
     @media (min-width: $desktop-min) {
-      border: none;
-
       &:hover {
         background-color: $c-light;
         box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
       }
     }
-  }
-
+}
+  
   &__heading {
     display: flex;
     flex-wrap: wrap;
@@ -54,9 +53,22 @@
     color: $c-text;
 
       @media (min-width: $desktop-min) {
-        border-bottom: 1px solid $c-light;
         flex-wrap: nowrap;
         background-color: $c-white;
       }
+  }
+
+  &--bordered {
+    #{$this}__heading {
+      @media (min-width: $desktop-min) {
+        border: 1px solid $c-light;
+      }
+    }
+    #{$this}__row {
+      border-bottom: 1px solid $c-light;
+      @media (min-width: $desktop-min) {
+        border: none;
+      }
+    }
   }
 }

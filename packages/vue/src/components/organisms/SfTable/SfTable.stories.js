@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs } from "@storybook/addon-knobs";
+import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 
 import SfTable from "./SfTable.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
@@ -24,7 +24,20 @@ storiesOf("Organisms/Table", module)
       };
     },
     components: { SfTable, SfButton },
-    template: `<SfTable>
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-table--bordered": "sf-table--bordered"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      }
+    },
+    template: `<SfTable :class="customClass">
     <template>
       <SfTableHeading>
         <SfTableHeader v-for="header in headers">{{ header }}</SfTableHeader>
