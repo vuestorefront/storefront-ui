@@ -6,7 +6,21 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 
 storiesOf("Organisms/Table", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
+    components: { SfTable, SfButton },
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-table--bordered": "sf-table--bordered"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      }
+    },
     data() {
       return {
         headers: [
@@ -23,37 +37,15 @@ storiesOf("Organisms/Table", module)
         ]
       };
     },
-    components: { SfTable, SfButton },
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-table--bordered": "sf-table--bordered"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      }
-    },
-    template: `<SfTable :class="customClass">
-    <template>
-      <SfTableHeading>
-        <SfTableHeader v-for="header in headers">{{ header }}</SfTableHeader>
-        <SfTableHeader>
-          <span class="mobile-only">Download</span>
-          <SfButton class="desktop-only">DOWNLOAD ALL</SfButton>
-        </SfTableHeader>
-      </SfTableHeading>
-      <SfTableRow v-for="data in content">
-        <SfTableData v-for="item in data">{{ item }}</SfTableData>
-        <SfTableData class="text-success">In process</SfTableData>
-        <SfTableData>
-          <a class="desktop-only">VIEW</a>
-          <a class="mobile-only">Download</a>
-        </SfTableData>
-      </SfTableRow>
-    </template>
-    </SfTable>`
+    template: `<div style="padding: 1rem">
+        <SfTable :class="customClass">
+          <SfTableHeading>
+            <SfTableHeader v-for="header in headers">{{ header }}</SfTableHeader>
+          </SfTableHeading>
+          <SfTableRow v-for="data in content">
+            <SfTableData v-for="item in data">{{ item }}</SfTableData>
+            <SfTableData class="text-success">Finalised</SfTableData>
+          </SfTableRow>
+        </SfTable>
+      </div>`
   }));

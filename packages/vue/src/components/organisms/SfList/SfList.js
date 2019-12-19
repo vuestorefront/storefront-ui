@@ -1,3 +1,4 @@
+// @vue/component
 import SfListItem from "./_internal/SfListItem.vue";
 import Vue from "vue";
 

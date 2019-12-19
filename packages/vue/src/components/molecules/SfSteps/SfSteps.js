@@ -1,3 +1,4 @@
+// @vue/component
 import Vue from "vue";
 import SfStep from "./_internal/SfStep.vue";
 

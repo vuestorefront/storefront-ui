@@ -96,7 +96,7 @@ export function withDataToggle(dataKey, eventName = "close") {
   return () => ({
     template: `
       <div>
-        <SfCheckbox v-model="checked" value="${dataKey}" label="data: ${dataKey}" style="width: 12rem; position: absolute; left: 0; right: 0; top: 50%; margin: auto" />
+        <SfCheckbox v-model="checked" value="${dataKey}" name="${dataKey}" label="data: ${dataKey}" style="width: 12rem; position: absolute; left: 0; right: 0; top: 50%; margin: auto" />
         <story :${dataKey}="${dataKey}" @${eventName}="${dataKey} = false" />
       </div>`,
     components: { SfCheckbox },

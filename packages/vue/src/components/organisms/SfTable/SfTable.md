@@ -6,36 +6,33 @@ Table component with inner rows, headers and data.
 ```html
 <template>
   <SfTable>
-    <template>
-      <SfTableRow>
-        <SfTableHeader v-for="header in headers">{{ header }}</SfTableHeader>
-      </SfTableRow>
-      <SfTableRow v-for="data in content">
-        <SfTableData v-for="item in data">{{ item }}</SfTableData>
-      </SfTableRow>
-    </template>
-    </SfTable>
-</template>
+    <SfTableHeading>
+      <SfTableHeader v-for="header in headers">{{ header }}</SfTableHeader>
+    </SfTableHeading>
+    <SfTableRow v-for="data in content">
+      <SfTableData v-for="item in data">{{ item }}</SfTableData>
+    </SfTableRow>
+   </SfTable>
 <script>
-import { SfTable, SfButton } from "@storefront-ui/vue"
+import { SfTable } from "@storefront-ui/vue"
 export default {
-  components: { SfTable, SfButton }
+  components: { SfTable }
   data() {
-      return {
-        headers: [
-          "Quantity",
-          "Payment date",
-          "Payment method",
-          "Amount",
-          "Status"
-        ],
-        content: [
-          ["#35767", "4th Nov", "Paypal", "12.00$"],
-          ["#35767", "4th Nov", "Visa", "15.00$"],
-          ["#35767", "4th Nov", "Paypal", "12.00$"]
-        ]
-      };
-    }, 
+    return {
+      headers: [
+        "Quantity",
+        "Payment date",
+        "Payment method",
+        "Amount",
+        "Status"
+      ],
+      content: [
+        ["#35767", "4th Nov", "Paypal", "12.00$", "Finalised"],
+        ["#35767", "4th Nov", "Visa", "15.00$", "Finalised"],
+        ["#35767", "4th Nov", "Paypal", "12.00$", "Finalised"]
+      ]
+    };
+  }, 
 }
 </script>
 ```
