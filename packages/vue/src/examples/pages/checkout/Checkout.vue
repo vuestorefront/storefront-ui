@@ -58,7 +58,7 @@ export default {
   },
   data() {
     return {
-      currentStep: 0
+      currentStep: 3
     };
   }
 };

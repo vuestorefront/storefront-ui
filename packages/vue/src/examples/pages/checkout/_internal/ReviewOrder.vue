@@ -4,17 +4,17 @@
       title="4. Order details"
       class="sf-heading--left sf-heading--no-underline title"
     />
-    <SfTable class="table">
-      <SfTableRow>
+    <SfTable class="sf-table--bordered table">
+      <SfTableHeading class="table__row">
         <SfTableHeader
           v-for="tableHeader in tableHeaders"
           :key="tableHeader"
           class="table__header"
           >{{ tableHeader }}</SfTableHeader
         >
-        <SfTableHeader></SfTableHeader>
-      </SfTableRow>
-      <SfTableRow>
+        <SfTableHeader class="table__action"></SfTableHeader>
+      </SfTableHeading>
+      <SfTableRow class="table__row">
         <SfTableData>
           <SfImage src="/assets/storybook/checkoutpage/product.png" />
         </SfTableData>
@@ -28,7 +28,7 @@
         <SfTableData class="table__data">
           <SfPrice regular="$50" class="product-price" />
         </SfTableData>
-        <SfTableData>
+        <SfTableData class="table__action">
           <SfIcon
             icon="cross"
             size="xxs"
@@ -39,11 +39,11 @@
           />
         </SfTableData>
       </SfTableRow>
-      <SfTableRow>
+      <SfTableRow class="table__row">
         <SfTableData>
           <SfImage src="/assets/storybook/checkoutpage/product.png" />
         </SfTableData>
-        <SfTableData class="table__data table__data--left">
+        <SfTableData class="table__data">
           <div class="product-title">Summer Bag</div>
           <div class="product-sku">MSD23-345-324</div>
         </SfTableData>
@@ -53,7 +53,7 @@
         <SfTableData class="table__data">
           <SfPrice regular="$150" special="$100" class="product-price" />
         </SfTableData>
-        <SfTableData>
+        <SfTableData class="table__action">
           <SfIcon
             icon="cross"
             size="xxs"
@@ -185,13 +185,17 @@ export default {
   &__header {
     font-size: $font-size-regular-desktop;
     font-weight: $body-font-weight-primary;
+    text-align: center;
   }
   &__data {
-    justify-content: flex-start;
     font-size: $font-size-small-desktop;
-    &--left {
-      align-items: flex-start;
-    }
+    text-align: center;
+  }
+  &__action{
+    flex: 0 0 2.5rem ;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 }
 .summary {
