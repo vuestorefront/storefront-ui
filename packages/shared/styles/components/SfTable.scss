@@ -6,18 +6,28 @@
   border-spacing: 0;
   border: none;
 
+  $this: &;
+
   &__row {
     display: flex;
     flex-wrap: wrap;
     border-bottom: 1px solid $c-light;
-    
+  
     @media (min-width: $desktop-min) {
       border: none;
-
       &:hover {
         background-color: $c-light;
         box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
       }
+    }
+}
+  
+  &__heading {
+    display: flex;
+    flex-wrap: wrap;
+    
+    @media (min-width: $desktop-min) {
+      border: 1px solid $c-light;
     }
   }
 
@@ -44,9 +54,24 @@
     color: $c-text;
 
       @media (min-width: $desktop-min) {
-        border-bottom: 1px solid $c-light;
         flex-wrap: nowrap;
         background-color: $c-white;
       }
+  }
+
+  &--bordered {
+    #{$this}__heading {
+      @media (min-width: $desktop-min) {
+        border-top: 1px solid $c-light;
+        border-bottom: 1px solid $c-light;
+      }
+    }
+    #{$this}__header {
+      font-weight: $body-font-weight-primary;
+      padding: 0.8rem 0;
+    }
+    #{$this}__data {
+      padding: 0.9rem 0;
+    }
   }
 }
