@@ -48,7 +48,7 @@ storiesOf("Organisms/Table", module)
           </SfTableHeading>
           <SfTableRow v-for="data in content">
             <SfTableData v-for="item in data">{{ item }}</SfTableData>
-            <SfTableData class="text-success">In process</SfTableData>
+            <SfTableData class="text-success">Finalised</SfTableData>
             <SfTableData>
               <a class="desktop-only">VIEW</a>
               <a class="mobile-only">Download</a>
