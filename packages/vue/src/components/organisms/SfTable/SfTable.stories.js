@@ -6,7 +6,7 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 
 storiesOf("Organisms/Table", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfTable, SfButton },
     props: {
       customClass: {
