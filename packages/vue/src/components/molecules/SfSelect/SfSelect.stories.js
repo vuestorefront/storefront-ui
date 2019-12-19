@@ -11,6 +11,19 @@ import {
 import SfSelect from "./SfSelect.vue";
 import SfProductOption from "../SfProductOption/SfProductOption.vue";
 
+const optionsList = [
+  { value: "amaranth", color: "#E52B50", label: "Amaranth" },
+  { value: "amber", color: "#FFBF00", label: "Amber" },
+  { value: "arctic-lime", color: "#D0FF14", label: "Arctic lime" },
+  { value: "bluetiful", color: "#3C69E7", label: "Bluetiful" },
+  { value: "buff", color: "#F0DC82", label: "Buff" }
+];
+
+const knobOptionsList = optionsList.reduce(
+  (a, c) => ({ ...a, [c.label]: c.value }),
+  {}
+);
+
 storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -42,18 +55,20 @@ storiesOf("Molecules|Select", module)
       },
       errorMessage: {
         default: text("label", "Color", "Props")
+      },
+      selected: {
+        default: options(
+          "selected",
+          knobOptionsList,
+          optionsList[0].value,
+          { display: "select" },
+          "Props"
+        )
       }
     },
     data() {
       return {
-        selected: "",
-        options: [
-          { value: "amaranth", color: "#E52B50", label: "Amaranth" },
-          { value: "amber", color: "#FFBF00", label: "Amber" },
-          { value: "arctic-lime", color: "#D0FF14", label: "Arctic lime" },
-          { value: "bluetiful", color: "#3C69E7", label: "Bluetiful" },
-          { value: "buff", color: "#F0DC82", label: "Buff" }
-        ]
+        options: optionsList
       };
     },
     template: `<div style="max-width: 18.75rem">
@@ -69,6 +84,8 @@ storiesOf("Molecules|Select", module)
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
       </SfSelect>
+      <br>
+      <h3>Selected option: {{selected}}</h3>
     </div>`
   }))
   .add("[slot] label", () => ({
@@ -105,13 +122,7 @@ storiesOf("Molecules|Select", module)
     data() {
       return {
         selected: "",
-        options: [
-          { value: "amaranth", color: "#E52B50", label: "Amaranth" },
-          { value: "amber", color: "#FFBF00", label: "Amber" },
-          { value: "arctic-lime", color: "#D0FF14", label: "Arctic lime" },
-          { value: "bluetiful", color: "#3C69E7", label: "Bluetiful" },
-          { value: "buff", color: "#F0DC82", label: "Buff" }
-        ]
+        options: optionsList
       };
     },
     template: `<div style="max-width: 18.75rem">
@@ -166,13 +177,7 @@ storiesOf("Molecules|Select", module)
     data() {
       return {
         selected: "",
-        options: [
-          { value: "amaranth", color: "#E52B50", label: "Amaranth" },
-          { value: "amber", color: "#FFBF00", label: "Amber" },
-          { value: "arctic-lime", color: "#D0FF14", label: "Arctic lime" },
-          { value: "bluetiful", color: "#3C69E7", label: "Bluetiful" },
-          { value: "buff", color: "#F0DC82", label: "Buff" }
-        ]
+        options: optionsList
       };
     },
     template: `<div style="max-width: 18.75rem">
