@@ -35,6 +35,34 @@ storiesOf("Atoms|Checkbox", module)
       :disabled="disabled"
       />`
   }))
+  .add("Multiple checkboxes", () => ({
+    components: { SfCheckbox },
+    data() {
+      return {
+        checked: []
+      };
+    },
+    template: `<div>
+        <SfCheckbox 
+          v-model="checked"
+          name="woman"
+          value="woman"
+          label="Woman"
+        />
+        <SfCheckbox 
+          v-model="checked"
+          name="man"
+          value="man"
+          label="Man"
+        />
+        <SfCheckbox 
+          v-model="checked"
+          name="children"
+          value="children"
+          label="Children"
+        /> 
+      </div>`
+  }))
   .add("[slot] checkmark", () => ({
     components: { SfCheckbox },
     props: {
