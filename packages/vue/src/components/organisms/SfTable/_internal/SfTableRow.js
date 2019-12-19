@@ -1,8 +1,9 @@
 export default {
   name: "SfTableRow",
-  inject: ["updateColumnsCount"],
+  inject: ["table"],
   mounted() {
-    this.updateColumnsCount(
+    if (!this.$slots.default) return;
+    this.table.updateColumnsCount(
       this.$slots.default.filter(node => node.tag).length
     );
   }

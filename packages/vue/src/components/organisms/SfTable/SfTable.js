@@ -17,9 +17,11 @@ export default {
     SfButton
   },
   provide() {
-    return {
-      updateColumnsCount: this.updateColumnsCount
-    };
+    const table = {};
+    Object.defineProperty(table, "updateColumnsCount", {
+      value: this.updateColumnsCount
+    });
+    return {table}
   },
   methods: {
     updateColumnsCount(columnsCount) {
