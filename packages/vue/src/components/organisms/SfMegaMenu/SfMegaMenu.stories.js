@@ -13,7 +13,7 @@ storiesOf("Organisms|MegaMenu", module)
     },
     data() {
       return {
-        open: true,
+        visible: true,
         subcategories: [
           {
             header: "Clothing",
@@ -52,18 +52,23 @@ storiesOf("Organisms|MegaMenu", module)
         ]
       };
     },
-    computed: {
-      parentMenu() {
-        return this.open ? "Man" : "";
-      }
-    },
-    template: `<div>
-      <SfMegaMenu :parent-menu="parentMenu">
-        <SfMegaMenuColumn v-for="subcategory in subcategories" :key="subcategory.header" :title="subcategory.header">
-          <SfMenuItem v-for="item in subcategory.items" :key="item.label" :label="item.label" class="sf-mega-menu__menu-item"/>
+    template: `<SfMegaMenu 
+        title="Man" 
+        :visible="visible"
+      >
+        <SfMegaMenuColumn 
+          v-for="subcategory in subcategories" 
+          :key="subcategory.header" 
+          :title="subcategory.header"
+        >
+          <SfMenuItem 
+            v-for="item in subcategory.items" 
+            :key="item.label" 
+            :label="item.label" 
+            class="sf-mega-menu__menu-item"
+          />
         </SfMegaMenuColumn>
-      </SfMegaMenu>
-      </div>`
+      </SfMegaMenu>`
   }))
   .add("[slot] aside", () => ({
     components: {
@@ -73,7 +78,7 @@ storiesOf("Organisms|MegaMenu", module)
     },
     data() {
       return {
-        open: true,
+        visible: true,
         subcategories: [
           {
             header: "Clothing",
@@ -132,24 +137,29 @@ storiesOf("Organisms|MegaMenu", module)
         ]
       };
     },
-    computed: {
-      parentMenu() {
-        return this.open ? "Man" : "";
-      }
-    },
-    template: `<div>
-      <SfMegaMenu :parent-menu="parentMenu">
-        <SfMegaMenuColumn v-for="subcategory in subcategories" :key="subcategory.header" :title="subcategory.header">
-          <SfMenuItem v-for="item in subcategory.items" :key="item.label" :label="item.label" class="sf-mega-menu__menu-item"/>
+    template: `<SfMegaMenu 
+        title="Man"
+        :visible="visible"
+      >
+        <SfMegaMenuColumn 
+          v-for="subcategory in subcategories" 
+          :key="subcategory.header" 
+          :title="subcategory.header"
+        >
+          <SfMenuItem 
+            v-for="item in subcategory.items" 
+            :key="item.label" 
+            :label="item.label" 
+            class="sf-mega-menu__menu-item"
+          />
         </SfMegaMenuColumn>
         <template #aside>
           <div :style="{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}">
-            <div v-for="tile in tiles" :key="tile.title" :style="{marginBottom: '1.25rem'}">
-              <h3 :style="{marginBottom: '1.25rem', textTransform: 'uppercase'}">{{tile.title}}</h3>
-              <SfImage :src="tile.pictures"/>
-            </div>
-          </div>
+        <div v-for="tile in tiles" :key="tile.title" :style="{marginBottom: '1.25rem'}">
+        <h3 :style="{marginBottom: '1.25rem', textTransform: 'uppercase'}">{{tile.title}}</h3>
+        <SfImage :src="tile.pictures"/>
+        </div>
+        </div>
         </template>
-      </SfMegaMenu>
-      </div>`
+      </SfMegaMenu>`
   }));

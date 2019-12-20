@@ -1,10 +1,10 @@
 <transition name="fade">
   <div
-    v-if="parentMenu"
+    v-if="visible"
     class="sf-mega-menu"
   >
     <SfBar
-      :title="parentMenu"
+      :title="title"
       :back="isActive"
       class="mobile-only"
       @click:back="change()"

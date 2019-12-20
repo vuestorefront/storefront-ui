@@ -16,12 +16,13 @@ export default {
     SfBar
   },
   props: {
-    /**
-     * Parent menu
-     */
-    parentMenu: {
+    title: {
       type: String,
       default: ""
+    },
+    visible: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
