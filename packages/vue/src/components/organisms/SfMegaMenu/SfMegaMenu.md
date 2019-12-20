@@ -7,7 +7,8 @@ MegaMenu component for page navigation.
 ```html
 <template>
   <SfMegaMenu
-    parentMenu="Man"
+    title="Man"
+    :visible="true"
   >
     <SfMegaMenuColumn 
       title="Clothing"
