@@ -10,7 +10,7 @@ import SfCallToAction from "./SfCallToAction.vue";
 
 storiesOf("Molecules|CallToAction", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfCallToAction },
     props: {
       customClass: {
@@ -21,32 +21,29 @@ storiesOf("Molecules|CallToAction", module)
             "sf-banner--light": "sf-banner-light"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       title: {
-        default: text("title", "Subscribe to Newsletters", "Props")
+        default: text("title (prop)", "Subscribe to Newsletters")
       },
       description: {
         default: text(
-          "description",
-          "Be aware of upcoming sales and events. Receive gifts and special offers!",
-          "Props"
+          "description (prop)",
+          "Be aware of upcoming sales and events. Receive gifts and special offers!"
         )
       },
       buttonText: {
-        default: text("buttonText", "Subscribe", "Props")
+        default: text("button-text (prop)", "Subscribe")
       },
       image: {
         default: text(
-          "image",
-          "assets/storybook/homepage/newsletter.jpg",
-          "Props"
+          "image (prop)",
+          "assets/storybook/homepage/newsletter.jpg"
         )
       },
       background: {
-        default: color("background", "#e1e3e2", "Props")
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 1024px">
@@ -70,32 +67,29 @@ storiesOf("Molecules|CallToAction", module)
             "sf-banner--light": "sf-banner-light"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       title: {
-        default: text("title", "Subscribe to Newsletters", "Props")
+        default: text("title (prop)", "Subscribe to Newsletters")
       },
       description: {
         default: text(
-          "description",
-          "Be aware of upcoming sales and events. Receive gifts and special offers!",
-          "Props"
+          "description (prop)",
+          "Be aware of upcoming sales and events. Receive gifts and special offers!"
         )
       },
       buttonText: {
-        default: text("buttonText", "Subscribe", "Props")
+        default: text("button-text (prop)", "Subscribe")
       },
       image: {
         default: text(
-          "image",
-          "assets/storybook/homepage/newsletter.jpg",
-          "Props"
+          "image (prop)",
+          "assets/storybook/homepage/newsletter.jpg"
         )
       },
       background: {
-        default: color("background", "#e1e3e2", "Props")
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 1024px">
@@ -123,32 +117,29 @@ storiesOf("Molecules|CallToAction", module)
             "sf-banner--light": "sf-banner-light"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       title: {
-        default: text("title", "Subscribe to Newsletters", "Props")
+        default: text("title (prop)", "Subscribe to Newsletters")
       },
       description: {
         default: text(
-          "description",
-          "Be aware of upcoming sales and events. Receive gifts and special offers!",
-          "Props"
+          "description (prop)",
+          "Be aware of upcoming sales and events. Receive gifts and special offers!"
         )
       },
       buttonText: {
-        default: text("buttonText", "Subscribe", "Props")
+        default: text("button-text (prop)", "Subscribe")
       },
       image: {
         default: text(
-          "image",
-          "assets/storybook/homepage/newsletter.jpg",
-          "Props"
+          "image (prop)",
+          "assets/storybook/homepage/newsletter.jpg"
         )
       },
       background: {
-        default: color("background", "#e1e3e2", "Props")
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 1024px">
@@ -176,32 +167,29 @@ storiesOf("Molecules|CallToAction", module)
             "sf-banner--light": "sf-banner-light"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       title: {
-        default: text("title", "Subscribe to Newsletters", "Props")
+        default: text("title (prop)", "Subscribe to Newsletters")
       },
       description: {
         default: text(
-          "description",
-          "Be aware of upcoming sales and events. Receive gifts and special offers!",
-          "Props"
+          "description (prop)",
+          "Be aware of upcoming sales and events. Receive gifts and special offers!"
         )
       },
       buttonText: {
-        default: text("buttonText", "Subscribe", "Props")
+        default: text("button-text (prop)", "Subscribe")
       },
       image: {
         default: text(
-          "image",
-          "assets/storybook/homepage/newsletter.jpg",
-          "Props"
+          "image (prop)",
+          "assets/storybook/homepage/newsletter.jpg"
         )
       },
       background: {
-        default: color("background", "#e1e3e2", "Props")
+        default: color("background (prop)", "#e1e3e2")
       }
     },
     template: `<div style="max-width: 1024px">

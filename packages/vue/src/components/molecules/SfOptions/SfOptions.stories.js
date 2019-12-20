@@ -5,41 +5,37 @@ import SfOptions from "./SfOptions.vue";
 
 storiesOf("Molecules|Options", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfOptions },
     props: {
       label: {
-        default: text("label", "Size", "Props")
+        default: text("label (prop)", "Size")
       },
       type: {
-        default: select("type", ["text", "color", "image"], "text", "Props")
+        default: select("type (prop)", ["text", "color", "image"], "text")
       },
       options: {
-        default: object(
-          "options",
-          {
-            text: [
-              { value: "xs", text: "XS" },
-              { value: "s", text: "S" },
-              { value: "m", text: "M" },
-              { value: "l", text: "L" }
-            ],
-            color: [
-              { value: "orange", color: "orange" },
-              { value: "pink", color: "pink" },
-              { value: "yellow", color: "yellow" },
-              { value: "blue", color: "blue" },
-              { value: "green", color: "green" }
-            ],
-            image: [
-              { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
-            ]
-          },
-          "Props"
-        )
+        default: object("options (prop)", {
+          text: [
+            { value: "xs", text: "XS" },
+            { value: "s", text: "S" },
+            { value: "m", text: "M" },
+            { value: "l", text: "L" }
+          ],
+          color: [
+            { value: "orange", color: "orange" },
+            { value: "pink", color: "pink" },
+            { value: "yellow", color: "yellow" },
+            { value: "blue", color: "blue" },
+            { value: "green", color: "green" }
+          ],
+          image: [
+            { value: "logo", image: "/assets/logo.svg" },
+            { value: "heart", image: "/assets/heart.svg" },
+            { value: "home", image: "/assets/home.svg" },
+            { value: "profile", image: "/assets/profile.svg" }
+          ]
+        })
       }
     },
     data() {
@@ -57,37 +53,33 @@ storiesOf("Molecules|Options", module)
     components: { SfOptions },
     props: {
       label: {
-        default: text("label", "Size", "Props")
+        default: text("label (prop)", "Size")
       },
       type: {
-        default: select("type", ["text", "color", "image"], "text", "Props")
+        default: select("type (prop)", ["text", "color", "image"], "text")
       },
       options: {
-        default: object(
-          "options",
-          {
-            text: [
-              { value: "xs", text: "XS" },
-              { value: "s", text: "S" },
-              { value: "m", text: "M" },
-              { value: "l", text: "L" }
-            ],
-            color: [
-              { value: "orange", color: "orange" },
-              { value: "pink", color: "pink" },
-              { value: "yellow", color: "yellow" },
-              { value: "blue", color: "blue" },
-              { value: "green", color: "green" }
-            ],
-            image: [
-              { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
-            ]
-          },
-          "Props"
-        )
+        default: object("options (prop)", {
+          text: [
+            { value: "xs", text: "XS" },
+            { value: "s", text: "S" },
+            { value: "m", text: "M" },
+            { value: "l", text: "L" }
+          ],
+          color: [
+            { value: "orange", color: "orange" },
+            { value: "pink", color: "pink" },
+            { value: "yellow", color: "yellow" },
+            { value: "blue", color: "blue" },
+            { value: "green", color: "green" }
+          ],
+          image: [
+            { value: "logo", image: "/assets/logo.svg" },
+            { value: "heart", image: "/assets/heart.svg" },
+            { value: "home", image: "/assets/home.svg" },
+            { value: "profile", image: "/assets/profile.svg" }
+          ]
+        })
       }
     },
     data() {
@@ -109,37 +101,33 @@ storiesOf("Molecules|Options", module)
     components: { SfOptions },
     props: {
       label: {
-        default: text("label", "Size", "Props")
+        default: text("label (prop)", "Size")
       },
       type: {
-        default: select("type", ["text", "color", "image"], "text", "Props")
+        default: select("type (prop)", ["text", "color", "image"], "text")
       },
       options: {
-        default: object(
-          "options",
-          {
-            text: [
-              { value: "xs", text: "XS" },
-              { value: "s", text: "S" },
-              { value: "m", text: "M" },
-              { value: "l", text: "L" }
-            ],
-            color: [
-              { value: "orange", color: "orange" },
-              { value: "pink", color: "pink" },
-              { value: "yellow", color: "yellow" },
-              { value: "blue", color: "blue" },
-              { value: "green", color: "green" }
-            ],
-            image: [
-              { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
-            ]
-          },
-          "Props"
-        )
+        default: object("options (prop)", {
+          text: [
+            { value: "xs", text: "XS" },
+            { value: "s", text: "S" },
+            { value: "m", text: "M" },
+            { value: "l", text: "L" }
+          ],
+          color: [
+            { value: "orange", color: "orange" },
+            { value: "pink", color: "pink" },
+            { value: "yellow", color: "yellow" },
+            { value: "blue", color: "blue" },
+            { value: "green", color: "green" }
+          ],
+          image: [
+            { value: "logo", image: "/assets/logo.svg" },
+            { value: "heart", image: "/assets/heart.svg" },
+            { value: "home", image: "/assets/home.svg" },
+            { value: "profile", image: "/assets/profile.svg" }
+          ]
+        })
       }
     },
     data() {
@@ -161,37 +149,33 @@ storiesOf("Molecules|Options", module)
     components: { SfOptions },
     props: {
       label: {
-        default: text("label", "Size", "Props")
+        default: text("label (prop)", "Size")
       },
       type: {
-        default: select("type", ["text", "color", "image"], "color", "Props")
+        default: select("type (prop)", ["text", "color", "image"], "color")
       },
       options: {
-        default: object(
-          "options",
-          {
-            text: [
-              { value: "xs", text: "XS" },
-              { value: "s", text: "S" },
-              { value: "m", text: "M" },
-              { value: "l", text: "L" }
-            ],
-            color: [
-              { value: "orange", color: "orange" },
-              { value: "pink", color: "pink" },
-              { value: "yellow", color: "yellow" },
-              { value: "blue", color: "blue" },
-              { value: "green", color: "green" }
-            ],
-            image: [
-              { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
-            ]
-          },
-          "Props"
-        )
+        default: object("options (prop)", {
+          text: [
+            { value: "xs", text: "XS" },
+            { value: "s", text: "S" },
+            { value: "m", text: "M" },
+            { value: "l", text: "L" }
+          ],
+          color: [
+            { value: "orange", color: "orange" },
+            { value: "pink", color: "pink" },
+            { value: "yellow", color: "yellow" },
+            { value: "blue", color: "blue" },
+            { value: "green", color: "green" }
+          ],
+          image: [
+            { value: "logo", image: "/assets/logo.svg" },
+            { value: "heart", image: "/assets/heart.svg" },
+            { value: "home", image: "/assets/home.svg" },
+            { value: "profile", image: "/assets/profile.svg" }
+          ]
+        })
       }
     },
     data() {
@@ -213,37 +197,33 @@ storiesOf("Molecules|Options", module)
     components: { SfOptions },
     props: {
       label: {
-        default: text("label", "Size", "Props")
+        default: text("label (prop)", "Size")
       },
       type: {
-        default: select("type", ["text", "color", "image"], "image", "Props")
+        default: select("type (prop)", ["text", "color", "image"], "image")
       },
       options: {
-        default: object(
-          "options",
-          {
-            text: [
-              { value: "xs", text: "XS" },
-              { value: "s", text: "S" },
-              { value: "m", text: "M" },
-              { value: "l", text: "L" }
-            ],
-            color: [
-              { value: "orange", color: "orange" },
-              { value: "pink", color: "pink" },
-              { value: "yellow", color: "yellow" },
-              { value: "blue", color: "blue" },
-              { value: "green", color: "green" }
-            ],
-            image: [
-              { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
-            ]
-          },
-          "Props"
-        )
+        default: object("options (prop)", {
+          text: [
+            { value: "xs", text: "XS" },
+            { value: "s", text: "S" },
+            { value: "m", text: "M" },
+            { value: "l", text: "L" }
+          ],
+          color: [
+            { value: "orange", color: "orange" },
+            { value: "pink", color: "pink" },
+            { value: "yellow", color: "yellow" },
+            { value: "blue", color: "blue" },
+            { value: "green", color: "green" }
+          ],
+          image: [
+            { value: "logo", image: "/assets/logo.svg" },
+            { value: "heart", image: "/assets/heart.svg" },
+            { value: "home", image: "/assets/home.svg" },
+            { value: "profile", image: "/assets/profile.svg" }
+          ]
+        })
       }
     },
     data() {

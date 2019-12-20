@@ -1,4 +1,3 @@
-// @vue/component
 import SfIcon from "../SfIcon/SfIcon.vue";
 
 export default {

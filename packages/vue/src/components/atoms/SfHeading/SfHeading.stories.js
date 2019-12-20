@@ -12,30 +12,29 @@ import SfIcon from "../SfIcon/SfIcon.vue";
 
 storiesOf("Atoms|Heading", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfHeading },
     props: {
       customClass: {
         default: options(
-          "CSS modifiers",
+          "CSS modifier",
           {
             "sf-heading--no-underline": "sf-heading--no-underline",
             "sf-heading--left": "sf-heading--left",
             "sf-heading--right": "sf-heading--right"
           },
           "null",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       level: {
-        default: number("level", 2, { min: 1, max: 6 }, "Props")
+        default: number("level (prop)", 2, { min: 1, max: 6 })
       },
       title: {
-        default: text("title", "Show how YOU wear it", "Props")
+        default: text("title (prop)", "Show how YOU wear it")
       },
       subtitle: {
-        default: text("subtitle", "#YOURLOOK", "Props")
+        default: text("subtitle (prop)", "#YOURLOOK")
       }
     },
     template: `<SfHeading
@@ -52,25 +51,24 @@ storiesOf("Atoms|Heading", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifiers",
+          "CSS modifier",
           {
             "sf-heading--no-underline": "sf-heading--no-underline",
             "sf-heading--left": "sf-heading--left",
             "sf-heading--right": "sf-heading--right"
           },
           "null",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       level: {
-        default: number("level", 2, { min: 1, max: 6 }, "Props")
+        default: number("level (prop)", 2, { min: 1, max: 6 })
       },
       title: {
-        default: text("title", "Show how YOU wear it", "Props")
+        default: text("title (prop)", "Show how YOU wear it")
       },
       subtitle: {
-        default: text("subtitle", "#YOURLOOK", "Props")
+        default: text("subtitle (prop)", "#YOURLOOK")
       }
     },
     template: `<SfHeading
@@ -93,25 +91,24 @@ storiesOf("Atoms|Heading", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifiers",
+          "CSS modifier",
           {
             "sf-heading--no-underline": "sf-heading--no-underline",
             "sf-heading--left": "sf-heading--left",
             "sf-heading--right": "sf-heading--right"
           },
           "null",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       level: {
-        default: number("level", 2, { min: 1, max: 6 }, "Props")
+        default: number("level (prop)", 2, { min: 1, max: 6 })
       },
       title: {
-        default: text("title", "Show how YOU wear it", "Props")
+        default: text("title (prop)", "Show how YOU wear it")
       },
       subtitle: {
-        default: text("subtitle", "#YOURLOOK", "Props")
+        default: text("subtitle (prop)", "#YOURLOOK")
       }
     },
     template: `<SfHeading

@@ -4,21 +4,21 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 import SfMenuItem from "./SfMenuItem.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
-storiesOf("Molecules|MenuItem", module)
+export default storiesOf("Molecules|MenuItem", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: {
       SfMenuItem
     },
     props: {
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label (prop)", "Red")
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count (prop)", "30")
       },
       icon: {
-        default: text("icon", "chevron_right", "Props")
+        default: text("icon (prop)", "chevron_right")
       }
     },
     template: `<div style="max-width: 300px">
@@ -34,13 +34,13 @@ storiesOf("Molecules|MenuItem", module)
     },
     props: {
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label (prop)", "Red")
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count (prop)", "30")
       },
       icon: {
-        default: text("icon", "chevron_right", "Props")
+        default: text("icon (prop)", "chevron_right")
       }
     },
     template: `<div style="max-width: 300px">
@@ -60,13 +60,13 @@ storiesOf("Molecules|MenuItem", module)
     },
     props: {
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label (prop)", "Red")
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count (prop)", "30")
       },
       icon: {
-        default: text("icon", "chevron_right", "Props")
+        default: text("icon (prop)", "chevron_right")
       }
     },
     template: `<div style="max-width: 300px">
@@ -86,13 +86,13 @@ storiesOf("Molecules|MenuItem", module)
     },
     props: {
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label (prop)", "Red")
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count (prop)", "30")
       },
       icon: {
-        default: text("icon", "chevron_right", "Props")
+        default: text("icon (prop)", "chevron_right")
       }
     },
     template: `<div style="max-width: 300px">
@@ -113,13 +113,13 @@ storiesOf("Molecules|MenuItem", module)
     },
     props: {
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label (prop)", "Red")
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count (prop)", "30")
       },
       icon: {
-        default: text("icon", "chevron_right", "Props")
+        default: text("icon (prop)", "chevron_right")
       }
     },
     template: `<div style="max-width: 300px">

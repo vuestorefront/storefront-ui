@@ -1,4 +1,3 @@
-// @vue/component
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
@@ -117,9 +116,7 @@ export default {
       this.toggle();
     },
     toggle(event) {
-      if (this.$refs.cancel && event.target.contains(this.$refs.cancel.$el)) {
-        return;
-      }
+      if (this.$refs.cancel && event.target.contains(this.$refs.cancel.$el)) return;
       this.open = !this.open;
     },
     openHandler() {

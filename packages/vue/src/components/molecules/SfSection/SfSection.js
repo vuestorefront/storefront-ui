@@ -1,4 +1,3 @@
-// @vue/component
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 export default {
   name: "SfSection",

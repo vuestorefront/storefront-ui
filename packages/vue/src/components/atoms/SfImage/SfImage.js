@@ -1,4 +1,3 @@
-// @vue/component
 import lozad from "lozad";
 
 export default {

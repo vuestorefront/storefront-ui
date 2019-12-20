@@ -44,7 +44,7 @@
         </SfButton>
         <div class="navbar__sort desktop-only">
           <span class="navbar__label">Sort by:</span>
-          <SfSelect v-model="sortBy" class="sort-by">
+          <SfSelect class="sort-by" v-model="sortBy">
             <SfSelectOption
               v-for="option in sortByOptions"
               :key="option.value"
@@ -99,7 +99,7 @@
     </div>
     <div class="main section">
       <div class="sidebar desktop-only">
-        <SfAccordion :first-open="true" :show-chevron="false">
+        <SfAccordion :firstOpen="true" :showChevron="false">
           <SfAccordionItem
             v-for="(accordion, i) in sidebarAccordion"
             :key="i"
@@ -126,21 +126,21 @@
             :special-price="product.price.special"
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
-            :is-on-wishlist="product.isOnWishlist"
-            class="products__product-card"
+            :isOnWishlist="product.isOnWishlist"
             @click:wishlist="toggleWishlist(i)"
+            class="products__product-card"
           />
         </div>
         <SfPagination
           class="products__pagination desktop-only"
           :current="currentPage"
-          :total="4"
-          :visible="5"
           @click="
             page => {
-              currentPage = page;
+              this.currentPage = page;
             }
           "
+          :total="4"
+          :visible="5"
         />
       </div>
     </div>
@@ -195,13 +195,13 @@
         />
         <div class="filters__buttons">
           <SfButton
-            class="sf-button--full-width"
             @click="isFilterSidebarOpen = false"
+            class="sf-button--full-width"
             >Done</SfButton
           >
           <SfButton
-            class="sf-button--full-width filters__button-clear"
             @click="clearAllFilters"
+            class="sf-button--full-width filters__button-clear"
             >Clear all</SfButton
           >
         </div>
@@ -537,6 +537,7 @@ export default {
     }
   }
 }
+
 .products {
   box-sizing: border-box;
   flex: 1;
@@ -589,7 +590,6 @@ export default {
   }
 }
 .filters {
-  padding: $spacer-big;
   &__title {
     margin: $spacer-big * 3 0 $spacer-big;
     font-size: $font-size-big-desktop;

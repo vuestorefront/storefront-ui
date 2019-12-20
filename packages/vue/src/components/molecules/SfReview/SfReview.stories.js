@@ -5,36 +5,35 @@ import SfReview from "./SfReview.vue";
 
 storiesOf("Molecules|Review", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfReview },
     props: {
       author: {
-        default: text("author", "Jane D.Smith", "Props")
+        default: text("author (prop)", "Jane D.Smith")
       },
       date: {
-        default: text("date", "April 2019", "Props")
+        default: text("date (prop)", "April 2019")
       },
       message: {
         default: text(
-          "message",
-          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
-          "Props"
+          "message (prop)",
+          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend."
         )
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props")
+        default: number("max-rating (prop)", 5)
       },
       rating: {
-        default: number("rating", 4, {}, "Props")
+        default: number("rating (prop)", 4)
       },
       charLimit: {
-        default: number("charLimit", 250, {}, "Props")
+        default: number("char-limit (prop)", 250)
       },
       readMoreText: {
-        default: text("readMoreText", "Read more", "Props")
+        default: text("read-more-text (prop)", "Read more")
       },
       hideFullText: {
-        default: text("hideFullText", "Read less", "Props")
+        default: text("hide-full-text (prop)", "Read less")
       }
     },
     template: `<SfReview
@@ -51,32 +50,31 @@ storiesOf("Molecules|Review", module)
     components: { SfReview },
     props: {
       author: {
-        default: text("author", "Jane D.Smith", "Props")
+        default: text("author (prop)", "Jane D.Smith")
       },
       date: {
-        default: text("date", "April 2019", "Props")
+        default: text("date (prop)", "April 2019")
       },
       message: {
         default: text(
-          "message",
-          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
-          "Props"
+          "message (prop)",
+          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend."
         )
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props")
+        default: number("max-rating (prop)", 5)
       },
       rating: {
-        default: number("rating", 4, {}, "Props")
+        default: number("rating (prop)", 4)
       },
       charLimit: {
-        default: number("charLimit", 250, {}, "Props")
+        default: number("char-limit (prop)", 250)
       },
       readMoreText: {
-        default: text("readMoreText", "Read more", "Props")
+        default: text("read-more-text (prop)", "Read more")
       },
       hideFullText: {
-        default: text("hideFullText", "Read less", "Props")
+        default: text("hide-full-text (prop)", "Read less")
       }
     },
     template: `<SfReview
@@ -97,32 +95,31 @@ storiesOf("Molecules|Review", module)
     components: { SfReview },
     props: {
       author: {
-        default: text("author", "Jane D.Smith", "Props")
+        default: text("author (prop)", "Jane D.Smith")
       },
       date: {
-        default: text("date", "April 2019", "Props")
+        default: text("date (prop)", "April 2019")
       },
       message: {
         default: text(
-          "message",
-          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
-          "Props"
+          "message (prop)",
+          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend."
         )
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props")
+        default: number("max-rating (prop)", 5)
       },
       rating: {
-        default: number("rating", 4, {}, "Props")
+        default: number("rating (prop)", 4)
       },
       charLimit: {
-        default: number("charLimit", 250, {}, "Props")
+        default: number("char-limit (prop)", 250)
       },
       readMoreText: {
-        default: text("readMoreText", "Read more", "Props")
+        default: text("read-more-text (prop)", "Read more")
       },
       hideFullText: {
-        default: text("hideFullText", "Read less", "Props")
+        default: text("hide-full-text (prop)", "Read less")
       }
     },
     template: `<SfReview
@@ -143,32 +140,31 @@ storiesOf("Molecules|Review", module)
     components: { SfReview },
     props: {
       author: {
-        default: text("author", "Jane D.Smith", "Props")
+        default: text("author (prop)", "Jane D.Smith")
       },
       date: {
-        default: text("date", "April 2019", "Props")
+        default: text("date (prop)", "April 2019")
       },
       message: {
         default: text(
-          "message",
-          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
-          "Props"
+          "message (prop)",
+          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend."
         )
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props")
+        default: number("max-rating (prop)", 5)
       },
       rating: {
-        default: number("rating", 4, {}, "Props")
+        default: number("rating (prop)", 4)
       },
       charLimit: {
-        default: number("charLimit", 250, {}, "Props")
+        default: number("char-limit (prop)", 250)
       },
       readMoreText: {
-        default: text("readMoreText", "Read more", "Props")
+        default: text("read-more-text (prop)", "Read more")
       },
       hideFullText: {
-        default: text("hideFullText", "Read less", "Props")
+        default: text("hide-full-text (prop)", "Read less")
       }
     },
     template: `<SfReview

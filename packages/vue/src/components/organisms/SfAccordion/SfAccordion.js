@@ -1,4 +1,3 @@
-// @vue/component
 import Vue from "vue";
 import SfAccordionItem from "./_internal/SfAccordionItem.vue";
 

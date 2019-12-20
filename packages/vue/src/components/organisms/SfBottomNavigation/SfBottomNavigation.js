@@ -1,4 +1,3 @@
-// @vue/component
 import Vue from "vue";
 
 import SfBottomNavigationItem from "./_internal/SfBottomNavigationItem.vue";

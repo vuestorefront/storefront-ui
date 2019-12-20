@@ -1,9 +1,7 @@
-// @vue/component
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
-import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 
 export default {
   name: "SfProductCard",
@@ -97,27 +95,6 @@ export default {
     isOnWishlist: {
       type: Boolean,
       default: false
-    },
-    /**
-     * Status of showing add to cart button
-     */
-    showAddToCartButton: {
-      type: Boolean,
-      default: false
-    },
-    /**
-     * isAddedToCart status of whether button is showed, product is added or not
-     */
-    isAddedToCart: {
-      type: Boolean,
-      deafult: false
-    },
-    /**
-     * addToCartDisabled status of whether button is disabled when out of stock
-     */
-    addToCartDisabled: {
-      type: Boolean,
-      default: false
     }
   },
 
@@ -125,23 +102,14 @@ export default {
     SfPrice,
     SfRating,
     SfIcon,
-    SfImage,
-    SfCircleIcon
-  },
-
-  data() {
-    return {
-      isAddingToCart: false
-    };
+    SfImage
   },
 
   computed: {
     currentWishlistIcon() {
       return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
     },
-    showAddedToCartBadge() {
-      return !this.isAddingToCart && this.isAddedToCart;
-    },
+
     ariaLabel() {
       return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
@@ -170,14 +138,6 @@ export default {
   methods: {
     toggleIsOnWishlist() {
       this.$emit("click:wishlist", !this.isOnWishlist);
-    },
-    onAddToCart(event) {
-      event.preventDefault();
-      this.isAddingToCart = true;
-      setTimeout(() => {
-        this.isAddingToCart = false;
-      }, 1000);
-      this.$emit("click:add-to-cart");
     }
   }
 };

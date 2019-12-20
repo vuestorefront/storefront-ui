@@ -52,23 +52,16 @@ $collected-product__select-quantity-height: 1.875rem !default;
     right: $spacer;
     background-color: transparent;
     padding: 0;
-    &.sf-circle-icon{
-      & .sf-icon {
-        @media (max-width: $desktop-min) {
-          --icon-size: #{$collected-product__remove-size} !important;
-          --icon-color: #{$c-gray} !important;
-        }
-      }
-      &.sf-button{
-        padding: 0;
-        @media (min-width: $desktop-min) {
-          padding: 10px;
-        }
+    .sf-icon{
+      @media (max-width: $desktop-min) {
+        --icon-size: #{$collected-product__remove-size} !important;
+        --icon-color: #{$c-gray} !important;
       }
     }
     @media (min-width: $desktop-min) {
       right: calc(#{$collected-product__remove-size-desktop} / -2);
       top: 10px;
+      padding: 10px;
       background-color: $collected-product__remove-background;
       box-shadow: none;
       opacity: 0;

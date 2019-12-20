@@ -1,4 +1,3 @@
-// @vue/component
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfInput from "../../atoms/SfInput/SfInput.vue";
 

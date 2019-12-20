@@ -8,14 +8,14 @@ import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 
 storiesOf("Organisms|Footer", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfFooter, SfList, SfMenuItem, SfImage },
     props: {
       column: {
-        default: number("column", 4, {}, "Props")
+        default: number("column (prop)", 4)
       },
       multiple: {
-        default: boolean("multiple", true, "Props")
+        default: boolean("multiple (prop)", true)
       }
     },
     data() {

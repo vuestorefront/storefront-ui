@@ -1,4 +1,3 @@
-// @vue/component
 import Vue from "vue";
 import Glide from "@glidejs/glide";
 import SfGroupedProductItem from "./_internal/SfGroupedProductItem.vue";

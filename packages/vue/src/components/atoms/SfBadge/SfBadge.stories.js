@@ -10,11 +10,11 @@ import SfBadge from "./SfBadge.vue";
 
 storiesOf("Atoms|Badge", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("[slot] default", () => ({
     props: {
       customClass: {
         default: options(
-          "CSS modifiers",
+          "CSS modifier",
           {
             "sf-badge--full-width": "sf-badge--full-width",
             "color-primary": "color-primary",
@@ -25,12 +25,11 @@ storiesOf("Atoms|Badge", module)
             "color-success": "color-success"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       },
       customLabel: {
-        default: text("default", "Limited", "Slots")
+        default: text("default (slot)", "Limited")
       }
     },
     components: { SfBadge },

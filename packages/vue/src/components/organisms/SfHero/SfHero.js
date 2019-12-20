@@ -1,4 +1,3 @@
-// @vue/component
 import Vue from "vue";
 
 import SfHeroItem from "./_internal/SfHeroItem.vue";

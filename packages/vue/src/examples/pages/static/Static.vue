@@ -8,8 +8,8 @@
       <div>
         <button
           v-if="activePage"
-          class="back-bar__button"
           @click="activePage = ''"
+          class="back-bar__button"
         >
           <SfIcon icon="chevron_left" size="14px" />
         </button>
@@ -23,9 +23,9 @@
     </div>
     <SfContentPages
       :active="activePage"
+      @click:change="updateActive"
       title="Help"
       class="static-content"
-      @click:change="updateActive"
     >
       <SfContentPage title="About us">
         <SfTabs :open-tab="1">
