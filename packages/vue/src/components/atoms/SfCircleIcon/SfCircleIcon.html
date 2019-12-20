@@ -9,4 +9,10 @@
       :color="iconColor"
       :size="iconSize"/>
   </slot>
+  <transition name="sf-circle-icon__badge">
+    <slot name="badge" v-if="hasBadge">
+        <div class="sf-circle-icon__badge"></div>
+    </slot>
+  </transition>
+
 </SfButton>

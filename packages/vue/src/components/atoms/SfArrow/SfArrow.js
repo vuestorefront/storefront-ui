@@ -1,3 +1,10 @@
+// @vue/component
 export default {
-  name: "SfArrow"
+  name: "SfArrow",
+  props: {
+    ariaLabel: {
+      type: String,
+      default: "Arrow"
+    }
+  }
 };

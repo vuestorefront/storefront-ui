@@ -69,11 +69,11 @@
               class="sf-select--bordered product-details__attribute"
             >
               <SfSelectOption
-                v-for="size in sizes"
-                :key="size.value"
-                :value="size.value"
+                v-for="sizeOption in sizes"
+                :key="sizeOption.value"
+                :value="sizeOption.value"
               >
-                <SfProductOption :label="size.label" />
+                <SfProductOption :label="sizeOption.label" />
               </SfSelectOption>
             </SfSelect>
             <SfSelect
@@ -82,11 +82,14 @@
               class="sf-select--bordered product-details__attribute"
             >
               <SfSelectOption
-                v-for="color in colors"
-                :key="color.value"
-                :value="color.value"
+                v-for="colorOption in colors"
+                :key="colorOption.value"
+                :value="colorOption.value"
               >
-                <SfProductOption :label="color.label" :color="color.color" />
+                <SfProductOption
+                  :label="colorOption.label"
+                  :color="colorOption.color"
+                />
               </SfSelectOption>
             </SfSelect>
           </div>
@@ -97,9 +100,9 @@
               class="product-details__alert mobile-only"
             />
             <SfAddToCart
-              :stock="stock"
               v-model="qty"
-              :canAddToCart="stock > 0"
+              :stock="stock"
+              :can-add-to-cart="stock > 0"
               class="product-details__add-to-cart"
             />
             <div class="product-details__action">
@@ -109,7 +112,7 @@
               <button class="sf-action">Add to compare</button>
             </div>
           </div>
-          <SfTabs class="product-details__tabs" :openTab="2">
+          <SfTabs class="product-details__tabs" :open-tab="2">
             <SfTab title="Description">
               <div>
                 <p>
@@ -132,9 +135,9 @@
             </SfTab>
             <SfTab title="Read reviews">
               <SfReview
-                class="product-details__review"
                 v-for="(review, i) in reviews"
                 :key="i"
+                class="product-details__review"
                 :author="review.author"
                 :date="review.date"
                 :message="review.message"
@@ -169,8 +172,8 @@
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
             :is-on-wishlist="product.isOnWishlist"
-            @click:wishlist="toggleWishlist(i)"
             class="product-card"
+            @click:wishlist="toggleWishlist(i)"
           />
         </SfCarouselItem>
       </SfCarousel>
@@ -185,8 +188,8 @@
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
             :is-on-wishlist="product.isOnWishlist"
-            @click:wishlist="toggleWishlist(i)"
             class="product-card"
+            @click:wishlist="toggleWishlist(i)"
           />
         </SfCarouselItem>
       </SfCarousel>
