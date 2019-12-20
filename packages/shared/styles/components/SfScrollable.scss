@@ -11,9 +11,11 @@ $scrollable__max-width: 13.5rem !default;
 
         .simplebar-scrollbar:before {
             width: 0.25rem;
-            background-color: $c-black;
-            opacity: 1;
+            background-color: $c-dark;
             border-radius: 10px;
+        }
+        .simplebar-visible:before {
+            opacity: 1;
         }
     }
     &__button {
