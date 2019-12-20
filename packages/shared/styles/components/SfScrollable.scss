@@ -8,6 +8,13 @@ $scrollable__max-width: 13.5rem !default;
     &__content {
         max-height: var(--content-height);
         max-width: $scrollable__max-width;
+
+        .simplebar-scrollbar:before {
+            width: 0.25rem;
+            background-color: $c-black;
+            opacity: 1;
+            border-radius: 10px;
+        }
     }
     &__button {
         margin-top: 1rem;

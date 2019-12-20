@@ -41,7 +41,6 @@ export default {
           "max-height",
           this.maxContentHeight
         );
-        this.$refs.content.$el.style.setProperty("overflow-y", "scroll");
       }
     }
   }
