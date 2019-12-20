@@ -1,37 +1,42 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, number, object } from "@storybook/addon-knobs";
+
 import SfGroupedProduct from "./SfGroupedProduct.vue";
 
 storiesOf("Organisms|GroupedProduct", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfGroupedProduct },
     props: {
       settings: {
-        default: object("settings (prop)", { type: "slider" })
+        default: object("settings", { type: "slider" }, "Props")
       },
       image: {
-        default: text("image (prop)", "/assets/storybook/product-white.png")
+        default: text("image", "/assets/storybook/product-white.png", "Props")
       },
       title: {
-        default: text("title (prop)", "Leave white brooch")
+        default: text("title", "Leave white brooch", "Props")
       },
       priceSpecial: {
-        default: text("price-special (prop)", "")
+        default: text("priceSpecial", "", "Props")
       },
       priceRegular: {
-        default: text("price-regular (prop)", "$10,99")
+        default: text("priceRegular", "$10,99", "Props")
       },
       stock: {
-        default: number("stock (prop)", 99)
+        default: number("stock", 99, {}, "Props")
       },
       attributes: {
-        default: object("attributes (prop)", [
-          {
-            name: "color",
-            value: "White"
-          }
-        ])
+        default: object(
+          "attributes",
+          [
+            {
+              name: "color",
+              value: "White"
+            }
+          ],
+          "Props"
+        )
       }
     },
     data() {
@@ -65,7 +70,7 @@ storiesOf("Organisms|GroupedProduct", module)
     components: { SfGroupedProduct },
     props: {
       settings: {
-        default: object("settings (prop)", { type: "slider" })
+        default: object("settings", { type: "slider" }, "Props")
       }
     },
     data() {

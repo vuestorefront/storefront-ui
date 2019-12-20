@@ -1,15 +1,19 @@
 @import "../variables";
 
 $circle-icon-background: $c-primary !default;
+$circle-icon__badge-background-color: #FF3535 !default;
 
 .sf-circle-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding: $spacer-big;
   border-radius: 50%;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, opacity 150ms ease-in-out;
+  position: relative;
+  &.sf-button{
+    padding: $spacer-big;
+  }
   &:hover {
     box-shadow: 0 0 0 0.3125rem rgba($circle-icon-background, 0.4);
   }
@@ -31,5 +35,33 @@ $circle-icon-background: $c-primary !default;
         box-shadow: 0 0 0 0.625rem rgba($bg, 0.4);
       }
     }
+  }
+  &__badge {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top:0;
+    background-color: $circle-icon__badge-background-color;
+    &-enter-active {
+      animation: bounce-in .3s;
+    }
+    &-leave-active {
+      animation: bounce-in .3s reverse;
+    }
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
   }
 }
