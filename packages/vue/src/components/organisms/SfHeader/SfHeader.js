@@ -1,4 +1,3 @@
-// @vue/component
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
 
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";

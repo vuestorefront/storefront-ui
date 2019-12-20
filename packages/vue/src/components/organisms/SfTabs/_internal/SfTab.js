@@ -1,4 +1,3 @@
-// @vue/component
 import { Fragment } from "vue-fragment";
 
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";

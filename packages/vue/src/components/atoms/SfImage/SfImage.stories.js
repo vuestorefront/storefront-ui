@@ -12,39 +12,35 @@ import SfImage from "./SfImage.vue";
 
 storiesOf("Atoms|Image", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfImage },
     props: {
       src: {
-        default: object(
-          "src",
-          {
-            small: {
-              url: "/assets/storybook/product-109x164.jpg",
-              alt: "Vila stripe maxi shirt dress"
-            },
-            normal: {
-              url: "/assets/storybook/product-216x326.jpg",
-              alt: "Vila stripe maxi shirt dress"
-            }
+        default: object("src (prop)", {
+          small: {
+            url: "/assets/storybook/product-109x164.jpg",
+            alt: "Vila stripe maxi shirt dress"
           },
-          "Props"
-        )
+          normal: {
+            url: "/assets/storybook/product-216x326.jpg",
+            alt: "Vila stripe maxi shirt dress"
+          }
+        })
       },
       alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Props")
+        default: text("alt (prop)", "Vila stripe maxi shirt dress")
       },
       placeholder: {
-        default: text("placeholder", "/assets/placeholder.png", "Props")
+        default: text("placeholder (prop)", "/assets/placeholder.png")
       },
       transition: {
-        default: text("transition", "fade", "Props")
+        default: text("transition (prop)", "fade")
       },
       lazy: {
-        default: boolean("lazy", true, "Props")
+        default: boolean("lazy (prop)", true)
       },
       pictureBreakpoint: {
-        default: number("pictureBreakpoint", 576, {}, "Props")
+        default: number("pictureBreakpoint (prop)", 576)
       }
     },
     template: `<SfImage
@@ -59,33 +55,29 @@ storiesOf("Atoms|Image", module)
     components: { SfImage },
     props: {
       src: {
-        default: object(
-          "src",
-          {
-            small: {
-              url: "/assets/storybook/product-109x164.jpg"
-            },
-            normal: {
-              url: "/assets/storybook/product-216x326.jpg"
-            }
+        default: object("src (prop)", {
+          small: {
+            url: "/assets/storybook/product-109x164.jpg"
           },
-          "Props"
-        )
+          normal: {
+            url: "/assets/storybook/product-216x326.jpg"
+          }
+        })
       },
       alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Props")
+        default: text("alt (prop)", "Vila stripe maxi shirt dress")
       },
       placeholder: {
-        default: text("placeholder", "/assets/placeholder.png", "Props")
+        default: text("placeholder (prop)", "/assets/placeholder.png")
       },
       transition: {
-        default: text("transition", "fade", "Props")
+        default: text("transition (prop)", "fade")
       },
       lazy: {
-        default: boolean("lazy", true, "Props")
+        default: boolean("lazy (prop)", true)
       },
       pictureBreakpoint: {
-        default: number("picture-breakpoint", 576, {}, "Props")
+        default: number("picture-breakpoint (prop)", 576)
       }
     },
     template: `<SfImage

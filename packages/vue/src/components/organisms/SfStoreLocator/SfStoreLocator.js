@@ -1,4 +1,3 @@
-// @vue/component
 import Vue from "vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLoader from "../../atoms/SfLoader/SfLoader.vue";

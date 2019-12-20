@@ -1,4 +1,3 @@
-// @vue/component
 export default {
   name: "SfBannerGrid",
   props: {

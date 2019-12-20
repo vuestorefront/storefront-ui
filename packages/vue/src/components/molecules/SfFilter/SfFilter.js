@@ -1,4 +1,3 @@
-// @vue/component
 export default {
   name: "SfFilter",
   props: {
@@ -7,7 +6,7 @@ export default {
       default: ""
     },
     count: {
-      type: [String, Number],
+      type: String,
       default: ""
     },
     color: {

@@ -2,7 +2,9 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8371333f-ef98-4d04-bcc4-9f4771d11430/deploy-status)](https://app.netlify.com/sites/storefrontui-storybook/deploys)
 
-**Current status:** Stable beta!
+**This project is on the early stages of development. Not ready for production use. Expect some things to be broken and API to change**
+
+**We are looking for contributors and agencies willing to join us and build the best UI library for Vue together!**
 
 Customization-first, performance-oriented and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team and contributors.
 
@@ -58,7 +60,6 @@ We are currently in the process of building the library. If you want to help in 
 
 - Filip Rakowski ([@filrak](https://github.com/filrak))
 - Przemek Spaczek ([@przspa](https://github.com/przspa))
-- Ania ([@aniamusial](https://github.com/aniamusial))
 - Leonardo Matos ([@leomp12](https://github.com/leomp12))
 - Maya Shavin ([@mayashavin](https://github.com/mayashavin))
 - Nicolò Maria Mezzopera ([@DonNicoJS](https://github.com/DonNicoJs))

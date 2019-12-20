@@ -1,8 +1,8 @@
-// @vue/component
-import icons from "@storefront-ui/shared/icons/icons";
-import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
-import { sizesValues as SF_SIZES } from "@storefront-ui/shared/variables/sizes";
+import { icons } from "@storefront-ui/shared/icons/icons";
 
+const HEX_REGEX = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
+const RGB_REGEX = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/;
+const SF_SIZES = ["xxs", "xs", "sm", "md", "lg", "xl", "xxl", "xl3", "xl4"];
 const SF_ICONS = Object.keys(icons);
 
 export default {
@@ -28,7 +28,7 @@ export default {
     },
     /**
      * Custom color of the icon
-     * It can be according to our standard colors, or legitimate CSS color such as `#fff`, `rgb(255,255,255)`), and `lightgray` or nothing.
+     * It can be according to our standard colors, or `#fff` or `rgb(255,255,255)` or nothing.
      * Standard colors: `primary`, `secondary`, `white`, `black`, `accent`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`.
      */
     color: {
@@ -47,26 +47,21 @@ export default {
     }
   },
   computed: {
-    isSFColors() {
-      return SF_COLORS.includes(this.color.trim());
+    isDecimalOrHexColor() {
+      const color = this.color.trim();
+      return RGB_REGEX.test(color) || HEX_REGEX.test(color);
     },
     isSFSizes() {
       const size = this.size.trim();
       return SF_SIZES.includes(size);
     },
-    iconColorClass() {
+    iconColor() {
       return !this.isDecimalOrHexColor
         ? `sf-icon--color-${this.color.trim()}`
         : "";
     },
-    iconSizeClass() {
+    iconSize() {
       return this.isSFSizes ? `sf-icon--size-${this.size.trim()}` : "";
-    },
-    iconCustomStyle() {
-      return {
-        "--icon-color": !this.isSFColors ? this.color : "",
-        "--icon-size": !this.isSFSizes ? this.size : ""
-      };
     },
     isSFIcons() {
       return SF_ICONS.includes(this.icon.trim());
@@ -82,6 +77,21 @@ export default {
       } else {
         return Array.isArray(this.icon) ? this.icon : [this.icon];
       }
+    }
+  },
+  updated() {
+    this.$nextTick(this.updateCustomizeColorAndSize);
+  },
+  mounted() {
+    this.updateCustomizeColorAndSize();
+  },
+  methods: {
+    updateCustomizeColorAndSize() {
+      const customColorProperty = this.isDecimalOrHexColor ? this.color : "";
+      const customSizeProperty = !this.isSFSizes ? this.size : "";
+
+      this.$refs.icon.style.setProperty("--icon-color", customColorProperty);
+      this.$refs.icon.style.setProperty("--icon-size", customSizeProperty);
     }
   }
 };

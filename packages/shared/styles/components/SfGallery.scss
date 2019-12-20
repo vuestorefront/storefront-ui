@@ -107,9 +107,7 @@ $gallery__stage-cursor: zoom-in !default;
     max-width: 100%;
     width: auto;
     height: auto;
-    &--has-zoom {
-      cursor: $gallery__stage-cursor;
-    }
+    cursor: $gallery__stage-cursor;
   }
 
   img {
@@ -119,15 +117,5 @@ $gallery__stage-cursor: zoom-in !default;
     &__slides {
       margin: 0;
     }
-  }
-}
-
-.sf-gallery__zoom {
-  z-index: 1;
-  position: absolute;
-  overflow: hidden;
-  
-  img {
-    transform: scale(2)
   }
 }

@@ -7,18 +7,17 @@ import SfIcon from "../SfIcon/SfIcon.vue";
 
 storiesOf("Atoms|Chevron", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfChevron },
     props: {
       customClass: {
         default: options(
-          "CSS modifiers",
+          "CSS modifier",
           {
             "sf-chevron--top": "sf-chevron--top"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       }
     },
@@ -33,13 +32,12 @@ storiesOf("Atoms|Chevron", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifiers",
+          "CSS modifier",
           {
             "sf-chevron--top": "sf-chevron--top"
           },
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          { display: "multi-select" }
         )
       }
     },

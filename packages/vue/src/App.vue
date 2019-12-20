@@ -10,7 +10,7 @@ import Vue from "vue";
 import Playground from "./Playground.vue";
 
 export default Vue.extend({
-  name: "App",
+  name: "app",
   components: {
     Playground
   }

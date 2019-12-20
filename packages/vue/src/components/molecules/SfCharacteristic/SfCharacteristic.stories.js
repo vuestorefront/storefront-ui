@@ -26,27 +26,26 @@ const colors = [
 
 storiesOf("Molecules|Characteristic", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfCharacteristic },
     props: {
       title: {
-        default: text("title", "Safety", "Props")
+        default: text("title (prop)", "Safety")
       },
       description: {
         default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
+          "description (prop)",
+          "It carefully packaged with a personal touch"
         )
       },
       icon: {
-        default: text("icon", "info_shield", "Props")
+        default: text("icon (prop)", "info_shield")
       },
       sizeIcon: {
-        default: select("sizeIcon", sizes, "xs", "Props")
+        default: select("size-icon (prop)", sizes, "xs")
       },
       colorIcon: {
-        default: select("colorIcon", colors, "primary", "Props")
+        default: select("color-icon (prop)", colors, "primary")
       }
     },
     template: `<SfCharacteristic 
@@ -60,23 +59,22 @@ storiesOf("Molecules|Characteristic", module)
     components: { SfCharacteristic },
     props: {
       title: {
-        default: text("title", "Safety", "Props")
+        default: text("title (prop)", "Safety")
       },
       description: {
         default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
+          "description (prop)",
+          "It carefully packaged with a personal touch"
         )
       },
       icon: {
-        default: text("icon", "info_shield", "Props")
+        default: text("icon (prop)", "info_shield")
       },
       sizeIcon: {
-        default: select("sizeIcon", sizes, "xs", "Props")
+        default: select("size-icon (prop)", sizes, "xs")
       },
       colorIcon: {
-        default: select("colorIcon", colors, "primary", "Props")
+        default: select("color-icon (prop)", colors, "primary")
       }
     },
     template: `<SfCharacteristic 
@@ -94,23 +92,22 @@ storiesOf("Molecules|Characteristic", module)
     components: { SfCharacteristic },
     props: {
       title: {
-        default: text("title", "Safety", "Props")
+        default: text("title (prop)", "Safety")
       },
       description: {
         default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
+          "description (prop)",
+          "It carefully packaged with a personal touch"
         )
       },
       icon: {
-        default: text("icon", "info_shield", "Props")
+        default: text("icon (prop)", "info_shield")
       },
       sizeIcon: {
-        default: select("sizeIcon", sizes, "xs", "Props")
+        default: select("size-icon (prop)", sizes, "xs")
       },
       colorIcon: {
-        default: select("colorIcon", colors, "primary", "Props")
+        default: select("color-icon (prop)", colors, "primary")
       }
     },
     template: `<SfCharacteristic 
@@ -128,23 +125,22 @@ storiesOf("Molecules|Characteristic", module)
     components: { SfCharacteristic },
     props: {
       title: {
-        default: text("title", "Safety", "Props")
+        default: text("title (prop)", "Safety")
       },
       description: {
         default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
+          "description (prop)",
+          "It carefully packaged with a personal touch"
         )
       },
       icon: {
-        default: text("icon", "info_shield", "Props")
+        default: text("icon (prop)", "info_shield")
       },
       sizeIcon: {
-        default: select("sizeIcon", sizes, "xs", "Props")
+        default: select("size-icon (prop)", sizes, "xs")
       },
       colorIcon: {
-        default: select("colorIcon", colors, "primary", "Props")
+        default: select("color-icon (prop)", colors, "primary")
       }
     },
     template: `<SfCharacteristic 
@@ -162,23 +158,22 @@ storiesOf("Molecules|Characteristic", module)
     components: { SfCharacteristic },
     props: {
       title: {
-        default: text("title", "Safety", "Props")
+        default: text("title (prop)", "Safety")
       },
       description: {
         default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
+          "description (prop)",
+          "It carefully packaged with a personal touch"
         )
       },
       icon: {
-        default: text("icon", "info_shield", "Props")
+        default: text("icon (prop)", "info_shield")
       },
       sizeIcon: {
-        default: select("sizeIcon", sizes, "xs", "Props")
+        default: select("size-icon (prop)", sizes, "xs")
       },
       colorIcon: {
-        default: select("colorIcon", colors, "primary", "Props")
+        default: select("color-icon (prop)", colors, "primary")
       }
     },
     template: `<SfCharacteristic 
