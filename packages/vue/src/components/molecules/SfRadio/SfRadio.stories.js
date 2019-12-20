@@ -10,7 +10,7 @@ import SfRadio from "./SfRadio.vue";
 
 storiesOf("Molecules|Radio", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfRadio },
     props: {
       customClass: {
@@ -18,29 +18,31 @@ storiesOf("Molecules|Radio", module)
           "CSS Modifiers",
           { "sf-radio--transparent": "sf-radio--transparent" },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       label: {
-        default: text("label (prop)", "Pickup in the store")
+        default: text("label", "Pickup in the store", "Props")
       },
       description: {
         default: text(
-          "description (prop)",
-          "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+          "description",
+          "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
+          "Props"
         )
       },
       name: {
-        default: text("name (prop)", "shipping")
+        default: text("name", "shipping", "Props")
       },
       value: {
-        default: text("value (prop)", "store")
+        default: text("value", "store", "Props")
       },
       disabled: {
-        default: boolean("disabled (prop)", false)
+        default: boolean("disabled", false, "Props")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("required", false, "Props")
       }
     },
     data() {
@@ -66,29 +68,31 @@ storiesOf("Molecules|Radio", module)
           "CSS Modifiers",
           { "sf-radio--transparent": "sf-radio--transparent" },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       label: {
-        default: text("label (prop)", "Pickup in the store")
+        default: text("label", "Pickup in the store", "Props")
       },
       description: {
         default: text(
-          "description (prop)",
-          "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+          "description",
+          "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
+          "Props"
         )
       },
       name: {
-        default: text("name (prop)", "shipping")
+        default: text("name", "shipping", "Props")
       },
       value: {
-        default: text("value (prop)", "store")
+        default: text("value", "store", "Props")
       },
       disabled: {
-        default: boolean("disabled (prop)", false)
+        default: boolean("disabled", false, "Props")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("required", false, "Props")
       }
     },
     data() {
@@ -119,29 +123,31 @@ storiesOf("Molecules|Radio", module)
           "CSS Modifiers",
           { "sf-radio--transparent": "sf-radio--transparent" },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       label: {
-        default: text("label (prop)", "Pickup in the store")
+        default: text("label", "Pickup in the store", "Props")
       },
       description: {
         default: text(
-          "description (prop)",
-          "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+          "description",
+          "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
+          "Props"
         )
       },
       name: {
-        default: text("name (prop)", "shipping")
+        default: text("name", "shipping", "Props")
       },
       value: {
-        default: text("value (prop)", "store")
+        default: text("value", "store", "Props")
       },
       disabled: {
-        default: boolean("disabled (prop)", false)
+        default: boolean("disabled", false, "Props")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("required", false, "Props")
       }
     },
     data() {
@@ -171,29 +177,31 @@ storiesOf("Molecules|Radio", module)
           "CSS Modifiers",
           { "sf-radio--transparent": "sf-radio--transparent" },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       },
       label: {
-        default: text("label (prop)", "Pickup in the store")
+        default: text("label", "Pickup in the store", "Props")
       },
       description: {
         default: text(
-          "description (prop)",
-          "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+          "description",
+          "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
+          "Props"
         )
       },
       name: {
-        default: text("name (prop)", "shipping")
+        default: text("name", "shipping", "Props")
       },
       value: {
-        default: text("value (prop)", "store")
+        default: text("value", "store", "Props")
       },
       disabled: {
-        default: boolean("disabled (prop)", false)
+        default: boolean("disabled", false, "Props")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("required", false, "Props")
       }
     },
     data() {

@@ -1,3 +1,4 @@
+// @vue/component
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 

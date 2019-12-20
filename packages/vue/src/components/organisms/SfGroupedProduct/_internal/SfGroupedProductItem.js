@@ -1,3 +1,4 @@
+// @vue/component
 import SfPrice from "../../../atoms/SfPrice/SfPrice.vue";
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
 import SfInput from "../../../atoms/SfInput/SfInput.vue";
@@ -43,7 +44,7 @@ export default {
      */
     title: {
       type: String,
-      required: true
+      default: ""
     },
     /**
      * Product regular price

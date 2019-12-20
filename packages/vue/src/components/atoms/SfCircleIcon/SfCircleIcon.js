@@ -1,3 +1,4 @@
+// @vue/component
 import SfButton from "../SfButton/SfButton.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
 
@@ -27,7 +28,11 @@ export default {
      */
     ariaLabel: {
       type: String,
-      required: true
+      default: ""
+    },
+    hasBadge: {
+      type: Boolean,
+      default: false
     }
   },
   components: {

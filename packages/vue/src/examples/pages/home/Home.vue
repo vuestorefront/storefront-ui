@@ -6,7 +6,7 @@
         :key="i"
         :title="hero.title"
         :subtitle="hero.subtitle"
-        :buttonText="hero.buttonText"
+        :button-text="hero.buttonText"
         :background="hero.background"
         :image="hero.image"
         :class="hero.className"
@@ -20,7 +20,7 @@
             title="COCKTAIL PARTY"
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerF.jpg"
+            image="/assets/storybook/homepage/bannerF.jpg"
             class="sf-banner--slim banner-custom"
           />
         </a>
@@ -32,7 +32,7 @@
             title="LINEN DRESSES"
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerE.jpg"
+            image="/assets/storybook/homepage/bannerE.jpg"
             class="sf-banner--slim banner-central"
           />
         </a>
@@ -42,7 +42,7 @@
           <SfBanner
             subtitle="T-Shirts"
             title="THE OFFICE LIFE"
-            image="assets/storybook/homepage/bannerC.jpg"
+            image="/assets/storybook/homepage/bannerC.jpg"
             class="sf-banner--slim"
           />
         </a>
@@ -52,7 +52,7 @@
           <SfBanner
             subtitle="Summer shoes"
             title="ECO SANDALS"
-            image="assets/storybook/homepage/bannerG.jpg"
+            image="/assets/storybook/homepage/bannerG.jpg"
             class="sf-banner--slim"
           />
         </a>
@@ -75,8 +75,8 @@
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
             :is-on-wishlist="product.isOnWishlist"
-            @click:wishlist="toggleWishlist(i)"
             class="product-card"
+            @click:wishlist="toggleWishlist(i)"
           />
         </SfCarouselItem>
       </SfCarousel>
@@ -114,7 +114,7 @@
       </div>
     </SfSection>
     <SfBanner
-      image="assets/storybook/homepage/bannerD.png"
+      image="/assets/storybook/homepage/bannerD.png"
       class="banner-application desktop-only"
     >
       <template #subtitle>
@@ -156,6 +156,16 @@ import {
 
 export default {
   name: "Home",
+  components: {
+    SfHero,
+    SfBanner,
+    SfCallToAction,
+    SfSection,
+    SfCarousel,
+    SfProductCard,
+    SfImage,
+    SfBannerGrid
+  },
   data() {
     return {
       heroes: [
@@ -242,16 +252,6 @@ export default {
         }
       ]
     };
-  },
-  components: {
-    SfHero,
-    SfBanner,
-    SfCallToAction,
-    SfSection,
-    SfCarousel,
-    SfProductCard,
-    SfImage,
-    SfBannerGrid
   },
   methods: {
     toggleWishlist(index) {
