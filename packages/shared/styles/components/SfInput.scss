@@ -73,6 +73,15 @@ $input__error-message-font-size: $font-size-small-mobile !default;
         margin: 0;
       }
     }
+    &--show-text {
+      animation: type 4s steps(60, end); 
+    }
+  }
+  &__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   &__bar {
     position: relative;
@@ -109,6 +118,19 @@ $input__error-message-font-size: $font-size-small-mobile !default;
     font-family: $input__error-message-font-family;
     font-size: $input__error-message-font-size;
   }
+
+  &__show-password-icon {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 1;
+  }
+
   &--invalid {
     input {
       border-color: $input-color-invalid;
@@ -140,4 +162,8 @@ $input__error-message-font-size: $font-size-small-mobile !default;
       @include move-label-up;
     }
   }
+}
+
+@keyframes type {
+  from { width: 0; } 
 }

@@ -1,6 +1,9 @@
-// @vue/component
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+
 export default {
   name: "SfInput",
+  components: { SfIcon },
+  inheritAttrs: false,
   props: {
     /**
      * Current input value (`v-model`)
@@ -54,12 +57,32 @@ export default {
       description: "Native input disabled attribute"
     }
   },
+  data() {
+    return {
+      isPasswordVisible: false
+    };
+  },
   computed: {
     listeners() {
       return {
         ...this.$listeners,
         input: event => this.$emit("input", event.target.value)
       };
+    },
+    attrs() {
+      return {
+        ...this.$attrs
+      };
+    },
+    isPasswordType() {
+      return this.$attrs.type === "password";
+    }
+  },
+  methods: {
+    switchVisibilityPassword() {
+      this.isPasswordVisible = !this.isPasswordVisible;
+      this.attrs.type = this.isPasswordVisible ? "text" : "password";
+      this.$emit("passwordVisibilityChanged", this.isPasswordVisible);
     }
   }
 };

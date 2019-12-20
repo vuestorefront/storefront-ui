@@ -5,21 +5,31 @@
     'sf-input--invalid': valid === false
   }"
 >
-  <div style="position: relative;">
+  <div class="sf-input__wrapper">
     <input
-      v-bind="$attrs"
+      v-bind="attrs"
       v-on="listeners"
       :value="value"
       :required="required"
       :disabled="disabled"
       :name="name"
       :id="name"
+      :class="{ 'sf-input--show-text': isPasswordVisible }"
     />
     <span class="sf-input__bar"></span>
     <label class="sf-input__label" :for="name">
       <!-- @slot Custom input label -->
       <slot name="label" v-bind="{label}">{{ label }}</slot>
     </label>
+    <template v-if="isPasswordType">
+        <slot name="show-password-button" v-bind="{ isPasswordVisible, switchVisibilityPassword, isPasswordType }">
+            <button @click="switchVisibilityPassword" class="sf-input__show-password-icon">
+                <slot name="show-password-icon">
+                    <SfIcon icon="show_password" class="" :color="isPasswordVisible ? 'gray-primary' : 'gray-secondary'"></SfIcon>
+                </slot>
+            </button>
+          </slot>
+    </template>
   </div>
   <div class="sf-input__error-message" v-if="valid!== undefined">
     <transition name="fade">
