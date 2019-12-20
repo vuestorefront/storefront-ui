@@ -25,7 +25,17 @@ const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
   cwd: pathVueComponentsRoot
 });
 const pathIconsJs = path.resolve(__dirname, "../..", "shared/icons/icons.js");
-let cachedSfUiIcons;
+const pathSizesJs = path.resolve(
+  __dirname,
+  "../..",
+  "shared/variables/sizes.js"
+);
+const pathColorsJs = path.resolve(
+  __dirname,
+  "../..",
+  "shared/variables/colors.js"
+);
+const cache = {};
 
 function createVueComponentsDocs() {
   const contentTemplateFile = fs.readFileSync(pathTemplateFile, "utf8");
@@ -325,8 +335,8 @@ function parseStoriesFile(contentStoriesFile) {
 
   function evalStoriesFile() {
     /* eslint-disable no-unused-vars */
-    // some stories use our icons so make them available
-    const icons = getSfUiIcons();
+    // some stories use our icons, sizes, etc. so make them available
+    const { icons, sizes, colors } = getSfUiConstants();
 
     let storyComponents = "";
     let storyTemplate = "";
@@ -805,11 +815,14 @@ function escapeHtmlAngleBrackets(rawString) {
   return rawString.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-function getSfUiIcons() {
-  if (!cachedSfUiIcons) {
-    cachedSfUiIcons = fs.readFileSync(pathIconsJs, "utf8");
+function getSfUiConstants() {
+  if (!cache._initialized) {
+    cache.icons = fs.readFileSync(pathIconsJs, "utf8");
+    cache.sizes = fs.readFileSync(pathSizesJs, "utf8");
+    cache.colors = fs.readFileSync(pathColorsJs, "utf8");
+    cache._initialized = true;
   }
-  return cachedSfUiIcons;
+  return { ...cache };
 }
 
 function getCommonUsageCodeBlock(template, imports, components, data) {
