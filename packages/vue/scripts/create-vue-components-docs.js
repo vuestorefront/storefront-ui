@@ -309,8 +309,8 @@ function parseComponentFile(contentComponentFile) {
 function parseStoriesFile(contentStoriesFile) {
   // remove non-relevant parts before evaluating the story
   const nonrelevantParts = [
-    /\.addDecorator\((.+?)\)/gm,
-    /\.addParameters\((.+?)\)/gm
+    /\.addDecorator\((.+)\)/gm,
+    /\.addParameters\((.+)\)/gm
   ];
   for (const part of nonrelevantParts) {
     contentStoriesFile = contentStoriesFile.replace(part, "");
@@ -338,12 +338,22 @@ function parseStoriesFile(contentStoriesFile) {
     // some stories use our icons, sizes, etc. so make them available
     const { icons, sizes, colors } = getSfUiConstants();
 
+    const dataToggleMixin = dataKey => ({
+      data() {
+        return {
+          [dataKey]: true
+        };
+      }
+    });
+    const visibilityToggleMixin = dataToggleMixin("visible");
+
     let storyComponents = "";
     let storyTemplate = "";
     let storyData = {};
     const extractComponents = data => (storyComponents = data);
     const extractTemplate = template => (storyTemplate = template);
     const extractData = data => (storyData = data);
+    const extractMixinsData = data => (storyData = { ...storyData, ...data });
 
     // ignore options: we only use it for CSS modifiers
     const options = () => null;
@@ -372,6 +382,9 @@ function parseStoriesFile(contentStoriesFile) {
           extractComponents(trimmedComponents);
           extractTemplate(storyFnObject.template);
           storyFnObject.data && extractData(storyFnObject.data());
+          (storyFnObject.mixins || []).forEach(mixin =>
+            extractMixinsData(mixin.data())
+          );
           // allow chaining
           return functionObject;
         }
