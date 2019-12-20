@@ -1,8 +1,11 @@
+import simplebar from "simplebar-vue";
+import "simplebar/dist/simplebar.min.css";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 
 export default {
   name: "SfScrollable",
   components: {
+    simplebar,
     SfButton
   },
   data() {
@@ -31,14 +34,14 @@ export default {
     handleClick() {
       this.isHidden = !this.isHidden;
       if (!this.isHidden) {
-        this.$refs.content.style.setProperty("max-height", "unset");
-        this.$refs.content.style.setProperty("overflow-y", "unset");
+        this.$refs.content.$el.style.setProperty("max-height", "unset");
+        this.$refs.content.$el.style.setProperty("overflow-y", "unset");
       } else {
-        this.$refs.content.style.setProperty(
+        this.$refs.content.$el.style.setProperty(
           "max-height",
           this.maxContentHeight
         );
-        this.$refs.content.style.setProperty("overflow-y", "scroll");
+        this.$refs.content.$el.style.setProperty("overflow-y", "scroll");
       }
     }
   }
