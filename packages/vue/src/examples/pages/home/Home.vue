@@ -6,7 +6,7 @@
         :key="i"
         :title="hero.title"
         :subtitle="hero.subtitle"
-        :buttonText="hero.buttonText"
+        :button-text="hero.buttonText"
         :background="hero.background"
         :image="hero.image"
         :class="hero.className"
@@ -75,8 +75,8 @@
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
             :is-on-wishlist="product.isOnWishlist"
-            @click:wishlist="toggleWishlist(i)"
             class="product-card"
+            @click:wishlist="toggleWishlist(i)"
           />
         </SfCarouselItem>
       </SfCarousel>
@@ -156,6 +156,16 @@ import {
 
 export default {
   name: "Home",
+  components: {
+    SfHero,
+    SfBanner,
+    SfCallToAction,
+    SfSection,
+    SfCarousel,
+    SfProductCard,
+    SfImage,
+    SfBannerGrid
+  },
   data() {
     return {
       heroes: [
@@ -242,16 +252,6 @@ export default {
         }
       ]
     };
-  },
-  components: {
-    SfHero,
-    SfBanner,
-    SfCallToAction,
-    SfSection,
-    SfCarousel,
-    SfProductCard,
-    SfImage,
-    SfBannerGrid
   },
   methods: {
     toggleWishlist(index) {
