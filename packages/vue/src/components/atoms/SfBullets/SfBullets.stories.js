@@ -47,7 +47,7 @@ storiesOf("Atoms|Bullets", module)
   .add("[slot] inactive", () => ({
     props: {
       total: {
-        default: number("total (props)", 3)
+        default: number("total", 3, {}, "Props")
       }
     },
     components: { SfBullets },

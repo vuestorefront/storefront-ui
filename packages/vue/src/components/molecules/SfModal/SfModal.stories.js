@@ -3,9 +3,14 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
 
 import SfModal from "./SfModal.vue";
+import {
+  visibilityToggleMixin,
+  withVisibilityToggle
+} from "../../../../config/storybook/decorators";
 
 storiesOf("Molecules|Modal", module)
   .addDecorator(withKnobs)
+  .addDecorator(withVisibilityToggle)
   .add("Common", () => ({
     components: { SfModal },
     props: {
@@ -19,22 +24,17 @@ storiesOf("Molecules|Modal", module)
         default: boolean("persistent", true, "Props")
       }
     },
-    data() {
-      return {
-        visible: true
-      };
-    },
-    template: `<div>
-        <label>visible (data)<input type="checkbox" v-model="visible"></label>
-        <SfModal
+    mixins: [visibilityToggleMixin],
+    template: `
+      <SfModal
         :visible="visible"
         :overlay="overlay"
         :cross="cross"
         :persistent="persistent"
-        @close="visible = false">
+        @close="visible = false"
+      >
         HELLO STOREFRONT UI!
-        </SfModal>
-      </div>`
+      </SfModal>`
   }))
   .add("[slot] close", () => ({
     components: { SfModal },
@@ -49,23 +49,18 @@ storiesOf("Molecules|Modal", module)
         default: boolean("persistent", true, "Props")
       }
     },
-    data() {
-      return {
-        visible: true
-      };
-    },
-    template: `<div>
-        <label>visible (data)<input type="checkbox" v-model="visible"></label>
-        <SfModal
+    mixins: [visibilityToggleMixin],
+    template: `
+      <SfModal
         :visible="visible"
         :overlay="overlay"
         :cross="cross"
         :persistent="persistent"
-        @close="visible = false">
+        @close="visible = false"
+      >
         HELLO STOREFRONT UI!
-          <template #close>
-            close
-          </template>
-        </SfModal>
-      </div>`
+        <template #close>
+          close
+        </template>
+      </SfModal>`
   }));
