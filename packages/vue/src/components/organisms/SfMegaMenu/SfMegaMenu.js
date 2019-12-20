@@ -37,6 +37,16 @@ export default {
       return this.active.length > 0;
     }
   },
+  provide() {
+    const megaMenu = {};
+    Object.defineProperty(megaMenu, "active", {
+      get: () => this.active
+    });
+    Object.defineProperty(megaMenu, "updateItems", {
+      value: this.updateItems
+    });
+    return { megaMenu };
+  },
   watch: {
     isMobile: {
       handler(mobile) {
