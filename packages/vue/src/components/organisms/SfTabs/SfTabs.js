@@ -1,3 +1,4 @@
+// @vue/component
 import SfTab from "./_internal/SfTab.vue";
 import Vue from "vue";
 
