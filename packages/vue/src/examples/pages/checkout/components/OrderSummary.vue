@@ -85,8 +85,6 @@
 </template>
 <script>
 import {
-  SfHeading,
-  SfCircleIcon,
   SfCollectedProduct,
   SfProperty,
   SfCharacteristic
@@ -94,8 +92,6 @@ import {
 export default {
   name: "OrderSummary",
   components: {
-    SfHeading,
-    SfCircleIcon,
     SfCollectedProduct,
     SfProperty,
     SfCharacteristic

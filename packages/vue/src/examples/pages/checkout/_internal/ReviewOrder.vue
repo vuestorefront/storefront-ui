@@ -138,13 +138,7 @@ export default {
   data() {
     return {
       terms: false,
-      tableHeaders: [
-        "Description",
-        "Colour",
-        "Size",
-        "Quantity",
-        "Amount"
-      ]
+      tableHeaders: ["Description", "Colour", "Size", "Quantity", "Amount"]
     };
   },
   methods: {
@@ -191,11 +185,11 @@ export default {
     font-size: $font-size-small-desktop;
     text-align: center;
   }
-  &__image{
+  &__image {
     flex: 0 0 5.125rem;
   }
-  &__action{
-    flex: 0 0 2.5rem ;
+  &__action {
+    flex: 0 0 2.5rem;
     display: flex;
     align-items: center;
     justify-content: flex-end;

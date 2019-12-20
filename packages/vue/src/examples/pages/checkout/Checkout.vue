@@ -7,16 +7,10 @@
             <PersonalDetails @click:next="currentStep++" />
           </SfStep>
           <SfStep name="Shipping">
-            <Shipping
-                @click:next="currentStep++"
-                @click:back="currentStep--"
-            />
+            <Shipping @click:next="currentStep++" @click:back="currentStep--" />
           </SfStep>
           <SfStep name="Payment">
-            <Payment
-                @click:next="currentStep++"
-                @click:back="currentStep--"
-            />
+            <Payment @click:next="currentStep++" @click:back="currentStep--" />
           </SfStep>
           <SfStep name="Review order">
             <ReviewOrder @click:back="currentStep--" />
@@ -83,14 +77,14 @@ export default {
     margin: auto;
   }
 }
-.checkout{
+.checkout {
   display: flex;
-  &__main{
+  &__main {
     flex: 1;
   }
-  &__aside{
-    flex: 0 0 25.5rem ;
-    margin-left:  6.25rem;
+  &__aside {
+    flex: 0 0 25.5rem;
+    margin-left: 6.25rem;
   }
 }
 </style>

@@ -149,7 +149,7 @@ export default {
     margin-bottom: $spacer-big;
   }
 }
-.collected-product{
+.collected-product {
   &:not(:last-child) {
     margin-bottom: $spacer-big;
   }
