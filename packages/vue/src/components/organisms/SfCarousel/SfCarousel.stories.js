@@ -1,14 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
 import SfCarousel from "./SfCarousel.vue";
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["$carousel-mobile-breakpoint", "$mobile-max", "default mobile breakpoint"]
-  ]
-};
 
 const data = () => {
   return {
@@ -29,12 +22,10 @@ const data = () => {
 
 storiesOf("Organisms|Carousel", module)
   .addDecorator(withKnobs)
-  .add(
-    "Basic",
-    () => ({
-      components: { SfCarousel },
-      data,
-      template: `
+  .add("Common", () => ({
+    components: { SfCarousel },
+    data,
+    template: `
       <div style="max-width: 1140px">
         <SfCarousel :options="options">
           <SfCarouselItem>
@@ -64,22 +55,11 @@ storiesOf("Organisms|Carousel", module)
         </SfCarousel>
       </div>
       `
-    }),
-    {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import { SfCarousel } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
-      }
-    }
-  )
-  .add(
-    "[slot] prev",
-    () => ({
-      components: { SfCarousel },
-      data,
-      template: `
+  }))
+  .add("[slot] prev", () => ({
+    components: { SfCarousel },
+    data,
+    template: `
       <div style="max-width: 1140px">
         <SfCarousel :options="options">
           <SfCarouselItem>
@@ -116,22 +96,11 @@ storiesOf("Organisms|Carousel", module)
         </SfCarousel>
       </div>
       `
-    }),
-    {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import { SfCarousel } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
-      }
-    }
-  )
-  .add(
-    "[slot] next",
-    () => ({
-      components: { SfCarousel },
-      data,
-      template: `
+  }))
+  .add("[slot] next", () => ({
+    components: { SfCarousel },
+    data,
+    template: `
       <div style="max-width: 1140px">
         <SfCarousel :options="options">
           <SfCarouselItem>
@@ -168,13 +137,4 @@ storiesOf("Organisms|Carousel", module)
         </SfCarousel>
       </div>
       `
-    }),
-    {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import { SfCarousel } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
-      }
-    }
-  );
+  }));

@@ -4,7 +4,7 @@ import SfContentPages from "./SfContentPages.vue";
 import SfTabs from "../SfTabs/SfTabs.vue";
 
 storiesOf("Organisms|ContentPages", module)
-  .add("Basic", () => ({
+  .add("Common", () => ({
     components: { SfContentPages, SfTabs },
     data() {
       return {
