@@ -5,21 +5,24 @@ Component with input to choose numeric values and describe quantity.
 # common-usage
 
 <br>
-<SfQuantitySelector :stock="2" :qty="1" />
 
 ```html
 
 <template>
-    <SfQuantitySelector :stock="stock" :qty="qty" />
+  <SfQuantitySelector 
+    v-model="" 
+    :stock="99" 
+    :min="1"
+  />
 </template>
 
 <script>
-    import { SfQuantitySelector } from "@storefront-ui/vue";
+  import { SfQuantitySelector } from "@storefront-ui/vue";
 
-    export default {
-        components: {
-            SfQuantitySelector
-        }
-    };
+  export default {
+    components: {
+      SfQuantitySelector
+    }
+   };
 </script>
 ```
