@@ -8,11 +8,9 @@ $quantity-selector__width-desktop: 3.125rem !default;
   width: $quantity-selector__width;
   height: $quantity-selector__height;
   margin: 0;
-  
   @media (min-width: $desktop-min) {
     width: $quantity-selector__width-desktop;
   }
-
   input {
     box-sizing: border-box;
     padding: 0 $spacer-small;
@@ -24,7 +22,6 @@ $quantity-selector__width-desktop: 3.125rem !default;
     line-height: 1.6;
     text-align: center;
     transition: border-color 0.3s ease-in-out;
-
     @media (min-width: $desktop-min) {
       background-color: $c-light;
     }
