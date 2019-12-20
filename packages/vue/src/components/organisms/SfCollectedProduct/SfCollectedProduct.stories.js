@@ -9,7 +9,7 @@ storiesOf("Organisms|CollectedProduct", module)
   .add("Common", () => ({
     data() {
       return {
-        qty: "1"
+        qty: 1
       };
     },
     props: {
