@@ -24,16 +24,16 @@ storiesOf("Organisms|CollectedProduct", module)
         default: text("title", "Product name", "Props")
       },
       regularPrice: {
-        default: text("regular-price", "$10,99", "Props")
+        default: text("regularPrice", "$10,99", "Props")
       },
       specialPrice: {
-        default: text("special-price", "$5,99", "Props")
+        default: text("specialPrice", "$5,99", "Props")
       },
       stock: {
         default: number("stock", 99, {}, "Props")
       },
       qtyMin: {
-        default: number("qty-min", 1, {}, "Props")
+        default: number("qtyMin", 1, {}, "Props")
       }
     },
     components: { SfCollectedProduct },

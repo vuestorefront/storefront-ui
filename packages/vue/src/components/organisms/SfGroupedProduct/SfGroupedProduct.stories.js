@@ -18,16 +18,16 @@ storiesOf("Organisms|GroupedProduct", module)
         default: text("title", "Leave white brooch", "Props")
       },
       priceSpecial: {
-        default: text("price-special", "", "Props")
+        default: text("priceSpecial", "", "Props")
       },
       priceRegular: {
-        default: text("price-regular", "$10,99", "Props")
+        default: text("priceRegular", "$10,99", "Props")
       },
       stock: {
         default: number("stock", 99, {}, "Props")
       },
       qtyMin: {
-        default: number("qty-min", 1, {}, "Props")
+        default: number("qtyMin", 1, {}, "Props")
       },
       attributes: {
         default: object(
