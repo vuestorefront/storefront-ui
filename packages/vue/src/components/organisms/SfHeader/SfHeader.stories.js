@@ -46,7 +46,6 @@ storiesOf("Organisms|Header", module)
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
      >
       <template #navigation>
         <SfHeaderNavigationItem>
@@ -102,7 +101,6 @@ storiesOf("Organisms|Header", module)
       :wishlist-icon="wishlistIcon"
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
     >
       <template #navigation>
         CUSTOM NAVIGATION
@@ -150,7 +148,6 @@ storiesOf("Organisms|Header", module)
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
     >
       <template #logo>
         CUSTOM LOGO 
@@ -204,7 +201,6 @@ storiesOf("Organisms|Header", module)
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
     >
       <template #search>
         CUSTOM SEARCH
@@ -263,7 +259,6 @@ storiesOf("Organisms|Header", module)
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
     >
       <template #header-icons>
         CUSTOM ICONS
