@@ -71,6 +71,13 @@ export default {
     stock: {
       type: Number,
       default: 0
+    },
+    /**
+     * Minimum product quantity
+     */
+    minQty: {
+      type: Number,
+      default: 1
     }
   },
   model: {
