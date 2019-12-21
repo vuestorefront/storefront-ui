@@ -41,7 +41,7 @@ storiesOf("Organisms|GroupedProduct", module)
     },
     data() {
       return {
-        productQty: 0
+        productQty: 1
       };
     },
     template: `<div style="max-width: 509px">
@@ -83,7 +83,7 @@ storiesOf("Organisms|GroupedProduct", module)
             priceSpecial: "",
             priceRegular: "$10,99",
             stock: 99,
-            qty: 0,
+            qty: 1,
             attributes: [
               {
                 name: "color",
@@ -97,7 +97,7 @@ storiesOf("Organisms|GroupedProduct", module)
             sku: "MSD23-345-325",
             priceSpecial: "",
             priceRegular: "$11,99",
-            qty: 0,
+            qty: 1,
             stock: 99,
             attributes: [
               {
@@ -112,7 +112,7 @@ storiesOf("Organisms|GroupedProduct", module)
             sku: "MSD23-345-326",
             priceSpecial: "",
             priceRegular: "$20,99",
-            qty: 0,
+            qty: 1,
             stock: 99,
             attributes: [
               {
