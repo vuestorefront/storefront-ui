@@ -57,9 +57,9 @@ export default {
       },
       immediate: true
     },
-    parentMenu: {
-      handler(parent) {
-        if (!parent) return;
+    visible: {
+      handler(visible) {
+        if (!visible) return;
         if (this.isMobile) return;
         this.$nextTick(() => {
           this.active = [...this.items];
