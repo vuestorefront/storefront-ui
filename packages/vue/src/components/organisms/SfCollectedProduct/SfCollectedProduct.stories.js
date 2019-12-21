@@ -24,23 +24,28 @@ storiesOf("Organisms|CollectedProduct", module)
         default: text("title", "Product name", "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regular-price", "$10,99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5,99", "Props")
+        default: text("special-price", "$5,99", "Props")
       },
       stock: {
         default: number("stock", 99, {}, "Props")
+      },
+      qtyMin: {
+        default: number("qty-min", 1, {}, "Props")
       }
     },
     components: { SfCollectedProduct },
-    template: `    <SfCollectedProduct
+    template: `<SfCollectedProduct
+        v-model="qty"
         :image="image"
         :title="title"
         :specialPrice="specialPrice"
         :regularPrice="regularPrice"
         :stock="stock"
-        v-model="qty">
+        :qty-min="qtyMin"
+        >
         <template #configuration>
           <div :style="{marginTop: '20px'}">
             @slot configuration
