@@ -1,3 +1,8 @@
+import Vue from "vue";
+
+import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
+Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
+
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";

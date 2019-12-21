@@ -49,15 +49,63 @@ storiesOf("Organisms|Header", module)
       style="max-width: 1024px; margin: auto"
      >
       <template #navigation>
-        <div class="sf-header__navigation-item">
-          <a href="#women" class="sf-header__navigation-link">Women</a>
-        </div>
-        <div class="sf-header__navigation-item">
-          <a href="#man" class="sf-header__navigation-link">Man</a>
-        </div>
-        <div class="sf-header__navigation-item">
-          <a href="#kids" class="sf-header__navigation-link">Kids</a>
-        </div>
+        <SfHeaderNavigationItem>
+          <a href="#women" class="sf-header-navigation-item__link">Women</a>
+        </SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>
+          <a href="#man" class="sf-header-navigation-item__link">Man</a>
+        </SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>
+          <a href="#kids" class="sf-header-navigation-item__link">Kids</a>
+        </SfHeaderNavigationItem>
+      </template>
+    </SfHeader>`
+  }))
+  .add("[slot] navigation", () => ({
+    components: { SfHeader },
+    props: {
+      title: {
+        default: text("title", "Storefront UI", "Props")
+      },
+      logo: {
+        default: object(
+          "logo",
+          {
+            small: { url: "/assets/logo.svg" },
+            normal: { url: "/assets/logo.svg" }
+          },
+          "Props"
+        )
+      },
+      cartIcon: {
+        default: text("cartIcon", "empty_cart", "Props")
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props")
+      },
+      accountIcon: {
+        default: text("accountIcon", "profile", "Props")
+      },
+      activeIcon: {
+        default: select(
+          "activeIcon",
+          ["", "account", "wishlist", "cart"],
+          "account",
+          "Props"
+        )
+      }
+    },
+    template: `<SfHeader
+      :title="title"
+      :logo="logo"
+      :cart-icon="cartIcon"
+      :wishlist-icon="wishlistIcon"
+      :account-icon="accountIcon"
+      :active-icon="activeIcon"
+      style="max-width: 1024px; margin: auto"
+    >
+      <template #navigation>
+        CUSTOM NAVIGATION
       </template>
     </SfHeader>`
   }))
@@ -108,15 +156,15 @@ storiesOf("Organisms|Header", module)
         CUSTOM LOGO 
       </template>
       <template #navigation>
-        <div class="sf-header__navigation-item">
-          <a href="#women" class="sf-header__navigation-link">Women</a>
-        </div>
-        <div class="sf-header__navigation-item">
-          <a href="#man" class="sf-header__navigation-link">Man</a>
-        </div>
-        <div class="sf-header__navigation-item">
-          <a href="#kids" class="sf-header__navigation-link">Kids</a>
-        </div>
+        <SfHeaderNavigationItem>
+          <a href="#women" class="sf-header-navigation-item__link">Women</a>
+        </SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>
+          <a href="#man" class="sf-header-navigation-item__link">Man</a>
+        </SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>
+          <a href="#kids" class="sf-header-navigation-item__link">Kids</a>
+        </SfHeaderNavigationItem>
       </template>
     </SfHeader>`
   }))
@@ -162,15 +210,15 @@ storiesOf("Organisms|Header", module)
         CUSTOM SEARCH
       </template>
       <template #navigation>
-        <div class="sf-header__navigation-item">
-          <a href="#women" class="sf-header__navigation-link">Women</a>
-        </div>
-        <div class="sf-header__navigation-item">
-          <a href="#man" class="sf-header__navigation-link">Man</a>
-        </div>
-        <div class="sf-header__navigation-item">
-          <a href="#kids" class="sf-header__navigation-link">Kids</a>
-        </div>
+        <SfHeaderNavigationItem>
+          <a href="#women" class="sf-header-navigation-item__link">Women</a>
+        </SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>
+          <a href="#man" class="sf-header-navigation-item__link">Man</a>
+        </SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>
+          <a href="#kids" class="sf-header-navigation-item__link">Kids</a>
+        </SfHeaderNavigationItem>
       </template>
     </SfHeader>`
   }))
@@ -217,19 +265,19 @@ storiesOf("Organisms|Header", module)
       :active-icon="activeIcon"
       style="max-width: 1024px; margin: auto"
     >
-      <template #navigation>
-        <div class="sf-header__navigation-item">
-          <a href="#women" class="sf-header__navigation-link">Women</a>
-        </div>
-        <div class="sf-header__navigation-item">
-          <a href="#man" class="sf-header__navigation-link">Man</a>
-        </div>
-        <div class="sf-header__navigation-item">
-          <a href="#kids" class="sf-header__navigation-link">Kids</a>
-        </div>
-      </template>
       <template #header-icons>
         CUSTOM ICONS
+      </template>
+      <template #navigation>
+        <SfHeaderNavigationItem>
+          <a href="#women" class="sf-header-navigation-item__link">Women</a>
+        </SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>
+          <a href="#man" class="sf-header-navigation-item__link">Man</a>
+        </SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>
+          <a href="#kids" class="sf-header-navigation-item__link">Kids</a>
+        </SfHeaderNavigationItem>
       </template>
     </SfHeader>`
   }));
