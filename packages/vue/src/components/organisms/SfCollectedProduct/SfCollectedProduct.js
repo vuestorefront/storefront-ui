@@ -54,7 +54,7 @@ export default {
     /**
      * Minimum product quantity
      */
-    minQty: {
+    qtyMin: {
       type: Number,
       default: 1
     }
