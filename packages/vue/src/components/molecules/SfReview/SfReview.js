@@ -1,3 +1,4 @@
+// @vue/component
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 
 export default {
