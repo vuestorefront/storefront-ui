@@ -27,9 +27,6 @@ storiesOf("Atoms|Bullets", module)
     props: {
       total: {
         default: number("total", 3, {}, "Props")
-      },
-      current: {
-        default: number("current", 1, {}, "Props")
       }
     },
     components: { SfBullets },

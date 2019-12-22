@@ -11,6 +11,10 @@ $content-pages__title-line-height: 1.6 !default;
 .sf-content-pages {
   $this: &;
   overflow: hidden;
+  height: 100vh;
+  @media (min-width: $desktop-min) {
+    height: auto;
+  }
   &__section {
     box-sizing: border-box;
     display: flex;
@@ -25,11 +29,15 @@ $content-pages__title-line-height: 1.6 !default;
   }
   &__sidebar,
   &__content {
+    overflow-y: auto;
     box-sizing: border-box;
     flex: 0 0 100%;
-    padding: 0 1.875rem;
+    height: calc(100vh - 5rem);
+    padding: 1.25rem;
     @media (min-width: $desktop-min) {
+      overflow-y: hidden;
       flex: 1;
+      height: auto;
       padding: $spacer-big $spacer-extra-big;
     }
   }
