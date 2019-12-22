@@ -49,7 +49,7 @@ storiesOf("Organisms|Header", module)
       style="max-width: 1024px; margin: auto"
      >
       <template #navigation>
-        <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>CLOTHES</SfHeaderNavigationItem>
         <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
         <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
       </template>
@@ -147,9 +147,7 @@ storiesOf("Organisms|Header", module)
       style="max-width: 1024px; margin: auto"
     >
       <template #navigation>
-        <SfHeaderNavigationItem>CLOTHES</SfHeaderNavigationItem>
-        <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
-        <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
+        CUSTOM NAVIGATION
       </template>
     </SfHeader>`
   }))

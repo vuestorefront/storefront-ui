@@ -1,3 +1,4 @@
+// @vue/component
 import icons from "@storefront-ui/shared/icons/icons";
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { sizesValues as SF_SIZES } from "@storefront-ui/shared/variables/sizes";
@@ -54,9 +55,7 @@ export default {
       return SF_SIZES.includes(size);
     },
     iconColorClass() {
-      return !this.isDecimalOrHexColor
-        ? `sf-icon--color-${this.color.trim()}`
-        : "";
+      return this.isSFColors ? `sf-icon--color-${this.color.trim()}` : "";
     },
     iconSizeClass() {
       return this.isSFSizes ? `sf-icon--size-${this.size.trim()}` : "";
@@ -65,7 +64,7 @@ export default {
       return {
         "--icon-color": !this.isSFColors ? this.color : "",
         "--icon-size": !this.isSFSizes ? this.size : ""
-      }
+      };
     },
     isSFIcons() {
       return SF_ICONS.includes(this.icon.trim());

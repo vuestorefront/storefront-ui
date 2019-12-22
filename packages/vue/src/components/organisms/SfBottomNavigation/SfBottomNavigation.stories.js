@@ -39,7 +39,7 @@ storiesOf("Organisms|BottomNavigation", module)
         </SfBottomNavigationItem>
         <SfBottomNavigationItem>
           <SfCircleIcon class="sf-bottom-navigation__floating-icon">
-            <SfIcon icon="add_to_cart" size="20px" color="white" style="margin-left: -2px; margin-right: 2px;"/>
+            <SfIcon icon="add_to_cart" size="20px" color="white"/>
           </SfCircleIcon>
         </SfBottomNavigationItem>
       </SfBottomNavigation>`
