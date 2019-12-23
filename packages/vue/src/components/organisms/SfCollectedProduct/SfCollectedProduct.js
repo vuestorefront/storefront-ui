@@ -45,13 +45,6 @@ export default {
       default: 1
     },
     /**
-     * Stock quantity of product
-     */
-    stock: {
-      type: Number,
-      default: 1
-    },
-    /**
      * Minimum product quantity
      */
     qtyMin: {

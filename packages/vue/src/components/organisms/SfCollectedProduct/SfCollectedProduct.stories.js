@@ -29,9 +29,6 @@ storiesOf("Organisms|CollectedProduct", module)
       specialPrice: {
         default: text("specialPrice", "$5,99", "Props")
       },
-      stock: {
-        default: number("stock", 99, {}, "Props")
-      },
       qtyMin: {
         default: number("qtyMin", 1, {}, "Props")
       }
@@ -43,7 +40,6 @@ storiesOf("Organisms|CollectedProduct", module)
         :title="title"
         :specialPrice="specialPrice"
         :regularPrice="regularPrice"
-        :stock="stock"
         :qty-min="qtyMin"
         >
         <template #configuration>
