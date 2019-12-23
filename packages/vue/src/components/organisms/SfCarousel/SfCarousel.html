@@ -2,21 +2,19 @@
   <div class="sf-carousel__controls">
     <!--@slot slot for icon moving to the previous item -->
     <slot name="prev" v-bind="{ go: () => go('prev') }">
-      <div @click="go('prev')">
         <SfArrow
           class="sf-arrow--long"
           aria-label="previous"
+          @click="go('prev')"
         />
-      </div>
     </slot>
     <!--@slot slot for icon moving to the next item -->
     <slot name="next" v-bind="{ go: () => go('next') }">
-      <div @click="go('next')">
         <SfArrow
           class="sf-arrow--long sf-arrow--right"
           aria-label="next"
+          @click="go('next')"
         />
-      </div>
     </slot>
   </div>
   <div class="sf-carousel__wrapper">
