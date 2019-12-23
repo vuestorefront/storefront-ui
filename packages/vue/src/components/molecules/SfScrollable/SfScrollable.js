@@ -26,13 +26,9 @@ export default {
       default: ""
     }
   },
-  mounted() {
-    this.$el.style.setProperty("--content-height", this.maxContentHeight);
-  },
-  methods: {
-    handleClick() {
-      this.isHidden = !this.isHidden;
-      if (!this.isHidden) {
+  watch: {
+    isHidden(value) {
+      if (!value) {
         this.$refs.content.$el.style.setProperty("max-height", "unset");
         this.$refs.content.$el.style.setProperty("overflow-y", "unset");
       } else {
@@ -42,5 +38,8 @@ export default {
         );
       }
     }
+  },
+  mounted() {
+    this.$el.style.setProperty("--content-height", this.maxContentHeight);
   }
 };

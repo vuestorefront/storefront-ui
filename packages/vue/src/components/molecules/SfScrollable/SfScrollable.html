@@ -2,7 +2,7 @@
     <simplebar class="sf-scrollable__content" ref="content">
         <slot />
     </simplebar>
-    <SfButton class="sf-scrollable__button sf-button--text" v-if="showText && closeText" @click="handleClick">
+    <SfButton class="sf-scrollable__button sf-button--text" v-if="showText && closeText" @click="isHidden = !isHidden">
         <span v-if="isHidden">{{ showText }}</span>
         <span v-else>{{ closeText }}</span>
     </SfButton>
