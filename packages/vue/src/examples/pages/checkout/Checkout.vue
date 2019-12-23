@@ -27,7 +27,7 @@
   </div>
 </template>
 <script>
-import { SfSteps, SfModal } from "../../../../index.js";
+import { SfSteps } from "../../../../index.js";
 import {
   PersonalDetails,
   Shipping,
@@ -50,7 +50,7 @@ export default {
   },
   data() {
     return {
-      currentStep: 3
+      currentStep: 2
     };
   }
 };
