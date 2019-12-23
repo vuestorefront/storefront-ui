@@ -15,7 +15,7 @@
       />
     </slot>
     <!-- @slot Custom input markup -->
-    <slot name="input" v-bind="{qty, stock}">
+    <slot name="input" v-bind="{qty}">
       <SfQuantitySelector
         :qty="qty"
         @input="$emit('input', $event)"
