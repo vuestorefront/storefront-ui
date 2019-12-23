@@ -1,3 +1,4 @@
+// @vue/component
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 export default {
@@ -12,7 +13,7 @@ export default {
       default: "chevron_right"
     },
     count: {
-      type: String,
+      type: [String, Number],
       default: ""
     }
   },
