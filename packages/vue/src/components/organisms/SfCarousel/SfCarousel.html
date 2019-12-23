@@ -1,14 +1,4 @@
 <div class="sf-carousel">
-  <div class="sf-carousel__wrapper">
-    <div class="glide" ref="glide">
-      <div class="glide__track" data-glide-el="track">
-        <ul class="glide__slides sf-carousel__slides">
-          <!--@slot default slot for SfCarouselItem tags -->
-          <slot />
-        </ul>
-      </div>
-    </div>
-  </div>
   <div class="sf-carousel__controls">
     <!--@slot slot for icon moving to the previous item -->
     <slot name="prev" v-bind="{ go: () => go('prev') }">
@@ -28,5 +18,15 @@
         />
       </div>
     </slot>
+  </div>
+  <div class="sf-carousel__wrapper">
+    <div class="glide" ref="glide">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides sf-carousel__slides">
+          <!--@slot default slot for SfCarouselItem tags -->
+          <slot />
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
