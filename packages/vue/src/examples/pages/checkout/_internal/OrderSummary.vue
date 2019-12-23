@@ -3,50 +3,76 @@
     <div class="highlighted">
       <SfHeading
         title="Order summary"
-        class="sf-heading--left sf-heading--no-underline"
+        class="sf-heading--left sf-heading--no-underline title"
       />
-      <div
-        style="display: flex; align-items: center; justify-content: space-between"
-      >
-        <h3 class="my-cart__total-items">Total items: {{ totalItems }}</h3>
-        <SfButton class="sf-button--text">Hide items list</SfButton>
-      </div>
-      <div style="margin: 0 -20px">
-        <SfCollectedProduct
-          v-for="product in products"
-          :key="product.id"
-          v-model="product.qty"
-          :image="product.image"
-          :title="product.title"
-          :regular-price="product.price.regular | price"
-          :special-price="product.price.special | price"
-          :stock="product.stock"
-          class="collected-product"
+      <div class="total-items">
+        <h3>Total items: {{ totalItems }}</h3>
+        <SfButton class="sf-button--text" @click="listIsHidden = !listIsHidden"
+          >{{ listIsHidden ? "Show" : "Hide" }} items list</SfButton
         >
-          <template #configuration>
-            <div>
-              <SfProperty
-                v-for="(property, key) in product.configuration"
-                :key="key"
-                :name="property.name"
-                :value="property.value"
-              />
-            </div>
-          </template>
-          <template #actions>
-            <div>
-              <SfButton class="sf-button--text product__action">
-                Save for later
-              </SfButton>
-              <SfButton class="sf-button--text product__action">
-                Add to compare
-              </SfButton>
-            </div>
-          </template>
-        </SfCollectedProduct>
       </div>
+      <transition name="fade">
+        <div v-if="!listIsHidden" class="collected-product-list">
+          <SfCollectedProduct
+            v-for="product in products"
+            :key="product.id"
+            v-model="product.qty"
+            :image="product.image"
+            :title="product.title"
+            :regular-price="product.price.regular | price"
+            :special-price="product.price.special | price"
+            :stock="product.stock"
+            class="collected-product"
+          >
+            <template #configuration>
+              <div>
+                <SfProperty
+                  v-for="(property, key) in product.configuration"
+                  :key="key"
+                  :name="property.name"
+                  :value="property.value"
+                />
+              </div>
+            </template>
+            <template #actions>
+              <div>
+                <SfButton class="sf-button--text product__action">
+                  Save for later
+                </SfButton>
+                <SfButton class="sf-button--text product__action">
+                  Add to compare
+                </SfButton>
+              </div>
+            </template>
+          </SfCollectedProduct>
+        </div>
+      </transition>
     </div>
-    <div></div>
+    <div class="highlighted highlighted--total">
+      <SfProperty
+        name="Products"
+        value="3"
+        class="sf-property--full-width property"
+      />
+      <SfProperty
+        name="Subtotal"
+        :value="'150.00' | price"
+        class="sf-property--full-width property"
+      />
+      <SfProperty
+        name="Shipping"
+        value="free"
+        class="sf-property--full-width property"
+      />
+      <SfProperty
+        name="Total"
+        :value="'150.00' | price"
+        class="sf-property--full-width property-total"
+      />
+    </div>
+    <div class="highlighted">
+      <SfButton class="promo-code">+ Promo Code</SfButton>
+    </div>
     <div class="highlighted">
       <SfCharacteristic
         v-for="characteristic in characteristics"
@@ -84,6 +110,7 @@ export default {
   },
   data() {
     return {
+      listIsHidden: true,
       totalItems: 2,
       products: [
         {
@@ -145,9 +172,39 @@ export default {
   width: 100%;
   background-color: #f1f2f3;
   padding: $spacer-extra-big;
-  &:not(:last-child) {
-    margin-bottom: $spacer-big;
+  margin-bottom: $spacer-big;
+  &:last-child {
+    margin-bottom: 0;
   }
+  &--total {
+    margin-bottom: 1px;
+  }
+}
+.title {
+  margin-bottom: $spacer-extra-big;
+}
+.total-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacer-big;
+}
+.property {
+  margin-bottom: $spacer;
+  ::v-deep .sf-property__name {
+    text-transform: unset;
+  }
+}
+.property-total {
+  margin-top: $spacer-extra-big;
+  font-size: $font-size-extra-big-desktop;
+  font-weight: 500;
+  ::v-deep .sf-property__name {
+    color: $c-text;
+  }
+}
+.collected-product-list {
+  margin: 0 -20px;
 }
 .collected-product {
   &:not(:last-child) {
@@ -158,5 +215,11 @@ export default {
   &:not(:last-child) {
     margin-bottom: $spacer-big;
   }
+}
+.promo-code {
+  padding: 0;
+  background-color: transparent;
+  color: $c-primary;
+  font-size: $font-size-big-desktop;
 }
 </style>

@@ -18,8 +18,10 @@
         </SfSteps>
       </div>
       <div class="checkout__aside">
-        <OrderSummary v-if="currentStep <= 2" />
-        <OrderReview v-else />
+        <transition name="fade">
+          <OrderSummary v-if="currentStep <= 2" key="order-summary"/>
+          <OrderReview v-else key="order-review"/>
+        </transition>
       </div>
     </div>
     <SfModal :visible="false">
