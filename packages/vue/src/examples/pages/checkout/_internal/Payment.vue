@@ -89,7 +89,7 @@
           :value="item.value"
           name="paymentMethod"
           :description="item.description"
-          class="form__radio"
+          class="form__radio payment-method"
         >
           <template #label>
             <div class="sf-radio__label">
@@ -400,6 +400,14 @@ export default {
   &__cvc {
     flex: 0 0 21.5rem;
     display: flex;
+  }
+}
+.payment-method{
+  border-radius: 4px;
+  ::v-deep{
+    .sf-radio__container{
+      align-items: center;
+    }
   }
 }
 .sf-input {
