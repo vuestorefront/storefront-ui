@@ -24,8 +24,8 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "lerna run lint",
-      "pre-push": "letna run test:unit",
+      "pre-commit": "lerna run lint -- --fix",
+      "pre-push": "lerna run test:unit",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
