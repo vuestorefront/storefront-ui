@@ -45,6 +45,7 @@ import SfPrice from "../../src/components/atoms/SfPrice/SfPrice.vue"
 import SfProductCard from "../../src/components/organisms/SfProductCard/SfProductCard.vue"
 import SfProductOption from "../../src/components/molecules/SfProductOption/SfProductOption.vue"
 import SfProperty from "../../src/components/atoms/SfProperty/SfProperty.vue"
+import SfQuantitySelector from "../../src/components/atoms/SfQuantitySelector/SfQuantitySelector.vue"
 import SfRadio from "../../src/components/molecules/SfRadio/SfRadio.vue"
 import SfRating from "../../src/components/atoms/SfRating/SfRating.vue"
 import SfReview from "../../src/components/molecules/SfReview/SfReview.vue"
@@ -112,6 +113,7 @@ export default ({
   Vue.component("SfProductCard", SfProductCard);
   Vue.component("SfProductOption", SfProductOption);
   Vue.component("SfProperty", SfProperty);
+  Vue.component("SfQuantitySelector", SfQuantitySelector);
   Vue.component("SfRadio", SfRadio);
   Vue.component("SfRating", SfRating);
   Vue.component("SfReview", SfReview);
