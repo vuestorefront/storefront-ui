@@ -41,13 +41,13 @@ $checkbox__checkmark-transition: background-color 0.25s
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 $checkbox__checkmark-size;
+    width: $checkbox__checkmark-size;
     height: $checkbox__checkmark-size;
     border: 1px solid $checkbox__checkmark-secondary-color;
     box-sizing: border-box;
     transition: $checkbox__checkmark-transition;
     @media screen and (min-width: $desktop-min) {
-      flex-basis: $checkbox__checkmark-size-desktop;
+      width: $checkbox__checkmark-size-desktop;
       height: $checkbox__checkmark-size-desktop;
     }
     &:hover {
