@@ -23,7 +23,14 @@ $checkbox__checkmark-transition: background-color 0.25s
     font-size: $checkbox-font-size-desktop;
   }
   &__input {
-    display: none;
+    position: absolute;
+    border: 0;
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0px, 0px, 0px, 0px);
   }
   &__container {
     display: flex;
