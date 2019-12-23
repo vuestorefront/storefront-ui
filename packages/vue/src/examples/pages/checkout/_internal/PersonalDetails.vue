@@ -26,12 +26,17 @@
         class="form__element"
         required
       />
-      <SfCheckbox
-        v-model="createAccount"
-        name="createAccount"
-        label="I want to create an account"
-        class="form__element"
-      />
+      <div class="form__element form__group">
+        <SfCheckbox
+          v-model="createAccount"
+          name="createAccount"
+          label="I want to create an account"
+          class="form__checkbox"
+        />
+        <SfButton class="sf-button--text info" @click="accountBenefits = true"
+          >+info</SfButton
+        >
+      </div>
       <transition name="fade">
         <SfInput
           v-if="createAccount"
@@ -48,6 +53,29 @@
         <SfButton class="sf-button--text">log in to your account</SfButton>
       </div>
     </div>
+    <SfModal
+      :visible="accountBenefits"
+      class="modal"
+      @close="accountBenefits = false"
+    >
+      <SfHeading
+        title="Account Benefits"
+        subtitle="Enjoy these perks with your free account!"
+        class="sf-heading--left sf-heading--no-underline modal__heading"
+      />
+      <SfCharacteristic
+        v-for="(characteristic, key) in characteristics"
+        :key="key"
+        :description="characteristic.description"
+        :icon="characteristic.icon"
+        class="characteristic"
+      />
+      <SfButton
+        class="sf-button--full-width color-secondary modal__button"
+        @click="accountBenefits = false"
+        >Ok</SfButton
+      >
+    </SfModal>
   </div>
 </template>
 <script>
@@ -55,7 +83,9 @@ import {
   SfInput,
   SfCheckbox,
   SfButton,
-  SfHeading
+  SfHeading,
+  SfModal,
+  SfCharacteristic
 } from "../../../../../index.js";
 export default {
   name: "PersonalDetails",
@@ -63,7 +93,9 @@ export default {
     SfInput,
     SfCheckbox,
     SfButton,
-    SfHeading
+    SfHeading,
+    SfModal,
+    SfCharacteristic
   },
   data() {
     return {
@@ -71,7 +103,14 @@ export default {
       lastName: "Kowalski",
       email: "akowalski@divante.pl",
       password: "howcoolisthat?",
-      createAccount: true
+      createAccount: true,
+      accountBenefits: false,
+      characteristics: [
+        { description: "Faster checkout", icon: "clock"},
+        { description: "Full rewards program benefits", icon: "rewards" },
+        { description: "Earn credits with every purchase", icon: "credits" },
+        { description: "Manage your wishliste", icon: "heart" }
+      ]
     };
   }
 };
@@ -108,9 +147,32 @@ export default {
       }
     }
   }
+  &__group {
+    display: flex;
+    align-items: center;
+  }
   &__action {
     flex: none;
     margin-left: auto;
+  }
+}
+.info {
+  margin-left: $spacer-big;
+  color: $c-text-muted;
+  text-decoration: none;
+}
+.characteristic {
+  margin-bottom: $spacer-big;
+}
+.modal {
+  .modal {
+    &__heading {
+      margin-bottom: $spacer-extra-big;
+    }
+  }
+  &__button {
+    display: block;
+    margin-top: $spacer-extra-big;
   }
 }
 </style>

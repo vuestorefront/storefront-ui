@@ -142,18 +142,18 @@ export default {
         {
           title: "Safety",
           description: "It carefully packaged with a personal touch",
-          icon: "clock"
+          icon: "safety"
         },
         {
           title: "Easy shipping",
           description:
             "You’ll receive dispatch confirmation and an arrival date",
-          icon: "clock"
+          icon: "shipping"
         },
         {
           title: "Changed your mind?",
           description: "Rest assured, we offer free returns within 30 days",
-          icon: "clock"
+          icon: "return"
         }
       ]
     };
