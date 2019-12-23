@@ -35,7 +35,11 @@ storiesOf("Atoms|Image", module)
         default: text("alt", "Vila stripe maxi shirt dress", "Props")
       },
       placeholder: {
-        default: text("placeholder", "/assets/placeholder.png", "Props")
+        default: text(
+          "placeholder",
+          "/assets/storybook/SfImage/placeholder.png",
+          "Props"
+        )
       },
       transition: {
         default: text("transition", "fade", "Props")
@@ -76,7 +80,11 @@ storiesOf("Atoms|Image", module)
         default: text("alt", "Vila stripe maxi shirt dress", "Props")
       },
       placeholder: {
-        default: text("placeholder", "/assets/placeholder.png", "Props")
+        default: text(
+          "placeholder",
+          "/assets/storybook/SfImage/placeholder.png",
+          "Props"
+        )
       },
       transition: {
         default: text("transition", "fade", "Props")

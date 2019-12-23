@@ -5,7 +5,7 @@ Header component for page navigation.
 <br>
 <SfHeader
   title="Storefront UI" 
-  logo="https://storybook.storefrontui.io/assets/logo.svg"
+  logo="https://storybook.storefrontui.io/assets/package/logo.svg"
   active-sidebar="account"
   :style="{position: 'static'}"
 >
@@ -20,7 +20,7 @@ Header component for page navigation.
 <template>
   <SfHeader
     title="Storefront UI"
-    logo="/assets/logo.svg"
+    logo="/assets/package/logo.svg"
     active-sidebar="activeSidebar"
   >
     <template #navigation>

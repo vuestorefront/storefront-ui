@@ -32,10 +32,16 @@ storiesOf("Molecules|Options", module)
               { value: "green", color: "green" }
             ],
             image: [
-              { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
+              { value: "logo", image: "/assets/package/logo.svg" },
+              {
+                value: "heart",
+                image: "/assets/storybook/SfOptions/heart.svg"
+              },
               { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
+              {
+                value: "profile",
+                image: "/assets/storybook/SfOptions/profile.svg"
+              }
             ]
           },
           "Props"
@@ -80,10 +86,16 @@ storiesOf("Molecules|Options", module)
               { value: "green", color: "green" }
             ],
             image: [
-              { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
+              { value: "logo", image: "/assets/package/logo.svg" },
+              {
+                value: "heart",
+                image: "/assets/storybook/SfOptions/heart.svg"
+              },
               { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
+              {
+                value: "profile",
+                image: "/assets/storybook/SfOptions/profile.svg"
+              }
             ]
           },
           "Props"
@@ -132,10 +144,16 @@ storiesOf("Molecules|Options", module)
               { value: "green", color: "green" }
             ],
             image: [
-              { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
+              { value: "logo", image: "/assets/package/logo.svg" },
+              {
+                value: "heart",
+                image: "/assetsstorybook//SfOptions/heart.svg"
+              },
               { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
+              {
+                value: "profile",
+                image: "/assets/storybook/SfOptions/profile.svg"
+              }
             ]
           },
           "Props"
@@ -184,10 +202,16 @@ storiesOf("Molecules|Options", module)
               { value: "green", color: "green" }
             ],
             image: [
-              { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
+              { value: "logo", image: "/assets/package/logo.svg" },
+              {
+                value: "heart",
+                image: "/assets/storybook/SfOptions/heart.svg"
+              },
               { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
+              {
+                value: "profile",
+                image: "/assets/storybook/SfOptions/profile.svg"
+              }
             ]
           },
           "Props"
@@ -236,10 +260,16 @@ storiesOf("Molecules|Options", module)
               { value: "green", color: "green" }
             ],
             image: [
-              { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
+              { value: "logo", image: "/assets/package/logo.svg" },
+              {
+                value: "heart",
+                image: "/assets/storybook/SfOptions/heart.svg"
+              },
               { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
+              {
+                value: "profile",
+                image: "/assets/storybook/SfOptions/profile.svg"
+              }
             ]
           },
           "Props"
