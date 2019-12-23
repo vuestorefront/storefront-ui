@@ -127,3 +127,23 @@ $colors-map: (
     "text": $c-on-danger
   )
 );
+
+$icon-colors: (
+  "primary": $c-primary,
+  "secondary": $c-dark,
+  "white": $c-white,
+  "black": $c-black,
+  "accent": $c-primary-variant,
+  "green-primary": $c-primary,
+  "green-secondary": $c-primary-variant,
+  "gray-primary": $c-gray,
+  "gray-secondary": $c-gray-variant,
+  "light-primary": $c-light,
+  "light-secondary": $c-light-variant,
+  "pink-primary": $c-danger,
+  "pink-secondary": $c-danger-variant,
+  "yellow-primary": $c-warning,
+  "yellow-secondary": $c-warning-variant,
+  "blue-primary": $c-info,
+  "blue-secondary": $c-info-variant
+);

@@ -20,6 +20,27 @@ module.exports = {
       ['/customization', 'Customization'],
       ['/meet-the-team', 'Meet the core team'],
       {
+        title: 'Design Foundations',
+        collapsable: false,
+        children: [
+          ['/design/color-palette', 'Color Palette'],
+          ['/design/sizes', 'Sizes'],
+          ['/design/working-with-designs', 'Working with Designs']
+        ],
+      },
+      {
+        title: 'Contributing Guide',
+        collapsable: false,
+        children: [
+          ['/contributing/become-a-contributor', 'Become a contributor'],
+          ['/contributing/github-guidelines', 'Working with Github'],
+          ['/contributing/coding-guidelines', 'Coding guidelines'],
+          ['/contributing/creating-new-component', 'Create/Edit Component'],
+          ['/contributing/documentation-guidelines', 'Documetation guidelines'],
+          ['/contributing/issue-report-guidelines', 'How to report an issue'],
+        ],
+      },
+      {
         title: 'Components [WIP]',
         collapsable: false,
         children: [
@@ -83,19 +104,6 @@ module.exports = {
           ["/components/Tabs", "Tabs"],
           ["/components/TopBar", "Top Bar"]
           // @components-docs-end
-        ],
-      },
-      {
-        title: 'Contributing Guide',
-        collapsable: false,
-        children: [
-          ['/contributing/become-a-contributor', 'Become a contributor'],
-          ['/contributing/github-guidelines', 'Working with Github'],
-          ['/contributing/coding-guidelines', 'Coding guidelines'],
-          ['/contributing/creating-new-component', 'Create/Edit Component'],
-          ['/contributing/working-with-designs', 'Working With Designs'],
-          ['/contributing/documentation-guidelines', 'Documetation guidelines'],
-          ['/contributing/issue-report-guidelines', 'How to report an issue'],
         ],
       },
     ]
