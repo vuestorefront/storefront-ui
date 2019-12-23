@@ -1,5 +1,4 @@
 import simplebar from "simplebar-vue";
-import "simplebar/dist/simplebar.min.css";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 
 export default {
