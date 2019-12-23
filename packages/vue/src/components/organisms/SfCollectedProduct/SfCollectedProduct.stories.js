@@ -9,7 +9,7 @@ storiesOf("Organisms|CollectedProduct", module)
   .add("Common", () => ({
     data() {
       return {
-        qty: "1"
+        qty: 1
       };
     },
     props: {
@@ -31,16 +31,21 @@ storiesOf("Organisms|CollectedProduct", module)
       },
       stock: {
         default: number("stock", 99, {}, "Props")
+      },
+      qtyMin: {
+        default: number("qtyMin", 1, {}, "Props")
       }
     },
     components: { SfCollectedProduct },
-    template: `    <SfCollectedProduct
+    template: `<SfCollectedProduct
+        v-model="qty"
         :image="image"
         :title="title"
         :specialPrice="specialPrice"
         :regularPrice="regularPrice"
         :stock="stock"
-        v-model="qty">
+        :qty-min="qtyMin"
+        >
         <template #configuration>
           <div :style="{marginTop: '20px'}">
             @slot configuration
