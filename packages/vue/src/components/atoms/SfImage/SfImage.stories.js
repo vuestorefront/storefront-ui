@@ -20,11 +20,11 @@ storiesOf("Atoms|Image", module)
           "src",
           {
             small: {
-              url: "/assets/storybook/product-109x164.jpg",
+              url: "/assets/storybook/SfImage/product-109x164.jpg",
               alt: "Vila stripe maxi shirt dress"
             },
             normal: {
-              url: "/assets/storybook/product-216x326.jpg",
+              url: "/assets/storybook/SfImage/product-216x326.jpg",
               alt: "Vila stripe maxi shirt dress"
             }
           },
@@ -63,10 +63,10 @@ storiesOf("Atoms|Image", module)
           "src",
           {
             small: {
-              url: "/assets/storybook/product-109x164.jpg"
+              url: "/assets/storybook/SfImage/product-109x164.jpg"
             },
             normal: {
-              url: "/assets/storybook/product-216x326.jpg"
+              url: "/assets/storybook/SfImage/product-216x326.jpg"
             }
           },
           "Props"

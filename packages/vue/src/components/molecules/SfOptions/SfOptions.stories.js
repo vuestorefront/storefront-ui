@@ -34,7 +34,7 @@ storiesOf("Molecules|Options", module)
             image: [
               { value: "logo", image: "/assets/logo.svg" },
               { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
+              { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
               { value: "profile", image: "/assets/profile.svg" }
             ]
           },
@@ -82,7 +82,7 @@ storiesOf("Molecules|Options", module)
             image: [
               { value: "logo", image: "/assets/logo.svg" },
               { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
+              { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
               { value: "profile", image: "/assets/profile.svg" }
             ]
           },
@@ -134,7 +134,7 @@ storiesOf("Molecules|Options", module)
             image: [
               { value: "logo", image: "/assets/logo.svg" },
               { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
+              { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
               { value: "profile", image: "/assets/profile.svg" }
             ]
           },
@@ -186,7 +186,7 @@ storiesOf("Molecules|Options", module)
             image: [
               { value: "logo", image: "/assets/logo.svg" },
               { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
+              { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
               { value: "profile", image: "/assets/profile.svg" }
             ]
           },
@@ -238,7 +238,7 @@ storiesOf("Molecules|Options", module)
             image: [
               { value: "logo", image: "/assets/logo.svg" },
               { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
+              { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
               { value: "profile", image: "/assets/profile.svg" }
             ]
           },
