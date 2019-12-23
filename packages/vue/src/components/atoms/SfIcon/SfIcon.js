@@ -55,9 +55,7 @@ export default {
       return SF_SIZES.includes(size);
     },
     iconColorClass() {
-      return !this.isDecimalOrHexColor
-        ? `sf-icon--color-${this.color.trim()}`
-        : "";
+      return this.isSFColors ? `sf-icon--color-${this.color.trim()}` : "";
     },
     iconSizeClass() {
       return this.isSFSizes ? `sf-icon--size-${this.size.trim()}` : "";
