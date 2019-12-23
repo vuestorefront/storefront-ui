@@ -85,20 +85,19 @@ storiesOf("Organisms|Hero", module)
         )
       }
     },
-    template: `<div style="max-width: 1240px; margin: auto"><SfHero :sliderOptions="{autoplay: false}">
-        <template>
-          <div v-for="(item, index) in items">
-            <SfHeroItem
-              :title="item.title"
-              :subtitle="item.subtitle"
-              :buttonText="item.buttonText"
-              :background="item.background"
-              :image="item.image"
-              :class="index === 0 ? customClass1 : index === 1 ? customClass2 : customClass3"
-            />
-          </div>
-        </template>
-      </SfHero></div>`
+    template: `<div style="max-width: 1240px; margin: auto">
+      <SfHero :sliderOptions="{autoplay: false}">
+        <SfHeroItem
+          v-for="(item, index) in items"
+          :title="item.title"
+          :subtitle="item.subtitle"
+          :buttonText="item.buttonText"
+          :background="item.background"
+          :image="item.image"
+          :class="index === 0 ? customClass1 : index === 1 ? customClass2 : customClass3"
+        />
+      </SfHero>
+    </div>`
   }))
   .add("[props] sliderOptions", () => ({
     components: { SfHero },
@@ -108,79 +107,70 @@ storiesOf("Organisms|Hero", module)
       }
     },
     data,
-    template: `<SfHero :sliderOptions="{ autoplay }">
-        <template>
-          <div v-for="(item, index) in items">
-            <SfHeroItem
-              :title="item.title"
-              :subtitle="item.subtitle"
-              :buttonText="item.buttonText"
-              :background="item.background"
-              :image="item.image"
-            />
-          </div>
-        </template>
-      </SfHero>`
+    template: `<div style="max-width: 1240px; margin: auto">
+        <SfHero :sliderOptions="{ autoplay }">
+          <SfHeroItem
+            v-for="(item, index) in items"
+            :title="item.title"
+            :subtitle="item.subtitle"
+            :buttonText="item.buttonText"
+            :background="item.background"
+            :image="item.image"
+          />
+        </SfHero>
+      </div>`
   }))
-
   .add("[slot] controls", () => ({
     components: { SfHero },
     data,
-    template: `
-      <SfHero>
-        <template>
-          <div v-for="(item, index) in items">
-            <SfHeroItem
+    template: `<div style="max-width: 1240px; margin: auto">
+        <SfHero>
+          <SfHeroItem
+              v-for="(item, index) in items"
               :title="item.title"
               :subtitle="item.subtitle"
               :buttonText="item.buttonText"
               :background="item.background"
               :image="item.image"
             />
-          </div>
-        </template>
-
-        <template v-slot:prev="{ go }">
-          <div @click="go">
-            <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">&lt; PREV</span>
-          </div>
-        </template>
-        <template v-slot:next="{ go }">
-          <div @click="go">
-            <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">NEXT &gt;</span>
-          </div>
-        </template>
-      </SfHero>`
+          <template v-slot:prev="{ go }">
+            <div @click="go">
+              <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">&lt; PREV</span>
+            </div>
+          </template>
+          <template v-slot:next="{ go }">
+            <div @click="go">
+              <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">NEXT &gt;</span>
+            </div>
+          </template>
+        </SfHero>
+      </div>`
   }))
-
   .add("[slot] bullets", () => ({
     components: { SfHero },
     data,
-    template: `
-      <SfHero>
-        <template>
-          <div v-for="(item, index) in items">
-            <SfHeroItem
-              :title="item.title"
-              :subtitle="item.subtitle"
-              :buttonText="item.buttonText"
-              :background="item.background"
-              :image="item.image"
-            />
-          </div>
-        </template>
-
-        <template v-slot:bullets="{ numberOfPages, page, go }">
-          <span v-for="n in numberOfPages">
-            <span @click="go(n - 1)" style="margin-right: 5px">
-              <template v-if="page === n">
-                &lt; {{ n }} &gt;
-              </template>
-              <template v-else>
-                {{ n }}
-              </template>
+    template: `<div style="max-width: 1240px; margin: auto">
+        <SfHero>
+          <SfHeroItem
+                v-for="(item, index) in items"
+                :title="item.title"
+                :subtitle="item.subtitle"
+                :buttonText="item.buttonText"
+                :background="item.background"
+                :image="item.image"
+              />
+          <template v-slot:bullets="{ numberOfPages, page, go }">
+            <span v-for="n in numberOfPages">
+              <span @click="go(n - 1)" style="margin-right: 5px">
+                <template v-if="page === n">
+                  &lt; {{ n }} &gt;
+                </template>
+                <template v-else>
+                  {{ n }}
+                </template>
+              </span>
             </span>
-          </span>
-        </template>
-      </SfHero>`
+          </template>
+        </SfHero>
+      </div>`
   }));
