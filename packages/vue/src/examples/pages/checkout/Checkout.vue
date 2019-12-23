@@ -20,44 +20,37 @@
       <div class="checkout__aside">
         <transition name="fade">
           <OrderSummary v-if="currentStep <= 2" key="order-summary"/>
-          <OrderReview v-else key="order-review"/>
+          <OrderReview v-else key="order-review" @click:edit="currentStep = $event"/>
         </transition>
       </div>
     </div>
-    <SfModal :visible="false">
-      <AccountBenefits />
-    </SfModal>
   </div>
 </template>
 <script>
-import AccountBenefits from "./components/AccountBenefits";
-// import OrderSummary from "./components/OrderSummary";
-import OrderReview from "./components/OrderReview";
 import { SfSteps, SfModal } from "../../../../index.js";
 import {
   PersonalDetails,
   Shipping,
   Payment,
   ReviewOrder,
-  OrderSummary
+  OrderSummary,
+  OrderReview
 } from "./_internal/index.js";
 
 export default {
   name: "Checkout",
   components: {
     SfSteps,
-    SfModal,
     PersonalDetails,
     Shipping,
     Payment,
     ReviewOrder,
-    AccountBenefits,
     OrderSummary,
     OrderReview
   },
   data() {
     return {
-      currentStep: 0
+      currentStep: 3
     };
   }
 };
