@@ -71,5 +71,6 @@ $checkbox__checkmark-transition: background-color 0.25s
   }
   &__label {
     margin-left: $spacer-big;
+    display: flex;
   }
 }
