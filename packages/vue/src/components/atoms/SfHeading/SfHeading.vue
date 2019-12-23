@@ -15,37 +15,37 @@
   </header>
 </template>
 <script>
-  export default {
-    name: "SfHeading",
-    props: {
-      /**
-       * Heading level
-       */
-      level: {
-        type: Number,
-        default: 2
-      },
-      /**
-       * Heading title
-       */
-      title: {
-        type: String,
-        default: ""
-      },
-      /**
-       * Heading subtitle
-       */
-      subtitle: {
-        type: String,
-        default: ""
-      }
+export default {
+  name: "SfHeading",
+  props: {
+    /**
+     * Heading level
+     */
+    level: {
+      type: Number,
+      default: 2
     },
-    computed: {
-      hasSubtitle() {
-        return !!this.subtitle || this.$slots.hasOwnProperty("subtitle");
-      }
+    /**
+     * Heading title
+     */
+    title: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Heading subtitle
+     */
+    subtitle: {
+      type: String,
+      default: ""
     }
-  };
+  },
+  computed: {
+    hasSubtitle() {
+      return !!this.subtitle || this.$slots.hasOwnProperty("subtitle");
+    }
+  }
+};
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/SfHeading.scss";
