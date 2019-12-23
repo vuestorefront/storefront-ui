@@ -14,16 +14,12 @@ storiesOf("Atoms|QuantitySelector", module)
       };
     },
     props: {
-      stock: {
-        default: number("stock", 99, {}, "Props")
-      },
       min: {
         default: number("min", 1, {}, "Props")
       }
     },
     template: `<SfQuantitySelector 
         v-model="value"
-        :stock="stock" 
         :min="min" 
       />`
   }));

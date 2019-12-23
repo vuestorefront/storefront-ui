@@ -10,8 +10,7 @@ Component with input to choose numeric values and describe quantity.
 
 <template>
   <SfQuantitySelector 
-    v-model="" 
-    :stock="99" 
+    v-model="qty" 
     :min="1"
   />
 </template>
@@ -22,7 +21,12 @@ Component with input to choose numeric values and describe quantity.
   export default {
     components: {
       SfQuantitySelector
-    }
+    },
+    data(){
+      return {
+        qty: 1
+      }   
+    }   
    };
 </script>
 ```

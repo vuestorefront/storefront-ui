@@ -14,11 +14,6 @@ export default {
       type: [Number, String],
       default: 1
     },
-    /** Stock quantity */
-    stock: {
-      type: Number,
-      default: 99
-    },
     /** Minimum quantity */
     min: {
       type: Number,
@@ -31,9 +26,6 @@ export default {
       if (qty < this.min) {
         this.$emit("input", "" + this.min);
         return;
-      }
-      if (qty > this.stock) {
-        this.$emit("input", "" + this.stock);
       }
     }
   }
