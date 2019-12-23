@@ -32,7 +32,7 @@ storiesOf("Molecules|Options", module)
               { value: "green", color: "green" }
             ],
             image: [
-              { value: "logo", image: "/assets/package/logo.svg" },
+              { value: "logo", image: "/assets/logo.svg" },
               {
                 value: "heart",
                 image: "/assets/storybook/SfOptions/heart.svg"
@@ -86,7 +86,7 @@ storiesOf("Molecules|Options", module)
               { value: "green", color: "green" }
             ],
             image: [
-              { value: "logo", image: "/assets/package/logo.svg" },
+              { value: "logo", image: "/assets/logo.svg" },
               {
                 value: "heart",
                 image: "/assets/storybook/SfOptions/heart.svg"
@@ -144,7 +144,7 @@ storiesOf("Molecules|Options", module)
               { value: "green", color: "green" }
             ],
             image: [
-              { value: "logo", image: "/assets/package/logo.svg" },
+              { value: "logo", image: "/assets/logo.svg" },
               {
                 value: "heart",
                 image: "/assetsstorybook//SfOptions/heart.svg"
@@ -202,7 +202,7 @@ storiesOf("Molecules|Options", module)
               { value: "green", color: "green" }
             ],
             image: [
-              { value: "logo", image: "/assets/package/logo.svg" },
+              { value: "logo", image: "/assets/logo.svg" },
               {
                 value: "heart",
                 image: "/assets/storybook/SfOptions/heart.svg"
@@ -260,7 +260,7 @@ storiesOf("Molecules|Options", module)
               { value: "green", color: "green" }
             ],
             image: [
-              { value: "logo", image: "/assets/package/logo.svg" },
+              { value: "logo", image: "/assets/logo.svg" },
               {
                 value: "heart",
                 image: "/assets/storybook/SfOptions/heart.svg"

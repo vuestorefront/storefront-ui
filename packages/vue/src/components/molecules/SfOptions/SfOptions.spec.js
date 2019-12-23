@@ -76,7 +76,7 @@ describe("SfOptions.vue", () => {
   it("renders image options props", () => {
     const type = "image";
     const label = "Image";
-    const options = [{ image: "/assets/package/logo.svg", value: "logo" }];
+    const options = [{ image: "/assets/logo.svg", value: "logo" }];
     const component = shallowMount(SfOptions, {
       propsData: {
         type,
@@ -93,7 +93,7 @@ describe("SfOptions.vue", () => {
   it("renders image options slots", () => {
     const label = "This is label slot";
     const image = "This is image slot";
-    const options = [{ image: "/assets/package/logo.svg", value: "logo" }];
+    const options = [{ image: "/assets/logo.svg", value: "logo" }];
     const component = shallowMount(SfOptions, {
       slots: {
         label,
