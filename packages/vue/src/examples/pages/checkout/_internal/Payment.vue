@@ -227,7 +227,7 @@ export default {
       zipCode: "",
       country: "",
       phoneNumber: "",
-      paymentMethod: "",
+      paymentMethod: "debit",
       cardNumber: "",
       cardHolder: "",
       cardMonth: null,
@@ -386,8 +386,10 @@ export default {
   border-bottom: $border;
 }
 .credit-card {
-  flex: 0 0 66.666%;
-  padding: 0 calc((100% - 66.666%) / 2);
+  @include for-desktop {
+    flex: 0 0 66.666%;
+    padding: 0 calc((100% - 66.666%) / 2);
+  }
   &__element {
     display: flex;
     align-items: center;
