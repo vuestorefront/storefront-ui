@@ -1,5 +1,5 @@
 <div class="sf-scrollable">
-    <Simplebar class="sf-scrollable__content" ref="content">
+    <Simplebar class="sf-scrollable__content" ref="content" :style="style">
         <slot />
     </Simplebar>
     <SfButton class="sf-scrollable__button sf-button--text" v-if="showText && closeText" @click="isHidden = !isHidden">

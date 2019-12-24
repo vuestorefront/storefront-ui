@@ -26,17 +26,11 @@ export default {
       default: ""
     }
   },
-  watch: {
-    isHidden(value) {
-      if (!value) {
-        this.$refs.content.$el.style.setProperty("max-height", "unset");
-        this.$refs.content.$el.style.setProperty("overflow-y", "unset");
-      } else {
-        this.$refs.content.$el.style.setProperty(
-          "max-height",
-          this.maxContentHeight
-        );
-      }
+  computed: {
+    style() {
+      return this.isHidden
+        ? `max-height: ${this.maxContentHeight} `
+        : "max-height: unset; overflow-y: unset;";
     }
   },
   mounted() {
