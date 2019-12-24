@@ -67,8 +67,8 @@
         required
       >
         <SfSelectOption
-          :key="countryOption.value"
           v-for="countryOption in countries"
+          :key="countryOption.value"
           :value="countryOption.value"
         >
           {{ countryOption.label }}

@@ -59,8 +59,8 @@
         class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
       >
         <SfSelectOption
-          :key="countryOption.value"
           v-for="countryOption in countries"
+          :key="countryOption.value"
           :value="countryOption.value"
         >
           {{ countryOption.label }}
