@@ -31,7 +31,7 @@ $grouped-product__select-quantity-height: 1.875rem !default;
       max-width: $grouped-product-max-width-desktop;
     }
   }
-  &__select-quantity {
+  &__quantity-selector {
     position: absolute;
     right: $spacer;
     bottom: $spacer;
@@ -39,26 +39,8 @@ $grouped-product__select-quantity-height: 1.875rem !default;
     width: $grouped-product__select-quantity-width;
     height: $grouped-product__select-quantity-height;
     @media (min-width: $desktop-min) {
-      bottom: 0;
+      bottom: $spacer-small;
       left: $grouped-product-max-width-desktop + $spacer-big;
-    }
-    input {
-      box-sizing: border-box;
-      padding: 0 $spacer-small;
-      border: 1px solid transparent;
-      background-color: $c-white;
-      font-family: $body-font-family-primary;
-      font-size: $font-size-big-desktop;
-      font-weight: $body-font-weight-primary;
-      line-height: 1.6;
-      text-align: center;
-      transition: border-color 0.3s ease-in-out;
-      @media (min-width: $desktop-min) {
-        background-color: $c-light;
-      }
-      &:focus {
-        border-color: $c-primary;
-      }
     }
   }
   &__description {
