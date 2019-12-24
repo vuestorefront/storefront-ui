@@ -364,7 +364,9 @@ export default {
       margin-right: $margin-x;
       margin-bottom: $spacer-extra-big;
       &--inline {
-        display: flex;
+        @include for-desktop {
+          display: flex;
+        }
       }
     }
   }
