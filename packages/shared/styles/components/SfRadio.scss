@@ -50,6 +50,7 @@ $radio--active-background: $c-light !default;
     }
   }
   &__content {
+    flex: 1;
     margin-left: $spacer-big;
   }
   &__label {
