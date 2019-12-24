@@ -19,8 +19,12 @@
       </div>
       <div class="checkout__aside">
         <transition name="fade">
-          <OrderSummary v-if="currentStep <= 2" key="order-summary"/>
-          <OrderReview v-else key="order-review" @click:edit="currentStep = $event"/>
+          <OrderSummary v-if="currentStep <= 2" key="order-summary" />
+          <OrderReview
+            v-else
+            key="order-review"
+            @click:edit="currentStep = $event"
+          />
         </transition>
       </div>
     </div>
@@ -50,7 +54,7 @@ export default {
   },
   data() {
     return {
-      currentStep: 2
+      currentStep: 0
     };
   }
 };

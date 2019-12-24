@@ -106,7 +106,7 @@ export default {
       createAccount: true,
       accountBenefits: false,
       characteristics: [
-        { description: "Faster checkout", icon: "clock"},
+        { description: "Faster checkout", icon: "clock" },
         { description: "Full rewards program benefits", icon: "rewards" },
         { description: "Earn credits with every purchase", icon: "credits" },
         { description: "Manage your wishliste", icon: "heart" }

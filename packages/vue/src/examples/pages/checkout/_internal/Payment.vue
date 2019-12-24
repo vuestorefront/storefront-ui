@@ -66,8 +66,12 @@
         class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
         required
       >
-        <SfSelectOption value="poland">
-          Poland
+        <SfSelectOption
+          :key="countryOption.value"
+          v-for="countryOption in countries"
+          :value="countryOption.value"
+        >
+          {{ countryOption.label }}
         </SfSelectOption>
       </SfSelect>
     </div>
@@ -143,7 +147,7 @@
               label="Month"
               class="sf-select--bordered credit-card__select"
             >
-              <SfSelectOption v-for="i in 12" :key="i" :value="i">
+              <SfSelectOption v-for="i in 12" :key="i" :value="'' + i">
                 {{ i }}
               </SfSelectOption>
             </SfSelect>
@@ -152,7 +156,7 @@
               label="Year"
               class="sf-select--bordered credit-card__select"
             >
-              <SfSelectOption v-for="i in 12" :key="i" :value="i">
+              <SfSelectOption v-for="i in 12" :key="i" :value="'' + i">
                 {{ i + 12 }}
               </SfSelectOption>
             </SfSelect>
@@ -227,7 +231,7 @@ export default {
       cardMonth: null,
       cardYear: null,
       cardCVC: "",
-      keepCard: true,
+      keepCard: false,
       paymentMethods: [
         {
           label: "Visa Debit",
@@ -249,6 +253,12 @@ export default {
           label: "Check",
           value: "check"
         }
+      ],
+      countries: [
+        { label: "France", value: "france" },
+        { label: "Georgia", value: "georgia" },
+        { label: "Germany", value: "germany" },
+        { label: "Poland", value: "poland" }
       ]
     };
   },
@@ -402,10 +412,10 @@ export default {
     display: flex;
   }
 }
-.payment-method{
+.payment-method {
   border-radius: 4px;
-  ::v-deep{
-    .sf-radio__container{
+  ::v-deep {
+    .sf-radio__container {
       align-items: center;
     }
   }

@@ -7,7 +7,9 @@
       />
       <div class="highlighted__header">
         <h3 class="highlighted__title">Personal details</h3>
-        <SfButton class="sf-button--text" @click="$emit('click:edit', 0)">Edit</SfButton>
+        <SfButton class="sf-button--text" @click="$emit('click:edit', 0)"
+          >Edit</SfButton
+        >
       </div>
       <p class="content">
         Sviatlana Havaka<br />
@@ -22,7 +24,9 @@
     <div class="highlighted">
       <div class="highlighted__header">
         <h3 class="highlighted__title">Shipping details</h3>
-        <SfButton class="sf-button--text" @click="$emit('click:edit', 1)">Edit</SfButton>
+        <SfButton class="sf-button--text" @click="$emit('click:edit', 1)"
+          >Edit</SfButton
+        >
       </div>
       <p class="content">
         <span class="content__label">Paczkomat Inpost</span><br />
@@ -37,14 +41,18 @@
     <div class="highlighted">
       <div class="highlighted__header">
         <h3 class="highlighted__title">Billing address</h3>
-        <SfButton class="sf-button--text" @click="$emit('click:edit', 2)">Edit</SfButton>
+        <SfButton class="sf-button--text" @click="$emit('click:edit', 2)"
+          >Edit</SfButton
+        >
       </div>
       <p class="content">Same as shipping address</p>
     </div>
     <div class="highlighted">
       <div class="highlighted__header">
         <h3 class="highlighted__title">Payment method</h3>
-        <SfButton class="sf-button--text" @click="$emit('click:edit', 2)">Edit</SfButton>
+        <SfButton class="sf-button--text" @click="$emit('click:edit', 2)"
+          >Edit</SfButton
+        >
       </div>
       <p class="content">Cash on delivery</p>
     </div>
@@ -87,7 +95,7 @@ export default {
     align-items: center;
     margin-bottom: $spacer-big;
   }
-  &__title{
+  &__title {
     font-family: $body-font-family-primary;
     font-size: $font-size-big-desktop;
     line-height: 1.6;
@@ -105,7 +113,7 @@ export default {
   &:last-child {
     margin: 0;
   }
-  &__label{
+  &__label {
     font-weight: 400;
   }
 }

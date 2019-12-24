@@ -58,7 +58,13 @@
         v-model="country"
         class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
       >
-        <SfSelectOption value="poland">Poland</SfSelectOption>
+        <SfSelectOption
+          :key="countryOption.value"
+          v-for="countryOption in countries"
+          :value="countryOption.value"
+        >
+          {{ countryOption.label }}
+        </SfSelectOption>
       </SfSelect>
     </div>
     <SfHeading
@@ -95,7 +101,9 @@
                 >
               </div>
               <transition name="fade">
-                <div v-if="item.isOpen" class="shipping__info">{{ description }}</div>
+                <div v-if="item.isOpen" class="shipping__info">
+                  {{ description }}
+                </div>
               </transition>
             </div>
           </template>
@@ -185,6 +193,12 @@ export default {
           description:
             "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
         }
+      ],
+      countries: [
+        { label: "France", value: "france" },
+        { label: "Georgia", value: "georgia" },
+        { label: "Germany", value: "germany" },
+        { label: "Poland", value: "poland" }
       ]
     };
   }
@@ -262,12 +276,12 @@ export default {
     align-items: center;
     margin-left: $spacer;
     text-decoration: none;
-    &::before{
+    &::before {
       content: "+";
     }
     &--is-active {
       color: $c-primary;
-      &::before{
+      &::before {
         content: "-";
       }
     }

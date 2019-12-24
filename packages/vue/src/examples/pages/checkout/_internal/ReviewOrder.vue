@@ -27,7 +27,7 @@
         <SfTableData class="table__data">One size</SfTableData>
         <SfTableData class="table__data">1</SfTableData>
         <SfTableData class="table__data">
-          <SfPrice regular="$50" class="product-price" />
+          <SfPrice regular="$50.00" class="product-price" />
         </SfTableData>
         <SfTableData class="table__action">
           <SfIcon
@@ -52,7 +52,7 @@
         <SfTableData class="table__data">One size</SfTableData>
         <SfTableData class="table__data">1</SfTableData>
         <SfTableData class="table__data">
-          <SfPrice regular="$150" special="$100" class="product-price" />
+          <SfPrice regular="$150.00" special="$100.00" class="product-price" />
         </SfTableData>
         <SfTableData class="table__action">
           <SfIcon
