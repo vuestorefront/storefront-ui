@@ -54,7 +54,7 @@ storiesOf("Molecules|Select", module)
         default: boolean("valid", true, "Props")
       },
       errorMessage: {
-        default: text("label", "Color", "Props")
+        default: text("errorMessage", "Color", "Props")
       },
       selected: {
         default: options(
@@ -62,7 +62,7 @@ storiesOf("Molecules|Select", module)
           knobOptionsList,
           optionsList[0].value,
           { display: "select" },
-          "Props"
+          "Data"
         )
       }
     },
@@ -116,7 +116,7 @@ storiesOf("Molecules|Select", module)
         default: boolean("valid", true, "Props")
       },
       errorMessage: {
-        default: text("label", "Color", "Props")
+        default: text("errorMessage", "Color", "Props")
       }
     },
     data() {
@@ -171,7 +171,7 @@ storiesOf("Molecules|Select", module)
         default: boolean("valid", false, "Props")
       },
       errorMessage: {
-        default: text("label", "Color", "Props")
+        default: text("errorMessage", "Color", "Props")
       }
     },
     data() {
