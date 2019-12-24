@@ -47,7 +47,7 @@
           required
         />
       </transition>
-      <SfButton @click="$emit('click:next')">Continue to shipping</SfButton>
+      <SfButton class="sf-button--full-width" @click="$emit('click:next')">Continue to shipping</SfButton>
       <div class="form__action">
         or
         <SfButton class="sf-button--text">log in to your account</SfButton>
@@ -152,8 +152,13 @@ export default {
     align-items: center;
   }
   &__action {
-    flex: none;
-    margin-left: auto;
+    width: 100%;
+    text-align: center;
+    margin: $spacer-big 0;
+    @include for-desktop {
+      flex: none;
+      margin: 0 0 0 auto;
+    }
   }
 }
 .info {

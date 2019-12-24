@@ -3,7 +3,7 @@
     <div class="checkout">
       <div class="checkout__main">
         <SfSteps :active="currentStep" @change="currentStep = $event">
-          <SfStep name="Personal Detail">
+          <SfStep name="Personal Details">
             <PersonalDetails @click:next="currentStep++" />
           </SfStep>
           <SfStep name="Shipping">
@@ -12,12 +12,12 @@
           <SfStep name="Payment">
             <Payment @click:next="currentStep++" @click:back="currentStep--" />
           </SfStep>
-          <SfStep name="Review order">
+          <SfStep name="Review">
             <ReviewOrder @click:back="currentStep--" />
           </SfStep>
         </SfSteps>
       </div>
-      <div class="checkout__aside">
+      <div class="checkout__aside desktop-only">
         <transition name="fade">
           <OrderSummary v-if="currentStep <= 2" key="order-summary" />
           <OrderReview
@@ -71,19 +71,27 @@ export default {
 
 #checkout {
   box-sizing: border-box;
+  padding: 0 $spacer-big;
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
+    padding: 0;
   }
 }
 .checkout {
-  display: flex;
+  @include for-desktop{
+    display: flex;
+  }
   &__main {
-    flex: 1;
+    @include for-desktop {
+      flex: 1;
+    }
   }
   &__aside {
-    flex: 0 0 25.5rem;
-    margin-left: 6.25rem;
+    @include for-desktop {
+      flex: 0 0 25.5rem;
+      margin-left: 6.25rem;
+    }
   }
 }
 </style>
