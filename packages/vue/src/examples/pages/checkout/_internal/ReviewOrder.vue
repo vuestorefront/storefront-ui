@@ -103,12 +103,12 @@
       </div>
     </div>
     <div class="form">
+      <SfButton class="sf-button--full-width form__action-button">Place my order</SfButton>
       <SfButton
-        class="sf-button--text form__action form__action--left"
+        class="sf-button--full-width sf-button--text form__action-button form__action-button--secondary"
         @click="$emit('click:back')"
-        >Go back to Payment</SfButton
+      >Go back to Payment</SfButton
       >
-      <SfButton>Place my order</SfButton>
     </div>
   </div>
 </template>
@@ -165,12 +165,15 @@ export default {
     justify-content: center;
     align-items: center;
   }
-  &__action {
-    flex: none;
-    margin-left: auto;
-    &--left {
-      margin-left: unset;
-      margin-right: auto;
+  &__action-button {
+    flex: 1;
+    &--secondary{
+      margin: $spacer-big 0;
+      @include for-desktop{
+        order: -1;
+        margin: 0;
+        text-align: left;
+      }
     }
   }
 }

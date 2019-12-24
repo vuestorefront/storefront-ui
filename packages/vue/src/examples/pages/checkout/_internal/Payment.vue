@@ -182,13 +182,15 @@
           />
         </div>
       </transition>
-      <SfButton
-        class="sf-button--text form__action form__action--left"
-        @click="$emit('click:back')"
-      >
-        Go back to Personal details
-      </SfButton>
-      <SfButton @click="$emit('click:next')">Review order</SfButton>
+      <div class="form__action">
+        <SfButton class="sf-button--full-width form__action-button" @click="$emit('click:next')">Review order</SfButton>
+        <SfButton
+          class="sf-button--full-width sf-button--text form__action-button form__action-button--secondary"
+          @click="$emit('click:back')"
+        >
+          Go back to Personal details
+        </SfButton>
+      </div>
     </div>
   </div>
 </template>
@@ -331,12 +333,21 @@ export default {
       }
     }
   }
-  &__action {
-    flex: none;
-    margin-left: auto;
-    &--left {
-      margin-left: unset;
-      margin-right: auto;
+  &__action{
+    @include for-desktop {
+      flex: 0 0 100%;
+      display: flex;
+    }
+  }
+  &__action-button {
+    flex: 1;
+    &--secondary{
+      margin: $spacer-big 0;
+      @include for-desktop{
+        order: -1;
+        margin: 0;
+        text-align: left;
+      }
     }
   }
   &__select {
