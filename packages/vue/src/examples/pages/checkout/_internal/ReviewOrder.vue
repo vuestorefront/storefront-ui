@@ -182,25 +182,33 @@ export default {
   &__header {
     font-size: $font-size-regular-desktop;
     font-weight: $body-font-weight-primary;
-    text-align: center;
+    @include for-desktop {
+      text-align: center;
+    }
   }
   &__data {
     font-size: $font-size-small-desktop;
     text-align: center;
   }
   &__image {
-    flex: 0 0 5.125rem;
+    @include for-desktop {
+      flex: 0 0 5.125rem;
+    }
   }
   &__action {
-    flex: 0 0 2.5rem;
+    @include for-desktop {
+      flex: 0 0 2.5rem;
+    }
     display: flex;
     align-items: center;
     justify-content: flex-end;
   }
 }
 .summary {
-  display: flex;
   margin-bottom: $spacer-extra-big;
+  @include for-desktop{
+    display: flex;
+  }
   &__column {
     flex: 1;
     &--small {
