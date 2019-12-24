@@ -75,8 +75,31 @@
           :value="item.value"
           name="shippingMethod"
           :description="item.description"
-          class="form__element form__radio"
-        />
+          class="form__element form__radio shipping"
+        >
+          <template #label="{label}">
+            <div class="sf-radio__label shipping__label">
+              <div>{{ label }}</div>
+              <div>{{ item.price }}</div>
+            </div>
+          </template>
+          <template #description="{description}">
+            <div class="sf-radio__description shipping__description">
+              <div class="shipping__delivery">
+                {{ item.delivery }}
+                <SfButton
+                  class="sf-button--text shipping__action"
+                  :class="{ 'shipping__action--is-active': item.isOpen }"
+                  @click="item.isOpen = !item.isOpen"
+                  >info</SfButton
+                >
+              </div>
+              <transition name="fade">
+                <div v-if="item.isOpen" class="shipping__info">{{ description }}</div>
+              </transition>
+            </div>
+          </template>
+        </SfRadio>
       </div>
       <SfButton
         class="sf-button--text form__action form__action--left"
@@ -118,30 +141,45 @@ export default {
       shippingMethod: "inpost",
       shippingMethods: [
         {
+          isOpen: false,
+          price: "Free",
+          delivery: "Delivery from 3 to 7 business days",
           label: "Pickup in the store",
           value: "store",
           description:
             "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
         },
         {
+          isOpen: false,
+          price: "$9.90",
+          delivery: "Delivery from 4 to 6 business days",
           label: "Delivery to home",
           value: "home",
           description:
             "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
         },
         {
+          isOpen: true,
+          price: "$9.90",
+          delivery: "Delivery from 4 to 6 business days",
           label: "Paczkomaty InPost",
           value: "inpost",
           description:
             "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
         },
         {
+          isOpen: false,
+          price: "$11.00",
+          delivery: "Delivery within 48 hours",
           label: "48 hours coffee",
           value: "coffee",
           description:
             "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
         },
         {
+          isOpen: false,
+          price: "$14.00",
+          delivery: "Delivery within 24 hours",
           label: "Urgent 24h",
           value: "urgent",
           description:
@@ -201,10 +239,41 @@ export default {
   &__radio {
     margin-bottom: 0;
     &-group {
+      flex: 0 0 100%;
       margin-left: -#{$spacer-big};
       margin-right: -#{$spacer-big};
       margin-bottom: $spacer-extra-big;
     }
+  }
+}
+.shipping {
+  &__label {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__description {
+    width: 100%;
+    margin-top: 0;
+  }
+  &__delivery {
+    color: $c-text-muted;
+  }
+  &__action {
+    align-items: center;
+    margin-left: $spacer;
+    text-decoration: none;
+    &::before{
+      content: "+";
+    }
+    &--is-active {
+      color: $c-primary;
+      &::before{
+        content: "-";
+      }
+    }
+  }
+  &__info {
+    margin-top: $spacer;
   }
 }
 </style>
