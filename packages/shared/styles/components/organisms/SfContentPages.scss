@@ -13,23 +13,10 @@
     }
 }
 
-%title {
-    padding: var(--spacer-big) 0;
-    font-family: var(--content-pages__title-font-family);
-    font-size: var(--content-pages__title-font-size);
-    font-weight: var(--content-pages__title-font-weight);
-    line-height: var(--content-pages__title-line-height);
-}
-
-.sf-content-page {
-    &__title {
-        @extend %title;
-        display: block;
-    }
-}
-
 .sf-content-pages {
+    $this: &;
     overflow: hidden;
+    height: 100vh;
 
     &__section {
         box-sizing: border-box;
@@ -44,9 +31,11 @@
 
     &__sidebar,
     &__content {
+        overflow-y: auto;
         box-sizing: border-box;
         flex: 0 0 100%;
-        padding: 0 1.875rem;
+        height: calc(100vh - 5rem);
+        padding: 1.25rem;
     }
 
     &__sidebar {
@@ -54,31 +43,37 @@
     }
 
     &__title {
-        @extend %title;
+        padding: var(--spacer-big) 0;
+        font-family: var(--content-pages__title-font-family);
+        font-size: var(--content-pages__title-font-size);
+        font-weight: var(--content-pages__title-font-weight);
+        line-height: var(--content-pages__title-line-height);
+    }
+
+    &__category-title {
+        margin-bottom: var(--spacer-big);
+        font-size: var(--font-size-big-mobile);
+        font-family: var(--body-font-family-secondary);
+        font-weight: var(--body-font-weight-secondary);
+    }
+
+    &__list {
+        margin-bottom: var(--spacer-extra-big);
     }
 
     &__list-item {
-        padding: .5rem 0;
+        border-bottom: 1px solid var(--c-light);
     }
 
-    &__menu-item {
-        cursor: pointer;
+    &__menu {
+        padding: var(--spacer-big) var(--spacer-big) var(--spacer-big) 10px;
     }
 }
 
 @media screen and (min-width: $desktop-min) {
-
-    %title {
-        margin-bottom: var(--spacer-big);
-    }
-
-    .sf-content-page {
-        &__title {
-            display: none;
-        }
-    }
-
     .sf-content-pages {
+        height: auto;
+
         &__section {
             &--is-active {
                 transform: translateX(0);
@@ -87,7 +82,9 @@
 
         &__sidebar,
         &__content {
+            overflow-y: hidden;
             flex: 1;
+            height: auto;
             padding: var(--spacer-big) var(--spacer-extra-big);
         }
 
@@ -97,12 +94,12 @@
             background-color: var(--content-pages__sidebar-background-color);
         }
 
-        &__menu-item {
-            &--is-active {
-                color: var(--c-dark);
-                font-weight: 400;
-                text-decoration: underline;
-            }
+        &__title {
+            margin-bottom: var(--spacer-big);
+        }
+
+        &__menu {
+            padding: var(--spacer) 0;
         }
     }
 }

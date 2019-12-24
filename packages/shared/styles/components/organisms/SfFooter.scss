@@ -1,0 +1,66 @@
+@import "../../variables";
+
+:root {
+    --footer-desktop-margin: 6.25rem 0;
+    --footer-column__title-padding: var(--spacer-big) var(--spacer-extra-big);
+    --footer-column__title-background-color: hsl(0%, 0%, 90%);
+    --footer-column__title-font-family: var(--body-font-family-secondary);
+    --footer-column__title-font-size: var(--font-size-regular);
+    --footer-column__title-font-weight: 500;
+    --footer__menu-item-font-size: var(--font-size-regular);
+
+    @media screen and (min-width: $desktop-min) {
+        --footer-column__title-padding: var(--spacer-big) 0;
+        --footer-column__title-font-size: var(--font-size-big);
+    }
+}
+
+.sf-footer-column {
+    flex: 0 0 var(--col-width);
+
+    &__title {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--footer-column__title-padding);
+        background-color: var(--footer-column__title-background-color);
+        font-size: var(--footer-column__title-font-size);
+        font-family: var(--footer-column__title-font-family);
+        font-weight: var(--footer-column__title-font-weight);
+        line-height: 1.6;
+        text-transform: uppercase;
+    }
+}
+
+.sf-footer {
+    &__menu-item {
+        padding: var(--spacer-big) var(--spacer-extra-big);
+        font-size: var(--footer__menu-item-font-size);
+    }
+}
+
+@media screen and (min-width: $desktop-min) {
+    .sf-footer-column {
+        &__title {
+            cursor: default;
+            background-color: transparent;
+        }
+
+        &__chevron {
+            display: none;
+        }
+    }
+
+
+    .sf-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: var(footer-desktop-margin);
+
+        &__menu-item {
+            padding: 6px 0;
+        }
+    }
+}

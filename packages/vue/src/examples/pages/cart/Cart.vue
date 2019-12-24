@@ -70,8 +70,8 @@
             </p>
           </div>
           <SfButton class="sf-button--full-width color-secondary"
-            >Start shopping</SfButton
-          >
+            >Start shopping
+          </SfButton>
         </div>
       </transition>
     </SfSidebar>
@@ -85,6 +85,7 @@ import {
   SfPrice,
   SfCollectedProduct
 } from "../../../../index.js";
+
 export default {
   name: "Cart",
   components: {
@@ -172,11 +173,13 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
+
 #cart {
   box-sizing: border-box;
   @include for-desktop {
@@ -184,31 +187,35 @@ export default {
     margin: auto;
   }
 }
+
 .my-cart {
   flex: 1;
   display: flex;
   flex-direction: column;
+
   &__total-items {
-    font-family: $body-font-family-secondary;
-    font-size: $font-size-big-mobile;
-    font-weight: $body-font-weight-secondary;
-    @include for-desktop {
-      font-size: $font-size-big-desktop;
-    }
+    font-family: var(--body-font-family-secondary);
+    font-size: var(--font-size-big-mobile);
+    font-weight: var(--body-font-weight-secondary);
   }
+
   &__total-price {
-    margin-bottom: $spacer-big;
+    margin-bottom: var(--spacer-big);
   }
 }
+
 .collected-product-list {
   flex: 1;
-  margin: $spacer-big -#{$spacer-big};
+  margin: var(--spacer-big) - var(--spacer-big);
 }
+
 .collected-product {
-  margin: $spacer-big 0;
+  margin: var(--spacer-big) 0;
+
   &__properties {
-    margin-top: $spacer-big;
+    margin-top: var(--spacer-big);
   }
+
   &__actions {
     opacity: 0;
     transition: opacity 300ms ease-in-out;
@@ -219,10 +226,12 @@ export default {
     }
   }
 }
+
 .empty-cart {
   flex: 1;
   display: flex;
   flex-direction: column;
+
   &__banner {
     flex: 1;
     display: flex;
@@ -230,6 +239,7 @@ export default {
     justify-content: center;
     align-items: center;
   }
+
   &__icon {
     width: 18.125rem;
     height: 12.3125rem;
@@ -238,17 +248,20 @@ export default {
       margin-left: 50%;
     }
   }
+
   &__label,
   &__description {
     line-height: 1.6;
     text-align: center;
   }
+
   &__label {
-    margin-top: $spacer-extra-big;
-    font-size: $font-size-big-desktop;
+    margin-top: var(--spacer-extra-big);
+    font-size: var(--font-size-big);
   }
+
   &__description {
-    margin-top: $spacer-big;
+    margin-top: var(--spacer-big);
   }
 }
 </style>

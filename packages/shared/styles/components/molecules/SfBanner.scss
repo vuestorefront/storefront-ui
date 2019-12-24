@@ -41,6 +41,8 @@
     background-repeat: no-repeat;
     background-position: bottom left;
     background-size: cover;
+    background-color: var(--background-color);
+    background-image: var(--background-image);
     font-family: var(--banner-font-family);
     font-size: var(--banner-font-size);
     font-weight: var(--banner-font-weight);
@@ -79,6 +81,7 @@
 @media screen and (min-width: $desktop-min) {
     .sf-banner {
         $this: &;
+        background-image: var(--background-image-desktop);
         padding: var(--banner-padding-y) var(--banner-padding-x) var(--banner-padding-y) calc(50% + var(--banner-padding-x));
 
         &__description {

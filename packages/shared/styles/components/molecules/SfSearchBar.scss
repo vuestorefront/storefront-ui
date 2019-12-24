@@ -20,9 +20,11 @@
     &::-webkit-input-placeholder {
         @content;
     }
+
     &::-moz-placeholder {
         @content;
     }
+
     &:-ms-input-placeholder {
         @content;
     }
@@ -30,6 +32,7 @@
 
 @mixin iconPosition {
     flex-direction: row;
+
     .sf-search-bar {
         &__input {
             text-align: left;
@@ -79,6 +82,12 @@
         }
     }
 
+    &--no-icon {
+        .sf-search-bar__icon {
+            display: none;
+        }
+    }
+
     &__input {
         border: none;
         flex-grow: 1;
@@ -97,9 +106,9 @@
             }
 
             & ~ .sf-search-bar__clear-icon {
-                display: block;
-                padding-right: .4rem;
                 position: absolute;
+                opacity: 1;
+                padding-right: .4rem;
                 right: .9375rem;
             }
         }
@@ -114,6 +123,10 @@
     }
 
     &__clear-icon {
-        display: none;
+        opacity: 0;
+        padding-right: .4rem;
+        position: absolute;
+        right: .9375rem;
+        transition: all .2s ease-in;
     }
 }

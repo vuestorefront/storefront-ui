@@ -38,6 +38,8 @@
     line-height: var(--input-line-height);
 
     & input {
+        position: relative;
+        z-index: 1;
         box-sizing: border-box;
         display: block;
         width: 100%;
@@ -121,9 +123,17 @@
     }
 
     &--invalid {
-        input:focus ~ #{$this}__label {
-            &,
-            &:after {
+        input {
+            border-color: var(--input-color-invalid);
+
+            &:focus ~ #{$this}__label {
+                &,
+                &:after {
+                    color: var(--input-color-invalid);
+                }
+            }
+
+            &:required ~ #{$this}__label::after {
                 color: var(--input-color-invalid);
             }
         }

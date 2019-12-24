@@ -35,10 +35,21 @@
         position: absolute;
         top: var(--spacer);
         right: var(--spacer);
-        width: var(--collected-product__remove-size);
-        height: var(--collected-product__remove-size);
         background-color: transparent;
         padding: 0;
+
+        & .sf-icon {
+            @media (max-width: $desktop-min) {
+                --icon-size: var(--collected-product__remove-size);
+                --icon-color: var(--c-gray);
+            }
+        }
+
+        &.sf-circle-icon{
+            &.sf-button{
+                padding: 0;
+            }
+        }
 
         &:hover,
         &:active {
@@ -62,11 +73,11 @@
         right: var(--spacer);
         bottom: var(--spacer);
         z-index: 2;
+        width: var(--collected-product__select-quantity-width);
+        height: var(--collected-product__select-quantity-height);
 
         input {
             box-sizing: border-box;
-            width: var(--collected-product__select-quantity-width);
-            height: var(--collected-product__select-quantity-height);
             padding: 0 var(--spacer-small);
             border: 1px solid transparent;
             background-color: var(--c-white);
@@ -131,15 +142,16 @@
         &__remove {
             right: calc(var(--collected-product__remove-size-desktop) / -2);
             top: 10px;
-            display: flex;
-            width: var(--collected-product__remove-size-desktop);
-            height: var(--collected-product__remove-size-desktop);
             background-color: var(--collected-product__remove-background);
             box-shadow: none;
-            cursor: pointer;
             opacity: 0;
             transition: opacity 150ms ease-in-out;
-            padding: initial;
+
+            &.sf-circle-icon{
+                &.sf-button{
+                    padding: 10px;
+                }
+            }
 
             &:hover,
             &:active {
@@ -148,8 +160,8 @@
         }
 
         &__icon {
-            --icon-size: 8px !important;
-            --icon-color: #ffffff !important;
+            --icon-size: 8px;
+            --icon-color: #ffffff;
         }
 
         &__image {

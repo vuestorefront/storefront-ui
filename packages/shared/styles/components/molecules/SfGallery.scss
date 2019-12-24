@@ -91,6 +91,16 @@
     }
 }
 
+.sf-gallery__zoom {
+    z-index: 1;
+    position: absolute;
+    overflow: hidden;
+
+    img {
+        transform: scale(2)
+    }
+}
+
 @media screen and (min-width: $desktop-min) {
     .sf-gallery {
         margin-bottom: 0;

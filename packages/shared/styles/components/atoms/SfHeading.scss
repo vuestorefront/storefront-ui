@@ -1,26 +1,21 @@
 @import '../../variables';
 
 :root {
-    --heading-padding: 10px 0 0 0;
     --heading-border-color: #f1f2f4;
     --heading-line-height: 1.6;
-
     --heading__title-font-family: var(--body-font-family-secondary);
     --heading__title-font-size: var(--font-size-extra-big);
-    --heading__title-font-weight: 500;
-
     --heading__subtitle-font-family: var(--body-font-family-secondary);
     --heading__subtitle-font-size: var(--font-size-regular);
-    --heading__subtitle-font-weight: 400;
-    --heading__subtitle-margin: 5px 0 0 0;
 
     @media screen and (min-width: $desktop-min) {
+        --heading__title-font-size: var(--font-size-extra-big);
         --heading__subtitle-font-size: var(--font-size-big);
     }
 }
 
 .sf-heading {
-    padding: var(--heading-padding);
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--heading-border-color);
     line-height: var(--heading-line-height);
     text-align: left;
@@ -28,14 +23,14 @@
     &__title {
         font-family: var(--heading__title-font-family);
         font-size: var(--heading__title-font-size);
-        font-weight: var(--heading__title-font-weight);
+        font-weight: 500;
     }
 
     &__subtitle {
-        margin: var(--heading__subtitle-margin);
+        margin-top: 5px;
         font-family: var(--heading__subtitle-font-family);
         font-size: var(--heading__subtitle-font-size);
-        font-weight: var(--heading__subtitle-font-weight);
+        font-weight: 300;
     }
 
     &--no-underline {

@@ -1,72 +1,147 @@
 @import '../../variables';
 
 :root {
-    --header-background: var(--c-light);
-    --header-height: 50px;
-    --header-justify-content: space-between;
-    --header-align-items: center;
-    --header-padding-x: 1rem;
-    --header__logo-width: 21px;
-    --header__logo-height: auto;
+    --header-height: 3.125rem;
+    --header-padding: 0 var(--spacer-extra-big);
+    --header-background-color: var(--c-light);
+    --header-navigation-item-margin-left: 2.5rem;
+    --header-navigation-item-font-family: var(--body-font-family-primary);
+    --header-navigation-item-font-size: var(--font-size-regular);
+    --header-navigation-item-font-weight: 500;
 
     @media (min-width: $tablet-min) {
-        --header-background: initial;
-        --header-justify-content: flex-start;
-        --header-height: auto;
-        --header-align-items: initial;
-        --header-padding-x: 0;
+        --header-padding: 0 var(--spacer-extra-big);
+        --header-height: 5rem;
+        --header-background-color: var(--c-white);
+        --header-navigation-item-font-size: var(--font-size-small);
+    }
+}
+
+.sf-header-navigation-item {
+    $this: &;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: var(--header-navigation-item-margin-left);
+    color: var(--c-text);
+    font-family: var(--header-navigation-item-font-family);
+    font-size: var(--header-navigation-item-font-size);
+    font-weight: var(--header-navigation-item-font-weight);
+    line-height: 1.6;
+    cursor: pointer;
+    transition: color 150ms linear;
+
+    &::after {
+        position: absolute;
+        left: 0;
+        z-index: 1;
+        bottom: -2px;
+        height: 2px;
+        width: 100%;
+        background-color: transparent;
+        content: "";
+        transition: background-color 150ms linear;
+    }
+
+    &:hover {
+        &::after {
+            background-color: var(--c-dark);
+        }
     }
 }
 
 .sf-header {
+    box-sizing: border-box;
     display: flex;
-    background: var(--header-background);
+    align-items: center;
+    justify-content: center;
     height: var(--header-height);
-    justify-content: var(--header-justify-content);
-    align-items: var(--header-mobile-align-items);
-    padding-left: var(--header-padding-x);
-    padding-right: var(--header-padding-x);
-
-    &__column {
-        &--left {
-            order: 1;
-        }
-
-        &--middle {
-            order: 2;
-        }
-
-        &--right {
-            order: 3;
-        }
-    }
+    padding: var(--header-padding);
+    background-color: var(--header-background-color);
 
     &__logo {
-        width: var(--header__logo-width);
-        height: var(--header__logo-height);
-        padding-right: .5rem;
+        height: calc(100% - 1.25rem);
+
+        img, picture {
+            height: 100%;
+        }
     }
 
-    &__nav,
-    &__search,
+    &__navigation {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        &:hover > *:not(:hover) {
+            color: var(--c-gray);
+        }
+    }
+
+    &__search {
+        margin: 0 10px 0 auto;
+    }
+
+    &__icons {
+        display: flex;
+        align-items: center;
+    }
+
     &__icon {
-        display: none;
-    }
-}
+        $this: &;
+        margin-left: var(--spacer-big);
 
-@media (min-width: $tablet-min) {
-    .sf-header {
-        &__column {
-            &--left,
-            &--right {
-                display: none;
+        &.sf-circle-icon {
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: var(--c-light);
+                box-shadow: none;
+            }
+
+            &.sf-button {
+                padding: 10px;
+            }
+
+            & .sf-icon {
+                --icon-size: 1.25rem;
+                --icon-color: var(--c-text);
+
+                &:hover {
+                    --icon-color: var(--c-text);
+                }
             }
         }
 
-        &__nav,
-        &__search,
-        &__icon {
-            display: inline-block;
+        &--is-active {
+            &.sf-circle-icon {
+                background-color: var(--c-primary);
+
+                & .sf-icon {
+                    --icon-color: var(--c-white);
+                }
+            }
+        }
+    }
+
+    &__navigation,
+    &__search,
+    &__icons{
+        @media (max-width: $desktop-min) {
+            display: none;
+        }
+    }
+}
+
+
+@media screen and (min-width: $desktop-min) {
+    .sf-header {
+        justify-content: flex-start;
+        padding: var(--header-padding);
+
+        &__logo {
+            height: calc(100% - 2.5rem);
         }
     }
 }
