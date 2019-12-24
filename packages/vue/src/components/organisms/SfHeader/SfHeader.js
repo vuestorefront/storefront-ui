@@ -32,6 +32,10 @@ export default {
       type: String,
       default: ""
     },
+    sticky: {
+      type: Boolean,
+      default: false
+    },
     /**
      * Header cartIcon (accepts same value as SfIcon)
      */

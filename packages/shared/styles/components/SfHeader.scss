@@ -117,4 +117,11 @@ $header-navigation-item-font-weight: 500 !default;
       display: none;
     }
   }
+  &--sticky {
+    @media (min-width: $desktop-min) {
+      position: fixed;
+      top: 0;
+      z-index: 1;
+    }
+  }
 }
