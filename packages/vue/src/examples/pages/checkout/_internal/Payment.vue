@@ -105,7 +105,7 @@
               </template>
               <template v-else>
                 <SfImage
-                  :src="`/assets/storybook/checkoutpage/${item.value}.png`"
+                  :src="`/assets/storybook/checkout/${item.value}.png`"
                   class="payment-image"
                 />
               </template>

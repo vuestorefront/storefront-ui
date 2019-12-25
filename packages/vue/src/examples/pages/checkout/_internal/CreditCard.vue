@@ -29,8 +29,18 @@
         >Expiry date</span
       >
       <div class="credit-card-form__element">
-        <SfInput v-model="cardMonth" label="Month" name="month" class="credit-card-form__input "/>
-        <SfInput v-model="cardYear" label="Year" name="year" class="credit-card-form__input"/>
+        <SfInput
+          v-model="cardMonth"
+          label="Month"
+          name="month"
+          class="credit-card-form__input "
+        />
+        <SfInput
+          v-model="cardYear"
+          label="Year"
+          name="year"
+          class="credit-card-form__input"
+        />
       </div>
     </div>
     <div class="credit-card-form__group">
@@ -67,7 +77,7 @@ export default {
       cardMonth: "",
       cardYear: "",
       cardCVC: "",
-      cardKeep: false,
+      cardKeep: false
     };
   }
 };

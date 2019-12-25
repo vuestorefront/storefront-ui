@@ -79,7 +79,7 @@ export default {
   }
 }
 .checkout {
-  @include for-desktop{
+  @include for-desktop {
     display: flex;
   }
   &__main {

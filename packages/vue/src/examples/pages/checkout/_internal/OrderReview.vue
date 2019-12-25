@@ -58,7 +58,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import { SfHeading, SfButton } from "../../../../../index.js";
 export default {
@@ -69,7 +68,6 @@ export default {
   }
 };
 </script>
-
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 @mixin for-desktop {
@@ -105,7 +103,7 @@ export default {
   margin-bottom: $spacer-extra-big;
 }
 .content {
-  margin-bottom: 0 0 $spacer-big 0;
+  margin: 0 0 $spacer-big 0;
   color: $c-text;
   font-size: $font-size-extra-small-desktop;
   font-weight: 300;

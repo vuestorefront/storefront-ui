@@ -1,7 +1,7 @@
 <template>
   <div>
     <SfHeading
-      title="4. Order details"
+      title="4. Order review"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <SfTable class="sf-table--bordered table desktop-only">
@@ -66,6 +66,60 @@
         </SfTableData>
       </SfTableRow>
     </SfTable>
+    <SfAccordion first-open class="accordion mobile-only">
+      <SfAccordionItem header="Personal Details">
+        <div class="accordion__item">
+          <div class="accordion__content">
+            <p class="content">
+              Sviatlana Havaka<br />
+              Zielinskiego 30 – 41, 53-345<br />
+              Wroclaw, Poland
+            </p>
+            <p class="content">
+              sviatlana.example@gmail.com<br />
+              (00) 468 900 300
+            </p>
+          </div>
+          <SfButton class="sf-button--text accordion__edit">Edit</SfButton>
+        </div>
+      </SfAccordionItem>
+      <SfAccordionItem header="Shipping address">
+        <div class="accordion__item">
+          <div class="accordion__content">
+            <p class="content">
+              <span class="content__label">Paczkomat Inpost</span><br />
+              Zielinskiego 30 – 41, 53-345<br />
+              Wroclaw, Poland
+            </p>
+            <p class="content">
+              sviatlana.example@gmail.com<br />
+              (00) 468 900 300
+            </p>
+          </div>
+          <SfButton class="sf-button--text accordion__edit">Edit</SfButton>
+        </div>
+      </SfAccordionItem>
+      <SfAccordionItem header="Billing address">
+        <div class="accordion__item">
+          <div class="accordion__content">
+            <p class="content">Same as shipping address</p>
+          </div>
+          <SfButton class="sf-button--text accordion__edit">Edit</SfButton>
+        </div>
+      </SfAccordionItem>
+      <SfAccordionItem header="Payment method">
+        <div class="accordion__item">
+          <div class="accordion__content">
+            <p class="content">Cash on delivery</p>
+          </div>
+          <SfButton class="sf-button--text accordion__edit">Edit</SfButton>
+        </div>
+      </SfAccordionItem>
+    </SfAccordion>
+    <SfHeading
+      title="Order details"
+      class="sf-heading--left sf-heading--no-underline title"
+    />
     <div class="summary">
       <div class="summary__group">
         <div class="summary__total">
@@ -110,8 +164,9 @@
         <SfButton
           class="sf-button--full-width sf-button--text summary__action-button summary__action-button--secondary"
           @click="$emit('click:back')"
-          >Go back to Payment</SfButton
         >
+          Go back to Payment
+        </SfButton>
       </div>
     </div>
   </div>
@@ -125,7 +180,8 @@ import {
   SfImage,
   SfIcon,
   SfPrice,
-  SfProperty
+  SfProperty,
+  SfAccordion
 } from "../../../../../index.js";
 export default {
   name: "ReviewOrder",
@@ -137,7 +193,8 @@ export default {
     SfImage,
     SfIcon,
     SfPrice,
-    SfProperty
+    SfProperty,
+    SfAccordion
   },
   data() {
     return {
@@ -189,6 +246,19 @@ export default {
     justify-content: flex-end;
   }
 }
+.accordion {
+  margin: 0 0 $spacer-extra-big 0;
+  &__item {
+    display: flex;
+    align-items: flex-start;
+  }
+  &__content {
+    flex: 1;
+  }
+  &__edit {
+    flex: unset;
+  }
+}
 .summary {
   background-color: $c-light;
   margin: 0 -#{$spacer-big};
@@ -208,8 +278,12 @@ export default {
     margin-bottom: $spacer-big;
   }
   &__total {
-    margin-bottom: $spacer-extra-big;
+    margin: 0 0 $spacer-extra-big 0;
+    padding: 0 $spacer-big;
     flex: 0 0 16.875rem;
+    @include for-desktop {
+      padding: 0;
+    }
   }
   &__action-button {
     flex: 1;
@@ -237,6 +311,19 @@ export default {
   line-height: 1.6;
   &__name {
     color: $c-text-muted;
+  }
+}
+.content {
+  margin: 0 0 $spacer-big 0;
+  color: $c-text;
+  font-size: $font-size-extra-small-desktop;
+  font-weight: 300;
+  line-height: 1.6;
+  &:last-child {
+    margin: 0;
+  }
+  &__label {
+    font-weight: 400;
   }
 }
 /* TABLE */
