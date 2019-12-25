@@ -67,48 +67,52 @@
       </SfTableRow>
     </SfTable>
     <div class="summary">
-      <SfCheckbox v-model="terms" name="terms" class="summary__column">
-        <template #label>
-          <div class="sf-checkbox__label">
-            I agree to <a href="#">Terms and conditions</a>
-          </div>
-        </template>
-      </SfCheckbox>
-      <div class="summary__column summary__column--small ">
-        <SfProperty
-          name="Subtotal"
-          value="$150.00"
-          class="sf-property--full-width property"
-        >
-          <template #name
-            ><span class="property__name">Subtotal</span></template
+      <div class="summary__group">
+        <div class="summary__total">
+          <SfProperty
+            name="Subtotal"
+            value="$150.00"
+            class="sf-property--full-width property"
           >
-        </SfProperty>
-        <SfProperty
-          name="Shipping"
-          value="$9.90"
-          class="sf-property--full-width property"
-        >
-          <template #name
-            ><span class="property__name">Shipping</span></template
+            <template #name
+              ><span class="property__name">Subtotal</span></template
+            >
+          </SfProperty>
+          <SfProperty
+            name="Shipping"
+            value="$9.90"
+            class="sf-property--full-width property"
           >
-        </SfProperty>
-        <SfProperty
-          name="Total"
-          value="$150.00"
-          class="sf-property--full-width property property--huge summary__total"
-        >
-          <template #name>TOTAL</template>
-        </SfProperty>
+            <template #name
+              ><span class="property__name">Shipping</span></template
+            >
+          </SfProperty>
+          <SfProperty
+            name="Total"
+            value="$150.00"
+            class="sf-property--full-width property--huge summary__property-total"
+          >
+            <template #name>TOTAL</template>
+          </SfProperty>
+        </div>
+        <SfCheckbox v-model="terms" name="terms" class="summary__terms">
+          <template #label>
+            <div class="sf-checkbox__label">
+              I agree to <a href="#">Terms and conditions</a>
+            </div>
+          </template>
+        </SfCheckbox>
       </div>
-    </div>
-    <div class="form">
-      <SfButton class="sf-button--full-width form__action-button">Place my order</SfButton>
-      <SfButton
-        class="sf-button--full-width sf-button--text form__action-button form__action-button--secondary"
-        @click="$emit('click:back')"
-      >Go back to Payment</SfButton
-      >
+      <div class="summary__group">
+        <SfButton class="sf-button--full-width summary__action-button"
+          >Place my order</SfButton
+        >
+        <SfButton
+          class="sf-button--full-width sf-button--text summary__action-button summary__action-button--secondary"
+          @click="$emit('click:back')"
+          >Go back to Payment</SfButton
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -158,25 +162,6 @@ export default {
 .title {
   margin-bottom: $spacer-extra-big;
 }
-.form {
-  @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
-  &__action-button {
-    flex: 1;
-    &--secondary{
-      margin: $spacer-big 0;
-      @include for-desktop{
-        order: -1;
-        margin: 0;
-        text-align: left;
-      }
-    }
-  }
-}
 .table {
   margin-bottom: $spacer-big;
   &__header {
@@ -205,32 +190,56 @@ export default {
   }
 }
 .summary {
-  margin-bottom: $spacer-extra-big;
-  @include for-desktop{
-    display: flex;
+  background-color: $c-light;
+  margin: 0 -#{$spacer-big};
+  padding: $spacer-big;
+  @include for-desktop {
+    background-color: transparent;
   }
-  &__column {
-    flex: 1;
-    &--small {
-      flex: 0 0 18.75rem;
+  &__group {
+    @include for-desktop {
+      display: flex;
+      margin: 0 0 $spacer-extra-big 0;
     }
   }
-  &__total {
-    margin-top: $spacer-big;
+  &__terms {
+    flex: 1;
+    order: -1;
+    margin-bottom: $spacer-big;
   }
-}
-.property {
-  font-size: $font-size-small-desktop;
-  line-height: 1.6;
-  &--huge {
+  &__total {
+    margin-bottom: $spacer-extra-big;
+    flex: 0 0 16.875rem;
+  }
+  &__action-button {
+    flex: 1;
+    &--secondary {
+      margin: $spacer-big 0;
+      @include for-desktop {
+        order: -1;
+        margin: 0;
+        text-align: left;
+      }
+    }
+  }
+  &__property-total {
+    margin: $spacer-big 0 0 0;
     text-transform: uppercase;
     font-size: $font-size-regular-desktop;
-    font-weight: 500;
   }
+}
+.button {
+  cursor: pointer;
+}
+.property {
+  margin: 0 0 $spacer 0;
+  font-size: $font-size-small-desktop;
+  line-height: 1.6;
   &__name {
     color: $c-text-muted;
   }
 }
+/* TABLE */
 .product-title,
 .product-sku {
   line-height: 1.6;
@@ -249,8 +258,5 @@ export default {
     order: 1;
     color: $c-text;
   }
-}
-.button {
-  cursor: pointer;
 }
 </style>
