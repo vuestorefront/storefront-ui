@@ -19,8 +19,8 @@
             v-model="product.qty"
             :image="product.image"
             :title="product.title"
-            :regular-price="product.price.regular | price"
-            :special-price="product.price.special | price"
+            :regular-price="product.price.regular"
+            :special-price="product.price.special"
             :stock="product.stock"
             class="collected-product"
           >
@@ -56,7 +56,7 @@
       />
       <SfProperty
         name="Subtotal"
-        :value="'150.00' | price"
+        value="$150.00"
         class="sf-property--full-width property"
       />
       <SfProperty
@@ -66,12 +66,25 @@
       />
       <SfProperty
         name="Total"
-        :value="'150.00' | price"
+        value="$150.00"
         class="sf-property--full-width property-total"
       />
     </div>
-    <div class="highlighted">
-      <SfButton class="promo-code">+ Promo Code</SfButton>
+    <div class="highlighted promo-code">
+      <SfButton class="promo-code__button" @click="showPromoCode = !showPromoCode"
+        >{{ showPromoCode ? "-" : "+" }} Promo Code</SfButton
+      >
+      <transition name="fade">
+        <div v-if="showPromoCode">
+          <SfInput
+            v-model="promoCode"
+            name="promoCode"
+            label="Enter promo code"
+            class="promo-code__input"
+          />
+          <SfButton class="sf-button--full-width">Apply code</SfButton>
+        </div>
+      </transition>
     </div>
     <div class="highlighted">
       <SfCharacteristic
@@ -91,25 +104,23 @@ import {
   SfButton,
   SfCollectedProduct,
   SfProperty,
-  SfCharacteristic
+  SfCharacteristic,
+  SfInput
 } from "../../../../../index.js";
 export default {
   name: "OrderSummary",
-  filters: {
-    price: function(price) {
-      if (!price) return;
-      return `$${price}`;
-    }
-  },
   components: {
     SfHeading,
     SfButton,
     SfCollectedProduct,
     SfProperty,
-    SfCharacteristic
+    SfCharacteristic,
+    SfInput
   },
   data() {
     return {
+      promoCode: "",
+      showPromoCode: false,
       listIsHidden: true,
       totalItems: 2,
       products: [
@@ -217,9 +228,17 @@ export default {
   }
 }
 .promo-code {
-  padding: 0;
-  background-color: transparent;
-  color: $c-primary;
-  font-size: $font-size-big-desktop;
+  &__button{
+    padding: 0;
+    background-color: transparent;
+    color: $c-primary;
+    font-size: $font-size-big-desktop;
+  }
+  &__input {
+    margin: $spacer-big 0;
+    ::v-deep input {
+      border-color: $c-gray-variant;
+    }
+  }
 }
 </style>
