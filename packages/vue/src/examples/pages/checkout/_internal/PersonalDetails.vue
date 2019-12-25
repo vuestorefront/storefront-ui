@@ -1,7 +1,7 @@
 <template>
   <div>
     <SfHeading
-      title="1. Personal Details"
+      title="1. Personal details"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">

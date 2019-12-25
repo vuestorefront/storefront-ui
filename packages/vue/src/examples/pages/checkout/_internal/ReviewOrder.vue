@@ -300,6 +300,8 @@ export default {
     margin: $spacer-big 0 0 0;
     text-transform: uppercase;
     font-size: $font-size-regular-desktop;
+    line-height: 1.6;
+    font-weight: 500;
   }
 }
 .button {
