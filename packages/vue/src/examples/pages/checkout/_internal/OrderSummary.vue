@@ -120,8 +120,8 @@ export default {
   data() {
     return {
       promoCode: "",
-      showPromoCode: false,
-      listIsHidden: true,
+      showPromoCode: true,
+      listIsHidden: false,
       totalItems: 2,
       products: [
         {
@@ -133,8 +133,7 @@ export default {
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
           ],
-          qty: "1",
-          stock: 44
+          qty: "1"
         },
         {
           title: "Cream Beach Bag",
@@ -145,8 +144,7 @@ export default {
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
           ],
-          qty: "2",
-          stock: 10
+          qty: "2"
         }
       ],
       characteristics: [
