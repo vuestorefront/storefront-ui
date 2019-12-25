@@ -59,7 +59,7 @@ export default {
   },
   data() {
     return {
-      activePage: "Order history",
+      activePage: "My profile",
       breadcrumbs: [
         {
           text: "Home",
