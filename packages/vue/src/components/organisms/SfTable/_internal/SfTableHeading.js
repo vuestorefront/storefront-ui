@@ -1,5 +1,5 @@
 export default {
-  name: "SfTableRow",
+  name: "SfTableHeading",
   inject: ["table"],
   mounted() {
     if (!this.$slots.default) return;
