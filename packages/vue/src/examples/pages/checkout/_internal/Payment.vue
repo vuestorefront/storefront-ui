@@ -81,10 +81,7 @@
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
-      <div
-        class="form__element form__radio-group form__radio-group--inline payment-methods"
-      >
-        <!-- todo: adjust to design -->
+      <div class="form__element payment-methods">
         <SfRadio
           v-for="item in paymentMethods"
           :key="item.value"
@@ -183,7 +180,11 @@
         </div>
       </transition>
       <div class="form__action">
-        <SfButton class="sf-button--full-width form__action-button" @click="$emit('click:next')">Review order</SfButton>
+        <SfButton
+          class="sf-button--full-width form__action-button"
+          @click="$emit('click:next')"
+          >Review order</SfButton
+        >
         <SfButton
           class="sf-button--full-width sf-button--text form__action-button form__action-button--secondary"
           @click="$emit('click:back')"
@@ -266,11 +267,7 @@ export default {
   },
   computed: {
     isCreditCard() {
-      return (
-        this.paymentMethod === "debit" ||
-        this.paymentMethod === "mastercard" ||
-        this.paymentMethod === "electron"
-      );
+      return ["debit", "mastercard", "electron"].includes(this.paymentMethod);
     }
   },
   watch: {
@@ -307,6 +304,11 @@ export default {
     @content;
   }
 }
+@mixin for-mobile {
+  @media screen and (max-width: $desktop-min) {
+    @content;
+  }
+}
 .title {
   margin-bottom: $spacer-extra-big;
 }
@@ -333,7 +335,7 @@ export default {
       }
     }
   }
-  &__action{
+  &__action {
     @include for-desktop {
       flex: 0 0 100%;
       display: flex;
@@ -341,9 +343,9 @@ export default {
   }
   &__action-button {
     flex: 1;
-    &--secondary{
+    &--secondary {
       margin: $spacer-big 0;
-      @include for-desktop{
+      @include for-desktop {
         order: -1;
         margin: 0;
         text-align: left;
@@ -358,32 +360,56 @@ export default {
   }
   &__radio {
     white-space: nowrap;
-    &-group {
-      $margin-x: -#{$spacer-big};
-      margin-left: $margin-x;
-      margin-right: $margin-x;
-      margin-bottom: $spacer-extra-big;
-      &--inline {
-        @include for-desktop {
-          display: flex;
-        }
-      }
-    }
   }
 }
 .payment-image {
+  display: flex;
+  align-items: center;
   height: 2.125rem;
   width: auto;
-  ::v-deep & .sf-image__img {
+  ::v-deep > * {
     width: auto;
     max-width: unset;
   }
 }
 .payment-methods {
-  $border: 1px solid $c-light;
-  padding: $spacer-big 0;
-  border-top: $border;
-  border-bottom: $border;
+  /*&-group {
+    $margin-x: -#{$spacer-big};
+    margin-left: $margin-x;
+    margin-right: $margin-x;
+    margin-bottom: $spacer-extra-big;
+    &--inline {
+      @include for-desktop {
+        display: flex;
+      }
+    }
+  }*/
+  @include for-desktop {
+    display: flex;
+    padding: $spacer-big 0;
+    border-top: 1px solid $c-light;
+    border-bottom: 1px solid $c-light;
+  }
+}
+.payment-method {
+  border-top: 1px solid $c-light;
+  @include for-mobile {
+    background-color: transparent;
+  }
+  &:last-child {
+    border-bottom: 1px solid $c-light;
+  }
+  @include for-desktop {
+    border: 0;
+    border-radius: 4px;
+  }
+  ::v-deep {
+    .sf-radio {
+      &__container {
+        align-items: center;
+      }
+    }
+  }
 }
 .credit-card {
   @include for-desktop {
@@ -425,14 +451,6 @@ export default {
   &__cvc {
     flex: 0 0 21.5rem;
     display: flex;
-  }
-}
-.payment-method {
-  border-radius: 4px;
-  ::v-deep {
-    .sf-radio__container {
-      align-items: center;
-    }
   }
 }
 .sf-input {

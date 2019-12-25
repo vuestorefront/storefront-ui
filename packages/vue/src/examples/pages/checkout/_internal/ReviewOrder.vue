@@ -4,7 +4,7 @@
       title="4. Order details"
       class="sf-heading--left sf-heading--no-underline title"
     />
-    <SfTable class="sf-table--bordered table">
+    <SfTable class="sf-table--bordered table desktop-only">
       <SfTableHeading class="table__row">
         <SfTableHeader class="table__header table__image">Item</SfTableHeader>
         <SfTableHeader
