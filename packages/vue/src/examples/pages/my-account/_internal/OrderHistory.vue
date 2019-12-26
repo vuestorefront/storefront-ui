@@ -146,16 +146,14 @@ export default {
       text-align: center;
     }
   }
-  ::v-deep {
-    .sf-table {
-      &__row,
-      &__heading {
-        margin: 0 -#{$spacer-big};
-      }
-      &__row:last-child {
-        @include for-mobile {
-          border-bottom: 0;
-        }
+  ::v-deep .sf-table {
+    &__row,
+    &__heading {
+      margin: 0 -#{$spacer-big};
+    }
+    &__row:last-child {
+      @include for-mobile {
+        border-bottom: 0;
       }
     }
   }
