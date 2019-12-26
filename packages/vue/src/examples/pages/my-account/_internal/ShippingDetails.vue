@@ -61,11 +61,12 @@
           required
           class="sf-select--underlined form__select form__element form__element--half form__element--half-even"
         >
-          <SfSelectOption value="poland">
-            Poland
-          </SfSelectOption>
-          <SfSelectOption value="england">
-            England
+          <SfSelectOption
+            v-for="countryOption in countries"
+            :key="countryOption"
+            :value="countryOption"
+          >
+            {{ countryOption }}
           </SfSelectOption>
         </SfSelect>
         <SfInput
@@ -150,7 +151,56 @@ export default {
       state: "",
       zipCode: "",
       country: "",
-      phone: ""
+      phone: "",
+      countries: [
+        "Austria",
+        "Azerbaijan",
+        "Belarus",
+        "Belgium",
+        "Bosnia and Herzegovina",
+        "Bulgaria",
+        "Croatia",
+        "Cyprus",
+        "Czech Republic",
+        "Denmark",
+        "Estonia",
+        "Finland",
+        "France",
+        "Georgia",
+        "Germany",
+        "Greece",
+        "Hungary",
+        "Iceland",
+        "Ireland",
+        "Italy",
+        "Kosovo",
+        "Latvia",
+        "Liechtenstein",
+        "Lithuania",
+        "Luxembourg",
+        "Macedonia",
+        "Malta",
+        "Moldova",
+        "Monaco",
+        "Montenegro",
+        "The Netherlands",
+        "Norway",
+        "Poland",
+        "Portugal",
+        "Romania",
+        "Russia",
+        "San Marino",
+        "Serbia",
+        "Slovakia",
+        "Slovenia",
+        "Spain",
+        "Sweden",
+        "Switzerland",
+        "Turkey",
+        "Ukraine",
+        "United Kingdom",
+        "Vatican City"
+      ]
     };
   }
 };
@@ -201,20 +251,15 @@ export default {
     }
   }
 }
-.message,
-.notice {
+.message {
+  margin: 0 0 $spacer-extra-big 0;
   font-family: $body-font-family-primary;
   font-weight: $body-font-weight-primary;
   line-height: 1.6;
-}
-.message {
-  margin: 0 0 $spacer-extra-big 0;
-  font-size: $font-size-regular-desktop;
-}
-.notice {
-  max-width: 70%;
-  margin: $spacer 0 0 0;
-  font-size: $font-size-extra-small-desktop;
+  font-size: $font-size-regular-mobile;
+  @include for-desktop {
+    font-size: $font-size-regular-desktop;
+  }
 }
 .shipping-list {
   margin-bottom: $spacer-extra-big;
@@ -229,9 +274,12 @@ export default {
   &__content {
     flex: 1;
     color: $c-text;
-    font-size: $font-size-small-desktop;
+    font-size: $font-size-small-mobile;
     font-weight: 300;
     line-height: 1.6;
+    @include for-desktop {
+      font-size: $font-size-small-desktop;
+    }
   }
   &__actions {
     flex: 1;

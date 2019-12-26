@@ -5,7 +5,7 @@
         Check the details and status of your orders in the online store. You can
         also cancel your order or request a return.
       </p>
-      <div v-if="false" class="no-orders">
+      <div v-if="noOrders" class="no-orders">
         <p class="no-orders__title">You currently have no orders</p>
         <p class="no-orders__content">Best get shopping pronto...</p>
         <SfButton class="no-orders__button">Start shopping</SfButton>
@@ -81,7 +81,11 @@ export default {
       ]
     };
   },
-  computed: {}
+  computed: {
+    noOrders(){
+      return this.orders.length < 0;
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -98,17 +102,23 @@ export default {
 }
 .message {
   margin: 0 0 $spacer-extra-big 0;
-  font-size: $font-size-regular-desktop;
+  font-size: $font-size-regular-mobile;
   font-family: $body-font-family-primary;
   font-weight: $body-font-weight-primary;
   line-height: 1.6;
+  @include for-desktop{
+    font-size: $font-size-regular-desktop;
+  }
 }
 .no-orders {
   &__title,
   &__content {
     font-family: $body-font-family-secondary;
-    font-size: $font-size-regular-desktop;
+    font-size: $font-size-regular-mobile;
     line-height: 1.6;
+    @include for-desktop{
+      font-size: $font-size-regular-desktop;
+    }
   }
   &__title {
     margin: 0 0 $spacer-big 0;

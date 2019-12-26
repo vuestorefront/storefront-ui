@@ -41,7 +41,7 @@
       <p class="message">
         If you want to change the password to access your account, enter the
         following information:<br />Your current email address is
-        example@email.com
+        <span class="message__label">example@email.com</span>
       </p>
       <div class="form">
         <SfInput
@@ -138,13 +138,21 @@ export default {
 }
 .message {
   margin: 0 0 $spacer-extra-big 0;
-  font-size: $font-size-regular-desktop;
+  font-size: $font-size-regular-mobile;
+  @include for-desktop {
+    font-size: $font-size-regular-desktop;
+  }
+  &__label{
+    font-weight: 400;
+  }
 }
 .notice {
-  margin: $spacer 0 0 0;
-  font-size: $font-size-extra-small-desktop;
+  margin: $spacer-big 0 0 0;
+  font-size: $font-size-extra-small-mobile;
   @include for-desktop {
     max-width: 70%;
+    margin: $spacer 0 0 0;
+    font-size: $font-size-extra-small-desktop;
   }
 }
 </style>

@@ -30,7 +30,7 @@
         <SfButton class="form__button">Join Newsletter</SfButton>
       </div>
       <p class="notice">
-        I have read and understand the Privacy and Cookies Policy and agree to
+        I have read and understand the <a href="#">Privacy</a> and <a href="#">Cookies Policy</a> and agree to
         receive personalized commercial information from Brand name by email.
       </p>
     </SfTab>
@@ -56,7 +56,6 @@ export default {
   }
 }
 .form {
-  margin: 0 0 $spacer-extra-big 0;
   &__element {
     margin: 0 0 $spacer-big 0;
     &:last-child {
@@ -88,13 +87,18 @@ export default {
 }
 .message {
   margin: 0 0 $spacer-extra-big 0;
-  font-size: $font-size-regular-desktop;
+  font-size: $font-size-regular-mobile;
+  @include for-desktop {
+    font-size: $font-size-regular-desktop;
+  }
 }
 .notice {
-  margin: $spacer 0 0 0;
+  margin: $spacer-big 0 0 0;
   font-size: $font-size-extra-small-desktop;
   @include for-desktop {
     max-width: 70%;
+    margin: $spacer 0 0 0;
+    font-size: $font-size-extra-small-desktop;
   }
 }
 .tab-orphan {

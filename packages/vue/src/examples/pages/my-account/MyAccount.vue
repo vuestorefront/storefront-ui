@@ -7,6 +7,7 @@
     <SfContentPages
       title="My Account"
       :active="activePage"
+      class="my-account"
       @click:change="changeActivePage"
     >
       <SfContentCategory title="Personal Details">
@@ -106,5 +107,8 @@ export default {
 }
 .breadcrumbs {
   padding: $spacer-big $spacer-extra-big $spacer-extra-big;
+}
+.my-account {
+  height: 100%;
 }
 </style>
