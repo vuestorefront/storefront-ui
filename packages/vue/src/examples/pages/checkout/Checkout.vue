@@ -4,13 +4,13 @@
       <div class="checkout__main">
         <SfSteps :active="currentStep" @change="currentStep = $event">
           <SfStep name="Personal Details">
-            <PersonalDetails @click:next="currentStep++" />
+            <PersonalDetails :order="order" @click:next="updateOrder($event)" />
           </SfStep>
           <SfStep name="Shipping">
-            <Shipping @click:next="currentStep++" @click:back="currentStep--" />
+            <Shipping :order="order" @click:next="updateOrder($event)" @click:back="currentStep--" />
           </SfStep>
           <SfStep name="Payment">
-            <Payment @click:next="currentStep++" @click:back="currentStep--" />
+            <Payment :order="order" @click:next="updateOrder($event)" @click:back="currentStep--" />
           </SfStep>
           <SfStep name="Review">
             <ReviewOrder @click:back="currentStep--" />
@@ -54,8 +54,55 @@ export default {
   },
   data() {
     return {
-      currentStep: 0
+      currentStep: 0,
+      order: {
+        firstName: "Sviatlana",
+        lastName: "Havaka",
+        email: "example@email.com",
+        password: "",
+        createAccount: false,
+        shipping: {
+          streetName: "Zielinskiego",
+          apartment: "24/193A",
+          city: "Wroclaw",
+          state: "Lower Silesia",
+          zipCode: "53-540",
+          country: "Poland",
+          phone: "(00)560 123 456",
+          shippingMethod: "inpost"
+        },
+        payment: {
+          streetName: "Zielinskiego",
+          apartment: "24/193A",
+          city: "Wroclaw",
+          state: "Lower Silesia",
+          zipCode: "53-540",
+          country: "Poland",
+          phone: "(00)560 123 456",
+          paymentMethod: "",
+          card: {
+            number: "",
+            holder: "",
+            month: "",
+            year: "",
+            cvc: "",
+            keep: false
+          }
+        },
+        review:{
+          subtotal: "$150.00",
+          shipping: "$9.00",
+          total: "$159.00"
+        },
+        products: []
+      }
     };
+  },
+  methods: {
+    updateOrder(order) {
+      this.order = { ...this.order, ...order };
+      this.currentStep++;
+    }
   }
 };
 </script>

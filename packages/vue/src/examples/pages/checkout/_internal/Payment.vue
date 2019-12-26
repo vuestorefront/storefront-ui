@@ -12,23 +12,9 @@
         class="form__element"
       />
       <SfInput
-        v-model="firstName"
-        label="First name"
-        name="firstName"
-        class="form__element form__element--half"
-        required
-      />
-      <SfInput
-        v-model="lastName"
-        label="Last name"
-        name="lastName"
-        class="form__element form__element--half form__element--half-even"
-        required
-      />
-      <SfInput
-        v-model="street"
+        v-model="streetName"
         label="Street name"
-        name="street"
+        name="streetName"
         class="form__element"
         required
       />
@@ -68,10 +54,10 @@
       >
         <SfSelectOption
           v-for="countryOption in countries"
-          :key="countryOption.value"
-          :value="countryOption.value"
+          :key="countryOption"
+          :value="countryOption"
         >
-          {{ countryOption.label }}
+          {{ countryOption }}
         </SfSelectOption>
       </SfSelect>
     </div>
@@ -114,12 +100,77 @@
         </SfRadio>
       </div>
       <transition name="fade">
-        <CreditCard v-if="isCreditCard" class="payment-card"/>
+        <div v-if="isCreditCard" class="credit-card-form">
+          <div class="credit-card-form__group">
+            <span
+              class="credit-card-form__label credit-card-form__label--required"
+              >Number</span
+            >
+            <div class="credit-card-form__element">
+              <SfInput
+                v-model="cardNumber"
+                name="cardNumber"
+                class=" credit-card-form__input"
+              />
+            </div>
+          </div>
+          <div class="credit-card-form__group">
+            <span
+              class="credit-card-form__label credit-card-form__label--required"
+              >Card holder</span
+            >
+            <div class="credit-card-form__element">
+              <SfInput
+                v-model="cardHolder"
+                name="cardHolder"
+                class=" credit-card-form__input"
+              />
+            </div>
+          </div>
+          <div class="credit-card-form__group">
+            <span
+              class="credit-card-form__label credit-card-form__label--required"
+              >Expiry date</span
+            >
+            <div class="credit-card-form__element">
+              <SfInput
+                v-model="cardMonth"
+                label="Month"
+                name="month"
+                class="credit-card-form__input "
+              />
+              <SfInput
+                v-model="cardYear"
+                label="Year"
+                name="year"
+                class="credit-card-form__input"
+              />
+            </div>
+          </div>
+          <div class="credit-card-form__group">
+            <span
+              class="credit-card-form__label credit-card-form__label--required"
+              >Code CVC</span
+            >
+            <div class="credit-card-form__element">
+              <SfInput
+                v-model="cardCVC"
+                name="cardCVC"
+                class=" credit-card-form__input credit-card-form__input--small"
+              />
+            </div>
+          </div>
+          <SfCheckbox
+            v-model="cardKeep"
+            name="keepcard"
+            label="I want to keed this data for other purchases."
+          />
+        </div>
       </transition>
       <div class="form__action">
         <SfButton
           class="sf-button--full-width form__action-button"
-          @click="$emit('click:next')"
+          @click="toReview"
           >Review order</SfButton
         >
         <SfButton
@@ -142,7 +193,6 @@ import {
   SfImage,
   SfCheckbox
 } from "../../../../../index.js";
-import CreditCard from "./CreditCard.vue";
 export default {
   name: "Payment",
   components: {
@@ -152,22 +202,31 @@ export default {
     SfSelect,
     SfRadio,
     SfImage,
-    SfCheckbox,
-    CreditCard
+    SfCheckbox
+  },
+  props: {
+    order: {
+      type: Object,
+      default: () => ({})
+    }
   },
   data() {
     return {
       copyShippingAddress: false,
-      firstName: "",
-      lastName: "",
-      street: "",
+      streetName: "",
       apartment: "",
       city: "",
       state: "",
       zipCode: "",
       country: "",
       phoneNumber: "",
-      paymentMethod: "debit",
+      paymentMethod: "",
+      cardNumber: "",
+      cardHolder: "",
+      cardMonth: "",
+      cardYear: "",
+      cardCVC: "",
+      cardKeep: false,
       paymentMethods: [
         {
           label: "Visa Debit",
@@ -191,10 +250,53 @@ export default {
         }
       ],
       countries: [
-        { label: "France", value: "france" },
-        { label: "Georgia", value: "georgia" },
-        { label: "Germany", value: "germany" },
-        { label: "Poland", value: "poland" }
+        "Austria",
+        "Azerbaijan",
+        "Belarus",
+        "Belgium",
+        "Bosnia and Herzegovina",
+        "Bulgaria",
+        "Croatia",
+        "Cyprus",
+        "Czech Republic",
+        "Denmark",
+        "Estonia",
+        "Finland",
+        "France",
+        "Georgia",
+        "Germany",
+        "Greece",
+        "Hungary",
+        "Iceland",
+        "Ireland",
+        "Italy",
+        "Kosovo",
+        "Latvia",
+        "Liechtenstein",
+        "Lithuania",
+        "Luxembourg",
+        "Macedonia",
+        "Malta",
+        "Moldova",
+        "Monaco",
+        "Montenegro",
+        "The Netherlands",
+        "Norway",
+        "Poland",
+        "Portugal",
+        "Romania",
+        "Russia",
+        "San Marino",
+        "Serbia",
+        "Slovakia",
+        "Slovenia",
+        "Spain",
+        "Sweden",
+        "Switzerland",
+        "Turkey",
+        "Ukraine",
+        "United Kingdom",
+        "Vatican City"
       ]
     };
   },
@@ -204,28 +306,76 @@ export default {
     }
   },
   watch: {
-    copyShippingAddress(copy) {
-      if (copy) {
-        this.firstName = "Adam";
-        this.lastName = "Kowalski";
-        this.street = "Dmowskiego";
-        this.apartment = "17";
-        this.city = "Wrocław";
-        this.state = "Dolnośląskie";
-        this.zipCode = "50-203";
-        this.country = "poland";
-        this.phoneNumber = "+48 577 032 500";
-      } else {
-        this.firstName = "";
-        this.lastName = "";
-        this.street = "";
-        this.apartment = "";
-        this.city = "";
-        this.state = "";
-        this.zipCode = "";
-        this.country = "";
-        this.phoneNumber = "";
+    order: {
+      handler(value) {
+        this.streetName = value.payment.streetName;
+        this.apartment = value.payment.apartment;
+        this.city = value.payment.city;
+        this.state = value.payment.state;
+        this.zipCode = value.payment.zipCode;
+        this.country = value.payment.country;
+        this.phoneNumber = value.payment.phoneNumber;
+        this.paymentMethod = value.payment.paymentMethod;
+        this.cardNumber = value.payment.card.number;
+        this.cardHolder = value.payment.card.holder;
+        this.cardMonth = value.payment.card.month;
+        this.cardYear = value.payment.card.year;
+        this.cardCVC = value.payment.card.cvc;
+        this.cardKeep = value.payment.card.keep;
+      },
+      immediate: true
+    },
+    copyShippingAddress: {
+      handler(value) {
+        if (value) {
+          this.streetName = this.order.shipping.streetName;
+          this.apartment = this.order.shipping.apartment;
+          this.city = this.order.shipping.city;
+          this.state = this.order.shipping.state;
+          this.zipCode = this.order.shipping.zipCode;
+          this.country = this.order.shipping.country;
+          this.phoneNumber = this.order.shipping.phoneNumber;
+          this.paymentMethod = this.order.shipping.paymentMethod;
+        } else {
+          this.streetName = "";
+          this.apartment = "";
+          this.city = "";
+          this.state = "";
+          this.zipCode = "";
+          this.country = "";
+          this.phoneNumber = "";
+          this.paymentMethod = "";
+        }
       }
+    }
+  },
+  methods: {
+    toReview() {
+      const order = { ...this.order };
+      const payment = { ...order.payment };
+      const card = { ...payment.card };
+      payment.streetName = this.streetName;
+      payment.apartment = this.apartment;
+      payment.city = this.city;
+      payment.state = this.state;
+      payment.zipCode = this.zipCode;
+      payment.country = this.country;
+      payment.phoneNumber = this.phoneNumber;
+      payment.paymentMethod = this.paymentMethod;
+
+      if (this.isCreditCard) {
+        card.number = this.cardNumber;
+        card.holder = this.cardHolder;
+        card.month = this.cardMonth;
+        card.year = this.cardYear;
+        card.cvc = this.cardCVC;
+        card.keep = this.cardKeep;
+      }
+
+      payment.card = card;
+      order.payment = payment;
+
+      this.$emit("click:next", order);
     }
   }
 };
@@ -332,17 +482,39 @@ export default {
       &__container {
         align-items: center;
       }
-      &__content{
+      &__content {
         margin: 0 0 0 $spacer;
       }
     }
   }
 }
-.payment-card{
+.credit-card-form {
   margin-bottom: $spacer-big;
   @include for-desktop {
     flex: 0 0 66.666%;
     padding: 0 calc((100% - 66.666%) / 2);
+  }
+  &__group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 $spacer-big 0;
+  }
+  &__label {
+    flex: unset;
+  }
+  &__element {
+    display: flex;
+    flex: 0 0 66.666%;
+  }
+  &__input {
+    flex: 1;
+    &--small {
+      flex: 0 0 46.666%;
+    }
+    & + & {
+      margin-left: $spacer-big;
+    }
   }
 }
 </style>

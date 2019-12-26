@@ -50,7 +50,7 @@
       <div class="form__action">
         <SfButton
           class="sf-button--full-width form__action-button"
-          @click="$emit('click:next')"
+          @click="toShipping"
           >Continue to shipping</SfButton
         >
         <SfButton
@@ -103,13 +103,19 @@ export default {
     SfModal,
     SfCharacteristic
   },
+  props: {
+    order: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   data() {
     return {
-      firstName: "Adam",
-      lastName: "Kowalski",
-      email: "akowalski@divante.pl",
-      password: "howcoolisthat?",
-      createAccount: true,
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      createAccount: false,
       accountBenefits: false,
       characteristics: [
         { description: "Faster checkout", icon: "clock" },
@@ -118,6 +124,31 @@ export default {
         { description: "Manage your wishliste", icon: "heart" }
       ]
     };
+  },
+  watch: {
+    order: {
+      handler(value) {
+        this.firstName = value.firstName;
+        this.lastName = value.lastName;
+        this.email = value.email;
+      },
+      immediate: true
+    },
+    createAccount(value){
+      if(!value) this.password = "";
+    }
+  },
+  methods: {
+    toShipping(){
+      const order = {...this.order};
+
+      order.firstName = this.firstName;
+      order.lastName = this.lastName;
+      order.email = this.email;
+      order.password = this.password;
+      order.createAccount = this.createAccount;
+      this.$emit("click:next", order);
+    }
   }
 };
 </script>
@@ -162,13 +193,6 @@ export default {
       flex: 0 0 100%;
       display: flex;
     }
-    /*width: 100%;*/
-    /*text-align: center;*/
-    /*margin: $spacer-big 0;*/
-    /*@include for-desktop {*/
-    /*flex: none;*/
-    /*margin: 0 0 0 auto;*/
-    /*}*/
   }
   &__action-button {
     flex: 1;

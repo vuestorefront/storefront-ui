@@ -6,23 +6,9 @@
     />
     <div class="form">
       <SfInput
-        v-model="firstName"
-        label="First name"
-        name="firstName"
-        class="form__element form__element--half"
-        required
-      />
-      <SfInput
-        v-model="lastName"
-        label="Last name"
-        name="lastName"
-        class="form__element form__element--half form__element--half-even"
-        required
-      />
-      <SfInput
-        v-model="street"
+        v-model="streetName"
         label="Street name"
-        name="street"
+        name="streetName"
         class="form__element"
         required
       />
@@ -56,14 +42,16 @@
       />
       <SfSelect
         v-model="country"
+        label="Country"
         class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
+        required
       >
         <SfSelectOption
           v-for="countryOption in countries"
-          :key="countryOption.value"
-          :value="countryOption.value"
+          :key="countryOption"
+          :value="countryOption"
         >
-          {{ countryOption.label }}
+          {{ countryOption }}
         </SfSelectOption>
       </SfSelect>
     </div>
@@ -110,11 +98,15 @@
         </SfRadio>
       </div>
       <div class="form__action">
-        <SfButton class="sf-button--full-width form__action-button" @click="$emit('click:next')">Continue to payment</SfButton>
+        <SfButton
+          class="sf-button--full-width form__action-button"
+          @click="toPayment"
+          >Continue to payment</SfButton
+        >
         <SfButton
           class="sf-button--full-width sf-button--text form__action-button form__action-button--secondary"
           @click="$emit('click:back')"
-        >Go back to Personal details</SfButton
+          >Go back to Personal details</SfButton
         >
       </div>
     </div>
@@ -137,18 +129,22 @@ export default {
     SfSelect,
     SfRadio
   },
+  props: {
+    order: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   data() {
     return {
-      firstName: "Adam",
-      lastName: "Kowalski",
-      street: "Dmowskiego",
-      apartment: "17",
-      city: "Wrocław",
-      state: "Dolnośląskie",
-      zipCode: "50-203",
-      country: "poland",
-      phoneNumber: "+48 577 032 500",
-      shippingMethod: "inpost",
+      streetName: "",
+      apartment: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      country: "",
+      phoneNumber: "",
+      shippingMethod: "",
       shippingMethods: [
         {
           isOpen: false,
@@ -169,7 +165,7 @@ export default {
             "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
         },
         {
-          isOpen: true,
+          isOpen: false,
           price: "$9.90",
           delivery: "Delivery from 4 to 6 business days",
           label: "Paczkomaty InPost",
@@ -197,12 +193,88 @@ export default {
         }
       ],
       countries: [
-        { label: "France", value: "france" },
-        { label: "Georgia", value: "georgia" },
-        { label: "Germany", value: "germany" },
-        { label: "Poland", value: "poland" }
+        "Austria",
+        "Azerbaijan",
+        "Belarus",
+        "Belgium",
+        "Bosnia and Herzegovina",
+        "Bulgaria",
+        "Croatia",
+        "Cyprus",
+        "Czech Republic",
+        "Denmark",
+        "Estonia",
+        "Finland",
+        "France",
+        "Georgia",
+        "Germany",
+        "Greece",
+        "Hungary",
+        "Iceland",
+        "Ireland",
+        "Italy",
+        "Kosovo",
+        "Latvia",
+        "Liechtenstein",
+        "Lithuania",
+        "Luxembourg",
+        "Macedonia",
+        "Malta",
+        "Moldova",
+        "Monaco",
+        "Montenegro",
+        "The Netherlands",
+        "Norway",
+        "Poland",
+        "Portugal",
+        "Romania",
+        "Russia",
+        "San Marino",
+        "Serbia",
+        "Slovakia",
+        "Slovenia",
+        "Spain",
+        "Sweden",
+        "Switzerland",
+        "Turkey",
+        "Ukraine",
+        "United Kingdom",
+        "Vatican City"
       ]
     };
+  },
+  watch: {
+    order: {
+      handler(value) {
+        this.streetName = value.shipping.streetName;
+        this.apartment = value.shipping.apartment;
+        this.city = value.shipping.city;
+        this.state = value.shipping.state;
+        this.zipCode = value.shipping.zipCode;
+        this.country = value.shipping.country;
+        this.phoneNumber = value.shipping.phoneNumber;
+        this.shippingMethod = value.shipping.shippingMethod;
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    toPayment() {
+      const order = { ...this.order };
+      const shipping = { ...order.shipping };
+
+      shipping.streetName = this.streetName;
+      shipping.apartment = this.apartment;
+      shipping.city = this.city;
+      shipping.state = this.state;
+      shipping.zipCode = this.zipCode;
+      shipping.country = this.country;
+      shipping.phoneNumber = this.phoneNumber;
+      shipping.shippingMethod = this.shippingMethod;
+      order.shipping = shipping;
+
+      this.$emit("click:next", order);
+    }
   }
 };
 </script>
@@ -238,7 +310,7 @@ export default {
       }
     }
   }
-  &__action{
+  &__action {
     @include for-desktop {
       flex: 0 0 100%;
       display: flex;
@@ -246,9 +318,9 @@ export default {
   }
   &__action-button {
     flex: 1;
-    &--secondary{
+    &--secondary {
       margin: $spacer-big 0;
-      @include for-desktop{
+      @include for-desktop {
         order: -1;
         margin: 0;
         text-align: left;
@@ -265,6 +337,7 @@ export default {
     margin-bottom: 0;
     &-group {
       flex: 0 0 100%;
+      margin: 0 0 $spacer-extra-big 0;
     }
   }
 }
