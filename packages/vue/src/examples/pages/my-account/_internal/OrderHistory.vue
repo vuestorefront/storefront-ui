@@ -5,7 +5,7 @@
         Check the details and status of your orders in the online store. You can
         also cancel your order or request a return.
       </p>
-      <div v-if="noOrders" class="no-orders">
+      <div v-if="orders.length === 0" class="no-orders">
         <p class="no-orders__title">You currently have no orders</p>
         <p class="no-orders__content">Best get shopping pronto...</p>
         <SfButton class="no-orders__button">Start shopping</SfButton>
@@ -64,14 +64,14 @@ export default {
     SfTable,
     SfButton
   },
+  props: {
+    account: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   data() {
     return {
-      orders: [
-        ["#35765", "4th Nov, 2019", "Visa card", "$12.00", "In process"],
-        ["#35766", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"],
-        ["#35768", "4th Nov, 2019", "Mastercard", "$12.00", "Finalised"],
-        ["#35769", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"]
-      ],
       tableHeaders: [
         "Order ID",
         "Payment date",
@@ -82,8 +82,8 @@ export default {
     };
   },
   computed: {
-    noOrders(){
-      return this.orders.length < 0;
+    orders() {
+      return this.account.orders;
     }
   }
 };
@@ -106,7 +106,7 @@ export default {
   font-family: $body-font-family-primary;
   font-weight: $body-font-weight-primary;
   line-height: 1.6;
-  @include for-desktop{
+  @include for-desktop {
     font-size: $font-size-regular-desktop;
   }
 }
@@ -116,7 +116,7 @@ export default {
     font-family: $body-font-family-secondary;
     font-size: $font-size-regular-mobile;
     line-height: 1.6;
-    @include for-desktop{
+    @include for-desktop {
       font-size: $font-size-regular-desktop;
     }
   }

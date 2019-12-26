@@ -28,7 +28,9 @@
           required
           class="form__element"
         />
-        <SfButton class="form__button">Update personal data</SfButton>
+        <SfButton class="form__button" @click="updatePersonal"
+          >Update personal data</SfButton
+        >
       </div>
       <p class="notice">
         At Brand name, we attach great importance to privacy issues and are
@@ -68,7 +70,9 @@
           required
           class="form__element form__element--half form__element--half-even"
         />
-        <SfButton class="form__button">Update password</SfButton>
+        <SfButton class="form__button" @click="updatePassword"
+          >Update password</SfButton
+        >
       </div>
     </SfTab>
   </SfTabs>
@@ -82,6 +86,12 @@ export default {
     SfInput,
     SfButton
   },
+  props: {
+    account: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   data() {
     return {
       firstName: "",
@@ -91,6 +101,32 @@ export default {
       newPassword: "",
       repeatPassword: ""
     };
+  },
+  watch: {
+    account: {
+      handler(value) {
+        this.firstName = value.firstName;
+        this.lastName = value.lastName;
+        this.email = value.email;
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    updatePersonal() {
+      const personal = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email
+      };
+      this.$emit("click:personal", personal);
+    },
+    updatePassword() {
+      const password = {
+        password: this.newPassword
+      };
+      this.$emit("click:password", password);
+    }
   }
 };
 </script>
@@ -142,7 +178,7 @@ export default {
   @include for-desktop {
     font-size: $font-size-regular-desktop;
   }
-  &__label{
+  &__label {
     font-weight: 400;
   }
 }

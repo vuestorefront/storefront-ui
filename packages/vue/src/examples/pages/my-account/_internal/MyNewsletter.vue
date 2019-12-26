@@ -30,8 +30,9 @@
         <SfButton class="form__button">Join Newsletter</SfButton>
       </div>
       <p class="notice">
-        I have read and understand the <a href="#">Privacy</a> and <a href="#">Cookies Policy</a> and agree to
-        receive personalized commercial information from Brand name by email.
+        I have read and understand the <a href="#">Privacy</a> and
+        <a href="#">Cookies Policy</a> and agree to receive personalized
+        commercial information from Brand name by email.
       </p>
     </SfTab>
   </SfTabs>

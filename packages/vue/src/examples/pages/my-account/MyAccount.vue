@@ -12,10 +12,17 @@
     >
       <SfContentCategory title="Personal Details">
         <SfContentPage title="My profile">
-          <MyProfile />
+          <MyProfile
+            :account="account"
+            @click:personal="account = { ...account, ...$event }"
+            @click:password="account = { ...account, ...$event }"
+          />
         </SfContentPage>
         <SfContentPage title="Shipping details">
-          <ShippingDetails />
+          <ShippingDetails
+            :account="account"
+            @click:shipping="account = { ...account, ...$event }"
+          />
         </SfContentPage>
         <SfContentPage title="Loyalty Card">
           <LoyaltyCard />
@@ -26,7 +33,7 @@
       </SfContentCategory>
       <SfContentCategory title="Order details">
         <SfContentPage title="Order history">
-          <OrderHistory />
+          <OrderHistory :account="account" />
         </SfContentPage>
         <SfContentPage title="My reviews">
           <MyReviews />
@@ -74,7 +81,39 @@ export default {
             link: "#"
           }
         }
-      ]
+      ],
+      account: {
+        firstName: "Sviatlana",
+        lastName: "Havaka",
+        email: "example@email.com",
+        password: "a*23Et",
+        shipping: [
+          {
+            streetName: "Zielinskiego",
+            apartment: "24/193A",
+            city: "Wroclaw",
+            state: "Lower Silesia",
+            zipCode: "53-540",
+            country: "Poland",
+            phone: "(00)560 123 456"
+          },
+          {
+            streetName: "Zielinskiego",
+            apartment: "20/193A",
+            city: "Wroclaw",
+            state: "Lower Silesia",
+            zipCode: "53-603",
+            country: "Poland",
+            phone: "(00)560 123 456"
+          }
+        ],
+        orders: [
+          ["#35765", "4th Nov, 2019", "Visa card", "$12.00", "In process"],
+          ["#35766", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"],
+          ["#35768", "4th Nov, 2019", "Mastercard", "$12.00", "Finalised"],
+          ["#35769", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"]
+        ]
+      }
     };
   },
   methods: {
