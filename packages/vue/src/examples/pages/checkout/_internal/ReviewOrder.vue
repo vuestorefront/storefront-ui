@@ -65,44 +65,19 @@
         >
         <SfTableHeader class="table__action"></SfTableHeader>
       </SfTableHeading>
-      <SfTableRow class="table__row">
+      <SfTableRow v-for="(product, key) in products" :key="key" class="table__row">
         <SfTableData class="table__image">
-          <SfImage src="/assets/storybook/checkout/product.png" />
+          <SfImage :src="product.image" />
         </SfTableData>
         <SfTableData class="table__data table__data--left">
-          <div class="product-title">Summer Bag</div>
+          <div class="product-title">{{product.title}}</div>
           <div class="product-sku">MSD23-345-324</div>
         </SfTableData>
-        <SfTableData class="table__data">Cream</SfTableData>
-        <SfTableData class="table__data">One size</SfTableData>
-        <SfTableData class="table__data">1</SfTableData>
+        <SfTableData class="table__data">{{product.configuration[1].value}}</SfTableData>
+        <SfTableData class="table__data">{{product.configuration[0].value}}</SfTableData>
+        <SfTableData class="table__data">{{product.qty}}</SfTableData>
         <SfTableData class="table__data">
-          <SfPrice regular="$50.00" class="product-price" />
-        </SfTableData>
-        <SfTableData class="table__action">
-          <SfIcon
-            icon="cross"
-            size="xxs"
-            color="#BEBFC4"
-            role="button"
-            class="button"
-            @click="removeItem"
-          />
-        </SfTableData>
-      </SfTableRow>
-      <SfTableRow class="table__row">
-        <SfTableData class="table__image">
-          <SfImage src="/assets/storybook/checkout/product.png" />
-        </SfTableData>
-        <SfTableData class="table__data">
-          <div class="product-title">Summer Bag</div>
-          <div class="product-sku">MSD23-345-324</div>
-        </SfTableData>
-        <SfTableData class="table__data">Cream</SfTableData>
-        <SfTableData class="table__data">One size</SfTableData>
-        <SfTableData class="table__data">1</SfTableData>
-        <SfTableData class="table__data">
-          <SfPrice regular="$150.00" special="$100.00" class="product-price" />
+          <SfPrice :regular="product.price.regular" :special="product.price.special" class="product-price" />
         </SfTableData>
         <SfTableData class="table__action">
           <SfIcon
@@ -196,11 +171,22 @@ export default {
     SfProperty,
     SfAccordion
   },
+  props: {
+    order: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   data() {
     return {
       terms: false,
       tableHeaders: ["Description", "Colour", "Size", "Quantity", "Amount"]
     };
+  },
+  computed: {
+    products(){
+      return this.order.products;
+    }
   },
   methods: {
     removeItem() {

@@ -51,27 +51,29 @@
     <div class="highlighted highlighted--total">
       <SfProperty
         name="Products"
-        value="3"
+        :value="totalItems"
         class="sf-property--full-width property"
       />
       <SfProperty
         name="Subtotal"
-        value="$150.00"
+        :value="subtotal"
         class="sf-property--full-width property"
       />
       <SfProperty
         name="Shipping"
-        value="free"
+        :value="shipping"
         class="sf-property--full-width property"
       />
       <SfProperty
         name="Total"
-        value="$150.00"
+        :value="total"
         class="sf-property--full-width property-total"
       />
     </div>
     <div class="highlighted promo-code">
-      <SfButton class="promo-code__button" @click="showPromoCode = !showPromoCode"
+      <SfButton
+        class="promo-code__button"
+        @click="showPromoCode = !showPromoCode"
         >{{ showPromoCode ? "-" : "+" }} Promo Code</SfButton
       >
       <transition name="fade">
@@ -117,36 +119,17 @@ export default {
     SfCharacteristic,
     SfInput
   },
+  props: {
+    order: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   data() {
     return {
       promoCode: "",
       showPromoCode: true,
       listIsHidden: false,
-      totalItems: 2,
-      products: [
-        {
-          title: "Cream Beach Bag",
-          id: "CBB1",
-          image: "assets/storybook/homepage/productA.jpg",
-          price: { regular: "50.00" },
-          configuration: [
-            { name: "Size", value: "XS" },
-            { name: "Color", value: "White" }
-          ],
-          qty: "1"
-        },
-        {
-          title: "Cream Beach Bag",
-          id: "CBB2",
-          image: "assets/storybook/homepage/productB.jpg",
-          price: { regular: "50.00", special: "20.05" },
-          configuration: [
-            { name: "Size", value: "XS" },
-            { name: "Color", value: "White" }
-          ],
-          qty: "2"
-        }
-      ],
       characteristics: [
         {
           title: "Safety",
@@ -166,6 +149,23 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    products() {
+      return this.order.products;
+    },
+    totalItems() {
+      return 3;
+    },
+    subtotal() {
+      return this.order.review.subtotal;
+    },
+    shipping() {
+      return this.order.review.shipping;
+    },
+    total() {
+      return this.order.review.total;
+    }
   }
 };
 </script>
@@ -226,7 +226,7 @@ export default {
   }
 }
 .promo-code {
-  &__button{
+  &__button {
     padding: 0;
     background-color: transparent;
     color: $c-primary;

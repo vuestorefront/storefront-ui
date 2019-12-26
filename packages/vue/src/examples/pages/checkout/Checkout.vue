@@ -13,13 +13,13 @@
             <Payment :order="order" @click:next="updateOrder($event)" @click:back="currentStep--" />
           </SfStep>
           <SfStep name="Review">
-            <ReviewOrder @click:back="currentStep--" />
+            <ReviewOrder :order="order" @click:back="currentStep--" />
           </SfStep>
         </SfSteps>
       </div>
       <div class="checkout__aside desktop-only">
         <transition name="fade">
-          <OrderSummary v-if="currentStep <= 2" key="order-summary" />
+          <OrderSummary v-if="currentStep <= 2" key="order-summary" :order="order"/>
           <OrderReview
             v-else
             key="order-review"
@@ -94,7 +94,28 @@ export default {
           shipping: "$9.00",
           total: "$159.00"
         },
-        products: []
+        products: [
+          {
+            title: "Cream Beach Bag",
+            image: "/assets/storybook/homepage/productA.jpg",
+            price: { regular: "50.00" },
+            configuration: [
+              { name: "Size", value: "XS" },
+              { name: "Color", value: "White" }
+            ],
+            qty: "1"
+          },
+          {
+            title: "Cream Beach Bag",
+            image: "/assets/storybook/homepage/productB.jpg",
+            price: { regular: "50.00", special: "20.05" },
+            configuration: [
+              { name: "Size", value: "XS" },
+              { name: "Color", value: "White" }
+            ],
+            qty: "2"
+          }
+        ]
       }
     };
   },
