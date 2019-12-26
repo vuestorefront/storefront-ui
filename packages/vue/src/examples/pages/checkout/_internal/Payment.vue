@@ -332,6 +332,9 @@ export default {
       &__container {
         align-items: center;
       }
+      &__content{
+        margin: 0 0 0 $spacer;
+      }
     }
   }
 }
