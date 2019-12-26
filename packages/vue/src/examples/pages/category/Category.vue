@@ -44,7 +44,7 @@
         </SfButton>
         <div class="navbar__sort desktop-only">
           <span class="navbar__label">Sort by:</span>
-          <SfSelect class="sort-by" v-model="sortBy">
+          <SfSelect v-model="sortBy" class="sort-by">
             <SfSelectOption
               v-for="option in sortByOptions"
               :key="option.value"
@@ -99,7 +99,7 @@
     </div>
     <div class="main section">
       <div class="sidebar desktop-only">
-        <SfAccordion :firstOpen="true" :showChevron="false">
+        <SfAccordion :first-open="true" :show-chevron="false">
           <SfAccordionItem
             v-for="(accordion, i) in sidebarAccordion"
             :key="i"
@@ -126,21 +126,21 @@
             :special-price="product.price.special"
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
-            :isOnWishlist="product.isOnWishlist"
-            @click:wishlist="toggleWishlist(i)"
+            :is-on-wishlist="product.isOnWishlist"
             class="products__product-card"
+            @click:wishlist="toggleWishlist(i)"
           />
         </div>
         <SfPagination
           class="products__pagination desktop-only"
           :current="currentPage"
+          :total="4"
+          :visible="5"
           @click="
             page => {
               this.currentPage = page;
             }
           "
-          :total="4"
-          :visible="5"
         />
       </div>
     </div>
@@ -195,13 +195,13 @@
         />
         <div class="filters__buttons">
           <SfButton
-            @click="isFilterSidebarOpen = false"
             class="sf-button--full-width"
+            @click="isFilterSidebarOpen = false"
             >Done
           </SfButton>
           <SfButton
-            @click="clearAllFilters"
             class="sf-button--full-width filters__button-clear"
+            @click="clearAllFilters"
             >Clear all
           </SfButton>
         </div>
