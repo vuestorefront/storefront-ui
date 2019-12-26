@@ -4,68 +4,6 @@
       title="4. Order review"
       class="sf-heading--left sf-heading--no-underline title"
     />
-    <SfTable class="sf-table--bordered table desktop-only">
-      <SfTableHeading class="table__row">
-        <SfTableHeader class="table__header table__image">Item</SfTableHeader>
-        <SfTableHeader
-          v-for="tableHeader in tableHeaders"
-          :key="tableHeader"
-          class="table__header"
-          >{{ tableHeader }}</SfTableHeader
-        >
-        <SfTableHeader class="table__action"></SfTableHeader>
-      </SfTableHeading>
-      <SfTableRow class="table__row">
-        <SfTableData class="table__image">
-          <SfImage src="/assets/storybook/checkoutpage/product.png" />
-        </SfTableData>
-        <SfTableData class="table__data table__data--left">
-          <div class="product-title">Summer Bag</div>
-          <div class="product-sku">MSD23-345-324</div>
-        </SfTableData>
-        <SfTableData class="table__data">Cream</SfTableData>
-        <SfTableData class="table__data">One size</SfTableData>
-        <SfTableData class="table__data">1</SfTableData>
-        <SfTableData class="table__data">
-          <SfPrice regular="$50.00" class="product-price" />
-        </SfTableData>
-        <SfTableData class="table__action">
-          <SfIcon
-            icon="cross"
-            size="xxs"
-            color="#BEBFC4"
-            role="button"
-            class="button"
-            @click="removeItem"
-          />
-        </SfTableData>
-      </SfTableRow>
-      <SfTableRow class="table__row">
-        <SfTableData class="table__image">
-          <SfImage src="/assets/storybook/checkoutpage/product.png" />
-        </SfTableData>
-        <SfTableData class="table__data">
-          <div class="product-title">Summer Bag</div>
-          <div class="product-sku">MSD23-345-324</div>
-        </SfTableData>
-        <SfTableData class="table__data">Cream</SfTableData>
-        <SfTableData class="table__data">One size</SfTableData>
-        <SfTableData class="table__data">1</SfTableData>
-        <SfTableData class="table__data">
-          <SfPrice regular="$150.00" special="$100.00" class="product-price" />
-        </SfTableData>
-        <SfTableData class="table__action">
-          <SfIcon
-            icon="cross"
-            size="xxs"
-            color="#BEBFC4"
-            role="button"
-            class="button"
-            @click="removeItem"
-          />
-        </SfTableData>
-      </SfTableRow>
-    </SfTable>
     <SfAccordion first-open class="accordion mobile-only">
       <SfAccordionItem header="Personal Details">
         <div class="accordion__item">
@@ -116,6 +54,68 @@
         </div>
       </SfAccordionItem>
     </SfAccordion>
+    <SfTable class="sf-table--bordered table desktop-only">
+      <SfTableHeading class="table__row">
+        <SfTableHeader class="table__header table__image">Item</SfTableHeader>
+        <SfTableHeader
+          v-for="tableHeader in tableHeaders"
+          :key="tableHeader"
+          class="table__header"
+          >{{ tableHeader }}</SfTableHeader
+        >
+        <SfTableHeader class="table__action"></SfTableHeader>
+      </SfTableHeading>
+      <SfTableRow class="table__row">
+        <SfTableData class="table__image">
+          <SfImage src="/assets/storybook/checkout/product.png" />
+        </SfTableData>
+        <SfTableData class="table__data table__data--left">
+          <div class="product-title">Summer Bag</div>
+          <div class="product-sku">MSD23-345-324</div>
+        </SfTableData>
+        <SfTableData class="table__data">Cream</SfTableData>
+        <SfTableData class="table__data">One size</SfTableData>
+        <SfTableData class="table__data">1</SfTableData>
+        <SfTableData class="table__data">
+          <SfPrice regular="$50.00" class="product-price" />
+        </SfTableData>
+        <SfTableData class="table__action">
+          <SfIcon
+            icon="cross"
+            size="xxs"
+            color="#BEBFC4"
+            role="button"
+            class="button"
+            @click="removeItem"
+          />
+        </SfTableData>
+      </SfTableRow>
+      <SfTableRow class="table__row">
+        <SfTableData class="table__image">
+          <SfImage src="/assets/storybook/checkout/product.png" />
+        </SfTableData>
+        <SfTableData class="table__data">
+          <div class="product-title">Summer Bag</div>
+          <div class="product-sku">MSD23-345-324</div>
+        </SfTableData>
+        <SfTableData class="table__data">Cream</SfTableData>
+        <SfTableData class="table__data">One size</SfTableData>
+        <SfTableData class="table__data">1</SfTableData>
+        <SfTableData class="table__data">
+          <SfPrice regular="$150.00" special="$100.00" class="product-price" />
+        </SfTableData>
+        <SfTableData class="table__action">
+          <SfIcon
+            icon="cross"
+            size="xxs"
+            color="#BEBFC4"
+            role="button"
+            class="button"
+            @click="removeItem"
+          />
+        </SfTableData>
+      </SfTableRow>
+    </SfTable>
     <SfHeading
       title="Order details"
       class="sf-heading--left sf-heading--no-underline title"
