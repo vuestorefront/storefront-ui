@@ -265,13 +265,11 @@ export default {
     margin-bottom: 0;
     &-group {
       flex: 0 0 100%;
-      margin-left: -#{$spacer-big};
-      margin-right: -#{$spacer-big};
-      margin-bottom: $spacer-extra-big;
     }
   }
 }
 .shipping {
+  margin: 0 -#{$spacer-big};
   &__label {
     display: flex;
     justify-content: space-between;
