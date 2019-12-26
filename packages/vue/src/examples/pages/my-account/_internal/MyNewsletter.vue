@@ -1,5 +1,5 @@
 <template>
-  <SfTabs :open-tab="1">
+  <SfTabs :open-tab="1" class="tab-orphan">
     <SfTab title="My newsletter">
       <p class="message">
         Set up your newsletter and we will send you information about new
@@ -45,6 +45,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+@mixin for-mobile {
+  @media screen and (max-width: $desktop-min) {
+    @content;
+  }
+}
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
@@ -90,6 +95,19 @@ export default {
   font-size: $font-size-extra-small-desktop;
   @include for-desktop {
     max-width: 70%;
+  }
+}
+.tab-orphan {
+  @include for-mobile {
+    ::v-deep .sf-tabs {
+      &__title {
+        display: none;
+      }
+      &__content {
+        border: 0;
+        padding: 0;
+      }
+    }
   }
 }
 </style>

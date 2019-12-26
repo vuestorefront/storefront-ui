@@ -1,5 +1,5 @@
 <template>
-  <SfTabs v-if="editAddress" :open-tab="1">
+  <SfTabs v-if="editAddress" :open-tab="1" class="tab-orphan">
     <SfTab title="Change the address">
       <p class="message">
         Keep your addresses and contact details updated.
@@ -81,7 +81,7 @@
       </div>
     </SfTab>
   </SfTabs>
-  <SfTabs v-else :open-tab="1">
+  <SfTabs v-else :open-tab="1" class="tab-orphan">
     <SfTab title="Shipping details">
       <p class="message">
         Manage all the shipping addresses you want (work place, home address
@@ -157,6 +157,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+@mixin for-mobile {
+  @media screen and (max-width: $desktop-min) {
+    @content;
+  }
+}
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
@@ -262,6 +267,19 @@ export default {
   width: 100%;
   @include for-desktop {
     width: auto;
+  }
+}
+.tab-orphan {
+  @include for-mobile {
+    ::v-deep .sf-tabs {
+      &__title {
+        display: none;
+      }
+      &__content {
+        border: 0;
+        padding: 0;
+      }
+    }
   }
 }
 </style>

@@ -18,7 +18,7 @@
             >{{ tableHeader }}</SfTableHeader
           >
           <SfTableHeader>
-            <span class="mobile-only">Download All</span>
+            <span class="mobile-only">Download</span>
             <SfButton class="desktop-only orders__download-all"
               >Download all</SfButton
             >
@@ -38,7 +38,8 @@
             <template v-else>{{ data }}</template>
           </SfTableData>
           <SfTableData class="orders__view">
-            <SfButton class="sf-button--text">VIEW</SfButton>
+            <SfButton class="sf-button--text mobile-only">Download</SfButton>
+            <SfButton class="sf-button--text desktop-only">VIEW</SfButton>
           </SfTableData>
         </SfTableRow>
       </SfTable>
@@ -85,6 +86,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+@mixin for-mobile {
+  @media screen and (max-width: $desktop-min) {
+    @content;
+  }
+}
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
@@ -126,7 +132,22 @@ export default {
     white-space: nowrap;
   }
   &__view {
-    text-align: center;
+    @include for-desktop {
+      text-align: center;
+    }
+  }
+  ::v-deep {
+    .sf-table {
+      &__row,
+      &__heading {
+        margin: 0 -#{$spacer-big};
+      }
+      &__row:last-child {
+        @include for-mobile {
+          border-bottom: 0;
+        }
+      }
+    }
   }
 }
 </style>
