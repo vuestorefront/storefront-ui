@@ -27,7 +27,7 @@
             class="form__element"
           />
         </div>
-        <SfButton>Join Newsletter</SfButton>
+        <SfButton class="form__button">Join Newsletter</SfButton>
       </div>
       <p class="notice">
         I have read and understand the Privacy and Cookies Policy and agree to
@@ -68,6 +68,12 @@ export default {
     font-weight: 500;
     line-height: 1.6;
   }
+  &__button {
+    width: 100%;
+    @include for-desktop {
+      width: auto;
+    }
+  }
 }
 .message,
 .notice {
@@ -80,8 +86,10 @@ export default {
   font-size: $font-size-regular-desktop;
 }
 .notice {
-  max-width: 70%;
   margin: $spacer 0 0 0;
   font-size: $font-size-extra-small-desktop;
+  @include for-desktop {
+    max-width: 70%;
+  }
 }
 </style>

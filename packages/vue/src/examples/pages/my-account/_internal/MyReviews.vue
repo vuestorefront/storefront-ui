@@ -26,19 +26,11 @@ export default {
     @content;
   }
 }
-.message,
-.notice {
-  font-family: $body-font-family-primary;
-  font-weight: $body-font-weight-primary;
-  line-height: 1.6;
-}
 .message {
   margin: 0 0 $spacer-extra-big 0;
   font-size: $font-size-regular-desktop;
-}
-.notice {
-  max-width: 70%;
-  margin: $spacer 0 0 0;
-  font-size: $font-size-extra-small-desktop;
+  font-family: $body-font-family-primary;
+  font-weight: $body-font-weight-primary;
+  line-height: 1.6;
 }
 </style>

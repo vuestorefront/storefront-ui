@@ -68,7 +68,7 @@
           required
           class="form__element form__element--half form__element--half-even"
         />
-        <SfButton>Update password</SfButton>
+        <SfButton class="form__button">Update password</SfButton>
       </div>
     </SfTab>
   </SfTabs>
@@ -123,6 +123,12 @@ export default {
       }
     }
   }
+  &__button {
+    width: 100%;
+    @include for-desktop {
+      width: auto;
+    }
+  }
 }
 .message,
 .notice {
@@ -135,8 +141,10 @@ export default {
   font-size: $font-size-regular-desktop;
 }
 .notice {
-  max-width: 70%;
   margin: $spacer 0 0 0;
   font-size: $font-size-extra-small-desktop;
+  @include for-desktop {
+    max-width: 70%;
+  }
 }
 </style>
