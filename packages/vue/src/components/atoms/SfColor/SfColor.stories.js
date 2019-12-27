@@ -8,5 +8,12 @@ storiesOf("Atoms|Color", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfColor },
-    template: `<SfColor color="blue"/>`
+    data() {
+      return {
+        colors: ["blue", "green", "pink", "yellow"]
+      };
+    },
+    template: `<div>
+        <SfColor v-for="color in colors" :color="color"/>
+    </div>`
   }));
