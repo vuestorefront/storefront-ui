@@ -8,5 +8,5 @@ storiesOf("Atoms|Color", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfColor },
-    template: `<SfColor>Hello</SfColor>`
+    template: `<SfColor color="blue"/>`
   }));

@@ -1,0 +1,37 @@
+@import "../variables";
+
+$color__width: 2rem !default;
+$color__height: 2rem !default;
+$color__margin: 0.5rem !default;
+$color__padding: 0.2rem !default;
+
+.sf-color {
+    width: $color__width;
+    height: $color__height;
+    margin: $color__margin;
+    padding: $color__padding;
+    background-color: inherit;
+    border-radius: 50%;
+    border: none;
+    opacity: 0.5;
+
+    &__fill {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    &--active {
+        box-sizing: border-box;
+        border: 1px solid $c-dark;
+        opacity: 1;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

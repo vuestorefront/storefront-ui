@@ -9,5 +9,10 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  computed: {
+    colorStyle() {
+      return "background-color:" + this.color;
+    }
   }
 };

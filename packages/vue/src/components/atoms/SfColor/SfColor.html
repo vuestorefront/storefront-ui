@@ -1,3 +1,3 @@
-<button class="sf-color">
-    <div class="sf-color__fill" />
+<button class="sf-color" :class="{ 'sf-color--active' : isActive }">
+    <div class="sf-color__fill" :style="colorStyle" />
 </button>
