@@ -14,8 +14,8 @@
       <transition name="fade">
         <div v-if="!listIsHidden" class="collected-product-list">
           <SfCollectedProduct
-            v-for="product in products"
-            :key="product.id"
+            v-for="(product, index) in products"
+            :key="index"
             v-model="product.qty"
             :image="product.image"
             :title="product.title"
@@ -23,26 +23,29 @@
             :special-price="product.price.special"
             :stock="product.stock"
             class="collected-product"
+            @click:remove="removeProduct(index)"
           >
             <template #configuration>
-              <div>
+              <div class="product__properties">
                 <SfProperty
                   v-for="(property, key) in product.configuration"
                   :key="key"
                   :name="property.name"
                   :value="property.value"
+                  class="product__property"
                 />
               </div>
             </template>
             <template #actions>
               <div>
-                <SfButton class="sf-button--text product__action">
-                  Save for later
-                </SfButton>
-                <SfButton class="sf-button--text product__action">
-                  Add to compare
-                </SfButton>
+                <div class="product__action">{{ product.sku }}</div>
+                <div class="product__action">
+                  Quantity: <span class="product__qty">{{ product.qty }}</span>
+                </div>
               </div>
+            </template>
+            <template #input>
+              <!--              <div></div>-->
             </template>
           </SfCollectedProduct>
         </div>
@@ -136,7 +139,7 @@ export default {
   data() {
     return {
       promoCode: "",
-      showPromoCode: true,
+      showPromoCode: false,
       listIsHidden: false,
       characteristics: [
         {
@@ -162,10 +165,13 @@ export default {
     products() {
       return this.order.products;
     },
-    totalItems(){
-      return this.products.reduce((previous, current)=>{
-        return previous + current.qty;
-      }, 0)
+    totalItems() {
+      return (
+        "" +
+        this.products.reduce((previous, current) => {
+          return previous + current.qty;
+        }, 0)
+      );
     },
     shipping() {
       return this.order.shipping;
@@ -174,22 +180,26 @@ export default {
       const shippingMethod = this.shipping.shippingMethod;
       const method = this.shippingMethods.find(
         method => method.value === shippingMethod
-      )
-      return method ? method : {price: "$0.00"};
+      );
+      return method ? method : { price: "$0.00" };
     },
     payment() {
       return this.order.payment;
     },
     paymentMethod() {
       const paymentMethod = this.payment.paymentMethod;
-      const method = this.paymentMethods.find(method => method.value === paymentMethod);
-      return method ? method : {label: ""};
+      const method = this.paymentMethods.find(
+        method => method.value === paymentMethod
+      );
+      return method ? method : { label: "" };
     },
     subtotal() {
       const products = this.products;
-      const subtotal = products.reduce((previous, current)=>{
+      const subtotal = products.reduce((previous, current) => {
         const qty = current.qty;
-        const price = current.price.special ? current.price.special : current.price.regular;
+        const price = current.price.special
+          ? current.price.special
+          : current.price.regular;
         const total = qty * parseFloat(price.replace("$", ""));
         return previous + total;
       }, 0);
@@ -203,6 +213,15 @@ export default {
       return "$" + total.toFixed(2);
     }
   },
+  methods: {
+    removeProduct(index) {
+      const order = {...this.order};
+      const products = [...order.products];
+      products.splice(index, 1);
+      order.products = products;
+      this.$emit("change:remove", order);
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -273,6 +292,26 @@ export default {
     ::v-deep input {
       border-color: $c-gray-variant;
     }
+  }
+}
+.product {
+  &__properties {
+    margin: $spacer-big 0 0 0;
+  }
+  &__property,
+  &__action {
+    font-size: $font-size-extra-small-desktop;
+  }
+  &__action {
+    color: $c-gray-variant;
+    font-size: $font-size-extra-small-desktop;
+    margin: 0 0 $spacer-small 0;
+    &:last-child {
+      margin: 0;
+    }
+  }
+  &__qty {
+    color: $c-text;
   }
 }
 </style>

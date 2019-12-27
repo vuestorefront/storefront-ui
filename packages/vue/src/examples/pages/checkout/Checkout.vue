@@ -2,7 +2,7 @@
   <div id="checkout">
     <div class="checkout">
       <div class="checkout__main">
-        <SfSteps :active="currentStep" @change="currentStep = $event">
+        <SfSteps :active="currentStep" @change="updateStep($event)">
           <SfStep name="Personal Details">
             <PersonalDetails :order="order" @click:next="updateOrder($event)" />
           </SfStep>
@@ -29,6 +29,7 @@
               :payment-methods="paymentMethods"
               @click:back="currentStep--"
               @click:edit="currentStep = $event"
+              @change:remove="updateOrder($event, false)"
             />
           </SfStep>
         </SfSteps>
@@ -41,6 +42,7 @@
             :order="order"
             :shipping-methods="shippingMethods"
             :payment-methods="paymentMethods"
+            @change:remove="updateOrder($event, false)"
           />
           <OrderReview
             v-else
@@ -128,7 +130,7 @@ export default {
           {
             title: "Cream Beach Bag",
             image: "/assets/storybook/homepage/productA.jpg",
-            price: { regular: "50.00" },
+            price: { regular: "$50.00" },
             configuration: [
               { name: "Size", value: "XS" },
               { name: "Color", value: "White" }
@@ -137,9 +139,9 @@ export default {
             sku: "MSD23-345-324"
           },
           {
-            title: "Cream Beach Bag",
+            title: "Vila stripe maxi dress",
             image: "/assets/storybook/homepage/productB.jpg",
-            price: { regular: "50.00", special: "20.05" },
+            price: { regular: "$50.00", special: "$20.05" },
             configuration: [
               { name: "Size", value: "XS" },
               { name: "Color", value: "White" }
@@ -221,9 +223,17 @@ export default {
     };
   },
   methods: {
-    updateOrder(order) {
+    updateStep(next){
+      // prevent to move next by SfStep header
+      if(next < this.currentStep){
+        this.currentStep = next
+      }
+    },
+    updateOrder(order, next = true) {
       this.order = { ...this.order, ...order };
-      this.currentStep++;
+      if(next){
+        this.currentStep++;
+      }
     }
   }
 };

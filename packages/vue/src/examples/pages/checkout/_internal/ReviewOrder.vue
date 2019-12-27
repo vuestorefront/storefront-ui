@@ -90,8 +90,8 @@
         <SfTableHeader class="table__action"></SfTableHeader>
       </SfTableHeading>
       <SfTableRow
-        v-for="(product, key) in products"
-        :key="key"
+        v-for="(product, index) in products"
+        :key="index"
         class="table__row"
       >
         <SfTableData class="table__image">
@@ -122,7 +122,7 @@
             color="#BEBFC4"
             role="button"
             class="button"
-            @click="removeItem"
+            @click="removeProduct(index)"
           />
         </SfTableData>
       </SfTableRow>
@@ -268,8 +268,12 @@ export default {
     }
   },
   methods: {
-    removeItem() {
-      console.log("remove item from order");
+    removeProduct(index) {
+      const order = {...this.order};
+      const products = [...order.products];
+      products.splice(index, 1);
+      order.products = products;
+      this.$emit("change:remove", order);
     }
   }
 };

@@ -331,7 +331,7 @@ export default {
       },
       immediate: true
     },
-    copyShippingAddress: {
+    sameAsShipping: {
       handler(value) {
         if (value) {
           this.firstName = this.order.shipping.firstName;

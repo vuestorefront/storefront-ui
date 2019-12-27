@@ -226,8 +226,8 @@ export default {
   watch: {
     order: {
       handler(value) {
-        this.firstName = value.firstName;
-        this.lastName = value.lastName;
+        this.firstName = value.shipping.firstName;
+        this.lastName = value.shipping.lastName;
         this.streetName = value.shipping.streetName;
         this.apartment = value.shipping.apartment;
         this.city = value.shipping.city;
