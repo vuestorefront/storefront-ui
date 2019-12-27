@@ -11,14 +11,9 @@
           >Edit</SfButton
         >
       </div>
+      <p class="content">{{ order.firstName }} {{ order.lastName }}<br /></p>
       <p class="content">
-        Sviatlana Havaka<br />
-        Zielinskiego 30 – 41, 53-345<br />
-        Wroclaw, Poland
-      </p>
-      <p class="content">
-        sviatlana.example@gmail.com<br />
-        (00) 468 900 300
+        {{ order.email }}
       </p>
     </div>
     <div class="highlighted">
@@ -29,14 +24,13 @@
         >
       </div>
       <p class="content">
-        <span class="content__label">Paczkomat Inpost</span><br />
-        Zielinskiego 30 – 41, 53-345<br />
-        Wroclaw, Poland
+        <span class="content__label">{{ shipping.shippingMethod }}</span
+        ><br />
+        {{ shipping.streetName }} {{ shipping.apartment }}, {{ shipping.zipCode
+        }}<br />
+        {{ shipping.city }}, {{ shipping.country }}
       </p>
-      <p class="content">
-        sviatlana.example@gmail.com<br />
-        (00) 468 900 300
-      </p>
+      <p class="content">{{ shipping.phoneNumber }}</p>
     </div>
     <div class="highlighted">
       <div class="highlighted__header">
@@ -45,7 +39,19 @@
           >Edit</SfButton
         >
       </div>
-      <p class="content">Same as shipping address</p>
+      <p v-if="payment.sameAsShipping" class="content">
+        Same as shipping address
+      </p>
+      <template v-else>
+        <p class="content">
+          <span class="content__label">{{ payment.shippingMethod }}</span
+          ><br />
+          {{ payment.streetName }} {{ payment.apartment }}, {{ payment.zipCode
+          }}<br />
+          {{ payment.city }}, {{ payment.country }}
+        </p>
+        <p class="content">{{ payment.phoneNumber }}</p>
+      </template>
     </div>
     <div class="highlighted">
       <div class="highlighted__header">
@@ -54,7 +60,7 @@
           >Edit</SfButton
         >
       </div>
-      <p class="content">Cash on delivery</p>
+      <p class="content">{{payment.paymentMethod}}</p>
     </div>
   </div>
 </template>
@@ -65,6 +71,20 @@ export default {
   components: {
     SfHeading,
     SfButton
+  },
+  props: {
+    order: {
+      type: Object,
+      default: () => ({})
+    }
+  },
+  computed: {
+    shipping() {
+      return this.order.shipping;
+    },
+    payment() {
+      return this.order.payment;
+    }
   }
 };
 </script>

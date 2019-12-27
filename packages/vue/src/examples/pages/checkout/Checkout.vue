@@ -7,10 +7,20 @@
             <PersonalDetails :order="order" @click:next="updateOrder($event)" />
           </SfStep>
           <SfStep name="Shipping">
-            <Shipping :order="order" @click:next="updateOrder($event)" @click:back="currentStep--" />
+            <Shipping
+              :order="order"
+              :shipping-methods="shippingMethods"
+              @click:next="updateOrder($event)"
+              @click:back="currentStep--"
+            />
           </SfStep>
           <SfStep name="Payment">
-            <Payment :order="order" @click:next="updateOrder($event)" @click:back="currentStep--" />
+            <Payment
+              :order="order"
+              :payment-methods="paymentMethods"
+              @click:next="updateOrder($event)"
+              @click:back="currentStep--"
+            />
           </SfStep>
           <SfStep name="Review">
             <ReviewOrder :order="order" @click:back="currentStep--" />
@@ -19,10 +29,15 @@
       </div>
       <div class="checkout__aside desktop-only">
         <transition name="fade">
-          <OrderSummary v-if="currentStep <= 2" key="order-summary" :order="order"/>
+          <OrderSummary
+            v-if="currentStep <= 2"
+            key="order-summary"
+            :order="order"
+          />
           <OrderReview
             v-else
             key="order-review"
+            :order="order"
             @click:edit="currentStep = $event"
           />
         </transition>
@@ -62,24 +77,29 @@ export default {
         password: "",
         createAccount: false,
         shipping: {
+          firstName: "Sviatlana",
+          lastName: "Havaka",
           streetName: "Zielinskiego",
           apartment: "24/193A",
           city: "Wroclaw",
           state: "Lower Silesia",
           zipCode: "53-540",
           country: "Poland",
-          phone: "(00)560 123 456",
+          phoneNumber: "(00)560 123 456",
           shippingMethod: "inpost"
         },
         payment: {
+          sameAsShipping: true,
+          firstName: "Sviatlana",
+          lastName: "Havaka",
           streetName: "Zielinskiego",
           apartment: "24/193A",
           city: "Wroclaw",
           state: "Lower Silesia",
           zipCode: "53-540",
           country: "Poland",
-          phone: "(00)560 123 456",
-          paymentMethod: "",
+          phoneNumber: "(00)560 123 456",
+          paymentMethod: "debit",
           card: {
             number: "",
             holder: "",
@@ -89,7 +109,7 @@ export default {
             keep: false
           }
         },
-        review:{
+        review: {
           subtotal: "$150.00",
           shipping: "$9.00",
           total: "$159.00"
@@ -116,7 +136,76 @@ export default {
             qty: "2"
           }
         ]
-      }
+      },
+      paymentMethods: [
+        {
+          label: "Visa Debit",
+          value: "debit"
+        },
+        {
+          label: "MasterCard",
+          value: "mastercard"
+        },
+        {
+          label: "Visa Electron",
+          value: "electron"
+        },
+        {
+          label: "Cash on delivery",
+          value: "cash"
+        },
+        {
+          label: "Check",
+          value: "check"
+        }
+      ],
+      shippingMethods: [
+        {
+          isOpen: false,
+          price: "Free",
+          delivery: "Delivery from 3 to 7 business days",
+          label: "Pickup in the store",
+          value: "store",
+          description:
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+        },
+        {
+          isOpen: false,
+          price: "$9.90",
+          delivery: "Delivery from 4 to 6 business days",
+          label: "Delivery to home",
+          value: "home",
+          description:
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+        },
+        {
+          isOpen: false,
+          price: "$9.90",
+          delivery: "Delivery from 4 to 6 business days",
+          label: "Paczkomaty InPost",
+          value: "inpost",
+          description:
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+        },
+        {
+          isOpen: false,
+          price: "$11.00",
+          delivery: "Delivery within 48 hours",
+          label: "48 hours coffee",
+          value: "coffee",
+          description:
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+        },
+        {
+          isOpen: false,
+          price: "$14.00",
+          delivery: "Delivery within 24 hours",
+          label: "Urgent 24h",
+          value: "urgent",
+          description:
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+        }
+      ]
     };
   },
   methods: {

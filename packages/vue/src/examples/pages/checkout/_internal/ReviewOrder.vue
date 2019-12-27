@@ -65,19 +65,31 @@
         >
         <SfTableHeader class="table__action"></SfTableHeader>
       </SfTableHeading>
-      <SfTableRow v-for="(product, key) in products" :key="key" class="table__row">
+      <SfTableRow
+        v-for="(product, key) in products"
+        :key="key"
+        class="table__row"
+      >
         <SfTableData class="table__image">
           <SfImage :src="product.image" />
         </SfTableData>
         <SfTableData class="table__data table__data--left">
-          <div class="product-title">{{product.title}}</div>
+          <div class="product-title">{{ product.title }}</div>
           <div class="product-sku">MSD23-345-324</div>
         </SfTableData>
-        <SfTableData class="table__data">{{product.configuration[1].value}}</SfTableData>
-        <SfTableData class="table__data">{{product.configuration[0].value}}</SfTableData>
-        <SfTableData class="table__data">{{product.qty}}</SfTableData>
+        <SfTableData class="table__data">{{
+          product.configuration[1].value
+        }}</SfTableData>
+        <SfTableData class="table__data">{{
+          product.configuration[0].value
+        }}</SfTableData>
+        <SfTableData class="table__data">{{ product.qty }}</SfTableData>
         <SfTableData class="table__data">
-          <SfPrice :regular="product.price.regular" :special="product.price.special" class="product-price" />
+          <SfPrice
+            :regular="product.price.regular"
+            :special="product.price.special"
+            class="product-price"
+          />
         </SfTableData>
         <SfTableData class="table__action">
           <SfIcon
@@ -184,7 +196,7 @@ export default {
     };
   },
   computed: {
-    products(){
+    products() {
       return this.order.products;
     }
   },

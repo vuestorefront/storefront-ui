@@ -6,6 +6,20 @@
     />
     <div class="form">
       <SfInput
+        v-model="firstName"
+        label="First name"
+        name="firstName"
+        class="form__element form__element--half"
+        required
+      />
+      <SfInput
+        v-model="lastName"
+        label="Last name"
+        name="lastName"
+        class="form__element form__element--half form__element--half-even"
+        required
+      />
+      <SfInput
         v-model="streetName"
         label="Street name"
         name="streetName"
@@ -54,6 +68,13 @@
           {{ countryOption }}
         </SfSelectOption>
       </SfSelect>
+      <SfInput
+        v-model="phoneNumber"
+        label="Phone number"
+        name="phone"
+        class="form__element"
+        required
+      />
     </div>
     <SfHeading
       title="Shipping method"
@@ -133,10 +154,16 @@ export default {
     order: {
       type: Object,
       default: () => ({})
+    },
+    shippingMethods: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
     return {
+      firstName: "",
+      lastName: "",
       streetName: "",
       apartment: "",
       city: "",
@@ -145,53 +172,6 @@ export default {
       country: "",
       phoneNumber: "",
       shippingMethod: "",
-      shippingMethods: [
-        {
-          isOpen: false,
-          price: "Free",
-          delivery: "Delivery from 3 to 7 business days",
-          label: "Pickup in the store",
-          value: "store",
-          description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
-        },
-        {
-          isOpen: false,
-          price: "$9.90",
-          delivery: "Delivery from 4 to 6 business days",
-          label: "Delivery to home",
-          value: "home",
-          description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
-        },
-        {
-          isOpen: false,
-          price: "$9.90",
-          delivery: "Delivery from 4 to 6 business days",
-          label: "Paczkomaty InPost",
-          value: "inpost",
-          description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
-        },
-        {
-          isOpen: false,
-          price: "$11.00",
-          delivery: "Delivery within 48 hours",
-          label: "48 hours coffee",
-          value: "coffee",
-          description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
-        },
-        {
-          isOpen: false,
-          price: "$14.00",
-          delivery: "Delivery within 24 hours",
-          label: "Urgent 24h",
-          value: "urgent",
-          description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
-        }
-      ],
       countries: [
         "Austria",
         "Azerbaijan",
@@ -246,6 +226,8 @@ export default {
   watch: {
     order: {
       handler(value) {
+        this.firstName = value.firstName;
+        this.lastName = value.lastName;
         this.streetName = value.shipping.streetName;
         this.apartment = value.shipping.apartment;
         this.city = value.shipping.city;
@@ -263,6 +245,8 @@ export default {
       const order = { ...this.order };
       const shipping = { ...order.shipping };
 
+      shipping.firstName = this.firstName;
+      shipping.lastName = this.lastName;
       shipping.streetName = this.streetName;
       shipping.apartment = this.apartment;
       shipping.city = this.city;

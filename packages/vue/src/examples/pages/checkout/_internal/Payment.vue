@@ -6,10 +6,24 @@
     />
     <div class="form">
       <SfCheckbox
-        v-model="copyShippingAddress"
+        v-model="sameAsShipping"
         label="Copy address data from shipping"
         name="copyShippingAddress"
         class="form__element"
+      />
+      <SfInput
+        v-model="firstName"
+        label="First name"
+        name="firstName"
+        class="form__element form__element--half"
+        required
+      />
+      <SfInput
+        v-model="lastName"
+        label="Last name"
+        name="lastName"
+        class="form__element form__element--half form__element--half-even"
+        required
       />
       <SfInput
         v-model="streetName"
@@ -60,6 +74,13 @@
           {{ countryOption }}
         </SfSelectOption>
       </SfSelect>
+      <SfInput
+        v-model="phoneNumber"
+        label="Phone number"
+        name="phone"
+        class="form__element"
+        required
+      />
     </div>
     <SfHeading
       title="Payment methods"
@@ -208,11 +229,17 @@ export default {
     order: {
       type: Object,
       default: () => ({})
+    },
+    paymentMethods: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
     return {
-      copyShippingAddress: false,
+      sameAsShipping: false,
+      firstName: "",
+      lastName: "",
       streetName: "",
       apartment: "",
       city: "",
@@ -227,28 +254,6 @@ export default {
       cardYear: "",
       cardCVC: "",
       cardKeep: false,
-      paymentMethods: [
-        {
-          label: "Visa Debit",
-          value: "debit"
-        },
-        {
-          label: "MasterCard",
-          value: "mastercard"
-        },
-        {
-          label: "Visa Electron",
-          value: "electron"
-        },
-        {
-          label: "Cash on delivery",
-          value: "cash"
-        },
-        {
-          label: "Check",
-          value: "check"
-        }
-      ],
       countries: [
         "Austria",
         "Azerbaijan",
@@ -308,6 +313,7 @@ export default {
   watch: {
     order: {
       handler(value) {
+        this.sameAsShipping = value.payment.sameAsShipping;
         this.streetName = value.payment.streetName;
         this.apartment = value.payment.apartment;
         this.city = value.payment.city;
@@ -328,6 +334,8 @@ export default {
     copyShippingAddress: {
       handler(value) {
         if (value) {
+          this.firstName = this.order.shipping.firstName;
+          this.lastName = this.order.shipping.lastName;
           this.streetName = this.order.shipping.streetName;
           this.apartment = this.order.shipping.apartment;
           this.city = this.order.shipping.city;
@@ -354,6 +362,11 @@ export default {
       const order = { ...this.order };
       const payment = { ...order.payment };
       const card = { ...payment.card };
+
+      payment.sameAsShipping = this.sameAsShipping;
+      payment.firstName = this.firstName;
+      payment.lastName = this.lastName;
+      payment.streetName = this.streetName;
       payment.streetName = this.streetName;
       payment.apartment = this.apartment;
       payment.city = this.city;

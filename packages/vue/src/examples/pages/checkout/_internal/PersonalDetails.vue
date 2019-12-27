@@ -134,13 +134,13 @@ export default {
       },
       immediate: true
     },
-    createAccount(value){
-      if(!value) this.password = "";
+    createAccount(value) {
+      if (!value) this.password = "";
     }
   },
   methods: {
-    toShipping(){
-      const order = {...this.order};
+    toShipping() {
+      const order = { ...this.order };
 
       order.firstName = this.firstName;
       order.lastName = this.lastName;
