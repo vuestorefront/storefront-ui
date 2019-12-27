@@ -215,7 +215,7 @@ export default {
   },
   methods: {
     removeProduct(index) {
-      const order = {...this.order};
+      const order = { ...this.order };
       const products = [...order.products];
       products.splice(index, 1);
       order.products = products;

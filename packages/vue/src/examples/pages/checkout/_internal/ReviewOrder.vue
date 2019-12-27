@@ -238,22 +238,26 @@ export default {
       const shippingMethod = this.shipping.shippingMethod;
       const method = this.shippingMethods.find(
         method => method.value === shippingMethod
-      )
-      return method ? method : {price: "$0.00"};
+      );
+      return method ? method : { price: "$0.00" };
     },
     payment() {
       return this.order.payment;
     },
     paymentMethod() {
       const paymentMethod = this.payment.paymentMethod;
-      const method = this.paymentMethods.find(method => method.value === paymentMethod);
-      return method ? method : {label: ""};
+      const method = this.paymentMethods.find(
+        method => method.value === paymentMethod
+      );
+      return method ? method : { label: "" };
     },
     subtotal() {
       const products = this.products;
-      const subtotal = products.reduce((previous, current)=>{
+      const subtotal = products.reduce((previous, current) => {
         const qty = current.qty;
-        const price = current.price.special ? current.price.special : current.price.regular;
+        const price = current.price.special
+          ? current.price.special
+          : current.price.regular;
         const total = qty * parseFloat(price.replace("$", ""));
         return previous + total;
       }, 0);
@@ -269,7 +273,7 @@ export default {
   },
   methods: {
     removeProduct(index) {
-      const order = {...this.order};
+      const order = { ...this.order };
       const products = [...order.products];
       products.splice(index, 1);
       order.products = products;

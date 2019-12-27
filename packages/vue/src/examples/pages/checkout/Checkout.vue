@@ -223,15 +223,15 @@ export default {
     };
   },
   methods: {
-    updateStep(next){
+    updateStep(next) {
       // prevent to move next by SfStep header
-      if(next < this.currentStep){
-        this.currentStep = next
+      if (next < this.currentStep) {
+        this.currentStep = next;
       }
     },
     updateOrder(order, next = true) {
       this.order = { ...this.order, ...order };
-      if(next){
+      if (next) {
         this.currentStep++;
       }
     }

@@ -94,16 +94,18 @@ export default {
       const shippingMethod = this.shipping.shippingMethod;
       const method = this.shippingMethods.find(
         method => method.value === shippingMethod
-      )
-      return method ? method : {price: 0};
+      );
+      return method ? method : { price: 0 };
     },
     payment() {
       return this.order.payment;
     },
     paymentMethod() {
       const paymentMethod = this.payment.paymentMethod;
-      const method = this.paymentMethods.find(method => method.value === paymentMethod);
-      return method ? method : {label: ""};
+      const method = this.paymentMethods.find(
+        method => method.value === paymentMethod
+      );
+      return method ? method : { label: "" };
     }
   }
 };
