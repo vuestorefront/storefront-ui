@@ -6,7 +6,7 @@ export default {
   props: {
     src: {
       type: [String, Object],
-      default: () => ({})
+      default: ""
     },
     alt: {
       type: String,

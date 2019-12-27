@@ -2,7 +2,7 @@
   <template v-if="typeof src === 'string'">
     <img v-if="show" :src="src" :alt="alt" :width="width" :height="height">
   </template>
-  <template v-else>
+  <template v-else-if="typeof src !== 'undefined'">
     <picture>
       <source :srcset="src.normal.url" media="(min-width: 1024px)">
       <source :srcset="src.small.url" media="(max-width: 1024px)">
