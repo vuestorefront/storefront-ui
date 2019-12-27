@@ -49,16 +49,16 @@ $header-navigation-item-font-weight: 500 !default;
   display: flex;
   align-items: center;
   justify-content: center;
+  top: calc(var(--header-desktop-height) * -1);
+  transition: top 0.2s ease-in-out;
   height: $header-height;
-  padding: $header-padding ;
+  padding: $header-padding;
   background-color: $header-background-color;
   @media (min-width: $desktop-min) {
     justify-content: flex-start;
-    top: calc(var(--header-desktop-height) * -1);
     height: var(--header-desktop-height);
     padding: $header-padding;
     background-color: $header-desktop-background-color;
-    transition: top 0.2s ease-in-out;
   }
   &__logo {
     height: calc(100% - 1.25rem);
@@ -122,10 +122,9 @@ $header-navigation-item-font-weight: 500 !default;
     }
   }
   &--sticky {
-    @media (min-width: $desktop-min) {
       position: fixed;
+      width: 100%;
       z-index: 2;
-    }
   }
   &--visible {
     top: 0;
