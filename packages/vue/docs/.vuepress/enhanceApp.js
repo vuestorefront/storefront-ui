@@ -18,6 +18,7 @@ import SfCharacteristic from "../../src/components/molecules/SfCharacteristic/Sf
 import SfCheckbox from "../../src/components/atoms/SfCheckbox/SfCheckbox.vue"
 import SfChevron from "../../src/components/atoms/SfChevron/SfChevron.vue"
 import SfCircleIcon from "../../src/components/atoms/SfCircleIcon/SfCircleIcon.vue"
+import SfColor from "../../src/components/atoms/SfColor/SfColor.vue"
 import SfCollectedProduct from "../../src/components/organisms/SfCollectedProduct/SfCollectedProduct.vue"
 import SfContentPages from "../../src/components/organisms/SfContentPages/SfContentPages.vue"
 import SfCounter from "../../src/components/molecules/SfCounter/SfCounter.vue"
@@ -86,6 +87,7 @@ export default ({
   Vue.component("SfCheckbox", SfCheckbox);
   Vue.component("SfChevron", SfChevron);
   Vue.component("SfCircleIcon", SfCircleIcon);
+  Vue.component("SfColor", SfColor);
   Vue.component("SfCollectedProduct", SfCollectedProduct);
   Vue.component("SfContentPages", SfContentPages);
   Vue.component("SfCounter", SfCounter);
