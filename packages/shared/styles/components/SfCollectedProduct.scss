@@ -94,6 +94,7 @@ $collected-product__select-quantity-height: 1.875rem !default;
   }
   &__aside {
     position: relative;
+    display: flex;
   }
   &__image {
     max-width: 85px;
@@ -107,7 +108,7 @@ $collected-product__select-quantity-height: 1.875rem !default;
   &__quantity-selector {
     position: absolute;
     right: $spacer;
-    bottom: $spacer-medium;
+    bottom: $spacer;
     z-index: 2;
   }
   &__main {
