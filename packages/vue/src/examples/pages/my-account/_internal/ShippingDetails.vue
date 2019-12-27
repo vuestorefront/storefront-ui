@@ -7,6 +7,20 @@
         </p>
         <div class="form">
           <SfInput
+            v-model="firstName"
+            name="firstName"
+            label="First Name"
+            required
+            class="form__element form__element--half"
+          />
+          <SfInput
+            v-model="lastName"
+            name="lastName"
+            label="Last Name"
+            required
+            class="form__element form__element--half form__element--half-even"
+          />
+          <SfInput
             v-model="streetName"
             name="streetName"
             label="Street Name"
@@ -57,7 +71,7 @@
             </SfSelectOption>
           </SfSelect>
           <SfInput
-            v-model="phone"
+            v-model="phoneNumber"
             name="phone"
             label="Phone number"
             required
@@ -85,13 +99,16 @@
             >
               <div class="shipping__content">
                 <p class="shipping__address">
+                  <span class="shipping__client-name"
+                    >{{ shipping.firstName }} {{ shipping.lastName }}</span
+                  ><br />
                   {{ shipping.streetName }} {{ shipping.apartment }}<br />{{
                     shipping.zipCode
                   }}
                   {{ shipping.city }},<br />{{ shipping.country }}
                 </p>
                 <p class="shipping__address">
-                  {{ shipping.phone }}
+                  {{ shipping.phoneNumber }}
                 </p>
               </div>
               <div class="shipping__actions">
@@ -155,7 +172,7 @@ export default {
       state: "",
       zipCode: "",
       country: "",
-      phone: "",
+      phoneNumber: "",
       countries: [
         "Austria",
         "Azerbaijan",
@@ -221,7 +238,7 @@ export default {
         this.state = shipping.state;
         this.zipCode = shipping.zipCode;
         this.country = shipping.country;
-        this.phone = shipping.country;
+        this.phoneNumber = shipping.phoneNumber;
         this.editedAddress = index;
       }
       this.editAddress = true;
@@ -229,13 +246,15 @@ export default {
     updateAddress() {
       const account = { ...this.account };
       const shipping = {
+        firstName: this.firstName,
+        lastName: this.lastName,
         apartment: this.apartment,
         streetName: this.streetName,
         city: this.city,
         state: this.state,
         zipCode: this.zipCode,
         country: this.country,
-        phone: this.phone
+        phoneNumber: this.phoneNumber
       };
       const index = this.editedAddress;
 
@@ -360,6 +379,10 @@ export default {
     &:last-child {
       margin: 0;
     }
+  }
+  &__client-name {
+    font-size: $font-size-regular-desktop;
+    font-weight: 500;
   }
 }
 .action-button {

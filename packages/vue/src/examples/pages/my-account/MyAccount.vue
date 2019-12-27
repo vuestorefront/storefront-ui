@@ -89,22 +89,26 @@ export default {
         password: "a*23Et",
         shipping: [
           {
+            firstName: "Sviatlana",
+            lastName: "Havaka",
             streetName: "Zielinskiego",
             apartment: "24/193A",
             city: "Wroclaw",
             state: "Lower Silesia",
             zipCode: "53-540",
             country: "Poland",
-            phone: "(00)560 123 456"
+            phoneNumber: "(00)560 123 456"
           },
           {
+            firstName: "Sviatlana",
+            lastName: "Havaka",
             streetName: "Zielinskiego",
             apartment: "20/193A",
             city: "Wroclaw",
             state: "Lower Silesia",
             zipCode: "53-603",
             country: "Poland",
-            phone: "(00)560 123 456"
+            phoneNumber: "(00)560 123 456"
           }
         ],
         orders: [
