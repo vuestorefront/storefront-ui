@@ -64,5 +64,48 @@ export default {
         return ["", "account", "wishlist", "cart"].includes(value);
       }
     }
+  },
+  data() {
+    return {
+      isVisible: true,
+      isScrolling: false,
+      scrollTop: 0,
+      lastScrollTop: 0
+    };
+  },
+  beforeMount() {
+    window.addEventListener(
+      "scroll",
+      () => {
+        this.isScrolling = true;
+      },
+      { passive: true }
+    );
+
+    setInterval(() => {
+      if (this.isScrolling) {
+        this.hasScrolled();
+        this.isScrolling = false;
+      }
+    }, 250);
+  },
+  computed: {
+    desktopHeight() {
+      return this.$el.style.getPropertyValue("--header-desktop-height");
+    }
+  },
+  methods: {
+    hasScrolled() {
+      this.scrollTop = window.scrollY;
+      if (
+        this.scrollTop > this.lastScrollTop &&
+        this.scrollTop > this.desktopHeight
+      ) {
+        this.isVisible = false;
+      } else {
+        this.isVisible = true;
+      }
+      this.lastScrollTop = this.scrollTop;
+    }
   }
 };
