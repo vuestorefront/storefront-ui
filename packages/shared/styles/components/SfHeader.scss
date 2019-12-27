@@ -63,6 +63,8 @@ $header-navigation-item-font-weight: 500 !default;
     }
     img, picture{
       height: 100%;
+      width: auto;
+      max-width: unset;
     }
   }
   &__navigation {
