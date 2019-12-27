@@ -24,7 +24,7 @@
         >
       </div>
       <p class="content">
-        <span class="content__label">{{ shipping.shippingMethod }}</span
+        <span class="content__label">{{ shippingMethod.label }}</span
         ><br />
         {{ shipping.streetName }} {{ shipping.apartment }}, {{ shipping.zipCode
         }}<br />
@@ -60,7 +60,7 @@
           >Edit</SfButton
         >
       </div>
-      <p class="content">{{payment.paymentMethod}}</p>
+      <p class="content">{{ paymentMethod.label }}</p>
     </div>
   </div>
 </template>
@@ -76,14 +76,34 @@ export default {
     order: {
       type: Object,
       default: () => ({})
+    },
+    shippingMethods: {
+      type: Array,
+      default: () => []
+    },
+    paymentMethods: {
+      type: Array,
+      default: () => []
     }
   },
   computed: {
     shipping() {
       return this.order.shipping;
     },
+    shippingMethod() {
+      const shippingMethod = this.shipping.shippingMethod;
+      const method = this.shippingMethods.find(
+        method => method.value === shippingMethod
+      )
+      return method ? method : {price: 0};
+    },
     payment() {
       return this.order.payment;
+    },
+    paymentMethod() {
+      const paymentMethod = this.payment.paymentMethod;
+      const method = this.paymentMethods.find(method => method.value === paymentMethod);
+      return method ? method : {label: ""};
     }
   }
 };

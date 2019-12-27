@@ -23,7 +23,13 @@
             />
           </SfStep>
           <SfStep name="Review">
-            <ReviewOrder :order="order" @click:back="currentStep--" />
+            <ReviewOrder
+              :order="order"
+              :shipping-methods="shippingMethods"
+              :payment-methods="paymentMethods"
+              @click:back="currentStep--"
+              @click:edit="currentStep = $event"
+            />
           </SfStep>
         </SfSteps>
       </div>
@@ -33,11 +39,15 @@
             v-if="currentStep <= 2"
             key="order-summary"
             :order="order"
+            :shipping-methods="shippingMethods"
+            :payment-methods="paymentMethods"
           />
           <OrderReview
             v-else
             key="order-review"
             :order="order"
+            :shipping-methods="shippingMethods"
+            :payment-methods="paymentMethods"
             @click:edit="currentStep = $event"
           />
         </transition>
@@ -71,35 +81,35 @@ export default {
     return {
       currentStep: 0,
       order: {
-        firstName: "Sviatlana",
-        lastName: "Havaka",
-        email: "example@email.com",
+        firstName: "",
+        lastName: "",
+        email: "",
         password: "",
         createAccount: false,
         shipping: {
-          firstName: "Sviatlana",
-          lastName: "Havaka",
-          streetName: "Zielinskiego",
-          apartment: "24/193A",
-          city: "Wroclaw",
-          state: "Lower Silesia",
-          zipCode: "53-540",
-          country: "Poland",
-          phoneNumber: "(00)560 123 456",
-          shippingMethod: "inpost"
+          firstName: "",
+          lastName: "",
+          streetName: "",
+          apartment: "",
+          city: "",
+          state: "",
+          zipCode: "",
+          country: "",
+          phoneNumber: "",
+          shippingMethod: ""
         },
         payment: {
-          sameAsShipping: true,
-          firstName: "Sviatlana",
-          lastName: "Havaka",
-          streetName: "Zielinskiego",
-          apartment: "24/193A",
-          city: "Wroclaw",
-          state: "Lower Silesia",
-          zipCode: "53-540",
-          country: "Poland",
-          phoneNumber: "(00)560 123 456",
-          paymentMethod: "debit",
+          sameAsShipping: false,
+          firstName: "",
+          lastName: "",
+          streetName: "",
+          apartment: "",
+          city: "",
+          state: "",
+          zipCode: "",
+          country: "",
+          phoneNumber: "",
+          paymentMethod: "",
           card: {
             number: "",
             holder: "",
@@ -123,7 +133,8 @@ export default {
               { name: "Size", value: "XS" },
               { name: "Color", value: "White" }
             ],
-            qty: "1"
+            qty: 1,
+            sku: "MSD23-345-324"
           },
           {
             title: "Cream Beach Bag",
@@ -133,7 +144,8 @@ export default {
               { name: "Size", value: "XS" },
               { name: "Color", value: "White" }
             ],
-            qty: "2"
+            qty: 2,
+            sku: "MSD23-345-325"
           }
         ]
       },

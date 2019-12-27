@@ -61,7 +61,7 @@
       />
       <SfProperty
         name="Shipping"
-        :value="shipping"
+        :value="shippingMethod.price"
         class="sf-property--full-width property"
       />
       <SfProperty
@@ -123,6 +123,14 @@ export default {
     order: {
       type: Object,
       default: () => ({})
+    },
+    shippingMethods: {
+      type: Array,
+      default: () => []
+    },
+    paymentMethods: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
@@ -154,19 +162,47 @@ export default {
     products() {
       return this.order.products;
     },
-    totalItems() {
-      return 3;
-    },
-    subtotal() {
-      return this.order.review.subtotal;
+    totalItems(){
+      return this.products.reduce((previous, current)=>{
+        return previous + current.qty;
+      }, 0)
     },
     shipping() {
-      return this.order.review.shipping;
+      return this.order.shipping;
+    },
+    shippingMethod() {
+      const shippingMethod = this.shipping.shippingMethod;
+      const method = this.shippingMethods.find(
+        method => method.value === shippingMethod
+      )
+      return method ? method : {price: "$0.00"};
+    },
+    payment() {
+      return this.order.payment;
+    },
+    paymentMethod() {
+      const paymentMethod = this.payment.paymentMethod;
+      const method = this.paymentMethods.find(method => method.value === paymentMethod);
+      return method ? method : {label: ""};
+    },
+    subtotal() {
+      const products = this.products;
+      const subtotal = products.reduce((previous, current)=>{
+        const qty = current.qty;
+        const price = current.price.special ? current.price.special : current.price.regular;
+        const total = qty * parseFloat(price.replace("$", ""));
+        return previous + total;
+      }, 0);
+      return "$" + subtotal.toFixed(2);
     },
     total() {
-      return this.order.review.total;
+      const subtotal = parseFloat(this.subtotal.replace("$", ""));
+      const shipping = parseFloat(this.shippingMethod.price.replace("$", ""));
+      const total = subtotal + (isNaN(shipping) ? 0 : shipping);
+
+      return "$" + total.toFixed(2);
     }
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
