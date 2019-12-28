@@ -76,4 +76,14 @@ $button--outline-border: 2px !default;
       }
     }
   }
+
+  &--disabled {
+    background-color: $c-light;
+    color: $c-gray;
+    cursor: default;
+    &:hover {
+      background-color: $c-light;
+      color: $c-gray;
+    }
+  }
 }

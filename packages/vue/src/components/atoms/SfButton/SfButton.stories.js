@@ -19,6 +19,7 @@ storiesOf("Atoms|Button", module)
             "sf-button--outline": "sf-button--outline",
             "sf-button--text": "sf-button--text",
             "sf-button--full-width": "sf-button--full-width",
+            "sf-button--disabled": "sf-button--disabled",
             "color-primary": "color-primary",
             "color-secondary": "color-secondary",
             "color-warning": "color-warning",
