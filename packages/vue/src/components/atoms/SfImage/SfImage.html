@@ -8,20 +8,20 @@
     <img v-if="show" :src="source" :alt="alt" :width="width" :height="height"  @error="error"
          @load="load"/>
   </template>
-  <!-- Object {small:{url:} normal:{url}}-->
+  <!-- Object {mobile:{url:} desktop:{url}}-->
   <template v-else>
     <picture>
       <source
-        :srcset="source.normal.url"
+        :srcset="source.desktop.url"
         :media="`(min-width: ${pictureBreakpoint}px)`"
       />
       <source
-        :srcset="src.small.url"
+        :srcset="source.mobile.url"
         :media="`(max-width: ${pictureBreakpoint}px)`"
       />
       <img
         v-if="show"
-        :src="source.normal.url"
+        :src="source.desktop.url"
         :alt="alt"
         :width="width"
         :height="height"

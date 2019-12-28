@@ -19,10 +19,10 @@ storiesOf("Atoms|Image", module)
         default: object(
           "src",
           {
-            small: {
+            mobile: {
               url: "/assets/storybook/product-109x164.jpg"
             },
-            normal: {
+            desktop: {
               url: "/assets/storybook/product-216x326.jpg"
             }
           },
@@ -60,10 +60,10 @@ storiesOf("Atoms|Image", module)
         default: object(
           "src",
           {
-            small: {
+            mobile: {
               url: "/assets/storybook/product-109x164.jpg"
             },
-            normal: {
+            desktop: {
               url: "/assets/storybook/product-216x326.jpg"
             }
           },

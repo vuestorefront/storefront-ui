@@ -6,7 +6,7 @@ export default {
   props: {
     src: {
       type: [String, Object],
-      default: () => ({ small: { url: "" }, normal: { url: "" } })
+      default: () => ({ mobile: { url: "" }, desktop: { url: "" } })
     },
     alt: {
       type: String,
@@ -38,8 +38,8 @@ export default {
     source() {
       let src = this.src;
       if (typeof src === "object") {
-        if (!src.small || !src.normal) {
-          const object = src.normal || src.small || { url: "" };
+        if (!src.desktop || !src.mobile) {
+          const object = src.desktop || src.mobile || { url: "" };
           src = object.url;
         }
       }
@@ -66,10 +66,8 @@ export default {
         observer.observe();
       });
     },
-    error() {
-    },
-    load() {
-    }
+    error() {},
+    load() {}
   },
   mounted() {
     if (!this.lazy) {
