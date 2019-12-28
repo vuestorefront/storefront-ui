@@ -1,12 +1,33 @@
-<div class="sf-image" ref="image">
-  <template v-if="typeof src === 'string'">
-    <img v-if="show" :src="src" :alt="alt" :width="width" :height="height">
+<div
+  ref="image"
+  class="sf-image"
+  v-on="$listeners"
+>
+  <!-- Sting -->
+  <template v-if="typeof source === 'string'">
+    <img v-if="show" :src="source" :alt="alt" :width="width" :height="height"  @error="error"
+         @load="load"/>
   </template>
-  <template v-else-if="typeof src !== 'undefined'">
+  <!-- Object {small:{url:} normal:{url}}-->
+  <template v-else>
     <picture>
-      <source :srcset="src.normal.url" media="(min-width: 1024px)">
-      <source :srcset="src.small.url" media="(max-width: 1024px)">
-      <img v-if="show" :src="src.normal.url" :alt="alt" :width="width" :height="height">
+      <source
+        :srcset="source.normal.url"
+        :media="`(min-width: ${pictureBreakpoint}px)`"
+      />
+      <source
+        :srcset="src.small.url"
+        :media="`(max-width: ${pictureBreakpoint}px)`"
+      />
+      <img
+        v-if="show"
+        :src="source.normal.url"
+        :alt="alt"
+        :width="width"
+        :height="height"
+        @error="error"
+        @load="load"
+      />
     </picture>
   </template>
 </div>

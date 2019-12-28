@@ -6,7 +6,7 @@ export default {
   props: {
     src: {
       type: [String, Object],
-      default: ""
+      default: () => ({ small: { url: "" }, normal: { url: "" } })
     },
     alt: {
       type: String,
@@ -23,12 +23,28 @@ export default {
     lazy: {
       type: Boolean,
       default: true
+    },
+    pictureBreakpoint: {
+      type: Number,
+      default: 576
     }
   },
   data() {
     return {
       show: false
     };
+  },
+  computed: {
+    source() {
+      let src = this.src;
+      if (typeof src === "object") {
+        if (!src.small || !src.normal) {
+          const object = src.normal || src.small || { url: "" };
+          src = object.url;
+        }
+      }
+      return src;
+    }
   },
   watch: {
     src() {
@@ -43,13 +59,16 @@ export default {
       const vm = this;
       this.$nextTick(() => {
         const observer = lozad(vm.$refs.image, {
-          load(el) {
-            console.log(el);
+          load() {
             vm.show = true;
           }
         });
         observer.observe();
       });
+    },
+    error() {
+    },
+    load() {
     }
   },
   mounted() {
