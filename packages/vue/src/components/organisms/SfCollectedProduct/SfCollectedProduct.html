@@ -1,29 +1,35 @@
 <div class="sf-collected-product">
-  <slot name="remove" v-bind="{removeHandler}">
+  <slot name="remove" v-bind="{ removeHandler }">
     <SfCircleIcon
-      @click="removeHandler"
       icon="cross"
       icon-size="8px"
       icon-color="white"
       class="sf-collected-product__remove"
+      @click="removeHandler"
     />
   </slot>
   <div class="sf-collected-product__aside">
-    <slot name="image" v-bind="{image, title}">
-      <SfImage :src="image" :alt="title" class="sf-collected-product__image" />
+    <slot name="image" v-bind="{ image, title }">
+      <SfImage
+        :src="image"
+        :alt="title"
+        :width="216"
+        :height="326"
+        class="sf-collected-product__image"
+      />
     </slot>
     <slot name="input">
       <SfQuantitySelector
         :qty="qty"
-        @input="$emit('input', $event)"
         :stock="stock"
         :min="qtyMin"
         class="sf-collected-product__quantity-selector"
+        @input="$emit('input', $event)"
       />
     </slot>
   </div>
   <div class="sf-collected-product__main">
-    <slot name="title" v-bind="{title}">
+    <slot name="title" v-bind="{ title }">
       <div class="sf-collected-product__title">{{ title }}</div>
     </slot>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
