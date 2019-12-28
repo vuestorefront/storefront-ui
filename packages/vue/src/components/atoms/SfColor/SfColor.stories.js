@@ -26,6 +26,10 @@ storiesOf("Atoms|Color", module)
           {
             label: "orange",
             active: false
+          },
+          {
+            label: "white",
+            active: false
           }
         ]
       };

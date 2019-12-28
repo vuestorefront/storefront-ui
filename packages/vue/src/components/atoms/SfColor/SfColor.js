@@ -17,6 +17,13 @@ export default {
   computed: {
     colorStyle() {
       return "background-color:" + this.color;
+    },
+    isLight() {
+      return (
+        this.color === "white" ||
+        this.color === "#ffffff" ||
+        this.color === "rgb(255,255,255)"
+      );
     }
   }
 };

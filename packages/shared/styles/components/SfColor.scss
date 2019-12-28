@@ -1,7 +1,7 @@
 @import "../variables";
 
-$color__width: 2rem !default;
-$color__height: 2rem !default;
+$color__width: 2.5rem !default;
+$color__height: 2.5rem !default;
 $color__margin: 0.5rem !default;
 $color__padding: 0.2rem !default;
 
@@ -16,13 +16,18 @@ $color__padding: 0.2rem !default;
     opacity: 0.5;
 
     &__fill {
+        box-sizing: border-box;
+        border: 1px solid $c-white;
         width: 100%;
         height: 100%;
         border-radius: 50%;
+
+        &--bordered {
+            border: 1px solid $c-gray;
+        }
     }
 
     &--active {
-        box-sizing: border-box;
         border: 1px solid $c-dark;
         opacity: 1;
     }
