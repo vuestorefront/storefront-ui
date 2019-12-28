@@ -10,10 +10,27 @@ storiesOf("Atoms|Color", module)
     components: { SfColor },
     data() {
       return {
-        colors: ["blue", "green", "pink", "yellow"]
+        colors: [
+          {
+            label: "blue",
+            active: false
+          },
+          {
+            label: "yellow",
+            active: false
+          },
+          {
+            label: "pink",
+            active: true
+          },
+          {
+            label: "orange",
+            active: false
+          }
+        ]
       };
     },
     template: `<div>
-        <SfColor v-for="color in colors" :color="color"/>
+        <SfColor v-for="color in colors" :color="color.label" :is-active="color.active"/>
     </div>`
   }));

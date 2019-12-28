@@ -1,3 +1,6 @@
-<button class="sf-color" :class="{ 'sf-color--active' : isActive }">
-    <div class="sf-color__fill" :style="colorStyle" />
+<button v-on="$listeners" class="sf-color" :class="{ 'sf-color--active' : isActive }" :aria-label="ariaLabel">
+<!-- @slot Custom color markup -->
+  <slot>
+    <div v-if="color" class="sf-color__fill" :style="colorStyle" />
+  </slot>
 </button>

@@ -8,6 +8,10 @@ export default {
     isActive: {
       type: Boolean,
       default: false
+    },
+    ariaLabel: {
+      type: String,
+      default: ""
     }
   },
   computed: {
