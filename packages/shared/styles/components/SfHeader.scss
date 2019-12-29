@@ -58,6 +58,7 @@ $header-navigation-item-font-weight: 500 !default;
   }
   &__logo {
     height: calc(100% - 1.25rem);
+    width: auto;
     @media (min-width: $desktop-min) {
       height: calc(100% - 2.5rem);
     }
