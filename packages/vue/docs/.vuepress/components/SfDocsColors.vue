@@ -1,21 +1,39 @@
 <template>
-  <div class="colors--container">
-    <div v-for="(value, name) in colors" :key="name" class="color--wrapper">
-      <div class="color--block" :class="value"></div>
-      <span class="color--label">{{value}}</span>
+  <div>
+    <div class="colors--container" v-if="mapType === 'palette'">
+      <div v-for="(value, name) in palettes" :key="name" class="color--wrapper">
+        <color-palette :palette="value" :paletteName="name"/>
+      </div>
+    </div>
+    <div class="colors--container" v-else-if="mapType === 'icons'">
+      <div v-for="(value, name) in colors" :key="name" class="color--wrapper">
+        <div class="color--block" :class="value"></div>
+        <span class="color--label">{{value}}</span>
+      </div>
     </div>
   </div>
-    
 </template>
 <script>
-import colors from '@storefront-ui/shared/variables/colors';
+import { palettes, colors } from '@storefront-ui/shared/variables/colors';
+import SfDocsColorPalette from './SfDocsColorPalette';
 
 export default {
-    data() {
-        return {
-            colors: colors,
-        };
+  props: {
+    mapType: {
+      type: String,
+      validator: (prop) => ['palette', 'icons'].includes(prop),
+      default: 'palette'
     },
+  },
+  components: {
+    colorPalette: SfDocsColorPalette,
+  },
+  data() {
+    return {
+      palettes: palettes,
+      colors: colors,
+    }
+  },
 }
 </script>
 <style scoped>
@@ -25,22 +43,20 @@ export default {
   text-align: center;
 }
 
-.color--block {
-  width: 50px;
-  height: 50px;
-  border: 1px solid lightgray;
-}
-
 .color--wrapper {
-  margin: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 130px;
+  margin-bottom: 1rem;
+}
+
+.color--block {
+  width: 80px;
+  height: 80px;
+  margin: 1rem;
 }
 
 .color--label {
-  margin-top: 0.5rem;
   font-size: 0.8rem;
 }
 </style>
@@ -51,5 +67,18 @@ export default {
     .#{$pallete} {
         background-color: #{$color};
     }
+}
+
+@each $color, $map in $colors-map {
+  $bg: map-get($map, "bg");
+  $variant: map-get($map, "variant");
+
+  .#{$color}-bg {
+    background-color: $bg;
+  }
+
+  .#{$color}-variant {
+    background-color: $variant;
+  }
 }
 </style>

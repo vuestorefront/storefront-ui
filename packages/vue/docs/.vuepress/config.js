@@ -20,15 +20,6 @@ module.exports = {
       ['/customization', 'Customization'],
       ['/meet-the-team', 'Meet the core team'],
       {
-        title: 'Design Foundations',
-        collapsable: false,
-        children: [
-          ['/design/color-palette', 'Color Palette'],
-          ['/design/sizes', 'Sizes'],
-          ['/design/working-with-designs', 'Working with Designs']
-        ],
-      },
-      {
         title: 'Contributing Guide',
         collapsable: false,
         children: [
@@ -38,6 +29,15 @@ module.exports = {
           ['/contributing/creating-new-component', 'Create/Edit Component'],
           ['/contributing/documentation-guidelines', 'Documetation guidelines'],
           ['/contributing/issue-report-guidelines', 'How to report an issue'],
+        ],
+      },
+      {
+        title: 'Styles & Designs',
+        collapsable: false,
+        children: [
+          ['/design/color-palette', 'Colors'],
+          ['/design/sizes', 'Sizes'],
+          ['/design/working-with-designs', 'Working with Designs']
         ],
       },
       {

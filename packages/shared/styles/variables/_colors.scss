@@ -1,22 +1,22 @@
-$c-black: hsl(0, 0%, 0%) !default;
-$c-white: hsl(0, 0%, 100%) !default;
+$c-black: #1d1f22 !default;
+$c-white: #ffffff !default;
 
 // Internal color variables
 // Should NOT be used directly for theming or component styles
-$_c-green-primary: hsl(136, 53%, 59%);
-$_c-green-secondary: hsl(136, 54%, 75%);
-$_c-dark-primary: hsl(216, 8%, 12%);
-$_c-dark-secondary: hsl(226, 5%, 48%);
-$_c-gray-primary: hsl(228, 9%, 45%);
-$_c-gray-secondary: hsl(230, 5%, 76%);
-$_c-light-primary: hsl(210, 8%, 95%);
-$_c-light-secondary: hsl(0, 0%, 100%);
-$_c-pink-primary: hsl(359, 77%, 51%);
-$_c-pink-secondary: hsl(7, 100%, 98%);
-$_c-yellow-primary: hsl(50, 100%, 62%);
-$_c-yellow-secondary: hsl(50, 100%, 96%);
-$_c-blue-primary: hsl(210, 50%, 60%);
-$_c-blue-secondary: hsl(216, 33%, 97%);
+$_c-green-primary: #5ece7b;
+$_c-green-secondary: #9ee2b0;
+$_c-dark-primary: $c-black;
+$_c-dark-secondary: #737680;
+$_c-gray-primary: #a3a5ad;
+$_c-gray-secondary: #bebfc4;
+$_c-light-primary: #f1f2f3;
+$_c-light-secondary: $c-white;
+$_c-pink-primary: 	#e22225;
+$_c-pink-secondary: #fff6f5;
+$_c-yellow-primary: #ffdf3d;
+$_c-yellow-secondary: #fffceb;
+$_c-blue-primary: #6699cc;
+$_c-blue-secondary: #e1f4fe;
 
 /* START: Theme color variables */
 
@@ -129,21 +129,19 @@ $colors-map: (
 );
 
 $icon-colors: (
-  "primary": $c-primary,
-  "secondary": $c-dark,
   "white": $c-white,
   "black": $c-black,
-  "accent": $c-primary-variant,
-  "green-primary": $c-primary,
-  "green-secondary": $c-primary-variant,
-  "gray-primary": $c-gray,
-  "gray-secondary": $c-gray-variant,
-  "light-primary": $c-light,
-  "light-secondary": $c-light-variant,
-  "pink-primary": $c-danger,
-  "pink-secondary": $c-danger-variant,
-  "yellow-primary": $c-warning,
-  "yellow-secondary": $c-warning-variant,
-  "blue-primary": $c-info,
-  "blue-secondary": $c-info-variant
+  "dark-secondary": $_c-dark-secondary,
+  "green-primary": $_c-green-primary,
+  "green-secondary": $_c-green-secondary,
+  "gray-primary": $_c-gray-primary,
+  "gray-secondary": $_c-gray-secondary,
+  "light-primary": $_c-light-primary,
+  "light-secondary": $_c-light-secondary,
+  "pink-primary": $_c-pink-primary,
+  "pink-secondary": $_c-pink-primary,
+  "yellow-primary": $_c-yellow-primary,
+  "yellow-secondary": $_c-yellow-secondary,
+  "blue-primary": $_c-blue-primary,
+  "blue-secondary": $_c-blue-secondary
 );
