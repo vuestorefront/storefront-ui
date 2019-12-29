@@ -86,7 +86,7 @@ storiesOf("Organisms|ProductCard", module)
     },
     components: { SfProductCard },
     template: `<SfProductCard
-        :image="src"
+        :image="image"
         :title="title"
         :link="link"
         :linkTag="linkTag"
