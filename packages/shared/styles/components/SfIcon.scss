@@ -2,7 +2,7 @@
 
 .sf-icon {
   --icon-color: #{map-get($icon-colors, "black")};
-  --icon-size: #{map-get($icon-sizes, "sm")};
+  --icon-size: #{map-get($sizes, "sm")};
 
   outline: none;
   background-color: transparent;
@@ -19,7 +19,7 @@
     }
   }
 
-  @each $profile, $size in $icon-sizes {
+  @each $profile, $size in $sizes {
     &--size-#{$profile} {
       --icon-size: #{$size};
     }

@@ -1,0 +1,5 @@
+@each $profile, $size in $sizes {
+  .fs-#{$profile} {
+    font-size: #{$size};
+  }
+}
