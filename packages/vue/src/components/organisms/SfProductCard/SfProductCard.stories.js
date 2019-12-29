@@ -12,24 +12,24 @@ import SfProductCard from "./SfProductCard.vue";
 
 const pictures = [
   {
-    normal: {
+    desktop: {
       url:
         "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
       alt: "Macbook PRO Apple"
     },
-    small: {
+    mobile: {
       url:
         "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
       alt: "Macbook PRO Apple"
     }
   },
   {
-    normal: {
+    desktop: {
       url:
         "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
       alt: "Macbook PRO Apple (keyboard)"
     },
-    small: {
+    mobile: {
       url:
         "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
       alt: "Macbook PRO Apple (keyboard)"
@@ -86,7 +86,7 @@ storiesOf("Organisms|ProductCard", module)
     },
     components: { SfProductCard },
     template: `<SfProductCard
-        :image="image"
+        :image="src"
         :title="title"
         :link="link"
         :linkTag="linkTag"
@@ -102,7 +102,6 @@ storiesOf("Organisms|ProductCard", module)
         :isOnWishlist="isOnWishlist"
     />`
   }))
-
   .add("With 2 pictures", () => ({
     props: {
       title: {
