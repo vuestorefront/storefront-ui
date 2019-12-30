@@ -11,6 +11,7 @@
       :alt="alt"
       :width="width"
       :height="height"
+      :style="width && height && 'position: absolute; transform: translate3d(0, -50%, 0)'"
       @error="error"
       @load="load"
     />
@@ -31,6 +32,7 @@
         :alt="alt"
         :width="width"
         :height="height"
+        :style="width && height && 'position: absolute; transform: translate3d(0, -50%, 0)'"
         @error="error"
         @load="load"
       />

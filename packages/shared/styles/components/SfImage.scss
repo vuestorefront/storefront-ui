@@ -2,6 +2,7 @@
 
 .sf-image {
   position: relative;
+  display: flex;
   background-color: $c-light;
   &::before{
     display: block;
@@ -10,10 +11,9 @@
     padding-top: calc(var(--height) / var(--width) * 100%);
   }
   img{
-    position: absolute;
     top: 50%;
     left: 0;
-    transform: translate3d(0, -50%, 0);
+    left: 0;
     max-width: 100%;
     height: auto;
   }
