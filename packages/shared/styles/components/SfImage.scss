@@ -4,6 +4,8 @@
   position: relative;
   display: flex;
   background-color: $c-light;
+  width: 100%;
+  max-width: var(--width, 100%);
   &::before{
     display: block;
     content: "";
@@ -12,7 +14,6 @@
   }
   img{
     top: 50%;
-    left: 0;
     left: 0;
     max-width: 100%;
     height: auto;
