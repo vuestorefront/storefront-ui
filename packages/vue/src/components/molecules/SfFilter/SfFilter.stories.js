@@ -10,9 +10,6 @@ storiesOf("Molecules|Filter", module)
       SfFilter
     },
     props: {
-      color: {
-        default: text("color", "red", "Props")
-      },
       label: {
         default: text("label", "Red", "Props")
       },
@@ -25,40 +22,9 @@ storiesOf("Molecules|Filter", module)
     },
     template: `<div style="max-width: 300px">
        <SfFilter
-        :color="color"
         :label="label"
         :count="count"
         :selected="selected" />
-    </div>`
-  }))
-  .add("[slot] color", () => ({
-    components: {
-      SfFilter
-    },
-    props: {
-      color: {
-        default: text("color", "red", "Props")
-      },
-      label: {
-        default: text("label", "Red", "Props")
-      },
-      count: {
-        default: text("count", "30", "Props")
-      },
-      selected: {
-        default: boolean("selected", true, "Props")
-      }
-    },
-    template: `<div style="max-width: 300px">
-       <SfFilter
-        :color="color"
-        :label="label"
-        :count="count"
-        :selected="selected">
-        <template #color="{color}">
-            <div :style="{width: '20px', height:'20px', backgroundColor: color, borderRadius: '100%', marginRight: '10px'}"></div>
-        </template>
-      </SfFilter>
     </div>`
   }))
   .add("[slot] label", () => ({
@@ -66,9 +32,6 @@ storiesOf("Molecules|Filter", module)
       SfFilter
     },
     props: {
-      color: {
-        default: text("color", "red", "Props")
-      },
       label: {
         default: text("label", "Red", "Props")
       },
@@ -81,7 +44,6 @@ storiesOf("Molecules|Filter", module)
     },
     template: `<div style="max-width: 300px">
        <SfFilter
-        :color="color"
         :label="label"
         :count="count"
         :selected="selected">
@@ -94,9 +56,6 @@ storiesOf("Molecules|Filter", module)
       SfFilter
     },
     props: {
-      color: {
-        default: text("color", "red", "Props")
-      },
       label: {
         default: text("label", "Red", "Props")
       },
@@ -109,7 +68,6 @@ storiesOf("Molecules|Filter", module)
     },
     template: `<div style="max-width: 300px">
        <SfFilter
-        :color="color"
         :label="label"
         :count="count"
         :selected="selected">

@@ -10,10 +10,6 @@ export default {
       type: [String, Number],
       default: ""
     },
-    color: {
-      type: String,
-      default: ""
-    },
     selected: {
       type: Boolean,
       default: false
