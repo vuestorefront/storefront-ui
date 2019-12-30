@@ -38,7 +38,7 @@ $product-card__pictures-height-desktop: 250px !default;
         box-shadow: $product-card-hover-box-shadow;
       }
     }
-    #{$this}__image {
+    #{$this}__picture {
       &:last-child{
         opacity: 1;
         transform: translateX(-100%);
@@ -76,8 +76,11 @@ $product-card__pictures-height-desktop: 250px !default;
     display: flex;
     overflow: hidden;
   }
-  &__image {
+  &__picture{
     flex: 0 0 100%;
+  }
+  &__image,
+  &__picture{
     background-color: $product-card__image-background-color;
     img {
       mix-blend-mode: $product-card__image-blend-mode;
