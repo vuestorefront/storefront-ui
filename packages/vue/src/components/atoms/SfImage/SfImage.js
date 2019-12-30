@@ -61,7 +61,14 @@ export default {
     }
   },
   watch: {
+    lazy: {
+      handler(value) {
+        this.show = !value;
+      },
+      immediate: true
+    },
     src() {
+      if (!this.lazy) return;
       this.$el.removeAttribute("data-loaded");
       this.show = false;
       this.lozad();
@@ -69,7 +76,6 @@ export default {
   },
   methods: {
     lozad() {
-      if (!this.lazy) return;
       const vm = this;
       this.$nextTick(() => {
         const observer = lozad(vm.$refs.image, {
