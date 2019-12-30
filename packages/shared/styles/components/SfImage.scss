@@ -1,10 +1,20 @@
 @import "../variables";
 
 .sf-image {
-  img{
+  position: relative;
+  background-color: $c-light;
+  &::before{
     display: block;
+    content: "";
+    width: 100%;
+    padding-top: calc(var(--height) / var(--width) * 100%);
+  }
+  img{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate3d(0, -50%, 0);
     max-width: 100%;
     height: auto;
-    background-color: $c-light;
   }
 }

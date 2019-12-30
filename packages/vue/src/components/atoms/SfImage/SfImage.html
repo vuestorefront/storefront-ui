@@ -1,14 +1,20 @@
 <div
   ref="image"
   class="sf-image"
+  :style="`--width: ${width}; --height: ${height};`"
   v-on="$listeners"
 >
-  <!-- Sting -->
   <template v-if="typeof source === 'string'">
-    <img v-if="show" :src="source" :alt="alt" :width="width" :height="height"  @error="error"
-         @load="load"/>
+    <img
+      v-if="show"
+      :src="source"
+      :alt="alt"
+      :width="width"
+      :height="height"
+      @error="error"
+      @load="load"
+    />
   </template>
-  <!-- Object {mobile:{url:} desktop:{url}}-->
   <template v-else>
     <picture>
       <source

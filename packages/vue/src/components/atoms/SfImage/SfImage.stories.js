@@ -48,9 +48,9 @@ storiesOf("Atoms|Image", module)
     template: `<SfImage
         :src="src"
         :alt="alt"
-        :transition="transition"
         :lazy="lazy"
-        :placeholder="placeholder"
+        :width="216"
+        :height="326"
         :picture-breakpoint="pictureBreakpoint" />`
   }))
   .add("[slot] default", () => ({
@@ -89,9 +89,9 @@ storiesOf("Atoms|Image", module)
     template: `<SfImage
       :src="src"
       :alt="alt"
-      :transition="transition"
       :lazy="lazy"
-      :placeholder="placeholder"
+      :width="216"
+      :height="326"
       :picture-breakpoint="pictureBreakpoint">
       <span>CUSTOM OVERLAY CONTENT</span>
     </SfImage>`
