@@ -17,6 +17,20 @@ export default {
       default: ""
     },
     /**
+     * Product image width, without unit
+     */
+    imageWidth: {
+      type: [String, Number],
+      default: 140
+    },
+    /**
+     * Product image height, without unit
+     */
+    imageHeight: {
+      type: [String, Number],
+      default: 200
+    },
+    /**
      * Product title
      */
     title: {

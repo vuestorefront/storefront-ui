@@ -7,11 +7,6 @@ import SfCollectedProduct from "./SfCollectedProduct.vue";
 storiesOf("Organisms|CollectedProduct", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    data() {
-      return {
-        qty: 1
-      };
-    },
     props: {
       image: {
         default: text(
@@ -19,6 +14,12 @@ storiesOf("Organisms|CollectedProduct", module)
           "/assets/storybook/homepage/productB.jpg",
           "Props"
         )
+      },
+      imageWidth: {
+        default: number("imageWidth", 140, "Props")
+      },
+      imageHeight: {
+        default: number("imageHeight", 200, "Props")
       },
       title: {
         default: text("title", "Product name", "Props")
@@ -36,10 +37,17 @@ storiesOf("Organisms|CollectedProduct", module)
         default: number("qtyMin", 1, {}, "Props")
       }
     },
+    data() {
+      return {
+        qty: 1
+      };
+    },
     components: { SfCollectedProduct },
     template: `<SfCollectedProduct
         v-model="qty"
         :image="image"
+        :image-width="imageWidth"
+        :image-height="imageHeight"
         :title="title"
         :specialPrice="specialPrice"
         :regularPrice="regularPrice"
