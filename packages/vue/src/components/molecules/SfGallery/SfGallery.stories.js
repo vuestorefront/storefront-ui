@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, object, boolean } from "@storybook/addon-knobs";
+import { withKnobs, object, number, boolean } from "@storybook/addon-knobs";
 
 import SfGallery from "./SfGallery.vue";
 
@@ -20,12 +20,12 @@ storiesOf("Molecules|Gallery", module)
           "images",
           [
             {
-              small: {
+              mobile: {
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
                 alt: "Macbook PRO Apple"
               },
-              normal: {
+              desktop: {
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
                 alt: "Macbook PRO Apple"
@@ -37,12 +37,12 @@ storiesOf("Molecules|Gallery", module)
               }
             },
             {
-              small: {
+              mobile: {
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
                 alt: "Macbook PRO Apple (keyboard)"
               },
-              normal: {
+              desktop: {
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
                 alt: "Macbook PRO Apple (keyboard)"
@@ -56,6 +56,12 @@ storiesOf("Molecules|Gallery", module)
           ],
           "Props"
         )
+      },
+      imageWidth: {
+        default: number("imageWidth", 400, {}, "Props")
+      },
+      imageHeight: {
+        default: number("imageHeight", 400, {}, "Props")
       },
       sliderOptions: {
         default: object(
@@ -75,6 +81,8 @@ storiesOf("Molecules|Gallery", module)
     },
     template: `<SfGallery
       :images="images"
+      :image-width="imageWidth"
+      :image-height="imageHeight"
       :slider-options="sliderOptions"
       :current="current"
       :enable-zoom="enableZoom"
@@ -94,12 +102,12 @@ storiesOf("Molecules|Gallery", module)
           "images",
           [
             {
-              small: {
+              mobile: {
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
                 alt: "Macbook PRO Apple"
               },
-              normal: {
+              desktop: {
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
                 alt: "Macbook PRO Apple"
@@ -111,12 +119,12 @@ storiesOf("Molecules|Gallery", module)
               }
             },
             {
-              small: {
+              mobile: {
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
                 alt: "Macbook PRO Apple (keyboard)"
               },
-              normal: {
+              desktop: {
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
                 alt: "Macbook PRO Apple (keyboard)"

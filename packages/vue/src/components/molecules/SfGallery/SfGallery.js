@@ -18,6 +18,20 @@ export default {
       default: () => []
     },
     /**
+     * Images width, without unit
+     */
+    imageWidth: {
+      type: [Number, String],
+      default: 400
+    },
+    /**
+     * Images height, without unit
+     */
+    imageHeight: {
+      type: [Number, String],
+      default: 400
+    },
+    /**
      * Initial image number (starting from 1)
      */
     current: {
@@ -60,16 +74,17 @@ export default {
       eventHover: {},
       pictureSelected: "",
       glide: null,
-      activeIndex: this.current - 1
+      activeIndex: this.current - 1,
+      style: ""
     };
   },
 
   computed: {
     mapPictures() {
       // map images to handle picture tags with SfImage
-      return this.images.map(({ normal, big }) => ({
-        small: normal,
-        normal: big
+      return this.images.map(({ desktop, big }) => ({
+        mobile: desktop,
+        desktop: big
       }));
     }
   },
@@ -100,8 +115,8 @@ export default {
     },
     startZoom(picture) {
       if (this.enableZoom) {
-        const { zoom, big, normal } = picture;
-        this.pictureSelected = (zoom || big || normal).url;
+        const { zoom, big, desktop } = picture;
+        this.pictureSelected = (zoom || big || desktop).url;
       }
     },
     moveZoom($event, index) {
@@ -109,27 +124,26 @@ export default {
         this.eventHover = $event;
         if (this.outsideZoom) {
           this.positionStatic = this.positionObject(index);
-          this.$refs.imgZoom.style.transformOrigin = `${$event.clientX -
+          this.$refs.imgZoom.$refs.img.style.transformOrigin = `${$event.clientX -
             this.positionStatic.x}px ${$event.clientY -
             this.positionStatic.y}px`;
         } else {
           this.positionStatic = this.positionObject(index);
-          this.$refs.sfGalleryBigImage[index].$refs.imgLazy.style.transform =
+          this.$refs.sfGalleryBigImage[index].$refs.img.style.transform =
             "scale(2)";
           this.$refs.sfGalleryBigImage[
             index
-          ].$refs.imgLazy.style.transformOrigin = `${$event.clientX -
+          ].$refs.img.style.transformOrigin = `${$event.clientX -
             this.positionStatic.x}px ${$event.clientY -
             this.positionStatic.y}px`;
         }
       }
     },
-    removeZoom() {
+    removeZoom(index) {
       if (this.enableZoom) {
         this.pictureSelected = "";
-        this.$refs.sfGalleryBigImage.forEach(el => {
-          el.$refs.imgLazy.style.transform = "scale(1)";
-        });
+        this.$refs.sfGalleryBigImage[index].$refs.img.style.transform =
+          "translate3d(0, -50%, 0)";
       }
     }
   },

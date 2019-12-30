@@ -8,10 +8,12 @@
         :class="{ 'sf-gallery__item--selected': index === activeIndex }"
         @click="go(index)"
       >
-        <img
+        <SfImage
           class="sf-gallery__thumb"
-          :src="image.small.url"
-          :alt="image.small.alt"
+          :src="image.mobile.url"
+          :width="imageWidth"
+          :height="imageHeight"
+          alt=""
         />
       </div>
     </slot>
@@ -26,25 +28,30 @@
             :key="'slide-' + index"
             @mouseover="startZoom(picture)"
             @mousemove="moveZoom($event,index)"
-            @mouseout="removeZoom()"
+            @mouseout="removeZoom(index)"
             >
             <SfImage
               ref="sfGalleryBigImage"
               class="sf-gallery__big-image"
               :class="{'sf-gallery__big-image--has-zoom': enableZoom}"
-              :src="picture.normal.url"
+              :src="picture.desktop.url"
+              alt=""
               @click="$emit('click:stage', { picture, index })"
-
+              :width="imageWidth"
+              :height="imageHeight"
             />
           </li>
         </ul>
       </div>
     </div>
     <transition name="fade">
-        <div v-if="outsideZoom && pictureSelected" ref="outSide" class="sf-gallery__zoom">
-          <img
+        <div v-if="outsideZoom && pictureSelected" ref="outSide" class="sf-gallery__zoom" :style="{width: `${imageWidth}px`, height: `${imageHeight}px`}">
+          <SfImage
             ref="imgZoom"
             :src="pictureSelected"
+            :width="imageWidth"
+            :height="imageHeight"
+            :lazy="false"
             />
         </div>
     </transition>
