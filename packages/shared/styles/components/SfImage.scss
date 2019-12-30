@@ -2,14 +2,12 @@
 
 .sf-image {
   position: relative;
-  display: flex;
-  background-color: $c-light;
   width: 100%;
-  max-width: var(--width, 100%);
+  max-width: calc(var(--width) * 1px);
+  line-height: 0;
   &::before{
     display: block;
     content: "";
-    width: 100%;
     padding-top: calc(var(--height) / var(--width) * 100%);
   }
   img{

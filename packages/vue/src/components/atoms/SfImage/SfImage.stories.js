@@ -90,8 +90,6 @@ storiesOf("Atoms|Image", module)
       :src="src"
       :alt="alt"
       :lazy="lazy"
-      :width="216"
-      :height="326"
       :picture-breakpoint="pictureBreakpoint">
       <span>CUSTOM OVERLAY CONTENT</span>
     </SfImage>`

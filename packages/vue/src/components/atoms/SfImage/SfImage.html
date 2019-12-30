@@ -1,7 +1,7 @@
 <div
   ref="image"
   class="sf-image"
-  :style="`--width: ${width}; --height: ${height};`"
+  :style="wrapperStyle"
   v-on="$listeners"
 >
   <template v-if="typeof source === 'string'">
@@ -11,9 +11,7 @@
       :alt="alt"
       :width="width"
       :height="height"
-      :style="width && height && 'position: absolute; transform: translate3d(0, -50%, 0)'"
-      @error="error"
-      @load="load"
+      :style="imgStyle"
     />
   </template>
   <template v-else>
@@ -32,9 +30,7 @@
         :alt="alt"
         :width="width"
         :height="height"
-        :style="width && height && 'position: absolute; transform: translate3d(0, -50%, 0)'"
-        @error="error"
-        @load="load"
+        :style="imgStyle"
       />
     </picture>
   </template>
