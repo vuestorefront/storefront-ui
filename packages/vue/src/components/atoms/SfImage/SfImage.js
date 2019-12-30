@@ -78,7 +78,7 @@ export default {
     lozad() {
       const vm = this;
       this.$nextTick(() => {
-        const observer = lozad(vm.$refs.image, {
+        const observer = lozad(vm.$el, {
           load() {
             vm.show = true;
           }

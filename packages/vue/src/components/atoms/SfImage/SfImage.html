@@ -1,5 +1,4 @@
 <div
-  ref="image"
   class="sf-image"
   :style="wrapperStyle"
   v-on="$listeners"
@@ -12,7 +11,7 @@
       :width="width"
       :height="height"
       :style="imgStyle"
-      ref="img"
+      ref="image"
     />
   </template>
   <template v-else>
@@ -32,7 +31,7 @@
         :width="width"
         :height="height"
         :style="imgStyle"
-        ref="img"
+        ref="image"
       />
     </picture>
   </template>
