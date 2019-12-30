@@ -16,10 +16,10 @@ storiesOf("Organisms|CollectedProduct", module)
         )
       },
       imageWidth: {
-        default: number("imageWidth", 140, "Props")
+        default: number("imageWidth", 140, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 200, "Props")
+        default: number("imageHeight", 200, {}, "Props")
       },
       title: {
         default: text("title", "Product name", "Props")
