@@ -29,8 +29,8 @@
             class="sf-product-card__picture"
             :src="picture"
             :alt="title"
-            :width="216"
-            :height="326"
+            :width="imageWidth"
+            :height="imageHeight"
           />
         </div>
         <SfImage
@@ -38,8 +38,8 @@
           class="sf-product-card__image"
           :src="image"
           :alt="title"
-          :width="216"
-          :height="326"
+          :width="imageWidth"
+          :height="imageHeight"
         />
       </slot>
       <template v-if="showAddToCartButton">
