@@ -14,6 +14,12 @@ storiesOf("Organisms|GroupedProduct", module)
       image: {
         default: text("image", "/assets/storybook/product-white.png", "Props")
       },
+      imageWidth: {
+        default: number("imageWidth", 246, {}, "Props")
+      },
+      imageHeight: {
+        default: number("imageHeight", 336, {}, "Props")
+      },
       title: {
         default: text("title", "Leave white brooch", "Props")
       },
@@ -52,6 +58,8 @@ storiesOf("Organisms|GroupedProduct", module)
         <SfGroupedProductItem 
           v-model="productQty"
           :image="image"
+          :image-width="imageWidth"
+          :image-height="imageHeight"
           :title="title"
           :price-special="priceSpecial"
           :price-regular="priceRegular"
