@@ -2,6 +2,7 @@
 
 .sf-image {
   position: relative;
+  overflow: hidden;
   width: 100%;
   max-width: calc(var(--width) * 1px);
   line-height: 0;
