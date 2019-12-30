@@ -77,7 +77,7 @@ $button--outline-border: 2px !default;
     }
   }
 
-  &--disabled {
+  &:disabled {
     background-color: $c-light;
     color: $c-gray;
     cursor: default;

@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
+  boolean,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 
@@ -19,7 +20,6 @@ storiesOf("Atoms|Button", module)
             "sf-button--outline": "sf-button--outline",
             "sf-button--text": "sf-button--text",
             "sf-button--full-width": "sf-button--full-width",
-            "sf-button--disabled": "sf-button--disabled",
             "color-primary": "color-primary",
             "color-secondary": "color-secondary",
             "color-warning": "color-warning",
@@ -34,11 +34,15 @@ storiesOf("Atoms|Button", module)
       },
       customLabel: {
         default: text("default", "Shop now", "Slots")
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props")
       }
     },
     components: { SfButton },
     template: `<SfButton
-      :class="customClass">
+      :class="customClass"
+      :disabled="disabled">
       {{customLabel}}
     </SfButton>`
   }));
