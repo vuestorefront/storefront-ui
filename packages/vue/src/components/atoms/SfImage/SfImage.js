@@ -45,11 +45,19 @@ export default {
       }
       return src;
     },
-    wrapperStyle(){
-      return this.width && this.height && `--width: ${this.width}; --height: ${this.height};`
+    wrapperStyle() {
+      return (
+        this.width &&
+        this.height &&
+        `--width: ${this.width}; --height: ${this.height};`
+      );
     },
-    imgStyle(){
-      return this.width && this.height && `position: absolute; transform: translate3d(0, -50%, 0)`
+    imgStyle() {
+      return (
+        this.width &&
+        this.height &&
+        `position: absolute; transform: translate3d(0, -50%, 0)`
+      );
     }
   },
   watch: {
