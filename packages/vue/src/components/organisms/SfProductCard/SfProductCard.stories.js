@@ -18,10 +18,10 @@ storiesOf("Organisms|ProductCard", module)
         default: text("image", "assets/storybook/product_thumb.jpg", "Props")
       },
       imageWidth: {
-        default: number("imageWidth", 216, "Props")
+        default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageWidth", 326, "Props")
+        default: number("imageWidth", 326, {}, "Props")
       },
       title: {
         default: text("title", "Product name", "Props")
@@ -86,10 +86,10 @@ storiesOf("Organisms|ProductCard", module)
   .add("With 2 pictures", () => ({
     props: {
       imageWidth: {
-        default: number("imageWidth", 216, "Props")
+        default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageWidth", 326, "Props")
+        default: number("imageWidth", 326, {}, "Props")
       },
       title: {
         default: text("title", "Product name", "Props")
@@ -187,10 +187,10 @@ storiesOf("Organisms|ProductCard", module)
         default: text("image", "assets/storybook/product_thumb.jpg", "Props")
       },
       imageWidth: {
-        default: number("imageWidth", 216, "Props")
+        default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageWidth", 326, "Props")
+        default: number("imageWidth", 326, {}, "Props")
       },
       title: {
         default: text("title", "Product name", "Props")
