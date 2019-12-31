@@ -83,7 +83,8 @@ import {
   SfProperty,
   SfPrice,
   SfCollectedProduct
-} from "../../../../index.js";
+} from "@storefront-ui/vue";
+
 export default {
   name: "Cart",
   components: {
