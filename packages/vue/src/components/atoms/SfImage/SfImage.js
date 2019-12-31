@@ -31,7 +31,8 @@ export default {
   },
   data() {
     return {
-      show: false
+      show: false,
+      overlay: false
     };
   },
   computed: {
@@ -44,6 +45,9 @@ export default {
         }
       }
       return src;
+    },
+    showOverlay() {
+      return this.$slots.default && this.overlay;
     },
     wrapperStyle() {
       return (

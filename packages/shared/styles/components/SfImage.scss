@@ -1,5 +1,8 @@
 @import "../variables";
 
+$image__overlay-bgc: rgba(29, 31, 34, 0.8) !default;
+$image__overlay-c: $c-white !default;
+
 .sf-image {
   position: relative;
   overflow: hidden;
@@ -16,5 +19,23 @@
     left: 0;
     max-width: 100%;
     height: auto;
+  }
+  &__overlay{
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacer-big;
+    background-color: rgba(29, 31, 34, 0.8);
+    color: #FFF;
+    font-family: $body-font-family-secondary;
+    line-height: 1.6;
+    @media (min-width: $desktop-min){
+      font-size: $font-size-regular-desktop;
+    }
   }
 }

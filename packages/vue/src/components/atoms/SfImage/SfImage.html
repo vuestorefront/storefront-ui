@@ -2,6 +2,8 @@
   class="sf-image"
   :style="wrapperStyle"
   v-on="$listeners"
+  @mouseover="overlay = true"
+  @mouseleave="overlay = false"
 >
   <template v-if="typeof source === 'string'">
     <img
@@ -35,4 +37,9 @@
       />
     </picture>
   </template>
+  <transition name="fade">
+    <div v-if="showOverlay" class="sf-image__overlay">
+      <slot/>
+    </div>
+  </transition>
 </div>
