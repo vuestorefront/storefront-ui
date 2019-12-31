@@ -111,7 +111,7 @@ import {
   SfProperty,
   SfCharacteristic,
   SfInput
-} from "../../../../../index.js";
+} from "@storefront-ui/vue";
 export default {
   name: "OrderSummary",
   components: {

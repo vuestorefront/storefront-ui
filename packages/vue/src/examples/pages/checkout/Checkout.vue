@@ -58,7 +58,7 @@
   </div>
 </template>
 <script>
-import { SfSteps } from "../../../../index.js";
+import { SfSteps } from "@storefront-ui/vue";
 import {
   PersonalDetails,
   Shipping,

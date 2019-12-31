@@ -193,7 +193,7 @@ import {
   SfPrice,
   SfProperty,
   SfAccordion
-} from "../../../../../index.js";
+} from "@storefront-ui/vue";
 export default {
   name: "ReviewOrder",
   components: {

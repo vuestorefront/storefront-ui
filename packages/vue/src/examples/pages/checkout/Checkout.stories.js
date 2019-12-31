@@ -2,8 +2,7 @@
 import { storiesOf } from "@storybook/vue";
 import Checkout from "./Checkout.vue";
 
-storiesOf("Pages|Checkout", module)
-  .add("Common",() => ({
-    components: { Checkout },
-    template: `<Checkout />`
-  }));
+storiesOf("Pages|Checkout", module).add("Common", () => ({
+  components: { Checkout },
+  template: `<Checkout />`
+}));

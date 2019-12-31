@@ -65,7 +65,7 @@
   </div>
 </template>
 <script>
-import { SfHeading, SfButton } from "../../../../../index.js";
+import { SfHeading, SfButton } from "@storefront-ui/vue";
 export default {
   name: "OrderReview",
   components: {

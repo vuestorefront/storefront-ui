@@ -140,7 +140,7 @@ import {
   SfButton,
   SfSelect,
   SfRadio
-} from "../../../../../index.js";
+} from "@storefront-ui/vue";
 export default {
   name: "Shipping",
   components: {

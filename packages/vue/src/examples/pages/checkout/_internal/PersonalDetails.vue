@@ -92,7 +92,7 @@ import {
   SfHeading,
   SfModal,
   SfCharacteristic
-} from "../../../../../index.js";
+} from "@storefront-ui/vue";
 export default {
   name: "PersonalDetails",
   components: {

@@ -213,7 +213,7 @@ import {
   SfRadio,
   SfImage,
   SfCheckbox
-} from "../../../../../index.js";
+} from "@storefront-ui/vue";
 export default {
   name: "Payment",
   components: {
