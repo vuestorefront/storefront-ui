@@ -20,11 +20,13 @@
     <div
       v-html="html"
       class="sf-select__selected sf-select-option"></div>
-    <div
-      v-if="label"
-      class="sf-select__label">
-      <slot name="label">{{label}}</slot>
-    </div>
+    <slot name="label">
+      <div
+        v-if="label"
+        class="sf-select__label">
+        {{label}}
+      </div>
+    </slot>
     <SfOverlay :visible="open" @click="" class="sf-select__overlay"/>
     <transition name="sf-select">
       <div v-show="open" class="sf-select__dropdown">
