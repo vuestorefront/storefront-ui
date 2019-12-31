@@ -80,18 +80,12 @@ storiesOf("Atoms|Image", module)
         default: number("pictureBreakpoint", 576, {}, "Props")
       }
     },
-    template: `<div style="display: flex">
-      <SfImage
+    template: `<SfImage
         :src="src"
         :alt="alt"
         :lazy="lazy"
         :picture-breakpoint="pictureBreakpoint"
-      />
-      <p>
-        I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can't comment on interlation as I had an electrition instal it. Would recommend.. Read more
-      </p>
-      </div>
-    `
+      />`
   }))
   .add("[slot] default", () => ({
     components: { SfImage },
