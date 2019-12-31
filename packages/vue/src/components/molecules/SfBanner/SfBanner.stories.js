@@ -19,7 +19,7 @@ storiesOf("Molecules|Banner", module)
           "CSS Modifiers",
           {
             "sf-banner--left": "sf-banner--left",
-            "sf-banner--slim": "sf-banner-slim"
+            "sf-banner--slim": "sf-banner--slim"
           },
           "",
           { display: "multi-select" },
