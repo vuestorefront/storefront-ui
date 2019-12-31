@@ -32,11 +32,11 @@ storiesOf("Atoms|Image", module)
       alt: {
         default: text("alt", "Vila stripe maxi shirt dress", "Props")
       },
-      placeholder: {
-        default: text("placeholder", "/assets/placeholder.png", "Props")
+      width: {
+        default: number("width", 216, {}, "Props")
       },
-      transition: {
-        default: text("transition", "fade", "Props")
+      height: {
+        default: number("height", 326, {}, "Props")
       },
       lazy: {
         default: boolean("lazy", true, "Props")
@@ -48,9 +48,9 @@ storiesOf("Atoms|Image", module)
     template: `<SfImage
         :src="src"
         :alt="alt"
+        :width="width"
+        :height="height"
         :lazy="lazy"
-        :width="216"
-        :height="326"
         :picture-breakpoint="pictureBreakpoint" />`
   }))
   .add("[slot] default", () => ({
@@ -73,11 +73,11 @@ storiesOf("Atoms|Image", module)
       alt: {
         default: text("alt", "Vila stripe maxi shirt dress", "Props")
       },
-      placeholder: {
-        default: text("placeholder", "/assets/placeholder.png", "Props")
+      width: {
+        default: number("width", 216, {}, "Props")
       },
-      transition: {
-        default: text("transition", "fade", "Props")
+      height: {
+        default: number("height", 326, {}, "Props")
       },
       lazy: {
         default: boolean("lazy", true, "Props")
@@ -89,8 +89,11 @@ storiesOf("Atoms|Image", module)
     template: `<SfImage
       :src="src"
       :alt="alt"
+      :width="width"
+      :height="height"
       :lazy="lazy"
-      :picture-breakpoint="pictureBreakpoint">
-      <span>CUSTOM OVERLAY CONTENT</span>
+      :picture-breakpoint="pictureBreakpoint"
+    >
+      CUSTOM OVERLAY CONTENT
     </SfImage>`
   }));
