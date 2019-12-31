@@ -21,7 +21,7 @@ storiesOf("Organisms|ProductCard", module)
         default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageWidth", 326, {}, "Props")
+        default: number("imageHeight", 326, {}, "Props")
       },
       title: {
         default: text("title", "Product name", "Props")
@@ -89,7 +89,7 @@ storiesOf("Organisms|ProductCard", module)
         default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageWidth", 326, {}, "Props")
+        default: number("imageHeight", 326, {}, "Props")
       },
       title: {
         default: text("title", "Product name", "Props")
@@ -190,7 +190,7 @@ storiesOf("Organisms|ProductCard", module)
         default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageWidth", 326, {}, "Props")
+        default: number("imageHeight", 326, {}, "Props")
       },
       title: {
         default: text("title", "Product name", "Props")
