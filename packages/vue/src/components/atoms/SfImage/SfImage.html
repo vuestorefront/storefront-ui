@@ -1,5 +1,6 @@
 <div
   class="sf-image"
+  :class="{'sf-image--no-size': !wrapperStyle}"
   :style="wrapperStyle"
   v-on="$listeners"
   @mouseover="overlay = true"
@@ -12,7 +13,6 @@
       :alt="alt"
       :width="width"
       :height="height"
-      :style="imgStyle"
       ref="image"
     />
   </template>
@@ -32,7 +32,6 @@
         :alt="alt"
         :width="width"
         :height="height"
-        :style="imgStyle"
         ref="image"
       />
     </picture>

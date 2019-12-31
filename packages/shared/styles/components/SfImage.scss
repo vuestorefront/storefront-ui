@@ -15,10 +15,25 @@ $image__overlay-c: $c-white !default;
     padding-top: calc(var(--height) / var(--width) * 100%);
   }
   img{
+    position: absolute;
     top: 50%;
-    left: 0;
+    left:0;
+    transform: translate3d(0, -50%, 0);
+    display: block;
     max-width: 100%;
     height: auto;
+  }
+  &--no-size{
+    width: auto;
+    max-width: unset;
+    overflow: unset;
+    &::before{
+      content: unset;
+    }
+    img{
+      position: static;
+      transform: unset;
+    }
   }
   &__overlay{
     position: absolute;

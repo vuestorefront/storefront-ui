@@ -53,7 +53,7 @@ export default {
       return (
         this.width &&
         this.height &&
-        `--width: ${this.width}; --height: ${this.height};`
+        `--width: ${this.width}; --height: ${this.height}`
       );
     },
     imgStyle() {
