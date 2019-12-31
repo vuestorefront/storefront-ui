@@ -1,3 +1,4 @@
+// @vue/component
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
@@ -57,7 +58,6 @@ export default {
   data() {
     return {
       open: false,
-      index: -1,
       options: [],
       indexes: {},
       optionHeight: 0
@@ -68,9 +68,6 @@ export default {
     SfOverlay
   },
   watch: {
-    index(index) {
-      this.$emit("change", this.options[index].value);
-    },
     open: {
       immediate: true,
       handler: function(visible) {
@@ -83,6 +80,18 @@ export default {
     }
   },
   computed: {
+    index: {
+      get() {
+        const stringified = this.indexes[JSON.stringify(this.selected)];
+        if (typeof stringified === "undefined") {
+          return -1;
+        }
+        return stringified;
+      },
+      set(index) {
+        this.$emit("change", this.options[index].value);
+      }
+    },
     html() {
       if (this.index < 0) return;
       return this.options[this.index].html;
@@ -116,7 +125,9 @@ export default {
       this.toggle();
     },
     toggle(event) {
-      if (this.$refs.cancel && event.target.contains(this.$refs.cancel.$el)) return;
+      if (this.$refs.cancel && event.target.contains(this.$refs.cancel.$el)) {
+        return;
+      }
       this.open = !this.open;
     },
     openHandler() {
@@ -128,9 +139,8 @@ export default {
   },
   created: function() {},
   mounted: function() {
-    const selected = this.selected,
-      options = [],
-      indexes = {};
+    const options = [];
+    const indexes = {};
     let i = 0;
 
     if (!this.$slots.default) return;
@@ -149,8 +159,6 @@ export default {
 
     this.options = options;
     this.indexes = indexes;
-    if (typeof indexes[JSON.stringify(selected)] === "undefined") return;
-    this.index = indexes[JSON.stringify(selected)];
   },
   beforeDestroy: function() {
     this.$off("update", this.update);

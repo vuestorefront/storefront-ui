@@ -1,42 +1,50 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, number, object } from "@storybook/addon-knobs";
+
 import SfGroupedProduct from "./SfGroupedProduct.vue";
 
 storiesOf("Organisms|GroupedProduct", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfGroupedProduct },
     props: {
       settings: {
-        default: object("settings (prop)", { type: "slider" })
+        default: object("settings", { type: "slider" }, "Props")
       },
       image: {
-        default: text("image (prop)", "/assets/storybook/product-white.png")
+        default: text("image", "/assets/storybook/product-white.png", "Props")
       },
       title: {
-        default: text("title (prop)", "Leave white brooch")
+        default: text("title", "Leave white brooch", "Props")
       },
       priceSpecial: {
-        default: text("price-special (prop)", "")
+        default: text("priceSpecial", "", "Props")
       },
       priceRegular: {
-        default: text("price-regular (prop)", "$10,99")
+        default: text("priceRegular", "$10,99", "Props")
       },
       stock: {
-        default: number("stock (prop)", 99)
+        default: number("stock", 99, {}, "Props")
+      },
+      qtyMin: {
+        default: number("qtyMin", 1, {}, "Props")
       },
       attributes: {
-        default: object("attributes (prop)", [
-          {
-            name: "color",
-            value: "White"
-          }
-        ])
+        default: object(
+          "attributes",
+          [
+            {
+              name: "color",
+              value: "White"
+            }
+          ],
+          "Props"
+        )
       }
     },
     data() {
       return {
-        productQty: "0"
+        productQty: 1
       };
     },
     template: `<div style="max-width: 509px">
@@ -48,6 +56,7 @@ storiesOf("Organisms|GroupedProduct", module)
           :price-special="priceSpecial"
           :price-regular="priceRegular"
           :stock="stock"
+          :qty-min="qtyMin"
         >
           <template #details>
             <div style="color: #a3a5ad">MSD23-345-324</div>
@@ -65,7 +74,7 @@ storiesOf("Organisms|GroupedProduct", module)
     components: { SfGroupedProduct },
     props: {
       settings: {
-        default: object("settings (prop)", { type: "slider" })
+        default: object("settings", { type: "slider" }, "Props")
       }
     },
     data() {
@@ -78,7 +87,8 @@ storiesOf("Organisms|GroupedProduct", module)
             priceSpecial: "",
             priceRegular: "$10,99",
             stock: 99,
-            qty: "0",
+            qtyMin: 1,
+            qty: 1,
             attributes: [
               {
                 name: "color",
@@ -92,8 +102,9 @@ storiesOf("Organisms|GroupedProduct", module)
             sku: "MSD23-345-325",
             priceSpecial: "",
             priceRegular: "$11,99",
-            qty: "0",
+            qty: 1,
             stock: 99,
+            qtyMin: 1,
             attributes: [
               {
                 name: "color",
@@ -107,8 +118,9 @@ storiesOf("Organisms|GroupedProduct", module)
             sku: "MSD23-345-326",
             priceSpecial: "",
             priceRegular: "$20,99",
-            qty: "0",
+            qty: 1,
             stock: 99,
+            qtyMin: 1,
             attributes: [
               {
                 name: "color",
@@ -130,6 +142,7 @@ storiesOf("Organisms|GroupedProduct", module)
           :price-special="product.priceSpecial"
           :price-regular="product.priceRegular"
           :stock="product.stock"
+          :qty-min="product.qtyMin"
         >
           <template #details>
             <div style="color: #a3a5ad">{{product.sku}}</div>

@@ -1,47 +1,17 @@
 import { storiesOf } from "@storybook/vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-
-const StoriesMobileBar = {
-  components: { SfIcon },
-  props: {
-    title: {
-      type: String,
-      default: ""
-    }
-  },
-  template: `<div class="mobile-only" :style="{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1.25rem', backgroundColor: '#F1F2F3' }">
-    <div :style="{ display: 'flex' }">
-      <button
-      v-if="title"
-      @click="$emit('click:back')"
-      :style="{ padding: '0', margin: '0', border: '0', backgroundColor: 'transparent', outline: 'none', cursor: 'pointer' }"
-      >
-        <SfIcon icon="chevron_left" size="14px" />
-      </button>
-    </div>
-    <div :style="{ fontSize: '1rem', fontWeight: '500', fontFamily: 'Raleway, sans-serif' }">{{ title }}</div>
-    <div :style="{ display: 'flex', width: '14px' }">
-      <button v-if="false" :style="{ padding: '0', margin: '0', border: '0', backgroundColor: 'transparent', outline: 'none', cursor: 'pointer' }">
-        <SfIcon icon="cross" size="14px" />
-      </button>
-    </div>
-  </div>`
-};
 
 import SfContentPages from "./SfContentPages.vue";
 import SfTabs from "../SfTabs/SfTabs.vue";
 
 storiesOf("Organisms|ContentPages", module)
-  .add("Basic", () => ({
-    components: { SfContentPages, SfTabs, StoriesMobileBar },
+  .add("Common", () => ({
+    components: { SfContentPages, SfTabs },
     data() {
       return {
         activePage: "About us"
       };
     },
-    template: `<div :style="{margin: '-20px'}">
-      <StoriesMobileBar :title="activePage ? activePage : 'Help'" @click:back="activePage = ''"/>
-      <SfContentPages 
+    template: `<SfContentPages 
         title="Help"
         :active="activePage"
         @click:change="updateActivePage"
@@ -90,14 +60,13 @@ storiesOf("Organisms|ContentPages", module)
           </SfTabs>
         </SfContentPage>
         <SfContentPage title="Store locator">
-          This website ("website") is operated by Luma Inc., which includes Luma
-          stores, and Luma Private Sales. This privacy policy only covers
-          information collected at this website, and does not cover any
-          information collected offline by Luma. All Luma websites are covered by
-          this privacy policy.
+          <p style="padding: 1.25rem 0">This website ("website") is operated by Luma Inc., which includes Luma
+            stores, and Luma Private Sales. This privacy policy only covers
+            information collected at this website, and does not cover any
+            information collected offline by Luma. All Luma websites are covered by
+            this privacy policy.</p>
         </SfContentPage>
-      </SfContentPages>
-    </div>`,
+      </SfContentPages>`,
     methods: {
       updateActivePage(title) {
         this.activePage = title;
@@ -105,15 +74,13 @@ storiesOf("Organisms|ContentPages", module)
     }
   }))
   .add("With Category", () => ({
-    components: { SfContentPages, SfTabs, StoriesMobileBar },
+    components: { SfContentPages, SfTabs },
     data() {
       return {
         activePage: "My profile"
       };
     },
-    template: `<div :style="{margin: '-20px'}">
-      <StoriesMobileBar :title="activePage ? activePage : 'My account'" @click:back="activePage = ''"/>
-      <SfContentPages 
+    template: `<SfContentPages 
         title="Help"
         :active="activePage"
         @click:change="updateActivePage"
@@ -160,8 +127,7 @@ storiesOf("Organisms|ContentPages", module)
             </SfTabs>
           </SfContentPage>
         </SfContentCategory>
-      </SfContentPages>
-    </div>`,
+      </SfContentPages>`,
     methods: {
       updateActivePage(title) {
         this.activePage = title;
@@ -169,15 +135,13 @@ storiesOf("Organisms|ContentPages", module)
     }
   }))
   .add("Mixed", () => ({
-    components: { SfContentPages, SfTabs, StoriesMobileBar },
+    components: { SfContentPages, SfTabs },
     data() {
       return {
         activePage: "My profile"
       };
     },
-    template: `<div :style="{margin: '-20px'}">
-      <StoriesMobileBar :title="activePage ? activePage : 'My account'" @click:back="activePage = ''"/>
-      <SfContentPages 
+    template: `<SfContentPages 
         title="My account"
         :active="activePage"
         @click:change="updateActivePage"
@@ -234,8 +198,7 @@ storiesOf("Organisms|ContentPages", module)
           </SfContentPage>
         </SfContentCategory>
         <SfContentPage title="Logout"></SfContentPage>
-      </SfContentPages>
-    </div>`,
+      </SfContentPages>`,
     methods: {
       updateActivePage(title) {
         if (title === "Logout") {
@@ -247,15 +210,13 @@ storiesOf("Organisms|ContentPages", module)
     }
   }))
   .add("With Icon", () => ({
-    components: { SfContentPages, SfTabs, StoriesMobileBar },
+    components: { SfContentPages, SfTabs },
     data() {
       return {
         activePage: "About us"
       };
     },
-    template: `<div :style="{margin: '-20px'}">
-      <StoriesMobileBar :title="activePage ? activePage : 'Help'" @click:back="activePage = ''"/>
-      <SfContentPages 
+    template: `<SfContentPages 
         title="Help"
         :active="activePage"
         @click:change="updateActivePage"
@@ -304,14 +265,13 @@ storiesOf("Organisms|ContentPages", module)
           </SfTabs>
         </SfContentPage>
         <SfContentPage title="Store locator" icon="heart">
-          This website ("website") is operated by Luma Inc., which includes Luma
+          <p style="padding: 1.25rem 0">This website ("website") is operated by Luma Inc., which includes Luma
           stores, and Luma Private Sales. This privacy policy only covers
           information collected at this website, and does not cover any
           information collected offline by Luma. All Luma websites are covered by
-          this privacy policy.
+            this privacy policy.</p>
         </SfContentPage>
-      </SfContentPages>
-    </div>`,
+      </SfContentPages>`,
     methods: {
       updateActivePage(title) {
         if (title === "Logout") {
