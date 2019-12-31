@@ -144,7 +144,7 @@ import {
   SfButton,
   SfSelect,
   SfIcon
-} from "../../../../../index.js";
+} from "@storefront-ui/vue";
 export default {
   name: "ShippingDetails",
   components: {

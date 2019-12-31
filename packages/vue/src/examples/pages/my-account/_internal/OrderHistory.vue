@@ -56,7 +56,7 @@
   </SfTabs>
 </template>
 <script>
-import { SfTabs, SfTable, SfButton } from "../../../../../index.js";
+import { SfTabs, SfTable, SfButton } from "@storefront-ui/vue";
 export default {
   name: "PersonalDetails",
   components: {

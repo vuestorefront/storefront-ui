@@ -78,7 +78,7 @@
   </SfTabs>
 </template>
 <script>
-import { SfTabs, SfInput, SfButton } from "../../../../../index.js";
+import { SfTabs, SfInput, SfButton } from "@storefront-ui/vue";
 export default {
   name: "PersonalDetails",
   components: {

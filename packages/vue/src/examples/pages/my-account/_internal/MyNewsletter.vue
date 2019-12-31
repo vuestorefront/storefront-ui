@@ -38,7 +38,7 @@
   </SfTabs>
 </template>
 <script>
-import { SfTabs, SfCheckbox, SfButton } from "../../../../../index.js";
+import { SfTabs, SfCheckbox, SfButton } from "@storefront-ui/vue";
 export default {
   name: "MyNewsletter",
   components: { SfTabs, SfCheckbox, SfButton }
