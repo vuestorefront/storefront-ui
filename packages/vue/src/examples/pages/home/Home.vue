@@ -89,24 +89,36 @@
       <div class="images-grid">
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.jpg"
+            <SfImage
+              src="assets/storybook/homepage/imageA.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageB.jpg"
+            <SfImage
+              src="assets/storybook/homepage/imageB.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
         </div>
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.jpg"
+            <SfImage
+              src="assets/storybook/homepage/imageC.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageD.jpg"
+            <SfImage
+              src="assets/storybook/homepage/imageD.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
@@ -339,6 +351,7 @@ export default {
   }
   &__col {
     margin: 0;
+    flex: 1;
     & + & {
       margin-left: $spacer-big / 2;
       @include for-desktop {
