@@ -86,7 +86,8 @@ import {
   SfContentPages,
   SfTabs,
   SfIcon
-} from "../../../../index.js";
+} from "@storefront-ui/vue";
+
 export default {
   name: "Static",
   components: {
