@@ -5,14 +5,14 @@ import SfAddToCart from "./SfAddToCart.vue";
 
 storiesOf("Molecules|AddToCart", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfAddToCart },
     props: {
       disabled: {
-        default: boolean("disabled (props)", false)
+        default: boolean("disabled", false, "Props")
       },
       stock: {
-        default: number("stock (props)", 99)
+        default: number("stock", 99, {}, "Props")
       }
     },
     data() {
@@ -20,20 +20,22 @@ storiesOf("Molecules|AddToCart", module)
         value: "1"
       };
     },
-    template: `<SfAddToCart 
-      :disabled="disabled"
-      :stock="stock"
-      v-model="value" 
-      @click="()=>{}"/>`
+    template: `<div style="max-width: 21.25rem">
+      <SfAddToCart 
+        :disabled="disabled"
+        :stock="stock"
+        v-model="value" 
+        @click="()=>{}"/>
+      </div>`
   }))
   .add("[slot] add-to-cart-btn", () => ({
     components: { SfAddToCart },
     props: {
       disabled: {
-        default: boolean("disabled (props)", false)
+        default: boolean("disabled", false, "Props")
       },
       stock: {
-        default: number("stock (props)", 99)
+        default: number("stock", 99, {}, "Props")
       }
     },
     data() {
@@ -41,23 +43,25 @@ storiesOf("Molecules|AddToCart", module)
         value: "1"
       };
     },
-    template: `<SfAddToCart 
-      :disabled="disabled"
-      :stock="stock"
-      v-model="value">
-      <template #add-to-cart-btn>
+    template: `<div style="max-width: 21.25rem">
+        <SfAddToCart 
+          :disabled="disabled"
+          :stock="stock"
+          v-model="value">
+        <template #add-to-cart-btn>
         <button  @click="()=>{}">Custom Add To Cart</button>
       </template>
-    </SfAddToCart>`
+        </SfAddToCart>
+      </div>`
   }))
   .add("[slot] quantity-select-input", () => ({
     components: { SfAddToCart },
     props: {
       disabled: {
-        default: boolean("disabled (props)", false)
+        default: boolean("disabled", false, "Props")
       },
       stock: {
-        default: number("stock (props)", 99)
+        default: number("stock", 99, {}, "Props")
       }
     },
     data() {
@@ -65,16 +69,18 @@ storiesOf("Molecules|AddToCart", module)
         value: "1"
       };
     },
-    template: `<SfAddToCart 
-      :disabled="disabled"
-      :stock="stock"
-      @click="()=>{}">
-      <template #quantity-select-input="{qty, stock}">
-        <select v-model="value">
-          <option value="1">1</option>
-          <option value="5">5</option>
-          <option value="25">25</option>
-        </select>
-      </template>
-    </SfAddToCart>`
+    template: `<div style="max-width: 21.25rem">
+        <SfAddToCart 
+          :disabled="disabled"
+          :stock="stock"
+          @click="()=>{}">
+          <template #quantity-select-input="{qty, stock}">
+            <select v-model="value">
+              <option value="1">1</option>
+              <option value="5">5</option>
+              <option value="25">25</option>
+            </select>
+          </template>
+        </SfAddToCart>
+      </div>`
   }));

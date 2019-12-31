@@ -3,16 +3,16 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 
 import SfProductOption from "./SfProductOption.vue";
 
-export default storiesOf("Molecules|ProductOption", module)
+storiesOf("Molecules|ProductOption", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfProductOption },
     props: {
       color: {
-        default: text("color (prop)", "red")
+        default: text("color", "red", "Props")
       },
       label: {
-        default: text("label (prop)", "Red")
+        default: text("label", "Red", "Props")
       }
     },
     template: `<div style="max-width: 300px">
@@ -25,10 +25,10 @@ export default storiesOf("Molecules|ProductOption", module)
     components: { SfProductOption },
     props: {
       color: {
-        default: text("color (prop)", "red")
+        default: text("color", "red", "Props")
       },
       label: {
-        default: text("label (prop)", "Red")
+        default: text("label", "Red", "Props")
       }
     },
     template: `<div style="max-width: 300px">
@@ -45,10 +45,10 @@ export default storiesOf("Molecules|ProductOption", module)
     components: { SfProductOption },
     props: {
       color: {
-        default: text("color (prop)", "red")
+        default: text("color", "red", "Props")
       },
       label: {
-        default: text("label (prop)", "Red")
+        default: text("label", "Red", "Props")
       }
     },
     template: `<div style="max-width: 300px">

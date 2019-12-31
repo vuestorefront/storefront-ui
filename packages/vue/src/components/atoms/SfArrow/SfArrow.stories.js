@@ -7,14 +7,14 @@ import SfIcon from "../SfIcon/SfIcon.vue";
 
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: {
       SfArrow
     },
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-arrow--right": "sf-arrow--right",
             "sf-arrow--long": "sf-arrow--long",
@@ -23,7 +23,8 @@ storiesOf("Atoms|Arrow", module)
             "sf-arrow--no-shadow": "sf-arrow--no-shadow"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       }
     },
@@ -38,7 +39,7 @@ storiesOf("Atoms|Arrow", module)
     props: {
       customClass: {
         default: options(
-          "CSS modifier",
+          "CSS modifiers",
           {
             "sf-arrow--right": "sf-arrow--right",
             "sf-arrow--long": "sf-arrow--long",
@@ -47,12 +48,13 @@ storiesOf("Atoms|Arrow", module)
             "sf-arrow--no-shadow": "sf-arrow--no-shadow"
           },
           "",
-          { display: "multi-select" }
+          { display: "multi-select" },
+          "CSS Modifiers"
         )
       }
     },
     template: `<SfArrow
       :class="customClass">
-      <SfIcon icon="chevron_left" size="12px" view-box="0 0 24 12"/>
+      <SfIcon icon="chevron_left" class="sf-arrow__icon" size="12px" view-box="0 0 24 12"/>
     </SfArrow>`
   }));

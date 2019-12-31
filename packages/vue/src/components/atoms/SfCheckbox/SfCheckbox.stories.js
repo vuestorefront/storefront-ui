@@ -6,67 +6,87 @@ import SfCheckbox from "./SfCheckbox.vue";
 
 storiesOf("Atoms|Checkbox", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfCheckbox },
     props: {
       name: {
-        default: text("name (prop)", "shipping")
-      },
-      value: {
-        default: text("value (prop)", "shipping-address")
+        default: text("name", "shipping", "Props")
       },
       label: {
-        default: text("label (prop)", "Copy address data from shipping")
+        default: text("label", "I want to create an account", "Props")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("required", false, "Props")
       },
       disabled: {
-        default: boolean("disabled (prop)", false)
+        default: boolean("disabled", false, "Props")
       }
     },
     data() {
       return {
-        checked: []
+        checked: false
       };
     },
     template: `<SfCheckbox 
       v-model="checked"
-      :name="name"
-      :value="value"
+      :name="name"      
       :label="label"
       :required="required"
       :disabled="disabled"
       />`
   }))
-  .add("[slot] checkmark", () => ({
+  .add("Multiple checkboxes", () => ({
     components: { SfCheckbox },
-    props: {
-      name: {
-        default: text("name (prop)", "shipping")
-      },
-      value: {
-        default: text("value (prop)", "shipping-address")
-      },
-      label: {
-        default: text("label (prop)", "Copy address data from shipping")
-      },
-      required: {
-        default: boolean("required (prop)", false)
-      },
-      disabled: {
-        default: boolean("disabled (prop)", false)
-      }
-    },
     data() {
       return {
         checked: []
       };
     },
+    template: `<div>
+        <SfCheckbox 
+          v-model="checked"
+          name="woman"
+          value="woman"
+          label="Woman"
+        />
+        <SfCheckbox 
+          v-model="checked"
+          name="man"
+          value="man"
+          label="Man"
+        />
+        <SfCheckbox 
+          v-model="checked"
+          name="children"
+          value="children"
+          label="Children"
+        /> 
+      </div>`
+  }))
+  .add("[slot] checkmark", () => ({
+    components: { SfCheckbox },
+    props: {
+      name: {
+        default: text("name", "shipping", "Props")
+      },
+      label: {
+        default: text("label", "Copy address data from shipping", "Props")
+      },
+      required: {
+        default: boolean("required", false, "Props")
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props")
+      }
+    },
+    data() {
+      return {
+        checked: false
+      };
+    },
     template: `<SfCheckbox 
       v-model="checked"
       :name="name"
-      :value="value"
       :label="label"
       :required="required"
       :disabled="disabled">
@@ -80,30 +100,26 @@ storiesOf("Atoms|Checkbox", module)
     components: { SfCheckbox },
     props: {
       name: {
-        default: text("name (prop)", "shipping")
-      },
-      value: {
-        default: text("value (prop)", "shipping-address")
+        default: text("name", "shipping", "Props")
       },
       label: {
-        default: text("label (prop)", "Copy address data from shipping")
+        default: text("label", "Copy address data from shipping", "Props")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("required", false, "Props")
       },
       disabled: {
-        default: boolean("disabled (prop)", false)
+        default: boolean("disabled", false, "Props")
       }
     },
     data() {
       return {
-        checked: []
+        checked: false
       };
     },
     template: `<SfCheckbox 
       v-model="checked"
       :name="name"
-      :value="value"
       :label="label"
       :required="required"
       :disabled="disabled">
