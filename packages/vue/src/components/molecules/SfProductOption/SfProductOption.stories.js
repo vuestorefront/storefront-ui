@@ -13,16 +13,12 @@ export default storiesOf("Molecules|ProductOption", module)
       },
       label: {
         default: text("label (prop)", "Red")
-      },
-      value: {
-        default: text("value (prop)", "red")
       }
     },
     template: `<div style="max-width: 300px">
       <SfProductOption
         :color="color"
-        :label="label"
-        :value="value"/>
+        :label="label"/>
     </div>`
   }))
   .add("[slot] color", () => ({
@@ -33,16 +29,12 @@ export default storiesOf("Molecules|ProductOption", module)
       },
       label: {
         default: text("label (prop)", "Red")
-      },
-      value: {
-        default: text("value (prop)", "red")
       }
     },
     template: `<div style="max-width: 300px">
       <SfProductOption
         :color="color"
-        :label="label"
-        :value="value">
+        :label="label">
         <template #color="{color}">
           <div :style="{width: '20px', height:'20px', backgroundColor: color, borderRadius: '100%', marginRight: '10px'}"></div>
         </template>
@@ -57,16 +49,12 @@ export default storiesOf("Molecules|ProductOption", module)
       },
       label: {
         default: text("label (prop)", "Red")
-      },
-      value: {
-        default: text("value (prop)", "red")
       }
     },
     template: `<div style="max-width: 300px">
       <SfProductOption
         :color="color"
-        :label="label"
-        :value="value">
+        :label="label">
         <template #label="{label}">
           CUSTOM LABEL
         </template>
