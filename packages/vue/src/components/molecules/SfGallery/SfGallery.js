@@ -4,11 +4,9 @@ import SfImage from "../../atoms/SfImage/SfImage.vue";
 
 export default {
   name: "SfGallery",
-
   components: {
     SfImage
   },
-
   props: {
     /**
      * Images list
@@ -67,7 +65,6 @@ export default {
       default: false
     }
   },
-
   data() {
     return {
       positionStatic: {},
@@ -78,7 +75,6 @@ export default {
       style: ""
     };
   },
-
   computed: {
     mapPictures() {
       // map images to handle picture tags with SfImage
@@ -88,7 +84,6 @@ export default {
       }));
     }
   },
-
   methods: {
     positionObject(index) {
       if (this.$refs.sfGalleryBigImage) {
@@ -129,11 +124,12 @@ export default {
             this.positionStatic.y}px`;
         } else {
           this.positionStatic = this.positionObject(index);
-          this.$refs.sfGalleryBigImage[index].$refs.img.style.transform =
+          this.$refs.sfGalleryBigImage[index].$refs.image.style.top = "0";
+          this.$refs.sfGalleryBigImage[index].$refs.image.style.transform =
             "scale(2)";
           this.$refs.sfGalleryBigImage[
             index
-          ].$refs.img.style.transformOrigin = `${$event.clientX -
+          ].$refs.image.style.transformOrigin = `${$event.clientX -
             this.positionStatic.x}px ${$event.clientY -
             this.positionStatic.y}px`;
         }
@@ -142,12 +138,12 @@ export default {
     removeZoom(index) {
       if (this.enableZoom) {
         this.pictureSelected = "";
-        this.$refs.sfGalleryBigImage[index].$refs.img.style.transform =
+        this.$refs.sfGalleryBigImage[index].$refs.image.style.transform =
           "translate3d(0, -50%, 0)";
+        this.$refs.sfGalleryBigImage[index].$refs.image.style.top = "50%";
       }
     }
   },
-
   mounted() {
     this.$nextTick(() => {
       // handle slider with swipe and transitions with Glide.js
@@ -160,7 +156,6 @@ export default {
       this.glide = glide;
     });
   },
-
   beforeDestroy() {
     if (this.glide) {
       this.glide.destroy();

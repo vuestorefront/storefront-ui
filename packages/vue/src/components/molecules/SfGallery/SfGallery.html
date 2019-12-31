@@ -19,42 +19,46 @@
     </slot>
   </div>
   <div class="sf-gallery__stage">
-    <div class="glide" ref="glide">
+    <div ref="glide" class="glide">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides">
           <li
-            class="glide__slide"
             v-for="(picture, index) in mapPictures"
             :key="'slide-' + index"
+            class="glide__slide"
             @mouseover="startZoom(picture)"
-            @mousemove="moveZoom($event,index)"
+            @mousemove="moveZoom($event, index)"
             @mouseout="removeZoom(index)"
-            >
+          >
             <SfImage
               ref="sfGalleryBigImage"
               class="sf-gallery__big-image"
-              :class="{'sf-gallery__big-image--has-zoom': enableZoom}"
+              :class="{ 'sf-gallery__big-image--has-zoom': enableZoom }"
               :src="picture.desktop.url"
               alt=""
-              @click="$emit('click:stage', { picture, index })"
               :width="imageWidth"
               :height="imageHeight"
+              @click="$emit('click:stage', { picture, index })"
             />
           </li>
         </ul>
       </div>
     </div>
     <transition name="fade">
-        <div v-if="outsideZoom && pictureSelected" ref="outSide" class="sf-gallery__zoom" :style="{width: `${imageWidth}px`, height: `${imageHeight}px`}">
-          <SfImage
-            ref="imgZoom"
-            :src="pictureSelected"
-            :width="imageWidth"
-            :height="imageHeight"
-            :lazy="false"
-            />
-        </div>
+      <div
+        v-if="outsideZoom && pictureSelected"
+        ref="outSide"
+        class="sf-gallery__zoom"
+        :style="{ width: `${imageWidth}px`, height: `${imageHeight}px` }"
+      >
+        <SfImage
+          ref="imgZoom"
+          :src="pictureSelected"
+          :width="imageWidth"
+          :height="imageHeight"
+          :lazy="false"
+        />
+      </div>
     </transition>
   </div>
-  <div ref="nothingDiv"></div>
 </div>
