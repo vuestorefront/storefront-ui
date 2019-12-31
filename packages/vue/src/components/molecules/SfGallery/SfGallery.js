@@ -119,7 +119,7 @@ export default {
         this.eventHover = $event;
         if (this.outsideZoom) {
           this.positionStatic = this.positionObject(index);
-          this.$refs.imgZoom.$refs.img.style.transformOrigin = `${$event.clientX -
+          this.$refs.imgZoom.$refs.image.style.transformOrigin = `${$event.clientX -
             this.positionStatic.x}px ${$event.clientY -
             this.positionStatic.y}px`;
         } else {

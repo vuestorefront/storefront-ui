@@ -10,10 +10,10 @@ storiesOf("Molecules|Gallery", module)
     components: { SfGallery },
     props: {
       enableZoom: {
-        default: boolean("enable-zoom", false, "Props")
+        default: boolean("enableZoom", false, "Props")
       },
       outsideZoom: {
-        default: boolean("outside-zoom", false, "Props")
+        default: boolean("outsideZoom", false, "Props")
       },
       images: {
         default: object(
