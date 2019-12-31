@@ -35,7 +35,7 @@
               class="sf-gallery__big-image"
               :class="{ 'sf-gallery__big-image--has-zoom': enableZoom }"
               :src="picture.desktop.url"
-              alt=""
+              :alt="picture.alt"
               :width="imageWidth"
               :height="imageHeight"
               @click="$emit('click:stage', { picture, index })"

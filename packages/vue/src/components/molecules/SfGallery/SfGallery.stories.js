@@ -20,37 +20,33 @@ storiesOf("Molecules|Gallery", module)
           "images",
           [
             {
+              alt: "Macbook PRO Apple",
               mobile: {
                 url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-                alt: "Macbook PRO Apple"
+                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               },
               desktop: {
                 url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-                alt: "Macbook PRO Apple"
+                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               },
               big: {
                 url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-                alt: "Macbook PRO Apple"
+                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               }
             },
             {
+              alt: "Macbook PRO Apple (keyboard)",
               mobile: {
                 url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-                alt: "Macbook PRO Apple (keyboard)"
+                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               },
               desktop: {
                 url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-                alt: "Macbook PRO Apple (keyboard)"
+                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               },
               big: {
                 url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-                alt: "Macbook PRO Apple (keyboard)"
+                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               }
             }
           ],
@@ -102,37 +98,33 @@ storiesOf("Molecules|Gallery", module)
           "images",
           [
             {
+              alt: "Macbook PRO Apple",
               mobile: {
                 url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-                alt: "Macbook PRO Apple"
+                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               },
               desktop: {
                 url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-                alt: "Macbook PRO Apple"
+                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               },
               big: {
                 url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-                alt: "Macbook PRO Apple"
+                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               }
             },
             {
+              alt: "Macbook PRO Apple (keyboard)",
               mobile: {
                 url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-                alt: "Macbook PRO Apple (keyboard)"
+                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               },
               desktop: {
                 url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-                alt: "Macbook PRO Apple (keyboard)"
+                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               },
               big: {
                 url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-                alt: "Macbook PRO Apple (keyboard)"
+                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               }
             }
           ],
@@ -163,8 +155,8 @@ storiesOf("Molecules|Gallery", module)
     :outside-zoom="outsideZoom">
     <template #thumbs="{images, active, go}">
       <div v-for="(image, key) in images" :key="key" @click="go(key)" style="position: relative">
-        <img :src="image.small.url" :alt="image.small.alt">
-        <div v-if="active === key" style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%">🔍</div>
+        <img :src="image.mobile.url" :alt="image.alt">
+        <div v-if="active === key" style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%">🔘</div>
       </div>
     </template>
   </SfGallery>`
