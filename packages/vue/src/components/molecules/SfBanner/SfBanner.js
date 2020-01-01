@@ -3,6 +3,12 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 
 export default {
   name: "SfBanner",
+  data() {
+    return {
+      desktopMin: 1024,
+      isMobile: false
+    };
+  },
   props: {
     /**
      * Banner title
@@ -40,6 +46,24 @@ export default {
   },
   components: {
     SfButton
+  },
+  methods: {
+    isMobileHandler(e) {
+      this.isMobile = e.matches;
+    }
+  },
+  mounted() {
+    this.isMobile =
+      Math.max(document.documentElement.clientWidth, window.innerWidth) <
+      this.desktopMin;
+    window
+      .matchMedia(`(max-width: ${this.desktopMin}px)`)
+      .addListener(this.isMobileHandler);
+  },
+  beforeDestroy() {
+    window
+      .matchMedia(`(max-width: ${this.desktopMin}px)`)
+      .removeListener(this.isMobileHandler);
   },
   watch: {
     image: {
