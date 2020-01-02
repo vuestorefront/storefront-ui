@@ -22,7 +22,6 @@
     <!--@slot custom icon for negative (left) finalScore. Provide single icon that will be automatically repeated -->
     <slot
       v-for="index in parseInt(finalMax, 10) - parseInt(finalScore, 10)"
-      v-if="finalScore && finalMax"
       name="icon-negative"
     >
       <svg
