@@ -10,10 +10,10 @@ storiesOf("Molecules|Gallery", module)
     components: { SfGallery },
     props: {
       enableZoom: {
-        default: boolean("enableZoom", false, "Props")
+        default: boolean("enableZoom", true, "Props")
       },
       outsideZoom: {
-        default: boolean("outsideZoom", false, "Props")
+        default: boolean("outsideZoom", true, "Props")
       },
       images: {
         default: object(
@@ -29,7 +29,7 @@ storiesOf("Molecules|Gallery", module)
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               },
-              big: {
+              zoom: {
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               }
@@ -44,7 +44,7 @@ storiesOf("Molecules|Gallery", module)
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               },
-              big: {
+              zoom: {
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               }
@@ -107,7 +107,7 @@ storiesOf("Molecules|Gallery", module)
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               },
-              big: {
+              zoom: {
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               }
@@ -122,7 +122,7 @@ storiesOf("Molecules|Gallery", module)
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               },
-              big: {
+              zoom: {
                 url:
                   "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
               }
