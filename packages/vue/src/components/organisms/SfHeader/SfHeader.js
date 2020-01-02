@@ -73,7 +73,7 @@ export default {
       lastScrollTop: 0
     };
   },
-  beforeMount() {
+  mounted() {
     window.addEventListener(
       "scroll",
       () => {
