@@ -14,6 +14,14 @@ box-sizing:border-box;
     border: 1px solid transparent;
     opacity: 0.5;
 
+    &:hover {
+        opacity: 1;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
     &__fill {
         box-sizing: border-box;
         border: 1px solid $c-white;
@@ -29,13 +37,5 @@ box-sizing:border-box;
     &--active {
         border: 1px solid $c-dark;
         opacity: 1;
-    }
-
-    &:hover {
-        opacity: 1;
-    }
-
-    &:focus {
-        outline: none;
     }
 }
