@@ -3,10 +3,10 @@
     <!--@slot custom icon for finalScore. Provide single icon that will be automatically repeated -->
     <slot
       v-for="index in parseInt(finalScore, 10)"
-      v-if="finalScore && finalMax"
       name="icon-positive"
     >
       <svg
+        :key="`p${index}`"
         width="14"
         height="14"
         viewBox="0 0 11 10"
@@ -26,6 +26,7 @@
       name="icon-negative"
     >
       <svg
+        :key="`n${index}`"
         width="14"
         height="14"
         viewBox="0 0 11 10"
