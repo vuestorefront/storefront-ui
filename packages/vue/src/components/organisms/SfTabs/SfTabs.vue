@@ -14,7 +14,7 @@ export default {
     /** Which tab should be open at the beginning  */
     openTab: {
       type: Number,
-      required: false
+      default: 1
     }
   },
   mounted() {
