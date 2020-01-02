@@ -81,6 +81,7 @@ $button--outline-border: 2px !default;
     background-color: $c-light;
     color: $c-gray;
     cursor: default;
+    transition: background-color 0.3s ease;
     &:hover {
       background-color: $c-light;
       color: $c-gray;
