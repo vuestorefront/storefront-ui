@@ -11,13 +11,11 @@
           {{ title }}
         </h1>
       </slot>
-
       <slot name="description" v-bind="{ description }">
         <p v-if="description" class="sf-banner__description">
           {{ description }}
         </p>
       </slot>
-
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
           v-if="buttonText"
@@ -32,7 +30,6 @@
 </template>
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
-
 export default {
   name: "SfBanner",
   components: {

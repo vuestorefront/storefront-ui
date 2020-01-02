@@ -34,7 +34,6 @@
 <script>
 import Vue from "vue";
 import SfStep from "./_internal/SfStep.vue";
-
 Vue.component("SfStep", SfStep);
 export default {
   name: "SfSteps",

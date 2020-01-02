@@ -10,7 +10,6 @@
 </template>
 <script>
 import SfInput from "../../atoms/SfInput/SfInput.vue";
-
 export default {
   name: "SfQuantitySelector",
   components: {

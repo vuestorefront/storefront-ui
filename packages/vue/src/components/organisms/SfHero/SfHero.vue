@@ -43,23 +43,17 @@
 <script>
 // @vue/component
 import Vue from "vue";
-
 import SfHeroItem from "./_internal/SfHeroItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
 import SfBullets from "../../atoms/SfBullets/SfBullets.vue";
-
 import Glide from "@glidejs/glide";
-
 Vue.component("SfHeroItem", SfHeroItem);
-
 export default {
   name: "SfHero",
-
   components: {
     SfArrow,
     SfBullets
   },
-
   props: {
     /**
      * Slider options like glide.js (https://glidejs.com/docs/)
@@ -69,7 +63,6 @@ export default {
       default: () => ({})
     }
   },
-
   data() {
     return {
       glide: null,
@@ -82,7 +75,6 @@ export default {
       }
     };
   },
-
   computed: {
     mergedOptions() {
       return {
@@ -90,13 +82,11 @@ export default {
         ...this.sliderOptions
       };
     },
-
     numberOfPages() {
       return this.$slots.default
         ? this.$slots.default.filter(slot => slot.tag).length
         : 0;
     },
-
     page() {
       if (this.glide) {
         return this.glide.index + 1;
@@ -104,7 +94,6 @@ export default {
       return 1;
     }
   },
-
   mounted() {
     if (this.numberOfPages) {
       this.$nextTick(() => {
@@ -114,7 +103,6 @@ export default {
       });
     }
   },
-
   methods: {
     go(direct) {
       switch (direct) {

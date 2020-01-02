@@ -39,7 +39,6 @@
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
 import SfDivider from "../../../atoms/SfDivider/SfDivider.vue";
 import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
-
 export default {
   name: "SfStore",
   inject: [

@@ -16,7 +16,6 @@
         />
       </slot>
     </button>
-
     <component
       :is="linkComponentTag"
       :href="linkComponentTag === 'a' ? link : undefined"
@@ -24,7 +23,6 @@
       class="sf-product-card__link"
     >
       <!-- @slot -->
-
       <div ref="productImage" class="sf-product-card__image-wrapper">
         <slot name="image" v-bind="{ image, title }">
           <div v-if="Array.isArray(image)" class="sf-product-card__pictures">
@@ -41,7 +39,6 @@
             <SfImage :src="image" :alt="title" />
           </div>
         </slot>
-
         <template v-if="showAddToCartButton">
           <!-- @slot -->
           <slot
@@ -83,7 +80,6 @@
           </slot>
         </template>
       </div>
-
       <!-- @slot -->
       <slot name="title" v-bind="{ title }">
         <h3 class="sf-product-card__title">
@@ -91,7 +87,6 @@
         </h3>
       </slot>
     </component>
-
     <!-- @slot -->
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
@@ -101,7 +96,6 @@
         :special="specialPrice"
       />
     </slot>
-
     <!-- @slot -->
     <slot name="reviews" v-bind="{ maxRating, scoreRating }">
       <div
@@ -132,10 +126,8 @@ import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-
 export default {
   name: "SfProductCard",
-
   components: {
     SfPrice,
     SfRating,
@@ -143,7 +135,6 @@ export default {
     SfImage,
     SfCircleIcon
   },
-
   props: {
     /**
      * Product image
@@ -256,13 +247,11 @@ export default {
       default: false
     }
   },
-
   data() {
     return {
       isAddingToCart: false
     };
   },
-
   computed: {
     currentWishlistIcon() {
       return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
@@ -273,15 +262,12 @@ export default {
     ariaLabel() {
       return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
-
     wishlistIconClasses() {
       const defaultClass = "sf-product-card__wishlist-icon";
-
       return `${defaultClass} ${
         this.isOnWishlist ? "sf-product-card--on-wishlist" : ""
       }`;
     },
-
     linkComponentTag() {
       if (this.linkTag) {
         return this.linkTag;
@@ -294,7 +280,6 @@ export default {
       return "div";
     }
   },
-
   methods: {
     toggleIsOnWishlist() {
       this.$emit("click:wishlist", !this.isOnWishlist);

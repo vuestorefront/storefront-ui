@@ -29,7 +29,6 @@
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfInput from "../../atoms/SfInput/SfInput.vue";
-
 export default {
   name: "SfAddToCart",
   components: {

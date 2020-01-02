@@ -56,15 +56,12 @@
 import Vue from "vue";
 import SfContentPage from "./_internal/SfContentPage.vue";
 import SfContentCategory from "./_internal/SfContentCategory.vue";
-
 Vue.component("SfContentPage", SfContentPage);
 Vue.component("SfContentCategory", SfContentCategory);
-
 import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
-
 export default {
   name: "SfContentPages",
   components: {
@@ -107,7 +104,6 @@ export default {
           orphans.items = [];
         }
       };
-
       this.items.forEach(item => {
         if (item.items) {
           reduceOrphans();
@@ -118,7 +114,6 @@ export default {
         orphans.items.push(item);
       });
       reduceOrphans();
-
       return items;
     },
     isActive() {
@@ -127,7 +122,6 @@ export default {
   },
   provide() {
     const provided = {};
-
     Object.defineProperty(provided, "active", {
       get: () => this.active
     });

@@ -57,7 +57,6 @@ import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import Vue from "vue";
-
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
@@ -166,11 +165,8 @@ export default {
     const options = [];
     const indexes = {};
     let i = 0;
-
     if (!this.$slots.default) return;
-
     this.$on("update", this.update);
-
     this.$slots.default.forEach(slot => {
       if (!slot.tag) return;
       options.push({
@@ -180,7 +176,6 @@ export default {
       indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
       i++;
     });
-
     this.options = options;
     this.indexes = indexes;
   },
@@ -195,10 +190,8 @@ export default {
       const optionsLength = this.options.length;
       let index = this.index;
       index += payload;
-
       if (index < 0) index = 0;
       if (index >= optionsLength) index = optionsLength - 1;
-
       this.index = index;
     },
     enter() {

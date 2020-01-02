@@ -39,7 +39,6 @@
 </template>
 <script>
 import SfRating from "../../atoms/SfRating/SfRating.vue";
-
 export default {
   name: "SfReview",
   components: {
@@ -114,7 +113,6 @@ export default {
     },
     buttonText() {
       let buttonText = this.readMoreText;
-
       if (this.isOpen) {
         buttonText = this.hideFullText;
       }

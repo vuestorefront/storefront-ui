@@ -11,7 +11,6 @@
         <slot />
       </div>
     </transition>
-
     <template v-if="lazy">
       <img
         v-if="typeof src === 'string'"
@@ -20,7 +19,6 @@
         :data-src="src"
         class="sf-image__img"
       />
-
       <template v-else-if="src && src.normal">
         <picture
           v-if="src.small"
@@ -38,7 +36,6 @@
             :media="`(min-width: ${pictureBreakpoint}px)`"
           />
         </picture>
-
         <img
           v-else
           ref="imgLazy"
@@ -47,10 +44,8 @@
           class="sf-image__img"
         />
       </template>
-
       <img v-else :src="placeholder" alt="No image" class="sf-image__img" />
     </template>
-
     <template v-else>
       <img
         v-if="typeof src === 'string'"
@@ -81,10 +76,8 @@
 <script>
 // @vue/component
 import lozad from "lozad";
-
 export default {
   name: "SfImage",
-
   props: {
     /**
      * Image url or pictures object (`{ small: { url, alt }, normal: { url, alt } }`)
@@ -129,20 +122,17 @@ export default {
       default: 576
     }
   },
-
   data() {
     return {
       loaded: false,
       overlay: false
     };
   },
-
   computed: {
     hasOverlay() {
       return this.$slots.hasOwnProperty("default") && this.overlay;
     }
   },
-
   watch: {
     lazy: function(newValue, oldValue) {
       // init lozad if lazy loading was previously disabled
@@ -159,7 +149,6 @@ export default {
       }
     }
   },
-
   mounted() {
     if (this.lazy !== false) {
       this.initLozad();
@@ -167,12 +156,10 @@ export default {
       this.loaded = true;
     }
   },
-
   methods: {
     hoverHandler(state) {
       this.overlay = state;
     },
-
     initLozad: function() {
       const vm = this;
       this.$nextTick(() => {

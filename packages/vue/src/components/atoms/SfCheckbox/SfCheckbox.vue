@@ -29,7 +29,6 @@
 </template>
 <script>
 import SfIcon from "../SfIcon/SfIcon.vue";
-
 export default {
   name: "SfCheckbox",
   components: {

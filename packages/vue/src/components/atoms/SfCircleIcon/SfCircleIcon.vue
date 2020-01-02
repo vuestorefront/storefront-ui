@@ -21,7 +21,6 @@
 <script>
 import SfButton from "../SfButton/SfButton.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
-
 export default {
   name: "SfCircleIcon",
   components: {

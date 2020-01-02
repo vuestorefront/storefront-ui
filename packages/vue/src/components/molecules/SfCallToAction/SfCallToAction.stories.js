@@ -5,9 +5,7 @@ import {
   color,
   optionsKnob as options
 } from "@storybook/addon-knobs";
-
 import SfCallToAction from "./SfCallToAction.vue";
-
 storiesOf("Molecules|CallToAction", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

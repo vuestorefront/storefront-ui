@@ -10,7 +10,6 @@
         <SfChevron :class="{ 'sf-chevron--top': isActive }" />
       </div>
     </div>
-
     <div class="sf-tabs__content">
       <!--@slot Default. Here you should pass your tab content-->
       <slot></slot>
@@ -19,9 +18,7 @@
 </template>
 <script>
 import { Fragment } from "vue-fragment";
-
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
-
 export default {
   name: "SfTab",
   components: {
@@ -61,7 +58,6 @@ export default {
   -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-
 .slide-left-leave-active {
   -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both
     reverse;
@@ -73,7 +69,6 @@ export default {
     transform: translateX(-1000px);
     opacity: 0;
   }
-
   100% {
     -webkit-transform: translateX(0);
     transform: translateX(0);

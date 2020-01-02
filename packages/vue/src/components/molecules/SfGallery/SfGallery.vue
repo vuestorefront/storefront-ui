@@ -56,14 +56,11 @@
 <script>
 import Glide from "@glidejs/glide";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
-
 export default {
   name: "SfGallery",
-
   components: {
     SfImage
   },
-
   props: {
     /**
      * Images list
@@ -108,7 +105,6 @@ export default {
       default: false
     }
   },
-
   data() {
     return {
       positionStatic: {},
@@ -118,7 +114,6 @@ export default {
       activeIndex: this.current - 1
     };
   },
-
   computed: {
     mapPictures() {
       // map images to handle picture tags with SfImage
@@ -128,7 +123,6 @@ export default {
       }));
     }
   },
-
   mounted() {
     this.$nextTick(() => {
       // handle slider with swipe and transitions with Glide.js
@@ -141,13 +135,11 @@ export default {
       this.glide = glide;
     });
   },
-
   beforeDestroy() {
     if (this.glide) {
       this.glide.destroy();
     }
   },
-
   methods: {
     positionObject(index) {
       if (this.$refs.sfGalleryBigImage) {
