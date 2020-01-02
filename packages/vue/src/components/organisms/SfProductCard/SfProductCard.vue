@@ -27,7 +27,8 @@
         <slot name="image" v-bind="{ image, title }">
           <div v-if="Array.isArray(image)" class="sf-product-card__pictures">
             <div
-              v-for="picture in image.slice(0, 2)"
+              v-for="(picture, key) in image.slice(0, 2)"
+              :key="key"
               class="sf-product-card__picture"
             >
               <div class="sf-product-card__image">
@@ -165,7 +166,7 @@ export default {
      */
     linkTag: {
       type: String,
-      default:""
+      default: ""
     },
     /**
      * Product rating
