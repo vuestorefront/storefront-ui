@@ -6,6 +6,7 @@ $color__margin: 0.5rem !default;
 $color__padding: 0.2rem !default;
 
 .sf-color {
+box-sizing:border-box;
     width: $color__width;
     height: $color__height;
     margin: $color__margin;
