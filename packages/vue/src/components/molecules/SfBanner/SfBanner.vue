@@ -1,5 +1,5 @@
 <template>
-  <section class="sf-banner">
+  <section class="sf-banner" v-on="isMobile ? $listeners : {}">
     <div class="sf-banner__container">
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
@@ -22,12 +22,11 @@
         <SfButton
           v-if="buttonText"
           class="sf-banner__call-to-action color-secondary"
+          v-on="!isMobile ? $listeners : {}"
         >
           {{ buttonText }}
         </SfButton>
       </slot>
-
-      <slot />
     </div>
   </section>
 </template>
@@ -74,6 +73,12 @@ export default {
       default: ""
     }
   },
+  data() {
+    return {
+      desktopMin: 1024,
+      isMobile: false
+    };
+  },
   watch: {
     image: {
       handler(image) {
@@ -107,6 +112,24 @@ export default {
         });
       },
       immediate: true
+    }
+  },
+  mounted() {
+    this.isMobile =
+      Math.max(document.documentElement.clientWidth, window.innerWidth) <
+      this.desktopMin;
+    window
+      .matchMedia(`(max-width: ${this.desktopMin}px)`)
+      .addListener(this.isMobileHandler);
+  },
+  beforeDestroy() {
+    window
+      .matchMedia(`(max-width: ${this.desktopMin}px)`)
+      .removeListener(this.isMobileHandler);
+  },
+  methods: {
+    isMobileHandler(e) {
+      this.isMobile = e.matches;
     }
   }
 };

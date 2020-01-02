@@ -5,14 +5,14 @@
     aria-autocomplete="none"
     role="combobox"
     tabindex="0"
-    @click="toggle($event)"
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
       'sf-select--is-required': required
     }"
-    @blur="closeHandler"
     class="sf-select"
+    @click="toggle($event)"
+    @blur="closeHandler"
     @keyup.space="openHandler"
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
@@ -20,9 +20,11 @@
   >
     <div style="position: relative">
       <div class="sf-select__selected sf-select-option" v-html="html"></div>
-      <div v-if="label" class="sf-select__label">
-        <slot name="label">{{ label }}</slot>
-      </div>
+      <slot name="label">
+        <div v-if="label" class="sf-select__label">
+          {{ label }}
+        </div>
+      </slot>
       <SfOverlay :visible="open" class="sf-select__overlay" @click="" />
       <transition name="sf-select">
         <div v-show="open" class="sf-select__dropdown">
@@ -50,6 +52,7 @@
   </div>
 </template>
 <script>
+// @vue/component
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
@@ -113,13 +116,24 @@ export default {
   data() {
     return {
       open: false,
-      index: -1,
       options: [],
       indexes: {},
       optionHeight: 0
     };
   },
   computed: {
+    index: {
+      get() {
+        const stringified = this.indexes[JSON.stringify(this.selected)];
+        if (typeof stringified === "undefined") {
+          return -1;
+        }
+        return stringified;
+      },
+      set(index) {
+        this.$emit("change", this.options[index].value);
+      }
+    },
     html() {
       if (this.index < 0) return;
       return this.options[this.index].html;
@@ -136,9 +150,6 @@ export default {
     }
   },
   watch: {
-    index(index) {
-      this.$emit("change", this.options[index].value);
-    },
     open: {
       immediate: true,
       handler: function(visible) {
@@ -152,9 +163,8 @@ export default {
   },
   created: function() {},
   mounted: function() {
-    const selected = this.selected,
-      options = [],
-      indexes = {};
+    const options = [];
+    const indexes = {};
     let i = 0;
 
     if (!this.$slots.default) return;
@@ -173,8 +183,6 @@ export default {
 
     this.options = options;
     this.indexes = indexes;
-    if (typeof indexes[JSON.stringify(selected)] === "undefined") return;
-    this.index = indexes[JSON.stringify(selected)];
   },
   beforeDestroy: function() {
     this.$off("update", this.update);

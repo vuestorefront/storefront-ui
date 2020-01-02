@@ -39,7 +39,7 @@
     </slot>
     <div
       v-if="controls"
-      class="sf-counter__control sf-counter__control--up"
+      class="sf-counter__control"
       role="button"
       aria-label="Increase"
       @click="increase"
