@@ -2,11 +2,11 @@
   <div class="sf-collected-product">
     <slot name="remove" v-bind="{ removeHandler }">
       <SfCircleIcon
-        @click="removeHandler"
         class="sf-collected-product__remove"
         icon="cross"
         icon-color="white"
         icon-size="8px"
+        @click="removeHandler"
       />
     </slot>
     <div class="sf-collected-product__aside">
@@ -22,8 +22,8 @@
           :min="qtyMin"
           :qty="qty"
           :stock="stock"
-          @input="$emit('input', $event)"
           class="sf-collected-product__quantity-selector"
+          @input="$emit('input', $event)"
         />
       </slot>
     </div>
@@ -33,9 +33,9 @@
       </slot>
       <slot name="price" v-bind="{ specialPrice, regularPrice }">
         <SfPrice
+          v-if="regularPrice"
           :regular="regularPrice"
           :special="specialPrice"
-          v-if="regularPrice"
         />
       </slot>
       <div class="sf-collected-product__details">

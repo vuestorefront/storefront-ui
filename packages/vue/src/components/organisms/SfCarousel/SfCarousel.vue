@@ -4,22 +4,22 @@
       <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <SfArrow
-          @click="go('prev')"
           aria-label="previous"
           class="sf-arrow--long"
+          @click="go('prev')"
         />
       </slot>
       <!--@slot slot for icon moving to the next item -->
       <slot name="next" v-bind="{ go: () => go('next') }">
         <SfArrow
-          @click="go('next')"
           aria-label="next"
           class="sf-arrow--long sf-arrow--right"
+          @click="go('next')"
         />
       </slot>
     </div>
     <div class="sf-carousel__wrapper">
-      <div class="glide" ref="glide">
+      <div ref="glide" class="glide">
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides sf-carousel__slides">
             <!--@slot default slot for SfCarouselItem tags -->
