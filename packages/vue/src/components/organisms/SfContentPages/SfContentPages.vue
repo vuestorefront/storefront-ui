@@ -3,8 +3,8 @@
     <SfBar
       :back="isActive"
       :title="active ? active : title"
-      @click:back="updatePage()"
       class="mobile-only"
+      @click:back="updatePage()"
     />
     <section
       :class="{ 'sf-content-pages__section--is-active': isActive }"
@@ -12,31 +12,31 @@
     >
       <div class="sf-content-pages__sidebar">
         <h1 class="sf-content-pages__title desktop-only">{{ title }}</h1>
-        <div :key="key" v-for="(category, key) in categories">
-          <h2 class="sf-content-pages__category-title" v-if="category.title">
+        <div v-for="(category, key) in categories" :key="key">
+          <h2 v-if="category.title" class="sf-content-pages__category-title">
             {{ category.title }}
           </h2>
           <SfList class="sf-content-pages__list">
             <SfListItem
+              v-for="page in category.items"
               :key="page.title"
               class="sf-content-pages__list-item"
-              v-for="page in category.items"
             >
               <!-- @slot Custom menu-item markup -->
               <slot name="menu-item" v-bind="{ updatePage, page, active }">
                 <SfMenuItem
                   :class="{ 'sf-menu-item--is-active': page.title === active }"
                   :label="page.title"
-                  @click="updatePage(page.title)"
                   class="sf-content-pages__menu"
+                  @click="updatePage(page.title)"
                 >
                   <template #icon>
                     <SfIcon
+                      v-if="page.icon"
                       :icon="page.icon"
                       class="sf-menu-item__icon"
                       color="#686d7d"
                       size="xxs"
-                      v-if="page.icon"
                     />
                   </template>
                 </SfMenuItem>

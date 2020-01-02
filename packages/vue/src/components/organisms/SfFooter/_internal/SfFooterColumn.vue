@@ -1,13 +1,13 @@
 <template>
   <div class="sf-footer-column">
-    <div @click="toggle(title)" class="sf-footer-column__title">
+    <div class="sf-footer-column__title" @click="toggle(title)">
       {{ title }}
       <div class="sf-footer-column__chevron">
         <SfChevron :class="{ 'sf-chevron--top': open }" />
       </div>
     </div>
     <transition name="fade">
-      <div class="sf-footer-column__content" v-if="open">
+      <div v-if="open" class="sf-footer-column__content">
         <slot />
       </div>
     </transition>
