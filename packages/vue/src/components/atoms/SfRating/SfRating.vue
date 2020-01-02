@@ -1,10 +1,7 @@
 <template>
   <div class="sf-rating">
     <!--@slot custom icon for finalScore. Provide single icon that will be automatically repeated -->
-    <slot
-      v-for="index in parseInt(finalScore, 10)"
-      name="icon-positive"
-    >
+    <slot v-for="index in parseInt(finalScore, 10)" name="icon-positive">
       <svg
         :key="`p${index}`"
         width="14"
