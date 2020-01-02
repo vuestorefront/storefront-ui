@@ -63,17 +63,20 @@ export default {
       default: 1
     },
     value: {
-      type: Number
+      type: Number,
+      default: 0
     },
     // whether the input should be auto filled if left empty
     autoFill: {
       type: Boolean
     },
     min: {
-      type: Number
+      type: Number,
+      default: 0
     },
     max: {
-      type: Number
+      type: Number,
+      default: 1
     },
     // decimal precision
     precision: {
