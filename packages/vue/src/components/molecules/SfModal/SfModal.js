@@ -1,6 +1,12 @@
 // @vue/component
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks
+} from "body-scroll-lock";
+
 export default {
   name: "SfModal",
   model: {
@@ -60,10 +66,10 @@ export default {
       handler: function(value) {
         if (typeof window === "undefined") return;
         if (value) {
-          document.body.style.setProperty("overflow", "hidden");
+          disableBodyScroll(this.$refs.modal);
           document.addEventListener("keydown", this.keydownHandler);
         } else {
-          document.body.style.removeProperty("overflow");
+          enableBodyScroll(this.$refs.modal);
           document.removeEventListener("keydown", this.keydownHandler);
         }
       },
@@ -84,5 +90,8 @@ export default {
         this.close();
       }
     }
+  },
+  beforeDestroy() {
+    clearAllBodyScrollLocks();
   }
 };

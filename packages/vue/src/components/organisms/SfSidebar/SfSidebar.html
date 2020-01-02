@@ -2,7 +2,7 @@
   <SfOverlay :visible="visibleOverlay" @click="$emit('close')" />
   <transition :name="'slide-' + position">
     <aside v-if="visible" class="sf-sidebar__aside">
-      <div class="sf-sidebar__content">
+      <div class="sf-sidebar__content" ref="sidebar">
         <slot name="title">
           <SfHeading
               v-if="headingTitle"
