@@ -7,7 +7,8 @@ export default {
   name: "SfTab",
   data() {
     return {
-      isActive: false
+      isActive: false,
+      desktopMin: 1024
     };
   },
   components: {
@@ -25,6 +26,11 @@ export default {
   },
   methods: {
     tabClick() {
+      const width = Math.max(
+        document.documentElement.clientWidth,
+        window.innerWidth
+      );
+      if (this.isActive && width > this.desktopMin) return;
       this.$parent.$emit("toggle", this._uid);
     }
   }

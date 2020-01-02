@@ -222,7 +222,7 @@ import {
   SfAccordion,
   SfSelect,
   SfBreadcrumbs
-} from "../../../../index.js";
+} from "@storefront-ui/vue";
 
 export default {
   components: {
