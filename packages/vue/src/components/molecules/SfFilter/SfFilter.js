@@ -15,7 +15,7 @@ export default {
       type: [String, Number],
       default: ""
     },
-    selected: {
+    isActive: {
       type: Boolean,
       default: false
     }

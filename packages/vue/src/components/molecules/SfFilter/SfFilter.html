@@ -1,7 +1,7 @@
-<div class="sf-filter" :class="{ 'sf-filter--active' : selected }">
+<div class="sf-filter" :class="{ 'sf-filter--active' : isActive }">
   <!-- @slot  -->
   <slot name="label" v-bind="{label}">
-    <SfCheckbox v-model="selected" name="label" :label="label"/>
+    <SfCheckbox name="label" :label="label"/>
   </slot>
   <slot name="count" v-bind="{count}">
     <div class="sf-filter__count">{{ count }}</div>
