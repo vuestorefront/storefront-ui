@@ -155,7 +155,8 @@ export default {
      * Link to product page
      */
     link: {
-      type: [String, Object]
+      type: [String, Object],
+      default: ""
     },
     /**
      * Link element tag
