@@ -1,6 +1,11 @@
 // @vue/component
+import SfCheckbox from "../../atoms/SfCheckbox/SfCheckbox.vue";
+
 export default {
   name: "SfFilter",
+  components: {
+    SfCheckbox
+  },
   props: {
     label: {
       type: String,
