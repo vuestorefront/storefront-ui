@@ -100,10 +100,12 @@ export default {
       default: "text"
     },
     name: {
-      type: String
+      type: String,
+      default: ""
     },
     placeholder: {
-      type: String
+      type: String,
+      default: ""
     },
     disabled: {
       type: Boolean
