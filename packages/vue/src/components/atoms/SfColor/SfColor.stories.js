@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs } from "@storybook/addon-knobs";
+import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 
 import SfColor from "./SfColor.vue";
 
@@ -34,7 +34,20 @@ storiesOf("Atoms|Color", module)
         ]
       };
     },
+    props: {
+        customClass: {
+          default: options(
+            "CSS modifiers",
+            {
+              "sf-color--light": "sf-color--light",
+            },
+            "",
+            { display: "multi-select" },
+            "CSS Modifiers"
+          )
+        }
+    },
     template: `<div>
-        <SfColor v-for="color in colors" :color="color.label" :is-active="color.active" :aria-label="color.label" @click="color.active= !color.active"/>
+        <SfColor v-for="color in colors" :color="color.label" :is-active="color.active" :aria-label="color.label" @click="color.active= !color.active" :class="customClass"/>
     </div>`
   }));

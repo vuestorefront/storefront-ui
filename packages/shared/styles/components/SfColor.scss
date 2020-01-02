@@ -5,7 +5,8 @@ $color__height: 2.5rem !default;
 $color__padding: 0.2rem !default;
 
 .sf-color {
-box-sizing:border-box;
+    $this: &;
+    box-sizing: border-box;
     width: $color__width;
     height: $color__height;
     padding: $color__padding;
@@ -28,14 +29,16 @@ box-sizing:border-box;
         width: 100%;
         height: 100%;
         border-radius: 50%;
-
-        &--bordered {
-            border: 1px solid $c-gray;
-        }
     }
 
     &--active {
         border: 1px solid $c-dark;
         opacity: 1;
+    }
+
+    &--light {
+        #{$this}__fill {
+          border: 1px solid $c-gray;
+        }
     }
 }
