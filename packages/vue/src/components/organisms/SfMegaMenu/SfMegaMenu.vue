@@ -4,7 +4,7 @@
     <slot />
   </section>
 </template>
-<script src="./SfMegaMenu.js">
+<script>
 export default {
   name: "SfMegaMenu"
 };
