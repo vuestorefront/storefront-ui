@@ -12,9 +12,9 @@
         preserveAspectRatio="none"
       >
         <path
-          v-for="(icon, index) in iconPaths"
+          v-for="(path, index) in iconPaths"
           :key="index"
-          :d="icon"
+          :d="path"
           style="height: 100%;"
         />
       </svg>
