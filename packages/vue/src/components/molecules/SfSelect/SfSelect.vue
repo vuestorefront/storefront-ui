@@ -19,6 +19,7 @@
     @keyup.enter="enter($event)"
   >
     <div style="position: relative">
+      <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="sf-select__selected sf-select-option" v-html="html"></div>
       <slot name="label">
         <div v-if="label" class="sf-select__label">
