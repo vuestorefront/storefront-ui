@@ -12,9 +12,6 @@ Vue.component("SfTab", SfTab);
 
 export default {
   name: "SfTabs",
-  components: {
-    SfTab
-  },
   props: {
     /** Which tab should be open at the beginning  */
     openTab: {
