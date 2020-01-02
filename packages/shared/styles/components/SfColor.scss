@@ -2,14 +2,12 @@
 
 $color__width: 2.5rem !default;
 $color__height: 2.5rem !default;
-$color__margin: 0.5rem !default;
 $color__padding: 0.2rem !default;
 
 .sf-color {
 box-sizing:border-box;
     width: $color__width;
     height: $color__height;
-    margin: $color__margin;
     padding: $color__padding;
     background-color: transparent;
     border-radius: 50%;
