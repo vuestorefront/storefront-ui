@@ -163,7 +163,8 @@ export default {
      * is available on instance, or 'a' otherwise.
      */
     linkTag: {
-      type: String
+      type: String,
+      default:""
     },
     /**
      * Product rating
