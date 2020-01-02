@@ -12,7 +12,7 @@ $color__padding: 0.2rem !default;
     padding: $color__padding;
     background-color: transparent;
     border-radius: 50%;
-    border: none;
+    border: 1px solid transparent;
     opacity: 0.5;
 
     &__fill {
