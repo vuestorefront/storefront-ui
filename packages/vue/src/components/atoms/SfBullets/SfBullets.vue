@@ -17,7 +17,11 @@
         class="sf-bullet"
         v-bind="{ index: inactiveLeft + 1 + index, go }"
       >
-        <li :key="inactiveLeft + 1 + index" class="sf-bullet" @click="go(inactiveLeft + 1 + index)"></li>
+        <li
+          :key="inactiveLeft + 1 + index"
+          class="sf-bullet"
+          @click="go(inactiveLeft + 1 + index)"
+        ></li>
       </slot>
     </template>
   </ol>
