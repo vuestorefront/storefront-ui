@@ -1,5 +1,11 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select, object } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  select,
+  object,
+  boolean
+} from "@storybook/addon-knobs";
 
 import SfHeader from "./SfHeader.vue";
 
@@ -37,15 +43,20 @@ storiesOf("Organisms|Header", module)
           "account",
           "Props"
         )
+      },
+      sticky: {
+        default: boolean("sticky", true, "Props")
       }
     },
-    template: `<SfHeader
+    template: `<div style="height: 50rem;">
+    <SfHeader
       :title="title" 
       :logo="logo"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
+      :sticky="sticky"
       style="max-width: 1024px; margin: auto"
      >
       <template #navigation>
@@ -53,7 +64,8 @@ storiesOf("Organisms|Header", module)
         <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
         <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
       </template>
-    </SfHeader>`
+    </SfHeader>
+    </div>`
   }))
   .add("[slot] logo", () => ({
     components: { SfHeader },
@@ -87,15 +99,20 @@ storiesOf("Organisms|Header", module)
           "account",
           "Props"
         )
+      },
+      sticky: {
+        default: boolean("sticky", false, "Props")
       }
     },
-    template: `<SfHeader
+    template: `<div style="height: 50rem;">
+    <SfHeader
       :title="title"  
       :logo="logo"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
+      :sticky="sticky"
       style="max-width: 1024px; margin: auto"
     >
       <template #logo>
@@ -106,7 +123,8 @@ storiesOf("Organisms|Header", module)
       <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
       <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
     </template>
-    </SfHeader>`
+    </SfHeader>
+    </div>`
   }))
   .add("[slot] navigation", () => ({
     components: { SfHeader },
@@ -135,21 +153,27 @@ storiesOf("Organisms|Header", module)
       },
       activeIcon: {
         default: text("activeIcon", "account", "Props")
+      },
+      sticky: {
+        default: boolean("sticky", false, "Props")
       }
     },
-    template: `<SfHeader
+    template: `<div style="height: 50rem;">
+    <SfHeader
       :title="title" 
       :logo="logo"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
+      :sticky="sticky"
       style="max-width: 1024px; margin: auto"
     >
       <template #navigation>
         CUSTOM NAVIGATION
       </template>
-    </SfHeader>`
+    </SfHeader>
+    </div>`
   }))
   .add("[slot] search", () => ({
     components: { SfHeader },
@@ -178,15 +202,20 @@ storiesOf("Organisms|Header", module)
       },
       activeIcon: {
         default: text("activeIcon", "account", "Props")
+      },
+      sticky: {
+        default: boolean("sticky", false, "Props")
       }
     },
-    template: `<SfHeader
+    template: `<div style="height: 50rem;">
+    <SfHeader
       :title="title"  
       :logo="logo"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
+      :sticky="sticky"
       style="max-width: 1024px; margin: auto"
     >
       <template #navigation>
@@ -197,7 +226,8 @@ storiesOf("Organisms|Header", module)
       <template #search>
         CUSTOM SEARCH
       </template>
-    </SfHeader>`
+    </SfHeader>
+    </div>`
   }))
   .add("[slot] icons", () => ({
     components: { SfHeader },
@@ -231,15 +261,20 @@ storiesOf("Organisms|Header", module)
           "account",
           "Props"
         )
+      },
+      sticky: {
+        default: boolean("sticky", false, "Props")
       }
     },
-    template: `<SfHeader
+    template: `<div style="height: 50rem;">
+    <SfHeader
       :title="title" 
       :logo="logo"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
+      :sticky="sticky"
       style="max-width: 1024px; margin: auto"
     >
       <template #navigation>
@@ -250,5 +285,6 @@ storiesOf("Organisms|Header", module)
       <template #header-icons>
         CUSTOM ICONS
       </template>
-    </SfHeader>`
+    </SfHeader>
+    </div>`
   }));

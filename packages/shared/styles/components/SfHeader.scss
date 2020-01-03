@@ -48,8 +48,6 @@ $header-navigation-item-font-weight: 500 !default;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateY(0);
-  transition: all 0.3s ease-in-out;
   height: $header-height;
   padding: $header-padding;
   background-color: $header-background-color;
@@ -125,6 +123,8 @@ $header-navigation-item-font-weight: 500 !default;
       position: fixed;
       width: 100%;
       z-index: 2;
+      transform: translateY(0);
+      transition: all 0.3s ease-in-out;
   }
   &--hidden {
     transform: translateY(-100%);
