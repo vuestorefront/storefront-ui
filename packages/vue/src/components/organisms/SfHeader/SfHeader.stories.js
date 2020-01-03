@@ -46,7 +46,6 @@ storiesOf("Organisms|Header", module)
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
      >
       <template #navigation>
         <SfHeaderNavigationItem>CLOTHES</SfHeaderNavigationItem>
