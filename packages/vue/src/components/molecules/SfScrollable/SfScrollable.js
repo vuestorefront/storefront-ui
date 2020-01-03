@@ -7,11 +7,6 @@ export default {
     Simplebar,
     SfButton
   },
-  data() {
-    return {
-      isHidden: true
-    };
-  },
   props: {
     maxContentHeight: {
       type: String,
@@ -19,21 +14,37 @@ export default {
     },
     showText: {
       type: String,
-      default: ""
+      default: "Show"
     },
-    closeText: {
+    hideText: {
       type: String,
-      default: ""
+      default: "Hide"
     }
+  },
+  data() {
+    return {
+      isHidden: true,
+      hasScroll: false
+    };
   },
   computed: {
     style() {
-      return this.isHidden
-        ? `max-height: ${this.maxContentHeight} `
-        : "max-height: unset; overflow-y: unset;";
+      return {
+        "--max-height": this.maxContentHeight.trim
+          ? this.maxContentHeight
+          : undefined,
+        maxHeight: this.isHidden ? undefined : "unset"
+      };
     }
   },
   mounted() {
-    this.$el.style.setProperty("--content-height", this.maxContentHeight);
+    const fullHeight = this.$refs.content.$el.querySelector(
+      ".simplebar-content"
+    ).offsetHeight;
+    const height = this.$refs.content.$el.offsetHeight;
+
+    if (fullHeight > height) {
+      this.hasScroll = true;
+    }
   }
 };

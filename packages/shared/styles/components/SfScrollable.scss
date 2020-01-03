@@ -1,23 +1,20 @@
 @import "~simplebar/dist/simplebar.min.css";
 @import "../variables";
 
-
 .sf-scrollable {
-    --content-height: 10rem;
-
-    &__content {
-        max-height: var(--content-height);
-
-        .simplebar-scrollbar:before {
-            width: 0.25rem;
-            background-color: $c-dark;
-            border-radius: 10px;
-        }
-        .simplebar-visible:before {
-            opacity: 1;
-        }
+  --max-height: 2.5rem;
+  &__content {
+    max-height: var(--max-height);
+    .simplebar-scrollbar:before {
+      width: 0.25rem;
+      background-color: $c-dark;
+      border-radius: 10px;
     }
-    &__button {
-        margin-top: 1rem;
+    .simplebar-visible:before {
+      opacity: 1;
     }
+  }
+  &__button {
+    margin-top: $spacer;
+  }
 }
