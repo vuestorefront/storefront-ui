@@ -38,13 +38,15 @@ export default {
     }
   },
   mounted() {
-    const fullHeight = this.$refs.content.$el.querySelector(
-      ".simplebar-content"
-    ).offsetHeight;
-    const height = this.$refs.content.$el.offsetHeight;
+    this.$nextTick(() => {
+      const fullHeight = this.$refs.content.$el.querySelector(
+        ".simplebar-content"
+      ).offsetHeight;
+      const height = this.$refs.content.$el.offsetHeight;
 
-    if (fullHeight > height) {
-      this.hasScroll = true;
-    }
+      if (fullHeight > height) {
+        this.hasScroll = true;
+      }
+    });
   }
 };
