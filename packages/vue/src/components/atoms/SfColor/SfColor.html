@@ -1,4 +1,4 @@
-<button v-on="$listeners" class="sf-color" :class="{ 'sf-color--active' : isActive }" :aria-label="ariaLabel">
+<button v-on="$listeners" class="sf-color" :class="{ 'sf-color--active' : isActive }" :aria-label="ariaLabel" :aria-pressed="isActive">
 <!-- @slot Custom color markup -->
   <slot>
     <div v-if="color" class="sf-color__fill" :style="colorStyle" />
