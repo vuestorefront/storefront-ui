@@ -1,11 +1,13 @@
 @import "../variables";
 
 $header-height: 3.125rem !default;
+$max-header-height: 6.25rem !default;
 $header-padding: 0 $spacer-extra-big!default;
 $header-desktop-padding: 0 $spacer-extra-big!default;
 $header-desktop-height: 5rem !default;
 $header-background-color: $c-light !default;
 $header-desktop-background-color: $c-white !default;
+$header-search-mobile-color: $c-white !default;
 $header-navigation-item-margin-left: 2.5rem !default;
 $header-navigation-item-font-family: $font-size-small-desktop !default;
 $header-navigation-item-font-size: $font-size-small-desktop !default;
@@ -47,9 +49,11 @@ $header-navigation-item-font-weight: 500 !default;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: $header-height;
-  padding: $header-padding ;
+  min-height: $header-height;
+  max-height: $max-header-height;
+  padding: $header-padding;
   background-color: $header-background-color;
+  flex-wrap: wrap;
   @media (min-width: $desktop-min) {
     justify-content: flex-start;
     height: $header-desktop-height;
@@ -57,13 +61,16 @@ $header-navigation-item-font-weight: 500 !default;
     background-color: $header-desktop-background-color;
   }
   &__logo {
-    height: calc(100% - 1.25rem);
+    height: 2.25rem;
+    margin: 0.25rem 0;
     width: auto;
+    max-width:100%;
     @media (min-width: $desktop-min) {
       height: calc(100% - 2.5rem);
     }
     img, picture{
       height: 100%;
+      max-width: 100%;
     }
   }
   &__navigation {
@@ -73,13 +80,28 @@ $header-navigation-item-font-weight: 500 !default;
     &:hover > *:not(:hover){
       color: $c-gray;
     }
+    @media (max-width: $desktop-min) {
+      display: none;
+    }
+  }
+  &__search-box {
+    flex-grow: 1;
+    margin: 0.25rem 0;
   }
   &__search {
     margin: 0 10px 0 auto;
+    max-width: 20rem;
+    @media (max-width: $desktop-min) {
+      background-color: $header-search-mobile-color;
+      margin: 0.25rem auto;
+    }
   }
   &__icons{
     display: flex;
     align-items: center;
+    @media (max-width: $desktop-min) {
+      display: none;
+    }
   }
   &__icon {
     $this: &;
@@ -109,13 +131,6 @@ $header-navigation-item-font-weight: 500 !default;
           --icon-color: #{$c-white};
         }
       }
-    }
-  }
-  &__navigation,
-  &__search,
-  &__icons{
-    @media (max-width: $desktop-min) {
-      display: none;
     }
   }
 }

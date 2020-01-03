@@ -15,7 +15,7 @@ storiesOf("Organisms|Header", module)
         default: object(
           "logo",
           {
-            small: { url: "/assets/logo.svg" },
+            small: { url: "/assets/logo-full.svg" },
             normal: { url: "/assets/logo.svg" }
           },
           "Props"
@@ -65,7 +65,7 @@ storiesOf("Organisms|Header", module)
         default: object(
           "logo",
           {
-            small: { url: "/assets/logo.svg" },
+            small: { url: "/assets/logo-full.svg" },
             normal: { url: "/assets/logo.svg" }
           },
           "Props"
@@ -118,7 +118,7 @@ storiesOf("Organisms|Header", module)
         default: object(
           "logo",
           {
-            small: { url: "/assets/logo.svg" },
+            small: { url: "/assets/logo-full.svg" },
             normal: { url: "/assets/logo.svg" }
           },
           "Props"
@@ -161,7 +161,7 @@ storiesOf("Organisms|Header", module)
         default: object(
           "logo",
           {
-            small: { url: "/assets/logo.svg" },
+            small: { url: "/assets/logo-full.svg" },
             normal: { url: "/assets/logo.svg" }
           },
           "Props"
@@ -209,7 +209,7 @@ storiesOf("Organisms|Header", module)
         default: object(
           "logo",
           {
-            small: { url: "/assets/logo.svg" },
+            small: { url: "/assets/logo-full.svg" },
             normal: { url: "/assets/logo.svg" }
           },
           "Props"

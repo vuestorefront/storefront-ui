@@ -10,7 +10,9 @@
   </nav>
     <!--@slot Use this slot to replace default search bar-->
   <slot name="search">
-    <SfSearchBar class="sf-header__search" />
+    <div class="sf-header__search-box">
+      <SfSearchBar class="sf-header__search" />
+    </div>
   </slot>
   <!--@slot Use this slot to replace default header icons with custom content-->
   <slot name="header-icons" v-bind="{accountIcon, wishlistIcon, cartIcon}">
