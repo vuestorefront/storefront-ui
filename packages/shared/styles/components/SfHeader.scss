@@ -50,7 +50,7 @@ $header-navigation-item-font-weight: 500 !default;
   align-items: center;
   justify-content: center;
   min-height: $header-height;
-  max-height: $max-header-height;
+  max-height: $header-max-height;
   padding: $header-padding;
   background-color: $header-background-color;
   flex-wrap: wrap;
