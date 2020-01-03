@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs } from "@storybook/addon-knobs";
+import { withKnobs, text } from "@storybook/addon-knobs";
 
 import SfScrollable from "./SfScrollable.vue";
 import SfProductOption from "../SfProductOption/SfProductOption.vue";
@@ -8,6 +8,17 @@ storiesOf("Molecules|Scrollable", module)
   .addDecorator(withKnobs)
   .add("Default", () => ({
     components: { SfScrollable, SfProductOption },
+    props: {
+      showText: {
+        default: text("showText", "View all colors", "Props")
+      },
+      hideText: {
+        default: text("hideText", "Hide colors", "Props")
+      },
+      maxContentHeight: {
+        default: text("maxContentHeight", "6.875rem", "Props")
+      }
+    },
     data() {
       return {
         options: [
@@ -38,7 +49,17 @@ storiesOf("Molecules|Scrollable", module)
         ]
       };
     },
-    template: `<SfScrollable show-text="View all colors" close-text="Hide" max-content-height="6rem">
-        <SfProductOption v-for="option in options" :key="option.color" :color="option.color" :label="option.label"></SfProductOption>
-    </SfScrollable>`
+    template: `<SfScrollable 
+        :show-text="showText" 
+        :hide-text="hideText"
+        :max-content-height="maxContentHeight"
+        style="max-width: 13.75rem"
+      >
+        <SfProductOption 
+          v-for="(option, key) in options" 
+          :key="option.color" 
+          :color="option.color" 
+          :label="option.label"
+          :style="{marginBottom: key < options.length - 1 ? '8px' : undefined}"/>
+      </SfScrollable>`
   }));
