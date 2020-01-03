@@ -68,38 +68,17 @@ export default {
   data() {
     return {
       isVisible: true,
-      isScrolling: false,
-      scrollTop: 0,
-      lastScrollTop: 0
+      lastScrollPosition: 0
     };
   },
   mounted() {
     if (this.sticky) {
-      window.addEventListener(
-        "scroll",
-        () => {
-          this.isScrolling = true;
-        },
-        { passive: true }
-      );
-
-      setInterval(() => {
-        if (this.isScrolling) {
-          this.hasScrolled();
-          this.isScrolling = false;
-        }
-      }, 250);
+      window.addEventListener("scroll", this.onScroll);
     }
   },
   beforeDestroy() {
     if (this.sticky) {
-      window.removeEventListener(
-        "scroll",
-        () => {
-          this.isScrolling = false;
-        },
-        { passive: true }
-      );
+      window.removeEventListener("scroll", this.onScroll);
     }
   },
   computed: {
@@ -108,17 +87,20 @@ export default {
     }
   },
   methods: {
-    hasScrolled() {
-      this.scrollTop = window.scrollY;
-      if (
-        this.scrollTop > this.lastScrollTop &&
-        this.scrollTop > this.desktopHeight
-      ) {
-        this.isVisible = false;
-      } else {
-        this.isVisible = true;
+    onScroll() {
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScrollPosition < 0) {
+        return;
       }
-      this.lastScrollTop = this.scrollTop;
+      if (
+        Math.abs(currentScrollPosition - this.lastScrollPosition) <
+        this.desktopHeight
+      ) {
+        return;
+      }
+      this.isVisible = currentScrollPosition < this.lastScrollPosition;
+      this.lastScrollPosition = currentScrollPosition;
     }
   }
 };
