@@ -78,8 +78,10 @@ $header-navigation-item-font-weight: 500 !default;
   }
   &__search {
     @media (max-width: $desktop-min){
-      background-color: $c-white;
+      order: 1;
+      flex: 0 0 100%;
       margin: $spacer 0;
+      background-color: $c-white;
     }
     @media (min-width: $desktop-min) {
       margin: 0 10px 0 auto;
