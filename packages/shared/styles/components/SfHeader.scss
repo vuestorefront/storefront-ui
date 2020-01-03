@@ -48,8 +48,8 @@ $header-navigation-item-font-weight: 500 !default;
   display: flex;
   align-items: center;
   justify-content: center;
-  top: calc(var(--header-desktop-height) * -1);
-  transition: top 0.2s ease-in-out;
+  transform: translateY(0);
+  transition: 0.15s all ease-out;
   height: $header-height;
   padding: $header-padding;
   background-color: $header-background-color;
@@ -126,7 +126,7 @@ $header-navigation-item-font-weight: 500 !default;
       width: 100%;
       z-index: 2;
   }
-  &--visible {
-    top: 0;
+  &--hidden {
+    transform: translateY(-100%);
   }
 }
