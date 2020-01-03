@@ -1,6 +1,5 @@
 <template>
   <div id="category">
-    <SfHeader title="Header" :sticky="true"></SfHeader>
     <SfBreadcrumbs
       class="breadcrumbs desktop-only"
       :breadcrumbs="breadcrumbs"
@@ -222,8 +221,7 @@ import {
   SfPagination,
   SfAccordion,
   SfSelect,
-  SfBreadcrumbs,
-  SfHeader
+  SfBreadcrumbs
 } from "@storefront-ui/vue";
 
 export default {
@@ -238,8 +236,7 @@ export default {
     SfMenuItem,
     SfAccordion,
     SfSelect,
-    SfBreadcrumbs,
-    SfHeader
+    SfBreadcrumbs
   },
   data() {
     return {

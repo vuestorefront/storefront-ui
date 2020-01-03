@@ -49,7 +49,7 @@ $header-navigation-item-font-weight: 500 !default;
   align-items: center;
   justify-content: center;
   transform: translateY(0);
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   height: $header-height;
   padding: $header-padding;
   background-color: $header-background-color;
