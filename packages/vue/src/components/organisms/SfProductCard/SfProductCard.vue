@@ -121,7 +121,6 @@
   </div>
 </template>
 <script>
-// @vue/component
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";

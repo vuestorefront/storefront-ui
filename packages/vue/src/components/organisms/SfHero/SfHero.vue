@@ -41,7 +41,6 @@
   </div>
 </template>
 <script>
-// @vue/component
 import Vue from "vue";
 import SfHeroItem from "./_internal/SfHeroItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";

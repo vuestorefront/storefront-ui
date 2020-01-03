@@ -15,7 +15,6 @@
   </div>
 </template>
 <script>
-// @vue/component
 export default {
   name: "SfProductOption",
   props: {

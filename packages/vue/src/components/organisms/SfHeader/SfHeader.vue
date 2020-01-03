@@ -54,7 +54,6 @@
   </header>
 </template>
 <script>
-// @vue/component
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";

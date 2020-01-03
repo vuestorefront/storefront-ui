@@ -57,7 +57,6 @@
   </div>
 </template>
 <script>
-// @vue/component
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
