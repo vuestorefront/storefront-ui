@@ -2,7 +2,7 @@
 
 $color__width: 2.5rem !default;
 $color__height: 2.5rem !default;
-$color__padding: 0.2rem !default;
+$color__padding: 0.1rem !default;
 
 .sf-color {
     $this: &;
@@ -32,13 +32,13 @@ $color__padding: 0.2rem !default;
     }
 
     &--active {
-        border: 1px solid $c-dark;
+        border: 1px solid $c-gray;
         opacity: 1;
     }
 
     &--light {
         #{$this}__fill {
-          border: 1px solid $c-gray;
+          border: 1px solid $c-light;
         }
     }
 }
