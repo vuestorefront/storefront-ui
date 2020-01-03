@@ -74,20 +74,33 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener(
-      "scroll",
-      () => {
-        this.isScrolling = true;
-      },
-      { passive: true }
-    );
+    if (this.sticky) {
+      window.addEventListener(
+        "scroll",
+        () => {
+          this.isScrolling = true;
+        },
+        { passive: true }
+      );
 
-    setInterval(() => {
-      if (this.isScrolling) {
-        this.hasScrolled();
-        this.isScrolling = false;
-      }
-    }, 250);
+      setInterval(() => {
+        if (this.isScrolling) {
+          this.hasScrolled();
+          this.isScrolling = false;
+        }
+      }, 250);
+    }
+  },
+  beforeDestroy() {
+    if (this.sticky) {
+      window.removeEventListener(
+        "scroll",
+        () => {
+          this.isScrolling = false;
+        },
+        { passive: true }
+      );
+    }
   },
   computed: {
     desktopHeight() {
