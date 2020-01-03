@@ -64,7 +64,7 @@ $header-navigation-item-font-weight: 500 !default;
     height: 2.25rem;
     margin: 0.25rem 0;
     width: auto;
-    max-width:100%;
+    max-width: 100%;
     @media (min-width: $desktop-min) {
       height: calc(100% - 2.5rem);
     }
