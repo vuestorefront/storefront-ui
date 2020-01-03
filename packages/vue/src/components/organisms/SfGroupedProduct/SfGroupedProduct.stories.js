@@ -12,7 +12,11 @@ storiesOf("Organisms|GroupedProduct", module)
         default: object("settings", { type: "slider" }, "Props")
       },
       image: {
-        default: text("image", "/assets/storybook/product-white.png", "Props")
+        default: text(
+          "image",
+          "/assets/storybook/SfGroupedProduct/product-white.png",
+          "Props"
+        )
       },
       title: {
         default: text("title", "Leave white brooch", "Props")
@@ -81,7 +85,7 @@ storiesOf("Organisms|GroupedProduct", module)
       return {
         groupedProduct: [
           {
-            image: "/assets/storybook/product-white.png",
+            image: "/assets/storybook/SfGroupedProduct/product-white.png",
             title: "Leave white brooch",
             sku: "MSD23-345-324",
             priceSpecial: "",
@@ -97,7 +101,7 @@ storiesOf("Organisms|GroupedProduct", module)
             ]
           },
           {
-            image: "/assets/storybook/product-green.png",
+            image: "/assets/storybook/SfGroupedProduct/product-green.png",
             title: "Leave green brooch",
             sku: "MSD23-345-325",
             priceSpecial: "",
@@ -113,7 +117,7 @@ storiesOf("Organisms|GroupedProduct", module)
             ]
           },
           {
-            image: "/assets/storybook/product-black.png",
+            image: "/assets/storybook/SfGroupedProduct/product-black.png",
             title: "Leave black brooch",
             sku: "MSD23-345-326",
             priceSpecial: "",

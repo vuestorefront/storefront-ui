@@ -42,7 +42,11 @@ storiesOf("Organisms|ProductCard", module)
   .add("Common", () => ({
     props: {
       image: {
-        default: text("image", "assets/storybook/product_thumb.jpg", "Props")
+        default: text(
+          "image",
+          "assets/storybook/SfProductCard/product_thumb.jpg",
+          "Props"
+        )
       },
       title: {
         default: text("title", "Product name", "Props")
@@ -169,7 +173,11 @@ storiesOf("Organisms|ProductCard", module)
   .add("With CircleIconButton", () => ({
     props: {
       image: {
-        default: text("image", "assets/storybook/product_thumb.jpg", "Props")
+        default: text(
+          "image",
+          "assets/storybook/SfProductCard/product_thumb.jpg",
+          "Props"
+        )
       },
       title: {
         default: text("title", "Product name", "Props")
