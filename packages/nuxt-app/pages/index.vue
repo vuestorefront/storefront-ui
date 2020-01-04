@@ -1,72 +1,379 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        nuxt-app
-      </h1>
-      <h2 class="subtitle">
-        Storefront UI NuxtJS app
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
+  <div id="home">
+    <SfHero class="section">
+      <SfHeroItem
+        v-for="(hero, i) in heroes"
+        :key="i"
+        :title="hero.title"
+        :subtitle="hero.subtitle"
+        :button-text="hero.buttonText"
+        :background="hero.background"
+        :image="hero.image"
+        :class="hero.className"
+      ></SfHeroItem>
+    </SfHero>
+    <SfBannerGrid :banner-grid="1" class="banners section">
+      <template #bannerA>
+        <a href="#">
+          <SfBanner
+            subtitle="Dresses"
+            title="COCKTAIL PARTY"
+            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+            button-text="SHOP NOW"
+            image="/storybook/Home/bannerF.jpg"
+            class="sf-banner--slim banner-custom"
+          />
         </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
+      </template>
+      <template #bannerB>
+        <a href="#">
+          <SfBanner
+            subtitle="Dresses"
+            title="LINEN DRESSES"
+            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+            button-text="SHOP NOW"
+            image="/storybook/Home/bannerE.jpg"
+            class="sf-banner--slim banner-central"
+          />
         </a>
+      </template>
+      <template #bannerC>
+        <a href="#">
+          <SfBanner
+            subtitle="T-Shirts"
+            title="THE OFFICE LIFE"
+            image="/storybook/Home/bannerC.jpg"
+            class="sf-banner--slim"
+          />
+        </a>
+      </template>
+      <template #bannerD>
+        <a href="#">
+          <SfBanner
+            subtitle="Summer shoes"
+            title="ECO SANDALS"
+            image="/storybook/Home/bannerG.jpg"
+            class="sf-banner--slim"
+          />
+        </a>
+      </template>
+    </SfBannerGrid>
+    <SfCallToAction
+      title="Subscribe to Newsletters"
+      button-text="Subscribe"
+      description="Be aware of upcoming sales and events. Receive gifts and special offers!"
+      class="call-to-action-newsletter"
+      image="/storybook/Home/newsletter.jpg"
+    />
+    <SfSection title-heading="Best Sellers" class="section">
+      <SfCarousel class="product-carousel">
+        <SfCarouselItem v-for="(product, i) in products" :key="i">
+          <SfProductCard
+            :title="product.title"
+            :image="product.image"
+            :regular-price="product.price.regular"
+            :max-rating="product.rating.max"
+            :score-rating="product.rating.score"
+            :is-on-wishlist="product.isOnWishlist"
+            class="product-card"
+            @click:wishlist="toggleWishlist(i)"
+          />
+        </SfCarouselItem>
+      </SfCarousel>
+    </SfSection>
+    <SfSection
+      title-heading="Share Your Look"
+      subtitle-heading="#YOURLOOK"
+      class="section"
+    >
+      <div class="images-grid">
+        <div class="images-grid__row">
+          <div class="images-grid__col">
+            <SfImage src="/storybook/Home/imageA.jpg"
+              >katherina_trn</SfImage
+            >
+          </div>
+          <div class="images-grid__col">
+            <SfImage src="/storybook/Home/imageB.jpg"
+              >katherina_trn</SfImage
+            >
+          </div>
+        </div>
+        <div class="images-grid__row">
+          <div class="images-grid__col">
+            <SfImage src="/storybook/Home/imageC.jpg"
+              >katherina_trn</SfImage
+            >
+          </div>
+          <div class="images-grid__col">
+            <SfImage src="/storybook/Home/imageD.jpg"
+              >katherina_trn</SfImage
+            >
+          </div>
+        </div>
       </div>
-    </div>
+    </SfSection>
+    <SfBanner
+      image="/storybook/Home/bannerD.png"
+      class="banner-application desktop-only"
+    >
+      <template #subtitle>
+        <div class="banner-application__subtitle">Fashion to Take Away</div>
+      </template>
+      <template #title>
+        <h1 class="banner-application__title">
+          Download our application to your&nbsp;mobile
+        </h1>
+      </template>
+      <template #call-to-action>
+        <div>
+          <img
+            class="banner-application__download"
+            src="/storybook/Home/google.png"
+            alt=""
+          />
+          <img
+            class="banner-application__download"
+            src="/storybook/Home/apple.png"
+            alt=""
+          />
+        </div>
+      </template>
+    </SfBanner>
   </div>
 </template>
-
 <script>
-import Logo from '~/components/Logo.vue'
+import {
+  SfHero,
+  SfBanner,
+  SfCallToAction,
+  SfSection,
+  SfCarousel,
+  SfProductCard,
+  SfImage,
+  SfBannerGrid
+} from "@storefront-ui/vue";
 
 export default {
+  name: "Home",
   components: {
-    Logo
+    SfHero,
+    SfBanner,
+    SfCallToAction,
+    SfSection,
+    SfCarousel,
+    SfProductCard,
+    SfImage,
+    SfBannerGrid
+  },
+  data() {
+    return {
+      heroes: [
+        {
+          title: "Colorful summer dresses are already in store",
+          subtitle: "SUMMER COLLECTION 2019",
+          buttonText: "Learn more",
+          background: "#eceff1",
+          image: "/storybook/Home/bannerH.jpg"
+        },
+        {
+          title: "Colorful summer dresses are already in store",
+          subtitle: "SUMMER COLLECTION 2019",
+          buttonText: "Learn more",
+          background: "#efebe9",
+          image: "/storybook/Home/bannerHM.jpg",
+          className:
+            "sf-hero-item--position-bg-top-left sf-hero-item--align-right"
+        },
+        {
+          title: "Colorful summer dresses are already in store",
+          subtitle: "SUMMER COLLECTION 2019",
+          buttonText: "Learn more",
+          background: "#fce4ec",
+          image: "/storybook/Home/bannerH.jpg"
+        }
+      ],
+      products: [
+        {
+          title: "Cream Beach Bag",
+          image: "/storybook/Home/productA.jpg",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 },
+          isOnWishlist: true
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/storybook/Home/productB.jpg",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/storybook/Home/productC.jpg",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/storybook/Home/productA.jpg",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/storybook/Home/productB.jpg",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/storybook/Home/productC.jpg",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/storybook/Home/productA.jpg",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/storybook/Home/productB.jpg",
+          price: { regular: "50.00 $" },
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
+        }
+      ]
+    };
+  },
+  methods: {
+    toggleWishlist(index) {
+      this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
+    }
+  }
+};
+</script>
+<style lang="scss" scoped>
+@import "~@storefront-ui/vue/styles";
+
+@mixin for-desktop {
+  @media screen and (min-width: $desktop-min) {
+    @content;
   }
 }
-</script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+#home {
+  box-sizing: border-box;
+  @include for-desktop {
+    max-width: 1240px;
+    margin: auto;
+  }
 }
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.call-to-action-newsletter {
+  margin: $spacer-big 0;
+  box-sizing: border-box;
+  @include for-desktop {
+    margin: $spacer-extra-big * 2 0;
+  }
 }
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.banner-central {
+  @include for-desktop {
+    padding-right: 30%;
+  }
 }
-
-.links {
-  padding-top: 15px;
+.banner-custom {
+  @media (max-width: $desktop-min) {
+    background-image: url("/storybook/Home/bannerB.jpg") !important;
+  }
+}
+.banner-application {
+  min-height: 420px;
+  max-width: 1040px;
+  margin: auto;
+  padding-right: calc(25% + 5rem);
+  padding-left: 2.5rem;
+  line-height: 1.6;
+  &__title {
+    margin: $spacer-big 0 0 0;
+    font-size: $h1-font-size-desktop;
+    font-weight: $h1-font-weight-desktop;
+  }
+  &__subtitle {
+    color: #a3a5ad;
+    font-family: $body-font-family-primary;
+    font-size: $font-size-extra-big-desktop;
+    font-weight: $body-font-weight-primary;
+  }
+  &__download {
+    max-height: 47px;
+    margin-top: $spacer-extra-big;
+    & + & {
+      margin-left: $spacer-big;
+    }
+  }
+}
+.banners {
+  margin: $spacer-big 0;
+  @include for-desktop {
+    margin: $spacer-extra-big 0;
+  }
+}
+.images-grid {
+  max-width: 960px;
+  margin: auto;
+  &__row {
+    display: flex;
+    & + & {
+      margin-top: $spacer-big / 2;
+      @include for-desktop {
+        margin-top: $spacer-big;
+      }
+    }
+  }
+  &__col {
+    margin: 0;
+    & + & {
+      margin-left: $spacer-big / 2;
+      @include for-desktop {
+        margin-left: $spacer-big;
+      }
+    }
+  }
+}
+.product-card {
+  max-width: unset;
+  &:hover {
+    @include for-desktop {
+      box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+    }
+  }
+}
+.product-carousel {
+  margin: -20px -#{$spacer-big} -20px 0;
+  @include for-desktop {
+    margin: -20px 0;
+  }
+  ::v-deep .sf-carousel__wrapper {
+    padding: 20px 0;
+    @include for-desktop {
+      padding: 20px;
+      max-width: calc(100% - 216px);
+    }
+  }
+}
+.section {
+  padding-left: $spacer-big;
+  padding-right: $spacer-big;
+  @include for-desktop {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 </style>
