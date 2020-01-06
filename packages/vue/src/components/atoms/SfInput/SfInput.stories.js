@@ -128,4 +128,41 @@ storiesOf("Atoms|Input", module)
         <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> CUSTOM ERROR MESSAGE
       </template>
     </SfInput>`
+  }))
+  .add("[slot] password visibility icon", () => ({
+    components: {
+      SfInput,
+      SfIcon
+    },
+    props: {
+      label: {
+        default: text("label", "Password", "Props")
+      },
+      name: {
+        default: text("password", "password", "Props")
+      },
+      valid: {
+        default: boolean("valid", true, "Props")
+      },
+      required: {
+        default: boolean("required", true, "Props")
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props")
+      }
+    },
+    data() {
+      return {
+        value: ""
+      };
+    },
+    template: `<SfInput
+      v-model="value"
+      :label="label"
+      :name="name"
+      :valid="valid"
+      :required="required"
+      type="password"
+      :disabled="disabled">
+    </SfInput>`
   }));
