@@ -73,9 +73,6 @@ $input__error-message-font-size: $font-size-small-mobile !default;
         margin: 0;
       }
     }
-    &--show-text {
-      animation: type 4s steps(60, end); 
-    }
   }
   &__wrapper {
     position: relative;
@@ -118,19 +115,41 @@ $input__error-message-font-size: $font-size-small-mobile !default;
     font-family: $input__error-message-font-family;
     font-size: $input__error-message-font-size;
   }
-
-  &__show-password-icon {
+  &__password-button {
     display: block;
     position: absolute;
     right: 1rem;
-    bottom: 0;
     background: transparent;
     border: none;
     outline: none;
     cursor: pointer;
     z-index: 1;
+    padding: 0;
   }
-
+  &__password-icon {
+    &:after {
+      content: "";
+      width: 100%;
+      height: .1rem;
+      position: absolute;
+      background-color: #bfc0c5;
+      transform: rotate(45deg) scaleX(0);
+      transition: transform 0.25s;
+      border-top: solid 1px white;
+    }
+    &.sf-icon {
+      align-items: center;
+    }
+    .sf-icon-path {
+      flex: 0 0 22px;
+      height: 13px;
+    }
+    &.sf-input__password-icon--hidden {
+      &:after {
+        transform: rotate(45deg) scaleX(1)
+      }
+    }
+  }
   &--invalid {
     input {
       border-color: $input-color-invalid;
@@ -162,8 +181,4 @@ $input__error-message-font-size: $font-size-small-mobile !default;
       @include move-label-up;
     }
   }
-}
-
-@keyframes type {
-  from { width: 0; } 
 }

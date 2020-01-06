@@ -14,7 +14,6 @@
       :disabled="disabled"
       :name="name"
       :id="name"
-      :class="{ 'sf-input--show-text': isPasswordVisible }"
     />
     <span class="sf-input__bar"></span>
     <label class="sf-input__label" :for="name">
@@ -22,10 +21,11 @@
       <slot name="label" v-bind="{label}">{{ label }}</slot>
     </label>
     <template v-if="isPasswordType">
+        <!-- @slot -->
         <slot name="show-password-button" v-bind="{ isPasswordVisible, switchVisibilityPassword, isPasswordType }">
-            <button @click="switchVisibilityPassword" class="sf-input__show-password-icon">
+            <button @click="switchVisibilityPassword" role="button" aria-label="switch-visibility-password" :disabled="!value" class="sf-input__password-button">
                 <slot name="show-password-icon">
-                    <SfIcon icon="show_password" class="" :color="isPasswordVisible ? 'gray-primary' : 'gray-secondary'"></SfIcon>
+                    <SfIcon class="sf-input__password-icon" :class="{'sf-input__password-icon--hidden': !isPasswordVisible}" viewBox="0 0 20 13" icon="show_password" :color="isPasswordVisible ? 'gray-primary' : 'gray-secondary'"></SfIcon>
                 </slot>
             </button>
           </slot>
