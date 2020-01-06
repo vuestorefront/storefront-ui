@@ -3,7 +3,7 @@ import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-import SfInput from "../../atoms/SfInput/SfInput.vue";
+import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
 
 export default {
   name: "SfCollectedProduct",
@@ -50,6 +50,13 @@ export default {
     stock: {
       type: Number,
       default: 1
+    },
+    /**
+     * Minimum product quantity
+     */
+    qtyMin: {
+      type: Number,
+      default: 1
     }
   },
   model: {
@@ -60,23 +67,11 @@ export default {
       this.$emit("click:remove");
     }
   },
-  watch: {
-    qty(value) {
-      const qty = parseInt(value, 10);
-      if (qty <= 0) {
-        this.$emit("input", "1");
-        return;
-      }
-      if (qty > this.stock) {
-        this.$emit("input", "" + this.stock);
-      }
-    }
-  },
   components: {
     SfIcon,
     SfImage,
     SfCircleIcon,
     SfPrice,
-    SfInput
+    SfQuantitySelector
   }
 };

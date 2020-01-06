@@ -11,6 +11,7 @@
     "serve": "yarpm create-index-files && vue-cli-service serve",
     "build": "yarpm create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
     "lint": "vue-cli-service lint",
+    "lint-staged": "lint-staged",
     "test:unit": "vue-cli-service test:unit",
     "test:dev": "vue-cli-service test:unit --watch",
     "storybook:serve": "yarpm create-index-files && vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
@@ -91,5 +92,11 @@
   "main": "./index.js",
   "publishConfig": {
     "access": "public"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint --fix",
+      "git add"
+    ]
   }
 }

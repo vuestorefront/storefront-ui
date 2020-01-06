@@ -88,7 +88,8 @@
   </div>
 </template>
 <script>
-import { SfModal, SfInput, SfButton, SfCheckbox } from "../../../../index.js";
+import { SfModal, SfInput, SfButton, SfCheckbox } from "@storefront-ui/vue";
+
 export default {
   name: "Login",
   components: { SfModal, SfInput, SfButton, SfCheckbox },
