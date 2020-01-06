@@ -6,7 +6,7 @@ import SfProductOption from "../SfProductOption/SfProductOption.vue";
 
 storiesOf("Molecules|Scrollable", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
+  .add("Common", () => ({
     components: { SfScrollable, SfProductOption },
     props: {
       showText: {
