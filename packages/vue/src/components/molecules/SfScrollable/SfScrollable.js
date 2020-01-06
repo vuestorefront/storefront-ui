@@ -24,7 +24,8 @@ export default {
   data() {
     return {
       isHidden: true,
-      hasScroll: false
+      hasScroll: false,
+      contentEl: undefined
     };
   },
   computed: {
@@ -32,21 +33,25 @@ export default {
       return {
         "--max-height": this.maxContentHeight.trim
           ? this.maxContentHeight
-          : undefined,
-        maxHeight: this.isHidden ? undefined : "unset"
+          : undefined
       };
+    }
+  },
+  methods: {
+    sizeCalc() {
+      const containerHeight = this.$refs.content.$el.offsetHeight;
+      const contentHeight = this.contentEl.offsetHeight;
+      this.hasScroll = contentHeight > containerHeight;
     }
   },
   mounted() {
     this.$nextTick(() => {
-      const fullHeight = this.$refs.content.$el.querySelector(
+      this.contentEl = this.$refs.content.$el.querySelector(
         ".simplebar-content"
-      ).offsetHeight;
-      const height = this.$refs.content.$el.offsetHeight;
-
-      if (fullHeight > height) {
-        this.hasScroll = true;
-      }
+      );
+      const observer = new MutationObserver(this.sizeCalc);
+      this.sizeCalc();
+      observer.observe(this.contentEl, { childList: true });
     });
   }
 };
