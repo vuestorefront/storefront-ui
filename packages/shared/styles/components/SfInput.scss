@@ -15,6 +15,9 @@ $input__label-transition: all 150ms ease-in-out !default;
 $input__bar-transition: all 150ms ease-in-out !default;
 $input__error-message-font-family: $body-font-family-primary !default;
 $input__error-message-font-size: $font-size-small-mobile !default;
+$input__password-icon-hidden-border: $c-white !default;
+$input__password-icon-hidden-color: $c-gray-variant !default;
+
 
 @mixin move-label-up {
   top: calc((#{$input__label-focus-font-size / 2}) - 5px);
@@ -118,7 +121,7 @@ $input__error-message-font-size: $font-size-small-mobile !default;
   &__password-button {
     display: block;
     position: absolute;
-    right: 1rem;
+    right: 1.25rem;
     background: transparent;
     border: none;
     outline: none;
@@ -130,12 +133,12 @@ $input__error-message-font-size: $font-size-small-mobile !default;
     &:after {
       content: "";
       width: 100%;
-      height: .1rem;
+      height: 1px;
       position: absolute;
-      background-color: #bfc0c5;
+      background-color: $input__password-icon-hidden-color;
       transform: rotate(45deg) scaleX(0);
       transition: transform 0.25s;
-      border-top: solid 1px white;
+      border-top: solid 1px $input__password-icon-hidden-border;
     }
     &.sf-icon {
       align-items: center;
