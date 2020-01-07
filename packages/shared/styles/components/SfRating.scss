@@ -1,3 +1,14 @@
+@import "../variables";
+
+$rating__icon-positive-fill: $c-primary !default;
+$rating__icon-negative-fill: $c-dark !default;
+
 .sf-rating {
   display: flex;
+  &__icon-positive {
+    fill: $rating__icon-positive-fill;
+  }
+  &__icon-negative {
+    fill: $rating__icon-negative-fill;
+  }
 }
