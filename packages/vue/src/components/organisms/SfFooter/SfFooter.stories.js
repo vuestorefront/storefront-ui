@@ -95,7 +95,7 @@ storiesOf("Organisms|Footer", module)
           <div :style="style">
             <img 
               v-for="item in social" 
-              :src="'/assets/storybook/footer/'+item+'.svg'" 
+              :src="'/assets/storybook/SfFooter/'+item+'.svg'" 
               style="height: 0.75rem; margin-right: 1.25rem"
             />
           </div>

@@ -21,7 +21,7 @@ describe("SfMenuItem.vue", () => {
   });
 
   it("renders icon slot", () => {
-    const iconHtml = "<img class='test-icon' src='/assets/chevron_down.svg'>";
+    const iconHtml = "<img class='test-icon' src='/assets/logo.svg'>";
     const component = shallowMount(SfMenuItem, {
       slots: {
         icon: iconHtml

@@ -9,11 +9,7 @@ storiesOf("Organisms|CollectedProduct", module)
   .add("Common", () => ({
     props: {
       image: {
-        default: text(
-          "image",
-          "/assets/storybook/homepage/productB.jpg",
-          "Props"
-        )
+        default: text("image", "/assets/storybook/Home/productB.jpg", "Props")
       },
       imageWidth: {
         default: number("imageWidth", 140, {}, "Props")

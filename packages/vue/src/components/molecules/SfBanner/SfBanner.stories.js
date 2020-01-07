@@ -46,8 +46,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
+            small: "/assets/storybook/SfBanner/Banner1.jpg",
+            normal: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -103,8 +103,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
+            small: "/assets/storybook/SfBanner/Banner1.jpg",
+            normal: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -163,8 +163,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
+            small: "/assets/storybook/SfBanner/Banner1.jpg",
+            normal: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -223,8 +223,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
+            small: "/assets/storybook/SfBanner/Banner1.jpg",
+            normal: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -283,8 +283,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
+            small: "/assets/storybook/SfBanner/Banner1.jpg",
+            normal: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
