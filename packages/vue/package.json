@@ -16,7 +16,6 @@
     "test:dev": "vue-cli-service test:unit --watch",
     "storybook:serve": "yarpm create-index-files && vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
     "storybook:build": "yarpm create-index-files && vue-cli-service storybook:build -s ./public -c config/storybook",
-    "storybook:percy": "yarpm storybook:build && percy-storybook --widths=480,1440",
     "docs:vuecomponents": "node scripts/create-vue-components-docs.js",
     "docs:dev": "yarpm docs:vuecomponents && vuepress dev docs",
     "docs:build": "yarpm docs:vuecomponents && vuepress build docs",
@@ -53,7 +52,6 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.5.5",
-    "@percy/storybook": "^3.2.0",
     "@storybook/addon-a11y": "^5.1.9",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-backgrounds": "^5.1.9",
