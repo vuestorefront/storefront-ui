@@ -1,12 +1,10 @@
 <div class="sf-rating">
   <!--@slot custom icon for finalScore. Provide single icon that will be automatically repeated -->
   <slot name="icon-positive" v-if="finalScore && finalMax" v-for="index in parseInt(finalScore, 10)">
-    <SfIcon size="14px" class="sf-rating__icon-positive" icon="star"></SfIcon>
-    </svg>
+    <SfIcon size="14px" class="sf-rating__icon-positive" icon="star"/>
   </slot>
   <!--@slot custom icon for negative (left) finalScore. Provide single icon that will be automatically repeated -->
   <slot name="icon-negative" v-if="finalScore && finalMax" v-for="index in (parseInt(finalMax, 10)-parseInt(finalScore, 10))">
-    <SfIcon size="14px" class="sf-rating__icon-negative"  icon="star"></SfIcon>
-    </svg>
+    <SfIcon size="14px" class="sf-rating__icon-negative" icon="star"/>
   </slot>
 </div>
