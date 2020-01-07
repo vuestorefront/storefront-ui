@@ -57,7 +57,6 @@ const MegaMenuPlaceholder = {
   },
   data() {
     return {
-      visible: true,
       subcategories: [
         {
           header: "Clothing",
@@ -264,9 +263,8 @@ storiesOf("Organisms|MegaMenu", module)
     },
     template: `
       <SfHeader
-        :title="title"
+        title="Storefront UI"
         :logo="{ small: { url: '/assets/logo.svg' }, normal: { url: '/assets/logo.svg' } }"
-        :cart-icon="cartIcon"
       >
         <template #navigation>
           <SfHeaderNavigationItem
