@@ -14,11 +14,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     props: {
       image: {
-        default: text(
-          "image",
-          "/assets/storybook/homepage/productB.jpg",
-          "Props"
-        )
+        default: text("image", "/assets/storybook/Home/productB.jpg", "Props")
       },
       title: {
         default: text("title", "Product name", "Props")

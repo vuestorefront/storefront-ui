@@ -8,7 +8,7 @@ Grouped Product component
 <SfGroupedProduct>
   <SfGroupedProductItem
     qty="2"
-    image="https://deploy-preview-415--storefrontui-storybook.netlify.com/assets/storybook/product-white.png"
+    image="https://deploy-preview-415--storefrontui-storybook.netlify.com/assets/storybook/SfGroupedProduct/product-white.png"
     title="Leave white brooch"
     price-regular="$10.99"
     price-special=""
@@ -24,7 +24,7 @@ Grouped Product component
   </SfGroupedProductItem>
   <SfGroupedProductItem
     qty="4"
-    image="https://deploy-preview-415--storefrontui-storybook.netlify.com/assets/storybook/product-black.png"
+    image="https://deploy-preview-415--storefrontui-storybook.netlify.com/assets/storybook/SfGroupedProduct/product-black.png"
     title="Leave black brooch"
     price-regular="$10.99"
     price-special=""
@@ -65,7 +65,7 @@ Grouped Product component
       return {
         groupedProducts: [
         {
-          image: "/assets/storybook/product-white.png",
+          image: "/assets/storybook/SfGroupedProduct/product-white.png",
           title: "Leave white brooch",
           sku: "MSD23-345-324",
           priceSpecial: "",
@@ -79,7 +79,7 @@ Grouped Product component
           ]
         },
         {
-          image: "/assets/storybook/product-green.png",
+          image: "/assets/storybook/SfGroupedProduct/product-green.png",
           title: "Leave green brooch",
           sku: "MSD23-345-325",
           priceSpecial: "",
