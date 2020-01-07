@@ -13,6 +13,7 @@ $tabs__title-color--hover: $c-dark !default;
 $tabs__title-font-size: $font-size-big-mobile !default;
 $tabs__title-font-size-desktop: $font-size-big-desktop !default;
 $tabs__content-padding-y: 3 * $spacer-big !default;
+$tabs__chevron-size: 1.25rem !default;
 
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
@@ -36,7 +37,6 @@ $tabs__content-padding-y: 3 * $spacer-big !default;
     display: flex;
     flex-basis: 100%;
     justify-content: space-between;
-    align-items: center;
     padding: calc(#{$tabs__title-padding-y} - 5px) 0;
     border-bottom: 1px solid $tabs-border-color;
     color: $c-dark;
@@ -86,6 +86,7 @@ $tabs__content-padding-y: 3 * $spacer-big !default;
     }
   }
   &__chevron {
+    margin-top:  (-$tabs-font-size + $tabs__chevron-size) / 2;
     @include for-desktop {
       display: none;
     }
