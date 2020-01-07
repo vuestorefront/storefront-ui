@@ -9,6 +9,7 @@ $accordion__title-padding-y: 0.625rem !default;
 $accordion__title-font-size: $font-size-big-mobile !default;
 $accordion__title-font-size-desktop: $font-size-big-desktop !default;
 $accordion__content-padding-y: 1.875rem !default;
+$accordion-item__chevron-size: 1.25rem !default;
 
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
@@ -28,7 +29,6 @@ $accordion__content-padding-y: 1.875rem !default;
   &__header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: $accordion__title-padding-y 0;
     color: $c-dark;
     cursor: pointer;
@@ -44,12 +44,12 @@ $accordion__content-padding-y: 1.875rem !default;
     display: none;
   }
 }
-
 .sf-accordion {
   $this: &;
   &--has-chevron {
     #{$this}-item__chevron {
       display: block;
+      margin-top:  (-$accordion-font-size + $accordion-item__chevron-size) / 2;
     }
   }
 }
