@@ -1,8 +1,10 @@
 // @vue/component
 import Vue from "vue";
 import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn.vue";
+import SfMegaMenuItem from "./_internal/SfMegaMenuItem.vue";
 
 Vue.component("SfMegaMenuColumn", SfMegaMenuColumn);
+Vue.component("SfMegaMenuItem", SfMegaMenuItem);
 
 import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";

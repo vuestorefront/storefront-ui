@@ -2,7 +2,6 @@
 import { storiesOf } from "@storybook/vue";
 
 import SfMegaMenu from "./SfMegaMenu.vue";
-import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfHeader from "../SfHeader/SfHeader.vue";
 
@@ -44,7 +43,7 @@ const AsidePlaceholder = {
     </div>`
 };
 const MegaMenuPlaceholder = {
-  components: { SfMegaMenu, SfMenuItem, AsidePlaceholder },
+  components: { SfMegaMenu, AsidePlaceholder },
   props: {
     title: {
       type: String,
@@ -105,11 +104,11 @@ const MegaMenuPlaceholder = {
           :key="subcategory.header" 
           :title="subcategory.header"
         >
-          <SfMenuItem 
+          <SfMegaMenuItem 
             v-for="item in subcategory.items" 
             :key="item.label" 
             :label="item.label" 
-            class="sf-mega-menu__menu-item"
+            
           />
         </SfMegaMenuColumn>
         <template #aside>
@@ -121,8 +120,7 @@ const MegaMenuPlaceholder = {
 storiesOf("Organisms|MegaMenu", module)
   .add("Common", () => ({
     components: {
-      SfMegaMenu,
-      SfMenuItem
+      SfMegaMenu
     },
     data() {
       return {
@@ -174,11 +172,11 @@ storiesOf("Organisms|MegaMenu", module)
           :key="subcategory.header" 
           :title="subcategory.header"
         >
-          <SfMenuItem 
+          <SfMegaMenuItem 
             v-for="item in subcategory.items" 
             :key="item.label" 
             :label="item.label" 
-            class="sf-mega-menu__menu-item"
+           
           />
         </SfMegaMenuColumn>
       </SfMegaMenu>`
@@ -186,7 +184,6 @@ storiesOf("Organisms|MegaMenu", module)
   .add("[slot] aside", () => ({
     components: {
       SfMegaMenu,
-      SfMenuItem,
       AsidePlaceholder
     },
     data() {
@@ -239,7 +236,7 @@ storiesOf("Organisms|MegaMenu", module)
           :key="subcategory.header" 
           :title="subcategory.header"
         >
-          <SfMenuItem 
+          <SfMegaMenuItem 
             v-for="item in subcategory.items" 
             :key="item.label" 
             :label="item.label" 
