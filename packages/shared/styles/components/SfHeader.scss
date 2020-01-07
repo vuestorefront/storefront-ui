@@ -43,6 +43,7 @@ $header-navigation-item-font-weight: 500 !default;
   }
 }
 .sf-header {
+  $this: &;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -55,6 +56,17 @@ $header-navigation-item-font-weight: 500 !default;
     justify-content: flex-start;
     padding: $header-desktop-padding;
     background-color: $header-desktop-background-color;
+  }
+  &--has-mobile-search{
+    #{$this}__search{
+      @media (max-width: $desktop-min){
+        display: flex;
+        order: 1;
+        flex: 0 0 100%;
+        margin: $spacer 0;
+        background-color: $c-white;
+      }
+    }
   }
   &__logo {
     height: $header__logo-height;
@@ -77,13 +89,9 @@ $header-navigation-item-font-weight: 500 !default;
     }
   }
   &__search {
-    @media (max-width: $desktop-min){
-      order: 1;
-      flex: 0 0 100%;
-      margin: $spacer 0;
-      background-color: $c-white;
-    }
+    display: none;
     @media (min-width: $desktop-min) {
+      display: flex;
       margin: 0 10px 0 auto;
     }
   }
