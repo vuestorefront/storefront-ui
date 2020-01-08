@@ -1,4 +1,6 @@
 // @vue/component
+import { Portal } from "@linusborg/vue-simple-portal";
+
 export default {
   name: "SfOverlay",
   props: {
@@ -16,5 +18,8 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  components: {
+    Portal
   }
 };

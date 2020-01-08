@@ -1,6 +1,8 @@
 // @vue/component
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import { Portal } from "@linusborg/vue-simple-portal";
+
 export default {
   name: "SfModal",
   model: {
@@ -53,7 +55,8 @@ export default {
   },
   components: {
     SfOverlay,
-    SfIcon
+    SfIcon,
+    Portal
   },
   watch: {
     visible: {
