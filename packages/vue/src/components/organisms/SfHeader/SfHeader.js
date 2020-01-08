@@ -73,7 +73,7 @@ export default {
     /**
      * Header search placeholder
      */
-    searchPlaceholder:{
+    searchPlaceholder: {
       type: String,
       default: "Search for items"
     }

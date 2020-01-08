@@ -1,5 +1,11 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select, object, boolean } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  select,
+  object,
+  boolean
+} from "@storybook/addon-knobs";
 
 import SfHeader from "./SfHeader.vue";
 
@@ -42,7 +48,7 @@ storiesOf("Organisms|Header", module)
         default: boolean("hasMobileSearch", false, "Props")
       },
       searchPlaceholder: {
-        default: text("searchPlaceholder","Search for items", "Props")
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<SfHeader
@@ -99,7 +105,7 @@ storiesOf("Organisms|Header", module)
         default: boolean("hasMobileSearch", false, "Props")
       },
       searchPlaceholder: {
-        default: text("searchPlaceholder","Search for items", "Props")
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<SfHeader
@@ -154,7 +160,7 @@ storiesOf("Organisms|Header", module)
         default: boolean("hasMobileSearch", false, "Props")
       },
       searchPlaceholder: {
-        default: text("searchPlaceholder","Search for items", "Props")
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<SfHeader
@@ -204,7 +210,7 @@ storiesOf("Organisms|Header", module)
         default: boolean("hasMobileSearch", false, "Props")
       },
       searchPlaceholder: {
-        default: text("searchPlaceholder","Search for items", "Props")
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<SfHeader
@@ -264,7 +270,7 @@ storiesOf("Organisms|Header", module)
         default: boolean("hasMobileSearch", false, "Props")
       },
       searchPlaceholder: {
-        default: text("searchPlaceholder","Search for items", "Props")
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<SfHeader
