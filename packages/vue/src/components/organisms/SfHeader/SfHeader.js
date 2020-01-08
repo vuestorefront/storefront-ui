@@ -53,12 +53,29 @@ export default {
       type: [String, Boolean],
       default: "profile"
     },
+    /**
+     * Header activeIcon (accepts account, wishlist and cart)
+     */
     activeIcon: {
       type: String,
       default: "",
       validator(value) {
         return ["", "account", "wishlist", "cart"].includes(value);
       }
+    },
+    /**
+     * Header search on mobile
+     */
+    hasMobileSearch: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Header search placeholder
+     */
+    searchPlaceholder:{
+      type: String,
+      default: "Search for items"
     }
   }
 };
