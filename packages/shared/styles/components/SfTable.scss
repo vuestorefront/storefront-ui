@@ -1,0 +1,71 @@
+@import "../variables";
+
+.sf-table {
+  $this: &;
+  box-sizing: border-box;
+  width: 100%;
+  border-spacing: 0;
+  border: none;
+  &__heading,
+  &__row {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    padding: $spacer-big;
+    border-bottom: 1px solid $c-light;
+    @media (min-width: $desktop-min) {
+      border: none;
+    }
+  }
+  &__heading {
+    align-items: center;
+    background-color: $c-light;
+    @media (min-width: $desktop-min) {
+      padding: 10px $spacer-big;
+      border-bottom: 1px solid $c-light;
+      background-color: transparent;
+    }
+  }
+  &__row {
+    @media (min-width: $desktop-min) {
+      &:hover {
+        background-color: $c-light;
+        box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
+      }
+    }
+  }
+  &__data,
+  &__header {
+    box-sizing: border-box;
+    flex: 0 0 calc(100% / var(--mobile-column));
+    padding: 0;
+    margin-bottom: 5px;
+    text-align: left;
+    @media (min-width: $desktop-min) {
+      flex: 1;
+      margin-bottom: 0;
+    }
+    &:nth-child(even) {
+      order: 1;
+      @media (min-width: $desktop-min) {
+        order: 0;
+      }
+    }
+  }
+  &--bordered  {
+    #{$this}__heading,
+    #{$this}__row{
+      padding: $spacer-big;
+      @media (min-width: $desktop-min) {
+        padding: 10px;
+      }
+    }
+    #{$this}__heading{
+      border: 1px solid $c-light;
+      border-width: 1px 0 1px 0;
+    }
+    #{$this}__row{
+      border-bottom: 1px solid $c-light;
+    }
+  }
+}
