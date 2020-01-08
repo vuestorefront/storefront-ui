@@ -41,7 +41,10 @@
 import { SfTabs, SfCheckbox, SfButton } from "@storefront-ui/vue";
 export default {
   name: "MyNewsletter",
-  components: { SfTabs, SfCheckbox, SfButton }
+  components: { SfTabs, SfCheckbox, SfButton },
+  data() {
+    return { newsletter: "" };
+  }
 };
 </script>
 <style lang="scss" scoped>
