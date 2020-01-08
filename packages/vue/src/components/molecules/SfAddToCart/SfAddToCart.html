@@ -9,14 +9,7 @@
       Add to cart
     </SfButton>
   </slot>
-  <slot name="quantity-select-input" v-bind="{ qty, stock }">
-    <SfInput
-      :value="qty"
-      @input="(value)=>{$emit('input', value)}"
-      class="sf-add-to-cart__select-quantity"
-      type="number"
-      min="1"
-      :max="stock"
-    />
+  <slot name="quantity-select-input" v-bind="{ qty }">
+    <SfQuantitySelector class="sf-add-to-cart__select-quantity" :value="qty"/>
   </slot>
 </div>

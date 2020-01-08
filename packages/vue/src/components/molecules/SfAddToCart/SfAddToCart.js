@@ -1,12 +1,12 @@
 // @vue/component
 import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfInput from "../../atoms/SfInput/SfInput.vue";
+import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
 
 export default {
   name: "SfAddToCart",
   components: {
     SfButton,
-    SfInput
+    SfQuantitySelector
   },
   model: {
     prop: "qty"
