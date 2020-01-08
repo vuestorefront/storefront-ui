@@ -1,4 +1,4 @@
-<header class="sf-header">
+<header class="sf-header" :class="{'sf-header--has-mobile-search': hasMobileSearch}">
   <!--@slot Use this slot to replace logo with text or icon-->
   <slot name="logo" v-bind="{logo, title}">
     <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo"/>
@@ -10,7 +10,7 @@
   </nav>
     <!--@slot Use this slot to replace default search bar-->
   <slot name="search">
-    <SfSearchBar class="sf-header__search" />
+    <SfSearchBar :placeholder="searchPlaceholder" class="sf-header__search" />
   </slot>
   <!--@slot Use this slot to replace default header icons with custom content-->
   <slot name="header-icons" v-bind="{accountIcon, wishlistIcon, cartIcon}">
@@ -50,4 +50,6 @@
       />
     </div>
   </slot>
+  <!--@slot Use this slot to replace default header language selector on mobile -->
+  <slot name="language-selector"></slot>
 </header>
