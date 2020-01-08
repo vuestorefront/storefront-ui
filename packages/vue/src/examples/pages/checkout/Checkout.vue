@@ -129,7 +129,7 @@ export default {
         products: [
           {
             title: "Cream Beach Bag",
-            image: "/assets/storybook/homepage/productA.jpg",
+            image: "/assets/storybook/Home/productA.jpg",
             price: { regular: "$50.00" },
             configuration: [
               { name: "Size", value: "XS" },
@@ -140,7 +140,7 @@ export default {
           },
           {
             title: "Vila stripe maxi dress",
-            image: "/assets/storybook/homepage/productB.jpg",
+            image: "/assets/storybook/Home/productB.jpg",
             price: { regular: "$50.00", special: "$20.05" },
             configuration: [
               { name: "Size", value: "XS" },
