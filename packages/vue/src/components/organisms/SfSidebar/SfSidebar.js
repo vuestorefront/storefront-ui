@@ -3,6 +3,7 @@ import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
+import { Portal } from "@linusborg/vue-simple-portal";
 
 export default {
   name: "SfSidebar",
@@ -10,7 +11,8 @@ export default {
     SfCircleIcon,
     SfIcon,
     SfOverlay,
-    SfHeading
+    SfHeading,
+    Portal
   },
   props: {
     headingTitle: {
