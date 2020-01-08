@@ -1,3 +1,4 @@
+<component :is="isMobile ? 'Portal' : 'div'">
 <div class="sf-options">
   <!-- @slot -->
   <slot name="label" v-bind="{ label }">
@@ -43,3 +44,4 @@
     </div>
   </div>
 </div>
+</component>
