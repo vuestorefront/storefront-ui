@@ -72,7 +72,7 @@ export default {
     iconViewBox() {
       const defaultSFIconViewBox = this.isSFIcons
         ? icons[this.icon].viewBox
-        : this.viewBox.default;
+        : this.viewBox;
       return this.viewBox || defaultSFIconViewBox;
     },
     iconPaths() {
