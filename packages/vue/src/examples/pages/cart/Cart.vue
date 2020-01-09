@@ -84,7 +84,6 @@ import {
   SfPrice,
   SfCollectedProduct
 } from "@storefront-ui/vue";
-
 export default {
   name: "Cart",
   components: {
