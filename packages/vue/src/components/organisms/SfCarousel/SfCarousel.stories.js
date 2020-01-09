@@ -2,7 +2,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs } from "@storybook/addon-knobs";
 import SfCarousel from "./SfCarousel.vue";
-
 const data = () => {
   return {
     style: {
@@ -19,7 +18,6 @@ const data = () => {
     }
   };
 };
-
 storiesOf("Organisms|Carousel", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
