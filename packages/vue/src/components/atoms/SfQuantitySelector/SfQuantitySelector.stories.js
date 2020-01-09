@@ -1,9 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, number } from "@storybook/addon-knobs";
-
 import SfQuantitySelector from "./SfQuantitySelector.vue";
-
 storiesOf("Atoms|QuantitySelector", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

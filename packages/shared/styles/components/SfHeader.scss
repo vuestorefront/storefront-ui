@@ -1,9 +1,9 @@
 @import "../variables";
 
-$header-height: 3.125rem !default;
-$header-padding: 0 $spacer-extra-big!default;
-$header-desktop-padding: 0 $spacer-extra-big!default;
-$header-desktop-height: 5rem !default;
+$header-padding: 0 $spacer-extra-big !default;
+$header-desktop-padding: $spacer-big $spacer-extra-big !default;
+$header__logo-height: 1.5rem !default;
+$header__logo-desktop-height: 2.125 !default;
 $header-background-color: $c-light !default;
 $header-desktop-background-color: $c-white !default;
 $header-navigation-item-margin-left: 2.5rem !default;
@@ -43,24 +43,38 @@ $header-navigation-item-font-weight: 500 !default;
   }
 }
 .sf-header {
+  $this: &;
   box-sizing: border-box;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  height: $header-height;
   padding: $header-padding ;
   background-color: $header-background-color;
   @media (min-width: $desktop-min) {
+    flex-wrap: nowrap;
     justify-content: flex-start;
-    height: $header-desktop-height;
-    padding: $header-padding;
+    padding: $header-desktop-padding;
     background-color: $header-desktop-background-color;
   }
+  &--has-mobile-search{
+    #{$this}__search{
+      @media (max-width: $desktop-min){
+        display: flex;
+        order: 1;
+        flex: 0 0 100%;
+        margin: $spacer 0;
+        background-color: $c-white;
+      }
+    }
+  }
   &__logo {
-    height: calc(100% - 1.25rem);
+    height: $header__logo-height;
     width: auto;
+    margin: 10px 0;
     @media (min-width: $desktop-min) {
-      height: calc(100% - 2.5rem);
+      height: 2.125rem;
+      margin: 0;
     }
     img, picture{
       height: 100%;
@@ -75,7 +89,11 @@ $header-navigation-item-font-weight: 500 !default;
     }
   }
   &__search {
-    margin: 0 10px 0 auto;
+    display: none;
+    @media (min-width: $desktop-min) {
+      display: flex;
+      margin: 0 10px 0 auto;
+    }
   }
   &__icons{
     display: flex;
@@ -112,7 +130,6 @@ $header-navigation-item-font-weight: 500 !default;
     }
   }
   &__navigation,
-  &__search,
   &__icons{
     @media (max-width: $desktop-min) {
       display: none;

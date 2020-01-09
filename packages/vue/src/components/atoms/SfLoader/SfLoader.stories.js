@@ -1,9 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-
 import SfLoader from "./SfLoader.vue";
 import SfImage from "../SfImage/SfImage.vue";
-
 storiesOf("Atoms|Loader", module)
   .add("Common", () => ({
     components: {

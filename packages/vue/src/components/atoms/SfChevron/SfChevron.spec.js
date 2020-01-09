@@ -1,12 +1,10 @@
 import { shallowMount } from "@vue/test-utils";
 import SfChevron from "./SfChevron.vue";
-
 describe.only("SfChevron.vue", () => {
   it("renders a chevron", () => {
     const component = shallowMount(SfChevron);
     expect(component.contains(".sf-chevron")).toBe(true);
   });
-
   it("renders slot with other content", () => {
     const component = shallowMount(SfChevron, {
       slots: {
