@@ -68,6 +68,7 @@ $header-navigation-item-font-weight: 500 !default;
         flex: 0 0 100%;
         margin: $spacer 0;
         background-color: $c-white;
+        animation: drop .3s ease-in-out;
       }
     }
   }
@@ -147,5 +148,19 @@ $header-navigation-item-font-weight: 500 !default;
   }
   &--hidden {
     transform: translateY(-100%);
+  }
+
+  @keyframes drop {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+    1% {
+      display: flex;
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }
