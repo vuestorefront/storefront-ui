@@ -223,7 +223,6 @@ import {
   SfSelect,
   SfBreadcrumbs
 } from "@storefront-ui/vue";
-
 export default {
   components: {
     SfButton,
@@ -425,13 +424,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
-
 #category {
   box-sizing: border-box;
   @include for-desktop {

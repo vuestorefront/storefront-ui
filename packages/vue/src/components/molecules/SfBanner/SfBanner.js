@@ -1,6 +1,5 @@
 // @vue/component
 import SfButton from "../../atoms/SfButton/SfButton.vue";
-
 export default {
   name: "SfBanner",
   data() {

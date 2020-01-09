@@ -1,9 +1,7 @@
 // @vue/component
 import lozad from "lozad";
-
 export default {
   name: "SfImage",
-
   props: {
     /**
      * Image url or pictures object (`{ small: { url, alt }, normal: { url, alt } }`)
@@ -48,25 +46,21 @@ export default {
       default: 576
     }
   },
-
   data() {
     return {
       loaded: false,
       overlay: false
     };
   },
-
   computed: {
     hasOverlay() {
       return this.$slots.hasOwnProperty("default") && this.overlay;
     }
   },
-
   methods: {
     hoverHandler(state) {
       this.overlay = state;
     },
-
     initLozad: function() {
       const vm = this;
       this.$nextTick(() => {
@@ -79,7 +73,6 @@ export default {
       });
     }
   },
-
   mounted() {
     if (this.lazy !== false) {
       this.initLozad();
@@ -87,7 +80,6 @@ export default {
       this.loaded = true;
     }
   },
-
   watch: {
     lazy: function(newValue, oldValue) {
       // init lozad if lazy loading was previously disabled

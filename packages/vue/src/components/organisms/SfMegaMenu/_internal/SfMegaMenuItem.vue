@@ -8,7 +8,6 @@
     <slot />
   </SfMenuItem>
 </template>
-
 <script>
 import SfMenuItem from "../../../molecules/SfMenuItem/SfMenuItem.vue";
 export default {

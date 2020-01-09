@@ -4,10 +4,8 @@ import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-
 export default {
   name: "SfProductCard",
-
   props: {
     /**
      * Product image
@@ -120,7 +118,6 @@ export default {
       default: false
     }
   },
-
   components: {
     SfPrice,
     SfRating,
@@ -128,13 +125,11 @@ export default {
     SfImage,
     SfCircleIcon
   },
-
   data() {
     return {
       isAddingToCart: false
     };
   },
-
   computed: {
     currentWishlistIcon() {
       return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
@@ -145,15 +140,12 @@ export default {
     ariaLabel() {
       return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
-
     wishlistIconClasses() {
       const defaultClass = "sf-product-card__wishlist-icon";
-
       return `${defaultClass} ${
         this.isOnWishlist ? "sf-product-card--on-wishlist" : ""
       }`;
     },
-
     linkComponentTag() {
       if (this.linkTag) {
         return this.linkTag;
@@ -166,7 +158,6 @@ export default {
       return "div";
     }
   },
-
   methods: {
     toggleIsOnWishlist() {
       this.$emit("click:wishlist", !this.isOnWishlist);

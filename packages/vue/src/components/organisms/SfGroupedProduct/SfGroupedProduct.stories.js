@@ -1,8 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, number, object } from "@storybook/addon-knobs";
-
 import SfGroupedProduct from "./SfGroupedProduct.vue";
-
 storiesOf("Organisms|GroupedProduct", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

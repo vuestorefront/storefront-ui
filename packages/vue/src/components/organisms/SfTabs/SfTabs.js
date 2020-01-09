@@ -1,9 +1,7 @@
 // @vue/component
 import SfTab from "./_internal/SfTab.vue";
 import Vue from "vue";
-
 Vue.component("SfTab", SfTab);
-
 export default {
   name: "SfTabs",
   components: {

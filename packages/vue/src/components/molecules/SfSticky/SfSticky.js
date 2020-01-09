@@ -45,10 +45,8 @@ export default {
     parentTop() {
       this.$el.style.bottom = "";
       this.$el.parentElement.style.paddingTop = "";
-
       this.isSticky = false;
       this.isBound = false;
-
       this.computedPadding();
       this.parentHeight = this.$el.parentElement.offsetHeight;
     },
@@ -82,10 +80,8 @@ export default {
     this.parentTop = this.$el.parentElement.offsetTop;
     this.top = this.$el.offsetTop;
     this.parentHeight = this.$el.parentElement.offsetHeight;
-
     this.height = this.$el.offsetHeight;
     this.width = this.$el.parentElement.offsetWidth;
-
     window.addEventListener("scroll", this.scrollHandler, { passive: true });
     window.addEventListener("resize", this.resizeHandler, { passive: true });
   },

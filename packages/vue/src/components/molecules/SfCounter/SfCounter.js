@@ -1,9 +1,7 @@
 // @vue/component
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-
 export default {
   name: "SfCounter",
-
   props: {
     step: {
       type: Number,
@@ -59,14 +57,12 @@ export default {
       type: Boolean
     }
   },
-
   data() {
     return {
       currentValue:
         this.value || this.autoFill ? this.parseNumber(this.value) : null
     };
   },
-
   computed: {
     stringValue: {
       get() {
@@ -106,7 +102,6 @@ export default {
       }
     }
   },
-
   methods: {
     parseNumber(value) {
       switch (typeof value) {
@@ -145,7 +140,6 @@ export default {
       }
       return this.min || 0;
     },
-
     keypress(e) {
       if (e && e.key) {
         switch (e.key) {
@@ -169,7 +163,6 @@ export default {
         e.preventDefault();
       }
     },
-
     setCurrentValue(val) {
       if (typeof val === "number") {
         // check minimum and maximum
@@ -182,16 +175,13 @@ export default {
       this.currentValue = val;
       this.$emit("input", val);
     },
-
     increase() {
       this.setCurrentValue(this.currentValue + this.step);
     },
-
     decrease() {
       this.setCurrentValue(this.currentValue - this.step);
     }
   },
-
   watch: {
     value(val) {
       if (val !== this.currentValue) {

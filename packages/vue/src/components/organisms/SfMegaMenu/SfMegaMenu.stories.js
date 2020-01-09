@@ -1,10 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-
 import SfMegaMenu from "./SfMegaMenu.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfHeader from "../SfHeader/SfHeader.vue";
-
 const AsidePlaceholder = {
   components: { SfImage },
   data() {
@@ -116,7 +114,6 @@ const MegaMenuPlaceholder = {
         </template>
       </SfMegaMenu>`
 };
-
 storiesOf("Organisms|MegaMenu", module)
   .add("Common", () => ({
     components: {

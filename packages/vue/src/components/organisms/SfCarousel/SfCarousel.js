@@ -1,13 +1,9 @@
 // @vue/component
 import Vue from "vue";
-
 import SfCarouselItem from "./_internal/SfCarouselItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
-
 import Glide from "@glidejs/glide";
-
 Vue.component("SfCarouselItem", SfCarouselItem);
-
 export default {
   name: "SfCarousel",
   data() {
@@ -56,11 +52,9 @@ export default {
   computed: {
     mergedOptions() {
       let breakpoints = { ...this.defaultSettings.breakpoints };
-
       if (this.settings.breakpoints) {
         breakpoints = { ...breakpoints, ...this.settings.breakpoints };
       }
-
       return {
         ...this.defaultSettings,
         ...this.settings,
@@ -74,16 +68,12 @@ export default {
       glide.mount();
       glide.on("run.before", move => {
         const { slidePerPage, rewind, type } = this.mergedOptions;
-
         if (!slidePerPage) return;
-
         const { perView } = glide.settings;
         if (!perView > 1) return;
-
         const size = this.$slots.default.filter(slot => slot.tag).length;
         const { direction } = move;
         let page, newIndex;
-
         switch (direction) {
           case ">":
           case "<":
@@ -103,7 +93,6 @@ export default {
                 newIndex = size - perView;
               }
             }
-
             move.direction = "=";
             move.steps = newIndex;
         }

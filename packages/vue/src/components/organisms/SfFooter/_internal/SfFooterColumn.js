@@ -1,6 +1,5 @@
 // @vue/component
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
-
 export default {
   name: "SfFooterColumn",
   components: { SfChevron },

@@ -1,6 +1,5 @@
 // @vue/component
 import SfRating from "../../atoms/SfRating/SfRating.vue";
-
 export default {
   name: "SfReview",
   props: {
@@ -77,7 +76,6 @@ export default {
     },
     buttonText() {
       let buttonText = this.readMoreText;
-
       if (this.isOpen) {
         buttonText = this.hideFullText;
       }
