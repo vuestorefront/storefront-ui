@@ -2,26 +2,25 @@
   <div class="sf-collected-product">
     <slot name="remove" v-bind="{ removeHandler }">
       <SfCircleIcon
-        class="sf-collected-product__remove"
         icon="cross"
-        icon-color="white"
         icon-size="8px"
+        icon-color="white"
+        class="sf-collected-product__remove"
         @click="removeHandler"
       />
     </slot>
     <div class="sf-collected-product__aside">
       <slot name="image" v-bind="{ image, title }">
         <SfImage
-          :alt="title"
           :src="image"
+          :alt="title"
           class="sf-collected-product__image"
         />
       </slot>
       <slot name="input">
         <SfQuantitySelector
-          :min="qtyMin"
           :qty="qty"
-          :stock="stock"
+          :min="qtyMin"
           class="sf-collected-product__quantity-selector"
           @input="$emit('input', $event)"
         />
@@ -96,13 +95,6 @@ export default {
      */
     qty: {
       type: [Number, String],
-      default: 1
-    },
-    /**
-     * Stock quantity of product
-     */
-    stock: {
-      type: Number,
       default: 1
     },
     /**
