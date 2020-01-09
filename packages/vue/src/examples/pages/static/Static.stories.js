@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import Static from "./Static";
-
 storiesOf("Pages|Static", module).add("Default", () => ({
   components: { Static },
   mounted() {

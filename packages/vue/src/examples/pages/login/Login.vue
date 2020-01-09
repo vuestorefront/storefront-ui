@@ -89,7 +89,6 @@
 </template>
 <script>
 import { SfModal, SfInput, SfButton, SfCheckbox } from "@storefront-ui/vue";
-
 export default {
   name: "Login",
   components: { SfModal, SfInput, SfButton, SfCheckbox },
@@ -118,7 +117,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;

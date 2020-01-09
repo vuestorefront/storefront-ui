@@ -1,10 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-
 import SfInput from "./SfInput.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
-
 storiesOf("Atoms|Input", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

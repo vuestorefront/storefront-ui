@@ -39,7 +39,7 @@ $grouped-product__select-quantity-height: 1.875rem !default;
     width: $grouped-product__select-quantity-width;
     height: $grouped-product__select-quantity-height;
     @media (min-width: $desktop-min) {
-      bottom: $spacer-small;
+      bottom: 0;
       left: $grouped-product-max-width-desktop + $spacer-big;
     }
   }
