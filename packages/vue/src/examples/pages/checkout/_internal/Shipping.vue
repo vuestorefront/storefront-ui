@@ -244,7 +244,6 @@ export default {
     toPayment() {
       const order = { ...this.order };
       const shipping = { ...order.shipping };
-
       shipping.firstName = this.firstName;
       shipping.lastName = this.lastName;
       shipping.streetName = this.streetName;
@@ -256,7 +255,6 @@ export default {
       shipping.phoneNumber = this.phoneNumber;
       shipping.shippingMethod = this.shippingMethod;
       order.shipping = shipping;
-
       this.$emit("click:next", order);
     }
   }

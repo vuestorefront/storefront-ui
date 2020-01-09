@@ -141,7 +141,6 @@ export default {
   methods: {
     toShipping() {
       const order = { ...this.order };
-
       order.firstName = this.firstName;
       order.lastName = this.lastName;
       order.email = this.email;

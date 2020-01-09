@@ -67,7 +67,6 @@ import {
   OrderSummary,
   OrderReview
 } from "./_internal/index.js";
-
 export default {
   name: "Checkout",
   components: {
@@ -241,13 +240,11 @@ export default {
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
-
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
-
 #checkout {
   box-sizing: border-box;
   padding: 0 $spacer-big;

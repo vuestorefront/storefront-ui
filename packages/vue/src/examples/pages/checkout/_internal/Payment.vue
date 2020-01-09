@@ -362,7 +362,6 @@ export default {
       const order = { ...this.order };
       const payment = { ...order.payment };
       const card = { ...payment.card };
-
       payment.sameAsShipping = this.sameAsShipping;
       payment.firstName = this.firstName;
       payment.lastName = this.lastName;
@@ -375,7 +374,6 @@ export default {
       payment.country = this.country;
       payment.phoneNumber = this.phoneNumber;
       payment.paymentMethod = this.paymentMethod;
-
       if (this.isCreditCard) {
         card.number = this.cardNumber;
         card.holder = this.cardHolder;
@@ -384,10 +382,8 @@ export default {
         card.cvc = this.cardCVC;
         card.keep = this.cardKeep;
       }
-
       payment.card = card;
       order.payment = payment;
-
       this.$emit("click:next", order);
     }
   }

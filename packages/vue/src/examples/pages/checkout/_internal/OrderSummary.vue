@@ -209,7 +209,6 @@ export default {
       const subtotal = parseFloat(this.subtotal.replace("$", ""));
       const shipping = parseFloat(this.shippingMethod.price.replace("$", ""));
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
-
       return "$" + total.toFixed(2);
     }
   },

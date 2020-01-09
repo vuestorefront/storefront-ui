@@ -25,9 +25,6 @@ storiesOf("Organisms|GroupedProduct", module)
       priceRegular: {
         default: text("priceRegular", "$10,99", "Props")
       },
-      stock: {
-        default: number("stock", 99, {}, "Props")
-      },
       qtyMin: {
         default: number("qtyMin", 1, {}, "Props")
       },
@@ -57,7 +54,6 @@ storiesOf("Organisms|GroupedProduct", module)
           :title="title"
           :price-special="priceSpecial"
           :price-regular="priceRegular"
-          :stock="stock"
           :qty-min="qtyMin"
         >
           <template #details>
@@ -88,7 +84,6 @@ storiesOf("Organisms|GroupedProduct", module)
             sku: "MSD23-345-324",
             priceSpecial: "",
             priceRegular: "$10,99",
-            stock: 99,
             qtyMin: 1,
             qty: 1,
             attributes: [
@@ -105,7 +100,6 @@ storiesOf("Organisms|GroupedProduct", module)
             priceSpecial: "",
             priceRegular: "$11,99",
             qty: 1,
-            stock: 99,
             qtyMin: 1,
             attributes: [
               {
@@ -121,7 +115,6 @@ storiesOf("Organisms|GroupedProduct", module)
             priceSpecial: "",
             priceRegular: "$20,99",
             qty: 1,
-            stock: 99,
             qtyMin: 1,
             attributes: [
               {
@@ -143,7 +136,6 @@ storiesOf("Organisms|GroupedProduct", module)
           :title="product.title"
           :price-special="product.priceSpecial"
           :price-regular="product.priceRegular"
-          :stock="product.stock"
           :qty-min="product.qtyMin"
         >
           <template #details>
