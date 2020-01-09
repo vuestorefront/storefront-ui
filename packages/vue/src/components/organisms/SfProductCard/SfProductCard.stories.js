@@ -7,9 +7,7 @@ import {
   number,
   select
 } from "@storybook/addon-knobs";
-
 import SfProductCard from "./SfProductCard.vue";
-
 const pictures = [
   {
     normal: {
@@ -36,7 +34,6 @@ const pictures = [
     }
   }
 ];
-
 storiesOf("Organisms|ProductCard", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -106,7 +103,6 @@ storiesOf("Organisms|ProductCard", module)
         :isOnWishlist="isOnWishlist"
     />`
   }))
-
   .add("With 2 pictures", () => ({
     props: {
       title: {

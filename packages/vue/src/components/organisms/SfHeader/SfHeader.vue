@@ -68,9 +68,7 @@ import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
 import Vue from "vue";
-
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
-
 export default {
   name: "SfHeader",
   components: {

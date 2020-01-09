@@ -1,13 +1,11 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-
 import SfNotification from "./SfNotification.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import {
   visibilityToggleMixin,
   withVisibilityToggle
 } from "../../../../config/storybook/decorators";
-
 storiesOf("Molecules|Notification", module)
   .addDecorator(withKnobs)
   .addDecorator(withVisibilityToggle)

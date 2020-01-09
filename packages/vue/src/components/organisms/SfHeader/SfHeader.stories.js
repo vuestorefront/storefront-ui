@@ -6,9 +6,7 @@ import {
   object,
   boolean
 } from "@storybook/addon-knobs";
-
 import SfHeader from "./SfHeader.vue";
-
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -44,9 +42,6 @@ storiesOf("Organisms|Header", module)
           "Props"
         )
       },
-      sticky: {
-        default: boolean("sticky", true, "Props")
-      },
       hasMobileSearch: {
         default: boolean("hasMobileSearch", false, "Props")
       },
@@ -54,15 +49,13 @@ storiesOf("Organisms|Header", module)
         default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
-    template: `<div style="height: 50rem;">
-    <SfHeader
+    template: `<SfHeader
       :title="title" 
       :logo="logo"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      :sticky="sticky"
       :has-mobile-search="hasMobileSearch"
       :search-placeholder="searchPlaceholder"
      >
@@ -71,8 +64,7 @@ storiesOf("Organisms|Header", module)
         <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
         <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
       </template>
-    </SfHeader>
-    </div>`
+    </SfHeader>`
   }))
   .add("[slot] logo", () => ({
     components: { SfHeader },
@@ -107,9 +99,6 @@ storiesOf("Organisms|Header", module)
           "Props"
         )
       },
-      sticky: {
-        default: boolean("sticky", false, "Props")
-      },
       hasMobileSearch: {
         default: boolean("hasMobileSearch", false, "Props")
       },
@@ -117,15 +106,13 @@ storiesOf("Organisms|Header", module)
         default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
-    template: `<div style="height: 50rem;">
-    <SfHeader
+    template: `<SfHeader
       :title="title"  
       :logo="logo"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      :sticky="sticky"
       :has-mobile-search="hasMobileSearch"
       :search-placeholder="searchPlaceholder"
     >
@@ -137,8 +124,7 @@ storiesOf("Organisms|Header", module)
       <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
       <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
     </template>
-    </SfHeader>
-    </div>`
+    </SfHeader>`
   }))
   .add("[slot] navigation", () => ({
     components: { SfHeader },
@@ -168,9 +154,6 @@ storiesOf("Organisms|Header", module)
       activeIcon: {
         default: text("activeIcon", "account", "Props")
       },
-      sticky: {
-        default: boolean("sticky", false, "Props")
-      },
       hasMobileSearch: {
         default: boolean("hasMobileSearch", false, "Props")
       },
@@ -178,23 +161,20 @@ storiesOf("Organisms|Header", module)
         default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
-    template: `<div style="height: 50rem;">
-    <SfHeader
+    template: `<SfHeader
       :title="title" 
       :logo="logo"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      :sticky="sticky"
       :has-mobile-search="hasMobileSearch"
       :search-placeholder="searchPlaceholder"
     >
       <template #navigation>
         CUSTOM NAVIGATION
       </template>
-    </SfHeader>
-    </div>`
+    </SfHeader>`
   }))
   .add("[slot] search", () => ({
     components: { SfHeader },
@@ -224,9 +204,6 @@ storiesOf("Organisms|Header", module)
       activeIcon: {
         default: text("activeIcon", "account", "Props")
       },
-      sticky: {
-        default: boolean("sticky", false, "Props")
-      },
       hasMobileSearch: {
         default: boolean("hasMobileSearch", false, "Props")
       },
@@ -234,15 +211,13 @@ storiesOf("Organisms|Header", module)
         default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
-    template: `<div style="height: 50rem;">
-    <SfHeader
+    template: `<SfHeader
       :title="title"  
       :logo="logo"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      :sticky="sticky"
       :has-mobile-search="hasMobileSearch"
       :search-placeholder="searchPlaceholder"
     >
@@ -254,8 +229,7 @@ storiesOf("Organisms|Header", module)
       <template #search>
         CUSTOM SEARCH
       </template>
-    </SfHeader>
-    </div>`
+    </SfHeader>`
   }))
   .add("[slot] icons", () => ({
     components: { SfHeader },
@@ -290,9 +264,6 @@ storiesOf("Organisms|Header", module)
           "Props"
         )
       },
-      sticky: {
-        default: boolean("sticky", false, "Props")
-      },
       hasMobileSearch: {
         default: boolean("hasMobileSearch", false, "Props")
       },
@@ -300,15 +271,13 @@ storiesOf("Organisms|Header", module)
         default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
-    template: `<div style="height: 50rem;">
-    <SfHeader
+    template: `<SfHeader
       :title="title" 
       :logo="logo"
       :cart-icon="cartIcon" 
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      :sticky="sticky"
       :has-mobile-search="hasMobileSearch"
       :search-placeholder="searchPlaceholder"
     >
@@ -320,6 +289,5 @@ storiesOf("Organisms|Header", module)
       <template #header-icons>
         CUSTOM ICONS
       </template>
-    </SfHeader>
-    </div>`
+    </SfHeader>`
   }));
