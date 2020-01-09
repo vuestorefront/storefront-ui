@@ -1,21 +1,11 @@
-<template>
-  <SfInput
-    type="number"
-    :value="qty"
-    :min="min"
-    class="sf-quantity-selector"
-    @input="$emit('input', parseInt($event, 10))"
-  />
-</template>
-<script>
 import SfInput from "../../atoms/SfInput/SfInput.vue";
 export default {
   name: "SfQuantitySelector",
-  components: {
-    SfInput
-  },
   model: {
     prop: "qty"
+  },
+  components: {
+    SfInput
   },
   props: {
     /** Quantity */
@@ -39,7 +29,3 @@ export default {
     }
   }
 };
-</script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfQuantitySelector.scss";
-</style>
