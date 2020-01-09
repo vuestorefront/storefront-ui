@@ -7,9 +7,7 @@ import {
   number,
   select
 } from "@storybook/addon-knobs";
-
 import SfProductCard from "./SfProductCard.vue";
-
 storiesOf("Organisms|ProductCard", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

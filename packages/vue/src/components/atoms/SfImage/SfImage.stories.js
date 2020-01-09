@@ -7,9 +7,7 @@ import {
   number,
   object
 } from "@storybook/addon-knobs";
-
 import SfImage from "./SfImage.vue";
-
 storiesOf("Atoms|Image", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

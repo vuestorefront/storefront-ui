@@ -313,7 +313,6 @@ import {
   SfReview,
   SfBreadcrumbs
 } from "@storefront-ui/vue";
-
 export default {
   name: "Product",
   components: {
@@ -483,13 +482,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
-
 #product {
   box-sizing: border-box;
   @include for-desktop {
@@ -529,7 +526,6 @@ export default {
 .gallery-mobile {
   $height-other: 240px;
   $height-iOS: 265px;
-
   height: calc(100vh - #{$height-other});
   @supports (-webkit-overflow-scrolling: touch) {
     height: calc(100vh - #{$height-iOS});
@@ -734,7 +730,6 @@ export default {
     padding-right: 0;
   }
 }
-
 /* SfAction or SfButton modifier */
 .sf-action {
   padding: 0;
