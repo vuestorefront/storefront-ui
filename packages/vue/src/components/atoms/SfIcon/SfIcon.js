@@ -70,9 +70,10 @@ export default {
       return SF_ICONS.includes(this.icon.trim());
     },
     iconViewBox() {
-      return this.isSFIcons
-        ? icons[this.icon].viewBox || this.viewBox
-        : this.viewBox;
+      const defaultSFIconViewBox = this.isSFIcons
+        ? icons[this.icon].viewBox
+        : this.viewBox.default;
+      return this.viewBox || defaultSFIconViewBox;
     },
     iconPaths() {
       if (this.isSFIcons) {
