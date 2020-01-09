@@ -4,7 +4,6 @@ import MyProfile from "./MyProfile.vue";
 import MyReviews from "./MyReviews.vue";
 import OrderHistory from "./OrderHistory.vue";
 import ShippingDetails from "./ShippingDetails";
-
 export {
   LoyaltyCard,
   MyNewsletter,

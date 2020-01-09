@@ -228,7 +228,6 @@ export default {
     changeAddress(index) {
       const account = this.account;
       const shipping = account.shipping[index];
-
       if (index > -1) {
         this.firstName = account.firstName;
         this.lastName = account.lastName;
@@ -257,23 +256,18 @@ export default {
         phoneNumber: this.phoneNumber
       };
       const index = this.editedAddress;
-
       if (index > -1) {
         account.shipping[index] = shipping;
         this.editedAddress = -1;
       } else {
         account.shipping.push(shipping);
       }
-
       this.editAddress = false;
-
       this.$emit("click:shipping", account);
     },
     deleteAddress(index) {
       const account = { ...this.account };
-
       account.shipping.splice(index, 1);
-
       this.$emit("click:shipping", account);
     }
   }

@@ -18,7 +18,6 @@ export default {
   components: { SfTabs }
 };
 </script>
-
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 @mixin for-mobile {

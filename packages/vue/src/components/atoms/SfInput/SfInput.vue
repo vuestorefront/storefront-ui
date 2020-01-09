@@ -6,7 +6,7 @@
       'sf-input--invalid': valid === false
     }"
   >
-    <div style="position: relative;">
+    <div style="position: relative; height: 100%">
       <input
         :id="name"
         v-bind="$attrs"

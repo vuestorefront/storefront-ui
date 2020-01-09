@@ -22,10 +22,9 @@
         />
       </slot>
       <!-- @slot Custom input markup -->
-      <slot name="input" v-bind="{ qty, stock }">
+      <slot name="input" v-bind="{ qty }">
         <SfQuantitySelector
           :qty="qty"
-          :stock="stock"
           :min="qtyMin"
           class="sf-grouped-product-item__quantity-selector"
           @input="$emit('input', $event)"
@@ -120,13 +119,6 @@ export default {
     qty: {
       type: [Number, String],
       default: 1
-    },
-    /**
-     * Stock quantity of product
-     */
-    stock: {
-      type: Number,
-      default: 0
     },
     /**
      * Minimum product quantity
