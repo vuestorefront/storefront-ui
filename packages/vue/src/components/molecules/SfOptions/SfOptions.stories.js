@@ -1,8 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select, object } from "@storybook/addon-knobs";
-
 import SfOptions from "./SfOptions.vue";
-
 storiesOf("Molecules|Options", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
