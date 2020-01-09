@@ -1,5 +1,8 @@
 <template>
-  <header class="sf-header">
+  <header
+    class="sf-header"
+    :class="{ 'sf-header--has-mobile-search': hasMobileSearch }"
+  >
     <!--@slot Use this slot to replace logo with text or icon-->
     <slot name="logo" v-bind="{ logo, title }">
       <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo" />
@@ -11,7 +14,7 @@
     </nav>
     <!--@slot Use this slot to replace default search bar-->
     <slot name="search">
-      <SfSearchBar class="sf-header__search" />
+      <SfSearchBar :placeholder="searchPlaceholder" class="sf-header__search" />
     </slot>
     <!--@slot Use this slot to replace default header icons with custom content-->
     <slot name="header-icons" v-bind="{ accountIcon, wishlistIcon, cartIcon }">
@@ -51,6 +54,8 @@
         />
       </div>
     </slot>
+    <!--@slot Use this slot to replace default header language selector on mobile -->
+    <slot name="language-selector"></slot>
   </header>
 </template>
 <script>
@@ -103,12 +108,29 @@ export default {
       type: [String, Boolean],
       default: "profile"
     },
+    /**
+     * Header activeIcon (accepts account, wishlist and cart)
+     */
     activeIcon: {
       type: String,
       default: "",
       validator(value) {
         return ["", "account", "wishlist", "cart"].includes(value);
       }
+    },
+    /**
+     * Header search on mobile
+     */
+    hasMobileSearch: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Header search placeholder
+     */
+    searchPlaceholder: {
+      type: String,
+      default: "Search for items"
     }
   }
 };
