@@ -1,12 +1,10 @@
 import { shallowMount } from "@vue/test-utils";
 import SfCallToAction from "./SfCallToAction.vue";
-
 describe("SfCallToAction.vue", () => {
   it("renders a section", () => {
     const component = shallowMount(SfCallToAction);
     expect(component.contains("section")).toBe(true);
   });
-
   it("renders title text when passed", () => {
     const msg = "HelloWorld";
     const component = shallowMount(SfCallToAction, {
@@ -16,7 +14,6 @@ describe("SfCallToAction.vue", () => {
     });
     expect(component.find(".sf-call-to-action__title").text()).toMatch(msg);
   });
-
   it("renders button text from prop when passed", () => {
     const msg = "ButtonText";
     const component = shallowMount(SfCallToAction, {
