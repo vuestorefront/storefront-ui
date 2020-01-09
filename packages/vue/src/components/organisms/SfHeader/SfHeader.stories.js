@@ -46,6 +46,12 @@ storiesOf("Organisms|Header", module)
       },
       sticky: {
         default: boolean("sticky", true, "Props")
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props")
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<div style="height: 50rem;">
@@ -57,7 +63,8 @@ storiesOf("Organisms|Header", module)
       :account-icon="accountIcon"
       :active-icon="activeIcon"
       :sticky="sticky"
-      style="max-width: 1024px; margin: auto"
+      :has-mobile-search="hasMobileSearch"
+      :search-placeholder="searchPlaceholder"
      >
       <template #navigation>
         <SfHeaderNavigationItem>CLOTHES</SfHeaderNavigationItem>
@@ -102,6 +109,12 @@ storiesOf("Organisms|Header", module)
       },
       sticky: {
         default: boolean("sticky", false, "Props")
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props")
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<div style="height: 50rem;">
@@ -113,7 +126,8 @@ storiesOf("Organisms|Header", module)
       :account-icon="accountIcon"
       :active-icon="activeIcon"
       :sticky="sticky"
-      style="max-width: 1024px; margin: auto"
+      :has-mobile-search="hasMobileSearch"
+      :search-placeholder="searchPlaceholder"
     >
       <template #logo>
         CUSTOM LOGO 
@@ -156,6 +170,12 @@ storiesOf("Organisms|Header", module)
       },
       sticky: {
         default: boolean("sticky", false, "Props")
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props")
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<div style="height: 50rem;">
@@ -167,7 +187,8 @@ storiesOf("Organisms|Header", module)
       :account-icon="accountIcon"
       :active-icon="activeIcon"
       :sticky="sticky"
-      style="max-width: 1024px; margin: auto"
+      :has-mobile-search="hasMobileSearch"
+      :search-placeholder="searchPlaceholder"
     >
       <template #navigation>
         CUSTOM NAVIGATION
@@ -205,6 +226,12 @@ storiesOf("Organisms|Header", module)
       },
       sticky: {
         default: boolean("sticky", false, "Props")
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props")
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<div style="height: 50rem;">
@@ -216,7 +243,8 @@ storiesOf("Organisms|Header", module)
       :account-icon="accountIcon"
       :active-icon="activeIcon"
       :sticky="sticky"
-      style="max-width: 1024px; margin: auto"
+      :has-mobile-search="hasMobileSearch"
+      :search-placeholder="searchPlaceholder"
     >
       <template #navigation>
         <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
@@ -264,6 +292,12 @@ storiesOf("Organisms|Header", module)
       },
       sticky: {
         default: boolean("sticky", false, "Props")
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props")
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<div style="height: 50rem;">
@@ -275,7 +309,8 @@ storiesOf("Organisms|Header", module)
       :account-icon="accountIcon"
       :active-icon="activeIcon"
       :sticky="sticky"
-      style="max-width: 1024px; margin: auto"
+      :has-mobile-search="hasMobileSearch"
+      :search-placeholder="searchPlaceholder"
     >
       <template #navigation>
         <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
