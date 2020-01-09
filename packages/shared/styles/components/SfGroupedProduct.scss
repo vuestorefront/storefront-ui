@@ -43,7 +43,7 @@ $grouped-product-item__image-background-color: $c-light !default;
     width: $grouped-product__select-quantity-width;
     height: $grouped-product__select-quantity-height;
     @media (min-width: $desktop-min) {
-      bottom: $spacer-small;
+      bottom: 0;
       left: $grouped-product-max-width-desktop + $spacer-big;
     }
   }

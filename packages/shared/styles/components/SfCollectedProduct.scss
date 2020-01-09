@@ -106,7 +106,7 @@ $collected-product__image-background-color: $c-light !default;
   &__quantity-selector {
     position: absolute;
     right: $spacer;
-    bottom: $spacer-medium;
+    bottom: $spacer;
     z-index: 2;
   }
   &__main {
