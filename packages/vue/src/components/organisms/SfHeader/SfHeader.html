@@ -1,4 +1,4 @@
-<header class="sf-header" :class="{'sf-header--sticky' : sticky, 'sf-header--hidden' : !isVisible, 'sf-header--has-mobile-search': hasMobileSearch}">
+<header class="sf-header" :class="{'sf-header--sticky' : sticky, 'sf-header--hidden' : !isVisible, 'sf-header--has-mobile-search': hasMobileSearch && isSearchVisible}">
   <!--@slot Use this slot to replace logo with text or icon-->
   <slot name="logo" v-bind="{logo, title}">
     <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo"/>

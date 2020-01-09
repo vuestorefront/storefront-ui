@@ -85,6 +85,7 @@ export default {
   data() {
     return {
       isVisible: true,
+      isSearchVisible: true,
       lastScrollPosition: 0
     };
   },
@@ -118,6 +119,9 @@ export default {
       }
       this.isVisible = currentScrollPosition < this.lastScrollPosition;
       this.lastScrollPosition = currentScrollPosition;
+      if (this.sticky) {
+        this.isSearchVisible = !document.documentElement.scrollTop;
+      }
     }
   }
 };
