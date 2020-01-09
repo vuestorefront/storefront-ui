@@ -1,34 +1,35 @@
 <template>
   <div
-      class="sf-input"
-      :class="{
-    'sf-input--has-text': !!value,
-    'sf-input--invalid': valid === false
-  }"
+    class="sf-input"
+    :class="{
+      'sf-input--has-text': !!value,
+      'sf-input--invalid': valid === false
+    }"
   >
     <div style="position: relative; height: 100%">
       <input
-          v-bind="$attrs"
-          v-on="listeners"
-          :value="value"
-          :required="required"
-          :disabled="disabled"
-          :name="name"
-          :id="name"
+        :id="name"
+        v-bind="$attrs"
+        :value="value"
+        :required="required"
+        :disabled="disabled"
+        :name="name"
+        v-on="listeners"
       />
       <span class="sf-input__bar"></span>
       <label class="sf-input__label" :for="name">
         <!-- @slot Custom input label -->
-        <slot name="label" v-bind="{label}">{{ label }}</slot>
+        <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
     </div>
-    <div class="sf-input__error-message" v-if="valid!== undefined">
+    <div v-if="valid !== undefined" class="sf-input__error-message">
       <transition name="fade">
-      <span v-if="!valid">
-        <!-- @slot Custom error message of form input -->
-        <slot name="errorMessage" v-bind="{errorMessage}"
-        >{{ errorMessage }}</slot>
-      </span>
+        <span v-if="!valid">
+          <!-- @slot Custom error message of form input -->
+          <slot name="errorMessage" v-bind="{ errorMessage }">{{
+            errorMessage
+          }}</slot>
+        </span>
       </transition>
     </div>
   </div>
