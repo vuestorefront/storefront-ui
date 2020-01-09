@@ -19,7 +19,6 @@
                 :title="product.title"
                 :regular-price="product.price.regular | price"
                 :special-price="product.price.special | price"
-                :stock="product.stock"
                 class="collected-product"
                 @click:remove="removeHandler(product)"
               >
@@ -85,7 +84,6 @@ import {
   SfPrice,
   SfCollectedProduct
 } from "@storefront-ui/vue";
-
 export default {
   name: "Cart",
   components: {
@@ -114,8 +112,7 @@ export default {
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
           ],
-          qty: "1",
-          stock: 44
+          qty: "1"
         },
         {
           title: "Cream Beach Bag",
@@ -126,8 +123,7 @@ export default {
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
           ],
-          qty: "2",
-          stock: 10
+          qty: "2"
         },
         {
           title: "Cream Beach Bag",
@@ -138,8 +134,7 @@ export default {
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
           ],
-          qty: "1",
-          stock: 20
+          qty: "1"
         }
       ]
     };

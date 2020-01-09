@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import Login from "./Login.vue";
-
 storiesOf("Pages|Login & Sign in", module).add("Default", () => ({
   components: { Login },
   mounted() {
