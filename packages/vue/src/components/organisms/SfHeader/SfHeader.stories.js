@@ -1,8 +1,12 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select, object } from "@storybook/addon-knobs";
-
+import {
+  withKnobs,
+  text,
+  select,
+  object,
+  boolean
+} from "@storybook/addon-knobs";
 import SfHeader from "./SfHeader.vue";
-
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -37,6 +41,12 @@ storiesOf("Organisms|Header", module)
           "account",
           "Props"
         )
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props")
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<SfHeader
@@ -46,7 +56,8 @@ storiesOf("Organisms|Header", module)
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
+      :has-mobile-search="hasMobileSearch"
+      :search-placeholder="searchPlaceholder"
      >
       <template #navigation>
         <SfHeaderNavigationItem>CLOTHES</SfHeaderNavigationItem>
@@ -87,6 +98,12 @@ storiesOf("Organisms|Header", module)
           "account",
           "Props"
         )
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props")
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<SfHeader
@@ -96,7 +113,8 @@ storiesOf("Organisms|Header", module)
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
+      :has-mobile-search="hasMobileSearch"
+      :search-placeholder="searchPlaceholder"
     >
       <template #logo>
         CUSTOM LOGO 
@@ -135,6 +153,12 @@ storiesOf("Organisms|Header", module)
       },
       activeIcon: {
         default: text("activeIcon", "account", "Props")
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props")
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<SfHeader
@@ -144,7 +168,8 @@ storiesOf("Organisms|Header", module)
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
+      :has-mobile-search="hasMobileSearch"
+      :search-placeholder="searchPlaceholder"
     >
       <template #navigation>
         CUSTOM NAVIGATION
@@ -178,6 +203,12 @@ storiesOf("Organisms|Header", module)
       },
       activeIcon: {
         default: text("activeIcon", "account", "Props")
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props")
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<SfHeader
@@ -187,7 +218,8 @@ storiesOf("Organisms|Header", module)
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
+      :has-mobile-search="hasMobileSearch"
+      :search-placeholder="searchPlaceholder"
     >
       <template #navigation>
         <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
@@ -231,6 +263,12 @@ storiesOf("Organisms|Header", module)
           "account",
           "Props"
         )
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props")
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props")
       }
     },
     template: `<SfHeader
@@ -240,7 +278,8 @@ storiesOf("Organisms|Header", module)
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
+      :has-mobile-search="hasMobileSearch"
+      :search-placeholder="searchPlaceholder"
     >
       <template #navigation>
         <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
