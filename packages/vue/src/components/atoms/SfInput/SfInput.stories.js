@@ -127,7 +127,7 @@ storiesOf("Atoms|Input", module)
       </template>
     </SfInput>`
   }))
-  .add("[slot] password visibility icon", () => ({
+  .add("[slot] visibility-toggle", () => ({
     components: {
       SfInput,
       SfIcon
