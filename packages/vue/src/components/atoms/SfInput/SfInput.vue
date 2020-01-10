@@ -24,7 +24,7 @@
       <template v-if="isPasswordType">
         <!-- @slot -->
         <slot
-          name="show-password-button"
+          name="visibility-toggle"
           v-bind="{
             isPasswordVisible,
             switchVisibilityPassword,
@@ -32,13 +32,12 @@
           }"
         >
           <button
-            role="button"
             aria-label="switch-visibility-password"
             :disabled="!value"
             class="sf-input__password-button"
             @click="switchVisibilityPassword"
           >
-            <slot name="show-password-icon">
+            <slot>
               <SfIcon
                 class="sf-input__password-icon"
                 :class="{
