@@ -17,6 +17,8 @@ $input__error-message-font-family: $body-font-family-primary !default;
 $input__error-message-font-size: $font-size-small-mobile !default;
 $input__password-icon-hidden-border: $c-white !default;
 $input__password-icon-hidden-color: $c-gray-variant !default;
+$input__password-icon-width: 1.375rem !default;
+$input__pasword-icon-height: 0.8125rem !default;
 
 
 @mixin move-label-up {
@@ -121,8 +123,8 @@ $input__password-icon-hidden-color: $c-gray-variant !default;
     font-size: $input__error-message-font-size;
   }
   &__password-button {
-    display: block;
     position: absolute;
+    display: block;
     right: 1.25rem;
     background: transparent;
     border: none;
@@ -146,8 +148,8 @@ $input__password-icon-hidden-color: $c-gray-variant !default;
       align-items: center;
     }
     .sf-icon-path {
-      flex: 0 0 22px;
-      height: 13px;
+      flex: 0 0 $input__password-icon-width;
+      height: $input__pasword-icon-height;
     }
     &.sf-input__password-icon--hidden {
       &:after {
