@@ -3,7 +3,7 @@
     <slot />
   </tr>
 </template>
-<script src="./SfTableRow.js">
+<script>
 export default {
   name: "SfTableRow",
   inject: ["table"],
