@@ -46,6 +46,7 @@ $input__password-icon-hidden-color: $c-gray-variant !default;
     box-sizing: border-box;
     display: block;
     width: 100%;
+    height: 100%;
     padding: 5px 0;
     border-width: 0 0 1px 0;
     border-color: $c-light;
@@ -80,6 +81,7 @@ $input__password-icon-hidden-color: $c-gray-variant !default;
   &__wrapper {
     position: relative;
     display: flex;
+    height: 100%;
     justify-content: space-between;
     align-items: center;
   }
