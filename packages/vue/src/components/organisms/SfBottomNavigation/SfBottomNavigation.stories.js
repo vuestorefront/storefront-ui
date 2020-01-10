@@ -1,11 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
-
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfBottomNavigation from "./SfBottomNavigation.vue";
-
 storiesOf("Organisms|BottomNavigation", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

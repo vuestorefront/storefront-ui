@@ -1,11 +1,9 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, number, boolean } from "@storybook/addon-knobs";
-
 import SfFooter from "./SfFooter.vue";
 import SfList from "../SfList/SfList.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-
 storiesOf("Organisms|Footer", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
