@@ -17,6 +17,9 @@ $collected-product__image-background-color: $c-light !default;
   display: flex;
   max-width: $collected-product-max-width;
   padding: $spacer-small;
+  @media (min-width: $desktop-min) {
+    padding: 10px $spacer-big;
+  }
   &::after {
     content: "";
     @media (min-width: $desktop-min) {

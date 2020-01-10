@@ -12,5 +12,6 @@ module.exports = {
   },
   modulePathIgnorePatterns: ["scripts"],
   snapshotSerializers: ["jest-serializer-vue"],
-  testMatch: ["**/*.spec.js"]
+  testMatch: ["**/*.spec.js"],
+  setupFilesAfterEnv: ["<rootDir>/setup-jest.js"]
 };
