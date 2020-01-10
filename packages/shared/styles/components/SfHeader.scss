@@ -76,7 +76,8 @@ $header-navigation-item-font-weight: 500 !default;
       height: 2.125rem;
       margin: 0;
     }
-    img, picture{
+    img{
+      max-width: unset;
       height: 100%;
     }
   }

@@ -57,6 +57,7 @@ export default {
       this.contentEl = this.$refs.content.$el.querySelector(
         ".simplebar-content"
       );
+      if (typeof MutationObserver === "undefined") return;
       const observer = new MutationObserver(this.sizeCalc);
       this.sizeCalc();
       observer.observe(this.contentEl, { childList: true });
