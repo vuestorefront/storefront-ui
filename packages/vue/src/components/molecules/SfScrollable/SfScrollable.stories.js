@@ -69,9 +69,6 @@ storiesOf("Molecules|Scrollable", module)
       },
       hideText: {
         default: text("hideText", "Hide colors", "Props")
-      },
-      maxContentHeight: {
-        default: text("maxContentHeight", "6.875rem", "Props")
       }
     },
     data() {
