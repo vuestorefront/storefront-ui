@@ -1,5 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 import SfCollectedProduct from "./SfCollectedProduct.vue";
+
 describe("SfCollectedProduct.vue", () => {
   it("renders a component", () => {
     const title = "Product";

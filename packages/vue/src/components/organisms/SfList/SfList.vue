@@ -1,17 +1,5 @@
-<template>
-  <ul class="sf-list">
-    <!-- @slot -->
-    <slot />
-  </ul>
-</template>
-<script>
-import SfListItem from "./_internal/SfListItem.vue";
-import Vue from "vue";
-Vue.component("SfListItem", SfListItem);
-export default {
-  name: "SfList"
-};
-</script>
+<script src="./SfList.js"></script>
+<template lang="html" src="./SfList.html"></template>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/SfList.scss";
 </style>

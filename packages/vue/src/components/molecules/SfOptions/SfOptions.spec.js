@@ -1,5 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 import SfOptions from "./SfOptions.vue";
+
 describe("SfOptions.vue", () => {
   it("renders options", () => {
     const options = [{ text: "XL", value: "XL" }];

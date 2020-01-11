@@ -222,7 +222,8 @@ import {
   SfAccordion,
   SfSelect,
   SfBreadcrumbs
-} from "@storefront-ui/vue";
+} from "../../../../index.js";
+
 export default {
   components: {
     SfButton,
@@ -304,56 +305,56 @@ export default {
       products: [
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productA.jpg",
+          image: "assets/storybook/homepage/productA.jpg",
           price: { regular: "$50.00", special: "$20.00" },
           rating: { max: 5, score: false },
           isOnWishlist: true
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productB.jpg",
+          image: "assets/storybook/homepage/productB.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productC.jpg",
+          image: "assets/storybook/homepage/productC.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productA.jpg",
+          image: "assets/storybook/homepage/productA.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productB.jpg",
+          image: "assets/storybook/homepage/productB.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productC.jpg",
+          image: "assets/storybook/homepage/productC.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productA.jpg",
+          image: "assets/storybook/homepage/productA.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productB.jpg",
+          image: "assets/storybook/homepage/productB.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
@@ -424,11 +425,13 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
+
 #category {
   box-sizing: border-box;
   @include for-desktop {

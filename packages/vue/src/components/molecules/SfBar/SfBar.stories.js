@@ -1,7 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
+
 import SfBar from "./SfBar.vue";
+
 storiesOf("Molecules|Bar", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

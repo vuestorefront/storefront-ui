@@ -1,7 +1,9 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
+
 import SfMenuItem from "./SfMenuItem.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+
 storiesOf("Molecules|MenuItem", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

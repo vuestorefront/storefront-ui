@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import Product from "./Product";
+
 storiesOf("Pages|Product", module).add("Default", () => ({
   components: { Product },
   mounted() {

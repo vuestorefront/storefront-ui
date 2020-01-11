@@ -4,8 +4,11 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
 import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
 import { colorsValues as colors } from "@storefront-ui/shared/variables/colors";
+
 import SfIcon from "./SfIcon.vue";
+
 const iconsNames = Object.keys(icons);
+
 storiesOf("Atoms|Icon", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -82,7 +85,7 @@ storiesOf("Atoms|Icon", module)
       :color="color"
       :view-box="viewBox">
       <template #default="{viewBox, iconPaths, icon}">
-        <img src="/assets/logo.svg" alt="Vue.js">
+        <img src="/assets/storybook/vue.ico" alt="Vue.js">
       </template>
     </SfIcon>`
   }));
