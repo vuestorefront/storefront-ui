@@ -1,6 +1,8 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
+
 import SfCharacteristic from "./SfCharacteristic.vue";
+
 const sizes = ["xxs", "xs", "sm", "md", "lg", "xl", "xxl", "xl3", "xl4"];
 const colors = [
   "primary",
@@ -21,6 +23,7 @@ const colors = [
   "blue-primary",
   "blue-secondary"
 ];
+
 storiesOf("Molecules|Characteristic", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

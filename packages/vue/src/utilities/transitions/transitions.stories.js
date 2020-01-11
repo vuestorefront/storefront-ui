@@ -1,5 +1,7 @@
 import { storiesOf } from "@storybook/vue";
+
 import SfButton from "./../../../src/components/atoms/SfButton/SfButton.vue";
+
 export default storiesOf("Utilities|Transitions", module)
   .add(
     "fade in-out",

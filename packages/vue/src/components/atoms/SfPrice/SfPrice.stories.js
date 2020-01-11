@@ -5,8 +5,10 @@ import {
   text,
   optionsKnob as options
 } from "@storybook/addon-knobs";
+
 import SfPrice from "./SfPrice.vue";
 import SfBadge from "../SfBadge/SfBadge.vue";
+
 storiesOf("Atoms|Price", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

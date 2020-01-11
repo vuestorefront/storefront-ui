@@ -1,11 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
+
 import SfModal from "./SfModal.vue";
 import {
   visibilityToggleMixin,
   withVisibilityToggle
 } from "../../../../config/storybook/decorators";
+
 storiesOf("Molecules|Modal", module)
   .addDecorator(withKnobs)
   .addDecorator(withVisibilityToggle)

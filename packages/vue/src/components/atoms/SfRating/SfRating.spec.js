@@ -1,10 +1,12 @@
 import { shallowMount } from "@vue/test-utils";
 import SfRating from "./SfRating.vue";
+
 describe("SfRating.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfRating);
     expect(component.contains(".sf-rating")).toBe(true);
   });
+
   it("renders the correct amount of stars from props", () => {
     const score = 3;
     const component = shallowMount(SfRating, {
@@ -14,6 +16,7 @@ describe("SfRating.vue", () => {
     });
     expect(component.findAll(".sf-rating__icon-positive").length).toBe(score);
   });
+
   it("render multiple stars when max is increased", () => {
     const score = 4;
     const max = 10;
@@ -27,6 +30,7 @@ describe("SfRating.vue", () => {
       max - score
     );
   });
+
   it("renders with custom positive icon", () => {
     const score = 3;
     const max = 5;
@@ -41,6 +45,7 @@ describe("SfRating.vue", () => {
     });
     expect(component.findAll(".sf-rating__icon-clock").length).toBe(score);
   });
+
   it("renders with custom negative icon", () => {
     const score = 2;
     const max = 5;

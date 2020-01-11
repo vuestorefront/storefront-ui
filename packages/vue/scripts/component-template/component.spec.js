@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import ComponentNameCamelCase from "./ComponentNameCamelCase.vue";
+import ComponentNameCamelCase from "@/components/ComponentFolder/ComponentNameCamelCase.vue";
 
 describe("ComponentNameCamelCase.vue", () => {
   it("renders a component", () => {

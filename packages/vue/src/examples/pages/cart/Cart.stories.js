@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import Cart from "./Cart";
+
 storiesOf("Pages|Cart", module).add("Default", () => ({
   components: { Cart },
   mounted() {

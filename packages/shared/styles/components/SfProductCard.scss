@@ -8,6 +8,7 @@ $product-card__image-background-color: $c-light !default;
 $product-card__image-blend-mode: darken !default;
 $product-card__pictures-height: 180px !default;
 $product-card__pictures-height-desktop: 250px !default;
+
 .sf-product-card {
   $this: &;
   position: relative;
@@ -39,9 +40,10 @@ $product-card__pictures-height-desktop: 250px !default;
       }
     }
     #{$this}__picture {
-      &:last-child{
+      display: none;
+      &:last-child {
+        display: block;
         opacity: 1;
-        transform: translateX(-100%);
       }
     }
     #{$this}__wishlist-icon {
@@ -58,6 +60,29 @@ $product-card__pictures-height-desktop: 250px !default;
   &__link {
     outline: none;
   }
+  &__pictures {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    height: $product-card__pictures-height;
+    @media (min-width: $desktop-min) {
+      height: $product-card__pictures-height-desktop;
+    }
+  }
+  &__picture {
+    display: block;
+    flex: 0 0 100%;
+    opacity: 0;
+    transition: opacity 0.25s;
+    max-height: $product-card__pictures-height;
+    &:first-child {
+      opacity: 1;
+    }
+    @media (min-width: $desktop-min) {
+      max-height: $product-card__pictures-height-desktop;
+    }
+  }
   &__title {
     font-family: $body-font-family-secondary;
     font-size: $font-size-regular-mobile;
@@ -69,26 +94,14 @@ $product-card__pictures-height-desktop: 250px !default;
       font-size: $font-size-regular-desktop;
     }
   }
+
   &__image-wrapper {
     position: relative;
   }
-  &__pictures {
-    display: flex;
-    overflow: hidden;
-  }
-  &__picture{
-    flex: 0 0 100%;
-  }
-  &__image,
-  &__picture{
-    background-color: $product-card__image-background-color;
-    img {
-      mix-blend-mode: $product-card__image-blend-mode;
-    }
-  }
+
   &__add-button {
     display: none;
-    @media (min-width: $desktop-min) {
+    @media (min-width: $mobile-max) {
       position: absolute;
       cursor: pointer;
       z-index: 1;
@@ -103,6 +116,18 @@ $product-card__pictures-height-desktop: 250px !default;
       &--icons-leave-active {
         animation: bounce .4s reverse;
       }
+    }
+  }
+
+  &__image {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-color: $product-card__image-background-color;
+    img {
+      max-width: 100%;
+      mix-blend-mode: $product-card__image-blend-mode;
+      background-color: $c-light;
     }
   }
   &__reviews {
@@ -137,6 +162,8 @@ $product-card__pictures-height-desktop: 250px !default;
     }
   }
 }
+
+
 @keyframes bounce {
   0% {
     transform: scale(1);
