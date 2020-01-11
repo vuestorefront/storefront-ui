@@ -1,8 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, number, object } from "@storybook/addon-knobs";
-
 import SfGroupedProduct from "./SfGroupedProduct.vue";
-
 storiesOf("Organisms|GroupedProduct", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -12,7 +10,17 @@ storiesOf("Organisms|GroupedProduct", module)
         default: object("settings", { type: "slider" }, "Props")
       },
       image: {
-        default: text("image", "/assets/storybook/product-white.png", "Props")
+        default: text(
+          "image",
+          "/assets/storybook/SfGroupedProduct/product-white.png",
+          "Props"
+        )
+      },
+      imageWidth: {
+        default: number("imageWidth", 246, {}, "Props")
+      },
+      imageHeight: {
+        default: number("imageHeight", 336, {}, "Props")
       },
       title: {
         default: text("title", "Leave white brooch", "Props")
@@ -23,8 +31,8 @@ storiesOf("Organisms|GroupedProduct", module)
       priceRegular: {
         default: text("priceRegular", "$10,99", "Props")
       },
-      stock: {
-        default: number("stock", 99, {}, "Props")
+      qtyMin: {
+        default: number("qtyMin", 1, {}, "Props")
       },
       attributes: {
         default: object(
@@ -41,7 +49,7 @@ storiesOf("Organisms|GroupedProduct", module)
     },
     data() {
       return {
-        productQty: "0"
+        productQty: 1
       };
     },
     template: `<div style="max-width: 509px">
@@ -49,10 +57,12 @@ storiesOf("Organisms|GroupedProduct", module)
         <SfGroupedProductItem 
           v-model="productQty"
           :image="image"
+          :image-width="imageWidth"
+          :image-height="imageHeight"
           :title="title"
           :price-special="priceSpecial"
           :price-regular="priceRegular"
-          :stock="stock"
+          :qty-min="qtyMin"
         >
           <template #details>
             <div style="color: #a3a5ad">MSD23-345-324</div>
@@ -77,13 +87,13 @@ storiesOf("Organisms|GroupedProduct", module)
       return {
         groupedProduct: [
           {
-            image: "/assets/storybook/product-white.png",
+            image: "/assets/storybook/SfGroupedProduct/product-white.png",
             title: "Leave white brooch",
             sku: "MSD23-345-324",
             priceSpecial: "",
             priceRegular: "$10,99",
-            stock: 99,
-            qty: "0",
+            qtyMin: 1,
+            qty: 1,
             attributes: [
               {
                 name: "color",
@@ -92,13 +102,13 @@ storiesOf("Organisms|GroupedProduct", module)
             ]
           },
           {
-            image: "/assets/storybook/product-green.png",
+            image: "/assets/storybook/SfGroupedProduct/product-green.png",
             title: "Leave green brooch",
             sku: "MSD23-345-325",
             priceSpecial: "",
             priceRegular: "$11,99",
-            qty: "0",
-            stock: 99,
+            qty: 1,
+            qtyMin: 1,
             attributes: [
               {
                 name: "color",
@@ -107,13 +117,13 @@ storiesOf("Organisms|GroupedProduct", module)
             ]
           },
           {
-            image: "/assets/storybook/product-black.png",
+            image: "/assets/storybook/SfGroupedProduct/product-black.png",
             title: "Leave black brooch",
             sku: "MSD23-345-326",
             priceSpecial: "",
             priceRegular: "$20,99",
-            qty: "0",
-            stock: 99,
+            qty: 1,
+            qtyMin: 1,
             attributes: [
               {
                 name: "color",
@@ -134,7 +144,7 @@ storiesOf("Organisms|GroupedProduct", module)
           :title="product.title"
           :price-special="product.priceSpecial"
           :price-regular="product.priceRegular"
-          :stock="product.stock"
+          :qty-min="product.qtyMin"
         >
           <template #details>
             <div style="color: #a3a5ad">{{product.sku}}</div>

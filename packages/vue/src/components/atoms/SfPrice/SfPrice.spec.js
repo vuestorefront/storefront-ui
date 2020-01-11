@@ -1,6 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
 import SfPrice from "./SfPrice.vue";
-
 describe("SfPrice.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfPrice);

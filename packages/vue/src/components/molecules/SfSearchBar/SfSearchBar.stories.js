@@ -4,9 +4,7 @@ import {
   text,
   optionsKnob as options
 } from "@storybook/addon-knobs";
-
 import SfSearchBar from "./SfSearchBar.vue";
-
 storiesOf("Molecules|SearchBar", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
