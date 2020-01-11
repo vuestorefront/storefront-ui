@@ -49,6 +49,7 @@ import SfQuantitySelector from "../../src/components/atoms/SfQuantitySelector/Sf
 import SfRadio from "../../src/components/molecules/SfRadio/SfRadio.vue"
 import SfRating from "../../src/components/atoms/SfRating/SfRating.vue"
 import SfReview from "../../src/components/molecules/SfReview/SfReview.vue"
+import SfScrollable from "../../src/components/molecules/SfScrollable/SfScrollable.vue"
 import SfSearchBar from "../../src/components/molecules/SfSearchBar/SfSearchBar.vue"
 import SfSection from "../../src/components/molecules/SfSection/SfSection.vue"
 import SfSelect from "../../src/components/molecules/SfSelect/SfSelect.vue"
@@ -118,6 +119,7 @@ export default ({
   Vue.component("SfRadio", SfRadio);
   Vue.component("SfRating", SfRating);
   Vue.component("SfReview", SfReview);
+  Vue.component("SfScrollable", SfScrollable);
   Vue.component("SfSearchBar", SfSearchBar);
   Vue.component("SfSection", SfSection);
   Vue.component("SfSelect", SfSelect);
