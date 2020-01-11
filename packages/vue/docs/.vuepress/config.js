@@ -69,6 +69,7 @@ module.exports = {
           ["/components/ProductCard", "Product Card"],
           ["/components/ProductOption", "Product Option"],
           ["/components/Property", "Property"],
+          ["/components/QuantitySelector", "Quantity Selector"],
           ["/components/Radio", "Radio"],
           ["/components/Rating", "Rating"],
           ["/components/Review", "Review"],
@@ -80,6 +81,7 @@ module.exports = {
           ["/components/Steps", "Steps"],
           ["/components/Sticky", "Sticky"],
           ["/components/StoreLocator", "Store Locator"],
+          ["/components/Table", "Table"],
           ["/components/Tabs", "Tabs"],
           ["/components/TopBar", "Top Bar"]
           // @components-docs-end
