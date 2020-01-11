@@ -1,6 +1,10 @@
 import { shallowMount } from "@vue/test-utils";
 import SfMenuItem from "./SfMenuItem.vue";
 describe("SfMenuItem.vue", () => {
+  it("renders a component", () => {
+    const component = shallowMount(SfMenuItem);
+    expect(component.contains(".sf-menu-item")).toBe(true);
+  });
   it("renders a div with correct class", () => {
     const component = shallowMount(SfMenuItem);
     expect(component.html()).toContain("sf-menu-item");

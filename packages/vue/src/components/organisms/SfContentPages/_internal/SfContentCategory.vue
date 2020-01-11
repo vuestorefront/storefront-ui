@@ -1,18 +1,18 @@
 <template>
-  <div>
+  <div class="sf-content-category">
     <slot />
   </div>
 </template>
 <script>
 export default {
-  name: "SfContentCategory",
+  name: 'SfContentCategory',
   props: {
     /**
      * Category title
      */
     title: {
       type: String,
-      default: ""
+      default: ''
     }
   },
   data() {

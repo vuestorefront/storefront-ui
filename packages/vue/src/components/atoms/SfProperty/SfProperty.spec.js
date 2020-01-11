@@ -1,6 +1,10 @@
 import { shallowMount } from "@vue/test-utils";
 import SfProperty from "./SfProperty.vue";
 describe("SfProperty.vue", () => {
+  it("renders a component", () => {
+    const component = shallowMount(SfProperty);
+    expect(component.contains(".sf-property")).toBe(true);
+  });
   it("renders a div with correct class", () => {
     const component = shallowMount(SfProperty);
     expect(component.html()).toContain("sf-property");
