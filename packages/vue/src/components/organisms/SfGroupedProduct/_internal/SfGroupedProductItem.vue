@@ -15,6 +15,8 @@
         <SfImage
           :src="image"
           :alt="title"
+          :width="imageWidth"
+          :height="imageHeight"
           :placeholder="imagePlaceholder"
           :lazy="imageLazy"
           :image-picture-breakpoint="imagePictureBreakpoint"
@@ -72,6 +74,20 @@ export default {
     image: {
       type: String,
       default: ""
+    },
+    /**
+     * Product image width, without unit
+     */
+    imageWidth: {
+      type: [String, Number],
+      default: 246
+    },
+    /**
+     * Product image height, without unit
+     */
+    imageHeight: {
+      type: [String, Number],
+      default: 336
     },
     /**
      * Product image placeholder
