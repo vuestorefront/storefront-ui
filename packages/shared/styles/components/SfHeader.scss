@@ -69,7 +69,8 @@ $header-desktop-background-color: $c-white !default;
       height: 2.125rem;
       margin: 0;
     }
-    img, picture{
+    img{
+      max-width: unset;
       height: 100%;
       max-width: unset;
     }
