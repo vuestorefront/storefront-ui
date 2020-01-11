@@ -1,8 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select, object } from "@storybook/addon-knobs";
-
 import SfOptions from "./SfOptions.vue";
-
 storiesOf("Molecules|Options", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -33,9 +31,15 @@ storiesOf("Molecules|Options", module)
             ],
             image: [
               { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
+              {
+                value: "heart",
+                image: "/assets/storybook/SfOptions/heart.svg"
+              },
+              { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
+              {
+                value: "profile",
+                image: "/assets/storybook/SfOptions/profile.svg"
+              }
             ]
           },
           "Props"
@@ -81,9 +85,15 @@ storiesOf("Molecules|Options", module)
             ],
             image: [
               { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
+              {
+                value: "heart",
+                image: "/assets/storybook/SfOptions/heart.svg"
+              },
+              { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
+              {
+                value: "profile",
+                image: "/assets/storybook/SfOptions/profile.svg"
+              }
             ]
           },
           "Props"
@@ -133,9 +143,15 @@ storiesOf("Molecules|Options", module)
             ],
             image: [
               { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
+              {
+                value: "heart",
+                image: "/assetsstorybook//SfOptions/heart.svg"
+              },
+              { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
+              {
+                value: "profile",
+                image: "/assets/storybook/SfOptions/profile.svg"
+              }
             ]
           },
           "Props"
@@ -185,9 +201,15 @@ storiesOf("Molecules|Options", module)
             ],
             image: [
               { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
+              {
+                value: "heart",
+                image: "/assets/storybook/SfOptions/heart.svg"
+              },
+              { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
+              {
+                value: "profile",
+                image: "/assets/storybook/SfOptions/profile.svg"
+              }
             ]
           },
           "Props"
@@ -237,9 +259,15 @@ storiesOf("Molecules|Options", module)
             ],
             image: [
               { value: "logo", image: "/assets/logo.svg" },
-              { value: "heart", image: "/assets/heart.svg" },
-              { value: "home", image: "/assets/home.svg" },
-              { value: "profile", image: "/assets/profile.svg" }
+              {
+                value: "heart",
+                image: "/assets/storybook/SfOptions/heart.svg"
+              },
+              { value: "home", image: "/assets/storybook/SfOptions/home.svg" },
+              {
+                value: "profile",
+                image: "/assets/storybook/SfOptions/profile.svg"
+              }
             ]
           },
           "Props"

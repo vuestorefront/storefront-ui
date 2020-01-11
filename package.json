@@ -22,9 +22,16 @@
   "workspaces": [
     "packages/*"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lerna run lint-staged",
+      "pre-push": "lerna run test:unit"
+    }
+  },
   "devDependencies": {
     "file-save": "^0.2.0",
     "glob": "^7.1.4",
+    "husky": "^3.1.0",
     "lerna": "^3.16.4",
     "prompts": "^2.1.0",
     "uppercamelcase": "^3.0.0"
