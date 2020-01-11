@@ -1,10 +1,2 @@
-<template>
-  <div class="sf-header-navigation-item">
-    <slot />
-  </div>
-</template>
-<script>
-export default {
-  name: "SfHeaderNavigationItem"
-};
-</script>
+<script src="./SfHeaderNavigationItem.js"></script>
+<template lang="html" src="./SfHeaderNavigationItem.html"></template>

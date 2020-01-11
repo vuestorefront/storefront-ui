@@ -20,7 +20,7 @@
             title="COCKTAIL PARTY"
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
-            image="/assets/storybook/Home/bannerF.jpg"
+            image="/assets/storybook/homepage/bannerF.jpg"
             class="sf-banner--slim banner-custom"
           />
         </a>
@@ -32,7 +32,7 @@
             title="LINEN DRESSES"
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
-            image="/assets/storybook/Home/bannerE.jpg"
+            image="/assets/storybook/homepage/bannerE.jpg"
             class="sf-banner--slim banner-central"
           />
         </a>
@@ -42,7 +42,7 @@
           <SfBanner
             subtitle="T-Shirts"
             title="THE OFFICE LIFE"
-            image="/assets/storybook/Home/bannerC.jpg"
+            image="/assets/storybook/homepage/bannerC.jpg"
             class="sf-banner--slim"
           />
         </a>
@@ -52,7 +52,7 @@
           <SfBanner
             subtitle="Summer shoes"
             title="ECO SANDALS"
-            image="/assets/storybook/Home/bannerG.jpg"
+            image="/assets/storybook/homepage/bannerG.jpg"
             class="sf-banner--slim"
           />
         </a>
@@ -63,7 +63,7 @@
       button-text="Subscribe"
       description="Be aware of upcoming sales and events. Receive gifts and special offers!"
       class="call-to-action-newsletter"
-      image="assets/storybook/Home/newsletter.jpg"
+      image="assets/storybook/homepage/newsletter.jpg"
     />
     <SfSection title-heading="Best Sellers" class="section">
       <SfCarousel class="product-carousel">
@@ -89,36 +89,24 @@
       <div class="images-grid">
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageA.jpg"
-              :width="486"
-              :height="486"
+            <SfImage src="assets/storybook/homepage/imageA.jpg"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageB.jpg"
-              :width="486"
-              :height="486"
+            <SfImage src="assets/storybook/homepage/imageB.jpg"
               >katherina_trn</SfImage
             >
           </div>
         </div>
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageC.jpg"
-              :width="486"
-              :height="486"
+            <SfImage src="assets/storybook/homepage/imageC.jpg"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageD.jpg"
-              :width="486"
-              :height="486"
+            <SfImage src="assets/storybook/homepage/imageD.jpg"
               >katherina_trn</SfImage
             >
           </div>
@@ -126,7 +114,7 @@
       </div>
     </SfSection>
     <SfBanner
-      image="/assets/storybook/Home/bannerD.png"
+      image="/assets/storybook/homepage/bannerD.png"
       class="banner-application desktop-only"
     >
       <template #subtitle>
@@ -141,12 +129,12 @@
         <div>
           <img
             class="banner-application__download"
-            src="assets/storybook/Home/google.png"
+            src="assets/storybook/homepage/google.png"
             alt=""
           />
           <img
             class="banner-application__download"
-            src="assets/storybook/Home/apple.png"
+            src="assets/storybook/homepage/apple.png"
             alt=""
           />
         </div>
@@ -164,7 +152,8 @@ import {
   SfProductCard,
   SfImage,
   SfBannerGrid
-} from "@storefront-ui/vue";
+} from "../../../../index.js";
+
 export default {
   name: "Home",
   components: {
@@ -185,14 +174,14 @@ export default {
           subtitle: "SUMMER COLLECTION 2019",
           buttonText: "Learn more",
           background: "#eceff1",
-          image: "assets/storybook/Home/bannerH.jpg"
+          image: "assets/storybook/homepage/bannerH.jpg"
         },
         {
           title: "Colorful summer dresses are already in store",
           subtitle: "SUMMER COLLECTION 2019",
           buttonText: "Learn more",
           background: "#efebe9",
-          image: "assets/storybook/Home/bannerHM.jpg",
+          image: "assets/storybook/homepage/bannerHM.jpg",
           className:
             "sf-hero-item--position-bg-top-left sf-hero-item--align-right"
         },
@@ -201,62 +190,62 @@ export default {
           subtitle: "SUMMER COLLECTION 2019",
           buttonText: "Learn more",
           background: "#fce4ec",
-          image: "assets/storybook/Home/bannerH.jpg"
+          image: "assets/storybook/homepage/bannerH.jpg"
         }
       ],
       products: [
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productA.jpg",
+          image: "assets/storybook/homepage/productA.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: true
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productB.jpg",
+          image: "assets/storybook/homepage/productB.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productC.jpg",
+          image: "assets/storybook/homepage/productC.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productA.jpg",
+          image: "assets/storybook/homepage/productA.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productB.jpg",
+          image: "assets/storybook/homepage/productB.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productC.jpg",
+          image: "assets/storybook/homepage/productC.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productA.jpg",
+          image: "assets/storybook/homepage/productA.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productB.jpg",
+          image: "assets/storybook/homepage/productB.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
@@ -273,11 +262,13 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
+
 #home {
   box-sizing: border-box;
   @include for-desktop {
@@ -299,7 +290,7 @@ export default {
 }
 .banner-custom {
   @media (max-width: $desktop-min) {
-    background-image: url("../../../../public/assets/storybook/Home/bannerB.jpg") !important;
+    background-image: url("../../../../public/assets/storybook/homepage/bannerB.jpg") !important;
   }
 }
 .banner-application {
@@ -348,7 +339,6 @@ export default {
   }
   &__col {
     margin: 0;
-    flex: 1;
     & + & {
       margin-left: $spacer-big / 2;
       @include for-desktop {

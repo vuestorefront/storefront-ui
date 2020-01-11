@@ -19,6 +19,7 @@
                 :title="product.title"
                 :regular-price="product.price.regular | price"
                 :special-price="product.price.special | price"
+                :stock="product.stock"
                 class="collected-product"
                 @click:remove="removeHandler(product)"
               >
@@ -83,7 +84,7 @@ import {
   SfProperty,
   SfPrice,
   SfCollectedProduct
-} from "@storefront-ui/vue";
+} from "../../../../index.js";
 export default {
   name: "Cart",
   components: {
@@ -106,35 +107,38 @@ export default {
         {
           title: "Cream Beach Bag",
           id: "CBB1",
-          image: "assets/storybook/Home/productA.jpg",
+          image: "assets/storybook/homepage/productA.jpg",
           price: { regular: "50.00" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
           ],
-          qty: "1"
+          qty: "1",
+          stock: 44
         },
         {
           title: "Cream Beach Bag",
           id: "CBB2",
-          image: "assets/storybook/Home/productB.jpg",
+          image: "assets/storybook/homepage/productB.jpg",
           price: { regular: "50.00", special: "20.05" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
           ],
-          qty: "2"
+          qty: "2",
+          stock: 10
         },
         {
           title: "Cream Beach Bag",
           id: "CBB3",
-          image: "assets/storybook/Home/productC.jpg",
+          image: "assets/storybook/homepage/productC.jpg",
           price: { regular: "50.00", special: "20.50" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
           ],
-          qty: "1"
+          qty: "1",
+          stock: 20
         }
       ]
     };

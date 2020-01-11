@@ -5,7 +5,9 @@ import {
   boolean,
   optionsKnob as options
 } from "@storybook/addon-knobs";
+
 import SfRadio from "./SfRadio.vue";
+
 storiesOf("Molecules|Radio", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

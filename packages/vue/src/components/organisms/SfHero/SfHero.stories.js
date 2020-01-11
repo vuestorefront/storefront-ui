@@ -5,7 +5,9 @@ import {
   number,
   optionsKnob as options
 } from "@storybook/addon-knobs";
+
 import SfHero from "./SfHero.vue";
+
 const data = () => {
   return {
     items: [
@@ -33,6 +35,7 @@ const data = () => {
     ]
   };
 };
+
 storiesOf("Organisms|Hero", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

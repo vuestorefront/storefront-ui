@@ -1,34 +1,5 @@
-<template>
-  <div class="sf-product-option">
-    <!-- @slot -->
-    <slot name="color" v-bind="{ color }">
-      <div
-        v-if="color"
-        class="sf-product-option__color"
-        :style="{ background: color }"
-      ></div>
-    </slot>
-    <!-- @slot -->
-    <slot name="label" v-bind="{ label }">
-      <div class="sf-product-option__label">{{ label }}</div>
-    </slot>
-  </div>
-</template>
-<script>
-export default {
-  name: "SfProductOption",
-  props: {
-    label: {
-      type: String,
-      default: ""
-    },
-    color: {
-      type: String,
-      default: ""
-    }
-  }
-};
-</script>
+<script src="./SfProductOption.js" />
+<template lang="html" src="./SfProductOption.html"></template>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/SfProductOption.scss";
 </style>

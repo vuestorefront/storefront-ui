@@ -1,10 +1,12 @@
 import { shallowMount } from "@vue/test-utils";
 import SfAlert from "./SfAlert.vue";
+
 describe("SfAlert.vue", () => {
   it("renders an alert", () => {
     const component = shallowMount(SfAlert);
     expect(component.contains(".sf-alert")).toBe(true);
   });
+
   it("renders an alert with css modifier", () => {
     const component = shallowMount(SfAlert, {
       propsData: {
@@ -13,6 +15,7 @@ describe("SfAlert.vue", () => {
     });
     expect(component.contains(".sf-alert--warning")).toBe(true);
   });
+
   it("renders an alert message when passed via props", () => {
     const message = "Hello World";
     const component = shallowMount(SfAlert, {
@@ -23,6 +26,7 @@ describe("SfAlert.vue", () => {
     expect(component.contains(".sf-alert__message")).toBe(true);
     expect(component.find(".sf-alert__message").text()).toMatch(message);
   });
+
   it("renders an alert icon when passed via props", () => {
     const component = shallowMount(SfAlert, {
       propsData: {
@@ -31,6 +35,7 @@ describe("SfAlert.vue", () => {
     });
     expect(component.contains(".sf-alert--secondary")).toBe(true);
   });
+
   it("renders an alert icon when passed via slot", () => {
     const component = shallowMount(SfAlert, {
       slots: {
@@ -39,6 +44,7 @@ describe("SfAlert.vue", () => {
     });
     expect(component.contains(".slotImg")).toBe(true);
   });
+
   it("renders an alert message when passed via slot", () => {
     const component = shallowMount(SfAlert, {
       slots: {

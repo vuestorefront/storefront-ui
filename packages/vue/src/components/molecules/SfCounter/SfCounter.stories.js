@@ -7,7 +7,9 @@ import {
   number,
   optionsKnob as options
 } from "@storybook/addon-knobs";
+
 import SfCounter from "./SfCounter.vue";
+
 storiesOf("Molecules|Counter", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

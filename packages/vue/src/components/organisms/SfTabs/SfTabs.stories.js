@@ -2,6 +2,7 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs } from "@storybook/addon-knobs";
 import SfTabs from "./SfTabs.vue";
+
 storiesOf("Organisms|Tabs", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
