@@ -1,76 +1,47 @@
 <template>
   <div
     class="sf-image"
-    @mouseover="hoverHandler(true)"
-    @mouseleave="hoverHandler(false)"
-    @click="$emit('click')"
+    :class="{ 'sf-image--no-size': !wrapperStyle }"
+    :style="wrapperStyle"
+    v-on="$listeners"
+    @mouseover="overlay = true"
+    @mouseleave="overlay = false"
   >
-    <transition :name="transition">
-      <div v-if="hasOverlay && loaded" class="sf-image__overlay">
-        <!--@slot slot for overlay content, if is empty the overlay is off -->
+    <template v-if="typeof source === 'string'">
+      <img
+        v-if="show"
+        ref="image"
+        :src="source"
+        :alt="alt"
+        :width="width"
+        :height="height"
+      />
+    </template>
+    <template v-else>
+      <picture>
+        <source
+          :srcset="source.desktop.url"
+          :media="`(min-width: ${pictureBreakpoint}px)`"
+        />
+        <source
+          :srcset="source.mobile.url"
+          :media="`(max-width: ${pictureBreakpoint}px)`"
+        />
+        <img
+          v-if="show"
+          ref="image"
+          :src="source.desktop.url"
+          :alt="alt"
+          :width="width"
+          :height="height"
+        />
+      </picture>
+    </template>
+    <transition name="fade">
+      <div v-if="showOverlay" class="sf-image__overlay">
         <slot />
       </div>
     </transition>
-    <template v-if="lazy">
-      <img
-        v-if="typeof src === 'string'"
-        ref="imgLazy"
-        :alt="alt"
-        :data-src="src"
-        class="sf-image__img"
-      />
-      <template v-else-if="src && src.normal">
-        <picture
-          v-if="src.small"
-          ref="imgLazy"
-          class="sf-image__img"
-          :data-iesrc="src.normal.url"
-          :data-alt="src.normal.alt"
-        >
-          <source
-            :srcset="src.small.url"
-            :media="`(max-width: ${pictureBreakpoint - 0.02}px)`"
-          />
-          <source
-            :srcset="src.normal.url"
-            :media="`(min-width: ${pictureBreakpoint}px)`"
-          />
-        </picture>
-        <img
-          v-else
-          ref="imgLazy"
-          :alt="src.normal.alt"
-          :data-src="src.normal.url"
-          class="sf-image__img"
-        />
-      </template>
-      <img v-else :src="placeholder" alt="No image" class="sf-image__img" />
-    </template>
-    <template v-else>
-      <img
-        v-if="typeof src === 'string'"
-        :alt="alt"
-        :src="src"
-        class="sf-image__img"
-      />
-      <picture v-else-if="src && src.normal" class="sf-image__img">
-        <source
-          v-if="src.small"
-          :srcset="src.small.url"
-          :media="`(max-width: ${pictureBreakpoint - 0.02}px)`"
-        />
-        <source
-          :srcset="src.normal.url"
-          :media="`(min-width: ${pictureBreakpoint}px)`"
-        />
-        <img
-          :src="src.normal.url"
-          :alt="src.normal.alt"
-          class="sf-image__img"
-        />
-      </picture>
-      <img v-else :src="placeholder" alt="No image" class="sf-image__img" />
-    </template>
   </div>
 </template>
 <script>
@@ -78,44 +49,26 @@ import lozad from "lozad";
 export default {
   name: "SfImage",
   props: {
-    /**
-     * Image url or pictures object (`{ small: { url, alt }, normal: { url, alt } }`)
-     */
     src: {
       type: [String, Object],
-      default: () => {}
+      default: () => ({ mobile: { url: "" }, desktop: { url: "" } })
     },
-    /**
-     * Alt attribute value
-     */
     alt: {
       type: String,
       default: ""
     },
-    /**
-     * Overlay transition type
-     */
-    transition: {
-      type: String,
-      default: "fade"
+    width: {
+      type: [String, Number],
+      default: undefined
     },
-    /**
-     * Lazyload
-     */
+    height: {
+      type: [String, Number],
+      default: undefined
+    },
     lazy: {
       type: Boolean,
       default: true
     },
-    /**
-     * Src image placeholder
-     */
-    placeholder: {
-      type: String,
-      default: ""
-    },
-    /**
-     * Screen width breakpoint for picture tag media query
-     */
     pictureBreakpoint: {
       type: Number,
       default: 576
@@ -123,48 +76,67 @@ export default {
   },
   data() {
     return {
-      loaded: false,
+      show: false,
       overlay: false
     };
   },
   computed: {
-    hasOverlay() {
-      return this.$slots.hasOwnProperty("default") && this.overlay;
+    source() {
+      let src = this.src;
+      if (typeof src === "object") {
+        if (!src.desktop || !src.mobile) {
+          const object = src.desktop || src.mobile || { url: "" };
+          src = object.url;
+        }
+      }
+      return src;
+    },
+    showOverlay() {
+      return this.$slots.default && this.overlay;
+    },
+    wrapperStyle() {
+      return (
+        this.width &&
+        this.height &&
+        `--width: ${this.width}; --height: ${this.height}`
+      );
+    },
+    imgStyle() {
+      return (
+        this.width &&
+        this.height &&
+        `position: absolute; transform: translate3d(0, -50%, 0)`
+      );
     }
   },
   watch: {
-    lazy: function(newValue, oldValue) {
-      // init lozad if lazy loading was previously disabled
-      if (!oldValue && newValue) {
-        this.initLozad();
-      }
-      // if lazy loading was previously enabled, remove lozad classes and
-      // remove spurious img tag added by lozad if src is a multi-size object
-      if (oldValue && !newValue) {
-        this.$refs.imgLazy.removeAttribute("data-loaded");
-        if (this.$refs.imgLazy.tagName === "PICTURE") {
-          this.$refs.imgLazy.querySelector("img").remove();
-        }
-      }
+    lazy: {
+      handler(value) {
+        this.show = !value;
+      },
+      immediate: true
+    },
+    src() {
+      if (!this.lazy) return;
+      this.$el.removeAttribute("data-loaded");
+      this.show = false;
+      this.lozad();
     }
   },
   mounted() {
-    if (this.lazy !== false) {
-      this.initLozad();
-    } else {
-      this.loaded = true;
+    if (!this.lazy) {
+      this.show = true;
+      return;
     }
+    this.lozad();
   },
   methods: {
-    hoverHandler(state) {
-      this.overlay = state;
-    },
-    initLozad: function() {
+    lozad() {
       const vm = this;
       this.$nextTick(() => {
-        const observer = lozad(vm.$refs.imgLazy, {
-          loaded: function() {
-            vm.loaded = true;
+        const observer = lozad(vm.$el, {
+          load() {
+            vm.show = true;
           }
         });
         observer.observe();
