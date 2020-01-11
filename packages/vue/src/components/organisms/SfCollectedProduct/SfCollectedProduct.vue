@@ -14,6 +14,8 @@
         <SfImage
           :src="image"
           :alt="title"
+          :width="imageWidth"
+          :height="imageHeight"
           class="sf-collected-product__image"
         />
       </slot>
@@ -68,6 +70,20 @@ export default {
     image: {
       type: String,
       default: ""
+    },
+    /**
+     * Product image width, without unit
+     */
+    imageWidth: {
+      type: [String, Number],
+      default: 140
+    },
+    /**
+     * Product image height, without unit
+     */
+    imageHeight: {
+      type: [String, Number],
+      default: 200
     },
     /**
      * Product title
