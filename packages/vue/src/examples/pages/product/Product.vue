@@ -6,26 +6,34 @@
     />
     <div class="product">
       <div class="product__gallery">
-        <SfImage
-          src="assets/storybook/Product//productA.jpg"
-          class="desktop-only"
-        />
-        <SfImage
-          src="assets/storybook/Product//productB.jpg"
-          class="desktop-only"
-        />
         <SfGallery
           class="gallery-mobile mobile-only"
+          :image-width="375"
+          :image-height="490"
           :images="[
             {
-              small: { url: 'assets/storybook/Product//productM.jpg' },
-              big: { url: 'assets/storybook/Product//productM.jpg' }
+              mobile: { url: 'assets/storybook/Product/productM.jpg' },
+              desktop: { url: 'assets/storybook/Product/productM.jpg' },
+              big: { url: 'assets/storybook/Product/productM.jpg' }
             },
             {
-              small: { url: 'assets/storybook/Product//productM.jpg' },
-              big: { url: 'assets/storybook/Product//productM.jpg' }
+              mobile: { url: 'assets/storybook/Product/productM.jpg' },
+              desktop: { url: 'assets/storybook/Product/productM.jpg' },
+              big: { url: 'assets/storybook/Product/productM.jpg' }
             }
           ]"
+        />
+        <SfImage
+          src="assets/storybook/Product/productA.jpg"
+          :width="590"
+          :height="700"
+          class="desktop-only"
+        />
+        <SfImage
+          src="assets/storybook/Product/productB.jpg"
+          :width="590"
+          :height="700"
+          class="desktop-only"
         />
       </div>
       <div class="product__description">
@@ -202,34 +210,52 @@
       <div class="images-grid">
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/Home/imageA.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageA.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/Home/imageB.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageB.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/Home/imageC.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageC.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
         </div>
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/Home/imageC.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageC.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/Home/imageD.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageD.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/Home/imageA.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageA.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
@@ -504,27 +530,10 @@ export default {
   @supports (-webkit-overflow-scrolling: touch) {
     height: calc(100vh - #{$height-iOS});
   }
-  ::v-deep .glide {
-    &,
-    * {
-      height: 100%;
-    }
-    &__slide {
-      position: relative;
-      overflow: hidden;
-    }
+  ::v-deep .sf-image {
     img {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      min-width: calc((375 / 490) * (100vh - #{$height-other}));
-      @supports (-webkit-overflow-scrolling: touch) {
-        min-width: calc((375 / 490) * (100vh - #{$height-iOS}));
-      }
+      width: 100%;
     }
-  }
-  ::v-deep .sf-gallery__stage {
-    width: 100%;
   }
 }
 .images-grid {
