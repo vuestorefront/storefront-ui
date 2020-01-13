@@ -3,11 +3,12 @@
     <!-- @slot  -->
     <slot name="label" v-bind="{ label }">
       <SfCheckbox
-        v-model="checked"
         class="sf-filter__checkbox"
         name="label"
         :label="label"
         :style="style"
+        :selected="isActive"
+        @input="setActive"
       />
     </slot>
     <slot name="count" v-bind="{ count }">
@@ -38,25 +39,18 @@ export default {
       default: false
     }
   },
-  data() {
-    return {
-      checked: false
-    };
-  },
   computed: {
     style() {
       return this.isActive ? "font-weight: 500" : "font-weight: 400";
+    },
+    isChecked() {
+      return this.isActive;
     }
   },
-  watch: {
-    isActive: {
-      handler(value) {
-        this.checked = value;
-      }
+  methods: {
+    setActive() {
+      this.$emit("input", !this.isActive);
     }
-  },
-  mounted() {
-    this.checked = this.isActive;
   }
 };
 </script>
