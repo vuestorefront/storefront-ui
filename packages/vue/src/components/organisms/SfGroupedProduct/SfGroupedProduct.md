@@ -8,9 +8,8 @@ Grouped Product component
 <SfGroupedProduct>
   <SfGroupedProductItem
     qty="2"
-    image="https://deploy-preview-415--storefrontui-storybook.netlify.com/assets/storybook/product-white.png"
+    image="https://deploy-preview-415--storefrontui-storybook.netlify.com/assets/storybook/SfGroupedProduct/product-white.png"
     title="Leave white brooch"
-    :stock="10"
     price-regular="$10.99"
     price-special=""
   >
@@ -25,9 +24,8 @@ Grouped Product component
   </SfGroupedProductItem>
   <SfGroupedProductItem
     qty="4"
-    image="https://deploy-preview-415--storefrontui-storybook.netlify.com/assets/storybook/product-black.png"
+    image="https://deploy-preview-415--storefrontui-storybook.netlify.com/assets/storybook/SfGroupedProduct/product-black.png"
     title="Leave black brooch"
-    :stock="10"
     price-regular="$10.99"
     price-special=""
   >
@@ -51,7 +49,6 @@ Grouped Product component
     v-model="product.qty"
     :image="product.image"
     :title="product.title"
-    :stock="product.stock"
     :price-regular="product.regularPrice"
     :price-special="product.specialPrice"
     >
@@ -68,13 +65,12 @@ Grouped Product component
       return {
         groupedProducts: [
         {
-          image: "/assets/storybook/product-white.png",
+          image: "/assets/storybook/SfGroupedProduct/product-white.png",
           title: "Leave white brooch",
           sku: "MSD23-345-324",
           priceSpecial: "",
           priceRegular: "$10,99",
-          stock: 99,
-          qty: "0",
+          qty: 0,
           attributes: [
           {
             name: "color",
@@ -83,13 +79,12 @@ Grouped Product component
           ]
         },
         {
-          image: "/assets/storybook/product-green.png",
+          image: "/assets/storybook/SfGroupedProduct/product-green.png",
           title: "Leave green brooch",
           sku: "MSD23-345-325",
           priceSpecial: "",
           priceRegular: "$11,99",
-          qty: "0",
-          stock: 99,
+          qty: 0,
           attributes: [
           {
             name: "color",
