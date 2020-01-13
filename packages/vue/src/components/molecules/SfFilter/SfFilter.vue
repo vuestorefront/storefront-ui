@@ -2,7 +2,7 @@
   <div class="sf-filter" :class="{ 'sf-filter--active': isActive }">
     <!-- @slot  -->
     <slot name="label" v-bind="{ label }">
-      <SfCheckbox name="label" :label="label" />
+      <SfCheckbox v-model="checked" name="label" :label="label" />
     </slot>
     <slot name="count" v-bind="{ count }">
       <div class="sf-filter__count">{{ count }}</div>
@@ -30,6 +30,18 @@ export default {
     isActive: {
       type: Boolean,
       default: false
+    }
+  },
+  data() {
+    return {
+      checked: false
+    };
+  },
+  watch: {
+    isActive: {
+      handler(value) {
+        this.checked = value;
+      }
     }
   }
 };
