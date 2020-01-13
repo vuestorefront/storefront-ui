@@ -37,7 +37,7 @@ storiesOf("Atoms|Color", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-color--light": "sf-color--light"
+            "sf-color--bordered": "sf-color--bordered"
           },
           "",
           { display: "multi-select" },
