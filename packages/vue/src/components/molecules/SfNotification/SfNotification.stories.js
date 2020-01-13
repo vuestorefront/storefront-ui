@@ -1,11 +1,14 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select, boolean } from "@storybook/addon-knobs";
-
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 import SfNotification from "./SfNotification.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-
+import {
+  visibilityToggleMixin,
+  withVisibilityToggle
+} from "../../../../config/storybook/decorators";
 storiesOf("Molecules|Notification", module)
   .addDecorator(withKnobs)
+  .addDecorator(withVisibilityToggle)
   .add("Common", () => ({
     components: { SfNotification },
     props: {
@@ -29,17 +32,18 @@ storiesOf("Molecules|Notification", module)
           "info",
           "Props"
         )
-      },
-      visible: {
-        default: boolean("visible", true, "Props")
       }
     },
-    template: `<SfNotification
-      :visible="visible"
-      :title="title"
-      :message="message"
-      :action="action"
-      :type="type"/>`
+    mixins: [visibilityToggleMixin],
+    template: `
+      <SfNotification
+        :visible="visible"
+        :title="title"
+        :message="message"
+        :action="action"
+        :type="type"
+        @click:close="visible = false"
+      />`
   }))
   .add("[slot] icon", () => ({
     components: { SfNotification, SfIcon },
@@ -64,21 +68,22 @@ storiesOf("Molecules|Notification", module)
           "info",
           "Props"
         )
-      },
-      visible: {
-        default: boolean("visible", true, "Props")
       }
     },
-    template: `<SfNotification
-      :visible="visible"
-      :title="title"
-      :message="message"
-      :action="action"
-      :type="type">
-      <template #icon="{icon}">
-        <SfIcon icon="heart" color="white" size="sm" style="margin-right: 1.25rem"/>
-      </template>
-    </SfNotification>`
+    mixins: [visibilityToggleMixin],
+    template: `
+      <SfNotification
+        :visible="visible"
+        :title="title"
+        :message="message"
+        :action="action"
+        :type="type"
+        @click:close="visible = false"
+      >
+        <template #icon="{icon}">
+          <SfIcon icon="heart" color="white" size="sm" style="margin-right: 1.25rem"/>
+        </template>
+      </SfNotification>`
   }))
   .add("[slot] title", () => ({
     components: { SfNotification },
@@ -103,21 +108,21 @@ storiesOf("Molecules|Notification", module)
           "info",
           "Props"
         )
-      },
-      visible: {
-        default: boolean("visible", true, "Props")
       }
     },
-    template: `<SfNotification
-      :visible="visible"
-      :title="title"
-      :message="message"
-      :action="action"
-      :type="type">
-      <template #title="{title}">
-        CUSTOM TITLE
-      </template>
-    </SfNotification>`
+    mixins: [visibilityToggleMixin],
+    template: `
+      <SfNotification
+        :visible="visible"
+        :title="title"
+        :message="message"
+        :action="action"
+        :type="type"
+      >
+        <template #title="{title}">
+          CUSTOM TITLE
+        </template>
+      </SfNotification>`
   }))
   .add("[slot] message", () => ({
     components: { SfNotification },
@@ -142,21 +147,22 @@ storiesOf("Molecules|Notification", module)
           "info",
           "Props"
         )
-      },
-      visible: {
-        default: boolean("visible", true, "Props")
       }
     },
-    template: `<SfNotification
-      :visible="visible"
-      :title="title"
-      :message="message"
-      :action="action"
-      :type="type">
-      <template #message="{message}">
-        CUSTOM MESSAGE
-      </template>
-    </SfNotification>`
+    mixins: [visibilityToggleMixin],
+    template: `
+      <SfNotification
+        :visible="visible"
+        :title="title"
+        :message="message"
+        :action="action"
+        :type="type"
+        @click:close="visible = false"
+      >
+        <template #message="{message}">
+          CUSTOM MESSAGE
+        </template>
+      </SfNotification>`
   }))
   .add("[slot] action", () => ({
     components: { SfNotification },
@@ -181,21 +187,22 @@ storiesOf("Molecules|Notification", module)
           "info",
           "Props"
         )
-      },
-      visible: {
-        default: boolean("visible", true, "Props")
       }
     },
-    template: `<SfNotification
-      :visible="visible"
-      :title="title"
-      :message="message"
-      :action="action"
-      :type="type">
-      <template #action="{action, actionHandler}">
-        CUSTOM ACTION
-      </template>
-    </SfNotification>`
+    mixins: [visibilityToggleMixin],
+    template: `
+      <SfNotification
+        :visible="visible"
+        :title="title"
+        :message="message"
+        :action="action"
+        :type="type"
+        @click:close="visible = false"
+      >
+        <template #action="{action, actionHandler}">
+          CUSTOM ACTION
+        </template>
+      </SfNotification>`
   }))
   .add("[slot] close", () => ({
     components: { SfNotification },
@@ -220,19 +227,20 @@ storiesOf("Molecules|Notification", module)
           "info",
           "Props"
         )
-      },
-      visible: {
-        default: boolean("visible", true, "Props")
       }
     },
-    template: `<SfNotification
-      :visible="visible"
-      :title="title"
-      :message="message"
-      :action="action"
-      :type="type">
-      <template #close="closeHandler">
-        <div style="position: absolute; top: 1rem; right: 1rem">close</div>
-      </template>
-    </SfNotification>`
+    mixins: [visibilityToggleMixin],
+    template: `
+      <SfNotification
+        :visible="visible"
+        :title="title"
+        :message="message"
+        :action="action"
+        :type="type"
+        @click:close="visible = false"
+      >
+        <template #close="closeHandler">
+          <div style="position: absolute; top: 1rem; right: 1rem">close</div>
+        </template>
+      </SfNotification>`
   }));

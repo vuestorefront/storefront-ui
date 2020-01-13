@@ -2,26 +2,25 @@
   <div id="cart">
     <SfSidebar
       :visible="isCartSidebarOpen"
-      headingTitle="My Cart"
-      @close="() => {}"
+      heading-title="My Cart"
       class="sf-sidebar--right"
+      @close="() => {}"
     >
       <transition name="fade" mode="out-in">
-        <div v-if="totalItems" class="my-cart" key="my-cart">
+        <div v-if="totalItems" key="my-cart" class="my-cart">
           <h3 class="my-cart__total-items">Total items: {{ totalItems }}</h3>
           <div class="collected-product-list">
             <transition-group name="fade" tag="div">
               <SfCollectedProduct
                 v-for="product in products"
                 :key="product.id"
+                v-model="product.qty"
                 :image="product.image"
                 :title="product.title"
                 :regular-price="product.price.regular | price"
                 :special-price="product.price.special | price"
-                :stock="product.stock"
-                v-model="product.qty"
-                @click:remove="removeHandler(product)"
                 class="collected-product"
+                @click:remove="removeHandler(product)"
               >
                 <template #configuration>
                   <div class="collected-product__properties">
@@ -56,7 +55,7 @@
           </SfProperty>
           <SfButton class="sf-button--full-width">Go to checkout</SfButton>
         </div>
-        <div v-else class="empty-cart" key="empty-cart">
+        <div v-else key="empty-cart" class="empty-cart">
           <div class="empty-cart__banner">
             <img
               src="@storefront-ui/shared/icons/empty_cart.svg"
@@ -84,7 +83,7 @@ import {
   SfProperty,
   SfPrice,
   SfCollectedProduct
-} from "../../../../index.js";
+} from "@storefront-ui/vue";
 export default {
   name: "Cart",
   components: {
@@ -107,38 +106,35 @@ export default {
         {
           title: "Cream Beach Bag",
           id: "CBB1",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/Home/productA.jpg",
           price: { regular: "50.00" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
           ],
-          qty: "1",
-          stock: 44
+          qty: "1"
         },
         {
           title: "Cream Beach Bag",
           id: "CBB2",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/Home/productB.jpg",
           price: { regular: "50.00", special: "20.05" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
           ],
-          qty: "2",
-          stock: 10
+          qty: "2"
         },
         {
           title: "Cream Beach Bag",
           id: "CBB3",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/Home/productC.jpg",
           price: { regular: "50.00", special: "20.50" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
           ],
-          qty: "1",
-          stock: 20
+          qty: "1"
         }
       ]
     };

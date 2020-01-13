@@ -6,26 +6,34 @@
     />
     <div class="product">
       <div class="product__gallery">
-        <SfImage
-          src="assets/storybook/productpage/productA.jpg"
-          class="desktop-only"
-        />
-        <SfImage
-          src="assets/storybook/productpage/productB.jpg"
-          class="desktop-only"
-        />
         <SfGallery
           class="gallery-mobile mobile-only"
+          :image-width="375"
+          :image-height="490"
           :images="[
             {
-              small: { url: 'assets/storybook/productpage/productM.jpg' },
-              big: { url: 'assets/storybook/productpage/productM.jpg' }
+              mobile: { url: 'assets/storybook/Product/productM.jpg' },
+              desktop: { url: 'assets/storybook/Product/productM.jpg' },
+              big: { url: 'assets/storybook/Product/productM.jpg' }
             },
             {
-              small: { url: 'assets/storybook/productpage/productM.jpg' },
-              big: { url: 'assets/storybook/productpage/productM.jpg' }
+              mobile: { url: 'assets/storybook/Product/productM.jpg' },
+              desktop: { url: 'assets/storybook/Product/productM.jpg' },
+              big: { url: 'assets/storybook/Product/productM.jpg' }
             }
           ]"
+        />
+        <SfImage
+          src="assets/storybook/Product/productA.jpg"
+          :width="590"
+          :height="700"
+          class="desktop-only"
+        />
+        <SfImage
+          src="assets/storybook/Product/productB.jpg"
+          :width="590"
+          :height="700"
+          class="desktop-only"
         />
       </div>
       <div class="product__description">
@@ -69,11 +77,11 @@
               class="sf-select--bordered product-details__attribute"
             >
               <SfSelectOption
-                v-for="size in sizes"
-                :key="size.value"
-                :value="size.value"
+                v-for="sizeOption in sizes"
+                :key="sizeOption.value"
+                :value="sizeOption.value"
               >
-                <SfProductOption :label="size.label" />
+                <SfProductOption :label="sizeOption.label" />
               </SfSelectOption>
             </SfSelect>
             <SfSelect
@@ -82,11 +90,14 @@
               class="sf-select--bordered product-details__attribute"
             >
               <SfSelectOption
-                v-for="color in colors"
-                :key="color.value"
-                :value="color.value"
+                v-for="colorOption in colors"
+                :key="colorOption.value"
+                :value="colorOption.value"
               >
-                <SfProductOption :label="color.label" :color="color.color" />
+                <SfProductOption
+                  :label="colorOption.label"
+                  :color="colorOption.color"
+                />
               </SfSelectOption>
             </SfSelect>
           </div>
@@ -97,9 +108,9 @@
               class="product-details__alert mobile-only"
             />
             <SfAddToCart
-              :stock="stock"
               v-model="qty"
-              :canAddToCart="stock > 0"
+              :stock="stock"
+              :can-add-to-cart="stock > 0"
               class="product-details__add-to-cart"
             />
             <div class="product-details__action">
@@ -109,7 +120,7 @@
               <button class="sf-action">Add to compare</button>
             </div>
           </div>
-          <SfTabs class="product-details__tabs" :openTab="2">
+          <SfTabs class="product-details__tabs" :open-tab="2">
             <SfTab title="Description">
               <div>
                 <p>
@@ -132,9 +143,9 @@
             </SfTab>
             <SfTab title="Read reviews">
               <SfReview
-                class="product-details__review"
                 v-for="(review, i) in reviews"
                 :key="i"
+                class="product-details__review"
                 :author="review.author"
                 :date="review.date"
                 :message="review.message"
@@ -169,8 +180,8 @@
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
             :is-on-wishlist="product.isOnWishlist"
-            @click:wishlist="toggleWishlist(i)"
             class="product-card"
+            @click:wishlist="toggleWishlist(i)"
           />
         </SfCarouselItem>
       </SfCarousel>
@@ -185,8 +196,8 @@
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
             :is-on-wishlist="product.isOnWishlist"
-            @click:wishlist="toggleWishlist(i)"
             class="product-card"
+            @click:wishlist="toggleWishlist(i)"
           />
         </SfCarouselItem>
       </SfCarousel>
@@ -199,34 +210,52 @@
       <div class="images-grid">
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageA.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageB.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageB.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageC.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
         </div>
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageC.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageD.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageD.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageA.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
@@ -235,7 +264,7 @@
     </SfSection>
     <SfBanner
       title="Download our application to your mobile"
-      image="assets/storybook/homepage/bannerD.png"
+      image="/assets/storybook/Home/bannerD.png"
       class="banner-application sf-banner--left sf-banner--center desktop-only"
     >
       <template #subtitle>
@@ -250,12 +279,12 @@
         <div>
           <img
             class="banner-application__download"
-            src="assets/storybook/homepage/google.png"
+            src="assets/storybook/Home/google.png"
             alt=""
           />
           <img
             class="banner-application__download"
-            src="assets/storybook/homepage/apple.png"
+            src="assets/storybook/Home/apple.png"
             alt=""
           />
         </div>
@@ -283,8 +312,7 @@ import {
   SfSticky,
   SfReview,
   SfBreadcrumbs
-} from "../../../../index.js";
-
+} from "@storefront-ui/vue";
 export default {
   name: "Product",
   components: {
@@ -351,56 +379,56 @@ export default {
       products: [
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/Home/productA.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/Home/productB.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/Home/productC.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/Home/productA.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/Home/productB.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/Home/productC.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/Home/productA.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/Home/productB.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
@@ -454,13 +482,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
-
 #product {
   box-sizing: border-box;
   @include for-desktop {
@@ -500,32 +526,14 @@ export default {
 .gallery-mobile {
   $height-other: 240px;
   $height-iOS: 265px;
-
   height: calc(100vh - #{$height-other});
   @supports (-webkit-overflow-scrolling: touch) {
     height: calc(100vh - #{$height-iOS});
   }
-  ::v-deep .glide {
-    &,
-    * {
-      height: 100%;
-    }
-    &__slide {
-      position: relative;
-      overflow: hidden;
-    }
+  ::v-deep .sf-image {
     img {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      min-width: calc((375 / 490) * (100vh - #{$height-other}));
-      @supports (-webkit-overflow-scrolling: touch) {
-        min-width: calc((375 / 490) * (100vh - #{$height-iOS}));
-      }
+      width: 100%;
     }
-  }
-  ::v-deep .sf-gallery__stage {
-    width: 100%;
   }
 }
 .images-grid {
@@ -722,7 +730,6 @@ export default {
     padding-right: 0;
   }
 }
-
 /* SfAction or SfButton modifier */
 .sf-action {
   padding: 0;

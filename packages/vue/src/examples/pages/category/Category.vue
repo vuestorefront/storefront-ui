@@ -44,7 +44,7 @@
         </SfButton>
         <div class="navbar__sort desktop-only">
           <span class="navbar__label">Sort by:</span>
-          <SfSelect class="sort-by" v-model="sortBy">
+          <SfSelect v-model="sortBy" class="sort-by">
             <SfSelectOption
               v-for="option in sortByOptions"
               :key="option.value"
@@ -99,7 +99,7 @@
     </div>
     <div class="main section">
       <div class="sidebar desktop-only">
-        <SfAccordion :firstOpen="true" :showChevron="false">
+        <SfAccordion :first-open="true" :show-chevron="false">
           <SfAccordionItem
             v-for="(accordion, i) in sidebarAccordion"
             :key="i"
@@ -126,21 +126,21 @@
             :special-price="product.price.special"
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
-            :isOnWishlist="product.isOnWishlist"
-            @click:wishlist="toggleWishlist(i)"
+            :is-on-wishlist="product.isOnWishlist"
             class="products__product-card"
+            @click:wishlist="toggleWishlist(i)"
           />
         </div>
         <SfPagination
           class="products__pagination desktop-only"
           :current="currentPage"
-          @click="
-            page => {
-              this.currentPage = page;
-            }
-          "
           :total="4"
           :visible="5"
+          @click="
+            page => {
+              currentPage = page;
+            }
+          "
         />
       </div>
     </div>
@@ -195,13 +195,13 @@
         />
         <div class="filters__buttons">
           <SfButton
-            @click="isFilterSidebarOpen = false"
             class="sf-button--full-width"
+            @click="isFilterSidebarOpen = false"
             >Done</SfButton
           >
           <SfButton
-            @click="clearAllFilters"
             class="sf-button--full-width filters__button-clear"
+            @click="clearAllFilters"
             >Clear all</SfButton
           >
         </div>
@@ -222,8 +222,7 @@ import {
   SfAccordion,
   SfSelect,
   SfBreadcrumbs
-} from "../../../../index.js";
-
+} from "@storefront-ui/vue";
 export default {
   components: {
     SfButton,
@@ -305,56 +304,56 @@ export default {
       products: [
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/Home/productA.jpg",
           price: { regular: "$50.00", special: "$20.00" },
           rating: { max: 5, score: false },
           isOnWishlist: true
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/Home/productB.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/Home/productC.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/Home/productA.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/Home/productB.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/Home/productC.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/Home/productA.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/Home/productB.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
@@ -425,13 +424,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
-
 #category {
   box-sizing: border-box;
   @include for-desktop {
@@ -537,7 +534,6 @@ export default {
     }
   }
 }
-
 .products {
   box-sizing: border-box;
   flex: 1;
@@ -590,6 +586,7 @@ export default {
   }
 }
 .filters {
+  padding: $spacer-big;
   &__title {
     margin: $spacer-big * 3 0 $spacer-big;
     font-size: $font-size-big-desktop;

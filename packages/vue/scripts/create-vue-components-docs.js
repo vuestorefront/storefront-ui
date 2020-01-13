@@ -15,17 +15,31 @@ const pathComponentsScssRoot = path.resolve(
   "../..",
   "shared/styles/components"
 );
-const nodePathGlidejsIncludes = "@glidejs/glide/src/assets/sass/";
+const nodePathSimplebarIncludes = "simplebar/dist/";
 const pathsSassIncludes = [
   path.resolve(__dirname, "../..", "shared/styles/variables/"),
-  path.resolve(__dirname, "../../..", "node_modules/" + nodePathGlidejsIncludes)
+  path.resolve(
+    __dirname,
+    "../../..",
+    "node_modules/" + nodePathSimplebarIncludes
+  )
 ];
 const pathVueComponentsRoot = path.resolve(__dirname, "..", "src/components");
 const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
   cwd: pathVueComponentsRoot
 });
 const pathIconsJs = path.resolve(__dirname, "../..", "shared/icons/icons.js");
-let cachedSfUiIcons;
+const pathSizesJs = path.resolve(
+  __dirname,
+  "../..",
+  "shared/variables/sizes.js"
+);
+const pathColorsJs = path.resolve(
+  __dirname,
+  "../..",
+  "shared/variables/colors.js"
+);
+const cache = {};
 
 function createVueComponentsDocs() {
   const contentTemplateFile = fs.readFileSync(pathTemplateFile, "utf8");
@@ -299,8 +313,8 @@ function parseComponentFile(contentComponentFile) {
 function parseStoriesFile(contentStoriesFile) {
   // remove non-relevant parts before evaluating the story
   const nonrelevantParts = [
-    /\.addDecorator\((.+?)\)/gm,
-    /\.addParameters\((.+?)\)/gm
+    /\.addDecorator\((.+)\)/gm,
+    /\.addParameters\((.+)\)/gm
   ];
   for (const part of nonrelevantParts) {
     contentStoriesFile = contentStoriesFile.replace(part, "");
@@ -325,8 +339,17 @@ function parseStoriesFile(contentStoriesFile) {
 
   function evalStoriesFile() {
     /* eslint-disable no-unused-vars */
-    // some stories use our icons so make them available
-    const icons = getSfUiIcons();
+    // some stories use our icons, sizes, etc. so make them available
+    const { icons, sizes, colors } = getSfUiConstants();
+
+    const dataToggleMixin = dataKey => ({
+      data() {
+        return {
+          [dataKey]: true
+        };
+      }
+    });
+    const visibilityToggleMixin = dataToggleMixin("visible");
 
     let storyComponents = "";
     let storyTemplate = "";
@@ -334,6 +357,7 @@ function parseStoriesFile(contentStoriesFile) {
     const extractComponents = data => (storyComponents = data);
     const extractTemplate = template => (storyTemplate = template);
     const extractData = data => (storyData = data);
+    const extractMixinsData = data => (storyData = { ...storyData, ...data });
 
     // ignore options: we only use it for CSS modifiers
     const options = () => null;
@@ -362,6 +386,9 @@ function parseStoriesFile(contentStoriesFile) {
           extractComponents(trimmedComponents);
           extractTemplate(storyFnObject.template);
           storyFnObject.data && extractData(storyFnObject.data());
+          (storyFnObject.mixins || []).forEach(mixin =>
+            extractMixinsData(mixin.data())
+          );
           // allow chaining
           return functionObject;
         }
@@ -383,15 +410,11 @@ function parseStoriesFile(contentStoriesFile) {
 
   /* insert story data into code block */
 
-  // rewrite imports
-  const re = /`(import Sf.+? from)/g;
-  const storyImports = [];
-  let partialReResult;
-  while ((partialReResult = re.exec(contentStoriesFile)) !== null) {
-    const importLine = `${partialReResult[1]} "@storefront-ui/vue";`;
-    storyImports.push(importLine);
-  }
-  let storyImportsString = storyImports.join("\n");
+  // generate imports for used components
+  const storyImportsString = storyComponents
+    .split(",")
+    .map(component => `import { ${component} } from "@storefront-ui/vue";`)
+    .join("\n");
 
   // merge props and data from the story into a single data object
   const componentData = [];
@@ -450,7 +473,7 @@ function extractScssVariables(contentScssFile) {
 
 function extractCssModifiers(contentScssFile) {
   // remove webpack-alias-style import; the SASS compiler resolves all imports by simple name, if includePath is set
-  const webpackGlidePath = "~" + nodePathGlidejsIncludes;
+  const webpackGlidePath = "~" + nodePathSimplebarIncludes;
   const contentWithFixedImports = contentScssFile.replace(webpackGlidePath, "");
   const { css } = sass.renderSync({
     data: contentWithFixedImports,
@@ -469,6 +492,10 @@ function extractCssModifiers(contentScssFile) {
     let lastModifierFound;
     // as multiple modifiers may be on one line, we have to make this (stateful) reg exp. search
     while ((partialReResult = regExp.exec(line)) !== null) {
+      // skip CSS vars which the simple regexp catches accidentally
+      if (partialReResult[0].includes("var(")) {
+        continue;
+      }
       if (!uniqueModifiers.has(partialReResult[0])) {
         uniqueModifiers.set(partialReResult[0], null);
         lastModifierFound = partialReResult[0];
@@ -805,11 +832,14 @@ function escapeHtmlAngleBrackets(rawString) {
   return rawString.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-function getSfUiIcons() {
-  if (!cachedSfUiIcons) {
-    cachedSfUiIcons = fs.readFileSync(pathIconsJs, "utf8");
+function getSfUiConstants() {
+  if (!cache._initialized) {
+    cache.icons = fs.readFileSync(pathIconsJs, "utf8");
+    cache.sizes = fs.readFileSync(pathSizesJs, "utf8");
+    cache.colors = fs.readFileSync(pathColorsJs, "utf8");
+    cache._initialized = true;
   }
-  return cachedSfUiIcons;
+  return { ...cache };
 }
 
 function getCommonUsageCodeBlock(template, imports, components, data) {

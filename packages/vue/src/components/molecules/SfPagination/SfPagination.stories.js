@@ -1,16 +1,11 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, number } from "@storybook/addon-knobs";
-
 import SfPagination from "./SfPagination.vue";
-
 storiesOf("Molecules|Pagination", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfPagination },
     props: {
-      current: {
-        default: number("current", 2, {}, "Props")
-      },
       visible: {
         default: number("visible", 5, {}, "Props")
       },
@@ -18,23 +13,31 @@ storiesOf("Molecules|Pagination", module)
         default: number("total", 12, {}, "Props")
       }
     },
+    data() {
+      return {
+        current: 2
+      };
+    },
     template: `<SfPagination
         :current="current"
         :visible="visible"
-        :total="total"/>`
+        :total="total"
+        @click="value => current = value"/>`
   }))
   .add("[slot] default", () => ({
     components: { SfPagination },
     props: {
-      current: {
-        default: number("current", 2, {}, "Props")
-      },
       visible: {
         default: number("visible", 5, {}, "Props")
       },
       total: {
         default: number("total", 12, {}, "Props")
       }
+    },
+    data() {
+      return {
+        current: 2
+      };
     },
     template: `<SfPagination
       :current="current"
@@ -46,9 +49,6 @@ storiesOf("Molecules|Pagination", module)
   .add("[slot] prev", () => ({
     components: { SfPagination },
     props: {
-      current: {
-        default: number("current", 2, {}, "Props")
-      },
       visible: {
         default: number("visible", 5, {}, "Props")
       },
@@ -56,21 +56,24 @@ storiesOf("Molecules|Pagination", module)
         default: number("total", 12, {}, "Props")
       }
     },
+    data() {
+      return {
+        current: 2
+      };
+    },
     template: `<SfPagination
       :current="current"
       :visible="visible"
-      :total="total">
+      :total="total"
+      @click="value => current = value">
       <template #prev="{isDisabled, go}">
-        prev
+        <button @click="go">prev</button>
       </template>
     </SfPagination>`
   }))
   .add("[slot] next", () => ({
     components: { SfPagination },
     props: {
-      current: {
-        default: number("current", 2, {}, "Props")
-      },
       visible: {
         default: number("visible", 5, {}, "Props")
       },
@@ -78,21 +81,24 @@ storiesOf("Molecules|Pagination", module)
         default: number("total", 12, {}, "Props")
       }
     },
+    data() {
+      return {
+        current: 2
+      };
+    },
     template: `<SfPagination
       :current="current"
       :visible="visible"
-      :total="total">
+      :total="total"
+      @click="value => current = value">
       <template #next="{isDisabled, go}">
-        next
+        <button @click="go">next</button>
       </template>
     </SfPagination>`
   }))
   .add("[slot] number", () => ({
     components: { SfPagination },
     props: {
-      current: {
-        default: number("current", 2, {}, "Props")
-      },
       visible: {
         default: number("visible", 5, {}, "Props")
       },
@@ -100,10 +106,21 @@ storiesOf("Molecules|Pagination", module)
         default: number("total", 12, {}, "Props")
       }
     },
+    data() {
+      return {
+        current: 2
+      };
+    },
     template: `<SfPagination
       :current="current"
       :visible="visible"
-      :total="total">
-      <template #number="{number, go}">{{number}}.-</template>
+      :total="total"
+      @click="value => current = value">
+      <template #number="{number, go}">
+        <button 
+          class="sf-pagination__button"
+          :class="{'sf-pagination__button--current': (current === number)}"
+          @click="go(number)">{{number}}.-</button>
+      </template>
     </SfPagination>`
   }));

@@ -2,9 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8371333f-ef98-4d04-bcc4-9f4771d11430/deploy-status)](https://app.netlify.com/sites/storefrontui-storybook/deploys)
 
-**This project is on the early stages of development. Not ready for production use. Expect some things to be broken and API to change**
-
-**We are looking for contributors and agencies willing to join us and build the best UI library for Vue together!**
+**Current status:** Stable beta!
 
 Customization-first, performance-oriented and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team and contributors.
 
@@ -27,7 +25,7 @@ With SfUI you can change almost every aspect of provided components and use them
 **Here are the key characteristics of Storefront UI:**
 
 We are building Storefront UI based on the following 6 fundamentals:
-- **Customization**: Along with standard prop-based customization, every component has a set of slots that let you replace any part of it with your own images, icons or even custom HTML markup. You can also customize the whole library from a single SCSS file by overriding a set of variables. In addition, every component is divided into separate HTML, CSS and JS files so you can compose your own components from it's parts.
+- **Customization**: Along with standard prop-based customization, every component has a set of slots that let you replace any part of it with your own images, icons or even custom HTML markup.
 - **Mobile-first**: Every Storefront UI component is highly optimized for mobile user experience and in many cases behaves completely different on desktop and mobile. Select list becomes full-screen drop-down, tabs are becoming accordion, etc.
 - **Performance**: You're importing ONLY what you need, and in a raw format which means you can benefit from all build-time optimizations like tree-shaking or grouping common chunks. Unused components are tree-shaken and global CSS is just < 0,1 kB unminified. Thanks to this, the initial footprint of the library is unnoticeable. You can use the library for as many components you may want, even a single slider. You bundle only what you import.
 - **Best practices**: Storefront UI components follow best practices in terms of design and core. Every component is based on the Google Retail UX Playbook and is accessibility-friendly.
@@ -60,6 +58,7 @@ We are currently in the process of building the library. If you want to help in 
 
 - Filip Rakowski ([@filrak](https://github.com/filrak))
 - Przemek Spaczek ([@przspa](https://github.com/przspa))
+- Ania ([@aniamusial](https://github.com/aniamusial))
 - Leonardo Matos ([@leomp12](https://github.com/leomp12))
 - Maya Shavin ([@mayashavin](https://github.com/mayashavin))
 - Nicolò Maria Mezzopera ([@DonNicoJS](https://github.com/DonNicoJs))
@@ -71,7 +70,7 @@ We are currently in the process of building the library. If you want to help in 
 Thank you! There would be no Storefront UI without you.
 
 # Supporters
-<a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="40px"></a>
+<a href="https://divante.co"><img style="margin-right: 15px" src="https://camo.githubusercontent.com/26482689fe32dbe4664eeb62d463e334b5137f91/68747470733a2f2f646976616e74652e636f2f61626f75742075732f4c4f474f2e706e67" alt="divante" height="55px"></a><a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="55px"></a>
 
 # Contributing
 

@@ -4,9 +4,7 @@ import {
   text,
   optionsKnob as options
 } from "@storybook/addon-knobs";
-
 import SfSearchBar from "./SfSearchBar.vue";
-
 storiesOf("Molecules|SearchBar", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -112,6 +110,8 @@ storiesOf("Molecules|SearchBar", module)
       :class="customClass"
       :placeholder="placeholder"
       v-model="value">
-      <template #clear-icon>🧹</template>
+      <template #clear-icon>
+        <span class="sf-search-bar__clear-icon">🧹</span>
+      </template>
     </SfSearchBar>`
   }));

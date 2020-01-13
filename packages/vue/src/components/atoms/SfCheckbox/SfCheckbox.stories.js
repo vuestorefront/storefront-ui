@@ -1,9 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-
 import SfCheckbox from "./SfCheckbox.vue";
-
 storiesOf("Atoms|Checkbox", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -12,11 +10,8 @@ storiesOf("Atoms|Checkbox", module)
       name: {
         default: text("name", "shipping", "Props")
       },
-      value: {
-        default: text("value", "shipping-address", "Props")
-      },
       label: {
-        default: text("label", "Copy address data from shipping", "Props")
+        default: text("label", "I want to create an account", "Props")
       },
       required: {
         default: boolean("required", false, "Props")
@@ -27,17 +22,44 @@ storiesOf("Atoms|Checkbox", module)
     },
     data() {
       return {
-        checked: []
+        checked: false
       };
     },
     template: `<SfCheckbox 
       v-model="checked"
-      :name="name"
-      :value="value"
+      :name="name"      
       :label="label"
       :required="required"
       :disabled="disabled"
       />`
+  }))
+  .add("Multiple checkboxes", () => ({
+    components: { SfCheckbox },
+    data() {
+      return {
+        checked: []
+      };
+    },
+    template: `<div>
+        <SfCheckbox 
+          v-model="checked"
+          name="woman"
+          value="woman"
+          label="Woman"
+        />
+        <SfCheckbox 
+          v-model="checked"
+          name="man"
+          value="man"
+          label="Man"
+        />
+        <SfCheckbox 
+          v-model="checked"
+          name="children"
+          value="children"
+          label="Children"
+        /> 
+      </div>`
   }))
   .add("[slot] checkmark", () => ({
     components: { SfCheckbox },
@@ -45,9 +67,6 @@ storiesOf("Atoms|Checkbox", module)
       name: {
         default: text("name", "shipping", "Props")
       },
-      value: {
-        default: text("value", "shipping-address", "Props")
-      },
       label: {
         default: text("label", "Copy address data from shipping", "Props")
       },
@@ -60,13 +79,12 @@ storiesOf("Atoms|Checkbox", module)
     },
     data() {
       return {
-        checked: []
+        checked: false
       };
     },
     template: `<SfCheckbox 
       v-model="checked"
       :name="name"
-      :value="value"
       :label="label"
       :required="required"
       :disabled="disabled">
@@ -82,9 +100,6 @@ storiesOf("Atoms|Checkbox", module)
       name: {
         default: text("name", "shipping", "Props")
       },
-      value: {
-        default: text("value", "shipping-address", "Props")
-      },
       label: {
         default: text("label", "Copy address data from shipping", "Props")
       },
@@ -97,13 +112,12 @@ storiesOf("Atoms|Checkbox", module)
     },
     data() {
       return {
-        checked: []
+        checked: false
       };
     },
     template: `<SfCheckbox 
       v-model="checked"
       :name="name"
-      :value="value"
       :label="label"
       :required="required"
       :disabled="disabled">

@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import Home from "./Home";
-
 storiesOf("Pages|Home", module).add("Default", () => ({
   components: { Home },
   mounted() {

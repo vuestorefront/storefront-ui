@@ -8,8 +8,8 @@
       <div>
         <button
           v-if="activePage"
-          @click="activePage = ''"
           class="back-bar__button"
+          @click="activePage = ''"
         >
           <SfIcon icon="chevron_left" size="14px" />
         </button>
@@ -23,9 +23,9 @@
     </div>
     <SfContentPages
       :active="activePage"
-      @click:change="updateActive"
       title="Help"
       class="static-content"
+      @click:change="updateActive"
     >
       <SfContentPage title="About us">
         <SfTabs :open-tab="1">
@@ -86,7 +86,7 @@ import {
   SfContentPages,
   SfTabs,
   SfIcon
-} from "../../../../index.js";
+} from "@storefront-ui/vue";
 export default {
   name: "Static",
   components: {
@@ -118,13 +118,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
-
 #static {
   box-sizing: border-box;
   height: 100vh;

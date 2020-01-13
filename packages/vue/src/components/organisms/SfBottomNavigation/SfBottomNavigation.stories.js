@@ -1,11 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
-
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfBottomNavigation from "./SfBottomNavigation.vue";
-
 storiesOf("Organisms|BottomNavigation", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -39,7 +37,7 @@ storiesOf("Organisms|BottomNavigation", module)
         </SfBottomNavigationItem>
         <SfBottomNavigationItem>
           <SfCircleIcon class="sf-bottom-navigation__floating-icon">
-            <SfIcon icon="add_to_cart" size="20px" color="white" style="margin-left: -2px; margin-right: 2px;"/>
+            <SfIcon icon="add_to_cart" size="20px" color="white"/>
           </SfCircleIcon>
         </SfBottomNavigationItem>
       </SfBottomNavigation>`

@@ -1,10 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
-
 import SfArrow from "./SfArrow.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
-
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -55,6 +53,6 @@ storiesOf("Atoms|Arrow", module)
     },
     template: `<SfArrow
       :class="customClass">
-      <SfIcon icon="chevron_left" size="12px" view-box="0 0 24 12"/>
+      <SfIcon icon="chevron_left" class="sf-arrow__icon" size="12px" view-box="0 0 24 12"/>
     </SfArrow>`
   }));
