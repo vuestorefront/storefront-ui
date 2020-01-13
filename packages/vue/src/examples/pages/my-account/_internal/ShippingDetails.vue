@@ -263,12 +263,12 @@ export default {
         account.shipping.push(shipping);
       }
       this.editAddress = false;
-      this.$emit("click:shipping", account);
+      this.$emit("update:shipping", account);
     },
     deleteAddress(index) {
       const account = { ...this.account };
       account.shipping.splice(index, 1);
-      this.$emit("click:shipping", account);
+      this.$emit("update:shipping", account);
     }
   }
 };

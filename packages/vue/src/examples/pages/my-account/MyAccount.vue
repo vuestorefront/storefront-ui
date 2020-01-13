@@ -14,14 +14,14 @@
         <SfContentPage title="My profile">
           <MyProfile
             :account="account"
-            @click:personal="account = { ...account, ...$event }"
-            @click:password="account = { ...account, ...$event }"
+            @update:personal="account = { ...account, ...$event }"
+            @update:password="account = { ...account, ...$event }"
           />
         </SfContentPage>
         <SfContentPage title="Shipping details">
           <ShippingDetails
             :account="account"
-            @click:shipping="account = { ...account, ...$event }"
+            @update:shipping="account = { ...account, ...$event }"
           />
         </SfContentPage>
         <SfContentPage title="Loyalty Card">

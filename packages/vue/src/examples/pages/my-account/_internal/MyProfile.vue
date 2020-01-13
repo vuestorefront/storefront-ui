@@ -119,13 +119,13 @@ export default {
         lastName: this.lastName,
         email: this.email
       };
-      this.$emit("click:personal", personal);
+      this.$emit("update:personal", personal);
     },
     updatePassword() {
       const password = {
         password: this.newPassword
       };
-      this.$emit("click:password", password);
+      this.$emit("update:password", password);
     }
   }
 };
