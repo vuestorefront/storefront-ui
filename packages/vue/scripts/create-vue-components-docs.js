@@ -14,10 +14,14 @@ const pathComponentsScssRoot = path.resolve(
   "../..",
   "shared/styles/components"
 );
-const nodePathGlidejsIncludes = "@glidejs/glide/src/assets/sass/";
+const nodePathSimplebarIncludes = "simplebar/dist/";
 const pathsSassIncludes = [
   path.resolve(__dirname, "../..", "shared/styles/variables/"),
-  path.resolve(__dirname, "../../..", "node_modules/" + nodePathGlidejsIncludes)
+  path.resolve(
+    __dirname,
+    "../../..",
+    "node_modules/" + nodePathSimplebarIncludes
+  )
 ];
 const pathVueComponentsRoot = path.resolve(__dirname, "..", "src/components");
 const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
@@ -278,7 +282,7 @@ function extractScssVariables(contentScssFile) {
 
 function extractCssModifiers(contentScssFile) {
   // remove webpack-alias-style import; the SASS compiler resolves all imports by simple name, if includePath is set
-  const webpackGlidePath = "~" + nodePathGlidejsIncludes;
+  const webpackGlidePath = "~" + nodePathSimplebarIncludes;
   const contentWithFixedImports = contentScssFile.replace(webpackGlidePath, "");
   const { css } = sass.renderSync({
     data: contentWithFixedImports,
