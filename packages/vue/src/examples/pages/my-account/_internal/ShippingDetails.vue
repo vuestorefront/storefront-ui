@@ -1,6 +1,11 @@
 <template>
   <transition name="fade">
-    <SfTabs v-if="editAddress" :open-tab="1" class="tab-orphan">
+    <SfTabs
+      v-if="editAddress"
+      key="edit-address"
+      :open-tab="1"
+      class="tab-orphan"
+    >
       <SfTab title="Change the address">
         <p class="message">
           Keep your addresses and contact details updated.
@@ -83,7 +88,7 @@
         </div>
       </SfTab>
     </SfTabs>
-    <SfTabs v-else :open-tab="1" class="tab-orphan">
+    <SfTabs v-else key="address-list" :open-tab="1" class="tab-orphan">
       <SfTab title="Shipping details">
         <p class="message">
           Manage all the shipping addresses you want (work place, home address
