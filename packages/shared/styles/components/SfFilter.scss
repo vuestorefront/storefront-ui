@@ -18,11 +18,10 @@ $filter-line-height: 1.6 !default;
   @media screen and (min-width: $desktop-min) {
     font-size: $filter-font-size-desktop;
   }
-  &__label {
-    flex-grow: 1;
+  &__checkbox {
+    font-size: $filter-font-size-desktop;
   }
-  &--active,
-  &:hover {
+  &--active {
     font-weight: 500;
   }
 }

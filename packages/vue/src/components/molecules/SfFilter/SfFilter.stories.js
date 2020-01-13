@@ -23,7 +23,8 @@ storiesOf("Molecules|Filter", module)
         v-model="isActive"
         :label="label"
         :count="count"
-        :is-active="isActive" />
+        :is-active="isActive"
+        />
     </div>`
   }))
   .add("[slot] label", () => ({
