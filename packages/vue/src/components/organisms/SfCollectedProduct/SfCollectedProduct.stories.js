@@ -1,24 +1,19 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, number } from "@storybook/addon-knobs";
-
 import SfCollectedProduct from "./SfCollectedProduct.vue";
-
 storiesOf("Organisms|CollectedProduct", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    data() {
-      return {
-        qty: "1"
-      };
-    },
     props: {
       image: {
-        default: text(
-          "image",
-          "/assets/storybook/homepage/productB.jpg",
-          "Props"
-        )
+        default: text("image", "/assets/storybook/Home/productB.jpg", "Props")
+      },
+      imageWidth: {
+        default: number("imageWidth", 140, {}, "Props")
+      },
+      imageHeight: {
+        default: number("imageHeight", 200, {}, "Props")
       },
       title: {
         default: text("title", "Product name", "Props")
@@ -29,18 +24,26 @@ storiesOf("Organisms|CollectedProduct", module)
       specialPrice: {
         default: text("specialPrice", "$5,99", "Props")
       },
-      stock: {
-        default: number("stock", 99, {}, "Props")
+      qtyMin: {
+        default: number("qtyMin", 1, {}, "Props")
       }
     },
+    data() {
+      return {
+        qty: 1
+      };
+    },
     components: { SfCollectedProduct },
-    template: `    <SfCollectedProduct
+    template: `<SfCollectedProduct
+        v-model="qty"
         :image="image"
+        :image-width="imageWidth"
+        :image-height="imageHeight"
         :title="title"
         :specialPrice="specialPrice"
         :regularPrice="regularPrice"
-        :stock="stock"
-        v-model="qty">
+        :qty-min="qtyMin"
+        >
         <template #configuration>
           <div :style="{marginTop: '20px'}">
             @slot configuration

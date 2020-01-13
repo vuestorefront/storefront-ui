@@ -45,9 +45,11 @@ import SfPrice from "../../src/components/atoms/SfPrice/SfPrice.vue"
 import SfProductCard from "../../src/components/organisms/SfProductCard/SfProductCard.vue"
 import SfProductOption from "../../src/components/molecules/SfProductOption/SfProductOption.vue"
 import SfProperty from "../../src/components/atoms/SfProperty/SfProperty.vue"
+import SfQuantitySelector from "../../src/components/atoms/SfQuantitySelector/SfQuantitySelector.vue"
 import SfRadio from "../../src/components/molecules/SfRadio/SfRadio.vue"
 import SfRating from "../../src/components/atoms/SfRating/SfRating.vue"
 import SfReview from "../../src/components/molecules/SfReview/SfReview.vue"
+import SfScrollable from "../../src/components/molecules/SfScrollable/SfScrollable.vue"
 import SfSearchBar from "../../src/components/molecules/SfSearchBar/SfSearchBar.vue"
 import SfSection from "../../src/components/molecules/SfSection/SfSection.vue"
 import SfSelect from "../../src/components/molecules/SfSelect/SfSelect.vue"
@@ -56,6 +58,7 @@ import SfSlidingSection from "../../src/components/molecules/SfSlidingSection/Sf
 import SfSteps from "../../src/components/molecules/SfSteps/SfSteps.vue"
 import SfSticky from "../../src/components/molecules/SfSticky/SfSticky.vue"
 import SfStoreLocator from "../../src/components/organisms/SfStoreLocator/SfStoreLocator.vue"
+import SfTable from "../../src/components/organisms/SfTable/SfTable.vue"
 import SfTabs from "../../src/components/organisms/SfTabs/SfTabs.vue"
 import SfTopBar from "../../src/components/organisms/SfTopBar/SfTopBar.vue"
 // @components-docs-end
@@ -112,9 +115,11 @@ export default ({
   Vue.component("SfProductCard", SfProductCard);
   Vue.component("SfProductOption", SfProductOption);
   Vue.component("SfProperty", SfProperty);
+  Vue.component("SfQuantitySelector", SfQuantitySelector);
   Vue.component("SfRadio", SfRadio);
   Vue.component("SfRating", SfRating);
   Vue.component("SfReview", SfReview);
+  Vue.component("SfScrollable", SfScrollable);
   Vue.component("SfSearchBar", SfSearchBar);
   Vue.component("SfSection", SfSection);
   Vue.component("SfSelect", SfSelect);
@@ -123,6 +128,7 @@ export default ({
   Vue.component("SfSteps", SfSteps);
   Vue.component("SfSticky", SfSticky);
   Vue.component("SfStoreLocator", SfStoreLocator);
+  Vue.component("SfTable", SfTable);
   Vue.component("SfTabs", SfTabs);
   Vue.component("SfTopBar", SfTopBar);
   // @components-docs-end

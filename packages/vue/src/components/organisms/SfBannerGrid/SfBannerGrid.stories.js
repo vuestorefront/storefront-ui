@@ -1,10 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
-
 import SfBannerGrid from "./SfBannerGrid.vue";
 import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
-
 storiesOf("Organisms|BannerGrid", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -31,7 +29,7 @@ storiesOf("Organisms|BannerGrid", module)
                 title="COCKTAIL PARTY"
                 description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
                 button-text="SHOP NOW"
-                image="/assets/storybook/homepage/bannerF.jpg"
+                image="/assets/storybook/Home/bannerF.jpg"
                 class="sf-banner--slim"
               />
             </a>
@@ -43,7 +41,7 @@ storiesOf("Organisms|BannerGrid", module)
                 title="LINEN DRESSES"
                 description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
                 button-text="SHOP NOW"
-                image="/assets/storybook/homepage/bannerE.jpg"
+                image="/assets/storybook/Home/bannerE.jpg"
                 class="sf-banner--slim"
                 style="padding-right: 20%"
               />
@@ -54,7 +52,7 @@ storiesOf("Organisms|BannerGrid", module)
               <SfBanner
               subtitle="T-Shirts"
               title="THE OFFICE LIFE"
-              image="/assets/storybook/homepage/bannerC.jpg"
+              image="/assets/storybook/Home/bannerC.jpg"
               class="sf-banner--slim"
             />
             </a>
@@ -64,7 +62,7 @@ storiesOf("Organisms|BannerGrid", module)
               <SfBanner
                 subtitle="Summer shoes"
                 title="ECO SANDALS"
-                image="/assets/storybook/homepage/bannerG.jpg"
+                image="/assets/storybook/Home/bannerG.jpg"
                 class="sf-banner--slim"
               />
             </a>
@@ -95,7 +93,7 @@ storiesOf("Organisms|BannerGrid", module)
               title="COCKTAIL PARTY"
               description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
               button-text="SHOP NOW"
-              image="/assets/storybook/homepage/bannerF.jpg"
+              image="/assets/storybook/Home/bannerF.jpg"
               class="sf-banner--slim"
             />
           </a>
@@ -106,7 +104,7 @@ storiesOf("Organisms|BannerGrid", module)
               subtitle="Dresses"
               title="LINEN DRESSES"
               button-text="SHOP NOW"
-              image="/assets/storybook/homepage/bannerE.jpg"
+              image="/assets/storybook/Home/bannerE.jpg"
               class="sf-banner--slim"
             />
           </a>
@@ -116,7 +114,7 @@ storiesOf("Organisms|BannerGrid", module)
             <SfBanner
               subtitle="T-Shirts"
               title="THE OFFICE LIFE"
-              image="/assets/storybook/homepage/bannerC.jpg"
+              image="/assets/storybook/Home/bannerC.jpg"
               class="sf-banner--slim"
             />
           </a>
@@ -126,7 +124,7 @@ storiesOf("Organisms|BannerGrid", module)
             <SfBanner
               subtitle="Summer shoes"
               title="ECO SANDALS"
-              image="/assets/storybook/homepage/bannerK.jpg"
+              image="/assets/storybook/Home/bannerK.jpg"
               class="sf-banner--slim"
             />
           </a>

@@ -1,8 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
-
 import SfProductOption from "./SfProductOption.vue";
-
 storiesOf("Molecules|ProductOption", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -13,16 +11,12 @@ storiesOf("Molecules|ProductOption", module)
       },
       label: {
         default: text("label", "Red", "Props")
-      },
-      value: {
-        default: text("value", "red", "Props")
       }
     },
     template: `<div style="max-width: 300px">
       <SfProductOption
         :color="color"
-        :label="label"
-        :value="value"/>
+        :label="label"/>
     </div>`
   }))
   .add("[slot] color", () => ({
@@ -33,16 +27,12 @@ storiesOf("Molecules|ProductOption", module)
       },
       label: {
         default: text("label", "Red", "Props")
-      },
-      value: {
-        default: text("value", "red", "Props")
       }
     },
     template: `<div style="max-width: 300px">
       <SfProductOption
         :color="color"
-        :label="label"
-        :value="value">
+        :label="label">
         <template #color="{color}">
           <div :style="{width: '20px', height:'20px', backgroundColor: color, borderRadius: '100%', marginRight: '10px'}"></div>
         </template>
@@ -57,16 +47,12 @@ storiesOf("Molecules|ProductOption", module)
       },
       label: {
         default: text("label", "Red", "Props")
-      },
-      value: {
-        default: text("value", "red", "Props")
       }
     },
     template: `<div style="max-width: 300px">
       <SfProductOption
         :color="color"
-        :label="label"
-        :value="value">
+        :label="label">
         <template #label="{label}">
           CUSTOM LABEL
         </template>
