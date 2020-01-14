@@ -1,6 +1,6 @@
 <template>
   <Portal>
-    <div class="sf-sidebar">
+    <div ref="sidebar" class="sf-sidebar" :class="[staticClass, className]">
       <SfOverlay :visible="visibleOverlay" @click="$emit('close')" />
       <transition :name="'slide-' + position">
         <aside v-if="visible" class="sf-sidebar__aside">
@@ -77,6 +77,12 @@ export default {
   computed: {
     visibleOverlay() {
       return this.visible && this.overlay;
+    },
+    staticClass() {
+      return this.$vnode.data.staticClass;
+    },
+    className() {
+      return this.$vnode.data.class;
     }
   },
   watch: {
@@ -102,9 +108,11 @@ export default {
     this.$once("hook:destroyed", () => {
       document.removeEventListener("keydown", keydownHandler);
     });
-    this.position = this.$el.classList.contains("sf-sidebar--right")
-      ? "right"
-      : "left";
+    this.$nextTick(() => {
+      this.position = this.$refs.sidebar.classList.contains("sf-sidebar--right")
+        ? "right"
+        : "left";
+    });
   },
   beforeDestroy() {
     document.body.classList.remove("sf-sidebar--has-scroll-lock");
