@@ -1,6 +1,6 @@
 <template>
   <Portal>
-    <section class="sf-modal">
+    <section ref="modal" class="sf-modal" :class="[staticClass, className]">
       <SfOverlay
         v-if="overlay"
         class="sf-modal__overlay"
@@ -83,6 +83,14 @@ export default {
     transitionModal: {
       type: String,
       default: "fade"
+    }
+  },
+  computed: {
+    staticClass() {
+      return this.$vnode.data.staticClass;
+    },
+    className() {
+      return this.$vnode.data.class;
     }
   },
   watch: {
