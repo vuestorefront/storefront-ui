@@ -18,10 +18,10 @@ storiesOf("Atoms|Image", module)
           "src",
           {
             mobile: {
-              url: "/assets/storybook/product-109x164.jpg"
+              url: "/assets/storybook/SfImage/product-109x164.jpg"
             },
             desktop: {
-              url: "/assets/storybook/product-216x326.jpg"
+              url: "/assets/storybook/SfImage/product-216x326.jpg"
             }
           },
           "Props"
@@ -59,10 +59,10 @@ storiesOf("Atoms|Image", module)
           "src",
           {
             mobile: {
-              url: "/assets/storybook/product-109x164.jpg"
+              url: "/assets/storybook/SfImage/product-109x164.jpg"
             },
             desktop: {
-              url: "/assets/storybook/product-216x326.jpg"
+              url: "/assets/storybook/SfImage/product-216x326.jpg"
             }
           },
           "Props"
@@ -93,10 +93,10 @@ storiesOf("Atoms|Image", module)
           "src",
           {
             mobile: {
-              url: "/assets/storybook/product-109x164.jpg"
+              url: "/assets/storybook/SfImage/product-109x164.jpg"
             },
             desktop: {
-              url: "/assets/storybook/product-216x326.jpg"
+              url: "/assets/storybook/SfImage/product-216x326.jpg"
             }
           },
           "Props"
