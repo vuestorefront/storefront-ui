@@ -6,7 +6,6 @@
       :class="wishlistIconClasses"
       @click="toggleIsOnWishlist"
     >
-      <!-- @slot -->
       <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
         <SfIcon
           :icon="currentWishlistIcon"
@@ -22,26 +21,29 @@
       :to="link && linkComponentTag !== 'a' ? link : undefined"
       class="sf-product-card__link"
     >
-      <!-- @slot -->
       <div ref="productImage" class="sf-product-card__image-wrapper">
         <slot name="image" v-bind="{ image, title }">
           <div v-if="Array.isArray(image)" class="sf-product-card__pictures">
-            <div
+            <SfImage
               v-for="(picture, key) in image.slice(0, 2)"
               :key="key"
               class="sf-product-card__picture"
-            >
-              <div class="sf-product-card__image">
-                <SfImage :src="picture" />
-              </div>
-            </div>
+              :src="picture"
+              :alt="title"
+              :width="imageWidth"
+              :height="imageHeight"
+            />
           </div>
-          <div v-else class="sf-product-card__image">
-            <SfImage :src="image" :alt="title" />
-          </div>
+          <SfImage
+            v-else
+            class="sf-product-card__image"
+            :src="image"
+            :alt="title"
+            :width="imageWidth"
+            :height="imageHeight"
+          />
         </slot>
         <template v-if="showAddToCartButton">
-          <!-- @slot -->
           <slot
             name="add-to-cart"
             v-bind="{ isAddedToCart, showAddedToCartBadge, isAddingToCart }"
@@ -81,14 +83,12 @@
           </slot>
         </template>
       </div>
-      <!-- @slot -->
       <slot name="title" v-bind="{ title }">
         <h3 class="sf-product-card__title">
           {{ title }}
         </h3>
       </slot>
     </component>
-    <!-- @slot -->
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
         v-if="regularPrice"
@@ -97,7 +97,6 @@
         :special="specialPrice"
       />
     </slot>
-    <!-- @slot -->
     <slot name="reviews" v-bind="{ maxRating, scoreRating }">
       <div
         v-if="typeof scoreRating === 'number'"
@@ -145,6 +144,20 @@ export default {
       default: ""
     },
     /**
+     * Product image width, without unit
+     */
+    imageWidth: {
+      type: [String, Number],
+      default: 216
+    },
+    /**
+     * Product image height, without unit
+     */
+    imageHeight: {
+      type: [String, Number],
+      default: 326
+    },
+    /**
      * Product title
      */
     title: {
@@ -165,7 +178,7 @@ export default {
      */
     linkTag: {
       type: String,
-      default: ""
+      default: undefined
     },
     /**
      * Product rating
