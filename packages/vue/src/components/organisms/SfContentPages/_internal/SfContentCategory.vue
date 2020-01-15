@@ -5,14 +5,14 @@
 </template>
 <script>
 export default {
-  name: 'SfContentCategory',
+  name: "SfContentCategory",
   props: {
     /**
      * Category title
      */
     title: {
       type: String,
-      default: ''
+      default: ""
     }
   },
   data() {
