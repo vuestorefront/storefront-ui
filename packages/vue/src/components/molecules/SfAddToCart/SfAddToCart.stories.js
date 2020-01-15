@@ -19,7 +19,6 @@ storiesOf("Molecules|AddToCart", module)
       };
     },
     template: `<div style="max-width: 21.25rem">
-      {{qty}}
       <SfAddToCart 
         v-model="qty" 
         :disabled="disabled"
