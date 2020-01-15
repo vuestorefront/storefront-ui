@@ -1,4 +1,4 @@
-import "./matchMedia.mock";
+import "../matchMedia.mock";
 import { shallowMount } from "@vue/test-utils";
 import SfFooterColumn from "./SfFooterColumn.vue";
 describe("SfFooterColumn.vue", () => {
