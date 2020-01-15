@@ -1,4 +1,4 @@
-import { shallowMount, createLocalVue } from "@vue/test-utils";
+import { mount, createLocalVue } from "@vue/test-utils";
 import SfContentPages from "@/components/organisms/SfContentPages/SfContentPages.vue";
 import SfContentPage from "./_internal/SfContentPage.vue";
 
@@ -9,7 +9,7 @@ localVue.component("SfContentPage", SfContentPage, {
 
 describe("SfContentPages.vue", () => {
   it("renders a component", () => {
-    const component = shallowMount(SfContentPages, {
+    const component = mount(SfContentPages, {
       localVue,
       provide: {
         provided() {
