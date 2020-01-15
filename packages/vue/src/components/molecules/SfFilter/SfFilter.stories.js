@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
+import { withKnobs, text } from "@storybook/addon-knobs";
 import SfFilter from "./SfFilter.vue";
 storiesOf("Molecules|Filter", module)
   .addDecorator(withKnobs)
@@ -13,17 +13,18 @@ storiesOf("Molecules|Filter", module)
       },
       count: {
         default: text("count", "30", "Props")
-      },
-      selected: {
-        default: boolean("selected", true, "Props")
       }
+    },
+    data() {
+      return {
+        checked: ""
+      };
     },
     template: `<div style="max-width: 300px">
        <SfFilter
-        v-model="selected"
+        v-model="checked"
         :label="label"
         :count="count"
-        :selected="selected"
         />
     </div>`
   }))
@@ -37,17 +38,13 @@ storiesOf("Molecules|Filter", module)
       },
       count: {
         default: text("count", "30", "Props")
-      },
-      selected: {
-        default: boolean("selected", true, "Props")
       }
     },
     template: `<div style="max-width: 300px">
        <SfFilter
         v-model="selected"
         :label="label"
-        :count="count"
-        :selected="selected">
+        :count="count">
         <template #label="{label}">CUSTOM LABEL</template>
       </SfFilter>
     </div>`
@@ -62,17 +59,13 @@ storiesOf("Molecules|Filter", module)
       },
       count: {
         default: text("count", "30", "Props")
-      },
-      selected: {
-        default: boolean("selected", true, "Props")
       }
     },
     template: `<div style="max-width: 300px">
        <SfFilter
         v-model="selected"
         :label="label"
-        :count="count"
-        :selected="selected">
+        :count="count">
         <template #count="{count}">CUSTOM COUNT</template>
       </SfFilter>
     </div>`
