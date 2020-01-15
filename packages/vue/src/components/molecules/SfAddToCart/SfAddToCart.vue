@@ -10,16 +10,17 @@
         Add to cart
       </SfButton>
     </slot>
-    <slot name="quantity-select-input" v-bind="{ qty }">
+    <slot name="quantity-select-input" v-bind="{ qty, qtyMin }">
       <SfQuantitySelector
+        :qty="qty"
+        :min="qtyMin"
         class="sf-add-to-cart__select-quantity"
-        :value="qty"
+        @input="$emit('input', $event)"
       />
     </slot>
   </div>
 </template>
 <script>
-// @vue/component
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
 export default {
@@ -41,30 +42,18 @@ export default {
       default: false
     },
     /**
-     * Stock quantity of product
-     */
-    stock: {
-      type: Number,
-      default: 1
-    },
-    /**
      * Selected quantity
      */
     qty: {
       type: [Number, String],
       default: 1
-    }
-  },
-  watch: {
-    qty(value) {
-      const qty = parseInt(value, 10);
-      if (qty <= 0) {
-        this.$emit("input", "1");
-        return;
-      }
-      if (qty > this.stock) {
-        this.$emit("input", "" + this.stock);
-      }
+    },
+    /**
+     * Minimum product quantity
+     */
+    qtyMin: {
+      type: Number,
+      default: 1
     }
   }
 };
