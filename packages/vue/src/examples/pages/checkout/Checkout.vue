@@ -4,13 +4,16 @@
       <div class="checkout__main">
         <SfSteps :active="currentStep" @change="updateStep($event)">
           <SfStep name="Personal Details">
-            <PersonalDetails :order="order" @click:next="updateOrder($event)" />
+            <PersonalDetails
+              :order="order"
+              @update:order="updateOrder($event)"
+            />
           </SfStep>
           <SfStep name="Shipping">
             <Shipping
               :order="order"
               :shipping-methods="shippingMethods"
-              @click:next="updateOrder($event)"
+              @update:order="updateOrder($event)"
               @click:back="currentStep--"
             />
           </SfStep>
@@ -18,7 +21,7 @@
             <Payment
               :order="order"
               :payment-methods="paymentMethods"
-              @click:next="updateOrder($event)"
+              @update:order="updateOrder($event)"
               @click:back="currentStep--"
             />
           </SfStep>
@@ -29,7 +32,7 @@
               :payment-methods="paymentMethods"
               @click:back="currentStep--"
               @click:edit="currentStep = $event"
-              @change:remove="updateOrder($event, false)"
+              @update:order="updateOrder($event, false)"
             />
           </SfStep>
         </SfSteps>
@@ -42,7 +45,7 @@
             :order="order"
             :shipping-methods="shippingMethods"
             :payment-methods="paymentMethods"
-            @change:remove="updateOrder($event, false)"
+            @update:order="updateOrder($event, false)"
           />
           <OrderReview
             v-else
