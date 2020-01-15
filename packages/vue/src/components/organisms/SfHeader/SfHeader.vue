@@ -1,66 +1,75 @@
 <template>
-  <header
-    class="sf-header"
-    :class="{
-      'sf-header--sticky': sticky,
-      'sf-header--hidden': !isVisible,
-      'sf-header--has-mobile-search': hasMobileSearch && isSearchVisible
-    }"
-  >
-    <!--@slot Use this slot to replace logo with text or icon-->
-    <slot name="logo" v-bind="{ logo, title }">
-      <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo" />
-      <h1 v-else class="sf-header__title">{{ title }}</h1>
-    </slot>
-    <nav class="sf-header__navigation">
-      <!--@slot Use this slot to replace default navigation links -->
-      <slot name="navigation" />
-    </nav>
-    <!--@slot Use this slot to replace default search bar-->
-    <slot name="search">
-      <SfSearchBar :placeholder="searchPlaceholder" class="sf-header__search" />
-    </slot>
-    <!--@slot Use this slot to replace default header icons with custom content-->
-    <slot name="header-icons" v-bind="{ accountIcon, wishlistIcon, cartIcon }">
-      <div class="sf-header__icons">
-        <SfCircleIcon
-          v-if="accountIcon"
-          :icon="accountIcon"
-          icon-size="20px"
-          class="sf-header__icon"
-          :class="{ 'sf-header__icon--is-active': activeIcon === 'account' }"
-          role="button"
-          aria-label="account"
-          :aria-pressed="activeIcon === 'account' ? 'true' : 'false'"
-          @click="$emit('click:account')"
+  <div>
+    <header
+      class="sf-header"
+      :class="{
+        'sf-header--sticky': sticky,
+        'sf-header--hidden': !isVisible,
+        'sf-header--has-mobile-search': hasMobileSearch && isSearchVisible
+      }"
+    >
+      <!--@slot Use this slot to replace logo with text or icon-->
+      <slot name="logo" v-bind="{ logo, title }">
+        <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo" />
+        <h1 v-else class="sf-header__title">{{ title }}</h1>
+      </slot>
+      <nav class="sf-header__navigation">
+        <!--@slot Use this slot to replace default navigation links -->
+        <slot name="navigation" />
+      </nav>
+      <!--@slot Use this slot to replace default search bar-->
+      <slot name="search">
+        <SfSearchBar
+          :placeholder="searchPlaceholder"
+          class="sf-header__search"
         />
-        <SfCircleIcon
-          v-if="wishlistIcon"
-          :icon="wishlistIcon"
-          icon-size="20px"
-          class="sf-header__icon"
-          :class="{ 'sf-header__icon--is-active': activeIcon === 'wishlist' }"
-          role="button"
-          aria-label="wishlist"
-          :aria-pressed="activeIcon === 'wishlist' ? 'true' : 'false'"
-          @click="$emit('click:wishlist')"
-        />
-        <SfCircleIcon
-          v-if="cartIcon"
-          :icon="cartIcon"
-          icon-size="20px"
-          class="sf-header__icon"
-          :class="{ 'sf-header__icon--is-active': activeIcon === 'cart' }"
-          role="button"
-          aria-label="cart"
-          :aria-pressed="activeIcon === 'cart' ? 'true' : 'false'"
-          @click="$emit('click:cart')"
-        />
-      </div>
-    </slot>
-    <!--@slot Use this slot to replace default header language selector on mobile -->
-    <slot name="language-selector"></slot>
-  </header>
+      </slot>
+      <!--@slot Use this slot to replace default header icons with custom content-->
+      <slot
+        name="header-icons"
+        v-bind="{ accountIcon, wishlistIcon, cartIcon }"
+      >
+        <div class="sf-header__icons">
+          <SfCircleIcon
+            v-if="accountIcon"
+            :icon="accountIcon"
+            icon-size="20px"
+            class="sf-header__icon"
+            :class="{ 'sf-header__icon--is-active': activeIcon === 'account' }"
+            role="button"
+            aria-label="account"
+            :aria-pressed="activeIcon === 'account' ? 'true' : 'false'"
+            @click="$emit('click:account')"
+          />
+          <SfCircleIcon
+            v-if="wishlistIcon"
+            :icon="wishlistIcon"
+            icon-size="20px"
+            class="sf-header__icon"
+            :class="{ 'sf-header__icon--is-active': activeIcon === 'wishlist' }"
+            role="button"
+            aria-label="wishlist"
+            :aria-pressed="activeIcon === 'wishlist' ? 'true' : 'false'"
+            @click="$emit('click:wishlist')"
+          />
+          <SfCircleIcon
+            v-if="cartIcon"
+            :icon="cartIcon"
+            icon-size="20px"
+            class="sf-header__icon"
+            :class="{ 'sf-header__icon--is-active': activeIcon === 'cart' }"
+            role="button"
+            aria-label="cart"
+            :aria-pressed="activeIcon === 'cart' ? 'true' : 'false'"
+            @click="$emit('click:cart')"
+          />
+        </div>
+      </slot>
+      <!--@slot Use this slot to replace default header language selector on mobile -->
+      <slot name="language-selector"></slot>
+    </header>
+    <div v-if="sticky" class="sf-header__placeholder" />
+  </div>
 </template>
 <script>
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";

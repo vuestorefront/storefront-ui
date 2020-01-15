@@ -72,6 +72,11 @@ $header-navigation-item-font-weight: 500 !default;
       }
     }
   }
+  &__placeholder {
+    --header-desktop-height: 5rem;
+    
+    height: var(--header-desktop-height);
+  }
   &__logo {
     height: $header__logo-height;
     width: auto;
