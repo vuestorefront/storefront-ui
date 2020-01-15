@@ -10,30 +10,23 @@
         Add to cart
       </SfButton>
     </slot>
-    <slot name="quantity-select-input" v-bind="{ qty, stock }">
-      <SfInput
-        :value="qty"
+    <slot name="quantity-select-input" v-bind="{ qty }">
+      <SfQuantitySelector
         class="sf-add-to-cart__select-quantity"
-        type="number"
-        min="1"
-        :max="stock"
-        @input="
-          value => {
-            $emit('input', value);
-          }
-        "
+        :value="qty"
       />
     </slot>
   </div>
 </template>
 <script>
+// @vue/component
 import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfInput from "../../atoms/SfInput/SfInput.vue";
+import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
 export default {
   name: "SfAddToCart",
   components: {
     SfButton,
-    SfInput
+    SfQuantitySelector
   },
   model: {
     prop: "qty"
