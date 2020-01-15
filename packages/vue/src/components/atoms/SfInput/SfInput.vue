@@ -68,7 +68,6 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfInput",
   components: { SfIcon, SfButton },
-  inheritAttrs: false,
   props: {
     /**
      * Current input value (`v-model`)
