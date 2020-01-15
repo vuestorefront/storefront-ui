@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-filter" :class="{ 'sf-filter--active': isActive }">
+  <div class="sf-filter" :class="{ 'sf-filter--active': selected }">
     <!-- @slot  -->
     <slot name="label" v-bind="{ label }">
       <SfCheckbox
@@ -7,7 +7,7 @@
         name="label"
         :label="label"
         :style="style"
-        :selected="isActive"
+        :selected="selected"
         @input="setActive"
       />
     </slot>
@@ -34,22 +34,22 @@ export default {
       type: [String, Number],
       default: ""
     },
-    isActive: {
+    selected: {
       type: Boolean,
       default: false
     }
   },
   computed: {
     style() {
-      return this.isActive ? "font-weight: 500" : "font-weight: 400";
+      return this.selected ? "font-weight: 500" : "font-weight: 400";
     },
     isChecked() {
-      return this.isActive;
+      return this.selected;
     }
   },
   methods: {
     setActive() {
-      this.$emit("input", !this.isActive);
+      this.$emit("input", !this.selected);
     }
   }
 };

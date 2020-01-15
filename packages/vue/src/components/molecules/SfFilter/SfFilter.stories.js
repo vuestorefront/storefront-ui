@@ -14,16 +14,16 @@ storiesOf("Molecules|Filter", module)
       count: {
         default: text("count", "30", "Props")
       },
-      isActive: {
-        default: boolean("isActive", true, "Props")
+      selected: {
+        default: boolean("selected", true, "Props")
       }
     },
     template: `<div style="max-width: 300px">
        <SfFilter
-        v-model="isActive"
+        v-model="selected"
         :label="label"
         :count="count"
-        :is-active="isActive"
+        :selected="selected"
         />
     </div>`
   }))
@@ -38,16 +38,16 @@ storiesOf("Molecules|Filter", module)
       count: {
         default: text("count", "30", "Props")
       },
-      isActive: {
-        default: boolean("isActive", true, "Props")
+      selected: {
+        default: boolean("selected", true, "Props")
       }
     },
     template: `<div style="max-width: 300px">
        <SfFilter
-        v-model="isActive"
+        v-model="selected"
         :label="label"
         :count="count"
-        :is-active="isActive">
+        :selected="selected">
         <template #label="{label}">CUSTOM LABEL</template>
       </SfFilter>
     </div>`
@@ -63,16 +63,16 @@ storiesOf("Molecules|Filter", module)
       count: {
         default: text("count", "30", "Props")
       },
-      isActive: {
-        default: boolean("isActive", true, "Props")
+      selected: {
+        default: boolean("selected", true, "Props")
       }
     },
     template: `<div style="max-width: 300px">
        <SfFilter
-        v-model="isActive"
+        v-model="selected"
         :label="label"
         :count="count"
-        :is-active="isActive">
+        :selected="selected">
         <template #count="{count}">CUSTOM COUNT</template>
       </SfFilter>
     </div>`
