@@ -4,7 +4,10 @@
       <div class="checkout__main">
         <SfSteps :active="currentStep" @change="updateStep($event)">
           <SfStep name="Personal Details">
-            <PersonalDetails :order="order" @update:order="updateOrder($event)" />
+            <PersonalDetails
+              :order="order"
+              @update:order="updateOrder($event)"
+            />
           </SfStep>
           <SfStep name="Shipping">
             <Shipping
