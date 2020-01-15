@@ -9,11 +9,13 @@
     <div class="sf-input__wrapper">
       <input
         :id="name"
-        v-bind="attrs"
+        v-bind="$attrs"
         :value="value"
         :required="required"
         :disabled="disabled"
         :name="name"
+        :class="{ 'sf-input--is-password': isPassword }"
+        :type="inputType"
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
@@ -21,34 +23,30 @@
         <!-- @slot Custom input label -->
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
-      <template v-if="isPasswordType">
+      <template v-if="isPassword">
         <!-- @slot -->
         <slot
           name="visibility-toggle"
           v-bind="{
             isPasswordVisible,
-            switchVisibilityPassword,
-            isPasswordType
+            switchVisibilityPassword
           }"
         >
-          <button
+          <SfButton
             aria-label="switch-visibility-password"
-            :disabled="!value"
             class="sf-input__password-button"
             @click="switchVisibilityPassword"
           >
-            <slot>
-              <SfIcon
-                class="sf-input__password-icon"
-                :class="{
-                  'sf-input__password-icon--hidden': !isPasswordVisible
-                }"
-                view-box="0 0 20 13"
-                icon="show_password"
-                :color="isPasswordVisible ? 'gray-primary' : 'gray-secondary'"
-              ></SfIcon>
-            </slot>
-          </button>
+            <SfIcon
+              class="sf-input__password-icon"
+              :class="{
+                'sf-input__password-icon--hidden': !isPasswordVisible
+              }"
+              icon="show_password"
+              size="22px"
+              :color="isPasswordVisible ? 'gray-primary' : 'gray-secondary'"
+            ></SfIcon>
+          </SfButton>
         </slot>
       </template>
     </div>
@@ -66,9 +64,10 @@
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfInput",
-  components: { SfIcon },
+  components: { SfIcon, SfButton },
   inheritAttrs: false,
   props: {
     /**
@@ -91,6 +90,13 @@ export default {
     name: {
       type: String,
       default: null
+    },
+    /**
+     * Form input type
+     */
+    type: {
+      type: String,
+      default: "text"
     },
     /**
      * Validate value of form input
@@ -125,7 +131,8 @@ export default {
   },
   data() {
     return {
-      isPasswordVisible: false
+      isPasswordVisible: false,
+      inputType: ""
     };
   },
   computed: {
@@ -135,20 +142,22 @@ export default {
         input: event => this.$emit("input", event.target.value)
       };
     },
-    attrs() {
-      return {
-        ...this.$attrs
-      };
-    },
-    isPasswordType() {
-      return this.$attrs.type === "password";
+    isPassword() {
+      return this.type === "password";
+    }
+  },
+  watch: {
+    type: {
+      immediate: true,
+      handler: function(value) {
+        this.inputType = value;
+      }
     }
   },
   methods: {
     switchVisibilityPassword() {
       this.isPasswordVisible = !this.isPasswordVisible;
-      this.attrs.type = this.isPasswordVisible ? "text" : "password";
-      this.$emit("passwordVisibilityChanged", this.isPasswordVisible);
+      this.inputType = this.isPasswordVisible ? "text" : "password";
     }
   }
 };
