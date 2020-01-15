@@ -18,7 +18,8 @@ $input__error-message-font-size: $font-size-small-mobile !default;
 $input__password-icon-hidden-border: $c-white !default;
 $input__password-icon-hidden-color: $c-gray-variant !default;
 $input__password-icon-width: 1.375rem !default;
-$input__pasword-icon-height: 0.8125rem !default;
+$input__password-icon-height: 0.8125rem !default;
+$input__password-icon-position-right: 1.25rem !default;
 
 
 @mixin move-label-up {
@@ -78,6 +79,9 @@ $input__pasword-icon-height: 0.8125rem !default;
         margin: 0;
       }
     }
+    &#{$this}--is-password {
+      padding-right: calc(#{$input__password-icon-width} + #{$input__password-icon-position-right*2});
+    }
   }
   &__wrapper {
     position: relative;
@@ -124,20 +128,23 @@ $input__pasword-icon-height: 0.8125rem !default;
   &__password-button {
     position: absolute;
     display: block;
-    right: 1.25rem;
+    right: $input__password-icon-position-right;
     background: transparent;
     border: none;
     outline: none;
     cursor: pointer;
     z-index: 1;
     padding: 0;
+    &:hover {
+      background-color: transparent;
+    }
   }
   &__password-icon {
     &:after {
       content: "";
+      position: absolute;
       width: 100%;
       height: 1px;
-      position: absolute;
       background-color: $input__password-icon-hidden-color;
       transform: rotate(45deg) scaleX(0);
       transition: transform 0.25s;
@@ -148,9 +155,9 @@ $input__pasword-icon-height: 0.8125rem !default;
     }
     .sf-icon-path {
       flex: 0 0 $input__password-icon-width;
-      height: $input__pasword-icon-height;
+      height: $input__password-icon-height;
     }
-    &.sf-input__password-icon--hidden {
+    @at-root #{&}--hidden {
       &:after {
         transform: rotate(45deg) scaleX(1)
       }
