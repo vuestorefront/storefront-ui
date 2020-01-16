@@ -9,7 +9,7 @@
     >
     </SfOverlay>
     <transition :name="transitionModal">
-      <div v-show="visible" ref="modal" class="sf-modal__container">
+      <div v-if="visible" ref="content" class="sf-modal__container">
         <button v-if="cross" class="sf-modal__close" @click="close">
           <!--@slot Use this slot to place content inside the close button.-->
           <slot name="close">
@@ -27,11 +27,7 @@
 <script>
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import {
-  disableBodyScroll,
-  enableBodyScroll,
-  clearAllBodyScrollLocks
-} from "body-scroll-lock";
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 export default {
   name: "SfModal",
   components: {
@@ -91,18 +87,15 @@ export default {
       handler: function(value) {
         if (typeof window === "undefined") return;
         if (value) {
-          disableBodyScroll(this.$refs.modal);
+          disableBodyScroll(this.$refs.content);
           document.addEventListener("keydown", this.keydownHandler);
         } else {
-          enableBodyScroll(this.$refs.modal);
+          clearAllBodyScrollLocks();
           document.removeEventListener("keydown", this.keydownHandler);
         }
       },
       immediate: true
     }
-  },
-  beforeDestroy() {
-    clearAllBodyScrollLocks();
   },
   methods: {
     close() {

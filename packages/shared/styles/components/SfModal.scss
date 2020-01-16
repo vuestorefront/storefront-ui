@@ -3,8 +3,7 @@
 $modal-background-color: $c-white !default;
 $modal-width: 430px !default;
 $modal-height: auto !default;
-$modal-mobile-padding: 2.5rem 1.625rem !default;
-$modal-padding: 2.5rem !default;
+$modal-padding: 2.5em 5em !default;
 $modal-border: solid 1px rgba($c-black, 0.5) !default;
 
 .sf-modal {
@@ -19,21 +18,11 @@ $modal-border: solid 1px rgba($c-black, 0.5) !default;
     align-content: space-between;
     box-sizing: border-box;
     background-color: $modal-background-color;
+    width: $modal-width;
     max-width: 100%;
-    height: 100vh;
-    width: 100vw;
-    padding: $modal-mobile-padding;
-    @media (min-width: $mobile-max) {
-      height: $modal-height;
-      width: $modal-width;
-      padding: $modal-padding;
-      border: $modal-border;
-    }
-  }
-  &__overlay {
-    @media (max-width: $mobile-max) {
-      display: none;
-    }
+    height: $modal-height;
+    padding: $modal-padding;
+    border: $modal-border;
   }
   &__close {
     background: none;
