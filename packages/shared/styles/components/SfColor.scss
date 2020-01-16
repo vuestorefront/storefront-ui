@@ -1,7 +1,7 @@
 @import "../variables";
 
 $color__radius: 2.5rem !default;
-$color__padding: 0.2rem !default;
+$color__padding: 0.1rem !default;
 
 .sf-color {
     $this: &;
@@ -12,9 +12,11 @@ $color__padding: 0.2rem !default;
     background-color: transparent;
     border: 1px solid transparent;
     opacity: 0.5;
+    transition: opacity 150ms ease;
 
     &:hover {
         opacity: 1;
+        transition: opacity 150ms ease;
     }
 
     &:focus {
@@ -30,5 +32,6 @@ $color__padding: 0.2rem !default;
     &--active {
         border: 2px solid var(--border-color);
         opacity: 1;
+        transition: border 150ms ease-in-out;
     }
 }
