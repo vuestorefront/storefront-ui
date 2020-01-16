@@ -37,6 +37,7 @@ $header-desktop-background-color: $c-white !default;
 }
 .sf-header {
   $this: &;
+  position: relative;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
