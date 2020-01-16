@@ -33,6 +33,15 @@ export default {
     colorStyle() {
       return "background-color:" + this.color;
     }
+  },
+  watch: {
+    isActive: {
+      handler(value) {
+        if (value) {
+          this.$el.style.setProperty("--border-color", this.color);
+        }
+      }
+    }
   }
 };
 </script>

@@ -1,7 +1,7 @@
 @import "../variables";
 
 $color__radius: 2.5rem !default;
-$color__padding: 0.1rem !default;
+$color__padding: 0.2rem !default;
 
 .sf-color {
     $this: &;
@@ -10,7 +10,6 @@ $color__padding: 0.1rem !default;
     height: $color__radius;
     padding: $color__padding;
     background-color: transparent;
-    border-radius: 50%;
     border: 1px solid transparent;
     opacity: 0.5;
 
@@ -24,14 +23,12 @@ $color__padding: 0.1rem !default;
 
     &__fill {
         box-sizing: border-box;
-        border: 1px solid $c-white;
         width: 100%;
         height: 100%;
-        border-radius: 50%;
     }
 
     &--active {
-        border: 1px solid $c-gray;
+        border: 2px solid var(--border-color);
         opacity: 1;
     }
 
