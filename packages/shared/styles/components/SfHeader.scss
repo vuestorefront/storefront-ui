@@ -15,11 +15,11 @@ $header-desktop-background-color: $c-white !default;
     margin-left: 5rem;
   }
   &:hover {
-    #{$this}__link {
+    & > a {
       border-color: $c-text;
     }
   }
-  &__link{
+  & > a{
     position: relative;
     box-sizing: border-box;
     z-index: 2;
