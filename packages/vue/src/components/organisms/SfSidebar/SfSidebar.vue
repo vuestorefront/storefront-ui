@@ -1,6 +1,6 @@
 <template>
   <div class="sf-sidebar">
-    <SfOverlay :visible="visibleOverlay" @click="$emit('close')" />
+    <SfOverlay :visible="visibleOverlay" @click="close" />
     <transition :name="'slide-' + position">
       <aside v-if="visible" class="sf-sidebar__aside">
         <div ref="content" class="sf-sidebar__content">
@@ -21,7 +21,7 @@
             icon-size="14px"
             icon="cross"
             class="sf-sidebar__circle-icon"
-            @click="$emit('close')"
+            @click="close"
           />
         </slot>
       </aside>
@@ -82,26 +82,29 @@ export default {
         if (typeof window === "undefined") return;
         if (value) {
           disableBodyScroll(this.$refs.content);
+          document.addEventListener("keydown", this.keydownHandler);
         } else {
           clearAllBodyScrollLocks();
+          document.removeEventListener("keydown", this.keydownHandler);
         }
       },
       immediate: true
     }
   },
   mounted() {
-    const keydownHandler = e => {
-      if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
-        this.$emit("close");
-      }
-    };
-    document.addEventListener("keydown", keydownHandler);
-    this.$once("hook:destroyed", () => {
-      document.removeEventListener("keydown", keydownHandler);
-    });
     this.position = this.$el.classList.contains("sf-sidebar--right")
       ? "right"
       : "left";
+  },
+  methods: {
+    close() {
+      this.$emit("close");
+    },
+    keydownHandler(e) {
+      if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
+        this.close();
+      }
+    }
   }
 };
 </script>
