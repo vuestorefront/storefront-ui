@@ -1,9 +1,9 @@
 <template>
   <div class="sf-sidebar">
-    <SfOverlay :visible="visibleOverlay" @click="$emit('close')" />
+    <SfOverlay :visible="visibleOverlay" @click="close" />
     <transition :name="'slide-' + position">
       <aside v-if="visible" class="sf-sidebar__aside">
-        <div class="sf-sidebar__content">
+        <div ref="content" class="sf-sidebar__content">
           <slot name="title">
             <SfHeading
               v-if="headingTitle"
@@ -21,7 +21,7 @@
             icon-size="14px"
             icon="cross"
             class="sf-sidebar__circle-icon"
-            @click="$emit('close')"
+            @click="close"
           />
         </slot>
       </aside>
@@ -32,6 +32,7 @@
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 export default {
   name: "SfSidebar",
   components: {
@@ -77,33 +78,33 @@ export default {
   },
   watch: {
     visible: {
-      handler: value => {
+      handler(value) {
         if (typeof window === "undefined") return;
         if (value) {
-          document.body.classList.add("sf-sidebar--has-scroll-lock");
+          disableBodyScroll(this.$refs.content);
+          document.addEventListener("keydown", this.keydownHandler);
         } else {
-          document.body.classList.remove("sf-sidebar--has-scroll-lock");
+          clearAllBodyScrollLocks();
+          document.removeEventListener("keydown", this.keydownHandler);
         }
       },
       immediate: true
     }
   },
   mounted() {
-    const keydownHandler = e => {
-      if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
-        this.$emit("close");
-      }
-    };
-    document.addEventListener("keydown", keydownHandler);
-    this.$once("hook:destroyed", () => {
-      document.removeEventListener("keydown", keydownHandler);
-    });
     this.position = this.$el.classList.contains("sf-sidebar--right")
       ? "right"
       : "left";
   },
-  beforeDestroy() {
-    document.body.classList.remove("sf-sidebar--has-scroll-lock");
+  methods: {
+    close() {
+      this.$emit("close");
+    },
+    keydownHandler(e) {
+      if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
+        this.close();
+      }
+    }
   }
 };
 </script>
