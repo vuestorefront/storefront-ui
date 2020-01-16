@@ -1,24 +1,5 @@
 <template>
   <div class="sf-gallery">
-    <div class="sf-gallery__thumbs">
-      <slot name="thumbs" v-bind="{ images, active: activeIndex, go }">
-        <div
-          v-for="(image, index) in images"
-          :key="'img-' + index"
-          class="sf-gallery__item"
-          :class="{ 'sf-gallery__item--selected': index === activeIndex }"
-          @click="go(index)"
-        >
-          <SfImage
-            class="sf-gallery__thumb"
-            :src="image.mobile.url"
-            :width="imageWidth"
-            :height="imageHeight"
-            alt=""
-          />
-        </div>
-      </slot>
-    </div>
     <div class="sf-gallery__stage">
       <div ref="glide" class="glide">
         <div class="glide__track" data-glide-el="track">
@@ -61,6 +42,25 @@
           />
         </div>
       </transition>
+    </div>
+    <div class="sf-gallery__thumbs">
+      <slot name="thumbs" v-bind="{ images, active: activeIndex, go }">
+        <div
+            v-for="(image, index) in images"
+            :key="'img-' + index"
+            class="sf-gallery__item"
+            :class="{ 'sf-gallery__item--selected': index === activeIndex }"
+            @click="go(index)"
+        >
+          <SfImage
+              class="sf-gallery__thumb"
+              :src="image.mobile.url"
+              :width="imageWidth"
+              :height="imageHeight"
+              alt=""
+          />
+        </div>
+      </slot>
     </div>
   </div>
 </template>

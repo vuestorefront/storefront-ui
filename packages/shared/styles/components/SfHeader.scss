@@ -23,8 +23,7 @@ $header__logo-desktop-height: 2.125 !default;
   }
   & > a{
     position: relative;
-    box-sizing: border-box;
-    z-index: 2;
+    z-index: 1;
     display: flex;
     align-items: center;
     height: 100%;
