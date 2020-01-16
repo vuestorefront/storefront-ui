@@ -46,18 +46,18 @@
     <div class="sf-gallery__thumbs">
       <slot name="thumbs" v-bind="{ images, active: activeIndex, go }">
         <div
-            v-for="(image, index) in images"
-            :key="'img-' + index"
-            class="sf-gallery__item"
-            :class="{ 'sf-gallery__item--selected': index === activeIndex }"
-            @click="go(index)"
+          v-for="(image, index) in images"
+          :key="'img-' + index"
+          class="sf-gallery__item"
+          :class="{ 'sf-gallery__item--selected': index === activeIndex }"
+          @click="go(index)"
         >
           <SfImage
-              class="sf-gallery__thumb"
-              :src="image.mobile.url"
-              :width="imageWidth"
-              :height="imageHeight"
-              alt=""
+            class="sf-gallery__thumb"
+            :src="image.mobile.url"
+            :width="imageWidth"
+            :height="imageHeight"
+            alt=""
           />
         </div>
       </slot>
