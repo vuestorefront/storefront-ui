@@ -40,7 +40,8 @@
     "vue-drag-drop": "^1.1.4",
     "vue-fragment": "^1.5.1",
     "vue2-leaflet": "^2.1.1",
-    "webpack-dev-middleware": "3.6.0"
+    "webpack-dev-middleware": "3.6.0",
+    "@linusborg/vue-simple-portal": "^0.1.4"
   },
   "resolutions": {
     "webpack-dev-middleware": "3.6.0"
@@ -54,7 +55,6 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.5.5",
-    "@linusborg/vue-simple-portal": "^0.1.4",
     "@storybook/addon-a11y": "^5.1.9",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-backgrounds": "^5.1.9",
