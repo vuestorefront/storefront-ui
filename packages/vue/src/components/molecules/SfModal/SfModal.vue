@@ -86,11 +86,11 @@ export default {
       default: "fade"
     }
   },
-  data(){
+  data() {
     return {
       staticClass: null,
       className: null
-    }
+    };
   },
   watch: {
     visible: {
