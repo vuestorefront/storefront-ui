@@ -4,12 +4,12 @@ $overlay__background-color: $c-black;
 $overlay__opacity: 0.8;
 
 .sf-overlay {
-  background: $overlay__background-color;
-  opacity: $overlay__opacity;
-  z-index: 1;
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
+  z-index: 1;
+  background: $overlay__background-color;
+  opacity: $overlay__opacity;
 }

@@ -1,6 +1,12 @@
 <template>
   <transition :name="transition">
-    <div v-if="visible" class="sf-overlay" @click="$emit('click')"></div>
+    <div
+      v-if="visible"
+      ref="overlay"
+      class="sf-overlay"
+      :class="[staticClass, className]"
+      @click="$emit('click')"
+    ></div>
   </transition>
 </template>
 <script>
@@ -20,6 +26,14 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    staticClass() {
+      return this.$vnode.data.staticClass;
+    },
+    className() {
+      return this.$vnode.data.class;
     }
   }
 };
