@@ -31,10 +31,4 @@ $color__padding: 0.2rem !default;
         border: 2px solid var(--border-color);
         opacity: 1;
     }
-
-    &--bordered {
-        #{$this}__fill {
-          border: 1px solid $c-gray;
-        }
-    }
 }

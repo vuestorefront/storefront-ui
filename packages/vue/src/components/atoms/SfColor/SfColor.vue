@@ -42,6 +42,9 @@ export default {
         }
       }
     }
+  },
+  mounted() {
+    this.$el.style.setProperty("--border-color", this.color);
   }
 };
 </script>

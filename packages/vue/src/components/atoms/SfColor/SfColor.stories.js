@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs";
 import SfColor from "./SfColor.vue";
 storiesOf("Atoms|Color", module)
   .addDecorator(withKnobs)
@@ -10,42 +10,25 @@ storiesOf("Atoms|Color", module)
       return {
         colors: [
           {
-            label: "blue",
+            label: "red",
             active: false
           },
           {
-            label: "yellow",
+            label: "black",
             active: false
           },
           {
-            label: "pink",
+            label: "purple",
             active: true
           },
           {
             label: "orange",
             active: false
-          },
-          {
-            label: "white",
-            active: false
           }
         ]
       };
     },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-color--bordered": "sf-color--bordered"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      }
-    },
     template: `<div>
-        <SfColor v-for="color in colors" :color="color.label" :is-active="color.active" :aria-label="color.label" @click="color.active= !color.active" :class="customClass"/>
+        <SfColor v-for="color in colors" :color="color.label" :is-active="color.active" :aria-label="color.label" @click="color.active= !color.active"/>
     </div>`
   }));
