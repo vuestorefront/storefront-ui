@@ -276,7 +276,7 @@ export default {
       const products = [...order.products];
       products.splice(index, 1);
       order.products = products;
-      this.$emit("change:remove", order);
+      this.$emit("update:order", order);
     }
   }
 };
