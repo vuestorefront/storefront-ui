@@ -1,9 +1,112 @@
-@import '../variables';
+@import "../variables";
 
-$mega-menu-background-color: $c-white !default;
-
-.sf-mega-menu {
-  background-color: $mega-menu-background-color;
-  position: relative;
-  width: 100%;
+%menu-item{
+  padding: $spacer-big;
+  border-bottom: 1px solid $c-light;
+  font-family: $body-font-family-secondary;
+  font-size: $font-size-big-mobile;
+  font-weight: 300;
+  line-height: 1.6;
+  @media (min-width: $desktop-min) {
+    padding: 0 0 10px 0;
+    border-bottom: 0;
+  }
+}
+.sf-mega-menu-column{
+  @media (min-width: $desktop-min) {
+    margin-right: $spacer-extra-big;
+  }
+  &__title{
+   @extend %menu-item;
+    padding-bottom: 20px;
+    font-weight: 500;
+    @media (min-width: $desktop-min) {
+      text-transform: uppercase;
+    }
+  }
+   & > .sf-menu-item{
+     @extend %menu-item;
+     &--primary{
+       font-weight: 500;
+       @media (min-width: $desktop-min) {
+         text-transform: uppercase;
+       }
+     }
+   }
+}
+.sf-mega-menu{
+  overflow: hidden;
+  height: 100vh;
+  background-color: $c-white;
+  text-transform: initial;
+  @media (min-width: $desktop-min) {
+    overflow: auto;
+    height: auto;
+  }
+  &__content{
+    display: flex;
+    transition: transform 150ms ease-in-out;
+    @media (min-width: $desktop-min) {
+      border-top: 2px solid $c-light;
+      padding: $spacer-extra-big 0 6.25rem 0;
+      margin: 0 auto;
+    }
+    &--is-active{
+      transform: translateX(-100%);
+      @media (min-width: $desktop-min) {
+        transform: translateX(0);
+      }
+    }
+  }
+  &__aside,
+  &__menu{
+    overflow-y: auto;
+    box-sizing: border-box;
+    flex: 0 0 100%;
+    height: calc(100vh - 5rem);
+    padding: 0 $spacer-big;
+    @media (min-width: $desktop-min) {
+      flex: auto;
+      height: auto;
+      padding: 0 $spacer-extra-big;
+    }
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+  &__aside{
+    @media (min-width: $desktop-min) {
+      order: 1;
+      border-left: 2px solid $c-light;
+      &--without-content{
+        flex: 0;
+        padding: 0;
+        border-left: 0;
+      }
+    }
+  }
+  &__menu{
+    @media (min-width: $desktop-min) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__menu-mobile{
+    @media (min-width: $desktop-min) {
+      display: none;
+    }
+  }
+  &__menu-item{
+    @extend %menu-item;
+    font-weight: 500;
+    @media (min-width: $desktop-min) {
+      text-transform: uppercase;
+    }
+  }
+  &__aside-content{
+    margin: $spacer-extra-big 0;
+    @media (min-width: $desktop-min) {
+      margin: 0;
+    }
+  }
 }
