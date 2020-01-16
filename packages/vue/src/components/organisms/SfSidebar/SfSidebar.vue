@@ -3,7 +3,7 @@
     <SfOverlay :visible="visibleOverlay" @click="$emit('close')" />
     <transition :name="'slide-' + position">
       <aside v-if="visible" class="sf-sidebar__aside">
-        <div ref="sidebar" class="sf-sidebar__content">
+        <div ref="content" class="sf-sidebar__content">
           <slot name="title">
             <SfHeading
               v-if="headingTitle"
@@ -32,11 +32,7 @@
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
-import {
-  disableBodyScroll,
-  enableBodyScroll,
-  clearAllBodyScrollLocks
-} from "body-scroll-lock";
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 export default {
   name: "SfSidebar",
   components: {
@@ -82,12 +78,12 @@ export default {
   },
   watch: {
     visible: {
-      handler: function(value) {
+      handler(value) {
         if (typeof window === "undefined") return;
         if (value) {
-          disableBodyScroll(this.$refs.sidebar);
+          disableBodyScroll(this.$refs.content);
         } else {
-          enableBodyScroll(this.$refs.sidebar);
+          clearAllBodyScrollLocks();
         }
       },
       immediate: true
@@ -106,9 +102,6 @@ export default {
     this.position = this.$el.classList.contains("sf-sidebar--right")
       ? "right"
       : "left";
-  },
-  beforeDestroy() {
-    clearAllBodyScrollLocks();
   }
 };
 </script>
