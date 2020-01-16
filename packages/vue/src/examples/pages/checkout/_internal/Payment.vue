@@ -384,7 +384,7 @@ export default {
       }
       payment.card = card;
       order.payment = payment;
-      this.$emit("click:next", order);
+      this.$emit("update:order", order);
     }
   }
 };
