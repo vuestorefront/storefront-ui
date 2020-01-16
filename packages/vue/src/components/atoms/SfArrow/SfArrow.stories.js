@@ -36,7 +36,7 @@ storiesOf("Atoms|Arrow", module)
       }
     },
     template: `<SfArrow
-      :class="customClass" :aria-label="ariaLabel />`
+      :class="customClass" :aria-label="ariaLabel" />`
   }))
   .add("[slot] default", () => ({
     components: {
