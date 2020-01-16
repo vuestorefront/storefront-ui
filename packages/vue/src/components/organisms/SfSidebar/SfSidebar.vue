@@ -1,40 +1,45 @@
 <template>
-  <div class="sf-sidebar">
-    <SfOverlay :visible="visibleOverlay" @click="$emit('close')" />
-    <transition :name="'slide-' + position">
-      <aside v-if="visible" class="sf-sidebar__aside">
-        <div class="sf-sidebar__content">
-          <slot name="title">
-            <SfHeading
-              v-if="headingTitle"
-              :title="headingTitle"
-              :subtitle="headingSubtitle"
-              :level="headingLevel"
-              class="sf-heading--left sf-heading--no-underline sf-sidebar__title"
+  <Portal>
+    <div class="sf-sidebar" :class="[staticClass, className]">
+      <SfOverlay :visible="visibleOverlay" @click="close" />
+      <transition :name="transitionName">
+        <aside v-if="visible" class="sf-sidebar__aside">
+          <div ref="content" class="sf-sidebar__content">
+            <slot name="title">
+              <SfHeading
+                v-if="headingTitle"
+                :title="headingTitle"
+                :subtitle="headingSubtitle"
+                :level="headingLevel"
+                class="sf-heading--left sf-heading--no-underline sf-sidebar__title"
+              />
+            </slot>
+            <slot />
+          </div>
+          <slot name="circle-icon">
+            <SfCircleIcon
+              v-if="button"
+              icon-size="14px"
+              icon="cross"
+              class="sf-sidebar__circle-icon"
+              @click="close"
             />
           </slot>
-          <slot />
-        </div>
-        <slot name="circle-icon">
-          <SfCircleIcon
-            v-if="button"
-            icon-size="14px"
-            icon="cross"
-            class="sf-sidebar__circle-icon"
-            @click="$emit('close')"
-          />
-        </slot>
-      </aside>
-    </transition>
-  </div>
+        </aside>
+      </transition>
+    </div>
+  </Portal>
 </template>
 <script>
+import { Portal } from "@linusborg/vue-simple-portal";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 export default {
   name: "SfSidebar",
   components: {
+    Portal,
     SfCircleIcon,
     SfOverlay,
     SfHeading
@@ -67,43 +72,66 @@ export default {
   },
   data() {
     return {
-      position: "left"
+      position: "left",
+      staticClass: null,
+      className: null
     };
   },
   computed: {
     visibleOverlay() {
       return this.visible && this.overlay;
+    },
+    transitionName() {
+      return "slide-" + this.position;
     }
   },
   watch: {
     visible: {
-      handler: value => {
+      handler(value) {
         if (typeof window === "undefined") return;
         if (value) {
-          document.body.classList.add("sf-sidebar--has-scroll-lock");
+          disableBodyScroll(this.$refs.content);
+          document.addEventListener("keydown", this.keydownHandler);
         } else {
-          document.body.classList.remove("sf-sidebar--has-scroll-lock");
+          clearAllBodyScrollLocks();
+          document.removeEventListener("keydown", this.keydownHandler);
         }
       },
       immediate: true
     }
   },
   mounted() {
-    const keydownHandler = e => {
-      if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
-        this.$emit("close");
-      }
-    };
-    document.addEventListener("keydown", keydownHandler);
-    this.$once("hook:destroyed", () => {
-      document.removeEventListener("keydown", keydownHandler);
-    });
-    this.position = this.$el.classList.contains("sf-sidebar--right")
-      ? "right"
-      : "left";
+    this.classHandler();
   },
-  beforeDestroy() {
-    document.body.classList.remove("sf-sidebar--has-scroll-lock");
+  updated() {
+    this.classHandler();
+  },
+  methods: {
+    close() {
+      this.$emit("close");
+    },
+    keydownHandler(e) {
+      if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
+        this.close();
+      }
+    },
+    classHandler() {
+      let update = false;
+      if (this.staticClass !== this.$vnode.data.staticClass) {
+        this.staticClass = this.$vnode.data.staticClass;
+        update = true;
+      }
+      if (this.className !== this.$vnode.data.class) {
+        this.className = this.$vnode.data.class;
+        update = true;
+      }
+      if (update) {
+        this.position =
+          [this.staticClass, this.className].toString().search("--right") > -1
+            ? "right"
+            : "left";
+      }
+    }
   }
 };
 </script>

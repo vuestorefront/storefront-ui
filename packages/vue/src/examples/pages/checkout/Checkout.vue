@@ -254,7 +254,7 @@ export default {
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
-    padding: 0;
+    padding: $spacer-extra-big;
   }
 }
 .checkout {
@@ -269,7 +269,7 @@ export default {
   &__aside {
     @include for-desktop {
       flex: 0 0 25.5rem;
-      margin-left: 6.25rem;
+      margin-left: 4.25rem;
     }
   }
 }
