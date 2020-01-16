@@ -29,6 +29,6 @@ storiesOf("Atoms|Color", module)
       };
     },
     template: `<div>
-        <SfColor v-for="color in colors" :color="color.label" :is-active="color.active" :aria-label="color.label" @click="color.active= !color.active"/>
+        <SfColor v-for="color in colors" :color="color.label" :is-active="color.active" :aria-label="color.label" @click="color.active= !color.active" style="margin: 10px;"/>
     </div>`
   }));

@@ -9,8 +9,8 @@ $color__padding: 0.1rem !default;
     width: $color__radius;
     height: $color__radius;
     padding: $color__padding;
-    background-color: transparent;
-    border: 1px solid transparent;
+    background-color: var(--border-color);
+    border: 2px solid transparent;
     opacity: 0.5;
     transition: opacity 150ms ease;
 
@@ -30,8 +30,10 @@ $color__padding: 0.1rem !default;
     }
 
     &--active {
-        border: 2px solid var(--border-color);
+        #{$this}__fill {
+          border: 2px solid $c-white;
+          transition: border 150ms ease-in-out;
+        }
         opacity: 1;
-        transition: border 150ms ease-in-out;
     }
 }
