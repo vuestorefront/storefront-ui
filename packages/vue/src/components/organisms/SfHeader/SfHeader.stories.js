@@ -61,13 +61,13 @@ storiesOf("Organisms|Header", module)
      >
       <template #navigation>
         <SfHeaderNavigationItem>
-          <a href="#women" class="sf-header-navigation-item__link">Women</a>
+          <a href="#women">Women</a>
         </SfHeaderNavigationItem>
         <SfHeaderNavigationItem>
-          <a href="#man" class="sf-header-navigation-item__link">Man</a>
+          <a href="#man">Man</a>
         </SfHeaderNavigationItem>
         <SfHeaderNavigationItem>
-          <a href="#kids" class="sf-header-navigation-item__link">Kids</a>
+          <a href="#kids">Kids</a>
         </SfHeaderNavigationItem>
       </template>
     </SfHeader>`
@@ -180,13 +180,13 @@ storiesOf("Organisms|Header", module)
       </template>
       <template #navigation>
         <SfHeaderNavigationItem>
-          <a href="#women" class="sf-header-navigation-item__link">Women</a>
+          <a href="#women">Women</a>
         </SfHeaderNavigationItem>
         <SfHeaderNavigationItem>
-          <a href="#man" class="sf-header-navigation-item__link">Man</a>
+          <a href="#man">Man</a>
         </SfHeaderNavigationItem>
         <SfHeaderNavigationItem>
-          <a href="#kids" class="sf-header-navigation-item__link">Kids</a>
+          <a href="#kids">Kids</a>
         </SfHeaderNavigationItem>
       </template>
     </SfHeader>`
@@ -241,13 +241,13 @@ storiesOf("Organisms|Header", module)
       </template>
       <template #navigation>
         <SfHeaderNavigationItem>
-          <a href="#women" class="sf-header-navigation-item__link">Women</a>
+          <a href="#women">Women</a>
         </SfHeaderNavigationItem>
         <SfHeaderNavigationItem>
-          <a href="#man" class="sf-header-navigation-item__link">Man</a>
+          <a href="#man">Man</a>
         </SfHeaderNavigationItem>
         <SfHeaderNavigationItem>
-          <a href="#kids" class="sf-header-navigation-item__link">Kids</a>
+          <a href="#kids">Kids</a>
         </SfHeaderNavigationItem>
       </template>
     </SfHeader>`
@@ -307,13 +307,13 @@ storiesOf("Organisms|Header", module)
       </template>
       <template #navigation>
         <SfHeaderNavigationItem>
-          <a href="#women" class="sf-header-navigation-item__link">Women</a>
+          <a href="#women">Women</a>
         </SfHeaderNavigationItem>
         <SfHeaderNavigationItem>
-          <a href="#man" class="sf-header-navigation-item__link">Man</a>
+          <a href="#man">Man</a>
         </SfHeaderNavigationItem>
         <SfHeaderNavigationItem>
-          <a href="#kids" class="sf-header-navigation-item__link">Kids</a>
+          <a href="#kids">Kids</a>
         </SfHeaderNavigationItem>
       </template>
     </SfHeader>`

@@ -24,6 +24,15 @@
       text-transform: uppercase;
     }
   }
+   & > .sf-menu-item{
+     @extend %menu-item;
+     &--primary{
+       font-weight: 500;
+       @media (min-width: $desktop-min) {
+         text-transform: uppercase;
+       }
+     }
+   }
 }
 .sf-mega-menu{
   overflow: hidden;
@@ -61,6 +70,9 @@
       height: auto;
       padding: 0 $spacer-extra-big;
     }
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
   &__aside{
     @media (min-width: $desktop-min) {
@@ -86,11 +98,9 @@
   }
   &__menu-item{
     @extend %menu-item;
-    &--primary{
-      font-weight: 500;
-      @media (min-width: $desktop-min) {
-        text-transform: uppercase;
-      }
+    font-weight: 500;
+    @media (min-width: $desktop-min) {
+      text-transform: uppercase;
     }
   }
   &__aside-content{

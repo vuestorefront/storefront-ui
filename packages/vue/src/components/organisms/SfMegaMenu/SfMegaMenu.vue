@@ -22,10 +22,7 @@
               <!-- @slot Custom menu-item markup -->
               <slot name="menu-item" v-bind="{ change, item, active }">
                 <div @click="change(item)">
-                  <SfMenuItem
-                    :label="item"
-                    class="sf-mega-menu__menu-item sf-mega-menu__menu-item--primary"
-                  />
+                  <SfMenuItem :label="item" class="sf-mega-menu__menu-item" />
                 </div>
               </slot>
             </SfListItem>
@@ -43,12 +40,9 @@
   </transition>
 </template>
 <script>
-// @vue/component
 import Vue from "vue";
 import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn.vue";
-import SfMegaMenuItem from "./_internal/SfMegaMenuItem.vue";
 Vue.component("SfMegaMenuColumn", SfMegaMenuColumn);
-Vue.component("SfMegaMenuItem", SfMegaMenuItem);
 import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfBar from "../../molecules/SfBar/SfBar.vue";

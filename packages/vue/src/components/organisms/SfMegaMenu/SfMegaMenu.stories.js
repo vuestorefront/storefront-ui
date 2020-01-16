@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/vue";
 import SfMegaMenu from "./SfMegaMenu.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfHeader from "../SfHeader/SfHeader.vue";
+import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 const AsidePlaceholder = {
   components: { SfImage },
   data() {
@@ -11,19 +12,19 @@ const AsidePlaceholder = {
         {
           title: "Last pairs left",
           pictures: {
-            small: {
-              url: "assets/storybook/megamenu/bannerSandals-full.png"
+            mobile: {
+              url: "assets/storybook/SfMegaMenu/bannerSandals-full.png"
             },
-            normal: { url: "assets/storybook/megamenu/bannerSandals.jpg" }
+            desktop: { url: "assets/storybook/SfMegaMenu/bannerSandals.jpg" }
           }
         },
         {
           title: "Beach bags 2=1",
           pictures: {
-            small: {
-              url: "assets/storybook/megamenu/bannerBeachBag-full.png"
+            mobile: {
+              url: "assets/storybook/SfMegaMenu/bannerBeachBag-full.png"
             },
-            normal: { url: "assets/storybook/megamenu/bannerBeachBag.jpg" }
+            desktop: { url: "assets/storybook/SfMegaMenu/bannerBeachBag.jpg" }
           }
         }
       ]
@@ -41,7 +42,7 @@ const AsidePlaceholder = {
     </div>`
 };
 const MegaMenuPlaceholder = {
-  components: { SfMegaMenu, AsidePlaceholder },
+  components: { SfMegaMenu, SfMenuItem, AsidePlaceholder },
   props: {
     title: {
       type: String,
@@ -95,18 +96,17 @@ const MegaMenuPlaceholder = {
   template: `<SfMegaMenu 
         title="Man"
         :visible="visible"
-        :style="{ position: 'absolute', left: 0, width: '100%' }"
+        :style="{ position: 'absolute', left: 0, width: '100%', top: '100%' }"
       >
         <SfMegaMenuColumn 
           v-for="subcategory in subcategories" 
           :key="subcategory.header" 
           :title="subcategory.header"
         >
-          <SfMegaMenuItem 
+          <SfMenuItem
             v-for="item in subcategory.items" 
             :key="item.label" 
             :label="item.label" 
-            
           />
         </SfMegaMenuColumn>
         <template #aside>
@@ -117,7 +117,8 @@ const MegaMenuPlaceholder = {
 storiesOf("Organisms|MegaMenu", module)
   .add("Common", () => ({
     components: {
-      SfMegaMenu
+      SfMegaMenu,
+      SfMenuItem
     },
     data() {
       return {
@@ -169,11 +170,10 @@ storiesOf("Organisms|MegaMenu", module)
           :key="subcategory.header" 
           :title="subcategory.header"
         >
-          <SfMegaMenuItem 
+          <SfMenuItem
             v-for="item in subcategory.items" 
             :key="item.label" 
             :label="item.label" 
-           
           />
         </SfMegaMenuColumn>
       </SfMegaMenu>`
@@ -181,6 +181,7 @@ storiesOf("Organisms|MegaMenu", module)
   .add("[slot] aside", () => ({
     components: {
       SfMegaMenu,
+      SfMenuItem,
       AsidePlaceholder
     },
     data() {
@@ -233,11 +234,10 @@ storiesOf("Organisms|MegaMenu", module)
           :key="subcategory.header" 
           :title="subcategory.header"
         >
-          <SfMegaMenuItem 
+          <SfMenuItem
             v-for="item in subcategory.items" 
             :key="item.label" 
-            :label="item.label" 
-            class="sf-mega-menu__menu-item"
+            :label="item.label"
           />
         </SfMegaMenuColumn>
         <template #aside>
@@ -258,28 +258,28 @@ storiesOf("Organisms|MegaMenu", module)
     template: `
       <SfHeader
         title="Storefront UI"
-        :logo="{ small: { url: '/assets/logo.svg' }, normal: { url: '/assets/logo.svg' } }"
+        :logo="{ mobile: { url: '/assets/logo.svg' }, desktop: { url: '/assets/logo.svg' } }"
       >
         <template #navigation>
           <SfHeaderNavigationItem
             @mouseover="hovered = 'women'"
             @mouseleave="hovered = ''"
           >
-            <a href="#women" class="sf-header-navigation-item__link">Women</a>
+            <a href="#women">Women</a>
             <MegaMenuPlaceholder title="Woman" :visible="hovered === 'women'"/>
           </SfHeaderNavigationItem>
           <SfHeaderNavigationItem
             @mouseover="hovered = 'man'"
             @mouseleave="hovered = ''"
           >
-            <a href="#man" class="sf-header-navigation-item__link">Man</a>
+            <a href="#man">Man</a>
             <MegaMenuPlaceholder title="Man" :visible="hovered === 'man'"/>
           </SfHeaderNavigationItem>
           <SfHeaderNavigationItem
             @mouseover="hovered = 'kids'"
             @mouseleave="hovered = ''"
           >
-            <a href="#kids" class="sf-header-navigation-item__link">Kids</a>
+            <a href="#kids">Kids</a>
             <MegaMenuPlaceholder title="Kids" :visible="hovered === 'kids'"/>
           </SfHeaderNavigationItem>
         </template>
