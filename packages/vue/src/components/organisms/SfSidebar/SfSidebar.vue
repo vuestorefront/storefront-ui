@@ -1,8 +1,8 @@
 <template>
   <Portal>
-    <div ref="sidebar" class="sf-sidebar" :class="[staticClass, className]">
+    <div class="sf-sidebar" :class="[staticClass, className]">
       <SfOverlay :visible="visibleOverlay" @click="close" />
-      <transition :name="'slide-' + position">
+      <transition :name="transitionName">
         <aside v-if="visible" class="sf-sidebar__aside">
           <div ref="content" class="sf-sidebar__content">
             <slot name="title">
@@ -72,18 +72,17 @@ export default {
   },
   data() {
     return {
-      position: "left"
+      position: "left",
+      staticClass: null,
+      className: null
     };
   },
   computed: {
     visibleOverlay() {
       return this.visible && this.overlay;
     },
-    staticClass() {
-      return this.$vnode.data.staticClass;
-    },
-    className() {
-      return this.$vnode.data.class;
+    transitionName() {
+      return "slide-" + this.position;
     }
   },
   watch: {
@@ -102,11 +101,10 @@ export default {
     }
   },
   mounted() {
-    this.$nextTick(() => {
-      this.position = this.$refs.sidebar.classList.contains("sf-sidebar--right")
-        ? "right"
-        : "left";
-    });
+    this.classHandler();
+  },
+  updated() {
+    this.classHandler();
   },
   methods: {
     close() {
@@ -115,6 +113,23 @@ export default {
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
         this.close();
+      }
+    },
+    classHandler() {
+      let update = false;
+      if (this.staticClass !== this.$vnode.data.staticClass) {
+        this.staticClass = this.$vnode.data.staticClass;
+        update = true;
+      }
+      if (this.className !== this.$vnode.data.class) {
+        this.className = this.$vnode.data.class;
+        update = true;
+      }
+      if (update) {
+        this.position =
+          [this.staticClass, this.className].toString().search("--right") > -1
+            ? "right"
+            : "left";
       }
     }
   }

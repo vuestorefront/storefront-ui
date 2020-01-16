@@ -1,6 +1,6 @@
 <template>
   <Portal>
-    <section ref="modal" class="sf-modal" :class="[staticClass, className]">
+    <section class="sf-modal" :class="[staticClass, className]">
       <SfOverlay
         v-if="overlay"
         class="sf-modal__overlay"
@@ -86,12 +86,10 @@ export default {
       default: "fade"
     }
   },
-  computed: {
-    staticClass() {
-      return this.$vnode.data.staticClass;
-    },
-    className() {
-      return this.$vnode.data.class;
+  data(){
+    return {
+      staticClass: null,
+      className: null
     }
   },
   watch: {
@@ -121,6 +119,14 @@ export default {
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
         this.close();
+      }
+    },
+    classHandler() {
+      if (this.staticClass !== this.$vnode.data.staticClass) {
+        this.staticClass = this.$vnode.data.staticClass;
+      }
+      if (this.className !== this.$vnode.data.class) {
+        this.className = this.$vnode.data.class;
       }
     }
   }
