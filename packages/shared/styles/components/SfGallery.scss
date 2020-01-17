@@ -20,23 +20,20 @@ $gallery__stage-cursor: zoom-in !default;
   position: relative;
   justify-content: center;
   margin-bottom: $gallery__item-mobile-size;
-
   @media (min-width: $desktop-min) {
     margin-bottom: 0;
   }
-
   &__thumbs {
-    z-index: 2;
     position: absolute;
     width: auto;
     margin: 0;
     padding: 0;
     display: inline-flex;
     bottom: $gallery__item-mobile-size;
-
     @media (min-width: $desktop-min) {
       position: static;
       display: block;
+      order: -1;
       width: $gallery__nav-width;
       margin: $gallery__nav-margin;
       left: auto;
@@ -44,17 +41,14 @@ $gallery__stage-cursor: zoom-in !default;
       overflow-y: auto;
     }
   }
-
   &__item {
     opacity: $gallery__item-opacity;
     transition: $gallery__item-transition;
     cursor: pointer;
     margin-right: $gallery__item-margin-bottom;
-
     &:last-of-type {
       margin-right: 0;
     }
-
     &::before {
       display: block;
       content: "";
@@ -63,46 +57,37 @@ $gallery__stage-cursor: zoom-in !default;
       background: $gallery__item-mobile-background;
       border-radius: 50%;
     }
-
     &--selected {
       cursor: auto;
       opacity: 1;
-
       &::before {
         background: $gallery__item-mobile--selected-background;
       }
     }
-
     @media (min-width: $desktop-min) {
       margin: 0 0 $gallery__item-margin-bottom;
-
       &:last-of-type {
         margin-bottom: 0;
       }
-
       &::before {
         display: none;
       }
     }
   }
-
   &__stage {
     width: $gallery__stage-width;
     max-width: 100%;
     overflow: hidden;
     user-select: none;
   }
-
   &__thumb {
     display: none;
-
     @media (min-width: $desktop-min) {
       display: block;
       width: 100%;
       height: auto;
     }
   }
-
   &__big-image {
     max-width: 100%;
     width: auto;
@@ -111,7 +96,6 @@ $gallery__stage-cursor: zoom-in !default;
       cursor: $gallery__stage-cursor;
     }
   }
-
   img {
     user-select: none;
   }
@@ -121,13 +105,10 @@ $gallery__stage-cursor: zoom-in !default;
     }
   }
 }
-
 .sf-gallery__zoom {
-  z-index: 1;
   position: absolute;
-  overflow: hidden;
-  
-  img {
-    transform: scale(2)
+  z-index: 1;
+  img{
+    transform: translate3d(0, -50%, 0) scale(2)!important;
   }
 }

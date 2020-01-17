@@ -38,30 +38,19 @@ Sf<ComponentName>
 
 ### Component's file structure
 
-1. Each component should be **divided into parts**, which are separate files. Each file should be named in the format `Sf<ComponentName>.<extension>`:
+1. Each component should have the same files structures. Each file should be named in the format `Sf<ComponentName>.<extension>`:
 
 ```
 ./<ComponentName>/
 |__Sf<ComponentName>.vue
-|__Sf<ComponentName>.html
-|__Sf<ComponentName>.js
-|__Sf<ComponentName>.spec.ts
+|__Sf<ComponentName>.md
+|__Sf<ComponentName>.spec.js
 |__Sf<ComponentName>.stories.js
 ```
 
-The following file **should be located in the same** component's directory:
-* `.vue` - imports relevant `.html` for template, `.js` for instance JavaScript code and `.scss` for CSS styling part for building the component.
-```html
-<script src="./SfIcon.js"></script>
-<template lang="html" src="./SfIcon.html"></template>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfIcon.scss";
-</style>
-```
-
-* `html` - template markup
-* `js` - component instance logic, in JavaScript.
-* `spec.ts` - unit test for component, in TypeScript.
+* `vue` - template markup and component instance logic, in JavaScript.
+* `md` - docs for component,
+* `spec.ts` - unit test for component, in Java Script.
 * `stories.js` - [Storybook stories](https://storybook.js.org/) for the component.
 
 :::warning

@@ -3,11 +3,10 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
+  boolean,
   optionsKnob as options
 } from "@storybook/addon-knobs";
-
 import SfButton from "./SfButton.vue";
-
 storiesOf("Atoms|Button", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -33,11 +32,15 @@ storiesOf("Atoms|Button", module)
       },
       customLabel: {
         default: text("default", "Shop now", "Slots")
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props")
       }
     },
     components: { SfButton },
     template: `<SfButton
-      :class="customClass">
+      :class="customClass"
+      :disabled="disabled">
       {{customLabel}}
     </SfButton>`
   }));

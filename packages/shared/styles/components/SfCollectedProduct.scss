@@ -8,6 +8,7 @@ $collected-product__remove-background: $c-gray-variant !default;
 $collected-product__remove-background--hover: $c-dark-variant !default;
 $collected-product__select-quantity-width: 3.125rem !default;
 $collected-product__select-quantity-height: 1.875rem !default;
+$collected-product__image-background-color: $c-light !default;
 
 .sf-collected-product {
   $this: &;
@@ -16,6 +17,9 @@ $collected-product__select-quantity-height: 1.875rem !default;
   display: flex;
   max-width: $collected-product-max-width;
   padding: $spacer-small;
+  @media (min-width: $desktop-min) {
+    padding: 10px $spacer-big;
+  }
   &::after {
     content: "";
     @media (min-width: $desktop-min) {
@@ -91,38 +95,21 @@ $collected-product__select-quantity-height: 1.875rem !default;
   }
   &__aside {
     position: relative;
-  }
-  &__image {
-    max-width: 85px;
-    height: 127px;
-    overflow: hidden;
+    flex: 0 0 5.3125rem;
     @media (min-width: $desktop-min) {
-      max-width: 140px;
-      height: 200px;
+      flex: 0 0 8.75rem;
     }
   }
-  &__select-quantity {
+  &__image {
+    background-color: $collected-product__image-background-color;
+    img {
+      mix-blend-mode: darken;
+    }
+  }
+  &__quantity-selector {
     position: absolute;
     right: $spacer;
     bottom: $spacer;
-    z-index: 2;
-    width: $collected-product__select-quantity-width;
-    height: $collected-product__select-quantity-height;
-    input {
-      box-sizing: border-box;
-      padding: 0 $spacer-small;
-      border: 1px solid transparent;
-      background-color: $c-white;
-      font-family: $body-font-family-primary;
-      font-size: $font-size-big-desktop;
-      font-weight: $body-font-weight-primary;
-      line-height: 1.6;
-      text-align: center;
-      transition: border-color 0.3s ease-in-out;
-      &:focus {
-        border-color: $c-primary;
-      }
-    }
   }
   &__main {
     flex: 1;

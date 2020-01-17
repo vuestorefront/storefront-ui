@@ -1,21 +1,11 @@
+import "./matchMedia.mock";
 import { shallowMount } from "@vue/test-utils";
 import SfMegaMenu from "./SfMegaMenu.vue";
-
 describe("SfMegaMenu.vue", () => {
-  it("render a Mega Menu", () => {
-    const component = shallowMount(SfMegaMenu);
-
-    expect(component.contains("section.sf-mega-menu")).toBe(true);
-  });
-
-  it("render a Mega Menu default slot", () => {
-    const msg = "Mega Menu";
-
+  it("renders a Mega Menu", () => {
     const component = shallowMount(SfMegaMenu, {
-      slots: {
-        default: msg
-      }
+      propsData: { visible: true }
     });
-    expect(component.find(".sf-mega-menu").text()).toMatch(msg);
+    expect(component.contains(".sf-mega-menu")).toBe(true);
   });
 });

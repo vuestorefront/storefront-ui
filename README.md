@@ -25,7 +25,7 @@ With SfUI you can change almost every aspect of provided components and use them
 **Here are the key characteristics of Storefront UI:**
 
 We are building Storefront UI based on the following 6 fundamentals:
-- **Customization**: Along with standard prop-based customization, every component has a set of slots that let you replace any part of it with your own images, icons or even custom HTML markup. You can also customize the whole library from a single SCSS file by overriding a set of variables. In addition, every component is divided into separate HTML, CSS and JS files so you can compose your own components from it's parts.
+- **Customization**: Along with standard prop-based customization, every component has a set of slots that let you replace any part of it with your own images, icons or even custom HTML markup.
 - **Mobile-first**: Every Storefront UI component is highly optimized for mobile user experience and in many cases behaves completely different on desktop and mobile. Select list becomes full-screen drop-down, tabs are becoming accordion, etc.
 - **Performance**: You're importing ONLY what you need, and in a raw format which means you can benefit from all build-time optimizations like tree-shaking or grouping common chunks. Unused components are tree-shaken and global CSS is just < 0,1 kB unminified. Thanks to this, the initial footprint of the library is unnoticeable. You can use the library for as many components you may want, even a single slider. You bundle only what you import.
 - **Best practices**: Storefront UI components follow best practices in terms of design and core. Every component is based on the Google Retail UX Playbook and is accessibility-friendly.

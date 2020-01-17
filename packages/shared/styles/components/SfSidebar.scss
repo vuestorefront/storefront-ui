@@ -42,7 +42,6 @@ $sidebar__title-margin-bottom: 1.5rem !default;
   }
   &__circle-icon {
     position: absolute;
-    z-index: 10;
     right: 3.25rem / 2 * -1;
     top: 4.925rem;
     @media (min-width: $desktop-min) {

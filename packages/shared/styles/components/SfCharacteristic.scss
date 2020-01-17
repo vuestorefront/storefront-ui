@@ -2,8 +2,8 @@
 
 $characteristic-font-family: $body-font-family-primary !default;
 $characteristic-font-size: $font-size-small-mobile !default;
-$characteristic-font-size-desktop: $font-size-small-desktop !default;
-$characteristic-font-weight: $body-font-weight-secondary !default;
+$characteristic-font-size-desktop: $font-size-extra-small-desktop !default;
+$characteristic-font-weight: $body-font-weight-primary !default;
 $characteristic-line-height: 1.6 !default;
 $characteristic__icon-margin-right: $spacer-big !default;
 $characteristic__title-font-family: $body-font-family-secondary !default;
@@ -18,6 +18,9 @@ $characteristic__title-font-weight: 500 !default;
   font-size: $characteristic-font-size;
   font-weight: $characteristic-font-weight;
   line-height: $characteristic-line-height;
+  @media screen and (min-width: $desktop-min) {
+    font-size: $characteristic-font-size-desktop;
+  }
   &__icon {
     display: flex;
     align-items: center;

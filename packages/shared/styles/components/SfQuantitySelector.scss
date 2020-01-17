@@ -1,0 +1,32 @@
+@import "../variables";
+
+$quantity-selector__width: 1.875rem !default;
+$quantity-selector__height: 1.6875rem !default;
+$quantity-selector__width-desktop: 3.125rem !default;
+
+.sf-quantity-selector {
+  width: $quantity-selector__width;
+  height: $quantity-selector__height;
+  margin: 0;
+  @media (min-width: $desktop-min) {
+    width: $quantity-selector__width-desktop;
+  }
+  input {
+    box-sizing: border-box;
+    padding: 0 $spacer-small;
+    border: 1px solid transparent;
+    background-color: $c-white;
+    font-family: $body-font-family-primary;
+    font-size: $font-size-big-desktop;
+    font-weight: $body-font-weight-primary;
+    line-height: 1.6;
+    text-align: center;
+    transition: border-color 0.3s ease-in-out;
+    @media (min-width: $desktop-min) {
+      background-color: $c-light;
+    }
+    &:focus {
+      border-color: $c-primary;
+    }
+  }
+}

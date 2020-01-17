@@ -9,6 +9,7 @@ $grouped-product-font-weight: $body-font-weight-secondary !default;
 $grouped-product-line-height: 1.6 !default;
 $grouped-product__select-quantity-width: 3.125rem !default;
 $grouped-product__select-quantity-height: 1.875rem !default;
+$grouped-product-item__image-background-color: $c-light !default;
 
 .sf-grouped-product-item {
   padding: $spacer-small;
@@ -24,14 +25,17 @@ $grouped-product__select-quantity-height: 1.875rem !default;
   }
   &__aside {
     position: relative;
-  }
-  &__image {
-    display: flex;
     @media (min-width: $desktop-min) {
-      max-width: $grouped-product-max-width-desktop;
+      flex: 0 0 $grouped-product-max-width-desktop;
     }
   }
-  &__select-quantity {
+  &__image {
+    background-color: $grouped-product-item__image-background-color;
+    img {
+      mix-blend-mode: darken;
+    }
+  }
+  &__quantity-selector {
     position: absolute;
     right: $spacer;
     bottom: $spacer;
@@ -41,24 +45,6 @@ $grouped-product__select-quantity-height: 1.875rem !default;
     @media (min-width: $desktop-min) {
       bottom: 0;
       left: $grouped-product-max-width-desktop + $spacer-big;
-    }
-    input {
-      box-sizing: border-box;
-      padding: 0 $spacer-small;
-      border: 1px solid transparent;
-      background-color: $c-white;
-      font-family: $body-font-family-primary;
-      font-size: $font-size-big-desktop;
-      font-weight: $body-font-weight-primary;
-      line-height: 1.6;
-      text-align: center;
-      transition: border-color 0.3s ease-in-out;
-      @media (min-width: $desktop-min) {
-        background-color: $c-light;
-      }
-      &:focus {
-        border-color: $c-primary;
-      }
     }
   }
   &__description {

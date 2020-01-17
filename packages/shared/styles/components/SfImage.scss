@@ -1,30 +1,61 @@
 @import "../variables";
 
-$image__overlay-justify-content: center !default;
-$image__overlay-align-items: center !default;
-$image__overlay-background-color: rgba(29, 31, 34, 0.8) !default;
-$image__overlay-color: $c-white !default;
+$image__overlay-bgc: rgba(29, 31, 34, 0.8) !default;
+$image__overlay-c: $c-white !default;
 
 .sf-image {
   position: relative;
-  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+  max-width: calc(var(--width) * 1px);
   line-height: 0;
-  &__img {
+  &::before{
+    display: block;
+    content: "";
+    padding-top: calc(var(--height) / var(--width) * 100%);
+  }
+  img{
+    position: absolute;
+    top: 50%;
+    left:0;
+    transform: translate3d(0, -50%, 0);
     display: block;
     max-width: 100%;
     height: auto;
+    img{
+      display: inherit;
+      max-width: inherit;
+      height: inherit;
+    }
   }
-  &__overlay {
+  &--no-size{
+    width: auto;
+    max-width: unset;
+    overflow: unset;
+    &::before{
+      content: unset;
+    }
+    img{
+      position: static;
+      transform: unset;
+    }
+  }
+  &__overlay{
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
+    top:0;
     right: 0;
+    bottom: 0;
+    left: 0;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: $image__overlay-background-color;
-    color: $image__overlay-color;
+    justify-content: center;
+    padding: $spacer-big;
+    background-color: rgba(29, 31, 34, 0.8);
+    color: #FFF;
+    font-family: $body-font-family-secondary;
     line-height: 1.6;
+    @media (min-width: $desktop-min){
+      font-size: $font-size-regular-desktop;
+    }
   }
 }
