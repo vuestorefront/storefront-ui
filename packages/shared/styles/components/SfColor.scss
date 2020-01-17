@@ -32,7 +32,7 @@ $color__padding: 3px !default;
         }
         opacity: 1;
     }
-    &--roundend{
+    &--rounded{
         &, #{$this}__fill {
             border-radius: 50%;
         }
