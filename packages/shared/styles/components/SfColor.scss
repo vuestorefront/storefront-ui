@@ -1,14 +1,14 @@
 @import "../variables";
 
-$color__radius: 2.5rem !default;
-$color__padding: 3px !default;
+$color-size: 2.5rem !default;
+$color-padding: 3px !default;
 
 .sf-color {
     $this: &;
     box-sizing: border-box;
-    width: $color__radius;
-    height: $color__radius;
-    padding: $color__padding;
+    width: $color-size;
+    height: $color-size;
+    padding: $color-padding;
     border: 2px solid transparent;
     background-color: var(--color);
     opacity: 0.5;
