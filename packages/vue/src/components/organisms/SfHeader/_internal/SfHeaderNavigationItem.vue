@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-header-navigation-item">
+  <div class="sf-header-navigation-item" v-on="$listeners">
     <slot />
   </div>
 </template>
