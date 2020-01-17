@@ -11,11 +11,12 @@ $color-padding: 3px !default;
     padding: $color-padding;
     border: 2px solid transparent;
     background-color: var(--color);
-    opacity: 0.5;
     transition: opacity 150ms ease;
     &:hover {
-        opacity: 1;
-        transition: opacity 150ms ease;
+      #{$this}__fill {
+        border: 2px solid $c-white;
+        transition: border 150ms ease-in-out;
+      }
     }
     &:focus {
         outline: none;
@@ -31,7 +32,6 @@ $color-padding: 3px !default;
           border: 2px solid $c-white;
           transition: border 150ms ease-in-out;
         }
-        opacity: 1;
     }
     &--rounded{
         &, #{$this}__fill {
