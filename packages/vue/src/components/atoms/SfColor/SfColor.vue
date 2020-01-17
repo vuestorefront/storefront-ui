@@ -2,13 +2,13 @@
   <button
     class="sf-color"
     :class="{ 'sf-color--active': isActive }"
-    :aria-label="ariaLabel"
+    :style="style"
     :aria-pressed="isActive"
     v-on="$listeners"
   >
     <!-- @slot Custom color markup -->
     <slot>
-      <div v-if="color" class="sf-color__fill" :style="colorStyle" />
+      <div v-if="color" class="sf-color__fill" />
     </slot>
   </button>
 </template>
@@ -23,28 +23,12 @@ export default {
     isActive: {
       type: Boolean,
       default: false
-    },
-    ariaLabel: {
-      type: String,
-      default: ""
     }
   },
   computed: {
-    colorStyle() {
-      return "background-color:" + this.color;
+    style() {
+      return { "--color": this.color };
     }
-  },
-  watch: {
-    isActive: {
-      handler(value) {
-        if (value) {
-          this.$el.style.setProperty("--border-color", this.color);
-        }
-      }
-    }
-  },
-  mounted() {
-    this.$el.style.setProperty("--border-color", this.color);
   }
 };
 </script>

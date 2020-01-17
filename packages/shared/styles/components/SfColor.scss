@@ -10,7 +10,7 @@ $color__padding: 3px !default;
     height: $color__radius;
     padding: $color__padding;
     border: 2px solid transparent;
-    background-color: var(--border-color);
+    background-color: var(--color);
     opacity: 0.5;
     transition: opacity 150ms ease;
     &:hover {
@@ -24,6 +24,7 @@ $color__padding: 3px !default;
         box-sizing: border-box;
         width: 100%;
         height: 100%;
+        background-color: var(--color);
     }
     &--active {
         #{$this}__fill {

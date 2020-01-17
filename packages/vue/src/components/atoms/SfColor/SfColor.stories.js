@@ -42,6 +42,7 @@ storiesOf("Atoms|Color", module)
       };
     },
     template: `<div>
+        {{colors}}
         <SfColor 
           v-for="color in colors"
           :color="color.label" 
