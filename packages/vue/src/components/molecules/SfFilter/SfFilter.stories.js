@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 import SfFilter from "./SfFilter.vue";
 storiesOf("Molecules|Filter", module)
   .addDecorator(withKnobs)
@@ -7,24 +7,30 @@ storiesOf("Molecules|Filter", module)
     components: {
       SfFilter
     },
-    props: {
-      label: {
-        default: text("label", "Red", "Props")
-      },
-      count: {
-        default: text("count", "30", "Props")
-      }
-    },
-    data() {
+    data () {
       return {
-        checked: ""
-      };
+        filters: [
+          {
+            label: "Red",
+            count: "30",
+            selected: false
+          },
+          {
+            label: "Blue",
+            count: "30",
+            selected: false
+          }
+        ]
+      }
     },
     template: `<div style="max-width: 300px">
        <SfFilter
-        v-model="checked"
-        :label="label"
-        :count="count"
+        v-for="filter in filters"
+        :key="filter.label"
+        :label="filter.label"
+        :count="filter.count"
+        :selected="filter.selected"
+        @click="filter.selected = !filter.selected"
         />
     </div>`
   }))

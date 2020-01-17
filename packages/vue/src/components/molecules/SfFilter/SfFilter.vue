@@ -25,9 +25,6 @@ export default {
   components: {
     SfCheckbox
   },
-  model: {
-    prop: "selected"
-  },
   props: {
     label: {
       type: String,
