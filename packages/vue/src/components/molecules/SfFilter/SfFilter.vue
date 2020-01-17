@@ -8,7 +8,7 @@
         :label="label"
         :style="style"
         :selected="selected"
-        @input="setActive"
+        @input="this.$emit("input", !selected);"
       />
     </slot>
     <slot name="count" v-bind="{ count }">
@@ -17,7 +17,6 @@
   </div>
 </template>
 <script>
-// @vue/component
 import SfCheckbox from "../../atoms/SfCheckbox/SfCheckbox.vue";
 
 export default {
