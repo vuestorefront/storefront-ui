@@ -157,15 +157,6 @@
           :count="filter.count"
           class="filters__item"
         />
-        <h3 class="filters__title">Color</h3>
-        <SfFilter
-          v-for="filter in filtersOptions.color"
-          :key="filter.value"
-          :value="filter.value"
-          :label="filter.label"
-          :color="filter.color"
-          class="filters__item"
-        />
         <h3 class="filters__title">Size</h3>
         <SfFilter
           v-for="filter in filtersOptions.size"
