@@ -1,9 +1,9 @@
 <template>
   <button
     class="sf-color"
-    :class="{ 'sf-color--active': isActive }"
+    :class="{ 'sf-color--active': selected }"
     :style="style"
-    :aria-pressed="isActive.toString()"
+    :aria-pressed="selected.toString()"
     v-on="$listeners"
   >
     <!-- @slot Custom color markup -->
@@ -20,7 +20,7 @@ export default {
       type: String,
       default: ""
     },
-    isActive: {
+    selected: {
       type: Boolean,
       default: false
     }

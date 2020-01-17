@@ -45,7 +45,7 @@ storiesOf("Atoms|Color", module)
         <SfColor 
           v-for="color in colors"
           :color="color.label" 
-          :is-active="color.active" 
+          :selected="color.selected" 
           :aria-label="color.label"  
           style="margin: 10px;"
           :class="customClass"
