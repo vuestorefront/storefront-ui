@@ -3,8 +3,9 @@
     <!-- @slot  -->
     <slot name="label" v-bind="{ label }">
       <SfCheckbox
+        v-model="selected"
         class="sf-filter__checkbox"
-        name="label"
+        :name="label"
         :label="label"
         :style="style"
         :selected="selected"
