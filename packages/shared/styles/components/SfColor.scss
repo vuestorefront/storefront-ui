@@ -36,4 +36,9 @@ $color__padding: 0.1rem !default;
         }
         opacity: 1;
     }
+    &--roundend{
+        &, #{$this}__fill {
+            border-radius: 50%;
+        }
+    }
 }
