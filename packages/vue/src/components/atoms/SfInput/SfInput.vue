@@ -23,32 +23,31 @@
         <!-- @slot Custom input label -->
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
-      <template v-if="isPassword">
-        <!-- @slot -->
-        <slot
-          name="visibility-toggle"
-          v-bind="{
-            isPasswordVisible,
-            switchVisibilityPassword
-          }"
+      <slot
+        v-if="isPassword"
+        v-bind="{
+          isPasswordVisible,
+          switchVisibilityPassword
+        }"
+        name="show-password"
+      >
+        <SfButton
+          aria-label="switch-visibility-password"
+          :aria-pressed="isPasswordVisible.toString()"
+          class="sf-input__password-button"
+          @click="switchVisibilityPassword"
         >
-          <SfButton
-            aria-label="switch-visibility-password"
-            class="sf-input__password-button"
-            @click="switchVisibilityPassword"
-          >
-            <SfIcon
-              class="sf-input__password-icon"
-              :class="{
-                'sf-input__password-icon--hidden': !isPasswordVisible
-              }"
-              icon="show_password"
-              size="22px"
-              :color="isPasswordVisible ? 'gray-primary' : 'gray-secondary'"
-            ></SfIcon>
-          </SfButton>
-        </slot>
-      </template>
+          <SfIcon
+            class="sf-input__password-icon"
+            :class="{
+              'sf-input__password-icon--hidden': !isPasswordVisible
+            }"
+            icon="show_password"
+            size="xs"
+            :color="isPasswordVisible ? 'gray-primary' : 'gray-secondary'"
+          ></SfIcon>
+        </SfButton>
+      </slot>
     </div>
     <div v-if="valid !== undefined" class="sf-input__error-message">
       <transition name="fade">

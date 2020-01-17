@@ -15,12 +15,8 @@ $input__label-transition: all 150ms ease-in-out !default;
 $input__bar-transition: all 150ms ease-in-out !default;
 $input__error-message-font-family: $body-font-family-primary !default;
 $input__error-message-font-size: $font-size-small-mobile !default;
-$input__password-icon-hidden-border: $c-white !default;
 $input__password-icon-hidden-color: $c-gray-variant !default;
-$input__password-icon-width: 1.375rem !default;
-$input__password-icon-height: 0.8125rem !default;
-$input__password-icon-position-right: 1.25rem !default;
-
+$input__password-icon-width: 1.4rem !default;
 
 @mixin move-label-up {
   top: calc((#{$input__label-focus-font-size / 2}) - 5px);
@@ -80,7 +76,7 @@ $input__password-icon-position-right: 1.25rem !default;
       }
     }
     &#{$this}--is-password {
-      padding-right: calc(#{$input__password-icon-width} + #{$input__password-icon-position-right*2});
+      padding-right: $input__password-icon-width + 2 * $spacer-big;
     }
   }
   &__wrapper {
@@ -127,39 +123,31 @@ $input__password-icon-position-right: 1.25rem !default;
   }
   &__password-button {
     position: absolute;
-    display: block;
-    right: $input__password-icon-position-right;
+    right: $spacer-big;
+    padding: 0;
     background: transparent;
     border: none;
-    outline: none;
-    cursor: pointer;
-    z-index: 1;
-    padding: 0;
     &:hover {
       background-color: transparent;
     }
   }
   &__password-icon {
+    &.sf-icon{
+      height: auto;
+    }
     &:after {
       content: "";
       position: absolute;
+      top: 50%;
       width: 100%;
       height: 1px;
       background-color: $input__password-icon-hidden-color;
-      transform: rotate(45deg) scaleX(0);
-      transition: transform 0.25s;
-      border-top: solid 1px $input__password-icon-hidden-border;
-    }
-    &.sf-icon {
-      align-items: center;
-    }
-    .sf-icon-path {
-      flex: 0 0 $input__password-icon-width;
-      height: $input__password-icon-height;
+      transform: translate3d(0, -50%, 0) rotate(45deg) scaleX(0);
+      transition: transform 300ms ease-in-out;
     }
     @at-root #{&}--hidden {
       &:after {
-        transform: rotate(45deg) scaleX(1)
+        transform: translate3d(0, -50%, 0) rotate(45deg) scaleX(1);
       }
     }
   }

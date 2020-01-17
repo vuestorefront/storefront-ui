@@ -8,6 +8,9 @@ storiesOf("Atoms|Input", module)
   .add("Common", () => ({
     components: { SfInput },
     props: {
+      type: {
+        default: text("type", "text", "Props")
+      },
       label: {
         default: text("label", "First name", "Props")
       },
@@ -34,12 +37,14 @@ storiesOf("Atoms|Input", module)
     },
     template: `<SfInput
       v-model="value"
+      :type="type"
       :label="label"
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
       :required="required"
-      :disabled="disabled"/>`
+      :disabled="disabled"
+      />`
   }))
   .add("[slot] label", () => ({
     components: {
@@ -47,6 +52,9 @@ storiesOf("Atoms|Input", module)
       SfIcon
     },
     props: {
+      type: {
+        default: text("type", "text", "Props")
+      },
       label: {
         default: text("label", "First name", "Props")
       },
@@ -72,13 +80,15 @@ storiesOf("Atoms|Input", module)
       };
     },
     template: `<SfInput
-      v-model="value"
-      :label="label"
-      :name="name"
-      :valid="valid"
-      :error-message="errorMessage"
-      :required="required"
-      :disabled="disabled">
+        v-model="value"
+        :type="type"
+        :label="label"
+        :name="name"
+        :valid="valid"
+        :error-message="errorMessage"
+        :required="required"
+        :disabled="disabled"
+      >
       <template #label="{label}">
             <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
       </template>
@@ -90,6 +100,9 @@ storiesOf("Atoms|Input", module)
       SfIcon
     },
     props: {
+      type: {
+        default: text("type", "text", "Props")
+      },
       label: {
         default: text("label", "First name", "Props")
       },
@@ -116,51 +129,16 @@ storiesOf("Atoms|Input", module)
     },
     template: `<SfInput
       v-model="value"
+      :type="type"
       :label="label"
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
       :required="required"
-      :disabled="disabled">
+      :disabled="disabled"
+      >
       <template #errorMessage="{errorMessage}">
         <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> CUSTOM ERROR MESSAGE
       </template>
     </SfInput>`
   }))
-  .add("[slot] visibility-toggle", () => ({
-    components: {
-      SfInput,
-      SfIcon
-    },
-    props: {
-      label: {
-        default: text("label", "Password", "Props")
-      },
-      name: {
-        default: text("password", "password", "Props")
-      },
-      valid: {
-        default: boolean("valid", true, "Props")
-      },
-      required: {
-        default: boolean("required", true, "Props")
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props")
-      }
-    },
-    data() {
-      return {
-        value: ""
-      };
-    },
-    template: `<SfInput
-      v-model="value"
-      :label="label"
-      :name="name"
-      :valid="valid"
-      :required="required"
-      type="password"
-      :disabled="disabled">
-    </SfInput>`
-  }));
