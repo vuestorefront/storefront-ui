@@ -12,10 +12,6 @@ $add-to-cart__select-quantity-max-width: 5.625rem !default;
   display: flex;
   &__button {
     flex: 1;
-    &:disabled {
-      background-color: $c-primary-variant;
-      cursor: default;
-    }
     @include for-desktop {
       order: 1;
     }
@@ -23,26 +19,15 @@ $add-to-cart__select-quantity-max-width: 5.625rem !default;
   &__select-quantity {
     display: flex;
     margin: 0 0 0 0.5rem;
+    height: auto;
+    min-width: $add-to-cart__select-quantity-min-width;
+    max-width: $add-to-cart__select-quantity-max-width;
     @include for-desktop {
       margin-left: 0;
     }
     input {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-      width: auto;
-      height: 100%;
-      min-width: $add-to-cart__select-quantity-min-width;
-      max-width: $add-to-cart__select-quantity-max-width;
+
       border: 1px solid $c-light;
-      font-family: $body-font-family-primary;
-      font-size: $font-size-extra-big-mobile;
-      font-weight: $body-font-weight-primary;
-      line-height: 1.6;
-      text-align: center;
-      transition: border-color 0.3s ease-in-out;
-      &:focus {
-        border-color: $c-primary;
-      }
       @include for-desktop {
         font-size: $font-size-extra-big-desktop;
         background-color: $c-light;

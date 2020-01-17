@@ -85,13 +85,13 @@ storiesOf("Organisms|Hero", module)
     template: `<div style="max-width: 1240px; margin: auto">
       <SfHero :sliderOptions="{autoplay: false}">
         <SfHeroItem
-          v-for="(item, index) in items"
-          :title="item.title"
-          :subtitle="item.subtitle"
-          :buttonText="item.buttonText"
-          :background="item.background"
-          :image="item.image"
-          :class="index === 0 ? customClass1 : index === 1 ? customClass2 : customClass3"
+            v-for="(item, index) in items"
+            :title="item.title"
+            :subtitle="item.subtitle"
+            :buttonText="item.buttonText"
+            :background="item.background"
+            :image="item.image"
+            :class="index === 0 ? customClass1 : index === 1 ? customClass2 : customClass3"
         />
       </SfHero>
     </div>`

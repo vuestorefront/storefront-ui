@@ -82,7 +82,7 @@ export default {
   },
   computed: {
     source() {
-      let src = this.src;
+      let src = this.src || "";
       if (typeof src === "object") {
         if (!src.desktop || !src.mobile) {
           const object = src.desktop || src.mobile || { url: "" };

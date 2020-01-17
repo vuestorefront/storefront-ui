@@ -146,7 +146,7 @@ export default {
       order.email = this.email;
       order.password = this.password;
       order.createAccount = this.createAccount;
-      this.$emit("click:next", order);
+      this.$emit("update:order", order);
     }
   }
 };

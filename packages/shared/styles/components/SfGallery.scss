@@ -24,7 +24,6 @@ $gallery__stage-cursor: zoom-in !default;
     margin-bottom: 0;
   }
   &__thumbs {
-    z-index: 2;
     position: absolute;
     width: auto;
     margin: 0;
@@ -34,6 +33,7 @@ $gallery__stage-cursor: zoom-in !default;
     @media (min-width: $desktop-min) {
       position: static;
       display: block;
+      order: -1;
       width: $gallery__nav-width;
       margin: $gallery__nav-margin;
       left: auto;

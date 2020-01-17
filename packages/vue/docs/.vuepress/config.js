@@ -73,6 +73,7 @@ module.exports = {
           ["/components/Radio", "Radio"],
           ["/components/Rating", "Rating"],
           ["/components/Review", "Review"],
+          ["/components/Scrollable", "Scrollable"],
           ["/components/SearchBar", "Search Bar"],
           ["/components/Section", "Section"],
           ["/components/Select", "Select"],

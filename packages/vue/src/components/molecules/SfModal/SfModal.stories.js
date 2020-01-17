@@ -19,7 +19,7 @@ storiesOf("Molecules|Modal", module)
         default: boolean("cross", true, "Props")
       },
       persistent: {
-        default: boolean("persistent", true, "Props")
+        default: boolean("persistent", false, "Props")
       }
     },
     mixins: [visibilityToggleMixin],
@@ -44,7 +44,7 @@ storiesOf("Molecules|Modal", module)
         default: boolean("cross", true, "Props")
       },
       persistent: {
-        default: boolean("persistent", true, "Props")
+        default: boolean("persistent", false, "Props")
       }
     },
     mixins: [visibilityToggleMixin],
