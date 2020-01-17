@@ -8,7 +8,7 @@
         :label="label"
         :style="style"
         :selected="selected"
-        @input="this.$emit("input", !selected);"
+        @input="$emit('input', !selected)"
       />
     </slot>
     <slot name="count" v-bind="{ count }">
@@ -23,6 +23,9 @@ export default {
   name: "SfFilter",
   components: {
     SfCheckbox
+  },
+  model: {
+    prop: "selected"
   },
   props: {
     label: {
