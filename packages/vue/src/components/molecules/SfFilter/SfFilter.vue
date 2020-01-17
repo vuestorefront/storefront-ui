@@ -17,7 +17,6 @@
   </div>
 </template>
 <script>
-// @vue/component
 import SfCheckbox from "../../atoms/SfCheckbox/SfCheckbox.vue";
 
 export default {
