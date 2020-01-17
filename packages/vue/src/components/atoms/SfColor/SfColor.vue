@@ -3,7 +3,7 @@
     class="sf-color"
     :class="{ 'sf-color--active': isActive }"
     :style="style"
-    :aria-pressed="isActive"
+    :aria-pressed="isActive.toString()"
     v-on="$listeners"
   >
     <!-- @slot Custom color markup -->
