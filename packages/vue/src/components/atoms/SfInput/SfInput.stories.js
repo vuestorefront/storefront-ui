@@ -28,6 +28,9 @@ storiesOf("Atoms|Input", module)
       },
       disabled: {
         default: boolean("disabled", false, "Props")
+      },
+      hasShowPassword: {
+        default: boolean("hasShowPassword", true, "Props")
       }
     },
     data() {
@@ -44,6 +47,7 @@ storiesOf("Atoms|Input", module)
       :error-message="errorMessage"
       :required="required"
       :disabled="disabled"
+      :has-show-password="hasShowPassword"
       />`
   }))
   .add("[slot] label", () => ({
@@ -72,6 +76,9 @@ storiesOf("Atoms|Input", module)
       },
       disabled: {
         default: boolean("disabled", false, "Props")
+      },
+      hasShowPassword: {
+        default: boolean("hasShowPassword", true, "Props")
       }
     },
     data() {
@@ -88,6 +95,7 @@ storiesOf("Atoms|Input", module)
         :error-message="errorMessage"
         :required="required"
         :disabled="disabled"
+        :has-show-password="hasShowPassword"
       >
       <template #label="{label}">
             <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
@@ -120,6 +128,9 @@ storiesOf("Atoms|Input", module)
       },
       disabled: {
         default: boolean("disabled", false, "Props")
+      },
+      hasShowPassword: {
+        default: boolean("hasShowPassword", true, "Props")
       }
     },
     data() {
@@ -136,9 +147,10 @@ storiesOf("Atoms|Input", module)
       :error-message="errorMessage"
       :required="required"
       :disabled="disabled"
+      :has-show-password="hasShowPassword"
       >
       <template #errorMessage="{errorMessage}">
         <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> CUSTOM ERROR MESSAGE
       </template>
     </SfInput>`
-  }))
+  }));

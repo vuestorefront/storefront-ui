@@ -125,6 +125,10 @@ export default {
       type: Boolean,
       default: false,
       description: "Native input disabled attribute"
+    },
+    hasShowPassword: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -141,7 +145,7 @@ export default {
       };
     },
     isPassword() {
-      return this.type === "password";
+      return this.type === "password" && this.hasShowPassword;
     }
   },
   watch: {
