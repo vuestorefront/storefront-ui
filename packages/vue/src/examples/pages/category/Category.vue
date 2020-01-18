@@ -158,13 +158,13 @@
           class="filters__item"
         />
         <h3 class="filters__title">Color</h3>
-        <SfFilter
+        <SfColor
           v-for="filter in filtersOptions.color"
           :key="filter.value"
-          :value="filter.value"
-          :label="filter.label"
           :color="filter.color"
-          class="filters__item"
+          :selected="filter.selected"
+          class="filters__item--color"
+          @click="filter.selected = !filter.selected"
         />
         <h3 class="filters__title">Size</h3>
         <SfFilter
@@ -221,7 +221,8 @@ import {
   SfPagination,
   SfAccordion,
   SfSelect,
-  SfBreadcrumbs
+  SfBreadcrumbs,
+  SfColor
 } from "@storefront-ui/vue";
 export default {
   components: {
@@ -235,7 +236,8 @@ export default {
     SfMenuItem,
     SfAccordion,
     SfSelect,
-    SfBreadcrumbs
+    SfBreadcrumbs,
+    SfColor
   },
   data() {
     return {
@@ -366,12 +368,16 @@ export default {
           { label: "Your choice", value: "your-choice", count: "54" }
         ],
         color: [
-          { label: "Red", value: "red", color: "#990611" },
-          { label: "Black", value: "black", color: "#000000" },
-          { label: "Yellow", value: "yellow", color: "#DCA742" },
-          { label: "Blue", value: "blue", color: "#004F97" },
-          { label: "Navy", value: "navy", color: "#656466" },
-          { label: "White", value: "white", color: "#FFFFFF" }
+          { label: "Red", value: "red", color: "#990611", selected: false },
+          { label: "Black", value: "black", color: "#000000", selected: false },
+          {
+            label: "Yellow",
+            value: "yellow",
+            color: "#DCA742",
+            selected: false
+          },
+          { label: "Blue", value: "blue", color: "#004F97", selected: false },
+          { label: "Navy", value: "navy", color: "#656466", selected: false }
         ],
         size: [
           { label: "Size 2 (XXS)", value: "xxs", count: "10" },
@@ -597,6 +603,10 @@ export default {
   }
   &__item {
     padding: $spacer-small 0;
+
+    &--color {
+      margin: 0 $spacer;
+    }
   }
   &__buttons {
     margin: $spacer-big * 3 0 0 0;
