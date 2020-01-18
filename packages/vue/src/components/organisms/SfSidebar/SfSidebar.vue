@@ -90,7 +90,9 @@ export default {
       handler(value) {
         if (typeof window === "undefined") return;
         if (value) {
-          disableBodyScroll(this.$refs.content);
+          this.$nextTick(() => {
+            disableBodyScroll(this.$refs.content);
+          });
           document.addEventListener("keydown", this.keydownHandler);
         } else {
           clearAllBodyScrollLocks();
