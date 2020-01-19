@@ -99,7 +99,7 @@
           <transition-group name="fade">
             <div
               v-for="(shipping, key) in account.shipping"
-              :key="key"
+              :key="shipping.firstName + shipping.lastName"
               class="shipping"
             >
               <div class="shipping__content">
