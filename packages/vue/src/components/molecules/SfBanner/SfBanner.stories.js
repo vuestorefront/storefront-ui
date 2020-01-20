@@ -45,7 +45,7 @@ storiesOf("Molecules|Banner", module)
           "image",
           {
             mobile: "/assets/storybook/SfBanner/Banner1.jpg",
-            dektop: "/assets/storybook/SfBanner/Banner1.jpg"
+            desktop: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -102,7 +102,7 @@ storiesOf("Molecules|Banner", module)
           "image",
           {
             mobile: "/assets/storybook/SfBanner/Banner1.jpg",
-            dektop: "/assets/storybook/SfBanner/Banner1.jpg"
+            desktop: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -162,7 +162,7 @@ storiesOf("Molecules|Banner", module)
           "image",
           {
             mobile: "/assets/storybook/SfBanner/Banner1.jpg",
-            dektop: "/assets/storybook/SfBanner/Banner1.jpg"
+            desktop: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -222,7 +222,7 @@ storiesOf("Molecules|Banner", module)
           "image",
           {
             mobile: "/assets/storybook/SfBanner/Banner1.jpg",
-            dektop: "/assets/storybook/SfBanner/Banner1.jpg"
+            desktop: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -282,7 +282,7 @@ storiesOf("Molecules|Banner", module)
           "image",
           {
             mobile: "/assets/storybook/SfBanner/Banner1.jpg",
-            dektop: "/assets/storybook/SfBanner/Banner1.jpg"
+            desktop: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
