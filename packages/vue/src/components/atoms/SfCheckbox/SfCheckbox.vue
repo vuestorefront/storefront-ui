@@ -11,7 +11,7 @@
       :checked="isChecked"
       :disabled="disabled"
       class="sf-checkbox__input"
-      @input="inputHandler"
+      @change="inputHandler"
     />
     <label :for="name" class="sf-checkbox__container">
       <!-- @slot Custom check mark markup -->
@@ -36,7 +36,7 @@ export default {
   },
   model: {
     prop: "selected",
-    event: "input"
+    event: "change"
   },
   props: {
     name: {
@@ -76,7 +76,7 @@ export default {
   methods: {
     inputHandler() {
       if (typeof this.selected === "boolean") {
-        this.$emit("input", !this.selected);
+        this.$emit("change", !this.selected);
       } else {
         let selected = [...this.selected];
         if (selected.includes(this.value)) {
@@ -84,7 +84,7 @@ export default {
         } else {
           selected.push(this.value);
         }
-        this.$emit("input", selected);
+        this.$emit("change", selected);
       }
     }
   }
