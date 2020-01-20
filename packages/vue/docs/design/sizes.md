@@ -2,13 +2,11 @@
 
 ## Font sizes
 
-Below is the list of our standard sizes used for typography and its corresponding classes respectively:
+Below is the list of our standard sizes used for typography and its corresponding SCSS variables respectively:
 
 <SfDocsSizes/>
 
-These sizes are defined [here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/variables/_sizes.scss)
-
-More information on how these classes are defined can be found [here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/helpers/_typography.scss).
+These sizes are defined [here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/variables/_typography.scss)
 
 ## Icon sizes
 

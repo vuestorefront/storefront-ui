@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="colors--container" v-if="mapType === 'palette'">
-      <div v-for="(value, name) in palettes" :key="name" class="color--wrapper">
+    <div class="sf-docs-colors--list" v-if="mapType === 'palette'">
+      <div v-for="(value, name) in palettes" :key="name" class="sf-docs-colors--list__item">
         <color-palette :palette="value" :paletteName="name"/>
       </div>
     </div>
-    <div class="colors--container" v-else-if="mapType === 'icons'">
-      <div v-for="(value, name) in colors" :key="name" class="color--wrapper">
-        <div class="color--block" :class="value"></div>
-        <span class="color--label">{{value}}</span>
+    <div class="sf-docs-colors--list" v-else-if="mapType === 'icons'">
+      <div v-for="(value, name) in colors" :key="name" class="sf-docs-colors--list__item">
+        <div class="sf-docs-colors--list__item--color" :class="value"></div>
+        <span class="sf-docs-colors--list__item--label">{{value}}</span>
       </div>
     </div>
   </div>
@@ -37,26 +37,26 @@ export default {
 }
 </script>
 <style scoped>
-.colors--container {
+.sf-docs-colors--list {
   display: flex;
   flex-flow: wrap;
   text-align: center;
 }
 
-.color--wrapper {
+.sf-docs-colors--list__item {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.color--block {
+.sf-docs-colors--list__item--color {
   width: 80px;
   height: 80px;
   margin: 1rem;
 }
 
-.color--label {
+.sf-docs-colors--list__item--label {
   font-size: 0.8rem;
 }
 </style>
