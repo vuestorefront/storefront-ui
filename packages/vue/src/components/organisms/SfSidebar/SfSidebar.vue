@@ -1,37 +1,34 @@
 <template>
-  <Portal>
-    <div class="sf-sidebar" :class="[staticClass, className]">
-      <SfOverlay :visible="visibleOverlay" @click="close" />
-      <transition :name="transitionName">
-        <aside v-if="visible" class="sf-sidebar__aside">
-          <div ref="content" class="sf-sidebar__content">
-            <slot name="title">
-              <SfHeading
-                v-if="headingTitle"
-                :title="headingTitle"
-                :subtitle="headingSubtitle"
-                :level="headingLevel"
-                class="sf-heading--left sf-heading--no-underline sf-sidebar__title"
-              />
-            </slot>
-            <slot />
-          </div>
-          <slot name="circle-icon">
-            <SfCircleIcon
-              v-if="button"
-              icon-size="14px"
-              icon="cross"
-              class="sf-sidebar__circle-icon"
-              @click="close"
+  <div class="sf-sidebar" :class="[staticClass, className]">
+    <SfOverlay :visible="visibleOverlay" @click="close" />
+    <transition :name="transitionName">
+      <aside v-if="visible" class="sf-sidebar__aside">
+        <div ref="content" class="sf-sidebar__content">
+          <slot name="title">
+            <SfHeading
+              v-if="headingTitle"
+              :title="headingTitle"
+              :subtitle="headingSubtitle"
+              :level="headingLevel"
+              class="sf-heading--left sf-heading--no-underline sf-sidebar__title"
             />
           </slot>
-        </aside>
-      </transition>
-    </div>
-  </Portal>
+          <slot />
+        </div>
+        <slot name="circle-icon">
+          <SfCircleIcon
+            v-if="button"
+            icon-size="14px"
+            icon="cross"
+            class="sf-sidebar__circle-icon"
+            @click="close"
+          />
+        </slot>
+      </aside>
+    </transition>
+  </div>
 </template>
 <script>
-import { Portal } from "@linusborg/vue-simple-portal";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
@@ -39,7 +36,6 @@ import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 export default {
   name: "SfSidebar",
   components: {
-    Portal,
     SfCircleIcon,
     SfOverlay,
     SfHeading

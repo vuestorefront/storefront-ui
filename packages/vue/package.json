@@ -40,8 +40,7 @@
     "vue-drag-drop": "^1.1.4",
     "vue-fragment": "^1.5.1",
     "vue2-leaflet": "^2.1.1",
-    "webpack-dev-middleware": "3.6.0",
-    "@linusborg/vue-simple-portal": "^0.1.4"
+    "webpack-dev-middleware": "3.6.0"
   },
   "resolutions": {
     "webpack-dev-middleware": "3.6.0"

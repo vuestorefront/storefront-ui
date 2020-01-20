@@ -1,5 +1,4 @@
 <template>
-  <Portal>
     <section class="sf-modal" :class="[staticClass, className]">
       <SfOverlay
         v-if="overlay"
@@ -24,17 +23,14 @@
         </div>
       </transition>
     </section>
-  </Portal>
 </template>
 <script>
-import { Portal } from "@linusborg/vue-simple-portal";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 export default {
   name: "SfModal",
   components: {
-    Portal,
     SfOverlay,
     SfIcon
   },
