@@ -61,25 +61,24 @@ storiesOf("Organisms|BottomNavigation", module)
     template: `<SfBottomNavigation>
         <SfBottomNavigationItem>
           <SfIcon icon="home" size="20px"/>
-          <span>Home</span>
+          <span style="margin-top: 0.5rem">Home</span>
         </SfBottomNavigationItem>
         <SfBottomNavigationItem>
           <SfIcon icon="menu" size="20px" style="width: 25px" />
-          <span>Menu</span>
+          <span style="margin-top: 0.5rem">Menu</span>
         </SfBottomNavigationItem>
         <SfBottomNavigationItem :class="customClass">
           <SfIcon icon="heart" size="20px"/>
-          <span>Wishlist</span>
+          <span style="margin-top: 0.5rem">Wishlist</span>
         </SfBottomNavigationItem>
         <SfBottomNavigationItem>
           <SfIcon icon="profile" size="20px"/>
-          <span>Account</span>
+          <span style="margin-top: 0.5rem">Account</span>
         </SfBottomNavigationItem>
         <SfBottomNavigationItem>
           <SfCircleIcon class="sf-bottom-navigation__floating-icon">
             <SfIcon icon="add_to_cart" size="20px" color="white"/>
           </SfCircleIcon>
-          <span>Account</span>
         </SfBottomNavigationItem>
       </SfBottomNavigation>`
   }))

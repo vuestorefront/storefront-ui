@@ -1,6 +1,7 @@
 @import "../variables";
 
 .sf-bottom-navigation {
+  box-sizing: border-box;
   position: fixed;
   bottom: 0;
   z-index: 1;
@@ -15,7 +16,10 @@
   &__item {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100%;
+    position: relative;
     font-size: 12px;
     color: $c-gray;
     
@@ -33,6 +37,5 @@
   &__floating-icon {
     position: relative;
     top: -1.75rem;
-    right: 1rem;
   }
 }
