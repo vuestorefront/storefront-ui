@@ -4,7 +4,7 @@
     :class="{ 'sf-filter--active': isSelected }"
     :name="label"
     :selected="selected"
-    @change="$emit('input', !selected)"
+    @change="$emit('change', !selected)"
   >
     <template #label>
       <div class="sf-filter__label">{{ label }}</div>
