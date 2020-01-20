@@ -1,20 +1,16 @@
 <template>
-  <div class="sf-filter" :class="{ 'sf-filter--active': isSelected }">
-    <!-- @slot  -->
-    <slot name="label" v-bind="{ label }">
-      <SfCheckbox
-        class="sf-filter__checkbox"
-        :class="{ 'sf-filter--active': isSelected }"
-        :name="label"
-        :label="label"
-        :selected="selected"
-        @input="$emit('input', !selected)"
-      />
-    </slot>
-    <slot name="count" v-bind="{ count }">
+  <SfCheckbox
+    class="sf-filter"
+    :class="{ 'sf-filter--active': isSelected }"
+    :name="label"
+    :selected="selected"
+    @change="$emit('input', !selected)"
+  >
+    <template #label>
+      <div class="sf-filter__label">{{ label }}</div>
       <div class="sf-filter__count">{{ count }}</div>
-    </slot>
-  </div>
+    </template>
+  </SfCheckbox>
 </template>
 <script>
 import SfCheckbox from "../../atoms/SfCheckbox/SfCheckbox.vue";

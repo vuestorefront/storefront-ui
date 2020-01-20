@@ -18,8 +18,14 @@ $filter-line-height: 1.6 !default;
   @media screen and (min-width: $desktop-min) {
     font-size: $filter-font-size-desktop;
   }
-  &__checkbox {
-    font-size: $filter-font-size-desktop;
+  .sf-checkbox__container{
+    width: 100%;
+  }
+  &__label{
+    margin-left: $spacer-big;
+  }
+  &__count{
+    margin-left: auto;
   }
   &--active {
     font-weight: 500;
