@@ -1,5 +1,5 @@
 <template>
-  <section class="sf-banner" v-on="isMobile ? $listeners : {}">
+  <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
     <div class="sf-banner__container">
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
@@ -76,39 +76,19 @@ export default {
       isMobile: false
     };
   },
-  watch: {
-    image: {
-      handler(image) {
-        if (typeof window === "undefined") return;
-        this.$nextTick(() => {
-          if (typeof image === "object") {
-            this.$el.style.setProperty(
-              "--background-image",
-              `url(${image.small})`
-            );
-            this.$el.style.setProperty(
-              "--background-image-desktop",
-              `url(${image.normal})`
-            );
-          } else {
-            this.$el.style.setProperty("--background-image", `url(${image})`);
-            this.$el.style.setProperty(
-              "--background-image-desktop",
-              `url(${image})`
-            );
-          }
-        });
-      },
-      immediate: true
-    },
-    background: {
-      handler(background) {
-        if (typeof window === "undefined") return;
-        this.$nextTick(() => {
-          this.$el.style.setProperty("--background-color", background);
-        });
-      },
-      immediate: true
+  computed: {
+    style() {
+      const image = this.image;
+      const background = this.background;
+      return {
+        "--background-image": image.mobile
+          ? `url(${image.mobile})`
+          : `url(${image})`,
+        "--background-desktop-image": image.desktop
+          ? `url(${image.desktop})`
+          : `url(${image})`,
+        "--background-color": background
+      };
     }
   },
   mounted() {

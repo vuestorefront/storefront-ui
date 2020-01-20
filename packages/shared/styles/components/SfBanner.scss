@@ -41,7 +41,7 @@ $banner--slim__title-font-size: $h1-font-size-desktop !default;
   font-weight: $banner-font-weight;
   line-height: $banner-line-height;
   @media (min-width: $desktop-min) {
-    background-image: var(--background-image-desktop);
+    background-image: var(--background-desktop-image);
     min-height: $banner-min-height-desktop;
     padding: $banner-padding-y-desktop $banner-padding-x-desktop
       $banner-padding-y-desktop calc(50% + #{$banner-padding-x-desktop});

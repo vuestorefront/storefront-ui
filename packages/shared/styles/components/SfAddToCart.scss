@@ -12,10 +12,6 @@ $add-to-cart__select-quantity-max-width: 5.625rem !default;
   display: flex;
   &__button {
     flex: 1;
-    &:disabled {
-      background-color: $c-primary-variant;
-      cursor: default;
-    }
     @include for-desktop {
       order: 1;
     }
