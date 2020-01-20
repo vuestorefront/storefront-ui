@@ -4,11 +4,15 @@
     :class="{ 'sf-filter--active': isSelected }"
     :name="label"
     :selected="selected"
-    @change="$emit('change', !selected)"
+    v-on="$listeners"
   >
     <template #label>
-      <div class="sf-filter__label">{{ label }}</div>
-      <div class="sf-filter__count">{{ count }}</div>
+      <slot name="label" v-bind="{ label }">
+        <div class="sf-filter__label">{{ label }}</div>
+      </slot>
+      <slot name="count" v-bind="{ count }">
+        <div class="sf-filter__count">{{ count }}</div>
+      </slot>
     </template>
   </SfCheckbox>
 </template>
@@ -19,9 +23,6 @@ export default {
   name: "SfFilter",
   components: {
     SfCheckbox
-  },
-  model: {
-    prop: "selected"
   },
   props: {
     label: {
