@@ -1,28 +1,28 @@
 <template>
-    <section class="sf-modal" :class="[staticClass, className]">
-      <SfOverlay
-        v-if="overlay"
-        class="sf-modal__overlay"
-        :transition="transitionOverlay"
-        :visible="visible"
-        @click="checkPersistence"
-      >
-      </SfOverlay>
-      <transition :name="transitionModal">
-        <div v-if="visible" class="sf-modal__container">
-          <button v-if="cross" class="sf-modal__close" @click="close">
-            <!--@slot Use this slot to place content inside the close button.-->
-            <slot name="close">
-              <SfIcon icon="cross" size="15px" color="gray-secondary" />
-            </slot>
-          </button>
-          <div ref="content" class="sf-modal__content">
-            <!--@slot Use this slot to place content inside the modal.-->
-            <slot />
-          </div>
+  <section class="sf-modal" :class="[staticClass, className]">
+    <SfOverlay
+      v-if="overlay"
+      class="sf-modal__overlay"
+      :transition="transitionOverlay"
+      :visible="visible"
+      @click="checkPersistence"
+    >
+    </SfOverlay>
+    <transition :name="transitionModal">
+      <div v-if="visible" class="sf-modal__container">
+        <button v-if="cross" class="sf-modal__close" @click="close">
+          <!--@slot Use this slot to place content inside the close button.-->
+          <slot name="close">
+            <SfIcon icon="cross" size="15px" color="gray-secondary" />
+          </slot>
+        </button>
+        <div ref="content" class="sf-modal__content">
+          <!--@slot Use this slot to place content inside the modal.-->
+          <slot />
         </div>
-      </transition>
-    </section>
+      </div>
+    </transition>
+  </section>
 </template>
 <script>
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
@@ -91,7 +91,8 @@ export default {
   watch: {
     visible: {
       handler: function(value) {
-        if (typeof window === "undefined") return;
+        if (typeof window === "undefined" || typeof document === "undefined")
+          return;
         if (value) {
           this.$nextTick(() => {
             disableBodyScroll(this.$refs.content);
