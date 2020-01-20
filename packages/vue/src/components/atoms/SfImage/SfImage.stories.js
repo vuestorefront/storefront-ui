@@ -7,9 +7,7 @@ import {
   number,
   object
 } from "@storybook/addon-knobs";
-
 import SfImage from "./SfImage.vue";
-
 storiesOf("Atoms|Image", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -19,13 +17,11 @@ storiesOf("Atoms|Image", module)
         default: object(
           "src",
           {
-            small: {
-              url: "/assets/storybook/product-109x164.jpg",
-              alt: "Vila stripe maxi shirt dress"
+            mobile: {
+              url: "/assets/storybook/SfImage/product-109x164.jpg"
             },
-            normal: {
-              url: "/assets/storybook/product-216x326.jpg",
-              alt: "Vila stripe maxi shirt dress"
+            desktop: {
+              url: "/assets/storybook/SfImage/product-216x326.jpg"
             }
           },
           "Props"
@@ -34,11 +30,11 @@ storiesOf("Atoms|Image", module)
       alt: {
         default: text("alt", "Vila stripe maxi shirt dress", "Props")
       },
-      placeholder: {
-        default: text("placeholder", "/assets/placeholder.png", "Props")
+      width: {
+        default: number("width", 216, {}, "Props")
       },
-      transition: {
-        default: text("transition", "fade", "Props")
+      height: {
+        default: number("height", 326, {}, "Props")
       },
       lazy: {
         default: boolean("lazy", true, "Props")
@@ -50,23 +46,23 @@ storiesOf("Atoms|Image", module)
     template: `<SfImage
         :src="src"
         :alt="alt"
-        :transition="transition"
+        :width="width"
+        :height="height"
         :lazy="lazy"
-        :placeholder="placeholder"
         :picture-breakpoint="pictureBreakpoint" />`
   }))
-  .add("[slot] default", () => ({
+  .add("Without width and height", () => ({
     components: { SfImage },
     props: {
       src: {
         default: object(
           "src",
           {
-            small: {
-              url: "/assets/storybook/product-109x164.jpg"
+            mobile: {
+              url: "/assets/storybook/SfImage/product-109x164.jpg"
             },
-            normal: {
-              url: "/assets/storybook/product-216x326.jpg"
+            desktop: {
+              url: "/assets/storybook/SfImage/product-216x326.jpg"
             }
           },
           "Props"
@@ -75,11 +71,45 @@ storiesOf("Atoms|Image", module)
       alt: {
         default: text("alt", "Vila stripe maxi shirt dress", "Props")
       },
-      placeholder: {
-        default: text("placeholder", "/assets/placeholder.png", "Props")
+      lazy: {
+        default: boolean("lazy", true, "Props")
       },
-      transition: {
-        default: text("transition", "fade", "Props")
+      pictureBreakpoint: {
+        default: number("pictureBreakpoint", 576, {}, "Props")
+      }
+    },
+    template: `<SfImage
+        :src="src"
+        :alt="alt"
+        :lazy="lazy"
+        :picture-breakpoint="pictureBreakpoint"
+      />`
+  }))
+  .add("[slot] default", () => ({
+    components: { SfImage },
+    props: {
+      src: {
+        default: object(
+          "src",
+          {
+            mobile: {
+              url: "/assets/storybook/SfImage/product-109x164.jpg"
+            },
+            desktop: {
+              url: "/assets/storybook/SfImage/product-216x326.jpg"
+            }
+          },
+          "Props"
+        )
+      },
+      alt: {
+        default: text("alt", "Vila stripe maxi shirt dress", "Props")
+      },
+      width: {
+        default: number("width", 216, {}, "Props")
+      },
+      height: {
+        default: number("height", 326, {}, "Props")
       },
       lazy: {
         default: boolean("lazy", true, "Props")
@@ -91,10 +121,11 @@ storiesOf("Atoms|Image", module)
     template: `<SfImage
       :src="src"
       :alt="alt"
-      :transition="transition"
+      :width="width"
+      :height="height"
       :lazy="lazy"
-      :placeholder="placeholder"
-      :picture-breakpoint="pictureBreakpoint">
-      <span>CUSTOM OVERLAY CONTENT</span>
+      :picture-breakpoint="pictureBreakpoint"
+    >
+      CUSTOM OVERLAY CONTENT
     </SfImage>`
   }));

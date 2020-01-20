@@ -23,7 +23,14 @@ $checkbox__checkmark-transition: background-color 0.25s
     font-size: $checkbox-font-size-desktop;
   }
   &__input {
-    display: none;
+    position: absolute;
+    border: 0;
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0px, 0px, 0px, 0px);
   }
   &__container {
     display: flex;
@@ -34,13 +41,13 @@ $checkbox__checkmark-transition: background-color 0.25s
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 $checkbox__checkmark-size;
+    width: $checkbox__checkmark-size;
     height: $checkbox__checkmark-size;
     border: 1px solid $checkbox__checkmark-secondary-color;
     box-sizing: border-box;
     transition: $checkbox__checkmark-transition;
     @media screen and (min-width: $desktop-min) {
-      flex-basis: $checkbox__checkmark-size-desktop;
+      width: $checkbox__checkmark-size-desktop;
       height: $checkbox__checkmark-size-desktop;
     }
     &:hover {
@@ -64,5 +71,6 @@ $checkbox__checkmark-transition: background-color 0.25s
   }
   &__label {
     margin-left: $spacer-big;
+    display: flex;
   }
 }

@@ -1,15 +1,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-
 import SfInput from "./SfInput.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
-
 storiesOf("Atoms|Input", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfInput },
     props: {
+      type: {
+        default: text("type", "text", "Props")
+      },
       label: {
         default: text("label", "First name", "Props")
       },
@@ -27,6 +28,9 @@ storiesOf("Atoms|Input", module)
       },
       disabled: {
         default: boolean("disabled", false, "Props")
+      },
+      hasShowPassword: {
+        default: boolean("hasShowPassword", true, "Props")
       }
     },
     data() {
@@ -36,12 +40,15 @@ storiesOf("Atoms|Input", module)
     },
     template: `<SfInput
       v-model="value"
+      :type="type"
       :label="label"
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
       :required="required"
-      :disabled="disabled"/>`
+      :disabled="disabled"
+      :has-show-password="hasShowPassword"
+      />`
   }))
   .add("[slot] label", () => ({
     components: {
@@ -49,6 +56,9 @@ storiesOf("Atoms|Input", module)
       SfIcon
     },
     props: {
+      type: {
+        default: text("type", "text", "Props")
+      },
       label: {
         default: text("label", "First name", "Props")
       },
@@ -66,6 +76,9 @@ storiesOf("Atoms|Input", module)
       },
       disabled: {
         default: boolean("disabled", false, "Props")
+      },
+      hasShowPassword: {
+        default: boolean("hasShowPassword", true, "Props")
       }
     },
     data() {
@@ -74,13 +87,16 @@ storiesOf("Atoms|Input", module)
       };
     },
     template: `<SfInput
-      v-model="value"
-      :label="label"
-      :name="name"
-      :valid="valid"
-      :error-message="errorMessage"
-      :required="required"
-      :disabled="disabled">
+        v-model="value"
+        :type="type"
+        :label="label"
+        :name="name"
+        :valid="valid"
+        :error-message="errorMessage"
+        :required="required"
+        :disabled="disabled"
+        :has-show-password="hasShowPassword"
+      >
       <template #label="{label}">
             <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
       </template>
@@ -92,6 +108,9 @@ storiesOf("Atoms|Input", module)
       SfIcon
     },
     props: {
+      type: {
+        default: text("type", "text", "Props")
+      },
       label: {
         default: text("label", "First name", "Props")
       },
@@ -109,6 +128,9 @@ storiesOf("Atoms|Input", module)
       },
       disabled: {
         default: boolean("disabled", false, "Props")
+      },
+      hasShowPassword: {
+        default: boolean("hasShowPassword", true, "Props")
       }
     },
     data() {
@@ -118,12 +140,15 @@ storiesOf("Atoms|Input", module)
     },
     template: `<SfInput
       v-model="value"
+      :type="type"
       :label="label"
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
       :required="required"
-      :disabled="disabled">
+      :disabled="disabled"
+      :has-show-password="hasShowPassword"
+      >
       <template #errorMessage="{errorMessage}">
         <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> CUSTOM ERROR MESSAGE
       </template>

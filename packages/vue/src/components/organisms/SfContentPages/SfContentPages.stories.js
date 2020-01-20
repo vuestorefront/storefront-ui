@@ -1,8 +1,6 @@
 import { storiesOf } from "@storybook/vue";
-
 import SfContentPages from "./SfContentPages.vue";
 import SfTabs from "../SfTabs/SfTabs.vue";
-
 storiesOf("Organisms|ContentPages", module)
   .add("Common", () => ({
     components: { SfContentPages, SfTabs },

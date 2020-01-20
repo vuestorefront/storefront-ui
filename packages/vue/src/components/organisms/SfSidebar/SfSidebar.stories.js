@@ -5,13 +5,11 @@ import {
   select,
   optionsKnob as options
 } from "@storybook/addon-knobs";
-
 import SfSidebar from "./SfSidebar.vue";
 import {
   withDataToggle,
   dataToggleMixin
 } from "../../../../config/storybook/decorators";
-
 storiesOf("Organisms|Sidebar", module)
   .addDecorator(withKnobs)
   .addDecorator(withDataToggle("isSidebarOpen"))

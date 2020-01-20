@@ -45,8 +45,5 @@ $counter--large-width: $counter-width * 2 !default;
       width: 100%;
       margin: 0;
     }
-    &--up img[src="/assets/chevron_down.svg"] {
-      transform: rotate(180deg);
-    }
   }
 }

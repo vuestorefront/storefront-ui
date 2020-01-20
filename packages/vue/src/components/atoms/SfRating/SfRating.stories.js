@@ -1,10 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, number } from "@storybook/addon-knobs";
-
 import SfRating from "./SfRating.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
-
 storiesOf("Atoms|Rating", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

@@ -8,7 +8,9 @@
 
 ## Most common usage scenario
 
-[[common-usage]]
+[[storybook-iframe]]
+
+[[storybook-code]]
 
 
 ## Props

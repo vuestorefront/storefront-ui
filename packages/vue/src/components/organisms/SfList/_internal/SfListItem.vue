@@ -1,1 +1,6 @@
-<template lang="html" src="./SfListItem.html"></template>
+<template>
+  <li class="sf-list__item">
+    <!-- @slot -->
+    <slot />
+  </li>
+</template>

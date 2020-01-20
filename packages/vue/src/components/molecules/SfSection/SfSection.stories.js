@@ -6,15 +6,12 @@ import {
   number,
   optionsKnob as options
 } from "@storybook/addon-knobs";
-
 import SfSection from "./SfSection.vue";
-
 const StoriesPlaceholder = {
   template: `<div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
     [#default slot content]
   </div>`
 };
-
 storiesOf("Molecules|Section", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

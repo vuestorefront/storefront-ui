@@ -21,6 +21,7 @@ $button--outline-border: 2px !default;
   font-size: $button-font-size;
   font-weight: $button-font-weight;
   line-height: $button-line-height;
+  transition: background-color 150ms linear, color 150ms linear;
   text-transform: uppercase;
   cursor: pointer;
   @media screen and (min-width: $desktop-min) {
@@ -74,6 +75,17 @@ $button--outline-border: 2px !default;
           background-color: transparent !important;
         }
       }
+    }
+  }
+
+  &:disabled {
+    background-color: $c-light;
+    color: $c-gray;
+    cursor: default;
+    transition: background-color 150ms linear, color 150ms linear;
+    &:hover {
+      background-color: $c-light;
+      color: $c-gray;
     }
   }
 }

@@ -7,42 +7,23 @@ import {
   number,
   select
 } from "@storybook/addon-knobs";
-
 import SfProductCard from "./SfProductCard.vue";
-
-const pictures = [
-  {
-    normal: {
-      url:
-        "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-      alt: "Macbook PRO Apple"
-    },
-    small: {
-      url:
-        "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-      alt: "Macbook PRO Apple"
-    }
-  },
-  {
-    normal: {
-      url:
-        "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-      alt: "Macbook PRO Apple (keyboard)"
-    },
-    small: {
-      url:
-        "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-      alt: "Macbook PRO Apple (keyboard)"
-    }
-  }
-];
-
 storiesOf("Organisms|ProductCard", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     props: {
       image: {
-        default: text("image", "assets/storybook/product_thumb.jpg", "Props")
+        default: text(
+          "image",
+          "assets/storybook/SfProductCard/product_thumb.jpg",
+          "Props"
+        )
+      },
+      imageWidth: {
+        default: number("imageWidth", 216, {}, "Props")
+      },
+      imageHeight: {
+        default: number("imageHeight", 326, {}, "Props")
       },
       title: {
         default: text("title", "Product name", "Props")
@@ -87,6 +68,8 @@ storiesOf("Organisms|ProductCard", module)
     components: { SfProductCard },
     template: `<SfProductCard
         :image="image"
+        :image-width="imageWidth"
+        :image-height="imageHeight"
         :title="title"
         :link="link"
         :linkTag="linkTag"
@@ -102,9 +85,14 @@ storiesOf("Organisms|ProductCard", module)
         :isOnWishlist="isOnWishlist"
     />`
   }))
-
   .add("With 2 pictures", () => ({
     props: {
+      imageWidth: {
+        default: number("imageWidth", 216, {}, "Props")
+      },
+      imageHeight: {
+        default: number("imageHeight", 326, {}, "Props")
+      },
       title: {
         default: text("title", "Product name", "Props")
       },
@@ -146,11 +134,40 @@ storiesOf("Organisms|ProductCard", module)
       }
     },
     data() {
-      return { pictures };
+      return {
+        pictures: [
+          {
+            desktop: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple"
+            },
+            mobile: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple"
+            }
+          },
+          {
+            desktop: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple (keyboard)"
+            },
+            mobile: {
+              url:
+                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
+              alt: "Macbook PRO Apple (keyboard)"
+            }
+          }
+        ]
+      };
     },
     components: { SfProductCard },
     template: `<SfProductCard
         :image="pictures"
+        :image-width="imageWidth"
+        :image-height="imageHeight"
         :title="title"
         :link="link"
         :linkTag="linkTag"
@@ -169,7 +186,17 @@ storiesOf("Organisms|ProductCard", module)
   .add("With CircleIconButton", () => ({
     props: {
       image: {
-        default: text("image", "assets/storybook/product_thumb.jpg", "Props")
+        default: text(
+          "image",
+          "assets/storybook/SfProductCard/product_thumb.jpg",
+          "Props"
+        )
+      },
+      imageWidth: {
+        default: number("imageWidth", 216, {}, "Props")
+      },
+      imageHeight: {
+        default: number("imageHeight", 326, {}, "Props")
       },
       title: {
         default: text("title", "Product name", "Props")
@@ -214,6 +241,8 @@ storiesOf("Organisms|ProductCard", module)
     components: { SfProductCard },
     template: `<SfProductCard
         :image="image"
+        :image-width="imageWidth"
+        :image-height="imageHeight"
         :title="title"
         :link="link"
         :linkTag="linkTag"

@@ -64,9 +64,10 @@ $content-pages__title-line-height: 1.6 !default;
     margin-bottom: $spacer-big;
     font-size: $font-size-big-mobile;
     font-family: $body-font-family-secondary;
-    font-weight: $body-font-weight-secondary;
+    font-weight: $h2-font-weight-mobile;
     @media (min-width: $desktop-min) {
       font-size: $font-size-big-desktop;
+      font-weight: $body-font-weight-secondary;
     }
   }
   &__list {

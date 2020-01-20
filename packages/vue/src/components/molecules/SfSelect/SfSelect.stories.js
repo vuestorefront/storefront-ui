@@ -7,10 +7,8 @@ import {
   boolean,
   optionsKnob as options
 } from "@storybook/addon-knobs";
-
 import SfSelect from "./SfSelect.vue";
 import SfProductOption from "../SfProductOption/SfProductOption.vue";
-
 const optionsList = [
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
   { value: "amber", color: "#FFBF00", label: "Amber" },
@@ -18,12 +16,10 @@ const optionsList = [
   { value: "bluetiful", color: "#3C69E7", label: "Bluetiful" },
   { value: "buff", color: "#F0DC82", label: "Buff" }
 ];
-
 const knobOptionsList = optionsList.reduce(
   (a, c) => ({ ...a, [c.label]: c.value }),
   {}
 );
-
 storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

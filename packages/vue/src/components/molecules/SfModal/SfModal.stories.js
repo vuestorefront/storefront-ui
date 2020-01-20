@@ -1,13 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
-
 import SfModal from "./SfModal.vue";
 import {
   visibilityToggleMixin,
   withVisibilityToggle
 } from "../../../../config/storybook/decorators";
-
 storiesOf("Molecules|Modal", module)
   .addDecorator(withKnobs)
   .addDecorator(withVisibilityToggle)
@@ -21,7 +19,7 @@ storiesOf("Molecules|Modal", module)
         default: boolean("cross", true, "Props")
       },
       persistent: {
-        default: boolean("persistent", true, "Props")
+        default: boolean("persistent", false, "Props")
       }
     },
     mixins: [visibilityToggleMixin],
@@ -46,7 +44,7 @@ storiesOf("Molecules|Modal", module)
         default: boolean("cross", true, "Props")
       },
       persistent: {
-        default: boolean("persistent", true, "Props")
+        default: boolean("persistent", false, "Props")
       }
     },
     mixins: [visibilityToggleMixin],

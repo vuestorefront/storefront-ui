@@ -19,6 +19,7 @@ import SfCheckbox from "../../src/components/atoms/SfCheckbox/SfCheckbox.vue"
 import SfChevron from "../../src/components/atoms/SfChevron/SfChevron.vue"
 import SfCircleIcon from "../../src/components/atoms/SfCircleIcon/SfCircleIcon.vue"
 import SfCollectedProduct from "../../src/components/organisms/SfCollectedProduct/SfCollectedProduct.vue"
+import SfColor from "../../src/components/atoms/SfColor/SfColor.vue"
 import SfContentPages from "../../src/components/organisms/SfContentPages/SfContentPages.vue"
 import SfCounter from "../../src/components/molecules/SfCounter/SfCounter.vue"
 import SfDivider from "../../src/components/atoms/SfDivider/SfDivider.vue"
@@ -49,6 +50,7 @@ import SfQuantitySelector from "../../src/components/atoms/SfQuantitySelector/Sf
 import SfRadio from "../../src/components/molecules/SfRadio/SfRadio.vue"
 import SfRating from "../../src/components/atoms/SfRating/SfRating.vue"
 import SfReview from "../../src/components/molecules/SfReview/SfReview.vue"
+import SfScrollable from "../../src/components/molecules/SfScrollable/SfScrollable.vue"
 import SfSearchBar from "../../src/components/molecules/SfSearchBar/SfSearchBar.vue"
 import SfSection from "../../src/components/molecules/SfSection/SfSection.vue"
 import SfSelect from "../../src/components/molecules/SfSelect/SfSelect.vue"
@@ -57,6 +59,7 @@ import SfSlidingSection from "../../src/components/molecules/SfSlidingSection/Sf
 import SfSteps from "../../src/components/molecules/SfSteps/SfSteps.vue"
 import SfSticky from "../../src/components/molecules/SfSticky/SfSticky.vue"
 import SfStoreLocator from "../../src/components/organisms/SfStoreLocator/SfStoreLocator.vue"
+import SfTable from "../../src/components/organisms/SfTable/SfTable.vue"
 import SfTabs from "../../src/components/organisms/SfTabs/SfTabs.vue"
 import SfTopBar from "../../src/components/organisms/SfTopBar/SfTopBar.vue"
 // @components-docs-end
@@ -87,6 +90,7 @@ export default ({
   Vue.component("SfChevron", SfChevron);
   Vue.component("SfCircleIcon", SfCircleIcon);
   Vue.component("SfCollectedProduct", SfCollectedProduct);
+  Vue.component("SfColor", SfColor);
   Vue.component("SfContentPages", SfContentPages);
   Vue.component("SfCounter", SfCounter);
   Vue.component("SfDivider", SfDivider);
@@ -117,6 +121,7 @@ export default ({
   Vue.component("SfRadio", SfRadio);
   Vue.component("SfRating", SfRating);
   Vue.component("SfReview", SfReview);
+  Vue.component("SfScrollable", SfScrollable);
   Vue.component("SfSearchBar", SfSearchBar);
   Vue.component("SfSection", SfSection);
   Vue.component("SfSelect", SfSelect);
@@ -125,6 +130,7 @@ export default ({
   Vue.component("SfSteps", SfSteps);
   Vue.component("SfSticky", SfSticky);
   Vue.component("SfStoreLocator", SfStoreLocator);
+  Vue.component("SfTable", SfTable);
   Vue.component("SfTabs", SfTabs);
   Vue.component("SfTopBar", SfTopBar);
   // @components-docs-end

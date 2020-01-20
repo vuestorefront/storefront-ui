@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-
 const StoriesWrapper = {
   template: `<div style="display: flex;">
     <div style="flex: 1; margin-right: 1.25rem">
@@ -17,9 +16,7 @@ const StoriesPlaceholder = {
         [#default slot content]
       </div>`
 };
-
 import SfSticky from "./SfSticky.vue";
-
 storiesOf("Molecules|Sticky", module).add("Common", () => ({
   components: { SfSticky, StoriesWrapper, StoriesPlaceholder },
   template: `<StoriesWrapper>

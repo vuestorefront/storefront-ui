@@ -4,62 +4,68 @@ $radio-font-family: $body-font-family-secondary !default;
 $radio-font-size: $font-size-extra-small-desktop !default;
 $radio-font-weight: $body-font-weight-primary !default;
 $radio-line-height: 1.6 !default;
-$radio-transition: background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1) !default;
+$radio--is-active-background: $c-light;
+$radio__checkmark-size: 1.4375rem !default;
+$radio__checkmark-border-color: $c-gray-variant !default;
+$radio--is-active__checkmark-border-color: $c-primary !default;
 $radio__label-font-size: $font-size-big-desktop !default;
 $radio__label-font-weight: 500 !default;
-$radio__label-line-height: 1.3 !default;
-$radio__checkmark-transition: border 0.25s cubic-bezier(1, 0.5, 0.8, 1) !default;
-$radio__checkmark-size: 1.4375rem !default;
-$radio__checkmark-color-primary: $c-primary !default;
-$radio__checkmark-color-secondary: $c-gray-variant !default;
-$radio--active-background: $c-light !default;
 
-.sf-radio {
+.sf-radio{
   $this: &;
+  display: flex;
   font-family: $radio-font-family;
   font-size: $radio-font-size;
   font-weight: $radio-font-weight;
   line-height: $radio-line-height;
-  transition: $radio-transition;
-  &__input {
-    display: none;
+  transition: background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1);
+  &.is-active{
+    background-color: $radio--is-active-background;
   }
-  &__container {
+  &--transparent{
+    &.is-active{
+      background-color: transparent;
+    }
+  }
+  &__input{
+    position: absolute;
+    opacity: 0;
+  }
+  &__container{
+    flex: 1;
     display: flex;
     padding: $spacer-big;
     cursor: pointer;
+    &:hover{
+      #{$this}__checkmark{
+        border: 1px solid $c-primary;
+        .is-active & {
+          border: 9px solid $c-primary;
+        }
+      }
+    }
   }
-  &__checkmark {
-    flex: 0 0 $radio__checkmark-size;
-    height: $radio__checkmark-size;
-    border: 1px solid $radio__checkmark-color-secondary;
-    border-radius: 50%;
+  &__checkmark{
     box-sizing: border-box;
-    transition: $radio__checkmark-transition;
-    &.is-active {
-      border: 9px solid $radio__checkmark-color-primary;
-    }
-    &:hover {
-      border-color: $radio__checkmark-color-primary;
+    width: $radio__checkmark-size;
+    height: $radio__checkmark-size;
+    border: 1px solid $radio__checkmark-border-color;
+    border-radius: 50%;
+    transition: border 0.25s cubic-bezier(1, 0.5, 0.8, 1);
+    .is-active &{
+      border: 9px solid $radio--is-active__checkmark-border-color;
     }
   }
-  &__content {
-    margin-left: $spacer-big;
+  &__content{
+    flex: 1;
+    margin: 0 0 0 $spacer-big;
   }
-  &__label {
+  &__label{
+    display: flex;
     font-size: $radio__label-font-size;
     font-weight: $radio__label-font-weight;
-    line-height: $radio__label-line-height;
   }
-  &__description {
+  &__description{
     margin: $spacer-medium 0 0 0;
-  }
-  &.is-active {
-    background-color: $radio--active-background;
-  }
-  &--transparent {
-    &#{$this}.is-active {
-      background-color: transparent;
-    }
   }
 }

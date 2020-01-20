@@ -1,9 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-
 import SfList from "./SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-
 storiesOf("Organisms|List", module)
   .add("Common", () => ({
     components: { SfList },
