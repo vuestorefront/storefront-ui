@@ -91,7 +91,8 @@ export default {
   watch: {
     visible: {
       handler: function(value) {
-        if (typeof window === "undefined") return;
+        if (typeof window === "undefined" || typeof document === "undefined")
+          return;
         if (value) {
           this.$nextTick(() => {
             disableBodyScroll(this.$refs.content);
