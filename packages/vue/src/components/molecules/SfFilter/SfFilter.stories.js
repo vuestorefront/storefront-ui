@@ -36,7 +36,6 @@ storiesOf("Molecules|Filter", module)
         :key="filter.label"
         :label="filter.label"
         :count="filter.count"
-        :selected="filter.selected"
         />
     </div>`
   }))

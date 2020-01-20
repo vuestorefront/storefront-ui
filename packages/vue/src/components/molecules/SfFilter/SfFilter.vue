@@ -1,12 +1,12 @@
 <template>
-  <div class="sf-filter" :class="{ 'sf-filter--active': isChecked }">
+  <div class="sf-filter" :class="{ 'sf-filter--active': isSelected }">
     <!-- @slot  -->
     <slot name="label" v-bind="{ label }">
       <SfCheckbox
         class="sf-filter__checkbox"
+        :class="{ 'sf-filter--active': isSelected }"
         :name="label"
         :label="label"
-        :style="style"
         :selected="selected"
         @input="$emit('input', !selected)"
       />
@@ -42,16 +42,8 @@ export default {
     }
   },
   computed: {
-    style() {
-      return this.selected ? "font-weight: 500" : "font-weight: 400";
-    },
-    isChecked() {
+    isSelected() {
       return this.selected;
-    }
-  },
-  methods: {
-    setActive() {
-      this.$emit("input", !this.selected);
     }
   }
 };
