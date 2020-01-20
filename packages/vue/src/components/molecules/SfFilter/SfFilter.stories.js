@@ -71,9 +71,7 @@ storiesOf("Molecules|Filter", module)
     template: `<div style="max-width: 300px">
        <SfFilter
         :label="label"
-        :count="count"
-        :selected="filter.selected"
-        @click="filter.selected = !filter.selected">
+        :count="count">
         <template #label="{label}">CUSTOM LABEL</template>
       </SfFilter>
     </div>`
@@ -108,11 +106,11 @@ storiesOf("Molecules|Filter", module)
     },
     template: `<div style="max-width: 300px">
        <SfFilter
-        v-model="checked"
-        :label="label"
-        :count="count"
-        :selected="filter.selected"
-        @click="filter.selected = !filter.selected">
+         v-for="filter in filters"
+         v-model="filter.selected"
+         :key="filter.label"
+        :label="filter.label"
+        :count="filter.count">
         <template #count="{count}">CUSTOM COUNT</template>
       </SfFilter>
     </div>`
