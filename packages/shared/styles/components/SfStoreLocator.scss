@@ -70,8 +70,8 @@ $store__font-family-secondary: $body-font-family-secondary !default;
       position: absolute;
       height: 100%;
 
-      &-my-location-btn-wrapper {
-        .sf-store-locator__map-wrapper-map-my-location-btn {
+      &-my-location-btn{
+        a {
           display: flex;
           align-items: center;
           justify-content: center;
