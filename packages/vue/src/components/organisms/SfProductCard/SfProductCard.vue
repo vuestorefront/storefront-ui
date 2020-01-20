@@ -6,7 +6,11 @@
       :to="link && linkComponentTag !== 'a' ? link : undefined"
       class="sf-product-card__link"
     >
-      <div ref="productImage" class="sf-product-card__image-wrapper">
+      <div
+        ref="productImage"
+        class="sf-product-card__image-wrapper"
+        :style="`width: ${imageWidth}px; height: ${imageHeight}px;`"
+      >
         <slot name="image" v-bind="{ image, title }">
           <div v-if="Array.isArray(image)" class="sf-product-card__pictures">
             <SfImage
