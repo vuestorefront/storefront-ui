@@ -241,8 +241,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../../../css/variables";
-@import "~@storefront-ui/shared/styles/helpers/visibility";
+@import "~@storefront-ui/vue/styles";
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;

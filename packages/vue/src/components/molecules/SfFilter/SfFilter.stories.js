@@ -1,75 +1,78 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
+import { withKnobs, text, number } from "@storybook/addon-knobs";
 import SfFilter from "./SfFilter.vue";
 storiesOf("Molecules|Filter", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: {
-      SfFilter
-    },
+    components: { SfFilter },
     props: {
       label: {
         default: text("label", "Red", "Props")
       },
       count: {
-        default: text("count", "30", "Props")
-      },
-      selected: {
-        default: boolean("selected", true, "Props")
+        default: number("count", 30, {}, "Props")
       }
     },
-    template: `<div style="max-width: 300px">
-       <SfFilter
-        :label="label"
+    data() {
+      return {
+        selected: true
+      };
+    },
+    template: `<SfFilter 
+        :label="label" 
         :count="count"
-        :selected="selected" />
-    </div>`
+        :selected="selected"
+        @change="selected = !selected"
+        style="max-width: 18.75rem" 
+      />`
   }))
   .add("[slot] label", () => ({
-    components: {
-      SfFilter
-    },
+    components: { SfFilter },
     props: {
       label: {
         default: text("label", "Red", "Props")
       },
       count: {
-        default: text("count", "30", "Props")
-      },
-      selected: {
-        default: boolean("selected", true, "Props")
+        default: number("count", 30, {}, "Props")
       }
     },
-    template: `<div style="max-width: 300px">
-       <SfFilter
-        :label="label"
+    data() {
+      return {
+        selected: true
+      };
+    },
+    template: `<SfFilter 
+        :label="label" 
         :count="count"
-        :selected="selected">
-        <template #label="{label}">CUSTOM LABEL</template>
-      </SfFilter>
-    </div>`
+        :selected="selected"
+        @change="selected = !selected"
+        style="max-width: 18.75rem" 
+      >
+      <template #label="{label}">CUSTOM LABEL</template>
+      </SfFilter>`
   }))
   .add("[slot] count", () => ({
-    components: {
-      SfFilter
-    },
+    components: { SfFilter },
     props: {
       label: {
         default: text("label", "Red", "Props")
       },
       count: {
-        default: text("count", "30", "Props")
-      },
-      selected: {
-        default: boolean("selected", true, "Props")
+        default: number("count", 30, {}, "Props")
       }
     },
-    template: `<div style="max-width: 300px">
-       <SfFilter
-        :label="label"
+    data() {
+      return {
+        selected: true
+      };
+    },
+    template: `<SfFilter 
+        :label="label" 
         :count="count"
-        :selected="selected">
-        <template #count="{count}">CUSTOM COUNT</template>
-      </SfFilter>
-    </div>`
+        :selected="selected"
+        @change="selected = !selected"
+        style="max-width: 18.75rem" 
+      >
+      <template #count="{count}">CUSTOM COUNT</template>
+      </SfFilter>`
   }));
