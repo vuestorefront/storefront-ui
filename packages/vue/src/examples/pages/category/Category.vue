@@ -151,15 +151,17 @@
       <div class="filters">
         <h3 class="filters__title">Collection</h3>
         <SfFilter
-          v-for="filter in filtersOptions.collection"
+          v-for="filter in filters.collection"
           :key="filter.value"
           :label="filter.label"
           :count="filter.count"
+          :selected="filter.selected"
           class="filters__item"
+          @change="filter.selected = !filter.selected"
         />
         <h3 class="filters__title">Color</h3>
         <SfColor
-          v-for="filter in filtersOptions.color"
+          v-for="filter in filters.color"
           :key="filter.value"
           :color="filter.color"
           :selected="filter.selected"
@@ -168,30 +170,33 @@
         />
         <h3 class="filters__title">Size</h3>
         <SfFilter
-          v-for="filter in filtersOptions.size"
+          v-for="filter in filters.size"
           :key="filter.value"
-          :value="filter.value"
           :label="filter.label"
           :count="filter.count"
+          :selected="filter.selected"
           class="filters__item"
+          @change="filter.selected = !filter.selected"
         />
         <h3 class="filters__title">Price</h3>
         <SfFilter
-          v-for="filter in filtersOptions.price"
+          v-for="filter in filters.price"
           :key="filter.value"
-          :value="filter.value"
           :label="filter.label"
           :count="filter.count"
+          :selected="filter.selected"
           class="filters__item"
+          @change="filter.selected = !filter.selected"
         />
         <h3 class="filters__title">Material</h3>
         <SfFilter
-          v-for="filter in filtersOptions.material"
+          v-for="filter in filters.material"
           :key="filter.value"
           :value="filter.value"
           :label="filter.label"
-          :count="filter.count"
+          :selected="filter.selected"
           class="filters__item"
+          @change="filter.selected = !filter.selected"
         />
         <div class="filters__buttons">
           <SfButton
@@ -244,13 +249,6 @@ export default {
       currentPage: 1,
       sortBy: "price-up",
       isFilterSidebarOpen: false,
-      filters: {
-        color: [],
-        collection: [],
-        size: [],
-        price: [],
-        material: []
-      },
       sortByOptions: [
         {
           value: "latest",
@@ -361,11 +359,26 @@ export default {
           isOnWishlist: false
         }
       ],
-      filtersOptions: {
+      filters: {
         collection: [
-          { label: "Summer fly", value: "summer-fly", count: "10" },
-          { label: "Best 2018", value: "best-2018", count: "23" },
-          { label: "Your choice", value: "your-choice", count: "54" }
+          {
+            label: "Summer fly",
+            value: "summer-fly",
+            count: "10",
+            selected: false
+          },
+          {
+            label: "Best 2018",
+            value: "best-2018",
+            count: "23",
+            selected: false
+          },
+          {
+            label: "Your choice",
+            value: "your-choice",
+            count: "54",
+            selected: false
+          }
         ],
         color: [
           { label: "Red", value: "red", color: "#990611", selected: false },
@@ -380,21 +393,46 @@ export default {
           { label: "Navy", value: "navy", color: "#656466", selected: false }
         ],
         size: [
-          { label: "Size 2 (XXS)", value: "xxs", count: "10" },
-          { label: "Size 4-6 (XS)", value: "xs", count: "23" },
-          { label: "Size 8-10 (S)", value: "s", count: "54" },
-          { label: "Size 12-14 (M)", value: "m", count: "109" },
-          { label: "Size 16-18 (L)", value: "l", count: "23" },
-          { label: "Size 20-22(XL)", value: "xl", count: "12" },
-          { label: "Size 24-26 (XXL)", value: "xxl", count: "2" }
+          { label: "Size 2 (XXS)", value: "xxs", count: "10", selected: false },
+          { label: "Size 4-6 (XS)", value: "xs", count: "23", selected: false },
+          { label: "Size 8-10 (S)", value: "s", count: "54", selected: false },
+          {
+            label: "Size 12-14 (M)",
+            value: "m",
+            count: "109",
+            selected: false
+          },
+          { label: "Size 16-18 (L)", value: "l", count: "23", selected: false },
+          {
+            label: "Size 20-22(XL)",
+            value: "xl",
+            count: "12",
+            selected: false
+          },
+          {
+            label: "Size 24-26 (XXL)",
+            value: "xxl",
+            count: "2",
+            selected: false
+          }
         ],
         price: [
-          { label: "Under $200", value: "under-200", count: "23" },
-          { label: "Under $300", value: "under-300", count: "54" }
+          {
+            label: "Under $200",
+            value: "under-200",
+            count: "23",
+            selected: false
+          },
+          {
+            label: "Under $300",
+            value: "under-300",
+            count: "54",
+            selected: false
+          }
         ],
         material: [
-          { label: "Cotton", value: "coton", count: "33" },
-          { label: "Silk", value: "silk", count: "73" }
+          { label: "Cotton", value: "coton", count: "33", selected: false },
+          { label: "Silk", value: "silk", count: "73", selected: false }
         ]
       },
       breadcrumbs: [
@@ -414,13 +452,15 @@ export default {
     };
   },
   methods: {
+    updateFilter() {},
     clearAllFilters() {
-      const filters = {};
-      const keys = Object.keys(this.filters);
-      keys.forEach(key => {
-        filters[key] = [];
+      const filters = Object.keys(this.filters);
+      filters.forEach(name => {
+        const prop = this.filters[name];
+        prop.forEach(value => {
+          value.selected = false;
+        });
       });
-      this.filters = filters;
     },
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;

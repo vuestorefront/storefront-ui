@@ -5,7 +5,6 @@ $filter-font-size: $font-size-big-mobile !default;
 $filter-font-size-desktop: $font-size-small-desktop !default;
 $filter-font-weight: $body-font-weight-secondary !default;
 $filter-line-height: 1.6 !default;
-$filter__color-size: 1.125rem !default;
 
 .sf-filter {
   display: flex;
@@ -19,18 +18,16 @@ $filter__color-size: 1.125rem !default;
   @media screen and (min-width: $desktop-min) {
     font-size: $filter-font-size-desktop;
   }
-  &__label {
-    flex-grow: 1;
+  .sf-checkbox__container{
+    width: 100%;
   }
-  &__color {
-    width: $filter__color-size;
-    height: $filter__color-size;
-    margin-right: $spacer-big;
-    border: 1px solid $c-gray-variant;
+  &__label{
+    margin-left: $spacer-big;
   }
-  &--active,
-  &:hover {
-    text-decoration: underline;
+  &__count{
+    margin-left: auto;
+  }
+  &--active {
     font-weight: 500;
   }
 }
