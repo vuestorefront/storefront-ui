@@ -153,16 +153,23 @@
         <SfFilter
           v-for="filter in filtersOptions.collection"
           :key="filter.value"
-          v-model="filter.selected"
           :label="filter.label"
           :count="filter.count"
           class="filters__item"
+        />
+        <h3 class="filters__title">Color</h3>
+        <SfColor
+          v-for="filter in filtersOptions.color"
+          :key="filter.value"
+          :color="filter.color"
+          :selected="filter.selected"
+          class="filters__item--color"
+          @click="filter.selected = !filter.selected"
         />
         <h3 class="filters__title">Size</h3>
         <SfFilter
           v-for="filter in filtersOptions.size"
           :key="filter.value"
-          v-model="filter.selected"
           :value="filter.value"
           :label="filter.label"
           :count="filter.count"
@@ -172,7 +179,6 @@
         <SfFilter
           v-for="filter in filtersOptions.price"
           :key="filter.value"
-          v-model="filter.selected"
           :value="filter.value"
           :label="filter.label"
           :count="filter.count"
@@ -182,7 +188,6 @@
         <SfFilter
           v-for="filter in filtersOptions.material"
           :key="filter.value"
-          v-model="filter.selected"
           :value="filter.value"
           :label="filter.label"
           :count="filter.count"
@@ -216,7 +221,8 @@ import {
   SfPagination,
   SfAccordion,
   SfSelect,
-  SfBreadcrumbs
+  SfBreadcrumbs,
+  SfColor
 } from "@storefront-ui/vue";
 export default {
   components: {
@@ -230,7 +236,8 @@ export default {
     SfMenuItem,
     SfAccordion,
     SfSelect,
-    SfBreadcrumbs
+    SfBreadcrumbs,
+    SfColor
   },
   data() {
     return {
@@ -356,66 +363,38 @@ export default {
       ],
       filtersOptions: {
         collection: [
+          { label: "Summer fly", value: "summer-fly", count: "10" },
+          { label: "Best 2018", value: "best-2018", count: "23" },
+          { label: "Your choice", value: "your-choice", count: "54" }
+        ],
+        color: [
+          { label: "Red", value: "red", color: "#990611", selected: false },
+          { label: "Black", value: "black", color: "#000000", selected: false },
           {
-            label: "Summer fly",
-            value: "summer-fly",
-            count: "10",
+            label: "Yellow",
+            value: "yellow",
+            color: "#DCA742",
             selected: false
           },
-          {
-            label: "Best 2018",
-            value: "best-2018",
-            count: "23",
-            selected: false
-          },
-          {
-            label: "Your choice",
-            value: "your-choice",
-            count: "54",
-            selected: false
-          }
+          { label: "Blue", value: "blue", color: "#004F97", selected: false },
+          { label: "Navy", value: "navy", color: "#656466", selected: false }
         ],
         size: [
-          { label: "Size 2 (XXS)", value: "xxs", count: "10", selected: false },
-          { label: "Size 4-6 (XS)", value: "xs", count: "23", selected: false },
-          { label: "Size 8-10 (S)", value: "s", count: "54", selected: false },
-          {
-            label: "Size 12-14 (M)",
-            value: "m",
-            count: "109",
-            selected: false
-          },
-          { label: "Size 16-18 (L)", value: "l", count: "23", selected: false },
-          {
-            label: "Size 20-22(XL)",
-            value: "xl",
-            count: "12",
-            selected: false
-          },
-          {
-            label: "Size 24-26 (XXL)",
-            value: "xxl",
-            count: "2",
-            selected: false
-          }
+          { label: "Size 2 (XXS)", value: "xxs", count: "10" },
+          { label: "Size 4-6 (XS)", value: "xs", count: "23" },
+          { label: "Size 8-10 (S)", value: "s", count: "54" },
+          { label: "Size 12-14 (M)", value: "m", count: "109" },
+          { label: "Size 16-18 (L)", value: "l", count: "23" },
+          { label: "Size 20-22(XL)", value: "xl", count: "12" },
+          { label: "Size 24-26 (XXL)", value: "xxl", count: "2" }
         ],
         price: [
-          {
-            label: "Under $200",
-            value: "under-200",
-            count: "23",
-            selected: false
-          },
-          {
-            label: "Under $300",
-            value: "under-300",
-            count: "54",
-            selected: false
-          }
+          { label: "Under $200", value: "under-200", count: "23" },
+          { label: "Under $300", value: "under-300", count: "54" }
         ],
         material: [
-          { label: "Cotton", value: "coton", count: "33", selected: false },
-          { label: "Silk", value: "silk", count: "73", selected: false }
+          { label: "Cotton", value: "coton", count: "33" },
+          { label: "Silk", value: "silk", count: "73" }
         ]
       },
       breadcrumbs: [
@@ -571,7 +550,6 @@ export default {
   &__list {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 1.875rem - 0.5rem;
   }
   &__product-card {
     flex: 0 0 50%;
@@ -624,6 +602,10 @@ export default {
   }
   &__item {
     padding: $spacer-small 0;
+
+    &--color {
+      margin: 0 $spacer;
+    }
   }
   &__buttons {
     margin: $spacer-big * 3 0 0 0;

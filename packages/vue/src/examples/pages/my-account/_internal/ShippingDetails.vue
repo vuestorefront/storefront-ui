@@ -95,46 +95,44 @@
           ...) This way you won't have to enter the shipping address manually
           with each order.
         </p>
-        <div class="shipping-list">
-          <transition-group name="fade">
-            <div
-              v-for="(shipping, key) in account.shipping"
-              :key="key"
-              class="shipping"
-            >
-              <div class="shipping__content">
-                <p class="shipping__address">
-                  <span class="shipping__client-name"
-                    >{{ shipping.firstName }} {{ shipping.lastName }}</span
-                  ><br />
-                  {{ shipping.streetName }} {{ shipping.apartment }}<br />{{
-                    shipping.zipCode
-                  }}
-                  {{ shipping.city }},<br />{{ shipping.country }}
-                </p>
-                <p class="shipping__address">
-                  {{ shipping.phoneNumber }}
-                </p>
-              </div>
-              <div class="shipping__actions">
-                <SfIcon
-                  icon="cross"
-                  color="gray"
-                  size="14px"
-                  role="button"
-                  class="mobile-only"
-                  @click="deleteAddress(key)"
-                />
-                <SfButton @click="changeAddress(key)">Change</SfButton>
-                <SfButton
-                  class="shipping__button-delete desktop-only"
-                  @click="deleteAddress(key)"
-                  >Delete</SfButton
-                >
-              </div>
+        <transition-group tag="div" name="fade" class="shipping-list">
+          <div
+            v-for="(shipping, key) in account.shipping"
+            :key="shipping.firstName + shipping.lastName"
+            class="shipping"
+          >
+            <div class="shipping__content">
+              <p class="shipping__address">
+                <span class="shipping__client-name"
+                  >{{ shipping.firstName }} {{ shipping.lastName }}</span
+                ><br />
+                {{ shipping.streetName }} {{ shipping.apartment }}<br />{{
+                  shipping.zipCode
+                }}
+                {{ shipping.city }},<br />{{ shipping.country }}
+              </p>
+              <p class="shipping__address">
+                {{ shipping.phoneNumber }}
+              </p>
             </div>
-          </transition-group>
-        </div>
+            <div class="shipping__actions">
+              <SfIcon
+                icon="cross"
+                color="gray"
+                size="14px"
+                role="button"
+                class="mobile-only"
+                @click="deleteAddress(key)"
+              />
+              <SfButton @click="changeAddress(key)">Change</SfButton>
+              <SfButton
+                class="shipping__button-delete desktop-only"
+                @click="deleteAddress(key)"
+                >Delete</SfButton
+              >
+            </div>
+          </div>
+        </transition-group>
         <SfButton class="action-button" @click="changeAddress(-1)"
           >Add new address</SfButton
         >

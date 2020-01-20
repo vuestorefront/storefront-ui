@@ -1,0 +1,41 @@
+@import "../variables";
+
+$color-size: 2.5rem !default;
+$color-padding: 3px !default;
+
+.sf-color {
+    $this: &;
+    box-sizing: border-box;
+    width: $color-size;
+    height: $color-size;
+    padding: $color-padding;
+    border: 2px solid transparent;
+    background-color: var(--color);
+    transition: opacity 150ms ease;
+    &:hover {
+      #{$this}__fill {
+        border: 2px solid $c-white;
+        transition: border 150ms ease-in-out;
+      }
+    }
+    &:focus {
+        outline: none;
+    }
+    &__fill {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color);
+    }
+    &--active {
+        #{$this}__fill {
+          border: 2px solid $c-white;
+          transition: border 150ms ease-in-out;
+        }
+    }
+    &--rounded{
+        &, #{$this}__fill {
+            border-radius: 50%;
+        }
+    }
+}
