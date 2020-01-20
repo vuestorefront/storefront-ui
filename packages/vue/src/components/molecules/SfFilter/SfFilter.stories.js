@@ -32,11 +32,11 @@ storiesOf("Molecules|Filter", module)
     template: `<div style="max-width: 300px">
        <SfFilter
         v-for="filter in filters"
+        v-model="filter.selected"
         :key="filter.label"
         :label="filter.label"
         :count="filter.count"
         :selected="filter.selected"
-        @click="filter.selected = !filter.selected"
         />
     </div>`
   }))

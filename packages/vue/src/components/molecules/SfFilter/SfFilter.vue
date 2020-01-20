@@ -1,9 +1,8 @@
 <template>
-  <div class="sf-filter" :class="{ 'sf-filter--active': selected }">
+  <div class="sf-filter" :class="{ 'sf-filter--active': isChecked }">
     <!-- @slot  -->
     <slot name="label" v-bind="{ label }">
       <SfCheckbox
-        v-model="selected"
         class="sf-filter__checkbox"
         :name="label"
         :label="label"
