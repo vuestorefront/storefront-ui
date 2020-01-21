@@ -23,23 +23,11 @@ storiesOf("Organisms|BottomNavigation", module)
       }
     },
     template: `<SfBottomNavigation>
-        <SfBottomNavigationItem>
-          <SfIcon icon="home" size="20px"/>
-        </SfBottomNavigationItem>
-        <SfBottomNavigationItem>
-          <SfIcon icon="menu" size="20px" style="width: 25px" />
-        </SfBottomNavigationItem>
-        <SfBottomNavigationItem :class="customClass">
-          <SfIcon icon="heart" size="20px"/>
-        </SfBottomNavigationItem>
-        <SfBottomNavigationItem>
-          <SfIcon icon="profile" size="20px"/>
-        </SfBottomNavigationItem>
-        <SfBottomNavigationItem>
-          <SfCircleIcon class="sf-bottom-navigation__floating-icon">
-            <SfIcon icon="add_to_cart" size="20px" color="white"/>
-          </SfCircleIcon>
-        </SfBottomNavigationItem>
+        <SfBottomNavigationItem icon-name="home" icon-size="20px"/>
+        <SfBottomNavigationItem icon-name="menu" icon-size="20px"/>
+        <SfBottomNavigationItem icon-name="heart" icon-size="20px" :class="customClass"/>
+        <SfBottomNavigationItem icon-name="profile" icon-size="20px"/>
+        <SfBottomNavigationItem icon-name="add_to_cart" icon-size="20px" :is-active-button="true"/>
       </SfBottomNavigation>`
   }))
   .add("With text and icon", () => ({
