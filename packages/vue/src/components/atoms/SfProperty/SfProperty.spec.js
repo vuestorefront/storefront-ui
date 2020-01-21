@@ -5,6 +5,10 @@ describe("SfProperty.vue", () => {
     const component = shallowMount(SfProperty);
     expect(component.contains(".sf-property")).toBe(true);
   });
+  it("renders a div with correct class", () => {
+    const component = shallowMount(SfProperty);
+    expect(component.html()).toContain("sf-property");
+  });
   it("renders correct row", () => {
     const nameText = "Category";
     const valueText = "Pants";
