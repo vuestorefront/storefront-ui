@@ -26,7 +26,7 @@
             />
           </SfStep>
           <SfStep name="Review">
-            <ReviewOrder
+            <ConfirmOrder
               :order="order"
               :shipping-methods="shippingMethods"
               :payment-methods="paymentMethods"
@@ -66,7 +66,7 @@ import {
   PersonalDetails,
   Shipping,
   Payment,
-  ReviewOrder,
+  ConfirmOrder,
   OrderSummary,
   OrderReview
 } from "./_internal/index.js";
@@ -77,7 +77,7 @@ export default {
     PersonalDetails,
     Shipping,
     Payment,
-    ReviewOrder,
+    ConfirmOrder,
     OrderSummary,
     OrderReview
   },
