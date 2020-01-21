@@ -32,7 +32,6 @@ $product-card__pictures-height-desktop: 250px !default;
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: -1;
         content: "";
         box-shadow: $product-card-hover-box-shadow;
       }
@@ -87,7 +86,7 @@ $product-card__pictures-height-desktop: 250px !default;
   }
   &__badge {
     position: absolute;
-    top: $product-card-padding * 2;
+    top: $product-card-padding * 3;
     left: 0;
   }
   &__add-button {
