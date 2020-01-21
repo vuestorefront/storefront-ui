@@ -85,6 +85,11 @@ $product-card__pictures-height-desktop: 250px !default;
       mix-blend-mode: $product-card__image-blend-mode;
     }
   }
+  &__badge {
+    position: absolute;
+    top: $product-card-padding * 2;
+    left: 0;
+  }
   &__add-button {
     display: none;
     @media (min-width: $desktop-min) {
@@ -132,9 +137,6 @@ $product-card__pictures-height-desktop: 250px !default;
     &#{$this}--on-wishlist {
       opacity: 1;
     }
-  }
-  &__badge {
-    position: absolute;
   }
 }
 @keyframes bounce {
