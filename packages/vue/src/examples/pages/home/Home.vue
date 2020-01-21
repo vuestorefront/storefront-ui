@@ -20,7 +20,10 @@
             title="COCKTAIL PARTY"
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
-            image="/assets/storybook/Home/bannerF.jpg"
+            :image="{
+              mobile: '/assets/storybook/Home/bannerB.jpg',
+              desktop: '/assets/storybook/Home/bannerF.jpg'
+            }"
             class="sf-banner--slim banner-custom"
           />
         </a>
@@ -295,11 +298,6 @@ export default {
 .banner-central {
   @include for-desktop {
     padding-right: 30%;
-  }
-}
-.banner-custom {
-  @media (max-width: $desktop-min) {
-    background-image: url("../../../../public/assets/storybook/Home/bannerB.jpg") !important;
   }
 }
 .banner-application {

@@ -6,7 +6,7 @@
       'sf-input--invalid': valid === false
     }"
   >
-    <div style="position: relative; height: 100%">
+    <div class="sf-input__wrapper">
       <input
         :id="name"
         v-bind="$attrs"
@@ -14,6 +14,8 @@
         :required="required"
         :disabled="disabled"
         :name="name"
+        :class="{ 'sf-input--is-password': isPassword }"
+        :type="inputType"
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
@@ -21,6 +23,31 @@
         <!-- @slot Custom input label -->
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
+      <slot
+        v-if="isPassword"
+        v-bind="{
+          isPasswordVisible,
+          switchVisibilityPassword
+        }"
+        name="show-password"
+      >
+        <SfButton
+          aria-label="switch-visibility-password"
+          :aria-pressed="isPasswordVisible.toString()"
+          class="sf-input__password-button"
+          @click="switchVisibilityPassword"
+        >
+          <SfIcon
+            class="sf-input__password-icon"
+            :class="{
+              'sf-input__password-icon--hidden': !isPasswordVisible
+            }"
+            icon="show_password"
+            size="xs"
+            :color="isPasswordVisible ? 'gray-primary' : 'gray-secondary'"
+          ></SfIcon>
+        </SfButton>
+      </slot>
     </div>
     <div v-if="valid !== undefined" class="sf-input__error-message">
       <transition name="fade">
@@ -35,8 +62,11 @@
   </div>
 </template>
 <script>
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfInput",
+  components: { SfIcon, SfButton },
   props: {
     /**
      * Current input value (`v-model`)
@@ -58,6 +88,13 @@ export default {
     name: {
       type: String,
       default: null
+    },
+    /**
+     * Form input type
+     */
+    type: {
+      type: String,
+      default: "text"
     },
     /**
      * Validate value of form input
@@ -88,7 +125,17 @@ export default {
       type: Boolean,
       default: false,
       description: "Native input disabled attribute"
+    },
+    hasShowPassword: {
+      type: Boolean,
+      default: true
     }
+  },
+  data() {
+    return {
+      isPasswordVisible: false,
+      inputType: ""
+    };
   },
   computed: {
     listeners() {
@@ -96,6 +143,23 @@ export default {
         ...this.$listeners,
         input: event => this.$emit("input", event.target.value)
       };
+    },
+    isPassword() {
+      return this.type === "password" && this.hasShowPassword;
+    }
+  },
+  watch: {
+    type: {
+      immediate: true,
+      handler: function(value) {
+        this.inputType = value;
+      }
+    }
+  },
+  methods: {
+    switchVisibilityPassword() {
+      this.isPasswordVisible = !this.isPasswordVisible;
+      this.inputType = this.isPasswordVisible ? "text" : "password";
     }
   }
 };
