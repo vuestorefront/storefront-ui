@@ -133,6 +133,9 @@ $product-card__pictures-height-desktop: 250px !default;
       opacity: 1;
     }
   }
+  &__badge {
+    position: absolute;
+  }
 }
 @keyframes bounce {
   0% {

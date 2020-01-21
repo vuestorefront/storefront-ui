@@ -28,6 +28,11 @@
             :height="imageHeight"
           />
         </slot>
+        <template>
+          <slot name="badge">
+            <SfBadge class="sf-product-card__badge">{{ badgeLabel }}</SfBadge>
+          </slot>
+        </template>
         <template v-if="showAddToCartButton">
           <slot
             name="add-to-cart"
@@ -125,6 +130,8 @@ import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
+import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
+
 export default {
   name: "SfProductCard",
   components: {
@@ -132,7 +139,8 @@ export default {
     SfRating,
     SfIcon,
     SfImage,
-    SfCircleIcon
+    SfCircleIcon,
+    SfBadge
   },
   props: {
     /**
@@ -156,6 +164,27 @@ export default {
     imageHeight: {
       type: [String, Number],
       default: 326
+    },
+    /**
+     * Badge label
+     */
+    badgeLabel: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Badge label
+     */
+    badgeType: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Status of showing badge
+     */
+    showBadge: {
+      type: Boolean,
+      default: false
     },
     /**
      * Product title

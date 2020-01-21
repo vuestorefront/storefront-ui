@@ -34,6 +34,9 @@ storiesOf("Organisms|ProductCard", module)
       linkTag: {
         default: text("linkTag", "", "Props")
       },
+      badgeLabel: {
+        default: text("badgeLabel", "-50%", "Props")
+      },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
       },
@@ -73,6 +76,8 @@ storiesOf("Organisms|ProductCard", module)
         :title="title"
         :link="link"
         :linkTag="linkTag"
+        :badgeLabel="badgeLabel"
+        :showBadge="showBadge"
         :regular-price="regularPrice"
         :special-price="specialPrice"
         :score-rating="scoreRating"
