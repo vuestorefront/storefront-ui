@@ -13,12 +13,12 @@
   padding: 0 1rem;
   background: white;
   box-shadow: 0px -2px 10px rgba(154, 154, 154, 0.15);
+
   &__item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
     position: relative;
     font-size: 12px;
     color: $c-gray;
@@ -26,16 +26,27 @@
     & > .sf-icon {
       --icon-color: #{$c-gray-variant};
     }
-  }
-  &__item--active {
-    color: $c-black;
-    font-weight: $body-font-weight-secondary;
-    & > .sf-icon {
-      --icon-color: #{$c-black};
+
+    &--active {
+      color: $c-black;
+      font-weight: $body-font-weight-secondary;
+      & > .sf-icon {
+        --icon-color: #{$c-black};
+      }
+    }
+
+    &--spacer {
+      margin-top: $spacer;
     }
   }
+
   &__floating-icon {
     position: relative;
     top: -1.75rem;
+  }
+
+  &__floating-label {
+    position: relative;
+    top: -1.25rem;
   }
 }

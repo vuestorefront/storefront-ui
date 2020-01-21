@@ -16,10 +16,18 @@
         v-if="iconName && !isActiveButton"
         :icon="iconName"
         :size="iconSize"
+        class="sf-bottom-navigation__icon"
       />
     </slot>
     <slot name="label" v-bind="{ iconLabel }">
-      <span v-if="iconLabel">{{ iconLabel }}</span>
+      <span
+        v-if="iconLabel"
+        :class="{
+          'sf-bottom-navigation__item--spacer': iconName,
+          'sf-bottom-navigation__floating-label': isActiveButton
+        }"
+        >{{ iconLabel }}</span
+      >
     </slot>
   </div>
 </template>
