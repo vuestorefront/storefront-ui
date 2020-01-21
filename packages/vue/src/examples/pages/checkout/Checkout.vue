@@ -26,7 +26,7 @@
             />
           </SfStep>
           <SfStep name="Review">
-            <ReviewOrder
+            <ConfirmOrder
               :order="order"
               :shipping-methods="shippingMethods"
               :payment-methods="paymentMethods"
