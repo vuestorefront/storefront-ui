@@ -47,28 +47,12 @@ storiesOf("Organisms|BottomNavigation", module)
       }
     },
     template: `<SfBottomNavigation>
-        <SfBottomNavigationItem>
-          <SfIcon icon="home" size="20px"/>
-          <span style="margin-top: 0.5rem">Home</span>
-        </SfBottomNavigationItem>
-        <SfBottomNavigationItem>
-          <SfIcon icon="menu" size="20px" style="width: 25px" />
-          <span style="margin-top: 0.5rem">Menu</span>
-        </SfBottomNavigationItem>
-        <SfBottomNavigationItem :class="customClass">
-          <SfIcon icon="heart" size="20px"/>
-          <span style="margin-top: 0.5rem">Wishlist</span>
-        </SfBottomNavigationItem>
-        <SfBottomNavigationItem>
-          <SfIcon icon="profile" size="20px"/>
-          <span style="margin-top: 0.5rem">Account</span>
-        </SfBottomNavigationItem>
-        <SfBottomNavigationItem>
-          <SfCircleIcon class="sf-bottom-navigation__floating-icon">
-            <SfIcon icon="add_to_cart" size="20px" color="white"/>
-          </SfCircleIcon>
-        </SfBottomNavigationItem>
-      </SfBottomNavigation>`
+    <SfBottomNavigationItem icon-name="home" icon-size="20px" icon-label="Home"/>
+    <SfBottomNavigationItem icon-name="menu" icon-size="20px" icon-label="Menu"/>
+    <SfBottomNavigationItem icon-name="heart" icon-size="20px" icon-label="Heart" :class="customClass"/>
+    <SfBottomNavigationItem icon-name="profile" icon-size="20px" icon-label="Profile"/>
+    <SfBottomNavigationItem icon-name="add_to_cart" icon-size="20px" :is-active-button="true" icon-label="Basket"/>
+  </SfBottomNavigation>`
   }))
   .add("With text", () => ({
     components: { SfBottomNavigation, SfIcon, SfCircleIcon },
@@ -87,20 +71,10 @@ storiesOf("Organisms|BottomNavigation", module)
       }
     },
     template: `<SfBottomNavigation>
-        <SfBottomNavigationItem>
-          <span>Home</span>
-        </SfBottomNavigationItem>
-        <SfBottomNavigationItem>
-          <span>Menu</span>
-        </SfBottomNavigationItem>
-        <SfBottomNavigationItem :class="customClass">
-          <span>Wishlist</span>
-        </SfBottomNavigationItem>
-        <SfBottomNavigationItem>
-          <span>Account</span>
-        </SfBottomNavigationItem>
-        <SfBottomNavigationItem>
-          <span>Basket</span>
-        </SfBottomNavigationItem>
-      </SfBottomNavigation>`
+    <SfBottomNavigationItem icon-label="Home"/>
+    <SfBottomNavigationItem icon-label="Menu"/>
+    <SfBottomNavigationItem icon-label="Heart" :class="customClass"/>
+    <SfBottomNavigationItem icon-label="Profile"/>
+    <SfBottomNavigationItem icon-label="Basket"/>
+    </SfBottomNavigation>`
   }));
