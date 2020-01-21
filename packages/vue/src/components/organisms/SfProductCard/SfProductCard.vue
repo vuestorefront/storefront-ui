@@ -1,20 +1,5 @@
 <template>
   <div class="sf-product-card">
-    <button
-      v-if="wishlistIcon !== false"
-      :aria-label="ariaLabel"
-      :class="wishlistIconClasses"
-      @click="toggleIsOnWishlist"
-    >
-      <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
-        <SfIcon
-          :icon="currentWishlistIcon"
-          color="black"
-          size="22px"
-          data-test="sf-wishlist-icon"
-        />
-      </slot>
-    </button>
     <component
       :is="linkComponentTag"
       :href="linkComponentTag === 'a' ? link : undefined"
@@ -89,6 +74,21 @@
         </h3>
       </slot>
     </component>
+    <button
+      v-if="wishlistIcon !== false"
+      :aria-label="ariaLabel"
+      :class="wishlistIconClasses"
+      @click="toggleIsOnWishlist"
+    >
+      <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
+        <SfIcon
+          :icon="currentWishlistIcon"
+          color="black"
+          size="22px"
+          data-test="sf-wishlist-icon"
+        />
+      </slot>
+    </button>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
         v-if="regularPrice"

@@ -40,13 +40,19 @@ export default {
       default: true
     }
   },
-  mounted: function() {
+  mounted() {
     this.$on("toggle", this.toggleHandler);
-    if (this.$children.length) {
-      this.$children[0].isOpen = this.firstOpen;
-    }
+    this.setAsOpen();
+  },
+  updated() {
+    this.setAsOpen();
   },
   methods: {
+    setAsOpen() {
+      if (this.$children.length) {
+        this.$children[0].isOpen = this.firstOpen;
+      }
+    },
     toggleHandler(slotId) {
       if (!this.multiple) {
         this.$children.forEach(child => {

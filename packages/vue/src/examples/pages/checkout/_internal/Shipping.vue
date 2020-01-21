@@ -255,7 +255,7 @@ export default {
       shipping.phoneNumber = this.phoneNumber;
       shipping.shippingMethod = this.shippingMethod;
       order.shipping = shipping;
-      this.$emit("click:next", order);
+      this.$emit("update:order", order);
     }
   }
 };

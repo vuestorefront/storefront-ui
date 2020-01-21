@@ -15,6 +15,8 @@ $input__label-transition: all 150ms ease-in-out !default;
 $input__bar-transition: all 150ms ease-in-out !default;
 $input__error-message-font-family: $body-font-family-primary !default;
 $input__error-message-font-size: $font-size-small-mobile !default;
+$input__password-icon-hidden-color: $c-gray-variant !default;
+$input__password-icon-width: 1.4rem !default;
 
 @mixin move-label-up {
   top: calc((#{$input__label-focus-font-size / 2}) - 5px);
@@ -39,7 +41,6 @@ $input__error-message-font-size: $font-size-small-mobile !default;
   }
   & input {
     position: relative;
-    z-index: 1;
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -74,6 +75,16 @@ $input__error-message-font-size: $font-size-small-mobile !default;
         margin: 0;
       }
     }
+    &#{$this}--is-password {
+      padding-right: $input__password-icon-width + 2 * $spacer-big;
+    }
+  }
+  &__wrapper {
+    position: relative;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
   }
   &__bar {
     position: relative;
@@ -109,6 +120,36 @@ $input__error-message-font-size: $font-size-small-mobile !default;
     color: $input-color-invalid;
     font-family: $input__error-message-font-family;
     font-size: $input__error-message-font-size;
+  }
+  &__password-button.sf-button {
+    position: absolute;
+    right: $spacer-big;
+    padding: 0;
+    background: transparent;
+    border: none;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  &__password-icon {
+    &.sf-icon{
+      height: auto;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+      background-color: $input__password-icon-hidden-color;
+      transform: translate3d(0, -50%, 0) rotate(45deg) scaleX(0);
+      transition: transform 300ms ease-in-out;
+    }
+    @at-root #{&}--hidden {
+      &:after {
+        transform: translate3d(0, -50%, 0) rotate(45deg) scaleX(1);
+      }
+    }
   }
   &--invalid {
     input {

@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-footer">
+  <div class="sf-footer" :style="style">
     <slot />
   </div>
 </template>
@@ -27,20 +27,16 @@ export default {
       isMobile: false
     };
   },
+  computed: {
+    style() {
+      return { "--col-width": `${100 / this.column}%` };
+    }
+  },
   watch: {
     isMobile: {
       handler(mobile) {
         this.$nextTick(() => {
           this.open = mobile ? [] : [...this.items];
-        });
-      },
-      immediate: true
-    },
-    column: {
-      handler(column) {
-        if (typeof window === "undefined") return;
-        this.$nextTick(() => {
-          this.$el.style.setProperty("--col-width", `${100 / column}%`);
         });
       },
       immediate: true

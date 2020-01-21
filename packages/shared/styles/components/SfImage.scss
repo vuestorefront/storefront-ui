@@ -22,6 +22,11 @@ $image__overlay-c: $c-white !default;
     display: block;
     max-width: 100%;
     height: auto;
+    img{
+      display: inherit;
+      max-width: inherit;
+      height: inherit;
+    }
   }
   &--no-size{
     width: auto;
