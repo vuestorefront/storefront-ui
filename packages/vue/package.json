@@ -6,7 +6,7 @@
     "*.scss",
     "*.css"
   ],
-  "version": "0.5.0",
+  "version": "0.5.1",
   "scripts": {
     "serve": "yarpm create-index-files && vue-cli-service serve",
     "build": "yarpm create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "^0.5.0",
+    "@storefront-ui/shared": "^0.5.1",
     "@vue/babel-preset-app": "^4.0.0-alpha.1",
     "body-scroll-lock": "^2.6.4",
     "core-js": "^3.1.3",

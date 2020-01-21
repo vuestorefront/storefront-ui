@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.5.0...@storefront-ui/shared@0.5.1) (2020-01-21)
+
+
+### Bug Fixes
+
+* **ui:** cheating lerna ([9c2b9c4](https://github.com/DivanteLtd/storefront-ui/commit/9c2b9c4a9763bd7f0e4f7c25e60250b81a1b90d4))
+* **ui:** rever sfui css ([554c6d7](https://github.com/DivanteLtd/storefront-ui/commit/554c6d73c556c0e2f8c0923421b60c005d70d63e))
+* **ui:** sfui css ([01b24d1](https://github.com/DivanteLtd/storefront-ui/commit/01b24d178b4ab38143d8b81b9c3ce9d836d84c5c))
+
+
+
+
+
 # [0.5.0](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.4.0...@storefront-ui/shared@0.5.0) (2020-01-21)
 
 
