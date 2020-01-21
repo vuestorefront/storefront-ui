@@ -28,9 +28,13 @@
             :height="imageHeight"
           />
         </slot>
-        <template>
-          <slot name="badge">
-            <SfBadge class="sf-product-card__badge">{{ badgeLabel }}</SfBadge>
+        <template v-if="showBadge">
+          <slot name="badge" v-bind="{ badgeLabel, badgeType }">
+            <SfBadge
+              class="sf-product-card__badge"
+              :class="`color-${badgeType}`"
+              >{{ badgeLabel }}</SfBadge
+            >
           </slot>
         </template>
         <template v-if="showAddToCartButton">
@@ -177,7 +181,12 @@ export default {
      */
     badgeType: {
       type: String,
-      default: ""
+      default: "warning",
+      validator: function(value) {
+        return ["secondary", "info", "success", "warning", "danger"].includes(
+          value
+        );
+      }
     },
     /**
      * Status of showing badge
