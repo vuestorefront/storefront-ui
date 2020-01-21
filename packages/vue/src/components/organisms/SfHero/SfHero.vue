@@ -105,6 +105,7 @@ export default {
   },
   methods: {
     go(direct) {
+      if (!this.glide) return;
       switch (direct) {
         case "prev":
           this.glide.go("<");

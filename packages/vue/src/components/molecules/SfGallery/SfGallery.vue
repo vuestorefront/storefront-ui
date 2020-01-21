@@ -181,6 +181,7 @@ export default {
       return "";
     },
     go(index) {
+      if (!this.glide) return;
       this.activeIndex = index;
       /**
        * Event for current image change (`v-model`)
