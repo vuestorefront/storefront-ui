@@ -153,6 +153,7 @@ export default {
     this.$nextTick(() => {
       // handle slider with swipe and transitions with Glide.js
       // https://glidejs.com/docs/
+      if (this.images.length < 1) return;
       const glide = new Glide(this.$refs.glide, this.sliderOptions);
       glide.on("run", () => {
         this.go(glide.index);
