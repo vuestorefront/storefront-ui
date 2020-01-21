@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sf-content-category">
     <slot />
   </div>
 </template>

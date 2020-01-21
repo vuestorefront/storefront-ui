@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
 import SfProperty from "./SfProperty.vue";
 describe("SfProperty.vue", () => {
-  it("renders a div with correct class", () => {
+  it("renders a component", () => {
     const component = shallowMount(SfProperty);
-    expect(component.html()).toContain("sf-property");
+    expect(component.contains(".sf-property")).toBe(true);
   });
   it("renders correct row", () => {
     const nameText = "Category";

@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
 import SfMenuItem from "./SfMenuItem.vue";
 describe("SfMenuItem.vue", () => {
-  it("renders a div with correct class", () => {
+  it("renders a component", () => {
     const component = shallowMount(SfMenuItem);
-    expect(component.html()).toContain("sf-menu-item");
+    expect(component.contains(".sf-menu-item")).toBe(true);
   });
   it("renders correct count prop", () => {
     const countText = "10 item(s)";
