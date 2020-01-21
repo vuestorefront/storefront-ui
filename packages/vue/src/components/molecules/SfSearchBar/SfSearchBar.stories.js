@@ -14,7 +14,6 @@ storiesOf("Molecules|SearchBar", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-search-bar--secondary": "sf-search-bar--secondary",
             "sf-search-bar--position-right": "sf-search-bar--position-right",
             "sf-search-bar--position-right-mobile":
               "sf-search-bar--position-right-mobile",
@@ -48,7 +47,6 @@ storiesOf("Molecules|SearchBar", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-search-bar--secondary": "sf-search-bar--secondary",
             "sf-search-bar--position-right": "sf-search-bar--position-right",
             "sf-search-bar--position-right-mobile":
               "sf-search-bar--position-right-mobile",
@@ -84,7 +82,6 @@ storiesOf("Molecules|SearchBar", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-search-bar--secondary": "sf-search-bar--secondary",
             "sf-search-bar--position-right": "sf-search-bar--position-right",
             "sf-search-bar--position-right-mobile":
               "sf-search-bar--position-right-mobile",

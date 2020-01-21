@@ -10,8 +10,6 @@ $call-to-action__title-font-size: $font-size-big-mobile !default;
 $call-to-action__title-font-size-desktop: $h1-font-size-desktop !default;
 $call-to-action__title-font-weight: $h1-font-weight-desktop !default;
 $call-to-action__title-line-height: 1.4 !default;
-$call-to-action--secondary__button-color: $c-on-dark !default;
-$call-to-action--secondary__button-background-color: $c-dark !default;
 $call-to-action--light-color: $c-on-light !default;
 $call-to-action--light-background-color: $c-light !default;
 
@@ -58,12 +56,6 @@ $call-to-action--light-background-color: $c-light !default;
   &__button {
     margin: $spacer-big 0 0 0;
     white-space: nowrap;
-  }
-  &--secondary {
-    #{$this}__button {
-      color: $call-to-action--secondary__button-color;
-      background: $call-to-action--secondary__button-background-color;
-    }
   }
   &--light {
     color: $call-to-action--light-color;

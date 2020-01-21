@@ -1,7 +1,6 @@
 @import "../variables";
 
 $search-bar-background-primary: $c-light !default;
-$search-bar-background-secondary: $c-light-variant !default;
 $search-bar-placeholder-color: $c-dark !default;
 $search-bar-placeholder-color-focus: transparent !default;
 $search-bar-width: 20rem !default;
@@ -51,9 +50,6 @@ $search-bar-font-size: 0.875rem !default;
   @media (min-width: $mobile-max) {
     width: $search-bar-width;
   }
-  &--secondary {
-    background-color: $search-bar-background-secondary;
-  }
   &--position-right {
     @include iconPosition();
   }
@@ -93,6 +89,9 @@ $search-bar-font-size: 0.875rem !default;
         padding-right: 0.4rem;
         position: absolute;
         right: 0.9375rem;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
     &::-webkit-search-cancel-button {
