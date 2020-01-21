@@ -1,18 +1,26 @@
 <template>
   <div class="sf-bottom-navigation__item">
-    <template v-if="iconName">
-      <slot name="icon" v-bind="{ iconName, iconSize, isActiveButton }">
-        <SfIcon v-if="!isActiveButton" :icon="iconName" :size="iconSize" />
-        <SfCircleIcon v-else>
-          <SfIcon :icon="iconName" :size="iconSize" color="white" />
-        </SfCircleIcon>
-      </slot>
-    </template>
-    <template v-if="iconLabel">
-      <slot name="label" v-bind="{ iconLabel }">
-        <span>{{ iconLabel }}</span>
-      </slot>
-    </template>
+    <slot name="icon" v-bind="{ iconName, iconSize, isActiveButton }">
+      <SfCircleIcon
+        v-if="isActiveButton"
+        class="sf-bottom-navigation__floating-icon"
+      >
+        <SfIcon
+          v-if="iconName"
+          :icon="iconName"
+          :size="iconSize"
+          color="white"
+        />
+      </SfCircleIcon>
+      <SfIcon
+        v-if="iconName && !isActiveButton"
+        :icon="iconName"
+        :size="iconSize"
+      />
+    </slot>
+    <slot name="label" v-bind="{ iconLabel }">
+      <span v-if="iconLabel">{{ iconLabel }}</span>
+    </slot>
   </div>
 </template>
 
