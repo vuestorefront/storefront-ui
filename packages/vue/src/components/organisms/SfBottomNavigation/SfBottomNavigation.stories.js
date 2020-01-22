@@ -49,28 +49,28 @@ storiesOf("Organisms|BottomNavigation", module)
     template: `<SfBottomNavigation>
     <SfBottomNavigationItem>
       <template #icon>
-        <SfIcon icon="home"/>
+        <SfIcon icon="home" size="20px"/>
       </template>
     </SfBottomNavigationItem>
     <SfBottomNavigationItem>
       <template #icon>
-        <SfIcon icon="menu"/>
+        <SfIcon icon="menu" size="20px"/>
       </template>
     </SfBottomNavigationItem>
     <SfBottomNavigationItem>
       <template #icon>
-        <SfIcon icon="heart"/>
+        <SfIcon icon="heart" size="20px"/>
       </template>
     </SfBottomNavigationItem>
     <SfBottomNavigationItem>
       <template #icon>
-        <SfIcon icon="profile"/>
+        <SfIcon icon="profile" size="20px"/>
       </template>
     </SfBottomNavigationItem>
     <SfBottomNavigationItem :is-active-button="true">
       <template #icon>
         <SfCircleIcon>
-          <SfIcon icon="add_to_cart" color="white"/>
+          <SfIcon icon="add_to_cart" color="white" size="20px"/>
         </SfCircleIcon>
       </template>
     </SfBottomNavigationItem>
