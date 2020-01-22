@@ -31,6 +31,7 @@
         <template v-if="showBadge">
           <slot name="badge" v-bind="{ badgeLabel, badgeType }">
             <SfBadge
+              v-if="badgeLabel "
               class="sf-product-card__badge"
               :class="`color-${badgeType}`"
               >{{ badgeLabel }}</SfBadge
