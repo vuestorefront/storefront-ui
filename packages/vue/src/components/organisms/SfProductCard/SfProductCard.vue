@@ -170,6 +170,7 @@ export default {
     },
     /**
      * Badge label
+     * Standard colors: `primary`, `secondary`, `info`, `warning`, `danger`, `success` .
      */
     badgeLabel: {
       type: String,
