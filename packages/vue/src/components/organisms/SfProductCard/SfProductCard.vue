@@ -7,7 +7,6 @@
       class="sf-product-card__link"
     >
       <div
-        ref="productImage"
         class="sf-product-card__image-wrapper"
         :style="`width: ${imageWidth}px; height: ${imageHeight}px;`"
       >
