@@ -6,12 +6,12 @@
       :to="link && linkComponentTag !== 'a' ? link : undefined"
       class="sf-product-card__link"
     >
-      <div
-        class="sf-product-card__image-wrapper"
-        :style="`width: ${imageWidth}px; height: ${imageHeight}px;`"
-      >
+      <div class="sf-product-card__image-wrapper">
         <slot name="image" v-bind="{ image, title }">
-          <div v-if="Array.isArray(image)" class="sf-product-card__pictures">
+          <template
+            v-if="Array.isArray(image)"
+            class="sf-product-card__pictures"
+          >
             <SfImage
               v-for="(picture, key) in image.slice(0, 2)"
               :key="key"
@@ -21,7 +21,7 @@
               :width="imageWidth"
               :height="imageHeight"
             />
-          </div>
+          </template>
           <SfImage
             v-else
             class="sf-product-card__image"
