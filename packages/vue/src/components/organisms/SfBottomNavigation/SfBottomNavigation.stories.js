@@ -1,37 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
+import SfBottomNavigation from "./SfBottomNavigation.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-import SfBottomNavigation from "./SfBottomNavigation.vue";
 storiesOf("Organisms|BottomNavigation", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfBottomNavigation, SfIcon, SfCircleIcon },
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-bottom-navigation__item--active":
-              "sf-bottom-navigation__item--active"
-          },
-          "sf-bottom-navigation__item--active",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      }
-    },
-    template: `<SfBottomNavigation>
-        <SfBottomNavigationItem icon-name="home" icon-size="20px"/>
-        <SfBottomNavigationItem icon-name="menu" icon-size="20px"/>
-        <SfBottomNavigationItem icon-name="heart" icon-size="20px" :class="customClass"/>
-        <SfBottomNavigationItem icon-name="profile" icon-size="20px"/>
-        <SfBottomNavigationItem icon-name="add_to_cart" icon-size="20px" :is-active-button="true"/>
-      </SfBottomNavigation>`
-  }))
-  .add("With text and icon", () => ({
-    components: { SfBottomNavigation, SfIcon, SfCircleIcon },
+    components: { SfBottomNavigation },
     props: {
       customClass: {
         default: options(
@@ -54,7 +30,7 @@ storiesOf("Organisms|BottomNavigation", module)
     <SfBottomNavigationItem icon-name="add_to_cart" icon-size="20px" :is-active-button="true" icon-label="Basket"/>
   </SfBottomNavigation>`
   }))
-  .add("With text", () => ({
+  .add("[slot] icon", () => ({
     components: { SfBottomNavigation, SfIcon, SfCircleIcon },
     props: {
       customClass: {
@@ -71,10 +47,76 @@ storiesOf("Organisms|BottomNavigation", module)
       }
     },
     template: `<SfBottomNavigation>
-    <SfBottomNavigationItem icon-label="Home"/>
-    <SfBottomNavigationItem icon-label="Menu"/>
-    <SfBottomNavigationItem icon-label="Heart" :class="customClass"/>
-    <SfBottomNavigationItem icon-label="Profile"/>
-    <SfBottomNavigationItem icon-label="Basket"/>
+    <SfBottomNavigationItem>
+      <template #icon>
+        <SfIcon icon="home"/>
+      </template>
+    </SfBottomNavigationItem>
+    <SfBottomNavigationItem>
+      <template #icon>
+        <SfIcon icon="menu"/>
+      </template>
+    </SfBottomNavigationItem>
+    <SfBottomNavigationItem>
+      <template #icon>
+        <SfIcon icon="heart"/>
+      </template>
+    </SfBottomNavigationItem>
+    <SfBottomNavigationItem>
+      <template #icon>
+        <SfIcon icon="profile"/>
+      </template>
+    </SfBottomNavigationItem>
+    <SfBottomNavigationItem :is-active-button="true">
+      <template #icon>
+        <SfCircleIcon>
+          <SfIcon icon="add_to_cart" color="white"/>
+        </SfCircleIcon>
+      </template>
+    </SfBottomNavigationItem>
+  </SfBottomNavigation>`
+  }))
+  .add("[slot] label", () => ({
+    components: { SfBottomNavigation },
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-bottom-navigation__item--active":
+              "sf-bottom-navigation__item--active"
+          },
+          "sf-bottom-navigation__item--active",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      }
+    },
+    template: `<SfBottomNavigation>
+    <SfBottomNavigationItem>
+      <template #label>
+        <span>Home</span>
+      </template>
+    </SfBottomNavigationItem>
+    <SfBottomNavigationItem>
+      <template #label>
+        <span>Menu</span>
+      </template>
+    </SfBottomNavigationItem>
+    <SfBottomNavigationItem :class="customClass">
+      <template #label>
+        <span>Heart</span>
+      </template>
+    </SfBottomNavigationItem>
+    <SfBottomNavigationItem>
+      <template #label>
+        <span>Profile</span>
+      </template>
+    </SfBottomNavigationItem>
+    <SfBottomNavigationItem>
+      <template #label>
+        <span>Basket</span>
+      </template>
+    </SfBottomNavigationItem>
     </SfBottomNavigation>`
   }));

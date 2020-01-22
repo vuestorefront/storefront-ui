@@ -1,6 +1,7 @@
 @import "../variables";
 
 .sf-bottom-navigation {
+  $this: &;
   box-sizing: border-box;
   position: fixed;
   bottom: 0;
@@ -40,13 +41,12 @@
     }
   }
 
-  &__floating-icon {
-    position: relative;
+  &__active-button {
     top: -1.75rem;
-  }
 
-  &__floating-label {
-    position: relative;
-    top: -1.25rem;
+    #{$this}__floating-label {
+      position: relative;
+      top: 0.5rem;
+    }
   }
 }

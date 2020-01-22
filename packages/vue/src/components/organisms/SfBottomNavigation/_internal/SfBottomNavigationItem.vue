@@ -1,10 +1,10 @@
 <template>
-  <div class="sf-bottom-navigation__item">
+  <div
+    class="sf-bottom-navigation__item"
+    :class="{ 'sf-bottom-navigation__active-button': isActiveButton }"
+  >
     <slot name="icon" v-bind="{ iconName, iconSize, isActiveButton }">
-      <SfCircleIcon
-        v-if="isActiveButton"
-        class="sf-bottom-navigation__floating-icon"
-      >
+      <SfCircleIcon v-if="isActiveButton">
         <SfIcon
           v-if="iconName"
           :icon="iconName"
