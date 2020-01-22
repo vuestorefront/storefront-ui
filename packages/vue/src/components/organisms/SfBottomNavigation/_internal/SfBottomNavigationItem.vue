@@ -13,7 +13,7 @@
         />
       </SfCircleIcon>
       <SfIcon
-        v-if="iconName && !isActiveButton"
+        v-else-if="iconName"
         :icon="iconName"
         :size="iconSize"
         class="sf-bottom-navigation__icon"
