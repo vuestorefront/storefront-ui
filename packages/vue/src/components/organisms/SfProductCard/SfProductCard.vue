@@ -28,15 +28,14 @@
             :height="imageHeight"
           />
         </slot>
-          <slot name="badge" v-bind="{ badgeLabel, badgeType }">
-            <SfBadge
-              v-if="badgeLabel "
-              class="sf-product-card__badge"
-              :class="`color-${badgeType}`"
-              >{{ badgeLabel }}</SfBadge
-            >
-          </slot>
-        </template>
+        <slot name="badge" v-bind="{ badgeLabel, badgeType }">
+          <SfBadge
+            v-if="badgeLabel"
+            class="sf-product-card__badge"
+            :class="`color-${badgeType}`"
+            >{{ badgeLabel }}</SfBadge
+          >
+        </slot>
         <template v-if="showAddToCartButton">
           <slot
             name="add-to-cart"
