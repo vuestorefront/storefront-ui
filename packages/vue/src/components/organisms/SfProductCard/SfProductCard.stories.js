@@ -89,7 +89,6 @@ storiesOf("Organisms|ProductCard", module)
         :linkTag="linkTag"
         :badgeLabel="badgeLabel"
         :badgeType="badgeType"
-        :showBadge="showBadge"
         :regular-price="regularPrice"
         :special-price="specialPrice"
         :score-rating="scoreRating"
