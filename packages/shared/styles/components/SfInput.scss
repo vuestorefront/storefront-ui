@@ -121,7 +121,7 @@ $input__password-icon-width: 1.4rem !default;
     font-family: $input__error-message-font-family;
     font-size: $input__error-message-font-size;
   }
-  &__password-button {
+  &__password-button.sf-button {
     position: absolute;
     right: $spacer-big;
     padding: 0;
