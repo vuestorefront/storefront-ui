@@ -19,7 +19,19 @@ $badge-line-height: 1.6 !default;
   font-weight: $badge-font-weight;
   line-height: $badge-line-height;
   text-align: center;
+  cursor: default;
   &--full-width {
     width: 100%;
+  }
+
+  @each $color, $map in $colors-map {
+    $bg: map-get($map, "bg");
+    $text: map-get($map, "text");
+    &.color-#{$color} {
+      &:hover {
+        background-color: $bg !important;
+        color: $text !important;
+      }
+    }
   }
 }
