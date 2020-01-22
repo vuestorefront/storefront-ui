@@ -86,7 +86,7 @@ $product-card__pictures-height-desktop: 250px !default;
   }
   &__badge {
     position: absolute;
-    top: $product-card-padding * 4;
+    top: $spacer
     left: 0;
   }
   &__add-button {
