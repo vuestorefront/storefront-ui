@@ -1,32 +1,27 @@
 <template>
   <div
     class="sf-bottom-navigation__item"
-    :class="{ 'sf-bottom-navigation__active-button': isActiveButton }"
+    :class="{ 'sf-bottom-navigation__active-button': isActive }"
   >
-    <slot name="icon" v-bind="{ iconName, iconSize, isActiveButton }">
-      <SfCircleIcon v-if="isActiveButton">
-        <SfIcon
-          v-if="iconName"
-          :icon="iconName"
-          :size="iconSize"
-          color="white"
-        />
+    <slot name="icon" v-bind="{ icon, iconSize, isActive }">
+      <SfCircleIcon v-if="isActive">
+        <SfIcon v-if="icon" :icon="icon" :size="iconSize" color="white" />
       </SfCircleIcon>
       <SfIcon
-        v-else-if="iconName"
-        :icon="iconName"
+        v-else-if="icon"
+        :icon="icon"
         :size="iconSize"
         class="sf-bottom-navigation__icon"
       />
     </slot>
-    <slot name="label" v-bind="{ iconLabel }">
+    <slot name="label" v-bind="{ label }">
       <span
-        v-if="iconLabel"
+        v-if="label"
         :class="{
-          'sf-bottom-navigation__item--spacer': iconName,
-          'sf-bottom-navigation__floating-label': isActiveButton
+          'sf-bottom-navigation__item--spacer': icon,
+          'sf-bottom-navigation__floating-label': isActive
         }"
-        >{{ iconLabel }}</span
+        >{{ label }}</span
       >
     </slot>
   </div>
@@ -42,11 +37,11 @@ export default {
     SfIcon
   },
   props: {
-    iconName: {
+    icon: {
       type: String,
       default: ""
     },
-    iconLabel: {
+    label: {
       type: String,
       default: ""
     },
@@ -54,7 +49,7 @@ export default {
       type: String,
       default: ""
     },
-    isActiveButton: {
+    isActive: {
       type: Boolean,
       default: false
     }

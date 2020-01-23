@@ -23,11 +23,11 @@ storiesOf("Organisms|BottomNavigation", module)
       }
     },
     template: `<SfBottomNavigation>
-    <SfBottomNavigationItem icon-name="home" icon-size="20px" icon-label="Home"/>
-    <SfBottomNavigationItem icon-name="menu" icon-size="20px" icon-label="Menu"/>
-    <SfBottomNavigationItem icon-name="heart" icon-size="20px" icon-label="Heart" :class="customClass"/>
-    <SfBottomNavigationItem icon-name="profile" icon-size="20px" icon-label="Profile"/>
-    <SfBottomNavigationItem icon-name="add_to_cart" icon-size="20px" :is-active-button="true" icon-label="Basket"/>
+    <SfBottomNavigationItem icon="home" icon-size="20px" label="Home"/>
+    <SfBottomNavigationItem icon="menu" icon-size="20px" label="Menu"/>
+    <SfBottomNavigationItem icon="heart" icon-size="20px" label="Heart" :class="customClass"/>
+    <SfBottomNavigationItem icon="profile" icon-size="20px" label="Profile"/>
+    <SfBottomNavigationItem icon="add_to_cart" icon-size="20px" :is-active="true" label="Basket"/>
   </SfBottomNavigation>`
   }))
   .add("[slot] icon", () => ({
@@ -57,7 +57,7 @@ storiesOf("Organisms|BottomNavigation", module)
         <SfIcon icon="menu" size="20px"/>
       </template>
     </SfBottomNavigationItem>
-    <SfBottomNavigationItem>
+    <SfBottomNavigationItem :class="customClass">
       <template #icon>
         <SfIcon icon="heart" size="20px"/>
       </template>
@@ -67,7 +67,7 @@ storiesOf("Organisms|BottomNavigation", module)
         <SfIcon icon="profile" size="20px"/>
       </template>
     </SfBottomNavigationItem>
-    <SfBottomNavigationItem :is-active-button="true">
+    <SfBottomNavigationItem :is-active="true">
       <template #icon>
         <SfCircleIcon>
           <SfIcon icon="add_to_cart" color="white" size="20px"/>
