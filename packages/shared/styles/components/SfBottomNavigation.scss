@@ -1,5 +1,8 @@
 @import "../variables";
 
+$bottom-navigation__item-color: $c-gray-variant !default;
+$bottom-navigation__item-color--active: $c-black !default;
+
 .sf-bottom-navigation {
   $this: &;
   box-sizing: border-box;
@@ -25,14 +28,14 @@
     color: $c-gray;
     
     & > .sf-icon {
-      --icon-color: #{$c-gray-variant};
+      --icon-color: #{$bottom-navigation__item-color};
     }
 
     &--active {
       color: $c-black;
       font-weight: $body-font-weight-secondary;
       & > .sf-icon {
-        --icon-color: #{$c-black};
+        --icon-color: #{$bottom-navigation__item-color--active};
       }
     }
 
