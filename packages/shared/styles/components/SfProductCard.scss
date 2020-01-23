@@ -8,6 +8,8 @@ $product-card__image-background-color: $c-light !default;
 $product-card__image-blend-mode: darken !default;
 $product-card__pictures-height: 180px !default;
 $product-card__pictures-height-desktop: 250px !default;
+$product-card__title-max-width: 8rem !default;
+
 .sf-product-card {
   $this: &;
   position: relative;
@@ -66,7 +68,12 @@ $product-card__pictures-height-desktop: 250px !default;
     @media (min-width: $desktop-min) {
       margin: $spacer 0 $spacer-small;
       font-size: $font-size-regular-desktop;
+
+      &--wrapped {
+        max-width: $product-card__title-max-width;
+      }
     }
+
   }
   &__image-wrapper {
     position: relative;
@@ -101,6 +108,10 @@ $product-card__pictures-height-desktop: 250px !default;
       &--icons-leave-active {
         animation: bounce .4s reverse;
       }
+    }
+
+    .sf-circle-icon .sf-button {
+      padding: 0;
     }
   }
   &__reviews {

@@ -69,7 +69,10 @@
         </template>
       </div>
       <slot name="title" v-bind="{ title }">
-        <h3 class="sf-product-card__title">
+        <h3
+          class="sf-product-card__title"
+          :class="{ 'sf-product-card__title--wrapped': showAddToCartButton }"
+        >
           {{ title }}
         </h3>
       </slot>
