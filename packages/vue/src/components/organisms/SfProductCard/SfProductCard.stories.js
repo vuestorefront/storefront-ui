@@ -37,9 +37,9 @@ storiesOf("Organisms|ProductCard", module)
       badgeLabel: {
         default: text("badgeLabel", "-50%", "Props")
       },
-      badgeType: {
+      badgeColor: {
         default: select(
-          "badgeType",
+          "badgeColor",
           ["primary", "secondary", "warning", "danger", "info", "success"],
           "danger",
           "Props"
@@ -88,7 +88,7 @@ storiesOf("Organisms|ProductCard", module)
         :link="link"
         :linkTag="linkTag"
         :badgeLabel="badgeLabel"
-        :badgeType="badgeType"
+        :badgeColor="badgeColor"
         :regular-price="regularPrice"
         :special-price="specialPrice"
         :score-rating="scoreRating"

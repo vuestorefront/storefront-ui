@@ -28,11 +28,11 @@
             :height="imageHeight"
           />
         </slot>
-        <slot name="badge" v-bind="{ badgeLabel, badgeType }">
+        <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
           <SfBadge
             v-if="badgeLabel"
             class="sf-product-card__badge"
-            :class="`color-${badgeType}`"
+            :class="`color-${badgeColor}`"
             >{{ badgeLabel }}</SfBadge
           >
         </slot>
@@ -177,9 +177,9 @@ export default {
       default: ""
     },
     /**
-     * Badge label
+     * Badge color
      */
-    badgeType: {
+    badgeColor: {
       type: String,
       default: "warning",
       validator: function(value) {
