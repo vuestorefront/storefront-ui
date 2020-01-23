@@ -1,7 +1,7 @@
 <template>
   <div ref="glide" class="glide sf-grouped-product">
     <div class="glide__track" data-glide-el="track">
-      <ul class="glide__slides">
+      <ul ref="slides">
         <!-- @slot Slot for Grouped Product Items -->
         <slot />
       </ul>
@@ -64,6 +64,7 @@ export default {
       const glide = new Glide(this.$refs.glide, this.glideSettings);
       if (!this.disabled) {
         glide.mount();
+        this.addGlideClass();
         glide.on("run.before", move => {
           const { perView, slidePerPage, rewind } = this.glide.settings,
             { index } = this.glide,
@@ -86,6 +87,11 @@ export default {
         this.glide = glide;
       }
     });
+  },
+  methods: {
+    addGlideClass() {
+      this.$refs.slides.classList.add("glide__slides");
+    }
   }
 };
 </script>
