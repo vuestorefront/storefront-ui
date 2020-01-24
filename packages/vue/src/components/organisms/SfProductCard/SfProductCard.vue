@@ -8,10 +8,7 @@
     >
       <div class="sf-product-card__image-wrapper">
         <slot name="image" v-bind="{ image, title }">
-          <template
-            v-if="Array.isArray(image)"
-            class="sf-product-card__pictures"
-          >
+          <template v-if="Array.isArray(image)">
             <SfImage
               v-for="(picture, key) in image.slice(0, 2)"
               :key="key"
