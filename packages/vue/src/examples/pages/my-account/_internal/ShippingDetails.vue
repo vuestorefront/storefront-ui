@@ -98,7 +98,7 @@
         <transition-group tag="div" name="fade" class="shipping-list">
           <div
             v-for="(shipping, key) in account.shipping"
-            :key="shipping.firstName + shipping.lastName"
+            :key="shipping.streetName + shipping.apartment"
             class="shipping"
           >
             <div class="shipping__content">
