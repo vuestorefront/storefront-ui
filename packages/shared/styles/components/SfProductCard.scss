@@ -79,6 +79,11 @@ $product-card__image-blend-mode: darken !default;
       opacity: 0;
     }
   }
+  &__badge {
+    position: absolute;
+    top: $spacer;
+    left: 0;
+  }
   &__add-button {
     display: none;
     @media (min-width: $desktop-min) {
