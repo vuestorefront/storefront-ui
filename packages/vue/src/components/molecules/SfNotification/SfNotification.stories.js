@@ -183,7 +183,7 @@ storiesOf("Molecules|Notification", module)
       type: {
         default: select(
           "type",
-          ["primary", "secondary", "warning", "danger", "info", "success"],
+          ["info", "success", "warning", "danger"],
           "info",
           "Props"
         )
