@@ -1,7 +1,11 @@
 <template>
   <div ref="glide" class="glide sf-grouped-product">
     <div class="glide__track" data-glide-el="track">
-      <ul ref="slides" class="glide__slides">
+      <ul
+        ref="slides"
+        class="glide__slides"
+        :class="{ 'sf-grouped-product--disabled': disabled }"
+      >
         <!-- @slot Slot for Grouped Product Items -->
         <slot />
       </ul>
@@ -61,10 +65,9 @@ export default {
   mounted() {
     this.$nextTick(() => {
       if (!this.$slots.default) return;
-      const glide = new Glide(this.$refs.glide, this.glideSettings);
       if (!this.disabled) {
+        const glide = new Glide(this.$refs.glide, this.glideSettings);
         glide.mount();
-        this.addGlideClass();
         glide.on("run.before", move => {
           const { perView, slidePerPage, rewind } = this.glide.settings,
             { index } = this.glide,

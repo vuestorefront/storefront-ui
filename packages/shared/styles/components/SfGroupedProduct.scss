@@ -81,4 +81,7 @@ $grouped-product-item__image-background-color: $c-light !default;
       }
     }
   }
+  &--disabled {
+    display: block;
+  }
 }
