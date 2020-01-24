@@ -1,7 +1,7 @@
 <template>
   <div ref="glide" class="glide sf-grouped-product">
     <div class="glide__track" data-glide-el="track">
-      <ul ref="slides">
+      <ul ref="slides" class="glide__slides">
         <!-- @slot Slot for Grouped Product Items -->
         <slot />
       </ul>
@@ -87,11 +87,6 @@ export default {
         this.glide = glide;
       }
     });
-  },
-  methods: {
-    addGlideClass() {
-      this.$refs.slides.classList.add("glide__slides");
-    }
   }
 };
 </script>
