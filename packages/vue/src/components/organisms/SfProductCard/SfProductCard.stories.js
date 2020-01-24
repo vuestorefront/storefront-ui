@@ -8,6 +8,7 @@ import {
   select
 } from "@storybook/addon-knobs";
 import SfProductCard from "./SfProductCard.vue";
+import { colorsValues as colors } from "@storefront-ui/shared/variables/colors";
 storiesOf("Organisms|ProductCard", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -33,6 +34,12 @@ storiesOf("Organisms|ProductCard", module)
       },
       linkTag: {
         default: text("linkTag", "", "Props")
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "-50%", "Props")
+      },
+      badgeColor: {
+        default: select("color", colors, "pink-primary", "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -73,6 +80,8 @@ storiesOf("Organisms|ProductCard", module)
         :title="title"
         :link="link"
         :linkTag="linkTag"
+        :badgeLabel="badgeLabel"
+        :badgeColor="badgeColor"
         :regular-price="regularPrice"
         :special-price="specialPrice"
         :score-rating="scoreRating"

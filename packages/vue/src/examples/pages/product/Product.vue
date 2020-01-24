@@ -548,6 +548,7 @@ export default {
   }
   &__col {
     margin: 0;
+    flex: 1;
     & + & {
       margin-left: $spacer-big / 2;
       @include for-desktop {

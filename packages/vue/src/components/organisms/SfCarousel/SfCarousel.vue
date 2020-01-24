@@ -84,6 +84,7 @@ export default {
   },
   mounted: function() {
     this.$nextTick(() => {
+      if (!this.$slots.default) return;
       const glide = new Glide(this.$refs.glide, this.mergedOptions);
       glide.mount();
       glide.on("run.before", move => {
@@ -122,6 +123,7 @@ export default {
   },
   methods: {
     go(direct) {
+      if (!this.glide) return;
       switch (direct) {
         case "prev":
           this.glide.go("<");
