@@ -67,9 +67,13 @@ export const mapMobileObserver = () => {
 };
 
 export const unMapMobileObserver = () => {
-  observer.clients -= 1;
-  if (observer.clients === 0) {
-    observer = null;
+  if (observer) {
+    observer.clients -= 1;
+    if (observer.clients === 0) {
+      observer = null;
+      tearDownListener();
+    }
+  } else {
     tearDownListener();
   }
 };
