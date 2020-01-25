@@ -12,7 +12,7 @@ describe("mobile observr", () => {
   it("if window.matchMedia is not defined it does not initialize", () => {
     const result = mapMobileObserver();
     result.isMobile.get();
-    expect(result.isInitialized.get()).toBe(false);
+    expect(result.mobileObserverIsInitialized.get()).toBe(false);
     unMapMobileObserver();
   });
 
@@ -34,13 +34,13 @@ describe("mobile observr", () => {
     });
 
     it("mapMobileObserver initialize", () => {
-      expect(instance.isInitialized.get()).toBe(true);
+      expect(instance.mobileObserverIsInitialized.get()).toBe(true);
     });
 
     it("increase the clients count", () => {
-      expect(instance.clients.get()).toBe(1);
+      expect(instance.mobileObserverClients.get()).toBe(1);
       mapMobileObserver();
-      expect(instance.clients.get()).toBe(2);
+      expect(instance.mobileObserverClients.get()).toBe(2);
       unMapMobileObserver();
     });
   });

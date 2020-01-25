@@ -53,12 +53,12 @@ export const mapMobileObserver = () => {
         return observer.isMobile;
       }
     },
-    clients: {
+    mobileObserverClients: {
       get() {
         return observer.clients;
       }
     },
-    isInitialized: {
+    mobileObserverIsInitialized: {
       get() {
         return observer.isInitialized;
       }
