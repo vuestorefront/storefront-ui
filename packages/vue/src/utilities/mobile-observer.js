@@ -47,20 +47,20 @@ export const mapMobileObserver = () => {
   return {
     isMobile: {
       get() {
-        if (!observer.isInitialized) {
+        if (observer && !observer.isInitialized) {
           setupListener();
         }
-        return observer.isMobile;
+        return observer ? observer.isMobile : false;
       }
     },
     mobileObserverClients: {
       get() {
-        return observer.clients;
+        return observer ? observer.clients : 0;
       }
     },
     mobileObserverIsInitialized: {
       get() {
-        return observer.isInitialized;
+        return observer ? observer.isInitialized : false;
       }
     }
   };
