@@ -4,7 +4,7 @@ import {
   onMediaMatch
 } from "./mobile-observer";
 
-describe("mobile observr", () => {
+describe("mobile observer", () => {
   let addListener;
   let removeListener;
 
