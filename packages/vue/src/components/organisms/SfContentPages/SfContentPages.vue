@@ -129,7 +129,6 @@ export default {
   },
   watch: {
     isMobile(mobile) {
-      if (typeof window === "undefined") return;
       if (mobile) {
         this.$emit("click:change", "");
         return;
@@ -157,6 +156,8 @@ export default {
       this.$emit("click:change", title);
     },
     isMobileHandler() {
+      if (typeof window === "undefined" || typeof document === "undefined")
+        return;
       this.isMobile =
         Math.max(document.documentElement.clientWidth, window.innerWidth) <
         this.desktopMin;

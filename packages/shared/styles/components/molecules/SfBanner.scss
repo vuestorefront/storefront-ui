@@ -81,7 +81,7 @@
 @media screen and (min-width: $desktop-min) {
   .sf-banner {
     $this: &;
-    background-image: var(--background-image-desktop);
+    background-image: var(--background-desktop-image);
     padding: var(--banner-padding-y) var(--banner-padding-x) var(--banner-padding-y) calc(50% + var(--banner-padding-x));
 
     &__description {

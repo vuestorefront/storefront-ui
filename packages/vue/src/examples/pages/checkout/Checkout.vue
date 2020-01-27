@@ -26,7 +26,7 @@
             />
           </SfStep>
           <SfStep name="Review">
-            <ReviewOrder
+            <ConfirmOrder
               :order="order"
               :shipping-methods="shippingMethods"
               :payment-methods="paymentMethods"
@@ -66,7 +66,7 @@ import {
   PersonalDetails,
   Shipping,
   Payment,
-  ReviewOrder,
+  ConfirmOrder,
   OrderSummary,
   OrderReview
 } from "./_internal/index.js";
@@ -78,7 +78,7 @@ export default {
     PersonalDetails,
     Shipping,
     Payment,
-    ReviewOrder,
+    ConfirmOrder,
     OrderSummary,
     OrderReview
   },
@@ -242,9 +242,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../../../css/variables";
-@import "~@storefront-ui/shared/styles/helpers/visibility";
-
+@import "~@storefront-ui/vue/styles";
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;

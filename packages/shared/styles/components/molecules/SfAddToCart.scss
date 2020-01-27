@@ -10,11 +10,6 @@
 
   &__button {
     flex: 1;
-
-    &:disabled {
-      background-color: var(--c-primary-variant);
-      cursor: default;
-    }
   }
 
   &__select-quantity {

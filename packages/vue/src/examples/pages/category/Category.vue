@@ -50,8 +50,8 @@
               :key="option.value"
               :value="option.value"
               class="sort-by__option"
-              >{{ option.label }}
-            </SfSelectOption>
+              >{{ option.label }}</SfSelectOption
+            >
           </SfSelect>
         </div>
         <div class="navbar__counter">
@@ -138,7 +138,7 @@
           :visible="5"
           @click="
             page => {
-              this.currentPage = page;
+              currentPage = page;
             }
           "
         />
@@ -151,59 +151,64 @@
       <div class="filters">
         <h3 class="filters__title">Collection</h3>
         <SfFilter
-          v-for="filter in filtersOptions.collection"
+          v-for="filter in filters.collection"
           :key="filter.value"
           :label="filter.label"
           :count="filter.count"
+          :selected="filter.selected"
           class="filters__item"
+          @change="filter.selected = !filter.selected"
         />
         <h3 class="filters__title">Color</h3>
-        <SfFilter
-          v-for="filter in filtersOptions.color"
+        <SfColor
+          v-for="filter in filters.color"
           :key="filter.value"
-          :value="filter.value"
-          :label="filter.label"
           :color="filter.color"
-          class="filters__item"
+          :selected="filter.selected"
+          class="filters__item--color"
+          @click="filter.selected = !filter.selected"
         />
         <h3 class="filters__title">Size</h3>
         <SfFilter
-          v-for="filter in filtersOptions.size"
+          v-for="filter in filters.size"
           :key="filter.value"
-          :value="filter.value"
           :label="filter.label"
           :count="filter.count"
+          :selected="filter.selected"
           class="filters__item"
+          @change="filter.selected = !filter.selected"
         />
         <h3 class="filters__title">Price</h3>
         <SfFilter
-          v-for="filter in filtersOptions.price"
+          v-for="filter in filters.price"
           :key="filter.value"
-          :value="filter.value"
           :label="filter.label"
           :count="filter.count"
+          :selected="filter.selected"
           class="filters__item"
+          @change="filter.selected = !filter.selected"
         />
         <h3 class="filters__title">Material</h3>
         <SfFilter
-          v-for="filter in filtersOptions.material"
+          v-for="filter in filters.material"
           :key="filter.value"
           :value="filter.value"
           :label="filter.label"
-          :count="filter.count"
+          :selected="filter.selected"
           class="filters__item"
+          @change="filter.selected = !filter.selected"
         />
         <div class="filters__buttons">
           <SfButton
             class="sf-button--full-width"
             @click="isFilterSidebarOpen = false"
-            >Done
-          </SfButton>
+            >Done</SfButton
+          >
           <SfButton
             class="sf-button--full-width filters__button-clear"
             @click="clearAllFilters"
-            >Clear all
-          </SfButton>
+            >Clear all</SfButton
+          >
         </div>
       </div>
     </SfSidebar>
@@ -221,7 +226,8 @@ import {
   SfPagination,
   SfAccordion,
   SfSelect,
-  SfBreadcrumbs
+  SfBreadcrumbs,
+  SfColor
 } from "@storefront-ui/vue";
 export default {
   components: {
@@ -235,20 +241,14 @@ export default {
     SfMenuItem,
     SfAccordion,
     SfSelect,
-    SfBreadcrumbs
+    SfBreadcrumbs,
+    SfColor
   },
   data() {
     return {
       currentPage: 1,
       sortBy: "price-up",
       isFilterSidebarOpen: false,
-      filters: {
-        color: [],
-        collection: [],
-        size: [],
-        price: [],
-        material: []
-      },
       sortByOptions: [
         {
           value: "latest",
@@ -359,36 +359,80 @@ export default {
           isOnWishlist: false
         }
       ],
-      filtersOptions: {
+      filters: {
         collection: [
-          { label: "Summer fly", value: "summer-fly", count: "10" },
-          { label: "Best 2018", value: "best-2018", count: "23" },
-          { label: "Your choice", value: "your-choice", count: "54" }
+          {
+            label: "Summer fly",
+            value: "summer-fly",
+            count: "10",
+            selected: false
+          },
+          {
+            label: "Best 2018",
+            value: "best-2018",
+            count: "23",
+            selected: false
+          },
+          {
+            label: "Your choice",
+            value: "your-choice",
+            count: "54",
+            selected: false
+          }
         ],
         color: [
-          { label: "Red", value: "red", color: "#990611" },
-          { label: "Black", value: "black", color: "#000000" },
-          { label: "Yellow", value: "yellow", color: "#DCA742" },
-          { label: "Blue", value: "blue", color: "#004F97" },
-          { label: "Navy", value: "navy", color: "#656466" },
-          { label: "White", value: "white", color: "#FFFFFF" }
+          { label: "Red", value: "red", color: "#990611", selected: false },
+          { label: "Black", value: "black", color: "#000000", selected: false },
+          {
+            label: "Yellow",
+            value: "yellow",
+            color: "#DCA742",
+            selected: false
+          },
+          { label: "Blue", value: "blue", color: "#004F97", selected: false },
+          { label: "Navy", value: "navy", color: "#656466", selected: false }
         ],
         size: [
-          { label: "Size 2 (XXS)", value: "xxs", count: "10" },
-          { label: "Size 4-6 (XS)", value: "xs", count: "23" },
-          { label: "Size 8-10 (S)", value: "s", count: "54" },
-          { label: "Size 12-14 (M)", value: "m", count: "109" },
-          { label: "Size 16-18 (L)", value: "l", count: "23" },
-          { label: "Size 20-22(XL)", value: "xl", count: "12" },
-          { label: "Size 24-26 (XXL)", value: "xxl", count: "2" }
+          { label: "Size 2 (XXS)", value: "xxs", count: "10", selected: false },
+          { label: "Size 4-6 (XS)", value: "xs", count: "23", selected: false },
+          { label: "Size 8-10 (S)", value: "s", count: "54", selected: false },
+          {
+            label: "Size 12-14 (M)",
+            value: "m",
+            count: "109",
+            selected: false
+          },
+          { label: "Size 16-18 (L)", value: "l", count: "23", selected: false },
+          {
+            label: "Size 20-22(XL)",
+            value: "xl",
+            count: "12",
+            selected: false
+          },
+          {
+            label: "Size 24-26 (XXL)",
+            value: "xxl",
+            count: "2",
+            selected: false
+          }
         ],
         price: [
-          { label: "Under $200", value: "under-200", count: "23" },
-          { label: "Under $300", value: "under-300", count: "54" }
+          {
+            label: "Under $200",
+            value: "under-200",
+            count: "23",
+            selected: false
+          },
+          {
+            label: "Under $300",
+            value: "under-300",
+            count: "54",
+            selected: false
+          }
         ],
         material: [
-          { label: "Cotton", value: "coton", count: "33" },
-          { label: "Silk", value: "silk", count: "73" }
+          { label: "Cotton", value: "coton", count: "33", selected: false },
+          { label: "Silk", value: "silk", count: "73", selected: false }
         ]
       },
       breadcrumbs: [
@@ -408,13 +452,15 @@ export default {
     };
   },
   methods: {
+    updateFilter() {},
     clearAllFilters() {
-      const filters = {};
-      const keys = Object.keys(this.filters);
-      keys.forEach(key => {
-        filters[key] = [];
+      const filters = Object.keys(this.filters);
+      filters.forEach(name => {
+        const prop = this.filters[name];
+        prop.forEach(value => {
+          value.selected = false;
+        });
       });
-      this.filters = filters;
     },
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
@@ -562,7 +608,6 @@ export default {
   &__list {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 1.875rem - 0.5rem;
   }
 
   &__product-card {
@@ -609,33 +654,29 @@ export default {
     font-size: inherit;
   }
 }
-
 .filters {
-  box-sizing: border-box;
-  width: 20rem;
-  padding: 0 calc(var(--spacer-big) * 3);
-  height: 100%;
-  overflow-y: auto;
-  @include for-desktop {
-    width: 22.875rem;
-  }
-
-  &::-webkit-scrollbar {
-    width: 0;
-  }
+  padding: var(--spacer-big);
 
   &__title {
-    margin: calc(var(--spacer-big) * 3) 0 var(--spacer-big);
-    font-size: var(--font-size-big-desktop);
+    margin: calc(var(--spacer-big * 3)) 0 var(--spacer-big);
+    font-size: var(--font-size-big);
     line-height: 1.6;
+
+    &:first-child {
+      margin: 0 0 var(--spacer-big) 0;
+    }
   }
 
   &__item {
     padding: var(--spacer-small) 0;
+
+    &--color {
+      margin: 0 var(--spacer);
+    }
   }
 
   &__buttons {
-    margin: calc(var(--spacer-big) * 3) 0;
+    margin: calc(var(--spacer-big) * 3) 0 0 0;
   }
 
   &__button-clear {

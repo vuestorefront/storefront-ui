@@ -560,6 +560,7 @@ export default {
 
   &__col {
     margin: 0;
+    flex: 1;
 
     & + & {
       margin-left: calc(var(--spacer-big) / 2);
@@ -615,7 +616,7 @@ export default {
 .product-details {
   &__action {
     display: flex;
-    margin: var(--spacer-big) 0 (var(--spacer-big) / 2);
+    margin: var(--spacer-big) 0 calc(var(--spacer-big) / 2);
     @include for-desktop {
       justify-content: flex-end;
     }

@@ -1,5 +1,5 @@
 <template>
-  <Fragment>
+  <Fragment class="sf-tabs__tab">
     <div
       class="sf-tabs__title"
       :class="{ 'sf-tabs__title--active': isActive }"
@@ -42,6 +42,8 @@ export default {
   },
   methods: {
     tabClick() {
+      if (typeof window === "undefined" || typeof document === "undefined")
+        return;
       const width = Math.max(
         document.documentElement.clientWidth,
         window.innerWidth
@@ -53,7 +55,6 @@ export default {
 };
 </script>
 <style>
-/* @import '../../../../utilities/transitions/transitions.scss'; */
 .slide-left-enter-active {
   -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;

@@ -14,21 +14,48 @@
   }
 }
 
+$badge-colors: (
+        "primary": var(--c-primary),
+        "secondary": var(--c-dark),
+        "white": var(--c-white),
+        "black": var(--c-black),
+        "accent": var(--c-primary-variant),
+        "green-primary": var(--c-primary),
+        "green-secondary": var(--c-primary-variant),
+        "gray-primary": var(--c-gray),
+        "gray-secondary": var(--c-gray-variant),
+        "light-primary": var(--c-light),
+        "light-secondary": var(--c-light-variant),
+        "pink-primary": var(--c-danger),
+        "pink-secondary": var(--c-danger-variant),
+        "yellow-primary": var(--c-warning),
+        "yellow-secondary": var(--c-warning-variant),
+        "blue-primary": var(--c-info),
+        "blue-secondary": var(--c-info-variant)
+);
+
 .sf-badge {
-  display: inline-block;
+  --badge-color: #{map-get($badge-colors, "pink-primary")};
+
   box-sizing: border-box;
-  text-align: center;
+  display: inline-block;
   padding: var(--badge-padding);
-  background-color: var(--badge-background-color);
+  background-color: var(--badge-color);
   color: var(--badge-color);
   font-family: var(--badge-font-family);
   font-size: var(--badge-font-size);
   font-weight: var(--badge-font-weight);
   line-height: var(--badge-line-height);
+  text-align: center;
+  cursor: default;
 
   &--full-width {
     width: 100%;
   }
 
-  @include color-modifiers('--badge');
+  @each $pallete, $color in $badge-colors {
+    &--color-#{$pallete} {
+      --badge-color: #{$color};
+    }
+  }
 }

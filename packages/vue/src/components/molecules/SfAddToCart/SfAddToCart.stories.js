@@ -75,7 +75,7 @@ storiesOf("Molecules|AddToCart", module)
           :qty-min="qtyMin"
           @click="()=>{}">
           <template #quantity-select-input="{qty, qtyMin}">
-            <select v-model="value">
+            <select v-model="qty">
               <option value="1">1</option>
               <option value="5">5</option>
               <option value="25">25</option>

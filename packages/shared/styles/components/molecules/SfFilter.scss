@@ -5,7 +5,6 @@
   --filter-font-size: var(--font-size-big);
   --filter-font-weight: var(--body-font-weight-secondary);
   --filter-line-height: 1.6;
-  --filter__color-size: 1.125rem;
 
   @media screen and (min-width: $desktop-min) {
     --filter-font-size-desktop: var(--font-size-small);
@@ -13,7 +12,6 @@
 }
 
 .sf-filter {
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,21 +19,21 @@
   font-size: var(--filter-font-size);
   font-weight: var(--filter-font-weight);
   line-height: var(--filter-line-height);
+  cursor: pointer;
+
+  .sf-checkbox__container {
+    width: 100%;
+  }
 
   &__label {
-    flex-grow: 1;
+    margin-left: var(--spacer-big);
   }
 
-  &__color {
-    width: var(--filter__color-size);
-    height: var(--filter__color-size);
-    margin-right: var(--spacer-big);
-    border: 1px solid var(--c-gray-variant);
+  &__count {
+    margin-left: auto;
   }
 
-  &--active,
-  &:hover {
-    text-decoration: underline;
+  &--active {
     font-weight: 500;
   }
 }

@@ -7,7 +7,7 @@
   "version": "independent",
   "command": {
     "publish": {
-      "conventionalCommits": false
+      "conventionalCommits": true
     },
     "version": {
       "message": "chore(release): publish"
