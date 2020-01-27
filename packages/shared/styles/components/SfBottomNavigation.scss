@@ -50,6 +50,7 @@ $bottom-navigation__item-color--active: $c-black !default;
     #{$this}__floating-label {
       position: relative;
       top: 0.5rem;
+      margin-top: 0;
     }
   }
 }

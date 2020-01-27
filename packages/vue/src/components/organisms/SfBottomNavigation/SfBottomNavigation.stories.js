@@ -27,7 +27,7 @@ storiesOf("Organisms|BottomNavigation", module)
     <SfBottomNavigationItem icon="menu" icon-size="20px" label="Menu"/>
     <SfBottomNavigationItem icon="heart" icon-size="20px" label="Heart" :class="customClass"/>
     <SfBottomNavigationItem icon="profile" icon-size="20px" label="Profile"/>
-    <SfBottomNavigationItem icon="add_to_cart" icon-size="20px" :is-floating="true" label="Basket"/>
+    <SfBottomNavigationItem icon="add_to_cart" icon-size="28px" :is-floating="true" label="Basket"/>
   </SfBottomNavigation>`
   }))
   .add("[slot] icon", () => ({
