@@ -1,7 +1,7 @@
 <template>
   <div ref="glide" class="glide sf-grouped-product">
     <div class="glide__track" data-glide-el="track">
-      <ul class="glide__slides">
+      <ul :class="{ glide__slides: !disabled }">
         <!-- @slot Slot for Grouped Product Items -->
         <slot />
       </ul>
@@ -19,6 +19,10 @@ export default {
     settings: {
       type: Object,
       default: () => ({})
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -57,28 +61,30 @@ export default {
   mounted() {
     this.$nextTick(() => {
       if (!this.$slots.default) return;
-      const glide = new Glide(this.$refs.glide, this.glideSettings);
-      glide.mount();
-      glide.on("run.before", move => {
-        const { perView, slidePerPage, rewind } = this.glide.settings,
-          { index } = this.glide,
-          { direction } = move,
-          length = this.glide._c.Sizes.length;
-        let page, steps;
-        if (direction === "=" || !slidePerPage || perView <= 1) return;
-        page = Math.ceil(index / perView);
-        steps = page * perView + (direction === ">" ? perView : -perView);
-        if (steps === length - 1) {
-          steps = steps - 1;
-        } else if (steps >= length) {
-          steps = rewind ? 0 : index;
-        } else if (steps < 0) {
-          steps = 0;
-        }
-        move.direction = "=";
-        move.steps = steps;
-      });
-      this.glide = glide;
+      if (!this.disabled) {
+        const glide = new Glide(this.$refs.glide, this.glideSettings);
+        glide.mount();
+        glide.on("run.before", move => {
+          const { perView, slidePerPage, rewind } = this.glide.settings,
+            { index } = this.glide,
+            { direction } = move,
+            length = this.glide._c.Sizes.length;
+          let page, steps;
+          if (direction === "=" || !slidePerPage || perView <= 1) return;
+          page = Math.ceil(index / perView);
+          steps = page * perView + (direction === ">" ? perView : -perView);
+          if (steps === length - 1) {
+            steps = steps - 1;
+          } else if (steps >= length) {
+            steps = rewind ? 0 : index;
+          } else if (steps < 0) {
+            steps = 0;
+          }
+          move.direction = "=";
+          move.steps = steps;
+        });
+        this.glide = glide;
+      }
     });
   }
 };

@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, number, object } from "@storybook/addon-knobs";
+import { withKnobs, text, number, object, boolean } from "@storybook/addon-knobs";
 import SfGroupedProduct from "./SfGroupedProduct.vue";
 storiesOf("Organisms|GroupedProduct", module)
   .addDecorator(withKnobs)
@@ -81,6 +81,9 @@ storiesOf("Organisms|GroupedProduct", module)
     props: {
       settings: {
         default: object("settings", { type: "slider" }, "Props")
+      },
+      disabled: {
+        default: boolean("disabled", true, "Props")
       }
     },
     data() {
@@ -135,7 +138,7 @@ storiesOf("Organisms|GroupedProduct", module)
       };
     },
     template: `<div style="max-width: 509px">
-      <SfGroupedProduct :settings="settings">
+      <SfGroupedProduct :settings="settings" :disabled="disabled">
         <SfGroupedProductItem
           v-for="(product, key) in groupedProduct"
           :key="key" 
