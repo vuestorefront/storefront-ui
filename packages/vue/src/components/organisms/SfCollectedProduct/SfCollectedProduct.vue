@@ -68,7 +68,7 @@ export default {
      * It should be an url of the product
      */
     image: {
-      type: String,
+      type: [String, Object],
       default: ""
     },
     /**
