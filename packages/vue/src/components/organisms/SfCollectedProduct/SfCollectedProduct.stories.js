@@ -41,6 +41,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     template: `<SfCollectedProduct
         :qty="qty"
+        @input="qty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -98,6 +99,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     template: `<SfCollectedProduct
         :qty="qty"
+        @input="qty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -146,6 +148,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     template: `<SfCollectedProduct
         :qty="qty"
+        @input="qty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -194,6 +197,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     template: `<SfCollectedProduct
         :qty="qty"
+        @input="qty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -242,6 +246,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     template: `<SfCollectedProduct
         :qty="qty"
+        @input="qty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -290,6 +295,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     template: `<SfCollectedProduct
         :qty="qty"
+        @input="qty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -338,6 +344,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     template: `<SfCollectedProduct
         :qty="qty"
+        @input="qty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -386,6 +393,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     template: `<SfCollectedProduct
         :qty="qty"
+        @input="qty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
