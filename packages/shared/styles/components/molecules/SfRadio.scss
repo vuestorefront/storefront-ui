@@ -15,7 +15,7 @@
   --radio--is-active__checkmark-border-color: var(--c-primary);
 
   @media screen and (min-width: $desktop-min) {
-    --radio-font-size: var(--font-size-extra-small);
+    --radio-font-size: var(--font-size-small);
     --radio__label-font-size: var(--font-size-big);
   }
 }

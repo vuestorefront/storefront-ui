@@ -83,8 +83,8 @@
             class="form__element"
           />
           <SfButton class="form__button" @click="updateAddress"
-            >Update the address</SfButton
-          >
+            >Update the address
+          </SfButton>
         </div>
       </SfTab>
     </SfTabs>
@@ -129,15 +129,15 @@
                 <SfButton
                   class="shipping__button-delete desktop-only"
                   @click="deleteAddress(key)"
-                  >Delete</SfButton
-                >
+                  >Delete
+                </SfButton>
               </div>
             </div>
           </transition-group>
         </div>
         <SfButton class="action-button" @click="changeAddress(-1)"
-          >Add new address</SfButton
-        >
+          >Add new address
+        </SfButton>
       </SfTab>
     </SfTabs>
   </transition>
@@ -150,6 +150,7 @@ import {
   SfSelect,
   SfIcon
 } from "@storefront-ui/vue";
+
 export default {
   name: "ShippingDetails",
   components: {
@@ -280,43 +281,51 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 @mixin for-mobile {
   @media screen and (max-width: $desktop-min) {
     @content;
   }
 }
+
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
+
 .form {
   @include for-desktop {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
   }
+
   &__element {
-    margin-bottom: $spacer-extra-big;
+    margin-bottom: var(--spacer-extra-big);
     @include for-desktop {
       flex: 0 0 100%;
     }
+
     &--half {
       @include for-desktop {
         flex: 1 1 50%;
       }
+
       &-even {
         @include for-desktop {
-          padding-left: $spacer-extra-big;
+          padding-left: var(--spacer-extra-big);
         }
       }
     }
   }
+
   &__select {
     ::v-deep .sf-select__selected {
       padding: 5px 0;
     }
   }
+
   &__button {
     width: 100%;
     @include for-desktop {
@@ -324,36 +333,36 @@ export default {
     }
   }
 }
+
 .message {
-  margin: 0 0 $spacer-extra-big 0;
-  font-family: $body-font-family-primary;
-  font-weight: $body-font-weight-primary;
+  margin: 0 0 var(--spacer-extra-big) 0;
+  font-family: var(--body-font-family-primary);
+  font-weight: var(--body-font-weight-primary);
   line-height: 1.6;
-  font-size: $font-size-regular-mobile;
-  @include for-desktop {
-    font-size: $font-size-regular-desktop;
-  }
+  font-size: var(--font-size-regular);
 }
+
 .shipping-list {
-  margin-bottom: $spacer-extra-big;
+  margin-bottom: var(--spacer-extra-big);
 }
+
 .shipping {
   display: flex;
-  padding: $spacer-big 0;
-  border-top: 1px solid $c-light;
+  padding: var(--spacer-big) 0;
+  border-top: 1px solid var(--c-light);
+
   &:last-child {
-    border-bottom: 1px solid $c-light;
+    border-bottom: 1px solid var(--c-light);
   }
+
   &__content {
     flex: 1;
-    color: $c-text;
-    font-size: $font-size-small-mobile;
+    color: var(--c-text);
+    font-size: var(--font-size-small);
     font-weight: 300;
     line-height: 1.6;
-    @include for-desktop {
-      font-size: $font-size-small-desktop;
-    }
   }
+
   &__actions {
     flex: 1;
     display: flex;
@@ -366,36 +375,46 @@ export default {
       justify-content: flex-end;
     }
   }
+
   &__button-delete {
-    background-color: $c-light;
-    color: $c-text-muted;
+    background-color: var(--c-light);
+    color: var(--c-text-muted);
     @include for-desktop {
-      margin-left: $spacer-big;
+      margin-left: var(--spacer-big);
     }
   }
+
   &__address {
-    margin: 0 0 $spacer-big 0;
+    margin: 0 0 var(--spacer-big) 0;
+
     &:last-child {
       margin: 0;
     }
   }
+
   &__client-name {
-    font-size: $font-size-regular-desktop;
+    font-size: var(--font-size-big);
     font-weight: 500;
+    @include for-desktop {
+      font-size: var(--font-size-regular);
+    }
   }
 }
+
 .action-button {
   width: 100%;
   @include for-desktop {
     width: auto;
   }
 }
+
 .tab-orphan {
   @include for-mobile {
     ::v-deep .sf-tabs {
       &__title {
         display: none;
       }
+
       &__content {
         border: 0;
         padding: 0;
