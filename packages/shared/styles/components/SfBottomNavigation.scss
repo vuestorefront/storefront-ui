@@ -1,6 +1,11 @@
 @import "../variables";
 
+$bottom-navigation__item-color: $c-gray-variant !default;
+$bottom-navigation__item-color--active: $c-black !default;
+
 .sf-bottom-navigation {
+  $this: &;
+  box-sizing: border-box;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -13,15 +18,38 @@
   padding: 0 1rem;
   background: white;
   box-shadow: 0px -2px 10px rgba(154, 154, 154, 0.15);
-  &__item > .sf-icon {
-    --icon-color: #{$c-gray-variant};
-  }
-  &__item--active > .sf-icon {
-    --icon-color: #{$c-black};
-  }
-  &__floating-icon {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    font-size: 12px;
+    color: $c-gray;
+
+    & > .sf-icon {
+      --icon-color: #{$bottom-navigation__item-color};
+    }
+
+    &--active {
+      color: $c-black;
+      font-weight: $body-font-weight-secondary;
+      & > .sf-icon {
+        --icon-color: #{$bottom-navigation__item-color--active};
+      }
+    }
+
+    &--spacer {
+      margin-top: $spacer;
+    }
+  }
+
+  &__floating-button {
     top: -1.75rem;
-    right: 1rem;
+
+    #{$this}__floating-label {
+      position: relative;
+      top: 0.5rem;
+    }
   }
 }
