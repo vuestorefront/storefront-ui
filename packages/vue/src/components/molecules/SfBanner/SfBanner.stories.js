@@ -6,9 +6,7 @@ import {
   object,
   optionsKnob as options
 } from "@storybook/addon-knobs";
-
 import SfBanner from "./SfBanner.vue";
-
 storiesOf("Molecules|Banner", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -19,7 +17,7 @@ storiesOf("Molecules|Banner", module)
           "CSS Modifiers",
           {
             "sf-banner--left": "sf-banner--left",
-            "sf-banner--slim": "sf-banner-slim"
+            "sf-banner--slim": "sf-banner--slim"
           },
           "",
           { display: "multi-select" },
@@ -46,8 +44,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
+            small: "/assets/storybook/SfBanner/Banner1.jpg",
+            normal: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -103,8 +101,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
+            small: "/assets/storybook/SfBanner/Banner1.jpg",
+            normal: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -163,8 +161,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
+            small: "/assets/storybook/SfBanner/Banner1.jpg",
+            normal: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -223,8 +221,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
+            small: "/assets/storybook/SfBanner/Banner1.jpg",
+            normal: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -283,8 +281,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            small: "/assets/storybook/Banner1.jpg",
-            normal: "/assets/storybook/Banner1.jpg"
+            small: "/assets/storybook/SfBanner/Banner1.jpg",
+            normal: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )

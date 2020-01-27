@@ -1,18 +1,18 @@
 body {
-    background: var(--c-body);
-    color: var(--c-text);
-    font-size: var(--body-font-size);
-    font-family: var(--body-font-family-primary);
-    font-weight: var(--body-font-weight-primary);
-    margin: 0;
-    padding: 0;
+  background: var(--c-body);
+  color: var(--c-text);
+  font-size: var(--body-font-size);
+  font-family: var(--body-font-family-primary);
+  font-weight: var(--body-font-weight-primary);
+  margin: 0;
+  padding: 0;
 }
 
 a {
-    text-decoration: none;
-    color: var(--c-link);
+  text-decoration: none;
+  color: var(--c-link);
 
-    &:hover {
-        color: var(--c-link-hover);
-    }
+  &:hover {
+    color: var(--c-link-hover);
+  }
 }

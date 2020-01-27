@@ -33,33 +33,33 @@ $icon-colors: (
 );
 
 .sf-icon {
-    --icon-color: #{map-get($icon-colors, "black")};
-    --icon-size: #{map-get($icon-sizes, "sm")};
+  --icon-color: #{map-get($icon-colors, "black")};
+  --icon-size: #{map-get($icon-sizes, "sm")};
 
-    outline: none;
-    background-color: transparent;
-    box-sizing: border-box;
-    display: flex;
+  outline: none;
+  background-color: transparent;
+  box-sizing: border-box;
+  display: flex;
 
-    fill: var(--icon-color);
-    width: var(--icon-size);
-    height: var(--icon-size);
+  fill: var(--icon-color);
+  width: var(--icon-size);
+  height: var(--icon-size);
 
-    @each $pallete, $color in $icon-colors {
-        &--color-#{$pallete} {
-            --icon-color: #{$color};
-        }
+  @each $pallete, $color in $icon-colors {
+    &--color-#{$pallete} {
+      --icon-color: #{$color};
     }
+  }
 
-    @each $profile, $size in $icon-sizes {
-        &--size-#{$profile} {
-            --icon-size: #{$size};
-        }
+  @each $profile, $size in $icon-sizes {
+    &--size-#{$profile} {
+      --icon-size: #{$size};
     }
+  }
 
-    svg,
-    img {
-        width: inherit;
-        height: inherit;
-    }
+  svg,
+  img {
+    width: inherit;
+    height: inherit;
+  }
 }

@@ -1,34 +1,34 @@
 @import '../../variables';
 
 :root {
-    --badge-padding: .3125rem .625rem;
-    --badge-color: var(--c-white);
-    --badge-background-color: var(--c-primary);
-    --badge-font-family: var(--body-font-family-secondary);
-    --badge-font-size: var(--font-size-regular);
-    --badge-font-weight: 500;
-    --badge-line-height: 1.6;
+  --badge-padding: .3125rem .625rem;
+  --badge-color: var(--c-white);
+  --badge-background-color: var(--c-primary);
+  --badge-font-family: var(--body-font-family-secondary);
+  --badge-font-size: var(--font-size-regular);
+  --badge-font-weight: 500;
+  --badge-line-height: 1.6;
 
-    @media screen and (min-width: $desktop-min) {
-        --badge-font-size: var(--font-size-small);
-    }
+  @media screen and (min-width: $desktop-min) {
+    --badge-font-size: var(--font-size-small);
+  }
 }
 
 .sf-badge {
-    display: inline-block;
-    box-sizing: border-box;
-    text-align: center;
-    padding: var(--badge-padding);
-    background-color: var(--badge-background-color);
-    color: var(--badge-color);
-    font-family: var(--badge-font-family);
-    font-size: var(--badge-font-size);
-    font-weight: var(--badge-font-weight);
-    line-height: var(--badge-line-height);
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  padding: var(--badge-padding);
+  background-color: var(--badge-background-color);
+  color: var(--badge-color);
+  font-family: var(--badge-font-family);
+  font-size: var(--badge-font-size);
+  font-weight: var(--badge-font-weight);
+  line-height: var(--badge-line-height);
 
-    &--full-width {
-        width: 100%;
-    }
+  &--full-width {
+    width: 100%;
+  }
 
-    @include color-modifiers('--badge');
+  @include color-modifiers('--badge');
 }

@@ -1,19 +1,19 @@
 @import '../../variables';
 
 :root {
-    --list__item-font-size: var(--font-size-big);
+  --list__item-font-size: var(--font-size-big);
 
-    @media screen and (min-width: $desktop-min) {
-        --list__item-font-size: var(--font-size-small);
-    }
+  @media screen and (min-width: $desktop-min) {
+    --list__item-font-size: var(--font-size-small);
+  }
 }
 
 .sf-list {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
 
-    .sf-list__item {
-        font-size: var(--list__item-font-size);
-    }
+  .sf-list__item {
+    font-size: var(--list__item-font-size);
+  }
 }

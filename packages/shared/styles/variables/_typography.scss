@@ -1,62 +1,62 @@
 :root {
-    // Font Family
-    --body-font-family-primary: 'Roboto', serif;
-    --body-font-family-secondary: 'Raleway', sans-serif;
+  // Font Family
+  --body-font-family-primary: 'Roboto', serif;
+  --body-font-family-secondary: 'Raleway', sans-serif;
 
-    // Font weight
-    --body-font-weight-primary: 300;
-    --body-font-weight-secondary: 400;
+  // Font weight
+  --body-font-weight-primary: 300;
+  --body-font-weight-secondary: 400;
 
-    // Font sizes
-    --font-size-extra-small: .625rem;
-    --font-size-small: .75rem;
-    --font-size-regular: .875rem;
-    --font-size-big: 1rem;
-    --font-size-extra-big: 1.125rem;
+  // Font sizes
+  --font-size-extra-small: .625rem;
+  --font-size-small: .75rem;
+  --font-size-regular: .875rem;
+  --font-size-big: 1rem;
+  --font-size-extra-big: 1.125rem;
 
-    // Base font size
-    --body-font-size: var(--font-size-regular);
+  // Base font size
+  --body-font-size: var(--font-size-regular);
 
-    // Heading font family
-    --heading-font-family: var(--body-font-family-secondary);
+  // Heading font family
+  --heading-font-family: var(--body-font-family-secondary);
 
+  // Heading font size
+  --h1-font-size: 1.125rem;
+  --h2-font-size: 1rem;
+  --h3-font-size: 1rem;
+  --h4-font-size: 1rem;
+  --h5-font-size: .875rem;
+
+  // Heading font weight
+  --h1-font-weight: 500;
+  --h2-font-weight: 500;
+  --h3-font-weight: 500;
+  --h4-font-weight: 500;
+
+  @media (min-width: $tablet-min) {
     // Heading font size
-    --h1-font-size: 1.125rem;
-    --h2-font-size: 1rem;
-    --h3-font-size: 1rem;
-    --h4-font-size: 1rem;
-    --h5-font-size: .875rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.125rem;
+    --h4-font-size: 1.125rem;
+    --h5-font-size: 1.125rem;
 
     // Heading font weight
     --h1-font-weight: 500;
     --h2-font-weight: 500;
     --h3-font-weight: 500;
     --h4-font-weight: 500;
+  }
 
-    @media (min-width: $tablet-min) {
-        // Heading font size
-        --h1-font-size: 2.25rem;
-        --h2-font-size: 1.5rem;
-        --h3-font-size: 1.125rem;
-        --h4-font-size: 1.125rem;
-        --h5-font-size: 1.125rem;
+  @media (min-width: $desktop-min) {
+    // Font sizes
+    --font-size-extra-small: .75rem;
+    --font-size-small: .875rem;
+    --font-size-regular: 1rem;
+    --font-size-big: 1.125rem;
+    --font-size-extra-big: 1.5rem;
 
-        // Heading font weight
-        --h1-font-weight: 500;
-        --h2-font-weight: 500;
-        --h3-font-weight: 500;
-        --h4-font-weight: 500;
-    }
-
-    @media (min-width: $desktop-min) {
-        // Font sizes
-        --font-size-extra-small: .75rem;
-        --font-size-small: .875rem;
-        --font-size-regular: 1rem;
-        --font-size-big: 1.125rem;
-        --font-size-extra-big: 1.5rem;
-
-        // Base font size
-        --body-font-size: var(--font-size-regular);
-    }
+    // Base font size
+    --body-font-size: var(--font-size-regular);
+  }
 }

@@ -8,7 +8,6 @@ import {
   text
 } from "@storybook/addon-knobs";
 import SfStoreLocator from "./SfStoreLocator.vue";
-
 const stores = [
   {
     name: "Store one",
@@ -27,7 +26,6 @@ const stores = [
     latlng: [47.5079722, 19.0570521]
   }
 ];
-
 storiesOf("Organisms|StoreLocator", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

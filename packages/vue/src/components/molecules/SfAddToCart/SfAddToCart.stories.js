@@ -1,6 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, number, boolean } from "@storybook/addon-knobs";
-
+import { withKnobs, number, boolean } from "@storybook/addon-knobs";
 import SfAddToCart from "./SfAddToCart.vue";
 
 storiesOf("Molecules|AddToCart", module)
@@ -11,24 +10,20 @@ storiesOf("Molecules|AddToCart", module)
       disabled: {
         default: boolean("disabled", false, "Props")
       },
-      stock: {
-        default: number("stock", 99, {}, "Props")
-      },
-      ariaLabel: {
-        default: text("ariaLabel", "Quantity", "Props")
+      qtyMin: {
+        default: number("qtyMin", 1, {}, "Props")
       }
     },
     data() {
       return {
-        value: "1"
+        qty: 1
       };
     },
     template: `<div style="max-width: 21.25rem">
       <SfAddToCart 
+        v-model="qty"
         :disabled="disabled"
-        :stock="stock"
-        :aria-label="ariaLabel"
-        v-model="value" 
+        :qty-min="qtyMin"
         @click="()=>{}"/>
       </div>`
   }))
@@ -38,24 +33,21 @@ storiesOf("Molecules|AddToCart", module)
       disabled: {
         default: boolean("disabled", false, "Props")
       },
-      stock: {
-        default: number("stock", 99, {}, "Props")
-      },
-      ariaLabel: {
-        default: text("ariaLabel", "Quantity", "Props")
+      qtyMin: {
+        default: number("qtyMin", 1, {}, "Props")
       }
     },
     data() {
       return {
-        value: "1"
+        qty: 1
       };
     },
     template: `<div style="max-width: 21.25rem">
-        <SfAddToCart 
+        <SfAddToCart
+          v-model="qty"
           :disabled="disabled"
-          :stock="stock"
-          :aria-label="ariaLabel"
-          v-model="value">
+          :qty-min="qtyMin"
+            >
         <template #add-to-cart-btn>
         <button  @click="()=>{}">Custom Add To Cart</button>
       </template>
@@ -68,25 +60,21 @@ storiesOf("Molecules|AddToCart", module)
       disabled: {
         default: boolean("disabled", false, "Props")
       },
-      stock: {
-        default: number("stock", 99, {}, "Props")
-      },
-      ariaLabel: {
-        default: text("ariaLabel", "Quantity", "Props")
+      qtyMin: {
+        default: number("qtyMin", 1, {}, "Props")
       }
     },
     data() {
       return {
-        value: "1"
+        qty: 1
       };
     },
     template: `<div style="max-width: 21.25rem">
         <SfAddToCart 
           :disabled="disabled"
-          :stock="stock"
-          :aria-label="ariaLabel"
+          :qty-min="qtyMin"
           @click="()=>{}">
-          <template #quantity-select-input="{qty, stock}">
+          <template #quantity-select-input="{qty, qtyMin}">
             <select v-model="value">
               <option value="1">1</option>
               <option value="5">5</option>

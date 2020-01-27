@@ -1,17 +1,17 @@
 @import '../../variables';
 
 :root {
-    --overlay__background-color: var(--c-black);
-    --overlay__opacity: .8;
+  --overlay__background-color: var(--c-black);
+  --overlay__opacity: .8;
 }
 
 .sf-overlay {
-    background: var(--overlay__background-color);
-    opacity: var(--overlay__opacity);
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  background: var(--overlay__background-color);
+  opacity: var(--overlay__opacity);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }

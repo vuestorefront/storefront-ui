@@ -1,82 +1,82 @@
 @import '../../variables';
 
 :root {
-    --circle-icon-background: var(--c-primary);
-    --circle-icon-size: 3.25rem;
-    --circle-icon-size-small: 1.625rem;
-    --circle-icon-size-big: 4rem;
-    --circle-icon-color: var(--c-on-primary);
-    --circle-icon-hover-background: var(--c-primary-lighten);
-    --circle-icon-hover-box-shadow: 0 0 0 .3125rem rgba(var(--c-primary-base), .4);
-    --circle-icon-active-box-shadow: 0 0 0 .625rem rgba(var(--c-primary-base), .4);
-    --circle-icon__badge-background-color: var(--c-danger);
+  --circle-icon-background: var(--c-primary);
+  --circle-icon-size: 3.25rem;
+  --circle-icon-size-small: 1.625rem;
+  --circle-icon-size-big: 4rem;
+  --circle-icon-color: var(--c-on-primary);
+  --circle-icon-hover-background: var(--c-primary-lighten);
+  --circle-icon-hover-box-shadow: 0 0 0 .3125rem rgba(var(--c-primary-base), .4);
+  --circle-icon-active-box-shadow: 0 0 0 .625rem rgba(var(--c-primary-base), .4);
+  --circle-icon__badge-background-color: var(--c-danger);
 }
 
 .sf-circle-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease, opacity 150ms ease-in-out;
+  position: relative;
+
+  &.sf-button {
+    padding: var(--spacer-big);
+  }
+
+  &:hover {
+    box-shadow: var(--circle-icon-hover-box-shadow);
+    background-color: var(--circle-icon-hover-background);
+  }
+
+  &:active {
+    box-shadow: var(--circle-icon-active-box-shadow);
+  }
+
+  @each $color, $map in $colors-map {
+    $background: map-get($map, 'bg');
+    $backgroundBase: map-get($map, 'bg-base');
+    $backgroundLighten: map-get($map, 'bg-lighten');
+    $text: map-get($map, 'text');
+
+    &.color-#{$color} {
+      --circle-icon-color: #{$text};
+      --circle-icon-background: #{$background};
+      --circle-icon-hover-background: #{$backgroundLighten};
+      --circle-icon-hover-box-shadow: 0 0 0 .3125rem rgba(#{$backgroundBase}, .4);
+      --circle-icon-active-box-shadow: 0 0 0 .625rem rgba(#{$backgroundBase}, .4);
+    }
+  }
+
+  &__badge {
+    display: block;
+    width: 1rem;
+    height: 1rem;
     border-radius: 50%;
-    transition: box-shadow 0.3s ease, opacity 150ms ease-in-out;
-    position: relative;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--circle-icon__badge-background-color);
 
-    &.sf-button {
-        padding: var(--spacer-big);
+    &-enter-active {
+      animation: bounce-in .3s;
     }
 
-    &:hover {
-        box-shadow: var(--circle-icon-hover-box-shadow);
-        background-color: var(--circle-icon-hover-background);
+    &-leave-active {
+      animation: bounce-in .3s reverse;
     }
-
-    &:active {
-        box-shadow: var(--circle-icon-active-box-shadow);
-    }
-
-    @each $color, $map in $colors-map {
-        $background: map-get($map, 'bg');
-        $backgroundBase: map-get($map, 'bg-base');
-        $backgroundLighten: map-get($map, 'bg-lighten');
-        $text: map-get($map, 'text');
-
-        &.color-#{$color} {
-            --circle-icon-color: #{$text};
-            --circle-icon-background: #{$background};
-            --circle-icon-hover-background: #{$backgroundLighten};
-            --circle-icon-hover-box-shadow: 0 0 0 .3125rem rgba(#{$backgroundBase}, .4);
-            --circle-icon-active-box-shadow: 0 0 0 .625rem rgba(#{$backgroundBase}, .4);
-        }
-    }
-
-    &__badge {
-        display: block;
-        width: 1rem;
-        height: 1rem;
-        border-radius: 50%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        background-color: var(--circle-icon__badge-background-color);
-
-        &-enter-active {
-            animation: bounce-in .3s;
-        }
-
-        &-leave-active {
-            animation: bounce-in .3s reverse;
-        }
-    }
+  }
 }
 
 @keyframes bounce-in {
-    0% {
-        transform: scale(0);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

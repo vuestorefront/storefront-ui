@@ -1,29 +1,29 @@
 @import '../../variables';
 
 :root {
-    --top-bar-height: 2.5rem;
-    --top-bar-hidden-max-width: $desktop-min;
-    --top-bar-background-color: var(--c-light);
-    --top-bar-horizontal-padding: var(--spacer-extra-big);
+  --top-bar-height: 2.5rem;
+  --top-bar-hidden-max-width: $desktop-min;
+  --top-bar-background-color: var(--c-light);
+  --top-bar-horizontal-padding: var(--spacer-extra-big);
 }
 
 .sf-topbar {
-    width: 100%;
-    height: var(--top-bar-height);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    padding: 0 var(--top-bar-horizontal-padding);
-    background-color: var(--top-bar-background-color);
+  width: 100%;
+  height: var(--top-bar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 var(--top-bar-horizontal-padding);
+  background-color: var(--top-bar-background-color);
 
-    &__center {
-        font-size: var(--font-size-small-desktop);
-    }
+  &__center {
+    font-size: var(--font-size-small-desktop);
+  }
 }
 
 @media only screen and (max-width: $desktop-min) {
-    .sf-topbar {
-        display: none;
-    }
+  .sf-topbar {
+    display: none;
+  }
 }

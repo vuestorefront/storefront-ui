@@ -1,38 +1,38 @@
 @import '../../variables';
 
 :root {
-    --property-font-family: var(--body-font-family-secondary);
-    --property-font-size: var(--font-size-regular);
-    --property-font-weight: var(--body-font-weight-secondary);
-    --property-line-height: 1.6;
-    --property__name-color: #a3a5ad;
-    --property__value-font-weight: 500;
-    --property__value-font-weight-desktop: var(--body-font-weight-secondary);
+  --property-font-family: var(--body-font-family-secondary);
+  --property-font-size: var(--font-size-regular);
+  --property-font-weight: var(--body-font-weight-secondary);
+  --property-line-height: 1.6;
+  --property__name-color: var(--c-gray-variant);
+  --property__value-font-weight: 500;
+  --property__value-font-weight-desktop: var(--body-font-weight-secondary);
 }
 
 .sf-property {
-    $this: &;
-    font-family: var(--property-font-family);
-    font-size: var(--property-font-size);
-    font-weight: var(--property-font-weight);
-    line-height: 1.6;
+  $this: &;
+  font-family: var(--property-font-family);
+  font-size: var(--property-font-size);
+  font-weight: var(--property-font-weight);
+  line-height: 1.6;
 
-    &__name {
-        margin-right: var(--spacer);
-        color: var(--property__name-color);
+  &__name {
+    margin-right: var(--spacer);
+    color: var(--property__name-color);
+  }
+
+  &__value {
+    font-weight: var(--property__value-font-weight);
+  }
+
+  &--full-width {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+    #{$this}__name {
+      text-transform: uppercase;
     }
-
-    &__value {
-        font-weight: var(--property__value-font-weight);
-    }
-
-    &--full-width {
-        display: flex;
-        justify-content: space-between;
-        align-content: center;
-
-        #{$this}__name {
-            text-transform: uppercase;
-        }
-    }
+  }
 }

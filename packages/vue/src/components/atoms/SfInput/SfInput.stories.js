@@ -10,6 +10,9 @@ storiesOf("Atoms|Input", module)
   .add("Common", () => ({
     components: { SfInput },
     props: {
+      type: {
+        default: text("type", "text", "Props")
+      },
       label: {
         default: text("label", "First name", "Props")
       },
@@ -30,6 +33,9 @@ storiesOf("Atoms|Input", module)
       },
       ariaLabel: {
         default: text("ariaLabel", "First name", "Props")
+      },
+      hasShowPassword: {
+        default: boolean("hasShowPassword", true, "Props")
       }
     },
     data() {
@@ -39,13 +45,16 @@ storiesOf("Atoms|Input", module)
     },
     template: `<SfInput
       v-model="value"
+      :type="type"
       :label="label"
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
       :required="required"
       :disabled="disabled"
-      :aria-label="ariaLabel"/>`
+      :aria-label="ariaLabel"
+      :has-show-password="hasShowPassword"
+      />`
   }))
   .add("[slot] label", () => ({
     components: {
@@ -53,6 +62,9 @@ storiesOf("Atoms|Input", module)
       SfIcon
     },
     props: {
+      type: {
+        default: text("type", "text", "Props")
+      },
       label: {
         default: text("label", "First name", "Props")
       },
@@ -73,6 +85,9 @@ storiesOf("Atoms|Input", module)
       },
       ariaLabel: {
         default: text("ariaLabel", "First name", "Props")
+      },
+      hasShowPassword: {
+        default: boolean("hasShowPassword", true, "Props")
       }
     },
     data() {
@@ -81,14 +96,17 @@ storiesOf("Atoms|Input", module)
       };
     },
     template: `<SfInput
-      v-model="value"
-      :label="label"
-      :name="name"
-      :valid="valid"
-      :error-message="errorMessage"
-      :required="required"
-      :disabled="disabled"
-      :aria-label="ariaLabel">
+        v-model="value"
+        :type="type"
+        :label="label"
+        :name="name"
+        :valid="valid"
+        :error-message="errorMessage"
+        :required="required"
+        :disabled="disabled"
+        :has-show-password="hasShowPassword"
+        :aria-label="ariaLabel"
+      >
       <template #label="{label}">
             <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
       </template>
@@ -100,6 +118,9 @@ storiesOf("Atoms|Input", module)
       SfIcon
     },
     props: {
+      type: {
+        default: text("type", "text", "Props")
+      },
       label: {
         default: text("label", "First name", "Props")
       },
@@ -120,6 +141,9 @@ storiesOf("Atoms|Input", module)
       },
       ariaLabel: {
         default: text("ariaLabel", "First name", "Props")
+      },
+      hasShowPassword: {
+        default: boolean("hasShowPassword", true, "Props")
       }
     },
     data() {
@@ -129,13 +153,16 @@ storiesOf("Atoms|Input", module)
     },
     template: `<SfInput
       v-model="value"
+      :type="type"
       :label="label"
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
       :required="required"
       :disabled="disabled"
-      :aria-label="ariaLabel">
+      :has-show-password="hasShowPassword"
+      :aria-label="ariaLabel"
+      >
       <template #errorMessage="{errorMessage}">
         <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> CUSTOM ERROR MESSAGE
       </template>

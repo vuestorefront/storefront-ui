@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
-
 import SfModal from "./SfModal.vue";
 import {
   visibilityToggleMixin,
@@ -21,7 +20,7 @@ storiesOf("Molecules|Modal", module)
         default: boolean("cross", true, "Props")
       },
       persistent: {
-        default: boolean("persistent", true, "Props")
+        default: boolean("persistent", false, "Props")
       },
       ariaLabelClose: {
         default: text("ariaLabelClose", "Close", "Props")
@@ -50,7 +49,7 @@ storiesOf("Molecules|Modal", module)
         default: boolean("cross", true, "Props")
       },
       persistent: {
-        default: boolean("persistent", true, "Props")
+        default: boolean("persistent", false, "Props")
       }
     },
     mixins: [visibilityToggleMixin],

@@ -5,9 +5,7 @@ import {
   color,
   optionsKnob as options
 } from "@storybook/addon-knobs";
-
 import SfCallToAction from "./SfCallToAction.vue";
-
 storiesOf("Molecules|CallToAction", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -39,11 +37,7 @@ storiesOf("Molecules|CallToAction", module)
         default: text("buttonText", "Subscribe", "Props")
       },
       image: {
-        default: text(
-          "image",
-          "assets/storybook/homepage/newsletter.jpg",
-          "Props"
-        )
+        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props")
       },
       background: {
         default: color("background", "#e1e3e2", "Props")
@@ -88,11 +82,7 @@ storiesOf("Molecules|CallToAction", module)
         default: text("buttonText", "Subscribe", "Props")
       },
       image: {
-        default: text(
-          "image",
-          "assets/storybook/homepage/newsletter.jpg",
-          "Props"
-        )
+        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props")
       },
       background: {
         default: color("background", "#e1e3e2", "Props")
@@ -141,11 +131,7 @@ storiesOf("Molecules|CallToAction", module)
         default: text("buttonText", "Subscribe", "Props")
       },
       image: {
-        default: text(
-          "image",
-          "assets/storybook/homepage/newsletter.jpg",
-          "Props"
-        )
+        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props")
       },
       background: {
         default: color("background", "#e1e3e2", "Props")
@@ -194,11 +180,7 @@ storiesOf("Molecules|CallToAction", module)
         default: text("buttonText", "Subscribe", "Props")
       },
       image: {
-        default: text(
-          "image",
-          "assets/storybook/homepage/newsletter.jpg",
-          "Props"
-        )
+        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props")
       },
       background: {
         default: color("background", "#e1e3e2", "Props")

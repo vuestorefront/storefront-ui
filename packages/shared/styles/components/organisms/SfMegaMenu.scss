@@ -1,11 +1,127 @@
 @import '../../variables';
 
-:root {
-    --mega-menu-background-color: var(--c-white);
+%menu-item {
+  padding: var(--spacer-big);
+  border-bottom: 1px solid var(--c-light);
+  font-family: var(--body-font-family-secondary);
+  font-size: var(--font-size-big);
+  font-weight: 300;
+  line-height: 1.6;
+  @media (min-width: $desktop-min) {
+    font-size: var(--font-size-regular);
+    padding: 0 0 10px 0;
+    border-bottom: 0;
+  }
+}
+
+.sf-mega-menu-column {
+  @media (min-width: $desktop-min) {
+    margin-right: var(--spacer-extra-big);
+  }
+
+  &__title {
+    @extend %menu-item;
+    padding-bottom: 20px;
+    font-weight: 500;
+    @media (min-width: $desktop-min) {
+      text-transform: uppercase;
+    }
+  }
+
+  & > .sf-menu-item {
+    @extend %menu-item;
+
+    &--primary {
+      font-weight: 500;
+      @media (min-width: $desktop-min) {
+        text-transform: uppercase;
+      }
+    }
+  }
 }
 
 .sf-mega-menu {
-    background-color: var(--mega-menu-background-color);
-    position: relative;
-    width: 100%;
+  overflow: hidden;
+  height: 100vh;
+  background-color: var(--c-white);
+  text-transform: initial;
+  @media (min-width: $desktop-min) {
+    overflow: auto;
+    height: auto;
+  }
+
+  &__content {
+    display: flex;
+    transition: transform 150ms ease-in-out;
+    @media (min-width: $desktop-min) {
+      border-top: 2px solid var(--c-light);
+      padding: var(--spacer-extra-big) 0 6.25rem 0;
+      margin: 0 auto;
+    }
+
+    &--is-active {
+      transform: translateX(-100%);
+      @media (min-width: $desktop-min) {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__aside,
+  &__menu {
+    overflow-y: auto;
+    box-sizing: border-box;
+    flex: 0 0 100%;
+    height: calc(100vh - 5rem);
+    padding: 0 var(--spacer-big);
+    @media (min-width: $desktop-min) {
+      flex: auto;
+      height: auto;
+      padding: 0 var(--spacer-extra-big);
+    }
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+
+  &__aside {
+    @media (min-width: $desktop-min) {
+      order: 1;
+      border-left: 2px solid var(--c-light);
+      &--without-content {
+        flex: 0;
+        padding: 0;
+        border-left: 0;
+      }
+    }
+  }
+
+  &__menu {
+    @media (min-width: $desktop-min) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__menu-mobile {
+    @media (min-width: $desktop-min) {
+      display: none;
+    }
+  }
+
+  &__menu-item {
+    @extend %menu-item;
+    font-weight: 500;
+    @media (min-width: $desktop-min) {
+      text-transform: uppercase;
+    }
+  }
+
+  &__aside-content {
+    margin: var(--spacer-extra-big) 0;
+    @media (min-width: $desktop-min) {
+      margin: 0;
+    }
+  }
 }

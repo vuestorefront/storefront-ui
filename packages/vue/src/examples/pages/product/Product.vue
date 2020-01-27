@@ -6,26 +6,34 @@
     />
     <div class="product">
       <div class="product__gallery">
-        <SfImage
-          src="assets/storybook/productpage/productA.jpg"
-          class="desktop-only"
-        />
-        <SfImage
-          src="assets/storybook/productpage/productB.jpg"
-          class="desktop-only"
-        />
         <SfGallery
           class="gallery-mobile mobile-only"
+          :image-width="375"
+          :image-height="490"
           :images="[
             {
-              small: { url: 'assets/storybook/productpage/productM.jpg' },
-              big: { url: 'assets/storybook/productpage/productM.jpg' }
+              mobile: { url: 'assets/storybook/Product/productM.jpg' },
+              desktop: { url: 'assets/storybook/Product/productM.jpg' },
+              big: { url: 'assets/storybook/Product/productM.jpg' }
             },
             {
-              small: { url: 'assets/storybook/productpage/productM.jpg' },
-              big: { url: 'assets/storybook/productpage/productM.jpg' }
+              mobile: { url: 'assets/storybook/Product/productM.jpg' },
+              desktop: { url: 'assets/storybook/Product/productM.jpg' },
+              big: { url: 'assets/storybook/Product/productM.jpg' }
             }
           ]"
+        />
+        <SfImage
+          src="assets/storybook/Product/productA.jpg"
+          :width="590"
+          :height="700"
+          class="desktop-only"
+        />
+        <SfImage
+          src="assets/storybook/Product/productB.jpg"
+          :width="590"
+          :height="700"
+          class="desktop-only"
         />
       </div>
       <div class="product__description">
@@ -202,34 +210,52 @@
       <div class="images-grid">
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageA.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageB.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageB.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageC.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
         </div>
         <div class="images-grid__row">
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageC.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageD.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageD.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
           <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.jpg"
+            <SfImage
+              src="assets/storybook/Home/imageA.jpg"
+              :width="486"
+              :height="486"
               >katherina_trn</SfImage
             >
           </div>
@@ -238,7 +264,7 @@
     </SfSection>
     <SfBanner
       title="Download our application to your mobile"
-      image="/assets/storybook/homepage/bannerD.png"
+      image="/assets/storybook/Home/bannerD.png"
       class="banner-application sf-banner--left sf-banner--center desktop-only"
     >
       <template #subtitle>
@@ -253,12 +279,12 @@
         <div>
           <img
             class="banner-application__download"
-            src="assets/storybook/homepage/google.png"
+            src="assets/storybook/Home/google.png"
             alt=""
           />
           <img
             class="banner-application__download"
-            src="assets/storybook/homepage/apple.png"
+            src="assets/storybook/Home/apple.png"
             alt=""
           />
         </div>
@@ -286,8 +312,7 @@ import {
   SfSticky,
   SfReview,
   SfBreadcrumbs
-} from "../../../../index.js";
-
+} from "@storefront-ui/vue";
 export default {
   name: "Product",
   components: {
@@ -354,56 +379,56 @@ export default {
       products: [
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/Home/productA.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/Home/productB.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/Home/productC.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/Home/productA.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/Home/productB.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/Home/productC.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/Home/productA.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/Home/productB.jpg",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
@@ -457,8 +482,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
-@mixin for {
+@mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
@@ -466,7 +490,7 @@ export default {
 
 #product {
   box-sizing: border-box;
-  @include for {
+  @include for-desktop {
     max-width: 1240px;
     margin: auto;
   }
@@ -515,31 +539,10 @@ export default {
   @supports (-webkit-overflow-scrolling: touch) {
     height: calc(100vh - #{$height-iOS});
   }
-
-  ::v-deep .glide {
-    &,
-    * {
-      height: 100%;
-    }
-
-    &__slide {
-      position: relative;
-      overflow: hidden;
-    }
-
+  ::v-deep .sf-image {
     img {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      min-width: calc((375 / 490) * (100vh - #{$height-other}));
-      @supports (-webkit-overflow-scrolling: touch) {
-        min-width: calc((375 / 490) * (100vh - #{$height-iOS}));
-      }
+      width: 100%;
     }
-  }
-
-  ::v-deep .sf-gallery__stage {
-    width: 100%;
   }
 }
 
@@ -548,8 +551,8 @@ export default {
     display: flex;
 
     & + & {
-      margin-top: var(--spacer-big) / 2;
-      @include for {
+      margin-top: calc(var(--spacer-big) / 2);
+      @include for-desktop {
         margin-top: var(--spacer-big);
       }
     }
@@ -559,8 +562,8 @@ export default {
     margin: 0;
 
     & + & {
-      margin-left: var(--spacer-big) / 2;
-      @include for {
+      margin-left: calc(var(--spacer-big) / 2);
+      @include for-desktop {
         margin-left: var(--spacer-big);
       }
     }
@@ -568,7 +571,7 @@ export default {
 }
 
 .product {
-  @include for {
+  @include for-desktop {
     display: flex;
   }
 
@@ -579,7 +582,7 @@ export default {
 
   &__description {
     padding: 0 var(--spacer-big);
-    @include for {
+    @include for-desktop {
       margin-left: calc(var(--spacer-big) * 5);
     }
   }
@@ -588,7 +591,7 @@ export default {
 .product-card {
   max-width: unset; // ?
   &:hover {
-    @include for {
+    @include for-desktop {
       box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
     }
   }
@@ -596,13 +599,13 @@ export default {
 
 .product-carousel {
   margin: -20px - var(--spacer-big) -20px 0;
-  @include for {
+  @include for-desktop {
     margin: -20px 0;
   }
 
   ::v-deep .sf-carousel__wrapper {
     padding: 20px 0;
-    @include for {
+    @include for-desktop {
       padding: 20px;
       max-width: calc(100% - 216px);
     }
@@ -613,14 +616,14 @@ export default {
   &__action {
     display: flex;
     margin: var(--spacer-big) 0 (var(--spacer-big) / 2);
-    @include for {
+    @include for-desktop {
       justify-content: flex-end;
     }
   }
 
   &__add-to-cart {
     margin-top: 1.5rem;
-    @include for {
+    @include for-desktop {
       margin-top: var(--spacer-extra-big);
     }
   }
@@ -638,7 +641,7 @@ export default {
     font-family: var(--body-font-family-secondary);
     font-size: var(--font-size-regular);
     line-height: 1.6;
-    @include for {
+    @include for-desktop {
       font-size: var(--font-size-regular);
     }
   }
@@ -653,13 +656,13 @@ export default {
     ::v-deep .sf-heading__title {
       font-size: var(--font-size-big);
       font-weight: var(--body-font-weight-primary);
-      @include for {
+      @include for-desktop {
         font-size: var(--h1-font-size);
         font-weight: var(--body-font-weight-secondary);
       }
     }
 
-    @include for {
+    @include for-desktop {
       margin-top: 0;
     }
   }
@@ -671,12 +674,11 @@ export default {
 
     .product--is-active & {
       display: block;
-      @include for {
+      @include for-desktop {
         display: none;
       }
     }
-
-    @include for {
+    @include for-desktop {
       display: none;
     }
   }
@@ -684,7 +686,7 @@ export default {
   &__mobile-top {
     display: flex;
     align-items: center;
-    @include for {
+    @include for-desktop {
       display: block;
     }
   }
@@ -702,7 +704,7 @@ export default {
   &__sub-price {
     flex-basis: 100%;
     margin-top: calc(var(--spacer-big) / 4);
-    @include for {
+    @include for-desktop {
       flex-basis: auto;
       margin-top: calc(var(--spacer-big) / 2);
     }
@@ -711,7 +713,7 @@ export default {
   &__sub-rating {
     display: flex;
     margin-top: calc(var(--spacer-big) / 2);
-    @include for {
+    @include for-desktop {
       margin-left: auto;
     }
   }
@@ -724,7 +726,7 @@ export default {
   &__section {
     border-bottom: 1px solid #f1f2f3;
     padding-bottom: 10px;
-    @include for {
+    @include for-desktop {
       border: 0;
       padding-bottom: 0;
     }
@@ -732,7 +734,7 @@ export default {
 
   &__tabs {
     margin-top: var(--spacer-big);
-    @include for {
+    @include for-desktop {
       margin-top: calc(5 * var(--spacer-big));
     }
 
@@ -743,7 +745,7 @@ export default {
 
   &__review {
     padding-bottom: var(--spacer-big);
-    @include for {
+    @include for-desktop {
       padding-bottom: var(--spacer-extra-big);
       border-bottom: 1px solid var(--c-light);
     }
@@ -751,7 +753,7 @@ export default {
     & + & {
       padding-top: var(--spacer-extra-big);
       border-top: 1px solid var(--c-light);
-      @include for {
+      @include for-desktop {
         border-top: 0;
         padding-top: var(--spacer-extra-big);
       }
@@ -766,7 +768,7 @@ export default {
 .section {
   padding-left: var(--spacer-big);
   padding-right: var(--spacer-big);
-  @include for {
+  @include for-desktop {
     padding-left: 0;
     padding-right: 0;
   }
@@ -785,7 +787,7 @@ export default {
   line-height: 1.6;
   text-decoration: underline;
   cursor: pointer;
-  @include for {
+  @include for-desktop {
     font-size: var(--font-size-regular);
   }
 }

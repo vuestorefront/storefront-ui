@@ -1,147 +1,170 @@
 @import '../../variables';
 
 :root {
-    --header-height: 3.125rem;
-    --header-padding: 0 var(--spacer-extra-big);
-    --header-background-color: var(--c-light);
-    --header-navigation-item-margin-left: 2.5rem;
-    --header-navigation-item-font-family: var(--body-font-family-primary);
-    --header-navigation-item-font-size: var(--font-size-regular);
-    --header-navigation-item-font-weight: 500;
+  --header-height: 3.125rem;
+  --header-padding: 0 var(--spacer-extra-big);
+  --header-background-color: var(--c-light);
+  --header-navigation-item-margin-left: 2.5rem;
+  --header-navigation-item-font-family: var(--body-font-family-primary);
+  --header-navigation-item-font-size: var(--font-size-regular);
+  --header-navigation-item-font-weight: 500;
 
-    @media (min-width: $tablet-min) {
-        --header-padding: 0 var(--spacer-extra-big);
-        --header-height: 5rem;
-        --header-background-color: var(--c-white);
-        --header-navigation-item-font-size: var(--font-size-small);
-    }
+  @media (min-width: $tablet-min) {
+    --header-padding: 0 var(--spacer-extra-big);
+    --header-height: 5rem;
+    --header-background-color: var(--c-white);
+    --header-navigation-item-font-size: var(--font-size-small);
+  }
 }
 
+
 .sf-header-navigation-item {
-    $this: &;
+  $this: &;
+  height: 100%;
+  margin-left: var(--spacer-extra-big);
+
+  &:first-child {
+    margin-left: 5rem;
+  }
+
+  &:hover {
+    & > a {
+      border-color: var(--c-text);
+    }
+  }
+
+  & > a {
     position: relative;
-    height: 100%;
+    z-index: 1;
     display: flex;
     align-items: center;
-    margin-left: var(--header-navigation-item-margin-left);
-    color: var(--c-text);
+    height: 100%;
+    text-transform: uppercase;
     font-family: var(--header-navigation-item-font-family);
     font-size: var(--header-navigation-item-font-size);
-    font-weight: var(--header-navigation-item-font-weight);
+    font-weight: 500;
     line-height: 1.6;
-    cursor: pointer;
-    transition: color 150ms linear;
-
-    &::after {
-        position: absolute;
-        left: 0;
-        z-index: 1;
-        bottom: -2px;
-        height: 2px;
-        width: 100%;
-        background-color: transparent;
-        content: "";
-        transition: background-color 150ms linear;
-    }
-
-    &:hover {
-        &::after {
-            background-color: var(--c-dark);
-        }
-    }
+    border-bottom: 2px solid transparent;
+    transition: border-color 150ms linear;
+  }
 }
 
 .sf-header {
-    box-sizing: border-box;
+  $this: &;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: var(--header-padding);
+  background-color: var(--header-background-color);
+
+  &--has-mobile-search {
+    #{$this}__search {
+      @media (max-width: $desktop-min) {
+        display: flex;
+        order: 1;
+        flex: 0 0 100%;
+        margin: var(--spacer) 0;
+        background-color: var(--c-white);
+      }
+    }
+  }
+
+  &__logo {
+    height: var(--header__logo-height);
+    width: auto;
+    margin: 10px 0;
+
+    img {
+      height: 100%;
+      max-width: unset;
+    }
+  }
+
+  &__navigation {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: var(--header-height);
-    padding: var(--header-padding);
-    background-color: var(--header-background-color);
+    height: 100%;
 
-    &__logo {
-        height: calc(100% - 1.25rem);
-
-        img, picture {
-            height: 100%;
-        }
+    &:hover > *:not(:hover) {
+      color: var(--c-text-muted);
     }
 
-    &__navigation {
-        display: flex;
-        align-items: center;
-        height: 100%;
+    & > *:hover {
+      color: var(--c-text);
+    }
+  }
 
-        &:hover > *:not(:hover) {
-            color: var(--c-gray);
+  &__search {
+    display: none;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    $this: &;
+    margin-left: var(--spacer-big);
+
+    &.sf-circle-icon {
+      background-color: transparent;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: var(--c-light);
+        box-shadow: none;
+      }
+
+      &.sf-button {
+        padding: 10px;
+      }
+
+      & .sf-icon {
+        --icon-size: 1.25rem;
+        --icon-color: var(--c-text);
+
+        &:hover {
+          --icon-color: var(--c-text);
         }
+      }
+    }
+
+    &--is-active {
+      &.sf-circle-icon {
+        background-color: var(--c-primary);
+
+        & .sf-icon {
+          --icon-color: var(--c-white);
+        }
+      }
+    }
+  }
+
+  &__navigation,
+  &__icons {
+    @media (max-width: $desktop-min) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-min) {
+  .sf-header {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+
+    &__logo {
+      height: 2.125rem;
+      margin: 0;
     }
 
     &__search {
-        margin: 0 10px 0 auto;
+      display: flex;
+      margin: 0 10px 0 auto;
     }
-
-    &__icons {
-        display: flex;
-        align-items: center;
-    }
-
-    &__icon {
-        $this: &;
-        margin-left: var(--spacer-big);
-
-        &.sf-circle-icon {
-            background-color: transparent;
-            transition: background-color 0.3s ease;
-
-            &:hover {
-                background-color: var(--c-light);
-                box-shadow: none;
-            }
-
-            &.sf-button {
-                padding: 10px;
-            }
-
-            & .sf-icon {
-                --icon-size: 1.25rem;
-                --icon-color: var(--c-text);
-
-                &:hover {
-                    --icon-color: var(--c-text);
-                }
-            }
-        }
-
-        &--is-active {
-            &.sf-circle-icon {
-                background-color: var(--c-primary);
-
-                & .sf-icon {
-                    --icon-color: var(--c-white);
-                }
-            }
-        }
-    }
-
-    &__navigation,
-    &__search,
-    &__icons{
-        @media (max-width: $desktop-min) {
-            display: none;
-        }
-    }
-}
-
-
-@media screen and (min-width: $desktop-min) {
-    .sf-header {
-        justify-content: flex-start;
-        padding: var(--header-padding);
-
-        &__logo {
-            height: calc(100% - 2.5rem);
-        }
-    }
+  }
 }

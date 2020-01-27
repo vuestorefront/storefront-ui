@@ -2,143 +2,143 @@ $_darken-value: 5;
 $_lighten-value: 5;
 
 :root {
-    // Internal color variables
-    // Should NOT be used directly for theming or component styles
-    --c-black: #000;
-    @include generate-color-variants(--c-black, #000);
-    --c-white: #fff;
-    @include generate-color-variants(--c-white, #fff);
+  // Internal color variables
+  // Should NOT be used directly for theming or component styles
+  --c-black: #000;
+  @include generate-color-variants(--c-black, #000);
+  --c-white: #fff;
+  @include generate-color-variants(--c-white, #fff);
 
-    --_c-green-primary: #5fce7d;
-    @include generate-color-variants(--_c-green-primary, #5fce7d);
-    --_c-green-secondary: #9de2af;
-    @include generate-color-variants(--_c-green-secondary, #9de2af);
+  --_c-green-primary: #5fce7d;
+  @include generate-color-variants(--_c-green-primary, #5fce7d);
+  --_c-green-secondary: #9de2af;
+  @include generate-color-variants(--_c-green-secondary, #9de2af);
 
-    --_c-dark-primary: #1c1e21;
-    @include generate-color-variants(--_c-dark-primary, #1c1e21);
-    --_c-dark-secondary: #747781;
-    @include generate-color-variants(--_c-dark-secondary, #747781);
+  --_c-dark-primary: #1c1e21;
+  @include generate-color-variants(--_c-dark-primary, #1c1e21);
+  --_c-dark-secondary: #747781;
+  @include generate-color-variants(--_c-dark-secondary, #747781);
 
-    --_c-gray-primary: #686d7d;
-    @include generate-color-variants(--_c-gray-primary, #686d7d);
-    --_c-gray-secondary: #bfc0c5;
-    @include generate-color-variants(--_c-gray-secondary, #bfc0c5);
+  --_c-gray-primary: #686d7d;
+  @include generate-color-variants(--_c-gray-primary, #686d7d);
+  --_c-gray-secondary: #bfc0c5;
+  @include generate-color-variants(--_c-gray-secondary, #bfc0c5);
 
-    --_c-light-primary: #f1f2f3;
-    @include generate-color-variants(--_c-light-primary, #f1f2f3);
-    --_c-light-secondary: #fff;
-    @include generate-color-variants(--_c-light-secondary, #fff);
+  --_c-light-primary: #f1f2f3;
+  @include generate-color-variants(--_c-light-primary, #f1f2f3);
+  --_c-light-secondary: #fff;
+  @include generate-color-variants(--_c-light-secondary, #fff);
 
-    --_c-pink-primary: #e25e83;
-    @include generate-color-variants(--_c-pink-primary, #e25e83);
-    --_c-pink-secondary: #e28fa1;
-    @include generate-color-variants(--_c-pink-secondary, #e28fa1);
+  --_c-pink-primary: #e25e83;
+  @include generate-color-variants(--_c-pink-primary, #e25e83);
+  --_c-pink-secondary: #e28fa1;
+  @include generate-color-variants(--_c-pink-secondary, #e28fa1);
 
-    --_c-red-primary: #e22225;
-    @include generate-color-variants(--_c-red-primary, #e22225);
-    --_c-red-secondary: #fff6f5;
-    @include generate-color-variants(--_c-red-secondary, #fff6f5);
+  --_c-red-primary: #e22225;
+  @include generate-color-variants(--_c-red-primary, #e22225);
+  --_c-red-secondary: #fff6f5;
+  @include generate-color-variants(--_c-red-secondary, #fff6f5);
 
-    --_c-yellow-primary: #ffdf3d;
-    @include generate-color-variants(--_c-yellow-primary, #ffdf3d);
-    --_c-yellow-secondary: #fffceb;
-    @include generate-color-variants(--_c-yellow-secondary, #fffceb);
+  --_c-yellow-primary: #ffdf3d;
+  @include generate-color-variants(--_c-yellow-primary, #ffdf3d);
+  --_c-yellow-secondary: #fffceb;
+  @include generate-color-variants(--_c-yellow-secondary, #fffceb);
 
-    --_c-blue-primary: #6699cc;
-    @include generate-color-variants(--_c-blue-primary, #6699cc);
-    --_c-blue-secondary: #f5f7fa;
-    @include generate-color-variants(--_c-blue-secondary, #f5f7fa);
+  --_c-blue-primary: #6699cc;
+  @include generate-color-variants(--_c-blue-primary, #6699cc);
+  --_c-blue-secondary: #f5f7fa;
+  @include generate-color-variants(--_c-blue-secondary, #f5f7fa);
 
-    // Body and text defaults
-    --c-body: var(--c-white);
-    --c-text: var(--_c-dark-primary);
-    --c-text-muted: var(--_c-gray-primary);
-    --c-link: var(--_c-dark-secondary);
-    --c-link-hover: var(--c-black);
+  // Body and text defaults
+  --c-body: var(--c-white);
+  --c-text: var(--_c-dark-primary);
+  --c-text-muted: var(--_c-gray-primary);
+  --c-link: var(--_c-dark-secondary);
+  --c-link-hover: var(--c-black);
 
-    /* Brand colors */
+  /* Brand colors */
 
-    // Primary
-    /* Should be used to drive attention to the main tasks that should be done while using the app.
-     * It is meant to be used in major interactive elements of the page. */
-    --c-primary: var(--_c-green-primary);
-    @include assign-color-variants(--c-primary, --_c-green-primary);
-    --c-primary-variant: var(--_c-green-secondary);
-    --c-primary-hover: var(--_c-dark-primary);
-    --c-on-primary: var(--c-white);
-    --c-on-primary-hover: var(--c-white);
+  // Primary
+  /* Should be used to drive attention to the main tasks that should be done while using the app.
+   * It is meant to be used in major interactive elements of the page. */
+  --c-primary: var(--_c-green-primary);
+  @include assign-color-variants(--c-primary, --_c-green-primary);
+  --c-primary-variant: var(--_c-green-secondary);
+  --c-primary-hover: var(--_c-dark-primary);
+  --c-on-primary: var(--c-white);
+  --c-on-primary-hover: var(--c-white);
 
-    // Secondary
-    /* Should be used to drive attention in the elements with relevant info,
-     * but where the user is not intended to take action. */
-    --c-secondary: var(--_c-dark-primary);
-    @include assign-color-variants(--c-secondary, --_c-dark-primary);
-    --c-secondary-variant: var(--_c-dark-secondary);
-    --c-secondary-hover: var(--_c-dark-primary);
-    --c-on-secondary: var(--c-white);
-    --c-on-secondary-hover: var(--c-white);
+  // Secondary
+  /* Should be used to drive attention in the elements with relevant info,
+   * but where the user is not intended to take action. */
+  --c-secondary: var(--_c-dark-primary);
+  @include assign-color-variants(--c-secondary, --_c-dark-primary);
+  --c-secondary-variant: var(--_c-dark-secondary);
+  --c-secondary-hover: var(--_c-dark-primary);
+  --c-on-secondary: var(--c-white);
+  --c-on-secondary-hover: var(--c-white);
 
-    /* Base colors */
+  /* Base colors */
 
-    // Light
-    --c-light: var(--_c-light-primary);
-    @include assign-color-variants(--c-light, --_c-light-primary);
-    --c-light-variant: var(--_c-light-secondary);
-    --c-light-hover: var(--_c-dark-primary);
-    --c-on-light: var(--c-black);
-    --c-on-light-hover: var(--c-white);
+  // Light
+  --c-light: var(--_c-light-primary);
+  @include assign-color-variants(--c-light, --_c-light-primary);
+  --c-light-variant: var(--_c-light-secondary);
+  --c-light-hover: var(--_c-dark-primary);
+  --c-on-light: var(--c-black);
+  --c-on-light-hover: var(--c-white);
 
-    // Gray
-    --c-gray: var(--_c-gray-primary);
-    @include assign-color-variants(--c-gray, --_c-gray-primary);
-    --c-gray-variant: var(--_c-gray-secondary);
-    --c-gray-hover: var(--_c-dark-primary);
-    --c-on-gray: var(--c-black);
-    --c-on-gray-hover: var(--c-white);
+  // Gray
+  --c-gray: var(--_c-gray-primary);
+  @include assign-color-variants(--c-gray, --_c-gray-primary);
+  --c-gray-variant: var(--_c-gray-secondary);
+  --c-gray-hover: var(--_c-dark-primary);
+  --c-on-gray: var(--c-black);
+  --c-on-gray-hover: var(--c-white);
 
-    // Dark
-    --c-dark: var(--_c-dark-primary);
-    @include assign-color-variants(--c-dark, --_c-dark-primary);
-    --c-dark-variant: var(--_c-dark-secondary);
-    --c-dark-hover: var(--_c-dark-primary);
-    --c-on-dark: var(--c-white);
-    --c-on-dark-hover: var(--c-white);
+  // Dark
+  --c-dark: var(--_c-dark-primary);
+  @include assign-color-variants(--c-dark, --_c-dark-primary);
+  --c-dark-variant: var(--_c-dark-secondary);
+  --c-dark-hover: var(--_c-dark-primary);
+  --c-on-dark: var(--c-white);
+  --c-on-dark-hover: var(--c-white);
 
-    /* Context colors */
+  /* Context colors */
 
-    // Info
-    --c-info: var(--_c-blue-primary);
-    @include assign-color-variants(--c-info, --_c-blue-primary);
-    --c-info-variant: var(--_c-blue-secondary);
-    --c-info-hover: var(--_c-dark-primary);
-    --c-on-info: var(--c-white);
-    --c-on-info-hover: var(--c-white);
+  // Info
+  --c-info: var(--_c-blue-primary);
+  @include assign-color-variants(--c-info, --_c-blue-primary);
+  --c-info-variant: var(--_c-blue-secondary);
+  --c-info-hover: var(--_c-dark-primary);
+  --c-on-info: var(--c-white);
+  --c-on-info-hover: var(--c-white);
 
-    // Success
-    --c-success: var(--_c-green-primary);
-    @include assign-color-variants(--c-success, --_c-green-primary);
-    --c-success-variant: var(--_c-green-secondary);
-    --c-success-hover: var(--_c-dark-primary);
-    --c-on-success: var(--c-white);
-    --c-on-success-hover: var(--c-white);
+  // Success
+  --c-success: var(--_c-green-primary);
+  @include assign-color-variants(--c-success, --_c-green-primary);
+  --c-success-variant: var(--_c-green-secondary);
+  --c-success-hover: var(--_c-dark-primary);
+  --c-on-success: var(--c-white);
+  --c-on-success-hover: var(--c-white);
 
-    // Warning
-    --c-warning: var(--_c-yellow-primary);
-    @include assign-color-variants(--c-warning, --_c-yellow-primary);
-    --c-warning-variant: var(--_c-yellow-secondary);
-    --c-warning-hover: var(--_c-dark-primary);
-    --c-on-warning: var(--c-white);
-    --c-on-warning-hover: var(--c-white);
+  // Warning
+  --c-warning: var(--_c-yellow-primary);
+  @include assign-color-variants(--c-warning, --_c-yellow-primary);
+  --c-warning-variant: var(--_c-yellow-secondary);
+  --c-warning-hover: var(--_c-dark-primary);
+  --c-on-warning: var(--c-white);
+  --c-on-warning-hover: var(--c-white);
 
-    // Danger
-    --c-danger: var(--_c-red-primary);
-    @include assign-color-variants(--c-danger, --_c-red-primary);
-    --c-danger-variant: var(--_c-red-secondary);
-    --c-danger-hover: var(--_c-dark-primary);
-    --c-on-danger: var(--c-white);
-    --c-on-danger-hover: var(--c-white);
+  // Danger
+  --c-danger: var(--_c-red-primary);
+  @include assign-color-variants(--c-danger, --_c-red-primary);
+  --c-danger-variant: var(--_c-red-secondary);
+  --c-danger-hover: var(--_c-dark-primary);
+  --c-on-danger: var(--c-white);
+  --c-on-danger-hover: var(--c-white);
 
-    /* END: Theme color variables */
+  /* END: Theme color variables */
 }
 
 // Map theme colors palette
