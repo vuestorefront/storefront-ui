@@ -27,7 +27,7 @@ storiesOf("Organisms|BottomNavigation", module)
     <SfBottomNavigationItem icon="menu" icon-size="20px" label="Menu"/>
     <SfBottomNavigationItem icon="heart" icon-size="20px" label="Heart" :class="customClass"/>
     <SfBottomNavigationItem icon="profile" icon-size="20px" label="Profile"/>
-    <SfBottomNavigationItem icon="add_to_cart" icon-size="28px" :is-floating="true" label="Basket"/>
+    <SfBottomNavigationItem icon="add_to_cart" :is-floating="true" label="Basket"/>
   </SfBottomNavigation>`
   }))
   .add("[slot] icon", () => ({
@@ -69,9 +69,7 @@ storiesOf("Organisms|BottomNavigation", module)
   </SfBottomNavigationItem>
   <SfBottomNavigationItem :is-floating="true">
     <template #icon>
-      <SfCircleIcon>
-        <SfIcon icon="add_to_cart" color="white" size="20px"/>
-      </SfCircleIcon>
+      <SfCircleIcon icon="add_to_cart" icon-color="white" icon-size="20px"/>
     </template>
   </SfBottomNavigationItem>
 </SfBottomNavigation>`

@@ -4,8 +4,12 @@
     :class="{ 'sf-bottom-navigation__floating-button': isFloating }"
   >
     <slot name="icon" v-bind="{ icon, iconSize, isFloating }">
-      <SfCircleIcon v-if="isFloating">
-        <SfIcon v-if="icon" :icon="icon" :size="iconSize" color="white" />
+      <SfCircleIcon
+        v-if="isFloating"
+        :icon="icon"
+        icon-color="white"
+        icon-size="20px"
+      >
       </SfCircleIcon>
       <SfIcon
         v-else-if="icon"
@@ -18,7 +22,7 @@
       <span
         v-if="label"
         :class="{
-          'sf-bottom-navigation__item--spacer': icon,
+          'sf-bottom-navigation__item--has-margin': icon,
           'sf-bottom-navigation__floating-label': isFloating
         }"
         >{{ label }}</span
