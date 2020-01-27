@@ -68,18 +68,42 @@ $grouped-product-item__image-background-color: $c-light !default;
 .sf-grouped-product {
   &__items {
     list-style: none;
+    margin: 0;
 
     &--disabled {
       padding: 10px 0;
 
+      @media (max-width: $desktop-min) {
       .sf-grouped-product-item {
+        box-sizing: border-box;
         display: flex;
         border-bottom: 1px solid $c-light;
         font-size: $grouped-product-font-size-desktop;
+
+        &__aside {
+          flex: 0 0 $grouped-product-max-width-desktop;
+        }
+
+        &__title {
+          margin: 0;
+        }
+
+        &__price {
+          font: inherit;
+          margin: 0 $spacer-small;
+        }
+        &__description {
+          margin: 0 $spacer;
+        }
+        &__quantity-selector {
+            left: $grouped-product-max-width-desktop + $spacer;
+
+            input {
+              background-color: $c-light;
+            }
+        }
       }
-      .sf-grouped-product-item__aside {
-        flex: 0 0 $grouped-product-max-width-desktop;
-      }
+    }
     }
   }
   @media (min-width: $desktop-min) {
