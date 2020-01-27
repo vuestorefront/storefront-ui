@@ -66,6 +66,22 @@ $grouped-product-item__image-background-color: $c-light !default;
   }
 }
 .sf-grouped-product {
+  &__items {
+    list-style: none;
+
+    &--disabled {
+      padding: 10px 0;
+
+      .sf-grouped-product-item {
+        display: flex;
+        border-bottom: 1px solid $c-light;
+        font-size: $grouped-product-font-size-desktop;
+      }
+      .sf-grouped-product-item__aside {
+        flex: 0 0 $grouped-product-max-width-desktop;
+      }
+    }
+  }
   @media (min-width: $desktop-min) {
     .glide {
       &__slides {

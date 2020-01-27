@@ -1,7 +1,17 @@
 <template>
-  <div ref="glide" class="glide sf-grouped-product">
-    <div class="glide__track" data-glide-el="track">
-      <ul :class="{ glide__slides: !disabled }">
+  <div ref="glide" class="sf-grouped-product" :class="{ glide: !disabled }">
+    <div
+      class="glide__track"
+      data-glide-el="track"
+      :class="{ glide__track: !disabled }"
+    >
+      <ul
+        class="sf-grouped-product__items"
+        :class="{
+          glide__slides: !disabled,
+          'sf-grouped-product__items--disabled': disabled
+        }"
+      >
         <!-- @slot Slot for Grouped Product Items -->
         <slot />
       </ul>
