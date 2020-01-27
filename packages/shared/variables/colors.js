@@ -12,7 +12,8 @@ export const colors = {
   yellowPrimary: "yellow-primary",
   yellowSecondary: "yellow-secondary",
   bluePrimary: "blue-primary",
-  blueSecondary: "blue-secondary"
+  blueSecondary: "blue-secondary",
+  accent: "accent",
 };
 
 export const palettes = {
