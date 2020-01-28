@@ -18,8 +18,3 @@ $top-bar-horizontal-padding: $spacer-extra-big !default;
     font-size: $font-size-small-desktop;
   }
 }
-@media only screen and (max-width: $top-bar-hidden-max-width) {
-  .sf-topbar {
-    display: none;
-  }
-}
