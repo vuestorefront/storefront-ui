@@ -658,7 +658,7 @@ export default {
   padding: var(--spacer-big);
 
   &__title {
-    margin: calc(var(--spacer-big * 3)) 0 var(--spacer-big);
+    margin: calc(var(--spacer-big) * 3) 0 var(--spacer-big);
     font-size: var(--font-size-big);
     line-height: 1.6;
 
