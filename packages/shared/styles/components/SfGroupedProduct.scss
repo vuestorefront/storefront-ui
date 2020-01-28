@@ -89,13 +89,14 @@ $grouped-product-item__image-background-color: $c-light !default;
         }
 
         &__price {
-          font: inherit;
           margin: 0 $spacer-small;
+          font: inherit;
         }
         &__description {
           margin: 0 $spacer;
         }
         &__quantity-selector {
+            bottom: 0;
             left: $grouped-product-max-width-desktop + $spacer;
 
             input {
