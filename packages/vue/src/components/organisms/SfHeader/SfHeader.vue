@@ -94,7 +94,7 @@ export default {
      * Header cartIcon (accepts same value as SfIcon)
      */
     cartIcon: {
-      type: [String, Boolean, Object],
+      type: [String, Boolean],
       default: "empty_cart"
     },
     /**
