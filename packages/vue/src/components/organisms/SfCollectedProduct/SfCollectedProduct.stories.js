@@ -36,12 +36,12 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     data() {
       return {
-        qty: 1
+        productQty: 1
       };
     },
     template: `<SfCollectedProduct
-        :qty="qty"
-        @input="qty = $event"
+        :qty="productQty"
+        @input="productQty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -94,12 +94,12 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     data() {
       return {
-        qty: 1
+        productQty: 1
       };
     },
     template: `<SfCollectedProduct
-        :qty="qty"
-        @input="qty = $event"
+        :qty="productQty"
+        @input="productQty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -143,12 +143,12 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     data() {
       return {
-        qty: 1
+        productQty: 1
       };
     },
     template: `<SfCollectedProduct
-        :qty="qty"
-        @input="qty = $event"
+        :qty="productQty"
+        @input="productQty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -192,12 +192,12 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     data() {
       return {
-        qty: 1
+        productQty: 1
       };
     },
     template: `<SfCollectedProduct
-        :qty="qty"
-        @input="qty = $event"
+        :qty="productQty"
+        @input="productQty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -241,12 +241,12 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     data() {
       return {
-        qty: 1
+        productQty: 1
       };
     },
     template: `<SfCollectedProduct
-        :qty="qty"
-        @input="qty = $event"
+        :qty="productQty"
+        @input="productQty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -290,12 +290,12 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     data() {
       return {
-        qty: 1
+        productQty: 1
       };
     },
     template: `<SfCollectedProduct
-        :qty="qty"
-        @input="qty = $event"
+        :qty="productQty"
+        @input="productQty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -339,12 +339,12 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     data() {
       return {
-        qty: 1
+        productQty: 1
       };
     },
     template: `<SfCollectedProduct
-        :qty="qty"
-        @input="qty = $event"
+        :qty="productQty"
+        @input="productQty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -388,12 +388,12 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     data() {
       return {
-        qty: 1
+        productQty: 1
       };
     },
     template: `<SfCollectedProduct
-        :qty="qty"
-        @input="qty = $event"
+        :qty="productQty"
+        @input="productQty = $event"
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
