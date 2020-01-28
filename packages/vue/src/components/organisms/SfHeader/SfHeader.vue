@@ -52,7 +52,7 @@
           :aria-pressed="activeIcon === 'cart' ? 'true' : 'false'"
           @click="$emit('click:cart')"
         />
-        <div v-if="!isCartEmpty" class="sf-header__icon--has-items">
+        <div v-if="isCartEmpty" class="sf-header__icon--has-items">
           {{ cartItemsQty }}
         </div>
       </div>

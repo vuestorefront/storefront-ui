@@ -2,6 +2,7 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
+  number,
   select,
   object,
   boolean
@@ -47,6 +48,9 @@ storiesOf("Organisms|Header", module)
       },
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props")
+      },
+      cartItemsQty: {
+        default: number("cartItemsQty", 0, "Props")
       }
     },
     template: `<SfHeader
@@ -58,6 +62,7 @@ storiesOf("Organisms|Header", module)
       :active-icon="activeIcon"
       :has-mobile-search="hasMobileSearch"
       :search-placeholder="searchPlaceholder"
+      :cart-items-qty="cartItemsQty"
      >
       <template #navigation>
         <SfHeaderNavigationItem>
@@ -110,6 +115,9 @@ storiesOf("Organisms|Header", module)
       },
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props")
+      },
+      cartItemsQty: {
+        default: number("cartItemsQty", 0, "Props")
       }
     },
     template: `<SfHeader
@@ -121,6 +129,7 @@ storiesOf("Organisms|Header", module)
       :active-icon="activeIcon"
       :has-mobile-search="hasMobileSearch"
       :search-placeholder="searchPlaceholder"
+      :cart-items-qty="cartItemsQty"
     >
       <template #navigation>
         CUSTOM NAVIGATION
@@ -165,6 +174,9 @@ storiesOf("Organisms|Header", module)
       },
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props")
+      },
+      cartItemsQty: {
+        default: number("cartItemsQty", 0, "Props")
       }
     },
     template: `<SfHeader
@@ -174,6 +186,7 @@ storiesOf("Organisms|Header", module)
       :wishlist-icon="wishlistIcon" 
       :account-icon="accountIcon"
       :active-icon="activeIcon"
+      :cart-items-qty="cartItemsQty"
     >
       <template #logo>
         CUSTOM LOGO 
@@ -224,6 +237,9 @@ storiesOf("Organisms|Header", module)
       },
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props")
+      },
+      cartItemsQty: {
+        default: number("cartItemsQty", 0, "Props")
       }
     },
     template: `<SfHeader
@@ -235,6 +251,7 @@ storiesOf("Organisms|Header", module)
       :active-icon="activeIcon"
       :has-mobile-search="hasMobileSearch"
       :search-placeholder="searchPlaceholder"
+      :cart-items-qty="cartItemsQty"
     >
       <template #search>
         CUSTOM SEARCH

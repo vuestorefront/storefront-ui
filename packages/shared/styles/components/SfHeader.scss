@@ -140,9 +140,15 @@ $header__logo-desktop-height: 2.125 !default;
       justify-content: center;
       align-items: center;
       border-radius: 50%;
-      font-size: $font-size-extra-small-desktop;
+      font-size: $font-size-extra-small-mobile;
       background-color: $c-primary;
       color: $c-white;
+      &-enter-active {
+        animation: bounce-in .3s;
+      }
+      &-leave-active {
+        animation: bounce-in .3s reverse;
+      }
     }
   }
   &__navigation,
