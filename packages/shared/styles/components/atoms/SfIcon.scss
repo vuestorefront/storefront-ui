@@ -1,40 +1,8 @@
 @import '../../variables';
 
-$icon-sizes: (
-        "xxs": 1rem,
-        "xs": 1.4rem,
-        "sm": 1.625rem,
-        "md": 1.8rem,
-        "lg": 2rem,
-        "xl": 2.2rem,
-        "xxl": 2.5rem,
-        "xl3": 2.8rem,
-        "xl4": 3.25rem
-);
-
-$icon-colors: (
-        "primary": var(--c-primary),
-        "secondary": var(--c-dark),
-        "white": var(--c-white),
-        "black": var(--c-black),
-        "accent": var(--c-primary-variant),
-        "green-primary": var(--c-primary),
-        "green-secondary": var(--c-primary-variant),
-        "gray-primary": var(--c-gray),
-        "gray-secondary": var(--c-gray-variant),
-        "light-primary": var(--c-light),
-        "light-secondary": var(--c-light-variant),
-        "pink-primary": var(--c-danger),
-        "pink-secondary": var(--c-danger-variant),
-        "yellow-primary": var(--c-warning),
-        "yellow-secondary": var(--c-warning-variant),
-        "blue-primary": var(--c-info),
-        "blue-secondary": var(--c-info-variant)
-);
-
 .sf-icon {
   --icon-color: #{map-get($icon-colors, "black")};
-  --icon-size: #{map-get($icon-sizes, "sm")};
+  --icon-size: #{map-get($sizes, "sm")};
 
   outline: none;
   background-color: transparent;
@@ -51,12 +19,11 @@ $icon-colors: (
     }
   }
 
-  @each $profile, $size in $icon-sizes {
+  @each $profile, $size in $sizes {
     &--size-#{$profile} {
       --icon-size: #{$size};
     }
   }
-
   svg,
   img {
     width: inherit;
