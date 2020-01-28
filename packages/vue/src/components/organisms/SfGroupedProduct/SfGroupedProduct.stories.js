@@ -89,7 +89,7 @@ storiesOf("Organisms|GroupedProduct", module)
         default: object("settings", { type: "slider" }, "Props")
       },
       disabled: {
-        default: boolean("disabled", true, "Props")
+        default: boolean("disabled", false, "Props")
       }
     },
     data() {

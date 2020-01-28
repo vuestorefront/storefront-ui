@@ -71,11 +71,15 @@ $grouped-product-item__image-background-color: $c-light !default;
     margin: 0;
 
     &--disabled {
-      padding: 10px 0;
+      padding: $spacer-small 0;
+      width: auto !important;
+      margin: 0 !important;
+      transform: unset !important;
 
       @media (max-width: $desktop-min) {
       .sf-grouped-product-item {
         box-sizing: border-box;
+        padding: 10px 0;
         display: flex;
         border-bottom: 1px solid $c-light;
         font-size: $grouped-product-font-size-desktop;
@@ -103,6 +107,9 @@ $grouped-product-item__image-background-color: $c-light !default;
               background-color: $c-light;
             }
         }
+      }
+      .glide__slide {
+        width: 100% !important;
       }
     }
     }
