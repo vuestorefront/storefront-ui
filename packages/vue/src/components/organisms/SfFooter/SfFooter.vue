@@ -1,7 +1,7 @@
 <template>
-  <div class="sf-footer" :style="style">
+  <footer class="sf-footer" :style="style">
     <slot />
-  </div>
+  </footer>
 </template>
 <script>
 import Vue from "vue";

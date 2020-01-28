@@ -12,6 +12,7 @@ $footer__menu-item-font-size: $font-size-regular-mobile !default;
 $footer__menu-item-desktop-font-size: $font-size-regular-desktop !default;
 
 .sf-footer-column {
+  box-sizing: border-box;
   flex: 0 0 var(--col-width);
   &__title {
     display: flex;
