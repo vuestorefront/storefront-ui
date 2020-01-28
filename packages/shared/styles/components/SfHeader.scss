@@ -44,7 +44,7 @@ $header__logo-desktop-height: 2.125 !default;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: $header-padding ;
+
   background-color: $header-background-color;
   @media (min-width: $desktop-min) {
     flex-wrap: nowrap;
