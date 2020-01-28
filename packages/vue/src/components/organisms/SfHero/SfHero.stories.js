@@ -445,7 +445,7 @@ storiesOf("Organisms|Hero", module)
           :background="background"
       >
         <template #call-to-action="{buttonText}">
-          CALL TO ACTION
+          CUSTOM CALL TO ACTION
         </template>
       </SfHeroItem>
     </SfHero>`
