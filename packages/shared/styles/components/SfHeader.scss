@@ -97,6 +97,7 @@ $header__logo-desktop-height: 2.125 !default;
     }
   }
   &__icons{
+    position: relative;
     display: flex;
     align-items: center;
   }
@@ -130,10 +131,18 @@ $header__logo-desktop-height: 2.125 !default;
       }
     }
     &--has-items {
-      padding: 5px;
+      position: absolute;
+      top: 0rem;
+      right: 0;
+      width: 1rem;
+      height: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-size: $font-size-extra-small-desktop;
       background-color: $c-primary;
       color: $c-white;
-      border-radius: 50%;
     }
   }
   &__navigation,
