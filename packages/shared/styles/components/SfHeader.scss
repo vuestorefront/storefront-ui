@@ -129,6 +129,12 @@ $header__logo-desktop-height: 2.125 !default;
         }
       }
     }
+    &--has-items {
+      padding: 5px;
+      background-color: $c-primary;
+      color: $c-white;
+      border-radius: 50%;
+    }
   }
   &__navigation,
   &__icons{

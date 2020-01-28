@@ -52,6 +52,9 @@
           :aria-pressed="activeIcon === 'cart' ? 'true' : 'false'"
           @click="$emit('click:cart')"
         />
+        <div v-if="!isCartEmpty" class="sf-header__icon--has-items">
+          {{ cartItemsQty }}
+        </div>
       </div>
     </slot>
     <!--@slot Use this slot to replace default header language selector on mobile -->
@@ -91,7 +94,7 @@ export default {
      * Header cartIcon (accepts same value as SfIcon)
      */
     cartIcon: {
-      type: [String, Boolean],
+      type: [String, Boolean, Object],
       default: "empty_cart"
     },
     /**
@@ -131,6 +134,18 @@ export default {
     searchPlaceholder: {
       type: String,
       default: "Search for items"
+    },
+    /**
+     * Header cart items quantity
+     */
+    cartItemsQty: {
+      type: Number,
+      default: 0
+    }
+  },
+  computed: {
+    isCartEmpty() {
+      return this.cartItemsQty > 0;
     }
   }
 };
