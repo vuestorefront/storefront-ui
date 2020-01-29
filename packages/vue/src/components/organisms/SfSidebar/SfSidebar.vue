@@ -4,7 +4,10 @@
     <transition :name="transitionName">
       <aside v-if="visible" class="sf-sidebar__aside">
         <div ref="content" class="sf-sidebar__content">
-          <slot name="title">
+          <slot
+            name="title"
+            v-bind="{ headingTitle, headingSubtitle, headingLevel }"
+          >
             <SfHeading
               v-if="headingTitle"
               :title="headingTitle"
@@ -15,7 +18,7 @@
           </slot>
           <slot />
         </div>
-        <slot name="circle-icon">
+        <slot name="circle-icon" v-bind="{ close, button }">
           <SfCircleIcon
             v-if="button"
             icon-size="14px"
