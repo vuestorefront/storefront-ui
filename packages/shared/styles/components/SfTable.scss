@@ -21,7 +21,6 @@
     align-items: center;
     background-color: $c-light;
     @media (min-width: $desktop-min) {
-      padding: 10px $spacer-big;
       border-bottom: 1px solid $c-light;
       background-color: transparent;
     }
@@ -39,7 +38,7 @@
     box-sizing: border-box;
     flex: 0 0 calc(100% / var(--mobile-column));
     padding: 0;
-    margin-bottom: 5px;
+    margin-bottom: $spacer;
     text-align: left;
     @media (min-width: $desktop-min) {
       flex: 1;
@@ -47,6 +46,7 @@
     }
     &:nth-child(even) {
       order: 1;
+      margin-bottom: 0;
       @media (min-width: $desktop-min) {
         order: 0;
       }
