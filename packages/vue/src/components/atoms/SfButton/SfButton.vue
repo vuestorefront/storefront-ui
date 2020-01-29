@@ -1,6 +1,6 @@
 <template>
   <button
-    class="sf-button"
+    class="sf-button focus-ring"
     v-bind="$attrs"
     :disabled="disabled"
     v-on="$listeners"
