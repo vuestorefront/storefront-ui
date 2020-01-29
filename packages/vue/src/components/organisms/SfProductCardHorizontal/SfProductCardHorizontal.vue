@@ -143,7 +143,7 @@ export default {
      * Product description
      */
     description: {
-      type: [Array, Object, String],
+      type: String,
       default: ""
     },
     /**
@@ -151,9 +151,7 @@ export default {
      */
     options: {
       type: [Array, Object],
-      default: () => {
-        [{ name: "", value: "" }];
-      }
+      default: () => []
     },
     /**
      * Product image
