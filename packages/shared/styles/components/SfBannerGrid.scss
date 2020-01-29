@@ -28,7 +28,8 @@
         margin-left: $spacer-extra-big;
       }
     }
-    & > a {
+    & > a,
+    & > *{
       @media screen and (min-width: $desktop-min) {
         display: flex;
         flex: 1;
