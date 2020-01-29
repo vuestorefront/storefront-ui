@@ -1,6 +1,6 @@
 <template>
   <button
-    class="sf-color"
+    class="sf-color focus-ring"
     :class="{ 'sf-color--active': selected }"
     :style="style"
     :aria-pressed="selected.toString()"

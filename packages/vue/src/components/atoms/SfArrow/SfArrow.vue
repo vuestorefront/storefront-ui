@@ -1,7 +1,7 @@
 <template>
   <div class="sf-arrow">
     <button
-      class="sf-arrow__button"
+      class="sf-arrow__button focus-ring"
       type="button"
       :aria-label="ariaLabel"
       v-on="$listeners"
