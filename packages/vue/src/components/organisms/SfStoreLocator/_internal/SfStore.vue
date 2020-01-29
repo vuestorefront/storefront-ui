@@ -72,7 +72,7 @@ export default {
      * Url of the picture of the store
      */
     picture: {
-      type: String,
+      type: [String, Object],
       default: null
     },
     /**
