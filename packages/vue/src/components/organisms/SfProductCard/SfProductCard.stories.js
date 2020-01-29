@@ -3,20 +3,25 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  boolean,
   number,
-  select
+  boolean,
+  select,
+  object
 } from "@storybook/addon-knobs";
 import SfProductCard from "./SfProductCard.vue";
-import { colorsValues as colors } from "@storefront-ui/shared/variables/colors";
+import { colorsValues } from "@storefront-ui/shared/variables/colors";
 storiesOf("Organisms|ProductCard", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
+    components: { SfProductCard },
     props: {
       image: {
-        default: text(
+        default: object(
           "image",
-          "assets/storybook/SfProductCard/product_thumb.jpg",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+          },
           "Props"
         )
       },
@@ -26,8 +31,14 @@ storiesOf("Organisms|ProductCard", module)
       imageHeight: {
         default: number("imageHeight", 326, {}, "Props")
       },
+      badgeLabel: {
+        default: text("badgeLabel", "-50%", "Props")
+      },
+      badgeColor: {
+        default: select("color", colorsValues, "pink-primary", "Props")
+      },
       title: {
-        default: text("title", "Product name", "Props")
+        default: text("title", "Cotton Sweater", "Props")
       },
       link: {
         default: text("link", "", "Props")
@@ -35,66 +46,70 @@ storiesOf("Organisms|ProductCard", module)
       linkTag: {
         default: text("linkTag", "", "Props")
       },
-      badgeLabel: {
-        default: text("badgeLabel", "-50%", "Props")
+      scoreRating: {
+        default: number("scoreRating", 4, {}, "Props")
       },
-      badgeColor: {
-        default: select("color", colors, "pink-primary", "Props")
+      maxRating: {
+        default: number("scoreRating", 5, {}, "Props")
+      },
+      reviewsCount: {
+        default: number("scoreRating", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5,99", "Props")
-      },
-      maxRating: {
-        default: number("maxRating", 5, {}, "Props")
-      },
-      scoreRating: {
-        default: number("scoreRating", 4, {}, "Props")
+        default: text("specialPrice", "$5,09", "Props")
       },
       wishlistIcon: {
-        default: select("wishlistIcon", [false, "heart"], "heart", "Props")
+        default: text("wishlistIcon", "heart", "Props")
       },
-      showAddToCartButton: {
-        default: select("showAddToCartButton", [false, true], false, "Props")
-      },
-      isAddedToCart: {
-        default: select("isAddedToCart", [false, true], false, "Props")
-      },
-      addToCartDisabled: {
-        default: select("addToCartDisabled", [false, true], false, "Props")
+      isOnWishlistIcon: {
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
       },
       isOnWishlist: {
         default: boolean("isOnWishlist", false, "Props")
       },
-      isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props")
+      showAddToCartButton: {
+        default: boolean("showAddToCartButton", false, "Props")
+      },
+      isAddedToCart: {
+        default: boolean("isAddedToCart", false, "Props")
+      },
+      addToCartDisabled: {
+        default: boolean("addToCartDisabled", false, "Props")
       }
     },
-    components: { SfProductCard },
+    methods: {
+      alert(label) {
+        alert(label);
+      }
+    },
     template: `<SfProductCard
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
+        :badge-label="badgeLabel"
+        :badge-color="badgeColor"
         :title="title"
         :link="link"
-        :linkTag="linkTag"
-        :badgeLabel="badgeLabel"
-        :badgeColor="badgeColor"
-        :regular-price="regularPrice"
-        :special-price="specialPrice"
+        :link-tag="linkTag"
         :score-rating="scoreRating"
         :max-rating="maxRating"
-        :wishlistIcon="wishlistIcon"
-        :isAddedToCart="isAddedToCart"
-        :addToCartDisabled="addToCartDisabled"
-        :showAddToCartButton="showAddToCartButton"
-        :isOnWishlistIcon="isOnWishlistIcon"
-        :isOnWishlist="isOnWishlist"
+        :reviews-count="reviewsCount"
+        :regular-price="regularPrice"
+        :special-price="specialPrice"
+        :wishlist-icon="wishlistIcon"
+        :is-on-wishlist-icon="isOnWishlistIcon"
+        :show-add-to-cart-button="showAddToCartButton"
+        :add-to-cart-disabled="addToCartDisabled"
+        @click:is-added-to-cart="alert('@click:is-added-to-cart')"
+        @click:wishlist="alert('@click:wishlist')"
+        @click:reviews="alert('@click:reviews')"
     />`
   }))
   .add("With 2 pictures", () => ({
+    components: { SfProductCard },
     props: {
       imageWidth: {
         default: number("imageWidth", 216, {}, "Props")
@@ -102,102 +117,107 @@ storiesOf("Organisms|ProductCard", module)
       imageHeight: {
         default: number("imageHeight", 326, {}, "Props")
       },
+      badgeLabel: {
+        default: text("badgeLabel", "-50%", "Props")
+      },
+      badgeColor: {
+        default: select("color", colorsValues, "pink-primary", "Props")
+      },
       title: {
-        default: text("title", "Product name", "Props")
+        default: text("title", "Cotton Sweater", "Props")
       },
       link: {
-        default: text("link", "javascript:window.alert();", "Props")
+        default: text("link", "", "Props")
       },
       linkTag: {
         default: text("linkTag", "", "Props")
+      },
+      scoreRating: {
+        default: number("scoreRating", 4, {}, "Props")
+      },
+      maxRating: {
+        default: number("scoreRating", 5, {}, "Props")
+      },
+      reviewsCount: {
+        default: number("scoreRating", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5,99", "Props")
-      },
-      maxRating: {
-        default: number("maxRating", 5, {}, "Props")
-      },
-      scoreRating: {
-        default: number("scoreRating", 4, {}, "Props")
+        default: text("specialPrice", "$5,09", "Props")
       },
       wishlistIcon: {
-        default: select("wishlistIcon", [false, "heart"], "heart", "Props")
+        default: text("wishlistIcon", "heart", "Props")
       },
-      showAddToCartButton: {
-        default: select("showAddToCartButton", [false, true], false, "Props")
-      },
-      isAddedToCart: {
-        default: select("isAddedToCart", [null, false, true], null, "Props")
-      },
-      addToCartDisabled: {
-        default: select("addToCartDisabled", [false, true], false, "Props")
+      isOnWishlistIcon: {
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
       },
       isOnWishlist: {
         default: boolean("isOnWishlist", false, "Props")
       },
-      isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props")
+      showAddToCartButton: {
+        default: boolean("showAddToCartButton", false, "Props")
+      },
+      isAddedToCart: {
+        default: boolean("isAddedToCart", false, "Props")
+      },
+      addToCartDisabled: {
+        default: boolean("addToCartDisabled", false, "Props")
       }
     },
     data() {
       return {
         pictures: [
           {
-            desktop: {
-              url:
-                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-              alt: "Macbook PRO Apple"
-            },
-            mobile: {
-              url:
-                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-              alt: "Macbook PRO Apple"
-            }
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
           },
           {
-            desktop: {
-              url:
-                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-              alt: "Macbook PRO Apple (keyboard)"
-            },
-            mobile: {
-              url:
-                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-              alt: "Macbook PRO Apple (keyboard)"
-            }
+            mobile: { url: "/assets/storybook/Home/productA.jpg" },
+            desktop: { url: "/assets/storybook/Home/productA.jpg" }
           }
         ]
       };
     },
-    components: { SfProductCard },
+    methods: {
+      alert(label) {
+        alert(label);
+      }
+    },
     template: `<SfProductCard
         :image="pictures"
         :image-width="imageWidth"
         :image-height="imageHeight"
+        :badge-label="badgeLabel"
+        :badge-color="badgeColor"
         :title="title"
         :link="link"
-        :linkTag="linkTag"
-        :regular-price="regularPrice"
-        :special-price="specialPrice"
+        :link-tag="linkTag"
         :score-rating="scoreRating"
         :max-rating="maxRating"
-        :wishlistIcon="wishlistIcon"
-        :showAddToCartButton="showAddToCartButton"
-        :isAddedToCart="isAddedToCart"
-        :addToCartDisabled="addToCartDisabled"
-        :isOnWishlistIcon="isOnWishlistIcon"
-        :isOnWishlist="isOnWishlist"
+        :reviews-count="reviewsCount"
+        :regular-price="regularPrice"
+        :special-price="specialPrice"
+        :wishlist-icon="wishlistIcon"
+        :is-on-wishlist-icon="isOnWishlistIcon"
+        :show-add-to-cart-button="showAddToCartButton"
+        :add-to-cart-disabled="addToCartDisabled"
+        @click:is-added-to-cart="alert('@click:is-added-to-cart')"
+        @click:wishlist="alert('@click:wishlist')"
+        @click:reviews="alert('@click:reviews')"
     />`
   }))
-  .add("With CircleIconButton", () => ({
+  .add("[slot] image", () => ({
+    components: { SfProductCard },
     props: {
       image: {
-        default: text(
+        default: object(
           "image",
-          "assets/storybook/SfProductCard/product_thumb.jpg",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+          },
           "Props"
         )
       },
@@ -207,8 +227,14 @@ storiesOf("Organisms|ProductCard", module)
       imageHeight: {
         default: number("imageHeight", 326, {}, "Props")
       },
+      badgeLabel: {
+        default: text("badgeLabel", "-50%", "Props")
+      },
+      badgeColor: {
+        default: select("color", colorsValues, "pink-primary", "Props")
+      },
       title: {
-        default: text("title", "Product name", "Props")
+        default: text("title", "Cotton Sweater", "Props")
       },
       link: {
         default: text("link", "", "Props")
@@ -216,54 +242,569 @@ storiesOf("Organisms|ProductCard", module)
       linkTag: {
         default: text("linkTag", "", "Props")
       },
+      scoreRating: {
+        default: number("scoreRating", 4, {}, "Props")
+      },
+      maxRating: {
+        default: number("scoreRating", 5, {}, "Props")
+      },
+      reviewsCount: {
+        default: number("scoreRating", 7, {}, "Props")
+      },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5,99", "Props")
-      },
-      maxRating: {
-        default: number("maxRating", 5, {}, "Props")
-      },
-      scoreRating: {
-        default: number("scoreRating", 4, {}, "Props")
+        default: text("specialPrice", "$5,09", "Props")
       },
       wishlistIcon: {
-        default: select("wishlistIcon", [false, "heart"], "heart", "Props")
+        default: text("wishlistIcon", "heart", "Props")
       },
-      showAddToCartButton: {
-        default: select("showAddToCartButton", [false, true], true, "Props")
-      },
-      isAddedToCart: {
-        default: select("isAddedToCart", [null, false, true], false, "Props")
-      },
-      addToCartDisabled: {
-        default: select("addToCartDisabled", [false, true], false, "Props")
+      isOnWishlistIcon: {
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
       },
       isOnWishlist: {
         default: boolean("isOnWishlist", false, "Props")
       },
-      isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props")
+      showAddToCartButton: {
+        default: boolean("showAddToCartButton", false, "Props")
+      },
+      isAddedToCart: {
+        default: boolean("isAddedToCart", false, "Props")
+      },
+      addToCartDisabled: {
+        default: boolean("addToCartDisabled", false, "Props")
       }
     },
-    components: { SfProductCard },
+    methods: {
+      alert(label) {
+        alert(label);
+      }
+    },
     template: `<SfProductCard
         :image="image"
         :image-width="imageWidth"
         :image-height="imageHeight"
+        :badge-label="badgeLabel"
+        :badge-color="badgeColor"
         :title="title"
         :link="link"
-        :linkTag="linkTag"
-        :regular-price="regularPrice"
-        :special-price="specialPrice"
+        :link-tag="linkTag"
         :score-rating="scoreRating"
         :max-rating="maxRating"
-        :wishlistIcon="wishlistIcon"
-        :showAddToCartButton="showAddToCartButton"
-        :isAddedToCart="isAddedToCart"
-        :addToCartDisabled="addToCartDisabled"
-        :isOnWishlistIcon="isOnWishlistIcon"
-        :isOnWishlist="isOnWishlist"
-    />`
+        :reviews-count="reviewsCount"
+        :regular-price="regularPrice"
+        :special-price="specialPrice"
+        :wishlist-icon="wishlistIcon"
+        :is-on-wishlist-icon="isOnWishlistIcon"
+        :show-add-to-cart-button="showAddToCartButton"
+        :add-to-cart-disabled="addToCartDisabled"
+        @click:is-added-to-cart="alert('@click:is-added-to-cart')"
+        @click:wishlist="alert('@click:wishlist')"
+        @click:reviews="alert('@click:reviews')"
+    >
+      <template #image="{ image, title }">
+        CUSTOM IMAGE
+      </template>
+    </SfProductCard>`
+  }))
+  .add("[slot] add-to-cart", () => ({
+    components: { SfProductCard },
+    props: {
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+          },
+          "Props"
+        )
+      },
+      imageWidth: {
+        default: number("imageWidth", 216, {}, "Props")
+      },
+      imageHeight: {
+        default: number("imageHeight", 326, {}, "Props")
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "-50%", "Props")
+      },
+      badgeColor: {
+        default: select("color", colorsValues, "pink-primary", "Props")
+      },
+      title: {
+        default: text("title", "Cotton Sweater", "Props")
+      },
+      link: {
+        default: text("link", "", "Props")
+      },
+      linkTag: {
+        default: text("linkTag", "", "Props")
+      },
+      scoreRating: {
+        default: number("scoreRating", 4, {}, "Props")
+      },
+      maxRating: {
+        default: number("scoreRating", 5, {}, "Props")
+      },
+      reviewsCount: {
+        default: number("scoreRating", 7, {}, "Props")
+      },
+      regularPrice: {
+        default: text("regularPrice", "$10,99", "Props")
+      },
+      specialPrice: {
+        default: text("specialPrice", "$5,09", "Props")
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props")
+      },
+      isOnWishlistIcon: {
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
+      },
+      isOnWishlist: {
+        default: boolean("isOnWishlist", false, "Props")
+      },
+      showAddToCartButton: {
+        default: boolean("showAddToCartButton", true, "Props")
+      },
+      isAddedToCart: {
+        default: boolean("isAddedToCart", false, "Props")
+      },
+      addToCartDisabled: {
+        default: boolean("addToCartDisabled", false, "Props")
+      }
+    },
+    methods: {
+      alert(label) {
+        alert(label);
+      }
+    },
+    template: `<SfProductCard
+        :image="image"
+        :image-width="imageWidth"
+        :image-height="imageHeight"
+        :badge-label="badgeLabel"
+        :badge-color="badgeColor"
+        :title="title"
+        :link="link"
+        :link-tag="linkTag"
+        :score-rating="scoreRating"
+        :max-rating="maxRating"
+        :reviews-count="reviewsCount"
+        :regular-price="regularPrice"
+        :special-price="specialPrice"
+        :wishlist-icon="wishlistIcon"
+        :is-on-wishlist-icon="isOnWishlistIcon"
+        :show-add-to-cart-button="showAddToCartButton"
+        :add-to-cart-disabled="addToCartDisabled"
+        @click:is-added-to-cart="alert('@click:is-added-to-cart')"
+        @click:wishlist="alert('@click:wishlist')"
+        @click:reviews="alert('@click:reviews')"
+    >
+      <template #add-to-cart="{ isAddedToCart, showAddedToCartBadge, isAddingToCart }">
+        CUSTOM ADD TO CART
+      </template>
+    </SfProductCard>`
+  }))
+  .add("[slot] title", () => ({
+    components: { SfProductCard },
+    props: {
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+          },
+          "Props"
+        )
+      },
+      imageWidth: {
+        default: number("imageWidth", 216, {}, "Props")
+      },
+      imageHeight: {
+        default: number("imageHeight", 326, {}, "Props")
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "-50%", "Props")
+      },
+      badgeColor: {
+        default: select("color", colorsValues, "pink-primary", "Props")
+      },
+      title: {
+        default: text("title", "Cotton Sweater", "Props")
+      },
+      link: {
+        default: text("link", "", "Props")
+      },
+      linkTag: {
+        default: text("linkTag", "", "Props")
+      },
+      scoreRating: {
+        default: number("scoreRating", 4, {}, "Props")
+      },
+      maxRating: {
+        default: number("scoreRating", 5, {}, "Props")
+      },
+      reviewsCount: {
+        default: number("scoreRating", 7, {}, "Props")
+      },
+      regularPrice: {
+        default: text("regularPrice", "$10,99", "Props")
+      },
+      specialPrice: {
+        default: text("specialPrice", "$5,09", "Props")
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props")
+      },
+      isOnWishlistIcon: {
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
+      },
+      isOnWishlist: {
+        default: boolean("isOnWishlist", false, "Props")
+      },
+      showAddToCartButton: {
+        default: boolean("showAddToCartButton", false, "Props")
+      },
+      isAddedToCart: {
+        default: boolean("isAddedToCart", false, "Props")
+      },
+      addToCartDisabled: {
+        default: boolean("addToCartDisabled", false, "Props")
+      }
+    },
+    methods: {
+      alert(label) {
+        alert(label);
+      }
+    },
+    template: `<SfProductCard
+        :image="image"
+        :image-width="imageWidth"
+        :image-height="imageHeight"
+        :badge-label="badgeLabel"
+        :badge-color="badgeColor"
+        :title="title"
+        :link="link"
+        :link-tag="linkTag"
+        :score-rating="scoreRating"
+        :max-rating="maxRating"
+        :reviews-count="reviewsCount"
+        :regular-price="regularPrice"
+        :special-price="specialPrice"
+        :wishlist-icon="wishlistIcon"
+        :is-on-wishlist-icon="isOnWishlistIcon"
+        :show-add-to-cart-button="showAddToCartButton"
+        :add-to-cart-disabled="addToCartDisabled"
+        @click:is-added-to-cart="alert('@click:is-added-to-cart')"
+        @click:wishlist="alert('@click:wishlist')"
+        @click:reviews="alert('@click:reviews')"
+    >
+      <template #title="{ title }">
+        CUSTOM TITLE
+      </template>
+    </SfProductCard>`
+  }))
+  .add("[slot] wishlist-icon", () => ({
+    components: { SfProductCard },
+    props: {
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+          },
+          "Props"
+        )
+      },
+      imageWidth: {
+        default: number("imageWidth", 216, {}, "Props")
+      },
+      imageHeight: {
+        default: number("imageHeight", 326, {}, "Props")
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "-50%", "Props")
+      },
+      badgeColor: {
+        default: select("color", colorsValues, "pink-primary", "Props")
+      },
+      title: {
+        default: text("title", "Cotton Sweater", "Props")
+      },
+      link: {
+        default: text("link", "", "Props")
+      },
+      linkTag: {
+        default: text("linkTag", "", "Props")
+      },
+      scoreRating: {
+        default: number("scoreRating", 4, {}, "Props")
+      },
+      maxRating: {
+        default: number("scoreRating", 5, {}, "Props")
+      },
+      reviewsCount: {
+        default: number("scoreRating", 7, {}, "Props")
+      },
+      regularPrice: {
+        default: text("regularPrice", "$10,99", "Props")
+      },
+      specialPrice: {
+        default: text("specialPrice", "$5,09", "Props")
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props")
+      },
+      isOnWishlistIcon: {
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
+      },
+      isOnWishlist: {
+        default: boolean("isOnWishlist", false, "Props")
+      },
+      showAddToCartButton: {
+        default: boolean("showAddToCartButton", false, "Props")
+      },
+      isAddedToCart: {
+        default: boolean("isAddedToCart", false, "Props")
+      },
+      addToCartDisabled: {
+        default: boolean("addToCartDisabled", false, "Props")
+      }
+    },
+    methods: {
+      alert(label) {
+        alert(label);
+      }
+    },
+    template: `<SfProductCard
+        :image="image"
+        :image-width="imageWidth"
+        :image-height="imageHeight"
+        :badge-label="badgeLabel"
+        :badge-color="badgeColor"
+        :title="title"
+        :link="link"
+        :link-tag="linkTag"
+        :score-rating="scoreRating"
+        :max-rating="maxRating"
+        :reviews-count="reviewsCount"
+        :regular-price="regularPrice"
+        :special-price="specialPrice"
+        :wishlist-icon="wishlistIcon"
+        :is-on-wishlist-icon="isOnWishlistIcon"
+        :show-add-to-cart-button="showAddToCartButton"
+        :add-to-cart-disabled="addToCartDisabled"
+        @click:is-added-to-cart="alert('@click:is-added-to-cart')"
+        @click:wishlist="alert('@click:wishlist')"
+        @click:reviews="alert('@click:reviews')"
+    >
+      <template #wishlist-icon="{ currentWishlistIcon }">
+        CUSTOM WISH LIST ICON
+      </template>
+    </SfProductCard>`
+  }))
+  .add("[slot] price", () => ({
+    components: { SfProductCard },
+    props: {
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+          },
+          "Props"
+        )
+      },
+      imageWidth: {
+        default: number("imageWidth", 216, {}, "Props")
+      },
+      imageHeight: {
+        default: number("imageHeight", 326, {}, "Props")
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "-50%", "Props")
+      },
+      badgeColor: {
+        default: select("color", colorsValues, "pink-primary", "Props")
+      },
+      title: {
+        default: text("title", "Cotton Sweater", "Props")
+      },
+      link: {
+        default: text("link", "", "Props")
+      },
+      linkTag: {
+        default: text("linkTag", "", "Props")
+      },
+      scoreRating: {
+        default: number("scoreRating", 4, {}, "Props")
+      },
+      maxRating: {
+        default: number("scoreRating", 5, {}, "Props")
+      },
+      reviewsCount: {
+        default: number("scoreRating", 7, {}, "Props")
+      },
+      regularPrice: {
+        default: text("regularPrice", "$10,99", "Props")
+      },
+      specialPrice: {
+        default: text("specialPrice", "$5,09", "Props")
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props")
+      },
+      isOnWishlistIcon: {
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
+      },
+      isOnWishlist: {
+        default: boolean("isOnWishlist", false, "Props")
+      },
+      showAddToCartButton: {
+        default: boolean("showAddToCartButton", false, "Props")
+      },
+      isAddedToCart: {
+        default: boolean("isAddedToCart", false, "Props")
+      },
+      addToCartDisabled: {
+        default: boolean("addToCartDisabled", false, "Props")
+      }
+    },
+    methods: {
+      alert(label) {
+        alert(label);
+      }
+    },
+    template: `<SfProductCard
+        :image="image"
+        :image-width="imageWidth"
+        :image-height="imageHeight"
+        :badge-label="badgeLabel"
+        :badge-color="badgeColor"
+        :title="title"
+        :link="link"
+        :link-tag="linkTag"
+        :score-rating="scoreRating"
+        :max-rating="maxRating"
+        :reviews-count="reviewsCount"
+        :regular-price="regularPrice"
+        :special-price="specialPrice"
+        :wishlist-icon="wishlistIcon"
+        :is-on-wishlist-icon="isOnWishlistIcon"
+        :show-add-to-cart-button="showAddToCartButton"
+        :add-to-cart-disabled="addToCartDisabled"
+        @click:is-added-to-cart="alert('@click:is-added-to-cart')"
+        @click:wishlist="alert('@click:wishlist')"
+        @click:reviews="alert('@click:reviews')"
+    >
+      <template #price="{ specialPrice, regularPrice }">
+        CUSTOM PRICE
+      </template>
+    </SfProductCard>`
+  }))
+  .add("[slot] reviews", () => ({
+    components: { SfProductCard },
+    props: {
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+          },
+          "Props"
+        )
+      },
+      imageWidth: {
+        default: number("imageWidth", 216, {}, "Props")
+      },
+      imageHeight: {
+        default: number("imageHeight", 326, {}, "Props")
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "-50%", "Props")
+      },
+      badgeColor: {
+        default: select("color", colorsValues, "pink-primary", "Props")
+      },
+      title: {
+        default: text("title", "Cotton Sweater", "Props")
+      },
+      link: {
+        default: text("link", "", "Props")
+      },
+      linkTag: {
+        default: text("linkTag", "", "Props")
+      },
+      scoreRating: {
+        default: number("scoreRating", 4, {}, "Props")
+      },
+      maxRating: {
+        default: number("scoreRating", 5, {}, "Props")
+      },
+      reviewsCount: {
+        default: number("scoreRating", 7, {}, "Props")
+      },
+      regularPrice: {
+        default: text("regularPrice", "$10,99", "Props")
+      },
+      specialPrice: {
+        default: text("specialPrice", "$5,09", "Props")
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props")
+      },
+      isOnWishlistIcon: {
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
+      },
+      isOnWishlist: {
+        default: boolean("isOnWishlist", false, "Props")
+      },
+      showAddToCartButton: {
+        default: boolean("showAddToCartButton", false, "Props")
+      },
+      isAddedToCart: {
+        default: boolean("isAddedToCart", false, "Props")
+      },
+      addToCartDisabled: {
+        default: boolean("addToCartDisabled", false, "Props")
+      }
+    },
+    methods: {
+      alert(label) {
+        alert(label);
+      }
+    },
+    template: `<SfProductCard
+        :image="image"
+        :image-width="imageWidth"
+        :image-height="imageHeight"
+        :badge-label="badgeLabel"
+        :badge-color="badgeColor"
+        :title="title"
+        :link="link"
+        :link-tag="linkTag"
+        :score-rating="scoreRating"
+        :max-rating="maxRating"
+        :reviews-count="reviewsCount"
+        :regular-price="regularPrice"
+        :special-price="specialPrice"
+        :wishlist-icon="wishlistIcon"
+        :is-on-wishlist-icon="isOnWishlistIcon"
+        :show-add-to-cart-button="showAddToCartButton"
+        :add-to-cart-disabled="addToCartDisabled"
+        @click:is-added-to-cart="alert('@click:is-added-to-cart')"
+        @click:wishlist="alert('@click:wishlist')"
+        @click:reviews="alert('@click:reviews')"
+    >
+      <template #reviews="{ maxRating, scoreRating }">
+        CUSTOM REVIEWS
+      </template>
+    </SfProductCard>`
   }));
