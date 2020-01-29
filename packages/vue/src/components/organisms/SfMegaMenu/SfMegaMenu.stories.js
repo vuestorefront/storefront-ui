@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
+import { withKnobs, text } from "@storybook/addon-knobs";
 import SfMegaMenu from "./SfMegaMenu.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfHeader from "../SfHeader/SfHeader.vue";
@@ -115,10 +116,16 @@ const MegaMenuPlaceholder = {
       </SfMegaMenu>`
 };
 storiesOf("Organisms|MegaMenu", module)
+  .addDecorator(withKnobs)
   .add("Common", () => ({
     components: {
       SfMegaMenu,
       SfMenuItem
+    },
+    props: {
+      title: {
+        default: text("title", "Man", "Props")
+      }
     },
     data() {
       return {
@@ -162,8 +169,9 @@ storiesOf("Organisms|MegaMenu", module)
       };
     },
     template: `<SfMegaMenu 
-        title="Man" 
+        :title="title" 
         :visible="visible"
+        :style="{maxWidth: '1240px', margin: 'auto'}"
       >
         <SfMegaMenuColumn 
           v-for="subcategory in subcategories" 
@@ -184,6 +192,11 @@ storiesOf("Organisms|MegaMenu", module)
       SfMenuItem,
       AsidePlaceholder
     },
+    props: {
+      title: {
+        default: text("title", "Man", "Props")
+      }
+    },
     data() {
       return {
         visible: true,
@@ -226,8 +239,9 @@ storiesOf("Organisms|MegaMenu", module)
       };
     },
     template: `<SfMegaMenu 
-        title="Man"
+        :title="title"
         :visible="visible"
+        :style="{maxWidth: '1240px', margin: 'auto'}"
       >
         <SfMegaMenuColumn 
           v-for="subcategory in subcategories" 
@@ -259,6 +273,7 @@ storiesOf("Organisms|MegaMenu", module)
       <SfHeader
         title="Storefront UI"
         :logo="{ mobile: { url: '/assets/logo.svg' }, desktop: { url: '/assets/logo.svg' } }"
+        :style="{maxWidth: '1240px', margin: 'auto'}"
       >
         <template #navigation>
           <SfHeaderNavigationItem
