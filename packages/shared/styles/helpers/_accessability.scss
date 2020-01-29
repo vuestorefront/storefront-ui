@@ -1,5 +1,7 @@
+$focus-ring__color: rgba(21, 156, 228, 0.4);
+
 .focus-ring {
     &:focus {
-      box-shadow: 0 0 0 2px rgba(21, 156, 228, 0.4);
+      box-shadow: 0 0 0 2px $focus-ring__color;
     }
   }
