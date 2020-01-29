@@ -30,6 +30,11 @@
 </template>
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver
+} from "../../../utilities/mobile-observer";
+
 export default {
   name: "SfBanner",
   components: {
@@ -70,13 +75,8 @@ export default {
       default: ""
     }
   },
-  data() {
-    return {
-      desktopMin: 1024,
-      isMobile: false
-    };
-  },
   computed: {
+    ...mapMobileObserver(),
     style() {
       const image = this.image;
       const background = this.background;
@@ -91,23 +91,8 @@ export default {
       };
     }
   },
-  mounted() {
-    this.isMobile =
-      Math.max(document.documentElement.clientWidth, window.innerWidth) <
-      this.desktopMin;
-    window
-      .matchMedia(`(max-width: ${this.desktopMin}px)`)
-      .addListener(this.isMobileHandler);
-  },
   beforeDestroy() {
-    window
-      .matchMedia(`(max-width: ${this.desktopMin}px)`)
-      .removeListener(this.isMobileHandler);
-  },
-  methods: {
-    isMobileHandler(e) {
-      this.isMobile = e.matches;
-    }
+    unMapMobileObserver();
   }
 };
 </script>

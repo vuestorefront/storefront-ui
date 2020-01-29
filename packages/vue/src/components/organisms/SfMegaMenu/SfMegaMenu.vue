@@ -46,6 +46,11 @@ Vue.component("SfMegaMenuColumn", SfMegaMenuColumn);
 import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver
+} from "../../../utilities/mobile-observer";
+
 export default {
   name: "SfMegaMenu",
   components: {
@@ -66,12 +71,11 @@ export default {
   data() {
     return {
       active: [],
-      items: [],
-      isMobile: false,
-      desktopMin: 1024
+      items: []
     };
   },
   computed: {
+    ...mapMobileObserver(),
     isActive() {
       return this.active.length > 0;
     }
@@ -106,18 +110,8 @@ export default {
       immediate: true
     }
   },
-  mounted() {
-    this.isMobile =
-      Math.max(document.documentElement.clientWidth, window.innerWidth) <
-      this.desktopMin;
-    window
-      .matchMedia(`(max-width: ${this.desktopMin}px)`)
-      .addListener(this.isMobileHandler);
-  },
   beforeDestroy() {
-    window
-      .matchMedia(`(max-width: ${this.desktopMin}px)`)
-      .removeListener(this.isMobileHandler);
+    unMapMobileObserver();
   },
   methods: {
     updateItems(title) {
@@ -127,9 +121,6 @@ export default {
     change(payload) {
       this.active = payload ? [payload] : [];
       this.$emit("change", payload ? payload : "");
-    },
-    isMobileHandler(e) {
-      this.isMobile = e.matches;
     }
   }
 };
