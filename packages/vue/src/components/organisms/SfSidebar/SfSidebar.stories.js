@@ -1,50 +1,115 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  select,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
-import SfSidebar from "./SfSidebar.vue";
+import { withKnobs, text, number, boolean } from "@storybook/addon-knobs";
 import {
   withDataToggle,
   dataToggleMixin
 } from "../../../../config/storybook/decorators";
+import SfSidebar from "./SfSidebar.vue";
 storiesOf("Organisms|Sidebar", module)
   .addDecorator(withKnobs)
   .addDecorator(withDataToggle("isSidebarOpen"))
   .add("Common", () => ({
+    components: { SfSidebar },
     props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-sidebar--right": "sf-sidebar--right"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+      headingTitle: {
+        default: text("headingTitle", "My Cart", "Props")
       },
-      button: {
-        default: select("button", [true, false], true, "Props")
+      headingSubtitle: {
+        default: text("headingSubtitle", "Order Summary", "Props")
+      },
+      headingLevel: {
+        default: number("headingLevel", 2, {}, "Props")
       },
       overlay: {
-        default: select("overlay", [true, false], true, "Props")
+        default: boolean("overlay", true, "Props")
+      },
+      button: {
+        default: boolean("button", true, "Props")
       }
     },
-    components: { SfSidebar },
     mixins: [dataToggleMixin("isSidebarOpen")],
-    template: `
-      <SfSidebar
-        @close="isSidebarOpen = false"
+    template: `<SfSidebar
         :visible="isSidebarOpen"
-        :overlay="overlay"
+        @close="isSidebarOpen = false"
+        :heading-title="headingTitle"
+        :heading-subtitle="headingSubtitle"
+        :heading-level="headingLevel"
         :button="button"
-        :class="customClass"
+        :overlay="overlay"
       >
-        <div style="box-sizing: border-box; padding: 2.5rem; width: 20rem">
-          Hello World
-        </div>
+        Total items: 0
+      </SfSidebar>`
+  }))
+  .add("[slot] title", () => ({
+    components: { SfSidebar },
+    props: {
+      headingTitle: {
+        default: text("headingTitle", "My Cart", "Props")
+      },
+      headingSubtitle: {
+        default: text("headingSubtitle", "Order Summary", "Props")
+      },
+      headingLevel: {
+        default: number("headingLevel", 2, {}, "Props")
+      },
+      overlay: {
+        default: boolean("overlay", true, "Props")
+      },
+      button: {
+        default: boolean("button", true, "Props")
+      }
+    },
+    mixins: [dataToggleMixin("isSidebarOpen")],
+    template: `<SfSidebar
+        :visible="isSidebarOpen"
+        @close="isSidebarOpen = false"
+        :heading-title="headingTitle"
+        :heading-subtitle="headingSubtitle"
+        :heading-level="headingLevel"
+        :button="button"
+        :overlay="overlay"
+    >
+      <template #title="{headingTitle, headingSubtitle, headingLevel}">
+        <div>CUSTOM TITLE</div>
+      </template>
+      Total items: 0
+    </SfSidebar>`
+  }))
+  .add("[slot] circle-icon", () => ({
+    components: { SfSidebar },
+    props: {
+      headingTitle: {
+        default: text("headingTitle", "My Cart", "Props")
+      },
+      headingSubtitle: {
+        default: text("headingSubtitle", "Order Summary", "Props")
+      },
+      headingLevel: {
+        default: number("headingLevel", 2, {}, "Props")
+      },
+      overlay: {
+        default: boolean("overlay", true, "Props")
+      },
+      button: {
+        default: boolean("button", true, "Props")
+      }
+    },
+    mixins: [dataToggleMixin("isSidebarOpen")],
+    template: `<SfSidebar
+        :visible="isSidebarOpen"
+        @close="isSidebarOpen = false"
+        :heading-title="headingTitle"
+        :heading-subtitle="headingSubtitle"
+        :heading-level="headingLevel"
+        :button="button"
+        :overlay="overlay"
+      >
+        <template #circle-icon="{close}">
+          <div 
+            :style="{position: 'absolute', top: '3rem', right: '-30px', fontSize: '42px', cursor: 'pointer'}" 
+            @click="close">🙊</div>
+        </template>
+        Total items: 0
       </SfSidebar>`
   }));
