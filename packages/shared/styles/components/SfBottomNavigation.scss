@@ -19,7 +19,7 @@ $bottom-navigation__item-font-size: 12px !default;
   padding: 0 1rem;
   background: white;
   box-shadow: 0px -2px 10px rgba(154, 154, 154, 0.15);
-  &__item {
+  &-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,7 +31,9 @@ $bottom-navigation__item-font-size: 12px !default;
     & > .sf-icon {
       --icon-color: #{$bottom-navigation__item-color};
     }
-
+    &__lable{
+      line-height: 1.6;
+    }
     &--active {
       color: $c-black;
       font-weight: $body-font-weight-secondary;
@@ -39,17 +41,15 @@ $bottom-navigation__item-font-size: 12px !default;
         --icon-color: #{$bottom-navigation__item-color--active};
       }
     }
-
     &--has-margin {
-      margin-top: $spacer;
+      margin-top: 6px;
     }
-  }
-
-  &--floating {
-    top: -1.5rem;
-    & > .sf-button {
-      &:not(:hover) {
-        box-shadow: 0px 4px 6px rgba(66, 66, 66, 0.2);
+    &--floating {
+      top: -1.5rem;
+      & > .sf-button {
+        &:not(:hover) {
+          box-shadow: 0px 4px 6px rgba(66, 66, 66, 0.2);
+        }
       }
     }
   }
