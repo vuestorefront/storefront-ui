@@ -23,6 +23,11 @@
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver
+} from "../../../utilities/mobile-observer";
+
 export default {
   name: "SfSlidingSection",
   components: {
@@ -31,12 +36,13 @@ export default {
   data() {
     return {
       isActive: false,
-      isMobile: false,
       hasScrollLock: false,
-      desktopMin: 1024,
       hammer: undefined,
       hasStaticHeight: false
     };
+  },
+  computed: {
+    ...mapMobileObserver()
   },
   watch: {
     isMobile(mobile) {
@@ -81,24 +87,16 @@ export default {
       this.hammer = new Hammer(document, {
         enable: false
       }).on("pan", this.touchHandler);
-      this.isMobileHandler();
-      window.addEventListener("resize", this.isMobileHandler, {
-        passive: true
-      });
     });
   },
   beforeDestroy() {
     this.scrollUnlock();
+    unMapMobileObserver();
     this.hammer.destroy();
   },
   methods: {
     touchPreventDefault(e) {
       e.preventDefault();
-    },
-    isMobileHandler() {
-      this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        this.desktopMin;
     },
     scrollLock() {
       window.scrollTo(0, 0);
