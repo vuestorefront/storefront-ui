@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-collected-product focus-ring">
+  <div class="sf-collected-product focus-ring" tabindex="0">
     <slot name="remove" v-bind="{ removeHandler }">
       <SfCircleIcon
         icon="cross"

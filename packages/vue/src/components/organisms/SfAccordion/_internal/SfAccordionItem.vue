@@ -16,7 +16,11 @@
         @click="accordionClick"
       >
         {{ header }}
-        <div v-if="$parent.showChevron" class="sf-accordion-item__chevron">
+        <div
+          v-if="$parent.showChevron"
+          class="sf-accordion-item__chevron focus-ring"
+          tabindex="0"
+        >
           <SfChevron :class="{ 'sf-chevron--top': isOpen }" />
         </div>
       </div>

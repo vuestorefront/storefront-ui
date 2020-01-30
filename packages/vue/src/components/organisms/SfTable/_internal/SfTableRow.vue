@@ -1,5 +1,5 @@
 <template>
-  <tr class="sf-table__row">
+  <tr class="sf-table__row focus-ring" tabindex="0">
     <slot />
   </tr>
 </template>

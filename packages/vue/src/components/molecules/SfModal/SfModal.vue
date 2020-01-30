@@ -10,7 +10,11 @@
     </SfOverlay>
     <transition :name="transitionModal">
       <div v-if="visible" class="sf-modal__container">
-        <button v-if="cross" class="sf-modal__close focus-ring" @click="close">
+        <button
+          v-if="cross"
+          class="sf-modal__close focus-ring  "
+          @click="close"
+        >
           <!--@slot Use this slot to place content inside the close button.-->
           <slot name="close">
             <SfIcon icon="cross" size="15px" color="gray-secondary" />

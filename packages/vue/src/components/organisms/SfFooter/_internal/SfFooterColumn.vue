@@ -1,6 +1,10 @@
 <template>
   <div class="sf-footer-column">
-    <div class="sf-footer-column__title" @click="toggle(title)">
+    <div
+      class="sf-footer-column__title focus-ring"
+      tabindex="0"
+      @click="toggle(title)"
+    >
       {{ title }}
       <div class="sf-footer-column__chevron">
         <SfChevron :class="{ 'sf-chevron--top': open }" />

@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-product-card">
+  <div class="sf-product-card focus-ring" tabindex="0">
     <component
       :is="linkComponentTag"
       :href="linkComponentTag === 'a' ? link : undefined"

@@ -1,8 +1,10 @@
 <template>
   <div
     ref="icon"
+    class="focus-ring"
     :class="['sf-icon', iconColorClass, iconSizeClass]"
     :style="iconCustomStyle"
+    tabindex="0"
     v-on="$listeners"
   >
     <slot v-bind="{ viewBox, iconPaths, icon }">

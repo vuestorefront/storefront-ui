@@ -1,7 +1,8 @@
 <template>
   <Fragment class="sf-tabs__tab">
     <div
-      class="sf-tabs__title"
+      class="sf-tabs__title focus-ring"
+      tabindex="0"
       :class="{ 'sf-tabs__title--active': isActive }"
       @click="tabClick"
     >

@@ -5,7 +5,13 @@
   >
     <!--@slot Use this slot to replace logo with text or icon-->
     <slot name="logo" v-bind="{ logo, title }">
-      <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo" />
+      <SfImage
+        v-if="logo"
+        :src="logo"
+        :alt="title"
+        class="sf-header__logo focus-ring"
+        tabindex="0"
+      />
       <h1 v-else class="sf-header__title">{{ title }}</h1>
     </slot>
     <nav class="sf-header__navigation">
