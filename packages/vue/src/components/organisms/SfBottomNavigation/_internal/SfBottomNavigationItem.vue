@@ -51,7 +51,7 @@ export default {
     },
     iconSize: {
       type: String,
-      default: ""
+      default: "20px"
     },
     isFloating: {
       type: Boolean,
