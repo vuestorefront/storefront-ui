@@ -10,7 +10,7 @@ jobs:
         run: |
           yarn
           yarn storybook:build
-      -name: Deploy PR to zeit
+      - name: Deploy PR to ZEIT
         if: github.event_name == 'pull_request'
         uses: pspaczek/now-deployment@v1
         with:
