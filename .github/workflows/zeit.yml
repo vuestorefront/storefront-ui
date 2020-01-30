@@ -1,0 +1,14 @@
+name: Zeit
+on: [pull_request]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: amondnet/now-deployment@v1
+      - name: Build storybook
+        run: |
+          yarn
+          cd packages/vue && yarn storybook:build
+        with:
+          zeit-token: ${{ secrets.ZEIT_TOKEN }}
