@@ -22,10 +22,11 @@
       <div
         v-if="label"
         :class="{
-          'sf-bottom-navigation__item--has-margin': icon,
+          'sf-bottom-navigation__item--has-margin': icon
         }"
-        >{{ label }}</span
       >
+        {{ label }}
+      </div>
     </slot>
   </div>
 </template>

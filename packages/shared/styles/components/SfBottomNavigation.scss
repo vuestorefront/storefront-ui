@@ -44,7 +44,7 @@ $bottom-navigation__item-color--active: $c-black !default;
     }
   }
 
-  &__floating-button {
+  &--floating {
     top: -1.75rem;
 
     #{$this}__floating-label {
