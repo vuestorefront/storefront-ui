@@ -14,12 +14,6 @@
   --font-size-big: 1rem;
   --font-size-extra-big: 1.125rem;
 
-  // Base font size
-  --body-font-size: var(--font-size-regular);
-
-  // Heading font family
-  --heading-font-family: var(--body-font-family-secondary);
-
   // Heading font size
   --h1-font-size: 1.125rem;
   --h2-font-size: 1rem;
@@ -33,7 +27,14 @@
   --h3-font-weight: 500;
   --h4-font-weight: 500;
 
-  @media (min-width: $tablet-min) {
+  @media (min-width: $desktop-min) {
+    // Font sizes
+    --font-size-extra-small: .75rem;
+    --font-size-small: .875rem;
+    --font-size-regular: 1rem;
+    --font-size-big: 1.125rem;
+    --font-size-extra-big: 1.5rem;
+
     // Heading font size
     --h1-font-size: 2.25rem;
     --h2-font-size: 1.5rem;
@@ -46,18 +47,6 @@
     --h2-font-weight: 500;
     --h3-font-weight: 500;
     --h4-font-weight: 500;
-  }
-
-  @media (min-width: $desktop-min) {
-    // Font sizes
-    --font-size-extra-small: .75rem;
-    --font-size-small: .875rem;
-    --font-size-regular: 1rem;
-    --font-size-big: 1.125rem;
-    --font-size-extra-big: 1.5rem;
-
-    // Base font size
-    --body-font-size: var(--font-size-regular);
   }
 }
 
