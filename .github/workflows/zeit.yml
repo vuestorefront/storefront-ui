@@ -10,3 +10,9 @@ jobs:
         run: |
           yarn
           yarn storybook:build
+      - name: Deploy PR to zeit
+        if: github.event_name == 'pull_request'
+        uses: pspaczek/now-deployment@master
+        with:
+          zeit-token: ${{ secrets.ZEIT_TOKEN }}
+          zeit-team-id: team_storefrontui
