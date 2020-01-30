@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "github-actions-zeit-now",
+  "builds": [
+    {
+      "src": "./packages/vue/storybook-static",
+      "use": "@now/static",
+      "config": {}
+    }
+  ]
+}
