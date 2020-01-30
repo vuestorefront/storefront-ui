@@ -8,18 +8,47 @@ $badge-font-size: $font-size-small-desktop !default;
 $badge-font-weight: 500 !default;
 $badge-line-height: 1.6 !default;
 
+$badge-colors: (
+  "primary": $c-primary,
+  "secondary": $c-dark,
+  "white": $c-white,
+  "black": $c-black,
+  "accent": $c-primary-variant,
+  "green-primary": $c-primary,
+  "green-secondary": $c-primary-variant,
+  "gray-primary": $c-gray,
+  "gray-secondary": $c-gray-variant,
+  "light-primary": $c-light,
+  "light-secondary": $c-light-variant,
+  "pink-primary": $c-danger,
+  "pink-secondary": $c-danger-variant,
+  "yellow-primary": $c-warning,
+  "yellow-secondary": $c-warning-variant,
+  "blue-primary": $c-info,
+  "blue-secondary": $c-info-variant
+);
+
 .sf-badge {
+  --badge-color: #{map-get($badge-colors, "pink-primary")};
+
   box-sizing: border-box;
   display: inline-block;
   padding: $badge-padding;
-  background-color: $badge-background-color;
+  background-color: var(--badge-color);
   color: $badge-color;
   font-family: $badge-font-family;
   font-size: $badge-font-size;
   font-weight: $badge-font-weight;
   line-height: $badge-line-height;
   text-align: center;
+  cursor: default;
   &--full-width {
     width: 100%;
+  }
+
+  @each $pallete, $color in $badge-colors {
+    &--color-#{$pallete} {
+      --badge-color: #{$color};
+    }
   }
 }
