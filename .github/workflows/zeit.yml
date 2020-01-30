@@ -16,3 +16,4 @@ jobs:
         with:
           zeit-token: ${{ secrets.ZEIT_TOKEN }}
           zeit-team-id: team_storefrontui
+          github-token: ${{ secrets.GITHUB_TOKEN }}
