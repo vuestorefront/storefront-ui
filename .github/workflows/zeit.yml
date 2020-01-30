@@ -1,4 +1,4 @@
-name: Zeit
+name: ZEIT
 on: [pull_request]
 jobs:
   deploy:
