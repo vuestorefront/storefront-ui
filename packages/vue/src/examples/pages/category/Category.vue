@@ -128,10 +128,17 @@
         </SfAccordion>
       </div>
       <div class="products">
-        <div v-if="isGridView" class="products__grid">
+        <transition-group
+          v-if="isGridView"
+          appear
+          name="products__slide"
+          tag="div"
+          class="products__grid"
+        >
           <SfProductCard
             v-for="(product, i) in products"
-            :key="i"
+            :key="product.id"
+            :style="{ '--index': i }"
             :title="product.title"
             :image="product.image"
             :regular-price="product.price.regular"
@@ -142,11 +149,18 @@
             class="products__product-card"
             @click:wishlist="toggleWishlist(i)"
           />
-        </div>
-        <div v-else class="products__list">
+        </transition-group>
+        <transition-group
+          v-else
+          appear
+          name="products__slide"
+          tag="div"
+          class="products__list"
+        >
           <SfProductCardHorizontal
             v-for="(product, i) in products"
-            :key="i"
+            :key="product.id"
+            :style="{ '--index': i }"
             :title="product.title"
             :description="product.description"
             :image="product.image"
@@ -159,7 +173,7 @@
             class="products__product-card-horizontal"
             @click:wishlist="toggleWishlist(i)"
           />
-        </div>
+        </transition-group>
         <SfPagination
           class="products__pagination desktop-only"
           :current="currentPage"
@@ -336,6 +350,7 @@ export default {
       products: [
         {
           title: "Cream Beach Bag",
+          id: 1,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productA.jpg",
@@ -346,6 +361,7 @@ export default {
         },
         {
           title: "Cream Beach Bag",
+          id: 2,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productB.jpg",
@@ -356,6 +372,7 @@ export default {
         },
         {
           title: "Cream Beach Bag",
+          id: 3,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productC.jpg",
@@ -366,6 +383,7 @@ export default {
         },
         {
           title: "Cream Beach Bag",
+          id: 4,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productA.jpg",
@@ -376,6 +394,7 @@ export default {
         },
         {
           title: "Cream Beach Bag",
+          id: 5,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productB.jpg",
@@ -386,6 +405,7 @@ export default {
         },
         {
           title: "Cream Beach Bag",
+          id: 6,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productC.jpg",
@@ -396,6 +416,7 @@ export default {
         },
         {
           title: "Cream Beach Bag",
+          id: 7,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productA.jpg",
@@ -406,6 +427,7 @@ export default {
         },
         {
           title: "Cream Beach Bag",
+          id: 8,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productB.jpg",
@@ -667,6 +689,14 @@ export default {
     @include for-desktop {
       padding: $spacer-big;
     }
+  }
+  &__slide-enter {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  &__slide-enter-active {
+    transition: all 0.2s ease;
+    transition-delay: calc(0.1s * var(--index));
   }
   &__pagination {
     @include for-desktop {
