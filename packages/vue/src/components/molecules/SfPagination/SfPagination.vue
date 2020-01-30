@@ -6,7 +6,7 @@
         <slot name="prev" v-bind="{ isDisabled: canGoPrev, go: goPrev }">
           <button
             aria-label="Go to previous page"
-            class="sf-pagination__button sf-pagination__button--prev"
+            class="sf-pagination__button sf-pagination__button--prev focus-ring"
             :disabled="isDisabled('prev')"
             @click="go('prev')"
           >
@@ -17,7 +17,9 @@
       <template v-if="showFirst">
         <li class="sf-pagination__item">
           <slot name="number" v-bind="{ go, number: 1 }">
-            <button class="sf-pagination__button" @click="go(1)">1</button>
+            <button class="sf-pagination__button focus-ring" @click="go(1)">
+              1
+            </button>
           </slot>
         </li>
         <li class="sf-pagination__item">
@@ -32,7 +34,7 @@
         >
           <slot name="number" v-bind="{ go, number }">
             <button
-              class="sf-pagination__button"
+              class="sf-pagination__button focus-ring"
               :class="{ 'sf-pagination__button--current': current === number }"
               @click="go(number)"
             >
@@ -47,7 +49,7 @@
         </li>
         <li class="sf-pagination__item">
           <slot name="number" v-bind="{ go, number: total }">
-            <button class="sf-pagination__button" @click="go(total)">
+            <button class="sf-pagination__button focus-ring" @click="go(total)">
               {{ total }}
             </button>
           </slot>
@@ -58,7 +60,7 @@
         <slot name="next" v-bind="{ isDisabled: canGoNext, go: goNext }">
           <button
             aria-label="Go to next page"
-            class="sf-pagination__button sf-pagination__button--next"
+            class="sf-pagination__button sf-pagination__button--next focus-ring"
             :disabled="isDisabled('next')"
             @click="go('next')"
           >

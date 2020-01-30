@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-menu-item" v-on="$listeners">
+  <div class="sf-menu-item focus-ring" tabindex="0" v-on="$listeners">
     <!-- @slot -->
     <slot name="icon" />
     <!-- @slot -->

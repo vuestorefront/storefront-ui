@@ -1,7 +1,7 @@
 <template>
   <div class="sf-bar">
     <slot name="back">
-      <div class="sf-bar__icon">
+      <div class="sf-bar__icon focus-ring" tabindex="0">
         <SfIcon
           v-if="back"
           icon="chevron_left"
@@ -16,7 +16,7 @@
       <div class="sf-bar__title">{{ title }}</div>
     </slot>
     <slot name="close">
-      <div class="sf-bar__icon">
+      <div class="sf-bar__icon focus-ring" tabindex="0">
         <SfIcon
           v-if="close"
           icon="cross"

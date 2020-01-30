@@ -10,12 +10,14 @@
       >
         <div
           :key="step.index"
+          class="focus-ring"
           :class="{
             'sf-steps__header-step': true,
             'sf-steps__header-step-done': step.done,
             'sf-steps__header-step-current': step.current,
             'sf-steps__header-step-disabled': step.disabled
           }"
+          tabindex="0"
           @click="stepClick(step)"
         >
           <span>{{ step.step }}</span>

@@ -8,7 +8,8 @@
       <div
         v-for="(option, index) in options"
         :key="index"
-        class="sf-options__option-container"
+        class="sf-options__option-container focus-ring"
+        tabindex="0"
         @click="setActiveValue(option.value)"
       >
         <!-- @slot -->

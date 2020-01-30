@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-product-option">
+  <div class="sf-product-option focus-ring" tabindex="0">
     <!-- @slot -->
     <slot name="color" v-bind="{ color }">
       <div

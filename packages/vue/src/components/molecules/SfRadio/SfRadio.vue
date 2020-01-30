@@ -11,14 +11,16 @@
       :checked="isChecked"
       :disabled="disabled"
       class="sf-radio__input"
+      tabindex="-1"
       @input="inputHandler"
     />
     <label :for="value" class="sf-radio__container">
       <!-- @slot Custom checkmark markup (bind 'isChecked' boolean, 'disabled' boolean -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <div
-          class="sf-radio__checkmark"
+          class="sf-radio__checkmark focus-ring"
           :class="{ 'is-active': isChecked }"
+          tabindex="0"
         ></div>
       </slot>
       <div class="sf-radio__content">

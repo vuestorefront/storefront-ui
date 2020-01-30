@@ -2,7 +2,8 @@
   <div class="sf-counter">
     <div
       v-if="controls"
-      class="sf-counter__control sf-counter__control--down"
+      class="sf-counter__control sf-counter__control--down focus-ring"
+      tabindex="0"
       @click="decrease"
     >
       <slot name="down">
@@ -25,7 +26,7 @@
     >
       <input
         v-model="stringValue"
-        class="sf-counter__field"
+        class="sf-counter__field focus-ring"
         aria-label="current value"
         :type="type"
         :name="name"
@@ -39,7 +40,8 @@
     </slot>
     <div
       v-if="controls"
-      class="sf-counter__control"
+      class="sf-counter__control focus-ring"
+      tabindex="0"
       role="button"
       aria-label="Increase"
       @click="increase"

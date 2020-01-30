@@ -8,7 +8,7 @@ $focus-ring__color: rgba(21, 156, 228, 0.4);
     &--input {
       &:focus {
         outline:none;
-        border-color: $c-primary;
+        border-color: $focus-ring__color;
       }
     }
   }
