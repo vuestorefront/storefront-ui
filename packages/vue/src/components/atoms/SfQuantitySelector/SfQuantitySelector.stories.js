@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number, text } from "@storybook/addon-knobs";
+import { withKnobs, text } from "@storybook/addon-knobs";
 import SfQuantitySelector from "./SfQuantitySelector.vue";
 storiesOf("Atoms|QuantitySelector", module)
   .addDecorator(withKnobs)
@@ -12,16 +12,12 @@ storiesOf("Atoms|QuantitySelector", module)
       };
     },
     props: {
-      min: {
-        default: number("min", 1, {}, "Props")
-      },
       ariaLabel: {
         default: text("ariaLabel", "Quantity", "Props")
       }
     },
-    template: `<SfQuantitySelector 
-        v-model="value"
-        :min="min"
+    template: `<SfQuantitySelector
         :aria-label="ariaLabel"
+        v-model="value"
       />`
   }));

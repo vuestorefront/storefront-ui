@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number, boolean } from "@storybook/addon-knobs";
+import { withKnobs, boolean } from "@storybook/addon-knobs";
 import SfAddToCart from "./SfAddToCart.vue";
 
 storiesOf("Molecules|AddToCart", module)
@@ -9,9 +9,6 @@ storiesOf("Molecules|AddToCart", module)
     props: {
       disabled: {
         default: boolean("disabled", false, "Props")
-      },
-      qtyMin: {
-        default: number("qtyMin", 1, {}, "Props")
       }
     },
     data() {
@@ -23,7 +20,6 @@ storiesOf("Molecules|AddToCart", module)
       <SfAddToCart 
         v-model="qty"
         :disabled="disabled"
-        :qty-min="qtyMin"
         @click="()=>{}"/>
       </div>`
   }))
@@ -32,9 +28,6 @@ storiesOf("Molecules|AddToCart", module)
     props: {
       disabled: {
         default: boolean("disabled", false, "Props")
-      },
-      qtyMin: {
-        default: number("qtyMin", 1, {}, "Props")
       }
     },
     data() {
@@ -46,7 +39,7 @@ storiesOf("Molecules|AddToCart", module)
         <SfAddToCart
           v-model="qty"
           :disabled="disabled"
-          :qty-min="qtyMin"
+          
             >
         <template #add-to-cart-btn>
         <button  @click="()=>{}">Custom Add To Cart</button>
@@ -59,9 +52,6 @@ storiesOf("Molecules|AddToCart", module)
     props: {
       disabled: {
         default: boolean("disabled", false, "Props")
-      },
-      qtyMin: {
-        default: number("qtyMin", 1, {}, "Props")
       }
     },
     data() {
@@ -72,9 +62,8 @@ storiesOf("Molecules|AddToCart", module)
     template: `<div style="max-width: 21.25rem">
         <SfAddToCart 
           :disabled="disabled"
-          :qty-min="qtyMin"
           @click="()=>{}">
-          <template #quantity-select-input="{qty, qtyMin}">
+          <template #quantity-select-input="{qty}">
             <select v-model="qty">
               <option value="1">1</option>
               <option value="5">5</option>
