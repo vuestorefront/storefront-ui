@@ -47,7 +47,7 @@
   &--has-chevron {
     #{$this}-item__chevron {
       display: block;
-      margin-top:  calc(-(var(--accordion-font-size) + var(--accordion-item__chevron-size)) / 2);
+      margin-top:  calc(-1 * (var(--accordion-font-size) + var(--accordion-item__chevron-size)) / 2);
     }
   }
 }

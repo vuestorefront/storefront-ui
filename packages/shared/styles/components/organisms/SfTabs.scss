@@ -52,7 +52,7 @@
   }
 
   &__chevron {
-    margin-top: calc(-(var(--tabs-font-size) + var(--tabs__chevron-size)) / 2);
+    margin-top: calc(-1 * (var(--tabs-font-size) + var(--tabs__chevron-size)) / 2);
   }
 
   &__content {
