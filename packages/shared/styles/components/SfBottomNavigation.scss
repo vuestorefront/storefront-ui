@@ -2,6 +2,7 @@
 
 $bottom-navigation__item-color: $c-gray-variant !default;
 $bottom-navigation__item-color--active: $c-black !default;
+$bottom-navigation__item-font-size: 12px !default;
 
 .sf-bottom-navigation {
   $this: &;
@@ -24,7 +25,7 @@ $bottom-navigation__item-color--active: $c-black !default;
     justify-content: center;
     align-items: center;
     position: relative;
-    font-size: 12px;
+    font-size: $bottom-navigation__item-font-size;
     color: $c-gray;
 
     & > .sf-icon {
