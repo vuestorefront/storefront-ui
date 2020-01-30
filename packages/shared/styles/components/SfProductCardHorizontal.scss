@@ -4,7 +4,7 @@ $product-card-horizontal-padding-content: $spacer-small !default;
 $product-card-horizontal-padding: $spacer-medium !default;
 $product-card-horizontal-padding-desktop: $spacer-big !default;
 $product-card-horizontal__image-max-width: 85px !default;
-$product-card-horizontal__image-max-width-desktop: 150px !default;
+$product-card-horizontal__image-max-width-desktop: 140px !default;
 $product-card-horizontal__price-font-weight: 500 !default;
 
 .sf-product-card-horizontal {
@@ -61,7 +61,6 @@ $product-card-horizontal__price-font-weight: 500 !default;
   }
   &__wishlist-icon {
     position: absolute;
-    top: $product-card-horizontal-padding-content;
     right: $product-card-horizontal-padding-content;
     padding: 0;
     border: 0;
