@@ -53,6 +53,22 @@
           />
         </slot>
       </div>
+      <button
+        v-if="wishlistIcon !== false"
+        :aria-label="ariaLabel"
+        :class="wishlistIconClasses"
+        class="mobile-only"
+        @click="toggleIsOnWishlist"
+      >
+        <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
+          <SfIcon
+            :icon="currentWishlistIcon"
+            color="black"
+            size="22px"
+            data-test="sf-wishlist-icon"
+          />
+        </slot>
+      </button>
       <div class="sf-product-card-horizontal__details">
         <slot name="description">
           <p class="sf-product-card-horizontal__description desktop-only">
@@ -60,13 +76,13 @@
           </p>
         </slot>
         <slot name="configuration">
-          <div class="sf-product-card-horizontal__options desktop-only">
+          <div class="sf-product-card-horizontal__options">
             <SfProperty
               v-for="(option, i) in options"
               :key="i"
               :name="option.name"
               :value="option.value"
-              class="product-property"
+              class="sf-product-card-horizontal__property"
             />
           </div>
         </slot>
@@ -82,7 +98,7 @@
             />
             <a
               v-if="reviewsCount"
-              class="sf-product-card-horizontal__reviews-count desktop-only"
+              class="sf-product-card-horizontal__reviews-count"
               href="#"
               @click="$emit('click:reviews')"
             >
@@ -91,8 +107,8 @@
           </div>
         </slot>
       </div>
-      <div class="sf-product-card-horizontal__actions">
-        <slot name="actions">
+      <slot name="actions">
+        <div class="sf-product-card-horizontal__actions desktop-only">
           <SfButton
             class="sf-button--text"
             @click="$emit('click:add-to-wishlist')"
@@ -105,15 +121,13 @@
           >
             Add to compare
           </SfButton>
-        </slot>
-        <slot name="add-to-cart">
           <SfAddToCart
             v-model="qty"
-            class="sf-product-card-horizontal__add-to-cart desktop-only"
+            class="sf-product-card-horizontal__add-to-cart"
             @click="$emit('click:add-to-cart')"
           />
-        </slot>
-      </div>
+        </div>
+      </slot>
     </div>
   </div>
 </template>
@@ -246,6 +260,31 @@ export default {
     addToCartDisabled: {
       type: Boolean,
       default: false
+    },
+    /**
+     * Wish list icon
+     * This is the default icon for product not yet added to wish list.
+     * It can be a icon name from our icons list, or array or string as SVG path(s).
+     */
+    wishlistIcon: {
+      type: [String, Array, Boolean],
+      default: "heart"
+    },
+    /**
+     * Wish list icon for product which has been added to wish list
+     * This is the icon for product added to wish list. Default visible on mobile. Visible only on hover on desktop.
+     * It can be a icon name from our icons list, or array or string as SVG path(s).
+     */
+    isOnWishlistIcon: {
+      type: [String, Array],
+      default: "heart_fill"
+    },
+    /**
+     * Status of whether product is on wish list or not
+     */
+    isOnWishlist: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -254,6 +293,18 @@ export default {
     };
   },
   computed: {
+    currentWishlistIcon() {
+      return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
+    },
+    ariaLabel() {
+      return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
+    },
+    wishlistIconClasses() {
+      const defaultClass = "sf-product-card-horizontal__wishlist-icon";
+      return `${defaultClass} ${
+        this.isOnWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
+      }`;
+    },
     linkComponentTag() {
       if (this.linkTag) {
         return this.linkTag;
@@ -264,6 +315,11 @@ export default {
           : "a";
       }
       return "div";
+    }
+  },
+  methods: {
+    toggleIsOnWishlist() {
+      this.$emit("click:wishlist", !this.isOnWishlist);
     }
   }
 };
