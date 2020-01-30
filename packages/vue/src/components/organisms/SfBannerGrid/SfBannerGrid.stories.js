@@ -22,7 +22,7 @@ storiesOf("Organisms|BannerGrid", module)
     components: { SfBannerGrid, SfBanner },
     template: `<div style="max-width:1240px; margin: auto">
         <SfBannerGrid :bannerGrid="1">
-          <template #bannerA>
+          <template #banner-A>
             <a href="#">
               <SfBanner
                 subtitle="Dresses"
@@ -34,7 +34,7 @@ storiesOf("Organisms|BannerGrid", module)
               />
             </a>
           </template>
-          <template #bannerB>
+          <template #banner-B>
             <a href="#">
               <SfBanner
                 subtitle="Dresses"
@@ -47,7 +47,7 @@ storiesOf("Organisms|BannerGrid", module)
               />
             </a>
           </template>
-          <template #bannerC>
+          <template #banner-C>
             <a href="#">
               <SfBanner
               subtitle="T-Shirts"
@@ -57,7 +57,7 @@ storiesOf("Organisms|BannerGrid", module)
             />
             </a>
           </template>
-          <template #bannerD>
+          <template #banner-D>
             <a href="#">
               <SfBanner
                 subtitle="Summer shoes"
@@ -86,7 +86,7 @@ storiesOf("Organisms|BannerGrid", module)
     },
     components: { SfBannerGrid, SfBanner },
     template: `<div style="max-width:1240px; margin: auto"><SfBannerGrid :bannerGrid="2">
-        <template #bannerA>
+        <template #banner-A>
           <a href="#">
             <SfBanner
               subtitle="Dresses"
@@ -98,7 +98,7 @@ storiesOf("Organisms|BannerGrid", module)
             />
           </a>
         </template>
-        <template #bannerB>
+        <template #banner-B>
           <a href="#">
             <SfBanner
               subtitle="Dresses"
@@ -109,7 +109,7 @@ storiesOf("Organisms|BannerGrid", module)
             />
           </a>
         </template>
-        <template #bannerC>
+        <template #banner-C>
           <a href="#">
             <SfBanner
               subtitle="T-Shirts"
@@ -119,7 +119,7 @@ storiesOf("Organisms|BannerGrid", module)
             />
           </a>
         </template>
-        <template #bannerD>
+        <template #banner-D>
           <a href="#">
             <SfBanner
               subtitle="Summer shoes"
