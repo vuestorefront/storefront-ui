@@ -1,27 +1,27 @@
-$c-black: hsl(0, 0%, 0%) !default;
-$c-white: hsl(0, 0%, 100%) !default;
+$c-black: #1d1f22 !default;
+$c-white: #ffffff !default;
 
 // Internal color variables
 // Should NOT be used directly for theming or component styles
-$_c-green-primary: hsl(136, 53%, 59%);
-$_c-green-secondary: hsl(136, 54%, 75%);
-$_c-dark-primary: hsl(216, 8%, 12%);
-$_c-dark-secondary: hsl(226, 5%, 48%);
-$_c-gray-primary: hsl(228, 9%, 45%);
-$_c-gray-secondary: hsl(230, 5%, 76%);
-$_c-light-primary: hsl(210, 8%, 95%);
-$_c-light-secondary: hsl(0, 0%, 100%);
-$_c-pink-primary: hsl(359, 77%, 51%);
-$_c-pink-secondary: hsl(7, 100%, 98%);
-$_c-yellow-primary: hsl(50, 100%, 62%);
-$_c-yellow-secondary: hsl(50, 100%, 96%);
-$_c-blue-primary: hsl(210, 50%, 60%);
-$_c-blue-secondary: hsl(216, 33%, 97%);
+$_c-green-primary: #5ece7b;
+$_c-green-secondary: #9ee2b0;
+$_c-dark-primary: $c-black;
+$_c-dark-secondary: #737680;
+$_c-gray-primary: #a3a5ad;
+$_c-gray-secondary: #bebfc4;
+$_c-light-primary: #f1f2f3;
+$_c-light-secondary: $c-white;
+$_c-pink-primary: 	#e22225;
+$_c-pink-secondary: #fff6f5;
+$_c-yellow-primary: #ffdf3d;
+$_c-yellow-secondary: #fffceb;
+$_c-blue-primary: #6699cc;
+$_c-blue-secondary: #e1f4fe;
 
 /* START: Theme color variables */
 
 // Body and text defaults
-$c-body: $c-white !default;
+$c-body: $_c-light-secondary !default;
 $c-text: $_c-dark-primary !default;
 $c-text-muted: $_c-gray-primary !default;
 $c-link: $_c-dark-secondary !default;
@@ -34,14 +34,14 @@ $c-link-hover: $c-black !default;
  * It is meant to be used in major interactive elements of the page. */
 $c-primary: $_c-green-primary !default;
 $c-primary-variant: $_c-green-secondary !default;
-$c-on-primary: $c-white !default;
+$c-on-primary: $_c-light-secondary !default;
 
 // Secondary
 /* Should be used to drive attention in the elements with relevant info,
  * but where the user is not intended to take action. */
 $c-secondary: $_c-dark-primary !default;
 $c-secondary-variant: $_c-dark-secondary !default;
-$c-on-secondary: $c-white !default;
+$c-on-secondary: $_c-light-secondary !default;
 
 /* Base colors */
 
@@ -58,29 +58,29 @@ $c-on-gray: $c-black !default;
 // Dark
 $c-dark: $_c-dark-primary !default;
 $c-dark-variant: $_c-dark-secondary !default;
-$c-on-dark: $c-white !default;
+$c-on-dark: $_c-light-secondary !default;
 
 /* Context colors */
 
 // Info
 $c-info: $_c-blue-primary !default;
 $c-info-variant: $_c-blue-secondary !default;
-$c-on-info: $c-white !default;
+$c-on-info: $_c-light-secondary !default;
 
 // Success
 $c-success: $_c-green-primary !default;
 $c-success-variant: $_c-green-secondary !default;
-$c-on-success: $c-white !default;
+$c-on-success: $_c-light-secondary !default;
 
 // Warning
 $c-warning: $_c-yellow-primary !default;
 $c-warning-variant: $_c-yellow-secondary !default;
-$c-on-warning: $c-white !default;
+$c-on-warning: $_c-light-secondary !default;
 
 // Danger
 $c-danger: $_c-pink-primary !default;
 $c-danger-variant: $_c-pink-secondary !default;
-$c-on-danger: $c-white !default;
+$c-on-danger: $_c-light-secondary !default;
 
 /* END: Theme color variables */
 
@@ -126,4 +126,23 @@ $colors-map: (
     "variant": $c-danger-variant,
     "text": $c-on-danger
   )
+);
+
+$icon-colors: (
+  "white": $c-white,
+  "black": $c-black,
+  "accent": $_c-green-primary,
+  "dark-secondary": $_c-dark-secondary,
+  "green-primary": $_c-green-primary,
+  "green-secondary": $_c-green-secondary,
+  "gray-primary": $_c-gray-primary,
+  "gray-secondary": $_c-gray-secondary,
+  "light-primary": $_c-light-primary,
+  "light-secondary": $_c-light-secondary,
+  "pink-primary": $_c-pink-primary,
+  "pink-secondary": $_c-pink-primary,
+  "yellow-primary": $_c-yellow-primary,
+  "yellow-secondary": $_c-yellow-secondary,
+  "blue-primary": $_c-blue-primary,
+  "blue-secondary": $_c-blue-secondary
 );

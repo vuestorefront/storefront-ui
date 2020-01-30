@@ -22,7 +22,6 @@
       <slot name="input">
         <SfQuantitySelector
           :qty="qty"
-          :min="qtyMin"
           class="sf-collected-product__quantity-selector"
           @input="$emit('input', $event)"
         />
@@ -111,13 +110,6 @@ export default {
      */
     qty: {
       type: [Number, String],
-      default: 1
-    },
-    /**
-     * Minimum product quantity
-     */
-    qtyMin: {
-      type: Number,
       default: 1
     }
   },

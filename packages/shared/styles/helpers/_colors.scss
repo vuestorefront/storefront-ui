@@ -11,6 +11,10 @@
     background-color: $bg !important;
   }
 
+  .bg-#{$color}--variant {
+    background-color: $variant;
+  }
+
   // General color modifiers
   // May be overwritten by specific component modifiers
   .color-#{$color} {
