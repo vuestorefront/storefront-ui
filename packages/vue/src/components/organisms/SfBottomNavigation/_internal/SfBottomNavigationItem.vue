@@ -19,7 +19,7 @@
       />
     </slot>
     <slot name="label" v-bind="{ label }">
-      <span
+      <div
         v-if="label"
         :class="{
           'sf-bottom-navigation__item--has-margin': icon,
