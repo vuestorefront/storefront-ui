@@ -7,7 +7,7 @@
   "scripts": {
     "create-component": "node ./scripts/create-component.js",
     "storybook:serve": "cd packages/vue && yarn storybook:serve",
-    "storybook:builr": "cd packages/vue && yarn storybook:build",
+    "storybook:build": "cd packages/vue && yarn storybook:build",
     "vue-docs:dev": "cd packages/vue && yarn docs:dev",
     "vue-docs:build": "cd packages/vue && yarn docs:build"
   },
