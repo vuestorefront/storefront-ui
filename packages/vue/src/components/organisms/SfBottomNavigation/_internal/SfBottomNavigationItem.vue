@@ -23,7 +23,6 @@
         v-if="label"
         :class="{
           'sf-bottom-navigation__item--has-margin': icon,
-          'sf-bottom-navigation__floating-label': isFloating
         }"
         >{{ label }}</span
       >
