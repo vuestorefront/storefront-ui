@@ -8,7 +8,7 @@
         v-if="isFloating"
         :icon="icon"
         icon-color="white"
-        icon-size="20px"
+        icon-size="28px"
       >
       </SfCircleIcon>
       <SfIcon
