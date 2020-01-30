@@ -3,12 +3,17 @@
     <template v-for="(_, index) of inactiveLeft">
       <!--@slot custom icon for inactive bullet -->
       <slot name="inactive" class="sf-bullet" v-bind="{ index, go }">
-        <li :key="index" class="sf-bullet" @click="go(index)"></li>
+        <li
+          :key="index"
+          class="sf-bullet focus-ring"
+          tabindex="0"
+          @click="go(index)"
+        ></li>
       </slot>
     </template>
     <!--@slot custom icon for active bullet -->
     <slot name="active">
-      <li class="sf-bullet sf-bullet--active"></li>
+      <li class="sf-bullet sf-bullet--active focus-ring" tabindex="0"></li>
     </slot>
     <template v-for="(_, index) of inactiveRight">
       <!--@slot custom icon for inactive bullet -->
@@ -19,7 +24,8 @@
       >
         <li
           :key="inactiveLeft + 1 + index"
-          class="sf-bullet"
+          class="sf-bullet focus-ring"
+          tabindex="0"
           @click="go(inactiveLeft + 1 + index)"
         ></li>
       </slot>

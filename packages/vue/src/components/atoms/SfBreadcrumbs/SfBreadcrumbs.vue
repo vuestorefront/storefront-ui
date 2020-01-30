@@ -10,15 +10,20 @@
         <template v-if="last !== i">
           <!-- @slot Custom markup for previous pages (binds `breadcrumb` object) -->
           <slot name="link" v-bind="{ breadcrumb, go }">
-            <a class="sf-breadcrumbs__link" @click="go(breadcrumb)">{{
-              breadcrumb.text
-            }}</a>
+            <a
+              class="sf-breadcrumbs__link focus-ring"
+              tabindex="0"
+              @click="go(breadcrumb)"
+              >{{ breadcrumb.text }}</a
+            >
           </slot>
         </template>
         <template v-else>
           <!-- @slot Custom markup for current page (binds `breadcrumb` object) -->
           <slot name="current" v-bind="{ breadcrumb }">
-            <span class="sf-breadcrumbs__current">{{ breadcrumb.text }}</span>
+            <span class="sf-breadcrumbs__current focus-ring" tabindex="0">{{
+              breadcrumb.text
+            }}</span>
           </slot>
         </template>
       </li>
