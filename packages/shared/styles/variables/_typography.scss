@@ -50,3 +50,19 @@ $h2-font-weight-mobile: 500 !default;
 $h3-font-weight-mobile: 500 !default;
 $h4-font-weight-mobile: 500 !default;
 
+$typography-map: (
+    "desktop": (
+        "extra-small": $font-size-extra-small-desktop,
+        "small": $font-size-small-desktop,
+        "regular": $font-size-regular-desktop,
+        "big": $font-size-big-desktop,
+        "extra-big": $font-size-extra-big-desktop,
+    ),
+    "mobile": (
+        "extra-small": $font-size-extra-small-mobile,
+        "small": $font-size-small-mobile,
+        "regular": $font-size-regular-mobile,
+        "big": $font-size-big-mobile,
+        "extra-big": $font-size-extra-big-mobile,
+    )
+)

@@ -25,7 +25,8 @@ describe("SfIcon.vue", () => {
     expect(component.contains(`.sf-icon--size-${size}`)).toBe(true);
   });
   it("renders sf-color when passed", () => {
-    const color = "primary";
+    const color = "green-primary";
+
     const component = shallowMount(SfIcon, {
       propsData: {
         color: color
@@ -34,7 +35,8 @@ describe("SfIcon.vue", () => {
     expect(component.contains(`.sf-icon--color-${color}`)).toBe(true);
   });
   it("renders viewBox default when not passed", () => {
-    const color = "primary";
+    const color = "green-primary";
+
     const component = shallowMount(SfIcon, {
       propsData: {
         color: color
