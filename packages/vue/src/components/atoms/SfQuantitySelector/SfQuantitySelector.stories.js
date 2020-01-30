@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs";
 import SfQuantitySelector from "./SfQuantitySelector.vue";
 storiesOf("Atoms|QuantitySelector", module)
   .addDecorator(withKnobs)
@@ -11,13 +11,7 @@ storiesOf("Atoms|QuantitySelector", module)
         value: 1
       };
     },
-    props: {
-      min: {
-        default: number("min", 1, {}, "Props")
-      }
-    },
     template: `<SfQuantitySelector 
-        v-model="value"
-        :min="min" 
+        v-model="value"         
       />`
   }));
