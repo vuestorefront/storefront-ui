@@ -1,11 +1,11 @@
-name: ZEIT
+name: Deploy ZEIT
 on: [pull_request]
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-      - uses: actions/checkout@v1
+        uses: actions/checkout@v1
       - name: Build Storybook
         run: |
           yarn
