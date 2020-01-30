@@ -47,5 +47,10 @@ $bottom-navigation__item-font-size: 12px !default;
 
   &--floating {
     top: -1.5rem;
+    & > .sf-button {
+      &:not(:hover) {
+        box-shadow: 0px 4px 6px rgba(66, 66, 66, 0.2);
+      }
+    }
   }
 }
