@@ -14,9 +14,6 @@ $product-card-horizontal__price-font-weight: 500 !default;
   box-sizing: border-box;
   padding: $product-card-horizontal-padding-content;
   &:hover {
-    #{$this}__wishlist-icon {
-      opacity: 1;
-    }
     #{$this}__picture {
         opacity: 0;
         &:nth-child(even){
@@ -68,11 +65,6 @@ $product-card-horizontal__price-font-weight: 500 !default;
     cursor: pointer;
     outline: none;
     transition: opacity 150ms ease-in-out;
-    @media (min-width: $desktop-min) {
-      opacity: 0;
-      top: $product-card-horizontal-padding-content;
-      right: $product-card-horizontal-padding-content;
-    }
     &#{$this}--on-wishlist {
       opacity: 1;
     }

@@ -64,7 +64,7 @@
           <SfIcon
             :icon="currentWishlistIcon"
             color="black"
-            size="22px"
+            size="19px"
             data-test="sf-wishlist-icon"
           />
         </slot>
