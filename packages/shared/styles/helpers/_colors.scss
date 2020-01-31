@@ -30,4 +30,16 @@
       background-color: $hover !important;
     }
   }
+
+  // General color modifiers
+  // May be overwritten by specific component modifiers
+  .color-#{$color} {
+    color: $text !important;
+    background-color: $background !important;
+    border-color: $variant !important;
+    &:hover {
+      background-color: $variant !important;
+      border-color: $background !important;
+    }
+  }
 }
