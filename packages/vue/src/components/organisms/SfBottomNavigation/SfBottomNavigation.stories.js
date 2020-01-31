@@ -21,10 +21,10 @@ storiesOf("Organisms|BottomNavigation", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-bottom-navigation__item--active":
-              "sf-bottom-navigation__item--active"
+            "sf-bottom-navigation-item--active":
+              "sf-bottom-navigation-item--active"
           },
-          "sf-bottom-navigation__item--active",
+          "sf-bottom-navigation-item--active",
           { display: "multi-select" },
           "CSS Modifiers"
         )
@@ -86,10 +86,10 @@ storiesOf("Organisms|BottomNavigation", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-bottom-navigation__item--active":
-              "sf-bottom-navigation__item--active"
+            "sf-bottom-navigation-item--active":
+              "sf-bottom-navigation-item--active"
           },
-          "sf-bottom-navigation__item--active",
+          "sf-bottom-navigation-item--active",
           { display: "multi-select" },
           "CSS Modifiers"
         )
@@ -145,10 +145,10 @@ storiesOf("Organisms|BottomNavigation", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-bottom-navigation__item--active":
-              "sf-bottom-navigation__item--active"
+            "sf-bottom-navigation-item--active":
+              "sf-bottom-navigation-item--active"
           },
-          "sf-bottom-navigation__item--active",
+          "sf-bottom-navigation-item--active",
           { display: "multi-select" },
           "CSS Modifiers"
         )
