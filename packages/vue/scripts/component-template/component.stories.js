@@ -29,6 +29,6 @@ storiesOf("ComponentType|ComponentName", module)
     components: { ComponentNameCamelCase },
     template: `<ComponentNameCamelCase
         :class="customClass"
-        :props-name="props-name"
+        :props-name="propsName"
       />`
   }));
