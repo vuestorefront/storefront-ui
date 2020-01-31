@@ -8,8 +8,8 @@
       <div class="total-items">
         <h3>Total items: {{ totalItems }}</h3>
         <SfButton class="sf-button--text" @click="listIsHidden = !listIsHidden"
-          >{{ listIsHidden ? "Show" : "Hide" }} items list</SfButton
-        >
+          >{{ listIsHidden ? "Show" : "Hide" }} items list
+        </SfButton>
       </div>
       <transition name="fade">
         <div v-if="!listIsHidden" class="collected-product-list">
@@ -77,8 +77,8 @@
       <SfButton
         class="promo-code__button"
         @click="showPromoCode = !showPromoCode"
-        >{{ showPromoCode ? "-" : "+" }} Promo Code</SfButton
-      >
+        >{{ showPromoCode ? "-" : "+" }} Promo Code
+      </SfButton>
       <transition name="fade">
         <div v-if="showPromoCode">
           <SfInput
@@ -112,6 +112,7 @@ import {
   SfCharacteristic,
   SfInput
 } from "@storefront-ui/vue";
+
 export default {
   name: "OrderSummary",
   components: {
@@ -225,92 +226,122 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
+
 .highlighted {
   box-sizing: border-box;
   width: 100%;
   background-color: #f1f2f3;
-  padding: $spacer-extra-big;
-  margin-bottom: $spacer-big;
+  padding: var(--spacer-extra-big);
+  margin-bottom: var(--spacer-big);
+
   &:last-child {
     margin-bottom: 0;
   }
+
   &--total {
     margin-bottom: 1px;
   }
 }
+
 .title {
-  margin-bottom: $spacer-extra-big;
+  margin-bottom: var(--spacer-extra-big);
 }
+
 .total-items {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: $spacer-big;
+  margin-bottom: var(--spacer-big);
 }
+
 .property {
-  margin-bottom: $spacer;
+  margin-bottom: var(--spacer);
+
   ::v-deep .sf-property__name {
     text-transform: unset;
   }
 }
+
 .property-total {
-  margin-top: $spacer-extra-big;
-  font-size: $font-size-extra-big-desktop;
+  margin-top: var(--spacer-extra-big);
+  font-size: var(--font-size-extra-big);
   font-weight: 500;
+
   ::v-deep .sf-property__name {
-    color: $c-text;
+    color: var(--c-text);
   }
 }
+
 .collected-product-list {
   margin: 0 -20px;
 }
+
 .collected-product {
   &:not(:last-child) {
-    margin-bottom: $spacer-big;
+    margin-bottom: var(--spacer-big);
   }
 }
+
 .characteristic {
   &:not(:last-child) {
-    margin-bottom: $spacer-big;
+    margin-bottom: var(--spacer-big);
   }
 }
+
 .promo-code {
   &__button {
     padding: 0;
     background-color: transparent;
-    color: $c-primary;
-    font-size: $font-size-big-desktop;
+    color: var(--c-primary);
+    font-size: var(--font-size-extra-big);
+    @include for-desktop {
+      font-size: var(--font-size-big);
+    }
   }
+
   &__input {
-    margin: $spacer-big 0;
+    margin: var(--spacer-big) 0;
+
     ::v-deep input {
-      border-color: $c-gray-variant;
+      border-color: var(--c-gray-variant);
     }
   }
 }
+
 .product {
   &__properties {
-    margin: $spacer-big 0 0 0;
+    margin: var(--spacer-big) 0 0 0;
   }
+
   &__property,
   &__action {
-    font-size: $font-size-extra-small-desktop;
+    font-size: var(--font-size-small);
+    @include for-desktop {
+      font-size: var(--font-size-extra-small);
+    }
   }
+
   &__action {
-    color: $c-gray-variant;
-    font-size: $font-size-extra-small-desktop;
-    margin: 0 0 $spacer-small 0;
+    color: var(--c-gray-variant);
+    font-size: var(--font-size-small);
+    margin: 0 0 var(--spacer-small) 0;
+    @include for-desktop {
+      font-size: var(--font-size-extra-small);
+    }
+
     &:last-child {
       margin: 0;
     }
   }
+
   &__qty {
-    color: $c-text;
+    color: var(--c-text);
   }
 }
 </style>

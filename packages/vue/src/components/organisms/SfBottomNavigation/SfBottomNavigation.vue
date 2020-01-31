@@ -12,5 +12,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfBottomNavigation.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfBottomNavigation.scss";
 </style>

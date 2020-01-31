@@ -10,10 +10,9 @@
         Add to cart
       </SfButton>
     </slot>
-    <slot name="quantity-select-input" v-bind="{ qty, qtyMin }">
+    <slot name="quantity-select-input" v-bind="{ qty }">
       <SfQuantitySelector
         :qty="qty"
-        :min="qtyMin"
         class="sf-add-to-cart__select-quantity"
         @input="$emit('input', $event)"
       />
@@ -47,17 +46,10 @@ export default {
     qty: {
       type: [Number, String],
       default: 1
-    },
-    /**
-     * Minimum product quantity
-     */
-    qtyMin: {
-      type: Number,
-      default: 1
     }
   }
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfAddToCart.scss";
+@import "~@storefront-ui/shared/styles/components/molecules/SfAddToCart.scss";
 </style>
