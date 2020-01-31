@@ -1,0 +1,116 @@
+@import '../../variables';
+
+:root {
+  --notification-max-width-desktop: 35rem;
+  --notification-border-radius-desktop: 5px;
+  --notification-font-family: var(--body-font-family-primary);
+  --notification-font-size: var(--font-size-big);
+  --notification-font-weight: var(--body-font-weight-secondary);
+  --notification-box-shadow-desktop: 0 8px 11px rgba(0, 0, 0, .1);
+  --notification__title-font-size: var(--font-size-big);
+  --notification__title-font-weight: 300;
+  --notification__action-font-weight: 500;
+
+  @media screen and (min-width: $desktop-min) {
+    --notification-font-family: var(--body-font-family-secondary);
+    --notification-font-size: var(--font-size-regular);
+    --notification-font-weight: var(--body-font-weight-primary);
+    --notification__title-font-weight: 700;
+  }
+}
+
+.sf-notification {
+  $this: &;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--spacer-big);
+  padding-right: calc(var(--spacer-big) * 5);
+  font-family: var(--notification-font-family);
+  font-size: var(--notification-font-size);
+  font-weight: var(--notification-font-weight);
+  line-height: 1.6;
+  opacity: .8;
+
+  &__title {
+    display: inline;
+    font-weight: var(--notification__title-font-weight);
+
+    &::after {
+      content: " ";
+    }
+  }
+
+  &__action {
+    display: none;
+  }
+
+  &__icon {
+    display: none;
+  }
+
+  &__close {
+    cursor: pointer;
+    position: absolute;
+    right: var(--spacer-big);
+    top: var(--spacer-big);
+  }
+
+  @each $name, $pair in $colors-map {
+    $bg: map-get($pair, "bg");
+    $color: map-get($pair, "text");
+
+    &--#{$name} {
+      background-color: $bg;
+      color: $color;
+
+      #{$this}__icon {
+        fill: $color;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop-min) {
+  .sf-notification {
+    max-width: var(--notification-max-width-desktop);
+    align-items: center;
+    padding: var(--spacer-medium);
+    border-radius: var(--notification-border-radius-desktop);
+    opacity: 1;
+    box-shadow: var(--notification-box-shadow-desktop);
+
+    &__title {
+      display: block;
+      font-size: var(--notification__title-font-size);
+      font-weight: var(--notification__title-font-weight);
+
+      &::after {
+        content: none;
+      }
+    }
+
+    &__action {
+      display: inline;
+      padding: 0;
+      margin-left: var(--spacer-big);
+      border: 0;
+      color: inherit;
+      background-color: transparent;
+      font: inherit;
+      text-decoration: underline;
+      outline: none;
+    }
+
+    &__icon {
+      display: block;
+      margin-right: var(--spacer-big);
+    }
+
+    &__close {
+      right: var(--spacer-medium);
+      top: var(--spacer-medium);
+    }
+  }
+}

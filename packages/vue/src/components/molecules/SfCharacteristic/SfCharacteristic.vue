@@ -58,5 +58,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfCharacteristic.scss";
+@import "~@storefront-ui/shared/styles/components/molecules/SfCharacteristic.scss";
 </style>

@@ -8,8 +8,8 @@
       <div class="highlighted__header">
         <h3 class="highlighted__title">Personal details</h3>
         <SfButton class="sf-button--text" @click="$emit('click:edit', 0)"
-          >Edit</SfButton
-        >
+          >Edit
+        </SfButton>
       </div>
       <p class="content">{{ order.firstName }} {{ order.lastName }}<br /></p>
       <p class="content">
@@ -20,8 +20,8 @@
       <div class="highlighted__header">
         <h3 class="highlighted__title">Shipping details</h3>
         <SfButton class="sf-button--text" @click="$emit('click:edit', 1)"
-          >Edit</SfButton
-        >
+          >Edit
+        </SfButton>
       </div>
       <p class="content">
         <span class="content__label">{{ shippingMethod.label }}</span
@@ -36,8 +36,8 @@
       <div class="highlighted__header">
         <h3 class="highlighted__title">Billing address</h3>
         <SfButton class="sf-button--text" @click="$emit('click:edit', 2)"
-          >Edit</SfButton
-        >
+          >Edit
+        </SfButton>
       </div>
       <p v-if="payment.sameAsShipping" class="content">
         Same as shipping address
@@ -57,8 +57,8 @@
       <div class="highlighted__header">
         <h3 class="highlighted__title">Payment method</h3>
         <SfButton class="sf-button--text" @click="$emit('click:edit', 2)"
-          >Edit</SfButton
-        >
+          >Edit
+        </SfButton>
       </div>
       <p class="content">{{ paymentMethod.label }}</p>
     </div>
@@ -66,6 +66,7 @@
 </template>
 <script>
 import { SfHeading, SfButton } from "@storefront-ui/vue";
+
 export default {
   name: "OrderReview",
   components: {
@@ -112,47 +113,63 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
+
 .highlighted {
   box-sizing: border-box;
   width: 100%;
   background-color: #f1f2f3;
-  padding: $spacer-extra-big;
-  margin-bottom: $spacer-big;
+  padding: var(--spacer-extra-big);
+  margin-bottom: var(--spacer-big);
+
   &:last-child {
     margin-bottom: 0;
   }
+
   &--total {
     margin-bottom: 1px;
   }
+
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: $spacer-big;
+    margin-bottom: var(--spacer-big);
   }
+
   &__title {
-    font-family: $body-font-family-primary;
-    font-size: $font-size-big-desktop;
+    font-family: var(--body-font-family-primary);
+    font-size: var(--font-size-extra-big);
     line-height: 1.6;
+    @include for-desktop {
+      font-size: var(--font-size-big);
+    }
   }
 }
+
 .title {
-  margin-bottom: $spacer-extra-big;
+  margin-bottom: var(--spacer-extra-big);
 }
+
 .content {
-  margin: 0 0 $spacer-big 0;
-  color: $c-text;
-  font-size: $font-size-extra-small-desktop;
+  margin: 0 0 var(--spacer-big) 0;
+  color: var(--c-text);
+  font-size: var(--font-size-small);
   font-weight: 300;
   line-height: 1.6;
+  @include for-desktop {
+    font-size: var(--font-size-extra-small);
+  }
+
   &:last-child {
     margin: 0;
   }
+
   &__label {
     font-weight: 400;
   }

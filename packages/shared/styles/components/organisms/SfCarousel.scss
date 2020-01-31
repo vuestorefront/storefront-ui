@@ -1,0 +1,49 @@
+@import '../../variables';
+
+:root {
+  --carousel__controls-size: 240px;
+}
+
+.sf-carousel {
+  position: relative;
+
+  &__wrapper {
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  &__slides {
+    margin: 0;
+  }
+
+  &__controls {
+    display: none;
+  }
+
+  .glide {
+    &__track,
+    &__slides,
+    &__slide {
+      overflow: unset;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-min) {
+  .sf-carousel {
+    &__wrapper {
+      max-width: calc(100% - var(--carousel__controls-size));
+    }
+
+    &__controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate3d(0, -50%, 0);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

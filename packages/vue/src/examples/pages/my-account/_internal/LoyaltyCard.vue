@@ -13,6 +13,7 @@
 </template>
 <script>
 import { SfTabs } from "@storefront-ui/vue";
+
 export default {
   name: "LoyalityCard",
   components: { SfTabs }
@@ -20,32 +21,34 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 @mixin for-mobile {
   @media screen and (max-width: $desktop-min) {
     @content;
   }
 }
+
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
+
 .message {
-  margin: 0 0 $spacer-extra-big 0;
-  font-family: $body-font-family-primary;
-  font-weight: $body-font-weight-primary;
+  margin: 0 0 var(--spacer-extra-big) 0;
+  font-family: var(--body-font-family-primary);
+  font-weight: var(--body-font-weight-primary);
   line-height: 1.6;
-  font-size: $font-size-regular-mobile;
-  @include for-desktop {
-    font-size: $font-size-regular-desktop;
-  }
+  font-size: var(--font-size-regular);
 }
+
 .tab-orphan {
   @include for-mobile {
     ::v-deep .sf-tabs {
       &__title {
         display: none;
       }
+
       &__content {
         border: 0;
         padding: 0;

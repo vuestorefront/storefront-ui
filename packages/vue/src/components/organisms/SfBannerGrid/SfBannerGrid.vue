@@ -58,5 +58,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfBannerGrid.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfBannerGrid.scss";
 </style>
