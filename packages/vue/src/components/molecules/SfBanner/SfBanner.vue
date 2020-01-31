@@ -97,5 +97,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfBanner.scss";
+@import "~@storefront-ui/shared/styles/components/molecules/SfBanner.scss";
 </style>

@@ -1,11 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, boolean } from "@storybook/addon-knobs";
+import { withKnobs, boolean, text } from "@storybook/addon-knobs";
 import SfModal from "./SfModal.vue";
 import {
   visibilityToggleMixin,
   withVisibilityToggle
 } from "../../../../config/storybook/decorators";
+
 storiesOf("Molecules|Modal", module)
   .addDecorator(withKnobs)
   .addDecorator(withVisibilityToggle)
@@ -20,6 +21,9 @@ storiesOf("Molecules|Modal", module)
       },
       persistent: {
         default: boolean("persistent", false, "Props")
+      },
+      ariaLabelClose: {
+        default: text("ariaLabelClose", "Close", "Props")
       }
     },
     mixins: [visibilityToggleMixin],
@@ -29,6 +33,7 @@ storiesOf("Molecules|Modal", module)
         :overlay="overlay"
         :cross="cross"
         :persistent="persistent"
+        :ariaLabelClose="ariaLabelClose"
         @close="visible = false"
       >
         HELLO STOREFRONT UI!
@@ -54,6 +59,7 @@ storiesOf("Molecules|Modal", module)
         :overlay="overlay"
         :cross="cross"
         :persistent="persistent"
+        :ariaLabelClose="ariaLabelClose"
         @close="visible = false"
       >
         HELLO STOREFRONT UI!

@@ -12,16 +12,14 @@
       </div>
       <SfTable v-else class="orders">
         <SfTableHeading>
-          <SfTableHeader
-            v-for="tableHeader in tableHeaders"
-            :key="tableHeader"
-            >{{ tableHeader }}</SfTableHeader
-          >
+          <SfTableHeader v-for="tableHeader in tableHeaders" :key="tableHeader"
+            >{{ tableHeader }}
+          </SfTableHeader>
           <SfTableHeader>
             <span class="mobile-only">Download</span>
             <SfButton class="desktop-only orders__download-all"
-              >Download all</SfButton
-            >
+              >Download all
+            </SfButton>
           </SfTableHeader>
         </SfTableHeading>
         <SfTableRow v-for="order in orders" :key="order[0]">
@@ -57,6 +55,7 @@
 </template>
 <script>
 import { SfTabs, SfTable, SfButton } from "@storefront-ui/vue";
+
 export default {
   name: "PersonalDetails",
   components: {
@@ -90,44 +89,45 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 @mixin for-mobile {
   @media screen and (max-width: $desktop-min) {
     @content;
   }
 }
+
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
+
 .message {
-  margin: 0 0 $spacer-extra-big 0;
-  font-size: $font-size-regular-mobile;
-  font-family: $body-font-family-primary;
-  font-weight: $body-font-weight-primary;
+  margin: 0 0 var(--spacer-extra-big) 0;
+  font-size: var(--font-size-regular);
+  font-family: var(--body-font-family-primary);
+  font-weight: var(--body-font-weight-primary);
   line-height: 1.6;
-  @include for-desktop {
-    font-size: $font-size-regular-desktop;
-  }
 }
+
 .no-orders {
   &__title,
   &__content {
-    font-family: $body-font-family-secondary;
-    font-size: $font-size-regular-mobile;
+    font-family: var(--body-font-family-secondary);
+    font-size: var(--font-size-regular);
     line-height: 1.6;
-    @include for-desktop {
-      font-size: $font-size-regular-desktop;
-    }
   }
+
   &__title {
-    margin: 0 0 $spacer-big 0;
+    margin: 0 0 var(--spacer-big) 0;
     font-weight: 500;
   }
+
   &__content {
-    margin: 0 0 $spacer-extra-big 0;
+    margin: 0 0 var(--spacer-extra-big) 0;
     font-weight: 300;
   }
+
   &__button {
     width: 100%;
     @include for-desktop {
@@ -135,22 +135,26 @@ export default {
     }
   }
 }
+
 .orders {
   &__download-all {
     padding: 10px 1.25rem;
     font-size: 0.75rem;
     white-space: nowrap;
   }
+
   &__view {
     @include for-desktop {
       text-align: center;
     }
   }
+
   ::v-deep .sf-table {
     &__row,
     &__heading {
-      margin: 0 -#{$spacer-big};
+      margin: 0 - (var(--spacer-big));
     }
+
     &__row:last-child {
       @include for-mobile {
         border-bottom: 0;
