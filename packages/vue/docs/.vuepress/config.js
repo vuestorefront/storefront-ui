@@ -68,6 +68,7 @@ module.exports = {
           ["/components/Pagination", "Pagination"],
           ["/components/Price", "Price"],
           ["/components/ProductCard", "Product Card"],
+          ["/components/ProductCardHorizontal", "Product Card Horizontal"],
           ["/components/ProductOption", "Product Option"],
           ["/components/Property", "Property"],
           ["/components/QuantitySelector", "Quantity Selector"],
