@@ -26,7 +26,7 @@
             />
           </SfStep>
           <SfStep name="Review">
-            <ReviewOrder
+            <ConfirmOrder
               :order="order"
               :shipping-methods="shippingMethods"
               :payment-methods="paymentMethods"
@@ -66,10 +66,11 @@ import {
   PersonalDetails,
   Shipping,
   Payment,
-  ReviewOrder,
+  ConfirmOrder,
   OrderSummary,
   OrderReview
 } from "./_internal/index.js";
+
 export default {
   name: "Checkout",
   components: {
@@ -77,7 +78,7 @@ export default {
     PersonalDetails,
     Shipping,
     Payment,
-    ReviewOrder,
+    ConfirmOrder,
     OrderSummary,
     OrderReview
   },
@@ -247,24 +248,28 @@ export default {
     @content;
   }
 }
+
 #checkout {
   box-sizing: border-box;
-  padding: 0 $spacer-big;
+  padding: 0 var(--spacer-big);
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
-    padding: $spacer-extra-big;
+    padding: var(--spacer-extra-big);
   }
 }
+
 .checkout {
   @include for-desktop {
     display: flex;
   }
+
   &__main {
     @include for-desktop {
       flex: 1;
     }
   }
+
   &__aside {
     @include for-desktop {
       flex: 0 0 25.5rem;

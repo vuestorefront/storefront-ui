@@ -50,7 +50,8 @@
     "src/*",
     "index.js",
     "js.js",
-    "styles.scss"
+    "styles.scss",
+    "sfui.scss"
   ],
   "devDependencies": {
     "@babel/core": "^7.5.5",
