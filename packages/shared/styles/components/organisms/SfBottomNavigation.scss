@@ -7,18 +7,18 @@
 }
 
 .sf-bottom-navigation-item {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
   font-size: var(--bottom-navigation-item-font-size);
   color: var(--c-gray);
 
   & > .sf-icon {
     --icon-color: var(--bottom-navigation-item-color);
   }
-  &__lable{
+  &__label{
     line-height: 1.6;
   }
   &--active {

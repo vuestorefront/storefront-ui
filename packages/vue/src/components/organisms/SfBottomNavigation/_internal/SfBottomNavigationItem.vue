@@ -21,6 +21,7 @@
     <slot name="label" v-bind="{ label }">
       <div
         v-if="label"
+        class="sf-bottom-navigation-item__label"
         :class="{
           'sf-bottom-navigation-item--has-margin': icon
         }"
