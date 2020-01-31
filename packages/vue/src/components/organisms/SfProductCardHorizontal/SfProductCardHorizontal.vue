@@ -70,12 +70,12 @@
         </slot>
       </button>
       <div class="sf-product-card-horizontal__details">
-        <slot name="description">
+        <slot name="description" v-bind="{ description }">
           <p class="sf-product-card-horizontal__description desktop-only">
             {{ description }}
           </p>
         </slot>
-        <slot name="configuration">
+        <slot name="options" v-bind="{ options }">
           <div class="sf-product-card-horizontal__options">
             <SfProperty
               v-for="(option, i) in options"
