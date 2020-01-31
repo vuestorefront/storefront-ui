@@ -14,7 +14,6 @@
         :required="required"
         :disabled="disabled"
         :name="name"
-        class="focus-ring--input"
         :class="{ 'sf-input--is-password': isPassword }"
         :type="inputType"
         :aria-label="ariaLabel"

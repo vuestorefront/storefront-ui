@@ -26,7 +26,7 @@
     >
       <input
         v-model="stringValue"
-        class="sf-counter__field focus-ring"
+        class="sf-counter__field focus-ring--input"
         aria-label="current value"
         :type="type"
         :name="name"

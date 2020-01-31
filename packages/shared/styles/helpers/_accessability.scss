@@ -9,7 +9,7 @@
     &--input {
       &:focus {
         outline:none;
-        border-color: var(--c-primary);
+        border: 1px solid var(--c-primary);
       }
     }
   }
