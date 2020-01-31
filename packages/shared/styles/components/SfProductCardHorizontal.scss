@@ -1,18 +1,20 @@
 @import '../variables';
 
-$product-card-horizontal-padding-content: $spacer-small !default;
-$product-card-horizontal-padding: $spacer-medium !default;
-$product-card-horizontal-padding-desktop: $spacer-big !default;
-$product-card-horizontal__image-max-width: 85px !default;
-$product-card-horizontal__image-max-width-desktop: 140px !default;
-$product-card-horizontal__price-font-weight: 500 !default;
+:root {
+  --product-card-horizontal-padding-content: var(--spacer-small);
+  --product-card-horizontal-padding: var(--spacer-medium);
+  --product-card-horizontal-padding-desktop: var(--spacer-big);
+  --product-card-horizontal__image-max-width: 85px;
+  --product-card-horizontal__image-max-width-desktop: 140px;
+  --product-card-horizontal__price-font-weight: 500;
+}
 
 .sf-product-card-horizontal {
   $this: &;
   box-sizing: border-box;
   position: relative;
   display: flex;
-  padding: $product-card-horizontal-padding-content;
+  padding: var(--product-card-horizontal-padding-content);
   &:hover {
     #{$this}__picture {
         opacity: 0;
@@ -23,10 +25,10 @@ $product-card-horizontal__price-font-weight: 500 !default;
   }
   &__image-wrapper {
     position: relative;
-    max-width: $product-card-horizontal__image-max-width;
+    max-width: var(--product-card-horizontal__image-max-width);
     width: 100%;
     @media (min-width: $desktop-min) {
-      max-width: $product-card-horizontal__image-max-width-desktop;
+      max-width: var(--product-card-horizontal__image-max-width-desktop);
     }
   }
   &__image,
@@ -46,19 +48,19 @@ $product-card-horizontal__price-font-weight: 500 !default;
   }
   &__header {
     width: 100%;
-    padding: 0 $product-card-horizontal-padding-desktop*2 0 $product-card-horizontal-padding;
+    padding: 0 calc(var(--product-card-horizontal-padding-desktop)*2) 0 var(--product-card-horizontal-padding);
     @media (min-width: $desktop-min) {
       display: flex;
-      padding: 0 0 0 $product-card-horizontal-padding-desktop;
+      padding: 0 0 0 var(--product-card-horizontal-padding-desktop);
       justify-content: space-between;
     }
   }
   &__price {
-      font-weight: $product-card-horizontal__price-font-weight;
+      font-weight: var(--product-card-horizontal__price-font-weight);
   }
   &__wishlist-icon {
     position: absolute;
-    right: $product-card-horizontal-padding-content;
+    right: var(--product-card-horizontal-padding-content);
     padding: 0;
     border: 0;
     background-color: transparent;
@@ -70,10 +72,10 @@ $product-card-horizontal__price-font-weight: 500 !default;
     }
   }
   &__title {
-    color: $c-text;
+    color: var(--c-text);
     @media (max-width: $desktop-min) {
-      font-size: $font-size-small-desktop;
-      font-weight: $body-font-weight-primary;
+      font-size: var(--font-size-small-desktop);
+      font-weight: var(--body-font-weight-primary);
     }
   }
   &__description {
@@ -84,16 +86,16 @@ $product-card-horizontal__price-font-weight: 500 !default;
     flex: 1;
     align-items: flex-end;
     justify-content: space-between;
-    padding-left: $product-card-horizontal-padding;
+    padding-left: var(--product-card-horizontal-padding);
     @media (min-width: $desktop-min) {
       flex-direction: column;
       align-items: flex-start;
-      padding: 0 $product-card-horizontal-padding-desktop;
+      padding: 0 var(--product-card-horizontal-padding-desktop);
     }
   }
   &__property {
     &:last-of-type {
-      margin-top: $spacer;
+      margin-top: var(--spacer);
     }
     @media (max-width: $desktop-min) {
       .sf-property__name {
@@ -108,7 +110,7 @@ $product-card-horizontal__price-font-weight: 500 !default;
     }
   }
   &__rating {
-    padding-right: $spacer;
+    padding-right: var(--spacer);
   }
   &__actions {
     display: flex;
@@ -116,7 +118,7 @@ $product-card-horizontal__price-font-weight: 500 !default;
     align-items: flex-end;
     justify-content: flex-end;
     .sf-button {
-      padding-bottom: $product-card-horizontal-padding-desktop;
+      padding-bottom: var(--product-card-horizontal-padding-desktop);
     }
   }
 }
