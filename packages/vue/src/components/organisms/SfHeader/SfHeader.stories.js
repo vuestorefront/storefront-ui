@@ -7,7 +7,9 @@ import {
   boolean,
   object
 } from "@storybook/addon-knobs";
+
 import SfHeader from "./SfHeader.vue";
+
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

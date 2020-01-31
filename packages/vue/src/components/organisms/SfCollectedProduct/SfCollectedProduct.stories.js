@@ -1,8 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, object, text, number } from "@storybook/addon-knobs";
+
 import SfCollectedProduct from "./SfCollectedProduct.vue";
+
 import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
+
 storiesOf("Organisms|CollectedProduct", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

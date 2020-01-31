@@ -8,8 +8,11 @@ import {
   select,
   object
 } from "@storybook/addon-knobs";
+
 import SfProductCard from "./SfProductCard.vue";
+
 import { colorsValues } from "@storefront-ui/shared/variables/colors";
+
 storiesOf("Organisms|ProductCard", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

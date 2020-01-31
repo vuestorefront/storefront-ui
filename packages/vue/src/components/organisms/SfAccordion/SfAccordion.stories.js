@@ -1,9 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
+
 import SfAccordion from "./SfAccordion.vue";
+
 import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
+
 storiesOf("Organisms|Accordion", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

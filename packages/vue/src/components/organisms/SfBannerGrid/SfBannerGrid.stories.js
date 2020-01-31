@@ -1,8 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, select } from "@storybook/addon-knobs";
+
 import SfBannerGrid from "./SfBannerGrid.vue";
+
 import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
+
 storiesOf("Organisms|BannerGrid", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

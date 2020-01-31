@@ -6,9 +6,12 @@ import {
   boolean,
   optionsKnob as options
 } from "@storybook/addon-knobs";
+
 import SfBottomNavigation from "./SfBottomNavigation.vue";
+
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+
 storiesOf("Organisms|BottomNavigation", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

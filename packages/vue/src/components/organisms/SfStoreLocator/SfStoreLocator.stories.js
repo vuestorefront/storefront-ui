@@ -7,8 +7,11 @@ import {
   select,
   object
 } from "@storybook/addon-knobs";
+
 import SfStoreLocator from "./SfStoreLocator.vue";
+
 import SfImage from "../../atoms/SfImage/SfImage.vue";
+
 storiesOf("Organisms|StoreLocator", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

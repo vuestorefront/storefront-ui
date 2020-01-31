@@ -1,11 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, number, object } from "@storybook/addon-knobs";
+
 import SfCarousel from "./SfCarousel.vue";
+
 const StoriesPlaceholder = {
   props: ["index"],
   template: `<div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">{{index}}</div>`
 };
+
 storiesOf("Organisms|Carousel", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

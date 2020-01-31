@@ -1,6 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
+
 import SfTopBar from "./SfTopBar.vue";
+
 storiesOf("Organisms|TopBar", module)
   .add("Common", () => ({
     components: { SfTopBar },
