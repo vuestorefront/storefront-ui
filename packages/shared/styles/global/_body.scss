@@ -1,21 +1,18 @@
 body {
-  background: $c-body;
-  color: $c-text;
-  font-size: $body-font-size-mobile;
-  font-family: $body-font-family-primary;
-  font-weight: $body-font-weight-primary;
+  background: var(--c-body);
+  color: var(--c-text);
+  font-size: var(--font-size-regular);
+  font-family: var(--body-font-family-primary);
+  font-weight: var(--body-font-weight-primary);
   margin: 0;
   padding: 0;
-  @media (min-width: $desktop-min) {
-    font-size: $body-font-size-desktop;
-  }
 }
 
 a {
   text-decoration: none;
-  color: $c-link;
+  color: var(--c-link);
 
   &:hover {
-    color: $c-link-hover;
+    color: var(--c-link-hover);
   }
 }

@@ -135,5 +135,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfSidebar.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfSidebar.scss";
 </style>

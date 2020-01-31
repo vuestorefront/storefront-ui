@@ -120,5 +120,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfSteps.scss";
+@import "~@storefront-ui/shared/styles/components/molecules/SfSteps.scss";
 </style>

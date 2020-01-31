@@ -1,6 +1,7 @@
-$spacer-small: 0.25rem;
-$spacer: 0.5rem;
-$spacer-medium: 1rem;
-$spacer-big: 1.25rem;
-$spacer-extra-big: 2.5rem;
-
+:root {
+  --spacer-small: .25rem;
+  --spacer: .5rem;
+  --spacer-medium: 1rem;
+  --spacer-big: 1.25rem;
+  --spacer-extra-big: 2.5rem;
+}

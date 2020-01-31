@@ -20,5 +20,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfTopBar.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfTopBar.scss";
 </style>
