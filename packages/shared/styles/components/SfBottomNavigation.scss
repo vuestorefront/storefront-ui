@@ -1,10 +1,11 @@
 @import "../variables";
+$bottom-navigation__z-index: 1 !default;
 
 .sf-bottom-navigation {
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 1;
+  z-index: $bottom-navigation__z-index;
   display: flex;
   justify-content: space-around;
   align-items: center;

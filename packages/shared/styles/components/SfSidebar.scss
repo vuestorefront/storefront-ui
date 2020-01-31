@@ -6,6 +6,7 @@ $sidebar-padding: $spacer-extra-big !default;
 $sidebar-padding-desktop: $spacer-extra-big !default;
 $sidebar-background-color: $c-white !default;
 $sidebar__title-margin-bottom: 1.5rem !default;
+$sidebar__aside-z-index: 1 !default;
 
 .sf-sidebar {
   $this: &;
@@ -13,7 +14,7 @@ $sidebar__title-margin-bottom: 1.5rem !default;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: $sidebar__aside-z-index;
     box-sizing: border-box;
     width: $sidebar-width;
     height: 100%;

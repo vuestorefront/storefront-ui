@@ -16,6 +16,7 @@ $select-line-height: 1.6 !default;
 $select__label-focus-font-size: $font-size-small-mobile !default;
 $select__label-focus-font-size-desktop: $font-size-extra-small-desktop !default;
 $select__label-transition: all 350ms ease-in-out !default;
+$select__dropdown-z-index: 1 !default;
 $select__bar-transition: all 150ms ease-in-out !default;
 $select__error-message-font-family: $body-font-family-primary !default;
 $select__error-message-font-size: $font-size-small-mobile !default;
@@ -90,7 +91,7 @@ $select__cancel-color: #a3a5ad !default;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: $select__dropdown-z-index;
     box-sizing: border-box;
     background-color: #fff;
     @media screen and (min-width: $desktop-min) {
