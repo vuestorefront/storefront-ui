@@ -25,8 +25,5 @@ $quantity-selector__width-desktop: 3.125rem !default;
     @media (min-width: $desktop-min) {
       background-color: $c-light;
     }
-    &:focus {
-      border-color: $c-primary;
-    }
   }
 }

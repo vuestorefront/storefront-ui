@@ -31,8 +31,5 @@ $modal-border: solid 1px rgba($c-black, 0.5) !default;
     right: 20px;
     top: 20px;
     cursor: pointer;
-    &:focus {
-      outline: none;
-    }
   }
 }

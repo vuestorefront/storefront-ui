@@ -14,6 +14,7 @@
         :required="required"
         :disabled="disabled"
         :name="name"
+        class="focus-ring--input"
         :class="{ 'sf-input--is-password': isPassword }"
         :type="inputType"
         v-on="listeners"
