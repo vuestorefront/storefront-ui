@@ -42,6 +42,9 @@ storiesOf("Atoms|CircleIcon", module)
       },
       iconColor: {
         default: color("iconColor", "#FFFFFF", "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "Home Icon", "Props")
       }
     },
     template: `<SfCircleIcon
@@ -49,6 +52,7 @@ storiesOf("Atoms|CircleIcon", module)
         :icon="icon" 
         :iconSize="iconSize"
         :iconColor="iconColor"
+        :aria-label="ariaLabel"
      />`
   }))
   .add("[slot] default", () => ({
@@ -78,6 +82,9 @@ storiesOf("Atoms|CircleIcon", module)
       },
       iconColor: {
         default: text("iconColor", "#FFFFFF", "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "Number Icon", "Props")
       }
     },
     template: `<SfCircleIcon
@@ -85,6 +92,7 @@ storiesOf("Atoms|CircleIcon", module)
       :icon="icon"
       :iconSize="iconSize"
       :iconColor="iconColor"
+      :aria-label="ariaLabel"
     >
       <StoriesPlaceholder/>
     </SfCircleIcon>`
