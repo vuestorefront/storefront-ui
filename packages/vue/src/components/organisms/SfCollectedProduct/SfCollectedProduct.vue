@@ -121,5 +121,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfCollectedProduct.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfCollectedProduct.scss";
 </style>

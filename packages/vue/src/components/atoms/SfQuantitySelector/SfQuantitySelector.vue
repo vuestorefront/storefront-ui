@@ -2,6 +2,7 @@
   <SfInput
     type="number"
     :value="qty"
+    :aria-label="ariaLabel"
     class="sf-quantity-selector"
     @input="$emit('input', parseInt($event, 10))"
   />
@@ -21,10 +22,17 @@ export default {
     qty: {
       type: [Number, String],
       default: 1
+    },
+    /**
+     * Form input label
+     */
+    ariaLabel: {
+      type: String,
+      default: null
     }
   }
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfQuantitySelector.scss";
+@import "~@storefront-ui/shared/styles/components/atoms/SfQuantitySelector.scss";
 </style>

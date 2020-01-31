@@ -60,7 +60,7 @@ const questions = [
     );
     const SharedFilesPath = path.resolve(
       __dirname,
-      `../packages/shared/styles/components`
+      `../packages/shared/styles/components/${componentFolder}`
     );
     const ComponentNameKebabCase =
       "sf" +
@@ -79,9 +79,11 @@ const questions = [
       {
         fileName: `${ComponentNameCamelCase}.scss`,
         filePath: SharedFilesPath,
-        content: `@import '../variables';
+        content: `@import '../../variables';
 
-// $component__block-property: value;
+// :root {
+//    --component__block-property: var(value);
+// }
 
 // .${ComponentNameKebabCase} {
 //   &__element {
@@ -100,14 +102,14 @@ const questions = [
     }
 
     fs.readdirSync(fwFolder).forEach(file => {
-      const fileName = file.replace('component', ComponentNameCamelCase)
+      const fileName = file.replace('component', ComponentNameCamelCase);
       
       let content = fs.readFileSync(fwFolder + file, 'utf8');
-      content = content.replace(/ComponentFolder/g, componentFolder)
-      content = content.replace(/ComponentNameCamelCase/g, ComponentNameCamelCase)
-      content = content.replace(/ComponentNameKebabCase/g, ComponentNameKebabCase)
-      content = content.replace(/ComponentName/g, ComponentName)
-      content = content.replace(/ComponentType/g, ComponentType)
+      content = content.replace(/ComponentFolder/g, componentFolder);
+      content = content.replace(/ComponentNameCamelCase/g, ComponentNameCamelCase);
+      content = content.replace(/ComponentNameKebabCase/g, ComponentNameKebabCase);
+      content = content.replace(/ComponentName/g, ComponentName);
+      content = content.replace(/ComponentType/g, ComponentType);
 
       fileSave(path.join(PackagePath, fileName))
         .write(content, "utf8")
@@ -115,7 +117,7 @@ const questions = [
     });
 
     sharedFiles.forEach(file => {
-      let filePath = path.join(file.filePath || PackagePath, file.fileName)
+      let filePath = path.join(file.filePath || PackagePath, file.fileName);
       if (!fs.existsSync(filePath)) {
         fileSave(filePath)
           .write(file.content, "utf8")

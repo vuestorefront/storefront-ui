@@ -1,6 +1,7 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
 import SfAddToCart from "./SfAddToCart.vue";
+
 storiesOf("Molecules|AddToCart", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -17,7 +18,7 @@ storiesOf("Molecules|AddToCart", module)
     },
     template: `<div style="max-width: 21.25rem">
       <SfAddToCart 
-        v-model="qty" 
+        v-model="qty"
         :disabled="disabled"
         @click="()=>{}"/>
       </div>`
@@ -36,9 +37,10 @@ storiesOf("Molecules|AddToCart", module)
     },
     template: `<div style="max-width: 21.25rem">
         <SfAddToCart
-          v-model="qty" 
+          v-model="qty"
           :disabled="disabled"
-          >
+          
+            >
         <template #add-to-cart-btn>
         <button  @click="()=>{}">Custom Add To Cart</button>
       </template>

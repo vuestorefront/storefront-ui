@@ -1,0 +1,38 @@
+@import "../../variables";
+
+:root {
+  --quantity-selector__width: 1.875rem;
+  --quantity-selector__height: 1.6875rem;
+
+  @media screen and (min-width: $desktop-min) {
+    --quantity-selector__width: 3.125rem;
+  }
+}
+
+.sf-quantity-selector {
+  width: var(--quantity-selector__width);
+  height: var(--quantity-selector__height);
+  margin: 0;
+
+  input {
+    box-sizing: border-box;
+    padding: 0 var(--spacer-small);
+    border: 1px solid transparent;
+    background-color: var(--c-white);
+    font-family: var(--body-font-family-primary);
+    font-size: var(--font-size-extra-big);
+    font-weight: var(--body-font-weight-primary);
+    line-height: 1.6;
+    text-align: center;
+    transition: border-color 0.3s ease-in-out;
+
+    @media (min-width: $desktop-min) {
+      font-size: var(--font-size-big);
+      background-color: var(--c-light);
+    }
+
+    &:focus {
+      border-color: var(--c-primary);
+    }
+  }
+}

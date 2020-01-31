@@ -7,5 +7,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfDivider.scss";
+@import "~@storefront-ui/shared/styles/components/atoms/SfDivider.scss";
 </style>

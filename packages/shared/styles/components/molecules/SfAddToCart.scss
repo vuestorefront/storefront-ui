@@ -1,0 +1,43 @@
+@import '../../variables';
+
+:root {
+  --add-to-cart__select-quantity-min-width: 4.625rem;
+  --add-to-cart__select-quantity-max-width: 5.625rem;
+}
+
+.sf-add-to-cart {
+  display: flex;
+
+  &__button {
+    flex: 1;
+  }
+
+  &__select-quantity {
+    display: flex;
+    margin: 0 0 0 .5rem;
+    height: auto;
+    min-width: var(--add-to-cart__select-quantity-min-width);
+    max-width: var(--add-to-cart__select-quantity-max-width);
+
+    input {
+      border: 1px solid var(--c-light);
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-min) {
+  .sf-add-to-cart {
+    &__button {
+      order: 1;
+    }
+
+    &__select-quantity {
+      margin-left: 0;
+
+      input {
+        font-size: var(font-size-extra-big);
+        background-color: var(--c-light);
+      }
+    }
+  }
+}

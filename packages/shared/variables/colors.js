@@ -9,6 +9,8 @@ export const colors = {
   white: "white",
   pinkPrimary: "pink-primary",
   pinkSecondary: "pink-secondary",
+  redPrimary: "red-primary",
+  redSecondary: "red-secondary",
   yellowPrimary: "yellow-primary",
   yellowSecondary: "yellow-secondary",
   bluePrimary: "blue-primary",

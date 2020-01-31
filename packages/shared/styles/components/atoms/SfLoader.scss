@@ -1,0 +1,35 @@
+@import '../../variables';
+
+:root {
+  --loader__spinner-color: var(--c-primary);
+  --loader__overlay-color: var(--c-white);
+}
+
+.sf-loader {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &__overlay {
+    background: var(--loader__overlay-color);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__spinner {
+    stroke: var(--c-primary);
+  }
+
+  &--top {
+    .sf-loader__overlay {
+      align-items: flex-start;
+      box-sizing: border-box;
+      padding-top: 50px;
+    }
+  }
+}

@@ -61,6 +61,7 @@ export default {
 }
 </style>
 <style lang="scss">
+@import "~@storefront-ui/shared/styles/variables/_functions.scss";
 @import "~@storefront-ui/shared/styles/variables/_colors.scss";
 
 @each $pallete, $color in $icon-colors {

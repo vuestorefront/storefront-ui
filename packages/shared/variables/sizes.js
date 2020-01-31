@@ -16,7 +16,7 @@ export const typographySizes = {
     "regular": "regular",
     "big": "big",
     "extra-big": "extra-big",
-}
+};
 
 export const sizesValues = Object.values(sizes);
 

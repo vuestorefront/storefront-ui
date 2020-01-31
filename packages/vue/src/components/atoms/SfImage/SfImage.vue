@@ -146,5 +146,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfImage.scss";
+@import "~@storefront-ui/shared/styles/components/atoms/SfImage.scss";
 </style>

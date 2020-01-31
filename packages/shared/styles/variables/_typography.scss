@@ -1,68 +1,68 @@
-// Font family
-$body-font-family-primary: 'Roboto', serif !default;
-$body-font-family-secondary: 'Raleway', sans-serif !default;
+:root {
+  // Font Family
+  --body-font-family-primary: 'Roboto', serif;
+  --body-font-family-secondary: 'Raleway', sans-serif;
 
-// Font weight
-$body-font-weight-primary: 300 !default;
-$body-font-weight-secondary: 400 !default;
+  // Font weight
+  --body-font-weight-primary: 300;
+  --body-font-weight-secondary: 400;
 
-// Font sizes
-$font-size-extra-small-desktop: 0.75rem !default;
-$font-size-small-desktop: 0.875rem !default;
-$font-size-regular-desktop: 1rem !default;
-$font-size-big-desktop: 1.125rem !default;
-$font-size-extra-big-desktop: 1.5rem !default;
+  // Font sizes
+  --font-size-extra-small: .625rem;
+  --font-size-small: .75rem;
+  --font-size-regular: .875rem;
+  --font-size-big: 1rem;
+  --font-size-extra-big: 1.125rem;
 
-$font-size-extra-small-mobile: 0.625rem !default;
-$font-size-small-mobile: 0.75rem !default;
-$font-size-regular-mobile: 0.875rem !default;
-$font-size-big-mobile: 1rem !default;
-$font-size-extra-big-mobile: 1.125rem !default;
+  // Heading font size
+  --h1-font-size: 1.125rem;
+  --h2-font-size: 1rem;
+  --h3-font-size: 1rem;
+  --h4-font-size: 1rem;
+  --h5-font-size: .875rem;
 
-// Base font size
-$body-font-size-desktop: $font-size-regular-desktop !default;
-$body-font-size-mobile: $font-size-regular-mobile !default;
+  // Heading font weight
+  --h1-font-weight: 500;
+  --h2-font-weight: 500;
+  --h3-font-weight: 500;
+  --h4-font-weight: 500;
 
-// Heading font family
-$heading-font-family: $body-font-family-secondary;
+  @media (min-width: $desktop-min) {
+    // Font sizes
+    --font-size-extra-small: .75rem;
+    --font-size-small: .875rem;
+    --font-size-regular: 1rem;
+    --font-size-big: 1.125rem;
+    --font-size-extra-big: 1.5rem;
 
-// Heading font size
-$h1-font-size-desktop: 2.25rem !default;
-$h2-font-size-desktop: 1.5rem !default;
-$h3-font-size-desktop: 1.125rem !default;
-$h4-font-size-desktop: 1.125rem !default;
-$h5-font-size-desktop: 1.125rem !default;
+    // Heading font size
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.125rem;
+    --h4-font-size: 1.125rem;
+    --h5-font-size: 1.125rem;
 
-$h1-font-size-mobile: 1.125rem !default;
-$h2-font-size-mobile: 1rem !default;
-$h3-font-size-mobile: 1rem !default;
-$h4-font-size-mobile: 1rem !default;
-$h5-font-size-desktop: 0.875rem !default;
-
-// Heading font weight
-$h1-font-weight-desktop: 500 !default;
-$h2-font-weight-desktop: 500 !default;
-$h3-font-weight-desktop: 500 !default;
-$h4-font-weight-desktop: 500 !default;
-
-$h1-font-weight-mobile: 500 !default;
-$h2-font-weight-mobile: 500 !default;
-$h3-font-weight-mobile: 500 !default;
-$h4-font-weight-mobile: 500 !default;
+    // Heading font weight
+    --h1-font-weight: 500;
+    --h2-font-weight: 500;
+    --h3-font-weight: 500;
+    --h4-font-weight: 500;
+  }
+}
 
 $typography-map: (
-    "desktop": (
-        "extra-small": $font-size-extra-small-desktop,
-        "small": $font-size-small-desktop,
-        "regular": $font-size-regular-desktop,
-        "big": $font-size-big-desktop,
-        "extra-big": $font-size-extra-big-desktop,
-    ),
-    "mobile": (
-        "extra-small": $font-size-extra-small-mobile,
-        "small": $font-size-small-mobile,
-        "regular": $font-size-regular-mobile,
-        "big": $font-size-big-mobile,
-        "extra-big": $font-size-extra-big-mobile,
-    )
-)
+        "desktop": (
+                "extra-small": var(--font-size-extra-small-desktop),
+                "small": var(--font-size-small-desktop),
+                "regular": var(--font-size-regular-desktop),
+                "big": var(--font-size-big-desktop),
+                "extra-big": var(--font-size-extra-big-desktop),
+        ),
+        "mobile": (
+                "extra-small": var(--font-size-extra-small-mobile),
+                "small": var(--font-size-small-mobile),
+                "regular": var(--font-size-regular-mobile),
+                "big": var(--font-size-big-mobile),
+                "extra-big": var(--font-size-extra-big-mobile),
+        )
+);
