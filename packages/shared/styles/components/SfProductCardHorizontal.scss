@@ -9,9 +9,9 @@ $product-card-horizontal__price-font-weight: 500 !default;
 
 .sf-product-card-horizontal {
   $this: &;
+  box-sizing: border-box;
   position: relative;
   display: flex;
-  box-sizing: border-box;
   padding: $product-card-horizontal-padding-content;
   &:hover {
     #{$this}__picture {
