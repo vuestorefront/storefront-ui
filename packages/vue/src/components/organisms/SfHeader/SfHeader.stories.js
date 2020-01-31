@@ -355,7 +355,6 @@ storiesOf("Organisms|Header", module)
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
-        :style="{maxWidth: '1024px', margin: 'auto', padding: '0 2.5rem'}"
     >
       <template #header-icons="{ accountIcon, wishlistIcon, cartIcon }">
         <div :style="{margin: '0 0 0 1.25rem'}">CUSTOM HEADER ICONS</div>
