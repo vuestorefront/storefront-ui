@@ -1,14 +1,15 @@
-$focus-ring__color: rgba(21, 156, 228, 0.4);
-
+:root {
+  --focus-ring__color: rgba(21, 156, 228, 0.4);
+}
 .focus-ring {
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 2px $focus-ring__color;
+      box-shadow: 0 0 0 2px var(--focus-ring__color);
     }
     &--input {
       &:focus {
         outline:none;
-        border-color: $c-primary;
+        border-color: var(--c-primary);
       }
     }
   }

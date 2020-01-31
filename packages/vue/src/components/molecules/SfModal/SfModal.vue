@@ -12,7 +12,8 @@
       <div v-if="visible" class="sf-modal__container">
         <button
           v-if="cross"
-          class="sf-modal__close focus-ring  "
+          class="sf-modal__close focus-ring"
+          :aria-label="ariaLabelClose"
           @click="close"
         >
           <!--@slot Use this slot to place content inside the close button.-->
@@ -84,6 +85,13 @@ export default {
     transitionModal: {
       type: String,
       default: "fade"
+    },
+    /**
+     * aria-label of the close button
+     */
+    ariaLabelClose: {
+      type: String,
+      default: null
     }
   },
   data() {
@@ -136,5 +144,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfModal.scss";
+@import "~@storefront-ui/shared/styles/components/molecules/SfModal.scss";
 </style>

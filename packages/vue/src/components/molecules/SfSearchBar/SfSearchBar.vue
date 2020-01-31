@@ -3,9 +3,9 @@
     <input
       class="sf-search-bar__input"
       type="search"
-      aria-label="search"
       :value="value"
       :placeholder="placeholder"
+      :aria-label="ariaLabel"
       @input="$emit('input', $event.target.value)"
       @keyup.enter="$emit('enter', $event.target.value)"
       @keyup.esc="$emit('input', '')"
@@ -42,6 +42,10 @@ export default {
     value: {
       type: [Number, String],
       default: null
+    },
+    ariaLabel: {
+      type: String,
+      default: "Search"
     }
   },
   methods: {
@@ -53,5 +57,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfSearchBar.scss";
+@import "~@storefront-ui/shared/styles/components/molecules/SfSearchBar.scss";
 </style>

@@ -345,5 +345,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfProductCard.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfProductCard.scss";
 </style>

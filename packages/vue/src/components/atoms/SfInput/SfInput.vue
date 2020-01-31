@@ -17,6 +17,7 @@
         class="focus-ring--input"
         :class="{ 'sf-input--is-password': isPassword }"
         :type="inputType"
+        :aria-label="ariaLabel"
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
@@ -127,6 +128,13 @@ export default {
       default: false,
       description: "Native input disabled attribute"
     },
+    /**
+     * Form input aria-label
+     */
+    ariaLabel: {
+      type: String,
+      default: null
+    },
     hasShowPassword: {
       type: Boolean,
       default: true
@@ -166,5 +174,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfInput.scss";
+@import "~@storefront-ui/shared/styles/components/atoms/SfInput.scss";
 </style>

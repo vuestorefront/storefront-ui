@@ -255,5 +255,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfCounter.scss";
+@import "~@storefront-ui/shared/styles/components/molecules/SfCounter.scss";
 </style>

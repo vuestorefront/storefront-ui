@@ -63,5 +63,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfCallToAction.scss";
+@import "~@storefront-ui/shared/styles/components/molecules/SfCallToAction.scss";
 </style>
