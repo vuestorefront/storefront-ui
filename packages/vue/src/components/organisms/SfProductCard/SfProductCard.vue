@@ -28,6 +28,14 @@
             :height="imageHeight"
           />
         </slot>
+        <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
+          <SfBadge
+            v-if="badgeLabel"
+            class="sf-product-card__badge"
+            :class="badgeColorClass"
+            >{{ badgeLabel }}</SfBadge
+          >
+        </slot>
         <template v-if="showAddToCartButton">
           <slot
             name="add-to-cart"
@@ -120,11 +128,14 @@
   </div>
 </template>
 <script>
+import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
+import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
+
 export default {
   name: "SfProductCard",
   components: {
@@ -132,7 +143,8 @@ export default {
     SfRating,
     SfIcon,
     SfImage,
-    SfCircleIcon
+    SfCircleIcon,
+    SfBadge
   },
   props: {
     /**
@@ -156,6 +168,22 @@ export default {
     imageHeight: {
       type: [String, Number],
       default: 326
+    },
+    /**
+     * Badge label
+     */
+    badgeLabel: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Badge color
+     * It can be according to our standard colors, or legitimate CSS color such as `#fff`, `rgb(255,255,255)`), and `lightgray` or nothing.
+     * Standard colors: `primary`, `secondary`, `white`, `black`, `accent`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`.
+     */
+    badgeColor: {
+      type: String,
+      default: ""
     },
     /**
      * Product title
@@ -268,6 +296,12 @@ export default {
     };
   },
   computed: {
+    isSFColors() {
+      return SF_COLORS.includes(this.badgeColor.trim());
+    },
+    badgeColorClass() {
+      return this.isSFColors ? `sf-badge--color-${this.badgeColor.trim()}` : "";
+    },
     currentWishlistIcon() {
       return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
     },
