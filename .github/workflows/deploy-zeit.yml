@@ -1,0 +1,12 @@
+name: deploy storybook
+on: [pull_request]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: amondnet/now-deployment@v1
+        with:
+          zeit-token: ${{ secrets.ZEIT_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          zeit-team-id: team_storefrontui

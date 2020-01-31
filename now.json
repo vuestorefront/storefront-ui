@@ -1,0 +1,15 @@
+{
+  "name": "storybook-deployment",
+  "version": 2,
+  "scope": "storefrontui",
+  "github": {
+    "enabled": false
+  },
+  "builds": {
+    "src": "packages/vue/package.json",
+    "use": "@now/static-build",
+    "config": {
+      "distDir": "packages/vue/storybook-static"
+    }
+  }
+}
