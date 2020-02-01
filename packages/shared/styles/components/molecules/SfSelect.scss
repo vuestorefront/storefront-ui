@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --select-option-padding-y: .75rem;
   --select-option-padding-x: 1.875rem;
@@ -20,35 +19,28 @@
   --select__error-message-font-family: var(--body-font-family-primary);
   --select__error-message-font-size: var(--font-size-small);
   --select__cancel-color: #a3a5ad;
-
   @media screen and (min-width: $desktop-min) {
     --select__label-focus-font-size: var(--font-size-extra-small);
     --select__error-message-font-size: var(--font-size-extra-small);
   }
 }
-
 @mixin move-label-up {
   top: calc(calc(var(--select__label-focus-font-size) / 2) - 5px);
   font-size: var(--select__label-focus-font-size);
 }
-
 .sf-select-option {
   padding: var(--select-option-padding-y) var(--select-option-padding-x);
   user-select: none;
-
   & + & {
     border-top: 1px solid var(--select-color-primary);
   }
-
   &--active {
     background-color: var(--select-color-primary);
   }
-
   @at-root .sf-select--bordered & {
     padding: var(--select-option-padding-y) var(--select-option-padding-x);
   }
 }
-
 .sf-select {
   $this: &;
   box-sizing: border-box;
@@ -59,29 +51,24 @@
   font-weight: var(--select-font-weight);
   line-height: var(--select-line-height);
   outline: none;
-
   &__label {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     transition: var(--select__label-transition);
-
     &::after {
       color: var(--select-color-active);
     }
   }
-
   &__selected {
     display: flex;
     align-content: center;
     min-height: 28px;
     padding: .75rem 1px;
-
     &:hover {
       background-color: transparent;
     }
   }
-
   &__dropdown {
     position: fixed;
     top: auto;
@@ -92,56 +79,47 @@
     box-sizing: border-box;
     background-color: #fff;
   }
-
   &__options {
     margin: 0;
     padding: 0;
     overflow: auto;
     list-style-type: none;
-
     &::-webkit-scrollbar {
       width: 0;
     }
   }
-
   &__cancel {
     box-sizing: border-box;
     padding: var(--select-option-padding-y) 0;
     background-color: var(--select-color-primary);
     color: var(--select__cancel-color);
     font-size: var(--select-font-size);
-
     &:hover {
       background-color: var(--select-color-primary);
     }
   }
-
   &__error-message {
     margin-top: 5px;
     color: var(--select-color-invalid);
     font-family: var(--select__error-message-font-family);
     font-size: var(--select__error-message-font-size);
   }
-
   &--bordered {
     #{$this}__selected {
       padding: var(--select-option-padding-y) var(--select-option-padding-x);
       border: 1px solid var(--select-color-primary);
     }
-
     #{$this}__label {
       left: calc(var(--select-option-padding-x) - 6px);
       padding: 6px;
       transition: unset;
     }
-
     &#{$this}--is-active {
       #{$this}__label {
         top: 50%;
         font-size: var(--select-font-size);
       }
     }
-
     &#{$this}--is-selected {
       #{$this}__label {
         top: 50%;
@@ -150,26 +128,22 @@
       }
     }
   }
-
   &--underlined {
     #{$this}__selected {
       border-bottom: 1px solid var(--select-color-primary);
     }
   }
-
   &--is-active,
   &--is-selected {
     #{$this}__label {
       @include move-label-up;
     }
   }
-
   &--is-active {
     #{$this}__label {
       color: var(--select-color-active);
     }
   }
-
   &--is-required {
     #{$this}__label {
       &::after {
@@ -178,27 +152,22 @@
       }
     }
   }
-
   &-enter-active {
     animation: sf-select-mobile 150ms;
   }
-
   &-leave-active {
     animation: sf-select-mobile 150ms reverse;
   }
 }
-
 @media screen and (min-width: $desktop-min) {
   .sf-select-option {
     & + & {
       border-top: 0;
     }
-
     &:hover {
       background-color: var(--select-color-hover);
     }
   }
-
   .sf-select {
     &__dropdown {
       position: absolute;
@@ -208,25 +177,20 @@
       right: 0;
       box-shadow: 0 8px 11px rgba(0, 0, 0, .1);
     }
-
     &__cancel {
       display: none;
     }
-
     &__overlay {
       display: none;
     }
-
     &-enter-active {
       animation: sf-select-dekstop 150ms;
     }
-
     &-leave-active {
       animation: sf-select-dekstop 150ms reverse;
     }
   }
 }
-
 @keyframes sf-select-desktop {
   0% {
     opacity: 0;
@@ -235,7 +199,6 @@
     opacity: 1;
   }
 }
-
 @keyframes sf-select-mobile {
   0% {
     transform: translate(0, 100%);

@@ -5,32 +5,25 @@
   $hover: map-get($map, 'bg-hover');
   $variant: map-get($map, 'variant');
   $text: map-get($map, 'text');
-
   // Atomic utility classes for text and bg colors
   .text-#{$color} {
     color: $background !important;
   }
-
   .bg-#{$color} {
     background-color: $background !important;
-
     &--variant {
       background-color: $variant !important;
     }
-
     &--lighten {
       background-color: $lighten !important;
     }
-
     &--darken {
       background-color: $darken !important;
     }
-
     &--hover {
       background-color: $hover !important;
     }
   }
-
   // General color modifiers
   // May be overwritten by specific component modifiers
   .color-#{$color} {

@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --bullet-border-radius: 50%;
   --bullet-size: 8px;
@@ -9,7 +8,6 @@
   --bullet-margin--active: 5px;
   --bullet-background-color--active: var(--c-primary-variant);
 }
-
 .sf-bullets {
   display: flex;
   list-style: none;
@@ -17,7 +15,6 @@
   margin: 0;
   padding: 0;
 }
-
 .sf-bullet {
   cursor: pointer;
   border-radius: var(--bullet-border-radius);
@@ -25,7 +22,6 @@
   width: var(--bullet-size);
   height: var(--bullet-size);
   margin: var(--bullet-margin);
-
   &--active {
     background-color: var(--bullet-background-color--active);
     width: var(--bullet-size--active);
