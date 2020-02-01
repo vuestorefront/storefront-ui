@@ -54,12 +54,34 @@ storiesOf("Organisms|Header", module)
     },
     data() {
       return {
+        isMobile: false,
         navigation: ["women", "man", "kids"]
       };
+    },
+    computed: {
+      spacer() {
+        return this.isMobile
+          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
+          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+      }
+    },
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <
+        1024;
+      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+    },
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1024px)")
+        .removeListener(this.mobileHandler);
     },
     methods: {
       alert(label) {
         alert(label);
+      },
+      mobileHandler(event) {
+        this.isMobile = event.matches;
       }
     },
     template: `<SfHeader
@@ -71,7 +93,7 @@ storiesOf("Organisms|Header", module)
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
-        :style="{maxWidth: '1024px', margin: 'auto', padding: '0 2.5rem'}"
+        :style="spacer"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -127,12 +149,34 @@ storiesOf("Organisms|Header", module)
     },
     data() {
       return {
+        isMobile: false,
         navigation: ["women", "man", "kids"]
       };
+    },
+    computed: {
+      spacer() {
+        return this.isMobile
+          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
+          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+      }
+    },
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <
+        1024;
+      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+    },
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1024px)")
+        .removeListener(this.mobileHandler);
     },
     methods: {
       alert(label) {
         alert(label);
+      },
+      mobileHandler(event) {
+        this.isMobile = event.matches;
       }
     },
     template: `<SfHeader
@@ -144,7 +188,7 @@ storiesOf("Organisms|Header", module)
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
-        :style="{maxWidth: '1024px', margin: 'auto', padding: '0 2.5rem'}"
+        :style="spacer"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -196,12 +240,34 @@ storiesOf("Organisms|Header", module)
     },
     data() {
       return {
+        isMobile: false,
         navigation: ["women", "man", "kids"]
       };
+    },
+    computed: {
+      spacer() {
+        return this.isMobile
+          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
+          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+      }
+    },
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <
+        1024;
+      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+    },
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1024px)")
+        .removeListener(this.mobileHandler);
     },
     methods: {
       alert(label) {
         alert(label);
+      },
+      mobileHandler(event) {
+        this.isMobile = event.matches;
       }
     },
     template: `<SfHeader
@@ -213,7 +279,7 @@ storiesOf("Organisms|Header", module)
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
-        :style="{maxWidth: '1024px', margin: 'auto', padding: '0 2.5rem'}"
+        :style="spacer"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -265,12 +331,34 @@ storiesOf("Organisms|Header", module)
     },
     data() {
       return {
+        isMobile: false,
         navigation: ["women", "man", "kids"]
       };
+    },
+    computed: {
+      spacer() {
+        return this.isMobile
+          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
+          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+      }
+    },
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <
+        1024;
+      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+    },
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1024px)")
+        .removeListener(this.mobileHandler);
     },
     methods: {
       alert(label) {
         alert(label);
+      },
+      mobileHandler(event) {
+        this.isMobile = event.matches;
       }
     },
     template: `<SfHeader
@@ -282,7 +370,7 @@ storiesOf("Organisms|Header", module)
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
-        :style="{maxWidth: '1024px', margin: 'auto', padding: '0 2.5rem'}"
+        :style="spacer"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -334,12 +422,34 @@ storiesOf("Organisms|Header", module)
     },
     data() {
       return {
+        isMobile: false,
         navigation: ["women", "man", "kids"]
       };
+    },
+    computed: {
+      spacer() {
+        return this.isMobile
+          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
+          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+      }
+    },
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <
+        1024;
+      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+    },
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1024px)")
+        .removeListener(this.mobileHandler);
     },
     methods: {
       alert(label) {
         alert(label);
+      },
+      mobileHandler(event) {
+        this.isMobile = event.matches;
       }
     },
     template: `<SfHeader
@@ -351,7 +461,7 @@ storiesOf("Organisms|Header", module)
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
-        :style="{maxWidth: '1024px', margin: 'auto', padding: '0 2.5rem'}"
+        :style="spacer"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -403,12 +513,34 @@ storiesOf("Organisms|Header", module)
     },
     data() {
       return {
+        isMobile: false,
         navigation: ["women", "man", "kids"]
       };
+    },
+    computed: {
+      spacer() {
+        return this.isMobile
+          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
+          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+      }
+    },
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <
+        1024;
+      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+    },
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1024px)")
+        .removeListener(this.mobileHandler);
     },
     methods: {
       alert(label) {
         alert(label);
+      },
+      mobileHandler(event) {
+        this.isMobile = event.matches;
       }
     },
     template: `<SfHeader
@@ -417,7 +549,7 @@ storiesOf("Organisms|Header", module)
         :active-icon="activeIcon"
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
-        :style="{maxWidth: '1024px', margin: 'auto', padding: '0 2.5rem'}"
+        :style="spacer"
     >
       <template #language-selector>
         <div :style="{margin: '0 0 0 1rem'}">LANGUAGE SELECTOR</div>
