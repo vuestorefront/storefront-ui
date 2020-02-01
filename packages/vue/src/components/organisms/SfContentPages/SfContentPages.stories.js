@@ -67,7 +67,7 @@ storiesOf("Organisms|ContentPages", module)
       :active="activePage"
       @click:change="activePage = $event"
     >
-      <SfContentPage v-for="page in pages" :title="page.title">
+      <SfContentPage v-for="page in pages" :key="page.title" :title="page.title">
         <SfTabs v-if="page.tabs" :open-tab="1">
           <SfTab v-for="tab in page.tabs" :key="tab.title" :title="tab.title">{{tab.content}}</SfTab>
         </SfTabs>
@@ -140,7 +140,7 @@ storiesOf("Organisms|ContentPages", module)
         @click:change="activePage = $event"
     >
       <SfContentCategory v-for="category in categories" :key="category.title" :title="category.title">
-        <SfContentPage v-for="page in category.pages" :title="page.title">
+        <SfContentPage v-for="page in category.pages" :key="page.title" :title="page.title">
           <SfTabs v-if="page.tabs" :open-tab="1">
             <SfTab v-for="tab in page.tabs" :key="tab.title" :title="tab.title">{{tab.content}}</SfTab>
           </SfTabs>
@@ -229,14 +229,14 @@ storiesOf("Organisms|ContentPages", module)
     >
       <template v-for="category in categories">
         <SfContentCategory  v-if="category.title" :key="category.title" :title="category.title">
-          <SfContentPage v-for="page in category.pages" :title="page.title">
+          <SfContentPage v-for="page in category.pages" :key="page.title" :title="page.title">
             <SfTabs v-if="page.tabs" :open-tab="1">
               <SfTab v-for="tab in page.tabs" :key="tab.title" :title="tab.title">{{tab.content}}</SfTab>
             </SfTabs>
             <p v-else :style="{padding: '1.25rem 0'}">{{page.content}}}}</p>
           </SfContentPage>
         </SfContentCategory>
-        <SfContentPage v-else v-for="page in category.pages" :title="page.title">
+        <SfContentPage v-else v-for="page in category.pages" :key="page.title" :title="page.title">
           <SfTabs v-if="page.tabs" open-tab="1">
             <SfTab v-for="tab in page.tabs" :key="tab.title" :title="tab.title">{{tab.content}}</SfTab>
           </SfTabs>
@@ -307,7 +307,7 @@ storiesOf("Organisms|ContentPages", module)
       :active="activePage"
       @click:change="activePage = $event"
     >
-      <SfContentPage v-for="page in pages" :title="page.title" :icon="page.icon">
+      <SfContentPage v-for="page in pages" :key="page.title" :title="page.title" :icon="page.icon">
         <SfTabs v-if="page.tabs" :open-tab="1">
           <SfTab v-for="tab in page.tabs" :key="tab.title" :title="tab.title">{{tab.content}}</SfTab>
         </SfTabs>
@@ -377,7 +377,7 @@ storiesOf("Organisms|ContentPages", module)
       <template #menu-item="{ updatePage, page, active }">
         <button @click="updatePage(page.title)">{{page.title}}</button>
       </template>
-      <SfContentPage v-for="page in pages" :title="page.title">
+      <SfContentPage v-for="page in pages" :key="page.title" :title="page.title">
         <SfTabs v-if="page.tabs" :open-tab="1">
           <SfTab v-for="tab in page.tabs" :key="tab.title" :title="tab.title">{{tab.content}}</SfTab>
         </SfTabs>

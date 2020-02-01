@@ -307,7 +307,7 @@ storiesOf("Organisms|ProductCard", module)
         @click:reviews="alert('@click:reviews')"
     >
       <template #image="{ image, title }">
-        CUSTOM IMAGE
+        <div :style="{ height: '111px', display: 'flex', alignItems: 'center', justifyContent: 'center'}">CUSTOM IMAGE</div>
       </template>
     </SfProductCard>`
   }))

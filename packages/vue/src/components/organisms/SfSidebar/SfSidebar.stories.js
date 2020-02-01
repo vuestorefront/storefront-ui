@@ -109,7 +109,7 @@ storiesOf("Organisms|Sidebar", module)
       >
         <template #circle-icon="{close}">
           <div 
-            :style="{position: 'absolute', top: '3rem', right: '-30px', fontSize: '42px', cursor: 'pointer'}" 
+            :style="{position: 'absolute', top: '3rem', right: '-20px', fontSize: '42px', cursor: 'pointer'}" 
             @click="close">🙊</div>
         </template>
         Total items: 0
