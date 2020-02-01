@@ -1,0 +1,62 @@
+@import '../../variables';
+
+:root {
+  --bottom-navigation__item-color: var(--c-gray-variant);
+  --bottom-navigation__item-color--active: var(--c-black);
+  --bottom-navigation__item-font-size: 12px;
+}
+
+
+.sf-bottom-navigation {
+  $this: &;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  padding: 0 1rem;
+  background: white;
+  box-shadow: 0px -2px 10px rgba(154, 154, 154, .15);
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: var(--bottom-navigation__item-font-size);
+    color: var(--c-gray);
+
+    & > .sf-icon {
+      --icon-color: var(--bottom-navigation__item-color);
+    }
+
+    &--active {
+      color: var(--c-black);
+      font-weight: var(--body-font-weight-secondary);
+
+      & > .sf-icon {
+        --icon-color: var(--bottom-navigation__item-color--active);
+      }
+    }
+
+    &--has-margin {
+      margin-top: var(--spacer);
+    }
+  }
+
+  &--floating {
+    top: -1.5rem;
+
+    & > .sf-button {
+      &:not(:hover) {
+        box-shadow: 0 4px 6px rgba(66, 66, 66, .2);
+      }
+    }
+  }
+}

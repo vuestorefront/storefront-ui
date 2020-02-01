@@ -17,7 +17,7 @@ storiesOf("Atoms|Icon", module)
         default: select("size", sizes, "xxs", "Props")
       },
       color: {
-        default: select("color", colors, "primary", "Props")
+        default: select("color", colors, "green-primary", "Props")
       },
       viewBox: {
         default: text("viewBox", "0 0 24 24", "Props")

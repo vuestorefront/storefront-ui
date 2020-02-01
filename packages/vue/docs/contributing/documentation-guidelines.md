@@ -34,7 +34,7 @@ Inline source code documentation tends to be up-to-date with the code it describ
 
 ### Components Docs
 
-The generation of our components documentation is automated. By running the yarn/npm task `docs:vuecomponents` which triggers the `create-vue-components-docs.js` script, the following sources are crawled and combined into the final component docs file, ready to serve via VuePress:
+The generation of our components documentation is automated. By running the yarn task `docs:vuecomponents` which triggers the `create-vue-components-docs.js` script, the following sources are crawled and combined into the final component docs file, ready to serve via VuePress:
 
 - The **location** of the component as it describes
     - its atomic type (atom, molecule, organism),
