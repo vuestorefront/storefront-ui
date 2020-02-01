@@ -33,10 +33,10 @@ storiesOf("Organisms|GroupedProduct", module)
         )
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 246, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 336, {}, "Props")
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props")
@@ -201,10 +201,10 @@ storiesOf("Organisms|GroupedProduct", module)
         )
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 246, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 336, {}, "Props")
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props")
@@ -266,10 +266,10 @@ storiesOf("Organisms|GroupedProduct", module)
         )
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 246, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 336, {}, "Props")
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props")
@@ -331,10 +331,10 @@ storiesOf("Organisms|GroupedProduct", module)
         )
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 246, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 336, {}, "Props")
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props")
@@ -396,10 +396,10 @@ storiesOf("Organisms|GroupedProduct", module)
         )
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 246, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 336, {}, "Props")
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props")
@@ -461,10 +461,10 @@ storiesOf("Organisms|GroupedProduct", module)
         )
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 246, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 336, {}, "Props")
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props")
@@ -526,10 +526,10 @@ storiesOf("Organisms|GroupedProduct", module)
         )
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 246, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 336, {}, "Props")
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props")
