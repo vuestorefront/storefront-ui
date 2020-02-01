@@ -8,7 +8,6 @@
   --accordion__title-padding-y: .625rem;
   --accordion__title-font-size: var(--font-size-big);
   --accordion__content-padding-y: 1.875rem;
-  --accordion-item__chevron-size: 1.25rem;
 
   @media screen and (min-width: $desktop-min) {
     --accordion-font-size: var(--font-size-regular);
@@ -46,8 +45,9 @@
 
   &--has-chevron {
     #{$this}-item__chevron {
-      display: block;
-      margin-top:  calc(-1 * (var(--accordion-font-size) + var(--accordion-item__chevron-size)) / 2);
+      display: flex;
+      align-items: center;
+      max-height: calc(var(--accordion-font-size) * var(--accordion-line-height));
     }
   }
 }
