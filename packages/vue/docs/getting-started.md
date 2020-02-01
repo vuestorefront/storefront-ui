@@ -10,7 +10,7 @@ In order to use it in custom projects you need the following webpack loaders: `c
 Storefront UI is installed as a dependency to your project:
 
 ```bash
-npm install --save @storefront-ui/vue
+yarn install --save @storefront-ui/vue
 ```
 
 It contains the library's source code and generates a `sfui.scss` file in your project's root directory upon installation. You can use this file to override global and component-specific SCSS variables.
