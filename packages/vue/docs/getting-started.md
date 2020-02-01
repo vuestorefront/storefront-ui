@@ -10,6 +10,8 @@ In order to use it in custom projects you need the following webpack loaders: `c
 Storefront UI is installed as a dependency to your project:
 
 ```bash
+npm install --save @storefront-ui/vue
+# or
 yarn install --save @storefront-ui/vue
 ```
 

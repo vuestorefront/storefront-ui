@@ -20,7 +20,7 @@
     "docs:dev": "yarn docs:vuecomponents && vuepress dev docs",
     "docs:build": "yarn docs:vuecomponents && vuepress build docs",
     "create-index-files": "node scripts/create-index-files.js",
-    "postinstall": "node scripts/postinstall.js && yarn create-index-files",
+    "postinstall": "node scripts/postinstall.js && node scripts/create-index-files.js",
     "version": "node scripts/version.js",
     "prepublish": "yarn create-index-files",
     "postpublish": "node scripts/postpublish.js"
