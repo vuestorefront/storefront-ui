@@ -6,7 +6,8 @@
   "author": "Filip Rakowski",
   "license": "ISC",
   "scripts": {
-    "stylelint": "stylelint \"**/*.scss\" --syntax=scss --fix"
+    "stylelint": "stylelint \"**/*.scss\" --syntax=scss --fix",
+    "lint-staged": "lint-staged"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
@@ -17,5 +18,11 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "lint-staged": {
+    "*.{scss}": [
+      "yarn stylelint",
+      "git add"
+    ]
   }
 }
