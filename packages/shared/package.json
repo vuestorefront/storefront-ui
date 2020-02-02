@@ -6,7 +6,7 @@
   "author": "Filip Rakowski",
   "license": "ISC",
   "scripts": {
-    "precommit": "lint-staged"
+    "precommit": "lint-staged --debug"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
@@ -20,13 +20,7 @@
     "access": "public"
   },
   "lint-staged": {
-    "*.{js}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{scss}": [
-      "stylelint --syntax=scss --fix",
-      "git add"
-    ]
+    "*.{js}": "eslint --fix",
+    "*.{scss}": "stylelint --syntax=scss --fix"
   }
 }

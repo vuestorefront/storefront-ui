@@ -13,7 +13,7 @@ redPrimary: "red-primary",
 redSecondary: "red-secondary",
 yellowPrimary: "yellow-primary",
 yellowSecondary: "yellow-secondary",
-bluePrimary: "blue-primary",
+    bluePrimary: "blue-primary",
 blueSecondary: "blue-secondary",
 accent: "accent",
 };

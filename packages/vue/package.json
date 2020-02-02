@@ -98,9 +98,6 @@
     "access": "public"
   },
   "lint-staged": {
-    "*.{js,vue}": [
-      "vue-cli-service lint --fix",
-      "git add"
-    ]
+    "*.{js,vue}": "vue-cli-service lint --fix"
   }
 }
