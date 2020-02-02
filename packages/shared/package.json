@@ -6,7 +6,7 @@
   "author": "Filip Rakowski",
   "license": "ISC",
   "scripts": {
-    "precommit": "lint-staged --debug"
+    "precommit": "lint-staged"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
