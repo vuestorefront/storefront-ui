@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --pagination-font-family: var(--body-font-family-secondary);
   --pagination-font-size: var(--font-size-big);
@@ -10,18 +9,15 @@
   --pagination__button--current-color: var(--c-text);
   --pagination__button--navigation-margin: 3rem;
   --pagination__button-transition: color 150ms ease-in-out, border-color 150ms ease-in-out;
-
   @media screen and (min-width: $desktop-min) {
     --pagination__item-margin: 0 calc(var(--spacer-big) / 2);
   }
 }
-
 .sf-pagination {
   font-family: var(--pagination-font-family);
   font-size: var(--pagination-font-size);
   font-weight: var(--pagination-font-weight);
   line-height: var(--pagination-line-height);
-
   &__list {
     display: flex;
     align-items: center;
@@ -29,14 +25,12 @@
     margin: 0;
     padding: 0;
   }
-
   &__item {
     display: flex;
     align-items: center;
     margin: var(--pagination__item-margin);
     color: var(--pagination__item-color);
   }
-
   &__button {
     padding: 0;
     border: 0;
@@ -50,20 +44,16 @@
     outline: none;
     border-bottom: 1px solid transparent;
     transition: var(--pagination__button-transition);
-
     &--prev {
       margin-right: var(--pagination__button--navigation-margin);
     }
-
     &--next {
       margin-left: var(--pagination__button--navigation-margin);
     }
-
     &--current {
       color: var(--pagination__button--current-color);
       border-color: var(--pagination__button--current-color);
     }
-
     &[disabled] {
       cursor: default;
       opacity: .7;
