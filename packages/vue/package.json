@@ -8,19 +8,19 @@
   ],
   "version": "0.5.1",
   "scripts": {
-    "serve": "yarpm create-index-files && vue-cli-service serve",
-    "build": "yarpm create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
+    "serve": "yarn create-index-files && vue-cli-service serve",
+    "build": "yarn create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
     "lint": "vue-cli-service lint",
     "precommit": "lint-staged",
     "test:unit": "vue-cli-service test:unit",
     "test:dev": "vue-cli-service test:unit --watch",
-    "storybook:serve": "yarpm create-index-files && vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
-    "storybook:build": "yarpm create-index-files && vue-cli-service storybook:build -s ./public -c config/storybook",
+    "storybook:serve": "yarn create-index-files && vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
+    "storybook:build": "yarn create-index-files && vue-cli-service storybook:build -s ./public -c config/storybook",
     "docs:vuecomponents": "node scripts/create-vue-components-docs.js",
-    "docs:dev": "yarpm docs:vuecomponents && vuepress dev docs",
-    "docs:build": "yarpm docs:vuecomponents && vuepress build docs",
+    "docs:dev": "yarn docs:vuecomponents && vuepress dev docs",
+    "docs:build": "yarn docs:vuecomponents && vuepress build docs",
     "create-index-files": "node scripts/create-index-files.js",
-    "postinstall": "node scripts/postinstall.js && yarn create-index-files",
+    "postinstall": "node scripts/postinstall.js && node scripts/create-index-files.js",
     "version": "node scripts/version.js",
     "prepublish": "yarn create-index-files",
     "postpublish": "node scripts/postpublish.js"
@@ -87,8 +87,7 @@
     "vue-cli-plugin-storybook": "^0.6.0",
     "vue-docgen-api": "^3.22.3",
     "vue-template-compiler": "^2.6.8",
-    "vuepress": "^0.14.10",
-    "yarpm": "^0.2.1"
+    "vuepress": "^0.14.10"
   },
   "peerDependencies": {
     "vue": "^2.6.x"
