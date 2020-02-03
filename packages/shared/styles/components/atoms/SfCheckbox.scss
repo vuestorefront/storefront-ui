@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --checkbox-font-family: var(--body-font-family-secondary);
   --checkbox-font-size: var(--font-size-big);
@@ -11,18 +10,15 @@
   --checkbox__checkmark-transition: background-color .25s cubic-bezier(1, .5, .8, 1),
   border-color .25s cubic-bezier(1, .5, .8, 1),
   opacity .25s cubic-bezier(1, .5, .8, 1);
-
   @media screen and (min-width: $desktop-min) {
     --checkbox__checkmark-size: 1.5rem;
   }
 }
-
 .sf-checkbox {
   font-family: var(--checkbox-font-family);
   font-size: var(--checkbox-font-size);
   font-weight: var(--checkbox-font-weight);
   line-height: var(--checkbox-line-height);
-
   &__input {
     position: absolute;
     border: 0;
@@ -33,13 +29,11 @@
     overflow: hidden;
     clip: rect(0px, 0px, 0px, 0px);
   }
-
   &__container {
     display: flex;
     align-items: center;
     cursor: pointer;
   }
-
   &__checkmark {
     box-sizing: border-box;
     display: flex;
@@ -49,35 +43,29 @@
     height: var(--checkbox__checkmark-size);
     border: 1px solid var(--checkbox__checkmark-secondary-color);
     transition: var(--checkbox__checkmark-transition);
-
     &:hover {
       border-color: var(--checkbox__checkmark-primary-color);
       transition: var(--checkbox__checkmark-transition);
     }
-
     .is-active & {
       background-color: var(--checkbox__checkmark-primary-color);
       border-color: transparent;
     }
-
     .is-disabled & {
       border-color: var(--c-dark-variant);
       transition: var(--checkbox__checkmark-transition);
       opacity: .25;
     }
-
     .is-active.is-disabled & {
       background-color: var(--c-dark-variant);
       border-color: transparent;
       opacity: .25;
     }
   }
-
   &__label {
     margin-left: var(--spacer-big);
   }
 }
-
 @media screen and (min-width: $desktop-min) {
   .sf-checkbox {
     &__checkmark {

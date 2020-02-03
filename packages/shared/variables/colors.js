@@ -17,7 +17,6 @@ export const colors = {
   blueSecondary: "blue-secondary",
   accent: "accent",
 };
-
 export const palettes = {
   primary: {
     bg: '#5ece7b',
@@ -48,7 +47,5 @@ export const palettes = {
     variant: '#fff6f5',
   }
 };
-
 export const colorsValues = Object.values(colors);
-
 export default colors;

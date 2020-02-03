@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --heading-border-color: #f1f2f4;
   --heading-line-height: 1.6;
@@ -7,56 +6,46 @@
   --heading__title-font-size: var(--font-size-extra-big);
   --heading__subtitle-font-family: var(--body-font-family-secondary);
   --heading__subtitle-font-size: var(--font-size-regular);
-
   @media screen and (min-width: $desktop-min) {
     --heading__title-font-size: var(--font-size-extra-big);
     --heading__subtitle-font-size: var(--font-size-big);
   }
 }
-
 .sf-heading {
   padding-bottom: 10px;
   border-bottom: 1px solid var(--heading-border-color);
   line-height: var(--heading-line-height);
   text-align: left;
-
   &__title {
     font-family: var(--heading__title-font-family);
     font-size: var(--heading__title-font-size);
     font-weight: 500;
   }
-
   &__subtitle {
     margin-top: 5px;
     font-family: var(--heading__subtitle-font-family);
     font-size: var(--heading__subtitle-font-size);
     font-weight: 300;
   }
-
   &--no-underline {
     padding-bottom: 0;
     border-bottom: 0;
   }
-
   &--left {
     text-align: left;
   }
-
   &--right {
     text-align: right;
   }
 }
-
 @media screen and (min-width: $desktop-min) {
   .sf-heading {
     padding-bottom: 0;
     border: 0;
     text-align: center;
-
     &--left {
       text-align: left;
     }
-
     &--right {
       text-align: right;
     }

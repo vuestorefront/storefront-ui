@@ -19,7 +19,7 @@ storiesOf("Organisms|BannerGrid", module)
       return {
         bannersExample: [
           {
-            slot: "bannerA",
+            slot: "banner-A",
             subtitle: ["Dresses"],
             title: ["Cocktail & Party"],
             description: [
@@ -30,7 +30,7 @@ storiesOf("Organisms|BannerGrid", module)
             class: ["sf-banner--slim"]
           },
           {
-            slot: "bannerB",
+            slot: "banner-B",
             subtitle: ["Dresses"],
             title: ["Linen Dresses"],
             description: [
@@ -43,7 +43,7 @@ storiesOf("Organisms|BannerGrid", module)
             style: ["padding-right: 20%", undefined]
           },
           {
-            slot: "bannerC",
+            slot: "banner-C",
             subtitle: ["T-Shirts"],
             title: ["The Office Life", "Your Office"],
             buttonText: [undefined, "Shop now"],
@@ -51,7 +51,7 @@ storiesOf("Organisms|BannerGrid", module)
             class: ["sf-banner--slim"]
           },
           {
-            slot: "bannerD",
+            slot: "banner-D",
             subtitle: ["Summer Sandals"],
             title: ["Eco Sandals"],
             buttonText: [undefined, "Shop now"],

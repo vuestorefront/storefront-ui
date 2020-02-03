@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --product-option-font-family: var(--body-font-family-secondary);
   --product-option-font-size: var(--font-size-regular);
@@ -7,7 +6,6 @@
   --product-option-line-height: 1.6;
   --product-option__color-size: 1.125rem;
 }
-
 .sf-product-option {
   display: flex;
   align-items: center;
@@ -16,11 +14,9 @@
   font-size: var(--product-option-font-size);
   font-weight: var(--product-option-font-weight);
   line-height: var(--product-option-line-height);
-
   &__label {
     flex-grow: 1;
   }
-
   &__color {
     width: var(--product-option__color-size);
     height: var(--product-option__color-size);

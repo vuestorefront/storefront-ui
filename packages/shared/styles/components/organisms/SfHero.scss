@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --hero__controls-top: 50%;
   --hero__controls-padding-h: 1rem;
@@ -25,7 +24,6 @@
   --hero-item__title-font-family: var(--body-font-family-primary);
   --hero-item__title-font-size: var(--font-size-extra-big);
   --hero-item__title-line-height: 1.38;
-
   @media screen and (min-width: $desktop-min) {
     --hero__bullets-position-offset: 2.5rem;
     --hero-item-padding: 5rem;
@@ -37,18 +35,14 @@
     --hero-item__title-font-size: var(--h1-font-size);
   }
 }
-
 .sf-hero {
   position: relative;
-
   &__slides {
     margin: 0;
   }
-
   &__controls {
     display: none;
   }
-
   &__bullets {
     position: absolute;
     left: 50%;
@@ -58,7 +52,6 @@
     align-content: center;
     bottom: var(--hero__bullets-position-offset);
   }
-
   &-item {
     width: var(--hero-item-width);
     display: flex;
@@ -70,7 +63,6 @@
     background-size: var(--hero-item-bg-size);
     background-position: var(--hero-item-bg-position);
     background-repeat: no-repeat;
-
     &__container {
       display: flex;
       flex-direction: column;
@@ -80,7 +72,6 @@
       height: var(--hero-item__container-height);
       padding: var(--hero-item__container-padding);
     }
-
     &__subtitle {
       width: var(--hero-item__subtitle-width);
       padding-left: var(--hero-item__subtitle-padding-left);
@@ -93,36 +84,29 @@
       text-transform: uppercase;
       font-size: var(--hero-item__subtitle-font-size);
     }
-
     &__title {
       color: var(--hero-item__title-color);
       font-size: var(--hero-item__title-font-size);
       line-height: var(--hero-item__title-line-height);
       margin-bottom: var(--spacer-extra-big);
     }
-
     &__button {
       display: none;
     }
-
     &--position-bg-top-right {
       background-position: top right;
     }
-
     &--position-bg-bottom-right {
       background-position: bottom right;
     }
-
     &--position-bg-bottom-left {
       background-position: bottom left;
     }
-
     &--align-right {
       align-items: flex-end;
     }
   }
 }
-
 @media screen and (min-width: $desktop-min) {
   .sf-hero {
     &__controls {
@@ -135,20 +119,16 @@
       width: var(--hero__controls-width);
       padding: 0 var(--hero__controls-padding-h);
     }
-
     &-item {
       &__container {
         justify-content: space-evenly;
       }
-
       &__subtitle {
         margin-bottom: calc(var(--spacer-extra-big) * 2);
       }
-
       &__title {
         margin-bottom: 0;
       }
-
       &__button {
         display: block;
         margin-top: var(--spacer-extra-big);

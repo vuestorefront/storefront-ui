@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --product-card-max-width: 200px;
   --product-card-padding: var(--spacer-small);
@@ -7,14 +6,12 @@
   --product-card__image-background-color: var(--c-light);
   --product-card__image-blend-mode: darken;
   --product-card__reviews-count-font-size: var(--font-size-regular);
-
   @media screen and (min-width: $desktop-min) {
     --product-card-max-width: 240px;
     --product-card-padding: var(--spacer-big);
     --product-card__reviews-count-font-size: var(--font-size-small);
   }
 }
-
 .sf-product-card {
   $this: &;
   position: relative;
@@ -22,33 +19,26 @@
   max-width: var(--product-card-max-width);
   padding: var(--product-card-padding);
   background-color: var(--c-white);
-
   &::after {
     content: "";
   }
-
   &:hover {
     #{$this}__picture {
       opacity: 0;
-
       &:nth-child(even) {
         opacity: 1;
       }
     }
-
     #{$this}__wishlist-icon {
       opacity: 1;
     }
-
     #{$this}__add-button {
       opacity: 1;
     }
   }
-
   &__link {
     outline: none;
   }
-
   &__title {
     font-family: var(--body-font-family-secondary);
     font-size: var(--font-size-regular);
@@ -56,15 +46,12 @@
     line-height: 1.6;
     margin: var(--spacer-small) 0;
   }
-
   &__image-wrapper {
     position: relative;
   }
-
   &__image,
   &__picture {
     transition: opacity 150ms ease-in-out;
-
     &:nth-child(even) {
       position: absolute;
       top: 0;
@@ -72,31 +59,25 @@
       opacity: 0;
     }
   }
-
   &__badge {
     position: absolute;
     top: var(--spacer);
     left: 0;
   }
-
   &__add-button {
     display: none;
   }
-
   &__reviews {
     display: flex;
     align-items: center;
   }
-
   &__rating {
     display: inline-flex;
   }
-
   &__reviews-count {
     font-size: var(--product-card__reviews-count-font-size);
     margin-left: .5rem;
   }
-
   &__wishlist-icon {
     position: absolute;
     top: calc(var(--product-card-padding) * 4);
@@ -107,23 +88,18 @@
     cursor: pointer;
     outline: none;
     transition: opacity 150ms ease-in-out;
-
     &#{$this}--on-wishlist {
       opacity: 1;
     }
   }
 }
-
-
 @media screen and (min-width: $desktop-min) {
   .sf-product-card {
     &::after {
       transition: box-shadow 150ms ease-in-out;
     }
-
     &:hover {
       z-index: 1;
-
       &::after {
         position: absolute;
         top: 0;
@@ -135,11 +111,9 @@
         box-shadow: var(--product-card-hover-box-shadow);
       }
     }
-
     &__title {
       margin: var(--spacer) 0 var(--spacer-small);
     }
-
     &__add-button {
       position: absolute;
       cursor: pointer;
@@ -148,16 +122,13 @@
       opacity: 0;
       display: flex;
       padding: var(--spacer-medium);
-
       &--icons-enter-active {
         animation: bounce .4s;
       }
-
       &--icons-leave-active {
         animation: bounce .4s reverse;
       }
     }
-
     &__wishlist-icon {
       opacity: 0;
       top: calc(var(--product-card-padding) * 2);
@@ -165,7 +136,6 @@
     }
   }
 }
-
 @keyframes bounce {
   0% {
     transform: scale(1);
