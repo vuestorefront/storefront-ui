@@ -44,6 +44,7 @@
         <SfCircleIcon
           v-if="cartIcon"
           :icon="cartIcon"
+          :has-badge="isCartEmpty"
           icon-size="20px"
           class="sf-header__icon"
           :class="{ 'sf-header__icon--is-active': activeIcon === 'cart' }"
@@ -52,9 +53,6 @@
           :aria-pressed="activeIcon === 'cart' ? 'true' : 'false'"
           @click="$emit('click:cart')"
         />
-        <div v-if="isCartEmpty" class="sf-header__icon--has-items">
-          {{ cartItemsQty }}
-        </div>
       </div>
     </slot>
     <!--@slot Use this slot to replace default header language selector on mobile -->

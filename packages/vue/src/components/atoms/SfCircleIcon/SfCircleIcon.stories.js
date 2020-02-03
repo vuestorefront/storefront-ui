@@ -5,6 +5,7 @@ import {
   text,
   select,
   color,
+  boolean,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
@@ -42,6 +43,12 @@ storiesOf("Atoms|CircleIcon", module)
       },
       iconColor: {
         default: color("iconColor", "#FFFFFF", "Props")
+      },
+      hasBadge: {
+        default: boolean("hasBadge", false, "Props")
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "99", "Props")
       }
     },
     template: `<SfCircleIcon
@@ -49,6 +56,8 @@ storiesOf("Atoms|CircleIcon", module)
         :icon="icon" 
         :iconSize="iconSize"
         :iconColor="iconColor"
+        :has-badge="hasBadge"
+        :badge-label="badgeLabel"
      />`
   }))
   .add("[slot] default", () => ({
