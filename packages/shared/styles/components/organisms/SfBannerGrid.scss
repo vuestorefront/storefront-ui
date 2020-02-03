@@ -1,5 +1,4 @@
 @import '../../variables';
-
 .sf-banner-grid {
   &__row {
     .grid > &:first-of-type > .grid__col:first-of-type {
@@ -10,7 +9,6 @@
     margin-top: calc(var(--spacer-big) / 2);
   }
 }
-
 @media screen and (min-width: $desktop-min) {
   .sf-banner-grid {
     &__row {

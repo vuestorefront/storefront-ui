@@ -1,11 +1,9 @@
 @import '../../variables';
-
 :root {
   --bottom-navigation-item-color: var(--c-gray-variant);
   --bottom-navigation-item-color--active: var(--c-black);
   --bottom-navigation-item-font-size: 12px;
 }
-
 .sf-bottom-navigation-item {
   position: relative;
   display: flex;
@@ -14,7 +12,6 @@
   align-items: center;
   font-size: var(--bottom-navigation-item-font-size);
   color: var(--c-gray);
-
   & > .sf-icon {
     --icon-color: var(--bottom-navigation-item-color);
   }
@@ -24,18 +21,15 @@
   &--active {
     color: var(--c-black);
     font-weight: var(--body-font-weight-secondary);
-
     & > .sf-icon {
       --icon-color: var(--bottom-navigation-item-color--active);
     }
   }
-
   &--has-margin {
     margin-top: 6px;
   }
   &--floating {
     top: -1.5rem;
-
     & > .sf-button {
       &:not(:hover) {
         box-shadow: 0 4px 6px rgba(66, 66, 66, .2);

@@ -1,5 +1,9 @@
 {
   "extends": [
     "stylelint-config-recommended-scss"
-  ]
+  ],
+  "rules": {
+    "max-empty-lines": 0,
+    "indentation": 2
+  }
 }

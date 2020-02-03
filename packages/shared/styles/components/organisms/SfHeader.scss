@@ -7,7 +7,6 @@
   --header-navigation-item-font-family: var(--body-font-family-primary);
   --header-navigation-item-font-size: var(--font-size-regular);
   --header-navigation-item-font-weight: 500;
-
   @media (min-width: $desktop-min) {
     --header-height: 5rem;
     --header-background-color: var(--c-white);
@@ -19,17 +18,14 @@
   $this: &;
   height: 100%;
   margin-left: var(--spacer-extra-big);
-
   &:first-child {
     margin-left: 5rem;
   }
-
   &:hover {
     & > a {
       border-color: var(--c-text);
     }
   }
-
   & > a {
     position: relative;
     z-index: 1;
@@ -86,11 +82,9 @@
     display: flex;
     align-items: center;
     height: 100%;
-
     &:hover > *:not(:hover) {
       color: var(--c-text-muted);
     }
-
     & > *:hover {
       color: var(--c-text);
     }
@@ -109,34 +103,27 @@
   &__icon {
     $this: &;
     margin-left: var(--spacer-big);
-
     &.sf-circle-icon {
       background-color: transparent;
       transition: background-color 0.3s ease;
-
       &:hover {
         background-color: var(--c-light);
         box-shadow: none;
       }
-
       &.sf-button {
         padding: 10px;
       }
-
       & .sf-icon {
         --icon-size: 1.25rem;
         --icon-color: var(--c-text);
-
         &:hover {
           --icon-color: var(--c-text);
         }
       }
     }
-
     &--is-active {
       &.sf-circle-icon {
         background-color: var(--c-primary);
-
         & .sf-icon {
           --icon-color: var(--c-white);
         }
