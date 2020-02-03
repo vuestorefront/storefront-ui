@@ -39,6 +39,9 @@ storiesOf("Organisms|Header", module)
       hasMobileSearch: {
         default: boolean("hasMobileSearch", false, "Props")
       },
+      isSticky: {
+        default: boolean("isSticky", false, "Props")
+      },
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props")
       },
@@ -92,6 +95,7 @@ storiesOf("Organisms|Header", module)
         :search-placeholder="searchPlaceholder"
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
+        :is-sticky="isSticky"
         :account-icon="accountIcon"
         :style="spacer"
         @click:cart="alert('@click:cart')"
