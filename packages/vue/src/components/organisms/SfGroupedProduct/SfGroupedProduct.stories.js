@@ -88,8 +88,8 @@ storiesOf("Organisms|GroupedProduct", module)
       settings: {
         default: object("settings", { type: "slider" }, "Props")
       },
-      disabled: {
-        default: boolean("disabled", true, "Props")
+      hasCarousel: {
+        default: boolean("hasCarousel", true, "Props")
       }
     },
     data() {
@@ -144,7 +144,7 @@ storiesOf("Organisms|GroupedProduct", module)
       };
     },
     template: `<div style="max-width: 509px">
-      <SfGroupedProduct :settings="settings" :disabled="disabled">
+      <SfGroupedProduct :settings="settings" :has-carousel="hasCarousel">
         <SfGroupedProductItem
           v-for="(product, key) in groupedProduct"
           :key="key" 

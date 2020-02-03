@@ -4,7 +4,7 @@
       <ul
         ref="slides"
         class="glide__slides"
-        :class="{ 'sf-grouped-product--disabled': disabled }"
+        :class="{ 'sf-grouped-product--disabled': !hasCarousel }"
       >
         <!-- @slot Slot for Grouped Product Items -->
         <slot />
@@ -65,7 +65,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       if (!this.$slots.default || !this.hasCarousel) return;
-      if (!this.disabled) {
+      if (this.hasCarousel) {
         const glide = new Glide(this.$refs.glide, this.glideSettings);
         glide.mount();
         glide.on("run.before", move => {
