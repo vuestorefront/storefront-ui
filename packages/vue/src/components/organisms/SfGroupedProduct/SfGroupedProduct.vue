@@ -64,7 +64,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      if (!this.$slots.default) return;
+      if (!this.$slots.default || !this.hasCarousel) return;
       if (!this.disabled) {
         const glide = new Glide(this.$refs.glide, this.glideSettings);
         glide.mount();
