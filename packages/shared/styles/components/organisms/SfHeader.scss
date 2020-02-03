@@ -72,6 +72,7 @@
     margin: 10px 0;
     img {
       height: 100%;
+      width: unset;
       max-width: unset;
     }
     @media screen and (min-width: $desktop-min) {
