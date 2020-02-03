@@ -1,10 +1,12 @@
 <template>
-  <div ref="glide" class="glide sf-grouped-product">
-    <div class="glide__track" data-glide-el="track">
+  <div ref="glide" class="sf-grouped-product" :class="{ glide: hasCarousel }">
+    <div :class="{ glide__track: hasCarousel }" data-glide-el="track">
       <ul
         ref="slides"
-        class="glide__slides"
-        :class="{ 'sf-grouped-product--disabled': !hasCarousel }"
+        :class="{
+          'sf-grouped-product--disabled': !hasCarousel,
+          glide__slides: hasCarousel
+        }"
       >
         <!-- @slot Slot for Grouped Product Items -->
         <slot />

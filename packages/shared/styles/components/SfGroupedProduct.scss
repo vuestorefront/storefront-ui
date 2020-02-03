@@ -12,6 +12,7 @@ $grouped-product__select-quantity-height: 1.875rem !default;
 $grouped-product-item__image-background-color: $c-light !default;
 
 .sf-grouped-product-item {
+  $this: &;
   padding: $spacer-small;
   font-family: $grouped-product-font-family;
   font-size: $grouped-product-font-size;
@@ -83,5 +84,9 @@ $grouped-product-item__image-background-color: $c-light !default;
   }
   &--disabled {
     display: block;
+    list-style: none;
+    transform: none !important;
+
+    
   }
 }
