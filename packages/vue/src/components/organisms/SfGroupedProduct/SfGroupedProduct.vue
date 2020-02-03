@@ -26,7 +26,7 @@ export default {
     },
     hasCarousel: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data() {
