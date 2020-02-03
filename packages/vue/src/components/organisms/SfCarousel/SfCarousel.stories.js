@@ -23,7 +23,7 @@ storiesOf("Organisms|Carousel", module)
     },
     template: `<SfCarousel
         :settings="settings"
-        :style="{maxWidth: '1140px'}"
+        :style="{maxWidth: '1140px', margin: 'auto'}"
       >
         <SfCarouselItem v-for="index in slidesNumber">
           <StoriesPlaceholder :index="index"/>
@@ -42,7 +42,7 @@ storiesOf("Organisms|Carousel", module)
     },
     template: `<SfCarousel
         :settings="settings"
-        :style="{maxWidth: '1140px'}"
+        :style="{maxWidth: '1140px', margin: 'auto'}"
     >
       <template #next="{go}">
         <button @click="go">NEXT</button>
@@ -64,7 +64,7 @@ storiesOf("Organisms|Carousel", module)
     },
     template: `<SfCarousel
         :settings="settings"
-        :style="{maxWidth: '1140px'}"
+        :style="{maxWidth: '1140px', margin: 'auto'}"
     >
       <template #prev="{go}">
         <button @click="go">PREV</button>

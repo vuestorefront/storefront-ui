@@ -48,10 +48,15 @@ storiesOf("Organisms|Footer", module)
       };
     },
     computed: {
-      spacer() {
+      itemSpacer() {
         return this.isMobile
           ? { padding: "1.25rem 2.5rem" }
           : { padding: "6px 0" };
+      },
+      spacer() {
+        return this.isMobile
+          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
+          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
       }
     },
     mounted() {
@@ -78,10 +83,10 @@ storiesOf("Organisms|Footer", module)
         <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title" :style="{marginLeft: column.title && 'auto'}">
           <SfList v-if="column.items">
             <SfListItem v-for="item in column.items" :key="item">
-              <SfMenuItem :label="item" :style="spacer"/>
+              <SfMenuItem :label="item" :style="itemSpacer"/>
             </SfListItem>
           </SfList>
-          <div v-else :style="{display: 'flex', ...spacer}">
+          <div v-else :style="{display: 'flex', ...itemSpacer}">
             <SfImage v-for="picture in column.pictures" :key="picture" width="12" height="12" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :style="{margin: '0 1.25rem 0 0'}"/>
           </div>
         </SfFooterColumn>
