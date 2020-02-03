@@ -50,7 +50,7 @@ storiesOf("Organisms|Header", module)
         default: text("searchPlaceholder", "Search for items", "Props")
       },
       cartItemsQty: {
-        default: number("cartItemsQty", 0, "Props")
+        default: text("cartItemsQty", "0", "Props")
       }
     },
     template: `<SfHeader
@@ -117,7 +117,7 @@ storiesOf("Organisms|Header", module)
         default: text("searchPlaceholder", "Search for items", "Props")
       },
       cartItemsQty: {
-        default: number("cartItemsQty", 0, "Props")
+        default: text("cartItemsQty", "0", "Props")
       }
     },
     template: `<SfHeader
@@ -176,7 +176,7 @@ storiesOf("Organisms|Header", module)
         default: text("searchPlaceholder", "Search for items", "Props")
       },
       cartItemsQty: {
-        default: number("cartItemsQty", 0, "Props")
+        default: text("cartItemsQty", "0", "Props")
       }
     },
     template: `<SfHeader
@@ -239,7 +239,7 @@ storiesOf("Organisms|Header", module)
         default: text("searchPlaceholder", "Search for items", "Props")
       },
       cartItemsQty: {
-        default: number("cartItemsQty", 0, "Props")
+        default: text("cartItemsQty", "0", "Props")
       }
     },
     template: `<SfHeader
@@ -307,6 +307,9 @@ storiesOf("Organisms|Header", module)
       },
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props")
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props")
       }
     },
     template: `<SfHeader

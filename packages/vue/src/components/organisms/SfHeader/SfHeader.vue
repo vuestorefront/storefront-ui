@@ -45,6 +45,7 @@
           v-if="cartIcon"
           :icon="cartIcon"
           :has-badge="isCartEmpty"
+          :badge-label="cartItemsQty"
           icon-size="20px"
           class="sf-header__icon"
           :class="{ 'sf-header__icon--is-active': activeIcon === 'cart' }"
@@ -137,13 +138,14 @@ export default {
      * Header cart items quantity
      */
     cartItemsQty: {
-      type: Number,
-      default: 0
+      type: String,
+      default: "0"
     }
   },
   computed: {
     isCartEmpty() {
-      return this.cartItemsQty > 0;
+      const parsedQty = parseInt(this.cartItemsQty, 10);
+      return parsedQty > 0;
     }
   }
 };
