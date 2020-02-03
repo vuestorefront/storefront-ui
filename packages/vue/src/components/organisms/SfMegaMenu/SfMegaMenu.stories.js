@@ -12,6 +12,7 @@ const AsidePlaceholder = {
   components: { SfImage },
   data() {
     return {
+      isMobile: false,
       tiles: [
         {
           title: "Last pairs left",
@@ -34,7 +35,27 @@ const AsidePlaceholder = {
       ]
     };
   },
-  template: `<div :style="{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}">
+  computed: {
+    root() {
+      return this.isMobile
+        ? {}
+        : { display: "flex", justifyContent: "space-between" };
+    }
+  },
+  mounted() {
+    this.isMobile =
+      Math.max(document.documentElement.clientWidth, window.innerWidth) < 1024;
+    window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+  },
+  beforeDestroy() {
+    window.matchMedia("(max-width: 1024px)").removeListener(this.mobileHandler);
+  },
+  methods: {
+    mobileHandler(event) {
+      this.isMobile = event.matches;
+    }
+  },
+  template: `<div :style="root">
       <div 
         v-for="tile in tiles" 
         :key="tile.title" 
