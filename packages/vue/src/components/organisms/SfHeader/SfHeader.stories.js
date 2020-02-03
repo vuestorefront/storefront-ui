@@ -50,6 +50,9 @@ storiesOf("Organisms|Header", module)
       },
       accountIcon: {
         default: text("accountIcon", "profile", "Props")
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props")
       }
     },
     data() {
@@ -94,6 +97,8 @@ storiesOf("Organisms|Header", module)
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
         :style="spacer"
+        :cart-items-qty="cartItemsQty"
+        :cart-items-qty="cartItemsQty"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -145,6 +150,9 @@ storiesOf("Organisms|Header", module)
       },
       accountIcon: {
         default: text("accountIcon", "profile", "Props")
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props")
       }
     },
     data() {
@@ -189,6 +197,7 @@ storiesOf("Organisms|Header", module)
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
         :style="spacer"
+        :cart-items-qty="cartItemsQty"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -236,6 +245,9 @@ storiesOf("Organisms|Header", module)
       },
       accountIcon: {
         default: text("accountIcon", "profile", "Props")
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props")
       }
     },
     data() {
@@ -280,6 +292,7 @@ storiesOf("Organisms|Header", module)
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
         :style="spacer"
+        :cart-items-qty="cartItemsQty"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -327,6 +340,9 @@ storiesOf("Organisms|Header", module)
       },
       accountIcon: {
         default: text("accountIcon", "profile", "Props")
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props")
       }
     },
     data() {
@@ -371,6 +387,7 @@ storiesOf("Organisms|Header", module)
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
         :style="spacer"
+        :cart-items-qty="cartItemsQty"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -418,6 +435,9 @@ storiesOf("Organisms|Header", module)
       },
       accountIcon: {
         default: text("accountIcon", "profile", "Props")
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props")
       }
     },
     data() {
@@ -462,6 +482,7 @@ storiesOf("Organisms|Header", module)
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
         :style="spacer"
+        :cart-items-qty="cartItemsQty"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -509,6 +530,9 @@ storiesOf("Organisms|Header", module)
       },
       accountIcon: {
         default: text("accountIcon", "profile", "Props")
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props")
       }
     },
     data() {
@@ -550,6 +574,7 @@ storiesOf("Organisms|Header", module)
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
         :style="spacer"
+        :cart-items-qty="cartItemsQty"
     >
       <template #language-selector>
         <div :style="{margin: '0 0 0 1rem'}">LANGUAGE SELECTOR</div>

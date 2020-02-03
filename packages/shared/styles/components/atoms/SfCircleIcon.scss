@@ -9,6 +9,8 @@
   --circle-icon-hover-box-shadow: 0 0 0 .3125rem rgba(var(--c-primary-base), .4);
   --circle-icon-active-box-shadow: 0 0 0 .625rem rgba(var(--c-primary-base), .4);
   --circle-icon__badge-background-color: var(--c-danger);
+  --circle-icon__badge-font-size: 11px;
+  --circle-icon__badge-radius: 1.1rem;
 }
 .sf-circle-icon {
   display: flex;
@@ -42,13 +44,19 @@
     }
   }
   &__badge {
-    display: block;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
+    box-sizing: border-box;
     position: absolute;
     right: 0;
     top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1rem;
+    padding: 0 0.2rem;
+    min-width: var(--circle-icon__badge-radius);
+    min-height: var(--circle-icon__badge-radius);
+    border-radius: 10px;
+    font-size: var(--circle-icon__badge-font-size);
     background-color: var(--circle-icon__badge-background-color);
     &-enter-active {
       animation: bounce-in .3s;
