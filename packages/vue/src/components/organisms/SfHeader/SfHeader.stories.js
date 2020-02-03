@@ -2,7 +2,6 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  number,
   select,
   object,
   boolean

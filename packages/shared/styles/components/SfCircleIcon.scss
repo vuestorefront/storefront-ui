@@ -39,16 +39,19 @@ $circle-icon__badge-radius: 1.1rem !default;
     }
   }
   &__badge {
+    box-sizing: border-box;
     position: absolute;
     right: 0;
     top:0;
-    width: $circle-icon__badge-radius;
-    height: $circle-icon__badge-radius;
+    line-height: 1rem;
+    padding: 0 0.2rem;
+    min-width: $circle-icon__badge-radius;
+    min-height: $circle-icon__badge-radius;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 11px;
-    border-radius: 50%;
+    font-size: $circle-icon__badge-font-size;
+    border-radius: 10px;
     background-color: $circle-icon__badge-background-color;
     &-enter-active {
       animation: bounce-in .3s;

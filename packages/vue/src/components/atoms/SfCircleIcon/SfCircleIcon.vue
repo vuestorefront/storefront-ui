@@ -62,6 +62,10 @@ export default {
     badgeLabel: {
       type: [Number, String],
       default: 0
+    },
+    badgeColor: {
+      type: String,
+      default: ""
     }
   }
 };
