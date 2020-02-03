@@ -38,7 +38,7 @@
     box-sizing: border-box;
     flex: 0 0 calc(100% / var(--mobile-column));
     padding: 0;
-    margin-bottom: 5px;
+    margin-bottom: var(--spacer);
     text-align: left;
     @media (min-width: $desktop-min) {
       flex: 1;
@@ -46,6 +46,7 @@
     }
     &:nth-child(even) {
       order: 1;
+      margin-bottom: 0;
       @media (min-width: $desktop-min) {
         order: 0;
       }

@@ -1,133 +1,103 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
+import { withKnobs, select } from "@storybook/addon-knobs";
+
 import SfBannerGrid from "./SfBannerGrid.vue";
+
 import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
+
 storiesOf("Organisms|BannerGrid", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
+    components: { SfBannerGrid, SfBanner },
     props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-banner-grid--modifier": "sf-banner-grid--modifier"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+      bannerGrid: {
+        default: select("bannerGrid", [1, 2], 1, "Props")
       }
     },
-    components: { SfBannerGrid, SfBanner },
-    template: `<div style="max-width:1240px; margin: auto">
-        <SfBannerGrid :bannerGrid="1">
-          <template #banner-A>
-            <a href="#">
-              <SfBanner
-                subtitle="Dresses"
-                title="COCKTAIL PARTY"
-                description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-                button-text="SHOP NOW"
-                image="/assets/storybook/Home/bannerF.jpg"
-                class="sf-banner--slim"
-              />
-            </a>
-          </template>
-          <template #banner-B>
-            <a href="#">
-              <SfBanner
-                subtitle="Dresses"
-                title="LINEN DRESSES"
-                description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-                button-text="SHOP NOW"
-                image="/assets/storybook/Home/bannerE.jpg"
-                class="sf-banner--slim"
-                style="padding-right: 20%"
-              />
-            </a>
-          </template>
-          <template #banner-C>
-            <a href="#">
-              <SfBanner
-              subtitle="T-Shirts"
-              title="THE OFFICE LIFE"
-              image="/assets/storybook/Home/bannerC.jpg"
-              class="sf-banner--slim"
-            />
-            </a>
-          </template>
-          <template #banner-D>
-            <a href="#">
-              <SfBanner
-                subtitle="Summer shoes"
-                title="ECO SANDALS"
-                image="/assets/storybook/Home/bannerG.jpg"
-                class="sf-banner--slim"
-              />
-            </a>
-          </template>
-        </SfBannerGrid>
-      </div>`
-  }))
-  .add("Grid 2", () => ({
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
+    data() {
+      return {
+        bannersExample: [
           {
-            "sf-banner-grid--modifier": "sf-banner-grid--modifier"
+            slot: "banner-A",
+            subtitle: ["Dresses"],
+            title: ["Cocktail & Party"],
+            description: [
+              "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+            ],
+            buttonText: ["Shop now"],
+            image: ["/assets/storybook/Home/bannerF.jpg"],
+            class: ["sf-banner--slim"]
           },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+          {
+            slot: "banner-B",
+            subtitle: ["Dresses"],
+            title: ["Linen Dresses"],
+            description: [
+              "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.",
+              ""
+            ],
+            buttonText: ["Shop now"],
+            image: ["/assets/storybook/Home/bannerE.jpg"],
+            class: ["sf-banner--slim"],
+            style: ["padding-right: 20%", undefined]
+          },
+          {
+            slot: "banner-C",
+            subtitle: ["T-Shirts"],
+            title: ["The Office Life", "Your Office"],
+            buttonText: [undefined, "Shop now"],
+            image: ["/assets/storybook/Home/bannerC.jpg"],
+            class: ["sf-banner--slim"]
+          },
+          {
+            slot: "banner-D",
+            subtitle: ["Summer Sandals"],
+            title: ["Eco Sandals"],
+            buttonText: [undefined, "Shop now"],
+            image: [
+              "/assets/storybook/Home/bannerG.jpg",
+              "/assets/storybook/Home/bannerK.jpg"
+            ],
+            class: ["sf-banner--slim"]
+          }
+        ]
+      };
+    },
+    computed: {
+      banners() {
+        return this.bannersExample.map(banner => {
+          const grid = this.bannerGrid - 1;
+          const obj = {};
+          Object.keys(banner).forEach(key => {
+            obj[key] =
+              key != "slot"
+                ? typeof banner[key][grid] != "undefined"
+                  ? banner[key][grid]
+                  : banner[key][grid - 1]
+                : banner[key];
+          });
+          return obj;
+        });
       }
     },
-    components: { SfBannerGrid, SfBanner },
-    template: `<div style="max-width:1240px; margin: auto"><SfBannerGrid :bannerGrid="2">
-        <template #banner-A>
-          <a href="#">
-            <SfBanner
-              subtitle="Dresses"
-              title="COCKTAIL PARTY"
-              description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-              button-text="SHOP NOW"
-              image="/assets/storybook/Home/bannerF.jpg"
-              class="sf-banner--slim"
-            />
-          </a>
+    template: `<SfBannerGrid
+        :banner-grid="bannerGrid"
+        :style="{maxWidth: '1240px', margin: 'auto'}"
+      >
+        <template 
+          v-for="item in banners"
+          v-slot:[item.slot]
+        >
+          <SfBanner
+            :key="item.slot"
+            :title="item.title"
+            :subtitle="item.subtitle"
+            :description="item.description" 
+            :button-text="item.buttonText"
+            :image="item.image"
+            :class="item.class" 
+          />
         </template>
-        <template #banner-B>
-          <a href="#">
-            <SfBanner
-              subtitle="Dresses"
-              title="LINEN DRESSES"
-              button-text="SHOP NOW"
-              image="/assets/storybook/Home/bannerE.jpg"
-              class="sf-banner--slim"
-            />
-          </a>
-        </template>
-        <template #banner-C>
-          <a href="#">
-            <SfBanner
-              subtitle="T-Shirts"
-              title="THE OFFICE LIFE"
-              image="/assets/storybook/Home/bannerC.jpg"
-              class="sf-banner--slim"
-            />
-          </a>
-        </template>
-        <template #banner-D>
-          <a href="#">
-            <SfBanner
-              subtitle="Summer shoes"
-              title="ECO SANDALS"
-              image="/assets/storybook/Home/bannerK.jpg"
-              class="sf-banner--slim"
-            />
-          </a>
-        </template>
-      </SfBannerGrid></div>`
+      </SfBannerGrid>`
   }));

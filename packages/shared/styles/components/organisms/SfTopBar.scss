@@ -18,8 +18,3 @@
     font-size: var(--font-size-small-desktop);
   }
 }
-@media only screen and (max-width: $desktop-min) {
-  .sf-topbar {
-    display: none;
-  }
-}

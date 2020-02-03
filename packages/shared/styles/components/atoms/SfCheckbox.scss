@@ -8,8 +8,8 @@
   --checkbox__checkmark-primary-color: var(--c-primary);
   --checkbox__checkmark-secondary-color: var(--c-gray-variant);
   --checkbox__checkmark-transition: background-color .25s cubic-bezier(1, .5, .8, 1),
-  border-color .25s cubic-bezier(1, .5, .8, 1),
-  opacity .25s cubic-bezier(1, .5, .8, 1);
+    border-color .25s cubic-bezier(1, .5, .8, 1),
+    opacity .25s cubic-bezier(1, .5, .8, 1);
   @media screen and (min-width: $desktop-min) {
     --checkbox__checkmark-size: 1.5rem;
   }

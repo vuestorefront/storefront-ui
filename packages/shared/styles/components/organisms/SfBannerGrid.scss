@@ -7,14 +7,6 @@
   }
   &__col {
     margin-top: calc(var(--spacer-big) / 2);
-    &--small {
-      flex-basis: 450px;
-      flex-grow: 0;
-    }
-    &--medium {
-      flex-basis: 500px;
-      flex-grow: 0;
-    }
   }
 }
 @media screen and (min-width: $desktop-min) {
@@ -37,9 +29,17 @@
       & > a {
         display: flex;
         flex: 1;
-        & > * {
-          flex: 1;
-        }
+      }
+      &--small {
+        flex-basis: 450px;
+        flex-grow: 0;
+      }
+      &--medium {
+        flex-basis: 500px;
+        flex-grow: 0;
+      }
+      .sf-banner{
+        flex: 1
       }
     }
   }
