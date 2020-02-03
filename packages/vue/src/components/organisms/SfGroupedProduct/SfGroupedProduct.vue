@@ -24,7 +24,7 @@ export default {
       type: Object,
       default: () => ({})
     },
-    disabled: {
+    hasCarousel: {
       type: Boolean,
       default: false
     }
