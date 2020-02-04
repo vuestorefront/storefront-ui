@@ -1,12 +1,10 @@
 @import "../../variables";
-
 .sf-table {
   $this: &;
   box-sizing: border-box;
   width: 100%;
   border-spacing: 0;
   border: none;
-
   &__heading,
   &__row {
     box-sizing: border-box;
@@ -18,7 +16,6 @@
       border: none;
     }
   }
-
   &__heading {
     align-items: center;
     background-color: var(--c-light);
@@ -28,7 +25,6 @@
       background-color: transparent;
     }
   }
-
   &__row {
     @media (min-width: $desktop-min) {
       &:hover {
@@ -37,27 +33,25 @@
       }
     }
   }
-
   &__data,
   &__header {
     box-sizing: border-box;
     flex: 0 0 calc(100% / var(--mobile-column));
     padding: 0;
-    margin-bottom: 5px;
+    margin-bottom: var(--spacer);
     text-align: left;
     @media (min-width: $desktop-min) {
       flex: 1;
       margin-bottom: 0;
     }
-
     &:nth-child(even) {
       order: 1;
+      margin-bottom: 0;
       @media (min-width: $desktop-min) {
         order: 0;
       }
     }
   }
-
   &--bordered {
     #{$this}__heading,
     #{$this}__row {
@@ -66,12 +60,10 @@
         padding: 10px;
       }
     }
-
     #{$this}__heading {
       border: 1px solid var(--c-light);
       border-width: 1px 0 1px 0;
     }
-
     #{$this}__row {
       border-bottom: 1px solid var(--c-light);
     }

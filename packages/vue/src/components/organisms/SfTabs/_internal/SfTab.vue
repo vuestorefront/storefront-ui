@@ -31,7 +31,7 @@ export default {
      */
     title: {
       type: String,
-      default: "MenuItem"
+      default: ""
     }
   },
   data() {
