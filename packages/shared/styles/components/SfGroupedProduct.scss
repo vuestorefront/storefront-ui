@@ -86,11 +86,11 @@ $grouped-product-item__image-background-color: $c-light !default;
   &--disabled {
     box-sizing: border-box;
     width: 100% !important;
+    padding: 0;
+    margin: 0;
     display: block;
     list-style: none;
     transform: none !important;
-    padding: 0;
-    margin: 0;
 
     #{$this}-item {
       @media (max-width: $desktop-min) {
@@ -105,13 +105,21 @@ $grouped-product-item__image-background-color: $c-light !default;
         }
         &__price {
           font-size: $grouped-product-font-size-desktop;
-          margin: 0 $spacer-small;
+          padding: 0 $spacer;
+          margin-left: auto;
         }
         &__title {
           margin: 0;
         }
         &__description {
-          margin: 0 $spacer-small;
+          margin: 0 $spacer;
+        }
+        &__quantity-selector {
+          bottom: 0;
+          left: $grouped-product-max-width-desktop + $spacer;
+          input {
+            background-color: $c-light;
+          }
         }
       }
     }
