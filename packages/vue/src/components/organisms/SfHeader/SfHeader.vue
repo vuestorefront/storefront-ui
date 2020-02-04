@@ -170,7 +170,7 @@ export default {
       animationStart: undefined,
       animationLong: undefined,
       animationDuration: 300,
-      height: {},
+      height: {}
     };
   },
   computed: {
