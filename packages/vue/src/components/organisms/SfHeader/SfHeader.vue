@@ -1,76 +1,63 @@
 <template>
-  <div class="sf-header">
-    <header
-      ref="header"
-      class="sf-header__container"
-      :class="{
-        'sf-header--has-mobile-search': hasMobileSearch,
-        'sf-header--is-sticky': sticky,
-        'sf-header--is-hidden': !isVisible
-      }"
-      :style="spacer"
-    >
-      <!--@slot Use this slot to replace logo with text or icon-->
-      <slot name="logo" v-bind="{ logo, title }">
-        <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo" />
-        <h1 v-else class="sf-header__title">{{ title }}</h1>
-      </slot>
-      <nav class="sf-header__navigation">
-        <!--@slot Use this slot to replace default navigation links -->
-        <slot name="navigation" />
-      </nav>
-      <!--@slot Use this slot to replace default search bar-->
-      <slot name="search">
-        <SfSearchBar
-          :placeholder="searchPlaceholder"
-          class="sf-header__search"
-        />
-      </slot>
-      <!--@slot Use this slot to replace default header icons with custom content-->
-      <slot
-        name="header-icons"
-        v-bind="{ accountIcon, wishlistIcon, cartIcon }"
-      >
-        <div class="sf-header__icons">
-          <SfCircleIcon
-            v-if="accountIcon"
-            :icon="accountIcon"
-            icon-size="20px"
-            class="sf-header__icon"
-            :class="{ 'sf-header__icon--is-active': activeIcon === 'account' }"
-            role="button"
-            aria-label="account"
-            :aria-pressed="activeIcon === 'account' ? 'true' : 'false'"
-            @click="$emit('click:account')"
+  <div
+    class="sf-header"
+    :class="{
+      'sf-header--has-mobile-search': hasMobileSearch,
+      'sf-header--is-sticky': isSticky,
+      'sf-header--is-hidden': !isVisible
+    }"
+  >
+    <div class="sf-header__sticky-container">
+      <header ref="header" class="sf-header__container">
+        <!--@slot Use this slot to replace logo with text or icon-->
+        <slot name="logo" v-bind="{ logo, title }">
+          <SfImage
+            v-if="logo"
+            :src="logo"
+            :alt="title"
+            class="sf-header__logo"
           />
-          <SfCircleIcon
-            v-if="wishlistIcon"
-            :icon="wishlistIcon"
-            icon-size="20px"
-            class="sf-header__icon"
-            :class="{ 'sf-header__icon--is-active': activeIcon === 'wishlist' }"
-            role="button"
-            aria-label="wishlist"
-            :aria-pressed="activeIcon === 'wishlist' ? 'true' : 'false'"
-            @click="$emit('click:wishlist')"
+          <h1 v-else class="sf-header__title">{{ title }}</h1>
+        </slot>
+        <nav v-if="!isMobile" class="sf-header__navigation">
+          <!--@slot Use this slot to replace default navigation links -->
+          <slot name="navigation" />
+        </nav>
+        <!--@slot Use this slot to replace default search bar-->
+        <slot name="search" v-bind="{ searchPlaceholder }">
+          <SfSearchBar
+            v-if="hasMobileSearch || !isMobile"
+            :placeholder="searchPlaceholder"
+            class="sf-header__search"
           />
-          <SfCircleIcon
-            v-if="cartIcon"
-            :icon="cartIcon"
-            icon-size="20px"
-            class="sf-header__icon"
-            :class="{ 'sf-header__icon--is-active': activeIcon === 'cart' }"
-            role="button"
-            aria-label="cart"
-            :aria-pressed="activeIcon === 'cart' ? 'true' : 'false'"
-            @click="$emit('click:cart')"
-          />
-        </div>
-      </slot>
-      <!--@slot Use this slot to replace default header language selector on mobile -->
-      <slot name="language-selector"></slot>
-    </header>
-    <div class="sf-header__placeholder" :style="height"></div>
+        </slot>
+        <!--@slot Use this slot to replace default header icons with custom content-->
+        <slot
+          name="header-icons"
+          v-bind="{ accountIcon, wishlistIcon, cartIcon }"
+        >
+          <div v-if="!isMobile" class="sf-header__icons">
+            <SfCircleIcon
+              v-for="icon in headerIcons"
+              :key="icon.name"
+              :icon="icon.icon"
+              icon-size="1.25rem"
+              class="sf-header__circle-icon"
+              :class="{
+                'sf-header__circle-icon--is-active': activeIcon === icon.name
+              }"
+              role="button"
+              :aria-label="icon.name"
+              :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
+              @click="$emit(`click:${icon.name}`)"
+            />
+          </div>
+        </slot>
+        <!--@slot Use this slot to replace default header language selector on mobile -->
+        <slot name="language-selector" />
+      </header>
+    </div>
+    <div class="sf-header__sticky-holder" :style="height" />
   </div>
 </template>
 <script>
@@ -80,7 +67,6 @@ import {
   mapMobileObserver,
   unMapMobileObserver
 } from "../../../utilities/mobile-observer";
-
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
@@ -159,6 +145,23 @@ export default {
   },
   data() {
     return {
+      headerIcons: [
+        {
+          conditional: this.accountIcon,
+          icon: this.accountIcon,
+          name: "account"
+        },
+        {
+          conditional: this.wishlistIcon,
+          icon: this.wishlistIcon,
+          name: "wishlist"
+        },
+        {
+          conditional: this.cartIcon,
+          icon: this.cartIcon,
+          name: "cart"
+        }
+      ],
       isVisible: true,
       isSearchVisible: true,
       sticky: false,
@@ -168,7 +171,6 @@ export default {
       animationLong: undefined,
       animationDuration: 300,
       height: {},
-      spacer: {}
     };
   },
   computed: {
@@ -185,14 +187,29 @@ export default {
     },
     isMobile: {
       handler() {
-        this.$nextTick(this.styleHandler);
+        this.$nextTick(() => {
+          const containerHeight = this.$refs.header;
+          this.height = {
+            height: `${containerHeight.offsetHeight}px`
+          };
+        });
+      },
+      immediate: true
+    },
+    hasMobileSearch: {
+      handler() {
+        this.$nextTick(() => {
+          const computedContainer = window.getComputedStyle(this.$refs.header);
+          this.height = {
+            height: computedContainer.height
+          };
+        });
       },
       immediate: true
     }
   },
   mounted() {
     if (this.isSticky) {
-      this.sticky = this.isSticky;
       window.addEventListener("scroll", this.scrollHandler, { passive: true });
     }
   },
@@ -222,19 +239,6 @@ export default {
       this.scrollDirection = currentScrollPosition < this.lastScrollPosition;
       this.isSearchVisible = currentScrollPosition <= 0;
       this.lastScrollPosition = currentScrollPosition;
-    },
-    styleHandler() {
-      const computedContainer = window.getComputedStyle(this.$refs.header);
-      const computedRoot = window.getComputedStyle(this.$el);
-      this.spacer = {
-        padding: `0 ${computedRoot.paddingLeft}`,
-        marginLeft: `-${computedRoot.paddingLeft}`,
-        maxWidth: `${computedRoot.maxWidth}`,
-        width: `100%`
-      };
-      this.height = {
-        height: computedContainer.height
-      };
     }
   }
 };
