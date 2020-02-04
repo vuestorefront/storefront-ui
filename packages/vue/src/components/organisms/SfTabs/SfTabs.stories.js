@@ -81,7 +81,7 @@ storiesOf("Organisms|Tabs", module)
             :title="tab.title"
         >
           <template #title={tabClick}>
-            <div @click="tabClick" :style="{margin: '0 1rem'}">CUSTOM TITLE</div>
+            <div @click="tabClick" :style="{margin: '0 1rem', cursor: 'pointer'}">CUSTOM TITLE</div>
           </template>
           {{tab.content}}
         </SfTab>
