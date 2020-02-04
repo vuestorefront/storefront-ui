@@ -1,18 +1,20 @@
 <template>
   <Fragment class="sf-tabs__tab">
-    <div
-      class="sf-tabs__title"
-      :class="{ 'sf-tabs__title--active': isActive }"
-      @click="tabClick"
-    >
-      {{ title }}
-      <div class="sf-tabs__chevron">
-        <SfChevron :class="{ 'sf-chevron--top': isActive }" />
+    <slot name="title" v-bind="{ tabClick }">
+      <div
+        class="sf-tabs__title"
+        :class="{ 'sf-tabs__title--active': isActive }"
+        @click="tabClick"
+      >
+        {{ title }}
+        <div class="sf-tabs__chevron">
+          <SfChevron :class="{ 'sf-chevron--top': isActive }" />
+        </div>
       </div>
-    </div>
-    <div class="sf-tabs__content">
+    </slot>
+    <div v-if="isActive" class="sf-tabs__content">
       <!--@slot Default. Here you should pass your tab content-->
-      <slot></slot>
+      <slot />
     </div>
   </Fragment>
 </template>

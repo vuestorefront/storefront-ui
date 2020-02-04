@@ -1,7 +1,7 @@
 <template>
   <div class="sf-tabs">
     <!--@slot Default. Here you should pass your tabs-->
-    <slot></slot>
+    <slot />
   </div>
 </template>
 <script>
