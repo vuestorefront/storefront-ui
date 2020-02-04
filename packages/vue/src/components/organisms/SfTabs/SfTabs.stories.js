@@ -44,46 +44,4 @@ storiesOf("Organisms|Tabs", module)
           {{tab.content}}
         </SfTab>
       </SfTabs>`
-  }))
-  .add("[slot] title", () => ({
-    components: { SfTabs },
-    props: {
-      openTab: {
-        default: number("openTab", 1, {}, "Props")
-      }
-    },
-    data() {
-      return {
-        tabs: [
-          {
-            title: "Description",
-            content:
-              "The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses."
-          },
-          {
-            title: "Read reviews",
-            content:
-              "The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses."
-          },
-          {
-            title: "Additional Information",
-            content:
-              "The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses."
-          }
-        ]
-      };
-    },
-    template: `<SfTabs
-        :open-tab="openTab">
-        <SfTab 
-            v-for="tab in tabs" 
-            :key="tab.title" 
-            :title="tab.title"
-        >
-          <template #title={tabClick}>
-            <div @click="tabClick" :style="{cursor: 'pointer', margin: '0 10px'}">CUSTOM TITLE</div>
-          </template>
-          {{tab.content}}
-        </SfTab>
-      </SfTabs>`
   }));
