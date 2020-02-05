@@ -2,7 +2,7 @@
   <div id="thank-you">
     <div class="thank-you__banner">
       <div class="thank-you__banner-info">
-        <SfHeading title="It's ordered!" />
+        <SfHeading title="It's ordered!" class="sf-heading--no-underline" />
         <p class="thank-you__order-number">
           Order No. <strong>#80932031-030-00</strong>
         </p>
@@ -24,7 +24,7 @@
       <div class="thank-you__contact">
         <SfHeading
           :level="3"
-          class="sf-heading--left"
+          class="sf-heading--left sf-heading--no-underline"
           title="Primary contacts for any questions"
         ></SfHeading>
         <p class="thank-you__text">
@@ -105,23 +105,32 @@ export default {
   &__wrapper {
     max-width: 586px;
     margin: 0 auto;
+    padding: 0 1rem 0 1rem;
+
+    @media screen and (min-width: $desktop-min) {
+      padding: 0;
+    }
   }
   &__banner {
     background-color: #f1f2f3;
 
     &-info {
       padding: 2rem;
-      text-align: center;
+      text-align: left;
+      @media screen and (min-width: $desktop-min) {
+        text-align: center;
+      }
     }
     #{$this}__order-number {
-      font-size: 14px;
+      font-size: 0.875rem;
     }
   }
   &__heading {
     margin: 3.75rem 0 0 0;
   }
   &__text {
-    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 1.875rem;
   }
   &__contact {
     padding: 1.3rem 2.5rem;
@@ -129,6 +138,9 @@ export default {
   }
   &__notifications-button {
     margin: 2.5rem 0 2.5rem 0;
+    @media screen and (max-width: $desktop-min) {
+      width: 100%;
+    }
   }
   &__buttons {
     width: 100%;
@@ -138,6 +150,14 @@ export default {
 
     & > button {
       margin: 0 1rem 0 0;
+    }
+
+    @media screen and (max-width: $desktop-min) {
+      flex-direction: column;
+
+      & > button {
+        margin: 0 0 0.5rem 0;
+      }
     }
   }
 }
