@@ -100,7 +100,7 @@ export default {
 
 .thank-you {
   &__wrapper {
-    width: 40%;
+    max-width: 586px;
     margin: 0 auto;
   }
   &__banner {
