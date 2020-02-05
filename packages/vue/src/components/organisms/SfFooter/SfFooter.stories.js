@@ -50,10 +50,8 @@ storiesOf("Organisms|Footer", module)
     },
     computed: {
       itemSpacer() {
-        return this.isMobile
-          ? { padding: "1.25rem" }
-          : { padding: "6px 0" };
-      },
+        return this.isMobile ? { padding: "1.25rem" } : { padding: "6px 0" };
+      }
     },
     mounted() {
       this.isMobile =
