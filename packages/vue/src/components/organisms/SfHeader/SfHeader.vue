@@ -59,7 +59,7 @@
         <slot name="language-selector" />
       </header>
     </div>
-    <div class="sf-header__sticky-holder" :style="height" />
+    <div v-if="isSticky" class="sf-header__sticky-holder" :style="height" />
   </div>
 </template>
 <script>
