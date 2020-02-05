@@ -1,4 +1,7 @@
 @import '../../variables';
+:root{
+  --mega-menu__container-max-width: 1240px;
+}
 %menu-item {
   padding: var(--spacer-big);
   border-bottom: 1px solid var(--c-light);
@@ -45,6 +48,8 @@
   }
   &__content {
     display: flex;
+    max-width: var(--mega-menu__container-max-width);
+    margin: auto;
     transition: transform 150ms ease-in-out;
     @media (min-width: $desktop-min) {
       border-top: 2px solid var(--c-light);
