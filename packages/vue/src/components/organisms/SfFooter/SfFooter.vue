@@ -1,11 +1,16 @@
 <template>
-  <div class="sf-footer" :style="style">
+  <footer class="sf-footer" :style="style">
     <slot />
-  </div>
+  </footer>
 </template>
 <script>
 import Vue from "vue";
 import SfFooterColumn from "./_internal/SfFooterColumn.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver
+} from "../../../utilities/mobile-observer";
+
 Vue.component("SfFooterColumn", SfFooterColumn);
 export default {
   name: "SfFooter",
@@ -22,12 +27,11 @@ export default {
   data() {
     return {
       open: [],
-      items: [],
-      desktopMin: 1024,
-      isMobile: false
+      items: []
     };
   },
   computed: {
+    ...mapMobileObserver(),
     style() {
       return { "--col-width": `${100 / this.column}%` };
     }
@@ -42,18 +46,8 @@ export default {
       immediate: true
     }
   },
-  mounted() {
-    this.isMobile =
-      Math.max(document.documentElement.clientWidth, window.innerWidth) <
-      this.desktopMin;
-    window
-      .matchMedia(`(max-width: ${this.desktopMin}px)`)
-      .addListener(this.isMobileHandler);
-  },
   beforeDestroy() {
-    window
-      .matchMedia(`(max-width: ${this.desktopMin}px)`)
-      .removeListener(this.isMobileHandler);
+    unMapMobileObserver();
   },
   methods: {
     toggle(payload) {
@@ -66,13 +60,10 @@ export default {
         this.open.push(payload);
       }
       this.$emit("change", this.open);
-    },
-    isMobileHandler(e) {
-      this.isMobile = e.matches;
     }
   }
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfFooter.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfFooter.scss";
 </style>

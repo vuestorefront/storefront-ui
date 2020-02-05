@@ -1,10 +1,10 @@
 .mobile-only {
-  @media ( min-width: $desktop-min ) {
+  @media (min-width: $desktop-min) {
     display: none !important;
   }
 }
 .desktop-only {
-  @media ( max-width: $desktop-min ) {
+  @media (max-width: $desktop-min) {
     display: none !important;
   }
 }

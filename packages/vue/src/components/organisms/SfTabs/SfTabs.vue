@@ -1,7 +1,7 @@
 <template>
   <div class="sf-tabs">
     <!--@slot Default. Here you should pass your tabs-->
-    <slot></slot>
+    <slot />
   </div>
 </template>
 <script>
@@ -38,5 +38,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfTabs.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfTabs.scss";
 </style>

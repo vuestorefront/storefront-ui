@@ -11,15 +11,15 @@
   >
     <div class="sf-hero-item__container">
       <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
-      <slot name="subtitle">
+      <slot name="subtitle" v-bind="{ subtitle }">
         <div v-if="subtitle" class="sf-hero-item__subtitle">{{ subtitle }}</div>
       </slot>
       <!--@slot hero item title. Slot content will replace default <h1> tag-->
-      <slot name="title">
+      <slot name="title" v-bind="{ title }">
         <h1 v-if="title" class="sf-hero-item__title">{{ title }}</h1>
       </slot>
       <!--@slot Call to action section. Slot content will replace default SfButton component-->
-      <slot name="call-to-action">
+      <slot name="call-to-action" v-bind="{ buttonText }">
         <div v-if="buttonText" class="sf-hero-item__button">
           <SfButton>
             {{ buttonText }}

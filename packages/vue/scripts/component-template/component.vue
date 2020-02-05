@@ -7,5 +7,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/ComponentNameCamelCase.scss";
+@import "~@storefront-ui/shared/styles/components/ComponentFolder/ComponentNameCamelCase.scss";
 </style>

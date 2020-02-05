@@ -28,6 +28,9 @@ storiesOf("Molecules|SearchBar", module)
       },
       placeholder: {
         default: text("placeholder", "Search for items", "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "Search", "Props")
       }
     },
     data() {
@@ -38,6 +41,7 @@ storiesOf("Molecules|SearchBar", module)
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
+      :aria-label="ariaLabel"
       v-model="value"/>`
   }))
   .add("[slot] icon", () => ({
@@ -61,6 +65,9 @@ storiesOf("Molecules|SearchBar", module)
       },
       placeholder: {
         default: text("placeholder", "Search for items", "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "Search", "Props")
       }
     },
     data() {
@@ -71,6 +78,7 @@ storiesOf("Molecules|SearchBar", module)
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
+      :aria-label="ariaLabel"
       v-model="value">
       <template #icon>👀</template>
     </SfSearchBar>`
@@ -96,6 +104,9 @@ storiesOf("Molecules|SearchBar", module)
       },
       placeholder: {
         default: text("placeholder", "Search for items", "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "Search", "Props")
       }
     },
     data() {
@@ -106,6 +117,7 @@ storiesOf("Molecules|SearchBar", module)
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
+      :aria-label="ariaLabel"
       v-model="value">
       <template #clear-icon>
         <span class="sf-search-bar__clear-icon">🧹</span>

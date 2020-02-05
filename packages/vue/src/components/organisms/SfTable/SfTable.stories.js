@@ -1,15 +1,16 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
+
 import SfTable from "./SfTable.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
+
 storiesOf("Organisms/Table", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfTable, SfButton },
+    components: { SfTable },
     props: {
       customClass: {
         default: options(
-          "CSS Modifiers",
+          "customClass",
           {
             "sf-table--bordered": "sf-table--bordered"
           },
@@ -21,29 +22,41 @@ storiesOf("Organisms/Table", module)
     },
     data() {
       return {
-        headers: [
+        tableHeaders: [
           "Quantity",
           "Payment date",
           "Payment method",
           "Amount",
           "Status"
         ],
-        content: [
-          ["#35767", "4th Nov", "Paypal", "12.00$"],
-          ["#35767", "4th Nov", "Visa", "15.00$"],
-          ["#35767", "4th Nov", "Paypal", "12.00$"]
-        ]
+        tableRows: [
+          ["#35767", "4th Nov", "Paypal", "12.00$", "Finalise"],
+          ["#35767", "4th Nov", "Visa", "15.00$", "In process"],
+          ["#35767", "4th Nov", "Paypal", "12.00$", "Finalise"]
+        ],
+        status: {
+          Finalise: "text-success",
+          "In process": "text-warning"
+        }
       };
     },
-    template: `<div style="padding: 1rem">
-        <SfTable :class="customClass">
-          <SfTableHeading>
-            <SfTableHeader v-for="header in headers">{{ header }}</SfTableHeader>
-          </SfTableHeading>
-          <SfTableRow v-for="data in content">
-            <SfTableData v-for="item in data">{{ item }}</SfTableData>
-            <SfTableData class="text-success">Finalised</SfTableData>
-          </SfTableRow>
-        </SfTable>
-      </div>`
+    template: `<SfTable 
+        :class="customClass"
+      >
+        <SfTableHeading>
+          <SfTableHeader 
+              v-for="header in tableHeaders" 
+              :key="header"
+          >{{header}}</SfTableHeader>
+        </SfTableHeading>
+        <SfTableRow 
+          v-for="(row, key) in tableRows"
+          :key="key"
+        > 
+          <SfTableData 
+            v-for="data in row"
+            :key="data"
+            :class="status[data]">{{data}}</SfTableData>
+        </SfTableRow>
+      </SfTable>`
   }));

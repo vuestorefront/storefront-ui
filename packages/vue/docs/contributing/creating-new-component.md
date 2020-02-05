@@ -6,7 +6,7 @@ At this point we assume you're already familiar with [our coding guidelines](cod
 
 Run `create-component` script at the respository's root level to generate all the files needed.
 ```bash
-$storefront-ui npm run create-component
+$storefront-ui yarn run create-component
 ```
 You will need to select the correct configurations for your component, such as:
 
@@ -67,7 +67,7 @@ in `packages/vue/scripts/component-template` folder.
 ## Running tests
 
 You should test your component by importing it inside `packages/vue/src/Playground.vue`,
-then running `npm run serve`.
+then running `yarn run serve`.
 
 Or do `yarn test:unit` to run all the unit tests.
 

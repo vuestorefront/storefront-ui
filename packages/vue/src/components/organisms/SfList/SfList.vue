@@ -13,5 +13,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfList.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfList.scss";
 </style>

@@ -153,6 +153,7 @@ export default {
     this.$nextTick(() => {
       // handle slider with swipe and transitions with Glide.js
       // https://glidejs.com/docs/
+      if (this.images.length < 1) return;
       const glide = new Glide(this.$refs.glide, this.sliderOptions);
       glide.on("run", () => {
         this.go(glide.index);
@@ -180,6 +181,7 @@ export default {
       return "";
     },
     go(index) {
+      if (!this.glide) return;
       this.activeIndex = index;
       /**
        * Event for current image change (`v-model`)
@@ -229,5 +231,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfGallery.scss";
+@import "~@storefront-ui/shared/styles/components/molecules/SfGallery.scss";
 </style>

@@ -1,0 +1,66 @@
+@import '../../variables';
+:root {
+  --sidebar-width: 20rem;
+  --sidebar-padding: var(--spacer-extra-big);
+  --sidebar-background-color: var(--c-white);
+  --sidebar__title-margin-bottom: 1.5rem;
+  @media screen and (min-width: $desktop-min) {
+    --sidebar-width: 25.5rem;
+  }
+}
+.sf-sidebar {
+  $this: &;
+  &__aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    width: var(--sidebar-width);
+    height: 100%;
+    background-color: var(--sidebar-background-color);
+  }
+  &__content {
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: var(--sidebar-padding);
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+  &__title {
+    margin-bottom: var(--sidebar__title-margin-bottom);
+  }
+  &__circle-icon {
+    position: absolute;
+    right: 3.25rem / 2 * -1;
+    top: 4.925rem;
+  }
+  &--right {
+    #{$this}__aside {
+      left: auto;
+      right: 0;
+    }
+    #{$this}__circle-icon {
+      left: 3.25rem / 2 * -1;
+    }
+  }
+  &--mobile-only {
+    #{$this}__circle-icon {
+      display: none;
+    }
+  }
+  &--has-scroll-lock {
+    overflow: hidden;
+  }
+}
+@media screen and (min-width: $desktop-min) {
+  .sf-sidebar {
+    &__circle-icon {
+      top: 5.625rem;
+    }
+  }
+}

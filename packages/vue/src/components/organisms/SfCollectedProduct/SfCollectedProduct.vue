@@ -22,7 +22,6 @@
       <slot name="input">
         <SfQuantitySelector
           :qty="qty"
-          :min="qtyMin"
           class="sf-collected-product__quantity-selector"
           @input="$emit('input', $event)"
         />
@@ -68,7 +67,7 @@ export default {
      * It should be an url of the product
      */
     image: {
-      type: String,
+      type: [String, Object],
       default: ""
     },
     /**
@@ -112,13 +111,6 @@ export default {
     qty: {
       type: [Number, String],
       default: 1
-    },
-    /**
-     * Minimum product quantity
-     */
-    qtyMin: {
-      type: Number,
-      default: 1
     }
   },
   methods: {
@@ -129,5 +121,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfCollectedProduct.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfCollectedProduct.scss";
 </style>

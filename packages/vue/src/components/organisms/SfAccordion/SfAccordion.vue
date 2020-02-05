@@ -71,5 +71,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfAccordion.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfAccordion.scss";
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <SfButton class="sf-circle-icon" :aria-label="ariaLabel" v-on="$listeners">
+  <SfButton class="sf-circle-icon" v-on="$listeners">
     <!--@slot Custom content that will replace default icon. can be used for inlined SVG's-->
     <slot>
       <SfIcon
@@ -12,8 +12,10 @@
       />
     </slot>
     <transition name="sf-circle-icon__badge">
-      <slot v-if="hasBadge" name="badge">
-        <div class="sf-circle-icon__badge"></div>
+      <slot v-if="hasBadge" name="badge" v-bind="{ badgeLabel, hasBadge }">
+        <div class="sf-circle-icon__badge">
+          {{ badgeLabel }}
+        </div>
       </slot>
     </transition>
   </SfButton>
@@ -46,20 +48,17 @@ export default {
       type: String,
       default: "100%"
     },
-    /**
-     * Sets aria-label for button icon
-     */
-    ariaLabel: {
-      type: String,
-      default: ""
-    },
     hasBadge: {
       type: Boolean,
       default: false
+    },
+    badgeLabel: {
+      type: String,
+      default: ""
     }
   }
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfCircleIcon.scss";
+@import "~@storefront-ui/shared/styles/components/atoms/SfCircleIcon.scss";
 </style>
