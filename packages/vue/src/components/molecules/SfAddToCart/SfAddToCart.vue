@@ -13,7 +13,6 @@
     <slot name="quantity-select-input" v-bind="{ qty }">
       <SfQuantitySelector
         :qty="qty"
-        aria-label="quantity"
         class="sf-add-to-cart__select-quantity"
         @input="$emit('input', $event)"
       />

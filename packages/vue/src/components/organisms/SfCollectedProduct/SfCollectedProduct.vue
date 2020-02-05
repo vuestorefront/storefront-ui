@@ -22,7 +22,6 @@
       <slot name="input">
         <SfQuantitySelector
           :qty="qty"
-          aria-label="quantity"
           class="sf-collected-product__quantity-selector"
           @input="$emit('input', $event)"
         />
