@@ -1,5 +1,6 @@
 <template>
   <Fragment class="sf-tabs__tab">
+    <!--@slot Title. Here you should pass a title tab-->
     <slot name="title" v-bind="{ tabClick }">
       <div
         class="sf-tabs__title"
