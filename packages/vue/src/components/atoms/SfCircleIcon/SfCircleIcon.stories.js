@@ -44,6 +44,9 @@ storiesOf("Atoms|CircleIcon", module)
       iconColor: {
         default: color("iconColor", "#FFFFFF", "Props")
       },
+      ariaLabel: {
+        default: text("ariaLabel", "Go to home", "Props")
+      },
       hasBadge: {
         default: boolean("hasBadge", false, "Props")
       },
@@ -58,6 +61,7 @@ storiesOf("Atoms|CircleIcon", module)
         :iconColor="iconColor"
         :has-badge="hasBadge"
         :badge-label="badgeLabel"
+        :aria-label="ariaLabel"
      />`
   }))
   .add("[slot] default", () => ({
