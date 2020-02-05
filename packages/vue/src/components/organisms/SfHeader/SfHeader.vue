@@ -131,6 +131,9 @@ export default {
       type: Boolean,
       default: false
     },
+    /**
+     * Header sticky to top
+     */
     isSticky: {
       type: Boolean,
       default: false
