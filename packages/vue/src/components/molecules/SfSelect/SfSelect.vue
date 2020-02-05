@@ -46,7 +46,7 @@
     <div v-if="valid !== undefined" class="sf-select__error-message">
       <transition name="fade">
         <span v-if="valid === false">
-          <slot name="errorMessage">{{ errorMessage }}</slot>
+          <slot name="error-message">{{ errorMessage }}</slot>
         </span>
       </transition>
     </div>
@@ -213,5 +213,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfSelect.scss";
+@import "~@storefront-ui/shared/styles/components/molecules/SfSelect.scss";
 </style>

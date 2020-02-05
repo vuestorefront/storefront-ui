@@ -62,6 +62,11 @@ import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver
+} from "../../../utilities/mobile-observer";
+
 export default {
   name: "SfContentPages",
   components: {
@@ -88,12 +93,11 @@ export default {
   },
   data() {
     return {
-      items: [],
-      isMobile: false,
-      desktopMin: 1024
+      items: []
     };
   },
   computed: {
+    ...mapMobileObserver(),
     categories() {
       const items = [];
       const orphans = { items: [] };
@@ -136,14 +140,8 @@ export default {
       this.$emit("click:change", this.categories[0].items[0].title);
     }
   },
-  mounted() {
-    this.isMobileHandler();
-    window.addEventListener("resize", this.isMobileHandler, { passive: true });
-  },
   beforeDestroy() {
-    window.removeEventListener("resize", this.isMobileHandler, {
-      passive: true
-    });
+    unMapMobileObserver();
   },
   methods: {
     updatePage(title) {
@@ -154,17 +152,10 @@ export default {
        * @type String
        */
       this.$emit("click:change", title);
-    },
-    isMobileHandler() {
-      if (typeof window === "undefined" || typeof document === "undefined")
-        return;
-      this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        this.desktopMin;
     }
   }
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfContentPages.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfContentPages.scss";
 </style>

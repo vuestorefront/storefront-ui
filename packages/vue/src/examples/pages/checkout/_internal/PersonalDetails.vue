@@ -34,8 +34,8 @@
           class="form__checkbox"
         />
         <SfButton class="sf-button--text info" @click="accountBenefits = true"
-          >+info</SfButton
-        >
+          >+info
+        </SfButton>
       </div>
       <transition name="fade">
         <SfInput
@@ -51,12 +51,12 @@
         <SfButton
           class="sf-button--full-width form__action-button"
           @click="toShipping"
-          >Continue to shipping</SfButton
-        >
+          >Continue to shipping
+        </SfButton>
         <SfButton
           class="sf-button--full-width sf-button--text form__action-button form__action-button--secondary"
-          >or log in to your account</SfButton
-        >
+          >or log in to your account
+        </SfButton>
       </div>
     </div>
     <SfModal
@@ -79,8 +79,8 @@
       <SfButton
         class="sf-button--full-width color-secondary modal__button"
         @click="accountBenefits = false"
-        >Ok</SfButton
-      >
+        >Ok
+      </SfButton>
     </SfModal>
   </div>
 </template>
@@ -93,6 +93,7 @@ import {
   SfModal,
   SfCharacteristic
 } from "@storefront-ui/vue";
+
 export default {
   name: "PersonalDetails",
   components: {
@@ -153,50 +154,60 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
+
 .title {
-  margin-bottom: $spacer-extra-big;
+  margin-bottom: var(--spacer-extra-big);
 }
+
 .form {
   @include for-desktop {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
   }
+
   &__element {
-    margin-bottom: $spacer-extra-big;
+    margin-bottom: var(--spacer-extra-big);
     @include for-desktop {
       flex: 0 0 100%;
     }
+
     &--half {
       @include for-desktop {
         flex: 1 1 50%;
       }
+
       &-even {
         @include for-desktop {
-          padding-left: $spacer-extra-big;
+          padding-left: var(--spacer-extra-big);
         }
       }
     }
   }
+
   &__group {
     display: flex;
     align-items: center;
   }
+
   &__action {
     @include for-desktop {
       flex: 0 0 100%;
       display: flex;
     }
   }
+
   &__action-button {
     flex: 1;
+
     &--secondary {
-      margin: $spacer-big 0;
+      margin: var(--spacer-big) 0;
       @include for-desktop {
         margin: 0;
         text-align: right;
@@ -204,23 +215,27 @@ export default {
     }
   }
 }
+
 .info {
-  margin-left: $spacer-big;
-  color: $c-text-muted;
+  margin-left: var(--spacer-big);
+  color: var(--c-text-muted);
   text-decoration: none;
 }
+
 .characteristic {
-  margin-bottom: $spacer-big;
+  margin-bottom: var(--spacer-big);
 }
+
 .modal {
   .modal {
     &__heading {
-      margin-bottom: $spacer-extra-big;
+      margin-bottom: var(--spacer-extra-big);
     }
   }
+
   &__button {
     display: block;
-    margin-top: $spacer-extra-big;
+    margin-top: var(--spacer-extra-big);
   }
 }
 </style>

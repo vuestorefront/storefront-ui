@@ -1,0 +1,7 @@
+@import '../../variables';
+:root {
+  --divider-border-color: var(--c-light);
+}
+.sf-divider {
+  border-top: 1px solid var(--divider-border-color);
+}

@@ -33,5 +33,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfTable.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfTable.scss";
 </style>

@@ -1,7 +1,19 @@
 <template>
-  <div ref="glide" class="glide sf-grouped-product">
-    <div class="glide__track" data-glide-el="track">
-      <ul class="glide__slides">
+  <div
+    ref="glide"
+    class="sf-grouped-product"
+    :class="{
+      glide: hasCarousel,
+      'sf-grouped-product--without-carousel': !hasCarousel
+    }"
+  >
+    <div :class="{ glide__track: true }" data-glide-el="track">
+      <ul
+        ref="slides"
+        :class="{
+          glide__slides: true
+        }"
+      >
         <!-- @slot Slot for Grouped Product Items -->
         <slot />
       </ul>
@@ -19,11 +31,15 @@ export default {
     settings: {
       type: Object,
       default: () => ({})
+    },
+    hasCarousel: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
     return {
-      glide: null,
+      glide: undefined,
       defaultSettings: {
         type: "slider",
         rewind: true,
@@ -54,9 +70,21 @@ export default {
       };
     }
   },
+  watch: {
+    hasCarousel(state) {
+      if (!state && this.glide) {
+        this.glide.destroy();
+        this.glide = undefined;
+      }
+      this.glideMount();
+    }
+  },
   mounted() {
-    this.$nextTick(() => {
-      if (!this.$slots.default) return;
+    this.$nextTick(this.glideMount);
+  },
+  methods: {
+    glideMount() {
+      if (!this.$slots.default || !this.hasCarousel) return;
       const glide = new Glide(this.$refs.glide, this.glideSettings);
       glide.mount();
       glide.on("run.before", move => {
@@ -79,10 +107,10 @@ export default {
         move.steps = steps;
       });
       this.glide = glide;
-    });
+    }
   }
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfGroupedProduct.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfGroupedProduct.scss";
 </style>
