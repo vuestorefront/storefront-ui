@@ -27,7 +27,6 @@
       <slot name="input" v-bind="{ qty }">
         <SfQuantitySelector
           :qty="qty"
-          :min="qtyMin"
           class="sf-grouped-product-item__quantity-selector"
           @input="$emit('input', $event)"
         />
@@ -72,7 +71,7 @@ export default {
      * Product image
      */
     image: {
-      type: String,
+      type: [String, Object],
       default: ""
     },
     /**
@@ -134,13 +133,6 @@ export default {
     /** Product quantity */
     qty: {
       type: [Number, String],
-      default: 1
-    },
-    /**
-     * Minimum product quantity
-     */
-    qtyMin: {
-      type: Number,
       default: 1
     }
   }

@@ -1,35 +1,39 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
+
 import SfTopBar from "./SfTopBar.vue";
+
 storiesOf("Organisms|TopBar", module)
   .add("Common", () => ({
-    data() {
-      return {
-        style: {
-          textDecoration: "underline"
-        }
-      };
-    },
-    components: {
-      SfTopBar
-    },
+    components: { SfTopBar },
     template: `<SfTopBar>
-        Download our application.<a :style='style'>Find out more.</a>
-      </SfTopBar>`
+      Download our application. Find out more.
+      <template #right>
+        Help & FAQs
+      </template>
+    </SfTopBar>`
+  }))
+  .add("[slot] default", () => ({
+    components: { SfTopBar },
+    template: `<SfTopBar>
+      CUSTOM DEFAULT
+    </SfTopBar>`
   }))
   .add("[slot] left", () => ({
-    components: {
-      SfTopBar
-    },
+    components: { SfTopBar },
     template: `<SfTopBar>
-        <template slot="left">left content</template>
-      </SfTopBar>`
+      <template #left>
+        CUSTOM LEFT
+      </template>
+      Download our application. Find out more.
+    </SfTopBar>`
   }))
   .add("[slot] right", () => ({
-    components: {
-      SfTopBar
-    },
+    components: { SfTopBar },
     template: `<SfTopBar>
-        <template slot="right">right content</template>
-      </SfTopBar>`
+      <template #right>
+        CUSTOM RIGHT
+      </template>
+      Download our application. Find out more.
+    </SfTopBar>`
   }));

@@ -1,11 +1,17 @@
 <template>
-  <div ref="glide" class="sf-grouped-product" :class="{ glide: hasCarousel }">
-    <div :class="{ glide__track: hasCarousel }" data-glide-el="track">
+  <div
+    ref="glide"
+    class="sf-grouped-product"
+    :class="{
+      glide: hasCarousel,
+      'sf-grouped-product--without-carousel': !hasCarousel
+    }"
+  >
+    <div :class="{ glide__track: true }" data-glide-el="track">
       <ul
         ref="slides"
         :class="{
-          'sf-grouped-product--disabled': !hasCarousel,
-          glide__slides: hasCarousel
+          glide__slides: true
         }"
       >
         <!-- @slot Slot for Grouped Product Items -->
@@ -33,7 +39,7 @@ export default {
   },
   data() {
     return {
-      glide: null,
+      glide: undefined,
       defaultSettings: {
         type: "slider",
         rewind: true,
@@ -64,37 +70,47 @@ export default {
       };
     }
   },
-  mounted() {
-    this.$nextTick(() => {
-      if (!this.$slots.default || !this.hasCarousel) return;
-      if (this.hasCarousel) {
-        const glide = new Glide(this.$refs.glide, this.glideSettings);
-        glide.mount();
-        glide.on("run.before", move => {
-          const { perView, slidePerPage, rewind } = this.glide.settings,
-            { index } = this.glide,
-            { direction } = move,
-            length = this.glide._c.Sizes.length;
-          let page, steps;
-          if (direction === "=" || !slidePerPage || perView <= 1) return;
-          page = Math.ceil(index / perView);
-          steps = page * perView + (direction === ">" ? perView : -perView);
-          if (steps === length - 1) {
-            steps = steps - 1;
-          } else if (steps >= length) {
-            steps = rewind ? 0 : index;
-          } else if (steps < 0) {
-            steps = 0;
-          }
-          move.direction = "=";
-          move.steps = steps;
-        });
-        this.glide = glide;
+  watch: {
+    hasCarousel(state) {
+      if (!state && this.glide) {
+        this.glide.destroy();
+        this.glide = undefined;
       }
-    });
+      this.glideMount();
+    }
+  },
+  mounted() {
+    this.$nextTick(this.glideMount);
+  },
+  methods: {
+    glideMount() {
+      if (!this.$slots.default || !this.hasCarousel) return;
+      const glide = new Glide(this.$refs.glide, this.glideSettings);
+      glide.mount();
+      glide.on("run.before", move => {
+        const { perView, slidePerPage, rewind } = this.glide.settings,
+          { index } = this.glide,
+          { direction } = move,
+          length = this.glide._c.Sizes.length;
+        let page, steps;
+        if (direction === "=" || !slidePerPage || perView <= 1) return;
+        page = Math.ceil(index / perView);
+        steps = page * perView + (direction === ">" ? perView : -perView);
+        if (steps === length - 1) {
+          steps = steps - 1;
+        } else if (steps >= length) {
+          steps = rewind ? 0 : index;
+        } else if (steps < 0) {
+          steps = 0;
+        }
+        move.direction = "=";
+        move.steps = steps;
+      });
+      this.glide = glide;
+    }
   }
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfGroupedProduct.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfGroupedProduct.scss";
 </style>

@@ -106,8 +106,8 @@
                   class="sf-button--text shipping__action"
                   :class="{ 'shipping__action--is-active': item.isOpen }"
                   @click="item.isOpen = !item.isOpen"
-                  >info</SfButton
-                >
+                  >info
+                </SfButton>
               </div>
               <transition name="fade">
                 <div v-if="item.isOpen" class="shipping__info">
@@ -122,13 +122,13 @@
         <SfButton
           class="sf-button--full-width form__action-button"
           @click="toPayment"
-          >Continue to payment</SfButton
-        >
+          >Continue to payment
+        </SfButton>
         <SfButton
           class="sf-button--full-width sf-button--text form__action-button form__action-button--secondary"
           @click="$emit('click:back')"
-          >Go back to Personal details</SfButton
-        >
+          >Go back to Personal details
+        </SfButton>
       </div>
     </div>
   </div>
@@ -141,6 +141,7 @@ import {
   SfSelect,
   SfRadio
 } from "@storefront-ui/vue";
+
 export default {
   name: "Shipping",
   components: {
@@ -262,46 +263,55 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
+
 .title {
-  margin-bottom: $spacer-extra-big;
+  margin-bottom: var(--spacer-extra-big);
 }
+
 .form {
   @include for-desktop {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
   }
+
   &__element {
-    margin-bottom: $spacer-extra-big;
+    margin-bottom: var(--spacer-extra-big);
     @include for-desktop {
       flex: 0 0 100%;
     }
+
     &--half {
       @include for-desktop {
         flex: 1 1 50%;
       }
+
       &-even {
         @include for-desktop {
-          padding-left: $spacer-extra-big;
+          padding-left: var(--spacer-extra-big);
         }
       }
     }
   }
+
   &__action {
     @include for-desktop {
       flex: 0 0 100%;
       display: flex;
     }
   }
+
   &__action-button {
     flex: 1;
+
     &--secondary {
-      margin: $spacer-big 0;
+      margin: var(--spacer-big) 0;
       @include for-desktop {
         order: -1;
         margin: 0;
@@ -309,49 +319,61 @@ export default {
       }
     }
   }
+
   &__select {
     // todo: remove after SfSelect refactoring
     ::v-deep .sf-select__selected {
       padding: 5px 0;
     }
   }
+
   &__radio {
     margin-bottom: 0;
+
     &-group {
       flex: 0 0 100%;
-      margin: 0 0 $spacer-extra-big 0;
+      margin: 0 0 var(--spacer-extra-big) 0;
     }
   }
 }
+
 .shipping {
-  margin: 0 -#{$spacer-big};
+  margin: 0 -#{var(--spacer-big)};
+
   &__label {
     display: flex;
     justify-content: space-between;
   }
+
   &__description {
     width: 100%;
     margin-top: 0;
   }
+
   &__delivery {
-    color: $c-text-muted;
+    color: var(--c-text-muted);
   }
+
   &__action {
     align-items: center;
-    margin-left: $spacer;
+    margin-left: var(--spacer);
     text-decoration: none;
+
     &::before {
       content: "+";
     }
+
     &--is-active {
-      color: $c-primary;
+      color: var(--c-primary);
+
       &::before {
         content: "-";
       }
     }
   }
+
   &__info {
-    margin-top: $spacer;
+    margin-top: var(--spacer);
   }
 }
 </style>

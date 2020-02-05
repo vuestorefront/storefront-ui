@@ -1,0 +1,38 @@
+@import '../../variables';
+:root {
+  --modal-background-color: var(--c-white);
+  --modal-width: 430px;
+  --modal-height: auto;
+  --modal-padding: 2.5em 5em;
+  --modal-border: solid 1px rgba(0, 0, 0, .5);
+}
+.sf-modal {
+  &__container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    box-sizing: border-box;
+    max-width: 100%;
+    background-color: var(--modal-background-color);
+    width: var(--modal-width);
+    height: var(--modal-height);
+    padding: var(--modal-padding);
+    border: var(--modal-border);
+  }
+  &__close {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+}

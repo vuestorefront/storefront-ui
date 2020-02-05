@@ -3,20 +3,20 @@
     <template v-if="bannerGrid === 1">
       <div class="sf-banner-grid__row">
         <div class="sf-banner-grid__col">
-          <slot name="bannerA" />
+          <slot name="banner-A" />
         </div>
         <div class="sf-banner-grid__col sf-banner-grid__col--medium">
-          <slot name="bannerB" />
+          <slot name="banner-B" />
         </div>
         <div class="sf-banner-grid__col">
           <div class="sf-banner-grid__row">
             <div class="sf-banner-grid__col">
-              <slot name="bannerC" />
+              <slot name="banner-C" />
             </div>
           </div>
           <div class="sf-banner-grid__row">
             <div class="sf-banner-grid__col">
-              <slot name="bannerD" />
+              <slot name="banner-D" />
             </div>
           </div>
         </div>
@@ -25,20 +25,20 @@
     <template v-if="bannerGrid === 2">
       <div class="sf-banner-grid__row">
         <div class="sf-banner-grid__col sf-banner-grid__col--small">
-          <slot name="bannerA" />
+          <slot name="banner-A" />
         </div>
         <div class="sf-banner-grid__col">
           <div class="sf-banner-grid__row">
             <div class="sf-banner-grid__col">
-              <slot name="bannerB" />
+              <slot name="banner-B" />
             </div>
             <div class="sf-banner-grid__col">
-              <slot name="bannerC" />
+              <slot name="banner-C" />
             </div>
           </div>
           <div class="sf-banner-grid__row">
             <div class="sf-banner-grid__col">
-              <slot name="bannerD" />
+              <slot name="banner-D" />
             </div>
           </div>
         </div>
@@ -58,5 +58,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfBannerGrid.scss";
+@import "~@storefront-ui/shared/styles/components/organisms/SfBannerGrid.scss";
 </style>

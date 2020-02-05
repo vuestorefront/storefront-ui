@@ -29,8 +29,8 @@
           class="form__element"
         />
         <SfButton class="form__button" @click="updatePersonal"
-          >Update personal data</SfButton
-        >
+          >Update personal data
+        </SfButton>
       </div>
       <p class="notice">
         At Brand name, we attach great importance to privacy issues and are
@@ -71,14 +71,15 @@
           class="form__element form__element--half form__element--half-even"
         />
         <SfButton class="form__button" @click="updatePassword"
-          >Update password</SfButton
-        >
+          >Update password
+        </SfButton>
       </div>
     </SfTab>
   </SfTabs>
 </template>
 <script>
 import { SfTabs, SfInput, SfButton } from "@storefront-ui/vue";
+
 export default {
   name: "PersonalDetails",
   components: {
@@ -132,33 +133,39 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
+
 .form {
   @include for-desktop {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
   }
+
   &__element {
-    margin-bottom: $spacer-extra-big;
+    margin-bottom: var(--spacer-extra-big);
     @include for-desktop {
       flex: 0 0 100%;
     }
+
     &--half {
       @include for-desktop {
         flex: 1 1 50%;
       }
+
       &-even {
         @include for-desktop {
-          padding-left: $spacer-extra-big;
+          padding-left: var(--spacer-extra-big);
         }
       }
     }
   }
+
   &__button {
     width: 100%;
     @include for-desktop {
@@ -166,29 +173,29 @@ export default {
     }
   }
 }
+
 .message,
 .notice {
-  font-family: $body-font-family-primary;
-  font-weight: $body-font-weight-primary;
+  font-family: var(--body-font-family-primary);
+  font-weight: var(--body-font-weight-primary);
   line-height: 1.6;
 }
+
 .message {
-  margin: 0 0 $spacer-extra-big 0;
-  font-size: $font-size-regular-mobile;
-  @include for-desktop {
-    font-size: $font-size-regular-desktop;
-  }
+  margin: 0 0 var(--spacer-extra-big) 0;
+  font-size: var(--font-size-regular);
+
   &__label {
     font-weight: 400;
   }
 }
+
 .notice {
-  margin: $spacer-big 0 0 0;
-  font-size: $font-size-extra-small-mobile;
+  margin: var(--spacer-big) 0 0 0;
+  font-size: var(--font-size-extra-small);
   @include for-desktop {
     max-width: 70%;
-    margin: $spacer 0 0 0;
-    font-size: $font-size-extra-small-desktop;
+    margin: var(--spacer) 0 0 0;
   }
 }
 </style>

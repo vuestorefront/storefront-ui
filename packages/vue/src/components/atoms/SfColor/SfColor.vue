@@ -33,5 +33,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfColor.scss";
+@import "~@storefront-ui/shared/styles/components/atoms/SfColor.scss";
 </style>

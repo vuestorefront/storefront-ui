@@ -86,5 +86,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfRadio.scss";
+@import "~@storefront-ui/shared/styles/components/molecules/SfRadio.scss";
 </style>

@@ -39,6 +39,7 @@
 </template>
 <script>
 import { SfTabs, SfCheckbox, SfButton } from "@storefront-ui/vue";
+
 export default {
   name: "MyNewsletter",
   components: { SfTabs, SfCheckbox, SfButton },
@@ -49,33 +50,43 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 @mixin for-mobile {
   @media screen and (max-width: $desktop-min) {
     @content;
   }
 }
+
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
     @content;
   }
 }
+
 .form {
   &__element {
-    margin: 0 0 $spacer-big 0;
+    margin: 0 0 var(--spacer-big) 0;
+
     &:last-child {
       margin: 0;
     }
   }
+
   &__checkbox-group {
-    margin: 0 0 $spacer-extra-big 0;
+    margin: 0 0 var(--spacer-extra-big) 0;
   }
+
   &__title {
-    margin: 0 0 $spacer-big 0;
-    font-family: $body-font-family-secondary;
-    font-size: $font-size-regular-desktop;
+    margin: 0 0 var(--spacer-big) 0;
+    font-family: var(--body-font-family-secondary);
+    font-size: var(--font-size-big);
     font-weight: 500;
     line-height: 1.6;
+    @include for-desktop {
+      font-size: var(--font-size-regular);
+    }
   }
+
   &__button {
     width: 100%;
     @include for-desktop {
@@ -83,34 +94,36 @@ export default {
     }
   }
 }
+
 .message,
 .notice {
-  font-family: $body-font-family-primary;
-  font-weight: $body-font-weight-primary;
+  font-family: var(--body-font-family-primary);
+  font-weight: var(--body-font-weight-primary);
   line-height: 1.6;
 }
+
 .message {
-  margin: 0 0 $spacer-extra-big 0;
-  font-size: $font-size-regular-mobile;
-  @include for-desktop {
-    font-size: $font-size-regular-desktop;
-  }
+  margin: 0 0 var(--spacer-extra-big) 0;
+  font-size: var(--font-size-regular);
 }
+
 .notice {
-  margin: $spacer-big 0 0 0;
-  font-size: $font-size-extra-small-desktop;
+  margin: var(--spacer-big) 0 0 0;
+  font-size: var(--font-size-small);
   @include for-desktop {
     max-width: 70%;
-    margin: $spacer 0 0 0;
-    font-size: $font-size-extra-small-desktop;
+    margin: var(--spacer) 0 0 0;
+    font-size: var(--font-size-extra-small);
   }
 }
+
 .tab-orphan {
   @include for-mobile {
     ::v-deep .sf-tabs {
       &__title {
         display: none;
       }
+
       &__content {
         border: 0;
         padding: 0;

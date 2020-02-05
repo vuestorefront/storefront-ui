@@ -13,5 +13,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/SfChevron.scss";
+@import "~@storefront-ui/shared/styles/components/atoms/SfChevron.scss";
 </style>
