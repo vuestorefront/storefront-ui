@@ -4,6 +4,7 @@ import { withKnobs, number, boolean } from "@storybook/addon-knobs";
 
 import SfFooter from "./SfFooter.vue";
 
+import SfHeader from "../SfHeader/SfHeader.vue";
 import SfList from "../SfList/SfList.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
@@ -11,7 +12,7 @@ import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 storiesOf("Organisms|Footer", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfFooter, SfList, SfImage, SfMenuItem },
+    components: { SfFooter, SfHeader, SfList, SfImage, SfMenuItem },
     props: {
       column: {
         default: number("column", 4, {}, "Props")
@@ -49,14 +50,7 @@ storiesOf("Organisms|Footer", module)
     },
     computed: {
       itemSpacer() {
-        return this.isMobile
-          ? { padding: "1.25rem 2.5rem" }
-          : { padding: "6px 0" };
-      },
-      spacer() {
-        return this.isMobile
-          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
-          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+        return this.isMobile ? { padding: "1.25rem" } : { padding: "6px 0" };
       }
     },
     mounted() {
@@ -78,12 +72,11 @@ storiesOf("Organisms|Footer", module)
     template: `<SfFooter
         :column="column"
         :multiple="multiple"
-        :style="{maxWidth: '1024px', margin: 'auto'}"
       >
         <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title" :style="{marginLeft: column.title && 'auto'}">
           <SfList v-if="column.items">
             <SfListItem v-for="item in column.items" :key="item">
-              <SfMenuItem :label="item" :style="itemSpacer"/>
+              <SfMenuItem :label="item"/>
             </SfListItem>
           </SfList>
           <div v-else :style="{display: 'flex', ...itemSpacer}">

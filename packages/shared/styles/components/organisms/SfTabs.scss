@@ -50,7 +50,6 @@
     max-height: calc(var(--accordion-font-size) * var(--accordion-line-height));
   }
   &__content {
-    display: none;
     flex-basis: 100%;
     padding: calc(var(--tabs__content-padding-y) / 2) 0;
   }
