@@ -12,8 +12,10 @@
       />
     </slot>
     <transition name="sf-circle-icon__badge">
-      <slot v-if="hasBadge" name="badge">
-        <div class="sf-circle-icon__badge"></div>
+      <slot v-if="hasBadge" name="badge" v-bind="{ badgeLabel, hasBadge }">
+        <div class="sf-circle-icon__badge">
+          {{ badgeLabel }}
+        </div>
       </slot>
     </transition>
   </SfButton>
@@ -49,6 +51,10 @@ export default {
     hasBadge: {
       type: Boolean,
       default: false
+    },
+    badgeLabel: {
+      type: String,
+      default: ""
     }
   }
 };

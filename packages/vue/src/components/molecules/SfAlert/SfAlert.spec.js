@@ -23,14 +23,6 @@ describe("SfAlert.vue", () => {
     expect(component.contains(".sf-alert__message")).toBe(true);
     expect(component.find(".sf-alert__message").text()).toMatch(message);
   });
-  it("renders an alert icon when passed via props", () => {
-    const component = shallowMount(SfAlert, {
-      propsData: {
-        type: "secondary"
-      }
-    });
-    expect(component.contains(".sf-alert--secondary")).toBe(true);
-  });
   it("renders an alert icon when passed via slot", () => {
     const component = shallowMount(SfAlert, {
       slots: {
