@@ -3,7 +3,9 @@
     <div class="thank-you__banner">
       <div class="thank-you__banner-info">
         <SfHeading title="It's ordered!" />
-        <p>Order No. <strong>#80932031-030-00</strong></p>
+        <p class="thank-you__order-number">
+          Order No. <strong>#80932031-030-00</strong>
+        </p>
       </div>
     </div>
     <div class="thank-you__wrapper">
@@ -11,7 +13,7 @@
         title="You've successfully placed the order"
         class="thank-you__heading sf-heading--left"
       />
-      <p>
+      <p class="thank-you__text">
         You can check status of your order by using our delivery status feature.
         You will receive an order confirmation e-mail with details of your order
         and a link to track its progress.
@@ -25,7 +27,7 @@
           class="sf-heading--left"
           title="Primary contacts for any questions"
         ></SfHeading>
-        <p>
+        <p class="thank-you__text">
           <span>{{ address.name }}</span
           ><br />
           <span>{{ address.street }}</span
@@ -39,7 +41,7 @@
         title="Your Account"
         class="thank-you__heading sf-heading--left"
       />
-      <p>
+      <p class="thank-you__text">
         You can log to your account using e-mail and password defined earlier.
         On your account you can edit your profile data, check history of
         transactions, edit subscription to newsletter.
@@ -48,7 +50,7 @@
         title="What can we improve"
         class="thank-you__heading sf-heading--left"
       />
-      <p>
+      <p class="thank-you__text">
         Your feedback is important to us. Let us know what we could improve.
       </p>
       <div class="thank-you__buttons">
@@ -99,6 +101,7 @@ export default {
 }
 
 .thank-you {
+  $this: &;
   &__wrapper {
     max-width: 586px;
     margin: 0 auto;
@@ -110,9 +113,15 @@ export default {
       padding: 2rem;
       text-align: center;
     }
+    #{$this}__order-number {
+      font-size: 14px;
+    }
   }
   &__heading {
     margin: 3.75rem 0 0 0;
+  }
+  &__text {
+    font-size: 18px;
   }
   &__contact {
     padding: 1.3rem 2.5rem;
@@ -128,7 +137,7 @@ export default {
     justify-content: space-between;
 
     & > button {
-      margin: 0 0.5rem 0 0;
+      margin: 0 1rem 0 0;
     }
   }
 }
