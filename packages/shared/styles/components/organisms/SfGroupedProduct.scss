@@ -39,6 +39,49 @@
   &__title {
     margin: var(--spacer-small) 0;
   }
+  .sf-grouped-product--without-carousel & {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--c-light);
+    &__aside {
+      flex: 0 0 var(--grouped-product-max-width-desktop);
+    }
+    &__quantity-selector {
+      bottom: 0;
+      left: calc(var(--grouped-product-max-width-desktop) + var(--spacer-big));
+      input {
+        background-color: var(--c-light);
+        font-size: var(--font-size-big);
+      }
+    }
+    &__description {
+      margin-left: var(--spacer-big);
+    }
+    &__title {
+      margin: 0;
+    }
+    &__price {
+      margin-left: auto;
+      font: inherit;
+    }
+  }
+}
+.sf-grouped-product {
+  &--without-carousel{
+    .glide {
+      &__slides {
+        display: block !important;
+        width: auto !important;
+        margin: 0 !important;
+        transform: unset !important;
+      }
+      &__slide {
+        &--clone {
+          display: none;
+        }
+      }
+    }
+  }
 }
 @media screen and (min-width: $desktop-min) {
   .sf-grouped-product-item {
