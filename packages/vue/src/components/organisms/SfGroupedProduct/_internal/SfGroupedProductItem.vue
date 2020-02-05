@@ -71,7 +71,7 @@ export default {
      * Product image
      */
     image: {
-      type: String,
+      type: [String, Object],
       default: ""
     },
     /**

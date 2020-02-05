@@ -1,72 +1,74 @@
 <template>
-  <header
+  <div
     class="sf-header"
-    :class="{ 'sf-header--has-mobile-search': hasMobileSearch }"
+    :class="{
+      'sf-header--has-mobile-search': hasMobileSearch,
+      'sf-header--is-sticky': isSticky,
+      'sf-header--is-hidden': !isVisible
+    }"
   >
-    <!--@slot Use this slot to replace logo with text or icon-->
-    <slot name="logo" v-bind="{ logo, title }">
-      <SfImage
-        v-if="logo"
-        :src="logo"
-        :alt="title"
-        class="sf-header__logo focus-ring"
-        tabindex="0"
-      />
-      <h1 v-else class="sf-header__title">{{ title }}</h1>
-    </slot>
-    <nav class="sf-header__navigation">
-      <!--@slot Use this slot to replace default navigation links -->
-      <slot name="navigation" />
-    </nav>
-    <!--@slot Use this slot to replace default search bar-->
-    <slot name="search">
-      <SfSearchBar :placeholder="searchPlaceholder" class="sf-header__search" />
-    </slot>
-    <!--@slot Use this slot to replace default header icons with custom content-->
-    <slot name="header-icons" v-bind="{ accountIcon, wishlistIcon, cartIcon }">
-      <div class="sf-header__icons">
-        <SfCircleIcon
-          v-if="accountIcon"
-          :icon="accountIcon"
-          icon-size="20px"
-          class="sf-header__icon"
-          :class="{ 'sf-header__icon--is-active': activeIcon === 'account' }"
-          role="button"
-          aria-label="account"
-          :aria-pressed="activeIcon === 'account' ? 'true' : 'false'"
-          @click="$emit('click:account')"
-        />
-        <SfCircleIcon
-          v-if="wishlistIcon"
-          :icon="wishlistIcon"
-          icon-size="20px"
-          class="sf-header__icon"
-          :class="{ 'sf-header__icon--is-active': activeIcon === 'wishlist' }"
-          role="button"
-          aria-label="wishlist"
-          :aria-pressed="activeIcon === 'wishlist' ? 'true' : 'false'"
-          @click="$emit('click:wishlist')"
-        />
-        <SfCircleIcon
-          v-if="cartIcon"
-          :icon="cartIcon"
-          icon-size="20px"
-          class="sf-header__icon"
-          :class="{ 'sf-header__icon--is-active': activeIcon === 'cart' }"
-          role="button"
-          aria-label="cart"
-          :aria-pressed="activeIcon === 'cart' ? 'true' : 'false'"
-          @click="$emit('click:cart')"
-        />
-      </div>
-    </slot>
-    <!--@slot Use this slot to replace default header language selector on mobile -->
-    <slot name="language-selector"></slot>
-  </header>
+    <div class="sf-header__sticky-container">
+      <header ref="header" class="sf-header__container">
+        <!--@slot Use this slot to replace logo with text or icon-->
+        <slot name="logo" v-bind="{ logo, title }">
+          <SfImage
+            v-if="logo"
+            :src="logo"
+            :alt="title"
+            class="sf-header__logo focus-ring"
+            tabindex="0"
+          />
+          <h1 v-else class="sf-header__title">{{ title }}</h1>
+        </slot>
+        <nav v-if="!isMobile" class="sf-header__navigation">
+          <!--@slot Use this slot to replace default navigation links -->
+          <slot name="navigation" />
+        </nav>
+        <!--@slot Use this slot to replace default search bar-->
+        <slot name="search" v-bind="{ searchPlaceholder }">
+          <SfSearchBar
+            v-if="hasMobileSearch || !isMobile"
+            :placeholder="searchPlaceholder"
+            class="sf-header__search"
+          />
+        </slot>
+        <!--@slot Use this slot to replace default header icons with custom content-->
+        <slot
+          name="header-icons"
+          v-bind="{ accountIcon, wishlistIcon, cartIcon }"
+        >
+          <div v-if="!isMobile" class="sf-header__icons">
+            <SfCircleIcon
+              v-for="icon in headerIcons"
+              :key="icon.name"
+              :icon="icon.icon"
+              icon-size="1.25rem"
+              class="sf-header__circle-icon"
+              :class="{
+                'sf-header__circle-icon--is-active': activeIcon === icon.name
+              }"
+              role="button"
+              :aria-label="icon.name"
+              :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
+              @click="$emit(`click:${icon.name}`)"
+            />
+          </div>
+        </slot>
+        <!--@slot Use this slot to replace default header language selector on mobile -->
+        <slot name="language-selector" />
+      </header>
+    </div>
+    <div class="sf-header__sticky-holder" :style="height" />
+  </div>
 </template>
+
 <script>
 import Vue from "vue";
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver
+} from "../../../utilities/mobile-observer";
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
@@ -132,11 +134,116 @@ export default {
       default: false
     },
     /**
+     * Header sticky to top
+     */
+    isSticky: {
+      type: Boolean,
+      default: false
+    },
+    /**
      * Header search placeholder
      */
     searchPlaceholder: {
       type: String,
       default: "Search for items"
+    }
+  },
+  data() {
+    return {
+      headerIcons: [
+        {
+          conditional: this.accountIcon,
+          icon: this.accountIcon,
+          name: "account"
+        },
+        {
+          conditional: this.wishlistIcon,
+          icon: this.wishlistIcon,
+          name: "wishlist"
+        },
+        {
+          conditional: this.cartIcon,
+          icon: this.cartIcon,
+          name: "cart"
+        }
+      ],
+      isVisible: true,
+      isSearchVisible: true,
+      sticky: false,
+      scrollDirection: undefined, // false = down, true = up
+      lastScrollPosition: 0,
+      animationStart: undefined,
+      animationLong: undefined,
+      animationDuration: 300,
+      height: {}
+    };
+  },
+  computed: {
+    ...mapMobileObserver()
+  },
+  watch: {
+    scrollDirection() {
+      if (typeof window === "undefined" || typeof document === "undefined")
+        return;
+      window.cancelAnimationFrame(this.animationLong);
+      this.animationLong = undefined;
+      this.animationStart = undefined;
+      this.animationLong = window.requestAnimationFrame(this.animationHandler);
+    },
+    isMobile: {
+      handler() {
+        this.$nextTick(() => {
+          const containerHeight = this.$refs.header;
+          this.height = {
+            height: `${containerHeight.offsetHeight}px`
+          };
+        });
+      },
+      immediate: true
+    },
+    hasMobileSearch: {
+      handler() {
+        this.$nextTick(() => {
+          const computedContainer = window.getComputedStyle(this.$refs.header);
+          this.height = {
+            height: computedContainer.height
+          };
+        });
+      },
+      immediate: true
+    }
+  },
+  mounted() {
+    if (this.isSticky) {
+      window.addEventListener("scroll", this.scrollHandler, { passive: true });
+    }
+  },
+  beforeDestroy() {
+    if (this.isSticky) {
+      window.removeEventListener("scroll", this.scrollHandler);
+    }
+    unMapMobileObserver();
+  },
+  methods: {
+    animationHandler(timestamp) {
+      if (!this.animationStart) this.animationStart = timestamp;
+      const progress = timestamp - this.animationStart;
+      if (progress < this.animationDuration) {
+        this.animationLong = window.requestAnimationFrame(
+          this.animationHandler
+        );
+        return;
+      }
+      this.isVisible = this.scrollDirection;
+    },
+    scrollHandler() {
+      if (typeof window === "undefined" || typeof document === "undefined")
+        return;
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
+      this.scrollDirection = currentScrollPosition < this.lastScrollPosition;
+      this.isSearchVisible = currentScrollPosition <= 0;
+      this.lastScrollPosition = currentScrollPosition;
     }
   }
 };

@@ -46,7 +46,7 @@
     <div v-if="valid !== undefined" class="sf-select__error-message">
       <transition name="fade">
         <span v-if="valid === false">
-          <slot name="errorMessage">{{ errorMessage }}</slot>
+          <slot name="error-message">{{ errorMessage }}</slot>
         </span>
       </transition>
     </div>

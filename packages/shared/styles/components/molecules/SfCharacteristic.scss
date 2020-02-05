@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --characteristic-font-family: var(--body-font-family-primary);
   --characteristic-font-size: var(--font-size-small);
@@ -9,12 +8,10 @@
   --characteristic__title-font-family: var(--body-font-family-secondary);
   --characteristic__title-font-size: var(--font-size-regular);
   --characteristic__title-font-weight: 500;
-
   @media screen and (min-width: $desktop-min) {
     --characteristic-font-size: var(--font-size-small);
   }
 }
-
 .sf-characteristic {
   display: flex;
   align-items: center;
@@ -22,21 +19,18 @@
   font-size: var(--characteristic-font-size);
   font-weight: var(--characteristic-font-weight);
   line-height: var(--characteristic-line-height);
-
   &__icon {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: calc(var(--characteristic__icon-margin-right) / 2);
   }
-
   &__title {
     font-family: var(--characteristic__title-font-family);
     font-size: var(--characteristic__title-font-size);
     font-weight: var(--characteristic__title-font-weight);
   }
 }
-
 @media screen and (min-width: $desktop-min) {
   .sf-characteristic {
     &__icon {

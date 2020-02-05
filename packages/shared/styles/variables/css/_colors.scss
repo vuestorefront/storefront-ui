@@ -1,0 +1,201 @@
+$_darken-value: 5;
+$_lighten-value: 5;
+:root {
+  // Internal color variables
+  // Should NOT be used directly for theming or component styles
+  @include generate-color-variants(--c-black, #1d1f22);
+  @include generate-color-variants(--c-white, #ffffff);
+  @include generate-color-variants(--_c-green-primary, #5fce7d);
+  @include generate-color-variants(--_c-green-secondary, #9de2af);
+  @include generate-color-variants(--_c-dark-primary, #1d1f22);
+  @include generate-color-variants(--_c-dark-secondary, #737680);
+  @include generate-color-variants(--_c-gray-primary, #a3a5ad);
+  @include generate-color-variants(--_c-gray-secondary, #bebfc4);
+  @include generate-color-variants(--_c-light-primary, #f1f2f3);
+  @include generate-color-variants(--_c-light-secondary, #ffffff);
+  @include generate-color-variants(--_c-pink-primary, #e25e83);
+  @include generate-color-variants(--_c-pink-secondary, #e28fa1);
+  @include generate-color-variants(--_c-red-primary, #e22225);
+  @include generate-color-variants(--_c-red-secondary, #fff6f5);
+  @include generate-color-variants(--_c-yellow-primary, #ffdf3d);
+  @include generate-color-variants(--_c-yellow-secondary, #fffceb);
+  @include generate-color-variants(--_c-blue-primary, #6699cc);
+  @include generate-color-variants(--_c-blue-secondary, #e1f4fe);
+
+  /* START: Theme color variables */
+  // Body and text defaults
+  --c-body: var(--_c-light-secondary);
+  --c-text: var(--_c-dark-primary);
+  --c-text-muted: var(--_c-gray-primary);
+  --c-link: var(--_c-dark-secondary);
+  --c-link-hover: var(--c-black);
+
+  /* Brand colors */
+  // Primary
+  /* Should be used to drive attention to the main tasks that should be done while using the app.
+   * It is meant to be used in major interactive elements of the page. */
+  @include assign-color-variants(--c-primary, --_c-green-primary);
+  --c-primary-variant: var(--_c-green-secondary);
+  --c-on-primary: var(--_c-light-secondary);
+  --c-primary-hover: var(--_c-dark-primary);
+  --c-on-primary-hover: var(--c-white);
+  // Secondary
+  /* Should be used to drive attention in the elements with relevant info,
+   * but where the user is not intended to take action. */
+  @include assign-color-variants(--c-secondary, --_c-dark-primary);
+  --c-secondary-variant: var(--_c-dark-secondary);
+  --c-on-secondary: var(--_c-light-secondary);
+  --c-secondary-hover: var(--_c-dark-primary);
+  --c-on-secondary-hover: var(--c-white);
+
+  /* Base colors */
+  // Light
+  @include assign-color-variants(--c-light, --_c-light-primary);
+  --c-light-variant: var(--_c-light-secondary);
+  --c-on-light: var(--c-black);
+  --c-light-hover: var(--_c-dark-primary);
+  --c-on-light-hover: var(--c-white);
+  // Gray
+  @include assign-color-variants(--c-gray, --_c-gray-primary);
+  --c-gray-variant: var(--_c-gray-secondary);
+  --c-on-gray: var(--c-black);
+  --c-gray-hover: var(--_c-dark-primary);
+  --c-on-gray-hover: var(--c-white);
+  // Dark
+  @include assign-color-variants(--c-dark, --_c-dark-primary);
+  --c-dark-variant: var(--_c-dark-secondary);
+  --c-on-dark: var(--_c-light-secondary);
+  --c-dark-hover: var(--_c-dark-primary);
+  --c-on-dark-hover: var(--c-white);
+
+  /* Context colors */
+  // Info
+  @include assign-color-variants(--c-info, --_c-blue-primary);
+  --c-info-variant: var(--_c-blue-secondary);
+  --c-on-info: var(--_c-light-secondary);
+  --c-info-hover: var(--_c-dark-primary);
+  --c-on-info-hover: var(--c-white);
+  // Success
+  @include assign-color-variants(--c-success, --_c-green-primary);
+  --c-success-variant: var(--_c-green-secondary);
+  --c-on-success: var(--_c-light-secondary);
+  --c-success-hover: var(--_c-dark-primary);
+  --c-on-success-hover: var(--c-white);
+  // Warning
+  @include assign-color-variants(--c-warning, --_c-yellow-primary);
+  --c-warning-variant: var(--_c-yellow-secondary);
+  --c-on-warning: var(--_c-light-secondary);
+  --c-warning-hover: var(--_c-dark-primary);
+  --c-on-warning-hover: var(--c-white);
+  // Danger
+  @include assign-color-variants(--c-danger, --_c-red-primary);
+  --c-danger-variant: var(--_c-red-secondary);
+  --c-on-danger: var(--_c-light-secondary);
+  --c-danger-hover: var(--_c-dark-primary);
+  --c-on-danger-hover: var(--c-white);
+
+  /* END: Theme color variables */
+}
+// Map theme colors palette
+$colors-map: (
+  'primary': (
+    'bg': var(--c-primary),
+    'bg-base': var(--c-primary-base),
+    'bg-darken': var(--c-primary-darken),
+    'bg-lighten': var(--c-primary-lighten),
+    'bg-hover': var(--c-primary-hover),
+    'variant': var(--c-primary-variant),
+    'text': var(--c-on-primary),
+    'text-hover': var(--c-on-primary-hover)
+  ),
+  'secondary': (
+    'bg': var(--c-secondary),
+    'bg-base': var(--c-secondary-base),
+    'bg-darken': var(--c-secondary-darken),
+    'bg-lighten': var(--c-secondary-lighten),
+    'bg-hover': var(--c-secondary-hover),
+    'variant': var(--c-secondary-variant),
+    'text': var(--c-on-secondary),
+    'text-hover': var(--c-on-secondary-hover)
+  ),
+  'light': (
+    'bg': var(--c-light),
+    'bg-base': var(--c-light-base),
+    'bg-darken': var(--c-light-darken),
+    'bg-lighten': var(--c-light-lighten),
+    'bg-hover': var(--c-light-hover),
+    'variant': var(--c-light-variant),
+    'text': var(--c-on-light),
+    'text-hover': var(--c-on-light-hover)
+  ),
+  'dark': (
+    'bg': var(--c-dark),
+    'bg-base': var(--c-dark-base),
+    'bg-darken': var(--c-dark-darken),
+    'bg-lighten': var(--c-dark-lighten),
+    'bg-hover': var(--c-dark-hover),
+    'variant': var(--c-dark-variant),
+    'text': var(--c-on-dark),
+    'text-hover': var(--c-on-dark-hover)
+  ),
+  'info': (
+    'bg': var(--c-info),
+    'bg-base': var(--c-info-base),
+    'bg-darken': var(--c-info-darken),
+    'bg-lighten': var(--c-info-lighten),
+    'bg-hover': var(--c-info-hover),
+    'variant': var(--c-info-variant),
+    'text': var(--c-on-info),
+    'text-hover': var(--c-on-info-hover)
+  ),
+  'success': (
+    'bg': var(--c-success),
+    'bg-base': var(--c-success-base),
+    'bg-darken': var(--c-success-darken),
+    'bg-lighten': var(--c-success-lighten),
+    'bg-hover': var(--c-success-hover),
+    'variant': var(--c-success-variant),
+    'text': var(--c-on-success),
+    'text-hover': var(--c-on-success-hover)
+  ),
+  'warning': (
+    'bg': var(--c-warning),
+    'bg-base': var(--c-warning-base),
+    'bg-darken': var(--c-warning-darken),
+    'bg-lighten': var(--c-warning-lighten),
+    'bg-hover': var(--c-warning-hover),
+    'variant': var(--c-warning-variant),
+    'text': var(--c-on-warning),
+    'text-hover': var(--c-on-warning-hover)
+  ),
+  'danger': (
+    'bg': var(--c-danger),
+    'bg-base': var(--c-danger-base),
+    'bg-darken': var(--c-danger-darken),
+    'bg-lighten': var(--c-danger-lighten),
+    'bg-hover': var(--c-danger-hover),
+    'variant': var(--c-danger-variant),
+    'text': var(--c-on-danger),
+    'text-hover': var(--c-on-danger-hover)
+  )
+);
+$icon-colors: (
+  "white": var(--c-white),
+  "black": var(--c-black),
+  "accent": var(--_c-green-primary),
+  "dark-secondary": var(--_c-dark-secondary),
+  "green-primary": var(--_c-green-primary),
+  "green-secondary": var(--_c-green-secondary),
+  "gray-primary": var(--_c-gray-primary),
+  "gray-secondary": var(--_c-gray-secondary),
+  "light-primary": var(--_c-light-primary),
+  "light-secondary": var(--_c-light-secondary),
+  "pink-primary": var(--_c-pink-primary),
+  "pink-secondary": var(--_c-pink-secondary),
+  "red-primary": var(--_c-red-primary),
+  "red-secondary": var(--_c-red-secondary),
+  "yellow-primary": var(--_c-yellow-primary),
+  "yellow-secondary": var(--_c-yellow-secondary),
+  "blue-primary": var(--_c-blue-primary),
+  "blue-secondary": var(--_c-blue-secondar) y
+);

@@ -2,172 +2,453 @@
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
-  number,
+  text,
+  object,
   optionsKnob as options
 } from "@storybook/addon-knobs";
+
 import SfHero from "./SfHero.vue";
-const data = () => {
-  return {
-    items: [
-      {
-        title: "Colorful summer dresses are already in store",
-        buttonText: "Learn more",
-        subtitle: "SUMMER COLLECTION 2019",
-        background: "#eceff1",
-        image: "https://i.ibb.co/Jn6JRGh/hero-bg-left.png"
-      },
-      {
-        title: "Colorful summer dresses are already in store",
-        subtitle: "SUMMER COLLECTION 2019",
-        buttonText: "Learn more",
-        background: "#efebe9",
-        image: "https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
-      },
-      {
-        title: "Colorful summer dresses are already in store",
-        subtitle: "SUMMER COLLECTION 2019",
-        buttonText: "Learn more",
-        background: "#fce4ec",
-        image: "https://i.ibb.co/6HS24vc/hero-bg-removebg-preview.png"
-      }
-    ]
-  };
-};
+
 storiesOf("Organisms|Hero", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    data,
     components: { SfHero },
     props: {
-      customClass1: {
+      customClass: {
         default: options(
-          "CSS Modifier for 1st item",
+          "customClass",
           {
-            "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
-            "bg-top-right": "sf-hero-item--position-bg-top-right",
-            "bg-top-left": "sf-hero-item--position-bg-top-left",
-            "align-right": "sf-hero-item--align-right"
+            "sf-hero-item--position-bg-top-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-left":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right"
           },
-          "sf-hero-item--position-bg-top-right",
+          "",
           { display: "multi-select" },
           "CSS Modifiers"
         )
       },
-      customClass2: {
+      sliderOptions: {
+        default: object("sliderOptions", { autoplay: false }, "Props")
+      },
+      title: {
+        default: text(
+          "title",
+          "Colorful summer dresses are already in store",
+          "Props"
+        )
+      },
+      subtitle: {
+        default: text("subtitle", "Summer Collection 2019", "Props")
+      },
+      buttonText: {
+        default: text("buttonText", "Lear more", "Props")
+      },
+      image: {
+        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+      },
+      background: {
+        default: text("background", "#ECEFF1", "Props")
+      }
+    },
+    template: `<SfHero
+        :slider-options="sliderOptions"
+        :style="{maxWidth: '1240px', margin: 'auto'}">
+      <SfHeroItem
+          :class="customClass"
+          :title="title"
+          :subtitle="subtitle"
+          :button-text="buttonText"
+          :image="image"
+          :background="background"
+      />
+      <SfHeroItem
+          title="Colorful summer dresses are already in store"
+          subtitle="Summer Collection 2019"
+          button-text="Learn more"
+          image="/assets/storybook/SfHero/hero.png"
+          background="#FCE4EC"
+      />
+    </SfHero>`
+  }))
+  .add("[slot] prev", () => ({
+    components: { SfHero },
+    props: {
+      customClass: {
         default: options(
-          "CSS Modifier for 2nd item",
+          "customClass",
           {
-            "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
-            "bg-top-right": "sf-hero-item--position-bg-top-right",
-            "bg-top-left": "sf-hero-item--position-bg-top-left",
-            "align-right": "sf-hero-item--align-right"
+            "sf-hero-item--position-bg-top-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-left":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right"
           },
-          "sf-hero-item--position-bg-bottom-left sf-hero-item--align-right",
+          "",
           { display: "multi-select" },
           "CSS Modifiers"
         )
       },
-      customClass3: {
+      sliderOptions: {
+        default: object("sliderOptions", { autoplay: false }, "Props")
+      },
+      title: {
+        default: text(
+          "title",
+          "Colorful summer dresses are already in store",
+          "Props"
+        )
+      },
+      subtitle: {
+        default: text("subtitle", "Summer Collection 2019", "Props")
+      },
+      buttonText: {
+        default: text("buttonText", "Lear more", "Props")
+      },
+      image: {
+        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+      },
+      background: {
+        default: text("background", "#ECEFF1", "Props")
+      }
+    },
+    template: `<SfHero
+        :slider-options="sliderOptions"
+        :style="{maxWidth: '1240px', margin: 'auto'}">
+      <template #prev="{go}">
+        <button @click="go">PREV</button>
+      </template>
+      <SfHeroItem 
+        :class="customClass"
+        :title="title"
+        :subtitle="subtitle"
+        :button-text="buttonText"
+        :image="image"
+        :background="background"
+      />
+      <SfHeroItem
+          title="Colorful summer dresses are already in store"
+          subtitle="Summer Collection 2019"
+          button-text="Learn more"
+          image="/assets/storybook/SfHero/hero.png"
+          background="#FCE4EC"
+      />
+    </SfHero>`
+  }))
+  .add("[slot] next", () => ({
+    components: { SfHero },
+    props: {
+      customClass: {
         default: options(
-          "CSS Modifier for 3rd item",
+          "customClass",
           {
-            "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
-            "bg-top-right": "sf-hero-item--position-bg-top-right",
-            "bg-top-left": "sf-hero-item--position-bg-top-left",
-            "align-right": "sf-hero-item--align-right"
+            "sf-hero-item--position-bg-top-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-left":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right"
           },
-          "null",
+          "",
           { display: "multi-select" },
           "CSS Modifiers"
         )
+      },
+      sliderOptions: {
+        default: object("sliderOptions", { autoplay: false }, "Props")
+      },
+      title: {
+        default: text(
+          "title",
+          "Colorful summer dresses are already in store",
+          "Props"
+        )
+      },
+      subtitle: {
+        default: text("subtitle", "Summer Collection 2019", "Props")
+      },
+      buttonText: {
+        default: text("buttonText", "Lear more", "Props")
+      },
+      image: {
+        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+      },
+      background: {
+        default: text("background", "#ECEFF1", "Props")
       }
     },
-    template: `<div style="max-width: 1240px; margin: auto">
-      <SfHero :sliderOptions="{autoplay: false}">
-        <SfHeroItem
-            v-for="(item, index) in items"
-            :title="item.title"
-            :subtitle="item.subtitle"
-            :buttonText="item.buttonText"
-            :background="item.background"
-            :image="item.image"
-            :class="index === 0 ? customClass1 : index === 1 ? customClass2 : customClass3"
-        />
-      </SfHero>
-    </div>`
-  }))
-  .add("[props] sliderOptions", () => ({
-    components: { SfHero },
-    props: {
-      autoplay: {
-        default: number("autoplay option for glide.js", 1000, {}, "Props")
-      }
-    },
-    data,
-    template: `<div style="max-width: 1240px; margin: auto">
-        <SfHero :sliderOptions="{ autoplay }">
-          <SfHeroItem
-            v-for="(item, index) in items"
-            :title="item.title"
-            :subtitle="item.subtitle"
-            :buttonText="item.buttonText"
-            :background="item.background"
-            :image="item.image"
-          />
-        </SfHero>
-      </div>`
-  }))
-  .add("[slot] controls", () => ({
-    components: { SfHero },
-    data,
-    template: `<div style="max-width: 1240px; margin: auto">
-        <SfHero>
-          <SfHeroItem
-              v-for="(item, index) in items"
-              :title="item.title"
-              :subtitle="item.subtitle"
-              :buttonText="item.buttonText"
-              :background="item.background"
-              :image="item.image"
-            />
-          <template v-slot:prev="{ go }">
-            <div @click="go">
-              <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">&lt; PREV</span>
-            </div>
-          </template>
-          <template v-slot:next="{ go }">
-            <div @click="go">
-              <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">NEXT &gt;</span>
-            </div>
-          </template>
-        </SfHero>
-      </div>`
+    template: `<SfHero
+        :slider-options="sliderOptions"
+        :style="{maxWidth: '1240px', margin: 'auto'}">
+      <template #next="{go}">
+        <button @click="go">NEXT</button>
+      </template>
+      <SfHeroItem
+          :class="customClass"
+          :title="title"
+          :subtitle="subtitle"
+          :button-text="buttonText"
+          :image="image"
+          :background="background"
+      />
+      <SfHeroItem
+          title="Colorful summer dresses are already in store"
+          subtitle="Summer Collection 2019"
+          button-text="Learn more"
+          image="/assets/storybook/SfHero/hero.png"
+          background="#FCE4EC"
+      />
+    </SfHero>`
   }))
   .add("[slot] bullets", () => ({
     components: { SfHero },
-    data,
-    template: `<div style="max-width: 1240px; margin: auto">
-        <SfHero>
-          <SfHeroItem
-                v-for="(item, index) in items"
-                :title="item.title"
-                :subtitle="item.subtitle"
-                :buttonText="item.buttonText"
-                :background="item.background"
-                :image="item.image"
-              />
-          <template v-slot:bullets="{ numberOfPages, page, go }">
-            <span v-for="n in numberOfPages">
-              <span @click="go(n - 1)" style="margin-right: 5px">
-                <template v-if="page === n">
-                  &lt; {{ n }} &gt;
-                </template>
-                <template v-else>
-                  {{ n }}
-                </template>
-              </span>
-            </span>
-          </template>
-        </SfHero>
-      </div>`
+    props: {
+      customClass: {
+        default: options(
+          "customClass",
+          {
+            "sf-hero-item--position-bg-top-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-left":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
+      sliderOptions: {
+        default: object("sliderOptions", { autoplay: false }, "Props")
+      },
+      title: {
+        default: text(
+          "title",
+          "Colorful summer dresses are already in store",
+          "Props"
+        )
+      },
+      subtitle: {
+        default: text("subtitle", "Summer Collection 2019", "Props")
+      },
+      buttonText: {
+        default: text("buttonText", "Lear more", "Props")
+      },
+      image: {
+        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+      },
+      background: {
+        default: text("background", "#ECEFF1", "Props")
+      }
+    },
+    template: `<SfHero
+        :slider-options="sliderOptions"
+        :style="{maxWidth: '1240px', margin: 'auto'}">
+      <template #bullets="{ numberOfPages, page, go }">
+        CUSTOM BULLETS
+      </template>
+      <SfHeroItem
+          :class="customClass"
+          :title="title"
+          :subtitle="subtitle"
+          :button-text="buttonText"
+          :image="image"
+          :background="background"
+      />
+      <SfHeroItem
+          title="Colorful summer dresses are already in store"
+          subtitle="Summer Collection 2019"
+          button-text="Learn more"
+          image="/assets/storybook/SfHero/hero.png"
+          background="#FCE4EC"
+      />
+    </SfHero>`
+  }))
+  .add("[slot] subtitle", () => ({
+    components: { SfHero },
+    props: {
+      customClass: {
+        default: options(
+          "customClass",
+          {
+            "sf-hero-item--position-bg-top-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-left":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
+      sliderOptions: {
+        default: object("sliderOptions", { autoplay: false }, "Props")
+      },
+      title: {
+        default: text(
+          "title",
+          "Colorful summer dresses are already in store",
+          "Props"
+        )
+      },
+      subtitle: {
+        default: text("subtitle", "Summer Collection 2019", "Props")
+      },
+      buttonText: {
+        default: text("buttonText", "Lear more", "Props")
+      },
+      image: {
+        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+      },
+      background: {
+        default: text("background", "#ECEFF1", "Props")
+      }
+    },
+    template: `<SfHero
+        :slider-options="sliderOptions"
+        :style="{maxWidth: '1240px', margin: 'auto'}">
+      <SfHeroItem
+        :class="customClass"
+        :title="title"
+        :subtitle="subtitle"
+        :button-text="buttonText"
+        :image="image"
+        :background="background"
+      >
+        <template #subtitle="{subtitle}">
+          CUSTOM SUBTITLE
+        </template>
+      </SfHeroItem>
+    </SfHero>`
+  }))
+  .add("[slot] title", () => ({
+    components: { SfHero },
+    props: {
+      customClass: {
+        default: options(
+          "customClass",
+          {
+            "sf-hero-item--position-bg-top-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-left":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
+      sliderOptions: {
+        default: object("sliderOptions", { autoplay: false }, "Props")
+      },
+      title: {
+        default: text(
+          "title",
+          "Colorful summer dresses are already in store",
+          "Props"
+        )
+      },
+      subtitle: {
+        default: text("subtitle", "Summer Collection 2019", "Props")
+      },
+      buttonText: {
+        default: text("buttonText", "Lear more", "Props")
+      },
+      image: {
+        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+      },
+      background: {
+        default: text("background", "#ECEFF1", "Props")
+      }
+    },
+    template: `<SfHero
+        :slider-options="sliderOptions"
+        :style="{maxWidth: '1240px', margin: 'auto'}">
+      <SfHeroItem
+          :class="customClass"
+          :title="title"
+          :subtitle="subtitle"
+          :button-text="buttonText"
+          :image="image"
+          :background="background"
+      >
+        <template #title="{title}">
+          CUSTOM TITLE
+        </template>
+      </SfHeroItem>
+    </SfHero>`
+  }))
+  .add("[slot] call-to-action", () => ({
+    components: { SfHero },
+    props: {
+      customClass: {
+        default: options(
+          "customClass",
+          {
+            "sf-hero-item--position-bg-top-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-left":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
+      sliderOptions: {
+        default: object("sliderOptions", { autoplay: false }, "Props")
+      },
+      title: {
+        default: text(
+          "title",
+          "Colorful summer dresses are already in store",
+          "Props"
+        )
+      },
+      subtitle: {
+        default: text("subtitle", "Summer Collection 2019", "Props")
+      },
+      buttonText: {
+        default: text("buttonText", "Lear more", "Props")
+      },
+      image: {
+        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+      },
+      background: {
+        default: text("background", "#ECEFF1", "Props")
+      }
+    },
+    template: `<SfHero
+        :slider-options="sliderOptions"
+        :style="{maxWidth: '1240px', margin: 'auto'}">
+      <SfHeroItem
+          :class="customClass"
+          :title="title"
+          :subtitle="subtitle"
+          :button-text="buttonText"
+          :image="image"
+          :background="background"
+      >
+        <template #call-to-action="{buttonText}">
+          CUSTOM CALL TO ACTION
+        </template>
+      </SfHeroItem>
+    </SfHero>`
   }));

@@ -1,19 +1,22 @@
 <template>
   <Fragment class="sf-tabs__tab">
-    <div
-      class="sf-tabs__title focus-ring"
-      tabindex="0"
-      :class="{ 'sf-tabs__title--active': isActive }"
-      @click="tabClick"
-    >
-      {{ title }}
-      <div class="sf-tabs__chevron">
-        <SfChevron :class="{ 'sf-chevron--top': isActive }" />
+    <!--@slot Title. Here you should pass a title tab-->
+    <slot name="title" v-bind="{ tabClick, isActive, title }">
+      <div
+        class="sf-tabs__title focus-ring"
+        tabindex="0"
+        :class="{ 'sf-tabs__title--active': isActive }"
+        @click="tabClick"
+      >
+        {{ title }}
+        <div class="sf-tabs__chevron">
+          <SfChevron :class="{ 'sf-chevron--top': isActive }" />
+        </div>
       </div>
-    </div>
+    </slot>
     <div class="sf-tabs__content">
       <!--@slot Default. Here you should pass your tab content-->
-      <slot></slot>
+      <slot />
     </div>
   </Fragment>
 </template>
@@ -32,7 +35,7 @@ export default {
      */
     title: {
       type: String,
-      default: "MenuItem"
+      default: ""
     }
   },
   data() {

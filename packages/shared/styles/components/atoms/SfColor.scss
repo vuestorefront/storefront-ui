@@ -1,10 +1,8 @@
 @import "../../variables";
-
 :root {
   --color-size: 2.5rem;
   --color-padding: 3px;
 }
-
 .sf-color {
   $this: &;
   box-sizing: border-box;
@@ -14,7 +12,6 @@
   border: 2px solid transparent;
   background-color: var(--color);
   transition: opacity 150ms ease;
-
   &:hover {
     #{$this}__fill {
       border: 2px solid var(--c-white);
@@ -28,14 +25,12 @@
     height: 100%;
     background-color: var(--color);
   }
-
   &--active {
     #{$this}__fill {
       border: 2px solid var(--c-white);
       transition: border 150ms ease-in-out;
     }
   }
-
   &--rounded {
     &, #{$this}__fill {
       border-radius: 50%;

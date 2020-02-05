@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --gallery-flex-direction: row;
   --gallery__nav-width: 100px;
@@ -13,7 +12,6 @@
   --gallery__stage-width: 400px;
   --gallery__stage-cursor: zoom-in;
 }
-
 .sf-gallery {
   width: 100%;
   text-align: center;
@@ -22,7 +20,6 @@
   position: relative;
   justify-content: center;
   margin-bottom: var(--gallery__item-mobile-size);
-
   &__thumbs {
     position: absolute;
     width: auto;
@@ -31,17 +28,14 @@
     display: inline-flex;
     bottom: var(--gallery__item-mobile-size);
   }
-
   &__item {
     cursor: pointer;
     opacity: var(--gallery__item-opacity);
     transition: var(--gallery__item-transition);
     margin-right: var(--gallery__item-margin-bottom);
-
     &:last-of-type {
       margin-right: 0;
     }
-
     &::before {
       content: "";
       display: block;
@@ -50,62 +44,50 @@
       background: var(--gallery__item-mobile-background);
       border-radius: 50%;
     }
-
     &--selected {
       cursor: auto;
       opacity: 1;
-
       &::before {
         background: var(--gallery__item-mobile--selected-background);
       }
     }
   }
-
   &__stage {
     width: var(--gallery__stage-width);
     max-width: 100%;
     overflow: hidden;
     user-select: none;
   }
-
   &__thumb {
     display: none;
   }
-
   &__big-image {
     max-width: 100%;
     width: auto;
     height: auto;
-
     &--has-zoom {
       cursor: var(--gallery__stage-cursor);
     }
   }
-
   img {
     user-select: none;
   }
-
   .glide {
     &__slides {
       margin: 0;
     }
   }
 }
-
 .sf-gallery__zoom {
   z-index: 1;
   position: absolute;
-
   img {
     transform: translate3d(0, -50%, 0) scale(2) !important;
   }
 }
-
 @media screen and (min-width: $desktop-min) {
   .sf-gallery {
     margin-bottom: 0;
-
     &__thumbs {
       position: static;
       display: block;
@@ -116,19 +98,15 @@
       bottom: auto;
       overflow-y: auto;
     }
-
     &__item {
       margin: 0 0 var(--gallery__item-margin-bottom);
-
       &:last-of-type {
         margin-bottom: 0;
       }
-
       &::before {
         display: none;
       }
     }
-
     &__thumb {
       display: block;
       width: 100%;
