@@ -42,6 +42,8 @@
               v-for="icon in headerIcons"
               :key="icon.name"
               :icon="icon.icon"
+              :has-badge="isCartEmpty && icon.hasBadge === true"
+              :badge-label="cartItemsQty"
               icon-size="1.25rem"
               class="sf-header__circle-icon"
               :class="{
@@ -146,6 +148,13 @@ export default {
     searchPlaceholder: {
       type: String,
       default: "Search for items"
+    },
+    /**
+     * Header cart items quantity
+     */
+    cartItemsQty: {
+      type: String,
+      default: "0"
     }
   },
   data() {
@@ -154,17 +163,20 @@ export default {
         {
           conditional: this.accountIcon,
           icon: this.accountIcon,
-          name: "account"
+          name: "account",
+          hasBadge: false
         },
         {
           conditional: this.wishlistIcon,
           icon: this.wishlistIcon,
-          name: "wishlist"
+          name: "wishlist",
+          hasBadge: false
         },
         {
           conditional: this.cartIcon,
           icon: this.cartIcon,
-          name: "cart"
+          name: "cart",
+          hasBadge: true
         }
       ],
       isVisible: true,
@@ -179,7 +191,10 @@ export default {
     };
   },
   computed: {
-    ...mapMobileObserver()
+    ...mapMobileObserver(),
+    isCartEmpty() {
+      return !!this.cartItemsQty
+    }
   },
   watch: {
     scrollDirection() {
