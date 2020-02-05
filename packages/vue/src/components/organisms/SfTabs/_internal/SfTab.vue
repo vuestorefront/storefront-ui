@@ -1,6 +1,7 @@
 <template>
   <Fragment class="sf-tabs__tab">
-    <slot name="title" v-bind="{ tabClick }">
+    <!--@slot Title. Here you should pass a title tab-->
+    <slot name="title" v-bind="{ tabClick, isActive, title }">
       <div
         class="sf-tabs__title"
         :class="{ 'sf-tabs__title--active': isActive }"

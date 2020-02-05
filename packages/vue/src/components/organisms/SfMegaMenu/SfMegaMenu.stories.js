@@ -298,7 +298,6 @@ storiesOf("Organisms|MegaMenu", module)
       <SfHeader
         title="Storefront UI"
         :logo="{ mobile: { url: '/assets/logo.svg' }, desktop: { url: '/assets/logo.svg' } }"
-        :style="{maxWidth: '1240px', margin: 'auto'}"
       >
         <template #navigation>
           <SfHeaderNavigationItem
