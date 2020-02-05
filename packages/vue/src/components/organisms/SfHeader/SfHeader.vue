@@ -191,8 +191,7 @@ export default {
   computed: {
     ...mapMobileObserver(),
     isCartEmpty() {
-      const parsedQty = parseInt(this.cartItemsQty, 10);
-      return parsedQty > 0;
+      return !!this.cartItemsQty
     }
   },
   watch: {

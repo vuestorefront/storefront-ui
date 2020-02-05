@@ -9,7 +9,8 @@
   --circle-icon-hover-box-shadow: 0 0 0 .3125rem rgba(var(--c-primary-base), .4);
   --circle-icon-active-box-shadow: 0 0 0 .625rem rgba(var(--c-primary-base), .4);
   --circle-icon__badge-background-color: var(--c-danger);
-  --circle-icon__badge-font-size: 11px;
+  --circle-icon__badge-font-family: var(--body-font-family-primary);
+  --circle-icon__badge-font-size: var(--font-size-extra-small);
   --circle-icon__badge-radius: 1.1rem;
 }
 .sf-circle-icon {
@@ -46,16 +47,17 @@
   &__badge {
     box-sizing: border-box;
     position: absolute;
-    right: 0;
+    right: calc(var(--spacer)*-1);
     top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     line-height: 1rem;
-    padding: 0 0.2rem;
+    padding: 0 3px;
     min-width: var(--circle-icon__badge-radius);
     min-height: var(--circle-icon__badge-radius);
     border-radius: 10px;
+    font-family: var(--circle-icon__badge-font-family);
     font-size: var(--circle-icon__badge-font-size);
     background-color: var(--circle-icon__badge-background-color);
     &-enter-active {
