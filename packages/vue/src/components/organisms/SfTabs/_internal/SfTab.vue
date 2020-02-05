@@ -13,7 +13,7 @@
         </div>
       </div>
     </slot>
-    <div class="sf-tabs__content">
+    <div v-if="isActive" class="sf-tabs__content">
       <!--@slot Default. Here you should pass your tab content-->
       <slot />
     </div>
