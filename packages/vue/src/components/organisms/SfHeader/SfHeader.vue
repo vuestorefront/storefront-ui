@@ -191,7 +191,7 @@ export default {
   computed: {
     ...mapMobileObserver(),
     isCartEmpty() {
-      return !!this.cartItemsQty
+      return !!this.cartItemsQty;
     }
   },
   watch: {
