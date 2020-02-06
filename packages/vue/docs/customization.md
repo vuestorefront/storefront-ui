@@ -6,18 +6,22 @@ Below you can read how you can customize different aspects of its styles and com
 
 [[toc]]
 ## Global styles
-Usually when you're designing a new app you're starting with a style guide. A style guide is a set of common design standards and principles used in a whole projet. It usually covers things such as typography or colors. 
+Usually when you're designing a new app you're starting with a style guide. A style guide is a set of common design standards and principles used in a whole project. It usually covers things such as typography or colors. 
 
-We can represent style guide as a set of global SCSS variables. By using them we are abstracting visual configuration from html and CSS structure tod eclarative variables. Thank to this approach we can ship updates to Storefront UI without breaking your projects.
+We can represent style guide as a set of global CSS variables. By using them we are abstracting visual configuration from html and CSS structure tod declarative variables. Thank to this approach we can ship updates to Storefront UI without breaking your projects.
 
-You can override them to shape the look and feel of your project. There are two groups of available SCSS variables in Storefront UI:
-- **Global** variables are representing project style guide. They are setting up global properties like like colors or typography.  For example below code in `sfui.scss` will change accent color in your whole project to `blue`.
-```scss
-$c-accent-primary: blue;
+You can override them to shape the look and feel of your project. There are two groups of available CSS variables in Storefront UI:
+- **Global** variables are representing project style guide. They are setting up global properties like like colors or typography.  For example below code in `sfui.scss` will change primary font in your whole project to `Raleway`.
+```css
+:root {
+    --body-font-family-primary: 'Raleway', serif;
+}
 ```
 - **Component-specific** variables are meant to customize behavior of certain component type (like `SfButton`). You can find them in documents about certain components. For example below code in `sfui.scss` will change default (not modified by other CSS rules) background color of every `SfButton` component in your project to `red`.
-```scss
-$button-background-color: red;
+```css
+:root {
+    --button-background-color: red;
+}
 ```
 You can override any of those variables in `sfui.scss` file in a root of your project.
 
