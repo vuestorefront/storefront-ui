@@ -1,30 +1,21 @@
-@import '../../variables';
-:root {
-  --badge-padding: .3125rem .625rem;
-  --badge-color: var(--c-white);
-  --badge-background-color: var(--c-primary);
-  --badge-font-family: var(--body-font-family-secondary);
-  --badge-font-size: var(--font-size-regular);
-  --badge-font-weight: 500;
-  --badge-line-height: 1.6;
-  @media screen and (min-width: $desktop-min) {
-    --badge-font-size: var(--font-size-small);
-  }
+:root{
+  --badge-c-primary: var(--c-primary);
 }
-.sf-badge {
-  box-sizing: border-box;
+.sf-badge{
   display: inline-block;
-  padding: var(--badge-padding);
-  background-color: var(--badge-background-color);
-  color: var(--badge-color);
-  font-family: var(--badge-font-family);
-  font-size: var(--badge-font-size);
-  font-weight: var(--badge-font-weight);
-  line-height: var(--badge-line-height);
+  box-sizing: border-box;
+  padding: var(--badge-padding, (var(--spacer) var(--spacer-medium)));
+  background: var(--badge-background, var(--badge-c-primary));
+  color: var(--badge-color, var(--c-white));
+  font: var(--badge-font-weight, 500) var(--badge-font-size, var(--font-size-small))/var(--badge-line-height, 1.6) var(--badge-font-family, var(--body-font-family-secondary));
   text-align: center;
-  cursor: default;
-  &--full-width {
+  &--full-width{
     width: 100%;
   }
-  @include color-modifiers('--badge');
+  $colors-map: ('primary', 'secondary', 'waring', 'danger', 'info', 'success');
+  @each $color in $colors-map {
+    &.color-#{$color}{
+      --badge-c-primary: var(--c-#{$color});
+    }
+  }
 }
