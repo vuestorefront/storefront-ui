@@ -23,18 +23,23 @@
   #{$variable}-darken: var(#{$value}-darken);
 }
 @mixin color-modifiers($var) {
-  @each $color, $map in $colors-map {
-    $background: map-get($map, 'bg');
-    $hover: map-get($map, 'bg-hover');
-    $text: map-get($map, 'text');
-    $text-hover: map-get($map, 'text-hover');
-    &.color-#{$color} {
-      #{$var}-color: $text;
-      #{$var}-background-color: $background;
-      #{$var}-border-color: $background;
-      #{$var}-hover-color: $text-hover;
-      #{$var}-hover-background-color: $hover;
-      #{$var}-hover-border-color: $hover;
-    }
+  //  @each $color, $map in $colors-map {
+  //  $background: map-get($map, 'bg');
+  //  $hover: map-get($map, 'bg-hover');
+  //  $text: map-get($map, 'text');
+  //  $text-hover: map-get($map, 'text-hover');
+  //  &.color-#{$color} {
+  //    #{$var}-color: $text;
+  //    #{$var}-background-color: $background;
+  //    #{$var}-border-color: $background;
+  //    #{$var}-hover-color: $text-hover;
+  //    #{$var}-hover-background-color: $hover;
+  //    #{$var}-hover-border-color: $hover;
+  //  }
+  //}
+}
+@mixin for-desktop {
+  @media screen and (min-width: $desktop-min) {
+    @content;
   }
 }
