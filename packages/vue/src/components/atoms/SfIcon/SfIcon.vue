@@ -23,7 +23,7 @@
 </template>
 <script>
 import icons from "@storefront-ui/shared/icons/icons";
-import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
+import { iconColorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { sizesValues as SF_SIZES } from "@storefront-ui/shared/variables/sizes";
 const SF_ICONS = Object.keys(icons);
 export default {

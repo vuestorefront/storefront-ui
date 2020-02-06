@@ -1,4 +1,4 @@
-export const colors = {
+export const iconColors = {
   greenPrimary: "green-primary",
   greenSecondary: "green-secondary",
   black: 'black',
@@ -16,6 +16,16 @@ export const colors = {
   bluePrimary: "blue-primary",
   blueSecondary: "blue-secondary",
   accent: "accent",
+};
+export const colors = {
+  primary: "color-primary",
+  secondary: "color-secondary",
+  light: "color-light",
+  dark: "color-dark",
+  info: "color-info",
+  success: "color-success",
+  warning: 'color-warning',
+  danger: 'color-danger'
 };
 export const palettes = {
   primary: {
@@ -48,4 +58,5 @@ export const palettes = {
   }
 };
 export const colorsValues = Object.values(colors);
+export const iconColorsValues = Object.values(iconColors);
 export default colors;
