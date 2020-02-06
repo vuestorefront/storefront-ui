@@ -1,48 +1,29 @@
-@import '../../variables';
-:root {
-  --breadcrumbs-font-family: var(--body-font-family-secondary);
-  --breadcrumbs-font-size: var(--font-size-small);
-  --breadcrumbs-font-weight: var(--body-font-weight-secondary);
-  --breadcrumbs-line-height: 1.6;
-  --breadcrumbs__link-color: var(--c-dark);
-  --breadcrumbs__link-hover-color: var(--c-dark-variant);
-  --breadcrumbs__item-padding: .75rem;
-  --breadcrumbs__item-color: var(--c-gray);
-  --breadcrumbs__item-separator-color: var(--breadcrumbs__link-color);
-  --breadcrumbs__item-separator: "|";
-  --breadcrumbs__current-color: var(--c-gray-variant);
-}
-.sf-breadcrumbs {
-  font-family: var(--breadcrumbs-font-family);
-  font-size: var(--breadcrumbs-font-size);
-  font-weight: var(--breadcrumbs-font-weight);
-  &__list {
-    list-style: none;
+.sf-breadcrumbs{
+  font: var(--breadcrumbs-font-weight, 400) var(--breadcrumbs-font-size, var(--font-size-small))/var(--breadcrumbs-line-height, 1.6) var(--breadcrumbs-font-family, var(--body-font-family-secondary));
+  &__list{
+    display: flex;
     padding: 0;
     margin: 0;
+    list-style: none;
   }
-  &__item {
-    display: inline-block;
-    color: var(--breadcrumbs__item-color);
-    &:not(:first-child) {
-      padding-left: var(--breadcrumbs__item-padding);
-      &::before {
-        display: inline-block;
-        content: var(--breadcrumbs__item-separator);
-        padding-right: var(--breadcrumbs__item-padding);
-        color: var(--breadcrumbs__item-separator-color);
+  &__item{
+    &:not(:first-child){
+      padding: var(--breadcrumbs__item-padding, 0 0 0 var(--spacer));
+      &::before{
+        padding: var(--breadcrumbs__item-before-padding, 0 var(--spacer) 0 0);
+        content: var(--breadcrumbs__item-seperator, "|")
       }
     }
   }
-  &__link {
+  &__link{
+    color: var(--breadcrumbs__link-color,var(--c-text));
     cursor: pointer;
-    color: var(--breadcrumbs__link-color);
-    &:hover {
-      color: var(--breadcrumbs__link-hover-color);
+    &--current{
+      --breadcrumbs__link-color: var(--c-text-muted);
+      cursor: default;
+      &:hover{
+        --breadcrumbs__link-color: var(--c-text-muted);
+      }
     }
-  }
-  &__current {
-    cursor: default;
-    color: var(--breadcrumbs__current-color);
   }
 }
