@@ -1,6 +1,6 @@
 :root{
   --button-c-primary: var(--c-primary);
-  --button-c-variant: var(--c-primary-variant);
+  --button-c-primary-variant: var(--c-primary-variant);
 }
 .sf-button{
   padding: var(--button-padding, (var(--spacer-medium) var(--spacer-extra-big)));
@@ -14,7 +14,7 @@
   outline: 0;
   transition: background-color 150ms linear, color 150ms linear;
   &:hover{
-    --button-background: var(--button-c-variant);
+    --button-background: var(--button-c-primary-variant);
   }
   &--full-width{
     width: 100%;
@@ -27,6 +27,10 @@
       --button-background: var(--button-c-primary);
       --button-color: var(--c-white)
     }
+    &:disabled{
+      --button-background: transparent;
+      --button-color: var(--button-c-primary)
+    }
   }
   &--text{
     --button-padding: 0;
@@ -35,14 +39,14 @@
     --button-text-transform: none;
     &:hover{
       --button-background: transparent;
-      --button-color: var(--button-c-variant);
+      --button-color: var(--button-c-primary-variant);
     }
   }
   $colors-map: ('primary', 'secondary', 'waring', 'danger', 'info', 'success');
   @each $color in $colors-map {
     &.color-#{$color}{
       --button-c-primary: var(--c-#{$color});
-      --button-c-variant: var(--c-#{$color}-variant);
+      --button-c-primary-variant: var(--c-#{$color}-variant);
     }
   }
   &:disabled{
