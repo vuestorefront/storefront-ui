@@ -1,82 +1,66 @@
-@import '../../variables';
-:root {
-  --arrow__button-color: var(--c-light);
-  --arrow__button-color--hover: var(--c-dark);
-  --arrow__button-shadow: 0 5px 12px -6px rgba(0, 0, 0, 0);
-  --arrow__button-shadow--right: 0 -5px 12px -5px rgba(0, 0, 0, .6);
-  --arrow__icon-color: var(--c-white);
-  --arrow__icon-color--hover: rgba(var(--c-dark-base), 0.65);
-}
-.sf-arrow {
-  $this: &;
-  &__button {
-    position: relative;
-    display: flex;
-    border: 0;
-    padding: 14px 10px 14px;
-    background-color: var(--arrow__button-color);
-    cursor: pointer;
-    outline: 0;
-    transition: padding 150ms linear, background-color 150ms linear, box-shadow 150ms linear;
-    box-shadow: 0 5px 12px -6px rgba(29, 31, 34, 0);
-    &:hover {
-      background-color: var(--arrow__button-color--hover);
-      box-shadow: 0 5px 12px -5px rgba(29, 31, 34, .6);
-      #{$this}__icon {
-        fill: var(--arrow__icon-color);
-      }
-    }
+.sf-arrow{
+  box-sizing: border-box;
+  width: var(--arrow-width, 2.75rem);
+  height: var(--arrow-height, 2.75rem);
+  display: flex;
+  align-items: center;
+  &:hover{
+    --arrow__button-background: var(--c-dark);
+    --arrow__button-box-shadow: 0 5px 12px -5px rgba(29, 31, 34, .6);
+    --arrow__icon-fill: var(--c-white);
   }
-  &__icon {
-    position: relative;
-    flex: 0 0 24px;
-    height: 12px;
-    fill: var(--arrow__icon-color--hover);
-    transition: fill 150ms linear;
-  }
-  &--long {
-    width: 70px;
-    height: 40px;
+  &__button{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    #{$this}__button {
-      padding: 9px 26px 9px 10px;
-      background-color: var(--arrow__icon-color);
-      &:hover {
-        padding: 14px 36px 14px 10px;
-        background-color: var(--arrow__icon-color--hover);
-      }
+    width: var(--arrow__button-width, 100%);
+    height: var(--arrow__button-height, 100%);
+    padding: var(--arrow__button-padding, 14px 10px);
+    border: var(--arrow__button-border, 0);
+    border-radius: var(--arrow__button-border-radius, 0);
+    background: var(--arrow__button-background, var(--c-light));
+    box-shadow: var(--arrow__button-box-shadow);
+    will-change: padding, background, box-shadow;
+    transition: padding 150ms linear, background 150ms linear, box-shadow 150ms linear;
+    outline: 0;
+    cursor: pointer;
+  }
+  &__icon{
+    width: var(--arrow__icon-width, 1.5rem);
+    height: var(--arrow__icon-height, 0.75rem);
+    fill: var(--arrow__icon-fill, var(--c-dark-base));
+    will-change: fill;
+    transition: fill 150ms linear;
+  }
+  &--long{
+    --arrow-width: 4.375rem;
+    --arrow-height: 2.5rem;
+    --arrow__button-width: auto;
+    --arrow__button-height: auto;
+    --arrow__button-padding: 9px 10px;
+    --arrow__button-background: var(--c-white);
+    &:hover{
+      --arrow__button-padding: 14px 36px 14px 10px;
     }
   }
-  &--right {
+  &--right{
+    transform: rotate(180deg);
     justify-content: flex-end;
-    #{$this}__button {
-      transform: rotate(180deg);
-      &:hover {
-        box-shadow: var(--arrow__button-shadow--right);
-      }
+    &:hover{
+      --arrow__button-box-shadow: 0 -5px 12px -5px rgba(0, 0, 0, .6);
     }
   }
-  &--rounded {
-    #{$this}__button {
-      border-radius: 50%;
+  &--rounded{
+    --arrow__button-border-radius: 100%;
+  }
+  &--transparent{
+    --arrow__button-background: transparent;
+    &:hover{
+      --arrow__button-background: transparent;
+      --arrow__icon-fill: var(--c-dark-base);
+      --arrow__button-box-shadow: none;
     }
   }
-  &--transparent {
-    #{$this}__button {
-      background-color: transparent;
-      &:hover {
-        box-shadow: none;
-        #{$this}__icon {
-          fill: var(--arrow__icon-color--hover);
-        }
-      }
-    }
-  }
-  &--no-shadow {
-    #{$this}__button:hover {
-      box-shadow: none;
-    }
+  &--no-shadow:hover{
+    --arrow__button-box-shadow: none;
   }
 }
