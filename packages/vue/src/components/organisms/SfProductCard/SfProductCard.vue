@@ -4,6 +4,7 @@
       :is="linkComponentTag"
       :href="linkComponentTag === 'a' ? link : undefined"
       :to="link && linkComponentTag !== 'a' ? link : undefined"
+      tabindex="0"
       class="sf-product-card__link"
     >
       <div class="sf-product-card__image-wrapper">
@@ -84,6 +85,7 @@
     </component>
     <button
       v-if="wishlistIcon !== false"
+      tabindex="0"
       :aria-label="ariaLabel"
       :class="wishlistIconClasses"
       @click="toggleIsOnWishlist"
@@ -117,6 +119,7 @@
         />
         <a
           v-if="reviewsCount"
+          tabindex="0"
           class="sf-product-card__reviews-count"
           href="#"
           @click="$emit('click:reviews')"
@@ -128,6 +131,7 @@
   </div>
 </template>
 <script>
+import "remove-focus-outline";
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";

@@ -1,6 +1,7 @@
 <template>
   <button
     class="sf-color"
+    tabindex="0"
     :class="{ 'sf-color--active': selected }"
     :style="style"
     :aria-pressed="selected.toString()"
@@ -13,6 +14,7 @@
   </button>
 </template>
 <script>
+import "remove-focus-outline";
 export default {
   name: "SfColor",
   props: {

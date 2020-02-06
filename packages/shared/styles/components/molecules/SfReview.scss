@@ -22,7 +22,6 @@
   --review__message_read_more-background-color: transparent;
   --review__message_read_more-border: none;
   --review__message_read_more-cursor: pointer;
-  --review__message_read_more-outline: none;
   --review__message_read_more-font-family: var(--body-font-family-primary);
   @media screen and (min-width: $desktop-min) {
     --review__author-font-size: var(--font-size-big);
@@ -65,7 +64,6 @@
     background-color: var(--review__message_read_more-background-color);
     border: var(--review__message_read_more-border);
     cursor: var(--review__message_read_more-cursor);
-    outline: var(--review__message_read_more-outline);
     font-family: var(--review__message_read_more-font-family);
   }
   &__display-inline-block {

@@ -12,6 +12,7 @@
       <div v-if="visible" class="sf-modal__container">
         <button
           v-if="cross"
+          tabindex="0"
           class="sf-modal__close"
           :aria-label="ariaLabelClose"
           @click="close"
@@ -33,6 +34,7 @@
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+import "remove-focus-outline";
 export default {
   name: "SfModal",
   components: {

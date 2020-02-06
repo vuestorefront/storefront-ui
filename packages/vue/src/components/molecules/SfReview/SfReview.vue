@@ -28,6 +28,7 @@
         <span class="sf-review__message">{{ finalMessage }} &nbsp;</span>
         <button
           v-if="showButton"
+          tabindex="0"
           class="sf-review__message_read_more"
           @click="toggleMessage"
         >
@@ -38,6 +39,7 @@
   </section>
 </template>
 <script>
+import "remove-focus-outline";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 export default {
   name: "SfReview",

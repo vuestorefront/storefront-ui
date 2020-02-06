@@ -16,7 +16,6 @@
     padding: 14px 10px 14px;
     background-color: var(--arrow__button-color);
     cursor: pointer;
-    outline: 0;
     transition: padding 150ms linear, background-color 150ms linear, box-shadow 150ms linear;
     box-shadow: 0 5px 12px -6px rgba(29, 31, 34, 0);
     &:hover {

@@ -68,7 +68,7 @@
             favorite brands.
           </p>
           <div class="product-details__action">
-            <button class="sf-action">Size guide</button>
+            <button class="sf-action" tabindex="0">Size guide</button>
           </div>
           <div class="product-details__section">
             <SfSelect
@@ -114,10 +114,10 @@
               class="product-details__add-to-cart"
             />
             <div class="product-details__action">
-              <button class="sf-action">Save for later</button>
+              <button class="sf-action" tabindex="0">Save for later</button>
             </div>
             <div class="product-details__action">
-              <button class="sf-action">Add to compare</button>
+              <button class="sf-action" tabindex="0">Add to compare</button>
             </div>
           </div>
           <SfTabs class="product-details__tabs" :open-tab="2">
@@ -779,7 +779,6 @@ export default {
 .sf-action {
   padding: 0;
   border: 0;
-  outline: none;
   background-color: transparent;
   color: var(--c-text);
   font-family: var(--body-font-family-secondary);

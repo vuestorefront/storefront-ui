@@ -3,6 +3,7 @@
     <button
       class="sf-arrow__button"
       type="button"
+      tabindex="0"
       :aria-label="ariaLabel"
       v-on="$listeners"
     >
@@ -26,6 +27,7 @@
   </div>
 </template>
 <script>
+import "remove-focus-outline";
 export default {
   name: "SfArrow",
   props: {

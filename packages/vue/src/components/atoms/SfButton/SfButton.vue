@@ -10,6 +10,7 @@
   </button>
 </template>
 <script>
+import "remove-focus-outline";
 export default {
   name: "SfButton",
   props: {

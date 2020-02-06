@@ -8,7 +8,6 @@
   --button-font-weight: var(--body-font-weight-secondary);
   --button-line-height: 1.6;
   --button-border: 0;
-  --button-outline: 0;
   --button-text-transform: uppercase;
   --button-transition: background-color 150ms linear, color 150ms linear;
   --button-hover-color: var(--c-on-secondary);
@@ -30,7 +29,6 @@
   cursor: pointer;
   padding: var(--button-padding);
   border: var(--button-border);
-  outline: var(--button-outline);
   color: var(--button-color);
   background-color: var(--button-background-color);
   font-family: var(--button-font-family);

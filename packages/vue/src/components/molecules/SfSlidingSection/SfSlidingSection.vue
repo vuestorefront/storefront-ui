@@ -11,7 +11,11 @@
       <div class="sf-sliding-section__mobile-bar">
         <!-- @slot Use this slot to replace close icon -->
         <slot name="close" v-bind="{ closeHandler }">
-          <button class="sf-sliding-section__close" @click="closeHandler">
+          <button
+            class="sf-sliding-section__close"
+            tabindex="0"
+            @click="closeHandler"
+          >
             <SfIcon icon="cross" size="xxs" />
           </button>
         </slot>

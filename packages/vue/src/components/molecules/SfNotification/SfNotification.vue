@@ -30,6 +30,7 @@
         <slot name="action" v-bind="{ action, actionHandler }">
           <button
             v-if="action"
+            tabindex="0"
             class="sf-notification__action"
             @click="actionHandler"
           >

@@ -36,9 +36,6 @@
       opacity: 1;
     }
   }
-  &__link {
-    outline: none;
-  }
   &__title {
     font-family: var(--body-font-family-secondary);
     font-size: var(--font-size-regular);
@@ -86,7 +83,6 @@
     border: 0;
     background-color: transparent;
     cursor: pointer;
-    outline: none;
     transition: opacity 150ms ease-in-out;
     &#{$this}--on-wishlist {
       opacity: 1;
