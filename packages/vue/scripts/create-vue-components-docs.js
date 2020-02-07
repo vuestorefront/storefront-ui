@@ -633,7 +633,10 @@ function extractCssModifiers(contentScssFile) {
     // as multiple modifiers may be on one line, we have to make this (stateful) reg exp. search
     while ((partialReResult = regExp.exec(line)) !== null) {
       // skip CSS vars which the simple regexp catches accidentally
-      if (partialReResult[0].includes("var(")) {
+      if (
+        partialReResult[0].includes("var(") ||
+        !partialReResult[0].includes(".")
+      ) {
         continue;
       }
       if (!uniqueModifiers.has(partialReResult[0])) {
