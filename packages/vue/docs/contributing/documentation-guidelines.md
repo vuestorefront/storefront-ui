@@ -43,7 +43,7 @@ The generation of our components documentation is automated. By running the yarn
     - whether it contains internal components.
 - The **SCSS** style file because it holds
     - the CSS modifiers (with an optional descriptions) and
-    - the SCSS variables.
+    - the CSS variables.
 - The **Vue** files are parsed for
     - props,
     - slots and

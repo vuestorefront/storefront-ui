@@ -169,6 +169,7 @@ function getComponentInfoFromPath(pathComponentVue) {
       "$1.stories.js"
     ),
     pathInternalComponents: path.join(componentDirname, "_internal"),
+    componentType: atomicType,
     storybookLink
   };
 }
@@ -442,33 +443,33 @@ function parseStoriesFile(contentStoriesFile) {
 }
 
 function parseScssFile(contentScssFile) {
-  const scssVariables = extractScssVariables(contentScssFile);
+  const cssVariables = extractCssVariables(contentScssFile);
   const cssModifiers = extractCssModifiers(contentScssFile);
 
   return {
-    scssVariables,
+    cssVariables,
     cssModifiers
   };
 }
 
-function extractScssVariables(contentScssFile) {
+function extractCssVariables(contentScssFile) {
   const lines = contentScssFile.split("\n");
 
   // account for multiline variable definition (a variable is considered terminated when the line ends with a semicolon)
   let lastLineNotTerminated = false;
-  let scssVariables = "";
+  let cssVariables = "";
   for (const line of lines) {
     if (lastLineNotTerminated || /^\$/.test(line)) {
-      scssVariables += line + "\n";
+      cssVariables += line + "\n";
       lastLineNotTerminated = !/(^$)|(;$)/.test(line);
     }
   }
 
-  if (!scssVariables) {
+  if (!cssVariables) {
     return "";
   }
 
-  return "```scss\n" + scssVariables + "```";
+  return "```scss\n" + cssVariables + "```";
 }
 
 function extractCssModifiers(contentScssFile) {
@@ -674,10 +675,11 @@ function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
     ["[[slots]]", componentInfo.slots || "None."],
     ["[[events]]", componentInfo.events || "None."],
     ["[[css-modifiers]]", componentInfo.cssModifiers || "None."],
-    ["[[scss-variables]]", componentInfo.scssVariables || "None."],
+    ["[[css-variables]]", componentInfo.cssVariables || "None."],
     ["[[path-component-html]]", componentInfo.pathComponentHtml],
     ["[[path-component-js]]", componentInfo.pathComponentJs],
-    ["[[storybook-link]]", componentInfo.storybookLink || ""]
+    ["[[storybook-link]]", componentInfo.storybookLink || ""],
+    ["[[component-type]]", componentInfo.componentType]
   ]);
   let renderedTemplate = contentTemplateFile;
   for (const [placeholder, value] of replaceMap.entries()) {
@@ -701,7 +703,7 @@ function addInternalComponentsToTargetMd(internalComponentsInfo, renderedMd) {
       ["[[internal-slots]]", componentInfo.slots || "None."],
       ["[[internal-events]]", componentInfo.events || "None."],
       ["[[internal-css-modifiers]]", componentInfo.cssModifiers || "None."],
-      ["[[internal-scss-variables]]", componentInfo.scssVariables || "None."]
+      ["[[internal-css-variables]]", componentInfo.cssVariables || "None."]
     ]);
     let renderedTemplate = internalComponentTemplate;
     for (const [placeholder, value] of replaceMap.entries()) {
@@ -908,9 +910,9 @@ function getInternalComponentTemplate() {
 [[internal-css-modifiers]]
 
 
-#### SCSS variables
+#### CSS variables
 
-[[internal-scss-variables]]`;
+[[internal-css-variables]]`;
 }
 
 module.exports = {
