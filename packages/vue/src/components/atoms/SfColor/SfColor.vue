@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     style() {
-      return { "--color": this.color };
+      return { "--color-background": this.color };
     }
   }
 };
