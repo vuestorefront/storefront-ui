@@ -1,36 +1,16 @@
-@import '../../variables';
-:root {
-  --price-font-family: var(--body-font-family-primary);
-  --price-font-size: var(--font-size-big);
-  --price-font-weight: var(--body-font-weight-secondary);
-  --price-line-height: 1.6;
-  --price__old-font-size: var(--font-size-small);
-  --price--big-font-size: var(--font-size-extra-big);
-  --price--big__old-font-size: var(--font-size-regular);
-}
-.sf-price {
-  $this: &;
-  font-family: var(--price-font-family);
-  line-height: var(--price-line-height);
-  font-weight: var(--price-font-weight);
-  font-size: var(--price-font-size);
-  &__regular {
-    text-decoration: none;
-  }
-  &__special {
-    color: var(--c-danger);
-    text-decoration: none;
-    margin-right: var(--spacer-small);
-  }
-  &__old {
-    color: var(--c-gray);
-    font-size: var(--price__old-font-size);
-    text-decoration: line-through;
-  }
-  &--big {
-    font-size: var(--price--big-font-size);
-    #{$this}__old {
-      font-size: var(--price--big__old-font-size);
+.sf-price{
+  &__value{
+    color: var(--price-color, var(--c-text));
+    font: var(--price-font-weight, 400) var(--price-font-size, var(--font-size-big))/var(--price-line-height, 1.6) var(--price-font-family, var(--body-font-family-primary));
+    text-decoration: var(--price-text-decoration, none);
+    &--special{
+      --price-color: var(--c-danger);
+      margin: 0 var(--spacer) 0 0;
+    }
+    &--old{
+      --price-color: var(--c-text-muted);
+      --price-font-size: var(--font-size-small);
+      --price-text-decoration: line-through;
     }
   }
 }
