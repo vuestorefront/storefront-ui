@@ -1,7 +1,10 @@
 <template>
   <div
     class="sf-checkbox"
-    :class="{ 'is-active': isChecked, 'is-disabled': disabled }"
+    :class="{
+      'sf-checkbox--is-active': isChecked,
+      'sf-checkbox--is-disabled': disabled
+    }"
   >
     <input
       :id="name"
@@ -16,7 +19,7 @@
     <label :for="name" class="sf-checkbox__container">
       <!-- @slot Custom check mark markup -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
-        <div class="sf-checkbox__checkmark" :class="{ 'is-active': isChecked }">
+        <div class="sf-checkbox__checkmark">
           <SfIcon v-if="isChecked" icon="check" size="11px" color="white" />
         </div>
       </slot>
