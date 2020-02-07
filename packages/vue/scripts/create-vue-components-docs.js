@@ -455,23 +455,155 @@ function parseScssFile(contentScssFile) {
 }
 
 function extractCssVariables(contentScssFile) {
-  const lines = contentScssFile.split("\n");
+  const mediaVars = getMediaArray(contentScssFile);
+  const varsArray = getVarsArray(contentScssFile);
+  const headConfig =
+    Object.keys(mediaVars).length > 0
+      ? ["NAME", "DEFAULT", "DESKTOP VALUE", "DESCRIPTION"]
+      : ["NAME", "DEFAULT", "DESCRIPTION"];
 
-  // account for multiline variable definition (a variable is considered terminated when the line ends with a semicolon)
-  let lastLineNotTerminated = false;
-  let cssVariables = "";
-  for (const line of lines) {
-    if (lastLineNotTerminated || /^\$/.test(line)) {
-      cssVariables += line + "\n";
-      lastLineNotTerminated = !/(^$)|(;$)/.test(line);
+  let varsTable = [];
+  let table = [];
+  let result = "";
+
+  varsArray.forEach(function(item) {
+    if (item.indexOf("// ") !== -1 && item.indexOf("--") === -1) {
+      let title = item.substring(item.indexOf("// ") + 2, item.length);
+      title = title.replace("-", "");
+
+      if (varsTable.length > 0) {
+        table = {
+          tableHeadConfig: headConfig,
+          tableBodyConfig: varsTable
+        };
+        result += `${generateStorybookTable(table)}`;
+        varsTable = [];
+      }
+
+      if (item.indexOf("// -") === -1) {
+        result += `\n###` + title + `\n`;
+      } else {
+        result += `####` + title + `\n`;
+      }
+    } else {
+      let name = item.substring(item.indexOf("--"), item.indexOf(":"));
+      let value = item.substring(item.indexOf(": ") + 2, item.indexOf(";"));
+      let description = "";
+      let desktopValue = "";
+
+      if (item.indexOf("// ") !== -1) {
+        description = item.substring(item.indexOf("// ") + 3, item.length);
+      }
+
+      if (mediaVars[name] !== undefined) {
+        desktopValue = mediaVars[name];
+      }
+
+      const arr = [];
+
+      if (name !== "" && value !== "") {
+        arr.push(name);
+        arr.push(value);
+      }
+
+      if (Object.keys(mediaVars).length > 0) {
+        arr.push(desktopValue);
+      }
+
+      arr.push(description);
+
+      if (arr.length > 2) {
+        varsTable.push(arr);
+      }
     }
+  });
+
+  if (varsTable.length > 0) {
+    table = {
+      tableHeadConfig: headConfig,
+      tableBodyConfig: varsTable
+    };
+    result += generateStorybookTable(table);
   }
 
-  if (!cssVariables) {
-    return "";
+  return result;
+}
+
+function getMediaArray(file) {
+  const start = file.indexOf(":root {");
+  const end = file.indexOf("}\n");
+  let vars = file.substring(start, end);
+
+  if (vars.indexOf("@media") === -1) {
+    return [];
   }
 
-  return "```scss\n" + cssVariables + "```";
+  const mediaArray = [];
+  let mediaVars = file.substring(file.indexOf("@media"));
+  mediaVars = mediaVars.substring(
+    mediaVars.indexOf("{") + 1,
+    mediaVars.indexOf("}\n")
+  );
+  mediaVars = mediaVars.split("\n");
+
+  mediaVars.forEach(function(item) {
+    let name = item.substring(item.indexOf("--"), item.indexOf(":"));
+    let value = item.substring(item.indexOf(": ") + 2, item.indexOf(";"));
+
+    if (name !== "" && value !== "") {
+      mediaArray[name] = value;
+    }
+  });
+
+  return mediaArray;
+}
+
+function getVarsArray(file) {
+  const start = file.indexOf(":root {");
+  const end = file.indexOf("}\n");
+  let vars = file.substring(start, end);
+
+  if (vars.indexOf("@media") !== -1) {
+    vars = vars.substring(0, vars.indexOf("@media"));
+  }
+
+  vars = vars.replace("{", "");
+  vars = vars.replace(" ", "");
+
+  return vars.split("\n");
+}
+
+function generateStorybookTable(config) {
+  const { tableHeadConfig, tableBodyConfig } = config;
+
+  const getTableBodyRow = item =>
+    item.reduce(
+      (acc, item, index) =>
+        (acc = index === 0 ? acc + `|${item}|` : acc + `${item}|`),
+      ""
+    );
+
+  const getSeparationTableHead = () =>
+    tableHeadConfig
+      .map((acc, index) => (index === 0 ? `|-----------|` : `-----------|`))
+      .join("");
+
+  const getTableHead = () =>
+    tableHeadConfig.reduce(
+      (acc, item, index) =>
+        index === 0 ? acc + `|${item}|` : acc + `${item}|`,
+      ""
+    );
+
+  const getTableBody = () =>
+    tableBodyConfig.reduce(
+      (acc, item) => (acc = acc + `${getTableBodyRow(item)}\n`),
+      ""
+    );
+
+  return `${getTableHead()}
+${getSeparationTableHead()}
+${getTableBody()}`;
 }
 
 function extractCssModifiers(contentScssFile) {
