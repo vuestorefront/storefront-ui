@@ -11,7 +11,7 @@
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    border: var(--color__fill-border,2px solid transparent);
+    border: var(--color__fill-border, 2px solid transparent);
     border-radius: var(--color-border-radius, 0);
     transition: border-color 150ms linear;
   }
