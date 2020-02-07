@@ -9,8 +9,6 @@
   --call-to-action__title-font-size: var(--font-size-big);
   --call-to-action__title-font-weight: var(--h1-font-weight);
   --call-to-action__title-line-height: 1.4;
-  --call-to-action--secondary__button-color: var(--c-on-dark);
-  --call-to-action--secondary__button-background-color: var(--c-dark);
   --call-to-action--light-color: var(--c-on-light);
   --call-to-action--light-background-color: var(--c-light);
   @media screen and (min-width: $desktop-min) {
@@ -45,12 +43,6 @@
   &__button {
     margin: var(--spacer-big) 0 0 0;
     white-space: nowrap;
-  }
-  &--secondary {
-    #{$this}__button {
-      color: var(--call-to-action--secondary__button-color);
-      background: var(--call-to-action--secondary__button-background-color);
-    }
   }
   &--light {
     color: var(--call-to-action--light-color);

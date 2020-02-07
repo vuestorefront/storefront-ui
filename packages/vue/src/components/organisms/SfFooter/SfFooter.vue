@@ -1,6 +1,8 @@
 <template>
   <footer class="sf-footer" :style="style">
-    <slot />
+    <div class="sf-footer__container">
+      <slot />
+    </div>
   </footer>
 </template>
 <script>
