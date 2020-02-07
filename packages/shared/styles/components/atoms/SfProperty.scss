@@ -1,32 +1,18 @@
-@import '../../variables';
-:root {
-  --property-font-family: var(--body-font-family-secondary);
-  --property-font-size: var(--font-size-regular);
-  --property-font-weight: var(--body-font-weight-secondary);
-  --property-line-height: 1.6;
-  --property__name-color: var(--c-gray-variant);
-  --property__value-font-weight: 500;
-  --property__value-font-weight-desktop: var(--body-font-weight-secondary);
-}
-.sf-property {
-  $this: &;
-  font-family: var(--property-font-family);
-  font-size: var(--property-font-size);
-  font-weight: var(--property-font-weight);
-  line-height: 1.6;
-  &__name {
-    margin-right: var(--spacer);
-    color: var(--property__name-color);
+.sf-property{
+  display: flex;
+  color: var(--c-text);
+  font: var(--price-font-weight, 400) var(--price-font-size, var(--font-size-regular))/var(--price-line-height, 1.6) var(--price-font-family, var(--body-font-family-secondary));
+  &__name{
+    margin: var(--propert__name-margin,0 var(--spacer) 0 0);
+    color: var(--property__name-color, var(--c-text-muted));
+    text-transform: var(--property__name-text-transform, none);
   }
-  &__value {
-    font-weight: var(--property__value-font-weight);
+  &__value{
+    font-weight: var(--property__value-font-weight, 500);
   }
-  &--full-width {
-    display: flex;
+  &--full-width{
+    --property__name-text-transform: uppercase;
     justify-content: space-between;
-    align-content: center;
-    #{$this}__name {
-      text-transform: uppercase;
-    }
+    align-items: center;
   }
 }
