@@ -128,7 +128,7 @@ function getFullComponentInfo(pathComponentVue) {
   const filenameComponentScss = componentInfoFromPath.pathComponentScss;
   let componentInfoFromScss;
   try {
-    componentInfoFromScss = getComponentInfoFromScss(filenameComponentScss);
+    componentInfoFromScss = getComponentInfoFromScss(componentInfoFromPath);
   } catch (e) {
     throw new Error(`Cannot read "${filenameComponentScss}": ${e.message}`);
   }
@@ -212,15 +212,17 @@ function getComponentInfoFromStories(pathComponentStories) {
   }
 }
 
-function getComponentInfoFromScss(filename) {
-  const contentScssFile = readComponentScss(filename);
+function getComponentInfoFromScss(componentInfo) {
+  const contentScssFile = readComponentScss(componentInfo);
   if (!contentScssFile) {
     return null;
   }
   try {
     return parseScssFile(contentScssFile);
   } catch (e) {
-    console.error(`ERROR: Cannot parse "${filename}": ${e.message}`);
+    console.error(
+      `ERROR: Cannot parse "${componentInfo.pathComponentScss}": ${e.message}`
+    );
     process.exit(1);
   }
 }
@@ -273,8 +275,8 @@ function readComponentStories(pathComponentStories) {
   return fs.readFileSync(fullPathComponentStories, "utf8");
 }
 
-function readComponentScss(filename) {
-  const pathComponentScss = pathInsideComponentsScssRoot(filename);
+function readComponentScss(componentInfo) {
+  const pathComponentScss = pathInsideComponentsScssRoot(componentInfo);
   if (!fs.existsSync(pathComponentScss)) {
     return null;
   }
@@ -475,7 +477,12 @@ function extractCssVariables(contentScssFile) {
 function extractCssModifiers(contentScssFile) {
   // remove webpack-alias-style import; the SASS compiler resolves all imports by simple name, if includePath is set
   const webpackGlidePath = "~" + nodePathSimplebarIncludes;
-  const contentWithFixedImports = contentScssFile.replace(webpackGlidePath, "");
+  let contentWithFixedImports = contentScssFile.replace(webpackGlidePath, "");
+  // variable folder url solution, problem by method "status = binding.renderSync(options)" from NODE-SASS
+  contentWithFixedImports = contentWithFixedImports.replace(
+    "../../variables",
+    "../variables"
+  );
   const { css } = sass.renderSync({
     data: contentWithFixedImports,
     includePaths: pathsSassIncludes,
@@ -822,8 +829,12 @@ function pathInsideComponentsRoot(subPath) {
   return path.join(pathVueComponentsRoot, subPath);
 }
 
-function pathInsideComponentsScssRoot(subPath) {
-  return path.join(pathComponentsScssRoot, subPath);
+function pathInsideComponentsScssRoot(componentInfo) {
+  const namePathInsideComponents = path.join(
+    componentInfo.componentType,
+    componentInfo.pathComponentScss
+  );
+  return path.join(pathComponentsScssRoot, namePathInsideComponents);
 }
 
 function pathInsideVuepressConfigRoot(subPath) {
