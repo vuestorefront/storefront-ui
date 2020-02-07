@@ -1,47 +1,31 @@
-@import '../../variables';
-:root {
-  --chevron-duration: 0.5s;
-  --chevron-easing: cubic-bezier(.25, 1.7, .35, .8);
-  --chevron-size: 20px;
-  --chevron__bar-color: var(--c-black);
-}
-@mixin chevron-bar($half-name) {
-  $direction: 1;
+.sf-chevron{
   $this: &;
-  @if $half-name == "right" {
-    $direction: -1;
-  }
-  &__#{$half-name}-bar {
+  position: relative;
+  width: var(--chevron-size, 1.25rem);
+  height: var(--chevron-size, 1.25rem);
+  cursor: pointer;
+  &__bar{
     position: absolute;
-    top: calc(calc(var(--chevron-size) / 2) - calc(calc(calc(var(--chevron-size) / 2) / 5) / 2));
-    #{$half-name}: calc(var(--chevron-size) / 10);
-    display: block;
-    width: calc(var(--chevron-size) / 2);
-    height: calc(calc(var(--chevron-size) / 2) / 5);
+    top: calc(calc(var(--chevron-size, 1.25rem) / 2) - calc(calc(calc(var(--chevron-size, 1.25rem) / 2) / 5) / 2));
     background-color: transparent;
-    transform: rotate(45deg * $direction);
-    @at-root #{$this}--top & {
-      &:after {
-        transform-origin: center center;
-        transform: rotate(-2 * 45deg * $direction);
-      }
-    }
+    transition: all 500ms cubic-bezier(.25, 1.7, .35, .8);
     &:after {
       content: "";
       display: block;
-      width: calc(var(--chevron-size) / 2);
-      height: calc(calc(var(--chevron-size) / 2) / 5);
-      background-color: var(--chevron__bar-color);
-      transition: all var(--chevron-duration) var(--chevron-easing);
+      width: calc(var(--chevron-size, 1.25rem) / 2);
+      height: calc(calc(var(--chevron-size, 1.25rem) / 2) / 5);
+      background-color: var(--chevron-background, var(--c-black));
+    }
+    &--left{
+      left: calc(var(--chevron-size, 1.25rem) / 10);
+      transform: rotate(var(--chevron-rotate, 45deg));
+    }
+    &--right{
+      right: calc(var(--chevron-size, 1.25rem) / 10);
+      transform: rotate(calc(var(--chevron-rotate, 45deg) * -1));
     }
   }
-}
-.sf-chevron {
-  cursor: pointer;
-  position: relative;
-  display: block;
-  height: var(--chevron-size);
-  width: var(--chevron-size);
-  @include chevron-bar($half-name: left);
-  @include chevron-bar($half-name: right);
+  &--top{
+    --chevron-rotate: -45deg;
+  }
 }
