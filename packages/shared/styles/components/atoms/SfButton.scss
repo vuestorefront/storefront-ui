@@ -1,6 +1,7 @@
 @import '../../variables';
 :root {
-  --button-padding: 1rem 2.5rem;
+  // Primary Button
+  --button-padding: 1rem 2.5rem; // Button padding
   --button-color: var(--c-on-primary);
   --button-background-color: var(--c-primary);
   --button-font-family: var(--body-font-family-secondary);
@@ -15,6 +16,7 @@
   --button-hover-background-color: var(--c-primary-hover);
   --button-hover-border: 0;
   --button-hover-outline: 0;
+  // Outline Button
   --button--outline-color: var(--c-primary);
   --button--outline-border: 2px;
   --button--outline-border-color: var(--c-primary);
