@@ -1,5 +1,7 @@
 <template>
   <button
+    v-focus
+    tabindex="0"
     class="sf-color"
     :class="{ 'sf-color--active': selected }"
     :style="style"
@@ -13,6 +15,7 @@
   </button>
 </template>
 <script>
+import "../../../utilities/directives/directives.js";
 export default {
   name: "SfColor",
   props: {
