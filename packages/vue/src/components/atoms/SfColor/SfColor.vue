@@ -15,9 +15,12 @@
   </button>
 </template>
 <script>
-import "../../../utilities/directives/directives.js";
+import { focus } from "../../../utilities/directives/directives.js";
 export default {
   name: "SfColor",
+  directives: {
+    focus: focus
+  },
   props: {
     color: {
       type: String,

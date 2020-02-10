@@ -1,9 +1,7 @@
 import Vue from "vue";
 
-Vue.directive("focus", {
-  // When the bound element is inserted into the DOM...
+export const focus = {
   inserted: function(el) {
-    // Focus the element
     el.focus();
   },
   update: function(el, binding) {
@@ -13,5 +11,13 @@ Vue.directive("focus", {
         el.focus();
       });
     }
+  },
+  bind: function(el) {
+    el.addEventListener("mousedown", function() {
+      el.style.outline = "0";
+    });
+  },
+  unbind: function(el) {
+    el.removeEventListener("mousedown");
   }
-});
+};
