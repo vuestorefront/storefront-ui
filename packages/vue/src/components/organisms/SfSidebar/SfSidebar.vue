@@ -3,6 +3,15 @@
     <SfOverlay :visible="visibleOverlay" @click="close" />
     <transition :name="transitionName">
       <aside v-if="visible" class="sf-sidebar__aside">
+        <!--@slot Use this slot to place content inside the modal bar.-->
+        <slot name="modal-bar">
+          <SfBar
+            :title="headingTitle"
+            class="mobile-only"
+            :back="true"
+            @click:back="close"
+          />
+        </slot>
         <div ref="content" class="sf-sidebar__content">
           <slot
             name="title"
@@ -23,7 +32,7 @@
             v-if="button"
             icon-size="14px"
             icon="cross"
-            class="sf-sidebar__circle-icon"
+            class="sf-sidebar__circle-icon desktop-only"
             @click="close"
           />
         </slot>
@@ -32,6 +41,7 @@
   </div>
 </template>
 <script>
+import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
@@ -39,6 +49,7 @@ import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 export default {
   name: "SfSidebar",
   components: {
+    SfBar,
     SfCircleIcon,
     SfOverlay,
     SfHeading
