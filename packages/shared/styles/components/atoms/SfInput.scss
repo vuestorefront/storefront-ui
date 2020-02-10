@@ -121,4 +121,8 @@
       content: "";
     }
   }
+  &--has-text{
+    --input__label-top: 0;
+    --input__label-font-size: var(--font-size-extra-small);
+  }
 }
