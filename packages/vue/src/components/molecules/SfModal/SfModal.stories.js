@@ -46,7 +46,7 @@ storiesOf("Molecules|Modal", module)
   .add("[slot] close", () => ({
     components: { SfModal },
     props: {
-      title: {
+      headingTitle: {
         default: text("headingTitle", "My title", "Props")
       },
       overlay: {
