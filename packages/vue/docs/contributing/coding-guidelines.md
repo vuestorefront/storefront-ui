@@ -97,7 +97,7 @@ A **safe** set of properties to customize are: `font-size`, `text-align`, `color
 9. **DO NOT** use any outer positioning for components (like outer margins). The way they're positioned in layout should be determined in outer environment.
 
 :::tip SAMPLE CSS FILE
-[Here](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/shared/styles/components/SfBanner.scss) you can find an example of properly styled component with all rules applied.
+[Here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/components/molecules/SfBanner.scss) you can find an example of properly styled component with all rules applied.
 :::
 
 ### Template rules
