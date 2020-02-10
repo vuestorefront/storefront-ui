@@ -1,12 +1,12 @@
 # How to create/edit Storefront UI component
 
-At this point we assume you're already familiar with [our coding guidelines](coding-guidelines.md) and know how to [work with our Figma designs](working-with-designs.md). The below section will guide you through how to create your first component for the library!
+At this point we assume you're already familiar with [our coding guidelines](coding-guidelines.md) and know how to [work with our Figma designs](../design/working-with-designs.md). The below section will guide you through how to create your first component for the library!
 
 ## Generate the component's template
 
 Run `create-component` script at the respository's root level to generate all the files needed.
 ```bash
-$storefront-ui npm run create-component
+$storefront-ui yarn run create-component
 ```
 You will need to select the correct configurations for your component, such as:
 
@@ -67,7 +67,7 @@ in `packages/vue/scripts/component-template` folder.
 ## Running tests
 
 You should test your component by importing it inside `packages/vue/src/Playground.vue`,
-then running `npm run serve`.
+then running `yarn run serve`.
 
 Or do `yarn test:unit` to run all the unit tests.
 

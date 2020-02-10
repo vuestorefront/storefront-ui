@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --badge-padding: .3125rem .625rem;
   --badge-color: var(--c-white);
@@ -8,12 +7,10 @@
   --badge-font-size: var(--font-size-regular);
   --badge-font-weight: 500;
   --badge-line-height: 1.6;
-
   @media screen and (min-width: $desktop-min) {
     --badge-font-size: var(--font-size-small);
   }
 }
-
 .sf-badge {
   box-sizing: border-box;
   display: inline-block;
@@ -26,10 +23,8 @@
   line-height: var(--badge-line-height);
   text-align: center;
   cursor: default;
-
   &--full-width {
     width: 100%;
   }
-
   @include color-modifiers('--badge');
 }

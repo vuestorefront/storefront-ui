@@ -4,6 +4,7 @@ import {
   withKnobs,
   text,
   select,
+  boolean,
   color,
   optionsKnob as options
 } from "@storybook/addon-knobs";
@@ -42,6 +43,15 @@ storiesOf("Atoms|CircleIcon", module)
       },
       iconColor: {
         default: color("iconColor", "#FFFFFF", "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "Go to home", "Props")
+      },
+      hasBadge: {
+        default: boolean("hasBadge", false, "Props")
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "99", "Props")
       }
     },
     template: `<SfCircleIcon
@@ -49,6 +59,9 @@ storiesOf("Atoms|CircleIcon", module)
         :icon="icon" 
         :iconSize="iconSize"
         :iconColor="iconColor"
+        :has-badge="hasBadge"
+        :badge-label="badgeLabel"
+        :aria-label="ariaLabel"
      />`
   }))
   .add("[slot] default", () => ({

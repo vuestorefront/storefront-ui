@@ -21,7 +21,6 @@ import SfCircleIcon from "../../src/components/atoms/SfCircleIcon/SfCircleIcon.v
 import SfCollectedProduct from "../../src/components/organisms/SfCollectedProduct/SfCollectedProduct.vue"
 import SfColor from "../../src/components/atoms/SfColor/SfColor.vue"
 import SfContentPages from "../../src/components/organisms/SfContentPages/SfContentPages.vue"
-import SfCounter from "../../src/components/molecules/SfCounter/SfCounter.vue"
 import SfDivider from "../../src/components/atoms/SfDivider/SfDivider.vue"
 import SfFilter from "../../src/components/molecules/SfFilter/SfFilter.vue"
 import SfFooter from "../../src/components/organisms/SfFooter/SfFooter.vue"
@@ -93,7 +92,6 @@ export default ({
   Vue.component("SfCollectedProduct", SfCollectedProduct);
   Vue.component("SfColor", SfColor);
   Vue.component("SfContentPages", SfContentPages);
-  Vue.component("SfCounter", SfCounter);
   Vue.component("SfDivider", SfDivider);
   Vue.component("SfFilter", SfFilter);
   Vue.component("SfFooter", SfFooter);

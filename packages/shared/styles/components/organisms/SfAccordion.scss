@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --accordion-font-family: var(--body-font-family-secondary);
   --accordion-font-size: var(--font-size-regular);
@@ -8,21 +7,17 @@
   --accordion__title-padding-y: .625rem;
   --accordion__title-font-size: var(--font-size-big);
   --accordion__content-padding-y: 1.875rem;
-  --accordion-item__chevron-size: 1.25rem;
-
   @media screen and (min-width: $desktop-min) {
     --accordion-font-size: var(--font-size-regular);
     --accordion__title-font-size: var(--font-size-big);
   }
 }
-
 .sf-accordion-item {
   $this: &;
   font-family: var(--accordion-font-family);
   font-size: var(--accordion-font-size);
   font-weight: var(--accordion-font-weight);
   line-height: var(--accordion-line-height);
-
   &__header {
     display: flex;
     justify-content: space-between;
@@ -31,23 +26,20 @@
     cursor: pointer;
     font-size: var(--accordion__title-font-size);
   }
-
   &__content {
     padding: var(--accordion__content-padding-y) 0;
   }
-
   &__chevron {
     display: none;
   }
 }
-
 .sf-accordion {
   $this: &;
-
   &--has-chevron {
     #{$this}-item__chevron {
-      display: block;
-      margin-top:  calc(-1 * (var(--accordion-font-size) + var(--accordion-item__chevron-size)) / 2);
+      display: flex;
+      align-items: center;
+      max-height: calc(var(--accordion-font-size) * var(--accordion-line-height));
     }
   }
 }

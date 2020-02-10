@@ -1,20 +1,16 @@
 @import '../../variables';
-
 :root {
   --chevron-duration: 0.5s;
   --chevron-easing: cubic-bezier(.25, 1.7, .35, .8);
   --chevron-size: 20px;
   --chevron__bar-color: var(--c-black);
 }
-
 @mixin chevron-bar($half-name) {
   $direction: 1;
   $this: &;
-
   @if $half-name == "right" {
     $direction: -1;
   }
-
   &__#{$half-name}-bar {
     position: absolute;
     top: calc(calc(var(--chevron-size) / 2) - calc(calc(calc(var(--chevron-size) / 2) / 5) / 2));
@@ -24,14 +20,12 @@
     height: calc(calc(var(--chevron-size) / 2) / 5);
     background-color: transparent;
     transform: rotate(45deg * $direction);
-
     @at-root #{$this}--top & {
       &:after {
         transform-origin: center center;
         transform: rotate(-2 * 45deg * $direction);
       }
     }
-
     &:after {
       content: "";
       display: block;
@@ -42,7 +36,6 @@
     }
   }
 }
-
 .sf-chevron {
   cursor: pointer;
   position: relative;

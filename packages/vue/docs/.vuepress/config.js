@@ -66,7 +66,6 @@ module.exports = {
           ["/components/CollectedProduct", "Collected Product"],
           ["/components/Color", "Color"],
           ["/components/ContentPages", "Content Pages"],
-          ["/components/Counter", "Counter"],
           ["/components/Divider", "Divider"],
           ["/components/Filter", "Filter"],
           ["/components/Footer", "Footer"],

@@ -7,12 +7,14 @@
       <div class="sf-store-locator__list">
         <!-- @slot Use this slot to show stores cards -->
         <slot
-          :center-on="centerOn"
-          :register-store="registerStore"
-          :remove-store="removeStore"
-          :user-position="userPosition"
-          :calculate-distance="getGeoDistance"
-        ></slot>
+          v-bind="{
+            centerOn,
+            registerStore,
+            removeStore,
+            userPosition,
+            getGeoDistance
+          }"
+        />
       </div>
       <div class="sf-store-locator__map-wrapper">
         <l-map

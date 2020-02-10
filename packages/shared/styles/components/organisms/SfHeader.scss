@@ -1,170 +1,162 @@
 @import '../../variables';
-
-:root {
-  --header-height: 3.125rem;
-  --header-padding: 0 var(--spacer-extra-big);
-  --header-background-color: var(--c-light);
-  --header-navigation-item-margin-left: 2.5rem;
+:root{
+  --header__sticky-holder-background-color: var(--c-light);
+  --header__container-max-width: 1240px;
+  --header__container-height: auto;
+  --header__logo-height: 1.5rem;
   --header-navigation-item-font-family: var(--body-font-family-primary);
   --header-navigation-item-font-size: var(--font-size-regular);
   --header-navigation-item-font-weight: 500;
-
-  @media (min-width: $tablet-min) {
-    --header-padding: 0 var(--spacer-extra-big);
-    --header-height: 5rem;
-    --header-background-color: var(--c-white);
-    --header-navigation-item-font-size: var(--font-size-small);
+  --header-navigation-item-line-height: 1.6;
+  @media (min-width: $desktop-min) {
+    --header__sticky-holder-background-color: var(--c-white);
+    --header__container-height: 5rem;
+    --header__logo-height: 2.125rem;
   }
 }
-
-
-.sf-header-navigation-item {
+.sf-header-navigation-item{
   $this: &;
+  display: flex;
+  align-items: center;
   height: 100%;
-  margin-left: var(--spacer-extra-big);
-
-  &:first-child {
-    margin-left: 5rem;
-  }
-
-  &:hover {
-    & > a {
-      border-color: var(--c-text);
+  margin: 0 var(--spacer-extra-big) 0 0;
+  &:hover{
+    &::after{
+      background-color: var(--c-text);
     }
   }
-
-  & > a {
-    position: relative;
+  &::after{
+    position: absolute;
     z-index: 1;
-    display: flex;
-    align-items: center;
-    height: 100%;
+    width: 100%;
+    max-width: var(--max-width);
+    bottom: -2px;
+    height: 2px;
+    background-color: transparent;
+    content: "";
+  }
+  &:last-child{
+    margin: 0;
+  }
+  & > * {
     text-transform: uppercase;
     font-family: var(--header-navigation-item-font-family);
     font-size: var(--header-navigation-item-font-size);
-    font-weight: 500;
-    line-height: 1.6;
-    border-bottom: 2px solid transparent;
-    transition: border-color 150ms linear;
+    font-weight: var(--header-navigation-item-font-weight);
+    line-height: var(--header-navigation-item-line-height);
   }
 }
-
-.sf-header {
+.sf-header{
   $this: &;
-  position: relative;
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: var(--header-padding);
-  background-color: var(--header-background-color);
-
-  &--has-mobile-search {
-    #{$this}__search {
-      @media (max-width: $desktop-min) {
-        display: flex;
-        order: 1;
-        flex: 0 0 100%;
-        margin: var(--spacer) 0;
-        background-color: var(--c-white);
-      }
+  &__sticky-container{
+    position: relative;
+    box-sizing: border-box;
+    background-color: var(--header__sticky-holder-background-color);
+    @media screen and (min-width: $desktop-min) {
+      background-color: var(--header__sticky-holder-background-color);
     }
   }
-
-  &__logo {
+  &__sticky-holder{
+    box-sizing: border-box;
+  }
+  &__container{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--header__container-max-width);
+    margin: auto;
+    height: var(--header__container-height);
+    padding: 0 var(--spacer-big);
+    @media screen and (min-width: $desktop-min) {
+      justify-content: space-between;
+      height: var(--header__container-height);
+      padding: 0 var(--spacer-extra-big);
+      flex-wrap: nowrap;
+    }
+  }
+  &__logo{
     height: var(--header__logo-height);
-    width: auto;
     margin: 10px 0;
-
-    img {
-      height: 100%;
-      max-width: unset;
+    @media screen and (min-width: $desktop-min) {
+      margin: 0;
+      height: var(--header__logo-height);
+    }
+    &.sf-image{
+      img {
+        width: auto;
+        max-height: unset;
+        height: 100%;
+      }
     }
   }
-
-  &__navigation {
+  &__navigation{
     display: flex;
-    align-items: center;
     height: 100%;
-
-    &:hover > *:not(:hover) {
-      color: var(--c-text-muted);
-    }
-
-    & > *:hover {
-      color: var(--c-text);
-    }
+    margin: 0 0 0 5rem;
   }
-
-  &__search {
-    display: none;
+  &__search{
+    margin: 0 0 0 auto;
+    height: 2.25rem;
   }
-
-  &__icons {
+  &__icons{
     display: flex;
     align-items: center;
   }
-
-  &__icon {
-    $this: &;
-    margin-left: var(--spacer-big);
-
-    &.sf-circle-icon {
-      background-color: transparent;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: var(--c-light);
+  &__circle-icon{
+    margin: 0 0 0 var(--spacer-big);
+    &.sf-circle-icon{
+      &:hover{
         box-shadow: none;
-      }
-
-      &.sf-button {
-        padding: 10px;
-      }
-
-      & .sf-icon {
-        --icon-size: 1.25rem;
-        --icon-color: var(--c-text);
-
-        &:hover {
+        &.sf-button{
+          transition: background-color 0.3s ease;
+          background-color: var(--c-light);
+        }
+        & .sf-icon{
           --icon-color: var(--c-text);
         }
       }
+      &.sf-button{
+        transition: background-color 0.3s ease;
+        background-color: transparent;
+        padding: 10px;
+      }
+      & .sf-icon{
+        --icon-color: var(--c-text);
+      }
     }
-
-    &--is-active {
-      &.sf-circle-icon {
-        background-color: var(--c-primary);
-
-        & .sf-icon {
+    &--is-active{
+      &.sf-circle-icon{
+        &.sf-button{
+          background-color: var(--c-primary);
+        }
+        & .sf-icon{
           --icon-color: var(--c-white);
         }
       }
     }
   }
-
-  &__navigation,
-  &__icons {
-    @media (max-width: $desktop-min) {
-      display: none;
+  &--has-mobile-search{
+    #{$this}__search{
+      @media (max-width: $desktop-min){
+        margin: var(--spacer) 0;
+        &.sf-search-bar{
+          background-color: var(--c-white);
+        }
+      }
     }
   }
-}
-
-@media screen and (min-width: $desktop-min) {
-  .sf-header {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-
-    &__logo {
-      height: 2.125rem;
-      margin: 0;
+  &--is-sticky{
+    #{$this}__sticky-container{
+      position: fixed;
+      width: 100%;
+      transition: transform 150ms ease-in-out;
     }
-
-    &__search {
-      display: flex;
-      margin: 0 10px 0 auto;
+  }
+  &--is-hidden{
+    #{$this}__sticky-container{
+      transform: translate3d(0, -100%, 0);
     }
   }
 }

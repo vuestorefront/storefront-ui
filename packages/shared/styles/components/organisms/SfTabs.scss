@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --tabs-border-color: var(--c-light);
   --tabs-font-family: var(--body-font-family-secondary);
@@ -13,13 +12,11 @@
   --tabs__title-font-size: var(--font-size-big);
   --tabs__content-padding-y: calc(3 * var(--spacer-big));
   --tabs__chevron-size: 1.25rem;
-
   @media screen and (min-width: $desktop-min) {
     --tabs-font-size: var(--font-size-regular);
     --tabs__title-font-size: var(--font-size-big);
   }
 }
-
 .sf-tabs {
   $this: &;
   position: relative;
@@ -29,7 +26,6 @@
   font-size: var(--tabs-font-size);
   font-weight: var(--tabs-font-weight);
   line-height: var(--tabs-line-height);
-
   &__title {
     display: flex;
     flex-basis: 100%;
@@ -40,32 +36,27 @@
     cursor: pointer;
     transition: border-color 150ms ease-in-out, color 150ms ease-in-out;
     font-size: var(--tabs__title-font-size);
-
     &--active {
       border-color: transparent;
-
       & + #{$this}__content {
         display: block;
         border-bottom: 1px solid var(--tabs-border-color);
       }
     }
   }
-
   &__chevron {
-    margin-top: calc(-1 * (var(--tabs-font-size) + var(--tabs__chevron-size)) / 2);
+    display: flex;
+    align-items: center;
+    max-height: calc(var(--accordion-font-size) * var(--accordion-line-height));
   }
-
   &__content {
-    display: none;
     flex-basis: 100%;
     padding: calc(var(--tabs__content-padding-y) / 2) 0;
   }
 }
-
 @media screen and (min-width: $desktop-min) {
   .sf-tabs {
     $this: &;
-
     &__title {
       flex-basis: auto;
       margin-right: 2rem;
@@ -74,29 +65,24 @@
       border-width: 2px;
       border-color: transparent;
       color: var(--c-gray-variant);
-
       &--active {
         z-index: 1;
         border-width: 2px;
         border-color: var(--c-dark);
         color: var(--c-dark);
-
         & + #{$this}__content {
           border-bottom: 0;
         }
       }
-
       &:hover {
         color: var(--c-dark);
       }
     }
-
     &__content {
       order: 99;
       padding: var(--tabs__content-padding-y) 0;
       border-top: 2px solid var(--tabs-border-color);
     }
-
     &__chevron {
       display: none;
     }
