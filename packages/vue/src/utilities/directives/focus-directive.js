@@ -1,5 +1,5 @@
 function mousedownHandler(el) {
-  el.style.outlineWidth = "";
+  el.style.outline = "";
 }
 
 function keydownHandler(el) {
@@ -12,11 +12,11 @@ export const focus = {
   },
   bind: function(el) {
     el.addEventListener("mousedown", function() {
-      el.style.outlineWidth = "0";
+      el.style.outline = "0";
       el.blur();
     });
     el.addEventListener("keyup", function() {
-      el.style.outlineWidth = "";
+      el.style.outline = "";
       el.focus();
     });
   },
