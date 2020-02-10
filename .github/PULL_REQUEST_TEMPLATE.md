@@ -12,7 +12,6 @@
 - [ ] No commented blocks of code left
 - [ ] Run tests and docs
 - [ ] Self code-reviewed
-- [ ] Added Closes for related-ticket
 
 If applicable:
 
