@@ -98,7 +98,7 @@ export default {
       return (
         this.width &&
         this.height &&
-        `--width: ${this.width}; --height: ${this.height}`
+        `--image-max-width: ${this.width}; --image-height: ${this.height}`
       );
     },
     imgStyle() {

@@ -1,65 +1,49 @@
-@import '../../variables';
-:root {
-  --image__overlay-bgc: rgba(29, 31, 34, .8);
-  --image__overlay-c: var(--c-white);
-  --image__overlay-justify-content: center;
-  --image__overlay-align-items: center;
-  --image__overlay-background-color: rgba(29, 31, 34, .8);
-  --image__overlay-color: var(--c-white);
-}
-.sf-image {
+.sf-image{
   position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-width: calc(var(--width) * 1px);
+  overflow: var(--image-overflow, hidden);
+  width: var(--image-width, 100%);
+  max-width: calc(var(--image-max-width) * 1px);
   line-height: 0;
-  &::before {
+  &::before{
     display: block;
-    content: "";
-    padding-top: calc(var(--height) / var(--width) * 100%);
+    padding-top: calc(var(--image-height) / var(--image-max-width) * 100%);
+    content: var(--image-content, "");
   }
-  img {
-    position: absolute;
+  img{
+    position: var(--img-position, absolute);
     top: 50%;
     left: 0;
-    transform: translate3d(0, -50%, 0);
     display: block;
-    width: 100%;
+    width: var(--img-width, 100%);
     max-width: 100%;
-    height: auto;
+    height: 100%;
+    transform: var(--img-transform, translate3d(0, -50%, 0));
   }
-  &--no-size {
-    width: auto;
-    max-width: unset;
-    overflow: unset;
-    &::before {
-      content: unset;
-    }
-    img {
-      position: static;
-      transform: unset;
-    }
-  }
-  &__overlay {
+  &__overlay{
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: var(--spacer-big);
-    background-color: var(--image__overlay-background-color);
-    color: var(--image__overlay-color);
-    font-family: var(--body-font-family-secondary);
-    line-height: 1.6;
+    align-items: center;
+    padding: var(--image__overlay--padding, var(--spacer-big));
+    background: var(--image__overlay--background, rgba(29, 31, 34, .8));
+    color: var(--image__overlay--color, var(--c-white));
+    font: var(--button-font-weight, 300)
+      var(--button-font-size, var(--font-size-regular))/var(--button-line-height, 1.6)
+      var(--button-font-family, var(--body-font-family-secondary));
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-image {
-    &__overlay {
-      font-size: var(--font-size-regular);
+  &--no-size{
+    --image-overflow: unset;
+    --image-width: auto;
+    --image-max-width: unset;
+    --img-width: auto;
+    --img-position: static;
+    --img-transform: translate3d(0, 0, 0);
+    &::before{
+      --image-content: unset;
     }
   }
 }
