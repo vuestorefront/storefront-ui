@@ -10,9 +10,18 @@
     </SfOverlay>
     <transition :name="transitionModal">
       <div v-if="visible" class="sf-modal__container">
+        <!--@slot Use this slot to place content inside the modal bar.-->
+        <slot name="modal-bar">
+          <SfBar
+            class="sf-modal__bar mobile-only"
+            :close="true"
+            :title="headingTitle"
+            @click:close="close"
+          />
+        </slot>
         <button
           v-if="cross"
-          class="sf-modal__close"
+          class="sf-modal__close desktop-only"
           :aria-label="ariaLabelClose"
           @click="close"
         >
@@ -30,12 +39,15 @@
   </section>
 </template>
 <script>
+import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+
 export default {
   name: "SfModal",
   components: {
+    SfBar,
     SfOverlay,
     SfIcon
   },
@@ -44,6 +56,13 @@ export default {
     event: "close"
   },
   props: {
+    /**
+     * Heading title of the modal
+     */
+    headingTitle: {
+      type: String,
+      default: ""
+    },
     /**
      * Visibility of the modal
      */
