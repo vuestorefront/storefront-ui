@@ -1,6 +1,6 @@
 <template>
   <div id="sign-in">
-    <SfModal :visible="true">
+    <SfModal :visible="true" heading-title="Log in">
       <transition name="fade" mode="out-in">
         <div v-if="isLogin" key="log-in">
           <div class="form">
