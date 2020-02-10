@@ -14,7 +14,7 @@
   </button>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/directives.js";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfColor",
   directives: {
