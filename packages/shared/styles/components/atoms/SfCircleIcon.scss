@@ -1,70 +1,48 @@
-@import '../../variables';
-:root {
-  --circle-icon-background: var(--c-primary);
-  --circle-icon-size: 3.25rem;
-  --circle-icon-size-small: 1.625rem;
-  --circle-icon-size-big: 4rem;
-  --circle-icon-color: var(--c-on-primary);
-  --circle-icon-hover-background: var(--c-primary-lighten);
-  --circle-icon-hover-box-shadow: 0 0 0 .3125rem rgba(var(--c-primary-base), .4);
-  --circle-icon-active-box-shadow: 0 0 0 .625rem rgba(var(--c-primary-base), .4);
-  --circle-icon__badge-background-color: var(--c-danger);
-  --circle-icon__badge-font-family: var(--body-font-family-primary);
-  --circle-icon__badge-font-size: var(--font-size-extra-small);
-  --circle-icon__badge-radius: 1.1rem;
+:root{
+  --circle-icon-c-primary: var(--c-primary);
+  --circle-icon-c-primary-base: var(--c-primary-base);
+  --circle-icon-c-primary-lighten: var(--c-primary-lighten);
 }
-.sf-circle-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  border-radius: 50%;
-  transition: box-shadow 0.3s ease, opacity 150ms ease-in-out;
+.sf-circle-icon{
+  --button-padding: var(--circle-icon-padding, var(--spacer-big));
+  --button-background: var(--circle-icon-background, var(--circle-icon-c-primary));
   position: relative;
-  &.sf-button {
-    padding: var(--spacer-big);
+  border-radius: var(--circle-icon-border-radius, 100%);
+  box-shadow: var(--circle-icon-box-shadow);
+  transition: box-shadow 300ms ease;
+  &:hover{
+    --button-background: var(--circle-icon-background, var(--circle-icon-c-primary-lighten));
+    --circle-icon-box-shadow: 0 0 0 .3125rem rgba(var(--circle-icon-c-primary-base), .4);
   }
-  &:hover {
-    box-shadow: var(--circle-icon-hover-box-shadow);
-    background-color: var(--circle-icon-hover-background);
+  &:active{
+    --circle-icon-box-shadow: 0 0 0 .625rem rgba(var(--circle-icon-c-primary-base), .4);
   }
-  &:active {
-    box-shadow: var(--circle-icon-active-box-shadow);
-  }
-  @each $color, $map in $colors-map {
-    $background: map-get($map, 'bg');
-    $backgroundBase: map-get($map, 'bg-base');
-    $backgroundLighten: map-get($map, 'bg-lighten');
-    $text: map-get($map, 'text');
-    &.color-#{$color} {
-      --circle-icon-color: #{$text};
-      --circle-icon-background: #{$background};
-      --circle-icon-hover-background: #{$backgroundLighten};
-      --circle-icon-hover-box-shadow: 0 0 0 .3125rem rgba(#{$backgroundBase}, .4);
-      --circle-icon-active-box-shadow: 0 0 0 .625rem rgba(#{$backgroundBase}, .4);
-    }
-  }
-  &__badge {
-    box-sizing: border-box;
+  &__badge{
     position: absolute;
-    right: calc(var(--spacer)*-1);
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 1rem;
-    padding: 0 3px;
-    min-width: var(--circle-icon__badge-radius);
-    min-height: var(--circle-icon__badge-radius);
-    border-radius: 10px;
-    font-family: var(--circle-icon__badge-font-family);
-    font-size: var(--circle-icon__badge-font-size);
-    background-color: var(--circle-icon__badge-background-color);
-    &-enter-active {
-      animation: bounce-in .3s;
+    top: var(--circle-icon__badge-top, 0);
+    right: var(--circle-icon__badge-right, 0);
+    box-sizing: border-box;
+    min-width: var(--circle-icon__badge-size, 1.1rem);
+    min-height: var(--circle-icon__badge-size, 1.1rem);
+    padding: var(--circle-icon__badge-padding, 0 3px);
+    border-radius: var(--circle-icon__badge-border-radius, 10px);
+    background: var(--circle-icon__badge-background, var(--c-danger));
+    font: var(--circle-icon__badg-font-weight, 300)
+      var(--circle-icon__badg-font-size, var(--font-size-extra-small))/var(--circle-icon__badg-line-height, 1.6)
+      var(--circle-icon__badg-font-family, var(--body-font-family-primary));
+    &-enter-active{
+      animation: bounce-in 300ms;
     }
-    &-leave-active {
-      animation: bounce-in .3s reverse;
+    &-leave-active{
+      animation: bounce-in 300ms reverse;
+    }
+  }
+  $colors-map: ('primary', 'secondary', 'waring', 'danger', 'info', 'success');
+  @each $color in $colors-map {
+    &.color-#{$color}{
+      --circle-icon-c-primary: var(--c-#{$color});
+      --circle-icon-c-primary-base: var(--c-#{$color}-base);
+      --circle-icon-c-primary-lighten: var(--c-#{$color}-lighten);
     }
   }
 }
