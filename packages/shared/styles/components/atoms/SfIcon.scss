@@ -1,13 +1,15 @@
 @import '../../variables';
+
+$icon-size: var(--icon-size, #{map-get($sizes, "sm")});
+$icon-color: var(--icon-color, #{map-get($icon-colors, "black")});
+
 .sf-icon{
-  --icon-color: #{map-get($icon-colors, "black")};
-  --icon-size: #{map-get($sizes, "sm")};
   display: flex;
   box-sizing: border-box;
-  width: var(--icon-width, var(--icon-size));
-  height: var(--icon-height, var(--icon-size));
+  width: var(--icon-width, #{$icon-size});
+  height: var(--icon-height, #{$icon-size});
   background: transparent;
-  fill: var(--icon-color);
+  fill: #{$icon-color};
   outline: 0;
   svg,
   img{
