@@ -1,18 +1,10 @@
-function mousedownHandler(el) {
-  el.style.outline = "";
-}
-
-function keydownHandler(el) {
-  el.blur();
-}
-
 export const focus = {
   inserted: function(el) {
     el.tabindex = "0";
   },
   bind: function(el) {
     el.addEventListener("mousedown", function() {
-      el.style.outline = "0";
+      el.style.outline = "none";
       el.blur();
     });
     el.addEventListener("keyup", function() {
@@ -21,7 +13,11 @@ export const focus = {
     });
   },
   unbind: function(el) {
-    el.removeEventListener("mousedown", mousedownHandler(el));
-    el.removeEventListener("keyup", keydownHandler(el));
+    el.removeEventListener("mousedown", function() {
+      el.style.outline = "";
+    });
+    el.removeEventListener("keyup", function() {
+      el.blur();
+    });
   }
 };
