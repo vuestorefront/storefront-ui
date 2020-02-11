@@ -1,5 +1,5 @@
-$bullet-c-variant: var(--bullet-c-variant, var(--c-gray));
 $bullet-c-accent: var(--bullet-c-accent, var(--c-primary));
+$bullet-c-default: var(--bullet-c-default, var(--c-gray));
 $bullet-size: var(--bullet-size, 8px);
 $bullet-margin: var(--spacer-small);
 $bullet-border-radius: 100%;
@@ -9,7 +9,7 @@ $bullet-border-radius: 100%;
   height: var(--bullet-height, #{$bullet-size});
   margin: var(--bullet-margin, #{$bullet-margin});
   border-radius: var(--button-border-radius, #{$bullet-border-radius});
-  background: var(--bullet-background, #{$bullet-c-variant});
+  background: var(--bullet-background, #{$bullet-c-default});
   cursor: pointer;
   &--active{
     --bullet-size: 10px;
