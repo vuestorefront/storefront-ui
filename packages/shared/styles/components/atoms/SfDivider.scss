@@ -1,3 +1,7 @@
+$divider-c-default: var(--divider-c-default, var(--c-light));
+
+$divider-border: 1px solid #{$divider-c-default};
+
 .sf-divider{
-  border: var(--divider-border, 1px solid var(--c-light));
+  border: var(--divider-border, #{$divider-border});
 }
