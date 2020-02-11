@@ -3,9 +3,9 @@ $rating-c-variant: var(--rating-c-variant, var(--c-dark));
 .sf-rating{
   display: flex;
   &__icon{
-    --icon-color: #{$rating-c-accent};
+    --icon-c-accent: #{$rating-c-accent};
     &--negative{
-      --icon-color: #{$rating-c-variant};
+      --icon-c-accent: #{$rating-c-variant};
     }
   }
 }
