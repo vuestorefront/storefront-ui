@@ -1,11 +1,11 @@
 $badge-c-accent: var(--badge-c-accent, var(--c-primary));
 $badge-padding: var(--spacer) var(--spacer-medium);
 $badge-font-width: 500;
-$badge-front-size: var(--font-size-small);
+$badge-font-size: var(--font-size-small);
 $badge-line-height: 1.6;
 $badge-font-family: var(--body-font-family-secondary);
 $badge-font: var(--badge-font-weight, #{$badge-font-width})
-  var(--badge-font-size, #{$badge-front-size})/var(--badge-line-height, #{$badge-line-height})
+  var(--badge-font-size, #{$badge-font-size})/var(--badge-line-height, #{$badge-line-height})
   var(--badge-font-family, #{$badge-font-family});
 
 .sf-badge{
