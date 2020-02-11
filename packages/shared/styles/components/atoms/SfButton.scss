@@ -1,55 +1,66 @@
-:root{
-  --button-c-primary: var(--c-primary);
-  --button-c-primary-variant: var(--c-primary-variant);
-}
+$button-padding: var(--spacer-medium) var(--spacer-extra-big);
+$button-font-width: 300;
+$button-front-size: var(--font-size-small);
+$button-line-height: 1.6;
+$button-font-family: var(--body-font-family-secondary);
+$button-font: var(--button-font-weight, #{$button-font-width})
+var(--button-font-size, #{$button-front-size})/var(--button-line-height, #{$button-line-height})
+var(--button-font-family, #{$button-font-family});
+$button-transition: background 150ms linear;
+$c-accent: var(--button-c-accent, var(--c-primary));
+$c-variant: var(--button-c-variant, var(--c-primary-variant));
 .sf-button{
-  padding: var(--button-padding, (var(--spacer-medium) var(--spacer-extra-big)));
+  box-sizing: border-box;
+  width: var(--button-width);
+  height: var(--button-height);
+  padding: var(--button-padding, #{$button-padding});
   border: var(--button-border, 0);
   border-radius: var(--button-border-radius, 0);
-  background: var(--button-background, var(--button-c-primary));
   color: var(--button-color, var(--c-white));
-  font: var(--button-font-weight, 300) var(--button-font-size, var(--font-size-small))/var(--button-line-height, 1.6) var(--button-font-family, var(--body-font-family-secondary));
+  background: var(--button-background, #{$c-accent});
+  font: var(--button-font, #{$button-font});
   text-transform: var(--button-text-transform, uppercase);
+  transition: var(--button-transition, #{$button-transition});
   cursor: pointer;
-  outline: 0;
-  transition: background-color 150ms linear, color 150ms linear;
-  &:hover{
-    --button-background: var(--button-c-primary-variant);
+  outline: none;
+  &:hover {
+    --button-background: #{$c-variant}
   }
-  &--full-width{
-    width: 100%;
+  &--full-width {
+    --button-width: 100%;
   }
-  &--outline{
-    --button-border: 2px solid var(--button-c-primary);
+  &--outline, &--text {
     --button-background: transparent;
-    --button-color: var(--button-c-primary);
-    &:hover{
-      --button-background: var(--button-c-primary);
-      --button-color: var(--c-white)
+    --button-color: #{$c-accent};
+    --button-border: 1px solid #{$c-accent};
+    &:hover {
+      --button-background: #{$c-accent};
+      --button-color: inherit;
     }
-    &:disabled{
+    &:disabled {
       --button-background: transparent;
-      --button-color: var(--button-c-primary)
+      --button-color: #{$c-accent};
     }
   }
-  &--text{
-    --button-padding: 0;
-    --button-background: transparent;
-    --button-color: var(--button-c-primary);
+  &--text {
+    --button-border: 0;
+    --button-padding: var(--spacer-small) var(--spacer);
     --button-text-transform: none;
     &:hover{
       --button-background: transparent;
-      --button-color: var(--button-c-primary-variant);
+      --button-color: #{$c-accent};
     }
   }
-  $colors-map: ('primary', 'secondary', 'waring', 'danger', 'info', 'success');
-  @each $color in $colors-map {
-    &.color-#{$color}{
-      --button-c-primary: var(--c-#{$color});
-      --button-c-primary-variant: var(--c-#{$color}-variant);
-    }
+  &:disabled {
+    --button-c-accent: var(--c-gray);
+    --button-c-variant: var(--c-gray);
+    cursor: default;
   }
-  &:disabled{
-    --button-c-primary: var(--c-gray);
+}
+$colors-map: ('primary', 'secondary', 'warning', 'danger', 'info', 'success');
+@each $color in $colors-map {
+  .color-#{$color}{
+    --button-c-accent: var(--c-#{$color});
+    --button-c-variant: var(--c-#{$color}-variant);
   }
 }
