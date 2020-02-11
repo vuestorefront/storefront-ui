@@ -18,9 +18,7 @@
         <template v-else>
           <!-- @slot Custom markup for current page (binds `breadcrumb` object) -->
           <slot name="current" v-bind="{ breadcrumb }">
-            <span class="sf-breadcrumbs__link sf-breadcrumbs__link--current">{{
-              breadcrumb.text
-            }}</span>
+            <span class="sf-breadcrumbs__current">{{ breadcrumb.text }}</span>
           </slot>
         </template>
       </li>
