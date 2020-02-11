@@ -1,11 +1,53 @@
 @import '../../variables';
-:root{
-  --checkbox-c-primary: var(--c-primary);
-  --checkbox-c-secondary: var(--c-gray-variant);
-}
+$checkbox-c-variant: var(--checkbox-c-variant, var(--c-gray-variant));
+$checkbox-c-accent: var(--checkbox-c-accent, var(--c-primary));
+$checkbox-size: var(--checkbox-size, 1.25rem);
+$checkbox-border: 1px solid #{$checkbox-c-variant};
+$checkbox-font-width: 300;
+$checkbox-front-size: var(--font-size-big);
+$checkbox-line-height: 1.6;
+$checkbox-font-family: var(--body-font-family-secondary);
+$checkbox-font: var(--checkbox-font-weight, #{$checkbox-font-width})
+  var(--checkbox-font-size, #{$checkbox-front-size})/var(--checkbox-line-height, #{$checkbox-line-height})
+  var(--checkbox-font-family, #{$checkbox-font-family});
+$checkbox-label-margin: 0 0 0 var(--spacer-big);
 .sf-checkbox{
-  font: var(--checkbox-font-weight, 300) var(--checkbox-font-size, var(--font-size-big))/var(--checkbox-line-height, 1.6) var(--checkbox-font-family, var(--body-font-family-secondary));
-  &__input{
+  font: var(--checkbox-font, #{$checkbox-font});
+  &__container {
+    display: flex;
+    align-items: center;
+    cursor: var(--checkbox-cursor, pointer);
+  }
+  &__checkmark{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--checkbox-width, #{$checkbox-size});
+    height: var(--checkbox-height, #{$checkbox-size});
+    border: var(--checkbox-border, #{$checkbox-border});
+    border-radius: var(--checkbox-border-radius, 0);
+    background: var(--checkbox-background, transparent);
+    @include for-desktop{
+      --checkbox-size: 1.5rem
+    }
+    &:hover{
+      --checkbox-border: 1px solid #{$checkbox-c-accent};
+    }
+  }
+  &__label{
+    margin: var(--checkbox-label-margin, #{$checkbox-label-margin});
+  }
+  &--is-active{
+    --checkbox-border: 1px solid #{$checkbox-c-accent};
+    --checkbox-background: #{$checkbox-c-accent};
+  }
+  &--is-disabled{
+    --checkbox-c-accent: var(--c-gray);
+    --checkbox-c-variant: var(--c-gray);
+    --chekout-cursor: default;
+  }
+  input {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -14,39 +56,5 @@
     border: 0;
     overflow: hidden;
     clip: rect(0px, 0px, 0px, 0px);
-  }
-  &__container{
-    display: flex;
-    align-items: center;
-    cursor: var(--checkbox-cursor, pointer);
-  }
-  &__checkmark{
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: var(--chekcbox-size, 1.25rem);
-    height: var(--chekcbox-size, 1.25rem);
-    border: var(--chekcbox-border, 1px solid var(--checkbox-c-secondary));
-    background: var(--checkbox-background, transparent);
-    transition: background 150ms cubic-bezier(1, .5, .8, 1), border 150ms cubic-bezier(1, .5, .8, 1);
-    @media screen and (min-width: $desktop-min) {
-      --chekcbox-size: 1.5rem;
-    }
-    &:hover{
-      --chekcbox-border: 1px solid var(--checkbox-c-primary);
-    }
-  }
-  &__label{
-    margin: var(--checkbox__label-margin, 0 0 0 var(--spacer-big));
-  }
-  &--is-active{
-    --chekcbox-border: var(--checkbox-c-primary);
-    --checkbox-background: var(--checkbox-c-primary);
-  }
-  &--is-disabled{
-    --chekcbox-border: var(--c-gray);
-    --checkbox-background: var(--c-gray);
-    --checkbox-cursor: default;
   }
 }

@@ -13,7 +13,6 @@
       :value="value"
       :checked="isChecked"
       :disabled="disabled"
-      class="sf-checkbox__input"
       @change="inputHandler"
     />
     <label :for="name" class="sf-checkbox__container">
