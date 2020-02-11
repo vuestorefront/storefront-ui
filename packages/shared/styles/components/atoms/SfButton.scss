@@ -7,8 +7,8 @@ $button-font: var(--button-font-weight, #{$button-font-width})
 var(--button-font-size, #{$button-front-size})/var(--button-line-height, #{$button-line-height})
 var(--button-font-family, #{$button-font-family});
 $button-transition: background 150ms linear;
-$c-accent: var(--button-c-accent, var(--c-primary));
-$c-variant: var(--button-c-variant, var(--c-primary-variant));
+$button-c-accent: var(--button-c-accent, var(--c-primary));
+$button-c-variant: var(--button-c-variant, var(--c-primary-variant));
 .sf-button{
   box-sizing: border-box;
   width: var(--button-width);
@@ -17,29 +17,29 @@ $c-variant: var(--button-c-variant, var(--c-primary-variant));
   border: var(--button-border, 0);
   border-radius: var(--button-border-radius, 0);
   color: var(--button-color, var(--c-white));
-  background: var(--button-background, #{$c-accent});
+  background: var(--button-background, #{$button-c-accent});
   font: var(--button-font, #{$button-font});
   text-transform: var(--button-text-transform, uppercase);
   transition: var(--button-transition, #{$button-transition});
   cursor: pointer;
   outline: none;
   &:hover {
-    --button-background: #{$c-variant}
+    --button-background: #{$button-c-variant}
   }
   &--full-width {
     --button-width: 100%;
   }
   &--outline, &--text {
     --button-background: transparent;
-    --button-color: #{$c-accent};
-    --button-border: 1px solid #{$c-accent};
+    --button-color: #{$button-c-accent};
+    --button-border: 1px solid #{$button-c-accent};
     &:hover {
-      --button-background: #{$c-accent};
+      --button-background: #{$button-c-accent};
       --button-color: inherit;
     }
     &:disabled {
       --button-background: transparent;
-      --button-color: #{$c-accent};
+      --button-color: #{$button-c-accent};
     }
   }
   &--text {
@@ -48,7 +48,7 @@ $c-variant: var(--button-c-variant, var(--c-primary-variant));
     --button-text-transform: none;
     &:hover{
       --button-background: transparent;
-      --button-color: #{$c-accent};
+      --button-color: #{$button-c-accent};
     }
   }
   &:disabled {

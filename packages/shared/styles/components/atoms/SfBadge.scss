@@ -6,7 +6,7 @@ $badge-font-family: var(--body-font-family-secondary);
 $badge-font: var(--badge-font-weight, #{$badge-font-width})
   var(--badge-font-size, #{$badge-front-size})/var(--badge-line-height, #{$badge-line-height})
   var(--badge-font-family, #{$badge-font-family});
-$c-accent: var(--badge-c-accent, var(--c-primary));
+$badge-c-accent: var(--badge-c-accent, var(--c-primary));
 .sf-badge{
   display: inline-block;
   box-sizing: border-box;
@@ -15,7 +15,7 @@ $c-accent: var(--badge-c-accent, var(--c-primary));
   padding: var(--badge-padding, #{$badge-padding});
   border: var(--badge-border, 0);
   border-radius: var(--badge-border-radius, 0);
-  background: var(--badge-background, #{$c-accent});
+  background: var(--badge-background, #{$badge-c-accent});
   color: var(--badge-color, var(--c-white));
   font: var(--badge-font, #{$badge-font});
   text-align: var(--badge-text-align, center);
