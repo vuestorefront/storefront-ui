@@ -1,8 +1,9 @@
 @import '../../variables';
-$checkbox-c-variant: var(--checkbox-c-variant, var(--c-gray-variant));
 $checkbox-c-accent: var(--checkbox-c-accent, var(--c-primary));
+$checkbox-c-default: var(--checkbox-c-default, var(--c-gray-variant));
+
 $checkbox-size: var(--checkbox-size, 1.25rem);
-$checkbox-border: 1px solid #{$checkbox-c-variant};
+$checkbox-border: 1px solid #{$checkbox-c-default};
 $checkbox-font-width: 300;
 $checkbox-front-size: var(--font-size-big);
 $checkbox-line-height: 1.6;
@@ -11,6 +12,7 @@ $checkbox-font: var(--checkbox-font-weight, #{$checkbox-font-width})
   var(--checkbox-font-size, #{$checkbox-front-size})/var(--checkbox-line-height, #{$checkbox-line-height})
   var(--checkbox-font-family, #{$checkbox-font-family});
 $checkbox-label-margin: 0 0 0 var(--spacer-big);
+
 .sf-checkbox{
   font: var(--checkbox-font, #{$checkbox-font});
   &__container {
