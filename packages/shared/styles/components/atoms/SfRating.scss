@@ -1,11 +1,12 @@
 $rating-c-accent: var(--rating-c-accent, var(--c-primary));
-$rating-c-variant: var(--rating-c-variant, var(--c-dark));
+$rating-c-default: var(--rating-c-default, var(--c-dark));
+
 .sf-rating{
   display: flex;
   &__icon{
-    --icon-c-accent: #{$rating-c-accent};
+    --icon-color: #{$rating-c-accent};
     &--negative{
-      --icon-c-accent: #{$rating-c-variant};
+      --icon-color: #{$rating-c-default};
     }
   }
 }
