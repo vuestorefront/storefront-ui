@@ -3,6 +3,7 @@ $bullet-c-default: var(--bullet-c-default, var(--c-gray));
 $bullet-size: var(--bullet-size, 8px);
 $bullet-margin: var(--spacer-small);
 $bullet-border-radius: 100%;
+
 .sf-bullet{
   box-sizing: border-box;
   width: var(--bullet-width, #{$bullet-size});
