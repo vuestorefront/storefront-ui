@@ -1,23 +1,26 @@
-:root{
-  --bullet-c-primary: var(--c-primary);
-}
+$bullet-size: var(--bullet-size, 8px);
+$bullet-margin: var(--spacer-small);
+$bullet-border-radius: 100%;
+$bullet-c-variant: var(--bullet-c-variant, var(--c-gray));
+$bullet-c-accent: var(--bullet-c-accent, var(--c-primary));
 .sf-bullet{
   box-sizing: border-box;
-  width: var(--bullet-size, 8px);
-  height: var(--bullet-size, 8px);
-  margin: var(--bullet-margin, 6px);
-  border-radius: var(--bullet-border-rasdius, 100%);
-  background: var(--bullet-background, var(--c-gray));
+  width: var(--bullet-width, #{$bullet-size});
+  height: var(--bullet-height, #{$bullet-size});
+  margin: var(--bullet-margin, #{$bullet-margin});
+  border-radius: var(--button-border-radius, #{$bullet-border-radius});
+  background: var(--bullet-background, #{$bullet-c-variant});
   cursor: pointer;
   &--active{
     --bullet-size: 10px;
-    --bullet-background: var(--bullet-c-primary);
+    --bullet-background: #{$bullet-c-accent};
+    cursor: default;
   }
 }
-.sf-bullets{
+.sf-bullets {
   display: flex;
   align-items: center;
-  margin:0;
   padding: 0;
-  list-style: none;
+  margin: 0;
+  list-style-type: none;
 }
