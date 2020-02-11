@@ -1,21 +1,31 @@
-:root{
-  --badge-c-primary: var(--c-primary);
-}
+$badge-padding: var(--spacer) var(--spacer-medium);
+$badge-font-width: 500;
+$badge-front-size: var(--font-size-small);
+$badge-line-height: 1.6;
+$badge-font-family: var(--body-font-family-secondary);
+$badge-font: var(--badge-font-weight, #{$badge-font-width})
+  var(--badge-font-size, #{$badge-front-size})/var(--badge-line-height, #{$badge-line-height})
+  var(--badge-font-family, #{$badge-font-family});
+$c-accent: var(--badge-c-accent, var(--c-primary));
 .sf-badge{
   display: inline-block;
   box-sizing: border-box;
-  padding: var(--badge-padding, (var(--spacer) var(--spacer-medium)));
-  background: var(--badge-background, var(--badge-c-primary));
+  width: var(--badge-width);
+  height: var(--badge-height);
+  padding: var(--badge-padding, #{$badge-padding});
+  border: var(--badge-border, 0);
+  border-radius: var(--badge-border-radius, 0);
+  background: var(--badge-background, #{$c-accent});
   color: var(--badge-color, var(--c-white));
-  font: var(--badge-font-weight, 500) var(--badge-font-size, var(--font-size-small))/var(--badge-line-height, 1.6) var(--badge-font-family, var(--body-font-family-secondary));
-  text-align: center;
+  font: var(--badge-font, #{$badge-font});
+  text-align: var(--badge-text-align, center);
   &--full-width{
-    width: 100%;
+    --badge-width: 100%;
   }
-  $colors-map: ('primary', 'secondary', 'waring', 'danger', 'info', 'success');
-  @each $color in $colors-map {
-    &.color-#{$color}{
-      --badge-c-primary: var(--c-#{$color});
-    }
+}
+$colors-map: ('primary', 'secondary', 'warning', 'danger', 'info', 'success');
+@each $color in $colors-map {
+  .color-#{$color}{
+    --badge-c-accent: var(--c-#{$color});
   }
 }
