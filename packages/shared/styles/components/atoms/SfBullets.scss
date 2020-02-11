@@ -1,8 +1,8 @@
+$bullet-c-variant: var(--bullet-c-variant, var(--c-gray));
+$bullet-c-accent: var(--bullet-c-accent, var(--c-primary));
 $bullet-size: var(--bullet-size, 8px);
 $bullet-margin: var(--spacer-small);
 $bullet-border-radius: 100%;
-$bullet-c-variant: var(--bullet-c-variant, var(--c-gray));
-$bullet-c-accent: var(--bullet-c-accent, var(--c-primary));
 .sf-bullet{
   box-sizing: border-box;
   width: var(--bullet-width, #{$bullet-size});

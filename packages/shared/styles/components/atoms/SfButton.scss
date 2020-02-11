@@ -1,3 +1,5 @@
+$button-c-accent: var(--button-c-accent, var(--c-primary));
+$button-c-variant: var(--button-c-variant, var(--c-primary-variant));
 $button-padding: var(--spacer-medium) var(--spacer-extra-big);
 $button-font-width: 300;
 $button-front-size: var(--font-size-small);
@@ -7,8 +9,6 @@ $button-font: var(--button-font-weight, #{$button-font-width})
 var(--button-font-size, #{$button-front-size})/var(--button-line-height, #{$button-line-height})
 var(--button-font-family, #{$button-font-family});
 $button-transition: background 150ms linear;
-$button-c-accent: var(--button-c-accent, var(--c-primary));
-$button-c-variant: var(--button-c-variant, var(--c-primary-variant));
 .sf-button{
   box-sizing: border-box;
   width: var(--button-width);
