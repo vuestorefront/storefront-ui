@@ -2,8 +2,8 @@
   <div class="sf-chevron">
     <!-- @slot Custom chevron markup -->
     <slot>
-      <span class="sf-chevron__left-bar"></span>
-      <span class="sf-chevron__right-bar"></span>
+      <span class="sf-chevron__bar sf-chevron__bar--left"></span>
+      <span class="sf-chevron__bar sf-chevron__bar--right"></span>
     </slot>
   </div>
 </template>

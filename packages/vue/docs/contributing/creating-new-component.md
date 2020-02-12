@@ -1,6 +1,6 @@
 # How to create/edit Storefront UI component
 
-At this point we assume you're already familiar with [our coding guidelines](coding-guidelines.md) and know how to [work with our Figma designs](working-with-designs.md). The below section will guide you through how to create your first component for the library!
+At this point we assume you're already familiar with [our coding guidelines](coding-guidelines.md) and know how to [work with our Figma designs](../design/working-with-designs.md). The below section will guide you through how to create your first component for the library!
 
 ## Generate the component's template
 
