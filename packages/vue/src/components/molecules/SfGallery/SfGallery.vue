@@ -147,6 +147,13 @@ export default {
         mobile: desktop,
         desktop: big
       }));
+    },
+    updatedSliderOptions() {
+      if (this.current === 0) {
+        return this.sliderOptions;
+      } else {
+        return { ...this.sliderOptions, startAt: this.activeIndex };
+      }
     }
   },
   mounted() {
@@ -154,7 +161,7 @@ export default {
       // handle slider with swipe and transitions with Glide.js
       // https://glidejs.com/docs/
       if (this.images.length < 1) return;
-      const glide = new Glide(this.$refs.glide, this.sliderOptions);
+      const glide = new Glide(this.$refs.glide, this.updatedSliderOptions);
       glide.on("run", () => {
         this.go(glide.index);
       });
