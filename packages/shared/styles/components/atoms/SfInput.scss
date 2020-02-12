@@ -11,49 +11,53 @@ $input-font-size: var(--font-size-big);
 $input-line-height: 1.6;
 $input-font-family: var(--body-font-family-secondary);
 $input-font: var(--input-font-weight, #{$input-font-width})
-  var(--input-font-size, #{$input-font-size})/var(--input-line-height, #{$input-line-height})
+  var(--input-font-size, #{$input-font-size}) /
+  var(--input-line-height, #{$input-line-height})
   var(--input-font-family, #{$input-font-family});
-$input-label-transform: translate3d(0, calc(var(--input-label-top, 50%) * -1),0);
-$input-label-transition: top 150ms linear,
-  font-size 150ms linear;
+$input-label-transform: translate3d(
+  0,
+  calc(var(--input-label-top, 50%) * -1),
+  0
+);
+$input-label-transition: top 150ms linear, font-size 150ms linear;
 $input-password-icon-width: var(--input-password-icon-width, 22px);
 
-.sf-input{
+.sf-input {
   position: relative;
   box-sizing: border-box;
   width: var(--input-width);
   height: var(--input-height);
   color: var(--input-color, #{$input-c-text});
   font: var(--input-font, #{$input-font});
-  &__label{
+  &__label {
     position: absolute;
     top: var(--input-label-top, 50%);
     color: var(--input-label-color, inherit);
     font-size: var(--input-label-font-size, inherit);
     transform: var(--input-label-transform, #{$input-label-transform});
     transition: var(--input-label-transition, #{$input-label-transition});
-    &::after{
+    &::after {
       content: var(--input-label-required);
-      color: var(--input-label-color, #{$input-c-accent})
+      color: var(--input-label-color, #{$input-c-accent});
     }
   }
-  &__bar{
+  &__bar {
     position: relative;
     display: block;
     &::before,
-    &::after{
+    &::after {
       position: absolute;
       bottom: 0;
       width: var(--input-bar-width, 0);
       height: 1px;
       background: var(--input-bar-background, #{$input-c-accent});
       transition: width 150ms linear;
-      content: ""
+      content: "";
     }
-    &::before{
+    &::before {
       left: 50%;
     }
-    &::after{
+    &::after {
       right: 50%;
     }
   }
@@ -66,7 +70,7 @@ $input-password-icon-width: var(--input-password-icon-width, 22px);
     right: var(--spacer-big);
     transform: translate3d(0, -50%, 0);
   }
-  &__password-icon{
+  &__password-icon {
     --icon-width: #{input-password-icon-width};
     --icon-height: 13px;
     --icon-color: var(--c-dark-variant);
@@ -75,29 +79,30 @@ $input-password-icon-width: var(--input-password-icon-width, 22px);
       --icon-color: var(--c-gray-variant);
       --input-password-icon-scaleX: 1;
     }
-    &::after{
+    &::after {
       position: absolute;
       top: 50%;
       width: 100%;
       height: 1px;
       background: var(--c-gray-variant);
-      transform: translate3d(0, -50%, 0) rotate(45deg) scaleX(var(--input-password-icon-scaleX, 0));
+      transform: translate3d(0, -50%, 0) rotate(45deg)
+        scaleX(var(--input-password-icon-scaleX, 0));
       transition: transform 150ms linear;
-      content: ""
+      content: "";
     }
   }
-  &__error-message{
+  &__error-message {
     color: var(--input-error-message-color, var(--c-danger));
     font-size: var(--input-error-message-font-size, var(--font-size-small));
   }
   &__wrapper,
-  input{
+  input {
     width: 100%;
     height: 100%;
   }
-  &__wrapper{
+  &__wrapper {
     position: relative;
-    margin: var(--input-margin, #{$input-margin})
+    margin: var(--input-margin, #{$input-margin});
   }
   input {
     display: block;
@@ -119,7 +124,7 @@ $input-password-icon-width: var(--input-password-icon-width, 22px);
     }
     &:required {
       & ~ * {
-        --input-label-required: " *"
+        --input-label-required: " *";
       }
     }
     &:disabled {
@@ -128,19 +133,20 @@ $input-password-icon-width: var(--input-password-icon-width, 22px);
         --input-label-color: var(--c-text-muted);
       }
     }
-    &[type="number"]{
+    &[type="number"] {
       &::-webkit-inner-spin-button,
       &::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
       }
     }
-    &[type="password"]{
-      --input-padding: 15px calc(var(--spacer-big) * 2 + #{$input-password-icon-width}) 10px 0;
+    &[type="password"] {
+      --input-padding: 15px
+        calc(var(--spacer-big) * 2 + #{$input-password-icon-width}) 10px 0;
     }
   }
-  &--has-text{
+  &--has-text {
     --input-label-top: 0;
-    --input-label-font-size: var(--font-size-extra-small)
+    --input-label-font-size: var(--font-size-extra-small);
   }
 }

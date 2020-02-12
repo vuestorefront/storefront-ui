@@ -3,7 +3,10 @@ $circle-icon-c-hover: var(--circle-icon-c-hover, var(--c-primary-lighten));
 $circle-icon-c-shadow: var(--circle-icon-c-shadow, var(--c-primary-base));
 
 $circle-icon-padding: var(--circle-icon-padding, var(--spacer-big));
-$circle-icon-background: var(--circle-icon-background, #{$circle-icon-c-accent});
+$circle-icon-background: var(
+  --circle-icon-background,
+  #{$circle-icon-c-accent}
+);
 $circle-icon-border-radius: var(--circle-icon-border-radius, 100%);
 $circle-icon-box-shadow: var(--circle-icon-box-shadow);
 $circle-icon-transition: var(--circle-icon-transition, box-shadow 300ms ease);
@@ -12,25 +15,30 @@ $circle-icon-badge-size: var(--circle-icon-badge-size, 1.1rem);
 $circle-icon-badge-front-size: var(--font-size-small);
 $circle-icon-badge-line-height: 1.6;
 $circle-icon-badge-font-family: var(--body-font-family-secondary);
-$circle-icon-badge-font: var(--button-font-weight, #{$circle-icon-badge-font-width})
-  var(--button-font-size, #{$circle-icon-badge-front-size})/var(--button-line-height, #{$circle-icon-badge-line-height})
+$circle-icon-badge-font: var(
+  --button-font-weight,
+  #{$circle-icon-badge-font-width}
+)
+  var(--button-font-size, #{$circle-icon-badge-front-size}) /
+  var(--button-line-height, #{$circle-icon-badge-line-height})
   var(--button-font-family, #{$circle-icon-badge-font-family});
 
-.sf-circle-icon{
+.sf-circle-icon {
   --button-padding: #{$circle-icon-padding};
   --button-border-radius: #{$circle-icon-border-radius};
   --button-background: #{$circle-icon-c-accent};
   position: relative;
   box-shadow: #{$circle-icon-box-shadow};
   transition: #{$circle-icon-transition};
-  &:hover{
+  &:hover {
     --button-background: #{$circle-icon-c-hover};
-    --circle-icon-box-shadow: 0 0 0 .3124rem rgba(#{$circle-icon-c-shadow}, .4);
+    --circle-icon-box-shadow: 0 0 0 0.3124rem
+      rgba(#{$circle-icon-c-shadow}, 0.4);
   }
-  &:active{
-    --circle-icon-box-shadow: 0 0 0 .625rem rgba(#{$circle-icon-c-shadow}, .4);
+  &:active {
+    --circle-icon-box-shadow: 0 0 0 0.625rem rgba(#{$circle-icon-c-shadow}, 0.4);
   }
-  &__badge{
+  &__badge {
     position: absolute;
     top: var(--circle-icon-badge-top, 0);
     right: var(--circle-icon-badge-right, 0);
@@ -41,16 +49,16 @@ $circle-icon-badge-font: var(--button-font-weight, #{$circle-icon-badge-font-wid
     border-radius: var(--circle-icon-badge-border-radius, 10px);
     background: var(--circle-icon-badge-background, var(--c-danger));
     font: var(--circle-icon-badge-font, #{$circle-icon-badge-font});
-    &-enter-active{
+    &-enter-active {
       animation: bounce-in 300ms;
     }
-    &-leave-active{
+    &-leave-active {
       animation: bounce-in 300ms reverse;
     }
   }
-  $colors-map: ('primary', 'secondary', 'warning', 'danger', 'info', 'success');
+  $colors-map: ("primary", "secondary", "warning", "danger", "info", "success");
   @each $color in $colors-map {
-    &.color-#{$color}{
+    &.color-#{$color} {
       --circle-icon-c-accent: var(--c-#{$color});
       --circle-icon-c-hover: var(--c-#{$color}-lighten);
       --circle-icon-c-shadow: var(--c-#{$color}-base);

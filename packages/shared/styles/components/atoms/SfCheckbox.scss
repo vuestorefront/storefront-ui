@@ -1,4 +1,4 @@
-@import '../../variables';
+@import "../../variables";
 $checkbox-c-accent: var(--checkbox-c-accent, var(--c-primary));
 $checkbox-c-default: var(--checkbox-c-default, var(--c-gray-variant));
 
@@ -9,18 +9,19 @@ $checkbox-front-size: var(--font-size-big);
 $checkbox-line-height: 1.6;
 $checkbox-font-family: var(--body-font-family-secondary);
 $checkbox-font: var(--checkbox-font-weight, #{$checkbox-font-width})
-  var(--checkbox-font-size, #{$checkbox-front-size})/var(--checkbox-line-height, #{$checkbox-line-height})
+  var(--checkbox-font-size, #{$checkbox-front-size}) /
+  var(--checkbox-line-height, #{$checkbox-line-height})
   var(--checkbox-font-family, #{$checkbox-font-family});
 $checkbox-label-margin: 0 0 0 var(--spacer-big);
 
-.sf-checkbox{
+.sf-checkbox {
   font: var(--checkbox-font, #{$checkbox-font});
   &__container {
     display: flex;
     align-items: center;
     cursor: var(--checkbox-cursor, pointer);
   }
-  &__checkmark{
+  &__checkmark {
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -30,21 +31,21 @@ $checkbox-label-margin: 0 0 0 var(--spacer-big);
     border: var(--checkbox-border, #{$checkbox-border});
     border-radius: var(--checkbox-border-radius, 0);
     background: var(--checkbox-background, transparent);
-    @include for-desktop{
-      --checkbox-size: 1.5rem
+    @include for-desktop {
+      --checkbox-size: 1.5rem;
     }
-    &:hover{
+    &:hover {
       --checkbox-border: 1px solid #{$checkbox-c-accent};
     }
   }
-  &__label{
+  &__label {
     margin: var(--checkbox-label-margin, #{$checkbox-label-margin});
   }
-  &--is-active{
+  &--is-active {
     --checkbox-border: 1px solid #{$checkbox-c-accent};
     --checkbox-background: #{$checkbox-c-accent};
   }
-  &--is-disabled{
+  &--is-disabled {
     --checkbox-c-accent: var(--c-gray);
     --checkbox-c-variant: var(--c-gray);
     --chekout-cursor: default;

@@ -1,4 +1,4 @@
-@import '../../variables';
+@import "../../variables";
 
 $heading-c-border: var(--heading-c-border, var(--c-light));
 
@@ -10,17 +10,22 @@ $heading-title-font-size: var(--font-size-extra-big);
 $heading-title-line-height: 1.6;
 $heading-title-font-family: var(--body-font-family-secondary);
 $heading-title-font: var(--badge-font-weight, #{$heading-title-font-width})
-  var(--badge-font-size, #{$heading-title-font-size})/var(--badge-line-height, #{$heading-title-line-height})
+  var(--badge-font-size, #{$heading-title-font-size}) /
+  var(--badge-line-height, #{$heading-title-line-height})
   var(--badge-font-family, #{$heading-title-font-family});
 $heading-subtitle-font-width: 300;
 $heading-subtitle-font-size: var(--font-size-regular);
 $heading-subtitle-line-height: 1.6;
 $heading-subtitle-font-family: var(--body-font-family-secondary);
-$heading-subtitle-font: var(--badge-font-weight, #{$heading-subtitle-font-width})
-  var(--badge-font-size, #{$heading-subtitle-font-size})/var(--badge-line-height, #{$heading-subtitle-line-height})
+$heading-subtitle-font: var(
+  --badge-font-weight,
+  #{$heading-subtitle-font-width}
+)
+  var(--badge-font-size, #{$heading-subtitle-font-size}) /
+  var(--badge-line-height, #{$heading-subtitle-line-height})
   var(--badge-font-family, #{$heading-subtitle-font-family});
 
-.sf-heading{
+.sf-heading {
   box-sizing: border-box;
   padding: var(--heading-padding, #{$heading-padding});
   border: var(--heading-border, #{$heading-border});
@@ -31,19 +36,19 @@ $heading-subtitle-font: var(--badge-font-weight, #{$heading-subtitle-font-width}
     --heading-border: 0;
     --heading-text-align: center;
   }
-  &__title{
+  &__title {
     font: var(--heading-font-title, #{$heading-title-font});
   }
-  &__subtitle{
+  &__subtitle {
     font: var(--heading-font-subtitle, #{$heading-subtitle-font});
   }
-  &--no-underline{
+  &--no-underline {
     --heading-border: 0;
   }
-  &--left{
+  &--left {
     --heading-text-align: left;
   }
-  &--right{
+  &--right {
     --heading-text-align: right;
   }
 }

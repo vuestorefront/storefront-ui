@@ -1,17 +1,23 @@
 @import "../../variables";
 
-$quantity-selector-c-accent: var(--quantity-selector-c-accent, var(--c-primary));
-$quantity-selector-c-default: var(--quantity-selector-c-default, var(--c-light));
+$quantity-selector-c-accent: var(
+  --quantity-selector-c-accent,
+  var(--c-primary)
+);
+$quantity-selector-c-default: var(
+  --quantity-selector-c-default,
+  var(--c-light)
+);
 
 $quantity-selector-width: 1.875rem;
 $quantity-selector-height: 1.6875rem;
 $quantity-selector-focus-border: 1px solid #{$quantity-selector-c-accent};
 $quantity-selector-transition: border-coloe 150ms linear;
 
-.sf-quantity-selector{
+.sf-quantity-selector {
   --input-width: var(--quantity-selector-width, #{$quantity-selector-width});
   --input-height: var(--quantity-selector-heigt, #{$quantity-selector-height});
-  @include for-desktop{
+  @include for-desktop {
     --quantity-selector-width: 3.125rem;
   }
   input {
@@ -20,9 +26,15 @@ $quantity-selector-transition: border-coloe 150ms linear;
     --input-border: var(--quantity-selector-border);
     --input-border-width: var(--quantity-selector-border-width, 1px);
     text-align: center;
-    transition: var(--quantity-selector-transition, #{$quantity-selector-transition});
-    @include for-desktop{
-      --input-background: var(--quantity-selector-background, #{$quantity-selector-c-default});
+    transition: var(
+      --quantity-selector-transition,
+      #{$quantity-selector-transition}
+    );
+    @include for-desktop {
+      --input-background: var(
+        --quantity-selector-background,
+        #{$quantity-selector-c-default}
+      );
     }
     &:focus {
       --quantity-selector-border: #{$quantity-selector-focus-border};
@@ -31,4 +43,3 @@ $quantity-selector-transition: border-coloe 150ms linear;
     }
   }
 }
-

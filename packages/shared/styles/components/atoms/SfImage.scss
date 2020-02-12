@@ -6,21 +6,22 @@ $image-front-size: var(--font-size-small);
 $image-line-height: 1.6;
 $image-font-family: var(--body-font-family-secondary);
 $image-font: var(--image-font-weight, #{$image-font-width})
-  var(--image-font-size, #{$image-front-size})/var(--image-line-height, #{$image-line-height})
+  var(--image-font-size, #{$image-front-size}) /
+  var(--image-line-height, #{$image-line-height})
   var(--image-font-family, #{$image-font-family});
 
-.sf-image{
+.sf-image {
   position: relative;
   overflow: var(--image-overflow, hidden);
   width: var(--image-width, 100%);
   max-width: calc(var(--image-max-width) * 1px);
   font: var(--image-font, #{$image-font});
-  &::before{
+  &::before {
     display: block;
     padding-top: calc(var(--image-height) / var(--image-max-width) * 100%);
     content: var(--image-content, "");
   }
-  img{
+  img {
     position: var(--img-position, absolute);
     top: 50%;
     left: 0;
@@ -30,7 +31,7 @@ $image-font: var(--image-font-weight, #{$image-font-width})
     height: 100%;
     transform: var(--img-transform, translate3d(0, -50%, 0));
   }
-  &__overlay{
+  &__overlay {
     position: absolute;
     top: 0;
     right: 0;
@@ -43,14 +44,14 @@ $image-font: var(--image-font-weight, #{$image-font-width})
     background: var(--image-overlay--background, #{$image-c-overlay});
     color: var(--image-overlay--color, #{$image-c-text});
   }
-  &--no-size{
+  &--no-size {
     --image-overflow: unset;
     --image-width: auto;
     --image-max-width: unset;
     --img-width: auto;
     --img-position: static;
     --img-transform: translate3d(0, 0, 0);
-    &::before{
+    &::before {
       --image-content: unset;
     }
   }

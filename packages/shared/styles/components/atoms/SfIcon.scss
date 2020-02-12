@@ -1,9 +1,9 @@
-@import '../../variables';
+@import "../../variables";
 
 $icon-size: var(--icon-size, #{map-get($sizes, "sm")});
 $icon-color: var(--icon-color, #{map-get($icon-colors, "black")});
 
-.sf-icon{
+.sf-icon {
   display: flex;
   box-sizing: border-box;
   width: var(--icon-width, #{$icon-size});
@@ -12,7 +12,7 @@ $icon-color: var(--icon-color, #{map-get($icon-colors, "black")});
   fill: #{$icon-color};
   outline: 0;
   svg,
-  img{
+  img {
     width: inherit;
     height: inherit;
   }

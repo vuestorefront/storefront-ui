@@ -7,20 +7,21 @@ $price-front-size: var(--font-size-big);
 $price-line-height: 1.6;
 $price-font-family: var(--body-font-family-primary);
 $price-font: var(--price-font-weight, #{$price-font-width})
-  var(--price-font-size, #{$price-front-size})/var(--price-line-height, #{$price-line-height})
+  var(--price-font-size, #{$price-front-size}) /
+  var(--price-line-height, #{$price-line-height})
   var(--price-font-family, #{$price-font-family});
 
-.sf-price{
-  &__value{
+.sf-price {
+  &__value {
     margin: var(--price-margin);
     color: var(--price-color, #{$price-c-default});
     font: var(--price-font, #{$price-font});
     text-decoration: var(--price-text-decoration, none);
-    &--special{
+    &--special {
       --price-color: #{$price-c-special};
       --price-margin: 0 var(--spacer-small) 0 0;
     }
-    &--old{
+    &--old {
       --price-color: #{$price-c-old};
       --price-font-size: var(--price-old-font-size, var(--font-size-small));
       --price-text-decoration: line-through;

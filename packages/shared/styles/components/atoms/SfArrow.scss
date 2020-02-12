@@ -1,12 +1,12 @@
-$arrow-c-accent: var(--arrow-c-accent,var(--c-light));
-$arrow-c-hover: var(--arrow-c-hover,var(--c-dark));
-$arrow-c-icon-default:var(--arrow-c-icon-default, var(--c-dark));
-$arrow-c-icon-hover:var(--arrow-c-icon-default, var(--c-white));
+$arrow-c-accent: var(--arrow-c-accent, var(--c-light));
+$arrow-c-hover: var(--arrow-c-hover, var(--c-dark));
+$arrow-c-icon-default: var(--arrow-c-icon-default, var(--c-dark));
+$arrow-c-icon-hover: var(--arrow-c-icon-default, var(--c-white));
 
 $arrow-padding: 0 10px;
-$arrow-box-shadow: 0 5px 12px -5px rgba(29, 31, 34, .6);
+$arrow-box-shadow: 0 5px 12px -5px rgba(29, 31, 34, 0.6);
 
-.sf-arrow{
+.sf-arrow {
   --button-padding: var(--arrow-padding, #{$arrow-padding});
   --button-width: var(--arrow-width, 2.75rem);
   --button-height: var(--arrow-height, 2.75rem);
@@ -19,48 +19,48 @@ $arrow-box-shadow: 0 5px 12px -5px rgba(29, 31, 34, .6);
   justify-content: var(--arrow-justify-content, center);
   border-radius: var(--arrow-border-radius);
   box-shadow: var(--arrow-box-shadow);
-  &:hover{
-    --button-background:var(--arrow-background, #{$arrow-c-hover});
+  &:hover {
+    --button-background: var(--arrow-background, #{$arrow-c-hover});
     --arrow-icon-color: #{$arrow-c-icon-hover};
     --arrow-box-shadow: #{$arrow-box-shadow};
   }
-  &--long{
+  &--long {
     --arrow-width: 3.75rem;
     --arrow-height: 1.875rem;
     --arrow-justify-content: flex-start;
     --button-transition: transform 150ms linear;
     --button-background: var(--c-white);
-    --arrow-icon-transform: scale(.855, .75);
-    &:hover{
+    --arrow-icon-transform: scale(0.855, 0.75);
+    &:hover {
       transform: scale(1.17, 1.34);
       transform-origin: center left;
     }
-    &.sf-arrow--right{
+    &.sf-arrow--right {
       --arrow-justify-content: flex-end;
-      --arrow-icon-transform: rotate(180deg) scale(.855, .75);
-      &:hover{
+      --arrow-icon-transform: rotate(180deg) scale(0.855, 0.75);
+      &:hover {
         transform-origin: center right;
       }
     }
   }
-  &__icon{
+  &__icon {
     transform: var(--arrow-icon-transform);
   }
-  &--transparent{
+  &--transparent {
     --arrow-background: transparent;
-    &:hover{
+    &:hover {
       --arrow-icon-color: #{$arrow-c-icon-default};
     }
   }
-  &--rounded{
-    --arrow-border-radius: 100%
+  &--rounded {
+    --arrow-border-radius: 100%;
   }
-  &--no-shadow{
-    &:hover{
+  &--no-shadow {
+    &:hover {
       --arrow-box-shadow: none;
     }
   }
-  &--right{
+  &--right {
     --arrow-icon-transform: rotate(180deg);
   }
 }

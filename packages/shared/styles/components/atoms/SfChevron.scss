@@ -1,14 +1,17 @@
-.sf-chevron{
+.sf-chevron {
   $this: &;
   position: relative;
   width: var(--chevron-size, 1.25rem);
   height: var(--chevron-size, 1.25rem);
   cursor: pointer;
-  &__bar{
+  &__bar {
     position: absolute;
-    top: calc(calc(var(--chevron-size, 1.25rem) / 2) - calc(calc(calc(var(--chevron-size, 1.25rem) / 2) / 5) / 2));
+    top: calc(
+      calc(var(--chevron-size, 1.25rem) / 2) -
+      calc(calc(calc(var(--chevron-size, 1.25rem) / 2) / 5) / 2)
+    );
     background-color: transparent;
-    transition: all 500ms cubic-bezier(.25, 1.7, .35, .8);
+    transition: all 500ms cubic-bezier(0.25, 1.7, 0.35, 0.8);
     &:after {
       content: "";
       display: block;
@@ -16,16 +19,16 @@
       height: calc(calc(var(--chevron-size, 1.25rem) / 2) / 5);
       background-color: var(--chevron-background, var(--c-black));
     }
-    &--left{
+    &--left {
       left: calc(var(--chevron-size, 1.25rem) / 10);
       transform: rotate(var(--chevron-rotate, 45deg));
     }
-    &--right{
+    &--right {
       right: calc(var(--chevron-size, 1.25rem) / 10);
       transform: rotate(calc(var(--chevron-rotate, 45deg) * -1));
     }
   }
-  &--top{
+  &--top {
     --chevron-rotate: -45deg;
   }
 }

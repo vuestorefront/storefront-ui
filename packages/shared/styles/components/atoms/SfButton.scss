@@ -7,11 +7,12 @@ $button-front-size: var(--font-size-small);
 $button-line-height: 1.6;
 $button-font-family: var(--body-font-family-secondary);
 $button-font: var(--button-font-weight, #{$button-font-width})
-  var(--button-font-size, #{$button-front-size})/var(--button-line-height, #{$button-line-height})
+  var(--button-font-size, #{$button-front-size}) /
+  var(--button-line-height, #{$button-line-height})
   var(--button-font-family, #{$button-font-family});
 $button-transition: background 150ms linear;
 
-.sf-button{
+.sf-button {
   box-sizing: border-box;
   width: var(--button-width);
   height: var(--button-height);
@@ -26,12 +27,12 @@ $button-transition: background 150ms linear;
   cursor: pointer;
   outline: none;
   &:hover {
-    --button-background: #{$button-c-hover}
+    --button-background: #{$button-c-hover};
   }
   &--full-width {
     --button-width: 100%;
   }
-  &--outline, &--text {
+  &--outline {
     --button-background: transparent;
     --button-color: #{$button-c-accent};
     --button-border: 1px solid #{$button-c-accent};
@@ -47,22 +48,24 @@ $button-transition: background 150ms linear;
   &--text {
     --button-border: 0;
     --button-padding: var(--spacer-small) var(--spacer);
+    --button-background: transparent;
+    --button-color: #{$button-c-accent};
     --button-text-transform: none;
-    &:hover{
+    &:hover {
       --button-background: transparent;
       --button-color: #{$button-c-accent};
+    }
+  }
+  $colors-map: ("primary", "secondary", "warning", "danger", "info", "success");
+  @each $color in $colors-map {
+    &.color-#{$color} {
+      --button-c-accent: var(--c-#{$color});
+      --button-c-hover: var(--c-#{$color}-variant);
     }
   }
   &:disabled {
     --button-c-accent: var(--c-gray);
     --button-c-variant: var(--c-gray);
     cursor: default;
-  }
-  $colors-map: ('primary', 'secondary', 'warning', 'danger', 'info', 'success');
-  @each $color in $colors-map {
-    &.color-#{$color}{
-      --button-c-accent: var(--c-#{$color});
-      --button-c-hover: var(--c-#{$color}-variant);
-    }
   }
 }

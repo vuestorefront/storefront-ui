@@ -1,11 +1,11 @@
 $loader-c-accent: var(--loader-c-accent, var(--c-primary));
 $loader-c-overlay: var(--loader-c-overlay, var(--c-white));
 
-.sf-loader{
+.sf-loader {
   position: relative;
   width: 100%;
   height: 100%;
-  &__overlay{
+  &__overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -16,7 +16,7 @@ $loader-c-overlay: var(--loader-c-overlay, var(--c-white));
     align-items: center;
     background: var(--loader-overlay-background, #{$loader-c-overlay});
   }
-  &__spinner{
-    stroke: var(--loader-spiner-stroke, #{$loader-c-accent})
+  &__spinner {
+    stroke: var(--loader-spiner-stroke, #{$loader-c-accent});
   }
 }
