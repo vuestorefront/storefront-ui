@@ -12,7 +12,7 @@ Daily development takes place in **_feature_ branches** which are derived from `
 We apply the strict variant in which the only commits allowed to `develop` are merge commits. So everything that should land in `develop` needs to go through a feature branch.
 In daily development `master` is never touched; neither branched from nor merged into.
 
-As a convention, we prepend every feature branch with `feature/` followed by an issue number and/or a brief description, e.g. `feature/#1234-sftoggle`. This makes it easier to distinguish the branch types in branch overviews.
+As a convention, we prepend every branch that doesn't fall into one of the following categories with the GitHub issue number this branch relates to, like so: `#1234-sftoggle`. See also our [Github Guidelines](github-guidelines.md#_4-create-an-issue-branch).
 
 ### Releases
 In order to release a specific repo state, with a version number and tag and all, a **_release_ branch** can be created. It is also derived from `develop` but merged into `develop` **and `master`**.
@@ -36,3 +36,28 @@ Also, new tags are created for all fixed release branches.
 ## Merging
 
 While committing often on a feature branch is accepted and even appreciated for the sake of transparent code reviews, our team agreed on using **squash commits** for merges into the `develop` branch.
+
+## Conventional Commits
+
+Storefront UI uses [Conventional Commits](https://www.conventionalcommits.org/), i.e. our commit message headlines apply to a certain format that allows for automatic changelog generation and makes commits easier to reason about because of the conventions. Our commits are checked against these _rules_ as a pre-commit hook. Currently we use the [_"config-conventional"_](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional) ruleset. It includes the following commit _types_ you can choose from to prepend your commit with:
+ * `build`
+ * `ci`
+ * `chore`
+ * `docs`
+ * `feat`
+ * `fix`
+ * `perf`
+ * `refactor`
+ * `revert`
+ * `style`
+ * `test`
+
+So valid commit headlines would include the following:
+ * `feat: add global isMobile listener`
+ * `docs: update branching guidelines`
+ * `test: overhaul provide-inject pattern`
+
+In order to narrow your commit down to a certain component or aspect, you can also specify the commit _scope_ like so:
+ * `feat(button): add longpress tooltip`
+ * `refactor(organisms): reorder imports`
+ * `style(toggle): smoothen animation`
