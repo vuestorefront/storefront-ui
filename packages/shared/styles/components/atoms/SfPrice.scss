@@ -1,15 +1,28 @@
+$price-c-default: var(--price-c-default, var(--c-text));
+$price-c-old: var(--price-c-old, var(--c-text-muted));
+$price-c-special: var(--price-c-special, var(--c-danger));
+
+$price-font-width: 400;
+$price-front-size: var(--font-size-big);
+$price-line-height: 1.6;
+$price-font-family: var(--body-font-family-primary);
+$price-font: var(--price-font-weight, #{$price-font-width})
+  var(--price-font-size, #{$price-front-size})/var(--price-line-height, #{$price-line-height})
+  var(--price-font-family, #{$price-font-family});
+
 .sf-price{
   &__value{
-    color: var(--price-color, var(--c-text));
-    font: var(--price-font-weight, 400) var(--price-font-size, var(--font-size-big))/var(--price-line-height, 1.6) var(--price-font-family, var(--body-font-family-primary));
+    margin: var(--price-margin);
+    color: var(--price-color, #{$price-c-default});
+    font: var(--price-font, #{$price-font});
     text-decoration: var(--price-text-decoration, none);
     &--special{
-      --price-color: var(--c-danger);
-      margin: 0 var(--spacer-small) 0 0;
+      --price-color: #{$price-c-special};
+      --price-margin: 0 var(--spacer-small) 0 0;
     }
     &--old{
-      --price-color: var(--c-text-muted);
-      --price-font-size: var(--font-size-small);
+      --price-color: #{$price-c-old};
+      --price-font-size: var(--price-old-font-size, var(--font-size-small));
       --price-text-decoration: line-through;
     }
   }
