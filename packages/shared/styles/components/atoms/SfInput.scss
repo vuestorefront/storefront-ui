@@ -14,7 +14,8 @@ $input-font: var(--input-font-weight, #{$input-font-width})
   var(--input-font-size, #{$input-font-size})/var(--input-line-height, #{$input-line-height})
   var(--input-font-family, #{$input-font-family});
 $input-label-transform: translate3d(0, calc(var(--input-label-top, 50%) * -1),0);
-$input-label-transition: top 150ms linear, font-size 150ms linear;
+$input-label-transition: top 150ms linear,
+  font-size 150ms linear;
 $input-password-icon-width: var(--input-password-icon-width, 22px);
 
 .sf-input{
