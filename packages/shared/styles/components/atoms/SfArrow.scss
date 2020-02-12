@@ -1,66 +1,66 @@
+$arrow-c-accent: var(--arrow-c-accent,var(--c-light));
+$arrow-c-hover: var(--arrow-c-hover,var(--c-dark));
+$arrow-c-icon-default:var(--arrow-c-icon-default, var(--c-dark));
+$arrow-c-icon-hover:var(--arrow-c-icon-default, var(--c-white));
+
+$arrow-padding: 0 10px;
+$arrow-box-shadow: 0 5px 12px -5px rgba(29, 31, 34, .6);
+
 .sf-arrow{
-  box-sizing: border-box;
-  width: var(--arrow-width, 2.75rem);
-  height: var(--arrow-height, 2.75rem);
+  --button-padding: var(--arrow-padding, #{$arrow-padding});
+  --button-width: var(--arrow-width, 2.75rem);
+  --button-height: var(--arrow-height, 2.75rem);
+  --button-background: var(--arrow-background, #{$arrow-c-accent});
+  --icon-width: 1.5rem;
+  --icon-height: 0.75rem;
+  --icon-color: var(--arrow-icon-color, #{$arrow-c-icon-default});
   display: flex;
   align-items: center;
+  justify-content: var(--arrow-justify-content, center);
+  border-radius: var(--arrow-border-radius);
+  box-shadow: var(--arrow-box-shadow);
   &:hover{
-    --arrow__button-background: var(--c-dark);
-    --arrow__button-box-shadow: 0 5px 12px -5px rgba(29, 31, 34, .6);
-    --arrow__icon-fill: var(--c-white);
-  }
-  &__button{
-    display: flex;
-    align-items: center;
-    width: var(--arrow__button-width, 100%);
-    height: var(--arrow__button-height, 100%);
-    padding: var(--arrow__button-padding, 14px 10px);
-    border: var(--arrow__button-border, 0);
-    border-radius: var(--arrow__button-border-radius, 0);
-    background: var(--arrow__button-background, var(--c-light));
-    box-shadow: var(--arrow__button-box-shadow);
-    will-change: padding, background, box-shadow;
-    transition: padding 150ms linear, background 150ms linear, box-shadow 150ms linear;
-    outline: 0;
-    cursor: pointer;
-  }
-  &__icon{
-    width: var(--arrow__icon-width, 1.5rem);
-    height: var(--arrow__icon-height, 0.75rem);
-    fill: var(--arrow__icon-fill, var(--c-dark-base));
-    will-change: fill;
-    transition: fill 150ms linear;
+    --button-background:var(--arrow-background, #{$arrow-c-hover});
+    --arrow-icon-color: #{$arrow-c-icon-hover};
+    --arrow-box-shadow: #{$arrow-box-shadow};
   }
   &--long{
-    --arrow-width: 4.375rem;
-    --arrow-height: 2.5rem;
-    --arrow__button-width: auto;
-    --arrow__button-height: auto;
-    --arrow__button-padding: 9px 10px;
-    --arrow__button-background: var(--c-white);
+    --arrow-width: 3.75rem;
+    --arrow-height: 1.875rem;
+    --arrow-justify-content: flex-start;
+    --button-transition: transform 150ms linear;
+    --button-background: var(--c-white);
+    --arrow-icon-transform: scale(.855, .75);
     &:hover{
-      --arrow__button-padding: 14px 36px 14px 10px;
+      transform: scale(1.17, 1.34);
+      transform-origin: center left;
+    }
+    &.sf-arrow--right{
+      --arrow-justify-content: flex-end;
+      --arrow-icon-transform: rotate(180deg) scale(.855, .75);
+      &:hover{
+        transform-origin: center right;
+      }
     }
   }
-  &--right{
-    transform: rotate(180deg);
-    justify-content: flex-end;
+  &__icon{
+    transform: var(--arrow-icon-transform);
+  }
+  &--transparent{
+    --arrow-background: transparent;
     &:hover{
-      --arrow__button-box-shadow: 0 -5px 12px -5px rgba(0, 0, 0, .6);
+      --arrow-icon-color: #{$arrow-c-icon-default};
     }
   }
   &--rounded{
-    --arrow__button-border-radius: 100%;
+    --arrow-border-radius: 100%
   }
-  &--transparent{
-    --arrow__button-background: transparent;
+  &--no-shadow{
     &:hover{
-      --arrow__button-background: transparent;
-      --arrow__icon-fill: var(--c-dark-base);
-      --arrow__button-box-shadow: none;
+      --arrow-box-shadow: none;
     }
   }
-  &--no-shadow:hover{
-    --arrow__button-box-shadow: none;
+  &--right{
+    --arrow-icon-transform: rotate(180deg);
   }
 }
