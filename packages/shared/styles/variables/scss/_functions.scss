@@ -43,3 +43,12 @@
     @content;
   }
 }
+
+@function css($name, $property, $default: "") {
+  @return var(--#{$name}-#{$property}, #{$default});
+}
+
+@function font($name, $font-width, $font-size, $line-height, $font-family) {
+  @return css($name, font-width, $font-width) css($name, font-size, $font-size) /
+    css($name, line-height, $line-height) css($name, font-family, $font-family);
+}
