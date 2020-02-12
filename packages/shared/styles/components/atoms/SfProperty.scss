@@ -26,7 +26,7 @@ $property-name-margin: 0 var(--spacer) 0 0;
     }
   }
   &__value{
-    font-weight: var(--propert-value-font-weight, 500);
+    font-weight: var(--property-value-font-weight, 500);
   }
   &--full-width {
     --property-name-text-transform: uppercase;
