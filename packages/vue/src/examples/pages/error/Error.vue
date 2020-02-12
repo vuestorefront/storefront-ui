@@ -17,7 +17,7 @@
         Return to home
       </SfButton>
       <SfButton
-        class="sf-button--full-width sf-button--text actions__button actions__button--secondary"
+        class="sf-button--full-width sf-button--text actions__button"
         @click="$emit('click:back')"
       >
         Back
@@ -65,7 +65,7 @@ export default {
   margin: 6.25rem auto 0;
   max-width: 250px;
   &__button {
-    &--secondary {
+    &:last-child {
       margin: var(--spacer-big) 0;
     }
   }
