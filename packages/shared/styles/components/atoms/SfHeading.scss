@@ -1,46 +1,41 @@
 @import "../../variables";
 
-$heading-c-border: var(--heading-c-border, var(--c-light));
+$heading-c-border: css(heading, c-border, var(--c-light));
 
 $heading-padding: 0 0 10px 0;
 $heading-border: 1px solid #{$heading-c-border};
 $heading-border-width: 0 0 1px 0;
-$heading-title-font-width: 500;
-$heading-title-font-size: var(--font-size-extra-big);
-$heading-title-line-height: 1.6;
-$heading-title-font-family: var(--body-font-family-secondary);
-$heading-title-font: var(--badge-font-weight, #{$heading-title-font-width})
-  var(--badge-font-size, #{$heading-title-font-size}) /
-  var(--badge-line-height, #{$heading-title-line-height})
-  var(--badge-font-family, #{$heading-title-font-family});
-$heading-subtitle-font-width: 300;
-$heading-subtitle-font-size: var(--font-size-regular);
-$heading-subtitle-line-height: 1.6;
-$heading-subtitle-font-family: var(--body-font-family-secondary);
-$heading-subtitle-font: var(
-  --badge-font-weight,
-  #{$heading-subtitle-font-width}
-)
-  var(--badge-font-size, #{$heading-subtitle-font-size}) /
-  var(--badge-line-height, #{$heading-subtitle-line-height})
-  var(--badge-font-family, #{$heading-subtitle-font-family});
+$heading-title-font: font(
+  heading-title,
+  500,
+  var(--font-size-extra-big),
+  1.6,
+  var(--body-font-family-secondary)
+);
+$heading-subtitle-font: font(
+  heading-subtitle,
+  300,
+  var(--font-size-regular),
+  1.6,
+  var(--body-font-family-secondary)
+);
 
 .sf-heading {
   box-sizing: border-box;
-  padding: var(--heading-padding, #{$heading-padding});
-  border: var(--heading-border, #{$heading-border});
-  border-width: var(--heading-border-width, #{$heading-border-width});
-  text-align: var(--heading-text-align, left);
+  padding: css(heading, padding, $heading-padding);
+  border: css(heading, border, $heading-border);
+  border-width: css(heading, border-width, $heading-border-width);
+  text-align: css(heading, text-align, left);
   @include for-desktop {
     --heading-padding: 0;
     --heading-border: 0;
     --heading-text-align: center;
   }
   &__title {
-    font: var(--heading-font-title, #{$heading-title-font});
+    font: css(heading-title, font, $heading-title-font);
   }
   &__subtitle {
-    font: var(--heading-font-subtitle, #{$heading-subtitle-font});
+    font: css(heading-subtitble, font, #{$heading-subtitle-font});
   }
   &--no-underline {
     --heading-border: 0;

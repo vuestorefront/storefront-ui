@@ -1,26 +1,28 @@
-$arrow-c-accent: var(--arrow-c-accent, var(--c-light));
-$arrow-c-hover: var(--arrow-c-hover, var(--c-dark));
-$arrow-c-icon-default: var(--arrow-c-icon-default, var(--c-dark));
-$arrow-c-icon-hover: var(--arrow-c-icon-default, var(--c-white));
+@import "../../variables/scss/functions";
+
+$arrow-c-accent: css(arrow, c-accent, var(--c-light));
+$arrow-c-hover: css(arrow, c-hover, var(--c-dark));
+$arrow-c-icon-default: css(arrow, c-icon-default, var(--c-dark));
+$arrow-c-icon-hover: css(arrow, c-icon-default, var(--c-white));
 
 $arrow-padding: 0 10px;
 $arrow-box-shadow: 0 5px 12px -5px rgba(29, 31, 34, 0.6);
 
 .sf-arrow {
-  --button-padding: var(--arrow-padding, #{$arrow-padding});
-  --button-width: var(--arrow-width, 2.75rem);
-  --button-height: var(--arrow-height, 2.75rem);
-  --button-background: var(--arrow-background, #{$arrow-c-accent});
+  --button-padding: #{css(arrow, padding, $arrow-padding)};
+  --button-width: #{css(arrow, width, 2.75rem)};
+  --button-height: #{css(arrow, height, 2.75rem)};
+  --button-background: #{css(arrow, background, $arrow-c-accent)};
   --icon-width: 1.5rem;
   --icon-height: 0.75rem;
-  --icon-color: var(--arrow-icon-color, #{$arrow-c-icon-default});
+  --icon-color: #{css(arrow, icon-color, $arrow-c-icon-default)};
   display: flex;
   align-items: center;
-  justify-content: var(--arrow-justify-content, center);
-  border-radius: var(--arrow-border-radius);
-  box-shadow: var(--arrow-box-shadow);
+  justify-content: css(arrow, justify-content, center);
+  border-radius: css(arrow, border-radius);
+  box-shadow: css(arrow, box-shadow);
   &:hover {
-    --button-background: var(--arrow-background, #{$arrow-c-hover});
+    --button-background: #{css(arrow, background, $arrow-c-hover)};
     --arrow-icon-color: #{$arrow-c-icon-hover};
     --arrow-box-shadow: #{$arrow-box-shadow};
   }
@@ -44,12 +46,13 @@ $arrow-box-shadow: 0 5px 12px -5px rgba(29, 31, 34, 0.6);
     }
   }
   &__icon {
-    transform: var(--arrow-icon-transform);
+    transform: css(arrow-icon, transform);
   }
   &--transparent {
     --arrow-background: transparent;
     &:hover {
-      --arrow-icon-color: #{$arrow-c-icon-default};
+      --arrow-icon-color: $arrow-c-icon-default;
+      --arrow-box-shadow: none;
     }
   }
   &--rounded {

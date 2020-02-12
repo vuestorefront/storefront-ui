@@ -1,35 +1,29 @@
-$circle-icon-c-accent: var(--circle-icon-c-accent, var(--c-primary));
-$circle-icon-c-hover: var(--circle-icon-c-hover, var(--c-primary-lighten));
-$circle-icon-c-shadow: var(--circle-icon-c-shadow, var(--c-primary-base));
+@import "../../variables/scss/functions";
 
-$circle-icon-padding: var(--circle-icon-padding, var(--spacer-big));
-$circle-icon-background: var(
-  --circle-icon-background,
-  #{$circle-icon-c-accent}
+$circle-icon-c-accent: css(circle-icon, c-accent, var(--c-primary));
+$circle-icon-c-hover: css(circle-icon, c-hover, var(--c-primary-lighten));
+$circle-icon-c-shadow: css(circle-icon, c-shadow, var(--c-primary-base));
+
+$circle-icon-padding: css(circle-icon, padding, var(--spacer-big));
+$circle-icon-background: css(circle-icon, background, $circle-icon-c-accent);
+$circle-icon-border-radius: css(circle-icon, border-radius, 100%);
+$circle-icon-transition: css(circle-icon, transition, box-shadow 300ms ease);
+$circle-icon-badge-size: css(circle-icon, badge-size, 1.1rem);
+$circle-icon-badge-font: font(
+  circle-icon-bage,
+  300,
+  var(--font-size-small),
+  1.6,
+  var(--body-font-family-secondary)
 );
-$circle-icon-border-radius: var(--circle-icon-border-radius, 100%);
-$circle-icon-box-shadow: var(--circle-icon-box-shadow);
-$circle-icon-transition: var(--circle-icon-transition, box-shadow 300ms ease);
-$circle-icon-badge-font-width: 300;
-$circle-icon-badge-size: var(--circle-icon-badge-size, 1.1rem);
-$circle-icon-badge-front-size: var(--font-size-small);
-$circle-icon-badge-line-height: 1.6;
-$circle-icon-badge-font-family: var(--body-font-family-secondary);
-$circle-icon-badge-font: var(
-  --button-font-weight,
-  #{$circle-icon-badge-font-width}
-)
-  var(--button-font-size, #{$circle-icon-badge-front-size}) /
-  var(--button-line-height, #{$circle-icon-badge-line-height})
-  var(--button-font-family, #{$circle-icon-badge-font-family});
 
 .sf-circle-icon {
   --button-padding: #{$circle-icon-padding};
   --button-border-radius: #{$circle-icon-border-radius};
   --button-background: #{$circle-icon-c-accent};
   position: relative;
-  box-shadow: #{$circle-icon-box-shadow};
-  transition: #{$circle-icon-transition};
+  box-shadow: css(circle-icon, box-shadow);
+  transition: $circle-icon-transition;
   &:hover {
     --button-background: #{$circle-icon-c-hover};
     --circle-icon-box-shadow: 0 0 0 0.3124rem
@@ -40,15 +34,15 @@ $circle-icon-badge-font: var(
   }
   &__badge {
     position: absolute;
-    top: var(--circle-icon-badge-top, 0);
-    right: var(--circle-icon-badge-right, 0);
+    top: css(circle-icon, badge-top, 0);
+    right: css(circle-icon, badge-right, 0);
     box-sizing: border-box;
-    min-width: var(--circle-icon-badge-width, #{$circle-icon-badge-size});
-    min-height: var(--circle-icon-badge-height, #{$circle-icon-badge-size});
-    padding: var(--circle-icon-badge-padding, 0 3px);
-    border-radius: var(--circle-icon-badge-border-radius, 10px);
-    background: var(--circle-icon-badge-background, var(--c-danger));
-    font: var(--circle-icon-badge-font, #{$circle-icon-badge-font});
+    min-width: css(circle-icon-badge, width, $circle-icon-badge-size);
+    min-height: css(circle-icon-badge, height, $circle-icon-badge-size);
+    padding: css(circle-icon-badge, padding, 0 3px);
+    border-radius: css(circle-icon-badge, border-radius, 10px);
+    background: css(circle-icon-badge, background, var(--c-danger));
+    font: css(circle-icon-badge, font, $circle-icon-badge-font);
     &-enter-active {
       animation: bounce-in 300ms;
     }

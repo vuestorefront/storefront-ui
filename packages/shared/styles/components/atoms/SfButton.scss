@@ -1,29 +1,30 @@
-$button-c-accent: var(--button-c-accent, var(--c-primary));
-$button-c-hover: var(--button-c-hover, var(--c-primary-variant));
+@import "../../variables/scss/functions";
+
+$button-c-accent: css(button, c-accent, var(--c-primary));
+$button-c-hover: css(button, c-hover, var(--c-primary-variant));
 
 $button-padding: var(--spacer-medium) var(--spacer-extra-big);
-$button-font-width: 300;
-$button-front-size: var(--font-size-small);
-$button-line-height: 1.6;
-$button-font-family: var(--body-font-family-secondary);
-$button-font: var(--button-font-weight, #{$button-font-width})
-  var(--button-font-size, #{$button-front-size}) /
-  var(--button-line-height, #{$button-line-height})
-  var(--button-font-family, #{$button-font-family});
+$button-font: font(
+  button,
+  300,
+  var(--font-size-small),
+  1.6,
+  var(--body-font-family-secondary)
+);
 $button-transition: background 150ms linear;
 
 .sf-button {
   box-sizing: border-box;
-  width: var(--button-width);
-  height: var(--button-height);
-  padding: var(--button-padding, #{$button-padding});
-  border: var(--button-border, 0);
-  border-radius: var(--button-border-radius, 0);
-  color: var(--button-color, var(--c-white));
-  background: var(--button-background, #{$button-c-accent});
-  font: var(--button-font, #{$button-font});
-  text-transform: var(--button-text-transform, uppercase);
-  transition: var(--button-transition, #{$button-transition});
+  width: css(button, width);
+  height: css(button, height);
+  padding: css(button, padding, $button-padding);
+  border: css(button, border, 0);
+  border-radius: css(button, border-radius, 0);
+  color: css(button, color, var(--c-white));
+  background: css(button, background, $button-c-accent);
+  font: css(button, font, $button-font);
+  text-transform: css(button, text-transform, uppercase);
+  transition: css(button, transition, $button-transition);
   cursor: pointer;
   outline: none;
   &:hover {

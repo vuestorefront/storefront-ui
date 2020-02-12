@@ -4,33 +4,32 @@ $checkbox-c-default: var(--checkbox-c-default, var(--c-gray-variant));
 
 $checkbox-size: var(--checkbox-size, 1.25rem);
 $checkbox-border: 1px solid #{$checkbox-c-default};
-$checkbox-font-width: 300;
-$checkbox-front-size: var(--font-size-big);
-$checkbox-line-height: 1.6;
-$checkbox-font-family: var(--body-font-family-secondary);
-$checkbox-font: var(--checkbox-font-weight, #{$checkbox-font-width})
-  var(--checkbox-font-size, #{$checkbox-front-size}) /
-  var(--checkbox-line-height, #{$checkbox-line-height})
-  var(--checkbox-font-family, #{$checkbox-font-family});
+$checkbox-font: font(
+  chekcbox,
+  300,
+  var(--font-size-big),
+  1.6,
+  var(--body-font-family-secondary)
+);
 $checkbox-label-margin: 0 0 0 var(--spacer-big);
 
 .sf-checkbox {
-  font: var(--checkbox-font, #{$checkbox-font});
+  font: css(checkbox, font, $checkbox-font);
   &__container {
     display: flex;
     align-items: center;
-    cursor: var(--checkbox-cursor, pointer);
+    cursor: css(checkbox, cursor, pointer);
   }
   &__checkmark {
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--checkbox-width, #{$checkbox-size});
-    height: var(--checkbox-height, #{$checkbox-size});
-    border: var(--checkbox-border, #{$checkbox-border});
-    border-radius: var(--checkbox-border-radius, 0);
-    background: var(--checkbox-background, transparent);
+    width: css(checkbox, width, $checkbox-size);
+    height: css(checkbox, height, $checkbox-size);
+    border: css(checkbox, border, $checkbox-border);
+    border-radius: css(checkbox, border-radius, 0);
+    background: css(checkbox, background, transparent);
     @include for-desktop {
       --checkbox-size: 1.5rem;
     }
@@ -39,7 +38,7 @@ $checkbox-label-margin: 0 0 0 var(--spacer-big);
     }
   }
   &__label {
-    margin: var(--checkbox-label-margin, #{$checkbox-label-margin});
+    margin: css(checkbox-label, margin, $checkbox-label-margin);
   }
   &--is-active {
     --checkbox-border: 1px solid #{$checkbox-c-accent};

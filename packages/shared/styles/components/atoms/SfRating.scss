@@ -1,5 +1,7 @@
-$rating-c-accent: var(--rating-c-accent, var(--c-primary));
-$rating-c-default: var(--rating-c-default, var(--c-dark));
+@import "../../variables/scss/functions";
+
+$rating-c-accent: css(rating, c-accent, var(--c-primary));
+$rating-c-default: css(rating, c-default, var(--c-dark));
 
 .sf-rating {
   display: flex;

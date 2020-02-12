@@ -1,44 +1,42 @@
-$input-c-accent: var(--input-c-accent, var(--c-primary));
-$input-c-default: var(--input-c-default, var(--c-light));
-$input-c-text: var(--input-c-text, var(--c-text));
+@import "../../variables/scss/functions";
+
+$input-c-accent: css(input, c-accent, var(--c-primary));
+$input-c-default: css(input, c-default, var(--c-light));
+$input-c-text: css(input, c-text, var(--c-text));
 
 $input-padding: 15px 0 10px 0;
 $input-margin: 0 0 var(--spacer-small) 0;
-$input-border: 1px solid #{$input-c-default};
+$input-border: 1px solid $input-c-default;
 $input-border-width: 0 0 1px 0;
-$input-font-width: 400;
-$input-font-size: var(--font-size-big);
-$input-line-height: 1.6;
-$input-font-family: var(--body-font-family-secondary);
-$input-font: var(--input-font-weight, #{$input-font-width})
-  var(--input-font-size, #{$input-font-size}) /
-  var(--input-line-height, #{$input-line-height})
-  var(--input-font-family, #{$input-font-family});
-$input-label-transform: translate3d(
-  0,
-  calc(var(--input-label-top, 50%) * -1),
-  0
+$input-font: font(
+  input,
+  400,
+  var(--font-size-big),
+  1.6,
+  var(--body-font-family-secondary)
 );
+$input-label-top: css(input-label, top, 50%);
+$input-label-transform: translate3d(0, calc(#{$input-label-top} * -1), 0);
 $input-label-transition: top 150ms linear, font-size 150ms linear;
-$input-password-icon-width: var(--input-password-icon-width, 22px);
+$input-password-icon-width: css(input-password-icon, width, 22px);
 
 .sf-input {
   position: relative;
   box-sizing: border-box;
-  width: var(--input-width);
-  height: var(--input-height);
-  color: var(--input-color, #{$input-c-text});
-  font: var(--input-font, #{$input-font});
+  width: css(input, width);
+  height: css(input, height);
+  color: css(input, color, $input-c-text);
+  font: css(input, font, $input-font);
   &__label {
     position: absolute;
-    top: var(--input-label-top, 50%);
-    color: var(--input-label-color, inherit);
-    font-size: var(--input-label-font-size, inherit);
-    transform: var(--input-label-transform, #{$input-label-transform});
-    transition: var(--input-label-transition, #{$input-label-transition});
+    top: #{$input-label-top};
+    color: css(input-label, color, inherit);
+    font-size: css(input-label, font-size, inherit);
+    transform: css(input-label, transform, $input-label-transform);
+    transition: css(input-label, transition, $input-label-transition);
     &::after {
       content: var(--input-label-required);
-      color: var(--input-label-color, #{$input-c-accent});
+      color: css(input-label, color, $input-c-accent);
     }
   }
   &__bar {
@@ -48,9 +46,9 @@ $input-password-icon-width: var(--input-password-icon-width, 22px);
     &::after {
       position: absolute;
       bottom: 0;
-      width: var(--input-bar-width, 0);
+      width: css(input-bar, width, 0);
       height: 1px;
-      background: var(--input-bar-background, #{$input-c-accent});
+      background: css(input-bar, background, $input-c-accent);
       transition: width 150ms linear;
       content: "";
     }
@@ -71,7 +69,7 @@ $input-password-icon-width: var(--input-password-icon-width, 22px);
     transform: translate3d(0, -50%, 0);
   }
   &__password-icon {
-    --icon-width: #{input-password-icon-width};
+    --icon-width: #{$input-password-icon-width};
     --icon-height: 13px;
     --icon-color: var(--c-dark-variant);
     position: relative;
@@ -92,8 +90,8 @@ $input-password-icon-width: var(--input-password-icon-width, 22px);
     }
   }
   &__error-message {
-    color: var(--input-error-message-color, var(--c-danger));
-    font-size: var(--input-error-message-font-size, var(--font-size-small));
+    color: css(input-error-message, color, var(--c-danger));
+    font-size: css(input-error-message, font-size, var(--font-size-small));
   }
   &__wrapper,
   input {
@@ -102,15 +100,15 @@ $input-password-icon-width: var(--input-password-icon-width, 22px);
   }
   &__wrapper {
     position: relative;
-    margin: var(--input-margin, #{$input-margin});
+    margin: css(input, margin, $input-margin);
   }
   input {
     display: block;
     box-sizing: border-box;
-    padding: var(--input-padding, #{$input-padding});
-    border: var(--input-border, #{$input-border});
-    border-width: var(--input-border-width, #{$input-border-width});
-    background: var(--input-background);
+    padding: css(input, padding, $input-padding);
+    border: css(input, border, $input-border);
+    border-width: css(input, border-width, $input-border-width);
+    background: css(input, background);
     color: inherit;
     font: inherit;
     outline: 0;

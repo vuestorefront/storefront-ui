@@ -1,33 +1,34 @@
-$property-c-default: var(--property-c-default, var(--c-text));
-$property-c-secondary: var(--property-c-secondary, var(--c-text-muted));
+@import "../../variables/scss/functions";
 
-$property-font-width: 400;
-$property-front-size: var(--font-size-regular);
-$property-line-height: 1.6;
-$property-font-family: var(--body-font-family-secondary);
-$property-font: var(--property-font-weight, #{$property-font-width})
-  var(--property-font-size, #{$property-front-size}) /
-  var(--property-line-height, #{$property-line-height})
-  var(--property-font-family, #{$property-font-family});
+$property-c-default: css(property, c-default, var(--c-text));
+$property-c-secondary: css(property, c-secondary, var(--c-text-muted));
+
+$property-font: font(
+  property,
+  400,
+  var(--font-size-regular),
+  1.6,
+  var(--body-font-family-secondary)
+);
 $property-name-margin: 0 var(--spacer) 0 0;
 
 .sf-property {
   display: flex;
   align-items: center;
-  color: var(--property-color, #{$property-c-default});
-  font: var(--property-font, #{$property-font});
+  color: css(property, color, $property-c-default);
+  font: css(property, font, $property-font);
   &__name {
     display: flex;
     align-items: center;
-    margin: var(--property-name-margin, #{$property-name-margin});
-    color: var(--property-name-color, #{$property-c-secondary});
-    text-transform: var(--property-name-text-transform);
+    margin: css(property-name, margin, $property-name-margin);
+    color: css(property-name, color, $property-c-secondary);
+    text-transform: css(property-name, text-transform);
     &::after {
       content: var(--property-name-suffix, ":");
     }
   }
   &__value {
-    font-weight: var(--property-value-font-weight, 500);
+    font-weight: css(property-value, font-weight, 500);
   }
   &--full-width {
     --property-name-text-transform: uppercase;

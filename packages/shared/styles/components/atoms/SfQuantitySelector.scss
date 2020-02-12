@@ -1,13 +1,7 @@
 @import "../../variables";
 
-$quantity-selector-c-accent: var(
-  --quantity-selector-c-accent,
-  var(--c-primary)
-);
-$quantity-selector-c-default: var(
-  --quantity-selector-c-default,
-  var(--c-light)
-);
+$quantity-selector-c-accent: css(quantity-selector, c-accent, var(--c-primary));
+$quantity-selector-c-default: css(quantity-selector, c-default, var(--c-light));
 
 $quantity-selector-width: 1.875rem;
 $quantity-selector-height: 1.6875rem;
@@ -15,26 +9,28 @@ $quantity-selector-focus-border: 1px solid #{$quantity-selector-c-accent};
 $quantity-selector-transition: border-coloe 150ms linear;
 
 .sf-quantity-selector {
-  --input-width: var(--quantity-selector-width, #{$quantity-selector-width});
-  --input-height: var(--quantity-selector-heigt, #{$quantity-selector-height});
+  --input-width: #{css(quantity-selector, width, $quantity-selector-width)};
+  --input-height: #{css(quantity-selector, height, $quantity-selector-height)};
   @include for-desktop {
     --quantity-selector-width: 3.125rem;
   }
   input {
-    --input-padding: var(--quantity-selector-padding, 0);
-    --input-margin: var(--quantity-selector-mergin, 0);
-    --input-border: var(--quantity-selector-border);
-    --input-border-width: var(--quantity-selector-border-width, 1px);
+    --input-padding: #{css(quantity-selector, padding, 0)};
+    --input-margin: #{css(quantity-selector, margin, 0)};
+    --input-border: #{css(quantity-selector, border)};
+    --input-border-width: #{css(quantity-selector, border-width, 1px)};
     text-align: center;
-    transition: var(
-      --quantity-selector-transition,
-      #{$quantity-selector-transition}
+    transition: css(
+      quantity-selector,
+      transition,
+      $quantity-selector-transition
     );
     @include for-desktop {
-      --input-background: var(
-        --quantity-selector-background,
-        #{$quantity-selector-c-default}
-      );
+      --input-background: #{css(
+        quantity-selector,
+        background,
+        $quantity-selector-c-default
+      )};
     }
     &:focus {
       --quantity-selector-border: #{$quantity-selector-focus-border};

@@ -1,22 +1,25 @@
-$breadcrumbs-c-link: var(--breadcrumbs-link-color, var(--c-text));
-$breadcrumbs-c-link-hover: var(
-  --breadcrumbs-link-color-hover,
+@import "../../variables/scss/functions";
+
+$breadcrumbs-c-link: css(breadcrumbs, c-link, var(--c-text));
+$breadcrumbs-c-link-hover: css(
+  breadcrumbs,
+  link-color-hover,
   var(--c-text-muted)
 );
-$breadcrumbs-c-current: var(--breadcrumbs-current-color, var(--c-text-muted));
+$breadcrumbs-c-current: css(breadcrumbs, current-color, var(--c-text-muted));
+
 $breadcrumbs-padding: 0 0 0 var(--spacer);
 $breadcrumbs-before-padding: 0 var(--spacer) 0 0;
-$breadcrumbs-font-width: 400;
-$breadcrumbs-front-size: var(--font-size-small);
-$breadcrumbs-line-height: 1.6;
-$breadcrumbs-font-family: var(--body-font-family-secondary);
-$breadcrumbs-font: var(--breadcrumbs-font-weight, #{$breadcrumbs-font-width})
-  var(--breadcrumbs-font-size, #{$breadcrumbs-front-size}) /
-  var(--breadcrumbs-line-height, #{$breadcrumbs-line-height})
-  var(--breadcrumbs-font-family, #{$breadcrumbs-font-family});
+$breadcrumbs-font: font(
+  badge,
+  400,
+  var(--font-size-small),
+  1.6,
+  var(--body-font-family-secondary)
+);
 
 .sf-breadcrumbs {
-  font: var(--breadcrumbs-font, #{$breadcrumbs-font});
+  font: css(breadcrumbs, font, $breadcrumbs-font);
   &__list {
     display: flex;
     padding: 0;
@@ -25,11 +28,12 @@ $breadcrumbs-font: var(--breadcrumbs-font-weight, #{$breadcrumbs-font-width})
   }
   &__item {
     &:not(:first-child) {
-      padding: var(--breadcrumbs-item-padding, #{$breadcrumbs-padding});
+      padding: css(breadcrumbsitem, padding, $breadcrumbs-padding);
       &::before {
-        padding: var(
-          --breadcrumbs-item-before-padding,
-          #{$breadcrumbs-before-padding}
+        padding: css(
+          breadcrumbs-item-before,
+          padding,
+          $breadcrumbs-before-padding
         );
         content: var(--breadcrumbs-item-seperator, "|");
       }

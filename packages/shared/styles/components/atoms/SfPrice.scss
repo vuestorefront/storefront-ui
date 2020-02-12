@@ -1,29 +1,30 @@
-$price-c-default: var(--price-c-default, var(--c-text));
-$price-c-old: var(--price-c-old, var(--c-text-muted));
-$price-c-special: var(--price-c-special, var(--c-danger));
+@import "../../variables/scss/functions";
 
-$price-font-width: 400;
-$price-front-size: var(--font-size-big);
-$price-line-height: 1.6;
-$price-font-family: var(--body-font-family-primary);
-$price-font: var(--price-font-weight, #{$price-font-width})
-  var(--price-font-size, #{$price-front-size}) /
-  var(--price-line-height, #{$price-line-height})
-  var(--price-font-family, #{$price-font-family});
+$price-c-default: css(price, c-default, var(--c-text));
+$price-c-old: css(price, c-old, var(--c-text-muted));
+$price-c-special: css(price, c-special, var(--c-danger));
+
+$price-font: font(
+  price,
+  400,
+  var(--font-size-big),
+  1.6,
+  var(--body-font-family-primary)
+);
 
 .sf-price {
   &__value {
-    margin: var(--price-margin);
-    color: var(--price-color, #{$price-c-default});
-    font: var(--price-font, #{$price-font});
-    text-decoration: var(--price-text-decoration, none);
+    margin: css(price, margin);
+    color: css(price, color, $price-c-default);
+    font: css(price, font, $price-font);
+    text-decoration: css(price, text-decoration, none);
     &--special {
       --price-color: #{$price-c-special};
       --price-margin: 0 var(--spacer-small) 0 0;
     }
     &--old {
       --price-color: #{$price-c-old};
-      --price-font-size: var(--price-old-font-size, var(--font-size-small));
+      --price-font-size: css(price-old, font-size, var(--font-size-small));
       --price-text-decoration: line-through;
     }
   }

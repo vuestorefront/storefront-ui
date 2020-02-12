@@ -1,35 +1,36 @@
-$image-c-overlay: var(--image-c-overlay, rgba(29, 31, 34, 0.8));
-$image-c-text: var(--image-c-text, var(--c-white));
+@import "../../variables/scss/functions";
 
-$image-font-width: 300;
-$image-front-size: var(--font-size-small);
-$image-line-height: 1.6;
-$image-font-family: var(--body-font-family-secondary);
-$image-font: var(--image-font-weight, #{$image-font-width})
-  var(--image-font-size, #{$image-front-size}) /
-  var(--image-line-height, #{$image-line-height})
-  var(--image-font-family, #{$image-font-family});
+$image-c-overlay: css(image, c-overlay, rgba(29, 31, 34, 0.8));
+$image-c-text: css(image, c-text, var(--c-white));
+
+$image-font: font(
+  heading-title,
+  300,
+  var(--font-size-small),
+  1.6,
+  var(--body-font-family-secondary)
+);
 
 .sf-image {
   position: relative;
-  overflow: var(--image-overflow, hidden);
-  width: var(--image-width, 100%);
-  max-width: calc(var(--image-max-width) * 1px);
+  overflow: css(image, overflow, hidden);
+  width: css(image, width, 100%);
+  max-width: calc(#{css(image, max-width)} * 1px);
   font: var(--image-font, #{$image-font});
   &::before {
     display: block;
-    padding-top: calc(var(--image-height) / var(--image-max-width) * 100%);
+    padding-top: calc(#{css(image, height)} / #{css(image, max-width)} * 100%);
     content: var(--image-content, "");
   }
   img {
-    position: var(--img-position, absolute);
+    position: css(img, position, absolute);
     top: 50%;
     left: 0;
     display: block;
-    width: var(--img-width, 100%);
+    width: css(img, width, 100%);
     max-width: 100%;
     height: 100%;
-    transform: var(--img-transform, translate3d(0, -50%, 0));
+    transform: css(img, transform, translate3d(0, -50%, 0));
   }
   &__overlay {
     position: absolute;
@@ -40,9 +41,9 @@ $image-font: var(--image-font-weight, #{$image-font-width})
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--image-overlay--padding, var(--spacer-big));
-    background: var(--image-overlay--background, #{$image-c-overlay});
-    color: var(--image-overlay--color, #{$image-c-text});
+    padding: css(image-overlay, padding, var(--spacer-big));
+    background: css(image-overlay, background, $image-c-overlay);
+    color: css(image-overlay, color, $image-c-text);
   }
   &--no-size {
     --image-overflow: unset;
