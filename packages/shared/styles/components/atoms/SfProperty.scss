@@ -1,18 +1,38 @@
+$property-c-default: var(--property-c-default, var(--c-text));
+$property-c-secondary:  var(--property-c-secondary, var(--c-text-muted));
+
+$property-font-width: 400;
+$property-front-size: var(--font-size-regular);
+$property-line-height: 1.6;
+$property-font-family: var(--body-font-family-secondary);
+$property-font: var(--property-font-weight, #{$property-font-width})
+  var(--property-font-size, #{$property-front-size})/var(--property-line-height, #{$property-line-height})
+  var(--property-font-family, #{$property-font-family});
+$property-name-margin: 0 var(--spacer) 0 0;
+
 .sf-property{
   display: flex;
-  color: var(--c-text);
-  font: var(--price-font-weight, 400) var(--price-font-size, var(--font-size-regular))/var(--price-line-height, 1.6) var(--price-font-family, var(--body-font-family-secondary));
+  align-items: center;
+  color: var(--property-color, #{$property-c-default});
+  font: var(--property-font, #{$property-font});
   &__name{
-    margin: var(--propert__name-margin,0 var(--spacer) 0 0);
-    color: var(--property__name-color, var(--c-text-muted));
-    text-transform: var(--property__name-text-transform, none);
+    display: flex;
+    align-items: center;
+    margin: var(--property-name-margin, #{$property-name-margin} );
+    color: var(--property-name-color, #{$property-c-secondary});
+    text-transform: var(property-name-text-transform);
+    &::after{
+      content: var(--property-name-suffix, ":");
+    }
   }
   &__value{
-    font-weight: var(--property__value-font-weight, 500);
+    font-weight: var(--propert-value-font-weight, 500);
   }
-  &--full-width{
-    --property__name-text-transform: uppercase;
+  &--full-width {
+    --property-name-text-transform: uppercase;
     justify-content: space-between;
-    align-items: center;
+  }
+  &--without-suffix{
+    --property-name-suffix: none;
   }
 }
