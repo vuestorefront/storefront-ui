@@ -1,3 +1,5 @@
+$overlay-c-default: var(--overlay-c-default, var(--c-black));
+
 .sf-overlay{
   position: fixed;
   top: 0;
@@ -5,6 +7,6 @@
   bottom: 0;
   left: 0;
   z-index: var(--overlay-z-index, 1);
-  background: var(--overlay-background, var(--c-black));
+  background: var(--overlay-background, #{$overlay-c-default});
   opacity: var(--overlay-opacity, .8);
 }
