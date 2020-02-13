@@ -15,6 +15,7 @@
   --select-line-height: 1.6;
   --select__label-focus-font-size: var(--font-size-small);
   --select__label-transition: all 350ms ease-in-out;
+  --select__dropdown-z-index: 1;
   --select__bar-transition: all 150ms ease-in-out;
   --select__error-message-font-family: var(--body-font-family-primary);
   --select__error-message-font-size: var(--font-size-small);
@@ -75,7 +76,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: var(--select__dropdown-z-index);
     box-sizing: border-box;
     background-color: #fff;
   }
