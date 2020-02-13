@@ -103,6 +103,7 @@
   &__reviews {
     display: flex;
     align-items: center;
+    padding-top: var(--spacer);
     &-count {
       text-decoration: underline;
     }
