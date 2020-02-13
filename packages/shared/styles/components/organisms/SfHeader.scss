@@ -1,20 +1,18 @@
-@import '../../variables';
-:root{
-  --header__sticky-holder-background-color: var(--c-light);
-  --header__container-max-width: 1240px;
-  --header__container-height: auto;
-  --header__logo-height: 1.5rem;
-  --header-navigation-item-font-family: var(--body-font-family-primary);
-  --header-navigation-item-font-size: var(--font-size-regular);
-  --header-navigation-item-font-weight: 500;
-  --header-navigation-item-line-height: 1.6;
-  @media (min-width: $desktop-min) {
-    --header__sticky-holder-background-color: var(--c-white);
-    --header__container-height: 5rem;
-    --header__logo-height: 2.125rem;
-  }
-}
-.sf-header-navigation-item{
+@import "../../variables";
+
+  $header-c-default: css(header, c-default, var(--c-light));
+  $header-container-width: 1240px;
+  $header-container-height: auto;
+  $header-logo-size: 2.125rem;
+  $header-navigation-item-font: font(
+    header-navigation-item,
+    500,
+    var(--font-size-regular),
+    1.6,
+    var(--body-font-family-primary)
+  );
+  
+.sf-header-navigation-item {
   $this: &;
   display: flex;
   align-items: center;
@@ -40,10 +38,7 @@
   }
   & > * {
     text-transform: uppercase;
-    font-family: var(--header-navigation-item-font-family);
-    font-size: var(--header-navigation-item-font-size);
-    font-weight: var(--header-navigation-item-font-weight);
-    line-height: var(--header-navigation-item-line-height);
+    font: css(header-navigation-item, font, $header-navigation-item-font);
   }
 }
 .sf-header{
@@ -51,10 +46,10 @@
   &__sticky-container{
     position: relative;
     box-sizing: border-box;
-    background-color: var(--header__sticky-holder-background-color);
-    @media screen and (min-width: $desktop-min) {
-      background-color: var(--header__sticky-holder-background-color);
-    }
+    background-color: css(header, background-color, $header-c-default);
+      @include for-desktop {
+        --header-c-default: var(--c-white);
+      }
   }
   &__sticky-holder{
     box-sizing: border-box;
@@ -65,23 +60,24 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: var(--header__container-max-width);
+    max-width: css(header, width, $header-container-width);
     margin: auto;
-    height: var(--header__container-height);
+    height: css(header, height, $header-container-height);
     padding: 0 var(--spacer-big);
-    @media screen and (min-width: $desktop-min) {
+
+    @include for-desktop {
+      --header-container-height: 5rem;
       justify-content: space-between;
-      height: var(--header__container-height);
-      padding: 0 var(--spacer-extra-big);
       flex-wrap: nowrap;
+      padding: 0 var(--spacer-extra-big);
     }
   }
   &__logo{
-    height: var(--header__logo-height);
+    height: css(header-logo, height, $header-logo-size);
     margin: 10px 0;
-    @media screen and (min-width: $desktop-min) {
+    @include for-desktop {
+      --header-logo-size: 1.5rem;
       margin: 0;
-      height: var(--header__logo-height);
     }
     &.sf-image{
       img {
@@ -139,7 +135,7 @@
   }
   &--has-mobile-search{
     #{$this}__search{
-      @media (max-width: $desktop-min){
+      @include for-desktop {
         margin: var(--spacer) 0;
         &.sf-search-bar{
           background-color: var(--c-white);
