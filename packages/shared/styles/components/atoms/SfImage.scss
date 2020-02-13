@@ -1,5 +1,4 @@
 @import '../../variables';
-
 :root {
   --image__overlay-bgc: rgba(29, 31, 34, .8);
   --image__overlay-c: var(--c-white);
@@ -8,51 +7,39 @@
   --image__overlay-background-color: rgba(29, 31, 34, .8);
   --image__overlay-color: var(--c-white);
 }
-
 .sf-image {
   position: relative;
   overflow: hidden;
   width: 100%;
   max-width: calc(var(--width) * 1px);
   line-height: 0;
-
   &::before {
     display: block;
     content: "";
     padding-top: calc(var(--height) / var(--width) * 100%);
   }
-
   img {
     position: absolute;
     top: 50%;
     left: 0;
     transform: translate3d(0, -50%, 0);
     display: block;
+    width: 100%;
     max-width: 100%;
     height: auto;
-
-    img {
-      display: inherit;
-      max-width: inherit;
-      height: inherit;
-    }
   }
-
   &--no-size {
     width: auto;
     max-width: unset;
     overflow: unset;
-
     &::before {
       content: unset;
     }
-
     img {
       position: static;
       transform: unset;
     }
   }
-
   &__overlay {
     position: absolute;
     top: 0;
@@ -69,7 +56,6 @@
     line-height: 1.6;
   }
 }
-
 @media screen and (min-width: $desktop-min) {
   .sf-image {
     &__overlay {

@@ -57,7 +57,7 @@ h3 {
 }
 </style>
 <style lang="scss" scoped>
-@import "~@storefront-ui/shared/styles/variables/_typography.scss";
+@import "~@storefront-ui/shared/styles/variables/scss/_typography.scss";
 
 @each $profile, $typo_sizes in $typography-map {
   @each $name, $size in $typo_sizes {

@@ -54,7 +54,7 @@
       <transition name="fade">
         <span v-if="!valid">
           <!-- @slot Custom error message of form input -->
-          <slot name="errorMessage" v-bind="{ errorMessage }">{{
+          <slot name="error-message" v-bind="{ errorMessage }">{{
             errorMessage
           }}</slot>
         </span>

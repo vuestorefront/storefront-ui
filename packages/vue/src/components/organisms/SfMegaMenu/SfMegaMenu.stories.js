@@ -1,13 +1,18 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
+import { withKnobs, text } from "@storybook/addon-knobs";
+
 import SfMegaMenu from "./SfMegaMenu.vue";
+
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfHeader from "../SfHeader/SfHeader.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
+
 const AsidePlaceholder = {
   components: { SfImage },
   data() {
     return {
+      isMobile: false,
       tiles: [
         {
           title: "Last pairs left",
@@ -30,7 +35,27 @@ const AsidePlaceholder = {
       ]
     };
   },
-  template: `<div :style="{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}">
+  computed: {
+    root() {
+      return this.isMobile
+        ? {}
+        : { display: "flex", justifyContent: "space-between" };
+    }
+  },
+  mounted() {
+    this.isMobile =
+      Math.max(document.documentElement.clientWidth, window.innerWidth) < 1024;
+    window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+  },
+  beforeDestroy() {
+    window.matchMedia("(max-width: 1024px)").removeListener(this.mobileHandler);
+  },
+  methods: {
+    mobileHandler(event) {
+      this.isMobile = event.matches;
+    }
+  },
+  template: `<div :style="root">
       <div 
         v-for="tile in tiles" 
         :key="tile.title" 
@@ -114,11 +139,18 @@ const MegaMenuPlaceholder = {
         </template>
       </SfMegaMenu>`
 };
+
 storiesOf("Organisms|MegaMenu", module)
+  .addDecorator(withKnobs)
   .add("Common", () => ({
     components: {
       SfMegaMenu,
       SfMenuItem
+    },
+    props: {
+      title: {
+        default: text("title", "Man", "Props")
+      }
     },
     data() {
       return {
@@ -162,8 +194,9 @@ storiesOf("Organisms|MegaMenu", module)
       };
     },
     template: `<SfMegaMenu 
-        title="Man" 
+        :title="title" 
         :visible="visible"
+        :style="{maxWidth: '1240px', margin: 'auto'}"
       >
         <SfMegaMenuColumn 
           v-for="subcategory in subcategories" 
@@ -184,6 +217,11 @@ storiesOf("Organisms|MegaMenu", module)
       SfMenuItem,
       AsidePlaceholder
     },
+    props: {
+      title: {
+        default: text("title", "Man", "Props")
+      }
+    },
     data() {
       return {
         visible: true,
@@ -226,8 +264,9 @@ storiesOf("Organisms|MegaMenu", module)
       };
     },
     template: `<SfMegaMenu 
-        title="Man"
+        :title="title"
         :visible="visible"
+        :style="{maxWidth: '1240px', margin: 'auto'}"
       >
         <SfMegaMenuColumn 
           v-for="subcategory in subcategories" 

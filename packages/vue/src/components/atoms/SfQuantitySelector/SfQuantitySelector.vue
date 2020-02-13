@@ -28,7 +28,7 @@ export default {
      */
     ariaLabel: {
       type: String,
-      default: null
+      default: "quantity"
     }
   }
 };

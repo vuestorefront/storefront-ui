@@ -71,7 +71,7 @@ export default {
     },
     pictureBreakpoint: {
       type: Number,
-      default: 576
+      default: 1024
     }
   },
   data() {
