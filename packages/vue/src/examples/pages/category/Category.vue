@@ -61,38 +61,42 @@
         </div>
         <div class="navbar__view desktop-only">
           <span>View </span>
-          <SfButton class="navbar__view-button" @click="isGridView = true">
-            <SfIcon
-              class="navbar__view-icon"
-              :color="isGridView ? '#1D1F22' : '#BEBFC4'"
-              size="10px"
-            >
-              <svg viewBox="0 0 10 10">
-                <rect width="2" height="2" />
-                <rect y="4" width="2" height="2" />
-                <rect y="8" width="2" height="2" />
-                <rect x="4" width="2" height="2" />
-                <rect x="4" y="4" width="2" height="2" />
-                <rect x="4" y="8" width="2" height="2" />
-                <rect x="8" width="2" height="2" />
-                <rect x="8" y="4" width="2" height="2" />
-                <rect x="8" y="8" width="2" height="2" />
-              </svg>
-            </SfIcon>
-          </SfButton>
-          <SfButton class="navbar__view-button" @click="isGridView = false">
-            <SfIcon
-              class="navbar__view-icon"
-              :color="!isGridView ? '#1D1F22' : '#BEBFC4'"
-              size="11px"
-            >
-              <svg viewBox="0 0 11 10">
-                <rect width="11" height="2" />
-                <rect y="8" width="11" height="2" />
-                <rect y="4" width="7" height="2" />
-              </svg>
-            </SfIcon>
-          </SfButton>
+          <SfIcon
+            class="navbar__view-button"
+            :color="isGridView ? '#1D1F22' : '#BEBFC4'"
+            size="10px"
+            role="button"
+            aria-label="Change to grid view"
+            :aria-pressed="isGridView"
+            @click="isGridView = true"
+          >
+            <svg viewBox="0 0 10 10">
+              <rect width="2" height="2" />
+              <rect y="4" width="2" height="2" />
+              <rect y="8" width="2" height="2" />
+              <rect x="4" width="2" height="2" />
+              <rect x="4" y="4" width="2" height="2" />
+              <rect x="4" y="8" width="2" height="2" />
+              <rect x="8" width="2" height="2" />
+              <rect x="8" y="4" width="2" height="2" />
+              <rect x="8" y="8" width="2" height="2" />
+            </svg>
+          </SfIcon>
+          <SfIcon
+            class="navbar__view-button"
+            :color="!isGridView ? '#1D1F22' : '#BEBFC4'"
+            size="11px"
+            role="button"
+            aria-label="Change to list view"
+            :aria-pressed="!isGridView"
+            @click="isGridView = false"
+          >
+            <svg viewBox="0 0 11 10">
+              <rect width="11" height="2" />
+              <rect y="8" width="11" height="2" />
+              <rect y="4" width="7" height="2" />
+            </svg>
+          </SfIcon>
         </div>
         <SfButton
           class="navbar__filters-button mobile-only"
@@ -673,7 +677,8 @@ export default {
     align-items: center;
     margin: 0 var(--spacer-extra-big);
 
-    &-icon {
+    &-button {
+      cursor: pointer;
       margin-left: 10px;
     }
   }
