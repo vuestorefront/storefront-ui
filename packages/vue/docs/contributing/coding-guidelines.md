@@ -50,7 +50,7 @@ Sf<ComponentName>
 
 * `vue` - template markup and component instance logic, in JavaScript.
 * `md` - docs for component,
-* `spec.ts` - unit test for component, in Java Script.
+* `spec.js` - unit test for component, in Java Script.
 * `stories.js` - [Storybook stories](https://storybook.js.org/) for the component.
 
 :::warning
@@ -97,7 +97,7 @@ A **safe** set of properties to customize are: `font-size`, `text-align`, `color
 9. **DO NOT** use any outer positioning for components (like outer margins). The way they're positioned in layout should be determined in outer environment.
 
 :::tip SAMPLE CSS FILE
-[Here](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.scss) you can find an example of properly styled component with all rules applied.
+[Here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/components/molecules/SfBanner.scss) you can find an example of properly styled component with all rules applied.
 :::
 
 ### Template rules
@@ -130,7 +130,7 @@ Component stories should contain at least these following stories:
 2. One for every customisable `slot` in the component
 
 :::tip
-A good example is [SfBanner stories](https://github.com/DivanteLtd/storefront-ui/blob/master/src/components/molecules/SfBanner/SfBanner.stories.js).
+A good example is [SfBanner stories](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/components/molecules/SfBanner/SfBanner.stories.js).
 :::
 
 You can learn more about Storybook syntax and how to use [here](https://storybook.js.org).
