@@ -1,12 +1,12 @@
 <template>
   <div class="sf-product-card-horizontal">
-    <div class="sf-product-card-horizontal__image-wrapper">
-      <component
-        :is="linkComponentTag"
-        :href="linkComponentTag === 'a' ? link : undefined"
-        :to="link && linkComponentTag !== 'a' ? link : undefined"
-        class="sf-product-card-horizontal__link"
-      >
+    <component
+      :is="linkComponentTag"
+      :href="linkComponentTag === 'a' ? link : undefined"
+      :to="link && linkComponentTag !== 'a' ? link : undefined"
+      class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
+    >
+      <div class="sf-product-card-horizontal__image-wrapper">
         <slot name="image" v-bind="{ image, title }">
           <template v-if="Array.isArray(image)">
             <SfImage
@@ -28,8 +28,8 @@
             :height="imageHeight"
           />
         </slot>
-      </component>
-    </div>
+      </div>
+    </component>
     <div class="sf-product-card-horizontal__main">
       <div class="sf-product-card-horizontal__header">
         <component
@@ -70,22 +70,12 @@
         </slot>
       </button>
       <div class="sf-product-card-horizontal__details">
-        <slot name="description" v-bind="{ description }">
+        <slot name="description">
           <p class="sf-product-card-horizontal__description desktop-only">
             {{ description }}
           </p>
         </slot>
-        <slot name="options" v-bind="{ options }">
-          <div class="sf-product-card-horizontal__options">
-            <SfProperty
-              v-for="(option, i) in options"
-              :key="i"
-              :name="option.name"
-              :value="option.value"
-              class="sf-product-card-horizontal__property"
-            />
-          </div>
-        </slot>
+        <slot name="configuration"></slot>
         <slot name="reviews" v-bind="{ maxRating, scoreRating }">
           <div
             v-if="typeof scoreRating === 'number'"
@@ -107,27 +97,16 @@
           </div>
         </slot>
       </div>
-      <slot name="actions">
-        <div class="sf-product-card-horizontal__actions desktop-only">
-          <SfButton
-            class="sf-button--text"
-            @click="$emit('click:add-to-wishlist')"
-          >
-            Save for later
-          </SfButton>
-          <SfButton
-            class="sf-button--text"
-            @click="$emit('click:add-to-compare')"
-          >
-            Add to compare
-          </SfButton>
+      <div class="sf-product-card-horizontal__actions desktop-only">
+        <slot name="actions"></slot>
+        <slot name="add-to-cart">
           <SfAddToCart
             v-model="qty"
             class="sf-product-card-horizontal__add-to-cart"
             @click="$emit('click:add-to-cart')"
           />
-        </div>
-      </slot>
+        </slot>
+      </div>
     </div>
   </div>
 </template>
@@ -159,13 +138,6 @@ export default {
     description: {
       type: String,
       default: ""
-    },
-    /**
-     * Product options
-     */
-    options: {
-      type: [Array, Object],
-      default: () => []
     },
     /**
      * Product image
