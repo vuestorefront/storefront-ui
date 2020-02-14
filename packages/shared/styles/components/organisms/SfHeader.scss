@@ -7,6 +7,7 @@
   $header-container-padding: css(header-container, padding, 0 var(--spacer-big));
 
   $header-logo-height: css(header-logo, height, 1.5rem);
+  $header-logo-margin: css(header-logo, margin, 10px 0);
 
   $header-navigation-item-font: font(
     header-navigation-item,
@@ -78,7 +79,7 @@
   }
   &__logo {
     height: $header-logo-height;
-    margin: var(--header-logo-margin, 10px 0);
+    margin: $header-logo-margin;
     @include for-desktop {
       --header-logo-height: 2.125rem;
       --header-logo-margin: 0;
