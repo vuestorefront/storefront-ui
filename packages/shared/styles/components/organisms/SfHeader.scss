@@ -1,10 +1,11 @@
 @import "../../variables";
 
   $header-c-default: css(header, c-default, var(--c-light));
-  $header-navigation-item-c-hover: css(header-navigation-item, c-hover, var(--c-text));
 
   $header-container-width: 1240px;
   $header-container-height: auto;
+  $header-container-padding: 0 var(--spacer-big);
+
   $header-logo-size: 2.125rem;
 
   $header-navigation-item-font: font(
@@ -23,14 +24,14 @@
   margin: 0 var(--spacer-extra-big) 0 0;
   &:hover{
     &::after{
-      background-color: css(header-navigation-item, background-color, $header-navigation-item-c-hover);
+      background-color: var(--c-text);
     }
   }
   &::after{
     position: absolute;
     z-index: 1;
     width: 100%;
-    max-width: css(header-navigation-item, max-width, var(--max-width));
+    max-width: var(--max-width);
     bottom: -2px;
     height: 2px;
     background-color: transparent;
@@ -63,28 +64,28 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: css(header-container, width, $header-container-width);
     margin: auto;
+    max-width: css(header-container, width, $header-container-width);
     height: css(header-container, height, $header-container-height);
-    padding: css(header-container, padding, 0 var(--spacer-big));
+    padding: css(header-container, padding, $header-container-padding);
 
     @include for-desktop {
       --header-container-height: 5rem;
+      --header-container-padding: 0 var(--spacer-extra-big);
       justify-content: space-between;
       flex-wrap: nowrap;
-      padding: css(header-container, padding, 0 var(--spacer-extra-big));
     }
   }
   &__logo {
     height: css(header-logo, height, $header-logo-size);
-    margin: 10px 0;
+    margin: var(--header-logo-margin, 10px 0);
     @include for-desktop {
       --header-logo-size: 1.5rem;
-      margin: 0;
+      --header-logo-margin: 0;
     }
     &.sf-image{
       img {
-        width: auto;
+        --img-width: auto;
         max-height: unset;
         height: 100%;
       }
@@ -95,31 +96,30 @@
     height: 100%;
     margin: 0 0 0 5rem;
   }
-  &__search{
-    margin: 0 0 0 auto;
-    height: 2.25rem;
+  &__search {
+    margin: var(--header-search-margin, 0 0 0 auto);
   }
-  &__icons{
+  &__icons {
     display: flex;
     align-items: center;
   }
-  &__circle-icon{
+  &__circle-icon {
     margin: 0 0 0 var(--spacer-big);
     &.sf-circle-icon{
       &:hover{
-        box-shadow: none;
+        --circle-icon-box-shadow: none;
         &.sf-button{
           transition: background-color 0.3s ease;
-          background-color: var(--c-light);
+          --button-background: var(--c-light);
         }
         & .sf-icon{
           --icon-color: var(--c-text);
         }
       }
       &.sf-button{
-        transition: background-color 0.3s ease;
-        background-color: transparent;
-        padding: 10px;
+         transition: background-color 0.3s ease;
+        --button-background: transparent;
+        --button-padding: 10px;
       }
       & .sf-icon{
         --icon-color: var(--c-text);
@@ -128,7 +128,7 @@
     &--is-active{
       &.sf-circle-icon{
         &.sf-button{
-          background-color: var(--c-primary);
+          --button-background: var(--c-primary);
         }
         & .sf-icon{
           --icon-color: var(--c-white);
@@ -136,18 +136,20 @@
       }
     }
   }
-  &--has-mobile-search{
+  &--has-mobile-search {
     #{$this}__search{
+      --header-search-margin: var(--spacer) 0;
+      --search-bar-background-primary: var(--c-white);
       @include for-desktop {
-        margin: var(--spacer) 0;
+        --header-search-margin: 0 0 0 auto;
         &.sf-search-bar{
-          background-color: var(--c-white);
+          --search-bar-background-primary: var(--c-light);
         }
       }
     }
   }
   &--is-sticky{
-    #{$this}__sticky-container{
+    #{$this}__sticky-container {
       position: fixed;
       width: 100%;
       transition: transform 150ms ease-in-out;
