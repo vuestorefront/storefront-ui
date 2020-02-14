@@ -1,9 +1,11 @@
 @import "../../variables";
 
   $header-c-default: css(header, c-default, var(--c-light));
+
   $header-container-width: 1240px;
   $header-container-height: auto;
   $header-logo-size: 2.125rem;
+
   $header-navigation-item-font: font(
     header-navigation-item,
     500,
@@ -60,9 +62,9 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: css(header, width, $header-container-width);
+    max-width: css(header-container, width, $header-container-width);
     margin: auto;
-    height: css(header, height, $header-container-height);
+    height: css(header-container, height, $header-container-height);
     padding: 0 var(--spacer-big);
 
     @include for-desktop {
