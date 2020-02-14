@@ -6,7 +6,7 @@
   $header-container-height: css(header-container, height, auto);
   $header-container-padding: css(header-container, padding, 0 var(--spacer-big));
 
-  $header-logo-size: 2.125rem;
+  $header-logo-height: css(header-logo, height, 1.5rem);
 
   $header-navigation-item-font: font(
     header-navigation-item,
@@ -42,7 +42,7 @@
   }
   & > * {
     text-transform: uppercase;
-    font: css(header-navigation-item, font, $header-navigation-item-font);
+    font: $header-navigation-item-font;
   }
 }
 .sf-header{
@@ -50,7 +50,7 @@
   &__sticky-container{
     position: relative;
     box-sizing: border-box;
-    background-color: css(header, background-color, $header-c-default);
+    background-color: $header-c-default;
       @include for-desktop {
         --header-c-default: var(--c-white);
       }
@@ -77,10 +77,10 @@
     }
   }
   &__logo {
-    height: css(header-logo, height, $header-logo-size);
+    height: $header-logo-height;
     margin: var(--header-logo-margin, 10px 0);
     @include for-desktop {
-      --header-logo-size: 1.5rem;
+      --header-logo-height: 2.125rem;
       --header-logo-margin: 0;
     }
     &.sf-image{
