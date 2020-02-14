@@ -1,6 +1,7 @@
 @import "../../variables";
 
   $header-c-default: css(header, c-default, var(--c-light));
+  $header-navigation-item-c-hover: css(header-navigation-item, c-hover, var(--c-text));
 
   $header-container-width: 1240px;
   $header-container-height: auto;
@@ -22,14 +23,14 @@
   margin: 0 var(--spacer-extra-big) 0 0;
   &:hover{
     &::after{
-      background-color: var(--c-text);
+      background-color: css(header-navigation-item, background-color, $header-navigation-item-c-hover);
     }
   }
   &::after{
     position: absolute;
     z-index: 1;
     width: 100%;
-    max-width: var(--max-width);
+    max-width: css(header-navigation-item, max-width, var(--max-width));
     bottom: -2px;
     height: 2px;
     background-color: transparent;
@@ -65,16 +66,16 @@
     max-width: css(header-container, width, $header-container-width);
     margin: auto;
     height: css(header-container, height, $header-container-height);
-    padding: 0 var(--spacer-big);
+    padding: css(header-container, padding, 0 var(--spacer-big));
 
     @include for-desktop {
       --header-container-height: 5rem;
       justify-content: space-between;
       flex-wrap: nowrap;
-      padding: 0 var(--spacer-extra-big);
+      padding: css(header-container, padding, 0 var(--spacer-extra-big));
     }
   }
-  &__logo{
+  &__logo {
     height: css(header-logo, height, $header-logo-size);
     margin: 10px 0;
     @include for-desktop {
