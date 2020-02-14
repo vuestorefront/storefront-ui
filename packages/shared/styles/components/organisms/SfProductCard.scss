@@ -1,10 +1,9 @@
 @import '../../variables';
-@import "../../variables/scss/functions";
 
+$product-card-c-hover-shadow: css(product-card, c-hover-shadow, 0px 4px 35px rgba(168, 172, 176, .19));
 $product-card-padding: css(product-card, padding, var(--spacer-small));
 $product-card-max-width: css(product-card, max-width, 200px);
 $product-card-background: css(product-card, background, var(--c-white));
-$product-card-c-hover-shadow: css(product-card, c-hover-shadow, 0px 4px 35px rgba(168, 172, 176, .19));
 $product-card-title-font: font(
   product-card-title,
   300,
@@ -81,7 +80,7 @@ $product-card-title-font: font(
   }
   &__badge {
     position: absolute;
-    top: var(--spacer);
+    top: css(product-card-badge, top, var(--spacer));
     left: 0;
   }
   &__add-button {
