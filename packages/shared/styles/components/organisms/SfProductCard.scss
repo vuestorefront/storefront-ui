@@ -1,24 +1,24 @@
 @import '../../variables';
-:root {
-  --product-card-max-width: 200px;
-  --product-card-padding: var(--spacer-small);
-  --product-card-hover-box-shadow: 0px 4px 35px rgba(168, 172, 176, .19);
-  --product-card__image-background-color: var(--c-light);
-  --product-card__image-blend-mode: darken;
-  --product-card__reviews-count-font-size: var(--font-size-regular);
-  @media screen and (min-width: $desktop-min) {
-    --product-card-max-width: 240px;
-    --product-card-padding: var(--spacer-big);
-    --product-card__reviews-count-font-size: var(--font-size-small);
-  }
-}
+@import "../../variables/scss/functions";
+
+$product-card-padding: css(product-card, padding, var(--spacer-small));
+$product-card-max-width: css(product-card, max-width, 200px);
+$product-card-background: css(product-card, background, var(--c-white));
+$product-card-c-hover-shadow: css(product-card, c-hover-shadow, 0px 4px 35px rgba(168, 172, 176, .19));
+$product-card-title-font: font(
+  product-card-title,
+  300,
+  var(--font-size-regular),
+  1.6,
+  var(--body-font-family-secondary)
+);
 .sf-product-card {
   $this: &;
   position: relative;
   box-sizing: border-box;
-  max-width: var(--product-card-max-width);
-  padding: var(--product-card-padding);
-  background-color: var(--c-white);
+  max-width: $product-card-max-width;
+  padding: $product-card-padding;
+  background-color: $product-card-background;
   &::after {
     content: "";
   }
@@ -36,15 +36,35 @@
       opacity: 1;
     }
   }
+  @include for-desktop {
+    --product-card-max-width: 240px;
+    --product-card-padding: var(--spacer-big);
+    &::after {
+      transition: box-shadow 150ms ease-in-out;
+    }
+    &:hover {
+      z-index: 1;
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        content: "";
+        box-shadow: $product-card-c-hover-shadow;
+      }
+    }
+  }
   &__link {
     outline: none;
   }
   &__title {
-    font-family: var(--body-font-family-secondary);
-    font-size: var(--font-size-regular);
-    font-weight: 300;
-    line-height: 1.6;
+    font: css(product-card-title, font, $product-card-title-font);
     margin: var(--spacer-small) 0;
+    @include for-desktop {
+      margin: var(--spacer) 0 var(--spacer-small);
+    }
   }
   &__image-wrapper {
     position: relative;
@@ -66,6 +86,21 @@
   }
   &__add-button {
     display: none;
+    @include for-desktop {
+      --button-padding: var(--spacer-medium);
+      position: absolute;
+      cursor: pointer;
+      transform: translateY(-50%);
+      right: var(--spacer-medium);
+      opacity: 0;
+      display: flex;
+      &--icons-enter-active {
+        animation: bounce .4s;
+      }
+      &--icons-leave-active {
+        animation: bounce .4s reverse;
+      }
+    }
   }
   &__reviews {
     display: flex;
@@ -75,13 +110,16 @@
     display: inline-flex;
   }
   &__reviews-count {
-    font-size: var(--product-card__reviews-count-font-size);
-    margin-left: .5rem;
+    font-size: css(reviews-count, font-size, var(--font-size-regular));
+    margin-left: var(--spacer);
+    @include for-desktop {
+      --reviews-count-font-size:  var(--font-size-small);
+    }
   }
   &__wishlist-icon {
     position: absolute;
-    top: calc(var(--product-card-padding) * 4);
-    right: calc(var(--product-card-padding) * 4);
+    top: calc(#{$product-card-padding} * 4);
+    right: calc(#{$product-card-padding} * 4);
     padding: 0;
     border: 0;
     background-color: transparent;
@@ -91,51 +129,14 @@
     &#{$this}--on-wishlist {
       opacity: 1;
     }
-  }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-product-card {
-    &::after {
-      transition: box-shadow 150ms ease-in-out;
-    }
-    &:hover {
-      z-index: 1;
-      &::after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: -1;
-        content: "";
-        box-shadow: var(--product-card-hover-box-shadow);
-      }
-    }
-    &__title {
-      margin: var(--spacer) 0 var(--spacer-small);
-    }
-    &__add-button {
-      position: absolute;
-      cursor: pointer;
-      transform: translateY(-50%);
-      right: 1rem;
+    @include for-desktop {
       opacity: 0;
-      display: flex;
-      padding: var(--spacer-medium);
-      &--icons-enter-active {
-        animation: bounce .4s;
-      }
-      &--icons-leave-active {
-        animation: bounce .4s reverse;
-      }
-    }
-    &__wishlist-icon {
-      opacity: 0;
-      top: calc(var(--product-card-padding) * 2);
-      right: calc(var(--product-card-padding) * 2);
+      top: calc(#{$product-card-padding} * 2);
+      right: calc(#{$product-card-padding} * 2);
     }
   }
 }
+
 @keyframes bounce {
   0% {
     transform: scale(1);
