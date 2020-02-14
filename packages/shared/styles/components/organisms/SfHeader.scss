@@ -2,9 +2,9 @@
 
   $header-c-default: css(header, c-default, var(--c-light));
 
-  $header-container-width: 1240px;
-  $header-container-height: auto;
-  $header-container-padding: 0 var(--spacer-big);
+  $header-container-width: css(header-container, width, 1240px);
+  $header-container-height: css(header-container, height, auto);
+  $header-container-padding: css(header-container, padding, 0 var(--spacer-big));
 
   $header-logo-size: 2.125rem;
 
@@ -65,9 +65,9 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-    max-width: css(header-container, width, $header-container-width);
-    height: css(header-container, height, $header-container-height);
-    padding: css(header-container, padding, $header-container-padding);
+    max-width: $header-container-width;
+    height: $header-container-height;
+    padding: $header-container-padding;
 
     @include for-desktop {
       --header-container-height: 5rem;
