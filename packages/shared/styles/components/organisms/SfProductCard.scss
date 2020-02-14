@@ -1,9 +1,9 @@
 @import '../../variables';
 
 $product-card-c-hover-shadow: css(product-card, c-hover-shadow, 0px 4px 35px rgba(168, 172, 176, .19));
-$product-card-padding: css(product-card, padding, var(--spacer-small));
 $product-card-max-width: css(product-card, max-width, 200px);
 $product-card-background: css(product-card, background, var(--c-white));
+$product-card-padding: css(product-card, padding, var(--spacer-small));
 $product-card-title-font: font(
   product-card-title,
   300,
@@ -11,6 +11,7 @@ $product-card-title-font: font(
   1.6,
   var(--body-font-family-secondary)
 );
+
 .sf-product-card {
   $this: &;
   position: relative;
@@ -60,9 +61,9 @@ $product-card-title-font: font(
   }
   &__title {
     font: css(product-card-title, font, $product-card-title-font);
-    margin: var(--spacer-small) 0;
+    margin: css(product-card-title, margin, var(--spacer-small) 0);
     @include for-desktop {
-      margin: var(--spacer) 0 var(--spacer-small);
+      --product-card-title-margin: var(--spacer) 0 var(--spacer-small);
     }
   }
   &__image-wrapper {
