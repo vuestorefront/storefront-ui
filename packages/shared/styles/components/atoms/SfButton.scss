@@ -26,6 +26,10 @@
   &:hover {
     --button-background: var(--c-primary-variant);
   }
+  &:disabled {
+    --button-background: var(--c-gray);
+    cursor: default;
+  }
   &--full-width {
     --button-width: 100%;
   }
@@ -38,8 +42,9 @@
       --button-color: inherit;
     }
     &:disabled {
+      --button-border: 1px solid var(--c-gray);
       --button-background: transparent;
-      --button-color: var(--c-primary);
+      --button-color: var(--c-gray);
     }
   }
   &--text {
@@ -52,10 +57,9 @@
       --button-background: transparent;
       --button-color: var(--c-primary);
     }
-  }
-  &:disabled {
-    --c-primary: var(--c-gray);
-    --c-primary-variant: var(--c-gray);
-    cursor: default;
+    &:disabled {
+      --button-background: transparent;
+      --button-color: var(--c-gray);
+    }
   }
 }
