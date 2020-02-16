@@ -48,7 +48,9 @@
   @return var(--#{$name}-#{$property}, #{$default});
 }
 
-@function font($name, $font-width, $font-size, $line-height, $font-family) {
-  @return css($name, font-width, $font-width) css($name, font-size, $font-size) /
-    css($name, line-height, $line-height) css($name, font-family, $font-family);
+@function font($element, $font-width, $font-size, $line-height, $font-family) {
+  @return var(#{$element}-font-width, $font-width)
+    var(#{$element}-font-size, $font-size) /
+    var(#{$element}-line-height, $line-height)
+    var(#{$element}-font-family, $font-family);
 }
