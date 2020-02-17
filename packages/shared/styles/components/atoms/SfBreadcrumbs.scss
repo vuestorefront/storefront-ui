@@ -1,25 +1,16 @@
 @import "../../variables/scss/functions";
 
-$breadcrumbs-c-link: css(breadcrumbs, c-link, var(--c-text));
-$breadcrumbs-c-link-hover: css(
-  breadcrumbs,
-  link-color-hover,
-  var(--c-text-muted)
-);
-$breadcrumbs-c-current: css(breadcrumbs, current-color, var(--c-text-muted));
-
-$breadcrumbs-padding: 0 0 0 var(--spacer);
-$breadcrumbs-before-padding: 0 var(--spacer) 0 0;
-$breadcrumbs-font: font(
-  badge,
-  400,
-  var(--font-size-small),
-  1.6,
-  var(--body-font-family-secondary)
-);
-
 .sf-breadcrumbs {
-  font: css(breadcrumbs, font, $breadcrumbs-font);
+  font: var(
+    --breadcrumbs-font,
+    font(
+      --breadcrumbs,
+      400,
+      var(--font-size-small),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
   &__list {
     display: flex;
     padding: 0;
@@ -28,23 +19,19 @@ $breadcrumbs-font: font(
   }
   &__item {
     &:not(:first-child) {
-      padding: css(breadcrumbsitem, padding, $breadcrumbs-padding);
+      padding: var(--breadcrumbs-item-padding, 0 0 0 var(--spacer));
       &::before {
-        padding: css(
-          breadcrumbs-item-before,
-          padding,
-          $breadcrumbs-before-padding
-        );
+        padding: var(--breadcrumbs-item-before-padding, 0 var(--spacer) 0 0);
         content: var(--breadcrumbs-item-seperator, "|");
       }
     }
   }
   &__link {
-    color: #{$breadcrumbs-c-link};
+    color: var(--breadcrumbs-link, var(--c-text));
     cursor: pointer;
   }
   &__current {
-    color: #{$breadcrumbs-c-current};
+    color: var(--breadcrumbs-current, var(--c-text-muted));
     cursor: default;
   }
 }
