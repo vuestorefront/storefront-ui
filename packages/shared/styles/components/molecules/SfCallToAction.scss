@@ -1,65 +1,47 @@
 @import '../../variables';
-:root {
-  --call-to-action-padding: var(--spacer-big) var(--spacer-medium);
-  --call-to-action-background-color: var(--c-black);
-  --call-to-action-color: var(--c-on-dark);
-  --call-to-action-font-family: var(--body-font-family-secondary);
-  --call-to-action-line-height: 1.6;
-  --call-to-action-font-size: var(--font-size-extra-big);
-  --call-to-action__title-font-size: var(--font-size-big);
-  --call-to-action__title-font-weight: var(--h1-font-weight);
-  --call-to-action__title-line-height: 1.4;
-  --call-to-action--light-color: var(--c-on-light);
-  --call-to-action--light-background-color: var(--c-light);
-  @media screen and (min-width: $desktop-min) {
-    --call-to-action-padding: 3.4rem 8.75rem;
-    --call-to-action-font-size: var(--font-size-big);
-    --call-to-action__title-font-size: var(--h1-font-size);
-  }
-}
+
 .sf-call-to-action {
-  $this: &;
   display: flex;
-  flex-direction: column;
+  flex-direction: var(--call-to-action-flex-direction, column);
   align-items: center;
   align-content: center;
-  padding: var(--call-to-action-padding);
-  background-color: var(--call-to-action-background-color);
+  padding: var(--call-to-action-padding, var(--spacer-big) var(--spacer-medium));
+  background-color: var(--call-to-action-background, var(--c-black));
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  color: var(--call-to-action-color);
-  font-family: var(--call-to-action-font-family);
-  font-size: var(--call-to-action-font-size);
-  line-height: var(--call-to-action-line-height);
+  color: var(--call-to-action-color, var(--c-on-dark));
+  font: var(--call-to-action-font, font(--call-to-action, 300, var(--font-size-extra-big), 1.6, var(--body-font-family-secondary)));
+  @include for-desktop {
+    --call-to-action-flex-direction: row;
+    --call-to-action-padding: 3.4rem 8.75rem;
+    --call-to-action-font-size: var(--font-size-big);
+    --call-to-action-title-font-size: var(--h1-font-size);
+    justify-content: space-between;
+  }
   &__title {
-    font-size: var(--call-to-action__title-font-size);
-    font-weight: var(--call-to-action__title-font-weight);
-    line-height: var(--call-to-action__title-line-height);
+    font: var(--call-to-action-title-font, font(--call-to-action-title, 500, var(--font-size-big), 1.4, var(--body-font-family-secondary)));
   }
   &__description {
     display: none;
+    margin: var(--call-to-action-description);
+    @include for-desktop {
+      --call-to-action-description: var(--spacer-big) 0 0 0;
+      display: block;
+    }
   }
   &__button {
-    margin: var(--spacer-big) 0 0 0;
+    margin: var(--call-to-action-button, var(--spacer-big) 0 0 0);
     white-space: nowrap;
   }
-  &--light {
-    color: var(--call-to-action--light-color);
-    background: var(--call-to-action--light-background-color);
+  &__text-container {
+    margin: var(--call-to-action-text-container);
+    @include for-desktop {
+      --call-to-action-text-container: 0 var(--spacer-big) 0 0;
+    }
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-call-to-action {
-    $this: &;
-    flex-direction: row;
-    justify-content: space-between;
-    &__text-container {
-      margin-right: var(--spacer-big);
-    }
-    &__description {
-      display: block;
-      margin: var(--spacer-big) 0 0 0;
-    }
+  &--light {
+    --call-to-action-background: var(--c-light);
+    --call-to-action-color: var(--c-light);
   }
 }
