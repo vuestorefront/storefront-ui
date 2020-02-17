@@ -1,29 +1,17 @@
 @import "../../variables";
-:root {
-  --bar-height: 3.125rem;
-  --bar-padding: 0 var(--spacer-big);
-  --bar-background-color: var(--c-light);
-  --bar-font-family: var(--body-font-family-secondary);
-  --bar-font-size: var(--font-size-big);
-  --bar-font-weight: 500;
-  --bar__icon-width: 0.875rem;
-  @media screen and (min-width: $desktop-min) {
-    --bar-font-size: var(--font-size-regular);
-  }
-}
 .sf-bar {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: var(--bar-height);
-  padding: var(--bar-padding);
-  background-color: var(--bar-background-color);
-  font-family: var(--bar-font-family);
-  font-size: var(--bar-font-size);
-  font-weight: var(--bar-font-weight);
-  line-height: 1.6;
+  height: var(--bar-height, 3.125rem);
+  padding: var(--bar-padding, 0 var(--spacer-big));
+  background-color: var(--bar-background, var(--c-light));
+  font: var(--bar-font, font(--bar, 500, var(--font-size-big), 1.6, var(--body-font-family-secondary)));
+  @include for-desktop {
+    --bar-font-size: var(--font-size-regular);
+  }
   &__icon {
-    width: var(--bar__icon-width);
+    --icon-width: 0.875rem;
   }
 }
