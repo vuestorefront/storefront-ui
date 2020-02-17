@@ -43,7 +43,7 @@ The generation of our components documentation is automated. By running the yarn
     - whether it contains internal components.
 - The **SCSS** style file because it holds
     - the CSS modifiers (with an optional descriptions) and
-    - the SCSS variables.
+    - the CSS variables.
 - The **Vue** files are parsed for
     - props,
     - slots and
@@ -99,6 +99,27 @@ this.$emit("library:loaded");
 ```
 
 Multiline descriptions are merged into a single line, joined by dots (if necessary).
+
+#### Syntax inside CSS Variables
+
+Use single line comments (with `//`) above variables for variables title. _Example:_
+
+```css
+:root {
+    // Primary Button
+    --button-padding: 1rem 2.5rem;
+    // Outline Button
+    --button--outline-color: var(--c-primary);
+}
+```
+
+Use single line comments (with `//`) next to variables for variables description. _Example:_
+
+```css
+:root {
+    --button-padding: 1rem 2.5rem; // Button padding
+}
+```
 
 #### Syntax inside CSS Modifiers
 

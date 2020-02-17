@@ -6,7 +6,7 @@ Below is the list of our standard sizes used for typography and its correspondin
 
 <SfDocsSizes/>
 
-These sizes are defined [here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/variables/_typography.scss)
+These sizes are defined [here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/variables/css/_typography.scss)
 
 ## Icon sizes
 
