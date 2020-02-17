@@ -1,14 +1,10 @@
-@import "../../variables/scss/functions";
-
-$overlay-c-default: css(overlay, c-default, var(--c-black));
-
 .sf-overlay {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: css(overlay, z-index, 1);
-  background: css(overlay, background, #{$overlay-c-default});
-  opacity: css(overlay, opacity, 0.8);
+  z-index: var(--overlay-z-index, 1);
+  background: var(--overlay-background, var(--c-black));
+  opacity: var(--overlay-opacity, 0.8);
 }
