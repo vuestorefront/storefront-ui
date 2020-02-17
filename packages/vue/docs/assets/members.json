@@ -45,6 +45,21 @@
     }
   },
   {
+    "name": "Marta Radziszewska",
+    "role": "Maintainer",
+    "work": {
+      "title": "Frontend Developer",
+      "org": "DivanteLtd",
+      "orgUrl": "https://github.com/DivanteLtd"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl", "en"],
+    "socials": {
+      "github": "martaradziszewska",
+      "twitter": "mradziszewska_"
+    }
+  },
+  {
     "name": "Maya Shavin",
     "role": "Maintainer",
     "work": {
