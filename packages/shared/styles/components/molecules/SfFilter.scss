@@ -1,32 +1,23 @@
 @import '../../variables';
-:root {
-  --filter-font-family: var(--body-font-family-secondary);
-  --filter-font-size: var(--font-size-big);
-  --filter-font-weight: var(--body-font-weight-secondary);
-  --filter-line-height: 1.6;
-  @media screen and (min-width: $desktop-min) {
-    --filter-font-size-desktop: var(--font-size-small);
-  }
-}
 .sf-filter {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: var(--filter-font-family);
-  font-size: var(--filter-font-size);
-  font-weight: var(--filter-font-weight);
-  line-height: var(--filter-line-height);
+  font: var(--filter-font, font(--filter, 400, var(--font-size-big), 1.6, var(--body-font-family-secondary)));
   cursor: pointer;
+  @include for-desktop {
+    --filter-font-size: var(--font-size-small);
+  }
   .sf-checkbox__container {
     width: 100%;
   }
   &__label {
-    margin-left: var(--spacer-big);
+    margin: var(--filter-label-margin, 0 0 0 var(--spacer-big));
   }
   &__count {
-    margin-left: auto;
+    margin: var(--filter-count-margin, 0 0 0 auto);
   }
   &--active {
-    font-weight: 500;
+    --filter-font-width: 500;
   }
 }
