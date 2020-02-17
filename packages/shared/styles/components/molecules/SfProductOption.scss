@@ -1,26 +1,33 @@
-@import '../../variables';
-:root {
-  --product-option-font-family: var(--body-font-family-secondary);
-  --product-option-font-size: var(--font-size-regular);
-  --product-option-font-weight: var(--body-font-weight-secondary);
-  --product-option-line-height: 1.6;
-  --product-option__color-size: 1.125rem;
-}
+@import "../../variables/scss/functions";
+
 .sf-product-option {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--product-option-font-family);
-  font-size: var(--product-option-font-size);
-  font-weight: var(--product-option-font-weight);
-  line-height: var(--product-option-line-height);
+  display: var(--product-option-display, flex);
+  align-items: var(--product-option-align-items, center);
+  justify-content: var(--product-option-justify-content, space-between);
+  font: var(
+    --product-option-font,
+    font(
+      --product-option-font,
+      var(--body-font-weight-secondary),
+      var(--font-size-regular),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
+
   &__label {
     flex-grow: 1;
   }
   &__color {
-    width: var(--product-option__color-size);
-    height: var(--product-option__color-size);
-    margin-right: var(--spacer-big);
-    border: 1px solid var(--c-gray-variant);
+    width: var(
+      --product-option-color-width,
+      var(--product-option-color-size, 1.125rem)
+    );
+    height: var(
+      --product-option-color-height,
+      var(--product-option-color-size, 1.125rem)
+    );
+    margin: var(--product-option-color-margin, 0 var(--spacer-big) 0 0);
+    border: var(--product-option-color-border, 1px solid var(--c-gray-variant));
   }
 }
