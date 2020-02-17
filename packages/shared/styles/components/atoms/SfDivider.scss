@@ -1,9 +1,3 @@
-@import "../../variables/scss/functions";
-
-$divider-c-default: css(divider, c-default, var(--c-light));
-
-$divider-border: 1px solid #{$divider-c-default};
-
 .sf-divider {
-  border: css(divider, border, #{$divider-border});
+  border: var(--divider-border, 1px solid var(--c-light));
 }
