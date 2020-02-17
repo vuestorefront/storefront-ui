@@ -17,6 +17,7 @@
     --banner-font-size: var(--font-size-big);
     --banner-padding: 4rem 5rem 4rem calc(50% + 5rem);
     --banner-background-image: var(--background-desktop-image);
+    --banner-title-font-size: 3rem;
   }
   &__container {
     flex-basis: 100%;
@@ -27,9 +28,6 @@
   }
   &__title {
     font: var(--banner-title-font, font(--banner-title, 300, var(--font-size-extra-big), 1.6, var(--body-font-family-secondary)));
-    @include for-desktop {
-      --banner-title-font-size: 3rem;
-    }
   }
   &__description {
     display: none;
@@ -54,6 +52,7 @@
     @include for-desktop {
       --banner-padding: 5rem 2.5rem;
       --banner-title-font-size: 2.25rem;
+      --banner-title-font-width: 100;
     }
   }
 }
