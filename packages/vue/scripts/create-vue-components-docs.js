@@ -1,12 +1,10 @@
 "use strict";
-
 const fs = require("fs");
 const glob = require("glob");
 const path = require("path");
 const sass = require("node-sass");
 const vueDocs = require("vue-docgen-api");
 const prettier = require("prettier");
-
 const pathTemplateFile = path.resolve(__dirname, "component-docs-template.md");
 const pathTargetMdsRoot = path.resolve(__dirname, "..", "docs/components");
 const pathVuepressConfigRoot = path.resolve(__dirname, "..", "docs/.vuepress");
@@ -40,10 +38,8 @@ const pathColorsJs = path.resolve(
   "shared/variables/colors.js"
 );
 const cache = {};
-
 function createVueComponentsDocs() {
   const contentTemplateFile = fs.readFileSync(pathTemplateFile, "utf8");
-
   const sfComponents = [];
   for (const pathComponentVue of pathsVueComponents) {
     let componentInfoFull;
@@ -53,19 +49,16 @@ function createVueComponentsDocs() {
       console.warn(`WARN: Skipping component docs generation: ${e.message}`);
       continue;
     }
-
     let resultMd = replacePlaceholdersInTemplate(
       contentTemplateFile,
       componentInfoFull
     );
-
     if (componentInfoFull.internalComponentsInfo) {
       resultMd = addInternalComponentsToTargetMd(
         componentInfoFull.internalComponentsInfo,
         resultMd
       );
     }
-
     const targetFilepath = path.join(
       pathTargetMdsRoot,
       componentInfoFull.componentName + ".md"
@@ -79,13 +72,11 @@ function createVueComponentsDocs() {
       });
     }
   }
-
   const successCount = sfComponents.length;
   if (successCount === 0) {
     console.error("ERROR: No component docs were generated. Quit.");
     process.exit(2);
   }
-
   if (successCount === pathsVueComponents.length) {
     console.log(`Successfully generated ${successCount} component docs.`);
   } else {
@@ -93,20 +84,16 @@ function createVueComponentsDocs() {
       `WARN: Generated component docs for ${successCount} but found ${pathsVueComponents.length} components.`
     );
   }
-
   try {
     editVuepressConfigFiles(sfComponents);
   } catch (e) {
     console.warn(`WARN: Cannot update VuePress config files: ${e.message}`);
     process.exit(3);
   }
-
   console.log("Successfully updated VuePress config files. Done.");
 }
-
 function getFullComponentInfo(pathComponentVue) {
   const componentInfoFromPath = getComponentInfoFromPath(pathComponentVue);
-
   const pathComponentMd = componentInfoFromPath.pathComponentMd;
   let componentInfoFromMd;
   try {
@@ -114,7 +101,6 @@ function getFullComponentInfo(pathComponentVue) {
   } catch (e) {
     throw new Error(`Cannot read "${pathComponentMd}": ${e.message}`);
   }
-
   const pathComponentStories = componentInfoFromPath.pathComponentStories;
   let componentInfoFromStories;
   try {
@@ -124,7 +110,6 @@ function getFullComponentInfo(pathComponentVue) {
   } catch (e) {
     throw new Error(`Cannot read "${pathComponentStories}": ${e.message}`);
   }
-
   const filenameComponentScss = componentInfoFromPath.pathComponentScss;
   let componentInfoFromScss;
   try {
@@ -132,13 +117,10 @@ function getFullComponentInfo(pathComponentVue) {
   } catch (e) {
     throw new Error(`Cannot read "${filenameComponentScss}": ${e.message}`);
   }
-
   const componentInfoFromVue = getComponentInfoFromVue(pathComponentVue);
-
   const internalComponentsInfo =
     getInternalComponentsInfo(componentInfoFromPath.pathInternalComponents) ||
     {};
-
   return {
     ...componentInfoFromPath,
     ...componentInfoFromMd,
@@ -148,7 +130,6 @@ function getFullComponentInfo(pathComponentVue) {
     ...internalComponentsInfo
   };
 }
-
 function getComponentInfoFromPath(pathComponentVue) {
   const componentDirname = path.dirname(pathComponentVue);
   const componentFilename = path.basename(pathComponentVue);
@@ -156,7 +137,6 @@ function getComponentInfoFromPath(pathComponentVue) {
   const sfComponentName = "Sf" + componentName;
   const atomicType = componentDirname.replace(/\/.*/, "");
   const storybookLink = `${atomicType}-${componentName}--common`.toLowerCase();
-
   return {
     componentName,
     sfComponentName,
@@ -173,7 +153,6 @@ function getComponentInfoFromPath(pathComponentVue) {
     storybookLink
   };
 }
-
 function getComponentInfoFromMd(pathComponentMd) {
   const contentComponentFile = readComponentMd(pathComponentMd);
   if (!contentComponentFile) {
@@ -189,7 +168,6 @@ function getComponentInfoFromMd(pathComponentMd) {
     process.exit(1);
   }
 }
-
 function getComponentInfoFromStories(pathComponentStories) {
   // there is no usage section for internal components
   if (pathComponentStories.includes("_internal")) {
@@ -211,7 +189,6 @@ function getComponentInfoFromStories(pathComponentStories) {
     process.exit(1);
   }
 }
-
 function getComponentInfoFromScss(componentInfo) {
   const contentScssFile = readComponentScss(componentInfo);
   if (!contentScssFile) {
@@ -226,11 +203,9 @@ function getComponentInfoFromScss(componentInfo) {
     process.exit(1);
   }
 }
-
 function getComponentInfoFromVue(pathVueFile) {
   const fullPathVueFile = pathInsideComponentsRoot(pathVueFile);
   const componentDoc = vueDocs.parse(fullPathVueFile);
-
   const props = extractPropsFromComponentDoc(componentDoc);
   const slots = extractSlotsFromComponentDoc(componentDoc);
   const events = extractEventsFromComponentDoc(componentDoc);
@@ -240,23 +215,19 @@ function getComponentInfoFromVue(pathVueFile) {
     events: generateComponentDetailsInfo(events)
   };
 }
-
 function getInternalComponentsInfo(pathInternalComponent) {
   const fullPath = pathInsideComponentsRoot(pathInternalComponent);
   if (!fs.existsSync(fullPath)) {
     return null;
   }
-
   const internalComponentsVue = glob.sync("**/Sf*.vue", { cwd: fullPath });
   const internalComponentsInfo = internalComponentsVue.map(component =>
     getFullComponentInfo(path.join(pathInternalComponent, component))
   );
-
   return {
     internalComponentsInfo
   };
 }
-
 function readComponentMd(pathComponentMd) {
   const fullPathComponentMd = pathInsideComponentsRoot(pathComponentMd);
   if (!fs.existsSync(fullPathComponentMd)) {
@@ -264,7 +235,6 @@ function readComponentMd(pathComponentMd) {
   }
   return fs.readFileSync(fullPathComponentMd, "utf8");
 }
-
 function readComponentStories(pathComponentStories) {
   const fullPathComponentStories = pathInsideComponentsRoot(
     pathComponentStories
@@ -274,7 +244,6 @@ function readComponentStories(pathComponentStories) {
   }
   return fs.readFileSync(fullPathComponentStories, "utf8");
 }
-
 function readComponentScss(componentInfo) {
   const pathComponentScss = pathInsideComponentsScssRoot(componentInfo);
   if (!fs.existsSync(pathComponentScss)) {
@@ -282,7 +251,6 @@ function readComponentScss(componentInfo) {
   }
   return fs.readFileSync(pathComponentScss, "utf8");
 }
-
 function readVuepressConfig(filename) {
   const pathVuepressConfig = pathInsideVuepressConfigRoot(filename);
   if (!fs.existsSync(pathVuepressConfig)) {
@@ -290,13 +258,11 @@ function readVuepressConfig(filename) {
   }
   return fs.readFileSync(pathVuepressConfig, "utf8");
 }
-
 function parseComponentFile(contentComponentFile) {
   const headlines = ["# component-description", "# storybook-iframe-height"];
   const reString = headlines.join("\\n([\\s\\S]+?)\\s*?") + "\\n([\\s\\S]+)";
   const regExp = new RegExp(reString, "m");
   const reResult = regExp.exec(contentComponentFile);
-
   if (!reResult) {
     throw new Error(`RegExp didn't match: /${reString}/${regExp.flags}`);
   }
@@ -306,13 +272,11 @@ function parseComponentFile(contentComponentFile) {
         `(expected ${headlines.length}, found ${reResult.length - 1})`
     );
   }
-
   return {
     componentDescription: reResult[1],
     storybookIFrameHeight: reResult[2].trim()
   };
 }
-
 function parseStoriesFile(contentStoriesFile) {
   // remove non-relevant parts before evaluating the story
   const nonrelevantParts = [
@@ -322,7 +286,6 @@ function parseStoriesFile(contentStoriesFile) {
   for (const part of nonrelevantParts) {
     contentStoriesFile = contentStoriesFile.replace(part, "");
   }
-
   // prevent the engine from searching actual components by turning the
   // imports and components list into strings
   contentStoriesFile = contentStoriesFile.replace(
@@ -333,18 +296,15 @@ function parseStoriesFile(contentStoriesFile) {
     /components: {([\s\S]+?)},/gm,
     "components: `$1`,"
   );
-
   // Next, we create a JS closure where we define functions which the storybook
   // definition file expects, e.g. `number`, `text` and the complete `storiesOf`
   // function object with its `add` method.
   // Then, we `eval()` the whole .stories-file. It will call our overridden
   // functions so we can gather the information we need.
-
   function evalStoriesFile() {
     /* eslint-disable no-unused-vars */
     // some stories use our icons, sizes, etc. so make them available
     const { icons, sizes, colors } = getSfUiConstants();
-
     const dataToggleMixin = dataKey => ({
       data() {
         return {
@@ -353,7 +313,6 @@ function parseStoriesFile(contentStoriesFile) {
       }
     });
     const visibilityToggleMixin = dataToggleMixin("visible");
-
     let storyComponents = "";
     let storyTemplate = "";
     let storyData = {};
@@ -361,10 +320,8 @@ function parseStoriesFile(contentStoriesFile) {
     const extractTemplate = template => (storyTemplate = template);
     const extractData = data => (storyData = data);
     const extractMixinsData = data => (storyData = { ...storyData, ...data });
-
     // ignore options: we only use it for CSS modifiers
     const options = () => null;
-
     // store all props
     const storyProps = new Map();
     const object = (name, value) => storyProps.set(name, value);
@@ -373,7 +330,6 @@ function parseStoriesFile(contentStoriesFile) {
     const boolean = (name, value) => storyProps.set(name, value);
     const color = (name, value) => storyProps.set(name, value);
     const select = (name, _, value) => storyProps.set(name, value);
-
     function storiesOf() {
       // we need a returnable function object so all chained `.add()` calls work
       const functionObject = {
@@ -399,26 +355,21 @@ function parseStoriesFile(contentStoriesFile) {
       return functionObject;
     }
     /* eslint-enable no-unused-vars */
-
     eval(contentStoriesFile);
     return { storyComponents, storyTemplate, storyData, storyProps };
   }
-
   let {
     storyComponents,
     storyTemplate,
     storyData,
     storyProps
   } = evalStoriesFile();
-
   /* insert story data into code block */
-
   // generate imports for used components
   const storyImportsString = storyComponents
     .split(",")
     .map(component => `import { ${component} } from "@storefront-ui/vue";`)
     .join("\n");
-
   // merge props and data from the story into a single data object
   const componentData = [];
   for (const [k, v] of Object.entries(storyData)) {
@@ -428,32 +379,26 @@ function parseStoriesFile(contentStoriesFile) {
     componentData.push(`${k}: ${JSON.stringify(v)}`);
   }
   const componentDataString = componentData.join(",\n");
-
   const codeBlock = getCommonUsageCodeBlock(
     storyTemplate,
     storyImportsString,
     storyComponents,
     componentDataString
   );
-
   const prettified = prettier.format(codeBlock, { parser: "vue" });
   const codeBlockMd = `\`\`\`html\n${prettified}\`\`\``;
-
   return {
     storybookCode: codeBlockMd
   };
 }
-
 function parseScssFile(contentScssFile) {
   const cssVariables = extractCssVariables(contentScssFile);
   const cssModifiers = extractCssModifiers(contentScssFile);
-
   return {
     cssVariables,
     cssModifiers
   };
 }
-
 function extractCssVariables(contentScssFile) {
   const mediaVars = getMediaArray(contentScssFile);
   const varsArray = getVarsArray(contentScssFile);
@@ -461,63 +406,60 @@ function extractCssVariables(contentScssFile) {
     Object.keys(mediaVars).length > 0
       ? ["NAME", "DEFAULT", "DESKTOP VALUE", "DESCRIPTION"]
       : ["NAME", "DEFAULT", "DESCRIPTION"];
-
-  let varsTable = [];
+  let varsTable = varsArray;
   let table = [];
   let result = "";
-
-  varsArray.forEach(function(item) {
-    if (item.indexOf("// ") !== -1 && item.indexOf("--") === -1) {
-      let title = item.substring(item.indexOf("// ") + 2, item.length);
-      title = title.replace("-", "");
-
-      if (varsTable.length > 0) {
-        table = {
-          tableHeadConfig: headConfig,
-          tableBodyConfig: varsTable
-        };
-        result += `${generateStorybookTable(table)}`;
-        varsTable = [];
-      }
-
-      if (item.indexOf("// -") === -1) {
-        result += `\n###` + title + `\n`;
-      } else {
-        result += `####` + title + `\n`;
-      }
-    } else {
-      let name = item.substring(item.indexOf("--"), item.indexOf(":"));
-      let value = item.substring(item.indexOf(": ") + 2, item.indexOf(";"));
-      let description = "";
-      let desktopValue = "";
-
-      if (item.indexOf("// ") !== -1) {
-        description = item.substring(item.indexOf("// ") + 3, item.length);
-      }
-
-      if (mediaVars[name] !== undefined) {
-        desktopValue = mediaVars[name];
-      }
-
-      const arr = [];
-
-      if (name !== "" && value !== "") {
-        arr.push(name);
-        arr.push(value);
-      }
-
-      if (Object.keys(mediaVars).length > 0) {
-        arr.push(desktopValue);
-      }
-
-      arr.push(description);
-
-      if (arr.length > 2) {
-        varsTable.push(arr);
-      }
-    }
-  });
-
+  // varsArray.forEach(function(item) {
+  //   if (item.indexOf("// ") !== -1 && item.indexOf("--") === -1) {
+  //     let title = item.substring(item.indexOf("// ") + 2, item.length);
+  //     title = title.replace("-", "");
+  //
+  //     if (varsTable.length > 0) {
+  //       table = {
+  //         tableHeadConfig: headConfig,
+  //         tableBodyConfig: varsTable
+  //       };
+  //       result += `${generateStorybookTable(table)}`;
+  //       varsTable = [];
+  //     }
+  //
+  //     if (item.indexOf("// -") === -1) {
+  //       result += `\n###` + title + `\n`;
+  //     } else {
+  //       result += `####` + title + `\n`;
+  //     }
+  //   } else {
+  //     let name = item.substring(item.indexOf("--"), item.indexOf(":"));
+  //     let value = item.substring(item.indexOf(": ") + 2, item.indexOf(";"));
+  //     let description = "";
+  //     let desktopValue = "";
+  //
+  //     if (item.indexOf("// ") !== -1) {
+  //       description = item.substring(item.indexOf("// ") + 3, item.length);
+  //     }
+  //
+  //     if (mediaVars[name] !== undefined) {
+  //       desktopValue = mediaVars[name];
+  //     }
+  //
+  //     const arr = [];
+  //
+  //     if (name !== "" && value !== "") {
+  //       arr.push(name);
+  //       arr.push(value);
+  //     }
+  //
+  //     if (Object.keys(mediaVars).length > 0) {
+  //       arr.push(desktopValue);
+  //     }
+  //
+  //     arr.push(description);
+  //
+  //     if (arr.length > 2) {
+  //       varsTable.push(arr);
+  //     }
+  //   }
+  // });
   if (varsTable.length > 0) {
     table = {
       tableHeadConfig: headConfig,
@@ -525,19 +467,15 @@ function extractCssVariables(contentScssFile) {
     };
     result += generateStorybookTable(table);
   }
-
   return result;
 }
-
 function getMediaArray(file) {
   const start = file.indexOf(":root {");
   const end = file.indexOf("}\n");
   let vars = file.substring(start, end);
-
   if (vars.indexOf("@media") === -1) {
     return [];
   }
-
   const mediaArray = [];
   let mediaVars = file.substring(file.indexOf("@media"));
   mediaVars = mediaVars.substring(
@@ -545,67 +483,58 @@ function getMediaArray(file) {
     mediaVars.indexOf("}\n")
   );
   mediaVars = mediaVars.split("\n");
-
   mediaVars.forEach(function(item) {
     let name = item.substring(item.indexOf("--"), item.indexOf(":"));
     let value = item.substring(item.indexOf(": ") + 2, item.indexOf(";"));
-
     if (name !== "" && value !== "") {
       mediaArray[name] = value;
     }
   });
-
   return mediaArray;
 }
-
 function getVarsArray(file) {
-  const start = file.indexOf(":root {");
-  const end = file.indexOf("}\n");
-  let vars = file.substring(start, end);
-
-  if (vars.indexOf("@media") !== -1) {
-    vars = vars.substring(0, vars.indexOf("@media"));
+  const regexRoot = /var\((--.+)?,(.+)\)/g;
+  let variables = [];
+  let result;
+  while ((result = regexRoot.exec(file)) !== null) {
+    let variable = [];
+    variable.push(result[1]);
+    if (result[2]) {
+      variable.push(result[2]);
+    } else {
+      variable.push("");
+    }
+    variables.push(variable);
   }
-
-  vars = vars.replace("{", "");
-  vars = vars.replace(" ", "");
-
-  return vars.split("\n");
+  return variables;
 }
-
 function generateStorybookTable(config) {
   const { tableHeadConfig, tableBodyConfig } = config;
-
   const getTableBodyRow = item =>
     item.reduce(
       (acc, item, index) =>
         (acc = index === 0 ? acc + `|${item}|` : acc + `${item}|`),
       ""
     );
-
   const getSeparationTableHead = () =>
     tableHeadConfig
       .map((acc, index) => (index === 0 ? `|-----------|` : `-----------|`))
       .join("");
-
   const getTableHead = () =>
     tableHeadConfig.reduce(
       (acc, item, index) =>
         index === 0 ? acc + `|${item}|` : acc + `${item}|`,
       ""
     );
-
   const getTableBody = () =>
     tableBodyConfig.reduce(
       (acc, item) => (acc = acc + `${getTableBodyRow(item)}\n`),
       ""
     );
-
   return `${getTableHead()}
 ${getSeparationTableHead()}
 ${getTableBody()}`;
 }
-
 function extractCssModifiers(contentScssFile) {
   // remove webpack-alias-style import; the SASS compiler resolves all imports by simple name, if includePath is set
   const webpackGlidePath = "~" + nodePathSimplebarIncludes;
@@ -620,9 +549,7 @@ function extractCssModifiers(contentScssFile) {
     includePaths: pathsSassIncludes,
     outputStyle: "expanded"
   });
-
   const lines = css.toString().split("\n");
-
   // collect all unique modifiers and search for modifier descriptions in comments
   const uniqueModifiers = new Map();
   for (let i = 0; i < lines.length; ++i) {
@@ -667,7 +594,6 @@ function extractCssModifiers(contentScssFile) {
       do {
         comment += lines[++j] + "\n";
       } while (j < lines.length && !lines[j].includes("*/"));
-
       // replace line breaks inside description with a space
       // and remove spurious whitespace, the modifier annotation and the comment marks.
       // Expected syntax (though the Reg. Exp. is less strict):
@@ -682,16 +608,13 @@ function extractCssModifiers(contentScssFile) {
         .replace(/\n\s*(\*\s*)?/g, " ")
         .replace(/\s*\*?\/$/, "")
         .trim();
-
       uniqueModifiers.set(lastModifierFound, description);
       break;
     }
   }
-
   if (!uniqueModifiers.size) {
     return "";
   }
-
   let cssModifiers = "";
   for (const [modifier, description] of uniqueModifiers) {
     cssModifiers += `- **\`${modifier}\`**\n`;
@@ -699,10 +622,8 @@ function extractCssModifiers(contentScssFile) {
       cssModifiers += `  - _${escapeHtmlAngleBrackets(description)}_\n`;
     }
   }
-
   return cssModifiers.trim();
 }
-
 function extractPropsFromComponentDoc(componentDoc) {
   const propNames = Object.keys(componentDoc.props || {});
   if (!propNames.length) {
@@ -722,7 +643,6 @@ function extractPropsFromComponentDoc(componentDoc) {
   }
   return props;
 }
-
 function extractSlotsFromComponentDoc(componentDoc) {
   const slotNames = Object.keys(componentDoc.slots || {});
   if (!slotNames.length) {
@@ -740,7 +660,6 @@ function extractSlotsFromComponentDoc(componentDoc) {
   }
   return slots;
 }
-
 function extractEventsFromComponentDoc(componentDoc) {
   const eventNames = Object.keys(componentDoc.events || {});
   if (!eventNames.length) {
@@ -757,23 +676,19 @@ function extractEventsFromComponentDoc(componentDoc) {
   }
   return events;
 }
-
 function generateComponentDetailsInfo(rawDetails) {
   if (!rawDetails.length) {
     return "";
   }
-
   const commonObjKeys = ["name", "description"];
   let str = "";
   for (const detailsItem of rawDetails) {
     str += `- **\`${detailsItem.name}\`**\n`;
-
     if (detailsItem.description) {
       // replace line breaks inside description with a point
       const description = detailsItem.description.replace(/\.?\n/g, ". ");
       str += `  - _${description}_\n`;
     }
-
     // exclude the already displayed fields
     const extraObjKeys = Object.keys(detailsItem).filter(
       objKey => !commonObjKeys.includes(objKey)
@@ -798,7 +713,6 @@ function generateComponentDetailsInfo(rawDetails) {
   // remove spurious line breaks
   return str.trim();
 }
-
 function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
   const componentDescription =
     componentInfo.componentDescription || "<!-- No Component description -->";
@@ -806,7 +720,6 @@ function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
     componentInfo.storybookLink,
     componentInfo.storybookIFrameHeight
   );
-
   const replaceMap = new Map([
     ["[[component-name]]", componentInfo.componentName],
     ["[[component-description]]", componentDescription],
@@ -833,10 +746,8 @@ function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
   }
   return renderedTemplate;
 }
-
 function addInternalComponentsToTargetMd(internalComponentsInfo, renderedMd) {
   const internalComponentTemplate = getInternalComponentTemplate();
-
   const internalSections = [];
   for (const componentInfo of internalComponentsInfo) {
     const replaceMap = new Map([
@@ -855,16 +766,13 @@ function addInternalComponentsToTargetMd(internalComponentsInfo, renderedMd) {
     }
     internalSections.push(renderedTemplate);
   }
-
   const renderedInternalSections =
     "## Internal components\n\n" + internalSections.join("\n\n");
-
   return renderedMd.replace(
     "<!-- No _internal components -->",
     renderedInternalSections
   );
 }
-
 function saveResultMd(targetFilepath, resultMd) {
   const pathWithoutFilename = path.dirname(targetFilepath);
   if (!fs.existsSync(pathWithoutFilename)) {
@@ -873,15 +781,12 @@ function saveResultMd(targetFilepath, resultMd) {
   fs.writeFileSync(targetFilepath, resultMd);
   return true;
 }
-
 function editVuepressConfigFiles(sfComponents) {
   const contentConfigJs = readVuepressConfig("config.js");
   const contentEnhanceApp = readVuepressConfig("enhanceApp.js");
-
   if (!contentConfigJs || !contentEnhanceApp) {
     throw new Error("Error reading VuePress config files");
   }
-
   /* config.js */
   // divide content into:
   // - (1) everything before the line with the start tag,
@@ -890,21 +795,17 @@ function editVuepressConfigFiles(sfComponents) {
   // - (4) everything after the end tag
   let regExp = /([\s\S]+)\n(\s*)(\/\/\s*@components-docs-start.*[\s\S]*@components-docs-end)\n([\s\S]+)/g;
   let reResult = regExp.exec(contentConfigJs);
-
   if (!reResult || reResult.length !== 5) {
     throw new Error("Error parsing VuePress config.js: Reg. Exp. mismatch");
   }
-
   // skip the components part (index 3) because we replace it entirely anyway
   let [, before, indent, , after] = reResult;
-
   sfComponents.sort((a, b) => (a.sfComponentName > b.sfComponentName ? 1 : -1));
   let components = [];
   for (const { componentName } of sfComponents) {
     const path = "/components/" + componentName;
     // put spaces between words for title
     const title = componentName.replace(/([A-Z])/g, " $1").trim();
-
     components.push(`["${path}", "${title}"]`);
   }
   let startTag = `\n${indent}// @components-docs-start (keep comment and indentation for auto-generated component docs)\n`;
@@ -913,7 +814,6 @@ function editVuepressConfigFiles(sfComponents) {
   let newContent = before + startTag + formattedComponents + endTag + after;
   let pathVuepressConfig = pathInsideVuepressConfigRoot("config.js");
   fs.writeFileSync(pathVuepressConfig, newContent);
-
   /* enhanceApp.js */
   // divide content into:
   // - (1) everything before the line with the start tag (for other imports),
@@ -924,15 +824,12 @@ function editVuepressConfigFiles(sfComponents) {
   // - (6) everything after the end tag
   regExp = /([\s\S]*?)\n?(\/\/\s*@components-docs-start.*[\s\S]*?@components-docs-end)\n([\s\S]+?)\n(\s*)(\/\/\s*@components-docs-start.*[\s\S]*@components-docs-end)\n([\s\S]+)/g;
   reResult = regExp.exec(contentEnhanceApp);
-
   if (!reResult || reResult.length !== 7) {
     throw new Error("Error parsing VuePress enhanceApp.js: Reg. Exp. mismatch");
   }
-
   let beforeImports, middle;
   // skip the component imports part (index 2) and components part (index 5) because we replace them entirely anyway
   [, beforeImports, , middle, indent, , after] = reResult;
-
   const importStatements = [];
   components = [];
   for (const { sfComponentName, pathComponentVue } of sfComponents) {
@@ -959,11 +856,9 @@ function editVuepressConfigFiles(sfComponents) {
   pathVuepressConfig = pathInsideVuepressConfigRoot("enhanceApp.js");
   fs.writeFileSync(pathVuepressConfig, newContent);
 }
-
 function pathInsideComponentsRoot(subPath) {
   return path.join(pathVueComponentsRoot, subPath);
 }
-
 function pathInsideComponentsScssRoot(componentInfo) {
   const namePathInsideComponents = path.join(
     componentInfo.componentType,
@@ -971,15 +866,12 @@ function pathInsideComponentsScssRoot(componentInfo) {
   );
   return path.join(pathComponentsScssRoot, namePathInsideComponents);
 }
-
 function pathInsideVuepressConfigRoot(subPath) {
   return path.join(pathVuepressConfigRoot, subPath);
 }
-
 function escapeHtmlAngleBrackets(rawString) {
   return rawString.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
-
 function getSfUiConstants() {
   if (!cache._initialized) {
     cache.icons = fs.readFileSync(pathIconsJs, "utf8");
@@ -989,21 +881,17 @@ function getSfUiConstants() {
   }
   return { ...cache };
 }
-
 function getCommonUsageCodeBlock(template, imports, components, data) {
   let codeBlock = `
 <template>
   ${template}
 </template>
-
 <script>
 ${imports}
-
 export default {
   components: {
     ${components}
   }`;
-
   if (data) {
     codeBlock += `,
   data() {
@@ -1015,16 +903,13 @@ export default {
   codeBlock += `
 };
 </script>`;
-
   return codeBlock;
 }
-
 function getFallbackCommonUsage() {
   return `:::warning NOT YET DOCUMENTED 
 This section is not fully documented yet. We are doing our best to make our documentation a good and complete source of knowledge about Storefront UI. If you would like to help us, please don't hesitate to contribute to our docs. You can read more about it [here](https://docs.storefrontui.io/contributing/become-a-contributor.html#work-on-documentation).
 :::`;
 }
-
 function getStorybookIFrameMarkup(storybookLink, storybookIFrameHeight) {
   let style = "width: 100%; border: 0; border-bottom: 1px solid #eee;";
   if (storybookIFrameHeight) {
@@ -1032,39 +917,26 @@ function getStorybookIFrameMarkup(storybookLink, storybookIFrameHeight) {
   }
   return `<iframe src="https://deploy-preview-480--storefrontui-storybook.netlify.com/iframe.html?id=${storybookLink}" style="${style}"></iframe>`;
 }
-
 function getInternalComponentTemplate() {
   return `### [[internal-component-name]]
-
 #### Props
-
 [[internal-props]]
 
-
 #### Slots
-
 [[internal-slots]]
 
-
 #### Events
-
 [[internal-events]]
 
-
 #### CSS modifiers
-
 [[internal-css-modifiers]]
 
-
 #### CSS variables
-
 [[internal-css-variables]]`;
 }
-
 module.exports = {
   createVueComponentsDocs
 };
-
 if (require.main === module) {
   createVueComponentsDocs();
 }
