@@ -1,14 +1,9 @@
-@import "../../variables/scss/functions";
-
-$rating-c-accent: css(rating, c-accent, var(--c-primary));
-$rating-c-default: css(rating, c-default, var(--c-dark));
-
 .sf-rating {
   display: flex;
   &__icon {
-    --icon-color: #{$rating-c-accent};
+    --icon-color: var(--c-primary);
     &--negative {
-      --icon-color: #{$rating-c-default};
+      --icon-color: var(--c-dark);
     }
   }
 }
