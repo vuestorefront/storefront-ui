@@ -12,11 +12,7 @@
         </div>
         <div
           class="sf-review__date"
-          :class="[
-            rating > 0 && maxRating > 0
-              ? 'sf-review__display-inline-block sf-review__margin-left'
-              : ''
-          ]"
+          :class="[rating > 0 && maxRating > 0 ? 'sf-review--inline' : '']"
         >
           {{ date }}
         </div>
@@ -28,7 +24,7 @@
         <span class="sf-review__message">{{ finalMessage }} &nbsp;</span>
         <button
           v-if="showButton"
-          class="sf-review__message_read_more"
+          class="sf-review__read_more"
           @click="toggleMessage"
         >
           {{ buttonText }}
