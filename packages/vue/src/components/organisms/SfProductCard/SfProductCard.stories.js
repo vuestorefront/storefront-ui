@@ -38,7 +38,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colors, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -124,7 +124,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colors, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -234,7 +234,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colors, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -334,7 +334,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colors, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -434,7 +434,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colors, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -534,7 +534,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colors, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -634,7 +634,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colors, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -734,7 +734,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colors, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
