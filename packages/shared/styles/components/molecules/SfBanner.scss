@@ -1,97 +1,59 @@
 @import '../../variables';
-:root {
-  --banner-min-height: 9rem;
-  --banner-padding-x: 1.25rem;
-  --banner-padding-y: 1.25rem;
-  --banner-color: var(--c-text);
-  --banner-font-family: var(--body-font-family-secondary);
-  --banner-font-weight: var(--body-font-weight-primary);
-  --banner-line-height: 1.6;
-  --banner-font-size: var(--font-size-extra-big);
-  --banner__subtitle-color: var(--c-dark-variant);
-  --banner__subtitle-font-family: var(--body-font-family-primary);
-  --banner__subtitle-font-size: var(--font-size-regular);
-  --banner__subtitle-font-weight: var(--body-font-weight-primary);
-  --banner__subtitle-line-height: 1.16;
-  --banner__title-font-size: var(--font-size-extra-big);
-  --banner__title-font-weight: var(--body-font-weight-primary);
-  --banner__description-line-height: 1.6;
-  --banner__description-margin: 1.875rem 0 0 0;
-  --banner--slim-padding: 5rem 2.5rem;
-  --banner--slim__title-font-size: 2.25rem;
-  @media screen and (min-width: $desktop-min) {
-    --banner-min-height: 20rem;
-    --banner-padding-y: 4rem;
-    --banner-padding-x: 5rem;
-    --banner-font-size: var(--font-size-big);
-    --banner__subtitle-font-size: var(--font-size-extra-big);
-    --banner__title-font-size: 3rem;
-  }
-}
+
 .sf-banner {
-  $this: &;
   box-sizing: border-box;
   display: flex;
-  min-height: var(--banner-min-height);
-  padding: var(--banner-padding-y) var(--banner-padding-x);
-  color: var(--banner-color);
+  min-height: var(--banner-min-height, 9rem);
+  padding: var(--banner-padding, var(--spacer-big));
+  color: var(--banner-color, var(--c-text));
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: cover;
-  background-color: var(--background-color);
+  background-color: var(--background);
   background-image: var(--background-image);
-  font-family: var(--banner-font-family);
-  font-size: var(--banner-font-size);
-  font-weight: var(--banner-font-weight);
-  line-height: var(--banner-line-height);
+  font: var(--banner-font, font(--banner, 300, var(--font-size-extra-big), 1.6, var(--body-font-family-secondary)));
+  @include for-desktop {
+    --banner-min-height: 20rem;
+    --banner-font-size: var(--font-size-big);
+    --banner-padding: 4rem 5rem 4rem calc(50% + 5rem);
+    --banner-background-image: var(--background-desktop-image);
+  }
   &__container {
     flex-basis: 100%;
   }
   &__subtitle {
-    color: var(--banner__subtitle-color);
-    font-family: var(--banner__subtitle-font-family);
-    font-size: var(--banner__subtitle-font-size);
-    font-weight: var(--banner__subtitle-font-weight);
-    line-height: var(--banner__subtitle-line-height);
+    font: var(--banner-subtitle-font, font(--banner-subtitle, 300, var(--font-size-regular), 1.16, var(--body-font-family-primary)));
+    color: var(--banner-subtitle-color, var(--c-dark-variant));
   }
   &__title {
-    font-size: var(--banner__title-font-size);
-    font-weight: var(--banner__title-font-weight);
+    font: var(--banner-title-font, font(--banner-title, 300, var(--font-size-extra-big), 1.6, var(--body-font-family-secondary)));
+    @include for-desktop {
+      --banner-title-font-size: 3rem;
+    }
   }
   &__description {
     display: none;
+    @include for-desktop {
+      display: block;
+      margin: var(--banner-description-margin, 1.875rem 0 0 0);
+    }
   }
   &__call-to-action {
     display: none;
+    @include for-desktop {
+      display: block;
+      margin: var(--banner-call-to-action-margin, var(--spacer-big) 0 0 0);
+    }
+  }
+  &--left {
+    @include for-desktop {
+      --banner-padding: 4rem calc(50% + 5rem) 4rem 4rem;
+    }
   }
   &--slim {
-    padding: var(--banner-padding-y) var(--banner-padding-x);
-  }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-banner {
-    $this: &;
-    background-image: var(--background-desktop-image);
-    padding: var(--banner-padding-y) var(--banner-padding-x) var(--banner-padding-y) calc(50% + var(--banner-padding-x));
-    &__description {
-      display: block;
-      margin: var(--banner__description-margin);
-    }
-    &__call-to-action {
-      display: block;
-      margin-top: var(--spacer-big);
-    }
-    &--left {
-      padding: var(--banner-padding-y) calc(50% + var(--banner-padding-x)) var(--banner-padding-y) var(--banner-padding-x);
-    }
-    &--slim {
-      padding: var(--banner--slim-padding);
-      #{$this}__container {
-        flex-basis: 100%;
-      }
-      #{$this}__title {
-        font-size: var(--banner--slim__title-font-size);
-      }
+    @include for-desktop {
+      --banner-padding: 5rem 2.5rem;
+      --banner-title-font-size: 2.25rem;
     }
   }
 }
