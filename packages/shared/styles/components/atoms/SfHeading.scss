@@ -1,41 +1,39 @@
 @import "../../variables";
 
-$heading-c-border: css(heading, c-border, var(--c-light));
-
-$heading-padding: 0 0 10px 0;
-$heading-border: 1px solid #{$heading-c-border};
-$heading-border-width: 0 0 1px 0;
-$heading-title-font: font(
-  heading-title,
-  500,
-  var(--font-size-extra-big),
-  1.6,
-  var(--body-font-family-secondary)
-);
-$heading-subtitle-font: font(
-  heading-subtitle,
-  300,
-  var(--font-size-regular),
-  1.6,
-  var(--body-font-family-secondary)
-);
-
 .sf-heading {
   box-sizing: border-box;
-  padding: css(heading, padding, $heading-padding);
-  border: css(heading, border, $heading-border);
-  border-width: css(heading, border-width, $heading-border-width);
-  text-align: css(heading, text-align, left);
+  padding: var(--heading-padding, 0 0 0.625rem 0);
+  border: var(--heading-border, 1px solid var(--c-light));
+  border-width: var(--heading-border-width, 0 0 1px 0);
+  text-align: var(--heading-text-align, left);
   @include for-desktop {
     --heading-padding: 0;
     --heading-border: 0;
     --heading-text-align: center;
   }
   &__title {
-    font: css(heading-title, font, $heading-title-font);
+    font: var(
+      --heading-title-font,
+      font(
+        --heading-title,
+        500,
+        var(--font-size-extra-big),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
   }
   &__subtitle {
-    font: css(heading-subtitble, font, #{$heading-subtitle-font});
+    font: var(
+      --heading-subtitle-font,
+      font(
+        --heading-subtitle,
+        300,
+        var(--font-size-regular),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
   }
   &--no-underline {
     --heading-border: 0;
