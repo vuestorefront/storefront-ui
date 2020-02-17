@@ -4,8 +4,9 @@
   display: flex;
   &__button {
     flex: 1;
+    order: var(--add-to-cart-button-order);
     @include for-desktop{
-      order: 1;
+      --add-to-cart-button-order: 1;
     }  
   }
   &__select-quantity {
@@ -18,9 +19,9 @@
       --add-to-cart-select-quantity-margin: 0;
     }
     input {
-      border-color: var(--add-to-cart-select-quantity-input-border-color, var(--c-light));
+      --input-border: 1px solid var(--c-light);
       @include for-desktop {
-        font-size: var(--add-to-cart-select-quantity-input-f-size, var(--font-size-extra-big));
+        --input-font-size: var(--font-size-extra-big);
         --input-background: var(--c-light);
       }
     }
