@@ -1,13 +1,7 @@
-@import "../../variables/scss/functions";
-$chevron-c-default: css(chevron, c-default, var(--c-black));
-
-$chevron-size: css(chevron, size, 1.25rem);
-$chevron-rotate: css(chevron, rotate, 45deg);
-
 .sf-chevron {
   position: relative;
-  width: $chevron-size;
-  height: $chevron-size;
+  width: var(--chevron-size, 1.25rem);
+  height: var(--chevron-size, 1.25rem);
   cursor: pointer;
   &__bar {
     position: absolute;
@@ -17,17 +11,18 @@ $chevron-rotate: css(chevron, rotate, 45deg);
     &:after {
       content: "";
       display: block;
-      width: calc(#{$chevron-size} / 2);
-      height: calc(#{$chevron-size} / 10);
-      background: css(chevron, background, $chevron-c-default);
+      width: calc(var(--chevron-size, 1.25rem) / 2);
+      height: calc(var(--chevron-size, 1.25rem) / 10);
+      background: var(--chevron-background, var(--c-black));
     }
     &--left {
-      left: calc(#{$chevron-size} / 10);
-      transform: translateY(-50%) rotate(#{$chevron-rotate});
+      left: calc(var(--chevron-size, 1.25rem) / 10);
+      transform: translateY(-50%) rotate(var(--chevron-rotate, 45deg));
     }
     &--right {
-      right: calc(#{$chevron-size} / 10);
-      transform: translateY(-50%) rotate(calc(#{$chevron-rotate} * -1));
+      right: calc(var(--chevron-size, 1.25rem) / 10);
+      transform: translateY(-50%)
+        rotate(calc(var(--chevron-rotate, 45deg) * -1));
     }
   }
   &--top {
