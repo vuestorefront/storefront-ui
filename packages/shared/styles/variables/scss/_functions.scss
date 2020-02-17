@@ -44,6 +44,12 @@
   }
 }
 
+@mixin for-mobile {
+  @media screen and (max-width: $desktop-min) {
+    @content;
+  }
+}
+
 @function css($name, $property, $default: "") {
   @return var(--#{$name}-#{$property}, #{$default});
 }
