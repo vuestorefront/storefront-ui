@@ -1,29 +1,22 @@
-@import "../../variables/scss/functions";
-
-$color-c-active: css(color, c-active, var(--c-white));
-
-$color-size: css(color, size, 2.5rem);
-$color-fill-border: 2px solid transparent;
-
 .sf-color {
   box-sizing: border-box;
-  width: css(color, width, $color-size);
-  height: css(color, height, $color-size);
-  padding: css(color, padding, 3px);
-  background: css(color, background);
+  width: var(--color-width, var(--color-size, 2.5rem));
+  height: var(--color-height, var(--color-size, 2.5rem));
+  padding: var(--color-padding, 3px);
+  background: var(--color-background);
   border: 0;
-  border-radius: css(color, border-radius, 0);
+  border-radius: var(--color-border-radius);
   outline: 0;
   &__fill {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    border: css(color-fill, border, #{$color-fill-border});
-    border-radius: css(color, border-radius, 0);
+    border: var(--color-fill-border, 2px solid transparent);
+    border-radius: var(--color-border-radius);
     transition: border-color 150ms linear;
   }
   &--active {
-    --color-fill-border: 2px solid #{$color-c-active};
+    --color-fill-border: 2px solid var(--c-white);
   }
   &--rounded {
     --color-border-radius: 100%;
