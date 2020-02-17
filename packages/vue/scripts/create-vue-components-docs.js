@@ -493,19 +493,24 @@ function getMediaArray(file) {
   return mediaArray;
 }
 function getVarsArray(file) {
-  const regexRoot = /var\((--.+)?,(.+)\)/g;
+  const patterns = [/var\((--.+)?,(.+)\)/g, / {2}(--.+):(.+);/g];
   let variables = [];
+  let keys = [];
   let result;
-  while ((result = regexRoot.exec(file)) !== null) {
-    let variable = [];
-    variable.push(result[1]);
-    if (result[2]) {
-      variable.push(result[2]);
-    } else {
-      variable.push("");
+  patterns.forEach(pattern => {
+    while ((result = pattern.exec(file)) !== null) {
+      if (keys.includes(result[1])) break;
+      let variable = [];
+      variable.push(result[1]);
+      keys.push(result[1]);
+      if (result[2]) {
+        variable.push(result[2]);
+      } else {
+        variable.push("");
+      }
+      variables.push(variable);
     }
-    variables.push(variable);
-  }
+  });
   return variables;
 }
 function generateStorybookTable(config) {
