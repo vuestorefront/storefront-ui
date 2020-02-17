@@ -1,22 +1,14 @@
-@import "../../variables/scss/functions";
-$bullet-c-accent: css(bullet, c-accent, var(--c-primary));
-$bullet-c-default: css(bullet, c-default, var(--c-gray));
-
-$bullet-size: css(bullet, size, 8px);
-$bullet-margin: var(--spacer-small);
-$bullet-border-radius: 100%;
-
 .sf-bullet {
   box-sizing: border-box;
-  width: css(bullet, width, $bullet-size);
-  height: css(bullet, height, $bullet-size);
-  margin: css(bullet, margin, $bullet-margin);
-  border-radius: css(button, border-radius, $bullet-border-radius);
-  background: css(bullet, background, $bullet-c-default);
+  width: var(--bullet-width, var(--bullet-size, 8px));
+  height: var(--bullet-height, var(--bullet-size, 8px));
+  margin: var(--bullet-margin, var(--spacer-small));
+  border-radius: var(--bullet-border-radius, 100%);
+  background: var(--bullet-background, var(--c-gray));
   cursor: pointer;
   &--active {
-    --bullet-size: 10px;
-    --bullet-background: #{$bullet-c-accent};
+    --bullet-size: 0.625rem;
+    --bullet-background: var(--c-primary);
     cursor: default;
   }
 }
