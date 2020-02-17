@@ -400,12 +400,12 @@ function parseScssFile(contentScssFile) {
   };
 }
 function extractCssVariables(contentScssFile) {
-  const mediaVars = getMediaArray(contentScssFile);
+  // const mediaVars = getMediaArray(contentScssFile);
   const varsArray = getVarsArray(contentScssFile);
-  const headConfig =
-    Object.keys(mediaVars).length > 0
-      ? ["NAME", "DEFAULT", "DESKTOP VALUE", "DESCRIPTION"]
-      : ["NAME", "DEFAULT", "DESCRIPTION"];
+  const headConfig = ["NAME", "DEFAULT"];
+  // Object.keys(mediaVars).length > 0
+  //   ? ["NAME", "DEFAULT", "DESKTOP VALUE", "DESCRIPTION"]
+  //   : ["NAME", "DEFAULT", "DESCRIPTION"];
   let varsTable = varsArray;
   let table = [];
   let result = "";
@@ -442,24 +442,36 @@ function getMediaArray(file) {
   return mediaArray;
 }
 function getVarsArray(file) {
-  const patterns = [/var\((--.+)?,(.+)\)/g, / {2}(--.+):(.+);/g];
+  // pattern for property declaration | patter for override property
+  const patterns = [/var\((\S+)(, (\S+))?\)/g, / {2}(--.+):( (.+));/g];
+  const componentName = /.sf-(.+) ?{/g.exec(file)[1].trim();
   let variables = [];
   let keys = [];
   let result;
-  patterns.forEach(pattern => {
+
+  patterns.forEach((pattern, index) => {
+    let array = [];
     while ((result = pattern.exec(file)) !== null) {
+      if (index === 0 && !result[1].includes(componentName)) {
+        continue;
+      }
       if (keys.includes(result[1])) continue;
       let variable = [];
       variable.push(result[1]);
       keys.push(result[1]);
-      if (result[2]) {
-        variable.push(result[2]);
+      if (result[3]) {
+        variable.push(result[3]);
       } else {
         variable.push("");
       }
-      variables.push(variable);
+      array.push(variable);
     }
+    array = array.sort((prev, next) => {
+      return prev[0] === next[0] ? 0 : prev[0] > next[0] ? 1 : -1;
+    });
+    variables = [...variables, ...array];
   });
+
   return variables;
 }
 function generateStorybookTable(config) {
@@ -472,7 +484,7 @@ function generateStorybookTable(config) {
     );
   const getSeparationTableHead = () =>
     tableHeadConfig
-      .map((acc, index) => (index === 0 ? `|-----------|` : `-----------|`))
+      .map((acc, index) => (index === 0 ? `|---|` : `---|`))
       .join("");
   const getTableHead = () =>
     tableHeadConfig.reduce(
@@ -521,7 +533,7 @@ function extractCssModifiers(contentScssFile) {
         continue;
       }
       if (!uniqueModifiers.has(partialReResult[0])) {
-        if(partialReResult[0].split('.').length > 2) continue;
+        if (partialReResult[0].split(".").length > 2) continue;
         uniqueModifiers.set(partialReResult[0], null);
         lastModifierFound = partialReResult[0];
       }
