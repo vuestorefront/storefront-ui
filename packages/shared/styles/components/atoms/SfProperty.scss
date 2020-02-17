@@ -1,40 +1,46 @@
 @import "../../variables/scss/functions";
 
-$property-c-default: css(property, c-default, var(--c-text));
-$property-c-secondary: css(property, c-secondary, var(--c-text-muted));
-
-$property-font: font(
-  property,
-  400,
-  var(--font-size-regular),
-  1.6,
-  var(--body-font-family-secondary)
-);
-$property-name-margin: 0 var(--spacer) 0 0;
-
 .sf-property {
   display: flex;
   align-items: center;
-  color: css(property, color, $property-c-default);
-  font: css(property, font, $property-font);
+  color: var(--property-color, var(--c-text));
   &__name {
     display: flex;
     align-items: center;
-    margin: css(property-name, margin, $property-name-margin);
-    color: css(property-name, color, $property-c-secondary);
-    text-transform: css(property-name, text-transform);
+    margin: var(--property-name-margin, 0 var(--spacer) 0 0);
+    color: var(--property-name-color, var(--c-text-muted));
+    font: var(
+      --property-name-font,
+      font(
+        --property-name,
+        400,
+        var(--font-size-regular),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
+    text-transform: var(--property-name-text-transform);
     &::after {
-      content: var(--property-name-suffix, ":");
+      content: var(--property-name-content, ":");
     }
   }
   &__value {
-    font-weight: css(property-value, font-weight, 500);
+    font: var(
+      --property-value-font,
+      font(
+        --property-value-font,
+        500,
+        var(--font-size-regular),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
   }
   &--full-width {
     --property-name-text-transform: uppercase;
     justify-content: space-between;
   }
   &--without-suffix {
-    --property-name-suffix: none;
+    --property-name-content: none;
   }
 }
