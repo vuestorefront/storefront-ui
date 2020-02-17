@@ -1,36 +1,24 @@
 @import "../../variables/scss/functions";
 
-$image-c-overlay: css(image, c-overlay, rgba(29, 31, 34, 0.8));
-$image-c-text: css(image, c-text, var(--c-white));
-
-$image-font: font(
-  heading-title,
-  300,
-  var(--font-size-small),
-  1.6,
-  var(--body-font-family-secondary)
-);
-
 .sf-image {
   position: relative;
-  overflow: css(image, overflow, hidden);
-  width: css(image, width, 100%);
-  max-width: calc(#{css(image, max-width)} * 1px);
-  font: var(--image-font, #{$image-font});
+  overflow: var(--image-overflow, hidden);
+  width: var(--image-width, 100%);
+  max-width: calc(var(--image-max-width) * 1px);
   &::before {
     display: block;
     padding-top: calc(#{css(image, height)} / #{css(image, max-width)} * 100%);
     content: var(--image-content, "");
   }
   img {
-    position: css(img, position, absolute);
+    position: var(--image-img-position, absolute);
     top: 50%;
     left: 0;
     display: block;
-    width: css(img, width, 100%);
+    width: var(--image-img-width, 100%);
     max-width: 100%;
     height: 100%;
-    transform: css(img, transform, translate3d(0, -50%, 0));
+    transform: var(--image-img-transform, translate3d(0, -50%, 0));
   }
   &__overlay {
     position: absolute;
@@ -41,17 +29,27 @@ $image-font: font(
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: css(image-overlay, padding, var(--spacer-big));
-    background: css(image-overlay, background, $image-c-overlay);
-    color: css(image-overlay, color, $image-c-text);
+    padding: var(--image-overlay-padding, var(--spacer-big));
+    background: var(--image-overlay-background, rgba(29, 31, 34, 0.8));
+    color: var(--image-overlay-color, var(--c-white));
+    font: var(
+      --image-overlay-font,
+      font(
+        --image-overlay,
+        300,
+        var(--font-size-small),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
   }
   &--no-size {
     --image-overflow: unset;
     --image-width: auto;
     --image-max-width: unset;
-    --img-width: auto;
-    --img-position: static;
-    --img-transform: translate3d(0, 0, 0);
+    --image-img-width: auto;
+    --image-img-position: static;
+    --image-img-transform: translate3d(0, 0, 0);
     &::before {
       --image-content: unset;
     }
