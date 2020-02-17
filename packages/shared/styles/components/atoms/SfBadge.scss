@@ -1,34 +1,27 @@
 @import "../../variables/scss/functions";
-$badge-c-accent: css(badge, c-accent, var(--c-primary));
-
-$badge-padding: var(--spacer-medium);
-$badge-font: font(
-  badge,
-  500,
-  var(--font-size-small),
-  1.6,
-  var(--body-font-family-secondary)
-);
 
 .sf-badge {
   display: inline-block;
-  box-sizing: css(badge, box-sizing, border-box);
-  width: css(badge, width);
-  height: css(badge, height);
-  padding: css(badge, padding, $badge-padding);
-  border: css(badge, border, 0);
-  border-radius: css(badge, border-radius, 0);
-  background: css(badge, background, $badge-c-accent);
-  color: css(badge, color, var(--c-white));
-  font: css(badge, font, #{$badge-font});
-  text-align: css(badge, text-align, center);
+  box-sizing: border-box;
+  width: var(--badge-width);
+  height: var(--badge-height);
+  padding: var(--badge-padding, var(--spacer-small) var(--spacer));
+  border: var(--badge-border);
+  border-radius: var(--badge-border-radius);
+  background: var(--badge-background, var(--c-primary));
+  color: var(--badge-color, var(--c-white));
+  font: var(
+    --badge-font,
+    font(
+      --badge,
+      500,
+      var(--font-size-small),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
+  text-align: var(--badge-text-align, center);
   &--full-width {
     --badge-width: 100%;
-  }
-  $colors-map: ("primary", "secondary", "warning", "danger", "info", "success");
-  @each $color in $colors-map {
-    &.color-#{$color} {
-      --badge-c-accent: var(--c-#{$color});
-    }
   }
 }
