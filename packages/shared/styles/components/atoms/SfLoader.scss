@@ -1,8 +1,3 @@
-@import "../../variables/scss/functions";
-
-$loader-c-accent: css(loader, c-accent, var(--c-primary));
-$loader-c-overlay: css(loader, c-overlay, var(--c-white));
-
 .sf-loader {
   position: relative;
   width: 100%;
@@ -16,9 +11,9 @@ $loader-c-overlay: css(loader, c-overlay, var(--c-white));
     display: flex;
     justify-content: center;
     align-items: center;
-    background: css(loader-overlay, background, #{$loader-c-overlay});
+    background: var(--loader-overlay-background, var(--c-white));
   }
   &__spinner {
-    stroke: css(loader-spiner, stroke, #{$loader-c-accent});
+    stroke: var(--loader-spinner-stroke, var(--c-primary));
   }
 }
