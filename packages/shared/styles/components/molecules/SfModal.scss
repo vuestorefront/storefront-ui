@@ -2,10 +2,10 @@
 .sf-modal {
   &__container {
     position: fixed;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    z-index: var(--modal-container-index, 1);
+    top: var(--modal-container-top, 50%);
+    left: var(--modal-container-left, 50%);
+    transform: var(--modal-container-transform, translate(-50%, -50%));
     display: flex;
     flex-direction: var(--modal-flex-direction, column);
     align-content: space-between;
