@@ -31,40 +31,47 @@
 
   &__date {
     text-transform: var(--review-date-text-transform, capitalize);
-    font-weight: var(
-      --review-date-font-weight,
-      var(--body-font-weight-primary)
-    );
-    font-size: var(--review-date-font-size, var(--font-size-regular));
-    font-family: var(
-      --review-date-font-family,
-      var(--body-font-family-secondary)
+    font: var(
+      --review-date-font,
+      font(
+        --review-date-font,
+        var(--body-font-weight-primary),
+        var(--font-size-regular),
+        1.6,
+        var(--body-font-family-secondary)
+      )
     );
     color: var(--review-date-color, var(--c-dark-variant));
   }
 
   &__message {
-    font-weight: var(
-      --review-message-font-weight,
-      var(--body-font-weight-primary)
+    font: var(
+      --review-message-font,
+      font(
+        --review-message-font,
+        var(--body-font-weight-primary),
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-secondary)
+      )
     );
-    font-size: var(--review-message-font-size, var(--review-message-read-more));
     color: var(--review-message-color, var(--c-dark-variant));
   }
   &__read-more {
-    font-family: var(
-      --review-read-more-font-family,
-      var(--body-font-family-primary)
+    font: var(
+      --review-read-more-font,
+      font(
+        --review-read-more-font,
+        var(--body-font-weight-primary),
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-primary)
+      )
     );
-    font-weight: var(
-      --review-read_more-font-weight,
-      var(--body-font-weight-primary)
-    );
-    font-size: var(--review-read_more-font-size, var(--font-size-big));
     color: var(--review-read-more-color, var(--c-primary));
     background: var(--review-read-more-background, transparent);
-    border: var(--review-read_more-border, none);
-    cursor: var(--review-read_more-cursor, pointer);
+    border: var(--review-read-more-border, none);
+    cursor: var(--review-read-more-cursor, pointer);
   }
 
   &--inline {
