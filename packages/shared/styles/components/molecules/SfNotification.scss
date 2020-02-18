@@ -2,7 +2,7 @@
 .sf-notification {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: var(--notification-align-items, flex-start);
   box-sizing: border-box;
   max-width: var(--notification-max-width);
   padding: var(--notification-padding, var(--spacer-big) calc(var(--spacer-big) * 5) var(--spacer-big) var(--spacer-big));
@@ -12,6 +12,7 @@
   opacity: var(--notification-opacity, .8);
   @include for-desktop {
     --notification-padding: var(--spacer-medium);
+    --notification-align-items: center;
     --notification-max-width: 35rem;
     --notification-font-size: var(--font-size-regular);
     --notification-font-width: var(--body-font-weight-primary);
@@ -30,23 +31,25 @@
     --notification-icon-margin: 0 var(--spacer-big) 0 0;
     --notification-close-top-position: var(--spacer-medium);
     --notification-close-right-position: var(--spacer-medium);
-    align-items: center;
+    --notification-action-display: inline;
+    --notification-action-outline: none;
+    --notification-icon-display: block;
+    --notification-title-display: block;
   }
   &__title {
-    display: inline;
+    display: var(--notification-title-display, inline);
     font: var(--notification-title-font, font(--notification-title, 300, var(--font-size-big), 1.6, var(--body-font-family-primary)));
+    &::after {
+      content: " ";
+    }
     @include for-desktop {
-      display: block;
       &::after {
         content: none;
       }
     }
-    &::after {
-      content: " ";
-    }
   }
   &__action {
-    display: none;
+    display: var(--notification-action-display, none);
     margin: var(--notification-action-margin);
     padding: var(--notification-action-padding);
     border: var(--notification-action-border);
@@ -54,17 +57,11 @@
     color: var(--notification-action-color);
     font: var(--notification-action-font);
     text-decoration: var(--notification-action-text-decoration);
-    @include for-desktop {
-      display: inline;
-      outline: none;
-    }
+    outline: var(--notification-action-outline);
   }
   &__icon {
-    display: none;
+    display: var(--notification-icon-display, none);
     margin: var(--notification-icon-margin);
-    @include for-desktop {
-      display: block;
-    }
   }
   &__close {
     position: absolute;

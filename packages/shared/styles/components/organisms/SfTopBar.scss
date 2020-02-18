@@ -1,20 +1,15 @@
 @import '../../variables';
-:root {
-  --top-bar-height: 2.5rem;
-  --top-bar-hidden-max-width: $desktop-min;
-  --top-bar-background-color: var(--c-light);
-  --top-bar-horizontal-padding: var(--spacer-extra-big);
-}
 .sf-topbar {
-  width: 100%;
-  height: var(--top-bar-height);
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: var(--topbar-align-items, center);
+  justify-content: var(--topbar-justify-content, space-between);
+  width: 100%;
+  height: var(--top-bar-height, 2.5rem);
   box-sizing: border-box;
-  padding: 0 var(--top-bar-horizontal-padding);
-  background-color: var(--top-bar-background-color);
+  padding: var(--topbar-padding, 0 var(--spacer-extra-big));
+  background-color: var(--top-bar-background, var(--c-light));
+  font: var(--topbar-font, font(--topbar, 300, var(--font-size-regular), 1.6, var(--body-font-family-primary)));
   &__center {
-    font-size: var(--font-size-small-desktop);
+    --topbar-font-size: var(--font-size-small-desktop);
   }
 }

@@ -1,23 +1,9 @@
 @import '../../variables';
-:root {
-  --pagination-font-family: var(--body-font-family-secondary);
-  --pagination-font-size: var(--font-size-big);
-  --pagination-font-weight: var(--body-font-weight-secondary);
-  --pagination-line-height: 1.6;
-  --pagination__item-margin: 0 calc(var(--spacer-big) / 4);
-  --pagination__item-color: var(--c-text-muted);
-  --pagination__button--current-color: var(--c-text);
-  --pagination__button--navigation-margin: 3rem;
-  --pagination__button-transition: color 150ms ease-in-out, border-color 150ms ease-in-out;
-  @media screen and (min-width: $desktop-min) {
-    --pagination__item-margin: 0 calc(var(--spacer-big) / 2);
-  }
-}
 .sf-pagination {
-  font-family: var(--pagination-font-family);
-  font-size: var(--pagination-font-size);
-  font-weight: var(--pagination-font-weight);
-  line-height: var(--pagination-line-height);
+  font: var(--pagination-font, font(--pagination, 400, var(--font-size-big), 1.6, var(--body-font-family-secondary)));
+  @include for-desktop {
+    --pagination-item-margin: 0 calc(var(--spacer-big) / 2);
+  }
   &__list {
     display: flex;
     align-items: center;
@@ -28,35 +14,34 @@
   &__item {
     display: flex;
     align-items: center;
-    margin: var(--pagination__item-margin);
-    color: var(--pagination__item-color);
+    margin: var(--pagination-item-margin, 0 calc(var(--spacer-big) / 4));
+    color: var(--pagination-item-color, var(--c-text-muted));
   }
   &__button {
-    padding: 0;
-    border: 0;
+    padding: var(--pagination-button-padding, 0);
+    border: var(--pagination-button-padding, 0);
+    font: var(--pagination-font, font(--pagination, 400, var(--font-size-big), 1.6, var(--body-font-family-secondary)));
+    margin: var(--pagination-button-margin);
     background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    cursor: pointer;
-    color: inherit;
+    color: var(--pagination-button-color, inherit);
+    border-bottom: var(--pagination-button-border-bottom, 1px solid transparent);
     outline: none;
-    border-bottom: 1px solid transparent;
-    transition: var(--pagination__button-transition);
+    opacity: var(--pagination-button-opacity);
+    transition: var(--pagination-button-transition, color 150ms ease-in-out, border-color 150ms ease-in-out);
+    cursor: var(--pagination-button-cursor, pointer);
     &--prev {
-      margin-right: var(--pagination__button--navigation-margin);
+      --pagination-button-margin: 0 3rem 0 0;
     }
     &--next {
-      margin-left: var(--pagination__button--navigation-margin);
+      --pagination-button-margin: 0 0 0 3rem;
     }
     &--current {
-      color: var(--pagination__button--current-color);
-      border-color: var(--pagination__button--current-color);
+      --pagination-button-color: var(--c-text);
+      --pagination-button-border-bottom: 1px solid var(--c-text);
     }
-    &[disabled] {
-      cursor: default;
-      opacity: .7;
+    &:disabled {
+      --pagination-button-cursor: default;
+      --pagination-button-opacity: .7;
     }
   }
 }

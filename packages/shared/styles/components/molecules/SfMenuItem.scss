@@ -8,6 +8,7 @@
   cursor: pointer;
   @include for-desktop {
     --menu-item-font-size: var(--font-size-regular);
+    --mobile-nav-icon-display: none;
   }
   &:hover {
     --menu-item-color: var(--c-dark);
@@ -25,10 +26,7 @@
     margin: var(--menu-item-count-margin, 0 0 0 auto);
   }
   &__mobile-nav-icon {
-    display: flex;
+    display: var(--mobile-nav-icon-display, flex);
     margin: var(--menu-item-mobile-nav-icon, 0 0 0 var(--spacer-big));
-    @include for-desktop {
-      display: none;
-    }
   }
 }
