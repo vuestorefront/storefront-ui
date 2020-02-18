@@ -7,7 +7,7 @@
   padding: var(--banner-padding, var(--spacer-big));
   color: var(--banner-color, var(--c-text));
   background-repeat: no-repeat;
-  background-position: bottom left;
+  background-position: var(--banner-background-position, bottom left);
   background-size: cover;
   background-color: var(--banner-background);
   background-image: var(--background-image);
