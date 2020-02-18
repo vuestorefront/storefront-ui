@@ -400,66 +400,15 @@ function parseScssFile(contentScssFile) {
   };
 }
 function extractCssVariables(contentScssFile) {
-  const mediaVars = getMediaArray(contentScssFile);
+  // const mediaVars = getMediaArray(contentScssFile);
   const varsArray = getVarsArray(contentScssFile);
-  const headConfig =
-    Object.keys(mediaVars).length > 0
-      ? ["NAME", "DEFAULT", "DESKTOP VALUE", "DESCRIPTION"]
-      : ["NAME", "DEFAULT", "DESCRIPTION"];
+  const headConfig = ["NAME", "DEFAULT"];
+  // Object.keys(mediaVars).length > 0
+  //   ? ["NAME", "DEFAULT", "DESKTOP VALUE", "DESCRIPTION"]
+  //   : ["NAME", "DEFAULT", "DESCRIPTION"];
   let varsTable = varsArray;
   let table = [];
   let result = "";
-  // varsArray.forEach(function(item) {
-  //   if (item.indexOf("// ") !== -1 && item.indexOf("--") === -1) {
-  //     let title = item.substring(item.indexOf("// ") + 2, item.length);
-  //     title = title.replace("-", "");
-  //
-  //     if (varsTable.length > 0) {
-  //       table = {
-  //         tableHeadConfig: headConfig,
-  //         tableBodyConfig: varsTable
-  //       };
-  //       result += `${generateStorybookTable(table)}`;
-  //       varsTable = [];
-  //     }
-  //
-  //     if (item.indexOf("// -") === -1) {
-  //       result += `\n###` + title + `\n`;
-  //     } else {
-  //       result += `####` + title + `\n`;
-  //     }
-  //   } else {
-  //     let name = item.substring(item.indexOf("--"), item.indexOf(":"));
-  //     let value = item.substring(item.indexOf(": ") + 2, item.indexOf(";"));
-  //     let description = "";
-  //     let desktopValue = "";
-  //
-  //     if (item.indexOf("// ") !== -1) {
-  //       description = item.substring(item.indexOf("// ") + 3, item.length);
-  //     }
-  //
-  //     if (mediaVars[name] !== undefined) {
-  //       desktopValue = mediaVars[name];
-  //     }
-  //
-  //     const arr = [];
-  //
-  //     if (name !== "" && value !== "") {
-  //       arr.push(name);
-  //       arr.push(value);
-  //     }
-  //
-  //     if (Object.keys(mediaVars).length > 0) {
-  //       arr.push(desktopValue);
-  //     }
-  //
-  //     arr.push(description);
-  //
-  //     if (arr.length > 2) {
-  //       varsTable.push(arr);
-  //     }
-  //   }
-  // });
   if (varsTable.length > 0) {
     table = {
       tableHeadConfig: headConfig,
@@ -493,24 +442,56 @@ function getMediaArray(file) {
   return mediaArray;
 }
 function getVarsArray(file) {
-  const patterns = [/var\((--.+)?,(.+)\)/g, / {2}(--.+):(.+);/g];
+  const webpackGlidePath = "~" + nodePathSimplebarIncludes;
+  let contentWithFixedImports = file.replace(webpackGlidePath, "");
+  contentWithFixedImports = contentWithFixedImports.replace(
+    "../../variables",
+    "../variables"
+  );
+  const { css } = sass.renderSync({
+    data: contentWithFixedImports,
+    includePaths: pathsSassIncludes,
+    outputStyle: "expanded"
+  });
+  const text = css.toString();
+  const patterns = [/var\((\S+)(, (.+))?\)/g, / {2}(--.+):( (.+));/g];
+  const componentName = /.sf-(.+) ?{/g.exec(text)[1].trim();
   let variables = [];
   let keys = [];
   let result;
-  patterns.forEach(pattern => {
-    while ((result = pattern.exec(file)) !== null) {
-      if (keys.includes(result[1])) break;
+  patterns.forEach((pattern, index) => {
+    let array = [];
+    while ((result = pattern.exec(text)) !== null) {
+      if (index === 0 && !result[1].includes(componentName)) {
+        continue;
+      }
+      if (keys.includes(result[1])) continue;
       let variable = [];
+      let font;
+      if ((font = /--\S+-font/g.exec(result[1]))) {
+        const regex = /var\((\S+)(, (\S+))?\)/g;
+        let fontVar;
+        array.push([font, ""]);
+        while ((fontVar = regex.exec(result[3])) !== null) {
+          array.push([fontVar[1], fontVar[3]]);
+        }
+        continue;
+      }
       variable.push(result[1]);
       keys.push(result[1]);
-      if (result[2]) {
-        variable.push(result[2]);
+      if (result[3]) {
+        variable.push(result[3]);
       } else {
         variable.push("");
       }
-      variables.push(variable);
+      array.push(variable);
     }
+    array = array.sort((prev, next) => {
+      return prev[0] === next[0] ? 0 : prev[0] > next[0] ? 1 : -1;
+    });
+    variables = [...variables, ...array];
   });
+
   return variables;
 }
 function generateStorybookTable(config) {
@@ -523,7 +504,7 @@ function generateStorybookTable(config) {
     );
   const getSeparationTableHead = () =>
     tableHeadConfig
-      .map((acc, index) => (index === 0 ? `|-----------|` : `-----------|`))
+      .map((acc, index) => (index === 0 ? `|---|` : `---|`))
       .join("");
   const getTableHead = () =>
     tableHeadConfig.reduce(
@@ -572,6 +553,7 @@ function extractCssModifiers(contentScssFile) {
         continue;
       }
       if (!uniqueModifiers.has(partialReResult[0])) {
+        if (partialReResult[0].split(".").length > 2) continue;
         uniqueModifiers.set(partialReResult[0], null);
         lastModifierFound = partialReResult[0];
       }

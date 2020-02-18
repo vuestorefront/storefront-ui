@@ -1,32 +1,17 @@
 @import '../../variables';
-:root {
-  --options-font-family: var(--body-font-family-secondary);
-  --options-font-size: var(--font-size-regular);
-  --options-font-weight: 500;
-  --options-line-height: 1.6;
-  --options-transition: all .3s ease-in-out;
-  --options__label-margin-bottom: .5rem;
-  --options__label-font-size: var(--font-size-big);
-  --options__option-size: 2rem;
-  --options__option-margin: .75rem;
-  --options__option-text-color: #bdbdbd;
-  --options__option--selected-text-color: var(--c-text);
-  @media screen and (min-width: $desktop-min) {
-    --options-font-size: var(--font-size-small);
-    --options__label-font-size: var(--font-size-regular);
-    --options__option-color-size: 1rem;
-  }
-}
 .sf-options {
   display: flex;
-  flex-wrap: wrap;
-  font-family: var(--options-font-family);
-  font-size: var(--options-font-size);
-  font-weight: var(--options-font-weight);
+  flex-wrap: var(--options-wrap, wrap);
+  font: var(--options-font, font(--options, 500, var(--font-size-regular), 0, var(--body-font-family-secondary)));
+  @include for-desktop {
+    --options-option-check-opacity: 0;
+    --options-font-size: var(--font-size-small);
+    --options-label-font-size: var(--font-size-regular);
+  }
   &__wrapper {
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
+    flex-wrap: var(--options-wrapper-wrap, wrap);
+    width: var(--options-wrapper-width, 100%);
   }
   &__option {
     &-text,
@@ -35,17 +20,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      min-width: var(--options__option-size);
-      min-height: var(--options__option-size);
-      transition: var(--options-transition);
+      min-width: var(--options-option-min-width, var(--options-option-size, 2rem));
+      min-height: var(--options-option-min-height, var(--options-option-size, 2rem));
+      transition: var(--options-option-transition, all .3s ease-in-out);
+      box-shadow: var(--options-option-box-shadow);
     }
     &-text {
-      color: var(--options__option-text-color);
+      color: var(--options-option-text-color, #bdbdbd);
+      background: var(--options-option-text-background);
       &--selected,
       &:hover,
       &:focus {
-        color: var(--options__option--selected-text-color);
-        background-color: rgba(241, 242, 243, 1);
+        --options-option-text-color: var(--c-text);
+        --options-option-text-background: rgba(241, 242, 243, 1);
       }
     }
     &-image {
@@ -55,28 +42,39 @@
     }
     &-color,
     &-image {
+      @include for-desktop {
+        --options-option-size: 1rem;
+      }
       &-check {
         position: absolute;
-        top: -30%;
-        bottom: 0;
-        left: 60%;
-        right: 0;
-        height: 23px;
-        width: 23px;
-        opacity: 0;
-        transition: var(--options-transition);
-        background-image: url("/packages/shared/icons/check.svg");
+        top: var(--options-option-check-top, -30%);
+        bottom: var(--options-option-check-bottom, 0);
+        left: var(--options-option-check-left, 60%);
+        right: var(--options-option-check-right, 0);
+        height: var(--options-option-check-height, var(--options-option-check, 23px));
+        width: var(--options-option-check-width, var(--options-option-check, 23px));
+        opacity: var(--options-option-check-opacity, 0);
+        transition: var(--options-option-transition, all .3s ease-in-out);
+        background-image: var(--options-option-check-url, url("/packages/shared/icons/check.svg"));
         background-repeat: no-repeat;
         background-position: center;
-        background-color: var(--c-primary);
-        border-radius: 50%;
+        background-color: var(--options-option-check-background, var(--c-primary));
+        border-radius: var(--options-option-check-border-radius, 50%);
       }
       &-wrapper {
         position: relative;
       }
       &--selected + &-check,
       &-wrapper:hover > &-check {
-        opacity: 1;
+        --options-option-check-opacity: 1;
+      }
+      &--selected,
+      &:hover,
+      &:focus {
+        @include for-desktop {
+          --options-option-size: calc(var(--options-option-size) * 2);
+          --options-option-box-shadow: 0 4px 4px -2px #c8c9cb;
+        }
       }
     }
   }
@@ -84,38 +82,13 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-right: var(--options__option-margin);
+    margin: var(--options-option-container-margin, 0 .75rem 0 0);
     &:last-child {
-      margin-right: 0;
+      --options-option-container-margin: 0;
     }
   }
   &__label {
-    margin-bottom: var(--options__label-margin-bottom);
-    font-size: var(--options__label-font-size);
-  }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-options {
-    &__option {
-      &-color,
-      &-image {
-        min-width: var(--options__option-color-size);
-        min-height: var(--options__option-color-size);
-      }
-      &-color,
-      &-image {
-        &--selected + &-check,
-        &-wrapper:hover > &-check {
-          opacity: 0;
-        }
-        &--selected,
-        &:hover,
-        &:focus {
-          min-width: calc(var(--options__option-color-size) * 2);
-          min-height: calc(var(--options__option-color-size) * 2);
-          box-shadow: 0 4px 4px -2px #c8c9cb;
-        }
-      }
-    }
+    font: var(--options-label-font, font(--options-label, 500, var(--font-size-big), 1.6, var(--body-font-family-secondary)));
+    margin: var(--options-label-margin, 0 0 .5rem 0);
   }
 }
