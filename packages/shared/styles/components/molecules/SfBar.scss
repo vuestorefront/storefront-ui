@@ -1,4 +1,5 @@
-@import "../../variables";
+@import "../../helpers";
+
 .sf-bar {
   box-sizing: border-box;
   display: flex;
@@ -7,7 +8,16 @@
   height: var(--bar-height, 3.125rem);
   padding: var(--bar-padding, 0 var(--spacer-big));
   background-color: var(--bar-background, var(--c-light));
-  font: var(--bar-font, font(--bar, 500, var(--font-size-big), 1.6, var(--body-font-family-secondary)));
+  font: var(
+    --bar-font,
+    font(
+      --bar,
+      500,
+      var(--font-size-big),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
   @include for-desktop {
     --bar-font-size: var(--font-size-regular);
   }

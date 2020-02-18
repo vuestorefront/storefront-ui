@@ -1,10 +1,20 @@
-@import '../../variables';
+@import '../../helpers';
+
 .sf-menu-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: var(--menu-item-color, var(--c-gray));
-  font: var(--menu-item-font, font(--menu-item, 400, var(--font-size-big), 1.6, var(--body-font-family-secondary)));
+  font: var(
+    --menu-item-font,
+    font(
+      --menu-item,
+      400,
+      var(--font-size-big),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
   cursor: pointer;
   @include for-desktop {
     --menu-item-font-size: var(--font-size-regular);

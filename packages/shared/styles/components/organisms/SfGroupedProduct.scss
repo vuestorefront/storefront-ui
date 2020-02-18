@@ -1,4 +1,5 @@
-@import "../../variables";
+@import "../../helpers";
+
 :root {
   --grouped-product-max-width: 7.8125rem;
   --grouped-product-max-width-desktop: 5.125rem;
@@ -67,7 +68,7 @@
   }
 }
 .sf-grouped-product {
-  &--without-carousel{
+  &--without-carousel {
     .glide {
       &__slides {
         display: block !important;

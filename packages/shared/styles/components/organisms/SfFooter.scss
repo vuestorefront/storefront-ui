@@ -1,4 +1,5 @@
-@import "../../variables";
+@import "../../helpers";
+
 :root {
   --footer__container-width: 1240px;
   --footer-desktop-margin: 6.25rem 0;
@@ -50,7 +51,7 @@
     & .sf-menu-item {
       padding: 6px 0;
     }
-    &__container{
+    &__container {
       box-sizing: border-box;
       display: flex;
       flex-wrap: wrap;

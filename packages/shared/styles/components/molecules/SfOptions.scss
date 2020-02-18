@@ -1,8 +1,18 @@
-@import '../../variables';
+@import '../../helpers';
+
 .sf-options {
   display: flex;
   flex-wrap: var(--options-wrap, wrap);
-  font: var(--options-font, font(--options, 500, var(--font-size-regular), 0, var(--body-font-family-secondary)));
+  font: var(
+    --options-font,
+    font(
+      --options,
+      500,
+      var(--font-size-regular),
+      0,
+      var(--body-font-family-secondary)
+    )
+  );
   @include for-desktop {
     --options-option-check-opacity: 0;
     --options-font-size: var(--font-size-small);
@@ -20,9 +30,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      min-width: var(--options-option-min-width, var(--options-option-size, 2rem));
-      min-height: var(--options-option-min-height, var(--options-option-size, 2rem));
-      transition: var(--options-option-transition, all .3s ease-in-out);
+      min-width: var(
+        --options-option-min-width,
+        var(--options-option-size, 2rem)
+      );
+      min-height: var(
+        --options-option-min-height,
+        var(--options-option-size, 2rem)
+      );
+      transition: var(--options-option-transition, all 0.3s ease-in-out);
       box-shadow: var(--options-option-box-shadow);
     }
     &-text {
@@ -51,14 +67,26 @@
         bottom: var(--options-option-check-bottom, 0);
         left: var(--options-option-check-left, 60%);
         right: var(--options-option-check-right, 0);
-        height: var(--options-option-check-height, var(--options-option-check, 23px));
-        width: var(--options-option-check-width, var(--options-option-check, 23px));
+        height: var(
+          --options-option-check-height,
+          var(--options-option-check, 23px)
+        );
+        width: var(
+          --options-option-check-width,
+          var(--options-option-check, 23px)
+        );
         opacity: var(--options-option-check-opacity, 0);
-        transition: var(--options-option-transition, all .3s ease-in-out);
-        background-image: var(--options-option-check-url, url("/packages/shared/icons/check.svg"));
+        transition: var(--options-option-transition, all 0.3s ease-in-out);
+        background-image: var(
+          --options-option-check-url,
+          url("/packages/shared/icons/check.svg")
+        );
         background-repeat: no-repeat;
         background-position: center;
-        background-color: var(--options-option-check-background, var(--c-primary));
+        background-color: var(
+          --options-option-check-background,
+          var(--c-primary)
+        );
         border-radius: var(--options-option-check-border-radius, 50%);
       }
       &-wrapper {
@@ -82,13 +110,22 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin: var(--options-option-container-margin, 0 .75rem 0 0);
+    margin: var(--options-option-container-margin, 0 0.75rem 0 0);
     &:last-child {
       --options-option-container-margin: 0;
     }
   }
   &__label {
-    font: var(--options-label-font, font(--options-label, 500, var(--font-size-big), 1.6, var(--body-font-family-secondary)));
-    margin: var(--options-label-margin, 0 0 .5rem 0);
+    font: var(
+      --options-label-font,
+      font(
+        --options-label,
+        500,
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
+    margin: var(--options-label-margin, 0 0 0.5rem 0);
   }
 }

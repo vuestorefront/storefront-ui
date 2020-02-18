@@ -1,22 +1,36 @@
-@import '../../variables';
+@import '../../helpers';
+
 .sf-notification {
   position: relative;
   display: flex;
   align-items: var(--notification-align-items, flex-start);
   box-sizing: border-box;
   max-width: var(--notification-max-width);
-  padding: var(--notification-padding, var(--spacer-big) calc(var(--spacer-big) * 5) var(--spacer-big) var(--spacer-big));
-  font: var(--notification-font, font(--notification, 400, var(--font-size-big), 1.6, var(--body-font-family-primary)));
+  padding: var(
+    --notification-padding,
+    var(--spacer-big) calc(var(--spacer-big) * 5) var(--spacer-big)
+    var(--spacer-big)
+  );
+  font: var(
+    --notification-font,
+    font(
+      --notification,
+      400,
+      var(--font-size-big),
+      1.6,
+      var(--body-font-family-primary)
+    )
+  );
   box-shadow: var(--notification-box-shadow);
   border-radius: var(--notification-border-radius);
-  opacity: var(--notification-opacity, .8);
+  opacity: var(--notification-opacity, 0.8);
   @include for-desktop {
     --notification-padding: var(--spacer-medium);
     --notification-align-items: center;
     --notification-max-width: 35rem;
     --notification-font-size: var(--font-size-regular);
     --notification-font-width: var(--body-font-weight-primary);
-    --notification-box-shadow: 0 8px 11px rgba(0, 0, 0, .1);
+    --notification-box-shadow: 0 8px 11px rgba(0, 0, 0, 0.1);
     --notification-border-radius: 5px;
     --notification-opacity: 1;
     --notification-title-font-size: var(--font-size-big);
@@ -38,7 +52,16 @@
   }
   &__title {
     display: var(--notification-title-display, inline);
-    font: var(--notification-title-font, font(--notification-title, 300, var(--font-size-big), 1.6, var(--body-font-family-primary)));
+    font: var(
+      --notification-title-font,
+      font(
+        --notification-title,
+        300,
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-primary)
+      )
+    );
     &::after {
       content: " ";
     }

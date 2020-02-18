@@ -1,4 +1,4 @@
-@import '../../variables';
+@import '../../helpers';
 
 .sf-banner {
   box-sizing: border-box;
@@ -11,7 +11,16 @@
   background-size: cover;
   background-color: var(--banner-background);
   background-image: var(--background-image);
-  font: var(--banner-font, font(--banner, 300, var(--font-size-extra-big), 1.6, var(--body-font-family-secondary)));
+  font: var(
+    --banner-font,
+    font(
+      --banner,
+      300,
+      var(--font-size-extra-big),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
   @include for-desktop {
     --banner-min-height: 20rem;
     --banner-font-size: var(--font-size-big);
@@ -27,11 +36,29 @@
     flex-basis: 100%;
   }
   &__subtitle {
-    font: var(--banner-subtitle-font, font(--banner-subtitle, 300, var(--font-size-regular), 1.16, var(--body-font-family-primary)));
+    font: var(
+      --banner-subtitle-font,
+      font(
+        --banner-subtitle,
+        300,
+        var(--font-size-regular),
+        1.16,
+        var(--body-font-family-primary)
+      )
+    );
     color: var(--banner-subtitle-color, var(--c-dark-variant));
   }
   &__title {
-    font: var(--banner-title-font, font(--banner-title, 300, var(--font-size-extra-big), 1.6, var(--body-font-family-secondary)));
+    font: var(
+      --banner-title-font,
+      font(
+        --banner-title,
+        300,
+        var(--font-size-extra-big),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
   }
   &__description {
     display: var(--banner-description-display, none);

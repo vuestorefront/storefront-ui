@@ -1,4 +1,4 @@
-@import '../../variables';
+@import '../../helpers';
 
 @mixin placeholder {
   &::-webkit-input-placeholder {
@@ -15,15 +15,15 @@
 @mixin iconPosition {
   flex-direction: var(--search-bar-icon-flex-direction, row);
   .sf-search-bar__input {
-      --search-bar-input-text-align: left;
-      &::placeholder {
-        text-align: left;
-      }
-      &:focus {
-        --search-bar-clear-icon-padding: 0 1.5rem 0 0;
-      }
+    --search-bar-input-text-align: left;
+    &::placeholder {
+      text-align: left;
+    }
+    &:focus {
+      --search-bar-clear-icon-padding: 0 1.5rem 0 0;
     }
   }
+}
 
 .sf-search-bar {
   box-sizing: border-box;
@@ -46,14 +46,14 @@
     outline: none;
     @include placeholder {
       color: var(--search-bar-placeholder-color, var(--c-dark));
-      transition: var(--search-bar-placeholder-transition, color .2s ease-in);
+      transition: var(--search-bar-placeholder-transition, color 0.2s ease-in);
     }
     &:focus {
       & ~ .sf-search-bar__clear-icon {
         --search-bar-clear-icon-position: absolute;
         --search-bar-clear-icon-opacity: 1;
-        --search-bar-clear-icon-padding: 0 .4rem 0 0;
-        --search-bar-clear-icon-right: .9375rem;
+        --search-bar-clear-icon-padding: 0 0.4rem 0 0;
+        --search-bar-clear-icon-right: 0.9375rem;
       }
       @include placeholder {
         color: var(--search-bar-placeholder-color-focus, var(--c-gray));
@@ -69,10 +69,10 @@
 
   &__clear-icon {
     position: var(--search-bar-clear-icon-position, absolute);
-    right: var(--search-bar-clear-icon-right, .9375rem);
+    right: var(--search-bar-clear-icon-right, 0.9375rem);
     padding: var(--search-bar-clear-icon-padding, 0 0.4rem 0 0);
     opacity: var(--search-bar-clear-icon-opacity, 0);
-    transition: var(--search-bar-clear-icon-transition, all .2s ease-in);
+    transition: var(--search-bar-clear-icon-transition, all 0.2s ease-in);
   }
 
   &--secondary {

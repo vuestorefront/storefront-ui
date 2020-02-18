@@ -1,4 +1,5 @@
-@import '../../variables';
+@import '../../helpers';
+
 :root {
   --list__item-font-size: var(--font-size-big);
   @media screen and (min-width: $desktop-min) {

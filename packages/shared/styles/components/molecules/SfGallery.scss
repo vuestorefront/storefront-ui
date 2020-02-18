@@ -1,4 +1,5 @@
-@import '../../variables';
+@import '../../helpers';
+
 .sf-gallery {
   position: relative;
   display: flex;
@@ -38,8 +39,8 @@
   }
   &__item {
     margin: var(--gallery-item-margin, 0 var(--spacer-medium) 0 0);
-    transition: var(--gallery-item-transition, opacity .15s linear);
-    opacity: var(--gallery-item-opacity, .5);
+    transition: var(--gallery-item-transition, opacity 0.15s linear);
+    opacity: var(--gallery-item-opacity, 0.5);
     cursor: var(--gallery-item-cursor, pointer);
     &:last-of-type {
       --gallery-item-margin: 0;
@@ -51,7 +52,6 @@
       width: var(--gallery-item-width, var(--gallery-item-size, 10px));
       background: var(--gallery-item-background, var(--c-gray-variant));
       border-radius: var(--gallery-item-border-radius, 50%);
-
     }
     &--selected {
       --gallery-item-opacity: 1;
@@ -94,6 +94,9 @@
   position: absolute;
   z-index: var(--gallery-zoom-index, 1);
   img {
-    transform: var(--gallery-zoom-image-transform, translate3d(0, -50%, 0) scale(2) !important);
+    transform: var(
+      --gallery-zoom-image-transform,
+      translate3d(0, -50%, 0) scale(2) !important
+    );
   }
 }

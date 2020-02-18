@@ -1,4 +1,4 @@
-@import "../../variables";
+@import "../../helpers";
 
 @mixin move-label-up {
   top: calc(calc(var(--font-size-small) / 2) - 5px);

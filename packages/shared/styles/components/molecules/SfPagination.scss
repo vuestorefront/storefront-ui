@@ -1,6 +1,16 @@
-@import '../../variables';
+@import '../../helpers';
+
 .sf-pagination {
-  font: var(--pagination-font, font(--pagination, 400, var(--font-size-big), 1.6, var(--body-font-family-secondary)));
+  font: var(
+    --pagination-font,
+    font(
+      --pagination,
+      400,
+      var(--font-size-big),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
   @include for-desktop {
     --pagination-item-margin: 0 calc(var(--spacer-big) / 2);
   }
@@ -20,14 +30,30 @@
   &__button {
     padding: var(--pagination-button-padding, 0);
     border: var(--pagination-button-padding, 0);
-    font: var(--pagination-font, font(--pagination, 400, var(--font-size-big), 1.6, var(--body-font-family-secondary)));
+    font: var(
+      --pagination-font,
+      font(
+        --pagination,
+        400,
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
     margin: var(--pagination-button-margin);
     background-color: transparent;
     color: var(--pagination-button-color, inherit);
-    border-bottom: var(--pagination-button-border-bottom, 1px solid transparent);
+    border-bottom: var(
+      --pagination-button-border-bottom,
+      1px solid transparent
+    );
     outline: none;
     opacity: var(--pagination-button-opacity);
-    transition: var(--pagination-button-transition, color 150ms ease-in-out, border-color 150ms ease-in-out);
+    transition: var(
+      --pagination-button-transition,
+      color 150ms ease-in-out,
+      border-color 150ms ease-in-out
+    );
     cursor: var(--pagination-button-cursor, pointer);
     &--prev {
       --pagination-button-margin: 0 3rem 0 0;
@@ -41,7 +67,7 @@
     }
     &:disabled {
       --pagination-button-cursor: default;
-      --pagination-button-opacity: .7;
+      --pagination-button-opacity: 0.7;
     }
   }
 }

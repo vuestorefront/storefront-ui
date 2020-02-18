@@ -1,9 +1,19 @@
-@import '../../variables';
+@import '../../helpers';
+
 .sf-filter {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font: var(--filter-font, font(--filter, 400, var(--font-size-big), 1.6, var(--body-font-family-secondary)));
+  font: var(
+    --filter-font,
+    font(
+      --filter,
+      400,
+      var(--font-size-big),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
   cursor: pointer;
   @include for-desktop {
     --filter-font-size: var(--font-size-small);

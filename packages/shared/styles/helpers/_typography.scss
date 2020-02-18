@@ -1,0 +1,6 @@
+@function font($element, $font-weight, $font-size, $line-height, $font-family) {
+  @return var(#{$element}-font-weight, $font-weight)
+    var(#{$element}-font-size, $font-size) /
+    var(#{$element}-line-height, $line-height)
+    var(#{$element}-font-family, $font-family);
+}

@@ -1,8 +1,18 @@
-@import '../../variables';
+@import '../../helpers';
+
 .sf-characteristic {
   display: flex;
   align-items: center;
-  font: var(--characteristic-font, font(--characteristic, 300, var(--font-size-small), 1.6, var(--body-font-family-primary)));
+  font: var(
+    --characteristic-font,
+    font(
+      --characteristic,
+      300,
+      var(--font-size-small),
+      1.6,
+      var(--body-font-family-primary)
+    )
+  );
   @include for-desktop {
     --characteristic-margin: 0 var(--spacer-big) 0 0;
   }
@@ -13,6 +23,15 @@
     margin: var(--characteristic-margin, 0 calc(var(--spacer-big) / 2) 0 0);
   }
   &__title {
-    font: var(--characteristic-title-font, font(--characteristic-title, 500, var(--font-size-regular), 1.6, var(--body-font-family-secondary)));
+    font: var(
+      --characteristic-title-font,
+      font(
+        --characteristic-title,
+        500,
+        var(--font-size-regular),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
   }
 }

@@ -1,9 +1,19 @@
-@import '../../variables';
+@import '../../helpers';
+
 .sf-tabs {
   position: relative;
   display: flex;
-  flex-wrap: wrap; 
-  font: var(--tabs-font, font(--tabs, 400, var(--font-size-regular), 1.6, var(--body-font-family-secondary)));
+  flex-wrap: wrap;
+  font: var(
+    --tabs-font,
+    font(
+      --tabs,
+      400,
+      var(--font-size-regular),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
   @include for-desktop {
     --tabs-title-margin: 0 2rem -0.125rem 0;
     --tabs-title-padding: var(--spacer-big) 0;
@@ -24,8 +34,21 @@
     padding: var(--tabs-title-padding, calc(var(--spacer-big) - 5px) 0);
     border-bottom: var(--tabs-title-border-bottom, 1px solid var(--c-light));
     color: var(--tabs-title-color, var(--c-dark));
-    font: var(--tabs-title-font, font(--tabs-title, 400, var(--font-size-big), 1.6, var(--body-font-family-secondary)));
-    transition: var(--tabs-title-transition, border-color 150ms ease-in-out, color 150ms ease-in-out);
+    font: var(
+      --tabs-title-font,
+      font(
+        --tabs-title,
+        400,
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
+    transition: var(
+      --tabs-title-transition,
+      border-color 150ms ease-in-out,
+      color 150ms ease-in-out
+    );
     cursor: pointer;
     &--active {
       --tabs-title-border-bottom: 1px solid transparent;
@@ -44,7 +67,10 @@
   &__chevron {
     display: var(--tabs-chevron-display, flex);
     align-items: center;
-    max-height: var(--tabs-chevron-max-height, calc(var(--accordion-font-size) * var(--accordion-line-height)));
+    max-height: var(
+      --tabs-chevron-max-height,
+      calc(var(--accordion-font-size) * var(--accordion-line-height))
+    );
   }
   &__content {
     flex-basis: 100%;

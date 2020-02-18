@@ -1,4 +1,5 @@
-@import '../../variables';
+@import '../../helpers';
+
 :root {
   --hero__controls-top: 50%;
   --hero__controls-padding-h: 1rem;
@@ -115,7 +116,7 @@
       justify-content: space-between;
       top: var(--hero__controls-top);
       left: 0;
-      transform: translate3d(0, - var(--hero__controls-top), 0);
+      transform: translate3d(0, -var(--hero__controls-top), 0);
       width: var(--hero__controls-width);
       padding: 0 var(--hero__controls-padding-h);
     }

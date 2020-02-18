@@ -1,8 +1,9 @@
-@import '../../variables';
+@import '../../helpers';
+
 :root {
   --product-card-max-width: 200px;
   --product-card-padding: var(--spacer-small);
-  --product-card-hover-box-shadow: 0px 4px 35px rgba(168, 172, 176, .19);
+  --product-card-hover-box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
   --product-card__image-background-color: var(--c-light);
   --product-card__image-blend-mode: darken;
   --product-card__reviews-count-font-size: var(--font-size-regular);
@@ -76,7 +77,7 @@
   }
   &__reviews-count {
     font-size: var(--product-card__reviews-count-font-size);
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
   &__wishlist-icon {
     position: absolute;
@@ -123,10 +124,10 @@
       display: flex;
       padding: var(--spacer-medium);
       &--icons-enter-active {
-        animation: bounce .4s;
+        animation: bounce 0.4s;
       }
       &--icons-leave-active {
-        animation: bounce .4s reverse;
+        animation: bounce 0.4s reverse;
       }
     }
     &__wishlist-icon {

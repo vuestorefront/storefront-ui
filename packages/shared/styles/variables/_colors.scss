@@ -1,0 +1,103 @@
+:root {
+  --c-black: #1d1f22;
+  --c-white: #ffffff;
+
+  // Internal color variables
+  /* Should NOT be used directly for theming or component styles */
+  --_c-green-primary: #5ece7b;
+  --_c-green-secondary: #9ee2b0;
+  --_c-dark-primary: var(--c-black);
+  --_c-dark-secondary: #737680;
+  --_c-gray-primary: #a3a5ad;
+  --_c-gray-secondary: #bebfc4;
+  --_c-light-primary: #bebfc4;
+  --_c-light-secondary: var(--c-white);
+  --_c-pink-primary: #e22225;
+  --_c-pink-secondary: #fff6f5;
+  --_c-yellow-primary: #ffdf3d;
+  --_c-yellow-secondary: #fffceb;
+  --_c-blue-primary: #6699cc;
+  --_c-blue-secondary: #e1f4fe;
+
+  /* Theme color variables */
+
+  // Body and text defaults
+  --c-body: var(--_c-light-secondary);
+  --c-text: var(--_c-dark-primary);
+  --c-muted: var(--_c-gray-primary);
+  --c-link: var(--_c-dark-secondary);
+  --c-link-hover: var(--c-black);
+
+  /* Brand colors */
+
+  // Primary
+  /* Should be used to drive attention to the main tasks that should be done while using the app.
+   * It is meant to be used in major interactive elements of the page. */
+  --c-primary: var(--_c-green-primary);
+  --c-primary-variant: var(--_c-green-secondary);
+  --c-on-primary: var(--_c-light-secondary);
+  //--c-primary-hover: var();
+  //--c-on-primary-hover: var();
+
+  // Secondary
+  /* Should be used to drive attention in the elements with relevant info,
+   * but where the user is not intended to take action. */
+  --c-secondary: var(--_c-dark-primary);
+  --c-secondary-variant: var(--_c-dark-secondary);
+  --c-on-secondary: var(--_c-light-secondary);
+  //--c-secondary-hover: var();
+  //--c-on-secondary-hover: var();
+
+  /* Base colors*/
+
+  // Light
+  --c-light: var(--_c-light-primary);
+  --c-light-variant: var(--_c-light-secondary);
+  --c-on-light: var(--c-black);
+  //--c-light-hover: var();
+  //--c-on-light-hover: var();
+
+  // Gray
+  --c-gray: var(--_c-gray-primary);
+  --c-gray-variant: var(--_c-gray-secondary);
+  --c-on-gray: var(--c-black);
+  //--c-gray-hover: var();
+  //--c-on-gray-hover: var();
+
+  // Dark
+  --c-dark: var(--_c-dark-primary);
+  --c-dark-variant: var(--_c-dark-secondary);
+  --c-on-dark: var(--_c-light-secondary);
+  //--c-dark-hover: var();
+  //--c-on-dark-hover: var();
+
+  /* Context colors */
+
+  // Info
+  --c-info: var(--_c-blue-primary);
+  --c-info-variant: var(--_c-blue-secondary);
+  --c-on-info: var(--_c-light-secondary);
+  //--c-info-hover: var();
+  //--c-on-info-hover: var();
+
+  // Success
+  --c-success: var(--_c-green-primarye);
+  --c-success-variant: var(--_c-green-secondary);
+  --c-on-success: var(--_c-light-secondary);
+  //--c-success-hover: var();
+  //--c-on-success-hover: var();
+
+  // Waring
+  --c-warning: var(--_c-yellow-primary);
+  --c-warning-variant: var(--_c-yellow-secondary);
+  --c-on-warning: var(--_c-light-secondary);
+  //--c-warning-hover: var();
+  //--c-on-warning-hover: var();
+
+  // Danger
+  --c-danger: var(--_c-pink-primary);
+  --c-danger-variant: var(--_c-pink-secondary);
+  --c-on-danger: var(--_c-light-secondary);
+  //--c-danger-hover: var();
+  //--c-on-danger-hover: var();
+}

@@ -1,4 +1,5 @@
-@import '../../variables';
+@import '../../helpers';
+
 .sf-topbar {
   display: flex;
   align-items: var(--topbar-align-items, center);
@@ -8,7 +9,16 @@
   box-sizing: border-box;
   padding: var(--topbar-padding, 0 var(--spacer-extra-big));
   background-color: var(--top-bar-background, var(--c-light));
-  font: var(--topbar-font, font(--topbar, 300, var(--font-size-regular), 1.6, var(--body-font-family-primary)));
+  font: var(
+    --topbar-font,
+    font(
+      --topbar,
+      300,
+      var(--font-size-regular),
+      1.6,
+      var(--body-font-family-primary)
+    )
+  );
   &__center {
     --topbar-font-size: var(--font-size-small-desktop);
   }

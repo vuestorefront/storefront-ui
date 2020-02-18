@@ -1,4 +1,5 @@
-@import "../../variables";
+@import "../../helpers";
+
 .sf-table {
   $this: &;
   box-sizing: border-box;
@@ -29,7 +30,7 @@
     @media (min-width: $desktop-min) {
       &:hover {
         background-color: var(--c-light);
-        box-shadow: 0 4px 20px rgba(168, 172, 176, .19);
+        box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
       }
     }
   }

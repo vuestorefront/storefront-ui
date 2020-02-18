@@ -1,8 +1,9 @@
-@import '../../variables';
+@import '../../helpers';
+
 :root {
   --collected-product-max-width: 350px;
-  --collected-product-box-shadow--hover: 0px 4px 35px rgba(168, 172, 176, .19);
-  --collected-product__remove-size: .875rem;
+  --collected-product-box-shadow--hover: 0px 4px 35px rgba(168, 172, 176, 0.19);
+  --collected-product__remove-size: 0.875rem;
   --collected-product__remove-size-desktop: 1.625rem;
   --collected-product__remove-background: var(--c-gray-variant);
   --collected-product__remove-background--hover: var(--c-dark-variant);

@@ -1,13 +1,22 @@
-@import '../../variables';
+@import '../../helpers';
 
 .sf-alert {
   display: flex;
   align-items: center;
-  font: var(--alert-font, font(--alert, 400, var(--font-size-regular), 1.6, var(--body-font-family-secondary)));
+  font: var(
+    --alert-font,
+    font(
+      --alert,
+      400,
+      var(--font-size-regular),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
   @include for-desktop {
     --alert-font-size: var(--font-size-big);
   }
   &__message {
-    margin-left: var(--alert-message-margin-left, .625rem);
+    margin-left: var(--alert-message-margin-left, 0.625rem);
   }
 }

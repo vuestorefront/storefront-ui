@@ -1,4 +1,5 @@
-@import '../../variables';
+@import '../../helpers';
+
 .sf-banner-grid {
   &__row {
     .grid > &:first-of-type > .grid__col:first-of-type {
@@ -38,8 +39,8 @@
         flex-basis: 500px;
         flex-grow: 0;
       }
-      .sf-banner{
-        flex: 1
+      .sf-banner {
+        flex: 1;
       }
     }
   }

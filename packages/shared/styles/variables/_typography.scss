@@ -1,0 +1,53 @@
+@import "../helpers";
+
+:root {
+  // Font family
+  --body-font-family-primary: "Roboto", serif;
+  --body-font-family-secondary: "Raleway", sans-serif;
+
+  // Font weight
+  --body-font-weight-primary: 300;
+  --body-font-weight-secondary: 400;
+
+  // Font size
+  --font-size-extra-small: 0.625rem;
+  --font-size-small: 0.75rem;
+  --font-size-regular: 0.875rem;
+  --font-size-big: 1rem;
+  --font-size-extra-big: 1.125rem;
+  @include for-desktop {
+    --font-size-extra-small: 0.75rem;
+    --font-size-small: 0.875rem;
+    --font-size-regular: 1rem;
+    --font-size-big: 1.125rem;
+    --font-size-extra-big: 1.5rem;
+  }
+
+  // Heading font size
+  --h1-font-size: 1.125rem;
+  --h2-font-size: 1rem;
+  --h3-font-size: 1rem;
+  --h4-font-size: 1rem;
+  --h5-font-size: 0.875rem;
+  @include for-desktop {
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.125rem;
+    --h4-font-size: 1.125rem;
+    --h5-font-size: 1.125rem;
+  }
+
+  // Heading font weight
+  --h1-font-weight: 500;
+  --h2-font-weight: 500;
+  --h3-font-weight: 500;
+  --h4-font-weight: 500;
+  --h5-font-weight: 500;
+  @include for-desktop {
+    --h1-font-weight: 500;
+    --h2-font-weight: 500;
+    --h3-font-weight: 500;
+    --h4-font-weight: 500;
+    --h5-font-weight: 500;
+  }
+}
