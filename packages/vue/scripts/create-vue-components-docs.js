@@ -442,21 +442,41 @@ function getMediaArray(file) {
   return mediaArray;
 }
 function getVarsArray(file) {
-  // pattern for property declaration | patter for override property
-  const patterns = [/var\((\S+)(, (\S+))?\)/g, / {2}(--.+):( (.+));/g];
-  const componentName = /.sf-(.+) ?{/g.exec(file)[1].trim();
+  const webpackGlidePath = "~" + nodePathSimplebarIncludes;
+  let contentWithFixedImports = file.replace(webpackGlidePath, "");
+  contentWithFixedImports = contentWithFixedImports.replace(
+    "../../variables",
+    "../variables"
+  );
+  const { css } = sass.renderSync({
+    data: contentWithFixedImports,
+    includePaths: pathsSassIncludes,
+    outputStyle: "expanded"
+  });
+  const text = css.toString();
+  const patterns = [/var\((\S+)(, (.+))?\)/g, / {2}(--.+):( (.+));/g];
+  const componentName = /.sf-(.+) ?{/g.exec(text)[1].trim();
   let variables = [];
   let keys = [];
   let result;
-
   patterns.forEach((pattern, index) => {
     let array = [];
-    while ((result = pattern.exec(file)) !== null) {
+    while ((result = pattern.exec(text)) !== null) {
       if (index === 0 && !result[1].includes(componentName)) {
         continue;
       }
       if (keys.includes(result[1])) continue;
       let variable = [];
+      let font;
+      if ((font = /--\S+-font/g.exec(result[1]))) {
+        const regex = /var\((\S+)(, (\S+))?\)/g;
+        let fontVar;
+        array.push([font, ""]);
+        while ((fontVar = regex.exec(result[3])) !== null) {
+          array.push([fontVar[1], fontVar[3]]);
+        }
+        continue;
+      }
       variable.push(result[1]);
       keys.push(result[1]);
       if (result[3]) {
