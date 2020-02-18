@@ -22,19 +22,19 @@
   #{$variable}-lighten: var(#{$value}-lighten);
   #{$variable}-darken: var(#{$value}-darken);
 }
-@mixin color-modifiers($var) {
+@mixin color-modifiers($componentName) {
   @each $color, $map in $colors-map {
     $background: map-get($map, 'bg');
     $hover: map-get($map, 'bg-hover');
     $text: map-get($map, 'text');
     $text-hover: map-get($map, 'text-hover');
     &.color-#{$color} {
-      #{$var}-color: $text;
-      #{$var}-background-color: $background;
-      #{$var}-border-color: $background;
-      #{$var}-hover-color: $text-hover;
-      #{$var}-hover-background-color: $hover;
-      #{$var}-hover-border-color: $hover;
+      #{$componentName}-color: $text;
+      #{$componentName}-background-color: $background;
+      #{$componentName}-border-color: $background;
+      #{$componentName}-hover-color: $text-hover;
+      #{$componentName}-hover-background-color: $hover;
+      #{$componentName}-hover-border-color: $hover;
     }
   }
 }

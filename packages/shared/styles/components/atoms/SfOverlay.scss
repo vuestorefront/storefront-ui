@@ -2,6 +2,7 @@
 :root {
   --overlay__background-color: var(--c-black);
   --overlay__opacity: .8;
+  --overlay-z-index: 1;
 }
 .sf-overlay {
   background: var(--overlay__background-color);
@@ -11,5 +12,5 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1;
+  z-index: var(--overlay-z-index);
 }

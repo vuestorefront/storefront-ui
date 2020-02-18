@@ -128,7 +128,7 @@ function getFullComponentInfo(pathComponentVue) {
   const filenameComponentScss = componentInfoFromPath.pathComponentScss;
   let componentInfoFromScss;
   try {
-    componentInfoFromScss = getComponentInfoFromScss(filenameComponentScss);
+    componentInfoFromScss = getComponentInfoFromScss(componentInfoFromPath);
   } catch (e) {
     throw new Error(`Cannot read "${filenameComponentScss}": ${e.message}`);
   }
@@ -169,6 +169,7 @@ function getComponentInfoFromPath(pathComponentVue) {
       "$1.stories.js"
     ),
     pathInternalComponents: path.join(componentDirname, "_internal"),
+    componentType: atomicType,
     storybookLink
   };
 }
@@ -211,15 +212,17 @@ function getComponentInfoFromStories(pathComponentStories) {
   }
 }
 
-function getComponentInfoFromScss(filename) {
-  const contentScssFile = readComponentScss(filename);
+function getComponentInfoFromScss(componentInfo) {
+  const contentScssFile = readComponentScss(componentInfo);
   if (!contentScssFile) {
     return null;
   }
   try {
     return parseScssFile(contentScssFile);
   } catch (e) {
-    console.error(`ERROR: Cannot parse "${filename}": ${e.message}`);
+    console.error(
+      `ERROR: Cannot parse "${componentInfo.pathComponentScss}": ${e.message}`
+    );
     process.exit(1);
   }
 }
@@ -272,8 +275,8 @@ function readComponentStories(pathComponentStories) {
   return fs.readFileSync(fullPathComponentStories, "utf8");
 }
 
-function readComponentScss(filename) {
-  const pathComponentScss = pathInsideComponentsScssRoot(filename);
+function readComponentScss(componentInfo) {
+  const pathComponentScss = pathInsideComponentsScssRoot(componentInfo);
   if (!fs.existsSync(pathComponentScss)) {
     return null;
   }
@@ -442,39 +445,176 @@ function parseStoriesFile(contentStoriesFile) {
 }
 
 function parseScssFile(contentScssFile) {
-  const scssVariables = extractScssVariables(contentScssFile);
+  const cssVariables = extractCssVariables(contentScssFile);
   const cssModifiers = extractCssModifiers(contentScssFile);
 
   return {
-    scssVariables,
+    cssVariables,
     cssModifiers
   };
 }
 
-function extractScssVariables(contentScssFile) {
-  const lines = contentScssFile.split("\n");
+function extractCssVariables(contentScssFile) {
+  const mediaVars = getMediaArray(contentScssFile);
+  const varsArray = getVarsArray(contentScssFile);
+  const headConfig =
+    Object.keys(mediaVars).length > 0
+      ? ["NAME", "DEFAULT", "DESKTOP VALUE", "DESCRIPTION"]
+      : ["NAME", "DEFAULT", "DESCRIPTION"];
 
-  // account for multiline variable definition (a variable is considered terminated when the line ends with a semicolon)
-  let lastLineNotTerminated = false;
-  let scssVariables = "";
-  for (const line of lines) {
-    if (lastLineNotTerminated || /^\$/.test(line)) {
-      scssVariables += line + "\n";
-      lastLineNotTerminated = !/(^$)|(;$)/.test(line);
+  let varsTable = [];
+  let table = [];
+  let result = "";
+
+  varsArray.forEach(function(item) {
+    if (item.indexOf("// ") !== -1 && item.indexOf("--") === -1) {
+      let title = item.substring(item.indexOf("// ") + 2, item.length);
+      title = title.replace("-", "");
+
+      if (varsTable.length > 0) {
+        table = {
+          tableHeadConfig: headConfig,
+          tableBodyConfig: varsTable
+        };
+        result += `${generateStorybookTable(table)}`;
+        varsTable = [];
+      }
+
+      if (item.indexOf("// -") === -1) {
+        result += `\n###` + title + `\n`;
+      } else {
+        result += `####` + title + `\n`;
+      }
+    } else {
+      let name = item.substring(item.indexOf("--"), item.indexOf(":"));
+      let value = item.substring(item.indexOf(": ") + 2, item.indexOf(";"));
+      let description = "";
+      let desktopValue = "";
+
+      if (item.indexOf("// ") !== -1) {
+        description = item.substring(item.indexOf("// ") + 3, item.length);
+      }
+
+      if (mediaVars[name] !== undefined) {
+        desktopValue = mediaVars[name];
+      }
+
+      const arr = [];
+
+      if (name !== "" && value !== "") {
+        arr.push(name);
+        arr.push(value);
+      }
+
+      if (Object.keys(mediaVars).length > 0) {
+        arr.push(desktopValue);
+      }
+
+      arr.push(description);
+
+      if (arr.length > 2) {
+        varsTable.push(arr);
+      }
     }
+  });
+
+  if (varsTable.length > 0) {
+    table = {
+      tableHeadConfig: headConfig,
+      tableBodyConfig: varsTable
+    };
+    result += generateStorybookTable(table);
   }
 
-  if (!scssVariables) {
-    return "";
+  return result;
+}
+
+function getMediaArray(file) {
+  const start = file.indexOf(":root {");
+  const end = file.indexOf("}\n");
+  let vars = file.substring(start, end);
+
+  if (vars.indexOf("@media") === -1) {
+    return [];
   }
 
-  return "```scss\n" + scssVariables + "```";
+  const mediaArray = [];
+  let mediaVars = file.substring(file.indexOf("@media"));
+  mediaVars = mediaVars.substring(
+    mediaVars.indexOf("{") + 1,
+    mediaVars.indexOf("}\n")
+  );
+  mediaVars = mediaVars.split("\n");
+
+  mediaVars.forEach(function(item) {
+    let name = item.substring(item.indexOf("--"), item.indexOf(":"));
+    let value = item.substring(item.indexOf(": ") + 2, item.indexOf(";"));
+
+    if (name !== "" && value !== "") {
+      mediaArray[name] = value;
+    }
+  });
+
+  return mediaArray;
+}
+
+function getVarsArray(file) {
+  const start = file.indexOf(":root {");
+  const end = file.indexOf("}\n");
+  let vars = file.substring(start, end);
+
+  if (vars.indexOf("@media") !== -1) {
+    vars = vars.substring(0, vars.indexOf("@media"));
+  }
+
+  vars = vars.replace("{", "");
+  vars = vars.replace(" ", "");
+
+  return vars.split("\n");
+}
+
+function generateStorybookTable(config) {
+  const { tableHeadConfig, tableBodyConfig } = config;
+
+  const getTableBodyRow = item =>
+    item.reduce(
+      (acc, item, index) =>
+        (acc = index === 0 ? acc + `|${item}|` : acc + `${item}|`),
+      ""
+    );
+
+  const getSeparationTableHead = () =>
+    tableHeadConfig
+      .map((acc, index) => (index === 0 ? `|-----------|` : `-----------|`))
+      .join("");
+
+  const getTableHead = () =>
+    tableHeadConfig.reduce(
+      (acc, item, index) =>
+        index === 0 ? acc + `|${item}|` : acc + `${item}|`,
+      ""
+    );
+
+  const getTableBody = () =>
+    tableBodyConfig.reduce(
+      (acc, item) => (acc = acc + `${getTableBodyRow(item)}\n`),
+      ""
+    );
+
+  return `${getTableHead()}
+${getSeparationTableHead()}
+${getTableBody()}`;
 }
 
 function extractCssModifiers(contentScssFile) {
   // remove webpack-alias-style import; the SASS compiler resolves all imports by simple name, if includePath is set
   const webpackGlidePath = "~" + nodePathSimplebarIncludes;
-  const contentWithFixedImports = contentScssFile.replace(webpackGlidePath, "");
+  let contentWithFixedImports = contentScssFile.replace(webpackGlidePath, "");
+  // variable folder url solution, problem by method "status = binding.renderSync(options)" from NODE-SASS
+  contentWithFixedImports = contentWithFixedImports.replace(
+    "../../variables",
+    "../variables"
+  );
   const { css } = sass.renderSync({
     data: contentWithFixedImports,
     includePaths: pathsSassIncludes,
@@ -493,7 +633,10 @@ function extractCssModifiers(contentScssFile) {
     // as multiple modifiers may be on one line, we have to make this (stateful) reg exp. search
     while ((partialReResult = regExp.exec(line)) !== null) {
       // skip CSS vars which the simple regexp catches accidentally
-      if (partialReResult[0].includes("var(")) {
+      if (
+        partialReResult[0].includes("var(") ||
+        !partialReResult[0].includes(".")
+      ) {
         continue;
       }
       if (!uniqueModifiers.has(partialReResult[0])) {
@@ -674,10 +817,11 @@ function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
     ["[[slots]]", componentInfo.slots || "None."],
     ["[[events]]", componentInfo.events || "None."],
     ["[[css-modifiers]]", componentInfo.cssModifiers || "None."],
-    ["[[scss-variables]]", componentInfo.scssVariables || "None."],
+    ["[[css-variables]]", componentInfo.cssVariables || "None."],
     ["[[path-component-html]]", componentInfo.pathComponentHtml],
     ["[[path-component-js]]", componentInfo.pathComponentJs],
-    ["[[storybook-link]]", componentInfo.storybookLink || ""]
+    ["[[storybook-link]]", componentInfo.storybookLink || ""],
+    ["[[component-type]]", componentInfo.componentType]
   ]);
   let renderedTemplate = contentTemplateFile;
   for (const [placeholder, value] of replaceMap.entries()) {
@@ -701,7 +845,7 @@ function addInternalComponentsToTargetMd(internalComponentsInfo, renderedMd) {
       ["[[internal-slots]]", componentInfo.slots || "None."],
       ["[[internal-events]]", componentInfo.events || "None."],
       ["[[internal-css-modifiers]]", componentInfo.cssModifiers || "None."],
-      ["[[internal-scss-variables]]", componentInfo.scssVariables || "None."]
+      ["[[internal-css-variables]]", componentInfo.cssVariables || "None."]
     ]);
     let renderedTemplate = internalComponentTemplate;
     for (const [placeholder, value] of replaceMap.entries()) {
@@ -820,8 +964,12 @@ function pathInsideComponentsRoot(subPath) {
   return path.join(pathVueComponentsRoot, subPath);
 }
 
-function pathInsideComponentsScssRoot(subPath) {
-  return path.join(pathComponentsScssRoot, subPath);
+function pathInsideComponentsScssRoot(componentInfo) {
+  const namePathInsideComponents = path.join(
+    componentInfo.componentType,
+    componentInfo.pathComponentScss
+  );
+  return path.join(pathComponentsScssRoot, namePathInsideComponents);
 }
 
 function pathInsideVuepressConfigRoot(subPath) {
@@ -908,9 +1056,9 @@ function getInternalComponentTemplate() {
 [[internal-css-modifiers]]
 
 
-#### SCSS variables
+#### CSS variables
 
-[[internal-scss-variables]]`;
+[[internal-css-variables]]`;
 }
 
 module.exports = {
