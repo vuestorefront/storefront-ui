@@ -9,7 +9,7 @@
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: cover;
-  background-color: var(--background);
+  background-color: var(--banner-background);
   background-image: var(--background-image);
   font: var(--banner-font, font(--banner, 300, var(--font-size-extra-big), 1.6, var(--body-font-family-secondary)));
   @include for-desktop {
@@ -18,6 +18,10 @@
     --banner-padding: 4rem 5rem 4rem calc(50% + 5rem);
     --banner-background-image: var(--background-desktop-image);
     --banner-title-font-size: 3rem;
+    --banner-description-margin: 1.875rem 0 0 0;
+    --banner-description-display: block;
+    --banner-call-to-action-display: block;
+    --banner-call-to-action-margin: var(--spacer-big) 0 0 0;
   }
   &__container {
     flex-basis: 100%;
@@ -30,18 +34,12 @@
     font: var(--banner-title-font, font(--banner-title, 300, var(--font-size-extra-big), 1.6, var(--body-font-family-secondary)));
   }
   &__description {
-    display: none;
-    @include for-desktop {
-      display: block;
-      margin: var(--banner-description-margin, 1.875rem 0 0 0);
-    }
+    display: var(--banner-description-display, none);
+    margin: var(--banner-description-margin);
   }
   &__call-to-action {
-    display: none;
-    @include for-desktop {
-      display: block;
-      margin: var(--banner-call-to-action-margin, var(--spacer-big) 0 0 0);
-    }
+    display: var(--banner-call-to-action-display, none);
+    margin: var(--banner-call-to-action-margin);
   }
   &--left {
     @include for-desktop {
