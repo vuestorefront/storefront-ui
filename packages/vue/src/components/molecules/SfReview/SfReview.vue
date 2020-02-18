@@ -24,7 +24,7 @@
         <span class="sf-review__message">{{ finalMessage }} &nbsp;</span>
         <button
           v-if="showButton"
-          class="sf-review__read_more"
+          class="sf-review__read-more"
           @click="toggleMessage"
         >
           {{ buttonText }}
