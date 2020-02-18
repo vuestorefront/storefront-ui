@@ -400,66 +400,15 @@ function parseScssFile(contentScssFile) {
   };
 }
 function extractCssVariables(contentScssFile) {
-  const mediaVars = getMediaArray(contentScssFile);
+  // const mediaVars = getMediaArray(contentScssFile);
   const varsArray = getVarsArray(contentScssFile);
-  const headConfig =
-    Object.keys(mediaVars).length > 0
-      ? ["NAME", "DEFAULT", "DESKTOP VALUE", "DESCRIPTION"]
-      : ["NAME", "DEFAULT", "DESCRIPTION"];
+  const headConfig = ["NAME", "DEFAULT"];
+  // Object.keys(mediaVars).length > 0
+  //   ? ["NAME", "DEFAULT", "DESKTOP VALUE", "DESCRIPTION"]
+  //   : ["NAME", "DEFAULT", "DESCRIPTION"];
   let varsTable = varsArray;
   let table = [];
   let result = "";
-  // varsArray.forEach(function(item) {
-  //   if (item.indexOf("// ") !== -1 && item.indexOf("--") === -1) {
-  //     let title = item.substring(item.indexOf("// ") + 2, item.length);
-  //     title = title.replace("-", "");
-  //
-  //     if (varsTable.length > 0) {
-  //       table = {
-  //         tableHeadConfig: headConfig,
-  //         tableBodyConfig: varsTable
-  //       };
-  //       result += `${generateStorybookTable(table)}`;
-  //       varsTable = [];
-  //     }
-  //
-  //     if (item.indexOf("// -") === -1) {
-  //       result += `\n###` + title + `\n`;
-  //     } else {
-  //       result += `####` + title + `\n`;
-  //     }
-  //   } else {
-  //     let name = item.substring(item.indexOf("--"), item.indexOf(":"));
-  //     let value = item.substring(item.indexOf(": ") + 2, item.indexOf(";"));
-  //     let description = "";
-  //     let desktopValue = "";
-  //
-  //     if (item.indexOf("// ") !== -1) {
-  //       description = item.substring(item.indexOf("// ") + 3, item.length);
-  //     }
-  //
-  //     if (mediaVars[name] !== undefined) {
-  //       desktopValue = mediaVars[name];
-  //     }
-  //
-  //     const arr = [];
-  //
-  //     if (name !== "" && value !== "") {
-  //       arr.push(name);
-  //       arr.push(value);
-  //     }
-  //
-  //     if (Object.keys(mediaVars).length > 0) {
-  //       arr.push(desktopValue);
-  //     }
-  //
-  //     arr.push(description);
-  //
-  //     if (arr.length > 2) {
-  //       varsTable.push(arr);
-  //     }
-  //   }
-  // });
   if (varsTable.length > 0) {
     table = {
       tableHeadConfig: headConfig,
@@ -493,19 +442,36 @@ function getMediaArray(file) {
   return mediaArray;
 }
 function getVarsArray(file) {
-  const regexRoot = /var\((--.+)?,(.+)\)/g;
+  // pattern for property declaration | patter for override property
+  const patterns = [/var\((\S+)(, (\S+))?\)/g, / {2}(--.+):( (.+));/g];
+  const componentName = /.sf-(.+) ?{/g.exec(file)[1].trim();
   let variables = [];
+  let keys = [];
   let result;
-  while ((result = regexRoot.exec(file)) !== null) {
-    let variable = [];
-    variable.push(result[1]);
-    if (result[2]) {
-      variable.push(result[2]);
-    } else {
-      variable.push("");
+
+  patterns.forEach((pattern, index) => {
+    let array = [];
+    while ((result = pattern.exec(file)) !== null) {
+      if (index === 0 && !result[1].includes(componentName)) {
+        continue;
+      }
+      if (keys.includes(result[1])) continue;
+      let variable = [];
+      variable.push(result[1]);
+      keys.push(result[1]);
+      if (result[3]) {
+        variable.push(result[3]);
+      } else {
+        variable.push("");
+      }
+      array.push(variable);
     }
-    variables.push(variable);
-  }
+    array = array.sort((prev, next) => {
+      return prev[0] === next[0] ? 0 : prev[0] > next[0] ? 1 : -1;
+    });
+    variables = [...variables, ...array];
+  });
+
   return variables;
 }
 function generateStorybookTable(config) {
@@ -518,7 +484,7 @@ function generateStorybookTable(config) {
     );
   const getSeparationTableHead = () =>
     tableHeadConfig
-      .map((acc, index) => (index === 0 ? `|-----------|` : `-----------|`))
+      .map((acc, index) => (index === 0 ? `|---|` : `---|`))
       .join("");
   const getTableHead = () =>
     tableHeadConfig.reduce(
@@ -567,6 +533,7 @@ function extractCssModifiers(contentScssFile) {
         continue;
       }
       if (!uniqueModifiers.has(partialReResult[0])) {
+        if (partialReResult[0].split(".").length > 2) continue;
         uniqueModifiers.set(partialReResult[0], null);
         lastModifierFound = partialReResult[0];
       }
