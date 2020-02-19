@@ -1,5 +1,5 @@
 <template>
-  <div :class="`sf-alert--${type}`" class="sf-alert">
+  <div :class="`color-${type}`" class="sf-alert">
     <!--@slot Custom alert icon. Slot content will replace default icon <SfIcon/> tag.-->
     <slot name="icon" v-bind="{ icon }">
       <SfIcon :icon="icon" size="24px" color="white" class="sf-alert__icon" />

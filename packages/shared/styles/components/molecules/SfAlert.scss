@@ -1,8 +1,9 @@
-@import '../../helpers';
+@import "../../helpers";
 
 .sf-alert {
   display: flex;
   align-items: center;
+  color: var(--alert-color);
   font: var(
     --alert-font,
     font(
@@ -18,5 +19,12 @@
   }
   &__message {
     margin-left: var(--alert-message-margin-left, 0.625rem);
+  }
+  @each $color, $map in $colors-map {
+    $primary: map-get($map, "primary");
+    &.color-#{$color} {
+      --icon-color: #{$primary};
+      --alert-color: #{$primary};
+    }
   }
 }
