@@ -19,4 +19,10 @@ $icon-colors: (
   "yellow-secondary": var(--_c-yellow-secondary),
   "blue-primary": var(--_c-blue-primary),
   "blue-secondary": var(--_c-blue-secondar)
-)
+);
+// Map theme color palette
+$colors-map: (
+  "primary": (
+    "bg": var(--c-primary)
+  )
+);

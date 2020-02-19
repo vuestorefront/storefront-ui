@@ -1,0 +1,10 @@
+@import "../helpers/colors";
+@each $color, $map in $colors-map {
+  $bg: map-get($map, "bg");
+  .text-#{$color} {
+    color: $bg !important;
+  }
+  .bg-#{$color} {
+    background-color: $bg !important;
+  }
+}
