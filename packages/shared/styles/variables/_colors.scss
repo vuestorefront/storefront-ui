@@ -6,14 +6,14 @@
   /* Should NOT be used directly for theming or component styles */
   --_c-green-primary: #5ece7b;
   --_c-green-secondary: #9ee2b0;
-  --_c-dark-primary: var(--c-black);
+  --_c-dark-primary: #1d1f22;
   --_c-dark-secondary: #737680;
   --_c-gray-primary: #a3a5ad;
   --_c-gray-secondary: #bebfc4;
-  --_c-light-primary: #bebfc4;
-  --_c-light-secondary: var(--c-white);
-  --_c-pink-primary: #e22225;
-  --_c-pink-secondary: #fff6f5;
+  --_c-light-primary: #f1f2f3;
+  --_c-light-secondary: #ffffff;
+  --_c-red-primary: #e22225;
+  --_c-red-secondary: #fff6f5;
   --_c-yellow-primary: #ffdf3d;
   --_c-yellow-secondary: #fffceb;
   --_c-blue-primary: #6699cc;
@@ -95,8 +95,8 @@
   //--c-on-warning-hover: var();
 
   // Danger
-  --c-danger: var(--_c-pink-primary);
-  --c-danger-variant: var(--_c-pink-secondary);
+  --c-danger: var(--_c-red-primary);
+  --c-danger-variant: var(--_c-red-secondary);
   --c-on-danger: var(--_c-light-secondary);
   //--c-danger-hover: var();
   //--c-on-danger-hover: var();
