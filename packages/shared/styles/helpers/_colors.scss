@@ -22,7 +22,44 @@ $icon-colors: (
 );
 // Map theme color palette
 $colors-map: (
+  "black": (
+    "primary": var(--c-dark),
+    "variant": var(--c-dark)
+  ),
+  "white": (
+    "primary": var(--c-white),
+    "variant": var(--c-white)
+  ),
   "primary": (
-    "bg": var(--c-primary)
+    "primary": var(--c-primary),
+    "variant": var(--c-primary-variant)
+  ),
+  "secondary": (
+    "primary": var(--c-secondary),
+    "variant": var(--c-secondary-variant)
+  ),
+  "light": (
+    "primary": var(--c-light),
+    "variant": var(--c-light-variant)
+  ),
+  "dark": (
+    "primary": var(--c-dark),
+    "variant": var(--c-dark-variant)
+  ),
+  "info": (
+    "primary": var(--c-info),
+    "variant": var(--c-info-variant)
+  ),
+  "success": (
+    "primary": var(--c-success),
+    "variant": var(--c-variant)
+  ),
+  "warning": (
+    "primary": var(--c-waring),
+    "variant": var(--c-waring-variant)
+  ),
+  "danger": (
+    "primary": var(--c-danger),
+    "variant": var(--c-danger-variant)
   )
 );
