@@ -16,7 +16,7 @@
             </p>
           </div>
           <SfButton
-            class="sf-button--text accordion__edit"
+            class="sf-button--text color-secondary accordion__edit"
             @click="$emit('click:edit', 0)"
             >Edit
           </SfButton>
@@ -35,7 +35,7 @@
             <p class="content">{{ shipping.phoneNumber }}</p>
           </div>
           <SfButton
-            class="sf-button--text accordion__edit"
+            class="sf-button--text color-secondary accordion__edit"
             @click="$emit('click:edit', 1)"
             >Edit
           </SfButton>
@@ -59,7 +59,7 @@
             </template>
           </div>
           <SfButton
-            class="sf-button--text accordion__edit"
+            class="sf-button--text color-secondary accordion__edit"
             @click="$emit('click:edit', 2)"
             >Edit
           </SfButton>
@@ -71,7 +71,7 @@
             <p class="content">{{ paymentMethod.label }}</p>
           </div>
           <SfButton
-            class="sf-button--text accordion__edit"
+            class="sf-button--text color-secondary accordion__edit"
             @click="$emit('click:edit', 2)"
             >Edit
           </SfButton>
@@ -173,7 +173,7 @@
           >Place my order
         </SfButton>
         <SfButton
-          class="sf-button--full-width sf-button--text summary__action-button summary__action-button--secondary"
+          class="sf-button--full-width sf-button--text color-secondary summary__action-button summary__action-button--secondary"
           @click="$emit('click:back')"
         >
           Go back to Payment

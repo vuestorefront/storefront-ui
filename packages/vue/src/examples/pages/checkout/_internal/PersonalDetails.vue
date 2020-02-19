@@ -33,7 +33,9 @@
           label="I want to create an account"
           class="form__checkbox"
         />
-        <SfButton class="sf-button--text info" @click="accountBenefits = true"
+        <SfButton
+          class="sf-button--text color-secondary color-secondary info"
+          @click="accountBenefits = true"
           >+info
         </SfButton>
       </div>
@@ -54,7 +56,7 @@
           >Continue to shipping
         </SfButton>
         <SfButton
-          class="sf-button--full-width sf-button--text form__action-button form__action-button--secondary"
+          class="sf-button--full-width sf-button--text color-secondary form__action-button form__action-button--secondary"
           >or log in to your account
         </SfButton>
       </div>

@@ -7,7 +7,9 @@
       />
       <div class="total-items">
         <h3>Total items: {{ totalItems }}</h3>
-        <SfButton class="sf-button--text" @click="listIsHidden = !listIsHidden"
+        <SfButton
+          class="sf-button--text color-secondary"
+          @click="listIsHidden = !listIsHidden"
           >{{ listIsHidden ? "Show" : "Hide" }} items list
         </SfButton>
       </div>
