@@ -21,11 +21,11 @@ $desktop-xxl-min: 1920px;
 // Visibility
 .mobile-only {
   @include for-desktop {
-    display: none;
+    display: none !important;
   }
 }
 .desktop-only {
   @include for-mobile {
-    display: none;
+    display: none !important;
   }
 }
