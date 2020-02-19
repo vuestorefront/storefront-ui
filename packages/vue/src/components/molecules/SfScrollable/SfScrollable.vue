@@ -46,7 +46,7 @@ export default {
   computed: {
     style() {
       return {
-        "--max-height": this.maxContentHeight.trim
+        "--scrollable-max-height": this.maxContentHeight.trim
           ? this.maxContentHeight
           : undefined
       };
