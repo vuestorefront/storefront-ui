@@ -31,6 +31,14 @@
     --banner-description-display: block;
     --banner-call-to-action-display: block;
     --banner-call-to-action-margin: var(--spacer-big) 0 0 0;
+    &--left {
+      --banner-padding: 4rem calc(50% + 5rem) 4rem 4rem;
+    }
+    &--slim {
+      --banner-padding: 5rem 2.5rem;
+      --banner-title-font-size: 2.25rem;
+      --banner-title-font-width: 100;
+    }
   }
   &__container {
     flex-basis: 100%;
@@ -67,17 +75,5 @@
   &__call-to-action {
     display: var(--banner-call-to-action-display, none);
     margin: var(--banner-call-to-action-margin);
-  }
-  &--left {
-    @include for-desktop {
-      --banner-padding: 4rem calc(50% + 5rem) 4rem 4rem;
-    }
-  }
-  &--slim {
-    @include for-desktop {
-      --banner-padding: 5rem 2.5rem;
-      --banner-title-font-size: 2.25rem;
-      --banner-title-font-width: 100;
-    }
   }
 }
