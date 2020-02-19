@@ -36,8 +36,6 @@
   --c-primary: var(--_c-green-primary);
   --c-primary-variant: var(--_c-green-secondary);
   --c-on-primary: var(--_c-light-secondary);
-  //--c-primary-hover: var();
-  //--c-on-primary-hover: var();
 
   // Secondary
   /* Should be used to drive attention in the elements with relevant info,
@@ -45,8 +43,6 @@
   --c-secondary: var(--_c-dark-primary);
   --c-secondary-variant: var(--_c-dark-secondary);
   --c-on-secondary: var(--_c-light-secondary);
-  //--c-secondary-hover: var();
-  //--c-on-secondary-hover: var();
 
   /* Base colors*/
 
@@ -54,50 +50,35 @@
   --c-light: var(--_c-light-primary);
   --c-light-variant: var(--_c-light-secondary);
   --c-on-light: var(--c-black);
-  //--c-light-hover: var();
-  //--c-on-light-hover: var();
 
   // Gray
   --c-gray: var(--_c-gray-primary);
   --c-gray-variant: var(--_c-gray-secondary);
   --c-on-gray: var(--c-black);
-  //--c-gray-hover: var();
-  //--c-on-gray-hover: var();
 
   // Dark
   --c-dark: var(--_c-dark-primary);
   --c-dark-variant: var(--_c-dark-secondary);
   --c-on-dark: var(--_c-light-secondary);
-  //--c-dark-hover: var();
-  //--c-on-dark-hover: var();
-
   /* Context colors */
 
   // Info
   --c-info: var(--_c-blue-primary);
   --c-info-variant: var(--_c-blue-secondary);
   --c-on-info: var(--_c-light-secondary);
-  //--c-info-hover: var();
-  //--c-on-info-hover: var();
 
   // Success
   --c-success: var(--_c-green-primarye);
   --c-success-variant: var(--_c-green-secondary);
   --c-on-success: var(--_c-light-secondary);
-  //--c-success-hover: var();
-  //--c-on-success-hover: var();
 
   // Waring
   --c-warning: var(--_c-yellow-primary);
   --c-warning-variant: var(--_c-yellow-secondary);
   --c-on-warning: var(--_c-light-secondary);
-  //--c-warning-hover: var();
-  //--c-on-warning-hover: var();
 
   // Danger
   --c-danger: var(--_c-red-primary);
   --c-danger-variant: var(--_c-red-secondary);
   --c-on-danger: var(--_c-light-secondary);
-  //--c-danger-hover: var();
-  //--c-on-danger-hover: var();
 }
