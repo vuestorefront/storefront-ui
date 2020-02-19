@@ -15,7 +15,7 @@ const pathComponentsScssRoot = path.resolve(
 );
 const nodePathSimplebarIncludes = "simplebar/dist/";
 const pathsSassIncludes = [
-  path.resolve(__dirname, "../..", "shared/styles/variables/"),
+  path.resolve(__dirname, "../..", "shared/styles/helpers/"),
   path.resolve(
     __dirname,
     "../../..",
@@ -445,8 +445,8 @@ function getVarsArray(file) {
   const webpackGlidePath = "~" + nodePathSimplebarIncludes;
   let contentWithFixedImports = file.replace(webpackGlidePath, "");
   contentWithFixedImports = contentWithFixedImports.replace(
-    "../../variables",
-    "../variables"
+    "../../helpers",
+    "../helpers"
   );
   const { css } = sass.renderSync({
     data: contentWithFixedImports,
@@ -527,8 +527,8 @@ function extractCssModifiers(contentScssFile) {
   let contentWithFixedImports = contentScssFile.replace(webpackGlidePath, "");
   // variable folder url solution, problem by method "status = binding.renderSync(options)" from NODE-SASS
   contentWithFixedImports = contentWithFixedImports.replace(
-    "../../variables",
-    "../variables"
+    "../../helpers",
+    "../helpers"
   );
   const { css } = sass.renderSync({
     data: contentWithFixedImports,
