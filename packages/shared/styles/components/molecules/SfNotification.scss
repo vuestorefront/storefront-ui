@@ -1,6 +1,7 @@
-@import '../../helpers';
+@import "../../helpers";
 
 .sf-notification {
+  --icon-color: var(--c-white);
   position: relative;
   display: flex;
   align-items: var(--notification-align-items, flex-start);
@@ -11,6 +12,10 @@
     var(--spacer-big) calc(var(--spacer-big) * 5) var(--spacer-big)
     var(--spacer-big)
   );
+  box-shadow: var(--notification-box-shadow);
+  border-radius: var(--notification-border-radius);
+  background: var(--notification-background);
+  color: var(--notification-color, var(--c-white));
   font: var(
     --notification-font,
     font(
@@ -21,8 +26,6 @@
       var(--body-font-family-primary)
     )
   );
-  box-shadow: var(--notification-box-shadow);
-  border-radius: var(--notification-border-radius);
   opacity: var(--notification-opacity, 0.8);
   @include for-desktop {
     --notification-padding: var(--spacer-medium);
@@ -38,7 +41,6 @@
     --notification-action-padding: 0;
     --notification-action-margin: 0 0 0 var(--spacer-big);
     --notification-action-border: 0;
-    --notification-action-color: inherit;
     --notification-action-background: transaprent;
     --notification-action-font: inherit;
     --notification-action-text-decoration: underline;
@@ -91,5 +93,11 @@
     right: var(--notification-close-right-position, var(--spacer-big));
     top: var(--notification-close-top-position, var(--spacer-big));
     cursor: pointer;
+  }
+  @each $color, $map in $colors-map {
+    $primary: map-get($map, "primary");
+    &.color-#{$color} {
+      --notification-background: #{$primary};
+    }
   }
 }
