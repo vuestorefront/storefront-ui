@@ -26,6 +26,16 @@
   &:hover {
     --button-background: var(--c-primary-variant);
   }
+  @each $color, $map in $colors-map {
+    $primary: map-get($map, "primary");
+    $variant: map-get($map, "variant");
+    &.color-#{$color} {
+      --button-background: #{$primary};
+      &:hover {
+        --button-background: #{$variant};
+      }
+    }
+  }
   &:disabled {
     --button-background: var(--c-gray);
     cursor: default;
@@ -34,12 +44,23 @@
     --button-width: 100%;
   }
   &--outline {
+    --button-border: 1px solid var(--c-primary);
     --button-background: transparent;
     --button-color: var(--c-primary);
-    --button-border: 1px solid var(--c-primary);
     &:hover {
       --button-background: var(--c-primary);
       --button-color: inherit;
+    }
+    @each $color, $map in $colors-map {
+      $primary: map-get($map, "primary");
+      &.color-#{$color} {
+        --button-border: 1px solid #{$primary};
+        --button-color: #{$primary};
+        &:hover {
+          --button-background: #{$primary};
+          --button-color: inherit;
+        }
+      }
     }
     &:disabled {
       --button-border: 1px solid var(--c-gray);
@@ -56,6 +77,12 @@
     &:hover {
       --button-background: transparent;
       --button-color: var(--c-primary);
+    }
+    @each $color, $map in $colors-map {
+      $primary: map-get($map, "primary");
+      &.color-#{$color} {
+        --button-color: #{$primary};
+      }
     }
     &:disabled {
       --button-background: transparent;
