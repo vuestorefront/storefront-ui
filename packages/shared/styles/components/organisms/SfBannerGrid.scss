@@ -1,47 +1,58 @@
-@import '../../helpers';
+@import "../../helpers";
 
 .sf-banner-grid {
   &__row {
-    .grid > &:first-of-type > .grid__col:first-of-type {
-      margin-top: 0;
+    display: var(--banner-grid-row-display);
+    flex: var(--banner-grid-row-flex);
+    margin-top: var(--banner-grid-row-margin-top);
+    &:first-of-type {
+      --banner-grid-row-margin-top: 0;
     }
   }
+
   &__col {
-    margin-top: calc(var(--spacer-big) / 2);
+    display: var(--banner-grid-col-display);
+    flex: var(--banner-grid-col-flex);
+    flex-basis: var(--banner-grid-col-flex-basis);
+    flex-grow: var(--banner-grid-col-flex-grow);
+    flex-wrap: var(--banner-grid-col-flex-wrap);
+    margin-top: var(--banner-grid-col-margin-top, 0.625rem);
+    margin-left: var(---banner-grid-col-margin-left, var(--spacer-extra-big));
+
+    & > a {
+      display: var(--banner-grid-col-link-display);
+      flex: var(--banner-grid-col-link-flex);
+    }
+
+    &:first-of-type {
+      --banner-grid-col-margin-top: 0;
+    }
   }
 }
-@media screen and (min-width: $desktop-min) {
-  .sf-banner-grid {
-    &__row {
-      display: flex;
-      flex: 0 0 100%;
-      & + & {
-        margin-top: var(--spacer-extra-big);
-      }
-    }
-    &__col {
-      flex-wrap: wrap;
-      display: flex;
-      flex: 1;
-      margin-top: 0;
-      & + & {
-        margin-left: var(--spacer-extra-big);
-      }
-      & > a {
-        display: flex;
-        flex: 1;
-      }
-      &--small {
-        flex-basis: 450px;
-        flex-grow: 0;
-      }
-      &--medium {
-        flex-basis: 500px;
-        flex-grow: 0;
-      }
-      .sf-banner {
-        flex: 1;
-      }
-    }
+
+.sf-banner {
+  flex: var(--banner-grid-flex);
+}
+
+@include for-desktop {
+  --banner-grid-row-display: flex;
+  --banner-grid-row-flex: 0 0 100%;
+  --banner-grid-row-margin-top: var(--spacer-extra-big);
+  --banner-grid-flex-wrap: wrap;
+  --banner-grid-col-display: flex;
+  --banner-grid-col-flex-wrap: wrap;
+  --banner-grid-col-flex: 1;
+  --banner-grid-col-margin-top: 0;
+  --banner-grid-col-link-display: flex;
+  --banner-grid-col-link-flex: 1;
+  --banner-grid-flex: 1;
+
+  &--small {
+    --banner-grid-col-flex-basis: 450px;
+    --banner-grid-col-flex-grow: 0;
+  }
+  &--medium {
+    --banner-grid-col-flex-basis: 500px;
+    --banner-grid-col-flex-grow: 0;
   }
 }
