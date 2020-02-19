@@ -1,26 +1,37 @@
 <template>
   <div class="sf-docs-sizes--container">
     <div class="sf-docs-sizes--container-list__item-wrapper">
-      <div v-for="(value, name) in sizes" :key="name" class="sf-docs-sizes--container-list__item">
-        <div class="sf-docs-sizes--container-list__item-block" :class="`${prefix}${value}`">{{value}}</div>
-        <div class="sf-docs-sizes--container-list__item-label">var(--{{prefix}}{{value}})</div>
+      <div
+        v-for="(value, name) in sizes"
+        :key="name"
+        class="sf-docs-sizes--container-list__item"
+      >
+        <div
+          :class="`${prefix}${value}`"
+          class="sf-docs-sizes--container-list__item-block"
+        >
+          {{ value }}
+        </div>
+        <div class="sf-docs-sizes--container-list__item-label">
+          var(--{{ prefix }}{{ value }})
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-  import {typographySizes} from '@storefront-ui/shared/variables/sizes';
-  export default {
-    data() {
-      return {
-        sizes: typographySizes,
-        prefix: `font-size-`
-      };
-    },
+import { typographySizes } from "@storefront-ui/shared/variables/sizes";
+export default {
+  data() {
+    return {
+      sizes: typographySizes,
+      prefix: `font-size-`
+    };
   }
+};
 </script>
 <style>
-  h3 {
+h3 {
   text-transform: capitalize;
 }
 .sf-docs-sizes--container-list__item-wrapper {
@@ -48,12 +59,12 @@
   font-size: 0.8rem;
 }
 </style>
-<style lang="scss" >
-  @import "~@storefront-ui/shared/styles/variables/colors";
-  @import "~@storefront-ui/shared/styles/helpers";
-  @each $name, $size in $typography-map {
-    .font-size-#{$name} {
-      font-size: #{$size};
-    }
+<style lang="scss">
+@import "~@storefront-ui/shared/styles/variables/colors";
+@import "~@storefront-ui/shared/styles/helpers";
+@each $name, $size in $typography-map {
+  .font-size-#{$name} {
+    font-size: #{$size};
   }
+}
 </style>

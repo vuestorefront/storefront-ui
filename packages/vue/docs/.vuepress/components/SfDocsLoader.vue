@@ -1,10 +1,9 @@
 <template>
   <div style="width: 200px; height: 100px; border: 1px solid #ddd">
-    <SfLoader
-      :loading="loading"
-      v-bind="$attrs"
-    >
-      <span style="position: absolute; width: 100%; margin-top: 40px; text-align: center">
+    <SfLoader :loading="loading" v-bind="$attrs">
+      <span
+        style="position: absolute; width: 100%; margin-top: 40px; text-align: center"
+      >
         Loaded. <button @click="onBtnClick">reload</button>
       </span>
     </SfLoader>
@@ -17,6 +16,9 @@ export default {
       loading: true
     };
   },
+  mounted() {
+    this.triggerLoadingTimeout();
+  },
   methods: {
     triggerLoadingTimeout() {
       window.setTimeout(() => {
@@ -27,9 +29,6 @@ export default {
       this.loading = true;
       this.triggerLoadingTimeout();
     }
-  },
-  mounted() {
-    this.triggerLoadingTimeout();
   }
 };
 </script>

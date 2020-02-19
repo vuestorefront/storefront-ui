@@ -1,13 +1,7 @@
 <template>
   <div>
-    <SfOverlay
-      :visible="visible"
-      v-bind="$attrs"
-      @click="visible = false"
-    />
-    <button
-      @click="onBtnClick"
-    >
+    <SfOverlay :visible="visible" v-bind="$attrs" @click="visible = false" />
+    <button @click="onBtnClick">
       Highlight code block for 3 sec.
     </button>
   </div>

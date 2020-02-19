@@ -1,27 +1,20 @@
 <template>
   <div class="sf-docs-icons--list">
-    <div
-      class="sf-docs-icons--list__item"
-      v-for="size in sizes"
-      :key="size"
-    >
-      <SfIcon
-        icon="home"
-        color="green-primary"
-        :size="size"/>
-      <h5 class="sf-docs-icons--list__item-label">{{size}}</h5>
+    <div v-for="size in sizes" :key="size" class="sf-docs-icons--list__item">
+      <SfIcon :size="size" icon="home" color="green-primary" />
+      <h5 class="sf-docs-icons--list__item-label">{{ size }}</h5>
     </div>
   </div>
 </template>
 <script>
-import { sizesValues } from '@storefront-ui/shared/variables/sizes';
+import { sizesValues } from "@storefront-ui/shared/variables/sizes";
 export default {
   data() {
     return {
       sizes: sizesValues
     };
   }
-}
+};
 </script>
 <style scoped>
 .sf-docs-icons--list {

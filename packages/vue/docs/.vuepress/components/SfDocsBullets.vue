@@ -1,8 +1,5 @@
 <template>
-  <SfBullets
-    :current="currentPage"
-    v-bind="$attrs"
-    @click="go($event)" />
+  <SfBullets :current="currentPage" v-bind="$attrs" @click="go($event)" />
 </template>
 <script>
 export default {
