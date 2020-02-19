@@ -25,13 +25,11 @@
   font-weight: var(--radio-font-weight);
   line-height: var(--radio-line-height);
   transition: var(--radio-transition);
-  &.is-active {
+  &--is-active {
     background-color: var(--radio--is-active-background);
   }
   &--transparent {
-    &.is-active {
-      background-color: transparent;
-    }
+    background-color: transparent;
   }
   &__input {
     position: absolute;
@@ -45,7 +43,7 @@
     &:hover {
       #{$this}__checkmark {
         border: 1px solid var(--c-primary);
-        .is-active & {
+        #{$this}--is-active & {
           border: 9px solid var(--c-primary);
         }
       }
@@ -58,7 +56,7 @@
     border: 1px solid var(--radio__checkmark-border-color);
     border-radius: 50%;
     transition: var(--radio__checkmark-transition);
-    .is-active & {
+    #{$this}--is-active & {
       border: 9px solid var(--radio--is-active__checkmark-border-color);
     }
   }
