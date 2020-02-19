@@ -26,7 +26,6 @@
     margin: 0 0.5rem;
     width: 160px;
   }
-
   .sf-docs-color--palette__name {
     text-transform: uppercase;
     font-size: 1rem;
@@ -34,20 +33,17 @@
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
-
   .sf-docs-color--palette__block {
     display: flex;
     align-items: center;
     text-align: center;
     flex-wrap: wrap;
   }
-
   .sf-docs-color--palette__block--item-color {
     width: 80px;
     height: 80px;
     margin-bottom: 0.5rem;
   }
-
   .sf-docs-color--palette__block--item-label {
     display: block;
     font-size: 0.8rem;

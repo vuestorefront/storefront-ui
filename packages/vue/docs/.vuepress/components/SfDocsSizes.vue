@@ -21,15 +21,13 @@
   }
 </script>
 <style scoped>
-  h3 {
+  /*h3 {
     text-transform: capitalize;
   }
-
   .sf-docs-sizes--container-list__item-wrapper {
     display: flex;
     flex-flow: wrap;
   }
-
   .sf-docs-sizes--container-list__item {
     margin: 0.5rem;
     padding: 0.5rem 0;
@@ -40,7 +38,6 @@
     justify-content: flex-end;
     border: 1px solid #bebfc4;
   }
-
   .sf-docs-sizes--container-list__item-label {
     margin: 0.5rem 0.5rem 0;
     padding-top: 0.5rem;
@@ -50,15 +47,15 @@
     font-family: monospace;
     color: #6699cc;
     font-size: 0.8rem;
-  }
+  }*/
 </style>
 <style lang="scss">
-  @import "~@storefront-ui/shared/styles/variables";
+  /*@import "~@storefront-ui/shared/styles/variables";
   @import "~@storefront-ui/shared/styles/variables/css/typography.scss";
 
   @each $name, $size in $typography-map {
     .font-size-#{$name} {
       font-size: #{$size};
     }
-  }
-</style>3
+  }*/
+</style>
