@@ -7,7 +7,7 @@
   max-width: calc(var(--image-max-width) * 1px);
   &::before {
     display: block;
-    padding-top: calc(#{css(image, height)} / #{css(image, max-width)} * 100%);
+    padding-top: calc(var(--image-height) / var(--image-max-width) * 100%);
     content: var(--image-content, "");
   }
   img {
