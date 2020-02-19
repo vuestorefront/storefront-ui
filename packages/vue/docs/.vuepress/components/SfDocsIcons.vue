@@ -16,18 +16,18 @@ export default {
   }
 };
 </script>
-<style scoped>
-.sf-docs-icons--list {
-  display: flex;
-  flex-wrap: wrap;
-}
-.sf-docs-icons--list__item {
-  margin: 0.5rem 1rem;
-  align-self: flex-end;
-  text-align: center;
-}
-.sf-docs-icons--list__item-label {
-  margin: 1rem 0;
-  font-size: 1rem;
-}
+<style lang="scss">
+  .sf-docs-icons--list {
+      display: flex;
+      flex-wrap: wrap;
+    &__item {
+      margin: 0.5rem 1rem;
+      align-self: flex-end;
+      text-align: center;
+    }
+    &__item-label {
+      margin: 1rem 0;
+      font-size: 1rem;
+    }
+  }
 </style>

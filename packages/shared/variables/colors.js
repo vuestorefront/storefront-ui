@@ -7,15 +7,12 @@ export const iconColors = {
   graySecondary: "gray-secondary",
   lightPrimary: "light-primary",
   white: "white",
-  pinkPrimary: "pink-primary",
-  pinkSecondary: "pink-secondary",
   redPrimary: "red-primary",
   redSecondary: "red-secondary",
   yellowPrimary: "yellow-primary",
   yellowSecondary: "yellow-secondary",
   bluePrimary: "blue-primary",
   blueSecondary: "blue-secondary",
-  accent: "accent",
 };
 export const colors = {
   primary: "color-primary",

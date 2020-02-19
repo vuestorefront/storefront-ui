@@ -45,28 +45,27 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/variables/colors";
-</style>
-<style lang="scss" scoped>
+@import "~@storefront-ui/shared/styles/global";
+@import "~@storefront-ui/shared/styles/variables";
 @import "~@storefront-ui/shared/styles/helpers";
 .sf-docs-colors--list {
   display: flex;
   flex-flow: wrap;
   text-align: center;
-}
-.sf-docs-colors--list__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-.sf-docs-colors--list__item--color {
-  width: 80px;
-  height: 80px;
-  margin: 1rem;
-}
-.sf-docs-colors--list__item--label {
-  font-size: 0.8rem;
+  &__item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  &__item--color{
+    width: 80px;
+    height: 80px;
+    margin: 1rem;
+  }
+  &__item--label{
+    font-size: 0.8rem;
+  }
 }
 @each $pallete, $color in $icon-colors {
   .#{$pallete} {
