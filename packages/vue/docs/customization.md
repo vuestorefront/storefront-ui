@@ -85,7 +85,7 @@ And this code will change `width` of icon inside `SfArrow` to `2rem`.
   --icon-width: 2rem;
 }
 ```    
-You can override any variable in `sfui.scss` file in a root of your project. To find the variable name to override, go to [Components documentation](https://docs.storefrontui.io/components). 
+You can override any variable in `sfui.scss` file. To find the variable name to override, go to [Components documentation](https://docs.storefrontui.io/components). 
 
 :::tip 
 You can use `sfui.scss` to create and share completely new design system for Storefront UI
