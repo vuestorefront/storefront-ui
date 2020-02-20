@@ -25,16 +25,7 @@
       var(--body-font-family-secondary)
     )
   );
-  @include for-desktop {
-    --call-to-action-flex-direction: row;
-    --call-to-action-padding: 3.4rem 8.75rem;
-    --call-to-action-font-size: var(--font-size-big);
-    --call-to-action-title-font-size: var(--h1-font-size);
-    --call-to-action-justify-content: space-between;
-    --call-to-action-description: var(--spacer-big) 0 0 0;
-    --call-to-action-description-display: block;
-    --call-to-action-text-container: 0 var(--spacer-big) 0 0;
-  }
+
   &__title {
     font: var(
       --call-to-action-title-font,
@@ -47,19 +38,34 @@
       )
     );
   }
+
   &__description {
     display: var(--call-to-action-description-display, none);
     margin: var(--call-to-action-description);
   }
+
   &__button {
     margin: var(--call-to-action-button, var(--spacer-big) 0 0 0);
     white-space: nowrap;
   }
+
   &__text-container {
     margin: var(--call-to-action-text-container);
   }
+
   &--light {
     --call-to-action-background: var(--c-light);
     --call-to-action-color: var(--c-light);
+  }
+
+  @include for-desktop {
+    --call-to-action-flex-direction: row;
+    --call-to-action-padding: 3.4rem 8.75rem;
+    --call-to-action-font-size: var(--font-size-big);
+    --call-to-action-title-font-size: var(--h1-font-size);
+    --call-to-action-justify-content: space-between;
+    --call-to-action-description: var(--spacer-big) 0 0 0;
+    --call-to-action-description-display: block;
+    --call-to-action-text-container: 0 var(--spacer-big) 0 0;
   }
 }
