@@ -14,12 +14,15 @@
       var(--body-font-family-secondary)
     )
   );
-  @include for-desktop {
-    --alert-font-size: var(--font-size-big);
-  }
+
   &__message {
     margin-left: var(--alert-message-margin-left, 0.625rem);
   }
+
+  @include for-desktop {
+    --alert-font-size: var(--font-size-big);
+  }
+
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     &.color-#{$color} {

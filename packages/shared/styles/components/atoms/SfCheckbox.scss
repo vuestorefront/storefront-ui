@@ -4,6 +4,7 @@
   &__container {
     display: flex;
     align-items: center;
+    width: var(--checkbox-container-width);
     cursor: var(--checkbox-cursor, pointer);
   }
   &__checkmark {
