@@ -54,7 +54,7 @@
               <span class="sf-property__name">TOTAL</span>
             </template>
             <template #value>
-              <SfPrice :regular="totalPrice | price" class="sf-price--big" />
+              <SfPrice :regular="totalPrice | price" />
             </template>
           </SfProperty>
           <SfButton class="sf-button--full-width">Go to checkout</SfButton>

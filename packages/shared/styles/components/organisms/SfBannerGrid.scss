@@ -2,12 +2,12 @@
 
 .sf-banner-grid {
   &__row {
-    display: var(--banner-grid-row-display);
+    display: var(--banner-grid-row-display, block);
     flex: var(--banner-grid-row-flex);
     margin: var(--banner-grid-row-margin, 0);
   }
   &__col {
-    display: var(--banner-grid-col-display);
+    display: var(--banner-grid-col-display, block);
     flex: var(--banner-grid-col-flex);
     margin: var(--banner-grid-col-margin, 0);
     & + & {

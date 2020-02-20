@@ -27,6 +27,8 @@
   }
 
   &__subtitle {
+    margin: var(--banner-subtitle-margin);
+    color: var(--banner-subtitle-color, var(--c-dark-variant));
     font: var(
       --banner-subtitle-font,
       font(
@@ -37,10 +39,11 @@
         var(--body-font-family-primary)
       )
     );
-    color: var(--banner-subtitle-color, var(--c-dark-variant));
   }
 
   &__title {
+    margin: var(--banner-title-margin);
+    color: var(--banner-title-color);
     font: var(
       --banner-title-font,
       font(
