@@ -1,4 +1,4 @@
-@import '../../helpers';
+@import "../../helpers";
 
 .sf-tabs {
   position: relative;
@@ -14,17 +14,6 @@
       var(--body-font-family-secondary)
     )
   );
-  @include for-desktop {
-    --tabs-title-margin: 0 2rem -0.125rem 0;
-    --tabs-title-padding: var(--spacer-big) 0;
-    --tabs-title-border-bottom: 2px solid transparent;
-    --tabs-title-color: var(--c-gray-variant);
-    --tabs-title-flex-basis: auto;
-    --tabs-content-order: 99;
-    --tabs-content-padding: var(--spacer-big) 0;
-    --tabs-content-border-top: 2px solid var(--c-light);
-    --tabs-chevron-display: none;
-  }
   &__title {
     z-index: var(--tabs-title-index);
     display: flex;
@@ -77,5 +66,16 @@
     padding: var(--tabs-content-padding, calc(var(--spacer-big) / 2) 0);
     order: var(--tabs-content-order);
     border-top: var(--tabs-content-border-top);
+  }
+  @include for-desktop {
+    --tabs-title-margin: 0 2rem -0.125rem 0;
+    --tabs-title-padding: var(--spacer-big) 0;
+    --tabs-title-border-bottom: 2px solid transparent;
+    --tabs-title-color: var(--c-gray-variant);
+    --tabs-title-flex-basis: auto;
+    --tabs-content-order: 99;
+    --tabs-content-padding: 3.75rem 0;
+    --tabs-content-border-top: 2px solid var(--c-light);
+    --tabs-chevron-display: none;
   }
 }

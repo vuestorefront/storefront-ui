@@ -44,6 +44,8 @@
   }
 
   &__message {
+    display: inline;
+    color: var(--review-message-color, var(--c-dark-variant));
     font: var(
       --review-message-font,
       font(
@@ -54,7 +56,6 @@
         var(--body-font-family-secondary)
       )
     );
-    color: var(--review-message-color, var(--c-dark-variant));
   }
   &__read-more {
     font: var(

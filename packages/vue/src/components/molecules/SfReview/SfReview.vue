@@ -21,7 +21,7 @@
     <!-- @slot Review message. Slot content will replace default <div> tag and its inner <span> and <a> tags (bind 'finalMessage' computed property, 'buttonText' computed property). -->
     <slot name="message" v-bind="{ finalMessage, buttonText }">
       <div v-if="message">
-        <span class="sf-review__message">{{ finalMessage }} &nbsp;</span>
+        <p class="sf-review__message">{{ finalMessage }}</p>
         <button
           v-if="showButton"
           class="sf-review__read-more"
