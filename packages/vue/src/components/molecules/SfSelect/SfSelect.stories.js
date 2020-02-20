@@ -80,8 +80,6 @@ storiesOf("Molecules|Select", module)
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
       </SfSelect>
-      <br>
-      <h3>Selected option: {{selected}}</h3>
     </div>`
   }))
   .add("[slot] label", () => ({
