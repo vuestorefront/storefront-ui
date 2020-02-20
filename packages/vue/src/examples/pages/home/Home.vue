@@ -12,61 +12,25 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <SfBannerGrid :banner-grid="1" class="banners section">
-      <template #bannerA>
-        <a href="#">
-          <SfBanner
-            subtitle="Dresses"
-            title="COCKTAIL PARTY"
-            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-            button-text="SHOP NOW"
-            :image="{
-              mobile: '/assets/storybook/Home/bannerB.jpg',
-              desktop: '/assets/storybook/Home/bannerF.jpg'
-            }"
-            class="sf-banner--slim banner-custom"
-          />
-        </a>
-      </template>
-      <template #bannerB>
-        <a href="#">
-          <SfBanner
-            subtitle="Dresses"
-            title="LINEN DRESSES"
-            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-            button-text="SHOP NOW"
-            image="/assets/storybook/Home/bannerE.jpg"
-            class="sf-banner--slim banner-central"
-          />
-        </a>
-      </template>
-      <template #bannerC>
-        <a href="#">
-          <SfBanner
-            subtitle="T-Shirts"
-            title="THE OFFICE LIFE"
-            image="/assets/storybook/Home/bannerC.jpg"
-            class="sf-banner--slim"
-          />
-        </a>
-      </template>
-      <template #bannerD>
-        <a href="#">
-          <SfBanner
-            subtitle="Summer shoes"
-            title="ECO SANDALS"
-            image="/assets/storybook/Home/bannerG.jpg"
-            class="sf-banner--slim"
-          />
-        </a>
+    <SfBannerGrid :banner-grid="1" class="section banner-grid">
+      <template v-for="item in banners" v-slot:[item.slot]>
+        <SfBanner
+          :key="item.slot"
+          :title="item.title"
+          :subtitle="item.subtitle"
+          :description="item.description"
+          :button-text="item.buttonText"
+          :image="item.image"
+          :class="item.class"
+        />
       </template>
     </SfBannerGrid>
     <SfCallToAction
       title="Subscribe to Newsletters"
       button-text="Subscribe"
       description="Be aware of upcoming sales and events. Receive gifts and special offers!"
-      class="call-to-action-newsletter"
       image="assets/storybook/Home/newsletter.jpg"
+      class="call-to-action"
     />
     <SfSection title-heading="Best Sellers" class="section">
       <SfCarousel class="product-carousel">
@@ -130,27 +94,25 @@
     </SfSection>
     <SfBanner
       image="/assets/storybook/Home/bannerD.png"
-      class="banner-application desktop-only"
+      subtitle="Fashion to Take Away"
+      title="Download our application to your mobile"
+      class="sf-banner--left desktop-only banner-app"
     >
-      <template #subtitle>
-        <div class="banner-application__subtitle">Fashion to Take Away</div>
-      </template>
-      <template #title>
-        <h1 class="banner-application__title">
-          Download our application to your&nbsp;mobile
-        </h1>
-      </template>
       <template #call-to-action>
-        <div>
-          <img
-            class="banner-application__download"
+        <div class="banner-app__call-to-action">
+          <SfImage
+            class="banner-app__image"
             src="assets/storybook/Home/google.png"
-            alt=""
+            :width="191"
+            :height="51"
+            alt="Google Play"
           />
-          <img
-            class="banner-application__download"
+          <SfImage
+            class="banner-app__image"
             src="assets/storybook/Home/apple.png"
-            alt=""
+            :width="174"
+            :height="57"
+            alt="App Store"
           />
         </div>
       </template>
@@ -205,6 +167,42 @@ export default {
           buttonText: "Learn more",
           background: "#fce4ec",
           image: "assets/storybook/Home/bannerH.jpg"
+        }
+      ],
+      banners: [
+        {
+          slot: "banner-A",
+          subtitle: "Dresses",
+          title: "Cocktail & Party",
+          description:
+            "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.",
+          buttonText: "Shop now",
+          image: "/assets/storybook/Home/bannerF.jpg",
+          class: "sf-banner--slim"
+        },
+        {
+          slot: "banner-B",
+          subtitle: "Dresses",
+          title: "Linen Dresses",
+          description:
+            "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.",
+          buttonText: "Shop now",
+          image: "/assets/storybook/Home/bannerE.jpg",
+          class: "sf-banner--slim banner-central"
+        },
+        {
+          slot: "banner-C",
+          subtitle: "T-Shirts",
+          title: "The Office Life",
+          image: "/assets/storybook/Home/bannerC.jpg",
+          class: "sf-banner--slim"
+        },
+        {
+          slot: "banner-D",
+          subtitle: "Summer Sandals",
+          title: "Eco Sandals",
+          image: "/assets/storybook/Home/bannerG.jpg",
+          class: "sf-banner--slim"
         }
       ],
       products: [
@@ -276,126 +274,93 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 #home {
   box-sizing: border-box;
   @include for-desktop {
     max-width: 1240px;
-    margin: auto;
+    margin: 0 auto;
   }
 }
-
-.call-to-action-newsletter {
-  margin: var(--spacer-big) 0;
-  box-sizing: border-box;
+.section {
+  padding: 0 var(--spacer-big);
   @include for-desktop {
-    margin: calc(var(--spacer-extra-big) * 2) 0;
+    padding: 0;
   }
 }
-
-.banner-central {
-  @include for-desktop {
-    padding-right: 30%;
-  }
-}
-
-.banner-application {
-  min-height: 420px;
-  max-width: 1040px;
-  margin: auto;
-  padding-right: calc(25% + 5rem);
-  padding-left: 2.5rem;
-  line-height: 1.6;
-
-  &__title {
-    margin: var(--spacer-big) 0 0 0;
-    font-size: var(--h1-font-size);
-    font-weight: var(--h1-font-weight);
-  }
-
-  &__subtitle {
-    color: #a3a5ad;
-    font-family: var(--body-font-family-primary);
-    font-size: var(--font-size-extra-big);
-    font-weight: var(--body-font-weight-primary);
-  }
-
-  &__download {
-    max-height: 47px;
-    margin-top: var(--spacer-extra-big);
-
-    & + & {
-      margin-left: var(--spacer-big);
-    }
-  }
-}
-
-.banners {
+.banner-grid {
   margin: var(--spacer-big) 0;
   @include for-desktop {
     margin: var(--spacer-extra-big) 0;
   }
 }
-
-.images-grid {
-  max-width: 960px;
-  margin: auto;
-
-  &__row {
-    display: flex;
-
-    & + & {
-      margin-top: calc(var(--spacer-big) / 2);
-      @include for-desktop {
-        margin-top: var(--spacer-big);
-      }
-    }
-  }
-
-  &__col {
-    margin: 0;
-    flex: 1;
-
-    & + & {
-      margin-left: calc(var(--spacer-big) / 2);
-      @include for-desktop {
-        margin-left: var(--spacer-big);
-      }
-    }
+.banner-central {
+  @include for-desktop {
+    --banner-container-flex: 0 0 70%;
   }
 }
-
+.call-to-action {
+  margin: var(--spacer-big) 0;
+  @include for-desktop {
+    margin: calc(var(--spacer-extra-big) * 2) 0;
+  }
+}
+.product-carousel {
+  margin: 0 calc(var(--spacer-big) * -1) 0 0;
+  @include for-desktop {
+    margin: var(--spacer-big) 0;
+    --carousel-padding: var(--spacer-big);
+    --carousel-max-width: calc(100% - 13.5rem);
+  }
+}
 .product-card {
   max-width: unset;
-
   &:hover {
-    @include for-desktop {
-      box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
+    --product-card-box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
+  }
+}
+.images-grid {
+  max-width: 60rem;
+  margin: 0 auto;
+  &__row {
+    display: flex;
+    & + & {
+      margin: calc(var(--spacer-big) / 2) 0 0 0;
+      @include for-desktop {
+        margin: var(--spacer-big) 0 0 0;
+      }
+    }
+  }
+  &__col {
+    flex: 1;
+    margin: 0;
+    & + & {
+      margin: 0 0 0 calc(var(--spacer-big) / 2);
+      @include for-desktop {
+        margin: 0 0 0 var(--spacer-big);
+      }
     }
   }
 }
-
-.product-carousel {
-  margin: -20px - var(--spacer-big) -20px 0;
-  @include for-desktop {
-    margin: -20px 0;
+.banner-app {
+  --banner-title-margin: var(--spacer-big) 0 0 0;
+  --banner-title-font-size: var(--h1-font-size);
+  --banner-title-font-weight: var(--h1-font-weight);
+  --banner-subtitle-font-size: var(--font-size-extra-big);
+  --banner-subtitle-font-weight: var(--body-font-weight-primary);
+  min-height: 26.25rem;
+  max-width: 65rem;
+  margin: 0 auto;
+  padding-right: calc(25% + 5rem);
+  padding-left: 2.5rem;
+  &__call-to-action {
+    display: flex;
+    margin: var(--space-big) 0 0 0;
   }
-
-  ::v-deep .sf-carousel__wrapper {
-    padding: 20px 0;
-    @include for-desktop {
-      padding: 20px;
-      max-width: calc(100% - 216px);
+  &__image {
+    width: 22%;
+    & + & {
+      margin: 0 0 0 var(--spacer-big);
     }
-  }
-}
-
-.section {
-  padding-left: var(--spacer-big);
-  padding-right: var(--spacer-big);
-  @include for-desktop {
-    padding-left: 0;
-    padding-right: 0;
   }
 }
 </style>
