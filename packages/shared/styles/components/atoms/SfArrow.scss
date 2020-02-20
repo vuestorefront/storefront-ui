@@ -43,6 +43,7 @@
     --button-background: transparent;
     &:hover {
       --icon-color: $arrow-c-icon-default;
+      --button-background: transparent;
       --arrow-box-shadow: none;
     }
   }
