@@ -6,7 +6,7 @@
 }
 
 .sf-select-option {
-  padding: var(--select-option-padding, 0.75rem 1.875rem);
+  padding: var(--select-padding, 0.75rem 1.875rem);
   user-select: none;
   background: var(--select-option-background, none);
 
@@ -67,7 +67,7 @@
     display: flex;
     align-content: center;
     min-height: var(--select-selected-height, 1.75rem);
-    padding: var(--select-selected-padding, 0.75rem 1px);
+    padding: var(--select-padding, 0.75rem 1px);
     border: var(--select-selected-border, none);
     border-bottom: var(--select-selected-border-bottom, none);
     &:hover {
