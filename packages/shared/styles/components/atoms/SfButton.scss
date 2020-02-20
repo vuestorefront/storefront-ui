@@ -20,6 +20,7 @@
     )
   );
   text-transform: var(--button-text-transform, uppercase);
+  text-decoration: var(--button-text-decoration);
   transition: var(--button-transition, background 150ms linear);
   cursor: pointer;
   outline: none;
@@ -70,10 +71,11 @@
   }
   &--text {
     --button-border: 0;
-    --button-padding: var(--spacer-small) var(--spacer);
+    --button-padding: var(--spacer-small) 0;
     --button-background: transparent;
     --button-color: var(--c-primary);
     --button-text-transform: none;
+    --button-text-decoration: underline;
     &:hover {
       --button-background: transparent;
       --button-color: var(--c-primary);
