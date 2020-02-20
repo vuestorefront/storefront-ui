@@ -13,4 +13,14 @@
     width: inherit;
     height: inherit;
   }
+  @each $palette, $color in $icon-colors {
+    &.color-#{$palette} {
+      --icon-color: #{$color};
+    }
+  }
+  @each $profile, $size in $sizes {
+    &.size-#{$profile} {
+      --icon-size: #{$size};
+    }
+  }
 }

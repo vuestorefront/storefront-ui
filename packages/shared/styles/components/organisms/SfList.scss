@@ -1,16 +1,13 @@
 @import '../../helpers';
 
-:root {
-  --list__item-font-size: var(--font-size-big);
-  @media screen and (min-width: $desktop-min) {
-    --list__item-font-size: var(--font-size-small);
-  }
-}
 .sf-list {
-  list-style-type: none;
-  padding-left: 0;
-  margin: 0;
+  list-style-type: var(--list-list-style-type, none);
+  padding: var(--list-padding, 0);
+  margin: var(--list-margin, 0);
+  @include for-desktop {
+    --list-font-size: var(--font-size-small);
+  }
   .sf-list__item {
-    font-size: var(--list__item-font-size);
+    font: var(--list-font, font(--list, 300, var(--font-size-big), 1.6, var(--body-font-family-primary)));
   }
 }

@@ -28,13 +28,15 @@
             >
           </div>
           <div class="action">
-            <SfButton class="sf-button--text button--muted"
+            <SfButton class="sf-button--text color-secondary button--muted"
               >Forgotten password?</SfButton
             >
           </div>
           <div class="bottom">
             Don't have and account yet?
-            <SfButton class="sf-button--text" @click="isLogin = false"
+            <SfButton
+              class="sf-button--text color-secondary"
+              @click="isLogin = false"
               >Register today?</SfButton
             >
           </div>
@@ -78,7 +80,9 @@
           </div>
           <div class="action">
             or
-            <SfButton class="sf-button--text" @click="isLogin = true"
+            <SfButton
+              class="sf-button--text color-secondary"
+              @click="isLogin = true"
               >login in to your account</SfButton
             >
           </div>

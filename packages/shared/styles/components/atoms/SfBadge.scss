@@ -24,4 +24,10 @@
   &--full-width {
     --badge-width: 100%;
   }
+  @each $color, $map in $colors-map {
+    $primary: map-get($map, "primary");
+    &.color-#{$color} {
+      --badge-background: #{$primary};
+    }
+  }
 }

@@ -7,7 +7,9 @@
       />
       <div class="highlighted__header">
         <h3 class="highlighted__title">Personal details</h3>
-        <SfButton class="sf-button--text" @click="$emit('click:edit', 0)"
+        <SfButton
+          class="sf-button--text color-secondary"
+          @click="$emit('click:edit', 0)"
           >Edit
         </SfButton>
       </div>
@@ -19,7 +21,9 @@
     <div class="highlighted">
       <div class="highlighted__header">
         <h3 class="highlighted__title">Shipping details</h3>
-        <SfButton class="sf-button--text" @click="$emit('click:edit', 1)"
+        <SfButton
+          class="sf-button--text color-secondary"
+          @click="$emit('click:edit', 1)"
           >Edit
         </SfButton>
       </div>
@@ -35,7 +39,9 @@
     <div class="highlighted">
       <div class="highlighted__header">
         <h3 class="highlighted__title">Billing address</h3>
-        <SfButton class="sf-button--text" @click="$emit('click:edit', 2)"
+        <SfButton
+          class="sf-button--text color-secondary"
+          @click="$emit('click:edit', 2)"
           >Edit
         </SfButton>
       </div>
@@ -56,7 +62,9 @@
     <div class="highlighted">
       <div class="highlighted__header">
         <h3 class="highlighted__title">Payment method</h3>
-        <SfButton class="sf-button--text" @click="$emit('click:edit', 2)"
+        <SfButton
+          class="sf-button--text color-secondary"
+          @click="$emit('click:edit', 2)"
           >Edit
         </SfButton>
       </div>

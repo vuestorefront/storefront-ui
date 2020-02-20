@@ -103,7 +103,7 @@
               <div class="shipping__delivery">
                 {{ item.delivery }}
                 <SfButton
-                  class="sf-button--text shipping__action"
+                  class="sf-button--text color-secondary shipping__action"
                   :class="{ 'shipping__action--is-active': item.isOpen }"
                   @click="item.isOpen = !item.isOpen"
                   >info
@@ -125,7 +125,7 @@
           >Continue to payment
         </SfButton>
         <SfButton
-          class="sf-button--full-width sf-button--text form__action-button form__action-button--secondary"
+          class="sf-button--full-width sf-button--text color-secondary form__action-button form__action-button--secondary"
           @click="$emit('click:back')"
           >Go back to Personal details
         </SfButton>

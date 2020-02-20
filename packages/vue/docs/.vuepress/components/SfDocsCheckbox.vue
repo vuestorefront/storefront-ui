@@ -1,5 +1,5 @@
 <template>
-  <SfCheckbox v-model="checked" name="checkbox" v-bind="$attrs" />
+  <SfCheckbox v-model="checked" v-bind="$attrs" name="checkbox" />
 </template>
 
 <script>
