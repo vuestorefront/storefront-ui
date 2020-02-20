@@ -4,55 +4,44 @@
   &__row {
     display: var(--banner-grid-row-display);
     flex: var(--banner-grid-row-flex);
-    margin-top: var(--banner-grid-row-margin-top);
-    &:first-of-type {
-      --banner-grid-row-margin-top: 0;
-    }
+    margin: var(--banner-grid-row-margin, 0);
   }
-
   &__col {
     display: var(--banner-grid-col-display);
     flex: var(--banner-grid-col-flex);
-    flex-basis: var(--banner-grid-col-flex-basis);
-    flex-grow: var(--banner-grid-col-flex-grow);
-    flex-wrap: var(--banner-grid-col-flex-wrap);
-    margin-top: var(--banner-grid-col-margin-top, 0.625rem);
-    margin-left: var(---banner-grid-col-margin-left, var(--spacer-extra-big));
-
-    & > a {
-      display: var(--banner-grid-col-link-display);
-      flex: var(--banner-grid-col-link-flex);
-    }
-
-    &:first-of-type {
-      --banner-grid-col-margin-top: 0;
+    margin: var(--banner-grid-col-margin, 0);
+    & + & {
+      --banner-grid-col-margin: 0.625rem 0 0 0;
     }
   }
-}
-
-.sf-banner {
-  flex: var(--banner-grid-flex);
-}
-
-@include for-desktop {
-  --banner-grid-row-display: flex;
-  --banner-grid-row-flex: 0 0 100%;
-  --banner-grid-row-margin-top: var(--spacer-extra-big);
-  --banner-grid-flex-wrap: wrap;
-  --banner-grid-col-display: flex;
-  --banner-grid-col-flex-wrap: wrap;
-  --banner-grid-col-flex: 1;
-  --banner-grid-col-margin-top: 0;
-  --banner-grid-col-link-display: flex;
-  --banner-grid-col-link-flex: 1;
-  --banner-grid-flex: 1;
-
-  &--small {
-    --banner-grid-col-flex-basis: 450px;
-    --banner-grid-col-flex-grow: 0;
-  }
-  &--medium {
-    --banner-grid-col-flex-basis: 500px;
-    --banner-grid-col-flex-grow: 0;
+  @include for-desktop {
+    --banner-grid-row-display: flex;
+    --banner-grid-row-flex: 0 0 100%;
+    --banner-grid-col-display: flex;
+    &__row {
+      --banner-grid-row-margin: 0;
+      & + & {
+        --banner-grid-row-margin: var(--spacer-extra-big) 0 0 0;
+      }
+    }
+    &__col {
+      --banner-grid-col-flex: 1;
+      flex-wrap: wrap;
+      --banner-grid-col-margin: 0;
+      & + & {
+        --banner-grid-col-margin: 0 0 0 var(--spacer-extra-big);
+      }
+      & > .sf-banner,
+      & > a {
+        display: flex;
+        flex: 1;
+      }
+      &--small {
+        --banner-grid-col-flex: 0 1 28.125rem;
+      }
+      &--medium {
+        --banner-grid-col-flex: 0 1 31.25rem;
+      }
+    }
   }
 }
