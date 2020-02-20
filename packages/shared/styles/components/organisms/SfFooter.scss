@@ -1,64 +1,63 @@
 @import "../../helpers";
 
-:root {
-  --footer__container-width: 1240px;
-  --footer-desktop-margin: 6.25rem 0;
-  --footer-column__title-padding: var(--spacer-big);
-  --footer-column__title-background-color: hsl(0%, 0%, 90%);
-  --footer-column__title-font-family: var(--body-font-family-secondary);
-  --footer-column__title-font-size: var(--font-size-regular);
-  --footer-column__title-font-weight: 500;
-  --footer__menu-item-font-size: var(--font-size-regular);
-  @media screen and (min-width: $desktop-min) {
-    --footer-column__title-padding: var(--spacer-big) 0;
-    --footer-column__title-font-size: var(--font-size-big);
-  }
-}
 .sf-footer-column {
   box-sizing: border-box;
   flex: 0 0 var(--col-width);
+
   &__title {
-    cursor: pointer;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: var(--footer-column__title-padding);
-    background-color: var(--footer-column__title-background-color);
-    font-size: var(--footer-column__title-font-size);
-    font-family: var(--footer-column__title-font-family);
-    font-weight: var(--footer-column__title-font-weight);
-    line-height: 1.6;
+    padding: var(--footer-column-title-padding, var(--spacer-big));
+    background: var(--footer-column-title-background, hsl(0%, 0%, 90%));
+    font: var(
+      --footer-title-font,
+      font(
+        --footer-title,
+        500,
+        var(--font-size-regular),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
     text-transform: uppercase;
+    cursor: var(--footer-column-title-cursor, pointer);
+  }
+
+  &__chevron {
+    display: var(--footer-column-chevron-display);
+  }
+
+  @include for-desktop {
+    --footer-column-title-cursor: default;
+    --footer-column-title-background: transparent;
+    --footer-column-chevron-display: none;
   }
 }
+
 .sf-footer {
+  &__container {
+    box-sizing: var(--footer-container-box-sizing);
+    display: var(--footer-container-display);
+    flex-wrap: var(--footer-container-flex-wrap);
+    justify-content: var(--footer-container-justify-content);
+    max-width: var(--footer-container-max-width);
+    margin: var(--footer-container-margin);
+    padding: var(--footer-container-padding);
+  }
   & .sf-menu-item {
-    padding: var(--spacer-big);
-    font-size: var(--footer__menu-item-font-size);
+    padding: var(--menu-item-padding, var(--spacer-big));
+    font-size: var(--menu-item-font-size, var(--font-size-regular));
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-footer-column {
-    &__title {
-      cursor: default;
-      background-color: transparent;
-    }
-    &__chevron {
-      display: none;
-    }
-  }
-  .sf-footer {
-    & .sf-menu-item {
-      padding: 6px 0;
-    }
-    &__container {
-      box-sizing: border-box;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      max-width: var(--footer__container-width);
-      margin: auto;
-      padding: 0 var(--spacer-extra-big);
-    }
+
+  @include for-desktop {
+    --menu-item-padding: 6px 0;
+    --footer-container-box-sizing: border-box;
+    --footer-container-display: flex;
+    --footer-container-flex-wrap: wrap;
+    --footer-container-justify-content: space-between;
+    --footer-container-max-width: 1240px;
+    --footer-container-margin: auto;
+    --footer-container-padding: 0 var(--spacer-extra-big);
   }
 }
