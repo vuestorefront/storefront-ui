@@ -2,16 +2,12 @@
 
 .sf-add-to-cart {
   display: flex;
+
   &__button {
     flex: var(--add-to-cart-button-flex, 1);
     order: var(--add-to-cart-button-order);
-    @include for-desktop {
-      --add-to-cart-button-order: 1;
-      --add-to-cart-select-quantity-margin: 0;
-      --input-font-size: var(--font-size-extra-big);
-      --input-background: var(--c-light);
-    }
   }
+
   &__select-quantity {
     --input-height: auto;
     display: flex;
@@ -21,5 +17,12 @@
     input {
       --input-border: 1px solid var(--c-light);
     }
+  }
+  
+  @include for-desktop {
+    --add-to-cart-button-order: 1;
+    --add-to-cart-select-quantity-margin: 0;
+    --input-font-size: var(--font-size-extra-big);
+    --input-background: var(--c-light);
   }
 }
