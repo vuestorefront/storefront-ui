@@ -3,42 +3,49 @@
 :root {
   --grouped-product-max-width: 7.8125rem;
   --grouped-product-max-width-desktop: 5.125rem;
-  --grouped-product-font-family: var(--body-font-family-secondary);
-  --grouped-product-font-size: var(--font-size-regular);
-  --grouped-product-font-weight: var(--body-font-weight-secondary);
-  --grouped-product-line-height: 1.6;
-  --grouped-product__select-quantity-width: 3.125rem;
-  --grouped-product__select-quantity-height: 1.875rem;
-  --grouped-product-item__image-background-color: var(--c-light);
-  @media screen and (min-width: $desktop-min) {
-    --grouped-product-font-size: var(--font-size-extra-small);
-  }
 }
 .sf-grouped-product-item {
-  padding: var(--spacer-small);
-  font-family: var(--grouped-product-font-family);
-  font-size: var(--grouped-product-font-size);
-  font-weight: var(--grouped-product-font-weight);
-  line-height: var(--grouped-product-line-height);
+  display: var(--grouped-product-item-display);
+  padding: var(--grouped-product-item-padding, var(--spacer-small));
+  font: var(
+    --grouped-product-item-font,
+    font(
+      --grouped-product-item,
+      var(--body-font-weight-secondary),
+      vvar(--font-size-regular),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
+  border-bottom: var(--grouped-product-item-border-bottom);
   &__aside {
     position: relative;
+    flex: var(--grouped-product-item-flex);
   }
   &__image {
-    background-color: var(--grouped-product-item__image-background-color);
+    background: var(--grouped-product-item-image-background, var(--c-light));
     img {
       mix-blend-mode: darken;
     }
   }
   &__quantity-selector {
     position: absolute;
-    right: var(--spacer);
-    bottom: var(--spacer);
+    right: var(--grouped-product-item-quantity-right, var(--spacer));
+    bottom: var(--grouped-product-item-quantity-bottom, var(--spacer));
+    left: var(--grouped-product-item-quantity-left);
     z-index: 1;
-    width: var(--grouped-product__select-quantity-width);
-    height: var(--grouped-product__select-quantity-height);
+    width: var(--grouped-product-item-quantity-width, 3.125rem);
+    height: var(--grouped-product-item-quantity-height, 1.875rem);
+  }
+  &__description {
+    margin: var(--grouped-product-item-description-margin);
   }
   &__title {
-    margin: var(--spacer-small) 0;
+    margin: var(--grouped-product-item-title-margin, var(--spacer-small) 0);
+  }
+  &__price {
+    margin: var(--grouped-product-item-price-margin);
+    font: var(--grouped-product-item-price-font);
   }
   .sf-grouped-product--without-carousel & {
     display: flex;
@@ -62,11 +69,30 @@
       margin: 0;
     }
     &__price {
-      margin-left: auto;
+      --grouped-product-item-price-margin: 0 0 0 auto;
       font: inherit;
     }
   }
+
+  @include for-desktop {
+    --input-background: var(--c-light);
+    --input-font-size: var(--font-size-big);
+    --grouped-product-item-font-size: var(--font-size-extra-small);
+    --grouped-product-item-display: flex;
+    --grouped-product-item-padding: 10px 0;
+    --grouped-product-item-border-bottom: 1px solid var(--c-light);
+    --grouped-product-item-flex: 0 0 var(--grouped-product-max-width-desktop);
+    --grouped-product-item-quantity-bottom: 0;
+    --grouped-product-item-quantity-left: calc(
+      var(--grouped-product-max-width-desktop) + var(--spacer-big)
+    );
+    --grouped-product-item-description-margin: 0 0 0 var(--spacer-big);
+    --grouped-product-item-title-margin: 0;
+    --grouped-product-item-price-margin: 0 0 0 auto;
+    --grouped-product-item-price-font: inherit;
+  }
 }
+
 .sf-grouped-product {
   &--without-carousel {
     .glide {
@@ -83,35 +109,7 @@
       }
     }
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-grouped-product-item {
-    display: flex;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--c-light);
-    &__aside {
-      flex: 0 0 var(--grouped-product-max-width-desktop);
-    }
-    &__quantity-selector {
-      bottom: 0;
-      left: calc(var(--grouped-product-max-width-desktop) + var(--spacer-big));
-      input {
-        background-color: var(--c-light);
-        font-size: var(--font-size-big);
-      }
-    }
-    &__description {
-      margin-left: var(--spacer-big);
-    }
-    &__title {
-      margin: 0;
-    }
-    &__price {
-      margin-left: auto;
-      font: inherit;
-    }
-  }
-  .sf-grouped-product {
+  @include for-desktop {
     .glide {
       &__slides {
         display: block !important;
