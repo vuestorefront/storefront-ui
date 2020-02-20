@@ -46,10 +46,7 @@
                 class="sf-heading--no-underline sf-heading--left product-details__heading"
               />
               <div class="product-details__sub">
-                <SfPrice
-                  regular="$50.00"
-                  class="sf-price--big product-details__sub-price"
-                />
+                <SfPrice regular="$50.00" class="product-details__sub-price" />
                 <div class="product-details__sub-rating">
                   <SfRating :score="4" :max="5" />
                   <div class="product-details__sub-reviews desktop-only">
