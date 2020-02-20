@@ -34,10 +34,14 @@
                 </template>
                 <template #actions>
                   <div class="collected-product__actions">
-                    <SfButton class="sf-button--text product__action">
+                    <SfButton
+                      class="sf-button--text color-secondary product__action"
+                    >
                       Save for later
                     </SfButton>
-                    <SfButton class="sf-button--text product__action">
+                    <SfButton
+                      class="sf-button--text color-secondary product__action"
+                    >
                       Add to compare
                     </SfButton>
                   </div>

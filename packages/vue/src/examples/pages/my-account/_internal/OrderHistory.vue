@@ -36,8 +36,12 @@
             <template v-else>{{ data }}</template>
           </SfTableData>
           <SfTableData class="orders__view">
-            <SfButton class="sf-button--text mobile-only">Download</SfButton>
-            <SfButton class="sf-button--text desktop-only">VIEW</SfButton>
+            <SfButton class="sf-button--text color-secondary mobile-only"
+              >Download</SfButton
+            >
+            <SfButton class="sf-button--text color-secondary desktop-only"
+              >VIEW</SfButton
+            >
           </SfTableData>
         </SfTableRow>
       </SfTable>
