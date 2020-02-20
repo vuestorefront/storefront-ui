@@ -1,10 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
+import { withKnobs, text } from "@storybook/addon-knobs";
 import SfPrice from "./SfPrice.vue";
 import SfBadge from "../SfBadge/SfBadge.vue";
 storiesOf("Atoms|Price", module)
