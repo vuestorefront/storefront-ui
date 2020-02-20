@@ -1,140 +1,111 @@
-@import '../../helpers';
+@import "../../helpers";
 
-:root {
-  --hero__controls-top: 50%;
-  --hero__controls-padding-h: 1rem;
-  --hero__controls-width: calc(100% - 2 * var(--hero__controls-padding-h));
-  --hero__bullets-position-offset: 0.5rem;
-  --hero-item-width: 100%;
-  --hero-item-padding: var(--spacer-extra-big);
-  --hero-item-bg-size: cover;
-  --hero-item-bg-position: center;
-  --hero-item-font-weight: 500;
-  --hero-item-line-height: 1.6;
-  --hero-item__container-width: 60%;
-  --hero-item__container-height: 100%;
-  --hero-item__container-padding: 0;
-  --hero-item__subtitle-width: 100%;
-  --hero-item__subtitle-color: var(--c-gray-variant);
-  --hero-item__subtitle-border-left: var(--hero-item__subtitle-color) solid 1px;
-  --hero-item__subtitle-border: 0;
-  --hero-item__subtitle-font-family: var(--body-font-family-primary);
-  --hero-item__subtitle-font-size: var(--font-size-extra-small);
-  --hero-item__subtitle-padding-left: 18px;
-  --hero-item__title-color: var(--c-dark);
-  --hero-item__title-font-family: var(--body-font-family-primary);
-  --hero-item__title-font-size: var(--font-size-extra-big);
-  --hero-item__title-line-height: 1.38;
-  @media screen and (min-width: $desktop-min) {
-    --hero__bullets-position-offset: 2.5rem;
+.sf-hero-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: var(--hero-item-width, 100%);
+  padding: var(--hero-item-padding, var(--spacer-extra-big));
+  background-repeat: no-repeat;
+  background-size: var(--hero-item-background-size, cover);
+  background-position: var(--hero-item-background-position, center);
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: var(--hero-item-container-width, 60%);
+    height: var(--hero-item-container-height, 100%);
+    padding: var(--hero-item-container-padding, 0);
+  }
+  &__subtitle {
+    width: var(--hero-item-subtitle-width, 100%);
+    padding: var(--hero-item-subtitle-padding, 0 0 0 var(--spacer-medium));
+    margin: var(
+      --hero-item-subtitle-margin,
+      0 0 calc(var(--spacer-medium) * 2) 0
+    );
+    border: var(--hero-item-subtitle-border, 1px solid var(--c-text-muted));
+    border-width: var(--hero-item-subtitle-border-width, 0 0 0 1px);
+    color: var(--hero-item-subtitle-color, var(--c-text-muted));
+    font: var(
+      --hero-item-subtitle-font,
+      font(
+        --hero-item-subtitle,
+        500,
+        var(--font-size-extra-small),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
+    text-transform: var(--hero-item-subtitle-text-transform, uppercase);
+  }
+  &__title {
+    margin: var(--hero-item-title-margin, 0 0 var(--spacer-extra-big) 0);
+    color: var(--hero-item-title-color, var(--c-text));
+    font: var(
+      --hero-item-title-font,
+      font(
+        --hero-item-title,
+        500,
+        var(--h1-font-size),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
+  }
+  &__button {
+    display: var(--hero-item-button-display, none);
+    margin: var(--hero-item-button-margin);
+  }
+  &--position-bg-top-right {
+    --hero-item-background-position: top right;
+  }
+  &--position-bg-bottom-right {
+    --hero-item-background-position: bottom right;
+  }
+  &--position-bg-bottom-left {
+    --hero-item-background-position: bottom left;
+  }
+  &--align-right {
+    align-items: flex-end;
+  }
+  @include for-desktop {
     --hero-item-padding: 5rem;
-    --hero-item__container-width: 50%;
-    --hero-item__container-padding: 0 2rem;
-    --hero-item__subtitle-width: min-content;
-    --hero-item__subtitle-font-size: var(--font-size-extra-small);
-    --hero-item__subtitle-padding-left: 36px;
-    --hero-item__title-font-size: var(--h1-font-size);
+    --hero-item-container-width: 50%;
+    --hero-item-container-padding: 0 2rem;
+    --hero-item-subtitle-width: min-content;
+    --hero-item-subtitle-paddding: 0 0 0 var(--spacer-extra-big);
+    --hero-item-button-display: block;
+    --hero-item-button-margin: 0 0 calc(var(--spacer-extra-big) * 2) 0;
   }
 }
 .sf-hero {
+  box-sizing: border-box;
   position: relative;
   &__slides {
     margin: 0;
   }
-  &__controls {
-    display: none;
-  }
   &__bullets {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    bottom: var(--hero__bullets-position-offset);
+    bottom: var(--hero-bullets-bottom, var(--spacer-medium));
+    transform: translate3d(-50%, 0, 0);
+    display: var(--hero-bullets-display, block);
   }
-  &-item {
-    width: var(--hero-item-width);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: var(--hero-item-padding);
-    font-weight: var(--hero-item-font-weight);
-    line-height: var(--hero-item-line-height);
-    background-size: var(--hero-item-bg-size);
-    background-position: var(--hero-item-bg-position);
-    background-repeat: no-repeat;
-    &__container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      width: var(--hero-item__container-width);
-      height: var(--hero-item__container-height);
-      padding: var(--hero-item__container-padding);
-    }
-    &__subtitle {
-      width: var(--hero-item__subtitle-width);
-      padding-left: var(--hero-item__subtitle-padding-left);
-      margin-bottom: calc(var(--spacer-medium) * 2);
-      border: var(--hero-item__subtitle-border-left);
-      border-top: var(--hero-item__subtitle-border);
-      border-right: var(--hero-item__subtitle-border);
-      border-bottom: var(--hero-item__subtitle-border);
-      color: var(--hero-item__subtitle-color);
-      text-transform: uppercase;
-      font-size: var(--hero-item__subtitle-font-size);
-    }
-    &__title {
-      color: var(--hero-item__title-color);
-      font-size: var(--hero-item__title-font-size);
-      line-height: var(--hero-item__title-line-height);
-      margin-bottom: var(--spacer-extra-big);
-    }
-    &__button {
-      display: none;
-    }
-    &--position-bg-top-right {
-      background-position: top right;
-    }
-    &--position-bg-bottom-right {
-      background-position: bottom right;
-    }
-    &--position-bg-bottom-left {
-      background-position: bottom left;
-    }
-    &--align-right {
-      align-items: flex-end;
-    }
+  &__controls {
+    position: absolute;
+    left: var(--hero-controls-left, 0);
+    top: var(--hero-controls-top, 50%);
+    transform: var(--hero-controls-transform, translate3d(0, -50%, 0));
+    box-sizing: border-box;
+    display: var(--hero-controls-display, none);
+    justify-content: var(--hero-controls-left-justify-content, space-between);
+    width: var(--hero-controls-width, 100%);
+    padding: var(--hero-controls-padding, 0 var(--spacer-medium));
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-hero {
-    &__controls {
-      position: absolute;
-      display: flex;
-      justify-content: space-between;
-      top: var(--hero__controls-top);
-      left: 0;
-      transform: translate3d(0, -var(--hero__controls-top), 0);
-      width: var(--hero__controls-width);
-      padding: 0 var(--hero__controls-padding-h);
-    }
-    &-item {
-      &__container {
-        justify-content: space-evenly;
-      }
-      &__subtitle {
-        margin-bottom: calc(var(--spacer-extra-big) * 2);
-      }
-      &__title {
-        margin-bottom: 0;
-      }
-      &__button {
-        display: block;
-        margin-top: var(--spacer-extra-big);
-        margin-bottom: calc(var(--spacer-extra-big) * 2);
-      }
-    }
+  @include for-desktop {
+    --hero-controls-display: flex;
+    --hero-bullets-bottom: var(--spacer-extra-big);
   }
 }

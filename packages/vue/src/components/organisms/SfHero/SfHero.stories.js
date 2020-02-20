@@ -21,10 +21,10 @@ storiesOf("Organisms|Hero", module)
             "sf-hero-item--position-bg-top-right":
               "sf-hero-item--position-bg-top-right",
             "sf-hero-item--position-bg-bottom-right":
-              "sf-hero-item--position-bg-top-right",
+              "sf-hero-item--position-bg-bottom-right",
             "sf-hero-item--position-bg-bottom-left":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right"
+              "sf-hero-item--position-bg-bottom-left",
+            "sf-hero-item--align-right": "sf-hero-item--align-right"
           },
           "",
           { display: "multi-select" },
