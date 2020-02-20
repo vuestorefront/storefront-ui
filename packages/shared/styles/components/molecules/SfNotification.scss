@@ -27,6 +27,53 @@
     )
   );
   opacity: var(--notification-opacity, 0.8);
+
+  &__title {
+    display: var(--notification-title-display, inline);
+    font: var(
+      --notification-title-font,
+      font(
+        --notification-title,
+        300,
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-primary)
+      )
+    );
+    &::after {
+      content: " ";
+    }
+    @include for-desktop {
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  &__action {
+    display: var(--notification-action-display, none);
+    margin: var(--notification-action-margin);
+    padding: var(--notification-action-padding);
+    border: var(--notification-action-border);
+    background-color: var(--notification-action-background);
+    color: var(--notification-action-color);
+    font: var(--notification-action-font);
+    text-decoration: var(--notification-action-text-decoration);
+    outline: var(--notification-action-outline);
+  }
+
+  &__icon {
+    display: var(--notification-icon-display, none);
+    margin: var(--notification-icon-margin);
+  }
+
+  &__close {
+    position: absolute;
+    right: var(--notification-close-right-position, var(--spacer-big));
+    top: var(--notification-close-top-position, var(--spacer-big));
+    cursor: pointer;
+  }
+
   @include for-desktop {
     --notification-padding: var(--spacer-medium);
     --notification-align-items: center;
@@ -52,48 +99,7 @@
     --notification-icon-display: block;
     --notification-title-display: block;
   }
-  &__title {
-    display: var(--notification-title-display, inline);
-    font: var(
-      --notification-title-font,
-      font(
-        --notification-title,
-        300,
-        var(--font-size-big),
-        1.6,
-        var(--body-font-family-primary)
-      )
-    );
-    &::after {
-      content: " ";
-    }
-    @include for-desktop {
-      &::after {
-        content: none;
-      }
-    }
-  }
-  &__action {
-    display: var(--notification-action-display, none);
-    margin: var(--notification-action-margin);
-    padding: var(--notification-action-padding);
-    border: var(--notification-action-border);
-    background-color: var(--notification-action-background);
-    color: var(--notification-action-color);
-    font: var(--notification-action-font);
-    text-decoration: var(--notification-action-text-decoration);
-    outline: var(--notification-action-outline);
-  }
-  &__icon {
-    display: var(--notification-icon-display, none);
-    margin: var(--notification-icon-margin);
-  }
-  &__close {
-    position: absolute;
-    right: var(--notification-close-right-position, var(--spacer-big));
-    top: var(--notification-close-top-position, var(--spacer-big));
-    cursor: pointer;
-  }
+  
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     &.color-#{$color} {

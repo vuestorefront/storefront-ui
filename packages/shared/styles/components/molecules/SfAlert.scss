@@ -16,7 +16,7 @@
   );
 
   &__message {
-    margin-left: var(--alert-message-margin-left, 0.625rem);
+    margin: var(--alert-message-margin, 0 0 0 0.625rem);
   }
 
   @include for-desktop {
