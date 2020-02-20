@@ -45,6 +45,8 @@
     --button-width: 100%;
   }
   &--outline {
+    --button-padding: calc(var(--spacer-medium) - 1px)
+      calc(var(--spacer-extra-big) - 1px);
     --button-border: 1px solid var(--c-primary);
     --button-background: transparent;
     --button-color: var(--c-primary);
