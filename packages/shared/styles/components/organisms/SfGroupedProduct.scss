@@ -1,9 +1,5 @@
 @import "../../helpers";
 
-:root {
-  --grouped-product-max-width: 7.8125rem;
-  --grouped-product-max-width-desktop: 5.125rem;
-}
 .sf-grouped-product-item {
   display: var(--grouped-product-item-display);
   padding: var(--grouped-product-item-padding, var(--spacer-small));
@@ -20,7 +16,7 @@
   border-bottom: var(--grouped-product-item-border-bottom);
   &__aside {
     position: relative;
-    flex: var(--grouped-product-item-flex);
+    flex: var(--grouped-product-item-flex, 0 0 5.125rem);
   }
   &__image {
     background: var(--grouped-product-item-image-background, var(--c-light));
@@ -47,32 +43,6 @@
     margin: var(--grouped-product-item-price-margin);
     font: var(--grouped-product-item-price-font);
   }
-  .sf-grouped-product--without-carousel & {
-    display: flex;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--c-light);
-    &__aside {
-      flex: 0 0 var(--grouped-product-max-width-desktop);
-    }
-    &__quantity-selector {
-      bottom: 0;
-      left: calc(var(--grouped-product-max-width-desktop) + var(--spacer-big));
-      input {
-        background-color: var(--c-light);
-        font-size: var(--font-size-big);
-      }
-    }
-    &__description {
-      margin-left: var(--spacer-big);
-    }
-    &__title {
-      margin: 0;
-    }
-    &__price {
-      --grouped-product-item-price-margin: 0 0 0 auto;
-      font: inherit;
-    }
-  }
 
   @include for-desktop {
     --input-background: var(--c-light);
@@ -81,11 +51,9 @@
     --grouped-product-item-display: flex;
     --grouped-product-item-padding: 10px 0;
     --grouped-product-item-border-bottom: 1px solid var(--c-light);
-    --grouped-product-item-flex: 0 0 var(--grouped-product-max-width-desktop);
+    --grouped-product-item-flex: 0 0 5.125rem;
     --grouped-product-item-quantity-bottom: 0;
-    --grouped-product-item-quantity-left: calc(
-      var(--grouped-product-max-width-desktop) + var(--spacer-big)
-    );
+    --grouped-product-item-quantity-left: 6.375rem;
     --grouped-product-item-description-margin: 0 0 0 var(--spacer-big);
     --grouped-product-item-title-margin: 0;
     --grouped-product-item-price-margin: 0 0 0 auto;
@@ -95,6 +63,21 @@
 
 .sf-grouped-product {
   &--without-carousel {
+    --input-background: var(--c-light);
+    --input-font-size: var(--font-size-big);
+    --grouped-product-item-display: flex;
+    --grouped-product-item-padding: 10px 0;
+    --grouped-product-item-border-bottom: 1px solid var(--c-light);
+    &__aside {
+      flex: 0 0 7.8125rem;
+    }
+    --grouped-product-item-quantity-bottom: 0;
+    --grouped-product-item-quantity-left: 6.375rem;
+    --grouped-product-item-description-margin: 0 0 0 var(--spacer-big);
+    --grouped-product-item-title-margin: 0;
+    --grouped-product-item-price-margin: 0 0 0 auto;
+    --grouped-product-item-price-font: inherit;
+
     .glide {
       &__slides {
         display: block !important;
