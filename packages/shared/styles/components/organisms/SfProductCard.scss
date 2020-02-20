@@ -65,11 +65,11 @@
   }
 
   &__add-button {
-    position: var(--product-card-add-button-position, absolute);
+    --button-padding: var(--spacer-medium);
+    --circle-icon-position: absolute;
     right: var(--product-card-add-button-right, 1rem);
     display: var(--product-card-add-button-display, none);
     transform: var(--product-card-add-button-transform, translateY(-50%));
-    padding: var(--product-card-add-button-padding, var(--spacer-medium));
     opacity: var(--product-card-add-button-opacity, 0);
     cursor: pointer;
 
