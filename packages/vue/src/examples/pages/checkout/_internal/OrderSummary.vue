@@ -47,7 +47,7 @@
               </div>
             </template>
             <template #input>
-              <!--              <div></div>-->
+              <span></span>
             </template>
           </SfCollectedProduct>
         </div>

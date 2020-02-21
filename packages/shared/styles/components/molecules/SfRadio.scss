@@ -2,16 +2,6 @@
 
 .sf-radio {
   display: var(--radio-display, flex);
-  font: var(
-    --radio-font,
-    font(
-      --radio-font,
-      var(--body-font-weight-primary),
-      var(--font-size-small),
-      1.6,
-      var(--body-font-family-secondary)
-    )
-  );
   transition: var(
     --radio-transition,
     background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1)
@@ -23,8 +13,16 @@
 
   &__label {
     display: var(--radio-label-display, flex);
-    font-size: var(--radio-label-font-size, var(--font-size-extra-big));
-    font-weight: var(--radio-label-font-weight, 500);
+    font: var(
+      --radio-label-font,
+      font(
+        --radio-label,
+        500,
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
   }
 
   &__checkmark {
@@ -70,6 +68,16 @@
 
   &__description {
     margin: var(--radio-description-margin, var(--spacer-medium) 0 0 0);
+    font: var(
+      --radio-description-font,
+      font(
+        --radio-description,
+        var(--body-font-weight-primary),
+        var(--font-size-small),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
   }
 
   &--transparent {
@@ -79,7 +87,7 @@
   }
 
   @include for-desktop {
-    --radio-font-size: var(--font-size-small);
-    --radio-label-font-size: var(--font-size-small);
+    --radio-description-font-size: var(--font-size-regular);
+    --radio-label-font-size: var(--font-size-big);
   }
 }
