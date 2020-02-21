@@ -122,11 +122,11 @@
         --input,
         300,
         var(--font-size-big),
-        1.6,
+        normal,
         var(--body-font-family-primary)
       )
     );
-    outline: 0;
+    outline: none;
     &:focus {
       & ~ * {
         --input-label-top: 0;

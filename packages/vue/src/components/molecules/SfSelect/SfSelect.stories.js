@@ -70,7 +70,7 @@ storiesOf("Molecules|Select", module)
         options: optionsList
       };
     },
-    template: `<div style="display: flex">
+    template: `
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -78,14 +78,13 @@ storiesOf("Molecules|Select", module)
         :size="size"
         :required="required"
         :valid="valid"
-        :error-message="errorMessage">
+        :error-message="errorMessage"
+        style="max-width: 13.75rem"
+      >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          {{option.label}}
-          <!-- <SfProductOption :color="option.color" :label="option.label"></SfProductOption> -->
+          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
-      </SfSelect>
-      <SfInput value="Amaranth"/>
-    </div>`
+      </SfSelect>`
   }))
   .add("[slot] label", () => ({
     components: { SfSelect, SfProductOption },
