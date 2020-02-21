@@ -78,11 +78,7 @@
     );
     // I know it's look's like magic but we need it now :(
     min-height: calc(
-      0.9375rem + 0.9375rem +
-      (
-        var(--select-font-size, var(--font-size-big)) *
-        var(--select-line-height, 1.6)
-      )
+      0.9375rem + 0.9375rem + var(--select-font-size, var(--font-size-big))
     );
     margin: var(--select-margin, 0 0 var(--spacer-small) 0);
     border: var(--select-border, 1px solid transparent);
