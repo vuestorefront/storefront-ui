@@ -41,6 +41,7 @@
   &__label {
     position: absolute;
     top: var(--select-label-top, 50%);
+    left: var(--select-label-left, var(--spacer));
     color: var(--select-label-color, inherit);
     font: var(
       --select-label-font,
@@ -48,7 +49,7 @@
         --select-label,
         400,
         var(--font-size-big),
-        1.6,
+        normal,
         var(--body-font-family-secondary)
       )
     );
@@ -68,11 +69,20 @@
     }
   }
   &__selected {
-    display: block;
+    display: flex;
+    align-items: center;
     box-sizing: border-box;
     padding: var(
       --select-padding,
       0.9375rem var(--spacer) 0.625rem var(--spacer)
+    );
+    // I know it's look's like magic but we need it now :(
+    min-height: calc(
+      0.9375rem + 0.9375rem +
+      (
+        var(--select-font-size, var(--font-size-big)) *
+        var(--select-line-height, 1.6)
+      )
     );
     margin: var(--select-margin, 0 0 var(--spacer-small) 0);
     border: var(--select-border, 1px solid transparent);
@@ -93,6 +103,7 @@
   &__dropdown {
     position: var(--select-dropdown-position, fixed);
     top: var(--select-dropdown-top, auto);
+    left: 0;
     bottom: var(--select-dropdown-bottom, 0);
     z-index: var(--select-dropdown-z-index, 1);
     box-sizing: border-box;
@@ -148,12 +159,19 @@
   }
   &--bordered {
     --select-padding: 0.9375rem var(--spacer-big) 0.625rem var(--spacer-big);
+    --select-label-left: var(--spacer-big);
     --select-border: 1px solid var(--c-light);
     --select-border-width: 1px 1px 1px 1px;
-    &.sf-select--is-active,
+    &.sf-select--is-active {
+      --select-label-top: 50%;
+      --select-label-font-size: var(--select-font-size);
+    }
     &.sf-select--is-selected {
       --select-label-opacity: 0;
     }
+    //&.sf-select--is-selected {
+    //  --select-label-opacity: 0;
+    //}
   }
   &-enter-active {
     animation: var(--select-animation-enter, ssmobile 150ms);
