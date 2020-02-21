@@ -16,7 +16,7 @@
   );
   &__title {
     z-index: var(--tabs-title-index);
-    display: var(--tabs-title-display, block);
+    display: var(--tabs-title-display, flex);
     flex-basis: var(--tabs-title-flex-basis, 100%);
     justify-content: space-between;
     margin: var(--tabs-title-margin);
