@@ -1,4 +1,4 @@
-@import '../../helpers';
+@import "../../helpers";
 
 .sf-accordion-item {
   font: var(
@@ -31,7 +31,7 @@
   }
 
   &__content {
-    padding: var(--accordion-item-content, 1.875rem);
+    padding: var(--accordion-item-content, 1.875rem 0);
   }
 
   &__chevron {

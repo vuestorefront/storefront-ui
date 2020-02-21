@@ -1,20 +1,13 @@
 @import "../../helpers";
 
 .sf-carousel {
-  --carousel-controls-size: 240px;
   position: relative;
-  @include for-desktop {
-    --carousel-max-width: calc(100% - var(--carousel-controls-size));
-    --carousel-controls-position: absolute;
-    --carousel-controls-top: 50%;
-    --carousel-controls-left: 0;
-    --carousel-controls-display: flex;
-    --carousel-controls-transform: translate3d(0, -50%, 0);
-    --carousel-controls-width: 100%;
-    --carousel-controls-justify-content: space-between;
-  }
   &__wrapper {
-    max-width: var(--carousel-max-width, 100%);
+    max-width: var(
+      --carousel-max-width,
+      calc(100% - var(--carousel-controls-size))
+    );
+    padding: var(--carousel-padding);
     margin: auto;
     overflow: hidden;
   }
@@ -36,5 +29,15 @@
     &__slide {
       overflow: unset;
     }
+  }
+  @include for-desktop {
+    --carousel-controls-size: 240px;
+    --carousel-controls-position: absolute;
+    --carousel-controls-top: 50%;
+    --carousel-controls-left: 0;
+    --carousel-controls-display: flex;
+    --carousel-controls-transform: translate3d(0, -50%, 0);
+    --carousel-controls-width: 100%;
+    --carousel-controls-justify-content: space-between;
   }
 }

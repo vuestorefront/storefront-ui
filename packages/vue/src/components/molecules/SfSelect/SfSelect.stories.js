@@ -7,8 +7,11 @@ import {
   boolean,
   optionsKnob as options
 } from "@storybook/addon-knobs";
+
 import SfSelect from "./SfSelect.vue";
 import SfProductOption from "../SfProductOption/SfProductOption.vue";
+import SfInput from "../../atoms/SfInput/SfInput.vue";
+
 const optionsList = [
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
   { value: "amber", color: "#FFBF00", label: "Amber" },
@@ -23,7 +26,7 @@ const knobOptionsList = optionsList.reduce(
 storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfSelect, SfProductOption },
+    components: { SfSelect, SfProductOption, SfInput },
     props: {
       customClass: {
         default: options(
@@ -67,7 +70,7 @@ storiesOf("Molecules|Select", module)
         options: optionsList
       };
     },
-    template: `<div style="max-width: 18.75rem">
+    template: `<div style="display: flex">
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -77,11 +80,11 @@ storiesOf("Molecules|Select", module)
         :valid="valid"
         :error-message="errorMessage">
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+          {{option.label}}
+          <!-- <SfProductOption :color="option.color" :label="option.label"></SfProductOption> -->
         </SfSelectOption>
       </SfSelect>
-      <br>
-      <h3>Selected option: {{selected}}</h3>
+      <SfInput value="Amaranth"/>
     </div>`
   }))
   .add("[slot] label", () => ({

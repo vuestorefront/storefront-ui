@@ -42,7 +42,7 @@
   &--transparent {
     --button-background: transparent;
     &:hover {
-      --icon-color: $arrow-c-icon-default;
+      --icon-color: var(--c-dark);
       --button-background: transparent;
       --arrow-box-shadow: none;
     }

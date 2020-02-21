@@ -2,7 +2,7 @@
   <div :class="`color-${type}`" class="sf-alert">
     <!--@slot Custom alert icon. Slot content will replace default icon <SfIcon/> tag.-->
     <slot name="icon" v-bind="{ icon }">
-      <SfIcon :icon="icon" size="24px" color="white" class="sf-alert__icon" />
+      <SfIcon :icon="icon" class="sf-alert__icon" />
     </slot>
     <!--@slot Custom message . Slot content will replace default message <span> tag.-->
     <slot name="message" v-bind="{ message }">

@@ -3,7 +3,6 @@
 .sf-review {
   position: relative;
   display: var(--review-display, block);
-  margin: var(--review-margin, 0);
 
   &__author {
     margin: var(--review-author-margin, 0 0 var(--spacer-medium) 0);
@@ -45,6 +44,8 @@
   }
 
   &__message {
+    display: inline;
+    color: var(--review-message-color, var(--c-dark-variant));
     font: var(
       --review-message-font,
       font(
@@ -55,7 +56,6 @@
         var(--body-font-family-secondary)
       )
     );
-    color: var(--review-message-color, var(--c-dark-variant));
   }
   &__read-more {
     font: var(
@@ -73,12 +73,6 @@
     border: var(--review-read-more-border, none);
     cursor: var(--review-read-more-cursor, pointer);
   }
-
-  &--inline {
-    --review-display: inline-block;
-    --review-margin: 0 0 0 var(--spacer-medium);
-  }
-
   @include for-desktop {
     --review-author-font-size: var(--font-size-big);
     --review-date-font-size: var(--font-size-small);

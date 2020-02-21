@@ -1,4 +1,4 @@
-@import '../../helpers';
+@import "../../helpers";
 
 .sf-banner {
   box-sizing: border-box;
@@ -23,10 +23,12 @@
   );
 
   &__container {
-    flex-basis: 100%;
+    flex: var(--banner-container-flex, 0 0 100%);
   }
 
   &__subtitle {
+    margin: var(--banner-subtitle-margin);
+    color: var(--banner-subtitle-color, var(--c-dark-variant));
     font: var(
       --banner-subtitle-font,
       font(
@@ -37,10 +39,11 @@
         var(--body-font-family-primary)
       )
     );
-    color: var(--banner-subtitle-color, var(--c-dark-variant));
   }
 
   &__title {
+    margin: var(--banner-title-margin);
+    color: var(--banner-title-color);
     font: var(
       --banner-title-font,
       font(
@@ -77,7 +80,7 @@
     &--left {
       --banner-padding: 4rem calc(50% + 5rem) 4rem 4rem;
     }
-    
+
     &--slim {
       --banner-padding: 5rem 2.5rem;
       --banner-title-font-size: 2.25rem;

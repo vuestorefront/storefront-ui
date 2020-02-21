@@ -1,6 +1,7 @@
 @import "../../helpers";
 
 .sf-alert {
+  --icon-size: 1.5rem;
   display: flex;
   align-items: center;
   color: var(--alert-color);
