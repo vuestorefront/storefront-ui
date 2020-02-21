@@ -105,20 +105,21 @@ Multiline descriptions are merged into a single line, joined by dots (if necessa
 Use single line comments (with `//`) above variables for variables title. _Example:_
 
 ```css
-:root {
+  .sf-circle-icon {
     // Primary Button
     --button-padding: 1rem 2.5rem;
     // Outline Button
-    --button--outline-color: var(--c-primary);
+    --button-background: var(--c-primary);
+  }
 }
 ```
 
 Use single line comments (with `//`) next to variables for variables description. _Example:_
 
 ```css
-:root {
+  .sf-circle-icon {
     --button-padding: 1rem 2.5rem; // Button padding
-}
+  }
 ```
 
 #### Syntax inside CSS Modifiers

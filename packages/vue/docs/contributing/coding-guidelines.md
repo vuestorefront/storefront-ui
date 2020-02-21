@@ -73,18 +73,157 @@ For example: `.gallery__item--selected`
 Keep up to 2 BEM levels (elements) at **most**.
 :::
 
+### CSS Custom Properties
 
-### CSS structure
+#### Rules and tips to create and use CSS Custom Properties / CSS Variables. 
+
+1. **DO NOT** use SASS VARIABLES.
+
+2. **Create variable** with default value like this:
+
+```css
+.sf-button {
+    padding: var(--button-padding, var(--spacer));
+}
+```
+:::tip 
+Create variables for all customizable properties like 
+`padding`, `margin`, `order`, `z-index`, `color`, `border`, `border-radius`, `background-color`. 
+
+Think of properties you would like to change it as a user and create for it a variable.
+
+
+Create size variables `var(--component-size, 25px)` in case when you have the same width and height value 
+
+```css
+.sf-button{
+  width: var(--component-width, var(--component-size, 266px));
+  height: var(--component-height, var(--component-size, 266px));
+}
+```
+:::
+
+3. Use **global variables** for spacers, font-sizes, colors. You can find all variables here `shared/styles/variables`
+
+:::tip
+SCSS functions and mixins you cand find here `shared/styles/_helpers.scss`
+
+All global variables are here `shared/styles/_variables.scss`
+:::
+
+4. **CSS Variables Naming convention**
+
+- variable name for BLOCK **var(--input-width);**
+- variable name for BLOCK elements **var(--input-label-padding);**
+```css
+.sf-input{
+  width: var(--input-width, 350px)
+  &__label{
+    padding: var(--input-label-padding, var(--spacer-small) var(--spacer))}
+  }
+```
+
+5. If you want to customize some component e.g. SfButton which is nested in molecule or organism you should use defined variable from SfButton to customize it.
+
+```css
+.sf-add-to-card {
+  &__add-button {
+    --button-padding: var(--spacer-medium);
+  }
+}
+```
+6.  Write variables always on the top of block before other properties.
+```css
+.sf-arrow{
+  --button-width: 20px;
+  --button-height: 20px;
+  outline: 0
+}
+```
+7. To create **font variable** use scss function 
+**font(--component-name, font-weight, font-size, line-height, font-family);**
+
+- Use it like this:
+
+```css
+  font: var(
+    --banner-title-font,
+    font(
+      --banner-title,
+      300,
+      var(--font-size-small),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
+``` 
+
+- If you want to customize:
+```css
+.sf-banner {
+    &--slim {
+        --banner-title-font-size: var(--font-size-regular);
+    }
+}
+```
+
+8. You shouldn't use media queries inside block elements. 
+Instead, use mixin for this **for-desktop** and write all properties at the bottom in the block scope. 
+
+```css
+.sf-banner{
+  &__label{
+    padding: var(--banner-label-padding, 10px 20px)
+  }
+  @include for-desktop{
+    --banner-label-padding, 20px 40px
+  }
+}
+```
+
+9. Most recommended **NOT TO use &this**
+
+
+```css
+.sf-product-card {
+  &:hover {
+    #{$this}__add-button {
+      opacity: 1;
+    }
+  }
+```
+
+**When it is possible try to use variable**
+
+:::tip
+```css
+.sf-product-card {
+  &:hover {
+    --product-card-add-button-opacity: 1;
+  }
+  &__add-button {
+      opacity: var(--product-card-add-button-opacity, 0);
+  }
+```
+:::
+
+
+
+
+### CSS Structure
 
 1. Use flexbox
-2. Always import a global variables at the **top**.
+2. Always import a global helpers at the **top** `@import "../../helpers";`.
 3. Start with mobile view and write **mobile-first** CSS. It means that media queries should be **only** for a desktop view.
 4. **DO NOT** use **scoped** styles.
-5. Use global css variables **whenever it's possible**.
-6. Component-specific SCSS variables should be **at the top** of the component `.scss` file.
+5. Use CSS Custom Properties.
+6. Use global css variables **whenever it's possible**.
+7. Try to order css properties according to **“Grouped by type”** 
+   example: [Poll results how do you order your css properties](https://css-tricks.com/poll-results-how-do-you-order-your-css-properties/)
+
 
 :::warning
-Use use global SCSS variables inside SCSS variables for common properties like colors. All the global variables are found in `shared/styles/global/_variables/`.
+Use global CSS variables for common properties like colors. All the global variables are found in `shared/styles/global/_variables/`.
 :::
 
 7. Properties that **may broke the design** in future changes **shouldn't be customizable**. 
@@ -95,10 +234,13 @@ A **safe** set of properties to customize are: `font-size`, `text-align`, `color
 
 8. **Provide** CSS modifiers for most common modifications. (`component__black--modifier`)
 9. **DO NOT** use any outer positioning for components (like outer margins). The way they're positioned in layout should be determined in outer environment.
+10. Try to use rems for 10px up.
 
 :::tip SAMPLE CSS FILE
 [Here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/components/molecules/SfBanner.scss) you can find an example of properly styled component with all rules applied.
 :::
+
+
 
 ### Template rules
 

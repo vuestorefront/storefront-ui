@@ -41,7 +41,7 @@
 
   &__description {
     display: var(--call-to-action-description-display, none);
-    margin: var(--call-to-action-description);
+    margin: var(--call-to-action-description-margin);
   }
 
   &__button {
@@ -64,7 +64,7 @@
     --call-to-action-font-size: var(--font-size-big);
     --call-to-action-title-font-size: var(--h1-font-size);
     --call-to-action-justify-content: space-between;
-    --call-to-action-description: var(--spacer-big) 0 0 0;
+    --call-to-action-description-margin: var(--spacer-big) 0 0 0;
     --call-to-action-description-display: block;
     --call-to-action-text-container: 0 var(--spacer-big) 0 0;
   }
