@@ -1,9 +1,9 @@
-@import '../../helpers';
+@import "../../helpers";
 
 .sf-content-pages {
   overflow: hidden;
   height: 100vh;
-  
+
   &__section {
     box-sizing: border-box;
     display: flex;
@@ -26,10 +26,10 @@
     padding: var(--content-pages-sidebar-padding, var(--spacer-big));
     background-color: var(--content-pages-sidebar-background);
   }
-  
+
   &__content {
     flex: 0 0 100%;
-    padding: var(--content-pages-content-padding, -1.25rem);
+    padding: var(--content-pages-content-padding, var(--spacer-big));
   }
 
   &__title {
@@ -71,12 +71,16 @@
   }
 
   &__menu {
-    padding: var(--content-pages-menu-padding, var(--spacer-big) var(--spacer-big) var(--spacer-big) 10px);
+    padding: var(
+      --content-pages-menu-padding,
+      var(--spacer-big) var(--spacer-big) var(--spacer-big) 10px
+    );
   }
 
   @include for-desktop {
     --content-pages-content-padding: var(--spacer-big) var(--spacer-extra-big);
-    --content-pages-sidebar-padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big);
+    --content-pages-sidebar-padding: var(--spacer-big) var(--spacer-extra-big)
+      var(--spacer-extra-big);
     --content-pages-sidebar-background: var(--c-light);
     --content-pages-title-margin: 0 0 var(--spacer-big) 0;
     --content-pages-category-title-font-weight: 400;
