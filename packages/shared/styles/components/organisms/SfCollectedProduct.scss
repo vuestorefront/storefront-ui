@@ -1,7 +1,6 @@
 @import "../../helpers";
 
 .sf-collected-product {
-  $this: &;
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -15,15 +14,16 @@
   &:hover {
     --collected-product-background: var(--c-white);
   }
+
   &__remove {
     --button-padding: 0;
-    --icon-size: 8px;
+    --icon-width: 0.875rem;
     --icon-color: var(--c-gray);
     position: absolute;
-    padding: 0;
     opacity: var(--collected-product-remove-opacity);
     top: var(--collected-product-remove-top, var(--spacer));
     right: var(--collected-product-remove-right, var(--spacer));
+    transform: var(--collected-product-remove-transform);
     background-color: var(--collected-product-remove-background, transparent);
     box-shadow: var(--collected-product-remove-box-shadow);
     &:hover,
@@ -32,13 +32,16 @@
       --collected-product-remove-background: transparent;
     }
   }
+
   &__aside {
     position: relative;
     flex: 0 0 5.3125rem;
   }
+
   &__image {
     background: var(--collected-product-image-background, var(--c-light));
   }
+
   &__quantity-selector {
     --input-background: var(--c-white);
     position: absolute;
@@ -46,12 +49,14 @@
     bottom: var(--spacer);
     z-index: 2;
   }
+
   &__main {
     flex: 1;
     margin: var(--collected-product-main-margin, 0 0 0 var(--spacer-big));
     display: flex;
     flex-direction: column;
   }
+
   &__title {
     margin-bottom: 5px;
     font: var(
@@ -65,6 +70,7 @@
       )
     );
   }
+
   &__details {
     margin: auto 0 0 0;
     display: flex;
@@ -72,23 +78,30 @@
   }
 
   @include for-desktop {
-    --collected-product-padding: 10px var(--spacer-big);
-    --collected-product-remove-right: calc(1.625rem / -2);
+    --collected-product-padding: 10px;
     --collected-product-remove-top: 10px;
-    --collected-product-remove-background: var(--c-gray-variant);
-    --colected-product-remove-box-shadow: none;
+    --collected-product-remove-right: 0;
+    --collected-product-remove-transform: translateX(50%);
     --collected-product-remove-opacity: 0;
+    --collected-product-remove-box-shadow: none;
     --collected-product-remove-transition: opacity 150ms ease-in-out;
-    --icon-size: 0.875rem;
-    --icon-color: var(--c-white);
-    --button-padding: 10px;
-
+    
+    &__remove {
+      --icon-width: 8px;
+      --icon-color: var(--c-white);
+      --button-padding: 10px;
+      --collected-product-remove-background: var(--c-gray-variant);
+      &:hover {
+        --collected-product-remove-background: var(--c-dark-variant);
+      }
+    }
+    
     &::after {
       --collected-product-transition: box-shadow 150ms ease-in-out;
     }
     &:hover {
-      --collected-product-remove-opacity: 1;
       --collected-product-z-index: 1;
+      --collected-product-remove-opacity: 1;
       &::after {
         content: "";
         position: absolute;

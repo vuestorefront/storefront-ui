@@ -40,7 +40,7 @@ export default {
      */
     iconColor: {
       type: String,
-      default: "white"
+      default: ""
     },
     /**
      */
