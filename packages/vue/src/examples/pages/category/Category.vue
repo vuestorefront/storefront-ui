@@ -83,7 +83,7 @@
           </SfIcon>
         </div>
         <SfButton
-          class="navbar__filters-button mobile-only"
+          class="sf-button--text navbar__filters-button mobile-only"
           @click="isFilterSidebarOpen = true"
         >
           Sort by
@@ -492,6 +492,7 @@ export default {
 .navbar {
   position: relative;
   display: flex;
+  font: 300 var(--font-size-small) / 1.6 var(--body-font-family-primary);
   @include for-desktop {
     border: 1px solid var(--c-light);
     border-width: 1px 0 1px 0;
@@ -559,6 +560,7 @@ export default {
     display: flex;
     align-items: center;
     margin: 0 auto 0 var(--spacer-extra-big);
+    --select-font-size: var(--font-size-small);
   }
   &__counter {
     margin: auto;
@@ -579,7 +581,7 @@ export default {
   }
 }
 .sort-by {
-  --select-padding: 0 0.625rem;
+  /*--select-padding: 0 0.625rem;*/
   flex: unset;
   width: 11.875rem;
 }
