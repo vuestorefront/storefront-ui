@@ -20,8 +20,8 @@
   }
   &__close {
     position: absolute;
-    right: var(--modal-close-right-position, 20px);
-    top: var(--modal-close-top-position, 20px);
+    right: var(--modal-close-right, 20px);
+    top: var(--modal-close-top, 20px);
     border: var(--modal-close-border, none);
     background: var(--modal-close-background, none);
     cursor: pointer;
