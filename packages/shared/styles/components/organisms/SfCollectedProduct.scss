@@ -73,9 +73,7 @@
 
   @include for-desktop {
     --collected-product-padding: 10px var(--spacer-big);
-    --collected-product-remove-right: calc(
-      var(--collected-product__remove-size-desktop) / -2
-    );
+    --collected-product-remove-right: calc(1.625rem / -2);
     --collected-product-remove-top: 10px;
     --collected-product-remove-background: var(--c-gray-variant);
     --colected-product-remove-box-shadow: none;
