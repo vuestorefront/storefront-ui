@@ -17,6 +17,7 @@
     border: var(--checkbox-border, 1px solid var(--c-gray-variant));
     border-radius: var(--checkbox-border-radius);
     background: var(--checkbox-background, transparent);
+    transition: background 150ms linear, border-color 150ms linear;
     @include for-desktop {
       --checkbox-size: 1.5rem;
     }
