@@ -33,6 +33,7 @@
   }
   &__circle-icon {
     --circle-icon-position: absolute;
+    z-index: 1;
     display: var(--sidebar-circle-icon-display);
     right: var(--sidebar-circle-icon-right, calc(3.25rem / 2 * -1));
     left: var(--sidebar-circle-icon-left);

@@ -2,8 +2,8 @@
 
 .sf-button {
   box-sizing: border-box;
-  width: var(--button-width);
-  height: var(--button-height);
+  width: var(--button-size, var(--button-width));
+  height: var(--button-size, var(--button-height));
   padding: var(--button-padding, var(--spacer-medium) var(--spacer-extra-big));
   border: var(--button-border, 0);
   border-radius: var(--button-border-radius, 0);
@@ -78,6 +78,7 @@
     --button-color: var(--c-primary);
     --button-text-transform: none;
     --button-text-decoration: underline;
+    --button-font-weight: 400;
     &:hover {
       --button-background: transparent;
       --button-color: var(--c-primary);

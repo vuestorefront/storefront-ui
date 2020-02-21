@@ -86,6 +86,13 @@ Keep up to 2 BEM levels (elements) at **most**.
     padding: var(--button-padding, var(--spacer));
 }
 ```
+or empty variable without default
+```css 
+sf-button {
+  border-radius: var(--button-border-radius);
+}
+```
+
 :::tip 
 Create variables for all customizable properties like 
 `padding`, `margin`, `order`, `z-index`, `color`, `border`, `border-radius`, `background-color`. 
@@ -96,7 +103,7 @@ Think of properties you would like to change it as a user and create for it a va
 Create size variables `var(--component-size, 25px)` in case when you have the same width and height value 
 
 ```css
-.sf-button{
+.sf-arrow{
   width: var(--component-width, var(--component-size, 266px));
   height: var(--component-height, var(--component-size, 266px));
 }
@@ -114,7 +121,7 @@ All global variables are here `shared/styles/_variables.scss`
 4. **CSS Variables Naming convention**
 
 - variable name for BLOCK **var(--input-width);**
-- variable name for BLOCK elements **var(--input-label-padding);**
+- variable name for ELEMENTS **var(--input-label-padding);**
 ```css
 .sf-input{
   width: var(--input-width, 350px)
@@ -161,7 +168,7 @@ All global variables are here `shared/styles/_variables.scss`
 - If you want to customize:
 ```css
 .sf-banner {
-    &--slim {
+    &__title {
         --banner-title-font-size: var(--font-size-regular);
     }
 }

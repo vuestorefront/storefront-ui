@@ -1,7 +1,6 @@
 @import "../../helpers";
 
 .sf-notification {
-  --icon-color: var(--c-white);
   position: relative;
   display: flex;
   align-items: var(--notification-align-items, flex-start);
@@ -63,6 +62,7 @@
   }
 
   &__icon {
+    --icon-color: var(--c-white);
     display: var(--notification-icon-display, none);
     margin: var(--notification-icon-margin);
   }
