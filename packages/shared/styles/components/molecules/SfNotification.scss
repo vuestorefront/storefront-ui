@@ -79,12 +79,12 @@
     --notification-align-items: center;
     --notification-max-width: 35rem;
     --notification-font-size: var(--font-size-regular);
-    --notification-font-width: var(--body-font-weight-primary);
+    --notification-font-weight: var(--body-font-weight-primary);
     --notification-box-shadow: 0 8px 11px rgba(0, 0, 0, 0.1);
     --notification-border-radius: 5px;
     --notification-opacity: 1;
     --notification-title-font-size: var(--font-size-big);
-    --notification-title-font-width: 700;
+    --notification-title-font-weight: 700;
     --notification-action-padding: 0;
     --notification-action-margin: 0 0 0 var(--spacer-big);
     --notification-action-border: 0;
