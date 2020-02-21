@@ -1,33 +1,32 @@
 body{
   margin: 0;
   padding: 0;
-  background: var(--c-body);
-  color: var(--c-text);
-  font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-primary);
-}
-a{
-  color: var(--c-link);
-  &:hover {
-    color: var(--c-link-hover);
-  }
-}
-h1 {
-  margin: 0;
-  font: var(--h1-font-weight) var(--h1-font-size) / 1.6 var(--body-font-family-secondary);
-}
-h2 {
-  margin: 0;
-  font: var(--h2-font-weight) var(--h2-font-size) / 1.6 var(--body-font-family-secondary);
-}
-h3 {
-  margin: 0;
-  font: var(--h3-font-weight) var(--h3-font-size) / 1.6 var(--body-font-family-secondary);
-}
-h4 {
-  margin: 0;
-  font: var(--h4-font-weight) var(--h4-font-size) / 1.6 var(--body-font-family-secondary);
 }
 #intro {
+    color: var(--c-text);
+    font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-primary);
+  a{
+    color: var(--c-link);
+    &:hover {
+      color: var(--c-link-hover);
+    }
+  }
+  h1 {
+    margin: 0;
+    font: var(--h1-font-weight) var(--h1-font-size) / 1.6 var(--body-font-family-secondary);
+  }
+  h2 {
+    margin: 0;
+    font: var(--h2-font-weight) var(--h2-font-size) / 1.6 var(--body-font-family-secondary);
+  }
+  h3 {
+    margin: 0;
+    font: var(--h3-font-weight) var(--h3-font-size) / 1.6 var(--body-font-family-secondary);
+  }
+  h4 {
+    margin: 0;
+    font: var(--h4-font-weight) var(--h4-font-size) / 1.6 var(--body-font-family-secondary);
+  }
   padding: 0 0.625rem;
   h1{
     font-size: 1.5rem;
