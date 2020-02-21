@@ -53,10 +53,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -107,6 +107,7 @@ storiesOf("Organisms|ProductCard", module)
         :is-on-wishlist="isOnWishlist"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -115,6 +116,16 @@ storiesOf("Organisms|ProductCard", module)
   .add("With 2 pictures", () => ({
     components: { SfProductCard },
     props: {
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+          },
+          "Props"
+        )
+      },
       imageWidth: {
         default: number("imageWidth", 216, {}, "Props")
       },
@@ -140,10 +151,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -208,6 +219,7 @@ storiesOf("Organisms|ProductCard", module)
         :is-on-wishlist="isOnWishlist"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -251,10 +263,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -305,6 +317,7 @@ storiesOf("Organisms|ProductCard", module)
         :is-on-wishlist="isOnWishlist"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -352,10 +365,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -373,7 +386,7 @@ storiesOf("Organisms|ProductCard", module)
         default: boolean("isOnWishlist", false, "Props")
       },
       showAddToCartButton: {
-        default: boolean("showAddToCartButton", true, "Props")
+        default: boolean("showAddToCartButton", false, "Props")
       },
       isAddedToCart: {
         default: boolean("isAddedToCart", false, "Props")
@@ -405,6 +418,7 @@ storiesOf("Organisms|ProductCard", module)
         :is-on-wishlist-icon="isOnWishlistIcon"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -452,10 +466,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -505,6 +519,7 @@ storiesOf("Organisms|ProductCard", module)
         :is-on-wishlist-icon="isOnWishlistIcon"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -552,10 +567,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -605,6 +620,7 @@ storiesOf("Organisms|ProductCard", module)
         :is-on-wishlist-icon="isOnWishlistIcon"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -652,10 +668,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -705,6 +721,7 @@ storiesOf("Organisms|ProductCard", module)
         :is-on-wishlist-icon="isOnWishlistIcon"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -752,10 +769,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -805,6 +822,7 @@ storiesOf("Organisms|ProductCard", module)
         :is-on-wishlist-icon="isOnWishlistIcon"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"

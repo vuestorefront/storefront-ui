@@ -40,6 +40,9 @@
   &:disabled {
     --button-background: var(--c-gray);
     cursor: default;
+    &:hover {
+      --button-background: var(--c-gray);
+    }
   }
   &--full-width {
     --button-width: 100%;
