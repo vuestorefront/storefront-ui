@@ -144,6 +144,6 @@ export default {
 }
 .breadcrumbs {
   padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big)
-  var(--spacer-extra-big);
+    var(--spacer-extra-big);
 }
 </style>

@@ -32,7 +32,7 @@ export default {
     /** One of predefined SfIcon colors, default is black.  */
     colorIcon: {
       type: String,
-      default: "primary"
+      default: "green-primary"
     },
     /** One of predefined SfIcon sizes.  */
     sizeIcon: {
