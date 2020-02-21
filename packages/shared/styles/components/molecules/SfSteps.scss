@@ -8,7 +8,8 @@
     flex-flow: var(--steps-flex-flow, row nowrap);
     justify-content: var(--steps-justify-content, flex-start);
     align-items: var(--steps-align-items, center);
-    border-bottom: var(--steps-border, 0.625rem solid #f1f2f4);
+    border: var(--steps-border, 1px solid var(--c-light));
+    border-width: var(--steps-border-width, 0 0 1px 0);
   }
 
   &__step {
