@@ -4,23 +4,6 @@
       class="breadcrumbs desktop-only"
       :breadcrumbs="breadcrumbs"
     />
-    <div class="back-bar mobile-only">
-      <div>
-        <button
-          v-if="activePage"
-          class="back-bar__button"
-          @click="activePage = ''"
-        >
-          <SfIcon icon="chevron_left" size="14px" />
-        </button>
-      </div>
-      <div class="back-bar__title">{{ barTitle }}</div>
-      <div>
-        <button v-if="false" class="back-bar__button">
-          <SfIcon icon="cross" size="14px" />
-        </button>
-      </div>
-    </div>
     <SfContentPages
       :active="activePage"
       title="Help"
@@ -81,20 +64,14 @@
   </div>
 </template>
 <script>
-import {
-  SfBreadcrumbs,
-  SfContentPages,
-  SfTabs,
-  SfIcon
-} from "@storefront-ui/vue";
+import { SfBreadcrumbs, SfContentPages, SfTabs } from "@storefront-ui/vue";
 
 export default {
   name: "Static",
   components: {
     SfBreadcrumbs,
     SfContentPages,
-    SfTabs,
-    SfIcon
+    SfTabs
   },
   data() {
     return {
@@ -120,45 +97,15 @@ export default {
 
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 #static {
   box-sizing: border-box;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
   @include for-desktop {
     max-width: 1240px;
-    margin: auto;
+    margin: 0 auto;
   }
 }
-
 .breadcrumbs {
-  padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big);
-}
-
-.static-content {
-  flex: 1;
-}
-
-.back-bar {
-  display: flex;
-  justify-content: space-between;
-  padding: var(--spacer-medium) var(--spacer-big);
-  background-color: var(--c-light);
-
-  &__button {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background-color: transparent;
-    outline: none;
-    cursor: pointer;
-  }
-
-  &__title {
-    font-family: var(--body-font-family-secondary);
-    font-size: var(--font-size-big);
-    font-weight: var(--h2-font-weight);
-  }
+  padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big)
+    var(--spacer-extra-big);
 }
 </style>
