@@ -61,3 +61,21 @@ $colors-map: (
     "variant": var(--c-danger-variant)
   )
 );
+// Convert Hex to RGB
+@function rgbColor($hexColor) {
+  @return #{red($hexColor), green($hexColor), blue($hexColor)};
+}
+// Mix internal color variables
+@mixin generate-color-variants($variable, $value) {
+  #{$variable}: #{$value};
+  #{$variable}-base: rgbColor($value);
+  #{$variable}-lighten: lighten($value, 5);
+  #{$variable}-darken: darken($value, 5);
+}
+// Assign internal color variables
+@mixin assign-color-variants($variable, $value) {
+  #{$variable}: var(#{$value});
+  #{$variable}-base: var(#{$value}-base);
+  #{$variable}-lighten: var(#{$value}-lighten);
+  #{$variable}-darken: var(#{$value}-darken);
+}
