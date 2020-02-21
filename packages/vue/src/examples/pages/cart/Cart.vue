@@ -172,67 +172,38 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
-#cart {
-  box-sizing: border-box;
-  @include for-desktop {
-    max-width: 1240px;
-    margin: auto;
-  }
-}
-
 .my-cart {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-
   &__total-items {
-    font-family: var(--body-font-family-secondary);
-    font-size: var(--font-size-big-mobile);
-    font-weight: var(--body-font-weight-secondary);
+    font: 400 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
+    margin: 0;
   }
-
   &__total-price {
-    margin-bottom: var(--spacer-big);
+    margin: 0 0 var(--spacer-big) 0;
   }
 }
-
-.collected-product-list {
-  flex: 1;
-  margin: var(--spacer-big) - var(--spacer-big);
-}
-
-.collected-product {
-  margin: var(--spacer-big) 0;
-
-  &__properties {
-    margin-top: var(--spacer-big);
-  }
-
-  &__actions {
-    opacity: 0;
-    transition: opacity 300ms ease-in-out;
-    @at-root.collected-product:hover & {
-      @include for-desktop {
-        opacity: 1;
-      }
-    }
-  }
-}
-
 .empty-cart {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
-
   &__banner {
     flex: 1;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
-
+  &__label,
+  &__description {
+    text-align: center;
+  }
+  &__label {
+    margin: var(--spacer-extra-big) 0 0 0;
+    font: 400 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
+  }
+  &__description {
+    margin: var(--spacer-big) 0 0 0;
+    font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-primary);
+  }
   &__icon {
     width: 18.125rem;
     height: 12.3125rem;
@@ -241,20 +212,22 @@ export default {
       margin-left: 50%;
     }
   }
-
-  &__label,
-  &__description {
-    line-height: 1.6;
-    text-align: center;
+}
+.collected-product-list {
+  flex: 1;
+  margin: var(--spacer-big) calc(var(--spacer-big) * -1);
+}
+.collected-product {
+  margin: var(--spacer-big) 0;
+  &__properties {
+    margin: var(--spacer-big) 0 0 0;
   }
-
-  &__label {
-    margin-top: var(--spacer-extra-big);
-    font-size: var(--font-size-big);
+  &__actions {
+    transition: opacity 150ms ease-in-out;
+    opacity: var(--cp-actions-opacity, 0);
   }
-
-  &__description {
-    margin-top: var(--spacer-big);
+  &:hover {
+    --cp-actions-opacity: 1;
   }
 }
 </style>

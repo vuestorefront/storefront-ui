@@ -12,6 +12,7 @@
     --heading-text-align: center;
   }
   &__title {
+    margin: var(--heading-title-margin, 0);
     font: var(
       --heading-title-font,
       font(
