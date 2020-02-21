@@ -300,10 +300,11 @@ export default {
   }
   &__action-button {
     &--secondary {
-      --button-margin: var(--spacer-big) 0;
+      margin: var(--spacer-big) 0;
       @include for-desktop {
+        order: -1;
         --button-margin: 0;
-        text-align: right;
+        text-align: left;
       }
     }
   }

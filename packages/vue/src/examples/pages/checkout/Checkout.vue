@@ -84,7 +84,7 @@ export default {
   },
   data() {
     return {
-      currentStep: 0,
+      currentStep: 2,
       order: {
         firstName: "",
         lastName: "",

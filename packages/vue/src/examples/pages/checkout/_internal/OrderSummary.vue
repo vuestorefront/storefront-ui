@@ -236,7 +236,7 @@ export default {
   background: #f1f2f3;
   padding: var(--spacer-extra-big);
   margin: 0 0 var(--spacer-big) 0;
-  font: 300 var(--font-size-extra-small) / 1.6 var(--body-font-family-secondary);
+  font: 300 var(--font-size-mall) / 1.6 var(--body-font-family-secondary);
   &:last-child {
     margin: 0;
   }
