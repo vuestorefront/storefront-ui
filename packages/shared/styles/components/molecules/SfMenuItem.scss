@@ -37,12 +37,12 @@
   }
 
   &__mobile-nav-icon {
-    display: var(--mobile-nav-icon-display, flex);
-    margin: var(--menu-item-mobile-nav-icon, 0 0 0 var(--spacer-big));
+    display: var(--menu-item-mobile-nav-icon-display, flex);
+    margin: var(--menu-item-mobile-nav-icon-margin, 0 0 0 var(--spacer-big));
   }
 
   @include for-desktop {
+    --menu-item-mobile-nav-icon-display: none;
     --menu-item-font-size: var(--font-size-regular);
-    --mobile-nav-icon-display: none;
   }
 }
