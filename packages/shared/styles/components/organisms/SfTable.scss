@@ -28,6 +28,7 @@
     border-bottom: var(--table-row-border-bottom, 1px solid var(--c-light));
     box-shadow: var(--table-row-box-shadow);
   }
+  
   &__data,
   &__header {
     box-sizing: border-box;
@@ -54,10 +55,13 @@
     --table-data-flex: 1;
     --table-data-margin: 0;
     --table-data-last-child-order: 0;
+
     &--bordered {
       --table-heading-padding: 10px;
       --table-row-padding: 10px;
+      --table-row-border-bottom: 1px solid var(--c-light);
     }
+
     &__row {
       &:hover {
         --table-row-background: var(--c-light);
