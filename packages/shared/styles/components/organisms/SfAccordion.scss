@@ -4,7 +4,7 @@
   font: var(
     --accordion-item-font,
     font(
-      --accordion-item-font,
+      --accordion-item,
       var(--body-font-weight-secondary),
       var(--font-size-regular),
       1.6,
@@ -20,7 +20,7 @@
     font: var(
       --accordion-item-header-font,
       font(
-        --accordion-item-header-font,
+        --accordion-item-header,
         var(--body-font-weight-secondary),
         var(--font-size-big),
         1.6,
