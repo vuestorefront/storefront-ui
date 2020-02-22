@@ -99,7 +99,7 @@
     --notification-icon-display: block;
     --notification-title-display: block;
   }
-  
+
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     &.color-#{$color} {

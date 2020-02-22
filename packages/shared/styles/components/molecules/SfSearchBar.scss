@@ -1,4 +1,4 @@
-@import '../../helpers';
+@import "../../helpers";
 
 @mixin placeholder {
   &::-webkit-input-placeholder {
@@ -72,8 +72,8 @@
     opacity: var(--search-bar-clear-icon-opacity, 0);
     transition: var(--search-bar-clear-icon-transition, all 0.2s ease-in);
   }
-  &__icon{
-    display: var(--search-bar-icon-display, block)
+  &__icon {
+    display: var(--search-bar-icon-display, block);
   }
   &--secondary {
     --search-bar-background: var(--c-light-variant);
@@ -81,8 +81,8 @@
   &--position-right {
     @include iconPosition();
   }
-  &--no-icon{
-    --search-bar-icon-display: none
+  &--no-icon {
+    --search-bar-icon-display: none;
   }
   @include for-desktop {
     --search-bar-width: 20rem;

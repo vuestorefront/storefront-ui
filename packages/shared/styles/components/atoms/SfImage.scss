@@ -1,7 +1,6 @@
 @import "../../helpers";
 
 .sf-image {
-  display: flex;
   position: relative;
   overflow: var(--image-overflow, hidden);
   width: var(--image-width, 100%);

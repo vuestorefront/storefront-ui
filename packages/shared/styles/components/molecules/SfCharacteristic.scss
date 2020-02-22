@@ -1,4 +1,4 @@
-@import '../../helpers';
+@import "../../helpers";
 
 .sf-characteristic {
   display: flex;
@@ -33,7 +33,7 @@
       )
     );
   }
-  
+
   @include for-desktop {
     --characteristic-margin: 0 var(--spacer-big) 0 0;
   }

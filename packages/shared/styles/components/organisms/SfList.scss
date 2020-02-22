@@ -1,4 +1,4 @@
-@import '../../helpers';
+@import "../../helpers";
 
 .sf-list {
   list-style-type: var(--list-list-style-type, none);
@@ -8,6 +8,15 @@
     --list-font-size: var(--font-size-small);
   }
   .sf-list__item {
-    font: var(--list-font, font(--list, 300, var(--font-size-big), 1.6, var(--body-font-family-primary)));
+    font: var(
+      --list-font,
+      font(
+        --list,
+        300,
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-primary)
+      )
+    );
   }
 }

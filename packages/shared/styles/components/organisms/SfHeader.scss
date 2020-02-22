@@ -1,4 +1,4 @@
-@import '../../helpers';
+@import "../../helpers";
 
 .sf-header-navigation-item {
   display: flex;
@@ -10,7 +10,10 @@
       color: var(--c-text);
     }
     &::after {
-     background: var(--header-navigation-item-background-underline, var(--c-text));
+      background: var(
+        --header-navigation-item-background-underline,
+        var(--c-text)
+      );
     }
   }
   &::after {

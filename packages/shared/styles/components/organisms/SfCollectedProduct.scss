@@ -85,7 +85,7 @@
     --collected-product-remove-opacity: 0;
     --collected-product-remove-box-shadow: none;
     --collected-product-remove-transition: opacity 150ms ease-in-out;
-    
+
     &__remove {
       --icon-size: 8px;
       --icon-color: var(--c-white);
@@ -95,7 +95,7 @@
         --collected-product-remove-background: var(--c-dark-variant);
       }
     }
-    
+
     &::after {
       --collected-product-transition: box-shadow 150ms ease-in-out;
     }

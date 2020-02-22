@@ -22,7 +22,7 @@
   &__icon {
     --icon-width: 0.875rem;
   }
-  
+
   @include for-desktop {
     --bar-font-size: var(--font-size-regular);
   }

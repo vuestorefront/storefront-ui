@@ -1,9 +1,18 @@
-@import '../../helpers';
+@import "../../helpers";
 
 %menu-item {
   padding: var(--menu-item-padding, var(--spacer-big));
   border-bottom: var(--menu-item-border-bottom, 1px solid var(--c-light));
-  font: var(--menu-item-font, font(--menu-item, 300, var(--font-size-big), 1.6, var(--body-font-family-secondary)));
+  font: var(
+    --menu-item-font,
+    font(
+      --menu-item,
+      300,
+      var(--font-size-big),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
   text-transform: var(--menu-item-text-transform);
   @include for-desktop {
     --menu-item-font-size: var(--font-size-regular);
@@ -20,7 +29,7 @@
     --menu-item-padding: var(--spacer-big);
     margin: var(--mega-menu-column-title-margin);
   }
-  
+
   & > .sf-menu-item {
     @extend %menu-item;
     &--primary {
@@ -51,7 +60,10 @@
     border: var(--mega-menu-content-border);
     border-top: var(--mega-menu-border-top);
     transform: var(--mega-menu-content-transform);
-    transition: var(--mega-menu-content-transition, transform 150ms ease-in-out);
+    transition: var(
+      --mega-menu-content-transition,
+      transform 150ms ease-in-out
+    );
 
     &--is-active {
       --mega-menu-content-transform: translateX(-100%);
@@ -110,7 +122,7 @@
         --mega-menu-content-transform: translateX(0);
       }
     }
- 
+
     &__aside {
       &--without-content {
         @include for-desktop {
