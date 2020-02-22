@@ -626,7 +626,7 @@ export default {
   padding: var(--spacer-big);
   &__title {
     margin: calc(var(--spacer-big) * 3) 0 var(--spacer-big) 0;
-    font-size: var(--font-size-big);
+    font: 400 var(--font-size-extra-big) / 1.6 var(--body-font-family-secondary);
     line-height: 1.6;
     &:first-child {
       margin: 0 0 var(--spacer-big) 0;
