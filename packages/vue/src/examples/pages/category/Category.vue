@@ -82,10 +82,7 @@
             </svg>
           </SfIcon>
         </div>
-        <SfButton
-          class="sf-button--text navbar__filters-button mobile-only"
-          @click="isFilterSidebarOpen = true"
-        >
+        <SfButton class="sf-button--text navbar__filters-button mobile-only">
           Sort by
           <SfIcon size="15px" style="margin-left: 10px;">
             <svg viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
