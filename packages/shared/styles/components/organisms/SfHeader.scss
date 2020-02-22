@@ -70,9 +70,8 @@
     height: var(--header-container-height, auto);
   }
   &__logo {
-    --image-img-width: auto;
-    height: var(--header-logo-height, 1.5rem);
-    width: auto;
+    --image-width: var(--header-logo-width, auto);
+    --image-height: var(--header-logo-height, 1.5rem);
     margin: var(--header-logo-margin, 10px 0);
   }
   &__navigation {
@@ -125,13 +124,13 @@
   }
 
   @include for-desktop {
+    --header-logo-height: 2.5rem;
+    --header-logo-margin: 0;
     --header-sticky-container-background: var(--c-white);
     --header-container-height: 5rem;
     --header-container-justify-content: space-between;
     --header-container-padding: 0 var(--spacer-extra-big);
     --header-container-flex-wrap: nowrap;
-    --header-logo-height: 2.125rem;
-    --header-logo-margin: 0;
     --search-bar-background: var(--c-light);
     --header-search-margin: 0 0 0 auto;
   }
