@@ -1,4 +1,4 @@
-@import '../../helpers';
+@import "../../helpers";
 
 @mixin placeholder {
   &::-webkit-input-placeholder {
@@ -11,7 +11,6 @@
     @content;
   }
 }
-
 @mixin iconPosition {
   flex-direction: var(--search-bar-icon-flex-direction, row);
   .sf-search-bar__input {
@@ -20,11 +19,12 @@
       text-align: left;
     }
     &:focus {
-      --search-bar-clear-icon-padding: 0 1.5rem 0 0;
+      & ~ .sf-search-bar__clear-icon {
+        --search-bar-clear-icon-padding: 0 1.5rem 0 0;
+      }
     }
   }
 }
-
 .sf-search-bar {
   box-sizing: border-box;
   position: relative;
@@ -36,7 +36,6 @@
   padding: var(--search-bar-padding, 0 0.9375rem);
   background: var(--search-bar-background, var(--c-light));
   border-radius: var(--search-bar-border-radius, 1.6875rem);
-
   &__input {
     position: relative;
     border: var(--search-bar-input-border, none);
@@ -66,7 +65,6 @@
       opacity: 0;
     }
   }
-
   &__clear-icon {
     position: var(--search-bar-clear-icon-position, absolute);
     right: var(--search-bar-clear-icon-right, 0.9375rem);
@@ -74,25 +72,18 @@
     opacity: var(--search-bar-clear-icon-opacity, 0);
     transition: var(--search-bar-clear-icon-transition, all 0.2s ease-in);
   }
-
+  &__icon {
+    display: var(--search-bar-icon-display, block);
+  }
   &--secondary {
     --search-bar-background: var(--c-light-variant);
   }
-
   &--position-right {
     @include iconPosition();
   }
-  &--position-right-mobile {
-    @include for-mobile {
-      @include iconPosition();
-    }
+  &--no-icon {
+    --search-bar-icon-display: none;
   }
-  &--position-right-desktop {
-    @include for-mobile {
-      @include iconPosition();
-    }
-  }
-
   @include for-desktop {
     --search-bar-width: 20rem;
   }

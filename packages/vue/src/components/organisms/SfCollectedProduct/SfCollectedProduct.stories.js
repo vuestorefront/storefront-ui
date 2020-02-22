@@ -356,7 +356,7 @@ storiesOf("Organisms|CollectedProduct", module)
         :special-price="specialPrice"
     >
       <template #title="{ title }">
-        <button @click="removeHandler">CUSTOM TITLE</button>
+        CUSTOM TITLE
       </template>
     </SfCollectedProduct>`
   }))

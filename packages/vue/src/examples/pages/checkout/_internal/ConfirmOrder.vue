@@ -286,83 +286,117 @@ export default {
 @import "~@storefront-ui/vue/styles";
 
 .title {
-  margin-bottom: var(--spacer-extra-big);
+  margin: 0 0 var(--spacer-extra-big);
 }
-
-.table {
-  margin-bottom: var(--spacer-big);
-
-  &__header {
-    font-size: var(--font-size-big);
-    font-weight: var(--body-font-weight-primary);
+.form {
+  @include for-desktop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  &__element {
+    margin: 0 0 var(--spacer-extra-big) 0;
     @include for-desktop {
-      font-size: var(--font-size-regular);
+      flex: 0 0 100%;
+    }
+    &--half {
+      @include for-desktop {
+        flex: 1 1 50%;
+      }
+      &-even {
+        @include for-desktop {
+          padding: 0 0 0 var(--spacer-extra-big);
+        }
+      }
+    }
+  }
+  &__group {
+    display: flex;
+    align-items: center;
+  }
+  &__action {
+    @include for-desktop {
+      flex: 0 0 100%;
+      display: flex;
+    }
+  }
+  &__action-button {
+    &--secondary {
+      --button-margin: var(--spacer-big) 0;
+      @include for-desktop {
+        order: -1;
+        --button-margin: 0;
+        text-align: left;
+      }
+    }
+  }
+  &__button {
+    --button-width: 100%;
+    @include for-desktop {
+      --button-width: auto;
+    }
+  }
+  &__radio-group {
+    flex: 0 0 100%;
+    margin: 0 0 var(--spacer-extra-big) 0;
+  }
+}
+.table {
+  margin: 0 0 var(--spacer-big) 0;
+  &__header {
+    font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
+    @include for-desktop {
       text-align: center;
     }
   }
-
   &__data {
-    font-size: var(--font-size-regular);
-    text-align: center;
+    font: 300 var(--font-size-small) / 1.6 var(--body-font-family-secondary);
     @include for-desktop {
-      font-size: var(--font-size-small);
+      text-align: center;
     }
   }
-
   &__image {
     @include for-desktop {
       flex: 0 0 5.125rem;
     }
   }
-
   &__action {
-    @include for-desktop {
-      flex: 0 0 2.5rem;
-    }
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    @include for-desktop {
+      flex: 0 0 2.5rem;
+    }
   }
 }
-
-.accordion {
-  margin: 0 0 var(--spacer-extra-big) 0;
-
-  &__item {
-    display: flex;
-    align-items: flex-start;
-  }
-
-  &__content {
-    flex: 1;
-  }
-
-  &__edit {
-    flex: unset;
-  }
+.product-sku {
+  color: var(--c-text-muted);
+  font-size: var(--font-size-extra-small);
 }
-
+.product-price {
+  --price-font-size: var(--font-size-small);
+}
+.button {
+  cursor: pointer;
+}
 .summary {
-  background-color: var(--c-light);
-  margin: 0 -#{var(--spacer-big)};
+  background: var(--c-light);
+  margin: 0 calc(var(--spacer-big) * -1);
   padding: var(--spacer-big);
   @include for-desktop {
-    background-color: transparent;
+    background: transparent;
   }
-
   &__group {
     @include for-desktop {
       display: flex;
       margin: 0 0 var(--spacer-extra-big) 0;
     }
   }
-
   &__terms {
     flex: 1;
     order: -1;
-    margin-bottom: var(--spacer-big);
+    margin: 0 0 var(--spacer-big) 0;
   }
-
   &__total {
     margin: 0 0 var(--spacer-extra-big) 0;
     padding: 0 var(--spacer-big);
@@ -371,10 +405,7 @@ export default {
       padding: 0;
     }
   }
-
   &__action-button {
-    flex: 1;
-
     &--secondary {
       margin: var(--spacer-big) 0;
       @include for-desktop {
@@ -384,82 +415,51 @@ export default {
       }
     }
   }
-
   &__property-total {
+    --property-name-font: 500 var(--font-size-big) / 1.6
+      var(--body-font-family-secondary);
+    --property-value-font: 500 var(--font-size-big) / 1.6
+      var(--body-font-family-secondary);
     margin: var(--spacer-big) 0 0 0;
     text-transform: uppercase;
-    font-size: var(--font-size-big);
-    line-height: 1.6;
-    font-weight: 500;
-    @include for-desktop {
-      font-size: var(--font-size-regular);
-    }
+    font: 500 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
   }
 }
-
-.button {
-  cursor: pointer;
-}
-
 .property {
-  margin: 0 0 var(--spacer) 0;
-  font-size: var(--font-size-regular);
-  line-height: 1.6;
-  @include for-desktop {
-    font-size: var(--font-size-small);
-  }
-
+  margin: 0 0 var(--spacer-big) 0;
+  font: 400 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
   &__name {
     color: var(--c-text-muted);
   }
 }
-
+.accordion {
+  margin: 0 0 var(--spacer-extra-big) 0;
+  &__item {
+    display: flex;
+    align-items: flex-start;
+  }
+  &__content {
+    flex: 1;
+  }
+  &__edit {
+    flex: unset;
+  }
+}
 .content {
   margin: 0 0 var(--spacer-big) 0;
+  font: 300 var(--font-size-mall) / 1.6 var(--body-font-family-secondary);
   color: var(--c-text);
-  font-size: var(--font-size-small);
-  font-weight: 300;
-  line-height: 1.6;
-  @include for-desktop {
-    font-size: var(--font-size-extra-small);
-  }
-
   &:last-child {
     margin: 0;
   }
-
   &__label {
     font-weight: 400;
   }
 }
-
-/* TABLE */
-.product-title,
-.product-sku {
-  line-height: 1.6;
-}
-
-.product-title {
-}
-
-.product-sku {
+a {
   color: var(--c-text-muted);
-  font-size: var(--font-size-small);
-  @include for-desktop {
-    font-size: var(--font-size-extra-small);
-  }
-}
-
-.product-price {
-  display: flex;
-  flex-direction: column;
-  font-size: var(--font-size-regular);
-  @include for-desktop {
-    font-size: var(--font-size-small);
-  }
-
-  ::v-deep .sf-price__special {
-    order: 1;
+  text-decoration: none;
+  &:hover {
     color: var(--c-text);
   }
 }

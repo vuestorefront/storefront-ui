@@ -6,7 +6,7 @@
 
   &__title {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: var(--footer-column-title-padding, var(--spacer-big));
     background: var(--footer-column-title-background, hsl(0%, 0%, 90%));
@@ -29,12 +29,12 @@
   }
 
   @include for-desktop {
+    --footer-column-title-padding: var(--spacer-big) 0;
     --footer-column-title-cursor: default;
     --footer-column-title-background: transparent;
     --footer-column-chevron-display: none;
   }
 }
-
 .sf-footer {
   &__container {
     box-sizing: var(--footer-container-box-sizing);

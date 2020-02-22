@@ -1,4 +1,4 @@
-@import '../../helpers';
+@import "../../helpers";
 
 .sf-gallery {
   position: relative;
@@ -62,9 +62,6 @@
   }
 
   &__big-image {
-    max-width: var(--gallery-big-image-max-width, 100%);
-    width: var(--gallery-big-image-width, auto);
-    height: var(--gallery-big-image-height, auto);
     cursor: var(--gallery-big-image-cursor);
     &--has-zoom {
       --gallery-big-image-cursor: zoom-in;
@@ -88,7 +85,7 @@
     --gallery-thumb-display: block;
     --gallery-thumb-width: 100%;
     --gallery-thumb-height: auto;
-    
+
     &__thumbs {
       --gallery-thumbs-bottom: auto;
       --gallery-thumbs-order: -1;

@@ -2,35 +2,39 @@
 
 .sf-image {
   position: relative;
-  overflow: var(--image-overflow, hidden);
-  width: var(--image-width, 100%);
-  max-width: calc(var(--image-max-width) * 1px);
-  &::before {
-    display: block;
-    padding-top: calc(var(--image-height) / var(--image-max-width) * 100%);
-    content: var(--image-content, "");
-  }
+  display: inline-block;
+  line-height: 0;
   img {
-    position: var(--image-img-position, absolute);
-    top: 50%;
-    left: 0;
-    display: block;
-    width: var(--image-img-width, 100%);
+    width: var(--image-width);
     max-width: 100%;
-    height: 100%;
-    transform: var(--image-img-transform, translate3d(0, -50%, 0));
+    height: var(--image-height, auto);
+  }
+  &--has-size {
+    width: 100%;
+    max-width: calc(var(--_image-width) * 1px);
+    img {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate3d(0, -50%, 0);
+    }
+    &::after {
+      display: block;
+      content: "";
+      padding-bottom: calc(var(--_image-height) / var(--_image-width) * 100%);
+    }
   }
   &__overlay {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--image-overlay-padding, var(--spacer-big));
-    background: var(--image-overlay-background, rgba(29, 31, 34, 0.8));
+    padding: var(--image-ovarlay-padding, var(--spacer-big));
+    background: var(--image-ovarlay-background, rgba(29, 31, 34, 0.8));
     color: var(--image-overlay-color, var(--c-white));
     font: var(
       --image-overlay-font,
@@ -42,16 +46,5 @@
         var(--body-font-family-secondary)
       )
     );
-  }
-  &--no-size {
-    --image-overflow: unset;
-    --image-width: auto;
-    --image-max-width: unset;
-    --image-img-width: auto;
-    --image-img-position: static;
-    --image-img-transform: translate3d(0, 0, 0);
-    &::before {
-      --image-content: unset;
-    }
   }
 }

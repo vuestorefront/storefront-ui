@@ -46,6 +46,7 @@
   }
   &__image-wrapper {
     position: relative;
+    display: flex;
   }
   &__image,
   &__picture {
@@ -94,6 +95,8 @@
   }
   &__reviews-count {
     margin: var(--product-card-reviews-count-margin, 0 0 0 0.5rem);
+    color: var(--c-text);
+    text-decoration: none;
     font: var(
       --product-reviews-count-font,
       font(

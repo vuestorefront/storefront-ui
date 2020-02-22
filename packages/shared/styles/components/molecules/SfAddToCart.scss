@@ -1,4 +1,4 @@
-@import '../../helpers';
+@import "../../helpers";
 
 .sf-add-to-cart {
   display: flex;
@@ -18,7 +18,7 @@
       --input-border: 1px solid var(--c-light);
     }
   }
-  
+
   @include for-desktop {
     --add-to-cart-button-order: 1;
     --add-to-cart-select-quantity-margin: 0;

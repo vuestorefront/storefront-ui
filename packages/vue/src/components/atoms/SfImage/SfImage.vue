@@ -1,8 +1,8 @@
 <template>
   <div
     class="sf-image"
-    :class="{ 'sf-image--no-size': !wrapperStyle }"
-    :style="wrapperStyle"
+    :class="{ 'sf-image--has-size': wrapper }"
+    :style="wrapper"
     v-on="$listeners"
     @mouseover="overlay = true"
     @mouseleave="overlay = false"
@@ -30,7 +30,7 @@
         <img
           v-if="show"
           ref="image"
-          :src="source.desktop.url"
+          :src="source"
           :alt="alt"
           :width="width"
           :height="height"
@@ -94,18 +94,11 @@ export default {
     showOverlay() {
       return this.$slots.default && this.overlay;
     },
-    wrapperStyle() {
+    wrapper() {
       return (
         this.width &&
         this.height &&
-        `--image-max-width: ${this.width}; --image-height: ${this.height}`
-      );
-    },
-    imgStyle() {
-      return (
-        this.width &&
-        this.height &&
-        `position: absolute; transform: translate3d(0, -50%, 0)`
+        `--_image-width: ${this.width}; --_image-height: ${this.height}`
       );
     }
   },
@@ -115,12 +108,6 @@ export default {
         this.show = !value;
       },
       immediate: true
-    },
-    src() {
-      if (!this.lazy) return;
-      this.$el.removeAttribute("data-loaded");
-      this.show = false;
-      this.lozad();
     }
   },
   mounted() {

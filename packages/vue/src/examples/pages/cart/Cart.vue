@@ -35,12 +35,12 @@
                 <template #actions>
                   <div class="collected-product__actions">
                     <SfButton
-                      class="sf-button--text color-secondary product__action"
+                      class="sf-button--text color-secondary collected-product__action"
                     >
                       Save for later
                     </SfButton>
                     <SfButton
-                      class="sf-button--text color-secondary product__action"
+                      class="sf-button--text color-secondary collected-product__action"
                     >
                       Add to compare
                     </SfButton>
@@ -173,6 +173,9 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .my-cart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   &__total-items {
     font: 400 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
     margin: 0;
@@ -219,12 +222,16 @@ export default {
 }
 .collected-product {
   margin: var(--spacer-big) 0;
+  font: 300 var(--font-size-extra-small) / 1.6 var(--body-font-family-secondary);
   &__properties {
     margin: var(--spacer-big) 0 0 0;
   }
   &__actions {
     transition: opacity 150ms ease-in-out;
     opacity: var(--cp-actions-opacity, 0);
+  }
+  &__action {
+    --button-padding: 0;
   }
   &:hover {
     --cp-actions-opacity: 1;

@@ -4,20 +4,20 @@
 
   // Internal color variables
   /* Should NOT be used directly for theming or component styles */
-  --_c-green-primary: #5ece7b;
-  --_c-green-secondary: #9ee2b0;
-  --_c-dark-primary: #1d1f22;
-  --_c-dark-secondary: #737680;
-  --_c-gray-primary: #a3a5ad;
-  --_c-gray-secondary: #bebfc4;
-  --_c-light-primary: #f1f2f3;
-  --_c-light-secondary: #f6f7f8;
-  --_c-red-primary: #e22225;
-  --_c-red-secondary: #fff6f5;
-  --_c-yellow-primary: #ffdf3d;
-  --_c-yellow-secondary: #fffceb;
-  --_c-blue-primary: #6699cc;
-  --_c-blue-secondary: #e1f4fe;
+  @include generate-color-variants(--_c-green-primary, #5ece7b);
+  @include generate-color-variants(--_c-green-secondary, #9ee2b0);
+  @include generate-color-variants(--_c-dark-primary, #1d1f22);
+  @include generate-color-variants(--_c-dark-secondary, #737680);
+  @include generate-color-variants(--_c-gray-primary, #a3a5ad);
+  @include generate-color-variants(--_c-gray-secondary, #bebfc4);
+  @include generate-color-variants(--_c-light-primary, #f1f2f3);
+  @include generate-color-variants(--_c-light-secondary, #f6f7f8);
+  @include generate-color-variants(--_c-red-primary, #e22225);
+  @include generate-color-variants(--_c-red-secondary, #fff6f5);
+  @include generate-color-variants(--_c-yellow-primary, #ffdf3d);
+  @include generate-color-variants(--_c-yellow-secondary, #fffceb);
+  @include generate-color-variants(--_c-blue-primary, #6699cc);
+  @include generate-color-variants(--_c-blue-secondary, #e1f4fe);
 
   /* Theme color variables */
 
@@ -33,52 +33,52 @@
   // Primary
   /* Should be used to drive attention to the main tasks that should be done while using the app.
    * It is meant to be used in major interactive elements of the page. */
-  --c-primary: var(--_c-green-primary);
+  @include assign-color-variants(--c-primary, --_c-green-primary);
   --c-primary-variant: var(--_c-green-secondary);
   --c-on-primary: var(--_c-light-secondary);
 
   // Secondary
   /* Should be used to drive attention in the elements with relevant info,
    * but where the user is not intended to take action. */
-  --c-secondary: var(--_c-dark-primary);
+  @include assign-color-variants(--c-secondary, --_c-dark-primary);
   --c-secondary-variant: var(--_c-dark-secondary);
   --c-on-secondary: var(--_c-light-secondary);
 
   /* Base colors*/
 
   // Light
-  --c-light: var(--_c-light-primary);
+  @include assign-color-variants(--c-light, --_c-light-primary);
   --c-light-variant: var(--_c-light-secondary);
   --c-on-light: var(--c-black);
 
   // Gray
-  --c-gray: var(--_c-gray-primary);
+  @include assign-color-variants(--c-gray, --_c-gray-primary);
   --c-gray-variant: var(--_c-gray-secondary);
   --c-on-gray: var(--c-black);
 
   // Dark
-  --c-dark: var(--_c-dark-primary);
+  @include assign-color-variants(--c-dark, --_c-dark-primary);
   --c-dark-variant: var(--_c-dark-secondary);
   --c-on-dark: var(--_c-light-secondary);
   /* Context colors */
 
   // Info
-  --c-info: var(--_c-blue-primary);
+  @include assign-color-variants(--c-info, --_c-blue-primary);
   --c-info-variant: var(--_c-blue-secondary);
   --c-on-info: var(--_c-light-secondary);
 
   // Success
-  --c-success: var(--_c-green-primary);
+  @include assign-color-variants(--c-success, --_c-green-primary);
   --c-success-variant: var(--_c-green-secondary);
   --c-on-success: var(--_c-light-secondary);
 
   // Waring
-  --c-warning: var(--_c-yellow-primary);
+  @include assign-color-variants(--c-warning, --_c-yellow-primary);
   --c-warning-variant: var(--_c-yellow-secondary);
   --c-on-warning: var(--_c-light-secondary);
 
   // Danger
-  --c-danger: var(--_c-red-primary);
+  @include assign-color-variants(--c-danger, --_c-red-primary);
   --c-danger-variant: var(--_c-red-secondary);
   --c-on-danger: var(--_c-light-secondary);
 }

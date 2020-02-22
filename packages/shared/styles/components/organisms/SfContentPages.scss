@@ -1,91 +1,108 @@
-@import '../../helpers';
+@import "../../helpers";
 
-:root {
-  --content-pages__sidebar-width: 18.4375rem;
-  --content-pages__sidebar-background-color: var(--c-light);
-  --content-pages__title-font-family: var(--body-font-family-secondary);
-  --content-pages__title-font-size: var(--font-size-big);
-  --content-pages__title-font-weight: 500;
-  --content-pages__title-line-height: 1.6;
-  @media screen and (min-width: $desktop-min) {
-    --content-pages__title-font-size: var(--font-size-extra-big);
-  }
-}
 .sf-content-pages {
-  $this: &;
   overflow: hidden;
   height: 100vh;
+
   &__section {
     box-sizing: border-box;
     display: flex;
     height: 100%;
-    transition: transform 150ms ease-in-out;
+    transition: var(--content-pages-transition, transform 150ms ease-in-out);
     &--is-active {
       transform: translateX(-100%);
     }
   }
+
   &__sidebar,
   &__content {
     overflow-y: auto;
     box-sizing: border-box;
-    flex: 0 0 100%;
     height: calc(100vh - 5rem);
-    padding: 1.25rem;
   }
+
   &__sidebar {
-    padding: var(--spacer-big);
+    flex: var(--content-pages-sidebar-flex, 0 0 100%);
+    padding: var(--content-pages-sidebar-padding, var(--spacer-big));
+    background-color: var(--content-pages-sidebar-background);
   }
+
+  &__content {
+    flex: 0 0 100%;
+    padding: var(--content-pages-content-padding, var(--spacer-big));
+  }
+
   &__title {
-    padding: var(--spacer-big) 0;
-    font-family: var(--content-pages__title-font-family);
-    font-size: var(--content-pages__title-font-size);
-    font-weight: var(--content-pages__title-font-weight);
-    line-height: var(--content-pages__title-line-height);
+    padding: var(--content-pages-title-padding, var(--spacer-big) 0);
+    margin: var(--content-pages-title-margin);
+    font: var(
+      --content-pages-title-font,
+      font(
+        --content-pages-title,
+        500,
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
   }
+
   &__category-title {
-    margin-bottom: var(--spacer-big);
-    font-size: var(--font-size-big);
-    font-family: var(--body-font-family-secondary);
-    font-weight: var(--h2-font-weight);
+    margin: var(--content-pages-category-title-margin, 0 0 var(--spacer-big) 0);
+    font: var(
+      --content-pages-category-title-font,
+      font(
+        --content-pages-category-title,
+        500,
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
   }
+
   &__list {
-    margin-bottom: var(--spacer-extra-big);
+    margin: var(--content-pages-list-margin, 0 0 var(--spacer-extra-big) 0);
   }
+
   &__list-item {
-    border-bottom: 1px solid var(--c-light);
+    border: var(--content-pages-list-item-border, 1px solid var(--c-light));
+    border-width: var(--content-pages-list-item-border-width, 0 0 1px 0);
   }
+
   &__menu {
-    padding: var(--spacer-big) var(--spacer-big) var(--spacer-big) 10px;
+    padding: var(
+      --content-pages-menu-padding,
+      var(--spacer-big) var(--spacer-big) var(--spacer-big) 10px
+    );
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-content-pages {
+
+  @include for-desktop {
+    --content-pages-content-padding: var(--spacer-big) var(--spacer-extra-big);
+    --content-pages-sidebar-padding: var(--spacer-big) var(--spacer-extra-big)
+      var(--spacer-extra-big);
+    --content-pages-sidebar-background: var(--c-light);
+    --content-pages-title-margin: 0 0 var(--spacer-big) 0;
+    --content-pages-category-title-font-weight: 400;
+    --content-pages-menu-padding: var(--spacer) 0;
+    --content-pages-title-font-size: var(--font-size-extra-big);
     height: auto;
+
     &__section {
       &--is-active {
         transform: translateX(0);
       }
     }
+
     &__sidebar,
     &__content {
       overflow-y: hidden;
       flex: 1;
       height: auto;
-      padding: var(--spacer-big) var(--spacer-extra-big);
     }
+
     &__sidebar {
-      flex: 0 0 var(--content-pages__sidebar-width);
-      padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big);
-      background-color: var(--content-pages__sidebar-background-color);
-    }
-    &__title {
-      margin-bottom: var(--spacer-big);
-    }
-    &__category-title {
-      font-weight: var(--body-font-weight-secondary);
-    }
-    &__menu {
-      padding: var(--spacer) 0;
+      flex: var(--content-pages-sidebar-flex, 0 0 18.4375rem);
     }
   }
 }

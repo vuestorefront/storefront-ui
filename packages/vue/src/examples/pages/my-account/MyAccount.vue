@@ -139,18 +139,11 @@ export default {
   box-sizing: border-box;
   @include for-desktop {
     max-width: 1240px;
-    margin: auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    margin: 0 auto;
   }
 }
-
 .breadcrumbs {
-  padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big);
-}
-
-.my-account {
-  height: 100%;
+  padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big)
+    var(--spacer-extra-big);
 }
 </style>

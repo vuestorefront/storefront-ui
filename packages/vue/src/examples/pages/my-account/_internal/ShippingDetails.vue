@@ -279,133 +279,111 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
-.form {
-  @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  &__element {
-    margin-bottom: var(--spacer-extra-big);
-    @include for-desktop {
-      flex: 0 0 100%;
-    }
-
-    &--half {
-      @include for-desktop {
-        flex: 1 1 50%;
-      }
-
-      &-even {
-        @include for-desktop {
-          padding-left: var(--spacer-extra-big);
-        }
-      }
-    }
-  }
-
-  &__select {
-    ::v-deep .sf-select__selected {
-      padding: 5px 0;
-    }
-  }
-
-  &__button {
-    width: 100%;
-    @include for-desktop {
-      width: auto;
-    }
-  }
-}
-
-.message {
-  margin: 0 0 var(--spacer-extra-big) 0;
-  font-family: var(--body-font-family-primary);
-  font-weight: var(--body-font-weight-primary);
-  line-height: 1.6;
-  font-size: var(--font-size-regular);
-}
-
 .shipping-list {
-  margin-bottom: var(--spacer-extra-big);
+  margin: 0 0 var(--spacer-extra-big) 0;
 }
-
 .shipping {
   display: flex;
   padding: var(--spacer-big) 0;
-  border-top: 1px solid var(--c-light);
-
+  border: 1px solid var(--c-light);
+  border-width: 1px 0 0 0;
   &:last-child {
-    border-bottom: 1px solid var(--c-light);
+    border-width: 1px 0 1px 0;
   }
-
   &__content {
     flex: 1;
     color: var(--c-text);
-    font-size: var(--font-size-small);
-    font-weight: 300;
-    line-height: 1.6;
+    font: 300 var(--font-size-small) / 1.6 var(--body-font-family-secondary);
   }
-
   &__actions {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
     @include for-desktop {
       flex-direction: row;
-      align-items: center;
       justify-content: flex-end;
+      align-items: center;
     }
   }
-
   &__button-delete {
-    background-color: var(--c-light);
-    color: var(--c-text-muted);
+    --button-background: var(--c-light);
+    --button-color: var(--c-dark-variant);
+    &:hover {
+      --button-background: var(--c-light-variant);
+    }
     @include for-desktop {
-      margin-left: var(--spacer-big);
+      margin: 0 0 0 var(--spacer-big);
     }
   }
-
   &__address {
     margin: 0 0 var(--spacer-big) 0;
-
     &:last-child {
       margin: 0;
     }
   }
-
   &__client-name {
-    font-size: var(--font-size-big);
-    font-weight: 500;
-    @include for-desktop {
-      font-size: var(--font-size-regular);
-    }
+    font: 500 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
   }
 }
-
-.action-button {
-  width: 100%;
-  @include for-desktop {
-    width: auto;
-  }
-}
-
 .tab-orphan {
   @include for-mobile {
-    ::v-deep .sf-tabs {
-      &__title {
-        display: none;
+    --tabs-title-display: none;
+    --tabs-content-padding: 0;
+    --tabs-conent-border-width: 0;
+  }
+}
+.form {
+  @include for-desktop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  &__element {
+    margin: 0 0 var(--spacer-extra-big) 0;
+    @include for-desktop {
+      flex: 0 0 100%;
+    }
+    &--half {
+      @include for-desktop {
+        flex: 1 1 50%;
       }
-
-      &__content {
-        border: 0;
-        padding: 0;
+      &-even {
+        @include for-desktop {
+          padding: 0 0 0 var(--spacer-extra-big);
+        }
       }
     }
+  }
+  &__button {
+    --button-width: 100%;
+    @include for-desktop {
+      --button-width: auto;
+    }
+  }
+}
+.message {
+  margin: 0 0 var(--spacer-extra-big) 0;
+  font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
+  &__label {
+    font-weight: 500;
+  }
+}
+.notice {
+  margin: var(--spacer-big) 0 0 0;
+  font: 300 var(--font-size-extra-small) / 1.6 var(--body-font-family-secondary);
+}
+a {
+  color: var(--c-text-muted);
+  text-decoration: none;
+  &:hover {
+    color: var(--c-text);
+  }
+}
+.action-button {
+  --button-width: 100%;
+  @include for-desktop {
+    --button-width: auto;
   }
 }
 </style>

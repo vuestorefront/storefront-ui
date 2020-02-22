@@ -82,10 +82,7 @@
             </svg>
           </SfIcon>
         </div>
-        <SfButton
-          class="navbar__filters-button mobile-only"
-          @click="isFilterSidebarOpen = true"
-        >
+        <SfButton class="sf-button--text navbar__filters-button mobile-only">
           Sort by
           <SfIcon size="15px" style="margin-left: 10px;">
             <svg viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
@@ -492,6 +489,7 @@ export default {
 .navbar {
   position: relative;
   display: flex;
+  font: 300 var(--font-size-small) / 1.6 var(--body-font-family-primary);
   @include for-desktop {
     border: 1px solid var(--c-light);
     border-width: 1px 0 1px 0;
@@ -534,6 +532,7 @@ export default {
     line-height: 1.6;
   }
   &__filters-button {
+    --button-text-decoration: none;
     --button-font-weight: var(--body-font-weight-secondary);
     --button-color: var(--c-text);
     --button-transition: all 150ms linear;
@@ -559,6 +558,7 @@ export default {
     display: flex;
     align-items: center;
     margin: 0 auto 0 var(--spacer-extra-big);
+    --select-font-size: var(--font-size-small);
   }
   &__counter {
     margin: auto;
@@ -579,7 +579,7 @@ export default {
   }
 }
 .sort-by {
-  --select-padding: 0 0.625rem;
+  /*--select-padding: 0 0.625rem;*/
   flex: unset;
   width: 11.875rem;
 }
@@ -623,7 +623,7 @@ export default {
   padding: var(--spacer-big);
   &__title {
     margin: calc(var(--spacer-big) * 3) 0 var(--spacer-big) 0;
-    font-size: var(--font-size-big);
+    font: 400 var(--font-size-extra-big) / 1.6 var(--body-font-family-secondary);
     line-height: 1.6;
     &:first-child {
       margin: 0 0 var(--spacer-big) 0;

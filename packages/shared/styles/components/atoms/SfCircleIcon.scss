@@ -12,7 +12,10 @@
     --circle-icon-box-shadow: 0 0 0 0.3124rem rgba(var(--c-primary-base), 0.4);
   }
   &:active {
-    --circle-icon-box-shadow: 0 0 0 0.625rem rgba(var(--c-primary-base), 0.4);
+    --circle-icon-box-shadow: 0 0 0 0.625rem rgba(var(--c-primary-bases), 0.4);
+  }
+  &:disabled {
+    --circle-icon-box-shadow: 0;
   }
   &__badge {
     position: absolute;
@@ -45,6 +48,28 @@
     }
     &-leave-active {
       animation: bounce-in 300ms reverse;
+    }
+  }
+  @each $color, $map in $colors-map {
+    $primary: map-get($map, "primary");
+    $variant: map-get($map, "variant");
+    &.color-#{$color} {
+      --button-background: var(--c-#{$color});
+      &:hover {
+        --button-background: var(--c-#{$color}-lighten);
+        --circle-icon-box-shadow: 0
+          0
+          0
+          0.3124rem
+          rgba(var(--c-#{$color}-base), 0.4);
+      }
+      &:active {
+        --circle-icon-box-shadow: 0
+          0
+          0
+          0.625rem
+          rgba(var(--c-#{$color}-base), 0.4);
+      }
     }
   }
 }

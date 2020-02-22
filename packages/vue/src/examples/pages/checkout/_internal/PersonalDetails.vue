@@ -156,82 +156,74 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 .title {
-  margin-bottom: var(--spacer-extra-big);
+  margin: 0 0 var(--spacer-extra-big);
 }
-
 .form {
   @include for-desktop {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
   }
-
   &__element {
-    margin-bottom: var(--spacer-extra-big);
+    margin: 0 0 var(--spacer-extra-big) 0;
     @include for-desktop {
       flex: 0 0 100%;
     }
-
     &--half {
       @include for-desktop {
         flex: 1 1 50%;
       }
-
       &-even {
         @include for-desktop {
-          padding-left: var(--spacer-extra-big);
+          padding: 0 0 0 var(--spacer-extra-big);
         }
       }
     }
   }
-
   &__group {
     display: flex;
     align-items: center;
   }
-
   &__action {
     @include for-desktop {
       flex: 0 0 100%;
       display: flex;
     }
   }
-
   &__action-button {
-    flex: 1;
-
     &--secondary {
       margin: var(--spacer-big) 0;
       @include for-desktop {
-        margin: 0;
+        --button-margin: 0;
         text-align: right;
       }
     }
   }
-}
-
-.info {
-  margin-left: var(--spacer-big);
-  color: var(--c-text-muted);
-  text-decoration: none;
-}
-
-.characteristic {
-  margin-bottom: var(--spacer-big);
-}
-
-.modal {
-  .modal {
-    &__heading {
-      margin-bottom: var(--spacer-extra-big);
+  &__button {
+    --button-width: 100%;
+    @include for-desktop {
+      --button-width: auto;
     }
   }
-
+}
+.info {
+  --button-padding: 0 var(--spacer);
+  --button-color: var(--c-text-muted);
+  --button-text-decoration: none;
+}
+.characteristic {
+  margin: 0 0 var(--spacer-big) 0;
+  &:last-child {
+    margin: 0;
+  }
+}
+.modal {
+  &__heading {
+    margin: 0 0 var(--spacer-extra-big) 0;
+  }
   &__button {
-    display: block;
-    margin-top: var(--spacer-extra-big);
+    margin: var(--spacer-extra-big) 0 0 0;
   }
 }
 </style>
