@@ -535,6 +535,7 @@ export default {
     line-height: 1.6;
   }
   &__filters-button {
+    --button-text-decoration: none;
     --button-font-weight: var(--body-font-weight-secondary);
     --button-color: var(--c-text);
     --button-transition: all 150ms linear;
