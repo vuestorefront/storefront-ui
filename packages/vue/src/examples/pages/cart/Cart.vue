@@ -173,6 +173,9 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .my-cart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   &__total-items {
     font: 400 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
     margin: 0;
