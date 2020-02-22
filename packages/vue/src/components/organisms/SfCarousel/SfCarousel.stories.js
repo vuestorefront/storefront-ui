@@ -14,7 +14,7 @@ storiesOf("Organisms|Carousel", module)
     template: `<SfCarousel
         :style="{maxWidth: '1140px', margin: 'auto'}"
       >
-        <SfCarouselItem v-for="index in 24">
+        <SfCarouselItem v-for="index in 12">
           <StoriesPlaceholder :index="index"/>
         </SfCarouselItem>
       </SfCarousel>`
