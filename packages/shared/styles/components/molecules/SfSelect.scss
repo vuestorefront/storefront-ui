@@ -1,4 +1,5 @@
 @import "../../helpers";
+
 .sf-select-option {
   display: block;
   box-sizing: border-box;
@@ -30,6 +31,7 @@
     }
   }
 }
+
 .sf-select {
   position: relative;
   box-sizing: border-box;
@@ -165,9 +167,6 @@
     &.sf-select--is-selected {
       --select-label-opacity: 0;
     }
-    //&.sf-select--is-selected {
-    //  --select-label-opacity: 0;
-    //}
   }
   &-enter-active {
     animation: var(--select-animation-enter, ssmobile 150ms);
@@ -183,6 +182,7 @@
     --select-animation-leave: ssdesktop 150ms revers;
   }
 }
+
 @keyframes ssdesktop {
   0% {
     opacity: 0;

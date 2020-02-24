@@ -1,12 +1,14 @@
 @import "../../helpers";
+
 .sf-arrow {
-  --button-padding: 0 0.625rem;
   --button-width: 2.75rem;
   --button-height: 2.75rem;
+  --button-padding: 0 0.625rem;
   --button-background: var(--c-light);
   --icon-width: 1.5rem;
   --icon-height: 0.75rem;
   --icon-color: var(--c-dark);
+
   display: flex;
   align-items: center;
   justify-content: var(--arrow-justify-content, center);
@@ -19,10 +21,10 @@
   &--long {
     --button-width: 3.75rem;
     --button-height: 1.875rem;
-    --button-transition: transform 150ms linear;
     --button-background: var(--c-white);
-    --arrow-icon-transform: scale(0.855, 0.75);
+    --button-transition: transform 150ms linear;
     --arrow-justify-content: flex-start;
+    --arrow-icon-transform: scale(0.855, 0.75);
     &:hover {
       transform: scale(1.17, 1.34);
       transform-origin: center left;
@@ -41,8 +43,8 @@
   &--transparent {
     --button-background: transparent;
     &:hover {
-      --icon-color: var(--c-dark);
       --button-background: transparent;
+      --icon-color: var(--c-dark);
       --arrow-box-shadow: none;
     }
   }

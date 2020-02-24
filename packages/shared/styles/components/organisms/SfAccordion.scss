@@ -1,4 +1,5 @@
 @import "../../helpers";
+
 .sf-accordion-item {
   font: var(
     --accordion-item-font,
@@ -35,6 +36,10 @@
     align-items: var(--accordion-item-chevron-align-items, auto);
     max-height: var(--accordion-item-chevron-max-height, none);
   }
+  @include for-desktop {
+    --accordion-item-header-font-size: var(--font-size-regular);
+    --acordion-item-font-size: var(--font-size-big);
+  }
 }
 .sf-accordion {
   &--has-chevron {
@@ -44,8 +49,4 @@
       var(--accordion-font-size) * var(--accordion-line-height)
     );
   }
-}
-@include for-desktop {
-  --accordion-item-header-font-size: var(--font-size-regular);
-  --acordion-item-font-size: var(--font-size-big);
 }

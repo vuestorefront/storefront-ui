@@ -1,9 +1,11 @@
 @import "../../helpers";
+
 .sf-circle-icon {
   --button-padding: var(--spacer-big);
   --button-border-radius: 100%;
   --button-background: var(--c-primary);
   --button-transition: box-shadow 300ms ease;
+
   position: var(--circle-icon-position, relative);
   box-shadow: var(--circle-icon-box-shadow);
   &:hover {
@@ -72,6 +74,7 @@
     }
   }
 }
+
 @keyframes bounce-in {
   0% {
     transform: scale(0);
