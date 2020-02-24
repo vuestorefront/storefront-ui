@@ -1,67 +1,54 @@
-@import '../../variables';
-:root {
-  --sidebar-width: 20rem;
-  --sidebar-padding: var(--spacer-extra-big);
-  --sidebar-background-color: var(--c-white);
-  --sidebar__title-margin-bottom: 1.5rem;
-  --sidebar__aside-z-index: 1;
-  @media screen and (min-width: $desktop-min) {
-    --sidebar-width: 25.5rem;
-  }
-}
+@import "../../helpers";
+
 .sf-sidebar {
-  $this: &;
+  @include for-desktop {
+    --sidebar-aside-width: 25.5rem;
+    --sidebar-circle-icon-top: 5.625rem;
+  }
   &__aside {
     position: fixed;
-    top: 0;
-    left: 0;
-    z-index: var(--sidebar__aside-z-index);
+    top: var(--sidebar-aside-top, 0);
+    right: var(--sidebar-aside-right);
+    left: var(--sidebar-aside-left, 0);
+    z-index: var(--sidebar-aside-z-index, 1);
     box-sizing: border-box;
-    width: var(--sidebar-width);
+    width: var(--sidebar-aside-width, 20rem);
     height: 100%;
-    background-color: var(--sidebar-background-color);
+    background-color: var(--sidebar-aside-background, var(--c-white));
   }
   &__content {
     overflow-y: auto;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+    display: var(--sidebar-content-display, flex);
+    flex-direction: var(--sidebar-content-flex-direction, column);
+    width: var(--sidebar-content-width);
     height: 100%;
-    padding: var(--sidebar-padding);
+    padding: var(--sidebar-content-padding, var(--spacer-extra-big));
     &::-webkit-scrollbar {
-      width: 0;
+      --sidebar-content-width: 0;
     }
   }
   &__title {
-    margin-bottom: var(--sidebar__title-margin-bottom);
+    margin: var(--sidebar-title-margin, 0 0 1.5rem 0);
   }
   &__circle-icon {
-    position: absolute;
-    right: 3.25rem / 2 * -1;
-    top: 4.925rem;
+    --circle-icon-position: absolute;
+    z-index: 1;
+    display: var(--sidebar-circle-icon-display);
+    right: var(--sidebar-circle-icon-right, calc(3.25rem / 2 * -1));
+    left: var(--sidebar-circle-icon-left);
+    top: var(--sidebar-circle-icon-top, 4.925rem);
   }
   &--right {
-    #{$this}__aside {
-      left: auto;
-      right: 0;
-    }
-    #{$this}__circle-icon {
-      left: 3.25rem / 2 * -1;
-    }
+    --sidebar-aside-left: auto;
+    --sidebar-aside-right: 0;
+    --sidebar-circle-icon-right: auto;
+    --sidebar-circle-icon-left: calc(3.25rem / 2 * -1);
   }
   &--mobile-only {
-    #{$this}__circle-icon {
-      display: none;
-    }
+    --sidebar-circle-icon-display: none;
   }
   &--has-scroll-lock {
     overflow: hidden;
-  }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-sidebar {
-    &__circle-icon {
-      top: 5.625rem;
-    }
   }
 }

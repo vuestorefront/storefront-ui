@@ -76,10 +76,10 @@ export default {
       return SF_SIZES.includes(size);
     },
     iconColorClass() {
-      return this.isSFColors ? `sf-icon--color-${this.color.trim()}` : "";
+      return this.isSFColors ? `color-${this.color.trim()}` : "";
     },
     iconSizeClass() {
-      return this.isSFSizes ? `sf-icon--size-${this.size.trim()}` : "";
+      return this.isSFSizes ? `size-${this.size.trim()}` : "";
     },
     iconCustomStyle() {
       return {

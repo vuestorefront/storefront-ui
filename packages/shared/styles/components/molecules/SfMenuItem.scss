@@ -1,52 +1,41 @@
-@import '../../variables';
-:root {
-  --menu-item-color: var(--c-gray);
-  --menu-item-color--is-active: var(--c-dark);
-  --menu-item-font-family: var(--body-font-family-secondary);
-  --menu-item-font-size: var(--font-size-big);
-  --menu-item-font-weight: var(--body-font-weight-secondary);
-  --menu-item-line-height: 1.6;
-  @media screen and (min-width: $desktop-min) {
-    --menu-item-font-size: var(--font-size-regular);
-  }
-}
+@import "../../helpers";
+
 .sf-menu-item {
-  $this: &;
-  cursor: pointer;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  color: var(--menu-item-color);
-  font-family: var(--menu-item-font-family);
-  font-size: var(--menu-item-font-size);
-  font-weight: var(--menu-item-font-weight);
-  line-height: var(--menu-item-line-height);
+  justify-content: space-between;
+  color: var(--menu-item-color, var(--c-gray));
+  font: var(
+    --menu-item-font,
+    font(
+      --menu-item,
+      400,
+      var(--font-size-regular),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
+  cursor: pointer;
   &:hover {
-    color: var(--menu-item-color--is-active);
+    --menu-item-color: var(--c-dark);
   }
   &--is-active {
-    color: var(--menu-item-color--is-active);
-    text-decoration: underline;
+    --menu-item-color: var(--c-dark);
+    --icon-color: var(--c-dark);
+    text-decoration: var(--menu-item-active-text-decoration, underline);
   }
   &__icon {
-    fill: var(--menu-item-color);
-    margin-right: var(--spacer-big);
-    #{$this}--is-active & {
-      fill: var(--menu-item-color--is-active);
-    }
+    --icon-color: var(--c-gray);
+    margin: var(--menu-item-icon-margin, 0 var(--spacer-big) 0 0);
   }
   &__count {
-    margin-left: auto;
+    margin: var(--menu-item-count-margin, 0 0 0 auto);
   }
   &__mobile-nav-icon {
-    display: flex;
-    margin-left: var(--spacer-big);
+    display: var(--menu-item-mobile-nav-icon-display, flex);
+    margin: var(--menu-item-mobile-nav-icon-margin, 0 0 0 var(--spacer-big));
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-menu-item {
-    &__mobile-nav-icon {
-      display: none;
-    }
+  @include for-desktop {
+    --menu-item-mobile-nav-icon-display: none;
   }
 }

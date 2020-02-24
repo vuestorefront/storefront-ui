@@ -2,4 +2,4 @@
 Pagination component with indicators. 
 
 # storybook-iframe-height
-10rem
+5rem

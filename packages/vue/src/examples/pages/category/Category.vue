@@ -10,7 +10,7 @@
       </div>
       <div class="navbar__main">
         <SfButton
-          class="navbar__filters-button"
+          class="sf-button--text navbar__filters-button "
           @click="isFilterSidebarOpen = true"
         >
           <SfIcon size="15px" style="margin-right: 10px;">
@@ -82,10 +82,7 @@
             </svg>
           </SfIcon>
         </div>
-        <SfButton
-          class="navbar__filters-button mobile-only"
-          @click="isFilterSidebarOpen = true"
-        >
+        <SfButton class="sf-button--text navbar__filters-button mobile-only">
           Sort by
           <SfIcon size="15px" style="margin-left: 10px;">
             <svg viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
@@ -160,14 +157,16 @@
           @change="filter.selected = !filter.selected"
         />
         <h3 class="filters__title">Color</h3>
-        <SfColor
-          v-for="filter in filters.color"
-          :key="filter.value"
-          :color="filter.color"
-          :selected="filter.selected"
-          class="filters__item--color"
-          @click="filter.selected = !filter.selected"
-        />
+        <div class="filters__colors">
+          <SfColor
+            v-for="filter in filters.color"
+            :key="filter.value"
+            :color="filter.color"
+            :selected="filter.selected"
+            class="filters__color"
+            @click="filter.selected = !filter.selected"
+          />
+        </div>
         <h3 class="filters__title">Size</h3>
         <SfFilter
           v-for="filter in filters.size"
@@ -470,219 +469,182 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
 #category {
   box-sizing: border-box;
   @include for-desktop {
     max-width: 1240px;
-    margin: auto;
+    margin: 0 auto;
   }
 }
-
+.section {
+  padding: 0 var(--spacer-big);
+  @include for-desktop {
+    padding: 0;
+  }
+}
 .breadcrumbs {
-  padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big);
+  padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big)
+    var(--spacer-extra-big);
 }
-
-.main {
-  display: flex;
-}
-
 .navbar {
   position: relative;
   display: flex;
+  font: 300 var(--font-size-small) / 1.6 var(--body-font-family-primary);
   @include for-desktop {
-    border-top: 1px solid var(--c-light);
-    border-bottom: 1px solid var(--c-light);
+    border: 1px solid var(--c-light);
+    border-width: 1px 0 1px 0;
   }
-
   &::after {
     position: absolute;
     bottom: 0;
     left: var(--spacer-big);
     width: calc(100% - calc(var(--spacer-big) * 2));
     height: 1px;
-    background-color: var(--c-light);
+    background: var(--c-light);
     content: "";
     @include for-desktop {
       content: none;
     }
   }
-
-  &__aside {
-    display: flex;
-    align-items: center;
-    flex: 0 0 15%;
-    padding: var(--spacer-big) var(--spacer-extra-big);
-    border-right: 1px solid var(--c-light);
-  }
-
+  &__aside,
   &__main {
-    flex: 1;
     display: flex;
     align-items: center;
     padding: var(--spacer-medium) 0;
     font-size: var(--font-size-small);
+    line-height: 1.6;
     @include for-desktop {
       padding: var(--spacer-big) 0;
     }
   }
-
+  &__aside {
+    flex: 0 0 15%;
+    padding: var(--spacer-big) var(--spacer-extra-big);
+    border: 1px solid var(--c-light);
+    border-width: 0 1px 0 0;
+  }
+  &__main {
+    flex: 1;
+  }
   &__title {
     padding: 0;
     font-size: var(--font-size-big);
-    line-height: 2.23;
+    line-height: 1.6;
   }
-
   &__filters-button {
+    --button-text-decoration: none;
+    --button-font-weight: var(--body-font-weight-secondary);
+    --button-color: var(--c-text);
+    --button-transition: all 150ms linear;
     display: flex;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    background: transparent;
-    color: inherit;
-    font-size: inherit;
-    font-weight: 500;
     @include for-desktop {
       margin: 0 0 0 var(--spacer-extra-big);
-      font-weight: 400;
-      text-transform: none;
     }
-
     svg {
-      fill: var(--c-dark);
-      @include for-desktop {
-        fill: var(--c-gray-variant);
-      }
+      fill: var(--c-text-muted);
     }
-
     &:hover {
-      color: var(--c-primary);
-
+      --button-color: var(--c-primary);
       svg {
         fill: var(--c-primary);
       }
     }
   }
-
   &__label {
-    color: var(--c-gray-variant);
+    color: var(--c-text-muted);
   }
-
   &__sort {
     display: flex;
     align-items: center;
-    margin-left: var(--spacer-extra-big);
-    margin-right: auto;
+    margin: 0 auto 0 var(--spacer-extra-big);
+    --select-font-size: var(--font-size-small);
   }
-
   &__counter {
     margin: auto;
     @include for-desktop {
-      margin-right: 0;
+      margin: auto 0 auto auto;
     }
   }
-
   &__view {
     display: flex;
     align-items: center;
     margin: 0 var(--spacer-extra-big);
-
+    @include for-desktop {
+      margin: var(--spacer-big);
+    }
     &-icon {
-      margin-left: 10px;
+      margin: 0 0 0 0.625rem;
     }
   }
 }
-
+.sort-by {
+  /*--select-padding: 0 0.625rem;*/
+  flex: unset;
+  width: 11.875rem;
+}
+.main {
+  display: flex;
+}
+.sidebar {
+  flex: 0 0 15%;
+  padding: var(--spacer-extra-big);
+  border: 1px solid var(--c-light);
+  border-width: 0 1px 0 0;
+}
 .products {
   box-sizing: border-box;
   flex: 1;
-  margin: 0 - var(--spacer);
+  margin: 0 calc(var(--spacer) * -1);
   @include for-desktop {
     margin: var(--spacer-big);
   }
-
   &__list {
     display: flex;
     flex-wrap: wrap;
   }
-
   &__product-card {
-    flex: 0 0 50%;
-    padding: var(--spacer);
+    --product-card-padding: var(--spacer);
+    flex: 1 1 50%;
     @include for-desktop {
-      flex: 0 0 25%;
-      padding: var(--spacer-big);
+      --product-card-padding: var(--spacer-big);
+      flex: 1 1 25%;
     }
   }
-
   &__pagination {
     @include for-desktop {
       display: flex;
       justify-content: center;
-      margin-top: var(--spacer-extra-big);
+      margin: var(--spacer-extra-big) 0 0 0;
     }
-  }
-}
-
-.section {
-  padding-left: var(--spacer-big);
-  padding-right: var(--spacer-big);
-  @include for-desktop {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-.sidebar {
-  flex: 0 0 15%;
-  padding: var(--spacer-extra-big);
-  border-right: 1px solid var(--c-light);
-}
-
-.sort-by {
-  flex: unset;
-  width: 190px;
-  padding: 0 10px;
-  font-size: inherit;
-
-  &__option {
-    padding: 10px;
-    font-size: inherit;
   }
 }
 .filters {
   padding: var(--spacer-big);
-
   &__title {
-    margin: calc(var(--spacer-big) * 3) 0 var(--spacer-big);
-    font-size: var(--font-size-big);
+    margin: calc(var(--spacer-big) * 3) 0 var(--spacer-big) 0;
+    font: 400 var(--font-size-extra-big) / 1.6 var(--body-font-family-secondary);
     line-height: 1.6;
-
     &:first-child {
       margin: 0 0 var(--spacer-big) 0;
     }
   }
-
-  &__item {
-    padding: var(--spacer-small) 0;
-
-    &--color {
-      margin: 0 var(--spacer);
-    }
+  &__colors {
+    margin: calc(var(--spacer) * -1);
   }
-
+  &__color {
+    margin: var(--spacer);
+  }
+  &__item {
+    margin: var(--spacer) 0;
+  }
   &__buttons {
     margin: calc(var(--spacer-big) * 3) 0 0 0;
   }
-
   &__button-clear {
-    color: #a3a5ad;
-    margin-top: 10px;
-    background-color: var(--c-light);
+    --button-background: var(--c-light);
+    --button-color: var(--c-dark-variant);
+    margin: 0.625rem 0 0 0;
   }
 }
 </style>

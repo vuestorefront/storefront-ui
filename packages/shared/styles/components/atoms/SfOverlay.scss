@@ -1,14 +1,11 @@
-@import '../../variables';
-:root {
-  --overlay__background-color: rgba(29, 31, 34, .8);
-  --overlay-z-index: 1;
-}
+@import "../../helpers";
+
 .sf-overlay {
-  background: var(--overlay__background-color);
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: var(--overlay-z-index);
+  z-index: var(--overlay-z-index, 1);
+  background: var(--overlay-background, rgba(var(--c-black-base), 0.8));
 }

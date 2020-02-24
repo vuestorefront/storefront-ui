@@ -1,5 +1,5 @@
-@import 'variables';
-@import '../utilities/transitions/transitions';
-@import '~@storefront-ui/shared/styles/global';
-@import '~@storefront-ui/shared/styles/helpers/visibility';
-@import '~@storefront-ui/shared/styles/helpers/colors';
+@import "~@storefront-ui/shared/styles/global";
+@import "~@storefront-ui/shared/styles/helpers";
+@import "~@storefront-ui/shared/styles/variables";
+// vue transitions
+@import "../utilities/transitions/transitions";

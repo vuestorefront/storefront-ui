@@ -13,7 +13,7 @@ storiesOf(" |Introduction", module)
   })
   .add("How to use Storybook", () => ({
     template: `
-    <div class="intro">
+    <div id="intro">
       <h1>StorefrontUI - Customization-first component library</h1>
       <p>
         Welcome to our storybook!

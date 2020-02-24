@@ -1,30 +1,21 @@
-@import '../../variables';
-:root {
-  --loader__spinner-color: var(--c-primary);
-  --loader__overlay-color: var(--c-white);
-}
+@import "../../helpers";
+
 .sf-loader {
   position: relative;
   width: 100%;
   height: 100%;
   &__overlay {
-    background: var(--loader__overlay-color);
-    width: 100%;
-    height: 100%;
     position: absolute;
     top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--loader-overlay-background, var(--c-white));
   }
   &__spinner {
-    stroke: var(--c-primary);
-  }
-  &--top {
-    .sf-loader__overlay {
-      align-items: flex-start;
-      box-sizing: border-box;
-      padding-top: 50px;
-    }
+    stroke: var(--loader-spinner-stroke, var(--c-primary));
   }
 }
