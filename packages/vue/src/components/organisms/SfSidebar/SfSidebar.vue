@@ -33,7 +33,7 @@
             icon-size="14px"
             icon="cross"
             icon-color="white"
-            class="sf-sidebar__circle-icon"
+            class="sf-sidebar__circle-icon desktop-only"
             @click="close"
           />
         </slot>
