@@ -4,19 +4,23 @@
   &__container {
     position: fixed;
     z-index: var(--modal-container-index, 1);
-    top: var(--modal-container-top, 50%);
+    top: var(--modal-container-top, 0);
     left: var(--modal-container-left, 50%);
-    transform: var(--modal-container-transform, translate(-50%, -50%));
+    transform: var(--modal-container-transform, translate(-50%, 0));
     display: flex;
     flex-direction: var(--modal-flex-direction, column);
     align-content: space-between;
     box-sizing: border-box;
     max-width: var(--modal-max-width, 100%);
+    max-height: var(--modal-max-height, 100%);
     width: var(--modal-width, 430px);
-    height: var(--modal-height, auto);
-    padding: var(--modal-padding, var(--spacer-extra-big));
+    height: var(--modal-height);
+    overflow-y: auto;
     border: var(--modal-border, solid 1px rgba(0, 0, 0, 0.5));
     background-color: var(--modal-background, var(--c-white));
+  }
+  &__content {
+    padding: var(--modal-content-padding, var(--spacer-extra-big) var(--spacer-big));
   }
   &__close {
     position: absolute;
@@ -28,5 +32,11 @@
     &:focus {
       outline: none;
     }
+  }
+  @include for-desktop {
+    --modal-container-top: 50%;
+    --modal-container-transform: translate(-50%, -50%);
+    --modal-container-height: auto;
+    --modal-content-padding: 2.5em 5em;
   }
 }
