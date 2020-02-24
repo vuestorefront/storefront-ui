@@ -1,4 +1,5 @@
 @import "../../helpers";
+
 .sf-checkbox {
   &__container {
     display: flex;
@@ -17,9 +18,6 @@
     border-radius: var(--checkbox-border-radius);
     background: var(--checkbox-background, transparent);
     transition: background 150ms linear, border-color 150ms linear;
-    @include for-desktop {
-      --checkbox-size: 1.5rem;
-    }
     &:hover {
       --checkbox-border: 1px solid var(--c-primary);
       .sf-checkbox--is-disabled & {
@@ -62,5 +60,8 @@
     border: 0;
     overflow: hidden;
     clip: rect(0px, 0px, 0px, 0px);
+  }
+  @include for-desktop {
+    --checkbox-size: 1.5rem;
   }
 }

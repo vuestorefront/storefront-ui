@@ -1,4 +1,5 @@
 @import "../../helpers";
+
 .sf-bullet {
   box-sizing: border-box;
   width: var(--bullet-width, var(--bullet-size, 8px));
@@ -13,6 +14,7 @@
     cursor: default;
   }
 }
+
 .sf-bullets {
   display: flex;
   align-items: center;

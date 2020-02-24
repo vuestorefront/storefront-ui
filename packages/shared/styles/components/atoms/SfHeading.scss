@@ -1,15 +1,11 @@
 @import "../../helpers";
+
 .sf-heading {
   box-sizing: border-box;
   padding: var(--heading-padding, 0 0 0.625rem 0);
   border: var(--heading-border, 1px solid var(--c-light));
   border-width: var(--heading-border-width, 0 0 1px 0);
   text-align: var(--heading-text-align, left);
-  @include for-desktop {
-    --heading-padding: 0;
-    --heading-border: 0;
-    --heading-text-align: center;
-  }
   &__title {
     margin: var(--heading-title-margin, 0);
     font: var(
@@ -43,5 +39,10 @@
   }
   &--right {
     --heading-text-align: right;
+  }
+  @include for-desktop {
+    --heading-padding: 0;
+    --heading-border: 0;
+    --heading-text-align: center;
   }
 }

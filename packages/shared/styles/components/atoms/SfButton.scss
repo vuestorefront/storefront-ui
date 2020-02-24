@@ -1,4 +1,5 @@
 @import "../../helpers";
+
 .sf-button {
   box-sizing: border-box;
   width: var(--button-size, var(--button-width));
@@ -98,6 +99,9 @@
     &:disabled {
       --button-background: transparent;
       --button-color: var(--c-gray);
+      &:hover {
+        --button-background: transparent;
+      }
     }
   }
 }
