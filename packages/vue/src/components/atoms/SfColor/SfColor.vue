@@ -1,5 +1,6 @@
 <template>
   <button
+    v-focus
     class="sf-color"
     :class="{ 'sf-color--active': selected }"
     :style="style"
@@ -13,8 +14,12 @@
   </button>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfColor",
+  directives: {
+    focus: focus
+  },
   props: {
     color: {
       type: String,
@@ -27,7 +32,7 @@ export default {
   },
   computed: {
     style() {
-      return { "--color": this.color };
+      return { "--color-background": this.color };
     }
   }
 };

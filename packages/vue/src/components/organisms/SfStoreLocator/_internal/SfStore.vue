@@ -29,10 +29,9 @@
           <sf-icon icon="mail" size="13px" color="green-primary" />
           <span tabindex="0">{{ email }}</span>
         </div>
-        <sf-divider class="sf-store__mobile-divider" />
       </div>
     </div>
-    <sf-divider class="sf-store__desktop-divider" />
+    <sf-divider class="sf-store" />
   </div>
 </template>
 <script>

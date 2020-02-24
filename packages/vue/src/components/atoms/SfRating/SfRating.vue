@@ -5,7 +5,7 @@
       <SfIcon
         :key="`p${index}`"
         size="14px"
-        class="sf-rating__icon-positive"
+        class="sf-rating__icon"
         icon="star"
       />
     </slot>
@@ -17,7 +17,7 @@
       <SfIcon
         :key="`n${index}`"
         size="14px"
-        class="sf-rating__icon-negative"
+        class="sf-rating__icon sf-rating__icon--negative"
         icon="star"
       />
     </slot>

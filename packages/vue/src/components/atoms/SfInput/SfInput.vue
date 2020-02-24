@@ -44,20 +44,18 @@
               'sf-input__password-icon--hidden': !isPasswordVisible
             }"
             icon="show_password"
-            size="xs"
-            :color="isPasswordVisible ? 'gray-primary' : 'gray-secondary'"
           ></SfIcon>
         </SfButton>
       </slot>
     </div>
     <div v-if="valid !== undefined" class="sf-input__error-message">
       <transition name="fade">
-        <span v-if="!valid">
+        <div v-if="!valid">
           <!-- @slot Custom error message of form input -->
           <slot name="error-message" v-bind="{ errorMessage }">{{
             errorMessage
           }}</slot>
-        </span>
+        </div>
       </transition>
     </div>
   </div>

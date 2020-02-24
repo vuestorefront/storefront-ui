@@ -1,52 +1,41 @@
-@import '../../variables';
-:root {
-  --card-margin-left-desktop: calc(var(--spacer-big) * 5);
-}
+@import "../../helpers";
+
 .sf-sliding-section {
-  $this: &;
-  &__static,
+  display: var(--sliding-section-display, inline);
+  margin: var(--sliding-section-margin, 0);
+  &__static {
+    flex: 1;
+    overflow: hidden;
+    height: var(--sliding-section-static-height, auto);
+    transition: var(
+      --sliding-section-static-transition,
+      height 150ms ease-in-out
+    );
+  }
   &__sliding {
     flex: 1;
-  }
-  &__static {
-    overflow: hidden;
-    transition: height 150ms ease-in-out;
-  }
-  &__sliding {
-    padding: 0 var(--spacer-big);
+    padding: var(--sliding-section-sliding-padding, 0 var(--spacer-big));
   }
   &__mobile-bar {
-    padding: var(--spacer-medium) 0;
-    display: none;
+    padding: var(--sliding-section-mobile-bar-padding, var(--spacer-medium) 0);
+    display: var(--sliding-section-mobile-bar-display, none);
   }
   &__close {
     padding: 0;
     border: 0;
-    background-color: transparent;
+    background: transparent;
     cursor: pointer;
   }
   &--has-scroll-lock {
     overflow: hidden;
   }
   &--is-active {
-    #{$this} {
-      &__static {
-        height: 0;
-      }
-      &__mobile-bar {
-        display: block;
-      }
-    }
+    --sliding-section-static-height: 0;
+    --sliding-section-mobile-bar-display: block;
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-sliding-section {
-    display: flex;
-    &__sliding {
-      margin-left: var(--card-margin-left-desktop);
-    }
-    &__mobile-bar {
-      display: none;
-    }
+  @include for-desktop {
+    --sliding-section-display: flex;
+    --sliding-section-sliding-margin: 0 0 0 3.75rem;
+    --sliding-section-mobile-bar-display: none;
   }
 }

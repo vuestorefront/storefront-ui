@@ -1,32 +1,22 @@
-@import "../../variables";
-:root {
-  --quantity-selector__width: 1.875rem;
-  --quantity-selector__height: 1.6875rem;
-  @media screen and (min-width: $desktop-min) {
-    --quantity-selector__width: 3.125rem;
-  }
-}
+@import "../../helpers";
+
 .sf-quantity-selector {
-  width: var(--quantity-selector__width);
-  height: var(--quantity-selector__height);
-  margin: 0;
+  --input-width: 1.875rem;
+  --input-height: 1.6875rem;
   input {
-    box-sizing: border-box;
-    padding: 0 var(--spacer-small);
-    border: 1px solid transparent;
-    background-color: var(--c-white);
-    font-family: var(--body-font-family-primary);
-    font-size: var(--font-size-extra-big);
-    font-weight: var(--body-font-weight-primary);
-    line-height: 1.6;
+    --input-padding: 0;
+    --input-margin: 0;
+    --input-border-width: 1px;
     text-align: center;
-    transition: border-color 0.3s ease-in-out;
-    @media (min-width: $desktop-min) {
-      font-size: var(--font-size-big);
-      background-color: var(--c-light);
-    }
+    transition: border-color 150ms linear;
     &:focus {
-      border-color: var(--c-primary);
+      --input-border: 1px solid var(--c-primary);
+      --input-border-width: 1px 1px 0 1px;
+      --input-padding: 0 0 1px 0;
     }
+  }
+  @include for-desktop {
+    --input-width: 3.125rem;
+    --input-background: var(--c-light);
   }
 }

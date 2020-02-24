@@ -92,7 +92,7 @@ storiesOf("Organisms|GroupedProduct", module)
       },
       hasCarousel: {
         default: boolean("hasCarousel", true, "Props")
-      },
+      }
     },
     data() {
       return {

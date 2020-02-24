@@ -3,6 +3,7 @@
     type="number"
     :value="qty"
     :aria-label="ariaLabel"
+    :disabled="disabled"
     class="sf-quantity-selector"
     @input="$emit('input', parseInt($event, 10))"
   />
@@ -28,8 +29,12 @@ export default {
      */
     ariaLabel: {
       type: String,
-      default: null
-    }
+      default: "quantity"
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
   }
 };
 </script>

@@ -26,7 +26,7 @@
           {{ label }}
         </div>
       </slot>
-      <SfOverlay :visible="open" class="sf-select__overlay" />
+      <SfOverlay :visible="open" class="sf-select__overlay mobile-only" />
       <transition name="sf-select">
         <div v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
@@ -35,7 +35,7 @@
           </ul>
           <SfButton
             ref="cancel"
-            class="sf-select__cancel sf-button--full-width"
+            class="sf-select__cancel sf-button--full-width mobile-only"
             @click="closeHandler"
           >
             Cancel
@@ -45,9 +45,12 @@
     </div>
     <div v-if="valid !== undefined" class="sf-select__error-message">
       <transition name="fade">
-        <span v-if="valid === false">
-          <slot name="error-message">{{ errorMessage }}</slot>
-        </span>
+        <div v-if="!valid">
+          <!-- @slot Custom error message of form select -->
+          <slot name="error-message" v-bind="{ errorMessage }">{{
+            errorMessage
+          }}</slot>
+        </div>
       </transition>
     </div>
   </div>

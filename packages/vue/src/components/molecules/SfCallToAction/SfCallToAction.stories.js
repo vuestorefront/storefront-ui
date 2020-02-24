@@ -15,7 +15,6 @@ storiesOf("Molecules|CallToAction", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-banner--secondary": "sf-banner--secondary",
             "sf-banner--light": "sf-banner-light"
           },
           "",
@@ -60,7 +59,6 @@ storiesOf("Molecules|CallToAction", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-banner--secondary": "sf-banner--secondary",
             "sf-banner--light": "sf-banner-light"
           },
           "",
@@ -109,7 +107,6 @@ storiesOf("Molecules|CallToAction", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-banner--secondary": "sf-banner--secondary",
             "sf-banner--light": "sf-banner-light"
           },
           "",
@@ -158,7 +155,6 @@ storiesOf("Molecules|CallToAction", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-banner--secondary": "sf-banner--secondary",
             "sf-banner--light": "sf-banner-light"
           },
           "",

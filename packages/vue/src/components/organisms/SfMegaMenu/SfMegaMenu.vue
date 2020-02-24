@@ -17,7 +17,7 @@
             'sf-mega-menu__aside--without-content': !this.$slots.aside
           }"
         >
-          <SfList class="sf-mega-menu__menu-mobile">
+          <SfList class="sf-mega-menu__menu-mobile mobile-only">
             <SfListItem v-for="item in items" :key="item">
               <!-- @slot Custom menu-item markup -->
               <slot name="menu-item" v-bind="{ change, item, active }">

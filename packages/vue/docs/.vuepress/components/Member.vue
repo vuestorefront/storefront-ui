@@ -1,58 +1,110 @@
 <template>
   <article>
     <div class="avatar">
-      <img :src="avatarUrl" :alt="member.name" class="avatar-img"/>
+      <img :src="avatarUrl" :alt="member.name" class="avatar-img" />
     </div>
     <div class="profile">
-      <h3>{{member.name}}</h3>
+      <h3>{{ member.name }}</h3>
       <div class="info">
-        <div class="role row">{{member.role}}</div>
-        <div class="job-title-container row" v-if="member.work">
+        <div class="role row">{{ member.role }}</div>
+        <div v-if="member.work" class="job-title-container row">
           <div class="icon">
-            <img src="https://res.cloudinary.com/mayashavin/image/upload/w_14,h_14,c_scale/v1567454220/StorefrontUI/briefcase-solid.jpg" alt="Job title">
+            <img
+              src="https://res.cloudinary.com/mayashavin/image/upload/w_14,h_14,c_scale/v1567454220/StorefrontUI/briefcase-solid.jpg"
+              alt="Job title"
+            />
           </div>
-          <div class="job-title"><span>{{member.work.title}}</span>
+          <div class="job-title">
+            <span>{{ member.work.title }}</span>
             <span v-if="member.work.org">@</span>
-            <a v-if="member.work.org" :href="member.work.orgUrl" target="_blank" rel="noopener noreferrer">{{member.work.org}}</a>
-            <span v-if="member.work.subTitle">{{member.work.subTitle}}</span>
+            <a
+              v-if="member.work.org"
+              :href="member.work.orgUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              >{{ member.work.org }}</a
+            >
+            <span v-if="member.work.subTitle">{{ member.work.subTitle }}</span>
           </div>
         </div>
-        <div class="location row" v-if="member.location">
+        <div v-if="member.location" class="location row">
           <div class="icon">
-            <img src="https://res.cloudinary.com/mayashavin/image/upload/w_14,h_14,c_scale/v1567454220/StorefrontUI/map-marked-alt-solid.jpg" alt="Location">
+            <img
+              src="https://res.cloudinary.com/mayashavin/image/upload/w_14,h_14,c_scale/v1567454220/StorefrontUI/map-marked-alt-solid.jpg"
+              alt="Location"
+            />
           </div>
-          <span>{{member.location}}</span>
+          <span>{{ member.location }}</span>
         </div>
-        <div class="languages row" v-if="member.languages">
+        <div v-if="member.languages" class="languages row">
           <div class="icon">
-            <img src="https://res.cloudinary.com/mayashavin/image/upload/w_14,h_14,c_scale/v1567454220/StorefrontUI/globe-solid.jpg" alt="Spoken languages">
+            <img
+              src="https://res.cloudinary.com/mayashavin/image/upload/w_14,h_14,c_scale/v1567454220/StorefrontUI/globe-solid.jpg"
+              alt="Spoken languages"
+            />
           </div>
           <ul>
-            <li v-for="(language, index) in spokenLanguages" :key="index" v-if="language">
-              <span class="dot" v-if="index > 0 && index < spokenLanguages.length">&middot;</span>{{language}}
+            <li
+              v-for="(language, index) in spokenLanguages"
+              v-if="language"
+              :key="index"
+            >
+              <span
+                v-if="index > 0 && index < spokenLanguages.length"
+                class="dot"
+                >&middot;</span
+              >{{ language }}
             </li>
           </ul>
         </div>
-        <div class="links row" v-if="member.links && member.links.length > 0">
+        <div v-if="member.links && member.links.length > 0" class="links row">
           <div class="icon">
-            <img src="https://res.cloudinary.com/mayashavin/image/upload/w_14,h_14,c_scale/v1567454220/StorefrontUI/link-solid.jpg" alt="Other links">
+            <img
+              src="https://res.cloudinary.com/mayashavin/image/upload/w_14,h_14,c_scale/v1567454220/StorefrontUI/link-solid.jpg"
+              alt="Other links"
+            />
           </div>
           <ul class="links-options">
             <li v-for="(link, index) in member.links" :key="index">
-              <span class="dot" v-if="index > 0 && index < spokenLanguages.length">&middot;</span>
-              <a target="_blank" :href="link">{{minimizedLink(link)}}</a>
+              <span
+                v-if="index > 0 && index < spokenLanguages.length"
+                class="dot"
+                >&middot;</span
+              >
+              <a :href="link" target="_blank">{{ minimizedLink(link) }}</a>
             </li>
           </ul>
         </div>
-        <div class="social-medias row" v-if="hasSocialLinks">
-          <a target="_blank" :href="githubLink" v-if="githubLink" rel="noopener noreferrer">
-            <img src="https://res.cloudinary.com/mayashavin/image/upload/h_20,c_thumb,g_auto/v1565642096/433-github.jpg" alt="Github">
+        <div v-if="hasSocialLinks" class="social-medias row">
+          <a
+            v-if="githubLink"
+            :href="githubLink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://res.cloudinary.com/mayashavin/image/upload/h_20,c_thumb,g_auto/v1565642096/433-github.jpg"
+              alt="Github"
+            />
           </a>
-          <a target="_blank" :href="twitterLink" v-if="twitterLink" rel="noopener noreferrer">
-            <img src="https://res.cloudinary.com/mayashavin/image/upload/w_20,c_scale/v1567327341/Twitter_Logo_new.jpg" alt="Twitter">            
+          <a
+            v-if="twitterLink"
+            :href="twitterLink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://res.cloudinary.com/mayashavin/image/upload/w_20,c_scale/v1567327341/Twitter_Logo_new.jpg"
+              alt="Twitter"
+            />
           </a>
-          <a target="_blank" :href="linkedInLink" v-if="linkedInLink" rel="noopener noreferrer">
-            <img src="" alt="LinkedIn">            
+          <a
+            v-if="linkedInLink"
+            :href="linkedInLink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="" alt="LinkedIn" />
           </a>
         </div>
       </div>
@@ -61,33 +113,34 @@
 </template>
 <script>
 const languageNameFor = {
-  en: 'English',
-  nl: 'Nederlands',
-  zh: '中文',
-  vi: 'Tiếng Việt',
-  pl: 'Polski',
-  pt: 'Português',
-  ru: 'Русский',
-  jp: '日本語',
-  fr: 'Français',
-  de: 'Deutsch',
-  el: 'Ελληνικά',
-  es: 'Español',
-  he: 'עברית',
-  hi: 'हिंदी',
-  it: 'Italiano',
-  fa: 'فارسی',
-  ko: '한국어',
-  ro: 'Română',
-  uk: 'Українська'
+  en: "English",
+  nl: "Nederlands",
+  zh: "中文",
+  vi: "Tiếng Việt",
+  pl: "Polski",
+  pt: "Português",
+  ru: "Русский",
+  jp: "日本語",
+  fr: "Français",
+  de: "Deutsch",
+  el: "Ελληνικά",
+  es: "Español",
+  he: "עברית",
+  hi: "हिंदी",
+  it: "Italiano",
+  fa: "فارسی",
+  ko: "한국어",
+  ro: "Română",
+  uk: "Українська"
 };
 
 export default {
+  name: "Member",
   props: {
     member: {
       type: Object,
-      default: ()=>({}),
-    },
+      default: () => ({})
+    }
   },
   computed: {
     hasSocialLinks() {
@@ -95,19 +148,23 @@ export default {
       return socials && (socials.twitter || socials.github || socials.linkedIn);
     },
     spokenLanguages() {
-      return (this.member.languages || []).map(code => languageNameFor[code] || '');
+      return (this.member.languages || []).map(
+        code => languageNameFor[code] || ""
+      );
     },
     githubLink() {
       const socials = this.member.socials;
-      return socials.github ? `https://github.com/${socials.github}/` : '';
+      return socials.github ? `https://github.com/${socials.github}/` : "";
     },
     twitterLink() {
       const socials = this.member.socials;
-      return socials.twitter ? `https://twitter.com/${socials.twitter}` : '';
+      return socials.twitter ? `https://twitter.com/${socials.twitter}` : "";
     },
     linkedInLink() {
       const socials = this.member.socials;
-      return socials.linkedIn ? `https://www.linkedin.com/in/${socials.linkedIn}` : '';
+      return socials.linkedIn
+        ? `https://www.linkedin.com/in/${socials.linkedIn}`
+        : "";
     },
     avatarUrl() {
       const avatar = this.member.avatar;
@@ -119,36 +176,34 @@ export default {
 
         if (socials.github) {
           return `https://github.com/${socials.github}.png`;
-        }
-        else if (socials.twitter) {
+        } else if (socials.twitter) {
           return `https://avatars.io/twitter/${socials.twitter}`;
         }
       }
 
-      return 'https://res.cloudinary.com/mayashavin/image/upload/w_80,h_80,c_scale,r_max,q_auto/v1567439978/Portrait_Placeholder.png';
-    },
+      return "https://res.cloudinary.com/mayashavin/image/upload/w_80,h_80,c_scale,r_max,q_auto/v1567439978/Portrait_Placeholder.png";
+    }
   },
   methods: {
     minimizedLink(link) {
       return link
-        .replace(/^https?:\/\/(www\.)?/, '')
-        .replace(/\/$/, '')
-        .replace(/^mailto:/, '')
+        .replace(/^https?:\/\/(www\.)?/, "")
+        .replace(/\/$/, "")
+        .replace(/^mailto:/, "");
     }
-  },
-  name: 'Member'
-}
+  }
+};
 </script>
 <style scoped>
 article {
-    display: flex;
-    padding: 1.5rem 0;
-    border-bottom: 1px dashed #ececec;
+  display: flex;
+  padding: 1.5rem 0;
+  border-bottom: 1px dashed #ececec;
 }
 
 .profile {
-    margin-left: 1rem;
-    flex: 1;
+  margin-left: 1rem;
+  flex: 1;
 }
 
 .avatar-img {
