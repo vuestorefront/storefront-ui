@@ -1,5 +1,5 @@
 # component-description
-Color picker component button
+Color picker component button.
 
 # storybook-iframe-height
-5rem
+10rem

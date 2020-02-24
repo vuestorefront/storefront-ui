@@ -1,84 +1,38 @@
-@import '../../variables';
-:root {
-  --input-color: var(--c-text);
-  --input-color-active: var(--c-primary);
-  --input-color-invalid: #d12727;
-  --input-color-disabled: var(--c-dark-variant);
-  --input-font-family: var(--body-font-family-secondary);
-  --input-font-size: var(--font-size-big);
-  --input-font-weight: var(--body-font-weight-secondary);
-  --input-line-height: 1.6;
-  --input__label-focus-font-size: var(--font-size-small);
-  --input__label-transition: all 150ms ease-in-out;
-  --input__bar-transition: all 150ms ease-in-out;
-  --input__error-message-font-family: var(--body-font-family-primary);
-  --input__error-message-font-size: var(--font-size-small-mobile);
-  --input__password-icon-hidden-color: var(--c-gray-variant);
-  --input__password-icon-width: 1.4rem;
-  @media screen and (min-width: $desktop-min) {
-    --input__label-focus-font-size: var(--font-size-extra-small);
-  }
-}
-@mixin move-label-up {
-  top: calc(calc(var(--input__label-focus-font-size) / 2) - 5px);
-  font-size: var(--input__label-focus-font-size);
-}
+@import "../../helpers";
+
 .sf-input {
-  $this: &;
-  box-sizing: border-box;
   position: relative;
-  margin-top: 5px;
-  color: var(--input-color);
-  font-family: var(--input-font-family);
-  font-size: var(--input-font-size);
-  font-weight: var(--input-font-weight);
-  line-height: var(--input-line-height);
-  & input {
-    position: relative;
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 5px 0;
-    border-width: 0 0 1px 0;
-    border-color: var(--c-light);
-    background-color: transparent;
-    outline: none;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    &:focus ~ #{$this}__label {
-      @include move-label-up;
-      color: var(--input-color-active);
+  box-sizing: border-box;
+  width: var(--input-width);
+  height: var(--input-height);
+  color: var(--input-color, var(--c-text));
+  &__label {
+    position: absolute;
+    top: var(--input-label-top, 50%);
+    color: var(--input-label-color, inherit);
+    font: var(
+      --input-label-font,
+      font(
+        --input-label,
+        400,
+        var(--font-size-big),
+        normal,
+        var(--body-font-family-secondary)
+      )
+    );
+    transform: var(
+      --input-label-transform,
+      translate3d(0, calc(var(--input-label-top, 50%) * -1), 0)
+    );
+    transition: var(
+      --input-label-transition,
+      top 150ms linear,
+      font-size 150ms linear
+    );
+    &::after {
+      content: var(--input-label-required);
+      color: var(--input-label-color, var(--c-primary));
     }
-    &:focus ~ #{$this}__bar::before,
-    &:focus ~ #{$this}__bar::after {
-      width: 50%;
-    }
-    &:required ~ #{$this}__label::after {
-      content: " *";
-    }
-    &:disabled ~ #{$this}__label {
-      color: var(--input-color-disabled);
-    }
-    &[type="number"] {
-      &::-webkit-inner-spin-button,
-      &::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-    }
-    &#{$this}--is-password {
-      padding-right: calc(var(--input__password-icon-width) + 2 * var(--spacer-big));
-    }
-  }
-  &__wrapper {
-    position: relative;
-    display: flex;
-    height: 100%;
-    justify-content: space-between;
-    align-items: center;
   }
   &__bar {
     position: relative;
@@ -87,10 +41,10 @@
     &::after {
       position: absolute;
       bottom: 0;
-      width: 0;
+      width: var(--input-bar-width, 0);
       height: 1px;
-      background-color: var(--input-color-active);
-      transition: var(--input__bar-transition);
+      background: var(--input-bar-background, var(--c-primary));
+      transition: width 150ms linear;
       content: "";
     }
     &::before {
@@ -100,79 +54,113 @@
       right: 50%;
     }
   }
-  &__label {
+  &__password-button {
+    --button-padding: 0;
+    --button-background: transparent;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    transition: var(--input__label-transition);
-    &::after {
-      color: var(--input-color-active);
-    }
-  }
-  &__error-message {
-    margin-top: 5px;
-    color: var(--input-color-invalid);
-    font-family: var(--input__error-message-font-family);
-    font-size: var(--input__error-message-font-size);
-  }
-  &__password-button.sf-button {
-    position: absolute;
     right: var(--spacer-big);
-    padding: 0;
-    background: transparent;
-    border: none;
+    transform: translate3d(0, -50%, 0);
     &:hover {
-      background-color: transparent;
+      --button-background: transparent;
     }
   }
   &__password-icon {
-    &.sf-icon {
-      height: auto;
+    --icon-width: var(--input-password-icon-width, 1.375rem);
+    --icon-height: 0.8125rem;
+    --icon-color: var(--c-dark-variant);
+    position: relative;
+    &--hidden {
+      --icon-color: var(--c-gray-variant);
+      --input-password-icon-scaleX: 1;
     }
-    &:after {
-      content: "";
+    &::after {
       position: absolute;
       top: 50%;
       width: 100%;
       height: 1px;
-      background-color: var(--input__password-icon-hidden-color);
-      transform: translate3d(0, -50%, 0) rotate(45deg) scaleX(0);
-      transition: transform 300ms ease-in-out;
-    }
-    @at-root #{&}--hidden {
-      &:after {
-        transform: translate3d(0, -50%, 0) rotate(45deg) scaleX(1);
-      }
+      background: var(--c-gray-variant);
+      transform: translate3d(0, -50%, 0) rotate(45deg)
+        scaleX(var(--input-password-icon-scaleX, 0));
+      transition: transform 150ms linear;
+      content: "";
     }
   }
-  &--invalid {
-    input {
-      border-color: var(--input-color-invalid);
-      &:focus ~ #{$this}__label {
-        &,
-        &:after {
-          color: var(--input-color-invalid);
-        }
-      }
-      &:required ~ #{$this}__label::after {
-        color: var(--input-color-invalid);
+  &__error-message {
+    color: var(--input-error-message-color, var(--c-danger));
+    font: var(
+      --input-error-message-font,
+      font(
+        --input-error-message,
+        400,
+        var(--font-size-small),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
+  }
+  &__wrapper,
+  input {
+    width: 100%;
+    height: 100%;
+  }
+  &__wrapper {
+    position: relative;
+    margin: var(--input-margin, 0 0 var(--spacer-small) 0);
+  }
+  input {
+    display: block;
+    box-sizing: border-box;
+    padding: var(--input-padding, 0.9375rem 0 0.625rem 0);
+    border: var(--input-border, 1px solid var(--c-light));
+    border-width: var(--input-border-width, 0 0 1px 0);
+    background: var(--input-background);
+    color: inherit;
+    font: var(
+      --input-font,
+      font(
+        --input,
+        300,
+        var(--font-size-big),
+        normal,
+        var(--body-font-family-primary)
+      )
+    );
+    outline: none;
+    &:focus {
+      & ~ * {
+        --input-label-top: 0;
+        --input-label-color: var(--c-primary);
+        --input-label-font-size: var(--font-size-extra-small);
+        --input-bar-width: 50%;
       }
     }
-    #{$this}__bar {
-      &::before,
-      &::after {
-        background-color: var(--input-color-invalid);
+    &:required {
+      & ~ * {
+        --input-label-required: " *";
       }
     }
-    @at-root #{&}#{$this}--has-text {
-      #{$this}__label {
-        color: var(--input-color-invalid);
+    &:disabled {
+      & ~ * {
+        --input-color: var(--c-text-muted);
+        --input-label-color: var(--c-text-muted);
       }
+    }
+    &[type="number"] {
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+    &[type="password"] {
+      --input-padding: 0.9375rem
+        calc(var(--spacer-big) * 2 + var(--input-password-icon-width, 1.375rem))
+        10px 0;
     }
   }
   &--has-text {
-    #{$this}__label {
-      @include move-label-up;
-    }
+    --input-label-top: 0;
+    --input-label-font-size: var(--font-size-extra-small);
   }
 }

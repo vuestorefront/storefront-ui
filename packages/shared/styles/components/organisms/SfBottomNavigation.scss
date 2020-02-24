@@ -1,55 +1,59 @@
-@import '../../variables';
-:root {
-  --bottom-navigation-item-color: var(--c-gray-variant);
-  --bottom-navigation-item-color--active: var(--c-black);
-  --bottom-navigation-item-font-size: 12px;
-}
+@import "../../helpers";
+
 .sf-bottom-navigation-item {
+  --icon-color: var(--c-gray-variant);
   position: relative;
+  top: var(--bottom-navigation-item-top);
+  margin: var(--bottom-navigation-item-margin);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: var(--bottom-navigation-item-font-size);
-  color: var(--c-gray);
-  & > .sf-icon {
-    --icon-color: var(--bottom-navigation-item-color);
-  }
-  &__label{
+  font: var(
+    --bottom-navigation-item-font,
+    font(
+      --bottom-navigation-item,
+      var(--body-font-weight-primary),
+      var(--font-size-small),
+      1.6,
+      var(--body-font-family-primary)
+    )
+  );
+  color: var(--bottom-navigation-item-color, var(--c-gray-variant));
+  &__label {
     line-height: 1.6;
   }
   &--active {
-    color: var(--c-black);
-    font-weight: var(--body-font-weight-secondary);
-    & > .sf-icon {
-      --icon-color: var(--bottom-navigation-item-color--active);
-    }
+    --bottom-navigation-item-color: var(--c-black);
+    --bottom-navigation-item-font-weight: var(--body-font-weight-secondary);
+    --icon-color: var(--bottom-navigation-item-color--active);
   }
   &--has-margin {
-    margin-top: 6px;
+    --bottom-navigation-item-margin: 6px 0 0 0;
   }
   &--floating {
-    top: -1.5rem;
-    & > .sf-button {
-      &:not(:hover) {
-        box-shadow: 0 4px 6px rgba(66, 66, 66, .2);
-      }
+    --bottom-navigation-item-top: -1.5rem;
+    --icon-color: var(--c-white);
+    &:not(:hover) {
+      --circle-icon-box-shadow: 0 4px 6px rgba(66, 66, 66, 0.2);
     }
   }
 }
 .sf-bottom-navigation {
-  $this: &;
   box-sizing: border-box;
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 1;
+  z-index: var(--bottom-navigation-z-index, 1);
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 60px;
+  height: var(--bottom-navigation-height, 3.75rem);
   width: 100%;
-  padding: 0 1rem;
-  background: white;
-  box-shadow: 0px -2px 10px rgba(154, 154, 154, .15);
+  padding: var(--bottom-navigation-padding, 0 1rem);
+  background: var(--bottom-navigation-background, var(--c-white));
+  box-shadow: var(
+    --bottom-navigation-box-shadow,
+    0px -2px 10px rgba(154, 154, 154, 0.15)
+  );
 }

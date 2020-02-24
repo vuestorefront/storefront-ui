@@ -22,7 +22,7 @@ describe("SfIcon.vue", () => {
         size: size
       }
     });
-    expect(component.contains(`.sf-icon--size-${size}`)).toBe(true);
+    expect(component.contains(`.size-${size}`)).toBe(true);
   });
   it("renders sf-color when passed", () => {
     const color = "green-primary";
@@ -32,7 +32,7 @@ describe("SfIcon.vue", () => {
         color: color
       }
     });
-    expect(component.contains(`.sf-icon--color-${color}`)).toBe(true);
+    expect(component.contains(`.color-${color}`)).toBe(true);
   });
   it("renders viewBox default when not passed", () => {
     const color = "green-primary";

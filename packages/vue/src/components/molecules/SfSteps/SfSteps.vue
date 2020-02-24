@@ -11,14 +11,14 @@
         <div
           :key="step.index"
           :class="{
-            'sf-steps__header-step': true,
-            'sf-steps__header-step-done': step.done,
-            'sf-steps__header-step-current': step.current,
-            'sf-steps__header-step-disabled': step.disabled
+            'sf-steps__step': true,
+            'sf-steps__step--done': step.done,
+            'sf-steps__step--current': step.current,
+            'sf-steps__step--disabled': step.disabled
           }"
           @click="stepClick(step)"
         >
-          <span>{{ step.step }}</span>
+          <span class="sf-steps__title">{{ step.step }}</span>
         </div>
       </slot>
       <div

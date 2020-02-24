@@ -1,10 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
+import { withKnobs, text } from "@storybook/addon-knobs";
 import SfPrice from "./SfPrice.vue";
 import SfBadge from "../SfBadge/SfBadge.vue";
 storiesOf("Atoms|Price", module)
@@ -12,17 +8,6 @@ storiesOf("Atoms|Price", module)
   .add("Common", () => ({
     components: { SfPrice },
     props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-price--big": "sf-price--big"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       regular: {
         default: text("regular", "$200.00", "Props")
       },
@@ -31,7 +16,6 @@ storiesOf("Atoms|Price", module)
       }
     },
     template: `<SfPrice
-      :class="customClass"
       :regular="regular"
       :special="special"/>`
   }))
@@ -41,17 +25,6 @@ storiesOf("Atoms|Price", module)
       SfBadge
     },
     props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-price--big": "sf-price--big"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       regular: {
         default: text("regular", "$200.00", "Props")
       },
@@ -60,7 +33,6 @@ storiesOf("Atoms|Price", module)
       }
     },
     template: `<SfPrice
-      :class="customClass"
       :regular="regular"
       :special="special">
       <template #special="{special}">
@@ -74,17 +46,6 @@ storiesOf("Atoms|Price", module)
       SfBadge
     },
     props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-price--big": "sf-price--big"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       regular: {
         default: text("regular", "$200.00", "Props")
       },
@@ -93,7 +54,6 @@ storiesOf("Atoms|Price", module)
       }
     },
     template: `<SfPrice
-      :class="customClass"
       :regular="regular"
       :special="special">
       <template #old="{regular, special}">
@@ -107,17 +67,6 @@ storiesOf("Atoms|Price", module)
       SfBadge
     },
     props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-price--big": "sf-price--big"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       regular: {
         default: text("regular", "$200.00", "Props")
       },
@@ -126,7 +75,6 @@ storiesOf("Atoms|Price", module)
       }
     },
     template: `<SfPrice
-      :class="customClass"
       :regular="regular"
       :special="special">
       <template #regular="{regular, special}">

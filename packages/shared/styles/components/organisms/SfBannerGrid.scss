@@ -1,45 +1,46 @@
-@import '../../variables';
+@import "../../helpers";
+
 .sf-banner-grid {
   &__row {
-    .grid > &:first-of-type > .grid__col:first-of-type {
-      margin-top: 0;
-    }
+    display: var(--banner-grid-row-display, block);
+    flex: var(--banner-grid-row-flex);
+    margin: var(--banner-grid-row-margin, 0);
   }
   &__col {
-    margin-top: calc(var(--spacer-big) / 2);
+    display: var(--banner-grid-col-display, block);
+    flex: var(--banner-grid-col-flex);
+    margin: var(--banner-grid-col-margin, 0);
+    & + & {
+      --banner-grid-col-margin: 0.625rem 0 0 0;
+    }
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-banner-grid {
+  @include for-desktop {
+    --banner-grid-row-display: flex;
+    --banner-grid-row-flex: 0 0 100%;
+    --banner-grid-col-display: flex;
     &__row {
-      display: flex;
-      flex: 0 0 100%;
+      --banner-grid-row-margin: 0;
       & + & {
-        margin-top: var(--spacer-extra-big);
+        --banner-grid-row-margin: var(--spacer-extra-big) 0 0 0;
       }
     }
     &__col {
+      --banner-grid-col-flex: 1;
       flex-wrap: wrap;
-      display: flex;
-      flex: 1;
-      margin-top: 0;
+      --banner-grid-col-margin: 0;
       & + & {
-        margin-left: var(--spacer-extra-big);
+        --banner-grid-col-margin: 0 0 0 var(--spacer-extra-big);
       }
+      & > .sf-banner,
       & > a {
         display: flex;
         flex: 1;
       }
       &--small {
-        flex-basis: 450px;
-        flex-grow: 0;
+        --banner-grid-col-flex: 0 1 28.125rem;
       }
       &--medium {
-        flex-basis: 500px;
-        flex-grow: 0;
-      }
-      .sf-banner{
-        flex: 1
+        --banner-grid-col-flex: 0 1 31.25rem;
       }
     }
   }

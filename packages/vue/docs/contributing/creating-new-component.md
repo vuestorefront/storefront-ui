@@ -1,6 +1,6 @@
 # How to create/edit Storefront UI component
 
-At this point we assume you're already familiar with [our coding guidelines](coding-guidelines.md) and know how to [work with our Figma designs](working-with-designs.md). The below section will guide you through how to create your first component for the library!
+At this point we assume you're already familiar with [our coding guidelines](coding-guidelines.md) and know how to [work with our Figma designs](../design/working-with-designs.md). The below section will guide you through how to create your first component for the library!
 
 ## Generate the component's template
 
@@ -30,7 +30,7 @@ By design try **not** to pass any content into `props` - instead use `slots`.
 
 :::tip
  Every **text field** should be a `slot`. Take a look at
-[SfBanner](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/components/molecules/SfBanner/SfBanner.html)
+[SfBanner](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/components/molecules/SfBanner/SfBanner.vue)
 component for inspiration.
 :::
 
@@ -56,7 +56,7 @@ Example: [SfButton](https://github.com/DivanteLtd/storefront-ui/blob/master/pack
 
 Please follow [our Unit tests guidelines](coding-guidelines.md#Unit-tests)
 
-Some of the most common cases can be found in an [example template](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/scripts/component-template/component.spec.ts).
+Some of the most common cases can be found in an [example template](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/scripts/component-template/component.spec.js).
 
 ## Documentation and stories
 

@@ -11,7 +11,7 @@ import {
 
 import SfProductCard from "./SfProductCard.vue";
 
-import { colorsValues } from "@storefront-ui/shared/variables/colors";
+import { colorsValues as colors } from "@storefront-ui/shared/variables/colors";
 
 storiesOf("Organisms|ProductCard", module)
   .addDecorator(withKnobs)
@@ -38,7 +38,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colorsValues, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -53,10 +53,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -104,8 +104,10 @@ storiesOf("Organisms|ProductCard", module)
         :special-price="specialPrice"
         :wishlist-icon="wishlistIcon"
         :is-on-wishlist-icon="isOnWishlistIcon"
+        :is-on-wishlist="isOnWishlist"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -114,6 +116,16 @@ storiesOf("Organisms|ProductCard", module)
   .add("With 2 pictures", () => ({
     components: { SfProductCard },
     props: {
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+          },
+          "Props"
+        )
+      },
       imageWidth: {
         default: number("imageWidth", 216, {}, "Props")
       },
@@ -124,7 +136,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colorsValues, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -139,10 +151,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -204,8 +216,10 @@ storiesOf("Organisms|ProductCard", module)
         :special-price="specialPrice"
         :wishlist-icon="wishlistIcon"
         :is-on-wishlist-icon="isOnWishlistIcon"
+        :is-on-wishlist="isOnWishlist"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -234,7 +248,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colorsValues, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -249,10 +263,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -300,8 +314,10 @@ storiesOf("Organisms|ProductCard", module)
         :special-price="specialPrice"
         :wishlist-icon="wishlistIcon"
         :is-on-wishlist-icon="isOnWishlistIcon"
+        :is-on-wishlist="isOnWishlist"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -334,7 +350,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colorsValues, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -349,10 +365,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -370,7 +386,7 @@ storiesOf("Organisms|ProductCard", module)
         default: boolean("isOnWishlist", false, "Props")
       },
       showAddToCartButton: {
-        default: boolean("showAddToCartButton", true, "Props")
+        default: boolean("showAddToCartButton", false, "Props")
       },
       isAddedToCart: {
         default: boolean("isAddedToCart", false, "Props")
@@ -402,6 +418,7 @@ storiesOf("Organisms|ProductCard", module)
         :is-on-wishlist-icon="isOnWishlistIcon"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -434,7 +451,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colorsValues, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -449,10 +466,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -502,6 +519,7 @@ storiesOf("Organisms|ProductCard", module)
         :is-on-wishlist-icon="isOnWishlistIcon"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -534,7 +552,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colorsValues, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -549,10 +567,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -602,6 +620,7 @@ storiesOf("Organisms|ProductCard", module)
         :is-on-wishlist-icon="isOnWishlistIcon"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -634,7 +653,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colorsValues, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -649,10 +668,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -702,6 +721,7 @@ storiesOf("Organisms|ProductCard", module)
         :is-on-wishlist-icon="isOnWishlistIcon"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -734,7 +754,7 @@ storiesOf("Organisms|ProductCard", module)
         default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("color", colorsValues, "pink-primary", "Props")
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
         default: text("title", "Cotton Sweater", "Props")
@@ -749,10 +769,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("scoreRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("scoreRating", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props")
@@ -802,6 +822,7 @@ storiesOf("Organisms|ProductCard", module)
         :is-on-wishlist-icon="isOnWishlistIcon"
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"

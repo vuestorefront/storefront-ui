@@ -1,11 +1,13 @@
-@import '../../variables';
-:root {
-  --carousel__controls-size: 240px;
-}
+@import "../../helpers";
+
 .sf-carousel {
   position: relative;
   &__wrapper {
-    max-width: 100%;
+    max-width: var(
+      --carousel-max-width,
+      calc(100% - var(--carousel-controls-size))
+    );
+    padding: var(--carousel-padding);
     margin: auto;
     overflow: hidden;
   }
@@ -13,7 +15,13 @@
     margin: 0;
   }
   &__controls {
-    display: none;
+    position: var(--carousel-controls-position);
+    display: var(--carousel-controls-display, none);
+    justify-content: var(--carousel-controls-justify-content);
+    width: var(--carousel-controls-width);
+    top: var(--carousel-controls-top);
+    left: var(--carousel-controls-left);
+    transform: var(--carousel-controls-transform);
   }
   .glide {
     &__track,
@@ -22,20 +30,14 @@
       overflow: unset;
     }
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-carousel {
-    &__wrapper {
-      max-width: calc(100% - var(--carousel__controls-size));
-    }
-    &__controls {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translate3d(0, -50%, 0);
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
+  @include for-desktop {
+    --carousel-controls-size: 240px;
+    --carousel-controls-position: absolute;
+    --carousel-controls-top: 50%;
+    --carousel-controls-left: 0;
+    --carousel-controls-display: flex;
+    --carousel-controls-transform: translate3d(0, -50%, 0);
+    --carousel-controls-width: 100%;
+    --carousel-controls-justify-content: space-between;
   }
 }

@@ -1,32 +1,46 @@
-@import '../../variables';
-:root {
-  --property-font-family: var(--body-font-family-secondary);
-  --property-font-size: var(--font-size-regular);
-  --property-font-weight: var(--body-font-weight-secondary);
-  --property-line-height: 1.6;
-  --property__name-color: var(--c-gray-variant);
-  --property__value-font-weight: 500;
-  --property__value-font-weight-desktop: var(--body-font-weight-secondary);
-}
+@import "../../helpers";
+
 .sf-property {
-  $this: &;
-  font-family: var(--property-font-family);
-  font-size: var(--property-font-size);
-  font-weight: var(--property-font-weight);
-  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  color: var(--property-color, var(--c-text));
   &__name {
-    margin-right: var(--spacer);
-    color: var(--property__name-color);
+    display: flex;
+    align-items: center;
+    margin: var(--property-name-margin, 0 var(--spacer) 0 0);
+    color: var(--property-name-color, var(--c-text-muted));
+    font: var(
+      --property-name-font,
+      font(
+        --property-name,
+        400,
+        var(--font-size-regular),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
+    text-transform: var(--property-name-text-transform);
+    &::after {
+      content: var(--property-name-content, ":");
+    }
   }
   &__value {
-    font-weight: var(--property__value-font-weight);
+    font: var(
+      --property-value-font,
+      font(
+        --property-value-font,
+        400,
+        var(--font-size-regular),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
   }
   &--full-width {
-    display: flex;
+    --property-name-text-transform: uppercase;
     justify-content: space-between;
-    align-content: center;
-    #{$this}__name {
-      text-transform: uppercase;
-    }
+  }
+  &--without-suffix {
+    --property-name-content: none;
   }
 }
