@@ -11,7 +11,7 @@ describe("SfAlert.vue", () => {
         type: "warning"
       }
     });
-    expect(component.contains(".sf-alert--warning")).toBe(true);
+    expect(component.contains(".color-warning")).toBe(true);
   });
   it("renders an alert message when passed via props", () => {
     const message = "Hello World";

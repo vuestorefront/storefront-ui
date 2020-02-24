@@ -22,38 +22,25 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 
-@mixin for-mobile {
-  @media screen and (max-width: $desktop-min) {
-    @content;
-  }
-}
-
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
-
-.message {
-  margin: 0 0 var(--spacer-extra-big) 0;
-  font-size: var(--font-size-regular);
-  font-family: var(--body-font-family-primary);
-  font-weight: var(--body-font-weight-primary);
-  line-height: 1.6;
-}
-
 .tab-orphan {
   @include for-mobile {
-    ::v-deep .sf-tabs {
-      &__title {
-        display: none;
-      }
-
-      &__content {
-        border: 0;
-        padding: 0;
-      }
-    }
+    --tabs-title-display: none;
+    --tabs-content-padding: 0;
+    --tabs-conent-border-width: 0;
+  }
+}
+.message {
+  margin: 0 0 var(--spacer-extra-big) 0;
+  font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
+  &__label {
+    font-weight: 500;
+  }
+}
+a {
+  color: var(--c-text-muted);
+  text-decoration: none;
+  &:hover {
+    color: var(--c-text);
   }
 }
 </style>

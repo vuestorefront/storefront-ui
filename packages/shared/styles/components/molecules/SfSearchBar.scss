@@ -1,18 +1,5 @@
-@import '../../variables';
-:root {
-  --search-bar-background-primary: var(--c-light);
-  --search-bar-background-secondary: var(--c-light-variant);
-  --search-bar-placeholder-color: var(--c-dark);
-  --search-bar-placeholder-color-focus: var(--c-gray);
-  --search-bar-width: 100%;
-  --search-bar-height: 2.25rem;
-  --search-bar-border-radius: 1.6875rem;
-  --search-bar-text-align: center;
-  --search-bar-font-size: .875rem;
-  @media screen and (min-width: $desktop-min) {
-    --search-bar-width: 20rem;
-  }
-}
+@import "../../helpers";
+
 @mixin placeholder {
   &::-webkit-input-placeholder {
     @content;
@@ -25,73 +12,51 @@
   }
 }
 @mixin iconPosition {
-  flex-direction: row;
-  .sf-search-bar {
-    &__input {
+  flex-direction: var(--search-bar-icon-flex-direction, row);
+  .sf-search-bar__input {
+    --search-bar-input-text-align: left;
+    &::placeholder {
       text-align: left;
-      &::placeholder {
-        text-align: left;
-      }
-      &:focus {
-        & ~ .sf-search-bar__clear-icon {
-          padding-right: 1.5rem;
-        }
+    }
+    &:focus {
+      & ~ .sf-search-bar__clear-icon {
+        --search-bar-clear-icon-padding: 0 1.5rem 0 0;
       }
     }
   }
 }
+
 .sf-search-bar {
-  background-color: var(--search-bar-background-primary);
-  border-radius: var(--search-bar-border-radius);
-  width: var(--search-bar-width);
-  padding: 0 .9375rem;
-  height: var(--search-bar-height);
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
   box-sizing: border-box;
   position: relative;
-  &--secondary {
-    background-color: var(--search-bar-background-secondary);
-  }
-  &--position-right {
-    @include iconPosition();
-  }
-  &--position-right-mobile {
-    @media (max-width: $mobile-max) {
-      @include iconPosition();
-    }
-  }
-  &--position-right-desktop {
-    @media (min-width: $mobile-max) {
-      @include iconPosition();
-    }
-  }
-  &--no-icon {
-    .sf-search-bar__icon {
-      display: none;
-    }
-  }
+  display: flex;
+  align-items: center;
+  flex-direction: var(--search-bar-flex-direction, row-reverse);
+  height: var(--search-bar-height, var(--search-bar-size, 2.25rem));
+  width: var(--search-bar-width, var(--search-bar-size, 100%));
+  padding: var(--search-bar-padding, 0 0.9375rem);
+  background: var(--search-bar-background, var(--c-light));
+  border-radius: var(--search-bar-border-radius, 1.6875rem);
   &__input {
-    border: none;
+    position: relative;
+    border: var(--search-bar-input-border, none);
     flex-grow: 1;
     background: transparent;
-    text-align: center;
+    text-align: var(--search-bar-input-text-align, center);
     outline: none;
-    position: relative;
     @include placeholder {
-      color: var(--search-bar-placeholder-color);
-      transition: color .2s ease-in;
+      color: var(--search-bar-placeholder-color, var(--c-dark));
+      transition: var(--search-bar-placeholder-transition, color 0.2s ease-in);
     }
     &:focus {
-      @include placeholder {
-        color: var(--search-bar-placeholder-color-focus);
-      }
       & ~ .sf-search-bar__clear-icon {
-        position: absolute;
-        opacity: 1;
-        padding-right: .4rem;
-        right: .9375rem;
+        --search-bar-clear-icon-position: absolute;
+        --search-bar-clear-icon-opacity: 1;
+        --search-bar-clear-icon-padding: 0 0.4rem 0 0;
+        --search-bar-clear-icon-right: 0.9375rem;
+      }
+      @include placeholder {
+        color: var(--search-bar-placeholder-color-focus, var(--c-gray));
       }
     }
     &::-webkit-search-cancel-button {
@@ -102,10 +67,25 @@
     }
   }
   &__clear-icon {
-    opacity: 0;
-    padding-right: .4rem;
-    position: absolute;
-    right: .9375rem;
-    transition: all .2s ease-in;
+    position: var(--search-bar-clear-icon-position, absolute);
+    right: var(--search-bar-clear-icon-right, 0.9375rem);
+    padding: var(--search-bar-clear-icon-padding, 0 0.4rem 0 0);
+    opacity: var(--search-bar-clear-icon-opacity, 0);
+    transition: var(--search-bar-clear-icon-transition, all 0.2s ease-in);
+  }
+  &__icon {
+    display: var(--search-bar-icon-display, block);
+  }
+  &--secondary {
+    --search-bar-background: var(--c-light-variant);
+  }
+  &--position-right {
+    @include iconPosition();
+  }
+  &--no-icon {
+    --search-bar-icon-display: none;
+  }
+  @include for-desktop {
+    --search-bar-width: 20rem;
   }
 }

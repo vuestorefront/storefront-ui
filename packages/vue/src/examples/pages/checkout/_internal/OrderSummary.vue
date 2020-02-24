@@ -7,7 +7,9 @@
       />
       <div class="total-items">
         <h3>Total items: {{ totalItems }}</h3>
-        <SfButton class="sf-button--text" @click="listIsHidden = !listIsHidden"
+        <SfButton
+          class="sf-button--text color-secondary"
+          @click="listIsHidden = !listIsHidden"
           >{{ listIsHidden ? "Show" : "Hide" }} items list
         </SfButton>
       </div>
@@ -26,26 +28,26 @@
             @click:remove="removeProduct(index)"
           >
             <template #configuration>
-              <div class="product__properties">
+              <div class="collected-product__properties">
                 <SfProperty
                   v-for="(property, key) in product.configuration"
                   :key="key"
                   :name="property.name"
                   :value="property.value"
-                  class="product__property"
+                  class="collected-product__property"
                 />
               </div>
             </template>
             <template #actions>
               <div>
-                <div class="product__action">{{ product.sku }}</div>
-                <div class="product__action">
+                <div class="collected-product__action">{{ product.sku }}</div>
+                <div class="collected-product__action">
                   Quantity: <span class="product__qty">{{ product.qty }}</span>
                 </div>
               </div>
             </template>
             <template #input>
-              <!--              <div></div>-->
+              <span></span>
             </template>
           </SfCollectedProduct>
         </div>
@@ -75,7 +77,7 @@
     </div>
     <div class="highlighted promo-code">
       <SfButton
-        class="promo-code__button"
+        class="sf-button--text promo-code__button "
         @click="showPromoCode = !showPromoCode"
         >{{ showPromoCode ? "-" : "+" }} Promo Code
       </SfButton>
@@ -98,6 +100,7 @@
         :title="characteristic.title"
         :description="characteristic.description"
         :icon="characteristic.icon"
+        color-icon="green-primary"
         class="characteristic"
       />
     </div>
@@ -227,121 +230,88 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
-
 .highlighted {
   box-sizing: border-box;
   width: 100%;
-  background-color: #f1f2f3;
+  background: #f1f2f3;
   padding: var(--spacer-extra-big);
-  margin-bottom: var(--spacer-big);
-
+  margin: 0 0 var(--spacer-big) 0;
+  font: 300 var(--font-size-mall) / 1.6 var(--body-font-family-secondary);
   &:last-child {
-    margin-bottom: 0;
-  }
-
-  &--total {
-    margin-bottom: 1px;
+    margin: 0;
   }
 }
-
 .title {
-  margin-bottom: var(--spacer-extra-big);
+  --heading-title-margin: 0 0 var(--spacer-extra-big) 0;
 }
-
 .total-items {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacer-big);
-}
-
-.property {
-  margin-bottom: var(--spacer);
-
-  ::v-deep .sf-property__name {
-    text-transform: unset;
+  justify-content: space-between;
+  font: 400 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
+  h3 {
+    font: inherit;
   }
 }
-
-.property-total {
-  margin-top: var(--spacer-extra-big);
-  font-size: var(--font-size-extra-big);
-  font-weight: 500;
-
-  ::v-deep .sf-property__name {
-    color: var(--c-text);
-  }
-}
-
 .collected-product-list {
-  margin: 0 -20px;
+  flex: 1;
+  margin: var(--spacer-big) calc(var(--spacer-big) * -1);
 }
-
 .collected-product {
-  &:not(:last-child) {
-    margin-bottom: var(--spacer-big);
+  margin: var(--spacer-big) 0;
+  --collected-product-title-font: 300 var(--font-size-small) / 1.6
+    var(--body-font-family-secondary);
+  &:last-child {
+    margin: var(--spacer-big) 0 0 0;
   }
-}
-
-.characteristic {
-  &:not(:last-child) {
-    margin-bottom: var(--spacer-big);
-  }
-}
-
-.promo-code {
-  &__button {
-    padding: 0;
-    background-color: transparent;
-    color: var(--c-primary);
-    font-size: var(--font-size-extra-big);
-    @include for-desktop {
-      font-size: var(--font-size-big);
-    }
-  }
-
-  &__input {
-    margin: var(--spacer-big) 0;
-
-    ::v-deep input {
-      border-color: var(--c-gray-variant);
-    }
-  }
-}
-
-.product {
   &__properties {
     margin: var(--spacer-big) 0 0 0;
   }
-
-  &__property,
-  &__action {
-    font-size: var(--font-size-small);
-    @include for-desktop {
-      font-size: var(--font-size-extra-small);
-    }
+  &__property {
+    --property-name-font: 300 var(--font-size-extra-small) / 1.6
+      var(--body-font-family-secondary);
+    --property-value-font: 300 var(--font-size-extra-small) / 1.6
+      var(--body-font-family-secondary);
   }
-
-  &__action {
-    color: var(--c-gray-variant);
-    font-size: var(--font-size-small);
-    margin: 0 0 var(--spacer-small) 0;
-    @include for-desktop {
-      font-size: var(--font-size-extra-small);
-    }
-
-    &:last-child {
-      margin: 0;
-    }
+  &__actions {
+    transition: opacity 150ms ease-in-out;
+    opacity: var(--cp-actions-opacity, 0);
   }
-
-  &__qty {
-    color: var(--c-text);
+  &__action {
+    --button-padding: 0;
+    font: 300 var(--font-size-extra-small) / 1.6
+      var(--body-font-family-secondary);
+  }
+  &:hover {
+    --cp-actions-opacity: 1;
+  }
+}
+.property {
+  --property-name-text-transform: none;
+}
+.property-total {
+  margin: var(--spacer-extra-big) 0 0 0;
+  --property-name-font: 500 var(--font-size-extra-big) / 1.6
+    var(--body-font-family-secondary);
+  --property-name-color: var(--c-text);
+  --property-value-font: 500 var(--font-size-extra-big) / 1.6
+    var(--body-font-family-secondary);
+}
+.promo-code {
+  &__button {
+    --button-padding: 0;
+    --button-text-decoration: none;
+    --button-text-transform: uppercase;
+    --button-font-size: var(--font-size-big);
+  }
+  &__input {
+    margin: var(--spacer-big) 0;
+  }
+}
+.characteristic {
+  margin: 0 0 var(--spacer-big) 0;
+  &:last-child {
+    margin: 0;
   }
 }
 </style>

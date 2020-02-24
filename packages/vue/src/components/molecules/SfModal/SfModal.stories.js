@@ -50,6 +50,9 @@ storiesOf("Molecules|Modal", module)
       },
       persistent: {
         default: boolean("persistent", false, "Props")
+      },
+      ariaLabelClose: {
+        default: text("ariaLabelClose", "Close", "Props")
       }
     },
     mixins: [visibilityToggleMixin],
