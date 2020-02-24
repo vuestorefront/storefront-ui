@@ -24,7 +24,7 @@
       <div class="wrapper__contact">
         <SfHeading
           :level="3"
-          class="sf-heading--left sf-heading--no-underline"
+          class="heading--no-padding sf-heading--left sf-heading--no-underline"
           title="Primary contacts for any questions"
         ></SfHeading>
         <p class="paragraph">
@@ -51,8 +51,7 @@
         <SfButton class="color-secondary sf-button--full-width"
           >SEND MY FEEDBACK</SfButton
         >
-        <SfButton
-          class="sf-button--outline color-secondary sf-button--full-width"
+        <SfButton class="sf-button--outline sf-button--full-width"
           >BACK TO SHOP</SfButton
         >
       </div>
@@ -81,11 +80,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
+
 #thank-you {
   box-sizing: border-box;
   @include for-desktop {
@@ -100,7 +95,7 @@ export default {
   &__info {
     padding: 2rem;
     text-align: left;
-    @media screen and (min-width: $desktop-min) {
+    @include for-desktop {
       text-align: center;
     }
   }
@@ -111,46 +106,55 @@ export default {
 .wrapper {
   max-width: 586px;
   margin: 0 auto;
-  padding: 0 1rem 0 1rem;
+  padding: 0 var(--spacer-medium) 0 var(--spacer-medium);
 
   &__contact {
-    padding: 1.3rem 2.5rem;
-    border: 1px solid #f1f2f3;
+    padding: 1.3rem var(--spacer-extra-big);
+    border: 1px solid var(--c-light);
   }
   &__notifications-button {
-    margin: 2.5rem 0 2.5rem 0;
-    @media screen and (max-width: $desktop-min) {
-      width: 100%;
+    margin: var(--spacer-extra-big) 0 var(--spacer-extra-big) 0;
+    @include for-mobile {
+      --button-width: 100%;
     }
   }
   &__buttons {
     width: 100%;
     display: flex;
-    margin: 2.5rem 0 2.5rem 0;
+    margin: var(--spacer-extra-big) 0 var(--spacer-extra-big) 0;
     justify-content: space-between;
 
     & > button {
-      margin: 0 1rem 0 0;
+      margin: 0 var(--spacer-medium) 0 0;
     }
 
-    @media screen and (max-width: $desktop-min) {
+    @include for-mobile {
       flex-direction: column;
 
       & > button {
-        margin: 0 0 0.5rem 0;
+        margin: 0 0 var(--spacer) 0;
       }
     }
   }
 
-  @media screen and (min-width: $desktop-min) {
+  @include for-desktop {
     padding: 0;
   }
 }
 .heading {
-  margin: 3.75rem 0 0 0;
+  --heading-padding: 3.75rem 0 0 0;
+
+  &--no-padding {
+    --heading-padding: 0;
+    --heading-text-align: left;
+  }
+
+  @include for-desktop {
+    --heading-text-align: left;
+  }
 }
 .paragraph {
-  font-size: 1.125rem;
+  font-size: var(--font-size-big);
   line-height: 1.875rem;
 }
 </style>
