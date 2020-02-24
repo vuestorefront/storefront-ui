@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-bar {
   box-sizing: border-box;
   display: flex;
@@ -18,11 +17,9 @@
       var(--body-font-family-secondary)
     )
   );
-
   &__icon {
     --icon-width: 0.875rem;
   }
-
   @include for-desktop {
     --bar-font-size: var(--font-size-regular);
   }

@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-sticky {
   @include for-desktop {
     position: var(--sticky-position, sticky);

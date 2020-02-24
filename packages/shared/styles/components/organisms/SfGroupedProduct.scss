@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-grouped-product-item {
   display: var(--grouped-product-item-display);
   padding: var(--grouped-product-item-padding, var(--spacer-small));
@@ -43,7 +42,6 @@
     margin: var(--grouped-product-item-price-margin);
     font: var(--grouped-product-item-price-font);
   }
-
   @include for-desktop {
     --input-background: var(--c-light);
     --input-font-size: var(--font-size-big);
@@ -60,7 +58,6 @@
     --grouped-product-item-price-font: inherit;
   }
 }
-
 .sf-grouped-product {
   &--without-carousel {
     --input-background: var(--c-light);
@@ -77,7 +74,6 @@
     --grouped-product-item-title-margin: 0;
     --grouped-product-item-price-margin: 0 0 0 auto;
     --grouped-product-item-price-font: inherit;
-
     .glide {
       &__slides {
         display: block !important;

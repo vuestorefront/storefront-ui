@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-product-card {
   position: relative;
   z-index: var(--product-card-z-index);
@@ -7,7 +6,6 @@
   max-width: var(--product-card-max-width, 200px);
   padding: var(--product-card-padding, var(--spacer-small));
   background-color: var(--product-card-background, var(--c-white));
-
   &::after {
     content: "";
     position: absolute;
@@ -19,18 +17,15 @@
     transition: var(--product-card-transition);
     box-shadow: var(--product-card-box-shadow);
   }
-
   &:hover {
     --product-card-image-opacity: 1;
     --product-card-image-even-opacity: 1;
     --product-card-wishlist-icon-opacity: 1;
     --product-card-add-button-opacity: 1;
   }
-
   &__link {
     outline: none;
   }
-
   &__title {
     margin: var(--product-card-title-margin, var(--spacer-small) 0);
     font: var(
@@ -64,7 +59,6 @@
     top: var(--product-card-badge-top, var(--spacer));
     left: var(--product-card-badge-left, 0);
   }
-
   &__add-button {
     --button-padding: var(--spacer-medium);
     --circle-icon-position: absolute;
@@ -73,11 +67,9 @@
     transform: var(--product-card-add-button-transform, translateY(-50%));
     opacity: var(--product-card-add-button-opacity, 0);
     cursor: pointer;
-
     &--icons-enter-active {
       animation: var(--product-card-add-button-enter-animation, bounce 0.4s);
     }
-
     &--icons-leave-active {
       animation: var(
         --product-card-add-button-leave-animation,
@@ -85,7 +77,6 @@
       );
     }
   }
-
   &__reviews {
     display: flex;
     align-items: center;
@@ -126,11 +117,9 @@
     cursor: pointer;
     outline: none;
   }
-
   &--on-wishlist {
     --product-card-wishlist-icon-opacity: 1;
   }
-
   @include for-desktop {
     --product-card-max-width: 240px;
     --product-card-padding: var(--spacer-big);
@@ -141,14 +130,12 @@
     --product-card-wishlist-icon-opacity: 0;
     --product-card-reviews-count-font-size: var(--font-size-small);
     --product-card-add-button-display: flex;
-
     &:hover {
       --product-card-z-index: 1;
       --product-card-box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
     }
   }
 }
-
 @keyframes bounce {
   0% {
     transform: scale(1);

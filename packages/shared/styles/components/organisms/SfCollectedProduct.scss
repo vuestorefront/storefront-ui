@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-collected-product {
   position: relative;
   box-sizing: border-box;
@@ -14,7 +13,6 @@
   &:hover {
     --collected-product-background: var(--c-white);
   }
-
   &__remove {
     --button-padding: 0;
     --icon-size: 0.875rem;
@@ -32,16 +30,13 @@
       --collected-product-remove-background: transparent;
     }
   }
-
   &__aside {
     position: relative;
     flex: 0 0 5.3125rem;
   }
-
   &__image {
     background: var(--collected-product-image-background, var(--c-light));
   }
-
   &__quantity-selector {
     --input-background: var(--c-white);
     position: absolute;
@@ -49,14 +44,12 @@
     bottom: var(--spacer);
     z-index: 2;
   }
-
   &__main {
     flex: 1;
     margin: var(--collected-product-main-margin, 0 0 0 var(--spacer-big));
     display: flex;
     flex-direction: column;
   }
-
   &__title {
     margin-bottom: 5px;
     font: var(
@@ -70,13 +63,11 @@
       )
     );
   }
-
   &__details {
     margin: auto 0 0 0;
     display: flex;
     justify-content: space-between;
   }
-
   @include for-desktop {
     --collected-product-padding: 10px;
     --collected-product-remove-top: 10px;
@@ -85,7 +76,6 @@
     --collected-product-remove-opacity: 0;
     --collected-product-remove-box-shadow: none;
     --collected-product-remove-transition: opacity 150ms ease-in-out;
-
     &__remove {
       --icon-size: 8px;
       --icon-color: var(--c-white);
@@ -95,7 +85,6 @@
         --collected-product-remove-background: var(--c-dark-variant);
       }
     }
-
     &::after {
       --collected-product-transition: box-shadow 150ms ease-in-out;
     }

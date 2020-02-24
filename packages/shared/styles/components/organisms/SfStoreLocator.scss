@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-store-locator {
   font: var(
     --store-locator-font,
@@ -31,11 +30,9 @@
       --body-font-family-secondary
     );
   }
-
   &__title {
     margin: var(--store-locator-title-margin, 0 0 0.625rem 0);
   }
-
   &__wrapper {
     display: flex;
     flex-direction: var(--store-locator-wrapper-flex-direction, column-reverse);
@@ -43,13 +40,11 @@
     justify-content: var(--store-locator-wrapper-justify-content, flex-start);
     align-items: var(--store-locator-wrapper-align-items, flex-start);
   }
-
   &__list {
     width: var(--store-locator-list-width, 100%);
     max-width: var(--store-locator-list-max-width, none);
     margin: var(--store-locator-list-margin);
   }
-
   &__map-wrapper {
     position: relative;
     width: var(--store-locator-map-width, 100%);
@@ -74,7 +69,6 @@
       position: absolute;
     }
   }
-
   .sf-store {
     &:first-of-type {
       --divider-display: none;
@@ -87,7 +81,6 @@
         --divider-width: calc(100% + 2.5rem);
       }
     }
-
     &__item {
       display: flex;
       flex-direction: var(--store-item-flex-direction, row);
@@ -104,7 +97,6 @@
           var(--body-font-family-primary)
         )
       );
-
       &-media {
         width: var(--store-item-media-width, 5.125rem);
         height: var(--stor-item-media-height, 7rem);
@@ -112,13 +104,11 @@
         overflow: hidden;
         cursor: pointer;
       }
-
       &-info {
         flex: 1;
         &-heading {
           display: var(--store-item-info-heading-display);
           justify-content: var(--store-item-info-heading-justify-content);
-
           &-name {
             color: var(--store-item-info-heading-name-color, var(--c-dark));
             font: var(
@@ -132,14 +122,12 @@
               )
             );
           }
-
           &-distance {
             width: var(--store-item-info-heading-distance-width);
             color: var(
               --store-item-info-heading-distance-color,
               var(--c-gray-variant)
             );
-
             span {
               color: var(
                 --store-item-info-heading-distance-span-color,
@@ -148,12 +136,10 @@
             }
           }
         }
-
         &-address {
           color: var(--store-item-info-address-color, var(--c-gray-variant));
           margin: var(--store-item-info-address-margin, 0 0 1.25rem 0);
         }
-
         &-phone,
         &-email {
           display: var(--store-item-info-contact-display, flex);
@@ -165,7 +151,6 @@
           );
           align-items: var(--store-item-info-contact-align-items, center);
           margin: var(--store-item-info-contact-margin, 0 0 0.625rem 0);
-
           span {
             margin: var(--store-item-info-contact-span-margin, 0 0 0 0.3125rem);
             font: var(

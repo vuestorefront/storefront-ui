@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-header-navigation-item {
   display: flex;
   align-items: center;
@@ -101,7 +100,6 @@
       --button-background: var(--c-light);
       --icon-color: var(--c-text);
     }
-
     &--is-active {
       --button-background: var(--c-primary);
       & .sf-icon {
@@ -109,7 +107,6 @@
       }
     }
   }
-
   &--is-sticky {
     --header-sticky-container-position: fixed;
     --header-sticky-container-width: 100%;
@@ -118,11 +115,9 @@
   &--is-hidden {
     --header-sticky-container-transform: translate3d(0, -100%, 0);
   }
-
   &--has-mobile-search {
     --search-bar-background: var(--c-white);
   }
-
   @include for-desktop {
     --header-logo-height: 2.5rem;
     --header-logo-margin: 0;

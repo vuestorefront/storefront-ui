@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 @mixin placeholder {
   &::-webkit-input-placeholder {
     @content;

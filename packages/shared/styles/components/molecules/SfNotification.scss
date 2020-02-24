@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-notification {
   position: relative;
   display: flex;
@@ -26,7 +25,6 @@
     )
   );
   opacity: var(--notification-opacity, 0.8);
-
   &__title {
     display: var(--notification-title-display, inline);
     font: var(
@@ -48,7 +46,6 @@
       }
     }
   }
-
   &__action {
     display: var(--notification-action-display, none);
     margin: var(--notification-action-margin);
@@ -60,20 +57,17 @@
     text-decoration: var(--notification-action-text-decoration);
     outline: var(--notification-action-outline);
   }
-
   &__icon {
     --icon-color: var(--c-white);
     display: var(--notification-icon-display, none);
     margin: var(--notification-icon-margin);
   }
-
   &__close {
     position: absolute;
     right: var(--notification-close-right-position, var(--spacer-big));
     top: var(--notification-close-top-position, var(--spacer-big));
     cursor: pointer;
   }
-
   @include for-desktop {
     --notification-padding: var(--spacer-medium);
     --notification-align-items: center;
@@ -99,7 +93,6 @@
     --notification-icon-display: block;
     --notification-title-display: block;
   }
-
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     &.color-#{$color} {

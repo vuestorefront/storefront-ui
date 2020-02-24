@@ -1,18 +1,15 @@
 @import "../../helpers";
-
 .sf-table {
   box-sizing: border-box;
   width: var(--table-width, 100%);
   border: var(--table-border, none);
   border-spacing: var(--table-border-spacing, 0);
-
   &__heading,
   &__row {
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
   }
-
   &__heading {
     align-items: center;
     padding: var(--table-heading-padding, var(--spacer-big));
@@ -21,14 +18,12 @@
     border: var(--table-heading-border);
     border-width: var(--table-heading-border-width);
   }
-
   &__row {
     padding: var(--table-row-padding, var(--spacer-big));
     background-color: var(--table-row-background);
     border-bottom: var(--table-row-border-bottom, 1px solid var(--c-light));
     box-shadow: var(--table-row-box-shadow);
   }
-
   &__data,
   &__header {
     box-sizing: border-box;
@@ -41,13 +36,11 @@
       order: var(--table-data-last-child-order, 1);
     }
   }
-
   &--bordered {
     --table-heading-padding: var(--spacer-big);
     --table-heading-border: 1px solid var(--c-light);
     --table-heading-border-width: 1px 0 1px 0;
   }
-
   @include for-desktop {
     --table-row-border-bottom: none;
     --table-heading-padding: 10px var(--spacer-big);
@@ -55,13 +48,11 @@
     --table-data-flex: 1;
     --table-data-margin: 0;
     --table-data-last-child-order: 0;
-
     &--bordered {
       --table-heading-padding: 10px;
       --table-row-padding: 10px;
       --table-row-border-bottom: 1px solid var(--c-light);
     }
-
     &__row {
       &:hover {
         --table-row-background: var(--c-light);

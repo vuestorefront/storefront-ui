@@ -1,9 +1,7 @@
 @import "../../helpers";
-
 .sf-review {
   position: relative;
   display: var(--review-display, block);
-
   &__author {
     margin: var(--review-author-margin, 0 0 var(--spacer-medium) 0);
     font: var(
@@ -19,15 +17,12 @@
     text-transform: var(--review-author-text-transform, capitalize);
     color: var(--review-author-color, var(--c-text));
   }
-
   &__rating {
     display: var(--review-rating-display, inline-block);
   }
-
   &__info {
     margin: var(--review-info-margin, 0 0 var(--spacer-medium) 0);
   }
-
   &__date {
     text-transform: var(--review-date-text-transform, capitalize);
     font: var(
@@ -42,7 +37,6 @@
     );
     color: var(--review-date-color, var(--c-dark-variant));
   }
-
   &__message {
     display: inline;
     color: var(--review-message-color, var(--c-dark-variant));

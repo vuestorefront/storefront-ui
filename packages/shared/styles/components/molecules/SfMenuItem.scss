@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-menu-item {
   display: flex;
   align-items: center;
@@ -16,31 +15,25 @@
     )
   );
   cursor: pointer;
-
   &:hover {
     --menu-item-color: var(--c-dark);
   }
-
   &--is-active {
     --menu-item-color: var(--c-dark);
     --icon-color: var(--c-dark);
     text-decoration: var(--menu-item-active-text-decoration, underline);
   }
-
   &__icon {
     --icon-color: var(--c-gray);
     margin: var(--menu-item-icon-margin, 0 var(--spacer-big) 0 0);
   }
-
   &__count {
     margin: var(--menu-item-count-margin, 0 0 0 auto);
   }
-
   &__mobile-nav-icon {
     display: var(--menu-item-mobile-nav-icon-display, flex);
     margin: var(--menu-item-mobile-nav-icon-margin, 0 0 0 var(--spacer-big));
   }
-
   @include for-desktop {
     --menu-item-mobile-nav-icon-display: none;
     --menu-item-font-size: var(--font-size-regular);

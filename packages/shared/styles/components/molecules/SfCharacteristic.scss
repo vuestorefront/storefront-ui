@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-characteristic {
   display: flex;
   align-items: center;
@@ -13,14 +12,12 @@
       var(--body-font-family-primary)
     )
   );
-
   &__icon {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: var(--characteristic-margin, 0 calc(var(--spacer-big) / 2) 0 0);
   }
-
   &__title {
     font: var(
       --characteristic-title-font,
@@ -33,7 +30,6 @@
       )
     );
   }
-
   @include for-desktop {
     --characteristic-margin: 0 var(--spacer-big) 0 0;
   }

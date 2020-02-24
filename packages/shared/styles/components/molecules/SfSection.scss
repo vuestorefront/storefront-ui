@@ -1,12 +1,9 @@
 @import "../../helpers";
-
 .sf-section {
   margin: var(--section-margin, 3.75rem 0);
-
   &__content {
     margin: var(--section-content-margin, var(--spacer-big) 0 0 0);
   }
-
   @include for-desktop {
     --section-margin: 10rem 0;
     --section-content-margin: 3.75rem 0 0 0;

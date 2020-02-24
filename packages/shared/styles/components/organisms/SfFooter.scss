@@ -1,9 +1,7 @@
 @import "../../helpers";
-
 .sf-footer-column {
   box-sizing: border-box;
   flex: 0 0 var(--col-width);
-
   &__title {
     display: flex;
     justify-content: space-between;
@@ -23,11 +21,9 @@
     text-transform: uppercase;
     cursor: var(--footer-column-title-cursor, pointer);
   }
-
   &__chevron {
     display: var(--footer-column-chevron-display);
   }
-
   @include for-desktop {
     --footer-column-title-padding: var(--spacer-big) 0;
     --footer-column-title-cursor: default;
@@ -49,7 +45,6 @@
     padding: var(--menu-item-padding, var(--spacer-big));
     font-size: var(--menu-item-font-size, var(--font-size-regular));
   }
-
   @include for-desktop {
     --menu-item-padding: 6px 0;
     --footer-container-box-sizing: border-box;

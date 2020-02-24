@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-call-to-action {
   display: flex;
   flex-direction: var(--call-to-action-flex-direction, column);
@@ -25,7 +24,6 @@
       var(--body-font-family-secondary)
     )
   );
-
   &__title {
     font: var(
       --call-to-action-title-font,
@@ -38,26 +36,21 @@
       )
     );
   }
-
   &__description {
     display: var(--call-to-action-description-display, none);
     margin: var(--call-to-action-description-margin);
   }
-
   &__button {
     margin: var(--call-to-action-button, var(--spacer-big) 0 0 0);
     white-space: nowrap;
   }
-
   &__text-container {
     margin: var(--call-to-action-text-container);
   }
-
   &--light {
     --call-to-action-background: var(--c-light);
     --call-to-action-color: var(--c-light);
   }
-
   @include for-desktop {
     --call-to-action-flex-direction: row;
     --call-to-action-padding: 3.4rem 8.75rem;

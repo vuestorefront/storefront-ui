@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-accordion-item {
   font: var(
     --accordion-item-font,
@@ -11,7 +10,6 @@
       var(--body-font-family-secondary)
     )
   );
-
   &__header {
     display: flex;
     justify-content: var(--accordion-item-header-justify, space-between);
@@ -29,18 +27,15 @@
     );
     cursor: pointer;
   }
-
   &__content {
     padding: var(--accordion-item-content, 1.875rem 0);
   }
-
   &__chevron {
     display: var(--accordion-item-chevron-display, none);
     align-items: var(--accordion-item-chevron-align-items, auto);
     max-height: var(--accordion-item-chevron-max-height, none);
   }
 }
-
 .sf-accordion {
   &--has-chevron {
     --accordion-item-chevron-display: flex;
@@ -50,7 +45,6 @@
     );
   }
 }
-
 @include for-desktop {
   --accordion-item-header-font-size: var(--font-size-regular);
   --acordion-item-font-size: var(--font-size-big);

@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-filter {
   --checkbox-container-width: 100%;
   display: flex;
@@ -16,19 +15,15 @@
     )
   );
   cursor: pointer;
-
   &__label {
     margin: var(--filter-label-margin, 0 0 0 var(--spacer-big));
   }
-
   &__count {
     margin: var(--filter-count-margin, 0 0 0 auto);
   }
-
   &--active {
     --filter-font-weight: 500;
   }
-
   @include for-desktop {
     --filter-font-size: var(--font-size-small);
   }

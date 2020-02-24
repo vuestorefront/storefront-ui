@@ -1,9 +1,7 @@
 @import "../../helpers";
-
 .sf-sliding-section {
   display: var(--sliding-section-display, inline);
   margin: var(--sliding-section-margin, 0);
-
   &__static {
     flex: 1;
     overflow: hidden;
@@ -27,7 +25,6 @@
     background: transparent;
     cursor: pointer;
   }
-
   &--has-scroll-lock {
     overflow: hidden;
   }
@@ -35,7 +32,6 @@
     --sliding-section-static-height: 0;
     --sliding-section-mobile-bar-display: block;
   }
-
   @include for-desktop {
     --sliding-section-display: flex;
     --sliding-section-sliding-margin: 0 0 0 3.75rem;

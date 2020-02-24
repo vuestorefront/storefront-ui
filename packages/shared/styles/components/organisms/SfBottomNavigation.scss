@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-bottom-navigation-item {
   --icon-color: var(--c-gray-variant);
   position: relative;
@@ -20,17 +19,14 @@
     )
   );
   color: var(--bottom-navigation-item-color, var(--c-gray-variant));
-
   &__label {
     line-height: 1.6;
   }
-
   &--active {
     --bottom-navigation-item-color: var(--c-black);
     --bottom-navigation-item-font-weight: var(--body-font-weight-secondary);
     --icon-color: var(--bottom-navigation-item-color--active);
   }
-
   &--has-margin {
     --bottom-navigation-item-margin: 6px 0 0 0;
   }
@@ -42,7 +38,6 @@
     }
   }
 }
-
 .sf-bottom-navigation {
   box-sizing: border-box;
   position: fixed;
