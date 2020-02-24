@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.5.1...@storefront-ui/vue@0.6.0) (2020-02-24)
+
+
+### Bug Fixes
+
+* Add aria-label in SfCircleIcon stories ([#727](https://github.com/DivanteLtd/storefront-ui/issues/727)) ([362fc23](https://github.com/DivanteLtd/storefront-ui/commit/362fc2339b33dd958bcf1a08aa571d55481f4b13))
+* docs build fails due to outdated links ([#751](https://github.com/DivanteLtd/storefront-ui/issues/751)) ([e39fb8e](https://github.com/DivanteLtd/storefront-ui/commit/e39fb8ee715b933b1c9046f51cc3aaeed251f855))
+* docs for CSS custom properties ([#775](https://github.com/DivanteLtd/storefront-ui/issues/775)) ([3601b27](https://github.com/DivanteLtd/storefront-ui/commit/3601b27f3e04cd436f91b848960fe5c1a483ea5f))
+* double pictures is not adjusted to size ([#683](https://github.com/DivanteLtd/storefront-ui/issues/683)) ([05b5ca6](https://github.com/DivanteLtd/storefront-ui/commit/05b5ca6bffae1225206e86ba40597871b3ae5124))
+* prevent glide mount for empty container ([#694](https://github.com/DivanteLtd/storefront-ui/issues/694)) ([8422bc0](https://github.com/DivanteLtd/storefront-ui/commit/8422bc05258bae3be991d22428ad30c4f324bd49))
+
+
+### Features
+
+*  add isMobile observer ([#701](https://github.com/DivanteLtd/storefront-ui/issues/701)) ([d362cf6](https://github.com/DivanteLtd/storefront-ui/commit/d362cf68516b8f64955931645da52cc771499d82))
+* add default aria-label to SfQuantitySelector ([#735](https://github.com/DivanteLtd/storefront-ui/issues/735)) ([c708062](https://github.com/DivanteLtd/storefront-ui/commit/c708062b00b6c9ccb3fca4d71a5b91fbd1c731bd))
+* add hasCarousel prop for mobile SfGroupedProduct ([#715](https://github.com/DivanteLtd/storefront-ui/issues/715)) ([9241efb](https://github.com/DivanteLtd/storefront-ui/commit/9241efb50f79e0de5d05756c7c4e7e4eca09330b))
+* add quantity to cart icon in SfHeader ([#734](https://github.com/DivanteLtd/storefront-ui/issues/734)) ([486a159](https://github.com/DivanteLtd/storefront-ui/commit/486a159943288bb3379cc97396c9ad1aa01dc438))
+* add required slots to SfTabs ([#736](https://github.com/DivanteLtd/storefront-ui/issues/736)) ([cbb59c3](https://github.com/DivanteLtd/storefront-ui/commit/cbb59c31cf8de84219ebf1599ea2af16d2c13a5d))
+* add SfBadge to SfProducCard ([#693](https://github.com/DivanteLtd/storefront-ui/issues/693)) ([3584689](https://github.com/DivanteLtd/storefront-ui/commit/3584689ff3890d748460cededbebc9686e42c538))
+* add stylelint for .scss in shared packages ([#732](https://github.com/DivanteLtd/storefront-ui/issues/732)) ([58d67f1](https://github.com/DivanteLtd/storefront-ui/commit/58d67f1d9d815ff7704d0555c345f13ec6e5eeb9))
+* add v-focus directive ([#753](https://github.com/DivanteLtd/storefront-ui/issues/753)) ([da1a32c](https://github.com/DivanteLtd/storefront-ui/commit/da1a32cef2f19c4f60018a62f17263fd4fcb7b2d))
+
+
+
+
+
 ## [0.5.1](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.5.0...@storefront-ui/vue@0.5.1) (2020-01-21)
 
 **Note:** Version bump only for package @storefront-ui/vue
