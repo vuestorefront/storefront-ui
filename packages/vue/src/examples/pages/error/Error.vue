@@ -37,11 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
+
 #error {
   box-sizing: border-box;
   padding: 0 1.25rem;
@@ -56,10 +52,8 @@ export default {
   justify-content: center;
 }
 .heading {
+  --heading-subtitle-margin: var(--spacer-big) 0 0 0;
   text-align: center;
-  ::v-deep .sf-heading__subtitle {
-    margin-top: var(--spacer-big);
-  }
 }
 .actions {
   margin: 6.25rem auto 0;
