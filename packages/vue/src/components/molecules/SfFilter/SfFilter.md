@@ -2,4 +2,4 @@
 Filter component with color, name and counter of items.
 
 # storybook-iframe-height
-5rem
+3rem

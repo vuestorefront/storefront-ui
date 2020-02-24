@@ -1,7 +1,7 @@
 <template>
   <li
     class="sf-select-option"
-    :class="{ 'sf-select-option--active': selected === value }"
+    :class="{ 'sf-select-option--is-active': selected === value }"
     role="option"
     :aria-selected="selected === value ? 'true' : 'false'"
     @click="clicked"

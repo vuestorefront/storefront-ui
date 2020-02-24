@@ -23,7 +23,7 @@
 </template>
 <script>
 import icons from "@storefront-ui/shared/icons/icons";
-import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
+import { iconColorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { sizesValues as SF_SIZES } from "@storefront-ui/shared/variables/sizes";
 const SF_ICONS = Object.keys(icons);
 export default {
@@ -76,10 +76,10 @@ export default {
       return SF_SIZES.includes(size);
     },
     iconColorClass() {
-      return this.isSFColors ? `sf-icon--color-${this.color.trim()}` : "";
+      return this.isSFColors ? `color-${this.color.trim()}` : "";
     },
     iconSizeClass() {
-      return this.isSFSizes ? `sf-icon--size-${this.size.trim()}` : "";
+      return this.isSFSizes ? `size-${this.size.trim()}` : "";
     },
     iconCustomStyle() {
       return {

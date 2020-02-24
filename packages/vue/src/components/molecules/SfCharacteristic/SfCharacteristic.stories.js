@@ -1,26 +1,10 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { icons } from "@storefront-ui/shared/icons/icons";
+import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
+import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
 import SfCharacteristic from "./SfCharacteristic.vue";
-const sizes = ["xxs", "xs", "sm", "md", "lg", "xl", "xxl", "xl3", "xl4"];
-const colors = [
-  "primary",
-  "secondary",
-  "white",
-  "black",
-  "accent",
-  "green-primary",
-  "green-secondary",
-  "gray-primary",
-  "gray-secondary",
-  "light-primary",
-  "light-secondary",
-  "pink-primary",
-  "pink-secondary",
-  "yellow-primary",
-  "yellow-secondary",
-  "blue-primary",
-  "blue-secondary"
-];
+const iconsNames = Object.keys(icons);
 storiesOf("Molecules|Characteristic", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -37,7 +21,7 @@ storiesOf("Molecules|Characteristic", module)
         )
       },
       icon: {
-        default: text("icon", "info_shield", "Props")
+        default: select("icon", iconsNames, "info_shield", "Props")
       },
       sizeIcon: {
         default: select("sizeIcon", sizes, "xs", "Props")
@@ -67,7 +51,7 @@ storiesOf("Molecules|Characteristic", module)
         )
       },
       icon: {
-        default: text("icon", "info_shield", "Props")
+        default: select("icon", iconsNames, "info_shield", "Props")
       },
       sizeIcon: {
         default: select("sizeIcon", sizes, "xs", "Props")
@@ -101,7 +85,7 @@ storiesOf("Molecules|Characteristic", module)
         )
       },
       icon: {
-        default: text("icon", "info_shield", "Props")
+        default: select("icon", iconsNames, "info_shield", "Props")
       },
       sizeIcon: {
         default: select("sizeIcon", sizes, "xs", "Props")
@@ -135,7 +119,7 @@ storiesOf("Molecules|Characteristic", module)
         )
       },
       icon: {
-        default: text("icon", "info_shield", "Props")
+        default: select("icon", iconsNames, "info_shield", "Props")
       },
       sizeIcon: {
         default: select("sizeIcon", sizes, "xs", "Props")
@@ -169,7 +153,7 @@ storiesOf("Molecules|Characteristic", module)
         )
       },
       icon: {
-        default: text("icon", "info_shield", "Props")
+        default: select("icon", iconsNames, "info_shield", "Props")
       },
       sizeIcon: {
         default: select("sizeIcon", sizes, "xs", "Props")

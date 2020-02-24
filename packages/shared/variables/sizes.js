@@ -1,3 +1,4 @@
+// Icon sizes
 export const sizes = {
   xxs: "xxs", 
   xs: "xs", 
@@ -9,6 +10,7 @@ export const sizes = {
   xl3: "xl3",
   xl4: "xl4"
 };
+// Typography sizes
 export const typographySizes = {
   "extra-small": "extra-small",
   "small": "small",
@@ -16,5 +18,6 @@ export const typographySizes = {
   "big": "big",
   "extra-big": "extra-big",
 };
+
 export const sizesValues = Object.values(sizes);
 export default sizes;

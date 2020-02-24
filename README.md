@@ -57,8 +57,9 @@ We are currently in the process of building the library. If you want to help in 
 [These awesome people](https://docs.storefrontui.io/meet-the-team.html) are maintaining Storefront UI. They're ensuring that it performs smooth and looks awesome!
 
 - Filip Rakowski ([@filrak](https://github.com/filrak))
-- Przemek Spaczek ([@przspa](https://github.com/przspa))
-- Ania ([@aniamusial](https://github.com/aniamusial))
+- Przemek Spaczek ([@pspaczek](https://github.com/pspaczek))
+- Ania Musiał ([@aniamusial](https://github.com/aniamusial))
+- Marta Radziszewska ([@martaradziszewska](https://github.com/martaradziszewska))
 - Leonardo Matos ([@leomp12](https://github.com/leomp12))
 - Maya Shavin ([@mayashavin](https://github.com/mayashavin))
 - Nicolò Maria Mezzopera ([@DonNicoJS](https://github.com/DonNicoJs))
@@ -70,7 +71,7 @@ We are currently in the process of building the library. If you want to help in 
 Thank you! There would be no Storefront UI without you.
 
 # Supporters
-<a href="https://divante.co"><img style="margin-right: 15px" src="https://camo.githubusercontent.com/26482689fe32dbe4664eeb62d463e334b5137f91/68747470733a2f2f646976616e74652e636f2f61626f75742075732f4c4f474f2e706e67" alt="divante" height="55px"></a><a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="55px"></a>
+<a href="https://divante.co"><img style="margin-right: 20px" src="https://avatars0.githubusercontent.com/u/11463761?s=200&v=4" alt="divante" height="55px"></a><a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="55px"></a>
 
 # Contributing
 

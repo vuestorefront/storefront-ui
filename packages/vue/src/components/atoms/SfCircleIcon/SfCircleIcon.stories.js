@@ -62,6 +62,7 @@ storiesOf("Atoms|CircleIcon", module)
         :has-badge="hasBadge"
         :badge-label="badgeLabel"
         :aria-label="ariaLabel"
+        :style="{margin: '.625rem'}"
      />`
   }))
   .add("[slot] default", () => ({

@@ -1,52 +1,34 @@
-@import '../../variables';
-:root {
-  --collected-product-max-width: 350px;
-  --collected-product-box-shadow--hover: 0px 4px 35px rgba(168, 172, 176, .19);
-  --collected-product__remove-size: .875rem;
-  --collected-product__remove-size-desktop: 1.625rem;
-  --collected-product__remove-background: var(--c-gray-variant);
-  --collected-product__remove-background--hover: var(--c-dark-variant);
-  --collected-product__select-quantity-width: 3.125rem;
-  --collected-product__select-quantity-height: 1.875rem;
-  --collected-product__image-background-color: var(--c-light);
-}
+@import "../../helpers";
+
 .sf-collected-product {
-  $this: &;
   position: relative;
   box-sizing: border-box;
   display: flex;
-  max-width: var(--collected-product-max-width);
-  padding: var(--spacer-small);
+  max-width: var(--collected-product-max-width, 350px);
+  padding: var(--collected-product-padding, var(--spacer-small));
+  background: var(--collected-product-background);
+  z-index: var(--collected-product-z-index);
   &::after {
     content: "";
   }
   &:hover {
-    background: var(--c-white);
-    #{$this}__remove {
-      opacity: 1;
-    }
+    --collected-product-background: var(--c-white);
   }
   &__remove {
+    --button-padding: 0;
+    --icon-size: 0.875rem;
+    --icon-color: var(--c-gray);
     position: absolute;
-    top: var(--spacer);
-    right: var(--spacer);
-    background-color: transparent;
-    padding: 0;
-    & .sf-icon {
-      @media (max-width: $desktop-min) {
-        --icon-size: var(--collected-product__remove-size);
-        --icon-color: var(--c-gray);
-      }
-    }
-    &.sf-circle-icon {
-      &.sf-button {
-        padding: 0;
-      }
-    }
+    opacity: var(--collected-product-remove-opacity);
+    top: var(--collected-product-remove-top, var(--spacer));
+    right: var(--collected-product-remove-right, var(--spacer));
+    transform: var(--collected-product-remove-transform);
+    background-color: var(--collected-product-remove-background, transparent);
+    box-shadow: var(--collected-product-remove-box-shadow);
     &:hover,
     &:active {
-      box-shadow: none;
-      background-color: transparent;
+      --collected-product-remove-box-shadow: none;
+      --collected-product-remove-background: transparent;
     }
   }
   &__aside {
@@ -54,9 +36,10 @@
     flex: 0 0 5.3125rem;
   }
   &__image {
-    background-color: var(--collected-product__image-background-color);
+    background: var(--collected-product-image-background, var(--c-light));
   }
   &__quantity-selector {
+    --input-background: var(--c-white);
     position: absolute;
     right: var(--spacer);
     bottom: var(--spacer);
@@ -64,31 +47,51 @@
   }
   &__main {
     flex: 1;
-    margin-left: var(--spacer-big);
+    margin: var(--collected-product-main-margin, 0 0 0 var(--spacer-big));
     display: flex;
     flex-direction: column;
   }
   &__title {
     margin-bottom: 5px;
-    font-family: var(--body-font-family-secondary);
-    font-size: var(--font-size-regular-mobile);
-    font-weight: var(--body-font-weight-primary);
-    line-height: 1.6;
+    font: var(
+      --collected-product-title-font,
+      font(
+        --collected-product-title,
+        var(--body-font-weight-primary),
+        var(--font-size-regular),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
   }
   &__details {
-    margin-top: auto;
+    margin: auto 0 0 0;
     display: flex;
     justify-content: space-between;
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-collected-product {
-    padding: 10px var(--spacer-big);
+  @include for-desktop {
+    --collected-product-padding: 10px;
+    --collected-product-remove-top: 10px;
+    --collected-product-remove-right: 0;
+    --collected-product-remove-transform: translateX(50%);
+    --collected-product-remove-opacity: 0;
+    --collected-product-remove-box-shadow: none;
+    --collected-product-remove-transition: opacity 150ms ease-in-out;
+    &__remove {
+      --icon-size: 8px;
+      --icon-color: var(--c-white);
+      --button-padding: 10px;
+      --collected-product-remove-background: var(--c-gray-variant);
+      &:hover {
+        --collected-product-remove-background: var(--c-dark-variant);
+      }
+    }
     &::after {
-      transition: box-shadow 150ms ease-in-out;
+      --collected-product-transition: box-shadow 150ms ease-in-out;
     }
     &:hover {
-      z-index: 1;
+      --collected-product-z-index: 1;
+      --collected-product-remove-opacity: 1;
       &::after {
         content: "";
         position: absolute;
@@ -97,29 +100,12 @@
         bottom: 0;
         left: 0;
         z-index: -1;
-        box-shadow: var(--collected-product-box-shadow--hover);
+        box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
       }
     }
-    &__remove {
-      right: calc(var(--collected-product__remove-size-desktop) / -2);
-      top: 10px;
-      background-color: var(--collected-product__remove-background);
-      box-shadow: none;
-      opacity: 0;
-      transition: opacity 150ms ease-in-out;
-      &.sf-circle-icon {
-        &.sf-button {
-          padding: 10px;
-        }
-      }
-      &:hover,
-      &:active {
-        background-color: var(--collected-product__remove-background--hover);
-      }
-    }
-    &__icon {
-      --icon-size: 8px;
-      --icon-color: #ffffff;
+    &:hover,
+    &:active {
+      --collected-product-remove-background: var(--c-dark-variant);
     }
     &__aside {
       flex: 0 0 8.75rem;
