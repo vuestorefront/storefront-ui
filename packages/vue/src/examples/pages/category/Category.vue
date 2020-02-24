@@ -62,7 +62,7 @@
         <div class="navbar__view desktop-only">
           <span>View </span>
           <SfIcon
-            class="navbar__view-button"
+            class="navbar__view-icon"
             :color="isGridView ? '#1D1F22' : '#BEBFC4'"
             size="10px"
             role="button"
@@ -83,7 +83,7 @@
             </svg>
           </SfIcon>
           <SfIcon
-            class="navbar__view-button"
+            class="navbar__view-icon"
             :color="!isGridView ? '#1D1F22' : '#BEBFC4'"
             size="11px"
             role="button"
@@ -633,11 +633,6 @@ export default {
       }
     }
   }
-  &__view-button {
-    margin: 0;
-    padding: 0;
-    background: transparent;
-  }
   &__label {
     color: var(--c-text-muted);
   }
@@ -662,6 +657,7 @@ export default {
     }
     &-icon {
       margin: 0 0 0 0.625rem;
+      cursor: pointer;
     }
   }
 }
@@ -700,10 +696,10 @@ export default {
     }
   }
   &__product-card-horizontal {
+    --product-card-horizontal-padding: var(--spacer);
     flex: 0 0 100%;
-    padding: var(--spacer);
     @include for-desktop {
-      padding: var(--spacer-big);
+      --product-card-horizontal-padding: var(--spacer-big);
     }
   }
   &__slide-enter {
