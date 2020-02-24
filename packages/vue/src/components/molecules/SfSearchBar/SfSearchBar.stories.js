@@ -15,10 +15,6 @@ storiesOf("Molecules|SearchBar", module)
           "CSS modifiers",
           {
             "sf-search-bar--position-right": "sf-search-bar--position-right",
-            "sf-search-bar--position-right-mobile":
-              "sf-search-bar--position-right-mobile",
-            "sf-search-bar--position-right-desktop":
-              "sf-search-bar--position-right-desktop",
             "sf-search-bar--no-icon": "sf-search-bar--no-icon"
           },
           "null",
@@ -52,10 +48,6 @@ storiesOf("Molecules|SearchBar", module)
           "CSS modifiers",
           {
             "sf-search-bar--position-right": "sf-search-bar--position-right",
-            "sf-search-bar--position-right-mobile":
-              "sf-search-bar--position-right-mobile",
-            "sf-search-bar--position-right-desktop":
-              "sf-search-bar--position-right-desktop",
             "sf-search-bar--no-icon": "sf-search-bar--no-icon"
           },
           "null",
@@ -91,10 +83,6 @@ storiesOf("Molecules|SearchBar", module)
           "CSS modifiers",
           {
             "sf-search-bar--position-right": "sf-search-bar--position-right",
-            "sf-search-bar--position-right-mobile":
-              "sf-search-bar--position-right-mobile",
-            "sf-search-bar--position-right-desktop":
-              "sf-search-bar--position-right-desktop",
             "sf-search-bar--no-icon": "sf-search-bar--no-icon"
           },
           "null",

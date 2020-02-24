@@ -1,30 +1,33 @@
-@import '../../variables';
-:root {
-  --badge-padding: .3125rem .625rem;
-  --badge-color: var(--c-white);
-  --badge-background-color: var(--c-primary);
-  --badge-font-family: var(--body-font-family-secondary);
-  --badge-font-size: var(--font-size-regular);
-  --badge-font-weight: 500;
-  --badge-line-height: 1.6;
-  @media screen and (min-width: $desktop-min) {
-    --badge-font-size: var(--font-size-small);
-  }
-}
+@import "../../helpers";
+
 .sf-badge {
-  box-sizing: border-box;
   display: inline-block;
-  padding: var(--badge-padding);
-  background-color: var(--badge-background-color);
-  color: var(--badge-color);
-  font-family: var(--badge-font-family);
-  font-size: var(--badge-font-size);
-  font-weight: var(--badge-font-weight);
-  line-height: var(--badge-line-height);
-  text-align: center;
-  cursor: default;
+  box-sizing: border-box;
+  width: var(--badge-width);
+  height: var(--badge-height);
+  padding: var(--badge-padding, var(--spacer-small) var(--spacer));
+  border: var(--badge-border);
+  border-radius: var(--badge-border-radius);
+  background: var(--badge-background, var(--c-primary));
+  color: var(--badge-color, var(--c-white));
+  font: var(
+    --badge-font,
+    font(
+      --badge,
+      500,
+      var(--font-size-small),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
+  text-align: var(--badge-text-align, center);
   &--full-width {
-    width: 100%;
+    --badge-width: 100%;
   }
-  @include color-modifiers('--badge');
+  @each $color, $map in $colors-map {
+    $primary: map-get($map, "primary");
+    &.color-#{$color} {
+      --badge-background: #{$primary};
+    }
+  }
 }

@@ -23,6 +23,7 @@
             v-if="button"
             icon-size="14px"
             icon="cross"
+            icon-color="white"
             class="sf-sidebar__circle-icon"
             @click="close"
           />

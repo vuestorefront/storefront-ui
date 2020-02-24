@@ -12,11 +12,7 @@
         </div>
         <div
           class="sf-review__date"
-          :class="[
-            rating > 0 && maxRating > 0
-              ? 'sf-review__display-inline-block sf-review__margin-left'
-              : ''
-          ]"
+          :class="[rating > 0 && maxRating > 0 ? 'sf-review--inline' : '']"
         >
           {{ date }}
         </div>
@@ -25,10 +21,10 @@
     <!-- @slot Review message. Slot content will replace default <div> tag and its inner <span> and <a> tags (bind 'finalMessage' computed property, 'buttonText' computed property). -->
     <slot name="message" v-bind="{ finalMessage, buttonText }">
       <div v-if="message">
-        <span class="sf-review__message">{{ finalMessage }} &nbsp;</span>
+        <p class="sf-review__message">{{ finalMessage }}</p>
         <button
           v-if="showButton"
-          class="sf-review__message_read_more"
+          class="sf-review__read-more"
           @click="toggleMessage"
         >
           {{ buttonText }}

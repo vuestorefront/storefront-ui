@@ -2,4 +2,4 @@
 Checkbox component
 
 # storybook-iframe-height
-4rem
+3rem

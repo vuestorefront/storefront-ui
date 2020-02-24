@@ -1,14 +1,11 @@
-@import '../../variables';
-:root {
-  --rating__icon-positive-fill: var(--c-primary);
-  --rating__icon-negative-fill: var(--c-dark);
-}
+@import "../../helpers";
+
 .sf-rating {
   display: flex;
-  &__icon-positive {
-    fill: var(--rating__icon-positive-fill);
-  }
-  &__icon-negative {
-    fill: var(--rating__icon-negative-fill);
+  &__icon {
+    --icon-color: var(--c-primary);
+    &--negative {
+      --icon-color: var(--c-dark);
+    }
   }
 }
