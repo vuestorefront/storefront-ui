@@ -1,4 +1,5 @@
 @import "../../helpers";
+
 .sf-alert {
   --icon-size: 1.5rem;
   display: flex;
@@ -16,9 +17,6 @@
   );
   &__message {
     margin: var(--alert-message-margin, 0 0 0 0.625rem);
-  }
-  @include for-desktop {
-    --alert-font-size: var(--font-size-big);
   }
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");

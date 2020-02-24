@@ -1,4 +1,5 @@
 @import "../../helpers";
+
 .sf-notification {
   position: relative;
   display: flex;
@@ -19,7 +20,7 @@
     font(
       --notification,
       400,
-      var(--font-size-big),
+      var(--font-size-regular),
       1.6,
       var(--body-font-family-primary)
     )

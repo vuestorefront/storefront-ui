@@ -1,17 +1,8 @@
 @import "../../helpers";
+
 .sf-characteristic {
   display: flex;
   align-items: center;
-  font: var(
-    --characteristic-font,
-    font(
-      --characteristic,
-      300,
-      var(--font-size-small),
-      1.6,
-      var(--body-font-family-primary)
-    )
-  );
   &__icon {
     display: flex;
     align-items: center;
@@ -28,6 +19,18 @@
         1.6,
         var(--body-font-family-secondary)
       )
+    );
+  }
+  &__description {
+    font: var(
+        --characteristic-description-font,
+        font(
+            --characteristic-description,
+            300,
+            var(--font-size-small),
+            1.6,
+            var(--body-font-family-primary)
+        )
     );
   }
   @include for-desktop {

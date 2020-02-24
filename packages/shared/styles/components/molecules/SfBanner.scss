@@ -1,4 +1,5 @@
 @import "../../helpers";
+
 .sf-banner {
   box-sizing: border-box;
   display: flex;
@@ -10,16 +11,6 @@
   background-size: cover;
   background-color: var(--banner-background);
   background-image: var(--background-image);
-  font: var(
-    --banner-font,
-    font(
-      --banner,
-      300,
-      var(--font-size-extra-big),
-      1.6,
-      var(--body-font-family-secondary)
-    )
-  );
   &__container {
     flex: var(--banner-container-flex, 0 0 100%);
   }
@@ -54,6 +45,16 @@
   &__description {
     display: var(--banner-description-display, none);
     margin: var(--banner-description-margin);
+    font: var(
+      --banner-description-font,
+      font(
+        --banner-description,
+        300,
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
   }
   &__call-to-action {
     display: var(--banner-call-to-action-display, none);
@@ -61,7 +62,6 @@
   }
   @include for-desktop {
     --banner-min-height: 20rem;
-    --banner-font-size: var(--font-size-big);
     --banner-padding: 4rem 5rem 4rem calc(50% + 5rem);
     --banner-background-image: var(--background-desktop-image);
     --banner-title-font-size: 3rem;

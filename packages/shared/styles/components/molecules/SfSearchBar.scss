@@ -1,4 +1,5 @@
 @import "../../helpers";
+
 @mixin placeholder {
   &::-webkit-input-placeholder {
     @content;
@@ -24,6 +25,7 @@
     }
   }
 }
+
 .sf-search-bar {
   box-sizing: border-box;
   position: relative;

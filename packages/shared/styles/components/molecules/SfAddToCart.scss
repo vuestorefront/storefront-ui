@@ -1,4 +1,5 @@
 @import "../../helpers";
+
 .sf-add-to-cart {
   display: flex;
   &__button {
@@ -7,18 +8,16 @@
   }
   &__select-quantity {
     --input-height: auto;
+    --input-border: 1px solid var(--c-light);
+
     display: flex;
     min-width: var(--add-to-cart-select-quantity-min-width, 4.625rem);
     max-width: var(--add-to-cart-select-quantity-max-width, 5.625rem);
     margin: var(--add-to-cart-select-quantity-margin, 0 0 0 0.5rem);
-    input {
-      --input-border: 1px solid var(--c-light);
-    }
   }
   @include for-desktop {
+    --input-background: var(--c-light);
     --add-to-cart-button-order: 1;
     --add-to-cart-select-quantity-margin: 0;
-    --input-font-size: var(--font-size-extra-big);
-    --input-background: var(--c-light);
   }
 }

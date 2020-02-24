@@ -1,4 +1,5 @@
 @import "../../helpers";
+
 .sf-menu-item {
   display: flex;
   align-items: center;
@@ -9,7 +10,7 @@
     font(
       --menu-item,
       400,
-      var(--font-size-big),
+      var(--font-size-regular),
       1.6,
       var(--body-font-family-secondary)
     )
@@ -36,6 +37,5 @@
   }
   @include for-desktop {
     --menu-item-mobile-nav-icon-display: none;
-    --menu-item-font-size: var(--font-size-regular);
   }
 }

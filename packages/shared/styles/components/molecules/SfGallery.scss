@@ -1,4 +1,5 @@
 @import "../../helpers";
+
 .sf-gallery {
   position: relative;
   display: flex;
@@ -84,6 +85,7 @@
     }
   }
 }
+
 .sf-gallery__zoom {
   position: absolute;
   z-index: var(--gallery-zoom-index, 1);
