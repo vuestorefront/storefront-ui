@@ -46,7 +46,6 @@
   --c-on-secondary: var(--_c-light-secondary);
 
   /* Base colors*/
-
   // Light
   @include assign-color-variants(--c-light, --_c-light-primary);
   --c-light-variant: var(--_c-light-secondary);
@@ -61,8 +60,8 @@
   @include assign-color-variants(--c-dark, --_c-dark-primary);
   --c-dark-variant: var(--_c-dark-secondary);
   --c-on-dark: var(--_c-light-secondary);
-  /* Context colors */
 
+  /* Context colors */
   // Info
   @include assign-color-variants(--c-info, --_c-blue-primary);
   --c-info-variant: var(--_c-blue-secondary);

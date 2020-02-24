@@ -6,6 +6,7 @@ $typography-map: (
   "big": var(--font-size-big),
   "extra-big": var(--font-size-extra-big)
 );
+
 // Use it to set component font styles
 @function font($element, $font-weight, $font-size, $line-height, $font-family) {
   @return var(#{$element}-font-weight, $font-weight)
