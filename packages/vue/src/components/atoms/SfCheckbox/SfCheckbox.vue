@@ -13,12 +13,16 @@
       :value="value"
       :checked="isChecked"
       :disabled="disabled"
+      class="sf-checkbox__input"
       @change="inputHandler"
     />
     <label :for="name" class="sf-checkbox__container">
       <!-- @slot Custom check mark markup -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
-        <div class="sf-checkbox__checkmark">
+        <div
+          class="sf-checkbox__checkmark"
+          :class="{ 'sf-checkbox__checkmark--is-active': isChecked }"
+        >
           <SfIcon v-if="isChecked" icon="check" size="11px" color="white" />
         </div>
       </slot>

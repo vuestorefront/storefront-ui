@@ -1,95 +1,75 @@
-@import "../../helpers";
-
+@import "../../variables";
+:root {
+  --radio-font-family: var(--body-font-family-secondary);
+  --radio-font-size: var(--font-size-small);
+  --radio-font-weight: var(--body-font-weight-primary);
+  --radio-line-height: 1.6;
+  --radio-transition: background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1);
+  --radio--is-active-background: var(--c-light);
+  --radio__label-font-size: var(--font-size-extra-big);
+  --radio__label-font-weight: 500;
+  --radio__checkmark-transition: border 0.25s cubic-bezier(1, 0.5, 0.8, 1);
+  --radio__checkmark-size: 1.4375rem;
+  --radio__checkmark-border-color: var(--c-gray-variant);
+  --radio--is-active__checkmark-border-color: var(--c-primary);
+  @media screen and (min-width: $desktop-min) {
+    --radio-font-size: var(--font-size-small);
+    --radio__label-font-size: var(--font-size-big);
+  }
+}
 .sf-radio {
-  display: var(--radio-display, flex);
-  border-radius: var(--radio-border-radius);
-  transition: var(
-    --radio-transition,
-    background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1)
-  );
-
-  &.is-active {
-    background: var(--radio-background, var(--c-light));
+  $this: &;
+  display: flex;
+  font-family: var(--radio-font-family);
+  font-size: var(--radio-font-size);
+  font-weight: var(--radio-font-weight);
+  line-height: var(--radio-line-height);
+  transition: var(--radio-transition);
+  &--is-active {
+    background-color: var(--radio--is-active-background);
   }
-
-  &__label {
-    display: var(--radio-label-display, flex);
-    font: var(
-      --radio-label-font,
-      font(
-        --radio-label,
-        500,
-        var(--font-size-big),
-        1.6,
-        var(--body-font-family-secondary)
-      )
-    );
+  &--transparent {
+    background-color: transparent;
   }
-
-  &__checkmark {
-    box-sizing: border-box;
-    width: var(--radio-checkmark-width, var(--radio-checkmark-size, 1.4375rem));
-    height: var(
-      --radio-checkmark-height,
-      var(--radio-checkmark-size, 1.4375rem)
-    );
-    border: var(--radio-checkmark-border, 1px solid var(--c-gray-variant));
-    border-radius: 50%;
-    transition: var(
-      --radio-checkmark-transition,
-      border 0.25s cubic-bezier(1, 0.5, 0.8, 1)
-    );
-    .is-active & {
-      --radio-checkmark-border: 9px solid var(--c-primary);
-    }
-  }
-
   &__input {
     position: absolute;
     opacity: 0;
   }
-
   &__container {
-    display: var(--radio-container-display, flex);
-    align-items: var(--radio-container-align-items);
     flex: 1;
-    padding: var(--radio-container-padding, var(--spacer-big));
-    cursor: var(--radio-container-cursor, pointer);
+    display: flex;
+    padding: var(--spacer-big);
+    cursor: pointer;
     &:hover {
-      --radio-checkmark-border: 1px solid var(--c-primary);
-      .is-active & {
-        --radio-checkmark-border: 9px solid var(--c-primary);
+      #{$this}__checkmark {
+        border: 1px solid var(--c-primary);
+        #{$this}--is-active & {
+          border: 9px solid var(--c-primary);
+        }
       }
     }
   }
-
-  &__content {
-    flex: 1;
-    margin: var(--radio-content-margin, 0 0 0 var(--spacer-big));
-  }
-
-  &__description {
-    margin: var(--radio-description-margin, var(--spacer-medium) 0 0 0);
-    font: var(
-      --radio-description-font,
-      font(
-        --radio-description,
-        var(--body-font-weight-primary),
-        var(--font-size-small),
-        1.6,
-        var(--body-font-family-secondary)
-      )
-    );
-  }
-
-  &--transparent {
-    &.is-active {
-      --radio-background: transparent;
+  &__checkmark {
+    box-sizing: border-box;
+    width: var(--radio__checkmark-size);
+    height: var(--radio__checkmark-size);
+    border: 1px solid var(--radio__checkmark-border-color);
+    border-radius: 50%;
+    transition: var(--radio__checkmark-transition);
+    #{$this}--is-active & {
+      border: 9px solid var(--radio--is-active__checkmark-border-color);
     }
   }
-
-  @include for-desktop {
-    --radio-description-font-size: var(--font-size-regular);
-    --radio-label-font-size: var(--font-size-big);
+  &__content {
+    flex: 1;
+    margin: 0 0 0 var(--spacer-big);
+  }
+  &__label {
+    display: flex;
+    font-size: var(--radio__label-font-size);
+    font-weight: var(--radio__label-font-weight);
+  }
+  &__description {
+    margin: var(--spacer-medium) 0 0 0;
   }
 }

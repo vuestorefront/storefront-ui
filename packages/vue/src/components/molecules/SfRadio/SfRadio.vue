@@ -1,7 +1,10 @@
 <template>
   <div
     class="sf-radio"
-    :class="{ 'is-active': isChecked, 'is-disabled': disabled }"
+    :class="{
+      'sf-radio--is-active': isChecked,
+      'sf-radio--is-disabled': disabled
+    }"
   >
     <input
       :id="value"
@@ -18,7 +21,7 @@
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <div
           class="sf-radio__checkmark"
-          :class="{ 'is-active': isChecked }"
+          :class="{ 'sf-radio__checkmark--is-active': isChecked }"
         ></div>
       </slot>
       <div class="sf-radio__content">
