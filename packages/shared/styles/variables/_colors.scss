@@ -1,5 +1,6 @@
+@import "../helpers/colors";
 :root {
-  --c-black: #1d1f22;
+  @include generate-color-variants(--c-black, #1d1f22);
   --c-white: #ffffff;
 
   // Internal color variables
