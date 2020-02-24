@@ -15,6 +15,7 @@
   }
 }
 .sf-checkbox {
+  $this: &;
   font-family: var(--checkbox-font-family);
   font-size: var(--checkbox-font-size);
   font-weight: var(--checkbox-font-weight);
@@ -47,16 +48,16 @@
       border-color: var(--checkbox__checkmark-primary-color);
       transition: var(--checkbox__checkmark-transition);
     }
-    .is-active & {
+    #{$this}--is-active & {
       background-color: var(--checkbox__checkmark-primary-color);
       border-color: transparent;
     }
-    .is-disabled & {
+    #{$this}--is-disabled & {
       border-color: var(--c-dark-variant);
       transition: var(--checkbox__checkmark-transition);
       opacity: .25;
     }
-    .is-active.is-disabled & {
+    #{$this}--is-active#{$this}--is-disabled & {
       background-color: var(--c-dark-variant);
       border-color: transparent;
       opacity: .25;
