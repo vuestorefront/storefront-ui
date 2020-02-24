@@ -3,7 +3,6 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  object,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 
@@ -21,18 +20,15 @@ storiesOf("Organisms|Hero", module)
             "sf-hero-item--position-bg-top-right":
               "sf-hero-item--position-bg-top-right",
             "sf-hero-item--position-bg-bottom-right":
-              "sf-hero-item--position-bg-top-right",
+              "sf-hero-item--position-bg-bottom-right",
             "sf-hero-item--position-bg-bottom-left":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right"
+              "sf-hero-item--position-bg-bottom-left",
+            "sf-hero-item--align-right": "sf-hero-item--align-right"
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
         )
-      },
-      sliderOptions: {
-        default: object("sliderOptions", { autoplay: false }, "Props")
       },
       title: {
         default: text(
@@ -55,7 +51,6 @@ storiesOf("Organisms|Hero", module)
       }
     },
     template: `<SfHero
-        :slider-options="sliderOptions"
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <SfHeroItem
           :class="customClass"
@@ -94,9 +89,6 @@ storiesOf("Organisms|Hero", module)
           "CSS Modifiers"
         )
       },
-      sliderOptions: {
-        default: object("sliderOptions", { autoplay: false }, "Props")
-      },
       title: {
         default: text(
           "title",
@@ -118,7 +110,6 @@ storiesOf("Organisms|Hero", module)
       }
     },
     template: `<SfHero
-        :slider-options="sliderOptions"
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <template #prev="{go}">
         <button @click="go">PREV</button>
@@ -160,9 +151,6 @@ storiesOf("Organisms|Hero", module)
           "CSS Modifiers"
         )
       },
-      sliderOptions: {
-        default: object("sliderOptions", { autoplay: false }, "Props")
-      },
       title: {
         default: text(
           "title",
@@ -184,7 +172,6 @@ storiesOf("Organisms|Hero", module)
       }
     },
     template: `<SfHero
-        :slider-options="sliderOptions"
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <template #next="{go}">
         <button @click="go">NEXT</button>
@@ -226,9 +213,6 @@ storiesOf("Organisms|Hero", module)
           "CSS Modifiers"
         )
       },
-      sliderOptions: {
-        default: object("sliderOptions", { autoplay: false }, "Props")
-      },
       title: {
         default: text(
           "title",
@@ -250,7 +234,6 @@ storiesOf("Organisms|Hero", module)
       }
     },
     template: `<SfHero
-        :slider-options="sliderOptions"
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <template #bullets="{ numberOfPages, page, go }">
         CUSTOM BULLETS
@@ -292,9 +275,6 @@ storiesOf("Organisms|Hero", module)
           "CSS Modifiers"
         )
       },
-      sliderOptions: {
-        default: object("sliderOptions", { autoplay: false }, "Props")
-      },
       title: {
         default: text(
           "title",
@@ -316,7 +296,6 @@ storiesOf("Organisms|Hero", module)
       }
     },
     template: `<SfHero
-        :slider-options="sliderOptions"
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <SfHeroItem
         :class="customClass"
@@ -352,9 +331,6 @@ storiesOf("Organisms|Hero", module)
           "CSS Modifiers"
         )
       },
-      sliderOptions: {
-        default: object("sliderOptions", { autoplay: false }, "Props")
-      },
       title: {
         default: text(
           "title",
@@ -376,7 +352,6 @@ storiesOf("Organisms|Hero", module)
       }
     },
     template: `<SfHero
-        :slider-options="sliderOptions"
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <SfHeroItem
           :class="customClass"
@@ -412,9 +387,6 @@ storiesOf("Organisms|Hero", module)
           "CSS Modifiers"
         )
       },
-      sliderOptions: {
-        default: object("sliderOptions", { autoplay: false }, "Props")
-      },
       title: {
         default: text(
           "title",
@@ -436,7 +408,6 @@ storiesOf("Organisms|Hero", module)
       }
     },
     template: `<SfHero
-        :slider-options="sliderOptions"
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <SfHeroItem
           :class="customClass"

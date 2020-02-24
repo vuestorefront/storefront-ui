@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-banner-sf-banner-grid">
+  <div class="sf-banner-grid">
     <template v-if="bannerGrid === 1">
       <div class="sf-banner-grid__row">
         <div class="sf-banner-grid__col">

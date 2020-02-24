@@ -1,27 +1,26 @@
-@import '../../variables';
+@import "../../helpers";
+
 .sf-icon {
-  --icon-color: #{map-get($icon-colors, "black")};
-  --icon-size: #{map-get($sizes, "sm")};
-  outline: none;
-  background-color: transparent;
-  box-sizing: border-box;
   display: flex;
-  fill: var(--icon-color);
-  width: var(--icon-size);
-  height: var(--icon-size);
-  @each $pallete, $color in $icon-colors {
-    &--color-#{$pallete} {
-      --icon-color: #{$color};
-    }
-  }
-  @each $profile, $size in $sizes {
-    &--size-#{$profile} {
-      --icon-size: #{$size};
-    }
-  }
+  box-sizing: border-box;
+  width: var(--icon-width, var(--icon-size, #{map-get($sizes, "sm")}));
+  height: var(--icon-height, var(--icon-size, #{map-get($sizes, "sm")}));
+  background: transparent;
+  fill: var(--icon-color, #{map-get($icon-colors, "black")});
+  outline: 0;
   svg,
   img {
     width: inherit;
     height: inherit;
+  }
+  @each $palette, $color in $icon-colors {
+    &.color-#{$palette} {
+      --icon-color: #{$color};
+    }
+  }
+  @each $profile, $size in $sizes {
+    &.size-#{$profile} {
+      --icon-size: #{$size};
+    }
   }
 }

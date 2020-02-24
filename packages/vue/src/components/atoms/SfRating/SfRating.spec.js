@@ -5,15 +5,6 @@ describe("SfRating.vue", () => {
     const component = shallowMount(SfRating);
     expect(component.contains(".sf-rating")).toBe(true);
   });
-  it("renders the correct amount of stars from props", () => {
-    const score = 3;
-    const component = shallowMount(SfRating, {
-      propsData: {
-        score
-      }
-    });
-    expect(component.findAll(".sf-rating__icon-positive").length).toBe(score);
-  });
   it("render multiple stars when max is increased", () => {
     const score = 4;
     const max = 10;
@@ -23,7 +14,7 @@ describe("SfRating.vue", () => {
         max
       }
     });
-    expect(component.findAll(".sf-rating__icon-negative").length).toBe(
+    expect(component.findAll(".sf-rating__icon--negative").length).toBe(
       max - score
     );
   });

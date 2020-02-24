@@ -38,7 +38,6 @@ import SfMegaMenu from "../../src/components/organisms/SfMegaMenu/SfMegaMenu.vue
 import SfMenuItem from "../../src/components/molecules/SfMenuItem/SfMenuItem.vue"
 import SfModal from "../../src/components/molecules/SfModal/SfModal.vue"
 import SfNotification from "../../src/components/molecules/SfNotification/SfNotification.vue"
-import SfOptions from "../../src/components/molecules/SfOptions/SfOptions.vue"
 import SfOverlay from "../../src/components/atoms/SfOverlay/SfOverlay.vue"
 import SfPagination from "../../src/components/molecules/SfPagination/SfPagination.vue"
 import SfPrice from "../../src/components/atoms/SfPrice/SfPrice.vue"
@@ -108,7 +107,6 @@ export default ({
   Vue.component("SfMenuItem", SfMenuItem);
   Vue.component("SfModal", SfModal);
   Vue.component("SfNotification", SfNotification);
-  Vue.component("SfOptions", SfOptions);
   Vue.component("SfOverlay", SfOverlay);
   Vue.component("SfPagination", SfPagination);
   Vue.component("SfPrice", SfPrice);

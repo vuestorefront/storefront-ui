@@ -40,13 +40,13 @@ export default {
      */
     iconColor: {
       type: String,
-      default: "white"
+      default: ""
     },
     /**
      */
     iconSize: {
       type: String,
-      default: "100%"
+      default: ""
     },
     hasBadge: {
       type: Boolean,

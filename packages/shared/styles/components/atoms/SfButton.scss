@@ -1,98 +1,107 @@
-@import '../../variables';
-:root {
-  --button-padding: 1rem 2.5rem;
-  --button-color: var(--c-on-primary);
-  --button-background-color: var(--c-primary);
-  --button-font-family: var(--body-font-family-secondary);
-  --button-font-size: var(--font-size-small);
-  --button-font-weight: var(--body-font-weight-secondary);
-  --button-line-height: 1.6;
-  --button-border: 0;
-  --button-outline: 0;
-  --button-text-transform: uppercase;
-  --button-transition: background-color 150ms linear, color 150ms linear;
-  --button-hover-color: var(--c-on-secondary);
-  --button-hover-background-color: var(--c-primary-hover);
-  --button-hover-border: 0;
-  --button-hover-outline: 0;
-  --button--outline-color: var(--c-primary);
-  --button--outline-border: 2px;
-  --button--outline-border-color: var(--c-primary);
-  --button--outline-hover-background-color: var(--c-primary);
-  --button--outline-hover-color: var(--c-on-primary);
-  --button--text-color: var(--c-text);
-  --button--text-hover-color: var(--c-text);
-  @media screen and (min-width: $desktop-min) {
-    --button-padding: .9375rem 2.5rem;
-  }
-}
+@import "../../helpers";
+
 .sf-button {
+  box-sizing: border-box;
+  width: var(--button-size, var(--button-width));
+  height: var(--button-size, var(--button-height));
+  padding: var(--button-padding, var(--spacer-medium) var(--spacer-extra-big));
+  border: var(--button-border, 0);
+  border-radius: var(--button-border-radius, 0);
+  color: var(--button-color, var(--c-white));
+  background: var(--button-background, var(--c-primary));
+  font: var(
+    --button-font,
+    font(
+      --button,
+      300,
+      var(--font-size-small),
+      1.6,
+      var(--body-font-family-secondary)
+    )
+  );
+  text-transform: var(--button-text-transform, uppercase);
+  text-decoration: var(--button-text-decoration);
+  transition: var(--button-transition, background 150ms linear);
   cursor: pointer;
-  padding: var(--button-padding);
-  border: var(--button-border);
-  outline: var(--button-outline);
-  color: var(--button-color);
-  background-color: var(--button-background-color);
-  font-family: var(--button-font-family);
-  font-size: var(--button-font-size);
-  font-weight: var(--button-font-weight);
-  line-height: var(--button-line-height);
-  text-transform: var(--button-text-transform);
-  transition: var(--button-transition);
+  outline: none;
   &:hover {
-    color: var(--button-hover-color);
-    background-color: var(--button-hover-background-color);
+    --button-background: var(--c-primary-variant);
   }
-  &--full-width {
-    width: 100%;
-  }
-  @include color-modifiers('--button');
-  &--outline {
-    color: var(--button--outline-color);
-    border: var(--button--outline-border) var(--button--outline-border-color);
-    background-color: transparent;
-    &:hover {
-      color: var(--button--outline-hover-color);
-      background-color: var(--button--outline-hover-background-color);
-    }
-    @each $color, $map in $colors-map {
-      $background: map-get($map, 'bg');
-      $variant: map-get($map, 'variant');
-      $text: map-get($map, 'text');
-      &.color-#{$color} {
-        --button--outline-color: #{$background};
-        --button--outline-border-color: #{$background};
-        --button--outline-hover-background-color: #{$background};
-        --button--outline-hover-color: #{$text};
-      }
-    }
-  }
-  &--text {
-    padding: 0;
-    margin: 0;
-    background-color: transparent;
-    text-transform: none;
-    text-decoration: underline;
-    color: var(--button--text-color);
-    &:hover {
-      color: var(--button--text-hover-color);
-      background-color: transparent;
-    }
-    @each $color, $map in $colors-map {
-      $text: map-get($map, 'bg');
-      &.color-#{$color} {
-        --button--text-color: #{$text};
+  @each $color, $map in $colors-map {
+    $primary: map-get($map, "primary");
+    $variant: map-get($map, "variant");
+    &.color-#{$color} {
+      --button-background: #{$primary};
+      &:hover {
+        --button-background: #{$variant};
       }
     }
   }
   &:disabled {
-    background-color: var(--c-light);
-    color: var(--c-gray);
+    --button-background: var(--c-gray);
     cursor: default;
-    transition: background-color 150ms linear, color 150ms linear;
     &:hover {
-      background-color: var(--c-light);
-      color: var(--c-gray);
+      --button-background: var(--c-gray);
+    }
+  }
+  &--full-width {
+    --button-width: 100%;
+  }
+  &--outline {
+    --button-padding: calc(var(--spacer-medium) - 1px)
+      calc(var(--spacer-extra-big) - 1px);
+    --button-border: 1px solid var(--c-primary);
+    --button-background: transparent;
+    --button-color: var(--c-primary);
+    &:hover {
+      --button-background: var(--c-primary);
+      --button-color: inherit;
+    }
+    @each $color, $map in $colors-map {
+      $primary: map-get($map, "primary");
+      &.color-#{$color} {
+        --button-border: 1px solid #{$primary};
+        --button-color: #{$primary};
+        &:hover {
+          --button-background: #{$primary};
+          --button-color: inherit;
+        }
+      }
+    }
+    &:disabled {
+      --button-border: 1px solid var(--c-gray);
+      --button-background: transparent;
+      --button-color: var(--c-gray);
+    }
+  }
+  &--text {
+    --button-border: 0;
+    --button-padding: var(--spacer-small) 0;
+    --button-background: transparent;
+    --button-color: var(--c-primary);
+    --button-text-transform: none;
+    --button-text-decoration: underline;
+    --button-font-weight: 400;
+    &:hover {
+      --button-background: transparent;
+      --button-color: var(--c-primary);
+    }
+    @each $color, $map in $colors-map {
+      $primary: map-get($map, "primary");
+      &.color-#{$color} {
+        --button-background: transparent;
+        --button-color: #{$primary};
+        &:hover {
+          --button-background: transparent;
+        }
+      }
+    }
+    &:disabled {
+      --button-background: transparent;
+      --button-color: var(--c-gray);
+      &:hover {
+        --button-background: transparent;
+      }
     }
   }
 }

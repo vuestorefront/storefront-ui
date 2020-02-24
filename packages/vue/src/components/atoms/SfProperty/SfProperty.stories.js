@@ -16,7 +16,8 @@ storiesOf("Atoms|Property", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-property--full-width": "sf-property--full-width"
+            "sf-property--full-width": "sf-property--full-width",
+            "sf-property--without-suffix": "sf-property--without-suffix"
           },
           "",
           { display: "multi-select" },
