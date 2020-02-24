@@ -1,5 +1,6 @@
 @import "../../helpers";
 .sf-store-locator {
+  --icon-size: 100%;
   font: var(
     --store-locator-font,
     font(
@@ -10,26 +11,6 @@
       var(--body-font-family-primary)
     )
   );
-  @include for-desktop {
-    --divider-max-width: 100%;
-    --divider-margin: 7px 0 7px auto;
-    --store-locator-list-width: 33%;
-    --store-locator-list-max-width: 26.25rem;
-    --store-locator-map-width: 66%;
-    --store-locator-map-max-width: 43.75rem;
-    --store-locator-map-min-height: 34.375rem;
-    --store-locator-wrapper-flex-direction: row;
-    --store-locator-list-margin: 0 2.5rem 0 0;
-    --store-item-font-size: var(--font-size-extra-small);
-    --store-item-info-heading-distance-width: 80px;
-    --store-item-info-heading-display: flex;
-    --store-item-info-heading-justify-content: space-between;
-    --store-item-info-heading-name-font-size: var(--font-size-regular);
-    --store-item-info-contact-span-font-size: var(--font-size-extra-small);
-    --store-item-info-contact-span-fon-family: var(
-      --body-font-family-secondary
-    );
-  }
   &__title {
     margin: var(--store-locator-title-margin, 0 0 0.625rem 0);
   }
@@ -167,5 +148,25 @@
         }
       }
     }
+  }
+  @include for-desktop {
+    --divider-max-width: 100%;
+    --divider-margin: 7px 0 7px auto;
+    --store-locator-list-width: 33%;
+    --store-locator-list-max-width: 26.25rem;
+    --store-locator-map-width: 66%;
+    --store-locator-map-max-width: 43.75rem;
+    --store-locator-map-min-height: 34.375rem;
+    --store-locator-wrapper-flex-direction: row;
+    --store-locator-list-margin: 0 2.5rem 0 0;
+    --store-item-font-size: var(--font-size-extra-small);
+    --store-item-info-heading-distance-width: 80px;
+    --store-item-info-heading-display: flex;
+    --store-item-info-heading-justify-content: space-between;
+    --store-item-info-heading-name-font-size: var(--font-size-regular);
+    --store-item-info-contact-span-font-size: var(--font-size-extra-small);
+    --store-item-info-contact-span-fon-family: var(
+      --body-font-family-secondary
+    );
   }
 }
