@@ -7,6 +7,5 @@
   bottom: 0;
   left: 0;
   z-index: var(--overlay-z-index, 1);
-  background: var(--overlay-background, var(--c-black));
-  opacity: var(--overlay-opacity, 0.8);
+  background: var(--overlay-background, rgba(var(--c-black-base), 0.8));
 }
