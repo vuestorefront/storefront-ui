@@ -9,13 +9,15 @@
     </SfLoader>
   </div>
 </template>
-
 <script>
 export default {
   data() {
     return {
       loading: true
     };
+  },
+  mounted() {
+    this.triggerLoadingTimeout();
   },
   methods: {
     triggerLoadingTimeout() {
@@ -27,9 +29,6 @@ export default {
       this.loading = true;
       this.triggerLoadingTimeout();
     }
-  },
-  mounted() {
-    this.triggerLoadingTimeout();
   }
 };
 </script>

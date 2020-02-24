@@ -7,7 +7,9 @@
       />
       <div class="highlighted__header">
         <h3 class="highlighted__title">Personal details</h3>
-        <SfButton class="sf-button--text" @click="$emit('click:edit', 0)"
+        <SfButton
+          class="sf-button--text color-secondary"
+          @click="$emit('click:edit', 0)"
           >Edit
         </SfButton>
       </div>
@@ -19,7 +21,9 @@
     <div class="highlighted">
       <div class="highlighted__header">
         <h3 class="highlighted__title">Shipping details</h3>
-        <SfButton class="sf-button--text" @click="$emit('click:edit', 1)"
+        <SfButton
+          class="sf-button--text color-secondary"
+          @click="$emit('click:edit', 1)"
           >Edit
         </SfButton>
       </div>
@@ -35,7 +39,9 @@
     <div class="highlighted">
       <div class="highlighted__header">
         <h3 class="highlighted__title">Billing address</h3>
-        <SfButton class="sf-button--text" @click="$emit('click:edit', 2)"
+        <SfButton
+          class="sf-button--text color-secondary"
+          @click="$emit('click:edit', 2)"
           >Edit
         </SfButton>
       </div>
@@ -56,7 +62,9 @@
     <div class="highlighted">
       <div class="highlighted__header">
         <h3 class="highlighted__title">Payment method</h3>
-        <SfButton class="sf-button--text" @click="$emit('click:edit', 2)"
+        <SfButton
+          class="sf-button--text color-secondary"
+          @click="$emit('click:edit', 2)"
           >Edit
         </SfButton>
       </div>
@@ -113,63 +121,27 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
-
 .highlighted {
   box-sizing: border-box;
   width: 100%;
-  background-color: #f1f2f3;
+  background: #f1f2f3;
   padding: var(--spacer-extra-big);
-  margin-bottom: var(--spacer-big);
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  &--total {
-    margin-bottom: 1px;
-  }
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacer-big);
-  }
-
-  &__title {
-    font-family: var(--body-font-family-primary);
-    font-size: var(--font-size-extra-big);
-    line-height: 1.6;
-    @include for-desktop {
-      font-size: var(--font-size-big);
-    }
-  }
-}
-
-.title {
-  margin-bottom: var(--spacer-extra-big);
-}
-
-.content {
   margin: 0 0 var(--spacer-big) 0;
-  color: var(--c-text);
-  font-size: var(--font-size-small);
-  font-weight: 300;
-  line-height: 1.6;
-  @include for-desktop {
-    font-size: var(--font-size-extra-small);
-  }
-
   &:last-child {
     margin: 0;
   }
-
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font: 500 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
+    h3 {
+      font: inherit;
+    }
+  }
+}
+.content {
+  font: 300 var(--font-size-extra-small) / 1.6 var(--body-font-family-secondary);
   &__label {
     font-weight: 400;
   }

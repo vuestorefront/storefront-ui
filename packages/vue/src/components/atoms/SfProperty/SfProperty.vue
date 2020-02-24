@@ -2,7 +2,7 @@
   <div class="sf-property">
     <!-- @slot Use this slot to replace property name -->
     <slot name="name" v-bind="{ name }">
-      <span class="sf-property__name">{{ name }}:</span>
+      <span class="sf-property__name">{{ name }}</span>
     </slot>
     <!-- @slot Use this slot to replace property value -->
     <slot name="value" v-bind="{ value }">

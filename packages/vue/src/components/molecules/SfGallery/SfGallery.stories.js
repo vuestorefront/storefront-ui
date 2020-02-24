@@ -10,9 +10,6 @@ storiesOf("Molecules|Gallery", module)
       enableZoom: {
         default: boolean("enableZoom", false, "Props")
       },
-      outsideZoom: {
-        default: boolean("outsideZoom", false, "Props")
-      },
       images: {
         default: object(
           "images",
@@ -80,16 +77,13 @@ storiesOf("Molecules|Gallery", module)
       :slider-options="sliderOptions"
       :current="current"
       :enable-zoom="enableZoom"
-      :outside-zoom="outsideZoom"/>`
+    />`
   }))
   .add("[slot] thumbs", () => ({
     components: { SfGallery },
     props: {
       enableZoom: {
         default: boolean("enable-zoom", false, "Props")
-      },
-      outsideZoom: {
-        default: boolean("outside-zoom", false, "Props")
       },
       images: {
         default: object(
@@ -150,7 +144,7 @@ storiesOf("Molecules|Gallery", module)
     :slider-options="sliderOptions"
     :current="current"
     :enable-zoom="enableZoom"
-    :outside-zoom="outsideZoom">
+    >
     <template #thumbs="{images, active, go}">
       <div v-for="(image, key) in images" :key="key" @click="go(key)" style="position: relative">
         <img :src="image.mobile.url" :alt="image.alt">

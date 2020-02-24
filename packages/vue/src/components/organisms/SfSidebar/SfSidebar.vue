@@ -32,7 +32,8 @@
             v-if="button"
             icon-size="14px"
             icon="cross"
-            class="sf-sidebar__circle-icon desktop-only"
+            icon-color="white"
+            class="sf-sidebar__circle-icon"
             @click="close"
           />
         </slot>

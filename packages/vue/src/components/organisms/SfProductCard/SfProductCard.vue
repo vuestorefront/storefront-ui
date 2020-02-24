@@ -300,7 +300,7 @@ export default {
       return SF_COLORS.includes(this.badgeColor.trim());
     },
     badgeColorClass() {
-      return this.isSFColors ? `sf-badge--color-${this.badgeColor.trim()}` : "";
+      return this.isSFColors ? `${this.badgeColor.trim()}` : "";
     },
     currentWishlistIcon() {
       return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
