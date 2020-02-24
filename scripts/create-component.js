@@ -79,19 +79,11 @@ const questions = [
       {
         fileName: `${ComponentNameCamelCase}.scss`,
         filePath: SharedFilesPath,
-        content: `@import '../../variables';
-
-// :root {
-//    --component__block-property: var(value);
-// }
+        content: `@import "../../helpers";
 
 // .${ComponentNameKebabCase} {
-//   &__element {
-
-//   }
-//   &--modifier {
-
-//   }
+//   &__element {}
+//   &--modifier {}
 // }`
       }
     ];
