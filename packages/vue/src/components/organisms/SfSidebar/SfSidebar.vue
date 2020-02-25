@@ -6,23 +6,20 @@
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="modal-bar">
           <SfBar
-            :title="headingTitle"
+            :title="title"
             class="mobile-only"
             :back="true"
             @click:back="close"
           />
         </slot>
         <div ref="content" class="sf-sidebar__content">
-          <slot
-            name="title"
-            v-bind="{ headingTitle, headingSubtitle, headingLevel }"
-          >
+          <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
-              v-if="headingTitle"
-              :title="headingTitle"
-              :subtitle="headingSubtitle"
+              v-if="title"
+              :title="title"
+              :subtitle="subtitle"
               :level="headingLevel"
-              class="sf-heading--left sf-heading--no-underline sf-sidebar__title"
+              class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
             />
           </slot>
           <slot />
@@ -56,11 +53,11 @@ export default {
     SfHeading
   },
   props: {
-    headingTitle: {
+    title: {
       type: String,
       default: ""
     },
-    headingSubtitle: {
+    subtitle: {
       type: String,
       default: ""
     },

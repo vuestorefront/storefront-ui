@@ -15,7 +15,7 @@
           <SfBar
             class="sf-modal__bar mobile-only"
             :close="true"
-            :title="headingTitle"
+            :title="title"
             @click:close="close"
           />
         </slot>
@@ -59,7 +59,7 @@ export default {
     /**
      * Heading title of the modal
      */
-    headingTitle: {
+    title: {
       type: String,
       default: ""
     },
