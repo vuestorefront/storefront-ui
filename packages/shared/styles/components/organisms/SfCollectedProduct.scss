@@ -25,6 +25,7 @@
     transform: var(--collected-product-remove-transform);
     background-color: var(--collected-product-remove-background, transparent);
     box-shadow: var(--collected-product-remove-box-shadow);
+    transition: var(--collected-product-remove-transition);
     &:hover,
     &:active {
       --collected-product-remove-box-shadow: none;
@@ -38,7 +39,7 @@
   &__image {
     background: var(--collected-product-image-background, var(--c-light));
   }
-  &__quantity-selector {
+  & &__quantity-selector {
     --input-background: var(--c-white);
     position: absolute;
     right: var(--spacer);

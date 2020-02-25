@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.5.1...@storefront-ui/shared@0.6.0) (2020-02-24)
+
+
+### Bug Fixes
+
+* a lot imports of global CSS variables ([#731](https://github.com/DivanteLtd/storefront-ui/issues/731)) ([b995ae0](https://github.com/DivanteLtd/storefront-ui/commit/b995ae01233d4d5f03f183b653b35879a0e67541))
+* add variable for z-index ([#725](https://github.com/DivanteLtd/storefront-ui/issues/725)) ([d21c8f7](https://github.com/DivanteLtd/storefront-ui/commit/d21c8f7e8ae9cfeb0ea3dc9670e495784df2c485)), closes [#680](https://github.com/DivanteLtd/storefront-ui/issues/680)
+* docs for CSS custom properties ([#775](https://github.com/DivanteLtd/storefront-ui/issues/775)) ([3601b27](https://github.com/DivanteLtd/storefront-ui/commit/3601b27f3e04cd436f91b848960fe5c1a483ea5f))
+* double pictures is not adjusted to size ([#683](https://github.com/DivanteLtd/storefront-ui/issues/683)) ([05b5ca6](https://github.com/DivanteLtd/storefront-ui/commit/05b5ca6bffae1225206e86ba40597871b3ae5124))
+* overlay transition opacity conflicting ([#773](https://github.com/DivanteLtd/storefront-ui/issues/773)) ([b15eea4](https://github.com/DivanteLtd/storefront-ui/commit/b15eea4582c9bd0b4925e9444a4249def573bdd8))
+
+
+### Features
+
+* add font-display: swap rule to google fonts ([#771](https://github.com/DivanteLtd/storefront-ui/issues/771)) ([6df9f81](https://github.com/DivanteLtd/storefront-ui/commit/6df9f810a403e98edccc486c01460568e8acd252))
+* add hasCarousel prop for mobile SfGroupedProduct ([#715](https://github.com/DivanteLtd/storefront-ui/issues/715)) ([9241efb](https://github.com/DivanteLtd/storefront-ui/commit/9241efb50f79e0de5d05756c7c4e7e4eca09330b))
+* add quantity to cart icon in SfHeader ([#734](https://github.com/DivanteLtd/storefront-ui/issues/734)) ([486a159](https://github.com/DivanteLtd/storefront-ui/commit/486a159943288bb3379cc97396c9ad1aa01dc438))
+* add SfBadge to SfProducCard ([#693](https://github.com/DivanteLtd/storefront-ui/issues/693)) ([3584689](https://github.com/DivanteLtd/storefront-ui/commit/3584689ff3890d748460cededbebc9686e42c538))
+* add stylelint for .scss in shared packages ([#732](https://github.com/DivanteLtd/storefront-ui/issues/732)) ([58d67f1](https://github.com/DivanteLtd/storefront-ui/commit/58d67f1d9d815ff7704d0555c345f13ec6e5eeb9))
+* add v-focus directive ([#753](https://github.com/DivanteLtd/storefront-ui/issues/753)) ([da1a32c](https://github.com/DivanteLtd/storefront-ui/commit/da1a32cef2f19c4f60018a62f17263fd4fcb7b2d))
+
+
+
+
+
 ## [0.5.1](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.5.0...@storefront-ui/shared@0.5.1) (2020-01-21)
 
 

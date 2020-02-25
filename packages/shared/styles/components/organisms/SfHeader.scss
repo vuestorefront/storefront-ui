@@ -87,14 +87,12 @@
     display: flex;
     align-items: center;
   }
-  &__circle-icon {
+  & &__circle-icon {
     margin: 0 0 0 var(--spacer-big);
     --button-transition: background 0.3s ease;
     --button-background: transparent;
     --button-padding: 10px;
-    & .sf-icon {
-      --icon-color: var(--c-text);
-    }
+    --icon-color: var(--c-text);
     &:hover {
       --circle-icon-box-shadow: none;
       --button-transition: background 0.3s ease;
