@@ -529,6 +529,8 @@ export default {
   &__title {
     padding: 0;
     font-size: var(--font-size-big);
+    font-family: var(--body-font-family-secondary);
+    font-weight: 500;
     line-height: 1.6;
   }
   &__filters-button {
@@ -582,6 +584,7 @@ export default {
   /*--select-padding: 0 0.625rem;*/
   flex: unset;
   width: 11.875rem;
+  --select-dropdown-z-index: 10;
 }
 .main {
   display: flex;
