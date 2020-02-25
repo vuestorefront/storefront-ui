@@ -26,6 +26,7 @@
     }
   }
   &__label {
+    flex: 1;
     margin: var(--checkbox-label-margin, 0 0 0 var(--spacer-big));
     color: var(--checkbox-label-color, var(--c-text));
     font: var(

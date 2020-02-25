@@ -1,11 +1,16 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 import SfColor from "./SfColor.vue";
 storiesOf("Atoms|Color", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfColor },
     props: {
+      color: { default: text("color", "red", "Props") },
       customClass: {
         default: options(
           "CSS modifiers",
@@ -20,34 +25,14 @@ storiesOf("Atoms|Color", module)
     },
     data() {
       return {
-        colors: [
-          {
-            label: "red",
-            active: false
-          },
-          {
-            label: "black",
-            active: false
-          },
-          {
-            label: "purple",
-            active: true
-          },
-          {
-            label: "orange",
-            active: false
-          }
-        ]
+        selected: true
       };
     },
-    template: `<div>
-        <SfColor 
-          v-for="color in colors"
-          :color="color.label" 
-          :selected="color.active" 
-          :aria-label="color.label"  
+    template: `<SfColor 
+          :color="color" 
+          :selected="selected" 
+          aria-label="color"  
           style="margin: 10px;"
           :class="customClass"
-          @click="color.active= !color.active"/>
-    </div>`
+          @click="selected = !selected"/>`
   }));
