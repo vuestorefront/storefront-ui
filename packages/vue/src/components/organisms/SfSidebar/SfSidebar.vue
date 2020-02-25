@@ -3,17 +3,23 @@
     <SfOverlay :visible="visibleOverlay" @click="close" />
     <transition :name="transitionName">
       <aside v-if="visible" class="sf-sidebar__aside">
+        <!--@slot Use this slot to place content inside the modal bar.-->
+        <slot name="modal-bar">
+          <SfBar
+            :title="title"
+            class="mobile-only"
+            :back="true"
+            @click:back="close"
+          />
+        </slot>
         <div ref="content" class="sf-sidebar__content">
-          <slot
-            name="title"
-            v-bind="{ headingTitle, headingSubtitle, headingLevel }"
-          >
+          <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
-              v-if="headingTitle"
-              :title="headingTitle"
-              :subtitle="headingSubtitle"
+              v-if="title"
+              :title="title"
+              :subtitle="subtitle"
               :level="headingLevel"
-              class="sf-heading--left sf-heading--no-underline sf-sidebar__title"
+              class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
             />
           </slot>
           <slot />
@@ -24,7 +30,7 @@
             icon-size="14px"
             icon="cross"
             icon-color="white"
-            class="sf-sidebar__circle-icon"
+            class="sf-sidebar__circle-icon desktop-only"
             @click="close"
           />
         </slot>
@@ -33,6 +39,7 @@
   </div>
 </template>
 <script>
+import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
@@ -40,16 +47,17 @@ import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 export default {
   name: "SfSidebar",
   components: {
+    SfBar,
     SfCircleIcon,
     SfOverlay,
     SfHeading
   },
   props: {
-    headingTitle: {
+    title: {
       type: String,
       default: ""
     },
-    headingSubtitle: {
+    subtitle: {
       type: String,
       default: ""
     },

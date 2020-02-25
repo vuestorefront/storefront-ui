@@ -13,6 +13,9 @@ storiesOf("Molecules|Modal", module)
   .add("Common", () => ({
     components: { SfModal },
     props: {
+      title: {
+        default: text("title", "My title", "Props")
+      },
       overlay: {
         default: boolean("overlay", true, "Props")
       },
@@ -30,6 +33,7 @@ storiesOf("Molecules|Modal", module)
     template: `
       <SfModal
         :visible="visible"
+        :title="title"
         :overlay="overlay"
         :cross="cross"
         :persistent="persistent"
@@ -42,6 +46,9 @@ storiesOf("Molecules|Modal", module)
   .add("[slot] close", () => ({
     components: { SfModal },
     props: {
+      title: {
+        default: text("title", "My title", "Props")
+      },
       overlay: {
         default: boolean("overlay", true, "Props")
       },
@@ -60,6 +67,7 @@ storiesOf("Molecules|Modal", module)
       <SfModal
         :visible="visible"
         :overlay="overlay"
+        :title="title"
         :cross="cross"
         :persistent="persistent"
         :ariaLabelClose="ariaLabelClose"
