@@ -2,25 +2,32 @@
 
 .sf-modal {
   &__container {
+    overflow-y: auto;
+    box-sizing: border-box;
     position: fixed;
+    display: flex;
     z-index: var(--modal-container-index, 1);
     top: var(--modal-container-top, 0);
+    bottom: var(--modal-container-bottom, 0);
     left: var(--modal-container-left, 50%);
     transform: var(--modal-container-transform, translate(-50%, 0));
-    display: flex;
     flex-direction: var(--modal-flex-direction, column);
     align-content: space-between;
-    box-sizing: border-box;
     max-width: var(--modal-max-width, 100%);
     max-height: var(--modal-max-height, 100%);
     width: var(--modal-width, 430px);
     height: var(--modal-height);
-    overflow-y: auto;
     border: var(--modal-border, solid 1px rgba(0, 0, 0, 0.5));
     background-color: var(--modal-background, var(--c-white));
+    &::-webkit-scrollbar {
+      --modal-width: 0;
+    }
   }
   &__content {
-    padding: var(--modal-content-padding, var(--spacer-extra-big) var(--spacer-big));
+    padding: var(
+      --modal-content-padding,
+      var(--spacer-extra-big) var(--spacer-big)
+    );
   }
   &__close {
     position: absolute;
@@ -35,6 +42,7 @@
   }
   @include for-desktop {
     --modal-container-top: 50%;
+    --modal-container-bottom: none;
     --modal-container-transform: translate(-50%, -50%);
     --modal-container-height: auto;
     --modal-content-padding: 2.5em 5em;
