@@ -205,10 +205,11 @@ It'll be extremely easy. Inside the issue page, simply click on `assign yourself
 
 Now that you are assigned to an issue, it's time to get to work :smile:
 
-We **strongly** recommend you to **create a new branch** from your `master` branch instead of working directly on the `master` branch of your **forked**.
+We **strongly** recommend you to **create a new branch** from your `develop` branch instead of working directly on the `develop` branch of your **forked**.
 
-This allows you to work on different issues, with each of them attached to a specific branch. Keeping your `master` clean and synced with `master` of StorefrontUI ensures you **will always have a clean state** to start working on new or fallback to when needed.
+This allows you to work on different issues, with each of them attached to a specific branch. Keeping your `develop` clean and synced with `develop` of StorefrontUI ensures you **will always have a clean state** to start working on new or fallback to when needed.
 
+**Read more about branching and merging guidelines flow here [Branching Guidelines](branching-guidelines.md)**
 :::tip NAME YOUR BRANCH
 We suggest naming your branch according to the following format:
 ```
@@ -290,6 +291,7 @@ In addition, it allows you to do other basic features, such as:
 :::warning
 1. You have **maximum 50 characters** for a commit message. Be concise!
 2. Make sure your issue number will be presented in one of the commits and [follow the guide to enable auto-closing the referenced issue after your PR is merged](#close-issue-through-commit-message).
+3. Make sure your commit follows our [**Conventional commits guidelines**](branching-guidelines.md#conventional-commits).
 :::
 
 ### By terminal (or command line for Windows users)
@@ -358,14 +360,14 @@ Click on that icon **without** pre-selecting changes will **auto commit all** th
 
 Confirm the action and here we go, the commit will be synced.
 
-### Sync branch with `master`
+### Sync branch with `develop`
 
-Syncing with `master` is simple, and we **strongly** suggest to do it frequently to avoid conflicts.
+Syncing with `develop` is simple, and we **strongly** suggest to do it frequently to avoid conflicts.
 
-After you set up [synchronization between your forked repo and StorefrontUI repo](#keep-your-forked-repo-updated) and have your `master` branch up-to-date, simply use `git merge` to **merge** the latest `master` changes into your branch.
+After you set up [synchronization between your forked repo and StorefrontUI repo](#keep-your-forked-repo-updated) and have your `develop` branch up-to-date, simply use `git merge` to **merge** the latest `develop` changes into your branch.
 
 ```bash
-git merge master
+git merge develop
 ```
 
 :::tip
