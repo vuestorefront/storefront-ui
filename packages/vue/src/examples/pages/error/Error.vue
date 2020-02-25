@@ -2,10 +2,7 @@
   <div id="error">
     <SfImage
       class="image"
-      :src="{
-        mobile: { url: '/assets/storybook/Error/error_mobile.svg' },
-        desktop: { url: '/assets/storybook/Error/error.svg' }
-      }"
+      :src="require('@storefront-ui/shared/icons/error.svg')"
     />
     <SfHeading
       title="Page not found"
@@ -40,7 +37,7 @@ export default {
 
 #error {
   box-sizing: border-box;
-  padding: 0 1.25rem;
+  padding: 0 var(--spacer-big);
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
