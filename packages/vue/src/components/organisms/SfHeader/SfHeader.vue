@@ -205,6 +205,8 @@ export default {
     },
     isMobile: {
       handler() {
+        if (typeof window === "undefined" || typeof document === "undefined")
+          return;
         this.$nextTick(() => {
           const containerHeight = this.$refs.header;
           this.height = {
@@ -217,6 +219,8 @@ export default {
     hasMobileSearch: {
       handler() {
         this.$nextTick(() => {
+          if (typeof window === "undefined" || typeof document === "undefined")
+            return;
           const computedContainer = window.getComputedStyle(this.$refs.header);
           this.height = {
             height: computedContainer.height
