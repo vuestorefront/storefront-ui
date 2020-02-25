@@ -148,7 +148,9 @@ We know it's not easy to pick an issue that is most suitable to you to work with
 
 <Labels groupByType="difficulty"/>
 
+::: tip TIP
 We recommend first-time contributor to select issues with label `Good first issue` to start. But it's entirely up to you.
+:::
 
 ::: tip ANY TROUBLE?
 Feeling some issue's level **does not** match the label assigned? [Drop us a message in Discord](https://discord.gg/GS8hqFS) or leave a comment inside the issue.
@@ -165,6 +167,15 @@ Feeling some issue's level **does not** match the label assigned? [Drop us a mes
 ::: tip 
 You can review the **full list** of labels and the issues attached to them [on our Github labels](https://github.com/DivanteLtd/storefront-ui/labels) 
 :::
+
+**General labeling rules**
+To avoid over-labeling, please stick to them.
+
+**1.** ```Bugs``` shouldn’t have difficulty label - you never know how hard/how many days solving this issue will take.
+
+**2.** All ```features``` should have difficulty level.
+
+**3.** ```Design``` label should go alone without any additional labels.
 
 **Notes**: 
 * You can **filter** our Github issues according to a specific labels by clicking at column `Labels` and selecting the desired label from the dropdown list.
