@@ -149,11 +149,7 @@ export default {
       }));
     },
     updatedSliderOptions() {
-      if (this.current === 0) {
-        return this.sliderOptions;
-      } else {
-        return { ...this.sliderOptions, startAt: this.activeIndex };
-      }
+      return { ...this.sliderOptions, startAt: this.activeIndex };
     }
   },
   mounted() {
