@@ -65,14 +65,14 @@ In most scenarios, when you're designing a new app you're starting with a style 
 We can represent style guide as a set of global CSS variables. By using them we are abstracting visual configuration from html and CSS structure to declarative variables. Thank to this approach we can ship updates to Storefront UI without breaking your projects.
 
 You can override them to shape the look and feel of your project. There are two groups of available CSS variables in Storefront UI:
-- **Global** variables are representing project style guide. They are setting up global properties like like colors or typography. For example, the following code in `sfui.scss` will change primary font in your whole project to `Raleway`.
+- **Global** variables are representing project style guide. They are setting up global properties like like colors or typography. For example, the following code will change primary font in your whole project to `Raleway`.
 ```css
 :root {
     --body-font-family-primary: 'Raleway', serif;
 }
 ```
 - **Component-specific** variables are meant to customize behavior of certain component type (like `SfButton`) and cover edge cases of any project. 
-For example, the following code in `sfui.scss` will change default (not modified by other CSS rules) background color of every `SfButton` component in your project to `red`.
+For example, the following code will change default (not modified by other CSS rules) background color of every `SfButton` component in your project to `red`.
 ```css
 .sf-button {
     --button-background: red;
@@ -85,11 +85,7 @@ And this code will change `width` of icon inside `SfArrow` to `2rem`.
   --icon-width: 2rem;
 }
 ```    
-You can override any variable in `sfui.scss` file. To find the variable name to override, go to [Components documentation](https://docs.storefrontui.io/components). 
-
-:::tip 
-You can use `sfui.scss` to create and share completely new design system for Storefront UI
-:::
+You can override any global variable. To find the variable name to override, go to [Components documentation](https://docs.storefrontui.io/components). 
 
 ### Color Variables
 
@@ -146,7 +142,7 @@ This code will generate the following variables:
 
 #### Color variables override
 
-We can override color variables using `sfui.scss` file. For example:
+We can override color variables. For example:
 
 ```scss
 // Internal color variables

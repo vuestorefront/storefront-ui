@@ -61,24 +61,40 @@
         </div>
         <div class="navbar__view desktop-only">
           <span>View </span>
-          <SfIcon class="navbar__view-icon" size="10px">
+          <SfIcon
+            class="navbar__view-icon"
+            :color="isGridView ? '#1D1F22' : '#BEBFC4'"
+            size="10px"
+            role="button"
+            aria-label="Change to grid view"
+            :aria-pressed="isGridView"
+            @click="isGridView = true"
+          >
             <svg viewBox="0 0 10 10">
-              <rect width="2" height="2" fill="#1D1F22" />
-              <rect y="4" width="2" height="2" fill="#1D1F22" />
-              <rect y="8" width="2" height="2" fill="#1D1F22" />
-              <rect x="4" width="2" height="2" fill="#1D1F22" />
-              <rect x="4" y="4" width="2" height="2" fill="#1D1F22" />
-              <rect x="4" y="8" width="2" height="2" fill="#1D1F22" />
-              <rect x="8" width="2" height="2" fill="#1D1F22" />
-              <rect x="8" y="4" width="2" height="2" fill="#1D1F22" />
-              <rect x="8" y="8" width="2" height="2" fill="#1D1F22" />
+              <rect width="2" height="2" />
+              <rect y="4" width="2" height="2" />
+              <rect y="8" width="2" height="2" />
+              <rect x="4" width="2" height="2" />
+              <rect x="4" y="4" width="2" height="2" />
+              <rect x="4" y="8" width="2" height="2" />
+              <rect x="8" width="2" height="2" />
+              <rect x="8" y="4" width="2" height="2" />
+              <rect x="8" y="8" width="2" height="2" />
             </svg>
           </SfIcon>
-          <SfIcon class="navbar__view-icon" size="11px">
-            <svg viewBox="0 0 11 10" fill="none">
-              <rect width="11" height="2" fill="#BEBFC4" />
-              <rect y="8" width="11" height="2" fill="#BEBFC4" />
-              <rect y="4" width="7" height="2" fill="#BEBFC4" />
+          <SfIcon
+            class="navbar__view-icon"
+            :color="!isGridView ? '#1D1F22' : '#BEBFC4'"
+            size="11px"
+            role="button"
+            aria-label="Change to list view"
+            :aria-pressed="!isGridView"
+            @click="isGridView = false"
+          >
+            <svg viewBox="0 0 11 10">
+              <rect width="11" height="2" />
+              <rect y="8" width="11" height="2" />
+              <rect y="4" width="7" height="2" />
             </svg>
           </SfIcon>
         </div>
@@ -113,10 +129,17 @@
         </SfAccordion>
       </div>
       <div class="products">
-        <div class="products__list">
+        <transition-group
+          v-if="isGridView"
+          appear
+          name="products__slide"
+          tag="div"
+          class="products__grid"
+        >
           <SfProductCard
             v-for="(product, i) in products"
-            :key="i"
+            :key="product.id"
+            :style="{ '--index': i }"
             :title="product.title"
             :image="product.image"
             :regular-price="product.price.regular"
@@ -127,7 +150,31 @@
             class="products__product-card"
             @click:wishlist="toggleWishlist(i)"
           />
-        </div>
+        </transition-group>
+        <transition-group
+          v-else
+          appear
+          name="products__slide"
+          tag="div"
+          class="products__list"
+        >
+          <SfProductCardHorizontal
+            v-for="(product, i) in products"
+            :key="product.id"
+            :style="{ '--index': i }"
+            :title="product.title"
+            :description="product.description"
+            :image="product.image"
+            :regular-price="product.price.regular"
+            :special-price="product.price.special"
+            :max-rating="product.rating.max"
+            :reviews-count="product.reviewsCount"
+            :score-rating="product.rating.score"
+            :is-on-wishlist="product.isOnWishlist"
+            class="products__product-card-horizontal"
+            @click:wishlist="toggleWishlist(i)"
+          />
+        </transition-group>
         <SfPagination
           class="products__pagination desktop-only"
           :current="currentPage"
@@ -143,6 +190,7 @@
     </div>
     <SfSidebar
       :visible="isFilterSidebarOpen"
+      title="Filters"
       @close="isFilterSidebarOpen = false"
     >
       <div class="filters">
@@ -222,6 +270,7 @@ import {
   SfMenuItem,
   SfFilter,
   SfProductCard,
+  SfProductCardHorizontal,
   SfPagination,
   SfAccordion,
   SfSelect,
@@ -236,6 +285,7 @@ export default {
     SfList,
     SfFilter,
     SfProductCard,
+    SfProductCardHorizontal,
     SfPagination,
     SfMenuItem,
     SfAccordion,
@@ -248,6 +298,7 @@ export default {
       currentPage: 1,
       sortBy: "price-up",
       isFilterSidebarOpen: false,
+      isGridView: true,
       sortByOptions: [
         {
           value: "latest",
@@ -303,58 +354,90 @@ export default {
       products: [
         {
           title: "Cream Beach Bag",
+          id: 1,
+          description:
+            "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productA.jpg",
           price: { regular: "$50.00", special: "$20.00" },
-          rating: { max: 5, score: false },
+          rating: { max: 5, score: 5 },
+          reviewsCount: 8,
           isOnWishlist: true
         },
         {
           title: "Cream Beach Bag",
+          id: 2,
+          description:
+            "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productB.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
+          reviewsCount: 8,
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
+          id: 3,
+          description:
+            "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productC.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
+          reviewsCount: 8,
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
+          id: 4,
+          description:
+            "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productA.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
+          reviewsCount: 8,
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
+          id: 5,
+          description:
+            "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productB.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
+          reviewsCount: 8,
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
+          id: 6,
+          description:
+            "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productC.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
+          reviewsCount: 8,
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
+          id: 7,
+          description:
+            "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productA.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
+          reviewsCount: 6,
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
+          id: 8,
+          description:
+            "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productB.jpg",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
+          reviewsCount: 8,
           isOnWishlist: false
         }
       ],
@@ -577,6 +660,7 @@ export default {
     }
     &-icon {
       margin: 0 0 0 0.625rem;
+      cursor: pointer;
     }
   }
 }
@@ -602,6 +686,7 @@ export default {
   @include for-desktop {
     margin: var(--spacer-big);
   }
+  &__grid,
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -613,6 +698,21 @@ export default {
       --product-card-padding: var(--spacer-big);
       flex: 1 1 25%;
     }
+  }
+  &__product-card-horizontal {
+    --product-card-horizontal-padding: var(--spacer);
+    flex: 0 0 100%;
+    @include for-desktop {
+      --product-card-horizontal-padding: var(--spacer-big);
+    }
+  }
+  &__slide-enter {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  &__slide-enter-active {
+    transition: all 0.2s ease;
+    transition-delay: calc(0.1s * var(--index));
   }
   &__pagination {
     @include for-desktop {

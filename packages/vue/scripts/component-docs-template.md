@@ -30,7 +30,7 @@
 
 [[css-variables]]
 
-You can override CSS variables values bound to this component in `sfui.scss` in the root of your project.
+You can override CSS variables values bound to this component.
 
 <!-- No _internal components -->
 

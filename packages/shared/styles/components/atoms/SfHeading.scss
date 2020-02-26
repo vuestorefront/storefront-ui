@@ -20,6 +20,7 @@
     );
   }
   &__subtitle {
+    margin: var(--heading-subtitle-margin);
     font: var(
       --heading-subtitle-font,
       font(
