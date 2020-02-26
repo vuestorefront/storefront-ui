@@ -6,7 +6,7 @@
     flex: var(--add-to-cart-button-flex, 1);
     order: var(--add-to-cart-button-order);
   }
-  &__select-quantity {
+  & &__select-quantity {
     --input-height: auto;
     --input-border: 1px solid var(--c-light);
 

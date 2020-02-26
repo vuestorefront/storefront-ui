@@ -14,11 +14,11 @@ storiesOf("Organisms|Sidebar", module)
   .add("Common", () => ({
     components: { SfSidebar },
     props: {
-      headingTitle: {
-        default: text("headingTitle", "My Cart", "Props")
+      title: {
+        default: text("title", "My Cart", "Props")
       },
-      headingSubtitle: {
-        default: text("headingSubtitle", "Order Summary", "Props")
+      subtitle: {
+        default: text("subtitle", "Order Summary", "Props")
       },
       headingLevel: {
         default: number("headingLevel", 2, {}, "Props")
@@ -34,8 +34,8 @@ storiesOf("Organisms|Sidebar", module)
     template: `<SfSidebar
         :visible="isSidebarOpen"
         @close="isSidebarOpen = false"
-        :heading-title="headingTitle"
-        :heading-subtitle="headingSubtitle"
+        :title="title"
+        :subtitle="subtitle"
         :heading-level="headingLevel"
         :button="button"
         :overlay="overlay"
@@ -46,11 +46,11 @@ storiesOf("Organisms|Sidebar", module)
   .add("[slot] title", () => ({
     components: { SfSidebar },
     props: {
-      headingTitle: {
-        default: text("headingTitle", "My Cart", "Props")
+      title: {
+        default: text("title", "My Cart", "Props")
       },
-      headingSubtitle: {
-        default: text("headingSubtitle", "Order Summary", "Props")
+      subtitle: {
+        default: text("subtitle", "Order Summary", "Props")
       },
       headingLevel: {
         default: number("headingLevel", 2, {}, "Props")
@@ -66,13 +66,13 @@ storiesOf("Organisms|Sidebar", module)
     template: `<SfSidebar
         :visible="isSidebarOpen"
         @close="isSidebarOpen = false"
-        :heading-title="headingTitle"
-        :heading-subtitle="headingSubtitle"
+        :title="title"
+        :subtitle="subtitle"
         :heading-level="headingLevel"
         :button="button"
         :overlay="overlay"
     >
-      <template #title="{headingTitle, headingSubtitle, headingLevel}">
+      <template #title="{title, subtitle, headingLevel}">
         <div>CUSTOM TITLE</div>
       </template>
       Total items: 0
@@ -81,11 +81,11 @@ storiesOf("Organisms|Sidebar", module)
   .add("[slot] circle-icon", () => ({
     components: { SfSidebar },
     props: {
-      headingTitle: {
-        default: text("headingTitle", "My Cart", "Props")
+      title: {
+        default: text("title", "My Cart", "Props")
       },
-      headingSubtitle: {
-        default: text("headingSubtitle", "Order Summary", "Props")
+      subtitle: {
+        default: text("subtitle", "Order Summary", "Props")
       },
       headingLevel: {
         default: number("headingLevel", 2, {}, "Props")
@@ -101,8 +101,8 @@ storiesOf("Organisms|Sidebar", module)
     template: `<SfSidebar
         :visible="isSidebarOpen"
         @close="isSidebarOpen = false"
-        :heading-title="headingTitle"
-        :heading-subtitle="headingSubtitle"
+        :title="title"
+        :subtitle="subtitle"
         :heading-level="headingLevel"
         :button="button"
         :overlay="overlay"

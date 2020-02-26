@@ -407,16 +407,15 @@ function extractCssVariables(contentScssFile) {
   // Object.keys(mediaVars).length > 0
   //   ? ["NAME", "DEFAULT", "DESKTOP VALUE", "DESCRIPTION"]
   //   : ["NAME", "DEFAULT", "DESCRIPTION"];
-  let varsTable = varsArray;
-  let table = [];
   let result = "";
-  if (varsTable.length > 0) {
-    table = {
-      tableHeadConfig: headConfig,
-      tableBodyConfig: varsTable
-    };
-    result += generateStorybookTable(table);
-  }
+  varsArray[0].forEach(variable => {
+    result += `- **\`${variable[0]}\`**\n`;
+  });
+  result += `### Overridden other components CSS variables \n`;
+  result += varsArray[1].length  ? '' : `None. \n`;
+  varsArray[1].forEach(variable => {
+    result += `- **\`${variable[0]}\`**\n`;
+  });
   return result;
 }
 function getMediaArray(file) {
@@ -474,6 +473,7 @@ function getVarsArray(file) {
         let fontVar;
         array.push([font, ""]);
         while ((fontVar = regex.exec(result[3])) !== null) {
+          keys.push(fontVar[1]);
           array.push([fontVar[1], fontVar[3]]);
         }
         continue;
@@ -487,10 +487,7 @@ function getVarsArray(file) {
       }
       array.push(variable);
     }
-    array = array.sort((prev, next) => {
-      return prev[0] === next[0] ? 0 : prev[0] > next[0] ? 1 : -1;
-    });
-    variables = [...variables, ...array];
+    variables.push(array);
   });
 
   return variables;
@@ -903,7 +900,7 @@ function getStorybookIFrameMarkup(storybookLink, storybookIFrameHeight) {
   if (storybookIFrameHeight) {
     style += `height: ${storybookIFrameHeight}`;
   }
-  return `<iframe src="https://deploy-preview-480--storefrontui-storybook.netlify.com/iframe.html?id=${storybookLink}" style="${style}"></iframe>`;
+  return `<iframe src="https://storybook.storefrontui.io/iframe.html?id=${storybookLink}" style="${style}"></iframe>`;
 }
 function getInternalComponentTemplate() {
   return `### [[internal-component-name]]

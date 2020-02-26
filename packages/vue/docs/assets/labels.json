@@ -44,13 +44,34 @@
     "type": "issue",
     "description": "Tasks that involve documentation activities"
 }, {
+    "name": "Feature",
+    "color": "#0D659b",
+    "type": "issue",
+    "description": "New functionalities or improvements for existing components"
+},
+ {
     "name": "Help wanted",
     "color": "#008672",
     "type": "status",
     "description": "We want it to be done but we need help from you."
 }, {
+    "name": "Important",
+    "color": "#ea5d2e",
+    "type": "status",
+    "description": "It needs to be done ASAP"
+}, {
     "name": "Question",
     "color": "#d876e3",
     "type": "status",
     "description": "Further information needed."
+}, {
+    "name": "Refactor",
+    "color": "#FFCCFB",
+    "type": "issue",
+    "description": "Issue requires refactoring existing component"
+}, {
+    "name": "a11y",
+    "color": "#FCCFC7",
+    "type": "issue",
+    "description": "Everything regarding accessibility."
 }]
