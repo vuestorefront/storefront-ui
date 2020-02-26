@@ -27,6 +27,7 @@
         <slot name="search" v-bind="{ searchPlaceholder }">
           <SfSearchBar
             v-if="hasMobileSearch || !isMobile"
+            v-model="searchValue"
             :placeholder="searchPlaceholder"
             class="sf-header__search"
           />
@@ -157,6 +158,7 @@ export default {
   },
   data() {
     return {
+      searchValue: "",
       headerIcons: [
         {
           conditional: this.accountIcon,
