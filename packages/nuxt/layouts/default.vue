@@ -1,13 +1,39 @@
 <template>
   <div>
+    <SfHeader>
+      <template #navigation>
+        <nuxt-link :to="/examples/_aeelmpx" />
+        <nuxt-link :to="" />
+        <nuxt-link :to="" />
+        <nuxt-link :to="" />
+        <nuxt-link :to="" />
+        <nuxt-link :to="" />
+        <nuxt-link :to="" />
+      </template>
+    </SfHeader>
+    <Cart />
     <nuxt />
+    <SfFooter />
   </div>
 </template>
+<script>
+import { SfHeader, SfFooter } from "@storefront-ui/vue";
+import Cart from "../../vue/src/examples/pages/cart/Cart";
 
-<style>
+export default {
+  components: {
+    SfHeader,
+    SfFooter,
+    Cart
+  }
+};
+</script>
+<style lang="scss" >
+@import "~@storefront-ui/vue/styles.scss";
+
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
