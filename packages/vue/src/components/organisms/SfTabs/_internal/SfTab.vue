@@ -4,6 +4,7 @@
     <slot name="title" v-bind="{ tabClick, isActive, title }">
       <div
         role="button"
+        :aria-pressed="isActive.toString()"
         class="sf-tabs__title"
         :class="{ 'sf-tabs__title--active': isActive }"
         @click="tabClick"
