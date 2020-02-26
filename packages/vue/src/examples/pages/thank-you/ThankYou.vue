@@ -48,10 +48,11 @@
         Your feedback is important to us. Let us know what we could improve.
       </p>
       <div class="wrapper__buttons">
-        <SfButton class="color-secondary sf-button--full-width"
+        <SfButton class="feedback-button color-secondary sf-button--full-width"
           >SEND MY FEEDBACK</SfButton
         >
-        <SfButton class="sf-button--outline sf-button--full-width color-secondary"
+        <SfButton
+          class="sf-button--outline sf-button--full-width color-secondary"
           >BACK TO SHOP</SfButton
         >
       </div>
@@ -124,21 +125,20 @@ export default {
     margin: var(--spacer-extra-big) 0 var(--spacer-extra-big) 0;
     justify-content: space-between;
 
-    & > button {
-      margin: 0 var(--spacer-medium) 0 0;
-    }
-
     @include for-mobile {
       flex-direction: column;
-
-      & > button {
-        margin: 0 0 var(--spacer) 0;
-      }
     }
   }
 
   @include for-desktop {
     padding: 0;
+  }
+}
+.feedback-button {
+  margin: var(--spacer) 0;
+
+  @include for-desktop {
+    margin: 0 var(--spacer-medium) 0 0;
   }
 }
 .heading {
