@@ -102,14 +102,14 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           <template #actions>
             <div style="display:flex; flex-direction: column; align-items: flex-end">
               <SfButton
-                class="sf-button--text"
+                class="sf-button--text color-primary"
                 @click="$emit('click:add-to-wishlist')"
                 style="padding-bottom: 1.25rem" 
               >
                 Save for later
               </SfButton>
               <SfButton
-                class="sf-button--text"
+                class="sf-button--text color-primary"
                 @click="$emit('click:add-to-compare')"
                 style="padding-bottom: 1.25rem" 
               >
@@ -229,14 +229,14 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           <template #actions>
             <div style="display:flex; flex-direction: column; align-items: flex-end">
               <SfButton
-                class="sf-button--text"
+                class="sf-button--text color-primary"
                 style="padding-bottom: 1.25rem" 
                 @click="$emit('click:add-to-wishlist')"
               >
                 Save for later
               </SfButton>
               <SfButton
-                class="sf-button--text"
+                class="sf-button--text color-primary"
                 style="padding-bottom: 1.25rem" 
                 @click="$emit('click:add-to-compare')"
               >
