@@ -7,6 +7,7 @@
       class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
     >
       <div class="sf-product-card-horizontal__image-wrapper">
+        <!--@slot Use this slot to replace image-->
         <slot name="image" v-bind="{ image, title }">
           <template v-if="Array.isArray(image)">
             <SfImage
@@ -38,12 +39,14 @@
           :to="link && linkComponentTag !== 'a' ? link : undefined"
           class="sf-product-card-horizontal__link"
         >
+          <!--@slot Use this slot to replace title-->
           <slot name="title" v-bind="{ title }">
             <h3 class="sf-product-card-horizontal__title">
               {{ title }}
             </h3>
           </slot>
         </component>
+        <!--@slot Use this slot to replace price-->
         <slot name="price" v-bind="{ specialPrice, regularPrice }">
           <SfPrice
             v-if="regularPrice"
@@ -60,6 +63,7 @@
         class="mobile-only"
         @click="toggleIsOnWishlist"
       >
+        <!--@slot Use this slot to replace wishlist icon-->
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
           <SfIcon
             :icon="currentWishlistIcon"
@@ -70,6 +74,7 @@
         </slot>
       </button>
       <div class="sf-product-card-horizontal__details">
+        <!--@slot Use this slot to replace description-->
         <slot name="description">
           <p class="sf-product-card-horizontal__description desktop-only">
             {{ description }}
@@ -77,6 +82,7 @@
         </slot>
         <!--@slot Use this slot to place content inside configuration-->
         <slot name="configuration" />
+        <!--@slot Use this slot to replace reviews-->
         <slot name="reviews" v-bind="{ maxRating, scoreRating }">
           <div
             v-if="typeof scoreRating === 'number'"
@@ -101,6 +107,7 @@
       <div class="sf-product-card-horizontal__actions desktop-only">
         <!--@slot Use this slot to place content inside actions-->
         <slot name="actions" />
+        <!--@slot Use this slot to replace add to cart-->
         <slot name="add-to-cart">
           <SfAddToCart
             :qty="qty"
