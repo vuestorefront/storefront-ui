@@ -185,7 +185,7 @@
           <SfCheckbox
             v-model="cardKeep"
             name="keepcard"
-            label="I want to keed this data for other purchases."
+            label="I want to keep this data for other purchases."
           />
         </div>
       </transition>
@@ -199,7 +199,7 @@
           class="sf-button--full-width sf-button--text color-secondary form__action-button form__action-button--secondary"
           @click="$emit('click:back')"
         >
-          Go back to Personal details
+          Go back to Shipping Methods
         </SfButton>
       </div>
     </div>
