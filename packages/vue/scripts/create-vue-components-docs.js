@@ -325,6 +325,7 @@ function parseStoriesFile(contentStoriesFile) {
     // store all props
     const storyProps = new Map();
     const object = (name, value) => storyProps.set(name, value);
+    const array = (name, value) => storyProps.set(name, value);
     const number = (name, value) => storyProps.set(name, value);
     const text = (name, value) => storyProps.set(name, value);
     const boolean = (name, value) => storyProps.set(name, value);
