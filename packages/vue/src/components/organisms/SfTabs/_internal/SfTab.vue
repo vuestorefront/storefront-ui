@@ -14,19 +14,23 @@
       </div>
     </slot>
     <div v-if="isActive" class="sf-tabs__content">
-      <!--@slot Default. Here you should pass your tab content-->
-      <slot />
+      <SfScrollable max-content-height="350px" show-text="View more">
+        <!--@slot Default. Here you should pass your tab content-->
+        <slot />
+      </SfScrollable>
     </div>
   </Fragment>
 </template>
 <script>
 import { Fragment } from "vue-fragment";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
+import SfScrollable from "../../../molecules/SfScrollable/SfScrollable.vue";
 export default {
   name: "SfTab",
   components: {
     Fragment,
-    SfChevron
+    SfChevron,
+    SfScrollable
   },
   props: {
     /**
