@@ -1,19 +1,15 @@
 <template>
   <div>
-    <SfButton>Button</SfButton>
+    <Home />
   </div>
 </template>
 
 <script>
-import {SfButton} from '@storefront-ui/vue'
+import Home from "@storefront-ui/vue/src/examples/pages/home/Home.vue"
 
 export default {
   components: {
-    SfButton
+    Home
   }
 }
 </script>
-
-<style lang="scss">
-  @import "~@storefront-ui/vue/styles.scss";
-</style>
