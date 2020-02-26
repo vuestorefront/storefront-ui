@@ -22,8 +22,7 @@
     "create-index-files": "node scripts/create-index-files.js",
     "postinstall": "node scripts/postinstall.js && node scripts/create-index-files.js",
     "version": "node scripts/version.js",
-    "prepublish": "yarn create-index-files",
-    "postpublish": "node scripts/postpublish.js"
+    "prepublish": "yarn create-index-files"
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
