@@ -15,8 +15,6 @@ npm install --save @storefront-ui/vue
 yarn add @storefront-ui/vue
 ```
 
-It contains the library's source code and generates a `sfui.scss` file in your project's root directory upon installation. You can use this file to override global and component-specific SCSS variables.
-
 Once the library is installed, you need to import its **root stylesheet**. It contains _global_ styles and SCSS variables. **Component styles** are automatically imported as part of `.vue` files for each component.
 
 We recommend putting it in your `main.js` or the root component of your application.
