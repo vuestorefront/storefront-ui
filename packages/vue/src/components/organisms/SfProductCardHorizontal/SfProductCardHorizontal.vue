@@ -75,7 +75,8 @@
             {{ description }}
           </p>
         </slot>
-        <slot name="configuration"></slot>
+        <!--@slot Use this slot to place content inside configuration-->
+        <slot name="configuration" />
         <slot name="reviews" v-bind="{ maxRating, scoreRating }">
           <div
             v-if="typeof scoreRating === 'number'"
@@ -98,10 +99,11 @@
         </slot>
       </div>
       <div class="sf-product-card-horizontal__actions desktop-only">
-        <slot name="actions"></slot>
+        <!--@slot Use this slot to place content inside actions-->
+        <slot name="actions" />
         <slot name="add-to-cart">
           <SfAddToCart
-            v-model="qty"
+            :qty="qty"
             class="sf-product-card-horizontal__add-to-cart"
             @click="$emit('click:add-to-cart')"
           />
@@ -130,6 +132,9 @@ export default {
     SfAddToCart,
     SfProductOption,
     SfProperty
+  },
+  model: {
+    prop: "qty"
   },
   props: {
     /**
@@ -257,12 +262,14 @@ export default {
     isOnWishlist: {
       type: Boolean,
       default: false
+    },
+    /**
+     * Selected quantity
+     */
+    qty: {
+      type: [Number, String],
+      default: 1
     }
-  },
-  data() {
-    return {
-      qty: "1"
-    };
   },
   computed: {
     currentWishlistIcon() {
