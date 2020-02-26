@@ -14,7 +14,7 @@
       </div>
     </slot>
     <div v-if="isActive" class="sf-tabs__content">
-      <SfScrollable max-content-height="350px" show-text="View more">
+      <SfScrollable max-content-height="300px" show-text="View more">
         <!--@slot Default. Here you should pass your tab content-->
         <slot />
       </SfScrollable>
