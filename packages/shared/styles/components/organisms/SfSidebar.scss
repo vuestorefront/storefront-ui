@@ -1,10 +1,6 @@
 @import "../../helpers";
 
 .sf-sidebar {
-  @include for-desktop {
-    --sidebar-aside-width: 25.5rem;
-    --sidebar-circle-icon-top: 5.625rem;
-  }
   &__aside {
     position: fixed;
     top: var(--sidebar-aside-top, 0);
@@ -12,7 +8,7 @@
     left: var(--sidebar-aside-left, 0);
     z-index: var(--sidebar-aside-z-index, 1);
     box-sizing: border-box;
-    width: var(--sidebar-aside-width, 20rem);
+    width: var(--sidebar-aside-width, 100%);
     height: 100%;
     background-color: var(--sidebar-aside-background, var(--c-white));
   }
@@ -50,5 +46,9 @@
   }
   &--has-scroll-lock {
     overflow: hidden;
+  }
+  @include for-desktop {
+    --sidebar-aside-width: 25.5rem;
+    --sidebar-circle-icon-top: 5.625rem;
   }
 }

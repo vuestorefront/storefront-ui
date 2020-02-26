@@ -143,6 +143,7 @@
     </div>
     <SfSidebar
       :visible="isFilterSidebarOpen"
+      title="Filters"
       @close="isFilterSidebarOpen = false"
     >
       <div class="filters">
