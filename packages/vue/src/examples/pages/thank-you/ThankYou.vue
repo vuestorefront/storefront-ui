@@ -51,7 +51,7 @@
         <SfButton class="color-secondary sf-button--full-width"
           >SEND MY FEEDBACK</SfButton
         >
-        <SfButton class="sf-button--outline sf-button--full-width"
+        <SfButton class="sf-button--outline sf-button--full-width color-secondary"
           >BACK TO SHOP</SfButton
         >
       </div>
