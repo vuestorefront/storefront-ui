@@ -33,7 +33,7 @@
     &.color-#{$color} {
       --button-background: #{$primary};
       &:hover {
-        --button-background: #{$variant};
+        --button-background: var(--c-#{$color}-lighten);
       }
     }
   }
