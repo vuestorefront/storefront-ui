@@ -1,81 +1,102 @@
 <template>
   <div>
-    <SfHeader>
+    <SfHeader :isSticky="true" @click:cart="isCartSidebarOpen = true">
       <template #navigation>
-        <nuxt-link :to="/examples/_aeelmpx" />
-        <nuxt-link :to="" />
-        <nuxt-link :to="" />
-        <nuxt-link :to="" />
-        <nuxt-link :to="" />
-        <nuxt-link :to="" />
-        <nuxt-link :to="" />
+        <nuxt-link to="/examples">Example pages</nuxt-link>
       </template>
     </SfHeader>
-    <Cart />
-    <nuxt />
-    <SfFooter />
+    <nuxt class="main" />
+    <SfFooter :column="column" :multiple="multiple">
+      <SfFooterColumn
+        v-for="column in columns"
+        :key="column.title"
+        :title="column.title"
+        :style="{ marginLeft: column.title && 'auto' }"
+      >
+        <SfList v-if="column.items">
+          <SfListItem v-for="item in column.items" :key="item">
+            <SfMenuItem :label="item" />
+          </SfListItem>
+        </SfList>
+        <div v-else :style="{ display: 'flex', ...itemSpacer }">
+          <SfImage
+            v-for="picture in column.pictures"
+            :key="picture"
+            width="12"
+            height="12"
+            :src="'/assets/storybook/SfFooter/' + picture + '.svg'"
+            :style="{ margin: '0 1.25rem 0 0' }"
+          />
+        </div>
+      </SfFooterColumn>
+    </SfFooter>
+    <Cart v-if="isCartSidebarOpen" @close="isCartSidebarOpen = false" />
   </div>
 </template>
 <script>
-import { SfHeader, SfFooter } from "@storefront-ui/vue";
+import {
+  SfHeader,
+  SfFooter,
+  SfList,
+  SfMenuItem,
+  SfImage
+} from "@storefront-ui/vue";
 import Cart from "../../vue/src/examples/pages/cart/Cart";
 
 export default {
+  name: "default",
   components: {
     SfHeader,
     SfFooter,
-    Cart
+    Cart,
+    SfList,
+    SfMenuItem,
+    SfImage
+  },
+  computed: {
+    itemSpacer() {
+      return this.isMobile ? { padding: "1.25rem" } : { padding: "6px 0" };
+    }
+  },
+  data() {
+    return {
+      isCartSidebarOpen: false,
+      column: 4,
+      multiple: true,
+      columns: [
+        {
+          title: "About us",
+          items: ["Who we are", "Quality in the details", "Customer Reviews"]
+        },
+        {
+          title: "Departments",
+          items: ["Women fashion", "Men fashion", "Kidswear", "Home"]
+        },
+        {
+          title: "Help",
+          items: ["Customer service", "Size guide", "Contact us"]
+        },
+        {
+          title: "Payment & delivery",
+          items: ["Purchase terms", "Guarantee"]
+        },
+        {
+          title: "Social",
+          pictures: ["facebook", "pinterest", "twitter", "youtube"]
+        }
+      ]
+    };
   }
 };
 </script>
-<style lang="scss" >
+<style lang="scss">
 @import "~@storefront-ui/vue/styles.scss";
-
-html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+html,
+body {
   margin: 0;
 }
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.main {
+  margin: 0 auto;
+  text-align: center;
 }
 </style>

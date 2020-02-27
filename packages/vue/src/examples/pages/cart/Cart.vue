@@ -4,7 +4,7 @@
       :visible="isCartSidebarOpen"
       heading-title="My Cart"
       class="sf-sidebar--right"
-      @close="() => {}"
+      @close="close"
     >
       <transition name="fade" mode="out-in">
         <div v-if="totalItems" key="my-cart" class="my-cart">
@@ -163,6 +163,9 @@ export default {
     }
   },
   methods: {
+    close() {
+      this.$emit("close");
+    },
     removeHandler(product) {
       const products = [...this.products];
       this.products = products.filter(element => element.id !== product.id);

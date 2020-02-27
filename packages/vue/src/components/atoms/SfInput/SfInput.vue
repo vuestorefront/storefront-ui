@@ -33,9 +33,10 @@
         name="show-password"
       >
         <SfButton
+          class="sf-input__password-button"
+          type="button"
           aria-label="switch-visibility-password"
           :aria-pressed="isPasswordVisible.toString()"
-          class="sf-input__password-button"
           @click="switchVisibilityPassword"
         >
           <SfIcon

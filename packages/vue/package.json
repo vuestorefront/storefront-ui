@@ -20,10 +20,9 @@
     "docs:dev": "yarn docs:vuecomponents && vuepress dev docs",
     "docs:build": "yarn docs:vuecomponents && vuepress build docs",
     "create-index-files": "node scripts/create-index-files.js",
-    "postinstall": "node scripts/postinstall.js && node scripts/create-index-files.js",
+    "postinstall": "node scripts/create-index-files.js",
     "version": "node scripts/version.js",
-    "prepublish": "yarn create-index-files",
-    "postpublish": "node scripts/postpublish.js"
+    "prepublish": "yarn create-index-files"
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
@@ -50,8 +49,7 @@
     "src/*",
     "index.js",
     "js.js",
-    "styles.scss",
-    "sfui.scss"
+    "styles.scss"
   ],
   "devDependencies": {
     "@babel/core": "^7.5.5",

@@ -42,6 +42,7 @@ import SfOverlay from "../../src/components/atoms/SfOverlay/SfOverlay.vue"
 import SfPagination from "../../src/components/molecules/SfPagination/SfPagination.vue"
 import SfPrice from "../../src/components/atoms/SfPrice/SfPrice.vue"
 import SfProductCard from "../../src/components/organisms/SfProductCard/SfProductCard.vue"
+import SfProductCardHorizontal from "../../src/components/organisms/SfProductCardHorizontal/SfProductCardHorizontal.vue"
 import SfProductOption from "../../src/components/molecules/SfProductOption/SfProductOption.vue"
 import SfProperty from "../../src/components/atoms/SfProperty/SfProperty.vue"
 import SfQuantitySelector from "../../src/components/atoms/SfQuantitySelector/SfQuantitySelector.vue"
@@ -111,6 +112,7 @@ export default ({
   Vue.component("SfPagination", SfPagination);
   Vue.component("SfPrice", SfPrice);
   Vue.component("SfProductCard", SfProductCard);
+  Vue.component("SfProductCardHorizontal", SfProductCardHorizontal);
   Vue.component("SfProductOption", SfProductOption);
   Vue.component("SfProperty", SfProperty);
   Vue.component("SfQuantitySelector", SfQuantitySelector);
