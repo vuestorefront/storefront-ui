@@ -1,9 +1,23 @@
 <template>
   <div>
-    <SfHeader :isSticky="true" @click:cart="isCartSidebarOpen = true">
-      <template #navigation>
-        <nuxt-link to="/examples">Example pages</nuxt-link>
-      </template>
+    <SfHeader
+      :isSticky="true"
+      @click:cart="isCartSidebarOpen = true"
+      logo='{ mobile: { url: "/assets/logo.svg" },
+        desktop: { url: "/assets/logo.svg" } }'
+    >
+      <!-- <template #logo>
+        <SfImage v-if="logo" :src="{ mobile: { url: "/assets/logo.svg" },
+        desktop: { url: "/assets/logo.svg" } }" :alt="logo"
+        class="sf-header__logo" />
+      </template> -->
+      <div #navigation v-for="example in examples" :key="example">
+        <!-- <div v-for="example in examples" :key="example"> -->
+        <nuxt-link :to="'/' + example" class="sf-list__item">{{
+          example
+        }}</nuxt-link>
+        <!-- </div> -->
+      </div>
     </SfHeader>
     <nuxt class="main" />
     <SfFooter :column="column" :multiple="multiple">
@@ -84,6 +98,16 @@ export default {
           title: "Social",
           pictures: ["facebook", "pinterest", "twitter", "youtube"]
         }
+      ],
+      examples: [
+        "Category",
+        "Checkout",
+        "Home",
+        "Login",
+        "MyAccount",
+        "Product",
+        "Static",
+        "ThankYou"
       ]
     };
   }
@@ -94,9 +118,5 @@ export default {
 html,
 body {
   margin: 0;
-}
-.main {
-  margin: 0 auto;
-  text-align: center;
 }
 </style>
