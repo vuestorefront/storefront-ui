@@ -1,13 +1,13 @@
 <template>
-  <div>
-    Storefront UI
-  </div>
+  <Home />
 </template>
-<style scoped>
-div {
-  margin: 0 auto;
-  text-align: center;
-}
-</style>
 
+<script>
+import Home from "@storefront-ui/vue/src/examples/pages/home/Home";
 
+export default {
+  components: {
+    Home
+  }
+};
+</script>

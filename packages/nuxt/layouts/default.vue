@@ -6,6 +6,13 @@
       logo="/assets/logo.svg"
     >
       <template #navigation class="sf-header__navigation">
+        <SfHeaderNavigationItem>
+          <nuxt-link
+            :to="'/'"
+            :style="{ display: 'flex', alignItems: 'center', height: '100%' }"
+            >Home</nuxt-link
+          >
+        </SfHeaderNavigationItem>
         <SfHeaderNavigationItem v-for="example in examples" :key="example">
           <nuxt-link
             :to="'/' + example"
@@ -15,7 +22,7 @@
         </SfHeaderNavigationItem>
       </template>
     </SfHeader>
-    <nuxt class="main" />
+    <nuxt />
     <SfFooter :column="column" :multiple="multiple">
       <SfFooterColumn
         v-for="column in columns"
@@ -98,7 +105,7 @@ export default {
       examples: [
         "Category",
         "Checkout",
-        "Home",
+        "Error",
         "Login",
         "MyAccount",
         "Product",
@@ -116,15 +123,10 @@ body {
   margin: 0;
 }
 .sf-header__container {
-  --header-container-max-width: 1400px;
+  --header-container-max-width: 1500px;
 }
 .sf-header__navigation {
   margin: 0 2rem;
-}
-.sf-header__logo {
-  // width: 1.5rem;
-}
-.sf-header__navigation {
   --header-navigation-item-font-size: var(--font-size-extra-small);
 }
 </style>

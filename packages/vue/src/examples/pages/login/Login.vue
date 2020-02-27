@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SfModal :visible="true" title="Log in">
+    <SfModal :visible="true" title="Log in" @close="close">
       <transition name="fade" mode="out-in">
         <div v-if="isLogin" key="log-in">
           <div class="form">
@@ -115,6 +115,11 @@ export default {
       this.rememberMe = false;
       this.firstName = "";
       this.lastName = "";
+    }
+  },
+  methods: {
+    close() {
+      this.$emit("close");
     }
   }
 };
