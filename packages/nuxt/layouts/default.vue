@@ -3,21 +3,17 @@
     <SfHeader
       :isSticky="true"
       @click:cart="isCartSidebarOpen = true"
-      logo='{ mobile: { url: "/assets/logo.svg" },
-        desktop: { url: "/assets/logo.svg" } }'
+      logo="/assets/logo.svg"
     >
-      <!-- <template #logo>
-        <SfImage v-if="logo" :src="{ mobile: { url: "/assets/logo.svg" },
-        desktop: { url: "/assets/logo.svg" } }" :alt="logo"
-        class="sf-header__logo" />
-      </template> -->
-      <div #navigation v-for="example in examples" :key="example">
-        <!-- <div v-for="example in examples" :key="example"> -->
-        <nuxt-link :to="'/' + example" class="sf-list__item">{{
-          example
-        }}</nuxt-link>
-        <!-- </div> -->
-      </div>
+      <template #navigation class="sf-header__navigation">
+        <SfHeaderNavigationItem v-for="example in examples" :key="example">
+          <nuxt-link
+            :to="'/' + example"
+            :style="{ display: 'flex', alignItems: 'center', height: '100%' }"
+            >{{ example }}</nuxt-link
+          >
+        </SfHeaderNavigationItem>
+      </template>
     </SfHeader>
     <nuxt class="main" />
     <SfFooter :column="column" :multiple="multiple">
@@ -118,5 +114,17 @@ export default {
 html,
 body {
   margin: 0;
+}
+.sf-header__container {
+  --header-container-max-width: 1400px;
+}
+.sf-header__navigation {
+  margin: 0 2rem;
+}
+.sf-header__logo {
+  // width: 1.5rem;
+}
+.sf-header__navigation {
+  --header-navigation-item-font-size: var(--font-size-extra-small);
 }
 </style>
