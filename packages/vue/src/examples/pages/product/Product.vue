@@ -613,7 +613,6 @@ export default {
   }
 }
 .product-card {
-  max-width: unset;
   &:hover {
     --product-card-box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
   }
