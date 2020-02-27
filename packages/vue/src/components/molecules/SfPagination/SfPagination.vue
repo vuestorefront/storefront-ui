@@ -16,20 +16,24 @@
       </li>
       <template v-if="showFirst">
         <li class="sf-pagination__item">
+          <!-- @slot Custom markup for numbers -->
           <slot name="number" v-bind="{ go, number: 1 }">
             <button class="sf-pagination__button" @click="go(1)">1</button>
           </slot>
         </li>
         <li class="sf-pagination__item">
+          <!-- @slot Custom markup for points -->
           <slot name="points">...</slot>
         </li>
       </template>
+      <!-- @slot Custom markup for numbers -->
       <slot v-bind="{ go }">
         <li
           v-for="number in limitedPageNumbers"
           :key="number"
           class="sf-pagination__item"
         >
+          <!-- @slot Custom markup for number -->
           <slot name="number" v-bind="{ go, number }">
             <button
               class="sf-pagination__button"
@@ -43,9 +47,11 @@
       </slot>
       <template v-if="showLast">
         <li class="sf-pagination__item">
+          <!-- @slot Custom markup for points -->
           <slot name="points">...</slot>
         </li>
         <li class="sf-pagination__item">
+          <!-- @slot Custom markup for number -->
           <slot name="number" v-bind="{ go, number: total }">
             <button class="sf-pagination__button" @click="go(total)">
               {{ total }}

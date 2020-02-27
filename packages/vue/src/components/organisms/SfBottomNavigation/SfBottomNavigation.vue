@@ -1,5 +1,6 @@
 <template>
   <div class="sf-bottom-navigation">
+    <!-- @slot Use this slot to add custom content in bottom navigation -->
     <slot />
   </div>
 </template>

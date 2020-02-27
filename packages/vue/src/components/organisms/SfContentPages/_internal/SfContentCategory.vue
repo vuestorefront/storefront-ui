@@ -1,5 +1,6 @@
 <template>
   <div class="sf-content-category">
+    <!-- @slot Use this slot for content category -->
     <slot />
   </div>
 </template>

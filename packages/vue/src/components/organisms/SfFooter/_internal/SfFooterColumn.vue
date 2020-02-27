@@ -8,6 +8,7 @@
     </div>
     <transition name="fade">
       <div v-if="open" class="sf-footer-column__content">
+        <!-- @slot Slot for footer content in columns -->
         <slot />
       </div>
     </transition>

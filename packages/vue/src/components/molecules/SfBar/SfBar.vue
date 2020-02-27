@@ -1,5 +1,6 @@
 <template>
   <div class="sf-bar">
+    <!-- @slot Custom content that will replace chevron-left -->
     <slot name="back">
       <div class="sf-bar__icon">
         <SfIcon
@@ -12,9 +13,11 @@
         />
       </div>
     </slot>
+    <!--  @slot Custom content that will replace title -->
     <slot name="title" v-bind="{ title }">
       <div class="sf-bar__title">{{ title }}</div>
     </slot>
+    <!-- @slot Custom content that will replace icon -->
     <slot name="close">
       <div class="sf-bar__icon">
         <SfIcon

@@ -12,6 +12,7 @@
       />
     </slot>
     <transition name="sf-circle-icon__badge">
+      <!-- @slot If hasBadge is true, adds small bagde on icon -->
       <slot v-if="hasBadge" name="badge" v-bind="{ badgeLabel, hasBadge }">
         <div class="sf-circle-icon__badge">
           {{ badgeLabel }}

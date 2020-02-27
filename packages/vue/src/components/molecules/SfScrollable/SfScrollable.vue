@@ -1,6 +1,7 @@
 <template>
   <div class="sf-scrollable" :class="{ 'sf-scrollable--is-open': !isHidden }">
     <Simplebar ref="content" class="sf-scrollable__content" :style="style">
+      <!-- @slot Use this slot to place scrollable content -->
       <slot />
     </Simplebar>
     <SfButton

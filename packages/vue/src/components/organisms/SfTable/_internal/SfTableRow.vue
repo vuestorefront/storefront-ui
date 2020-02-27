@@ -1,5 +1,6 @@
 <template>
   <tr class="sf-table__row">
+    <!-- @slot Custom content for data in rows -->
     <slot />
   </tr>
 </template>

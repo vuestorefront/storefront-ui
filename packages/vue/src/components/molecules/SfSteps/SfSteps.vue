@@ -27,6 +27,7 @@
       ></div>
     </div>
     <div class="sf-steps__content">
+      <!-- @slot Slot for custom content in steps -->
       <slot></slot>
     </div>
   </div>

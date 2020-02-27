@@ -7,9 +7,11 @@
     v-on="$listeners"
   >
     <template #label>
+      <!-- @slot Custom content for label -->
       <slot name="label" v-bind="{ label }">
         <div class="sf-filter__label">{{ label }}</div>
       </slot>
+      <!-- @slot Custom content for count -->
       <slot name="count" v-bind="{ count }">
         <div class="sf-filter__count">{{ count }}</div>
       </slot>

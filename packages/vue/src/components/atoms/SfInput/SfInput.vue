@@ -24,6 +24,7 @@
         <!-- @slot Custom input label -->
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
+      <!-- @slot if isPassword is true, show characters as dots in input -->
       <slot
         v-if="isPassword"
         v-bind="{

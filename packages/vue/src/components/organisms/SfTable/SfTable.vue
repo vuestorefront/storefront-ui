@@ -1,5 +1,6 @@
 <template>
   <table class="sf-table">
+    <!-- @slot Custom content for table -->
     <slot />
   </table>
 </template>

@@ -1,6 +1,7 @@
 <template>
   <footer class="sf-footer" :style="style">
     <div class="sf-footer__container">
+      <!-- @slot Use this slot to place footer content -->
       <slot />
     </div>
   </footer>

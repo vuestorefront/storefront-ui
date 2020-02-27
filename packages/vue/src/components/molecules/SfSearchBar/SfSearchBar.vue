@@ -11,7 +11,7 @@
       @keyup.esc="$emit('input', '')"
       @blur="$emit('blur')"
     />
-    <!-- @slot -->
+    <!-- @slot Custom content will replace search icon-->
     <slot name="icon">
       <span class="sf-search-bar__icon">
         <SfIcon
@@ -21,7 +21,7 @@
         />
       </span>
     </slot>
-    <!-- @slot -->
+    <!-- @slot Custom content will replace clear icon -->
     <slot name="clear-icon">
       <div class="sf-search-bar__clear-icon" @click="clearSearchBar">
         <SfIcon icon="cross" size="xxs" view-box="0 0 20 20" />

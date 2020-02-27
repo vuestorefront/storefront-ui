@@ -6,7 +6,7 @@
       'sf-sticky--bound': isBound
     }"
   >
-    <!-- @slot -->
+    <!-- @slot Use this slot to place sticky custom content -->
     <slot />
   </div>
 </template>

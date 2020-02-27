@@ -13,6 +13,7 @@
           />
         </slot>
         <div ref="content" class="sf-sidebar__content">
+          <!-- @slot Use this slot to change title -->
           <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
               v-if="title"
@@ -22,8 +23,10 @@
               class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
             />
           </slot>
+          <!-- @slot Use this slot to change subtitle -->
           <slot />
         </div>
+        <!-- @slot Use this slot to change icon -->
         <slot name="circle-icon" v-bind="{ close, button }">
           <SfCircleIcon
             v-if="button"

@@ -1,16 +1,16 @@
 <template>
   <div class="sf-menu-item" v-on="$listeners">
-    <!-- @slot -->
+    <!-- @slot Custom content for icon -->
     <slot name="icon" />
-    <!-- @slot -->
+    <!-- @slot Custom content for label -->
     <slot name="label" v-bind="{ label }">
       <span class="sf-menu-item__label">{{ label }}</span>
     </slot>
-    <!-- @slot -->
+    <!-- @slot Custom content for count -->
     <slot name="count" v-bind="{ count }">
       <span class="sf-menu-item__count">{{ count }}</span>
     </slot>
-    <!-- @slot -->
+    <!-- @slot Custom content for navigation icon on mobile -->
     <slot name="mobile-nav-icon" v-bind="{ icon }">
       <SfIcon
         v-if="icon"

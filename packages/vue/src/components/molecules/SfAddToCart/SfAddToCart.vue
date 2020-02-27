@@ -1,7 +1,7 @@
 <template>
   <div class="sf-add-to-cart" data-test="sf-add-to-card">
+    <!--@slot Custom content that will replace default Add to cart button design.-->
     <slot name="add-to-cart-btn">
-      <!--@slot Custom content that will replace default Add to cart button design.-->
       <SfButton
         class="sf-add-to-cart__button"
         :disabled="disabled"
@@ -10,6 +10,7 @@
         Add to cart
       </SfButton>
     </slot>
+    <!-- @slot Custom content that will replace default quantity selector design -->
     <slot name="quantity-select-input" v-bind="{ qty }">
       <SfQuantitySelector
         :qty="qty"

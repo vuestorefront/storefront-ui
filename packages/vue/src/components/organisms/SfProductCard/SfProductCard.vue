@@ -7,6 +7,7 @@
       class="sf-product-card__link"
     >
       <div class="sf-product-card__image-wrapper">
+        <!-- @slot Use this slot to replace image -->
         <slot name="image" v-bind="{ image, title }">
           <template v-if="Array.isArray(image)">
             <SfImage
@@ -28,6 +29,7 @@
             :height="imageHeight"
           />
         </slot>
+        <!-- @slot Use this slot to replace badge -->
         <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
           <SfBadge
             v-if="badgeLabel"
@@ -37,6 +39,7 @@
           >
         </slot>
         <template v-if="showAddToCartButton">
+          <!-- @slot Use this slot to replace add to cart icon -->
           <slot
             name="add-to-cart"
             v-bind="{ isAddedToCart, showAddedToCartBadge, isAddingToCart }"
@@ -54,6 +57,7 @@
                   name="sf-product-card__add-button--icons"
                   mode="out-in"
                 >
+                  <!-- @slot Use this slot to replace add to cart icon -->
                   <slot v-if="!isAddingToCart" name="add-to-cart-icon">
                     <SfIcon
                       key="add_to_cart"
@@ -62,6 +66,7 @@
                       color="white"
                     />
                   </slot>
+                  <!-- @slot Use this slot to replace added to cart icon -->
                   <slot v-else name="adding-to-cart-icon">
                     <SfIcon
                       key="added_to_cart"
@@ -76,6 +81,7 @@
           </slot>
         </template>
       </div>
+      <!-- @slot Use this slot to replace title -->
       <slot name="title" v-bind="{ title }">
         <h3 class="sf-product-card__title">
           {{ title }}
@@ -88,6 +94,7 @@
       :class="wishlistIconClasses"
       @click="toggleIsOnWishlist"
     >
+      <!-- @slot Use this slot to replace wishlist icon -->
       <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
         <SfIcon
           :icon="currentWishlistIcon"
@@ -97,6 +104,7 @@
         />
       </slot>
     </button>
+    <!-- @slot Use this slot to replace price -->
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
         v-if="regularPrice"
@@ -105,6 +113,7 @@
         :special="specialPrice"
       />
     </slot>
+    <!-- @slot Use this slot to replace rating -->
     <slot name="reviews" v-bind="{ maxRating, scoreRating }">
       <div
         v-if="typeof scoreRating === 'number'"

@@ -1,5 +1,6 @@
 <template>
   <tr class="sf-table__heading">
+    <!-- @slot Custom content for table heading -->
     <slot />
   </tr>
 </template>

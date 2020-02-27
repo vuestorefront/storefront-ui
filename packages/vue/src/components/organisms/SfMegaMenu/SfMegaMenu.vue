@@ -28,6 +28,7 @@
             </SfListItem>
           </SfList>
           <div class="sf-mega-menu__aside-content">
+            <!-- @slot Slot for aside content -->
             <slot name="aside" />
           </div>
         </div>

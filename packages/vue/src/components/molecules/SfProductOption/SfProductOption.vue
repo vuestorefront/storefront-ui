@@ -1,6 +1,6 @@
 <template>
   <div class="sf-product-option">
-    <!-- @slot -->
+    <!-- @slot Use this slot to replace product color option-->
     <slot name="color" v-bind="{ color }">
       <div
         v-if="color"
@@ -8,7 +8,7 @@
         :style="{ background: color }"
       ></div>
     </slot>
-    <!-- @slot -->
+    <!-- @slot Custom content for label -->
     <slot name="label" v-bind="{ label }">
       <div class="sf-product-option__label">{{ label }}</div>
     </slot>

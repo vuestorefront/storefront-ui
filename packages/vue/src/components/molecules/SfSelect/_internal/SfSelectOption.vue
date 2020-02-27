@@ -6,7 +6,7 @@
     :aria-selected="selected === value ? 'true' : 'false'"
     @click="clicked"
   >
-    <!-- @slot -->
+    <!-- @slot Custom content for options to select-->
     <slot />
   </li>
 </template>

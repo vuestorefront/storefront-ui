@@ -3,6 +3,7 @@
     class="sf-bottom-navigation-item"
     :class="{ 'sf-bottom-navigation-item--floating': isFloating }"
   >
+    <!-- @slot Slot for icons -->
     <slot name="icon" v-bind="{ icon, iconSize, isFloating }">
       <SfCircleIcon
         v-if="isFloating"
@@ -18,6 +19,7 @@
         class="sf-bottom-navigation-item__icon"
       />
     </slot>
+    <!-- @slot Slot for labels -->
     <slot name="label" v-bind="{ label }">
       <div
         v-if="label"

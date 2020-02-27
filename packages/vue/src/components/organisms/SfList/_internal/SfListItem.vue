@@ -1,6 +1,6 @@
 <template>
   <li class="sf-list__item">
-    <!-- @slot -->
+    <!-- @slot Custom content for list item-->
     <slot />
   </li>
 </template>

@@ -44,6 +44,7 @@
       </transition>
     </div>
     <div class="sf-gallery__thumbs">
+      <!-- @slot Custom content on active image -->
       <slot name="thumbs" v-bind="{ images, active: activeIndex, go }">
         <div
           v-for="(image, index) in images"

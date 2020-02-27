@@ -39,6 +39,7 @@
     </template>
     <transition name="fade">
       <div v-if="showOverlay" class="sf-image__overlay">
+        <!-- @slot If showOverlay is true, adds overlay on image -->
         <slot />
       </div>
     </transition>

@@ -1,6 +1,6 @@
 <template>
   <div class="sf-accordion-item">
-    <!-- @slot -->
+    <!-- @slot Slot for custom header -->
     <slot
       name="header"
       v-bind="{
@@ -23,7 +23,7 @@
     </slot>
     <transition :name="$parent.transition">
       <div v-if="isOpen" class="sf-accordion-item__content">
-        <!-- @slot -->
+        <!-- @slot Slot for custom items -->
         <slot />
       </div>
     </transition>

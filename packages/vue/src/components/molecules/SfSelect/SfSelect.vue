@@ -21,6 +21,7 @@
     <div style="position: relative">
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="sf-select__selected sf-select-option" v-html="html"></div>
+      <!-- @slot Slot for custom label -->
       <slot name="label">
         <div v-if="label" class="sf-select__label">
           {{ label }}
@@ -31,6 +32,7 @@
         <div v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
           <ul :style="{ maxHeight }" class="sf-select__options">
+            <!-- @slot Use this select to place custom select options -->
             <slot />
           </ul>
           <SfButton

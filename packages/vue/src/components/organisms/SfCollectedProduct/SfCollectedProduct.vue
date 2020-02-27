@@ -1,5 +1,6 @@
 <template>
   <div class="sf-collected-product">
+    <!-- @slot Use this slot to place remove icon -->
     <slot name="remove" v-bind="{ removeHandler }">
       <SfCircleIcon
         icon="cross"
@@ -8,6 +9,7 @@
       />
     </slot>
     <div class="sf-collected-product__aside">
+      <!-- @slot Use this slot to place custom image -->
       <slot name="image" v-bind="{ image, title }">
         <SfImage
           :src="image"
@@ -17,6 +19,7 @@
           class="sf-collected-product__image"
         />
       </slot>
+      <!-- @slot Use this slot to place custom input -->
       <slot name="input">
         <SfQuantitySelector
           :qty="qty"
@@ -26,9 +29,11 @@
       </slot>
     </div>
     <div class="sf-collected-product__main">
+      <!-- @slot Use this slot to replace title -->
       <slot name="title" v-bind="{ title }">
         <div class="sf-collected-product__title">{{ title }}</div>
       </slot>
+      <!-- @slot Use this slot to replace price -->
       <slot name="price" v-bind="{ specialPrice, regularPrice }">
         <SfPrice
           v-if="regularPrice"
@@ -37,7 +42,9 @@
         />
       </slot>
       <div class="sf-collected-product__details">
+        <!-- @slot Use this slot to replace configuration -->
         <slot name="configuration"> </slot>
+        <!-- @slot Use this slot to replace actions -->
         <slot name="actions"> </slot>
       </div>
     </div>

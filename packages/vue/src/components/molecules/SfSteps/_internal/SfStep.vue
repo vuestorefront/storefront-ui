@@ -1,5 +1,6 @@
 <template>
   <div class="sf-step">
+    <!-- @slot Use this slot to place custom content in active step -->
     <slot v-if="active" :index="index"></slot>
   </div>
 </template>

@@ -1,5 +1,6 @@
 <template>
   <div class="sf-price">
+    <!-- @slot Custom special price -->
     <slot name="special" v-bind="{ special }">
       <ins v-if="special" class="sf-price__value sf-price__value--special">{{
         special

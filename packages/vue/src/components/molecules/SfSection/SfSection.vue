@@ -12,7 +12,6 @@
         :class="{ 'sf-heading--no-underline': hasUnderlinedModifier }"
       />
     </slot>
-    <!--@slot Section content.-->
     <div class="sf-section__content">
       <!--@slot Section content.-->
       <slot />

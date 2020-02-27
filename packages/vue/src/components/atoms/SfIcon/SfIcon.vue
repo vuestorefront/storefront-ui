@@ -5,6 +5,7 @@
     :style="iconCustomStyle"
     v-on="$listeners"
   >
+    <!-- @slot Use this slot to replace icon -->
     <slot v-bind="{ viewBox, iconPaths, icon }">
       <svg
         class="sf-icon-path"

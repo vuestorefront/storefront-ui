@@ -1,21 +1,25 @@
 <template>
   <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
     <div class="sf-banner__container">
+      <!-- @slot Custom content that will replace subtitle -->
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
           {{ subtitle }}
         </h2>
       </slot>
+      <!-- @slot Custom content that will replace title -->
       <slot name="title" v-bind="{ title }">
         <h1 v-if="title" class="sf-banner__title">
           {{ title }}
         </h1>
       </slot>
+      <!-- @slot Custom content that will replace description -->
       <slot name="description" v-bind="{ description }">
         <p v-if="description" class="sf-banner__description">
           {{ description }}
         </p>
       </slot>
+      <!-- @slot Custom call to action -->
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
           v-if="buttonText"
