@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.0...@storefront-ui/vue@0.6.1) (2020-02-27)
+
+
+### Bug Fixes
+
+* a11y for SfTab component ([#787](https://github.com/DivanteLtd/storefront-ui/issues/787)) ([8f2c01a](https://github.com/DivanteLtd/storefront-ui/commit/8f2c01aea766ccf1a0778bdb2a673362b94e33bb))
+* add openTab in SfTabs stories ([#789](https://github.com/DivanteLtd/storefront-ui/issues/789)) ([57b0771](https://github.com/DivanteLtd/storefront-ui/commit/57b07712779e1d62c3633e434a8178a48aee8220))
+* add type to show-password button ([#786](https://github.com/DivanteLtd/storefront-ui/issues/786)) ([f0f8402](https://github.com/DivanteLtd/storefront-ui/commit/f0f8402027682ddcae6d3db3fadf1091f866ab66))
+* missing hasCarousel prop in stories ([#798](https://github.com/DivanteLtd/storefront-ui/issues/798)) ([8c5e844](https://github.com/DivanteLtd/storefront-ui/commit/8c5e844046943dfe36896328830cfb43f7fca9c6))
+* set initial slide in SfGallery ([#760](https://github.com/DivanteLtd/storefront-ui/issues/760)) ([a89b96a](https://github.com/DivanteLtd/storefront-ui/commit/a89b96a88161b9c7c6ed0a459671cb53e69d5029))
+* small ssr bugs ([#776](https://github.com/DivanteLtd/storefront-ui/issues/776)) ([0bc6ac0](https://github.com/DivanteLtd/storefront-ui/commit/0bc6ac0dc70ad51536054f161faf1456a043c267))
+
+
+### Features
+
+* **example:** error page ([#759](https://github.com/DivanteLtd/storefront-ui/issues/759)) ([bd50523](https://github.com/DivanteLtd/storefront-ui/commit/bd50523541b29be5fdef293421d758719a71122a))
+* add SfProductCardHorizontal ([#716](https://github.com/DivanteLtd/storefront-ui/issues/716)) ([e8ad2c9](https://github.com/DivanteLtd/storefront-ui/commit/e8ad2c967ab16fc0824dcb48b65ac21ff9a0effd))
+* **example:** Thank you page ([#742](https://github.com/DivanteLtd/storefront-ui/issues/742)) ([5f0065b](https://github.com/DivanteLtd/storefront-ui/commit/5f0065bb537ee062e08b50bd3d48ee12dd5e2d0c))
+
+
+
+
+
 # [0.6.0](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.5.1...@storefront-ui/vue@0.6.0) (2020-02-24)
 
 

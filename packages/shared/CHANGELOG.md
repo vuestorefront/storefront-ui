@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.6.0...@storefront-ui/shared@0.6.1) (2020-02-27)
+
+
+### Bug Fixes
+
+* add transparent bcg to SfButton outline modifiers ([#791](https://github.com/DivanteLtd/storefront-ui/issues/791)) ([1dcb2ba](https://github.com/DivanteLtd/storefront-ui/commit/1dcb2ba342cff57a21e268dcc2316115046ace4f))
+* position of SfProductCard add to card button ([#779](https://github.com/DivanteLtd/storefront-ui/issues/779)) ([cc7e790](https://github.com/DivanteLtd/storefront-ui/commit/cc7e790385c71a82b4fec13f93771d35c7251efc))
+* small ssr bugs ([#776](https://github.com/DivanteLtd/storefront-ui/issues/776)) ([0bc6ac0](https://github.com/DivanteLtd/storefront-ui/commit/0bc6ac0dc70ad51536054f161faf1456a043c267))
+* too bright hover color on SfButton([#793](https://github.com/DivanteLtd/storefront-ui/issues/793)) ([df1ad2f](https://github.com/DivanteLtd/storefront-ui/commit/df1ad2f73a693e605cce635abcf4589f47ba73a2))
+
+
+### Features
+
+* **example:** error page ([#759](https://github.com/DivanteLtd/storefront-ui/issues/759)) ([bd50523](https://github.com/DivanteLtd/storefront-ui/commit/bd50523541b29be5fdef293421d758719a71122a))
+* add SfProductCardHorizontal ([#716](https://github.com/DivanteLtd/storefront-ui/issues/716)) ([e8ad2c9](https://github.com/DivanteLtd/storefront-ui/commit/e8ad2c967ab16fc0824dcb48b65ac21ff9a0effd))
+
+
+
+
+
 # [0.6.0](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.5.1...@storefront-ui/shared@0.6.0) (2020-02-24)
 
 
