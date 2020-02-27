@@ -1,52 +1,47 @@
 @import "../helpers";
 :root {
-  // Font family
+  // font family
   --body-font-family-primary: "Roboto", serif;
   --body-font-family-secondary: "Raleway", sans-serif;
 
-  // Font weight
-  --body-font-weight-primary: 300;
-  --body-font-weight-secondary: 400;
+  // font weight
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 600;
 
-  // Font size
-  --font-size-extra-small: 0.625rem;
-  --font-size-small: 0.75rem;
-  --font-size-regular: 0.875rem;
-  --font-size-big: 1rem;
-  --font-size-extra-big: 1.125rem;
+  // font size
+  --font-size-extra-small: 0.75rem; //12px
+  --font-size-small: 0.75rem; //12px
+  --font-size-regular: 1rem; //16px
+  --font-size-big: 1.125rem; //18px
   @include for-desktop {
-    --font-size-extra-small: 0.75rem;
-    --font-size-small: 0.875rem;
-    --font-size-regular: 1rem;
-    --font-size-big: 1.125rem;
-    --font-size-extra-big: 1.5rem;
+    --font-size-extra-small: 12px; //12px
+    --font-size-small: 0.75rem; //14px
+    --font-size-regular: 1.125rem; //18px
+    --font-size-big: 1.125rem; //18px
   }
 
-  // Heading font size
-  --h1-font-size: 1.125rem;
-  --h2-font-size: 1rem;
-  --h3-font-size: 1rem;
-  --h4-font-size: 1rem;
-  --h5-font-size: 0.875rem;
+  // heading font size
+  --h1-font-size: 1.625rem; //26px
+  --h2-font-size: 1.375rem; //22px
+  --h3-font-size: 1.125rem; //18px
+  --h4-font-size: 0.875rem; //14px
+  --h5-font-size: 0.75rem; //12px
+  --h6-font-size: 0.75rem; //12px
   @include for-desktop {
-    --h1-font-size: 2.25rem;
-    --h2-font-size: 1.5rem;
-    --h3-font-size: 1.125rem;
-    --h4-font-size: 1.125rem;
-    --h5-font-size: 1.125rem;
+    --h1-font-size: 2.625rem; //42px
+    --h2-font-size: 2.625rem; //42px
+    --h3-font-size: 1.75rem; //28px
+    --h4-font-size: 1.125rem; //18px
+    --h5-font-size: 0.875rem; //14px
+    --h6-font-size: 0.875rem; //14px
   }
 
-  // Heading font weight
-  --h1-font-weight: 500;
-  --h2-font-weight: 500;
+  // heading font weight
+  --h1-font-weight: 600;
+  --h2-font-weight: 400;
   --h3-font-weight: 500;
-  --h4-font-weight: 500;
-  --h5-font-weight: 500;
-  @include for-desktop {
-    --h1-font-weight: 500;
-    --h2-font-weight: 500;
-    --h3-font-weight: 500;
-    --h4-font-weight: 500;
-    --h5-font-weight: 500;
-  }
+  --h4-font-weight: 400;
+  --h5-font-weight: 700;
+  --h6-font-weight: 400;
 }
