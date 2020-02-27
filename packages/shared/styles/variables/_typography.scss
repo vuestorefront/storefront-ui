@@ -15,8 +15,8 @@
   --font-size-regular: 1rem; //16px
   --font-size-big: 1.125rem; //18px
   @include for-desktop {
-    --font-size-extra-small: 12px; //12px
-    --font-size-small: 0.75rem; //14px
+    --font-size-extra-small: 0.75rem; //12px
+    --font-size-small: 0.875rem; //14px
     --font-size-regular: 1.125rem; //18px
     --font-size-big: 1.125rem; //18px
   }
