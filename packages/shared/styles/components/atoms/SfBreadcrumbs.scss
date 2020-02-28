@@ -5,33 +5,41 @@
     --breadcrumbs-font,
     font(
       --breadcrumbs,
-      400,
+      var(--font-weight-regular),
       var(--font-size-small),
       1.6,
       var(--body-font-family-secondary)
     )
   );
   &__list {
+    padding: var(--breadcrumbs-list, var(--spacer-small));
     display: flex;
-    padding: 0;
-    margin: 0;
+    flex-wrap: wrap;
     list-style: none;
   }
   &__item {
+    &:first-child {
+      padding: var(
+        --breadcrumbs-item-first-child-padding,
+        0 0 0 var(--spacer-small)
+      );
+    }
     &:not(:first-child) {
-      padding: var(--breadcrumbs-item-padding, 0 0 0 var(--spacer));
       &::before {
-        padding: var(--breadcrumbs-item-before-padding, 0 var(--spacer) 0 0);
+        padding: var(--breadcrumbs-item-before-padding, 0 var(--spacer-small));
         content: var(--breadcrumbs-item-seperator, "|");
       }
     }
   }
   &__link {
-    color: var(--breadcrumbs-link, var(--c-text));
+    color: var(--breadcrumbs-link, var(--c-link));
     cursor: pointer;
+    &:hover {
+      color: var(--breadcrumbs-hover, var(--c-link-hover));
+    }
   }
   &__current {
-    color: var(--breadcrumbs-current, var(--c-text-muted));
+    color: var(--breadcrumbs-current, var(--c-primary-variant));
     cursor: default;
   }
 }
