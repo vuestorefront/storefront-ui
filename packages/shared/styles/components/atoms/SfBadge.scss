@@ -5,25 +5,27 @@
   box-sizing: border-box;
   width: var(--badge-width);
   height: var(--badge-height);
-  padding: var(--badge-padding, var(--spacer-small) var(--spacer));
+  padding: var(--badge-padding, var(--spacer-extra-small) var(--spacer-small));
+  background: var(--badge-background, var(--c-primary));
   border: var(--badge-border);
   border-radius: var(--badge-border-radius);
-  background: var(--badge-background, var(--c-primary));
-  color: var(--badge-color, var(--c-white));
+  color: var(--badge-color, var(--c-light-variant));
   font: var(
     --badge-font,
     font(
       --badge,
-      500,
+      var(--font-weight-bold),
       var(--font-size-small),
       1.6,
       var(--body-font-family-secondary)
     )
   );
   text-align: var(--badge-text-align, center);
+
   &--full-width {
     --badge-width: 100%;
   }
+
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     &.color-#{$color} {
