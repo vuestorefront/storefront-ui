@@ -1,6 +1,6 @@
 // Borders
 
-@function border($element, $border-style, $border-color) {
+@function _border($element, $border-style, $border-color) {
   @return var(#{$element}-style, $border-style)
     var(#{$element}-color, $border-color);
 }
