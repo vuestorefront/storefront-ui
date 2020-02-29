@@ -17,7 +17,7 @@
     font(
       --button,
       var(--font-weight-bold),
-      16px,
+      var(--font-size-regular),
       1.6,
       var(--body-font-family-secondary)
     )
@@ -52,7 +52,7 @@
 
   &:disabled {
     --button-background: var(--c-light);
-    --button-color: var(--c-gray-variant);
+    --button-color: var(--c-text-muted);
     --button-cursor: default;
     --button-box-shadow: none;
   }
@@ -82,6 +82,9 @@
       &.color-#{$color} {
         --button-border: 2px solid #{$primary};
         --button-background: transparent;
+        &:active {
+          --button-background: transparent;
+        }
       }
     }
   }
@@ -104,7 +107,7 @@
     }
     &:disabled {
       --button-background: transparent;
-      --button-color: var(--c-light);
+      --button-color: var(--c-text-muted);
     }
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
@@ -119,7 +122,7 @@
         }
         &:disabled {
           &:hover {
-            --button-color: var(--c-light);
+            --button-color: var(--c-text-muted);
           }
         }
       }
