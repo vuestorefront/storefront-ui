@@ -4,105 +4,215 @@
   box-sizing: border-box;
   width: var(--button-size, var(--button-width));
   height: var(--button-size, var(--button-height));
-  padding: var(--button-padding, var(--spacer-medium) var(--spacer-extra-big));
+  padding: var(
+    --button-padding,
+    var(--spacer-small) calc(var(--spacer-small) * 2)
+  );
   border: var(--button-border, 0);
-  border-radius: var(--button-border-radius, 0);
-  color: var(--button-color, var(--c-white));
+  color: var(--button-color, var(--c-light-variant));
   background: var(--button-background, var(--c-primary));
+  box-shadow: var(--button-box-shadow);
   font: var(
     --button-font,
     font(
       --button,
-      300,
-      var(--font-size-small),
+      var(--font-weight-bold),
+      16px,
       1.6,
       var(--body-font-family-secondary)
     )
   );
   text-transform: var(--button-text-transform, uppercase);
   text-decoration: var(--button-text-decoration);
-  transition: var(--button-transition, background 150ms linear);
-  cursor: pointer;
+  transition: var(--button-transition);
+  cursor: var(--button-cursor, pointer);
   outline: none;
-  &:hover {
-    --button-background: var(--c-primary-variant);
-  }
+
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     $variant: map-get($map, "variant");
     &.color-#{$color} {
       --button-background: #{$primary};
-      &:hover {
-        --button-background: var(--c-#{$color}-lighten);
+      &:active {
+        --button-background: #{$variant};
       }
     }
   }
-  &:disabled {
-    --button-background: var(--c-gray);
-    cursor: default;
-    &:hover {
-      --button-background: var(--c-gray);
-    }
+
+  &:hover {
+    --button-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    --button-transition: box-shadow 150ms ease-in-out;
   }
+
+  &:active {
+    --button-box-shadow: none;
+    --button-background: var(--c-primary-variant);
+    --button-transition: background 150ms linear;
+  }
+
+  &:disabled {
+    --button-background: var(--c-light);
+    --button-color: var(--c-gray-variant);
+    --button-cursor: default;
+    --button-box-shadow: none;
+  }
+
   &--full-width {
     --button-width: 100%;
   }
+
   &--outline {
-    --button-padding: calc(var(--spacer-medium) - 1px)
-      calc(var(--spacer-extra-big) - 1px);
-    --button-border: 1px solid var(--c-primary);
+    --button-border: 2px solid var(--c-primary);
     --button-background: transparent;
-    --button-color: var(--c-primary);
-    &:hover {
-      --button-background: var(--c-primary);
-      --button-color: inherit;
+    --button-color: var(--c-text);
+
+    &:active {
+      --button-border: 2px solid var(--c-primary-variant);
+      --button-background: transparent;
+      --button-color: var(--c-text-muted);
+      --button-transition: color 150ms linear;
+    }
+    &:disabled {
+      --button-border: 2px solid var(--c-light);
+      --button-background: transparent;
+      --button-color: var(--c-text-muted);
     }
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
       &.color-#{$color} {
-        --button-border: 1px solid #{$primary};
+        --button-border: 2px solid #{$primary};
         --button-background: transparent;
-        --button-color: #{$primary};
-        &:hover {
-          --button-background: #{$primary};
-          --button-color: inherit;
-        }
       }
     }
-    &:disabled {
-      --button-border: 1px solid var(--c-gray);
-      --button-background: transparent;
-      --button-color: var(--c-gray);
-    }
   }
+
   &--text {
     --button-border: 0;
     --button-padding: var(--spacer-small) 0;
     --button-background: transparent;
-    --button-color: var(--c-primary);
+    --button-color: var(--c-text);
     --button-text-transform: none;
     --button-text-decoration: underline;
-    --button-font-weight: 400;
+    --button-font-size: var(--font-size-small);
     &:hover {
+      --button-box-shadow: none;
       --button-background: transparent;
       --button-color: var(--c-primary);
+    }
+    &:active {
+      --button-color: var(--c-gray);
+    }
+    &:disabled {
+      --button-background: transparent;
+      --button-color: var(--c-light);
     }
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
       &.color-#{$color} {
         --button-background: transparent;
-        --button-color: #{$primary};
         &:hover {
+          --button-color: #{$primary};
+        }
+        &:active {
+          --button-color: var(--c-gray);
           --button-background: transparent;
         }
-      }
-    }
-    &:disabled {
-      --button-background: transparent;
-      --button-color: var(--c-gray);
-      &:hover {
-        --button-background: transparent;
+        &:disabled {
+          &:hover {
+            --button-color: var(--c-light);
+          }
+        }
       }
     }
   }
 }
+
+// .sf-button {
+//   box-sizing: border-box;
+//     --button-font,
+//     font(
+//       --button,
+//       300,
+//       var(--font-size-small),
+//       1.6,
+//       var(--body-font-family-secondary)
+//     )
+//   );
+//   text-transform: var(--button-text-transform, uppercase);
+//   text-decoration: var(--button-text-decoration);
+//   transition: var(--button-transition, background 150ms linear);
+//   cursor: pointer;
+//   outline: none;
+//   &:hover {
+//     --button-background: var(--c-primary-variant);
+//   }
+//   @each $color, $map in $colors-map {
+//     $primary: map-get($map, "primary");
+//     $variant: map-get($map, "variant");
+//     &.color-#{$color} {
+//       --button-background: #{$primary};
+//       &:hover {
+//         --button-background: var(--c-#{$color}-lighten);
+//       }
+//     }
+//   }
+
+//   &--outline {
+//     --button-padding: calc(var(--spacer-medium) - 1px)
+//       calc(var(--spacer-extra-big) - 1px);
+//     --button-border: 1px solid var(--c-primary);
+//     --button-background: transparent;
+//     --button-color: var(--c-primary);
+//     &:hover {
+//       --button-background: var(--c-primary);
+//       --button-color: inherit;
+//     }
+//     @each $color, $map in $colors-map {
+//       $primary: map-get($map, "primary");
+//       &.color-#{$color} {
+//         --button-border: 1px solid #{$primary};
+//         --button-background: transparent;
+//         --button-color: #{$primary};
+//         &:hover {
+//           --button-background: #{$primary};
+//           --button-color: inherit;
+//         }
+//       }
+//     }
+//     &:disabled {
+//       --button-border: 1px solid var(--c-gray);
+//       --button-background: transparent;
+//       --button-color: var(--c-gray);
+//     }
+//   }
+//   &--text {
+//     --button-border: 0;
+//     --button-padding: var(--spacer-small) 0;
+//     --button-background: transparent;
+//     --button-color: var(--c-primary);
+//     --button-text-transform: none;
+//     --button-text-decoration: underline;
+//     --button-font-weight: 400;
+//     &:hover {
+//       --button-background: transparent;
+//       --button-color: var(--c-primary);
+//     }
+//     @each $color, $map in $colors-map {
+//       $primary: map-get($map, "primary");
+//       &.color-#{$color} {
+//         --button-background: transparent;
+//         --button-color: #{$primary};
+//         &:hover {
+//           --button-background: transparent;
+//         }
+//       }
+//     }
+//     &:disabled {
+//       --button-background: transparent;
+//       --button-color: var(--c-gray);
+//       &:hover {
+//         --button-background: transparent;
+//       }
+//     }
+//   }
+// }
