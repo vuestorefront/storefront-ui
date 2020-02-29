@@ -12,21 +12,19 @@
   color: var(--button-color, var(--c-light-variant));
   background: var(--button-background, var(--c-primary));
   box-shadow: var(--button-box-shadow);
-  font: var(
-    --button-font,
-    font(
-      --button,
-      var(--font-weight-bold),
-      var(--font-size-regular),
-      1.6,
-      var(--body-font-family-secondary)
-    )
-  );
   text-transform: var(--button-text-transform, uppercase);
   text-decoration: var(--button-text-decoration);
   transition: var(--button-transition);
   cursor: var(--button-cursor, pointer);
   outline: none;
+
+  @include font(
+    --button-font,
+    var(--font-weight-bold),
+    var(--font-size-regular),
+    1.6,
+    var(--body-font-family-secondary)
+  );
 
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
