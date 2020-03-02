@@ -11,7 +11,9 @@
       <span v-if="!special" class="sf-price__value">{{ regular }}</span>
     </slot>
     <slot name="special" v-bind="{ special }">
-      <ins v-if="special" class="sf-price__value">{{ special }}</ins>
+      <ins v-if="special" class="sf-price__value sf-price__value--special">{{
+        special
+      }}</ins>
     </slot>
   </div>
 </template>
