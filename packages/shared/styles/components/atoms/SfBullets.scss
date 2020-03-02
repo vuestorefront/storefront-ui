@@ -4,17 +4,18 @@
   box-sizing: border-box;
   width: var(--bullet-width, var(--bullet-size, 8px));
   height: var(--bullet-height, var(--bullet-size, 8px));
-  margin: var(--bullet-margin, var(--spacer-extra-small));
+  margin: var(--bullet-margin, calc(var(--spacer-extra-small) / 2));
   border-radius: var(--bullet-border-radius, 100%);
   background: var(--bullet-background, var(--c-gray));
   box-shadow: var(--bullet-box-shadow, none);
-  cursor: var(--bullet-cursor, pointer);
+  cursor: pointer;
   &--active {
     --bullet-size: 0.625rem;
     --bullet-background: var(--c-primary);
     --bullet-box-shadow: 0 3px 4px 0 var(--c-gray-variant);
-    --bullet-cursor: default;
+    cursor: default;
   }
+  &:active,
   &:hover {
     --bullet-size: 0.625rem;
     --bullet-box-shadow: 0 3px 4px 0 var(--c-gray-variant);
