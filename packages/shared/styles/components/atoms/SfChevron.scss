@@ -9,12 +9,12 @@
     position: absolute;
     top: 50%;
     background: var(--chevron-background, transparent);
-    transition: all 3s cubic-bezier(0.25, 1.7, 0.35, 0.8);
+    transition: all 300ms cubic-bezier(0.25, 1.7, 0.35, 0.8);
     &:after {
       content: "";
       display: block;
-      width: calc(var(--chevron-size, var(--chevron-width, 1.25rem)) / 2);
-      height: calc(var(--chevron-size, var(--chevron-height, 1.25rem)) / 10);
+      width: var(--chevron-size, calc(var(--chevron-width, 1.25rem) / 2));
+      height: var(--chevron-size, calc(var(--chevron-height, 1.25rem) / 10));
       background: var(--chevron-color, var(--c-black));
     }
     &--left {
@@ -35,29 +35,29 @@
     }
   }
   &:hover {
-    --chevron-color: var(--chevron-hover-color, var(--c-dark-variant));
+    --chevron-color: var(--c-dark-variant);
   }
   &--top {
     --chevron-rotate: -45deg;
   }
-  &--left &__bar {
-    &--left {
+  &--left {
+    .sf-chevron__bar--left {
       --chevron-rotate: 45deg;
       --chevron-translateY: 150%;
     }
-    &--right {
+    .sf-chevron__bar--right {
       --chevron-rotate: 45deg;
       --chevron-translateX: -60%;
       --chevron-translateY: -150%;
     }
   }
-  &--right &__bar {
-    &--left {
+  &--right {
+    .sf-chevron__bar--left {
       --chevron-rotate: 45deg;
       --chevron-translateX: 60%;
       --chevron-translateY: -150%;
     }
-    &--right {
+    .sf-chevron__bar--right {
       --chevron-rotate: 45deg;
       --chevron-translateY: 150%;
     }
