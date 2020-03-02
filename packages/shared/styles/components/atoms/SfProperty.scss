@@ -2,45 +2,34 @@
 
 .sf-property {
   display: flex;
-  align-items: center;
-  color: var(--property-color, var(--c-text));
+  color: var(--property-color, --c-text);
   &__name {
-    display: flex;
-    align-items: center;
-    margin: var(--property-name-margin, 0 var(--spacer) 0 0);
+    margin: var(--property-name-margin, 0 var(--spacer-extra-small) 0 0);
     color: var(--property-name-color, var(--c-text-muted));
-    font: var(
-      --property-name-font,
-      font(
-        --property-name,
-        400,
-        var(--font-size-regular),
-        1.6,
-        var(--body-font-family-secondary)
-      )
-    );
+    --property-font: var(--property-name-font);
     text-transform: var(--property-name-text-transform);
     &::after {
       content: var(--property-name-content, ":");
     }
   }
-  &__value {
-    font: var(
-      --property-value-font,
-      font(
-        --property-value-font,
-        400,
-        var(--font-size-regular),
-        1.6,
-        var(--body-font-family-secondary)
-      )
-    );
-  }
+  @include font(
+    --property-font,
+    var(--font-weight-regular),
+    var(--font-size-extra-small),
+    var(--font-size-small),
+    var(--body-font-family-secondary)
+  );
   &--full-width {
-    --property-name-text-transform: uppercase;
     justify-content: space-between;
+    width: 100%;
+  }
+  &--value-in-middle &__value {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
   &--without-suffix {
-    --property-name-content: none;
+    --property-name-content: "";
   }
 }
+/* Material: Cotton */
