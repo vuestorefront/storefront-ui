@@ -8,7 +8,27 @@
 
   &__title {
     margin: var(--heading-title-margin, 0);
-    @include font(--heading-title-font, var(--font-weight-bold), var(--h1-font-size), 1.6, var(--body-font-family-secondary));
+    @include font(--heading-title-font, var(--font-weight-extra-bold), var(--h1-font-size), 1.6, var(--body-font-family-secondary));
+    &--h2 {
+      --heading-title-font-size: var(--h2-font-size);
+      --heading-title-font-weight: var(--font-weight-bold);
+    }
+    &--h3 {
+      --heading-title-font-size: var(--h3-font-size);
+      --heading-title-font-weight: var(--font-weight-bold);
+    }
+    &--h4{
+      --heading-title-font-size: var(--h4-font-size);
+      --heading-title-font-weight: var(--font-weight-regular);
+    }
+    &--h5 {
+      --heading-title-font-size: var(--h5-font-size);
+      --heading-title-font-weight: var(--font-weight-bold);
+    }
+    &--h6 {
+      --heading-title-font-size: var(--h6-font-size);
+      --heading-title-font-weight: var(--font-weight-regular);
+    }
   }
 
   &__subtitle {
