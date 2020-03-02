@@ -4,8 +4,7 @@ import {
   withKnobs,
   text,
   boolean,
-  optionsKnob as options,
-  object
+  optionsKnob as options
 } from "@storybook/addon-knobs";
 import SfButton from "./SfButton.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
