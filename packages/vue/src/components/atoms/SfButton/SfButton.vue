@@ -5,6 +5,7 @@
     :disabled="disabled"
     v-on="$listeners"
   >
+    <slot name="icon" />
     <!--@slot Use this slot to place content inside the button.-->
     <slot />
   </button>
