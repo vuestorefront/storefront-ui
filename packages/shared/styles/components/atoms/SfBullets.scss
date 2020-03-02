@@ -4,21 +4,26 @@
   box-sizing: border-box;
   width: var(--bullet-width, var(--bullet-size, 8px));
   height: var(--bullet-height, var(--bullet-size, 8px));
-  margin: var(--bullet-margin, var(--spacer-small));
+  margin: var(--bullet-margin, var(--spacer-extra-small));
   border-radius: var(--bullet-border-radius, 100%);
   background: var(--bullet-background, var(--c-gray));
-  cursor: pointer;
+  box-shadow: var(--bullet-box-shadow, none);
+  cursor: var(--bullet-cursor, pointer);
   &--active {
     --bullet-size: 0.625rem;
     --bullet-background: var(--c-primary);
-    cursor: default;
+    --bullet-box-shadow: 0 3px 4px 0 var(--c-gray-variant);
+    --bullet-cursor: default;
+  }
+  &:hover {
+    --bullet-size: 0.625rem;
+    --bullet-box-shadow: 0 3px 4px 0 var(--c-gray-variant);
   }
 }
-
 .sf-bullets {
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin: 0;
+  display: var(--bullets-display, flex);
+  align-items: var(--bullets-align-items, center);
+  padding: var(--bullets-padding, 0);
+  margin: var(--bullets-margin, 0);
   list-style-type: none;
 }
