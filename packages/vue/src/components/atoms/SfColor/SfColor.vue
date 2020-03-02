@@ -7,16 +7,27 @@
     :aria-pressed="selected.toString()"
     v-on="$listeners"
   >
-    <!-- @slot Custom color markup -->
-    <slot>
-      <div v-if="color" class="sf-color__fill" />
-    </slot>
+    <!-- @slot Use it to replace badge to custom element -->
+    <transition name="sf-color__badge">
+      <slot v-if="selected" name="badge">
+        <SfBadge class="sf-color__badge mobile-only">
+          <SfIcon icon="check" size="7px" color="white" />
+        </SfBadge>
+      </slot>
+    </transition>
   </button>
 </template>
 <script>
 import { focus } from "../../../utilities/directives/focus-directive.js";
+import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+
 export default {
   name: "SfColor",
+  components: {
+    SfBadge,
+    SfIcon
+  },
   directives: {
     focus: focus
   },
