@@ -9,16 +9,17 @@
   background: var(--bullet-background, var(--c-gray));
   box-shadow: var(--bullet-box-shadow, none);
   cursor: pointer;
+  transition: all 100ms linear;
+
+  &:active,
+  &:hover,
   &--active {
     --bullet-size: 0.625rem;
-    --bullet-background: var(--c-primary);
-    --bullet-box-shadow: 0 3px 4px 0 var(--c-gray-variant);
-    cursor: default;
+    --bullet-box-shadow: 0 3px 4px 0 rgba(var(--c-dark-base), 0.25);
   }
-  &:active,
-  &:hover {
-    --bullet-size: 0.625rem;
-    --bullet-box-shadow: 0 3px 4px 0 var(--c-gray-variant);
+  &--active {
+    --bullet-background: var(--c-primary);
+    cursor: default;
   }
 }
 .sf-bullets {
