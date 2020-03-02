@@ -9,18 +9,11 @@
     var(--body-font-family-secondary)
   );
   &__list {
-    padding: var(--breadcrumbs-list, var(--spacer-small));
     display: flex;
     flex-wrap: wrap;
     list-style: none;
   }
   &__item {
-    &:first-child {
-      padding: var(
-        --breadcrumbs-item-first-child-padding,
-        0 0 0 var(--spacer-small)
-      );
-    }
     &:not(:first-child) {
       &::before {
         padding: var(--breadcrumbs-item-before-padding, 0 var(--spacer-small));
@@ -36,7 +29,7 @@
     }
   }
   &__current {
-    color: var(--breadcrumbs-current, var(--c-primary-variant));
+    color: var(--breadcrumbs-current, var(--c-primary));
     cursor: default;
   }
 }
