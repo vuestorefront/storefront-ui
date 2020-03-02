@@ -2,32 +2,64 @@
 
 .sf-chevron {
   position: relative;
-  width: var(--chevron-size, 1.25rem);
-  height: var(--chevron-size, 1.25rem);
+  width: var(--chevron-width, var(--chevron-size, 1.25rem));
+  height: var(--chevron-height, var(--chevron-size, 1.25rem));
   cursor: pointer;
   &__bar {
     position: absolute;
     top: 50%;
-    background: transparent;
-    transition: all 500ms cubic-bezier(0.25, 1.7, 0.35, 0.8);
+    background: var(--chevron-background, transparent);
+    transition: all 3s cubic-bezier(0.25, 1.7, 0.35, 0.8);
     &:after {
       content: "";
       display: block;
-      width: calc(var(--chevron-size, 1.25rem) / 2);
-      height: calc(var(--chevron-size, 1.25rem) / 10);
-      background: var(--chevron-background, var(--c-black));
+      width: calc(var(--chevron-size, var(--chevron-width, 1.25rem)) / 2);
+      height: calc(var(--chevron-size, var(--chevron-height, 1.25rem)) / 10);
+      background: var(--chevron-color, var(--c-black));
     }
     &--left {
       left: calc(var(--chevron-size, 1.25rem) / 10);
-      transform: translateY(-50%) rotate(var(--chevron-rotate, 45deg));
+      transform: translate(
+        var(--chevron-translateX, 0),
+        var(--chevron-translateY, -50%)
+      )
+        rotate(var(--chevron-rotate, 45deg));
     }
     &--right {
       right: calc(var(--chevron-size, 1.25rem) / 10);
-      transform: translateY(-50%)
+      transform: translate(
+        var(--chevron-translateX, 0),
+        var(--chevron-translateY, -50%)
+      )
         rotate(calc(var(--chevron-rotate, 45deg) * -1));
     }
   }
+  &:hover {
+    --chevron-color: var(--chevron-hover-color, var(--c-dark-variant));
+  }
   &--top {
     --chevron-rotate: -45deg;
+  }
+  &--left &__bar {
+    &--left {
+      --chevron-rotate: 45deg;
+      --chevron-translateY: 150%;
+    }
+    &--right {
+      --chevron-rotate: 45deg;
+      --chevron-translateX: -60%;
+      --chevron-translateY: -150%;
+    }
+  }
+  &--right &__bar {
+    &--left {
+      --chevron-rotate: 45deg;
+      --chevron-translateX: 60%;
+      --chevron-translateY: -150%;
+    }
+    &--right {
+      --chevron-rotate: 45deg;
+      --chevron-translateY: 150%;
+    }
   }
 }
