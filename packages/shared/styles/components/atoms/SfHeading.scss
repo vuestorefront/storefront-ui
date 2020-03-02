@@ -2,36 +2,20 @@
 
 .sf-heading {
   box-sizing: border-box;
-  padding: var(--heading-padding, 0 0 0.625rem 0);
-  border: var(--heading-border, 1px solid var(--c-light));
-  border-width: var(--heading-border-width, 0 0 1px 0);
+  padding: var(--heading-padding, 0 0 var(--spacer-extra-small) 0);
+  @include border(--heading-border, 0 0 1px 0, solid, var(--c-light));
   text-align: var(--heading-text-align, left);
+
   &__title {
     margin: var(--heading-title-margin, 0);
-    font: var(
-      --heading-title-font,
-      font(
-        --heading-title,
-        500,
-        var(--font-size-extra-big),
-        1.6,
-        var(--body-font-family-secondary)
-      )
-    );
+    @include font(--heading-title-font, var(--font-weight-bold), var(--h1-font-size), 1.6, var(--body-font-family-secondary));
   }
+
   &__subtitle {
     margin: var(--heading-subtitle-margin);
-    font: var(
-      --heading-subtitle-font,
-      font(
-        --heading-subtitle,
-        300,
-        var(--font-size-regular),
-        1.6,
-        var(--body-font-family-secondary)
-      )
-    );
+    @include font(--heading-subtitle-font, var(--font-weight-light), var(--font-size-big), 1.6, var(--body-font-family-secondary));
   }
+
   @include for-desktop {
     --heading-padding: 0;
     --heading-border: 0;
