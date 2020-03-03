@@ -10,16 +10,7 @@
     position: absolute;
     top: var(--input-label-top, 50%);
     color: var(--input-label-color, inherit);
-    font: var(
-      --input-label-font,
-      font(
-        --input-label,
-        400,
-        var(--font-size-big),
-        normal,
-        var(--body-font-family-secondary)
-      )
-    );
+
     transform: var(
       --input-label-transform,
       translate3d(0, calc(var(--input-label-top, 50%) * -1), 0)
@@ -33,6 +24,13 @@
       content: var(--input-label-required);
       color: var(--input-label-color, var(--c-primary));
     }
+    @include font(
+      --input-label-font,
+      var(--font-weight-regular),
+      var(--font-size-big),
+      normal,
+      var(--body-font-family-secondary)
+    );
   }
   &__bar {
     position: relative;
@@ -116,15 +114,12 @@
     border-width: var(--input-border-width, 0 0 1px 0);
     background: var(--input-background);
     color: inherit;
-    font: var(
+    @include font(
       --input-font,
-      font(
-        --input,
-        300,
-        var(--font-size-big),
-        normal,
-        var(--body-font-family-primary)
-      )
+      var(--font-weight-regular),
+      var(--font-size-big),
+      normal,
+      var(--body-font-family-secondary)
     );
     outline: none;
     &:focus {
