@@ -1,19 +1,19 @@
 @import "../../helpers";
 
 .sf-circle-icon {
-  --button-padding: var(--spacer-big);
+  --button-padding: var(--spacer-small);
   --button-border-radius: 100%;
   --button-background: var(--c-primary);
   --button-transition: box-shadow 300ms ease;
-
+  --button-size: 3.25rem;
   position: var(--circle-icon-position, relative);
   box-shadow: var(--circle-icon-box-shadow);
   &:hover {
-    --button-background: var(--c-primary-lighten);
-    --circle-icon-box-shadow: 0 0 0 0.3124rem rgba(var(--c-primary-base), 0.4);
+    --button-background: var(--c-primary);
+    --circle-icon-box-shadow: 0 0 0 0.3125rem rgba(var(--c-primary-base), 0.3);
   }
   &:active {
-    --circle-icon-box-shadow: 0 0 0 0.625rem rgba(var(--c-primary-bases), 0.4);
+    --circle-icon-box-shadow: 0 0 0 0.5rem rgba(var(--c-primary-base), 0.3);
   }
   &:disabled {
     --circle-icon-box-shadow: 0;
@@ -25,24 +25,20 @@
     box-sizing: border-box;
     min-width: var(
       --circle-icon-badge-width,
-      var(--circle-icon-badge-size, 1.1rem)
+      var(--circle-icon-badge-size, 1.125rem)
     );
     min-height: var(
       --circle-icon-badge-height,
-      var(--circle-icon-badge-size, 1.1rem)
+      var(--circle-icon-badge-size, 1.125rem)
     );
-    padding: var(--circle-icon-badge-padding, 0 3px);
     border-radius: var(--circle-icon-badge-border-radius, 0.625rem);
     background: var(--circle-icon-badge-background, var(--c-danger));
-    font: var(
+    @include font(
       --circle-icon-badge-font,
-      font(
-        --circle-icon-bage,
-        300,
-        var(--font-size-small),
-        1.6,
-        var(--body-font-family-secondary)
-      )
+      var(--font-weight-light),
+      var(--font-size-extra-small),
+      1.6,
+      var(--body-font-family-secondary)
     );
     &-enter-active {
       animation: bounce-in 300ms;
@@ -61,15 +57,15 @@
         --circle-icon-box-shadow: 0
           0
           0
-          0.3124rem
-          rgba(var(--c-#{$color}-base), 0.4);
+          0.3125rem
+          rgba(var(--c-#{$color}-base), 0.3);
       }
       &:active {
         --circle-icon-box-shadow: 0
           0
           0
-          0.625rem
-          rgba(var(--c-#{$color}-base), 0.4);
+          0.5rem
+          rgba(var(--c-#{$color}-base), 0.3);
       }
     }
   }
