@@ -3,7 +3,8 @@
     class="sf-input"
     :class="{
       'sf-input--has-text': !!value,
-      'sf-input--invalid': valid === false
+      'sf-input--invalid': valid === false,
+      'sf-input--with-icon': hasIcon
     }"
   >
     <div class="sf-input__wrapper">
@@ -25,14 +26,15 @@
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
       <slot
-        v-if="isPassword"
+        v-if="hasIcon"
         v-bind="{
           isPasswordVisible,
           switchVisibilityPassword
         }"
-        name="show-password"
+        name="icon"
       >
         <SfButton
+          v-if="isPassword"
           class="sf-input__password-button"
           type="button"
           aria-label="switch-visibility-password"
@@ -133,9 +135,9 @@ export default {
       type: String,
       default: null
     },
-    hasShowPassword: {
+    hasIcon: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data() {
@@ -152,7 +154,7 @@ export default {
       };
     },
     isPassword() {
-      return this.type === "password" && this.hasShowPassword;
+      return this.type === "password" && this.hasIcon;
     }
   },
   watch: {
