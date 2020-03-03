@@ -2,11 +2,10 @@
 
 .sf-property {
   display: flex;
-  color: var(--property-color, --c-text);
+  color: var(--property-color, var(--c-text));
   &__name {
     margin: var(--property-name-margin, 0 var(--spacer-extra-small) 0 0);
     color: var(--property-name-color, var(--c-text-muted));
-    --property-font: var(--property-name-font);
     text-transform: var(--property-name-text-transform);
     &::after {
       content: var(--property-name-content, ":");
@@ -16,17 +15,22 @@
     --property-font,
     var(--font-weight-regular),
     var(--font-size-extra-small),
-    var(--font-size-small),
+    1.2,
     var(--body-font-family-secondary)
   );
   &--full-width {
     justify-content: space-between;
     width: 100%;
   }
-  &--value-in-middle &__value {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  &--large {
+    --property-font-size: var(--h2-font-size);
+  }
+  &--value-in-middle {
+    .sf-property__value {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
   &--without-suffix {
     --property-name-content: "";
