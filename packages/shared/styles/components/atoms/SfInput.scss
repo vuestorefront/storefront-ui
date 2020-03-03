@@ -10,7 +10,7 @@
     position: absolute;
     top: var(--input-label-top, 50%);
     color: var(--input-label-color, inherit);
-
+    left: var(--input-label-left, 0);
     transform: var(
       --input-label-transform,
       translate3d(0, calc(var(--input-label-top, 50%) * -1), 0)
@@ -18,7 +18,8 @@
     transition: var(
       --input-label-transition,
       top 150ms linear,
-      font-size 150ms linear
+      font-size 150ms linear,
+      left 150ms linear
     );
     &::after {
       content: var(--input-label-required);
@@ -27,7 +28,7 @@
     @include font(
       --input-label-font,
       var(--font-weight-regular),
-      var(--font-size-big),
+      var(--font-size-regular),
       normal,
       var(--body-font-family-secondary)
     );
@@ -52,13 +53,17 @@
       right: 50%;
     }
   }
-  &__password-button {
+  
+  &__password-button,
+  .sf-icon {
     --button-padding: 0;
     --button-background: transparent;
     position: absolute;
-    top: 50%;
-    right: var(--spacer-big);
+    top: var(--input-icon-top, 50%);
+    right: var(--input-icon-right, var(--spacer-extra-small));
+    left: var(--input-icon-left);
     transform: translate3d(0, -50%, 0);
+    transition: all 150ms linear;
     &:hover {
       --button-background: transparent;
     }
@@ -66,7 +71,6 @@
   &__password-icon {
     --icon-width: var(--input-password-icon-width, 1.375rem);
     --icon-height: 0.8125rem;
-    --icon-color: var(--c-dark-variant);
     position: relative;
     &--hidden {
       --icon-color: var(--c-gray-variant);
@@ -86,16 +90,7 @@
   }
   &__error-message {
     color: var(--input-error-message-color, var(--c-danger));
-    font: var(
-      --input-error-message-font,
-      font(
-        --input-error-message,
-        400,
-        var(--font-size-small),
-        1.6,
-        var(--body-font-family-secondary)
-      )
-    );
+    @include font(--input-error-message-font, var(--font-weight-regular), var(--font-size-small), 1.6, var(--body-font-family-secondary));
   }
   &__wrapper,
   input {
@@ -109,9 +104,8 @@
   input {
     display: block;
     box-sizing: border-box;
-    padding: var(--input-padding, 0.9375rem 0 0.625rem 0);
-    border: var(--input-border, 1px solid var(--c-light));
-    border-width: var(--input-border-width, 0 0 1px 0);
+    padding: var(--input-padding, var(--spacer-small) 0 var(--spacer-extra-small) 0);
+    @include border(--input-border, 0 0 1px 0, solid, var(--c-light));
     background: var(--input-background);
     color: inherit;
     @include font(
@@ -148,14 +142,46 @@
         margin: 0;
       }
     }
-    &[type="password"] {
-      --input-padding: 0.9375rem
-        calc(var(--spacer-big) * 2 + var(--input-password-icon-width, 1.375rem))
-        10px 0;
-    }
   }
+
   &--has-text {
     --input-label-top: 0;
     --input-label-font-size: var(--font-size-extra-small);
+  }
+
+  &--with-icon {
+    --icon-size: 12px;
+    --input-padding: var(--spacer-small)
+    calc(var(--spacer-small) * 2 + var(--input-password-icon-width, 1.375rem))
+    10px 0;
+    --icon-color: var(--c-dark-variant);
+    input {
+      &:focus {
+        & ~ * {
+          --icon-color: var(--c-primary);
+        }
+      }
+      &:disabled {
+        & ~ * {
+          --icon-color: var(--text-muted);
+        }
+      }
+    }
+    &-left {
+      --input-padding: var(--spacer-small) calc(var(--spacer-extra-small)*2);
+      --input-icon-left: 0;
+      --input-label-left: var(--spacer-small);
+      
+      input {
+        &:focus {
+          --input-padding: var(--spacer-small) 0 var(--spacer-extra-small) 0;
+          & ~ * {
+            --icon-size: 0.5rem;
+            --input-icon-top: var(--spacer-extra-small);
+            --input-label-left: var(--spacer-small);
+          }
+        }
+      }
+    }
   }
 }
