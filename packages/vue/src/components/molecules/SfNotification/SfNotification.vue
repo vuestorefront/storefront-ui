@@ -14,7 +14,9 @@
       <div>
         <!--@slot Custom title. Slot content will replace default title.-->
         <slot name="title" v-bind="{ title }">
-          <div v-if="title" class="sf-notification__title">{{ title }}</div>
+          <div v-if="title" class="sf-notification__title mobile-only">
+            {{ title }}
+          </div>
         </slot>
         <!--@slot Custom message. Slot content will replace default message.-->
         <slot name="message" v-bind="{ message }">
@@ -39,7 +41,6 @@
           class="sf-notification__close"
           icon="cross"
           color="white"
-          size="14px"
           @click="closeHandler"
         />
       </slot>
