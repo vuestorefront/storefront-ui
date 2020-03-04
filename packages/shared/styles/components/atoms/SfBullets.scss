@@ -11,7 +11,6 @@
   cursor: pointer;
   transition: all 100ms linear;
 
-  &:active,
   &:hover,
   &--active {
     --bullet-size: 0.625rem;
@@ -23,9 +22,9 @@
   }
 }
 .sf-bullets {
-  display: var(--bullets-display, flex);
-  align-items: var(--bullets-align-items, center);
-  padding: var(--bullets-padding, 0);
-  margin: var(--bullets-margin, 0);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
   list-style-type: none;
 }
