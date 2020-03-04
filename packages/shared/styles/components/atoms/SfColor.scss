@@ -29,11 +29,10 @@
   }
 
   @include for-desktop {
-    --color-width: 0.75rem;
-    --color-height: 0.75rem;
-
-    &:hover,
-    &--active {
+    --color-size: 0.75rem;
+    
+    &--active,
+    &:hover {
       transform: scale(1.667);
     }
     &:hover {
