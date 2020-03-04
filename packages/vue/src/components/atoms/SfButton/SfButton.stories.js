@@ -7,7 +7,6 @@ import {
   optionsKnob as options
 } from "@storybook/addon-knobs";
 import SfButton from "./SfButton.vue";
-import SfIcon from "../SfIcon/SfIcon.vue";
 storiesOf("Atoms|Button", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -45,4 +44,4 @@ storiesOf("Atoms|Button", module)
       :disabled="disabled">
       {{customLabel}}
     </SfButton>`
-  }))
+  }));
