@@ -11,8 +11,6 @@
     var(--spacer-small) calc(var(--spacer-small) * 2)
   );
   color: var(--button-color, var(--c-light-variant));
-  border: var(--button-border, 0);
-  border-bottom: var(--button-border-bottom, 0);
   background: var(--button-background, var(--c-primary));
   box-shadow: var(--button-box-shadow);
   text-transform: var(--button-text-transform, uppercase);
@@ -28,6 +26,8 @@
     1.6,
     var(--body-font-family-secondary)
   );
+
+  @include border(--button-border, 0, solid, var(--c-primary));
 
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
@@ -63,25 +63,25 @@
   }
 
   &--outline {
-    --button-border: 2px solid var(--c-primary);
+    --button-border-width: 2px 2px 2px 2px;
     --button-background: transparent;
     --button-color: var(--c-text);
 
     &:active {
-      --button-border: 2px solid var(--c-primary-variant);
+      --button-border-color: var(--c-primary-variant);
       --button-background: transparent;
       --button-color: var(--c-text-muted);
       --button-transition: color 150ms linear;
     }
     &:disabled {
-      --button-border: 2px solid var(--c-light);
+      --button-border-color: var(--c-light);
       --button-background: transparent;
       --button-color: var(--c-text-muted);
     }
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
       &.color-#{$color} {
-        --button-border: 2px solid #{$primary};
+        --button-border-color: #{$primary};
         --button-background: transparent;
         &:active {
           --button-background: transparent;
@@ -91,7 +91,7 @@
   }
 
   &--text {
-    --button-border: 0;
+    --button-border-width: 0;
     --button-padding: var(--spacer-small) 0;
     --button-background: transparent;
     --button-color: var(--c-text);
@@ -131,7 +131,8 @@
   }
 
   &--underlined {
-    --button-border-bottom: 1px solid var(--c-light);
+    --button-border-width: 0 0 1px 0;
+    --button-border-color: var(--c-light);
     --button-background: transparent;
     --button-color: var(--c-text-muted);
     &:hover {
@@ -140,7 +141,6 @@
     &:active {
       --button-background: var(--c-gray-variant);
       --button-color: var(--c-light-variant);
-      --button-border-bottom: 0;
     }
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
@@ -148,7 +148,8 @@
         --button-background: transparent;
         &:active {
           --button-background: #{$primary};
-          --button-border-bottom: 1px solid var(--c-light);
+          --button-border-width: 0 0 1px 0;
+          --button-border-color: var(--c-light);
         }
       }
     }
