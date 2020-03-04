@@ -5,7 +5,7 @@
   color: var(--property-color, var(--c-text));
   &__name {
     margin: var(--property-name-margin, 0 var(--spacer-extra-small) 0 0);
-    color: var(--property-name-color, var(--c-gray));
+    color: var(--property-name-color, var(--c-secondary-variant));
     text-transform: var(--property-name-text-transform);
     &::after {
       content: var(--property-name-content, ":");
