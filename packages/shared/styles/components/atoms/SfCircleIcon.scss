@@ -1,23 +1,30 @@
 @import "../../helpers";
 
 .sf-circle-icon {
+  --icon-color: var(--c-white);
   --button-padding: var(--spacer-small);
-  --button-border-radius: 100%;
+  --icon-size: 20px;
+  --button-size: 3.25rem;
   --button-background: var(--c-primary);
   --button-transition: box-shadow 300ms ease;
-  --button-size: 3.25rem;
+  border-radius: 100%;
   position: var(--circle-icon-position, relative);
-  box-shadow: var(--circle-icon-box-shadow);
   &:hover {
     --button-background: var(--c-primary);
-    --circle-icon-box-shadow: 0 0 0 0.3125rem rgba(var(--c-primary-base), 0.3);
+    --button-box-shadow: 0 0 0 0.3125rem rgba(var(--c-primary-base), 0.3);
   }
   &:active {
-    --circle-icon-box-shadow: 0 0 0 0.5rem rgba(var(--c-primary-base), 0.3);
+    --button-transition: box-shadow 150ms linear;
+    --button-box-shadow: 0 0 0 0.5rem rgba(var(--c-primary-base), 0.3);
   }
   &:disabled {
-    --circle-icon-box-shadow: 0;
+    --button-box-shadow: 0;
+    --icon-color: var(--c-text-disabled);
+    &:hover {
+      --button-background: var(--c-light);
+    }
   }
+
   &__badge {
     position: absolute;
     top: var(--circle-icon-badge-top, 0);
@@ -33,13 +40,15 @@
     );
     border-radius: var(--circle-icon-badge-border-radius, 0.625rem);
     background: var(--circle-icon-badge-background, var(--c-danger));
+
     @include font(
       --circle-icon-badge-font,
-      var(--font-weight-light),
-      var(--font-size-extra-small),
+      var(--font-weight-bold),
+      10px,
       1.6,
       var(--body-font-family-secondary)
     );
+
     &-enter-active {
       animation: bounce-in 300ms;
     }
@@ -47,6 +56,7 @@
       animation: bounce-in 300ms reverse;
     }
   }
+  
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     $variant: map-get($map, "variant");
@@ -54,19 +64,33 @@
       --button-background: var(--c-#{$color});
       &:hover {
         --button-background: var(--c-#{$color}-lighten);
-        --circle-icon-box-shadow: 0
+        --button-box-shadow: 0
           0
           0
           0.3125rem
-          rgba(var(--c-#{$color}-base), 0.3);
+          rgba(var(--c-#{$color}-base), 0.08);
       }
       &:active {
-        --circle-icon-box-shadow: 0
+        --button-box-shadow: 0
           0
           0
           0.5rem
-          rgba(var(--c-#{$color}-base), 0.3);
+          rgba(var(--c-#{$color}-base), 0.08);
       }
+    }
+  }
+
+  &--small {
+    --icon-size: .5rem;
+    --button-size: 1.625rem;
+    --button-padding: var(--spacer-extra-small);
+    --button-transition: background 150ms linear;
+    &:hover {
+      --button-background: var(--c-secondary);
+      --button-box-shadow: 0;
+    }
+    &:active {
+      --button-background: var(--c-dark-variant);
     }
   }
 }
