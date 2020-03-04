@@ -5,7 +5,7 @@
         <SfIcon
           v-if="back"
           icon="chevron_left"
-          size="16px"
+          size="14px"
           role="button"
           aria-label="back"
           @click="$emit('click:back')"

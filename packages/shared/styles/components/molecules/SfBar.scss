@@ -15,4 +15,7 @@
     1.6,
     var(--body-font-family-secondary)
   );
+  &__icon {
+    width: var(--bar-width-icon, 0.875rem);
+  }
 }
