@@ -12,11 +12,12 @@
   --button-background: var(--c-light);
   --button-border-radius: 50%;
   --button-padding: 0;
-  --button-size: var(--h1-font-size, 1.625rem);
+  --button-size: var(calc(--quantity-selector-font-size * 1.2), 1.625rem);
   --input-margin: 0;
   --input-padding: 0;
   --input-border: none;
   --input-height: var(--quantity-selector-height, 100%);
+  --input-font-size: var(--quantity-selector-font-size);
   &::before {
     position: absolute;
     bottom: 0;
@@ -25,25 +26,45 @@
     background: var(--input-bar-background, var(--c-light));
     content: "";
   }
+  &__button {
+    &:hover {
+      --button-background: var(--c-light);
+    }
+  }
+  &__input {
+    input {
+      text-align: center;
+    }
+    .sf-input__bar {
+      display: none;
+    }
+  }
   @include for-desktop {
-    .sf-button {
+    align-items: center;
+    justify-content: space-around;
+    background: var(--quantity-selector-background, var(--c-light));
+    --quantity-selector-width: 6.75rem;
+    --quantity-selector-height: 3.25rem;
+    --quantity-selector-padding: 0;
+    --button-height: var(--quantity-selector-height, 100%);
+    --button-border-radius: 0;
+    &__button {
       &:hover {
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         --button-background: transparent;
       }
     }
-  }
-  .sf-input {
-    input {
-      text-align: center;
+    &--small {
+      --quantity-selector-background: var(--c-white);
+      --quantity-selector-height: 2.5rem;
+      --button-background: var(--c-white);
     }
-    &__bar::before,
-    &__bar::after {
+    &::before {
       display: none;
     }
   }
   @include font(
-    --quantity-selector,
+    --quantity-selector-font,
     var(--font-weight-light),
     var(--h2-font-size),
     1.2,
