@@ -12,12 +12,11 @@
   --button-background: var(--c-light);
   --button-border-radius: 50%;
   --button-padding: 0;
-  --button-size: var(calc(--quantity-selector-font-size * 1.2), 1.625rem);
+  --button-size: 1.625rem;
   --input-margin: 0;
   --input-padding: 0;
   --input-border: none;
-  --input-height: var(--quantity-selector-height, 100%);
-  --input-font-size: var(--quantity-selector-font-size);
+  --input-height: 3.5rem;
   &::before {
     position: absolute;
     bottom: 0;
@@ -40,14 +39,14 @@
     }
   }
   @include for-desktop {
-    align-items: center;
-    justify-content: space-around;
     background: var(--quantity-selector-background, var(--c-light));
     --quantity-selector-width: 6.75rem;
     --quantity-selector-height: 3.25rem;
-    --quantity-selector-padding: 0;
-    --button-height: var(--quantity-selector-height, 100%);
+    --quantity-selector-padding: 0 0.625rem;
+    --button-size: initial;
+    --button-height: var(--quantity-selector-height, auto);
     --button-border-radius: 0;
+    --quantity-selector-font-size: 22px;
     &__button {
       &:hover {
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

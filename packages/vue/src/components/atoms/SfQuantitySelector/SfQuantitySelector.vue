@@ -1,8 +1,6 @@
 <template>
   <div class="sf-quantity-selector">
-    <SfButton class="sf-quantity-selector__button" @click="qty -= 1"
-      >-</SfButton
-    >
+    <SfButton class="sf-quantity-selector__button">-</SfButton>
     <SfInput
       type="number"
       :value="qty"
@@ -11,9 +9,7 @@
       class="sf-quantity-selector__input"
       @input="$emit('input', parseInt($event, 10))"
     />
-    <SfButton class="sf-quantity-selector__button" @click="qty += 1"
-      >+</SfButton
-    >
+    <SfButton class="sf-quantity-selector__button">+</SfButton>
   </div>
 </template>
 <script>
