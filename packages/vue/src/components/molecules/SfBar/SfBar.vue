@@ -5,7 +5,7 @@
         <SfIcon
           v-if="back"
           icon="chevron_left"
-          size="14px"
+          size="16px"
           role="button"
           aria-label="back"
           @click="$emit('click:back')"
@@ -15,7 +15,7 @@
     <slot name="title" v-bind="{ title }">
       <div class="sf-bar__title">{{ title }}</div>
     </slot>
-    <!-- <slot name="close">
+    <slot name="close">
       <div class="sf-bar__icon">
         <SfIcon
           v-if="close"
@@ -26,7 +26,7 @@
           @click="$emit('click:close')"
         />
       </div>
-    </slot> -->
+    </slot>
   </div>
 </template>
 <script>

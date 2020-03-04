@@ -3,22 +3,16 @@
 .sf-bar {
   box-sizing: border-box;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  height: var(--bar-height, 3.125rem);
+  height: var(--bar-height, 3rem);
   padding: var(--bar-padding, 0 var(--spacer-regular));
-  background-color: var(--bar-background, #f2f2f2);
+  background-color: var(--bar-background, var(--c-light));
   @include font(
     --bar-font,
-    var(--font-weight-regular),
+    var(--font-weight-bold),
     var(--font-size-regular),
     1.6,
     var(--body-font-family-secondary)
   );
-  &__title {
-    flex: 1;
-    text-align: center;
-  }
-  &__icon {
-    --icon-width: 0.875rem;
-  }
 }
