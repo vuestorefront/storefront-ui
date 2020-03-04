@@ -15,7 +15,7 @@
   @include font(--notification-font, var(--font-weight-regular), 10px, normal, var(--body-font-family-secondary));
   
   &__title {
-    display: var(--notification-title-display, inline);
+    display: var(--notification-title-display, block);
 
     @include font(--notification-title-font, var(--font-weight-regular), var(--h2-font-size), normal, var(--body-font-family-secondary));
     
