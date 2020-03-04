@@ -131,26 +131,24 @@
   }
 
   &--underlined {
-    @include for-mobile {
-      --button-border-bottom: 1px solid var(--c-light);
-      --button-background: transparent;
-      --button-color: var(--c-text-muted);
-      &:hover {
-        --button-box-shadow: none;
-      }
-      &:active {
-        --button-background: var(--c-gray-variant);
-        --button-color: var(--c-light-variant);
-        --button-border-bottom: 0;
-      }
-      @each $color, $map in $colors-map {
-        $primary: map-get($map, "primary");
-        &.color-#{$color} {
-          --button-background: transparent;
-          &:active {
-            --button-background: #{$primary};
-            --button-border-bottom: 1px solid var(--c-light);
-          }
+    --button-border-bottom: 1px solid var(--c-light);
+    --button-background: transparent;
+    --button-color: var(--c-text-muted);
+    &:hover {
+      --button-box-shadow: none;
+    }
+    &:active {
+      --button-background: var(--c-gray-variant);
+      --button-color: var(--c-light-variant);
+      --button-border-bottom: 0;
+    }
+    @each $color, $map in $colors-map {
+      $primary: map-get($map, "primary");
+      &.color-#{$color} {
+        --button-background: transparent;
+        &:active {
+          --button-background: #{$primary};
+          --button-border-bottom: 1px solid var(--c-light);
         }
       }
     }
