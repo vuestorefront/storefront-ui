@@ -12,10 +12,6 @@
   color: var(--badge-color, var(--c-light-variant));
   text-align: var(--badge-text-align, center);
 
-  &--full-width {
-    --badge-width: 100%;
-  }
-
   @include font(
     --badge-font,
     var(--font-weight-bold),
@@ -23,6 +19,10 @@
     1.6,
     var(--body-font-family-secondary)
   );
+
+  &--full-width {
+    --badge-width: 100%;
+  }
 
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
