@@ -35,17 +35,8 @@
     justify-content: center;
     align-items: center;
     padding: var(--image-ovarlay-padding, var(--spacer-big));
-    background: var(--image-ovarlay-background, rgba(29, 31, 34, 0.8));
+    background: var(--image-ovarlay-background, rgba(var(--c-dark-base), 0.6));
     color: var(--image-overlay-color, var(--c-white));
-    font: var(
-      --image-overlay-font,
-      font(
-        --image-overlay,
-        300,
-        var(--font-size-small),
-        1.6,
-        var(--body-font-family-secondary)
-      )
-    );
+    @include font(--image-overlay-font, var(--font-weight-light), var(--font-size-small), 1.6, var(--body-font-family-secondary));
   }
 }
