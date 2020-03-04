@@ -3,41 +3,22 @@
 .sf-notification {
   position: relative;
   display: flex;
-  align-items: var(--notification-align-items, flex-start);
+  align-items: var(--notification-align-items, center);
   box-sizing: border-box;
-  max-width: var(--notification-max-width);
-  padding: var(
-    --notification-padding,
-    var(--spacer-big) calc(var(--spacer-big) * 5) var(--spacer-big)
-    var(--spacer-big)
-  );
-  box-shadow: var(--notification-box-shadow);
-  border-radius: var(--notification-border-radius);
+  max-width: var(--notification-max-width, 100%);
+  padding: var(--notification-padding, var(--spacer-regular) var(--spacer-regular) var(--spacer-regular) var(--spacer-small));
+  box-shadow: var(--notification-box-shadow, 0 4px 11px rgba(var(--c-dark-base), 0.1));
+  border-radius: var(--notification-border-radius, 5px);
   background: var(--notification-background);
   color: var(--notification-color, var(--c-white));
-  font: var(
-    --notification-font,
-    font(
-      --notification,
-      400,
-      var(--font-size-regular),
-      1.6,
-      var(--body-font-family-primary)
-    )
-  );
-  opacity: var(--notification-opacity, 0.8);
+  
+  @include font(--notification-font, var(--font-weight-regular), 10px, normal, var(--body-font-family-secondary));
+  
   &__title {
     display: var(--notification-title-display, inline);
-    font: var(
-      --notification-title-font,
-      font(
-        --notification-title,
-        300,
-        var(--font-size-big),
-        1.6,
-        var(--body-font-family-primary)
-      )
-    );
+
+    @include font(--notification-title-font, var(--font-weight-regular), var(--h2-font-size), normal, var(--body-font-family-secondary));
+    
     &::after {
       content: " ";
     }
@@ -47,53 +28,41 @@
       }
     }
   }
+
+  &__message {
+    display: block;
+  }
+
   &__action {
     display: var(--notification-action-display, none);
-    margin: var(--notification-action-margin);
-    padding: var(--notification-action-padding);
-    border: var(--notification-action-border);
-    background-color: var(--notification-action-background);
+    padding: 0;
+    border: 0;
+    background-color: transparent;
     color: var(--notification-action-color);
-    font: var(--notification-action-font);
-    text-decoration: var(--notification-action-text-decoration);
-    outline: var(--notification-action-outline);
+    font: var(--notification-action-font, inherit);
+    text-decoration: var(--notification-action-text-decoration, underline);
+    outline: none;
   }
   &__icon {
     --icon-color: var(--c-white);
-    display: var(--notification-icon-display, none);
-    margin: var(--notification-icon-margin);
+    margin: var(--notification-icon-margin, 0 var(--spacer-regular) 0 0);
+
   }
   &__close {
+    --icon-size: 0.85rem;
     position: absolute;
-    right: var(--notification-close-right-position, var(--spacer-big));
-    top: var(--notification-close-top-position, var(--spacer-big));
+    top: var(--notification-close-top, var(--spacer-extra-small));
+    right: var(--notification-close-right, var(--spacer-extra-small));
     cursor: pointer;
   }
+
   @include for-desktop {
-    --notification-padding: var(--spacer-medium);
-    --notification-align-items: center;
-    --notification-max-width: 35rem;
-    --notification-font-size: var(--font-size-regular);
-    --notification-font-weight: var(--body-font-weight-primary);
-    --notification-box-shadow: 0 8px 11px rgba(0, 0, 0, 0.1);
-    --notification-border-radius: 5px;
-    --notification-opacity: 1;
-    --notification-title-font-size: var(--font-size-big);
-    --notification-title-font-weight: 700;
-    --notification-action-padding: 0;
-    --notification-action-margin: 0 0 0 var(--spacer-big);
-    --notification-action-border: 0;
-    --notification-action-background: transaprent;
-    --notification-action-font: inherit;
-    --notification-action-text-decoration: underline;
-    --notification-icon-margin: 0 var(--spacer-big) 0 0;
-    --notification-close-top-position: var(--spacer-medium);
-    --notification-close-right-position: var(--spacer-medium);
+    --notification-padding: var(--spacer-extra-small) var(--spacer-small);
     --notification-action-display: inline;
-    --notification-action-outline: none;
-    --notification-icon-display: block;
-    --notification-title-display: block;
+    --notification-close-top: auto;
+    --notification-close-right: var(--spacer-small);
   }
+
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     &.color-#{$color} {
