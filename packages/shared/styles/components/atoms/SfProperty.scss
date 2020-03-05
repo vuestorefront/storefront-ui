@@ -3,6 +3,13 @@
 .sf-property {
   display: flex;
   color: var(--property-color, var(--c-text));
+  @include font(
+    --property-font,
+    var(--font-weight-regular),
+    var(--font-size-extra-small),
+    1.2,
+    var(--body-font-family-secondary)
+  );
   &__name {
     margin: var(--property-name-margin, 0 var(--spacer-extra-small) 0 0);
     color: var(--property-name-color, var(--c-secondary-variant));
@@ -11,19 +18,15 @@
       content: var(--property-name-content, ":");
     }
   }
-  @include font(
-    --property-font,
-    var(--font-weight-regular),
-    var(--font-size-extra-small),
-    1.2,
-    var(--body-font-family-secondary)
-  );
   &--full-width {
     justify-content: space-between;
     width: 100%;
   }
   &--large {
     --property-font-size: var(--h2-font-size);
+    .sf-property__value {
+      font-weight: 600;
+    }
   }
   &--value-in-middle {
     .sf-property__value {
