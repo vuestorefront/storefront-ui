@@ -3,34 +3,62 @@
 .sf-banner {
   display: flex;
   justify-content: center;
-  background: center no-repeat auto fixed;
+  background: var(
+    --banner-background,
+    var(--banner-background-color, transparent)
+    var(--banner-background-image, var(--background-image))
+    var(--banner-background-position, center)
+    var(--banner-background-repeat, no-repeat)
+    var(--banner-background-size, auto)
+  );
+  width: var(--banner-size, var(--banner-width, 100%));
+  height: var(--banner-size, var(--banner-height, 10rem));
+  padding: var(--banner__container-padding, 3.125rem 0 0 15rem);
   &__container {
     display: flex;
     justify-content: left;
-    color: var(--sf-banner__container-color, var(--c-text));
-    padding: var(--sf-banner__container-padding, 3.125rem 0 0 3.125rem);
-    &__subtitle {
-      --sf-banner-font-size: 10px; //TODO: change to variable when it is prepared
-      --sf-banner-font-line-height: 1.4;
-      letter-spacing: 0.1px;
-    }
-    &__title {
-      --sf-banner__container-color: var(--c-link);
-    }
+    flex-direction: column;
+    color: var(--banner__container-color, var(--c-text));
     @include font(
-      --sf-banner-font,
+      --banner-font,
       normal,
       var(--h1-font-size),
       1.2,
       var(--body-font-family-secondary)
     );
   }
+  &__subtitle {
+    --banner-font-size: 10px; //TODO: change to variable when it is prepared
+    --banner-font-line-height: 1.4;
+    letter-spacing: 0.1px;
+  }
+  &__title {
+    --banner__container-color: var(--c-link);
+    text-transform: var(--banner-title-transform, uppercase);
+  }
+  &__description {
+    display: none;
+  }
+  &__call-to-action {
+    display: none;
+  }
+  &__bullets {
+    display: none;
+  }
   @include for-desktop {
+    --banner-background-image: var(--background-desktop-image);
     &__description {
-      --sf-banner-font-size: var(--font-weight-regular);
+      --banner-font-size: var(--font-weight-regular);
     }
     &__call-to-action {
-      --sf-banner-font-size: var(--font-weight-regular);
+      --banner-font-size: var(--font-weight-regular);
+      --button-width: 10.75rem;
     }
+  }
+  &--left {
+    --banner__container-padding: 3.125rem 0 0 3.125rem;
+  }
+  &--slim {
+    --banner-height: 25rem;
   }
 }
