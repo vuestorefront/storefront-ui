@@ -13,7 +13,7 @@
   cursor: pointer;
 
   &__badge {
-    --badge-padding: var(--spacer-extra-small);
+    --badge-padding: var(--spacer-xs);
     --badge-border-radius: 100%;
     position: absolute;
     top: -25%;
@@ -30,7 +30,7 @@
 
   @include for-desktop {
     --color-size: 0.75rem;
-    
+
     &--active,
     &:hover {
       transform: scale(1.667);

@@ -6,10 +6,7 @@
   height: var(--button-size, var(--button-height));
   display: flex;
   justify-content: center;
-  padding: var(
-    --button-padding,
-    var(--spacer-small) calc(var(--spacer-small) * 2)
-  );
+  padding: var(--button-padding, var(--spacer-sm) calc(var(--spacer-sm) * 2));
   color: var(--button-color, var(--c-light-variant));
   background: var(--button-background, var(--c-primary));
   box-shadow: var(--button-box-shadow);
@@ -21,8 +18,8 @@
 
   @include font(
     --button-font,
-    var(--font-weight-bold),
-    var(--font-size-regular),
+    var(--font-medium),
+    var(--font-base),
     1.6,
     var(--body-font-family-secondary)
   );
@@ -96,7 +93,7 @@
     --button-color: var(--c-text);
     --button-text-transform: none;
     --button-text-decoration: underline;
-    --button-font-size: var(--font-size-small);
+    --button-font-size: var(--font-xs);
     &:hover {
       --button-box-shadow: none;
       --button-background: transparent;
