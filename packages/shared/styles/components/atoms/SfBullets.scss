@@ -4,17 +4,23 @@
   box-sizing: border-box;
   width: var(--bullet-width, var(--bullet-size, 8px));
   height: var(--bullet-height, var(--bullet-size, 8px));
-  margin: var(--bullet-margin, var(--spacer-small));
+  margin: var(--bullet-margin, calc(var(--spacer-extra-small) / 2));
   border-radius: var(--bullet-border-radius, 100%);
   background: var(--bullet-background, var(--c-gray));
+  box-shadow: var(--bullet-box-shadow, none);
   cursor: pointer;
+  transition: all 100ms linear;
+
+  &:hover,
   &--active {
     --bullet-size: 0.625rem;
+    --bullet-box-shadow: 0 3px 4px 0 rgba(var(--c-dark-base), 0.25);
+  }
+  &--active {
     --bullet-background: var(--c-primary);
     cursor: default;
   }
 }
-
 .sf-bullets {
   display: flex;
   align-items: center;
