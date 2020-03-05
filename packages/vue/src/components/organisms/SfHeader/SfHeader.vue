@@ -26,9 +26,9 @@
         <!--@slot Use this slot to replace default search bar-->
         <slot name="search" v-bind="{ searchPlaceholder }">
           <SfSearchBar
-            v-show="hasMobileSearch || !isMobile"
             :placeholder="searchPlaceholder"
             class="sf-header__search"
+            :class="{ 'desktop-only': !hasMobileSearch }"
           />
         </slot>
         <!--@slot Use this slot to replace default header icons with custom content-->
