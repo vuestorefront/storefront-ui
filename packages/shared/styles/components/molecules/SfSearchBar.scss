@@ -14,9 +14,9 @@
 @mixin iconPosition {
   flex-direction: var(--search-bar-icon-flex-direction, row);
   .sf-search-bar__input {
-    --search-bar-input-text-align: left;
+    --search-bar-input-text-align: center;
     &::placeholder {
-      text-align: left;
+      text-align: center;
     }
     &:focus {
       & ~ .sf-search-bar__clear-icon {
@@ -31,32 +31,47 @@
   position: relative;
   display: flex;
   align-items: center;
-  flex-direction: var(--search-bar-flex-direction, row-reverse);
   height: var(--search-bar-height, var(--search-bar-size, 2.25rem));
   width: var(--search-bar-width, var(--search-bar-size, 100%));
-  padding: var(--search-bar-padding, 0 0.9375rem);
-  background: var(--search-bar-background, var(--c-light));
-  border-radius: var(--search-bar-border-radius, 1.6875rem);
+  background: var(--search-bar-background);
+
+  &__icon {
+    --icon-size: 1.25rem;
+    position: absolute;
+    top: 0.3rem;
+    right: 0rem;
+    display: var(--search-bar-icon-display, block);
+  }
+
   &__input {
     position: relative;
-    border: var(--search-bar-input-border, none);
     flex-grow: 1;
     background: transparent;
-    text-align: var(--search-bar-input-text-align, center);
+    text-align: var(--search-bar-input-text-align);
     outline: none;
+
+    @include font(
+      --search-bar-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.6,
+      var(--font-family-secondary)
+    );
+
+    @include border(
+      --seach-bar-border, 
+      0 0 2px 0,
+      solid, 
+      var(--c-dark-variant)
+    );
+
     @include placeholder {
-      color: var(--search-bar-placeholder-color, var(--c-dark));
+      color: var(--search-bar-placeholder-color, var(--c-gray));
       transition: var(--search-bar-placeholder-transition, color 0.2s ease-in);
     }
     &:focus {
-      & ~ .sf-search-bar__clear-icon {
-        --search-bar-clear-icon-position: absolute;
-        --search-bar-clear-icon-opacity: 1;
-        --search-bar-clear-icon-padding: 0 0.4rem 0 0;
-        --search-bar-clear-icon-right: 0.9375rem;
-      }
       @include placeholder {
-        color: var(--search-bar-placeholder-color-focus, var(--c-gray));
+        color: var(--search-bar-placeholder-color-focus, transparent);
       }
     }
     &::-webkit-search-cancel-button {
@@ -66,20 +81,7 @@
       opacity: 0;
     }
   }
-  &__clear-icon {
-    position: var(--search-bar-clear-icon-position, absolute);
-    right: var(--search-bar-clear-icon-right, 0.9375rem);
-    padding: var(--search-bar-clear-icon-padding, 0 0.4rem 0 0);
-    opacity: var(--search-bar-clear-icon-opacity, 0);
-    transition: var(--search-bar-clear-icon-transition, all 0.2s ease-in);
-  }
-  &__icon {
-    display: var(--search-bar-icon-display, block);
-  }
-  &--secondary {
-    --search-bar-background: var(--c-light-variant);
-  }
-  &--position-right {
+  &--position-center {
     @include iconPosition();
   }
   &--no-icon {
