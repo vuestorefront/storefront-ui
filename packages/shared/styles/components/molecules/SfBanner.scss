@@ -1,6 +1,7 @@
 @import "../../helpers";
 
 .sf-banner {
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   background: var(
@@ -11,9 +12,10 @@
     var(--banner-background-repeat, no-repeat)
     var(--banner-background-size, auto)
   );
+  color: var(--banner-color, var(--c-text));
   width: var(--banner-size, var(--banner-width, 100%));
-  height: var(--banner-size, var(--banner-height, 10rem));
-  padding: var(--banner__container-padding, 3.125rem 0 0 15rem);
+  height: var(--banner-size, var(--banner-height, 14rem));
+  padding: var(--banner-padding, 3.125rem 0 0 calc(var(--banner-width) / 2));
   &__container {
     display: flex;
     justify-content: left;
@@ -56,7 +58,7 @@
     }
   }
   &--left {
-    --banner__container-padding: 3.125rem 0 0 3.125rem;
+    --banner-padding: 3.125rem 0 0 3.125rem;
   }
   &--slim {
     --banner-height: 25rem;
