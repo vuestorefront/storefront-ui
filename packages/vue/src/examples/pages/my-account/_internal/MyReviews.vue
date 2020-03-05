@@ -31,7 +31,7 @@ export default {
 }
 .message {
   margin: 0 0 var(--spacer-extra-big) 0;
-  font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
+  font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
   &__label {
     font-weight: 500;
   }
