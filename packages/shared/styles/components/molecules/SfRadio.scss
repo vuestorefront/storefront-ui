@@ -69,4 +69,8 @@
       --radio-background: transparent;
     }
   }
+
+  @include for-desktop {
+    --radio-container-padding: var(--spacer-sm);
+  }
 }
