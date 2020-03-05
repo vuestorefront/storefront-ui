@@ -3,8 +3,7 @@
     class="sf-input"
     :class="{
       'sf-input--has-text': !!value,
-      'sf-input--invalid': valid === false,
-      'sf-input--with-icon': hasIcon
+      'sf-input--invalid': !valid
     }"
   >
     <div class="sf-input__wrapper">
@@ -26,15 +25,14 @@
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
       <slot
-        v-if="hasIcon"
+        v-if="isPassword"
         v-bind="{
           isPasswordVisible,
           switchVisibilityPassword
         }"
-        name="icon"
+        name="show-password"
       >
         <SfButton
-          v-if="isPassword"
           class="sf-input__password-button"
           type="button"
           aria-label="switch-visibility-password"
@@ -50,6 +48,7 @@
           ></SfIcon>
         </SfButton>
       </slot>
+      <slot name="input-icon"></slot>
     </div>
     <div v-if="valid !== undefined" class="sf-input__error-message">
       <transition name="fade">
@@ -135,7 +134,7 @@ export default {
       type: String,
       default: null
     },
-    hasIcon: {
+    hasShowPassword: {
       type: Boolean,
       default: false
     }
@@ -154,7 +153,7 @@ export default {
       };
     },
     isPassword() {
-      return this.type === "password" && this.hasIcon;
+      return this.type === "password" && this.hasShowPassword;
     }
   },
   watch: {
