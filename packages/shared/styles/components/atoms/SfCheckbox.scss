@@ -13,33 +13,35 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--checkbox-width, var(--checkbox-size, 1.5rem));
-    height: var(--checkbox-height, var(--checkbox-size, 1.5rem));
+    width: var(--checkbox-width, 1.5rem);
+    height: var(--checkbox-height, 1.5rem);
     @include border(--checkbox-border, 1px, solid, var(--c-gray-variant));
     border-radius: var(--checkbox-border-radius);
     background: var(--checkbox-background, transparent);
     transition: background 150ms linear, border-color 150ms linear;
     &:hover {
       --checkbox-border-color: var(--c-primary);
-      .sf-checkbox--is-disabled & {
-        --checkbox-border-color: var(--c-text-muted);
-      }
+      
       .sf-checkbox--has-error & {
         --checkbox-border-color: var(--c-danger);
+      }
+
+      .sf-checkbox--is-disabled & {
+        --checkbox-border-color: var(--c-text-disabled);
       }
     }
   }
 
   &__label {
     flex: 1;
-    margin: var(--checkbox-label-margin, 0 0 0 var(--spacer-small));
+    margin: var(--checkbox-label-margin, 0 0 0 var(--spacer-sm));
     color: var(--checkbox-label-color, var(--c-text));
     @include font(
       --checkbox-font,
-      500,
-      var(--font-size-extra-small),
+      var(--font-medium),
+      var(--font-xs),
       1.6,
-      var(--body-font-family-secondary)
+      var(--font-family-secondary)
     );
   }
 
@@ -47,20 +49,21 @@
     --checkbox-border-color: var(--c-primary);
     --checkbox-background: var(--c-primary);
 
-    &.sf-checkbox--is-disabled {
-      --checkbox-border-color: var(--c-text-muted);
-      --checkbox-background: var(--c-text-muted);
-    }
-
     &.sf-checkbox--has-error {
       --checkbox-border-color: var(--c-danger);
       --checkbox-background: var(--c-danger);
     }
+
+    &.sf-checkbox--is-disabled {
+      --checkbox-border-color: var(--c-text-disabled);
+      --checkbox-background: var(--c-text-disabled);
+    }
+
   }
 
   &--is-disabled {
-    --checkbox-label-color: var(--c-text-muted);
-    --checkbox-border-color: var(--c-text-muted);
+    --checkbox-label-color: var(--c-text-disabled);
+    --checkbox-border-color: var(--c-text-disabled);
   }
 
   input {
