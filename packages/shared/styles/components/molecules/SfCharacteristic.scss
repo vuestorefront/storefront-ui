@@ -7,24 +7,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: var(--characteristic-margin, 0 var(--spacer-small) 0 0);
+    margin: var(--characteristic-margin, 0 var(--spacer-sm) 0 0);
   }
   &__title {
     @include font(
       --characteristic-title-font,
-      var(--font-weight-bold),
+      var(--font-bold),
       var(--h5-font-size),
       1.6,
-      var(--body-font-family-secondary)
+      var(--font-family-secondary)
     );
   }
   &__description {
     @include font(
       --characteristic-description-font,
-      var(--font-weight-regular),
-      10px,
-      // TODO: add font-size 1.6,
-      var(--body-font-family-secondary)
+      var(--font-normal),
+      var(--font-2xs),
+      1.6,
+      var(--font-family-secondary)
     );
   }
 }
