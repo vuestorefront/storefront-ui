@@ -28,6 +28,13 @@
       --modal-content-padding,
       var(--spacer-extra-big) var(--spacer-big)
     );
+    @include font(
+      --modal-font,
+      var(--font-normal),
+      var(--font-lg),
+      1.6,
+      var(--font-family-secondary)
+    );
   }
   &__close {
     position: absolute;
