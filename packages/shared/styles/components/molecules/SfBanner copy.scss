@@ -1,0 +1,81 @@
+@import "../../helpers";
+
+.sf-banner {
+  box-sizing: border-box;
+  display: flex;
+  min-height: var(--banner-min-height, 9rem);
+  padding: var(--banner-padding, var(--spacer-big));
+  color: var(--banner-color, var(--c-text));
+  background-repeat: no-repeat;
+  background-position: var(--banner-background-position, bottom left);
+  background-size: cover;
+  background-color: var(--banner-background);
+  background-image: var(--background-image);
+  &__container {
+    flex: var(--banner-container-flex, 0 0 100%);
+  }
+  &__subtitle {
+    margin: var(--banner-subtitle-margin);
+    color: var(--banner-subtitle-color, var(--c-dark-variant));
+    font: var(
+      --banner-subtitle-font,
+      font(
+        --banner-subtitle,
+        300,
+        var(--font-size-regular),
+        1.16,
+        var(--body-font-family-primary)
+      )
+    );
+  }
+  &__title {
+    margin: var(--banner-title-margin);
+    color: var(--banner-title-color);
+    font: var(
+      --banner-title-font,
+      font(
+        --banner-title,
+        300,
+        var(--font-size-extra-big),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
+  }
+  &__description {
+    display: var(--banner-description-display, none);
+    margin: var(--banner-description-margin);
+    font: var(
+      --banner-description-font,
+      font(
+        --banner-description,
+        300,
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-secondary)
+      )
+    );
+  }
+  &__call-to-action {
+    display: var(--banner-call-to-action-display, none);
+    margin: var(--banner-call-to-action-margin);
+  }
+  @include for-desktop {
+    --banner-min-height: 20rem;
+    --banner-padding: 4rem 5rem 4rem calc(50% + 5rem);
+    --banner-background-image: var(--background-desktop-image);
+    --banner-title-font-size: 3rem;
+    --banner-description-margin: 1.875rem 0 0 0;
+    --banner-description-display: block;
+    --banner-call-to-action-display: block;
+    --banner-call-to-action-margin: var(--spacer-big) 0 0 0;
+    &--left {
+      --banner-padding: 4rem calc(50% + 5rem) 4rem 4rem;
+    }
+    &--slim {
+      --banner-padding: 5rem 2.5rem;
+      --banner-title-font-size: 2.25rem;
+      --banner-title-font-weight: 100;
+    }
+  }
+}
