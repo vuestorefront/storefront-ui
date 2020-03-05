@@ -3,6 +3,7 @@
 .sf-banner {
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: var(--banner-justify-content, left);
   background-color: var(--banner-background-color, transparent);
   background-position: var(--banner-background-position, center);
@@ -12,13 +13,13 @@
   color: var(--banner-color, var(--c-text));
   width: var(--banner-size, var(--banner-width, 100%));
   min-height: var(--banner-size, var(--banner-min-height, 14rem));
-  padding: var(--banner-padding, 3rem 0 0 var(--spacer-small));
+  padding: var(--banner-padding, 3rem 0 0 var(--spacer-sm));
   @include font(
     --banner-font,
     normal,
     var(--h1-font-size),
     1.2,
-    var(--body-font-family-secondary)
+    var(--font-family-secondary)
   );
   &__container {
     display: flex;
@@ -27,7 +28,7 @@
     color: var(--banner__container-color, var(--c-text));
   }
   &__subtitle {
-    font-size: 10px; //TODO: change to variable when it is prepared
+    font-size: var(--font-2xs);
     --banner-font-line-height: 1.4;
     letter-spacing: 0.1px;
     margin: var(--banner-subtitle-margin, 0 0 0.6875rem 0);
@@ -48,16 +49,30 @@
   }
   @include for-desktop {
     --background-image: var(--background-desktop-image);
+    &__title {
+      --banner-font-size: var(--h1-font-size);
+    }
     &__description {
-      --banner-font-size: var(--font-weight-regular);
+      display: block;
+      --banner-font-size: var(--font-base);
+      --banner-font-weight: var(--font-light);
     }
     &__call-to-action {
-      --banner-font-size: var(--font-weight-regular);
+      display: block;
       --button-width: 10.75rem;
+      --banner-font-size: var(--font-base);
+      --banner-font-weight: var(--font-semibold);
+    }
+    &__bullets {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 0 0 3.125rem 0;
     }
   }
   &--right {
-    --banner-justify-content: right;
+    // justify-content: right;
+    padding: 0 3.125rem calc(50%) 0;
   }
   &--slim {
     --banner-min-height: 25rem;
