@@ -3,40 +3,39 @@
 .sf-banner {
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
-  background: var(
-    --banner-background,
-    var(--banner-background-color, transparent)
-    var(--banner-background-image, var(--background-image))
-    var(--banner-background-position, center)
-    var(--banner-background-repeat, no-repeat)
-    var(--banner-background-size, auto)
-  );
+  justify-content: var(--banner-justify-content, left);
+  background-color: var(--banner-background-color, transparent);
+  background-position: var(--banner-background-position, center);
+  background-repeat: var(--banner-background-repeat, no-repeat);
+  background-size: var(--banner-background-size, cover);
+  background-image: var(--background-image);
   color: var(--banner-color, var(--c-text));
   width: var(--banner-size, var(--banner-width, 100%));
-  height: var(--banner-size, var(--banner-height, 14rem));
-  padding: var(--banner-padding, 3.125rem 0 0 calc(var(--banner-width) / 2));
+  min-height: var(--banner-size, var(--banner-min-height, 14rem));
+  padding: var(--banner-padding, 3rem 0 0 var(--spacer-small));
+  @include font(
+    --banner-font,
+    normal,
+    var(--h1-font-size),
+    1.2,
+    var(--body-font-family-secondary)
+  );
   &__container {
     display: flex;
     justify-content: left;
     flex-direction: column;
     color: var(--banner__container-color, var(--c-text));
-    @include font(
-      --banner-font,
-      normal,
-      var(--h1-font-size),
-      1.2,
-      var(--body-font-family-secondary)
-    );
   }
   &__subtitle {
-    --banner-font-size: 10px; //TODO: change to variable when it is prepared
+    font-size: 10px; //TODO: change to variable when it is prepared
     --banner-font-line-height: 1.4;
     letter-spacing: 0.1px;
+    margin: var(--banner-subtitle-margin, 0 0 0.6875rem 0);
   }
   &__title {
     --banner__container-color: var(--c-link);
-    text-transform: var(--banner-title-transform, uppercase);
+    text-transform: var(--banner-title-transform, none);
+    margin: var(--banner-title-margin, 0);
   }
   &__description {
     display: none;
@@ -48,7 +47,7 @@
     display: none;
   }
   @include for-desktop {
-    --banner-background-image: var(--background-desktop-image);
+    --background-image: var(--background-desktop-image);
     &__description {
       --banner-font-size: var(--font-weight-regular);
     }
@@ -57,10 +56,10 @@
       --button-width: 10.75rem;
     }
   }
-  &--left {
-    --banner-padding: 3.125rem 0 0 3.125rem;
+  &--right {
+    --banner-justify-content: right;
   }
   &--slim {
-    --banner-height: 25rem;
+    --banner-min-height: 25rem;
   }
 }

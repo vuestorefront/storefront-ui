@@ -26,9 +26,7 @@
         </SfButton>
       </slot>
     </div>
-    <!-- <slot name="bullets" v-bind="{ bullets }"> -->
     <SfBullets class="sf-banner__bullets" :total="3"> </SfBullets>
-    <!-- </slot> -->
   </section>
 </template>
 <script>
@@ -79,11 +77,6 @@ export default {
       type: [String, Object],
       default: ""
     }
-    /* bullets image */
-    // bullets: {
-    //   type: String,
-    //   default: ""
-    // }
   },
   computed: {
     ...mapMobileObserver(),
