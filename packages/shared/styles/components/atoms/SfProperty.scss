@@ -6,9 +6,9 @@
   @include font(
     --property-font,
     var(--font-weight-regular),
-    var(--font-size-extra-small),
+    var(--font-2xs),
     1.2,
-    var(--body-font-family-secondary)
+    var(--font-family-secondary)
   );
   &__name {
     margin: var(--property-name-margin, 0 var(--spacer-extra-small) 0 0);
@@ -18,16 +18,19 @@
       content: var(--property-name-content, ":");
     }
   }
+  @include for-desktop {
+    &--large {
+      font-size: var(--property-large-font-size, 22px);
+      .sf-property__value {
+        font-weight: var(--font-semibold);
+      }
+    }
+  }
   &--full-width {
     justify-content: space-between;
     width: 100%;
   }
-  &--large {
-    --property-font-size: var(--h2-font-size);
-    .sf-property__value {
-      font-weight: 600;
-    }
-  }
+
   &--value-in-middle {
     .sf-property__value {
       position: absolute;
