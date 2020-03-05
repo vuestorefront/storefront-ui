@@ -68,7 +68,7 @@ You can override them to shape the look and feel of your project. There are two 
 - **Global** variables are representing project style guide. They are setting up global properties like like colors or typography. For example, the following code will change primary font in your whole project to `Raleway`.
 ```css
 :root {
-    --body-font-family-primary: 'Raleway', serif;
+    --font-family-primary: 'Raleway', serif;
 }
 ```
 - **Component-specific** variables are meant to customize behavior of certain component type (like `SfButton`) and cover edge cases of any project. 

@@ -13,30 +13,39 @@
   color: var(--banner-color, var(--c-text));
   width: var(--banner-size, var(--banner-width, 100%));
   min-height: var(--banner-size, var(--banner-min-height, 14rem));
-  padding: var(--banner-padding, 3rem 0 0 var(--spacer-sm));
-  @include font(
-    --banner-font,
-    normal,
-    var(--h1-font-size),
-    1.2,
-    var(--font-family-secondary)
-  );
   &__container {
     display: flex;
     justify-content: left;
     flex-direction: column;
-    color: var(--banner__container-color, var(--c-text));
+    padding: var(
+      --banner-container-padding,
+      2.9375rem calc(50%) 0 var(--spacer-sm)
+    );
   }
   &__subtitle {
-    font-size: var(--font-2xs);
-    --banner-font-line-height: 1.4;
+    @include font(
+      --banner-subtitle-font,
+      var(--font-normal),
+      var(--font-2xs),
+      1.4,
+      var(--font-family-secondary)
+    );
+    color: var(--banner-subtitle-color, var(--c-text-muted));
     letter-spacing: 0.1px;
-    margin: var(--banner-subtitle-margin, 0 0 0.6875rem 0);
+    margin: var(--banner-subtitle-margin, 0 0 0 0);
   }
   &__title {
-    --banner__container-color: var(--c-link);
+    @include font(
+      --banner-title-font,
+      var(--font-semibold),
+      var(--h2-font-size),
+      1.4,
+      var(--font-family-secondary)
+    );
+    letter-spacing: 0.1px;
     text-transform: var(--banner-title-transform, none);
-    margin: var(--banner-title-margin, 0);
+    color: var(--banner-title-color, var(--c-tex));
+    margin: var(--banner-title-margin, 0.6875rem 0 0 0);
   }
   &__description {
     display: none;
@@ -48,33 +57,42 @@
     display: none;
   }
   @include for-desktop {
+    position: relative;
     --background-image: var(--background-desktop-image);
+    --banner-min-height: 36.625rem;
+    --banner-container-padding: 11.25rem calc(50%) 0 6.25rem;
     &__title {
       --banner-font-size: var(--h1-font-size);
+      --banner-title-margin: 1.625rem 0 0 0;
     }
     &__description {
       display: block;
-      --banner-font-size: var(--font-base);
-      --banner-font-weight: var(--font-light);
+      @include font(
+        --banner-description-font,
+        var(--font-light),
+        var(--font-base),
+        1.7,
+        var(--font-family-primary)
+      );
+      margin: var(--banner-description-margin, var(--spacer-sm) 0 1.375rem 0);
     }
     &__call-to-action {
       display: block;
       --button-width: 10.75rem;
-      --banner-font-size: var(--font-base);
-      --banner-font-weight: var(--font-semibold);
     }
     &__bullets {
       display: flex;
-      flex-direction: row;
-      justify-content: center;
-      margin: 0 0 3.125rem 0;
+      position: absolute;
+      bottom: 3.125rem;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
   &--right {
-    // justify-content: right;
-    padding: 0 3.125rem calc(50%) 0;
+    --banner-container-padding: 11.25rem 3.125rem 0 calc(50%);
   }
   &--slim {
     --banner-min-height: 25rem;
+    --banner-container-padding: 5.375rem 0 0 3.125rem;
   }
 }
