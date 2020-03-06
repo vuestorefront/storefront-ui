@@ -2,38 +2,49 @@
 
 .sf-heading {
   box-sizing: border-box;
-  padding: var(--heading-padding, 0 0 var(--spacer-extra-small) 0);
+  padding: var(--heading-padding, 0 0 var(--spacer-xs) 0);
   @include border(--heading-border, 0 0 1px 0, solid, var(--c-light));
   text-align: var(--heading-text-align, left);
-
   &__title {
     margin: var(--heading-title-margin, 0);
-    @include font(--heading-title-font, var(--font-weight-extra-bold), var(--h1-font-size), 1.6, var(--body-font-family-secondary));
+    @include font(
+      --heading-title-font,
+      var(--font-semibold),
+      var(--h1-font-size),
+      1.6,
+      var(--font-family-secondary)
+    );
     &--h2 {
       --heading-title-font-size: var(--h2-font-size);
-      --heading-title-font-weight: var(--font-weight-bold);
+      --heading-title-font-weight: var(--font-regular);
     }
     &--h3 {
       --heading-title-font-size: var(--h3-font-size);
-      --heading-title-font-weight: var(--font-weight-bold);
+      --heading-title-font-weight: var(--font-medium);
     }
     &--h4 {
       --heading-title-font-size: var(--h4-font-size);
-      --heading-title-font-weight: var(--font-weight-regular);
+      --heading-title-font-weight: var(--font-regular);
     }
     &--h5 {
       --heading-title-font-size: var(--h5-font-size);
-      --heading-title-font-weight: var(--font-weight-bold);
+      --heading-title-font-weight: var(--font-bold);
     }
     &--h6 {
       --heading-title-font-size: var(--h6-font-size);
-      --heading-title-font-weight: var(--font-weight-regular);
+      --heading-title-font-weight: var(--font-regular);
     }
   }
 
   &__subtitle {
     margin: var(--heading-subtitle-margin);
-    @include font(--heading-subtitle-font, var(--font-weight-light), var(--font-size-big), 1.6, var(--body-font-family-secondary));
+    @include font(
+      --heading-subtitle-font,
+      var(--font-light),
+      var(--font-size-big),
+      1.6,
+      var(--font-family-secondary)
+    );
   }
 
   @include for-desktop {
@@ -41,9 +52,10 @@
     --heading-border: 0;
     --heading-text-align: center;
   }
-  
+
   &--no-underline {
     --heading-border: 0;
+    --heading-padding: 0;
   }
   &--left {
     --heading-text-align: left;

@@ -11,7 +11,6 @@
     position: absolute;
     top: var(--input-label-top, 50%);
     color: var(--input-label-color, inherit);
-    left: var(--input-label-left, 0);
     transform: var(
       --input-label-transform,
       translate3d(0, calc(var(--input-label-top, 50%) * -1), 0)

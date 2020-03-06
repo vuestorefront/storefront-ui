@@ -9,7 +9,7 @@
       300,
       var(--font-size-regular),
       normal,
-      var(--body-font-family-primary)
+      var(--font-family-primary)
     )
   );
   &__title {
@@ -76,7 +76,7 @@
           300,
           var(--font-size-small),
           normal,
-          var(--body-font-family-primary)
+          var(--font-family-primary)
         )
       );
       &-media {
@@ -100,7 +100,7 @@
                 500,
                 var(--font-size-big),
                 normal,
-                var(--body-font-family-secondary)
+                var(--font-family-secondary)
               )
             );
           }
@@ -142,7 +142,7 @@
                 300,
                 var(--font-size-small),
                 normal,
-                var(--body-font-family-secondary)
+                var(--font-family-secondary)
               )
             );
           }
@@ -167,7 +167,7 @@
     --store-item-info-heading-name-font-size: var(--font-size-regular);
     --store-item-info-contact-span-font-size: var(--font-size-extra-small);
     --store-item-info-contact-span-fon-family: var(
-      --body-font-family-secondary
+      --font-family-secondary
     );
   }
 }
