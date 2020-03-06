@@ -41,12 +41,14 @@
         500,
         var(--font-size-small),
         1.6,
-        var(--body-font-family-secondary)
+        var(--font-family-secondary)
       )
     );
   }
 }
 .sf-header {
+  position: relative;
+  z-index: var(--header-z-index, 1);
   &__sticky-container {
     box-sizing: border-box;
     position: var(--header-sticky-container-position, relative);
