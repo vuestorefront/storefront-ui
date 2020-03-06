@@ -5,18 +5,19 @@
     margin: var(--price-margin);
     color: var(--price-color, var(--c-text));
     text-decoration: var(--price-text-decoration);
+    letter-spacing: 0.02rem;
     @include font(
       --price-font,
-      var(--font-weight-bold),
-      var(--font-size-big),
+      var(--font-medium),
+      var(--font-lg),
       1.6,
-      var(--body-font-family-secondary)
+      var(--font-family-secondary)
     );
     &--old {
       --price-color: var(--c-danger);
+      --price-margin: 0 var(--spacer-xs) 0 0;
       --price-text-decoration: line-through;
-      --price-font-weight: var(--font-weight-light);
-      --price-margin: 0 var(--spacer-extra-small) 0 0;
+      --price-font-weight: var(--font-light);
     }
   }
 }
