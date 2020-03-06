@@ -2,10 +2,10 @@
 
 .sf-banner {
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
+  display: var(--banner-display, flex);
+  flex-direction: var(--banner-flex-direction, column);
   justify-content: var(--banner-justify-content, left);
-  background-color: var(--banner-background-color, transparent);
+  background-color: var(--background-color);
   background-position: var(--banner-background-position, center);
   background-repeat: var(--banner-background-repeat, no-repeat);
   background-size: var(--banner-background-size, cover);
@@ -17,10 +17,7 @@
     display: flex;
     justify-content: left;
     flex-direction: column;
-    padding: var(
-      --banner-container-padding,
-      2.9375rem calc(50%) 0 var(--spacer-sm)
-    );
+    margin: var(--banner-container-margin, 3.125rem 0 0 3.125rem);
   }
   &__subtitle {
     @include font(
@@ -30,43 +27,43 @@
       1.4,
       var(--font-family-secondary)
     );
-    color: var(--banner-subtitle-color, var(--c-text-muted));
+    color: var(
+      --banner-color,
+      var(--banner-subtitle-color, var(--c-text-muted))
+    );
     letter-spacing: 0.1px;
-    margin: var(--banner-subtitle-margin, 0 0 0 0);
+    margin: var(--banner-subtitle-margin, 0);
   }
   &__title {
     @include font(
       --banner-title-font,
       var(--font-semibold),
-      var(--h2-font-size),
+      42px,
       1.4,
       var(--font-family-secondary)
     );
     letter-spacing: 0.1px;
-    text-transform: var(--banner-title-transform, none);
-    color: var(--banner-title-color, var(--c-tex));
+    text-transform: var(--banner-title-transform, uppercase);
+    color: var(--banner-color, var(--banner-title-color, var(--c-text)));
     margin: var(--banner-title-margin, 0.6875rem 0 0 0);
   }
   &__description {
-    display: none;
+    display: var(--banner-display-description, none);
   }
   &__call-to-action {
-    display: none;
-  }
-  &__bullets {
-    display: none;
+    display: var(--banner-display-call-to-action, none);
   }
   @include for-desktop {
-    position: relative;
     --background-image: var(--background-desktop-image);
-    --banner-min-height: 36.625rem;
-    --banner-container-padding: 11.25rem calc(50%) 0 6.25rem;
+    --banner-min-height: 25rem;
+    --banner-container-margin: 5.375rem calc(50%) 0 3.125rem;
     &__title {
       --banner-font-size: var(--h1-font-size);
       --banner-title-margin: 1.625rem 0 0 0;
+      --banner-title-transform: none;
     }
     &__description {
-      display: block;
+      --banner-display-description: block;
       @include font(
         --banner-description-font,
         var(--font-light),
@@ -75,30 +72,22 @@
         var(--font-family-primary)
       );
       margin: var(--banner-description-margin, var(--spacer-sm) 0 1.375rem 0);
+      color: var(
+        --banner-color,
+        var(--banner-description-color, var(--c-text))
+      );
     }
     &__call-to-action {
-      display: block;
+      --banner-display-call-to-action: block;
       --button-width: 10.75rem;
     }
-    &__bullets {
-      display: flex;
-      position: absolute;
-      bottom: 3.125rem;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    &--slim {
-      --banner-min-height: 25rem;
-      --banner-container-padding: 5.375rem 0 0 3.125rem;
-      .sf-bullets.sf-banner__bullets {
-        display: none;
-      }
+    &--square {
+      --banner-min-height: 29.5rem;
+      --banner-width: 36.875rem;
+      --banner-container-margin: var(--spacer-2xl) 0 0 3.125rem;
     }
     &--right {
-      --banner-container-padding: 11.25rem 3.125rem 0 calc(50%);
-      &.sf-banner--slim {
-        --banner-container-padding: 5.375rem 3.125rem 0 calc(50%);
-      }
+      --banner-container-margin: 5.375rem 3.125rem 0 calc(50%);
     }
   }
 }

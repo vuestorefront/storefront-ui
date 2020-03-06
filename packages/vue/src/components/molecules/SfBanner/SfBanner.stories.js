@@ -17,7 +17,7 @@ storiesOf("Molecules|Banner", module)
           "CSS Modifiers",
           {
             "sf-banner--right": "sf-banner--right",
-            "sf-banner--slim": "sf-banner--slim"
+            "sf-banner--square": "sf-banner--square"
           },
           "",
           { display: "multi-select" },
@@ -74,7 +74,7 @@ storiesOf("Molecules|Banner", module)
           "CSS Modifiers",
           {
             "sf-banner--right": "sf-banner--right",
-            "sf-banner--slim": "sf-banner-slim"
+            "sf-banner--square": "sf-banner-square"
           },
           "",
           { display: "multi-select" },
@@ -134,7 +134,7 @@ storiesOf("Molecules|Banner", module)
           "CSS Modifiers",
           {
             "sf-banner--right": "sf-banner--right",
-            "sf-banner--slim": "sf-banner-slim"
+            "sf-banner--square": "sf-banner-square"
           },
           "",
           { display: "multi-select" },
@@ -194,7 +194,7 @@ storiesOf("Molecules|Banner", module)
           "CSS Modifiers",
           {
             "sf-banner--right": "sf-banner--right",
-            "sf-banner--slim": "sf-banner-slim"
+            "sf-banner--square": "sf-banner-square"
           },
           "",
           { display: "multi-select" },
@@ -254,7 +254,7 @@ storiesOf("Molecules|Banner", module)
           "CSS Modifiers",
           {
             "sf-banner--right": "sf-banner--right",
-            "sf-banner--slim": "sf-banner-slim"
+            "sf-banner--square": "sf-banner-square"
           },
           "",
           { display: "multi-select" },

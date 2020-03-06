@@ -26,12 +26,10 @@
         </SfButton>
       </slot>
     </div>
-    <SfBullets class="sf-banner__bullets" :total="3"> </SfBullets>
   </section>
 </template>
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfBullets from "../../atoms/SfBullets/SfBullets.vue";
 import {
   mapMobileObserver,
   unMapMobileObserver
@@ -40,8 +38,7 @@ import {
 export default {
   name: "SfBanner",
   components: {
-    SfButton,
-    SfBullets
+    SfButton
   },
   props: {
     /**
