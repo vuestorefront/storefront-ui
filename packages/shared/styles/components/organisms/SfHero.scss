@@ -35,7 +35,7 @@
         500,
         var(--font-size-extra-small),
         1.6,
-        var(--body-font-family-secondary)
+        var(--font-family-secondary)
       )
     );
     text-transform: var(--hero-item-subtitle-text-transform, uppercase);
@@ -50,7 +50,7 @@
         500,
         var(--h1-font-size),
         1.6,
-        var(--body-font-family-secondary)
+        var(--font-family-secondary)
       )
     );
   }
