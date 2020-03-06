@@ -42,8 +42,8 @@ storiesOf("Molecules|Review", module)
       :max-rating="maxRating"
       :rating="rating"
       :char-limit="charLimit"
-      read-more-text="readMoreText"
-      hide-full-text="hideFullText" />`
+      :read-more-text="readMoreText"
+      :hide-full-text="hideFullText" />`
   }))
   .add("[slot] author", () => ({
     components: { SfReview },
@@ -84,8 +84,8 @@ storiesOf("Molecules|Review", module)
       :max-rating="maxRating"
       :rating="rating"
       :char-limit="charLimit"
-      read-more-text="readMoreText"
-      hide-full-text="hideFullText">
+      :read-more-text="readMoreText"
+      :hide-full-text="hideFullText">
       <template #author="{author}">
         CUSTOM AUTHOR
       </template>  
@@ -130,8 +130,8 @@ storiesOf("Molecules|Review", module)
       :max-rating="maxRating"
       :rating="rating"
       :char-limit="charLimit"
-      read-more-text="readMoreText"
-      hide-full-text="hideFullText">
+      :read-more-text="readMoreText"
+      :hide-full-text="hideFullText">
       <template #info="{rating, maxRating, date}">
         CUSTOM INFO
       </template>  
@@ -176,8 +176,8 @@ storiesOf("Molecules|Review", module)
       :max-rating="maxRating"
       :rating="rating"
       :char-limit="charLimit"
-      read-more-text="readMoreText"
-      hide-full-text="hideFullText">
+      :read-more-text="readMoreText"
+      :hide-full-text="hideFullText">
       <template #message="{finalMessage, buttonText}">
         CUSTOM MESSAGE
       </template>  
