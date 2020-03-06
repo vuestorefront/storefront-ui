@@ -11,20 +11,20 @@
       &::before {
         padding: var(
           --breadcrumbs-list-item-before-padding,
-          0 var(--spacer-small)
+          0 var(--spacer-sm)
         );
         content: var(--breadcrumbs-list-item-seperator, "|");
-        color: var(--breadcrumbs-list-item, var(--c-text-muted));
+        color: var(--breadcrumbs-list-item-brfore-color, var(--c-text-muted));
       }
     }
   }
   &__breadcrumb {
     @include font(
       --breadcrumbs-font,
-      var(--font-weight-regular),
-      var(--font-size-small),
+      var(--font-normal),
+      var(--font-sm),
       1.6,
-      var(--body-font-family-secondary)
+      var(--font-family-secondary)
     );
     color: var(--breadcrumbs-breadcrumb-color, var(--c-text-muted));
     cursor: pointer;
