@@ -87,12 +87,18 @@
       left: 50%;
       transform: translateX(-50%);
     }
-  }
-  &--right {
-    --banner-container-padding: 11.25rem 3.125rem 0 calc(50%);
-  }
-  &--slim {
-    --banner-min-height: 25rem;
-    --banner-container-padding: 5.375rem 0 0 3.125rem;
+    &--slim {
+      --banner-min-height: 25rem;
+      --banner-container-padding: 5.375rem 0 0 3.125rem;
+      .sf-bullets.sf-banner__bullets {
+        display: none;
+      }
+    }
+    &--right {
+      --banner-container-padding: 11.25rem 3.125rem 0 calc(50%);
+      &.sf-banner--slim {
+        --banner-container-padding: 5.375rem 3.125rem 0 calc(50%);
+      }
+    }
   }
 }
