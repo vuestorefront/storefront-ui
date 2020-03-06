@@ -2,7 +2,7 @@
   <div id="cart">
     <SfSidebar
       :visible="isCartSidebarOpen"
-      heading-title="My Cart"
+      title="My Cart"
       class="sf-sidebar--right"
       @close="() => {}"
     >
@@ -177,7 +177,7 @@ export default {
   display: flex;
   flex-direction: column;
   &__total-items {
-    font: 400 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
+    font: 400 var(--font-size-big) / 1.6 var(--font-family-secondary);
     margin: 0;
   }
   &__total-price {
@@ -201,11 +201,11 @@ export default {
   }
   &__label {
     margin: var(--spacer-extra-big) 0 0 0;
-    font: 400 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
+    font: 400 var(--font-size-big) / 1.6 var(--font-family-secondary);
   }
   &__description {
     margin: var(--spacer-big) 0 0 0;
-    font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-primary);
+    font: 300 var(--font-size-regular) / 1.6 var(--font-family-primary);
   }
   &__icon {
     width: 18.125rem;
@@ -222,7 +222,7 @@ export default {
 }
 .collected-product {
   margin: var(--spacer-big) 0;
-  font: 300 var(--font-size-extra-small) / 1.6 var(--body-font-family-secondary);
+  font: 300 var(--font-size-extra-small) / 1.6 var(--font-family-secondary);
   &__properties {
     margin: var(--spacer-big) 0 0 0;
   }
