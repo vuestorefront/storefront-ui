@@ -13,7 +13,7 @@
     var(--font-family-secondary)
   );
   &__message {
-    margin: var(--alert-message-margin, 0 0 0 0.625rem);
+    margin: var(--alert-message-margin, 0 0 0 var(--spacer-xs));
   }
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
