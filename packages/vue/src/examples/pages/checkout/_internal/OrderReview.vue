@@ -134,14 +134,14 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font: 500 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
+    font: 500 var(--font-size-big) / 1.6 var(--font-family-secondary);
     h3 {
       font: inherit;
     }
   }
 }
 .content {
-  font: 300 var(--font-size-extra-small) / 1.6 var(--body-font-family-secondary);
+  font: 300 var(--font-size-extra-small) / 1.6 var(--font-family-secondary);
   &__label {
     font-weight: 400;
   }

@@ -12,7 +12,9 @@ storiesOf("Atoms|Chevron", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-chevron--top": "sf-chevron--top"
+            "sf-chevron--top": "sf-chevron--top",
+            "sf-chevron--left": "sf-chevron--left",
+            "sf-chevron--right": "sf-chevron--right"
           },
           "",
           { display: "multi-select" },
@@ -33,7 +35,9 @@ storiesOf("Atoms|Chevron", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-chevron--top": "sf-chevron--top"
+            "sf-chevron--top": "sf-chevron--top",
+            "sf-chevron--left": "sf-chevron--left",
+            "sf-chevron--right": "sf-chevron--right"
           },
           "",
           { display: "multi-select" },

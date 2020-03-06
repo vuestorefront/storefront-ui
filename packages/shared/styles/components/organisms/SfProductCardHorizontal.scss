@@ -40,7 +40,7 @@
     flex-wrap: wrap;
     width: 100%;
     padding: var(--product-card-horizontal-main-padding, 0 0 0 var(--spacer-medium));
-  
+
   }
 
   &__header {
@@ -62,7 +62,7 @@
     border: 0;
     background-color: transparent;
     transition: var(
-      --product-card-horizontal-wishlist-icon-transition, 
+      --product-card-horizontal-wishlist-icon-transition,
       opacity 150ms ease-in-out
     );
     opacity: var(--product-card-horizontal-wishlist-icon-opacity);
@@ -83,7 +83,7 @@
         300,
         var(--font-size-small),
         1.6,
-        var(--body-font-family-secondary)
+        var(--font-family-secondary)
       )
     )
   }
