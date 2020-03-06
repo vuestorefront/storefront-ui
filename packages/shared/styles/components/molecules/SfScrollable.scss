@@ -6,12 +6,9 @@
   &__content {
     max-height: var(--scrollable-max-height, 5rem);
     .simplebar-scrollbar:before {
-      width: var(--scrollable-width, 0.25rem);
-      background: var(--scrollable-background, var(--c-dark));
+      width: 4px;
+      background: var(--c-gray-variant);
       border-radius: 10px;
-    }
-    .simplebar-visible:before {
-      opacity: 1;
     }
   }
   &--is-open {
