@@ -2,9 +2,9 @@
   <section
     class="sf-call-to-action"
     :style="
-      'background-image: url(' +
+      '--call-to-action-background-image: url(' +
         image +
-        '); background-color: ' +
+        '); --call-to-action-background-color: ' +
         background +
         ';'
     "
