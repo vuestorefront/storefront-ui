@@ -165,14 +165,14 @@ export default {
 }
 .message {
   margin: 0 0 var(--spacer-extra-big) 0;
-  font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
+  font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
   &__label {
     font-weight: 500;
   }
 }
 .notice {
   margin: var(--spacer-big) 0 0 0;
-  font: 300 var(--font-size-extra-small) / 1.6 var(--body-font-family-secondary);
+  font: 300 var(--font-size-extra-small) / 1.6 var(--font-family-secondary);
 }
 a {
   color: var(--c-text-muted);

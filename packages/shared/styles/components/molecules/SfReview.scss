@@ -12,7 +12,7 @@
         500,
         var(--font-size-extra-big),
         1.6,
-        var(--body-font-family-primary)
+        var(--font-family-primary)
       )
     );
     text-transform: var(--review-author-text-transform, capitalize);
@@ -33,7 +33,7 @@
         var(--body-font-weight-primary),
         var(--font-size-regular),
         1.6,
-        var(--body-font-family-secondary)
+        var(--font-family-secondary)
       )
     );
     color: var(--review-date-color, var(--c-dark-variant));
@@ -48,7 +48,7 @@
         var(--body-font-weight-primary),
         var(--font-size-big),
         1.6,
-        var(--body-font-family-secondary)
+        var(--font-family-secondary)
       )
     );
   }
@@ -60,7 +60,7 @@
         var(--body-font-weight-primary),
         var(--font-size-big),
         1.6,
-        var(--body-font-family-primary)
+        var(--font-family-primary)
       )
     );
     color: var(--review-read-more-color, var(--c-primary));
