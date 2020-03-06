@@ -6,18 +6,16 @@
     width: 100%;
     display: flex;
     flex-flow: var(--steps-flex-flow, row nowrap);
-    justify-content: var(--steps-justify-content, flex-start);
-    align-items: var(--steps-align-items, center);
     @include border(--steps-border, 0 0 0.125rem 0, solid, var(--c-light));
   }
   &__step {
     position: relative;
-    padding: var(--steps-step-padding, 1.25rem 0);
+    padding: var(--steps-step-padding, 0 0 0.5rem 0);
     @include font(
       --step-font,
       var(--font-normal),
       var(--font-lg),
-      1.5,
+      1.6,
       var(--font-family-secondary)
     );
     color: var(--steps-step-color, var(--c-text-muted));
@@ -26,9 +24,24 @@
     &--current {
       --steps-step-color: var(--c-text);
       --steps-step-cursor: default;
+      --steps-step-after-background: var(--c-black);
+    }
+    &--done {
+      --steps-step-color: var(--c-text);
+      --steps-step-after-background: var(--c-black);
     }
     &--disabled {
       --steps-step-cursor: not-allowed;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      border-radius: 100%;
+      bottom: -5px;
+      left: 48%;
+      width: 8px;
+      height: 8px;
+      background: var(--steps-step-after-background, transparent);
     }
   }
   &__progress {
@@ -47,7 +60,6 @@
     display: block;
     text-align: center;
   }
-
   &__content {
     padding: var(--steps-content-padding, 4.5rem 0 0 0);
   }
