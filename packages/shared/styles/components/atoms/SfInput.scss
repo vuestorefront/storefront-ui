@@ -69,8 +69,6 @@
     margin: var(--input-margin, 0 0 var(--spacer-xs) 0);
   }
 
-
-
   input {
     display: block;
     box-sizing: border-box;
@@ -127,7 +125,6 @@
     top: var(--input-icon-top, 50%);
     right: var(--input-icon-right, var(--spacer-xs));
     transform: translate3d(0, -50%, 0);
-    transition: all 150ms linear;
     &:hover {
       --button-background: transparent;
       --button-box-shadow: none;
