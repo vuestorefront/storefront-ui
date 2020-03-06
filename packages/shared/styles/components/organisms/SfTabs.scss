@@ -11,7 +11,7 @@
       400,
       var(--font-size-regular),
       1.6,
-      var(--body-font-family-secondary)
+      var(--font-family-secondary)
     )
   );
   &__title {
@@ -31,7 +31,7 @@
         400,
         var(--font-size-big),
         1.6,
-        var(--body-font-family-secondary)
+        var(--font-family-secondary)
       )
     );
     transition: var(
