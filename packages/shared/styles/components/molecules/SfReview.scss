@@ -25,7 +25,7 @@
     display: var(--review-rating-display, inline-block);
   }
   &__info {
-    margin: var(--review-info-margin, var(--spacer-xs) 0 var(--spacer-sm) 0);
+    margin: var(--review-info-margin, var(--spacer-2xs) 0 0 0);
   }
   &__date {
     display: inline;
@@ -42,6 +42,7 @@
   }
   &__message {
     display: var(--review-message-display, block);
+    margin: var(--review-message-margin, var(--spacer-sm) 0);
     color: var(--review-message-color, var(--c-text));
     @include font(
       --review-message-font,
@@ -53,6 +54,7 @@
   }
   &__read-more {
     padding: 0;
+    margin: var(--review-read-more-margin);
     background: var(--review-read-more-background, transparent);
     color: var(--review-read-more-color, var(--c-text));
     @include font(
@@ -62,10 +64,13 @@
       1.6,
       var(--font-family-secondary)
     );
+    border: 0;
+    vertical-align: text-top;
     text-decoration: var(--review-read-more-text-decoration, underline);
     cursor: var(--review-read-more-cursor, pointer);
   }
   @include for-desktop {
-    --review-message-display: inline;
+    --review-message-display: inline-block;
+    --review-read-more-margin: 0 0 0 var(--spacer-xs);
   }
 }
