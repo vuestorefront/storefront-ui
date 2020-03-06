@@ -10,6 +10,7 @@
     <slot name="regular" v-bind="{ regular, special }">
       <span v-if="!special" class="sf-price__value">{{ regular }}</span>
     </slot>
+    <!--@slot Custom special price -->
     <slot name="special" v-bind="{ special }">
       <ins v-if="special" class="sf-price__value sf-price__value--special">{{
         special
