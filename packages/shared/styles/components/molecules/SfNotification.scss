@@ -22,7 +22,7 @@
       400,
       var(--font-size-regular),
       1.6,
-      var(--body-font-family-primary)
+      var(--font-family-primary)
     )
   );
   opacity: var(--notification-opacity, 0.8);
@@ -35,7 +35,7 @@
         300,
         var(--font-size-big),
         1.6,
-        var(--body-font-family-primary)
+        var(--font-family-primary)
       )
     );
     &::after {
