@@ -10,7 +10,7 @@
   }
   &__step {
     position: relative;
-    padding: var(--steps-step-padding, 0 0 0.5rem 0);
+    padding: var(--steps-step-padding, 0 0 var(--spacer-xs) 0);
     @include font(
       --step-font,
       var(--font-normal),
@@ -37,10 +37,11 @@
       content: "";
       position: absolute;
       border-radius: 100%;
-      bottom: -5px;
-      left: 48%;
-      width: 8px;
-      height: 8px;
+      bottom: -2px;
+      bottom: -0.22rem;
+      left: 49%;
+      width: 0.375rem;
+      height: 0.375rem;
       background: var(--steps-step-after-background, transparent);
     }
   }
@@ -48,6 +49,7 @@
     content: "";
     position: absolute;
     left: 0;
+    bottom: 0;
     bottom: var(--steps-progress-bottom, -0.09375rem);
     display: block;
     height: var(--steps-progress-height, 0.125rem);
