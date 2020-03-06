@@ -11,6 +11,8 @@ describe("SfBreadcrumbs.vue", () => {
   it("renders breadcrumbs text", () => {
     const msg = "HelloWorld";
     const component = shallowMount(SfBreadcrumbs, { propsData });
-    expect(component.find(".sf-breadcrumbs__current").text()).toMatch(msg);
+    expect(
+      component.find(".sf-breadcrumbs__breadcrumb--current").text()
+    ).toMatch(msg);
   });
 });

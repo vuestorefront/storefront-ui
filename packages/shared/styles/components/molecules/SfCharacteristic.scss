@@ -13,7 +13,7 @@
     @include font(
       --characteristic-title-font,
       var(--font-bold),
-      var(--h5-font-size),
+      var(--font-sm),
       1.6,
       var(--font-family-secondary)
     );

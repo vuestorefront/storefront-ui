@@ -5,7 +5,7 @@
   box-sizing: border-box;
   width: var(--badge-width);
   height: var(--badge-height);
-  padding: var(--badge-padding, var(--spacer-extra-small) var(--spacer-small));
+  padding: var(--badge-padding, var(--spacer-xs) var(--spacer-sm));
   background: var(--badge-background, var(--c-primary));
   border: var(--badge-border);
   border-radius: var(--badge-border-radius);
@@ -14,10 +14,10 @@
 
   @include font(
     --badge-font,
-    var(--font-weight-bold),
-    var(--font-size-small),
+    var(--font-medium),
+    var(--font-xs),
     1.6,
-    var(--body-font-family-secondary)
+    var(--font-family-secondary)
   );
 
   &--full-width {

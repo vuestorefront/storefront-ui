@@ -57,13 +57,13 @@ We are currently in the process of building the library. If you want to help in 
 [These awesome people](https://docs.storefrontui.io/meet-the-team.html) are maintaining Storefront UI. They're ensuring that it performs smooth and looks awesome!
 
 - Filip Rakowski ([@filrak](https://github.com/filrak))
-- Przemek Spaczek ([@pspaczek](https://github.com/pspaczek))
-- Ania Musiał ([@aniamusial](https://github.com/aniamusial))
-- Marta Radziszewska ([@martaradziszewska](https://github.com/martaradziszewska))
 - Leonardo Matos ([@leomp12](https://github.com/leomp12))
+- Przemek Spaczek ([@pspaczek](https://github.com/pspaczek))
 - Maya Shavin ([@mayashavin](https://github.com/mayashavin))
 - Nicolò Maria Mezzopera ([@DonNicoJS](https://github.com/DonNicoJs))
 - Eduard Dopler ([@EduardDopler](https://github.com/EduardDopler))
+- Ania Musiał ([@aniamusial](https://github.com/aniamusial))
+- Marta Radziszewska ([@martaradziszewska](https://github.com/martaradziszewska))
 
 
 ...and amazing [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) who are committing their time to make it better.

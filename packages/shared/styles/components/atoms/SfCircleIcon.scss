@@ -25,11 +25,11 @@
     box-sizing: border-box;
     min-width: var(
       --circle-icon-badge-width,
-      var(--circle-icon-badge-size, 1.1rem)
+      var(--circle-icon-badge-size, 1.2rem)
     );
     min-height: var(
       --circle-icon-badge-height,
-      var(--circle-icon-badge-size, 1.1rem)
+      var(--circle-icon-badge-size, 1.2rem)
     );
     padding: var(--circle-icon-badge-padding, 0 3px);
     border-radius: var(--circle-icon-badge-border-radius, 0.625rem);
@@ -38,10 +38,10 @@
       --circle-icon-badge-font,
       font(
         --circle-icon-bage,
-        300,
+        400,
         var(--font-size-small),
-        1.6,
-        var(--body-font-family-secondary)
+        1.4,
+        var(--font-family-secondary)
       )
     );
     &-enter-active {
