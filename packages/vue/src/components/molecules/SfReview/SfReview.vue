@@ -3,7 +3,10 @@
     <!-- @slot Review author. Slot content will replace default <div> tag (bind 'author' string). -->
     <slot name="author" v-bind="{ author }">
       <div class="sf-review__author">
-        <SfIcon />
+        <!-- @slot Review icon. Slot content can be replaced by custom icon. -->
+        <slot name="icon">
+          <SfIcon class="sf-review__icon" icon="profile" />
+        </slot>
         {{ author }}
       </div>
     </slot>
