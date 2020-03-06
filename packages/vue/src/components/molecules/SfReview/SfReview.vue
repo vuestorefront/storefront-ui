@@ -2,7 +2,10 @@
   <section class="sf-review">
     <!-- @slot Review author. Slot content will replace default <div> tag (bind 'author' string). -->
     <slot name="author" v-bind="{ author }">
-      <div class="sf-review__author">{{ author }}</div>
+      <div class="sf-review__author">
+        <SfIcon />
+        {{ author }}
+      </div>
     </slot>
     <!-- @slot Review information. Slot content will replace default <div> tag and its inner <div> tags (bind 'rating' boolean|number, 'maxRating' number, 'date' string). -->
     <slot name="info" v-bind="{ rating, maxRating, date }">
@@ -10,10 +13,7 @@
         <div :class="{ 'sf-review__rating': rating > 0 && maxRating > 0 }">
           <SfRating v-if="rating" :max="maxRating" :score="rating" />
         </div>
-        <div
-          class="sf-review__date"
-          :class="[rating > 0 && maxRating > 0 ? 'sf-review--inline' : '']"
-        >
+        <div class="sf-review__date">
           {{ date }}
         </div>
       </div>
@@ -35,10 +35,13 @@
 </template>
 <script>
 import SfRating from "../../atoms/SfRating/SfRating.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+
 export default {
   name: "SfReview",
   components: {
-    SfRating
+    SfRating,
+    SfIcon
   },
   props: {
     /**
