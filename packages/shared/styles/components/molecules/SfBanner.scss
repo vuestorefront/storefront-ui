@@ -13,6 +13,7 @@
   color: var(--banner-color, var(--c-text));
   width: var(--banner-size, var(--banner-width, 100%));
   min-height: var(--banner-size, var(--banner-min-height, 14rem));
+  letter-spacing: var(--banner-letter-spacing, 0.1px);
   &__container {
     display: flex;
     justify-content: left;
@@ -31,7 +32,6 @@
       --banner-color,
       var(--banner-subtitle-color, var(--c-text-muted))
     );
-    letter-spacing: 0.1px;
     margin: var(--banner-subtitle-margin, 0);
   }
   &__title {
@@ -42,45 +42,35 @@
       1.4,
       var(--font-family-secondary)
     );
-    letter-spacing: 0.1px;
-    text-transform: var(--banner-title-transform, uppercase);
+    text-transform: var(--banner-title-text-transform, uppercase);
     color: var(--banner-color, var(--banner-title-color, var(--c-text)));
     margin: var(--banner-title-margin, 0.6875rem 0 0 0);
   }
   &__description {
     display: var(--banner-display-description, none);
+    @include font(
+      --banner-description-font,
+      var(--font-light),
+      var(--font-base),
+      1.7,
+      var(--font-family-primary)
+    );
+    color: var(--banner-color, var(--banner-description-color, var(--c-text)));
+    margin: var(--banner-description-margin, var(--spacer-sm) 0 1.375rem 0);
   }
   &__call-to-action {
     display: var(--banner-display-call-to-action, none);
+    --button-width: 10.75rem;
   }
   @include for-desktop {
     --background-image: var(--background-desktop-image);
     --banner-min-height: 25rem;
     --banner-container-margin: 5.375rem calc(50%) 0 3.125rem;
-    &__title {
-      --banner-font-size: var(--h1-font-size);
-      --banner-title-margin: 1.625rem 0 0 0;
-      --banner-title-transform: none;
-    }
-    &__description {
-      --banner-display-description: block;
-      @include font(
-        --banner-description-font,
-        var(--font-light),
-        var(--font-base),
-        1.7,
-        var(--font-family-primary)
-      );
-      margin: var(--banner-description-margin, var(--spacer-sm) 0 1.375rem 0);
-      color: var(
-        --banner-color,
-        var(--banner-description-color, var(--c-text))
-      );
-    }
-    &__call-to-action {
-      --banner-display-call-to-action: block;
-      --button-width: 10.75rem;
-    }
+    --banner-title-font-size: var(--h1-font-size);
+    --banner-title-margin: 1.625rem 0 0 0;
+    --banner-display-description: block;
+    --banner-display-description: block;
+    --banner-display-call-to-action: block;
     &--square {
       --banner-min-height: 29.5rem;
       --banner-width: 36.875rem;
