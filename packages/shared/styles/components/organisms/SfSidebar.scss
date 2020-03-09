@@ -19,7 +19,7 @@
     flex-direction: var(--sidebar-content-flex-direction, column);
     width: var(--sidebar-content-width);
     height: 100%;
-    padding: var(--sidebar-content-padding, var(--spacer-extra-big));
+    padding: var(--sidebar-content-padding, var(--spacer-extra-big) var(--spacer-extra-big) calc(var(--spacer-extra-big) * 2) var(--spacer-extra-big));
     &::-webkit-scrollbar {
       --sidebar-content-width: 0;
     }
@@ -35,6 +35,7 @@
     left: var(--sidebar-circle-icon-left);
     top: var(--sidebar-circle-icon-top, 4.925rem);
   }
+
   &--right {
     --sidebar-aside-left: auto;
     --sidebar-aside-right: 0;
@@ -47,8 +48,10 @@
   &--has-scroll-lock {
     overflow: hidden;
   }
+
   @include for-desktop {
     --sidebar-aside-width: 25.5rem;
+    --sidebar-content-padding: var(--spacer-extra-big);
     --sidebar-circle-icon-top: 5.625rem;
   }
 }
