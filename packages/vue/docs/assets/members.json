@@ -15,7 +15,23 @@
     }
   },
   {
-    "name": "Przemysław Spaczek",
+    "name": "Leonardo Matos",
+    "role": "Maintainer",
+    "work": {
+      "title": "CEO",
+      "org": "E-com Club",
+      "orgUrl": "https://github.com/ecomclub"
+    },
+    "location": "BH - Minas Gerais - Brasil",
+    "languages": ["pt", "en"],
+    "links": ["https://ecom.bhz.br"],
+    "socials": {
+      "github": "leomp12",
+      "linkedin": "leonardo-matos-13248810b"
+    }
+  },
+  {
+    "name": "Przemek Spaczek",
     "role": "Maintainer",
     "work": {
       "title": "Frontend Developer",
@@ -27,36 +43,6 @@
     "socials": {
       "github": "pspaczek",
       "twitter": "przemekspaczek"
-    }
-  },
-  {
-    "name": "Anna Musiał",
-    "role": "Maintainer",
-    "work": {
-      "title": "Junior Frontend Developer",
-      "org": "DivanteLtd",
-      "orgUrl": "https://github.com/DivanteLtd"
-    },
-    "location": "Wrocław, Poland",
-    "languages": ["pl", "en"],
-    "socials": {
-      "github": "aniamusial",
-      "twitter": "musialania"
-    }
-  },
-  {
-    "name": "Marta Radziszewska",
-    "role": "Maintainer",
-    "work": {
-      "title": "Frontend Developer",
-      "org": "DivanteLtd",
-      "orgUrl": "https://github.com/DivanteLtd"
-    },
-    "location": "Wrocław, Poland",
-    "languages": ["pl", "en"],
-    "socials": {
-      "github": "martaradziszewska",
-      "twitter": "mradziszewska_"
     }
   },
   {
@@ -77,22 +63,6 @@
     "socials": {
       "github": "mayashavin",
       "twitter": "mayashavin"
-    }
-  },
-  {
-    "name": "Leonardo Matos",
-    "role": "Maintainer",
-    "work": {
-      "title": "CEO",
-      "org": "E-com Club",
-      "orgUrl": "https://github.com/ecomclub"
-    },
-    "location": "BH - Minas Gerais - Brasil",
-    "languages": ["pt", "en"],
-    "links": ["https://ecom.bhz.br"],
-    "socials": {
-      "github": "leomp12",
-      "linkedin": "leonardo-matos-13248810b"
     }
   },
   {
@@ -123,6 +93,36 @@
     "socials": {
       "github": "EduardDopler",
       "twitter": "quotingeddie"
+    }
+  },
+  {
+    "name": "Anna Musiał",
+    "role": "Maintainer",
+    "work": {
+      "title": "Junior Frontend Developer",
+      "org": "DivanteLtd",
+      "orgUrl": "https://github.com/DivanteLtd"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl", "en"],
+    "socials": {
+      "github": "aniamusial",
+      "twitter": "musialania"
+    }
+  },
+  {
+    "name": "Marta Radziszewska",
+    "role": "Maintainer",
+    "work": {
+      "title": "Frontend Developer",
+      "org": "DivanteLtd",
+      "orgUrl": "https://github.com/DivanteLtd"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl", "en"],
+    "socials": {
+      "github": "martaradziszewska",
+      "twitter": "mradziszewska_"
     }
   }
 ]

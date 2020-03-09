@@ -18,7 +18,7 @@
       300,
       var(--font-size-big),
       normal,
-      var(--body-font-family-primary)
+      var(--font-family-primary)
     )
   );
   &--is-active {
@@ -52,7 +52,7 @@
         400,
         var(--font-size-big),
         normal,
-        var(--body-font-family-secondary)
+        var(--font-family-secondary)
       )
     );
     transform: var(
@@ -94,7 +94,7 @@
         300,
         var(--font-size-big),
         normal,
-        var(--body-font-family-primary)
+        var(--font-family-primary)
       )
     );
   }
@@ -130,7 +130,7 @@
         400,
         var(--font-size-small),
         1.6,
-        var(--body-font-family-secondary)
+        var(--font-family-secondary)
       )
     );
   }

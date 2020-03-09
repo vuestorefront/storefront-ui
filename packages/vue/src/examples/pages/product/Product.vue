@@ -579,7 +579,7 @@ export default {
   }
   &__description {
     margin: var(--spacer-extra-big) 0 calc(var(--spacer-big) * 3) 0;
-    font-family: var(--body-font-family-secondary);
+    font-family: var(--font-family-secondary);
     font-size: var(--font-size-regular);
     line-height: 1.6;
     @include for-desktop {
