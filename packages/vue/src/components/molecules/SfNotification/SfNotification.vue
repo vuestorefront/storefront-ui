@@ -28,6 +28,7 @@
         <slot name="action" v-bind="{ action, actionHandler }">
           <button
             v-if="action"
+            v-focus
             class="sf-notification__action"
             @click="actionHandler"
           >
@@ -48,11 +49,15 @@
   </transition>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfNotification",
   components: {
     SfIcon
+  },
+  directives: {
+    focus: focus
   },
   props: {
     /**
