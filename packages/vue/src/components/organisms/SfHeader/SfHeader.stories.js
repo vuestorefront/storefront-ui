@@ -191,8 +191,8 @@ storiesOf("Organisms|Header", module)
     computed: {
       spacer() {
         return this.isMobile
-          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
-          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
       }
     },
     mounted() {
@@ -286,8 +286,8 @@ storiesOf("Organisms|Header", module)
     computed: {
       spacer() {
         return this.isMobile
-          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
-          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
       }
     },
     mounted() {
@@ -388,8 +388,8 @@ storiesOf("Organisms|Header", module)
     computed: {
       spacer() {
         return this.isMobile
-          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
-          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
       }
     },
     mounted() {
@@ -490,8 +490,8 @@ storiesOf("Organisms|Header", module)
     computed: {
       spacer() {
         return this.isMobile
-          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
-          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
       }
     },
     mounted() {
@@ -592,8 +592,8 @@ storiesOf("Organisms|Header", module)
     computed: {
       spacer() {
         return this.isMobile
-          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
-          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
       }
     },
     mounted() {
