@@ -1,6 +1,18 @@
 @import "../../helpers";
 
 .sf-quantity-selector {
+  --button-color: var(--c-text);
+  --button-background: var(--c-light);
+  --button-padding: 0;
+  --button-size: 1.625rem;
+  --button-font-size: var(--quantity-selector-font-size, var(--h2-font-size));
+  --button-font-line-height: var(--quantity-selector-font-line-height, 1.2);
+  --input-margin: 0;
+  --input-padding: 0;
+  --input-border: none;
+  --input-height: 3.5rem;
+  --input-font-size: var(--quantity-selector-font-size, var(--h2-font-size));
+  --input-font-line-height: var(--quantity-selector-font-line-height, 1.2);
   display: flex;
   position: relative;
   align-items: center;
@@ -9,14 +21,6 @@
   width: var(--quantity-selector-width, 23.4375rem);
   padding: var(--quantity-selector-padding, 0);
   background: var(--quantity-selector-background);
-  --button-color: var(--c-text);
-  --button-background: var(--c-light);
-  --button-padding: 0;
-  --button-size: 1.625rem;
-  --input-margin: 0;
-  --input-padding: 0;
-  --input-border: none;
-  --input-height: 3.5rem;
   &__button {
     border-radius: var(--quantity-selector-button-border-radius, 50%);
     &:hover {
@@ -47,13 +51,15 @@
     --quantity-selector-background: var(--c-light);
     --quantity-selector-width: 6.75rem;
     --quantity-selector-height: 3.25rem;
-    --quantity-selector-padding: 0 0.625rem;
+    --quantity-selector-padding: 0 var(--spacer-xs);
     --quantity-selector-button-border-radius: 0;
     --quantity-selector-font-size: 22px;
     --button-height: var(--quantity-selector-height, auto);
+    --button-font-size: 22px;
+    --input-font-size: 22px;
     &__button {
       &:hover {
-        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        text-shadow: var(--dark-base);
         --button-background: transparent;
       }
     }
