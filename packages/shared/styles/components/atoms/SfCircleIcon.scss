@@ -87,18 +87,18 @@
     &:active {
       --button-background: var(--c-primary-variant);
     }
-  }
-  @each $color, $map in $colors-map {
-    $primary: map-get($map, "primary");
-    $variant: map-get($map, "variant");
-    &.color-#{$color} {
-      &:hover {
-        --button-background: var(--c-#{$color});
-        --button-box-shadow: 0;
-      }
-      &:active {
-        --button-background: var(--c-#{$color}-variant);
-        --button-box-shadow: 0;
+    @each $color, $map in $colors-map {
+      $primary: map-get($map, "primary");
+      $variant: map-get($map, "variant");
+      &.color-#{$color} {
+        &:hover {
+          --button-background: var(--c-#{$color});
+          --button-box-shadow: 0;
+        }
+        &:active {
+          --button-background: var(--c-#{$color}-variant);
+          --button-box-shadow: 0;
+        }
       }
     }
   }
