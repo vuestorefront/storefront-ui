@@ -17,7 +17,7 @@
         400,
         var(--font-size-big),
         normal,
-        var(--body-font-family-secondary)
+        var(--font-family-secondary)
       )
     );
     transform: var(
@@ -95,7 +95,7 @@
         400,
         var(--font-size-small),
         1.6,
-        var(--body-font-family-secondary)
+        var(--font-family-secondary)
       )
     );
   }
@@ -123,7 +123,7 @@
         300,
         var(--font-size-big),
         normal,
-        var(--body-font-family-primary)
+        var(--font-family-primary)
       )
     );
     outline: none;

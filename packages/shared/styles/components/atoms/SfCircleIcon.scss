@@ -43,10 +43,13 @@
 
     @include font(
       --circle-icon-badge-font,
-      var(--font-weight-bold),
-      10px,
-      1.6,
-      var(--body-font-family-secondary)
+      font(
+        --circle-icon-bage,
+        400,
+        var(--font-size-small),
+        1.4,
+        var(--font-family-secondary)
+      )
     );
 
     &-enter-active {
