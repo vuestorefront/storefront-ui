@@ -6,6 +6,9 @@
         class="sf-collected-product__remove desktop-only"
         @click="removeHandler"
       />
+      <SfButton class="sf-collected-product__remove sf-button--text mobile-only"
+        >Remove from cart</SfButton
+      >
     </slot>
     <div class="sf-collected-product__aside">
       <slot name="image" v-bind="{ image, title }">
@@ -45,12 +48,14 @@
 </template>
 <script>
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
 export default {
   name: "SfCollectedProduct",
   components: {
+    SfButton,
     SfImage,
     SfCircleIcon,
     SfPrice,
