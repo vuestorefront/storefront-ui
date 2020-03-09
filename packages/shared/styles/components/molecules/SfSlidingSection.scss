@@ -3,6 +3,7 @@
 .sf-sliding-section {
   display: var(--sliding-section-display, inline);
   margin: var(--sliding-section-margin, 0);
+
   &__static {
     flex: 1;
     overflow: hidden;
@@ -12,30 +13,36 @@
       height 150ms ease-in-out
     );
   }
+
   &__sliding {
     flex: 1;
-    padding: var(--sliding-section-sliding-padding, 0 var(--spacer-big));
+    padding: var(--sliding-section-sliding-padding, 0 var(--spacer-xl));
   }
+
   &__mobile-bar {
-    padding: var(--sliding-section-mobile-bar-padding, var(--spacer-medium) 0);
     display: var(--sliding-section-mobile-bar-display, none);
+    padding: var(--sliding-section-mobile-bar-padding, var(--spacer-lg) 0);
   }
+
   &__close {
     padding: 0;
     border: 0;
     background: transparent;
     cursor: pointer;
   }
+
   &--has-scroll-lock {
     overflow: hidden;
   }
+
   &--is-active {
     --sliding-section-static-height: 0;
     --sliding-section-mobile-bar-display: block;
   }
+  
   @include for-desktop {
     --sliding-section-display: flex;
-    --sliding-section-sliding-margin: 0 0 0 3.75rem;
+    --sliding-section-sliding-margin: 0 0 0 var(--spacer-lg);
     --sliding-section-mobile-bar-display: none;
   }
 }
