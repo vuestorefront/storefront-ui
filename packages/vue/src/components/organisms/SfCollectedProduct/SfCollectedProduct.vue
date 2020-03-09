@@ -3,7 +3,7 @@
     <slot name="remove" v-bind="{ removeHandler }">
       <SfCircleIcon
         icon="cross"
-        class="sf-collected-product__remove"
+        class="sf-collected-product__remove desktop-only"
         @click="removeHandler"
       />
     </slot>
