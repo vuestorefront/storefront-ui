@@ -5,32 +5,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--menu-item-color, var(--c-gray));
   cursor: pointer;
 
   @include font(
     --menu-item-font,
-    var(--font-weight-regular),
-    var(--font-size-small),
+    var(--font-normal),
+    var(--font-sm),
     1.6,
-    var(--body-font-family-secondary)
+    var(--font-family-secondary)
   );
 
   &__icon {
     --icon-color: var(--c-gray);
-    margin: var(--menu-item-icon-margin, 0 var(--spacer-big) 0 0);
+    margin: var(--menu-item-icon-margin, 0 var(--spacer-xs) 0 0);
   }
 
   &__count {
     margin: var(--menu-item-count-margin, 0 0 0 auto);
+    color: var(--menu-item-count-color, var(--c-gray));
   }
 
   &__mobile-nav-icon {
     display: var(--menu-item-mobile-nav-icon-display, flex);
-    margin: var(
-      --menu-item-mobile-nav-icon-margin,
-      0 0 0 var(--spacer-regular)
-    );
+    margin: var(--menu-item-mobile-nav-icon-margin, 0 0 0 var(--spacer-base));
   }
 
   &__label {
@@ -38,9 +35,7 @@
   }
 
   &--is-active {
-    --menu-item-color: var(--c-dark);
-    --icon-color: var(--c-dark);
-    text-decoration: var(--menu-item-active-text-decoration, underline);
+    --menu-item-label-color: var(--c-primary);
   }
   @include for-desktop {
     --menu-item-mobile-nav-icon-display: none;
