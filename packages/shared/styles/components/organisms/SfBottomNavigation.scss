@@ -40,6 +40,11 @@
     var(--font-family-primary)
   );
 
+
+  &  .sf-circle-icon {
+    --button-size: 4.125rem;
+  }
+  
   &__label {
     margin: var(--bottom-navigation-item-label-margin);
   }
@@ -56,13 +61,11 @@
 
   &--floating {
     --icon-color: var(--c-white);
-    
     &:not(:hover) {
       --button-box-shadow: 0 4px 4px rgba(var(--c-dark-base), 0.2);
     }
     
     & .sf-circle-icon {
-      --button-size: 4.125rem;
       --circle-icon-position: absolute;
       top: 0;
       transform: translate3d(0, -50%, 0);
