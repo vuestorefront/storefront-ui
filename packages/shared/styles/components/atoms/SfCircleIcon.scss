@@ -2,8 +2,8 @@
 
 .sf-circle-icon {
   --icon-color: var(--c-white);
-  --button-padding: var(--spacer-small);
   --icon-size: 20px;
+  --button-padding: var(--spacer-small);
   --button-size: 3.25rem;
   --button-background: var(--c-primary);
   --button-transition: box-shadow 300ms ease;
@@ -45,8 +45,8 @@
       --circle-icon-badge-font,
       font(
         --circle-icon-bage,
-        400,
-        var(--font-size-small),
+        var(--font-normal),
+        var(--font-sm),
         1.4,
         var(--font-family-secondary)
       )
