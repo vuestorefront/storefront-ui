@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: var(--bar-height, 3rem);
+  height: var(--bar-height, 3.125rem);
   padding: var(--bar-padding, 0 var(--spacer-base));
   background-color: var(--bar-background, var(--c-light));
   @include font(
