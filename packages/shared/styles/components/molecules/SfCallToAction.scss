@@ -14,11 +14,15 @@
   background-image: var(--call-to-action-background-image);
   color: var(--call-to-action-color);
   padding: var(--call-to-action-padding, 1.625rem);
+  letter-spacing: var(--call-to-action-letter-spacing, 0.1px);
   &__text-container {
     display: flex;
+    justify-content: var(--call-to-action-text-container-justify-content, left);
+    flex-direction: var(
+      --call-to-action-text-container-justify-content,
+      column
+    );
     width: var(--call-to-action-text-container-width);
-    justify-content: left;
-    flex-direction: column;
     margin: var(--call-to-action-text-container-margin);
   }
   &__title {
@@ -29,7 +33,6 @@
       1.2,
       var(--font-family-secondary)
     );
-    letter-spacing: 0.1px;
     text-transform: var(--call-to-action-title-text-transform, none);
     color: var(
       --call-to-action-color,
@@ -52,8 +55,6 @@
     margin: var(--call-to-action-description-margin, 0 0 var(--spacer-sm) 0);
   }
   &__button {
-    height: var(--call-to-action-button-height, auto);
-    width: var(--call-to-action-button-min-width, auto);
     @include font(
       --call-to-action-button-font,
       var(--font-semibold),
@@ -65,6 +66,8 @@
       --call-to-action-color,
       var(--call-to-action-button-color, var(--c-on-primary))
     );
+    height: var(--call-to-action-button-height, auto);
+    width: var(--call-to-action-button-min-width, auto);
     margin: var(--call-to-action-button-margin, var(--spacer-sm) 0 0 0);
   }
   @include for-desktop {
