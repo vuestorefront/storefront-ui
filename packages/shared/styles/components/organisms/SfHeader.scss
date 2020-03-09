@@ -9,7 +9,7 @@
   & > * {
     text-transform: var(--header-navigation-item-text-transform, uppercase);
     text-decoration: var(--header-navigation-item-text-decoration, none);
-    color: var(--c-dark-variant);
+    color: var(--header-navigation-item-color, var(--c-dark-variant));
     @include font(
       --header-navigation-item,
       var(--font-bold),
@@ -26,27 +26,24 @@
     max-width: var(--header-navigation-item-max-width, var(--max-width));
     bottom: -2px;
     height: 2px;
-    background: transparent;
+    background: var(--header-navigation-item-background-underline, transparent);
     content: "";
     transition: background 150ms ease-in-out;
   }
   &:hover {
     & > * {
-      color: var(--c-text);
+      --header-navigation-item-color: var(--c-text);
     }
     &::after {
-      background: var(
-        --header-navigation-item-background-underline,
-        var(--c-primary)
-      );
+      --header-navigation-item-background-underline: var(--c-primary);
     }
   }
   &:active {
     & > * {
-      color: var(--c-primary);
+      --header-navigation-item-color: var(--c-primary);
     }
     &::after {
-      background: var(--c-primary);
+      --header-navigation-item-background-underline: var(--c-primary);
     }
   }
   &:last-child {
@@ -92,7 +89,7 @@
     margin: 0 0 0 5rem;
   }
   &__search {
-    margin: var(--header-search-margin, var(--spacer) 0);
+    margin: var(--header-search-margin, var(--spacer-xs) 0);
     height: 2.25rem;
   }
   &__icons {
@@ -100,8 +97,9 @@
     align-items: center;
   }
   &__icon {
-    margin: 0 0 0 calc(var(--spacer-sm) * 3.25);
     --icon-color: var(--c-dark-variant);
+    margin: 0 0 0 calc(var(--spacer-sm) * 3.25);
+    cursor: pointer;
     &:hover {
       --icon-color: var(--c-text);
     }
