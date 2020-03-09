@@ -37,6 +37,12 @@
     padding: var(--image-ovarlay-padding, var(--spacer-sm));
     background: var(--image-ovarlay-background, rgba(var(--c-dark-base), 0.6));
     color: var(--image-overlay-color, var(--c-white));
-    @include font(--image-overlay-font, var(--font-light), var(--font-sm), 1.6, var(--font-family-secondary));
+    @include font(
+      --image-overlay-font,
+      var(--font-light),
+      var(--font-sm),
+      1.6,
+      var(--font-family-secondary)
+    );
   }
 }
