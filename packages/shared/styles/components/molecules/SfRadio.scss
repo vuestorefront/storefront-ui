@@ -9,19 +9,27 @@
 
   &__label {
     display: var(--radio-label-display, flex);
-    @include font(--radio-label-font, var(--font-normal), var(--font-lg), normal, var(--font-family-secondary));
+    @include font(
+      --radio-label-font,
+      var(--font-normal),
+      var(--font-lg),
+      normal,
+      var(--font-family-secondary)
+    );
   }
 
   &__checkmark {
     box-sizing: border-box;
     width: var(--radio-checkmark-width, var(--radio-checkmark-size, 1.5rem));
-    height: var(
-      --radio-checkmark-height,
-      var(--radio-checkmark-size, 1.5rem)
+    height: var(--radio-checkmark-height, var(--radio-checkmark-size, 1.5rem));
+
+    @include border(
+      --radio-checkmark-border,
+      1px,
+      solid,
+      var(--c-gray-variant)
     );
 
-    @include border(--radio-checkmark-border, 1px, solid, var(--c-gray-variant));
-    
     border-radius: var(--radio-checkmark-border-radius, 100%);
     transition: var(
       --radio-checkmark-transition,
@@ -43,7 +51,10 @@
     display: var(--radio-container-display, flex);
     align-items: var(--radio-container-align-items);
     flex: 1;
-    padding: var(--radio-container-padding, var(--spacer-sm) var(--spacer-lg) var(--spacer-sm) var(--spacer-sm));
+    padding: var(
+      --radio-container-padding,
+      var(--spacer-sm) var(--spacer-lg) var(--spacer-sm) var(--spacer-sm)
+    );
     cursor: var(--radio-container-cursor, pointer);
     &:hover {
       --radio-checkmark-border-color: var(--c-primary);
@@ -57,7 +68,13 @@
 
   &__description {
     margin: var(--radio-description-margin, var(--spacer-xs) 0 0 0);
-    @include font(--radio-description-font, var(--font-light), var(--font-xs), 1.6, var(--font-family-primary));
+    @include font(
+      --radio-description-font,
+      var(--font-light),
+      var(--font-xs),
+      1.6,
+      var(--font-family-primary)
+    );
   }
 
   &--is-active {
