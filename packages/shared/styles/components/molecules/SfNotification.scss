@@ -6,19 +6,38 @@
   align-items: var(--notification-align-items, center);
   box-sizing: border-box;
   max-width: var(--notification-max-width, 100%);
-  padding: var(--notification-padding, var(--spacer-regular) var(--spacer-regular) var(--spacer-regular) var(--spacer-small));
-  box-shadow: var(--notification-box-shadow, 0 4px 11px rgba(var(--c-dark-base), 0.1));
+  padding: var(
+    --notification-padding,
+    var(--spacer-base) var(--spacer-base) var(--spacer-base) var(--spacer-sm)
+  );
+  box-shadow: var(
+    --notification-box-shadow,
+    0 4px 11px rgba(var(--c-dark-base), 0.1)
+  );
   border-radius: var(--notification-border-radius, 5px);
   background: var(--notification-background);
   color: var(--notification-color, var(--c-white));
-  
-  @include font(--notification-font, var(--font-weight-regular), 10px, normal, var(--body-font-family-secondary));
-  
+
+  @include font(
+    --notification-font,
+    var(--font-normal),
+    var(--font-2xs),
+    normal,
+    var(--font-family-secondary)
+  );
+
+
   &__title {
     display: var(--notification-title-display, block);
 
-    @include font(--notification-title-font, var(--font-weight-regular), var(--h2-font-size), normal, var(--body-font-family-secondary));
-    
+    @include font(
+      --notification-title-font,
+      var(--font-normal),
+      var(--font-xl),
+      normal,
+      var(--font-family-secondary)
+    );
+
     &::after {
       content: " ";
     }
@@ -41,26 +60,25 @@
     color: var(--notification-action-color);
     font: var(--notification-action-font, inherit);
     text-decoration: var(--notification-action-text-decoration, underline);
-    outline: none;
   }
+  
   &__icon {
     --icon-color: var(--c-white);
-    margin: var(--notification-icon-margin, 0 var(--spacer-regular) 0 0);
-
+    margin: var(--notification-icon-margin, 0 var(--spacer-base) 0 0);
   }
   &__close {
     --icon-size: 0.85rem;
     position: absolute;
-    top: var(--notification-close-top, var(--spacer-extra-small));
-    right: var(--notification-close-right, var(--spacer-extra-small));
+    top: var(--notification-close-top, var(--spacer-xs));
+    right: var(--notification-close-right, var(--spacer-xs));
     cursor: pointer;
   }
 
   @include for-desktop {
-    --notification-padding: var(--spacer-extra-small) var(--spacer-small);
+    --notification-padding: var(--spacer-xs) var(--spacer-sm);
     --notification-action-display: inline;
     --notification-close-top: auto;
-    --notification-close-right: var(--spacer-small);
+    --notification-close-right: var(--spacer-sm);
   }
 
   @each $color, $map in $colors-map {
