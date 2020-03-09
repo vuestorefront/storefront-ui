@@ -2,6 +2,7 @@
   <div
     class="sf-bottom-navigation-item"
     :class="{ 'sf-bottom-navigation-item--floating': isFloating }"
+    v-on="$listeners"
   >
     <slot name="icon" v-bind="{ icon, iconSize, isFloating }">
       <SfCircleIcon
