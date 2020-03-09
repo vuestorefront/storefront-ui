@@ -3,21 +3,39 @@
 .sf-add-to-cart {
   display: flex;
   &__button {
+    @include font(
+      --add-to-cart-font,
+      var(--font-semibold),
+      var(--font-base),
+      1.6,
+      var(--font-family-secondary)
+    );
+    max-width: var(--add-to-cart-button-width, 100%);
+    height: var(--add-to-cart-button-height, 3.5rem);
     flex: var(--add-to-cart-button-flex, 1);
     order: var(--add-to-cart-button-order);
+    padding: var(
+      --add-to-cart-button-padding,
+      var(--spacer-sm) 8rem var(--spacer-sm) 8rem
+    );
+    &:disabled {
+      color: var(--c-text-disabled);
+    }
   }
-  & &__select-quantity {
+  &__select-quantity {
     --input-height: auto;
     --input-border: 1px solid var(--c-light);
-
-    display: flex;
+    display: var(--add-to-cart-select-quantity-display, none);
     min-width: var(--add-to-cart-select-quantity-min-width, 4.625rem);
     max-width: var(--add-to-cart-select-quantity-max-width, 5.625rem);
     margin: var(--add-to-cart-select-quantity-margin, 0 0 0 0.5rem);
   }
   @include for-desktop {
-    --input-background: var(--c-light);
+    --add-to-cart-button-width: 23.438rem;
+    --add-to-cart-button-padding: 0 4.5rem;
+    --add-to-cart-button-height: 3.25rem;
     --add-to-cart-button-order: 1;
-    --add-to-cart-select-quantity-margin: 0;
+    --add-to-cart-select-quantity-margin: 0 var(--spacer-sm) 0 var(--spacer-sm);
+    --add-to-cart-select-quantity-display: flex;
   }
 }

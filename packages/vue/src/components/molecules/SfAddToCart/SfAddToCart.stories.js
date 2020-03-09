@@ -16,7 +16,7 @@ storiesOf("Molecules|AddToCart", module)
         qty: 1
       };
     },
-    template: `<div style="max-width: 21.25rem">
+    template: `<div>
       <SfAddToCart 
         v-model="qty"
         :disabled="disabled"
@@ -35,7 +35,7 @@ storiesOf("Molecules|AddToCart", module)
         qty: 1
       };
     },
-    template: `<div style="max-width: 21.25rem">
+    template: `<div>
         <SfAddToCart
           v-model="qty"
           :disabled="disabled"
@@ -59,7 +59,7 @@ storiesOf("Molecules|AddToCart", module)
         qty: 1
       };
     },
-    template: `<div style="max-width: 21.25rem">
+    template: `<div>
         <SfAddToCart 
           :disabled="disabled"
           @click="()=>{}">
