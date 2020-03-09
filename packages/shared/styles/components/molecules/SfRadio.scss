@@ -12,7 +12,7 @@
     @include font(
       --radio-label-font,
       var(--font-normal),
-      var(--font-lg),
+      var(--h4-font-size),
       normal,
       var(--font-family-secondary)
     );
@@ -20,8 +20,8 @@
 
   &__checkmark {
     box-sizing: border-box;
-    width: var(--radio-checkmark-width, var(--radio-checkmark-size, 1.5rem));
-    height: var(--radio-checkmark-height, var(--radio-checkmark-size, 1.5rem));
+    width: var(--radio-checkmark-size, 1.5rem);
+    height: var(--radio-checkmark-size, 1.5rem);
 
     @include border(
       --radio-checkmark-border,
