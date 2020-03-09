@@ -18,7 +18,7 @@
     transition: var(
       --input-label-transition,
       top 150ms linear,
-      font-size 150ms linear,
+      font-size 150ms linear
     );
     &::after {
       content: var(--input-label-required);
@@ -55,7 +55,13 @@
 
   &__error-message {
     color: var(--input-error-message-color, var(--c-danger));
-    @include font(--input-error-message-font, var(--font-medium), var(--font-xs), normal, var(--font-family-secondary));
+    @include font(
+      --input-error-message-font,
+      var(--font-medium),
+      var(--font-xs),
+      normal,
+      var(--font-family-secondary)
+    );
   }
   &__wrapper,
   input {
@@ -115,8 +121,7 @@
     }
   }
 
-  &__password-button,
-  &__wrapper > .sf-icon {
+  &__password-button {
     --icon-size: 12px;
     --button-padding: 0;
     --button-background: transparent;
@@ -134,7 +139,7 @@
     --icon-width: var(--input-password-icon-width, 1.375rem);
     --icon-height: var(--input-password-icon-height, 0.8125rem);
     position: relative;
-    
+
     &--hidden {
       --input-password-icon-scaleX: 1;
     }

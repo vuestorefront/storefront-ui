@@ -48,7 +48,6 @@
           ></SfIcon>
         </SfButton>
       </slot>
-      <slot name="input-icon"></slot>
     </div>
     <div v-if="valid !== undefined" class="sf-input__error-message">
       <transition name="fade">
