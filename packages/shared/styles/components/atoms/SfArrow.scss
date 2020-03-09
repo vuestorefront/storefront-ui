@@ -5,19 +5,25 @@
   --button-height: 2.75rem;
   --button-padding: 0 0.625rem;
   --button-background: var(--c-light);
+  --button-transition: background 150ms linear, box-shadow 150ms linear;
   --icon-width: 1.5rem;
   --icon-height: 0.75rem;
   --icon-color: var(--c-dark);
-
   display: flex;
   align-items: center;
   justify-content: var(--arrow-justify-content, center);
   box-shadow: var(--arrow-box-shadow);
+
   &:hover {
     --button-background: var(--c-dark);
     --icon-color: var(--c-light);
-    --arrow-box-shadow: 0 5px 12px -5px rgba(29, 31, 34, 0.6);
+    --arrow-box-shadow: 0px 4px 4px rgba(var(--c-dark-base), 0.25);
   }
+
+  &__icon {
+    transform: var(--arrow-icon-transform);
+  }
+
   &--long {
     --button-width: 3.75rem;
     --button-height: 1.875rem;
@@ -37,9 +43,7 @@
       }
     }
   }
-  &__icon {
-    transform: var(--arrow-icon-transform);
-  }
+
   &--transparent {
     --button-background: transparent;
     &:hover {
@@ -48,15 +52,26 @@
       --arrow-box-shadow: none;
     }
   }
+
   &--rounded {
     --button-border-radius: 100%;
   }
+
   &--no-shadow {
     &:hover {
       --arrow-box-shadow: none;
     }
   }
+
   &--right {
     --arrow-icon-transform: rotate(180deg);
+  }
+
+  &--top {
+    --arrow-icon-transform: rotate(90deg);
+  }
+
+  &--down {
+    --arrow-icon-transform: rotate(270deg);
   }
 }
