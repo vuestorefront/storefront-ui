@@ -5,8 +5,6 @@
   box-sizing: border-box;
   width: var(--input-width);
   height: var(--input-height);
-  color: var(--input-color, var(--c-text));
-
   &__label {
     position: absolute;
     top: var(--input-label-top, 50%);
@@ -80,7 +78,7 @@
     padding: var(--input-padding, var(--spacer-sm) 0 var(--spacer-xs) 0);
     @include border(--input-border, 0 0 1px 0, solid, var(--c-light));
     background: var(--input-background);
-    color: inherit;
+    color: var(--input-color, var(--c-text));
     @include font(
       --input-font,
       var(--font-normal),
@@ -106,9 +104,9 @@
       }
     }
     &:disabled {
+      --input-color: var(--c-text-disabled);
       & ~ * {
         --icon-color: var(--text-disabled);
-        --input-color: var(--c-text-disabled);
         --input-label-color: var(--c-text-disabled);
       }
     }
@@ -158,6 +156,14 @@
 
   &--invalid {
     --input-border-color: var(--c-danger);
+    input {
+      &:focus {
+        & ~ * {
+          --input-bar-background: var(--c-danger);
+          --input-label-color: var(--c-danger);
+        }
+      }
+    }
   }
 
   &--has-text {
