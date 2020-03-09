@@ -2,21 +2,22 @@
   <div
     class="sf-bottom-navigation-item"
     :class="{
+      'sf-bottom-navigation-item--active': isActive,
       'sf-bottom-navigation-item--floating': isFloating,
       'sf-bottom-navigation-item--center': !icon || !label
     }"
+    v-on="$listeners"
   >
-    <slot name="icon" v-bind="{ icon, iconSize, isFloating }">
+    <slot name="icon" v-bind="{ icon, iconActive, iconSize, isFloating }">
       <SfCircleIcon
         v-if="isFloating"
         :icon="icon"
         icon-color="white"
         icon-size="28px"
-      >
-      </SfCircleIcon>
+      />
       <SfIcon
         v-else-if="icon"
-        :icon="icon"
+        :icon="currentIcon"
         :size="iconSize"
         class="sf-bottom-navigation-item__icon"
       />
@@ -38,6 +39,7 @@
 <script>
 import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 import SfCircleIcon from "../../../atoms/SfCircleIcon/SfCircleIcon.vue";
+
 export default {
   name: "SfBottomNavigationItem",
   components: {
@@ -46,6 +48,14 @@ export default {
   },
   props: {
     icon: {
+      type: String,
+      default: ""
+    },
+    isActive: {
+      type: Boolean,
+      default: false
+    },
+    iconActive: {
       type: String,
       default: ""
     },
@@ -60,6 +70,11 @@ export default {
     isFloating: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    currentIcon() {
+      return this.isActive && this.iconActive ? this.iconActive : this.icon;
     }
   }
 };
