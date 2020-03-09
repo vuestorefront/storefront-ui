@@ -59,7 +59,7 @@ storiesOf("Organisms|BottomNavigation", module)
         :key="key"
         :icon="item.icon"
         :label="item.label"
-        icon-size="20px"
+        icon-size="17px"
       />
       <SfBottomNavigationItem
         label="Basket"
@@ -71,7 +71,7 @@ storiesOf("Organisms|BottomNavigation", module)
             <SfIcon
               icon="add_to_cart"
               color="white"
-              size="28px"
+              size="25px"
               :style="{margin: '0 0 0 -2px'}"
             />
           </SfCircleIcon>
@@ -119,7 +119,7 @@ storiesOf("Organisms|BottomNavigation", module)
         :key="key"
         :icon="item.icon"
         :label="item.label"
-        icon-size="20px"
+        icon-size="17px"
       />
       <SfBottomNavigationItem
         icon="add_to_cart"
@@ -130,7 +130,7 @@ storiesOf("Organisms|BottomNavigation", module)
             <SfIcon
               icon="add_to_cart"
               color="white"
-              size="28px"
+              size="25px"
               :style="{margin: '0 0 0 -2px'}"
             />
           </SfCircleIcon>
@@ -178,7 +178,7 @@ storiesOf("Organisms|BottomNavigation", module)
         :key="key"
         :icon="item.icon"
         :label="item.label"
-        icon-size="20px"
+        icon-size="17px"
       />
       <SfBottomNavigationItem
         label="Basket"
