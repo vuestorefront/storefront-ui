@@ -94,6 +94,7 @@
     --button-text-transform: none;
     --button-text-decoration: underline;
     --button-font-size: var(--font-xs);
+    display: inline;
     &:hover {
       --button-box-shadow: none;
       --button-background: transparent;

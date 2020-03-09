@@ -41,9 +41,10 @@
     );
   }
   &__message {
-    display: var(--review-message-display, block);
+    display: var(--review-message-display, inline);
     margin: var(--review-message-margin, var(--spacer-sm) 0);
     color: var(--review-message-color, var(--c-text));
+    vertical-align: middle;
     @include font(
       --review-message-font,
       var(--font-light),
@@ -53,21 +54,8 @@
     );
   }
   &__read-more {
-    padding: 0;
-    margin: var(--review-read-more-margin);
-    background: var(--review-read-more-background, transparent);
-    color: var(--review-read-more-color, var(--c-text));
-    @include font(
-      --review-read-more-font,
-      var(--font-medium),
-      var(--font-xs),
-      1.6,
-      var(--font-family-secondary)
-    );
-    border: 0;
-    vertical-align: text-top;
-    text-decoration: var(--review-read-more-text-decoration, underline);
-    cursor: var(--review-read-more-cursor, pointer);
+    margin: 0 0 0 8px;
+    vertical-align: middle;
   }
   @include for-desktop {
     --review-message-display: inline-block;
