@@ -60,7 +60,10 @@
     box-sizing: border-box;
     position: var(--header-sticky-container-position, relative);
     width: var(--header-sticky-container-width);
-    background: var(--header-sticky-container-background, var(--c-light));
+    background: var(
+      --header-sticky-container-background,
+      var(--c-light-variant)
+    );
     transform: var(--header-sticky-container-transform);
     transition: var(--header-sticky-container-transition);
   }
@@ -80,7 +83,7 @@
   }
   &__logo {
     --image-width: var(--header-logo-width, auto);
-    --image-height: var(--header-logo-height, 1.5rem);
+    --image-height: var(--header-logo-height, 2.125rem);
     margin: var(--header-logo-margin, 10px 0);
   }
   &__navigation {
@@ -118,14 +121,11 @@
     --search-bar-background: var(--c-white);
   }
   @include for-desktop {
-    --header-logo-height: 2.125rem;
     --header-logo-margin: 0;
-    --header-sticky-container-background: var(--c-white);
     --header-container-height: 5rem;
     --header-container-justify-content: space-between;
     --header-container-padding: 0 calc(var(--spacer-sm) * 6);
     --header-container-flex-wrap: nowrap;
-    --search-bar-background: var(--c-light);
     --header-search-margin: 0 0 0 auto;
   }
 }
