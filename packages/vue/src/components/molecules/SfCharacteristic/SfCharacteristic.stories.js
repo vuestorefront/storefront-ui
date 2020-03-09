@@ -24,10 +24,10 @@ storiesOf("Molecules|Characteristic", module)
         default: select("icon", iconsNames, "info_shield", "Props")
       },
       sizeIcon: {
-        default: select("sizeIcon", sizes, "xs", "Props")
+        default: select("sizeIcon", ["", ...sizes], "", "Props")
       },
       colorIcon: {
-        default: select("colorIcon", colors, "primary", "Props")
+        default: select("colorIcon", ["", ...colors], "", "Props")
       }
     },
     template: `<SfCharacteristic 
@@ -54,10 +54,10 @@ storiesOf("Molecules|Characteristic", module)
         default: select("icon", iconsNames, "info_shield", "Props")
       },
       sizeIcon: {
-        default: select("sizeIcon", sizes, "xs", "Props")
+        default: select("sizeIcon", ["", ...sizes], "", "Props")
       },
       colorIcon: {
-        default: select("colorIcon", colors, "primary", "Props")
+        default: select("colorIcon", ["", ...colors], "", "Props")
       }
     },
     template: `<SfCharacteristic 
@@ -88,10 +88,10 @@ storiesOf("Molecules|Characteristic", module)
         default: select("icon", iconsNames, "info_shield", "Props")
       },
       sizeIcon: {
-        default: select("sizeIcon", sizes, "xs", "Props")
+        default: select("sizeIcon", ["", ...sizes], "", "Props")
       },
       colorIcon: {
-        default: select("colorIcon", colors, "primary", "Props")
+        default: select("colorIcon", ["", ...colors], "", "Props")
       }
     },
     template: `<SfCharacteristic 
@@ -122,10 +122,10 @@ storiesOf("Molecules|Characteristic", module)
         default: select("icon", iconsNames, "info_shield", "Props")
       },
       sizeIcon: {
-        default: select("sizeIcon", sizes, "xs", "Props")
+        default: select("sizeIcon", ["", ...sizes], "", "Props")
       },
       colorIcon: {
-        default: select("colorIcon", colors, "primary", "Props")
+        default: select("colorIcon", ["", ...colors], "", "Props")
       }
     },
     template: `<SfCharacteristic 
@@ -156,10 +156,10 @@ storiesOf("Molecules|Characteristic", module)
         default: select("icon", iconsNames, "info_shield", "Props")
       },
       sizeIcon: {
-        default: select("sizeIcon", sizes, "xs", "Props")
+        default: select("sizeIcon", ["", ...sizes], "", "Props")
       },
       colorIcon: {
-        default: select("colorIcon", colors, "primary", "Props")
+        default: select("colorIcon", ["", ...colors], "", "Props")
       }
     },
     template: `<SfCharacteristic 

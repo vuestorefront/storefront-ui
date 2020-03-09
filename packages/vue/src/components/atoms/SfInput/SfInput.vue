@@ -3,7 +3,7 @@
     class="sf-input"
     :class="{
       'sf-input--has-text': !!value,
-      'sf-input--invalid': valid === false
+      'sf-input--invalid': !valid
     }"
   >
     <div class="sf-input__wrapper">
@@ -135,7 +135,7 @@ export default {
     },
     hasShowPassword: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data() {

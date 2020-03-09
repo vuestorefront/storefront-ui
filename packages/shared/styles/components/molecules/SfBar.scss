@@ -6,17 +6,14 @@
   justify-content: space-between;
   align-items: center;
   height: var(--bar-height, 3.125rem);
-  padding: var(--bar-padding, 0 var(--spacer-big));
+  padding: var(--bar-padding, 0 var(--spacer-base));
   background-color: var(--bar-background, var(--c-light));
-  font: var(
+  @include font(
     --bar-font,
-    font(
-      --bar,
-      500,
-      var(--font-size-regular),
-      1.6,
-      var(--font-family-secondary)
-    )
+    var(--font-medium),
+    var(--font-base),
+    1.6,
+    var(--font-family-secondary)
   );
   &__icon {
     --icon-width: 0.875rem;
