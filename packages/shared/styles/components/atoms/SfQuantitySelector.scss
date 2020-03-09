@@ -6,47 +6,51 @@
   align-items: center;
   justify-content: center;
   height: var(--quantity-selector-height, 3.5rem);
-  width: var(--quantity-selector-width, 24rem);
-  padding: var(--quantity-selector-padding, 0 5rem);
+  width: var(--quantity-selector-width, 23.4375rem);
+  padding: var(--quantity-selector-padding, 0);
+  background: var(--quantity-selector-background);
   --button-color: var(--c-text);
   --button-background: var(--c-light);
-  --button-border-radius: 50%;
   --button-padding: 0;
   --button-size: 1.625rem;
   --input-margin: 0;
   --input-padding: 0;
   --input-border: none;
   --input-height: 3.5rem;
-  &::before {
-    position: absolute;
-    bottom: 0;
-    width: var(--input-bar-width, 100%);
-    height: 1px;
-    background: var(--input-bar-background, var(--c-light));
-    content: "";
-  }
   &__button {
+    border-radius: var(--quantity-selector-button-border-radius, 50%);
     &:hover {
       --button-background: var(--c-light);
+      box-shadow: none;
     }
   }
   &__input {
-    input {
+    .sf-input__wrapper input {
       text-align: center;
     }
-    .sf-input__bar {
+    .sf-input__bar::after,
+    .sf-input__bar::before {
       display: none;
     }
   }
+  &::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--c-light);
+    transition: none;
+    content: "";
+  }
   @include for-desktop {
-    background: var(--quantity-selector-background, var(--c-light));
+    --quantity-selector-background: var(--c-light);
     --quantity-selector-width: 6.75rem;
     --quantity-selector-height: 3.25rem;
     --quantity-selector-padding: 0 0.625rem;
-    --button-size: initial;
-    --button-height: var(--quantity-selector-height, auto);
-    --button-border-radius: 0;
+    --quantity-selector-button-border-radius: 0;
     --quantity-selector-font-size: 22px;
+    --button-height: var(--quantity-selector-height, auto);
     &__button {
       &:hover {
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -64,9 +68,9 @@
   }
   @include font(
     --quantity-selector-font,
-    var(--font-weight-light),
+    var(--font-light),
     var(--h2-font-size),
     1.2,
-    var(--body-font-family-secondary)
+    var(--font-family-secondary)
   );
 }
