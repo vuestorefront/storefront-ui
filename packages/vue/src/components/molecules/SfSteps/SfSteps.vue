@@ -94,7 +94,11 @@ export default {
       return [];
     },
     progress() {
-      return this.active + 0.5;
+      if (window.innerWidth < 1024) {
+        return this.active + 1;
+      } else {
+        return this.active + 0.5;
+      }
     },
     progressWidth() {
       return `${100 / this.steps.length}%`;
