@@ -6,7 +6,7 @@
     </div>
     <div class="sf-topbar__center">
       <!--@slot Custom center content-->
-      <slot />
+      <slot name="center" />
     </div>
     <div class="sf-topbar__right">
       <!--@slot Custom right content-->
