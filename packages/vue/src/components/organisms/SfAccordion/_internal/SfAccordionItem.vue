@@ -17,7 +17,7 @@
       >
         {{ header }}
         <div v-if="$parent.showChevron" class="sf-accordion-item__chevron">
-          <SfChevron :class="{ 'sf-chevron--top': isOpen }" />
+          <SfChevron :class="{ 'sf-chevron--right': !isOpen }" />
         </div>
       </div>
     </slot>

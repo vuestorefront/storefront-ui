@@ -1,35 +1,33 @@
 @import "../../helpers";
 
 .sf-accordion-item {
-  font: var(
-    --accordion-item-font,
-    font(
-      --accordion-item,
-      var(--body-font-weight-secondary),
-      var(--font-size-regular),
-      1.6,
-      var(--font-family-secondary)
-    )
-  );
+  // @include font(
+  //   --accordion-item-font,
+  //   var(--body-font-weight-secondary),
+  //   var(--font-size-regular),
+  //   1.6,
+  //   var(--font-family-secondary)
+  // );
+  @include border(--accordion-item-border, 0 0 1px 0, solid, var(--c-light));
   &__header {
     display: flex;
     justify-content: var(--accordion-item-header-justify, space-between);
-    padding: var(--accordion-item-padding, 0.625rem 0);
+    padding: var(
+      --accordion-item-padding,
+      calc(var(--spacer-2xs) * 5) var(--spacer-sm)
+    );
     color: var(--accordion-item-color, var(--c-dark));
-    font: var(
+    @include font(
       --accordion-item-header-font,
-      font(
-        --accordion-item-header,
-        var(--body-font-weight-secondary),
-        var(--font-size-big),
-        1.6,
-        var(--font-family-secondary)
-      )
+      var(--font-medium),
+      var(--font-base),
+      1.6,
+      var(--font-family-secondary)
     );
     cursor: pointer;
   }
   &__content {
-    padding: var(--accordion-item-content, 1.875rem 0);
+    padding: var(--accordion-item-content-padding, 0 var(--spacer-lg));
   }
   &__chevron {
     display: var(--accordion-item-chevron-display, none);
@@ -37,8 +35,8 @@
     max-height: var(--accordion-item-chevron-max-height, none);
   }
   @include for-desktop {
-    --accordion-item-header-font-size: var(--font-size-regular);
-    --accordion-item-font-size: var(--font-size-big);
+    --accordion-item-header-font-size: var(--font-xl);
+    --accordion-item-content-padding: 0 var(--spacer-sm);
   }
 }
 .sf-accordion {

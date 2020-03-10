@@ -59,8 +59,7 @@ storiesOf("Organisms|Accordion", module)
         :first-open="firstOpen" 
         :multiple="multiple"
         :show-chevron="showChevron"
-        :transition="transition"
-    :style="{maxWidth: '186px', padding: '1rem'}">
+        :transition="transition">
       <SfAccordionItem 
         v-for="accordion in accordions" 
         :key="accordion.header" 
