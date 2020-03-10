@@ -97,10 +97,10 @@ export default {
 .no-orders {
   &__title {
     margin: 0 0 var(--spacer-big) 0;
-    font: 500 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
+    font: 500 var(--font-size-regular) / 1.6 var(--font-family-secondary);
   }
   &__content {
-    font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
+    font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
   }
   &__button {
     --button-width: 100%;
@@ -123,7 +123,7 @@ export default {
 }
 .message {
   margin: 0 0 var(--spacer-extra-big) 0;
-  font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
+  font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
   &__label {
     font-weight: 500;
   }

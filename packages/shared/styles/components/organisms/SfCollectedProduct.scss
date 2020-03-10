@@ -44,7 +44,7 @@
     position: absolute;
     right: var(--spacer);
     bottom: var(--spacer);
-    z-index: 2;
+    z-index: 1;
   }
   &__main {
     flex: 1;
@@ -61,7 +61,7 @@
         var(--body-font-weight-primary),
         var(--font-size-regular),
         1.6,
-        var(--body-font-family-secondary)
+        var(--font-family-secondary)
       )
     );
   }

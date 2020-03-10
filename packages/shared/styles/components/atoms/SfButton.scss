@@ -21,7 +21,7 @@
     var(--font-medium),
     var(--font-base),
     1.6,
-    var(--body-font-family-secondary)
+    var(--font-family-secondary)
   );
 
   @include border(--button-border, 0, solid, var(--c-primary));
@@ -94,6 +94,7 @@
     --button-text-transform: none;
     --button-text-decoration: underline;
     --button-font-size: var(--font-xs);
+    display: inline;
     &:hover {
       --button-box-shadow: none;
       --button-background: transparent;
