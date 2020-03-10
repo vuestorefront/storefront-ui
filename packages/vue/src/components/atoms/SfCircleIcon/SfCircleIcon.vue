@@ -1,5 +1,5 @@
 <template>
-  <SfButton class="sf-circle-icon" v-on="$listeners">
+  <SfButton class="sf-circle-icon" :disabled="disabled" v-on="$listeners">
     <!--@slot Custom content that will replace default icon. can be used for inlined SVG's-->
     <slot>
       <SfIcon
@@ -36,8 +36,6 @@ export default {
       type: [String, Array],
       default: "home"
     },
-    /**
-     */
     iconColor: {
       type: String,
       default: ""
@@ -47,6 +45,10 @@ export default {
     iconSize: {
       type: String,
       default: ""
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     },
     hasBadge: {
       type: Boolean,
