@@ -6,7 +6,8 @@ import {
   number,
   boolean,
   select,
-  object
+  object,
+  optionsKnob as options
 } from "@storybook/addon-knobs";
 
 import SfProductCard from "./SfProductCard.vue";
@@ -18,6 +19,17 @@ storiesOf("Organisms|ProductCard", module)
   .add("Common", () => ({
     components: { SfProductCard },
     props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-product-card--small": "sf-product-card--small"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -108,6 +120,7 @@ storiesOf("Organisms|ProductCard", module)
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
         :is-added-to-cart="isAddedToCart"
+        :class="customClass"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -116,6 +129,17 @@ storiesOf("Organisms|ProductCard", module)
   .add("With 2 pictures", () => ({
     components: { SfProductCard },
     props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-product-card--small": "sf-product-card--small"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -220,6 +244,7 @@ storiesOf("Organisms|ProductCard", module)
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
         :is-added-to-cart="isAddedToCart"
+        :class="customClass"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -228,6 +253,17 @@ storiesOf("Organisms|ProductCard", module)
   .add("[slot] image", () => ({
     components: { SfProductCard },
     props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-product-card--small": "sf-product-card--small"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -318,6 +354,7 @@ storiesOf("Organisms|ProductCard", module)
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
         :is-added-to-cart="isAddedToCart"
+        :class="customClass"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -330,6 +367,17 @@ storiesOf("Organisms|ProductCard", module)
   .add("[slot] add-to-cart", () => ({
     components: { SfProductCard },
     props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-product-card--small": "sf-product-card--small"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -419,6 +467,7 @@ storiesOf("Organisms|ProductCard", module)
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
         :is-added-to-cart="isAddedToCart"
+        :class="customClass"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -431,6 +480,17 @@ storiesOf("Organisms|ProductCard", module)
   .add("[slot] title", () => ({
     components: { SfProductCard },
     props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-product-card--small": "sf-product-card--small"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -520,6 +580,7 @@ storiesOf("Organisms|ProductCard", module)
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
         :is-added-to-cart="isAddedToCart"
+        :class="customClass"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -532,6 +593,17 @@ storiesOf("Organisms|ProductCard", module)
   .add("[slot] wishlist-icon", () => ({
     components: { SfProductCard },
     props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-product-card--small": "sf-product-card--small"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -621,6 +693,7 @@ storiesOf("Organisms|ProductCard", module)
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
         :is-added-to-cart="isAddedToCart"
+        :class="customClass"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -633,6 +706,17 @@ storiesOf("Organisms|ProductCard", module)
   .add("[slot] price", () => ({
     components: { SfProductCard },
     props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-product-card--small": "sf-product-card--small"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -722,6 +806,7 @@ storiesOf("Organisms|ProductCard", module)
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
         :is-added-to-cart="isAddedToCart"
+        :class="customClass"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
@@ -734,6 +819,17 @@ storiesOf("Organisms|ProductCard", module)
   .add("[slot] reviews", () => ({
     components: { SfProductCard },
     props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-product-card--small": "sf-product-card--small"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -823,6 +919,7 @@ storiesOf("Organisms|ProductCard", module)
         :show-add-to-cart-button="showAddToCartButton"
         :add-to-cart-disabled="addToCartDisabled"
         :is-added-to-cart="isAddedToCart"
+        :class="customClass"
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
