@@ -21,9 +21,9 @@ storiesOf("Molecules|Section", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-section--no-underline": "sf-section--no-underline"
+            "sf-section--underline": "sf-section--underline"
           },
-          "sf-section--no-underline",
+          "sf-section--underline",
           { display: "multi-select" },
           "CSS Modifiers"
         )
@@ -52,9 +52,9 @@ storiesOf("Molecules|Section", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-section--no-underline": "sf-section--no-underline"
+            "sf-section--underline": "sf-section--underline"
           },
-          "sf-section--no-underline",
+          "sf-section--underline",
           { display: "multi-select" },
           "CSS Modifiers"
         )

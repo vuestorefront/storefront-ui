@@ -3,8 +3,7 @@
 .sf-heading {
   box-sizing: border-box;
   padding: var(--heading-padding, 0 0 var(--spacer-xs) 0);
-  @include border(--heading-border, 0 0 1px 0, solid, var(--c-light));
-  text-align: var(--heading-text-align, left);
+  text-align: var(--heading-text-align, center);
   &__title {
     margin: var(--heading-title-margin, 0);
     @include font(
@@ -41,7 +40,7 @@
     @include font(
       --heading-subtitle-font,
       var(--font-light),
-      var(--font-size-big),
+      var(--font-size-xs),
       1.6,
       var(--font-family-secondary)
     );
@@ -53,9 +52,8 @@
     --heading-text-align: center;
   }
 
-  &--no-underline {
-    --heading-border: 0;
-    --heading-padding: 0;
+  &--underline {
+    @include border(--heading-border, 0 0 1px 0, solid, var(--c-light));
   }
   &--left {
     --heading-text-align: left;
