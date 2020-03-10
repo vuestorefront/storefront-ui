@@ -1,49 +1,58 @@
 @import "../../helpers";
 
 .sf-circle-icon {
-  --button-padding: var(--spacer-big);
-  --button-border-radius: 100%;
+  --icon-color: var(--c-white);
+  --button-padding: 0;
+  --icon-size: 1.25rem;
+  --button-size: 3.25rem;
   --button-background: var(--c-primary);
-  --button-transition: box-shadow 300ms ease;
-
+  --button-transition: box-shadow 300ms linear;
+  border-radius: 100%;
   position: var(--circle-icon-position, relative);
-  box-shadow: var(--circle-icon-box-shadow);
   &:hover {
-    --button-background: var(--c-primary-lighten);
-    --circle-icon-box-shadow: 0 0 0 0.3124rem rgba(var(--c-primary-base), 0.4);
+    --button-background: var(--c-primary);
+    --button-box-shadow: 0 0 0 0.3125rem rgba(var(--c-primary-base), 0.3);
   }
   &:active {
-    --circle-icon-box-shadow: 0 0 0 0.625rem rgba(var(--c-primary-bases), 0.4);
+    --button-transition: box-shadow 150ms linear;
+    --button-box-shadow: 0 0 0 0.5rem rgba(var(--c-primary-base), 0.3);
   }
   &:disabled {
-    --circle-icon-box-shadow: 0;
+    --button-box-shadow: 0;
+    --icon-color: var(--c-text-disabled);
+    &:hover {
+      --button-background: var(--c-light);
+    }
   }
+
   &__badge {
     position: absolute;
     top: var(--circle-icon-badge-top, 0);
     right: var(--circle-icon-badge-right, 0);
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-width: var(
       --circle-icon-badge-width,
-      var(--circle-icon-badge-size, 1.2rem)
+      var(--circle-icon-badge-size, 1.125rem)
     );
     min-height: var(
       --circle-icon-badge-height,
-      var(--circle-icon-badge-size, 1.2rem)
+      var(--circle-icon-badge-size, 1.125rem)
     );
-    padding: var(--circle-icon-badge-padding, 0 3px);
+    padding: 2px;
     border-radius: var(--circle-icon-badge-border-radius, 0.625rem);
     background: var(--circle-icon-badge-background, var(--c-danger));
-    font: var(
+
+    @include font(
       --circle-icon-badge-font,
-      font(
-        --circle-icon-bage,
-        400,
-        var(--font-size-small),
-        1.4,
-        var(--body-font-family-secondary)
-      )
+      var(--font-medium),
+      var(--font-2xs),
+      1.4,
+      var(--font-family-primary)
     );
+
     &-enter-active {
       animation: bounce-in 300ms;
     }
@@ -51,6 +60,7 @@
       animation: bounce-in 300ms reverse;
     }
   }
+
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     $variant: map-get($map, "variant");
@@ -58,18 +68,41 @@
       --button-background: var(--c-#{$color});
       &:hover {
         --button-background: var(--c-#{$color}-lighten);
-        --circle-icon-box-shadow: 0
+        --button-box-shadow: 0
           0
           0
-          0.3124rem
-          rgba(var(--c-#{$color}-base), 0.4);
+          0.3125rem
+          rgba(var(--c-#{$color}-base), 0.08);
       }
       &:active {
-        --circle-icon-box-shadow: 0
-          0
-          0
-          0.625rem
-          rgba(var(--c-#{$color}-base), 0.4);
+        --button-box-shadow: 0 0 0 0.5rem rgba(var(--c-#{$color}-base), 0.08);
+      }
+    }
+  }
+
+  &--small {
+    --icon-size: 0.5rem;
+    --button-size: 1.625rem;
+    --button-transition: background 150ms linear;
+    &:hover {
+      --button-background: var(--c-primary);
+      --button-box-shadow: 0;
+    }
+    &:active {
+      --button-background: var(--c-primary-variant);
+    }
+    @each $color, $map in $colors-map {
+      $primary: map-get($map, "primary");
+      $variant: map-get($map, "variant");
+      &.color-#{$color} {
+        &:hover {
+          --button-background: var(--c-#{$color});
+          --button-box-shadow: 0;
+        }
+        &:active {
+          --button-background: var(--c-#{$color}-variant);
+          --button-box-shadow: 0;
+        }
       }
     }
   }

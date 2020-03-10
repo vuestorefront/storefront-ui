@@ -293,7 +293,7 @@ export default {
   &__content {
     flex: 1;
     color: var(--c-text);
-    font: 300 var(--font-size-small) / 1.6 var(--body-font-family-secondary);
+    font: 300 var(--font-size-small) / 1.6 var(--font-family-secondary);
   }
   &__actions {
     display: flex;
@@ -323,7 +323,7 @@ export default {
     }
   }
   &__client-name {
-    font: 500 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
+    font: 500 var(--font-size-regular) / 1.6 var(--font-family-secondary);
   }
 }
 .tab-orphan {
@@ -364,14 +364,14 @@ export default {
 }
 .message {
   margin: 0 0 var(--spacer-extra-big) 0;
-  font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
+  font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
   &__label {
     font-weight: 500;
   }
 }
 .notice {
   margin: var(--spacer-big) 0 0 0;
-  font: 300 var(--font-size-extra-small) / 1.6 var(--body-font-family-secondary);
+  font: 300 var(--font-size-extra-small) / 1.6 var(--font-family-secondary);
 }
 a {
   color: var(--c-text-muted);

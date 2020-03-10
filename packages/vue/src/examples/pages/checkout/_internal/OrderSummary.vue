@@ -236,7 +236,7 @@ export default {
   background: #f1f2f3;
   padding: var(--spacer-extra-big);
   margin: 0 0 var(--spacer-big) 0;
-  font: 300 var(--font-size-mall) / 1.6 var(--body-font-family-secondary);
+  font: 300 var(--font-size-mall) / 1.6 var(--font-family-secondary);
   &:last-child {
     margin: 0;
   }
@@ -248,7 +248,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font: 400 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
+  font: 400 var(--font-size-big) / 1.6 var(--font-family-secondary);
   h3 {
     font: inherit;
   }
@@ -260,7 +260,7 @@ export default {
 .collected-product {
   margin: var(--spacer-big) 0;
   --collected-product-title-font: 300 var(--font-size-small) / 1.6
-    var(--body-font-family-secondary);
+    var(--font-family-secondary);
   &:last-child {
     margin: var(--spacer-big) 0 0 0;
   }
@@ -269,9 +269,9 @@ export default {
   }
   &__property {
     --property-name-font: 300 var(--font-size-extra-small) / 1.6
-      var(--body-font-family-secondary);
+      var(--font-family-secondary);
     --property-value-font: 300 var(--font-size-extra-small) / 1.6
-      var(--body-font-family-secondary);
+      var(--font-family-secondary);
   }
   &__actions {
     transition: opacity 150ms ease-in-out;
@@ -279,8 +279,7 @@ export default {
   }
   &__action {
     --button-padding: 0;
-    font: 300 var(--font-size-extra-small) / 1.6
-      var(--body-font-family-secondary);
+    font: 300 var(--font-size-extra-small) / 1.6 var(--font-family-secondary);
   }
   &:hover {
     --cp-actions-opacity: 1;
@@ -292,10 +291,10 @@ export default {
 .property-total {
   margin: var(--spacer-extra-big) 0 0 0;
   --property-name-font: 500 var(--font-size-extra-big) / 1.6
-    var(--body-font-family-secondary);
+    var(--font-family-secondary);
   --property-name-color: var(--c-text);
   --property-value-font: 500 var(--font-size-extra-big) / 1.6
-    var(--body-font-family-secondary);
+    var(--font-family-secondary);
 }
 .promo-code {
   &__button {
