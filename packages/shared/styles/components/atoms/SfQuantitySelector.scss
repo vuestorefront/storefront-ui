@@ -10,21 +10,15 @@
   width: var(--quantity-selector-width, 23.4375rem);
   padding: var(--quantity-selector-padding, 0);
   background: var(--quantity-selector-background);
-  @include font(
-    --quantity-selector-font,
-    var(--font-light),
-    var(--h2-font-size),
-    1.2,
-    var(--font-family-secondary)
-  );
   &__button {
+    --button-size: 1.625rem;
     --button-color: var(--c-text);
     --button-background: var(--c-light);
     --button-padding: 0;
-    --button-size: 1.625rem;
     --button-font-size: var(--font-xl);
-    --button-font-line-height: 1.5rem;
-    border-radius: var(--quantity-selector-button-border-radius, 50%);
+    --button-border-radius: 50%;
+    --button-font-line-height: 1;
+    align-items: center;
     &:hover {
       --button-background: var(--c-light);
       box-shadow: none;
@@ -38,7 +32,6 @@
     --input-text-align: center;
     --input-bar-display: none;
     --input-font-size: var(--font-xl);
-    --input-font-line-height: 1.2;
   }
   &::before {
     position: absolute;
@@ -58,7 +51,6 @@
     --quantity-selector-button-border-radius: 0;
     &__button {
       --button-height: var(--quantity-selector-height, auto);
-      --button-font-line-height: 1.5rem;
       &:hover {
         text-shadow: var(--dark-base);
         --button-background: transparent;
