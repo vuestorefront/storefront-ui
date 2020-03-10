@@ -1,0 +1,95 @@
+@import "../../helpers";
+
+.sf-content-pages {
+  overflow: hidden;
+  height: 100vh;
+  &__section {
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    transition: var(--content-pages-transition, transform 150ms ease-in-out);
+    &--is-active {
+      transform: translateX(-100%);
+    }
+  }
+  &__sidebar,
+  &__content {
+    overflow-y: auto;
+    box-sizing: border-box;
+    height: calc(100vh - 5rem);
+  }
+  &__sidebar {
+    flex: var(--content-pages-sidebar-flex, 0 0 100%);
+    padding: var(--content-pages-sidebar-padding, var(--spacer-big));
+    background-color: var(--content-pages-sidebar-background);
+  }
+  &__content {
+    flex: 0 0 100%;
+    padding: var(--content-pages-content-padding, var(--spacer-big));
+  }
+  &__title {
+    padding: var(--content-pages-title-padding, var(--spacer-big) 0);
+    margin: var(--content-pages-title-margin);
+    font: var(
+      --content-pages-title-font,
+      font(
+        --content-pages-title,
+        500,
+        var(--font-size-big),
+        1.6,
+        var(--font-family-secondary)
+      )
+    );
+  }
+  &__category-title {
+    margin: var(--content-pages-category-title-margin, 0 0 var(--spacer-big) 0);
+    font: var(
+      --content-pages-category-title-font,
+      font(
+        --content-pages-category-title,
+        500,
+        var(--font-size-big),
+        1.6,
+        var(--font-family-secondary)
+      )
+    );
+  }
+  &__list {
+    margin: var(--content-pages-list-margin, 0 0 var(--spacer-extra-big) 0);
+  }
+  &__list-item {
+    border: var(--content-pages-list-item-border, 1px solid var(--c-light));
+    border-width: var(--content-pages-list-item-border-width, 0 0 1px 0);
+  }
+  &__menu {
+    padding: var(
+      --content-pages-menu-padding,
+      var(--spacer-big) var(--spacer-big) var(--spacer-big) 10px
+    );
+  }
+  @include for-desktop {
+    --content-pages-content-padding: var(--spacer-big) var(--spacer-extra-big);
+    --content-pages-sidebar-padding: var(--spacer-big) var(--spacer-extra-big)
+      var(--spacer-extra-big);
+    --content-pages-sidebar-background: var(--c-light);
+    --content-pages-title-margin: 0 0 var(--spacer-big) 0;
+    --content-pages-category-title-font-weight: 400;
+    --content-pages-menu-padding: var(--spacer) 0;
+    --content-pages-title-font-size: var(--font-size-extra-big);
+    height: auto;
+    &__section {
+      &--is-active {
+        transform: translateX(0);
+      }
+    }
+    &__sidebar,
+    &__content {
+      overflow-y: hidden;
+      flex: 1;
+      height: auto;
+    }
+    &__sidebar {
+      flex: var(--content-pages-sidebar-flex, 0 0 18.4375rem);
+    }
+  }
+}
