@@ -14,7 +14,7 @@ storiesOf("Molecules|SearchBar", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-search-bar--position-right": "sf-search-bar--position-right",
+            "sf-search-bar--position-center": "sf-search-bar--position-center",
             "sf-search-bar--no-icon": "sf-search-bar--no-icon"
           },
           "null",
