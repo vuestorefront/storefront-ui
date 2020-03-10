@@ -74,7 +74,7 @@ storiesOf("Organisms|ProductCard", module)
         default: boolean("isOnWishlist", false, "Props")
       },
       showAddToCartButton: {
-        default: boolean("showAddToCartButton", false, "Props")
+        default: boolean("showAddToCartButton", true, "Props")
       },
       isAddedToCart: {
         default: boolean("isAddedToCart", false, "Props")
