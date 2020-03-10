@@ -1,14 +1,8 @@
 @import "../../helpers";
 
 .sf-accordion-item {
-  // @include font(
-  //   --accordion-item-font,
-  //   var(--body-font-weight-secondary),
-  //   var(--font-size-regular),
-  //   1.6,
-  //   var(--font-family-secondary)
-  // );
   @include border(--accordion-item-border, 0 0 1px 0, solid, var(--c-light));
+
   &__header {
     display: flex;
     justify-content: var(--accordion-item-header-justify, space-between);
