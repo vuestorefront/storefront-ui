@@ -5,6 +5,7 @@
   position: relative;
   z-index: var(--product-card-z-index);
   max-width: var(--product-card-max-width, 170px);
+  height: var(--product-card-height);
   padding: var(--product-card-padding, var(--spacer-2xs));
   background-color: var(--product-card-background, var(--c-white));
 
@@ -33,6 +34,7 @@
 
   &__title {
     margin: var(--product-card-title-margin, var(--spacer-xs) 0 0 0);
+
     @include font(
       --product-card-title-font,
       var(--font-light),
@@ -46,6 +48,7 @@
     position: relative;
     display: flex;
   }
+
   &__image,
   &__picture {
     transition: var(--product-card-image-transition, opacity 150ms ease-in-out);
@@ -67,6 +70,7 @@
 
   &__add-button {
     --circle-icon-position: absolute;
+    --button-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
     right: var(--product-card-add-button-right, 1rem);
     bottom: var(--product-card-add-button-bottom, 0);
     display: var(--product-card-add-button-display, none);
@@ -84,6 +88,10 @@
         bounce 0.4s reverse
       );
     }
+  }
+
+  &__price {
+    margin: var(--product-card-margin, var(--spacer-2xs) 0);
   }
 
   &__reviews {
@@ -133,8 +141,9 @@
 
   @include for-desktop {
     --product-card-max-width: 256px;
+    --product-card-height: 490px;
     --product-card-padding: calc(var(--spacer-xl) / 2);
-    --product-card-title-margin: var(--spacer-xl) 0 var(--spacer-xs);
+    --product-card-title-margin: var(--spacer-xl) 0 0 0;
     --product-card-transition: box-shadow 150ms ease-in-out;
     --product-card-wishlist-icon-top: var(--spacer-xl);
     --product-card-wishlist-icon-right: var(--spacer-xl);
@@ -146,6 +155,10 @@
       --product-card-box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
     }
   }
+
+&--small {
+  --product-card-max-width: 140px;
+}
 }
 
 @keyframes bounce {
