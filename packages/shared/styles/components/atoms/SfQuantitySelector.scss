@@ -51,6 +51,7 @@
     --quantity-selector-button-border-radius: 0;
     &__button {
       --button-height: var(--quantity-selector-height, auto);
+      --button-background: transparent;
       &:hover {
         text-shadow: var(--dark-base);
         --button-background: transparent;
@@ -59,7 +60,13 @@
     &--small {
       --quantity-selector-background: var(--c-white);
       --quantity-selector-height: 2.5rem;
-      --button-background: var(--c-white);
+      .sf-quantity-selector__button {
+        --button-background: transparent;
+        &:hover {
+          text-shadow: var(--dark-base);
+          --button-background: transparent;
+        }
+      }
     }
     &::before {
       display: none;
