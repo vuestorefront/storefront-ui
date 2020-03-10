@@ -14,10 +14,7 @@
     width: var(--add-to-cart-button-width, 100%);
     height: var(--add-to-cart-button-height, 3.5rem);
     order: var(--add-to-cart-button-order);
-    padding: var(
-      --add-to-cart-button-padding,
-      var(--spacer-sm) 6rem var(--spacer-sm) 6rem
-    );
+    padding: var(--add-to-cart-button-padding, var(--spacer-sm) 6rem);
     &:disabled {
       color: var(--c-text-disabled);
     }
@@ -31,10 +28,10 @@
   }
   @include for-desktop {
     --add-to-cart-button-width: 25.125rem;
-    --add-to-cart-button-padding: 0 4.5rem 0 4.5rem;
+    --add-to-cart-button-padding: 0 4.5rem;
     --add-to-cart-button-height: 3.25rem;
     --add-to-cart-button-order: 1;
-    --add-to-cart-select-quantity-margin: 0 var(--spacer-sm) 0 var(--spacer-sm);
+    --add-to-cart-select-quantity-margin: 0 var(--spacer-sm);
     --add-to-cart-select-quantity-display: flex;
   }
 }
