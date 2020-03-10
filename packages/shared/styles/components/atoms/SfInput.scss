@@ -32,7 +32,7 @@
   }
   &__bar {
     position: relative;
-    display: block;
+    display: var(--input-bar-display, block);
     &::before,
     &::after {
       position: absolute;
@@ -86,6 +86,7 @@
       1,
       var(--font-family-secondary)
     );
+    text-align: var(--input-text-align);
     outline: none;
     &:focus {
       & ~ * {

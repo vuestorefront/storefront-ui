@@ -9,15 +9,11 @@
   width: var(--quantity-selector-width, 23.4375rem);
   padding: var(--quantity-selector-padding, 0);
   background: var(--quantity-selector-background);
-  --button-color: var(--c-text);
-  --button-background: var(--c-light);
-  --button-padding: 0;
-  --button-size: 1.625rem;
-  --input-margin: 0;
-  --input-padding: 0;
-  --input-border: none;
-  --input-height: 3.5rem;
   &__button {
+    --button-color: var(--c-text);
+    --button-background: var(--c-light);
+    --button-padding: 0;
+    --button-size: 1.625rem;
     border-radius: var(--quantity-selector-button-border-radius, 50%);
     &:hover {
       --button-background: var(--c-light);
@@ -25,13 +21,12 @@
     }
   }
   &__input {
-    .sf-input__wrapper input {
-      text-align: center;
-    }
-    .sf-input__bar::after,
-    .sf-input__bar::before {
-      display: none;
-    }
+    --input-margin: 0;
+    --input-padding: 0;
+    --input-border: none;
+    --input-height: 3.5rem;
+    --input-text-align: center;
+    --input-bar-display: none;
   }
   &::before {
     position: absolute;
