@@ -1,26 +1,34 @@
 @import "../../helpers";
 
 .sf-banner {
-  box-sizing: border-box;
   display: var(--banner-display, flex);
   flex-direction: var(--banner-flex-direction, column);
   justify-content: var(--banner-justify-content, left);
-  background-color: var(--background-color);
-  background-position: var(--banner-background-position, center);
-  background-repeat: var(--banner-background-repeat, no-repeat);
+  box-sizing: border-box;
+  min-height: var(--banner-min-height, 14rem);
+  width: var(--banner-width, 100%);
+  background-position: var(--banner-background-position, bottom left);
   background-size: var(--banner-background-size, cover);
+  background-color: var(--background-color);
   background-image: var(--background-image);
+  background-repeat: var(--banner-background-repeat, no-repeat);
   color: var(--banner-color, var(--c-text));
-  width: var(--banner-size, var(--banner-width, 100%));
-  min-height: var(--banner-size, var(--banner-min-height, 14rem));
   letter-spacing: var(--banner-letter-spacing, 0.1px);
   &__container {
     display: flex;
     justify-content: left;
     flex-direction: column;
-    margin: var(--banner-container-margin, 3.125rem 0 0 3.125rem);
+    margin: var(
+      --banner-container-margin,
+      var(--spacer-xl) 0 0 var(--spacer-xl)
+    );
   }
   &__subtitle {
+    margin: var(--banner-subtitle-margin, 0);
+    color: var(
+      --banner-color,
+      var(--banner-subtitle-color, var(--c-dark-variant))
+    );
     @include font(
       --banner-subtitle-font,
       var(--font-normal),
@@ -28,26 +36,24 @@
       1.4,
       var(--font-family-secondary)
     );
-    color: var(
-      --banner-color,
-      var(--banner-subtitle-color, var(--c-text-muted))
-    );
-    margin: var(--banner-subtitle-margin, 0);
+    text-transform: var(--banner-subtitle-text-transform, uppercase);
   }
   &__title {
+    margin: var(--banner-title-margin, 0.6875rem 0 0 0);
+    color: var(--banner-color, var(--banner-title-color, var(--c-text)));
     @include font(
       --banner-title-font,
-      var(--font-semibold),
-      42px,
+      var(--font-normal),
+      var(--h2-font-size),
       1.4,
       var(--font-family-secondary)
     );
     text-transform: var(--banner-title-text-transform, uppercase);
-    color: var(--banner-color, var(--banner-title-color, var(--c-text)));
-    margin: var(--banner-title-margin, 0.6875rem 0 0 0);
   }
   &__description {
     display: var(--banner-display-description, none);
+    margin: var(--banner-description-margin, var(--spacer-sm) 0 1.375rem 0);
+    color: var(--banner-color, var(--banner-description-color, var(--c-text)));
     @include font(
       --banner-description-font,
       var(--font-light),
@@ -55,29 +61,27 @@
       1.7,
       var(--font-family-primary)
     );
-    color: var(--banner-color, var(--banner-description-color, var(--c-text)));
-    margin: var(--banner-description-margin, var(--spacer-sm) 0 1.375rem 0);
   }
   &__call-to-action {
     display: var(--banner-display-call-to-action, none);
     --button-width: 10.75rem;
   }
   @include for-desktop {
-    --background-image: var(--background-desktop-image);
-    --banner-min-height: 25rem;
-    --banner-container-margin: 5.375rem calc(50%) 0 3.125rem;
-    --banner-title-font-size: var(--h1-font-size);
-    --banner-title-margin: 1.625rem 0 0 0;
-    --banner-display-description: block;
     --banner-display-description: block;
     --banner-display-call-to-action: block;
+    --banner-min-height: 25rem;
+    --banner-container-margin: var(--spacer-2xl) 50% 0 var(--spacer-xl);
+    --banner-title-margin: var(--spacer-base) 0 0 0;
+    --background-image: var(--background-desktop-image);
+    --banner-subtitle-color: var(--c-gray);
+    --banner-title-font-size: var(--h1-font-size);
     &--square {
       --banner-min-height: 29.5rem;
       --banner-width: 36.875rem;
-      --banner-container-margin: var(--spacer-2xl) 0 0 3.125rem;
+      --banner-container-margin: var(--spacer-2xl) 0 0 var(--spacer-xl);
     }
     &--right {
-      --banner-container-margin: 5.375rem 3.125rem 0 calc(50%);
+      --banner-container-margin: var(--spacer-2xl) var(--spacer-xl) 0 50%;
     }
   }
 }
