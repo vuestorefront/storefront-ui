@@ -1,11 +1,11 @@
 @import "../../helpers";
 
 .sf-filter {
+  --checkbox-container-width: 100%;
   display: flex;
   width: var(--filter-width, 100%);
   height: var(--filter-height, 3.8125rem);
-  letter-spacing: 0.1px;
-  --checkbox-container-width: 100%;
+  letter-spacing: var(--filter-letter-spacing, 0.1px);
   .sf-checkbox__container {
     justify-content: var(
       --filter-checkbox-container-justify-content,
@@ -14,8 +14,8 @@
     margin: var(--filter-checkbox-container-margin, 0);
   }
   .sf-checkbox__checkmark {
-    display: var(--filter-checkmark-display, none);
     --checkbox-border-radius: 50%;
+    display: var(--filter-checkmark-display, none);
     order: var(--filter-checkmark-order, 2);
     margin: var(--filter-checkmark-margin, 0 var(--spacer-base) 0 0);
   }
@@ -34,7 +34,7 @@
   }
   &__count {
     display: var(--filter-count-display, none);
-    order: 3;
+    order: var(--filter-count-order, 3);
     @include font(
       --filter-count-font,
       var(--font-normal),
@@ -42,30 +42,28 @@
       1.4,
       var(--font-family-secondary)
     );
-    text-align: right;
     color: var(--filter-count-color, var(--c-text));
     margin: var(--filter-count-margin, 0 0 0 var(--spacer-sm));
   }
   @include for-desktop {
-    // --filter-width: 22.875rem;
-    --filter-checkbox-container-margin: 0 var(--spacer-xl);
     --checkbox-container-width: 14rem;
+    --filter-checkbox-container-justify-content: left;
+    --filter-checkbox-container-margin: 0 var(--spacer-xl);
     --filter-height: 2.375rem;
     --filter-checkmark-display: flex;
-    // --fliter-checkbox-container-justify-content: space-around;
+    --filter-checkmark-order: 1;
     --filter-checkmark-margin: 0 var(--spacer-sm) 0 0;
     --filter-label-order: 2;
     --filter-label-font-size: var(--font-2xs);
     --filter-label-font-weight: var(--font-normal);
     --filter-label-font-line-height: 1.4;
     --filter-label-color: var(--c-link);
-    // --filter-label-margin: 0 var(--spacer-3xl) 0 0;
-    --filter-checkmark-order: 1;
+    --filter-label-margin: 0 var(--spacer-2xl) 0 0;
     --filter-count-display: flex;
+    --filter-count-margin: 0;
     &--active {
       --filter-label-font-size: var(--h5-font-size);
       --filter-label-text-decoration: underline;
-      --filter-label-color: var(--c-text);
     }
     .sf-checkbox__checkmark {
       --checkbox-border-radius: 0;
