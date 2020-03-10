@@ -1,18 +1,7 @@
 @import "../../helpers";
 
 .sf-quantity-selector {
-  --button-color: var(--c-text);
-  --button-background: var(--c-light);
-  --button-padding: 0;
-  --button-size: 1.625rem;
-  --button-font-size: var(--quantity-selector-font-size, var(--h2-font-size));
-  --button-font-line-height: var(--quantity-selector-font-line-height, 1.2);
-  --input-margin: 0;
-  --input-padding: 0;
-  --input-border: none;
-  --input-height: 3.5rem;
-  --input-font-size: var(--quantity-selector-font-size, var(--h2-font-size));
-  --input-font-line-height: var(--quantity-selector-font-line-height, 1.2);
+  box-sizing: border-box;
   display: flex;
   position: relative;
   align-items: center;
@@ -22,6 +11,12 @@
   padding: var(--quantity-selector-padding, 0);
   background: var(--quantity-selector-background);
   &__button {
+    --button-color: var(--c-text);
+    --button-background: var(--c-light);
+    --button-padding: 0;
+    --button-size: 1.625rem;
+    --button-font-size: var(--font-xl);
+    --button-font-line-height: 1.5rem;
     border-radius: var(--quantity-selector-button-border-radius, 50%);
     &:hover {
       --button-background: var(--c-light);
@@ -29,13 +24,14 @@
     }
   }
   &__input {
-    .sf-input__wrapper input {
-      text-align: center;
-    }
-    .sf-input__bar::after,
-    .sf-input__bar::before {
-      display: none;
-    }
+    --input-margin: 0;
+    --input-padding: 0;
+    --input-border: none;
+    --input-height: 3.5rem;
+    --input-text-align: center;
+    --input-bar-display: none;
+    --input-font-size: var(--font-xl);
+    --input-font-line-height: 1.2;
   }
   &::before {
     position: absolute;
@@ -53,11 +49,9 @@
     --quantity-selector-height: 3.25rem;
     --quantity-selector-padding: 0 var(--spacer-xs);
     --quantity-selector-button-border-radius: 0;
-    --quantity-selector-font-size: 22px;
-    --button-height: var(--quantity-selector-height, auto);
-    --button-font-size: 22px;
-    --input-font-size: 22px;
     &__button {
+      --button-height: var(--quantity-selector-height, auto);
+      --button-font-line-height: 1.5rem;
       &:hover {
         text-shadow: var(--dark-base);
         --button-background: transparent;
