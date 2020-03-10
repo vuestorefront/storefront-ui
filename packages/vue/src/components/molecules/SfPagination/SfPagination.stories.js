@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number } from "@storybook/addon-knobs";
+import { withKnobs, number, boolean } from "@storybook/addon-knobs";
 import SfPagination from "./SfPagination.vue";
 storiesOf("Molecules|Pagination", module)
   .addDecorator(withKnobs)
@@ -11,6 +11,9 @@ storiesOf("Molecules|Pagination", module)
       },
       total: {
         default: number("total", 12, {}, "Props")
+      },
+      hasArrows: {
+        default: boolean("hasArrows", true, "Props") 
       }
     },
     data() {
@@ -22,6 +25,7 @@ storiesOf("Molecules|Pagination", module)
         :current="current"
         :visible="visible"
         :total="total"
+        :has-arrows="hasArrows"
         @click="value => current = value"/>`
   }))
   .add("[slot] default", () => ({
@@ -32,28 +36,9 @@ storiesOf("Molecules|Pagination", module)
       },
       total: {
         default: number("total", 12, {}, "Props")
-      }
-    },
-    data() {
-      return {
-        current: 2
-      };
-    },
-    template: `<SfPagination
-      :current="current"
-      :visible="visible"
-      :total="total">
-        <template #default="{go}">CUSTOM DEFAULT</template>
-    </SfPagination>`
-  }))
-  .add("[slot] prev", () => ({
-    components: { SfPagination },
-    props: {
-      visible: {
-        default: number("visible", 5, {}, "Props")
       },
-      total: {
-        default: number("total", 12, {}, "Props")
+      hasArrows: {
+        default: boolean("hasArrows", true, "Props") 
       }
     },
     data() {
@@ -65,6 +50,33 @@ storiesOf("Molecules|Pagination", module)
       :current="current"
       :visible="visible"
       :total="total"
+      :has-arrows="hasArrows">
+        <template #default="{go}">CUSTOM DEFAULT</template>
+    </SfPagination>`
+  }))
+  .add("[slot] prev", () => ({
+    components: { SfPagination },
+    props: {
+      visible: {
+        default: number("visible", 5, {}, "Props")
+      },
+      total: {
+        default: number("total", 12, {}, "Props")
+      },
+      hasArrows: {
+        default: boolean("hasArrows", true, "Props") 
+      }
+    },
+    data() {
+      return {
+        current: 2
+      };
+    },
+    template: `<SfPagination
+      :current="current"
+      :visible="visible"
+      :total="total"
+      :has-arrows="hasArrows"
       @click="value => current = value">
       <template #prev="{isDisabled, go}">
         <button @click="go">prev</button>
@@ -79,6 +91,9 @@ storiesOf("Molecules|Pagination", module)
       },
       total: {
         default: number("total", 12, {}, "Props")
+      },
+      hasArrows: {
+        default: boolean("hasArrows", true, "Props") 
       }
     },
     data() {
@@ -90,6 +105,7 @@ storiesOf("Molecules|Pagination", module)
       :current="current"
       :visible="visible"
       :total="total"
+      :has-arrows="hasArrows"
       @click="value => current = value">
       <template #next="{isDisabled, go}">
         <button @click="go">next</button>
@@ -104,6 +120,9 @@ storiesOf("Molecules|Pagination", module)
       },
       total: {
         default: number("total", 12, {}, "Props")
+      },
+      hasArrows: {
+        default: boolean("hasArrows", true, "Props") 
       }
     },
     data() {
@@ -115,6 +134,7 @@ storiesOf("Molecules|Pagination", module)
       :current="current"
       :visible="visible"
       :total="total"
+      :has-arrows="hasArrows"
       @click="value => current = value">
       <template #number="{number, go}">
         <button 
