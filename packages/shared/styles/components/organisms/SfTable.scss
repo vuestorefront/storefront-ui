@@ -3,7 +3,7 @@
 .sf-table {
   box-sizing: border-box;
   width: var(--table-width, 100%);
-  border: var(--table-border, none);
+  border: none;
   border-spacing: var(--table-border-spacing, 0);
   &__heading,
   &__row {
@@ -13,17 +13,35 @@
   }
   &__heading {
     align-items: center;
-    padding: var(--table-heading-padding, var(--spacer-big));
-    background-color: var(--table-heading-background, var(--c-light));
-    border-bottom: var(--table-heading-border-bottom, 1px solid var(--c-light));
-    border: var(--table-heading-border);
-    border-width: var(--table-heading-border-width);
+    padding: var(--table-heading-padding, var(--spacer-sm) 0);
+    background-color: var(--table-heading-background, transparent);
+
+    @include border(--table-border, 2px 0 2px 0, solid, var(--c-light));
+  }
+  &__header {
+    @include font(
+      --table-header-font,
+      var(--font-semibold),
+      var(--font-xs),
+      1.6,
+      var(--font-family-secondary)
+    );
   }
   &__row {
-    padding: var(--table-row-padding, var(--spacer-big));
+    padding: var(--table-row-padding, var(--spacer-xs) 0);
     background-color: var(--table-row-background);
-    border-bottom: var(--table-row-border-bottom, 1px solid var(--c-light));
     box-shadow: var(--table-row-box-shadow);
+    @include border(--table-row-border, 0, solid, var(--c-light));
+  }
+  &__data {
+    color: var(--table-data-color, var(--c-dark-variant));
+    @include font(
+      --table-data-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.6,
+      var(--font-family-secondary)
+    );
   }
   &__data,
   &__header {
@@ -38,21 +56,21 @@
     }
   }
   &--bordered {
-    --table-heading-padding: var(--spacer-big);
-    --table-heading-border: 1px solid var(--c-light);
-    --table-heading-border-width: 1px 0 1px 0;
+    --table-row-border-width: 0 0 2px 0;
+    --table-row-border-color: var(--c-light);
   }
   @include for-desktop {
     --table-row-border-bottom: none;
+    --table-row-padding: var(--spacer-sm) 0;
     --table-heading-padding: 10px var(--spacer-big);
     --table-heading-background: transparent;
     --table-data-flex: 1;
     --table-data-margin: 0;
     --table-data-last-child-order: 0;
+    --table-header-font-size: var(--font-sm);
     &--bordered {
-      --table-heading-padding: 10px;
-      --table-row-padding: 10px;
-      --table-row-border-bottom: 1px solid var(--c-light);
+      --table-row-border-width: 0 0 2px 0;
+      --table-row-border-color: var(--c-light);
     }
     &__row {
       &:hover {
