@@ -3,16 +3,15 @@
     <SfOverlay :visible="visibleOverlay" @click="close" />
     <transition :name="transitionName">
       <aside v-if="visible" class="sf-sidebar__aside">
-        <!--@slot Use this slot to place content inside the modal bar.-->
-        <slot name="modal-bar">
-          <SfBar
-            :title="title"
-            class="mobile-only"
-            :back="true"
-            @click:back="close"
-          />
-        </slot>
-        <div ref="content" class="sf-sidebar__content">
+        <div class="sf-sidebar__top">
+          <slot name="top-bar">
+            <SfBar
+              :title="title"
+              class="mobile-only"
+              :back="true"
+              @click:back="close"
+            />
+          </slot>
           <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
               v-if="title"
@@ -22,18 +21,38 @@
               class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
             />
           </slot>
-          <slot />
+          <slot
+            v-if="position === 'right'"
+            name="icon"
+            v-bind="{ close, button }"
+          >
+            <SfIcon
+              v-if="button"
+              icon="cross"
+              size="14px"
+              role="button"
+              aria-label="close"
+              class="sf-sidebar__icon desktop only"
+              @click="close"
+            />
+          </slot>
+          <slot v-else name="circle-icon" v-bind="{ close, button }">
+            <SfCircleIcon
+              v-if="button"
+              icon-size="14px"
+              icon="cross"
+              class="sf-sidebar__circle-icon desktop-only"
+              @click="close"
+            />
+          </slot>
         </div>
-        <slot name="circle-icon" v-bind="{ close, button }">
-          <SfCircleIcon
-            v-if="button"
-            icon-size="14px"
-            icon="cross"
-            icon-color="white"
-            class="sf-sidebar__circle-icon desktop-only"
-            @click="close"
-          />
-        </slot>
+        <!--@slot Use this slot to place content inside the modal bar.-->
+        <div ref="content" class="sf-sidebar__content">
+          <slot name="content" />
+        </div>
+        <SfSticky class="sf-sidebar__bottom">
+          <slot name="sticky-bottom" />
+        </SfSticky>
       </aside>
     </transition>
   </div>
@@ -41,6 +60,8 @@
 <script>
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfSticky from "../../molecules/SfSticky/SfSticky.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
@@ -49,7 +70,9 @@ export default {
   components: {
     SfBar,
     SfCircleIcon,
+    SfIcon,
     SfOverlay,
+    SfSticky,
     SfHeading
   },
   props: {
@@ -63,7 +86,7 @@ export default {
     },
     headingLevel: {
       type: Number,
-      default: 2
+      default: 3
     },
     button: {
       type: Boolean,
@@ -82,7 +105,8 @@ export default {
     return {
       position: "left",
       staticClass: null,
-      className: null
+      className: null,
+      isRight: false
     };
   },
   computed: {
