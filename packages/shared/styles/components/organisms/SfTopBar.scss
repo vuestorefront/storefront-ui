@@ -1,29 +1,24 @@
 @import "../../helpers";
 
-.sf-topbar {
-  @include font(
-    --bar-font,
-    var(--font-normal),
-    var(--font-xs),
-    1.6,
-    var(--font-family-secondary)
-  );
-  display: flex;
-  align-items: var(--topbar-align-items, center);
-  justify-content: var(--topbar-justify-content, space-between);
-  width: 100%;
-  height: var(--top-bar-height, 2.5rem);
-  box-sizing: border-box;
-  padding: var(--topbar-padding, 0 6rem 0 6rem);
+.sf-top-bar {
   background-color: var(--top-bar-background, var(--c-light));
-  &__right {
-    display: flex;
-    align-items: center;
+  &__container {
+    box-sizing: border-box;
+    justify-content: var(--topbar-justify-content, space-between);
+    max-width: var(--sf-topbar-width, 77.5rem);
+    height: var(--top-bar-height, 2.5rem);
+    margin: 0 auto;
+    @include font(
+      --bar-font,
+      var(--font-normal),
+      var(--font-xs),
+      1.6,
+      var(--font-family-secondary)
+    );
   }
-  &__left {
-    display: flex;
-    align-items: center;
-  }
+  &__container,
+  &__right,
+  &__left,
   &__center {
     display: flex;
     align-items: center;
