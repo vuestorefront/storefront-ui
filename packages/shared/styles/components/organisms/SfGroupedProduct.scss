@@ -2,7 +2,7 @@
 
 .sf-grouped-product-item {
   display: var(--grouped-product-item-display);
-  padding: var(--grouped-product-item-padding, var(--spacer-small));
+  padding: var(--grouped-product-item-padding, var(--spacer-xs));
   @include font(
     --grouped-product-item-font,
     var(--font-normal),
@@ -23,32 +23,29 @@
   }
   &__quantity-selector {
     position: absolute;
-    right: var(--grouped-product-item-quantity-right, var(--spacer));
-    bottom: var(--grouped-product-item-quantity-bottom, var(--spacer));
-    left: var(--grouped-product-item-quantity-left);
+    right: var(--grouped-product-item-quantity-right, 0);
+    bottom: var(--grouped-product-item-quantity-bottom, var(--spacer-xs));
+    left: var(--grouped-product-item-quantity-left, var(--spacer-sm));
     z-index: 1;
   }
   &__description {
     margin: var(--grouped-product-item-description-margin);
   }
   &__title {
-    margin: var(--grouped-product-item-title-margin, var(--spacer-small) 0);
+    margin: var(--grouped-product-item-title-margin, var(--spacer-xs) 0);
   }
   &__price {
     margin: var(--grouped-product-item-price-margin);
     font: var(--grouped-product-item-price-font);
   }
   @include for-desktop {
-    --input-background: var(--c-light);
-    --input-font-size: var(--font-size-big);
-    --grouped-product-item-font-size: var(--font-size-extra-small);
     --grouped-product-item-display: flex;
     --grouped-product-item-padding: 10px 0;
     --grouped-product-item-border-bottom: 1px solid var(--c-light);
     --grouped-product-item-flex: 0 0 5.125rem;
     --grouped-product-item-quantity-bottom: 0;
     --grouped-product-item-quantity-left: 6.375rem;
-    --grouped-product-item-description-margin: 0 0 0 var(--spacer-big);
+    --grouped-product-item-description-margin: 0 0 0 var(--spacer-lg);
     --grouped-product-item-title-margin: 0;
     --grouped-product-item-price-margin: 0 0 0 auto;
     --grouped-product-item-price-font: inherit;
@@ -65,8 +62,8 @@
       flex: 0 0 7.8125rem;
     }
     --grouped-product-item-quantity-bottom: 0;
-    --grouped-product-item-quantity-left: 6.375rem;
-    --grouped-product-item-description-margin: 0 0 0 var(--spacer-big);
+    --grouped-product-item-quantity-right: 0;
+    --grouped-product-item-description-margin: 0 0 0 var(--spacer-lg);
     --grouped-product-item-title-margin: 0;
     --grouped-product-item-price-margin: 0 0 0 auto;
     --grouped-product-item-price-font: inherit;

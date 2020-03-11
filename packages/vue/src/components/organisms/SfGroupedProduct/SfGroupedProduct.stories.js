@@ -9,11 +9,12 @@ import {
 } from "@storybook/addon-knobs";
 
 import SfGroupedProduct from "./SfGroupedProduct.vue";
+import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
 
 storiesOf("Organisms|GroupedProduct", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfGroupedProduct },
+    components: { SfGroupedProduct, SfProperty },
     props: {
       settings: {
         default: object("settings", { type: "slider" }, "Props")
@@ -76,16 +77,16 @@ storiesOf("Organisms|GroupedProduct", module)
           :price-special="priceSpecial"
         >
           <template #details>
-           <div :style="{color: '#A3A5AD'}">MSD23-345-324</div>
+           <div :style="{color: '#A3A5AD', fontSize: '12px'}">MSD23-345-324</div>
           </template>
           <template #configuration>
-            <div :style="{margin: '0 0 0 auto'}">White</div>
+            <SfProperty name="Color" value="White" :style="{margin: '0 0 0 auto'}"/>
           </template>
         </SfGroupedProductItem>
       </SfGroupedProduct>`
   }))
   .add("Multiple Products", () => ({
-    components: { SfGroupedProduct },
+    components: { SfGroupedProduct, SfProperty },
     props: {
       settings: {
         default: object("settings", { type: "slider" }, "Props")
@@ -182,7 +183,7 @@ storiesOf("Organisms|GroupedProduct", module)
         </template>
         <template #configuration>
           <div :style="{margin: '0 0 0 auto'}">
-            <div v-for="attribute in product.attributes" :key="attribute.value">{{attribute.value}}</div>
+            <SfProperty v-for="attribute in product.attributes" name="Color" :value="attribute.value" :key="attribute.value"/>
           </div>
         </template>
       </SfGroupedProductItem>
