@@ -32,7 +32,7 @@
               size="14px"
               role="button"
               aria-label="close"
-              class="sf-sidebar__icon desktop only"
+              class="sf-sidebar__icon desktop-only"
               @click="close"
             />
           </slot>
@@ -48,10 +48,10 @@
         </div>
         <!--@slot Use this slot to place content inside the modal bar.-->
         <div ref="content" class="sf-sidebar__content">
-          <slot name="content" />
+          <slot />
         </div>
         <SfSticky class="sf-sidebar__bottom">
-          <slot name="sticky-bottom" />
+          <slot name="bottom" />
         </SfSticky>
       </aside>
     </transition>
@@ -106,7 +106,6 @@ export default {
       position: "left",
       staticClass: null,
       className: null,
-      isRight: false
     };
   },
   computed: {
