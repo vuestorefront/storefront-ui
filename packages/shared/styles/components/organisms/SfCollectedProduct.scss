@@ -39,7 +39,6 @@
     background: var(--collected-product-image-background, var(--c-light));
   }
   &__quantity-selector {
-    --input-background: var(--c-white);
     position: absolute;
     right: var(--spacer-sm);
     bottom: var(--spacer-sm);
