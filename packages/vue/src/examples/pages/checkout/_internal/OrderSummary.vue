@@ -279,8 +279,7 @@ export default {
   }
   &__action {
     --button-padding: 0;
-    font: 300 var(--font-size-extra-small) / 1.6
-      var(--font-family-secondary);
+    font: 300 var(--font-size-extra-small) / 1.6 var(--font-family-secondary);
   }
   &:hover {
     --cp-actions-opacity: 1;
