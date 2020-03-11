@@ -1,7 +1,10 @@
 @import "../../helpers";
 
 .sf-content-pages {
+  overflow: hidden;
+  height: 100vh;
   &__section {
+    height: 100%;
     transition: var(--content-pages-transition, transform 150ms ease-in-out);
     &--is-active {
       transform: translateX(-100%);
@@ -13,10 +16,14 @@
   }
   &__content {
     flex: 0 0 100%;
+    height: calc(100vh - 5rem);
+    padding: var(--spacer-lg);
+    overflow-y: auto;
   }
   &__sidebar {
     flex: var(--content-pages-sidebar-flex, 0 0 100%);
     overflow-y: auto;
+    height: calc(100vh - 5rem);
   }
   &__category-title {
     padding: var(
