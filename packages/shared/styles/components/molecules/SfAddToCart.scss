@@ -3,35 +3,21 @@
 .sf-add-to-cart {
   display: flex;
   &__button {
-    @include font(
-      --add-to-cart-font,
-      var(--font-semibold),
-      var(--font-base),
-      1.6,
-      var(--font-family-secondary)
-    );
+    --button-font-weight: var(--font-semibold);
+    --button-width: 100%;
     align-items: center;
-    width: var(--add-to-cart-button-width, 100%);
-    height: var(--add-to-cart-button-height, 3.5rem);
     order: var(--add-to-cart-button-order);
-    padding: var(--add-to-cart-button-padding, var(--spacer-sm) 6rem);
     &:disabled {
       color: var(--c-text-disabled);
     }
   }
   &__select-quantity {
-    --input-height: auto;
-    --input-border: 1px solid var(--c-light);
-    display: var(--add-to-cart-select-quantity-display, none);
-    width: 6.938rem;
+    --quantity-selector-height: 100%;
     margin: var(--add-to-cart-select-quantity-margin, 0 0 0 var(--spacer-xs));
   }
   @include for-desktop {
-    --add-to-cart-button-width: 25.125rem;
-    --add-to-cart-button-padding: 0 4.5rem;
-    --add-to-cart-button-height: 3.25rem;
     --add-to-cart-button-order: 1;
-    --add-to-cart-select-quantity-margin: 0 var(--spacer-sm);
+    --add-to-cart-select-quantity-margin: 0 var(--spacer-sm) 0 0;
     --add-to-cart-select-quantity-display: flex;
   }
 }
