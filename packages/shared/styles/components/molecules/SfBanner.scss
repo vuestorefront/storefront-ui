@@ -52,7 +52,10 @@
   }
   &__description {
     display: var(--banner-display-description, none);
-    margin: var(--banner-description-margin, var(--spacer-sm) 0 1.375rem 0);
+    margin: var(
+      --banner-description-margin,
+      var(--spacer-sm) 0 var(--spacer-base) 0
+    );
     color: var(--banner-color, var(--banner-description-color, var(--c-text)));
     @include font(
       --banner-description-font,
@@ -63,8 +66,9 @@
     );
   }
   &__call-to-action {
-    display: var(--banner-display-call-to-action, none);
     --button-width: 10.75rem;
+    display: var(--banner-display-call-to-action, none);
+    margin: var(--banner-call-to-action-margin, 0);
   }
   @include for-desktop {
     --banner-display-description: block;
@@ -76,9 +80,11 @@
     --banner-subtitle-color: var(--c-gray);
     --banner-title-font-size: var(--h1-font-size);
     &--square {
+      --banner-display-description: none;
       --banner-min-height: 29.5rem;
       --banner-width: 36.875rem;
       --banner-container-margin: var(--spacer-2xl) 0 0 var(--spacer-xl);
+      --banner-call-to-action-margin: var(--spacer-xl) 0 0 0;
     }
     &--right {
       --banner-container-margin: var(--spacer-2xl) var(--spacer-xl) 0 50%;
