@@ -3,7 +3,7 @@
     class="sf-input"
     :class="{
       'sf-input--has-text': !!value,
-      'sf-input--invalid': !valid
+      'sf-input--invalid': valid === false
     }"
   >
     <div class="sf-input__wrapper">

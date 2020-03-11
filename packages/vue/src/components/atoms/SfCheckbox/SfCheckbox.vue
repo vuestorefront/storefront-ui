@@ -4,7 +4,7 @@
     :class="{
       'sf-checkbox--is-active': isChecked,
       'sf-checkbox--is-disabled': disabled,
-      'sf-checkbox--has-error': !valid
+      'sf-checkbox--has-error': valid === false
     }"
   >
     <input
