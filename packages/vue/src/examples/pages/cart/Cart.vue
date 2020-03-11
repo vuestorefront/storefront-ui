@@ -49,15 +49,6 @@
               </SfCollectedProduct>
             </transition-group>
           </div>
-          <SfProperty class="sf-property--full-width my-cart__total-price">
-            <template #name>
-              <span class="sf-property__name">TOTAL</span>
-            </template>
-            <template #value>
-              <SfPrice :regular="totalPrice | price" />
-            </template>
-          </SfProperty>
-          <SfButton class="sf-button--full-width">Go to checkout</SfButton>
         </div>
         <div v-else key="empty-cart" class="empty-cart">
           <div class="empty-cart__banner">
@@ -76,6 +67,17 @@
             >Start shopping</SfButton
           >
         </div>
+        <template #bottom>
+          <SfProperty class="sf-property--full-width my-cart__total-price">
+            <template #name>
+              <span class="sf-property__name">TOTAL</span>
+            </template>
+            <template #value>
+              <SfPrice :regular="totalPrice | price" />
+            </template>
+          </SfProperty>
+          <SfButton class="sf-button--full-width">Go to checkout</SfButton>
+        </template>
       </transition>
     </SfSidebar>
   </div>
