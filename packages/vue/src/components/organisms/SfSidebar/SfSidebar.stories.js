@@ -1,6 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, number, boolean } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  number,
+  boolean,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 import {
   withDataToggle,
   dataToggleMixin
@@ -14,6 +20,17 @@ storiesOf("Organisms|Sidebar", module)
   .add("Common", () => ({
     components: { SfSidebar },
     props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-sidebar--right": "sf-sidebar--right"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       title: {
         default: text("title", "My Cart", "Props")
       },
@@ -21,7 +38,7 @@ storiesOf("Organisms|Sidebar", module)
         default: text("subtitle", "Order Summary", "Props")
       },
       headingLevel: {
-        default: number("headingLevel", 2, {}, "Props")
+        default: number("headingLevel", 3, {}, "Props")
       },
       overlay: {
         default: boolean("overlay", true, "Props")
@@ -39,6 +56,7 @@ storiesOf("Organisms|Sidebar", module)
         :heading-level="headingLevel"
         :button="button"
         :overlay="overlay"
+        :class="customClass"
       >
         Total items: 0
       </SfSidebar>`
@@ -53,7 +71,7 @@ storiesOf("Organisms|Sidebar", module)
         default: text("subtitle", "Order Summary", "Props")
       },
       headingLevel: {
-        default: number("headingLevel", 2, {}, "Props")
+        default: number("headingLevel", 3, {}, "Props")
       },
       overlay: {
         default: boolean("overlay", true, "Props")
@@ -88,7 +106,7 @@ storiesOf("Organisms|Sidebar", module)
         default: text("subtitle", "Order Summary", "Props")
       },
       headingLevel: {
-        default: number("headingLevel", 2, {}, "Props")
+        default: number("headingLevel", 3, {}, "Props")
       },
       overlay: {
         default: boolean("overlay", true, "Props")
