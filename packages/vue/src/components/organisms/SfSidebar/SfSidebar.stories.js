@@ -64,6 +64,17 @@ storiesOf("Organisms|Sidebar", module)
   .add("[slot] title", () => ({
     components: { SfSidebar },
     props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-sidebar--right": "sf-sidebar--right"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       title: {
         default: text("title", "My Cart", "Props")
       },
@@ -89,6 +100,7 @@ storiesOf("Organisms|Sidebar", module)
         :heading-level="headingLevel"
         :button="button"
         :overlay="overlay"
+        :class="customClass"
     >
       <template #title="{title, subtitle, headingLevel}">
         <div>CUSTOM TITLE</div>
@@ -99,6 +111,17 @@ storiesOf("Organisms|Sidebar", module)
   .add("[slot] circle-icon", () => ({
     components: { SfSidebar },
     props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-sidebar--right": "sf-sidebar--right"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       title: {
         default: text("title", "My Cart", "Props")
       },
@@ -124,6 +147,7 @@ storiesOf("Organisms|Sidebar", module)
         :heading-level="headingLevel"
         :button="button"
         :overlay="overlay"
+        :class="customClass"
       >
         <template #circle-icon="{close}">
           <div 
