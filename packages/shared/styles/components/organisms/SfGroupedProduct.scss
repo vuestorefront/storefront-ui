@@ -3,15 +3,12 @@
 .sf-grouped-product-item {
   display: var(--grouped-product-item-display);
   padding: var(--grouped-product-item-padding, var(--spacer-small));
-  font: var(
+  @include font(
     --grouped-product-item-font,
-    font(
-      --grouped-product-item,
-      var(--body-font-weight-secondary),
-      var(--font-size-regular),
-      1.6,
-      var(--font-family-secondary)
-    )
+    var(--font-normal),
+    var(--font-2xs),
+    1.6,
+    var(--font-family-secondary)
   );
   border-bottom: var(--grouped-product-item-border-bottom);
   &__aside {
@@ -30,8 +27,6 @@
     bottom: var(--grouped-product-item-quantity-bottom, var(--spacer));
     left: var(--grouped-product-item-quantity-left);
     z-index: 1;
-    width: var(--grouped-product-item-quantity-width, 3.125rem);
-    height: var(--grouped-product-item-quantity-height, 1.875rem);
   }
   &__description {
     margin: var(--grouped-product-item-description-margin);
