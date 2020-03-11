@@ -4,6 +4,7 @@
   overflow: hidden;
   height: 100vh;
   &__section {
+    display: flex;
     height: 100%;
     transition: var(--content-pages-transition, transform 150ms ease-in-out);
     &--is-active {
@@ -16,19 +17,22 @@
   }
   &__content {
     flex: 0 0 100%;
-    height: calc(100vh - 5rem);
+    // height: calc(100vh - 5rem);
     padding: var(--spacer-lg);
     overflow-y: auto;
   }
   &__sidebar {
     flex: var(--content-pages-sidebar-flex, 0 0 100%);
     overflow-y: auto;
-    height: calc(100vh - 5rem);
+    // height: calc(100vh - 5rem);
   }
   &__category-title {
     padding: var(
       -content-pages-category-title-padding,
       var(--spacer-base) 0 var(--spacer-2xs) var(--spacer-sm)
     );
+  }
+  &__menu {
+    border-bottom: 1px solid var(--c-light);
   }
 }
