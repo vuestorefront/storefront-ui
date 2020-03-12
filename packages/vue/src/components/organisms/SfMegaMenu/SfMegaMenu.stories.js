@@ -7,12 +7,14 @@ import SfMegaMenu from "./SfMegaMenu.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfHeader from "../SfHeader/SfHeader.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
+import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
 
 const AsidePlaceholder = {
-  components: { SfImage },
+  components: { SfImage, SfBanner },
   data() {
     return {
       isMobile: false,
+      title: "Featured",
       tiles: [
         {
           title: "Last pairs left",
@@ -61,7 +63,6 @@ const AsidePlaceholder = {
         :key="tile.title" 
         :style="{marginBottom: '1.25rem'}"
       >
-        <h3 :style="{marginBottom: '1.25rem', textTransform: 'uppercase'}">{{tile.title}}</h3>
         <SfImage :src="tile.pictures"/>
       </div>
     </div>`
@@ -120,6 +121,7 @@ const MegaMenuPlaceholder = {
   },
   template: `<SfMegaMenu 
         title="Man"
+        :asideTitle="Featured"
         :visible="visible"
         :style="{ position: 'absolute', left: 0, width: '100%', top: '100%' }"
       >
@@ -220,6 +222,9 @@ storiesOf("Organisms|MegaMenu", module)
     props: {
       title: {
         default: text("title", "Man", "Props")
+      },
+      asideTtitle: {
+        default: text("asideTitle", "Featured", "Props")
       }
     },
     data() {
@@ -265,6 +270,7 @@ storiesOf("Organisms|MegaMenu", module)
     },
     template: `<SfMegaMenu 
         :title="title"
+        :aside-title="asideTtitle"
         :visible="visible"
         :style="{maxWidth: '1240px', margin: 'auto'}"
       >
