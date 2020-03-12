@@ -2,61 +2,58 @@
 
 .sf-hero-item {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: var(--hero-item-flex-direction, row);
+  align-items: var(--hero-item-align-items, unset);
+  justify-content: var(--hero-item-justify-content, flex-start);
+  min-height: var(--hero-item-min-height, 13.9375rem);
   width: var(--hero-item-width, 100%);
-  padding: var(--hero-item-padding, var(--spacer-extra-big));
-  background-repeat: no-repeat;
-  background-size: var(--hero-item-background-size, cover);
+  box-sizing: border-box;
   background-position: var(--hero-item-background-position, center);
+  background-size: var(--hero-item-background-size, cover);
+  background-image: var(--background-image);
+  background-color: var(--hero-item-background-color, transparent);
+  background-repeat: var(--hero-item-background-repeat, no-repeat);
+  color: var(--hero-item-color, var(--c-text));
   &__container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
-    width: var(--hero-item-container-width, 60%);
-    height: var(--hero-item-container-height, 100%);
-    padding: var(--hero-item-container-padding, 0);
+    width: var(--hero-item-container-width, 50%);
+    margin: var(
+      --hero-item-container-margin,
+      var(--spacer-xl) 0 0 var(--spacer-sm)
+    );
   }
   &__subtitle {
-    width: var(--hero-item-subtitle-width, 100%);
-    padding: var(--hero-item-subtitle-padding, 0 0 0 var(--spacer-medium));
-    margin: var(
-      --hero-item-subtitle-margin,
-      0 0 calc(var(--spacer-medium) * 2) 0
-    );
-    border: var(--hero-item-subtitle-border, 1px solid var(--c-text-muted));
-    border-width: var(--hero-item-subtitle-border-width, 0 0 0 1px);
-    color: var(--hero-item-subtitle-color, var(--c-text-muted));
-    font: var(
+    margin: var(--hero-item-subtitle-margin, 0);
+    color: var(--hero-item-subtitle-color, var(--c-gray));
+    @include font(
       --hero-item-subtitle-font,
-      font(
-        --hero-item-subtitle,
-        500,
-        var(--font-size-extra-small),
-        1.6,
-        var(--font-family-secondary)
-      )
+      var(--font-normal),
+      var(--font-2xs),
+      1.4,
+      var(--font-family-secondary)
     );
-    text-transform: var(--hero-item-subtitle-text-transform, uppercase);
+    letter-spacing: 0.1px;
+    text-transform: var(--hero-item-subtitle-transform, uppercase);
   }
   &__title {
-    margin: var(--hero-item-title-margin, 0 0 var(--spacer-extra-big) 0);
+    margin: var(--hero-item-title-margin, var(--spacer-xs) 0 0 0);
     color: var(--hero-item-title-color, var(--c-text));
-    font: var(
+    @include font(
       --hero-item-title-font,
-      font(
-        --hero-item-title,
-        500,
-        var(--h1-font-size),
-        1.6,
-        var(--font-family-secondary)
-      )
+      var(--font-semibold),
+      var(--h2-font-size),
+      1.2,
+      var(--font-family-secondary)
     );
+    letter-spacing: 0.1px;
+    text-transform: var(--hero-item-title-transform, none);
   }
   &__button {
     display: var(--hero-item-button-display, none);
-    margin: var(--hero-item-button-margin);
+    --button-height: 3.25rem;
+    --button-width: 10.75rem;
   }
   &--position-bg-top-right {
     --hero-item-background-position: top right;
@@ -68,44 +65,45 @@
     --hero-item-background-position: bottom left;
   }
   &--align-right {
-    align-items: flex-end;
+    --hero-item-justify-content: flex-end;
   }
   @include for-desktop {
-    --hero-item-padding: 5rem;
-    --hero-item-container-width: 50%;
-    --hero-item-container-padding: 0 2rem;
-    --hero-item-subtitle-width: min-content;
-    --hero-item-subtitle-paddding: 0 0 0 var(--spacer-extra-big);
-    --hero-item-button-display: block;
-    --hero-item-button-margin: 0 0 calc(var(--spacer-extra-big) * 2) 0;
+    --hero-item-min-height: 36.625rem;
+    --hero-item-container-margin: 0 0 0 var(--spacer-2xl);
+    --hero-item-align-items: center;
+    &__title {
+      --hero-item-font-size: var(--h1-font-size);
+      --hero-item-title-margin: var(--spacer-base) 0 var(--spacer-lg) 0;
+    }
+    &__button {
+      --hero-item-button-display: block;
+    }
   }
 }
 .sf-hero {
-  box-sizing: border-box;
   position: relative;
-  &__slides {
-    margin: 0;
+  &__controls {
+    position: absolute;
+    top: var(--hero-controls-top, 50%);
+    transform: translateY(-50%);
+    display: var(--hero-controls-display, none);
+    justify-content: var(--hero-controls-justify-content, space-between);
+    width: var(--hero-controls-width, 100%);
+    padding: var(--hero-controls-padding, 0);
   }
   &__bullets {
     position: absolute;
+    bottom: var(--her-bullets-bottom, 3.1875rem);
     left: 50%;
-    bottom: var(--hero-bullets-bottom, var(--spacer-medium));
-    transform: translate3d(-50%, 0, 0);
-    display: var(--hero-bullets-display, block);
-  }
-  &__controls {
-    position: absolute;
-    left: var(--hero-controls-left, 0);
-    top: var(--hero-controls-top, 50%);
-    transform: var(--hero-controls-transform, translate3d(0, -50%, 0));
-    box-sizing: border-box;
-    display: var(--hero-controls-display, none);
-    justify-content: var(--hero-controls-left-justify-content, space-between);
-    width: var(--hero-controls-width, 100%);
-    padding: var(--hero-controls-padding, 0 var(--spacer-medium));
+    transform: translateX(-50%);
+    display: var(--hero-bullets-display, none);
   }
   @include for-desktop {
-    --hero-controls-display: flex;
-    --hero-bullets-bottom: var(--spacer-extra-big);
+    &__controls {
+      --hero-controls-display: flex;
+    }
+    &__bullets {
+      --hero-bullets-display: flex;
+    }
   }
 }
