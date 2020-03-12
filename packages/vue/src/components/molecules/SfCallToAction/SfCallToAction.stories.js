@@ -27,8 +27,7 @@ storiesOf("Molecules|CallToAction", module)
       }
     },
     template: `<div style="max-width: 1024px">
-      <SfCallToAction 
-      :class="customClass"
+      <SfCallToAction      
       :title="title"
       :description="description"
       :button-text="buttonText"
@@ -60,8 +59,7 @@ storiesOf("Molecules|CallToAction", module)
       }
     },
     template: `<div style="max-width: 1024px">
-      <SfCallToAction 
-      :class="customClass"
+      <SfCallToAction      
       :title="title"
       :description="description"
       :button-text="buttonText"
@@ -97,8 +95,7 @@ storiesOf("Molecules|CallToAction", module)
       }
     },
     template: `<div style="max-width: 1024px">
-      <SfCallToAction 
-      :class="customClass"
+      <SfCallToAction      
       :title="title"
       :description="description"
       :button-text="buttonText"
@@ -134,8 +131,7 @@ storiesOf("Molecules|CallToAction", module)
       }
     },
     template: `<div style="max-width: 1024px">
-      <SfCallToAction 
-      :class="customClass"
+      <SfCallToAction      
       :title="title"
       :description="description"
       :button-text="buttonText"

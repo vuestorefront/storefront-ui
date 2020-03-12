@@ -8,11 +8,11 @@
   justify-content: var(--call-to-action-justify-content, left);
   min-height: var(--call-to-action-min-height, 16.75rem);
   padding: var(--call-to-action-padding, var(--spacer-base));
-  background-position: var(--call-to-action-background-position, center);
-  background-size: var(--call-to-action-background-size, cover);
-  background-image: var(--call-to-action-background-image);
-  background-color: var(--call-to-action-background-color, rgba(0, 0, 0, 0.8));
-  background-repeat: var(--call-to-action-background-repeat, no-repeat);
+  background: var(--call-to-action-background-color, rgba(0, 0, 0, 0.8))
+    var(--call-to-action-background-image)
+    var(--call-to-action-background-repeat, no-repeat)
+    var(--call-to-action-background-position, center) /
+    var(--call-to-action-background-size, cover);
   color: var(--call-to-action-color);
   letter-spacing: var(--call-to-action-letter-spacing, 0.1px);
   &__text-container {
@@ -55,9 +55,8 @@
     );
   }
   &__button {
-    height: var(--call-to-action-button-height, auto);
-    width: var(--call-to-action-button-min-width, auto);
-    margin: var(--call-to-action-button-margin, var(--spacer-sm) 0 0 0);
+    --button-height: auto;
+    --button-width: auto;
     color: var(
       --call-to-action-color,
       var(--call-to-action-button-color, var(--c-on-primary))
@@ -76,9 +75,8 @@
     --call-to-action-align-items: center;
     --call-to-action-padding: var(--spacer-xl) var(--spacer-2xl);
     --call-to-action-min-height: 12.625rem;
-    --call-to-action-button-height: 3.25rem;
-    --call-to-action-button-min-width: 10.75rem;
-    --call-to-action-button-margin: 0;
+    --button-height: 3.25rem;
+    --button-width: 10.75rem;
     --call-to-action-text-container-width: 75%;
     --call-to-action-title-font-size: var(--h2-font-size);
   }
