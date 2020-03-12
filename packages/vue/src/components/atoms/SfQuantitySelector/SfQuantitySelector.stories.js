@@ -20,8 +20,7 @@ storiesOf("Atoms|QuantitySelector", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-quantity-selector--circle-buttons":
-              "sf-quantity-selector--circle-buttons"
+            "sf-quantity-selector--secondary": "sf-quantity-selector--secondary"
           },
           "",
           { display: "multi-select" },

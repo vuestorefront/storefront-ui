@@ -36,7 +36,7 @@
     --input-font-weight: var(--font-light);
   }
   @include for-mobile {
-    &--circle-buttons {
+    &--secondary {
       --quantity-selector-height: 3.5rem;
       --quantity-selector-width: 23.4375rem;
       .sf-quantity-selector__button {
