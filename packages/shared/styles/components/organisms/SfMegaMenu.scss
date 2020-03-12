@@ -1,68 +1,62 @@
 @import "../../helpers";
 
 %menu-item {
-  padding: var(--mega-menu-item-padding, var(--spacer-big));
-  border-bottom: var(--mega-menu-item-border-bottom, 1px solid var(--c-light));
-  font: var(
-    --mega-menu-item-font,
-    font(
-      --mega-menu-item,
-      300,
-      var(--font-size-big),
-      1.6,
-      var(--font-family-secondary)
-    )
-  );
-  text-transform: var(--mega-menu-item-text-transform);
+  --menu-item-label-color: var(--c-black);
+  --menu-item-padding: var(--spacer-sm);
+  --menu-item-border-width: 0 0 1px 0;
+  --menu-item-font-weight: var(--font-light);
+  --menu-item-letter-spacing: 0.1px;
+  --menu-item-title-color: var(--c-black);
+
   @include for-desktop {
-    --mega-menu-item-font-size: var(--font-size-regular);
-    --mega-menu-item-padding: 0 0 10px 0;
-    --mega-menu-item-border-bottom: 0;
+    --menu-item-title-font-weight: var(--font-bold);
+    --menu-item-label-color: var(--c-dark-variant);
+    --menu-item-padding: 0 0 var(--spacer-sm) 0;
+    --menu-item-border-width: 0;
   }
 }
+
 .sf-mega-menu-column {
-  margin: var(--mega-menu-column-margin);
-  &__title {
-    @extend %menu-item;
-    --mega-menu-item-font-weight: 500;
-    --mega-menu-item-padding: var(--spacer-big);
-    margin: var(--mega-menu-column-title-margin);
-  }
-  & > .sf-menu-item {
-    @extend %menu-item;
-    &--primary {
-      --mega-menu-item-font-weight: 500;
-    }
-  }
+  @extend %menu-item;
+
   @include for-desktop {
-    --mega-menu-column-margin: 0 var(--spacer-extra-big) 0 0;
-    &__title {
-      --mega-menu-item-padding: 0 0 20px 0;
-      --mega-menu-item-text-transform: uppercase;
+    margin: var(--mega-menu-column-margin, 0 var(--spacer-xl) 0 0);
+    & :first-child {
+      --menu-item-padding: 0 0 var(--spacer-base) 0;
+      --menu-item-text-transform: uppercase;
+    }
+    &:active,
+    &:hover {
+      --menu-item-title-color: var(--c-primary);
+      --menu-item-label-color: var(--c-black);
     }
   }
 }
+
 .sf-mega-menu {
   overflow: var(--mega-menu-overflow, hidden);
   height: var(--mega-menu-height, 100vh);
   background-color: var(--mega-menu-background, var(--c-white));
   text-transform: var(--mega-menu-text-transform, initial);
+  @extend %menu-item;
+
   &__content {
     display: var(--mega-menu-content-display, flex);
     max-width: var(--mega-menu-content-max-width, 1240px);
     margin: var(--mega-menu-content-margin, auto);
     padding: var(--mega-menu-content-padding);
-    border: var(--mega-menu-content-border);
-    border-top: var(--mega-menu-border-top);
+    @include border(--mega-menu-content-border, 0, solid, var(--c-light));
     transform: var(--mega-menu-content-transform);
     transition: var(
       --mega-menu-content-transition,
       transform 150ms ease-in-out
     );
+
     &--is-active {
       --mega-menu-content-transform: translateX(-100%);
     }
   }
+
   &__aside,
   &__menu {
     overflow-y: auto;
@@ -70,51 +64,52 @@
     flex: var(--mega-menu-aside-menu-flex, 0 0 100%);
     width: var(--mega-menu-aside-menu-width);
     height: var(--mega-menu-aside-menu-height, calc(100vh - 5rem));
-    padding: var(--mega-menu-aside-menu-padding, 0 var(--spacer-big));
+    padding: var(--mega-menu-aside-menu-padding, 0);
     &::-webkit-scrollbar {
       --mega-menu-aside-menu-width: 0;
     }
   }
+
   &__aside {
     order: var(--mega-menu-aside-order);
-    border-left: var(--mega-menu-aside-border-left);
   }
-  &__menu {
-    display: var(--mega-menu-menu-display);
-    justify-content: var(--mega-menu-menu-justify-content);
-  }
-  &__menu-item {
-    @extend %menu-item;
-    --mega-menu-item-font-weight: 500;
-  }
+
   &__aside-content {
-    margin: var(--mega-menu-aside-content-margin, var(--spacer-extra-big) 0);
+    margin: var(--mega-menu-aside-content-margin, var(--spacer-sm) 0 var(--spacer-xl) 0);
+    padding: var(--mega-menu-aside-content-padding, 0 var(--spacer-base));
+    & :first-child {
+      --menu-item-text-transform: uppercase;
+    }
   }
+
   @include for-desktop {
     --mega-menu-overflow: auto;
     --mega-menu-height: auto;
-    --mega-menu-content-border-top: 2px solid var(--c-light);
-    --mega-menu-content-padding: var(--spacer-extra-big) 0 6.25rem 0;
+    --mega-menu-content-border-width: 2px 0 0 0;
+    --mega-menu-content-padding: var(--spacer-xl) 0 var(--spacer-2xl) 0;
     --mega-menu-content-margin: 0 auto;
     --mega-menu-aside-order: 1;
-    --mega-menu-aside-border-left: 2px solid var(--c-light);
-    --mega-menu-menu-display: flex;
-    --mega-menu-menu-justify-content: space-between;
-    --mega-menu-aside-content-margin: 0;
     --mega-menu-aside-menu-flex: auto;
     --mega-menu-aside-menu-height: auto;
-    --mega-menu-aside-menu-padding: 0 var(--spacer-extra-big);
+    --mega-menu-aside-menu-padding: 0 var(--spacer-xl);
+    --mega-menu-aside-content-margin: 0;
+
     &__content {
       &--is-active {
         --mega-menu-content-transform: translateX(0);
       }
     }
+
+    &__menu {
+      display: var(--mega-menu-menu-display, flex);
+      justify-content: var(--mega-menu-menu-justify-content, space-between);
+    }
+
     &__aside {
       &--without-content {
         @include for-desktop {
           --mega-menu-aside-menu-flex: 0;
           --mega-menu-aside-menu-padding: 0;
-          --mega-menu-aside-border-left: 0;
         }
       }
     }
