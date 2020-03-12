@@ -10,9 +10,6 @@
   width: var(--quantity-selector-width, 6.75rem);
   background: var(--quantity-selector-background, var(--c-light));
   @include border(--quantity-selector-border, 0, solid, var(--c-light));
-  & > * {
-    min-height: 100%;
-  }
   &__button {
     --button-height: 100%;
     --button-padding: 0 var(--spacer-xs);
