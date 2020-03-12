@@ -27,13 +27,7 @@
     &--done {
       --steps-step-color: var(--c-text);
       --steps-step-cursor: default;
-      @include font(
-        --step-font,
-        var(--font-semibold),
-        var(--font-sm),
-        1.6,
-        var(--font-family-secondary)
-      );
+      --step-font-weight: var(--font-semibold);
     }
     &--done {
       --steps-step-cursor: pointer;
@@ -64,13 +58,7 @@
     }
     &__step {
       --steps-step-padding: 0 0 var(--spacer-xs) 0;
-      @include font(
-        --step-font,
-        var(--font-normal),
-        var(--font-lg),
-        1.6,
-        var(--font-family-secondary)
-      );
+      --step-font-size: var(--font-lg);
       &--current,
       &--done {
         --steps-step-after-background: var(--c-black);
