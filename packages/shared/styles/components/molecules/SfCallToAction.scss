@@ -8,12 +8,11 @@
   justify-content: var(--call-to-action-justify-content, left);
   min-height: var(--call-to-action-min-height, 16.75rem);
   padding: var(--call-to-action-padding, var(--spacer-base));
-  background: var(--call-to-action-background-color, rgba(0, 0, 0, 0.8))
-    var(--call-to-action-background-image)
-    var(--call-to-action-background-repeat, no-repeat)
-    var(--call-to-action-background-position, center) /
-    var(--call-to-action-background-size, cover);
-  color: var(--call-to-action-color);
+  @include background(
+    --call-to-action-background,
+    var(--_call-to-action-background-color),
+    var(--_call-to-action-background-image)
+  );
   letter-spacing: var(--call-to-action-letter-spacing, 0.1px);
   &__text-container {
     display: flex;
