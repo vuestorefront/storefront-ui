@@ -7,13 +7,11 @@
   box-sizing: border-box;
   min-height: var(--banner-min-height, 14rem);
   width: var(--banner-width, 100%);
-  background-position: var(--banner-background-position, bottom left);
-  background-size: var(--banner-background-size, cover);
-  background-color: var(--background-color);
-  background-image: var(--background-image);
-  background-repeat: var(--banner-background-repeat, no-repeat);
-  color: var(--banner-color, var(--c-text));
-  letter-spacing: var(--banner-letter-spacing, 0.1px);
+  @include background(
+    --banner-background,
+    var(--_banner-background-color),
+    var(--_banner-background-image)
+  );
   &__container {
     display: flex;
     justify-content: left;
@@ -71,12 +69,15 @@
     margin: var(--banner-call-to-action-margin, 0);
   }
   @include for-desktop {
+    --background-image: var(
+      --_banner-background-desktop-image,
+      var(--_banner-background-image)
+    );
     --banner-display-description: block;
     --banner-display-call-to-action: block;
     --banner-min-height: 25rem;
     --banner-container-margin: var(--spacer-2xl) 50% 0 var(--spacer-xl);
     --banner-title-margin: var(--spacer-base) 0 0 0;
-    --background-image: var(--background-desktop-image);
     --banner-subtitle-color: var(--c-gray);
     --banner-title-font-size: var(--h1-font-size);
     &--square {
