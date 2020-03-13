@@ -2,11 +2,12 @@
 
 .sf-banner {
   display: var(--banner-display, flex);
-  flex-direction: var(--banner-flex-direction, column);
-  justify-content: var(--banner-justify-content, left);
+  align-items: var(--bnner-align-items, center);
+  justify-content: var(--banner-justify-content, flex-start);
   box-sizing: border-box;
   min-height: var(--banner-min-height, 14rem);
   width: var(--banner-width, 100%);
+  padding: var(--banner-padding, var(--spacer-xl));
   background-position: var(--banner-background-position, bottom left);
   background-size: var(--banner-background-size, cover);
   background-color: var(--background-color);
@@ -16,12 +17,9 @@
   letter-spacing: var(--banner-letter-spacing, 0.1px);
   &__container {
     display: flex;
-    justify-content: left;
+    flex: 0 0 var(--banner-container-width, 50%);
+    justify-content: flex-start;
     flex-direction: column;
-    margin: var(
-      --banner-container-margin,
-      var(--spacer-xl) 0 0 var(--spacer-xl)
-    );
   }
   &__subtitle {
     margin: var(--banner-subtitle-margin, 0);
@@ -61,7 +59,7 @@
       --banner-description-font,
       var(--font-light),
       var(--font-base),
-      1.7,
+      1.6,
       var(--font-family-primary)
     );
   }
@@ -74,20 +72,12 @@
     --banner-display-description: block;
     --banner-display-call-to-action: block;
     --banner-min-height: 25rem;
-    --banner-container-margin: var(--spacer-2xl) 50% 0 var(--spacer-xl);
     --banner-title-margin: var(--spacer-base) 0 0 0;
     --background-image: var(--background-desktop-image);
     --banner-subtitle-color: var(--c-gray);
     --banner-title-font-size: var(--h1-font-size);
-    &--square {
-      --banner-display-description: none;
-      --banner-min-height: 29.5rem;
-      --banner-width: 36.875rem;
-      --banner-container-margin: var(--spacer-2xl) 0 0 var(--spacer-xl);
-      --banner-call-to-action-margin: var(--spacer-xl) 0 0 0;
-    }
     &--right {
-      --banner-container-margin: var(--spacer-2xl) var(--spacer-xl) 0 50%;
+      --banner-justify-content: flex-end;
     }
   }
 }
