@@ -5,7 +5,8 @@
     position: relative;
     width: 100%;
     display: flex;
-    box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
+    box-shadow: 0px 4px 11px rgba(var(--c-black-base), 0.1);
+    @include border(--steps-border, 0, solid, var(--c-light));
   }
   &__step {
     display: flex;
@@ -40,9 +41,9 @@
     content: "";
     position: absolute;
     left: 0;
-    bottom: var(--steps-progress-bottom, -0.09375rem);
+    bottom: var(--steps-progress-bottom, -1.5px);
     display: block;
-    height: var(--steps-progress-height, 0.188rem);
+    height: var(--steps-progress-height, 3px);
     background: var(--steps-progress-background, var(--c-primary));
     transform-origin: 0 50%;
     transition: var(--steps-progress-transition, transform 150ms ease-in-out);
@@ -50,11 +51,14 @@
   &__title {
     text-align: center;
   }
+  &__content {
+    padding: var(--steps-content-padding, var(--spacer-base) 0 0 0);
+  }
   @include for-desktop {
     --steps-step-color: var(--c-text-muted);
     &__header {
       box-shadow: none;
-      @include border(--steps-border, 0 0 0.125rem 0, solid, var(--c-light));
+      --steps-border: 0 0 2px 0, solid, var(--c-light);
     }
     &__step {
       --steps-step-padding: 0 0 var(--spacer-xs) 0;
@@ -67,16 +71,16 @@
         content: "";
         position: absolute;
         border-radius: 100%;
-        bottom: -0.22rem;
+        bottom: -3.52px;
         left: 49%;
-        width: 0.375rem;
-        height: 0.375rem;
+        width: 6px;
+        height: 6px;
         background: var(--steps-step-after-background, transparent);
       }
     }
     &__progress {
       --steps-progress-background: var(--c-dark);
-      --steps-progress-height: 0.125rem;
+      --steps-progress-height: 2px;
     }
   }
 }
