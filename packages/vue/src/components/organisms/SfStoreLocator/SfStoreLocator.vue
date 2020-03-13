@@ -2,11 +2,11 @@
   <div class="sf-store-locator">
     <div class="sf-store-locator__wrapper">
       <div class="sf-store-locator__list">
-        <sf-divider class="sf-store__first-divider" />
-        <div class="sf-store-locator__title" tabindex="0">
+        <sf-divider class="sf-store__first-divider desktop-only" />
+        <div class="sf-store-locator__title desktop-only" tabindex="0">
           Stores found: <span>{{ stores.length }}</span>
         </div>
-        <sf-divider class="sf-store__second-divider" />
+        <sf-divider class="sf-store__second-divider desktop-only" />
         <!-- @slot Use this slot to show stores cards -->
         <slot
           v-bind="{
@@ -36,7 +36,6 @@
             :url="tileServerUrl"
             :attribution="tileServerAttribution"
           />
-          <l-control-zoom position="topleft" />
           <l-marker
             v-for="(store, index) in stores"
             :key="index"

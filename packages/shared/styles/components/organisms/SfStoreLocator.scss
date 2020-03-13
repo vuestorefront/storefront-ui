@@ -80,12 +80,17 @@
       &-media {
         --image-width: 5rem;
         --image-height: 8.25rem;
-        margin: var(--store-item-media-margin, 0 var(--spacer-xl) 0 0);
+        margin: var(--store-item-media-margin, 0 var(--spacer-sm) 0 0);
         overflow: hidden;
         cursor: pointer;
       }
       &-info {
+        display: flex;
+        flex-direction: column;
         flex: 1;
+        justify-content: space-between;
+        height: var(--store-item-info-height, 8.25rem);
+
         &-heading {
           display: var(--store-item-info-heading-display);
           justify-content: var(--store-item-info-heading-justify-content);
@@ -94,7 +99,7 @@
             @include font(
               --store-item-info-heading-name-font,
               var(--font-normal),
-              var(--font-2xs),
+              var(--font-xs),
               1.6,
               var(--font-family-secondary)
             );
@@ -103,7 +108,7 @@
             width: var(--store-item-info-heading-distance-width);
             color: var(
               --store-item-info-heading-distance-color,
-              var(--c-gray-variant)
+              var(--c-dark-variant)
             );
             span {
               color: var(
@@ -114,19 +119,18 @@
             @include font(
               --store-item-info-heading-distance-font,
               var(--font-medium),
-              var(--font-xs),
+              var(--font-base),
               1.6,
               var(--font-family-secondary)
             );
           }
         }
         &-address {
-          color: var(--store-item-info-address-color, var(--c-gray-variant));
-          margin: var(--store-item-info-address-margin, 0 0 1.25rem 0);
+          color: var(--store-item-info-address-color, var(--c-dark-variant));
           @include font(
             --store-item-info-address-font,
             var(--font-normal),
-            var(--font-xs),
+            var(--font-base),
             1.6,
             var(--font-family-primary)
           );
@@ -141,7 +145,8 @@
             flex-start
           );
           align-items: var(--store-item-info-contact-align-items, center);
-          margin: var(--store-item-info-contact-margin, 0 0 0.625rem 0);
+          margin: var(--store-item-info-contact-margin, var(--spacer-sm) 0 0 0);
+          color: var(--store-item-info-contact-color, var(--c-dark-variant));
           span {
             margin: var(--store-item-info-contact-span-margin, 0 0 0 0.3125rem);
             @include font(
@@ -158,18 +163,18 @@
   }
   @include for-desktop {
     --divider-max-width: 100%;
-    --divider-margin: 7px 0 7px auto;
     --store-locator-list-width: 100%;
     --store-locator-list-max-width: 35.75rem;
     --store-locator-map-max-width: 100%;
     --store-locator-map-min-height: 46rem;
     --store-locator-wrapper-flex-direction: row;
     --store-locator-list-margin: 0 var(--spacer-2xl) 0 0;
-    --store-item-font-size: var(--font-size-extra-small);
+    --store-item-media-margin: 0 var(--spacer-xl) 0 0;
     --store-item-info-heading-display: flex;
     --store-item-info-heading-justify-content: space-between;
-    --store-item-info-heading-name-font-size: var(--font-size-regular);
-    --store-item-info-contact-span-font-size: var(--font-size-extra-small);
-    --store-item-info-contact-span-fon-family: var(--font-family-secondary);
+    --store-item-info-heading-name-font-size: var(--font-2xs);
+    --store-item-info-address-font-size: var(--font-xs);
+    --store-item-info-address-color: var(--c-gray-variant);
+    --store-item-info-heading-distance-font-size: var(--font-xs);
   }
 }

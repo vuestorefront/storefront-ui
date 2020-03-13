@@ -20,13 +20,15 @@
         <div v-if="address" class="sf-store__item-info-address" tabindex="0">
           {{ address }}
         </div>
-        <div v-if="phone" class="sf-store__item-info-phone">
-          <sf-icon icon="phone" size="13px" color="green-primary" />
-          <span tabindex="0">{{ phone }}</span>
-        </div>
-        <div v-if="email" class="sf-store__item-info-email">
-          <sf-icon icon="mail" size="13px" color="green-primary" />
-          <span tabindex="0">{{ email }}</span>
+        <div class="sf-store__item-info-contact">
+          <div v-if="phone" class="sf-store__item-info-phone">
+            <sf-icon icon="phone" size="13px" color="green-primary" />
+            <span tabindex="0">{{ phone }}</span>
+          </div>
+          <div v-if="email" class="sf-store__item-info-email">
+            <sf-icon icon="mail" size="13px" color="green-primary" />
+            <span tabindex="0">{{ email }}</span>
+          </div>
         </div>
       </div>
     </div>
