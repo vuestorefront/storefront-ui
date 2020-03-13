@@ -3,20 +3,16 @@
 .sf-list {
   list-style: var(--list-list-style, none);
   padding: var(--list-padding, 0);
-  @include for-desktop {
-    --list-item-font-line-height: 2.4;
-    --list-item-font-weight: var(--font-light);
-  }
+  margin: var(--list-margin, 0);
   .sf-list__item {
     margin: var(--list-item-margin, 0);
     color: var(--list-item-color, var(--c-text));
     @include font(
       --list-item-font,
-      var(--font-medium),
-      var(--font-base),
-      1.9,
+      var(--font-normal),
+      var(--font-sm),
+      1.6,
       var(--font-family-secondary)
     );
-    letter-spacing: 0.1px;
   }
 }
