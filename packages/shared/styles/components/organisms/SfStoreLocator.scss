@@ -31,7 +31,7 @@
     position: relative;
     width: var(--store-locator-map-width, 100%);
     max-width: var(--store-locator-map-max-width, none);
-    min-height: var(--store-locator-map-min-height, 26.875rem);
+    min-height: var(--store-locator-map-min-height, 34.5rem);
     &-map {
       // Workaround to known bug about min-height / height interaction in Chrome / Firefox
       position: absolute;
@@ -67,10 +67,7 @@
     }
     &__item {
       width: 100%;
-      padding: var(
-        --store-item-padding,
-        var(--spacer-base) 0 var(--spacer-sm) 0
-      );
+      padding: var(--store-item-padding, var(--spacer-xs) 0 var(--spacer-sm) 0);
       display: flex;
       flex-direction: var(--store-item-flex-direction, row);
       flex-wrap: var(--store-item-flex-wrap, nowrap);
@@ -105,6 +102,7 @@
             );
           }
           &-distance {
+            margin: var(--spacer-base) 0 0 0;
             width: var(--store-item-info-heading-distance-width);
             color: var(
               --store-item-info-heading-distance-color,
@@ -129,7 +127,7 @@
           color: var(--store-item-info-address-color, var(--c-dark-variant));
           @include font(
             --store-item-info-address-font,
-            var(--font-normal),
+            var(--font-light),
             var(--font-base),
             1.6,
             var(--font-family-primary)
@@ -169,6 +167,7 @@
     --store-locator-map-min-height: 46rem;
     --store-locator-wrapper-flex-direction: row;
     --store-locator-list-margin: 0 var(--spacer-2xl) 0 0;
+    --store-item-padding: var(--spacer-base) 0 var(--spacer-sm) 0;
     --store-item-media-margin: 0 var(--spacer-xl) 0 0;
     --store-item-info-heading-display: flex;
     --store-item-info-heading-justify-content: space-between;

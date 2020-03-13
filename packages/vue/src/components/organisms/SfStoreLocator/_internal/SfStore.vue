@@ -1,33 +1,42 @@
 <template>
   <div class="sf-store">
-    <div class="sf-store__item">
-      <div class="sf-store__item-media" @click="centerOn(latlng)">
-        <sf-image :src="picture" :alt="`${name} picture`" tabindex="0" />
+    <div>
+      <div
+        v-if="distance"
+        class="sf-store__item-info-heading-distance mobile-only"
+        tabindex="0"
+      >
+        <span>{{ distance }}km</span> away from you
       </div>
-      <div class="sf-store__item-info">
-        <div class="sf-store__item-info-heading">
-          <div class="sf-store__item-info-heading-name" tabindex="0">
-            {{ name }}
-          </div>
-          <div
-            v-if="distance"
-            class="sf-store__item-info-heading-distance"
-            tabindex="0"
-          >
-            <span>{{ distance }}km</span> away from you
-          </div>
+      <div class="sf-store__item">
+        <div class="sf-store__item-media" @click="centerOn(latlng)">
+          <sf-image :src="picture" :alt="`${name} picture`" tabindex="0" />
         </div>
-        <div v-if="address" class="sf-store__item-info-address" tabindex="0">
-          {{ address }}
-        </div>
-        <div class="sf-store__item-info-contact">
-          <div v-if="phone" class="sf-store__item-info-phone">
-            <sf-icon icon="phone" size="13px" color="green-primary" />
-            <span tabindex="0">{{ phone }}</span>
+        <div class="sf-store__item-info">
+          <div class="sf-store__item-info-heading">
+            <div class="sf-store__item-info-heading-name" tabindex="0">
+              {{ name }}
+            </div>
+            <div
+              v-if="distance"
+              class="sf-store__item-info-heading-distance desktop-only"
+              tabindex="0"
+            >
+              <span>{{ distance }}km</span> away from you
+            </div>
           </div>
-          <div v-if="email" class="sf-store__item-info-email">
-            <sf-icon icon="mail" size="13px" color="green-primary" />
-            <span tabindex="0">{{ email }}</span>
+          <div v-if="address" class="sf-store__item-info-address" tabindex="0">
+            {{ address }}
+          </div>
+          <div class="sf-store__item-info-contact">
+            <div v-if="phone" class="sf-store__item-info-phone">
+              <sf-icon icon="phone" size="13px" color="green-primary" />
+              <span tabindex="0">{{ phone }}</span>
+            </div>
+            <div v-if="email" class="sf-store__item-info-email">
+              <sf-icon icon="mail" size="13px" color="green-primary" />
+              <span tabindex="0">{{ email }}</span>
+            </div>
           </div>
         </div>
       </div>
