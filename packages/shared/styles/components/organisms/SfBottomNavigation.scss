@@ -16,7 +16,7 @@
   background: var(--bottom-navigation-background, var(--c-white));
   box-shadow: var(
     --bottom-navigation-box-shadow,
-    0px -2px 10px rgba(154, 154, 154, 0.15)
+    0px -2px 10px rgba(var(--c-dark-base), 0.15)
   );
 }
 
@@ -41,7 +41,7 @@
   );
 
 
-  &  .sf-circle-icon {
+  & .sf-circle-icon {
     --button-size: 4.125rem;
   }
   
@@ -61,10 +61,6 @@
 
   &--floating {
     --icon-color: var(--c-white);
-    &:not(:hover) {
-      --button-box-shadow: 0 4px 4px rgba(var(--c-dark-base), 0.2);
-    }
-    
     & .sf-circle-icon {
       --circle-icon-position: absolute;
       top: 0;
