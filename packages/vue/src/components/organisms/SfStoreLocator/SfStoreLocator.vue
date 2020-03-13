@@ -1,10 +1,12 @@
 <template>
   <div class="sf-store-locator">
-    <div class="sf-store-locator__title" tabindex="0">
-      Found stores: <span>{{ stores.length }}</span>
-    </div>
     <div class="sf-store-locator__wrapper">
       <div class="sf-store-locator__list">
+        <sf-divider class="sf-store__first-divider" />
+        <div class="sf-store-locator__title" tabindex="0">
+          Stores found: <span>{{ stores.length }}</span>
+        </div>
+        <sf-divider class="sf-store__second-divider" />
         <!-- @slot Use this slot to show stores cards -->
         <slot
           v-bind="{
@@ -35,20 +37,6 @@
             :attribution="tileServerAttribution"
           />
           <l-control-zoom position="topleft" />
-          <l-control
-            position="topleft"
-            class="leaflet-bar leaflet-control leaflet-control-zoom-in sf-store-locator__map-wrapper-map-my-location-btn"
-          >
-            <a
-              title="center on user position"
-              role="button"
-              aria-label="center on user position"
-              href="#"
-              @click.prevent="locateUser"
-            >
-              <sf-icon icon="home" />
-            </a>
-          </l-control>
           <l-marker
             v-for="(store, index) in stores"
             :key="index"
@@ -83,6 +71,7 @@ import Vue from "vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLoader from "../../atoms/SfLoader/SfLoader.vue";
 import SfStore from "./_internal/SfStore.vue";
+import SfDivider from "../../atoms/SfDivider/SfDivider.vue";
 Vue.component("SfStore", SfStore);
 export default {
   name: "SfStoreLocator",
@@ -102,7 +91,8 @@ export default {
   },
   components: {
     SfIcon,
-    SfLoader
+    SfLoader,
+    SfDivider
   },
   props: {
     /**

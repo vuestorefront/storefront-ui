@@ -1,6 +1,5 @@
 <template>
   <div class="sf-store">
-    <sf-divider class="sf-store__first-divider" />
     <div class="sf-store__item">
       <div class="sf-store__item-media" @click="centerOn(latlng)">
         <sf-image :src="picture" :alt="`${name} picture`" tabindex="0" />
@@ -31,12 +30,10 @@
         </div>
       </div>
     </div>
-    <sf-divider class="sf-store" />
   </div>
 </template>
 <script>
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
-import SfDivider from "../../../atoms/SfDivider/SfDivider.vue";
 import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfStore",
@@ -49,7 +46,6 @@ export default {
   ],
   components: {
     SfImage,
-    SfDivider,
     SfIcon
   },
   props: {

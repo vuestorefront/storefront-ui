@@ -3,7 +3,17 @@
 .sf-store-locator {
   --icon-size: 100%;
   &__title {
-    margin: var(--store-locator-title-margin, 0 0 0.625rem 0);
+    margin: 0 0 0 var(--spacer-sm);
+    span {
+      font-weight: var(--font-medium);
+    }
+    @include font(
+      --store-locator-title-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.6,
+      var(--font-family-secondary)
+    );
   }
   &__wrapper {
     display: flex;
@@ -48,31 +58,29 @@
     &__first-divider {
       --divider-display: block;
       --divider-max-width: unset;
-      --divider-margin: 8px 0;
-      @include for-desktop {
-        --divider-width: calc(100% + 2.5rem);
-      }
+      --divider-margin: 0 0 14px 0;
+    }
+    &__second-divider {
+      --divider-display: block;
+      --divider-max-width: unset;
+      --divider-margin: 14px 0 0 0;
     }
     &__item {
+      width: 100%;
+      padding: var(
+        --store-item-padding,
+        var(--spacer-base) 0 var(--spacer-sm) 0
+      );
       display: flex;
       flex-direction: var(--store-item-flex-direction, row);
       flex-wrap: var(--store-item-flex-wrap, nowrap);
       justify-content: var(--store-item-justify-content, flex-start);
       align-items: var(--store-item-align-items, flex-start);
-      font: var(
-        --store-item-font,
-        font(
-          --store-item,
-          300,
-          var(--font-size-small),
-          normal,
-          var(--font-family-primary)
-        )
-      );
+      @include border(--store-item-border, 0 0 1px 0, solid, var(--c-light));
       &-media {
-        width: var(--store-item-media-width, 5.125rem);
-        height: var(--stor-item-media-height, 7rem);
-        margin: var(--store-item-media-margin, 0 1.25rem 0 0);
+        --image-width: 5rem;
+        --image-height: 8.25rem;
+        margin: var(--store-item-media-margin, 0 var(--spacer-xl) 0 0);
         overflow: hidden;
         cursor: pointer;
       }
@@ -151,15 +159,13 @@
   @include for-desktop {
     --divider-max-width: 100%;
     --divider-margin: 7px 0 7px auto;
-    --store-locator-list-width: 33%;
-    --store-locator-list-max-width: 26.25rem;
-    --store-locator-map-width: 66%;
-    --store-locator-map-max-width: 43.75rem;
-    --store-locator-map-min-height: 34.375rem;
+    --store-locator-list-width: 100%;
+    --store-locator-list-max-width: 35.75rem;
+    --store-locator-map-max-width: 100%;
+    --store-locator-map-min-height: 46rem;
     --store-locator-wrapper-flex-direction: row;
-    --store-locator-list-margin: 0 2.5rem 0 0;
+    --store-locator-list-margin: 0 var(--spacer-2xl) 0 0;
     --store-item-font-size: var(--font-size-extra-small);
-    --store-item-info-heading-distance-width: 80px;
     --store-item-info-heading-display: flex;
     --store-item-info-heading-justify-content: space-between;
     --store-item-info-heading-name-font-size: var(--font-size-regular);
