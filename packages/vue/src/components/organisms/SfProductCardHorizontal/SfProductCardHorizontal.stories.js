@@ -94,28 +94,23 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           :is-on-wishlist-icon="isOnWishlistIcon"
           :is-on-wishlist="isOnWishlist">
           <template #configuration>
-            <div>
               <SfProperty name="Size" value="XS"/>
               <SfProperty name="Color" value="white"/>
-            </div>
           </template>
           <template #actions>
-            <div style="display:flex; flex-direction: column; align-items: flex-end">
               <SfButton
                 class="sf-button--text color-secondary"
                 @click="$emit('click:add-to-wishlist')"
-                style="padding-bottom: 1.25rem" 
+                style="padding-bottom: 1rem" 
               >
                 Save for later
               </SfButton>
               <SfButton
                 class="sf-button--text color-secondary"
                 @click="$emit('click:add-to-compare')"
-                style="padding-bottom: 1.25rem" 
               >
                 Add to compare
               </SfButton>
-            </div>
           </template>
       </SfProductCardHorizontal>`
   }))
@@ -221,28 +216,23 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         :is-on-wishlist="isOnWishlist"
         >
         <template #configuration>
-          <div>
             <SfProperty name="Size" value="XS"/>
             <SfProperty name="Color" value="white"/>
-          </div>
           </template>
           <template #actions>
-            <div style="display:flex; flex-direction: column; align-items: flex-end">
               <SfButton
                 class="sf-button--text color-primary"
-                style="padding-bottom: 1.25rem" 
+                style="padding-bottom: 1rem" 
                 @click="$emit('click:add-to-wishlist')"
               >
                 Save for later
               </SfButton>
               <SfButton
                 class="sf-button--text color-primary"
-                style="padding-bottom: 1.25rem" 
                 @click="$emit('click:add-to-compare')"
               >
                 Add to compare
               </SfButton>
-            </div>
           </template>
     </SfProductCardHorizontal>`
   }))
