@@ -26,5 +26,5 @@
     var(#{$element}-image, $image) var(#{$element}-color, $color) no-repeat
     var(#{$element}-position, $position)
   );
-  background-size: var(#{$element}, $size);
+  background-size: var(#{$element}-size, $size);
 }
