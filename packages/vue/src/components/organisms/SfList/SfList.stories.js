@@ -26,7 +26,7 @@ storiesOf("Organisms|List", module).add("Common", () => ({
         :key="item.label" 
         :style="{margin: '10px 0'}"
       >
-        <SfMenuItem :label="item.label" :count="item.count"/>
+        <div>{{item.label}}</div>
       </SfListItem>
     </SfList>`
 }));
