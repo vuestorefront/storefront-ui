@@ -1,75 +1,47 @@
 @import "../../helpers";
 
 .sf-quantity-selector {
-  box-sizing: border-box;
-  display: flex;
   position: relative;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  height: var(--quantity-selector-height, 3.5rem);
-  width: var(--quantity-selector-width, 23.4375rem);
-  padding: var(--quantity-selector-padding, 0);
-  background: var(--quantity-selector-background);
+  justify-content: var(--quantity-selector-justify-content);
+  box-sizing: border-box;
+  height: var(--quantity-selector-height, 3.25rem);
+  width: var(--quantity-selector-width, 6.75rem);
+  background: var(--quantity-selector-background, var(--c-light));
+  @include border(--quantity-selector-border, 0, solid, var(--c-light));
   &__button {
-    --button-size: 1.625rem;
+    --button-height: 100%;
+    --button-padding: 0 var(--spacer-xs);
+    --button-background: transparent;
     --button-color: var(--c-text);
-    --button-background: var(--c-light);
-    --button-padding: 0;
-    --button-font-size: var(--font-xl);
-    --button-border-radius: 50%;
-    --button-font-line-height: 1;
-    align-items: center;
     &:hover {
-      --button-background: var(--c-light);
-      box-shadow: none;
+      --button-background: transparent;
+      --button-box-shadow: none;
     }
   }
   &__input {
-    --input-margin: 0;
-    --input-padding: 0;
-    --input-border: none;
-    --input-height: 3.5rem;
-    --input-text-align: center;
     --input-bar-display: none;
-    --input-font-size: var(--font-xl);
+    --input-height: var(--quantity-selector-height, 3.25rem);
+    --input-padding: 0;
+    --input-margin: 0;
+    --input-border: 0;
+    --input-text-align: center;
   }
-  &::before {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: var(--c-light);
-    transition: none;
-    content: "";
-  }
-  @include for-desktop {
-    --quantity-selector-background: var(--c-light);
-    --quantity-selector-width: 6.75rem;
-    --quantity-selector-height: 3.25rem;
-    --quantity-selector-padding: 0 var(--spacer-xs);
-    --quantity-selector-button-border-radius: 0;
-    &__button {
-      --button-height: var(--quantity-selector-height, auto);
-      --button-background: transparent;
-      &:hover {
-        text-shadow: var(--dark-base);
-        --button-background: transparent;
-      }
+  &--secondary {
+    --quantity-selector-background: transparent;
+    --quantity-selector-border-width: 0 0 1px 0;
+    --quantity-selector-width: 100%;
+    --quantity-selector-justify-content: center;
+    .sf-quantity-selector__button {
+      --button-background: var(--c-light);
+      --button-border-radius: 100%;
+      --button-padding: 0;
+      --button-size: 1.625rem;
+      flex: none;
     }
-    &--small {
-      --quantity-selector-background: var(--c-white);
-      --quantity-selector-height: 2.5rem;
-      .sf-quantity-selector__button {
-        --button-background: transparent;
-        &:hover {
-          text-shadow: var(--dark-base);
-          --button-background: transparent;
-        }
-      }
-    }
-    &::before {
-      display: none;
+    .sf-quantity-selector__input {
+      --input-width: 9rem;
     }
   }
 }
