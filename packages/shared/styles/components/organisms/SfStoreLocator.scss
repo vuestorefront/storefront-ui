@@ -102,7 +102,10 @@
             );
           }
           &-distance {
-            margin: var(--spacer-base) 0 0 0;
+            margin: var(
+              --store-item-info-heading-distance-margin,
+              var(--spacer-base) 0 0 0
+            );
             width: var(--store-item-info-heading-distance-width);
             color: var(
               --store-item-info-heading-distance-color,
@@ -175,5 +178,6 @@
     --store-item-info-address-font-size: var(--font-xs);
     --store-item-info-address-color: var(--c-gray-variant);
     --store-item-info-heading-distance-font-size: var(--font-xs);
+    --store-item-info-heading-distance-margin: 0;
   }
 }
