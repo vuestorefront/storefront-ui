@@ -1,85 +1,77 @@
 @import "../../helpers";
 
 .sf-tabs {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
-  font: var(
-    --tabs-font,
-    font(
-      --tabs,
-      400,
-      var(--font-size-regular),
+  &__title {
+    @include font(
+      --tabs-title-font,
+      var(--font-normal),
+      var(--h3-font-size),
       1.6,
       var(--font-family-secondary)
-    )
-  );
-  &__title {
+    );
     z-index: var(--tabs-title-index);
     display: var(--tabs-title-display, flex);
     flex-basis: var(--tabs-title-flex-basis, 100%);
     justify-content: space-between;
     margin: var(--tabs-title-margin);
-    padding: var(--tabs-title-padding, calc(var(--spacer-big) - 5px) 0);
-    border: var(--tabs-title-border, 1px solid var(--c-light));
-    border-width: var(--tabs-title-border-width, 0 0 1px 0);
-    color: var(--tabs-title-color, var(--c-dark));
-    font: var(
-      --tabs-title-font,
-      font(
-        --tabs-title,
-        400,
-        var(--font-size-big),
-        1.6,
-        var(--font-family-secondary)
-      )
+    padding: var(
+      --tabs-title-padding,
+      var(--spacer-base) var(--spacer-base) var(--spacer-base) var(--spacer-sm)
     );
-    transition: var(
-      --tabs-title-transition,
-      border-color 150ms ease-in-out,
-      color 150ms ease-in-out
-    );
+    @include border(--tabs-title-border, 1, solid, var(--c-light));
+    border-width: var(--tabs-title-border-width, 0 0 0.0625rem 0);
+    color: var(--tabs-title-color, var(--c-text));
+    transition: color 150ms ease-in-out;
     cursor: pointer;
     &--active {
-      --tabs-title-border-bottom: 1px solid transparent;
-      @include for-desktop {
-        --tabs-title-index: 1;
-        --tabs-title-color: var(--c-dark);
-        --tabs-title-border-bottom: 2px solid var(--c-dark);
-      }
-    }
-    &:hover {
-      @include for-desktop {
-        --tabs-title-color: var(--c-dark);
-      }
+      --tabs-title-color: var(--c-primary);
     }
   }
   &__chevron {
     display: var(--tabs-chevron-display, flex);
     align-items: center;
-    max-height: var(
-      --tabs-chevron-max-height,
-      calc(var(--accordion-font-size) * var(--accordion-line-height))
-    );
   }
   &__content {
+    @include font(
+      --tabs-content-font,
+      var(--font-light),
+      var(--font-base),
+      1.7,
+      var(--font-family-primary)
+    );
+    color: var(--tabs-content-color, var(--c-link));
     flex-basis: 100%;
-    padding: var(--tabs-content-padding, calc(var(--spacer-big) / 2) 0);
+    padding: var(
+      --tabs-content-padding,
+      var(--spacer-base) var(--spacer-base) var(--spacer-base) var(--spacer-sm)
+    );
     order: var(--tabs-content-order);
-    border: var(--tabs-content-border);
+    @include border(--tabs-content-border, 0, solid, transparent);
     border-width: var(--tabs-content-border-width);
   }
   @include for-desktop {
-    --tabs-title-margin: 0 2rem -0.125rem 0;
-    --tabs-title-padding: var(--spacer-big) 0;
-    --tabs-title-border: 2px solid var(--c-dark);
+    --tabs-title-font-size: var(--h4-font-size);
+    --tabs-title-margin: 0 2.75rem -0.125rem 0;
+    --tabs-title-padding: 0 6px 4px 0;
     --tabs-title-border-width: 0 0 2px 0;
-    --tabs-title-color: var(--c-gray-variant);
+    --tabs-title-color: var(--c-text-muted);
     --tabs-title-flex-basis: auto;
     --tabs-content-order: 99;
-    --tabs-content-padding: 3.75rem 0;
+    --tabs-content-padding: var(--spacer-lg) 0;
     --tabs-content-border: 2px solid var(--c-light);
     --tabs-content-border-width: 2px 0 0 0;
     --tabs-chevron-display: none;
+    &__title {
+      &--active {
+        --tabs-title-border: 2px solid var(--c-dark);
+        --tabs-title-index: 1;
+        --tabs-title-color: var(--c-text);
+      }
+      &:hover {
+        --tabs-title-color: var(--c-dark);
+      }
+    }
   }
 }
