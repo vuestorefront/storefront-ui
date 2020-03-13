@@ -1,77 +1,42 @@
 @import "../../helpers";
 
 .sf-filter {
-  --checkbox-container-width: 100%;
-  display: flex;
-  width: var(--filter-width, 100%);
-  height: var(--filter-height, 3.8125rem);
-  letter-spacing: var(--filter-letter-spacing, 0.1px);
-  .sf-checkbox__container {
-    justify-content: var(
-      --filter-checkbox-container-justify-content,
-      space-between
-    );
-    margin: var(--filter-checkbox-container-margin, 0);
-  }
-  .sf-checkbox__checkmark {
-    --checkbox-border-radius: 50%;
-    display: var(--filter-checkmark-display, none);
-    order: var(--filter-checkmark-order, 2);
-    margin: var(--filter-checkmark-margin, 0 var(--spacer-base) 0 0);
-  }
+  --checkbox-order: 1;
+  --checkbox-border-radius: 100%;
   &__label {
-    order: var(--filter-label-order, 1);
+    margin: var(--filter-label-margin, 0 0 0 var(--spacer-sm));
     @include font(
       --filter-label-font,
       var(--font-medium),
       var(--font-base),
-      1.9,
-      var(--font-family-secondary)
-    );
-    text-decoration: var(--filter-label-text-decoration, none);
-    color: var(--filter-label-color, var(--c-text-muted));
-    margin: var(--filter-label-margin, 0 0 0 var(--spacer-xl));
-  }
-  &__count {
-    display: var(--filter-count-display, none);
-    order: var(--filter-count-order, 3);
-    @include font(
-      --filter-count-font,
-      var(--font-normal),
-      var(--font-2xs),
       1.4,
       var(--font-family-secondary)
     );
-    color: var(--filter-count-color, var(--c-text));
-    margin: var(--filter-count-margin, 0 0 0 var(--spacer-sm));
+    text-decoration: var(--filter-label-text-decoration);
+    transition: transform 150ms ease-in-out;
+    transform: var(--filter-label-transform);
+  }
+  &__count {
+    margin: var(--filter-count-margin, 0 var(--spacer-sm) 0 auto);
+    @include font(
+      --filter-count-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.4,
+      var(--font-family-secondary)
+    );
   }
   @include for-desktop {
-    --checkbox-container-width: 14rem;
-    --filter-checkbox-container-justify-content: left;
-    --filter-checkbox-container-margin: 0 var(--spacer-xl);
-    --filter-height: 2.375rem;
-    --filter-checkmark-display: flex;
-    --filter-checkmark-order: 1;
-    --filter-checkmark-margin: 0 var(--spacer-sm) 0 0;
-    --filter-label-order: 2;
+    --checkbox-border-radius: 0;
+    --checkbox-order: 0;
+    --filter-count-margin: 0 0 0 auto;
     --filter-label-font-size: var(--font-2xs);
-    --filter-label-font-weight: var(--font-normal);
-    --filter-label-font-line-height: 1.4;
-    --filter-label-color: var(--c-link);
-    --filter-label-margin: 0 var(--spacer-2xl) 0 0;
-    --filter-count-display: flex;
-    --filter-count-margin: 0;
-    &--active {
-      --filter-label-font-size: var(--h5-font-size);
-      --filter-label-text-decoration: underline;
-    }
-    .sf-checkbox__checkmark {
-      --checkbox-border-radius: 0;
-      --checkbox-size: 1.5rem;
-    }
+    --filter-count-font-size: var(--font-2xs);
   }
   &--active {
-    --filter-checkmark-display: flex;
-    --filter-label-color: var(--c-text);
+    @include for-desktop {
+      --filter-label-text-decoration: underline;
+      --filter-label-transform: scale3d(1.4, 1.4, 1);
+    }
   }
 }
