@@ -1,14 +1,14 @@
 @import "../../helpers";
 
 .sf-list {
-  list-style-type: var(--list-list-style-type, none);
+  list-style: var(--list-list-style, none);
   padding: var(--list-padding, 0);
-  margin: var(--list-margin, 0);
   @include for-desktop {
     --list-item-font-line-height: 2.4;
-    --list-item-font-weight: var(--font-bold);
+    --list-item-font-weight: var(--font-light);
   }
   .sf-list__item {
+    margin: var(--list-item-margin, 0);
     color: var(--list-item-color, var(--c-text));
     @include font(
       --list-item-font,
