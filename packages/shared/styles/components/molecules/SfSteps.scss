@@ -5,14 +5,15 @@
     position: relative;
     width: 100%;
     display: flex;
-    box-shadow: 0px 4px 11px rgba(var(--c-black-base), 0.1);
     @include border(--steps-border, 0, solid, var(--c-light));
+    box-shadow: 0px 4px 11px rgba(var(--c-black-base), 0.1);
   }
   &__step {
+    position: relative;
     display: flex;
+    flex: 1;
     justify-content: center;
     align-items: center;
-    position: relative;
     padding: var(--steps-step-padding, var(--spacer-sm) var(--spacer-2xs));
     @include font(
       --step-font,
@@ -22,7 +23,6 @@
       var(--font-family-secondary)
     );
     color: var(--steps-step-color, var(--c-link));
-    flex: 1;
     cursor: var(--steps-step-cursor, pointer);
     &--current,
     &--done {
@@ -41,10 +41,15 @@
     content: "";
     position: absolute;
     left: 0;
-    bottom: var(--steps-progress-bottom, -1.5px);
+    bottom: var(--steps-progress-bottom, -2px);
     display: block;
+    width: var(--steps-progress-width, var(--_steps-progress-width));
     height: var(--steps-progress-height, 3px);
     background: var(--steps-progress-background, var(--c-primary));
+    transform: var(
+      --steps-progress-transform,
+      scale3d(var(--_steps-progress-active-step), 1, 1)
+    );
     transform-origin: 0 50%;
     transition: var(--steps-progress-transition, transform 150ms ease-in-out);
   }
@@ -81,6 +86,11 @@
     &__progress {
       --steps-progress-background: var(--c-dark);
       --steps-progress-height: 2px;
+      --steps-progress-transform: scale3d(
+        calc(var(--_steps-progress-active-step) - 0.5),
+        1,
+        1
+      );
     }
   }
 }
