@@ -19,12 +19,11 @@
   $color,
   $image: url(""),
   $position: 0% 0%,
-  $size: cover,
-  $repeat: no-repeat
+  $size: cover
 ) {
   background: var(
     #{$element},
-    var(#{$element}-image, $image) var(#{$element}-color, $color) $repeat
+    var(#{$element}-image, $image) var(#{$element}-color, $color) no-repeat
     var(#{$element}-position, $position)
   );
   background-size: var(#{$element}-size, $size);
