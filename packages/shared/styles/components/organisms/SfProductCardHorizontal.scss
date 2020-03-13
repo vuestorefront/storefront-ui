@@ -15,7 +15,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    transition: var(--product-card-horizontal-transition, box-shadow 150ms ease-in-out);
+    transition: var(
+      --product-card-horizontal-transition,
+      box-shadow 150ms ease-in-out
+    );
     box-shadow: var(--product-card-horizontal-box-shadow);
   }
 
@@ -23,9 +26,10 @@
     --product-card-horizontal-image-opacity: 1;
     --product-card-horizontal-image-even-opacity: 1;
   }
-  
+
   &:active {
-    --product-card-horizontal-box-shadow: 0px 4px 11px rgba(var(--c-black-base), 0.1);
+    --product-card-horizontal-box-shadow: 0px 4px 11px
+      rgba(var(--c-black-base), 0.1);
   }
 
   &__link {
@@ -47,10 +51,10 @@
     );
     opacity: var(--product-card-horizontal-image-opacity);
     &:nth-child(even) {
-      --product-card-horizontal-image-opacity: 0;
       position: absolute;
       top: 0;
       left: 0;
+      opacity: var(--product-card-horizontal-image-even-opacity, 0);
     }
   }
 
@@ -95,7 +99,10 @@
 
   &__title {
     margin: 0;
-    padding: var(--product-card-horizontal-title-padding, 0 var(--spacer-lg) 0 0);
+    padding: var(
+      --product-card-horizontal-title-padding,
+      0 var(--spacer-lg) 0 0
+    );
     color: var(--c-text);
     @include font(
       --product-card-horizontal-title-font,
@@ -138,7 +145,10 @@
 
     &-count {
       color: var(--product-card-horizontal-reviews-count-color, var(--c-black));
-      margin: var(--product-card-horizontal-reviews-count-margin, 0 0 0 var(--spacer-xs));
+      margin: var(
+        --product-card-horizontal-reviews-count-margin,
+        0 0 0 var(--spacer-xs)
+      );
       text-decoration: underline;
     }
   }
@@ -157,9 +167,9 @@
     &:hover {
       --product-card-horizontal-box-shadow: none;
     }
-    
+
     &__main {
-      flex-direction: row;;
+      flex-direction: row;
     }
 
     &__details {
@@ -168,6 +178,14 @@
         align-items: flex-end;
         flex: 1;
       }
+    }
+
+    &__actions {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
     }
   }
 }
