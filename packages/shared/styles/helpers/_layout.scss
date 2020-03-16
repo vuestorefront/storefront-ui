@@ -12,3 +12,20 @@
   border: var(#{$element}, _border($element, $border-style, $border-color));
   border-width: var(#{$element}-width, $border-width);
 }
+
+// Use this mixin to set component background properties: color, image, position, size
+@mixin background(
+  $element,
+  $color,
+  $image: url(""),
+  $position: 0% 0%,
+  $size: cover,
+  $repeat: no-repeat
+) {
+  background: var(
+    #{$element},
+    var(#{$element}-image, $image) var(#{$element}-color, $color) $repeat
+    var(#{$element}-position, $position)
+  );
+  background-size: var(#{$element}-size, $size);
+}

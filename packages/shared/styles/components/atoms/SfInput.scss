@@ -32,7 +32,7 @@
   }
   &__bar {
     position: relative;
-    display: block;
+    display: var(--input-bar-display, block);
     &::before,
     &::after {
       position: absolute;
@@ -53,11 +53,12 @@
 
   &__error-message {
     color: var(--input-error-message-color, var(--c-danger));
+    height: calc(var(--font-xs) * 1.2);
     @include font(
       --input-error-message-font,
       var(--font-medium),
       var(--font-xs),
-      normal,
+      1.2,
       var(--font-family-secondary)
     );
   }
@@ -86,6 +87,7 @@
       1,
       var(--font-family-secondary)
     );
+    text-align: var(--input-text-align);
     outline: none;
     &:focus {
       & ~ * {

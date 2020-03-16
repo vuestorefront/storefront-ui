@@ -13,7 +13,7 @@ storiesOf("Molecules|Pagination", module)
         default: number("total", 12, {}, "Props")
       },
       hasArrows: {
-        default: boolean("hasArrows", true, "Props") 
+        default: boolean("hasArrows", true, "Props")
       }
     },
     data() {
@@ -38,7 +38,7 @@ storiesOf("Molecules|Pagination", module)
         default: number("total", 12, {}, "Props")
       },
       hasArrows: {
-        default: boolean("hasArrows", true, "Props") 
+        default: boolean("hasArrows", true, "Props")
       }
     },
     data() {
@@ -64,7 +64,7 @@ storiesOf("Molecules|Pagination", module)
         default: number("total", 12, {}, "Props")
       },
       hasArrows: {
-        default: boolean("hasArrows", true, "Props") 
+        default: boolean("hasArrows", true, "Props")
       }
     },
     data() {
@@ -93,7 +93,7 @@ storiesOf("Molecules|Pagination", module)
         default: number("total", 12, {}, "Props")
       },
       hasArrows: {
-        default: boolean("hasArrows", true, "Props") 
+        default: boolean("hasArrows", true, "Props")
       }
     },
     data() {
@@ -122,7 +122,7 @@ storiesOf("Molecules|Pagination", module)
         default: number("total", 12, {}, "Props")
       },
       hasArrows: {
-        default: boolean("hasArrows", true, "Props") 
+        default: boolean("hasArrows", true, "Props")
       }
     },
     data() {
