@@ -24,6 +24,11 @@
     padding: var(--accordion-item-content-padding);
 
     .sf-list__item {
+      padding: var(
+        --accordion-item-content-item-padding,
+        calc(var(--spacer-2xs) * 5) var(--spacer-lg) calc(var(--spacer-2xs) * 5)
+        var(--spacer-lg)
+      );
       @include border(
         --accordion-item-content-item-border,
         1px 0 0 0,
@@ -42,6 +47,8 @@
     --accordion-item-header-font-size: var(--font-xl);
     --accordion-item-border: 0;
     --accordion-item-content-item-border: 0;
+    --accordion-item-content-item-padding: var(--spacer-xs) var(--spacer-sm)
+      var(--spacer-xs) var(--spacer-sm);
   }
 }
 .sf-accordion {
