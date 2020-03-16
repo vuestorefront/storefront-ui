@@ -16,7 +16,7 @@
 // Use this mixin to set component background properties: color, image, position, size
 @mixin background(
   $element,
-  $color,
+  $color: transparent,
   $image: url(""),
   $position: 0% 0%,
   $size: cover

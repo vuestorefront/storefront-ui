@@ -10,7 +10,7 @@
   padding: var(--banner-padding, var(--spacer-xl));
   @include background(
     --banner-background,
-    var(--_banner-background-color),
+    var(--_banner-background-color, transparent),
     var(--_banner-background-image)
   );
   &__container {
