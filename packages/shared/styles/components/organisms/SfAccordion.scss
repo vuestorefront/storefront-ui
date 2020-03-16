@@ -21,16 +21,17 @@
     cursor: pointer;
   }
   &__content {
-    padding: var(--accordion-item-content-padding, 0 var(--spacer-lg));
+    padding: var(--accordion-item-content-padding);
   }
   &__chevron {
     display: var(--accordion-item-chevron-display, none);
     align-items: var(--accordion-item-chevron-align-items, auto);
     max-height: var(--accordion-item-chevron-max-height, none);
   }
+
   @include for-desktop {
     --accordion-item-header-font-size: var(--font-xl);
-    --accordion-item-content-padding: 0 var(--spacer-sm);
+    --accordion-item-border: 0;
   }
 }
 .sf-accordion {

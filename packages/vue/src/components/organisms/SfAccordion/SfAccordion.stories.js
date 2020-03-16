@@ -69,7 +69,7 @@ storiesOf("Organisms|Accordion", module)
           <SfListItem
             v-for="item in accordion.items"
             :key="item.label"
-            :style="{margin: '10px 0'}">
+            :style="{padding: '1.25rem 2rem 1.25rem 2rem'}">
             <SfMenuItem 
               :label="item.label" 
               :count="item.count"
