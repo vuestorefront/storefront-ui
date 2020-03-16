@@ -4,9 +4,9 @@
   box-sizing: border-box;
   position: relative;
   z-index: var(--product-card-z-index);
-  max-width: var(--product-card-max-width, 170px);
+  max-width: var(--product-card-max-width, 10.625rem);
   height: var(--product-card-height);
-  padding: var(--product-card-padding, var(--spacer-2xs));
+  padding: var(--product-card-padding, var(--spacer-xs));
   background-color: var(--product-card-background, var(--c-white));
 
   &::after {
@@ -26,6 +26,8 @@
     --product-card-image-even-opacity: 1;
     --product-card-wishlist-icon-opacity: 1;
     --product-card-add-button-opacity: 1;
+    --product-card-z-index: 1;
+    --product-card-box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
   }
 
   &:active {
@@ -34,7 +36,6 @@
 
   &__title {
     margin: var(--product-card-title-margin, var(--spacer-xs) 0 0 0);
-
     @include font(
       --product-card-title-font,
       var(--font-light),
@@ -76,7 +77,6 @@
     display: var(--product-card-add-button-display, none);
     transform: var(--product-card-add-button-transform, translate3d(0, 50%, 0));
     opacity: var(--product-card-add-button-opacity, 0);
-    cursor: pointer;
 
     &--icons-enter-active {
       animation: var(--product-card-add-button-enter-animation, bounce 0.4s);
@@ -100,7 +100,7 @@
   }
 
   &__rating {
-    display: inline-flex;
+    display: flex;
   }
 
   &__reviews-count {
@@ -118,12 +118,10 @@
   }
 
   &__wishlist-icon {
-    --icon-color: var( --c-dark-variant);
+    --icon-color: var(--c-dark-variant);
     position: absolute;
     top: var(--product-card-wishlist-icon-top, var(--spacer-sm));
-    right: var(
-      --product-card-wishlist-icon-right,
-      var(--spacer-sm));
+    right: var(--product-card-wishlist-icon-right, var(--spacer-sm));
     padding: var(--product-card-wishlist-icon-padding, 0);
     border: 0;
     background-color: transparent;
@@ -140,23 +138,16 @@
   }
 
   @include for-desktop {
-    --product-card-max-width: 256px;
-    --product-card-height: 490px;
-    --product-card-padding: calc(var(--spacer-xl) / 2);
+    --product-card-max-width: 15.5rem;
+    --product-card-padding: calc(var(--spacer-sm));
     --product-card-title-margin: var(--spacer-xl) 0 0 0;
     --product-card-transition: box-shadow 150ms ease-in-out;
-    --product-card-wishlist-icon-top: var(--spacer-xl);
-    --product-card-wishlist-icon-right: var(--spacer-xl);
+    --product-card-wishlist-icon-top: var(--spacer-lg);
+    --product-card-wishlist-icon-right: var(--spacer-lg);
     --product-card-wishlist-icon-opacity: 0;
     --product-card-add-button-display: flex;
-
-    &:hover {
-      --product-card-z-index: 1;
-      --product-card-box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
-    }
   }
 }
-
 @keyframes bounce {
   0% {
     transform: scale(1);

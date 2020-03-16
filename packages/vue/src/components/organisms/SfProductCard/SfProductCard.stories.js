@@ -59,10 +59,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
         default: text("wishlistIcon", "heart", "Props")
@@ -157,10 +157,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
         default: text("wishlistIcon", "heart", "Props")
@@ -269,10 +269,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
         default: text("wishlistIcon", "heart", "Props")
@@ -371,10 +371,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
         default: text("wishlistIcon", "heart", "Props")
@@ -472,10 +472,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
         default: text("wishlistIcon", "heart", "Props")
@@ -573,10 +573,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
         default: text("wishlistIcon", "heart", "Props")
@@ -674,10 +674,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
         default: text("wishlistIcon", "heart", "Props")
@@ -775,10 +775,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
         default: text("wishlistIcon", "heart", "Props")
