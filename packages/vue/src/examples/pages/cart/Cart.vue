@@ -3,7 +3,7 @@
     <SfSidebar
       :visible="isCartSidebarOpen"
       title="My Cart"
-      class="sf-sidebar--right"
+      class="sf-sidebar--right sf-sidebar--icon"
       @close="() => {}"
     >
       <transition name="fade" mode="out-in">
@@ -67,18 +67,18 @@
             >Start shopping</SfButton
           >
         </div>
-        <template #bottom>
-          <SfProperty class="sf-property--full-width my-cart__total-price">
-            <template #name>
-              <span class="sf-property__name">TOTAL</span>
-            </template>
-            <template #value>
-              <SfPrice :regular="totalPrice | price" />
-            </template>
-          </SfProperty>
-          <SfButton class="sf-button--full-width">Go to checkout</SfButton>
-        </template>
       </transition>
+      <template #sticky-bottom>
+        <SfProperty class="sf-property--full-width my-cart__total-price">
+          <template #name>
+            <span class="sf-property__name">TOTAL</span>
+          </template>
+          <template #value>
+            <SfPrice :regular="totalPrice | price" />
+          </template>
+        </SfProperty>
+        <SfButton class="sf-button--full-width">Go to checkout</SfButton>
+      </template>
     </SfSidebar>
   </div>
 </template>
