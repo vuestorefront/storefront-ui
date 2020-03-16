@@ -1,11 +1,11 @@
 @import "../../helpers";
 
 .sf-banner {
+  box-sizing: border-box;
   display: var(--banner-display, flex);
   align-items: var(--bnner-align-items, center);
   justify-content: var(--banner-justify-content, flex-start);
-  box-sizing: border-box;
-  min-height: var(--banner-min-height, 14rem);
+  min-height: var(--banner-height, 14rem);
   width: var(--banner-width, 100%);
   padding: var(--banner-padding, var(--spacer-xl));
   @include background(
@@ -67,17 +67,19 @@
     margin: var(--banner-call-to-action-margin, 0);
   }
   @include for-desktop {
-    --background-image: var(
+    --banner-background-image: var(
       --_banner-background-desktop-image,
       var(--_banner-background-image)
     );
     --banner-display-description: block;
     --banner-display-call-to-action: block;
-    --banner-min-height: 25rem;
+    --banner-height: 25rem;
     --banner-title-margin: var(--spacer-base) 0 0 0;
     --banner-subtitle-color: var(--c-gray);
     --banner-title-font-size: var(--h1-font-size);
-    &--right {
+  }
+  &--right {
+    @include for-desktop {
       --banner-justify-content: flex-end;
     }
   }
