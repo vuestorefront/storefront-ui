@@ -2,8 +2,6 @@
 
 .sf-carousel {
   position: relative;
-  max-width: var(--carousel-max-width, 71.25rem);
-  margin: auto;
   &__wrapper {
     max-width: var(
       --carousel-max-width,
