@@ -22,6 +22,15 @@
   }
   &__content {
     padding: var(--accordion-item-content-padding);
+
+    .sf-list__item {
+      @include border(
+        --accordion-item-content-item-border,
+        1px 0 0 0,
+        solid,
+        var(--c-light)
+      );
+    }
   }
   &__chevron {
     display: var(--accordion-item-chevron-display, none);
@@ -32,6 +41,7 @@
   @include for-desktop {
     --accordion-item-header-font-size: var(--font-xl);
     --accordion-item-border: 0;
+    --accordion-item-content-item-border: 0;
   }
 }
 .sf-accordion {
