@@ -16,8 +16,9 @@
   &__container {
     display: flex;
     flex: 0 0 var(--banner-container-width, 50%);
-    justify-content: flex-start;
-    flex-direction: column;
+    justify-content: var(--banner-container-justify-content, flex-start);
+    align-items: var(--banner-container-align-items, flex-start);
+    flex-direction: var(--banner-container-flex-direction, column);
   }
   &__subtitle {
     margin: var(--banner-subtitle-margin, 0);
@@ -62,9 +63,7 @@
     );
   }
   &__call-to-action {
-    --button-width: 10.75rem;
     display: var(--banner-display-call-to-action, none);
-    margin: var(--banner-call-to-action-margin, 0);
   }
   @include for-desktop {
     --banner-background-image: var(
