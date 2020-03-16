@@ -3,15 +3,16 @@
     <SfOverlay :visible="visibleOverlay" @click="close" />
     <transition :name="transitionName">
       <aside v-if="visible" class="sf-sidebar__aside">
+        <!--@slot Use this slot to place content inside the modal bar.-->
+        <slot name="bar">
+          <SfBar
+            :title="title"
+            class="mobile-only"
+            :back="true"
+            @click:back="close"
+          />
+        </slot>
         <div class="sf-sidebar__top">
-          <slot name="top-bar">
-            <SfBar
-              :title="title"
-              class="mobile-only"
-              :back="true"
-              @click:back="close"
-            />
-          </slot>
           <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
               v-if="title"
@@ -21,11 +22,8 @@
               class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
             />
           </slot>
-          <slot
-            v-if="position === 'right'"
-            name="icon"
-            v-bind="{ close, button }"
-          >
+          <!--@slot Use this slot to replace icon on the right side.-->
+          <slot name="icon" v-bind="{ close, button }">
             <SfIcon
               v-if="button"
               icon="cross"
@@ -36,7 +34,7 @@
               @click="close"
             />
           </slot>
-          <slot v-else name="circle-icon" v-bind="{ close, button }">
+          <slot name="circle-icon" v-bind="{ close, button }">
             <SfCircleIcon
               v-if="button"
               icon-size="14px"
@@ -46,13 +44,13 @@
             />
           </slot>
         </div>
-        <!--@slot Use this slot to place content inside the modal bar.-->
         <div ref="content" class="sf-sidebar__content">
           <slot />
         </div>
-        <SfSticky class="sf-sidebar__bottom">
-          <slot name="bottom" />
-        </SfSticky>
+        <!--@slot Use this slot to place content to sticky bottom.-->
+        <div v-if="hasStickyBottom" class="sf-sidebar__sticky-bottom">
+          <slot name="sticky-bottom" />
+        </div>
       </aside>
     </transition>
   </div>
@@ -61,7 +59,6 @@
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import SfSticky from "../../molecules/SfSticky/SfSticky.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
@@ -72,7 +69,6 @@ export default {
     SfCircleIcon,
     SfIcon,
     SfOverlay,
-    SfSticky,
     SfHeading
   },
   props: {
@@ -105,7 +101,7 @@ export default {
     return {
       position: "left",
       staticClass: null,
-      className: null,
+      className: null
     };
   },
   computed: {
@@ -114,6 +110,9 @@ export default {
     },
     transitionName() {
       return "slide-" + this.position;
+    },
+    hasStickyBottom() {
+      return this.$slots.hasOwnProperty("sticky-bottom");
     }
   },
   watch: {
