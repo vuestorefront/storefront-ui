@@ -19,7 +19,7 @@
   border-radius: var(--button-border-radius, 0);
   @include font(
     --button-font,
-    var(--font-medium),
+    var(--font-semibold),
     var(--font-base),
     1.2,
     var(--font-family-secondary)
