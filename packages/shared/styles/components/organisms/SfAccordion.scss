@@ -26,8 +26,7 @@
     .sf-list__item {
       padding: var(
         --accordion-item-content-item-padding,
-        calc(var(--spacer-2xs) * 5) var(--spacer-lg) calc(var(--spacer-2xs) * 5)
-        var(--spacer-lg)
+        var(--spacer-sm) var(--spacer-lg) var(--spacer-sm) var(--spacer-lg)
       );
       @include border(
         --accordion-item-content-item-border,
