@@ -6,10 +6,7 @@
   &__header {
     display: flex;
     justify-content: var(--accordion-item-header-justify, space-between);
-    padding: var(
-      --accordion-item-padding,
-      calc(var(--spacer-2xs) * 5) var(--spacer-sm)
-    );
+    padding: var(--accordion-item-padding, var(--spacer-sm) var(--spacer-sm));
     color: var(--accordion-item-color, var(--c-dark));
     @include font(
       --accordion-item-header-font,
