@@ -2,9 +2,9 @@
   <li
     class="glide__slide sf-hero-item"
     :style="
-      'background-image: url(' +
+      '--_hero-item-background-image: url(' +
         image +
-        '); background-color: ' +
+        '); --_hero-item-background-color: ' +
         background +
         ';'
     "

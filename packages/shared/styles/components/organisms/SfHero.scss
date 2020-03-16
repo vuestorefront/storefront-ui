@@ -2,27 +2,24 @@
 
 .sf-hero-item {
   display: flex;
-  flex-direction: var(--hero-item-flex-direction, row);
-  align-items: var(--hero-item-align-items, unset);
-  justify-content: var(--hero-item-justify-content, flex-start);
+  flex-direction: var(--hero-item-flex-direction, column);
+  align-items: var(--hero-item-align-items, flex-start);
+  justify-content: var(--hero-item-justify-content, center);
+  box-sizing: border-box;
   min-height: var(--hero-item-min-height, 13.9375rem);
   width: var(--hero-item-width, 100%);
-  box-sizing: border-box;
-  background-position: var(--hero-item-background-position, center);
-  background-size: var(--hero-item-background-size, cover);
-  background-image: var(--background-image);
-  background-color: var(--hero-item-background-color, transparent);
-  background-repeat: var(--hero-item-background-repeat, no-repeat);
+  padding: var(--hero-item-padding, var(--spacer-sm));
   color: var(--hero-item-color, var(--c-text));
+  @include background(
+    --hero-item-background,
+    var(--_hero-item-background-color, transparent),
+    var(--_hero-item-background-image)
+  );
   &__container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: var(--hero-item-container-width, 50%);
-    margin: var(
-      --hero-item-container-margin,
-      var(--spacer-xl) 0 0 var(--spacer-sm)
-    );
   }
   &__subtitle {
     margin: var(--hero-item-subtitle-margin, 0);
@@ -65,12 +62,11 @@
     --hero-item-background-position: bottom left;
   }
   &--align-right {
-    --hero-item-justify-content: flex-end;
+    --hero-item-align-items: flex-end;
   }
   @include for-desktop {
     --hero-item-min-height: 36.625rem;
-    --hero-item-container-margin: 0 0 0 var(--spacer-2xl);
-    --hero-item-align-items: center;
+    --hero-item-padding: var(--spacer-2xl);
     &__title {
       --hero-item-font-size: var(--h1-font-size);
       --hero-item-title-margin: var(--spacer-base) 0 var(--spacer-lg) 0;
@@ -93,9 +89,9 @@
   }
   &__bullets {
     position: absolute;
-    bottom: var(--her-bullets-bottom, 3.1875rem);
+    bottom: var(--hero-bullets-bottom, 3.1875rem);
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
     display: var(--hero-bullets-display, none);
   }
   @include for-desktop {
