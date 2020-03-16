@@ -1,26 +1,25 @@
 @import "../../helpers";
 
 .sf-call-to-action {
-  display: flex;
+  display: var(--banner-display, flex);
   box-sizing: border-box;
   flex-direction: var(--call-to-action-flex-direction, column);
   align-items: var(--call-to-action-align-items);
   justify-content: var(--call-to-action-justify-content, left);
-  min-height: var(--call-to-action-min-height, 16.75rem);
+  min-height: var(--call-to-action-height, auto);
   padding: var(--call-to-action-padding, var(--spacer-base));
   @include background(
     --call-to-action-background,
-    var(--_call-to-action-background-color),
+    var(--_call-to-action-background-color, transparent),
     var(--_call-to-action-background-image)
   );
-  letter-spacing: var(--call-to-action-letter-spacing, 0.1px);
   &__text-container {
     display: flex;
-    justify-content: var(--call-to-action-text-container-justify-content, left);
-    flex-direction: var(
+    justify-content: var(
       --call-to-action-text-container-justify-content,
-      column
+      flex-start
     );
+    flex-direction: var(--call-to-action-text-container-flex-direction, column);
     width: var(--call-to-action-text-container-width);
     margin: var(--call-to-action-text-container-margin);
   }
@@ -28,13 +27,13 @@
     margin: var(--call-to-action-title-margin, 0 0 var(--spacer-sm) 0);
     color: var(
       --call-to-action-color,
-      var(--call-to-action-title-color, var(--c-on-primary))
+      var(--call-to-action-title-color, var(--c-white))
     );
     @include font(
       --call-to-action-title-font,
       var(--font-semibold),
       var(--h2-font-size),
-      1.2,
+      1.4,
       var(--font-family-secondary)
     );
     text-transform: var(--call-to-action-title-text-transform, none);
@@ -43,29 +42,14 @@
     margin: var(--call-to-action-description-margin, 0 0 var(--spacer-sm) 0);
     color: var(
       --call-to-action-color,
-      var(--call-to-action-description-color, var(--c-on-primary))
+      var(--call-to-action-description-color, var(--c-white))
     );
     @include font(
       --call-to-action-description-font,
       var(--font-light),
       var(--font-base),
-      1.8,
+      1.6,
       var(--font-family-primary)
-    );
-  }
-  &__button {
-    --button-height: auto;
-    --button-width: auto;
-    color: var(
-      --call-to-action-color,
-      var(--call-to-action-button-color, var(--c-on-primary))
-    );
-    @include font(
-      --call-to-action-button-font,
-      var(--font-semibold),
-      var(--font-base),
-      1.2,
-      var(--font-family-secondary)
     );
   }
   @include for-desktop {
@@ -73,10 +57,7 @@
     --call-to-action-justify-content: space-between;
     --call-to-action-align-items: center;
     --call-to-action-padding: var(--spacer-xl) var(--spacer-2xl);
-    --call-to-action-min-height: 12.625rem;
-    --button-height: 3.25rem;
-    --button-width: 10.75rem;
+    --call-to-action-height: 12.5rem;
     --call-to-action-text-container-width: 75%;
-    --call-to-action-title-font-size: var(--h2-font-size);
   }
 }
