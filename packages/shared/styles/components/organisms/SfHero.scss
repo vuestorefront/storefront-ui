@@ -67,6 +67,10 @@
   @include for-desktop {
     --hero-item-min-height: 36.625rem;
     --hero-item-padding: var(--spacer-2xl);
+    --hero-item-background-image: var(
+      --_hero-item-background-desktop-image,
+      var(--_hero-item-background-image)
+    );
     &__title {
       --hero-item-font-size: var(--h1-font-size);
       --hero-item-title-margin: var(--spacer-base) 0 var(--spacer-lg) 0;

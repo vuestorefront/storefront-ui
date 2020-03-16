@@ -1,14 +1,5 @@
 <template>
-  <li
-    class="glide__slide sf-hero-item"
-    :style="
-      '--_hero-item-background-image: url(' +
-        image +
-        '); --_hero-item-background-color: ' +
-        background +
-        ';'
-    "
-  >
+  <li class="glide__slide sf-hero-item" :style="style">
     <div class="sf-hero-item__container">
       <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
       <slot name="subtitle" v-bind="{ subtitle }">
@@ -61,6 +52,19 @@ export default {
     image: {
       type: String,
       default: ""
+    }
+  },
+  computed: {
+    style() {
+      const image = this.image;
+      const background = this.background;
+      return {
+        "--_hero-item-background-image": image.mobile
+          ? `url(${image.mobile})`
+          : `url(${image})`,
+        "--_hero-item-background-desktop-image": `url(${image.desktop})`,
+        "--_hero-item-background-color": background
+      };
     }
   }
 };
