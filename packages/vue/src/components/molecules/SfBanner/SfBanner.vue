@@ -84,7 +84,7 @@ export default {
         "--_banner-background-image": image.mobile
           ? `url(${image.mobile})`
           : `url(${image})`,
-        "--_banner-background-desktop-image": image.desktop,
+        "--_banner-background-desktop-image": `url(${image.desktop})`,
         "--_banner-background-color": background
       };
     }
