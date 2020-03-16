@@ -51,13 +51,7 @@ storiesOf("Organisms|Footer", module)
           },
           {
             title: "Social",
-            pictures: [
-              "facebook",
-              "pinterest",
-              "googleplus",
-              "twitter",
-              "youtube"
-            ]
+            pictures: ["facebook", "pinterest", "twitter", "youtube"]
           }
         ]
       };
