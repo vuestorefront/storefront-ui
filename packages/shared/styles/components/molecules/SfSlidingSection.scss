@@ -39,7 +39,7 @@
     --sliding-section-static-height: 0;
     --sliding-section-mobile-bar-display: block;
   }
-  
+
   @include for-desktop {
     --sliding-section-display: flex;
     --sliding-section-sliding-margin: 0 0 0 var(--spacer-lg);

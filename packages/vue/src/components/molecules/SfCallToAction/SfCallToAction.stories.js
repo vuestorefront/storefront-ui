@@ -1,27 +1,11 @@
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  color,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
+import { withKnobs, text, color } from "@storybook/addon-knobs";
 import SfCallToAction from "./SfCallToAction.vue";
 storiesOf("Molecules|CallToAction", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfCallToAction },
     props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-banner--light": "sf-banner-light"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       title: {
         default: text("title", "Subscribe to Newsletters", "Props")
       },
@@ -43,8 +27,7 @@ storiesOf("Molecules|CallToAction", module)
       }
     },
     template: `<div style="max-width: 1024px">
-      <SfCallToAction 
-      :class="customClass"
+      <SfCallToAction      
       :title="title"
       :description="description"
       :button-text="buttonText"
@@ -55,17 +38,6 @@ storiesOf("Molecules|CallToAction", module)
   .add("[slot] title", () => ({
     components: { SfCallToAction },
     props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-banner--light": "sf-banner-light"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       title: {
         default: text("title", "Subscribe to Newsletters", "Props")
       },
@@ -87,8 +59,7 @@ storiesOf("Molecules|CallToAction", module)
       }
     },
     template: `<div style="max-width: 1024px">
-      <SfCallToAction 
-      :class="customClass"
+      <SfCallToAction      
       :title="title"
       :description="description"
       :button-text="buttonText"
@@ -103,17 +74,6 @@ storiesOf("Molecules|CallToAction", module)
   .add("[slot] description", () => ({
     components: { SfCallToAction },
     props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-banner--light": "sf-banner-light"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       title: {
         default: text("title", "Subscribe to Newsletters", "Props")
       },
@@ -135,8 +95,7 @@ storiesOf("Molecules|CallToAction", module)
       }
     },
     template: `<div style="max-width: 1024px">
-      <SfCallToAction 
-      :class="customClass"
+      <SfCallToAction      
       :title="title"
       :description="description"
       :button-text="buttonText"
@@ -151,17 +110,6 @@ storiesOf("Molecules|CallToAction", module)
   .add("[slot] button", () => ({
     components: { SfCallToAction },
     props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-banner--light": "sf-banner-light"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       title: {
         default: text("title", "Subscribe to Newsletters", "Props")
       },
@@ -183,8 +131,7 @@ storiesOf("Molecules|CallToAction", module)
       }
     },
     template: `<div style="max-width: 1024px">
-      <SfCallToAction 
-      :class="customClass"
+      <SfCallToAction      
       :title="title"
       :description="description"
       :button-text="buttonText"
