@@ -24,9 +24,55 @@ storiesOf("Organisms|Sidebar", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-sidebar--right": "sf-sidebar--right"
+            "sf-sidebar--right": "sf-sidebar--right",
+            "sf-sidebar--icon": "sf-sidebar--icon"
           },
           "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
+      title: {
+        default: text("title", "My Cart", "Props")
+      },
+      subtitle: {
+        default: text("subtitle", "Order Summary", "Props")
+      },
+      headingLevel: {
+        default: number("headingLevel", 3, {}, "Props")
+      },
+      overlay: {
+        default: boolean("overlay", true, "Props")
+      },
+      button: {
+        default: boolean("button", true, "Props")
+      }
+    },
+    mixins: [dataToggleMixin("isSidebarOpen")],
+    template: `<SfSidebar
+        :visible="isSidebarOpen"
+        @close="isSidebarOpen = false"
+        :title="title"
+        :subtitle="subtitle"
+        :heading-level="headingLevel"
+        :button="button"
+        :overlay="overlay"
+        :class="customClass"
+      >
+        Total items: 0
+      </SfSidebar>`
+  }))
+  .add("On the right", () => ({
+    components: { SfSidebar },
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-sidebar--right": "sf-sidebar--right",
+            "sf-sidebar--icon": "sf-sidebar--icon"
+          },
+          "sf-sidebar--right sf-sidebar--icon",
           { display: "multi-select" },
           "CSS Modifiers"
         )
@@ -68,7 +114,8 @@ storiesOf("Organisms|Sidebar", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-sidebar--right": "sf-sidebar--right"
+            "sf-sidebar--right": "sf-sidebar--right",
+            "sf-sidebar--icon": "sf-sidebar--icon"
           },
           "",
           { display: "multi-select" },
@@ -115,7 +162,8 @@ storiesOf("Organisms|Sidebar", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-sidebar--right": "sf-sidebar--right"
+            "sf-sidebar--right": "sf-sidebar--right",
+            "sf-sidebar--icon": "sf-sidebar--icon"
           },
           "",
           { display: "multi-select" },
