@@ -68,7 +68,7 @@ export default {
     },
     valid: {
       type: Boolean,
-      default: undefined
+      default: true
     },
     selected: {
       type: [Array, Boolean],

@@ -23,7 +23,7 @@ storiesOf("Molecules|Filter", module)
         :count="count"
         :selected="selected"
         @change="selected = !selected"
-        style="max-width: 18.75rem" 
+        style="max-width: 22.875rem" 
       />`
   }))
   .add("[slot] label", () => ({
@@ -46,7 +46,7 @@ storiesOf("Molecules|Filter", module)
         :count="count"
         :selected="selected"
         @change="selected = !selected"
-        style="max-width: 18.75rem" 
+        style="max-width: 22.875rem" 
       >
       <template #label="{label}">CUSTOM LABEL</template>
       </SfFilter>`
@@ -71,7 +71,7 @@ storiesOf("Molecules|Filter", module)
         :count="count"
         :selected="selected"
         @change="selected = !selected"
-        style="max-width: 18.75rem" 
+        style="max-width: 22.875rem" 
       >
       <template #count="{count}">CUSTOM COUNT</template>
       </SfFilter>`
