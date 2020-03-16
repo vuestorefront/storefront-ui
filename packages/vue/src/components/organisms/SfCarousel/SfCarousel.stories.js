@@ -11,9 +11,7 @@ const StoriesPlaceholder = {
 storiesOf("Organisms|Carousel", module)
   .add("Common", () => ({
     components: { SfCarousel, StoriesPlaceholder },
-    template: `<SfCarousel
-        :style="{maxWidth: '1140px', margin: 'auto'}"
-      >
+    template: `<SfCarousel>
         <SfCarouselItem v-for="index in 12">
           <StoriesPlaceholder :index="index"/>
         </SfCarouselItem>
@@ -21,9 +19,7 @@ storiesOf("Organisms|Carousel", module)
   }))
   .add("[slot] next", () => ({
     components: { SfCarousel, StoriesPlaceholder },
-    template: `<SfCarousel
-        :style="{maxWidth: '1140px', margin: 'auto'}"
-    >
+    template: `<SfCarousel>
       <template #next="{go}">
         <button @click="go">NEXT</button>
       </template>
@@ -34,9 +30,7 @@ storiesOf("Organisms|Carousel", module)
   }))
   .add("[slot] prev", () => ({
     components: { SfCarousel, StoriesPlaceholder },
-    template: `<SfCarousel
-        :style="{maxWidth: '1140px', margin: 'auto'}"
-    >
+    template: `<SfCarousel>
       <template #prev="{go}">
         <button @click="go">PREV</button>
       </template>
