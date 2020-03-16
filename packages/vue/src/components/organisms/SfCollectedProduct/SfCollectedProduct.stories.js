@@ -60,7 +60,7 @@ storiesOf("Organisms|CollectedProduct", module)
       </template>
       <template #actions>
         <div :style="{margin: 'auto 0 0 0', fontSize: '14px'}">
-          <SfButton class="sf-button--text">Save for later</SfButton>
+          <SfButton class="sf-button--text">Remove</SfButton>
         </div>
       </template>
     </SfCollectedProduct>`

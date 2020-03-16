@@ -4,7 +4,7 @@
   position: relative;
   box-sizing: border-box;
   display: flex;
-  max-width: var(--collected-product-max-width, 350px);
+  max-width: var(--collected-product-max-width);
   padding: var(--collected-product-padding, var(--spacer-small));
   background: var(--collected-product-background);
   z-index: var(--collected-product-z-index);
@@ -15,8 +15,6 @@
     --collected-product-background: var(--c-white);
   }
   &__remove {
-    --button-color: var(--c-danger);
-    --button-padding: 0;
     --icon-size: 8px;
     --icon-color: var(--c-light-variant);
     position: absolute;
@@ -31,14 +29,24 @@
       --collected-product-remove-background: var(--c-primary-variant);
     }
   }
+  &__more-actions {
+    --icon-width: 4px;
+    --icon-height: 15px;
+    position: absolute;
+    top: var(--collected-product-remove-top);
+    right: var(--collected-product-remove-right, 0);
+  }
   &__aside {
     position: relative;
-    flex: 0 0 5.3125rem;
+    flex: 0 0 8.75rem;
   }
   &__image {
     background: var(--collected-product-image-background, var(--c-light));
   }
   &__quantity-selector {
+    --quantity-selector-background: var(--c-light-variant);
+    --quantity-selector-height: 2.5rem;
+    --quantity-selector-width: 7rem;
     position: absolute;
     right: var(--spacer-sm);
     bottom: var(--spacer-sm);
@@ -63,9 +71,10 @@
   &__details {
     margin: auto 0 0 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
   @include for-desktop {
+    --collected-product-max-width: 350px;
     --collected-product-padding: 10px;
     --collected-product-remove-top: 10px;
     --collected-product-remove-right: 0;
