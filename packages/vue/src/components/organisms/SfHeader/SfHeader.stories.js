@@ -23,11 +23,10 @@ const StoriesPlaceholder = {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        height: "155vh"
+        height: "155vh",
+        background: "#f2f2f2"
       };
-      return this.mobile
-        ? { ...style, border: "1px solid #f2f2f2" }
-        : { ...style, backgroundColor: "#f2f2f2" };
+      return style;
     }
   },
   template: `<div :style="style">[page content]</div>`
