@@ -37,13 +37,17 @@ describe("SfHeroItem.vue", () => {
     });
     it("renders background image correctly", () => {
       expect(
-        component.find("li").element.style.heroItemBackgroundImage
+        component
+          .find("li")
+          .element.style.getPropertyValue("--_hero-item-background-image")
       ).toContain(image);
     });
     it("renders background color correctly", () => {
-      expect(component.find("li").element.style.heroItemBackgroundColor).toBe(
-        background
-      );
+      expect(
+        component
+          .find("li")
+          .element.style.getPropertyValue("--_hero-item-background-color")
+      ).toBe(background);
     });
   });
   describe("with items passed through slots", () => {
