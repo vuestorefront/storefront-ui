@@ -71,8 +71,8 @@
     justify-content: var(--header-container-justify-content, center);
     align-items: center;
     padding: var(--header-container-padding);
-    max-width: var(--header-container-width);
-    margin: auto;
+    max-width: var(--header-container-width, 77.5rem);
+    margin: 0 auto;
     height: var(--header-container-height, auto);
   }
   &__logo {
