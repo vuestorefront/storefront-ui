@@ -200,11 +200,8 @@ export default {
     }
   },
   mounted() {
-    Promise.all([
-      import("vue2-leaflet"),
-      import("leaflet/dist/leaflet.css")
-    ]).then(
-      ([{ LMap, LTileLayer, LMarker, LIcon, LControl, LControlZoom }]) => {
+    import("vue2-leaflet").then(
+      ({ LMap, LTileLayer, LMarker, LIcon, LControl, LControlZoom }) => {
         Vue.component("LMap", LMap);
         Vue.component("LTileLayer", LTileLayer);
         Vue.component("LMarker", LMarker);
