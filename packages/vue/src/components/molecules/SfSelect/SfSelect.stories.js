@@ -82,7 +82,7 @@ storiesOf("Molecules|Select", module)
         :valid="valid"
         :disabled="disabled"
         :error-message="errorMessage"
-        style="max-width: 13.75rem"
+        style="max-width: 30rem"
       >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
@@ -128,7 +128,7 @@ storiesOf("Molecules|Select", module)
         options: optionsList
       };
     },
-    template: `<div style="max-width: 18.75rem">
+    template: `<div style="max-width: 30rem">
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -186,7 +186,7 @@ storiesOf("Molecules|Select", module)
         options: optionsList
       };
     },
-    template: `<div style="max-width: 18.75rem">
+    template: `<div style="max-width: 30rem">
       <SfSelect
         v-model="selected"
         :class="customClass"
