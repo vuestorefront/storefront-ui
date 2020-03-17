@@ -2,30 +2,38 @@
 
 .sf-footer-column {
   box-sizing: border-box;
-  flex: 0 0 var(--col-width);
+  flex: 0 0 var(--_footer-column-width);
+  justify-content: space-between;
   &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(
+      --footer-column-title-padding,
+      var(--spacer-base) var(--spacer-xl)
+    );
+    background: var(--footer-column-title-background, var(--c-light));
+    text-transform: uppercase;
     @include font(
       --footer-column-title-font,
       var(--font-medium),
       var(--h3-font-size),
-      1.6,
+      1.4,
       var(--font-family-secondary)
     );
-    padding: var(--footer-column-title-padding, 0 0 0 var(--spacer-xl));
-    height: 3.75rem;
-    background: var(--footer-column-title-background, var(--c-light));
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-transform: uppercase;
     cursor: default;
   }
   &__chevron {
-    padding: var(--footer-column-chevron-padding, 0 var(--spacer-xl) 0 0);
     display: var(--footer-column-chevron-display);
   }
+  & .sf-list__item {
+    --list-item-margin: var(
+      --footer-column-title-padding,
+      var(--spacer-base) var(--spacer-xl)
+    );
+  }
   @include for-desktop {
-    --footer-column-title-padding: 0 0 0 0;
+    --footer-column-title-padding: 16px 0;
     --footer-column-title-background: transparent;
     --footer-column-title-font-size: var(--h5-font-size);
     --footer-column-title-font-weight: var(--font-bold);
@@ -38,44 +46,15 @@
     display: var(--footer-container-display);
     flex-wrap: var(--footer-container-flex-wrap);
     justify-content: var(--footer-container-justify-content);
-    max-width: var(--footer-container-max-width);
+    max-width: var(--footer-container-width);
     margin: var(--footer-container-margin);
     padding: var(--footer-container-padding);
   }
-  & .sf-menu-item {
-    --menu-item-font-line-height: 2;
-    padding: var(--menu-item-padding, var(--spacer-base) var(--spacer-xl));
-    &__label {
-      color: var(--menu-item-color, var(--c-text));
-    }
-  }
-  & .sf-input-field {
-    box-sizing: border-box;
-    @include font(
-      --button-input-filed-font,
-      var(--font-medium),
-      var(--h3-font-size),
-      1.6,
-      var(--font-family-secondary)
-    );
-    width: 14.5rem;
-    height: 2rem;
-    padding: var(--spacer-xs) var(--spacer-base) var(--spacer-xs);
-    border: none;
-    outline: none;
-    font-size: var(--font-xs);
-    background: var(--c-light);
-    &::placeholder {
-      color: var(--c-link);
-    }
-  }
   @include for-desktop {
-    --menu-item-padding: 0;
     --footer-container-display: flex;
     --footer-container-flex-wrap: wrap;
     --footer-container-justify-content: space-between;
-    --footer-container-max-width: 77.5rem;
+    --footer-container-width: 60rem;
     --footer-container-margin: 0 auto;
-    --footer-container-padding: 6rem 0;
   }
 }

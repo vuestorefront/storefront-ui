@@ -58,7 +58,7 @@ storiesOf("Organisms|Footer", module)
     },
     computed: {
       itemSpacer() {
-        return this.isMobile ? { padding: "1.25rem" } : { padding: "6px 0" };
+        return this.isMobile ? { padding: "24px 32px" } : { padding: "16px 0" };
       }
     },
     mounted() {
@@ -91,9 +91,5 @@ storiesOf("Organisms|Footer", module)
             <SfImage v-for="picture in column.pictures" :key="picture" width="12" height="12" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :style="{margin: '0 1.5rem 0 0'}"/>
           </div>
         </SfFooterColumn>
-        <div v-if="!this.isMobile" style="display: flex; align-items: center; margin-right: 9.5rem;">
-          <input class="sf-input-field" placeholder="Type your email address" />
-          <SfButton class="color-secondary" style="font-size: 0.625rem; font-weight: 600; padding: 0.5rem 2rem;">Subscribe</SfButton>
-        </div>
       </SfFooter>`
   }));
