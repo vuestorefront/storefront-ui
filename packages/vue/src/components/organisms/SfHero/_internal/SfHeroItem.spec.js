@@ -36,12 +36,12 @@ describe("SfHeroItem.vue", () => {
       expect(component.find(SfButton).text()).toContain(buttonText);
     });
     it("renders background image correctly", () => {
-      expect(component.find("li").element.style.backgroundImage).toContain(
-        image
-      );
+      expect(
+        component.find("li").element.style.heroItemBackgroundImage
+      ).toContain(image);
     });
     it("renders background color correctly", () => {
-      expect(component.find("li").element.style.backgroundColor).toBe(
+      expect(component.find("li").element.style.heroItemBackgroundColor).toBe(
         background
       );
     });
