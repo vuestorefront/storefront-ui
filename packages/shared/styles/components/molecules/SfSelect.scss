@@ -3,10 +3,7 @@
 .sf-select-option {
   display: block;
   box-sizing: border-box;
-  padding: var(
-    --select-option-padding,
-    var(--spacer-xs)
-  );
+  padding: var(--select-option-padding, var(--spacer-xs));
   @include border(--select-option-border, 1px 0 0 0, solid, var(--c-light));
   background: var(--select-option-background);
   color: inherit;
@@ -58,7 +55,6 @@
       1,
       var(--font-family-secondary)
     );
-    opacity: var(--select-label-opacity);
 
     &::after {
       content: var(--select-label-required);
@@ -81,13 +77,14 @@
     align-items: center;
     padding: var(
       --select-padding,
-      var(--spacer-sm) var(--spacer-xs) var(--spacer-xs) var(--spacer-2xs)
-    );
-    // I know it's look's like magic but we need it now :(
-    min-height: calc(
-      calc(var(--spacer-sm) + var(--spacer-xs)) + var(--select-label-font-size, var(--font-lg))
+      var(--spacer-sm) var(--spacer-lg) var(--spacer-xs) var(--spacer-2xs)
     );
     margin: var(--select-margin, 0 0 var(--spacer-xs) 0);
+    // I know it's look's like magic but we need it now :(
+    min-height: calc(
+      calc(var(--spacer-sm) + var(--spacer-xs)) +
+        var(--select-label-font-size, var(--font-lg))
+    );
     background: var(--select-background);
     color: inherit;
     @include border(--select-border, 0 0 1px 0, solid, transparent);
@@ -121,7 +118,13 @@
   &__error-message {
     --select-border-color: var(--c-danger);
     color: var(--select-error-message-color, var(--c-danger));
-    @include font(--select-error-message, var(--font-normal), var(--font-xs), 1, var(--font-family-secondary));
+    @include font(
+      --select-error-message-font,
+      var(--font-normal),
+      var(--font-xs),
+      1,
+      var(--font-family-secondary)
+    );
   }
 
   &__cancel {
