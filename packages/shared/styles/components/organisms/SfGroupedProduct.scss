@@ -10,7 +10,7 @@
     1.6,
     var(--font-family-secondary)
   );
-  border-bottom: var(--grouped-product-item-border-bottom);
+@include border(--grouped-product-item-border, 0, solid, var(--c-light));
   &__aside {
     position: relative;
     flex: var(--grouped-product-item-flex, 0 0 5.125rem);
