@@ -1,5 +1,6 @@
 <template>
   <div
+    v-focus
     :aria-expanded="open ? 'true' : 'false'"
     :aria-owns="'lbox_' + _uid"
     aria-autocomplete="none"
@@ -8,7 +9,8 @@
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
-      'sf-select--is-required': required
+      'sf-select--is-required': required,
+      'sf-select--is-disabled': disabled
     }"
     class="sf-select"
     @click="toggle($event)"
@@ -26,9 +28,12 @@
           {{ label }}
         </div>
       </slot>
+      <slot name="icon">
+        <SfChevron class="sf-select__chevron" />
+      </slot>
       <SfOverlay :visible="open" class="sf-select__overlay mobile-only" />
       <transition name="sf-select">
-        <div v-show="open" class="sf-select__dropdown">
+        <div v-show="open && !disabled" class="sf-select__dropdown">
           <!--  sf-select__option -->
           <ul :style="{ maxHeight }" class="sf-select__options">
             <slot />
@@ -56,7 +61,9 @@
   </div>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfSelectOption from "./_internal/SfSelectOption.vue";
+import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import Vue from "vue";
@@ -65,8 +72,10 @@ export default {
   name: "SfSelect",
   components: {
     SfButton,
+    SfChevron,
     SfOverlay
   },
+  directives: { focus },
   model: {
     prop: "selected",
     event: "change"
@@ -106,6 +115,13 @@ export default {
     valid: {
       type: Boolean,
       default: undefined
+    },
+    /**
+     * Disabled status of form select
+     */
+    disabled: {
+      type: Boolean,
+      default: false
     },
     /**
      * Error message value of form select. It will be appeared if `valid` is `true`.
