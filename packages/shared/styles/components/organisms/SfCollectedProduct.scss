@@ -39,6 +39,7 @@
   &__aside {
     position: relative;
     flex: 0 0 8.75rem;
+    line-height: 0;
   }
   &__image {
     background: var(--collected-product-image-background, var(--c-light));
