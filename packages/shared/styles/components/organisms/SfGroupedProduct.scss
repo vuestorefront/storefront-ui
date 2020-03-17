@@ -37,7 +37,6 @@
   }
   &__price {
     margin: var(--grouped-product-item-price-margin);
-    font: var(--grouped-product-item-price-font);
   }
   @include for-desktop {
     --grouped-product-item-display: flex;
