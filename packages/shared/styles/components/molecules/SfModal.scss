@@ -2,37 +2,34 @@
 
 .sf-modal {
   &__container {
-    overflow-y: auto;
-    box-sizing: border-box;
     position: fixed;
+    top: var(--modal-top, 0);
+    right: var(--modal-right, 0);
+    bottom: var(--modal-bottom, 0);
+    left: var(--modal-left, 0);
+    z-index: var(--modal-index, 1);
+    transform: var(--modal-transform);
     display: flex;
-    z-index: var(--modal-container-index, 1);
-    top: var(--modal-container-top, 0);
-    bottom: var(--modal-container-bottom, 0);
-    left: var(--modal-container-left, 50%);
-    transform: var(--modal-container-transform, translate(-50%, 0));
     flex-direction: var(--modal-flex-direction, column);
     align-content: space-between;
-    max-width: var(--modal-max-width, 100%);
-    max-height: var(--modal-max-height, 100%);
-    width: var(--modal-width, 430px);
+    box-sizing: border-box;
+    width: var(--modal-width);
     height: var(--modal-height);
-    border: var(--modal-border, solid 1px rgba(0, 0, 0, 0.5));
+    border: var(--modal-border);
     background-color: var(--modal-background, var(--c-white));
     &::-webkit-scrollbar {
-      --modal-width: 0;
+      width: 0;
     }
   }
   &__content {
-    padding: var(
-      --modal-content-padding,
-      var(--spacer-extra-big) var(--spacer-big)
-    );
+    overflow-y: auto;
+    padding: var(--modal-content-padding, var(--spacer-base) var(--spacer-sm));
   }
   &__close {
     position: absolute;
-    right: var(--modal-close-right, 20px);
-    top: var(--modal-close-top, 20px);
+    right: var(--modal-close-right, var(--spacer-sm));
+    top: var(--modal-close-top, var(--spacer-sm));
+    padding: 0;
     border: var(--modal-close-border, none);
     background: var(--modal-close-background, none);
     cursor: pointer;
@@ -41,10 +38,13 @@
     }
   }
   @include for-desktop {
-    --modal-container-top: 50%;
-    --modal-container-bottom: none;
-    --modal-container-transform: translate(-50%, -50%);
-    --modal-container-height: auto;
-    --modal-content-padding: 2.5em 5em;
+    --modal-width: 29.375rem;
+    --modal-top: 50%;
+    --modal-left: 50%;
+    --modal-bottom: none;
+    --modal-right: none;
+    --modal-transform: translate3d(-50%, -50%, 0);
+    --modal-height: auto;
+    --modal-content-padding: var(--spacer-sm) var(--spacer-lg);
   }
 }
