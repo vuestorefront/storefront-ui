@@ -35,7 +35,7 @@ export default {
   computed: {
     ...mapMobileObserver(),
     style() {
-      return { "--col-width": `${100 / this.column}%` };
+      return { "--_footer-column-width": `${100 / this.column}%` };
     }
   },
   watch: {
