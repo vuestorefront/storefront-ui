@@ -15,33 +15,51 @@ storiesOf("Molecules|Gallery", module)
           "images",
           [
             {
-              alt: "Macbook PRO Apple",
+              alt: "Product A",
               mobile: {
-                url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
+                url: "assets/storybook/SfGallery/productA.png"
               },
               desktop: {
-                url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
+                url: "assets/storybook/SfGallery/productA.png"
               },
               zoom: {
-                url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
+                url: "assets/storybook/SfGallery/productA.png"
               }
             },
             {
-              alt: "Macbook PRO Apple (keyboard)",
+              alt: "Product B",
               mobile: {
-                url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
+                url: "/assets/storybook/SfGallery/productB.jpg"
               },
               desktop: {
-                url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
+                url: "/assets/storybook/SfGallery/productB.jpg"
               },
               zoom: {
-                url:
-                  "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/700px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg"
+                url: "/assets/storybook/SfGallery/productB.jpg"
+              }
+            },
+            {
+              alt: "Product A",
+              mobile: {
+                url: "assets/storybook/SfGallery/productA.png"
+              },
+              desktop: {
+                url: "assets/storybook/SfGallery/productA.png"
+              },
+              zoom: {
+                url: "assets/storybook/SfGallery/productA.png"
+              }
+            },
+            {
+              alt: "Product B",
+              mobile: {
+                url: "/assets/storybook/SfGallery/productB.jpg"
+              },
+              desktop: {
+                url: "/assets/storybook/SfGallery/productB.jpg"
+              },
+              zoom: {
+                url: "/assets/storybook/SfGallery/productB.jpg"
               }
             }
           ],
@@ -49,10 +67,10 @@ storiesOf("Molecules|Gallery", module)
         )
       },
       imageWidth: {
-        default: number("imageWidth", 400, {}, "Props")
+        default: number("imageWidth", 422, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 400, {}, "Props")
+        default: number("imageHeight", 664, {}, "Props")
       },
       sliderOptions: {
         default: object(

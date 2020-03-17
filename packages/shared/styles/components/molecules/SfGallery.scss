@@ -49,8 +49,9 @@
   }
   &__thumb {
     display: var(--gallery-thumb-display, none);
-    width: var(--gallery-thumb-width);
-    height: var(--gallery-thumb-height);
+    width: var(--gallery-thumb-width, 160px);
+    height: var(--gallery-thumb-height, 160px);
+    margin: var(--gallery-thumb-margin, 0 var(--spacer-xs) var(--spacer-xs) 0);
   }
   &__big-image {
     cursor: var(--gallery-big-image-cursor);
@@ -62,8 +63,9 @@
     user-select: none;
   }
   .glide {
-    &__slides {
-      margin: var(--gallery-glide-slides-margin, 0);
+    height: 100%;
+    &__slide {
+      height: 100%;
     }
   }
   @include for-desktop {
@@ -71,12 +73,9 @@
     --gallery-item-margin: 0 0 var(--spacer-medium) 0;
     --gallery-item-display: none;
     --gallery-thumb-display: block;
-    --gallery-thumb-width: 100%;
-    --gallery-thumb-height: auto;
     &__thumbs {
       --gallery-thumbs-bottom: auto;
       --gallery-thumbs-order: -1;
-      --gallery-thumbs-width: 100px;
       --gallery-thumbs-margin: 0 var(--spacer-extra-big) 0 0;
       position: static;
       display: block;
