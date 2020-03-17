@@ -50,7 +50,7 @@ export default {
     },
     /** Background image path */
     image: {
-      type: String,
+      type: [Object, String],
       default: ""
     }
   },
@@ -62,7 +62,9 @@ export default {
         "--_hero-item-background-image": image.mobile
           ? `url(${image.mobile})`
           : `url(${image})`,
-        "--_hero-item-background-desktop-image": `url(${image.desktop})`,
+        "--_hero-item-background-desktop-image": image.desktop
+          ? `url(${image.desktop})`
+          : `url(${image})`,
         "--_hero-item-background-color": background
       };
     }
