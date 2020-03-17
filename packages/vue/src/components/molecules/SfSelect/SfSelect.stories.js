@@ -32,7 +32,6 @@ storiesOf("Molecules|Select", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-select--bordered": "sf-select--bordered",
             "sf-select--underlined": "sf-select--underlined"
           },
           "sf-select--underlined",
@@ -51,6 +50,9 @@ storiesOf("Molecules|Select", module)
       },
       valid: {
         default: boolean("valid", true, "Props")
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props")
       },
       errorMessage: {
         default: text("errorMessage", "Color", "Props")
@@ -78,6 +80,7 @@ storiesOf("Molecules|Select", module)
         :size="size"
         :required="required"
         :valid="valid"
+        :disabled="disabled"
         :error-message="errorMessage"
         style="max-width: 13.75rem"
       >
@@ -93,7 +96,6 @@ storiesOf("Molecules|Select", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-select--bordered": "sf-select--bordered",
             "sf-select--underlined": "sf-select--underlined"
           },
           "sf-select--underlined",
@@ -113,6 +115,9 @@ storiesOf("Molecules|Select", module)
       valid: {
         default: boolean("valid", true, "Props")
       },
+      disabled: {
+        default: boolean("disabled", false, "Props")
+      },
       errorMessage: {
         default: text("errorMessage", "Color", "Props")
       }
@@ -131,6 +136,7 @@ storiesOf("Molecules|Select", module)
         :size="size"
         :required="required"
         :valid="valid"
+        :disabled="disabled"
         :error-message="errorMessage">
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
@@ -148,7 +154,6 @@ storiesOf("Molecules|Select", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-select--bordered": "sf-select--bordered",
             "sf-select--underlined": "sf-select--underlined"
           },
           "sf-select--underlined",
@@ -168,6 +173,9 @@ storiesOf("Molecules|Select", module)
       valid: {
         default: boolean("valid", false, "Props")
       },
+      disabled: {
+        default: boolean("disabled", false, "Props")
+      },
       errorMessage: {
         default: text("errorMessage", "Color", "Props")
       }
@@ -186,6 +194,7 @@ storiesOf("Molecules|Select", module)
         :size="size"
         :required="required"
         :valid="valid"
+        :disabled="disabled"
         :error-message="errorMessage">
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
