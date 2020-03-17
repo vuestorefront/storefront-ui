@@ -26,7 +26,7 @@
     max-width: var(--header-navigation-item-max-width, var(--max-width));
     bottom: -2px;
     height: 2px;
-    background: var(--header-navigation-item-background-underline, transparent);
+    background: var(--header-navigation-item-underline-color, transparent);
     content: "";
     transition: background 150ms ease-in-out;
   }
