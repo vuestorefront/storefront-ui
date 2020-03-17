@@ -42,14 +42,15 @@
       var(--font-family-primary)
     );
     color: var(--tabs-content-color, var(--c-link));
-    flex-basis: 100%;
-    padding: var(
-      --tabs-content-padding,
-      var(--spacer-base) var(--spacer-base) var(--spacer-base) var(--spacer-sm)
-    );
     order: var(--tabs-content-order);
     @include border(--tabs-content-border, 0, solid, transparent);
     border-width: var(--tabs-content-border-width);
+    &__tab {
+      padding: var(
+        --tabs-content-tab-padding,
+        32px var(--spacer-base) var(--spacer-base) var(--spacer-sm)
+      );
+    }
   }
   @include for-desktop {
     --tabs-title-font-size: var(--h4-font-size);
@@ -59,7 +60,7 @@
     --tabs-title-color: var(--c-text-muted);
     --tabs-title-flex-basis: auto;
     --tabs-content-order: 99;
-    --tabs-content-padding: var(--spacer-lg) 0;
+    --tabs-content-tab-padding: var(--spacer-lg) 0;
     --tabs-content-border: 2px solid var(--c-light);
     --tabs-content-border-width: 2px 0 0 0;
     --tabs-chevron-display: none;
