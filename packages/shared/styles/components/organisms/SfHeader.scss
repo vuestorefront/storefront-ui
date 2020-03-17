@@ -81,7 +81,7 @@
   &__logo {
     --image-width: var(--header-logo-width, auto);
     --image-height: var(--header-logo-height, 2.125rem);
-    margin: var(--header-logo-margin, 10px 0);
+    margin: var(--header-logo-margin, var(--spacer-xs) 0);
   }
   &__navigation {
     display: flex;
