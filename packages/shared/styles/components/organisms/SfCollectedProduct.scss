@@ -79,7 +79,7 @@
     --collected-product-padding: 10px;
     --collected-product-remove-top: 10px;
     --collected-product-remove-right: 0;
-    --collected-product-remove-transform: translateX(50%);
+    --collected-product-remove-transform: translate3d(50%, 0, 0);
     --collected-product-remove-opacity: 0;
     --collected-product-remove-box-shadow: none;
     --collected-product-remove-transition: opacity 150ms ease-in-out;
