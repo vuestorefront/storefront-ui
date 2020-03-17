@@ -41,7 +41,7 @@
   @include for-desktop {
     --grouped-product-item-display: flex;
     --grouped-product-item-padding: 10px 0;
-    --grouped-product-item-border-bottom: 1px solid var(--c-light);
+    --grouped-product-item-border-width: 0 0 1px 0;
     --grouped-product-item-flex: 0 0 5.125rem;
     --grouped-product-item-quantity-bottom: 0;
     --grouped-product-item-quantity-left: 6.375rem;
