@@ -35,7 +35,7 @@
       --header-navigation-item-color: var(--c-text);
     }
     &::after {
-      --header-navigation-item-background-underline: var(--c-primary);
+      --header-navigation-item-underline-color: var(--c-primary);
     }
   }
   &:active {
@@ -57,10 +57,7 @@
     box-sizing: border-box;
     position: var(--header-sticky-container-position, relative);
     width: var(--header-sticky-container-width);
-    background: var(
-      --header-sticky-container-background,
-      var(--c-white)
-    );
+    background: var(--header-sticky-container-background, var(--c-white));
     transform: var(--header-sticky-container-transform);
     transition: var(--header-sticky-container-transition);
   }
