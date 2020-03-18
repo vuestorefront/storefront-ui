@@ -26,6 +26,7 @@
       1.6,
       var(--font-family-secondary)
     );
+    color: var(--table-header-color, var(--c-text));
   }
   &__row {
     padding: var(--table-row-padding, var(--spacer-xs) 0);
@@ -64,6 +65,7 @@
     --table-data-flex: 1;
     --table-data-last-child-order: 0;
     --table-header-font-size: var(--font-sm);
+    --table-header-font-weight: var(--font-normal);
     &--no-border {
       --table-row-border-width: 0;
     }
