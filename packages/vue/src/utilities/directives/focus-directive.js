@@ -3,17 +3,19 @@ export const focus = {
     el.tabindex = "0";
   },
   bind: function(el) {
-    el.addEventListener("mousedown", function handleMouse() {
+    const mouseHandler = function() {
       el.style.outline = "none";
       el.blur();
-    });
-    el.addEventListener("keyup", function handleKey() {
+    }.bind(this);
+    const keyHandler = function() {
       el.style.outline = "";
       el.focus();
-    });
+    }.bind(this);
+    el.addEventListener("mousedown", mouseHandler);
+    el.addEventListener("keyup", keyHandler);
   },
   unbind: function(el) {
-    el.removeEventListener("mousedown", el.handleMouse());
-    el.removeEventListener("keyup", el.handleKey());
+    el.removeEventListener("mousedown", this.mouseHandler);
+    el.removeEventListener("keyup", this.keyHandler);
   }
 };
