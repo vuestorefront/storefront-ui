@@ -2,8 +2,8 @@
 
 .sf-gallery {
   position: relative;
-  display: flex;
   width: var(--gallery-width, 100%);
+  display: flex;
   flex-direction: var(--gallery-flex-direction, column);
   justify-content: center;
   margin: var(--gallery-margin, 0 0 0.625rem 0);
@@ -25,27 +25,26 @@
     &--selected {
       --gallery-item-opacity: 1;
       --gallery-item-cursor: 0;
-      &::before {
-        --gallery-item-background: var(--c-primary);
-      }
     }
   }
   &__stage {
-    width: var(--gallery-stage-width, 400px);
+    height: 100%;
+    width: var(--gallery-stage-width, 25rem);
     max-width: var(--gallery-stage-max-width, 100%);
     overflow: var(--gallery-stage-overflow, hidden);
     user-select: none;
   }
   &__thumb {
     display: var(--gallery-thumb-display, block);
-    width: var(--gallery-thumb-width, 160px);
-    height: var(--gallery-thumb-height, 160px);
+    width: var(--gallery-thumb-width, 10rem);
+    height: var(--gallery-thumb-height, 10rem);
     margin: var(
       --gallery-thumb-margin,
       var(--spacer-xs) var(--spacer-xs) var(--spacer-xs) 0
     );
   }
   &__big-image {
+    height: 100%;
     cursor: var(--gallery-big-image-cursor);
     &--has-zoom {
       --gallery-big-image-cursor: zoom-in;
