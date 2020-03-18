@@ -53,7 +53,7 @@ storiesOf("Organisms|CollectedProduct", module)
         :special-price="specialPrice"
     >
       <template #configuration>
-        <div :style="{margin: '14px 0 0 0'}">
+        <div :style="{margin: '1rem 0 0 0'}">
           <SfProperty name="Size" value="XS"/>
           <SfProperty name="Color" value="white"/>
         </div>
