@@ -33,6 +33,7 @@
   height: var(--select-height);
   color: var(--select-color, var(--c-text));
   cursor: default;
+  outline: none;
 
   &__label {
     position: absolute;
@@ -86,7 +87,7 @@
         var(--select-label-font-size, var(--font-lg))
     );
     background: var(--select-background);
-    color: inherit;
+    color: var(--select-color, inherit);
     @include border(--select-border, 0 0 1px 0, solid, transparent);
   }
 
@@ -153,6 +154,7 @@
 
   &--is-disabled {
     --chevron-color: var(--c-text-disabled);
+    --select-color: var(--c-text-disabled);
     --select-border-color: var(--c-text-disabled);
     --select-label-color: var(--c-text-disabled);
   }

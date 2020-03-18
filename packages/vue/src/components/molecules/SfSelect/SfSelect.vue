@@ -1,6 +1,5 @@
 <template>
   <div
-    v-focus
     :aria-expanded="open ? 'true' : 'false'"
     :aria-owns="'lbox_' + _uid"
     aria-autocomplete="none"
@@ -33,7 +32,7 @@
       </slot>
       <SfOverlay :visible="open" class="sf-select__overlay mobile-only" />
       <transition name="sf-select">
-        <div v-show="open && !disabled" class="sf-select__dropdown">
+        <div v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
           <ul :style="{ maxHeight }" class="sf-select__options">
             <slot />
@@ -217,7 +216,12 @@ export default {
       this.toggle();
     },
     toggle(event) {
-      if (this.$refs.cancel && event.target.contains(this.$refs.cancel.$el)) {
+      if (
+        (this.$refs.cancel &&
+          event &&
+          event.target.contains(this.$refs.cancel.$el)) ||
+        this.disabled
+      ) {
         return;
       }
       this.open = !this.open;
