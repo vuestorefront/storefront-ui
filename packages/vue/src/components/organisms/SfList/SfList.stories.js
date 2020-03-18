@@ -20,11 +20,11 @@ storiesOf("Organisms|List", module).add("Common", () => ({
       ]
     };
   },
-  template: `<SfList :style="{maxWidth: '186px', padding: '1rem'}">
+  template: `<SfList :style="{maxWidth: '186px'}">
       <SfListItem 
         v-for="item in items" 
         :key="item.label" 
-        :style="{margin: '10px 0'}"
+        :style="{'--list-item-margin':'24px 0'}"
       >
         <SfMenuItem :label="item.label" :count="item.count"/>
       </SfListItem>

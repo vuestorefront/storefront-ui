@@ -20,7 +20,7 @@ storiesOf("Atoms|QuantitySelector", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-quantity-selector--small": "sf-quantity-selector--small"
+            "sf-quantity-selector--secondary": "sf-quantity-selector--secondary"
           },
           "",
           { display: "multi-select" },
@@ -31,10 +31,11 @@ storiesOf("Atoms|QuantitySelector", module)
         default: text("ariaLabel", "Quantity", "Props")
       }
     },
-    template: `<SfQuantitySelector
-    :class="customClass"    
-    :aria-label="ariaLabel"
-        v-model="value"
-
-      />`
+    template: `<div style="max-width: 375px">
+        <SfQuantitySelector
+          v-model="value"
+          :class="customClass"
+          :aria-label="ariaLabel"
+        />
+      </div>`
   }));
