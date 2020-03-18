@@ -17,16 +17,15 @@
   &__remove {
     --icon-size: 8px;
     --icon-color: var(--c-light-variant);
+    --button-background: transparent;
     position: absolute;
     opacity: var(--collected-product-remove-opacity);
     top: var(--collected-product-remove-top);
     right: var(--collected-product-remove-right, 0);
     transform: var(--collected-product-remove-transform);
-    background: var(--collected-product-remove-background, transparent);
-    box-shadow: var(--collected-product-remove-box-shadow);
     transition: var(--collected-product-remove-transition);
     &:hover {
-      --collected-product-remove-background: var(--c-primary-variant);
+      --button-background: var(--c-primary-variant);
     }
   }
   &__more-actions {
@@ -81,9 +80,7 @@
     --collected-product-remove-right: 0;
     --collected-product-remove-transform: translate3d(50%, 0, 0);
     --collected-product-remove-opacity: 0;
-    --collected-product-remove-box-shadow: none;
     --collected-product-remove-transition: opacity 150ms ease-in-out;
-    --collected-product-remove-background: var(--c-primary);
 
     &::after {
       --collected-product-transition: box-shadow 150ms ease-in-out;
@@ -104,6 +101,8 @@
     }
     &__remove {
       --button-size: 1.625rem;
+      --button-background: var(--c-primary);
+      --button-box-shadow: none;
     }
     &__aside {
       flex: 0 0 8.75rem;
