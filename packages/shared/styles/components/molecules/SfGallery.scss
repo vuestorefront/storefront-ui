@@ -10,28 +10,18 @@
   text-align: var(--gallery-text-align, center);
   &__thumbs {
     bottom: var(--gallery-thumbs-bottom, 0.625rem);
-    display: block;
+    display: flex;
     order: var(--gallery-thumbs-order);
-    width: var(--gallery-thumbs-width, auto);
+    width: var(--gallery-thumbs-width, 100vw);
     margin: var(--gallery-thumbs-margin, 0);
     padding: var(--gallery-thumbs-padding, 0);
+    overflow-x: scroll;
   }
   &__item {
-    margin: var(--gallery-item-margin, 0 var(--spacer-medium) 0 0);
     transition: var(--gallery-item-transition, opacity 0.15s linear);
     opacity: var(--gallery-item-opacity, 0.5);
     cursor: var(--gallery-item-cursor, pointer);
-    &:last-of-type {
-      --gallery-item-margin: 0;
-    }
-    // &::before {
-    //   content: "";
-    //   // display: var(--gallery-item-display, block);
-    //   // height: var(--gallery-item-height, var(--gallery-item-size, 10px));
-    //   // width: var(--gallery-item-width, var(--gallery-item-size, 10px));
-    //   // background: var(--gallery-item-background, var(--c-gray-variant));
-    //   // border-radius: var(--gallery-item-border-radius, 50%);
-    // }
+
     &--selected {
       --gallery-item-opacity: 1;
       --gallery-item-cursor: 0;
@@ -50,7 +40,10 @@
     display: var(--gallery-thumb-display, block);
     width: var(--gallery-thumb-width, 160px);
     height: var(--gallery-thumb-height, 160px);
-    margin: var(--gallery-thumb-margin, 0 var(--spacer-xs) var(--spacer-xs) 0);
+    margin: var(
+      --gallery-thumb-margin,
+      var(--spacer-xs) var(--spacer-xs) var(--spacer-xs) 0
+    );
   }
   &__big-image {
     cursor: var(--gallery-big-image-cursor);
@@ -65,18 +58,23 @@
     height: 100%;
     &__slide {
       height: 100%;
+      margin: 0;
+    }
+    &__slides {
+      margin: 0;
     }
   }
   @include for-desktop {
     --gallery-margin: 0;
-    --gallery-item-margin: 0 0 var(--spacer-medium) 0;
+    --gallery-thumb-margin: 0 var(--spacer-xs) var(--spacer-xs) 0;
     --gallery-item-display: none;
     --gallery-thumb-display: block;
     --gallery-flex-direction: row;
+    --gallery-thumbs-bottom: auto;
+    --gallery-thumbs-order: -1;
+    --gallery-thumbs-margin: 0 var(--spacer-extra-big) 0 0;
+    --gallery-thumbs-width: auto;
     &__thumbs {
-      --gallery-thumbs-bottom: auto;
-      --gallery-thumbs-order: -1;
-      --gallery-thumbs-margin: 0 var(--spacer-extra-big) 0 0;
       position: static;
       display: block;
       left: auto;
