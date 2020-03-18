@@ -39,7 +39,7 @@
     @include font(
       --menu-item-title-font,
       var(--font-light),
-      var(--font-sm),
+      var(--h5-font-size),
       1.6,
       var(--font-family-secondary)
     );

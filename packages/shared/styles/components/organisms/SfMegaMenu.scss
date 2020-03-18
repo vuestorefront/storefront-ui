@@ -1,24 +1,6 @@
 @import "../../helpers";
 
-%menu-item {
-  --menu-item-label-color: var(--c-black);
-  --menu-item-padding: var(--spacer-sm);
-  --menu-item-border-width: 0 0 1px 0;
-  --menu-item-font-weight: var(--font-light);
-  --menu-item-letter-spacing: 0.1px;
-  --menu-item-title-color: var(--c-black);
-
-  @include for-desktop {
-    --menu-item-title-font-weight: var(--font-bold);
-    --menu-item-label-color: var(--c-dark-variant);
-    --menu-item-padding: 0 0 var(--spacer-sm) 0;
-    --menu-item-border-width: 0;
-  }
-}
-
 .sf-mega-menu-column {
-  @extend %menu-item;
-
   @include for-desktop {
     margin: var(--mega-menu-column-margin, 0 var(--spacer-xl) 0 0);
     & :first-child {
@@ -34,11 +16,16 @@
 }
 
 .sf-mega-menu {
+  --menu-item-label-color: var(--c-black);
+  --menu-item-padding: var(--spacer-sm);
+  --menu-item-border-width: 0 0 1px 0;
+  --menu-item-font-weight: var(--font-light);
+  --menu-item-letter-spacing: 0.1px;
+  --menu-item-title-color: var(--c-black);
   overflow: var(--mega-menu-overflow, hidden);
   height: var(--mega-menu-height, 100vh);
   background-color: var(--mega-menu-background, var(--c-white));
   text-transform: var(--mega-menu-text-transform, initial);
-  @extend %menu-item;
 
   &__content {
     display: var(--mega-menu-content-display, flex);
@@ -65,9 +52,6 @@
     width: var(--mega-menu-aside-menu-width);
     height: var(--mega-menu-aside-menu-height, calc(100vh - 5rem));
     padding: var(--mega-menu-aside-menu-padding, 0);
-    &::-webkit-scrollbar {
-      --mega-menu-aside-menu-width: 0;
-    }
   }
 
   &__aside {
@@ -75,7 +59,10 @@
   }
 
   &__aside-content {
-    margin: var(--mega-menu-aside-content-margin, var(--spacer-sm) 0 var(--spacer-xl) 0);
+    margin: var(
+      --mega-menu-aside-content-margin,
+      var(--spacer-sm) 0 var(--spacer-xl) 0
+    );
     padding: var(--mega-menu-aside-content-padding, 0 var(--spacer-base));
     & :first-child {
       --menu-item-text-transform: uppercase;
@@ -93,6 +80,10 @@
     --mega-menu-aside-menu-height: auto;
     --mega-menu-aside-menu-padding: 0 var(--spacer-xl);
     --mega-menu-aside-content-margin: 0;
+    --menu-item-title-font-weight: var(--font-bold);
+    --menu-item-label-color: var(--c-dark-variant);
+    --menu-item-padding: 0 0 var(--spacer-sm) 0;
+    --menu-item-border-width: 0;
 
     &__content {
       &--is-active {
@@ -107,10 +98,8 @@
 
     &__aside {
       &--without-content {
-        @include for-desktop {
-          --mega-menu-aside-menu-flex: 0;
-          --mega-menu-aside-menu-padding: 0;
-        }
+        --mega-menu-aside-menu-flex: 0;
+        --mega-menu-aside-menu-padding: 0;
       }
     }
   }

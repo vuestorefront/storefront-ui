@@ -14,7 +14,6 @@ const AsidePlaceholder = {
   data() {
     return {
       isMobile: false,
-      title: "Featured",
       tiles: [
         {
           title: "Last pairs left",
@@ -77,6 +76,9 @@ const MegaMenuPlaceholder = {
     visible: {
       type: Boolean,
       default: false
+    },
+    asideTitle: {
+      default: text("asideTitle", "Featured", "Props")
     }
   },
   data() {
@@ -121,7 +123,7 @@ const MegaMenuPlaceholder = {
   },
   template: `<SfMegaMenu 
         title="Man"
-        :asideTitle="Featured"
+        :asideTitle="asideTitle"
         :visible="visible"
         :style="{ position: 'absolute', left: 0, width: '100%', top: '100%' }"
       >
@@ -223,7 +225,7 @@ storiesOf("Organisms|MegaMenu", module)
       title: {
         default: text("title", "Man", "Props")
       },
-      asideTtitle: {
+      asideTitle: {
         default: text("asideTitle", "Featured", "Props")
       }
     },
@@ -270,7 +272,7 @@ storiesOf("Organisms|MegaMenu", module)
     },
     template: `<SfMegaMenu 
         :title="title"
-        :aside-title="asideTtitle"
+        :asideTitle="asideTitle"
         :visible="visible"
         :style="{maxWidth: '1240px', margin: 'auto'}"
       >
