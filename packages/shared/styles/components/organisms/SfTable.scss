@@ -23,7 +23,7 @@
       --table-header-font,
       var(--font-semibold),
       var(--font-xs),
-      1.6,
+      1.4,
       var(--font-family-secondary)
     );
     color: var(--table-header-color, var(--c-text));
@@ -47,23 +47,22 @@
   &__data,
   &__header {
     box-sizing: border-box;
-    flex: var(--table-data-flex, 0 0 calc(100% / var(--mobile-column)));
-    padding: var(--table-data-padding, 0);
-    text-align: var(--table-data-text-align, left);
+    flex: var(--table-column-flex, 0 0 calc(100% / var(--_table-column-width)));
+    padding: var(--table-column-padding, 0);
+    text-align: var(--table-column-text-align, left);
     &:nth-child(even) {
-      order: var(--table-data-last-child-order, 1);
+      order: var(--_table-column-order, 1);
     }
   }
   &--no-border {
     --table-row-border-width: 0;
   }
   @include for-desktop {
-    --table-row-border-bottom: none;
     --table-row-padding: var(--spacer-sm) var(--spacer-sm);
     --table-heading-padding: var(--spacer-sm) var(--spacer-sm);
     --table-heading-background: transparent;
-    --table-data-flex: 1;
-    --table-data-last-child-order: 0;
+    --table-column-flex: 1;
+    --_table-column-order: 0;
     --table-header-font-size: var(--font-sm);
     --table-header-font-weight: var(--font-normal);
     &--no-border {
