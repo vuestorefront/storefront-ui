@@ -23,11 +23,13 @@
         />
       </slot>
       <slot name="input">
-        <SfQuantitySelector
-          :qty="qty"
-          class="sf-collected-product__quantity-selector"
-          @input="$emit('input', $event)"
-        />
+        <div class="sf-collected-product__quantity-wrapper">
+          <SfQuantitySelector
+            :qty="qty"
+            class="sf-collected-product__quantity-selector"
+            @input="$emit('input', $event)"
+          />
+        </div>
       </slot>
     </div>
     <div class="sf-collected-product__main">

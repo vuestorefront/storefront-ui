@@ -16,7 +16,7 @@
   }
   &__remove {
     --icon-size: 8px;
-    --icon-color: var(--c-light-variant);
+    --icon-color: var(--c-white);
     --button-background: transparent;
     position: absolute;
     opacity: var(--collected-product-remove-opacity);
@@ -43,14 +43,18 @@
   &__image {
     background: var(--collected-product-image-background, var(--c-light));
   }
-  &__quantity-selector {
-    --quantity-selector-background: var(--c-light-variant);
-    --quantity-selector-height: 2.5rem;
-    --quantity-selector-width: 7rem;
+  &__quantity-wrapper {
     position: absolute;
-    right: var(--spacer-sm);
-    bottom: var(--spacer-sm);
+    box-sizing: border-box;
+    right: 0;
+    bottom: 0;
     z-index: 1;
+    padding: var(--spacer-sm);
+  }
+  &__quantity-selector {
+    --quantity-selector-background: var(--c-white);
+    --quantity-selector-width: 100%;
+    --quantity-selector-height: 2.5rem;
   }
   &__main {
     flex: 1;
