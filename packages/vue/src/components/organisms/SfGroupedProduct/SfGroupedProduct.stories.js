@@ -78,9 +78,7 @@ storiesOf("Organisms|GroupedProduct", module)
         >
           <template #details>
            <div :style="{color: '#A3A5AD', fontSize: '12px'}">MSD23-345-324</div>
-          </template>
-          <template #configuration>
-            <SfProperty name="Color" value="White" :style="{margin: '0 0 0 auto'}"/>
+           <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0'}" />
           </template>
         </SfGroupedProductItem>
       </SfGroupedProduct>`
