@@ -4,7 +4,7 @@
   position: relative;
   box-sizing: border-box;
   display: flex;
-  max-width: var(--collected-product-max-width);
+  max-width: var(--collected-product-width);
   padding: var(--collected-product-padding, var(--spacer-sm));
   background: var(--collected-product-background);
   z-index: var(--collected-product-z-index);
