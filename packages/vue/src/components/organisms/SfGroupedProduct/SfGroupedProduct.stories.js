@@ -20,7 +20,7 @@ storiesOf("Organisms|GroupedProduct", module)
         default: object("settings", { type: "slider" }, "Props")
       },
       hasCarousel: {
-        default: boolean("hasCarousel", true, "Props")
+        default: boolean("hasCarousel", false, "Props")
       },
       image: {
         default: object(
@@ -90,7 +90,7 @@ storiesOf("Organisms|GroupedProduct", module)
         default: object("settings", { type: "slider" }, "Props")
       },
       hasCarousel: {
-        default: boolean("hasCarousel", true, "Props")
+        default: boolean("hasCarousel", false, "Props")
       }
     },
     data() {
@@ -178,11 +178,7 @@ storiesOf("Organisms|GroupedProduct", module)
       >
         <template #details>
           <div :style="{color: '#A3A5AD'}">{{product.sku}}</div>
-        </template>
-        <template #configuration>
-          <div :style="{margin: '0 0 0 auto'}">
-            <SfProperty v-for="attribute in product.attributes" name="Color" :value="attribute.value" :key="attribute.value"/>
-          </div>
+          <SfProperty v-for="attribute in product.attributes" name="Color" :value="attribute.value" :key="attribute.value" :style="{margin: 'auto 0 0 0'}"/>
         </template>
       </SfGroupedProductItem>
     </SfGroupedProduct>`
@@ -194,7 +190,7 @@ storiesOf("Organisms|GroupedProduct", module)
         default: object("settings", { type: "slider" }, "Props")
       },
       hasCarousel: {
-        default: boolean("hasCarousel", true, "Props")
+        default: boolean("hasCarousel", false, "Props")
       },
       image: {
         default: object(
@@ -263,7 +259,7 @@ storiesOf("Organisms|GroupedProduct", module)
         default: object("settings", { type: "slider" }, "Props")
       },
       hasCarousel: {
-        default: boolean("hasCarousel", true, "Props")
+        default: boolean("hasCarousel", false, "Props")
       },
       image: {
         default: object(
@@ -332,7 +328,7 @@ storiesOf("Organisms|GroupedProduct", module)
         default: object("settings", { type: "slider" }, "Props")
       },
       hasCarousel: {
-        default: boolean("hasCarousel", true, "Props")
+        default: boolean("hasCarousel", false, "Props")
       },
       image: {
         default: object(
@@ -401,7 +397,7 @@ storiesOf("Organisms|GroupedProduct", module)
         default: object("settings", { type: "slider" }, "Props")
       },
       hasCarousel: {
-        default: boolean("hasCarousel", true, "Props")
+        default: boolean("hasCarousel", false, "Props")
       },
       image: {
         default: object(
@@ -470,7 +466,7 @@ storiesOf("Organisms|GroupedProduct", module)
         default: object("settings", { type: "slider" }, "Props")
       },
       hasCarousel: {
-        default: boolean("hasCarousel", true, "Props")
+        default: boolean("hasCarousel", false, "Props")
       },
       image: {
         default: object(
@@ -539,7 +535,7 @@ storiesOf("Organisms|GroupedProduct", module)
         default: object("settings", { type: "slider" }, "Props")
       },
       hasCarousel: {
-        default: boolean("hasCarousel", true, "Props")
+        default: boolean("hasCarousel", false, "Props")
       },
       image: {
         default: object(
