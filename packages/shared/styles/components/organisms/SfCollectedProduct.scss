@@ -5,7 +5,7 @@
   box-sizing: border-box;
   display: flex;
   max-width: var(--collected-product-width);
-  padding: var(--collected-product-padding, var(--spacer-sm));
+  padding: var(--collected-product-padding, var(--spacer-xs));
   background: var(--collected-product-background);
   z-index: var(--collected-product-z-index);
   &::after {
@@ -31,7 +31,7 @@
   }
   &__more-actions {
     --icon-width: 4px;
-    --icon-height: 15px;
+    --icon-height: 0.9375rem;
     position: absolute;
     top: var(--collected-product-remove-top);
     right: var(--collected-product-remove-right, 0);
@@ -75,7 +75,7 @@
     justify-content: flex-end;
   }
   @include for-desktop {
-    --collected-product-max-width: 350px;
+    --collected-product-width: 21.875rem;
     --collected-product-padding: var(--spacer-xs);
     --collected-product-remove-top: var(--spacer-xs);
     --collected-product-remove-right: 0;

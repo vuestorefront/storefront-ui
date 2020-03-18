@@ -25,7 +25,7 @@
       <slot name="input">
         <SfQuantitySelector
           :qty="qty"
-          class="sf-collected-product__quantity-selector sf-quantity-selector--small"
+          class="sf-collected-product__quantity-selector"
           @input="$emit('input', $event)"
         />
       </slot>
