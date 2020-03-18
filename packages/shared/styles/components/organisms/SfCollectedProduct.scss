@@ -76,8 +76,8 @@
   }
   @include for-desktop {
     --collected-product-max-width: 350px;
-    --collected-product-padding: 10px;
-    --collected-product-remove-top: 10px;
+    --collected-product-padding: var(--spacer-xs);
+    --collected-product-remove-top: var(--spacer-xs);
     --collected-product-remove-right: 0;
     --collected-product-remove-transform: translate3d(50%, 0, 0);
     --collected-product-remove-opacity: 0;
