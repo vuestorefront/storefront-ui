@@ -60,7 +60,6 @@
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
@@ -74,7 +73,6 @@ export default {
     SfChevron,
     SfOverlay
   },
-  directives: { focus },
   model: {
     prop: "selected",
     event: "change"
