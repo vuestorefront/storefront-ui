@@ -37,6 +37,7 @@
     <div class="sf-grouped-product-item__info">
       <slot name="price" v-bind="{ priceSpecial, priceRegular }">
         <SfPrice
+          v-if="!hasCarousel"
           :regular="priceRegular"
           :special="priceSpecial"
           class="sf-grouped-product-item__price"
@@ -136,6 +137,11 @@ export default {
     qty: {
       type: [Number, String],
       default: 1
+    }
+  },
+  computed: {
+    hasCarousel() {
+      return this.$parent.hasCarousel;
     }
   }
 };
