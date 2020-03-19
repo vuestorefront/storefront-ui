@@ -2,11 +2,11 @@
 
 .sf-hero-item {
   display: flex;
-  flex-direction: var(--hero-item-flex-direction, column);
-  align-items: var(--hero-item-align-items, flex-start);
-  justify-content: var(--hero-item-justify-content, center);
+  flex-direction: var(--hero-item-flex-direction, row);
+  align-items: var(--hero-item-align-items, center);
+  justify-content: var(--hero-item-justify-content, flex-start);
   box-sizing: border-box;
-  min-height: var(--hero-item-min-height, 13.9375rem);
+  min-height: var(--hero-item-height, 14rem);
   width: var(--hero-item-width, 100%);
   padding: var(--hero-item-padding, var(--spacer-sm));
   color: var(--hero-item-color, var(--c-text));
@@ -31,7 +31,6 @@
       1.4,
       var(--font-family-secondary)
     );
-    letter-spacing: 0.1px;
     text-transform: var(--hero-item-subtitle-transform, uppercase);
   }
   &__title {
@@ -49,23 +48,12 @@
   }
   &__button {
     display: var(--hero-item-button-display, none);
-    --button-height: 3.25rem;
-    --button-width: 10.75rem;
-  }
-  &--position-bg-top-right {
-    --hero-item-background-position: top right;
-  }
-  &--position-bg-bottom-right {
-    --hero-item-background-position: bottom right;
-  }
-  &--position-bg-bottom-left {
-    --hero-item-background-position: bottom left;
   }
   &--align-right {
     --hero-item-align-items: flex-end;
   }
   @include for-desktop {
-    --hero-item-min-height: 36.625rem;
+    --hero-item-height: 36.625rem;
     --hero-item-padding: var(--spacer-2xl);
     --hero-item-background-image: var(
       --_hero-item-background-desktop-image,
@@ -85,18 +73,24 @@
   &__controls {
     position: absolute;
     top: var(--hero-controls-top, 50%);
-    transform: translateY(-50%);
+    transform: translate3d(0, -50%, 0);
     display: var(--hero-controls-display, none);
+    box-sizing: border-box;
     justify-content: var(--hero-controls-justify-content, space-between);
     width: var(--hero-controls-width, 100%);
-    padding: var(--hero-controls-padding, 0);
+    padding: var(--hero-controls-padding, 0 var(--spacer-sm));
   }
   &__bullets {
     position: absolute;
-    bottom: var(--hero-bullets-bottom, 3.1875rem);
+    bottom: var(--hero-bullets-bottom, var(--spacer-xl));
     left: 50%;
     transform: translate3d(-50%, 0, 0);
     display: var(--hero-bullets-display, none);
+  }
+  .glide {
+    &__slides {
+      margin: 0;
+    }
   }
   @include for-desktop {
     &__controls {

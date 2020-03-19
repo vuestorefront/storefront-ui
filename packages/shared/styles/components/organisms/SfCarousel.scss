@@ -29,6 +29,9 @@
     &__slide {
       overflow: unset;
     }
+    &__slides {
+      margin: 0;
+    }
   }
   @include for-desktop {
     --carousel-controls-size: 15rem;
