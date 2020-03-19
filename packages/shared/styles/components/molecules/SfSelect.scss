@@ -3,7 +3,7 @@
 .sf-select-option {
   display: block;
   box-sizing: border-box;
-  padding: var(--select-option-padding, var(--spacer-xs));
+  padding: var(--select-option-padding, var(--spacer-sm));
   @include border(--select-option-border, 1px 0 0 0, solid, var(--c-light));
   background: var(--select-option-background);
   color: inherit;
@@ -11,7 +11,7 @@
     --select-option-font,
     var(--font-light),
     var(--font-sm),
-    1,
+    1.2,
     var(--font-family-primary)
   );
 
@@ -20,6 +20,7 @@
   }
 
   @include for-desktop {
+    --select-option-padding: var(--spacer-xs);
     &:hover {
       --select-option-background: rgba(var(--c-gray-base), 0.1);
     }
@@ -84,11 +85,11 @@
     // I know it's look's like magic but we need it now :(
     min-height: calc(
       calc(var(--spacer-sm) + var(--spacer-xs)) +
-        var(--select-label-font-size, var(--font-lg))
+      var(--select-label-font-size, var(--font-lg))
     );
     background: var(--select-background);
     color: var(--select-color, inherit);
-    @include border(--select-border, 0 0 1px 0, solid, transparent);
+    @include border(--select-border, 0, solid, transparent);
   }
 
   &__dropdown {
@@ -119,11 +120,12 @@
   &__error-message {
     --select-border-color: var(--c-danger);
     color: var(--select-error-message-color, var(--c-danger));
+    height: calc(var(--font-xs) * 1.2);
     @include font(
-      --select-error-message-font,
-      var(--font-normal),
+      --input-error-message-font,
+      var(--font-medium),
       var(--font-xs),
-      1,
+      1.2,
       var(--font-family-secondary)
     );
   }
@@ -138,6 +140,7 @@
   }
 
   &--underlined {
+    --select-border-width: 0 0 1px 0;
     --select-border-color: var(--c-light);
   }
 
@@ -179,7 +182,6 @@
     --select-animation-leave: ssdesktop 150ms reverse;
   }
 }
-
 @keyframes ssdesktop {
   0% {
     opacity: 0;
@@ -188,7 +190,6 @@
     opacity: 1;
   }
 }
-
 @keyframes ssmobile {
   0% {
     transform: translate(0, 100%);

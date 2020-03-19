@@ -13,7 +13,6 @@
     }"
     class="sf-select"
     @click="toggle($event)"
-    @blur="closeHandler"
     @keyup.space="openHandler"
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
