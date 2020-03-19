@@ -27,7 +27,7 @@ export default {
      */
     level: {
       type: Number,
-      default: 1
+      default: 2
     },
     /**
      * Heading title
