@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
+import { withKnobs, text, boolean, optionsKnob as options } from "@storybook/addon-knobs";
 
 import SfInput from "./SfInput.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
@@ -10,6 +10,17 @@ storiesOf("Atoms|Input", module)
   .add("Common", () => ({
     components: { SfInput },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-input--filled": "sf-input--filled"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       type: {
         default: text("type", "text", "Props")
       },
@@ -33,6 +44,9 @@ storiesOf("Atoms|Input", module)
       },
       ariaLabel: {
         default: text("ariaLabel", "First name", "Props")
+      },
+      placeholder: {
+        default: text("placeholder", "", "Props")
       },
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props")
@@ -47,6 +61,7 @@ storiesOf("Atoms|Input", module)
       v-model="value"
       :type="type"
       :label="label"
+      :placeholder="placeholder"
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
@@ -54,6 +69,7 @@ storiesOf("Atoms|Input", module)
       :disabled="disabled"
       :aria-label="ariaLabel"
       :has-show-password="hasShowPassword"
+      :class="customClass"
       />`
   }))
   .add("[slot] label", () => ({
@@ -62,6 +78,17 @@ storiesOf("Atoms|Input", module)
       SfIcon
     },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-input--filled": "sf-input--filled"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       type: {
         default: text("type", "text", "Props")
       },
@@ -86,6 +113,9 @@ storiesOf("Atoms|Input", module)
       ariaLabel: {
         default: text("ariaLabel", "First name", "Props")
       },
+      placeholder: {
+        default: text("placeholder", "", "Props")
+      },
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props")
       }
@@ -99,6 +129,7 @@ storiesOf("Atoms|Input", module)
         v-model="value"
         :type="type"
         :label="label"
+        :placeholder="placeholder"
         :name="name"
         :valid="valid"
         :error-message="errorMessage"
@@ -112,12 +143,153 @@ storiesOf("Atoms|Input", module)
       </template>
     </SfInput>`
   }))
+  .add("[slot] label with placeholder", () => ({
+    components: { SfInput },
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-input--filled": "sf-input--filled"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
+      type: {
+        default: text("type", "text", "Props")
+      },
+      label: {
+        default: text("label", "First name", "Props")
+      },
+      name: {
+        default: text("name", "first-name", "Props")
+      },
+      errorMessage: {
+        default: text("errorMessage", "Required.", "Props")
+      },
+      valid: {
+        default: boolean("valid", true, "Props")
+      },
+      required: {
+        default: boolean("required", true, "Props")
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "First name", "Props")
+      },
+      placeholder: {
+        default: text("placeholder", "Write your name", "Props")
+      },
+      hasShowPassword: {
+        default: boolean("hasShowPassword", false, "Props")
+      }
+    },
+    data() {
+      return {
+        value: ""
+      };
+    },
+    template: `<SfInput
+      v-model="value"
+      :type="type"
+      :label="label"
+      :placeholder="placeholder"
+      :name="name"
+      :valid="valid"
+      :error-message="errorMessage"
+      :required="required"
+      :disabled="disabled"
+      :aria-label="ariaLabel"
+      :has-show-password="hasShowPassword"
+      :class="customClass"
+      />`
+  }))
+  .add("With placeholder", () => ({
+    components: { SfInput },
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-input--filled": "sf-input--filled"
+          },
+          "sf-input--filled",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
+      type: {
+        default: text("type", "text", "Props")
+      },
+      label: {
+        default: text("label", "", "Props")
+      },
+      name: {
+        default: text("name", "first-name", "Props")
+      },
+      errorMessage: {
+        default: text("errorMessage", "Required.", "Props")
+      },
+      valid: {
+        default: boolean("valid", true, "Props")
+      },
+      required: {
+        default: boolean("required", false, "Props")
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props")
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "First name", "Props")
+      },
+      placeholder: {
+        default: text("placeholder", "First name", "Props")
+      },
+      hasShowPassword: {
+        default: boolean("hasShowPassword", false, "Props")
+      }
+    },
+    data() {
+      return {
+        value: ""
+      };
+    },
+    template: `<SfInput
+      v-model="value"
+      :type="type"
+      :label="label"
+      :placeholder="placeholder"
+      :name="name"
+      :valid="valid"
+      :error-message="errorMessage"
+      :required="required"
+      :disabled="disabled"
+      :aria-label="ariaLabel"
+      :has-show-password="hasShowPassword"
+      :class="customClass"
+      />`
+  }))
   .add("[slot] error-message", () => ({
     components: {
       SfInput,
       SfIcon
     },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-input--filled": "sf-input--filled"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       type: {
         default: text("type", "text", "Props")
       },
@@ -142,6 +314,9 @@ storiesOf("Atoms|Input", module)
       ariaLabel: {
         default: text("ariaLabel", "First name", "Props")
       },
+      placeholder: {
+        default: text("placeholder", "", "Props")
+      },
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props")
       }
@@ -155,6 +330,7 @@ storiesOf("Atoms|Input", module)
       v-model="value"
       :type="type"
       :label="label"
+      :placeholder="placeholder"
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
@@ -174,6 +350,17 @@ storiesOf("Atoms|Input", module)
       SfIcon
     },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-input--filled": "sf-input--filled"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       type: {
         default: text("type", "password", "Props")
       },
@@ -198,6 +385,9 @@ storiesOf("Atoms|Input", module)
       ariaLabel: {
         default: text("ariaLabel", "First name", "Props")
       },
+      placeholder: {
+        default: text("placeholder", "", "Props")
+      },
       hasShowPassword: {
         default: boolean("hasShowPassword", true, "Props")
       }
@@ -211,6 +401,7 @@ storiesOf("Atoms|Input", module)
       v-model="value"
       :type="type"
       :label="label"
+      :placeholder="placeholder"
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
