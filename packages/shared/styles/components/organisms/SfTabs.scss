@@ -29,6 +29,7 @@
   }
   &__content {
     order: var(--tabs-content-order);
+    width: var(--tabs-content-width);
     @include border(--tabs-content-border, 1px 0, solid, var(--c-light));
     color: var(--tabs-content-color, var(--c-text));
     @include font(
@@ -52,12 +53,13 @@
     --tabs-title-z-index: 1;
     --tabs-content-order: 1;
     --tabs-title-flex: 0 0 auto;
+    --tabs-content-width: 100%;
     --tabs-title-margin: 0 var(--spacer-lg) -2px 0;
     --tabs-title-padding: var(--spacer-xs) 0;
     --tabs-title-color: var(--c-text-muted);
     --tabs-title-font-size: var(--h4-font-size);
     --tabs-content-tab-padding: var(--spacer-base) 0;
-    --tabs-content-border-width: 1px 0 0 0;
+    --tabs-content-border-width: 0;
     --tabs-chevron-display: none;
     &__title {
       &--active {
