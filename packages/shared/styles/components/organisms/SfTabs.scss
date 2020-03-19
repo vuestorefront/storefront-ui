@@ -11,15 +11,15 @@
     justify-content: space-between;
     margin: var(--tabs-title-margin);
     padding: var(--tabs-title-padding, var(--spacer-sm));
-    @include border(--tabs-title-border, 0 0 1px 0, solid, var(--c-light));
     color: var(--tabs-title-color, var(--c-text));
     transition: color 150ms ease-in-out;
     cursor: pointer;
+    @include border(--tabs-title-border, 0 0 1px 0, solid, var(--c-light));
     @include font(
       --tabs-title-font,
       var(--font-normal),
       var(--h3-font-size),
-      1.6,
+      1.4,
       var(--font-family-secondary)
     );
     &--active {
@@ -29,8 +29,8 @@
   }
   &__content {
     order: var(--tabs-content-order);
-    @include border(--tabs-content-border, 1px 0, solid, var(--c-light));
     color: var(--tabs-content-color, var(--c-text));
+    @include border(--tabs-content-border, 1px 0, solid, var(--c-light));
     @include font(
       --tabs-content-font,
       var(--font-light),

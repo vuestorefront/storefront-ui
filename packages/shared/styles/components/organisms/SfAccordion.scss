@@ -1,58 +1,66 @@
 @import "../../helpers";
 
 .sf-accordion-item {
-  @include border(--accordion-item-border, 0 0 1px 0, solid, var(--c-light));
-
   &__header {
     display: flex;
     justify-content: var(--accordion-item-header-justify, space-between);
-    padding: var(--accordion-item-padding, var(--spacer-sm) var(--spacer-sm));
-    color: var(--accordion-item-color, var(--c-dark));
+    padding: var(--accordion-item-header-padding, var(--spacer-sm));
+    color: var(--accordion-item-header-color, var(--c-text));
+    transition: color 150ms ease-in-out;
+    cursor: pointer;
+    @include border(
+      --accordion-item-header-border,
+      0 0 1px 0,
+      solid,
+      var(--c-light)
+    );
     @include font(
       --accordion-item-header-font,
       var(--font-medium),
       var(--font-base),
-      1.6,
+      1.4,
       var(--font-family-secondary)
     );
-    cursor: pointer;
+    &--open {
+      --accordion-item-header-border-width: 0;
+      --accordion-item-header-color: var(--c-primary);
+    }
   }
   &__content {
-    padding: var(--accordion-item-content-padding);
-
-    .sf-list__item {
-      padding: var(
-        --accordion-item-content-item-padding,
-        var(--spacer-sm) var(--spacer-lg) var(--spacer-sm) var(--spacer-lg)
-      );
-      @include border(
-        --accordion-item-content-item-border,
-        1px 0 0 0,
-        solid,
-        var(--c-light)
-      );
-    }
+    padding: var(
+      --accordion-item-content-padding,
+      var(--spacer-base) var(--spacer-sm)
+    );
+    color: var(--accordion-item-content-color, var(--c-text));
+    @include border(
+      --accordion-item-content-border,
+      1px 0,
+      solid,
+      var(--c-light)
+    );
+    @include font(
+      --accordion-item-content-font,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
   }
   &__chevron {
     display: var(--accordion-item-chevron-display, none);
-    align-items: var(--accordion-item-chevron-align-items, auto);
-    max-height: var(--accordion-item-chevron-max-height, none);
+    flex: 0 0 auto;
   }
-
   @include for-desktop {
-    --accordion-item-header-font-size: var(--font-xl);
-    --accordion-item-border: 0;
-    --accordion-item-content-item-border: 0;
-    --accordion-item-content-item-padding: var(--spacer-xs) var(--spacer-sm)
-      var(--spacer-xs) var(--spacer-sm);
+    --accordion-item-header-padding: var(--spacer-xs) 0;
+    --accordion-item-header-font-size: var(--h4-font-size);
+    --accordion-item-header-font-weight: var(--font-normal);
+    --accordion-item-header-border-width: 0;
+    --accordion-item-content-border-width: 0;
+    --accordion-item-content-padding: var(--spacer-base) 0;
   }
 }
 .sf-accordion {
   &--has-chevron {
     --accordion-item-chevron-display: flex;
-    --accordion-item-chevron-align-items: center;
-    --accordion-item-chevron-max-height: calc(
-      var(--accordion-font-size) * var(--accordion-line-height)
-    );
   }
 }

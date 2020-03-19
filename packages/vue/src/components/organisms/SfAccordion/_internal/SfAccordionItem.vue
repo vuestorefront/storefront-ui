@@ -17,7 +17,6 @@
       >
         {{ header }}
         <SfChevron
-          v-if="$parent.showChevron"
           class="sf-accordion-item__chevron"
           :class="{ 'sf-chevron--right': !isOpen }"
         />
