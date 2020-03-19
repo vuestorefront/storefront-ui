@@ -5,7 +5,7 @@
       <component
         :is="`h${level}`"
         class="sf-heading__title"
-        :class="`sf-heading__title--h${level}`"
+        :class="level > 1 && `sf-heading__title--h${level}`"
       >
         {{ title }}
       </component>
@@ -27,7 +27,7 @@ export default {
      */
     level: {
       type: Number,
-      default: 2
+      default: 1
     },
     /**
      * Heading title
