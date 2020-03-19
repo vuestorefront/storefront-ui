@@ -185,6 +185,7 @@
 
   &--filled {
     --input-background: var(--c-light);
+    --input-font-size: var(--font-sm);
     input {
       &:focus {
         & ~ * {
@@ -193,7 +194,7 @@
       }
     }
   }
-  
+
   &--placeholder {
     --input-padding: var(--spacer-xs);
     --input-placeholder-color: var(--c-text-muted);
