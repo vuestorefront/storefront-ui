@@ -89,7 +89,16 @@
     );
     text-align: var(--input-text-align);
     outline: none;
+    @include placeholder {
+      color: var(--input-placeholder-color, transparent);
+      transition: color 150ms ease;
+    }
     &:focus {
+      --input-placeholder-color: var(--c-text);
+      @include placeholder {
+        transition: color 300ms ease;
+      }
+
       & ~ * {
         --icon-color: var(--c-primary);
         --input-password-icon-background: var(--c-primary);
@@ -172,5 +181,21 @@
   &--has-text {
     --input-label-top: 0;
     --input-label-font-size: var(--font-2xs);
+  }
+
+  &--filled {
+    --input-background: var(--c-light);
+    input {
+      &:focus {
+        & ~ * {
+          --input-bar-width: unset;
+        }
+      }
+    }
+  }
+  
+  &--placeholder {
+    --input-padding: var(--spacer-xs);
+    --input-placeholder-color: var(--c-text-muted);
   }
 }
