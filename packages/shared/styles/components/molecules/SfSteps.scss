@@ -63,7 +63,7 @@
     --steps-step-color: var(--c-text-muted);
     &__header {
       box-shadow: none;
-      --steps-border: 0 0 2px 0, solid, var(--c-light);
+      --steps-border-width: 0 0 2px 0;
     }
     &__step {
       --steps-step-padding: 0 0 var(--spacer-xs) 0;
