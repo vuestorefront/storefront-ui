@@ -24,7 +24,7 @@
         />
       </slot>
     </div>
-    <div class="sf-grouped-product-item__description">
+    <div v-show="!hasCarousel" class="sf-grouped-product-item__description">
       <!-- @slot Custom title markup -->
       <slot name="title" v-bind="{ title }">
         <div class="sf-grouped-product-item__title">{{ title }}</div>
@@ -34,7 +34,7 @@
     </div>
     <!-- @slot Custom configuration markup -->
     <slot name="configuration" />
-    <div class="sf-grouped-product-item__info">
+    <div v-show="!hasCarousel" class="sf-grouped-product-item__info">
       <slot name="price" v-bind="{ priceSpecial, priceRegular }">
         <SfPrice
           v-if="!hasCarousel"
