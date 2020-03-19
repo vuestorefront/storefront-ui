@@ -3,7 +3,8 @@
     class="sf-input"
     :class="{
       'sf-input--has-text': !!value,
-      'sf-input--invalid': !valid
+      'sf-input--invalid': !valid,
+      'sf-input--placeholder': placeholder && !label
     }"
   >
     <div class="sf-input__wrapper">
@@ -13,6 +14,7 @@
         :value="value"
         :required="required"
         :disabled="disabled"
+        :placeholder="placeholder"
         :name="name"
         :class="{ 'sf-input--is-password': isPassword }"
         :type="inputType"
@@ -131,6 +133,16 @@ export default {
       type: String,
       default: null
     },
+    /**
+     * Input placeholder
+     */
+    placeholder: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Status of show password icon display
+     */
     hasShowPassword: {
       type: Boolean,
       default: false
