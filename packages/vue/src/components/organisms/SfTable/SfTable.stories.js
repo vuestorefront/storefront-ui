@@ -12,7 +12,7 @@ storiesOf("Organisms/Table", module)
         default: options(
           "customClass",
           {
-            "sf-table--bordered": "sf-table--bordered"
+            "sf-table--no-border": "sf-table--no-border"
           },
           "",
           { display: "multi-select" },

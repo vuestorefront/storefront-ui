@@ -6,6 +6,7 @@
   margin: var(--list-margin, 0);
   .sf-list__item {
     margin: var(--list-item-margin, 0);
+    padding: var(--list-item-padding, 0);
     color: var(--list-item-color, var(--c-text));
     @include font(
       --list-item-font,
