@@ -94,7 +94,7 @@
       transition: color 150ms ease;
     }
     &:focus {
-      --input-placeholder-color: var(--c-text);
+      --input-placeholder-color: var(--c-text-muted);
       @include placeholder {
         transition: color 300ms ease;
       }
@@ -198,5 +198,10 @@
   &--placeholder {
     --input-padding: var(--spacer-xs);
     --input-placeholder-color: var(--c-text-muted);
+    input {
+      &:focus {
+        --input-placeholder-color: var(--c-text);
+      }
+    }
   }
 }
