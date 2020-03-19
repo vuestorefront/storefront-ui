@@ -2,70 +2,87 @@
   <div id="thank-you">
     <div class="banner">
       <div class="banner__info">
-        <SfHeading title="It's ordered!" class="sf-heading--no-underline" />
-        <p class="banner__order-number">
-          Order No. <strong>#80932031-030-00</strong>
-        </p>
+        <SfHeading
+          title="Thank You for your order!"
+          class="heading sf-heading--left"
+          :level="1"
+        />
+        <div class="banner__order-number">
+          Order No.<br />
+          <strong>#80932031-030-00</strong>
+        </div>
       </div>
     </div>
     <div class="wrapper">
-      <SfHeading
-        title="You've successfully placed the order"
-        class="heading sf-heading--left"
-      />
-      <p class="paragraph">
-        You can check status of your order by using our delivery status feature.
-        You will receive an order confirmation e-mail with details of your order
-        and a link to track its progress.
-      </p>
-      <SfButton class="wrapper__notifications-button"
-        >ALLOW ORDER NOTIFICATIONS</SfButton
-      >
-      <div class="wrapper__contact">
+      <div class="wrapper__section">
         <SfHeading
-          :level="3"
-          class="heading--no-padding sf-heading--left sf-heading--no-underline"
-          title="Primary contacts for any questions"
-        ></SfHeading>
+          title="Your Purchase"
+          class="heading--full sf-heading--left"
+          :level="2"
+        />
         <p class="paragraph">
-          <span>{{ address.name }}</span
-          ><br />
-          <span>{{ address.street }}</span
-          ><br />
-          <span>{{ address.city }}</span
-          ><br /><br />
-          <span>{{ address.email }}</span>
+          You have successfuly placed the order. You can check status of your
+          order by using our delivery status feature. You will receive an order
+          confirmation e-mail with details of your order and a link to track its
+          progress.
         </p>
+        <SfDivider class="first-divider" />
+        <div class="wrapper__contact">
+          <SfHeading
+            :level="3"
+            class="heading--full sf-heading--left sf-heading--no-underline"
+            title="Primary contacts for any questions"
+          ></SfHeading>
+          <p class="paragraph">
+            <span>{{ address.name }}</span
+            ><br />
+            <span>{{ address.street }}</span
+            ><br />
+            <span>{{ address.city }}</span
+            ><br /><br />
+            <span>{{ address.email }}</span>
+          </p>
+        </div>
+        <SfDivider class="second-divider" />
       </div>
-      <SfHeading title="Your Account" class="heading sf-heading--left" />
-      <p class="paragraph">
-        You can log to your account using e-mail and password defined earlier.
-        On your account you can edit your profile data, check history of
-        transactions, edit subscription to newsletter.
-      </p>
-      <SfHeading title="What can we improve" class="heading sf-heading--left" />
-      <p class="paragraph">
-        Your feedback is important to us. Let us know what we could improve.
-      </p>
-      <div class="wrapper__buttons">
-        <SfButton class="feedback-button color-secondary sf-button--full-width"
-          >SEND MY FEEDBACK</SfButton
+      <div class="wrapper__additional-info">
+        <SfButton class="wrapper__notifications-button"
+          >ALLOW ORDER NOTIFICATIONS</SfButton
         >
-        <SfButton
-          class="sf-button--outline sf-button--full-width color-secondary"
-          >BACK TO SHOP</SfButton
-        >
+        <SfHeading title="Your Account" class="heading sf-heading--left" />
+        <p class="paragraph">
+          You can log to your account using e-mail and password defined earlier.
+          On your account you can edit your profile data, check history of
+          transactions, edit subscription to newsletter.
+        </p>
+        <SfHeading
+          title="What can we improve"
+          class="heading--full sf-heading--left"
+        />
+        <p class="paragraph">
+          Your feedback is important to us. Let us know what we could improve.
+        </p>
+        <div class="wrapper__buttons">
+          <SfButton
+            class="feedback-button color-secondary sf-button--full-width"
+            >SEND MY FEEDBACK</SfButton
+          >
+          <SfButton class="sf-button--full-width color-primary"
+            >GO BACK TO SHOP</SfButton
+          >
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { SfHeading, SfButton } from "@storefront-ui/vue";
+import { SfHeading, SfButton, SfDivider } from "@storefront-ui/vue";
 export default {
   name: "Product",
   components: {
     SfHeading,
-    SfButton
+    SfButton,
+    SfDivider
   },
   data() {
     return {
@@ -91,30 +108,37 @@ export default {
 }
 
 .banner {
-  background-color: #f1f2f3;
-
   &__info {
-    padding: 2rem;
+    padding: var(--spacer-xl) var(--spacer-lg);
     text-align: left;
     @include for-desktop {
       text-align: center;
     }
   }
   &__order-number {
-    font-size: 0.875rem;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-sm);
+    font-weight: var(--font-light);
   }
 }
 .wrapper {
   max-width: 586px;
   margin: 0 auto;
-  padding: 0 var(--spacer-medium) 0 var(--spacer-medium);
+
+  &__section {
+    background: var(--c-light);
+    padding: 0 var(--spacer-sm) var(--spacer-xs) var(--spacer-sm);
+  }
 
   &__contact {
     padding: 1.3rem var(--spacer-extra-big);
     border: 1px solid var(--c-light);
   }
+  &__additional-info {
+    padding: 0 var(--spacer-sm);
+  }
   &__notifications-button {
-    margin: var(--spacer-extra-big) 0 var(--spacer-extra-big) 0;
+    margin: var(--spacer-base) 0 0 0;
     @include for-mobile {
       --button-width: 100%;
     }
@@ -135,26 +159,35 @@ export default {
   }
 }
 .feedback-button {
-  margin: var(--spacer) 0;
+  margin: var(--spacer-sm) 0;
 
   @include for-desktop {
-    margin: 0 var(--spacer-medium) 0 0;
+    margin: 0 var(--spacer-base) 0 0;
   }
 }
 .heading {
-  --heading-padding: 3.75rem 0 0 0;
-
-  &--no-padding {
-    --heading-padding: 0;
-    --heading-text-align: left;
-  }
-
-  @include for-desktop {
-    --heading-text-align: left;
+  --heading-padding: var(--spacer-base) 0;
+  max-width: 11rem;
+  &--full {
+    --heading-padding: var(--spacer-base) 0;
+    max-width: 100%;
   }
 }
 .paragraph {
-  font-size: var(--font-size-big);
-  line-height: 1.875rem;
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-light);
+  color: var(--c-dark-variant);
+  margin: 0;
+  line-height: 1.75rem;
+}
+
+.first-divider {
+  --divider-margin: var(--spacer-base) 0 var(--spacer-sm) 0;
+  border-color: var(--c-white);
+}
+
+.second-divider {
+  --divider-margin: var(--spacer-sm) 0 0 0;
+  border-color: var(--c-white);
 }
 </style>
