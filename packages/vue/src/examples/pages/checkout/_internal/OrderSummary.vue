@@ -9,23 +9,23 @@
       <SfProperty
         name="Products"
         :value="totalItems"
-        class="sf-property--full-width property"
+        class="sf-property--full-width sf-property--large property"
       />
       <SfProperty
         name="Subtotal"
         :value="subtotal"
-        class="sf-property--full-width property"
+        class="sf-property--full-width sf-property--large property"
       />
       <SfProperty
         name="Shipping"
         :value="shippingMethod.price"
-        class="sf-property--full-width property"
+        class="sf-property--full-width sf-property--large property"
       />
       <SfDivider class="divider" />
       <SfProperty
         name="Total price"
         :value="total"
-        class="sf-property--full-width property"
+        class="sf-property--full-width sf-property--large property"
       />
     </div>
     <div class="highlighted promo-code">
@@ -183,8 +183,6 @@ export default {
 }
 
 .property {
-  --property-name-font-size: var(--font-xl);
-  --property-value-font-size: var(--font-xl);
   margin: var(--spacer-base) 0;
 }
 
