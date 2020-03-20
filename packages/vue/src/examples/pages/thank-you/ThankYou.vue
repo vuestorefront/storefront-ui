@@ -8,7 +8,7 @@
           :level="1"
         />
         <div class="banner__order-number">
-          Order No.<br />
+          <span>Order No.</span>
           <strong>#80932031-030-00</strong>
         </div>
       </div>
@@ -18,7 +18,7 @@
         <SfHeading
           title="Your Purchase"
           class="heading--full sf-heading--left"
-          :level="2"
+          :level="3"
         />
         <p class="paragraph">
           You have successfuly placed the order. You can check status of your
@@ -44,35 +44,47 @@
           </p>
         </div>
         <SfDivider class="second-divider" />
-      </div>
-      <div class="wrapper__additional-info">
         <SfButton class="wrapper__notifications-button"
           >ALLOW ORDER NOTIFICATIONS</SfButton
         >
-        <SfHeading title="Your Account" class="heading sf-heading--left" />
-        <p class="paragraph">
-          You can log to your account using e-mail and password defined earlier.
-          On your account you can edit your profile data, check history of
-          transactions, edit subscription to newsletter.
-        </p>
-        <SfHeading
-          title="What can we improve"
-          class="heading--full sf-heading--left"
-        />
-        <p class="paragraph">
-          Your feedback is important to us. Let us know what we could improve.
-        </p>
-        <div class="wrapper__buttons">
-          <SfButton
-            class="feedback-button color-secondary sf-button--full-width"
-            >SEND MY FEEDBACK</SfButton
-          >
-          <SfButton class="sf-button--full-width color-primary"
-            >GO BACK TO SHOP</SfButton
-          >
+      </div>
+      <div class="wrapper__additional-info">
+        <div>
+          <SfHeading
+            title="Your Account"
+            class="heading sf-heading--left"
+            :level="3"
+          />
+          <p class="paragraph">
+            You can log to your account using e-mail and password defined
+            earlier. On your account you can edit your profile data, check
+            history of transactions, edit subscription to newsletter.
+          </p>
+        </div>
+        <div>
+          <SfHeading
+            title="What can we improve"
+            class="heading--full sf-heading--left"
+            :level="3"
+          />
+          <p class="paragraph">
+            Your feedback is important to us. Let us know what we could improve.
+          </p>
+          <div class="wrapper__buttons">
+            <SfButton
+              class="feedback-button color-secondary sf-button--full-width"
+              >SEND MY FEEDBACK</SfButton
+            >
+            <SfButton class="sf-button--full-width color-primary mobile-only"
+              >GO BACK TO SHOP</SfButton
+            >
+          </div>
         </div>
       </div>
     </div>
+    <SfButton class="back-button color-secondary desktop-only"
+      >GO BACK TO SHOP</SfButton
+    >
   </div>
 </template>
 <script>
@@ -111,31 +123,58 @@ export default {
   &__info {
     padding: var(--spacer-xl) var(--spacer-lg);
     text-align: left;
+
     @include for-desktop {
-      text-align: center;
+      padding: var(--spacer-2xl) 0 var(--spacer-3xl) var(--spacer-2xl);
     }
   }
   &__order-number {
+    display: flex;
+    flex-direction: column;
     font-family: var(--font-family-primary);
     font-size: var(--font-sm);
     font-weight: var(--font-light);
+    @include for-desktop {
+      font-size: var(--font-normal);
+      flex-direction: row;
+    }
   }
 }
 .wrapper {
-  max-width: 586px;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
+
+  @include for-desktop {
+    flex-direction: row;
+  }
 
   &__section {
     background: var(--c-light);
     padding: 0 var(--spacer-sm) var(--spacer-xs) var(--spacer-sm);
+    @include for-desktop {
+      width: 100%;
+      padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-2xl)
+        var(--spacer-2xl);
+    }
+  }
+
+  &__additional-info {
+    padding: 0 var(--spacer-sm);
+    @include for-desktop {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-2xl)
+        var(--spacer-2xl);
+      background: var(--c-light);
+    }
   }
 
   &__contact {
     padding: 1.3rem var(--spacer-extra-big);
     border: 1px solid var(--c-light);
-  }
-  &__additional-info {
-    padding: 0 var(--spacer-sm);
   }
   &__notifications-button {
     margin: var(--spacer-base) 0 0 0;
@@ -146,11 +185,13 @@ export default {
   &__buttons {
     width: 100%;
     display: flex;
+    flex-direction: column;
     margin: var(--spacer-extra-big) 0 var(--spacer-extra-big) 0;
     justify-content: space-between;
 
-    @include for-mobile {
-      flex-direction: column;
+    @include for-desktop {
+      flex: auto 0 0 0;
+      flex-direction: row;
     }
   }
 
@@ -172,6 +213,9 @@ export default {
     --heading-padding: var(--spacer-base) 0;
     max-width: 100%;
   }
+  @include for-desktop {
+    max-width: 100%;
+  }
 }
 .paragraph {
   font-family: var(--font-family-primary);
@@ -189,5 +233,10 @@ export default {
 .second-divider {
   --divider-margin: var(--spacer-sm) 0 0 0;
   border-color: var(--c-white);
+}
+
+.back-button {
+  --button-width: 25rem;
+  margin: var(--spacer-xl) auto;
 }
 </style>
