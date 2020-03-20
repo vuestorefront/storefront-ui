@@ -2,9 +2,10 @@
   <div>
     <SfHeading
       title="4. Order review"
+      :level="3"
       class="sf-heading--left sf-heading--no-underline title"
     />
-    <SfAccordion first-open class="accordion mobile-only">
+    <SfAccordion class="accordion mobile-only">
       <SfAccordionItem header="Personal Details">
         <div class="accordion__item">
           <div class="accordion__content">
@@ -77,6 +78,44 @@
           </SfButton>
         </div>
       </SfAccordionItem>
+      <SfAccordionItem first-open header="Order details">
+        <div class="accordion__item--highlighted">
+          <div class="accordion__content">
+            <SfProperty
+              name="Subtotal"
+              :value="subtotal"
+              class="sf-property--full-width property"
+            >
+              <template #name
+                ><span class="property__name">Subtotal</span></template
+              >
+            </SfProperty>
+            <SfProperty
+              name="Shipping"
+              :value="shippingMethod.price"
+              class="sf-property--full-width property"
+            >
+              <template #name
+                ><span class="property__name">Shipping</span></template
+              >
+            </SfProperty>
+            <SfProperty
+              name="Total"
+              :value="total"
+              class="sf-property--full-width property--huge summary__property-total"
+            >
+              <template #name>TOTAL</template>
+            </SfProperty>
+          </div>
+          <SfCheckbox v-model="terms" name="terms" class="summary__terms">
+            <template #label>
+              <div class="sf-checkbox__label">
+                I agree to <a href="#">Terms and conditions</a>
+              </div>
+            </template>
+          </SfCheckbox>
+        </div>
+      </SfAccordionItem>
     </SfAccordion>
     <SfTable class="sf-table--bordered table desktop-only">
       <SfTableHeading class="table__row">
@@ -129,45 +168,10 @@
     </SfTable>
     <SfHeading
       title="Order details"
+      :level="3"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="summary">
-      <div class="summary__group">
-        <div class="summary__total">
-          <SfProperty
-            name="Subtotal"
-            :value="subtotal"
-            class="sf-property--full-width property"
-          >
-            <template #name
-              ><span class="property__name">Subtotal</span></template
-            >
-          </SfProperty>
-          <SfProperty
-            name="Shipping"
-            :value="shippingMethod.price"
-            class="sf-property--full-width property"
-          >
-            <template #name
-              ><span class="property__name">Shipping</span></template
-            >
-          </SfProperty>
-          <SfProperty
-            name="Total"
-            :value="total"
-            class="sf-property--full-width property--huge summary__property-total"
-          >
-            <template #name>TOTAL</template>
-          </SfProperty>
-        </div>
-        <SfCheckbox v-model="terms" name="terms" class="summary__terms">
-          <template #label>
-            <div class="sf-checkbox__label">
-              I agree to <a href="#">Terms and conditions</a>
-            </div>
-          </template>
-        </SfCheckbox>
-      </div>
       <div class="summary__group">
         <SfButton class="sf-button--full-width summary__action-button"
           >Place my order
@@ -180,6 +184,17 @@
         </SfButton>
       </div>
     </div>
+    <div class="highlighted mobile-only">
+      <SfCharacteristic
+        v-for="characteristic in characteristics"
+        :key="characteristic.title"
+        :title="characteristic.title"
+        :description="characteristic.description"
+        :icon="characteristic.icon"
+        color-icon="green-primary"
+        class="characteristic"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -187,6 +202,7 @@ import {
   SfHeading,
   SfTable,
   SfCheckbox,
+  SfCharacteristic,
   SfButton,
   SfImage,
   SfIcon,
@@ -201,6 +217,7 @@ export default {
     SfHeading,
     SfTable,
     SfCheckbox,
+    SfCharacteristic,
     SfButton,
     SfImage,
     SfIcon,
@@ -218,6 +235,10 @@ export default {
       default: () => []
     },
     paymentMethods: {
+      type: Array,
+      default: () => []
+    },
+    characteristics: {
       type: Array,
       default: () => []
     }
