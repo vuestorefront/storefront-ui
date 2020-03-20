@@ -2,63 +2,80 @@
   <div>
     <SfHeading
       title="2. Shipping"
+      :level="3"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
       <SfInput
         v-model="firstName"
+        :value="firstName"
         label="First name"
         name="firstName"
         class="form__element form__element--half"
         required
+        @input="updateField('firstName', $event)"
       />
       <SfInput
         v-model="lastName"
+        :value="lastName"
         label="Last name"
         name="lastName"
         class="form__element form__element--half form__element--half-even"
         required
+        @input="updateField('lastName', $event)"
       />
       <SfInput
         v-model="streetName"
+        :value="streetName"
         label="Street name"
         name="streetName"
         class="form__element"
         required
+        @input="updateField('streetName', $event)"
       />
       <SfInput
         v-model="apartment"
+        :value="apartment"
         label="House/Apartment number"
         name="apartment"
         class="form__element"
         required
+        @input="updateField('apartment', $event)"
       />
       <SfInput
         v-model="city"
+        :value="city"
         label="City"
         name="city"
         class="form__element form__element--half"
         required
+        @input="updateField('city', $event)"
       />
       <SfInput
         v-model="state"
+        :value="state"
         label="State/Province"
         name="state"
         class="form__element form__element--half form__element--half-even"
         required
+        @input="updateField('state', $event)"
       />
       <SfInput
         v-model="zipCode"
+        :value="zipCode"
         label="Zip-code"
         name="zipCode"
         class="form__element form__element--half"
         required
+        @input="updateField('zipCode', $event)"
       />
       <SfSelect
         v-model="country"
+        :value="country"
         label="Country"
         class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
         required
+        @change="updateField('country', $event)"
       >
         <SfSelectOption
           v-for="countryOption in countries"
@@ -70,14 +87,17 @@
       </SfSelect>
       <SfInput
         v-model="phoneNumber"
+        :value="phoneNumber"
         label="Phone number"
         name="phone"
         class="form__element"
         required
+        @input="updateField('phoneNumber', $event)"
       />
     </div>
     <SfHeading
       title="Shipping method"
+      :level="3"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
@@ -91,6 +111,7 @@
           name="shippingMethod"
           :description="item.description"
           class="form__radio shipping"
+          @input="updateField('shippingMethod', $event)"
         >
           <template #label="{label}">
             <div class="sf-radio__label shipping__label">
@@ -101,7 +122,7 @@
           <template #description="{description}">
             <div class="sf-radio__description shipping__description">
               <div class="shipping__delivery">
-                {{ item.delivery }}
+                <p>{{ item.delivery }}</p>
                 <SfButton
                   class="sf-button--text color-secondary shipping__action"
                   :class="{ 'shipping__action--is-active': item.isOpen }"
@@ -118,10 +139,10 @@
           </template>
         </SfRadio>
       </div>
-      <div class="form__action">
+      <div class="form__action mobile-only">
         <SfButton
           class="sf-button--full-width form__action-button"
-          @click="toPayment"
+          @click="$emit('click:next')"
           >Continue to payment
         </SfButton>
         <SfButton
@@ -152,13 +173,13 @@ export default {
     SfRadio
   },
   props: {
-    order: {
-      type: Object,
-      default: () => ({})
-    },
     shippingMethods: {
       type: Array,
       default: () => []
+    },
+    value: {
+      type: Object,
+      default: () => ({})
     }
   },
   data() {
@@ -224,39 +245,12 @@ export default {
       ]
     };
   },
-  watch: {
-    order: {
-      handler(value) {
-        this.firstName = value.shipping.firstName;
-        this.lastName = value.shipping.lastName;
-        this.streetName = value.shipping.streetName;
-        this.apartment = value.shipping.apartment;
-        this.city = value.shipping.city;
-        this.state = value.shipping.state;
-        this.zipCode = value.shipping.zipCode;
-        this.country = value.shipping.country;
-        this.phoneNumber = value.shipping.phoneNumber;
-        this.shippingMethod = value.shipping.shippingMethod;
-      },
-      immediate: true
-    }
-  },
   methods: {
-    toPayment() {
-      const order = { ...this.order };
-      const shipping = { ...order.shipping };
-      shipping.firstName = this.firstName;
-      shipping.lastName = this.lastName;
-      shipping.streetName = this.streetName;
-      shipping.apartment = this.apartment;
-      shipping.city = this.city;
-      shipping.state = this.state;
-      shipping.zipCode = this.zipCode;
-      shipping.country = this.country;
-      shipping.phoneNumber = this.phoneNumber;
-      shipping.shippingMethod = this.shippingMethod;
-      order.shipping = shipping;
-      this.$emit("update:order", order);
+    updateField(fieldName, fieldValue) {
+      this.$emit("input", {
+        ...this.value,
+        [fieldName]: fieldValue
+      });
     }
   }
 };
@@ -264,7 +258,7 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .title {
-  margin: 0 0 var(--spacer-extra-big);
+  --heading-title-margin: var(--spacer-sm) 0;
 }
 .form {
   @include for-desktop {
@@ -273,7 +267,7 @@ export default {
     align-items: center;
   }
   &__element {
-    margin: 0 0 var(--spacer-extra-big) 0;
+    // margin: 0 0 var(--spacer-base) 0;
     @include for-desktop {
       flex: 0 0 100%;
     }
@@ -283,7 +277,7 @@ export default {
       }
       &-even {
         @include for-desktop {
-          padding: 0 0 0 var(--spacer-extra-big);
+          padding: 0 0 0 var(--spacer-xl);
         }
       }
     }
@@ -298,16 +292,7 @@ export default {
       display: flex;
     }
   }
-  &__action-button {
-    &--secondary {
-      margin: var(--spacer-big) 0;
-      @include for-desktop {
-        order: -1;
-        --button-margin: 0;
-        text-align: left;
-      }
-    }
-  }
+
   &__button {
     --button-width: 100%;
     @include for-desktop {
@@ -316,24 +301,25 @@ export default {
   }
   &__radio-group {
     flex: 0 0 100%;
-    margin: 0 0 var(--spacer-extra-big) 0;
+    margin: 0 0 var(--spacer-xl) 0;
   }
 }
 .shipping {
-  margin: 0 calc(var(--spacer-big) * -1);
+  --radio-container-padding: var(--spacer-sm) 0;
   &__label {
     display: flex;
     justify-content: space-between;
   }
   &__description {
     --radio-description-margin: 0;
-    --radio-description-font-size: var(--font-size-extra-small);
   }
   &__delivery {
     color: var(--c-text-muted);
+    display: flex;
+    justify-content: space-between;
+    max-width: 240px;
   }
   &__action {
-    margin: 0 0 0 var(--spacer);
     &::before {
       content: "+";
     }
