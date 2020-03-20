@@ -88,18 +88,18 @@
   }
   @include for-desktop {
     --list-item-border-width: 0;
+    --mega-menu-height: auto;
+    --mega-menu-content-padding: var(--spacer-xl) 0;
+    --mega-menu-aside-order: 1;
+    --mega-menu-menu-display: flex;
+    --mega-menu-section-flex: 0 0 auto;
+    --mega-menu-aside-content-padding: 0;
+    --mega-menu-aside-title-display: block;
+    --mega-menu-aside-title-text-transform: uppercase;
     &__content {
       &--is-active {
         --mega-menu-content-transform: translate3d(0, 0, 0);
       }
     }
   }
-  --mega-menu-height: auto;
-  --mega-menu-content-padding: var(--spacer-xl) 0;
-  --mega-menu-aside-order: 1;
-  --mega-menu-menu-display: flex;
-  --mega-menu-section-flex: 0 0 auto;
-  --mega-menu-aside-content-padding: 0;
-  --mega-menu-aside-title-display: block;
-  --mega-menu-aside-title-text-transform: uppercase;
 }
