@@ -8,6 +8,7 @@
     margin: var(--list-item-margin, 0);
     padding: var(--list-item-padding, 0);
     color: var(--list-item-color, var(--c-text));
+    @include border(--list-item-border, 0, solid, var(--c-light));
     @include font(
       --list-item-font,
       var(--font-normal),
