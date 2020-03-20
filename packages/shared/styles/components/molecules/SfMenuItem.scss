@@ -4,55 +4,34 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--menu-item-padding);
-  letter-spacing: var(--menu-item-letter-spacing);
   text-transform: var(--menu-item-text-transform);
   cursor: pointer;
   @include border(--menu-item-border, 0, solid, var(--c-light));
-
   @include font(
     --menu-item-font,
     var(--font-normal),
     var(--font-sm),
-    1.6,
+    1.4,
     var(--font-family-secondary)
   );
-
   &__icon {
     --icon-color: var(--c-gray);
     margin: var(--menu-item-icon-margin, 0 var(--spacer-xs) 0 0);
   }
-
   &__count {
     margin: var(--menu-item-count-margin, 0 0 0 auto);
     color: var(--menu-item-count-color, var(--c-gray));
   }
-
   &__mobile-nav-icon {
     display: var(--menu-item-mobile-nav-icon-display, flex);
     margin: var(--menu-item-mobile-nav-icon-margin, 0 0 0 var(--spacer-base));
   }
-
-  &__title {
-    margin: var(--menu-item-title-margin);
-    color: var(--menu-item-title-color);
-    @include font(
-      --menu-item-title-font,
-      var(--font-light),
-      var(--h5-font-size),
-      1.6,
-      var(--font-family-secondary)
-    );
-  }
-
   &__label {
     color: var(--menu-item-label-color, var(--c-dark-variant));
   }
-
   &--is-active {
     --menu-item-label-color: var(--c-primary);
   }
-
   @include for-desktop {
     --menu-item-mobile-nav-icon-display: none;
   }
