@@ -1,89 +1,88 @@
 <template>
-  <div>
+  <div id="personal-details">
+    <div class="log-in desktop-only">
+      <SfButton class="log-in__button color-secondary"
+        >Log in to your account</SfButton
+      >
+      <p class="log-in__info">or fill the details below:</p>
+    </div>
     <SfHeading
       title="1. Personal details"
+      :level="3"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
       <SfInput
         v-model="firstName"
+        :value="firstName"
         label="First name"
         name="firstName"
         class="form__element form__element--half"
         required
+        @input="updateField('firstName', $event)"
       />
       <SfInput
         v-model="lastName"
+        :value="lastName"
         label="Last name"
         name="lastName"
         class="form__element form__element--half form__element--half-even"
         required
+        @input="updateField('lastName', $event)"
       />
       <SfInput
         v-model="email"
+        :value="email"
         label="Your email"
         name="email"
         class="form__element"
         required
+        @input="updateField('email', $event)"
       />
-      <div class="form__element form__group">
+      <div class="info">
+        <p class="info__heading">
+          Enjoy these perks with your free account!
+        </p>
+        <SfCharacteristic
+          v-for="(characteristic, key) in characteristics"
+          :key="key"
+          :description="characteristic.description"
+          :icon="characteristic.icon"
+          size-icon="0.75rem"
+          class="info__characteristic"
+        />
+      </div>
+      <div class="form__element">
         <SfCheckbox
           v-model="createAccount"
           name="createAccount"
           label="I want to create an account"
           class="form__checkbox"
         />
-        <SfButton
-          class="sf-button--text color-secondary color-secondary info"
-          @click="accountBenefits = true"
-          >+info
-        </SfButton>
       </div>
       <transition name="fade">
         <SfInput
           v-if="createAccount"
           v-model="password"
+          :has-show-password="true"
           type="password"
           label="Create Password"
           class="form__element"
           required
         />
       </transition>
-      <div class="form__action">
+      <div class="form__action mobile-only">
         <SfButton
           class="sf-button--full-width form__action-button"
-          @click="toShipping"
-          >Continue to shipping
+          @click="$emit('click:next')"
+          >{{ buttonName }}
         </SfButton>
         <SfButton
-          class="sf-button--full-width sf-button--text color-secondary form__action-button form__action-button--secondary"
+          class="sf-button--full-width sf-button--text form__action-button form__action-button--secondary"
           >or log in to your account
         </SfButton>
       </div>
     </div>
-    <SfModal
-      :visible="accountBenefits"
-      class="modal"
-      @close="accountBenefits = false"
-    >
-      <SfHeading
-        title="Account Benefits"
-        subtitle="Enjoy these perks with your free account!"
-        class="sf-heading--left sf-heading--no-underline modal__heading"
-      />
-      <SfCharacteristic
-        v-for="(characteristic, key) in characteristics"
-        :key="key"
-        :description="characteristic.description"
-        :icon="characteristic.icon"
-        class="characteristic"
-      />
-      <SfButton
-        class="sf-button--full-width color-secondary modal__button"
-        @click="accountBenefits = false"
-        >Ok
-      </SfButton>
-    </SfModal>
   </div>
 </template>
 <script>
@@ -92,7 +91,6 @@ import {
   SfCheckbox,
   SfButton,
   SfHeading,
-  SfModal,
   SfCharacteristic
 } from "@storefront-ui/vue";
 
@@ -103,13 +101,16 @@ export default {
     SfCheckbox,
     SfButton,
     SfHeading,
-    SfModal,
     SfCharacteristic
   },
   props: {
-    order: {
+    value: {
       type: Object,
       default: () => ({})
+    },
+    buttonName: {
+      type: String,
+      default: ""
     }
   },
   data() {
@@ -119,7 +120,6 @@ export default {
       email: "",
       password: "",
       createAccount: false,
-      accountBenefits: false,
       characteristics: [
         { description: "Faster checkout", icon: "clock" },
         { description: "Full rewards program benefits", icon: "rewards" },
@@ -128,36 +128,45 @@ export default {
       ]
     };
   },
-  watch: {
-    order: {
-      handler(value) {
-        this.firstName = value.firstName;
-        this.lastName = value.lastName;
-        this.email = value.email;
-      },
-      immediate: true
-    },
-    createAccount(value) {
-      if (!value) this.password = "";
-    }
-  },
   methods: {
-    toShipping() {
-      const order = { ...this.order };
-      order.firstName = this.firstName;
-      order.lastName = this.lastName;
-      order.email = this.email;
-      order.password = this.password;
-      order.createAccount = this.createAccount;
-      this.$emit("update:order", order);
+    updateField(fieldName, fieldValue) {
+      this.$emit("input", {
+        ...this.value,
+        [fieldName]: fieldValue
+      });
     }
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 .title {
-  margin: 0 0 var(--spacer-extra-big);
+  --heading-padding: 0 0 var(--spacer-sm) 0;
+  @include for-desktop {
+    --heading-padding: var(--spacer-sm) 0 var(--spacer-lg) 0;
+  }
+}
+
+.info {
+  &__heading {
+    margin: var(--spacer-sm) 0 var(--spacer-lg) 0;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-sm);
+    font-weight: var(--font-light);
+  }
+  &__characteristic {
+    --characteristic-description-font-size: var(--font-xs);
+    margin: 0 0 var(--spacer-sm) var(--spacer-2xs);
+    @include for-desktop {
+      margin: var(--spacer-base) 0;
+    }
+  }
+}
+.log-in {
+  &__button {
+    margin: 0 0 var(--spacer-xl) 0;
+  }
 }
 .form {
   @include for-desktop {
@@ -165,8 +174,8 @@ export default {
     flex-wrap: wrap;
     align-items: center;
   }
+
   &__element {
-    margin: 0 0 var(--spacer-extra-big) 0;
     @include for-desktop {
       flex: 0 0 100%;
     }
@@ -176,54 +185,23 @@ export default {
       }
       &-even {
         @include for-desktop {
-          padding: 0 0 0 var(--spacer-extra-big);
+          padding: 0 0 0 var(--spacer-lg);
         }
       }
     }
   }
-  &__group {
-    display: flex;
-    align-items: center;
-  }
-  &__action {
-    @include for-desktop {
-      flex: 0 0 100%;
-      display: flex;
+
+  &__checkbox {
+    margin: var(--spacer-base) 0 var(--spacer-base) 0;
+    @include for-mobile {
+      --checkbox-font-family: var(--font-family-primary);
+      --checkbox-font-weight: var(--font-light);
+      --checkbox-font-size: var(--font-sm);
     }
   }
+
   &__action-button {
-    &--secondary {
-      margin: var(--spacer-big) 0;
-      @include for-desktop {
-        --button-margin: 0;
-        text-align: right;
-      }
-    }
-  }
-  &__button {
-    --button-width: 100%;
-    @include for-desktop {
-      --button-width: auto;
-    }
-  }
-}
-.info {
-  --button-padding: 0 var(--spacer);
-  --button-color: var(--c-text-muted);
-  --button-text-decoration: none;
-}
-.characteristic {
-  margin: 0 0 var(--spacer-big) 0;
-  &:last-child {
-    margin: 0;
-  }
-}
-.modal {
-  &__heading {
-    margin: 0 0 var(--spacer-extra-big) 0;
-  }
-  &__button {
-    margin: var(--spacer-extra-big) 0 0 0;
+    --button-height: 4.0625rem;
   }
 }
 </style>
