@@ -237,12 +237,12 @@ export default {
 
 .first-divider {
   --divider-margin: var(--spacer-base) 0 var(--spacer-sm) 0;
-  border-color: var(--c-white);
+  --divider-border-color: var(--c-white);
 }
 
 .second-divider {
   --divider-margin: var(--spacer-sm) 0 0 0;
-  border-color: var(--c-white);
+  --divider-border-color: var(--c-white);
 }
 
 .back-button {
