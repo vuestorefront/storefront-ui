@@ -5,31 +5,33 @@
     position: relative;
     width: 100%;
     display: flex;
-    flex-flow: var(--steps-flex-flow, row nowrap);
-    justify-content: var(--steps-justify-content, flex-start);
-    align-items: var(--steps-align-items, center);
-    border: var(--steps-border, 1px solid var(--c-light));
-    border-width: var(--steps-border-width, 0 0 1px 0);
+    @include border(--steps-border, 0, solid, var(--c-light));
+    box-shadow: 0px 4px 11px rgba(var(--c-black-base), 0.1);
   }
   &__step {
     position: relative;
-    padding: var(--steps-step-padding, 1.25rem 0);
-    font: var(
-      --steps-step-font,
-      font(
-        --steps-step-font,
-        500,
-        0.75rem,
-        1.6,
-        var(--font-family-primary)
-      )
-    );
-    color: var(--steps-step-color, var(--c-gray-variant));
-    text-transform: var(--steps-step-text-transform, uppercase);
+    display: flex;
     flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: var(--steps-step-padding, var(--spacer-sm) var(--spacer-2xs));
+    @include font(
+      --step-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.6,
+      var(--font-family-secondary)
+    );
+    color: var(--steps-step-color, var(--c-link));
     cursor: var(--steps-step-cursor, pointer);
-    &--current {
-      --steps-step-color: var(--c-dark);
+    &--current,
+    &--done {
+      --steps-step-color: var(--c-text);
+      --steps-step-cursor: default;
+      --step-font-weight: var(--font-semibold);
+    }
+    &--done {
+      --steps-step-cursor: pointer;
     }
     &--disabled {
       --steps-step-cursor: not-allowed;
@@ -39,24 +41,56 @@
     content: "";
     position: absolute;
     left: 0;
-    bottom: var(--steps-progress-bottom, -0.09375rem);
+    bottom: var(--steps-progress-bottom, -2px);
     display: block;
-    height: var(--steps-progress-height, 0.1875rem);
-    background: var(--steps-progress-background, var(--c-dark));
+    width: var(--steps-progress-width, var(--_steps-progress-width));
+    height: var(--steps-progress-height, 3px);
+    background: var(--steps-progress-background, var(--c-primary));
+    transform: var(
+      --steps-progress-transform,
+      scale3d(var(--_steps-progress-active-step), 1, 1)
+    );
     transform-origin: 0 50%;
     transition: var(--steps-progress-transition, transform 150ms ease-in-out);
   }
   &__title {
-    position: relative;
-    display: block;
     text-align: center;
   }
   &__content {
-    padding: var(--steps-content-padding, 2.5rem 0 0 0);
+    padding: var(--steps-content-padding, var(--spacer-base) 0 0 0);
   }
   @include for-desktop {
-    --steps-progress-height: 0.125rem;
-    --steps-content-padding: 5rem 0 0 0;
-    --steps-progress-bottom: -0.09375rem;
+    --steps-step-color: var(--c-text-muted);
+    &__header {
+      box-shadow: none;
+      --steps-border-width: 0 0 2px 0;
+    }
+    &__step {
+      --steps-step-padding: 0 0 var(--spacer-xs) 0;
+      --step-font-size: var(--font-lg);
+      &--current,
+      &--done {
+        --steps-step-after-background: var(--c-black);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        border-radius: 100%;
+        bottom: -3.52px;
+        left: 49%;
+        width: 6px;
+        height: 6px;
+        background: var(--steps-step-after-background, transparent);
+      }
+    }
+    &__progress {
+      --steps-progress-background: var(--c-dark);
+      --steps-progress-height: 2px;
+      --steps-progress-transform: scale3d(
+        calc(var(--_steps-progress-active-step) - 0.5),
+        1,
+        1
+      );
+    }
   }
 }

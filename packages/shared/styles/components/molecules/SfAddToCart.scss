@@ -12,7 +12,7 @@
     }
   }
   &__select-quantity {
-    --quantity-selector-height: 100%;
+    flex: none;
     margin: var(--add-to-cart-select-quantity-margin, 0 0 0 var(--spacer-xs));
   }
   @include for-desktop {
