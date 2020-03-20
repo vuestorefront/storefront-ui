@@ -11,10 +11,10 @@
     justify-content: space-between;
     margin: var(--tabs-title-margin);
     padding: var(--tabs-title-padding, var(--spacer-sm));
+    @include border(--tabs-title-border, 0 0 1px 0, solid, var(--c-light));
     color: var(--tabs-title-color, var(--c-text));
     transition: color 150ms ease-in-out;
     cursor: pointer;
-    @include border(--tabs-title-border, 0 0 1px 0, solid, var(--c-light));
     @include font(
       --tabs-title-font,
       var(--font-normal),
@@ -25,12 +25,16 @@
     &--active {
       --tabs-title-border-width: 0;
       --tabs-title-color: var(--c-primary);
+      & + .sf-tabs__content {
+        --tabs-content-border-width: 1px 0 0 0;
+      }
     }
   }
   &__content {
+    flex:  0 0 100%;
     order: var(--tabs-content-order);
+    @include border(--tabs-content-border, 0, solid, var(--c-light));
     color: var(--tabs-content-color, var(--c-text));
-    @include border(--tabs-content-border, 1px 0, solid, var(--c-light));
     @include font(
       --tabs-content-font,
       var(--font-light),
@@ -57,13 +61,15 @@
     --tabs-title-color: var(--c-text-muted);
     --tabs-title-font-size: var(--h4-font-size);
     --tabs-content-tab-padding: var(--spacer-base) 0;
-    --tabs-content-border-width: 1px 0 0 0;
     --tabs-chevron-display: none;
     &__title {
       &--active {
         --tabs-title-border-width: 0 0 2px 0;
         --tabs-title-border-color: var(--c-text);
         --tabs-title-color: var(--c-text);
+        & + .sf-tabs__content {
+          --tabs-content-border-width: 2px 0 0 0;
+        }
       }
       &:hover {
         --tabs-title-color: var(--c-text);
