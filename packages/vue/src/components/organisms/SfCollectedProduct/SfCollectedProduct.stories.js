@@ -2,14 +2,14 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, object, text, number } from "@storybook/addon-knobs";
 
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfCollectedProduct from "./SfCollectedProduct.vue";
-
 import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
 
 storiesOf("Organisms|CollectedProduct", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfCollectedProduct, SfProperty },
+    components: { SfCollectedProduct, SfProperty, SfButton },
     props: {
       image: {
         default: object(
@@ -53,15 +53,14 @@ storiesOf("Organisms|CollectedProduct", module)
         :special-price="specialPrice"
     >
       <template #configuration>
-        <div :style="{margin: '20px 0 0 0'}">
+        <div :style="{margin: '1rem 0 0 0'}">
           <SfProperty name="Size" value="XS"/>
           <SfProperty name="Color" value="white"/>
         </div>
       </template>
       <template #actions>
         <div :style="{margin: 'auto 0 0 0', fontSize: '14px'}">
-          <div>MSD23-345-325</div>
-          <div>Quantity: 1</div>
+          <SfButton class="sf-button--text">Remove</SfButton>
         </div>
       </template>
     </SfCollectedProduct>`
