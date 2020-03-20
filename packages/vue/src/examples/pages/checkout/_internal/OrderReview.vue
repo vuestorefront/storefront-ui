@@ -63,7 +63,16 @@
       </SfButton>
     </div>
     <p class="content">{{ paymentMethod.label }}</p>
-    <div class="highlighted">
+    <SfButton class="sf-button--full-width actions__action-button"
+      >Place my order
+    </SfButton>
+    <SfButton
+      class="sf-button--full-width sf-button--text color-secondary actions__action-button"
+      @click="$emit('click:back')"
+    >
+      Go back to Payment
+    </SfButton>
+    <div class="characteristics">
       <SfCharacteristic
         v-for="characteristic in characteristics"
         :key="characteristic.title"
@@ -71,7 +80,7 @@
         :description="characteristic.description"
         :icon="characteristic.icon"
         color-icon="green-primary"
-        class="characteristic"
+        class="characteristics__item"
       />
     </div>
   </div>
@@ -147,6 +156,12 @@ export default {
     h3 {
       font: inherit;
     }
+  }
+}
+.characteristics {
+  padding: var(--spacer-sm) 0 var(--spacer-base) 0;
+  &__item {
+    margin: var(--spacer-base) 0;
   }
 }
 .content {
