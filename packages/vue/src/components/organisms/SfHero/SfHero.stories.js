@@ -3,6 +3,8 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
+  color,
+  object,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 
@@ -44,10 +46,17 @@ storiesOf("Organisms|Hero", module)
         default: text("buttonText", "Lear more", "Props")
       },
       image: {
-        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+        default: object(
+          "image",
+          {
+            mobile: "/assets/storybook/SfHero/hero.png",
+            desktop: "/assets/storybook/SfHero/hero.png"
+          },
+          "Props"
+        )
       },
       background: {
-        default: text("background", "#ECEFF1", "Props")
+        default: color("background", "#ECEFF1", "Props")
       }
     },
     template: `<SfHero
@@ -103,10 +112,17 @@ storiesOf("Organisms|Hero", module)
         default: text("buttonText", "Lear more", "Props")
       },
       image: {
-        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+        default: object(
+          "image",
+          {
+            mobile: "/assets/storybook/SfHero/hero.png",
+            desktop: "/assets/storybook/SfHero/hero.png"
+          },
+          "Props"
+        )
       },
       background: {
-        default: text("background", "#ECEFF1", "Props")
+        default: color("background", "#ECEFF1", "Props")
       }
     },
     template: `<SfHero
@@ -165,10 +181,17 @@ storiesOf("Organisms|Hero", module)
         default: text("buttonText", "Lear more", "Props")
       },
       image: {
-        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+        default: object(
+          "image",
+          {
+            mobile: "/assets/storybook/SfHero/hero.png",
+            desktop: "/assets/storybook/SfHero/hero.png"
+          },
+          "Props"
+        )
       },
       background: {
-        default: text("background", "#ECEFF1", "Props")
+        default: color("background", "#ECEFF1", "Props")
       }
     },
     template: `<SfHero
@@ -227,10 +250,17 @@ storiesOf("Organisms|Hero", module)
         default: text("buttonText", "Lear more", "Props")
       },
       image: {
-        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+        default: object(
+          "image",
+          {
+            mobile: "/assets/storybook/SfHero/hero.png",
+            desktop: "/assets/storybook/SfHero/hero.png"
+          },
+          "Props"
+        )
       },
       background: {
-        default: text("background", "#ECEFF1", "Props")
+        default: color("background", "#ECEFF1", "Props")
       }
     },
     template: `<SfHero
@@ -289,10 +319,17 @@ storiesOf("Organisms|Hero", module)
         default: text("buttonText", "Lear more", "Props")
       },
       image: {
-        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+        default: object(
+          "image",
+          {
+            mobile: "/assets/storybook/SfHero/hero.png",
+            desktop: "/assets/storybook/SfHero/hero.png"
+          },
+          "Props"
+        )
       },
       background: {
-        default: text("background", "#ECEFF1", "Props")
+        default: color("background", "#ECEFF1", "Props")
       }
     },
     template: `<SfHero
@@ -345,10 +382,17 @@ storiesOf("Organisms|Hero", module)
         default: text("buttonText", "Lear more", "Props")
       },
       image: {
-        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+        default: object(
+          "image",
+          {
+            mobile: "/assets/storybook/SfHero/hero.png",
+            desktop: "/assets/storybook/SfHero/hero.png"
+          },
+          "Props"
+        )
       },
       background: {
-        default: text("background", "#ECEFF1", "Props")
+        default: color("background", "#ECEFF1", "Props")
       }
     },
     template: `<SfHero
@@ -401,10 +445,17 @@ storiesOf("Organisms|Hero", module)
         default: text("buttonText", "Lear more", "Props")
       },
       image: {
-        default: text("image", "/assets/storybook/SfHero/hero.png", "Props")
+        default: object(
+          "image",
+          {
+            mobile: "/assets/storybook/SfHero/hero.png",
+            desktop: "/assets/storybook/SfHero/hero.png"
+          },
+          "Props"
+        )
       },
       background: {
-        default: text("background", "#ECEFF1", "Props")
+        default: color("background", "#ECEFF1", "Props")
       }
     },
     template: `<SfHero

@@ -59,7 +59,8 @@ export default {
         "--_call-to-action-background-image": image.mobile
           ? `url(${image.mobile})`
           : `url(${image})`,
-        "--_call-to-action-background-desktop-image": `url(${image.desktop})`,
+        "--_call-to-action-background-desktop-image":
+          image.desktop && `url(${image.desktop})`,
         "--_call-to-action-background-color": background
       };
     }
