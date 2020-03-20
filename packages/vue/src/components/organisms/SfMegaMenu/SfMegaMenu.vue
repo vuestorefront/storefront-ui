@@ -28,7 +28,6 @@
             </SfListItem>
           </SfList>
           <div class="sf-mega-menu__aside-content">
-            <SfMenuItem :title="asideTitle" class="desktop-only" />
             <slot name="aside" />
           </div>
         </div>
@@ -61,10 +60,6 @@ export default {
   },
   props: {
     title: {
-      type: String,
-      default: ""
-    },
-    asideTitle: {
       type: String,
       default: ""
     },
