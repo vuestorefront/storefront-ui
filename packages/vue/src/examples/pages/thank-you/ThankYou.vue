@@ -44,11 +44,16 @@
           </p>
         </div>
         <SfDivider class="second-divider" />
-        <SfButton class="wrapper__notifications-button"
+        <SfButton
+          class="wrapper__notifications-button sf-button--full-width desktop-only"
           >ALLOW ORDER NOTIFICATIONS</SfButton
         >
       </div>
       <div class="wrapper__additional-info">
+        <SfButton
+          class="wrapper__notifications-button sf-button--full-width mobile-only"
+          >ALLOW ORDER NOTIFICATIONS</SfButton
+        >
         <div>
           <SfHeading
             title="Your Account"
