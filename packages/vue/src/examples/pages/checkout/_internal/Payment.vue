@@ -1,70 +1,89 @@
 <template>
   <div>
     <SfHeading
-      title="3. Payment"
+      title="Billing address"
+      :level="3"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
       <SfCheckbox
         v-model="sameAsShipping"
+        :value="sameAsShipping"
         label="Copy address data from shipping"
         name="copyShippingAddress"
-        class="form__element"
+        class="form__element form__checkbox"
+        @change="updateField('sameAsShipping', $event)"
       />
       <SfInput
         v-model="firstName"
+        :value="firstName"
         label="First name"
         name="firstName"
         class="form__element form__element--half"
         required
+        @input="updateField('firstName', $event)"
       />
       <SfInput
         v-model="lastName"
+        :value="lastName"
         label="Last name"
         name="lastName"
         class="form__element form__element--half form__element--half-even"
         required
+        @input="updateField('lastName', $event)"
       />
       <SfInput
         v-model="streetName"
+        :value="streetName"
         label="Street name"
         name="streetName"
         class="form__element"
         required
+        @input="updateField('streetName', $event)"
       />
       <SfInput
         v-model="apartment"
+        :value="apartment"
         label="House/Apartment number"
         name="apartment"
         class="form__element"
         required
+        @input="updateField('apartment', $event)"
       />
       <SfInput
         v-model="city"
+        :value="city"
         label="City"
         name="city"
         class="form__element form__element--half"
         required
+        @input="updateField('city', $event)"
       />
       <SfInput
         v-model="state"
+        :value="state"
         label="State/Province"
         name="state"
         class="form__element form__element--half form__element--half-even"
         required
+        @input="updateField('state', $event)"
       />
       <SfInput
         v-model="zipCode"
+        :value="zipCode"
         label="Zip-code"
         name="zipCode"
         class="form__element form__element--half"
         required
+        @input="updateField('zipCode', $event)"
       />
       <SfSelect
         v-model="country"
+        :value="country"
         label="Country"
         class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
         required
+        @change="updateField('country', $event)"
       >
         <SfSelectOption
           v-for="countryOption in countries"
@@ -76,14 +95,25 @@
       </SfSelect>
       <SfInput
         v-model="phoneNumber"
+        :value="phoneNumber"
         label="Phone number"
         name="phone"
         class="form__element"
         required
+        @input="updateField('phoneNumber', $event)"
+      />
+      <SfCheckbox
+        v-model="invoice"
+        :value="invoice"
+        label="I want to generate invoice for the company"
+        name="getInvoice"
+        class="form__element form__checkbox"
+        @change="updateField('invoice', $event)"
       />
     </div>
     <SfHeading
       title="Payment methods"
+      :level="3"
       subtitle="Choose your payment method"
       class="sf-heading--left sf-heading--no-underline title"
     />
@@ -98,6 +128,7 @@
           name="paymentMethod"
           :description="item.description"
           class="form__radio payment-method"
+          @input="updateField('paymentMethod', $event)"
         >
           <template #label>
             <div class="sf-radio__label">
@@ -123,76 +154,72 @@
       </div>
       <transition name="fade">
         <div v-if="isCreditCard" class="credit-card-form">
+          <SfInput
+            v-model="cardNumber"
+            :value="cardNumber"
+            name="cardNumber"
+            label="Card number"
+            class=" credit-card-form__input"
+            @input="updateField('cardNumber', $event)"
+          />
+          <SfInput
+            v-model="cardHolder"
+            :value="cardHolder"
+            label="Card holder"
+            name="cardHolder"
+            class=" credit-card-form__input"
+            @input="updateField('cardHolder', $event)"
+          />
           <div class="credit-card-form__group">
             <span
-              class="credit-card-form__label credit-card-form__label--required"
-              >Number</span
-            >
-            <div class="credit-card-form__element">
-              <SfInput
-                v-model="cardNumber"
-                name="cardNumber"
-                class=" credit-card-form__input"
-              />
-            </div>
-          </div>
-          <div class="credit-card-form__group">
-            <span
-              class="credit-card-form__label credit-card-form__label--required"
-              >Card holder</span
-            >
-            <div class="credit-card-form__element">
-              <SfInput
-                v-model="cardHolder"
-                name="cardHolder"
-                class=" credit-card-form__input"
-              />
-            </div>
-          </div>
-          <div class="credit-card-form__group">
-            <span
-              class="credit-card-form__label credit-card-form__label--required"
-              >Expiry date</span
+              class="credit-card-form__label credit-card-form__label--small credit-card-form__label--required"
+              >Expiry date:</span
             >
             <div class="credit-card-form__element">
               <SfInput
                 v-model="cardMonth"
+                :value="cardMonth"
                 label="Month"
                 name="month"
-                class="credit-card-form__input "
+                class="credit-card-form__input credit-card-form__input--with-spacer"
+                @input="updateField('cardMonth', $event)"
               />
               <SfInput
                 v-model="cardYear"
+                :value="cardYear"
                 label="Year"
                 name="year"
                 class="credit-card-form__input"
+                @input="updateField('cardYear', $event)"
               />
             </div>
           </div>
           <div class="credit-card-form__group">
-            <span
-              class="credit-card-form__label credit-card-form__label--required"
-              >Code CVC</span
+            <SfInput
+              v-model="cardCVC"
+              :value="cardCVC"
+              label="Code CVC"
+              name="cardCVC"
+              class=" credit-card-form__input credit-card-form__input--small credit-card-form__input--with-spacer"
+              @input="updateField('cardCVC', $event)"
+            />
+            <SfButton class="sf-button--text credit-card-form__button"
+              >Where can I find CVC code</SfButton
             >
-            <div class="credit-card-form__element">
-              <SfInput
-                v-model="cardCVC"
-                name="cardCVC"
-                class=" credit-card-form__input credit-card-form__input--small"
-              />
-            </div>
           </div>
           <SfCheckbox
             v-model="cardKeep"
+            :value="cardKeep"
             name="keepcard"
             label="I want to keep this data for other purchases."
+            @change="updateField('cardKeep', $event)"
           />
         </div>
       </transition>
-      <div class="form__action">
+      <div class="form__action mobile-only">
         <SfButton
           class="sf-button--full-width form__action-button"
-          @click="toReview"
+          @click="$emit('click:next')"
           >Review order
         </SfButton>
         <SfButton
@@ -228,13 +255,13 @@ export default {
     SfCheckbox
   },
   props: {
-    order: {
-      type: Object,
-      default: () => ({})
-    },
     paymentMethods: {
       type: Array,
       default: () => []
+    },
+    value: {
+      type: Object,
+      default: () => ({})
     }
   },
   data() {
@@ -250,6 +277,7 @@ export default {
       country: "",
       phoneNumber: "",
       paymentMethod: "",
+      invoice: false,
       cardNumber: "",
       cardHolder: "",
       cardMonth: "",
@@ -312,89 +340,51 @@ export default {
       return ["debit", "mastercard", "electron"].includes(this.paymentMethod);
     }
   },
-  watch: {
-    order: {
-      handler(value) {
-        this.sameAsShipping = value.payment.sameAsShipping;
-        this.streetName = value.payment.streetName;
-        this.apartment = value.payment.apartment;
-        this.city = value.payment.city;
-        this.state = value.payment.state;
-        this.zipCode = value.payment.zipCode;
-        this.country = value.payment.country;
-        this.phoneNumber = value.payment.phoneNumber;
-        this.paymentMethod = value.payment.paymentMethod;
-        this.cardNumber = value.payment.card.number;
-        this.cardHolder = value.payment.card.holder;
-        this.cardMonth = value.payment.card.month;
-        this.cardYear = value.payment.card.year;
-        this.cardCVC = value.payment.card.cvc;
-        this.cardKeep = value.payment.card.keep;
-      },
-      immediate: true
-    },
-    sameAsShipping: {
-      handler(value) {
-        if (value) {
-          this.firstName = this.order.shipping.firstName;
-          this.lastName = this.order.shipping.lastName;
-          this.streetName = this.order.shipping.streetName;
-          this.apartment = this.order.shipping.apartment;
-          this.city = this.order.shipping.city;
-          this.state = this.order.shipping.state;
-          this.zipCode = this.order.shipping.zipCode;
-          this.country = this.order.shipping.country;
-          this.phoneNumber = this.order.shipping.phoneNumber;
-          this.paymentMethod = this.order.shipping.paymentMethod;
-        } else {
-          this.streetName = "";
-          this.apartment = "";
-          this.city = "";
-          this.state = "";
-          this.zipCode = "";
-          this.country = "";
-          this.phoneNumber = "";
-          this.paymentMethod = "";
-        }
-      }
-    }
-  },
   methods: {
-    toReview() {
-      const order = { ...this.order };
-      const payment = { ...order.payment };
-      const card = { ...payment.card };
-      payment.sameAsShipping = this.sameAsShipping;
-      payment.firstName = this.firstName;
-      payment.lastName = this.lastName;
-      payment.streetName = this.streetName;
-      payment.streetName = this.streetName;
-      payment.apartment = this.apartment;
-      payment.city = this.city;
-      payment.state = this.state;
-      payment.zipCode = this.zipCode;
-      payment.country = this.country;
-      payment.phoneNumber = this.phoneNumber;
-      payment.paymentMethod = this.paymentMethod;
-      if (this.isCreditCard) {
-        card.number = this.cardNumber;
-        card.holder = this.cardHolder;
-        card.month = this.cardMonth;
-        card.year = this.cardYear;
-        card.cvc = this.cardCVC;
-        card.keep = this.cardKeep;
-      }
-      payment.card = card;
-      order.payment = payment;
-      this.$emit("update:order", order);
+    updateField(fieldName, fieldValue) {
+      this.$emit("input", {
+        ...this.value,
+        [fieldName]: fieldValue
+      });
     }
+    // toReview() {
+    //   const order = { ...this.order };
+    //   const payment = { ...order.payment };
+    //   const card = { ...payment.card };
+    //   payment.sameAsShipping = this.sameAsShipping;
+    //   payment.firstName = this.firstName;
+    //   payment.lastName = this.lastName;
+    //   payment.streetName = this.streetName;
+    //   payment.streetName = this.streetName;
+    //   payment.apartment = this.apartment;
+    //   payment.city = this.city;
+    //   payment.state = this.state;
+    //   payment.zipCode = this.zipCode;
+    //   payment.country = this.country;
+    //   payment.phoneNumber = this.phoneNumber;
+    //   payment.paymentMethod = this.paymentMethod;
+    //   if (this.isCreditCard) {
+    //     card.number = this.cardNumber;
+    //     card.holder = this.cardHolder;
+    //     card.month = this.cardMonth;
+    //     card.year = this.cardYear;
+    //     card.cvc = this.cardCVC;
+    //     card.keep = this.cardKeep;
+    //   }
+    //   payment.card = card;
+    //   order.payment = payment;
+    //   this.$emit("update:order", order);
+    // }
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .title {
-  margin: 0 0 var(--spacer-extra-big);
+  --heading-padding: 0 0 var(--spacer-sm) 0;
+  @include for-desktop {
+    --heading-padding: var(--spacer-sm) 0 var(--spacer-base) 0;
+  }
 }
 .form {
   @include for-desktop {
@@ -403,7 +393,6 @@ export default {
     align-items: center;
   }
   &__element {
-    margin: 0 0 var(--spacer-extra-big) 0;
     @include for-desktop {
       flex: 0 0 100%;
     }
@@ -413,15 +402,19 @@ export default {
       }
       &-even {
         @include for-desktop {
-          padding: 0 0 0 var(--spacer-extra-big);
+          padding: 0 0 0 var(--spacer-xl);
         }
       }
     }
+  }
+  &__checkbox {
+    padding: 0 0 var(--spacer-lg) 0;
   }
   &__group {
     display: flex;
     align-items: center;
   }
+
   &__action {
     @include for-desktop {
       flex: 0 0 100%;
@@ -429,79 +422,87 @@ export default {
     }
   }
   &__action-button {
-    &--secondary {
-      margin: var(--spacer-big) 0;
-      @include for-desktop {
-        order: -1;
-        --button-margin: 0;
-        text-align: left;
-      }
+    --button-height: 4.0625rem;
+    &:first-child {
+      margin: var(--spacer-lg) 0 0 0;
     }
   }
-  &__button {
-    --button-width: 100%;
-    @include for-desktop {
-      --button-width: auto;
-    }
-  }
+  // &__button {
+  //   --button-width: 100%;
+  //   @include for-desktop {
+  //     --button-width: auto;
+  //   }
+  // }
   &__radio-group {
     flex: 0 0 100%;
     margin: 0 0 var(--spacer-extra-big) 0;
   }
 }
 .payment-methods {
+  border: 1px solid var(--c-light);
+  border-width: 0 0 1px 0;
+  padding: 0 0 var(--spacer-sm) 0;
   @include for-desktop {
     display: flex;
+    justify-content: space-between;
     padding: var(--spacer-big) 0;
-    border: 1px solid var(--c-light);
     border-width: 1px 0;
   }
 }
 .payment-method {
   --radio-container-align-items: center;
-  --ratio-content-margin: 0 0 0 var(--spacer);
-  --radio-label-font-size: var(--font-size-regular);
+  --radio-background: transparent;
+  --ratio-content-margin: 0 0 0 var(--spacer-lg);
   white-space: nowrap;
-  border: 1px solid var(--c-light);
-  border-width: 1px 0 0 0;
-  &:last-child {
-    border-width: 1px 0;
-  }
-  @include for-mobile {
-    --radio-background: transparent;
-  }
-  @include for-desktop {
-    border: 0;
-    --radio-border-radius: 4px;
-  }
 }
 .credit-card-form {
-  margin: 0 0 var(--spacer-big) 0;
+  padding: var(--spacer-xl) 0 0 0;
   @include for-desktop {
-    flex: 0 0 66.666%;
-    padding: 0 calc((100% - 66.666%) / 2);
+    width: 100%;
+    padding: var(--spacer-lg) var(--spacer-2xl);
   }
   &__group {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 0 var(--spacer-big) 0;
-  }
-  &__label {
-    flex: unset;
-    font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
+    align-items: baseline;
+    justify-content: flex-start;
+    position: relative;
   }
   &__element {
-    display: flex;
-    flex: 0 0 66.66%;
+    @include for-desktop {
+      display: flex;
+    }
   }
+  &__label {
+    font-size: var(--font-lg);
+    flex: 50%;
+    &--small {
+      @include for-desktop {
+        flex: 0 0 calc(100% / 3);
+      }
+    }
+  }
+  &__button {
+    @include for-mobile {
+      position: absolute;
+      bottom: 50%;
+      right: 0;
+      transform: translate3d(0, 0, 50%);
+    }
+  }
+
   &__input {
     flex: 1;
-    &--small {
-      flex: 0 0 46.666%;
-    }
-    & + & {
-      margin: 0 0 0 var(--spacer-big);
+    @include for-desktop {
+      align-self: center;
+      &--with-spacer {
+        margin: 0 var(--spacer-xl) 0 0;
+      }
+      &--small {
+        flex: 0 0 calc(100% / 3);
+      }
+      &--margin {
+        margin: 0 0 0 var(--spacer-lg);
+      }
     }
   }
 }
