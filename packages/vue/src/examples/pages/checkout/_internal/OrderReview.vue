@@ -1,85 +1,90 @@
 <template>
   <div>
-    <div class="highlighted">
-      <SfHeading
-        title="Order review"
-        class="sf-heading--left sf-heading--no-underline title"
-      />
-      <div class="highlighted__header">
-        <h3 class="highlighted__title">Personal details</h3>
-        <SfButton
-          class="sf-button--text color-secondary"
-          @click="$emit('click:edit', 0)"
-          >Edit
-        </SfButton>
-      </div>
-      <p class="content">{{ order.firstName }} {{ order.lastName }}<br /></p>
-      <p class="content">
-        {{ order.email }}
-      </p>
+    <SfHeading
+      title="Order review"
+      :level="3"
+      class="sf-heading--left sf-heading--no-underline title"
+    />
+    <div class="highlighted__header">
+      <h3 class="highlighted__title">Personal details</h3>
+      <SfButton
+        class="sf-button--text color-secondary"
+        @click="$emit('click:edit', 0)"
+        >Edit
+      </SfButton>
     </div>
-    <div class="highlighted">
-      <div class="highlighted__header">
-        <h3 class="highlighted__title">Shipping details</h3>
-        <SfButton
-          class="sf-button--text color-secondary"
-          @click="$emit('click:edit', 1)"
-          >Edit
-        </SfButton>
-      </div>
+    <p class="content">{{ order.firstName }} {{ order.lastName }}<br /></p>
+    <p class="content">
+      {{ order.email }}
+    </p>
+    <div class="highlighted__header">
+      <h3 class="highlighted__title">Shipping details</h3>
+      <SfButton
+        class="sf-button--text color-secondary"
+        @click="$emit('click:edit', 1)"
+        >Edit
+      </SfButton>
+    </div>
+    <p class="content">
+      <span class="content__label">{{ shippingMethod.label }}</span
+      ><br />
+      {{ shipping.streetName }} {{ shipping.apartment }}, {{ shipping.zipCode
+      }}<br />
+      {{ shipping.city }}, {{ shipping.country }}
+    </p>
+    <p class="content">{{ shipping.phoneNumber }}</p>
+    <div class="highlighted__header">
+      <h3 class="highlighted__title">Billing address</h3>
+      <SfButton
+        class="sf-button--text color-secondary"
+        @click="$emit('click:edit', 2)"
+        >Edit
+      </SfButton>
+    </div>
+    <p v-if="payment.sameAsShipping" class="content">
+      Same as shipping address
+    </p>
+    <template v-else>
       <p class="content">
-        <span class="content__label">{{ shippingMethod.label }}</span
+        <span class="content__label">{{ payment.shippingMethod }}</span
         ><br />
-        {{ shipping.streetName }} {{ shipping.apartment }}, {{ shipping.zipCode
+        {{ payment.streetName }} {{ payment.apartment }}, {{ payment.zipCode
         }}<br />
-        {{ shipping.city }}, {{ shipping.country }}
+        {{ payment.city }}, {{ payment.country }}
       </p>
-      <p class="content">{{ shipping.phoneNumber }}</p>
+      <p class="content">{{ payment.phoneNumber }}</p>
+    </template>
+    <div class="highlighted__header">
+      <h3 class="highlighted__title">Payment method</h3>
+      <SfButton
+        class="sf-button--text color-secondary"
+        @click="$emit('click:edit', 2)"
+        >Edit
+      </SfButton>
     </div>
+    <p class="content">{{ paymentMethod.label }}</p>
     <div class="highlighted">
-      <div class="highlighted__header">
-        <h3 class="highlighted__title">Billing address</h3>
-        <SfButton
-          class="sf-button--text color-secondary"
-          @click="$emit('click:edit', 2)"
-          >Edit
-        </SfButton>
-      </div>
-      <p v-if="payment.sameAsShipping" class="content">
-        Same as shipping address
-      </p>
-      <template v-else>
-        <p class="content">
-          <span class="content__label">{{ payment.shippingMethod }}</span
-          ><br />
-          {{ payment.streetName }} {{ payment.apartment }}, {{ payment.zipCode
-          }}<br />
-          {{ payment.city }}, {{ payment.country }}
-        </p>
-        <p class="content">{{ payment.phoneNumber }}</p>
-      </template>
-    </div>
-    <div class="highlighted">
-      <div class="highlighted__header">
-        <h3 class="highlighted__title">Payment method</h3>
-        <SfButton
-          class="sf-button--text color-secondary"
-          @click="$emit('click:edit', 2)"
-          >Edit
-        </SfButton>
-      </div>
-      <p class="content">{{ paymentMethod.label }}</p>
+      <SfCharacteristic
+        v-for="characteristic in characteristics"
+        :key="characteristic.title"
+        :title="characteristic.title"
+        :description="characteristic.description"
+        :icon="characteristic.icon"
+        color-icon="green-primary"
+        class="characteristic"
+      />
     </div>
   </div>
 </template>
 <script>
-import { SfHeading, SfButton } from "@storefront-ui/vue";
+import { SfHeading, SfButton, SfCharacteristic } from "@storefront-ui/vue";
 
 export default {
   name: "OrderReview",
   components: {
     SfHeading,
-    SfButton
+    SfButton,
+    SfCharacteristic
   },
   props: {
     order: {
@@ -91,6 +96,10 @@ export default {
       default: () => []
     },
     paymentMethods: {
+      type: Array,
+      default: () => []
+    },
+    characteristics: {
       type: Array,
       default: () => []
     }
