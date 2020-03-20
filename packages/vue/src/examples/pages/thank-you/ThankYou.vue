@@ -179,7 +179,6 @@ export default {
 
   &__contact {
     padding: 1.3rem var(--spacer-extra-big);
-    border: 1px solid var(--c-light);
   }
   &__notifications-button {
     margin: var(--spacer-base) 0 0 0;
