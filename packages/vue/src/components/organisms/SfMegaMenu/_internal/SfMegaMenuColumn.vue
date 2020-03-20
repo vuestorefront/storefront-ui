@@ -1,19 +1,16 @@
 <template>
   <div v-if="isActive" class="sf-mega-menu-column">
     <!-- @slot Custom title markup -->
-    <SfMenuItem :title="title" />
+    <slot name="title" v-bind="{ title }">
+      <h3 class="sf-mega-menu-column__title">{{ title }}</h3>
+    </slot>
     <!-- @slot Column markup -->
     <slot />
   </div>
 </template>
 <script>
-import SfMenuItem from "../../../molecules/SfMenuItem/SfMenuItem.vue";
-
 export default {
   name: "SfMegaMenuColumn",
-  components: {
-    SfMenuItem
-  },
   inject: ["megaMenu"],
   props: {
     /**
