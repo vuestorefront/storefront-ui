@@ -60,7 +60,7 @@
           <span class="navbar__label mobile-only">280 Items</span>
         </div>
         <div class="navbar__view desktop-only">
-          <span>View </span>
+          <SfButton class="sf-button--text">View</SfButton>
           <SfIcon
             class="navbar__view-icon"
             :color="isGridView ? '#1D1F22' : '#BEBFC4'"
@@ -560,7 +560,7 @@ export default {
   }
 }
 .section {
-  padding: 0 var(--spacer-big);
+  padding: var(--spacer-sm) var(--spacer-base);
   @include for-desktop {
     padding: 0;
   }
@@ -573,8 +573,10 @@ export default {
   position: relative;
   display: flex;
   font: 300 var(--font-size-small) / 1.6 var(--font-family-primary);
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: var(--c-light);
   @include for-desktop {
-    border: 1px solid var(--c-light);
     border-width: 1px 0 1px 0;
   }
   &::after {
@@ -637,26 +639,31 @@ export default {
     }
   }
   &__label {
+    font-family: var(--font-family-secondary);
+    font-weight: normal;
     color: var(--c-text-muted);
   }
   &__sort {
+    --select-font-size: var(--font-xs);
     display: flex;
     align-items: center;
-    margin: 0 auto 0 var(--spacer-extra-big);
-    --select-font-size: var(--font-size-small);
+    margin: 0 auto 0 var(--spacer-2xl);
   }
   &__counter {
+    font-family: var(--font-family-secondary);
     margin: auto;
     @include for-desktop {
       margin: auto 0 auto auto;
     }
   }
+  // TODO: replace view with text button
   &__view {
     display: flex;
     align-items: center;
-    margin: 0 var(--spacer-extra-big);
+    margin: 0 var(--spacer-xl);
+    font-family: var(--font-family-secondary);
     @include for-desktop {
-      margin: var(--spacer-big);
+      margin: 0 var(--spacer-2xl);
     }
     &-icon {
       margin: 0 0 0 0.625rem;
