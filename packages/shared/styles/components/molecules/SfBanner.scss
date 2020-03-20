@@ -3,7 +3,7 @@
 .sf-banner {
   box-sizing: border-box;
   display: var(--banner-display, flex);
-  align-items: var(--bnner-align-items, center);
+  align-items: var(--banner-align-items, flex-start);
   justify-content: var(--banner-justify-content, flex-start);
   min-height: var(--banner-height, 14rem);
   width: var(--banner-width, 100%);
@@ -66,6 +66,7 @@
     display: var(--banner-display-call-to-action, none);
   }
   @include for-desktop {
+    --banner-align-items: center;
     --banner-background-image: var(
       --_banner-background-desktop-image,
       var(--_banner-background-image)
