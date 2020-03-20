@@ -5,5 +5,5 @@
   margin: var(--divider-margin);
   max-width: var(--divider-max-width);
   width: var(--divider-width);
-  border: var(--divider-border, 1px solid var(--c-light));
+  @include border(--divider-border, 1px, solid, var(--c-light));
 }
