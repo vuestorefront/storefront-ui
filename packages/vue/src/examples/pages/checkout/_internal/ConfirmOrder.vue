@@ -287,6 +287,7 @@ export default {
   data() {
     return {
       terms: false,
+      promoCode: "",
       tableHeaders: ["Description", "Colour", "Size", "Quantity", "Amount"]
     };
   },
