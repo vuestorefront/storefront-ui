@@ -59,6 +59,10 @@
 import SfPrice from "../../../atoms/SfPrice/SfPrice.vue";
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
 import SfQuantitySelector from "../../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver
+} from "../../../../utilities/mobile-observer";
 export default {
   name: "SfGroupedProductItem",
   components: {
@@ -140,9 +144,13 @@ export default {
     }
   },
   computed: {
+    ...mapMobileObserver(),
     hasCarousel() {
       return this.$parent.hasCarousel;
     }
+  },
+  beforeDestroy() {
+    unMapMobileObserver();
   }
 };
 </script>
