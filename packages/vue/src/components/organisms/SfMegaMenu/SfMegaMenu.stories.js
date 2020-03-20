@@ -209,7 +209,6 @@ storiesOf("Organisms|MegaMenu", module)
     template: `<SfMegaMenu 
         :title="title" 
         :visible="visible"
-        :style="{maxWidth: '1240px', margin: 'auto'}"
       >
         <SfMegaMenuColumn 
           v-for="subcategory in subcategories" 
@@ -286,7 +285,6 @@ storiesOf("Organisms|MegaMenu", module)
         :title="title"
         :asideTitle="asideTitle"
         :visible="visible"
-        :style="{maxWidth: '1240px', margin: 'auto'}"
       >
         <SfMegaMenuColumn 
           v-for="subcategory in subcategories" 
