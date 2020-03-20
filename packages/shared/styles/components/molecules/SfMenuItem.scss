@@ -31,6 +31,9 @@
   &--is-active {
     --menu-item-label-color: var(--c-primary);
   }
+  &:hover {
+    --menu-item-label-color: var(--c-black);
+  }
   @include for-desktop {
     --menu-item-mobile-nav-icon-display: none;
   }

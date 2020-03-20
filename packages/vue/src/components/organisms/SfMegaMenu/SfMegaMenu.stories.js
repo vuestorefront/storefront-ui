@@ -37,11 +37,6 @@ const AsidePlaceholder = {
   computed: {
     root() {
       return this.isMobile ? {} : { display: "flex" };
-    },
-    banner() {
-      return this.isMobile
-        ? { "--banner-height": "310px", margin: "24px 0 0 0" }
-        : { "--banner-height": "310px" };
     }
   },
   mounted() {
@@ -65,7 +60,7 @@ const AsidePlaceholder = {
         :title="tile.title" 
         :subtitle="tile.subtitle" 
         :image="tile.pictures" 
-        :style="{margin: index === 0 ? '0' : '0 0 0 24px', ...banner} "
+        :style="{margin: isMobile ? index === 0 ? '0' : '24px 0 0 0' : index === 0 ? '0' : '0 0 0 24px', '--banner-height': '310px', '--banner-width': '330px'} "
       />
       </div>`
 };
