@@ -52,7 +52,13 @@
           :class="{ 'sf-gallery__item--selected': index === activeIndex }"
           @click="go(index)"
         >
-          <SfImage class="sf-gallery__thumb" :src="image.mobile.url" alt="" />
+          <SfImage
+            class="sf-gallery__thumb"
+            :src="image.mobile.url"
+            alt=""
+            :width="thumbWidth"
+            :height="thumbHeight"
+          />
         </div>
       </slot>
     </div>
@@ -87,6 +93,20 @@ export default {
     imageHeight: {
       type: [Number, String],
       default: 664
+    },
+    /**
+     * Thumb width, without unit
+     */
+    thumbWidth: {
+      type: [Number, String],
+      default: 160
+    },
+    /**
+     * Thumb height, without unit
+     */
+    thumbHeight: {
+      type: [Number, String],
+      default: 160
     },
     /**
      * Initial image number (starting from 1)
