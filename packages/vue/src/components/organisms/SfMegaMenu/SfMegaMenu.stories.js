@@ -4,33 +4,30 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 
 import SfMegaMenu from "./SfMegaMenu.vue";
 
-import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfHeader from "../SfHeader/SfHeader.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
 
 const AsidePlaceholder = {
-  components: { SfImage, SfBanner },
+  components: { SfBanner },
   data() {
     return {
       isMobile: false,
       tiles: [
         {
-          title: "Last pairs left",
+          title: "THE OFFICE LIFE",
+          subtitle: "T-shirts",
           pictures: {
-            mobile: {
-              url: "assets/storybook/SfMegaMenu/bannerSandals-full.png"
-            },
-            desktop: { url: "assets/storybook/SfMegaMenu/bannerSandals.jpg" }
+            mobile: "assets/storybook/SfMegaMenu/bannerSandals.jpg",
+            desktop: "assets/storybook/SfMegaMenu/bannerSandals.jpg"
           }
         },
         {
-          title: "Beach bags 2=1",
+          title: "ECO SANDALS",
+          subtitle: "T-shirts",
           pictures: {
-            mobile: {
-              url: "assets/storybook/SfMegaMenu/bannerBeachBag-full.png"
-            },
-            desktop: { url: "assets/storybook/SfMegaMenu/bannerBeachBag.jpg" }
+            mobile: "assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
+            desktop: "assets/storybook/SfMegaMenu/bannerBeachBag.jpg"
           }
         }
       ]
@@ -40,7 +37,12 @@ const AsidePlaceholder = {
     root() {
       return this.isMobile
         ? {}
-        : { display: "flex", justifyContent: "space-between" };
+        : { display: "flex" };
+    },
+    banner(){
+      return this.isMobile
+        ? { "--banner-height":"310px", margin: "24px 0 0 0" }
+        : { "--banner-height":"310px" };
     }
   },
   mounted() {
@@ -56,15 +58,17 @@ const AsidePlaceholder = {
       this.isMobile = event.matches;
     }
   },
-  template: `<div :style="root">
-      <div 
-        v-for="tile in tiles" 
+  template: `
+      <div :style="root">
+      <SfBanner 
+        v-for="(tile, index) in tiles"
         :key="tile.title" 
-        :style="{marginBottom: '1.25rem'}"
-      >
-        <SfImage :src="tile.pictures"/>
-      </div>
-    </div>`
+        :title="tile.title" 
+        :subtitle="tile.subtitle" 
+        :image="tile.pictures" 
+        :style="{margin: index === 0 ? '0' : '0 0 0 24px', ...banner} "
+      />
+      </div>`
 };
 const MegaMenuPlaceholder = {
   components: { SfMegaMenu, SfMenuItem, AsidePlaceholder },
