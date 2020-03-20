@@ -1,9 +1,5 @@
 <template>
   <div class="sf-menu-item" v-on="$listeners">
-    <!-- @slot for menu item title-->
-    <slot name="title" v-bind="{ title }">
-      <h3 class="sf-menu-item__title">{{ title }}</h3>
-    </slot>
     <!-- @slot for menu item icon-->
     <slot name="icon" />
     <!-- @slot for menu item label-->
@@ -43,10 +39,6 @@ export default {
     },
     count: {
       type: [String, Number],
-      default: ""
-    },
-    title: {
-      type: String,
       default: ""
     }
   }
