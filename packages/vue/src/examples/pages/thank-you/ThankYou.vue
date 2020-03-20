@@ -178,8 +178,9 @@ export default {
   }
   &__notifications-button {
     margin: var(--spacer-base) 0 0 0;
-    @include for-mobile {
-      --button-width: 100%;
+    @include for-desktop {
+      --button-width: 25rem;
+      margin: var(--spacer-xl) 0 0 0;
     }
   }
   &__buttons {
@@ -203,7 +204,8 @@ export default {
   margin: var(--spacer-sm) 0;
 
   @include for-desktop {
-    margin: 0 var(--spacer-base) 0 0;
+    --button-width: 25rem;
+    margin: var(--spacer-sm) 0 0 0;
   }
 }
 .heading {
@@ -223,6 +225,9 @@ export default {
   color: var(--c-dark-variant);
   margin: 0;
   line-height: 1.75rem;
+  @include for-desktop {
+    font-weight: var(--font-normal);
+  }
 }
 
 .first-divider {
