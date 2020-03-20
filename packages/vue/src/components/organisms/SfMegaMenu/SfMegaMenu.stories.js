@@ -7,6 +7,7 @@ import SfMegaMenu from "./SfMegaMenu.vue";
 import SfHeader from "../SfHeader/SfHeader.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
+import SfList from "../SfList/SfList.vue";
 
 const AsidePlaceholder = {
   components: { SfBanner },
@@ -35,14 +36,12 @@ const AsidePlaceholder = {
   },
   computed: {
     root() {
-      return this.isMobile
-        ? {}
-        : { display: "flex" };
+      return this.isMobile ? {} : { display: "flex" };
     },
-    banner(){
+    banner() {
       return this.isMobile
-        ? { "--banner-height":"310px", margin: "24px 0 0 0" }
-        : { "--banner-height":"310px" };
+        ? { "--banner-height": "310px", margin: "24px 0 0 0" }
+        : { "--banner-height": "310px" };
     }
   },
   mounted() {
@@ -71,7 +70,7 @@ const AsidePlaceholder = {
       </div>`
 };
 const MegaMenuPlaceholder = {
-  components: { SfMegaMenu, SfMenuItem, AsidePlaceholder },
+  components: { SfMegaMenu, SfMenuItem, AsidePlaceholder, SfList },
   props: {
     title: {
       type: String,
@@ -136,11 +135,16 @@ const MegaMenuPlaceholder = {
           :key="subcategory.header" 
           :title="subcategory.header"
         >
-          <SfMenuItem
-            v-for="item in subcategory.items" 
-            :key="item.label" 
-            :label="item.label" 
-          />
+          <SfList>
+            <SfListItem 
+              v-for="item in subcategory.items" 
+              :key="item.label"
+            >
+              <SfMenuItem
+                :label="item.label" 
+              />
+            </SfListItem>
+          </SfList>
         </SfMegaMenuColumn>
         <template #aside>
           <AsidePlaceholder/>
@@ -153,7 +157,8 @@ storiesOf("Organisms|MegaMenu", module)
   .add("Common", () => ({
     components: {
       SfMegaMenu,
-      SfMenuItem
+      SfMenuItem,
+      SfList
     },
     props: {
       title: {
@@ -211,11 +216,13 @@ storiesOf("Organisms|MegaMenu", module)
           :key="subcategory.header" 
           :title="subcategory.header"
         >
-          <SfMenuItem
-            v-for="item in subcategory.items" 
-            :key="item.label" 
-            :label="item.label" 
-          />
+          <SfList>
+            <SfListItem v-for="item in subcategory.items" :key="item.label" >
+              <SfMenuItem
+                :label="item.label" 
+              />
+            </SfListItem>
+          </SfList>
         </SfMegaMenuColumn>
       </SfMegaMenu>`
   }))
@@ -223,6 +230,7 @@ storiesOf("Organisms|MegaMenu", module)
     components: {
       SfMegaMenu,
       SfMenuItem,
+      SfList,
       AsidePlaceholder
     },
     props: {
@@ -285,11 +293,16 @@ storiesOf("Organisms|MegaMenu", module)
           :key="subcategory.header" 
           :title="subcategory.header"
         >
-          <SfMenuItem
-            v-for="item in subcategory.items" 
-            :key="item.label" 
-            :label="item.label"
-          />
+          <SfList>
+            <SfListItem
+              v-for="item in subcategory.items"
+              :key="item.label" 
+            >
+              <SfMenuItem
+                :label="item.label"
+              />
+            </SfListItem>
+          </SfList>
         </SfMegaMenuColumn>
         <template #aside>
           <AsidePlaceholder/>
