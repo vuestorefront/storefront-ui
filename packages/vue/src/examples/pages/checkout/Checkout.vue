@@ -242,7 +242,7 @@ export default {
         { name: "Go to shipping" },
         { name: "Go to payment" },
         { name: "Review Order" },
-        { name: "Place my order"}
+        { name: "Place my order" }
       ],
       characteristics: [
         {
