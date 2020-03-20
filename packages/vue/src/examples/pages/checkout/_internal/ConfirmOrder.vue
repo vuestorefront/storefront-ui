@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div id="confirm-order">
     <SfHeading
-      title="4. Order review"
+      title="4. Order details"
       :level="3"
       class="sf-heading--left sf-heading--no-underline title"
     />
@@ -58,62 +58,63 @@
               </p>
               <p class="content">{{ payment.phoneNumber }}</p>
             </template>
+            <SfButton
+              class="sf-button--text color-secondary accordion__edit"
+              @click="$emit('click:edit', 2)"
+              >Edit
+            </SfButton>
           </div>
-          <SfButton
-            class="sf-button--text color-secondary accordion__edit"
-            @click="$emit('click:edit', 2)"
-            >Edit
-          </SfButton>
         </div>
       </SfAccordionItem>
       <SfAccordionItem header="Payment method">
         <div class="accordion__item">
           <div class="accordion__content">
             <p class="content">{{ paymentMethod.label }}</p>
+            <SfButton
+              class="sf-button--text color-secondary accordion__edit"
+              @click="$emit('click:edit', 2)"
+              >Edit
+            </SfButton>
           </div>
-          <SfButton
-            class="sf-button--text color-secondary accordion__edit"
-            @click="$emit('click:edit', 2)"
-            >Edit
-          </SfButton>
         </div>
       </SfAccordionItem>
-      <SfAccordionItem first-open header="Order details">
-        <div class="accordion__item--highlighted">
-          <div class="accordion__content">
+      <SfAccordionItem header="Order details">
+        <div class="accordion__item">
+          <div class="accordion__content accordion__content">
+            <SfHeading
+              title="Totals"
+              :level="1"
+              class="sf-heading--left sf-heading--no-underline title"
+            />
             <SfProperty
-              name="Subtotal"
+              name="Products:"
+              :value="products.length"
+              class="sf-property--full-width property"
+            />
+            <SfProperty
+              name="Subtotal:"
               :value="subtotal"
               class="sf-property--full-width property"
-            >
-              <template #name
-                ><span class="property__name">Subtotal</span></template
-              >
-            </SfProperty>
+            />
             <SfProperty
-              name="Shipping"
+              name="Shipping:"
               :value="shippingMethod.price"
               class="sf-property--full-width property"
-            >
-              <template #name
-                ><span class="property__name">Shipping</span></template
-              >
-            </SfProperty>
+            />
+            <SfDivider class="divider" />
             <SfProperty
-              name="Total"
+              name="Total price"
               :value="total"
-              class="sf-property--full-width property--huge summary__property-total"
-            >
-              <template #name>TOTAL</template>
-            </SfProperty>
+              class="sf-property--full-width property"
+            />
+            <SfCheckbox v-model="terms" name="terms" class="totals__terms">
+              <template #label>
+                <div class="sf-checkbox__label">
+                  I agree to <a href="#">Terms and conditions</a>
+                </div>
+              </template>
+            </SfCheckbox>
           </div>
-          <SfCheckbox v-model="terms" name="terms" class="summary__terms">
-            <template #label>
-              <div class="sf-checkbox__label">
-                I agree to <a href="#">Terms and conditions</a>
-              </div>
-            </template>
-          </SfCheckbox>
         </div>
       </SfAccordionItem>
     </SfAccordion>
@@ -166,25 +167,7 @@
         </SfTableData>
       </SfTableRow>
     </SfTable>
-    <SfHeading
-      title="Order details"
-      :level="3"
-      class="sf-heading--left sf-heading--no-underline title"
-    />
-    <div class="summary">
-      <div class="summary__group">
-        <SfButton class="sf-button--full-width summary__action-button"
-          >Place my order
-        </SfButton>
-        <SfButton
-          class="sf-button--full-width sf-button--text color-secondary summary__action-button summary__action-button--secondary"
-          @click="$emit('click:back')"
-        >
-          Go back to Payment
-        </SfButton>
-      </div>
-    </div>
-    <div class="highlighted mobile-only">
+    <div class="characteristics mobile-only">
       <SfCharacteristic
         v-for="characteristic in characteristics"
         :key="characteristic.title"
@@ -192,8 +175,60 @@
         :description="characteristic.description"
         :icon="characteristic.icon"
         color-icon="green-primary"
-        class="characteristic"
+        class="characteristics__item"
       />
+    </div>
+    <div class="actions mobile-only">
+      <SfButton class="sf-button--full-width actions__action-button"
+        >Place my order
+      </SfButton>
+      <SfButton
+        class="sf-button--full-width sf-button--text color-secondary actions__action-button"
+        @click="$emit('click:back')"
+      >
+        Go back to Payment
+      </SfButton>
+    </div>
+    <div class="totals desktop-only">
+      <div class="totals__element">
+        <SfCheckbox v-model="terms" name="terms" class="totals__terms">
+          <template #label>
+            <div class="sf-checkbox__label">
+              I agree to <a href="#">Terms and conditions</a>
+            </div>
+          </template>
+        </SfCheckbox>
+        <div class="promo-code">
+          <SfInput
+            v-model="promoCode"
+            name="promoCode"
+            placeholder="Enter promo code"
+            class="sf-input--filled promo-code__input"
+          />
+          <SfCircleIcon class="promo-code__circle-icon" icon="check" />
+        </div>
+      </div>
+      <div class="totals__element">
+        <SfProperty
+          name="Subtotal"
+          :value="subtotal"
+          class="sf-property--full-width property"
+        >
+        </SfProperty>
+        <SfProperty
+          name="Shipping"
+          :value="shippingMethod.price"
+          class="sf-property--full-width property"
+        >
+        </SfProperty>
+        <SfDivider />
+        <SfProperty
+          name="Total price"
+          :value="total"
+          class="sf-property--full-width sf-property--large  property__total"
+        >
+        </SfProperty>
+      </div>
     </div>
   </div>
 </template>
@@ -202,10 +237,13 @@ import {
   SfHeading,
   SfTable,
   SfCheckbox,
+  SfCircleIcon,
   SfCharacteristic,
+  SfDivider,
   SfButton,
   SfImage,
   SfIcon,
+  SfInput,
   SfPrice,
   SfProperty,
   SfAccordion
@@ -217,10 +255,13 @@ export default {
     SfHeading,
     SfTable,
     SfCheckbox,
+    SfCircleIcon,
     SfCharacteristic,
+    SfDivider,
     SfButton,
     SfImage,
     SfIcon,
+    SfInput,
     SfPrice,
     SfProperty,
     SfAccordion
@@ -305,10 +346,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+#confirm-order {
+  --accordion-item-content: 0;
+}
 
 .title {
   margin: 0 0 var(--spacer-extra-big);
 }
+
 .form {
   @include for-desktop {
     display: flex;
@@ -362,16 +407,15 @@ export default {
     margin: 0 0 var(--spacer-extra-big) 0;
   }
 }
+
 .table {
   margin: 0 0 var(--spacer-big) 0;
   &__header {
-    font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
     @include for-desktop {
       text-align: center;
     }
   }
   &__data {
-    font: 300 var(--font-size-small) / 1.6 var(--font-family-secondary);
     @include for-desktop {
       text-align: center;
     }
@@ -390,16 +434,43 @@ export default {
     }
   }
 }
+
+.totals {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacer-lg) 0;
+
+  &__element {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex: 0 0 40%;
+  }
+}
+
+.promo-code {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  &__circle-icon {
+    --button-size: 2rem;
+    --icon-size: 0.6875rem;
+  }
+  &__input {
+    --input-background: var(--c-white);
+    --input-margin: 0;
+    flex: 1;
+    margin: 0 var(--spacer-lg) 0 0;
+  }
+}
 .product-sku {
   color: var(--c-text-muted);
-  font-size: var(--font-size-extra-small);
 }
-.product-price {
-  --price-font-size: var(--font-size-small);
-}
+
 .button {
   cursor: pointer;
 }
+
 .summary {
   background: var(--c-light);
   margin: 0 calc(var(--spacer-big) * -1);
@@ -436,52 +507,62 @@ export default {
       }
     }
   }
-  &__property-total {
-    --property-name-font: 500 var(--font-size-big) / 1.6
-      var(--font-family-secondary);
-    --property-value-font: 500 var(--font-size-big) / 1.6
-      var(--font-family-secondary);
-    margin: var(--spacer-big) 0 0 0;
-    text-transform: uppercase;
-    font: 500 var(--font-size-big) / 1.6 var(--font-family-secondary);
-  }
 }
 .property {
-  margin: 0 0 var(--spacer-big) 0;
-  font: 400 var(--font-size-regular) / 1.6 var(--font-family-secondary);
-  &__name {
-    color: var(--c-text-muted);
+  margin: var(--spacer-base) 0;
+  @include for-desktop {
+    margin: 0 0 var(--spacer-sm) 0;
+    &__total {
+      padding: var(--spacer-base) 0 0 0;
+    }
+  }
+}
+
+.divider {
+  --divider-border-color: var(--c-white);
+}
+
+.characteristics {
+  padding: var(--spacer-sm) 0;
+  &__item {
+    margin: var(--spacer-base) 0;
   }
 }
 .accordion {
-  margin: 0 0 var(--spacer-extra-big) 0;
   &__item {
     display: flex;
     align-items: flex-start;
+    background: var(--c-light);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
   }
   &__content {
     flex: 1;
+    padding: var(--spacer-base);
   }
   &__edit {
     flex: unset;
+    position: absolute;
+    right: var(--spacer-base);
+    top: var(--spacer-base);
   }
 }
 .content {
-  margin: 0 0 var(--spacer-big) 0;
-  font: 300 var(--font-size-mall) / 1.6 var(--font-family-secondary);
+  margin: 0 0 var(--spacer-base) 0;
   color: var(--c-text);
-  &:last-child {
-    margin: 0;
-  }
   &__label {
     font-weight: 400;
   }
 }
+
 a {
-  color: var(--c-text-muted);
-  text-decoration: none;
+  color: var(--c-text);
   &:hover {
-    color: var(--c-text);
+    color: var(--c-primary);
   }
 }
 </style>
