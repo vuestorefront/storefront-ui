@@ -6,7 +6,6 @@
   justify-content: space-between;
   text-transform: var(--menu-item-text-transform);
   cursor: pointer;
-  @include border(--menu-item-border, 0, solid, var(--c-light));
   @include font(
     --menu-item-font,
     var(--font-normal),
