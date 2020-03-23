@@ -95,19 +95,19 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           :is-on-wishlist-icon="isOnWishlistIcon"
           :is-on-wishlist="isOnWishlist">
           <template #configuration>
-              <SfProperty name="Size" value="XS"/>
-              <SfProperty name="Color" value="white"/>
+              <SfProperty class="desktop-only" name="Size" value="XS"/>
+              <SfProperty class="desktop-only" name="Color" value="white"/>
           </template>
           <template #actions>
               <SfButton
-                class="sf-button--text color-secondary"
+                class="sf-button--text color-secondary desktop-only"
                 @click="$emit('click:add-to-wishlist')"
                 style="padding-bottom: 1rem" 
               >
                 Save for later
               </SfButton>
               <SfButton
-                class="sf-button--text color-secondary"
+                class="sf-button--text color-secondary desktop-only"
                 @click="$emit('click:add-to-compare')"
               >
                 Add to compare
@@ -219,19 +219,19 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         :is-on-wishlist="isOnWishlist"
         >
         <template #configuration>
-            <SfProperty name="Size" value="XS"/>
-            <SfProperty name="Color" value="white"/>
+            <SfProperty class="desktop-only" name="Size" value="XS"/>
+            <SfProperty class="desktop-only" name="Color" value="white"/>
           </template>
         <template #actions>
               <SfButton
-                class="sf-button--text color-primary"
+                class="sf-button--text color-primary desktop-only"
                 style="padding-bottom: 1rem" 
                 @click="$emit('click:add-to-wishlist')"
               >
                 Save for later
               </SfButton>
               <SfButton
-                class="sf-button--text color-primary"
+                class="sf-button--text color-primary desktop-only"
                 @click="$emit('click:add-to-compare')"
               >
                 Add to compare
