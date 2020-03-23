@@ -28,16 +28,3 @@
   );
   background-size: var(#{$element}-size, $size);
 }
-
-// Use this mixin to set properties for placeholder
-@mixin placeholder {
-  &::-webkit-input-placeholder {
-    @content;
-  }
-  &::-moz-placeholder {
-    @content;
-  }
-  &:-ms-input-placeholder {
-    @content;
-  }
-}

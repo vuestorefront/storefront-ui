@@ -7,7 +7,9 @@
   height: var(--input-height);
   &__label {
     position: absolute;
+    display: var(--input-label-display);
     top: var(--input-label-top, 50%);
+    left: var(--input-label-left);
     color: var(--input-label-color, inherit);
     transform: var(
       --input-label-transform,
@@ -89,16 +91,8 @@
     );
     text-align: var(--input-text-align);
     outline: none;
-    @include placeholder {
-      color: var(--input-placeholder-color, transparent);
-      transition: color 150ms ease;
-    }
-    &:focus {
-      --input-placeholder-color: var(--c-text-muted);
-      @include placeholder {
-        transition: color 300ms ease;
-      }
 
+    &:focus {
       & ~ * {
         --icon-color: var(--c-primary);
         --input-password-icon-background: var(--c-primary);
@@ -185,22 +179,25 @@
 
   &--filled {
     --input-background: var(--c-light);
-    --input-font-size: var(--font-sm);
-    input {
-      &:focus {
-        & ~ * {
-          --input-bar-width: unset;
-        }
-      }
-    }
-  }
-
-  &--placeholder {
+    --input-font-size: var(--font-xs);
     --input-padding: var(--spacer-xs);
-    --input-placeholder-color: var(--c-text-muted);
+    --input-label-left: var(--spacer-xs);
+    --input-label-font-size: var(--font-xs);
+    --input-label-color: var(--c-secondary-variant);
+    --input-label-transition: color 150ms ease;
+
+    &.sf-input--has-text {
+      --input-label-display: none;
+    }
+
     input {
       &:focus {
-        --input-placeholder-color: var(--c-text);
+        & ~ * {        
+          --input-bar-width: unset;
+          --input-label-top: 50%;
+          --input-label-font-size: var(--font-xs);
+          --input-label-color: var(--c-text);
+        }
       }
     }
   }

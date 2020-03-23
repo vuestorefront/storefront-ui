@@ -3,8 +3,7 @@
     class="sf-input"
     :class="{
       'sf-input--has-text': !!value,
-      'sf-input--invalid': !valid,
-      'sf-input--placeholder': placeholder && !label
+      'sf-input--invalid': !valid
     }"
   >
     <div class="sf-input__wrapper">
@@ -14,7 +13,6 @@
         :value="value"
         :required="required"
         :disabled="disabled"
-        :placeholder="placeholder"
         :name="name"
         :class="{ 'sf-input--is-password': isPassword }"
         :type="inputType"
@@ -132,13 +130,6 @@ export default {
     ariaLabel: {
       type: String,
       default: null
-    },
-    /**
-     * Input placeholder
-     */
-    placeholder: {
-      type: String,
-      default: ""
     },
     /**
      * Status of show password icon display
