@@ -54,7 +54,7 @@
           </p>
         </slot>
         <!--@slot Use this slot to place content inside configuration-->
-        <div class="sf-product-card-horizontal__configuration desktop-only">
+        <div class="sf-product-card-horizontal__configuration">
           <slot name="configuration" />
         </div>
       </div>
@@ -89,11 +89,11 @@
             </a>
           </div>
         </slot>
-        <div class="sf-product-card-horizontal__actions desktop-only">
+        <div class="sf-product-card-horizontal__actions">
           <!--@slot Use this slot to place content inside actions-->
           <slot name="actions" />
         </div>
-        <div class="sf-product-card-horizontal__add-to-cart desktop-only">
+        <div class="sf-product-card-horizontal__add-to-cart">
           <!--@slot Use this slot to replace add to cart-->
           <slot name="add-to-cart">
             <SfAddToCart
