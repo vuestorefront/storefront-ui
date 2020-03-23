@@ -75,7 +75,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       }
     },
     components: { SfProductCardHorizontal, SfButton, SfProperty },
-    template: `<SfProductCardHorizontal
+    template: `<div :style="{maxWidth: '1024px'}">
+      <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"
           :image-height="imageHeight"
@@ -112,7 +113,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
                 Add to compare
               </SfButton>
           </template>
-      </SfProductCardHorizontal>`
+      </SfProductCardHorizontal>
+    </div>`
   }))
   .add("With 2 pictures", () => ({
     props: {
@@ -196,7 +198,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       };
     },
     components: { SfProductCardHorizontal, SfButton, SfProperty },
-    template: `<SfProductCardHorizontal
+    template: `<div :style="{maxWidth: '1024px'}">
+      <SfProductCardHorizontal
         :image="pictures"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -219,7 +222,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
             <SfProperty name="Size" value="XS"/>
             <SfProperty name="Color" value="white"/>
           </template>
-          <template #actions>
+        <template #actions>
               <SfButton
                 class="sf-button--text color-primary"
                 style="padding-bottom: 1rem" 
@@ -234,7 +237,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
                 Add to compare
               </SfButton>
           </template>
-    </SfProductCardHorizontal>`
+    </SfProductCardHorizontal>
+    </div>`
   }))
   .add("[slot] configuration", () => ({
     props: {
@@ -299,7 +303,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       }
     },
     components: { SfProductCardHorizontal },
-    template: `<SfProductCardHorizontal
+    template: `<div :style="{maxWidth: '1024px'}">
+      <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"
           :image-height="imageHeight"
@@ -320,7 +325,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           <template #configuration>
             CUSTOM CONFIGURATION
           </template>
-      </SfProductCardHorizontal>`
+      </SfProductCardHorizontal>
+    </div>`
   }))
   .add("[slot] actions", () => ({
     props: {
@@ -385,7 +391,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       }
     },
     components: { SfProductCardHorizontal },
-    template: `<SfProductCardHorizontal
+    template: `<div :style="{maxWidth: '1024px'}">
+      <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"
           :image-height="imageHeight"
@@ -406,5 +413,6 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           <template #actions>
             CUSTOM ACTIONS
           </template>
-      </SfProductCardHorizontal>`
+      </SfProductCardHorizontal>
+    </div>`
   }));
