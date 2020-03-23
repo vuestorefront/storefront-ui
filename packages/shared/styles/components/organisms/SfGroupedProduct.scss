@@ -6,6 +6,13 @@
   box-sizing: border-box;
   padding: var(--grouped-product-item-padding, var(--spacer-xs));
   @include border(--grouped-product-item-border, 0, solid, var(--c-light));
+  @include font(
+    --grouped-product-item-font,
+    var(--font-normal),
+    var(--font-xs),
+    1.6,
+    var(--font-family-primary)
+  );
   &__aside {
     position: var(--grouped-product-item-aside-position, relative);
     flex: var(--grouped-product-item-flex);
