@@ -142,9 +142,9 @@ export default {
 @import "~@storefront-ui/vue/styles";
 
 .title {
-  --heading-padding: 0 0 var(--spacer-sm) 0;
+  --heading-padding: var(--spacer-sm) 0;
   @include for-desktop {
-    --heading-padding: var(--spacer-sm) 0 var(--spacer-lg) 0;
+    --heading-padding: var(--spacer-sm) 0 var(--spacer-base) 0;
   }
 }
 
@@ -201,7 +201,13 @@ export default {
   }
 
   &__action-button {
-    --button-height: 4.0625rem;
+    &:first-child {
+      --button-height: 4.0625rem;
+      margin: var(--spacer-sm) 0 0 0;
+    }
+    &--secondary {
+      margin: var(--spacer-base) 0;
+    }
   }
 }
 </style>

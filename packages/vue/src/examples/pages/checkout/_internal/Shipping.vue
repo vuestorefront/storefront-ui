@@ -116,7 +116,7 @@
           <template #label="{label}">
             <div class="sf-radio__label shipping__label">
               <div>{{ label }}</div>
-              <div>{{ item.price }}</div>
+              <div class="shipping__label-price">{{ item.price }}</div>
             </div>
           </template>
           <template #description="{description}">
@@ -148,7 +148,7 @@
         <SfButton
           class="sf-button--full-width sf-button--text color-secondary form__action-button form__action-button--secondary"
           @click="$emit('click:back')"
-          >Go back to Personal details
+          >Go back
         </SfButton>
       </div>
     </div>
@@ -258,7 +258,10 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .title {
-  --heading-title-margin: var(--spacer-sm) 0;
+  --heading-padding: var(--spacer-sm) 0;
+  @include for-desktop {
+    --heading-padding: var(--spacer-sm) 0 var(--spacer-base) 0;
+  }
 }
 .form {
   @include for-desktop {
@@ -292,7 +295,15 @@ export default {
       display: flex;
     }
   }
-
+  &__action-button {
+    &:first-child {
+      --button-height: 4.0625rem;
+      margin: var(--spacer-sm) 0 0 0;
+    }
+    &--secondary {
+      margin: var(--spacer-base) 0;
+    }
+  }
   &__button {
     --button-width: 100%;
     @include for-desktop {
@@ -301,14 +312,33 @@ export default {
   }
   &__radio-group {
     flex: 0 0 100%;
-    margin: 0 0 var(--spacer-xl) 0;
+    @include for-mobile {
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      width: 100vw;
+    }
   }
 }
 .shipping {
-  --radio-container-padding: var(--spacer-sm) 0;
+  --radio-container-padding: var(--spacer-sm) var(--spacer-lg) var(--spacer-sm)
+    var(--spacer-base);
   &__label {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: flex-end;
+    @include for-desktop {
+      justify-content: space-between;
+    }
+    &-price {
+      font-size: var(--font-lg);
+      @include for-mobile {
+        order: -1;
+        margin: 0 var(--spacer-xs) 0 0;
+      }
+    }
   }
   &__description {
     --radio-description-margin: 0;
@@ -316,10 +346,15 @@ export default {
   &__delivery {
     color: var(--c-text-muted);
     display: flex;
-    justify-content: space-between;
-    max-width: 240px;
+    @include for-desktop {
+      justify-content: space-between;
+      max-width: 240px;
+    }
   }
   &__action {
+    @include for-mobile {
+      margin: 0 0 0 var(--spacer-xs);
+    }
     &::before {
       content: "+";
     }

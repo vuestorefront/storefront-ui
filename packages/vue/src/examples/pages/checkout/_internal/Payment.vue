@@ -1,7 +1,7 @@
 <template>
   <div>
     <SfHeading
-      title="Billing address"
+      title="3. Billing address"
       :level="3"
       class="sf-heading--left sf-heading--no-underline title"
     />
@@ -105,7 +105,7 @@
       <SfCheckbox
         v-model="invoice"
         :value="invoice"
-        label="I want to generate invoice for the company"
+        label="I want to generate invoice"
         name="getInvoice"
         class="form__element form__checkbox"
         @change="updateField('invoice', $event)"
@@ -200,7 +200,7 @@
               :value="cardCVC"
               label="Code CVC"
               name="cardCVC"
-              class=" credit-card-form__input credit-card-form__input--small credit-card-form__input--with-spacer"
+              class="credit-card-form__input credit-card-form__input--small credit-card-form__input--with-spacer"
               @input="updateField('cardCVC', $event)"
             />
             <SfButton class="sf-button--text credit-card-form__button"
@@ -211,7 +211,8 @@
             v-model="cardKeep"
             :value="cardKeep"
             name="keepcard"
-            label="I want to keep this data for other purchases."
+            label="Save this card for other purchases"
+            class="form__checkbox"
             @change="updateField('cardKeep', $event)"
           />
         </div>
@@ -226,7 +227,7 @@
           class="sf-button--full-width sf-button--text color-secondary form__action-button form__action-button--secondary"
           @click="$emit('click:back')"
         >
-          Go back to Shipping Methods
+          Go back
         </SfButton>
       </div>
     </div>
@@ -347,41 +348,13 @@ export default {
         [fieldName]: fieldValue
       });
     }
-    // toReview() {
-    //   const order = { ...this.order };
-    //   const payment = { ...order.payment };
-    //   const card = { ...payment.card };
-    //   payment.sameAsShipping = this.sameAsShipping;
-    //   payment.firstName = this.firstName;
-    //   payment.lastName = this.lastName;
-    //   payment.streetName = this.streetName;
-    //   payment.streetName = this.streetName;
-    //   payment.apartment = this.apartment;
-    //   payment.city = this.city;
-    //   payment.state = this.state;
-    //   payment.zipCode = this.zipCode;
-    //   payment.country = this.country;
-    //   payment.phoneNumber = this.phoneNumber;
-    //   payment.paymentMethod = this.paymentMethod;
-    //   if (this.isCreditCard) {
-    //     card.number = this.cardNumber;
-    //     card.holder = this.cardHolder;
-    //     card.month = this.cardMonth;
-    //     card.year = this.cardYear;
-    //     card.cvc = this.cardCVC;
-    //     card.keep = this.cardKeep;
-    //   }
-    //   payment.card = card;
-    //   order.payment = payment;
-    //   this.$emit("update:order", order);
-    // }
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .title {
-  --heading-padding: 0 0 var(--spacer-sm) 0;
+  --heading-padding: var(--spacer-sm) 0;
   @include for-desktop {
     --heading-padding: var(--spacer-sm) 0 var(--spacer-base) 0;
   }
@@ -408,13 +381,13 @@ export default {
     }
   }
   &__checkbox {
-    padding: 0 0 var(--spacer-lg) 0;
+    --checkbox-label-color: var(--c-dark-variant);
+    padding: 0 0 var(--spacer-sm) 0;
   }
   &__group {
     display: flex;
     align-items: center;
   }
-
   &__action {
     @include for-desktop {
       flex: 0 0 100%;
@@ -422,20 +395,13 @@ export default {
     }
   }
   &__action-button {
-    --button-height: 4.0625rem;
     &:first-child {
-      margin: var(--spacer-lg) 0 0 0;
+      --button-height: 4.0625rem;
+      margin: var(--spacer-sm) 0 0 0;
     }
-  }
-  // &__button {
-  //   --button-width: 100%;
-  //   @include for-desktop {
-  //     --button-width: auto;
-  //   }
-  // }
-  &__radio-group {
-    flex: 0 0 100%;
-    margin: 0 0 var(--spacer-extra-big) 0;
+    &--secondary {
+      margin: var(--spacer-base) 0;
+    }
   }
 }
 .payment-methods {
@@ -445,14 +411,15 @@ export default {
   @include for-desktop {
     display: flex;
     justify-content: space-between;
-    padding: var(--spacer-big) 0;
+    padding: var(--spacer-xs) 0;
     border-width: 1px 0;
   }
 }
 .payment-method {
   --radio-container-align-items: center;
-  --radio-background: transparent;
+  --radio-container-padding: var(--spacer-sm) 0;
   --ratio-content-margin: 0 0 0 var(--spacer-lg);
+  --radio-background: transparent;
   white-space: nowrap;
 }
 .credit-card-form {
@@ -482,14 +449,15 @@ export default {
     }
   }
   &__button {
+    --button-padding: var(--spacer-sm);
     @include for-mobile {
       position: absolute;
       bottom: 50%;
       right: 0;
       transform: translate3d(0, 0, 50%);
+      --button-padding: var(--spacer-2xs) 0;
     }
   }
-
   &__input {
     flex: 1;
     @include for-desktop {
@@ -499,9 +467,6 @@ export default {
       }
       &--small {
         flex: 0 0 calc(100% / 3);
-      }
-      &--margin {
-        margin: 0 0 0 var(--spacer-lg);
       }
     }
   }
