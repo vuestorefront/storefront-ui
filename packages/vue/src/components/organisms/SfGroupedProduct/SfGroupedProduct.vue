@@ -47,7 +47,11 @@ export default {
         slidePerPage: true,
         breakpoints: {
           1023: {
-            perView: 1
+            perView: 2,
+            peek: {
+              before: 0,
+              after: 50
+            }
           }
         }
       }
