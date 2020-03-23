@@ -566,8 +566,8 @@ export default {
   }
 }
 .breadcrumbs {
-  padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big)
-    var(--spacer-extra-big);
+  padding: var(--spacer-base) var(--spacer-base) var(--spacer-base)
+    var(--spacer-sm);
 }
 .navbar {
   position: relative;
@@ -579,37 +579,26 @@ export default {
   @include for-desktop {
     border-width: 1px 0 1px 0;
   }
-  &::after {
-    position: absolute;
-    bottom: 0;
-    left: var(--spacer-big);
-    width: calc(100% - calc(var(--spacer-big) * 2));
-    height: 1px;
-    background: var(--c-light);
-    content: "";
-    @include for-desktop {
-      content: none;
-    }
-  }
   &__aside,
   &__main {
     display: flex;
     align-items: center;
-    padding: var(--spacer-medium) 0;
+    padding: var(--spacer-sm) 0;
     font-size: var(--font-size-small);
     line-height: 1.6;
-    @include for-desktop {
-      padding: var(--spacer-big) 0;
-    }
   }
   &__aside {
     flex: 0 0 15%;
-    padding: var(--spacer-big) var(--spacer-extra-big);
+    padding: var(--spacer-sm) var(--spacer-sm);
     border: 1px solid var(--c-light);
     border-width: 0 1px 0 0;
   }
   &__main {
     flex: 1;
+    padding: 0;
+    @include for-desktop {
+      padding: var(--spacer-xs) var(--spacer-xl);
+    }
   }
   &__title {
     padding: 0;
@@ -644,7 +633,7 @@ export default {
     color: var(--c-text-muted);
   }
   &__sort {
-    --select-font-size: var(--font-xs);
+    --select-font-size: var(--font-sm);
     display: flex;
     align-items: center;
     margin: 0 auto 0 var(--spacer-2xl);
@@ -672,37 +661,33 @@ export default {
   }
 }
 .sort-by {
-  /*--select-padding: 0 0.625rem;*/
+  --select-dropdown-z-index: 10;
   flex: unset;
   width: 11.875rem;
-  --select-dropdown-z-index: 10;
 }
+
 .main {
   display: flex;
 }
 .sidebar {
   flex: 0 0 15%;
-  padding: var(--spacer-extra-big);
+  padding: var(--spacer-sm);
   border: 1px solid var(--c-light);
   border-width: 0 1px 0 0;
 }
 .products {
   box-sizing: border-box;
   flex: 1;
-  margin: 0 calc(var(--spacer) * -1);
-  @include for-desktop {
-    margin: var(--spacer-big);
-  }
+  margin: var(--spacer-sm);
+
   &__grid,
   &__list {
     display: flex;
     flex-wrap: wrap;
   }
   &__product-card {
-    --product-card-padding: var(--spacer);
     flex: 1 1 50%;
     @include for-desktop {
-      --product-card-padding: var(--spacer-big);
       flex: 1 1 25%;
     }
   }
