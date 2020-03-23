@@ -190,11 +190,14 @@
     </div>
     <SfSidebar
       :visible="isFilterSidebarOpen"
-      title="Filters"
       @close="isFilterSidebarOpen = false"
     >
       <div class="filters">
-        <h3 class="filters__title">Collection</h3>
+        <SfHeading
+          :level="4"
+          title="Collection"
+          class="filters__title sf-heading--left"
+        />
         <SfFilter
           v-for="filter in filters.collection"
           :key="filter.value"
@@ -204,7 +207,11 @@
           class="filters__item"
           @change="filter.selected = !filter.selected"
         />
-        <h3 class="filters__title">Color</h3>
+        <SfHeading
+          :level="4"
+          title="Color"
+          class="filters__title sf-heading--left"
+        />
         <div class="filters__colors">
           <SfColor
             v-for="filter in filters.color"
@@ -225,7 +232,11 @@
           class="filters__item"
           @change="filter.selected = !filter.selected"
         />
-        <h3 class="filters__title">Price</h3>
+        <SfHeading
+          :level="4"
+          title="Price"
+          class="filters__title sf-heading--left"
+        />
         <SfFilter
           v-for="filter in filters.price"
           :key="filter.value"
@@ -235,7 +246,11 @@
           class="filters__item"
           @change="filter.selected = !filter.selected"
         />
-        <h3 class="filters__title">Material</h3>
+        <SfHeading
+          :level="4"
+          title="Material"
+          class="filters__title sf-heading--left"
+        />
         <SfFilter
           v-for="filter in filters.material"
           :key="filter.value"
@@ -263,6 +278,7 @@
 </template>
 <script>
 import {
+  SfHeading,
   SfSidebar,
   SfButton,
   SfList,
@@ -279,6 +295,7 @@ import {
 } from "@storefront-ui/vue";
 export default {
   components: {
+    SfHeading,
     SfButton,
     SfSidebar,
     SfIcon,
@@ -614,9 +631,7 @@ export default {
     --button-transition: all 150ms linear;
     display: flex;
     align-items: center;
-    @include for-desktop {
-      margin: 0 0 0 var(--spacer-extra-big);
-    }
+
     svg {
       fill: var(--c-text-muted);
     }
@@ -685,6 +700,11 @@ export default {
     display: flex;
     flex-wrap: wrap;
   }
+  &__list {
+    @include for-desktop {
+      padding: var(--spacer-lg) var(--spacer-lg);
+    }
+  }
   &__product-card {
     flex: 1 1 50%;
     @include for-desktop {
@@ -692,10 +712,10 @@ export default {
     }
   }
   &__product-card-horizontal {
-    --product-card-horizontal-padding: var(--spacer);
+    // --product-card-horizontal-padding: var(--spacer-sm);
     flex: 0 0 100%;
     @include for-desktop {
-      --product-card-horizontal-padding: var(--spacer-big);
+      margin: var(--spacer-lg) 0;
     }
   }
   &__slide-enter {
@@ -710,15 +730,16 @@ export default {
     @include for-desktop {
       display: flex;
       justify-content: center;
-      margin: var(--spacer-extra-big) 0 0 0;
+      margin: var(--spacer-xl) 0 0 0;
     }
   }
 }
 .filters {
-  padding: var(--spacer-big);
+  padding: var(--spacer-xl);
   &__title {
     margin: calc(var(--spacer-big) * 3) 0 var(--spacer-big) 0;
-    font: 400 var(--font-size-extra-big) / 1.6 var(--font-family-secondary);
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-normal);
     line-height: 1.6;
     &:first-child {
       margin: 0 0 var(--spacer-big) 0;
