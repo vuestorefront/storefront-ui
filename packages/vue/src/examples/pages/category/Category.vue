@@ -44,7 +44,7 @@
         </SfButton>
         <div class="navbar__sort desktop-only">
           <span class="navbar__label">Sort by:</span>
-          <SfSelect v-model="sortBy" class="sort-by">
+          <SfSelect v-model="sortBy">
             <SfSelectOption
               v-for="option in sortByOptions"
               :key="option.value"
@@ -741,25 +741,20 @@ export default {
 .filters {
   padding: var(--spacer-xl);
   &__title {
-    margin: calc(var(--spacer-big) * 3) 0 var(--spacer-big) 0;
+    margin: var(--spacer-xl) 0 var(--spacer-base) 0;
     font-family: var(--font-family-secondary);
     font-weight: var(--font-normal);
     line-height: 1.6;
-    &:first-child {
-      margin: 0 0 var(--spacer-big) 0;
-    }
   }
-  &__colors {
-    margin: calc(var(--spacer) * -1);
-  }
+
   &__color {
-    margin: var(--spacer);
+    margin-right: var(--spacer-xs);
   }
   &__item {
-    margin: var(--spacer) 0;
+    margin: var(--spacer-base) 0;
   }
   &__buttons {
-    margin: calc(var(--spacer-big) * 3) 0 0 0;
+    margin: var(--spacer-xl) 0;
   }
   &__button-clear {
     --button-background: var(--c-light);
