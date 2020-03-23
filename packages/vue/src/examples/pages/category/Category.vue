@@ -664,7 +664,7 @@ export default {
       margin: auto 0 auto auto;
     }
   }
-  // TODO: replace view with text button
+
   &__view {
     display: flex;
     align-items: center;
@@ -674,13 +674,13 @@ export default {
       margin: 0 0 0 var(--spacer-2xl);
     }
     &-icon {
-      margin: 0 0 0 0.625rem;
+      margin: 0 0 0 var(--spacer-xs);
       cursor: pointer;
     }
   }
 }
 .sort-by {
-  --select-dropdown-z-index: 10;
+  --select-dropdown-z-index: 1;
   flex: unset;
   width: 11.875rem;
 }
@@ -724,7 +724,6 @@ export default {
     }
   }
   &__product-card-horizontal {
-    // --product-card-horizontal-padding: var(--spacer-sm);
     flex: 0 0 100%;
     @include for-desktop {
       margin: var(--spacer-lg) 0;
