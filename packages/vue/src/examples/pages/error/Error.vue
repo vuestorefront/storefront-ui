@@ -6,6 +6,7 @@
     />
     <SfHeading
       title="Page not found"
+      :level="1"
       subtitle="We are sorry that we can’t find the page, please go back or try again"
       class="heading sf-heading--no-underline"
     />
@@ -37,28 +38,55 @@ export default {
 
 #error {
   box-sizing: border-box;
-  padding: 0 var(--spacer-big);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 var(--spacer-sm);
   @include for-desktop {
+    margin: 0 auto;
     max-width: 1240px;
-    margin: auto;
   }
 }
 .image {
-  padding: var(--spacer-extra-big);
-  display: flex;
-  justify-content: center;
+  max-width: 12.3125rem;
+  padding: var(--spacer-xl) 0;
+  @include for-desktop {
+    max-width: 22rem;
+    padding: var(--spacer-2xl) 0;
+  }
 }
 .heading {
-  --heading-subtitle-margin: var(--spacer-big) 0 0 0;
+  --heading-title-margin: 0 0 var(--spacer-base);
+  --heading-title-color: var(--c-primary);
+  --heading-subtitle-font-size: var(--font-base);
+  --heading-subtitle-margin: 0 var(--spacer-base);
+  --heading-subtitle-font-family: var(--font-family-primary);
   text-align: center;
+  @include for-desktop {
+    --heading-subtitle-margin: 0;
+    --heading-title-font-size: 5rem;
+  }
 }
 .actions {
-  margin: 6.25rem auto 0;
-  max-width: 250px;
+  margin: var(--spacer-xl) 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 100%;
   &__button {
     &:last-child {
-      margin: var(--spacer-big) 0;
+      margin: var(--spacer-base) 0;
     }
+  }
+  @include for-desktop {
+    & > * {
+      --button-width: 20.9375rem;
+      align-self: center;
+    }
+    margin: var(--spacer-2xl) 0 0 0;
   }
 }
 </style>
