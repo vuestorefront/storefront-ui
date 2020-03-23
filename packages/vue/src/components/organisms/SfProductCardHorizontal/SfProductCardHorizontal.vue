@@ -58,7 +58,7 @@
           <slot name="configuration" />
         </div>
       </div>
-      <div class="sf-product-card-horizontal__details">
+      <div class="sf-product-card-horizontal__actions-wrapper">
         <!--@slot Use this slot to replace price-->
         <slot name="price" v-bind="{ specialPrice, regularPrice }">
           <SfPrice
@@ -173,14 +173,14 @@ export default {
      */
     imageWidth: {
       type: [String, Number],
-      default: 216
+      default: 140
     },
     /**
      * Product image height, without unit
      */
     imageHeight: {
       type: [String, Number],
-      default: 326
+      default: 200
     },
     /**
      * Product title
