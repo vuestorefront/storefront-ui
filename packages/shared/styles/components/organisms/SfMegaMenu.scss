@@ -1,121 +1,104 @@
 @import "../../helpers";
 
-%menu-item {
-  padding: var(--mega-menu-item-padding, var(--spacer-big));
-  border-bottom: var(--mega-menu-item-border-bottom, 1px solid var(--c-light));
-  font: var(
-    --mega-menu-item-font,
-    font(
-      --mega-menu-item,
-      300,
-      var(--font-size-big),
-      1.6,
-      var(--font-family-secondary)
-    )
-  );
-  text-transform: var(--mega-menu-item-text-transform);
-  @include for-desktop {
-    --mega-menu-item-font-size: var(--font-size-regular);
-    --mega-menu-item-padding: 0 0 10px 0;
-    --mega-menu-item-border-bottom: 0;
-  }
-}
 .sf-mega-menu-column {
-  margin: var(--mega-menu-column-margin);
+  --list-item-padding: var(--spacer-sm) var(--spacer-sm) var(--spacer-sm)
+    var(--spacer-lg);
+  margin: var(--mega-menu-margin);
   &__title {
-    @extend %menu-item;
-    --mega-menu-item-font-weight: 500;
-    --mega-menu-item-padding: var(--spacer-big);
     margin: var(--mega-menu-column-title-margin);
-  }
-  & > .sf-menu-item {
-    @extend %menu-item;
-    &--primary {
-      --mega-menu-item-font-weight: 500;
-    }
+    padding: var(--mega-menu-column-title-padding, var(--spacer-sm));
+    text-transform: var(--mega-menu-column-title-text-transform);
+    @include font(
+      --mega-menu-column-title-font,
+      var(--font-medium),
+      var(--font-base),
+      1.4,
+      var(--font-family-secondary)
+    );
+    @include border(
+      --mega-menu-column-title-border,
+      0 0 1px 0,
+      solid,
+      var(--c-light)
+    );
   }
   @include for-desktop {
-    --mega-menu-column-margin: 0 var(--spacer-extra-big) 0 0;
-    &__title {
-      --mega-menu-item-padding: 0 0 20px 0;
-      --mega-menu-item-text-transform: uppercase;
-    }
+    --list-item-padding: 0;
+    --list-item-margin: var(--spacer-base) 0;
+    --mega-menu-column-title-border-width: 0;
+    --mega-menu-margin: 0 var(--spacer-2xl) 0 0;
+    --mega-menu-column-title-padding: 0;
+    --mega-menu-column-title-margin: 0 0 var(--spacer-base) 0;
+    --mega-menu-column-title-text-transform: uppercase;
   }
 }
 .sf-mega-menu {
+  --list-item-padding: var(--spacer-sm);
+  --list-item-border-width: 0 0 1px 0;
   overflow: var(--mega-menu-overflow, hidden);
-  height: var(--mega-menu-height, 100vh);
+  height: var(--mega-menu-height, 100%);
   background-color: var(--mega-menu-background, var(--c-white));
-  text-transform: var(--mega-menu-text-transform, initial);
   &__content {
-    display: var(--mega-menu-content-display, flex);
-    max-width: var(--mega-menu-content-max-width, 1240px);
+    display: var(--mega-menu-section-display, flex);
+    justify-content: space-between;
+    max-width: var(--mega-menu-content-width, 77.5rem);
     margin: var(--mega-menu-content-margin, auto);
     padding: var(--mega-menu-content-padding);
-    border: var(--mega-menu-content-border);
-    border-top: var(--mega-menu-border-top);
     transform: var(--mega-menu-content-transform);
     transition: var(
       --mega-menu-content-transition,
       transform 150ms ease-in-out
     );
     &--is-active {
-      --mega-menu-content-transform: translateX(-100%);
+      --mega-menu-content-transform: translate3d(-100%, 0, 0);
     }
   }
   &__aside,
   &__menu {
-    overflow-y: auto;
+    overflow: auto;
     box-sizing: border-box;
-    flex: var(--mega-menu-aside-menu-flex, 0 0 100%);
-    width: var(--mega-menu-aside-menu-width);
-    height: var(--mega-menu-aside-menu-height, calc(100vh - 5rem));
-    padding: var(--mega-menu-aside-menu-padding, 0 var(--spacer-big));
-    &::-webkit-scrollbar {
-      --mega-menu-aside-menu-width: 0;
-    }
+    flex: var(--mega-menu-section-flex, 0 0 100%);
+    height: var(--mega-menu-aside-menu-height, 100%);
+    padding: var(--mega-menu-section-padding, 0);
   }
   &__aside {
+    --menu-item-font-weight: var(--font-medium);
+    --menu-item-font-size: var(--font-base);
+    --menu-item-label-color: var(--c-text);
     order: var(--mega-menu-aside-order);
-    border-left: var(--mega-menu-aside-border-left);
   }
   &__menu {
     display: var(--mega-menu-menu-display);
-    justify-content: var(--mega-menu-menu-justify-content);
   }
-  &__menu-item {
-    @extend %menu-item;
-    --mega-menu-item-font-weight: 500;
+  &__aside-title {
+    display: var(--mega-menu-aside-title-display, none);
+    margin: var(--mega-menu-aside-title-margin, 0 0 var(--spacer-base) 0);
+    padding: var(--mega-menu-aside-title-padding);
+    text-transform: var(--mega-menu-aside-title-text-transform);
+    @include font(
+      --mega-menu-column-title-font,
+      var(--font-medium),
+      var(--font-base),
+      1.4,
+      var(--font-family-secondary)
+    );
   }
   &__aside-content {
-    margin: var(--mega-menu-aside-content-margin, var(--spacer-extra-big) 0);
+    padding: var(--mega-menu-aside-content-padding, var(--spacer-base));
   }
   @include for-desktop {
-    --mega-menu-overflow: auto;
+    --list-item-border-width: 0;
     --mega-menu-height: auto;
-    --mega-menu-content-border-top: 2px solid var(--c-light);
-    --mega-menu-content-padding: var(--spacer-extra-big) 0 6.25rem 0;
-    --mega-menu-content-margin: 0 auto;
+    --mega-menu-content-padding: var(--spacer-xl) 0;
     --mega-menu-aside-order: 1;
-    --mega-menu-aside-border-left: 2px solid var(--c-light);
     --mega-menu-menu-display: flex;
-    --mega-menu-menu-justify-content: space-between;
-    --mega-menu-aside-content-margin: 0;
-    --mega-menu-aside-menu-flex: auto;
-    --mega-menu-aside-menu-height: auto;
-    --mega-menu-aside-menu-padding: 0 var(--spacer-extra-big);
+    --mega-menu-section-flex: 0 0 auto;
+    --mega-menu-aside-content-padding: 0;
+    --mega-menu-aside-title-display: block;
+    --mega-menu-aside-title-text-transform: uppercase;
     &__content {
       &--is-active {
-        --mega-menu-content-transform: translateX(0);
-      }
-    }
-    &__aside {
-      &--without-content {
-        @include for-desktop {
-          --mega-menu-aside-menu-flex: 0;
-          --mega-menu-aside-menu-padding: 0;
-          --mega-menu-aside-border-left: 0;
-        }
+        --mega-menu-content-transform: translate3d(0, 0, 0);
       }
     }
   }

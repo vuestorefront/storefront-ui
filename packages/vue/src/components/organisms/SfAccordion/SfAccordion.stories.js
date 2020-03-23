@@ -59,8 +59,7 @@ storiesOf("Organisms|Accordion", module)
         :first-open="firstOpen" 
         :multiple="multiple"
         :show-chevron="showChevron"
-        :transition="transition"
-    :style="{maxWidth: '186px', padding: '1rem'}">
+        :transition="transition">
       <SfAccordionItem 
         v-for="accordion in accordions" 
         :key="accordion.header" 
@@ -70,7 +69,7 @@ storiesOf("Organisms|Accordion", module)
           <SfListItem
             v-for="item in accordion.items"
             :key="item.label"
-            :style="{margin: '10px 0'}">
+            >
             <SfMenuItem 
               :label="item.label" 
               :count="item.count"
