@@ -84,7 +84,7 @@
             <SfHeading
               title="Totals"
               :level="1"
-              class="sf-heading--left sf-heading--no-underline title"
+              class="sf-heading--left sf-heading--no-underline accordion_title"
             />
             <SfProperty
               name="Products:"
@@ -333,17 +333,7 @@ export default {
     --heading-padding: var(--spacer-sm) 0 var(--spacer-base) 0;
   }
 }
-.actions {
-  &__button {
-    &:first-child {
-      --button-height: 4.0625rem;
-      margin: var(--spacer-sm) 0 0 0;
-    }
-    &--secondary {
-      margin: var(--spacer-base) 0;
-    }
-  }
-}
+
 .table {
   margin: 0 0 var(--spacer-base) 0;
   &__row {
@@ -376,11 +366,13 @@ export default {
     }
   }
 }
+
 .product-price {
   text-align: right;
   display: flex;
   flex-direction: column;
 }
+
 .totals {
   display: flex;
   justify-content: space-between;
@@ -391,6 +383,7 @@ export default {
     flex: 0 0 18.75rem;
   }
 }
+
 .promo-code {
   display: flex;
   justify-content: space-between;
@@ -406,6 +399,7 @@ export default {
     margin: 0 var(--spacer-lg) 0 0;
   }
 }
+
 .product-sku {
   color: var(--c-text-muted);
 }
@@ -423,17 +417,21 @@ export default {
     }
   }
 }
+
 .divider {
   --divider-border-color: var(--c-white);
 }
+
 .characteristics {
   padding: var(--spacer-sm) 0;
   &__item {
     margin: var(--spacer-base) 0;
   }
 }
+
 .accordion {
   --accordion-item-content: 0;
+  --heading-padding: 0;
   &__item {
     position: relative;
     left: 50%;
@@ -456,6 +454,7 @@ export default {
     top: var(--spacer-base);
   }
 }
+
 .content {
   margin: 0 0 var(--spacer-base) 0;
   color: var(--c-text);
@@ -463,6 +462,18 @@ export default {
     font-weight: 400;
   }
 }
+
+.actions {
+  &__button {
+    &:first-child {
+      --button-height: 4.0625rem;
+    }
+    &--secondary {
+      margin: var(--spacer-base) 0;
+    }
+  }
+}
+
 a {
   color: var(--c-text);
   &:hover {

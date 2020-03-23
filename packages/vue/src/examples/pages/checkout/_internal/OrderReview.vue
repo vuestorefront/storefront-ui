@@ -147,17 +147,10 @@ export default {
 .review {
   box-sizing: border-box;
   width: 100%;
-  background: #f1f2f3;
-  padding: var(--spacer-extra-big);
-  margin: 0 0 var(--spacer-big) 0;
-  &:last-child {
-    margin: 0;
-  }
   &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font: 500 var(--font-size-big) / 1.6 var(--font-family-secondary);
     h3 {
       font: inherit;
     }
