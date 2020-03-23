@@ -10,9 +10,10 @@
         @click="tabClick"
       >
         {{ title }}
-        <div class="sf-tabs__chevron">
-          <SfChevron :class="{ 'sf-chevron--right': !isActive }" />
-        </div>
+        <SfChevron
+          class="sf-tabs__chevron"
+          :class="{ 'sf-chevron--right': !isActive }"
+        />
       </div>
     </slot>
     <div class="sf-tabs__content">
