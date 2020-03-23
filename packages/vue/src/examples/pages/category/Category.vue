@@ -6,7 +6,7 @@
     />
     <div class="navbar section">
       <div class="navbar__aside desktop-only">
-        <h1 class="navbar__title">Categories</h1>
+        <SfHeading :level="3" title="Categories" class="navbar__title" />
       </div>
       <div class="navbar__main">
         <SfButton
@@ -222,7 +222,11 @@
             @click="filter.selected = !filter.selected"
           />
         </div>
-        <h3 class="filters__title">Size</h3>
+        <SfHeading
+          :level="4"
+          title="Size"
+          class="filters__title sf-heading--left"
+        />
         <SfFilter
           v-for="filter in filters.size"
           :key="filter.value"
