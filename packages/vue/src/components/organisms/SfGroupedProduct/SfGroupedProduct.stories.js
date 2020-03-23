@@ -90,7 +90,7 @@ storiesOf("Organisms|GroupedProduct", module)
         default: object("settings", { type: "slider" }, "Props")
       },
       hasCarousel: {
-        default: boolean("hasCarousel", false, "Props")
+        default: boolean("hasCarousel", true, "Props")
       }
     },
     data() {
@@ -177,8 +177,8 @@ storiesOf("Organisms|GroupedProduct", module)
           :price-special="product.priceSpecial"
       >
         <template #details>
-          <div :style="{color: '#A3A5AD'}">{{product.sku}}</div>
-          <SfProperty v-for="attribute in product.attributes" name="Color" :value="attribute.value" :key="attribute.value" :style="{margin: 'auto 0 0 0'}"/>
+          <div :style="{color: '#A3A5AD'}" class="desktop-only">{{product.sku}}</div>
+          <SfProperty v-for="attribute in product.attributes" name="Color" :value="attribute.value" :key="attribute.value" :style="{margin: 'auto 0 0 0'}" class="desktop-only"/>
         </template>
       </SfGroupedProductItem>
     </SfGroupedProduct>`
