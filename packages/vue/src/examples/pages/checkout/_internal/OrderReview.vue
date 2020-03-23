@@ -5,8 +5,8 @@
       :level="3"
       class="sf-heading--left sf-heading--no-underline title"
     />
-    <div class="highlighted__header">
-      <h3 class="highlighted__title">Personal details</h3>
+    <div class="review__header">
+      <h3 class="review__title">Personal details</h3>
       <SfButton
         class="sf-button--text color-secondary"
         @click="$emit('click:edit', 0)"
@@ -17,8 +17,8 @@
     <p class="content">
       {{ order.email }}
     </p>
-    <div class="highlighted__header">
-      <h3 class="highlighted__title">Shipping details</h3>
+    <div class="review__header">
+      <h3 class="review__title">Shipping details</h3>
       <SfButton
         class="sf-button--text color-secondary"
         @click="$emit('click:edit', 1)"
@@ -33,8 +33,8 @@
       {{ shipping.city }}, {{ shipping.country }}
     </p>
     <p class="content">{{ shipping.phoneNumber }}</p>
-    <div class="highlighted__header">
-      <h3 class="highlighted__title">Billing address</h3>
+    <div class="review__header">
+      <h3 class="review__title">Billing address</h3>
       <SfButton
         class="sf-button--text color-secondary"
         @click="$emit('click:edit', 2)"
@@ -54,8 +54,8 @@
       </p>
       <p class="content">{{ payment.phoneNumber }}</p>
     </template>
-    <div class="highlighted__header">
-      <h3 class="highlighted__title">Payment method</h3>
+    <div class="review__header">
+      <h3 class="review__title">Payment method</h3>
       <SfButton
         class="sf-button--text color-secondary"
         @click="$emit('click:edit', 2)"
@@ -63,14 +63,14 @@
       </SfButton>
     </div>
     <p class="content">{{ paymentMethod.label }}</p>
-    <SfButton class="sf-button--full-width actions__action-button"
+    <SfButton class="sf-button--full-width actions__button"
       >Place my order
     </SfButton>
     <SfButton
-      class="sf-button--full-width sf-button--text color-secondary actions__action-button"
+      class="sf-button--full-width sf-button--text color-secondary actions__button actions__button--secondary"
       @click="$emit('click:back')"
     >
-      Go back to Payment
+      Go back
     </SfButton>
     <div class="characteristics">
       <SfCharacteristic
@@ -139,7 +139,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-.highlighted {
+
+.title {
+  --heading-title-margin: 0 0 var(--spacer-lg) 0;
+}
+
+.review {
   box-sizing: border-box;
   width: 100%;
   background: #f1f2f3;
@@ -158,16 +163,32 @@ export default {
     }
   }
 }
+
 .characteristics {
-  padding: var(--spacer-sm) 0 var(--spacer-base) 0;
   &__item {
     margin: var(--spacer-base) 0;
   }
 }
+
 .content {
-  font: 300 var(--font-size-extra-small) / 1.6 var(--font-family-secondary);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-xs);
+  line-height: 1.6;
+  font-weight: var(--font-light);
+  margin: 0;
+  color: var(--c-dark-variant);
   &__label {
-    font-weight: 400;
+    color: var(--c-text);
+    font-weight: var(--font-normal);
+  }
+}
+
+.actions {
+  &__button {
+    margin: var(--spacer-sm) 0;
+    &--secondary {
+      text-align: left;
+    }
   }
 }
 </style>

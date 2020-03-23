@@ -44,12 +44,12 @@
         >{{ buttonName }}</SfButton
       >
       <SfButton
-        class="sf-button--text actions__button"
+        class="sf-button--text actions__button actions__button--secondary"
         @click="$emit('click:back')"
         >Go back</SfButton
       >
     </div>
-    <div class="highlighted">
+    <div class="characteristics">
       <SfCharacteristic
         v-for="characteristic in characteristics"
         :key="characteristic.title"
@@ -57,7 +57,7 @@
         :description="characteristic.description"
         :icon="characteristic.icon"
         color-icon="green-primary"
-        class="characteristic"
+        class="characteristics__item"
       />
     </div>
   </div>
@@ -163,15 +163,6 @@ export default {
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
       return "$" + total.toFixed(2);
     }
-  },
-  methods: {
-    removeProduct(index) {
-      const order = { ...this.order };
-      const products = [...order.products];
-      products.splice(index, 1);
-      order.products = products;
-      this.$emit("update:order", order);
-    }
   }
 };
 </script>
@@ -188,7 +179,6 @@ export default {
 
 .divider {
   --divider-border-color: var(--c-white);
-  --divider-border-width: 2px;
   --divider-margin: calc(var(--spacer-base) * 2) 0 0 0;
 }
 
@@ -207,13 +197,18 @@ export default {
     margin: 0 var(--spacer-lg) 0 0;
   }
 }
-.characteristic {
-  margin: var(--spacer-base) 0 var(--spacer-base) var(--spacer-xs);
+.characteristics {
+  &__item {
+    margin: var(--spacer-base) 0;
+  }
 }
 
 .actions {
   &__button {
     margin: var(--spacer-sm) 0;
+    &--secondary {
+      text-align: left;
+    }
   }
 }
 </style>
