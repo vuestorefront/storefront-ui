@@ -671,7 +671,7 @@ export default {
     margin: 0 var(--spacer-xl);
     font-family: var(--font-family-secondary);
     @include for-desktop {
-      margin: 0 var(--spacer-2xl);
+      margin: 0 0 0 var(--spacer-2xl);
     }
     &-icon {
       margin: 0 0 0 0.625rem;
@@ -697,12 +697,19 @@ export default {
 .products {
   box-sizing: border-box;
   flex: 1;
-  margin: var(--spacer-sm);
+  margin: 0;
+  @include for-desktop {
+    margin: var(--spacer-sm);
+  }
 
   &__grid,
   &__list {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  &__grid {
+    justify-content: space-between;
   }
   &__list {
     @include for-desktop {
@@ -710,6 +717,7 @@ export default {
     }
   }
   &__product-card {
+    --product-card-max-width: 50%;
     flex: 1 1 50%;
     @include for-desktop {
       flex: 1 1 25%;
