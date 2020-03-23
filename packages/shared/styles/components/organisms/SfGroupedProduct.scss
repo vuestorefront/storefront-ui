@@ -80,7 +80,21 @@
 .sf-grouped-product {
   .glide {
     &__slides {
-      margin: 0;
+      margin: 0; // todo: fix this this issues global
+    }
+  }
+  @include for-desktop {
+    .glide {
+      &__slides {
+        display: block;
+        width: auto;
+        transform: unset;
+      }
+      &__slide {
+        &--clone {
+          display: none;
+        }
+      }
     }
   }
   &--without-carousel {
