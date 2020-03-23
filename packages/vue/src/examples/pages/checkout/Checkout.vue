@@ -276,10 +276,6 @@ export default {
       if (next < this.currentStep) {
         this.currentStep = next;
       }
-    },
-    goNext(data) {
-      this.canGoNext = !Object.values(data).includes("");
-      return this.canGoNext;
     }
   }
 };
