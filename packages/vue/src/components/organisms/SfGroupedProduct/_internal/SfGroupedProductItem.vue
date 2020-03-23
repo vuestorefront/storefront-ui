@@ -82,14 +82,14 @@ export default {
      */
     imageWidth: {
       type: [String, Number],
-      default: 246
+      default: 328
     },
     /**
      * Product image height, without unit
      */
     imageHeight: {
       type: [String, Number],
-      default: 336
+      default: 448
     },
     /**
      * Product image placeholder
