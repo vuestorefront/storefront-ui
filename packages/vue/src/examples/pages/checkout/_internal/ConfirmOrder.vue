@@ -125,9 +125,9 @@
           v-for="tableHeader in tableHeaders"
           :key="tableHeader"
           class="table__header"
+          :class="{ table__description: tableHeader === 'Description' }"
           >{{ tableHeader }}
         </SfTableHeader>
-        <SfTableHeader class="table__action"></SfTableHeader>
       </SfTableHeading>
       <SfTableRow
         v-for="(product, index) in products"
@@ -137,7 +137,7 @@
         <SfTableData class="table__image">
           <SfImage :src="product.image" />
         </SfTableData>
-        <SfTableData class="table__data table__data--left">
+        <SfTableData class="table__description">
           <div class="product-title">{{ product.title }}</div>
           <div class="product-sku">{{ product.sku }}</div>
         </SfTableData>
@@ -155,16 +155,6 @@
             class="product-price"
           />
         </SfTableData>
-        <SfTableData class="table__action">
-          <SfIcon
-            icon="cross"
-            size="xxs"
-            color="#BEBFC4"
-            role="button"
-            class="button"
-            @click="removeProduct(index)"
-          />
-        </SfTableData>
       </SfTableRow>
     </SfTable>
     <div class="characteristics mobile-only">
@@ -179,14 +169,14 @@
       />
     </div>
     <div class="actions mobile-only">
-      <SfButton class="sf-button--full-width actions__action-button"
+      <SfButton class="sf-button--full-width actions__button"
         >Place my order
       </SfButton>
       <SfButton
-        class="sf-button--full-width sf-button--text color-secondary actions__action-button"
+        class="sf-button--full-width sf-button--text color-secondary actions__button actions__button--secondary"
         @click="$emit('click:back')"
       >
-        Go back to Payment
+        Go back
       </SfButton>
     </div>
     <div class="totals desktop-only">
@@ -242,7 +232,6 @@ import {
   SfDivider,
   SfButton,
   SfImage,
-  SfIcon,
   SfInput,
   SfPrice,
   SfProperty,
@@ -260,7 +249,6 @@ export default {
     SfDivider,
     SfButton,
     SfImage,
-    SfIcon,
     SfInput,
     SfPrice,
     SfProperty,
@@ -333,87 +321,40 @@ export default {
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
       return "$" + total.toFixed(2);
     }
-  },
-  methods: {
-    removeProduct(index) {
-      const order = { ...this.order };
-      const products = [...order.products];
-      products.splice(index, 1);
-      order.products = products;
-      this.$emit("update:order", order);
-    }
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-#confirm-order {
-  --accordion-item-content: 0;
-}
 
 .title {
-  margin: 0 0 var(--spacer-extra-big);
-}
-
-.form {
+  --heading-padding: var(--spacer-sm) 0;
   @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  &__element {
-    margin: 0 0 var(--spacer-extra-big) 0;
-    @include for-desktop {
-      flex: 0 0 100%;
-    }
-    &--half {
-      @include for-desktop {
-        flex: 1 1 50%;
-      }
-      &-even {
-        @include for-desktop {
-          padding: 0 0 0 var(--spacer-extra-big);
-        }
-      }
-    }
-  }
-  &__group {
-    display: flex;
-    align-items: center;
-  }
-  &__action {
-    @include for-desktop {
-      flex: 0 0 100%;
-      display: flex;
-    }
-  }
-  &__action-button {
-    &--secondary {
-      --button-margin: var(--spacer-big) 0;
-      @include for-desktop {
-        order: -1;
-        --button-margin: 0;
-        text-align: left;
-      }
-    }
-  }
-  &__button {
-    --button-width: 100%;
-    @include for-desktop {
-      --button-width: auto;
-    }
-  }
-  &__radio-group {
-    flex: 0 0 100%;
-    margin: 0 0 var(--spacer-extra-big) 0;
+    --heading-padding: var(--spacer-sm) 0 var(--spacer-base) 0;
   }
 }
-
+.actions {
+  &__button {
+    &:first-child {
+      --button-height: 4.0625rem;
+      margin: var(--spacer-sm) 0 0 0;
+    }
+    &--secondary {
+      margin: var(--spacer-base) 0;
+    }
+  }
+}
 .table {
-  margin: 0 0 var(--spacer-big) 0;
+  margin: 0 0 var(--spacer-base) 0;
+  &__row {
+    justify-content: space-between;
+  }
   &__header {
     @include for-desktop {
       text-align: center;
+      &:last-child {
+        text-align: right;
+      }
     }
   }
   &__data {
@@ -421,34 +362,35 @@ export default {
       text-align: center;
     }
   }
-  &__image {
+  &__description {
     @include for-desktop {
-      flex: 0 0 5.125rem;
+      text-align: left;
+      flex: 0 0 12rem;
     }
   }
-  &__action {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  &__image {
     @include for-desktop {
-      flex: 0 0 2.5rem;
+      text-align: left;
+      flex: 0 0 5.125rem;
+      margin-right: var(--spacer-xl);
     }
   }
 }
-
+.product-price {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
 .totals {
   display: flex;
   justify-content: space-between;
-  padding: var(--spacer-lg) 0;
-
   &__element {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    flex: 0 0 40%;
+    flex: 0 0 18.75rem;
   }
 }
-
 .promo-code {
   display: flex;
   justify-content: space-between;
@@ -472,43 +414,6 @@ export default {
   cursor: pointer;
 }
 
-.summary {
-  background: var(--c-light);
-  margin: 0 calc(var(--spacer-big) * -1);
-  padding: var(--spacer-big);
-  @include for-desktop {
-    background: transparent;
-  }
-  &__group {
-    @include for-desktop {
-      display: flex;
-      margin: 0 0 var(--spacer-extra-big) 0;
-    }
-  }
-  &__terms {
-    flex: 1;
-    order: -1;
-    margin: 0 0 var(--spacer-big) 0;
-  }
-  &__total {
-    margin: 0 0 var(--spacer-extra-big) 0;
-    padding: 0 var(--spacer-big);
-    flex: 0 0 16.875rem;
-    @include for-desktop {
-      padding: 0;
-    }
-  }
-  &__action-button {
-    &--secondary {
-      margin: var(--spacer-big) 0;
-      @include for-desktop {
-        order: -1;
-        margin: 0;
-        text-align: left;
-      }
-    }
-  }
-}
 .property {
   margin: var(--spacer-base) 0;
   @include for-desktop {
@@ -518,11 +423,9 @@ export default {
     }
   }
 }
-
 .divider {
   --divider-border-color: var(--c-white);
 }
-
 .characteristics {
   padding: var(--spacer-sm) 0;
   &__item {
@@ -530,16 +433,17 @@ export default {
   }
 }
 .accordion {
+  --accordion-item-content: 0;
   &__item {
-    display: flex;
-    align-items: flex-start;
-    background: var(--c-light);
-    width: 100vw;
     position: relative;
     left: 50%;
     right: 50%;
+    display: flex;
+    align-items: flex-start;
+    width: 100vw;
     margin-left: -50vw;
     margin-right: -50vw;
+    background: var(--c-light);
   }
   &__content {
     flex: 1;
@@ -559,7 +463,6 @@ export default {
     font-weight: 400;
   }
 }
-
 a {
   color: var(--c-text);
   &:hover {
