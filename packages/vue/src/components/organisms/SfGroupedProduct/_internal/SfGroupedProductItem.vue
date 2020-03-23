@@ -24,10 +24,7 @@
         />
       </slot>
     </div>
-    <div
-      v-show="!isMobile || !hasCarousel"
-      class="sf-grouped-product-item__description"
-    >
+    <div class="sf-grouped-product-item__description">
       <!-- @slot Custom title markup -->
       <slot name="title" v-bind="{ title }">
         <div class="sf-grouped-product-item__title">{{ title }}</div>
@@ -37,10 +34,7 @@
     </div>
     <!-- @slot Custom configuration markup -->
     <slot name="configuration" />
-    <div
-      v-show="!isMobile || !hasCarousel"
-      class="sf-grouped-product-item__info"
-    >
+    <div class="sf-grouped-product-item__info">
       <slot name="price" v-bind="{ priceSpecial, priceRegular }">
         <SfPrice
           v-if="!isMobile || !hasCarousel"
@@ -65,10 +59,6 @@
 import SfPrice from "../../../atoms/SfPrice/SfPrice.vue";
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
 import SfQuantitySelector from "../../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver
-} from "../../../../utilities/mobile-observer";
 export default {
   name: "SfGroupedProductItem",
   components: {
@@ -148,15 +138,6 @@ export default {
       type: [Number, String],
       default: 1
     }
-  },
-  computed: {
-    ...mapMobileObserver(),
-    hasCarousel() {
-      return this.$parent.hasCarousel;
-    }
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   }
 };
 </script>
