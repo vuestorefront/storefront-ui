@@ -308,11 +308,9 @@ export default {
   }
 }
 .checkout {
-  --steps-content-padding: var(--spacer-xl) var(--spacer-sm) var(--spacer-xs);
-
+  --steps-content-padding: var(--spacer-sm) var(--spacer-sm) 0 var(--spacer-sm);
   @include for-desktop {
     --steps-content-padding: var(--spacer-xl) var(--spacer-sm) 0 0;
-
     display: flex;
   }
   &__main {
