@@ -270,7 +270,6 @@ export default {
     align-items: center;
   }
   &__element {
-    // margin: 0 0 var(--spacer-base) 0;
     @include for-desktop {
       flex: 0 0 100%;
     }
