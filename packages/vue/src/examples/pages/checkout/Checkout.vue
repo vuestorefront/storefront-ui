@@ -2,8 +2,6 @@
   <div id="checkout">
     <div class="checkout">
       <div class="checkout__main">
-        <!-- <pre>{{ getOrxder }}</pre> -->
-        <!-- <pre>{{ goNext(personalDetails) }}</pre> -->
         <SfSteps :active="currentStep" @change="updateStep($event)">
           <SfStep name="Details">
             <PersonalDetails
@@ -11,14 +9,12 @@
               :button-name="getButtonName"
               @click:next="currentStep++"
               @click:back="currentStep--"
-              @update:order="updateOrder($event)"
             />
           </SfStep>
           <SfStep name="Shipping">
             <Shipping
               v-model="shipping"
               :shipping-methods="shippingMethods"
-              @update:order="updateOrder($event)"
               @click:next="currentStep++"
               @click:back="currentStep--"
             />
@@ -27,7 +23,6 @@
             <Payment
               v-model="payment"
               :payment-methods="paymentMethods"
-              @update:order="updateOrder($event)"
               @click:next="currentStep++"
               @click:back="currentStep--"
             />
@@ -40,7 +35,6 @@
               :characteristics="characteristics"
               @click:back="currentStep--"
               @click:edit="currentStep = $event"
-              @update:order="updateOrder($event, false)"
             />
           </SfStep>
         </SfSteps>
@@ -58,7 +52,6 @@
             :button-name="getButtonName"
             @click:next="currentStep++"
             @click:back="currentStep--"
-            @update:order="updateOrder($event, false)"
           />
           <OrderReview
             v-else
@@ -287,18 +280,13 @@ export default {
     goNext(data) {
       this.canGoNext = !Object.values(data).includes("");
       return this.canGoNext;
-    },
-    updateOrder(order, next = true) {
-      this.order = { ...this.order, ...order };
-      if (next) {
-        this.currentStep++;
-      }
     }
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 #checkout {
   font-family: var(--font-family-secondary);
   box-sizing: border-box;
@@ -307,6 +295,7 @@ export default {
     margin: 0 auto;
   }
 }
+
 .checkout {
   --steps-content-padding: var(--spacer-sm) var(--spacer-sm) 0 var(--spacer-sm);
   @include for-desktop {
