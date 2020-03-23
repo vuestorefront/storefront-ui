@@ -5,13 +5,6 @@
   display: var(--grouped-product-item-display);
   box-sizing: border-box;
   padding: var(--grouped-product-item-padding, var(--spacer-xs));
-  @include font(
-    --grouped-product-item-font,
-    var(--font-normal),
-    var(--font-2xs),
-    1.6,
-    var(--font-family-secondary)
-  );
   @include border(--grouped-product-item-border, 0, solid, var(--c-light));
   &__aside {
     position: var(--grouped-product-item-aside-position, relative);
@@ -57,6 +50,13 @@
   }
   &__title {
     margin: var(--grouped-product-item-title-margin, var(--spacer-xs) 0);
+    @include font(
+      --grouped-product-item-title-font,
+      var(--font-normal),
+      var(--font-2xs),
+      1.6,
+      var(--font-family-secondary)
+    );
   }
   &__price {
     margin: var(--grouped-product-item-price-margin);
