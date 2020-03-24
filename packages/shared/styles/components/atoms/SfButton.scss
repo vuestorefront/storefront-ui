@@ -5,6 +5,7 @@
   width: var(--button-size, var(--button-width));
   height: var(--button-size, var(--button-height));
   display: flex;
+  align-items: center;
   justify-content: center;
   padding: var(--button-padding, var(--spacer-sm) calc(var(--spacer-sm) * 2));
   color: var(--button-color, var(--c-light-variant));
@@ -16,6 +17,7 @@
   cursor: var(--button-cursor, pointer);
   outline: none;
   border-radius: var(--button-border-radius, 0);
+  white-space: var(--button-wrap, nowrap);
   @include font(
     --button-font,
     var(--font-semibold),

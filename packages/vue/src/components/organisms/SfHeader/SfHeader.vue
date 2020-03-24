@@ -37,16 +37,16 @@
           v-bind="{ accountIcon, wishlistIcon, cartIcon }"
         >
           <div class="sf-header__icons desktop-only">
-            <SfCircleIcon
+            <SfIcon
               v-for="icon in headerIcons"
               :key="icon.name"
               :icon="icon.icon"
               :has-badge="isCartEmpty && icon.hasBadge === true"
               :badge-label="cartItemsQty"
-              icon-size="1.25rem"
-              class="sf-header__circle-icon"
+              size="xs"
+              class="sf-header__icon"
               :class="{
-                'sf-header__circle-icon--is-active': activeIcon === icon.name
+                'sf-header__icon--is-active': activeIcon === icon.name
               }"
               role="button"
               :aria-label="icon.name"
@@ -70,13 +70,13 @@ import {
   unMapMobileObserver
 } from "../../../utilities/mobile-observer";
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
-import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
 export default {
   name: "SfHeader",
   components: {
-    SfCircleIcon,
+    SfIcon,
     SfImage,
     SfSearchBar
   },
