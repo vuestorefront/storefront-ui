@@ -1,10 +1,10 @@
 <template>
   <div class="sf-store-locator">
-    <div class="sf-store-locator__title" tabindex="0">
-      Found stores: <span>{{ stores.length }}</span>
-    </div>
     <div class="sf-store-locator__wrapper">
       <div class="sf-store-locator__list">
+        <div class="sf-store-locator__title desktop-only" tabindex="0">
+          Stores found: <span>{{ stores.length }}</span>
+        </div>
         <!-- @slot Use this slot to show stores cards -->
         <slot
           v-bind="{
@@ -34,21 +34,6 @@
             :url="tileServerUrl"
             :attribution="tileServerAttribution"
           />
-          <l-control-zoom position="topleft" />
-          <l-control
-            position="topleft"
-            class="leaflet-bar leaflet-control leaflet-control-zoom-in sf-store-locator__map-wrapper-map-my-location-btn"
-          >
-            <a
-              title="center on user position"
-              role="button"
-              aria-label="center on user position"
-              href="#"
-              @click.prevent="locateUser"
-            >
-              <sf-icon icon="home" />
-            </a>
-          </l-control>
           <l-marker
             v-for="(store, index) in stores"
             :key="index"
