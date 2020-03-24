@@ -22,10 +22,10 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         )
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props")
       },
       title: {
         default: text("title", "Cream Beach Bag", "Props")
@@ -53,7 +53,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         default: select("wishlistIcon", [false, "heart"], "heart", "Props")
       },
       isOnWishlist: {
-        default: boolean("isOnWishlist", false, "Props")
+        default: boolean("isOnWishlist", true, "Props")
       },
       isOnWishlistIcon: {
         default: text("isOnWishlistIcon", "heart_fill", "Props")
@@ -75,7 +75,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       }
     },
     components: { SfProductCardHorizontal, SfButton, SfProperty },
-    template: `<SfProductCardHorizontal
+    template: `<div :style="{maxWidth: '1024px'}">
+      <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"
           :image-height="imageHeight"
@@ -94,38 +95,35 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           :is-on-wishlist-icon="isOnWishlistIcon"
           :is-on-wishlist="isOnWishlist">
           <template #configuration>
-            <div>
-              <SfProperty name="Size" value="XS"/>
-              <SfProperty name="Color" value="white"/>
-            </div>
+              <SfProperty class="desktop-only" name="Size" value="XS" style="margin: 0 0 1rem 0"/>
+              <SfProperty class="desktop-only" name="Color" value="white"/>
           </template>
           <template #actions>
-            <div style="display:flex; flex-direction: column; align-items: flex-end">
               <SfButton
-                class="sf-button--text color-secondary"
+                class="sf-button--text desktop-only"
                 @click="$emit('click:add-to-wishlist')"
-                style="padding-bottom: 1.25rem" 
+                style="margin: 0 0 1rem auto; display: block" 
               >
                 Save for later
               </SfButton>
               <SfButton
-                class="sf-button--text color-secondary"
+                class="sf-button--text desktop-only"
                 @click="$emit('click:add-to-compare')"
-                style="padding-bottom: 1.25rem" 
+                style="margin: 0 0 0 auto; display: block"
               >
                 Add to compare
               </SfButton>
-            </div>
           </template>
-      </SfProductCardHorizontal>`
+      </SfProductCardHorizontal>
+    </div>`
   }))
   .add("With 2 pictures", () => ({
     props: {
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props")
       },
       title: {
         default: text("title", "Product name", "Props")
@@ -201,7 +199,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       };
     },
     components: { SfProductCardHorizontal, SfButton, SfProperty },
-    template: `<SfProductCardHorizontal
+    template: `<div :style="{maxWidth: '1024px'}">
+      <SfProductCardHorizontal
         :image="pictures"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -221,30 +220,28 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         :is-on-wishlist="isOnWishlist"
         >
         <template #configuration>
-          <div>
-            <SfProperty name="Size" value="XS"/>
-            <SfProperty name="Color" value="white"/>
-          </div>
+            <SfProperty class="desktop-only" name="Size" value="XS" style="margin: 0 0 1rem 0"/>
+            <SfProperty class="desktop-only" name="Color" value="white"/>
           </template>
-          <template #actions>
-            <div style="display:flex; flex-direction: column; align-items: flex-end">
+        <template #actions>
+          <div>
               <SfButton
-                class="sf-button--text color-primary"
-                style="padding-bottom: 1.25rem" 
+                class="sf-button--text color-primary desktop-only"
+                style="padding-bottom: 1rem" 
                 @click="$emit('click:add-to-wishlist')"
               >
                 Save for later
               </SfButton>
               <SfButton
-                class="sf-button--text color-primary"
-                style="padding-bottom: 1.25rem" 
+                class="sf-button--text color-primary desktop-only"
                 @click="$emit('click:add-to-compare')"
               >
                 Add to compare
               </SfButton>
-            </div>
+          </div>
           </template>
-    </SfProductCardHorizontal>`
+    </SfProductCardHorizontal>
+    </div>`
   }))
   .add("[slot] configuration", () => ({
     props: {
@@ -256,10 +253,10 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         )
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props")
       },
       title: {
         default: text("title", "Cream Beach Bag", "Props")
@@ -309,7 +306,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       }
     },
     components: { SfProductCardHorizontal },
-    template: `<SfProductCardHorizontal
+    template: `<div :style="{maxWidth: '1024px'}">
+      <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"
           :image-height="imageHeight"
@@ -330,7 +328,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           <template #configuration>
             CUSTOM CONFIGURATION
           </template>
-      </SfProductCardHorizontal>`
+      </SfProductCardHorizontal>
+    </div>`
   }))
   .add("[slot] actions", () => ({
     props: {
@@ -342,10 +341,10 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         )
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props")
       },
       title: {
         default: text("title", "Cream Beach Bag", "Props")
@@ -395,7 +394,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       }
     },
     components: { SfProductCardHorizontal },
-    template: `<SfProductCardHorizontal
+    template: `<div :style="{maxWidth: '1024px'}">
+      <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"
           :image-height="imageHeight"
@@ -416,5 +416,6 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           <template #actions>
             CUSTOM ACTIONS
           </template>
-      </SfProductCardHorizontal>`
+      </SfProductCardHorizontal>
+    </div>`
   }));
