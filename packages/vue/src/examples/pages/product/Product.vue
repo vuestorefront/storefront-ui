@@ -1,55 +1,16 @@
 <template>
   <div id="product">
-    <div class="desktop-only">
-      <SfTopBar class="topbar">
-        <template #center>
-          <p class="topbar__center">
-            Download our application.
-          </p>
-          <SfButton class="sf-button--text">Find out more</SfButton>
-        </template>
-        <template #left>
-          <SfButton class="sf-button--text">Help & FAQs</SfButton>
-        </template>
-        <template #right>
-          <div class="topbar__right">Location:</div>
-          <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag" />
-        </template>
-      </SfTopBar>
-      <SfHeader
-        title="Storefront UI"
-        logo="/assets/logo.svg"
-        active-icon="account"
-        :has-mobile-search="false"
-        search-placeholder="Search for items"
-        wishlist-icon="heart"
-        :is-sticky="false"
-        account-icon="profile"
-        cart-items-qty="0"
-      >
-        <template #navigation>
-          <SfHeaderNavigationItem v-for="item in navigation" :key="item">
-            <a
-              href="#"
-              :style="{ display: 'flex', alignItems: 'center', height: '100%' }"
-              >{{ item }}</a
-            >
-          </SfHeaderNavigationItem>
-        </template>
-      </SfHeader>
-      <SfBreadcrumbs :breadcrumbs="breadcrumbs" />
-    </div>
     <div class="product">
       <SfChevron class="sf-chevron--left product__chevron mobile-only" />
       <SfGallery
-        :images="product.images"
+        :images="product.imagesWide"
         image-width="400"
         image-height="500"
         class="mobile-only"
       />
       <div class="product__images desktop-only">
-        <SfImage :src="product.images[2].big.url" />
-        <SfImage :src="product.images[3].big.url" />
+        <SfImage :src="product.imagesHeigh[0].big.url" />
+        <SfImage :src="product.imagesHeigh[1].big.url" />
       </div>
       <div class="product__info">
         <div class="product__info__header">
@@ -96,8 +57,8 @@
           <SfSelect
             v-model="selectedSize"
             label="Size"
-            :valid="true"
             class="sf-select--underlined product__select"
+            :reqired="true"
           >
             <SfSelectOption
               v-for="(size, key) in product.sizes"
@@ -115,7 +76,7 @@
           </div>
           <SfAddToCart
             v-model="qty"
-            class="product__add-to-cart desktop-only"
+            class="product__add-to-cart"
             @click="addToCart"
           />
           <SfButton class="sf-button--text desktop-only btn__save">
@@ -176,26 +137,6 @@
         </SfTabs>
       </div>
     </div>
-
-    <SfBottomNavigation class="mobile-only">
-      <SfBottomNavigationItem
-        v-for="(item, key) in bottomNavigationItems"
-        :key="key"
-        :icon="item.icon"
-        :icon-active="item.iconActive"
-        :label="item.label"
-        icon-size="17px"
-        :is-active="currentIcon === item.iconActive"
-        @click="currentIcon = item.iconActive"
-      />
-      <SfBottomNavigationItem
-        label="Add to cart"
-        icon="plus"
-        :is-floating="true"
-        @click="addToCart"
-      >
-      </SfBottomNavigationItem>
-    </SfBottomNavigation>
   </div>
 </template>
 <script>
@@ -208,12 +149,8 @@ import {
   SfIcon,
   SfTabs,
   SfProperty,
-  SfBottomNavigation,
   SfChevron,
-  SfTopBar,
   SfButton,
-  SfHeader,
-  SfBreadcrumbs,
   SfReview,
   SfAddToCart,
   SfColor,
@@ -222,8 +159,6 @@ import {
   SfDivider
 } from "@storefront-ui/vue";
 import SfTab from "@storefront-ui/vue/src/components/organisms/SfTabs/_internal/SfTab";
-import SfBottomNavigationItem from "@storefront-ui/vue/src/components/organisms/SfBottomNavigation/_internal/SfBottomNavigationItem";
-import SfHeaderNavigationItem from "@storefront-ui/vue/src/components/organisms/SfHeader/_internal/SfHeaderNavigationItem";
 import SfSelectOption from "@storefront-ui/vue/src/components/molecules/SfSelect/_internal/SfSelectOption";
 
 export default {
@@ -238,17 +173,11 @@ export default {
     SfTabs,
     SfTab,
     SfProperty,
-    SfBottomNavigation,
-    SfBottomNavigationItem,
     SfChevron,
-    SfTopBar,
     SfButton,
-    SfHeader,
-    SfBreadcrumbs,
     SfReview,
     SfAddToCart,
     SfColor,
-    SfHeaderNavigationItem,
     SfSelect,
     SfSelectOption,
     SfProductOption,
@@ -256,13 +185,13 @@ export default {
   },
   data() {
     return {
-      selectedSize: "",
+      selectedSize: undefined,
       qty: 1,
       product: {
         name: "Cashmere Sweater",
         description:
           "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-        images: [
+        imagesWide: [
           {
             mobile: { url: "assets/storybook/Product/productM.png" },
             desktop: { url: "assets/storybook/Product/productM.png" },
@@ -272,7 +201,9 @@ export default {
             mobile: { url: "assets/storybook/Product/productZ.jpg" },
             desktop: { url: "assets/storybook/Product/productZ.jpg" },
             big: { url: "assets/storybook/Product/productZ.jpg" }
-          },
+          }
+        ],
+        imagesHeigh: [
           {
             mobile: { url: "assets/storybook/Product/productA.jpg" },
             desktop: { url: "assets/storybook/Product/productA.jpg" },
@@ -335,11 +266,6 @@ export default {
           }
         ]
       },
-      breadcrumbs: [
-        { text: "Home", route: { link: "#" } },
-        { text: "Category", route: { link: "#" } },
-        { text: "Pants", route: { link: "#" } }
-      ],
       tabs: [
         {
           title: "Description",
@@ -354,31 +280,7 @@ export default {
           title: "Additional Information",
           content: ""
         }
-      ],
-      bottomNavigationItems: [
-        {
-          icon: "home",
-          iconActive: "home_fill",
-          label: "Home"
-        },
-        {
-          icon: "menu",
-          iconActive: "",
-          label: "Menu"
-        },
-        {
-          icon: "heart",
-          iconActive: "heart_fill",
-          label: "Wishlist"
-        },
-        {
-          icon: "profile",
-          iconActive: "profile_fill",
-          label: "Account"
-        }
-      ],
-      currentIcon: "heart_fill",
-      navigation: ["women", "man", "kids"]
+      ]
     };
   },
   methods: {
@@ -392,15 +294,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
-.topbar {
-  &__center {
-    margin: 0 var(--spacer-2xs) 0 0;
-  }
-  &__right {
-    margin: 0 var(--spacer-base) 0 0;
-  }
-}
 
 .product {
   &__chevron {
@@ -488,9 +381,15 @@ export default {
     &__color {
       margin: 0 var(--spacer-2xs);
     }
+    @include for-desktop {
+      margin-top: var(--spacer-xl);
+    }
   }
   &__add-to-cart {
-    margin-top: var(--spacer-2xl);
+    margin-top: var(--spacer-base);
+    @include for-desktop {
+      margin-top: var(--spacer-2xl);
+    }
   }
   &__tabs {
     margin: var(--spacer-lg) auto var(--spacer-2xl);
@@ -519,7 +418,7 @@ export default {
     );
     &__title {
       font-weight: var(--font-bold);
-      margin-bottom: var(--spacer-sm);
+      margin: 0 0 var(--spacer-sm);
       &:not(:first-child) {
         margin-top: 58px;
       }
@@ -545,10 +444,5 @@ export default {
   &__compare {
     margin-top: 0;
   }
-}
-
-.sf-breadcrumbs {
-  max-width: 77.5rem;
-  margin: var(--spacer-lg) auto var(--spacer-base);
 }
 </style>
