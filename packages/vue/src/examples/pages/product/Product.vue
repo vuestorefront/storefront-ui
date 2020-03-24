@@ -39,7 +39,7 @@
       </SfHeader>
       <SfBreadcrumbs :breadcrumbs="breadcrumbs" />
     </div>
-    <main class="product">
+    <div class="product">
       <SfChevron class="sf-chevron--left product__chevron mobile-only" />
       <SfGallery
         :images="product.images"
@@ -48,8 +48,8 @@
         class="mobile-only"
       />
       <div class="product__images desktop-only">
-        <SfImage :src="product.images[1].big.url" />
         <SfImage :src="product.images[2].big.url" />
+        <SfImage :src="product.images[3].big.url" />
       </div>
       <div class="product__info">
         <div class="product__info__header">
@@ -77,7 +77,6 @@
                 v-if="!!product.reviews"
                 href="#"
                 class="product__price-and-review__count"
-                @click="$emit('click:reviews')"
               >
                 ({{ product.reviews.length }})
               </a>
@@ -176,7 +175,7 @@
           </SfTab>
         </SfTabs>
       </div>
-    </main>
+    </div>
 
     <SfBottomNavigation class="mobile-only">
       <SfBottomNavigationItem
@@ -226,6 +225,7 @@ import SfTab from "@storefront-ui/vue/src/components/organisms/SfTabs/_internal/
 import SfBottomNavigationItem from "@storefront-ui/vue/src/components/organisms/SfBottomNavigation/_internal/SfBottomNavigationItem";
 import SfHeaderNavigationItem from "@storefront-ui/vue/src/components/organisms/SfHeader/_internal/SfHeaderNavigationItem";
 import SfSelectOption from "@storefront-ui/vue/src/components/molecules/SfSelect/_internal/SfSelectOption";
+
 export default {
   name: "Product",
   components: {
@@ -269,6 +269,11 @@ export default {
             big: { url: "assets/storybook/Product/productM.png" }
           },
           {
+            mobile: { url: "assets/storybook/Product/productZ.jpg" },
+            desktop: { url: "assets/storybook/Product/productZ.jpg" },
+            big: { url: "assets/storybook/Product/productZ.jpg" }
+          },
+          {
             mobile: { url: "assets/storybook/Product/productA.jpg" },
             desktop: { url: "assets/storybook/Product/productA.jpg" },
             big: { url: "assets/storybook/Product/productA.jpg" }
@@ -277,11 +282,6 @@ export default {
             mobile: { url: "assets/storybook/Product/productB.jpg" },
             desktop: { url: "assets/storybook/Product/productB.jpg" },
             big: { url: "assets/storybook/Product/productB.jpg" }
-          },
-          {
-            mobile: { url: "assets/storybook/Product/productZ.jpg" },
-            desktop: { url: "assets/storybook/Product/productZ.jpg" },
-            big: { url: "assets/storybook/Product/productZ.jpg" }
           }
         ],
         price: "$50.00",
