@@ -1,38 +1,45 @@
 @import "../../helpers";
 
+.sf-content-page {
+  @include font(
+    --content-pages-content-page-font,
+    var(--font-light),
+    var(--font-base),
+    1.6,
+    var(--font-family-primary)
+  );
+}
 .sf-content-pages {
+  --list-item-padding: var(--spacer-sm) var(--spacer-sm) var(--spacer-sm);
+  --list-item-border-width: 0 0 1px 0;
   height: calc(100vh - 3.125rem);
   overflow: hidden;
-  .sf-bar {
-    position: var(--content-pages-bar-position, fixed);
-    --bar-height: 3.125rem;
-    width: 100%;
-  }
   &__section {
     display: flex;
     height: 100%;
-    margin: var(--content-pages-section-margin, var(--spacer-2xl) 0 0 0);
+    margin: var(--content-pages-section-margin, var(--spacer-base) 0);
     transition: var(--content-pages-transition, transform 150ms ease-in-out);
     &--is-active {
       transform: var(
         --content-pages-section-active-transform,
-        translateX(-100%)
+        translate3d(-100%, 0, 0)
       );
     }
   }
   &__sidebar {
+    box-sizing: border-box;
     flex: var(--content-pages-sidebar-flex, 0 0 100%);
     padding: var(--content-pages-sidebar-padding);
     background: var(--content-pages-sidebar-background);
     overflow-y: auto;
   }
   &__title {
-    margin: var(--content-pages-sidebar-title-margin, 0 0 0 var(--spacer-base));
+    margin: var(--content-pages-sidebar-title-margin, 0);
     @include font(
       --content-pages-sidebar-title-font,
       var(--font-medium),
       var(--h3-font-size),
-      1.9,
+      1.4,
       var(--font-family-secondary)
     );
   }
@@ -65,21 +72,21 @@
     overflow-y: auto;
   }
   @include for-desktop {
-    --content-pages-sidebar-title-display: flex;
-    --content-pages-sidebar-flex: 0 0 26.8125rem;
-    --content-pages-section-margin: 0;
-    --content-pages-sidebar-title-margin: 0 0 var(--spacer-xl) 0;
-    --content-pages-sidebar-padding: var(--spacer-xl) 0 0 var(--spacer-2xl);
-    --content-pages-content-padding: var(--spacer-xl) 0 0 var(--spacer-xl);
-    --content-pages-sidebar-background: var(--c-light);
-    --menu-item-font-size: var(--font-base);
-    --menu-item-font-line-height: 2.4;
-    --content-pages-category-title-font-weight: var(--font-bold);
-    --content-pages-category-title-font-size: var(--h4-font-size);
-    --content-pages-category-title-font-line-height: 1.4;
-    --content-pages-section-active-transform: translateX(0);
-    &__list-item {
-      --menu-item-padding: 0;
-    }
+    //--content-pages-sidebar-title-display: flex;
+    //--content-pages-sidebar-flex: 0 0 26.875rem;
+    ////--content-pages-section-margin: 0;
+    //--content-pages-sidebar-title-margin: 0 0 var(--spacer-xl) 0;
+    //--content-pages-sidebar-padding: var(--spacer-xl);
+    //--content-pages-content-padding: var(--spacer-xl);
+    //--content-pages-sidebar-background: var(--c-light);
+    //--menu-item-font-size: var(--font-base);
+    //--menu-item-font-line-height: 2.4;
+    //--content-pages-category-title-font-weight: var(--font-bold);
+    //--content-pages-category-title-font-size: var(--h4-font-size);
+    //--content-pages-category-title-font-line-height: 1.4;
+    //--content-pages-section-active-transform: translateX(0);
+    //&__list-item {
+    //  --menu-item-padding: 0;
+    //}
   }
 }
