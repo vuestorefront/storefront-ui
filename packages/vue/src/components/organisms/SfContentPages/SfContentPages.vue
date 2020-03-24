@@ -11,11 +11,18 @@
       class="sf-content-pages__section"
     >
       <div class="sf-content-pages__sidebar">
-        <h1 class="sf-content-pages__title desktop-only">{{ title }}</h1>
+        <SfHeading
+          v-if="category.title"
+          :title="title"
+          :level="1"
+          class="sf-heading--left desktop-only"
+        />
         <div v-for="(category, key) in categories" :key="key">
-          <h2 v-if="category.title" class="sf-content-pages__category-title">
-            {{ category.title }}
-          </h2>
+          <SfHeading
+            v-if="category.title"
+            :title="category.title"
+            class="sf-heading--left"
+          />
           <SfList class="sf-content-pages__list">
             <SfListItem
               v-for="page in category.items"
@@ -62,6 +69,7 @@ import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
+import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 import {
   mapMobileObserver,
   unMapMobileObserver
@@ -73,7 +81,8 @@ export default {
     SfList,
     SfMenuItem,
     SfIcon,
-    SfBar
+    SfBar,
+    SfHeading
   },
   props: {
     /**
