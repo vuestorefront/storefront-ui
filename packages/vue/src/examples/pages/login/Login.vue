@@ -1,126 +1,129 @@
 <template>
   <div>
-    <SfModal :visible="true" :cross="false" title="My Account">
-      <!-- <transition name="fade" mode="out-in"> -->
+    <SfModal :visible="true" :cross="false">
       <template #modal-bar>
         <SfBar
-          class="login-bar"
+          class="login-bar mobile-only"
           :title="onScreenChange()"
           :back="true"
           :close="false"
         />
+        <SfBar class="login-bar desktop-only" :back="false" :close="true" />
       </template>
-      <div v-if="isMyAccount" class="login-container">
-        <SfImage :src="src" />
-        <SfHeading
-          class="login-heading"
-          :title="titleText"
-          :subtitle="subtitleText"
-          :level="loginHeadinglevel"
-        >
-          <template #title="{title}">
-            <p class="login-heading__title">{{ title }}</p>
-          </template>
-          <template #subtitle>
-            <p class="login-heading__subtitle">
-              View orders and update your details.<br />
-              Make your checkout fast and easy!
-            </p>
-          </template>
-        </SfHeading>
-        <SfButton
-          class="sf-button login-button login-button--signin"
-          @click="onBtnClick('signIn')"
-          >SIGN IN</SfButton
-        >
-        <SfButton
-          class="sf-button login-button login-button--login"
-          @click="onBtnClick('join')"
-          >JOIN</SfButton
-        >
-      </div>
-      <div v-else-if="isLogin" key="log-in" class="form-container">
-        <div class="form">
-          <SfInput
-            v-model="email"
-            name="email"
-            label="Your email"
-            class="form__element"
-          />
-          <SfInput
-            v-model="password"
-            name="password"
-            label="Password"
-            type="password"
-            class="form__element"
-            :has-show-password="true"
-          />
-          <SfCheckbox
-            v-model="rememberMe"
-            name="remember-me"
-            label="Remember me"
-            class="form__element form__element--checkbox"
-          />
-          <SfButton class="sf-button--full-width form__button">Login</SfButton>
-        </div>
-        <div class="action">
-          <SfButton class="sf-button--text color-secondary"
-            >Forgotten password?</SfButton
-          >
-        </div>
-        <div class="bottom">
+      <transition name="fade" mode="out-in">
+        <div v-if="isMyAccount" class="login-container">
+          <SfImage :src="src" />
           <SfHeading
-            title="Don't have an account yet?"
-            class="bottom-heading"
-            :level="bottomHeadingLevel"
-          />
+            class="login-heading"
+            :title="titleText"
+            :subtitle="subtitleText"
+            :level="loginHeadinglevel"
+          >
+            <template #title="{title}">
+              <p class="login-heading__title">{{ title }}</p>
+            </template>
+            <template #subtitle>
+              <p class="login-heading__subtitle">
+                View orders and update your details.<br />
+                Make your checkout fast and easy!
+              </p>
+            </template>
+          </SfHeading>
           <SfButton
-            class="sf-button--text color-secondary"
+            class="sf-button login-button login-button--signin"
             @click="onBtnClick('signIn')"
-            >Register now</SfButton
+            >SIGN IN</SfButton
           >
-        </div>
-      </div>
-      <div v-else-if="isSignIn" key="sign-up" class="form-container">
-        <div class="form">
-          <SfInput
-            v-model="firstName"
-            name="first-name"
-            label="Name"
-            class="form__element"
-          />
-          <SfInput
-            v-model="lastName"
-            name="last-name"
-            label="Last Name"
-            class="form__element"
-          />
-          <SfInput
-            v-model="email"
-            name="email"
-            label="Your email"
-            class="form__element"
-          />
-          <SfInput
-            v-model="password"
-            name="password"
-            label="Password"
-            type="password"
-            class="form__element"
-          />
-          <SfButton class="sf-button--full-width form__button"
-            >Create an account</SfButton
-          >
-        </div>
-        <div class="action">
           <SfButton
-            class="sf-button--text color-secondary"
+            class="sf-button login-button login-button--login"
             @click="onBtnClick('join')"
-            >or Log In To Your Account</SfButton
+            >JOIN</SfButton
           >
         </div>
-      </div>
-      <!-- </transition> -->
+        <div v-else-if="isLogin" key="log-in" class="form-container">
+          <div class="form">
+            <SfInput
+              v-model="email"
+              name="email"
+              label="Your email"
+              class="form__element"
+            />
+            <SfInput
+              v-model="password"
+              name="password"
+              label="Password"
+              type="password"
+              class="form__element"
+              :has-show-password="true"
+            />
+            <SfCheckbox
+              v-model="rememberMe"
+              name="remember-me"
+              label="Remember me"
+              class="form__element form__element--checkbox"
+            />
+            <SfButton class="sf-button--full-width form__button"
+              >Login</SfButton
+            >
+          </div>
+          <div class="action">
+            <SfButton class="sf-button--text color-secondary"
+              >Forgotten password?</SfButton
+            >
+          </div>
+          <div class="bottom">
+            <SfHeading
+              title="Don't have an account yet?"
+              class="bottom-heading"
+              :level="bottomHeadingLevel"
+            />
+            <SfButton
+              class="sf-button--text color-secondary"
+              @click="onBtnClick('signIn')"
+              >Register now</SfButton
+            >
+          </div>
+        </div>
+        <div v-else-if="isSignIn" key="sign-up" class="form-container">
+          <div class="form">
+            <SfInput
+              v-model="firstName"
+              name="first-name"
+              label="Name"
+              class="form__element"
+            />
+            <SfInput
+              v-model="lastName"
+              name="last-name"
+              label="Last Name"
+              class="form__element"
+            />
+            <SfInput
+              v-model="email"
+              name="email"
+              label="Your email"
+              class="form__element"
+            />
+            <SfInput
+              v-model="password"
+              name="password"
+              label="Password"
+              type="password"
+              class="form__element"
+            />
+            <SfButton class="sf-button--full-width form__button"
+              >Create an account</SfButton
+            >
+          </div>
+          <div class="action">
+            <SfButton
+              class="sf-button--text color-secondary"
+              @click="onBtnClick('join')"
+              >or Log In To Your Account</SfButton
+            >
+          </div>
+        </div>
+      </transition>
     </SfModal>
     <SfBottomNavigation>
       <SfBottomNavigationItem
@@ -261,12 +264,6 @@ export default {
     margin: 0 0 0 var(--spacer-2xl);
   }
 }
-// .sf-heading {
-//   --heading-padding: var(--spacer-2xl) 0 var(--spacer-xl) 0;
-//   &__title {
-//     color: var(--c-primary);
-//   }
-// }
 .login-heading {
   margin: var(--spacer-2xl) 0 var(--spacer-xl) 0;
   &__title {
@@ -292,7 +289,6 @@ export default {
     --button-background: var(--c-primary);
   }
 }
-
 .form-container {
   margin: 0 0 var(--spacer-2xl) 0;
   .form {
@@ -308,7 +304,6 @@ export default {
     }
   }
 }
-
 .action,
 .bottom {
   display: flex;
@@ -324,6 +319,18 @@ export default {
   margin: var(--spacer-extra-big) 0 0 0;
   &-heading {
     color: var(--c-primary);
+  }
+}
+@include for-desktop {
+  .sf-modal {
+    --modal-height: auto;
+    --modal-content-padding: var(--spacer-lg);
+    .sf-bar {
+      background: var(--c-white);
+    }
+  }
+  .sf-bottom-navigation {
+    display: none;
   }
 }
 </style>
