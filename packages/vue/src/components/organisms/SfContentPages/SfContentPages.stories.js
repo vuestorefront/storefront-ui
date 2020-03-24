@@ -71,7 +71,7 @@ storiesOf("Organisms|ContentPages", module)
         <SfTabs v-if="page.tabs" :open-tab="1">
           <SfTab v-for="tab in page.tabs" :key="tab.title" :title="tab.title">{{tab.content}}</SfTab>
         </SfTabs>
-        <p v-else :style="{padding: '1rem'}">{{page.content}}}}</p>
+        <p v-else :style="{padding: '1rem'}">{{page.content}}</p>
       </SfContentPage>
       </SfContentPages>`
   }))
