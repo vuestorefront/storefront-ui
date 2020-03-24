@@ -31,7 +31,7 @@
     }
   }
   &__content {
-    flex:  0 0 100%;
+    flex: 0 0 100%;
     order: var(--tabs-content-order);
     @include border(--tabs-content-border, 0, solid, var(--c-light));
     color: var(--tabs-content-color, var(--c-text));
