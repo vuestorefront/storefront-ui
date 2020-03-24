@@ -1,182 +1,128 @@
 @import "../../helpers";
 
-.sf-store-locator {
-  --icon-size: 100%;
-  &__title {
-    margin: 0 0 0 var(--spacer-sm);
-    span {
-      font-weight: var(--font-medium);
-    }
+.sf-store {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--store-padding, 0 0 var(--spacer-sm) 0);
+  margin: var(--store-margin, var(--spacer-base) 0 0 0);
+  @include border(--store-border, 0 0 1px 0, solid, var(--c-light));
+  &__distance {
+    flex: var(--store-distance-flex, 0 0 100%);
+    order: var(--store-distance-order);
+    margin: var(--store-distance-margin, 0 0 var(--spacer-xs) 0);
+    color: var(--c-dark-variant);
     @include font(
-      --store-locator-title-font,
+      --store-item-distance-font,
+      var(--font-light),
+      var(--font-base),
+      1.4,
+      var(--font-family-primary)
+    );
+    span {
+      font-weight: var(--font-bold);
+      color: var(--c-text);
+    }
+  }
+  &__media {
+    flex: 0 0 7rem;
+  }
+  &__address {
+    margin: var(--store-item-addres-margin, 0 0 var(--spacer-base) 0);
+    color: var(--c-dark-variant);
+    @include font(
+      --store-item-addres-font,
+      var(--font-light),
+      var(--font-base),
+      1.4,
+      var(--font-family-primary)
+    );
+  }
+  &__name {
+    margin: var(--store-item-name-margin, 0 0 var(--spacer-2xs) 0);
+    color: var(--c-text);
+    @include font(
+      --store-item-property-font,
       var(--font-normal),
-      var(--font-sm),
-      1.6,
+      var(--font-xs),
+      1.4,
       var(--font-family-secondary)
     );
   }
+  &__property {
+    display: flex;
+    align-items: center;
+    margin: var(--store-item-property-margin, 0 0 var(--spacer-sm) 0);
+    color: var(--c-dark-variant);
+    @include font(
+      --store-item-property-font,
+      var(--font-normal),
+      var(--font-xs),
+      1.4,
+      var(--font-family-secondary)
+    );
+    &:last-child {
+      margin: var(--store-item-property-margin, 0);
+    }
+    &-icon {
+      margin: var(--store-item-property-icon-margin, 0 var(--spacer-sm) 0 0);
+    }
+  }
+  @include for-desktop {
+    --store-distance-flex: 0 0 auto;
+    --store-distance-order: 1;
+    --store-distance-margin: 0 0 0 auto;
+  }
+}
+.sf-store-locator {
   &__wrapper {
     display: flex;
     flex-direction: var(--store-locator-wrapper-flex-direction, column-reverse);
-    flex-wrap: var(--store-locator-wrapper-flex-wrap, nowrap);
     justify-content: var(--store-locator-wrapper-justify-content, flex-start);
     align-items: var(--store-locator-wrapper-align-items, flex-start);
   }
   &__list {
-    width: var(--store-locator-list-width, 100%);
-    max-width: var(--store-locator-list-max-width, none);
+    box-sizing: border-box;
+    flex: var(--store-locator-list-flex);
+    width: 100%;
+    padding: var(--store-locator-list-padding, 0 var(--spacer-sm));
     margin: var(--store-locator-list-margin);
   }
   &__map-wrapper {
     position: relative;
+    flex: var(--store-locator-map-wrapper, 0 0 60vh);
     width: var(--store-locator-map-width, 100%);
-    max-width: var(--store-locator-map-max-width, none);
-    min-height: var(--store-locator-map-min-height, 75vh);
+    height: var(--store-locator-map-height);
     &-map {
       // Workaround to known bug about min-height / height interaction in Chrome / Firefox
       position: absolute;
       height: 100%;
-      &-my-location-btn {
-        a {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          &:hover {
-            display: flex;
-          }
-        }
-      }
     }
     .sf-loader {
       position: absolute;
     }
   }
-  .sf-store {
-    &:first-of-type {
-      --divider-display: none;
-    }
-    &__first-divider {
-      --divider-display: block;
-      --divider-max-width: unset;
-      --divider-margin: 0 0 var(--spacer-sm) 0;
-    }
-    &__second-divider {
-      --divider-display: block;
-      --divider-max-width: unset;
-      --divider-margin: var(--spacer-sm) 0 0 0;
-    }
-    &__item {
-      width: 100%;
-      padding: var(--store-item-padding, var(--spacer-xs) 0 var(--spacer-sm) 0);
-      display: flex;
-      @include border(--store-item-border, 0 0 1px 0, solid, var(--c-light));
-      &-media {
-        --image-width: 5rem;
-        --image-height: 8.25rem;
-        margin: var(--store-item-media-margin, 0 var(--spacer-sm) 0 0);
-        overflow: hidden;
-        cursor: pointer;
-      }
-      &-info {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        justify-content: space-between;
-        height: var(--store-item-info-height, 8.25rem);
-
-        &-heading {
-          display: var(--store-item-info-heading-display);
-          justify-content: var(--store-item-info-heading-justify-content);
-          &-name {
-            color: var(--store-item-info-heading-name-color, var(--c-dark));
-            @include font(
-              --store-item-info-heading-name-font,
-              var(--font-normal),
-              var(--font-xs),
-              1.6,
-              var(--font-family-secondary)
-            );
-          }
-          &-distance {
-            margin: var(
-              --store-item-info-heading-distance-margin,
-              var(--spacer-base) 0 0 0
-            );
-            width: var(--store-item-info-heading-distance-width);
-            color: var(
-              --store-item-info-heading-distance-color,
-              var(--c-dark-variant)
-            );
-            span {
-              color: var(
-                --store-item-info-heading-distance-span-color,
-                var(--c-dark)
-              );
-            }
-            @include font(
-              --store-item-info-heading-distance-font,
-              var(--font-medium),
-              var(--font-base),
-              1.6,
-              var(--font-family-secondary)
-            );
-          }
-        }
-        &-address {
-          color: var(--store-item-info-address-color, var(--c-dark-variant));
-          @include font(
-            --store-item-info-address-font,
-            var(--font-light),
-            var(--font-base),
-            1.6,
-            var(--font-family-primary)
-          );
-        }
-        &-phone,
-        &-email {
-          display: var(--store-item-info-contact-display, flex);
-          flex-direction: var(--store-item-info-contact-flex-direction, row);
-          flex: var(--store-item-info-contact-flex-wrap, nowrap);
-          justify-content: var(
-            --store-item-info-contact-justify-content,
-            flex-start
-          );
-          align-items: var(--store-item-info-contact-align-items, center);
-          margin: var(--store-item-info-contact-margin, var(--spacer-sm) 0 0 0);
-          color: var(--store-item-info-contact-color, var(--c-dark-variant));
-          span {
-            margin: var(
-              --store-item-info-contact-span-margin,
-              0 0 0 var(--spacer-sm)
-            );
-            @include font(
-              --store-item-info-contact-font,
-              var(--font-medium),
-              var(--font-xs),
-              1.6,
-              var(--font-family-secondary)
-            );
-          }
-        }
-      }
+  &__title {
+    padding: var(--store-locator-title-padding, var(--spacer-sm));
+    @include border(--store-locator-title-border, 2px 0, solid, var(--c-light));
+    color: var(--store-locator-title-colot, var(--c-text));
+    @include font(
+      --store-locator-title-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.4,
+      var(--font-family-secondary)
+    );
+    span {
+      font-weight: var(--font-bold);
+      color: var(--c-text);
     }
   }
   @include for-desktop {
-    --divider-max-width: 100%;
-    --store-locator-list-width: 100%;
-    --store-locator-list-max-width: 35.75rem;
-    --store-locator-map-max-width: 100%;
-    --store-locator-map-min-height: 46rem;
     --store-locator-wrapper-flex-direction: row;
+    --store-locator-map-wrapper: 1;
+    --store-locator-list-flex: 1;
+    --store-locator-map-height: 46.25rem;
+    --store-locator-list-padding: 0;
     --store-locator-list-margin: 0 var(--spacer-2xl) 0 0;
-    --store-item-padding: var(--spacer-base) 0 var(--spacer-sm) 0;
-    --store-item-media-margin: 0 var(--spacer-xl) 0 0;
-    --store-item-info-heading-display: flex;
-    --store-item-info-heading-justify-content: space-between;
-    --store-item-info-heading-name-font-size: var(--font-2xs);
-    --store-item-info-address-font-size: var(--font-xs);
-    --store-item-info-address-color: var(--c-gray-variant);
-    --store-item-info-heading-distance-font-size: var(--font-xs);
-    --store-item-info-heading-distance-margin: 0;
   }
 }
