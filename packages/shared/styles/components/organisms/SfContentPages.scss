@@ -51,11 +51,11 @@
     );
   }
   &__category-title {
-    margin: var(--content-pages-sidebar-title-margin, 0 0 0 var(--spacer-base));
+    margin: var(--content-pages-sidebar-title-margin, var(--spacer-sm) 0);
     @include font(
       --content-pages-category-title-font,
-      var(--font-normal),
-      var(--h2-font-size),
+      var(--font-bold),
+      var(--font-lg),
       1.2,
       var(--font-family-secondary)
     );
