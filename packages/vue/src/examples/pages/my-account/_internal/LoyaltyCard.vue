@@ -3,10 +3,8 @@
     <SfTab title="Loyalty Card">
       <p class="message">
         This feature is not implemented yet! Please take a look at<br />
-        <a href="#"
-          >https://github.com/DivanteLtd/vue-storefront/issues for our
-          Roadmap!</a
-        >
+        <a href="#">https://github.com/DivanteLtd/vue-storefront/issues </a>
+        for our Roadmap!
       </p>
     </SfTab>
   </SfTabs>
@@ -30,14 +28,16 @@ export default {
   }
 }
 .message {
-  margin: 0 0 var(--spacer-extra-big) 0;
-  font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
+  margin: 0 0 var(--spacer-sm) 0;
+  font: var(--font-light) var(--font-base) / 1.6 var(--font-family-primary);
+  color: var(--c-dark-variant);
   &__label {
-    font-weight: 500;
+    font-weight: var(--font-medium);
   }
 }
 a {
-  color: var(--c-text-muted);
+  font-weight: var(--font-medium);
+  color: var(--c-primary);
   text-decoration: none;
   &:hover {
     color: var(--c-text);

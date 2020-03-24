@@ -27,7 +27,7 @@
             class="form__element"
           />
         </div>
-        <SfButton class="form__button">Join Newsletter</SfButton>
+        <SfButton class="form__button">Save changes</SfButton>
       </div>
       <p class="notice">
         I have read and understand the <a href="#">Privacy</a> and
@@ -50,72 +50,19 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-.shipping-list {
-  margin: 0 0 var(--spacer-extra-big) 0;
-}
-.shipping {
-  display: flex;
-  padding: var(--spacer-big) 0;
-  border: 1px solid var(--c-light);
-  border-width: 1px 0 0 0;
-  &:last-child {
-    border-width: 1px 0 1px 0;
-  }
-  &__content {
-    flex: 1;
-    color: var(--c-text);
-    font: 300 var(--font-size-small) / 1.6 var(--font-family-secondary);
-  }
-  &__actions {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    @include for-desktop {
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-    }
-  }
-  &__button-delete {
-    --button-background: var(--c-light);
-    --button-color: var(--c-dark-variant);
-    &:hover {
-      --button-background: var(--c-light-variant);
-    }
-    @include for-desktop {
-      margin: 0 0 0 var(--spacer-big);
-    }
-  }
-  &__address {
-    margin: 0 0 var(--spacer-big) 0;
-    &:last-child {
-      margin: 0;
-    }
-  }
-  &__client-name {
-    font: 500 var(--font-size-regular) / 1.6 var(--font-family-secondary);
-  }
-}
-.tab-orphan {
-  @include for-mobile {
-    --tabs-title-display: none;
-    --tabs-content-padding: 0;
-    --tabs-conent-border-width: 0;
-  }
-}
+
 .form {
   &__element {
-    margin: 0 0 var(--spacer-big) 0;
+    margin: 0 0 var(--spacer-base) 0;
     &:last-child {
       margin: 0;
     }
   }
   &__checkbox-group {
-    margin: 0 0 var(--spacer-extra-big) 0;
+    margin: 0 0 var(--spacer-xl) 0;
   }
   &__title {
-    margin: 0 0 var(--spacer-big) 0;
+    margin: 0 0 var(--spacer-base) 0;
     font: 500 var(--font-size-regular) / 1.6 var(--font-family-secondary);
   }
   &__button {
@@ -126,27 +73,23 @@ export default {
   }
 }
 .message {
-  margin: 0 0 var(--spacer-extra-big) 0;
-  font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
+  margin: 0 0 var(--spacer-xl) 0;
+  font: var(--font-light) var(--font-base) / 1.6 var(--font-family-primary);
+  color: var(--c-dark-variant);
   &__label {
-    font-weight: 500;
+    color: var(--c-text);
   }
 }
 a {
-  color: var(--c-text-muted);
+  color: var(--c-primary);
   text-decoration: none;
   &:hover {
     color: var(--c-text);
   }
 }
 .notice {
-  margin: var(--spacer-big) 0 0 0;
-  font: 300 var(--font-size-extra-small) / 1.6 var(--font-family-secondary);
-}
-.action-button {
-  --button-width: 100%;
-  @include for-desktop {
-    --button-width: auto;
-  }
+  max-width: 31rem;
+  margin: var(--spacer-base) 0 0 0;
+  font: var(--font-normal) var(--font-2xs) / 1.6 var(--font-family-primary);
 }
 </style>

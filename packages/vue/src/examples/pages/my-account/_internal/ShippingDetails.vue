@@ -397,7 +397,7 @@ export default {
 }
 .message {
   margin: 0 0 var(--spacer-xl) 0;
-  font: 300 var(--font-base) / 1.6 var(--font-family-secondary);
+  font: 300 var(--font-base) / 1.6 var(--font-family-primary);
   color: var(--c-dark-variant);
   &__label {
     color: var(--c-text);
