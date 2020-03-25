@@ -9,23 +9,23 @@
       <SfProperty
         name="Products"
         :value="totalItems"
-        class="sf-property--full-width sf-propert--large property"
+        class="sf-property--full-width sf-property--large property"
       />
       <SfProperty
         name="Subtotal"
         :value="subtotal"
-        class="sf-property--full-width sf-propert--large property"
+        class="sf-property--full-width sf-property--large property"
       />
       <SfProperty
         name="Shipping"
         :value="`From ${shippingMethod.price}`"
-        class="sf-property--full-width sf-propert--large property"
+        class="sf-property--full-width sf-property--large property"
       />
       <SfDivider class="divider" />
       <SfProperty
         name="Total price"
         :value="total"
-        class="sf-property--full-width sf-propert--large property property__total"
+        class="sf-property--full-width sf-property--large property property__total"
       />
     </div>
     <div class="actions">
@@ -150,11 +150,13 @@ export default {
 }
 .property {
   margin: var(--spacer-base) 0;
-  --property-name-font-size: var(--font-base);
-  --property-value-font-size: var(--font-lg);
-  --property-value-font-weight: var(--font-semibold);
-  &__total {
-    --property-value-font-weight: var(--font-bold);
+  @include for-mobile {
+    --property-name-font-size: var(--font-base);
+    --property-value-font-size: var(--font-lg);
+    --property-value-font-weight: var(--font-semibold);
+    &__total {
+      --property-value-font-weight: var(--font-bold);
+    }
   }
   &:last-of-type {
     @include for-desktop {
