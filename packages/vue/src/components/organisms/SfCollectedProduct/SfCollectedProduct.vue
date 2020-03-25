@@ -53,7 +53,9 @@
         </slot>
         <slot name="configuration" />
       </div>
-      <slot name="actions" />
+      <div class="sf-collected-product__actions">
+        <slot name="actions" />
+      </div>
     </div>
   </div>
 </template>
