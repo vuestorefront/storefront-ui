@@ -1,5 +1,9 @@
 <template>
   <div id="static">
+    <SfBreadcrumbs
+      class="breadcrumbs desktop-only"
+      :breadcrumbs="breadcrumbs"
+    />
     <SfContentPages
       :active="activePage"
       title="Help"
@@ -100,17 +104,22 @@
   </div>
 </template>
 <script>
-import { SfContentPages, SfTabs } from "@storefront-ui/vue";
+import { SfContentPages, SfTabs, SfBreadcrumbs } from "@storefront-ui/vue";
 
 export default {
   name: "Static",
   components: {
     SfContentPages,
-    SfTabs
+    SfTabs,
+    SfBreadcrumbs
   },
   data() {
     return {
-      activePage: "About us"
+      activePage: "About us",
+      breadcrumbs: [
+        { text: "Home", route: { link: "#" } },
+        { text: "Help", route: { link: "#" } }
+      ]
     };
   },
   methods: {
@@ -129,6 +138,10 @@ export default {
     max-width: 77.5rem;
     margin: 0 auto;
   }
+}
+
+.breadcrumbs {
+  margin: var(--spacer-base) auto var(--spacer-lg);
 }
 
 .title {
