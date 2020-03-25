@@ -59,8 +59,8 @@ storiesOf("Organisms|CollectedProduct", module)
         </div>
       </template>
       <template #actions>
-        <div :style="{margin: 'auto 0 0 0', fontSize: '14px'}">
-          <SfButton class="sf-button--text">Remove</SfButton>
+        <div class="desktop-only" :style="{margin: 'auto 0 0 0', fontSize: '14px'}">
+          <SfButton class="sf-button--text">Save for later</SfButton>
         </div>
       </template>
     </SfCollectedProduct>`
