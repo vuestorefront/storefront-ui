@@ -1,20 +1,24 @@
 <template>
   <div id="detailed-cart">
     <div class="detailed-cart">
-      <div class="detailed-cart__aside">
+      <div v-if="totalItems" class="detailed-cart__aside">
         <OrderSummary
           :products="products"
           :shipping-methods="shippingMethods"
           :total-items="totalItems"
         />
       </div>
-      <transition name="fade" mode="out-in">
-        <div key="detailed-cart" class="detailed-cart__main">
-          <SfBreadcrumbs
-            class="breadcrumbs desktop-only"
-            :breadcrumbs="breadcrumbs"
-          />
-          <div v-if="totalItems" class="collected-product-list">
+      <div class="detailed-cart__main">
+        <SfBreadcrumbs
+          class="breadcrumbs desktop-only"
+          :breadcrumbs="breadcrumbs"
+        />
+        <transition name="fade" mode="out-in">
+          <div
+            v-if="totalItems"
+            key="detailed-cart"
+            class="collected-product-list"
+          >
             <transition-group name="fade" tag="div">
               <SfCollectedProduct
                 v-for="product in products"
@@ -55,24 +59,24 @@
             </transition-group>
           </div>
           <div v-else key="empty-cart" class="empty-cart">
-            <div class="empty-cart__banner">
-              <img
-                src="@storefront-ui/shared/icons/empty_cart.svg"
-                alt=""
-                class="empty-cart__icon"
-              />
-              <h3 class="empty-cart__label">Your bag is empty</h3>
-              <p class="empty-cart__description">
-                Looks like you haven’t added any items to the bag yet. Start
-                shopping to fill it in.
-              </p>
-            </div>
-            <SfButton class="sf-button--full-width color-secondary"
+            <SfImage
+              :src="require('@storefront-ui/shared/icons/empty_cart.svg')"
+              alt="Empty cart"
+              class="empty-cart__image"
+            />
+            <SfHeading
+              title="Your cart is empty"
+              :level="1"
+              subtitle="Looks like you haven’t added any items to the cart yet. Start
+                shopping to fill it in."
+            />
+            <SfButton
+              class="sf-button--full-width color-primary empty-cart__button"
               >Start shopping</SfButton
             >
           </div>
-        </div>
-      </transition>
+        </transition>
+      </div>
     </div>
   </div>
 </template>
@@ -80,7 +84,9 @@
 import {
   SfCollectedProduct,
   SfButton,
+  SfImage,
   SfProperty,
+  SfHeading,
   SfBreadcrumbs
 } from "@storefront-ui/vue";
 import { OrderSummary } from "./_internal/index.js";
@@ -90,7 +96,9 @@ export default {
   components: {
     SfCollectedProduct,
     SfBreadcrumbs,
+    SfImage,
     SfButton,
+    SfHeading,
     SfProperty,
     OrderSummary
   },
@@ -206,17 +214,6 @@ export default {
         (totalItems, product) => totalItems + parseInt(product.qty, 10),
         0
       );
-    },
-    totalPrice() {
-      return this.products
-        .reduce((totalPrice, product) => {
-          const price = product.price.special
-            ? product.price.special
-            : product.price.regular;
-          const summary = parseFloat(price).toFixed(2) * product.qty;
-          return totalPrice + summary;
-        }, 0)
-        .toFixed(2);
     }
   },
   methods: {
@@ -232,7 +229,6 @@ export default {
 
 #detailed-cart {
   box-sizing: border-box;
-  padding: 0 var(--spacer-big);
   @include for-desktop {
     max-width: 1240px;
     margin: 0 auto;
@@ -242,22 +238,21 @@ export default {
   padding: var(--spacer-base) 0;
 }
 .detailed-cart {
-  @include for-desktop {
-    display: flex;
-  }
   &__main {
     padding: 0 var(--spacer-sm);
-    @include for-desktop {
-      flex: 1;
-    }
   }
   &__aside {
     box-sizing: border-box;
     width: 100%;
     background: var(--c-light);
     padding: var(--spacer-xl);
-
-    @include for-desktop {
+  }
+  @include for-desktop {
+    display: flex;
+    &__main {
+      flex: 1;
+    }
+    &__aside {
       flex: 0 0 25.5rem;
       order: 1;
       margin: 0 0 0 var(--spacer-lg);
@@ -282,6 +277,27 @@ export default {
 .actions {
   &__button {
     margin: 0 0 var(--spacer-base) 0;
+  }
+}
+.empty-cart {
+  --heading-title-color: var(--c-primary);
+  --heading-title-margin: 0 0 var(--spacer-base) 0;
+  --heading-subtitle-margin: 0 0 var(--spacer-xl) 0;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  flex-direction: column;
+  &__image {
+    --image-width: 13.1875rem;
+    margin: var(--spacer-2xl) 0;
+  }
+  @include for-desktop {
+    &__image {
+      --image-width: 22rem;
+    }
+    &__button {
+      --button-width: 20.9375rem;
+    }
   }
 }
 </style>
