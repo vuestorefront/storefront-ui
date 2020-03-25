@@ -34,16 +34,24 @@
         @click="$emit('click:next')"
         >Go to checkout</SfButton
       >
-      <SfButton
-        class="sf-button--text actions__button actions__button--secondary"
-        @click="$emit('click:checkout')"
-        >Go back</SfButton
-      >
+      <div class="actions__email">
+        <SfIcon icon="mail" size="12px" />
+        <SfButton
+          class="sf-button--text actions__button actions__button--secondary"
+          >Send my basket to email</SfButton
+        >
+      </div>
     </div>
   </div>
 </template>
 <script>
-import { SfHeading, SfButton, SfProperty, SfDivider } from "@storefront-ui/vue";
+import {
+  SfHeading,
+  SfButton,
+  SfProperty,
+  SfDivider,
+  SfIcon
+} from "@storefront-ui/vue";
 
 export default {
   name: "OrderSummary",
@@ -51,6 +59,7 @@ export default {
     SfHeading,
     SfButton,
     SfDivider,
+    SfIcon,
     SfProperty
   },
   props: {
@@ -161,9 +170,14 @@ export default {
   }
 }
 .actions {
+  &__email {
+    display: flex;
+    margin: var(--spacer-lg) 0 0 0;
+  }
   &__button {
     margin: var(--spacer-sm) 0;
     &--secondary {
+      margin: 0 0 0 var(--spacer-xs);
       text-align: left;
     }
   }
