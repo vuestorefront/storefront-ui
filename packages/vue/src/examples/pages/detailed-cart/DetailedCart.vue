@@ -9,8 +9,12 @@
         />
       </div>
       <transition name="fade" mode="out-in">
-        <div v-if="totalItems" key="detailed-cart" class="detailed-cart__main">
-          <div class="collected-product-list">
+        <div key="detailed-cart" class="detailed-cart__main">
+          <SfBreadcrumbs
+            class="breadcrumbs desktop-only"
+            :breadcrumbs="breadcrumbs"
+          />
+          <div v-if="totalItems" class="collected-product-list">
             <transition-group name="fade" tag="div">
               <SfCollectedProduct
                 v-for="product in products"
@@ -50,37 +54,42 @@
               </SfCollectedProduct>
             </transition-group>
           </div>
-        </div>
-
-        <div v-else key="empty-cart" class="empty-cart">
-          <div class="empty-cart__banner">
-            <img
-              src="@storefront-ui/shared/icons/empty_cart.svg"
-              alt=""
-              class="empty-cart__icon"
-            />
-            <h3 class="empty-cart__label">Your bag is empty</h3>
-            <p class="empty-cart__description">
-              Looks like you haven’t added any items to the bag yet. Start
-              shopping to fill it in.
-            </p>
+          <div v-else key="empty-cart" class="empty-cart">
+            <div class="empty-cart__banner">
+              <img
+                src="@storefront-ui/shared/icons/empty_cart.svg"
+                alt=""
+                class="empty-cart__icon"
+              />
+              <h3 class="empty-cart__label">Your bag is empty</h3>
+              <p class="empty-cart__description">
+                Looks like you haven’t added any items to the bag yet. Start
+                shopping to fill it in.
+              </p>
+            </div>
+            <SfButton class="sf-button--full-width color-secondary"
+              >Start shopping</SfButton
+            >
           </div>
-          <SfButton class="sf-button--full-width color-secondary"
-            >Start shopping</SfButton
-          >
         </div>
       </transition>
     </div>
   </div>
 </template>
 <script>
-import { SfCollectedProduct, SfButton, SfProperty } from "@storefront-ui/vue";
+import {
+  SfCollectedProduct,
+  SfButton,
+  SfProperty,
+  SfBreadcrumbs
+} from "@storefront-ui/vue";
 import { OrderSummary } from "./_internal/index.js";
 
 export default {
   name: "DetailedCart",
   components: {
     SfCollectedProduct,
+    SfBreadcrumbs,
     SfButton,
     SfProperty,
     OrderSummary
@@ -93,6 +102,20 @@ export default {
   },
   data() {
     return {
+      breadcrumbs: [
+        {
+          text: "Home",
+          route: {
+            link: "#"
+          }
+        },
+        {
+          text: "Cart",
+          route: {
+            link: "#"
+          }
+        }
+      ],
       products: [
         {
           title: "Cream Beach Bag",
@@ -215,6 +238,9 @@ export default {
     margin: 0 auto;
   }
 }
+  .breadcrumbs {
+    padding: var(--spacer-base) 0;
+  }
 .detailed-cart {
   @include for-desktop {
     display: flex;
@@ -237,6 +263,11 @@ export default {
       margin: 0 0 0 var(--spacer-lg);
     }
   }
+}
+.collected-product {
+  --collected-product-padding: var(--spacer-lg) 0;
+  border: 1px solid var( --c-light);
+  border-width: 1px 0 0 0;
 }
 .actions {
   &__button {
