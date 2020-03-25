@@ -47,6 +47,8 @@
   }
 }
 .sf-header {
+  position: relative;
+  z-index: var(--header-z-index, 1);
   &__sticky-container {
     box-sizing: border-box;
     position: var(--header-sticky-container-position, relative);

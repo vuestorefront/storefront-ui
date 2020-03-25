@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.2](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.1...@storefront-ui/vue@0.6.2) (2020-03-05)
+
+
+### Bug Fixes
+
+* ssr error in SfHeader([#854](https://github.com/DivanteLtd/storefront-ui/issues/854)) ([5332200](https://github.com/DivanteLtd/storefront-ui/commit/53322009e643600f6d522f24663bad3040e689a7))
+* ssr in SfScrollable ([#855](https://github.com/DivanteLtd/storefront-ui/issues/855)) ([2c1059f](https://github.com/DivanteLtd/storefront-ui/commit/2c1059ff6d92cc0618c65ecd345f9f6f7da85663))
+* title props name in SfSidebar ([#810](https://github.com/DivanteLtd/storefront-ui/issues/810)) ([9f622ed](https://github.com/DivanteLtd/storefront-ui/commit/9f622edb4119cb2026cb08244a3f0cc344514a2a))
+
+
+
+
+
 ## [0.6.1](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.0...@storefront-ui/vue@0.6.1) (2020-02-27)
 
 
