@@ -1,5 +1,9 @@
 <template>
   <div id="product">
+    <SfBreadcrumbs
+      class="breadcrumbs desktop-only"
+      :breadcrumbs="breadcrumbs"
+    />
     <div class="product">
       <SfChevron class="sf-chevron--left product__chevron mobile-only" />
       <SfGallery
@@ -156,7 +160,8 @@ import {
   SfColor,
   SfSelect,
   SfProductOption,
-  SfDivider
+  SfDivider,
+  SfBreadcrumbs
 } from "@storefront-ui/vue";
 import SfTab from "@storefront-ui/vue/src/components/organisms/SfTabs/_internal/SfTab";
 import SfSelectOption from "@storefront-ui/vue/src/components/molecules/SfSelect/_internal/SfSelectOption";
@@ -181,7 +186,8 @@ export default {
     SfSelect,
     SfSelectOption,
     SfProductOption,
-    SfDivider
+    SfDivider,
+    SfBreadcrumbs
   },
   data() {
     return {
@@ -280,6 +286,26 @@ export default {
           title: "Additional Information",
           content: ""
         }
+      ],
+      breadcrumbs: [
+        {
+          text: "Home",
+          route: {
+            link: "#"
+          }
+        },
+        {
+          text: "Category",
+          route: {
+            link: "#"
+          }
+        },
+        {
+          text: "Pants",
+          route: {
+            link: "#"
+          }
+        }
       ]
     };
   },
@@ -294,6 +320,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
+#product {
+  max-width: 77.5rem;
+  margin: 0 auto;
+}
 
 .product {
   &__chevron {
@@ -429,8 +460,6 @@ export default {
   }
   @include for-desktop {
     display: flex;
-    max-width: 77.5rem;
-    margin: 0 auto;
   }
 }
 
@@ -444,5 +473,9 @@ export default {
   &__compare {
     margin-top: 0;
   }
+}
+
+.breadcrumbs {
+  margin: var(--spacer-base) auto var(--spacer-lg);
 }
 </style>
