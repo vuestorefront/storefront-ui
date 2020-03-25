@@ -17,7 +17,7 @@
           </SfTableHeader>
           <SfTableHeader>
             <span class="mobile-only">Download</span>
-            <SfButton class="desktop-only orders__download-all"
+            <SfButton class="desktop-only sf-button--text orders__download-all"
               >Download all
             </SfButton>
           </SfTableHeader>
@@ -40,7 +40,7 @@
               >Download</SfButton
             >
             <SfButton class="sf-button--text color-secondary desktop-only"
-              >VIEW</SfButton
+              >View details</SfButton
             >
           </SfTableData>
         </SfTableRow>
@@ -109,27 +109,17 @@ export default {
     }
   }
 }
-.orders {
-  &__download-all {
-    --button-padding: 0.625rem var(--spacer-big);
-    --button-font-size: var(--font-size-extra-small);
-    white-space: nowrap;
-  }
-  &__view {
-    @include for-desktop {
-      text-align: center;
-    }
-  }
-}
 .message {
-  margin: 0 0 var(--spacer-extra-big) 0;
-  font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
+  margin: 0 0 var(--spacer-xl) 0;
+  font: var(--font-light) var(--font-base) / 1.6 var(--font-family-primary);
+  color: var(--c-dark-variant);
   &__label {
-    font-weight: 500;
+    font-weight: var(--font-medium);
   }
 }
 a {
-  color: var(--c-text-muted);
+  font-weight: var(--font-medium);
+  color: var(--c-primary);
   text-decoration: none;
   &:hover {
     color: var(--c-text);
