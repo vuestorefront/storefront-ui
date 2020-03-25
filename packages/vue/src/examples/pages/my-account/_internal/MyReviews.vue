@@ -37,8 +37,9 @@ export default {
   }
 }
 a {
-  color: var(--c-text-muted);
+  color: var(--c-primary);
   text-decoration: none;
+  font-weight: var(--font-medium);
   &:hover {
     color: var(--c-text);
   }
