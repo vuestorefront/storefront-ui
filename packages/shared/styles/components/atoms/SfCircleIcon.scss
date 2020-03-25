@@ -6,7 +6,7 @@
   --icon-size: 1.25rem;
   --button-size: 3.25rem;
   --button-background: var(--c-primary);
-  --button-transition: box-shadow 300ms linear;
+  --button-transition: box-shadow 300ms ease;
   --button-box-shadow: 0 4px 4px rgba(var(--c-dark-base), 0.2);
   border-radius: 100%;
   position: var(--circle-icon-position, relative);
@@ -15,7 +15,7 @@
     --button-box-shadow: 0 0 0 0.3125rem rgba(var(--c-primary-base), 0.3);
   }
   &:active {
-    --button-transition: box-shadow 150ms linear;
+    --button-transition: box-shadow 150ms ease;
     --button-box-shadow: 0 0 0 0.5rem rgba(var(--c-primary-base), 0.3);
   }
   &:disabled {
@@ -82,9 +82,9 @@
   }
 
   &--small {
-    --icon-size: 0.5rem;
+    --icon-size: 8px;
     --button-size: 1.625rem;
-    --button-transition: background 150ms linear;
+    --button-transition: background 150ms ease;
     &:hover {
       --button-background: var(--c-primary);
       --button-box-shadow: 0;
