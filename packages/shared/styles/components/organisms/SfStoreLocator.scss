@@ -1,4 +1,5 @@
 @import "../../helpers";
+@import "~leaflet/dist/leaflet.css";
 
 .sf-store-locator {
   --icon-size: 100%;
@@ -12,9 +13,11 @@
       var(--body-font-family-primary)
     )
   );
+
   &__title {
     margin: var(--store-locator-title-margin, 0 0 0.625rem 0);
   }
+
   &__wrapper {
     display: flex;
     flex-direction: var(--store-locator-wrapper-flex-direction, column-reverse);
@@ -22,40 +25,45 @@
     justify-content: var(--store-locator-wrapper-justify-content, flex-start);
     align-items: var(--store-locator-wrapper-align-items, flex-start);
   }
+
   &__list {
     width: var(--store-locator-list-width, 100%);
     max-width: var(--store-locator-list-max-width, none);
     margin: var(--store-locator-list-margin);
   }
+
   &__map-wrapper {
     position: relative;
     width: var(--store-locator-map-width, 100%);
     max-width: var(--store-locator-map-max-width, none);
     min-height: var(--store-locator-map-min-height, 26.875rem);
-    &-map {
-      // Workaround to known bug about min-height / height interaction in Chrome / Firefox
-      position: absolute;
-      height: 100%;
-      &-my-location-btn {
-        a {
+  }
+
+  &__loader {
+    position: absolute;
+  }
+
+  &__map {
+    // Workaround to known bug about min-height / height interaction in Chrome / Firefox
+    position: absolute;
+    height: 100%;
+    &-my-location-btn {
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
           display: flex;
-          align-items: center;
-          justify-content: center;
-          &:hover {
-            display: flex;
-          }
         }
       }
     }
-    .sf-loader {
-      position: absolute;
-    }
   }
+
   .sf-store {
     &:first-of-type {
       --divider-display: none;
     }
-    &__first-divider {
+    &__divider-first {
       --divider-display: block;
       --divider-max-width: unset;
       --divider-margin: 8px 0;
@@ -79,75 +87,82 @@
           var(--body-font-family-primary)
         )
       );
-      &-media {
-        width: var(--store-item-media-width, 5.125rem);
-        height: var(--stor-item-media-height, 7rem);
-        margin: var(--store-item-media-margin, 0 1.25rem 0 0);
-        overflow: hidden;
-        cursor: pointer;
+    }
+
+    &__info {
+      flex: 1;
+    }
+
+    &__heading {
+      display: var(--store-item-info-heading-display);
+      justify-content: var(--store-item-info-heading-justify-content);
+    }
+
+    &__heading-name {
+      color: var(--store-item-info-heading-name-color, var(--c-dark));
+      font: var(
+        --store-item-info-heading-name-font,
+        font(
+          --store-item-info-heading-name,
+          500,
+          var(--font-size-big),
+          normal,
+          var(--body-font-family-secondary)
+        )
+      );
+    }
+
+    &__heading-distance {
+      width: var(--store-item-info-heading-distance-width);
+      color: var(
+        --store-item-info-heading-distance-color,
+        var(--c-gray-variant)
+      );
+      span {
+        color: var(
+          --store-item-info-heading-distance-span-color,
+          var(--c-dark)
+        );
       }
-      &-info {
-        flex: 1;
-        &-heading {
-          display: var(--store-item-info-heading-display);
-          justify-content: var(--store-item-info-heading-justify-content);
-          &-name {
-            color: var(--store-item-info-heading-name-color, var(--c-dark));
-            font: var(
-              --store-item-info-heading-name-font,
-              font(
-                --store-item-info-heading-name,
-                500,
-                var(--font-size-big),
-                normal,
-                var(--body-font-family-secondary)
-              )
-            );
-          }
-          &-distance {
-            width: var(--store-item-info-heading-distance-width);
-            color: var(
-              --store-item-info-heading-distance-color,
-              var(--c-gray-variant)
-            );
-            span {
-              color: var(
-                --store-item-info-heading-distance-span-color,
-                var(--c-dark)
-              );
-            }
-          }
-        }
-        &-address {
-          color: var(--store-item-info-address-color, var(--c-gray-variant));
-          margin: var(--store-item-info-address-margin, 0 0 1.25rem 0);
-        }
-        &-phone,
-        &-email {
-          display: var(--store-item-info-contact-display, flex);
-          flex-direction: var(--store-item-info-contact-flex-direction, row);
-          flex: var(--store-item-info-contact-flex-wrap, nowrap);
-          justify-content: var(
-            --store-item-info-contact-justify-content,
-            flex-start
-          );
-          align-items: var(--store-item-info-contact-align-items, center);
-          margin: var(--store-item-info-contact-margin, 0 0 0.625rem 0);
-          span {
-            margin: var(--store-item-info-contact-span-margin, 0 0 0 0.3125rem);
-            font: var(
-              --store-item-info-contact-span-font,
-              font(
-                --store-item-info-contact-span,
-                300,
-                var(--font-size-small),
-                normal,
-                var(--body-font-family-secondary)
-              )
-            );
-          }
-        }
+    }
+
+    &__address {
+      color: var(--store-item-info-address-color, var(--c-gray-variant));
+      margin: var(--store-item-info-address-margin, 0 0 1.25rem 0);
+    }
+
+    &__phone,
+    &__email {
+      display: var(--store-item-info-contact-display, flex);
+      flex-direction: var(--store-item-info-contact-flex-direction, row);
+      flex: var(--store-item-info-contact-flex-wrap, nowrap);
+      justify-content: var(
+        --store-item-info-contact-justify-content,
+        flex-start
+      );
+      align-items: var(--store-item-info-contact-align-items, center);
+      margin: var(--store-item-info-contact-margin, 0 0 0.625rem 0);
+      span {
+        margin: var(--store-item-info-contact-span-margin, 0 0 0 0.3125rem);
+        font: var(
+          --store-item-info-contact-span-font,
+          font(
+            --store-item-info-contact-span,
+            300,
+            var(--font-size-small),
+            normal,
+            var(--body-font-family-secondary)
+          )
+        );
       }
+    }
+
+    &__media {
+      width: var(--store-item-media-width, 5.125rem);
+      height: var(--stor-item-media-height, 7rem);
+      margin: var(--store-item-media-margin, 0 1.25rem 0 0);
+      overflow: hidden;
+      cursor: pointer;
     }
   }
   @include for-desktop {
