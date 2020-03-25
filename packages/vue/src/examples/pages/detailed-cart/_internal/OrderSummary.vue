@@ -18,7 +18,7 @@
       />
       <SfProperty
         name="Shipping"
-        :value="`From ${shippingMethod.price}`"
+        :value="`From ${cheapestShippingMethod.price}`"
         class="sf-property--full-width sf-property--large property"
       />
       <SfDivider class="divider" />
@@ -106,7 +106,7 @@ export default {
     };
   },
   computed: {
-    shippingMethod() {
+    cheapestShippingMethod() {
       const methods = this.shippingMethods.filter(
         method => method.price !== "Free"
       );
@@ -131,7 +131,9 @@ export default {
     },
     total() {
       const subtotal = parseFloat(this.subtotal.replace("$", ""));
-      const shipping = parseFloat(this.shippingMethod.price.replace("$", ""));
+      const shipping = parseFloat(
+        this.cheapestShippingMethod.price.replace("$", "")
+      );
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
       return "$" + total.toFixed(2);
     }

@@ -261,17 +261,16 @@ export default {
 }
 .collected-product {
   --collected-product-padding: var(--spacer-sm) 0;
-  --collected-product-remove-bottom: var(--spacer-sm);
   border: 1px solid var(--c-light);
   border-width: 1px 0 0 0;
   @include for-mobile {
+    --collected-product-remove-bottom: var(--spacer-sm);
     &:first-of-type {
       border: none;
     }
   }
   @include for-desktop {
     --collected-product-padding: var(--spacer-lg) 0;
-    --collected-product-remove-bottom: var(--spacer-lg);
   }
 }
 .actions {
