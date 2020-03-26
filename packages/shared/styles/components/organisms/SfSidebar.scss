@@ -2,15 +2,16 @@
 
 .sf-sidebar {
   &__aside {
-    box-sizing: border-box;
     position: fixed;
     top: var(--sidebar-top, 0);
-    right: var(--sidebar-right);
     left: var(--sidebar-left, 0);
+    right: var(--sidebar-right, 0);
+    bottom: var(--sidebar-bottom, 0);
     z-index: var(--sidebar-z-index, 1);
     display: flex;
     flex-direction: column;
-    width: var(--sidebar-width, 100%);
+    box-sizing: border-box;
+    width: var(--sidebar-width);
     height: 100%;
     background-color: var(--sidebar-background, var(--c-white));
   }
@@ -18,27 +19,33 @@
     padding: var(--sidebar-top-padding);
   }
   &__content {
-    box-sizing: border-box;
-    overflow-y: auto;
+    overflow: auto;
     display: var(--sidebar-content-display, flex);
     flex-direction: var(--sidebar-content-flex-direction, column);
+    box-sizing: border-box;
+    width: var(--sidebar-content-width);
+    height: 100%;
     padding: var(
       --sidebar-content-padding,
       var(--spacer-base) var(--spacer-sm)
     );
-    width: var(--sidebar-content-width);
-    height: 100%;
-    color: var(--sidebar-content-color, inherit);
+    color: var(--sidebar-content-color, vaR(--c-text));
+    @include font(
+      --sidebar-content-font,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
     &::-webkit-scrollbar {
-      --sidebar-content-width: 0;
+      width: 0;
     }
   }
   &__title {
-    & > * {
-      --heading-title-font-size: var(--font-xl);
-      --heading-title-font-weight: var(--font-light);
-      --heading-subtitle-font-size: var(--font-xl);
-    }
+    // fixme: fix styles in SfHeading
+    --heading-title-font-size: var(--font-xl);
+    --heading-title-font-weight: var(--font-light);
+    --heading-subtitle-font-size: var(--font-xl);
   }
   &__sticky-bottom {
     position: sticky;
@@ -53,7 +60,7 @@
     display: var(--sidebar-circle-icon-display, flex);
     right: var(--sidebar-circle-icon-right, 0);
     left: var(--sidebar-circle-icon-left);
-    top: var(--sidebar-circle-icon-top, 2.125rem);
+    top: var(--sidebar-circle-icon-top, var(--spacer-xl));
     transform: var(--sidebar-circle-icon-transform, translate3d(50%, 0, 0));
   }
   @include for-desktop {
