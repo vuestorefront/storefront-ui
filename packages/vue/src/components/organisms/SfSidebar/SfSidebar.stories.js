@@ -24,8 +24,7 @@ storiesOf("Organisms|Sidebar", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-sidebar--right": "sf-sidebar--right",
-            "sf-sidebar--icon": "sf-sidebar--icon"
+            "sf-sidebar--right": "sf-sidebar--right"
           },
           "",
           { display: "multi-select" },
@@ -69,8 +68,7 @@ storiesOf("Organisms|Sidebar", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-sidebar--right": "sf-sidebar--right",
-            "sf-sidebar--icon": "sf-sidebar--icon"
+            "sf-sidebar--right": "sf-sidebar--right"
           },
           "sf-sidebar--right sf-sidebar--icon",
           { display: "multi-select" },
@@ -114,8 +112,7 @@ storiesOf("Organisms|Sidebar", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-sidebar--right": "sf-sidebar--right",
-            "sf-sidebar--icon": "sf-sidebar--icon"
+            "sf-sidebar--right": "sf-sidebar--right"
           },
           "",
           { display: "multi-select" },
@@ -162,8 +159,7 @@ storiesOf("Organisms|Sidebar", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-sidebar--right": "sf-sidebar--right",
-            "sf-sidebar--icon": "sf-sidebar--icon"
+            "sf-sidebar--right": "sf-sidebar--right"
           },
           "",
           { display: "multi-select" },

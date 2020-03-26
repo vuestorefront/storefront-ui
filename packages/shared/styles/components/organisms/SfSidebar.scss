@@ -13,7 +13,6 @@
     width: var(--sidebar-aside-width, 100%);
     height: 100%;
     background-color: var(--sidebar-aside-background, var(--c-white));
-
   }
   &__top {
     padding: var(--sidebar-top-padding);
@@ -24,7 +23,10 @@
     overflow-y: auto;
     display: var(--sidebar-content-display, flex);
     flex-direction: var(--sidebar-content-flex-direction, column);
-    padding: var(--sidebar-content-padding, var(--spacer-base) var(--spacer-sm));
+    padding: var(
+      --sidebar-content-padding,
+      var(--spacer-base) var(--spacer-sm)
+    );
     width: var(--sidebar-content-width);
     height: 100%;
     color: var(--sidebar-content-color, inherit);
@@ -58,20 +60,14 @@
     top: var(--sidebar-circle-icon-top, 2.125rem);
     transform: var(--sidebar-circle-icon-transform, translate3d(50%, 0, 0));
   }
-  
-  &__icon {
-    position: absolute;
-    display: var(--sidebar-icon-display, none);
-    top: var(--sidebar-icon-top, var(--spacer-lg));
-    right: var(--sidebar-icon-right, var(--spacer-lg));
-    cursor: pointer;
-  }
 
   @include for-desktop {
     --sidebar-aside-width: 25.5rem;
-    --sidebar-top-padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-sm) var(--spacer-xl);
+    --sidebar-top-padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-sm)
+      var(--spacer-xl);
     --sidebar-content-padding: var(--spacer-base) var(--spacer-xl);
-    --sidebar-bottom-padding: var(--spacer-sm) var(--spacer-xl) var(--spacer-xl) var(--spacer-xl);
+    --sidebar-bottom-padding: var(--spacer-sm) var(--spacer-xl) var(--spacer-xl)
+      var(--spacer-xl);
 
     &--right {
       --sidebar-top-padding: var(--spacer-base);
@@ -82,11 +78,6 @@
       --sidebar-content-color: var(--c-dark-variant);
       --sidebar-circle-icon-right: var(--spacer-base);
       --sidebar-circle-icon-transform: translate3d(0, 0, 0);
-    }
-
-    &--icon {
-      --sidebar-icon-display: block;
-      --sidebar-circle-icon-display: none;
     }
   }
 }

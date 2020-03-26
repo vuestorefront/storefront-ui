@@ -23,21 +23,10 @@
             />
           </slot>
           <!--@slot Use this slot to replace icon on the right side.-->
-          <slot name="icon" v-bind="{ close, button }">
-            <SfIcon
-              v-if="button"
-              icon="cross"
-              size="14px"
-              role="button"
-              aria-label="close"
-              class="sf-sidebar__icon desktop-only"
-              @click="close"
-            />
-          </slot>
           <slot name="circle-icon" v-bind="{ close, button }">
             <SfCircleIcon
               v-if="button"
-              icon-size="14px"
+              icon-size="12px"
               icon="cross"
               class="sf-sidebar__circle-icon desktop-only"
               @click="close"
@@ -56,18 +45,16 @@
   </div>
 </template>
 <script>
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
-import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 export default {
   name: "SfSidebar",
   components: {
     SfBar,
     SfCircleIcon,
-    SfIcon,
     SfOverlay,
     SfHeading
   },
