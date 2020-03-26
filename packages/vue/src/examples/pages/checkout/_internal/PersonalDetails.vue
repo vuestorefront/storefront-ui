@@ -144,15 +144,15 @@ export default {
 .title {
   --heading-padding: var(--spacer-sm) 0;
   @include for-desktop {
-    --heading-padding: var(--spacer-sm) 0 var(--spacer-base) 0;
+    --heading-padding: 0 0 var(--spacer-base) 0;
   }
 }
 
 .info {
   &__heading {
-    margin: var(--spacer-sm) 0 var(--spacer-lg) 0;
+    margin: 0 0 var(--spacer-xl) 0;
     font-family: var(--font-family-primary);
-    font-size: var(--font-sm);
+    font-size: var(--font-xs);
     font-weight: var(--font-light);
   }
   &__characteristic {
@@ -164,6 +164,10 @@ export default {
   }
 }
 .log-in {
+  &__info {
+    padding: var(--spacer-lg) 0;
+    color: var(--c-dark-variant);
+  }
   &__button {
     margin: 0 0 var(--spacer-xl) 0;
   }
@@ -176,6 +180,7 @@ export default {
   }
 
   &__element {
+    margin: 0 0 var(--spacer-base) 0;
     @include for-desktop {
       flex: 0 0 100%;
     }
@@ -192,7 +197,7 @@ export default {
   }
 
   &__checkbox {
-    margin: var(--spacer-base) 0 var(--spacer-base) 0;
+    margin: var(--spacer-base) 0;
     @include for-mobile {
       --checkbox-font-family: var(--font-family-primary);
       --checkbox-font-weight: var(--font-light);
