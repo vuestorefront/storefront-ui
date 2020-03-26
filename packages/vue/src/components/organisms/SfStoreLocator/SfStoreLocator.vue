@@ -200,6 +200,7 @@ export default {
     }
   },
   mounted() {
+    import("leaflet/dist/leaflet.css");
     import("vue2-leaflet").then(
       ({ LMap, LTileLayer, LMarker, LIcon, LControl, LControlZoom }) => {
         Vue.component("LMap", LMap);
