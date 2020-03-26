@@ -32,7 +32,7 @@
       <SfInput
         v-model="promoCode"
         name="promoCode"
-        placeholder="Enter promo code"
+        label="Enter promo code"
         class="sf-input--filled promo-code__input"
       />
       <SfCircleIcon class="promo-code__circle-icon" icon="check" />
@@ -192,12 +192,13 @@ export default {
     --icon-size: 0.6875rem;
   }
   &__input {
-    flex: 1;
     --input-background: var(--c-white);
+    flex: 1;
     margin: 0 var(--spacer-lg) 0 0;
   }
 }
 .characteristics {
+  margin: 0 0 0 var(--spacer-xs);
   &__item {
     margin: var(--spacer-base) 0;
   }

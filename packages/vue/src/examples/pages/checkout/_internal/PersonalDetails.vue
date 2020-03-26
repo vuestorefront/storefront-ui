@@ -149,16 +149,22 @@ export default {
 }
 
 .info {
+  margin: 0 0 var(--spacer-xl) 0;
   &__heading {
-    margin: 0 0 var(--spacer-xl) 0;
     font-family: var(--font-family-primary);
-    font-size: var(--font-xs);
     font-weight: var(--font-light);
   }
   &__characteristic {
     --characteristic-description-font-size: var(--font-xs);
     margin: 0 0 var(--spacer-sm) var(--spacer-2xs);
-    @include for-desktop {
+  }
+  @include for-desktop {
+    margin: 0;
+    &__heading {
+      margin: 0 0 var(--spacer-xl) 0;
+      font-size: var(--font-xs);
+    }
+    &__characteristic {
       margin: var(--spacer-base) 0;
     }
   }
@@ -180,8 +186,8 @@ export default {
   }
 
   &__element {
-    margin: 0 0 var(--spacer-base) 0;
     @include for-desktop {
+      margin: 0 0 var(--spacer-base) 0;
       flex: 0 0 100%;
     }
     &--half {
