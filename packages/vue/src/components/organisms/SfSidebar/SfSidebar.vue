@@ -37,8 +37,8 @@
           <slot />
         </div>
         <!--@slot Use this slot to place content to sticky bottom.-->
-        <div v-if="hasStickyBottom" class="sf-sidebar__sticky-bottom">
-          <slot name="sticky-bottom" />
+        <div v-if="hasStickyBottom" class="sf-sidebar__bottom">
+          <slot name="content-bottom" />
         </div>
       </aside>
     </transition>
@@ -99,7 +99,7 @@ export default {
       return "slide-" + this.position;
     },
     hasStickyBottom() {
-      return this.$slots.hasOwnProperty("sticky-bottom");
+      return this.$slots.hasOwnProperty("content-bottom");
     }
   },
   watch: {

@@ -47,7 +47,7 @@
     --heading-title-font-weight: var(--font-light);
     --heading-subtitle-font-size: var(--font-xl);
   }
-  &__sticky-bottom {
+  &__bottom {
     position: sticky;
     top: 0;
     bottom: auto;

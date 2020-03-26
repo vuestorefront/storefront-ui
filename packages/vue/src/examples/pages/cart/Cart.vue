@@ -68,7 +68,7 @@
           >
         </div>
       </transition>
-      <template #sticky-bottom>
+      <template #content-bottom>
         <SfProperty class="sf-property--full-width my-cart__total-price">
           <template #name>
             <span class="sf-property__name">TOTAL</span>

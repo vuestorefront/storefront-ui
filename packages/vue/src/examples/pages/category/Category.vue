@@ -246,7 +246,7 @@
           @change="filter.selected = !filter.selected"
         />
       </div>
-      <template #sticky-bottom>
+      <template #content-bottom>
         <div class="filters__buttons">
           <SfButton
             class="sf-button--full-width"
