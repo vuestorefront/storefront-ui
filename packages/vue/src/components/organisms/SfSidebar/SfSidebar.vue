@@ -12,7 +12,7 @@
             @click:back="close"
           />
         </slot>
-        <div class="sf-sidebar__top">
+        <div v-if="title || hasTop" class="sf-sidebar__top">
           <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
               v-if="title"
@@ -22,6 +22,7 @@
               class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
             />
           </slot>
+          <slot name="content-top" />
           <!--@slot Use this slot to replace icon on the right side.-->
           <slot name="circle-icon" v-bind="{ close, button }">
             <SfCircleIcon
@@ -37,7 +38,7 @@
           <slot />
         </div>
         <!--@slot Use this slot to place content to sticky bottom.-->
-        <div v-if="hasStickyBottom" class="sf-sidebar__bottom">
+        <div v-if="hasBottom" class="sf-sidebar__bottom">
           <slot name="content-bottom" />
         </div>
       </aside>
@@ -98,7 +99,10 @@ export default {
     transitionName() {
       return "slide-" + this.position;
     },
-    hasStickyBottom() {
+    hasTop() {
+      return this.$slots.hasOwnProperty("content-top");
+    },
+    hasBottom() {
       return this.$slots.hasOwnProperty("content-bottom");
     }
   },

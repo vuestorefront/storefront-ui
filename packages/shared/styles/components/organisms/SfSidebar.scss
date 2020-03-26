@@ -17,7 +17,17 @@
     box-shadow: var(--sidebar-box-shadow, 0px 4px 11px rgba(29, 31, 34, 0.1));
   }
   &__top {
-    padding: var(--sidebar-top-padding);
+    padding: var(
+      --sidebar-top-padding,
+      var(--spacer-sm) var(--spacer-sm) 0 var(--spacer-sm)
+    );
+    @include font(
+      --sidebar-top,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
   }
   &__content {
     overflow: auto;
@@ -47,12 +57,20 @@
     --heading-title-font-size: var(--font-xl);
     --heading-title-font-weight: var(--font-light);
     --heading-subtitle-font-size: var(--font-xl);
+    margin: var(--sidebar-title, 0 0 var(--spacer-lg) 0);
   }
   &__bottom {
     position: sticky;
     top: 0;
     bottom: auto;
     padding: var(--sidebar-bottom-padding, var(--spacer-sm));
+    @include font(
+      --sidebar-bottom,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
   }
   &__circle-icon {
     --circle-icon-position: absolute;
