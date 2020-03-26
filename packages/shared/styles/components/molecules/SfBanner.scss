@@ -3,7 +3,7 @@
 .sf-banner {
   box-sizing: border-box;
   display: var(--banner-display, flex);
-  align-items: var(--bnner-align-items, center);
+  align-items: var(--banner-align-items, flex-start);
   justify-content: var(--banner-justify-content, flex-start);
   min-height: var(--banner-height, 14rem);
   width: var(--banner-width, 100%);
@@ -66,16 +66,17 @@
     display: var(--banner-display-call-to-action, none);
   }
   @include for-desktop {
+    align-items: var(--banner-align-items, center);
     --banner-background-image: var(
       --_banner-background-desktop-image,
       var(--_banner-background-image)
     );
     --banner-display-description: block;
     --banner-display-call-to-action: block;
-    --banner-height: 25rem;
     --banner-title-margin: var(--spacer-base) 0 0 0;
     --banner-subtitle-color: var(--c-gray);
     --banner-title-font-size: var(--h1-font-size);
+    min-height: var(--banner-height, 19rem);
   }
   &--right {
     @include for-desktop {
