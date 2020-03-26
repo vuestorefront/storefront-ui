@@ -4,20 +4,19 @@
   &__aside {
     box-sizing: border-box;
     position: fixed;
-    top: var(--sidebar-aside-top, 0);
-    right: var(--sidebar-aside-right);
-    left: var(--sidebar-aside-left, 0);
-    z-index: var(--sidebar-aside-z-index, 1);
+    top: var(--sidebar-top, 0);
+    right: var(--sidebar-right);
+    left: var(--sidebar-left, 0);
+    z-index: var(--sidebar-z-index, 1);
     display: flex;
     flex-direction: column;
-    width: var(--sidebar-aside-width, 100%);
+    width: var(--sidebar-width, 100%);
     height: 100%;
-    background-color: var(--sidebar-aside-background, var(--c-white));
+    background-color: var(--sidebar-background, var(--c-white));
   }
   &__top {
     padding: var(--sidebar-top-padding);
   }
-
   &__content {
     box-sizing: border-box;
     overflow-y: auto;
@@ -34,7 +33,6 @@
       --sidebar-content-width: 0;
     }
   }
-
   &__title {
     & > * {
       --heading-title-font-size: var(--font-xl);
@@ -42,14 +40,12 @@
       --heading-subtitle-font-size: var(--font-xl);
     }
   }
-
   &__sticky-bottom {
     position: sticky;
     top: 0;
     bottom: auto;
     padding: var(--sidebar-bottom-padding, var(--spacer-sm));
   }
-
   &__circle-icon {
     --circle-icon-position: absolute;
     --button-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
@@ -60,19 +56,17 @@
     top: var(--sidebar-circle-icon-top, 2.125rem);
     transform: var(--sidebar-circle-icon-transform, translate3d(50%, 0, 0));
   }
-
   @include for-desktop {
-    --sidebar-aside-width: 25.5rem;
+    --sidebar-width: 25.5rem;
     --sidebar-top-padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-sm)
       var(--spacer-xl);
     --sidebar-content-padding: var(--spacer-base) var(--spacer-xl);
     --sidebar-bottom-padding: var(--spacer-sm) var(--spacer-xl) var(--spacer-xl)
       var(--spacer-xl);
-
     &--right {
       --sidebar-top-padding: var(--spacer-base);
-      --sidebar-aside-left: auto;
-      --sidebar-aside-right: 0;
+      --sidebar-left: auto;
+      --sidebar-right: 0;
       --sidebar-content-padding: 0 var(--spacer-base);
       --sidebar-bottom-padding: var(--spacer-base);
       --sidebar-content-color: var(--c-dark-variant);
