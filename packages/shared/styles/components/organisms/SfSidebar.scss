@@ -53,7 +53,7 @@
     }
   }
   &__title {
-    // fixme: fix styles in SfHeading
+    --heading-title-color: var(--_c-dark-secondary);
     --heading-title-font-size: var(--font-xl);
     --heading-title-font-weight: var(--font-light);
     --heading-subtitle-font-size: var(--font-xl);
