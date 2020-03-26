@@ -93,7 +93,6 @@ export default {
   data() {
     return {
       currentStep: 0,
-      canGoNext: false,
       personalDetails: { firstName: "", lastName: "", email: "" },
       shipping: {
         firstName: "",
