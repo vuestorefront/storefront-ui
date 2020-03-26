@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-0",
-    "@storefront-ui/vue": "^0.6.0",
+    "@storefront-ui/vue": "^0.6.3",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
