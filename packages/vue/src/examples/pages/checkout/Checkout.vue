@@ -283,37 +283,37 @@ export default {
 @import "~@storefront-ui/vue/styles";
 
 #checkout {
-  font-family: var(--font-family-secondary);
   box-sizing: border-box;
+  font-family: var(--font-family-secondary);
   @include for-desktop {
+    padding: 0 var(--spacer-base);
     max-width: 1240px;
     margin: 0 auto;
   }
 }
 
 .checkout {
-  --steps-content-padding: var(--spacer-sm) var(--spacer-sm) 0 var(--spacer-sm);
+  --steps-content-padding: var(--spacer-sm);
   @include for-desktop {
-    --steps-content-padding: var(--spacer-xl) var(--spacer-sm) 0 0;
+    --steps-content-padding: var(--spacer-2xl) var(--spacer-2xl) 0 0;
     display: flex;
   }
   &__main {
     @include for-desktop {
-      padding: var(--spacer-lg) 0 0 0;
       flex: 1;
+      padding: var(--spacer-xl) 0 0 0;
     }
   }
   &__aside {
     @include for-desktop {
       flex: 0 0 25.5rem;
-      margin: 0 0 0 4.25rem;
+      margin: 0 0 0 var(--spacer-xl);
     }
     &-order {
       box-sizing: border-box;
       width: 100%;
       background: var(--c-light);
       padding: var(--spacer-xl);
-      margin: 0 0 var(--spacer-lg) 0;
     }
   }
 }
