@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.2...@storefront-ui/vue@0.6.3) (2020-03-26)
+
+
+### Bug Fixes
+
+* events on SfBottomNavigationItem ([#878](https://github.com/DivanteLtd/storefront-ui/issues/878)) ([db4fd71](https://github.com/DivanteLtd/storefront-ui/commit/db4fd718c0a7af455164d7f01e16806dcd286aae))
+* focus directive events binding ([#943](https://github.com/DivanteLtd/storefront-ui/issues/943)) ([8c32596](https://github.com/DivanteLtd/storefront-ui/commit/8c3259671ce338ceb51027024aabde114a4c0cbc))
+* use right removeEventListener callback ([#912](https://github.com/DivanteLtd/storefront-ui/issues/912)) ([a287ed1](https://github.com/DivanteLtd/storefront-ui/commit/a287ed1992e511b8d435fc634c9c1eb1e19da194))
+
+
+### Features
+
+* add number prop type for SfSelect & SfSelectOption ([#945](https://github.com/DivanteLtd/storefront-ui/issues/945)) ([2da1b49](https://github.com/DivanteLtd/storefront-ui/commit/2da1b49372ed884236d72b10007ae29414debf9d))
+
+
+
+
+
+## [0.6.2](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.1...@storefront-ui/vue@0.6.2) (2020-03-05)
+
+
+### Bug Fixes
+
+* ssr error in SfHeader([#854](https://github.com/DivanteLtd/storefront-ui/issues/854)) ([5332200](https://github.com/DivanteLtd/storefront-ui/commit/53322009e643600f6d522f24663bad3040e689a7))
+* ssr in SfScrollable ([#855](https://github.com/DivanteLtd/storefront-ui/issues/855)) ([2c1059f](https://github.com/DivanteLtd/storefront-ui/commit/2c1059ff6d92cc0618c65ecd345f9f6f7da85663))
+* title props name in SfSidebar ([#810](https://github.com/DivanteLtd/storefront-ui/issues/810)) ([9f622ed](https://github.com/DivanteLtd/storefront-ui/commit/9f622edb4119cb2026cb08244a3f0cc344514a2a))
+
+
+
+
+
 ## [0.6.1](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.0...@storefront-ui/vue@0.6.1) (2020-02-27)
 
 

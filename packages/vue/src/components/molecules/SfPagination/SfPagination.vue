@@ -3,7 +3,7 @@
     <ul class="sf-pagination__list">
       <li class="sf-pagination__item">
         <!-- @slot Custom markup for previous page button -->
-        <slot name="prev" v-bind="{ isDisabled: canGoPrev, go: goPrev }">
+        <slot name="prev" v-bind="{ isDisabled: !canGoPrev, go: goPrev }">
           <button
             aria-label="Go to previous page"
             class="sf-pagination__button sf-pagination__button--prev"
@@ -54,8 +54,8 @@
         </li>
       </template>
       <li class="sf-pagination__item">
-        <!-- @slot Custom markup for previous page button -->
-        <slot name="next" v-bind="{ isDisabled: canGoNext, go: goNext }">
+        <!-- @slot Custom markup for next page button -->
+        <slot name="next" v-bind="{ isDisabled: !canGoNext, go: goNext }">
           <button
             aria-label="Go to next page"
             class="sf-pagination__button sf-pagination__button--next"
@@ -113,10 +113,10 @@ export default {
       return this.setLimitedPageNumber();
     },
     canGoPrev() {
-      return this.current === 1;
+      return this.current > 1;
     },
     canGoNext() {
-      return this.current > this.total - 1;
+      return this.current < this.total - 1;
     }
   },
   methods: {

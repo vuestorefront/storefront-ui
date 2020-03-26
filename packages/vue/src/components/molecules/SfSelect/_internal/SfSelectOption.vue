@@ -15,7 +15,7 @@ export default {
   name: "SfSelectOption",
   props: {
     value: {
-      type: [String, Object],
+      type: [String, Number, Object],
       default: ""
     }
   },
