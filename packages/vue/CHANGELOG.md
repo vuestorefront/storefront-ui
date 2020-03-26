@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.2...@storefront-ui/vue@0.6.3) (2020-03-26)
+
+
+### Bug Fixes
+
+* events on SfBottomNavigationItem ([#878](https://github.com/DivanteLtd/storefront-ui/issues/878)) ([db4fd71](https://github.com/DivanteLtd/storefront-ui/commit/db4fd718c0a7af455164d7f01e16806dcd286aae))
+* focus directive events binding ([#943](https://github.com/DivanteLtd/storefront-ui/issues/943)) ([8c32596](https://github.com/DivanteLtd/storefront-ui/commit/8c3259671ce338ceb51027024aabde114a4c0cbc))
+* use right removeEventListener callback ([#912](https://github.com/DivanteLtd/storefront-ui/issues/912)) ([a287ed1](https://github.com/DivanteLtd/storefront-ui/commit/a287ed1992e511b8d435fc634c9c1eb1e19da194))
+
+
+### Features
+
+* add number prop type for SfSelect & SfSelectOption ([#945](https://github.com/DivanteLtd/storefront-ui/issues/945)) ([2da1b49](https://github.com/DivanteLtd/storefront-ui/commit/2da1b49372ed884236d72b10007ae29414debf9d))
+
+
+
+
+
 ## [0.6.2](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.1...@storefront-ui/vue@0.6.2) (2020-03-05)
 
 

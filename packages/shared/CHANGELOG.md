@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.6.2...@storefront-ui/shared@0.6.3) (2020-03-26)
+
+
+### Bug Fixes
+
+* add padding to sidebar content ([#837](https://github.com/DivanteLtd/storefront-ui/issues/837)) ([eb30589](https://github.com/DivanteLtd/storefront-ui/commit/eb305891bbac378d78991128fe8024e89fe0c2d4))
+
+
+
+
+
 ## [0.6.2](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.6.1...@storefront-ui/shared@0.6.2) (2020-03-05)
 
 
