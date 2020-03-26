@@ -114,7 +114,6 @@
     <SfHeading
       title="Payment methods"
       :level="3"
-      subtitle="Choose your payment method"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
@@ -356,43 +355,20 @@ export default {
 .title {
   --heading-padding: var(--spacer-sm) 0;
   @include for-desktop {
-    --heading-padding: 0 0 var(--spacer-base) 0;
+    --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
+    &:last-of-type {
+      --heading-padding: var(--spacer-xs) 0 var(--spacer-base) var(--spacer-xs);
+    }
   }
 }
 .form {
-  @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  &__element {
-    @include for-desktop {
-      flex: 0 0 100%;
-    }
-    &--half {
-      @include for-desktop {
-        flex: 1 1 50%;
-      }
-      &-even {
-        @include for-desktop {
-          padding: 0 0 0 var(--spacer-xl);
-        }
-      }
-    }
-  }
   &__checkbox {
     --checkbox-label-color: var(--c-dark-variant);
-    padding: 0 0 var(--spacer-sm) 0;
+    margin: 0 0 var(--spacer-sm) 0;
   }
   &__group {
     display: flex;
     align-items: center;
-  }
-  &__action {
-    @include for-desktop {
-      flex: 0 0 100%;
-      display: flex;
-    }
   }
   &__action-button {
     &:first-child {
@@ -401,6 +377,26 @@ export default {
     }
     &--secondary {
       margin: var(--spacer-base) 0;
+    }
+  }
+  @include for-desktop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 var(--spacer-2xl) 0 var(--spacer-xs);
+    &__element {
+      padding: 0 0 var(--spacer-xs) 0;
+      flex: 0 0 100%;
+      &--half {
+        flex: 1 1 50%;
+        &-even {
+          padding: 0 0 0 var(--spacer-xl);
+        }
+      }
+    }
+    &__action {
+      flex: 0 0 100%;
+      display: flex;
     }
   }
 }
@@ -424,43 +420,34 @@ export default {
 }
 .credit-card-form {
   padding: var(--spacer-xl) 0 0 0;
-  @include for-desktop {
-    width: 100%;
-    padding: var(--spacer-lg) var(--spacer-2xl);
-  }
   &__group {
     display: flex;
     align-items: baseline;
     justify-content: flex-start;
     position: relative;
   }
-  &__element {
-    @include for-desktop {
-      display: flex;
-    }
-  }
   &__label {
     font-size: var(--font-lg);
     flex: 50%;
-    &--small {
-      @include for-desktop {
-        flex: 0 0 calc(100% / 3);
-      }
-    }
   }
   &__button {
     --button-padding: var(--spacer-sm);
-    @include for-mobile {
-      position: absolute;
-      bottom: 50%;
-      right: 0;
-      transform: translate3d(0, 0, 50%);
-      --button-padding: var(--spacer-2xs) 0;
-    }
   }
   &__input {
     flex: 1;
-    @include for-desktop {
+  }
+  @include for-desktop {
+    width: 100%;
+    padding: var(--spacer-lg) var(--spacer-2xl);
+    &__element {
+      display: flex;
+    }
+    &__label {
+      &--small {
+        flex: 0 0 calc(100% / 3);
+      }
+    }
+    &__input {
       align-self: center;
       &--with-spacer {
         margin: 0 var(--spacer-xl) 0 0;
@@ -468,6 +455,15 @@ export default {
       &--small {
         flex: 0 0 calc(100% / 3);
       }
+    }
+  }
+  @include for-mobile {
+    &__button {
+      --button-padding: var(--spacer-2xs) 0;
+      position: absolute;
+      bottom: 50%;
+      right: 0;
+      transform: translate3d(0, 0, 50%);
     }
   }
 }

@@ -260,39 +260,16 @@ export default {
 .title {
   --heading-padding: var(--spacer-sm) 0;
   @include for-desktop {
-    --heading-padding: 0 0 var(--spacer-base) 0;
+    --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
+    &:last-of-type {
+      --heading-padding: var(--spacer-xs) 0 var(--spacer-base) var(--spacer-xs);
+    }
   }
 }
 .form {
-  @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  &__element {
-    @include for-desktop {
-      flex: 0 0 100%;
-    }
-    &--half {
-      @include for-desktop {
-        flex: 1 1 50%;
-      }
-      &-even {
-        @include for-desktop {
-          padding: 0 0 0 var(--spacer-xl);
-        }
-      }
-    }
-  }
   &__group {
     display: flex;
     align-items: center;
-  }
-  &__action {
-    @include for-desktop {
-      flex: 0 0 100%;
-      display: flex;
-    }
   }
   &__action-button {
     &:first-child {
@@ -305,13 +282,35 @@ export default {
   }
   &__button {
     --button-width: 100%;
-    @include for-desktop {
-      --button-width: auto;
-    }
   }
   &__radio-group {
     flex: 0 0 100%;
-    @include for-mobile {
+  }
+  @include for-desktop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 var(--spacer-2xl) 0 0;
+    &__element {
+      margin: 0 0 var(--spacer-sm) 0;
+      flex: 0 0 100%;
+      &--half {
+        flex: 1 1 50%;
+        &-even {
+          padding: 0 0 0 var(--spacer-xl);
+        }
+      }
+    }
+    &__action {
+      flex: 0 0 100%;
+      display: flex;
+    }
+    &__button {
+      --button-width: auto;
+    }
+  }
+  @include for-mobile {
+    &__radio-group {
       position: relative;
       left: 50%;
       right: 50%;
@@ -322,15 +321,12 @@ export default {
   }
 }
 .shipping {
-  --radio-container-padding: var(--spacer-sm) var(--spacer-lg) var(--spacer-sm)
+  --radio-container-padding: var(--spacer-sm) var(--spacer-lg) var(--spacer-xs)
     var(--spacer-base);
   &__label {
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    @include for-desktop {
-      justify-content: space-between;
-    }
     &-price {
       font-size: var(--font-lg);
       @include for-mobile {
@@ -345,10 +341,6 @@ export default {
   &__delivery {
     color: var(--c-text-muted);
     display: flex;
-    @include for-desktop {
-      justify-content: space-between;
-      max-width: 240px;
-    }
   }
   &__action {
     @include for-mobile {
@@ -363,6 +355,15 @@ export default {
       &::before {
         content: "-";
       }
+    }
+  }
+  @include for-desktop {
+    &__label {
+      justify-content: space-between;
+    }
+    &__delivery {
+      justify-content: space-between;
+      max-width: 240px;
     }
   }
 }

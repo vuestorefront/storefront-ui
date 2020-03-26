@@ -330,7 +330,7 @@ export default {
 .title {
   --heading-padding: var(--spacer-sm) 0;
   @include for-desktop {
-    --heading-padding: 0 0 var(--spacer-base) 0;
+    --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
   }
 }
 
@@ -339,27 +339,21 @@ export default {
   &__row {
     justify-content: space-between;
   }
-  &__header {
-    @include for-desktop {
+  @include for-desktop {
+    &__header {
       text-align: center;
       &:last-child {
         text-align: right;
       }
     }
-  }
-  &__data {
-    @include for-desktop {
+    &__data {
       text-align: center;
     }
-  }
-  &__description {
-    @include for-desktop {
+    &__description {
       text-align: left;
       flex: 0 0 12rem;
     }
-  }
-  &__image {
-    @include for-desktop {
+    &s__image {
       text-align: left;
       flex: 0 0 5.125rem;
       margin-right: var(--spacer-xl);
@@ -393,10 +387,9 @@ export default {
     --icon-size: 0.6875rem;
   }
   &__input {
-    --input-background: var(--c-white);
     --input-margin: 0;
     flex: 1;
-    margin: 0 var(--spacer-lg) 0 0;
+    margin: 0 var(--spacer-base) 0 0;
   }
 }
 
@@ -430,7 +423,7 @@ export default {
 }
 
 .accordion {
-  --accordion-item-content: 0;
+  --accordion-item-content-padding: 0;
   --heading-padding: 0;
   &__item {
     position: relative;

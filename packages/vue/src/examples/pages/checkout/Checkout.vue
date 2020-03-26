@@ -293,9 +293,9 @@ export default {
 }
 
 .checkout {
-  --steps-content-padding: var(--spacer-sm);
+  --steps-content-padding: 0 var(--spacer-sm);
   @include for-desktop {
-    --steps-content-padding: var(--spacer-2xl) var(--spacer-2xl) 0 0;
+    --steps-content-padding: 0;
     display: flex;
   }
   &__main {
@@ -306,14 +306,14 @@ export default {
   }
   &__aside {
     @include for-desktop {
-      flex: 0 0 25.5rem;
+      flex: 0 0 26.8125rem;
       margin: 0 0 0 var(--spacer-xl);
     }
     &-order {
       box-sizing: border-box;
       width: 100%;
       background: var(--c-light);
-      padding: var(--spacer-xl);
+      padding: var(--spacer-xl) calc(var(--spacer-lg) * 2);
     }
   }
 }

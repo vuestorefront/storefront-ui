@@ -170,7 +170,7 @@ export default {
 @import "~@storefront-ui/vue/styles";
 
 .title {
-  --heading-title-margin: 0 0 var(--spacer-lg) 0;
+  --heading-title-margin: 0 0 var(--spacer-2xl) 0;
 }
 
 .property {

@@ -147,7 +147,15 @@ export default {
     --heading-padding: 0 0 var(--spacer-base) 0;
   }
 }
-
+.log-in {
+  &__info {
+    padding: var(--spacer-lg) 0;
+    color: var(--c-dark-variant);
+  }
+  &__button {
+    margin: var(--spacer-2xl) 0 var(--spacer-xl) 0;
+  }
+}
 .info {
   margin: 0 0 var(--spacer-xl) 0;
   &__heading {
@@ -161,7 +169,7 @@ export default {
   @include for-desktop {
     margin: 0;
     &__heading {
-      margin: 0 0 var(--spacer-xl) 0;
+      margin: 0 0 var(--spacer-sm) 0;
       font-size: var(--font-xs);
     }
     &__characteristic {
@@ -169,46 +177,9 @@ export default {
     }
   }
 }
-.log-in {
-  &__info {
-    padding: var(--spacer-lg) 0;
-    color: var(--c-dark-variant);
-  }
-  &__button {
-    margin: 0 0 var(--spacer-xl) 0;
-  }
-}
 .form {
-  @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  &__element {
-    @include for-desktop {
-      margin: 0 0 var(--spacer-base) 0;
-      flex: 0 0 100%;
-    }
-    &--half {
-      @include for-desktop {
-        flex: 1 1 50%;
-      }
-      &-even {
-        @include for-desktop {
-          padding: 0 0 0 var(--spacer-lg);
-        }
-      }
-    }
-  }
-
   &__checkbox {
     margin: var(--spacer-base) 0;
-    @include for-mobile {
-      --checkbox-font-family: var(--font-family-primary);
-      --checkbox-font-weight: var(--font-light);
-      --checkbox-font-size: var(--font-sm);
-    }
   }
 
   &__action-button {
@@ -218,6 +189,29 @@ export default {
     }
     &--secondary {
       margin: var(--spacer-base) 0;
+    }
+  }
+  @include for-mobile {
+    &__checkbox {
+      --checkbox-font-family: var(--font-family-primary);
+      --checkbox-font-weight: var(--font-light);
+      --checkbox-font-size: var(--font-sm);
+    }
+  }
+  @include for-desktop {
+    margin: 0 var(--spacer-2xl) 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    &__element {
+      margin: 0 0 var(--spacer-base) 0;
+      flex: 0 0 100%;
+      &--half {
+        flex: 1 1 50%;
+        &-even {
+          padding: 0 0 0 var(--spacer-lg);
+        }
+      }
     }
   }
 }
