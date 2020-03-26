@@ -264,6 +264,8 @@
           class="filters__item"
           @change="filter.selected = !filter.selected"
         />
+      </div>
+      <template #content-bottom>
         <div class="filters__buttons">
           <SfButton
             class="sf-button--full-width"
@@ -276,7 +278,7 @@
             >Clear all</SfButton
           >
         </div>
-      </div>
+      </template>
     </SfSidebar>
   </div>
 </template>
