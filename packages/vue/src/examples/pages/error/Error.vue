@@ -50,10 +50,10 @@ export default {
   }
 }
 .image {
-  max-width: 12.3125rem;
+  --image-width: 12.3125rem;
   padding: var(--spacer-xl) 0;
   @include for-desktop {
-    max-width: 22rem;
+    --image-width: 22rem;
     padding: var(--spacer-2xl) 0;
   }
 }
@@ -63,30 +63,27 @@ export default {
   --heading-subtitle-font-size: var(--font-base);
   --heading-subtitle-margin: 0 var(--spacer-base);
   --heading-subtitle-font-family: var(--font-family-primary);
-  text-align: center;
   @include for-desktop {
     --heading-subtitle-margin: 0;
     --heading-title-font-size: 5rem;
   }
 }
 .actions {
-  margin: var(--spacer-xl) 0 0 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
-  width: 100%;
+  margin: var(--spacer-xl) 0 0 0;
   &__button {
     &:last-child {
       margin: var(--spacer-base) 0;
     }
   }
   @include for-desktop {
-    & > * {
-      --button-width: 20.9375rem;
-      align-self: center;
-    }
     margin: var(--spacer-2xl) 0 0 0;
+    &__button {
+      --button-width: 20.9375rem;
+    }
   }
 }
 </style>
