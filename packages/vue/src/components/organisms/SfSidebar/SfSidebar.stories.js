@@ -35,7 +35,7 @@ storiesOf("Organisms|Sidebar", module)
         default: text("title", "My Cart", "Props")
       },
       subtitle: {
-        default: text("subtitle", "Order Summary", "Props")
+        default: text("subtitle", "", "Props")
       },
       headingLevel: {
         default: number("headingLevel", 3, {}, "Props")
@@ -79,7 +79,7 @@ storiesOf("Organisms|Sidebar", module)
         default: text("title", "My Cart", "Props")
       },
       subtitle: {
-        default: text("subtitle", "Order Summary", "Props")
+        default: text("subtitle", "", "Props")
       },
       headingLevel: {
         default: number("headingLevel", 3, {}, "Props")
@@ -123,7 +123,7 @@ storiesOf("Organisms|Sidebar", module)
         default: text("title", "My Cart", "Props")
       },
       subtitle: {
-        default: text("subtitle", "Order Summary", "Props")
+        default: text("subtitle", "", "Props")
       },
       headingLevel: {
         default: number("headingLevel", 3, {}, "Props")
@@ -170,7 +170,7 @@ storiesOf("Organisms|Sidebar", module)
         default: text("title", "My Cart", "Props")
       },
       subtitle: {
-        default: text("subtitle", "Order Summary", "Props")
+        default: text("subtitle", "", "Props")
       },
       headingLevel: {
         default: number("headingLevel", 3, {}, "Props")
