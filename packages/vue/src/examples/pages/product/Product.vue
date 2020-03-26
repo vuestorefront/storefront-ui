@@ -132,6 +132,13 @@
                 />
                 <SfDivider class="product__tabs__divider" />
               </div>
+              <SfPagination
+                :current="1"
+                :visible="4"
+                :total="4"
+                :has-arrows="trtrutrueeye"
+                class="product__tabs__pagination desktop-only"
+              />
             </div>
             <div
               v-else-if="tab.title === 'Additional Information'"
@@ -172,7 +179,8 @@ import {
   SfSelect,
   SfProductOption,
   SfDivider,
-  SfBreadcrumbs
+  SfBreadcrumbs,
+  SfPagination
 } from "@storefront-ui/vue";
 
 export default {
@@ -194,7 +202,8 @@ export default {
     SfSelect,
     SfProductOption,
     SfDivider,
-    SfBreadcrumbs
+    SfBreadcrumbs,
+    SfPagination
   },
   data() {
     return {
@@ -456,6 +465,9 @@ export default {
       @include for-desktop {
         margin-bottom: var(--spacer-base);
       }
+    }
+    &__pagination {
+      margin-top: 65px;
     }
 
     @include for-desktop {
