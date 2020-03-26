@@ -260,7 +260,7 @@ export default {
 .title {
   --heading-padding: var(--spacer-sm) 0;
   @include for-desktop {
-    --heading-padding: var(--spacer-sm) 0 var(--spacer-base) 0;
+    --heading-padding: 0 0 var(--spacer-base) 0;
   }
 }
 .form {
