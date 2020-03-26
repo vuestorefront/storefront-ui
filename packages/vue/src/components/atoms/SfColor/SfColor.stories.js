@@ -15,7 +15,8 @@ storiesOf("Atoms|Color", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-color--rounded": "sf-color--rounded"
+            "sf-color--rounded": "sf-color--rounded",
+            "sf-color--pure": "sf-color--pure"
           },
           "",
           { display: "multi-select" },

@@ -46,4 +46,8 @@
   &--rounded {
     --color-border-radius: 100%;
   }
+
+  &--pure {
+    --badge-display: none;
+  }
 }
