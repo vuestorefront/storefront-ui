@@ -7,14 +7,14 @@
     <div class="product">
       <SfChevron class="sf-chevron--left product__chevron mobile-only" />
       <SfGallery
-        :images="product.imagesWide"
+        :images="product.images"
         image-width="400"
-        image-height="500"
+        image-height="450"
         class="mobile-only"
       />
       <div class="product__images desktop-only">
-        <SfImage :src="product.imagesHeigh[0].big.url" />
-        <SfImage :src="product.imagesHeigh[1].big.url" />
+        <SfImage :src="product.images[0].big.url" />
+        <SfImage :src="product.images[1].big.url" />
       </div>
       <div class="product__info">
         <div class="product__info__header">
@@ -27,7 +27,7 @@
             icon="drag"
             size="xl"
             color="gray-secondary"
-            class="mobile-only"
+            class="product__info__drag-icon mobile-only"
           />
         </div>
         <div class="product__price-and-review">
@@ -74,9 +74,14 @@
           </SfSelect>
           <div class="product__colors desktop-only">
             <p class="product__colors__label">Color:</p>
-            <div v-for="(color, i) in product.colors" :key="i">
-              <SfColor :color="color" class="product__colors__color" />
-            </div>
+            <SfColor
+              v-for="(color, i) in product.colors"
+              :key="i"
+              :color="color.color"
+              :selected="color.selected"
+              class="product__colors__color"
+              @click="selectColor(i)"
+            />
           </div>
           <SfAddToCart
             v-model="qty"
@@ -105,7 +110,13 @@
                 :name="detailed.name"
                 :value="detailed.value"
                 class="product__tabs__property"
-              />
+              >
+                <template v-if="detailed.name === 'Category'" #value>
+                  <SfButton class="sf-button--text">
+                    {{ detailed.value }}</SfButton
+                  >
+                </template>
+              </SfProperty>
             </div>
             <div v-else-if="tab.title === 'Read reviews'">
               <div v-for="(review, i) in product.reviews" :key="i">
@@ -163,8 +174,6 @@ import {
   SfDivider,
   SfBreadcrumbs
 } from "@storefront-ui/vue";
-import SfTab from "@storefront-ui/vue/src/components/organisms/SfTabs/_internal/SfTab";
-import SfSelectOption from "@storefront-ui/vue/src/components/molecules/SfSelect/_internal/SfSelectOption";
 
 export default {
   name: "Product",
@@ -176,7 +185,6 @@ export default {
     SfRating,
     SfIcon,
     SfTabs,
-    SfTab,
     SfProperty,
     SfChevron,
     SfButton,
@@ -184,32 +192,30 @@ export default {
     SfAddToCart,
     SfColor,
     SfSelect,
-    SfSelectOption,
     SfProductOption,
     SfDivider,
     SfBreadcrumbs
   },
   data() {
     return {
+      selectedColor: undefined,
       selectedSize: undefined,
       qty: 1,
       product: {
         name: "Cashmere Sweater",
         description:
           "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-        imagesWide: [
+        images: [
           {
-            mobile: { url: "assets/storybook/Product/productM.png" },
-            desktop: { url: "assets/storybook/Product/productM.png" },
-            big: { url: "assets/storybook/Product/productM.png" }
+            mobile: { url: "assets/storybook/Product/productA.jpg" },
+            desktop: { url: "assets/storybook/Product/productA.jpg" },
+            big: { url: "assets/storybook/Product/productA.jpg" }
           },
           {
-            mobile: { url: "assets/storybook/Product/productZ.jpg" },
-            desktop: { url: "assets/storybook/Product/productZ.jpg" },
-            big: { url: "assets/storybook/Product/productZ.jpg" }
-          }
-        ],
-        imagesHeigh: [
+            mobile: { url: "assets/storybook/Product/productB.jpg" },
+            desktop: { url: "assets/storybook/Product/productB.jpg" },
+            big: { url: "assets/storybook/Product/productB.jpg" }
+          },
           {
             mobile: { url: "assets/storybook/Product/productA.jpg" },
             desktop: { url: "assets/storybook/Product/productA.jpg" },
@@ -222,7 +228,13 @@ export default {
           }
         ],
         price: "$50.00",
-        colors: ["#EDCBB9", "#ABD9D8", "#DB5593", "#ABD9D8", "#DB5593"],
+        colors: [
+          { color: "#EDCBB9", name: "beige", selected: false },
+          { color: "#ABD9D8", name: "mint1", selected: false },
+          { color: "#DB5593", name: "pink1", selected: false },
+          { color: "#ABD9D8", name: "mint2", selected: false },
+          { color: "#DB5593", name: "pink2", selected: false }
+        ],
         rating: {
           rate: 4,
           max: 5
@@ -287,6 +299,7 @@ export default {
           content: ""
         }
       ],
+      selected: false,
       breadcrumbs: [
         {
           text: "Home",
@@ -312,8 +325,18 @@ export default {
   methods: {
     addToCart() {
       console.log(
-        `${this.qty} x ${this.product.name} (size: ${this.selectedSize}) has been added to cart`
+        `${this.qty} x ${this.product.name} (size: ${this.selectedSize}, color: ${this.selectedColor}) has been added to cart`
       );
+    },
+    selectColor(colorIndex) {
+      this.product.colors.map((el, i) => {
+        if (colorIndex === i) {
+          el.selected = true;
+          this.selectedColor = el.name;
+        } else {
+          el.selected = false;
+        }
+      });
     }
   }
 };
@@ -352,6 +375,9 @@ export default {
     @include for-desktop {
       max-width: 32.625rem;
       margin: 0 0 0 7.5rem;
+    }
+    &__drag-icon {
+      animation: moveicon 1s ease-in-out infinite;
     }
   }
   &__price-and-review {
@@ -406,14 +432,12 @@ export default {
     );
     display: flex;
     align-items: center;
+    margin-top: var(--spacer-xl);
     &__label {
       margin: 0 var(--spacer-lg) 0 0;
     }
     &__color {
       margin: 0 var(--spacer-2xs);
-    }
-    @include for-desktop {
-      margin-top: var(--spacer-xl);
     }
   }
   &__add-to-cart {
@@ -477,5 +501,17 @@ export default {
 
 .breadcrumbs {
   margin: var(--spacer-base) auto var(--spacer-lg);
+}
+
+@keyframes moveicon {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 </style>
