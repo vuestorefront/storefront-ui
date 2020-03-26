@@ -192,7 +192,7 @@
       :visible="isFilterSidebarOpen"
       @close="isFilterSidebarOpen = false"
     >
-      <div class="filters">
+      <div class="filters desktop-only">
         <SfHeading
           :level="4"
           title="Collection"
@@ -265,6 +265,62 @@
           @change="filter.selected = !filter.selected"
         />
       </div>
+      <SfAccordion class="filters mobile-only">
+        <SfAccordionItem header="Collection">
+          <SfFilter
+            v-for="filter in filters.collection"
+            :key="filter.value"
+            :label="filter.label"
+            :count="filter.count"
+            :selected="filter.selected"
+            class="filters__item"
+            @change="filter.selected = !filter.selected"
+          />
+        </SfAccordionItem>
+        <SfAccordionItem header="Color">
+          <SfColor
+            v-for="filter in filters.color"
+            :key="filter.value"
+            :color="filter.color"
+            :selected="filter.selected"
+            class="filters__color"
+            @click="filter.selected = !filter.selected"
+          />
+        </SfAccordionItem>
+        <SfAccordionItem header="Size">
+          <SfFilter
+            v-for="filter in filters.size"
+            :key="filter.value"
+            :label="filter.label"
+            :count="filter.count"
+            :selected="filter.selected"
+            class="filters__item"
+            @change="filter.selected = !filter.selected"
+          />
+        </SfAccordionItem>
+        <SfAccordionItem header="Price">
+          <SfFilter
+            v-for="filter in filters.price"
+            :key="filter.value"
+            :label="filter.label"
+            :count="filter.count"
+            :selected="filter.selected"
+            class="filters__item"
+            @change="filter.selected = !filter.selected"
+          />
+        </SfAccordionItem>
+        <SfAccordionItem header="Material">
+          <SfFilter
+            v-for="filter in filters.material"
+            :key="filter.value"
+            :value="filter.value"
+            :label="filter.label"
+            :selected="filter.selected"
+            class="filters__item"
+            @change="filter.selected = !filter.selected"
+          />
+        </SfAccordionItem>
+      </SfAccordion>
       <template #content-bottom>
         <div class="filters__buttons">
           <SfButton
@@ -748,7 +804,9 @@ export default {
   }
 }
 .filters {
-  padding: var(--spacer-xl);
+  @include for-desktop {
+    padding: var(--spacer-xl);
+  }
   &__title {
     margin: var(--spacer-xl) 0 var(--spacer-base) 0;
     font-family: var(--font-family-secondary);
