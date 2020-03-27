@@ -1,80 +1,80 @@
 <template>
   <div>
-    <SfModal :visible="true" :cross="false">
+    <SfModal class="login" :visible="true" :cross="false">
       <template #modal-bar>
         <SfBar
-          class="login-bar mobile-only"
+          class="login__bar mobile-only"
           :title="onScreenChange()"
           :back="true"
           :close="false"
         />
-        <SfBar class="login-bar desktop-only" :back="false" :close="true" />
+        <SfBar class="login__bar desktop-only" :back="false" :close="true" />
       </template>
       <transition name="fade" mode="out-in">
-        <div v-if="isMyAccount" class="login-container">
+        <div v-if="isMyAccount" class="login__container">
           <SfImage :src="src" />
           <SfHeading
-            class="login-heading"
+            class="login__heading"
             :title="titleText"
             :subtitle="subtitleText"
             :level="loginHeadinglevel"
           >
             <template #title="{title}">
-              <p class="login-heading__title">{{ title }}</p>
+              <p class="login__heading__title">{{ title }}</p>
             </template>
             <template #subtitle>
-              <p class="login-heading__subtitle">
+              <p class="login__heading__subtitle">
                 View orders and update your details.<br />
                 Make your checkout fast and easy!
               </p>
             </template>
           </SfHeading>
           <SfButton
-            class="sf-button login-button login-button--signin"
+            class="sf-button login__btn color-primary"
             @click="onBtnClick('signIn')"
             >SIGN IN</SfButton
           >
           <SfButton
-            class="sf-button login-button login-button--login"
+            class="sf-button color-secondary login__btn login__btn--login"
             @click="onBtnClick('join')"
             >JOIN</SfButton
           >
         </div>
-        <div v-else-if="isLogin" key="log-in" class="form-container">
-          <div class="form">
+        <div v-else-if="isLogin" key="log-in" class="login__form__container">
+          <div class="login__form">
             <SfInput
               v-model="email"
               name="email"
               label="Your email"
-              class="form__element"
+              class="login__form__element"
             />
             <SfInput
               v-model="password"
               name="password"
               label="Password"
               type="password"
-              class="form__element"
+              class="login__form__element"
               :has-show-password="true"
             />
             <SfCheckbox
               v-model="rememberMe"
               name="remember-me"
               label="Remember me"
-              class="form__element form__element--checkbox"
+              class="login__form__element login__form__element--checkbox"
             />
-            <SfButton class="sf-button--full-width form__button"
+            <SfButton class="sf-button--full-width login__form-btn"
               >Login</SfButton
             >
           </div>
-          <div class="action">
+          <div class="login__form__action-btn-wrapper">
             <SfButton class="sf-button--text color-secondary"
               >Forgotten password?</SfButton
             >
           </div>
-          <div class="bottom">
+          <div class="login__form__bottom-btn-wrapper">
             <SfHeading
               title="Don't have an account yet?"
-              class="bottom-heading"
+              class="login__form__bottom-heading"
               :level="bottomHeadingLevel"
             />
             <SfButton
@@ -84,38 +84,38 @@
             >
           </div>
         </div>
-        <div v-else-if="isSignIn" key="sign-up" class="form-container">
-          <div class="form">
+        <div v-else-if="isSignIn" key="sign-up" class="login__form__container">
+          <div class="login__form">
             <SfInput
               v-model="firstName"
               name="first-name"
               label="Name"
-              class="form__element"
+              class="login__form__element"
             />
             <SfInput
               v-model="lastName"
               name="last-name"
               label="Last Name"
-              class="form__element"
+              class="login__form__element"
             />
             <SfInput
               v-model="email"
               name="email"
               label="Your email"
-              class="form__element"
+              class="login__form__element"
             />
             <SfInput
               v-model="password"
               name="password"
               label="Password"
               type="password"
-              class="form__element"
+              class="login__form__element"
             />
-            <SfButton class="sf-button--full-width form__button"
+            <SfButton class="sf-button--full-width login__form-btn"
               >Create an account</SfButton
             >
           </div>
-          <div class="action">
+          <div class="login__form__action-btn-wrapper">
             <SfButton
               class="sf-button--text color-secondary"
               @click="onBtnClick('join')"
@@ -125,31 +125,6 @@
         </div>
       </transition>
     </SfModal>
-    <SfBottomNavigation>
-      <SfBottomNavigationItem
-        v-for="(item, key) in items"
-        :key="key"
-        :icon="item.icon"
-        :label="item.label"
-        icon-size="20px"
-      />
-      <SfBottomNavigationItem
-        label="Basket"
-        icon="add_to_cart"
-        :is-floating="isFloating"
-      >
-        <template #icon>
-          <SfCircleIcon>
-            <SfIcon
-              icon="add_to_cart"
-              color="white"
-              size="28px"
-              :style="{ margin: '0 0 0 -2px' }"
-            />
-          </SfCircleIcon>
-        </template>
-      </SfBottomNavigationItem>
-    </SfBottomNavigation>
   </div>
 </template>
 <script>
@@ -160,10 +135,7 @@ import {
   SfInput,
   SfButton,
   SfCheckbox,
-  SfHeading,
-  SfBottomNavigation,
-  SfCircleIcon,
-  SfIcon
+  SfHeading
 } from "@storefront-ui/vue";
 export default {
   name: "Login",
@@ -174,10 +146,7 @@ export default {
     SfInput,
     SfButton,
     SfCheckbox,
-    SfHeading,
-    SfBottomNavigation,
-    SfCircleIcon,
-    SfIcon
+    SfHeading
   },
   data() {
     return {
@@ -248,89 +217,79 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-.sf-modal {
+.login {
   --modal-height: 100%;
   --modal-content-padding: var(--spacer-lg) var(--spacer-base) var(--spacer-2xl)
     var(--spacer-base);
-}
-.login-bar {
-  height: 3.125rem;
-}
-.login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .sf-image {
-    margin: 0 0 0 var(--spacer-2xl);
+  &__bar {
+    height: 3.125rem;
   }
-}
-.login-heading {
-  margin: var(--spacer-2xl) 0 var(--spacer-xl) 0;
-  &__title {
-    color: var(--c-primary);
-    font-family: var(--font-family-secondary);
-    font-size: var(--h1-font-size);
-    font-weight: var(--font-semibold);
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .sf-image {
+      margin: 0 0 0 var(--spacer-2xl);
+    }
   }
-  &__subtitle {
-    color: var(--c-secondary-variant);
-    font-family: var(--font-family-primary);
-    font-size: var(--font-base);
+  &__heading {
+    margin: var(--spacer-2xl) 0 var(--spacer-xl) 0;
+    &__title {
+      color: var(--c-primary);
+      font-family: var(--font-family-secondary);
+      font-size: var(--h1-font-size);
+      font-weight: var(--font-semibold);
+    }
+    &__subtitle {
+      color: var(--c-secondary-variant);
+      font-family: var(--font-family-primary);
+      font-size: var(--font-base);
+    }
   }
-}
-.login-button {
-  --button-width: 100%;
-  --button-height: 4.0625rem;
-  &--login {
-    margin: var(--spacer-sm);
-    --button-background: var(--c-secondary);
+  &__btn {
+    --button-width: 100%;
+    --button-height: 4.0625rem;
+    &--login {
+      margin: var(--spacer-sm);
+    }
   }
-  &--signin {
-    --button-background: var(--c-primary);
-  }
-}
-.form-container {
-  margin: 0 0 var(--spacer-2xl) 0;
-  .form {
+  &__form {
     margin: var(--spacer-xl) 0 var(--spacer-lg) 0;
+    &__container {
+      margin: 0 0 var(--spacer-2xl) 0;
+    }
+
     &__element {
       margin: 0 0 var(--spacer-sm) 0;
       &--checkbox {
         margin: var(--spacer-lg) 0 var(--spacer-2xl);
       }
     }
-    &__button {
+    &__btn {
       margin: var(--spacer-xl) 0 0 0;
     }
-  }
-}
-.action,
-.bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.action {
-  margin: 0 0 var(--spacer-xl) 0;
-}
-.bottom {
-  padding: var(--spacer-extra-big) 0 0 0;
-  margin: var(--spacer-extra-big) 0 0 0;
-  &-heading {
-    color: var(--c-primary);
+    &__bottom-btn-wrapper,
+    &__action-btn-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    &__bottom-btn-wrapper {
+      margin: var(--spacer-xl) 0 0 0;
+    }
+    &__bottom-heading {
+      color: var(--c-primary);
+    }
   }
 }
 @include for-desktop {
-  .sf-modal {
+  .login {
     --modal-height: auto;
     --modal-content-padding: var(--spacer-lg);
-    .sf-bar {
+    &__bar {
       background: var(--c-white);
     }
-  }
-  .sf-bottom-navigation {
-    display: none;
   }
 }
 </style>
