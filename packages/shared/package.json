@@ -23,7 +23,6 @@
     "access": "public"
   },
   "lint-staged": {
-    "*.js": "eslint --fix",
-    "*.scss": "stylelint --syntax=scss --fix"
+    "*.js": "eslint --fix"
   }
 }

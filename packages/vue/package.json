@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "^0.6.3",
+    "@storefront-ui/shared": "0.6.3",
     "@vue/babel-preset-app": "^4.0.0-alpha.1",
     "body-scroll-lock": "^2.6.4",
     "core-js": "^3.1.3",
