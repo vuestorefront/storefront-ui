@@ -8,7 +8,11 @@
     >
       <transition name="fade" mode="out-in">
         <div v-if="totalItems" key="my-cart" class="my-cart">
-          <h3 class="my-cart__total-items">Total items: {{ totalItems }}</h3>
+          <SfProperty
+            class="sf-property--large"
+            name="Total items"
+            :value="totalItems"
+          />
           <div class="collected-product-list">
             <transition-group name="fade" tag="div">
               <SfCollectedProduct
@@ -33,7 +37,7 @@
                   </div>
                 </template>
                 <template #actions>
-                  <div class="collected-product__actions">
+                  <div class="desktop-only collected-product__actions">
                     <SfButton
                       class="sf-button--text color-secondary collected-product__action"
                     >
@@ -52,32 +56,40 @@
         </div>
         <div v-else key="empty-cart" class="empty-cart">
           <div class="empty-cart__banner">
-            <img
-              src="@storefront-ui/shared/icons/empty_cart.svg"
-              alt=""
-              class="empty-cart__icon"
+            <SfImage
+              alt="Empty bag"
+              class="empty-cart__image"
+              :src="require('@storefront-ui/shared/icons/empty_cart.svg')"
             />
-            <h3 class="empty-cart__label">Your bag is empty</h3>
-            <p class="empty-cart__description">
-              Looks like you haven’t added any items to the bag yet. Start
-              shopping to fill it in.
-            </p>
+            <SfHeading
+              title="Your bag is empty"
+              :level="1"
+              class="empty-cart__heading"
+              subtitle="Looks like you haven’t added any items to the bag yet. Start
+              shopping to fill it in."
+            />
           </div>
-          <SfButton class="sf-button--full-width color-secondary"
+          <SfButton class="sf-button--full-width color-primary"
             >Start shopping</SfButton
           >
         </div>
       </transition>
-      <template #content-bottom>
-        <SfProperty class="sf-property--full-width my-cart__total-price">
-          <template #name>
-            <span class="sf-property__name">TOTAL</span>
-          </template>
-          <template #value>
-            <SfPrice :regular="totalPrice | price" />
-          </template>
-        </SfProperty>
-        <SfButton class="sf-button--full-width">Go to checkout</SfButton>
+      <template v-if="totalItems" #content-bottom>
+        <transition name="fade">
+          <div class="summary">
+            <SfProperty
+              name="Total"
+              class="sf-property--full-width sf-property--large my-cart__total-price"
+            >
+              <template #value>
+                <SfPrice :regular="totalPrice | price" />
+              </template>
+            </SfProperty>
+            <SfButton class="sf-button--full-width color-secondary"
+              >Go to checkout</SfButton
+            >
+          </div>
+        </transition>
       </template>
     </SfSidebar>
   </div>
@@ -86,8 +98,10 @@
 import {
   SfSidebar,
   SfButton,
+  SfHeading,
   SfProperty,
   SfPrice,
+  SfImage,
   SfCollectedProduct
 } from "@storefront-ui/vue";
 export default {
@@ -95,6 +109,8 @@ export default {
   components: {
     SfSidebar,
     SfButton,
+    SfHeading,
+    SfImage,
     SfProperty,
     SfPrice,
     SfCollectedProduct
@@ -174,59 +190,53 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+#cart {
+  --sidebar-title-margin: 0;
+}
 .my-cart {
   flex: 1;
   display: flex;
   flex-direction: column;
   &__total-items {
-    font: 400 var(--font-size-big) / 1.6 var(--font-family-secondary);
     margin: 0;
   }
   &__total-price {
-    margin: 0 0 var(--spacer-big) 0;
+    --price-font-size: var(--font-xl);
+    --price-font-weight: var(--font-semibold);
+    margin: 0 0 var(--spacer-base) 0;
   }
 }
 .empty-cart {
+  --heading-title-color: var(--c-primary);
+  --heading-title-margin: 0 0 var(--spacer-base) 0;
+  --heading-subtitle-margin: 0 0 var(--spacer-xl) 0;
   display: flex;
   flex: 1;
+  align-items: center;
   flex-direction: column;
   &__banner {
-    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
+    flex: 1;
   }
-  &__label,
-  &__description {
-    text-align: center;
+  &__heading {
+    --heading-title-font-size: var(--font-xl);
   }
-  &__label {
-    margin: var(--spacer-extra-big) 0 0 0;
-    font: 400 var(--font-size-big) / 1.6 var(--font-family-secondary);
-  }
-  &__description {
-    margin: var(--spacer-big) 0 0 0;
-    font: 300 var(--font-size-regular) / 1.6 var(--font-family-primary);
-  }
-  &__icon {
-    width: 18.125rem;
-    height: 12.3125rem;
-    margin-left: 60%;
-    @include for-desktop {
-      margin-left: 50%;
-    }
+  &__image {
+    --image-width: 13.1875rem;
+    margin: var(--spacer-xl) 0;
   }
 }
 .collected-product-list {
   flex: 1;
-  margin: var(--spacer-big) calc(var(--spacer-big) * -1);
+  margin: var(--spacer-sm) 0;
 }
 .collected-product {
-  margin: var(--spacer-big) 0;
-  font: 300 var(--font-size-extra-small) / 1.6 var(--font-family-secondary);
+  margin: var(--spacer-sm) 0;
   &__properties {
-    margin: var(--spacer-big) 0 0 0;
+    margin: var(--spacer-xs) 0 0 0;
   }
   &__actions {
     transition: opacity 150ms ease-in-out;
