@@ -189,6 +189,7 @@
       </div>
     </div>
     <SfSidebar
+      title="Filters"
       :visible="isFilterSidebarOpen"
       @close="isFilterSidebarOpen = false"
     >
@@ -266,7 +267,7 @@
         />
       </div>
       <SfAccordion class="filters mobile-only">
-        <SfAccordionItem header="Collection">
+        <SfAccordionItem header="Collection" class="filters__accordion-item">
           <SfFilter
             v-for="filter in filters.collection"
             :key="filter.value"
@@ -277,7 +278,7 @@
             @change="filter.selected = !filter.selected"
           />
         </SfAccordionItem>
-        <SfAccordionItem header="Color">
+        <SfAccordionItem header="Color" class="filters__accordion-item">
           <SfColor
             v-for="filter in filters.color"
             :key="filter.value"
@@ -287,7 +288,7 @@
             @click="filter.selected = !filter.selected"
           />
         </SfAccordionItem>
-        <SfAccordionItem header="Size">
+        <SfAccordionItem header="Size" class="filters__accordion-item">
           <SfFilter
             v-for="filter in filters.size"
             :key="filter.value"
@@ -298,7 +299,7 @@
             @change="filter.selected = !filter.selected"
           />
         </SfAccordionItem>
-        <SfAccordionItem header="Price">
+        <SfAccordionItem header="Price" class="filters__accordion-item">
           <SfFilter
             v-for="filter in filters.price"
             :key="filter.value"
@@ -309,7 +310,7 @@
             @change="filter.selected = !filter.selected"
           />
         </SfAccordionItem>
-        <SfAccordionItem header="Material">
+        <SfAccordionItem header="Material" class="filters__accordion-item">
           <SfFilter
             v-for="filter in filters.material"
             :key="filter.value"
@@ -804,9 +805,6 @@ export default {
   }
 }
 .filters {
-  @include for-desktop {
-    padding: var(--spacer-xl);
-  }
   &__title {
     margin: var(--spacer-xl) 0 var(--spacer-base) 0;
     font-family: var(--font-family-secondary);
@@ -818,7 +816,19 @@ export default {
     margin-right: var(--spacer-xs);
   }
   &__item {
-    margin: var(--spacer-base) 0;
+    padding: var(--spacer-sm) var(--spacer-sm);
+    border-bottom: 1px solid var(--c-light);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    @include for-desktop {
+      margin: var(--spacer-base) 0;
+    }
+  }
+  &__accordion-item {
+    --accordion-item-content-padding: 0;
   }
   &__buttons {
     margin: var(--spacer-xl) 0;
