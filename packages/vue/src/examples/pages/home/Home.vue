@@ -15,10 +15,10 @@
       :level="headingLevel"
     >
       <template #title>
-        <span class="home__heading-text mobile-only">
+        <span class="home__heading__title mobile-only">
           {{ headingTitle.mobile }}
         </span>
-        <span class="home__heading-text desktop-only">
+        <span class="home__heading__title desktop-only">
           {{ headingTitle.desktop }}
         </span>
       </template>
@@ -71,7 +71,7 @@
       image="/assets/storybook/Home/newsletter.jpg"
     />
     <SfSection
-      class="home__section"
+      class="home__section-instagram-feed"
       title-heading="Share Your Look"
       subtitle-heading="#YOURLOOK"
       :level-heading="sectionLevel"
@@ -81,8 +81,14 @@
           v-for="(img, index) in instagramFeed"
           :key="index"
           :src="img"
-          :class="'home__instagram-feed-' + index"
-        />
+          :class="'home__instagram-feed__' + index"
+          ><span class="home__instagram-feed--mobile">{{
+            img.mobile.content
+          }}</span
+          ><span class="home__instagram-feed--desktop">{{
+            img.desktop.content
+          }}</span></SfImage
+        >
       </div>
     </SfSection>
     <SfBanner
@@ -92,11 +98,11 @@
       image="/assets/storybook/Home/bannerD.png"
     >
       <template #call-to-action>
-        <div class="home__bottom-banner-call-to-action">
-          <SfButton class="home__bottom-banner-button">
+        <div class="home__bottom-banner__call-to-action">
+          <SfButton class="home__bottom-banner__button">
             <SfImage src="/assets/storybook/Home/apple.png" />
           </SfButton>
-          <SfButton class="home__bottom-banner-button">
+          <SfButton class="home__bottom-banner__button">
             <SfImage src="/assets/storybook/Home/google.png" />
           </SfButton>
         </div>
@@ -285,34 +291,42 @@ export default {
       instagramFeed: {
         imageA: {
           mobile: {
-            url: "/assets/storybook/Home/imageA.png"
+            url: "/assets/storybook/Home/imageA.png",
+            content: "angelina_trn"
           },
           desktop: {
-            url: "/assets/storybook/Home/imageA.png"
+            url: "/assets/storybook/Home/imageA.png",
+            content: "@instagram"
           }
         },
         imageB: {
           mobile: {
-            url: "/assets/storybook/Home/imageB.png"
+            url: "/assets/storybook/Home/imageB.png",
+            content: "angelina_trn"
           },
           desktop: {
-            url: "/assets/storybook/Home/imageB_top.png"
+            url: "/assets/storybook/Home/imageB_top.png",
+            content: "@instagram"
           }
         },
         imageC: {
           mobile: {
-            url: "/assets/storybook/Home/imageC.jpg"
+            url: "/assets/storybook/Home/imageC.jpg",
+            content: "angelina_trn"
           },
           desktop: {
-            url: "assets/storybook/Home/imageA_bottom.png"
+            url: "assets/storybook/Home/imageA_bottom.png",
+            content: "@instagram"
           }
         },
         imageD: {
           mobile: {
-            url: "/assets/storybook/Home/imageD.jpg"
+            url: "/assets/storybook/Home/imageD.jpg",
+            content: "angelina_trn"
           },
           desktop: {
-            url: "/assets/storybook/Home/imageB.png"
+            url: "/assets/storybook/Home/imageB.png",
+            content: "@instagram"
           }
         }
       }
@@ -343,7 +357,7 @@ export default {
     order: 2;
     justify-content: space-between;
     margin: var(--spacer-base) 0;
-    &-text {
+    &__title {
       font-size: var(--h3-font-size);
       font-weight: var(--font-medium);
       font-family: var(--font-family-secondary);
@@ -365,10 +379,10 @@ export default {
     display: flex;
     order: 5;
   }
-  &__section {
+  &__section-instagram-feed {
     display: flex;
-    order: 6;
     flex-direction: column;
+    order: 6;
     margin: var(--spacer-2xl) 0 var(--spacer-xl) 0;
   }
   &__instagram-feed {
@@ -379,13 +393,16 @@ export default {
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: var(--spacer-xs);
     grid-row-gap: var(--spacer-xs);
-    &-imageA,
-    &-imageB {
+    &__imageA,
+    &__imageB {
       grid-row: 1/3;
     }
-    &-imageC,
-    &-imageD {
+    &__imageC,
+    &__imageD {
       grid-row: 3/5;
+    }
+    &--desktop {
+      display: none;
     }
   }
   &__bottom-banner,
@@ -418,40 +435,42 @@ export default {
     &__instagram-feed {
       grid-column-gap: var(--spacer-base);
       grid-row-gap: var(--spacer-base);
-      &-imageA {
+      &__imageA {
         grid-column: 1/2;
         grid-row: 1/4;
-        object-fit: contain;
       }
-      &-imageB {
+      &__imageB {
         grid-column: 2/3;
         grid-row: 1/2;
-        object-fit: cover;
       }
-      &-imageC {
+      &__imageC {
         grid-column: 1/2;
         grid-row: 4/5;
-        object-fit: cover;
       }
-      &-imageD {
+      &__imageD {
         grid-column: 2/3;
         grid-row: 2/5;
-        object-fit: contain;
+      }
+      &--mobile {
+        display: none;
+      }
+      &--desktop {
+        display: block;
       }
     }
     &__bottom-banner {
-      display: flex;
-      order: 7;
       --banner-padding: 0 var(--spacer-2xl);
       --banner-title-margin: var(--spacer-base) 0 var(--spacer-xl) 0;
       --banner-title-font-weight: 600;
       --banner-title-text-transform: capitalize;
-      &-call-to-action {
+      display: flex;
+      order: 7;
+      &__call-to-action {
         --button-background: var(--c-white);
         display: flex;
-        .home__bottom-banner-button {
-          --button-padding: 0 var(--spacer-base) 0 0;
-        }
+      }
+      &__button {
+        --button-padding: 0 var(--spacer-base) 0 0;
       }
     }
   }
