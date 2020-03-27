@@ -1,69 +1,19 @@
 <template>
-  <div id="home">
-    <SfTopBar class="home__top-bar">
-      <template #center>
-        <span class="home__top-bar-text">Download our application.</span>
-        <SfButton class="sf-button--text home__top-bar-text">
-          Find out more.</SfButton
-        >
-      </template>
-      <template #left>
-        <SfImage class="mobile-only" :src="logoSrc" />
-        <SfButton class="desktop-only sf-button--text home__top-bar-text">
-          Help & FAQs</SfButton
-        >
-      </template>
-      <template #right>
-        <span>Location: </span>
-        <SfImage class="home__top-bar-location-image" :src="locationSrc" />
-      </template>
-    </SfTopBar>
-    <SfSearchBar
-      class="home__search-bar"
-      placeholder="Search for items and promotions"
-    />
-    <SfHeader
-      class="home__header"
-      :logo="logoSrc"
-      search-placeholder="Search for items and promotions"
-      @click:cart="alert('@click:cart')"
-      @click:wishlist="alert('@click:wishlist')"
-      @click:account="alert('@click:account')"
-    >
-      <template #navigation>
-        <SfHeaderNavigationItem v-for="item in navigationItems" :key="item">
-          <a
-            href="#"
-            :style="{ display: 'flex', alignItems: 'center', height: '100%' }"
-            >{{ item }}</a
-          >
-        </SfHeaderNavigationItem>
-      </template>
-    </SfHeader>
+  <div class="home">
     <SfHero class="home__hero">
       <SfHeroItem
-        title="Colorful summer dresses are already in store"
-        subtitle="Summer Collection 2020"
-        button-text="Learn more"
-        image="/assets/storybook/Home/hero.png"
-        background="#fcede8"
-      />
-      <SfHeroItem
-        title="Colorful summer dresses are already in store"
-        subtitle="Summer Collection 2020"
-        button-text="Learn more"
-        image="/assets/storybook/Home/hero.png"
-        background="#9ee2b0"
-      />
-      <SfHeroItem
-        title="Colorful summer dresses are already in store"
-        subtitle="Summer Collection 2020"
-        button-text="Learn more"
-        image="/assets/storybook/Home/hero.png"
-        background="#f6e389"
+        v-for="(img, index) in heroes"
+        :key="index"
+        :image="img.image"
+        :title="img.title"
+        :button-text="img.buttonText"
+        :background="img.background"
       />
     </SfHero>
-    <SfHeading class="home__heading" level="3">
+    <SfHeading
+      class="home__heading sf-heading--underline"
+      :level="headingLevel"
+    >
       <template #title>
         <span class="home__heading-text mobile-only">
           {{ headingTitle.mobile }}
@@ -79,7 +29,11 @@
       </template>
     </SfHeading>
     <SfCarousel class="home__carousel">
-      <SfCarouselItem v-for="(product, index) in products" :key="index">
+      <SfCarouselItem
+        v-for="(product, index) in products"
+        :key="index"
+        class="home__carousel-item"
+      >
         <SfProductCard
           :image="product.image"
           :title="product.title"
@@ -92,10 +46,11 @@
           :reviews-count="product.reviews"
           :badge-label="product.badgeLabel"
           :badge-color="product.badgeColor"
+          @click:wishlist="toggleWishlist(index)"
         />
       </SfCarouselItem>
     </SfCarousel>
-    <SfBannerGrid>
+    <SfBannerGrid class="home__banner-grid">
       <template v-for="banner in banners" #[banner.slot]>
         <SfBanner
           :key="banner.slot"
@@ -109,17 +64,25 @@
       </template>
     </SfBannerGrid>
     <SfCallToAction
+      class="home__call-to-action"
       title="Subscribe to Newsletters"
       description="Be aware of upcoming sales and events. Receive gifts and special offers!"
       button-text="subscribe"
       image="/assets/storybook/Home/newsletter.jpg"
     />
-    <SfSection>
-      <div>
-        <SfImage />
-        <SfImage />
-        <SfImage />
-        <SfImage />
+    <SfSection
+      class="home__section"
+      title-heading="Share Your Look"
+      subtitle-heading="#YOURLOOK"
+      :level-heading="sectionLevel"
+    >
+      <div class="home__instagram-feed">
+        <SfImage
+          v-for="(img, index) in instagramFeed"
+          :key="index"
+          :src="img"
+          :class="'home__instagram-feed-' + index"
+        />
       </div>
     </SfSection>
     <SfBanner
@@ -129,57 +92,21 @@
       image="/assets/storybook/Home/bannerD.png"
     >
       <template #call-to-action>
-        <SfButton />
-        <SfButton />
+        <div class="home__bottom-banner-call-to-action">
+          <SfButton class="home__bottom-banner-button">
+            <SfImage src="/assets/storybook/Home/apple.png" />
+          </SfButton>
+          <SfButton class="home__bottom-banner-button">
+            <SfImage src="/assets/storybook/Home/google.png" />
+          </SfButton>
+        </div>
       </template>
     </SfBanner>
-    <SfFooter>
-      <SfFooterColumn
-        v-for="(column, indexFooter) in footerColumns"
-        :key="indexFooter"
-        :title="column.title"
-      >
-        <SfList v-if="column.items">
-          <SfListItem
-            v-for="(item, indexItem) in column.items"
-            :key="indexItem"
-          >
-            <SfMenuItem :label="item" />
-          </SfListItem>
-        </SfList>
-        <SfList v-else class="home__footer-social">
-          <SfListItem
-            v-for="(social, indexSocial) in column.pictures"
-            :key="indexSocial"
-          >
-            <SfMenuItem :label="social">
-              <template #icon>
-                <SfIcon
-                  class="desktop-only"
-                  :icon="'/assets/storybook/SfFooter/' + social + '.svg'"
-                />
-              </template>
-            </SfMenuItem>
-          </SfListItem>
-          <SfInput
-            class="home__newsletter-subscribe-input"
-            type="email"
-            label="Type your email address"
-          />
-          <SfButton class="home__newsletter-subscribe-button color-secondary">
-            Subscribe
-          </SfButton>
-        </SfList>
-      </SfFooterColumn>
-    </SfFooter>
   </div>
 </template>
 <script>
 import {
-  SfTopBar,
   SfButton,
-  SfSearchBar,
-  SfHeader,
   SfHero,
   SfHeading,
   SfBannerGrid,
@@ -188,20 +115,12 @@ import {
   SfSection,
   SfCarousel,
   SfProductCard,
-  SfImage,
-  SfFooter,
-  SfList,
-  SfMenuItem,
-  SfIcon,
-  SfInput
+  SfImage
 } from "@storefront-ui/vue";
 export default {
   name: "Home",
   components: {
-    SfTopBar,
     SfButton,
-    SfSearchBar,
-    SfHeader,
     SfHero,
     SfHeading,
     SfBannerGrid,
@@ -210,25 +129,11 @@ export default {
     SfSection,
     SfCarousel,
     SfProductCard,
-    SfImage,
-    SfFooter,
-    SfList,
-    SfMenuItem,
-    SfIcon,
-    SfInput
+    SfImage
   },
   data() {
     return {
-      locationSrc: {
-        mobile: { url: "/assets/storybook/Home/flag.png" },
-        desktop: { url: "/assets/storybook/Home/flag.png" }
-      },
-      logoSrc: {
-        mobile: { url: "/assets/storybook/Home/StorefrontUILogo.png" },
-        desktop: { url: "/assets/storybook/Home/StorefrontUILogo.png" }
-      },
-      navigationItems: ["women", "man", "kids"],
-      tabs: ["Woman", "Man"],
+      headingLevel: 3,
       headingTitle: {
         mobile: "Match it with",
         desktop: "Bestsellers"
@@ -238,15 +143,15 @@ export default {
           title: "Colorful summer dresses are already in store",
           subtitle: "SUMMER COLLECTION 2020",
           buttonText: "Learn more",
-          background: "#eceff1",
-          image: "assets/storybook/Home/bannerH.jpg"
+          background: "#fcede8",
+          image: "/assets/storybook/Home/hero.png"
         },
         {
           title: "Colorful summer dresses are already in store",
           subtitle: "SUMMER COLLECTION 2020",
           buttonText: "Learn more",
-          background: "#efebe9",
-          image: "assets/storybook/Home/bannerHM.jpg",
+          background: "#9ee2b0",
+          image: "/assets/storybook/Home/hero.png",
           className:
             "sf-hero-item--position-bg-top-left sf-hero-item--align-right"
         },
@@ -254,8 +159,8 @@ export default {
           title: "Colorful summer dresses are already in store",
           subtitle: "SUMMER COLLECTION 2020",
           buttonText: "Learn more",
-          background: "#fce4ec",
-          image: "assets/storybook/Home/bannerH.jpg"
+          background: "#f6e389",
+          image: "/assets/storybook/Home/hero.png"
         }
       ],
       banners: [
@@ -376,106 +281,179 @@ export default {
           badgeColor: "color-primary"
         }
       ],
-      footerColumns: [
-        {
-          title: "About us",
-          items: ["Who we are", "Quality in the details", "Customer Reviews"]
+      sectionLevel: 3,
+      instagramFeed: {
+        imageA: {
+          mobile: {
+            url: "/assets/storybook/Home/imageA.png"
+          },
+          desktop: {
+            url: "/assets/storybook/Home/imageA.png"
+          }
         },
-        {
-          title: "Departments",
-          items: ["Women fashion", "Men fashion", "Kidswear", "Home"]
+        imageB: {
+          mobile: {
+            url: "/assets/storybook/Home/imageB.png"
+          },
+          desktop: {
+            url: "/assets/storybook/Home/imageB_top.png"
+          }
         },
-        {
-          title: "Help",
-          items: ["Customer service", "Size guide", "Contact us"]
+        imageC: {
+          mobile: {
+            url: "/assets/storybook/Home/imageC.jpg"
+          },
+          desktop: {
+            url: "assets/storybook/Home/imageA_bottom.png"
+          }
         },
-        {
-          title: "Payment & delivery",
-          items: ["Purchase terms", "Guarantee"]
-        },
-        {
-          title: "Social",
-          pictures: ["facebook", "pinterest", "twitter", "youtube"]
+        imageD: {
+          mobile: {
+            url: "/assets/storybook/Home/imageD.jpg"
+          },
+          desktop: {
+            url: "/assets/storybook/Home/imageB.png"
+          }
         }
-      ]
+      }
     };
   },
-  methods: {}
+  methods: {
+    toggleWishlist(index) {
+      return (this.products[index].isOnWishlist = !this.products[index]
+        .isOnWishlist);
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-#home {
-  box-sizing: border-box;
-}
-.home__top-bar {
-  padding: var(--spacer-xs) var(--spacer-base);
-}
-.home__top-bar-location-image {
-  margin: 0 0 0 var(--spacer-xs);
-}
-.home__top-bar-text {
-  display: none;
-}
-.home__search-bar {
-  margin: var(--spacer-sm) var(--spacer-lg) var(--spacer-xs) var(--spacer-lg);
-  height: 1.375rem;
-}
-.home__header {
-  display: none;
-}
-.home__hero {
-  margin: var(--spacer-xl) 0 0 0;
-}
-.home__heading {
-  display: flex;
-  justify-content: space-between;
-  margin: var(--spacer-base) 0;
-  &-text {
-    font-size: var(--h3-font-size);
-    font-weight: var(--font-medium);
-    font-family: var(--font-family-secondary);
-  }
-}
-.home__bottom-banner {
-  display: none;
-}
-.home__footer-social {
+.home {
   display: flex;
   flex-direction: column;
-}
-.home__newsletter-subscribe-input,
-.home__newsletter-subscribe-button {
-  display: none;
-}
-@include for-desktop {
-  .home__top-bar-text {
-    display: inline-block;
-    margin: 0 0 0 var(--spacer-2xs);
+  box-sizing: border-box;
+  padding: 0 var(--spacer-sm);
+  &__hero {
+    display: flex;
+    order: 1;
+    margin: var(--spacer-xl) 0 0 0;
   }
-  .home__search-bar {
+  &__heading {
+    display: flex;
+    order: 2;
+    justify-content: space-between;
+    margin: var(--spacer-base) 0;
+    &-text {
+      font-size: var(--h3-font-size);
+      font-weight: var(--font-medium);
+      font-family: var(--font-family-secondary);
+    }
+  }
+  &__carousel {
+    --image-height: 16.125rem;
+    display: flex;
+    justify-content: center;
+    order: 3;
+  }
+  &__banner-grid {
+    display: flex;
+    flex-direction: column;
+    order: 4;
+    margin: var(--spacer-xl) 0 var(--spacer-base) 0;
+  }
+  &__call-to-action {
+    display: flex;
+    order: 5;
+  }
+  &__section {
+    display: flex;
+    order: 6;
+    flex-direction: column;
+    margin: var(--spacer-2xl) 0 var(--spacer-xl) 0;
+  }
+  &__instagram-feed {
+    --image-width: 100%;
+    --image-height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: var(--spacer-xs);
+    grid-row-gap: var(--spacer-xs);
+    &-imageA,
+    &-imageB {
+      grid-row: 1/3;
+    }
+    &-imageC,
+    &-imageD {
+      grid-row: 3/5;
+    }
+  }
+  &__bottom-banner,
+  &__newsletter-subscribe {
     display: none;
   }
-  .home__header {
-    display: block;
-  }
-  .home__heading {
-    justify-content: center;
-  }
-  .home__bottom-banner {
-    display: block;
-  }
-  .home__footer-social {
+  &__footer-social {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
   }
-  .home__newsletter-subscribe-input,
-  .home__newsletter-subscribe-button {
-    display: inline-block;
-  }
-  .home__newsletter-subscribe-input {
-    width: 15.125rem;
+}
+@include for-desktop {
+  .home {
+    padding: 0 var(--spacer-2xl);
+    &__heading {
+      justify-content: center;
+      order: 4;
+      margin: var(--spacer-3xl) 0 var(--spacer-2xl) 0;
+    }
+    &__banner-grid {
+      order: 2;
+      margin: var(--spacer-2xl) 0;
+    }
+    &__call-to-action {
+      order: 3;
+    }
+    &__carousel {
+      order: 5;
+    }
+    &__instagram-feed {
+      grid-column-gap: var(--spacer-base);
+      grid-row-gap: var(--spacer-base);
+      &-imageA {
+        grid-column: 1/2;
+        grid-row: 1/4;
+        object-fit: contain;
+      }
+      &-imageB {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        object-fit: cover;
+      }
+      &-imageC {
+        grid-column: 1/2;
+        grid-row: 4/5;
+        object-fit: cover;
+      }
+      &-imageD {
+        grid-column: 2/3;
+        grid-row: 2/5;
+        object-fit: contain;
+      }
+    }
+    &__bottom-banner {
+      display: flex;
+      order: 7;
+      --banner-padding: 0 var(--spacer-2xl);
+      --banner-title-margin: var(--spacer-base) 0 var(--spacer-xl) 0;
+      --banner-title-font-weight: 600;
+      --banner-title-text-transform: capitalize;
+      &-call-to-action {
+        --button-background: var(--c-white);
+        display: flex;
+        .home__bottom-banner-button {
+          --button-padding: 0 var(--spacer-base) 0 0;
+        }
+      }
+    }
   }
 }
 </style>
