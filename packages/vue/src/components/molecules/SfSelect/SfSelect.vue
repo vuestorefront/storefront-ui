@@ -88,7 +88,7 @@ export default {
      * Selected item value
      */
     selected: {
-      type: [String, Object],
+      type: [String, Number, Object],
       default: ""
     },
     /**
