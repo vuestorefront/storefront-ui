@@ -191,6 +191,7 @@
     <SfSidebar
       title="Filters"
       :visible="isFilterSidebarOpen"
+      class="sidebar-filters"
       @close="isFilterSidebarOpen = false"
     >
       <div class="filters desktop-only">
@@ -753,6 +754,14 @@ export default {
   border: 1px solid var(--c-light);
   border-width: 0 1px 0 0;
 }
+
+.sidebar-filters {
+  @include for-desktop {
+    --sidebar-content-padding: 0 var(--spacer-xl);
+    --sidebar-bottom-padding: 0 var(--spacer-xl);
+  }
+}
+
 .products {
   box-sizing: border-box;
   flex: 1;
@@ -810,6 +819,10 @@ export default {
     font-family: var(--font-family-secondary);
     font-weight: var(--font-normal);
     line-height: 1.6;
+
+    &:first-child {
+      margin: 0 0 var(--spacer-base) 0;
+    }
   }
 
   &__color {
@@ -817,6 +830,7 @@ export default {
   }
   &__item {
     padding: var(--spacer-sm) var(--spacer-sm);
+
     border-bottom: 1px solid var(--c-light);
 
     &:last-child {
@@ -825,6 +839,8 @@ export default {
 
     @include for-desktop {
       margin: var(--spacer-base) 0;
+      border: 0;
+      padding: 0;
     }
   }
   &__accordion-item {
