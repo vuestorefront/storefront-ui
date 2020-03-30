@@ -14,7 +14,7 @@
       </div>
     </div>
     <section class="section">
-      <div class="section__section">
+      <div class="section__order">
         <SfHeading
           title="Your Purchase"
           class="heading sf-heading--left"
@@ -26,7 +26,7 @@
           confirmation e-mail with details of your order and a link to track its
           progress.
         </p>
-        <div class="section__contact">
+        <div class="order__contact">
           <SfHeading
             :level="6"
             class="heading sf-heading--left sf-heading--no-underline"
@@ -43,13 +43,13 @@
           </p>
         </div>
         <SfButton
-          class="section__notifications-button sf-button--full-width desktop-only"
+          class="order__notifications-button sf-button--full-width desktop-only"
           >ALLOW ORDER NOTIFICATIONS</SfButton
         >
       </div>
       <div class="additional-info">
         <SfButton
-          class="section__notifications-button sf-button--full-width mobile-only"
+          class="order__notifications-button sf-button--full-width mobile-only"
           >ALLOW ORDER NOTIFICATIONS</SfButton
         >
         <div>
@@ -73,7 +73,7 @@
           <p class="paragraph">
             Your feedback is important to us. Let us know what we could improve.
           </p>
-          <div class="section__buttons">
+          <div class="order__buttons">
             <SfButton
               class="feedback-button color-secondary sf-button--full-width button-size"
               >SEND MY FEEDBACK</SfButton
@@ -153,9 +153,10 @@ export default {
 
   @include for-desktop {
     flex-direction: row;
+    padding: 0;
   }
 
-  &__section {
+  &__order {
     background: var(--c-light);
     padding: 0 var(--spacer-sm) var(--spacer-xs) var(--spacer-sm);
     @include for-desktop {
@@ -164,7 +165,9 @@ export default {
         var(--spacer-2xl);
     }
   }
+}
 
+.order {
   &__contact {
     padding: 0 0 var(--spacer-xs) var(--spacer-sm);
     border: 2px solid var(--c-white);
@@ -186,10 +189,6 @@ export default {
       flex: auto 0 0 0;
       flex-direction: row;
     }
-  }
-
-  @include for-desktop {
-    padding: 0;
   }
 }
 .feedback-button {
