@@ -17,7 +17,7 @@
       <div class="section__section">
         <SfHeading
           title="Your Purchase"
-          class="heading--full sf-heading--left"
+          class="heading sf-heading--left"
           :level="3"
         />
         <p class="paragraph">
@@ -29,7 +29,7 @@
         <div class="section__contact">
           <SfHeading
             :level="6"
-            class="heading--full sf-heading--left sf-heading--no-underline"
+            class="heading sf-heading--left sf-heading--no-underline"
             title="Primary contacts for any questions"
           ></SfHeading>
           <p class="paragraph--contact">
@@ -67,7 +67,7 @@
         <div>
           <SfHeading
             title="What can we improve"
-            class="heading--full sf-heading--left"
+            class="heading sf-heading--left"
             :level="3"
           />
           <p class="paragraph">
@@ -213,14 +213,6 @@ export default {
 }
 .heading {
   --heading-padding: var(--spacer-base) 0;
-  max-width: 11rem;
-  &--full {
-    --heading-padding: var(--spacer-base) 0;
-    max-width: 100%;
-  }
-  @include for-desktop {
-    max-width: 100%;
-  }
 }
 .paragraph {
   font-family: var(--font-family-primary);
