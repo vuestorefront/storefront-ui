@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <div class="wrapper">
+    <section class="section">
       <div class="wrapper__section">
         <SfHeading
           title="Your Purchase"
