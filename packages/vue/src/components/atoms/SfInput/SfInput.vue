@@ -131,6 +131,9 @@ export default {
       type: String,
       default: null
     },
+    /**
+     * Status of show password icon display
+     */
     hasShowPassword: {
       type: Boolean,
       default: false

@@ -19,17 +19,21 @@
       --tabs-title-font,
       var(--font-normal),
       var(--h3-font-size),
-      1.6,
+      1.4,
       var(--font-family-secondary)
     );
     &--active {
       --tabs-title-border-width: 0;
       --tabs-title-color: var(--c-primary);
+      & + .sf-tabs__content {
+        --tabs-content-border-width: 1px 0 0 0;
+      }
     }
   }
   &__content {
+    flex: 0 0 100%;
     order: var(--tabs-content-order);
-    @include border(--tabs-content-border, 1px 0, solid, var(--c-light));
+    @include border(--tabs-content-border, 0, solid, var(--c-light));
     color: var(--tabs-content-color, var(--c-text));
     @include font(
       --tabs-content-font,
@@ -57,13 +61,15 @@
     --tabs-title-color: var(--c-text-muted);
     --tabs-title-font-size: var(--h4-font-size);
     --tabs-content-tab-padding: var(--spacer-base) 0;
-    --tabs-content-border-width: 1px 0 0 0;
     --tabs-chevron-display: none;
     &__title {
       &--active {
         --tabs-title-border-width: 0 0 2px 0;
         --tabs-title-border-color: var(--c-text);
         --tabs-title-color: var(--c-text);
+        & + .sf-tabs__content {
+          --tabs-content-border-width: 2px 0 0 0;
+        }
       }
       &:hover {
         --tabs-title-color: var(--c-text);
