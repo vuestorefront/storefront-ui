@@ -29,11 +29,11 @@
         <SfDivider class="first-divider" />
         <div class="wrapper__contact">
           <SfHeading
-            :level="3"
+            :level="6"
             class="heading--full sf-heading--left sf-heading--no-underline"
             title="Primary contacts for any questions"
           ></SfHeading>
-          <p class="paragraph">
+          <p class="paragraph--contact">
             <span>{{ address.name }}</span
             ><br />
             <span>{{ address.street }}</span
@@ -231,6 +231,11 @@ export default {
   line-height: 1.75rem;
   @include for-desktop {
     font-weight: var(--font-normal);
+    &--contact {
+      margin: 0;
+      color: var(--c-dark-variant);
+      font-family: var(--font-family-secondary);
+    }
   }
 }
 
