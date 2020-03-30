@@ -77,17 +77,18 @@
           </p>
           <div class="wrapper__buttons">
             <SfButton
-              class="feedback-button color-secondary sf-button--full-width"
+              class="feedback-button color-secondary sf-button--full-width button-size"
               >SEND MY FEEDBACK</SfButton
             >
-            <SfButton class="sf-button--full-width color-primary mobile-only"
+            <SfButton
+              class="sf-button--full-width color-primary mobile-only button-size"
               >GO BACK TO SHOP</SfButton
             >
           </div>
         </div>
       </div>
     </div>
-    <SfButton class="back-button color-secondary desktop-only"
+    <SfButton class="back-button color-secondary desktop-only button-size"
       >GO BACK TO SHOP</SfButton
     >
   </div>
@@ -183,7 +184,6 @@ export default {
   &__notifications-button {
     margin: var(--spacer-base) 0 0 0;
     @include for-desktop {
-      --button-width: 25rem;
       margin: var(--spacer-xl) 0 0 0;
     }
   }
@@ -208,7 +208,6 @@ export default {
   margin: var(--spacer-sm) 0;
 
   @include for-desktop {
-    --button-width: 25rem;
     margin: var(--spacer-sm) 0 0 0;
   }
 }
@@ -250,7 +249,11 @@ export default {
 }
 
 .back-button {
-  --button-width: 25rem;
   margin: var(--spacer-xl) auto;
+}
+.button-size {
+  @include for-desktop {
+    --button-width: 25rem;
+  }
 }
 </style>
