@@ -196,7 +196,7 @@ export default {
   margin: var(--spacer-sm) 0;
 
   @include for-desktop {
-    margin: var(--spacer-sm) 0 0 0;
+    margin: var(--spacer-base) 0 0 0;
   }
 }
 .additional-info {
@@ -226,15 +226,15 @@ export default {
   font-family: var(--font-family-primary);
   font-weight: var(--font-light);
   color: var(--c-dark-variant);
-  margin: 0;
+  margin: var(--spacer-xs) 0 var(--spacer-sm) 0;
+  &--contact {
+    color: var(--c-dark-variant);
+    font-family: var(--font-family-secondary);
+    margin: 0;
+  }
   line-height: 1.6rem;
   @include for-desktop {
     font-weight: var(--font-normal);
-    &--contact {
-      margin: 0;
-      color: var(--c-dark-variant);
-      font-family: var(--font-family-secondary);
-    }
   }
 }
 
