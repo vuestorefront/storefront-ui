@@ -5,7 +5,7 @@
         <SfHeading
           title="Thank You for your order!"
           class="heading sf-heading--left"
-          :level="1"
+          :level="3"
         />
         <div class="banner__order-number">
           <span>Order No.</span>
