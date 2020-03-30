@@ -1,65 +1,63 @@
 @import "../../helpers";
 
 .sf-call-to-action {
-  display: flex;
+  display: var(--banner-display, flex);
+  box-sizing: border-box;
   flex-direction: var(--call-to-action-flex-direction, column);
-  align-items: center;
-  align-content: center;
-  justify-content: var(--call-to-action-justify-content);
-  padding: var(
-    --call-to-action-padding,
-    var(--spacer-big) var(--spacer-medium)
+  align-items: var(--call-to-action-align-items);
+  justify-content: var(--call-to-action-justify-content, left);
+  min-height: var(--call-to-action-height, auto);
+  padding: var(--call-to-action-padding, var(--spacer-base));
+  @include background(
+    --call-to-action-background,
+    var(--_call-to-action-background-color, transparent),
+    var(--_call-to-action-background-image)
   );
-  background-color: var(--call-to-action-background, var(--c-black));
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  color: var(--call-to-action-color, var(--c-on-dark));
-  &__title {
-    font: var(
-      --call-to-action-title-font,
-      font(
-        --call-to-action-title,
-        500,
-        var(--font-size-big),
-        1.4,
-        var(--body-font-family-secondary)
-      )
+  &__text-container {
+    display: flex;
+    justify-content: var(
+      --call-to-action-text-container-justify-content,
+      flex-start
     );
+    flex-direction: var(--call-to-action-text-container-flex-direction, column);
+    width: var(--call-to-action-text-container-width);
+    margin: var(--call-to-action-text-container-margin);
+  }
+  &__title {
+    margin: var(--call-to-action-title-margin, 0 0 var(--spacer-sm) 0);
+    color: var(
+      --call-to-action-color,
+      var(--call-to-action-title-color, var(--c-white))
+    );
+    @include font(
+      --call-to-action-title-font,
+      var(--font-semibold),
+      var(--h2-font-size),
+      1.4,
+      var(--font-family-secondary)
+    );
+    text-transform: var(--call-to-action-title-text-transform, none);
   }
   &__description {
-    display: var(--call-to-action-description-display, none);
-    margin: var(--call-to-action-description-margin);
-    font: var(
-        --call-to-action-description-font,
-        font(
-            --call-to-action-description,
-            300,
-            var(--font-size-big),
-            1.6,
-            var(--body-font-family-secondary)
-        )
+    margin: var(--call-to-action-description-margin, 0 0 var(--spacer-sm) 0);
+    color: var(
+      --call-to-action-color,
+      var(--call-to-action-description-color, var(--c-white))
     );
-  }
-  &__button {
-    margin: var(--call-to-action-button, var(--spacer-big) 0 0 0);
-    white-space: nowrap;
-  }
-  &__text-container {
-    margin: var(--call-to-action-text-container);
-  }
-  &--light {
-    --call-to-action-background: var(--c-light);
-    --call-to-action-color: var(--c-light);
+    @include font(
+      --call-to-action-description-font,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
   }
   @include for-desktop {
     --call-to-action-flex-direction: row;
-    --call-to-action-padding: 3.4rem 8.75rem;
     --call-to-action-justify-content: space-between;
-    --call-to-action-font-size: var(--font-size-big);
-    --call-to-action-title-font-size: var(--h1-font-size);
-    --call-to-action-description-display: block;
-    --call-to-action-description-margin: var(--spacer-big) 0 0 0;
-    --call-to-action-text-container: 0 var(--spacer-big) 0 0;
+    --call-to-action-align-items: center;
+    --call-to-action-padding: var(--spacer-xl) var(--spacer-2xl);
+    --call-to-action-height: 12.5rem;
+    --call-to-action-text-container-width: 75%;
   }
 }

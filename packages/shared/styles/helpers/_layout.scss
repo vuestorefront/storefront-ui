@@ -1,0 +1,30 @@
+// Borders
+
+@function _border($element, $border-style, $border-color) {
+  @return var(#{$element}-style, $border-style)
+    var(#{$element}-color, $border-color);
+}
+
+// Use this mixin to set component border properties: width, style, color.
+// width can set all position e.g. 0 0 1px 0 for bottom border only.
+
+@mixin border($element, $border-width, $border-style, $border-color) {
+  border: var(#{$element}, _border($element, $border-style, $border-color));
+  border-width: var(#{$element}-width, $border-width);
+}
+
+// Use this mixin to set component background properties: color, image, position, size
+@mixin background(
+  $element,
+  $color: transparent,
+  $image: url(""),
+  $position: 0% 0%,
+  $size: cover
+) {
+  background: var(
+    #{$element},
+    var(#{$element}-image, $image) var(#{$element}-color, $color) no-repeat
+    var(#{$element}-position, $position)
+  );
+  background-size: var(#{$element}-size, $size);
+}

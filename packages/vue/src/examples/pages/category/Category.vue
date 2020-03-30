@@ -245,6 +245,8 @@
           class="filters__item"
           @change="filter.selected = !filter.selected"
         />
+      </div>
+      <template #content-bottom>
         <div class="filters__buttons">
           <SfButton
             class="sf-button--full-width"
@@ -257,7 +259,7 @@
             >Clear all</SfButton
           >
         </div>
-      </div>
+      </template>
     </SfSidebar>
   </div>
 </template>
@@ -572,7 +574,7 @@ export default {
 .navbar {
   position: relative;
   display: flex;
-  font: 300 var(--font-size-small) / 1.6 var(--body-font-family-primary);
+  font: 300 var(--font-size-small) / 1.6 var(--font-family-primary);
   @include for-desktop {
     border: 1px solid var(--c-light);
     border-width: 1px 0 1px 0;
@@ -612,7 +614,7 @@ export default {
   &__title {
     padding: 0;
     font-size: var(--font-size-big);
-    font-family: var(--body-font-family-secondary);
+    font-family: var(--font-family-secondary);
     font-weight: 500;
     line-height: 1.6;
   }
@@ -726,7 +728,7 @@ export default {
   padding: var(--spacer-big);
   &__title {
     margin: calc(var(--spacer-big) * 3) 0 var(--spacer-big) 0;
-    font: 400 var(--font-size-extra-big) / 1.6 var(--body-font-family-secondary);
+    font: 400 var(--font-size-extra-big) / 1.6 var(--font-family-secondary);
     line-height: 1.6;
     &:first-child {
       margin: 0 0 var(--spacer-big) 0;

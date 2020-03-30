@@ -1,22 +1,20 @@
 @import "../../helpers";
 
 .sf-list {
-  list-style-type: var(--list-list-style-type, none);
+  list-style: var(--list-list-style, none);
   padding: var(--list-padding, 0);
   margin: var(--list-margin, 0);
-  @include for-desktop {
-    --list-font-size: var(--font-size-small);
-  }
   .sf-list__item {
-    font: var(
-      --list-font,
-      font(
-        --list,
-        300,
-        var(--font-size-big),
-        1.6,
-        var(--body-font-family-primary)
-      )
+    margin: var(--list-item-margin, 0);
+    padding: var(--list-item-padding, 0);
+    color: var(--list-item-color, var(--c-text));
+    @include border(--list-item-border, 0, solid, var(--c-light));
+    @include font(
+      --list-item-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.4,
+      var(--font-family-secondary)
     );
   }
 }

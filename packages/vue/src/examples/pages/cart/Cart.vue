@@ -3,7 +3,7 @@
     <SfSidebar
       :visible="isCartSidebarOpen"
       title="My Cart"
-      class="sf-sidebar--right"
+      class="sf-sidebar--right sf-sidebar--icon"
       @close="() => {}"
     >
       <transition name="fade" mode="out-in">
@@ -49,15 +49,6 @@
               </SfCollectedProduct>
             </transition-group>
           </div>
-          <SfProperty class="sf-property--full-width my-cart__total-price">
-            <template #name>
-              <span class="sf-property__name">TOTAL</span>
-            </template>
-            <template #value>
-              <SfPrice :regular="totalPrice | price" />
-            </template>
-          </SfProperty>
-          <SfButton class="sf-button--full-width">Go to checkout</SfButton>
         </div>
         <div v-else key="empty-cart" class="empty-cart">
           <div class="empty-cart__banner">
@@ -77,6 +68,17 @@
           >
         </div>
       </transition>
+      <template #content-bottom>
+        <SfProperty class="sf-property--full-width my-cart__total-price">
+          <template #name>
+            <span class="sf-property__name">TOTAL</span>
+          </template>
+          <template #value>
+            <SfPrice :regular="totalPrice | price" />
+          </template>
+        </SfProperty>
+        <SfButton class="sf-button--full-width">Go to checkout</SfButton>
+      </template>
     </SfSidebar>
   </div>
 </template>
@@ -177,7 +179,7 @@ export default {
   display: flex;
   flex-direction: column;
   &__total-items {
-    font: 400 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
+    font: 400 var(--font-size-big) / 1.6 var(--font-family-secondary);
     margin: 0;
   }
   &__total-price {
@@ -201,11 +203,11 @@ export default {
   }
   &__label {
     margin: var(--spacer-extra-big) 0 0 0;
-    font: 400 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
+    font: 400 var(--font-size-big) / 1.6 var(--font-family-secondary);
   }
   &__description {
     margin: var(--spacer-big) 0 0 0;
-    font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-primary);
+    font: 300 var(--font-size-regular) / 1.6 var(--font-family-primary);
   }
   &__icon {
     width: 18.125rem;
@@ -222,7 +224,7 @@ export default {
 }
 .collected-product {
   margin: var(--spacer-big) 0;
-  font: 300 var(--font-size-extra-small) / 1.6 var(--body-font-family-secondary);
+  font: 300 var(--font-size-extra-small) / 1.6 var(--font-family-secondary);
   &__properties {
     margin: var(--spacer-big) 0 0 0;
   }

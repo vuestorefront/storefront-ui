@@ -2,58 +2,59 @@
 
 .sf-footer-column {
   box-sizing: border-box;
-  flex: 0 0 var(--col-width);
+  flex: 0 0 var(--_footer-column-width);
+  justify-content: space-between;
   &__title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--footer-column-title-padding, var(--spacer-big));
-    background: var(--footer-column-title-background, hsl(0%, 0%, 90%));
-    font: var(
-      --footer-title-font,
-      font(
-        --footer-title,
-        500,
-        var(--font-size-regular),
-        1.6,
-        var(--body-font-family-secondary)
-      )
+    padding: var(
+      --footer-column-title-padding,
+      var(--spacer-base) var(--spacer-xl)
     );
+    background: var(--footer-column-title-background, var(--c-light));
     text-transform: uppercase;
-    cursor: var(--footer-column-title-cursor, pointer);
+    @include font(
+      --footer-column-title-font,
+      var(--font-medium),
+      var(--h3-font-size),
+      1.4,
+      var(--font-family-secondary)
+    );
+    cursor: default;
   }
   &__chevron {
     display: var(--footer-column-chevron-display);
   }
+  & .sf-list__item {
+    --list-item-margin: var(
+      --footer-column-title-padding,
+      var(--spacer-base) var(--spacer-xl)
+    );
+  }
   @include for-desktop {
-    --footer-column-title-padding: var(--spacer-big) 0;
-    --footer-column-title-cursor: default;
+    --footer-column-title-padding: 16px 0;
     --footer-column-title-background: transparent;
+    --footer-column-title-font-size: var(--h5-font-size);
+    --footer-column-title-font-weight: var(--font-bold);
     --footer-column-chevron-display: none;
   }
 }
 .sf-footer {
   &__container {
-    box-sizing: var(--footer-container-box-sizing);
+    box-sizing: border-box;
     display: var(--footer-container-display);
     flex-wrap: var(--footer-container-flex-wrap);
     justify-content: var(--footer-container-justify-content);
-    max-width: var(--footer-container-max-width);
+    max-width: var(--footer-container-width);
     margin: var(--footer-container-margin);
     padding: var(--footer-container-padding);
   }
-  & .sf-menu-item {
-    padding: var(--menu-item-padding, var(--spacer-big));
-    font-size: var(--menu-item-font-size, var(--font-size-regular));
-  }
   @include for-desktop {
-    --menu-item-padding: 6px 0;
-    --footer-container-box-sizing: border-box;
     --footer-container-display: flex;
     --footer-container-flex-wrap: wrap;
     --footer-container-justify-content: space-between;
-    --footer-container-max-width: 1240px;
-    --footer-container-margin: 6.25rem auto;
-    --footer-container-padding: 0 var(--spacer-extra-big);
+    --footer-container-width: 60rem;
+    --footer-container-margin: 0 auto;
   }
 }

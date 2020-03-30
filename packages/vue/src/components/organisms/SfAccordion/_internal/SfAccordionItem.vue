@@ -16,9 +16,10 @@
         @click="accordionClick"
       >
         {{ header }}
-        <div v-if="$parent.showChevron" class="sf-accordion-item__chevron">
-          <SfChevron :class="{ 'sf-chevron--top': isOpen }" />
-        </div>
+        <SfChevron
+          class="sf-accordion-item__chevron"
+          :class="{ 'sf-chevron--right': !isOpen }"
+        />
       </div>
     </slot>
     <transition :name="$parent.transition">

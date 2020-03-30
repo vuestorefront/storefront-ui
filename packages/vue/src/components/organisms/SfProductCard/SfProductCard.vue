@@ -2,6 +2,7 @@
   <div class="sf-product-card">
     <component
       :is="linkComponentTag"
+      v-focus
       :href="linkComponentTag === 'a' ? link : undefined"
       :to="link && linkComponentTag !== 'a' ? link : undefined"
       class="sf-product-card__link"
@@ -84,6 +85,7 @@
     </component>
     <button
       v-if="wishlistIcon !== false"
+      v-focus
       :aria-label="ariaLabel"
       :class="wishlistIconClasses"
       @click="toggleIsOnWishlist"
@@ -91,7 +93,6 @@
       <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
         <SfIcon
           :icon="currentWishlistIcon"
-          color="black"
           size="22px"
           data-test="sf-wishlist-icon"
         />
@@ -128,6 +129,7 @@
   </div>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
@@ -146,6 +148,7 @@ export default {
     SfCircleIcon,
     SfBadge
   },
+  directives: { focus },
   props: {
     /**
      * Product image

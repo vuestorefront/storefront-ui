@@ -489,7 +489,7 @@ export default {
   }
   &__label {
     flex: unset;
-    font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
+    font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
   }
   &__element {
     display: flex;
