@@ -40,16 +40,4 @@
   &--rounded {
     --color-border-radius: 100%;
   }
-
-  &--pure {
-    --badge-display: none;
-    transform: none;
-    &--active,
-    &:hover {
-      transform: none;
-    }
-    &:hover {
-      --color-box-shadow: none;
-    }
-  }
 }

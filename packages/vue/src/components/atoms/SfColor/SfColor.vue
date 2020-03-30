@@ -9,7 +9,7 @@
   >
     <!-- @slot Use it to replace badge to custom element -->
     <transition name="sf-color__badge">
-      <slot v-if="selected" name="badge">
+      <slot v-if="selected && hasBadge" name="badge">
         <SfBadge class="sf-color__badge mobile-only">
           <SfIcon icon="check" size="7px" color="white" />
         </SfBadge>
@@ -37,6 +37,10 @@ export default {
       default: ""
     },
     selected: {
+      type: Boolean,
+      default: false
+    },
+    hasBadge: {
       type: Boolean,
       default: false
     }
