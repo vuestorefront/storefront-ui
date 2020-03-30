@@ -9,12 +9,12 @@
         />
         <div class="banner__order-number">
           <span>Order No.</span>
-          <strong>#80932031-030-00</strong>
+          <strong>{{ order.number }}</strong>
         </div>
       </div>
     </div>
     <section class="section">
-      <div class="wrapper__section">
+      <div class="section__section">
         <SfHeading
           title="Your Purchase"
           class="heading--full sf-heading--left"
@@ -26,8 +26,7 @@
           confirmation e-mail with details of your order and a link to track its
           progress.
         </p>
-        <SfDivider class="first-divider" />
-        <div class="wrapper__contact">
+        <div class="section__contact">
           <SfHeading
             :level="6"
             class="heading--full sf-heading--left sf-heading--no-underline"
@@ -43,15 +42,14 @@
             <span>{{ address.email }}</span>
           </p>
         </div>
-        <SfDivider class="second-divider" />
         <SfButton
-          class="wrapper__notifications-button sf-button--full-width desktop-only"
+          class="section__notifications-button sf-button--full-width desktop-only"
           >ALLOW ORDER NOTIFICATIONS</SfButton
         >
       </div>
-      <div class="wrapper__additional-info">
+      <div class="additional-info">
         <SfButton
-          class="wrapper__notifications-button sf-button--full-width mobile-only"
+          class="section__notifications-button sf-button--full-width mobile-only"
           >ALLOW ORDER NOTIFICATIONS</SfButton
         >
         <div>
@@ -75,7 +73,7 @@
           <p class="paragraph">
             Your feedback is important to us. Let us know what we could improve.
           </p>
-          <div class="wrapper__buttons">
+          <div class="section__buttons">
             <SfButton
               class="feedback-button color-secondary sf-button--full-width button-size"
               >SEND MY FEEDBACK</SfButton
@@ -87,20 +85,19 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
     <SfButton class="back-button color-secondary desktop-only button-size"
       >GO BACK TO SHOP</SfButton
     >
   </div>
 </template>
 <script>
-import { SfHeading, SfButton, SfDivider } from "@storefront-ui/vue";
+import { SfHeading, SfButton } from "@storefront-ui/vue";
 export default {
   name: "Product",
   components: {
     SfHeading,
-    SfButton,
-    SfDivider
+    SfButton
   },
   data() {
     return {
@@ -109,6 +106,9 @@ export default {
         street: "St. Dmowskiego 17, 53-534",
         city: "Wroclaw, Poland",
         email: "demo@vuestorefront.io"
+      },
+      order: {
+        number: "#80932031-030-00"
       }
     };
   }
@@ -146,7 +146,7 @@ export default {
     }
   }
 }
-.wrapper {
+.section {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -165,21 +165,10 @@ export default {
     }
   }
 
-  &__additional-info {
-    padding: 0 var(--spacer-sm);
-    @include for-desktop {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-2xl)
-        var(--spacer-2xl);
-      background: var(--c-light);
-    }
-  }
-
   &__contact {
-    padding: 1.3rem var(--spacer-extra-big);
+    padding: 0 0 var(--spacer-xs) var(--spacer-sm);
+    border: 2px solid var(--c-white);
+    border-width: 2px 0 2px 0;
   }
   &__notifications-button {
     margin: var(--spacer-base) 0 0 0;
@@ -191,7 +180,6 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin: var(--spacer-extra-big) 0 var(--spacer-extra-big) 0;
     justify-content: space-between;
 
     @include for-desktop {
@@ -209,6 +197,18 @@ export default {
 
   @include for-desktop {
     margin: var(--spacer-sm) 0 0 0;
+  }
+}
+.additional-info {
+  padding: 0 var(--spacer-sm);
+  @include for-desktop {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-2xl)
+      var(--spacer-2xl);
+    background: var(--c-light);
   }
 }
 .heading {
@@ -236,16 +236,6 @@ export default {
       font-family: var(--font-family-secondary);
     }
   }
-}
-
-.first-divider {
-  --divider-margin: var(--spacer-base) 0 var(--spacer-sm) 0;
-  --divider-border-color: var(--c-white);
-}
-
-.second-divider {
-  --divider-margin: var(--spacer-sm) 0 0 0;
-  --divider-border-color: var(--c-white);
 }
 
 .back-button {
