@@ -228,7 +228,7 @@ export default {
   font-weight: var(--font-light);
   color: var(--c-dark-variant);
   margin: 0;
-  line-height: 1.75rem;
+  line-height: 1.6rem;
   @include for-desktop {
     font-weight: var(--font-normal);
     &--contact {
