@@ -7,7 +7,7 @@
     >
     <SfInput
       type="number"
-      :value="qty"
+      :value="value"
       :aria-label="ariaLabel"
       :disabled="disabled"
       class="sf-quantity-selector__input"
@@ -48,6 +48,11 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    value() {
+      return this.qty >= 1 ? this.qty : 1;
     }
   }
 };
