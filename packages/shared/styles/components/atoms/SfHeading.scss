@@ -1,11 +1,11 @@
 @import "../../helpers";
-
 .sf-heading {
   box-sizing: border-box;
   padding: var(--heading-padding, 0 0 var(--spacer-xs) 0);
   text-align: var(--heading-text-align, center);
   &__title {
     margin: var(--heading-title-margin, 0);
+    color: var(--heading-title-color, var(--c-text));
     @include font(
       --heading-title-font,
       var(--font-semibold),
@@ -14,24 +14,24 @@
       var(--font-family-secondary)
     );
     &--h2 {
-      --heading-title-font-size: var(--h2-font-size);
-      --heading-title-font-weight: var(--font-normal);
+      font-size: var(--heading-title-font-size, var(--h2-font-size));
+      font-weight: var(--heading-title-font-weight, var(--font-normal));
     }
     &--h3 {
-      --heading-title-font-size: var(--h3-font-size);
-      --heading-title-font-weight: var(--font-medium);
+      font-size: var(--heading-title-font-size, var(--h3-font-size));
+      font-weight: var(--heading-title-font-weight, var(--font-medium));
     }
     &--h4 {
-      --heading-title-font-size: var(--h4-font-size);
-      --heading-title-font-weight: var(--font-normal);
+      font-size: var(--heading-title-font-size, var(--h4-font-size));
+      font-weight: var(--heading-title-font-weight, var(--font-normal));
     }
     &--h5 {
-      --heading-title-font-size: var(--h5-font-size);
-      --heading-title-font-weight: var(--font-bold);
+      font-size: var(--heading-title-font-size, var(--h5-font-size));
+      font-weight: var(--heading-title-font-weight, var(--font-bold));
     }
     &--h6 {
-      --heading-title-font-size: var(--h6-font-size);
-      --heading-title-font-weight: var(--font-normal);
+      font-size: var(--heading-title-font-size, var(--h6-font-size));
+      font-weight: var(--heading-title-font-weight, var(--font-normal));
     }
   }
 
@@ -51,7 +51,6 @@
     --heading-border: 0;
     --heading-text-align: center;
   }
-
   &--underline {
     @include border(--heading-border, 0 0 1px 0, solid, var(--c-light));
   }

@@ -1,6 +1,5 @@
 @import "../../helpers";
 
-
 .sf-bottom-navigation {
   box-sizing: border-box;
   position: fixed;
@@ -29,9 +28,12 @@
   align-items: center;
   align-self: var(--bottom-navigation-item-align-self);
   margin: var(--bottom-navigation-item-margin);
-  padding: var(--bottom-navigation-item-padding, var(--spacer-xs) 0 var(--spacer-xs) 0);
+  padding: var(
+    --bottom-navigation-item-padding,
+    var(--spacer-xs) 0 var(--spacer-xs) 0
+  );
   color: var(--bottom-navigation-item-color, var(--c-gray-variant));
-  
+
   @include font(
     --bottom-navigation-item-font,
     var(--font-light),
@@ -40,11 +42,9 @@
     var(--font-family-primary)
   );
 
-
   & .sf-circle-icon {
     --button-size: 4.125rem;
   }
-  
   &__label {
     margin: var(--bottom-navigation-item-label-margin);
   }
@@ -72,5 +72,3 @@
     --bottom-navigation-item-align-self: center;
   }
 }
-
-
