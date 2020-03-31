@@ -12,7 +12,7 @@
         image-height="450"
         class="mobile-only"
       />
-      <div class="product__images desktop-only">
+      <div class="product__images-desktop desktop-only">
         <SfImage :src="product.images[0].big.url" />
         <SfImage :src="product.images[1].big.url" />
       </div>
@@ -30,10 +30,10 @@
             class="product__info__drag-icon mobile-only"
           />
         </div>
-        <div class="product__price-and-review">
+        <div class="product__price-and-rating">
           <SfPrice :regular="product.price" />
           <div>
-            <div class="product__price-and-review__rating">
+            <div class="product__price-and-rating__rating">
               <SfRating
                 :score="product.rating.rate"
                 :max="product.rating.max"
@@ -41,7 +41,7 @@
               <a
                 v-if="!!product.reviews"
                 href="#"
-                class="product__price-and-review__count"
+                class="product__price-and-rating__count"
               >
                 ({{ product.reviews.length }})
               </a>
@@ -61,7 +61,7 @@
           <SfSelect
             v-model="selectedSize"
             label="Size"
-            class="sf-select--underlined product__select"
+            class="sf-select--underlined product__select-size"
             :reqired="true"
           >
             <SfSelectOption
@@ -119,19 +119,19 @@
               </SfProperty>
             </div>
             <div v-else-if="tab.title === 'Read reviews'">
-              <div v-for="(review, i) in product.reviews" :key="i">
-                <SfReview
-                  :author="review.author"
-                  :date="review.date"
-                  :message="review.message"
-                  :max-rating="review.rating.max"
-                  :rating="review.rating.rate"
-                  :char-limit="250"
-                  read-more-text="Read more"
-                  hide-full-text="Read less"
-                />
-                <SfDivider class="product__tabs__divider" />
-              </div>
+              <SfReview
+                v-for="(review, i) in product.reviews"
+                :key="i"
+                :author="review.author"
+                :date="review.date"
+                :message="review.message"
+                :max-rating="review.rating.max"
+                :rating="review.rating.rate"
+                :char-limit="250"
+                read-more-text="Read more"
+                hide-full-text="Read less"
+                class="product__tabs__review"
+              />
               <SfPagination
                 :current="1"
                 :visible="4"
@@ -178,7 +178,6 @@ import {
   SfColor,
   SfSelect,
   SfProductOption,
-  SfDivider,
   SfBreadcrumbs,
   SfPagination
 } from "@storefront-ui/vue";
@@ -201,7 +200,6 @@ export default {
     SfColor,
     SfSelect,
     SfProductOption,
-    SfDivider,
     SfBreadcrumbs,
     SfPagination
   },
@@ -354,8 +352,11 @@ export default {
 @import "~@storefront-ui/vue/styles";
 
 #product {
-  max-width: 77.5rem;
-  margin: 0 auto;
+  box-sizing: border-box;
+  @include for-desktop {
+    max-width: 77.5rem;
+    margin: 0 auto;
+  }
 }
 
 .product {
@@ -367,12 +368,16 @@ export default {
     z-index: 1;
     margin: var(--spacer-base) 0 0 var(--spacer-base);
   }
-  &__images {
+  &__images-desktop {
     display: flex;
     flex-direction: column;
   }
   &__info {
     margin: var(--spacer-sm) auto var(--spacer-xs);
+    @include for-desktop {
+      max-width: 32.625rem;
+      margin: 0 0 0 7.5rem;
+    }
     &__header {
       margin: 0 var(--spacer-sm);
       display: flex;
@@ -381,17 +386,18 @@ export default {
         margin: 0 auto;
       }
     }
-    @include for-desktop {
-      max-width: 32.625rem;
-      margin: 0 0 0 7.5rem;
-    }
     &__drag-icon {
       animation: moveicon 1s ease-in-out infinite;
     }
   }
-  &__price-and-review {
+  &__price-and-rating {
     margin: var(--spacer-xs) var(--spacer-sm) var(--spacer-base);
     align-items: center;
+    @include for-desktop {
+      display: flex;
+      justify-content: space-between;
+      margin: var(--spacer-sm) 0 var(--spacer-lg) 0;
+    }
     &__rating {
       display: flex;
       align-items: center;
@@ -409,11 +415,6 @@ export default {
       text-decoration: none;
       margin: 0 0 0 var(--spacer-xs);
     }
-    @include for-desktop {
-      display: flex;
-      justify-content: space-between;
-      margin: var(--spacer-sm) 0 var(--spacer-lg) 0;
-    }
   }
   &__description {
     color: var(--c-link);
@@ -425,7 +426,7 @@ export default {
       var(--font-family-primary)
     );
   }
-  &__select {
+  &__select-size {
     margin: 0 var(--spacer-sm);
     @include for-desktop {
       margin: 0;
@@ -457,22 +458,19 @@ export default {
   }
   &__tabs {
     margin: var(--spacer-lg) auto var(--spacer-2xl);
-    &__property {
-      margin-top: var(--spacer-lg);
-    }
-    &__divider {
-      margin: var(--spacer-base) auto;
-      @include for-desktop {
-        margin-bottom: var(--spacer-base);
-      }
-    }
-    &__pagination {
-      margin-top: 65px;
-    }
-
     @include for-desktop {
       margin-top: var(--spacer-2xl);
       --tabs-content-tab-padding: 3.5rem 0 0 0;
+    }
+    &__property {
+      margin-top: var(--spacer-lg);
+    }
+    &__review {
+      border-bottom: var(--c-light) solid 1px;
+      margin-bottom: var(--spacer-base);
+    }
+    &__pagination {
+      margin-top: 4rem;
     }
   }
   &__additional-info {
@@ -487,7 +485,7 @@ export default {
       font-weight: var(--font-bold);
       margin: 0 0 var(--spacer-sm);
       &:not(:first-child) {
-        margin-top: 58px;
+        margin-top: 3.5rem;
       }
     }
     &__paragraph {
