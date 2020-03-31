@@ -74,6 +74,9 @@
     &::-webkit-search-cancel-button {
       opacity: 0;
     }
+    &[type="search"] {
+      -webkit-appearance: none;
+    }
     &::-ms-clear {
       opacity: 0;
     }
