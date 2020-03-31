@@ -162,6 +162,14 @@ export default {
       handler: function(value) {
         this.inputType = value;
       }
+    },
+    value: {
+      immediate: true,
+      handler: function(value) {
+        if (this.type === "number" && isNaN(value)) {
+          this.$emit("input", "");
+        }
+      }
     }
   },
   methods: {
