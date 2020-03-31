@@ -170,8 +170,10 @@ export default {
 .order {
   &__contact {
     padding: 0 0 var(--spacer-xs) var(--spacer-sm);
-    border: 2px solid var(--c-white);
-    border-width: 2px 0 2px 0;
+    @include for-desktop {
+      border: 2px solid var(--c-white);
+      border-width: 2px 0 2px 0;
+    }
   }
   &__notifications-button {
     margin: var(--spacer-base) 0 0 0;
