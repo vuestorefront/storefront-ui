@@ -15,7 +15,15 @@ export default {
   name: "SfAccordion",
   props: {
     /**
+     * Opens an accordion item based on title
+     */
+    open: {
+      type: [String, Array],
+      default: ""
+    },
+    /**
      * Opens the first accordion item if set to "true"
+     * @deprecated will be removed in 1.0.0 use open prop instead
      */
     firstOpen: {
       type: Boolean,
@@ -49,12 +57,24 @@ export default {
   },
   methods: {
     setAsOpen() {
-      if (this.$children.length) {
-        this.$children[0].isOpen = this.firstOpen;
+      if (this.$children && this.$children.length) {
+        // TODO remove in 1.0.0
+        if (this.firstOpen) {
+          this.$children[0].isOpen = this.firstOpen;
+          console.warn(
+            "[StorefrontUI][SfAccordion] firstOpen prop has been deprecated and will be removed in 1.0.0. Use open instead."
+          );
+          return;
+        }
+        this.$children.forEach(child => {
+          child.isOpen = Array.isArray(this.open)
+            ? this.open.includes(child.header)
+            : this.open === child.header;
+        });
       }
     },
     toggleHandler(slotId) {
-      if (!this.multiple) {
+      if (!this.multiple && !Array.isArray(this.open)) {
         this.$children.forEach(child => {
           child._uid === slotId
             ? (child.isOpen = !child.isOpen)
