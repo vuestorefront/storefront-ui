@@ -197,6 +197,7 @@
             <SfInput
               v-model="cardCVC"
               :value="cardCVC"
+              type="number"
               label="Code CVC"
               name="cardCVC"
               class="credit-card-form__input credit-card-form__input--small credit-card-form__input--with-spacer"
@@ -242,7 +243,7 @@ import {
   SfImage,
   SfCheckbox
 } from "@storefront-ui/vue";
-
+import axios from "axios";
 export default {
   name: "Payment",
   components: {
@@ -258,6 +259,10 @@ export default {
     paymentMethods: {
       type: Array,
       default: () => []
+    },
+    shipping: {
+      type: Object,
+      default: () => ({})
     },
     value: {
       type: Object,
@@ -284,55 +289,7 @@ export default {
       cardYear: "",
       cardCVC: "",
       cardKeep: false,
-      countries: [
-        "Austria",
-        "Azerbaijan",
-        "Belarus",
-        "Belgium",
-        "Bosnia and Herzegovina",
-        "Bulgaria",
-        "Croatia",
-        "Cyprus",
-        "Czech Republic",
-        "Denmark",
-        "Estonia",
-        "Finland",
-        "France",
-        "Georgia",
-        "Germany",
-        "Greece",
-        "Hungary",
-        "Iceland",
-        "Ireland",
-        "Italy",
-        "Kosovo",
-        "Latvia",
-        "Liechtenstein",
-        "Lithuania",
-        "Luxembourg",
-        "Macedonia",
-        "Malta",
-        "Moldova",
-        "Monaco",
-        "Montenegro",
-        "The Netherlands",
-        "Norway",
-        "Poland",
-        "Portugal",
-        "Romania",
-        "Russia",
-        "San Marino",
-        "Serbia",
-        "Slovakia",
-        "Slovenia",
-        "Spain",
-        "Sweden",
-        "Switzerland",
-        "Turkey",
-        "Ukraine",
-        "United Kingdom",
-        "Vatican City"
-      ]
+      countries: []
     };
   },
   computed: {
@@ -340,12 +297,73 @@ export default {
       return ["debit", "mastercard", "electron"].includes(this.paymentMethod);
     }
   },
+  watch: {
+    payment: {
+      handler() {
+        this.sameAsShipping = this.value.sameAsShipping;
+        this.streetName = this.value.streetName;
+        this.apartment = this.value.apartment;
+        this.city = this.value.city;
+        this.state = this.value.state;
+        this.zipCode = this.value.zipCode;
+        this.country = this.value.country;
+        this.phoneNumber = this.value.phoneNumber;
+        this.paymentMethod = this.value.paymentMethod;
+        this.cardNumber = this.value.card.number;
+        this.cardHolder = this.value.card.holder;
+        this.cardMonth = this.value.card.month;
+        this.cardYear = this.value.card.year;
+        this.cardCVC = this.value.card.cvc;
+        this.cardKeep = this.value.card.keep;
+      },
+      immediate: true
+    },
+    sameAsShipping: {
+      handler(value) {
+        if (value) {
+          this.firstName = this.shipping.firstName;
+          this.lastName = this.shipping.lastName;
+          this.streetName = this.shipping.streetName;
+          this.apartment = this.shipping.apartment;
+          this.city = this.shipping.city;
+          this.state = this.shipping.state;
+          this.zipCode = this.shipping.zipCode;
+          this.country = this.shipping.country;
+          this.phoneNumber = this.shipping.phoneNumber;
+          this.paymentMethod = this.shipping.paymentMethod;
+        } else {
+          this.streetName = "";
+          this.apartment = "";
+          this.city = "";
+          this.state = "";
+          this.zipCode = "";
+          this.country = "";
+          this.phoneNumber = "";
+          this.paymentMethod = "";
+        }
+      }
+    }
+  },
+  mounted() {
+    this.getCountries();
+  },
   methods: {
     updateField(fieldName, fieldValue) {
       this.$emit("input", {
         ...this.value,
         [fieldName]: fieldValue
       });
+    },
+    getCountries() {
+      axios
+        .get("https://restcountries.eu/rest/v2/all?fields=name")
+        .then(response => {
+          const countries = response.data.map(country => country.name);
+          this.countries = countries;
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
     }
   }
 };
@@ -455,15 +473,6 @@ export default {
       &--small {
         flex: 0 0 calc(100% / 3);
       }
-    }
-  }
-  @include for-mobile {
-    &__button {
-      --button-padding: var(--spacer-2xs) 0;
-      position: absolute;
-      bottom: 50%;
-      right: 0;
-      transform: translate3d(0, 0, 50%);
     }
   }
 }
