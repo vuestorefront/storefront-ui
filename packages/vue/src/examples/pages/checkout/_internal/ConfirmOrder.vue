@@ -80,41 +80,7 @@
       </SfAccordionItem>
       <SfAccordionItem header="Order details">
         <div class="accordion__item">
-          <div class="accordion__content accordion__content">
-            <SfHeading
-              title="Totals"
-              :level="1"
-              class="sf-heading--left sf-heading--no-underline accordion_title"
-            />
-            <SfProperty
-              name="Products:"
-              :value="products.length"
-              class="sf-property--full-width property"
-            />
-            <SfProperty
-              name="Subtotal:"
-              :value="subtotal"
-              class="sf-property--full-width property"
-            />
-            <SfProperty
-              name="Shipping:"
-              :value="shippingMethod.price"
-              class="sf-property--full-width property"
-            />
-            <SfDivider class="divider" />
-            <SfProperty
-              name="Total price"
-              :value="total"
-              class="sf-property--full-width property"
-            />
-            <SfCheckbox v-model="terms" name="terms" class="totals__terms">
-              <template #label>
-                <div class="sf-checkbox__label">
-                  I agree to <a href="#">Terms and conditions</a>
-                </div>
-              </template>
-            </SfCheckbox>
-          </div>
+          <div class="accordion__content accordion__content"></div>
         </div>
       </SfAccordionItem>
     </SfAccordion>
@@ -157,6 +123,43 @@
         </SfTableData>
       </SfTableRow>
     </SfTable>
+    <div class="summary">
+      <div class="summary__content">
+        <SfHeading
+          title="Totals"
+          :level="1"
+          class="sf-heading--left sf-heading--no-underline summary_title"
+        />
+        <SfProperty
+          name="Products"
+          :value="products.length"
+          class="sf-property--full-width property"
+        />
+        <SfProperty
+          name="Subtotal"
+          :value="subtotal"
+          class="sf-property--full-width property"
+        />
+        <SfProperty
+          name="Shipping"
+          :value="shippingMethod.price"
+          class="sf-property--full-width property"
+        />
+        <SfDivider class="divider" />
+        <SfProperty
+          name="Total price"
+          :value="total"
+          class="sf-property--full-width property"
+        />
+        <SfCheckbox v-model="terms" name="terms" class="totals__terms">
+          <template #label>
+            <div class="sf-checkbox__label">
+              I agree to <a href="#">Terms and conditions</a>
+            </div>
+          </template>
+        </SfCheckbox>
+      </div>
+    </div>
     <div class="characteristics mobile-only">
       <SfCharacteristic
         v-for="characteristic in characteristics"
@@ -211,7 +214,7 @@
           class="sf-property--full-width property"
         >
         </SfProperty>
-        <SfDivider />
+        <SfDivider class="divider" />
         <SfProperty
           name="Total price"
           :value="total"
@@ -353,9 +356,9 @@ export default {
       text-align: left;
       flex: 0 0 12rem;
     }
-    &s__image {
+    &__image {
+      --image-width: 82px;
       text-align: left;
-      flex: 0 0 5.125rem;
       margin-right: var(--spacer-xl);
     }
   }
@@ -402,7 +405,7 @@ export default {
 }
 
 .property {
-  margin: var(--spacer-base) 0;
+  margin: 0 0 var(--spacer-base) 0;
   @include for-desktop {
     margin: 0 0 var(--spacer-sm) 0;
     &__total {
@@ -413,13 +416,25 @@ export default {
 
 .divider {
   --divider-border-color: var(--c-white);
+  --divider-width: 100%;
+  --divider-margin: 0 0 var(--spacer-base) 0;
 }
 
 .characteristics {
-  padding: var(--spacer-sm) 0;
+  padding: var(--spacer-sm);
   &__item {
     margin: var(--spacer-base) 0;
   }
+}
+
+.summary,
+.accordion {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .accordion {
@@ -427,14 +442,6 @@ export default {
   --heading-padding: 0;
   &__item {
     position: relative;
-    left: 50%;
-    right: 50%;
-    display: flex;
-    align-items: flex-start;
-    width: 100vw;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    background: var(--c-light);
   }
   &__content {
     flex: 1;
@@ -445,6 +452,16 @@ export default {
     position: absolute;
     right: var(--spacer-base);
     top: var(--spacer-base);
+  }
+}
+
+.summary {
+  background: var(--c-light);
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacer-base) var(--spacer-lg);
   }
 }
 
