@@ -8,7 +8,7 @@
     </div>
     <SfHeading
       title="1. Personal details"
-      :level="3"
+      :level="2"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
@@ -156,8 +156,8 @@ export default {
 
 .title {
   --heading-padding: var(--spacer-sm) 0;
-  --h3-heading-title-font-size: var(--h2-font-size);
   @include for-desktop {
+    --h2-heading-title-font-size: var(--h3-font-size);
     --heading-padding: 0 0 var(--spacer-base) 0;
   }
 }

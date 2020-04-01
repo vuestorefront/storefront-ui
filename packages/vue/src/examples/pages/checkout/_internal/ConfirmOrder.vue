@@ -2,7 +2,7 @@
   <div id="confirm-order">
     <SfHeading
       title="4. Order details"
-      :level="3"
+      :level="2"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <SfAccordion class="accordion mobile-only">
