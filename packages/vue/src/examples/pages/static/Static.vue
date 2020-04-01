@@ -35,6 +35,7 @@
         v-for="(page, i) in pages.pagesWithoutTabs"
         :key="i"
         :title="page.name"
+        class="pages-without-tabs"
       >
         {{ page.content }}
       </SfContentPage>
@@ -144,7 +145,7 @@ export default {
   margin: var(--spacer-base) auto var(--spacer-lg);
 }
 
-.sf-content-page {
+.pages-without-tabs {
   padding: 0 var(--spacer-sm);
 }
 </style>
