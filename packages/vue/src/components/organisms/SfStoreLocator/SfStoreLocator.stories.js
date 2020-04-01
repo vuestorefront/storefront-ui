@@ -119,7 +119,8 @@ storiesOf("Organisms|StoreLocator", module)
         ]
       };
     },
-    template: `<SfStoreLocator
+    template: `<div style="max-width: 1240px;">
+      <SfStoreLocator
         :tile-server-url="tileServerUrl"
         :tile-server-attribution="tileServerAttribution"
         :center="center"
@@ -132,8 +133,8 @@ storiesOf("Organisms|StoreLocator", module)
         :marker-options="markerOptions"
         :fly-to-store-zoom="flyToStoreZoom"
       >
-        <SfStore 
-          v-for="(store, key) in stores" 
+        <SfStore
+          v-for="(store, key) in stores"
           :key="key"
           :latlng="store.latlng"
           :name="store.name"
@@ -142,7 +143,8 @@ storiesOf("Organisms|StoreLocator", module)
           :address="store.address"
           :picture="store.picture"
         />
-      </SfStoreLocator>`
+      </SfStoreLocator>
+    </div>`
   }))
   .add("[props] SfStore", () => ({
     components: { SfStoreLocator },
@@ -201,7 +203,8 @@ storiesOf("Organisms|StoreLocator", module)
         ]
       };
     },
-    template: `<SfStoreLocator
+    template: `<div style="max-width: 1240px;">
+      <SfStoreLocator
         :center="latlng"
     >
       <SfStore
@@ -212,7 +215,8 @@ storiesOf("Organisms|StoreLocator", module)
           :address="address"
           :picture="picture"
       />
-    </SfStoreLocator>`
+    </SfStoreLocator>
+  </div>`
   }))
   .add("[slot] default", () => ({
     components: { SfStoreLocator, SfImage },
@@ -319,7 +323,8 @@ storiesOf("Organisms|StoreLocator", module)
         ]
       };
     },
-    template: `<SfStoreLocator
+    template: `<div style="max-width: 1240px;">
+      <SfStoreLocator
         :tile-server-url="tileServerUrl"
         :tile-server-attribution="tileServerAttribution"
         :center="center"
@@ -334,12 +339,14 @@ storiesOf("Organisms|StoreLocator", module)
         #default="{centerOn, registerStore, removeStore, userPosition, getGeoDistance}"
       >
         <div v-for="(store, key) in stores" :key="key" :style="{padding: '1rem 0'}">
+          <!-- This function is provided by SfStoreLocator, so in a custom component it can be used with 'provide' for the sake of the example is not used in the markup. -->
           {{registerStore(store)}}
           <small>{{store.name}}</small>
           <SfImage  @click="centerOn(store.latlng)":src="store.picture" :width="82" :height="112"/>
           <small>* click picture to zoom</small>
         </div>
-      </SfStoreLocator>`
+      </SfStoreLocator>
+    </div>`
   }))
   .add("[slot] marker-icon", () => ({
     components: { SfStoreLocator },
@@ -398,7 +405,8 @@ storiesOf("Organisms|StoreLocator", module)
         ]
       };
     },
-    template: `<SfStoreLocator
+    template: `<div style="max-width: 1240px;">
+      <SfStoreLocator
         :center="latlng"
     >
       <template #marker-icon>
@@ -412,7 +420,8 @@ storiesOf("Organisms|StoreLocator", module)
           :address="address"
           :picture="picture"
       />
-    </SfStoreLocator>`
+    </SfStoreLocator>
+    </div>`
   }))
   .add("[slot] map-loading", () => ({
     components: { SfStoreLocator },
@@ -471,7 +480,9 @@ storiesOf("Organisms|StoreLocator", module)
         ]
       };
     },
-    template: `<SfStoreLocator
+    template: `
+      <div style="max-width: 1240px;">
+      <SfStoreLocator
         :center="latlng"
     >
       <template #map-loading>
@@ -485,5 +496,6 @@ storiesOf("Organisms|StoreLocator", module)
           :address="address"
           :picture="picture"
       />
-    </SfStoreLocator>`
+    </SfStoreLocator>
+      </div>`
   }));
