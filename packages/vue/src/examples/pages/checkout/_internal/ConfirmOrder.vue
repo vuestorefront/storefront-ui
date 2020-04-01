@@ -123,7 +123,7 @@
         </SfTableData>
       </SfTableRow>
     </SfTable>
-    <div class="summary">
+    <div class="summary mobile-only">
       <div class="summary__content">
         <SfHeading
           title="Totals"
@@ -332,6 +332,8 @@ export default {
 
 .title {
   --heading-padding: var(--spacer-sm) 0;
+  --h3-heading-title-font-size: var(--h2-font-size);
+
   @include for-desktop {
     --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
   }

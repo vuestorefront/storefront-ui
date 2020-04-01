@@ -276,6 +276,7 @@ export default {
 @import "~@storefront-ui/vue/styles";
 .title {
   --heading-padding: var(--spacer-sm) 0;
+  --h3-heading-title-font-size: var(--h2-font-size);
   @include for-desktop {
     --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
     &:last-of-type {
@@ -338,8 +339,7 @@ export default {
   }
 }
 .shipping {
-  --radio-container-padding: var(--spacer-sm) var(--spacer-lg) var(--spacer-xs)
-    var(--spacer-base);
+  --radio-container-padding: var(--spacer-sm);
   &__label {
     display: flex;
     justify-content: flex-start;

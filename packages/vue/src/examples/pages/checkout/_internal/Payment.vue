@@ -372,6 +372,7 @@ export default {
 @import "~@storefront-ui/vue/styles";
 .title {
   --heading-padding: var(--spacer-sm) 0;
+  --h3-heading-title-font-size: var(--h2-font-size);
   @include for-desktop {
     --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
     &:last-of-type {
@@ -435,6 +436,11 @@ export default {
   --ratio-content-margin: 0 0 0 var(--spacer-lg);
   --radio-background: transparent;
   white-space: nowrap;
+}
+.payment-image {
+  @include for-desktop {
+    --image-width: 3.5625rem;
+  }
 }
 .credit-card-form {
   padding: var(--spacer-xl) 0 0 0;
