@@ -1,136 +1,106 @@
 <template>
-  <div>
-    <SfModal class="login" :visible="true" :cross="false">
-      <template #modal-bar>
-        <SfBar
-          class="login__bar mobile-only"
-          :title="onScreenChange()"
-          :back="true"
-          :close="false"
-        />
-        <SfBar class="login__bar desktop-only" :back="false" :close="true" />
-      </template>
-      <transition name="fade" mode="out-in">
-        <div v-if="isMyAccount" class="login__container">
-          <SfImage :src="src" />
+  <SfModal
+    class="log-in"
+    :visible="true"
+    :back="false"
+    :cross="false"
+    :title="modalTitle"
+  >
+    <transition name="fade" mode="out-in">
+      <div v-if="isLogIn" key="log-in" class="form__container">
+        <div class="form">
+          <SfInput
+            v-model="email"
+            name="email"
+            label="Your email"
+            class="form__element"
+            type="email"
+          />
+          <SfInput
+            v-model="password"
+            name="password"
+            label="Password"
+            type="password"
+            class="form__element"
+            :has-show-password="true"
+          />
+          <SfCheckbox
+            v-model="rememberMe"
+            name="remember-me"
+            label="Remember me"
+            class="form__element form__checkbox"
+          />
+          <SfButton class="sf-button--full-width form__action-button">
+            Log In
+          </SfButton>
+        </div>
+        <div class="form__action-button-wrapper">
+          <SfButton class="sf-button--text color-secondary">
+            Forgotten password?
+          </SfButton>
+        </div>
+        <div
+          class="form__action-button-wrapper form__action-button-wrapper--secondary"
+        >
           <SfHeading
-            class="login__heading"
-            :title="titleText"
-            :subtitle="subtitleText"
-            :level="loginHeadinglevel"
-          >
-            <template #title="{title}">
-              <p class="login__heading__title">{{ title }}</p>
-            </template>
-            <template #subtitle>
-              <p class="login__heading__subtitle">
-                View orders and update your details.<br />
-                Make your checkout fast and easy!
-              </p>
-            </template>
-          </SfHeading>
+            title="Don't have an account yet?"
+            class="form__heading"
+            :level="formHeadingLevel"
+          />
           <SfButton
-            class="sf-button login__btn color-primary"
-            @click="onBtnClick('signIn')"
-            >SIGN IN</SfButton
+            class="sf-button--text color-secondary"
+            @click="isLogIn = false"
           >
+            Register now
+          </SfButton>
+        </div>
+      </div>
+      <div v-else key="sign-up" class="form__container">
+        <div class="form">
+          <SfInput
+            v-model="firstName"
+            name="first-name"
+            label="Name"
+            class="form__element"
+          />
+          <SfInput
+            v-model="lastName"
+            name="last-name"
+            label="Last Name"
+            class="form__element"
+          />
+          <SfInput
+            v-model="email"
+            name="email"
+            label="Your email"
+            class="form__element"
+            type="email"
+          />
+          <SfInput
+            v-model="password"
+            name="password"
+            label="Password"
+            type="password"
+            class="form__element"
+          />
+          <SfButton class="sf-button--full-width form__action-button">
+            Create an account
+          </SfButton>
+        </div>
+        <div class="form__action-button-wrapper">
           <SfButton
-            class="sf-button color-secondary login__btn login__btn--login"
-            @click="onBtnClick('join')"
-            >JOIN</SfButton
+            class="sf-button--text color-secondary"
+            @click="isLogIn = true"
           >
+            or Log In To Your Account
+          </SfButton>
         </div>
-        <div v-else-if="isLogin" key="log-in" class="login__form__container">
-          <div class="login__form">
-            <SfInput
-              v-model="email"
-              name="email"
-              label="Your email"
-              class="login__form__element"
-            />
-            <SfInput
-              v-model="password"
-              name="password"
-              label="Password"
-              type="password"
-              class="login__form__element"
-              :has-show-password="true"
-            />
-            <SfCheckbox
-              v-model="rememberMe"
-              name="remember-me"
-              label="Remember me"
-              class="login__form__element login__form__element--checkbox"
-            />
-            <SfButton class="sf-button--full-width login__form-btn"
-              >Login</SfButton
-            >
-          </div>
-          <div class="login__form__action-btn-wrapper">
-            <SfButton class="sf-button--text color-secondary"
-              >Forgotten password?</SfButton
-            >
-          </div>
-          <div class="login__form__bottom-btn-wrapper">
-            <SfHeading
-              title="Don't have an account yet?"
-              class="login__form__bottom-heading"
-              :level="bottomHeadingLevel"
-            />
-            <SfButton
-              class="sf-button--text color-secondary"
-              @click="onBtnClick('signIn')"
-              >Register now</SfButton
-            >
-          </div>
-        </div>
-        <div v-else-if="isSignIn" key="sign-up" class="login__form__container">
-          <div class="login__form">
-            <SfInput
-              v-model="firstName"
-              name="first-name"
-              label="Name"
-              class="login__form__element"
-            />
-            <SfInput
-              v-model="lastName"
-              name="last-name"
-              label="Last Name"
-              class="login__form__element"
-            />
-            <SfInput
-              v-model="email"
-              name="email"
-              label="Your email"
-              class="login__form__element"
-            />
-            <SfInput
-              v-model="password"
-              name="password"
-              label="Password"
-              type="password"
-              class="login__form__element"
-            />
-            <SfButton class="sf-button--full-width login__form-btn"
-              >Create an account</SfButton
-            >
-          </div>
-          <div class="login__form__action-btn-wrapper">
-            <SfButton
-              class="sf-button--text color-secondary"
-              @click="onBtnClick('join')"
-              >or Log In To Your Account</SfButton
-            >
-          </div>
-        </div>
-      </transition>
-    </SfModal>
-  </div>
+      </div>
+    </transition>
+  </SfModal>
 </template>
 <script>
 import {
-  SfBar,
-  SfImage,
   SfModal,
   SfInput,
   SfButton,
@@ -140,8 +110,6 @@ import {
 export default {
   name: "Login",
   components: {
-    SfBar,
-    SfImage,
     SfModal,
     SfInput,
     SfButton,
@@ -150,14 +118,8 @@ export default {
   },
   data() {
     return {
-      isMyAccount: true,
-      isLogin: false,
-      isSignIn: false,
-      loginHeadinglevel: 1,
-      titleText: "Come on in!",
-      subtitleText: `View orders and update your details.
-         Make your checkout fast and easy!`,
-      bottomHeadingLevel: 3,
+      isLogIn: true,
+      formHeadingLevel: 3,
       email: "",
       password: "",
       createAccount: false,
@@ -171,19 +133,16 @@ export default {
         desktop: {
           url: "/assets/storybook/Login/EmptyHistory.png"
         }
-      },
-      items: [
-        { icon: "menu", label: "Menu" },
-        { icon: "heart", label: "Heart" },
-        { icon: "profile", label: "Profile" }
-      ],
-      label: "Home",
-      icon: "home",
-      isFloating: true
+      }
     };
   },
+  computed: {
+    modalTitle() {
+      return this.isLogIn ? "Log In" : "Join Vue Storefront";
+    }
+  },
   watch: {
-    isLogin() {
+    isLogIn() {
       this.email = "";
       this.password = "";
       this.createAccount = false;
@@ -191,33 +150,12 @@ export default {
       this.firstName = "";
       this.lastName = "";
     }
-  },
-  methods: {
-    onBtnClick(btn) {
-      this.isMyAccount = false;
-      if (btn === "signIn") {
-        this.isSignIn = true;
-        this.isLogin = false;
-      } else if (btn === "join") {
-        this.isLogin = true;
-        this.isSignIn = false;
-      }
-    },
-    onScreenChange() {
-      if (this.isSignIn === true) {
-        return "Join Vue Storefront";
-      } else if (this.isLogin === true) {
-        return "Log In";
-      } else {
-        return "My Account";
-      }
-    }
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-.login {
+.log-in {
   --modal-height: 100%;
   --modal-content-padding: var(--spacer-lg) var(--spacer-base) var(--spacer-2xl)
     var(--spacer-base);
@@ -232,59 +170,59 @@ export default {
       margin: 0 0 0 var(--spacer-2xl);
     }
   }
-  &__heading {
-    margin: var(--spacer-2xl) 0 var(--spacer-xl) 0;
-    &__title {
-      color: var(--c-primary);
-      font-family: var(--font-family-secondary);
-      font-size: var(--h1-font-size);
-      font-weight: var(--font-semibold);
-    }
-    &__subtitle {
-      color: var(--c-secondary-variant);
-      font-family: var(--font-family-primary);
-      font-size: var(--font-base);
-    }
+}
+.heading {
+  margin: var(--spacer-2xl) 0 var(--spacer-xl) 0;
+  &__title {
+    color: var(--c-primary);
+    font-family: var(--font-family-secondary);
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-semibold);
   }
-  &__btn {
-    --button-width: 100%;
-    --button-height: 4.0625rem;
-    &--login {
-      margin: var(--spacer-sm);
-    }
+  &__subtitle {
+    color: var(--c-secondary-variant);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-base);
   }
-  &__form {
-    margin: var(--spacer-xl) 0 var(--spacer-lg) 0;
-    &__container {
-      margin: 0 0 var(--spacer-2xl) 0;
-    }
+}
+.action-button {
+  --button-width: 100%;
+  --button-height: 4.0625rem;
+  &--secondary {
+    margin: var(--spacer-sm);
+  }
+}
+.form {
+  margin: var(--spacer-xl) 0 var(--spacer-lg) 0;
+  &__container {
+    margin: 0 0 var(--spacer-2xl) 0;
+  }
 
-    &__element {
-      margin: 0 0 var(--spacer-sm) 0;
-      &--checkbox {
-        margin: var(--spacer-lg) 0 var(--spacer-2xl);
-      }
+  &__element {
+    margin: 0 0 var(--spacer-sm) 0;
+    &--checkbox {
+      margin: var(--spacer-lg) 0 var(--spacer-2xl);
     }
-    &__btn {
-      margin: var(--spacer-xl) 0 0 0;
-    }
-    &__bottom-btn-wrapper,
-    &__action-btn-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    &__bottom-btn-wrapper {
-      margin: var(--spacer-xl) 0 0 0;
-    }
-    &__bottom-heading {
-      color: var(--c-primary);
-    }
+  }
+  &__action-button {
+    margin: var(--spacer-xl) 0 0 0;
+  }
+  &__action-button-wrapper,
+  &__action-button-wrapper--secondary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__action-button-wrapper--secondary {
+    margin: var(--spacer-xl) 0 0 0;
+  }
+  &__heading {
+    color: var(--c-primary);
   }
 }
 @include for-desktop {
-  .login {
+  .log-in {
     --modal-height: auto;
     --modal-content-padding: var(--spacer-lg);
     &__bar {
