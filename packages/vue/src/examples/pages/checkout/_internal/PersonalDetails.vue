@@ -128,6 +128,19 @@ export default {
       ]
     };
   },
+  watch: {
+    personalDetails: {
+      handler() {
+        this.firstName = this.value.firstName;
+        this.lastName = this.value.lastName;
+        this.email = this.value.email;
+      },
+      immediate: true
+    },
+    createAccount(value) {
+      if (!value) this.password = "";
+    }
+  },
   methods: {
     updateField(fieldName, fieldValue) {
       this.$emit("input", {

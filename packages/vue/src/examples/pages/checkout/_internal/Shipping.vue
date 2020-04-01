@@ -245,6 +245,23 @@ export default {
       ]
     };
   },
+  watch: {
+    shipping: {
+      handler() {
+        this.firstName = this.value.firstName;
+        this.lastName = this.value.lastName;
+        this.streetName = this.value.streetName;
+        this.apartment = this.value.apartment;
+        this.city = this.value.city;
+        this.state = this.value.state;
+        this.zipCode = this.value.zipCode;
+        this.country = this.value.country;
+        this.phoneNumber = this.value.phoneNumber;
+        this.shippingMethod = this.value.shippingMethod;
+      },
+      immediate: true
+    }
+  },
   methods: {
     updateField(fieldName, fieldValue) {
       this.$emit("input", {
