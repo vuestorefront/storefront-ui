@@ -123,6 +123,9 @@
       }
       -moz-appearance: textfield;
     }
+    &[type="search"] {
+      -webkit-appearance: none;
+    }
   }
 
   &__password-button {
