@@ -12,7 +12,7 @@ storiesOf("Atoms|Color", module)
     components: { SfColor },
     props: {
       color: { default: text("color", "red", "Props") },
-      hasBadge: { default: boolean("hasBadge", "false", "Props") },
+      hasBadge: { default: boolean("hasBadge", true, "Props") },
       customClass: {
         default: options(
           "CSS modifiers",
