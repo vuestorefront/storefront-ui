@@ -5,19 +5,9 @@
       :breadcrumbs="breadcrumbs"
     />
     <div class="product">
-      <SfChevron class="sf-chevron--left product__chevron mobile-only" />
-      <SfGallery
-        :images="product.images"
-        image-width="400"
-        image-height="450"
-        class="mobile-only"
-      />
-      <div class="product__images-desktop desktop-only">
-        <SfImage :src="product.images[0].big.url" />
-        <SfImage :src="product.images[1].big.url" />
-      </div>
+      <SfGallery :images="product.images" />
       <div class="product__info">
-        <div class="product__info__header">
+        <div class="product__header">
           <SfHeading
             :title="product.name"
             :level="3"
@@ -27,22 +17,18 @@
             icon="drag"
             size="xl"
             color="gray-secondary"
-            class="product__info__drag-icon mobile-only"
+            class="product__drag-icon mobile-only"
           />
         </div>
         <div class="product__price-and-rating">
           <SfPrice :regular="product.price" />
           <div>
-            <div class="product__price-and-rating__rating">
+            <div class="product__rating">
               <SfRating
                 :score="product.rating.rate"
                 :max="product.rating.max"
               />
-              <a
-                v-if="!!product.reviews"
-                href="#"
-                class="product__price-and-rating__count"
-              >
+              <a v-if="!!product.reviews" href="#" class="product__count">
                 ({{ product.reviews.length }})
               </a>
             </div>
@@ -55,7 +41,7 @@
           <p class="product__description desktop-only">
             {{ product.description }}
           </p>
-          <SfButton class="sf-button--text desktop-only btn__guide">
+          <SfButton class="sf-button--text desktop-only product__button__guide">
             Size guide
           </SfButton>
           <SfSelect
@@ -73,13 +59,13 @@
             </SfSelectOption>
           </SfSelect>
           <div class="product__colors desktop-only">
-            <p class="product__colors__label">Color:</p>
+            <p class="product__color-label">Color:</p>
             <SfColor
               v-for="(color, i) in product.colors"
               :key="i"
               :color="color.color"
               :selected="color.selected"
-              class="product__colors__color"
+              class="product__color"
               @click="selectColor(i)"
             />
           </div>
@@ -88,20 +74,17 @@
             class="product__add-to-cart"
             @click="addToCart"
           />
-          <SfButton class="sf-button--text desktop-only btn__save">
+          <SfButton class="sf-button--text desktop-only product__button__save">
             Save for later
           </SfButton>
-          <SfButton class="sf-button--text desktop-only btn__compare">
+          <SfButton
+            class="sf-button--text desktop-only product__button__compare"
+          >
             Add to compare
           </SfButton>
         </div>
         <SfTabs :open-tab="1" class="product__tabs">
-          <SfTab
-            v-for="tab in tabs"
-            :key="tab.title"
-            :title="tab.title"
-            class="product__tabs__tab"
-          >
+          <SfTab v-for="tab in tabs" :key="tab.title" :title="tab.title">
             {{ tab.content }}
             <div v-if="tab.title === 'Description'">
               <SfProperty
@@ -109,7 +92,7 @@
                 :key="i"
                 :name="detailed.name"
                 :value="detailed.value"
-                class="product__tabs__property"
+                class="product__property"
               >
                 <template v-if="detailed.name === 'Category'" #value>
                   <SfButton class="sf-button--text">
@@ -130,14 +113,15 @@
                 :char-limit="250"
                 read-more-text="Read more"
                 hide-full-text="Read less"
-                class="product__tabs__review"
+                class="product__review"
               />
               <SfPagination
-                :current="1"
+                :current="current"
                 :visible="4"
                 :total="4"
-                :has-arrows="trtrutrueeye"
-                class="product__tabs__pagination desktop-only"
+                :has-arrows="false"
+                class="product__pagination desktop-only"
+                @click="value => (current = value)"
               />
             </div>
             <div
@@ -164,14 +148,12 @@
 <script>
 import {
   SfGallery,
-  SfImage,
   SfHeading,
   SfPrice,
   SfRating,
   SfIcon,
   SfTabs,
   SfProperty,
-  SfChevron,
   SfButton,
   SfReview,
   SfAddToCart,
@@ -186,14 +168,12 @@ export default {
   name: "Product",
   components: {
     SfGallery,
-    SfImage,
     SfHeading,
     SfPrice,
     SfRating,
     SfIcon,
     SfTabs,
     SfProperty,
-    SfChevron,
     SfButton,
     SfReview,
     SfAddToCart,
@@ -205,7 +185,8 @@ export default {
   },
   data() {
     return {
-      selectedColor: undefined,
+      current: 1,
+      selectedColor: "beige",
       selectedSize: undefined,
       qty: 1,
       product: {
@@ -214,9 +195,9 @@ export default {
           "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
         images: [
           {
-            mobile: { url: "assets/storybook/Product/productA.jpg" },
-            desktop: { url: "assets/storybook/Product/productA.jpg" },
-            big: { url: "assets/storybook/Product/productA.jpg" }
+            mobile: { url: "assets/storybook/Product/productA.png" },
+            desktop: { url: "assets/storybook/Product/productA.png" },
+            big: { url: "assets/storybook/Product/productA.png" }
           },
           {
             mobile: { url: "assets/storybook/Product/productB.jpg" },
@@ -224,9 +205,9 @@ export default {
             big: { url: "assets/storybook/Product/productB.jpg" }
           },
           {
-            mobile: { url: "assets/storybook/Product/productA.jpg" },
-            desktop: { url: "assets/storybook/Product/productA.jpg" },
-            big: { url: "assets/storybook/Product/productA.jpg" }
+            mobile: { url: "assets/storybook/Product/productA.png" },
+            desktop: { url: "assets/storybook/Product/productA.png" },
+            big: { url: "assets/storybook/Product/productA.png" }
           },
           {
             mobile: { url: "assets/storybook/Product/productB.jpg" },
@@ -236,7 +217,7 @@ export default {
         ],
         price: "$50.00",
         colors: [
-          { color: "#EDCBB9", name: "beige", selected: false },
+          { color: "#EDCBB9", name: "beige", selected: true },
           { color: "#ABD9D8", name: "mint1", selected: false },
           { color: "#DB5593", name: "pink1", selected: false },
           { color: "#ABD9D8", name: "mint2", selected: false },
@@ -360,17 +341,8 @@ export default {
 }
 
 .product {
-  &__chevron {
-    --chevron-size: 14px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    margin: var(--spacer-base) 0 0 var(--spacer-base);
-  }
-  &__images-desktop {
+  @include for-desktop {
     display: flex;
-    flex-direction: column;
   }
   &__info {
     margin: var(--spacer-sm) auto var(--spacer-xs);
@@ -378,18 +350,19 @@ export default {
       max-width: 32.625rem;
       margin: 0 0 0 7.5rem;
     }
-    &__header {
-      margin: 0 var(--spacer-sm);
-      display: flex;
-      justify-content: space-between;
-      @include for-desktop {
-        margin: 0 auto;
-      }
-    }
-    &__drag-icon {
-      animation: moveicon 1s ease-in-out infinite;
+  }
+  &__header {
+    margin: 0 var(--spacer-sm);
+    display: flex;
+    justify-content: space-between;
+    @include for-desktop {
+      margin: 0 auto;
     }
   }
+  &__drag-icon {
+    animation: moveicon 1s ease-in-out infinite;
+  }
+
   &__price-and-rating {
     margin: var(--spacer-xs) var(--spacer-sm) var(--spacer-base);
     align-items: center;
@@ -398,23 +371,23 @@ export default {
       justify-content: space-between;
       margin: var(--spacer-sm) 0 var(--spacer-lg) 0;
     }
-    &__rating {
-      display: flex;
-      align-items: center;
-      margin: var(--spacer-xs) 0 0 0;
-    }
-    &__count {
-      @include font(
-        --count-font,
-        var(--font-normal),
-        var(--font-sm),
-        1.4,
-        var(--font-family-secondary)
-      );
-      color: var(--c-text);
-      text-decoration: none;
-      margin: 0 0 0 var(--spacer-xs);
-    }
+  }
+  &__rating {
+    display: flex;
+    align-items: center;
+    margin: var(--spacer-xs) 0 0 0;
+  }
+  &__count {
+    @include font(
+      --count-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.4,
+      var(--font-family-secondary)
+    );
+    color: var(--c-text);
+    text-decoration: none;
+    margin: 0 0 0 var(--spacer-xs);
   }
   &__description {
     color: var(--c-link);
@@ -443,17 +416,28 @@ export default {
     display: flex;
     align-items: center;
     margin-top: var(--spacer-xl);
-    &__label {
-      margin: 0 var(--spacer-lg) 0 0;
-    }
-    &__color {
-      margin: 0 var(--spacer-2xs);
-    }
+  }
+  &__color-label {
+    margin: 0 var(--spacer-lg) 0 0;
+  }
+  &__color {
+    margin: 0 var(--spacer-2xs);
   }
   &__add-to-cart {
-    margin-top: var(--spacer-base);
+    margin: var(--spacer-base) var(--spacer-sm) 0;
     @include for-desktop {
       margin-top: var(--spacer-2xl);
+    }
+  }
+  &__button {
+    &__guide,
+    &__compare,
+    &__save {
+      display: block;
+      margin: var(--spacer-xl) 0 var(--spacer-base) auto;
+    }
+    &__compare {
+      margin-top: 0;
     }
   }
   &__tabs {
@@ -462,16 +446,23 @@ export default {
       margin-top: var(--spacer-2xl);
       --tabs-content-tab-padding: 3.5rem 0 0 0;
     }
-    &__property {
-      margin-top: var(--spacer-lg);
+  }
+  &__property {
+    margin-top: var(--spacer-lg);
+  }
+  &__review {
+    padding-bottom: 24px;
+    border-bottom: var(--c-light) solid 1px;
+    margin-bottom: var(--spacer-base);
+    &:last-of-type {
+      border: none;
     }
-    &__review {
-      border-bottom: var(--c-light) solid 1px;
-      margin-bottom: var(--spacer-base);
+    @include for-desktop {
+      padding-bottom: 0;
     }
-    &__pagination {
-      margin-top: 4rem;
-    }
+  }
+  &__pagination {
+    margin-top: 4rem;
   }
   &__additional-info {
     @include font(
@@ -492,21 +483,6 @@ export default {
       margin: 0;
     }
   }
-  @include for-desktop {
-    display: flex;
-  }
-}
-
-.btn {
-  &__guide,
-  &__compare,
-  &__save {
-    display: block;
-    margin: var(--spacer-xl) 0 var(--spacer-base) auto;
-  }
-  &__compare {
-    margin-top: 0;
-  }
 }
 
 .breadcrumbs {
@@ -515,13 +491,13 @@ export default {
 
 @keyframes moveicon {
   0% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(30%);
+    transform: translate3d(0, 30%, 0);
   }
   100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 </style>
