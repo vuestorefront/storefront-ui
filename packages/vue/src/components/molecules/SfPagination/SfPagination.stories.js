@@ -14,6 +14,9 @@ storiesOf("Molecules|Pagination", module)
       },
       hasArrows: {
         default: boolean("hasArrows", true, "Props")
+      },
+      onlyRightArrow: {
+        default: boolean("onlyRightArrow", false, "Props")
       }
     },
     data() {
@@ -26,6 +29,7 @@ storiesOf("Molecules|Pagination", module)
         :visible="visible"
         :total="total"
         :has-arrows="hasArrows"
+        :only-right-arrow="onlyRightArrow"
         @click="value => current = value"/>`
   }))
   .add("[slot] default", () => ({
@@ -39,6 +43,9 @@ storiesOf("Molecules|Pagination", module)
       },
       hasArrows: {
         default: boolean("hasArrows", true, "Props")
+      },
+      onlyRightArrow: {
+        default: boolean("onlyRightArrow", false, "Props")
       }
     },
     data() {
@@ -50,7 +57,8 @@ storiesOf("Molecules|Pagination", module)
       :current="current"
       :visible="visible"
       :total="total"
-      :has-arrows="hasArrows">
+      :has-arrows="hasArrows"
+      :only-right-arrow="onlyRightArrow">
         <template #default="{go}">CUSTOM DEFAULT</template>
     </SfPagination>`
   }))
@@ -65,6 +73,9 @@ storiesOf("Molecules|Pagination", module)
       },
       hasArrows: {
         default: boolean("hasArrows", true, "Props")
+      },
+      onlyRightArrow: {
+        default: boolean("onlyRightArrow", false, "Props")
       }
     },
     data() {
@@ -77,6 +88,7 @@ storiesOf("Molecules|Pagination", module)
       :visible="visible"
       :total="total"
       :has-arrows="hasArrows"
+      :only-right-arrow="onlyRightArrow"
       @click="value => current = value">
       <template #prev="{isDisabled, go}">
         <button @click="go">prev</button>
@@ -94,6 +106,9 @@ storiesOf("Molecules|Pagination", module)
       },
       hasArrows: {
         default: boolean("hasArrows", true, "Props")
+      },
+      onlyRightArrow: {
+        default: boolean("onlyRightArrow", false, "Props")
       }
     },
     data() {
@@ -106,6 +121,7 @@ storiesOf("Molecules|Pagination", module)
       :visible="visible"
       :total="total"
       :has-arrows="hasArrows"
+      :only-right-arrow="onlyRightArrow"
       @click="value => current = value">
       <template #next="{isDisabled, go}">
         <button @click="go">next</button>
@@ -123,6 +139,9 @@ storiesOf("Molecules|Pagination", module)
       },
       hasArrows: {
         default: boolean("hasArrows", true, "Props")
+      },
+      onlyRightArrow: {
+        default: boolean("onlyRightArrow", false, "Props")
       }
     },
     data() {
@@ -135,6 +154,7 @@ storiesOf("Molecules|Pagination", module)
       :visible="visible"
       :total="total"
       :has-arrows="hasArrows"
+      :only-right-arrow="onlyRightArrow"
       @click="value => current = value">
       <template #number="{number, go}">
         <button 

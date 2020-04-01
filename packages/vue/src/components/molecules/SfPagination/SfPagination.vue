@@ -53,7 +53,7 @@
           </slot>
         </li>
       </template>
-      <li v-if="hasArrows" class="sf-pagination__item">
+      <li v-if="hasArrows || onlyRightArrow" class="sf-pagination__item">
         <!-- @slot Custom markup for next page button -->
         <slot name="next" v-bind="{ isDisabled: !canGoNext, go: goNext }">
           <button
@@ -104,6 +104,13 @@ export default {
     hasArrows: {
       type: Boolean,
       default: true
+    },
+    /**
+     * Status of right arrow
+     */
+    onlyRightArrow: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
