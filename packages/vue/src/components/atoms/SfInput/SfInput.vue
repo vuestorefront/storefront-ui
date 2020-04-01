@@ -142,7 +142,8 @@ export default {
   data() {
     return {
       isPasswordVisible: false,
-      inputType: ""
+      inputType: "",
+      isNumberTypeSafari: false
     };
   },
   computed: {
@@ -160,22 +161,30 @@ export default {
     type: {
       immediate: true,
       handler: function(value) {
-        this.inputType = value;
+        const ua = navigator.userAgent.toLowerCase();
+        if (
+          ua.indexOf("safari") !== -1 &&
+          ua.indexOf("chrome") === -1 &&
+          value === "number"
+        ) {
+          this.isNumberTypeSafari = true;
+          this.inputType = "text";
+        } else this.inputType = value;
       }
     },
     value: {
       immediate: true,
       handler: function(value) {
-        if (this.type === "number" && isNaN(value)) {
-          this.$emit("input", "");
-        }
+        if (this.isNumberTypeSafari && isNaN(value)) {
+          return this.$emit("input", "");
+        } else this.$emit("input", value);
       }
-    }
-  },
-  methods: {
-    switchVisibilityPassword() {
-      this.isPasswordVisible = !this.isPasswordVisible;
-      this.inputType = this.isPasswordVisible ? "text" : "password";
+    },
+    methods: {
+      switchVisibilityPassword() {
+        this.isPasswordVisible = !this.isPasswordVisible;
+        this.inputType = this.isPasswordVisible ? "text" : "password";
+      }
     }
   }
 };
