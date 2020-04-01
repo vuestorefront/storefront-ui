@@ -5,24 +5,28 @@
         <SfSteps :active="currentStep" @change="updateStep($event)">
           <SfStep name="Details">
             <PersonalDetails
-              v-model="personalDetails"
+              :value="personalDetails"
               :button-name="getButtonName"
+              @input="personalDetails = $event"
               @click:next="currentStep++"
               @click:back="currentStep--"
             />
           </SfStep>
           <SfStep name="Shipping">
             <Shipping
-              v-model="shipping"
+              :value="shipping"
               :shipping-methods="shippingMethods"
+              @input="shipping = $event"
               @click:next="currentStep++"
               @click:back="currentStep--"
             />
           </SfStep>
           <SfStep name="Payment">
             <Payment
-              v-model="payment"
+              :value="payment"
               :payment-methods="paymentMethods"
+              :shipping="shipping"
+              @input="payment = $event"
               @click:next="currentStep++"
               @click:back="currentStep--"
             />
@@ -305,6 +309,7 @@ export default {
     }
   }
   &__aside {
+    box-shadow: 0px 4px 11px rgba(var(--c-dark-base), 0.1);
     @include for-desktop {
       flex: 0 0 26.8125rem;
       margin: 0 0 0 var(--spacer-xl);
