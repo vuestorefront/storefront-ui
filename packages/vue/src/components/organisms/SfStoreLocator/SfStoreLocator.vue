@@ -2,8 +2,8 @@
   <div class="sf-store-locator">
     <div class="sf-store-locator__wrapper">
       <div class="sf-store-locator__list">
-        <div class="sf-store-locator__title desktop-only" tabindex="0">
-          Stores found: <span>{{ stores.length }}</span>
+        <div class="sf-store-locator__stores desktop-only" tabindex="0">
+          Found stores: <span>{{ stores.length }}</span>
         </div>
         <!-- @slot Use this slot to show stores cards -->
         <slot
@@ -12,15 +12,16 @@
             registerStore,
             removeStore,
             userPosition,
-            getGeoDistance
+            getGeoDistance,
+            locateUser
           }"
         />
       </div>
       <div class="sf-store-locator__map-wrapper">
-        <l-map
+        <LMap
           v-if="loaded"
           ref="map"
-          class="sf-store-locator__map-wrapper-map"
+          class="sf-store-locator__map"
           :options="computedMapOptions"
           :center.sync="internalCenter"
           :zoom.sync="internalZoom"
@@ -29,35 +30,32 @@
           @locationfound="locationFound"
           @locationerror="locationError"
         >
-          <l-tilelayer
+          <LTileLayer
             v-bind="tileLayerOptions"
             :url="tileServerUrl"
             :attribution="tileServerAttribution"
           />
-          <l-marker
+          <LControlZoom position="topleft" />
+          <LMarker
             v-for="(store, index) in stores"
             :key="index"
             :lat-lng="store.latlng"
             v-bind="markerOptions"
           >
-            <l-icon :icon-size="markerIconSize" :icon-anchor="markerIconAnchor">
+            <LIcon :icon-size="markerIconSize" :icon-anchor="markerIconAnchor">
               <!-- @slot Use this slot to change the icon of the stores, remember to update `markerIconSize` and `markerIconAnchor` accordingly-->
               <slot name="marker-icon">
-                <sf-icon
+                <SfIcon
                   :aria-label="`${store.name} located at ${store.address}`"
                   icon="marker"
                 />
               </slot>
-            </l-icon>
-          </l-marker>
-        </l-map>
+            </LIcon>
+          </LMarker>
+        </LMap>
         <!-- @slot Use this slot to customise the loading indicator while the map librry loads -->
-        <slot
-          v-if="!mapReady"
-          name="map-loading"
-          class="sf-store-locator-map-wrapper-loading"
-        >
-          <sf-loader />
+        <slot v-if="!mapReady" name="map-loading">
+          <SfLoader class="sf-store-locator__loader" />
         </slot>
       </div>
     </div>
@@ -68,7 +66,9 @@ import Vue from "vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLoader from "../../atoms/SfLoader/SfLoader.vue";
 import SfStore from "./_internal/SfStore.vue";
+
 Vue.component("SfStore", SfStore);
+
 export default {
   name: "SfStoreLocator",
   provide() {
@@ -82,6 +82,7 @@ export default {
       removeStore: this.removeStore,
       centerOn: this.centerOn,
       getGeoDistance: this.getGeoDistance,
+      locateUser: this.locateUser,
       locatorData
     };
   },
@@ -199,17 +200,15 @@ export default {
     }
   },
   mounted() {
-    Promise.all([
-      import("vue2-leaflet"),
-      import("leaflet/dist/leaflet.css")
-    ]).then(
-      ([{ LMap, LTileLayer, LMarker, LIcon, LControl, LControlZoom }]) => {
-        Vue.component("l-map", LMap);
-        Vue.component("l-tilelayer", LTileLayer);
-        Vue.component("l-marker", LMarker);
-        Vue.component("l-icon", LIcon);
-        Vue.component("l-control", LControl);
-        Vue.component("l-control-zoom", LControlZoom);
+    import("leaflet/dist/leaflet.css");
+    import("vue2-leaflet").then(
+      ({ LMap, LTileLayer, LMarker, LIcon, LControl, LControlZoom }) => {
+        Vue.component("LMap", LMap);
+        Vue.component("LTileLayer", LTileLayer);
+        Vue.component("LMarker", LMarker);
+        Vue.component("LIcon", LIcon);
+        Vue.component("LControl", LControl);
+        Vue.component("LControlZoom", LControlZoom);
         this.loaded = true;
         /**
          * Library loaded event, the library is ready and the map is initialising
