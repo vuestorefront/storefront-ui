@@ -33,16 +33,6 @@
   width: var(--select-width);
   height: var(--select-height);
   padding: var(--select-padding, 0 0 calc(var(--font-xs) * 1.2) 0);
-  // I know it's look's like magic but we need it now :(
-  min-height: var(
-    --select-height,
-    calc(
-      calc(
-        var(--spacer-sm) + var(--spacer-xs) +
-          var(--select-label-font-size, var(--font-lg))
-      )
-    )
-  );
   color: var(--select-color, var(--c-text));
   cursor: default;
   outline: none;
@@ -85,8 +75,6 @@
   &__selected {
     --product-option-font-size: var(--font-lg);
     --select-option-font-size: var(--font-lg);
-    --select-option-font-weight: var(--font-normal);
-    --product-option-font-weight: var(--font-normal);
     box-sizing: border-box;
     display: flex;
     align-items: center;
