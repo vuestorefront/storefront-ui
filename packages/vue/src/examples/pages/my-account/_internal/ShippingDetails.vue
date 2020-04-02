@@ -103,33 +103,16 @@
           >
             <div class="shipping__content">
               <p class="shipping__address">
-                <SfHeading
-                  class="shipping__client-name sf-heading--left"
-                  :level="6"
-                  :title="shipping.firstName + ' ' + shipping.lastName"
-                ></SfHeading>
-                <span class="shipping__client-address"
-                  >{{ shipping.streetName }} {{ shipping.apartment }}
-                  {{ shipping.zipCode }} {{ shipping.city }}
-                  {{ shipping.country }}</span
-                >
+                <span class="shipping__client-name"
+                  >{{ shipping.firstName }} {{ shipping.lastName }}</span
+                ><br />
+                {{ shipping.streetName }} {{ shipping.apartment }}<br />{{
+                  shipping.zipCode
+                }}
+                {{ shipping.city }},<br />{{ shipping.country }}
               </p>
-              <br />
-              <p class="shipping__client-contact">
-                <SfIcon
-                  icon="mail"
-                  size="12px"
-                  class="shipping__contact-icon"
-                />
+              <p class="shipping__address">
                 {{ shipping.phoneNumber }}
-              </p>
-              <p class="shipping__client-contact">
-                <SfIcon
-                  icon="mail"
-                  size="12px"
-                  class="shipping__contact-icon"
-                />
-                {{ account.email }}
               </p>
             </div>
             <div class="shipping__actions">
@@ -163,8 +146,7 @@ import {
   SfInput,
   SfButton,
   SfSelect,
-  SfIcon,
-  SfHeading
+  SfIcon
 } from "@storefront-ui/vue";
 
 export default {
@@ -174,8 +156,7 @@ export default {
     SfInput,
     SfButton,
     SfSelect,
-    SfIcon,
-    SfHeading
+    SfIcon
   },
   props: {
     account: {
@@ -196,7 +177,6 @@ export default {
       zipCode: "",
       country: "",
       phoneNumber: "",
-      email: "",
       countries: [
         "Austria",
         "Azerbaijan",
@@ -304,7 +284,7 @@ export default {
 }
 .shipping {
   display: flex;
-  padding: var(--spacer-sm) 0;
+  padding: var(--spacer-big) 0;
   border: 1px solid var(--c-light);
   border-width: 1px 0 0 0;
   &:last-child {
@@ -313,7 +293,7 @@ export default {
   &__content {
     flex: 1;
     color: var(--c-text);
-    font: var(--font-normal) var(--font-xs) / 1.6 var(--font-family-secondary);
+    font: 300 var(--font-size-small) / 1.6 var(--font-family-secondary);
   }
   &__actions {
     display: flex;
@@ -333,30 +313,17 @@ export default {
       --button-background: var(--c-light-variant);
     }
     @include for-desktop {
-      margin: 0 0 0 var(--spacer-sm);
+      margin: 0 0 0 var(--spacer-big);
     }
   }
-  &__client-contact {
-    display: flex;
-    align-items: center;
-    margin: 0 0 var(--spacer-sm) 0;
-    color: var(--c-dark-variant);
-    font-weight: var(--font-normal);
+  &__address {
+    margin: 0 0 var(--spacer-big) 0;
     &:last-child {
       margin: 0;
     }
   }
-  &__contact-icon {
-    --icon-color: var(--c-primary);
-    margin: 0 var(--spacer-sm) 0 0;
-  }
   &__client-name {
-    font: var(--font-normal) var(--font-2xs) / 1.6 var(--font-family-secondary);
-    margin: 0 0 var(--spacer-2xs) 0;
-  }
-  &__client-address {
-    font: var(--font-normal) var(--font-xs) / 1.6 var(--font-family-primary);
-    color: var(--c-gray-variant);
+    font: 500 var(--font-size-regular) / 1.6 var(--font-family-secondary);
   }
 }
 .tab-orphan {
@@ -373,7 +340,7 @@ export default {
     align-items: center;
   }
   &__element {
-    margin: 0 0 var(--spacer-xl) 0;
+    margin: 0 0 var(--spacer-extra-big) 0;
     @include for-desktop {
       flex: 0 0 100%;
     }
@@ -383,7 +350,7 @@ export default {
       }
       &-even {
         @include for-desktop {
-          padding: 0 0 0 var(--spacer-xl);
+          padding: 0 0 0 var(--spacer-extra-big);
         }
       }
     }
@@ -396,11 +363,10 @@ export default {
   }
 }
 .message {
-  margin: 0 0 var(--spacer-xl) 0;
-  font: 300 var(--font-base) / 1.6 var(--font-family-primary);
-  color: var(--c-dark-variant);
+  margin: 0 0 var(--spacer-extra-big) 0;
+  font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
   &__label {
-    color: var(--c-text);
+    font-weight: 500;
   }
 }
 .notice {
@@ -416,9 +382,8 @@ a {
 }
 .action-button {
   --button-width: 100%;
-  margin: var(--spacer-2xl) 0 0 0;
   @include for-desktop {
-    --button-width: 18rem;
+    --button-width: auto;
   }
 }
 </style>
