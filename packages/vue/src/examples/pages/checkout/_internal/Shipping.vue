@@ -280,7 +280,7 @@ export default {
     --h2-heading-title-font-size: var(--h3-font-size);
     --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
     &:last-of-type {
-      --heading-padding: var(--spacer-xs) 0 var(--spacer-base) var(--spacer-xs);
+      --heading-padding: var(--spacer-xs) 0 var(--spacer-base) 0;
     }
   }
 }
@@ -309,6 +309,9 @@ export default {
     flex-wrap: wrap;
     align-items: center;
     margin: 0 var(--spacer-2xl) 0 0;
+    &:last-of-type {
+      margin: 0 calc(var(--spacer-2xl) - var(--spacer-sm)) 0 0;
+    }
     &__element {
       margin: 0 0 var(--spacer-sm) 0;
       flex: 0 0 100%;
@@ -326,6 +329,9 @@ export default {
     &__button {
       --button-width: auto;
     }
+    &__radio-group {
+      transform: translateX(calc(var(--spacer-sm) * -1));
+    }
   }
   @include for-mobile {
     &__radio-group {
@@ -340,6 +346,7 @@ export default {
 }
 .shipping {
   --radio-container-padding: var(--spacer-sm);
+
   &__label {
     display: flex;
     justify-content: flex-start;

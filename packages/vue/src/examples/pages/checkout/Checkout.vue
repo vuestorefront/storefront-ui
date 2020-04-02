@@ -290,7 +290,7 @@ export default {
   box-sizing: border-box;
   font-family: var(--font-family-secondary);
   @include for-desktop {
-    padding: 0 var(--spacer-base);
+    padding: 0 var(--spacer-sm);
     max-width: 1240px;
     margin: 0 auto;
   }
