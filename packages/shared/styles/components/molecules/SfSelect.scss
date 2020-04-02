@@ -32,6 +32,7 @@
   box-sizing: border-box;
   width: var(--select-width);
   height: var(--select-height);
+  padding: var(--select-padding, 0 0 calc(var(--font-xs) * 1.2) 0);
   // I know it's look's like magic but we need it now :(
   min-height: var(
     --select-height,
@@ -93,7 +94,7 @@
       --select-height,
       calc(
         calc(
-          var(--spacer-sm) + var(--spacer-xs) +
+          var(--spacer-base) + var(--spacer-2xs) +
             var(--select-label-font-size, var(--font-lg))
         )
       )
@@ -198,6 +199,7 @@
     --select-animation-leave: ssdesktop 150ms reverse;
   }
 }
+
 @keyframes ssdesktop {
   0% {
     opacity: 0;
