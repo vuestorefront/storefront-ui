@@ -175,22 +175,36 @@
               >Expiry date:</span
             >
             <div class="credit-card-form__element">
-              <SfInput
+              <SfSelect
                 v-model="cardMonth"
                 :value="cardMonth"
                 label="Month"
-                name="month"
-                class="credit-card-form__input credit-card-form__input--with-spacer"
-                @input="updateField('cardMonth', $event)"
-              />
-              <SfInput
+                class="credit-card-form__input credit-card-form__input--with-spacer form__select sf-select--underlined"
+                @change="updateField('cardMonth', $event)"
+              >
+                <SfSelectOption
+                  v-for="monthOption in months"
+                  :key="monthOption"
+                  :value="monthOption"
+                >
+                  {{ monthOption }}
+                </SfSelectOption>
+              </SfSelect>
+              <SfSelect
                 v-model="cardYear"
                 :value="cardYear"
                 label="Year"
-                name="year"
-                class="credit-card-form__input"
-                @input="updateField('cardYear', $event)"
-              />
+                class="credit-card-form__input form__select sf-select--underlined"
+                @change="updateField('cardYear', $event)"
+              >
+                <SfSelectOption
+                  v-for="yearOption in years"
+                  :key="yearOption"
+                  :value="yearOption"
+                >
+                  {{ yearOption }}
+                </SfSelectOption>
+              </SfSelect>
             </div>
           </div>
           <div class="credit-card-form__group">
@@ -212,7 +226,7 @@
             :value="cardKeep"
             name="keepcard"
             label="Save this card for other purchases"
-            class="form__checkbox"
+            class="credit-card-form__element form__checkbox"
             @change="updateField('cardKeep', $event)"
           />
         </div>
@@ -289,6 +303,21 @@ export default {
       cardYear: "",
       cardCVC: "",
       cardKeep: false,
+      months: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      years: ["2020", "2021", "2022", "2025"],
       countries: []
     };
   },
@@ -392,7 +421,7 @@ export default {
   &__action-button {
     &:first-child {
       --button-height: 4.0625rem;
-      margin: var(--spacer-sm) 0 0 0;
+      margin: var(--spacer-xl) 0 0 0;
     }
     &--secondary {
       margin: var(--spacer-base) 0;
@@ -436,45 +465,54 @@ export default {
   --ratio-content-margin: 0 0 0 var(--spacer-lg);
   --radio-background: transparent;
   white-space: nowrap;
-}
-.payment-image {
   @include for-desktop {
-    --image-width: 3.5625rem;
+    --radio-container-padding: var(--spacer-sm);
   }
 }
 .credit-card-form {
   padding: var(--spacer-xl) 0 0 0;
   &__group {
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     justify-content: flex-start;
     position: relative;
   }
+  &__element {
+    flex: 1;
+  }
   &__label {
     font-size: var(--font-lg);
-    flex: 50%;
+    padding: var(--spacer-sm) 0 0 0;
+    flex: 1;
   }
   &__button {
-    --button-padding: var(--spacer-sm);
+    --button-padding: var(--spacer-sm) 0 0 var(--spacer-sm);
+    text-align: right;
+    flex: 1;
   }
   &__input {
     flex: 1;
+    padding: 0 0 var(--spacer-sm) 0;
   }
   @include for-desktop {
     width: 100%;
-    padding: var(--spacer-lg) var(--spacer-2xl);
+    padding: var(--spacer-lg) var(--spacer-xl);
     &__element {
       display: flex;
     }
     &__label {
+      padding: var(--spacer-sm) var(--spacer-sm) 0 0;
       &--small {
         flex: 0 0 calc(100% / 3);
       }
     }
+    &__button {
+      text-align: left;
+    }
     &__input {
       align-self: center;
       &--with-spacer {
-        margin: 0 var(--spacer-xl) 0 0;
+        margin: 0 var(--spacer-lg) 0 0;
       }
       &--small {
         flex: 0 0 calc(100% / 3);
