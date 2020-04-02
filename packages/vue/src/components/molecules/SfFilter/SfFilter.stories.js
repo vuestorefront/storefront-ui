@@ -11,6 +11,9 @@ storiesOf("Molecules|Filter", module)
       },
       count: {
         default: number("count", 30, {}, "Props")
+      },
+      color: {
+        default: text("color", "", "Props")
       }
     },
     data() {
@@ -22,6 +25,7 @@ storiesOf("Molecules|Filter", module)
         :label="label" 
         :count="count"
         :selected="selected"
+        :color="color"
         @change="selected = !selected"
         style="max-width: 22.875rem" 
       />`

@@ -3,6 +3,7 @@
 .sf-filter {
   --checkbox-order: 1;
   --checkbox-border-radius: 100%;
+  width: 100%;
   &__label {
     margin: var(--filter-label-margin, 0 0 0 var(--spacer-sm));
     @include font(
@@ -38,5 +39,9 @@
       --filter-label-text-decoration: underline;
       --filter-label-transform: scale3d(1.4, 1.4, 1);
     }
+  }
+  &--is-color {
+    display: flex;
+    align-items: center;
   }
 }
