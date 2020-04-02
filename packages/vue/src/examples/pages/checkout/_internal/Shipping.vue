@@ -276,7 +276,7 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .title {
-  --heading-padding: var(--spacer-sm) 0;
+  --heading-padding: var(--spacer-base) 0;
   @include for-desktop {
     --h2-heading-title-font-size: var(--h3-font-size);
     --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;

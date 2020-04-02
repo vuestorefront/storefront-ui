@@ -128,7 +128,7 @@
         <SfHeading
           title="Totals"
           :level="1"
-          class="sf-heading--left sf-heading--no-underline summary_title"
+          class="sf-heading--left sf-heading--no-underline summary__title"
         />
         <SfProperty
           name="Products"
@@ -151,7 +151,7 @@
           :value="total"
           class="sf-property--full-width property"
         />
-        <SfCheckbox v-model="terms" name="terms" class="totals__terms">
+        <SfCheckbox v-model="terms" name="terms" class="summary__terms">
           <template #label>
             <div class="sf-checkbox__label">
               I agree to <a href="#">Terms and conditions</a>
@@ -331,7 +331,7 @@ export default {
 @import "~@storefront-ui/vue/styles";
 
 .title {
-  --heading-padding: var(--spacer-sm) 0;
+  --heading-padding: var(--spacer-base) 0;
   --h3-heading-title-font-size: var(--h2-font-size);
 
   @include for-desktop {
@@ -359,9 +359,9 @@ export default {
       flex: 0 0 12rem;
     }
     &__image {
-      --image-width: 82px;
+      --image-width: 5.125rem;
       text-align: left;
-      margin-right: var(--spacer-xl);
+      margin: 0 var(--spacer-xl) 0 0;
     }
   }
 }
@@ -386,7 +386,7 @@ export default {
 .promo-code {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: baseline;
   &__circle-icon {
     --button-size: 2rem;
     --icon-size: 0.6875rem;
@@ -408,6 +408,8 @@ export default {
 
 .property {
   margin: 0 0 var(--spacer-base) 0;
+  --property-value-font-weight: var(--font-semibold);
+  --property-value-font-size: var(--font-base);
   @include for-desktop {
     margin: 0 0 var(--spacer-sm) 0;
     &__total {
@@ -464,6 +466,12 @@ export default {
     flex-direction: column;
     align-items: flex-start;
     padding: var(--spacer-base) var(--spacer-lg);
+  }
+  &__title {
+    margin: 0 0 var(--spacer-xs) 0;
+  }
+  &__terms {
+    margin: 0 0 0 var(--spacer-xs);
   }
 }
 
