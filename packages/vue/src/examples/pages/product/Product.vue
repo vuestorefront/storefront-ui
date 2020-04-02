@@ -115,14 +115,6 @@
                 hide-full-text="Read less"
                 class="product__review"
               />
-              <SfPagination
-                :current="current"
-                :visible="4"
-                :total="4"
-                :has-arrows="false"
-                class="product__pagination desktop-only"
-                @click="value => (current = value)"
-              />
             </div>
             <div
               v-else-if="tab.title === 'Additional Information'"
@@ -160,8 +152,7 @@ import {
   SfColor,
   SfSelect,
   SfProductOption,
-  SfBreadcrumbs,
-  SfPagination
+  SfBreadcrumbs
 } from "@storefront-ui/vue";
 
 export default {
@@ -180,8 +171,7 @@ export default {
     SfColor,
     SfSelect,
     SfProductOption,
-    SfBreadcrumbs,
-    SfPagination
+    SfBreadcrumbs
   },
   data() {
     return {
@@ -456,13 +446,12 @@ export default {
     margin-bottom: var(--spacer-base);
     &:last-of-type {
       border: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
     }
     @include for-desktop {
       padding-bottom: 0;
     }
-  }
-  &__pagination {
-    margin-top: 4rem;
   }
   &__additional-info {
     @include font(
