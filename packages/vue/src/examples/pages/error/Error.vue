@@ -61,9 +61,9 @@ export default {
   --heading-subtitle-font-size: var(--font-base);
   --heading-subtitle-margin: 0 var(--spacer-base);
   --heading-subtitle-font-family: var(--font-family-primary);
-  --h2-heading-title-font-weight: var(--font-semibold);
+  --heading-title-font-weight: var(--font-semibold);
   @include for-desktop {
-    --h2-heading-title-font-size: 5rem;
+    --heading-title-font-size: 5rem;
     --heading-subtitle-margin: 0;
   }
 }
