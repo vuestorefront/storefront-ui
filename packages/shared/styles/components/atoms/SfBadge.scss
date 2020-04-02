@@ -1,7 +1,7 @@
 @import "../../helpers";
 
 .sf-badge {
-  display: inline-block;
+  display: var(--badge-display, inline-block);
   box-sizing: border-box;
   width: var(--badge-width);
   height: var(--badge-height);
