@@ -58,7 +58,7 @@ export default {
   methods: {
     setAsOpen() {
       if (this.$children && this.$children.length) {
-        // TODO remove in 1.0.0
+        // TODO remove in 1.0.0 ->
         if (this.firstOpen) {
           this.$children[0].isOpen = this.firstOpen;
           console.warn(
@@ -66,6 +66,7 @@ export default {
           );
           return;
         }
+        // <- TODO remove in 1.0.0
         this.$children.forEach(child => {
           child.isOpen = Array.isArray(this.open)
             ? this.open.includes(child.header)
