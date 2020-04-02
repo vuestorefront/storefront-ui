@@ -80,7 +80,47 @@
       </SfAccordionItem>
       <SfAccordionItem header="Order details">
         <div class="accordion__item">
-          <div class="accordion__content accordion__content"></div>
+          <transition name="fade">
+            <div class="accordion__content accordion__content">
+              <SfCollectedProduct
+                v-for="(product, index) in products"
+                :key="index"
+                v-model="product.qty"
+                :image="product.image"
+                :title="product.title"
+                :regular-price="product.price.regular"
+                :special-price="product.price.special"
+                :stock="product.stock"
+                class="collected-product"
+              >
+                <template #configuration>
+                  <div class="collected-product__properties">
+                    <SfProperty
+                      v-for="(property, key) in product.configuration"
+                      :key="key"
+                      :name="property.name"
+                      :value="property.value"
+                      class="collected-product__property"
+                    />
+                  </div>
+                </template>
+                <template #actions>
+                  <div>
+                    <div class="collected-product__action">
+                      {{ product.sku }}
+                    </div>
+                    <div class="collected-product__action">
+                      Quantity:
+                      <span class="product__qty">{{ product.qty }}</span>
+                    </div>
+                  </div>
+                </template>
+                <template #input>
+                  <span></span>
+                </template>
+              </SfCollectedProduct>
+            </div>
+          </transition>
         </div>
       </SfAccordionItem>
     </SfAccordion>
@@ -232,6 +272,7 @@ import {
   SfCheckbox,
   SfCircleIcon,
   SfCharacteristic,
+  SfCollectedProduct,
   SfDivider,
   SfButton,
   SfImage,
@@ -249,6 +290,7 @@ export default {
     SfCheckbox,
     SfCircleIcon,
     SfCharacteristic,
+    SfCollectedProduct,
     SfDivider,
     SfButton,
     SfImage,
@@ -443,19 +485,28 @@ export default {
 
 .accordion {
   --accordion-item-content-padding: 0;
+  --collected-product-padding: 0;
   --heading-padding: 0;
   &__item {
     position: relative;
   }
   &__content {
     flex: 1;
-    padding: var(--spacer-base);
+    padding: var(--spacer-sm);
   }
   &__edit {
     flex: unset;
     position: absolute;
     right: var(--spacer-base);
     top: var(--spacer-base);
+  }
+}
+
+.collected-product {
+  padding: var(--spacer-sm) 0;
+  &:not(:last-of-type) {
+    border: 1px solid var(--_c-light-primary);
+    border-width: 0 0 1px 0;
   }
 }
 
