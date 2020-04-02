@@ -21,14 +21,14 @@ storiesOf("Molecules|Filter", module)
         selected: true
       };
     },
-    template: `<SfFilter 
-        :label="label" 
-        :count="count"
-        :selected="selected"
-        :color="color"
-        @change="selected = !selected"
-        style="max-width: 22.875rem" 
-      />`
+    template: `<SfFilter
+       :label="label"
+       :count="count"
+       :selected="selected"
+       :color="color"
+       @change="selected = !selected"
+       style="max-width: 22.875rem"
+     />`
   }))
   .add("[slot] label", () => ({
     components: { SfFilter },
@@ -45,15 +45,15 @@ storiesOf("Molecules|Filter", module)
         selected: true
       };
     },
-    template: `<SfFilter 
-        :label="label" 
-        :count="count"
-        :selected="selected"
-        @change="selected = !selected"
-        style="max-width: 22.875rem" 
-      >
-      <template #label="{label}">CUSTOM LABEL</template>
-      </SfFilter>`
+    template: `<SfFilter
+       :label="label"
+       :count="count"
+       :selected="selected"
+       @change="selected = !selected"
+       style="max-width: 22.875rem"
+     >
+     <template #label="{label}">CUSTOM LABEL</template>
+     </SfFilter>`
   }))
   .add("[slot] count", () => ({
     components: { SfFilter },
@@ -70,13 +70,13 @@ storiesOf("Molecules|Filter", module)
         selected: true
       };
     },
-    template: `<SfFilter 
-        :label="label" 
-        :count="count"
-        :selected="selected"
-        @change="selected = !selected"
-        style="max-width: 22.875rem" 
-      >
-      <template #count="{count}">CUSTOM COUNT</template>
-      </SfFilter>`
+    template: `<SfFilter
+       :label="label"
+       :count="count"
+       :selected="selected"
+       @change="selected = !selected"
+       style="max-width: 22.875rem"
+     >
+     <template #count="{count}">CUSTOM COUNT</template>
+     </SfFilter>`
   }));
