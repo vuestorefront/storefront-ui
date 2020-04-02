@@ -74,6 +74,7 @@
         :value="country"
         label="Country"
         class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
+        :valid="true"
         required
         @change="updateField('country', $event)"
       >
