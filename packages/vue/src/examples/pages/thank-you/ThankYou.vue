@@ -78,17 +78,15 @@
               class="feedback-button color-secondary sf-button--full-width button-size"
               >SEND MY FEEDBACK</SfButton
             >
-            <SfButton
-              class="sf-button--full-width color-primary mobile-only button-size"
-              >GO BACK TO SHOP</SfButton
-            >
           </div>
         </div>
       </div>
     </section>
-    <SfButton class="back-button color-secondary desktop-only button-size"
-      >GO BACK TO SHOP</SfButton
-    >
+    <div class="bottom-section">
+      <SfButton class="back-button color-primary button-size"
+        >GO BACK TO SHOP</SfButton
+      >
+    </div>
   </div>
 </template>
 <script>
@@ -231,8 +229,16 @@ export default {
   }
 }
 
+.bottom-section {
+  padding: 0 var(--spacer-sm);
+  margin: 0 0 var(--spacer-sm) 0;
+}
 .back-button {
-  margin: var(--spacer-xl) auto;
+  --button-width: 100%;
+  @include for-desktop {
+    --button-background: var(--c-secondary);
+    margin: var(--spacer-xl) auto;
+  }
 }
 .button-size {
   @include for-desktop {
