@@ -44,8 +44,8 @@
         >
           <SfHeading
             title="Don't have an account yet?"
-            class="form__heading"
             :level="formHeadingLevel"
+            class="form__heading"
           />
           <SfButton
             class="sf-button--text color-secondary"
@@ -159,16 +159,10 @@ export default {
   --modal-height: 100%;
   --modal-content-padding: var(--spacer-lg) var(--spacer-base) var(--spacer-2xl)
     var(--spacer-base);
-  &__bar {
-    height: 3.125rem;
-  }
   &__container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    .sf-image {
-      margin: 0 0 0 var(--spacer-2xl);
-    }
   }
 }
 .heading {
@@ -199,16 +193,15 @@ export default {
   }
 
   &__element {
-    margin: 0 0 var(--spacer-sm) 0;
-    &--checkbox {
-      margin: var(--spacer-lg) 0 var(--spacer-2xl);
-    }
+    margin: 0 0 var(--spacer-xl) 0;
   }
-  &__action-button {
-    margin: var(--spacer-xl) 0 0 0;
+  &__checkbox {
+    margin: 0 0 var(--spacer-3xl) 0;
   }
-  &__action-button-wrapper,
-  &__action-button-wrapper--secondary {
+  &__heading {
+    --heading-title-color: var(--c-primary);
+  }
+  &__action-button-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -217,10 +210,8 @@ export default {
   &__action-button-wrapper--secondary {
     margin: var(--spacer-xl) 0 0 0;
   }
-  &__heading {
-    color: var(--c-primary);
-  }
 }
+
 @include for-desktop {
   .log-in {
     --modal-height: auto;
