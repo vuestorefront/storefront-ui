@@ -157,7 +157,7 @@ export default {
 .title {
   --heading-padding: var(--spacer-base) 0;
   @include for-desktop {
-    --h2-heading-title-font-size: var(--h3-font-size);
+    --heading-title-font-size: var(--h3-font-size);
     --heading-padding: 0 0 var(--spacer-base) 0;
   }
 }
