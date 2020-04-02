@@ -15,24 +15,24 @@
       var(--font-family-secondary)
     );
     &--h2 {
-      --heading-title-font-size: var(--h2-font-size);
-      --heading-title-font-weight: var(--font-normal);
+      --heading-title-font-size: var(--h2-heading-title-font-size, var(--h2-font-size));
+      --heading-title-font-weight: var(--h2-heading-title-font-weight, var(--font-normal));
     }
     &--h3 {
-      --heading-title-font-size: var(--h3-font-size);
-      --heading-title-font-weight: var(--font-medium);
+      --heading-title-font-size: var(--h3-heading-title-font-size, var(--h3-font-size));
+      --heading-title-font-weight: var(--h3-heading-title-font-weight, var(--font-medium));
     }
     &--h4 {
-      --heading-title-font-size: var(--h4-font-size);
-      --heading-title-font-weight: var(--font-normal);
+      --heading-title-font-size: var(--h4-heading-title-font-size, var(--h4-font-size));
+      --heading-title-font-weight: var(--h4-heading-title-font-weight, var(--font-normal));
     }
     &--h5 {
-      --heading-title-font-size: var(--h5-font-size);
-      --heading-title-font-weight: var(--font-bold);
+      --heading-title-font-size: var(--h5-heading-title-font-size, var(--h5-font-size));
+      --heading-title-font-weight: var(--h5-heading-title-font-weight, var(--font-bold));
     }
     &--h6 {
-      --heading-title-font-size: var(--h6-font-size);
-      --heading-title-font-weight: var(--font-normal);
+      --heading-title-font-size: var(--h6-heading-title-font-size, var(--h6-font-size));
+      --heading-title-font-weight: var(--h6-heading-title-font-weight, var(--font-normal));
     }
   }
 
