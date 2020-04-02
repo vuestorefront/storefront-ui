@@ -6,7 +6,7 @@
     />
     <SfHeading
       title="Page not found"
-      :level="1"
+      :level="2"
       subtitle="We are sorry that we can’t find the page, please go back or try again"
       class="heading sf-heading--no-underline"
     />
@@ -14,10 +14,7 @@
       <SfButton class="sf-button--full-width actions__button">
         Return to home
       </SfButton>
-      <SfButton
-        class="sf-button--full-width sf-button--text actions__button"
-        @click="$emit('click:back')"
-      >
+      <SfButton class="sf-button--full-width sf-button--text actions__button">
         Back
       </SfButton>
     </div>
@@ -60,12 +57,14 @@ export default {
 .heading {
   --heading-title-margin: 0 0 var(--spacer-base);
   --heading-title-color: var(--c-primary);
+  --heading-subtitle-color: var(--c-secondary-variant);
   --heading-subtitle-font-size: var(--font-base);
   --heading-subtitle-margin: 0 var(--spacer-base);
   --heading-subtitle-font-family: var(--font-family-primary);
+  --h2-heading-title-font-weight: var(--font-semibold);
   @include for-desktop {
+    --h2-heading-title-font-size: 5rem;
     --heading-subtitle-margin: 0;
-    --heading-title-font-size: 5rem;
   }
 }
 .actions {
@@ -73,6 +72,7 @@ export default {
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
+  width: 100%;
   margin: var(--spacer-xl) 0 0 0;
   &__button {
     &:last-child {
