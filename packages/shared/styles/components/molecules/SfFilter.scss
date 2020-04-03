@@ -49,8 +49,6 @@
    }
  }
  &--is-color {
-   //display: flex;
-   //align-items: center;
    @include for-desktop {
      --checkbox-display: none;
      --filter-label-display: none;
