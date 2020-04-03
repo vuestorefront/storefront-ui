@@ -1,11 +1,16 @@
 @import "../../helpers";
- 
+
 .sf-filter {
  --checkbox-order: 1;
  --checkbox-border-radius: 100%;
  width: 100%;
+ &__color {
+   margin: var(--filter-color-margin, 0 var(--spacer-sm) 0 0)
+ }
  &__label {
-   margin: var(--filter-label-margin, 0 0 0 var(--spacer-sm));
+   display: var(--filter-label-display, flex);
+   align-items: var(--filter-label-align-items, center);
+   margin: var(--filter-label-margin, 0);
    @include font(
      --filter-label-font,
      var(--font-medium),
@@ -18,6 +23,7 @@
    transform: var(--filter-label-transform);
  }
  &__count {
+   display: var(--filter-count-display);
    margin: var(--filter-count-margin, 0 var(--spacer-sm) 0 auto);
    @include font(
      --filter-count-font,
@@ -30,6 +36,8 @@
  @include for-desktop {
    --checkbox-border-radius: 0;
    --checkbox-order: 0;
+   --filter-color-margin: 0;
+   --filter-label-margin: 0 0 0 var(--spacer-sm);
    --filter-count-margin: 0 0 0 auto;
    --filter-label-font-size: var(--font-2xs);
    --filter-count-font-size: var(--font-2xs);
@@ -41,8 +49,13 @@
    }
  }
  &--is-color {
-   display: flex;
-   align-items: center;
+   //display: flex;
+   //align-items: center;
+   @include for-desktop {
+     --checkbox-display: none;
+     --filter-label-display: none;
+     --filter-count-display: none;
+   }
  }
 }
- 
+

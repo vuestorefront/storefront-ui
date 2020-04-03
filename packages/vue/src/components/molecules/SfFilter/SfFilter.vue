@@ -1,23 +1,30 @@
 <template>
-  <div :class="{ 'sf-filter--is-color': color }">
-    <SfColor v-if="color" :color="color" :has-badge="false" />
-    <SfCheckbox
-      class="sf-filter"
-      :class="{ 'sf-filter--active': isSelected, 'mobile-only': color }"
-      :name="label"
-      :selected="selected"
-      v-on="$listeners"
-    >
-      <template #label>
-        <slot name="label" v-bind="{ label }">
-          <div class="sf-filter__label">{{ label }}</div>
-        </slot>
-        <slot name="count" v-bind="{ count }">
-          <div class="sf-filter__count">{{ count }}</div>
-        </slot>
-      </template>
-    </SfCheckbox>
-  </div>
+  <SfCheckbox
+    class="sf-filter"
+    :class="{ 'sf-filter--active': selected, 'sf-filter--is-color': color }"
+    :name="label"
+    :selected="selected"
+    v-on="$listeners"
+  >
+    <template #label>
+      <slot name="color" v-bind="{ color, selected }">
+        <SfColor
+          v-if="color"
+          :color="color"
+          :has-badge="false"
+          :selected="selected"
+          class="sf-filter__color"
+          @click="$emit('change', !selected)"
+        />
+      </slot>
+      <slot name="label" v-bind="{ label }">
+        <div class="sf-filter__label">{{ label }}</div>
+      </slot>
+      <slot name="count" v-bind="{ count }">
+        <div class="sf-filter__count">{{ count }}</div>
+      </slot>
+    </template>
+  </SfCheckbox>
 </template>
 <script>
 import SfCheckbox from "../../atoms/SfCheckbox/SfCheckbox.vue";
@@ -45,11 +52,6 @@ export default {
     color: {
       type: String,
       default: ""
-    }
-  },
-  computed: {
-    isSelected() {
-      return this.selected;
     }
   }
 };

@@ -30,6 +30,33 @@ storiesOf("Molecules|Filter", module)
        style="max-width: 22.875rem"
      />`
   }))
+  .add("Color Filter", () => ({
+    components: { SfFilter },
+    props: {
+      label: {
+        default: text("label", "Red", "Props")
+      },
+      count: {
+        default: number("count", 30, {}, "Props")
+      },
+      color: {
+        default: text("color", "#E69494", "Props")
+      }
+    },
+    data() {
+      return {
+        selected: true
+      };
+    },
+    template: `<SfFilter
+        :label="label"
+        :count="count"
+        :selected="selected"
+        :color="color"
+        @change="selected = !selected"
+        style="max-width: 22.875rem"
+    />`
+  }))
   .add("[slot] label", () => ({
     components: { SfFilter },
     props: {
