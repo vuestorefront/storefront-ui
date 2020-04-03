@@ -36,6 +36,13 @@
     top: var(--collected-product-remove-top);
     right: var(--collected-product-remove-right, var(--spacer-xs));
   }
+  &__more-actions {
+    --icon-width: 4px;
+    --icon-height: 0.9375rem;
+    position: absolute;
+    top: var(--collected-product-remove-top);
+    right: var(--collected-product-remove-right, 0);
+  }
   &__aside {
     position: relative;
     flex: 0 0 8.75rem;
@@ -78,7 +85,6 @@
       var(--font-family-secondary)
     );
   }
-
   @include for-desktop {
     --collected-product-width: 21.875rem;
     --collected-product-padding: var(--spacer-xs);
