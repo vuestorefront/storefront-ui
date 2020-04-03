@@ -12,7 +12,18 @@
             @click:back="close"
           />
         </slot>
+        <!--@slot Use this slot to replace close icon.-->
+        <slot name="circle-icon" v-bind="{ close, button }">
+          <SfCircleIcon
+            v-if="button"
+            icon-size="12px"
+            icon="cross"
+            class="sf-sidebar__circle-icon desktop-only"
+            @click="close"
+          />
+        </slot>
         <div v-if="title || hasTop" class="sf-sidebar__top">
+          <!--@slot Use this slot to replace SfHeading component.-->
           <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
               v-if="title"
@@ -22,19 +33,11 @@
               class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
             />
           </slot>
+          <!--@slot Use this slot to add sticky top content.-->
           <slot name="content-top" />
-          <!--@slot Use this slot to replace icon on the right side.-->
-          <slot name="circle-icon" v-bind="{ close, button }">
-            <SfCircleIcon
-              v-if="button"
-              icon-size="12px"
-              icon="cross"
-              class="sf-sidebar__circle-icon desktop-only"
-              @click="close"
-            />
-          </slot>
         </div>
         <div ref="content" class="sf-sidebar__content">
+          <!--@slot Use this slot to add SfSidebar content.-->
           <slot />
         </div>
         <!--@slot Use this slot to place content to sticky bottom.-->

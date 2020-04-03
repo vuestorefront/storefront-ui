@@ -32,6 +32,7 @@
   box-sizing: border-box;
   width: var(--select-width);
   height: var(--select-height);
+  padding: var(--select-padding, 0 0 calc(var(--font-xs) * 1.2) 0);
   color: var(--select-color, var(--c-text));
   cursor: default;
   outline: none;
@@ -77,18 +78,22 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
+    min-height: var(
+      --select-height,
+      calc(
+        calc(
+          var(--spacer-base) + var(--spacer-2xs) +
+            var(--select-label-font-size, var(--font-lg))
+        )
+      )
+    );
     padding: var(
       --select-padding,
       var(--spacer-sm) var(--spacer-lg) var(--spacer-xs) var(--spacer-2xs)
     );
     margin: var(--select-margin, 0 0 var(--spacer-xs) 0);
-    // I know it's look's like magic but we need it now :(
-    min-height: calc(
-      calc(var(--spacer-sm) + var(--spacer-xs)) +
-      var(--select-label-font-size, var(--font-lg))
-    );
     background: var(--select-background);
-    color: var(--select-color, inherit);
+    color: var(--select-color, var(--c-text));
     @include border(--select-border, 0, solid, transparent);
   }
 
@@ -182,6 +187,7 @@
     --select-animation-leave: ssdesktop 150ms reverse;
   }
 }
+
 @keyframes ssdesktop {
   0% {
     opacity: 0;
