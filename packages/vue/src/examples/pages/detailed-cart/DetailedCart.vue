@@ -26,8 +26,8 @@
                 v-model="product.qty"
                 :image="product.image"
                 :title="product.title"
-                :regular-price="product.price.regular | price"
-                :special-price="product.price.special | price"
+                :regular-price="`$${product.price.regular}`"
+                :special-price="`$${product.price.special}`"
                 class="sf-collected-product--detailed collected-product"
                 @click:remove="removeHandler(product)"
               >
@@ -101,12 +101,6 @@ export default {
     SfHeading,
     SfProperty,
     OrderSummary
-  },
-  filters: {
-    price: function(price) {
-      if (!price) return;
-      return `$${price}`;
-    }
   },
   data() {
     return {
