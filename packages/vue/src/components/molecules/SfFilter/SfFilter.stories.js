@@ -38,6 +38,9 @@ storiesOf("Molecules|Filter", module)
       },
       count: {
         default: number("count", 30, {}, "Props")
+      },
+      color: {
+        default: text("color", "", "Props")
       }
     },
     data() {
@@ -48,6 +51,7 @@ storiesOf("Molecules|Filter", module)
     template: `<SfFilter
        :label="label"
        :count="count"
+       :color="color"
        :selected="selected"
        @change="selected = !selected"
        style="max-width: 22.875rem"
@@ -63,6 +67,9 @@ storiesOf("Molecules|Filter", module)
       },
       count: {
         default: number("count", 30, {}, "Props")
+      },
+      color: {
+        default: text("color", "", "Props")
       }
     },
     data() {
@@ -73,6 +80,7 @@ storiesOf("Molecules|Filter", module)
     template: `<SfFilter
        :label="label"
        :count="count"
+       :color="color"
        :selected="selected"
        @change="selected = !selected"
        style="max-width: 22.875rem"
