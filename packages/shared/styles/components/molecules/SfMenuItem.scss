@@ -9,7 +9,7 @@
   @include font(
     --menu-item-font,
     var(--font-normal),
-    var(--font-sm),
+    var(--font-base),
     1.4,
     var(--font-family-secondary)
   );
