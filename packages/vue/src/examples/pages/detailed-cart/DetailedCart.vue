@@ -258,6 +258,9 @@ export default {
   --collected-product-padding: var(--spacer-sm) 0;
   border: 1px solid var(--c-light);
   border-width: 1px 0 0 0;
+  &__properties {
+    margin: 1rem 0 0 0;
+  }
   @include for-mobile {
     --collected-product-remove-bottom: var(--spacer-sm);
     &:first-of-type {
