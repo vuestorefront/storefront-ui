@@ -62,8 +62,8 @@
               :src="require('@storefront-ui/shared/icons/empty_cart.svg')"
             />
             <SfHeading
-              title="Your bag is empty"
-              :level="1"
+              title="Your cart is empty"
+              :level="2"
               class="empty-cart__heading"
               subtitle="Looks like you haven’t added any items to the bag yet. Start
               shopping to fill it in."
@@ -207,9 +207,10 @@ export default {
   }
 }
 .empty-cart {
-  --heading-title-color: var(--c-primary);
-  --heading-title-margin: 0 0 var(--spacer-base) 0;
   --heading-subtitle-margin: 0 0 var(--spacer-xl) 0;
+  --heading-title-margin: 0 0 var(--spacer-base) 0;
+  --heading-title-color: var(--c-primary);
+  --heading-title-font-weight: var(--font-semibold);
   display: flex;
   flex: 1;
   align-items: center;
@@ -222,11 +223,14 @@ export default {
     flex: 1;
   }
   &__heading {
-    --heading-title-font-size: var(--font-xl);
+    padding: 0 var(--spacer-base);
   }
   &__image {
     --image-width: 13.1875rem;
-    margin: var(--spacer-xl) 0;
+    margin: 0 0 var(--spacer-2xl) 0;
+  }
+  @include for-desktop {
+    --heading-title-font-size: var(--font-xl);
   }
 }
 .collected-product-list {
