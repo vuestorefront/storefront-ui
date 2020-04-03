@@ -26,8 +26,8 @@
                 v-model="product.qty"
                 :image="product.image"
                 :title="product.title"
-                :regular-price="`$${product.price.regular}`"
-                :special-price="`$${product.price.special}`"
+                :regular-price="product.price.regular && `$${product.price.regular}`"
+                :special-price="product.price.special && `$${product.price.special}`"
                 class="sf-collected-product--detailed collected-product"
                 @click:remove="removeHandler(product)"
               >
