@@ -42,7 +42,7 @@
         >
       </div>
     </div>
-    <div class="info">
+    <div class="info desktop-only">
       <p>Helpful information:</p>
       <ul class="info__list">
         <li>Questions? Chat with us or call 1.888.282.6060.</li>
