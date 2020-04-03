@@ -266,6 +266,49 @@ A **safe** set of properties to customize are: `font-size`, `text-align`, `color
 Try to make components as customizable as possible **without complicating** them. Think about the parts that are usually customized and allow simple way to change their look.
 :::
 
+## Deprecation guidelines
+
+StorefrontUI cares about providing new features and keeping up-to-date with new best practices. Sometimes, it can be necessary to make some changes in APIs or prepare new features to stay current. To make this process easier for everyone, we deprecate APIs and features for a period before actual removal, by adding proper info about deprecation in the next major version.
+
+**In result:**
+- we don't remove implemented features before next major version
+- we add info about deprecation, so user can be prepared for substitute and have time to update package to the latest version
+- before release, we can easily find every deprecated feature -> remove it and prepare documentation for it
+
+**To standarize these process, we can stick with few rules:**
+- add this note next to the deprecated feature/APIs -> `@deprecated will be removed in 1.0.0 use ___ prop instead`
+- add this note next to deprecated code that should be removed `// TODO remove in 1.0.0 / BEGIN` -> `// END`
+- add info about deprecation by adding `console.warn("[StorefrontUI][SfComponent] ____ prop has been deprecated and will be removed in 1.0.0. Use ____ instead.");`
+
+:::tip DEPRECATION INFO
+Here you can see an example how it looks like in SfAccordion:
+::: 
+
+```js
+props: {
+  /**
+   * Opens the first accordion item if set to "true"
+   * @deprecated will be removed in 1.0.0 use open prop instead
+   */
+  firstOpen: {
+    type: Boolean,
+    default: false
+  },
+}
+```
+
+```js
+// TODO remove in 1.0.0 / BEGIN
+if (this.firstOpen) {
+  this.$children[0].isOpen = this.firstOpen;
+  console.warn(
+    "[StorefrontUI][SfAccordion] firstOpen prop has been deprecated and will be removed in 1.0.0. Use open instead."
+  );
+  return;
+}
+// <- END
+```
+
 ## Unit tests
 
 The minimum set of tests should contain component:
