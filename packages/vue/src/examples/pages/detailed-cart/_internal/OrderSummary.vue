@@ -35,11 +35,14 @@
         >Go to checkout</SfButton
       >
       <div class="actions__email">
-        <SfIcon icon="mail" size="12px" />
-        <SfButton
-          class="sf-button--text actions__button actions__button--secondary"
-          >Send my basket to email</SfButton
-        >
+        <SfCharacteristic icon="mail" size-icon="12px" color-icon="secondary">
+          <template #text>
+            <SfButton
+              class="sf-button--text actions__button actions__button--secondary"
+              >Send my basket to email</SfButton
+            >
+          </template>
+        </SfCharacteristic>
       </div>
     </div>
     <div class="info desktop-only">
@@ -56,9 +59,9 @@
 import {
   SfHeading,
   SfButton,
+  SfCharacteristic,
   SfProperty,
-  SfDivider,
-  SfIcon
+  SfDivider
 } from "@storefront-ui/vue";
 
 export default {
@@ -67,7 +70,7 @@ export default {
     SfHeading,
     SfButton,
     SfDivider,
-    SfIcon,
+    SfCharacteristic,
     SfProperty
   },
   props: {
@@ -181,7 +184,6 @@ export default {
 }
 .actions {
   &__email {
-    display: flex;
     margin: var(--spacer-lg) 0 0 0;
   }
   &__button {
