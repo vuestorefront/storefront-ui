@@ -2,7 +2,7 @@
   <div>
     <SfHeading
       title="Totals"
-      :level="1"
+      :level="2"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="highlighted highlighted--total">
@@ -90,9 +90,6 @@ export default {
   },
   data() {
     return {
-      promoCode: "",
-      showPromoCode: false,
-      listIsHidden: false,
       characteristics: [
         {
           title: "Safety",
@@ -156,6 +153,7 @@ export default {
   @include for-desktop {
     --heading-title-margin: 0 0 var(--spacer-2xl) 0;
     --heading-title-font-size: var(--h3-font-size);
+    --heading-title-font-weight: var(--font-semibold);
   }
 }
 .property {
