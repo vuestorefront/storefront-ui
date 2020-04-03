@@ -256,6 +256,7 @@ export default {
       flex: 0 0 25.5rem;
       order: 1;
       margin: 0 0 0 var(--spacer-lg);
+      box-shadow: 0px 4px 11px rgba(var(--c-dark-base), 0.1);
     }
   }
 }
