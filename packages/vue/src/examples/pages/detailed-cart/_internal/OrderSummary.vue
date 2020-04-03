@@ -42,6 +42,14 @@
         >
       </div>
     </div>
+    <div class="info">
+      <p>Helpful information:</p>
+      <ul class="info__list">
+        <li>Questions? Chat with us or call 1.888.282.6060.</li>
+        <li>Shipping internationally? Choose your destination & currency.</li>
+        <li>Shipping methods & charges</li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
@@ -183,6 +191,23 @@ export default {
     &--secondary {
       margin: 0 0 0 var(--spacer-xs);
       text-align: left;
+    }
+  }
+}
+.info {
+  margin: var(--spacer-2xl) 0;
+  color: var(--c-dark-variant);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-xs);
+  line-height: 1.6;
+
+  &__list {
+    padding: 0;
+    list-style: none;
+    li::before {
+      content: "•";
+      color: var(--c-primary);
+      padding: 0 var(--spacer-xs) 0 0;
     }
   }
 }

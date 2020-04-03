@@ -253,7 +253,7 @@ export default {
       flex: 1;
     }
     &__aside {
-      flex: 0 0 25.5rem;
+      flex: 0 0 26.8125rem;
       order: 1;
       margin: 0 0 0 var(--spacer-lg);
       box-shadow: 0px 4px 11px rgba(var(--c-dark-base), 0.1);
