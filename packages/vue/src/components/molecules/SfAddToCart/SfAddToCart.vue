@@ -15,6 +15,7 @@
         :qty="qty"
         :disabled="disabled"
         class="sf-add-to-cart__select-quantity"
+        :class="{ 'sf-add-to-cart__select-quantity--disabled': disabled }"
         @input="$emit('input', $event)"
       />
     </slot>
