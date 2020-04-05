@@ -1,29 +1,20 @@
 <template>
   <div class="sf-dropdown">
-    <SfButton
-      class="sf-button--underlined sf-dropdown__button sf-dropdown__button--trigger "
-      :class="isOpen ? 'sf-dropdown__button--trigger--active' : ''"
-      @click="triggerDropdown"
-    >
-      {{ label }}
-      <SfChevron :class="dropdownUp ? 'sf-chevron--top' : ''" />
-    </SfButton>
     <SfOverlay :visible="isOpen" class="mobile-only" @click="closeDropdown" />
+    <slot name="trigger" />
     <transition :name="transition">
-      <div v-if="isOpen" class="sf-dropdown__list ">
+      <div v-if="isOpen" class="sf-dropdown__list">
         <SfButton
-          class="sf-dropdown__button sf-dropdown__button--mobile-label mobile-only"
+          class="sf-dropdown__button sf-dropdown__button--title mobile-only"
         >
-          {{ label }}
+          {{ title }}
         </SfButton>
-        <div :class="dropdownUp ? 'sf-dropdown__list--up' : ''">
-          <slot />
-        </div>
+        <slot />
         <SfButton
           class="sf-dropdown__button sf-dropdown__button--cancell mobile-only"
           @click="closeDropdown"
         >
-          {{ cancelLabel }}
+          Cancel
         </SfButton>
       </div>
     </transition>
@@ -31,14 +22,15 @@
 </template>
 
 <script>
-import { SfButton, SfOverlay, SfChevron } from "@storefront-ui/vue";
-
+import Vue from "vue";
+import SfDropdownItem from "./_internal/SfDropdownItem.vue";
+import { SfButton, SfOverlay } from "@storefront-ui/vue";
+Vue.component("SfDropdownItem", SfDropdownItem);
 export default {
   name: "SfDropdown",
   components: {
     SfButton,
-    SfOverlay,
-    SfChevron
+    SfOverlay
   },
   props: {
     isOpen: {
@@ -49,17 +41,9 @@ export default {
       type: String,
       default: "fade"
     },
-    dropdownUp: {
-      type: Boolean,
-      default: false
-    },
-    label: {
+    title: {
       type: String,
       default: "Name"
-    },
-    cancelLabel: {
-      type: String,
-      default: "Cancel"
     }
   },
   methods: {

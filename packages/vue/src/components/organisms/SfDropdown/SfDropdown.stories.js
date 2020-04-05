@@ -1,6 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, boolean, text } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 
 import SfDropdown from "./SfDropdown.vue";
 import { SfButton, SfChevron } from "@storefront-ui/vue";
@@ -13,30 +17,54 @@ storiesOf("Organisms|Dropdown", module)
       transition: {
         default: text("transition", "fade", "Props")
       },
-      dropdownUp: {
-        default: boolean("dropdownUp", false, "Props")
+      title: {
+        default: text("title", "title", "Props")
       },
-      label: {
-        default: text("label", "Label", "Props")
-      },
-      cancelLabel: {
-        default: text("cancelLabel", "Cancel", "Props")
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-dropdown--up": "sf-dropdown--up"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
       }
     },
     data() {
       return {
-        isOpen: false,
-        items: ["item1", "item2", "item3", "item3", "item3"]
+        isOpen: true,
+        items: ["item1", "item2", "item3", "item4", "item5"]
       };
     },
-    template: `<SfDropdown 
-  :is-open="isOpen" 
-  :label="label"
-  :cancel-label="cancelLabel"
-  :dropdownUp="dropdownUp" 
-  :transition="transition" 
-  @triggerDropdown="isOpen = !isOpen" 
-  @close="isOpen = false">
-    <SfButton class="sf-button--underlined" v-for="(item, i) in items" :key="i" style="width: 100%; --button-background: var(--c-white)">{{ item }}</SfButton>
-   </SfDropdown>`
+    template: `<div>
+      <SfDropdown 
+        :class="customClass"
+        :is-open="isOpen" 
+        :title="title"
+        :transition="transition" 
+        @triggerDropdown="isOpen = !isOpen" 
+        @close="isOpen = false">
+        <template #trigger>
+          <div style="width: 300px;">
+            <SfButton 
+              style="display: flex; align-items: center; justify-content: space-between; padding: 5px;" 
+              class="sf-button--underlined sf-button--full-width" 
+              @click="isOpen = !isOpen">
+              Name
+              <SfChevron />
+            </SfButton>
+          </div>
+        </template>
+        <SfDropdownItem v-for="(item, i) in items" :key="i">
+          <SfButton 
+            class="sf-button--underlined sf-button--full-width"
+            style="background: var(--c-white); color: var(--c-text-muted);"
+          >
+            {{ item }}
+          </SfButton>
+        </SfDropdownItem>
+      </SfDropdown>
+    </div>`
   }));

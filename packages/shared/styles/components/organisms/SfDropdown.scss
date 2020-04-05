@@ -3,19 +3,20 @@
 .sf-dropdown {
   &__list {
     margin: var(--dropdown-list-margin, 0);
-    box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
+    box-shadow: var(--dropdown-list-box-shadow, none);
+    z-index: var(--dropdown-z-index, 1);
     box-sizing: border-box;
     position: absolute;
     bottom: 0;
+    right: 0;
     width: 100%;
-    z-index: var(--dropdown-z-index, 2);
     &::before {
       content: "";
       display: var(--dropdown-before-display, block);
       background-color: var(--dropdown-before-background-color, var(--c-body));
       width: 3.75rem;
       height: 3px;
-      margin: 0 auto 5px;
+      margin: 0 auto var(--spacer-2xs);
       border-radius: 4px;
     }
   }
@@ -23,27 +24,7 @@
     padding: var(--spacer-base) 0;
     width: 100%;
     display: block;
-    &--trigger {
-      display: flex;
-      padding: 0 0 var(--spacer-sm) 0;
-      --button-color: var(--c-text);
-      align-items: center;
-      --chevron-size: 14px;
-      --button-font-weight: var(--font-normal);
-      padding: var(--spacer-2xs);
-      width: var(--dropdown-button-trigger, 100%);
-      justify-content: space-between;
-      --button-text-transform: capitalize;
-      @include for-desktop {
-        --dropdown-button-trigger: 335px;
-      }
-      &--active {
-        --button-border-color: var(--c-primary);
-        --chevron-color: var(--c-primary);
-        --button-color: var(--c-primary);
-      }
-    }
-    &--mobile-label {
+    &--title {
       --button-font-weight: var(--font-normal);
       --button-font-size: var(--font-sm);
       --button-color: var(--c-primary);
@@ -56,16 +37,20 @@
     }
   }
   @include for-desktop {
+    position: relative;
     &__list {
+      --dropdown-list-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
       position: relative;
-      width: var(--dropdown-list-width, 335px);
+      width: var(--dropdown-list-width, 300px);
       --dropdown-before-display: none;
       --dropdown-list-margin: var(--spacer-sm) 0 0 0;
-      &--up {
-        width: 335px;
-        margin-bottom: 50px;
+    }
+    &--up {
+      .sf-dropdown__list {
         position: absolute;
         bottom: 100%;
+        left: 0;
+        margin: 0 0 var(--spacer-xs) 0;
       }
     }
   }
