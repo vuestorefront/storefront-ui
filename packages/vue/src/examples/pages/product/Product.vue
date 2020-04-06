@@ -5,450 +5,277 @@
       :breadcrumbs="breadcrumbs"
     />
     <div class="product">
-      <div class="product__gallery">
-        <SfGallery
-          class="gallery-mobile mobile-only"
-          :image-width="375"
-          :image-height="490"
-          :images="[
-            {
-              mobile: { url: 'assets/storybook/Product/productM.jpg' },
-              desktop: { url: 'assets/storybook/Product/productM.jpg' },
-              big: { url: 'assets/storybook/Product/productM.jpg' }
-            },
-            {
-              mobile: { url: 'assets/storybook/Product/productM.jpg' },
-              desktop: { url: 'assets/storybook/Product/productM.jpg' },
-              big: { url: 'assets/storybook/Product/productM.jpg' }
-            }
-          ]"
-        />
-        <SfImage
-          src="assets/storybook/Product/productA.jpg"
-          :width="590"
-          :height="700"
-          class="desktop-only"
-        />
-        <SfImage
-          src="assets/storybook/Product/productB.jpg"
-          :width="590"
-          :height="700"
-          class="desktop-only"
-        />
-      </div>
-      <div class="product__description">
-        <SfSticky class="product-details">
+      <SfGallery :images="product.images" />
+      <div class="product__info">
+        <div class="product__header">
           <SfHeading
-            title="Cashmere Sweater"
-            :level="1"
-            class="sf-heading--no-underline sf-heading--left product-details__heading"
+            :title="product.name"
+            :level="3"
+            class="sf-heading--no-underline sf-heading--left"
           />
-          <div class="product-details__sub">
-            <SfPrice regular="$50.00" class="product-details__sub-price" />
-            <div class="product-details__sub-rating">
-              <SfRating :score="4" :max="5" />
-              <div class="product-details__sub-reviews desktop-only">
-                Read all 1 review
-              </div>
-              <div class="product-details__sub-reviews mobile-only">
-                (1)
-              </div>
+          <SfIcon
+            icon="drag"
+            size="xl"
+            color="gray-secondary"
+            class="product__drag-icon mobile-only"
+          />
+        </div>
+        <div class="product__price-and-rating">
+          <SfPrice :regular="product.price" />
+          <div>
+            <div class="product__rating">
+              <SfRating
+                :score="product.rating.rate"
+                :max="product.rating.max"
+              />
+              <a v-if="!!product.reviews" href="#" class="product__count">
+                ({{ product.reviews.length }})
+              </a>
             </div>
+            <SfButton class="sf-button--text desktop-only"
+              >Read all reviews</SfButton
+            >
           </div>
-          <p class="product-details__description desktop-only">
-            Find stunning women cocktail and party dresses. Stand out in lace
-            and metallic cocktail dresses and party dresses from all your
-            favorite brands.
+        </div>
+        <div>
+          <p class="product__description desktop-only">
+            {{ product.description }}
           </p>
-          <div class="product-details__action">
-            <SfButton class="sf-button--text color-secondary"
-              >Size guide</SfButton
+          <SfButton class="sf-button--text desktop-only product__guide">
+            Size guide
+          </SfButton>
+          <SfSelect
+            v-model="selectedSize"
+            label="Size"
+            class="sf-select--underlined product__select-size"
+            :reqired="true"
+          >
+            <SfSelectOption
+              v-for="(size, key) in product.sizes"
+              :key="key"
+              :value="size"
             >
-          </div>
-          <div class="product-details__section">
-            <SfSelect
-              v-model="size"
-              label="Size"
-              class="sf-select--bordered product-details__attribute"
-            >
-              <SfSelectOption
-                v-for="sizeOption in sizes"
-                :key="sizeOption.value"
-                :value="sizeOption.value"
-              >
-                <SfProductOption :label="sizeOption.label" />
-              </SfSelectOption>
-            </SfSelect>
-            <SfSelect
-              v-model="color"
-              label="Color"
-              class="sf-select--bordered product-details__attribute"
-            >
-              <SfSelectOption
-                v-for="colorOption in colors"
-                :key="colorOption.value"
-                :value="colorOption.value"
-              >
-                <SfProductOption
-                  :label="colorOption.label"
-                  :color="colorOption.color"
-                />
-              </SfSelectOption>
-            </SfSelect>
-          </div>
-          <div class="product-details__section">
-            <SfAlert
-              message="Low in stock"
-              type="warning"
-              class="product-details__alert mobile-only"
+              <SfProductOption :label="size"></SfProductOption>
+            </SfSelectOption>
+          </SfSelect>
+          <div class="product__colors desktop-only">
+            <p class="product__color-label">Color:</p>
+            <SfColor
+              v-for="(color, i) in product.colors"
+              :key="i"
+              :color="color.color"
+              :selected="color.selected"
+              class="product__color"
+              @click="selectColor(i)"
             />
-            <SfAddToCart
-              v-model="qty"
-              :stock="stock"
-              :can-add-to-cart="stock > 0"
-              class="product-details__add-to-cart"
-            />
-            <div class="product-details__action">
-              <SfButton class="sf-button--text color-secondary"
-                >Save for later</SfButton
-              >
-            </div>
-            <div class="product-details__action">
-              <SfButton class="sf-button--text color-secondary"
-                >Add to compare</SfButton
-              >
-            </div>
           </div>
-          <SfTabs class="product-details__tabs" :open-tab="2">
-            <SfTab title="Description">
-              <div>
-                <p>
-                  The Karissa V-Neck Tee features a semi-fitted shape that's
-                  flattering for every figure. You can hit the gym with
-                  confidence while it hugs curves and hides common "problem"
-                  areas. Find stunning women's cocktail dresses and party
-                  dresses.
-                </p>
-              </div>
-              <div class="product-details__properties">
-                <SfProperty
-                  v-for="(property, i) in properties"
-                  :key="i"
-                  :name="property.name"
-                  :value="property.value"
-                  class="product-property"
-                />
-              </div>
-            </SfTab>
-            <SfTab title="Read reviews">
-              <SfReview
-                v-for="(review, i) in reviews"
+          <SfAddToCart
+            v-model="qty"
+            class="product__add-to-cart"
+            @click="addToCart"
+          />
+          <SfButton class="sf-button--text desktop-only product__save">
+            Save for later
+          </SfButton>
+          <SfButton class="sf-button--text desktop-only product__compare">
+            Add to compare
+          </SfButton>
+        </div>
+        <SfTabs :open-tab="1" class="product__tabs">
+          <SfTab v-for="tab in tabs" :key="tab.title" :title="tab.title">
+            {{ tab.content }}
+            <div v-if="tab.title === 'Description'">
+              <SfProperty
+                v-for="(detailed, i) in product.details"
                 :key="i"
-                class="product-details__review"
+                :name="detailed.name"
+                :value="detailed.value"
+                class="product__property"
+              >
+                <template v-if="detailed.name === 'Category'" #value>
+                  <SfButton class="sf-button--text">
+                    {{ detailed.value }}</SfButton
+                  >
+                </template>
+              </SfProperty>
+            </div>
+            <div v-else-if="tab.title === 'Read reviews'">
+              <SfReview
+                v-for="(review, i) in product.reviews"
+                :key="i"
                 :author="review.author"
                 :date="review.date"
                 :message="review.message"
-                :rating="review.rating"
-                :max-rating="5"
+                :max-rating="review.rating.max"
+                :rating="review.rating.rate"
+                :char-limit="250"
+                read-more-text="Read more"
+                hide-full-text="Read less"
+                class="product__review"
               />
-            </SfTab>
-            <SfTab title="Additional Information">
-              <SfHeading
-                title="Brand"
-                :level="3"
-                class="sf-heading--no-underline sf-heading--left"
-              />
-              <p>
-                <u>Brand name</u> is the perfect pairing of quality and design.
-                This label creates major everyday vibes with its collection of
-                modern brooches, silver and gold jewellery, or clips it back
-                with hair accessories in geo styles.
+            </div>
+            <div
+              v-else-if="tab.title === 'Additional Information'"
+              class="product__additional-info"
+            >
+              <p class="product__additional-info__title">Brand</p>
+              <p>{{ product.brand }}</p>
+              <p class="product__additional-info__title">Take care of me</p>
+              <p class="product__additional-info__paragraph">
+                Just here for the care instructions?
               </p>
-            </SfTab>
-          </SfTabs>
-        </SfSticky>
+              <p class="product__additional-info__paragraph">
+                Yeah, we thought so
+              </p>
+              <p>{{ product.careInstructions }}</p>
+            </div>
+          </SfTab>
+        </SfTabs>
       </div>
     </div>
-    <SfSection title-heading="Match it with" class="section">
-      <SfCarousel class="product-carousel">
-        <SfCarouselItem v-for="(product, i) in products" :key="i">
-          <SfProductCard
-            :title="product.title"
-            :image="product.image"
-            :regular-price="product.price.regular"
-            :max-rating="product.rating.max"
-            :score-rating="product.rating.score"
-            :is-on-wishlist="product.isOnWishlist"
-            class="product-card"
-            @click:wishlist="toggleWishlist(i)"
-          />
-        </SfCarouselItem>
-      </SfCarousel>
-    </SfSection>
-    <SfSection title-heading="You might also like" class="section">
-      <SfCarousel class="product-carousel">
-        <SfCarouselItem v-for="(product, i) in products" :key="i">
-          <SfProductCard
-            :title="product.title"
-            :image="product.image"
-            :regular-price="product.price.regular"
-            :max-rating="product.rating.max"
-            :score-rating="product.rating.score"
-            :is-on-wishlist="product.isOnWishlist"
-            class="product-card"
-            @click:wishlist="toggleWishlist(i)"
-          />
-        </SfCarouselItem>
-      </SfCarousel>
-    </SfSection>
-    <SfSection
-      title-heading="Share Your Look"
-      subtitle-heading="#YOURLOOK"
-      class="section"
-    >
-      <div class="images-grid">
-        <div class="images-grid__row">
-          <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageA.jpg"
-              :width="486"
-              :height="486"
-              >katherina_trn</SfImage
-            >
-          </div>
-          <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageB.jpg"
-              :width="486"
-              :height="486"
-              >katherina_trn</SfImage
-            >
-          </div>
-          <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageC.jpg"
-              :width="486"
-              :height="486"
-              >katherina_trn</SfImage
-            >
-          </div>
-        </div>
-        <div class="images-grid__row">
-          <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageC.jpg"
-              :width="486"
-              :height="486"
-              >katherina_trn</SfImage
-            >
-          </div>
-          <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageD.jpg"
-              :width="486"
-              :height="486"
-              >katherina_trn</SfImage
-            >
-          </div>
-          <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageA.jpg"
-              :width="486"
-              :height="486"
-              >katherina_trn</SfImage
-            >
-          </div>
-        </div>
-      </div>
-    </SfSection>
-    <SfBanner
-      image="/assets/storybook/Home/bannerD.png"
-      subtitle="Fashion to Take Away"
-      title="Download our application to your mobile"
-      class="sf-banner--left desktop-only banner-app"
-    >
-      <template #call-to-action>
-        <div class="banner-app__call-to-action">
-          <SfImage
-            class="banner-app__image"
-            src="assets/storybook/Home/google.png"
-            :width="191"
-            :height="51"
-            alt="Google Play"
-          />
-          <SfImage
-            class="banner-app__image"
-            src="assets/storybook/Home/apple.png"
-            :width="174"
-            :height="57"
-            alt="App Store"
-          />
-        </div>
-      </template>
-    </SfBanner>
   </div>
 </template>
 <script>
 import {
-  SfProperty,
+  SfGallery,
   SfHeading,
   SfPrice,
   SfRating,
+  SfIcon,
+  SfTabs,
+  SfProperty,
+  SfButton,
+  SfReview,
+  SfAddToCart,
+  SfColor,
   SfSelect,
   SfProductOption,
-  SfAddToCart,
-  SfTabs,
-  SfGallery,
-  SfProductCard,
-  SfCarousel,
-  SfSection,
-  SfImage,
-  SfBanner,
-  SfButton,
-  SfAlert,
-  SfSticky,
-  SfReview,
   SfBreadcrumbs
 } from "@storefront-ui/vue";
+
 export default {
   name: "Product",
   components: {
-    SfButton,
-    SfAlert,
-    SfProperty,
+    SfGallery,
     SfHeading,
     SfPrice,
     SfRating,
+    SfIcon,
+    SfTabs,
+    SfProperty,
+    SfButton,
+    SfReview,
+    SfAddToCart,
+    SfColor,
     SfSelect,
     SfProductOption,
-    SfAddToCart,
-    SfTabs,
-    SfGallery,
-    SfProductCard,
-    SfCarousel,
-    SfSection,
-    SfImage,
-    SfBanner,
-    SfSticky,
-    SfReview,
     SfBreadcrumbs
   },
   data() {
     return {
-      qty: "1",
-      stock: 5,
-      size: "",
-      sizes: [
-        { label: "XXS", value: "xxs" },
-        { label: "XS", value: "xs" },
-        { label: "S", value: "s" },
-        { label: "M", value: "m" },
-        { label: "L", value: "l" },
-        { label: "XL", value: "xl" },
-        { label: "XXL", value: "xxl" }
-      ],
-      color: "",
-      colors: [
-        { label: "Red", value: "red", color: "#990611" },
-        { label: "Black", value: "black", color: "#000000" },
-        { label: "Yellow", value: "yellow", color: "#DCA742" },
-        { label: "Blue", value: "blue", color: "#004F97" },
-        { label: "Navy", value: "navy", color: "#656466" },
-        { label: "White", value: "white", color: "#FFFFFF" }
-      ],
-      properties: [
+      current: 1,
+      selectedColor: "beige",
+      selectedSize: undefined,
+      qty: 1,
+      product: {
+        name: "Cashmere Sweater",
+        description:
+          "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
+        images: [
+          {
+            mobile: { url: "assets/storybook/Product/productA.png" },
+            desktop: { url: "assets/storybook/Product/productA.png" },
+            big: { url: "assets/storybook/Product/productA.png" }
+          },
+          {
+            mobile: { url: "assets/storybook/Product/productB.jpg" },
+            desktop: { url: "assets/storybook/Product/productB.jpg" },
+            big: { url: "assets/storybook/Product/productB.jpg" }
+          },
+          {
+            mobile: { url: "assets/storybook/Product/productA.png" },
+            desktop: { url: "assets/storybook/Product/productA.png" },
+            big: { url: "assets/storybook/Product/productA.png" }
+          },
+          {
+            mobile: { url: "assets/storybook/Product/productB.jpg" },
+            desktop: { url: "assets/storybook/Product/productB.jpg" },
+            big: { url: "assets/storybook/Product/productB.jpg" }
+          }
+        ],
+        price: "$50.00",
+        colors: [
+          { color: "#EDCBB9", name: "beige", selected: true },
+          { color: "#ABD9D8", name: "mint1", selected: false },
+          { color: "#DB5593", name: "pink1", selected: false },
+          { color: "#ABD9D8", name: "mint2", selected: false },
+          { color: "#DB5593", name: "pink2", selected: false }
+        ],
+        rating: {
+          rate: 4,
+          max: 5
+        },
+        details: [
+          {
+            name: "Code",
+            value: 435435
+          },
+          {
+            name: "Material",
+            value: "Cotton"
+          },
+          {
+            name: "Category",
+            value: "Pants"
+          },
+          {
+            name: "Country",
+            value: "Poland"
+          }
+        ],
+        sizes: ["32", "34", "36", "38", "40", "42"],
+        careInstructions: "Do not wash!",
+        brand:
+          "Brand name is the perfect pairing of quality and design. This label creates major everyday vibes with its collection of modern brooches, silver and gold jewellery, or clips it back with hair accessories in geo styles.",
+        reviews: [
+          {
+            author: "Jane D.Smith",
+            date: "April 2019",
+            message:
+              "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
+            rating: {
+              max: 5,
+              rate: 4
+            }
+          },
+          {
+            author: "Jane D.Smith",
+            date: "April 2019",
+            message:
+              "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
+            rating: {
+              max: 5,
+              rate: 4
+            }
+          }
+        ]
+      },
+      tabs: [
         {
-          name: "Product Code",
-          value: "578902-00"
+          title: "Description",
+          content:
+            "The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses."
         },
         {
-          name: "Category",
-          value: "Pants"
+          title: "Read reviews",
+          content: ""
         },
         {
-          name: "Material",
-          value: "Cotton"
-        },
-        {
-          name: "Country",
-          value: "Germany"
+          title: "Additional Information",
+          content: ""
         }
       ],
-      products: [
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productA.jpg",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 },
-          isOnWishlist: false
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productB.jpg",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 },
-          isOnWishlist: false
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productC.jpg",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 },
-          isOnWishlist: false
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productA.jpg",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 },
-          isOnWishlist: false
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productB.jpg",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 },
-          isOnWishlist: false
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productC.jpg",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 },
-          isOnWishlist: false
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productA.jpg",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 },
-          isOnWishlist: false
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/Home/productB.jpg",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 },
-          isOnWishlist: false
-        }
-      ],
-      reviews: [
-        {
-          author: "Jane D.Smith",
-          date: "April 2019",
-          message:
-            "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can't comment on interlation as I had an electrition instal it. Would recommend",
-          rating: 4
-        },
-        {
-          author: "Mari",
-          date: "Jan 2018",
-          message:
-            "Excellent light output from this led fitting. Relatively easy to fix to the ceiling,but having two people makes it easier, to complete the installation. Unable to comment on reliability at this time, but I am hopeful of years of use with good light levels. Excellent light output from this led fitting. Relatively easy to fix to the ceiling,",
-          rating: 5
-        }
-      ],
-      detailsIsActive: false,
+      selected: false,
       breadcrumbs: [
         {
           text: "Home",
@@ -472,194 +299,190 @@ export default {
     };
   },
   methods: {
-    toggleWishlist(index) {
-      this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
+    addToCart() {
+      console.log(
+        `${this.qty} x ${this.product.name} (size: ${this.selectedSize}, color: ${this.selectedColor}) has been added to cart`
+      );
+    },
+    selectColor(colorIndex) {
+      this.product.colors.map((el, i) => {
+        if (colorIndex === i) {
+          el.selected = true;
+          this.selectedColor = el.name;
+        } else {
+          el.selected = false;
+        }
+      });
     }
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 #product {
   box-sizing: border-box;
   @include for-desktop {
-    max-width: 1240px;
+    max-width: 1272px;
+    padding: 0 var(--spacer-sm);
     margin: 0 auto;
   }
-}
-.section {
-  padding: 0 var(--spacer-big);
-  @include for-desktop {
-    padding: 0;
-  }
-}
-.breadcrumbs {
-  padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big)
-    var(--spacer-extra-big);
 }
 .product {
   @include for-desktop {
     display: flex;
   }
-  &__gallery,
-  &__description {
-    flex: 1;
-  }
-  &__description {
-    padding: 0 var(--spacer-big);
+  &__info {
+    margin: var(--spacer-sm) auto var(--spacer-xs);
     @include for-desktop {
-      margin: 0 0 0 calc(var(--spacer-big) * 5);
+      max-width: 32.625rem;
+      margin: 0 0 0 7.5rem;
     }
   }
-}
-.product-property {
-  margin: var(--spacer) 0;
-}
-.product-details {
-  &__heading {
-    --heading-title-font-size: var(--font-size-big);
-    --heading-title-font-weight: var(--body-font-weight-primary);
-    margin: var(--spacer-big) 0 0 0;
+  &__header {
+    margin: 0 var(--spacer-sm);
+    display: flex;
+    justify-content: space-between;
     @include for-desktop {
-      --heading-title-font-size: var(--h1-font-size);
-      --heading-title-font-weight: var(--body-font-weight-secondary);
-      margin: 0;
+      margin: 0 auto;
     }
   }
-  &__sub {
+  &__drag-icon {
+    animation: moveicon 1s ease-in-out infinite;
+  }
+
+  &__price-and-rating {
+    margin: var(--spacer-xs) var(--spacer-sm) var(--spacer-base);
+    align-items: center;
     @include for-desktop {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
+      margin: var(--spacer-sm) 0 var(--spacer-lg) 0;
     }
   }
-  &__sub-price {
-    --price-font-size: 1.5rem;
-  }
-  &__sub-rating {
+  &__rating {
     display: flex;
     align-items: center;
-    margin: calc(var(--spacer-big) / 2) 0 0 0;
-    @include for-desktop {
-      margin: 0;
-    }
+    margin: var(--spacer-xs) 0 0 0;
   }
-  &__sub-reviews {
-    margin: 0 0 0 0.625rem;
-    font-size: var(--font-size-extra-small);
-  }
-  &__section {
-    border: 1px solid var(--c-light);
-    border-width: 0 0 1px 0;
-    padding: 0 0 0.625rem 0;
-    @include for-desktop {
-      border: 0;
-      padding: 0;
-    }
-  }
-  &__action {
-    display: flex;
-    margin: var(--spacer-big) 0 calc(var(--spacer-big) / 2);
-    @include for-desktop {
-      justify-content: flex-end;
-    }
-  }
-  &__add-to-cart {
-    margin: 1.5rem 0 0 0;
-    @include for-desktop {
-      margin: var(--spacer-extra-big) 0 0 0;
-    }
-  }
-  &__alert {
-    margin: 1.5rem 0 0 0;
-  }
-  &__attribute {
-    margin: 0 0 var(--spacer-big) 0;
+  &__count {
+    @include font(
+      --count-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.4,
+      var(--font-family-secondary)
+    );
+    color: var(--c-text);
+    text-decoration: none;
+    margin: 0 0 0 var(--spacer-xs);
   }
   &__description {
-    margin: var(--spacer-extra-big) 0 calc(var(--spacer-big) * 3) 0;
-    font-family: var(--font-family-secondary);
-    font-size: var(--font-size-regular);
-    line-height: 1.6;
-    @include for-desktop {
-      font-size: var(--font-size-regular);
-    }
+    color: var(--c-link);
+    @include font(
+      --product-description-font,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
   }
-  &__properties {
-    margin: var(--spacer-big) 0 0 0;
-  }
-  &__tabs {
-    margin: var(--spacer-big) 0 0 0;
+  &__select-size {
+    margin: 0 var(--spacer-sm);
     @include for-desktop {
-      margin: calc(5 * var(--spacer-big)) 0 0 0;
-    }
-    p {
       margin: 0;
     }
   }
+  &__colors {
+    @include font(
+      --product-color-font,
+      var(--font-normal),
+      var(--font-lg),
+      1.6,
+      var(--font-family-secondary)
+    );
+    display: flex;
+    align-items: center;
+    margin-top: var(--spacer-xl);
+  }
+  &__color-label {
+    margin: 0 var(--spacer-lg) 0 0;
+  }
+  &__color {
+    margin: 0 var(--spacer-2xs);
+  }
+  &__add-to-cart {
+    margin: var(--spacer-base) var(--spacer-sm) 0;
+    @include for-desktop {
+      margin-top: var(--spacer-2xl);
+    }
+  }
+  &__guide,
+  &__compare,
+  &__save {
+    display: block;
+    margin: var(--spacer-xl) 0 var(--spacer-base) auto;
+  }
+  &__compare {
+    margin-top: 0;
+  }
+  &__tabs {
+    margin: var(--spacer-lg) auto var(--spacer-2xl);
+    @include for-desktop {
+      margin-top: var(--spacer-2xl);
+      --tabs-content-tab-padding: 3.5rem 0 0 0;
+    }
+  }
+  &__property {
+    margin: var(--spacer-base) 0;
+  }
   &__review {
-    padding: var(--spacer-big) 0;
-    border: 1px solid var(--c-light);
-    border-width: 0 0 1px 0;
+    padding-bottom: 24px;
+    border-bottom: var(--c-light) solid 1px;
+    margin-bottom: var(--spacer-base);
+    &:last-of-type {
+      border: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    @include for-desktop {
+      padding-bottom: 0;
+    }
   }
-}
-.product-carousel {
-  margin: 0 calc(var(--spacer-big) * -1) 0 0;
-  @include for-desktop {
-    margin: var(--spacer-big) 0;
-    --carousel-padding: var(--spacer-big);
-    --carousel-max-width: calc(100% - 13.5rem);
-  }
-}
-.product-card {
-  &:hover {
-    --product-card-box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
-  }
-}
-.images-grid {
-  max-width: 60rem;
-  margin: 0 auto;
-  &__row {
-    display: flex;
-    & + & {
-      margin: calc(var(--spacer-big) / 2) 0 0 0;
-      @include for-desktop {
-        margin: var(--spacer-big) 0 0 0;
+  &__additional-info {
+    @include font(
+      --additional-info-font,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
+    &__title {
+      font-weight: var(--font-bold);
+      margin: 0 0 var(--spacer-sm);
+      &:not(:first-child) {
+        margin-top: 3.5rem;
       }
     }
-  }
-  &__col {
-    flex: 1;
-    margin: 0;
-    & + & {
-      margin: 0 0 0 calc(var(--spacer-big) / 2);
-      @include for-desktop {
-        margin: 0 0 0 var(--spacer-big);
-      }
+    &__paragraph {
+      margin: 0;
     }
   }
 }
-.banner-app {
-  --banner-title-margin: var(--spacer-big) 0 0 0;
-  --banner-title-font-size: var(--h1-font-size);
-  --banner-title-font-weight: var(--h1-font-weight);
-  --banner-subtitle-font-size: var(--font-size-extra-big);
-  --banner-subtitle-font-weight: var(--body-font-weight-primary);
-  min-height: 26.25rem;
-  max-width: 65rem;
-  margin: 0 auto;
-  padding-right: calc(25% + 5rem);
-  padding-left: 2.5rem;
-  &__call-to-action {
-    display: flex;
-    margin: var(--space-big) 0 0 0;
+
+.breadcrumbs {
+  margin: var(--spacer-base) auto var(--spacer-lg);
+}
+
+@keyframes moveicon {
+  0% {
+    transform: translate3d(0, 0, 0);
   }
-  &__image {
-    width: 22%;
-    & + & {
-      margin: 0 0 0 var(--spacer-big);
-    }
+  50% {
+    transform: translate3d(0, 30%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
   }
 }
 </style>
