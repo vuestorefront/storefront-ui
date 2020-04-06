@@ -344,6 +344,9 @@ export default {
   margin: 0 auto;
   padding: 0 var(--spacer-sm);
   box-sizing: border-box;
+  @include for-desktop {
+    padding: 0;
+  }
 }
 .hero {
   display: flex;
@@ -359,22 +362,37 @@ export default {
     font-weight: var(--font-medium);
     font-family: var(--font-family-secondary);
   }
+  @include for-desktop {
+    justify-content: center;
+    order: 4;
+    margin: var(--spacer-3xl) 0 var(--spacer-2xl) 0;
+  }
 }
 .carousel {
   --image-height: 100%;
   display: flex;
   justify-content: center;
   order: 3;
+  @include for-desktop {
+    order: 5;
+  }
 }
 .banner-grid {
   display: flex;
   flex-direction: column;
   order: 4;
   margin: var(--spacer-xl) 0 var(--spacer-base) 0;
+  @include for-desktop {
+    order: 2;
+    margin: var(--spacer-2xl) 0;
+  }
 }
 .call-to-action {
   display: flex;
   order: 5;
+  @include for-desktop {
+    order: 3;
+  }
 }
 .section {
   display: flex;
@@ -401,30 +419,7 @@ export default {
   &--desktop {
     display: none;
   }
-}
-.banner {
-  display: none;
-}
-@include for-desktop {
-  #home {
-    padding: 0;
-  }
-  .heading {
-    justify-content: center;
-    order: 4;
-    margin: var(--spacer-3xl) 0 var(--spacer-2xl) 0;
-  }
-  .banner-grid {
-    order: 2;
-    margin: var(--spacer-2xl) 0;
-  }
-  .call-to-action {
-    order: 3;
-  }
-  .carousel {
-    order: 5;
-  }
-  .images-grid {
+  @include for-desktop {
     grid-column-gap: var(--spacer-base);
     grid-row-gap: var(--spacer-base);
     &__imageA {
@@ -450,7 +445,10 @@ export default {
       display: block;
     }
   }
-  .banner {
+}
+.banner {
+  display: none;
+  @include for-desktop {
     --banner-padding: 0 var(--spacer-2xl);
     --banner-title-margin: var(--spacer-base) 0 var(--spacer-xl) 0;
     --banner-title-font-weight: 600;
