@@ -159,6 +159,10 @@ export default {
   --modal-height: 100%;
   --modal-content-padding: var(--spacer-lg) var(--spacer-base) var(--spacer-2xl)
     var(--spacer-base);
+  @include for-desktop {
+    --modal-height: auto;
+    --modal-content-padding: var(--spacer-lg);
+  }
   &__container {
     display: flex;
     flex-direction: column;
@@ -191,12 +195,11 @@ export default {
   &__container {
     margin: 0 0 var(--spacer-2xl) 0;
   }
-
   &__element {
     margin: 0 0 var(--spacer-xl) 0;
   }
   &__checkbox {
-    margin: 0 0 var(--spacer-3xl) 0;
+    margin: 0 0 var(--spacer-2xl) 0;
   }
   &__heading {
     --heading-title-color: var(--c-primary);
@@ -209,16 +212,6 @@ export default {
   }
   &__action-button-wrapper--secondary {
     margin: var(--spacer-xl) 0 0 0;
-  }
-}
-
-@include for-desktop {
-  .log-in {
-    --modal-height: auto;
-    --modal-content-padding: var(--spacer-lg);
-    &__bar {
-      background: var(--c-white);
-    }
   }
 }
 </style>
