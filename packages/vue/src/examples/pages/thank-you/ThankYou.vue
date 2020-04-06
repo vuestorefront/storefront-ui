@@ -14,7 +14,7 @@
       </div>
     </div>
     <section class="section">
-      <div class="section__order">
+      <div class="order">
         <SfHeading
           title="Your Purchase"
           class="heading sf-heading--left"
@@ -148,24 +148,20 @@ export default {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-
   @include for-desktop {
     flex-direction: row;
     padding: 0;
   }
-
-  &__order {
-    background: var(--c-light);
-    padding: 0 var(--spacer-sm) var(--spacer-xs) var(--spacer-sm);
-    @include for-desktop {
-      width: 100%;
-      padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-2xl)
-        var(--spacer-2xl);
-    }
-  }
 }
 
 .order {
+  background: var(--c-light);
+  padding: 0 var(--spacer-sm) var(--spacer-xs) var(--spacer-sm);
+  @include for-desktop {
+    width: 100%;
+    padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-2xl)
+      var(--spacer-2xl);
+  }
   &__contact {
     padding: 0 0 var(--spacer-xs) var(--spacer-sm);
     @include for-desktop {
