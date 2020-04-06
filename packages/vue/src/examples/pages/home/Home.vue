@@ -72,7 +72,7 @@
       class="section"
       title-heading="Share Your Look"
       subtitle-heading="#YOURLOOK"
-      :level-heading="sectionLevel"
+      :level-heading="3"
     >
       <div class="images-grid">
         <SfImage
@@ -282,7 +282,6 @@ export default {
           badgeColor: "color-primary"
         }
       ],
-      sectionLevel: 3,
       instagramFeed: {
         imageA: {
           mobile: {
