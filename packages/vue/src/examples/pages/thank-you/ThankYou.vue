@@ -43,7 +43,7 @@
           </p>
         </div>
         <SfButton class="order__notifications-button sf-button--full-width"
-          >ALLOW ORDER NOTIFICATIONS</SfButton
+          >Allow order notifications</SfButton
         >
       </div>
       <div class="additional-info">
@@ -71,7 +71,7 @@
           <div class="order__buttons">
             <SfButton
               class="feedback-button color-secondary sf-button--full-width button-size"
-              >SEND MY FEEDBACK</SfButton
+              >Send my feedback</SfButton
             >
           </div>
         </div>
@@ -79,7 +79,7 @@
     </section>
     <div class="bottom-section">
       <SfButton class="back-button color-primary button-size"
-        >GO BACK TO SHOP</SfButton
+        >Go back to shop</SfButton
       >
     </div>
   </div>
