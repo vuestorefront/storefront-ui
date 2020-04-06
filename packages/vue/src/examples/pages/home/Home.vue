@@ -160,7 +160,7 @@ export default {
           title: "Colorful summer dresses are already in store",
           subtitle: "SUMMER COLLECTION 2020",
           buttonText: "Learn more",
-          background: "rgb(252, 228, 236)",
+          background: "rgb(236, 239, 241)",
           image: "/assets/storybook/Home/hero.png"
         }
       ],
