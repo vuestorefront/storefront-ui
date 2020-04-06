@@ -41,7 +41,7 @@
           <p class="product__description desktop-only">
             {{ product.description }}
           </p>
-          <SfButton class="sf-button--text desktop-only product__button__guide">
+          <SfButton class="sf-button--text desktop-only product__guide">
             Size guide
           </SfButton>
           <SfSelect
@@ -74,12 +74,10 @@
             class="product__add-to-cart"
             @click="addToCart"
           />
-          <SfButton class="sf-button--text desktop-only product__button__save">
+          <SfButton class="sf-button--text desktop-only product__save">
             Save for later
           </SfButton>
-          <SfButton
-            class="sf-button--text desktop-only product__button__compare"
-          >
+          <SfButton class="sf-button--text desktop-only product__compare">
             Add to compare
           </SfButton>
         </div>
@@ -325,11 +323,11 @@ export default {
 #product {
   box-sizing: border-box;
   @include for-desktop {
-    max-width: 77.5rem;
+    max-width: 1272px;
+    padding: 0 var(--spacer-sm);
     margin: 0 auto;
   }
 }
-
 .product {
   @include for-desktop {
     display: flex;
@@ -419,16 +417,14 @@ export default {
       margin-top: var(--spacer-2xl);
     }
   }
-  &__button {
-    &__guide,
-    &__compare,
-    &__save {
-      display: block;
-      margin: var(--spacer-xl) 0 var(--spacer-base) auto;
-    }
-    &__compare {
-      margin-top: 0;
-    }
+  &__guide,
+  &__compare,
+  &__save {
+    display: block;
+    margin: var(--spacer-xl) 0 var(--spacer-base) auto;
+  }
+  &__compare {
+    margin-top: 0;
   }
   &__tabs {
     margin: var(--spacer-lg) auto var(--spacer-2xl);
