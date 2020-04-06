@@ -42,16 +42,11 @@
             <span>{{ address.email }}</span>
           </p>
         </div>
-        <SfButton
-          class="order__notifications-button sf-button--full-width desktop-only"
+        <SfButton class="order__notifications-button sf-button--full-width"
           >ALLOW ORDER NOTIFICATIONS</SfButton
         >
       </div>
       <div class="additional-info">
-        <SfButton
-          class="order__notifications-button sf-button--full-width mobile-only"
-          >ALLOW ORDER NOTIFICATIONS</SfButton
-        >
         <div>
           <SfHeading
             title="Your Account"
