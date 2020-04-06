@@ -438,7 +438,7 @@ export default {
     }
   }
   &__property {
-    margin-top: var(--spacer-lg);
+    margin: var(--spacer-base) 0;
   }
   &__review {
     padding-bottom: 24px;
