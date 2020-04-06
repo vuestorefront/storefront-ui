@@ -1,14 +1,8 @@
 <template>
-  <SfModal
-    class="log-in"
-    :visible="true"
-    :back="false"
-    :cross="false"
-    :title="modalTitle"
-  >
+  <SfModal id="login" :visible="true" :title="modalTitle">
     <transition name="fade" mode="out-in">
-      <div v-if="isLogIn" key="log-in" class="form__container">
-        <div class="form">
+      <div v-if="isLogIn" key="log-in" class="modal-content">
+        <form class="form" @submit.prevent="() => false">
           <SfInput
             v-model="email"
             name="email"
@@ -30,33 +24,26 @@
             label="Remember me"
             class="form__element form__checkbox"
           />
-          <SfButton class="sf-button--full-width form__action-button">
+          <SfButton type="submit" class="sf-button--full-width form__submit">
             Log In
           </SfButton>
-        </div>
-        <div class="form__action-button-wrapper">
-          <SfButton class="sf-button--text color-secondary">
-            Forgotten password?
-          </SfButton>
-        </div>
-        <div
-          class="form__action-button-wrapper form__action-button-wrapper--secondary"
-        >
+        </form>
+        <SfButton class="sf-button--text action-button">
+          Forgotten password?
+        </SfButton>
+        <div class="aside">
           <SfHeading
             title="Don't have an account yet?"
-            :level="formHeadingLevel"
-            class="form__heading"
+            :level="3"
+            class="aside__heading"
           />
-          <SfButton
-            class="sf-button--text color-secondary"
-            @click="isLogIn = false"
-          >
+          <SfButton class="sf-button--text" @click="isLogIn = false">
             Register now
           </SfButton>
         </div>
       </div>
-      <div v-else key="sign-up" class="form__container">
-        <div class="form">
+      <div v-else key="sign-up" class="modal-content">
+        <form class="form" @submit.prevent="() => false">
           <SfInput
             v-model="firstName"
             name="first-name"
@@ -83,18 +70,13 @@
             type="password"
             class="form__element"
           />
-          <SfButton class="sf-button--full-width form__action-button">
+          <SfButton type="submit" class="sf-button--full-width form__submit">
             Create an account
           </SfButton>
-        </div>
-        <div class="form__action-button-wrapper">
-          <SfButton
-            class="sf-button--text color-secondary"
-            @click="isLogIn = true"
-          >
-            or Log In To Your Account
-          </SfButton>
-        </div>
+        </form>
+        <SfButton class="sf-button--text action-button" @click="isLogIn = true">
+          or Log In To Your Account
+        </SfButton>
       </div>
     </transition>
   </SfModal>
@@ -119,21 +101,12 @@ export default {
   data() {
     return {
       isLogIn: true,
-      formHeadingLevel: 3,
       email: "",
       password: "",
       createAccount: false,
       rememberMe: false,
       firstName: "",
-      lastName: "",
-      src: {
-        mobile: {
-          url: "/assets/storybook/Login/EmptyHistory.png"
-        },
-        desktop: {
-          url: "/assets/storybook/Login/EmptyHistory.png"
-        }
-      }
+      lastName: ""
     };
   },
   computed: {
@@ -155,63 +128,32 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-.log-in {
-  --modal-height: 100%;
-  --modal-content-padding: var(--spacer-lg) var(--spacer-base) var(--spacer-2xl)
-    var(--spacer-base);
-  @include for-desktop {
-    --modal-height: auto;
-    --modal-content-padding: var(--spacer-lg);
-  }
-  &__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.modal-content,
+.aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.heading {
-  margin: var(--spacer-2xl) 0 var(--spacer-xl) 0;
-  &__title {
-    color: var(--c-primary);
-    font-family: var(--font-family-secondary);
-    font-size: var(--h1-font-size);
-    font-weight: var(--font-semibold);
+.form {
+  width: 100%;
+  &__element {
+    margin: var(--spacer-base) 0;
   }
-  &__subtitle {
-    color: var(--c-secondary-variant);
-    font-family: var(--font-family-primary);
-    font-size: var(--font-base);
+  &__checkbox {
+    margin: var(--spacer-xl) 0 var(--spacer-2xl) 0;
+  }
+  &__submit {
+    margin: var(--spacer-xl) 0 0 0;
   }
 }
 .action-button {
-  --button-width: 100%;
-  --button-height: 4.0625rem;
-  &--secondary {
-    margin: var(--spacer-sm);
-  }
+  margin: var(--spacer-xl) 0;
 }
-.form {
-  margin: var(--spacer-xl) 0 var(--spacer-lg) 0;
-  &__container {
-    margin: 0 0 var(--spacer-2xl) 0;
-  }
-  &__element {
-    margin: 0 0 var(--spacer-xl) 0;
-  }
-  &__checkbox {
-    margin: 0 0 var(--spacer-2xl) 0;
-  }
+.aside {
+  margin: 0 0 var(--spacer-xl) 0;
   &__heading {
     --heading-title-color: var(--c-primary);
-  }
-  &__action-button-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  &__action-button-wrapper--secondary {
-    margin: var(--spacer-xl) 0 0 0;
+    margin: 0 0 var(--spacer-sm) 0;
   }
 }
 </style>
