@@ -6,13 +6,15 @@
       class="sf-sidebar--right sf-sidebar--icon"
       @close="() => {}"
     >
+      <template v-if="totalItems" #content-top>
+        <SfProperty
+          class="sf-property--large"
+          name="Total items"
+          :value="totalItems"
+        />
+      </template>
       <transition name="fade" mode="out-in">
         <div v-if="totalItems" key="my-cart" class="my-cart">
-          <SfProperty
-            class="sf-property--large"
-            name="Total items"
-            :value="totalItems"
-          />
           <div class="collected-product-list">
             <transition-group name="fade" tag="div">
               <SfCollectedProduct
@@ -78,7 +80,7 @@
         <transition name="fade">
           <div class="summary">
             <SfProperty
-              name="Total"
+              name="Total price"
               class="sf-property--full-width sf-property--large my-cart__total-price"
             >
               <template #value>
@@ -191,7 +193,12 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 #cart {
-  --sidebar-title-margin: 0;
+  @include for-desktop {
+    & > * {
+      --sidebar-bottom-padding: var(--spacer-base);
+      --sidebar-content-padding: var(--spacer-base);
+    }
+  }
 }
 .my-cart {
   flex: 1;
@@ -235,10 +242,9 @@ export default {
 }
 .collected-product-list {
   flex: 1;
-  margin: var(--spacer-sm) 0;
 }
 .collected-product {
-  margin: var(--spacer-sm) 0;
+  margin: 0 0 var(--spacer-sm) 0;
   &__properties {
     margin: var(--spacer-xs) 0 0 0;
   }
