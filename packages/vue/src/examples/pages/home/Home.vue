@@ -69,22 +69,31 @@
       image="/assets/storybook/Home/newsletter.jpg"
     />
     <SfSection
-      class="section"
       title-heading="Share Your Look"
       subtitle-heading="#YOURLOOK"
-      :level-heading="3"
+      class="section"
     >
-      <div class="images-grid">
-        <SfImage
-          v-for="(img, index) in instagramFeed"
-          :key="index"
-          :src="img"
-          :class="'images-grid__' + index"
-          ><span class="images-grid--mobile">{{ img.mobile.content }}</span
-          ><span class="images-grid--desktop">{{
-            img.desktop.content
-          }}</span></SfImage
+      <div class="instagram-grid">
+        <div
+          v-for="(row, rowName, rowIndex) in instagramFeed"
+          :key="rowIndex"
+          class="instagram-grid__row"
         >
+          <div
+            v-for="(img, imgName, index) in row"
+            :key="index"
+            class="instagram-grid__col"
+          >
+            <SfImage :src="img" :width="486" :height="486"
+              ><span class="instagram-grid--mobile">{{
+                img.mobile.content
+              }}</span
+              ><span class="instagram-grid--desktop">{{
+                img.desktop.content
+              }}</span></SfImage
+            >
+          </div>
+        </div>
       </div>
     </SfSection>
     <SfBanner
@@ -283,44 +292,48 @@ export default {
         }
       ],
       instagramFeed: {
-        imageA: {
-          mobile: {
-            url: "/assets/storybook/Home/imageA.png",
-            content: "angelina_trn"
+        firstRow: {
+          imageA: {
+            mobile: {
+              url: "/assets/storybook/Home/imageA.png",
+              content: "angelina_trn"
+            },
+            desktop: {
+              url: "/assets/storybook/Home/imageA.png",
+              content: "@instagram"
+            }
           },
-          desktop: {
-            url: "/assets/storybook/Home/imageA.png",
-            content: "@instagram"
+          imageB: {
+            mobile: {
+              url: "/assets/storybook/Home/imageB.png",
+              content: "angelina_trn"
+            },
+            desktop: {
+              url: "/assets/storybook/Home/imageB.png",
+              content: "@instagram"
+            }
           }
         },
-        imageB: {
-          mobile: {
-            url: "/assets/storybook/Home/imageB.png",
-            content: "angelina_trn"
+        secondRow: {
+          imageC: {
+            mobile: {
+              url: "/assets/storybook/Home/imageC.jpg",
+              content: "angelina_trn"
+            },
+            desktop: {
+              url: "assets/storybook/Home/imageC.jpg",
+              content: "@instagram"
+            }
           },
-          desktop: {
-            url: "/assets/storybook/Home/imageB_top.png",
-            content: "@instagram"
-          }
-        },
-        imageC: {
-          mobile: {
-            url: "/assets/storybook/Home/imageC.jpg",
-            content: "angelina_trn"
-          },
-          desktop: {
-            url: "assets/storybook/Home/imageA_bottom.png",
-            content: "@instagram"
-          }
-        },
-        imageD: {
-          mobile: {
-            url: "/assets/storybook/Home/imageD.jpg",
-            content: "angelina_trn"
-          },
-          desktop: {
-            url: "/assets/storybook/Home/imageB.png",
-            content: "@instagram"
+          imageD: {
+            mobile: {
+              url: "/assets/storybook/Home/imageD.jpg",
+              content: "angelina_trn"
+            },
+            desktop: {
+              url: "/assets/storybook/Home/imageD.jpg",
+              content: "@instagram"
+            }
           }
         }
       }
@@ -394,72 +407,64 @@ export default {
   }
 }
 .section {
-  display: flex;
-  flex-direction: column;
   order: 6;
-  margin: var(--spacer-3xl) 0 var(--spacer-2xl) 0;
-}
-.images-grid {
-  --image-width: 100%;
-  --image-height: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: var(--spacer-xs);
-  grid-row-gap: var(--spacer-xs);
-  &__imageA,
-  &__imageB {
-    grid-row: 1/3;
-  }
-  &__imageC,
-  &__imageD {
-    grid-row: 3/5;
-  }
-  &--desktop {
-    display: none;
-  }
+  padding: 0 var(--spacer-xl);
   @include for-desktop {
-    grid-column-gap: var(--spacer-base);
-    grid-row-gap: var(--spacer-base);
-    &__imageA {
-      grid-column: 1/2;
-      grid-row: 1/4;
+    padding: 0;
+  }
+}
+.instagram-grid {
+  max-width: 60rem;
+  margin: 0 auto;
+  &__row {
+    display: flex;
+    & + & {
+      margin: var(--spacer-xs) 0 0 0;
+      @include for-desktop {
+        margin: calc(var(--spacer-xl) / 2) 0 0 0;
+      }
     }
-    &__imageB {
-      grid-column: 2/3;
-      grid-row: 1/2;
-    }
-    &__imageC {
-      grid-column: 1/2;
-      grid-row: 4/5;
-    }
-    &__imageD {
-      grid-column: 2/3;
-      grid-row: 2/5;
-    }
-    &--mobile {
-      display: none;
-    }
-    &--desktop {
-      display: block;
+  }
+  &__col {
+    flex: 1;
+    margin: 0;
+    & + & {
+      margin: 0 0 0 var(--spacer-xs);
+      @include for-desktop {
+        margin: 0 0 0 calc(var(--spacer-xl) / 2);
+      }
     }
   }
 }
 .banner {
   display: none;
+  order: 7;
   @include for-desktop {
-    --banner-padding: 0 var(--spacer-2xl);
+    --banner-container-width: 100%;
     --banner-title-margin: var(--spacer-base) 0 var(--spacer-xl) 0;
-    --banner-title-font-weight: 600;
+    --banner-padding: 0 var(--spacer-2xl);
+    --banner-title-font-size: var(--h1-font-size);
+    --banner-subtitle-font-size: var(--font-xl);
+    --banner-title-font-weight: var(--font-semibold);
+    --banner-subtitle-font-weight: var(--font-medium);
     --banner-title-text-transform: capitalize;
-    display: flex;
-    order: 7;
+    --banner-subtitle-text-transform: capitalize;
+    display: block;
+    min-height: 26.25rem;
+    max-width: 65rem;
+    margin: 0 auto;
+    padding: 0 calc(25% + var(--spacer-2xl)) 0 var(--spacer-xl);
     &__call-to-action {
       --button-background: var(--c-white);
       display: flex;
     }
     &__button {
-      --button-padding: 0 var(--spacer-base) 0 0;
+      --image-width: 8.375rem;
+      --image-height: 2.75rem;
+      --button-padding: 0;
+      & + & {
+        margin: 0 0 0 calc(var(--spacer-xl) / 2);
+      }
     }
   }
 }
