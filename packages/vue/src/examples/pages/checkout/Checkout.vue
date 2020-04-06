@@ -3,36 +3,42 @@
     <div class="checkout">
       <div class="checkout__main">
         <SfSteps :active="currentStep" @change="updateStep($event)">
-          <SfStep name="Personal Details">
+          <SfStep name="Details">
             <PersonalDetails
-              :order="order"
-              @update:order="updateOrder($event)"
+              :value="personalDetails"
+              :button-name="getButtonName"
+              @input="personalDetails = $event"
+              @click:next="currentStep++"
+              @click:back="currentStep--"
             />
           </SfStep>
           <SfStep name="Shipping">
             <Shipping
-              :order="order"
+              :value="shipping"
               :shipping-methods="shippingMethods"
-              @update:order="updateOrder($event)"
+              @input="shipping = $event"
+              @click:next="currentStep++"
               @click:back="currentStep--"
             />
           </SfStep>
           <SfStep name="Payment">
             <Payment
-              :order="order"
+              :value="payment"
               :payment-methods="paymentMethods"
-              @update:order="updateOrder($event)"
+              :shipping="shipping"
+              @input="payment = $event"
+              @click:next="currentStep++"
               @click:back="currentStep--"
             />
           </SfStep>
           <SfStep name="Review">
             <ConfirmOrder
-              :order="order"
               :shipping-methods="shippingMethods"
+              :order="getOrder"
               :payment-methods="paymentMethods"
+              :characteristics="characteristics"
               @click:back="currentStep--"
               @click:edit="currentStep = $event"
-              @update:order="updateOrder($event, false)"
             />
           </SfStep>
         </SfSteps>
@@ -42,17 +48,23 @@
           <OrderSummary
             v-if="currentStep <= 2"
             key="order-summary"
-            :order="order"
+            class="checkout__aside-order"
+            :order="getOrder"
             :shipping-methods="shippingMethods"
             :payment-methods="paymentMethods"
-            @update:order="updateOrder($event, false)"
+            :characteristics="characteristics"
+            :button-name="getButtonName"
+            @click:next="currentStep++"
+            @click:back="currentStep--"
           />
           <OrderReview
             v-else
             key="order-review"
-            :order="order"
+            class="checkout__aside-order"
+            :order="getOrder"
             :shipping-methods="shippingMethods"
             :payment-methods="paymentMethods"
+            :characteristics="characteristics"
             @click:edit="currentStep = $event"
           />
         </transition>
@@ -85,45 +97,44 @@ export default {
   data() {
     return {
       currentStep: 0,
-      order: {
+      personalDetails: { firstName: "", lastName: "", email: "" },
+      shipping: {
         firstName: "",
         lastName: "",
-        email: "",
+        streetName: "",
+        apartment: "",
+        city: "",
+        state: "",
+        zipCode: "",
+        country: "",
+        phoneNumber: "",
+        shippingMethod: ""
+      },
+      payment: {
+        sameAsShipping: false,
+        firstName: "",
+        lastName: "",
+        streetName: "",
+        apartment: "",
+        city: "",
+        state: "",
+        zipCode: "",
+        country: "",
+        phoneNumber: "",
+        paymentMethod: "",
+        invoice: false,
+        card: {
+          number: "",
+          holder: "",
+          month: "",
+          year: "",
+          cvc: "",
+          keep: false
+        }
+      },
+      order: {
         password: "",
         createAccount: false,
-        shipping: {
-          firstName: "",
-          lastName: "",
-          streetName: "",
-          apartment: "",
-          city: "",
-          state: "",
-          zipCode: "",
-          country: "",
-          phoneNumber: "",
-          shippingMethod: ""
-        },
-        payment: {
-          sameAsShipping: false,
-          firstName: "",
-          lastName: "",
-          streetName: "",
-          apartment: "",
-          city: "",
-          state: "",
-          zipCode: "",
-          country: "",
-          phoneNumber: "",
-          paymentMethod: "",
-          card: {
-            number: "",
-            holder: "",
-            month: "",
-            year: "",
-            cvc: "",
-            keep: false
-          }
-        },
         review: {
           subtotal: "$150.00",
           shipping: "$9.00",
@@ -222,8 +233,45 @@ export default {
           description:
             "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
         }
+      ],
+      buttonNames: [
+        { name: "Go to shipping" },
+        { name: "Go to payment" },
+        { name: "Review Order" },
+        { name: "Place my order" }
+      ],
+      characteristics: [
+        {
+          title: "Safety",
+          description: "It carefully packaged with a personal touch",
+          icon: "safety"
+        },
+        {
+          title: "Easy shipping",
+          description:
+            "You’ll receive dispatch confirmation and an arrival date",
+          icon: "shipping"
+        },
+        {
+          title: "Changed your mind?",
+          description: "Rest assured, we offer free returns within 30 days",
+          icon: "return"
+        }
       ]
     };
+  },
+  computed: {
+    getOrder() {
+      return {
+        ...this.order,
+        ...this.personalDetails,
+        shipping: { ...this.shipping },
+        payment: { ...this.payment }
+      };
+    },
+    getButtonName() {
+      return this.buttonNames[this.currentStep].name;
+    }
   },
   methods: {
     updateStep(next) {
@@ -231,39 +279,46 @@ export default {
       if (next < this.currentStep) {
         this.currentStep = next;
       }
-    },
-    updateOrder(order, next = true) {
-      this.order = { ...this.order, ...order };
-      if (next) {
-        this.currentStep++;
-      }
     }
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+
 #checkout {
   box-sizing: border-box;
-  padding: 0 var(--spacer-big);
+  font-family: var(--font-family-secondary);
   @include for-desktop {
-    max-width: 1240px;
+    padding: 0 var(--spacer-sm);
+    max-width: 1272px;
     margin: 0 auto;
   }
 }
+
 .checkout {
+  --steps-content-padding: 0 var(--spacer-sm);
   @include for-desktop {
+    --steps-content-padding: 0;
     display: flex;
   }
   &__main {
     @include for-desktop {
       flex: 1;
+      padding: var(--spacer-xl) 0 0 0;
     }
   }
   &__aside {
     @include for-desktop {
-      flex: 0 0 25.5rem;
-      margin: 0 0 0 4.25rem;
+      flex: 0 0 26.8125rem;
+      margin: 0 0 0 var(--spacer-xl);
+    }
+    &-order {
+      box-sizing: border-box;
+      width: 100%;
+      box-shadow: 0px 4px 11px rgba(var(--c-dark-base), 0.1);
+      background: var(--c-light);
+      padding: var(--spacer-xl) calc(var(--spacer-lg) * 2);
     }
   }
 }
