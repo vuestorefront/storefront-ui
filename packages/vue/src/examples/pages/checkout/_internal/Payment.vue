@@ -361,6 +361,8 @@ export default {
           this.phoneNumber = this.shipping.phoneNumber;
           this.paymentMethod = this.shipping.paymentMethod;
         } else {
+          this.firstName = "";
+          this.lastName = "";
           this.streetName = "";
           this.apartment = "";
           this.city = "";
@@ -370,7 +372,8 @@ export default {
           this.phoneNumber = "";
           this.paymentMethod = "";
         }
-      }
+      },
+      immediate: true
     }
   },
   mounted() {
