@@ -37,4 +37,8 @@
     --carousel-controls-size: 15rem;
     --carousel-controls-display: flex;
   }
+  @supports (-webkit-touch-callout: none) {
+    --carousel-width: 100%;
+    --carousel-controls-display: none;
+  }
 }
