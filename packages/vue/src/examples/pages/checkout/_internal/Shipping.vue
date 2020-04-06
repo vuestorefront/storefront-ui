@@ -331,7 +331,8 @@ export default {
       --button-width: auto;
     }
     &__radio-group {
-      transform: translateX(calc(var(--spacer-sm) * -1));
+      flex: 0 0 calc(100% + var(--spacer-sm));
+      margin: 0 calc(var(--spacer-sm) * -1);
     }
   }
   @include for-mobile {
