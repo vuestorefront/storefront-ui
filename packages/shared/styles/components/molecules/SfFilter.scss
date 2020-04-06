@@ -21,6 +21,7 @@
    text-decoration: var(--filter-label-text-decoration);
    transition: transform 150ms ease-in-out;
    transform: var(--filter-label-transform);
+   transform-origin: left;
  }
  &__count {
    display: var(--filter-count-display);
