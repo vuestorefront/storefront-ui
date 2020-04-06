@@ -2,7 +2,8 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  optionsKnob as options
+  optionsKnob as options,
+  boolean
 } from "@storybook/addon-knobs";
 import SfColor from "./SfColor.vue";
 storiesOf("Atoms|Color", module)
@@ -11,6 +12,7 @@ storiesOf("Atoms|Color", module)
     components: { SfColor },
     props: {
       color: { default: text("color", "red", "Props") },
+      hasBadge: { default: boolean("hasBadge", true, "Props") },
       customClass: {
         default: options(
           "CSS modifiers",
@@ -31,6 +33,7 @@ storiesOf("Atoms|Color", module)
     template: `<SfColor 
           :color="color" 
           :selected="selected" 
+          :has-badge="hasBadge"
           aria-label="color"  
           style="margin: 10px;"
           :class="customClass"

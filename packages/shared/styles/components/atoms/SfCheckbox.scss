@@ -10,7 +10,7 @@
 
   &__checkmark {
     box-sizing: border-box;
-    display: flex;
+    display: var(--checkbox-display, flex);
     align-items: center;
     justify-content: center;
     order: var(--checkbox-order);
