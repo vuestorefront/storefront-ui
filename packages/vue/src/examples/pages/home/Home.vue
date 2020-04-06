@@ -72,7 +72,7 @@
       class="section"
       title-heading="Share Your Look"
       subtitle-heading="#YOURLOOK"
-      :level-heading="sectionLevel"
+      :level-heading="3"
     >
       <div class="images-grid">
         <SfImage
@@ -160,7 +160,7 @@ export default {
           title: "Colorful summer dresses are already in store",
           subtitle: "SUMMER COLLECTION 2020",
           buttonText: "Learn more",
-          background: "rgb(252, 228, 236)",
+          background: "rgb(236, 239, 241)",
           image: "/assets/storybook/Home/hero.png"
         }
       ],
@@ -282,7 +282,6 @@ export default {
           badgeColor: "color-primary"
         }
       ],
-      sectionLevel: 3,
       instagramFeed: {
         imageA: {
           mobile: {
