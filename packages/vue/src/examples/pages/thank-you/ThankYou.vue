@@ -17,10 +17,10 @@
       <div class="order">
         <SfHeading
           title="Your Purchase"
-          class="heading sf-heading--left"
+          class="order__heading heading sf-heading--left"
           :level="3"
         />
-        <p class="paragraph">
+        <p class="order__paragraph paragraph">
           You have successfuly placed the order. You can check status of your
           order by using our delivery status feature. You will receive an order
           confirmation e-mail with details of your order and a link to track its
@@ -32,17 +32,14 @@
             class="heading sf-heading--left sf-heading--no-underline"
             title="Primary contacts for any questions"
           ></SfHeading>
-          <p class="paragraph--contact">
-            <span>{{ address.name }}</span
-            ><br />
-            <span>{{ address.street }}</span
-            ><br />
-            <span>{{ address.city }}</span
-            ><br /><br />
-            <span>{{ address.email }}</span>
-          </p>
+          <div class="contact">
+            <p class="contact__name">{{ address.name }}</p>
+            <p class="contact__street">{{ address.street }}</p>
+            <p class="contact__city">{{ address.city }}</p>
+            <p class="contact__email">{{ address.email }}</p>
+          </div>
         </div>
-        <SfButton class="order__notifications-button sf-button--full-width"
+        <SfButton class="order__notifications-button button-size"
           >Allow order notifications</SfButton
         >
       </div>
@@ -68,20 +65,16 @@
           <p class="paragraph">
             Your feedback is important to us. Let us know what we could improve.
           </p>
-          <div class="order__buttons">
-            <SfButton
-              class="feedback-button color-secondary sf-button--full-width button-size"
-              >Send my feedback</SfButton
-            >
-          </div>
+          <SfButton
+            class="feedback-button color-secondary sf-button--full-width button-size"
+            >Send my feedback</SfButton
+          >
         </div>
       </div>
     </section>
-    <div class="bottom-section">
-      <SfButton class="back-button color-primary button-size"
-        >Go back to shop</SfButton
-      >
-    </div>
+    <SfButton class="back-button color-primary button-size"
+      >Go back to shop</SfButton
+    >
   </div>
 </template>
 <script>
@@ -117,12 +110,22 @@ export default {
     margin: auto;
   }
 }
-
+.heading {
+  --heading-padding: var(--spacer-base) 0;
+}
+.paragraph {
+  margin: var(--spacer-xs) 0 var(--spacer-sm) 0;
+  color: var(--c-dark-variant);
+  font: var(--font-light) var(--font-base) / 1.6 var(--font-family-primary);
+  @include for-desktop {
+    font-weight: var(--font-normal);
+    font-size: var(--font-sm);
+  }
+}
 .banner {
   &__info {
     padding: var(--spacer-xl) var(--spacer-lg);
     text-align: left;
-
     @include for-desktop {
       padding: var(--spacer-2xl) 0 var(--spacer-3xl) var(--spacer-2xl);
     }
@@ -130,12 +133,10 @@ export default {
   &__order-number {
     display: flex;
     flex-direction: column;
-    font-family: var(--font-family-primary);
-    font-size: var(--font-sm);
-    font-weight: var(--font-light);
+    font: var(--font-light) var(--font-sm) / 1.4 var(--font-family-primary);
     @include for-desktop {
-      font-size: var(--font-normal);
       flex-direction: row;
+      font-size: var(--font-normal);
     }
   }
 }
@@ -146,47 +147,55 @@ export default {
   @include for-desktop {
     flex-direction: row;
     padding: 0;
+    background: var(--c-light);
   }
 }
-
 .order {
-  background: var(--c-light);
-  padding: 0 var(--spacer-sm) var(--spacer-xs) var(--spacer-sm);
   @include for-desktop {
     width: 100%;
     padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-2xl)
       var(--spacer-2xl);
   }
+  &__heading,
+  &__paragraph,
   &__contact {
-    padding: 0 0 var(--spacer-xs) var(--spacer-sm);
+    @include for-mobile {
+      margin: 0;
+      padding-left: var(--spacer-sm);
+      padding-right: var(--spacer-sm);
+      background: var(--c-light);
+    }
+  }
+  &__contact {
+    padding: var(--spacer-sm);
     @include for-desktop {
+      padding: 0 var(--spacer-sm);
       border: 2px solid var(--c-white);
       border-width: 2px 0 2px 0;
     }
   }
   &__notifications-button {
-    margin: var(--spacer-base) 0 0 0;
+    --button-width: calc(100% - (var(--spacer-sm) * 2));
+    margin: var(--spacer-base) auto 0 auto;
     @include for-desktop {
       margin: var(--spacer-xl) 0 0 0;
     }
   }
-  &__buttons {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    @include for-desktop {
-      flex: auto 0 0 0;
-      flex-direction: row;
-    }
-  }
 }
-.feedback-button {
-  margin: var(--spacer-sm) 0;
-
+.contact {
+  color: var(--c-dark-variant);
+  font: var(--font-light) var(--font-base) / 1.6 var(--font-family-secondary);
   @include for-desktop {
-    margin: var(--spacer-base) 0 0 0;
+    font-weight: var(--font-normal);
+    font-size: var(--font-sm);
+  }
+  &__name,
+  &__street,
+  &__city {
+    margin: 0;
+  }
+  &__mail {
+    margin: var(--spacer-sm) 0;
   }
 }
 .additional-info {
@@ -198,34 +207,17 @@ export default {
     justify-content: space-between;
     padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-2xl)
       var(--spacer-2xl);
-    background: var(--c-light);
   }
 }
-.heading {
-  --heading-padding: var(--spacer-base) 0;
-}
-.paragraph {
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-light);
-  color: var(--c-dark-variant);
-  margin: var(--spacer-xs) 0 var(--spacer-sm) 0;
-  &--contact {
-    color: var(--c-dark-variant);
-    font-family: var(--font-family-secondary);
-    margin: 0;
-  }
-  line-height: 1.6rem;
+.feedback-button {
+  margin: var(--spacer-sm) 0;
   @include for-desktop {
-    font-weight: var(--font-normal);
+    margin: var(--spacer-base) 0 0 0;
   }
-}
-
-.bottom-section {
-  padding: 0 var(--spacer-sm);
-  margin: 0 0 var(--spacer-sm) 0;
 }
 .back-button {
-  --button-width: 100%;
+  --button-width: calc(100% - (var(--spacer-sm) * 2));
+  margin: 0 auto var(--spacer-sm) auto;
   @include for-desktop {
     --button-background: var(--c-secondary);
     margin: var(--spacer-xl) auto;
