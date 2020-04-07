@@ -288,7 +288,6 @@ export default {
 
 #checkout {
   box-sizing: border-box;
-  font-family: var(--font-family-secondary);
   @include for-desktop {
     padding: 0 var(--spacer-sm);
     max-width: 1272px;
