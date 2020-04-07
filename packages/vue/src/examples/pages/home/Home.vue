@@ -331,7 +331,7 @@ export default {
   @include for-desktop {
     margin: 0;
   }
-  // todo: fix product shadow on carosusel
+  // todo: fix product shadow on carousel
 }
 .banner-grid {
   margin: var(--spacer-base) 0;
