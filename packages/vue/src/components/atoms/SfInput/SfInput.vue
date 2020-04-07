@@ -162,7 +162,7 @@ export default {
       immediate: true,
       handler: function(type) {
         let inputType = type;
-        // fix for Safari type number input bug
+        // Safari has bug for number input
         if (typeof window !== "undefined" || typeof document !== "undefined") {
           const ua = navigator.userAgent.toLocaleLowerCase();
           if (
