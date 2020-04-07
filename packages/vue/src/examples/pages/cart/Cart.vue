@@ -23,8 +23,8 @@
                 v-model="product.qty"
                 :image="product.image"
                 :title="product.title"
-                :regular-price="product.price.regular | price"
-                :special-price="product.price.special | price"
+                :regular-price="product.price.regular"
+                :special-price="product.price.special"
                 class="collected-product"
                 @click:remove="removeHandler(product)"
               >
@@ -71,24 +71,26 @@
               shopping to fill it in."
             />
           </div>
-          <SfButton class="sf-button--full-width color-primary"
-            >Start shopping</SfButton
-          >
         </div>
       </transition>
-      <template v-if="totalItems" #content-bottom>
+      <template #content-bottom>
         <transition name="fade">
-          <div class="summary">
+          <div v-if="totalItems">
             <SfProperty
               name="Total price"
               class="sf-property--full-width sf-property--large my-cart__total-price"
             >
               <template #value>
-                <SfPrice :regular="totalPrice | price" />
+                <SfPrice :regular="totalPrice" />
               </template>
             </SfProperty>
             <SfButton class="sf-button--full-width color-secondary"
               >Go to checkout</SfButton
+            >
+          </div>
+          <div v-else>
+            <SfButton class="sf-button--full-width color-primary"
+              >Start shopping</SfButton
             >
           </div>
         </transition>
@@ -117,12 +119,6 @@ export default {
     SfPrice,
     SfCollectedProduct
   },
-  filters: {
-    price: function(price) {
-      if (!price) return;
-      return `$${price}`;
-    }
-  },
   data() {
     return {
       isCartSidebarOpen: true,
@@ -131,7 +127,7 @@ export default {
           title: "Cream Beach Bag",
           id: "CBB1",
           image: "assets/storybook/Home/productA.jpg",
-          price: { regular: "50.00" },
+          price: { regular: "$50.00" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
@@ -142,7 +138,7 @@ export default {
           title: "Cream Beach Bag",
           id: "CBB2",
           image: "assets/storybook/Home/productB.jpg",
-          price: { regular: "50.00", special: "20.05" },
+          price: { regular: "$50.00", special: "$20.05" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
@@ -153,7 +149,7 @@ export default {
           title: "Cream Beach Bag",
           id: "CBB3",
           image: "assets/storybook/Home/productC.jpg",
-          price: { regular: "50.00", special: "20.50" },
+          price: { regular: "$50.00", special: "$20.50" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
@@ -174,8 +170,8 @@ export default {
       return this.products
         .reduce((totalPrice, product) => {
           const price = product.price.special
-            ? product.price.special
-            : product.price.regular;
+            ? product.price.special.replace("$", "")
+            : product.price.regular.replace("$", "");
           const summary = parseFloat(price).toFixed(2) * product.qty;
           return totalPrice + summary;
         }, 0)
