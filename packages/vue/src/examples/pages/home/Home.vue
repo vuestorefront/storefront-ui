@@ -73,17 +73,17 @@
       </div>
     </SfSection>
     <SfBanner
-      class="banner desktop-only"
+      class="app-banner desktop-only"
       title="Download our application to your mobile"
       subtitle="fashion to take away"
       image="/assets/storybook/Home/bannerD.png"
     >
       <template #call-to-action>
-        <div class="banner__call-to-action">
-          <SfButton class="banner__button">
+        <div class="app-banner__call-to-action">
+          <SfButton class="app-banner__button">
             <SfImage src="/assets/storybook/Home/apple.png" />
           </SfButton>
-          <SfButton class="banner__button">
+          <SfButton class="app-banner__button">
             <SfImage src="/assets/storybook/Home/google.png" />
           </SfButton>
         </div>
@@ -156,7 +156,7 @@ export default {
             "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.",
           buttonText: "Shop now",
           image: "/assets/storybook/Home/bannerF.jpg",
-          class: "sf-banner--slim desktop-only"
+          class: "desktop-only"
         },
         {
           slot: "banner-B",
@@ -166,21 +166,19 @@ export default {
             "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.",
           buttonText: "Shop now",
           image: "/assets/storybook/Home/bannerE.jpg",
-          class: "sf-banner--slim banner-central desktop-only"
+          class: "desktop-only"
         },
         {
           slot: "banner-C",
           subtitle: "T-Shirts",
           title: "The Office Life",
-          image: "/assets/storybook/Home/bannerC.jpg",
-          class: "sf-banner--slim"
+          image: "/assets/storybook/Home/bannerC.jpg"
         },
         {
           slot: "banner-D",
           subtitle: "Summer Sandals",
           title: "Eco Sandals",
-          image: "/assets/storybook/Home/bannerG.jpg",
-          class: "sf-banner--slim"
+          image: "/assets/storybook/Home/bannerG.jpg"
         }
       ],
       products: [
@@ -320,35 +318,29 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 #home {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 var(--spacer-sm);
   box-sizing: border-box;
+  padding: 0 var(--spacer-sm);
   @include for-desktop {
-    padding: 0;
+    padding: 0 var(--spacer-sm);
+    max-width: 1272px;
+    margin: 0 auto;
   }
 }
-.hero {
-  display: flex;
-}
 .carousel {
+  margin: 0 calc(var(--spacer-sm) * -1) 0 0;
+  @include for-desktop {
+    margin: 0;
+  }
+  // todo: fix product shadow on carosusel
 }
 .banner-grid {
-  display: flex;
-  flex-direction: column;
-  margin: var(--spacer-xl) 0 var(--spacer-base) 0;
+  margin: var(--spacer-base) 0;
   @include for-desktop {
     margin: var(--spacer-2xl) 0;
   }
 }
 .call-to-action {
   display: flex;
-}
-.section {
-  padding: 0 var(--spacer-xl);
-  @include for-desktop {
-    padding: 0;
-  }
 }
 .instagram-grid {
   max-width: 60rem;
@@ -373,7 +365,7 @@ export default {
     }
   }
 }
-.banner {
+.app-banner {
   --banner-container-width: 100%;
   --banner-title-margin: var(--spacer-base) 0 var(--spacer-xl) 0;
   --banner-padding: 0 var(--spacer-2xl);
@@ -389,7 +381,7 @@ export default {
   margin: 0 auto;
   padding: 0 calc(25% + var(--spacer-2xl)) 0 var(--spacer-xl);
   &__call-to-action {
-    --button-background: var(--c-white);
+    --button-background: transparent;
     display: flex;
   }
   &__button {
