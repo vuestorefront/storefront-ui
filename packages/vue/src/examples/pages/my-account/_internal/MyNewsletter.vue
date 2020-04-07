@@ -44,13 +44,21 @@ export default {
   name: "MyNewsletter",
   components: { SfTabs, SfCheckbox, SfButton },
   data() {
-    return { newsletter: "" };
+    return {
+      newsletter: []
+    };
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
+.tab-orphan {
+  @include for-mobile {
+    --tabs-title-display: none;
+    --tabs-content-padding: 0;
+    --tabs-conent-border-width: 0;
+  }
+}
 .form {
   &__element {
     margin: 0 0 var(--spacer-base) 0;
@@ -63,7 +71,6 @@ export default {
   }
   &__title {
     margin: 0 0 var(--spacer-base) 0;
-    font: 500 var(--font-size-regular) / 1.6 var(--font-family-secondary);
   }
   &__button {
     --button-width: 100%;
@@ -74,11 +81,7 @@ export default {
 }
 .message {
   margin: 0 0 var(--spacer-xl) 0;
-  font: var(--font-light) var(--font-base) / 1.6 var(--font-family-primary);
   color: var(--c-dark-variant);
-  &__label {
-    color: var(--c-text);
-  }
 }
 a {
   color: var(--c-primary);
@@ -90,6 +93,6 @@ a {
 .notice {
   max-width: 31rem;
   margin: var(--spacer-base) 0 0 0;
-  font: var(--font-normal) var(--font-2xs) / 1.6 var(--font-family-primary);
+  font-size: var(--font-2xs);
 }
 </style>
