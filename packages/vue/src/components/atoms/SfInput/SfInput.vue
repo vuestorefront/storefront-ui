@@ -160,27 +160,30 @@ export default {
   watch: {
     type: {
       immediate: true,
-      handler: function(value) {
-        const ua = navigator.userAgent.toLowerCase();
-        if (
-          ua.indexOf("safari") !== -1 &&
-          ua.indexOf("chrome") === -1 &&
-          value === "number"
-        ) {
-          this.isNumberTypeSafari = true;
-          this.inputType = "text";
-        } else this.inputType = value;
+      handler: function(type) {
+        let inputType = type;
+        // fix for Safari type number input bug
+        if (typeof window !== "undefined" || typeof document !== "undefined") {
+          const ua = navigator.userAgent.toLocaleLowerCase();
+          if (
+            ua.indexOf("safari") !== -1 &&
+            ua.indexOf("chrome") === -1 &&
+            type === "number"
+          ) {
+            this.isNumberTypeSafari = true;
+            inputType = "text";
+          }
+        }
+        this.inputType = inputType;
       }
     },
     value: {
       immediate: true,
-      handler: function(value, oldValue) {
-        if (
-          this.isNumberTypeSafari &&
-          !value.match(/^[+-]?\d*[,.]?\d+(?:[Ee]?\d+)?$/)
-        ) {
-          return this.$emit("input", oldValue);
-        } else this.$emit("input", value);
+      handler: function(value) {
+        if (!this.isNumberTypeSafari) return;
+        if (isNaN(value)) {
+          this.$emit("input");
+        }
       }
     }
   },
