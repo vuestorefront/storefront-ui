@@ -110,6 +110,8 @@
     }
     &:disabled {
       --input-color: var(--c-text-disabled);
+      /* add to provide color on iOS */
+      -webkit-text-fill-color: var(--c-text-disabled);
       & ~ * {
         --icon-color: var(--text-disabled);
         --input-label-color: var(--c-text-disabled);
@@ -122,6 +124,9 @@
         margin: 0;
       }
       -moz-appearance: textfield;
+    }
+    &[type="search"] {
+      -webkit-appearance: none;
     }
   }
 
