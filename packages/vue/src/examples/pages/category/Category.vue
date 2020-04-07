@@ -17,7 +17,7 @@
             <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
               <g clip-icon="url(#clip0)">
                 <path
-                  d="m2.461 6.9416e-6h-0.1786c-1.113 0.0021094-2.0151 0.90421-2.0173 2.018v0.17859c-0.001406 0.53649 0.21024 1.0512 0.58851 1.4316 0.37829 0.38039 0.89226 0.59414 1.4287 0.59555h0.1786c0.53859 0.0014 1.0547-0.21165 1.4358-0.59204 0.38039-0.38039 0.59344-0.89719 0.59203-1.4351v-0.17859c-0.0014-0.53649-0.21585-1.0505-0.59554-1.4295-0.3804-0.37829-0.89581-0.58991-1.4323-0.58851zm1.452 2.1965c0.00141 0.38531-0.15047 0.75585-0.42329 1.028-0.27281 0.27281-0.64265 0.42539-1.0287 0.42329h-0.1786c-0.3839-7.1e-4 -0.75164-0.15399-1.0223-0.4261-0.27-0.27281-0.42117-0.64125-0.41906-1.0252v-0.1786c7.03e-4 -0.79594 0.64616-1.4407 1.4414-1.4421h0.1786c0.3839-0.00211 0.75305 0.14906 1.0252 0.41976 0.27281 0.27 0.4261 0.63844 0.4268 1.0223v0.1786z"
+                  d="m2.461 6.9416e-`6h-0.1786c-1.113 0.0021094-2.0151 0.90421-2.0173 2.018v0.17859c-0.001406 0.53649 0.21024 1.0512 0.58851 1.4316 0.37829 0.38039 0.89226 0.59414 1.4287 0.59555h0.1786c0.53859 0.0014 1.0547-0.21165 1.4358-0.59204 0.38039-0.38039 0.59344-0.89719 0.59203-1.4351v-0.17859c-0.0014-0.53649-0.21585-1.0505-0.59554-1.4295-0.3804-0.37829-0.89581-0.58991-1.4323-0.58851zm1.452 2.1965c0.00141 0.38531-0.15047 0.75585-0.42329 1.028-0.27281 0.27281-0.64265 0.42539-1.0287 0.42329h-0.1786c-0.3839-7.1e-4 -0.75164-0.15399-1.0223-0.4261-0.27-0.27281-0.42117-0.64125-0.41906-1.0252v-0.1786c7.03e-4 -0.79594 0.64616-1.4407 1.4414-1.4421h0.1786c0.3839-0.00211 0.75305 0.14906 1.0252 0.41976 0.27281 0.27 0.4261 0.63844 0.4268 1.0223v0.1786z"
                 />
                 <path
                   d="m9.0959 0h-0.19265c-1.1109 0.005625-2.0095 0.90634-2.0117 2.018v0.17859c-0.00281 1.1145 0.89719 2.0214 2.0117 2.0272h0.19265c1.1145-0.00562 2.0144-0.91265 2.0117-2.0272v-0.17859c-0.0021-1.1116-0.9007-2.0124-2.0117-2.018zm1.4421 2.1965h-7e-4c0.0022 0.3839-0.149 0.75235-0.4197 1.0252-0.27001 0.27211-0.63846 0.4254-1.0217 0.4261h-0.19265c-0.79524-0.00141-1.4407-0.64616-1.4414-1.4421v-0.17859c-0.00211-0.3839 0.14907-0.75235 0.41976-1.0252 0.27-0.27211 0.63845-0.4254 1.0216-0.4261h0.19265c0.79524 0.001406 1.4407 0.64616 1.4414 1.4421l7e-4 0.17859z"
@@ -44,7 +44,7 @@
         </SfButton>
         <div class="navbar__sort desktop-only">
           <span class="navbar__label">Sort by:</span>
-          <SfSelect v-model="sortBy">
+          <SfSelect v-model="sortBy" class="navbar__select">
             <SfSelectOption
               v-for="option in sortByOptions"
               :key="option.value"
@@ -56,7 +56,7 @@
         </div>
         <div class="navbar__counter">
           <span class="navbar__label desktop-only">Products found: </span>
-          <strong class="desktop-only">280</strong>
+          <span class="desktop-only">280</span>
           <span class="navbar__label mobile-only">280 Items</span>
         </div>
         <div class="navbar__view desktop-only">
@@ -112,15 +112,19 @@
     </div>
     <div class="main section">
       <div class="sidebar desktop-only">
-        <SfAccordion :first-open="true" :show-chevron="false">
+        <SfAccordion :first-open="true" :show-chevron="false" class="accordion">
           <SfAccordionItem
             v-for="(accordion, i) in sidebarAccordion"
             :key="i"
             :header="accordion.header"
           >
             <template>
-              <SfList>
-                <SfListItem v-for="(item, j) in accordion.items" :key="j">
+              <SfList class="list">
+                <SfListItem
+                  v-for="(item, j) in accordion.items"
+                  :key="j"
+                  class="list__item"
+                >
                   <SfMenuItem :label="item.label" :count="item.count" />
                 </SfListItem>
               </SfList>
@@ -189,8 +193,8 @@
       </div>
     </div>
     <SfSidebar
-      title="Filters"
       :visible="isFilterSidebarOpen"
+      title="Filters"
       class="sidebar-filters"
       @close="isFilterSidebarOpen = false"
     >
@@ -280,13 +284,13 @@
           />
         </SfAccordionItem>
         <SfAccordionItem header="Color" class="filters__accordion-item">
-          <SfColor
+          <SfFilter
             v-for="filter in filters.color"
             :key="filter.value"
             :color="filter.color"
             :selected="filter.selected"
-            class="filters__color"
-            @click="filter.selected = !filter.selected"
+            class="filters__item"
+            @change="filter.selected = !filter.selected"
           />
         </SfAccordionItem>
         <SfAccordionItem header="Size" class="filters__accordion-item">
@@ -640,10 +644,12 @@ export default {
     margin: 0 auto;
   }
 }
-.section {
-  padding: var(--spacer-sm) var(--spacer-base);
-  @include for-desktop {
-    padding: 0;
+.main {
+  &.section {
+    padding: var(--spacer-xs);
+    @include for-desktop {
+      padding: 0;
+    }
   }
 }
 .breadcrumbs {
@@ -653,20 +659,22 @@ export default {
 .navbar {
   position: relative;
   display: flex;
-  font: 300 var(--font-size-small) / 1.6 var(--font-family-primary);
+  border: 1px solid var(--c-light);
   border-width: 0 0 1px 0;
-  border-style: solid;
-  border-color: var(--c-light);
   @include for-desktop {
     border-width: 1px 0 1px 0;
+  }
+  &.section {
+    padding: var(--spacer-sm);
+    @include for-desktop {
+      padding: 0;
+    }
   }
   &__aside,
   &__main {
     display: flex;
     align-items: center;
     padding: var(--spacer-sm) 0;
-    font-size: var(--font-size-small);
-    line-height: 1.6;
   }
   &__aside {
     flex: 0 0 15%;
@@ -682,25 +690,17 @@ export default {
     }
   }
   &__title {
-    padding: 0;
-    font-size: var(--font-size-big);
-    font-family: var(--font-family-secondary);
-    font-weight: 500;
-    line-height: 1.6;
+    --heading-title-font-weight: var(--font-light);
+    --heading-title-font-size: var(--font-xl);
   }
   &__filters-button {
-    --button-text-decoration: none;
-    --button-font-weight: var(--body-font-weight-secondary);
-    --button-color: var(--c-text);
-    --button-transition: all 150ms linear;
     display: flex;
     align-items: center;
-
     svg {
       fill: var(--c-text-muted);
+      transition: fill 150ms ease;
     }
     &:hover {
-      --button-color: var(--c-primary);
       svg {
         fill: var(--c-primary);
       }
@@ -708,11 +708,15 @@ export default {
   }
   &__label {
     font-family: var(--font-family-secondary);
-    font-weight: normal;
+    font-weight: var(--font-normal);
     color: var(--c-text-muted);
+    margin: 0 var(--spacer-2xs) 0 0;
+  }
+  &__select {
+    --select-padding: 0 var(--spacer-lg) 0 var(--spacer-2xs);
+    --select-margin: 0;
   }
   &__sort {
-    --select-font-size: var(--font-sm);
     display: flex;
     align-items: center;
     margin: 0 auto 0 var(--spacer-2xl);
@@ -724,17 +728,15 @@ export default {
       margin: auto 0 auto auto;
     }
   }
-
   &__view {
     display: flex;
     align-items: center;
     margin: 0 var(--spacer-xl);
-    font-family: var(--font-family-secondary);
     @include for-desktop {
       margin: 0 0 0 var(--spacer-2xl);
     }
     &-icon {
-      margin: 0 0 0 var(--spacer-xs);
+      margin: 0 0 0 var(--spacer-base);
       cursor: pointer;
     }
   }
@@ -744,7 +746,6 @@ export default {
   flex: unset;
   width: 11.875rem;
 }
-
 .main {
   display: flex;
 }
@@ -754,11 +755,20 @@ export default {
   border: 1px solid var(--c-light);
   border-width: 0 1px 0 0;
 }
-
 .sidebar-filters {
+  --sidebar-title-display: none;
+  --sidebar-top-padding: 0;
   @include for-desktop {
     --sidebar-content-padding: 0 var(--spacer-xl);
     --sidebar-bottom-padding: 0 var(--spacer-xl);
+  }
+}
+.list {
+  --menu-item-font-size: var(--font-sm);
+  &__item {
+    &:not(:last-of-type) {
+      --list-item-margin: 0 0 var(--spacer-sm) 0;
+    }
   }
 }
 
@@ -766,36 +776,20 @@ export default {
   box-sizing: border-box;
   flex: 1;
   margin: 0;
-  @include for-desktop {
-    margin: var(--spacer-sm);
-  }
-
   &__grid,
   &__list {
     display: flex;
     flex-wrap: wrap;
   }
-
   &__grid {
     justify-content: space-between;
-  }
-  &__list {
-    @include for-desktop {
-      padding: var(--spacer-lg) var(--spacer-lg);
-    }
   }
   &__product-card {
     --product-card-max-width: 50%;
     flex: 1 1 50%;
-    @include for-desktop {
-      flex: 1 1 25%;
-    }
   }
   &__product-card-horizontal {
     flex: 0 0 100%;
-    @include for-desktop {
-      margin: var(--spacer-lg) 0;
-    }
   }
   &__slide-enter {
     opacity: 0;
@@ -805,54 +799,67 @@ export default {
     transition: all 0.2s ease;
     transition-delay: calc(0.1s * var(--index));
   }
-  &__pagination {
-    @include for-desktop {
+  @include for-desktop {
+    margin: var(--spacer-sm) 0 0 var(--spacer-sm);
+    &__pagination {
       display: flex;
       justify-content: center;
       margin: var(--spacer-xl) 0 0 0;
+    }
+    &__product-card-horizontal {
+      margin: var(--spacer-lg) 0;
+    }
+    &__product-card {
+      flex: 1 1 25%;
+    }
+    &__list {
+      margin: 0 0 0 var(--spacer-sm);
     }
   }
 }
 .filters {
   &__title {
+    --heading-title-font-size: var(--font-xl);
     margin: var(--spacer-xl) 0 var(--spacer-base) 0;
-    font-family: var(--font-family-secondary);
-    font-weight: var(--font-normal);
-    line-height: 1.6;
-
     &:first-child {
-      margin: 0 0 var(--spacer-base) 0;
+      margin: calc(var(--spacer-xl) + var(--spacer-base)) 0 var(--spacer-xs) 0;
     }
   }
-
   &__color {
-    margin-right: var(--spacer-xs);
+    margin: var(--spacer-xs) var(--spacer-xs) var(--spacer-xs) 0;
   }
   &__item {
-    padding: var(--spacer-sm) var(--spacer-sm);
-
+    --filter-label-color: var(--c-secondary-variant);
+    --filter-count-color: var(--c-secondary-variant);
+    --checkbox-padding: 0 var(--spacer-sm) 0 var(--spacer-xl);
+    padding: var(--spacer-sm) 0;
     border-bottom: 1px solid var(--c-light);
-
     &:last-child {
       border-bottom: 0;
     }
-
     @include for-desktop {
-      margin: var(--spacer-base) 0;
+      --checkbox-padding: 0;
+      margin: var(--spacer-sm) 0;
       border: 0;
       padding: 0;
     }
   }
   &__accordion-item {
     --accordion-item-content-padding: 0;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
   }
   &__buttons {
-    margin: var(--spacer-xl) 0;
+    margin: var(--spacer-sm) 0;
   }
   &__button-clear {
     --button-background: var(--c-light);
     --button-color: var(--c-dark-variant);
-    margin: 0.625rem 0 0 0;
+    margin: var(--spacer-xs) 0 0 0;
   }
 }
 </style>
