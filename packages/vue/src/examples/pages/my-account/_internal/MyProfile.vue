@@ -165,16 +165,12 @@ export default {
 }
 .message {
   margin: 0 0 var(--spacer-xl) 0;
-  font: var(--font-light) var(--font-base) / 1.6 var(--font-family-primary);
   color: var(--c-dark-variant);
-  &__label {
-    color: var(--c-text);
-  }
 }
 .notice {
   max-width: 31rem;
   margin: var(--spacer-base) 0 0 0;
-  font: var(--font-light) var(--font-2xs) / 1.6 var(--font-family-secondary);
+  font-size: var(--font-2xs);
 }
 a {
   color: var(--c-primary);
