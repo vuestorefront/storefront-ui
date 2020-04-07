@@ -11,6 +11,7 @@
    display: var(--filter-label-display, flex);
    align-items: var(--filter-label-align-items, center);
    margin: var(--filter-label-margin, 0);
+   color: var(--filter-label-color);
    @include font(
      --filter-label-font,
      var(--font-medium),
@@ -25,6 +26,7 @@
  &__count {
    display: var(--filter-count-display);
    margin: var(--filter-count-margin, 0 var(--spacer-sm) 0 auto);
+   color: var(--filter-count-color);
    @include font(
      --filter-count-font,
      var(--font-normal),
@@ -45,7 +47,7 @@
  &--active {
    @include for-desktop {
      --filter-label-text-decoration: underline;
-     --filter-label-transform: scale3d(1.4, 1.4, 1);
+     --filter-label-transform: scale(1.4);
    }
  }
  &--is-color {
