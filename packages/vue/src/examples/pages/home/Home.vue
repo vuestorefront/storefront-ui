@@ -11,43 +11,6 @@
         :class="img.className"
       />
     </SfHero>
-    <SfHeading class="heading sf-heading--underline" :level="3">
-      <template #title>
-        <span class="heading__title mobile-only">
-          {{ headingTitle.mobile }}
-        </span>
-        <span class="heading__title desktop-only">
-          {{ headingTitle.desktop }}
-        </span>
-      </template>
-      <template #subtitle>
-        <SfButton class="sf-button--text mobile-only">
-          See all
-        </SfButton>
-      </template>
-    </SfHeading>
-    <SfCarousel class="carousel">
-      <SfCarouselItem
-        v-for="(product, index) in products"
-        :key="index"
-        class="carousel__item"
-      >
-        <SfProductCard
-          :image="product.image"
-          :title="product.title"
-          :regular-price="product.price.regular"
-          :special-price="product.price.special"
-          :score-rating="product.rating.score"
-          :max-rating="product.rating.max"
-          :is-on-wishlist="product.isOnWishlist"
-          :show-add-to-cart-button="true"
-          :reviews-count="product.reviews"
-          :badge-label="product.badgeLabel"
-          :badge-color="product.badgeColor"
-          @click:wishlist="toggleWishlist(index)"
-        />
-      </SfCarouselItem>
-    </SfCarousel>
     <SfBannerGrid class="banner-grid">
       <template v-for="banner in banners" #[banner.slot]>
         <SfBanner
@@ -68,11 +31,31 @@
       button-text="subscribe"
       image="/assets/storybook/Home/newsletter.jpg"
     />
-    <SfSection
-      title-heading="Share Your Look"
-      subtitle-heading="#YOURLOOK"
-      class="section"
-    >
+    <SfSection title-heading="Bestsellers">
+      <SfCarousel class="carousel">
+        <SfCarouselItem
+          v-for="(product, index) in products"
+          :key="index"
+          class="carousel__item"
+        >
+          <SfProductCard
+            :image="product.image"
+            :title="product.title"
+            :regular-price="product.price.regular"
+            :special-price="product.price.special"
+            :score-rating="product.rating.score"
+            :max-rating="product.rating.max"
+            :is-on-wishlist="product.isOnWishlist"
+            :show-add-to-cart-button="true"
+            :reviews-count="product.reviews"
+            :badge-label="product.badgeLabel"
+            :badge-color="product.badgeColor"
+            @click:wishlist="toggleWishlist(index)"
+          />
+        </SfCarouselItem>
+      </SfCarousel>
+    </SfSection>
+    <SfSection title-heading="Share Your Look" subtitle-heading="#YOURLOOK">
       <div class="instagram-grid">
         <div
           v-for="(col, rowKey) in instagramFeed"
@@ -90,7 +73,7 @@
       </div>
     </SfSection>
     <SfBanner
-      class="banner"
+      class="banner desktop-only"
       title="Download our application to your mobile"
       subtitle="fashion to take away"
       image="/assets/storybook/Home/bannerD.png"
@@ -112,7 +95,6 @@
 import {
   SfButton,
   SfHero,
-  SfHeading,
   SfBannerGrid,
   SfBanner,
   SfCallToAction,
@@ -126,7 +108,6 @@ export default {
   components: {
     SfButton,
     SfHero,
-    SfHeading,
     SfBannerGrid,
     SfBanner,
     SfCallToAction,
@@ -339,8 +320,6 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 #home {
-  display: flex;
-  flex-direction: column;
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 var(--spacer-sm);
@@ -351,52 +330,21 @@ export default {
 }
 .hero {
   display: flex;
-  order: 1;
-}
-.heading {
-  display: flex;
-  order: 2;
-  justify-content: space-between;
-  margin: var(--spacer-base) 0;
-  &__title {
-    font-size: var(--h3-font-size);
-    font-weight: var(--font-medium);
-    font-family: var(--font-family-secondary);
-  }
-  @include for-desktop {
-    justify-content: center;
-    order: 4;
-    margin: var(--spacer-3xl) 0 var(--spacer-2xl) 0;
-  }
 }
 .carousel {
-  --image-height: 100%;
-  display: flex;
-  justify-content: center;
-  order: 3;
-  @include for-desktop {
-    order: 5;
-  }
 }
 .banner-grid {
   display: flex;
   flex-direction: column;
-  order: 4;
   margin: var(--spacer-xl) 0 var(--spacer-base) 0;
   @include for-desktop {
-    order: 2;
     margin: var(--spacer-2xl) 0;
   }
 }
 .call-to-action {
   display: flex;
-  order: 5;
-  @include for-desktop {
-    order: 3;
-  }
 }
 .section {
-  order: 6;
   padding: 0 var(--spacer-xl);
   @include for-desktop {
     padding: 0;
@@ -426,34 +374,30 @@ export default {
   }
 }
 .banner {
-  display: none;
-  order: 7;
-  @include for-desktop {
-    --banner-container-width: 100%;
-    --banner-title-margin: var(--spacer-base) 0 var(--spacer-xl) 0;
-    --banner-padding: 0 var(--spacer-2xl);
-    --banner-title-font-size: var(--h1-font-size);
-    --banner-subtitle-font-size: var(--font-xl);
-    --banner-title-font-weight: var(--font-semibold);
-    --banner-subtitle-font-weight: var(--font-medium);
-    --banner-title-text-transform: capitalize;
-    --banner-subtitle-text-transform: capitalize;
-    display: block;
-    min-height: 26.25rem;
-    max-width: 65rem;
-    margin: 0 auto;
-    padding: 0 calc(25% + var(--spacer-2xl)) 0 var(--spacer-xl);
-    &__call-to-action {
-      --button-background: var(--c-white);
-      display: flex;
-    }
-    &__button {
-      --image-width: 8.375rem;
-      --image-height: 2.75rem;
-      --button-padding: 0;
-      & + & {
-        margin: 0 0 0 calc(var(--spacer-xl) / 2);
-      }
+  --banner-container-width: 100%;
+  --banner-title-margin: var(--spacer-base) 0 var(--spacer-xl) 0;
+  --banner-padding: 0 var(--spacer-2xl);
+  --banner-title-font-size: var(--h1-font-size);
+  --banner-subtitle-font-size: var(--font-xl);
+  --banner-title-font-weight: var(--font-semibold);
+  --banner-subtitle-font-weight: var(--font-medium);
+  --banner-title-text-transform: capitalize;
+  --banner-subtitle-text-transform: capitalize;
+  display: block;
+  min-height: 26.25rem;
+  max-width: 65rem;
+  margin: 0 auto;
+  padding: 0 calc(25% + var(--spacer-2xl)) 0 var(--spacer-xl);
+  &__call-to-action {
+    --button-background: var(--c-white);
+    display: flex;
+  }
+  &__button {
+    --image-width: 8.375rem;
+    --image-height: 2.75rem;
+    --button-padding: 0;
+    & + & {
+      margin: 0 0 0 calc(var(--spacer-xl) / 2);
     }
   }
 }
