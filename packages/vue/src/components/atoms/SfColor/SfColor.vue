@@ -7,10 +7,13 @@
     :aria-pressed="selected.toString()"
     v-on="$listeners"
   >
-    <!-- @slot Use it to replace badge to custom element -->
     <transition name="sf-color__badge">
-      <slot v-if="selected" name="badge">
-        <SfBadge class="sf-color__badge mobile-only">
+      <!-- @slot Use it to replace badge to custom element -->
+      <slot name="badge" v-bind="{ selected, hasBadge }">
+        <SfBadge
+          v-if="selected && hasBadge"
+          class="sf-color__badge mobile-only"
+        >
           <SfIcon icon="check" size="7px" color="white" />
         </SfBadge>
       </slot>
@@ -39,6 +42,10 @@ export default {
     selected: {
       type: Boolean,
       default: false
+    },
+    hasBadge: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
