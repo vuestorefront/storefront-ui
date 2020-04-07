@@ -142,27 +142,15 @@ export default {
   data() {
     return {
       isPasswordVisible: false,
-      inputType: ""
-      // isNumberTypeSafari: false
+      inputType: "",
+      isNumberTypeSafari: false
     };
   },
   computed: {
     listeners() {
       return {
         ...this.$listeners,
-        input: event => {
-          console.log(event.target.value);
-          if (
-            this.inputType === "number" &&
-            !event.target.value.match(/^[+-]?\d*[.,]?\d+(?:[Ee]?\d+)?$/)
-          ) {
-            console.log("not number:", event.target.value);
-            this.$emit("input", "");
-          } else {
-            console.log("number:", event.target.value);
-            this.$emit("input", event.target.value);
-          }
-        }
+        input: event => this.$emit("input", event.target.value)
       };
     },
     isPassword() {
@@ -170,42 +158,36 @@ export default {
     }
   },
   watch: {
-    // type: {
-    //   immediate: true,
-    //   handler: function(value) {
-    //     const ua = navigator.userAgent.toLowerCase();
-    //     if (
-    //       ua.indexOf("safari") !== -1 &&
-    //       ua.indexOf("chrome") === -1 &&
-    //       value === "number"
-    //     ) {
-    //       this.isNumberTypeSafari = true;
-    //       this.inputType = "text";
-    //     } else this.inputType = value;
-    //   }
-    // },
     type: {
       immediate: true,
       handler: function(value) {
-        return (this.inputType = value);
+        const ua = navigator.userAgent.toLowerCase();
+        if (
+          ua.indexOf("safari") !== -1 &&
+          ua.indexOf("chrome") === -1 &&
+          value === "number"
+        ) {
+          this.isNumberTypeSafari = true;
+          this.inputType = "text";
+        } else this.inputType = value;
       }
     },
     value: {
-      // immediate: true,
-      // handler: function(value) {
-      //   if (this.isNumberTypeSafari && isNaN(value)) {
-      //     return this.$emit("input", "");
-      //   } else this.$emit("input", value);
-      // }
-      //   immediate: true,
-      //   handler:
-      // }
-    },
-    methods: {
-      switchVisibilityPassword() {
-        this.isPasswordVisible = !this.isPasswordVisible;
-        this.inputType = this.isPasswordVisible ? "text" : "password";
+      immediate: true,
+      handler: function(value, oldValue) {
+        if (
+          this.isNumberTypeSafari &&
+          !value.match(/^[+-]?\d*[,.]?\d+(?:[Ee]?\d+)?$/)
+        ) {
+          return this.$emit("input", oldValue);
+        } else this.$emit("input", value);
       }
+    }
+  },
+  methods: {
+    switchVisibilityPassword() {
+      this.isPasswordVisible = !this.isPasswordVisible;
+      this.inputType = this.isPasswordVisible ? "text" : "password";
     }
   }
 };
