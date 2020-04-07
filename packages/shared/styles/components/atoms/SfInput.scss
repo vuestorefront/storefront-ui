@@ -92,11 +92,7 @@
     text-align: var(--input-text-align);
     outline: none;
 
-    &:focus,
-    &[type="date"],
-    &[type="time"],
-    &[type="image"],
-    &[type="file"] {
+    &:focus {
       & ~ * {
         --icon-color: var(--c-primary);
         --input-password-icon-background: var(--c-primary);
@@ -114,6 +110,8 @@
     }
     &:disabled {
       --input-color: var(--c-text-disabled);
+      /* add to provide color on iOS */
+      -webkit-text-fill-color: var(--c-text-disabled);
       & ~ * {
         --icon-color: var(--text-disabled);
         --input-label-color: var(--c-text-disabled);
