@@ -75,23 +75,16 @@
     >
       <div class="instagram-grid">
         <div
-          v-for="(row, rowName, rowIndex) in instagramFeed"
-          :key="rowIndex"
+          v-for="(col, rowKey) in instagramFeed"
+          :key="rowKey"
           class="instagram-grid__row"
         >
           <div
-            v-for="(img, imgName, index) in row"
-            :key="index"
+            v-for="(image, colKey) in col"
+            :key="colKey"
             class="instagram-grid__col"
           >
-            <SfImage :src="img" :width="486" :height="486"
-              ><span class="instagram-grid--mobile">{{
-                img.mobile.content
-              }}</span
-              ><span class="instagram-grid--desktop">{{
-                img.desktop.content
-              }}</span></SfImage
-            >
+            <SfImage :src="image">{{ image.content }}</SfImage>
           </div>
         </div>
       </div>
@@ -291,52 +284,48 @@ export default {
           badgeColor: "color-primary"
         }
       ],
-      instagramFeed: {
-        firstRow: {
-          imageA: {
+      instagramFeed: [
+        [
+          {
+            content: "angelina_trn",
             mobile: {
-              url: "/assets/storybook/Home/imageA.png",
-              content: "angelina_trn"
+              url: "/assets/storybook/Home/imageA.png"
             },
             desktop: {
-              url: "/assets/storybook/Home/imageA.png",
-              content: "@instagram"
+              url: "/assets/storybook/Home/imageA.png"
             }
           },
-          imageB: {
+          {
+            content: "angelina_trn",
             mobile: {
-              url: "/assets/storybook/Home/imageB.png",
-              content: "angelina_trn"
+              url: "/assets/storybook/Home/imageB.png"
             },
             desktop: {
-              url: "/assets/storybook/Home/imageB.png",
-              content: "@instagram"
+              url: "/assets/storybook/Home/imageB.png"
             }
           }
-        },
-        secondRow: {
-          imageC: {
+        ],
+        [
+          {
+            content: "angelina_trn",
             mobile: {
-              url: "/assets/storybook/Home/imageC.jpg",
-              content: "angelina_trn"
+              url: "/assets/storybook/Home/imageC.jpg"
             },
             desktop: {
-              url: "assets/storybook/Home/imageC.jpg",
-              content: "@instagram"
+              url: "/assets/storybook/Home/imageC.jpg"
             }
           },
-          imageD: {
+          {
+            content: "angelina_trn",
             mobile: {
-              url: "/assets/storybook/Home/imageD.jpg",
-              content: "angelina_trn"
+              url: "/assets/storybook/Home/imageD.jpg"
             },
             desktop: {
-              url: "/assets/storybook/Home/imageD.jpg",
-              content: "@instagram"
+              url: "/assets/storybook/Home/imageD.jpg"
             }
           }
-        }
-      }
+        ]
+      ]
     };
   },
   methods: {
