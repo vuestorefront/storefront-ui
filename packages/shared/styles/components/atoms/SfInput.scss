@@ -177,9 +177,13 @@
     }
   }
 
-  &--has-text {
-    --input-label-top: 0;
-    --input-label-font-size: var(--font-2xs);
+  &--has-text,
+  input[type="date"] ~ *,
+  input[type="time"] ~ *,
+  input[type="image"] ~ *,
+  input[type="file"] ~ * {
+      --input-label-top: 0;
+      --input-label-font-size: var(--font-2xs);
   }
 
   &--filled {
