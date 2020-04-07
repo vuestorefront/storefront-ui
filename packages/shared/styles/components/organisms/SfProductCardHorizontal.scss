@@ -20,6 +20,9 @@
       opacity 150ms ease-in-out
     );
     opacity: var(--product-card-horizontal-image-opacity);
+    &:hover {
+      --product-card-horizontal-image-opacity: 1;
+    }
     &:nth-child(even) {
       position: absolute;
       top: 0;

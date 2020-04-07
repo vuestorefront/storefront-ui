@@ -170,7 +170,7 @@ storiesOf("Atoms|Input", module)
         default: text("errorMessage", "Required.", "Props")
       },
       valid: {
-        default: boolean("valid", true, "Props")
+        default: boolean("valid", false, "Props")
       },
       required: {
         default: boolean("required", false, "Props")
@@ -203,7 +203,10 @@ storiesOf("Atoms|Input", module)
       :aria-label="ariaLabel"
       >
       <template #error-message="{errorMessage}">
-        <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> CUSTOM ERROR MESSAGE
+        <div>
+          <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> 
+          CUSTOM ERROR MESSAGE
+        </div>
       </template>
     </SfInput>`
   }))

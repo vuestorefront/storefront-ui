@@ -47,7 +47,7 @@ storiesOf("Molecules|SearchBar", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-search-bar--position-right": "sf-search-bar--position-right",
+            "sf-search-bar--position-center": "sf-search-bar--position-center",
             "sf-search-bar--no-icon": "sf-search-bar--no-icon"
           },
           "null",
@@ -75,17 +75,17 @@ storiesOf("Molecules|SearchBar", module)
       <template #icon>👀</template>
     </SfSearchBar>`
   }))
-  .add("[slot] clear-icon", () => ({
+  .add("with modifier --no-icon", () => ({
     components: { SfSearchBar },
     props: {
       customClass: {
         default: options(
           "CSS modifiers",
           {
-            "sf-search-bar--position-right": "sf-search-bar--position-right",
+            "sf-search-bar--position-center": "sf-search-bar--position-center",
             "sf-search-bar--no-icon": "sf-search-bar--no-icon"
           },
-          "null",
+          "sf-search-bar--no-icon",
           { display: "multi-select" },
           "CSS Modifiers"
         )
@@ -107,8 +107,5 @@ storiesOf("Molecules|SearchBar", module)
       :placeholder="placeholder"
       :aria-label="ariaLabel"
       v-model="value">
-      <template #clear-icon>
-        <span class="sf-search-bar__clear-icon">🧹</span>
-      </template>
     </SfSearchBar>`
   }));
