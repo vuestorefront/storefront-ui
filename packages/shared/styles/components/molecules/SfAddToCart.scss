@@ -14,13 +14,7 @@
   &__select-quantity {
     flex: none;
     margin: var(--add-to-cart-select-quantity-margin, 0 0 0 var(--spacer-xs));
-    &--disabled {
-      .sf-button:disabled {
-        --button-color: var(--c-text-disabled);
-      }
-    }
   }
-
   @include for-desktop {
     --add-to-cart-button-order: 1;
     --add-to-cart-select-quantity-margin: 0 var(--spacer-sm) 0 0;

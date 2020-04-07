@@ -2,11 +2,9 @@
   <div class="sf-quantity-selector">
     <SfButton
       class="sf-quantity-selector__button"
-      :disabled="disabled"
       @click="$emit('input', parseInt(qty, 10) - 1)"
+      >-</SfButton
     >
-      -
-    </SfButton>
     <SfInput
       type="number"
       :value="qty"
@@ -17,11 +15,9 @@
     />
     <SfButton
       class="sf-quantity-selector__button"
-      :disabled="disabled"
       @click="$emit('input', parseInt(qty, 10) + 1)"
+      >+</SfButton
     >
-      +
-    </SfButton>
   </div>
 </template>
 <script>
@@ -31,29 +27,29 @@ export default {
   name: "SfQuantitySelector",
   components: {
     SfInput,
-    SfButton,
+    SfButton
   },
   model: {
-    prop: "qty",
+    prop: "qty"
   },
   props: {
     /** Quantity */
     qty: {
       type: [Number, String],
-      default: 1,
+      default: 1
     },
     /**
      * Form input label
      */
     ariaLabel: {
       type: String,
-      default: "quantity",
+      default: "quantity"
     },
     disabled: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 };
 </script>
 <style lang="scss">
