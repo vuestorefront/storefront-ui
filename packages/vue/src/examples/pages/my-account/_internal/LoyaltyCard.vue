@@ -29,11 +29,7 @@ export default {
 }
 .message {
   margin: 0 0 var(--spacer-sm) 0;
-  font: var(--font-light) var(--font-base) / 1.6 var(--font-family-primary);
   color: var(--c-dark-variant);
-  &__label {
-    font-weight: var(--font-medium);
-  }
 }
 a {
   font-weight: var(--font-medium);
