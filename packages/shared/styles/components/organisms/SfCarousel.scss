@@ -16,6 +16,7 @@
   }
   &__controls {
     position: var(--carousel-controls-position, absolute);
+
     top: var(--carousel-controls-top, 50%);
     left: var(--carousel-controls-left, 0);
     transform: var(--carousel-controls-transform, translate3d(0, -50%, 0));
@@ -38,7 +39,7 @@
     --carousel-controls-display: flex;
   }
   @supports (-webkit-touch-callout: none) {
-    --carousel-width: 100%;
+    --carousel-width: 100vw;
     --carousel-controls-display: none;
   }
 }
