@@ -19,6 +19,8 @@ Withing first Q1 we came through a lot of changes:
 
 :point_right: each component went through **deep refactor**, we have used css variables and we adjusted each component to new design system
 
+:point_right: updated global variables [Global Variables](migration-guide.md#global-variables).
+
 :point_right: refreshed **example pages**
 
 :point_right: we have covered some fixes regarding Safari support
