@@ -11,18 +11,21 @@
           <SfCheckbox
             v-model="newsletter"
             label="Woman"
+            name="Woman"
             value="woman"
             class="form__element"
           />
           <SfCheckbox
             v-model="newsletter"
             label="Man"
+            name="Man"
             value="man"
             class="form__element"
           />
           <SfCheckbox
             v-model="newsletter"
             label="Children"
+            name="Children"
             value="children"
             class="form__element"
           />
