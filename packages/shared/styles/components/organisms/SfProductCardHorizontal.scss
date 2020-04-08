@@ -1,17 +1,23 @@
 @import "../../helpers";
-
 .sf-product-card-horizontal {
   display: flex;
   box-sizing: border-box;
   padding: var(--product-card-horizontal-padding, var(--spacer-xs));
   background-color: var(--product-card-horizontal-background, var(--c-white));
   &__link {
+    color: inherit;
+    text-decoration: inherit;
     &--image {
       flex: 0 0 var(--product-card-horizontal-image-width, 5.3125rem);
     }
   }
   &__image-wrapper {
+    position: relative;
     display: flex;
+    &:hover {
+      --product-card-horizontal-image-opacity: 1;
+      --product-card-horizontal-image-even-opacity: 1;
+    }
   }
   &__image,
   &__picture {
@@ -24,7 +30,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      opacity: var(--product-card-horizontal-image-opacity, 0);
+      opacity: var(--product-card-horizontal-image-even-opacity, 0);
     }
   }
   &__main {

@@ -53,7 +53,6 @@ import {
   OrderHistory,
   MyReviews
 } from "./_internal/index.js";
-
 export default {
   name: "MyAccount",
   components: {
@@ -134,11 +133,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 #my-account {
   box-sizing: border-box;
   @include for-desktop {
-    max-width: 1240px;
+    max-width: 1272px;
+    padding: 0 var(--spacer-sm);
     margin: 0 auto;
   }
 }

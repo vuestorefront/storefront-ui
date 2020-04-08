@@ -20,19 +20,15 @@
     </div>
   </div>
 </template>
-
 <script>
 import { SfButton, SfImage, SfHeading } from "@storefront-ui/vue";
-
 export default {
   name: "Error",
   components: { SfButton, SfImage, SfHeading }
 };
 </script>
-
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 #error {
   box-sizing: border-box;
   display: flex;
@@ -43,7 +39,7 @@ export default {
   padding: 0 var(--spacer-sm);
   @include for-desktop {
     margin: 0 auto;
-    max-width: 1240px;
+    max-width: 1272px;
   }
 }
 .image {

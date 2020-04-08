@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-input {
   position: relative;
   box-sizing: border-box;
@@ -52,7 +51,6 @@
       right: 50%;
     }
   }
-
   &__error-message {
     color: var(--input-error-message-color, var(--c-danger));
     height: calc(var(--font-xs) * 1.2);
@@ -69,12 +67,10 @@
     width: 100%;
     height: 100%;
   }
-
   &__wrapper {
     position: relative;
     margin: var(--input-margin, 0 0 var(--spacer-xs) 0);
   }
-
   input {
     display: block;
     box-sizing: border-box;
@@ -91,7 +87,6 @@
     );
     text-align: var(--input-text-align);
     outline: none;
-
     &:focus {
       & ~ * {
         --icon-color: var(--c-primary);
@@ -129,7 +124,6 @@
       -webkit-appearance: none;
     }
   }
-
   &__password-button {
     --icon-size: 12px;
     --button-padding: 0;
@@ -143,12 +137,10 @@
       --button-box-shadow: none;
     }
   }
-
   &__password-icon {
     --icon-width: var(--input-password-icon-width, 1.375rem);
     --icon-height: var(--input-password-icon-height, 0.8125rem);
     position: relative;
-
     &--hidden {
       --input-password-icon-scaleX: 1;
     }
@@ -164,7 +156,6 @@
       content: "";
     }
   }
-
   &--invalid {
     --input-border-color: var(--c-danger);
     input {
@@ -176,16 +167,14 @@
       }
     }
   }
-
   &--has-text,
   input[type="date"] ~ *,
   input[type="time"] ~ *,
   input[type="image"] ~ *,
   input[type="file"] ~ * {
-      --input-label-top: 0;
-      --input-label-font-size: var(--font-2xs);
+    --input-label-top: 0;
+    --input-label-font-size: var(--font-2xs);
   }
-
   &--filled {
     --input-background: var(--c-light);
     --input-font-size: var(--font-xs);
@@ -194,11 +183,9 @@
     --input-label-font-size: var(--font-xs);
     --input-label-color: var(--c-secondary-variant);
     --input-label-transition: color 150ms ease;
-
     &.sf-input--has-text {
       --input-label-display: none;
     }
-
     input {
       &:focus {
         & ~ * {

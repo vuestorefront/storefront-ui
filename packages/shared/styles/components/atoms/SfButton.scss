@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-button {
   box-sizing: border-box;
   width: var(--button-size, var(--button-width));
@@ -25,9 +24,7 @@
     1.2,
     var(--font-family-secondary)
   );
-
   @include border(--button-border, 0, solid, var(--c-primary));
-
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     $variant: map-get($map, "variant");
@@ -38,33 +35,27 @@
       }
     }
   }
-
   &:hover {
     --button-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
-
   &:active {
     --button-box-shadow: none;
     --button-background: var(--c-primary-variant);
     --button-transition: background 150ms linear;
   }
-
   &:disabled {
     --button-background: var(--c-light);
     --button-color: var(--c-text-muted);
     --button-cursor: default;
     --button-box-shadow: none;
   }
-
   &--full-width {
     --button-width: 100%;
   }
-
   &--outline {
     --button-border-width: 2px 2px 2px 2px;
     --button-background: transparent;
     --button-color: var(--c-text);
-
     &:active {
       --button-border-color: var(--c-primary-variant);
       --button-background: transparent;
@@ -87,7 +78,6 @@
       }
     }
   }
-
   &--text {
     --button-border-width: 0;
     --button-padding: 0;
@@ -129,7 +119,6 @@
       }
     }
   }
-
   &--underlined {
     --button-border-width: 0 0 1px 0;
     --button-border-color: var(--c-light);

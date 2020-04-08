@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-grouped-product-item {
   position: relative;
   display: var(--grouped-product-item-display);
@@ -16,7 +15,7 @@
   &__aside {
     position: var(--grouped-product-item-aside-position, relative);
     flex: var(--grouped-product-item-flex);
-    line-height: 0;
+    display: flex;
   }
   &__image {
     background: var(--grouped-product-item-image-background, var(--c-light));

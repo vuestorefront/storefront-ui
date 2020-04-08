@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-circle-icon {
   --icon-color: var(--c-white);
   --button-padding: 0;
@@ -25,7 +24,6 @@
       --button-background: var(--c-light);
     }
   }
-
   &__badge {
     position: absolute;
     top: var(--circle-icon-badge-top, 0);
@@ -45,7 +43,6 @@
     padding: 2px;
     border-radius: var(--circle-icon-badge-border-radius, 0.625rem);
     background: var(--circle-icon-badge-background, var(--c-danger));
-
     @include font(
       --circle-icon-badge-font,
       var(--font-medium),
@@ -53,7 +50,6 @@
       1.4,
       var(--font-family-primary)
     );
-
     &-enter-active {
       animation: bounce-in 300ms;
     }
@@ -61,7 +57,6 @@
       animation: bounce-in 300ms reverse;
     }
   }
-
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     $variant: map-get($map, "variant");
@@ -80,7 +75,6 @@
       }
     }
   }
-
   &--small {
     --icon-size: 8px;
     --button-size: 1.625rem;
@@ -108,7 +102,6 @@
     }
   }
 }
-
 @keyframes bounce-in {
   0% {
     transform: scale(0);

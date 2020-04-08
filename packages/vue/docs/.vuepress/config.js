@@ -18,6 +18,7 @@ module.exports = {
       ['/introduction', 'Introduction'],
       ['/getting-started', 'Getting started'],
       ['/customization', 'Customization'],
+      ['/migration-guide', 'Migration Guide'],
       ['/meet-the-team', 'Meet the core team'],
       {
         title: 'Contributing Guide',

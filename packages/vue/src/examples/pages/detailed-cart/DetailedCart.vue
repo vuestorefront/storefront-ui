@@ -94,7 +94,6 @@ import {
   SfBreadcrumbs
 } from "@storefront-ui/vue";
 import { OrderSummary } from "./_internal/index.js";
-
 export default {
   name: "DetailedCart",
   components: {
@@ -224,12 +223,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 #detailed-cart {
   box-sizing: border-box;
   @include for-desktop {
-    max-width: 1240px;
+    max-width: 1272px;
     margin: 0 auto;
+    padding: 0 var(--spacer-sm);
   }
 }
 .breadcrumbs {
@@ -238,6 +237,9 @@ export default {
 .detailed-cart {
   &__main {
     padding: 0 var(--spacer-sm);
+    @include for-desktop {
+      padding: 0;
+    }
   }
   &__aside {
     box-sizing: border-box;
@@ -253,7 +255,7 @@ export default {
     &__aside {
       flex: 0 0 26.8125rem;
       order: 1;
-      margin: 0 0 0 var(--spacer-lg);
+      margin: 0 0 0 var(--spacer-xl);
       box-shadow: 0px 4px 11px rgba(var(--c-dark-base), 0.1);
     }
   }

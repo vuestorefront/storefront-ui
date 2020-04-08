@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-select-option {
   display: block;
   box-sizing: border-box;
@@ -14,11 +13,9 @@
     1.2,
     var(--font-family-primary)
   );
-
   &--is-active {
     --select-option-background: var(--c-light);
   }
-
   @include for-desktop {
     --select-option-padding: var(--spacer-xs);
     &:hover {
@@ -26,7 +23,6 @@
     }
   }
 }
-
 .sf-select {
   position: relative;
   box-sizing: border-box;
@@ -36,7 +32,6 @@
   color: var(--select-color, var(--c-text));
   cursor: default;
   outline: none;
-
   &__label {
     position: absolute;
     top: var(--select-label-top, 50%);
@@ -58,20 +53,17 @@
       1,
       var(--font-family-secondary)
     );
-
     &::after {
       content: var(--select-label-required);
       color: var(--select-label-color, var(--c-primary));
     }
   }
-
   &__chevron {
     position: absolute;
     right: var(--spacer-xs);
     top: 50%;
     transform: translate3d(0, -50%, 0);
   }
-
   &__selected {
     --product-option-font-size: var(--font-lg);
     --select-option-font-size: var(--font-lg);
@@ -83,7 +75,7 @@
       calc(
         calc(
           var(--spacer-base) + var(--spacer-2xs) +
-            var(--select-label-font-size, var(--font-lg))
+          var(--select-label-font-size, var(--font-lg))
         )
       )
     );
@@ -96,7 +88,6 @@
     color: var(--select-color, var(--c-text));
     @include border(--select-border, 0, solid, transparent);
   }
-
   &__dropdown {
     box-sizing: border-box;
     position: var(--select-dropdown-position, fixed);
@@ -111,7 +102,6 @@
       0 4px 11px rgba(var(--c-dark-base), 0.1)
     );
   }
-
   &__options {
     overflow: auto;
     margin: 0;
@@ -121,7 +111,6 @@
       width: 0;
     }
   }
-
   &__error-message {
     --select-border-color: var(--c-danger);
     color: var(--select-error-message-color, var(--c-danger));
@@ -134,51 +123,41 @@
       var(--font-family-secondary)
     );
   }
-
   &__cancel {
     --button-background: var(--c-light);
     --button-color: var(--c-dark-variant);
-
     &:hover {
       --button-background: var(--c-light);
     }
   }
-
   &--underlined {
     --select-border-width: 0 0 1px 0;
     --select-border-color: var(--c-light);
   }
-
   &--is-selected {
     --select-label-top: 0;
     --select-label-font-size: var(--font-2xs);
   }
-
   &--is-active {
     --chevron-color: var(--c-primary);
     --select-label-color: var(--c-text-muted);
     --select-border-color: var(--c-primary);
   }
-
   &--is-disabled {
     --chevron-color: var(--c-text-disabled);
     --select-color: var(--c-text-disabled);
     --select-border-color: var(--c-text-disabled);
     --select-label-color: var(--c-text-disabled);
   }
-
   &--is-required {
     --select-label-required: " *";
   }
-
   &-enter-active {
     animation: var(--select-animation-enter, ssmobile 150ms);
   }
-
   &-leave-active {
     animation: var(--select-animation-leave, ssmobile 150ms reverse);
   }
-
   @include for-desktop {
     --select-dropdown-position: absolute;
     --select-dropdown-top: 100%;

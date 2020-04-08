@@ -102,12 +102,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 #thank-you {
   box-sizing: border-box;
   @include for-desktop {
-    max-width: 1240px;
-    margin: auto;
+    max-width: 1272px;
+    padding: 0 var(--spacer-sm);
+    margin: 0 auto;
   }
 }
 .heading {

@@ -79,7 +79,6 @@
 </template>
 <script>
 import { SfTabs, SfInput, SfButton } from "@storefront-ui/vue";
-
 export default {
   name: "PersonalDetails",
   components: {
@@ -133,7 +132,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 .form {
   @include for-desktop {
     display: flex;

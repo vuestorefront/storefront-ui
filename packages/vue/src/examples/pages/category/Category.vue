@@ -734,7 +734,6 @@ export default {
     }
   }
 }
-
 .products {
   box-sizing: border-box;
   flex: 1;
