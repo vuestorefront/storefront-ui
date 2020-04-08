@@ -12,6 +12,7 @@
     }
   }
   &__image-wrapper {
+    position: relative;
     display: flex;
     &:hover {
       --product-card-horizontal-image-opacity: 1;
