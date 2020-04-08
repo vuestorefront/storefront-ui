@@ -12,6 +12,10 @@
   }
   &__image-wrapper {
     display: flex;
+    &:hover {
+      --product-card-horizontal-image-opacity: 1;
+      --product-card-horizontal-image-even-opacity: 1;
+    }
   }
   &__image,
   &__picture {
@@ -20,17 +24,11 @@
       opacity 150ms ease-in-out
     );
     opacity: var(--product-card-horizontal-image-opacity);
-    &:hover {
-      --product-card-horizontal-image-opacity: 1;
-    }
     &:nth-child(even) {
       position: absolute;
       top: 0;
       left: 0;
-      opacity: var(--product-card-horizontal-image-even-opacity, 1);
-      &:hover {
-        --product-card-horizontal-image-even-opacity: 0;
-      }
+      opacity: var(--product-card-horizontal-image-even-opacity, 0);
     }
   }
   &__main {
