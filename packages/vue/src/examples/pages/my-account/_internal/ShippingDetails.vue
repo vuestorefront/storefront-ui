@@ -148,7 +148,6 @@ import {
   SfSelect,
   SfIcon
 } from "@storefront-ui/vue";
-
 export default {
   name: "ShippingDetails",
   components: {

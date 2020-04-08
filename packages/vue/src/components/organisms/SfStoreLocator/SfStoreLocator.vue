@@ -66,9 +66,7 @@ import Vue from "vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLoader from "../../atoms/SfLoader/SfLoader.vue";
 import SfStore from "./_internal/SfStore.vue";
-
 Vue.component("SfStore", SfStore);
-
 export default {
   name: "SfStoreLocator",
   provide() {

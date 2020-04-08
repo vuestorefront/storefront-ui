@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-heading {
   box-sizing: border-box;
   padding: var(--heading-padding, 0 0 var(--spacer-xs) 0);
@@ -35,7 +34,6 @@
       font-weight: var(--heading-title-font-weight, var(--font-normal));
     }
   }
-
   &__subtitle {
     margin: var(--heading-subtitle-margin);
     color: var(--heading-subtitle-color, var(--c-text));
@@ -47,13 +45,11 @@
       var(--font-family-secondary)
     );
   }
-
   @include for-desktop {
     --heading-padding: 0;
     --heading-border: 0;
     --heading-text-align: center;
   }
-
   &--underline {
     @include border(--heading-border, 0 0 1px 0, solid, var(--c-light));
   }

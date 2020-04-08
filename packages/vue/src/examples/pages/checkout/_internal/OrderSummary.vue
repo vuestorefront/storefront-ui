@@ -72,7 +72,6 @@ import {
   SfCharacteristic,
   SfInput
 } from "@storefront-ui/vue";
-
 export default {
   name: "OrderSummary",
   components: {
@@ -168,20 +167,16 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 .title {
   --heading-title-margin: 0 0 var(--spacer-2xl) 0;
 }
-
 .property {
   margin: var(--spacer-base) 0;
 }
-
 .divider {
   --divider-border-color: var(--c-white);
   --divider-margin: calc(var(--spacer-base) * 2) 0 0 0;
 }
-
 .promo-code {
   display: flex;
   justify-content: space-between;
@@ -203,7 +198,6 @@ export default {
     margin: var(--spacer-base) 0;
   }
 }
-
 .actions {
   &__button {
     margin: var(--spacer-sm) 0;

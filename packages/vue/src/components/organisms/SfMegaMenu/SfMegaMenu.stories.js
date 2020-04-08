@@ -1,14 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
-
 import SfMegaMenu from "./SfMegaMenu.vue";
-
 import SfHeader from "../SfHeader/SfHeader.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
 import SfList from "../SfList/SfList.vue";
-
 const AsidePlaceholder = {
   components: { SfBanner },
   data() {
@@ -146,7 +143,6 @@ const MegaMenuPlaceholder = {
         </template>
       </SfMegaMenu>`
 };
-
 storiesOf("Organisms|MegaMenu", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

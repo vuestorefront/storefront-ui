@@ -93,7 +93,6 @@ import {
   SfHeading,
   SfCharacteristic
 } from "@storefront-ui/vue";
-
 export default {
   name: "PersonalDetails",
   components: {
@@ -153,7 +152,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 .title {
   --heading-padding: var(--spacer-base) 0;
   @include for-desktop {
@@ -195,7 +193,6 @@ export default {
   &__checkbox {
     margin: var(--spacer-base) 0;
   }
-
   &__action-button {
     &:first-child {
       --button-height: 4.0625rem;

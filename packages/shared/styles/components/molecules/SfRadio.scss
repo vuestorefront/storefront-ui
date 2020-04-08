@@ -1,12 +1,10 @@
 @import "../../helpers";
-
 .sf-radio {
   display: var(--radio-display, flex);
   transition: var(
     --radio-transition,
     background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1)
   );
-
   &__label {
     display: var(--radio-label-display, flex);
     @include font(
@@ -17,36 +15,30 @@
       var(--font-family-secondary)
     );
   }
-
   &__checkmark {
     box-sizing: border-box;
     width: var(--radio-checkmark-size, 1.5rem);
     height: var(--radio-checkmark-size, 1.5rem);
-
     @include border(
       --radio-checkmark-border,
       1px,
       solid,
       var(--c-gray-variant)
     );
-
     border-radius: var(--radio-checkmark-border-radius, 100%);
     transition: var(
       --radio-checkmark-transition,
       border 0.25s cubic-bezier(1, 0.5, 0.8, 1)
     );
-
     .sf-radio--is-active & {
       --radio-checkmark-border-width: 9px;
       --radio-checkmark-border-color: var(--c-primary);
     }
   }
-
   &__input {
     position: absolute;
     opacity: 0;
   }
-
   &__container {
     display: var(--radio-container-display, flex);
     align-items: var(--radio-container-align-items);
@@ -60,12 +52,10 @@
       --radio-checkmark-border-color: var(--c-primary);
     }
   }
-
   &__content {
     flex: 1;
     margin: var(--radio-content-margin, 0 0 0 var(--spacer-sm));
   }
-
   &__description {
     margin: var(--radio-description-margin, var(--spacer-xs) 0 0 0);
     @include font(
@@ -76,17 +66,14 @@
       var(--font-family-primary)
     );
   }
-
   &--is-active {
     background: var(--radio-background, var(--c-light));
   }
-
   &--transparent {
     &.sf-radio--is-active {
       --radio-background: transparent;
     }
   }
-
   @include for-desktop {
     --radio-container-padding: var(--spacer-sm);
   }
