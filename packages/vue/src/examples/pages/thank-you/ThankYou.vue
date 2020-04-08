@@ -3,7 +3,10 @@
     <SfCallToAction
       class="banner"
       title="Thank you for your order!"
-      image="assets/storybook/ThankYou/banner7.png"
+      :image="{
+        mobile: '/assets/storybook/ThankYou/BannerM.png',
+        desktop: '/assets/storybook/ThankYou/BannerD.png'
+      }"
     >
       <template #description>
         <div class="banner__order-number">
@@ -126,6 +129,7 @@ export default {
   --call-to-action-color: var(--c-text);
   --call-to-action-title-font-size: var(--font-xl);
   --call-to-action-title-font-weight: var(--font-medium);
+  --call-to-action-text-container-width: 50%;
   margin: 0 0 var(--spacer-base);
   @include for-desktop {
     margin: 0 0 var(--spacer-2xl) 0;
