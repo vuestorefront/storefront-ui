@@ -287,6 +287,7 @@
           <SfFilter
             v-for="filter in filters.color"
             :key="filter.value"
+            :label="filter.label"
             :color="filter.color"
             :selected="filter.selected"
             class="filters__item"
