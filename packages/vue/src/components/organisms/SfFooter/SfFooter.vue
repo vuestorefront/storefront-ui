@@ -12,7 +12,6 @@ import {
   mapMobileObserver,
   unMapMobileObserver
 } from "../../../utilities/mobile-observer";
-
 Vue.component("SfFooterColumn", SfFooterColumn);
 export default {
   name: "SfFooter",
@@ -35,7 +34,7 @@ export default {
   computed: {
     ...mapMobileObserver(),
     style() {
-      return { "--col-width": `${100 / this.column}%` };
+      return { "--_footer-column-width": `${100 / this.column}%` };
     }
   },
   watch: {

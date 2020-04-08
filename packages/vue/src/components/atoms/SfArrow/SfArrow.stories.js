@@ -7,7 +7,6 @@ import {
 } from "@storybook/addon-knobs";
 import SfArrow from "./SfArrow.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
-
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -20,6 +19,8 @@ storiesOf("Atoms|Arrow", module)
           "CSS modifiers",
           {
             "sf-arrow--right": "sf-arrow--right",
+            "sf-arrow--top": "sf-arrow--top",
+            "sf-arrow--down": "sf-arrow--down",
             "sf-arrow--long": "sf-arrow--long",
             "sf-arrow--transparent": "sf-arrow--transparent",
             "sf-arrow--rounded": "sf-arrow--rounded",

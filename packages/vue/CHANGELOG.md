@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.4](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.3...@storefront-ui/vue@0.6.4) (2020-03-27)
+
+
+### Bug Fixes
+
+* leaflet.css import ([#953](https://github.com/DivanteLtd/storefront-ui/issues/953)) ([3a6c7a3](https://github.com/DivanteLtd/storefront-ui/commit/3a6c7a3b25643f62a6eebd81e1866e311e4af430)), closes [#948](https://github.com/DivanteLtd/storefront-ui/issues/948)
+
+
+
+
+
 ## [0.6.3](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.2...@storefront-ui/vue@0.6.3) (2020-03-26)
 
 

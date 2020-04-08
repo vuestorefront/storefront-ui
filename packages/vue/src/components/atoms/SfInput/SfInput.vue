@@ -3,7 +3,7 @@
     class="sf-input"
     :class="{
       'sf-input--has-text': !!value,
-      'sf-input--invalid': valid === false
+      'sf-input--invalid': !valid
     }"
   >
     <div class="sf-input__wrapper">
@@ -49,14 +49,12 @@
         </SfButton>
       </slot>
     </div>
-    <div v-if="valid !== undefined" class="sf-input__error-message">
+    <div class="sf-input__error-message">
       <transition name="fade">
-        <div v-if="!valid">
-          <!-- @slot Custom error message of form input -->
-          <slot name="error-message" v-bind="{ errorMessage }">{{
-            errorMessage
-          }}</slot>
-        </div>
+        <!-- @slot Custom error message of form input -->
+        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
+          <span>{{ errorMessage }}</span></slot
+        >
       </transition>
     </div>
   </div>
@@ -101,7 +99,7 @@ export default {
      */
     valid: {
       type: Boolean,
-      default: undefined
+      default: true
     },
     /**
      * Error message value of form input. It will be appeared if `valid` is `true`.
@@ -133,15 +131,19 @@ export default {
       type: String,
       default: null
     },
+    /**
+     * Status of show password icon display
+     */
     hasShowPassword: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data() {
     return {
       isPasswordVisible: false,
-      inputType: ""
+      inputType: "",
+      isNumberTypeSafari: false
     };
   },
   computed: {
@@ -158,8 +160,30 @@ export default {
   watch: {
     type: {
       immediate: true,
+      handler: function(type) {
+        let inputType = type;
+        // Safari has bug for number input
+        if (typeof window !== "undefined" || typeof document !== "undefined") {
+          const ua = navigator.userAgent.toLocaleLowerCase();
+          if (
+            ua.indexOf("safari") !== -1 &&
+            ua.indexOf("chrome") === -1 &&
+            type === "number"
+          ) {
+            this.isNumberTypeSafari = true;
+            inputType = "text";
+          }
+        }
+        this.inputType = inputType;
+      }
+    },
+    value: {
+      immediate: true,
       handler: function(value) {
-        this.inputType = value;
+        if (!this.isNumberTypeSafari) return;
+        if (isNaN(value)) {
+          this.$emit("input");
+        }
       }
     }
   },

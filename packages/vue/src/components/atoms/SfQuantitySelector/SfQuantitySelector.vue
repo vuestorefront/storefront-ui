@@ -1,19 +1,35 @@
 <template>
-  <SfInput
-    type="number"
-    :value="qty"
-    :aria-label="ariaLabel"
-    :disabled="disabled"
-    class="sf-quantity-selector"
-    @input="$emit('input', parseInt($event, 10))"
-  />
+  <div class="sf-quantity-selector">
+    <SfButton
+      :disabled="disabled"
+      class="sf-quantity-selector__button"
+      @click="$emit('input', parseInt(qty, 10) - 1)"
+      >-</SfButton
+    >
+    <SfInput
+      type="number"
+      :value="qty"
+      :aria-label="ariaLabel"
+      :disabled="disabled"
+      class="sf-quantity-selector__input"
+      @input="$emit('input', parseInt($event, 10))"
+    />
+    <SfButton
+      :disabled="disabled"
+      class="sf-quantity-selector__button"
+      @click="$emit('input', parseInt(qty, 10) + 1)"
+      >+</SfButton
+    >
+  </div>
 </template>
 <script>
 import SfInput from "../../atoms/SfInput/SfInput.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfQuantitySelector",
   components: {
-    SfInput
+    SfInput,
+    SfButton
   },
   model: {
     prop: "qty"
@@ -34,6 +50,13 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    }
+  },
+  watch: {
+    qty(val) {
+      if (val < 1 || isNaN(val)) {
+        this.$emit("input", 1);
+      }
     }
   }
 };

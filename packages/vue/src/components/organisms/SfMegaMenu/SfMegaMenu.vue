@@ -28,6 +28,11 @@
             </SfListItem>
           </SfList>
           <div class="sf-mega-menu__aside-content">
+            <slot name="asideTitle" v-bind="{ asideTitle }">
+              <h3 v-if="asideTitle" class="sf-mega-menu__aside-title">
+                {{ asideTitle }}
+              </h3>
+            </slot>
             <slot name="aside" />
           </div>
         </div>
@@ -50,7 +55,6 @@ import {
   mapMobileObserver,
   unMapMobileObserver
 } from "../../../utilities/mobile-observer";
-
 export default {
   name: "SfMegaMenu",
   components: {
@@ -60,6 +64,10 @@ export default {
   },
   props: {
     title: {
+      type: String,
+      default: ""
+    },
+    asideTitle: {
       type: String,
       default: ""
     },

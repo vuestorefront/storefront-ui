@@ -66,7 +66,6 @@ import {
   mapMobileObserver,
   unMapMobileObserver
 } from "../../../utilities/mobile-observer";
-
 export default {
   name: "SfContentPages",
   components: {

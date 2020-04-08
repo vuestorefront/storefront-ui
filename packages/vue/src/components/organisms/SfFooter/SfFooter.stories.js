@@ -1,18 +1,23 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, number, boolean } from "@storybook/addon-knobs";
-
 import SfFooter from "./SfFooter.vue";
-
 import SfHeader from "../SfHeader/SfHeader.vue";
 import SfList from "../SfList/SfList.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-
 storiesOf("Organisms|Footer", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfFooter, SfHeader, SfList, SfImage, SfMenuItem },
+    components: {
+      SfFooter,
+      SfHeader,
+      SfList,
+      SfImage,
+      SfButton,
+      SfMenuItem
+    },
     props: {
       column: {
         default: number("column", 4, {}, "Props")
@@ -50,7 +55,7 @@ storiesOf("Organisms|Footer", module)
     },
     computed: {
       itemSpacer() {
-        return this.isMobile ? { padding: "1.25rem" } : { padding: "6px 0" };
+        return this.isMobile ? { padding: "24px 32px" } : { padding: "16px 0" };
       }
     },
     mounted() {
@@ -73,14 +78,14 @@ storiesOf("Organisms|Footer", module)
         :column="column"
         :multiple="multiple"
       >
-        <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title" :style="{marginLeft: column.title && 'auto'}">
+        <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title">
           <SfList v-if="column.items">
             <SfListItem v-for="item in column.items" :key="item">
               <SfMenuItem :label="item"/>
             </SfListItem>
           </SfList>
           <div v-else :style="{display: 'flex', ...itemSpacer}">
-            <SfImage v-for="picture in column.pictures" :key="picture" width="12" height="12" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :style="{margin: '0 1.25rem 0 0'}"/>
+            <SfImage v-for="picture in column.pictures" :key="picture" width="12" height="12" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :style="{margin: '0 1.5rem 0 0'}"/>
           </div>
         </SfFooterColumn>
       </SfFooter>`

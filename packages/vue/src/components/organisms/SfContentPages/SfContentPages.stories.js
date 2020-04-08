@@ -1,11 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
-
 import SfContentPages from "./SfContentPages.vue";
-
 import SfTabs from "../SfTabs/SfTabs.vue";
-
 storiesOf("Organisms|ContentPages", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -71,7 +68,7 @@ storiesOf("Organisms|ContentPages", module)
         <SfTabs v-if="page.tabs" :open-tab="1">
           <SfTab v-for="tab in page.tabs" :key="tab.title" :title="tab.title">{{tab.content}}</SfTab>
         </SfTabs>
-        <p v-else :style="{padding: '1.25rem 0'}">{{page.content}}}}</p>
+        <p v-else :style="{padding: '1rem'}">{{page.content}}</p>
       </SfContentPage>
       </SfContentPages>`
   }))

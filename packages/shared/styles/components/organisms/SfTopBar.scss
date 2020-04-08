@@ -1,25 +1,25 @@
 @import "../../helpers";
-
-.sf-topbar {
-  display: flex;
-  align-items: var(--topbar-align-items, center);
-  justify-content: var(--topbar-justify-content, space-between);
-  width: 100%;
-  height: var(--top-bar-height, 2.5rem);
-  box-sizing: border-box;
-  padding: var(--topbar-padding, 0 var(--spacer-extra-big));
+.sf-top-bar {
   background-color: var(--top-bar-background, var(--c-light));
-  font: var(
-    --topbar-font,
-    font(
-      --topbar,
-      300,
-      var(--font-size-regular),
+  &__container {
+    box-sizing: border-box;
+    justify-content: var(--topbar-justify-content, space-between);
+    max-width: var(--sf-topbar-width, 77.5rem);
+    height: var(--top-bar-height, 2.5rem);
+    margin: 0 auto;
+    @include font(
+      --bar-font,
+      var(--font-normal),
+      var(--font-xs),
       1.6,
-      var(--body-font-family-primary)
-    )
-  );
+      var(--font-family-secondary)
+    );
+  }
+  &__container,
+  &__right,
+  &__left,
   &__center {
-    --topbar-font-size: var(--font-size-small-desktop);
+    display: flex;
+    align-items: center;
   }
 }

@@ -1,19 +1,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
-
 import SfAccordion from "./SfAccordion.vue";
-
 import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-
 storiesOf("Organisms|Accordion", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfAccordion, SfList, SfMenuItem },
     props: {
-      firstOpen: {
-        default: boolean("firstOpen", true, "Props")
+      open: {
+        default: text("open", "Clothing", "Props")
       },
       multiple: {
         default: boolean("multiple", false, "Props")
@@ -56,11 +53,10 @@ storiesOf("Organisms|Accordion", module)
       };
     },
     template: `<SfAccordion 
-        :first-open="firstOpen" 
+        :open="open" 
         :multiple="multiple"
         :show-chevron="showChevron"
-        :transition="transition"
-    :style="{maxWidth: '186px', padding: '1rem'}">
+        :transition="transition">
       <SfAccordionItem 
         v-for="accordion in accordions" 
         :key="accordion.header" 
@@ -70,7 +66,7 @@ storiesOf("Organisms|Accordion", module)
           <SfListItem
             v-for="item in accordion.items"
             :key="item.label"
-            :style="{margin: '10px 0'}">
+            >
             <SfMenuItem 
               :label="item.label" 
               :count="item.count"
@@ -83,8 +79,8 @@ storiesOf("Organisms|Accordion", module)
   .add("[slot] header", () => ({
     components: { SfAccordion, SfList, SfMenuItem },
     props: {
-      firstOpen: {
-        default: boolean("firstOpen", true, "Props")
+      open: {
+        default: text("open", "Shoes", "Props")
       },
       multiple: {
         default: boolean("multiple", false, "Props")
@@ -127,7 +123,7 @@ storiesOf("Organisms|Accordion", module)
       };
     },
     template: `<SfAccordion
-        :first-open="firstOpen"
+        :open="open"
         :multiple="multiple"
         :show-chevron="showChevron"
         :transition="transition"
