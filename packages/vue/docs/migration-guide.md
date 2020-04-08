@@ -12,7 +12,7 @@ In this section we will add notes and info's about new changes and releases.
 Q1 2020
 Withing first Q1 we came through a lot of changes:
 - we have CSS Custom Properties! 
-- and **now** we have refreshed StorefrontUI design system :tada:
+- and **now** we have refreshed [StorefrontUI design system](http://bit.ly/storefront-ui-design-system) :tada:
 
 
 :::tip What is new?
