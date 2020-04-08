@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-sidebar {
   &__aside {
     position: fixed;
@@ -57,7 +56,8 @@
     --heading-title-font-size: var(--font-xl);
     --heading-title-font-weight: var(--font-light);
     --heading-subtitle-font-size: var(--font-xl);
-    margin: var(--sidebar-title-margin, 0 0 var(--spacer-lg) 0);
+    display: var(--sidebar-title-display);
+    margin: var(--sidebar-title, 0 0 var(--spacer-lg) 0);
   }
   &__bottom {
     position: sticky;

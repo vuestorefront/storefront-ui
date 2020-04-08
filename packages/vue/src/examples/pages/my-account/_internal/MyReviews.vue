@@ -13,7 +13,6 @@
 </template>
 <script>
 import { SfTabs } from "@storefront-ui/vue";
-
 export default {
   name: "MyReviews",
   components: { SfTabs }
@@ -21,7 +20,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 .tab-orphan {
   @include for-mobile {
     --tabs-title-display: none;
@@ -30,15 +28,12 @@ export default {
   }
 }
 .message {
-  margin: 0 0 var(--spacer-extra-big) 0;
-  font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
-  &__label {
-    font-weight: 500;
-  }
+  margin: 0 0 var(--spacer-lg) 0;
 }
 a {
-  color: var(--c-text-muted);
+  color: var(--c-primary);
   text-decoration: none;
+  font-weight: var(--font-medium);
   &:hover {
     color: var(--c-text);
   }

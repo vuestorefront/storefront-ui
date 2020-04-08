@@ -63,7 +63,6 @@ import {
   SfProperty,
   SfDivider
 } from "@storefront-ui/vue";
-
 export default {
   name: "OrderSummary",
   components: {
@@ -148,10 +147,8 @@ export default {
   }
 };
 </script>
-
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 .title {
   @include for-desktop {
     --heading-title-margin: 0 0 var(--spacer-2xl) 0;
@@ -200,7 +197,6 @@ export default {
   font-family: var(--font-family-primary);
   font-size: var(--font-xs);
   line-height: 1.6;
-
   &__list {
     padding: 0;
     list-style: none;

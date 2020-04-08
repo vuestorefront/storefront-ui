@@ -65,7 +65,7 @@
             name="country"
             label="Country"
             required
-            class="sf-select--underlined form__select form__element form__element--half form__element--half-even"
+            class="sf-select--underlined form__select form__element form__element--half form__select form__element--half-even"
           >
             <SfSelectOption
               v-for="countryOption in countries"
@@ -82,7 +82,7 @@
             required
             class="form__element"
           />
-          <SfButton class="form__button" @click="updateAddress"
+          <SfButton class="action-button" @click="updateAddress"
             >Update the address</SfButton
           >
         </div>
@@ -148,7 +148,6 @@ import {
   SfSelect,
   SfIcon
 } from "@storefront-ui/vue";
-
 export default {
   name: "ShippingDetails",
   components: {
@@ -280,11 +279,11 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .shipping-list {
-  margin: 0 0 var(--spacer-extra-big) 0;
+  margin: 0 0 var(--spacer-base) 0;
 }
 .shipping {
   display: flex;
-  padding: var(--spacer-big) 0;
+  padding: var(--spacer-base) 0;
   border: 1px solid var(--c-light);
   border-width: 1px 0 0 0;
   &:last-child {
@@ -293,7 +292,6 @@ export default {
   &__content {
     flex: 1;
     color: var(--c-text);
-    font: 300 var(--font-size-small) / 1.6 var(--font-family-secondary);
   }
   &__actions {
     display: flex;
@@ -310,27 +308,24 @@ export default {
     --button-background: var(--c-light);
     --button-color: var(--c-dark-variant);
     &:hover {
-      --button-background: var(--c-light-variant);
+      --button-background: var(--_c-light-primary);
     }
     @include for-desktop {
-      margin: 0 0 0 var(--spacer-big);
+      margin: 0 0 0 var(--spacer-base);
     }
   }
   &__address {
-    margin: 0 0 var(--spacer-big) 0;
+    margin: 0 0 var(--spacer-base) 0;
     &:last-child {
       margin: 0;
     }
   }
-  &__client-name {
-    font: 500 var(--font-size-regular) / 1.6 var(--font-family-secondary);
-  }
 }
 .tab-orphan {
   @include for-mobile {
+    --tabs-content-border-width: 0;
     --tabs-title-display: none;
     --tabs-content-padding: 0;
-    --tabs-conent-border-width: 0;
   }
 }
 .form {
@@ -340,7 +335,7 @@ export default {
     align-items: center;
   }
   &__element {
-    margin: 0 0 var(--spacer-extra-big) 0;
+    margin: 0 0 var(--spacer-base) 0;
     @include for-desktop {
       flex: 0 0 100%;
     }
@@ -350,35 +345,17 @@ export default {
       }
       &-even {
         @include for-desktop {
-          padding: 0 0 0 var(--spacer-extra-big);
+          padding: 0 0 0 var(--spacer-lg);
         }
       }
     }
   }
-  &__button {
-    --button-width: 100%;
-    @include for-desktop {
-      --button-width: auto;
-    }
+  &__select {
+    padding-bottom: calc(var(--font-xs) * 1.2);
   }
 }
 .message {
-  margin: 0 0 var(--spacer-extra-big) 0;
-  font: 300 var(--font-size-regular) / 1.6 var(--font-family-secondary);
-  &__label {
-    font-weight: 500;
-  }
-}
-.notice {
-  margin: var(--spacer-big) 0 0 0;
-  font: 300 var(--font-size-extra-small) / 1.6 var(--font-family-secondary);
-}
-a {
-  color: var(--c-text-muted);
-  text-decoration: none;
-  &:hover {
-    color: var(--c-text);
-  }
+  margin: 0 0 var(--spacer-base) 0;
 }
 .action-button {
   --button-width: 100%;

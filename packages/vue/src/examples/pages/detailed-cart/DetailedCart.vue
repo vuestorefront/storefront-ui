@@ -94,7 +94,6 @@ import {
   SfBreadcrumbs
 } from "@storefront-ui/vue";
 import { OrderSummary } from "./_internal/index.js";
-
 export default {
   name: "DetailedCart",
   components: {
@@ -224,7 +223,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 #detailed-cart {
   box-sizing: border-box;
   @include for-desktop {
