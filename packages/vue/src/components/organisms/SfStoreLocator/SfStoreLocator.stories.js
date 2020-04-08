@@ -132,8 +132,8 @@ storiesOf("Organisms|StoreLocator", module)
         :marker-options="markerOptions"
         :fly-to-store-zoom="flyToStoreZoom"
       >
-        <SfStore 
-          v-for="(store, key) in stores" 
+        <SfStore
+          v-for="(store, key) in stores"
           :key="key"
           :latlng="store.latlng"
           :name="store.name"
@@ -334,6 +334,7 @@ storiesOf("Organisms|StoreLocator", module)
         #default="{centerOn, registerStore, removeStore, userPosition, getGeoDistance}"
       >
         <div v-for="(store, key) in stores" :key="key" :style="{padding: '1rem 0'}">
+          <!-- This function is provided by SfStoreLocator, so in a custom component it can be used with 'provide' for the sake of the example is not used in the markup. -->
           {{registerStore(store)}}
           <small>{{store.name}}</small>
           <SfImage  @click="centerOn(store.latlng)":src="store.picture" :width="82" :height="112"/>

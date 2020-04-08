@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/shared",
-  "version": "0.6.1",
+  "version": "0.6.3",
   "description": "",
   "main": "index.js",
   "author": "Filip Rakowski",
@@ -23,7 +23,6 @@
     "access": "public"
   },
   "lint-staged": {
-    "*.js": "eslint --fix",
-    "*.scss": "stylelint --syntax=scss --fix"
+    "*.js": "eslint --fix"
   }
 }
