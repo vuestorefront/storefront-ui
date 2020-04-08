@@ -112,7 +112,7 @@
     </div>
     <div class="main section">
       <div class="sidebar desktop-only">
-        <SfAccordion :first-open="true" :show-chevron="false">
+        <SfAccordion :open="sidebarAccordion[0].header" :show-chevron="false">
           <SfAccordionItem
             v-for="(accordion, i) in sidebarAccordion"
             :key="i"

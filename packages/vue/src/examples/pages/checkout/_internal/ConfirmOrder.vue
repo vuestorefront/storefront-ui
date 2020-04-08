@@ -4,7 +4,7 @@
       title="4. Order review"
       class="sf-heading--left sf-heading--no-underline title"
     />
-    <SfAccordion first-open class="accordion mobile-only">
+    <SfAccordion open="Personal Details" class="accordion mobile-only">
       <SfAccordionItem header="Personal Details">
         <div class="accordion__item">
           <div class="accordion__content">

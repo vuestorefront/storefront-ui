@@ -12,8 +12,8 @@ storiesOf("Organisms|Accordion", module)
   .add("Common", () => ({
     components: { SfAccordion, SfList, SfMenuItem },
     props: {
-      firstOpen: {
-        default: boolean("firstOpen", true, "Props")
+      open: {
+        default: text("open", "Clothing", "Props")
       },
       multiple: {
         default: boolean("multiple", false, "Props")
@@ -56,7 +56,7 @@ storiesOf("Organisms|Accordion", module)
       };
     },
     template: `<SfAccordion 
-        :first-open="firstOpen" 
+        :open="open" 
         :multiple="multiple"
         :show-chevron="showChevron"
         :transition="transition"
@@ -83,8 +83,8 @@ storiesOf("Organisms|Accordion", module)
   .add("[slot] header", () => ({
     components: { SfAccordion, SfList, SfMenuItem },
     props: {
-      firstOpen: {
-        default: boolean("firstOpen", true, "Props")
+      open: {
+        default: text("open", "Shoes", "Props")
       },
       multiple: {
         default: boolean("multiple", false, "Props")
@@ -127,7 +127,7 @@ storiesOf("Organisms|Accordion", module)
       };
     },
     template: `<SfAccordion
-        :first-open="firstOpen"
+        :open="open"
         :multiple="multiple"
         :show-chevron="showChevron"
         :transition="transition"
