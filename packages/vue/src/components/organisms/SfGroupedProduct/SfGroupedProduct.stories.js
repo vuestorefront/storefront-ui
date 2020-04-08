@@ -452,7 +452,9 @@ storiesOf("Organisms|GroupedProduct", module)
           :price-special="priceSpecial"
       >
         <template #input="{ qty }">
-          CUSTOM INPUT
+          <div style="position: absolute; bottom: 0; right: 0">
+            CUSTOM INPUT
+          </div>
         </template>
       </SfGroupedProductItem>
     </SfGroupedProduct>`
