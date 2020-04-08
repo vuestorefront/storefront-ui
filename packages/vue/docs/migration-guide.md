@@ -1,8 +1,54 @@
-# Keep up-to-date
+# Stay up to date with the new releases
 
-## Global variables
+In this section we will add notes and info's about new changes and releases.
 
-- ### **Typography**
+
+## Migration to v0.7.0
+
+> **v0.7.0 has been released!** :tada:
+
+### **Why you should migrate?**
+
+Q1 2020
+Withing first Q1 we came through a lot of changes:
+- we have CSS Custom Properties! 
+- and **now** we have refreshed StorefrontUI design system :tada:
+
+
+:::tip What is new?
+
+:point_right: each component went through **deep refactor**, we have used css variables and we adjusted each component to new design system
+
+:point_right: refreshed **example pages**
+
+:point_right: we have covered some fixes regarding Safari support
+
+:point_right: added improvements to `v-focus` directive
+
+:point_right: storybook `stories` updated!
+
+:point_right: `first-open` in `SfAccordion` is deprecated in favor of `open`
+
+:information_source: for more details see our `CHANGELOG.md`
+
+:::
+
+### Dependencies update
+
+As always what is first, update your `package.json` by changing your current version:
+
+```json
+"dependencies: {
+    "@storefront-ui/vue": "^0.7.0"
+}
+```
+
+### Global variables
+We have changed global variables and naming conventions for them to be more consistent.
+
+See what's new in our comparison below: 
+
+- #### **Typography**
 
 **Font sizes**
 
@@ -28,7 +74,7 @@ undefined | --font-bold: 700
 undefined | --font-extra-bold: 800
 undefined | --font-black: 900
 
-- ### **Layout**
+- #### **Layout**
 
 **Spacers**
 
