@@ -65,7 +65,7 @@
             name="country"
             label="Country"
             required
-            class="sf-select--underlined form__select form__element form__element--half form__element--half-even"
+            class="sf-select--underlined form__select form__element form__element--half form__select form__element--half-even"
           >
             <SfSelectOption
               v-for="countryOption in countries"
@@ -336,7 +336,7 @@ export default {
     align-items: center;
   }
   &__element {
-    margin: 0 0 var(--spacer-sm) 0;
+    margin: 0 0 var(--spacer-base) 0;
     @include for-desktop {
       flex: 0 0 100%;
     }
@@ -346,10 +346,13 @@ export default {
       }
       &-even {
         @include for-desktop {
-          padding: 0 0 0 var(--spacer-sm);
+          padding: 0 0 0 var(--spacer-lg);
         }
       }
     }
+  }
+  &__select {
+    padding-bottom: calc(var(--font-xs) * 1.2);
   }
 }
 .message {
