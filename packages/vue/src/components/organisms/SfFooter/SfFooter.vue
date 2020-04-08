@@ -12,7 +12,6 @@ import {
   mapMobileObserver,
   unMapMobileObserver
 } from "../../../utilities/mobile-observer";
-
 Vue.component("SfFooterColumn", SfFooterColumn);
 export default {
   name: "SfFooter",

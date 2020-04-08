@@ -7,11 +7,9 @@ import {
   boolean,
   optionsKnob as options
 } from "@storybook/addon-knobs";
-
 import SfSelect from "./SfSelect.vue";
 import SfProductOption from "../SfProductOption/SfProductOption.vue";
 import SfInput from "../../atoms/SfInput/SfInput.vue";
-
 const optionsList = [
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
   { value: "amber", color: "#FFBF00", label: "Amber" },

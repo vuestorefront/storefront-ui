@@ -1,12 +1,9 @@
 import Vue from "vue";
-
 let observer;
 const desktopMin = 1024;
-
 export const onMediaMatch = e => {
   observer.isMobile = e.matches;
 };
-
 export const setupListener = () => {
   if (
     typeof window === "undefined" ||
@@ -21,7 +18,6 @@ export const setupListener = () => {
   window.matchMedia(`(max-width: ${desktopMin}px)`).addListener(onMediaMatch);
   observer.isInitialized = true;
 };
-
 export const tearDownListener = () => {
   if (
     typeof window !== "undefined" &&
@@ -33,7 +29,6 @@ export const tearDownListener = () => {
       .removeListener(onMediaMatch);
   }
 };
-
 export const mapMobileObserver = () => {
   if (!observer) {
     observer = Vue.observable({
@@ -43,7 +38,6 @@ export const mapMobileObserver = () => {
     });
   }
   observer.clients += 1;
-
   return {
     isMobile: {
       get() {
@@ -65,7 +59,6 @@ export const mapMobileObserver = () => {
     }
   };
 };
-
 export const unMapMobileObserver = () => {
   if (observer) {
     observer.clients -= 1;

@@ -24,7 +24,6 @@
 import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-
 export default {
   name: "SfColor",
   components: {

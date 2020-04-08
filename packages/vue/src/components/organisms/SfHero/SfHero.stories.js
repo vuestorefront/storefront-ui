@@ -7,9 +7,7 @@ import {
   object,
   optionsKnob as options
 } from "@storybook/addon-knobs";
-
 import SfHero from "./SfHero.vue";
-
 storiesOf("Organisms|Hero", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
