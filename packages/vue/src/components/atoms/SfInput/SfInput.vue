@@ -142,7 +142,8 @@ export default {
   data() {
     return {
       isPasswordVisible: false,
-      inputType: ""
+      inputType: "",
+      isNumberTypeSafari: false
     };
   },
   computed: {
@@ -159,8 +160,30 @@ export default {
   watch: {
     type: {
       immediate: true,
+      handler: function(type) {
+        let inputType = type;
+        // Safari has bug for number input
+        if (typeof window !== "undefined" || typeof document !== "undefined") {
+          const ua = navigator.userAgent.toLocaleLowerCase();
+          if (
+            ua.indexOf("safari") !== -1 &&
+            ua.indexOf("chrome") === -1 &&
+            type === "number"
+          ) {
+            this.isNumberTypeSafari = true;
+            inputType = "text";
+          }
+        }
+        this.inputType = inputType;
+      }
+    },
+    value: {
+      immediate: true,
       handler: function(value) {
-        this.inputType = value;
+        if (!this.isNumberTypeSafari) return;
+        if (isNaN(value)) {
+          this.$emit("input");
+        }
       }
     }
   },
