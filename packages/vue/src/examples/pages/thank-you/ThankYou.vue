@@ -1,8 +1,8 @@
 <template>
   <div id="thank-you">
-    <SfCallToAction 
+    <SfCallToAction
       class="banner"
-      title="Thank you for your order!" 
+      title="Thank you for your order!"
       image="assets/storybook/ThankYou/banner7.png"
     >
       <template #description>
@@ -125,6 +125,7 @@ export default {
 .banner {
   --call-to-action-color: var(--c-text);
   --call-to-action-title-font-size: var(--font-xl);
+  --call-to-action-title-font-weight: var(--font-medium);
   margin: 0 0 var(--spacer-base);
   @include for-desktop {
     margin: 0 0 var(--spacer-2xl) 0;
