@@ -163,7 +163,6 @@ import {
   SfSelect,
   SfRadio
 } from "@storefront-ui/vue";
-
 export default {
   name: "Shipping",
   components: {
@@ -348,7 +347,6 @@ export default {
 }
 .shipping {
   --radio-container-padding: var(--spacer-sm);
-
   &__label {
     display: flex;
     justify-content: flex-start;

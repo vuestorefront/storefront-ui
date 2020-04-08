@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-pagination {
   &__list {
     display: flex;
@@ -8,14 +7,12 @@
     margin: 0;
     padding: 0;
   }
-
   &__item {
     display: flex;
     align-items: center;
     margin: var(--pagination-item-margin, 0 var(--spacer-2xs));
     color: var(--pagination-item-color, var(--c-text-muted));
   }
-
   &__button {
     padding: var(--pagination-button-padding, 0);
     margin: var(--pagination-button-margin);
@@ -37,26 +34,21 @@
       border-color 150ms ease-in-out
     );
     cursor: var(--pagination-button-cursor, pointer);
-
     &--prev {
       --pagination-button-margin: 0 var(--spacer-lg) 0 0;
     }
-
     &--next {
       --pagination-button-margin: 0 0 0 var(--spacer-lg);
     }
-
     &--current {
       --pagination-button-color: var(--c-text);
       --pagination-button-border-color: var(--c-text);
     }
-
     &:disabled {
       --pagination-button-opacity: 0.7;
       --pagination-button-cursor: default;
     }
   }
-
   @include for-desktop {
     --pagination-item-margin: 0 var(--spacer-xs);
   }

@@ -152,7 +152,6 @@ import {
   SfProductOption,
   SfBreadcrumbs
 } from "@storefront-ui/vue";
-
 export default {
   name: "Product",
   components: {
@@ -319,7 +318,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 #product {
   box-sizing: border-box;
   @include for-desktop {
@@ -350,7 +348,6 @@ export default {
   &__drag-icon {
     animation: moveicon 1s ease-in-out infinite;
   }
-
   &__price-and-rating {
     margin: var(--spacer-xs) var(--spacer-sm) var(--spacer-base);
     align-items: center;
@@ -469,11 +466,9 @@ export default {
     }
   }
 }
-
 .breadcrumbs {
   margin: var(--spacer-base) auto var(--spacer-lg);
 }
-
 @keyframes moveicon {
   0% {
     transform: translate3d(0, 0, 0);

@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-notification {
   position: relative;
   display: flex;
@@ -14,7 +13,6 @@
   border-radius: var(--notification-border-radius, 5px);
   background: var(--notification-background);
   color: var(--notification-color, var(--c-white));
-
   @include font(
     --notification-font,
     var(--font-normal),
@@ -22,10 +20,8 @@
     normal,
     var(--font-family-secondary)
   );
-
   &__title {
     display: var(--notification-title-display, block);
-
     @include font(
       --notification-title-font,
       var(--font-normal),
@@ -33,7 +29,6 @@
       normal,
       var(--font-family-secondary)
     );
-
     &::after {
       content: " ";
     }
@@ -46,7 +41,6 @@
   &__message {
     display: block;
   }
-
   &__action {
     display: var(--notification-action-display, none);
     padding: 0;
@@ -56,7 +50,6 @@
     font: var(--notification-action-font, inherit);
     text-decoration: var(--notification-action-text-decoration, underline);
   }
-
   &__icon {
     --icon-color: var(--c-white);
     margin: var(--notification-icon-margin, 0 var(--spacer-base) 0 0);

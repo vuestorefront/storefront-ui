@@ -87,7 +87,6 @@
 </template>
 <script>
 import { SfHeading, SfButton, SfCharacteristic } from "@storefront-ui/vue";
-
 export default {
   name: "OrderReview",
   components: {
@@ -139,11 +138,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 .title {
   --heading-title-margin: 0 0 var(--spacer-lg) 0;
 }
-
 .review {
   box-sizing: border-box;
   width: 100%;
@@ -156,13 +153,11 @@ export default {
     }
   }
 }
-
 .characteristics {
   &__item {
     margin: var(--spacer-base) 0;
   }
 }
-
 .content {
   font-family: var(--font-family-primary);
   font-size: var(--font-xs);
@@ -175,7 +170,6 @@ export default {
     font-weight: var(--font-normal);
   }
 }
-
 .actions {
   &__button {
     margin: var(--spacer-sm) 0;

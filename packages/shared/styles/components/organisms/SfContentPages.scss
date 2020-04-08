@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-content-page {
   @include font(
     --content-pages-content-page-font,
@@ -52,7 +51,10 @@
     );
   }
   &__category-title {
-    margin: var(--content-pages-sidebar-category-title-margin, var(--spacer-sm) 0);
+    margin: var(
+      --content-pages-sidebar-category-title-margin,
+      var(--spacer-sm) 0
+    );
     @include font(
       --content-pages-sidebar-category-title-font,
       var(--font-bold),

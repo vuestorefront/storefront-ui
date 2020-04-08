@@ -26,7 +26,6 @@ describe("SfIcon.vue", () => {
   });
   it("renders sf-color when passed", () => {
     const color = "green-primary";
-
     const component = shallowMount(SfIcon, {
       propsData: {
         color: color
@@ -36,7 +35,6 @@ describe("SfIcon.vue", () => {
   });
   it("renders viewBox default when not passed", () => {
     const color = "green-primary";
-
     const component = shallowMount(SfIcon, {
       propsData: {
         color: color

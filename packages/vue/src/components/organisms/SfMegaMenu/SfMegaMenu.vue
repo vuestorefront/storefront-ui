@@ -55,7 +55,6 @@ import {
   mapMobileObserver,
   unMapMobileObserver
 } from "../../../utilities/mobile-observer";
-
 export default {
   name: "SfMegaMenu",
   components: {

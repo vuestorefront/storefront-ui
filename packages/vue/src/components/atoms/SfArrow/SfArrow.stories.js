@@ -7,7 +7,6 @@ import {
 } from "@storybook/addon-knobs";
 import SfArrow from "./SfArrow.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
-
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

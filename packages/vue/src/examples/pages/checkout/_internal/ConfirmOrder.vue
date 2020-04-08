@@ -281,7 +281,6 @@ import {
   SfProperty,
   SfAccordion
 } from "@storefront-ui/vue";
-
 export default {
   name: "ReviewOrder",
   components: {
@@ -371,7 +370,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 .title {
   --heading-padding: var(--spacer-base) 0;
   @include for-desktop {
@@ -379,7 +377,6 @@ export default {
     --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
   }
 }
-
 .table {
   margin: 0 0 var(--spacer-base) 0;
   &__row {
@@ -406,13 +403,11 @@ export default {
     }
   }
 }
-
 .product-price {
   text-align: right;
   display: flex;
   flex-direction: column;
 }
-
 .totals {
   display: flex;
   justify-content: space-between;
@@ -423,7 +418,6 @@ export default {
     flex: 0 0 18.75rem;
   }
 }
-
 .promo-code {
   display: flex;
   justify-content: space-between;
@@ -438,15 +432,12 @@ export default {
     margin: 0 var(--spacer-base) 0 0;
   }
 }
-
 .product-sku {
   color: var(--c-text-muted);
 }
-
 .button {
   cursor: pointer;
 }
-
 .property {
   margin: 0 0 var(--spacer-base) 0;
   --property-value-font-weight: var(--font-semibold);
@@ -458,20 +449,17 @@ export default {
     }
   }
 }
-
 .divider {
   --divider-border-color: var(--c-white);
   --divider-width: 100%;
   --divider-margin: 0 0 var(--spacer-base) 0;
 }
-
 .characteristics {
   padding: var(--spacer-sm);
   &__item {
     margin: var(--spacer-base) 0;
   }
 }
-
 .summary,
 .accordion {
   position: relative;
@@ -481,7 +469,6 @@ export default {
   margin-left: -50vw;
   margin-right: -50vw;
 }
-
 .accordion {
   --accordion-item-content-padding: 0;
   --collected-product-padding: 0;
@@ -500,7 +487,6 @@ export default {
     top: var(--spacer-base);
   }
 }
-
 .collected-product {
   padding: var(--spacer-sm) 0;
   &:not(:last-of-type) {
@@ -508,7 +494,6 @@ export default {
     border-width: 0 0 1px 0;
   }
 }
-
 .summary {
   background: var(--c-light);
   &__content {
@@ -524,7 +509,6 @@ export default {
     margin: 0 0 0 var(--spacer-xs);
   }
 }
-
 .content {
   margin: 0 0 var(--spacer-base) 0;
   color: var(--c-text);
@@ -532,7 +516,6 @@ export default {
     font-weight: 400;
   }
 }
-
 .actions {
   &__button {
     &:first-child {
@@ -543,7 +526,6 @@ export default {
     }
   }
 }
-
 a {
   color: var(--c-text);
   &:hover {
