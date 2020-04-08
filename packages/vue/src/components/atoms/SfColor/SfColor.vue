@@ -1,6 +1,6 @@
 <template>
   <button
-    v-focus="0"
+    v-focus
     class="sf-color"
     :class="{ 'sf-color--active': selected }"
     :style="style"
