@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-product-option {
   display: flex;
   align-items: center;
@@ -11,7 +10,6 @@
     normal,
     var(--font-family-primary)
   );
-
   &__color {
     box-sizing: border-box;
     width: var(--product-option-size, 1.25rem);
@@ -20,7 +18,6 @@
     @include border(--product-option-border, 0, solid, var(--c-light));
     border-radius: var(--product-option-border-radius);
   }
-
   &__label {
     flex: 1;
   }

@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-product-card {
   box-sizing: border-box;
   position: relative;
@@ -8,7 +7,6 @@
   height: var(--product-card-height);
   padding: var(--product-card-padding, var(--spacer-xs));
   background-color: var(--product-card-background, var(--c-white));
-
   &::after {
     content: "";
     position: absolute;
@@ -20,7 +18,6 @@
     transition: var(--product-card-transition);
     box-shadow: var(--product-card-box-shadow);
   }
-
   &:hover {
     --product-card-image-opacity: 1;
     --product-card-image-even-opacity: 1;
@@ -29,11 +26,9 @@
     --product-card-z-index: 1;
     --product-card-box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
   }
-
   &:active {
     --product-card-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
   }
-
   &__title {
     margin: var(--product-card-title-margin, var(--spacer-xs) 0 0 0);
     @include font(
@@ -44,17 +39,14 @@
       var(--font-family-secondary)
     );
   }
-
   &__image-wrapper {
     position: relative;
     display: flex;
   }
-
   &__image,
   &__picture {
     transition: var(--product-card-image-transition, opacity 150ms ease-in-out);
     opacity: var(--product-card-image-opacity);
-
     &:nth-child(even) {
       position: absolute;
       top: 0;
@@ -62,13 +54,11 @@
       opacity: var(--product-card-image-even-opacity, 0);
     }
   }
-
   &__badge {
     position: absolute;
     top: var(--product-card-badge-top, var(--spacer-xs));
     left: var(--product-card-badge-left, 0);
   }
-
   &__add-button {
     --circle-icon-position: absolute;
     --button-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
@@ -77,11 +67,9 @@
     display: var(--product-card-add-button-display, none);
     transform: var(--product-card-add-button-transform, translate3d(0, 50%, 0));
     opacity: var(--product-card-add-button-opacity, 0);
-
     &--icons-enter-active {
       animation: var(--product-card-add-button-enter-animation, bounce 0.4s);
     }
-
     &--icons-leave-active {
       animation: var(
         --product-card-add-button-leave-animation,
@@ -89,25 +77,20 @@
       );
     }
   }
-
   &__price {
     margin: var(--product-card-margin, var(--spacer-2xs) 0);
   }
-
   &__reviews {
     display: flex;
     align-items: center;
   }
-
   &__rating {
     display: flex;
   }
-
   &__reviews-count {
     margin: var(--product-card-reviews-count-margin, 0 0 0 var(--spacer-xs));
     color: var(--product-card-reviews-count-color, var(--c-text));
     text-decoration: none;
-
     @include font(
       --product-reviews-count-font,
       var(--font-light),
@@ -116,7 +99,6 @@
       var(--font-family-secondary)
     );
   }
-
   &__wishlist-icon {
     --icon-color: var(--c-dark-variant);
     position: absolute;
@@ -132,11 +114,9 @@
     );
     cursor: pointer;
   }
-
   &--on-wishlist {
     --product-card-wishlist-icon-opacity: 1;
   }
-
   @include for-desktop {
     --product-card-max-width: 15.5rem;
     --product-card-padding: calc(var(--spacer-sm));

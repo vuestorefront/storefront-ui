@@ -27,7 +27,6 @@ import {
   mapMobileObserver,
   unMapMobileObserver
 } from "../../../utilities/mobile-observer";
-
 export default {
   name: "SfSlidingSection",
   components: {
