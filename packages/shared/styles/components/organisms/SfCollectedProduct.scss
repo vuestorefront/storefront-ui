@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-collected-product {
   position: relative;
   box-sizing: border-box;
@@ -88,7 +87,6 @@
     --collected-product-remove-transition: opacity 150ms ease-in-out;
     --collected-product-remove-circle-icon-display: flex;
     --collected-product-remove-text-display: none;
-
     &::after {
       --collected-product-transition: box-shadow 150ms ease-in-out;
     }
@@ -103,7 +101,10 @@
         bottom: 0;
         left: 0;
         z-index: -1;
-        box-shadow: var(--collected-product-box-shadow, 0px 4px 11px rgba(var(--c-dark-base), 0.1));
+        box-shadow: var(
+          --collected-product-box-shadow,
+          0px 4px 11px rgba(var(--c-dark-base), 0.1)
+        );
       }
     }
     &__aside {
@@ -116,7 +117,10 @@
       flex: 1;
     }
     &__actions {
-      justify-content: var(--collected-product-actions-justify-content, flex-end);
+      justify-content: var(
+        --collected-product-actions-justify-content,
+        flex-end
+      );
       align-items: var(--collected-product-actions-align-items, flex-start);
       flex: 2;
     }
@@ -130,7 +134,6 @@
       --collected-product-actions-justify-content: flex-start;
       --collected-product-main-flex-direction: row;
       --collected-product-actions-align-items: flex-start;
-
       &:hover {
         --collected-product-box-shadow: none;
       }
