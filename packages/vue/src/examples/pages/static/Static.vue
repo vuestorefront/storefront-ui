@@ -148,7 +148,8 @@ export default {
 #static {
   box-sizing: border-box;
   @include for-desktop {
-    max-width: 77.5rem;
+    max-width: 1272px;
+    padding: 0 var(--spacer-sm);
     margin: 0 auto;
   }
 }
