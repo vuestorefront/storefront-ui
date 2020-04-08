@@ -1,6 +1,6 @@
 export const focus = {
-  inserted(el) {
-    el.tabindex = "0";
+  inserted(el, binding) {
+    el.tabindex = binding.value;
   },
   bind(el) {
     el._mouseHandler = function() {
