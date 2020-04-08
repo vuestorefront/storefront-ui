@@ -5,6 +5,8 @@
   padding: var(--product-card-horizontal-padding, var(--spacer-xs));
   background-color: var(--product-card-horizontal-background, var(--c-white));
   &__link {
+    color: inherit;
+    text-decoration: inherit;
     &--image {
       flex: 0 0 var(--product-card-horizontal-image-width, 5.3125rem);
     }
