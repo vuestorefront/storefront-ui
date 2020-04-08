@@ -1,15 +1,15 @@
 <template>
   <div>
-    <Home />
+    <Product />
   </div>
 </template>
 
 <script>
-import Home from "@storefront-ui/vue/src/examples/pages/home/Home.vue"
+import Product from "@storefront-ui/vue/src/examples/pages/product/Product.vue"
 
 export default {
   components: {
-    Home
+    Product
   }
 }
 </script>
