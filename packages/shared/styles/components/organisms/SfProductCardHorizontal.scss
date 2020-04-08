@@ -27,7 +27,10 @@
       position: absolute;
       top: 0;
       left: 0;
-      opacity: var(--product-card-horizontal-image-opacity, 0);
+      opacity: var(--product-card-horizontal-image-even-opacity, 1);
+      &:hover {
+        --product-card-horizontal-image-even-opacity: 0;
+      }
     }
   }
   &__main {

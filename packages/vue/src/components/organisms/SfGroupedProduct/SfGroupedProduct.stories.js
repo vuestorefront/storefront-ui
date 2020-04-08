@@ -385,7 +385,7 @@ storiesOf("Organisms|GroupedProduct", module)
           :price-special="priceSpecial"
       >
         <template #image="{ image, title, imagePlaceholder, imageLazy, imagePictureBreakpoint }">
-          <div :style="{height: '111px', 'line-height': '1'}">CUSTOM IMAGE</div>
+          <div :style="{height: '111px'}">CUSTOM IMAGE</div>
         </template>
       </SfGroupedProductItem>
     </SfGroupedProduct>`
@@ -454,7 +454,7 @@ storiesOf("Organisms|GroupedProduct", module)
           :price-special="priceSpecial"
       >
         <template #input="{ qty }">
-          <div style="line-height: 1;">
+          <div style="position: absolute; bottom: 0; right: 0">
             CUSTOM INPUT
           </div>
         </template>

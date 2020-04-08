@@ -16,7 +16,7 @@
   &__aside {
     position: var(--grouped-product-item-aside-position, relative);
     flex: var(--grouped-product-item-flex);
-    line-height: 0;
+    display: flex;
   }
   &__image {
     background: var(--grouped-product-item-image-background, var(--c-light));
