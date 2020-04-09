@@ -92,7 +92,7 @@ storiesOf("Organisms|Header", module)
     data() {
       return {
         isMobile: false,
-        navigation: ["women", "man", "kids", "blah", "blop", "bip"]
+        navigation: ["women", "man", "kids"]
       };
     },
     computed: {
@@ -150,6 +150,17 @@ storiesOf("Organisms|Header", module)
   }))
   .add("[slot] navigation", () => ({
     components: { SfHeader },
+    customClass: {
+      default: options(
+        "CSS modifiers",
+        {
+          "sf-header--multilined": "sf-header--multilined"
+        },
+        "",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      )
+    },
     props: {
       title: {
         default: text("title", "Storefront UI", "Props")
@@ -224,6 +235,7 @@ storiesOf("Organisms|Header", module)
       }
     },
     template: `<SfHeader
+        :class="customClass"
         :title="title"
         :logo="logo"
         :active-icon="activeIcon"
@@ -246,6 +258,17 @@ storiesOf("Organisms|Header", module)
   .add("[slot] logo", () => ({
     components: { SfHeader },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-header--multilined": "sf-header--multilined"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       title: {
         default: text("title", "Storefront UI", "Props")
       },
@@ -319,6 +342,7 @@ storiesOf("Organisms|Header", module)
       }
     },
     template: `<SfHeader
+        :class="customClass"
         :title="title"
         :logo="logo"
         :active-icon="activeIcon"
@@ -347,6 +371,17 @@ storiesOf("Organisms|Header", module)
   }))
   .add("[slot] search", () => ({
     components: { SfHeader },
+    customClass: {
+      default: options(
+        "CSS modifiers",
+        {
+          "sf-header--multilined": "sf-header--multilined"
+        },
+        "",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      )
+    },
     props: {
       title: {
         default: text("title", "Storefront UI", "Props")
@@ -421,6 +456,7 @@ storiesOf("Organisms|Header", module)
       }
     },
     template: `<SfHeader
+        :class="customClass"
         :title="title"
         :logo="logo"
         :active-icon="activeIcon"
@@ -450,6 +486,17 @@ storiesOf("Organisms|Header", module)
   .add("[slot] header-icons", () => ({
     components: { SfHeader },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-header--multilined": "sf-header--multilined"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       title: {
         default: text("title", "Storefront UI", "Props")
       },
@@ -523,6 +570,7 @@ storiesOf("Organisms|Header", module)
       }
     },
     template: `<SfHeader
+        :class="customClass"
         :title="title"
         :logo="logo"
         :active-icon="activeIcon"
