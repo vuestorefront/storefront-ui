@@ -15,9 +15,6 @@ storiesOf("Atoms|Dropdown", module)
   .add("Common", () => ({
     components: { SfDropdown, SfList, SfButton },
     props: {
-      transition: {
-        default: text("transition", "fade", "Props")
-      },
       title: {
         default: text("title", "Choose size", "Props")
       },
@@ -35,12 +32,12 @@ storiesOf("Atoms|Dropdown", module)
     },
     data() {
       return {
-        isOpen: true,
+        isOpen: false,
         actionList: [
-          "add to cart",
-          "add to compare",
-          "add to wishlist",
-          "share"
+          "Add to cart",
+          "Add to compare",
+          "Add to wishlist",
+          "Share"
         ]
       };
     },
