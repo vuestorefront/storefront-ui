@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-hero-item {
   display: flex;
   flex-direction: var(--hero-item-flex-direction, row);
@@ -50,7 +49,7 @@
     display: var(--hero-item-button-display, none);
   }
   &--align-right {
-    --hero-item-align-items: flex-end;
+    --hero-item-justify-content: flex-end;
   }
   @include for-desktop {
     --hero-item-height: 36.625rem;

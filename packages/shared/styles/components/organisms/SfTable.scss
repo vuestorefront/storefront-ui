@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-table {
   box-sizing: border-box;
   width: var(--table-width, 100%);
@@ -15,7 +14,6 @@
     align-items: center;
     padding: var(--table-heading-padding, var(--spacer-sm) 0);
     background-color: var(--table-heading-background, transparent);
-
     @include border(--table-border, 2px 0 2px 0, solid, var(--c-light));
   }
   &__header {

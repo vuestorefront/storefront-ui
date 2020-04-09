@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-content-page {
   @include font(
     --content-pages-content-page-font,
@@ -29,7 +28,8 @@
   &__content,
   &__sidebar {
     box-sizing: border-box;
-    overflow: auto;
+    overflow-y: auto;
+    height: calc(100vh - 5rem);
   }
   &__sidebar {
     flex: var(--content-pages-sidebar-flex, 0 0 100%);
@@ -51,9 +51,12 @@
     );
   }
   &__category-title {
-    margin: var(--content-pages-sidebar-title-margin, var(--spacer-sm) 0);
+    margin: var(
+      --content-pages-sidebar-category-title-margin,
+      var(--spacer-sm) 0
+    );
     @include font(
-      --content-pages-category-title-font,
+      --content-pages-sidebar-category-title-font,
       var(--font-bold),
       var(--font-lg),
       1.2,

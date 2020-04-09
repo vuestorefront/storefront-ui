@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 // todo: after replace <input> to <SfInput> we can remove @mixin placeholder and @mixin iconPosition
 @mixin placeholder {
   &::-webkit-input-placeholder {
@@ -21,7 +20,6 @@
     }
   }
 }
-
 .sf-search-bar {
   box-sizing: border-box;
   position: relative;
@@ -37,7 +35,6 @@
     right: 0;
     display: var(--search-bar-icon-display, block);
   }
-
   &__input {
     position: relative;
     flex-grow: 1;
@@ -53,14 +50,12 @@
       1.6,
       var(--font-family-secondary)
     );
-
     @include border(
       --seach-bar-border,
       0 0 2px 0,
       solid,
       var(--c-dark-variant)
     );
-
     @include placeholder {
       color: var(--search-bar-placeholder-color, var(--c-gray));
       transition: var(--search-bar-placeholder-transition, color 0.2s ease-in);
@@ -73,6 +68,9 @@
     }
     &::-webkit-search-cancel-button {
       opacity: 0;
+    }
+    &[type="search"] {
+      -webkit-appearance: none;
     }
     &::-ms-clear {
       opacity: 0;

@@ -1,11 +1,9 @@
 @import "../../helpers";
-
 .sf-header-navigation-item {
   display: flex;
   align-items: center;
   height: 100%;
   margin: var(--header-navigation-item-margin, 0 var(--spacer-2xl) 0 0);
-
   & > * {
     text-transform: var(--header-navigation-item-text-transform, uppercase);
     text-decoration: var(--header-navigation-item-text-decoration, none);
@@ -18,7 +16,6 @@
       var(--font-family-secondary)
     );
   }
-
   &::after {
     position: absolute;
     z-index: 1;

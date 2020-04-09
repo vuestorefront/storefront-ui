@@ -1,12 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-
+import { withKnobs, text } from "@storybook/addon-knobs";
 import SfBottomNavigation from "./SfBottomNavigation.vue";
-
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-
 storiesOf("Organisms|BottomNavigation", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -20,12 +17,6 @@ storiesOf("Organisms|BottomNavigation", module)
       },
       iconActive: {
         default: text("iconActive", "home_fill", "Props")
-      },
-      isActive: {
-        default: boolean("isActive", "false", "Props")
-      },
-      isFloating: {
-        default: boolean("isFloating", true, "Props")
       }
     },
     data() {
@@ -70,8 +61,7 @@ storiesOf("Organisms|BottomNavigation", module)
       />
       <SfBottomNavigationItem
         label="Basket"
-        icon="add_to_cart"        
-        :is-floating="isFloating"
+        icon="add_to_cart"     
         >
         <template #icon>
           <SfCircleIcon aria-label="Add to cart">
@@ -94,9 +84,6 @@ storiesOf("Organisms|BottomNavigation", module)
       },
       icon: {
         default: text("icon", "home", "Props")
-      },
-      isFloating: {
-        default: boolean("isFloating", true, "Props")
       }
     },
     data() {
@@ -117,7 +104,6 @@ storiesOf("Organisms|BottomNavigation", module)
       />
       <SfBottomNavigationItem
         icon="add_to_cart"
-        :is-floating="isFloating"
       >
         <template #icon>
           <SfCircleIcon>
@@ -140,9 +126,6 @@ storiesOf("Organisms|BottomNavigation", module)
       },
       icon: {
         default: text("icon", "home", "Props")
-      },
-      isFloating: {
-        default: boolean("isFloating", true, "Props")
       }
     },
     data() {

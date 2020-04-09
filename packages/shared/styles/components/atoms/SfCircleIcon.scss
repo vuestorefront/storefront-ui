@@ -1,12 +1,11 @@
 @import "../../helpers";
-
 .sf-circle-icon {
   --icon-color: var(--c-white);
   --button-padding: 0;
   --icon-size: 1.25rem;
   --button-size: 3.25rem;
   --button-background: var(--c-primary);
-  --button-transition: box-shadow 300ms linear;
+  --button-transition: box-shadow 300ms ease;
   --button-box-shadow: 0 4px 4px rgba(var(--c-dark-base), 0.2);
   border-radius: 100%;
   position: var(--circle-icon-position, relative);
@@ -15,7 +14,7 @@
     --button-box-shadow: 0 0 0 0.3125rem rgba(var(--c-primary-base), 0.3);
   }
   &:active {
-    --button-transition: box-shadow 150ms linear;
+    --button-transition: box-shadow 150ms ease;
     --button-box-shadow: 0 0 0 0.5rem rgba(var(--c-primary-base), 0.3);
   }
   &:disabled {
@@ -25,7 +24,6 @@
       --button-background: var(--c-light);
     }
   }
-
   &__badge {
     position: absolute;
     top: var(--circle-icon-badge-top, 0);
@@ -45,7 +43,6 @@
     padding: 2px;
     border-radius: var(--circle-icon-badge-border-radius, 0.625rem);
     background: var(--circle-icon-badge-background, var(--c-danger));
-
     @include font(
       --circle-icon-badge-font,
       var(--font-medium),
@@ -53,7 +50,6 @@
       1.4,
       var(--font-family-primary)
     );
-
     &-enter-active {
       animation: bounce-in 300ms;
     }
@@ -61,7 +57,6 @@
       animation: bounce-in 300ms reverse;
     }
   }
-
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     $variant: map-get($map, "variant");
@@ -80,11 +75,10 @@
       }
     }
   }
-
   &--small {
-    --icon-size: 0.5rem;
+    --icon-size: 8px;
     --button-size: 1.625rem;
-    --button-transition: background 150ms linear;
+    --button-transition: background 150ms ease;
     &:hover {
       --button-background: var(--c-primary);
       --button-box-shadow: 0;
@@ -108,7 +102,6 @@
     }
   }
 }
-
 @keyframes bounce-in {
   0% {
     transform: scale(0);

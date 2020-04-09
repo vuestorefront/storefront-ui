@@ -18,7 +18,6 @@ $icon-colors: (
   "blue-primary": var(--_c-blue-primary),
   "blue-secondary": var(--_c-blue-secondary)
 );
-
 // Map theme color palette
 $colors-map: (
   "black": (
@@ -62,12 +61,10 @@ $colors-map: (
     "variant": var(--c-danger-variant)
   )
 );
-
 // Convert Hex to RGB
 @function rgbColor($hexColor) {
   @return #{red($hexColor), green($hexColor), blue($hexColor)};
 }
-
 // Mix internal color variables
 @mixin generate-color-variants($variable, $value) {
   #{$variable}: #{$value};
@@ -75,7 +72,6 @@ $colors-map: (
   #{$variable}-lighten: lighten($value, 5);
   #{$variable}-darken: darken($value, 5);
 }
-
 // Assign internal color variables
 @mixin assign-color-variants($variable, $value) {
   #{$variable}: var(#{$value});

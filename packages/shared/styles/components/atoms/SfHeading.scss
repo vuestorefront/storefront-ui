@@ -36,6 +36,7 @@
   }
   &__subtitle {
     margin: var(--heading-subtitle-margin);
+    color: var(--heading-subtitle-color, var(--c-text));
     @include font(
       --heading-subtitle-font,
       var(--font-light),

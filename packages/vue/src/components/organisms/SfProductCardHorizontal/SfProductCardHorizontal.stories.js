@@ -172,28 +172,12 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       return {
         pictures: [
           {
-            desktop: {
-              url:
-                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-              alt: "Macbook PRO Apple"
-            },
-            mobile: {
-              url:
-                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-              alt: "Macbook PRO Apple"
-            }
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
           },
           {
-            desktop: {
-              url:
-                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-              alt: "Macbook PRO Apple (keyboard)"
-            },
-            mobile: {
-              url:
-                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-              alt: "Macbook PRO Apple (keyboard)"
-            }
+            mobile: { url: "/assets/storybook/Home/productA.jpg" },
+            desktop: { url: "/assets/storybook/Home/productA.jpg" }
           }
         ]
       };

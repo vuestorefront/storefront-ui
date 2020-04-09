@@ -1,10 +1,16 @@
 @import "../../helpers";
-
 .sf-filter {
   --checkbox-order: 1;
   --checkbox-border-radius: 100%;
+  width: 100%;
+  &__color {
+    margin: var(--filter-color-margin, 0 var(--spacer-sm) 0 0);
+  }
   &__label {
-    margin: var(--filter-label-margin, 0 0 0 var(--spacer-sm));
+    display: var(--filter-label-display, flex);
+    align-items: var(--filter-label-align-items, center);
+    margin: var(--filter-label-margin, 0);
+    color: var(--filter-label-color);
     @include font(
       --filter-label-font,
       var(--font-medium),
@@ -15,9 +21,12 @@
     text-decoration: var(--filter-label-text-decoration);
     transition: transform 150ms ease-in-out;
     transform: var(--filter-label-transform);
+    transform-origin: center left;
   }
   &__count {
+    display: var(--filter-count-display);
     margin: var(--filter-count-margin, 0 var(--spacer-sm) 0 auto);
+    color: var(--filter-count-color);
     @include font(
       --filter-count-font,
       var(--font-normal),
@@ -29,6 +38,8 @@
   @include for-desktop {
     --checkbox-border-radius: 0;
     --checkbox-order: 0;
+    --filter-color-margin: 0;
+    --filter-label-margin: 0 0 0 var(--spacer-sm);
     --filter-count-margin: 0 0 0 auto;
     --filter-label-font-size: var(--font-2xs);
     --filter-count-font-size: var(--font-2xs);
@@ -36,7 +47,14 @@
   &--active {
     @include for-desktop {
       --filter-label-text-decoration: underline;
-      --filter-label-transform: scale3d(1.4, 1.4, 1);
+      --filter-label-transform: scale(1.4);
+    }
+  }
+  &--is-color {
+    @include for-desktop {
+      --checkbox-display: none;
+      --filter-label-display: none;
+      --filter-count-display: none;
     }
   }
 }

@@ -7,9 +7,7 @@ import {
   boolean,
   object
 } from "@storybook/addon-knobs";
-
 import SfHeader from "./SfHeader.vue";
-
 const StoriesPlaceholder = {
   props: {
     mobile: {
@@ -31,7 +29,6 @@ const StoriesPlaceholder = {
   },
   template: `<div :style="style">[page content]</div>`
 };
-
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

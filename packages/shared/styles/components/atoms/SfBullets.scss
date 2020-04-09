@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-bullet {
   box-sizing: border-box;
   width: var(--bullet-width, var(--bullet-size, 0.5rem));
@@ -10,7 +9,6 @@
   box-shadow: var(--bullet-box-shadow, none);
   cursor: pointer;
   transition: transform 150ms linear, box-shadow 150ms linear;
-
   &:hover,
   &--active {
     transform: scale3d(1.25, 1.25, 1);
