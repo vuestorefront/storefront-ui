@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-image {
   position: relative;
   display: inline-block;
@@ -34,18 +33,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--image-ovarlay-padding, var(--spacer-big));
-    background: var(--image-ovarlay-background, rgba(29, 31, 34, 0.8));
+    padding: var(--image-ovarlay-padding, var(--spacer-sm));
+    background: var(--image-ovarlay-background, rgba(var(--c-dark-base), 0.6));
     color: var(--image-overlay-color, var(--c-white));
-    font: var(
+    @include font(
       --image-overlay-font,
-      font(
-        --image-overlay,
-        300,
-        var(--font-size-small),
-        1.6,
-        var(--body-font-family-secondary)
-      )
+      var(--font-light),
+      var(--font-sm),
+      1.6,
+      var(--font-family-secondary)
     );
   }
 }

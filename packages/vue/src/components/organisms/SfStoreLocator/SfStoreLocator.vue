@@ -1,10 +1,10 @@
 <template>
   <div class="sf-store-locator">
-    <div class="sf-store-locator__title" tabindex="0">
-      Found stores: <span>{{ stores.length }}</span>
-    </div>
     <div class="sf-store-locator__wrapper">
       <div class="sf-store-locator__list">
+        <div class="sf-store-locator__stores desktop-only" tabindex="0">
+          Found stores: <span>{{ stores.length }}</span>
+        </div>
         <!-- @slot Use this slot to show stores cards -->
         <slot
           v-bind="{
@@ -66,9 +66,7 @@ import Vue from "vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLoader from "../../atoms/SfLoader/SfLoader.vue";
 import SfStore from "./_internal/SfStore.vue";
-
 Vue.component("SfStore", SfStore);
-
 export default {
   name: "SfStoreLocator",
   provide() {

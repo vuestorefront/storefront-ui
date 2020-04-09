@@ -21,10 +21,7 @@
           <span class="sf-steps__title">{{ step.step }}</span>
         </div>
       </slot>
-      <div
-        class="sf-steps__progress"
-        :style="{ width: progressWidth, transform: `scaleX(${progress})` }"
-      ></div>
+      <div class="sf-steps__progress" :style="progress"></div>
     </div>
     <div class="sf-steps__content">
       <slot></slot>
@@ -94,10 +91,10 @@ export default {
       return [];
     },
     progress() {
-      return this.active + 1;
-    },
-    progressWidth() {
-      return `${100 / this.steps.length}%`;
+      return {
+        "--_steps-progress-width": `${100 / this.steps.length}%`,
+        "--_steps-progress-active-step": this.active + 1
+      };
     }
   },
   methods: {

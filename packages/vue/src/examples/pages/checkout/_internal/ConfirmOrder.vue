@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div id="confirm-order">
     <SfHeading
-      title="4. Order review"
+      title="4. Order details"
+      :level="2"
       class="sf-heading--left sf-heading--no-underline title"
     />
-    <SfAccordion open="Personal Details" class="accordion mobile-only">
+    <SfAccordion class="accordion mobile-only">
       <SfAccordionItem header="Personal Details">
         <div class="accordion__item">
           <div class="accordion__content">
@@ -57,24 +58,69 @@
               </p>
               <p class="content">{{ payment.phoneNumber }}</p>
             </template>
+            <SfButton
+              class="sf-button--text color-secondary accordion__edit"
+              @click="$emit('click:edit', 2)"
+              >Edit
+            </SfButton>
           </div>
-          <SfButton
-            class="sf-button--text color-secondary accordion__edit"
-            @click="$emit('click:edit', 2)"
-            >Edit
-          </SfButton>
         </div>
       </SfAccordionItem>
       <SfAccordionItem header="Payment method">
         <div class="accordion__item">
           <div class="accordion__content">
             <p class="content">{{ paymentMethod.label }}</p>
+            <SfButton
+              class="sf-button--text color-secondary accordion__edit"
+              @click="$emit('click:edit', 2)"
+              >Edit
+            </SfButton>
           </div>
-          <SfButton
-            class="sf-button--text color-secondary accordion__edit"
-            @click="$emit('click:edit', 2)"
-            >Edit
-          </SfButton>
+        </div>
+      </SfAccordionItem>
+      <SfAccordionItem header="Order details">
+        <div class="accordion__item">
+          <transition name="fade">
+            <div class="accordion__content accordion__content">
+              <SfCollectedProduct
+                v-for="(product, index) in products"
+                :key="index"
+                v-model="product.qty"
+                :image="product.image"
+                :title="product.title"
+                :regular-price="product.price.regular"
+                :special-price="product.price.special"
+                :stock="product.stock"
+                class="collected-product"
+              >
+                <template #configuration>
+                  <div class="collected-product__properties">
+                    <SfProperty
+                      v-for="(property, key) in product.configuration"
+                      :key="key"
+                      :name="property.name"
+                      :value="property.value"
+                      class="collected-product__property"
+                    />
+                  </div>
+                </template>
+                <template #actions>
+                  <div>
+                    <div class="collected-product__action">
+                      {{ product.sku }}
+                    </div>
+                    <div class="collected-product__action">
+                      Quantity:
+                      <span class="product__qty">{{ product.qty }}</span>
+                    </div>
+                  </div>
+                </template>
+                <template #input>
+                  <span></span>
+                </template>
+              </SfCollectedProduct>
+            </div>
+          </transition>
         </div>
       </SfAccordionItem>
     </SfAccordion>
@@ -85,9 +131,9 @@
           v-for="tableHeader in tableHeaders"
           :key="tableHeader"
           class="table__header"
+          :class="{ table__description: tableHeader === 'Description' }"
           >{{ tableHeader }}
         </SfTableHeader>
-        <SfTableHeader class="table__action"></SfTableHeader>
       </SfTableHeading>
       <SfTableRow
         v-for="(product, index) in products"
@@ -97,7 +143,7 @@
         <SfTableData class="table__image">
           <SfImage :src="product.image" />
         </SfTableData>
-        <SfTableData class="table__data table__data--left">
+        <SfTableData class="table__description">
           <div class="product-title">{{ product.title }}</div>
           <div class="product-sku">{{ product.sku }}</div>
         </SfTableData>
@@ -115,51 +161,36 @@
             class="product-price"
           />
         </SfTableData>
-        <SfTableData class="table__action">
-          <SfIcon
-            icon="cross"
-            size="xxs"
-            color="#BEBFC4"
-            role="button"
-            class="button"
-            @click="removeProduct(index)"
-          />
-        </SfTableData>
       </SfTableRow>
     </SfTable>
-    <SfHeading
-      title="Order details"
-      class="sf-heading--left sf-heading--no-underline title"
-    />
-    <div class="summary">
-      <div class="summary__group">
-        <div class="summary__total">
-          <SfProperty
-            name="Subtotal"
-            :value="subtotal"
-            class="sf-property--full-width property"
-          >
-            <template #name
-              ><span class="property__name">Subtotal</span></template
-            >
-          </SfProperty>
-          <SfProperty
-            name="Shipping"
-            :value="shippingMethod.price"
-            class="sf-property--full-width property"
-          >
-            <template #name
-              ><span class="property__name">Shipping</span></template
-            >
-          </SfProperty>
-          <SfProperty
-            name="Total"
-            :value="total"
-            class="sf-property--full-width property--huge summary__property-total"
-          >
-            <template #name>TOTAL</template>
-          </SfProperty>
-        </div>
+    <div class="summary mobile-only">
+      <div class="summary__content">
+        <SfHeading
+          title="Totals"
+          :level="1"
+          class="sf-heading--left sf-heading--no-underline summary__title"
+        />
+        <SfProperty
+          name="Products"
+          :value="products.length"
+          class="sf-property--full-width property"
+        />
+        <SfProperty
+          name="Subtotal"
+          :value="subtotal"
+          class="sf-property--full-width property"
+        />
+        <SfProperty
+          name="Shipping"
+          :value="shippingMethod.price"
+          class="sf-property--full-width property"
+        />
+        <SfDivider class="divider" />
+        <SfProperty
+          name="Total price"
+          :value="total"
+          class="sf-property--full-width property"
+        />
         <SfCheckbox v-model="terms" name="terms" class="summary__terms">
           <template #label>
             <div class="sf-checkbox__label">
@@ -168,16 +199,68 @@
           </template>
         </SfCheckbox>
       </div>
-      <div class="summary__group">
-        <SfButton class="sf-button--full-width summary__action-button"
-          >Place my order
-        </SfButton>
-        <SfButton
-          class="sf-button--full-width sf-button--text color-secondary summary__action-button summary__action-button--secondary"
-          @click="$emit('click:back')"
+    </div>
+    <div class="characteristics mobile-only">
+      <SfCharacteristic
+        v-for="characteristic in characteristics"
+        :key="characteristic.title"
+        :title="characteristic.title"
+        :description="characteristic.description"
+        :icon="characteristic.icon"
+        color-icon="green-primary"
+        class="characteristics__item"
+      />
+    </div>
+    <div class="actions mobile-only">
+      <SfButton class="sf-button--full-width actions__button"
+        >Place my order
+      </SfButton>
+      <SfButton
+        class="sf-button--full-width sf-button--text color-secondary actions__button actions__button--secondary"
+        @click="$emit('click:back')"
+      >
+        Go back
+      </SfButton>
+    </div>
+    <div class="totals desktop-only">
+      <div class="totals__element">
+        <SfCheckbox v-model="terms" name="terms" class="totals__terms">
+          <template #label>
+            <div class="sf-checkbox__label">
+              I agree to <a href="#">Terms and conditions</a>
+            </div>
+          </template>
+        </SfCheckbox>
+        <div class="promo-code">
+          <SfInput
+            v-model="promoCode"
+            name="promoCode"
+            placeholder="Enter promo code"
+            class="sf-input--filled promo-code__input"
+          />
+          <SfCircleIcon class="promo-code__circle-icon" icon="check" />
+        </div>
+      </div>
+      <div class="totals__element">
+        <SfProperty
+          name="Subtotal"
+          :value="subtotal"
+          class="sf-property--full-width property"
         >
-          Go back to Payment
-        </SfButton>
+        </SfProperty>
+        <SfProperty
+          name="Shipping"
+          :value="shippingMethod.price"
+          class="sf-property--full-width property"
+        >
+        </SfProperty>
+        <SfDivider class="divider" />
+        <SfProperty
+          name="Total price"
+          :value="total"
+          class="sf-property--full-width sf-property--large  property__total"
+        >
+        </SfProperty>
       </div>
     </div>
   </div>
@@ -187,23 +270,30 @@ import {
   SfHeading,
   SfTable,
   SfCheckbox,
+  SfCircleIcon,
+  SfCharacteristic,
+  SfCollectedProduct,
+  SfDivider,
   SfButton,
   SfImage,
-  SfIcon,
+  SfInput,
   SfPrice,
   SfProperty,
   SfAccordion
 } from "@storefront-ui/vue";
-
 export default {
   name: "ReviewOrder",
   components: {
     SfHeading,
     SfTable,
     SfCheckbox,
+    SfCircleIcon,
+    SfCharacteristic,
+    SfCollectedProduct,
+    SfDivider,
     SfButton,
     SfImage,
-    SfIcon,
+    SfInput,
     SfPrice,
     SfProperty,
     SfAccordion
@@ -220,11 +310,16 @@ export default {
     paymentMethods: {
       type: Array,
       default: () => []
+    },
+    characteristics: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
     return {
       terms: false,
+      promoCode: "",
       tableHeaders: ["Description", "Colour", "Size", "Quantity", "Amount"]
     };
   },
@@ -270,197 +365,171 @@ export default {
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
       return "$" + total.toFixed(2);
     }
-  },
-  methods: {
-    removeProduct(index) {
-      const order = { ...this.order };
-      const products = [...order.products];
-      products.splice(index, 1);
-      order.products = products;
-      this.$emit("update:order", order);
-    }
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 .title {
-  margin: 0 0 var(--spacer-extra-big);
-}
-.form {
+  --heading-padding: var(--spacer-base) 0;
   @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  &__element {
-    margin: 0 0 var(--spacer-extra-big) 0;
-    @include for-desktop {
-      flex: 0 0 100%;
-    }
-    &--half {
-      @include for-desktop {
-        flex: 1 1 50%;
-      }
-      &-even {
-        @include for-desktop {
-          padding: 0 0 0 var(--spacer-extra-big);
-        }
-      }
-    }
-  }
-  &__group {
-    display: flex;
-    align-items: center;
-  }
-  &__action {
-    @include for-desktop {
-      flex: 0 0 100%;
-      display: flex;
-    }
-  }
-  &__action-button {
-    &--secondary {
-      --button-margin: var(--spacer-big) 0;
-      @include for-desktop {
-        order: -1;
-        --button-margin: 0;
-        text-align: left;
-      }
-    }
-  }
-  &__button {
-    --button-width: 100%;
-    @include for-desktop {
-      --button-width: auto;
-    }
-  }
-  &__radio-group {
-    flex: 0 0 100%;
-    margin: 0 0 var(--spacer-extra-big) 0;
+    --heading-title-font-size: var(--h3-font-size);
+    --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
   }
 }
 .table {
-  margin: 0 0 var(--spacer-big) 0;
-  &__header {
-    font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
-    @include for-desktop {
+  margin: 0 0 var(--spacer-base) 0;
+  &__row {
+    justify-content: space-between;
+  }
+  @include for-desktop {
+    &__header {
+      text-align: center;
+      &:last-child {
+        text-align: right;
+      }
+    }
+    &__data {
       text-align: center;
     }
-  }
-  &__data {
-    font: 300 var(--font-size-small) / 1.6 var(--body-font-family-secondary);
-    @include for-desktop {
-      text-align: center;
+    &__description {
+      text-align: left;
+      flex: 0 0 12rem;
+    }
+    &__image {
+      --image-width: 5.125rem;
+      text-align: left;
+      margin: 0 var(--spacer-xl) 0 0;
     }
   }
-  &__image {
-    @include for-desktop {
-      flex: 0 0 5.125rem;
-    }
-  }
-  &__action {
+}
+.product-price {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+.totals {
+  display: flex;
+  justify-content: space-between;
+  &__element {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    @include for-desktop {
-      flex: 0 0 2.5rem;
-    }
+    justify-content: space-between;
+    flex-direction: column;
+    flex: 0 0 18.75rem;
+  }
+}
+.promo-code {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  &__circle-icon {
+    --button-size: 2rem;
+    --icon-size: 0.6875rem;
+  }
+  &__input {
+    --input-margin: 0;
+    flex: 1;
+    margin: 0 var(--spacer-base) 0 0;
   }
 }
 .product-sku {
   color: var(--c-text-muted);
-  font-size: var(--font-size-extra-small);
-}
-.product-price {
-  --price-font-size: var(--font-size-small);
 }
 .button {
   cursor: pointer;
 }
-.summary {
-  background: var(--c-light);
-  margin: 0 calc(var(--spacer-big) * -1);
-  padding: var(--spacer-big);
+.property {
+  margin: 0 0 var(--spacer-base) 0;
+  --property-value-font-weight: var(--font-semibold);
+  --property-value-font-size: var(--font-base);
   @include for-desktop {
-    background: transparent;
-  }
-  &__group {
-    @include for-desktop {
-      display: flex;
-      margin: 0 0 var(--spacer-extra-big) 0;
+    margin: 0 0 var(--spacer-sm) 0;
+    &__total {
+      padding: var(--spacer-base) 0 0 0;
     }
-  }
-  &__terms {
-    flex: 1;
-    order: -1;
-    margin: 0 0 var(--spacer-big) 0;
-  }
-  &__total {
-    margin: 0 0 var(--spacer-extra-big) 0;
-    padding: 0 var(--spacer-big);
-    flex: 0 0 16.875rem;
-    @include for-desktop {
-      padding: 0;
-    }
-  }
-  &__action-button {
-    &--secondary {
-      margin: var(--spacer-big) 0;
-      @include for-desktop {
-        order: -1;
-        margin: 0;
-        text-align: left;
-      }
-    }
-  }
-  &__property-total {
-    --property-name-font: 500 var(--font-size-big) / 1.6
-      var(--body-font-family-secondary);
-    --property-value-font: 500 var(--font-size-big) / 1.6
-      var(--body-font-family-secondary);
-    margin: var(--spacer-big) 0 0 0;
-    text-transform: uppercase;
-    font: 500 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
   }
 }
-.property {
-  margin: 0 0 var(--spacer-big) 0;
-  font: 400 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
-  &__name {
-    color: var(--c-text-muted);
+.divider {
+  --divider-border-color: var(--c-white);
+  --divider-width: 100%;
+  --divider-margin: 0 0 var(--spacer-base) 0;
+}
+.characteristics {
+  padding: var(--spacer-sm);
+  &__item {
+    margin: var(--spacer-base) 0;
   }
+}
+.summary,
+.accordion {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 .accordion {
-  margin: 0 0 var(--spacer-extra-big) 0;
+  --accordion-item-content-padding: 0;
+  --collected-product-padding: 0;
+  --heading-padding: 0;
   &__item {
-    display: flex;
-    align-items: flex-start;
+    position: relative;
   }
   &__content {
     flex: 1;
+    padding: var(--spacer-sm);
   }
   &__edit {
     flex: unset;
+    position: absolute;
+    right: var(--spacer-base);
+    top: var(--spacer-base);
+  }
+}
+.collected-product {
+  padding: var(--spacer-sm) 0;
+  &:not(:last-of-type) {
+    border: 1px solid var(--_c-light-primary);
+    border-width: 0 0 1px 0;
+  }
+}
+.summary {
+  background: var(--c-light);
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacer-base) var(--spacer-lg);
+  }
+  &__title {
+    margin: 0 0 var(--spacer-xs) 0;
+  }
+  &__terms {
+    margin: 0 0 0 var(--spacer-xs);
   }
 }
 .content {
-  margin: 0 0 var(--spacer-big) 0;
-  font: 300 var(--font-size-mall) / 1.6 var(--body-font-family-secondary);
+  margin: 0 0 var(--spacer-base) 0;
   color: var(--c-text);
-  &:last-child {
-    margin: 0;
-  }
   &__label {
     font-weight: 400;
   }
 }
+.actions {
+  &__button {
+    &:first-child {
+      --button-height: 4.0625rem;
+    }
+    &--secondary {
+      margin: var(--spacer-base) 0;
+    }
+  }
+}
 a {
-  color: var(--c-text-muted);
-  text-decoration: none;
+  color: var(--c-text);
   &:hover {
-    color: var(--c-text);
+    color: var(--c-primary);
   }
 }
 </style>

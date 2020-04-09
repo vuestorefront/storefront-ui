@@ -5,7 +5,6 @@ $desktop-min: 1024px;
 $desktop-l-min: 1200px;
 $desktop-xl-min: 1440px;
 $desktop-xxl-min: 1920px;
-
 // Media mixins
 @mixin for-mobile {
   @media (max-width: $desktop-min) {
@@ -17,7 +16,6 @@ $desktop-xxl-min: 1920px;
     @content;
   }
 }
-
 // Visibility helpers
 .mobile-only {
   @include for-desktop {

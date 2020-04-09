@@ -14,7 +14,8 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
-    "prettier.printWidth": 120
+    "prettier.printWidth": 120,
+    "no-multiple-empty-lines": ["error", { max: 2 }]
   },
   parserOptions: {
     parser: "babel-eslint"
