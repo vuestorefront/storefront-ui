@@ -1,13 +1,22 @@
 <template>
-  <transition name="fade">
+  <transition name="transition">
     <div v-show="isOpen" class="sf-dropdown">
+      <div class="sf-dropdown__heading">{{ title }}</div>
       <slot />
+      <slot name="cancel">
+        <!-- todo: add color-gray modifier for SfButton-->
+        <SfButton class="sf-button--full-width" @click="close">Cancel</SfButton>
+      </slot>
     </div>
   </transition>
 </template>
 <script>
+import SfButton from "../SfButton/SfButton.vue";
 export default {
   name: "SfDropdown",
+  components: {
+    SfButton
+  },
   props: {
     isOpen: {
       type: Boolean,
@@ -19,7 +28,12 @@ export default {
     },
     title: {
       type: String,
-      default: "Name"
+      default: ""
+    }
+  },
+  methods: {
+    close() {
+      this.$emit("click:close");
     }
   }
 };

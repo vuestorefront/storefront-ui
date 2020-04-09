@@ -19,7 +19,7 @@ storiesOf("Atoms|Dropdown", module)
         default: text("transition", "fade", "Props")
       },
       title: {
-        default: text("title", "title", "Props")
+        default: text("title", "Choose size", "Props")
       },
       customClass: {
         default: options(
@@ -41,12 +41,12 @@ storiesOf("Atoms|Dropdown", module)
     template: `<div>
       <div style="position: relative; display: inline-block;">
         <SfButton @click="isOpen = !isOpen">Choice your action</SfButton>
-        <SfDropdown :is-open="isOpen">
+        <SfDropdown :is-open="isOpen" :title="title" @click:close="isOpen = !isOpen">
           <SfList>
-            <SfListItem style="--list-item-padding: 8px 16px; --list-item-border: 1px solid #F1F2F3; --list-item-border-width: 0 0 1px 0">ADD TO CART</SfListItem>
-            <SfListItem style="--list-item-padding: 8px 16px; --list-item-border: 1px solid #F1F2F3; --list-item-border-width: 0 0 1px 0">ADD TO COMPARE</SfListItem>
-            <SfListItem style="--list-item-padding: 8px 16px; --list-item-border: 1px solid #F1F2F3; --list-item-border-width: 0 0 1px 0">ADD TO WISHLIST</SfListItem>
-            <SfListItem style="--list-item-padding: 8px 16px">SHARE</SfListItem>
+            <SfListItem style="--list-item-padding: 16px 32px; --list-item-border: 1px solid #F1F2F3; --list-item-border-width: 0 0 1px 0; text-align: center">ADD TO CART</SfListItem>
+            <SfListItem style="--list-item-padding: 16px 32px; --list-item-border: 1px solid #F1F2F3; --list-item-border-width: 0 0 1px 0; text-align: center">ADD TO COMPARE</SfListItem>
+            <SfListItem style="--list-item-padding: 16px 32px; --list-item-border: 1px solid #F1F2F3; --list-item-border-width: 0 0 1px 0; text-align: center">ADD TO WISHLIST</SfListItem>
+            <SfListItem style="--list-item-padding: 16px 32px; text-align: center">SHARE</SfListItem>
           </SfList>
         </SfDropdown>
       </div>

@@ -8,6 +8,18 @@
   background: var(--dropdown-background, var(--c-white));
   transform: var(--dropdown-transform, translate(0, 100%));
   box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
+  &__heading {
+    padding: var(--button-padding, var(--spacer-sm) var(--spacer-lg));
+    color: var(--c-primary);
+    @include font(
+      --dropdown-heading-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.2,
+      var(--font-family-secondary)
+    );
+    text-align: center;
+  }
   &--up {
     --dropdown-top: 0;
     --dropdown-bottom: unset;
