@@ -97,7 +97,7 @@
           <!--@slot Use this slot to replace add to cart-->
           <slot name="add-to-cart">
             <SfAddToCart
-              :qty="qty"
+              v-model="qty"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
               @click="$emit('click:add-to-cart')"
             />
@@ -148,9 +148,6 @@ export default {
   },
   directives: {
     focus: focus
-  },
-  model: {
-    prop: "qty"
   },
   props: {
     /**
