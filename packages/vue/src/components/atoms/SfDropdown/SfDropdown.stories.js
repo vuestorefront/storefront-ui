@@ -55,6 +55,5 @@ storiesOf("Atoms|Dropdown", module)
           </SfList>
         </SfDropdown>
       </div>
-      <p>This is informative message for the user.</p>
     </div>`
   }));

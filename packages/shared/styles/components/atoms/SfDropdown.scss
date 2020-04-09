@@ -9,7 +9,7 @@
     width: var(--dropdown-width, 100%);
     background: var(--dropdown-background, var(--c-white));
     transform: var(--dropdown-transform);
-    box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
+    box-shadow: var(--dropdown-box-shadow, 0px 4px 11px rgba(var(--c-dark-base), 0.1));
     @include for-desktop {
       position: var(--dropdown-position, absolute);
       transform: var(--dropdown-transform, translate(0, 100%));
@@ -47,7 +47,8 @@
   }
   &--up {
     --dropdown-top: 0;
-    --dropdown-bottom: unset;
+    --dropdown-bottom: auto;
     --dropdown-transform: translate(0, -100%);
+    --dropdown-box-shadow: 0px -4px 11px rgba(var(--c-dark-base), 0.1)
   }
 }
