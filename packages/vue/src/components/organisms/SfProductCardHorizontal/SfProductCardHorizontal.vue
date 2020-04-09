@@ -97,7 +97,7 @@
           <!--@slot Use this slot to replace add to cart-->
           <slot name="add-to-cart">
             <SfAddToCart
-              :qty="qantity"
+              :qty="quantity"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
               @input="$emit('input', (quantity = $event))"
               @click="$emit('click:add-to-cart')"
