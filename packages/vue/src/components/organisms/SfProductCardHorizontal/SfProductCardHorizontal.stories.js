@@ -16,7 +16,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
     data() {
       return {
         quantity: 1
-      }
+      };
     },
     props: {
       image: {
@@ -76,7 +76,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         default: select("isAddedToCart", [false, true], false, "Props")
       },
       qty: {
-        default: number("qty", 2, {}, "Props")
+        default: number("qty", 1, {}, "Props")
       },
       addToCartDisabled: {
         default: select("addToCartDisabled", [false, true], false, "Props")
@@ -305,7 +305,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
     data() {
       return {
         quantity: 1
-      }
+      };
     },
     components: { SfProductCardHorizontal },
     template: `<div :style="{maxWidth: '1024px'}">
@@ -400,7 +400,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
     data() {
       return {
         quantity: 1
-      }
+      };
     },
     components: { SfProductCardHorizontal },
     template: `<div :style="{maxWidth: '1024px'}">
