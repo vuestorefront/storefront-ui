@@ -49,8 +49,8 @@ storiesOf("Atoms|Dropdown", module)
         <SfButton @click="isOpen = !isOpen">Choice your action</SfButton>
         <SfDropdown :is-open="isOpen" :title="title" @click:close="isOpen = !isOpen">
           <SfList>
-            <SfListItem v-for="(action, key) in actionList">
-              <SfButton class="sf-button--full-width sf-button--underlined color-primary">{{ action }}</SfButton>
+            <SfListItem v-for="(action, key) in actionList" :key="key">
+              <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = !isOpen">{{ action }}</SfButton>
             </SfListItem>
           </SfList>
         </SfDropdown>
