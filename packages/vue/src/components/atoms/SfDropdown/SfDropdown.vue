@@ -1,30 +1,37 @@
 <template>
-  <transition name="transition">
-    <div v-show="isOpen" class="sf-dropdown">
-      <div class="sf-dropdown__heading">{{ title }}</div>
-      <slot />
-      <slot name="cancel">
-        <!-- todo: add color-gray modifier for SfButton-->
-        <SfButton class="sf-button--full-width" @click="close">Cancel</SfButton>
-      </slot>
-    </div>
-  </transition>
+  <div class="sf-dropdown">
+    <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" @click="close" />
+    <transition name="fade">
+      <div v-show="isOpen" class="sf-dropdown__container">
+        <slot name="title">
+          <div class="sf-dropdown__title">{{ title }}</div>
+        </slot>
+        <slot />
+        <slot name="cancel">
+          <!-- todo: add color-gray modifier for SfButton-->
+          <SfButton
+            class="sf-button--full-width sf-dropdown__cancel"
+            @click="close"
+            >Cancel</SfButton
+          >
+        </slot>
+      </div>
+    </transition>
+  </div>
 </template>
 <script>
+import SfOverlay from "../SfOverlay/SfOverlay.vue";
 import SfButton from "../SfButton/SfButton.vue";
 export default {
   name: "SfDropdown",
   components: {
+    SfOverlay,
     SfButton
   },
   props: {
     isOpen: {
       type: Boolean,
       default: false
-    },
-    transition: {
-      type: String,
-      default: "fade"
     },
     title: {
       type: String,
