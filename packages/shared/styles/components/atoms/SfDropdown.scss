@@ -32,6 +32,13 @@
     );
     text-align: center;
   }
+  &__cancel {
+    --button-background: var(--c-light);
+    --button-color: var(--c-text-muted);
+    &:hover {
+      --button-background: var(--_c-light-primary);
+    }
+  }
   &__cancel,
   &__title {
     @include for-desktop {

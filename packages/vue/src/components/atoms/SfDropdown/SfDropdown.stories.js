@@ -8,7 +8,7 @@ import {
 
 import SfDropdown from "./SfDropdown.vue";
 import SfList from "../../organisms/SfList/SfList.vue";
-import SfButton from "../SfButton/SfButton.vue"
+import SfButton from "../SfButton/SfButton.vue";
 
 storiesOf("Atoms|Dropdown", module)
   .addDecorator(withKnobs)
@@ -35,7 +35,13 @@ storiesOf("Atoms|Dropdown", module)
     },
     data() {
       return {
-        isOpen: true
+        isOpen: true,
+        actionList: [
+          "add to cart",
+          "add to compare",
+          "add to wishlist",
+          "share"
+        ]
       };
     },
     template: `<div>
@@ -43,10 +49,9 @@ storiesOf("Atoms|Dropdown", module)
         <SfButton @click="isOpen = !isOpen">Choice your action</SfButton>
         <SfDropdown :is-open="isOpen" :title="title" @click:close="isOpen = !isOpen">
           <SfList>
-            <SfListItem style="--list-item-padding: 16px 32px; --list-item-border: 1px solid #F1F2F3; --list-item-border-width: 0 0 1px 0; text-align: center">ADD TO CART</SfListItem>
-            <SfListItem style="--list-item-padding: 16px 32px; --list-item-border: 1px solid #F1F2F3; --list-item-border-width: 0 0 1px 0; text-align: center">ADD TO COMPARE</SfListItem>
-            <SfListItem style="--list-item-padding: 16px 32px; --list-item-border: 1px solid #F1F2F3; --list-item-border-width: 0 0 1px 0; text-align: center">ADD TO WISHLIST</SfListItem>
-            <SfListItem style="--list-item-padding: 16px 32px; text-align: center">SHARE</SfListItem>
+            <SfListItem v-for="(action, key) in actionList">
+              <SfButton class="sf-button--full-width sf-button--underlined color-primary">{{ action }}</SfButton>
+            </SfListItem>
           </SfList>
         </SfDropdown>
       </div>
