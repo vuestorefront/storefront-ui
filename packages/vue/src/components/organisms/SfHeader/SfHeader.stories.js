@@ -5,7 +5,8 @@ import {
   text,
   select,
   boolean,
-  object
+  object,
+  optionsKnob as options
 } from "@storybook/addon-knobs";
 import SfHeader from "./SfHeader.vue";
 const StoriesPlaceholder = {
@@ -34,6 +35,17 @@ storiesOf("Organisms|Header", module)
   .add("Common", () => ({
     components: { SfHeader, StoriesPlaceholder },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-header--multilined": "sf-header--multilined"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       title: {
         default: text("title", "Storefront UI", "Props")
       },
@@ -80,7 +92,7 @@ storiesOf("Organisms|Header", module)
     data() {
       return {
         isMobile: false,
-        navigation: ["women", "man", "kids"]
+        navigation: ["women", "man", "kids", "blah", "blop", "bip"]
       };
     },
     computed: {
@@ -109,6 +121,7 @@ storiesOf("Organisms|Header", module)
     },
     template: `<div>
       <SfHeader
+          :class="customClass"
           :title="title"
           :logo="logo"
           :active-icon="activeIcon"
