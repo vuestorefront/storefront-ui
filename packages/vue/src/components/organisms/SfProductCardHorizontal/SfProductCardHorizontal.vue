@@ -97,9 +97,9 @@
           <!--@slot Use this slot to replace add to cart-->
           <slot name="add-to-cart">
             <SfAddToCart
-              :qty="quantity"
+              :qty="qty"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
-              @input="$emit('input', (quantity = $event))"
+              @input="$emit('input', $event)"
               @click="$emit('click:add-to-cart')"
             />
           </slot>
@@ -149,6 +149,9 @@ export default {
   },
   directives: {
     focus: focus
+  },
+  model: {
+    prop: "qty"
   },
   props: {
     /**
@@ -284,11 +287,6 @@ export default {
       type: [Number, String],
       default: 1
     }
-  },
-  data() {
-    return {
-      quantity: 1
-    };
   },
   computed: {
     currentWishlistIcon() {
