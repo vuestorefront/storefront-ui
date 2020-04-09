@@ -1,18 +1,22 @@
 @import "../../helpers";
 
 .sf-dropdown {
+  position: var(--dropdown-position, fixed);
+  width: var(--dropdown-width, 100%);
+  top: var(--dropdown-top);
+  bottom: var(--dropdown-bottom, 0);
+  transform: var(--dropdown-transform);
+  @include for-desktop {
+    position: var(--dropdown-position, absolute);
+    transform: var(--dropdown-transform, translate(0, 100%))
+  }
   &__container {
-    position: var(--dropdown-position, fixed);
-    top: var(--dropdown-top);
-    bottom: var(--dropdown-bottom, 0);
+    position: relative;
     z-index: 1;
-    width: var(--dropdown-width, 100%);
     background: var(--dropdown-background, var(--c-white));
-    transform: var(--dropdown-transform);
-    box-shadow: var(--dropdown-box-shadow, 0px 4px 11px rgba(var(--c-dark-base), 0.1));
+    box-shadow: var(--dropdown-box-shadow);
     @include for-desktop {
-      position: var(--dropdown-position, absolute);
-      transform: var(--dropdown-transform, translate(0, 100%));
+    box-shadow: var(--dropdown-box-shadow, 0px 4px 11px rgba(var(--c-dark-base), 0.1));
     }
   }
   &__overlay {
