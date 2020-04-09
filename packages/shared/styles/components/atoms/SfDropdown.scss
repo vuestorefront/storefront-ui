@@ -1,0 +1,16 @@
+@import "../../helpers";
+
+.sf-dropdown {
+  position: absolute;
+  top: var(--dropdown-top);
+  bottom: var(--dropdown-bottom, 0);
+  width: var(--dropdown-width, 100%);
+  background: var(--dropdown-background, var(--c-white));
+  transform: var(--dropdown-transform, translate(0, 100%));
+  box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
+  &--up {
+    --dropdown-top: 0;
+    --dropdown-bottom: unset;
+    --dropdown-transform: translate(0, -100%);
+  }
+}
