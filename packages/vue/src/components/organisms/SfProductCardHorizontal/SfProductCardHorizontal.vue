@@ -97,8 +97,9 @@
           <!--@slot Use this slot to replace add to cart-->
           <slot name="add-to-cart">
             <SfAddToCart
-              v-model="qty"
+              :qty="qantity"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
+              @input="$emit('input', (quantity = $event))"
               @click="$emit('click:add-to-cart')"
             />
           </slot>
@@ -283,6 +284,11 @@ export default {
       type: [Number, String],
       default: 1
     }
+  },
+  data() {
+    return {
+      quantity: 1
+    };
   },
   computed: {
     currentWishlistIcon() {
