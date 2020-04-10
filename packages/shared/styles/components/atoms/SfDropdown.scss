@@ -55,4 +55,28 @@
     --dropdown-transform: translate(0, -100%);
     --dropdown-box-shadow: 0px -4px 11px rgba(var(--c-dark-base), 0.1)
   }
+  &-enter-active {
+    animation: var(--dropdown-animation-enter, dropdown 150ms);
+  }
+  &-leave-active {
+    animation: var(--dropdown-animation-leave, dropdown 150ms reverse);
+  }
+}
+@keyframes dropdown {
+  0% {
+      transform: translate3d(0, 100%, 0);
+    }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@include for-desktop {
+  @keyframes dropdown {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 }

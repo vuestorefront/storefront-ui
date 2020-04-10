@@ -1,7 +1,7 @@
 <template>
   <div class="sf-dropdown">
     <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" @click="close" />
-    <transition name="fade">
+    <transition name="sf-dropdown">
       <div v-show="isOpen" class="sf-dropdown__container">
         <slot name="title">
           <div class="sf-dropdown__title">{{ title }}</div>
