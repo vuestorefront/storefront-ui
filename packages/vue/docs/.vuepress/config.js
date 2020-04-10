@@ -67,7 +67,7 @@ module.exports = {
           ["/components/CircleIcon", "Circle Icon"],
           ["/components/CollectedProduct", "Collected Product"],
           ["/components/Color", "Color"],
-          ["/components/ColorPicker", "ColorPicker"],
+          ["/components/ColorPicker", "Color Picker"],
           ["/components/ContentPages", "Content Pages"],
           ["/components/Divider", "Divider"],
           ["/components/Filter", "Filter"],
