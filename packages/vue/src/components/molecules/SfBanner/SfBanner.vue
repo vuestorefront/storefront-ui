@@ -34,7 +34,6 @@ import {
   mapMobileObserver,
   unMapMobileObserver
 } from "../../../utilities/mobile-observer";
-
 export default {
   name: "SfBanner",
   components: {
@@ -81,13 +80,12 @@ export default {
       const image = this.image;
       const background = this.background;
       return {
-        "--background-image": image.mobile
+        "--_banner-background-image": image.mobile
           ? `url(${image.mobile})`
           : `url(${image})`,
-        "--background-desktop-image": image.desktop
-          ? `url(${image.desktop})`
-          : `url(${image})`,
-        "--background-color": background
+        "--_banner-background-desktop-image":
+          image.desktop && `url(${image.desktop})`,
+        "--_banner-background-color": background
       };
     }
   },

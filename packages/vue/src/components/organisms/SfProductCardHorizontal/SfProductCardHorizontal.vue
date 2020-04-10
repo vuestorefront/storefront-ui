@@ -2,6 +2,7 @@
   <div class="sf-product-card-horizontal">
     <component
       :is="linkComponentTag"
+      v-focus
       :href="linkComponentTag === 'a' ? link : undefined"
       :to="link && linkComponentTag !== 'a' ? link : undefined"
       class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
@@ -32,7 +33,7 @@
       </div>
     </component>
     <div class="sf-product-card-horizontal__main">
-      <div class="sf-product-card-horizontal__header">
+      <div class="sf-product-card-horizontal__details">
         <component
           :is="linkComponentTag"
           :href="linkComponentTag === 'a' ? link : undefined"
@@ -46,6 +47,18 @@
             </h3>
           </slot>
         </component>
+        <!--@slot Use this slot to replace description-->
+        <slot name="description">
+          <p class="sf-product-card-horizontal__description desktop-only">
+            {{ description }}
+          </p>
+        </slot>
+        <!--@slot Use this slot to place content inside configuration-->
+        <div class="sf-product-card-horizontal__configuration">
+          <slot name="configuration" />
+        </div>
+      </div>
+      <div class="sf-product-card-horizontal__actions-wrapper">
         <!--@slot Use this slot to replace price-->
         <slot name="price" v-bind="{ specialPrice, regularPrice }">
           <SfPrice
@@ -55,33 +68,6 @@
             :special="specialPrice"
           />
         </slot>
-      </div>
-      <button
-        v-if="wishlistIcon !== false"
-        :aria-label="ariaLabel"
-        :class="wishlistIconClasses"
-        class="mobile-only"
-        @click="toggleIsOnWishlist"
-      >
-        <!--@slot Use this slot to replace wishlist icon-->
-        <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
-          <SfIcon
-            :icon="currentWishlistIcon"
-            color="black"
-            size="19px"
-            data-test="sf-wishlist-icon"
-          />
-        </slot>
-      </button>
-      <div class="sf-product-card-horizontal__details">
-        <!--@slot Use this slot to replace description-->
-        <slot name="description">
-          <p class="sf-product-card-horizontal__description desktop-only">
-            {{ description }}
-          </p>
-        </slot>
-        <!--@slot Use this slot to place content inside configuration-->
-        <slot name="configuration" />
         <!--@slot Use this slot to replace reviews-->
         <slot name="reviews" v-bind="{ maxRating, scoreRating }">
           <div
@@ -99,27 +85,48 @@
               href="#"
               @click="$emit('click:reviews')"
             >
-              {{ reviewsCount }} reviews
+              ({{ reviewsCount }})
             </a>
           </div>
         </slot>
+        <div class="sf-product-card-horizontal__actions">
+          <!--@slot Use this slot to place content inside actions-->
+          <slot name="actions" />
+        </div>
+        <div class="sf-product-card-horizontal__add-to-cart">
+          <!--@slot Use this slot to replace add to cart-->
+          <slot name="add-to-cart">
+            <SfAddToCart
+              :qty="qty"
+              class="sf-product-card-horizontal__add-to-cart desktop-only"
+              @input="$emit('input', $event)"
+              @click="$emit('click:add-to-cart')"
+            />
+          </slot>
+        </div>
       </div>
-      <div class="sf-product-card-horizontal__actions desktop-only">
-        <!--@slot Use this slot to place content inside actions-->
-        <slot name="actions" />
-        <!--@slot Use this slot to replace add to cart-->
-        <slot name="add-to-cart">
-          <SfAddToCart
-            :qty="qty"
-            class="sf-product-card-horizontal__add-to-cart"
-            @click="$emit('click:add-to-cart')"
+      <button
+        v-if="wishlistIcon !== false"
+        v-focus
+        :aria-label="ariaLabel"
+        :class="wishlistIconClasses"
+        class="mobile-only"
+        @click="toggleIsOnWishlist"
+      >
+        <!--@slot Use this slot to replace wishlist icon-->
+        <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
+          <SfIcon
+            :icon="currentWishlistIcon"
+            size="19px"
+            data-test="sf-wishlist-icon"
           />
         </slot>
-      </div>
+      </button>
     </div>
   </div>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
@@ -139,6 +146,9 @@ export default {
     SfAddToCart,
     SfProductOption,
     SfProperty
+  },
+  directives: {
+    focus: focus
   },
   model: {
     prop: "qty"
@@ -164,14 +174,14 @@ export default {
      */
     imageWidth: {
       type: [String, Number],
-      default: 216
+      default: 140
     },
     /**
      * Product image height, without unit
      */
     imageHeight: {
       type: [String, Number],
-      default: 326
+      default: 200
     },
     /**
      * Product title

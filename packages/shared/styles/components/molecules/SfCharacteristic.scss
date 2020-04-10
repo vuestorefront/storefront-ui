@@ -1,39 +1,31 @@
 @import "../../helpers";
-
 .sf-characteristic {
   display: flex;
   align-items: center;
   &__icon {
+    --icon-color: var(--c-primary);
+    --icon-size: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: var(--characteristic-margin, 0 calc(var(--spacer-big) / 2) 0 0);
+    margin: var(--characteristic-margin, 0 var(--spacer-sm) 0 0);
   }
   &__title {
-    font: var(
+    @include font(
       --characteristic-title-font,
-      font(
-        --characteristic-title,
-        500,
-        var(--font-size-regular),
-        1.6,
-        var(--body-font-family-secondary)
-      )
+      var(--font-bold),
+      var(--h5-font-size),
+      1.6,
+      var(--font-family-secondary)
     );
   }
   &__description {
-    font: var(
-        --characteristic-description-font,
-        font(
-            --characteristic-description,
-            300,
-            var(--font-size-small),
-            1.6,
-            var(--body-font-family-primary)
-        )
+    @include font(
+      --characteristic-description-font,
+      var(--font-normal),
+      var(--font-2xs),
+      1.6,
+      var(--font-family-secondary)
     );
-  }
-  @include for-desktop {
-    --characteristic-margin: 0 var(--spacer-big) 0 0;
   }
 }

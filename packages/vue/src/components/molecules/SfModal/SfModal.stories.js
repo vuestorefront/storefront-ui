@@ -6,7 +6,6 @@ import {
   visibilityToggleMixin,
   withVisibilityToggle
 } from "../../../../config/storybook/decorators";
-
 storiesOf("Molecules|Modal", module)
   .addDecorator(withKnobs)
   .addDecorator(withVisibilityToggle)

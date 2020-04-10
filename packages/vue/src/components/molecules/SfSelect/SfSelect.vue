@@ -8,7 +8,8 @@
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
-      'sf-select--is-required': required
+      'sf-select--is-required': required,
+      'sf-select--is-disabled': disabled
     }"
     class="sf-select"
     @click="toggle($event)"
@@ -26,6 +27,9 @@
           {{ label }}
         </div>
       </slot>
+      <slot name="icon">
+        <SfChevron class="sf-select__chevron" />
+      </slot>
       <SfOverlay :visible="open" class="sf-select__overlay mobile-only" />
       <transition name="sf-select">
         <div v-show="open" class="sf-select__dropdown">
@@ -33,13 +37,15 @@
           <ul :style="{ maxHeight }" class="sf-select__options">
             <slot />
           </ul>
-          <SfButton
-            ref="cancel"
-            class="sf-select__cancel sf-button--full-width mobile-only"
-            @click="closeHandler"
-          >
-            Cancel
-          </SfButton>
+          <slot name="cancel">
+            <SfButton
+              ref="cancel"
+              class="sf-select__cancel sf-button--full-width mobile-only"
+              @click="closeHandler"
+            >
+              Cancel
+            </SfButton>
+          </slot>
         </div>
       </transition>
     </div>
@@ -47,9 +53,9 @@
       <transition name="fade">
         <div v-if="!valid">
           <!-- @slot Custom error message of form select -->
-          <slot name="error-message" v-bind="{ errorMessage }">{{
-            errorMessage
-          }}</slot>
+          <slot name="error-message" v-bind="{ errorMessage }">
+            {{ errorMessage }}
+          </slot>
         </div>
       </transition>
     </div>
@@ -57,6 +63,7 @@
 </template>
 <script>
 import SfSelectOption from "./_internal/SfSelectOption.vue";
+import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import Vue from "vue";
@@ -65,6 +72,7 @@ export default {
   name: "SfSelect",
   components: {
     SfButton,
+    SfChevron,
     SfOverlay
   },
   model: {
@@ -106,6 +114,13 @@ export default {
     valid: {
       type: Boolean,
       default: undefined
+    },
+    /**
+     * Disabled status of form select
+     */
+    disabled: {
+      type: Boolean,
+      default: false
     },
     /**
      * Error message value of form select. It will be appeared if `valid` is `true`.
@@ -201,7 +216,12 @@ export default {
       this.toggle();
     },
     toggle(event) {
-      if (this.$refs.cancel && event.target.contains(this.$refs.cancel.$el)) {
+      if (
+        (this.$refs.cancel &&
+          event &&
+          event.target.contains(this.$refs.cancel.$el)) ||
+        this.disabled
+      ) {
         return;
       }
       this.open = !this.open;

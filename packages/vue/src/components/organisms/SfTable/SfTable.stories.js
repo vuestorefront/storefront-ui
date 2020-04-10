@@ -1,8 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
-
 import SfTable from "./SfTable.vue";
-
 storiesOf("Organisms/Table", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -12,7 +10,7 @@ storiesOf("Organisms/Table", module)
         default: options(
           "customClass",
           {
-            "sf-table--bordered": "sf-table--bordered"
+            "sf-table--no-border": "sf-table--no-border"
           },
           "",
           { display: "multi-select" },

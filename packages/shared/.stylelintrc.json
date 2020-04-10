@@ -6,6 +6,7 @@
   ],
   "rules": {
     "prettier/prettier": true,
-    "indentation": 2
+    "indentation": 2,
+    "max-empty-lines": 0
   }
 }

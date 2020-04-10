@@ -1,23 +1,22 @@
 @import "../../helpers";
-
 .sf-add-to-cart {
   display: flex;
   &__button {
-    flex: var(--add-to-cart-button-flex, 1);
+    --button-font-weight: var(--font-semibold);
+    --button-width: 100%;
+    align-items: center;
     order: var(--add-to-cart-button-order);
+    &:disabled {
+      color: var(--c-text-disabled);
+    }
   }
-  & &__select-quantity {
-    --input-height: auto;
-    --input-border: 1px solid var(--c-light);
-
-    display: flex;
-    min-width: var(--add-to-cart-select-quantity-min-width, 4.625rem);
-    max-width: var(--add-to-cart-select-quantity-max-width, 5.625rem);
-    margin: var(--add-to-cart-select-quantity-margin, 0 0 0 0.5rem);
+  &__select-quantity {
+    flex: none;
+    margin: var(--add-to-cart-select-quantity-margin, 0 0 0 var(--spacer-xs));
   }
   @include for-desktop {
-    --input-background: var(--c-light);
     --add-to-cart-button-order: 1;
-    --add-to-cart-select-quantity-margin: 0;
+    --add-to-cart-select-quantity-margin: 0 var(--spacer-sm) 0 0;
+    --add-to-cart-select-quantity-display: flex;
   }
 }

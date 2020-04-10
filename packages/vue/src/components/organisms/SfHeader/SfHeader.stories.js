@@ -7,9 +7,7 @@ import {
   boolean,
   object
 } from "@storybook/addon-knobs";
-
 import SfHeader from "./SfHeader.vue";
-
 const StoriesPlaceholder = {
   props: {
     mobile: {
@@ -23,16 +21,14 @@ const StoriesPlaceholder = {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        height: "155vh"
+        height: "155vh",
+        background: "#f2f2f2"
       };
-      return this.mobile
-        ? { ...style, border: "1px solid #f2f2f2" }
-        : { ...style, backgroundColor: "#f2f2f2" };
+      return style;
     }
   },
   template: `<div :style="style">[page content]</div>`
 };
-
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -191,8 +187,8 @@ storiesOf("Organisms|Header", module)
     computed: {
       spacer() {
         return this.isMobile
-          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
-          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
       }
     },
     mounted() {
@@ -286,8 +282,8 @@ storiesOf("Organisms|Header", module)
     computed: {
       spacer() {
         return this.isMobile
-          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
-          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
       }
     },
     mounted() {
@@ -388,8 +384,8 @@ storiesOf("Organisms|Header", module)
     computed: {
       spacer() {
         return this.isMobile
-          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
-          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
       }
     },
     mounted() {
@@ -490,8 +486,8 @@ storiesOf("Organisms|Header", module)
     computed: {
       spacer() {
         return this.isMobile
-          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
-          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
       }
     },
     mounted() {
@@ -592,8 +588,8 @@ storiesOf("Organisms|Header", module)
     computed: {
       spacer() {
         return this.isMobile
-          ? { maxWidth: "1024px", margin: "auto", padding: "0 1.25rem" }
-          : { maxWidth: "1024px", margin: "auto", padding: "0 2.5rem" };
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
       }
     },
     mounted() {

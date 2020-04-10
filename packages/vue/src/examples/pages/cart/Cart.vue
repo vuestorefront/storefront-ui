@@ -3,12 +3,18 @@
     <SfSidebar
       :visible="isCartSidebarOpen"
       title="My Cart"
-      class="sf-sidebar--right"
+      class="sf-sidebar--right sf-sidebar--icon"
       @close="() => {}"
     >
+      <template v-if="totalItems" #content-top>
+        <SfProperty
+          class="sf-property--large"
+          name="Total items"
+          :value="totalItems"
+        />
+      </template>
       <transition name="fade" mode="out-in">
         <div v-if="totalItems" key="my-cart" class="my-cart">
-          <h3 class="my-cart__total-items">Total items: {{ totalItems }}</h3>
           <div class="collected-product-list">
             <transition-group name="fade" tag="div">
               <SfCollectedProduct
@@ -17,8 +23,8 @@
                 v-model="product.qty"
                 :image="product.image"
                 :title="product.title"
-                :regular-price="product.price.regular | price"
-                :special-price="product.price.special | price"
+                :regular-price="product.price.regular"
+                :special-price="product.price.special"
                 class="collected-product"
                 @click:remove="removeHandler(product)"
               >
@@ -33,7 +39,7 @@
                   </div>
                 </template>
                 <template #actions>
-                  <div class="collected-product__actions">
+                  <div class="desktop-only collected-product__actions">
                     <SfButton
                       class="sf-button--text color-secondary collected-product__action"
                     >
@@ -49,34 +55,46 @@
               </SfCollectedProduct>
             </transition-group>
           </div>
-          <SfProperty class="sf-property--full-width my-cart__total-price">
-            <template #name>
-              <span class="sf-property__name">TOTAL</span>
-            </template>
-            <template #value>
-              <SfPrice :regular="totalPrice | price" />
-            </template>
-          </SfProperty>
-          <SfButton class="sf-button--full-width">Go to checkout</SfButton>
         </div>
         <div v-else key="empty-cart" class="empty-cart">
           <div class="empty-cart__banner">
-            <img
-              src="@storefront-ui/shared/icons/empty_cart.svg"
-              alt=""
-              class="empty-cart__icon"
+            <SfImage
+              alt="Empty bag"
+              class="empty-cart__image"
+              :src="require('@storefront-ui/shared/icons/empty_cart.svg')"
             />
-            <h3 class="empty-cart__label">Your bag is empty</h3>
-            <p class="empty-cart__description">
-              Looks like you haven’t added any items to the bag yet. Start
-              shopping to fill it in.
-            </p>
+            <SfHeading
+              title="Your cart is empty"
+              :level="2"
+              class="empty-cart__heading"
+              subtitle="Looks like you haven’t added any items to the bag yet. Start
+              shopping to fill it in."
+            />
           </div>
-          <SfButton class="sf-button--full-width color-secondary"
-            >Start shopping</SfButton
-          >
         </div>
       </transition>
+      <template #content-bottom>
+        <transition name="fade">
+          <div v-if="totalItems">
+            <SfProperty
+              name="Total price"
+              class="sf-property--full-width sf-property--large my-cart__total-price"
+            >
+              <template #value>
+                <SfPrice :regular="totalPrice" />
+              </template>
+            </SfProperty>
+            <SfButton class="sf-button--full-width color-secondary"
+              >Go to checkout</SfButton
+            >
+          </div>
+          <div v-else>
+            <SfButton class="sf-button--full-width color-primary"
+              >Start shopping</SfButton
+            >
+          </div>
+        </transition>
+      </template>
     </SfSidebar>
   </div>
 </template>
@@ -84,8 +102,10 @@
 import {
   SfSidebar,
   SfButton,
+  SfHeading,
   SfProperty,
   SfPrice,
+  SfImage,
   SfCollectedProduct
 } from "@storefront-ui/vue";
 export default {
@@ -93,15 +113,11 @@ export default {
   components: {
     SfSidebar,
     SfButton,
+    SfHeading,
+    SfImage,
     SfProperty,
     SfPrice,
     SfCollectedProduct
-  },
-  filters: {
-    price: function(price) {
-      if (!price) return;
-      return `$${price}`;
-    }
   },
   data() {
     return {
@@ -111,7 +127,7 @@ export default {
           title: "Cream Beach Bag",
           id: "CBB1",
           image: "assets/storybook/Home/productA.jpg",
-          price: { regular: "50.00" },
+          price: { regular: "$50.00" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
@@ -122,7 +138,7 @@ export default {
           title: "Cream Beach Bag",
           id: "CBB2",
           image: "assets/storybook/Home/productB.jpg",
-          price: { regular: "50.00", special: "20.05" },
+          price: { regular: "$50.00", special: "$20.05" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
@@ -133,7 +149,7 @@ export default {
           title: "Cream Beach Bag",
           id: "CBB3",
           image: "assets/storybook/Home/productC.jpg",
-          price: { regular: "50.00", special: "20.50" },
+          price: { regular: "$50.00", special: "$20.50" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" }
@@ -154,8 +170,8 @@ export default {
       return this.products
         .reduce((totalPrice, product) => {
           const price = product.price.special
-            ? product.price.special
-            : product.price.regular;
+            ? product.price.special.replace("$", "")
+            : product.price.regular.replace("$", "");
           const summary = parseFloat(price).toFixed(2) * product.qty;
           return totalPrice + summary;
         }, 0)
@@ -172,59 +188,61 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+#cart {
+  @include for-desktop {
+    & > * {
+      --sidebar-bottom-padding: var(--spacer-base);
+      --sidebar-content-padding: var(--spacer-base);
+    }
+  }
+}
 .my-cart {
   flex: 1;
   display: flex;
   flex-direction: column;
   &__total-items {
-    font: 400 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
     margin: 0;
   }
   &__total-price {
-    margin: 0 0 var(--spacer-big) 0;
+    --price-font-size: var(--font-xl);
+    --price-font-weight: var(--font-semibold);
+    margin: 0 0 var(--spacer-base) 0;
   }
 }
 .empty-cart {
+  --heading-subtitle-margin: 0 0 var(--spacer-xl) 0;
+  --heading-title-margin: 0 0 var(--spacer-base) 0;
+  --heading-title-color: var(--c-primary);
+  --heading-title-font-weight: var(--font-semibold);
   display: flex;
   flex: 1;
+  align-items: center;
   flex-direction: column;
   &__banner {
-    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
+    flex: 1;
   }
-  &__label,
-  &__description {
-    text-align: center;
+  &__heading {
+    padding: 0 var(--spacer-base);
   }
-  &__label {
-    margin: var(--spacer-extra-big) 0 0 0;
-    font: 400 var(--font-size-big) / 1.6 var(--body-font-family-secondary);
+  &__image {
+    --image-width: 13.1875rem;
+    margin: 0 0 var(--spacer-2xl) 0;
   }
-  &__description {
-    margin: var(--spacer-big) 0 0 0;
-    font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-primary);
-  }
-  &__icon {
-    width: 18.125rem;
-    height: 12.3125rem;
-    margin-left: 60%;
-    @include for-desktop {
-      margin-left: 50%;
-    }
+  @include for-desktop {
+    --heading-title-font-size: var(--font-xl);
   }
 }
 .collected-product-list {
   flex: 1;
-  margin: var(--spacer-big) calc(var(--spacer-big) * -1);
 }
 .collected-product {
-  margin: var(--spacer-big) 0;
-  font: 300 var(--font-size-extra-small) / 1.6 var(--body-font-family-secondary);
+  margin: 0 0 var(--spacer-sm) 0;
   &__properties {
-    margin: var(--spacer-big) 0 0 0;
+    margin: var(--spacer-xs) 0 0 0;
   }
   &__actions {
     transition: opacity 150ms ease-in-out;

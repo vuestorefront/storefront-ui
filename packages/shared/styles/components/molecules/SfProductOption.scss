@@ -1,25 +1,21 @@
 @import "../../helpers";
-
 .sf-product-option {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font: var(
+  @include font(
     --product-option-font,
-    font(
-      --product-option,
-      300,
-      var(--font-size-big),
-      normal,
-      var(--body-font-family-primary)
-    )
+    var(--font-light),
+    var(--font-sm),
+    normal,
+    var(--font-family-primary)
   );
   &__color {
     box-sizing: border-box;
-    width: var(--product-option-size, var(--product-option-width, 1.125rem));
-    height: var(--product-option-size, var(--product-option-height, 1.125rem));
-    margin: var(--product-option-color-margin, 0 var(--spacer-big) 0 0);
-    border: var(--product-option-border, 1px solid var(--c-light));
+    width: var(--product-option-size, 1.25rem);
+    height: var(--product-option-size, 1.25rem);
+    margin: var(--product-option-color-margin, 0 var(--spacer-sm) 0 0);
+    @include border(--product-option-border, 0, solid, var(--c-light));
     border-radius: var(--product-option-border-radius);
   }
   &__label {
