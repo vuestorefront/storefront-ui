@@ -1,16 +1,18 @@
 <template>
   <div class="sf-color-picker">
     <transition>
-      <div v-show="isOpen" class="sf-color-picker__container">
+      <div v-if="isOpen" class="sf-color-picker__container">
         <slot name="label">
-          <p class="sf-color-picker__label">{{ label }}</p>
+          <div v-if="label" class="sf-color-picker__label">{{ label }}</div>
         </slot>
         <slot />
         <slot name="close">
           <SfIcon
-            icon="cross"
+            v-if="closeIcon"
+            :icon="closeIcon"
             role="button"
-            :aria-pressed="isOpen"
+            class="sf-color-picker__close"
+            :aria-pressed="!isOpen"
             @click="close"
           />
         </slot>
@@ -29,6 +31,10 @@ export default {
       default: false
     },
     label: {
+      type: String,
+      default: ""
+    },
+    closeIcon: {
       type: String,
       default: ""
     }
