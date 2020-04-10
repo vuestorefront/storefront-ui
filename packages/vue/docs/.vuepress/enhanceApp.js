@@ -20,6 +20,7 @@ import SfChevron from "../../src/components/atoms/SfChevron/SfChevron.vue"
 import SfCircleIcon from "../../src/components/atoms/SfCircleIcon/SfCircleIcon.vue"
 import SfCollectedProduct from "../../src/components/organisms/SfCollectedProduct/SfCollectedProduct.vue"
 import SfColor from "../../src/components/atoms/SfColor/SfColor.vue"
+import SfColorPicker from "../../src/components/molecules/SfColorPicker/SfColorPicker.vue"
 import SfContentPages from "../../src/components/organisms/SfContentPages/SfContentPages.vue"
 import SfDivider from "../../src/components/atoms/SfDivider/SfDivider.vue"
 import SfFilter from "../../src/components/molecules/SfFilter/SfFilter.vue"
@@ -90,6 +91,7 @@ export default ({
   Vue.component("SfCircleIcon", SfCircleIcon);
   Vue.component("SfCollectedProduct", SfCollectedProduct);
   Vue.component("SfColor", SfColor);
+  Vue.component("SfColorPicker", SfColorPicker);
   Vue.component("SfContentPages", SfContentPages);
   Vue.component("SfDivider", SfDivider);
   Vue.component("SfFilter", SfFilter);
