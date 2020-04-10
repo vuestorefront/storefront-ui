@@ -16,7 +16,7 @@ storiesOf("Molecules|ColorPicker", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-color-picker--modifier": "sf-color-picker--modifier"
+            "sf-color-picker--vertical": "sf-color-picker--vertical"
           },
           "",
           { display: "multi-select" },
@@ -24,36 +24,112 @@ storiesOf("Molecules|ColorPicker", module)
         )
       },
       label: {
-        default: text("label", "Choose your color", "Props")
+        default: text("label", "Choose color", "Props")
       }
     },
     data() {
       return {
         isOpen: false,
         colors: [
-          { label: "Red", value: "red", color: "#990611", selected: false },
-          { label: "Black", value: "black", color: "#000000", selected: false },
+          { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+          { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
           {
-            label: "Yellow",
-            value: "yellow",
-            color: "#DCA742",
+            label: "Light Gray",
+            value: "light gray",
+            color: "#F1F2F3",
             selected: false
           },
-          { label: "Blue", value: "blue", color: "#004F97", selected: false },
-          { label: "Navy", value: "navy", color: "#656466", selected: false }
+          {
+            label: "Vivid rose",
+            value: "vivid rose",
+            color: "#DB5593",
+            selected: false
+          },
+          { label: "Peach", value: "peach", color: "#F59F93", selected: false },
+          {
+            label: "Citrus",
+            value: "citrus",
+            color: "#FFEE97",
+            selected: false
+          }
         ]
       };
     },
     components: { SfColorPicker, SfColor, SfButton },
     template: `
-      <div>
-        <SfButton v-if="!isOpen" class="sf-button--text" @click="isOpen = !isOpen">+ Colors</SfButton>
+      <div style="position: relative;">
+        <SfButton v-if="!isOpen" class="sf-button--full-width color-secondary" style="opacity: 0.8" @click="isOpen = !isOpen">+ Colors</SfButton>
         <SfColorPicker
+          style="max-width: 10rem"
+          :class="customClass"
           :label="label"
           :isOpen="isOpen"
           @click:close="isOpen = !isOpen"
         >
-          <SfColor v-for="color in colors" :key="color.value" :color="color.color" :selected="color.selected" @click="color.selected = !color.selected"/>
+          <SfColor style="margin: 0.4375rem" v-for="color in colors" :key="color.value" :color="color.color" :selected="color.selected" @click="color.selected = !color.selected"/>
+        </SfColorPicker>
+      </div>`
+  }))
+  .add("with --vertical", () => ({
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-color-picker--vertical": "sf-color-picker--vertical"
+          },
+          "sf-color-picker--vertical",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
+      label: {
+        default: text("label", "", "Props")
+      },
+      closeIcon: {
+        default: text("closeIcon", "cross", "Props")
+      }
+    },
+    data() {
+      return {
+        isOpen: false,
+        colors: [
+          { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+          { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
+          {
+            label: "Light Gray",
+            value: "light gray",
+            color: "#F1F2F3",
+            selected: false
+          },
+          {
+            label: "Vivid rose",
+            value: "vivid rose",
+            color: "#DB5593",
+            selected: false
+          },
+          { label: "Peach", value: "peach", color: "#F59F93", selected: false },
+          {
+            label: "Citrus",
+            value: "citrus",
+            color: "#FFEE97",
+            selected: false
+          }
+        ]
+      };
+    },
+    components: { SfColorPicker, SfColor, SfButton },
+    template: `
+      <div style="position: relative;">
+        <SfButton v-if="!isOpen" class="sf-button--full-width color-secondary" style="opacity: 0.8" @click="isOpen = !isOpen">+ Colors</SfButton>
+        <SfColorPicker
+          :isOpen="isOpen"
+          :class="customClass"
+          :label="label"
+          :closeIcon="closeIcon"
+          @click:close="isOpen = !isOpen"
+        >
+          <SfColor style="margin: 0.4375rem" v-for="color in colors" :key="color.value" :color="color.color" :selected="color.selected" @click="color.selected = !color.selected"/>
         </SfColorPicker>
       </div>`
   }));
