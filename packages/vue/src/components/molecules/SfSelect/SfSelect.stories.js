@@ -202,4 +202,62 @@ storiesOf("Molecules|Select", module)
         </template>
       </SfSelect>
     </div>`
+  }))
+  .add("[slot] cancel", () => ({
+    components: { SfSelect, SfProductOption },
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-select--underlined": "sf-select--underlined"
+          },
+          "sf-select--underlined",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
+      label: {
+        default: text("label", "Color", "Props")
+      },
+      size: {
+        default: number("size", 5, {}, "Props")
+      },
+      required: {
+        default: boolean("required", false, "Props")
+      },
+      valid: {
+        default: boolean("valid", false, "Props")
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props")
+      },
+      errorMessage: {
+        default: text("errorMessage", "Color", "Props")
+      }
+    },
+    data() {
+      return {
+        selected: "",
+        options: optionsList
+      };
+    },
+    template: `<div style="max-width: 30rem">
+      <SfSelect
+        v-model="selected"
+        :class="customClass"
+        :label="label"
+        :size="size"
+        :required="required"
+        :valid="valid"
+        :disabled="disabled"
+        :error-message="errorMessage">
+        <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
+          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+        </SfSelectOption>
+        <template #cancel>
+          CUSTOM CANCEL BUTTON
+        </template>
+      </SfSelect>
+    </div>`
   }));
