@@ -8,7 +8,7 @@
         <slot />
         <slot name="close">
           <SfIcon
-            icon="close"
+            icon="cross"
             role="button"
             :aria-pressed="isOpen"
             @click="close"
