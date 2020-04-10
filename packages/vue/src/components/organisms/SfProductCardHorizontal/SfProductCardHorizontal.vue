@@ -99,6 +99,7 @@
             <SfAddToCart
               :qty="qty"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
+              @input="$emit('input', $event)"
               @click="$emit('click:add-to-cart')"
             />
           </slot>
