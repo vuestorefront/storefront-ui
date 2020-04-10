@@ -1,13 +1,46 @@
 @import "../../helpers";
 
 .sf-color-picker {
+  box-sizing: border-box;
+  position: var(--color-picker-position, absolute);
+  width: var(--color-picker-width);
+  height: var(--color-picker-height);
+  top: var(--color-picker-top);
+  right: var(--color-picker-right);
+  &__container {
+    display: flex;
+    flex-direction: var(--color-picker-flex-direction, row);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: var(--color-picker-justify-content, center);
+    padding: var(--color-picker-padding, var(--spacer-xs) var(--spacer-sm));
+    background: var(--color-picker-background, var(--c-black));
+    opacity: var(--color-picker-opacity, 0.8);
+  }
   &__label {
+    flex: 0 0 100%;
+    margin: var(--color-picker-label-margin, 0 0 var(--spacer-sm));
+    color: var(--color-picker-label-color, var(--c-white));
     @include font(
       --color-picker-label-font,
-      var(--font-normal),
-      var(--font-base),
-      1.6,
+      var(--font-bold),
+      var(--font-sm),
+      1.2,
       var(--font-family-secondary)
     );
+    text-align: center;
+  }
+  &__close {
+    --icon-color: var(--c-white);
+    --icon-size: 14px;
+    margin: var(--color-picker-margin);
+    cursor: pointer;
+  }
+  &--vertical {
+    --color-picker-padding: var(--spacer-base);
+    --color-picker-flex-direction: column;
+    --color-picker-justify-content: flex-start;
+    --color-picker-margin: var(--spacer-xs) 0 0 0;
+    --color-picker-right: 0;
   }
 }
