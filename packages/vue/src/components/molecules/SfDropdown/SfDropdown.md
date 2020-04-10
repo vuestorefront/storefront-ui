@@ -2,4 +2,4 @@
 Dropdown component
 
 # storybook-iframe-height
-112rem
+7rem
