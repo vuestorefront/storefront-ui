@@ -19,8 +19,8 @@
   </div>
 </template>
 <script>
-import SfOverlay from "../SfOverlay/SfOverlay.vue";
-import SfButton from "../SfButton/SfButton.vue";
+import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfDropdown",
   components: {
@@ -45,5 +45,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/atoms/SfDropdown.scss";
+@import "~@storefront-ui/shared/styles/components/molecules/SfDropdown.scss";
 </style>

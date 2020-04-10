@@ -8,9 +8,9 @@ import {
 
 import SfDropdown from "./SfDropdown.vue";
 import SfList from "../../organisms/SfList/SfList.vue";
-import SfButton from "../SfButton/SfButton.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 
-storiesOf("Atoms|Dropdown", module)
+storiesOf("Molecules|Dropdown", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfDropdown, SfList, SfButton },

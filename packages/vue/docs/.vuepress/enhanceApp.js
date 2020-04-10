@@ -22,7 +22,7 @@ import SfCollectedProduct from "../../src/components/organisms/SfCollectedProduc
 import SfColor from "../../src/components/atoms/SfColor/SfColor.vue"
 import SfContentPages from "../../src/components/organisms/SfContentPages/SfContentPages.vue"
 import SfDivider from "../../src/components/atoms/SfDivider/SfDivider.vue"
-import SfDropdown from "../../src/components/atoms/SfDropdown/SfDropdown.vue"
+import SfDropdown from "../../src/components/molecules/SfDropdown/SfDropdown.vue"
 import SfFilter from "../../src/components/molecules/SfFilter/SfFilter.vue"
 import SfFooter from "../../src/components/organisms/SfFooter/SfFooter.vue"
 import SfGallery from "../../src/components/molecules/SfGallery/SfGallery.vue"
@@ -66,9 +66,9 @@ import SfTopBar from "../../src/components/organisms/SfTopBar/SfTopBar.vue"
 
 export default ({
   Vue,
-  options, 
-  router, 
-  siteData 
+  options,
+  router,
+  siteData
 }) => {
   // @components-docs-start (keep comment and indentation for auto-generated component docs)
   Vue.component("SfAccordion", SfAccordion);
