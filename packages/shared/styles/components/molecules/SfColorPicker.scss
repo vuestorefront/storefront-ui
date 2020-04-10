@@ -1,0 +1,13 @@
+@import "../../helpers";
+
+.sf-color-picker {
+  &__label {
+    @include font(
+      --color-picker-label-font,
+      var(--font-normal),
+      var(--font-base),
+      1.6,
+      var(--font-family-secondary)
+    );
+  }
+}
