@@ -16,10 +16,13 @@
         />
       </div>
     </slot>
+
     <div class="sf-tabs__content">
       <div v-if="isActive" class="sf-tabs__content__tab">
-        <!--@slot Default. Here you should pass your tab content -->
-        <slot />
+        <SfScrollable :max-content-height="maxContentHeight">
+          <!--@slot Default. Here you should pass your tab content -->
+          <slot />
+        </SfScrollable>
       </div>
     </div>
   </Fragment>
@@ -27,17 +30,23 @@
 <script>
 import { Fragment } from "vue-fragment";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
+import SfScrollable from "../../../molecules/SfScrollable/SfScrollable.vue";
 export default {
   name: "SfTab",
   components: {
     Fragment,
-    SfChevron
+    SfChevron,
+    SfScrollable
   },
   props: {
     /**
      * Tab title.
      */
     title: {
+      type: String,
+      default: ""
+    },
+    maxContentHeight: {
       type: String,
       default: ""
     }

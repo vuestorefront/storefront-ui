@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number } from "@storybook/addon-knobs";
+import { withKnobs, number, text } from "@storybook/addon-knobs";
 import SfTabs from "./SfTabs.vue";
 storiesOf("Organisms|Tabs", module)
   .addDecorator(withKnobs)
@@ -9,6 +9,9 @@ storiesOf("Organisms|Tabs", module)
     props: {
       openTab: {
         default: number("openTab", 1, {}, "Props")
+      },
+      maxContentHeight: {
+        default: text("maxContentHeight", "6.25rem", "Props")
       }
     },
     data() {
@@ -17,7 +20,7 @@ storiesOf("Organisms|Tabs", module)
           {
             title: "Description",
             content:
-              "The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses."
+              "The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses. The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses. The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses. The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses. The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses."
           },
           {
             title: "Read reviews",
@@ -39,7 +42,7 @@ storiesOf("Organisms|Tabs", module)
             :key="tab.title" 
             :title="tab.title"
         >
-          {{tab.content}}
+            {{tab.content}}
         </SfTab>
       </SfTabs>`
   }));
