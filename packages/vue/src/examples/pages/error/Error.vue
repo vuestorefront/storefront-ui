@@ -39,7 +39,7 @@ export default {
   padding: 0 var(--spacer-sm);
   @include for-desktop {
     margin: 0 auto;
-    max-width: 1240px;
+    max-width: 1272px;
   }
 }
 .image {

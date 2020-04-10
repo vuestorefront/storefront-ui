@@ -161,8 +161,13 @@ export default {
 }
 .log-in {
   &__info {
-    padding: var(--spacer-lg) 0;
+    margin: var(--spacer-lg) 0;
     color: var(--c-dark-variant);
+    font: var(--font-light) var(--font-base) / 1.6 var(--font-family-primary);
+    @include for-desktop {
+      font-weight: var(--font-normal);
+      font-size: var(--font-sm);
+    }
   }
   &__button {
     margin: var(--spacer-2xl) 0 var(--spacer-xl) 0;

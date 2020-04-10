@@ -1,18 +1,20 @@
 <template>
   <div id="thank-you">
-    <div class="banner">
-      <div class="banner__info">
-        <SfHeading
-          title="Thank You for your order!"
-          class="heading sf-heading--left"
-          :level="3"
-        />
+    <SfCallToAction
+      class="banner"
+      title="Thank you for your order!"
+      :image="{
+        mobile: '/assets/storybook/ThankYou/BannerM.png',
+        desktop: '/assets/storybook/ThankYou/BannerD.png'
+      }"
+    >
+      <template #description>
         <div class="banner__order-number">
           <span>Order No.</span>
           <strong>{{ order.number }}</strong>
         </div>
-      </div>
-    </div>
+      </template>
+    </SfCallToAction>
     <section class="section">
       <div class="order">
         <SfHeading
@@ -78,12 +80,13 @@
   </div>
 </template>
 <script>
-import { SfHeading, SfButton } from "@storefront-ui/vue";
+import { SfHeading, SfButton, SfCallToAction } from "@storefront-ui/vue";
 export default {
   name: "Product",
   components: {
     SfHeading,
-    SfButton
+    SfButton,
+    SfCallToAction
   },
   data() {
     return {
@@ -105,8 +108,9 @@ export default {
 #thank-you {
   box-sizing: border-box;
   @include for-desktop {
-    max-width: 1240px;
-    margin: auto;
+    max-width: 1272px;
+    padding: 0 var(--spacer-sm);
+    margin: 0 auto;
   }
 }
 .heading {
@@ -122,12 +126,13 @@ export default {
   }
 }
 .banner {
-  &__info {
-    padding: var(--spacer-xl) var(--spacer-lg);
-    text-align: left;
-    @include for-desktop {
-      padding: var(--spacer-2xl) 0 var(--spacer-3xl) var(--spacer-2xl);
-    }
+  --call-to-action-color: var(--c-text);
+  --call-to-action-title-font-size: var(--font-xl);
+  --call-to-action-title-font-weight: var(--font-medium);
+  --call-to-action-text-container-width: 50%;
+  margin: 0 0 var(--spacer-base);
+  @include for-desktop {
+    margin: 0 0 var(--spacer-2xl) 0;
   }
   &__order-number {
     display: flex;
