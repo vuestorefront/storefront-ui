@@ -69,6 +69,7 @@ module.exports = {
           ["/components/Color", "Color"],
           ["/components/ContentPages", "Content Pages"],
           ["/components/Divider", "Divider"],
+          ["/components/Dropdown", "Dropdown"],
           ["/components/Filter", "Filter"],
           ["/components/Footer", "Footer"],
           ["/components/Gallery", "Gallery"],
