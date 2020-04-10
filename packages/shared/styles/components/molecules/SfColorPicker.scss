@@ -8,6 +8,8 @@
   top: var(--color-picker-top);
   right: var(--color-picker-right);
   &__container {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: var(--color-picker-flex-direction, row);
     flex-wrap: wrap;
@@ -33,14 +35,14 @@
   &__close {
     --icon-color: var(--c-white);
     --icon-size: 14px;
-    margin: var(--color-picker-margin);
+    margin: var(--color-picker-close-margin);
     cursor: pointer;
   }
   &--vertical {
+    --color-picker-right: 0;
     --color-picker-padding: var(--spacer-base);
     --color-picker-flex-direction: column;
     --color-picker-justify-content: flex-start;
-    --color-picker-margin: var(--spacer-xs) 0 0 0;
-    --color-picker-right: 0;
+    --color-picker-close-margin: var(--spacer-xs) 0 0 0;
   }
 }
