@@ -5,32 +5,32 @@ module.exports = async ({ config }) => {
     test: /\.stories\.js?$/,
     loaders: [
       {
-        loader: require.resolve("@storybook/addon-storysource/loader"),
-      },
+        loader: require.resolve("@storybook/addon-storysource/loader")
+      }
     ],
-    enforce: "pre",
+    enforce: "pre"
   });
 
   config.module.rules.push({
     test: /\.md$/,
     use: [
       {
-        loader: "html-loader",
+        loader: "html-loader"
       },
       {
         loader: "markdown-loader",
         options: {
           /* your options here */
-        },
-      },
-    ],
+        }
+      }
+    ]
   });
 
   config.module.rules.push({
     test: /\.scss$/,
     sideEffects: true,
     loaders: ["sass-loader"],
-    include: path.resolve(__dirname, "../../vue"),
+    include: path.resolve(__dirname, "../../")
   });
 
   return config;

@@ -22,6 +22,14 @@
             {{ example }}
           </nuxt-link>
         </SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>
+          <nuxt-link
+            :to="'.stories'"
+            :style="{ display: 'flex', alignItems: 'center', height: '100%' }"
+          >
+            Storybook
+          </nuxt-link>
+        </SfHeaderNavigationItem>
       </template>
     </SfHeader>
     <nuxt />
@@ -58,7 +66,7 @@ import {
   SfFooter,
   SfList,
   SfMenuItem,
-  SfImage,
+  SfImage
 } from "@storefront-ui/vue";
 import Cart from "../../vue/src/examples/pages/cart/Cart";
 
@@ -70,12 +78,12 @@ export default {
     Cart,
     SfList,
     SfMenuItem,
-    SfImage,
+    SfImage
   },
   computed: {
     itemSpacer() {
       return this.isMobile ? { padding: "1.25rem" } : { padding: "6px 0" };
-    },
+    }
   },
   data() {
     return {
@@ -85,24 +93,24 @@ export default {
       columns: [
         {
           title: "About us",
-          items: ["Who we are", "Quality in the details", "Customer Reviews"],
+          items: ["Who we are", "Quality in the details", "Customer Reviews"]
         },
         {
           title: "Departments",
-          items: ["Women fashion", "Men fashion", "Kidswear", "Home"],
+          items: ["Women fashion", "Men fashion", "Kidswear", "Home"]
         },
         {
           title: "Help",
-          items: ["Customer service", "Size guide", "Contact us"],
+          items: ["Customer service", "Size guide", "Contact us"]
         },
         {
           title: "Payment & delivery",
-          items: ["Purchase terms", "Guarantee"],
+          items: ["Purchase terms", "Guarantee"]
         },
         {
           title: "Social",
-          pictures: ["facebook", "pinterest", "twitter", "youtube"],
-        },
+          pictures: ["facebook", "pinterest", "twitter", "youtube"]
+        }
       ],
       examples: [
         "Category",
@@ -112,11 +120,10 @@ export default {
         "MyAccount",
         "Product",
         "Static",
-        "ThankYou",
-        "Storybook",
-      ],
+        "ThankYou"
+      ]
     };
-  },
+  }
 };
 </script>
 <style lang="scss">
