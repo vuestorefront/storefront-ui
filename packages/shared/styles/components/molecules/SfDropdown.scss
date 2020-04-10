@@ -25,7 +25,7 @@
     }
   }
   &__title {
-    padding: var(--button-padding, var(--spacer-sm) var(--spacer-lg));
+    padding: var(--dropdown-title-padding, var(--spacer-sm) var(--spacer-lg));
     color: var(--c-primary);
     @include font(
       --dropdown-title-font,
@@ -40,7 +40,7 @@
     --button-background: var(--c-light);
     --button-color: var(--c-text-muted);
     &:hover {
-      --button-background: var(--_c-light-primary);
+      --button-background: var(--c-light-primary);
     }
   }
   &__cancel,
