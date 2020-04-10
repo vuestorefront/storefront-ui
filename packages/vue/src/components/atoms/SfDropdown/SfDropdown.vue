@@ -8,7 +8,6 @@
         </slot>
         <slot />
         <slot name="cancel">
-          <!-- todo: add color-gray modifier for SfButton-->
           <SfButton
             class="sf-button--full-width sf-dropdown__cancel"
             @click="close"
