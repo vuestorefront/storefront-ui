@@ -1,7 +1,15 @@
 <template>
   <div class="sf-color-picker">
     <transition>
-      <div v-if="isOpen" class="sf-color-picker__container">
+      <div v-if="!isOpen">
+        <SfButton
+          class="sf-button--full-width color-secondary sf-color-picker__open"
+          style="opacity: 0.8"
+          @click="toggle"
+          >+ Colors</SfButton
+        >
+      </div>
+      <div v-else class="sf-color-picker__container">
         <slot name="label">
           <div v-if="label" class="sf-color-picker__label">{{ label }}</div>
         </slot>
@@ -13,7 +21,7 @@
             role="button"
             class="sf-color-picker__close"
             :aria-pressed="!isOpen"
-            @click="close"
+            @click="toggle"
           />
         </slot>
       </div>
@@ -22,9 +30,10 @@
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfColorPicker",
-  components: { SfIcon },
+  components: { SfIcon, SfButton },
   props: {
     isOpen: {
       type: Boolean,
@@ -40,8 +49,8 @@ export default {
     }
   },
   methods: {
-    close() {
-      this.$emit("click:close");
+    toggle() {
+      this.$emit("click:toggle");
     }
   }
 };
