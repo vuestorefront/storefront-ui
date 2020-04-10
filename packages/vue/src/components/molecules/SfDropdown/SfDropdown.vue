@@ -4,7 +4,7 @@
     <transition name="sf-dropdown">
       <div v-show="isOpen" class="sf-dropdown__container">
         <slot name="title">
-          <div class="sf-dropdown__title">{{ title }}</div>
+          <div v-if="title" class="sf-dropdown__title">{{ title }}</div>
         </slot>
         <slot />
         <slot name="cancel">
