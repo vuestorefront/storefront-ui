@@ -7,6 +7,7 @@ import {
 } from "@storybook/addon-knobs";
 import SfColorPicker from "./SfColorPicker.vue";
 import SfColor from "../../atoms/SfColor/SfColor.vue";
+
 storiesOf("Molecules|ColorPicker", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -15,7 +16,8 @@ storiesOf("Molecules|ColorPicker", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-color-picker--vertical": "sf-color-picker--vertical"
+            "sf-color-picker--vertical": "sf-color-picker--vertical",
+            "sf-color-picker--left": "sf-color-picker--left"
           },
           "",
           { display: "multi-select" },
@@ -56,9 +58,9 @@ storiesOf("Molecules|ColorPicker", module)
     },
     components: { SfColorPicker, SfColor },
     template: `
-      <div style="position: relative;">
+      <div style="position: relative; min-height: 250px;">
         <SfColorPicker
-          style="max-width: 10rem"
+          style="max-width: 10rem;"
           :class="customClass"
           :label="label"
           :isOpen="isOpen"
@@ -74,7 +76,8 @@ storiesOf("Molecules|ColorPicker", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-color-picker--vertical": "sf-color-picker--vertical"
+            "sf-color-picker--vertical": "sf-color-picker--vertical",
+            "sf-color-picker--left": "sf-color-picker--left"
           },
           "sf-color-picker--vertical",
           { display: "multi-select" },
@@ -118,7 +121,7 @@ storiesOf("Molecules|ColorPicker", module)
     },
     components: { SfColorPicker, SfColor },
     template: `
-      <div style="position: relative;">
+      <div style="position: relative; height: 100vh;">
         <SfColorPicker
           :isOpen="isOpen"
           :class="customClass"
