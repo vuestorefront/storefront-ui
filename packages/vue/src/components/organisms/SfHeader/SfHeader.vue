@@ -140,6 +140,13 @@ export default {
       type: Boolean,
       default: false
     },
+     /**
+     * Header search phrase
+     */
+    search: {
+      type: String, 
+      default: ""
+    },
     /**
      * Header search placeholder
      */
