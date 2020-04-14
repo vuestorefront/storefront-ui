@@ -54,19 +54,19 @@ See what's new in our comparison below:
 
 **Font sizes**
 
-Before | After
+Before | v0.7.0
 ------------ | -------------
-undefined | --font-2xs: 10px
---font-size-extra-small: 0.75rem | --font-xs: 12px
---font-size-small: 0.875rem | --font-sm: 14px
---font-size-regular: 1rem | --font-base: 16px
---font-size-big: 1.125rem | --font-lg: 18px
-undefined | --font-xl: 24px
+undefined | --font-2xs: 0.625rem
+--font-size-extra-small: 0.75rem | --font-xs: 0.75rem
+--font-size-small: 0.875rem | --font-sm: 0.875rem
+--font-size-regular: 1rem | --font-base: 1rem
+--font-size-big: 1.125rem | --font-lg: 1.125rem
+--font-size-extra-big: 1.5rem | --font-xl: 1.5rem
 
 
 **Font weights**
 
-Before | After
+v0.6.0 | v0.7.0
 ------------ | -------------
 --font-weight-light: 300 | --font-light: 300
 --font-weight-regular: 400 | --font-normal: 400
@@ -80,15 +80,16 @@ undefined | --font-black: 900
 
 **Spacers**
 
-Before | After
------------- | -------------
-  undefined | --spacer-2xs: 4px
-  --spacer-extra-small: 0.5rem | --spacer-xs: 8px
-  --spacer-small: 1rem | --spacer-sm: 16px
-  --spacer-regular: 1.5rem | --spacer-basse: 24px
-  --spacer-medium: 2.5rem | --spacer-lg: 32px
-  --spacer-big: 5rem | --spacer-xl: 40px
-  --spacer-extra-big: 10rem | --spacer-2xl: 80px
-  undefined | --spacer-3xl: 160px
+Before | v0.6.0 | v0.7.0
+------------ | ------------ | -------------
+  --spacer-small: 0.25rem | undefined | --spacer-2xs: 0.25rem
+  --spacer: 0.5rem | --spacer-extra-small: 0.5rem | --spacer-xs: 0.5rem
+  --spacer-medium: 1rem | --spacer-small: 1rem | --spacer-sm: 1rem
+  --spacer-big: 1.25rem | undefined | undefined
+  undefined | --spacer-regular: 1.5rem | --spacer-base: 1.5rem
+  undefined | undefined | --spacer-lg: 2rem
+  --spacer-extra-big: 2.5rem | --spacer-medium: 2.5rem | --spacer-xl: 2.5rem
+  undefined | --spacer-big: 5rem | --spacer-2xl: 5rem
+  undefined | --spacer-extra-big: 10rem | --spacer-3xl: 10rem
 
 ## Release notes
