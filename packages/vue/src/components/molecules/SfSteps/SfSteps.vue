@@ -8,7 +8,8 @@
         :step-click="stepClick"
         v-bind="{ step }"
       >
-        <div
+        <button
+          v-focus
           :key="step.index"
           :class="{
             'sf-steps__step': true,
@@ -19,7 +20,7 @@
           @click="stepClick(step)"
         >
           <span class="sf-steps__title">{{ step.step }}</span>
-        </div>
+        </button>
       </slot>
       <div class="sf-steps__progress" :style="progress"></div>
     </div>
@@ -31,9 +32,14 @@
 <script>
 import Vue from "vue";
 import SfStep from "./_internal/SfStep.vue";
+import { focus } from "../../../utilities/directives/focus-directive.js";
+
 Vue.component("SfStep", SfStep);
 export default {
   name: "SfSteps",
+  directives: {
+    focus: focus
+  },
   model: {
     prop: "active",
     event: "change"
