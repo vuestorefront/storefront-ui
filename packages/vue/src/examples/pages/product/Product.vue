@@ -5,7 +5,27 @@
       :breadcrumbs="breadcrumbs"
     />
     <div class="product">
-      <SfGallery :images="product.images" />
+      <div>
+        <SfGallery :images="product.images">
+          <template #options>
+            <SfColorPicker
+              :is-open="isOpen"
+              class="color-picker sf-color-picker--vertical mobile-only"
+              close-icon="cross"
+              @click:toggle="isOpen = !isOpen"
+            >
+              <SfColor
+                v-for="color in product.colors"
+                :key="color.name"
+                style="margin: 0.4375rem"
+                :color="color.color"
+                :selected="color.selected"
+                @click="color.selected = !color.selected"
+              />
+            </SfColorPicker>
+          </template>
+        </SfGallery>
+      </div>
       <div class="product__info">
         <div class="product__header">
           <SfHeading
@@ -148,6 +168,7 @@ import {
   SfReview,
   SfAddToCart,
   SfColor,
+  SfColorPicker,
   SfSelect,
   SfProductOption,
   SfBreadcrumbs
@@ -166,6 +187,7 @@ export default {
     SfReview,
     SfAddToCart,
     SfColor,
+    SfColorPicker,
     SfSelect,
     SfProductOption,
     SfBreadcrumbs
@@ -176,6 +198,7 @@ export default {
       selectedColor: "beige",
       selectedSize: undefined,
       qty: 1,
+      isOpen: false,
       product: {
         name: "Cashmere Sweater",
         description:
