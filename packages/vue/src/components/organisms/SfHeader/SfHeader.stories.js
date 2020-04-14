@@ -64,6 +64,9 @@ storiesOf("Organisms|Header", module)
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props")
       },
+      searchValue: {
+        default: text("searchValue", "t-shirt", "Props")
+      },
       cartIcon: {
         default: text("cartIcon", "empty_cart", "Props")
       },
@@ -114,6 +117,7 @@ storiesOf("Organisms|Header", module)
           :active-icon="activeIcon"
           :has-mobile-search="hasMobileSearch"
           :search-placeholder="searchPlaceholder"
+          :search-value="searchValue"
           :cart-icon="cartIcon"
           :wishlist-icon="wishlistIcon"
           :is-sticky="isSticky"
@@ -123,6 +127,7 @@ storiesOf("Organisms|Header", module)
           @click:cart="alert('@click:cart')"
           @click:wishlist="alert('@click:wishlist')"
           @click:account="alert('@click:account')"
+          @change:search="searchValue = $event"
       >
         <template #navigation>
           <SfHeaderNavigationItem
@@ -165,6 +170,9 @@ storiesOf("Organisms|Header", module)
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props")
       },
+      searchValue: {
+        default: text("searchValue", "t-shirt", "Props")
+      },
       cartIcon: {
         default: text("cartIcon", "empty_cart", "Props")
       },
@@ -216,6 +224,7 @@ storiesOf("Organisms|Header", module)
         :active-icon="activeIcon"
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
+        :search-value="searchValue"
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
@@ -224,6 +233,7 @@ storiesOf("Organisms|Header", module)
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
+        @change:search="searchValue = $event"
     >
       <template #navigation>
         <div :style="{margin: '0 0 0 1.25rem', display: 'flex', alignItems:'center', height: '100%'}">CUSTOM NAVIGATION</div>
@@ -260,6 +270,9 @@ storiesOf("Organisms|Header", module)
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props")
       },
+      searchValue: {
+        default: text("searchValue", "t-shirt", "Props")
+      },
       cartIcon: {
         default: text("cartIcon", "empty_cart", "Props")
       },
@@ -311,6 +324,7 @@ storiesOf("Organisms|Header", module)
         :active-icon="activeIcon"
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
+        :search-value="searchValue"
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
@@ -319,6 +333,7 @@ storiesOf("Organisms|Header", module)
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
+        @change:search="searchValue = $event"
     >
       <template #logo="{logo,title}">
         CUSTOM LOGO
@@ -362,6 +377,9 @@ storiesOf("Organisms|Header", module)
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props")
       },
+      searchValue: {
+        default: text("searchValue", "t-shirt", "Props")
+      },
       cartIcon: {
         default: text("cartIcon", "empty_cart", "Props")
       },
@@ -413,6 +431,7 @@ storiesOf("Organisms|Header", module)
         :active-icon="activeIcon"
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
+        :search-value="searchValue"
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
@@ -421,6 +440,7 @@ storiesOf("Organisms|Header", module)
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
+        @change:search="searchValue = $event"
     >
       <template #search>
         <div :style="{margin: '0 0 0 auto'}">CUSTOM SEARCH</div>
@@ -464,6 +484,9 @@ storiesOf("Organisms|Header", module)
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props")
       },
+      searchValue: {
+        default: text("searchValue", "t-shirt", "Props")
+      },
       cartIcon: {
         default: text("cartIcon", "empty_cart", "Props")
       },
@@ -515,6 +538,7 @@ storiesOf("Organisms|Header", module)
         :active-icon="activeIcon"
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
+        :search-value="searchValue"
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
@@ -523,6 +547,7 @@ storiesOf("Organisms|Header", module)
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
+        @change:search="searchValue = $event"
     >
       <template #header-icons="{ accountIcon, wishlistIcon, cartIcon }">
         <div :style="{margin: '0 0 0 1.25rem'}">CUSTOM HEADER ICONS</div>
@@ -566,6 +591,9 @@ storiesOf("Organisms|Header", module)
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props")
       },
+      searchValue: {
+        default: text("searchValue", "t-shirt", "Props")
+      },
       cartIcon: {
         default: text("cartIcon", "empty_cart", "Props")
       },
@@ -617,8 +645,10 @@ storiesOf("Organisms|Header", module)
         :active-icon="activeIcon"
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
+        :search-value="searchValue"
         :style="spacer"
         :cart-items-qty="cartItemsQty"
+        @change:search="searchValue = $event"
     >
       <template #language-selector>
         <div :style="{margin: '0 0 0 1rem'}">LANGUAGE SELECTOR</div>
