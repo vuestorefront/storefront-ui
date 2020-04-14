@@ -29,6 +29,7 @@
             :placeholder="searchPlaceholder"
             class="sf-header__search"
             :class="{ 'desktop-only': !hasMobileSearch }"
+            @change="$emit(`change:${search}`)"
           />
         </slot>
         <!--@slot Use this slot to replace default header icons with custom content-->
