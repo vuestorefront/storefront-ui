@@ -56,6 +56,17 @@
     flex: 1;
     margin: var(--radio-content-margin, 0 0 0 var(--spacer-sm));
   }
+  &__details {
+    margin: var(--radio-details-margin, var(--spacer-2xs) 0 0 0);
+    color: var(--radio-details-color, var(--c-text));
+    @include font(
+      --radio-details-font,
+      var(--font-light),
+      var(--font-xs),
+      1.2,
+      var(--font-family-secondary)
+    );
+  }
   &__description {
     margin: var(--radio-description-margin, var(--spacer-xs) 0 0 0);
     @include font(
