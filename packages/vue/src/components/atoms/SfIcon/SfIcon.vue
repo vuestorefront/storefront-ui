@@ -19,6 +19,13 @@
         />
       </svg>
     </slot>
+    <transition name="sf-icon__badge">
+      <slot v-if="hasBadge" name="badge" v-bind="{ badgeLabel, hasBadge }">
+        <div class="sf-icon__badge">
+          {{ badgeLabel }}
+        </div>
+      </slot>
+    </transition>
   </div>
 </template>
 <script>
@@ -65,6 +72,14 @@ export default {
     viewBox: {
       type: String,
       default: "0 0 24 24"
+    },
+    hasBadge: {
+      type: Boolean,
+      default: false
+    },
+    badgeLabel: {
+      type: String,
+      default: ""
     }
   },
   computed: {

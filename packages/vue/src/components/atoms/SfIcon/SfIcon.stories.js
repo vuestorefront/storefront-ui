@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, text, select, boolean } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
 import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
 import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
@@ -21,6 +21,12 @@ storiesOf("Atoms|Icon", module)
       },
       viewBox: {
         default: text("viewBox", "0 0 24 24", "Props")
+      },
+      hasBadge: {
+        default: boolean("hasBadge", false, "Props")
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "99", "Props")
       }
     },
     components: { SfIcon },
@@ -28,7 +34,9 @@ storiesOf("Atoms|Icon", module)
       :icon="icon"
       :size="size"
       :color="color"
-      :view-box="viewBox"/>`
+      :view-box="viewBox"
+      :has-badge="hasBadge"
+      :badge-label="badgeLabel"/>`
   }))
   .add("[props] default", () => ({
     props: {
@@ -47,6 +55,12 @@ storiesOf("Atoms|Icon", module)
       },
       viewBox: {
         default: text("viewBox", "0 0 24 24", "Props")
+      },
+      hasBadge: {
+        default: boolean("hasBadge", false, "Props")
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "99", "Props")
       }
     },
     components: { SfIcon },
@@ -54,7 +68,9 @@ storiesOf("Atoms|Icon", module)
       :icon="icon"
       :size="size"
       :color="color"
-      :view-box="viewBox" />`
+      :view-box="viewBox" 
+      :has-badge="hasBadge"
+      :badge-label="badgeLabel"/>`
   }))
   .add("[slot] default", () => ({
     props: {
@@ -73,6 +89,12 @@ storiesOf("Atoms|Icon", module)
       },
       viewBox: {
         default: text("viewBox", "0 0 24 24", "Props")
+      },
+      hasBadge: {
+        default: boolean("hasBadge", false, "Props")
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "99", "Props")
       }
     },
     components: { SfIcon },
@@ -80,7 +102,9 @@ storiesOf("Atoms|Icon", module)
       :icon="icon"
       :size="size"
       :color="color"
-      :view-box="viewBox">
+      :view-box="viewBox"
+      :has-badge="hasBadge"
+      :badge-label="badgeLabel">
       <template #default="{viewBox, iconPaths, icon}">
         <img src="/assets/logo.svg" alt="Vue.js">
       </template>
