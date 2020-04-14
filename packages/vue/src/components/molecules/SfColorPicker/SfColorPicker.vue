@@ -1,15 +1,16 @@
 <template>
-  <div class="sf-color-picker">
-    <transition>
-      <div v-if="!isOpen">
-        <SfButton
-          class="sf-button--full-width color-secondary sf-color-picker__open"
-          style="opacity: 0.8"
-          @click="toggle"
-          >+ Colors</SfButton
-        >
+  <div class="sf-color-picker" :class="{ 'sf-color-picker--active': isOpen }">
+    <transition name="sf-color-picker" mode="out-in">
+      <div v-if="!isOpen" key="1" class="sf-color-picker__open">
+        <slot name="open">
+          <SfButton
+            class="color-secondary sf-color-picker__open--button"
+            @click="toggle"
+            >+ Colors</SfButton
+          >
+        </slot>
       </div>
-      <div v-else class="sf-color-picker__container">
+      <div v-else key="2" class="sf-color-picker__colors">
         <slot name="label">
           <div v-if="label" class="sf-color-picker__label">{{ label }}</div>
         </slot>
