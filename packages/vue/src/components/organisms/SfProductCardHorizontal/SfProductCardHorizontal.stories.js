@@ -13,6 +13,11 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 storiesOf("Organisms|ProductCardHorizontal", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
+    data() {
+      return {
+        quantity: 1
+      };
+    },
     props: {
       image: {
         default: text(
@@ -70,6 +75,9 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       isAddedToCart: {
         default: select("isAddedToCart", [false, true], false, "Props")
       },
+      qty: {
+        default: number("qty", 1, {}, "Props")
+      },
       addToCartDisabled: {
         default: select("addToCartDisabled", [false, true], false, "Props")
       }
@@ -92,6 +100,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           :is-added-to-cart="isAddedToCart"
           :add-to-cart-disabled="addToCartDisabled"
           :description="description"
+          :qty="quantity"
+          @input="quantity = $event"
           :is-on-wishlist-icon="isOnWishlistIcon"
           :is-on-wishlist="isOnWishlist">
           <template #configuration>
@@ -179,7 +189,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
             mobile: { url: "/assets/storybook/Home/productA.jpg" },
             desktop: { url: "/assets/storybook/Home/productA.jpg" }
           }
-        ]
+        ],
+        quantity: 1
       };
     },
     components: { SfProductCardHorizontal, SfButton, SfProperty },
@@ -198,6 +209,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         :max-rating="maxRating"
         :reviews-count="reviewsCount"
         :wishlist-icon="wishlistIcon"
+        :qty="quantity"
+        @input="quantity = $event"
         :is-added-to-cart="isAddedToCart"
         :add-to-cart-disabled="addToCartDisabled"
         :is-on-wishlist-icon="isOnWishlistIcon"
@@ -289,6 +302,11 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         default: select("addToCartDisabled", [false, true], false, "Props")
       }
     },
+    data() {
+      return {
+        quantity: 1
+      };
+    },
     components: { SfProductCardHorizontal },
     template: `<div :style="{maxWidth: '1024px'}">
       <SfProductCardHorizontal
@@ -305,6 +323,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           :wishlist-icon="wishlistIcon"
           :reviews-count="reviewsCount"
           :is-added-to-cart="isAddedToCart"
+          :qty="quantity"
+          @input="quantity = $event"
           :add-to-cart-disabled="addToCartDisabled"
           :description="description"
           :is-on-wishlist-icon="isOnWishlistIcon"
@@ -377,6 +397,11 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         default: select("addToCartDisabled", [false, true], false, "Props")
       }
     },
+    data() {
+      return {
+        quantity: 1
+      };
+    },
     components: { SfProductCardHorizontal },
     template: `<div :style="{maxWidth: '1024px'}">
       <SfProductCardHorizontal
@@ -395,6 +420,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           :is-added-to-cart="isAddedToCart"
           :add-to-cart-disabled="addToCartDisabled"
           :description="description"
+          :qty="quantity"
+          @input="quantity = $event"
           :is-on-wishlist-icon="isOnWishlistIcon"
           :is-on-wishlist="isOnWishlist">
           <template #actions>

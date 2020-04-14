@@ -13,6 +13,7 @@
     }"
     class="sf-select"
     @click="toggle($event)"
+    @blur="closeHandler"
     @keyup.space="openHandler"
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
@@ -36,13 +37,15 @@
           <ul :style="{ maxHeight }" class="sf-select__options">
             <slot />
           </ul>
-          <SfButton
-            ref="cancel"
-            class="sf-select__cancel sf-button--full-width mobile-only"
-            @click="closeHandler"
-          >
-            Cancel
-          </SfButton>
+          <slot name="cancel">
+            <SfButton
+              ref="cancel"
+              class="sf-select__cancel sf-button--full-width mobile-only"
+              @click="closeHandler"
+            >
+              Cancel
+            </SfButton>
+          </slot>
         </div>
       </transition>
     </div>
@@ -50,9 +53,9 @@
       <transition name="fade">
         <div v-if="!valid">
           <!-- @slot Custom error message of form select -->
-          <slot name="error-message" v-bind="{ errorMessage }">{{
-            errorMessage
-          }}</slot>
+          <slot name="error-message" v-bind="{ errorMessage }">
+            {{ errorMessage }}
+          </slot>
         </div>
       </transition>
     </div>
