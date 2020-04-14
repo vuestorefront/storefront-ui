@@ -70,6 +70,7 @@ module.exports = {
           ["/components/ColorPicker", "Color Picker"],
           ["/components/ContentPages", "Content Pages"],
           ["/components/Divider", "Divider"],
+          ["/components/Dropdown", "Dropdown"],
           ["/components/Filter", "Filter"],
           ["/components/Footer", "Footer"],
           ["/components/Gallery", "Gallery"],
