@@ -34,6 +34,7 @@
     );
   }
   &__stage {
+    position: relative;
     width: 100%;
     max-width: var(--gallery-stage-width, 26.375rem);
   }

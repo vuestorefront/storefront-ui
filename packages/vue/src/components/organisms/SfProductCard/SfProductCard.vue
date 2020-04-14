@@ -29,6 +29,7 @@
             :height="imageHeight"
           />
         </slot>
+        <slot name="options" />
         <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
           <SfBadge
             v-if="badgeLabel"
