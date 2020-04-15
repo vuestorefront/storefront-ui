@@ -86,7 +86,6 @@
       var(--font-family-secondary)
     );
     text-align: var(--input-text-align);
-    outline: none;
     &:focus {
       & ~ * {
         --icon-color: var(--c-primary);
