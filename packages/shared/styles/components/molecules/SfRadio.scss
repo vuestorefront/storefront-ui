@@ -57,8 +57,8 @@
     margin: var(--radio-content-margin, 0 0 0 var(--spacer-sm));
   }
   &__details {
-    margin: var(--radio-details-margin, var(--spacer-2xs) 0 0 0);
-    color: var(--radio-details-color, var(--c-text));
+    margin: var(--radio-details-margin, var(--spacer-xs) 0 0 0);
+    color: var(--radio-details-color, var(--c-text-muted));
     @include font(
       --radio-details-font,
       var(--font-light),
