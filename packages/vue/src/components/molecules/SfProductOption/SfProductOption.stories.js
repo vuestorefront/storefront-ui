@@ -7,27 +7,27 @@ storiesOf("Molecules|ProductOption", module)
     components: { SfProductOption },
     props: {
       color: {
-        default: text("color", "red", "Props")
+        default: text("color", "red", "Props"),
       },
       label: {
-        default: text("label", "Red", "Props")
-      }
+        default: text("label", "Red", "Props"),
+      },
     },
     template: `<div style="max-width: 300px">
       <SfProductOption
         :color="color"
         :label="label"/>
-    </div>`
+    </div>`,
   }))
   .add("[slot] color", () => ({
     components: { SfProductOption },
     props: {
       color: {
-        default: text("color", "red", "Props")
+        default: text("color", "red", "Props"),
       },
       label: {
-        default: text("label", "Red", "Props")
-      }
+        default: text("label", "Red", "Props"),
+      },
     },
     template: `<div style="max-width: 300px">
       <SfProductOption
@@ -37,17 +37,17 @@ storiesOf("Molecules|ProductOption", module)
           <div :style="{width: '20px', height:'20px', backgroundColor: color, borderRadius: '100%', marginRight: '10px'}"></div>
         </template>
       </SfProductOption>
-    </div>`
+    </div>`,
   }))
   .add("[slot] label", () => ({
     components: { SfProductOption },
     props: {
       color: {
-        default: text("color", "red", "Props")
+        default: text("color", "red", "Props"),
       },
       label: {
-        default: text("label", "Red", "Props")
-      }
+        default: text("label", "Red", "Props"),
+      },
     },
     template: `<div style="max-width: 300px">
       <SfProductOption
@@ -57,5 +57,5 @@ storiesOf("Molecules|ProductOption", module)
           CUSTOM LABEL
         </template>
       </SfProductOption>
-    </div>`
+    </div>`,
   }));

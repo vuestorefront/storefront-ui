@@ -1,12 +1,22 @@
 <template>
   <SfCheckbox
     class="sf-filter"
-    :class="{ 'sf-filter--active': isSelected }"
+    :class="{ 'sf-filter--active': selected, 'sf-filter--is-color': color }"
     :name="label"
     :selected="selected"
     v-on="$listeners"
   >
     <template #label>
+      <slot name="color" v-bind="{ color, selected }">
+        <SfColor
+          v-if="color"
+          :color="color"
+          :has-badge="false"
+          :selected="selected"
+          class="sf-filter__color"
+          @click="$emit('change', !selected)"
+        />
+      </slot>
       <slot name="label" v-bind="{ label }">
         <div class="sf-filter__label">{{ label }}</div>
       </slot>
@@ -18,31 +28,31 @@
 </template>
 <script>
 import SfCheckbox from "../../atoms/SfCheckbox/SfCheckbox.vue";
-
+import SfColor from "../../atoms/SfColor/SfColor.vue";
 export default {
   name: "SfFilter",
   components: {
-    SfCheckbox
+    SfCheckbox,
+    SfColor,
   },
   props: {
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     count: {
       type: [String, Number],
-      default: ""
+      default: "",
     },
     selected: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
+    color: {
+      type: String,
+      default: "",
+    },
   },
-  computed: {
-    isSelected() {
-      return this.selected;
-    }
-  }
 };
 </script>
 <style lang="scss">

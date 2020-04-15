@@ -15,8 +15,8 @@ describe("SfProperty.vue", () => {
     const component = shallowMount(SfProperty, {
       propsData: {
         name: nameText,
-        value: valueText
-      }
+        value: valueText,
+      },
     });
     expect(component.find(".sf-property__name").text()).toMatch(nameText);
     expect(component.find(".sf-property__value").text()).toMatch(valueText);

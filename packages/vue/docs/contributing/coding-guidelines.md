@@ -160,7 +160,7 @@ All global variables are here `shared/styles/_variables.scss`
       300,
       var(--font-size-small),
       1.6,
-      var(--body-font-family-secondary)
+      var(--font-family-secondary)
     )
   );
 ``` 

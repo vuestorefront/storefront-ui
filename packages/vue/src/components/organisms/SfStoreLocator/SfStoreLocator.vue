@@ -1,10 +1,10 @@
 <template>
   <div class="sf-store-locator">
-    <div class="sf-store-locator__title" tabindex="0">
-      Found stores: <span>{{ stores.length }}</span>
-    </div>
     <div class="sf-store-locator__wrapper">
       <div class="sf-store-locator__list">
+        <div class="sf-store-locator__stores desktop-only" tabindex="0">
+          Found stores: <span>{{ stores.length }}</span>
+        </div>
         <!-- @slot Use this slot to show stores cards -->
         <slot
           v-bind="{
@@ -13,7 +13,7 @@
             removeStore,
             userPosition,
             getGeoDistance,
-            locateUser
+            locateUser,
           }"
         />
       </div>
@@ -66,16 +66,14 @@ import Vue from "vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLoader from "../../atoms/SfLoader/SfLoader.vue";
 import SfStore from "./_internal/SfStore.vue";
-
 Vue.component("SfStore", SfStore);
-
 export default {
   name: "SfStoreLocator",
   provide() {
     const locatorData = {};
     Object.defineProperty(locatorData, "userPosition", {
       enumerable: true,
-      get: () => this.userPosition
+      get: () => this.userPosition,
     });
     return {
       registerStore: this.registerStore,
@@ -83,12 +81,12 @@ export default {
       centerOn: this.centerOn,
       getGeoDistance: this.getGeoDistance,
       locateUser: this.locateUser,
-      locatorData
+      locatorData,
     };
   },
   components: {
     SfIcon,
-    SfLoader
+    SfLoader,
   },
   props: {
     /**
@@ -97,85 +95,85 @@ export default {
     tileServerUrl: {
       type: String,
       default:
-        "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+        "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
     },
     /**
      * Attribution line of selected tileserver
      */
     tileServerAttribution: {
       type: String,
-      default: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ"
+      default: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ",
     },
     /**
      * Initial center of the map, overriden when the user position is captured, supports sync modifier
      */
     center: {
       type: [Array, Object],
-      default: () => [0, 0]
+      default: () => [0, 0],
     },
     /**
      * Initial zoom of the map
      */
     zoom: {
       type: Number,
-      default: 6
+      default: 6,
     },
     /**
      * Max zoom allowed, consider tileserver limitation when setting this
      */
     maxZoom: {
       type: Number,
-      default: 16
+      default: 16,
     },
     /**
      * Size of the icon [width, height]
      */
     markerIconSize: {
       type: Array,
-      default: () => [21, 28]
+      default: () => [21, 28],
     },
     /**
      *  Position of the anchor in the icon [x, y]
      */
     markerIconAnchor: {
       type: Array,
-      default: () => [10.5, 0]
+      default: () => [10.5, 0],
     },
     /**
      * Options to pass to leaflet map
      */
     mapOptions: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     /**
      * Options to pass to leaflet tile-layer
      */
     tileLayerOptions: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     /**
      * Options to pass to leaflet marker
      */
     markerOptions: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     /**
      * Zoom to be set when centering map on clicked store
      */
     flyToStoreZoom: {
       type: Number,
-      default: 15
-    }
+      default: 15,
+    },
   },
   data() {
     return {
       loaded: false,
       userPosition: null,
       mapReady: false,
-      stores: []
+      stores: [],
     };
   },
   computed: {
@@ -188,7 +186,7 @@ export default {
       },
       set(value) {
         this.updateCenter(value);
-      }
+      },
     },
     internalZoom: {
       get() {
@@ -196,8 +194,8 @@ export default {
       },
       set(value) {
         this.$emit("update:zoom", value);
-      }
-    }
+      },
+    },
   },
   mounted() {
     import("leaflet/dist/leaflet.css");
@@ -225,12 +223,12 @@ export default {
       return a.latlng[0] === b.latlng[0] && a.latlng[1] === b.latlng[1];
     },
     registerStore(store) {
-      if (!this.stores.some(s => this.latLngEquality(store, s))) {
+      if (!this.stores.some((s) => this.latLngEquality(store, s))) {
         this.stores = [...this.stores, store];
       }
     },
     removeStore(store) {
-      this.stores = this.stores.filter(s => !this.latLngEquality(s, store));
+      this.stores = this.stores.filter((s) => !this.latLngEquality(s, store));
     },
     onMapReady(mapObject) {
       /**
@@ -272,7 +270,7 @@ export default {
       this.$refs.map.mapObject.flyTo(latlng, this.flyToStoreZoom);
     },
     getGeoDistance(start, end) {
-      const deg2rad = deg => deg * (Math.PI / 180);
+      const deg2rad = (deg) => deg * (Math.PI / 180);
       const R = 6371;
       const dLat = deg2rad(end.lat - start.lat);
       const dLng = deg2rad(end.lng - start.lng);
@@ -286,8 +284,8 @@ export default {
       let distance = R * c * 1000;
       distance = distance / 1000;
       return Math.round(distance * 100) / 100;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

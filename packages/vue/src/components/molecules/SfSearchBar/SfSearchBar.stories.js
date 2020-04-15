@@ -2,7 +2,7 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  optionsKnob as options
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfSearchBar from "./SfSearchBar.vue";
 storiesOf("Molecules|SearchBar", module)
@@ -14,31 +14,31 @@ storiesOf("Molecules|SearchBar", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-search-bar--position-right": "sf-search-bar--position-right",
-            "sf-search-bar--no-icon": "sf-search-bar--no-icon"
+            "sf-search-bar--position-center": "sf-search-bar--position-center",
+            "sf-search-bar--no-icon": "sf-search-bar--no-icon",
           },
           "null",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       placeholder: {
-        default: text("placeholder", "Search for items", "Props")
+        default: text("placeholder", "Search for items", "Props"),
       },
       ariaLabel: {
-        default: text("ariaLabel", "Search", "Props")
-      }
+        default: text("ariaLabel", "Search", "Props"),
+      },
     },
     data() {
       return {
-        value: ""
+        value: "",
       };
     },
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
       :aria-label="ariaLabel"
-      v-model="value"/>`
+      v-model="value"/>`,
   }))
   .add("[slot] icon", () => ({
     components: { SfSearchBar },
@@ -47,24 +47,24 @@ storiesOf("Molecules|SearchBar", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-search-bar--position-right": "sf-search-bar--position-right",
-            "sf-search-bar--no-icon": "sf-search-bar--no-icon"
+            "sf-search-bar--position-center": "sf-search-bar--position-center",
+            "sf-search-bar--no-icon": "sf-search-bar--no-icon",
           },
           "null",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       placeholder: {
-        default: text("placeholder", "Search for items", "Props")
+        default: text("placeholder", "Search for items", "Props"),
       },
       ariaLabel: {
-        default: text("ariaLabel", "Search", "Props")
-      }
+        default: text("ariaLabel", "Search", "Props"),
+      },
     },
     data() {
       return {
-        value: ""
+        value: "",
       };
     },
     template: `<SfSearchBar
@@ -73,33 +73,33 @@ storiesOf("Molecules|SearchBar", module)
       :aria-label="ariaLabel"
       v-model="value">
       <template #icon>👀</template>
-    </SfSearchBar>`
+    </SfSearchBar>`,
   }))
-  .add("[slot] clear-icon", () => ({
+  .add("with modifier --no-icon", () => ({
     components: { SfSearchBar },
     props: {
       customClass: {
         default: options(
           "CSS modifiers",
           {
-            "sf-search-bar--position-right": "sf-search-bar--position-right",
-            "sf-search-bar--no-icon": "sf-search-bar--no-icon"
+            "sf-search-bar--position-center": "sf-search-bar--position-center",
+            "sf-search-bar--no-icon": "sf-search-bar--no-icon",
           },
-          "null",
+          "sf-search-bar--no-icon",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       placeholder: {
-        default: text("placeholder", "Search for items", "Props")
+        default: text("placeholder", "Search for items", "Props"),
       },
       ariaLabel: {
-        default: text("ariaLabel", "Search", "Props")
-      }
+        default: text("ariaLabel", "Search", "Props"),
+      },
     },
     data() {
       return {
-        value: ""
+        value: "",
       };
     },
     template: `<SfSearchBar
@@ -107,8 +107,5 @@ storiesOf("Molecules|SearchBar", module)
       :placeholder="placeholder"
       :aria-label="ariaLabel"
       v-model="value">
-      <template #clear-icon>
-        <span class="sf-search-bar__clear-icon">🧹</span>
-      </template>
-    </SfSearchBar>`
+    </SfSearchBar>`,
   }));

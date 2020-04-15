@@ -1,5 +1,10 @@
 <template>
-  <SfButton class="sf-circle-icon" v-on="$listeners">
+  <SfButton
+    :aria-label="ariaLabel"
+    class="sf-circle-icon"
+    :disabled="disabled"
+    v-on="$listeners"
+  >
     <!--@slot Custom content that will replace default icon. can be used for inlined SVG's-->
     <slot>
       <SfIcon
@@ -27,36 +32,38 @@ export default {
   name: "SfCircleIcon",
   components: {
     SfButton,
-    SfIcon
+    SfIcon,
   },
   props: {
-    /**
-     */
+    ariaLabel: {
+      type: String,
+      default: "",
+    },
     icon: {
       type: [String, Array],
-      default: "home"
+      default: "home",
     },
-    /**
-     */
     iconColor: {
       type: String,
-      default: ""
+      default: "",
     },
-    /**
-     */
     iconSize: {
       type: String,
-      default: ""
+      default: "",
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
     hasBadge: {
       type: Boolean,
-      default: false
+      default: false,
     },
     badgeLabel: {
       type: String,
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 <style lang="scss">
