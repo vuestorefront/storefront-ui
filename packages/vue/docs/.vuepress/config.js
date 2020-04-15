@@ -1,51 +1,75 @@
 module.exports = {
-  title: 'Storefront UI',
-  description: 'Customizable and performant Vue.js UI library for eCommerce',
+  title: "Storefront UI",
+  description: "Customizable and performant Vue.js UI library for eCommerce",
   head: [
-    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "https://divante.com/open-graph/favicons_storefrontui/sfui_favicon-32x32.png"}],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href:
+          "https://divante.com/open-graph/favicons_storefrontui/sfui_favicon-32x32.png",
+      },
+    ],
   ],
   themeConfig: {
-    logo: '/logo.png',
+    logo: "/logo.png",
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Introduction', link: '/introduction' },
-      { text: 'Customization', link: '/customization' },
-      { text: 'Storybook', link: 'http://storybook.storefrontui.io' },
-      { text: 'GitHub', link: 'https://github.com/DivanteLtd/storefront-ui' }
+      { text: "Home", link: "/" },
+      { text: "Introduction", link: "/introduction" },
+      { text: "Customization", link: "/customization" },
+      { text: "Storybook", link: "http://storybook.storefrontui.io" },
+      { text: "GitHub", link: "https://github.com/DivanteLtd/storefront-ui" },
     ],
     sidebarDepth: 2,
     sidebar: [
-      ['/introduction', 'Introduction'],
-      ['/getting-started', 'Getting started'],
-      ['/customization', 'Customization'],
-      ['/migration-guide', 'Migration Guide'],
-      ['/meet-the-team', 'Meet the core team'],
+      ["/introduction", "Introduction"],
+      ["/getting-started", "Getting started"],
+      ["/customization", "Customization"],
+      ["/migration-guide", "Migration Guide"],
+      ["/meet-the-team", "Meet the core team"],
       {
-        title: 'Contributing Guide',
+        title: "Contributing Guide",
         collapsable: false,
         children: [
-          ['/contributing/become-a-contributor', 'Become a contributor'],
-          ['/contributing/github-guidelines', 'Working with Github'],
-          ['/contributing/coding-guidelines', 'Coding guidelines'],
-          ['/contributing/branching-guidelines', 'Branching guidelines'],
-          ['/contributing/creating-new-component', 'Create/Edit Component'],
-          ['/contributing/documentation-guidelines', 'Documentation guidelines'],
-          ['/contributing/issue-report-guidelines', 'How to report an issue'],
+          ["/contributing/become-a-contributor", "Become a contributor"],
+          ["/contributing/github-guidelines", "Working with Github"],
+          ["/contributing/coding-guidelines", "Coding guidelines"],
+          ["/contributing/branching-guidelines", "Branching guidelines"],
+          ["/contributing/creating-new-component", "Create/Edit Component"],
+          [
+            "/contributing/documentation-guidelines",
+            "Documentation guidelines",
+          ],
+          ["/contributing/issue-report-guidelines", "How to report an issue"],
         ],
       },
       {
-        title: 'Styles & Designs',
+        title: "Styles & Designs",
         collapsable: false,
         children: [
-          ['/design/color-palette', 'Colors'],
-          ['/design/sizes', 'Sizes'],
-          ['/design/working-with-designs', 'Working with Designs']
+          ["/design/color-palette", "Colors"],
+          ["/design/sizes", "Sizes"],
+          ["/design/working-with-designs", "Working with Designs"],
         ],
       },
       {
-        title: 'Components [WIP]',
+        title: "Components [WIP]",
         collapsable: false,
         children: [
+          {
+            title: "Atoms",
+            children: [["/components/Organisms/Accordion", "Accordion"]],
+          },
+          {
+            title: "Molecules",
+            children: [["/components/Organisms/Accordion", "Accordion"]],
+          },
+          {
+            title: "Organisms",
+            children: [["/components/Organisms/Accordion", "Accordion"]],
+          },
           // @components-docs-start (keep comment and indentation for auto-generated component docs)
           ["/components/Accordion", "Accordion"],
           ["/components/AddToCart", "Add To Cart"],
@@ -108,10 +132,10 @@ module.exports = {
           ["/components/StoreLocator", "Store Locator"],
           ["/components/Table", "Table"],
           ["/components/Tabs", "Tabs"],
-          ["/components/TopBar", "Top Bar"]
+          ["/components/TopBar", "Top Bar"],
           // @components-docs-end
         ],
       },
-    ]
-  }
+    ],
+  },
 };
