@@ -33,6 +33,7 @@ module.exports = {
           ['/contributing/issue-report-guidelines', 'How to report an issue'],
         ],
       },
+      ['/faq', 'FAQ'],
       {
         title: 'Styles & Designs',
         collapsable: false,
