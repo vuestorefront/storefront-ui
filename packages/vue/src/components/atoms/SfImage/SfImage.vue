@@ -18,15 +18,18 @@
       />
     </template>
     <template v-else>
-      <picture>
+      <picture :data-iesrc="srcIE" :data-alt="alt">
         <source
-          :srcset="source.desktop.url"
-          :media="`(min-width: ${pictureBreakpoint}px)`"
+          v-for="(srcItem, i) in source"
+          :key="i"
+          :srcset="srcItem.src"
+          :media="srcItem.media"
+          :type="srcItem.type"
         />
-        <source
+        <!-- <source
           :srcset="source.mobile.url"
           :media="`(max-width: ${pictureBreakpoint}px)`"
-        />
+        /> -->
         <img
           v-if="show"
           ref="image"
@@ -50,8 +53,8 @@ export default {
   name: "SfImage",
   props: {
     src: {
-      type: [String, Object],
-      default: () => ({ mobile: { url: "" }, desktop: { url: "" } })
+      type: [String, Array, Object],
+      default: ""
     },
     alt: {
       type: String,
@@ -77,18 +80,33 @@ export default {
   data() {
     return {
       show: false,
-      overlay: false
+      overlay: false,
+      srcIE: ""
     };
   },
   computed: {
     source() {
       let src = this.src || "";
-      if (typeof src === "object") {
+      if (Array.isArray(this.src)) {
+         this.srcIE = src.shift().src;     
+      }
+      if (typeof src === "object" && !Array.isArray(this.src)) {
+         src = [
+          {
+            src: this.src.mobile.url,
+            media:"(max-width: {{pictureBreakpoint}}px)",
+          },
+          {
+            src: this.src.desktop.url,
+            media:"(min-width: {{pictureBreakpoint}}px)"
+            }
+        ]
         if (!src.desktop || !src.mobile) {
           const object = src.desktop || src.mobile || { url: "" };
           src = object.url;
         }
       }
+      console.log(src);
       return src;
     },
     showOverlay() {
