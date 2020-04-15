@@ -32,21 +32,43 @@
         <div v-if="address" class="sf-store__address" tabindex="0">
           {{ address }}
         </div>
-        <div v-if="phone" class="sf-store__property">
-          <SfIcon icon="phone" size="16px" class="sf-store__property-icon" />
-          <span tabindex="0">{{ phone }}</span>
-        </div>
-        <div v-if="email" class="sf-store__property">
-          <SfIcon icon="mail" size="16px" class="sf-store__property-icon" />
-          <span tabindex="0">{{ email }}</span>
-        </div>
+        <SfCharacteristic
+          v-if="phone"
+          icon="phone"
+          size-icon="16px"
+          class="sf-store__property"
+        >
+          <template #text>
+            <a
+              :href="`tel:${phone}`"
+              tabindex="0"
+              class="sf-store__property-link"
+              >{{ phone }}</a
+            >
+          </template>
+        </SfCharacteristic>
+        <SfCharacteristic
+          v-if="email"
+          icon="mail"
+          size-icon="16px"
+          class="sf-store__property"
+        >
+          <template #text>
+            <a
+              :href="`mailto:${email}`"
+              tabindex="0"
+              class="sf-store__property-link"
+              >{{ email }}</a
+            >
+          </template>
+        </SfCharacteristic>
       </slot>
     </div>
   </div>
 </template>
 <script>
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
-import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
+import SfCharacteristic from "../../../molecules/SfCharacteristic/SfCharacteristic.vue";
 export default {
   name: "SfStore",
   inject: [
@@ -58,7 +80,7 @@ export default {
   ],
   components: {
     SfImage,
-    SfIcon
+    SfCharacteristic
   },
   props: {
     /**
