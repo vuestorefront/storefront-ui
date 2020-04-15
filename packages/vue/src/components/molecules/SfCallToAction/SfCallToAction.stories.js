@@ -7,24 +7,24 @@ storiesOf("Molecules|CallToAction", module)
     components: { SfCallToAction },
     props: {
       title: {
-        default: text("title", "Subscribe to Newsletters", "Props")
+        default: text("title", "Subscribe to Newsletters", "Props"),
       },
       description: {
         default: text(
           "description",
           "Be aware of upcoming sales and events. Receive gifts and special offers!",
           "Props"
-        )
+        ),
       },
       buttonText: {
-        default: text("buttonText", "Subscribe", "Props")
+        default: text("buttonText", "Subscribe", "Props"),
       },
       image: {
-        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props")
+        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
       },
       background: {
-        default: color("background", "#e1e3e2", "Props")
-      }
+        default: color("background", "#e1e3e2", "Props"),
+      },
     },
     template: `<div style="max-width: 1024px">
       <SfCallToAction      
@@ -33,30 +33,30 @@ storiesOf("Molecules|CallToAction", module)
       :button-text="buttonText"
       :image="image"
       :background="background"/>
-    </div>`
+    </div>`,
   }))
   .add("[slot] title", () => ({
     components: { SfCallToAction },
     props: {
       title: {
-        default: text("title", "Subscribe to Newsletters", "Props")
+        default: text("title", "Subscribe to Newsletters", "Props"),
       },
       description: {
         default: text(
           "description",
           "Be aware of upcoming sales and events. Receive gifts and special offers!",
           "Props"
-        )
+        ),
       },
       buttonText: {
-        default: text("buttonText", "Subscribe", "Props")
+        default: text("buttonText", "Subscribe", "Props"),
       },
       image: {
-        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props")
+        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
       },
       background: {
-        default: color("background", "#e1e3e2", "Props")
-      }
+        default: color("background", "#e1e3e2", "Props"),
+      },
     },
     template: `<div style="max-width: 1024px">
       <SfCallToAction      
@@ -69,30 +69,30 @@ storiesOf("Molecules|CallToAction", module)
           CUSTOM TITLE
          </template>
       </SfCallToAction>
-    </div>`
+    </div>`,
   }))
   .add("[slot] description", () => ({
     components: { SfCallToAction },
     props: {
       title: {
-        default: text("title", "Subscribe to Newsletters", "Props")
+        default: text("title", "Subscribe to Newsletters", "Props"),
       },
       description: {
         default: text(
           "description",
           "Be aware of upcoming sales and events. Receive gifts and special offers!",
           "Props"
-        )
+        ),
       },
       buttonText: {
-        default: text("buttonText", "Subscribe", "Props")
+        default: text("buttonText", "Subscribe", "Props"),
       },
       image: {
-        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props")
+        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
       },
       background: {
-        default: color("background", "#e1e3e2", "Props")
-      }
+        default: color("background", "#e1e3e2", "Props"),
+      },
     },
     template: `<div style="max-width: 1024px">
       <SfCallToAction      
@@ -105,30 +105,30 @@ storiesOf("Molecules|CallToAction", module)
           CUSTOM DESCRIPTION
          </template>
       </SfCallToAction>
-    </div>`
+    </div>`,
   }))
   .add("[slot] button", () => ({
     components: { SfCallToAction },
     props: {
       title: {
-        default: text("title", "Subscribe to Newsletters", "Props")
+        default: text("title", "Subscribe to Newsletters", "Props"),
       },
       description: {
         default: text(
           "description",
           "Be aware of upcoming sales and events. Receive gifts and special offers!",
           "Props"
-        )
+        ),
       },
       buttonText: {
-        default: text("buttonText", "Subscribe", "Props")
+        default: text("buttonText", "Subscribe", "Props"),
       },
       image: {
-        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props")
+        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
       },
       background: {
-        default: color("background", "#e1e3e2", "Props")
-      }
+        default: color("background", "#e1e3e2", "Props"),
+      },
     },
     template: `<div style="max-width: 1024px">
       <SfCallToAction      
@@ -141,5 +141,5 @@ storiesOf("Molecules|CallToAction", module)
           <button>CUSTOM BUTTON</button>
          </template>
       </SfCallToAction>
-    </div>`
+    </div>`,
   }));

@@ -35,15 +35,15 @@ export default {
      */
     total: {
       type: Number,
-      default: 0
+      default: 0,
     },
     /**
      * Index of the currently active bullet (0-indexed)
      */
     current: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   computed: {
     inactiveRight() {
@@ -51,13 +51,13 @@ export default {
     },
     inactiveLeft() {
       return this.total - this.inactiveRight - 1;
-    }
+    },
   },
   methods: {
     go(index) {
       this.$emit("click", index);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

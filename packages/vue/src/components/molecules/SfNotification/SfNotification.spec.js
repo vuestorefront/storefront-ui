@@ -4,8 +4,8 @@ describe("SfNotification.vue", () => {
   it("renders the notification", () => {
     const component = shallowMount(SfNotification, {
       propsData: {
-        visible: true
-      }
+        visible: true,
+      },
     });
     expect(component.contains(".sf-notification")).toBe(true);
   });
@@ -14,8 +14,8 @@ describe("SfNotification.vue", () => {
     const component = shallowMount(SfNotification, {
       propsData: {
         visible: true,
-        message
-      }
+        message,
+      },
     });
     expect(component.find(".sf-notification__message").text()).toMatch(message);
   });
@@ -23,30 +23,30 @@ describe("SfNotification.vue", () => {
     const component = shallowMount(SfNotification, {
       propsData: {
         visible: true,
-        icon: "info"
-      }
+        icon: "info",
+      },
     });
     expect(component.contains(".sf-notification__icon")).toBe(true);
   });
   it("renders an alert icon when passed via slot", () => {
     const component = shallowMount(SfNotification, {
       propsData: {
-        visible: true
+        visible: true,
       },
       slots: {
-        icon: "<img class='slotImg' src='/assets/img.jpg' />"
-      }
+        icon: "<img class='slotImg' src='/assets/img.jpg' />",
+      },
     });
     expect(component.contains(".slotImg")).toBe(true);
   });
   it("renders an alert message when passed via slot", () => {
     const component = shallowMount(SfNotification, {
       propsData: {
-        visible: true
+        visible: true,
       },
       slots: {
-        message: "<p class='slotMessage'>text</p>"
-      }
+        message: "<p class='slotMessage'>text</p>",
+      },
     });
     expect(component.contains(".slotMessage")).toBe(true);
   });

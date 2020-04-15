@@ -61,7 +61,7 @@ import {
   SfButton,
   SfCharacteristic,
   SfProperty,
-  SfDivider
+  SfDivider,
 } from "@storefront-ui/vue";
 export default {
   name: "OrderSummary",
@@ -70,25 +70,25 @@ export default {
     SfButton,
     SfDivider,
     SfCharacteristic,
-    SfProperty
+    SfProperty,
   },
   props: {
     order: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     products: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     shippingMethods: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     totalItems: {
       type: Number,
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
@@ -96,26 +96,26 @@ export default {
         {
           title: "Safety",
           description: "It carefully packaged with a personal touch",
-          icon: "safety"
+          icon: "safety",
         },
         {
           title: "Easy shipping",
           description:
             "You’ll receive dispatch confirmation and an arrival date",
-          icon: "shipping"
+          icon: "shipping",
         },
         {
           title: "Changed your mind?",
           description: "Rest assured, we offer free returns within 30 days",
-          icon: "return"
-        }
-      ]
+          icon: "return",
+        },
+      ],
     };
   },
   computed: {
     cheapestShippingMethod() {
       const methods = this.shippingMethods.filter(
-        method => method.price !== "Free"
+        (method) => method.price !== "Free"
       );
       const cheapestMethod = methods.reduce((previous, current) => {
         const price = parseFloat(current.price.replace("$", ""));
@@ -143,8 +143,8 @@ export default {
       );
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
       return "$" + total.toFixed(2);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

@@ -31,17 +31,17 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: ""
+      default: "",
     },
     value: {
       type: [Number, String],
-      default: null
+      default: null,
     },
     ariaLabel: {
       type: String,
-      default: "Search"
-    }
-  }
+      default: "Search",
+    },
+  },
 };
 </script>
 <style lang="scss">
