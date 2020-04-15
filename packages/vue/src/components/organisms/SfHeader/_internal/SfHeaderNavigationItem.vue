@@ -8,15 +8,15 @@ export default {
   name: "SfHeaderNavigationItem",
   data() {
     return {
-      maxWidth: {}
+      maxWidth: {},
     };
   },
   mounted() {
     this.$nextTick(() => {
       this.maxWidth = {
-        "--max-width": `${this.$el.offsetWidth}px`
+        "--max-width": `${this.$el.offsetWidth}px`,
       };
     });
-  }
+  },
 };
 </script>

@@ -53,11 +53,11 @@ export default {
   components: {
     SfBar,
     SfOverlay,
-    SfIcon
+    SfIcon,
   },
   model: {
     prop: "visible",
-    event: "close"
+    event: "close",
   },
   props: {
     /**
@@ -65,67 +65,67 @@ export default {
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Visibility of the modal
      */
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Cross closing modal button
      */
     cross: {
       type: Boolean,
-      default: true
+      default: true,
     },
     /**
      * Whether to show the overlay
      */
     overlay: {
       type: Boolean,
-      default: true
+      default: true,
     },
     /**
      * If true clicking outside will not dismiss the modal
      */
     persistent: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * overlay transition effect
      */
     transitionOverlay: {
       type: String,
-      default: "fade"
+      default: "fade",
     },
     /**
      * overlay transition effect
      */
     transitionModal: {
       type: String,
-      default: "fade"
+      default: "fade",
     },
     /**
      * aria-label of the close button
      */
     ariaLabelClose: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
       staticClass: null,
-      className: null
+      className: null,
     };
   },
   watch: {
     visible: {
-      handler: function(value) {
+      handler: function (value) {
         if (typeof window === "undefined" || typeof document === "undefined")
           return;
         if (value) {
@@ -138,8 +138,8 @@ export default {
           document.removeEventListener("keydown", this.keydownHandler);
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
     close() {
@@ -162,8 +162,8 @@ export default {
       if (this.className !== this.$vnode.data.class) {
         this.className = this.$vnode.data.class;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -43,9 +43,9 @@ export default {
      */
     loading: {
       default: true,
-      type: Boolean
-    }
-  }
+      type: Boolean,
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -3,11 +3,11 @@ export const focus = {
     el.tabindex = binding ? binding.value : 0;
   },
   bind(el) {
-    el._mouseHandler = function() {
+    el._mouseHandler = function () {
       el.style.outline = "none";
       el.blur();
     };
-    el._keyHandler = function() {
+    el._keyHandler = function () {
       el.style.outline = "";
       el.focus();
     };
@@ -17,5 +17,5 @@ export const focus = {
   unbind(el) {
     window.removeEventListener("mousedown", el._mouseHandler);
     el.removeEventListener("keyup", el._keyHandler);
-  }
+  },
 };

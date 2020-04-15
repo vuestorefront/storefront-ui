@@ -15,7 +15,7 @@
 import { SfTabs } from "@storefront-ui/vue";
 export default {
   name: "MyReviews",
-  components: { SfTabs }
+  components: { SfTabs },
 };
 </script>
 <style lang="scss" scoped>

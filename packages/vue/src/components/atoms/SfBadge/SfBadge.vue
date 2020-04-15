@@ -6,7 +6,7 @@
 </template>
 <script>
 export default {
-  name: "SfBadge"
+  name: "SfBadge",
 };
 </script>
 <style lang="scss">
