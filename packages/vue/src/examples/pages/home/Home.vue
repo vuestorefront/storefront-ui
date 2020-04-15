@@ -32,7 +32,7 @@
       image="/assets/storybook/Home/newsletter.jpg"
     />
     <SfSection title-heading="Bestsellers">
-      <SfCarousel class="carousel">
+      <SfCarousel :settings="carouselSettings" class="carousel">
         <SfCarouselItem
           v-for="(product, index) in products"
           :key="index"
@@ -118,6 +118,9 @@ export default {
   },
   data() {
     return {
+      carouselSettings: {
+        peek: 16
+      },
       headingTitle: {
         mobile: "Match it with",
         desktop: "Bestsellers",
@@ -332,7 +335,7 @@ export default {
     margin: 0;
   }
   &__item {
-    padding: var(--spacer-base) var(--spacer-2xs);
+    margin: var(--spacer-base) 0;
   }
 }
 .banner-grid {
