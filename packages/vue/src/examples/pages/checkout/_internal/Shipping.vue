@@ -161,7 +161,7 @@ import {
   SfInput,
   SfButton,
   SfSelect,
-  SfRadio
+  SfRadio,
 } from "@storefront-ui/vue";
 export default {
   name: "Shipping",
@@ -170,17 +170,17 @@ export default {
     SfInput,
     SfButton,
     SfSelect,
-    SfRadio
+    SfRadio,
   },
   props: {
     shippingMethods: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     value: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -241,8 +241,8 @@ export default {
         "Turkey",
         "Ukraine",
         "United Kingdom",
-        "Vatican City"
-      ]
+        "Vatican City",
+      ],
     };
   },
   watch: {
@@ -259,17 +259,17 @@ export default {
         this.phoneNumber = this.value.phoneNumber;
         this.shippingMethod = this.value.shippingMethod;
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
     updateField(fieldName, fieldValue) {
       this.$emit("input", {
         ...this.value,
-        [fieldName]: fieldValue
+        [fieldName]: fieldValue,
       });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

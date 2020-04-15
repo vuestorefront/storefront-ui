@@ -1,7 +1,7 @@
 import {
   mapMobileObserver,
   unMapMobileObserver,
-  onMediaMatch
+  onMediaMatch,
 } from "./mobile-observer";
 describe("mobile observer", () => {
   let addListener;
@@ -23,7 +23,7 @@ describe("mobile observer", () => {
       removeListener = jest.fn();
       window.matchMedia = jest.fn().mockReturnValue({
         addListener,
-        removeListener
+        removeListener,
       });
       instance = mapMobileObserver();
     });

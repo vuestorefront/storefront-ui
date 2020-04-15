@@ -20,13 +20,13 @@ export default {
   props: {
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     color: {
       type: String,
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 <style lang="scss">

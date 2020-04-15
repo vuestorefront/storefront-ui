@@ -4,7 +4,7 @@
     :class="{
       'sf-header--has-mobile-search': hasMobileSearch,
       'sf-header--is-sticky': isSticky,
-      'sf-header--is-hidden': !isVisible
+      'sf-header--is-hidden': !isVisible,
     }"
   >
     <div class="sf-header__sticky-container">
@@ -52,7 +52,7 @@
               size="xs"
               class="sf-header__icon"
               :class="{
-                'sf-header__icon--is-active': activeIcon === icon.name
+                'sf-header__icon--is-active': activeIcon === icon.name,
               }"
               role="button"
               :aria-label="icon.name"
@@ -73,7 +73,7 @@ import Vue from "vue";
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
 import {
   mapMobileObserver,
-  unMapMobileObserver
+  unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
@@ -84,7 +84,7 @@ export default {
   components: {
     SfIcon,
     SfImage,
-    SfSearchBar
+    SfSearchBar,
   },
   props: {
     /**
@@ -92,35 +92,35 @@ export default {
      */
     logo: {
       type: [String, Object],
-      default: ""
+      default: "",
     },
     /**
      * Header title
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Header cartIcon (accepts same value as SfIcon)
      */
     cartIcon: {
       type: [String, Boolean],
-      default: "empty_cart"
+      default: "empty_cart",
     },
     /**
      * Header wishlistIcon (accepts same value as SfIcon)
      */
     wishlistIcon: {
       type: [String, Boolean],
-      default: "heart"
+      default: "heart",
     },
     /**
      * Header accountIcon (accepts same value as SfIcon)
      */
     accountIcon: {
       type: [String, Boolean],
-      default: "profile"
+      default: "profile",
     },
     /**
      * Header activeIcon (accepts account, wishlist and cart)
@@ -130,28 +130,28 @@ export default {
       default: "",
       validator(value) {
         return ["", "account", "wishlist", "cart"].includes(value);
-      }
+      },
     },
     /**
      * Header search on mobile
      */
     hasMobileSearch: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Header sticky to top
      */
     isSticky: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Header search placeholder
      */
     searchPlaceholder: {
       type: String,
-      default: "Search for items"
+      default: "Search for items",
     },
     /**
      * Header search phrase
@@ -165,8 +165,8 @@ export default {
      */
     cartItemsQty: {
       type: String,
-      default: "0"
-    }
+      default: "0",
+    },
   },
   data() {
     return {
@@ -175,20 +175,20 @@ export default {
           conditional: this.accountIcon,
           icon: this.accountIcon,
           name: "account",
-          hasBadge: false
+          hasBadge: false,
         },
         {
           conditional: this.wishlistIcon,
           icon: this.wishlistIcon,
           name: "wishlist",
-          hasBadge: false
+          hasBadge: false,
         },
         {
           conditional: this.cartIcon,
           icon: this.cartIcon,
           name: "cart",
-          hasBadge: true
-        }
+          hasBadge: true,
+        },
       ],
       isVisible: true,
       isSearchVisible: true,
@@ -198,14 +198,14 @@ export default {
       animationStart: undefined,
       animationLong: undefined,
       animationDuration: 300,
-      height: {}
+      height: {},
     };
   },
   computed: {
     ...mapMobileObserver(),
     isCartEmpty() {
       return !!this.cartItemsQty;
-    }
+    },
   },
   watch: {
     scrollDirection() {
@@ -223,11 +223,11 @@ export default {
         this.$nextTick(() => {
           const containerHeight = this.$refs.header;
           this.height = {
-            height: `${containerHeight.offsetHeight}px`
+            height: `${containerHeight.offsetHeight}px`,
           };
         });
       },
-      immediate: true
+      immediate: true,
     },
     hasMobileSearch: {
       handler() {
@@ -236,12 +236,12 @@ export default {
             return;
           const computedContainer = window.getComputedStyle(this.$refs.header);
           this.height = {
-            height: computedContainer.height
+            height: computedContainer.height,
           };
         });
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   mounted() {
     if (this.isSticky) {
@@ -274,8 +274,8 @@ export default {
       this.scrollDirection = currentScrollPosition < this.lastScrollPosition;
       this.isSearchVisible = currentScrollPosition <= 0;
       this.lastScrollPosition = currentScrollPosition;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">
