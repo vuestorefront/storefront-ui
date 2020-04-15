@@ -20,9 +20,9 @@ export default {
   props: {
     ariaLabel: {
       type: String,
-      default: "Arrow"
-    }
-  }
+      default: "Arrow",
+    },
+  },
 };
 </script>
 <style lang="scss">

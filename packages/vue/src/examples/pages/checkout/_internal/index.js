@@ -10,5 +10,5 @@ export {
   Payment,
   ConfirmOrder,
   OrderSummary,
-  OrderReview
+  OrderReview,
 };

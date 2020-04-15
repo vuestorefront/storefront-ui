@@ -33,26 +33,26 @@ export default {
   name: "SfFilter",
   components: {
     SfCheckbox,
-    SfColor
+    SfColor,
   },
   props: {
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     count: {
       type: [String, Number],
-      default: ""
+      default: "",
     },
     selected: {
       type: Boolean,
-      default: false
+      default: false,
     },
     color: {
       type: String,
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 <style lang="scss">
