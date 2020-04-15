@@ -7,7 +7,7 @@
         header,
         isOpen,
         accordionClick,
-        showChevron: $parent.showChevron
+        showChevron: $parent.showChevron,
       }"
     >
       <div
@@ -35,24 +35,24 @@ import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 export default {
   name: "SfAccordionItem",
   components: {
-    SfChevron
+    SfChevron,
   },
   props: {
     header: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
     };
   },
   methods: {
     accordionClick() {
       this.$parent.$emit("toggle", this._uid);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

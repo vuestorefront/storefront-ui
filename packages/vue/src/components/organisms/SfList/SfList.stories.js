@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import SfList from "./SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
@@ -13,8 +12,8 @@ storiesOf("Organisms|List", module).add("Common", () => ({
         { label: "Belts", count: "101" },
         { label: "Bag", count: "2" },
         { label: "Trainers", count: "22" },
-        { label: "Sandals", count: "55" }
-      ]
+        { label: "Sandals", count: "55" },
+      ],
     };
   },
   template: `<SfList :style="{maxWidth: '186px'}">
@@ -25,5 +24,5 @@ storiesOf("Organisms|List", module).add("Common", () => ({
       >
         <SfMenuItem :label="item.label" :count="item.count"/>
       </SfListItem>
-    </SfList>`
+    </SfList>`,
 }));

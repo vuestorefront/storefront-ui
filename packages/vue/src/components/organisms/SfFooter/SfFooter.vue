@@ -10,7 +10,7 @@ import Vue from "vue";
 import SfFooterColumn from "./_internal/SfFooterColumn.vue";
 import {
   mapMobileObserver,
-  unMapMobileObserver
+  unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
 Vue.component("SfFooterColumn", SfFooterColumn);
 export default {
@@ -18,24 +18,24 @@ export default {
   props: {
     column: {
       type: Number,
-      default: 4
+      default: 4,
     },
     multiple: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
     return {
       open: [],
-      items: []
+      items: [],
     };
   },
   computed: {
     ...mapMobileObserver(),
     style() {
       return { "--_footer-column-width": `${100 / this.column}%` };
-    }
+    },
   },
   watch: {
     isMobile: {
@@ -44,8 +44,8 @@ export default {
           this.open = mobile ? [] : [...this.items];
         });
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   beforeDestroy() {
     unMapMobileObserver();
@@ -56,13 +56,13 @@ export default {
       if (!this.multiple) {
         this.open = [payload];
       } else if (this.open.includes(payload)) {
-        this.open = this.open.filter(item => item !== payload);
+        this.open = this.open.filter((item) => item !== payload);
       } else {
         this.open.push(payload);
       }
       this.$emit("change", this.open);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

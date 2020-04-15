@@ -1,19 +1,18 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
   select,
   boolean,
-  object
+  object,
 } from "@storybook/addon-knobs";
 import SfHeader from "./SfHeader.vue";
 const StoriesPlaceholder = {
   props: {
     mobile: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     style() {
@@ -22,12 +21,12 @@ const StoriesPlaceholder = {
         alignItems: "center",
         justifyContent: "center",
         height: "155vh",
-        background: "#f2f2f2"
+        background: "#f2f2f2",
       };
       return style;
-    }
+    },
   },
-  template: `<div :style="style">[page content]</div>`
+  template: `<div :style="style">[page content]</div>`,
 };
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
@@ -35,17 +34,17 @@ storiesOf("Organisms|Header", module)
     components: { SfHeader, StoriesPlaceholder },
     props: {
       title: {
-        default: text("title", "Storefront UI", "Props")
+        default: text("title", "Storefront UI", "Props"),
       },
       logo: {
         default: object(
           "logo",
           {
             mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" }
+            desktop: { url: "/assets/logo.svg" },
           },
           "Props"
-        )
+        ),
       },
       activeIcon: {
         default: select(
@@ -53,40 +52,40 @@ storiesOf("Organisms|Header", module)
           ["", "account", "wishlist", "cart"],
           "account",
           "Props"
-        )
+        ),
       },
       hasMobileSearch: {
-        default: boolean("hasMobileSearch", false, "Props")
+        default: boolean("hasMobileSearch", false, "Props"),
       },
       isSticky: {
-        default: boolean("isSticky", true, "Props")
+        default: boolean("isSticky", true, "Props"),
       },
       searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props")
+        default: text("searchPlaceholder", "Search for items", "Props"),
       },
       cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props")
+        default: text("cartIcon", "empty_cart", "Props"),
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props")
+        default: text("wishlistIcon", "heart", "Props"),
       },
       accountIcon: {
-        default: text("accountIcon", "profile", "Props")
+        default: text("accountIcon", "profile", "Props"),
       },
       cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props")
-      }
+        default: text("cartItemsQty", "0", "Props"),
+      },
     },
     data() {
       return {
         isMobile: false,
-        navigation: ["women", "man", "kids"]
+        navigation: ["women", "man", "kids"],
       };
     },
     computed: {
       spacer() {
         return;
-      }
+      },
     },
     mounted() {
       this.isMobile =
@@ -105,7 +104,7 @@ storiesOf("Organisms|Header", module)
       },
       mobileHandler(event) {
         this.isMobile = event.matches;
-      }
+      },
     },
     template: `<div>
       <SfHeader
@@ -133,23 +132,23 @@ storiesOf("Organisms|Header", module)
         </template>
       </SfHeader>
       <StoriesPlaceholder :mobile="isMobile"/>
-    </div>`
+    </div>`,
   }))
   .add("[slot] navigation", () => ({
     components: { SfHeader },
     props: {
       title: {
-        default: text("title", "Storefront UI", "Props")
+        default: text("title", "Storefront UI", "Props"),
       },
       logo: {
         default: object(
           "logo",
           {
             mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" }
+            desktop: { url: "/assets/logo.svg" },
           },
           "Props"
-        )
+        ),
       },
       activeIcon: {
         default: select(
@@ -157,31 +156,31 @@ storiesOf("Organisms|Header", module)
           ["", "account", "wishlist", "cart"],
           "account",
           "Props"
-        )
+        ),
       },
       hasMobileSearch: {
-        default: boolean("hasMobileSearch", false, "Props")
+        default: boolean("hasMobileSearch", false, "Props"),
       },
       searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props")
+        default: text("searchPlaceholder", "Search for items", "Props"),
       },
       cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props")
+        default: text("cartIcon", "empty_cart", "Props"),
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props")
+        default: text("wishlistIcon", "heart", "Props"),
       },
       accountIcon: {
-        default: text("accountIcon", "profile", "Props")
+        default: text("accountIcon", "profile", "Props"),
       },
       cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props")
-      }
+        default: text("cartItemsQty", "0", "Props"),
+      },
     },
     data() {
       return {
         isMobile: false,
-        navigation: ["women", "man", "kids"]
+        navigation: ["women", "man", "kids"],
       };
     },
     computed: {
@@ -189,7 +188,7 @@ storiesOf("Organisms|Header", module)
         return this.isMobile
           ? { margin: "auto", padding: "0 1.25rem" }
           : { margin: "auto", padding: "0 2.5rem" };
-      }
+      },
     },
     mounted() {
       this.isMobile =
@@ -208,7 +207,7 @@ storiesOf("Organisms|Header", module)
       },
       mobileHandler(event) {
         this.isMobile = event.matches;
-      }
+      },
     },
     template: `<SfHeader
         :title="title"
@@ -228,23 +227,23 @@ storiesOf("Organisms|Header", module)
       <template #navigation>
         <div :style="{margin: '0 0 0 1.25rem', display: 'flex', alignItems:'center', height: '100%'}">CUSTOM NAVIGATION</div>
       </template>
-    </SfHeader>`
+    </SfHeader>`,
   }))
   .add("[slot] logo", () => ({
     components: { SfHeader },
     props: {
       title: {
-        default: text("title", "Storefront UI", "Props")
+        default: text("title", "Storefront UI", "Props"),
       },
       logo: {
         default: object(
           "logo",
           {
             mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" }
+            desktop: { url: "/assets/logo.svg" },
           },
           "Props"
-        )
+        ),
       },
       activeIcon: {
         default: select(
@@ -252,31 +251,31 @@ storiesOf("Organisms|Header", module)
           ["", "account", "wishlist", "cart"],
           "account",
           "Props"
-        )
+        ),
       },
       hasMobileSearch: {
-        default: boolean("hasMobileSearch", false, "Props")
+        default: boolean("hasMobileSearch", false, "Props"),
       },
       searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props")
+        default: text("searchPlaceholder", "Search for items", "Props"),
       },
       cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props")
+        default: text("cartIcon", "empty_cart", "Props"),
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props")
+        default: text("wishlistIcon", "heart", "Props"),
       },
       accountIcon: {
-        default: text("accountIcon", "profile", "Props")
+        default: text("accountIcon", "profile", "Props"),
       },
       cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props")
-      }
+        default: text("cartItemsQty", "0", "Props"),
+      },
     },
     data() {
       return {
         isMobile: false,
-        navigation: ["women", "man", "kids"]
+        navigation: ["women", "man", "kids"],
       };
     },
     computed: {
@@ -284,7 +283,7 @@ storiesOf("Organisms|Header", module)
         return this.isMobile
           ? { margin: "auto", padding: "0 1.25rem" }
           : { margin: "auto", padding: "0 2.5rem" };
-      }
+      },
     },
     mounted() {
       this.isMobile =
@@ -303,7 +302,7 @@ storiesOf("Organisms|Header", module)
       },
       mobileHandler(event) {
         this.isMobile = event.matches;
-      }
+      },
     },
     template: `<SfHeader
         :title="title"
@@ -330,23 +329,23 @@ storiesOf("Organisms|Header", module)
           <a href="#" :style="{ display: 'flex',alignItems: 'center',height: '100%' }">{{item}}</a>
         </SfHeaderNavigationItem>
       </template>
-    </SfHeader>`
+    </SfHeader>`,
   }))
   .add("[slot] search", () => ({
     components: { SfHeader },
     props: {
       title: {
-        default: text("title", "Storefront UI", "Props")
+        default: text("title", "Storefront UI", "Props"),
       },
       logo: {
         default: object(
           "logo",
           {
             mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" }
+            desktop: { url: "/assets/logo.svg" },
           },
           "Props"
-        )
+        ),
       },
       activeIcon: {
         default: select(
@@ -354,31 +353,31 @@ storiesOf("Organisms|Header", module)
           ["", "account", "wishlist", "cart"],
           "account",
           "Props"
-        )
+        ),
       },
       hasMobileSearch: {
-        default: boolean("hasMobileSearch", false, "Props")
+        default: boolean("hasMobileSearch", false, "Props"),
       },
       searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props")
+        default: text("searchPlaceholder", "Search for items", "Props"),
       },
       cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props")
+        default: text("cartIcon", "empty_cart", "Props"),
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props")
+        default: text("wishlistIcon", "heart", "Props"),
       },
       accountIcon: {
-        default: text("accountIcon", "profile", "Props")
+        default: text("accountIcon", "profile", "Props"),
       },
       cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props")
-      }
+        default: text("cartItemsQty", "0", "Props"),
+      },
     },
     data() {
       return {
         isMobile: false,
-        navigation: ["women", "man", "kids"]
+        navigation: ["women", "man", "kids"],
       };
     },
     computed: {
@@ -386,7 +385,7 @@ storiesOf("Organisms|Header", module)
         return this.isMobile
           ? { margin: "auto", padding: "0 1.25rem" }
           : { margin: "auto", padding: "0 2.5rem" };
-      }
+      },
     },
     mounted() {
       this.isMobile =
@@ -405,7 +404,7 @@ storiesOf("Organisms|Header", module)
       },
       mobileHandler(event) {
         this.isMobile = event.matches;
-      }
+      },
     },
     template: `<SfHeader
         :title="title"
@@ -432,23 +431,23 @@ storiesOf("Organisms|Header", module)
           <a href="#" :style="{ display: 'flex',alignItems: 'center',height: '100%' }">{{item}}</a>
         </SfHeaderNavigationItem>
       </template>
-    </SfHeader>`
+    </SfHeader>`,
   }))
   .add("[slot] header-icons", () => ({
     components: { SfHeader },
     props: {
       title: {
-        default: text("title", "Storefront UI", "Props")
+        default: text("title", "Storefront UI", "Props"),
       },
       logo: {
         default: object(
           "logo",
           {
             mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" }
+            desktop: { url: "/assets/logo.svg" },
           },
           "Props"
-        )
+        ),
       },
       activeIcon: {
         default: select(
@@ -456,31 +455,31 @@ storiesOf("Organisms|Header", module)
           ["", "account", "wishlist", "cart"],
           "account",
           "Props"
-        )
+        ),
       },
       hasMobileSearch: {
-        default: boolean("hasMobileSearch", false, "Props")
+        default: boolean("hasMobileSearch", false, "Props"),
       },
       searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props")
+        default: text("searchPlaceholder", "Search for items", "Props"),
       },
       cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props")
+        default: text("cartIcon", "empty_cart", "Props"),
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props")
+        default: text("wishlistIcon", "heart", "Props"),
       },
       accountIcon: {
-        default: text("accountIcon", "profile", "Props")
+        default: text("accountIcon", "profile", "Props"),
       },
       cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props")
-      }
+        default: text("cartItemsQty", "0", "Props"),
+      },
     },
     data() {
       return {
         isMobile: false,
-        navigation: ["women", "man", "kids"]
+        navigation: ["women", "man", "kids"],
       };
     },
     computed: {
@@ -488,7 +487,7 @@ storiesOf("Organisms|Header", module)
         return this.isMobile
           ? { margin: "auto", padding: "0 1.25rem" }
           : { margin: "auto", padding: "0 2.5rem" };
-      }
+      },
     },
     mounted() {
       this.isMobile =
@@ -507,7 +506,7 @@ storiesOf("Organisms|Header", module)
       },
       mobileHandler(event) {
         this.isMobile = event.matches;
-      }
+      },
     },
     template: `<SfHeader
         :title="title"
@@ -534,23 +533,23 @@ storiesOf("Organisms|Header", module)
           <a href="#" :style="{ display: 'flex',alignItems: 'center',height: '100%' }">{{item}}</a>
         </SfHeaderNavigationItem>
       </template>
-    </SfHeader>`
+    </SfHeader>`,
   }))
   .add("[slot] language-selector", () => ({
     components: { SfHeader },
     props: {
       title: {
-        default: text("title", "Storefront UI", "Props")
+        default: text("title", "Storefront UI", "Props"),
       },
       logo: {
         default: object(
           "logo",
           {
             mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" }
+            desktop: { url: "/assets/logo.svg" },
           },
           "Props"
-        )
+        ),
       },
       activeIcon: {
         default: select(
@@ -558,31 +557,31 @@ storiesOf("Organisms|Header", module)
           ["", "account", "wishlist", "cart"],
           "account",
           "Props"
-        )
+        ),
       },
       hasMobileSearch: {
-        default: boolean("hasMobileSearch", false, "Props")
+        default: boolean("hasMobileSearch", false, "Props"),
       },
       searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props")
+        default: text("searchPlaceholder", "Search for items", "Props"),
       },
       cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props")
+        default: text("cartIcon", "empty_cart", "Props"),
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props")
+        default: text("wishlistIcon", "heart", "Props"),
       },
       accountIcon: {
-        default: text("accountIcon", "profile", "Props")
+        default: text("accountIcon", "profile", "Props"),
       },
       cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props")
-      }
+        default: text("cartItemsQty", "0", "Props"),
+      },
     },
     data() {
       return {
         isMobile: false,
-        navigation: ["women", "man", "kids"]
+        navigation: ["women", "man", "kids"],
       };
     },
     computed: {
@@ -590,7 +589,7 @@ storiesOf("Organisms|Header", module)
         return this.isMobile
           ? { margin: "auto", padding: "0 1.25rem" }
           : { margin: "auto", padding: "0 2.5rem" };
-      }
+      },
     },
     mounted() {
       this.isMobile =
@@ -609,7 +608,7 @@ storiesOf("Organisms|Header", module)
       },
       mobileHandler(event) {
         this.isMobile = event.matches;
-      }
+      },
     },
     template: `<SfHeader
         :title="title"
@@ -630,5 +629,5 @@ storiesOf("Organisms|Header", module)
           <a href="#" :style="{ display: 'flex',alignItems: 'center',height: '100%' }">{{item}}</a>
         </SfHeaderNavigationItem>
       </template>
-    </SfHeader>`
+    </SfHeader>`,
   }));

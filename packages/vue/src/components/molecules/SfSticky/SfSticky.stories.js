@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 const StoriesWrapper = {
   template: `<div style="display: flex;">
@@ -9,12 +8,12 @@ const StoriesWrapper = {
     <div style="flex: 1">
       <slot/>
     </div>
-  </div>`
+  </div>`,
 };
 const StoriesPlaceholder = {
   template: `<div style="display: flex; flex: 1; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
         [#default slot content]
-      </div>`
+      </div>`,
 };
 import SfSticky from "./SfSticky.vue";
 storiesOf("Molecules|Sticky", module).add("Common", () => ({
@@ -23,5 +22,5 @@ storiesOf("Molecules|Sticky", module).add("Common", () => ({
     <SfSticky>
       <StoriesPlaceholder/>
     </SfSticky>
-  </StoriesWrapper>`
+  </StoriesWrapper>`,
 }));
