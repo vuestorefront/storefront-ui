@@ -158,7 +158,7 @@ export default {
      */
     searchValue: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Header cart items quantity

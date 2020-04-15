@@ -63,9 +63,6 @@ storiesOf("Organisms|Header", module)
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props"),
       },
-      searchValue: {
-        default: text("searchValue", "t-shirt", "Props")
-      },
       cartIcon: {
         default: text("cartIcon", "empty_cart", "Props"),
       },
@@ -83,6 +80,7 @@ storiesOf("Organisms|Header", module)
       return {
         isMobile: false,
         navigation: ["women", "man", "kids"],
+        searchValue: "",
       };
     },
     computed: {
@@ -169,9 +167,6 @@ storiesOf("Organisms|Header", module)
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props"),
       },
-      searchValue: {
-        default: text("searchValue", "t-shirt", "Props")
-      },
       cartIcon: {
         default: text("cartIcon", "empty_cart", "Props"),
       },
@@ -189,6 +184,7 @@ storiesOf("Organisms|Header", module)
       return {
         isMobile: false,
         navigation: ["women", "man", "kids"],
+        searchValue: "",
       };
     },
     computed: {
@@ -269,9 +265,6 @@ storiesOf("Organisms|Header", module)
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props"),
       },
-      searchValue: {
-        default: text("searchValue", "t-shirt", "Props")
-      },
       cartIcon: {
         default: text("cartIcon", "empty_cart", "Props"),
       },
@@ -289,6 +282,7 @@ storiesOf("Organisms|Header", module)
       return {
         isMobile: false,
         navigation: ["women", "man", "kids"],
+        searchValue: "",
       };
     },
     computed: {
@@ -376,9 +370,6 @@ storiesOf("Organisms|Header", module)
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props"),
       },
-      searchValue: {
-        default: text("searchValue", "t-shirt", "Props")
-      },
       cartIcon: {
         default: text("cartIcon", "empty_cart", "Props"),
       },
@@ -396,6 +387,7 @@ storiesOf("Organisms|Header", module)
       return {
         isMobile: false,
         navigation: ["women", "man", "kids"],
+        searchValue: "",
       };
     },
     computed: {
@@ -483,9 +475,6 @@ storiesOf("Organisms|Header", module)
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props"),
       },
-      searchValue: {
-        default: text("searchValue", "t-shirt", "Props")
-      },
       cartIcon: {
         default: text("cartIcon", "empty_cart", "Props"),
       },
@@ -503,6 +492,7 @@ storiesOf("Organisms|Header", module)
       return {
         isMobile: false,
         navigation: ["women", "man", "kids"],
+        searchValue: "",
       };
     },
     computed: {
@@ -590,9 +580,6 @@ storiesOf("Organisms|Header", module)
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props"),
       },
-      searchValue: {
-        default: text("searchValue", "t-shirt", "Props")
-      },
       cartIcon: {
         default: text("cartIcon", "empty_cart", "Props"),
       },
@@ -610,6 +597,7 @@ storiesOf("Organisms|Header", module)
       return {
         isMobile: false,
         navigation: ["women", "man", "kids"],
+        searchValue: "",
       };
     },
     computed: {
