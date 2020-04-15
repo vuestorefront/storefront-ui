@@ -278,7 +278,16 @@ StorefrontUI cares about providing new features and keeping up-to-date with new 
 **To standarize these process, we can stick with few rules:**
 - add this note next to the deprecated feature/APIs -> `@deprecated will be removed in 1.0.0 use ___ prop instead`
 - add this note next to deprecated code that should be removed `// TODO remove in 1.0.0 / BEGIN` -> `// END`
-- add info about deprecation by adding `console.warn("[StorefrontUI][SfComponent] ____ prop has been deprecated and will be removed in 1.0.0. Use ____ instead.");`
+- import helper from utitilies `import { deprecationWarning } from "@/utilities/helpers/deprecation-warning.js";`
+
+- add info about deprecation by using method `deprecationWarning(this.$options.name, "yourMessage")`
+
+:::warning deprecationWarning(componentName, message)
+componentName is an argument that you have to pass to put name of component with depreacted features - `this.$options.name`
+:::
+
+In result, console will show warnining:
+ `[StorefrontUI][SfComponent] ____ prop has been deprecated and will be removed in 1.0.0. Use ____ instead.`
 
 :::tip DEPRECATION INFO
 Here you can see an example how it looks like in SfAccordion:
