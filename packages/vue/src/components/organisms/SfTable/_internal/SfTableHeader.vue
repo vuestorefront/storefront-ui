@@ -5,6 +5,6 @@
 </template>
 <script>
 export default {
-  name: "SfTableHeader"
+  name: "SfTableHeader",
 };
 </script>

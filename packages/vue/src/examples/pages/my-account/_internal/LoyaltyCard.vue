@@ -13,7 +13,7 @@
 import { SfTabs } from "@storefront-ui/vue";
 export default {
   name: "LoyalityCard",
-  components: { SfTabs }
+  components: { SfTabs },
 };
 </script>
 <style lang="scss" scoped>

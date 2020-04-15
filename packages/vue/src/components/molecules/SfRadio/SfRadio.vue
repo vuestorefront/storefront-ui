@@ -3,7 +3,7 @@
     class="sf-radio"
     :class="{
       'sf-radio--is-active': isChecked,
-      'sf-radio--is-disabled': disabled
+      'sf-radio--is-disabled': disabled,
     }"
   >
     <input
@@ -50,20 +50,20 @@ export default {
   name: "SfRadio",
   model: {
     prop: "selected",
-    event: "input"
+    event: "input",
   },
   props: {
     name: {
       type: String,
-      default: ""
+      default: "",
     },
     value: {
       type: String,
-      default: ""
+      default: "",
     },
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     details: {
       type: String,
@@ -71,31 +71,31 @@ export default {
     },
     description: {
       type: String,
-      default: ""
+      default: "",
     },
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     selected: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     isChecked() {
       return this.value === this.selected;
-    }
+    },
   },
   methods: {
     inputHandler() {
       this.$emit("input", this.value);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

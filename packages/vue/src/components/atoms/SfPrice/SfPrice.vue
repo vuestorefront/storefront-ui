@@ -27,16 +27,16 @@ export default {
      */
     regular: {
       type: [String, Number],
-      default: null
+      default: null,
     },
     /**
      * Special price value
      */
     special: {
       type: [String, Number],
-      default: null
-    }
-  }
+      default: null,
+    },
+  },
 };
 </script>
 <style lang="scss">

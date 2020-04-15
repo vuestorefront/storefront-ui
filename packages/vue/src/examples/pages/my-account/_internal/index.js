@@ -10,5 +10,5 @@ export {
   MyProfile,
   MyReviews,
   OrderHistory,
-  ShippingDetails
+  ShippingDetails,
 };
