@@ -10,17 +10,23 @@
         <template v-if="last !== i">
           <!-- @slot Custom markup for previous pages (binds `breadcrumb` object) -->
           <slot name="link" v-bind="{ breadcrumb, go }">
-            <a class="sf-breadcrumbs__breadcrumb" @click="go(breadcrumb)">{{
-              breadcrumb.text
-            }}</a>
+            <a
+              v-focus
+              tabindex="0"
+              class="sf-breadcrumbs__breadcrumb"
+              @click="go(breadcrumb)"
+              >{{ breadcrumb.text }}</a
+            >
           </slot>
         </template>
         <template v-else>
           <!-- @slot Custom markup for current page (binds `breadcrumb` object) -->
           <slot name="current" v-bind="{ breadcrumb }">
-            <span
+            <a
+              v-focus
+              tabindex="0"
               class="sf-breadcrumbs__breadcrumb sf-breadcrumbs__breadcrumb--current"
-              >{{ breadcrumb.text }}</span
+              >{{ breadcrumb.text }}</a
             >
           </slot>
         </template>
@@ -29,8 +35,12 @@
   </nav>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfBreadcrumbs",
+  directives: {
+    focus: focus
+  },
   props: {
     /**
      * List of breadcrumbs (array of nested objects: `[ { text, route } ]`)
