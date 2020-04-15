@@ -5,7 +5,7 @@
       title="Thank you for your order!"
       :image="{
         mobile: '/assets/storybook/ThankYou/BannerM.png',
-        desktop: '/assets/storybook/ThankYou/BannerD.png'
+        desktop: '/assets/storybook/ThankYou/BannerD.png',
       }"
     >
       <template #description>
@@ -86,7 +86,7 @@ export default {
   components: {
     SfHeading,
     SfButton,
-    SfCallToAction
+    SfCallToAction,
   },
   data() {
     return {
@@ -94,13 +94,13 @@ export default {
         name: "Divante Headquarter",
         street: "St. Dmowskiego 17, 53-534",
         city: "Wroclaw, Poland",
-        email: "demo@vuestorefront.io"
+        email: "demo@vuestorefront.io",
       },
       order: {
-        number: "#80932031-030-00"
-      }
+        number: "#80932031-030-00",
+      },
     };
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>

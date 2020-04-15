@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
 import SfAccordion from "./SfAccordion.vue";
@@ -10,17 +9,17 @@ storiesOf("Organisms|Accordion", module)
     components: { SfAccordion, SfList, SfMenuItem },
     props: {
       open: {
-        default: text("open", "Clothing", "Props")
+        default: text("open", "Clothing", "Props"),
       },
       multiple: {
-        default: boolean("multiple", false, "Props")
+        default: boolean("multiple", false, "Props"),
       },
       showChevron: {
-        default: boolean("showChevron", false, "Props")
+        default: boolean("showChevron", false, "Props"),
       },
       transition: {
-        default: text("transition", "fade", "Props")
-      }
+        default: text("transition", "fade", "Props"),
+      },
     },
     data() {
       return {
@@ -30,26 +29,26 @@ storiesOf("Organisms|Accordion", module)
             items: [
               { label: "All", count: "280" },
               { label: "Skirts", count: "11" },
-              { label: "Dresses", count: "32" }
-            ]
+              { label: "Dresses", count: "32" },
+            ],
           },
           {
             header: "Accessories",
             items: [
               { label: "All", count: "80" },
               { label: "Belts", count: "101" },
-              { label: "Bag", count: "2" }
-            ]
+              { label: "Bag", count: "2" },
+            ],
           },
           {
             header: "Shoes",
             items: [
               { label: "All", count: "2" },
               { label: "Trainers", count: "22" },
-              { label: "Sandals", count: "55" }
-            ]
-          }
-        ]
+              { label: "Sandals", count: "55" },
+            ],
+          },
+        ],
       };
     },
     template: `<SfAccordion 
@@ -74,23 +73,23 @@ storiesOf("Organisms|Accordion", module)
           </SfListItem>
         </SfList>
       </SfAccordionItem>
-      </SfAccordion>`
+      </SfAccordion>`,
   }))
   .add("[slot] header", () => ({
     components: { SfAccordion, SfList, SfMenuItem },
     props: {
       open: {
-        default: text("open", "Shoes", "Props")
+        default: text("open", "Shoes", "Props"),
       },
       multiple: {
-        default: boolean("multiple", false, "Props")
+        default: boolean("multiple", false, "Props"),
       },
       showChevron: {
-        default: boolean("showChevron", false, "Props")
+        default: boolean("showChevron", false, "Props"),
       },
       transition: {
-        default: text("transition", "fade", "Props")
-      }
+        default: text("transition", "fade", "Props"),
+      },
     },
     data() {
       return {
@@ -100,26 +99,26 @@ storiesOf("Organisms|Accordion", module)
             items: [
               { label: "All", count: "280" },
               { label: "Skirts", count: "11" },
-              { label: "Dresses", count: "32" }
-            ]
+              { label: "Dresses", count: "32" },
+            ],
           },
           {
             header: "Accessories",
             items: [
               { label: "All", count: "80" },
               { label: "Belts", count: "101" },
-              { label: "Bag", count: "2" }
-            ]
+              { label: "Bag", count: "2" },
+            ],
           },
           {
             header: "Shoes",
             items: [
               { label: "All", count: "2" },
               { label: "Trainers", count: "22" },
-              { label: "Sandals", count: "55" }
-            ]
-          }
-        ]
+              { label: "Sandals", count: "55" },
+            ],
+          },
+        ],
       };
     },
     template: `<SfAccordion
@@ -148,5 +147,5 @@ storiesOf("Organisms|Accordion", module)
           </SfListItem>
         </SfList>
       </SfAccordionItem>
-    </SfAccordion>`
+    </SfAccordion>`,
   }));

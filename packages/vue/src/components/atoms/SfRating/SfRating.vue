@@ -28,7 +28,7 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfRating",
   components: {
-    SfIcon
+    SfIcon,
   },
   props: {
     /**
@@ -36,15 +36,15 @@ export default {
      */
     max: {
       type: Number,
-      default: 5
+      default: 5,
     },
     /**
      * Score (obviously must be less than maximum)
      */
     score: {
       type: Number,
-      default: 1
-    }
+      default: 1,
+    },
   },
   computed: {
     finalScore() {
@@ -62,8 +62,8 @@ export default {
     },
     finalMax() {
       return !this.max || this.max <= 0 ? 1 : this.max;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

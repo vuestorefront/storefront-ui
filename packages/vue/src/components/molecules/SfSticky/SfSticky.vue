@@ -3,7 +3,7 @@
     class="sf-sticky"
     :class="{
       'sf-sticky--sticky': isSticky,
-      'sf-sticky--bound': isBound
+      'sf-sticky--bound': isBound,
     }"
   >
     <!-- @slot -->
@@ -22,13 +22,13 @@ export default {
         top: 0,
         right: 0,
         bottom: 0,
-        left: 0
+        left: 0,
       },
       parentTop: 0,
       parentHeight: 0,
       scrollY: 0,
       isSticky: false,
-      isBound: false
+      isBound: false,
     };
   },
   computed: {
@@ -47,7 +47,7 @@ export default {
       return (
         this.parentHeight + this.parentTop - this.height - this.padding.bottom
       );
-    }
+    },
   },
   watch: {
     scrollY() {
@@ -68,8 +68,9 @@ export default {
     isSticky(state) {
       if (state) {
         if (this.$el.nextSibling) {
-          this.$el.parentElement.style.paddingTop = `${this.height +
-            this.padding.top}px`;
+          this.$el.parentElement.style.paddingTop = `${
+            this.height + this.padding.top
+          }px`;
         }
       } else {
         if (this.$el.nextSibling && this.scrollY <= this.parentTop + this.top) {
@@ -83,9 +84,9 @@ export default {
       } else {
         this.$el.style.bottom = "";
       }
-    }
+    },
   },
-  mounted: function() {
+  mounted: function () {
     if (!this.isIE) return;
     this.$el.parentElement.style.position = "relative";
     this.padding = this.computedPadding();
@@ -97,7 +98,7 @@ export default {
     window.addEventListener("scroll", this.scrollHandler, { passive: true });
     window.addEventListener("resize", this.resizeHandler, { passive: true });
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     window.removeEventListener("scroll", this.scrollHandler);
     window.removeEventListener("resize", this.resizeHandler);
   },
@@ -132,10 +133,10 @@ export default {
         top: parseInt(computed["padding-top"], 10),
         right: parseInt(computed["padding-right"], 10),
         bottom: parseInt(computed["padding-bottom"], 10),
-        left: parseInt(computed["padding-left"], 10)
+        left: parseInt(computed["padding-left"], 10),
       };
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

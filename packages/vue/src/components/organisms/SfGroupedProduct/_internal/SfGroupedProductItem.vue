@@ -9,7 +9,7 @@
           title,
           imagePlaceholder,
           imageLazy,
-          imagePictureBreakpoint
+          imagePictureBreakpoint,
         }"
       >
         <SfImage
@@ -63,10 +63,10 @@ export default {
   components: {
     SfImage,
     SfPrice,
-    SfQuantitySelector
+    SfQuantitySelector,
   },
   model: {
-    prop: "qty"
+    prop: "qty",
   },
   props: {
     /**
@@ -74,69 +74,69 @@ export default {
      */
     image: {
       type: [String, Object],
-      default: ""
+      default: "",
     },
     /**
      * Product image width, without unit
      */
     imageWidth: {
       type: [String, Number],
-      default: 328
+      default: 328,
     },
     /**
      * Product image height, without unit
      */
     imageHeight: {
       type: [String, Number],
-      default: 448
+      default: 448,
     },
     /**
      * Product image placeholder
      */
     imagePlaceholder: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Product image lazy loading
      */
     imageLazy: {
       type: Boolean,
-      default: true
+      default: true,
     },
     /**
      * Product image picture breakpoint
      */
     imagePictureBreakpoint: {
       type: Number,
-      default: 576
+      default: 576,
     },
     /**
      * Product title
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Product regular price
      */
     priceRegular: {
       type: [Number, String],
-      default: ""
+      default: "",
     },
     /**
      * Product special price
      */
     priceSpecial: {
       type: [Number, String],
-      default: ""
+      default: "",
     },
     /** Product quantity */
     qty: {
       type: [Number, String],
-      default: 1
-    }
-  }
+      default: 1,
+    },
+  },
 };
 </script>
