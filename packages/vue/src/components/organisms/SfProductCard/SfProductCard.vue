@@ -2,6 +2,7 @@
   <div class="sf-product-card">
     <component
       :is="linkComponentTag"
+      v-focus
       :href="linkComponentTag === 'a' ? link : undefined"
       :to="link && linkComponentTag !== 'a' ? link : undefined"
       class="sf-product-card__link"
@@ -84,6 +85,7 @@
     </component>
     <button
       v-if="wishlistIcon !== false"
+      v-focus
       :aria-label="ariaLabel"
       :class="wishlistIconClasses"
       @click="toggleIsOnWishlist"
@@ -91,7 +93,6 @@
       <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
         <SfIcon
           :icon="currentWishlistIcon"
-          color="black"
           size="22px"
           data-test="sf-wishlist-icon"
         />
@@ -128,6 +129,7 @@
   </div>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
@@ -135,7 +137,6 @@ import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
-
 export default {
   name: "SfProductCard",
   components: {
@@ -144,8 +145,9 @@ export default {
     SfIcon,
     SfImage,
     SfCircleIcon,
-    SfBadge
+    SfBadge,
   },
+  directives: { focus },
   props: {
     /**
      * Product image
@@ -153,28 +155,28 @@ export default {
      */
     image: {
       type: [Array, Object, String],
-      default: ""
+      default: "",
     },
     /**
      * Product image width, without unit
      */
     imageWidth: {
       type: [String, Number],
-      default: 216
+      default: 216,
     },
     /**
      * Product image height, without unit
      */
     imageHeight: {
       type: [String, Number],
-      default: 326
+      default: 326,
     },
     /**
      * Badge label
      */
     badgeLabel: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Badge color
@@ -183,21 +185,21 @@ export default {
      */
     badgeColor: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Product title
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Link to product page
      */
     link: {
       type: [String, Object],
-      default: ""
+      default: "",
     },
     /**
      * Link element tag
@@ -206,42 +208,42 @@ export default {
      */
     linkTag: {
       type: String,
-      default: undefined
+      default: undefined,
     },
     /**
      * Product rating
      */
     scoreRating: {
       type: [Number, Boolean],
-      default: false
+      default: false,
     },
     /**
      * Product reviews count
      */
     reviewsCount: {
       type: [Number, Boolean],
-      default: false
+      default: false,
     },
     /**
      * Maximum product rating
      */
     maxRating: {
       type: [Number, String],
-      default: 5
+      default: 5,
     },
     /**
      * Product regular price
      */
     regularPrice: {
       type: [Number, String],
-      default: null
+      default: null,
     },
     /**
      * Product special price
      */
     specialPrice: {
       type: [Number, String],
-      default: null
+      default: null,
     },
     /**
      * Wish list icon
@@ -250,7 +252,7 @@ export default {
      */
     wishlistIcon: {
       type: [String, Array, Boolean],
-      default: "heart"
+      default: "heart",
     },
     /**
      * Wish list icon for product which has been added to wish list
@@ -259,40 +261,40 @@ export default {
      */
     isOnWishlistIcon: {
       type: [String, Array],
-      default: "heart_fill"
+      default: "heart_fill",
     },
     /**
      * Status of whether product is on wish list or not
      */
     isOnWishlist: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Status of showing add to cart button
      */
     showAddToCartButton: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * isAddedToCart status of whether button is showed, product is added or not
      */
     isAddedToCart: {
       type: Boolean,
-      deafult: false
+      deafult: false,
     },
     /**
      * addToCartDisabled status of whether button is disabled when out of stock
      */
     addToCartDisabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
-      isAddingToCart: false
+      isAddingToCart: false,
     };
   },
   computed: {
@@ -327,7 +329,7 @@ export default {
           : "a";
       }
       return "div";
-    }
+    },
   },
   methods: {
     toggleIsOnWishlist() {
@@ -340,8 +342,8 @@ export default {
         this.isAddingToCart = false;
       }, 1000);
       this.$emit("click:add-to-cart");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

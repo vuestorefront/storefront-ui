@@ -8,7 +8,8 @@
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
-      'sf-select--is-required': required
+      'sf-select--is-required': required,
+      'sf-select--is-disabled': disabled,
     }"
     class="sf-select"
     @click="toggle($event)"
@@ -18,13 +19,16 @@
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
   >
-    <div style="position: relative">
+    <div style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="sf-select__selected sf-select-option" v-html="html"></div>
       <slot name="label">
         <div v-if="label" class="sf-select__label">
           {{ label }}
         </div>
+      </slot>
+      <slot name="icon">
+        <SfChevron class="sf-select__chevron" />
       </slot>
       <SfOverlay :visible="open" class="sf-select__overlay mobile-only" />
       <transition name="sf-select">
@@ -33,13 +37,15 @@
           <ul :style="{ maxHeight }" class="sf-select__options">
             <slot />
           </ul>
-          <SfButton
-            ref="cancel"
-            class="sf-select__cancel sf-button--full-width mobile-only"
-            @click="closeHandler"
-          >
-            Cancel
-          </SfButton>
+          <slot name="cancel">
+            <SfButton
+              ref="cancel"
+              class="sf-select__cancel sf-button--full-width mobile-only"
+              @click="closeHandler"
+            >
+              Cancel
+            </SfButton>
+          </slot>
         </div>
       </transition>
     </div>
@@ -47,9 +53,9 @@
       <transition name="fade">
         <div v-if="!valid">
           <!-- @slot Custom error message of form select -->
-          <slot name="error-message" v-bind="{ errorMessage }">{{
-            errorMessage
-          }}</slot>
+          <slot name="error-message" v-bind="{ errorMessage }">
+            {{ errorMessage }}
+          </slot>
         </div>
       </transition>
     </div>
@@ -57,6 +63,7 @@
 </template>
 <script>
 import SfSelectOption from "./_internal/SfSelectOption.vue";
+import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import Vue from "vue";
@@ -65,11 +72,12 @@ export default {
   name: "SfSelect",
   components: {
     SfButton,
-    SfOverlay
+    SfChevron,
+    SfOverlay,
   },
   model: {
     prop: "selected",
-    event: "change"
+    event: "change",
   },
   props: {
     /**
@@ -77,50 +85,57 @@ export default {
      */
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Selected item value
      */
     selected: {
       type: [String, Number, Object],
-      default: ""
+      default: "",
     },
     /**
      * Dropdown list size
      */
     size: {
       type: Number,
-      default: 5
+      default: 5,
     },
     /**
      * Required attribute
      */
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Validate value of form input
      */
     valid: {
       type: Boolean,
-      default: undefined
+      default: undefined,
+    },
+    /**
+     * Disabled status of form select
+     */
+    disabled: {
+      type: Boolean,
+      default: false,
     },
     /**
      * Error message value of form select. It will be appeared if `valid` is `true`.
      */
     errorMessage: {
       type: String,
-      default: "This field is not correct."
-    }
+      default: "This field is not correct.",
+    },
   },
   data() {
     return {
       open: false,
       options: [],
       indexes: {},
-      optionHeight: 0
+      optionHeight: 0,
     };
   },
   computed: {
@@ -134,7 +149,7 @@ export default {
       },
       set(index) {
         this.$emit("change", this.options[index].value);
-      }
+      },
     },
     html() {
       if (this.index < 0) return;
@@ -149,32 +164,32 @@ export default {
     },
     isSelected() {
       return this.selected;
-    }
+    },
   },
   watch: {
     open: {
       immediate: true,
-      handler: function(visible) {
+      handler: function (visible) {
         if (visible) {
           this.$nextTick(() => {
             this.optionHeight = this.$slots.default[0].elm.offsetHeight;
           });
         }
-      }
-    }
+      },
+    },
   },
-  created: function() {},
-  mounted: function() {
+  created: function () {},
+  mounted: function () {
     const options = [];
     const indexes = {};
     let i = 0;
     if (!this.$slots.default) return;
     this.$on("update", this.update);
-    this.$slots.default.forEach(slot => {
+    this.$slots.default.forEach((slot) => {
       if (!slot.tag) return;
       options.push({
         ...slot.componentOptions.propsData,
-        html: slot.elm.innerHTML
+        html: slot.elm.innerHTML,
       });
       indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
       i++;
@@ -182,7 +197,7 @@ export default {
     this.options = options;
     this.indexes = indexes;
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     this.$off("update", this.update);
   },
   methods: {
@@ -201,7 +216,12 @@ export default {
       this.toggle();
     },
     toggle(event) {
-      if (this.$refs.cancel && event.target.contains(this.$refs.cancel.$el)) {
+      if (
+        (this.$refs.cancel &&
+          event &&
+          event.target.contains(this.$refs.cancel.$el)) ||
+        this.disabled
+      ) {
         return;
       }
       this.open = !this.open;
@@ -211,8 +231,8 @@ export default {
     },
     closeHandler() {
       this.open = false;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

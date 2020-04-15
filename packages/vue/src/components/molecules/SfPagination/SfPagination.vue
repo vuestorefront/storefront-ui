@@ -1,7 +1,7 @@
 <template>
   <nav class="sf-pagination">
     <ul class="sf-pagination__list">
-      <li class="sf-pagination__item">
+      <li v-if="hasArrows" class="sf-pagination__item">
         <!-- @slot Custom markup for previous page button -->
         <slot name="prev" v-bind="{ isDisabled: !canGoPrev, go: goPrev }">
           <button
@@ -53,7 +53,7 @@
           </slot>
         </li>
       </template>
-      <li class="sf-pagination__item">
+      <li v-if="hasArrows" class="sf-pagination__item">
         <!-- @slot Custom markup for next page button -->
         <slot name="next" v-bind="{ isDisabled: !canGoNext, go: goNext }">
           <button
@@ -74,7 +74,7 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfPagination",
   components: {
-    SfIcon
+    SfIcon,
   },
   props: {
     /**
@@ -82,27 +82,34 @@ export default {
      */
     current: {
       type: Number,
-      default: 1
+      default: 1,
     },
     /**
      * Total number of pages
      */
     total: {
       type: Number,
-      default: 5
+      default: 5,
     },
     /**
      * Maximum visible pagination items
      */
     visible: {
       type: Number,
-      default: 5
-    }
+      default: 5,
+    },
+    /**
+     * Status of arrows display
+     */
+    hasArrows: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
       showFirst: false,
-      showLast: false
+      showLast: false,
     };
   },
   computed: {
@@ -117,7 +124,7 @@ export default {
     },
     canGoNext() {
       return this.current < this.total - 1;
-    }
+    },
   },
   methods: {
     setLimitedPageNumber() {
@@ -179,8 +186,8 @@ export default {
         default:
           return true;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

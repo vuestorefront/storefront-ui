@@ -1,35 +1,48 @@
 @import "../../helpers";
-
 .sf-heading {
   box-sizing: border-box;
-  padding: var(--heading-padding, 0 0 0.625rem 0);
-  border: var(--heading-border, 1px solid var(--c-light));
-  border-width: var(--heading-border-width, 0 0 1px 0);
-  text-align: var(--heading-text-align, left);
+  padding: var(--heading-padding, 0 0 var(--spacer-xs) 0);
+  text-align: var(--heading-text-align, center);
   &__title {
     margin: var(--heading-title-margin, 0);
-    font: var(
+    color: var(--heading-title-color, var(--c-text));
+    @include font(
       --heading-title-font,
-      font(
-        --heading-title,
-        500,
-        var(--font-size-extra-big),
-        1.6,
-        var(--body-font-family-secondary)
-      )
+      var(--font-semibold),
+      var(--h1-font-size),
+      1.6,
+      var(--font-family-secondary)
     );
+    &--h2 {
+      font-size: var(--heading-title-font-size, var(--h2-font-size));
+      font-weight: var(--heading-title-font-weight, var(--font-normal));
+    }
+    &--h3 {
+      font-size: var(--heading-title-font-size, var(--h3-font-size));
+      font-weight: var(--heading-title-font-weight, var(--font-medium));
+    }
+    &--h4 {
+      font-size: var(--heading-title-font-size, var(--h4-font-size));
+      font-weight: var(--heading-title-font-weight, var(--font-normal));
+    }
+    &--h5 {
+      font-size: var(--heading-title-font-size, var(--h5-font-size));
+      font-weight: var(--heading-title-font-weight, var(--font-bold));
+    }
+    &--h6 {
+      font-size: var(--heading-title-font-size, var(--h6-font-size));
+      font-weight: var(--heading-title-font-weight, var(--font-normal));
+    }
   }
   &__subtitle {
     margin: var(--heading-subtitle-margin);
-    font: var(
+    color: var(--heading-subtitle-color, var(--c-text));
+    @include font(
       --heading-subtitle-font,
-      font(
-        --heading-subtitle,
-        300,
-        var(--font-size-regular),
-        1.6,
-        var(--body-font-family-secondary)
-      )
+      var(--font-light),
+      var(--font-xs),
+      1.6,
+      var(--font-family-secondary)
     );
   }
   @include for-desktop {
@@ -37,8 +50,8 @@
     --heading-border: 0;
     --heading-text-align: center;
   }
-  &--no-underline {
-    --heading-border: 0;
+  &--underline {
+    @include border(--heading-border, 0 0 1px 0, solid, var(--c-light));
   }
   &--left {
     --heading-text-align: left;

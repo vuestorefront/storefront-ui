@@ -1,16 +1,5 @@
 @import "../../helpers";
-
 .sf-pagination {
-  font: var(
-    --pagination-font,
-    font(
-      --pagination,
-      400,
-      var(--font-size-big),
-      1.6,
-      var(--body-font-family-secondary)
-    )
-  );
   &__list {
     display: flex;
     align-items: center;
@@ -21,30 +10,22 @@
   &__item {
     display: flex;
     align-items: center;
-    margin: var(--pagination-item-margin, 0 calc(var(--spacer-big) / 4));
+    margin: var(--pagination-item-margin, 0 var(--spacer-2xs));
     color: var(--pagination-item-color, var(--c-text-muted));
   }
   &__button {
     padding: var(--pagination-button-padding, 0);
-    border: var(--pagination-button-padding, 0);
-    font: var(
-      --pagination-font,
-      font(
-        --pagination,
-        400,
-        var(--font-size-big),
-        1.6,
-        var(--body-font-family-secondary)
-      )
-    );
     margin: var(--pagination-button-margin);
     background-color: transparent;
-    color: var(--pagination-button-color, inherit);
-    border-bottom: var(
-      --pagination-button-border-bottom,
-      1px solid transparent
+    color: var(--pagination-button-color, var(--text-muted));
+    @include font(
+      --pagination-font,
+      var(--font-normal),
+      var(--font-lg),
+      1.4,
+      var(--font-family-secondary)
     );
-    outline: none;
+    @include border(--pagination-button-border, 0 0 1px 0, solid, transparent);
     opacity: var(--pagination-button-opacity);
     transition: var(
       --pagination-button-transition,
@@ -53,21 +34,21 @@
     );
     cursor: var(--pagination-button-cursor, pointer);
     &--prev {
-      --pagination-button-margin: 0 3rem 0 0;
+      --pagination-button-margin: 0 var(--spacer-lg) 0 0;
     }
     &--next {
-      --pagination-button-margin: 0 0 0 3rem;
+      --pagination-button-margin: 0 0 0 var(--spacer-lg);
     }
     &--current {
       --pagination-button-color: var(--c-text);
-      --pagination-button-border-bottom: 1px solid var(--c-text);
+      --pagination-button-border-color: var(--c-text);
     }
     &:disabled {
-      --pagination-button-cursor: default;
       --pagination-button-opacity: 0.7;
+      --pagination-button-cursor: default;
     }
   }
   @include for-desktop {
-    --pagination-item-margin: 0 calc(var(--spacer-big) / 2);
+    --pagination-item-margin: 0 var(--spacer-xs);
   }
 }

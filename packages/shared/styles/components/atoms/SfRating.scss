@@ -1,11 +1,10 @@
 @import "../../helpers";
-
 .sf-rating {
   display: flex;
   &__icon {
     --icon-color: var(--c-primary);
     &--negative {
-      --icon-color: var(--c-dark);
+      --icon-color: var(--c-gray-variant);
     }
   }
 }

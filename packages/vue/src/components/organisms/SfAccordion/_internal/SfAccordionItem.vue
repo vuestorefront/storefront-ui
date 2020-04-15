@@ -7,7 +7,7 @@
         header,
         isOpen,
         accordionClick,
-        showChevron: $parent.showChevron
+        showChevron: $parent.showChevron,
       }"
     >
       <div
@@ -16,9 +16,10 @@
         @click="accordionClick"
       >
         {{ header }}
-        <div v-if="$parent.showChevron" class="sf-accordion-item__chevron">
-          <SfChevron :class="{ 'sf-chevron--top': isOpen }" />
-        </div>
+        <SfChevron
+          class="sf-accordion-item__chevron"
+          :class="{ 'sf-chevron--right': !isOpen }"
+        />
       </div>
     </slot>
     <transition :name="$parent.transition">
@@ -34,24 +35,24 @@ import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 export default {
   name: "SfAccordionItem",
   components: {
-    SfChevron
+    SfChevron,
   },
   props: {
     header: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
     };
   },
   methods: {
     accordionClick() {
       this.$parent.$emit("toggle", this._uid);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

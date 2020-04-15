@@ -51,9 +51,8 @@ import {
   LoyaltyCard,
   MyNewsletter,
   OrderHistory,
-  MyReviews
+  MyReviews,
 } from "./_internal/index.js";
-
 export default {
   name: "MyAccount",
   components: {
@@ -64,7 +63,7 @@ export default {
     LoyaltyCard,
     MyNewsletter,
     OrderHistory,
-    MyReviews
+    MyReviews,
   },
   data() {
     return {
@@ -73,52 +72,52 @@ export default {
         {
           text: "Home",
           route: {
-            link: "#"
-          }
+            link: "#",
+          },
         },
         {
           text: "My Account",
           route: {
-            link: "#"
-          }
-        }
+            link: "#",
+          },
+        },
       ],
       account: {
-        firstName: "Sviatlana",
-        lastName: "Havaka",
-        email: "example@email.com",
+        firstName: "John",
+        lastName: "Dog",
+        email: "johndog@email.com",
         password: "a*23Et",
         shipping: [
           {
-            firstName: "Sviatlana",
-            lastName: "Havaka",
-            streetName: "Zielinskiego",
+            firstName: "John",
+            lastName: "Dog",
+            streetName: "Sezame Street",
             apartment: "24/193A",
             city: "Wroclaw",
             state: "Lower Silesia",
             zipCode: "53-540",
             country: "Poland",
-            phoneNumber: "(00)560 123 456"
+            phoneNumber: "(00)560 123 456",
           },
           {
-            firstName: "Sviatlana",
-            lastName: "Havaka",
-            streetName: "Zielinskiego",
+            firstName: "John",
+            lastName: "Dog",
+            streetName: "Sezame Street",
             apartment: "20/193A",
             city: "Wroclaw",
             state: "Lower Silesia",
             zipCode: "53-603",
             country: "Poland",
-            phoneNumber: "(00)560 123 456"
-          }
+            phoneNumber: "(00)560 123 456",
+          },
         ],
         orders: [
           ["#35765", "4th Nov, 2019", "Visa card", "$12.00", "In process"],
           ["#35766", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"],
           ["#35768", "4th Nov, 2019", "Mastercard", "$12.00", "Finalised"],
-          ["#35769", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"]
-        ]
-      }
+          ["#35769", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"],
+        ],
+      },
     };
   },
   methods: {
@@ -128,22 +127,31 @@ export default {
         return;
       }
       this.activePage = title;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 #my-account {
   box-sizing: border-box;
   @include for-desktop {
-    max-width: 1240px;
+    max-width: 1272px;
+    padding: 0 var(--spacer-sm);
     margin: 0 auto;
   }
 }
+.my-account {
+  @include for-mobile {
+    --content-pages-sidebar-category-title-font-weight: var(--font-normal);
+    --content-pages-sidebar-category-title-margin: var(--spacer-sm)
+      var(--spacer-sm) var(--spacer-sm) var(--spacer-base);
+  }
+  @include for-desktop {
+    --content-pages-sidebar-category-title-margin: var(--spacer-xl) 0 0 0;
+  }
+}
 .breadcrumbs {
-  padding: var(--spacer-big) var(--spacer-extra-big) var(--spacer-extra-big)
-    var(--spacer-extra-big);
+  padding: var(--spacer-base) 0;
 }
 </style>

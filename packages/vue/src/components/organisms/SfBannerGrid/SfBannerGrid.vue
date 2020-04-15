@@ -29,10 +29,10 @@
         </div>
         <div class="sf-banner-grid__col">
           <div class="sf-banner-grid__row">
-            <div class="sf-banner-grid__col">
+            <div class="sf-banner-grid__col sf-banner-grid__col--higher">
               <slot name="banner-B" />
             </div>
-            <div class="sf-banner-grid__col">
+            <div class="sf-banner-grid__col sf-banner-grid__col--higher">
               <slot name="banner-C" />
             </div>
           </div>
@@ -52,9 +52,9 @@ export default {
   props: {
     bannerGrid: {
       type: Number,
-      default: 1
-    }
-  }
+      default: 1,
+    },
+  },
 };
 </script>
 <style lang="scss">

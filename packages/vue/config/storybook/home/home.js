@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs } from "@storybook/addon-knobs";
 import "./home.scss";
@@ -8,12 +7,11 @@ storiesOf(" |Introduction", module)
   .addParameters({
     options: {
       showPanel: false,
-      isToolshown: false
-    }
+      isToolshown: false,
+    },
   })
   .add("How to use Storybook", () => ({
-    template: `
-    <div id="intro">
+    template: `<div id="intro">
       <h1>StorefrontUI - Customization-first component library</h1>
       <p>
         Welcome to our storybook!
@@ -23,17 +21,19 @@ storiesOf(" |Introduction", module)
         Components marked as <i>WIP</i> will likely be changed, hence it's not safe to use them.
       </p>
       <p>
-        <b>StorefrontUI is currently in ALPHA, which means it is not suitable for production! Expect things to be broken and APIs to possibly change.</b>
+        <b>StorefrontUI is currently in BETA which means it is not suitable for production! The package is stable but some breaking changes may occur.</b>
       </p>
       <h2> Join us! </h2>
-        <p> StorefrontUI is a completely new approach for component libraries. It is oriented around customization possibilities instead of out of the box possibilities. It's a great goal but it will take a lot of time to achieve it only by ourselves. The project is open source and free to use. If you'd like to support us and join the team, please write to me: <b> filip [at] vuestorefront.io </b>;)</p>
+        <p> StorefrontUI is a completely new approach for component libraries. It is oriented around customization possibilities instead of out of the box possibilities. It's a great goal but it will take a lot of time to achieve it only by ourselves. The project is open source and free to use. If you'd like to support us and join the team, please write to me: <b> filip [at] vuestorefront.io </b> 🙂</p>
       <h2> How to start? </h2>
       <ol>
         <li> Add the package: 
           <pre>npm install --save @storefront-ui/vue</pre> 
+          or
+          <pre>yarn add @storefront-ui/vue</pre>
         </li>
-        <li> Import stylesheets in App.vue or main.js: 
-          <pre>import "@storefront-ui/vue/dist/css/all.scss";</pre>
+        <li> Import stylesheets in your main.js or the root component of your application: 
+          <pre>import "@storefront-ui/vue/styles.scss";</pre>
         </li>
         <li> It's done! Now you can import and use any of the components: 
           <pre> import { SfComponentName } from "@storefront-ui/vue"</pre>
@@ -56,7 +56,5 @@ storiesOf(" |Introduction", module)
         <li><a href="https://discord.gg/GS8hqFS" target="_blank">Discord server</a></li>
         <li><a href="https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md" target="_blank">Contribution guide</a></li>
       </ul>
-    </div>
-
-    `
+    </div>`,
   }));

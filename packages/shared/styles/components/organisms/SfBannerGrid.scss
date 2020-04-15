@@ -1,6 +1,7 @@
 @import "../../helpers";
-
 .sf-banner-grid {
+  --banner-align-items: flex-start;
+  --banner-container-width: 100%;
   &__row {
     display: var(--banner-grid-row-display, block);
     flex: var(--banner-grid-row-flex);
@@ -11,7 +12,7 @@
     flex: var(--banner-grid-col-flex);
     margin: var(--banner-grid-col-margin, 0);
     & + & {
-      --banner-grid-col-margin: 0.625rem 0 0 0;
+      --banner-grid-col-margin: var(--spacer-sm) 0 0 0;
     }
   }
   @include for-desktop {
@@ -21,7 +22,7 @@
     &__row {
       --banner-grid-row-margin: 0;
       & + & {
-        --banner-grid-row-margin: var(--spacer-extra-big) 0 0 0;
+        --banner-grid-row-margin: var(--spacer-xl) 0 0 0;
       }
     }
     &__col {
@@ -29,7 +30,7 @@
       flex-wrap: wrap;
       --banner-grid-col-margin: 0;
       & + & {
-        --banner-grid-col-margin: 0 0 0 var(--spacer-extra-big);
+        --banner-grid-col-margin: 0 0 0 var(--spacer-xl);
       }
       & > .sf-banner,
       & > a {
@@ -37,10 +38,14 @@
         flex: 1;
       }
       &--small {
-        --banner-grid-col-flex: 0 1 28.125rem;
+        --banner-grid-col-flex: 0 1 36%;
       }
       &--medium {
-        --banner-grid-col-flex: 0 1 31.25rem;
+        --banner-grid-col-flex: 0 1 40%;
+        --banner-container-width: 70%;
+      }
+      &--higher {
+        --banner-height: 510px;
       }
     }
   }

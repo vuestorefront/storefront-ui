@@ -1,11 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
   boolean,
   number,
-  object
+  object,
 } from "@storybook/addon-knobs";
 import SfImage from "./SfImage.vue";
 storiesOf("Atoms|Image", module)
@@ -18,30 +17,30 @@ storiesOf("Atoms|Image", module)
           "src",
           {
             mobile: {
-              url: "/assets/storybook/SfImage/product-109x164.jpg"
+              url: "/assets/storybook/SfImage/product-109x164.jpg",
             },
             desktop: {
-              url: "/assets/storybook/SfImage/product-216x326.jpg"
-            }
+              url: "/assets/storybook/SfImage/product-216x326.jpg",
+            },
           },
           "Props"
-        )
+        ),
       },
       alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Props")
+        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
       },
       width: {
-        default: number("width", 216, {}, "Props")
+        default: number("width", 216, {}, "Props"),
       },
       height: {
-        default: number("height", 326, {}, "Props")
+        default: number("height", 326, {}, "Props"),
       },
       lazy: {
-        default: boolean("lazy", true, "Props")
+        default: boolean("lazy", true, "Props"),
       },
       pictureBreakpoint: {
-        default: number("pictureBreakpoint", 576, {}, "Props")
-      }
+        default: number("pictureBreakpoint", 576, {}, "Props"),
+      },
     },
     template: `<SfImage
         :src="src"
@@ -49,7 +48,7 @@ storiesOf("Atoms|Image", module)
         :width="width"
         :height="height"
         :lazy="lazy"
-        :picture-breakpoint="pictureBreakpoint" />`
+        :picture-breakpoint="pictureBreakpoint" />`,
   }))
   .add("Without width and height", () => ({
     components: { SfImage },
@@ -59,31 +58,31 @@ storiesOf("Atoms|Image", module)
           "src",
           {
             mobile: {
-              url: "/assets/storybook/SfImage/product-109x164.jpg"
+              url: "/assets/storybook/SfImage/product-109x164.jpg",
             },
             desktop: {
-              url: "/assets/storybook/SfImage/product-216x326.jpg"
-            }
+              url: "/assets/storybook/SfImage/product-216x326.jpg",
+            },
           },
           "Props"
-        )
+        ),
       },
       alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Props")
+        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
       },
       lazy: {
-        default: boolean("lazy", true, "Props")
+        default: boolean("lazy", true, "Props"),
       },
       pictureBreakpoint: {
-        default: number("pictureBreakpoint", 576, {}, "Props")
-      }
+        default: number("pictureBreakpoint", 576, {}, "Props"),
+      },
     },
     template: `<SfImage
         :src="src"
         :alt="alt"
         :lazy="lazy"
         :picture-breakpoint="pictureBreakpoint"
-      />`
+      />`,
   }))
   .add("[slot] default", () => ({
     components: { SfImage },
@@ -93,30 +92,30 @@ storiesOf("Atoms|Image", module)
           "src",
           {
             mobile: {
-              url: "/assets/storybook/SfImage/product-109x164.jpg"
+              url: "/assets/storybook/SfImage/product-109x164.jpg",
             },
             desktop: {
-              url: "/assets/storybook/SfImage/product-216x326.jpg"
-            }
+              url: "/assets/storybook/SfImage/product-216x326.jpg",
+            },
           },
           "Props"
-        )
+        ),
       },
       alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Props")
+        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
       },
       width: {
-        default: number("width", 216, {}, "Props")
+        default: number("width", 216, {}, "Props"),
       },
       height: {
-        default: number("height", 326, {}, "Props")
+        default: number("height", 326, {}, "Props"),
       },
       lazy: {
-        default: boolean("lazy", true, "Props")
+        default: boolean("lazy", true, "Props"),
       },
       pictureBreakpoint: {
-        default: number("picture-breakpoint", 576, {}, "Props")
-      }
+        default: number("picture-breakpoint", 576, {}, "Props"),
+      },
     },
     template: `<SfImage
       :src="src"
@@ -127,5 +126,5 @@ storiesOf("Atoms|Image", module)
       :picture-breakpoint="pictureBreakpoint"
     >
       CUSTOM OVERLAY CONTENT
-    </SfImage>`
+    </SfImage>`,
   }));

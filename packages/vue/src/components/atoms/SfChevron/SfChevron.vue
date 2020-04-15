@@ -9,7 +9,7 @@
 </template>
 <script>
 export default {
-  name: "SfChevron"
+  name: "SfChevron",
 };
 </script>
 <style lang="scss">
