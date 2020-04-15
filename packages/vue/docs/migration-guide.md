@@ -52,6 +52,14 @@ See what's new in our comparison below:
 
 - #### **Typography**
 
+**Font family**
+
+Before | v0.0.7.
+------------ | -------------
+--body-font-family-primary: "Roboto", serif |   --font-family-primary: "Roboto", serif
+--body-font-family-secondary: "Raleway", sans-serif |   --font-family-secondary: "Raleway", sans-serif
+
+
 **Font sizes**
 
 Before | v0.7.0
@@ -66,15 +74,15 @@ undefined | --font-2xs: 0.625rem
 
 **Font weights**
 
-v0.6.0 | v0.7.0
------------- | -------------
---font-weight-light: 300 | --font-light: 300
---font-weight-regular: 400 | --font-normal: 400
---font-weight-bold: 500 | --font-medium: 500
---font-weight-extra-bold: 600 | --font-semibold: 600
-undefined | --font-bold: 700
-undefined | --font-extra-bold: 800
-undefined | --font-black: 900
+Before | v0.6.0 | v0.7.0
+------------ | ------------ | -------------
+--body-font-weight-primary: 300 | --font-weight-light: 300 | --font-light: 300
+--body-font-weight-secondary: 400 | --font-weight-regular: 400 | --font-normal: 400
+undefined | --font-weight-bold: 500 | --font-medium: 500
+undefined | --font-weight-extra-bold: 600 | --font-semibold: 600
+undefined | undefined | --font-bold: 700
+undefined | undefined | --font-extra-bold: 800
+undefined | undefined | --font-black: 900
 
 - #### **Layout**
 
@@ -91,5 +99,26 @@ Before | v0.6.0 | v0.7.0
   --spacer-extra-big: 2.5rem | --spacer-medium: 2.5rem | --spacer-xl: 2.5rem
   undefined | --spacer-big: 5rem | --spacer-2xl: 5rem
   undefined | --spacer-extra-big: 10rem | --spacer-3xl: 10rem
+
+- **Colors**
+
+**Color variants**
+
+Before | v0.7.0
+------------ | ------------
+undefined | --_c-gray-accent: #e0e0e1
+--_c-light-secondary: #f6f7f8 |  --_c-light-secondary: #ffffff
+--_c-red-primary: #e22225 | --_c-red-primary: #d12727
+--_c-red-secondary: #fff6f5 | --_c-red-secondary: #fcede8
+--_c-yellow-primary: #ffdf3d | --_c-yellow-primary: #ecc713
+--_c-yellow-secondary: #fffceb | --_c-yellow-secondary: #f6e389
+--_c-blue-primary: #6699cc | --_c-blue-primary: #67c6fa
+
+**Body and text default colors**
+
+Before | v0.7.0
+------------ | ------------
+undefined | --c-text-disabled: var(--_c-gray-accent)
+
 
 ## Release notes
