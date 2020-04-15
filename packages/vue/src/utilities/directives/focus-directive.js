@@ -1,7 +1,4 @@
 export const focus = {
-  inserted(el, binding) {
-    el.tabindex = binding ? binding.value : 0;
-  },
   bind(el) {
     el._mouseHandler = function () {
       el.style.outline = "none";
