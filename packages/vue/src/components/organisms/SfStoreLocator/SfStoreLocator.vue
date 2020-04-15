@@ -2,7 +2,7 @@
   <div class="sf-store-locator">
     <div class="sf-store-locator__wrapper">
       <div class="sf-store-locator__list">
-        <div class="sf-store-locator__stores desktop-only" tabindex="0">
+        <div v-focus class="sf-store-locator__stores desktop-only" tabindex="0">
           Found stores: <span>{{ stores.length }}</span>
         </div>
         <!-- @slot Use this slot to show stores cards -->
@@ -46,8 +46,10 @@
               <!-- @slot Use this slot to change the icon of the stores, remember to update `markerIconSize` and `markerIconAnchor` accordingly-->
               <slot name="marker-icon">
                 <SfIcon
+                  v-focus
                   :aria-label="`${store.name} located at ${store.address}`"
                   icon="marker"
+                  tabindex="0"
                 />
               </slot>
             </LIcon>

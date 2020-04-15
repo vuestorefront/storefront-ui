@@ -2,7 +2,7 @@
   <div class="sf-store">
     <!-- @slot Use this slot to change distance element -->
     <slot name="distance">
-      <div v-if="distance" class="sf-store__distance" tabindex="0">
+      <div v-if="distance" v-focus class="sf-store__distance" tabindex="0">
         <span>{{ distance }}km</span> away from you
       </div>
     </slot>
@@ -10,6 +10,7 @@
       <!-- @slot Use this slot to show media elements -->
       <slot name="media">
         <SfImage
+          v-focus
           :src="picture"
           :alt="`${name} picture`"
           :width="82"
@@ -22,14 +23,14 @@
       <div class="sf-store__heading">
         <!-- @slot Use this slot to show heading -->
         <slot name="heading">
-          <div class="sf-store__name" tabindex="0">
+          <div v-focus class="sf-store__name" tabindex="0">
             {{ name }}
           </div>
         </slot>
       </div>
       <!-- @slot This is the default slot of the component, placed on the right of the picture -->
       <slot>
-        <div v-if="address" class="sf-store__address" tabindex="0">
+        <div v-if="address" v-focus class="sf-store__address" tabindex="0">
           {{ address }}
         </div>
         <SfCharacteristic
@@ -40,6 +41,7 @@
         >
           <template #text>
             <a
+              v-focus
               :href="`tel:${phone}`"
               tabindex="0"
               class="sf-store__property-link"
@@ -55,6 +57,7 @@
         >
           <template #text>
             <a
+              v-focus
               :href="`mailto:${email}`"
               tabindex="0"
               class="sf-store__property-link"
@@ -67,6 +70,7 @@
   </div>
 </template>
 <script>
+import { focus } from "../../../../utilities/directives/focus-directive.js";
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
 import SfCharacteristic from "../../../molecules/SfCharacteristic/SfCharacteristic.vue";
 export default {
@@ -81,6 +85,9 @@ export default {
   components: {
     SfImage,
     SfCharacteristic
+  },
+  directives: {
+    focus: focus
   },
   props: {
     /**
