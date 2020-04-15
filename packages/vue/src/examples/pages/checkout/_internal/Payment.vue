@@ -134,8 +134,8 @@
               <template
                 v-if="
                   item.value !== 'debit' &&
-                    item.value !== 'mastercard' &&
-                    item.value !== 'electron'
+                  item.value !== 'mastercard' &&
+                  item.value !== 'electron'
                 "
               >
                 {{ item.label }}
@@ -158,7 +158,7 @@
             :value="cardNumber"
             name="cardNumber"
             label="Card number"
-            class=" credit-card-form__input"
+            class="credit-card-form__input"
             @input="updateField('cardNumber', $event)"
           />
           <SfInput
@@ -166,7 +166,7 @@
             :value="cardHolder"
             label="Card holder"
             name="cardHolder"
-            class=" credit-card-form__input"
+            class="credit-card-form__input"
             @input="updateField('cardHolder', $event)"
           />
           <div class="credit-card-form__group">
@@ -255,7 +255,7 @@ import {
   SfSelect,
   SfRadio,
   SfImage,
-  SfCheckbox
+  SfCheckbox,
 } from "@storefront-ui/vue";
 import axios from "axios";
 export default {
@@ -267,21 +267,21 @@ export default {
     SfSelect,
     SfRadio,
     SfImage,
-    SfCheckbox
+    SfCheckbox,
   },
   props: {
     paymentMethods: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     shipping: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     value: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -315,16 +315,16 @@ export default {
         "September",
         "October",
         "November",
-        "December"
+        "December",
       ],
       years: ["2020", "2021", "2022", "2025"],
-      countries: []
+      countries: [],
     };
   },
   computed: {
     isCreditCard() {
       return ["debit", "mastercard", "electron"].includes(this.paymentMethod);
-    }
+    },
   },
   watch: {
     payment: {
@@ -345,7 +345,7 @@ export default {
         this.cardCVC = this.value.card.cvc;
         this.cardKeep = this.value.card.keep;
       },
-      immediate: true
+      immediate: true,
     },
     sameAsShipping: {
       handler(value) {
@@ -373,8 +373,8 @@ export default {
           this.paymentMethod = "";
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   mounted() {
     this.getCountries();
@@ -383,21 +383,21 @@ export default {
     updateField(fieldName, fieldValue) {
       this.$emit("input", {
         ...this.value,
-        [fieldName]: fieldValue
+        [fieldName]: fieldValue,
       });
     },
     getCountries() {
       axios
         .get("https://restcountries.eu/rest/v2/all?fields=name")
-        .then(response => {
-          const countries = response.data.map(country => country.name);
+        .then((response) => {
+          const countries = response.data.map((country) => country.name);
           this.countries = countries;
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.error(error);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

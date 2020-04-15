@@ -28,7 +28,7 @@ export default {
   name: "SfDropdown",
   components: {
     SfOverlay,
-    SfButton
+    SfButton,
   },
   props: {
     /**
@@ -36,21 +36,21 @@ export default {
      */
     isOpen: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Title for dropdown content, visible on mobile.
      */
     title: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   methods: {
     close() {
       this.$emit("click:close");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

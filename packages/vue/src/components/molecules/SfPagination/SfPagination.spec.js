@@ -3,7 +3,7 @@ import SfPagination from "./SfPagination.vue";
 const propsData = {
   page: 2,
   limit: 10,
-  totalSize: 120
+  totalSize: 120,
 };
 describe("SfPagination.vue", () => {
   it("renders a nav", () => {
@@ -15,8 +15,8 @@ describe("SfPagination.vue", () => {
     const component = shallowMount(SfPagination, {
       propsData,
       slots: {
-        prev: msg
-      }
+        prev: msg,
+      },
     });
     const paginationItems = component.findAll(".sf-pagination__item");
     expect(paginationItems.at(0).text()).toEqual(msg);
@@ -26,8 +26,8 @@ describe("SfPagination.vue", () => {
     const component = shallowMount(SfPagination, {
       propsData,
       slots: {
-        next: msg
-      }
+        next: msg,
+      },
     });
     const paginationItems = component.findAll(".sf-pagination__item");
     expect(paginationItems.at(paginationItems.length - 1).text()).toEqual(msg);
