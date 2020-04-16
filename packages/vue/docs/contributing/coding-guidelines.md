@@ -275,7 +275,7 @@ StorefrontUI cares about providing new features and keeping up-to-date with new 
 - we add deprecation infos, so users can prepare for replacements and have time to update their dependencies to the latest version
 - on our side: before a release, we can spot deprecated features more easily, remove them and prepare migration documentation
 
-**To standarize these process, we can stick with few rules:**
+**To standardize this process, we stick with a few rules:**
 - add this note next to the deprecated feature/APIs -> `@deprecated will be removed in 1.0.0 use ___ prop instead`
 - add this note next to deprecated code that should be removed `// TODO remove in 1.0.0 / BEGIN` -> `// END`
 - import helper from utitilies `import { deprecationWarning } from "@/utilities/helpers/deprecation-warning.js";`
