@@ -1,66 +1,70 @@
-import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
 import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
 import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
 import SfCharacteristic from "./SfCharacteristic.vue";
 const iconsNames = Object.keys(icons);
-storiesOf("Molecules|Characteristic", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfCharacteristic },
-    props: {
-      title: {
-        default: text("title", "Safety", "Props"),
-      },
-      description: {
-        default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
-        ),
-      },
-      icon: {
-        default: select("icon", iconsNames, "info_shield", "Props"),
-      },
-      sizeIcon: {
-        default: select("sizeIcon", ["", ...sizes], "", "Props"),
-      },
-      colorIcon: {
-        default: select("colorIcon", ["", ...colors], "", "Props"),
-      },
+
+export default {
+  title: "Molecules|Characteristic",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: { SfCharacteristic },
+  props: {
+    title: {
+      default: text("title", "Safety", "Props"),
     },
-    template: `<SfCharacteristic 
+    description: {
+      default: text(
+        "description",
+        "It carefully packaged with a personal touch",
+        "Props"
+      ),
+    },
+    icon: {
+      default: select("icon", iconsNames, "info_shield", "Props"),
+    },
+    sizeIcon: {
+      default: select("sizeIcon", ["", ...sizes], "", "Props"),
+    },
+    colorIcon: {
+      default: select("colorIcon", ["", ...colors], "", "Props"),
+    },
+  },
+  template: `<SfCharacteristic 
       :title="title"
       :description="description"
       :icon="icon"
       :size-icon="sizeIcon"
       :color-icon="colorIcon"/>`,
-  }))
-  .add("[slot] icon", () => ({
-    components: { SfCharacteristic },
-    props: {
-      title: {
-        default: text("title", "Safety", "Props"),
-      },
-      description: {
-        default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
-        ),
-      },
-      icon: {
-        default: select("icon", iconsNames, "info_shield", "Props"),
-      },
-      sizeIcon: {
-        default: select("sizeIcon", ["", ...sizes], "", "Props"),
-      },
-      colorIcon: {
-        default: select("colorIcon", ["", ...colors], "", "Props"),
-      },
+});
+
+export const SlotIcon = () => ({
+  components: { SfCharacteristic },
+  props: {
+    title: {
+      default: text("title", "Safety", "Props"),
     },
-    template: `<SfCharacteristic 
+    description: {
+      default: text(
+        "description",
+        "It carefully packaged with a personal touch",
+        "Props"
+      ),
+    },
+    icon: {
+      default: select("icon", iconsNames, "info_shield", "Props"),
+    },
+    sizeIcon: {
+      default: select("sizeIcon", ["", ...sizes], "", "Props"),
+    },
+    colorIcon: {
+      default: select("colorIcon", ["", ...colors], "", "Props"),
+    },
+  },
+  template: `<SfCharacteristic 
       :title="title"
       :description="description"
       :icon="icon"
@@ -70,31 +74,36 @@ storiesOf("Molecules|Characteristic", module)
         ❤️
       </template>
     </SfCharacteristic>`,
-  }))
-  .add("[slot] text", () => ({
-    components: { SfCharacteristic },
-    props: {
-      title: {
-        default: text("title", "Safety", "Props"),
-      },
-      description: {
-        default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
-        ),
-      },
-      icon: {
-        default: select("icon", iconsNames, "info_shield", "Props"),
-      },
-      sizeIcon: {
-        default: select("sizeIcon", ["", ...sizes], "", "Props"),
-      },
-      colorIcon: {
-        default: select("colorIcon", ["", ...colors], "", "Props"),
-      },
+});
+
+SlotIcon.story = {
+  name: "[slot] icon",
+};
+
+export const SlotText = () => ({
+  components: { SfCharacteristic },
+  props: {
+    title: {
+      default: text("title", "Safety", "Props"),
     },
-    template: `<SfCharacteristic 
+    description: {
+      default: text(
+        "description",
+        "It carefully packaged with a personal touch",
+        "Props"
+      ),
+    },
+    icon: {
+      default: select("icon", iconsNames, "info_shield", "Props"),
+    },
+    sizeIcon: {
+      default: select("sizeIcon", ["", ...sizes], "", "Props"),
+    },
+    colorIcon: {
+      default: select("colorIcon", ["", ...colors], "", "Props"),
+    },
+  },
+  template: `<SfCharacteristic 
       :title="title"
       :description="description"
       :icon="icon"
@@ -104,31 +113,36 @@ storiesOf("Molecules|Characteristic", module)
         CUSTOM TEXT
       </template>
     </SfCharacteristic>`,
-  }))
-  .add("[slot] title", () => ({
-    components: { SfCharacteristic },
-    props: {
-      title: {
-        default: text("title", "Safety", "Props"),
-      },
-      description: {
-        default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
-        ),
-      },
-      icon: {
-        default: select("icon", iconsNames, "info_shield", "Props"),
-      },
-      sizeIcon: {
-        default: select("sizeIcon", ["", ...sizes], "", "Props"),
-      },
-      colorIcon: {
-        default: select("colorIcon", ["", ...colors], "", "Props"),
-      },
+});
+
+SlotText.story = {
+  name: "[slot] text",
+};
+
+export const SlotTitle = () => ({
+  components: { SfCharacteristic },
+  props: {
+    title: {
+      default: text("title", "Safety", "Props"),
     },
-    template: `<SfCharacteristic 
+    description: {
+      default: text(
+        "description",
+        "It carefully packaged with a personal touch",
+        "Props"
+      ),
+    },
+    icon: {
+      default: select("icon", iconsNames, "info_shield", "Props"),
+    },
+    sizeIcon: {
+      default: select("sizeIcon", ["", ...sizes], "", "Props"),
+    },
+    colorIcon: {
+      default: select("colorIcon", ["", ...colors], "", "Props"),
+    },
+  },
+  template: `<SfCharacteristic 
       :title="title"
       :description="description"
       :icon="icon"
@@ -138,31 +152,36 @@ storiesOf("Molecules|Characteristic", module)
         CUSTOM TITLE
       </template>
     </SfCharacteristic>`,
-  }))
-  .add("[slot] description", () => ({
-    components: { SfCharacteristic },
-    props: {
-      title: {
-        default: text("title", "Safety", "Props"),
-      },
-      description: {
-        default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
-        ),
-      },
-      icon: {
-        default: select("icon", iconsNames, "info_shield", "Props"),
-      },
-      sizeIcon: {
-        default: select("sizeIcon", ["", ...sizes], "", "Props"),
-      },
-      colorIcon: {
-        default: select("colorIcon", ["", ...colors], "", "Props"),
-      },
+});
+
+SlotTitle.story = {
+  name: "[slot] title",
+};
+
+export const SlotDescription = () => ({
+  components: { SfCharacteristic },
+  props: {
+    title: {
+      default: text("title", "Safety", "Props"),
     },
-    template: `<SfCharacteristic 
+    description: {
+      default: text(
+        "description",
+        "It carefully packaged with a personal touch",
+        "Props"
+      ),
+    },
+    icon: {
+      default: select("icon", iconsNames, "info_shield", "Props"),
+    },
+    sizeIcon: {
+      default: select("sizeIcon", ["", ...sizes], "", "Props"),
+    },
+    colorIcon: {
+      default: select("colorIcon", ["", ...colors], "", "Props"),
+    },
+  },
+  template: `<SfCharacteristic 
       :title="title"
       :description="description"
       :icon="icon"
@@ -172,4 +191,8 @@ storiesOf("Molecules|Characteristic", module)
         CUSTOM DESCRIPTION
       </template>
     </SfCharacteristic>`,
-  }));
+});
+
+SlotDescription.story = {
+  name: "[slot] description",
+};

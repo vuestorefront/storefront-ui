@@ -1,6 +1,10 @@
-import { storiesOf } from "@storybook/vue";
 import Static from "./Static";
-storiesOf("Pages|Static", module).add("Common", () => ({
+
+export default {
+  title: "Pages|Static",
+};
+
+export const Common = () => ({
   components: { Static },
   mounted() {
     document.body.style.setProperty("margin", "0");
@@ -9,4 +13,4 @@ storiesOf("Pages|Static", module).add("Common", () => ({
     document.body.style.removeProperty("margin");
   },
   template: `<Static />`,
-}));
+});

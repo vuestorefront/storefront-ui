@@ -1,57 +1,60 @@
-import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
 import SfAccordion from "./SfAccordion.vue";
 import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-storiesOf("Organisms|Accordion", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfAccordion, SfList, SfMenuItem },
-    props: {
-      open: {
-        default: text("open", "Clothing", "Props"),
-      },
-      multiple: {
-        default: boolean("multiple", false, "Props"),
-      },
-      showChevron: {
-        default: boolean("showChevron", false, "Props"),
-      },
-      transition: {
-        default: text("transition", "fade", "Props"),
-      },
+
+export default {
+  title: "Organisms|Accordion",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: { SfAccordion, SfList, SfMenuItem },
+  props: {
+    open: {
+      default: text("open", "Clothing", "Props"),
     },
-    data() {
-      return {
-        accordions: [
-          {
-            header: "Clothing",
-            items: [
-              { label: "All", count: "280" },
-              { label: "Skirts", count: "11" },
-              { label: "Dresses", count: "32" },
-            ],
-          },
-          {
-            header: "Accessories",
-            items: [
-              { label: "All", count: "80" },
-              { label: "Belts", count: "101" },
-              { label: "Bag", count: "2" },
-            ],
-          },
-          {
-            header: "Shoes",
-            items: [
-              { label: "All", count: "2" },
-              { label: "Trainers", count: "22" },
-              { label: "Sandals", count: "55" },
-            ],
-          },
-        ],
-      };
+    multiple: {
+      default: boolean("multiple", false, "Props"),
     },
-    template: `<SfAccordion 
+    showChevron: {
+      default: boolean("showChevron", false, "Props"),
+    },
+    transition: {
+      default: text("transition", "fade", "Props"),
+    },
+  },
+  data() {
+    return {
+      accordions: [
+        {
+          header: "Clothing",
+          items: [
+            { label: "All", count: "280" },
+            { label: "Skirts", count: "11" },
+            { label: "Dresses", count: "32" },
+          ],
+        },
+        {
+          header: "Accessories",
+          items: [
+            { label: "All", count: "80" },
+            { label: "Belts", count: "101" },
+            { label: "Bag", count: "2" },
+          ],
+        },
+        {
+          header: "Shoes",
+          items: [
+            { label: "All", count: "2" },
+            { label: "Trainers", count: "22" },
+            { label: "Sandals", count: "55" },
+          ],
+        },
+      ],
+    };
+  },
+  template: `<SfAccordion 
         :open="open" 
         :multiple="multiple"
         :show-chevron="showChevron"
@@ -74,54 +77,55 @@ storiesOf("Organisms|Accordion", module)
         </SfList>
       </SfAccordionItem>
       </SfAccordion>`,
-  }))
-  .add("[slot] header", () => ({
-    components: { SfAccordion, SfList, SfMenuItem },
-    props: {
-      open: {
-        default: text("open", "Shoes", "Props"),
-      },
-      multiple: {
-        default: boolean("multiple", false, "Props"),
-      },
-      showChevron: {
-        default: boolean("showChevron", false, "Props"),
-      },
-      transition: {
-        default: text("transition", "fade", "Props"),
-      },
+});
+
+export const SlotHeader = () => ({
+  components: { SfAccordion, SfList, SfMenuItem },
+  props: {
+    open: {
+      default: text("open", "Shoes", "Props"),
     },
-    data() {
-      return {
-        accordions: [
-          {
-            header: "Clothing",
-            items: [
-              { label: "All", count: "280" },
-              { label: "Skirts", count: "11" },
-              { label: "Dresses", count: "32" },
-            ],
-          },
-          {
-            header: "Accessories",
-            items: [
-              { label: "All", count: "80" },
-              { label: "Belts", count: "101" },
-              { label: "Bag", count: "2" },
-            ],
-          },
-          {
-            header: "Shoes",
-            items: [
-              { label: "All", count: "2" },
-              { label: "Trainers", count: "22" },
-              { label: "Sandals", count: "55" },
-            ],
-          },
-        ],
-      };
+    multiple: {
+      default: boolean("multiple", false, "Props"),
     },
-    template: `<SfAccordion
+    showChevron: {
+      default: boolean("showChevron", false, "Props"),
+    },
+    transition: {
+      default: text("transition", "fade", "Props"),
+    },
+  },
+  data() {
+    return {
+      accordions: [
+        {
+          header: "Clothing",
+          items: [
+            { label: "All", count: "280" },
+            { label: "Skirts", count: "11" },
+            { label: "Dresses", count: "32" },
+          ],
+        },
+        {
+          header: "Accessories",
+          items: [
+            { label: "All", count: "80" },
+            { label: "Belts", count: "101" },
+            { label: "Bag", count: "2" },
+          ],
+        },
+        {
+          header: "Shoes",
+          items: [
+            { label: "All", count: "2" },
+            { label: "Trainers", count: "22" },
+            { label: "Sandals", count: "55" },
+          ],
+        },
+      ],
+    };
+  },
+  template: `<SfAccordion
         :open="open"
         :multiple="multiple"
         :show-chevron="showChevron"
@@ -148,4 +152,8 @@ storiesOf("Organisms|Accordion", module)
         </SfList>
       </SfAccordionItem>
     </SfAccordion>`,
-  }));
+});
+
+SlotHeader.story = {
+  name: "[slot] header",
+};

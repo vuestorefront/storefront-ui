@@ -1,7 +1,11 @@
-import { storiesOf } from "@storybook/vue";
 import SfList from "./SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-storiesOf("Organisms|List", module).add("Common", () => ({
+
+export default {
+  title: "Organisms|List",
+};
+
+export const Common = () => ({
   components: { SfList, SfMenuItem },
   data() {
     return {
@@ -25,4 +29,4 @@ storiesOf("Organisms|List", module).add("Common", () => ({
         <SfMenuItem :label="item.label" :count="item.count"/>
       </SfListItem>
     </SfList>`,
-}));
+});

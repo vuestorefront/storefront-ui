@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
@@ -20,56 +19,60 @@ const knobOptionsList = optionsList.reduce(
   (a, c) => ({ ...a, [c.label]: c.value }),
   {}
 );
-storiesOf("Molecules|Select", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfSelect, SfProductOption, SfInput },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-select--underlined": "sf-select--underlined",
-          },
-          "sf-select--underlined",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      label: {
-        default: text("label", "Color", "Props"),
-      },
-      size: {
-        default: number("size", 5, {}, "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
-      },
-      selected: {
-        default: options(
-          "selected",
-          knobOptionsList,
-          optionsList[0].value,
-          { display: "select" },
-          "Data"
-        ),
-      },
+
+export default {
+  title: "Molecules|Select",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: { SfSelect, SfProductOption, SfInput },
+  props: {
+    customClass: {
+      default: options(
+        "CSS modifiers",
+        {
+          "sf-select--underlined": "sf-select--underlined",
+        },
+        "sf-select--underlined",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    data() {
-      return {
-        options: optionsList,
-      };
+    label: {
+      default: text("label", "Color", "Props"),
     },
-    template: `
+    size: {
+      default: number("size", 5, {}, "Props"),
+    },
+    required: {
+      default: boolean("required", false, "Props"),
+    },
+    valid: {
+      default: boolean("valid", true, "Props"),
+    },
+    disabled: {
+      default: boolean("disabled", false, "Props"),
+    },
+    errorMessage: {
+      default: text("errorMessage", "Color", "Props"),
+    },
+    selected: {
+      default: options(
+        "selected",
+        knobOptionsList,
+        optionsList[0].value,
+        { display: "select" },
+        "Data"
+      ),
+    },
+  },
+  data() {
+    return {
+      options: optionsList,
+    };
+  },
+  template: `
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -85,47 +88,48 @@ storiesOf("Molecules|Select", module)
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
       </SfSelect>`,
-  }))
-  .add("[slot] label", () => ({
-    components: { SfSelect, SfProductOption },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-select--underlined": "sf-select--underlined",
-          },
-          "sf-select--underlined",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      label: {
-        default: text("label", "Color", "Props"),
-      },
-      size: {
-        default: number("size", 5, {}, "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
-      },
+});
+
+export const SlotLabel = () => ({
+  components: { SfSelect, SfProductOption },
+  props: {
+    customClass: {
+      default: options(
+        "CSS modifiers",
+        {
+          "sf-select--underlined": "sf-select--underlined",
+        },
+        "sf-select--underlined",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    data() {
-      return {
-        selected: "",
-        options: optionsList,
-      };
+    label: {
+      default: text("label", "Color", "Props"),
     },
-    template: `<div style="max-width: 30rem">
+    size: {
+      default: number("size", 5, {}, "Props"),
+    },
+    required: {
+      default: boolean("required", false, "Props"),
+    },
+    valid: {
+      default: boolean("valid", true, "Props"),
+    },
+    disabled: {
+      default: boolean("disabled", false, "Props"),
+    },
+    errorMessage: {
+      default: text("errorMessage", "Color", "Props"),
+    },
+  },
+  data() {
+    return {
+      selected: "",
+      options: optionsList,
+    };
+  },
+  template: `<div style="max-width: 30rem">
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -143,47 +147,52 @@ storiesOf("Molecules|Select", module)
         </template>
       </SfSelect>
     </div>`,
-  }))
-  .add("[slot] errorMessage", () => ({
-    components: { SfSelect, SfProductOption },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-select--underlined": "sf-select--underlined",
-          },
-          "sf-select--underlined",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      label: {
-        default: text("label", "Color", "Props"),
-      },
-      size: {
-        default: number("size", 5, {}, "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      valid: {
-        default: boolean("valid", false, "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
-      },
+});
+
+SlotLabel.story = {
+  name: "[slot] label",
+};
+
+export const SlotErrorMessage = () => ({
+  components: { SfSelect, SfProductOption },
+  props: {
+    customClass: {
+      default: options(
+        "CSS modifiers",
+        {
+          "sf-select--underlined": "sf-select--underlined",
+        },
+        "sf-select--underlined",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    data() {
-      return {
-        selected: "",
-        options: optionsList,
-      };
+    label: {
+      default: text("label", "Color", "Props"),
     },
-    template: `<div style="max-width: 30rem">
+    size: {
+      default: number("size", 5, {}, "Props"),
+    },
+    required: {
+      default: boolean("required", false, "Props"),
+    },
+    valid: {
+      default: boolean("valid", false, "Props"),
+    },
+    disabled: {
+      default: boolean("disabled", false, "Props"),
+    },
+    errorMessage: {
+      default: text("errorMessage", "Color", "Props"),
+    },
+  },
+  data() {
+    return {
+      selected: "",
+      options: optionsList,
+    };
+  },
+  template: `<div style="max-width: 30rem">
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -201,47 +210,52 @@ storiesOf("Molecules|Select", module)
         </template>
       </SfSelect>
     </div>`,
-  }))
-  .add("[slot] cancel", () => ({
-    components: { SfSelect, SfProductOption },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-select--underlined": "sf-select--underlined",
-          },
-          "sf-select--underlined",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      label: {
-        default: text("label", "Color", "Props"),
-      },
-      size: {
-        default: number("size", 5, {}, "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      valid: {
-        default: boolean("valid", false, "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
-      },
+});
+
+SlotErrorMessage.story = {
+  name: "[slot] errorMessage",
+};
+
+export const SlotCancel = () => ({
+  components: { SfSelect, SfProductOption },
+  props: {
+    customClass: {
+      default: options(
+        "CSS modifiers",
+        {
+          "sf-select--underlined": "sf-select--underlined",
+        },
+        "sf-select--underlined",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    data() {
-      return {
-        selected: "",
-        options: optionsList,
-      };
+    label: {
+      default: text("label", "Color", "Props"),
     },
-    template: `<div style="max-width: 30rem">
+    size: {
+      default: number("size", 5, {}, "Props"),
+    },
+    required: {
+      default: boolean("required", false, "Props"),
+    },
+    valid: {
+      default: boolean("valid", false, "Props"),
+    },
+    disabled: {
+      default: boolean("disabled", false, "Props"),
+    },
+    errorMessage: {
+      default: text("errorMessage", "Color", "Props"),
+    },
+  },
+  data() {
+    return {
+      selected: "",
+      options: optionsList,
+    };
+  },
+  template: `<div style="max-width: 30rem">
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -259,4 +273,8 @@ storiesOf("Molecules|Select", module)
         </template>
       </SfSelect>
     </div>`,
-  }));
+});
+
+SlotCancel.story = {
+  name: "[slot] cancel",
+};

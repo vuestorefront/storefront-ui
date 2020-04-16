@@ -1,11 +1,14 @@
-import { storiesOf } from "@storybook/vue";
 import SfTopBar from "./SfTopBar.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
-storiesOf("Organisms|TopBar", module)
-  .add("Common", () => ({
-    components: { SfTopBar, SfButton, SfImage },
-    template: `<SfTopBar>
+
+export default {
+  title: "Organisms|TopBar",
+};
+
+export const Common = () => ({
+  components: { SfTopBar, SfButton, SfImage },
+  template: `<SfTopBar>
       <template #center>
         <p style="margin-right: 5px;">Download our application.</p>
         <SfButton class="sf-button--text">Find out more</SfButton>
@@ -18,10 +21,11 @@ storiesOf("Organisms|TopBar", module)
         <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag"/>
       </template>
     </SfTopBar>`,
-  }))
-  .add("[slot] left", () => ({
-    components: { SfTopBar, SfButton, SfImage },
-    template: `<SfTopBar>
+});
+
+export const SlotLeft = () => ({
+  components: { SfTopBar, SfButton, SfImage },
+  template: `<SfTopBar>
       <template #center>
         <p style="margin-right: 5px;">Download our application.</p>
         <SfButton class="sf-button--text">Find out more</SfButton>
@@ -34,10 +38,15 @@ storiesOf("Organisms|TopBar", module)
         <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag"/>
       </template>
     </SfTopBar>`,
-  }))
-  .add("[slot] center", () => ({
-    components: { SfTopBar, SfButton, SfImage },
-    template: `<SfTopBar>
+});
+
+SlotLeft.story = {
+  name: "[slot] left",
+};
+
+export const SlotCenter = () => ({
+  components: { SfTopBar, SfButton, SfImage },
+  template: `<SfTopBar>
       <template #center>
         CUSTOM CENTER
       </template>
@@ -49,10 +58,15 @@ storiesOf("Organisms|TopBar", module)
         <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag"/>
       </template>
     </SfTopBar>`,
-  }))
-  .add("[slot] right", () => ({
-    components: { SfTopBar, SfButton, SfImage },
-    template: `<SfTopBar>
+});
+
+SlotCenter.story = {
+  name: "[slot] center",
+};
+
+export const SlotRight = () => ({
+  components: { SfTopBar, SfButton, SfImage },
+  template: `<SfTopBar>
       <template #center>
         <p style="margin-right: 5px;">Download our application.</p>
         <SfButton class="sf-button--text">Find out more</SfButton>
@@ -64,4 +78,8 @@ storiesOf("Organisms|TopBar", module)
         CUSTOM RIGHT
       </template>
     </SfTopBar>`,
-  }));
+});
+
+SlotRight.story = {
+  name: "[slot] right",
+};

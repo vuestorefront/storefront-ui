@@ -1,6 +1,10 @@
-import { storiesOf } from "@storybook/vue";
 import Home from "./Home";
-storiesOf("Pages|Home", module).add("Common", () => ({
+
+export default {
+  title: "Pages|Home",
+};
+
+export const Common = () => ({
   components: { Home },
   mounted() {
     document.body.style.setProperty("margin", "0");
@@ -9,4 +13,4 @@ storiesOf("Pages|Home", module).add("Common", () => ({
     document.body.style.removeProperty("margin");
   },
   template: `<Home />`,
-}));
+});

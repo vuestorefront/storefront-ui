@@ -1,64 +1,67 @@
-import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
 import SfContentPages from "./SfContentPages.vue";
 import SfTabs from "../SfTabs/SfTabs.vue";
-storiesOf("Organisms|ContentPages", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfContentPages, SfTabs },
-    props: {
-      title: {
-        default: text("title", "Help", "Props"),
-      },
+
+export default {
+  title: "Organisms|ContentPages",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: { SfContentPages, SfTabs },
+  props: {
+    title: {
+      default: text("title", "Help", "Props"),
     },
-    data() {
-      return {
-        activePage: "About us",
-        pages: [
-          {
-            title: "About us",
-            tabs: [
-              {
-                title: "Security",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-              {
-                title: "Privacy Policy",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-              {
-                title: "Additional Information",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-            ],
-          },
-          {
-            title: "Customer service",
-            tabs: [
-              {
-                title: "Size guide",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-              {
-                title: "Where's my order?",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-            ],
-          },
-          {
-            title: "Store locator",
-            content:
-              "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-          },
-        ],
-      };
-    },
-    template: `<SfContentPages
+  },
+  data() {
+    return {
+      activePage: "About us",
+      pages: [
+        {
+          title: "About us",
+          tabs: [
+            {
+              title: "Security",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+            {
+              title: "Privacy Policy",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+            {
+              title: "Additional Information",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+          ],
+        },
+        {
+          title: "Customer service",
+          tabs: [
+            {
+              title: "Size guide",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+            {
+              title: "Where's my order?",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+          ],
+        },
+        {
+          title: "Store locator",
+          content:
+            "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+        },
+      ],
+    };
+  },
+  template: `<SfContentPages
       :title="title"
       :active="activePage"
       @click:change="activePage = $event"
@@ -70,67 +73,68 @@ storiesOf("Organisms|ContentPages", module)
         <p v-else :style="{padding: '1rem'}">{{page.content}}</p>
       </SfContentPage>
       </SfContentPages>`,
-  }))
-  .add("With Category", () => ({
-    components: { SfContentPages, SfTabs },
-    props: {
-      title: {
-        default: text("title", "Help", "Props"),
-      },
+});
+
+export const WithCategory = () => ({
+  components: { SfContentPages, SfTabs },
+  props: {
+    title: {
+      default: text("title", "Help", "Props"),
     },
-    data() {
-      return {
-        activePage: "About us",
-        categories: [
-          {
-            title: "Personal Details",
-            pages: [
-              {
-                title: "About us",
-                tabs: [
-                  {
-                    title: "Security",
-                    content:
-                      "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-                  },
-                  {
-                    title: "Privacy Policy",
-                    content:
-                      "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-                  },
-                  {
-                    title: "Additional Information",
-                    content:
-                      "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-                  },
-                ],
-              },
-              {
-                title: "Customer service",
-                tabs: [
-                  {
-                    title: "Size guide",
-                    content:
-                      "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-                  },
-                  {
-                    title: "Where's my order?",
-                    content:
-                      "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-                  },
-                ],
-              },
-              {
-                title: "Store locator",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-            ],
-          },
-        ],
-      };
-    },
-    template: `<SfContentPages
+  },
+  data() {
+    return {
+      activePage: "About us",
+      categories: [
+        {
+          title: "Personal Details",
+          pages: [
+            {
+              title: "About us",
+              tabs: [
+                {
+                  title: "Security",
+                  content:
+                    "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+                },
+                {
+                  title: "Privacy Policy",
+                  content:
+                    "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+                },
+                {
+                  title: "Additional Information",
+                  content:
+                    "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+                },
+              ],
+            },
+            {
+              title: "Customer service",
+              tabs: [
+                {
+                  title: "Size guide",
+                  content:
+                    "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+                },
+                {
+                  title: "Where's my order?",
+                  content:
+                    "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+                },
+              ],
+            },
+            {
+              title: "Store locator",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+          ],
+        },
+      ],
+    };
+  },
+  template: `<SfContentPages
         :title="title"
         :active="activePage"
         @click:change="activePage = $event"
@@ -144,81 +148,82 @@ storiesOf("Organisms|ContentPages", module)
         </SfContentPage>
       </SfContentCategory>
     </SfContentPages>`,
-  }))
-  .add("Mixed", () => ({
-    components: { SfContentPages, SfTabs },
-    props: {
-      title: {
-        default: text("title", "Help", "Props"),
-      },
+});
+
+export const Mixed = () => ({
+  components: { SfContentPages, SfTabs },
+  props: {
+    title: {
+      default: text("title", "Help", "Props"),
     },
-    data() {
-      return {
-        activePage: "About us",
-        categories: [
-          {
-            title: "Personal Details",
-            pages: [
-              {
-                title: "About us",
-                tabs: [
-                  {
-                    title: "Security",
-                    content:
-                      "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-                  },
-                  {
-                    title: "Privacy Policy",
-                    content:
-                      "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-                  },
-                  {
-                    title: "Additional Information",
-                    content:
-                      "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-                  },
-                ],
-              },
-              {
-                title: "Customer service",
-                tabs: [
-                  {
-                    title: "Size guide",
-                    content:
-                      "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-                  },
-                  {
-                    title: "Where's my order?",
-                    content:
-                      "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-                  },
-                ],
-              },
-              {
-                title: "Store locator",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-            ],
-          },
-          {
-            pages: [
-              {
-                title: "Order history",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-              {
-                title: "My reviews",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-            ],
-          },
-        ],
-      };
-    },
-    template: `<SfContentPages
+  },
+  data() {
+    return {
+      activePage: "About us",
+      categories: [
+        {
+          title: "Personal Details",
+          pages: [
+            {
+              title: "About us",
+              tabs: [
+                {
+                  title: "Security",
+                  content:
+                    "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+                },
+                {
+                  title: "Privacy Policy",
+                  content:
+                    "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+                },
+                {
+                  title: "Additional Information",
+                  content:
+                    "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+                },
+              ],
+            },
+            {
+              title: "Customer service",
+              tabs: [
+                {
+                  title: "Size guide",
+                  content:
+                    "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+                },
+                {
+                  title: "Where's my order?",
+                  content:
+                    "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+                },
+              ],
+            },
+            {
+              title: "Store locator",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+          ],
+        },
+        {
+          pages: [
+            {
+              title: "Order history",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+            {
+              title: "My reviews",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+          ],
+        },
+      ],
+    };
+  },
+  template: `<SfContentPages
         :title="title"
         :active="activePage"
         @click:change="activePage = $event"
@@ -240,65 +245,66 @@ storiesOf("Organisms|ContentPages", module)
         </SfContentPage>
       </template>
     </SfContentPages>`,
-  }))
-  .add("With Icon", () => ({
-    components: { SfContentPages, SfTabs },
-    props: {
-      title: {
-        default: text("title", "Help", "Props"),
-      },
+});
+
+export const WithIcon = () => ({
+  components: { SfContentPages, SfTabs },
+  props: {
+    title: {
+      default: text("title", "Help", "Props"),
     },
-    data() {
-      return {
-        activePage: "About us",
-        pages: [
-          {
-            title: "About us",
-            icon: "clock",
-            tabs: [
-              {
-                title: "Security",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-              {
-                title: "Privacy Policy",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-              {
-                title: "Additional Information",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-            ],
-          },
-          {
-            title: "Customer service",
-            icon: "heart",
-            tabs: [
-              {
-                title: "Size guide",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-              {
-                title: "Where's my order?",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-            ],
-          },
-          {
-            title: "Store locator",
-            icon: "home",
-            content:
-              "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-          },
-        ],
-      };
-    },
-    template: `<SfContentPages
+  },
+  data() {
+    return {
+      activePage: "About us",
+      pages: [
+        {
+          title: "About us",
+          icon: "clock",
+          tabs: [
+            {
+              title: "Security",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+            {
+              title: "Privacy Policy",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+            {
+              title: "Additional Information",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+          ],
+        },
+        {
+          title: "Customer service",
+          icon: "heart",
+          tabs: [
+            {
+              title: "Size guide",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+            {
+              title: "Where's my order?",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+          ],
+        },
+        {
+          title: "Store locator",
+          icon: "home",
+          content:
+            "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+        },
+      ],
+    };
+  },
+  template: `<SfContentPages
       :title="title"
       :active="activePage"
       @click:change="activePage = $event"
@@ -310,62 +316,63 @@ storiesOf("Organisms|ContentPages", module)
         <p v-else :style="{padding: '1.25rem 0'}">{{page.content}}}}</p>
       </SfContentPage>
       </SfContentPages>`,
-  }))
-  .add("[slot] menu-item", () => ({
-    components: { SfContentPages, SfTabs },
-    props: {
-      title: {
-        default: text("title", "Help", "Props"),
-      },
+});
+
+export const SlotMenuItem = () => ({
+  components: { SfContentPages, SfTabs },
+  props: {
+    title: {
+      default: text("title", "Help", "Props"),
     },
-    data() {
-      return {
-        activePage: "About us",
-        pages: [
-          {
-            title: "About us",
-            tabs: [
-              {
-                title: "Security",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-              {
-                title: "Privacy Policy",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-              {
-                title: "Additional Information",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-            ],
-          },
-          {
-            title: "Customer service",
-            tabs: [
-              {
-                title: "Size guide",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-              {
-                title: "Where's my order?",
-                content:
-                  "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-              },
-            ],
-          },
-          {
-            title: "Store locator",
-            content:
-              "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
-          },
-        ],
-      };
-    },
-    template: `<SfContentPages
+  },
+  data() {
+    return {
+      activePage: "About us",
+      pages: [
+        {
+          title: "About us",
+          tabs: [
+            {
+              title: "Security",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+            {
+              title: "Privacy Policy",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+            {
+              title: "Additional Information",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+          ],
+        },
+        {
+          title: "Customer service",
+          tabs: [
+            {
+              title: "Size guide",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+            {
+              title: "Where's my order?",
+              content:
+                "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+            },
+          ],
+        },
+        {
+          title: "Store locator",
+          content:
+            "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
+        },
+      ],
+    };
+  },
+  template: `<SfContentPages
         :title="title"
         :active="activePage"
         @click:change="activePage = $event"
@@ -380,4 +387,8 @@ storiesOf("Organisms|ContentPages", module)
         <p v-else :style="{padding: '1.25rem 0'}">{{page.content}}}}</p>
       </SfContentPage>
     </SfContentPages>`,
-  }));
+});
+
+SlotMenuItem.story = {
+  name: "[slot] menu-item",
+};

@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import SfNotification from "./SfNotification.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
@@ -6,36 +5,39 @@ import {
   visibilityToggleMixin,
   withVisibilityToggle,
 } from "../../../../config/storybook/decorators";
-storiesOf("Molecules|Notification", module)
-  .addDecorator(withKnobs)
-  .addDecorator(withVisibilityToggle)
-  .add("Common", () => ({
-    components: { SfNotification },
-    props: {
-      title: {
-        default: text("title", "Added to Cart", "Props"),
-      },
-      message: {
-        default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
-        ),
-      },
-      action: {
-        default: text("action", "View cart", "Props"),
-      },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        ),
-      },
+
+export default {
+  title: "Molecules|Notification",
+  decorators: [withKnobs, withVisibilityToggle],
+};
+
+export const Common = () => ({
+  components: { SfNotification },
+  props: {
+    title: {
+      default: text("title", "Added to Cart", "Props"),
     },
-    mixins: [visibilityToggleMixin],
-    template: `
+    message: {
+      default: text(
+        "message",
+        "This is informative message for the user.",
+        "Props"
+      ),
+    },
+    action: {
+      default: text("action", "View cart", "Props"),
+    },
+    type: {
+      default: select(
+        "type",
+        ["info", "success", "warning", "danger"],
+        "info",
+        "Props"
+      ),
+    },
+  },
+  mixins: [visibilityToggleMixin],
+  template: `
       <SfNotification
         :visible="visible"
         :title="title"
@@ -44,34 +46,35 @@ storiesOf("Molecules|Notification", module)
         :type="type"
         @click:close="visible = false"
       />`,
-  }))
-  .add("[slot] icon", () => ({
-    components: { SfNotification, SfIcon },
-    props: {
-      title: {
-        default: text("title", "Added to Cart", "Props"),
-      },
-      message: {
-        default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
-        ),
-      },
-      action: {
-        default: text("action", "View cart", "Props"),
-      },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        ),
-      },
+});
+
+export const SlotIcon = () => ({
+  components: { SfNotification, SfIcon },
+  props: {
+    title: {
+      default: text("title", "Added to Cart", "Props"),
     },
-    mixins: [visibilityToggleMixin],
-    template: `
+    message: {
+      default: text(
+        "message",
+        "This is informative message for the user.",
+        "Props"
+      ),
+    },
+    action: {
+      default: text("action", "View cart", "Props"),
+    },
+    type: {
+      default: select(
+        "type",
+        ["info", "success", "warning", "danger"],
+        "info",
+        "Props"
+      ),
+    },
+  },
+  mixins: [visibilityToggleMixin],
+  template: `
       <SfNotification
         :visible="visible"
         :title="title"
@@ -84,34 +87,39 @@ storiesOf("Molecules|Notification", module)
           <SfIcon icon="heart" color="white"/>
         </template>
       </SfNotification>`,
-  }))
-  .add("[slot] title", () => ({
-    components: { SfNotification },
-    props: {
-      title: {
-        default: text("title", "Added to Cart", "Props"),
-      },
-      message: {
-        default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
-        ),
-      },
-      action: {
-        default: text("action", "View cart", "Props"),
-      },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        ),
-      },
+});
+
+SlotIcon.story = {
+  name: "[slot] icon",
+};
+
+export const SlotTitle = () => ({
+  components: { SfNotification },
+  props: {
+    title: {
+      default: text("title", "Added to Cart", "Props"),
     },
-    mixins: [visibilityToggleMixin],
-    template: `
+    message: {
+      default: text(
+        "message",
+        "This is informative message for the user.",
+        "Props"
+      ),
+    },
+    action: {
+      default: text("action", "View cart", "Props"),
+    },
+    type: {
+      default: select(
+        "type",
+        ["info", "success", "warning", "danger"],
+        "info",
+        "Props"
+      ),
+    },
+  },
+  mixins: [visibilityToggleMixin],
+  template: `
       <SfNotification
         :visible="visible"
         :title="title"
@@ -123,34 +131,39 @@ storiesOf("Molecules|Notification", module)
           CUSTOM TITLE
         </template>
       </SfNotification>`,
-  }))
-  .add("[slot] message", () => ({
-    components: { SfNotification },
-    props: {
-      title: {
-        default: text("title", "Added to Cart", "Props"),
-      },
-      message: {
-        default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
-        ),
-      },
-      action: {
-        default: text("action", "View cart", "Props"),
-      },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        ),
-      },
+});
+
+SlotTitle.story = {
+  name: "[slot] title",
+};
+
+export const SlotMessage = () => ({
+  components: { SfNotification },
+  props: {
+    title: {
+      default: text("title", "Added to Cart", "Props"),
     },
-    mixins: [visibilityToggleMixin],
-    template: `
+    message: {
+      default: text(
+        "message",
+        "This is informative message for the user.",
+        "Props"
+      ),
+    },
+    action: {
+      default: text("action", "View cart", "Props"),
+    },
+    type: {
+      default: select(
+        "type",
+        ["info", "success", "warning", "danger"],
+        "info",
+        "Props"
+      ),
+    },
+  },
+  mixins: [visibilityToggleMixin],
+  template: `
       <SfNotification
         :visible="visible"
         :title="title"
@@ -163,34 +176,39 @@ storiesOf("Molecules|Notification", module)
           CUSTOM MESSAGE
         </template>
       </SfNotification>`,
-  }))
-  .add("[slot] action", () => ({
-    components: { SfNotification },
-    props: {
-      title: {
-        default: text("title", "Added to Cart", "Props"),
-      },
-      message: {
-        default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
-        ),
-      },
-      action: {
-        default: text("action", "View cart", "Props"),
-      },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        ),
-      },
+});
+
+SlotMessage.story = {
+  name: "[slot] message",
+};
+
+export const SlotAction = () => ({
+  components: { SfNotification },
+  props: {
+    title: {
+      default: text("title", "Added to Cart", "Props"),
     },
-    mixins: [visibilityToggleMixin],
-    template: `
+    message: {
+      default: text(
+        "message",
+        "This is informative message for the user.",
+        "Props"
+      ),
+    },
+    action: {
+      default: text("action", "View cart", "Props"),
+    },
+    type: {
+      default: select(
+        "type",
+        ["info", "success", "warning", "danger"],
+        "info",
+        "Props"
+      ),
+    },
+  },
+  mixins: [visibilityToggleMixin],
+  template: `
       <SfNotification
         :visible="visible"
         :title="title"
@@ -203,34 +221,39 @@ storiesOf("Molecules|Notification", module)
           CUSTOM ACTION
         </template>
       </SfNotification>`,
-  }))
-  .add("[slot] close", () => ({
-    components: { SfNotification },
-    props: {
-      title: {
-        default: text("title", "Added to Cart", "Props"),
-      },
-      message: {
-        default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
-        ),
-      },
-      action: {
-        default: text("action", "View cart", "Props"),
-      },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        ),
-      },
+});
+
+SlotAction.story = {
+  name: "[slot] action",
+};
+
+export const SlotClose = () => ({
+  components: { SfNotification },
+  props: {
+    title: {
+      default: text("title", "Added to Cart", "Props"),
     },
-    mixins: [visibilityToggleMixin],
-    template: `
+    message: {
+      default: text(
+        "message",
+        "This is informative message for the user.",
+        "Props"
+      ),
+    },
+    action: {
+      default: text("action", "View cart", "Props"),
+    },
+    type: {
+      default: select(
+        "type",
+        ["info", "success", "warning", "danger"],
+        "info",
+        "Props"
+      ),
+    },
+  },
+  mixins: [visibilityToggleMixin],
+  template: `
       <SfNotification
         :visible="visible"
         :title="title"
@@ -243,4 +266,8 @@ storiesOf("Molecules|Notification", module)
           <div style="position: absolute; top: 1rem; right: 1rem">close</div>
         </template>
       </SfNotification>`,
-  }));
+});
+
+SlotClose.story = {
+  name: "[slot] close",
+};

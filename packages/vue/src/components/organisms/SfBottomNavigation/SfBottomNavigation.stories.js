@@ -1,46 +1,49 @@
-import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
 import SfBottomNavigation from "./SfBottomNavigation.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-storiesOf("Organisms|BottomNavigation", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfBottomNavigation, SfCircleIcon, SfIcon },
-    props: {
-      label: {
-        default: text("label", "Home", "Props"),
-      },
-      icon: {
-        default: text("icon", "home", "Props"),
-      },
-      iconActive: {
-        default: text("iconActive", "home_fill", "Props"),
-      },
+
+export default {
+  title: "Organisms|BottomNavigation",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: { SfBottomNavigation, SfCircleIcon, SfIcon },
+  props: {
+    label: {
+      default: text("label", "Home", "Props"),
     },
-    data() {
-      return {
-        items: [
-          {
-            icon: "menu",
-            iconActive: "",
-            label: "Menu",
-          },
-          {
-            icon: "heart",
-            iconActive: "heart_fill",
-            label: "Heart",
-          },
-          {
-            icon: "profile",
-            iconActive: "profile_fill",
-            label: "Profile",
-          },
-        ],
-        currentIcon: "heart_fill",
-      };
+    icon: {
+      default: text("icon", "home", "Props"),
     },
-    template: `<SfBottomNavigation>
+    iconActive: {
+      default: text("iconActive", "home_fill", "Props"),
+    },
+  },
+  data() {
+    return {
+      items: [
+        {
+          icon: "menu",
+          iconActive: "",
+          label: "Menu",
+        },
+        {
+          icon: "heart",
+          iconActive: "heart_fill",
+          label: "Heart",
+        },
+        {
+          icon: "profile",
+          iconActive: "profile_fill",
+          label: "Profile",
+        },
+      ],
+      currentIcon: "heart_fill",
+    };
+  },
+  template: `<SfBottomNavigation>
       <SfBottomNavigationItem 
         :icon="icon" 
         :label="label"
@@ -74,23 +77,24 @@ storiesOf("Organisms|BottomNavigation", module)
         </template>
       </SfBottomNavigationItem>
     </SfBottomNavigation>`,
-  }))
-  .add("Icons only", () => ({
-    components: { SfBottomNavigation, SfCircleIcon, SfIcon },
-    props: {
-      label: {
-        default: text("label", "Home", "Props"),
-      },
-      icon: {
-        default: text("icon", "home", "Props"),
-      },
+});
+
+export const IconsOnly = () => ({
+  components: { SfBottomNavigation, SfCircleIcon, SfIcon },
+  props: {
+    label: {
+      default: text("label", "Home", "Props"),
     },
-    data() {
-      return {
-        items: [{ icon: "menu" }, { icon: "heart" }, { icon: "profile" }],
-      };
+    icon: {
+      default: text("icon", "home", "Props"),
     },
-    template: `<SfBottomNavigation>
+  },
+  data() {
+    return {
+      items: [{ icon: "menu" }, { icon: "heart" }, { icon: "profile" }],
+    };
+  },
+  template: `<SfBottomNavigation>
       <SfBottomNavigationItem
         :icon="icon"
       />
@@ -116,23 +120,28 @@ storiesOf("Organisms|BottomNavigation", module)
         </template>
       </SfBottomNavigationItem>
     </SfBottomNavigation>`,
-  }))
-  .add("Labels only", () => ({
-    components: { SfBottomNavigation, SfCircleIcon, SfIcon },
-    props: {
-      label: {
-        default: text("label", "Home", "Props"),
-      },
-      icon: {
-        default: text("icon", "home", "Props"),
-      },
+});
+
+IconsOnly.story = {
+  name: "Icons only",
+};
+
+export const LabelsOnly = () => ({
+  components: { SfBottomNavigation, SfCircleIcon, SfIcon },
+  props: {
+    label: {
+      default: text("label", "Home", "Props"),
     },
-    data() {
-      return {
-        items: [{ label: "Menu" }, { label: "Heart" }, { label: "Profile" }],
-      };
+    icon: {
+      default: text("icon", "home", "Props"),
     },
-    template: `<SfBottomNavigation>
+  },
+  data() {
+    return {
+      items: [{ label: "Menu" }, { label: "Heart" }, { label: "Profile" }],
+    };
+  },
+  template: `<SfBottomNavigation>
       <SfBottomNavigationItem
         :label="label"
       />
@@ -148,4 +157,8 @@ storiesOf("Organisms|BottomNavigation", module)
       >
       </SfBottomNavigationItem>
     </SfBottomNavigation>`,
-  }));
+});
+
+LabelsOnly.story = {
+  name: "Labels only",
+};

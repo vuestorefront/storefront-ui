@@ -1,40 +1,44 @@
-import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
 import SfAddToCart from "./SfAddToCart.vue";
-storiesOf("Molecules|AddToCart", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfAddToCart },
-    props: {
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
+
+export default {
+  title: "Molecules|AddToCart",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: { SfAddToCart },
+  props: {
+    disabled: {
+      default: boolean("disabled", false, "Props"),
     },
-    data() {
-      return {
-        qty: 1,
-      };
-    },
-    template: `<div style="max-width: 21.25rem">
+  },
+  data() {
+    return {
+      qty: 1,
+    };
+  },
+  template: `<div style="max-width: 21.25rem">
       <SfAddToCart 
         v-model="qty"
         :disabled="disabled"
         @click="()=>{}"/>
       </div>`,
-  }))
-  .add("[slot] add-to-cart-btn", () => ({
-    components: { SfAddToCart },
-    props: {
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
+});
+
+export const SlotAddToCartBtn = () => ({
+  components: { SfAddToCart },
+  props: {
+    disabled: {
+      default: boolean("disabled", false, "Props"),
     },
-    data() {
-      return {
-        qty: 1,
-      };
-    },
-    template: `<div style="max-width: 21.25rem">
+  },
+  data() {
+    return {
+      qty: 1,
+    };
+  },
+  template: `<div style="max-width: 21.25rem">
         <SfAddToCart
           v-model="qty"
           :disabled="disabled"
@@ -45,20 +49,25 @@ storiesOf("Molecules|AddToCart", module)
       </template>
         </SfAddToCart>
       </div>`,
-  }))
-  .add("[slot] quantity-select-input", () => ({
-    components: { SfAddToCart },
-    props: {
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
+});
+
+SlotAddToCartBtn.story = {
+  name: "[slot] add-to-cart-btn",
+};
+
+export const SlotQuantitySelectInput = () => ({
+  components: { SfAddToCart },
+  props: {
+    disabled: {
+      default: boolean("disabled", false, "Props"),
     },
-    data() {
-      return {
-        qty: 1,
-      };
-    },
-    template: `<div style="max-width: 21.25rem">
+  },
+  data() {
+    return {
+      qty: 1,
+    };
+  },
+  template: `<div style="max-width: 21.25rem">
         <SfAddToCart 
           :disabled="disabled"
           @click="()=>{}">
@@ -71,4 +80,8 @@ storiesOf("Molecules|AddToCart", module)
           </template>
         </SfAddToCart>
       </div>`,
-  }));
+});
+
+SlotQuantitySelectInput.story = {
+  name: "[slot] quantity-select-input",
+};

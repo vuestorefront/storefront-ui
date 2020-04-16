@@ -1,34 +1,36 @@
-import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
 import SfModal from "./SfModal.vue";
 import {
   visibilityToggleMixin,
   withVisibilityToggle,
 } from "../../../../config/storybook/decorators";
-storiesOf("Molecules|Modal", module)
-  .addDecorator(withKnobs)
-  .addDecorator(withVisibilityToggle)
-  .add("Common", () => ({
-    components: { SfModal },
-    props: {
-      title: {
-        default: text("title", "My title", "Props"),
-      },
-      overlay: {
-        default: boolean("overlay", true, "Props"),
-      },
-      cross: {
-        default: boolean("cross", true, "Props"),
-      },
-      persistent: {
-        default: boolean("persistent", false, "Props"),
-      },
-      ariaLabelClose: {
-        default: text("ariaLabelClose", "Close", "Props"),
-      },
+
+export default {
+  title: "Molecules|Modal",
+  decorators: [withKnobs, withVisibilityToggle],
+};
+
+export const Common = () => ({
+  components: { SfModal },
+  props: {
+    title: {
+      default: text("title", "My title", "Props"),
     },
-    mixins: [visibilityToggleMixin],
-    template: `
+    overlay: {
+      default: boolean("overlay", true, "Props"),
+    },
+    cross: {
+      default: boolean("cross", true, "Props"),
+    },
+    persistent: {
+      default: boolean("persistent", false, "Props"),
+    },
+    ariaLabelClose: {
+      default: text("ariaLabelClose", "Close", "Props"),
+    },
+  },
+  mixins: [visibilityToggleMixin],
+  template: `
       <SfModal
         :visible="visible"
         :title="title"
@@ -40,28 +42,29 @@ storiesOf("Molecules|Modal", module)
       >
         HELLO STOREFRONT UI!
       </SfModal>`,
-  }))
-  .add("[slot] close", () => ({
-    components: { SfModal },
-    props: {
-      title: {
-        default: text("title", "My title", "Props"),
-      },
-      overlay: {
-        default: boolean("overlay", true, "Props"),
-      },
-      cross: {
-        default: boolean("cross", true, "Props"),
-      },
-      persistent: {
-        default: boolean("persistent", false, "Props"),
-      },
-      ariaLabelClose: {
-        default: text("ariaLabelClose", "Close", "Props"),
-      },
+});
+
+export const SlotClose = () => ({
+  components: { SfModal },
+  props: {
+    title: {
+      default: text("title", "My title", "Props"),
     },
-    mixins: [visibilityToggleMixin],
-    template: `
+    overlay: {
+      default: boolean("overlay", true, "Props"),
+    },
+    cross: {
+      default: boolean("cross", true, "Props"),
+    },
+    persistent: {
+      default: boolean("persistent", false, "Props"),
+    },
+    ariaLabelClose: {
+      default: text("ariaLabelClose", "Close", "Props"),
+    },
+  },
+  mixins: [visibilityToggleMixin],
+  template: `
       <SfModal
         :visible="visible"
         :overlay="overlay"
@@ -76,4 +79,8 @@ storiesOf("Molecules|Modal", module)
           close
         </template>
       </SfModal>`,
-  }));
+});
+
+SlotClose.story = {
+  name: "[slot] close",
+};

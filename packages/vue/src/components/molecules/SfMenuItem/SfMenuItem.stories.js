@@ -1,47 +1,51 @@
-import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
 import SfMenuItem from "./SfMenuItem.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-storiesOf("Molecules|MenuItem", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: {
-      SfMenuItem,
+
+export default {
+  title: "Molecules|MenuItem",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: {
+    SfMenuItem,
+  },
+  props: {
+    label: {
+      default: text("label", "Red", "Props"),
     },
-    props: {
-      label: {
-        default: text("label", "Red", "Props"),
-      },
-      count: {
-        default: text("count", "30", "Props"),
-      },
-      icon: {
-        default: text("icon", "chevron_right", "Props"),
-      },
+    count: {
+      default: text("count", "30", "Props"),
     },
-    template: `<div style="max-width: 300px">
+    icon: {
+      default: text("icon", "chevron_right", "Props"),
+    },
+  },
+  template: `<div style="max-width: 300px">
       <SfMenuItem
       :label="label"
       :count="count"
       :icon="icon"/>
     </div>`,
-  }))
-  .add("[slot] icon", () => ({
-    components: {
-      SfMenuItem,
+});
+
+export const SlotIcon = () => ({
+  components: {
+    SfMenuItem,
+  },
+  props: {
+    label: {
+      default: text("label", "Red", "Props"),
     },
-    props: {
-      label: {
-        default: text("label", "Red", "Props"),
-      },
-      count: {
-        default: text("count", "30", "Props"),
-      },
-      icon: {
-        default: text("icon", "chevron_right", "Props"),
-      },
+    count: {
+      default: text("count", "30", "Props"),
     },
-    template: `<div style="max-width: 300px">
+    icon: {
+      default: text("icon", "chevron_right", "Props"),
+    },
+  },
+  template: `<div style="max-width: 300px">
       <SfMenuItem
         :label="label"
         :count="count"
@@ -51,23 +55,28 @@ storiesOf("Molecules|MenuItem", module)
         </template>
       </SfMenuItem>
     </div>`,
-  }))
-  .add("[slot] label", () => ({
-    components: {
-      SfMenuItem,
+});
+
+SlotIcon.story = {
+  name: "[slot] icon",
+};
+
+export const SlotLabel = () => ({
+  components: {
+    SfMenuItem,
+  },
+  props: {
+    label: {
+      default: text("label", "Red", "Props"),
     },
-    props: {
-      label: {
-        default: text("label", "Red", "Props"),
-      },
-      count: {
-        default: text("count", "30", "Props"),
-      },
-      icon: {
-        default: text("icon", "chevron_right", "Props"),
-      },
+    count: {
+      default: text("count", "30", "Props"),
     },
-    template: `<div style="max-width: 300px">
+    icon: {
+      default: text("icon", "chevron_right", "Props"),
+    },
+  },
+  template: `<div style="max-width: 300px">
       <SfMenuItem
         :label="label"
         :count="count"
@@ -77,23 +86,28 @@ storiesOf("Molecules|MenuItem", module)
         </template>
       </SfMenuItem>
     </div>`,
-  }))
-  .add("[slot] count", () => ({
-    components: {
-      SfMenuItem,
+});
+
+SlotLabel.story = {
+  name: "[slot] label",
+};
+
+export const SlotCount = () => ({
+  components: {
+    SfMenuItem,
+  },
+  props: {
+    label: {
+      default: text("label", "Red", "Props"),
     },
-    props: {
-      label: {
-        default: text("label", "Red", "Props"),
-      },
-      count: {
-        default: text("count", "30", "Props"),
-      },
-      icon: {
-        default: text("icon", "chevron_right", "Props"),
-      },
+    count: {
+      default: text("count", "30", "Props"),
     },
-    template: `<div style="max-width: 300px">
+    icon: {
+      default: text("icon", "chevron_right", "Props"),
+    },
+  },
+  template: `<div style="max-width: 300px">
       <SfMenuItem
         :label="label"
         :count="count"
@@ -103,24 +117,29 @@ storiesOf("Molecules|MenuItem", module)
         </template>
       </SfMenuItem>
     </div>`,
-  }))
-  .add("[slot] mobile-nav-icon", () => ({
-    components: {
-      SfMenuItem,
-      SfIcon,
+});
+
+SlotCount.story = {
+  name: "[slot] count",
+};
+
+export const SlotMobileNavIcon = () => ({
+  components: {
+    SfMenuItem,
+    SfIcon,
+  },
+  props: {
+    label: {
+      default: text("label", "Red", "Props"),
     },
-    props: {
-      label: {
-        default: text("label", "Red", "Props"),
-      },
-      count: {
-        default: text("count", "30", "Props"),
-      },
-      icon: {
-        default: text("icon", "chevron_right", "Props"),
-      },
+    count: {
+      default: text("count", "30", "Props"),
     },
-    template: `<div style="max-width: 300px">
+    icon: {
+      default: text("icon", "chevron_right", "Props"),
+    },
+  },
+  template: `<div style="max-width: 300px">
       <SfMenuItem
         :label="label"
         :count="count"
@@ -130,4 +149,8 @@ storiesOf("Molecules|MenuItem", module)
         </template>
       </SfMenuItem>
     </div>`,
-  }));
+});
+
+SlotMobileNavIcon.story = {
+  name: "[slot] mobile-nav-icon",
+};

@@ -1,6 +1,10 @@
-import { storiesOf } from "@storybook/vue";
 import Category from "./Category";
-storiesOf("Pages|Category", module).add("Common", () => ({
+
+export default {
+  title: "Pages|Category",
+};
+
+export const Common = () => ({
   components: { Category },
   mounted() {
     document.body.style.setProperty("margin", "0");
@@ -9,4 +13,4 @@ storiesOf("Pages|Category", module).add("Common", () => ({
     document.body.style.removeProperty("margin");
   },
   template: `<Category />`,
-}));
+});

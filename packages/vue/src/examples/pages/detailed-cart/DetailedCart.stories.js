@@ -1,6 +1,10 @@
-import { storiesOf } from "@storybook/vue";
 import DetailedCart from "./DetailedCart";
-storiesOf("Pages|DetailedCart", module).add("Common", () => ({
+
+export default {
+  title: "Pages|DetailedCart",
+};
+
+export const Common = () => ({
   components: { DetailedCart },
   template: `<DetailedCart />`,
-}));
+});

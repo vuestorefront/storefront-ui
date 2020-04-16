@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
@@ -9,38 +8,36 @@ import SfDropdown from "./SfDropdown.vue";
 import SfList from "../../organisms/SfList/SfList.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 
-storiesOf("Molecules|Dropdown", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfDropdown, SfList, SfButton },
-    props: {
-      title: {
-        default: text("title", "Choose size", "Props"),
-      },
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-dropdown--up": "sf-dropdown--up",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
+export default {
+  title: "Molecules|Dropdown",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: { SfDropdown, SfList, SfButton },
+  props: {
+    title: {
+      default: text("title", "Choose size", "Props"),
     },
-    data() {
-      return {
-        isOpen: false,
-        actionList: [
-          "Add to cart",
-          "Add to compare",
-          "Add to wishlist",
-          "Share",
-        ],
-      };
+    customClass: {
+      default: options(
+        "CSS modifiers",
+        {
+          "sf-dropdown--up": "sf-dropdown--up",
+        },
+        "",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    template: `<div>
+  },
+  data() {
+    return {
+      isOpen: false,
+      actionList: ["Add to cart", "Add to compare", "Add to wishlist", "Share"],
+    };
+  },
+  template: `<div>
       <div style="position: relative; display: inline-block;">
         <SfButton @click="isOpen = !isOpen">Choice your action</SfButton>
         <SfDropdown :is-open="isOpen" :title="title" @click:close="isOpen = !isOpen">
@@ -52,4 +49,4 @@ storiesOf("Molecules|Dropdown", module)
         </SfDropdown>
       </div>
     </div>`,
-  }));
+});

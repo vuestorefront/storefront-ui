@@ -1,35 +1,39 @@
-import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
 import SfProductOption from "./SfProductOption.vue";
-storiesOf("Molecules|ProductOption", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfProductOption },
-    props: {
-      color: {
-        default: text("color", "red", "Props"),
-      },
-      label: {
-        default: text("label", "Red", "Props"),
-      },
+
+export default {
+  title: "Molecules|ProductOption",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: { SfProductOption },
+  props: {
+    color: {
+      default: text("color", "red", "Props"),
     },
-    template: `<div style="max-width: 300px">
+    label: {
+      default: text("label", "Red", "Props"),
+    },
+  },
+  template: `<div style="max-width: 300px">
       <SfProductOption
         :color="color"
         :label="label"/>
     </div>`,
-  }))
-  .add("[slot] color", () => ({
-    components: { SfProductOption },
-    props: {
-      color: {
-        default: text("color", "red", "Props"),
-      },
-      label: {
-        default: text("label", "Red", "Props"),
-      },
+});
+
+export const SlotColor = () => ({
+  components: { SfProductOption },
+  props: {
+    color: {
+      default: text("color", "red", "Props"),
     },
-    template: `<div style="max-width: 300px">
+    label: {
+      default: text("label", "Red", "Props"),
+    },
+  },
+  template: `<div style="max-width: 300px">
       <SfProductOption
         :color="color"
         :label="label">
@@ -38,18 +42,23 @@ storiesOf("Molecules|ProductOption", module)
         </template>
       </SfProductOption>
     </div>`,
-  }))
-  .add("[slot] label", () => ({
-    components: { SfProductOption },
-    props: {
-      color: {
-        default: text("color", "red", "Props"),
-      },
-      label: {
-        default: text("label", "Red", "Props"),
-      },
+});
+
+SlotColor.story = {
+  name: "[slot] color",
+};
+
+export const SlotLabel = () => ({
+  components: { SfProductOption },
+  props: {
+    color: {
+      default: text("color", "red", "Props"),
     },
-    template: `<div style="max-width: 300px">
+    label: {
+      default: text("label", "Red", "Props"),
+    },
+  },
+  template: `<div style="max-width: 300px">
       <SfProductOption
         :color="color"
         :label="label">
@@ -58,4 +67,8 @@ storiesOf("Molecules|ProductOption", module)
         </template>
       </SfProductOption>
     </div>`,
-  }));
+});
+
+SlotLabel.story = {
+  name: "[slot] label",
+};

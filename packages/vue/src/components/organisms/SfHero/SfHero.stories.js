@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
@@ -7,56 +6,60 @@ import {
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfHero from "./SfHero.vue";
-storiesOf("Organisms|Hero", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfHero },
-    props: {
-      customClass: {
-        default: options(
-          "customClass",
-          {
-            "sf-hero-item--position-bg-top-right":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--position-bg-bottom-right":
-              "sf-hero-item--position-bg-bottom-right",
-            "sf-hero-item--position-bg-bottom-left":
-              "sf-hero-item--position-bg-bottom-left",
-            "sf-hero-item--align-right": "sf-hero-item--align-right",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      title: {
-        default: text(
-          "title",
-          "Colorful summer dresses are already in store",
-          "Props"
-        ),
-      },
-      subtitle: {
-        default: text("subtitle", "Summer Collection 2019", "Props"),
-      },
-      buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: "/assets/storybook/SfHero/hero.png",
-            desktop: "/assets/storybook/SfHero/hero.png",
-          },
-          "Props"
-        ),
-      },
-      background: {
-        default: color("background", "#ECEFF1", "Props"),
-      },
+
+export default {
+  title: "Organisms|Hero",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: { SfHero },
+  props: {
+    customClass: {
+      default: options(
+        "customClass",
+        {
+          "sf-hero-item--position-bg-top-right":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--position-bg-bottom-right":
+            "sf-hero-item--position-bg-bottom-right",
+          "sf-hero-item--position-bg-bottom-left":
+            "sf-hero-item--position-bg-bottom-left",
+          "sf-hero-item--align-right": "sf-hero-item--align-right",
+        },
+        "",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    template: `<SfHero
+    title: {
+      default: text(
+        "title",
+        "Colorful summer dresses are already in store",
+        "Props"
+      ),
+    },
+    subtitle: {
+      default: text("subtitle", "Summer Collection 2019", "Props"),
+    },
+    buttonText: {
+      default: text("buttonText", "Lear more", "Props"),
+    },
+    image: {
+      default: object(
+        "image",
+        {
+          mobile: "/assets/storybook/SfHero/hero.png",
+          desktop: "/assets/storybook/SfHero/hero.png",
+        },
+        "Props"
+      ),
+    },
+    background: {
+      default: color("background", "#ECEFF1", "Props"),
+    },
+  },
+  template: `<SfHero
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <SfHeroItem
           :class="customClass"
@@ -74,55 +77,56 @@ storiesOf("Organisms|Hero", module)
           background="#FCE4EC"
       />
     </SfHero>`,
-  }))
-  .add("[slot] prev", () => ({
-    components: { SfHero },
-    props: {
-      customClass: {
-        default: options(
-          "customClass",
-          {
-            "sf-hero-item--position-bg-top-right":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--position-bg-bottom-right":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--position-bg-bottom-left":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      title: {
-        default: text(
-          "title",
-          "Colorful summer dresses are already in store",
-          "Props"
-        ),
-      },
-      subtitle: {
-        default: text("subtitle", "Summer Collection 2019", "Props"),
-      },
-      buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: "/assets/storybook/SfHero/hero.png",
-            desktop: "/assets/storybook/SfHero/hero.png",
-          },
-          "Props"
-        ),
-      },
-      background: {
-        default: color("background", "#ECEFF1", "Props"),
-      },
+});
+
+export const SlotPrev = () => ({
+  components: { SfHero },
+  props: {
+    customClass: {
+      default: options(
+        "customClass",
+        {
+          "sf-hero-item--position-bg-top-right":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--position-bg-bottom-right":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--position-bg-bottom-left":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right",
+        },
+        "",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    template: `<SfHero
+    title: {
+      default: text(
+        "title",
+        "Colorful summer dresses are already in store",
+        "Props"
+      ),
+    },
+    subtitle: {
+      default: text("subtitle", "Summer Collection 2019", "Props"),
+    },
+    buttonText: {
+      default: text("buttonText", "Lear more", "Props"),
+    },
+    image: {
+      default: object(
+        "image",
+        {
+          mobile: "/assets/storybook/SfHero/hero.png",
+          desktop: "/assets/storybook/SfHero/hero.png",
+        },
+        "Props"
+      ),
+    },
+    background: {
+      default: color("background", "#ECEFF1", "Props"),
+    },
+  },
+  template: `<SfHero
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <template #prev="{go}">
         <button @click="go">PREV</button>
@@ -143,55 +147,60 @@ storiesOf("Organisms|Hero", module)
           background="#FCE4EC"
       />
     </SfHero>`,
-  }))
-  .add("[slot] next", () => ({
-    components: { SfHero },
-    props: {
-      customClass: {
-        default: options(
-          "customClass",
-          {
-            "sf-hero-item--position-bg-top-right":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--position-bg-bottom-right":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--position-bg-bottom-left":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      title: {
-        default: text(
-          "title",
-          "Colorful summer dresses are already in store",
-          "Props"
-        ),
-      },
-      subtitle: {
-        default: text("subtitle", "Summer Collection 2019", "Props"),
-      },
-      buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: "/assets/storybook/SfHero/hero.png",
-            desktop: "/assets/storybook/SfHero/hero.png",
-          },
-          "Props"
-        ),
-      },
-      background: {
-        default: color("background", "#ECEFF1", "Props"),
-      },
+});
+
+SlotPrev.story = {
+  name: "[slot] prev",
+};
+
+export const SlotNext = () => ({
+  components: { SfHero },
+  props: {
+    customClass: {
+      default: options(
+        "customClass",
+        {
+          "sf-hero-item--position-bg-top-right":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--position-bg-bottom-right":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--position-bg-bottom-left":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right",
+        },
+        "",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    template: `<SfHero
+    title: {
+      default: text(
+        "title",
+        "Colorful summer dresses are already in store",
+        "Props"
+      ),
+    },
+    subtitle: {
+      default: text("subtitle", "Summer Collection 2019", "Props"),
+    },
+    buttonText: {
+      default: text("buttonText", "Lear more", "Props"),
+    },
+    image: {
+      default: object(
+        "image",
+        {
+          mobile: "/assets/storybook/SfHero/hero.png",
+          desktop: "/assets/storybook/SfHero/hero.png",
+        },
+        "Props"
+      ),
+    },
+    background: {
+      default: color("background", "#ECEFF1", "Props"),
+    },
+  },
+  template: `<SfHero
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <template #next="{go}">
         <button @click="go">NEXT</button>
@@ -212,55 +221,60 @@ storiesOf("Organisms|Hero", module)
           background="#FCE4EC"
       />
     </SfHero>`,
-  }))
-  .add("[slot] bullets", () => ({
-    components: { SfHero },
-    props: {
-      customClass: {
-        default: options(
-          "customClass",
-          {
-            "sf-hero-item--position-bg-top-right":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--position-bg-bottom-right":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--position-bg-bottom-left":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      title: {
-        default: text(
-          "title",
-          "Colorful summer dresses are already in store",
-          "Props"
-        ),
-      },
-      subtitle: {
-        default: text("subtitle", "Summer Collection 2019", "Props"),
-      },
-      buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: "/assets/storybook/SfHero/hero.png",
-            desktop: "/assets/storybook/SfHero/hero.png",
-          },
-          "Props"
-        ),
-      },
-      background: {
-        default: color("background", "#ECEFF1", "Props"),
-      },
+});
+
+SlotNext.story = {
+  name: "[slot] next",
+};
+
+export const SlotBullets = () => ({
+  components: { SfHero },
+  props: {
+    customClass: {
+      default: options(
+        "customClass",
+        {
+          "sf-hero-item--position-bg-top-right":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--position-bg-bottom-right":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--position-bg-bottom-left":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right",
+        },
+        "",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    template: `<SfHero
+    title: {
+      default: text(
+        "title",
+        "Colorful summer dresses are already in store",
+        "Props"
+      ),
+    },
+    subtitle: {
+      default: text("subtitle", "Summer Collection 2019", "Props"),
+    },
+    buttonText: {
+      default: text("buttonText", "Lear more", "Props"),
+    },
+    image: {
+      default: object(
+        "image",
+        {
+          mobile: "/assets/storybook/SfHero/hero.png",
+          desktop: "/assets/storybook/SfHero/hero.png",
+        },
+        "Props"
+      ),
+    },
+    background: {
+      default: color("background", "#ECEFF1", "Props"),
+    },
+  },
+  template: `<SfHero
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <template #bullets="{ numberOfPages, page, go }">
         CUSTOM BULLETS
@@ -281,55 +295,60 @@ storiesOf("Organisms|Hero", module)
           background="#FCE4EC"
       />
     </SfHero>`,
-  }))
-  .add("[slot] subtitle", () => ({
-    components: { SfHero },
-    props: {
-      customClass: {
-        default: options(
-          "customClass",
-          {
-            "sf-hero-item--position-bg-top-right":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--position-bg-bottom-right":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--position-bg-bottom-left":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      title: {
-        default: text(
-          "title",
-          "Colorful summer dresses are already in store",
-          "Props"
-        ),
-      },
-      subtitle: {
-        default: text("subtitle", "Summer Collection 2019", "Props"),
-      },
-      buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: "/assets/storybook/SfHero/hero.png",
-            desktop: "/assets/storybook/SfHero/hero.png",
-          },
-          "Props"
-        ),
-      },
-      background: {
-        default: color("background", "#ECEFF1", "Props"),
-      },
+});
+
+SlotBullets.story = {
+  name: "[slot] bullets",
+};
+
+export const SlotSubtitle = () => ({
+  components: { SfHero },
+  props: {
+    customClass: {
+      default: options(
+        "customClass",
+        {
+          "sf-hero-item--position-bg-top-right":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--position-bg-bottom-right":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--position-bg-bottom-left":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right",
+        },
+        "",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    template: `<SfHero
+    title: {
+      default: text(
+        "title",
+        "Colorful summer dresses are already in store",
+        "Props"
+      ),
+    },
+    subtitle: {
+      default: text("subtitle", "Summer Collection 2019", "Props"),
+    },
+    buttonText: {
+      default: text("buttonText", "Lear more", "Props"),
+    },
+    image: {
+      default: object(
+        "image",
+        {
+          mobile: "/assets/storybook/SfHero/hero.png",
+          desktop: "/assets/storybook/SfHero/hero.png",
+        },
+        "Props"
+      ),
+    },
+    background: {
+      default: color("background", "#ECEFF1", "Props"),
+    },
+  },
+  template: `<SfHero
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <SfHeroItem
         :class="customClass"
@@ -344,55 +363,60 @@ storiesOf("Organisms|Hero", module)
         </template>
       </SfHeroItem>
     </SfHero>`,
-  }))
-  .add("[slot] title", () => ({
-    components: { SfHero },
-    props: {
-      customClass: {
-        default: options(
-          "customClass",
-          {
-            "sf-hero-item--position-bg-top-right":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--position-bg-bottom-right":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--position-bg-bottom-left":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      title: {
-        default: text(
-          "title",
-          "Colorful summer dresses are already in store",
-          "Props"
-        ),
-      },
-      subtitle: {
-        default: text("subtitle", "Summer Collection 2019", "Props"),
-      },
-      buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: "/assets/storybook/SfHero/hero.png",
-            desktop: "/assets/storybook/SfHero/hero.png",
-          },
-          "Props"
-        ),
-      },
-      background: {
-        default: color("background", "#ECEFF1", "Props"),
-      },
+});
+
+SlotSubtitle.story = {
+  name: "[slot] subtitle",
+};
+
+export const SlotTitle = () => ({
+  components: { SfHero },
+  props: {
+    customClass: {
+      default: options(
+        "customClass",
+        {
+          "sf-hero-item--position-bg-top-right":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--position-bg-bottom-right":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--position-bg-bottom-left":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right",
+        },
+        "",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    template: `<SfHero
+    title: {
+      default: text(
+        "title",
+        "Colorful summer dresses are already in store",
+        "Props"
+      ),
+    },
+    subtitle: {
+      default: text("subtitle", "Summer Collection 2019", "Props"),
+    },
+    buttonText: {
+      default: text("buttonText", "Lear more", "Props"),
+    },
+    image: {
+      default: object(
+        "image",
+        {
+          mobile: "/assets/storybook/SfHero/hero.png",
+          desktop: "/assets/storybook/SfHero/hero.png",
+        },
+        "Props"
+      ),
+    },
+    background: {
+      default: color("background", "#ECEFF1", "Props"),
+    },
+  },
+  template: `<SfHero
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <SfHeroItem
           :class="customClass"
@@ -407,55 +431,60 @@ storiesOf("Organisms|Hero", module)
         </template>
       </SfHeroItem>
     </SfHero>`,
-  }))
-  .add("[slot] call-to-action", () => ({
-    components: { SfHero },
-    props: {
-      customClass: {
-        default: options(
-          "customClass",
-          {
-            "sf-hero-item--position-bg-top-right":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--position-bg-bottom-right":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--position-bg-bottom-left":
-              "sf-hero-item--position-bg-top-right",
-            "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      title: {
-        default: text(
-          "title",
-          "Colorful summer dresses are already in store",
-          "Props"
-        ),
-      },
-      subtitle: {
-        default: text("subtitle", "Summer Collection 2019", "Props"),
-      },
-      buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: "/assets/storybook/SfHero/hero.png",
-            desktop: "/assets/storybook/SfHero/hero.png",
-          },
-          "Props"
-        ),
-      },
-      background: {
-        default: color("background", "#ECEFF1", "Props"),
-      },
+});
+
+SlotTitle.story = {
+  name: "[slot] title",
+};
+
+export const SlotCallToAction = () => ({
+  components: { SfHero },
+  props: {
+    customClass: {
+      default: options(
+        "customClass",
+        {
+          "sf-hero-item--position-bg-top-right":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--position-bg-bottom-right":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--position-bg-bottom-left":
+            "sf-hero-item--position-bg-top-right",
+          "sf-hero-item--align-right": "sf-hero-item--position-bg-top-right",
+        },
+        "",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    template: `<SfHero
+    title: {
+      default: text(
+        "title",
+        "Colorful summer dresses are already in store",
+        "Props"
+      ),
+    },
+    subtitle: {
+      default: text("subtitle", "Summer Collection 2019", "Props"),
+    },
+    buttonText: {
+      default: text("buttonText", "Lear more", "Props"),
+    },
+    image: {
+      default: object(
+        "image",
+        {
+          mobile: "/assets/storybook/SfHero/hero.png",
+          desktop: "/assets/storybook/SfHero/hero.png",
+        },
+        "Props"
+      ),
+    },
+    background: {
+      default: color("background", "#ECEFF1", "Props"),
+    },
+  },
+  template: `<SfHero
         :style="{maxWidth: '1240px', margin: 'auto'}">
       <SfHeroItem
           :class="customClass"
@@ -470,4 +499,8 @@ storiesOf("Organisms|Hero", module)
         </template>
       </SfHeroItem>
     </SfHero>`,
-  }));
+});
+
+SlotCallToAction.story = {
+  name: "[slot] call-to-action",
+};

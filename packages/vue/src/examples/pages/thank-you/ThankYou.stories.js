@@ -1,6 +1,10 @@
-import { storiesOf } from "@storybook/vue";
 import ThankYou from "./ThankYou";
-storiesOf("Pages|Thank you", module).add("Common", () => ({
+
+export default {
+  title: "Pages|Thank you",
+};
+
+export const Common = () => ({
   components: { ThankYou },
   template: `<ThankYou />`,
-}));
+});

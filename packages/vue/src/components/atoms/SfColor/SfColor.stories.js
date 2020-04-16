@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
@@ -6,31 +5,35 @@ import {
   boolean,
 } from "@storybook/addon-knobs";
 import SfColor from "./SfColor.vue";
-storiesOf("Atoms|Color", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfColor },
-    props: {
-      color: { default: text("color", "red", "Props") },
-      hasBadge: { default: boolean("hasBadge", true, "Props") },
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-color--rounded": "sf-color--rounded",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
+
+export default {
+  title: "Atoms|Color",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: { SfColor },
+  props: {
+    color: { default: text("color", "red", "Props") },
+    hasBadge: { default: boolean("hasBadge", true, "Props") },
+    customClass: {
+      default: options(
+        "CSS modifiers",
+        {
+          "sf-color--rounded": "sf-color--rounded",
+        },
+        "",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    data() {
-      return {
-        selected: true,
-      };
-    },
-    template: `<SfColor 
+  },
+  data() {
+    return {
+      selected: true,
+    };
+  },
+  template: `<SfColor 
           :color="color" 
           :selected="selected" 
           :has-badge="hasBadge"
@@ -38,4 +41,4 @@ storiesOf("Atoms|Color", module)
           style="margin: 10px;"
           :class="customClass"
           @click="selected = !selected"/>`,
-  }));
+});

@@ -1,23 +1,27 @@
-import { storiesOf } from "@storybook/vue";
 import SfCarousel from "./SfCarousel.vue";
 const StoriesPlaceholder = {
   props: ["index"],
   template: `<div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">{{index}}</div>`,
 };
-storiesOf("Organisms|Carousel", module)
-  .add("Common", () => ({
-    components: { SfCarousel, StoriesPlaceholder },
-    template: `<SfCarousel
+
+export default {
+  title: "Organisms|Carousel",
+};
+
+export const Common = () => ({
+  components: { SfCarousel, StoriesPlaceholder },
+  template: `<SfCarousel
       :style="{maxWidth: '1140px', margin: 'auto'}"
     >
         <SfCarouselItem v-for="index in 12">
           <StoriesPlaceholder :index="index"/>
         </SfCarouselItem>
       </SfCarousel>`,
-  }))
-  .add("[slot] next", () => ({
-    components: { SfCarousel, StoriesPlaceholder },
-    template: `<SfCarousel
+});
+
+export const SlotNext = () => ({
+  components: { SfCarousel, StoriesPlaceholder },
+  template: `<SfCarousel
       :style="{maxWidth: '1140px', margin: 'auto'}"
     >
       <template #next="{go}">
@@ -27,10 +31,15 @@ storiesOf("Organisms|Carousel", module)
         <StoriesPlaceholder :index="index"/>
       </SfCarouselItem>
     </SfCarousel>`,
-  }))
-  .add("[slot] prev", () => ({
-    components: { SfCarousel, StoriesPlaceholder },
-    template: `<SfCarousel
+});
+
+SlotNext.story = {
+  name: "[slot] next",
+};
+
+export const SlotPrev = () => ({
+  components: { SfCarousel, StoriesPlaceholder },
+  template: `<SfCarousel
       :style="{maxWidth: '1140px', margin: 'auto'}"
     >
       <template #prev="{go}">
@@ -40,4 +49,8 @@ storiesOf("Organisms|Carousel", module)
         <StoriesPlaceholder :index="index"/>
       </SfCarouselItem>
     </SfCarousel>`,
-  }));
+});
+
+SlotPrev.story = {
+  name: "[slot] prev",
+};

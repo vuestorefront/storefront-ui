@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
@@ -11,64 +10,69 @@ const StoriesPlaceholder = {
     [#default slot content]
   </div>`,
 };
-storiesOf("Molecules|Section", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfSection, StoriesPlaceholder },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-section--underline": "sf-section--underline",
-          },
-          "sf-section--underline",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      titleHeading: {
-        default: text("titleHeading", "Share your look", "Props"),
-      },
-      subtitleHeading: {
-        default: text("subtitleHeading", "#YOURLOOK", "Props"),
-      },
-      levelHeading: {
-        default: number("level-heading", 2, {}, "Props"),
-      },
+
+export default {
+  title: "Molecules|Section",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: { SfSection, StoriesPlaceholder },
+  props: {
+    customClass: {
+      default: options(
+        "CSS modifiers",
+        {
+          "sf-section--underline": "sf-section--underline",
+        },
+        "sf-section--underline",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    template: `<SfSection
+    titleHeading: {
+      default: text("titleHeading", "Share your look", "Props"),
+    },
+    subtitleHeading: {
+      default: text("subtitleHeading", "#YOURLOOK", "Props"),
+    },
+    levelHeading: {
+      default: number("level-heading", 2, {}, "Props"),
+    },
+  },
+  template: `<SfSection
       :title-heading="titleHeading"
       :subtitle-heading="subtitleHeading"
       :level-heading="levelHeading">
       <StoriesPlaceholder />
     </SfSection>`,
-  }))
-  .add("[slot] heading", () => ({
-    components: { SfSection, StoriesPlaceholder },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-section--underline": "sf-section--underline",
-          },
-          "sf-section--underline",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      titleHeading: {
-        default: text("titleHeading", "Share your look", "Props"),
-      },
-      subtitleHeading: {
-        default: text("subtitleHeading", "#YOURLOOK", "Props"),
-      },
-      levelHeading: {
-        default: number("level-heading", 2, {}, "Props"),
-      },
+});
+
+export const SlotHeading = () => ({
+  components: { SfSection, StoriesPlaceholder },
+  props: {
+    customClass: {
+      default: options(
+        "CSS modifiers",
+        {
+          "sf-section--underline": "sf-section--underline",
+        },
+        "sf-section--underline",
+        { display: "multi-select" },
+        "CSS Modifiers"
+      ),
     },
-    template: `<SfSection
+    titleHeading: {
+      default: text("titleHeading", "Share your look", "Props"),
+    },
+    subtitleHeading: {
+      default: text("subtitleHeading", "#YOURLOOK", "Props"),
+    },
+    levelHeading: {
+      default: number("level-heading", 2, {}, "Props"),
+    },
+  },
+  template: `<SfSection
       :title-heading="titleHeading"
       :subtitle-heading="subtitleHeading"
       :level-heading="levelHeading">
@@ -77,4 +81,8 @@ storiesOf("Molecules|Section", module)
       </template>
       <StoriesPlaceholder/>
     </SfSection>`,
-  }));
+});
+
+SlotHeading.story = {
+  name: "[slot] heading",
+};

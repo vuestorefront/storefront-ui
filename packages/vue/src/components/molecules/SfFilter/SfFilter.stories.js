@@ -1,27 +1,30 @@
-import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, number } from "@storybook/addon-knobs";
 import SfFilter from "./SfFilter.vue";
-storiesOf("Molecules|Filter", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfFilter },
-    props: {
-      label: {
-        default: text("label", "Red", "Props"),
-      },
-      count: {
-        default: number("count", 30, {}, "Props"),
-      },
-      color: {
-        default: text("color", "", "Props"),
-      },
+
+export default {
+  title: "Molecules|Filter",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: { SfFilter },
+  props: {
+    label: {
+      default: text("label", "Red", "Props"),
     },
-    data() {
-      return {
-        selected: true,
-      };
+    count: {
+      default: number("count", 30, {}, "Props"),
     },
-    template: `<SfFilter
+    color: {
+      default: text("color", "", "Props"),
+    },
+  },
+  data() {
+    return {
+      selected: true,
+    };
+  },
+  template: `<SfFilter
        :label="label"
        :count="count"
        :selected="selected"
@@ -29,26 +32,27 @@ storiesOf("Molecules|Filter", module)
        @change="selected = !selected"
        style="max-width: 22.875rem"
      />`,
-  }))
-  .add("Color Filter", () => ({
-    components: { SfFilter },
-    props: {
-      label: {
-        default: text("label", "Red", "Props"),
-      },
-      count: {
-        default: number("count", 30, {}, "Props"),
-      },
-      color: {
-        default: text("color", "#E69494", "Props"),
-      },
+});
+
+export const ColorFilter = () => ({
+  components: { SfFilter },
+  props: {
+    label: {
+      default: text("label", "Red", "Props"),
     },
-    data() {
-      return {
-        selected: true,
-      };
+    count: {
+      default: number("count", 30, {}, "Props"),
     },
-    template: `<SfFilter
+    color: {
+      default: text("color", "#E69494", "Props"),
+    },
+  },
+  data() {
+    return {
+      selected: true,
+    };
+  },
+  template: `<SfFilter
         :label="label"
         :count="count"
         :selected="selected"
@@ -56,26 +60,27 @@ storiesOf("Molecules|Filter", module)
         @change="selected = !selected"
         style="max-width: 22.875rem"
     />`,
-  }))
-  .add("[slot] label", () => ({
-    components: { SfFilter },
-    props: {
-      label: {
-        default: text("label", "Red", "Props"),
-      },
-      count: {
-        default: number("count", 30, {}, "Props"),
-      },
-      color: {
-        default: text("color", "", "Props"),
-      },
+});
+
+export const SlotLabel = () => ({
+  components: { SfFilter },
+  props: {
+    label: {
+      default: text("label", "Red", "Props"),
     },
-    data() {
-      return {
-        selected: true,
-      };
+    count: {
+      default: number("count", 30, {}, "Props"),
     },
-    template: `<SfFilter
+    color: {
+      default: text("color", "", "Props"),
+    },
+  },
+  data() {
+    return {
+      selected: true,
+    };
+  },
+  template: `<SfFilter
        :label="label"
        :count="count"
        :color="color"
@@ -85,26 +90,31 @@ storiesOf("Molecules|Filter", module)
      >
      <template #label="{label}">CUSTOM LABEL</template>
      </SfFilter>`,
-  }))
-  .add("[slot] count", () => ({
-    components: { SfFilter },
-    props: {
-      label: {
-        default: text("label", "Red", "Props"),
-      },
-      count: {
-        default: number("count", 30, {}, "Props"),
-      },
-      color: {
-        default: text("color", "", "Props"),
-      },
+});
+
+SlotLabel.story = {
+  name: "[slot] label",
+};
+
+export const SlotCount = () => ({
+  components: { SfFilter },
+  props: {
+    label: {
+      default: text("label", "Red", "Props"),
     },
-    data() {
-      return {
-        selected: true,
-      };
+    count: {
+      default: number("count", 30, {}, "Props"),
     },
-    template: `<SfFilter
+    color: {
+      default: text("color", "", "Props"),
+    },
+  },
+  data() {
+    return {
+      selected: true,
+    };
+  },
+  template: `<SfFilter
        :label="label"
        :count="count"
        :color="color"
@@ -114,4 +124,8 @@ storiesOf("Molecules|Filter", module)
      >
      <template #count="{count}">CUSTOM COUNT</template>
      </SfFilter>`,
-  }));
+});
+
+SlotCount.story = {
+  name: "[slot] count",
+};

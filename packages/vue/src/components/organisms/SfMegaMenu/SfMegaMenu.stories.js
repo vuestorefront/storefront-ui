@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
 import SfMegaMenu from "./SfMegaMenu.vue";
 import SfHeader from "../SfHeader/SfHeader.vue";
@@ -142,61 +141,65 @@ const MegaMenuPlaceholder = {
         </template>
       </SfMegaMenu>`,
 };
-storiesOf("Organisms|MegaMenu", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: {
-      SfMegaMenu,
-      SfMenuItem,
-      SfList,
+
+export default {
+  title: "Organisms|MegaMenu",
+  decorators: [withKnobs],
+};
+
+export const Common = () => ({
+  components: {
+    SfMegaMenu,
+    SfMenuItem,
+    SfList,
+  },
+  props: {
+    title: {
+      default: text("title", "Man", "Props"),
     },
-    props: {
-      title: {
-        default: text("title", "Man", "Props"),
-      },
-    },
-    data() {
-      return {
-        visible: true,
-        subcategories: [
-          {
-            header: "Clothing",
-            items: [
-              { label: "Skirts" },
-              { label: "Sweaters" },
-              { label: "Dresses" },
-              { label: "TShirts" },
-              { label: "Pants" },
-              { label: "Underwear" },
-              { label: "Jackets" },
-              { label: "Blouses" },
-            ],
-          },
-          {
-            header: "Accessories",
-            items: [
-              { label: "Bags & Purses" },
-              { label: "Belts" },
-              { label: "Gloves" },
-              { label: "Hats" },
-            ],
-          },
-          {
-            header: "Shoes",
-            items: [
-              { label: "Boots" },
-              { label: "Heels" },
-              { label: "Flat shoes" },
-              { label: "Loafers" },
-              { label: "Sandals" },
-              { label: "Slippers" },
-              { label: "Trainers" },
-            ],
-          },
-        ],
-      };
-    },
-    template: `<SfMegaMenu 
+  },
+  data() {
+    return {
+      visible: true,
+      subcategories: [
+        {
+          header: "Clothing",
+          items: [
+            { label: "Skirts" },
+            { label: "Sweaters" },
+            { label: "Dresses" },
+            { label: "TShirts" },
+            { label: "Pants" },
+            { label: "Underwear" },
+            { label: "Jackets" },
+            { label: "Blouses" },
+          ],
+        },
+        {
+          header: "Accessories",
+          items: [
+            { label: "Bags & Purses" },
+            { label: "Belts" },
+            { label: "Gloves" },
+            { label: "Hats" },
+          ],
+        },
+        {
+          header: "Shoes",
+          items: [
+            { label: "Boots" },
+            { label: "Heels" },
+            { label: "Flat shoes" },
+            { label: "Loafers" },
+            { label: "Sandals" },
+            { label: "Slippers" },
+            { label: "Trainers" },
+          ],
+        },
+      ],
+    };
+  },
+  template: `<SfMegaMenu 
         :title="title" 
         :visible="visible"
       >
@@ -214,64 +217,65 @@ storiesOf("Organisms|MegaMenu", module)
           </SfList>
         </SfMegaMenuColumn>
       </SfMegaMenu>`,
-  }))
-  .add("[slot] aside", () => ({
-    components: {
-      SfMegaMenu,
-      SfMenuItem,
-      SfList,
-      AsidePlaceholder,
+});
+
+export const SlotAside = () => ({
+  components: {
+    SfMegaMenu,
+    SfMenuItem,
+    SfList,
+    AsidePlaceholder,
+  },
+  props: {
+    title: {
+      default: text("title", "Man", "Props"),
     },
-    props: {
-      title: {
-        default: text("title", "Man", "Props"),
-      },
-      asideTitle: {
-        default: text("asideTitle", "Featured", "Props"),
-      },
+    asideTitle: {
+      default: text("asideTitle", "Featured", "Props"),
     },
-    data() {
-      return {
-        visible: true,
-        subcategories: [
-          {
-            header: "Clothing",
-            items: [
-              { label: "Skirts" },
-              { label: "Sweaters" },
-              { label: "Dresses" },
-              { label: "TShirts" },
-              { label: "Pants" },
-              { label: "Underwear" },
-              { label: "Jackets" },
-              { label: "Blouses" },
-            ],
-          },
-          {
-            header: "Accessories",
-            items: [
-              { label: "Bags & Purses" },
-              { label: "Belts" },
-              { label: "Gloves" },
-              { label: "Hats" },
-            ],
-          },
-          {
-            header: "Shoes",
-            items: [
-              { label: "Boots" },
-              { label: "Heels" },
-              { label: "Flat shoes" },
-              { label: "Loafers" },
-              { label: "Sandals" },
-              { label: "Slippers" },
-              { label: "Trainers" },
-            ],
-          },
-        ],
-      };
-    },
-    template: `<SfMegaMenu 
+  },
+  data() {
+    return {
+      visible: true,
+      subcategories: [
+        {
+          header: "Clothing",
+          items: [
+            { label: "Skirts" },
+            { label: "Sweaters" },
+            { label: "Dresses" },
+            { label: "TShirts" },
+            { label: "Pants" },
+            { label: "Underwear" },
+            { label: "Jackets" },
+            { label: "Blouses" },
+          ],
+        },
+        {
+          header: "Accessories",
+          items: [
+            { label: "Bags & Purses" },
+            { label: "Belts" },
+            { label: "Gloves" },
+            { label: "Hats" },
+          ],
+        },
+        {
+          header: "Shoes",
+          items: [
+            { label: "Boots" },
+            { label: "Heels" },
+            { label: "Flat shoes" },
+            { label: "Loafers" },
+            { label: "Sandals" },
+            { label: "Slippers" },
+            { label: "Trainers" },
+          ],
+        },
+      ],
+    };
+  },
+  template: `<SfMegaMenu 
         :title="title"
         :asideTitle="asideTitle"
         :visible="visible"
@@ -296,18 +300,23 @@ storiesOf("Organisms|MegaMenu", module)
           <AsidePlaceholder/>
         </template>
       </SfMegaMenu>`,
-  }))
-  .add("With SfHeader", () => ({
-    components: {
-      SfHeader,
-      MegaMenuPlaceholder,
-    },
-    data() {
-      return {
-        hovered: "",
-      };
-    },
-    template: `
+});
+
+SlotAside.story = {
+  name: "[slot] aside",
+};
+
+export const WithSfHeader = () => ({
+  components: {
+    SfHeader,
+    MegaMenuPlaceholder,
+  },
+  data() {
+    return {
+      hovered: "",
+    };
+  },
+  template: `
       <SfHeader
         title="Storefront UI"
         :logo="{ mobile: { url: '/assets/logo.svg' }, desktop: { url: '/assets/logo.svg' } }"
@@ -336,4 +345,8 @@ storiesOf("Organisms|MegaMenu", module)
           </SfHeaderNavigationItem>
         </template>
       </SfHeader>`,
-  }));
+});
+
+WithSfHeader.story = {
+  name: "With SfHeader",
+};
