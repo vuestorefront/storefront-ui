@@ -5,6 +5,7 @@
         <!-- @slot Custom markup for previous page button -->
         <slot name="prev" v-bind="{ isDisabled: !canGoPrev, go: goPrev }">
           <button
+            v-focus
             aria-label="Go to previous page"
             class="sf-pagination__button sf-pagination__button--prev"
             :disabled="isDisabled('prev')"
@@ -17,7 +18,9 @@
       <template v-if="showFirst">
         <li class="sf-pagination__item">
           <slot name="number" v-bind="{ go, number: 1 }">
-            <button class="sf-pagination__button" @click="go(1)">1</button>
+            <button v-focus class="sf-pagination__button" @click="go(1)">
+              1
+            </button>
           </slot>
         </li>
         <li class="sf-pagination__item">
@@ -32,6 +35,7 @@
         >
           <slot name="number" v-bind="{ go, number }">
             <button
+              v-focus
               class="sf-pagination__button"
               :class="{ 'sf-pagination__button--current': current === number }"
               @click="go(number)"
@@ -47,7 +51,7 @@
         </li>
         <li class="sf-pagination__item">
           <slot name="number" v-bind="{ go, number: total }">
-            <button class="sf-pagination__button" @click="go(total)">
+            <button v-focus class="sf-pagination__button" @click="go(total)">
               {{ total }}
             </button>
           </slot>
@@ -57,6 +61,7 @@
         <!-- @slot Custom markup for next page button -->
         <slot name="next" v-bind="{ isDisabled: !canGoNext, go: goNext }">
           <button
+            v-focus
             aria-label="Go to next page"
             class="sf-pagination__button sf-pagination__button--next"
             :disabled="isDisabled('next')"
@@ -70,11 +75,15 @@
   </nav>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfPagination",
   components: {
     SfIcon,
+  },
+  directives: {
+    focus,
   },
   props: {
     /**
