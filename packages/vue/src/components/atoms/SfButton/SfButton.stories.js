@@ -40,6 +40,7 @@ storiesOf("Atoms|Button", module)
     components: { SfButton },
     template: `<SfButton
       :class="customClass"
+      aria-label="my label"
       :disabled="disabled">
       {{customLabel}}
     </SfButton>`,
