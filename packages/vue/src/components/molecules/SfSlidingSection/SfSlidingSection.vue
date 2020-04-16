@@ -25,23 +25,23 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import {
   mapMobileObserver,
-  unMapMobileObserver
+  unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
 export default {
   name: "SfSlidingSection",
   components: {
-    SfIcon
+    SfIcon,
   },
   data() {
     return {
       isActive: false,
       hasScrollLock: false,
       hammer: undefined,
-      hasStaticHeight: false
+      hasStaticHeight: false,
     };
   },
   computed: {
-    ...mapMobileObserver()
+    ...mapMobileObserver(),
   },
   watch: {
     isMobile(mobile) {
@@ -78,13 +78,13 @@ export default {
         return;
       }
       this.scrollLock();
-    }
+    },
   },
   mounted() {
-    import("hammerjs").then(h => {
+    import("hammerjs").then((h) => {
       const Hammer = h.default;
       this.hammer = new Hammer(document, {
-        enable: false
+        enable: false,
       }).on("pan", this.touchHandler);
     });
   },
@@ -101,13 +101,13 @@ export default {
       window.scrollTo(0, 0);
       document.body.classList.add("sf-sliding-section--has-scroll-lock");
       window.addEventListener("touchmove", this.touchPreventDefault, {
-        passive: false
+        passive: false,
       });
     },
     scrollUnlock() {
       document.body.classList.remove("sf-sliding-section--has-scroll-lock");
       window.removeEventListener("touchmove", this.touchPreventDefault, {
-        passive: false
+        passive: false,
       });
     },
     touchHandler(event) {
@@ -128,8 +128,8 @@ export default {
     },
     closeHandler() {
       this.isActive = false;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

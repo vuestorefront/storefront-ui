@@ -27,38 +27,38 @@ export default {
   name: "SfCircleIcon",
   components: {
     SfButton,
-    SfIcon
+    SfIcon,
   },
   props: {
     ariaLabel: {
       type: String,
-      default: ""
+      default: "",
     },
     icon: {
       type: [String, Array],
-      default: "home"
+      default: "home",
     },
     iconColor: {
       type: String,
-      default: ""
+      default: "",
     },
     iconSize: {
       type: String,
-      default: ""
+      default: "",
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     hasBadge: {
       type: Boolean,
-      default: false
+      default: false,
     },
     badgeLabel: {
       type: String,
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 <style lang="scss">

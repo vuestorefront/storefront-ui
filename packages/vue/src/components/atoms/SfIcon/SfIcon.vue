@@ -37,7 +37,7 @@ const SF_ICONS = Object.keys(icons);
 export default {
   name: "SfIcon",
   components: {
-    SfBadge
+    SfBadge,
   },
   props: {
     /**
@@ -47,7 +47,7 @@ export default {
      */
     icon: {
       type: [String, Array],
-      default: ""
+      default: "",
     },
     /**
      * Custom size of the icon
@@ -56,7 +56,7 @@ export default {
      */
     size: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Custom color of the icon
@@ -65,7 +65,7 @@ export default {
      */
     color: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Custom viewBox size of the icon
@@ -75,16 +75,16 @@ export default {
      */
     viewBox: {
       type: String,
-      default: "0 0 24 24"
+      default: "0 0 24 24",
     },
     hasBadge: {
       type: Boolean,
-      default: false
+      default: false,
     },
     badgeLabel: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     isSFColors() {
@@ -103,7 +103,7 @@ export default {
     iconCustomStyle() {
       return {
         "--icon-color": !this.isSFColors ? this.color : "",
-        "--icon-size": !this.isSFSizes ? this.size : ""
+        "--icon-size": !this.isSFSizes ? this.size : "",
       };
     },
     isSFIcons() {
@@ -120,8 +120,8 @@ export default {
       } else {
         return Array.isArray(this.icon) ? this.icon : [this.icon];
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -80,7 +80,7 @@ import {
   Payment,
   ConfirmOrder,
   OrderSummary,
-  OrderReview
+  OrderReview,
 } from "./_internal/index.js";
 export default {
   name: "Checkout",
@@ -91,7 +91,7 @@ export default {
     Payment,
     ConfirmOrder,
     OrderSummary,
-    OrderReview
+    OrderReview,
   },
   data() {
     return {
@@ -107,7 +107,7 @@ export default {
         zipCode: "",
         country: "",
         phoneNumber: "",
-        shippingMethod: ""
+        shippingMethod: "",
       },
       payment: {
         sameAsShipping: false,
@@ -128,8 +128,8 @@ export default {
           month: "",
           year: "",
           cvc: "",
-          keep: false
-        }
+          keep: false,
+        },
       },
       order: {
         password: "",
@@ -137,7 +137,7 @@ export default {
         review: {
           subtotal: "$150.00",
           shipping: "$9.00",
-          total: "$159.00"
+          total: "$159.00",
         },
         products: [
           {
@@ -146,10 +146,10 @@ export default {
             price: { regular: "$50.00" },
             configuration: [
               { name: "Size", value: "XS" },
-              { name: "Color", value: "White" }
+              { name: "Color", value: "White" },
             ],
             qty: 1,
-            sku: "MSD23-345-324"
+            sku: "MSD23-345-324",
           },
           {
             title: "Vila stripe maxi dress",
@@ -157,34 +157,34 @@ export default {
             price: { regular: "$50.00", special: "$20.05" },
             configuration: [
               { name: "Size", value: "XS" },
-              { name: "Color", value: "White" }
+              { name: "Color", value: "White" },
             ],
             qty: 2,
-            sku: "MSD23-345-325"
-          }
-        ]
+            sku: "MSD23-345-325",
+          },
+        ],
       },
       paymentMethods: [
         {
           label: "Visa Debit",
-          value: "debit"
+          value: "debit",
         },
         {
           label: "MasterCard",
-          value: "mastercard"
+          value: "mastercard",
         },
         {
           label: "Visa Electron",
-          value: "electron"
+          value: "electron",
         },
         {
           label: "Cash on delivery",
-          value: "cash"
+          value: "cash",
         },
         {
           label: "Check",
-          value: "check"
-        }
+          value: "check",
+        },
       ],
       shippingMethods: [
         {
@@ -194,7 +194,7 @@ export default {
           label: "Pickup in the store",
           value: "store",
           description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
         },
         {
           isOpen: false,
@@ -203,7 +203,7 @@ export default {
           label: "Delivery to home",
           value: "home",
           description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
         },
         {
           isOpen: false,
@@ -212,7 +212,7 @@ export default {
           label: "Paczkomaty InPost",
           value: "inpost",
           description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
         },
         {
           isOpen: false,
@@ -221,7 +221,7 @@ export default {
           label: "48 hours coffee",
           value: "coffee",
           description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
         },
         {
           isOpen: false,
@@ -230,33 +230,33 @@ export default {
           label: "Urgent 24h",
           value: "urgent",
           description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
-        }
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
+        },
       ],
       buttonNames: [
         { name: "Go to shipping" },
         { name: "Go to payment" },
         { name: "Review Order" },
-        { name: "Place my order" }
+        { name: "Place my order" },
       ],
       characteristics: [
         {
           title: "Safety",
           description: "It carefully packaged with a personal touch",
-          icon: "safety"
+          icon: "safety",
         },
         {
           title: "Easy shipping",
           description:
             "You’ll receive dispatch confirmation and an arrival date",
-          icon: "shipping"
+          icon: "shipping",
         },
         {
           title: "Changed your mind?",
           description: "Rest assured, we offer free returns within 30 days",
-          icon: "return"
-        }
-      ]
+          icon: "return",
+        },
+      ],
     };
   },
   computed: {
@@ -265,12 +265,12 @@ export default {
         ...this.order,
         ...this.personalDetails,
         shipping: { ...this.shipping },
-        payment: { ...this.payment }
+        payment: { ...this.payment },
       };
     },
     getButtonName() {
       return this.buttonNames[this.currentStep].name;
-    }
+    },
   },
   methods: {
     updateStep(next) {
@@ -278,8 +278,8 @@ export default {
       if (next < this.currentStep) {
         this.currentStep = next;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

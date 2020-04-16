@@ -41,36 +41,36 @@ export default {
     SfFooter,
     SfList,
     SfMenuItem,
-    Home
+    Home,
   },
   data() {
     return {
       shopLogo: {
         mobile: { url: "/assets/logo.svg" },
-        desktop: { url: "/assets/logo.svg" }
+        desktop: { url: "/assets/logo.svg" },
       },
       shopName: "Storefront UI",
       shopRootCategories: ["women", "man", "kids"],
       footerColumns: [
         {
           title: "About us",
-          items: ["Who we are", "Quality in the details", "Customer Reviews"]
+          items: ["Who we are", "Quality in the details", "Customer Reviews"],
         },
         {
           title: "Departments",
-          items: ["Women fashion", "Men fashion", "Kidswear", "Home"]
+          items: ["Women fashion", "Men fashion", "Kidswear", "Home"],
         },
         {
           title: "Help",
-          items: ["Customer service", "Size guide", "Contact us"]
+          items: ["Customer service", "Size guide", "Contact us"],
         },
         {
           title: "Payment & delivery",
-          items: ["Purchase terms", "Guarantee"]
-        }
-      ]
+          items: ["Purchase terms", "Guarantee"],
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>

@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  optionsKnob as options
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfBadge from "./SfBadge.vue";
 storiesOf("Atoms|Badge", module)
@@ -21,20 +20,20 @@ storiesOf("Atoms|Badge", module)
             "color-warning": "color-warning",
             "color-danger": "color-danger",
             "color-info": "color-info",
-            "color-success": "color-success"
+            "color-success": "color-success",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       customLabel: {
-        default: text("default", "Limited", "Slots")
-      }
+        default: text("default", "Limited", "Slots"),
+      },
     },
     components: { SfBadge },
     template: `<SfBadge
       :class="customClass">
       {{customLabel}}
-     </SfBadge>`
+     </SfBadge>`,
   }));

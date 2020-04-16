@@ -24,7 +24,7 @@
 import { SfButton, SfImage, SfHeading } from "@storefront-ui/vue";
 export default {
   name: "Error",
-  components: { SfButton, SfImage, SfHeading }
+  components: { SfButton, SfImage, SfHeading },
 };
 </script>
 <style lang="scss" scoped>

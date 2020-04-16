@@ -25,34 +25,34 @@ import SfButton from "../../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfHeroItem",
   components: {
-    SfButton
+    SfButton,
   },
   props: {
     /** Hero item title */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Hero item subtitle (at the top) */
     subtitle: {
       type: String,
-      default: ""
+      default: "",
     },
     /** text that will be displayed inside the button. You can replace the button  with "call-to-action" slot */
     buttonText: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Background color */
     background: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Background image path */
     image: {
       type: [Object, String],
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     style() {
@@ -64,9 +64,9 @@ export default {
           : `url(${image})`,
         "--_hero-item-background-desktop-image":
           image.desktop && `url(${image.desktop})`,
-        "--_hero-item-background-color": background
+        "--_hero-item-background-color": background,
       };
-    }
-  }
+    },
+  },
 };
 </script>

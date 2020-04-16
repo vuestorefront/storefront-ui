@@ -106,7 +106,7 @@ import {
   SfProperty,
   SfPrice,
   SfImage,
-  SfCollectedProduct
+  SfCollectedProduct,
 } from "@storefront-ui/vue";
 export default {
   name: "Cart",
@@ -117,7 +117,7 @@ export default {
     SfImage,
     SfProperty,
     SfPrice,
-    SfCollectedProduct
+    SfCollectedProduct,
   },
   data() {
     return {
@@ -130,9 +130,9 @@ export default {
           price: { regular: "$50.00" },
           configuration: [
             { name: "Size", value: "XS" },
-            { name: "Color", value: "White" }
+            { name: "Color", value: "White" },
           ],
-          qty: "1"
+          qty: "1",
         },
         {
           title: "Cream Beach Bag",
@@ -141,9 +141,9 @@ export default {
           price: { regular: "$50.00", special: "$20.05" },
           configuration: [
             { name: "Size", value: "XS" },
-            { name: "Color", value: "White" }
+            { name: "Color", value: "White" },
           ],
-          qty: "2"
+          qty: "2",
         },
         {
           title: "Cream Beach Bag",
@@ -152,11 +152,11 @@ export default {
           price: { regular: "$50.00", special: "$20.50" },
           configuration: [
             { name: "Size", value: "XS" },
-            { name: "Color", value: "White" }
+            { name: "Color", value: "White" },
           ],
-          qty: "1"
-        }
-      ]
+          qty: "1",
+        },
+      ],
     };
   },
   computed: {
@@ -176,14 +176,14 @@ export default {
           return totalPrice + summary;
         }, 0)
         .toFixed(2);
-    }
+    },
   },
   methods: {
     removeHandler(product) {
       const products = [...this.products];
-      this.products = products.filter(element => element.id !== product.id);
-    }
-  }
+      this.products = products.filter((element) => element.id !== product.id);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

@@ -84,13 +84,13 @@ export default {
   components: {
     SfTabs,
     SfInput,
-    SfButton
+    SfButton,
   },
   props: {
     account: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -99,7 +99,7 @@ export default {
       email: "",
       currentPassword: "",
       newPassword: "",
-      repeatPassword: ""
+      repeatPassword: "",
     };
   },
   watch: {
@@ -109,25 +109,25 @@ export default {
         this.lastName = value.lastName;
         this.email = value.email;
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
     updatePersonal() {
       const personal = {
         firstName: this.firstName,
         lastName: this.lastName,
-        email: this.email
+        email: this.email,
       };
       this.$emit("update:personal", personal);
     },
     updatePassword() {
       const password = {
-        password: this.newPassword
+        password: this.newPassword,
       };
       this.$emit("update:password", password);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
