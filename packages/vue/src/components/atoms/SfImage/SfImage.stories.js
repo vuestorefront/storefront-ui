@@ -52,7 +52,7 @@ storiesOf("Atoms|Image", module)
         default: number("height", 326, {}, "Props"),
       },
       lazy: {
-        default: boolean("lazy", false, "Props"),
+        default: boolean("lazy", true, "Props"),
       },
       pictureBreakpoint: {
         default: number("pictureBreakpoint", 576, {}, "Props"),
