@@ -270,10 +270,10 @@ Try to make components as customizable as possible **without complicating** them
 
 StorefrontUI cares about providing new features and keeping up-to-date with new best practices. Sometimes it can become necessary to make changes to APIs or to prepare new features in order to stay current. To make this process easier for everyone, we deprecate APIs and features for a period of time before the actual removal by adding proper information about deprecations in the next major version.
 
-**In result:**
-- we don't remove implemented features before next major version
-- we add info about deprecation, so user can be prepared for substitute and have time to update package to the latest version
-- before release, we can easily find every deprecated feature -> remove it and prepare documentation for it
+**In summary:**
+- we don't remove implemented features before the next major version
+- we add deprecation infos, so users can prepare for replacements and have time to update their dependencies to the latest version
+- on our side: before a release, we can spot deprecated features more easily, remove them and prepare migration documentation
 
 **To standarize these process, we can stick with few rules:**
 - add this note next to the deprecated feature/APIs -> `@deprecated will be removed in 1.0.0 use ___ prop instead`
