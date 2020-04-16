@@ -4,14 +4,14 @@
       <!--@slot custom icon for inactive bullet -->
       <slot name="inactive" class="sf-bullet" v-bind="{ index, go }">
         <li :key="index">
-          <button class="sf-bullet" @click="go(index)"></button>
+          <button v-focus class="sf-bullet" @click="go(index)"></button>
         </li>
       </slot>
     </template>
     <!--@slot custom icon for active bullet -->
     <slot name="active">
       <li>
-        <button class="sf-bullet sf-bullet--active"></button>
+        <button v-focus class="sf-bullet sf-bullet--active"></button>
       </li>
     </slot>
     <template v-for="(_, index) of inactiveRight">
@@ -23,6 +23,7 @@
       >
         <li :key="inactiveLeft + 1 + index">
           <button
+            v-focus
             class="sf-bullet"
             @click="go(inactiveLeft + 1 + index)"
           ></button>
@@ -32,8 +33,12 @@
   </ol>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfBullets",
+  directives: {
+    focus: focus
+  },
   props: {
     /**
      * Number of bullets in total (active + inactive)
