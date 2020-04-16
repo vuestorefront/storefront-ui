@@ -5,10 +5,11 @@
     :style="iconCustomStyle"
     v-on="$listeners"
   >
-    <slot v-bind="{ viewBox, iconPaths, icon }">
+    <slot v-bind="{ viewBox, iconPaths, icon, ariaHidden }">
       <svg
         v-focus
         tabindex="0"
+        :aria-hidden="ariaHidden"
         class="sf-icon-path"
         :viewBox="iconViewBox"
         preserveAspectRatio="none"
@@ -72,6 +73,14 @@ export default {
       type: String,
       default: "0 0 24 24",
     },
+    /**
+     * Custom aria-hidden for the icon
+     * By default it's false - means the icon is visible for assistive technologies
+     */
+    ariaHidden: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     isSFColors() {
