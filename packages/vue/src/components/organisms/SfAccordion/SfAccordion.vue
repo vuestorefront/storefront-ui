@@ -19,7 +19,7 @@ export default {
      */
     open: {
       type: [String, Array],
-      default: ""
+      default: "",
     },
     /**
      * Opens the first accordion item if set to "true"
@@ -27,26 +27,26 @@ export default {
      */
     firstOpen: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Allows to open multiple accordion items if set to "true"
      */
     multiple: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Overlay transition effect
      */
     transition: {
       type: String,
-      default: "fade"
+      default: "fade",
     },
     showChevron: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   mounted() {
     this.$on("toggle", this.toggleHandler);
@@ -67,7 +67,7 @@ export default {
           return;
         }
         // <- TODO remove in 1.0.0
-        this.$children.forEach(child => {
+        this.$children.forEach((child) => {
           child.isOpen = Array.isArray(this.open)
             ? this.open.includes(child.header)
             : this.open === child.header;
@@ -76,19 +76,19 @@ export default {
     },
     toggleHandler(slotId) {
       if (!this.multiple && !Array.isArray(this.open)) {
-        this.$children.forEach(child => {
+        this.$children.forEach((child) => {
           child._uid === slotId
             ? (child.isOpen = !child.isOpen)
             : (child.isOpen = false);
         });
       } else {
-        const clickedHeader = this.$children.find(child => {
+        const clickedHeader = this.$children.find((child) => {
           return child._uid === slotId;
         });
         clickedHeader.isOpen = !clickedHeader.isOpen;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

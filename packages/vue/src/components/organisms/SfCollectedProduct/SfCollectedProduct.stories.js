@@ -1,11 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   object,
   text,
   number,
-  optionsKnob as options
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfCollectedProduct from "./SfCollectedProduct.vue";
@@ -19,42 +18,42 @@ storiesOf("Organisms|CollectedProduct", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
+            "sf-collected-product--detailed": "sf-collected-product--detailed",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       image: {
         default: object(
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
           },
           "Props"
-        )
+        ),
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props"),
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props")
+        default: text("title", "Cotton Sweater", "Props"),
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10,99", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
+        default: text("specialPrice", "$5,09", "Props"),
+      },
     },
     data() {
       return {
-        productQty: 1
+        productQty: 1,
       };
     },
     template: `<SfCollectedProduct
@@ -77,7 +76,7 @@ storiesOf("Organisms|CollectedProduct", module)
       <template #actions>
           <SfButton class="sf-button--text desktop-only">Save for later</SfButton>
       </template>
-    </SfCollectedProduct>`
+    </SfCollectedProduct>`,
   }))
   .add("[slot] actions", () => ({
     components: { SfCollectedProduct, SfProperty },
@@ -86,42 +85,42 @@ storiesOf("Organisms|CollectedProduct", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
+            "sf-collected-product--detailed": "sf-collected-product--detailed",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       image: {
         default: object(
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
           },
           "Props"
-        )
+        ),
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props"),
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props")
+        default: text("title", "Cotton Sweater", "Props"),
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10,99", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
+        default: text("specialPrice", "$5,09", "Props"),
+      },
     },
     data() {
       return {
-        productQty: 1
+        productQty: 1,
       };
     },
     template: `<SfCollectedProduct
@@ -138,7 +137,7 @@ storiesOf("Organisms|CollectedProduct", module)
       <template #actions>
           CUSTOM ACTIONS
       </template>
-    </SfCollectedProduct>`
+    </SfCollectedProduct>`,
   }))
   .add("[slot] configuration", () => ({
     components: { SfCollectedProduct, SfProperty },
@@ -147,42 +146,42 @@ storiesOf("Organisms|CollectedProduct", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
+            "sf-collected-product--detailed": "sf-collected-product--detailed",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       image: {
         default: object(
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
           },
           "Props"
-        )
+        ),
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props"),
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props")
+        default: text("title", "Cotton Sweater", "Props"),
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10,99", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
+        default: text("specialPrice", "$5,09", "Props"),
+      },
     },
     data() {
       return {
-        productQty: 1
+        productQty: 1,
       };
     },
     template: `<SfCollectedProduct
@@ -199,7 +198,7 @@ storiesOf("Organisms|CollectedProduct", module)
       <template #configuration>
         CUSTOM CONFIGURATION
       </template>
-    </SfCollectedProduct>`
+    </SfCollectedProduct>`,
   }))
   .add("[slot] remove", () => ({
     components: { SfCollectedProduct, SfProperty },
@@ -208,42 +207,42 @@ storiesOf("Organisms|CollectedProduct", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
+            "sf-collected-product--detailed": "sf-collected-product--detailed",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       image: {
         default: object(
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
           },
           "Props"
-        )
+        ),
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props"),
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props")
+        default: text("title", "Cotton Sweater", "Props"),
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10,99", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
+        default: text("specialPrice", "$5,09", "Props"),
+      },
     },
     data() {
       return {
-        productQty: 1
+        productQty: 1,
       };
     },
     template: `<SfCollectedProduct
@@ -260,7 +259,7 @@ storiesOf("Organisms|CollectedProduct", module)
       <template #remove="{ removeHandler }">
         <button @click="removeHandler">CUSTOM REMOVE</button>
       </template>
-    </SfCollectedProduct>`
+    </SfCollectedProduct>`,
   }))
   .add("[slot] image", () => ({
     components: { SfCollectedProduct, SfProperty },
@@ -269,42 +268,42 @@ storiesOf("Organisms|CollectedProduct", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
+            "sf-collected-product--detailed": "sf-collected-product--detailed",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       image: {
         default: object(
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
           },
           "Props"
-        )
+        ),
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props"),
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props")
+        default: text("title", "Cotton Sweater", "Props"),
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10,99", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
+        default: text("specialPrice", "$5,09", "Props"),
+      },
     },
     data() {
       return {
-        productQty: 1
+        productQty: 1,
       };
     },
     template: `<SfCollectedProduct
@@ -321,7 +320,7 @@ storiesOf("Organisms|CollectedProduct", module)
       <template #image="{ image, title }">
         CUSTOM IMAGE
       </template>
-    </SfCollectedProduct>`
+    </SfCollectedProduct>`,
   }))
   .add("[slot] input", () => ({
     components: { SfCollectedProduct, SfProperty },
@@ -330,42 +329,42 @@ storiesOf("Organisms|CollectedProduct", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
+            "sf-collected-product--detailed": "sf-collected-product--detailed",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       image: {
         default: object(
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
           },
           "Props"
-        )
+        ),
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props"),
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props")
+        default: text("title", "Cotton Sweater", "Props"),
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10,99", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
+        default: text("specialPrice", "$5,09", "Props"),
+      },
     },
     data() {
       return {
-        productQty: 1
+        productQty: 1,
       };
     },
     template: `<SfCollectedProduct
@@ -382,7 +381,7 @@ storiesOf("Organisms|CollectedProduct", module)
       <template #input="{ image, title }">
         CUSTOM INPUT
       </template>
-    </SfCollectedProduct>`
+    </SfCollectedProduct>`,
   }))
   .add("[slot] title", () => ({
     components: { SfCollectedProduct, SfProperty },
@@ -391,42 +390,42 @@ storiesOf("Organisms|CollectedProduct", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
+            "sf-collected-product--detailed": "sf-collected-product--detailed",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       image: {
         default: object(
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
           },
           "Props"
-        )
+        ),
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props"),
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props")
+        default: text("title", "Cotton Sweater", "Props"),
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10,99", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
+        default: text("specialPrice", "$5,09", "Props"),
+      },
     },
     data() {
       return {
-        productQty: 1
+        productQty: 1,
       };
     },
     template: `<SfCollectedProduct
@@ -443,7 +442,7 @@ storiesOf("Organisms|CollectedProduct", module)
       <template #title="{ title }">
         CUSTOM TITLE
       </template>
-    </SfCollectedProduct>`
+    </SfCollectedProduct>`,
   }))
   .add("[slot] price", () => ({
     components: { SfCollectedProduct, SfProperty },
@@ -452,42 +451,42 @@ storiesOf("Organisms|CollectedProduct", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
+            "sf-collected-product--detailed": "sf-collected-product--detailed",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       image: {
         default: object(
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
           },
           "Props"
-        )
+        ),
       },
       imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props"),
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props")
+        default: text("title", "Cotton Sweater", "Props"),
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10,99", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
+        default: text("specialPrice", "$5,09", "Props"),
+      },
     },
     data() {
       return {
-        productQty: 1
+        productQty: 1,
       };
     },
     template: `<SfCollectedProduct
@@ -504,5 +503,5 @@ storiesOf("Organisms|CollectedProduct", module)
       <template #price="{ specialPrice, regularPrice }">
         CUSTOM PRICE
       </template>
-    </SfCollectedProduct>`
+    </SfCollectedProduct>`,
   }));

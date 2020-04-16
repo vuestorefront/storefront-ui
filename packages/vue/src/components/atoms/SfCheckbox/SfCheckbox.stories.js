@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 import SfCheckbox from "./SfCheckbox.vue";
@@ -8,24 +7,24 @@ storiesOf("Atoms|Checkbox", module)
     components: { SfCheckbox },
     props: {
       name: {
-        default: text("name", "shipping", "Props")
+        default: text("name", "shipping", "Props"),
       },
       label: {
-        default: text("label", "I want to create an account", "Props")
+        default: text("label", "I want to create an account", "Props"),
       },
       required: {
-        default: boolean("required", false, "Props")
+        default: boolean("required", false, "Props"),
       },
       valid: {
-        default: boolean("valid", true, "Props")
+        default: boolean("valid", true, "Props"),
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
-      }
+        default: boolean("disabled", false, "Props"),
+      },
     },
     data() {
       return {
-        checked: false
+        checked: false,
       };
     },
     template: `<SfCheckbox 
@@ -35,13 +34,13 @@ storiesOf("Atoms|Checkbox", module)
       :required="required"
       :disabled="disabled"
       :valid="valid"
-      />`
+      />`,
   }))
   .add("Multiple checkboxes", () => ({
     components: { SfCheckbox },
     data() {
       return {
-        checked: []
+        checked: [],
       };
     },
     template: `<div>
@@ -63,27 +62,27 @@ storiesOf("Atoms|Checkbox", module)
           value="children"
           label="Children"
         /> 
-      </div>`
+      </div>`,
   }))
   .add("[slot] checkmark", () => ({
     components: { SfCheckbox },
     props: {
       name: {
-        default: text("name", "shipping", "Props")
+        default: text("name", "shipping", "Props"),
       },
       label: {
-        default: text("label", "Copy address data from shipping", "Props")
+        default: text("label", "Copy address data from shipping", "Props"),
       },
       required: {
-        default: boolean("required", false, "Props")
+        default: boolean("required", false, "Props"),
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
-      }
+        default: boolean("disabled", false, "Props"),
+      },
     },
     data() {
       return {
-        checked: false
+        checked: false,
       };
     },
     template: `<SfCheckbox 
@@ -96,27 +95,27 @@ storiesOf("Atoms|Checkbox", module)
         <span v-if="isChecked">👍🏻</span>
         <span v-else>👎🏻</span>
       </template>
-    </SfCheckbox>`
+    </SfCheckbox>`,
   }))
   .add("[slot] label", () => ({
     components: { SfCheckbox },
     props: {
       name: {
-        default: text("name", "shipping", "Props")
+        default: text("name", "shipping", "Props"),
       },
       label: {
-        default: text("label", "Copy address data from shipping", "Props")
+        default: text("label", "Copy address data from shipping", "Props"),
       },
       required: {
-        default: boolean("required", false, "Props")
+        default: boolean("required", false, "Props"),
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
-      }
+        default: boolean("disabled", false, "Props"),
+      },
     },
     data() {
       return {
-        checked: false
+        checked: false,
       };
     },
     template: `<SfCheckbox 
@@ -129,5 +128,5 @@ storiesOf("Atoms|Checkbox", module)
         <span v-if="isChecked" style="margin-left: 1rem">🎉 I'm checked</span>
         <span v-else style="margin-left: 1rem">👈 Please check me</span>
       </template>
-    </SfCheckbox>`
+    </SfCheckbox>`,
   }));

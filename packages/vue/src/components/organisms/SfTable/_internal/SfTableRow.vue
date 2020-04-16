@@ -10,8 +10,8 @@ export default {
   mounted() {
     if (!this.$slots.default) return;
     this.table.updateColumnsCount(
-      this.$slots.default.filter(node => node.tag).length
+      this.$slots.default.filter((node) => node.tag).length
     );
-  }
+  },
 };
 </script>
