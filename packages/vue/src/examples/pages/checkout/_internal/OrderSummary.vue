@@ -70,7 +70,7 @@ import {
   SfDivider,
   SfProperty,
   SfCharacteristic,
-  SfInput
+  SfInput,
 } from "@storefront-ui/vue";
 export default {
   name: "OrderSummary",
@@ -81,35 +81,35 @@ export default {
     SfCircleIcon,
     SfProperty,
     SfCharacteristic,
-    SfInput
+    SfInput,
   },
   props: {
     order: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     shippingMethods: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     paymentMethods: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     characteristics: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     buttonName: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
       promoCode: "",
       showPromoCode: false,
-      listIsHidden: false
+      listIsHidden: false,
     };
   },
   computed: {
@@ -130,7 +130,7 @@ export default {
     shippingMethod() {
       const shippingMethod = this.shipping.shippingMethod;
       const method = this.shippingMethods.find(
-        method => method.value === shippingMethod
+        (method) => method.value === shippingMethod
       );
       return method ? method : { price: "$0.00" };
     },
@@ -140,7 +140,7 @@ export default {
     paymentMethod() {
       const paymentMethod = this.payment.paymentMethod;
       const method = this.paymentMethods.find(
-        method => method.value === paymentMethod
+        (method) => method.value === paymentMethod
       );
       return method ? method : { label: "" };
     },
@@ -161,8 +161,8 @@ export default {
       const shipping = parseFloat(this.shippingMethod.price.replace("$", ""));
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
       return "$" + total.toFixed(2);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

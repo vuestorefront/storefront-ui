@@ -6,40 +6,40 @@ storiesOf("Molecules|MenuItem", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: {
-      SfMenuItem
+      SfMenuItem,
     },
     props: {
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label", "Red", "Props"),
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count", "30", "Props"),
       },
       icon: {
-        default: text("icon", "chevron_right", "Props")
-      }
+        default: text("icon", "chevron_right", "Props"),
+      },
     },
     template: `<div style="max-width: 300px">
       <SfMenuItem
       :label="label"
       :count="count"
       :icon="icon"/>
-    </div>`
+    </div>`,
   }))
   .add("[slot] icon", () => ({
     components: {
-      SfMenuItem
+      SfMenuItem,
     },
     props: {
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label", "Red", "Props"),
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count", "30", "Props"),
       },
       icon: {
-        default: text("icon", "chevron_right", "Props")
-      }
+        default: text("icon", "chevron_right", "Props"),
+      },
     },
     template: `<div style="max-width: 300px">
       <SfMenuItem
@@ -50,22 +50,22 @@ storiesOf("Molecules|MenuItem", module)
           ❤️
         </template>
       </SfMenuItem>
-    </div>`
+    </div>`,
   }))
   .add("[slot] label", () => ({
     components: {
-      SfMenuItem
+      SfMenuItem,
     },
     props: {
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label", "Red", "Props"),
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count", "30", "Props"),
       },
       icon: {
-        default: text("icon", "chevron_right", "Props")
-      }
+        default: text("icon", "chevron_right", "Props"),
+      },
     },
     template: `<div style="max-width: 300px">
       <SfMenuItem
@@ -76,22 +76,22 @@ storiesOf("Molecules|MenuItem", module)
           CUSTOM LABEL
         </template>
       </SfMenuItem>
-    </div>`
+    </div>`,
   }))
   .add("[slot] count", () => ({
     components: {
-      SfMenuItem
+      SfMenuItem,
     },
     props: {
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label", "Red", "Props"),
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count", "30", "Props"),
       },
       icon: {
-        default: text("icon", "chevron_right", "Props")
-      }
+        default: text("icon", "chevron_right", "Props"),
+      },
     },
     template: `<div style="max-width: 300px">
       <SfMenuItem
@@ -102,23 +102,23 @@ storiesOf("Molecules|MenuItem", module)
           CUSTOM COUNT
         </template>
       </SfMenuItem>
-    </div>`
+    </div>`,
   }))
   .add("[slot] mobile-nav-icon", () => ({
     components: {
       SfMenuItem,
-      SfIcon
+      SfIcon,
     },
     props: {
       label: {
-        default: text("label", "Red", "Props")
+        default: text("label", "Red", "Props"),
       },
       count: {
-        default: text("count", "30", "Props")
+        default: text("count", "30", "Props"),
       },
       icon: {
-        default: text("icon", "chevron_right", "Props")
-      }
+        default: text("icon", "chevron_right", "Props"),
+      },
     },
     template: `<div style="max-width: 300px">
       <SfMenuItem
@@ -129,5 +129,5 @@ storiesOf("Molecules|MenuItem", module)
           <SfIcon icon="arrow_right" size="xxs" style="margin-left: 0.625rem"/>
         </template>
       </SfMenuItem>
-    </div>`
+    </div>`,
   }));

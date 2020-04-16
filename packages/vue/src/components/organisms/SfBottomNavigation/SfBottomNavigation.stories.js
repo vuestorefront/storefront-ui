@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
 import SfBottomNavigation from "./SfBottomNavigation.vue";
@@ -10,14 +9,14 @@ storiesOf("Organisms|BottomNavigation", module)
     components: { SfBottomNavigation, SfCircleIcon, SfIcon },
     props: {
       label: {
-        default: text("label", "Home", "Props")
+        default: text("label", "Home", "Props"),
       },
       icon: {
-        default: text("icon", "home", "Props")
+        default: text("icon", "home", "Props"),
       },
       iconActive: {
-        default: text("iconActive", "home_fill", "Props")
-      }
+        default: text("iconActive", "home_fill", "Props"),
+      },
     },
     data() {
       return {
@@ -25,20 +24,20 @@ storiesOf("Organisms|BottomNavigation", module)
           {
             icon: "menu",
             iconActive: "",
-            label: "Menu"
+            label: "Menu",
           },
           {
             icon: "heart",
             iconActive: "heart_fill",
-            label: "Heart"
+            label: "Heart",
           },
           {
             icon: "profile",
             iconActive: "profile_fill",
-            label: "Profile"
-          }
+            label: "Profile",
+          },
         ],
-        currentIcon: "heart_fill"
+        currentIcon: "heart_fill",
       };
     },
     template: `<SfBottomNavigation>
@@ -74,21 +73,21 @@ storiesOf("Organisms|BottomNavigation", module)
           </SfCircleIcon>
         </template>
       </SfBottomNavigationItem>
-    </SfBottomNavigation>`
+    </SfBottomNavigation>`,
   }))
   .add("Icons only", () => ({
     components: { SfBottomNavigation, SfCircleIcon, SfIcon },
     props: {
       label: {
-        default: text("label", "Home", "Props")
+        default: text("label", "Home", "Props"),
       },
       icon: {
-        default: text("icon", "home", "Props")
-      }
+        default: text("icon", "home", "Props"),
+      },
     },
     data() {
       return {
-        items: [{ icon: "menu" }, { icon: "heart" }, { icon: "profile" }]
+        items: [{ icon: "menu" }, { icon: "heart" }, { icon: "profile" }],
       };
     },
     template: `<SfBottomNavigation>
@@ -116,21 +115,21 @@ storiesOf("Organisms|BottomNavigation", module)
           </SfCircleIcon>
         </template>
       </SfBottomNavigationItem>
-    </SfBottomNavigation>`
+    </SfBottomNavigation>`,
   }))
   .add("Labels only", () => ({
     components: { SfBottomNavigation, SfCircleIcon, SfIcon },
     props: {
       label: {
-        default: text("label", "Home", "Props")
+        default: text("label", "Home", "Props"),
       },
       icon: {
-        default: text("icon", "home", "Props")
-      }
+        default: text("icon", "home", "Props"),
+      },
     },
     data() {
       return {
-        items: [{ label: "Menu" }, { label: "Heart" }, { label: "Profile" }]
+        items: [{ label: "Menu" }, { label: "Heart" }, { label: "Profile" }],
       };
     },
     template: `<SfBottomNavigation>
@@ -148,5 +147,5 @@ storiesOf("Organisms|BottomNavigation", module)
         label="Basket"
       >
       </SfBottomNavigationItem>
-    </SfBottomNavigation>`
+    </SfBottomNavigation>`,
   }));

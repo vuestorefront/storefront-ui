@@ -4,7 +4,7 @@
     :class="{
       'sf-bottom-navigation-item--active': isActive,
       'sf-bottom-navigation-item--floating': isFloating,
-      'sf-bottom-navigation-item--center': !icon || !label
+      'sf-bottom-navigation-item--center': !icon || !label,
     }"
     v-on="$listeners"
   >
@@ -27,7 +27,7 @@
         v-if="label"
         class="sf-bottom-navigation-item__label"
         :class="{
-          'sf-bottom-navigation-item--has-margin': icon
+          'sf-bottom-navigation-item--has-margin': icon,
         }"
       >
         {{ label }}
@@ -42,38 +42,38 @@ export default {
   name: "SfBottomNavigationItem",
   components: {
     SfCircleIcon,
-    SfIcon
+    SfIcon,
   },
   props: {
     icon: {
       type: String,
-      default: ""
+      default: "",
     },
     isActive: {
       type: Boolean,
-      default: false
+      default: false,
     },
     iconActive: {
       type: String,
-      default: ""
+      default: "",
     },
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     iconSize: {
       type: String,
-      default: "20px"
+      default: "20px",
     },
     isFloating: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     currentIcon() {
       return this.isActive && this.iconActive ? this.iconActive : this.icon;
-    }
-  }
+    },
+  },
 };
 </script>
