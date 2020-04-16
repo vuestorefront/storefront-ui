@@ -2,6 +2,7 @@
   <div class="sf-quantity-selector">
     <SfButton
       :disabled="disabled"
+      aria-label="Decrease quantity"
       class="sf-quantity-selector__button"
       @click="$emit('input', parseInt(qty, 10) - 1)"
       >-</SfButton
@@ -9,13 +10,14 @@
     <SfInput
       type="number"
       :value="qty"
-      :aria-label="ariaLabel"
+      aria-label="Quantity"
       :disabled="disabled"
       class="sf-quantity-selector__input"
       @input="$emit('input', parseInt($event, 10))"
     />
     <SfButton
       :disabled="disabled"
+      aria-label="Increase quantity"
       class="sf-quantity-selector__button"
       @click="$emit('input', parseInt(qty, 10) + 1)"
       >+</SfButton
@@ -39,13 +41,6 @@ export default {
     qty: {
       type: [Number, String],
       default: 1,
-    },
-    /**
-     * Form input label
-     */
-    ariaLabel: {
-      type: String,
-      default: "quantity",
     },
     disabled: {
       type: Boolean,
