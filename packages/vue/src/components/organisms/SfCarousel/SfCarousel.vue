@@ -39,14 +39,14 @@ Vue.component("SfCarouselItem", SfCarouselItem);
 export default {
   name: "SfCarousel",
   components: {
-    SfArrow
+    SfArrow,
   },
   props: {
     /** Carousel options like glide.js (https://glidejs.com/docs/) */
     settings: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -62,11 +62,11 @@ export default {
             perView: 2,
             peek: {
               before: 0,
-              after: 50
-            }
-          }
-        }
-      }
+              after: 50,
+            },
+          },
+        },
+      },
     };
   },
   computed: {
@@ -78,21 +78,21 @@ export default {
       return {
         ...this.defaultSettings,
         ...this.settings,
-        breakpoints: breakpoints
+        breakpoints: breakpoints,
       };
-    }
+    },
   },
-  mounted: function() {
+  mounted: function () {
     this.$nextTick(() => {
       if (!this.$slots.default) return;
       const glide = new Glide(this.$refs.glide, this.mergedOptions);
       glide.mount();
-      glide.on("run.before", move => {
+      glide.on("run.before", (move) => {
         const { slidePerPage, rewind, type } = this.mergedOptions;
         if (!slidePerPage) return;
         const { perView } = glide.settings;
         if (!perView > 1) return;
-        const size = this.$slots.default.filter(slot => slot.tag).length;
+        const size = this.$slots.default.filter((slot) => slot.tag).length;
         const { direction } = move;
         let page, newIndex;
         switch (direction) {
@@ -132,8 +132,8 @@ export default {
           this.glide.go(">");
           break;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

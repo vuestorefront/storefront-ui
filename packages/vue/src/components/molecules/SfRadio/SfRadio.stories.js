@@ -3,7 +3,7 @@ import {
   withKnobs,
   text,
   boolean,
-  optionsKnob as options
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfRadio from "./SfRadio.vue";
 storiesOf("Molecules|Radio", module)
@@ -18,34 +18,34 @@ storiesOf("Molecules|Radio", module)
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       label: {
-        default: text("label", "Pickup in the store", "Props")
+        default: text("label", "Pickup in the store", "Props"),
       },
       description: {
         default: text(
           "description",
           "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
           "Props"
-        )
+        ),
       },
       name: {
-        default: text("name", "shipping", "Props")
+        default: text("name", "shipping", "Props"),
       },
       value: {
-        default: text("value", "store", "Props")
+        default: text("value", "store", "Props"),
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
+        default: boolean("disabled", false, "Props"),
       },
       required: {
-        default: boolean("required", false, "Props")
-      }
+        default: boolean("required", false, "Props"),
+      },
     },
     data() {
       return {
-        checked: ""
+        checked: "",
       };
     },
     template: `<SfRadio 
@@ -56,7 +56,7 @@ storiesOf("Molecules|Radio", module)
        :value="value"
        :disbled="disabled"
        :required="required"
-       v-model="checked"/>`
+       v-model="checked"/>`,
   }))
   .add("[slot] checkmark", () => ({
     components: { SfRadio },
@@ -68,34 +68,34 @@ storiesOf("Molecules|Radio", module)
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       label: {
-        default: text("label", "Pickup in the store", "Props")
+        default: text("label", "Pickup in the store", "Props"),
       },
       description: {
         default: text(
           "description",
           "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
           "Props"
-        )
+        ),
       },
       name: {
-        default: text("name", "shipping", "Props")
+        default: text("name", "shipping", "Props"),
       },
       value: {
-        default: text("value", "store", "Props")
+        default: text("value", "store", "Props"),
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
+        default: boolean("disabled", false, "Props"),
       },
       required: {
-        default: boolean("required", false, "Props")
-      }
+        default: boolean("required", false, "Props"),
+      },
     },
     data() {
       return {
-        checked: ""
+        checked: "",
       };
     },
     template: `<SfRadio 
@@ -111,7 +111,7 @@ storiesOf("Molecules|Radio", module)
           <div v-if="isChecked">😀</div>
           <div v-else>😔</div>
        </template>
-    </SfRadio>`
+    </SfRadio>`,
   }))
   .add("[slot] label", () => ({
     components: { SfRadio },
@@ -123,34 +123,34 @@ storiesOf("Molecules|Radio", module)
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       label: {
-        default: text("label", "Pickup in the store", "Props")
+        default: text("label", "Pickup in the store", "Props"),
       },
       description: {
         default: text(
           "description",
           "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
           "Props"
-        )
+        ),
       },
       name: {
-        default: text("name", "shipping", "Props")
+        default: text("name", "shipping", "Props"),
       },
       value: {
-        default: text("value", "store", "Props")
+        default: text("value", "store", "Props"),
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
+        default: boolean("disabled", false, "Props"),
       },
       required: {
-        default: boolean("required", false, "Props")
-      }
+        default: boolean("required", false, "Props"),
+      },
     },
     data() {
       return {
-        checked: ""
+        checked: "",
       };
     },
     template: `<SfRadio 
@@ -165,7 +165,7 @@ storiesOf("Molecules|Radio", module)
        <template #label="{label, isChecked, disabled}">
           CUSTOM LABEL
        </template>
-    </SfRadio>`
+    </SfRadio>`,
   }))
   .add("[slot] description", () => ({
     components: { SfRadio },
@@ -177,34 +177,34 @@ storiesOf("Molecules|Radio", module)
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       label: {
-        default: text("label", "Pickup in the store", "Props")
+        default: text("label", "Pickup in the store", "Props"),
       },
       description: {
         default: text(
           "description",
           "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
           "Props"
-        )
+        ),
       },
       name: {
-        default: text("name", "shipping", "Props")
+        default: text("name", "shipping", "Props"),
       },
       value: {
-        default: text("value", "store", "Props")
+        default: text("value", "store", "Props"),
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
+        default: boolean("disabled", false, "Props"),
       },
       required: {
-        default: boolean("required", false, "Props")
-      }
+        default: boolean("required", false, "Props"),
+      },
     },
     data() {
       return {
-        checked: ""
+        checked: "",
       };
     },
     template: `<SfRadio 
@@ -219,5 +219,5 @@ storiesOf("Molecules|Radio", module)
        <template #description="{description}">
           CUSTOM DESCRIPTION
        </template>
-    </SfRadio>`
+    </SfRadio>`,
   }));

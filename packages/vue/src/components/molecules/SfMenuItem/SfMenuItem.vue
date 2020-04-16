@@ -26,22 +26,22 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfMenuItem",
   components: {
-    SfIcon
+    SfIcon,
   },
   props: {
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     icon: {
       type: String,
-      default: "chevron_right"
+      default: "chevron_right",
     },
     count: {
       type: [String, Number],
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 <style lang="scss">

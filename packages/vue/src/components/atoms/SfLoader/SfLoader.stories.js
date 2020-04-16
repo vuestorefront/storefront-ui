@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import SfLoader from "./SfLoader.vue";
 import SfImage from "../SfImage/SfImage.vue";
@@ -6,11 +5,11 @@ storiesOf("Atoms|Loader", module)
   .add("Common", () => ({
     components: {
       SfLoader,
-      SfImage
+      SfImage,
     },
     data() {
       return {
-        isLoading: true
+        isLoading: true,
       };
     },
     mounted() {
@@ -23,16 +22,16 @@ storiesOf("Atoms|Loader", module)
       :loading="isLoading">
           <SfImage src="/assets/storybook/SfImage/product-216x326.jpg" />
       </SfLoader>
-    </div>`
+    </div>`,
   }))
   .add("[slot] loader", () => ({
     components: {
       SfLoader,
-      SfImage
+      SfImage,
     },
     data() {
       return {
-        isLoading: true
+        isLoading: true,
       };
     },
     mounted() {
@@ -48,5 +47,5 @@ storiesOf("Atoms|Loader", module)
           loading...
         </template>
       </SfLoader>
-    </div>`
+    </div>`,
   }));
