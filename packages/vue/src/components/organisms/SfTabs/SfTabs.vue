@@ -15,6 +15,18 @@ export default {
     openTab: {
       type: Number,
       default: 1
+    },
+    tabMaxContentHight: {
+      type: String,
+      default: ""
+    },
+    tabShowText: {
+      type: String,
+      default: "show"
+    },
+    tabHideText: {
+      type: String,
+      default: "hide"
     }
   },
   mounted() {
@@ -34,7 +46,12 @@ export default {
         this.$children[this.openTab - 1].isActive = true;
       }
     }
-  }
+  },
+  provide: {
+    tabMaxContentHight: this.tabMaxContentHight,
+    tabShowText: this.tabShowText,
+    tabHideText: this.tabHideText
+  },
 };
 </script>
 <style lang="scss">
