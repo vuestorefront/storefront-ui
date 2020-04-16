@@ -10,7 +10,7 @@ storiesOf("Organisms|Tabs", module)
         default: number("openTab", 1, {}, "Props"),
       },
       maxContentHeight: {
-        default: text("maxContentHeight", "6.25rem", "Props"),
+        default: text("maxContentHeight", "", "Props"),
       },
     },
     data() {
