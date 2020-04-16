@@ -26,7 +26,6 @@
       var(--font-family-secondary)
     );
     @include border(--pagination-button-border, 0 0 1px 0, solid, transparent);
-    outline: none;
     opacity: var(--pagination-button-opacity);
     transition: var(
       --pagination-button-transition,
