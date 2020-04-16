@@ -51,41 +51,41 @@ export default {
   props: {
     src: {
       type: [String, Object],
-      default: () => ({ mobile: { url: "" }, desktop: { url: "" } })
+      default: () => ({ mobile: { url: "" }, desktop: { url: "" } }),
     },
     alt: {
       type: String,
-      default: ""
+      default: "",
     },
     width: {
       type: [String, Number],
-      default: undefined
+      default: undefined,
     },
     height: {
       type: [String, Number],
-      default: undefined
+      default: undefined,
     },
     lazy: {
       type: Boolean,
-      default: true
+      default: true,
     },
     pictureBreakpoint: {
       type: Number,
-      default: 1024
+      default: 1024,
     },
     rootMargin: {
       type: String,
-      default: ""
+      default: "",
     },
     threshold: {
       type: [String, Number],
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
       show: false,
-      overlay: false
+      overlay: false,
     };
   },
   computed: {
@@ -108,15 +108,15 @@ export default {
         this.height &&
         `--_image-width: ${this.width}; --_image-height: ${this.height}`
       );
-    }
+    },
   },
   watch: {
     lazy: {
       handler(value) {
         this.show = !value;
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   mounted() {
     if (!this.lazy) {
@@ -134,12 +134,12 @@ export default {
             vm.show = true;
           },
           rootMargin: this.rootMargin,
-          threshold: this.threshold
+          threshold: this.threshold,
         });
         observer.observe();
       });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">
