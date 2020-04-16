@@ -31,7 +31,6 @@
   padding: var(--select-padding, 0 0 calc(var(--font-xs) * 1.2) 0);
   color: var(--select-color, var(--c-text));
   cursor: default;
-  outline: none;
   &__label {
     position: absolute;
     top: var(--select-label-top, 50%);

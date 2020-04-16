@@ -24,11 +24,17 @@
           <slot name="navigation" />
         </nav>
         <!--@slot Use this slot to replace default search bar-->
-        <slot name="search" v-bind="{ searchPlaceholder }">
+        <slot
+          name="search"
+          v-bind="{ searchPlaceholder, searchValue, hasMobileSearch }"
+        >
           <SfSearchBar
+            :value="searchValue"
             :placeholder="searchPlaceholder"
             class="sf-header__search"
             :class="{ 'desktop-only': !hasMobileSearch }"
+            @input="$emit('change:search', $event)"
+            @enter="$emit('enter:search', $event)"
           />
         </slot>
         <!--@slot Use this slot to replace default header icons with custom content-->
@@ -146,6 +152,13 @@ export default {
     searchPlaceholder: {
       type: String,
       default: "Search for items",
+    },
+    /**
+     * Header search phrase
+     */
+    searchValue: {
+      type: String,
+      default: "",
     },
     /**
      * Header cart items quantity

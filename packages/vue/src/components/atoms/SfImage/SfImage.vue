@@ -73,6 +73,14 @@ export default {
       type: Number,
       default: 1024,
     },
+    rootMargin: {
+      type: String,
+      default: "",
+    },
+    threshold: {
+      type: [String, Number],
+      default: "",
+    },
   },
   data() {
     return {
@@ -125,6 +133,8 @@ export default {
           load() {
             vm.show = true;
           },
+          rootMargin: this.rootMargin,
+          threshold: this.threshold,
         });
         observer.observe();
       });
