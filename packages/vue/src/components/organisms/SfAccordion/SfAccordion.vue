@@ -64,7 +64,7 @@ export default {
           this.$children[0].isOpen = this.firstOpen;
           deprecationWarning(
             this.$options.name,
-            "firstOpen prop has been deprecated and will be removed in 1.0.0. Use open instead."
+            "Prop 'firstOpen' has been deprecated and will be removed in v1.0.0. Use 'open' instead."
           );
           return;
         }
