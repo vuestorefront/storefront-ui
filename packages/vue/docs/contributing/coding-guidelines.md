@@ -283,7 +283,7 @@ StorefrontUI cares about providing new features and keeping up-to-date with new 
 - add info about deprecation by using the helper method `deprecationWarning(this.$options.name, "your deprecation message")`
 
 :::warning deprecationWarning(componentName, message)
-componentName is an argument that you have to pass to put name of component with depreacted features - `this.$options.name`
+`componentName` is a string argument that you have to pass for the component's name to appear in front of the deprecation warning – in general, `this.$options.name` returns the name of the current Vue component.
 :::
 
 In result, console will show warnining:
