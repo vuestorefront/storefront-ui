@@ -19,7 +19,11 @@
 
     <div class="sf-tabs__content">
       <div v-if="isActive" class="sf-tabs__content__tab">
-        <SfScrollable :max-content-height="maxContentHeight" :showText="showText" :hideText="hideText">
+        <SfScrollable
+          :max-content-height="maxContentHeight"
+          :show-text="showText"
+          :hide-text="hideText"
+        >
           <!--@slot Default. Here you should pass your tab content -->
           <slot />
         </SfScrollable>
@@ -36,37 +40,37 @@ export default {
   components: {
     Fragment,
     SfChevron,
-    SfScrollable
+    SfScrollable,
   },
-  inject: ['tabMaxContentHight', 'tabShowText', 'tabHideText'],
+  inject: ["tabMaxContentHight", "tabShowText", "tabHideText"],
   props: {
     /**
      * Tab title.
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     maxContentHeight: {
-      default () {
-        return this.tabMaxContentHight
-      }
+      default() {
+        return this.tabMaxContentHight;
+      },
     },
     showText: {
-      default () {
-        return this.tabShowText
-      }
+      default() {
+        return this.tabShowText;
+      },
     },
     hideText: {
-      default () {
-        return this.tabHideText
-      }
-    }
+      default() {
+        return this.tabHideText;
+      },
+    },
   },
   data() {
     return {
       isActive: false,
-      desktopMin: 1024
+      desktopMin: 1024,
     };
   },
   methods: {
@@ -79,7 +83,7 @@ export default {
       );
       if (this.isActive && width > this.desktopMin) return;
       this.$parent.$emit("toggle", this._uid);
-    }
-  }
+    },
+  },
 };
 </script>

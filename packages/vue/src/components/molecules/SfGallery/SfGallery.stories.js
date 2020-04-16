@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, object, number, boolean } from "@storybook/addon-knobs";
 import SfGallery from "./SfGallery.vue";
@@ -8,7 +7,7 @@ storiesOf("Molecules|Gallery", module)
     components: { SfGallery },
     props: {
       enableZoom: {
-        default: boolean("enableZoom", false, "Props")
+        default: boolean("enableZoom", false, "Props"),
       },
       images: {
         default: object(
@@ -17,60 +16,60 @@ storiesOf("Molecules|Gallery", module)
             {
               alt: "Product A",
               mobile: {
-                url: "assets/storybook/SfGallery/productA.png"
+                url: "assets/storybook/SfGallery/productA.png",
               },
               desktop: {
-                url: "assets/storybook/SfGallery/productA.png"
+                url: "assets/storybook/SfGallery/productA.png",
               },
               zoom: {
-                url: "assets/storybook/SfGallery/productA.png"
-              }
+                url: "assets/storybook/SfGallery/productA.png",
+              },
             },
             {
               alt: "Product B",
               mobile: {
-                url: "/assets/storybook/SfGallery/productB.jpg"
+                url: "/assets/storybook/SfGallery/productB.jpg",
               },
               desktop: {
-                url: "/assets/storybook/SfGallery/productB.jpg"
+                url: "/assets/storybook/SfGallery/productB.jpg",
               },
               zoom: {
-                url: "/assets/storybook/SfGallery/productB.jpg"
-              }
+                url: "/assets/storybook/SfGallery/productB.jpg",
+              },
             },
             {
               alt: "Product A",
               mobile: {
-                url: "assets/storybook/SfGallery/productA.png"
+                url: "assets/storybook/SfGallery/productA.png",
               },
               desktop: {
-                url: "assets/storybook/SfGallery/productA.png"
+                url: "assets/storybook/SfGallery/productA.png",
               },
               zoom: {
-                url: "assets/storybook/SfGallery/productA.png"
-              }
+                url: "assets/storybook/SfGallery/productA.png",
+              },
             },
             {
               alt: "Product B",
               mobile: {
-                url: "/assets/storybook/SfGallery/productB.jpg"
+                url: "/assets/storybook/SfGallery/productB.jpg",
               },
               desktop: {
-                url: "/assets/storybook/SfGallery/productB.jpg"
+                url: "/assets/storybook/SfGallery/productB.jpg",
               },
               zoom: {
-                url: "/assets/storybook/SfGallery/productB.jpg"
-              }
-            }
+                url: "/assets/storybook/SfGallery/productB.jpg",
+              },
+            },
           ],
           "Props"
-        )
+        ),
       },
       imageWidth: {
-        default: number("imageWidth", 422, {}, "Props")
+        default: number("imageWidth", 422, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 664, {}, "Props")
+        default: number("imageHeight", 664, {}, "Props"),
       },
       sliderOptions: {
         default: object(
@@ -78,15 +77,15 @@ storiesOf("Molecules|Gallery", module)
           {
             autoplay: false,
             rewind: true,
-            gap: 0
+            gap: 0,
           },
           "Props"
-        )
-      }
+        ),
+      },
     },
     data() {
       return {
-        current: 1
+        current: 1,
       };
     },
     template: `<SfGallery
@@ -96,5 +95,5 @@ storiesOf("Molecules|Gallery", module)
       :slider-options="sliderOptions"
       :current="current"
       :enable-zoom="enableZoom"
-    />`
+    />`,
   }));

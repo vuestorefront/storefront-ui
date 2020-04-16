@@ -34,22 +34,22 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfBar",
   components: {
-    SfIcon
+    SfIcon,
   },
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     back: {
       type: Boolean,
-      default: false
+      default: false,
     },
     close: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 <style lang="scss">

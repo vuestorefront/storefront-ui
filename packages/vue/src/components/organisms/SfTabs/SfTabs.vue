@@ -14,20 +14,20 @@ export default {
     /** Which tab should be open at the beginning  */
     openTab: {
       type: Number,
-      default: 1
+      default: 1,
     },
     tabMaxContentHight: {
       type: String,
-      default: ""
+      default: "",
     },
     tabShowText: {
       type: String,
-      default: "show"
+      default: "show",
     },
     tabHideText: {
       type: String,
-      default: "hide"
-    }
+      default: "hide",
+    },
   },
   mounted() {
     this.$on("toggle", this.toggle);
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     toggle(id) {
-      this.$children.forEach(child => {
+      this.$children.forEach((child) => {
         child._uid === id
           ? (child.isActive = !child.isActive)
           : (child.isActive = false);
@@ -45,12 +45,12 @@ export default {
       if (this.openTab < this.$children.length + 1) {
         this.$children[this.openTab - 1].isActive = true;
       }
-    }
+    },
   },
   provide: {
     tabMaxContentHight: this.tabMaxContentHight,
     tabShowText: this.tabShowText,
-    tabHideText: this.tabHideText
+    tabHideText: this.tabHideText,
   },
 };
 </script>

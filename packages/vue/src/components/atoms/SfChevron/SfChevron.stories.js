@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import SfChevron from "./SfChevron.vue";
@@ -14,21 +13,21 @@ storiesOf("Atoms|Chevron", module)
           {
             "sf-chevron--top": "sf-chevron--top",
             "sf-chevron--left": "sf-chevron--left",
-            "sf-chevron--right": "sf-chevron--right"
+            "sf-chevron--right": "sf-chevron--right",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
-      }
+        ),
+      },
     },
     template: `<SfChevron
-        :class="customClass" />`
+        :class="customClass" />`,
   }))
   .add("[slot] default", () => ({
     components: {
       SfChevron,
-      SfIcon
+      SfIcon,
     },
     props: {
       customClass: {
@@ -37,16 +36,16 @@ storiesOf("Atoms|Chevron", module)
           {
             "sf-chevron--top": "sf-chevron--top",
             "sf-chevron--left": "sf-chevron--left",
-            "sf-chevron--right": "sf-chevron--right"
+            "sf-chevron--right": "sf-chevron--right",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
-      }
+        ),
+      },
     },
     template: `<SfChevron
         :class="customClass">
         <SfIcon icon="chevron_down" size="xxs"/> 
-      </SfChevron>`
+      </SfChevron>`,
   }));

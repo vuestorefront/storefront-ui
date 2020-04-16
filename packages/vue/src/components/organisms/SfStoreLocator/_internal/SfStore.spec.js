@@ -8,22 +8,22 @@ describe("SfStore.vue", () => {
         "removeStore",
         "centerOn",
         "locatorData",
-        "getGeoDistance"
+        "getGeoDistance",
       ],
       provide() {
         const locatorData = {};
         Object.defineProperty(locatorData, "userPosition", {
           enumerable: true,
-          get: () => this.userPosition
+          get: () => this.userPosition,
         });
         return {
           registerStore: this.registerStore,
           removeStore: this.removeStore,
           centerOn: this.centerOn,
           getGeoDistance: this.getGeoDistance,
-          locatorData
+          locatorData,
         };
-      }
+      },
     });
     expect(component.contains(".sf-store")).toBe(true);
   });

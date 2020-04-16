@@ -9,8 +9,8 @@ describe.only("SfCharacteristic.vue", () => {
     const icon = "<svg class='sf-characteristic'></svg>";
     const component = shallowMount(SfCharacteristic, {
       slots: {
-        icon
-      }
+        icon,
+      },
     });
     expect(component.contains(".sf-characteristic")).toBe(true);
   });
@@ -18,8 +18,8 @@ describe.only("SfCharacteristic.vue", () => {
     const title = "<p class='sf-characteristic__title'></p>";
     const component = shallowMount(SfCharacteristic, {
       slots: {
-        title
-      }
+        title,
+      },
     });
     expect(component.contains(".sf-characteristic__title")).toBe(true);
   });
@@ -27,8 +27,8 @@ describe.only("SfCharacteristic.vue", () => {
     const description = "<p class='sf-characteristic__description'></p>";
     const component = shallowMount(SfCharacteristic, {
       slots: {
-        description
-      }
+        description,
+      },
     });
     expect(component.contains(".sf-characteristic__description")).toBe(true);
   });

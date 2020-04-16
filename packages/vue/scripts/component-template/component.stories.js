@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  optionsKnob as options
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
 import ComponentNameCamelCase from "./ComponentNameCamelCase.vue";
 storiesOf("ComponentType|ComponentName", module)
@@ -15,20 +14,20 @@ storiesOf("ComponentType|ComponentName", module)
           "CSS modifiers",
           {
             "ComponentNameKebabCase--modifier":
-              "ComponentNameKebabCase--modifier"
+              "ComponentNameKebabCase--modifier",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       propsName: {
-        default: text("propsName", "", "Props")
-      }
+        default: text("propsName", "", "Props"),
+      },
     },
     components: { ComponentNameCamelCase },
     template: `<ComponentNameCamelCase
         :class="customClass"
         :props-name="propsName"
-      />`
+      />`,
   }));
