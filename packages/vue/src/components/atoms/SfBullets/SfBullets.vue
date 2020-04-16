@@ -4,14 +4,23 @@
       <!--@slot custom icon for inactive bullet -->
       <slot name="inactive" class="sf-bullet" v-bind="{ index, go }">
         <li :key="index">
-          <button v-focus class="sf-bullet" @click="go(index)"></button>
+          <button
+            v-focus
+            :aria-label="'Go to slide ' + (index + 1)"
+            class="sf-bullet"
+            @click="go(index)"
+          ></button>
         </li>
       </slot>
     </template>
     <!--@slot custom icon for active bullet -->
     <slot name="active">
       <li>
-        <button v-focus class="sf-bullet sf-bullet--active"></button>
+        <button
+          v-focus
+          aria-label="Current slide"
+          class="sf-bullet sf-bullet--active"
+        ></button>
       </li>
     </slot>
     <template v-for="(_, index) of inactiveRight">
@@ -24,6 +33,7 @@
         <li :key="inactiveLeft + 1 + index">
           <button
             v-focus
+            :aria-label="'Go to slide ' + (inactiveLeft + 2 + index)"
             class="sf-bullet"
             @click="go(inactiveLeft + 1 + index)"
           ></button>
