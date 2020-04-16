@@ -10,6 +10,8 @@
       >
         <div
           :key="step.index"
+          v-focus
+          tabindex="0"
           :class="{
             'sf-steps__step': true,
             'sf-steps__step--done': step.done,
@@ -31,9 +33,13 @@
 <script>
 import Vue from "vue";
 import SfStep from "./_internal/SfStep.vue";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 Vue.component("SfStep", SfStep);
 export default {
   name: "SfSteps",
+  directives: {
+    focus,
+  },
   model: {
     prop: "active",
     event: "change",
