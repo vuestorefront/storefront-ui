@@ -4,8 +4,8 @@ describe("SfDropdown.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfDropdown, {
       propsData: {
-        isOpen: true
-      }
+        isOpen: true,
+      },
     });
     expect(component.contains(".sf-dropdown")).toBe(true);
   });

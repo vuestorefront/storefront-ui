@@ -4,7 +4,7 @@
     :class="{
       'sf-checkbox--is-active': isChecked,
       'sf-checkbox--is-disabled': disabled,
-      'sf-checkbox--has-error': !valid
+      'sf-checkbox--has-error': !valid,
     }"
   >
     <input
@@ -39,41 +39,41 @@ import SfIcon from "../SfIcon/SfIcon.vue";
 export default {
   name: "SfCheckbox",
   components: {
-    SfIcon
+    SfIcon,
   },
   model: {
     prop: "selected",
-    event: "change"
+    event: "change",
   },
   props: {
     name: {
       type: String,
-      default: ""
+      default: "",
     },
     value: {
       type: [String, Boolean],
-      default: ""
+      default: "",
     },
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     valid: {
       type: Boolean,
-      default: true
+      default: true,
     },
     selected: {
       type: [Array, Boolean],
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   computed: {
     isChecked() {
@@ -82,7 +82,7 @@ export default {
       } else {
         return this.selected.includes(this.value);
       }
-    }
+    },
   },
   methods: {
     inputHandler() {
@@ -91,14 +91,14 @@ export default {
       } else {
         let selected = [...this.selected];
         if (selected.includes(this.value)) {
-          selected = selected.filter(value => value !== this.value);
+          selected = selected.filter((value) => value !== this.value);
         } else {
           selected.push(this.value);
         }
         this.$emit("change", selected);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">
