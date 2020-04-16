@@ -27,28 +27,28 @@ export default {
      */
     level: {
       type: Number,
-      default: 2
+      default: 2,
     },
     /**
      * Heading title
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Heading subtitle
      */
     subtitle: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     hasSubtitle() {
       return !!this.subtitle || this.$slots.hasOwnProperty("subtitle");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

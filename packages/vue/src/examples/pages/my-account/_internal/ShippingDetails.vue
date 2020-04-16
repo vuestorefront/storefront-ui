@@ -146,7 +146,7 @@ import {
   SfInput,
   SfButton,
   SfSelect,
-  SfIcon
+  SfIcon,
 } from "@storefront-ui/vue";
 export default {
   name: "ShippingDetails",
@@ -155,13 +155,13 @@ export default {
     SfInput,
     SfButton,
     SfSelect,
-    SfIcon
+    SfIcon,
   },
   props: {
     account: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -223,8 +223,8 @@ export default {
         "Turkey",
         "Ukraine",
         "United Kingdom",
-        "Vatican City"
-      ]
+        "Vatican City",
+      ],
     };
   },
   methods: {
@@ -256,7 +256,7 @@ export default {
         state: this.state,
         zipCode: this.zipCode,
         country: this.country,
-        phoneNumber: this.phoneNumber
+        phoneNumber: this.phoneNumber,
       };
       const index = this.editedAddress;
       if (index > -1) {
@@ -272,8 +272,8 @@ export default {
       const account = { ...this.account };
       account.shipping.splice(index, 1);
       this.$emit("update:shipping", account);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

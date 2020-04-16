@@ -258,7 +258,7 @@
         <SfProperty
           name="Total price"
           :value="total"
-          class="sf-property--full-width sf-property--large  property__total"
+          class="sf-property--full-width sf-property--large property__total"
         >
         </SfProperty>
       </div>
@@ -279,7 +279,7 @@ import {
   SfInput,
   SfPrice,
   SfProperty,
-  SfAccordion
+  SfAccordion,
 } from "@storefront-ui/vue";
 export default {
   name: "ReviewOrder",
@@ -296,31 +296,31 @@ export default {
     SfInput,
     SfPrice,
     SfProperty,
-    SfAccordion
+    SfAccordion,
   },
   props: {
     order: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     shippingMethods: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     paymentMethods: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     characteristics: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   data() {
     return {
       terms: false,
       promoCode: "",
-      tableHeaders: ["Description", "Colour", "Size", "Quantity", "Amount"]
+      tableHeaders: ["Description", "Colour", "Size", "Quantity", "Amount"],
     };
   },
   computed: {
@@ -333,7 +333,7 @@ export default {
     shippingMethod() {
       const shippingMethod = this.shipping.shippingMethod;
       const method = this.shippingMethods.find(
-        method => method.value === shippingMethod
+        (method) => method.value === shippingMethod
       );
       return method ? method : { price: "$0.00" };
     },
@@ -343,7 +343,7 @@ export default {
     paymentMethod() {
       const paymentMethod = this.payment.paymentMethod;
       const method = this.paymentMethods.find(
-        method => method.value === paymentMethod
+        (method) => method.value === paymentMethod
       );
       return method ? method : { label: "" };
     },
@@ -364,8 +364,8 @@ export default {
       const shipping = parseFloat(this.shippingMethod.price.replace("$", ""));
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
       return "$" + total.toFixed(2);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
