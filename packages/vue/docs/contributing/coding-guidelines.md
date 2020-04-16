@@ -268,7 +268,7 @@ Try to make components as customizable as possible **without complicating** them
 
 ## Deprecation guidelines
 
-StorefrontUI cares about providing new features and keeping up-to-date with new best practices. Sometimes, it can be necessary to make some changes in APIs or prepare new features to stay current. To make this process easier for everyone, we deprecate APIs and features for a period before actual removal, by adding proper info about deprecation in the next major version.
+StorefrontUI cares about providing new features and keeping up-to-date with new best practices. Sometimes it can become necessary to make changes to APIs or to prepare new features in order to stay current. To make this process easier for everyone, we deprecate APIs and features for a period of time before the actual removal by adding proper information about deprecations in the next major version.
 
 **In result:**
 - we don't remove implemented features before next major version
