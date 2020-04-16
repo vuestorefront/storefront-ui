@@ -15,7 +15,7 @@ storiesOf("Organisms|TopBar", module)
       </template>
       <template #right>
         <div style="margin-right: 27px">Location:</div>
-        <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag of the USA"/>
+        <SfImage tabindex="0" src="/assets/storybook/SfTopBar/flag.png" alt="flag of the USA"/>
       </template>
     </SfTopBar>`,
   }))
