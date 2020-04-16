@@ -13,27 +13,19 @@
     width: inherit;
     height: inherit;
   }
-  &__badge {
+  .sf-icon__badge {
+    --badge-display: flex;
+    --badge-width: 1.125rem;
+    --badge-height: 1.125rem;
+    --badge-padding: 2px;
+    --badge-color: var(--c-white);
+    --badge-background: var(--c-danger);
+    --badge-font-size: var(--font-2xs);
+    --badge-font-line-hight: 1.4;
+    --badge-font-family: var(--font-family-primary);
     position: absolute;
     top: var(--icon-badge-top, 0);
     right: var(--icon-badge-right, 0);
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: var(--icon-badge-width, var(--icon-badge-size, 1.125rem));
-    min-height: var(--icon-badge-height, var(--icon-badge-size, 1.125rem));
-    padding: 2px;
-    border-radius: var(--icon-badge-border-radius, 0.625rem);
-    background: var(--icon-badge-background, var(--c-danger));
-    color: var(--icon-badge-color, var(--c-white));
-    @include font(
-      --icon-badge-font,
-      var(--font-medium),
-      var(--font-2xs),
-      1.4,
-      var(--font-family-primary)
-    );
     &-enter-active {
       animation: bounce-in 300ms;
     }

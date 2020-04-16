@@ -14,7 +14,7 @@ storiesOf("Atoms|Icon", module)
         default: select("icon", iconsNames, "home", "Props")
       },
       size: {
-        default: select("size", sizes, "xxs", "Props")
+        default: select("size", sizes, "lg", "Props")
       },
       color: {
         default: select("color", colors, "green-primary", "Props")

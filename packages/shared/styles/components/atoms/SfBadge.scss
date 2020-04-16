@@ -1,6 +1,8 @@
 @import "../../helpers";
 .sf-badge {
   display: var(--badge-display, inline-block);
+  align-items: var(--badge-align-items, center);
+  justify-content: var(--badge-justify-content, center);
   box-sizing: border-box;
   width: var(--badge-width);
   height: var(--badge-height);
@@ -19,6 +21,9 @@
   );
   &--full-width {
     --badge-width: 100%;
+  }
+  &--rounded {
+    --badge-border-radius: 50%;
   }
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");

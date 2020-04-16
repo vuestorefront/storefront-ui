@@ -21,9 +21,9 @@
     </slot>
     <transition name="sf-icon__badge">
       <slot v-if="hasBadge" name="badge" v-bind="{ badgeLabel, hasBadge }">
-        <div class="sf-icon__badge">
+        <SfBadge class="sf-icon__badge sf-badge--rounded">
           {{ badgeLabel }}
-        </div>
+        </SfBadge>
       </slot>
     </transition>
   </div>
@@ -32,9 +32,13 @@
 import icons from "@storefront-ui/shared/icons/icons";
 import { iconColorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { sizesValues as SF_SIZES } from "@storefront-ui/shared/variables/sizes";
+import SfBadge from "../SfBadge/SfBadge";
 const SF_ICONS = Object.keys(icons);
 export default {
   name: "SfIcon",
+  components: {
+    SfBadge
+  },
   props: {
     /**
      * Icon SVG path(s)

@@ -15,6 +15,7 @@ storiesOf("Atoms|Badge", module)
           "CSS modifiers",
           {
             "sf-badge--full-width": "sf-badge--full-width",
+            "sf-badge--rounded": "sf-badge--rounded",
             "color-primary": "color-primary",
             "color-secondary": "color-secondary",
             "color-warning": "color-warning",
