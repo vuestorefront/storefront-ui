@@ -53,6 +53,8 @@
           @click="go(index)"
         >
           <SfImage
+            v-focus
+            tabindex="0"
             class="sf-gallery__thumb"
             :src="image.mobile.url"
             :alt="image.alt"
@@ -67,8 +69,12 @@
 <script>
 import Glide from "@glidejs/glide";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfGallery",
+  directives: {
+    focus: focus
+  },
   components: {
     SfImage,
   },
