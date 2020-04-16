@@ -286,7 +286,7 @@ StorefrontUI cares about providing new features and keeping up-to-date with new 
 `componentName` is a string argument that you have to pass for the component's name to appear in front of the deprecation warning – in general, `this.$options.name` returns the name of the current Vue component.
 :::
 
-In result, console will show warnining:
+As a result the console will show a warning like the following:
  `[StorefrontUI][SfComponent] ____ prop has been deprecated and will be removed in 1.0.0. Use ____ instead.`
 
 :::tip DEPRECATION INFO
