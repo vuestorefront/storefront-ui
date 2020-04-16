@@ -3,6 +3,7 @@
     <slot name="add-to-cart-btn">
       <!--@slot Custom content that will replace default Add to cart button design.-->
       <SfButton
+        v-focus
         class="sf-add-to-cart__button"
         :disabled="disabled"
         v-on="$listeners"
@@ -12,6 +13,7 @@
     </slot>
     <slot name="quantity-select-input" v-bind="{ qty }">
       <SfQuantitySelector
+        aria-labelledby="Add to cart"
         :qty="qty"
         :disabled="disabled"
         class="sf-add-to-cart__select-quantity"
@@ -23,8 +25,12 @@
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfAddToCart",
+  directives: {
+    focus: focus
+  },
   components: {
     SfButton,
     SfQuantitySelector,
