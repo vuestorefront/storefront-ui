@@ -311,7 +311,7 @@ props: {
 if (this.firstOpen) {
   this.$children[0].isOpen = this.firstOpen;
   console.warn(
-    "[StorefrontUI][SfAccordion] firstOpen prop has been deprecated and will be removed in 1.0.0. Use open instead."
+    "[StorefrontUI][SfAccordion] Prop 'firstOpen' has been deprecated and will be removed in v1.0.0. Use 'open' instead."
   );
   return;
 }
