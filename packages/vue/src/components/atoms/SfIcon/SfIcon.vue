@@ -7,6 +7,8 @@
   >
     <slot v-bind="{ viewBox, iconPaths, icon }">
       <svg
+        v-focus
+        tabindex="0"
         class="sf-icon-path"
         :viewBox="iconViewBox"
         preserveAspectRatio="none"
@@ -25,9 +27,13 @@
 import icons from "@storefront-ui/shared/icons/icons";
 import { iconColorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { sizesValues as SF_SIZES } from "@storefront-ui/shared/variables/sizes";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 const SF_ICONS = Object.keys(icons);
 export default {
   name: "SfIcon",
+  directives: {
+    focus: focus
+  },
   props: {
     /**
      * Icon SVG path(s)
