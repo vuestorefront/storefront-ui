@@ -280,7 +280,7 @@ StorefrontUI cares about providing new features and keeping up-to-date with new 
 - add this note next to deprecated code that should be removed `// TODO remove in 1.0.0 / BEGIN` -> `// END`
 - import helper from utitilies `import { deprecationWarning } from "@/utilities/helpers/deprecation-warning.js";`
 
-- add info about deprecation by using method `deprecationWarning(this.$options.name, "yourMessage")`
+- add info about deprecation by using the helper method `deprecationWarning(this.$options.name, "your deprecation message")`
 
 :::warning deprecationWarning(componentName, message)
 componentName is an argument that you have to pass to put name of component with depreacted features - `this.$options.name`
