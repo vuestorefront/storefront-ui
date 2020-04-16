@@ -5,6 +5,8 @@
     </Simplebar>
     <SfButton
       v-show="hasScroll"
+      v-focus
+      :aria-label="isHidden ? showText : hideText"
       class="sf-button--text sf-scrollable__button"
       @click="isHidden = !isHidden"
     >
@@ -14,6 +16,7 @@
   </div>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 import Simplebar from "simplebar-vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
@@ -21,6 +24,9 @@ export default {
   components: {
     Simplebar,
     SfButton,
+  },
+  directives: {
+    focus,
   },
   props: {
     maxContentHeight: {
