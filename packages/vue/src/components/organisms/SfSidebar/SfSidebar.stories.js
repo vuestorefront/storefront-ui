@@ -1,15 +1,14 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
   number,
   boolean,
-  optionsKnob as options
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
 import {
   withDataToggle,
-  dataToggleMixin
+  dataToggleMixin,
 } from "../../../../config/storybook/decorators";
 import SfSidebar from "./SfSidebar.vue";
 storiesOf("Organisms|Sidebar", module)
@@ -22,28 +21,28 @@ storiesOf("Organisms|Sidebar", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-sidebar--right": "sf-sidebar--right"
+            "sf-sidebar--right": "sf-sidebar--right",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       title: {
-        default: text("title", "My Cart", "Props")
+        default: text("title", "My Cart", "Props"),
       },
       subtitle: {
-        default: text("subtitle", "", "Props")
+        default: text("subtitle", "", "Props"),
       },
       headingLevel: {
-        default: number("headingLevel", 3, {}, "Props")
+        default: number("headingLevel", 3, {}, "Props"),
       },
       overlay: {
-        default: boolean("overlay", true, "Props")
+        default: boolean("overlay", true, "Props"),
       },
       button: {
-        default: boolean("button", true, "Props")
-      }
+        default: boolean("button", true, "Props"),
+      },
     },
     mixins: [dataToggleMixin("isSidebarOpen")],
     template: `<SfSidebar
@@ -57,7 +56,7 @@ storiesOf("Organisms|Sidebar", module)
         :class="customClass"
       >
         Total items: 0
-      </SfSidebar>`
+      </SfSidebar>`,
   }))
   .add("On the right", () => ({
     components: { SfSidebar },
@@ -66,28 +65,28 @@ storiesOf("Organisms|Sidebar", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-sidebar--right": "sf-sidebar--right"
+            "sf-sidebar--right": "sf-sidebar--right",
           },
           "sf-sidebar--right sf-sidebar--icon",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       title: {
-        default: text("title", "My Cart", "Props")
+        default: text("title", "My Cart", "Props"),
       },
       subtitle: {
-        default: text("subtitle", "", "Props")
+        default: text("subtitle", "", "Props"),
       },
       headingLevel: {
-        default: number("headingLevel", 3, {}, "Props")
+        default: number("headingLevel", 3, {}, "Props"),
       },
       overlay: {
-        default: boolean("overlay", true, "Props")
+        default: boolean("overlay", true, "Props"),
       },
       button: {
-        default: boolean("button", true, "Props")
-      }
+        default: boolean("button", true, "Props"),
+      },
     },
     mixins: [dataToggleMixin("isSidebarOpen")],
     template: `<SfSidebar
@@ -101,7 +100,7 @@ storiesOf("Organisms|Sidebar", module)
         :class="customClass"
       >
         Total items: 0
-      </SfSidebar>`
+      </SfSidebar>`,
   }))
   .add("[slot] title", () => ({
     components: { SfSidebar },
@@ -110,28 +109,28 @@ storiesOf("Organisms|Sidebar", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-sidebar--right": "sf-sidebar--right"
+            "sf-sidebar--right": "sf-sidebar--right",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       title: {
-        default: text("title", "My Cart", "Props")
+        default: text("title", "My Cart", "Props"),
       },
       subtitle: {
-        default: text("subtitle", "", "Props")
+        default: text("subtitle", "", "Props"),
       },
       headingLevel: {
-        default: number("headingLevel", 3, {}, "Props")
+        default: number("headingLevel", 3, {}, "Props"),
       },
       overlay: {
-        default: boolean("overlay", true, "Props")
+        default: boolean("overlay", true, "Props"),
       },
       button: {
-        default: boolean("button", true, "Props")
-      }
+        default: boolean("button", true, "Props"),
+      },
     },
     mixins: [dataToggleMixin("isSidebarOpen")],
     template: `<SfSidebar
@@ -148,7 +147,7 @@ storiesOf("Organisms|Sidebar", module)
         <div>CUSTOM TITLE</div>
       </template>
       Total items: 0
-    </SfSidebar>`
+    </SfSidebar>`,
   }))
   .add("[slot] circle-icon", () => ({
     components: { SfSidebar },
@@ -157,28 +156,28 @@ storiesOf("Organisms|Sidebar", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-sidebar--right": "sf-sidebar--right"
+            "sf-sidebar--right": "sf-sidebar--right",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       title: {
-        default: text("title", "My Cart", "Props")
+        default: text("title", "My Cart", "Props"),
       },
       subtitle: {
-        default: text("subtitle", "", "Props")
+        default: text("subtitle", "", "Props"),
       },
       headingLevel: {
-        default: number("headingLevel", 3, {}, "Props")
+        default: number("headingLevel", 3, {}, "Props"),
       },
       overlay: {
-        default: boolean("overlay", true, "Props")
+        default: boolean("overlay", true, "Props"),
       },
       button: {
-        default: boolean("button", true, "Props")
-      }
+        default: boolean("button", true, "Props"),
+      },
     },
     mixins: [dataToggleMixin("isSidebarOpen")],
     template: `<SfSidebar
@@ -197,5 +196,5 @@ storiesOf("Organisms|Sidebar", module)
             @click="close">🙊</div>
         </template>
         Total items: 0
-      </SfSidebar>`
+      </SfSidebar>`,
   }));

@@ -37,13 +37,13 @@ export default {
      */
     breadcrumbs: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   computed: {
     last() {
       return this.breadcrumbs.length - 1;
-    }
+    },
   },
   methods: {
     go(breadcrumb) {
@@ -52,8 +52,8 @@ export default {
        * @type {Event}
        */
       this.$emit("click", breadcrumb.route);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

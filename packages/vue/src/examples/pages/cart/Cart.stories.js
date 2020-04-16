@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import Cart from "./Cart";
 storiesOf("Pages|Cart", module).add("Common", () => ({
@@ -9,5 +8,5 @@ storiesOf("Pages|Cart", module).add("Common", () => ({
   beforeDestroy() {
     document.body.style.removeProperty("margin");
   },
-  template: `<Cart />`
+  template: `<Cart />`,
 }));

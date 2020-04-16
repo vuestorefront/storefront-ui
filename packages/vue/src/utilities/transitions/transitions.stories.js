@@ -15,11 +15,11 @@ export default storiesOf("Utilities|Transitions", module)
       </transition>
     </div>`,
       data: () => ({
-        show: false
-      })
+        show: false,
+      }),
     }),
     {
-      info: true
+      info: true,
     }
   )
   .add(
@@ -36,11 +36,11 @@ export default storiesOf("Utilities|Transitions", module)
       </transition>
     </div>`,
       data: () => ({
-        show: false
-      })
+        show: false,
+      }),
     }),
     {
-      info: true
+      info: true,
     }
   )
   .add(
@@ -57,11 +57,11 @@ export default storiesOf("Utilities|Transitions", module)
       </transition>
     </div>`,
       data: () => ({
-        show: false
-      })
+        show: false,
+      }),
     }),
     {
-      info: true
+      info: true,
     }
   )
   .add(
@@ -78,11 +78,11 @@ export default storiesOf("Utilities|Transitions", module)
       </transition>
     </div>`,
       data: () => ({
-        show: false
-      })
+        show: false,
+      }),
     }),
     {
-      info: true
+      info: true,
     }
   )
   .add(
@@ -99,11 +99,11 @@ export default storiesOf("Utilities|Transitions", module)
       </transition>
     </div>`,
       data: () => ({
-        show: false
-      })
+        show: false,
+      }),
     }),
     {
-      info: true
+      info: true,
     }
   )
   .add(
@@ -120,11 +120,11 @@ export default storiesOf("Utilities|Transitions", module)
       </transition>
     </div>`,
       data: () => ({
-        show: false
-      })
+        show: false,
+      }),
     }),
     {
-      info: true
+      info: true,
     }
   )
   .add(
@@ -141,10 +141,10 @@ export default storiesOf("Utilities|Transitions", module)
       </transition>
     </div>`,
       data: () => ({
-        show: false
-      })
+        show: false,
+      }),
     }),
     {
-      info: true
+      info: true,
     }
   );

@@ -10,7 +10,7 @@
       </div>
       <div class="navbar__main">
         <SfButton
-          class="sf-button--text navbar__filters-button "
+          class="sf-button--text navbar__filters-button"
           @click="isFilterSidebarOpen = true"
         >
           <SfIcon size="32px" color="#BEBFC4" icon="filter" />
@@ -143,7 +143,7 @@
           :total="4"
           :visible="5"
           @click="
-            page => {
+            (page) => {
               currentPage = page;
             }
           "
@@ -318,7 +318,7 @@ import {
   SfAccordion,
   SfSelect,
   SfBreadcrumbs,
-  SfColor
+  SfColor,
 } from "@storefront-ui/vue";
 export default {
   components: {
@@ -335,7 +335,7 @@ export default {
     SfAccordion,
     SfSelect,
     SfBreadcrumbs,
-    SfColor
+    SfColor,
   },
   data() {
     return {
@@ -346,16 +346,16 @@ export default {
       sortByOptions: [
         {
           value: "latest",
-          label: "Latest"
+          label: "Latest",
         },
         {
           value: "price-up",
-          label: "Price from low to high"
+          label: "Price from low to high",
         },
         {
           value: "price-down",
-          label: "Price from high to low"
-        }
+          label: "Price from high to low",
+        },
       ],
       sidebarAccordion: [
         {
@@ -367,8 +367,8 @@ export default {
             { label: "Dresses", count: "34" },
             { label: "T-shirts", count: "56" },
             { label: "Pants", count: "7" },
-            { label: "Underwear", count: "12" }
-          ]
+            { label: "Underwear", count: "12" },
+          ],
         },
         {
           header: "Accesorries",
@@ -379,8 +379,8 @@ export default {
             { label: "Dresses", count: "34" },
             { label: "T-shirts", count: "56" },
             { label: "Pants", count: "7" },
-            { label: "Underwear", count: "12" }
-          ]
+            { label: "Underwear", count: "12" },
+          ],
         },
         {
           header: "Shoes",
@@ -391,9 +391,9 @@ export default {
             { label: "Dresses", count: "34" },
             { label: "T-shirts", count: "56" },
             { label: "Pants", count: "7" },
-            { label: "Underwear", count: "12" }
-          ]
-        }
+            { label: "Underwear", count: "12" },
+          ],
+        },
       ],
       products: [
         {
@@ -405,7 +405,7 @@ export default {
           price: { regular: "$50.00", special: "$20.00" },
           rating: { max: 5, score: 5 },
           reviewsCount: 8,
-          isOnWishlist: true
+          isOnWishlist: true,
         },
         {
           title: "Cream Beach Bag",
@@ -416,7 +416,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isOnWishlist: false
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -427,7 +427,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isOnWishlist: false
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -438,7 +438,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isOnWishlist: false
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -449,7 +449,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isOnWishlist: false
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -460,7 +460,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isOnWishlist: false
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -471,7 +471,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 6,
-          isOnWishlist: false
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -482,8 +482,8 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isOnWishlist: false
-        }
+          isOnWishlist: false,
+        },
       ],
       filters: {
         collection: [
@@ -491,20 +491,20 @@ export default {
             label: "Summer fly",
             value: "summer-fly",
             count: "10",
-            selected: false
+            selected: false,
           },
           {
             label: "Best 2018",
             value: "best-2018",
             count: "23",
-            selected: false
+            selected: false,
           },
           {
             label: "Your choice",
             value: "your-choice",
             count: "54",
-            selected: false
-          }
+            selected: false,
+          },
         ],
         color: [
           { label: "Red", value: "red", color: "#990611", selected: false },
@@ -513,10 +513,10 @@ export default {
             label: "Yellow",
             value: "yellow",
             color: "#DCA742",
-            selected: false
+            selected: false,
           },
           { label: "Blue", value: "blue", color: "#004F97", selected: false },
-          { label: "Navy", value: "navy", color: "#656466", selected: false }
+          { label: "Navy", value: "navy", color: "#656466", selected: false },
         ],
         size: [
           { label: "Size 2 (XXS)", value: "xxs", count: "10", selected: false },
@@ -526,72 +526,72 @@ export default {
             label: "Size 12-14 (M)",
             value: "m",
             count: "109",
-            selected: false
+            selected: false,
           },
           { label: "Size 16-18 (L)", value: "l", count: "23", selected: false },
           {
             label: "Size 20-22(XL)",
             value: "xl",
             count: "12",
-            selected: false
+            selected: false,
           },
           {
             label: "Size 24-26 (XXL)",
             value: "xxl",
             count: "2",
-            selected: false
-          }
+            selected: false,
+          },
         ],
         price: [
           {
             label: "Under $200",
             value: "under-200",
             count: "23",
-            selected: false
+            selected: false,
           },
           {
             label: "Under $300",
             value: "under-300",
             count: "54",
-            selected: false
-          }
+            selected: false,
+          },
         ],
         material: [
           { label: "Cotton", value: "coton", count: "33", selected: false },
-          { label: "Silk", value: "silk", count: "73", selected: false }
-        ]
+          { label: "Silk", value: "silk", count: "73", selected: false },
+        ],
       },
       breadcrumbs: [
         {
           text: "Home",
           route: {
-            link: "#"
-          }
+            link: "#",
+          },
         },
         {
           text: "Women",
           route: {
-            link: "#"
-          }
-        }
-      ]
+            link: "#",
+          },
+        },
+      ],
     };
   },
   methods: {
     updateFilter() {},
     clearAllFilters() {
       const filters = Object.keys(this.filters);
-      filters.forEach(name => {
+      filters.forEach((name) => {
         const prop = this.filters[name];
-        prop.forEach(value => {
+        prop.forEach((value) => {
           value.selected = false;
         });
       });
     },
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
