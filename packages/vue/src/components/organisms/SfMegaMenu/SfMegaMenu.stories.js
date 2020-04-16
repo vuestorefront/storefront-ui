@@ -38,10 +38,10 @@ const AsidePlaceholder = {
   mounted() {
     this.isMobile =
       Math.max(document.documentElement.clientWidth, window.innerWidth) < 1024;
-    window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+    window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
   },
   beforeDestroy() {
-    window.matchMedia("(max-width: 1024px)").removeListener(this.mobileHandler);
+    window.matchMedia("(max-width: 1023px)").removeListener(this.mobileHandler);
   },
   methods: {
     mobileHandler(event) {

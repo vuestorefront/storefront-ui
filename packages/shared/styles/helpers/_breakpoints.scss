@@ -7,7 +7,7 @@ $desktop-xl-min: 1440px;
 $desktop-xxl-min: 1920px;
 // Media mixins
 @mixin for-mobile {
-  @media (max-width: $tablet-max) {
+  @media (max-width: $desktop-min - 1px) {
     @content;
   }
 }

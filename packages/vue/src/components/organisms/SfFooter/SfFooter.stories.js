@@ -61,11 +61,11 @@ storiesOf("Organisms|Footer", module)
       this.isMobile =
         Math.max(document.documentElement.clientWidth, window.innerWidth) <
         1024;
-      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
       window
-        .matchMedia("(max-width: 1024px)")
+        .matchMedia("(max-width: 1023px)")
         .removeListener(this.mobileHandler);
     },
     methods: {
