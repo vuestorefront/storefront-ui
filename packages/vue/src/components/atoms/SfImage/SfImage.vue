@@ -18,7 +18,7 @@
       />
     </template>
     <template v-else>
-      <picture :data-iesrc="srcIE" :data-alt="alt">
+      <picture :data-iesrc="source[0].src" :data-alt="alt">
         <source
           v-for="(srcItem, i) in source"
           :key="i"
@@ -54,60 +54,60 @@ export default {
   props: {
     src: {
       type: [String, Array, Object],
-      default: "",
+      default: ""
     },
     alt: {
       type: String,
-      default: "",
+      default: ""
     },
     width: {
       type: [String, Number],
-      default: undefined,
+      default: undefined
     },
     height: {
       type: [String, Number],
-      default: undefined,
+      default: undefined
     },
     lazy: {
       type: Boolean,
-      default: true,
+      default: true
     },
     pictureBreakpoint: {
       type: Number,
-      default: 1024,
+      default: 1024
     },
     rootMargin: {
       type: String,
-      default: "",
+      default: ""
     },
     threshold: {
       type: [String, Number],
-      default: "",
-    },
+      default: ""
+    }
   },
   data() {
     return {
       show: false,
       overlay: false,
-      srcIE: "",
+      srcIE: ""
     };
   },
   computed: {
     source() {
       let src = this.src || "";
-      if (Array.isArray(this.src)) {        
-        this.srcIE = src[0].src;        
-      }
+      // if (Array.isArray(this.src)) {
+      //   this.srcIE = src[0].src;
+      // }
       if (typeof this.src === "object" && !Array.isArray(this.src)) {
         src = [
           {
             src: this.src.mobile.url,
-            media: "(max-width: {{pictureBreakpoint}}px)",
+            media: "(max-width: {{pictureBreakpoint}}px)"
           },
           {
             src: this.src.desktop.url,
-            media: "(min-width: {{pictureBreakpoint}}px)",
-          },
+            media: "(min-width: {{pictureBreakpoint}}px)"
+          }
         ];
         if (!src.desktop || !src.mobile) {
           const object = src.desktop || src.mobile || { url: "" };
@@ -126,15 +126,15 @@ export default {
         this.height &&
         `--_image-width: ${this.width}; --_image-height: ${this.height}`
       );
-    },
+    }
   },
   watch: {
     lazy: {
       handler(value) {
         this.show = !value;
       },
-      immediate: true,
-    },
+      immediate: true
+    }
   },
   mounted() {
     if (!this.lazy) {
@@ -152,12 +152,12 @@ export default {
             vm.show = true;
           },
           rootMargin: this.rootMargin,
-          threshold: this.threshold,
+          threshold: this.threshold
         });
         observer.observe();
       });
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss">
