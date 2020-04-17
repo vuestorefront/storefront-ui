@@ -29,6 +29,12 @@
         <slot name="label" v-bind="{ label, isChecked, disabled }">
           <div v-if="label" class="sf-radio__label">{{ label }}</div>
         </slot>
+        <!-- @slot Custom details markup (bind 'details' string -->
+        <slot name="details" v-bind="{ details }">
+          <p v-if="details" class="sf-radio__details">
+            {{ details }}
+          </p>
+        </slot>
         <!-- @slot Custom description markup (bind 'description' string -->
         <slot name="description" v-bind="{ description }">
           <p v-if="description" class="sf-radio__description">
@@ -56,6 +62,10 @@ export default {
       default: "",
     },
     label: {
+      type: String,
+      default: "",
+    },
+    details: {
       type: String,
       default: "",
     },
