@@ -8,6 +8,7 @@
 import Vue from "vue";
 import SfTab from "./_internal/SfTab.vue";
 Vue.component("SfTab", SfTab);
+
 export default {
   name: "SfTabs",
   props: {
@@ -47,10 +48,12 @@ export default {
       }
     },
   },
-  provide: {
-    maxContentHeight: "tabMaxContentHeight",
-    showText: "tabShowText",
-    hideText: "tabHideText",
+  provide: function () {
+    return {
+      maxContentHeight: this.tabMaxContentHeight,
+      showText: this.tabShowText,
+      hideText: this.tabHideText,
+    };
   },
 };
 </script>
