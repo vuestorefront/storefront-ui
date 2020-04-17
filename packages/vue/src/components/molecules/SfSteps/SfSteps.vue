@@ -8,10 +8,9 @@
         :step-click="stepClick"
         v-bind="{ step }"
       >
-        <div
+        <button
           :key="step.index"
           v-focus
-          tabindex="0"
           :class="{
             'sf-steps__step': true,
             'sf-steps__step--done': step.done,
@@ -21,7 +20,7 @@
           @click="stepClick(step)"
         >
           <span class="sf-steps__title">{{ step.step }}</span>
-        </div>
+        </button>
       </slot>
       <div class="sf-steps__progress" :style="progress"></div>
     </div>
