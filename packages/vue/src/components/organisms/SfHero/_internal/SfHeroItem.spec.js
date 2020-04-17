@@ -16,8 +16,8 @@ describe("SfHeroItem.vue", () => {
           subtitle,
           buttonText,
           background,
-          image
-        }
+          image,
+        },
       });
     });
     afterEach(() => {
@@ -43,8 +43,8 @@ describe("SfHeroItem.vue", () => {
         slots: {
           title: `<div>${title}</div>`,
           subtitle: `<div>${subtitle}</div>`,
-          "call-to-action": `<div>halabala</div>`
-        }
+          "call-to-action": `<div>halabala</div>`,
+        },
       });
     });
     afterEach(() => {

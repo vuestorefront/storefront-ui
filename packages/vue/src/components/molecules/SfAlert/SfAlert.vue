@@ -15,7 +15,7 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfAlert",
   components: {
-    SfIcon
+    SfIcon,
   },
   props: {
     /**
@@ -23,7 +23,7 @@ export default {
      */
     message: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Alert type ("secondary", "info", "success", "warning", "danger"). Check "Knobs" section to see how they look like.
@@ -31,12 +31,12 @@ export default {
     type: {
       type: String,
       default: "secondary",
-      validator: function(value) {
+      validator: function (value) {
         return ["secondary", "info", "success", "warning", "danger"].includes(
           value
         );
-      }
-    }
+      },
+    },
   },
   computed: {
     icon() {
@@ -48,8 +48,8 @@ export default {
         default:
           return "info_circle";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

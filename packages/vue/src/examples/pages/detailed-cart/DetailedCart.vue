@@ -91,7 +91,7 @@ import {
   SfImage,
   SfProperty,
   SfHeading,
-  SfBreadcrumbs
+  SfBreadcrumbs,
 } from "@storefront-ui/vue";
 import { OrderSummary } from "./_internal/index.js";
 export default {
@@ -103,7 +103,7 @@ export default {
     SfButton,
     SfHeading,
     SfProperty,
-    OrderSummary
+    OrderSummary,
   },
   data() {
     return {
@@ -111,15 +111,15 @@ export default {
         {
           text: "Home",
           route: {
-            link: "#"
-          }
+            link: "#",
+          },
         },
         {
           text: "Cart",
           route: {
-            link: "#"
-          }
-        }
+            link: "#",
+          },
+        },
       ],
       products: [
         {
@@ -129,9 +129,9 @@ export default {
           price: { regular: "50.00" },
           configuration: [
             { name: "Size", value: "XS" },
-            { name: "Color", value: "White" }
+            { name: "Color", value: "White" },
           ],
-          qty: "1"
+          qty: "1",
         },
         {
           title: "Cream Beach Bag",
@@ -140,9 +140,9 @@ export default {
           price: { regular: "50.00", special: "20.05" },
           configuration: [
             { name: "Size", value: "XS" },
-            { name: "Color", value: "White" }
+            { name: "Color", value: "White" },
           ],
-          qty: "2"
+          qty: "2",
         },
         {
           title: "Cream Beach Bag",
@@ -151,10 +151,10 @@ export default {
           price: { regular: "50.00", special: "20.50" },
           configuration: [
             { name: "Size", value: "XS" },
-            { name: "Color", value: "White" }
+            { name: "Color", value: "White" },
           ],
-          qty: "1"
-        }
+          qty: "1",
+        },
       ],
       shippingMethods: [
         {
@@ -164,7 +164,7 @@ export default {
           label: "Pickup in the store",
           value: "store",
           description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
         },
         {
           isOpen: false,
@@ -173,7 +173,7 @@ export default {
           label: "Delivery to home",
           value: "home",
           description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
         },
         {
           isOpen: false,
@@ -182,7 +182,7 @@ export default {
           label: "Paczkomaty InPost",
           value: "inpost",
           description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
         },
         {
           isOpen: false,
@@ -191,7 +191,7 @@ export default {
           label: "48 hours coffee",
           value: "coffee",
           description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
         },
         {
           isOpen: false,
@@ -200,9 +200,9 @@ export default {
           label: "Urgent 24h",
           value: "urgent",
           description:
-            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted."
-        }
-      ]
+            "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
+        },
+      ],
     };
   },
   computed: {
@@ -211,14 +211,14 @@ export default {
         (totalItems, product) => totalItems + parseInt(product.qty, 10),
         0
       );
-    }
+    },
   },
   methods: {
     removeHandler(product) {
       const products = [...this.products];
-      this.products = products.filter(element => element.id !== product.id);
-    }
-  }
+      this.products = products.filter((element) => element.id !== product.id);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

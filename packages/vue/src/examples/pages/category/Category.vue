@@ -10,7 +10,7 @@
       </div>
       <div class="navbar__main">
         <SfButton
-          class="sf-button--text navbar__filters-button "
+          class="sf-button--text navbar__filters-button"
           @click="isFilterSidebarOpen = true"
         >
           <SfIcon size="32px" color="#BEBFC4" icon="filter" />
@@ -33,8 +33,8 @@
           <span class="desktop-only">280</span>
           <span class="navbar__label mobile-only">280 Items</span>
         </div>
-        <div class="navbar__view desktop-only">
-          <span class="navbar__view-label">View</span>
+        <div class="navbar__view">
+          <span class="navbar__view-label desktop-only">View</span>
           <SfIcon
             class="navbar__view-icon"
             :color="isGridView ? '#1D1F22' : '#BEBFC4'"
@@ -56,16 +56,6 @@
             @click="isGridView = false"
           />
         </div>
-        <SfButton class="sf-button--text navbar__filters-button mobile-only">
-          Sort by
-          <SfIcon size="15px" style="margin-left: 10px;">
-            <svg viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M8.32809 15.2897L12 11.7644V12.2892L8.13547 16L4.27094 12.2892V11.7644L7.94285 15.2897V6.83165H8.32809L8.32809 15.2897ZM3.67191 0.710288L0 4.23556V3.71082L3.86453 0L7.72906 3.71082V4.23556L4.05715 0.710288V9.16835H3.67191L3.67191 0.710288Z"
-              />
-            </svg>
-          </SfIcon>
-        </SfButton>
       </div>
     </div>
     <div class="main section">
@@ -122,7 +112,7 @@
                 <SfColor
                   v-for="color in product.colors"
                   :key="color.name"
-                  style="margin: 0.4375rem"
+                  style="margin: 0.4375rem;"
                   :color="color.color"
                   :selected="color.selected"
                   @click="color.selected = !color.selected"
@@ -161,7 +151,7 @@
           :total="4"
           :visible="5"
           @click="
-            page => {
+            (page) => {
               currentPage = page;
             }
           "
@@ -337,7 +327,7 @@ import {
   SfSelect,
   SfBreadcrumbs,
   SfColor,
-  SfColorPicker
+  SfColorPicker,
 } from "@storefront-ui/vue";
 export default {
   components: {
@@ -355,7 +345,7 @@ export default {
     SfSelect,
     SfBreadcrumbs,
     SfColor,
-    SfColorPicker
+    SfColorPicker,
   },
   data() {
     return {
@@ -363,20 +353,19 @@ export default {
       sortBy: "price-up",
       isFilterSidebarOpen: false,
       isGridView: true,
-      isOpen: false,
       sortByOptions: [
         {
           value: "latest",
-          label: "Latest"
+          label: "Latest",
         },
         {
           value: "price-up",
-          label: "Price from low to high"
+          label: "Price from low to high",
         },
         {
           value: "price-down",
-          label: "Price from high to low"
-        }
+          label: "Price from high to low",
+        },
       ],
       sidebarAccordion: [
         {
@@ -388,8 +377,8 @@ export default {
             { label: "Dresses", count: "34" },
             { label: "T-shirts", count: "56" },
             { label: "Pants", count: "7" },
-            { label: "Underwear", count: "12" }
-          ]
+            { label: "Underwear", count: "12" },
+          ],
         },
         {
           header: "Accesorries",
@@ -400,8 +389,8 @@ export default {
             { label: "Dresses", count: "34" },
             { label: "T-shirts", count: "56" },
             { label: "Pants", count: "7" },
-            { label: "Underwear", count: "12" }
-          ]
+            { label: "Underwear", count: "12" },
+          ],
         },
         {
           header: "Shoes",
@@ -412,15 +401,14 @@ export default {
             { label: "Dresses", count: "34" },
             { label: "T-shirts", count: "56" },
             { label: "Pants", count: "7" },
-            { label: "Underwear", count: "12" }
-          ]
-        }
+            { label: "Underwear", count: "12" },
+          ],
+        },
       ],
       products: [
         {
           title: "Cream Beach Bag",
           id: 1,
-          isOpen: false,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productA.jpg",
@@ -433,8 +421,8 @@ export default {
             { color: "#ABD9D8", name: "mint1", selected: false },
             { color: "#DB5593", name: "pink1", selected: false },
             { color: "#ABD9D8", name: "mint2", selected: false },
-            { color: "#DB5593", name: "pink2", selected: false }
-          ]
+            { color: "#DB5593", name: "pink2", selected: false },
+          ],
         },
         {
           title: "Cream Beach Bag",
@@ -452,8 +440,8 @@ export default {
             { color: "#ABD9D8", name: "mint1", selected: false },
             { color: "#DB5593", name: "pink1", selected: false },
             { color: "#ABD9D8", name: "mint2", selected: false },
-            { color: "#DB5593", name: "pink2", selected: false }
-          ]
+            { color: "#DB5593", name: "pink2", selected: false },
+          ],
         },
         {
           title: "Cream Beach Bag",
@@ -471,8 +459,8 @@ export default {
             { color: "#ABD9D8", name: "mint1", selected: false },
             { color: "#DB5593", name: "pink1", selected: false },
             { color: "#ABD9D8", name: "mint2", selected: false },
-            { color: "#DB5593", name: "pink2", selected: false }
-          ]
+            { color: "#DB5593", name: "pink2", selected: false },
+          ],
         },
         {
           title: "Cream Beach Bag",
@@ -490,8 +478,8 @@ export default {
             { color: "#ABD9D8", name: "mint1", selected: false },
             { color: "#DB5593", name: "pink1", selected: false },
             { color: "#ABD9D8", name: "mint2", selected: false },
-            { color: "#DB5593", name: "pink2", selected: false }
-          ]
+            { color: "#DB5593", name: "pink2", selected: false },
+          ],
         },
         {
           title: "Cream Beach Bag",
@@ -509,8 +497,8 @@ export default {
             { color: "#ABD9D8", name: "mint1", selected: false },
             { color: "#DB5593", name: "pink1", selected: false },
             { color: "#ABD9D8", name: "mint2", selected: false },
-            { color: "#DB5593", name: "pink2", selected: false }
-          ]
+            { color: "#DB5593", name: "pink2", selected: false },
+          ],
         },
         {
           title: "Cream Beach Bag",
@@ -528,8 +516,8 @@ export default {
             { color: "#ABD9D8", name: "mint1", selected: false },
             { color: "#DB5593", name: "pink1", selected: false },
             { color: "#ABD9D8", name: "mint2", selected: false },
-            { color: "#DB5593", name: "pink2", selected: false }
-          ]
+            { color: "#DB5593", name: "pink2", selected: false },
+          ],
         },
         {
           title: "Cream Beach Bag",
@@ -541,7 +529,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 6,
-          isOnWishlist: false
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -553,8 +541,8 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isOnWishlist: false
-        }
+          isOnWishlist: false,
+        },
       ],
       filters: {
         collection: [
@@ -562,20 +550,20 @@ export default {
             label: "Summer fly",
             value: "summer-fly",
             count: "10",
-            selected: false
+            selected: false,
           },
           {
             label: "Best 2018",
             value: "best-2018",
             count: "23",
-            selected: false
+            selected: false,
           },
           {
             label: "Your choice",
             value: "your-choice",
             count: "54",
-            selected: false
-          }
+            selected: false,
+          },
         ],
         color: [
           { label: "Red", value: "red", color: "#990611", selected: false },
@@ -584,10 +572,10 @@ export default {
             label: "Yellow",
             value: "yellow",
             color: "#DCA742",
-            selected: false
+            selected: false,
           },
           { label: "Blue", value: "blue", color: "#004F97", selected: false },
-          { label: "Navy", value: "navy", color: "#656466", selected: false }
+          { label: "Navy", value: "navy", color: "#656466", selected: false },
         ],
         size: [
           { label: "Size 2 (XXS)", value: "xxs", count: "10", selected: false },
@@ -597,72 +585,72 @@ export default {
             label: "Size 12-14 (M)",
             value: "m",
             count: "109",
-            selected: false
+            selected: false,
           },
           { label: "Size 16-18 (L)", value: "l", count: "23", selected: false },
           {
             label: "Size 20-22(XL)",
             value: "xl",
             count: "12",
-            selected: false
+            selected: false,
           },
           {
             label: "Size 24-26 (XXL)",
             value: "xxl",
             count: "2",
-            selected: false
-          }
+            selected: false,
+          },
         ],
         price: [
           {
             label: "Under $200",
             value: "under-200",
             count: "23",
-            selected: false
+            selected: false,
           },
           {
             label: "Under $300",
             value: "under-300",
             count: "54",
-            selected: false
-          }
+            selected: false,
+          },
         ],
         material: [
           { label: "Cotton", value: "coton", count: "33", selected: false },
-          { label: "Silk", value: "silk", count: "73", selected: false }
-        ]
+          { label: "Silk", value: "silk", count: "73", selected: false },
+        ],
       },
       breadcrumbs: [
         {
           text: "Home",
           route: {
-            link: "#"
-          }
+            link: "#",
+          },
         },
         {
           text: "Women",
           route: {
-            link: "#"
-          }
-        }
-      ]
+            link: "#",
+          },
+        },
+      ],
     };
   },
   methods: {
     updateFilter() {},
     clearAllFilters() {
       const filters = Object.keys(this.filters);
-      filters.forEach(name => {
+      filters.forEach((name) => {
         const prop = this.filters[name];
-        prop.forEach(value => {
+        prop.forEach((value) => {
           value.selected = false;
         });
       });
     },
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
