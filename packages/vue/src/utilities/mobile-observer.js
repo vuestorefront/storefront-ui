@@ -1,7 +1,7 @@
 import Vue from "vue";
 let observer;
 const desktopMin = 1024;
-export const onMediaMatch = e => {
+export const onMediaMatch = (e) => {
   observer.isMobile = e.matches;
 };
 export const setupListener = () => {
@@ -34,7 +34,7 @@ export const mapMobileObserver = () => {
     observer = Vue.observable({
       isMobile: false,
       clients: 0,
-      isInitialized: false
+      isInitialized: false,
     });
   }
   observer.clients += 1;
@@ -45,18 +45,18 @@ export const mapMobileObserver = () => {
           setupListener();
         }
         return observer ? observer.isMobile : false;
-      }
+      },
     },
     mobileObserverClients: {
       get() {
         return observer ? observer.clients : 0;
-      }
+      },
     },
     mobileObserverIsInitialized: {
       get() {
         return observer ? observer.isInitialized : false;
-      }
-    }
+      },
+    },
   };
 };
 export const unMapMobileObserver = () => {

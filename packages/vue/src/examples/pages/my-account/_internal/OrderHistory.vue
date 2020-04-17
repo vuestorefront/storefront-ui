@@ -27,7 +27,7 @@
               <span
                 :class="{
                   'text-success': data === 'Finalised',
-                  'text-warning': data === 'In process'
+                  'text-warning': data === 'In process',
                 }"
                 >{{ data }}</span
               >
@@ -63,13 +63,13 @@ export default {
   components: {
     SfTabs,
     SfTable,
-    SfButton
+    SfButton,
   },
   props: {
     account: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -78,15 +78,15 @@ export default {
         "Payment date",
         "Payment method",
         "Amount",
-        "Status"
-      ]
+        "Status",
+      ],
     };
   },
   computed: {
     orders() {
       return this.account.orders;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

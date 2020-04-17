@@ -91,7 +91,7 @@ import {
   SfCheckbox,
   SfButton,
   SfHeading,
-  SfCharacteristic
+  SfCharacteristic,
 } from "@storefront-ui/vue";
 export default {
   name: "PersonalDetails",
@@ -100,17 +100,17 @@ export default {
     SfCheckbox,
     SfButton,
     SfHeading,
-    SfCharacteristic
+    SfCharacteristic,
   },
   props: {
     value: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     buttonName: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
@@ -123,8 +123,8 @@ export default {
         { description: "Faster checkout", icon: "clock" },
         { description: "Full rewards program benefits", icon: "rewards" },
         { description: "Earn credits with every purchase", icon: "credits" },
-        { description: "Manage your wishliste", icon: "heart" }
-      ]
+        { description: "Manage your wishliste", icon: "heart" },
+      ],
     };
   },
   watch: {
@@ -134,20 +134,20 @@ export default {
         this.lastName = this.value.lastName;
         this.email = this.value.email;
       },
-      immediate: true
+      immediate: true,
     },
     createAccount(value) {
       if (!value) this.password = "";
-    }
+    },
   },
   methods: {
     updateField(fieldName, fieldValue) {
       this.$emit("input", {
         ...this.value,
-        [fieldName]: fieldValue
+        [fieldName]: fieldValue,
       });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

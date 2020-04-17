@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.0...@storefront-ui/vue@0.7.1) (2020-04-10)
+
+
+### Bug Fixes
+
+* update quantity update in the SfProductCardHorizontal  ([#1010](https://github.com/DivanteLtd/storefront-ui/issues/1010)) ([3ba6a7a](https://github.com/DivanteLtd/storefront-ui/commit/3ba6a7a8f2bade461cf801a77b5423e159d5f836))
+
+
+### Features
+
+* **component:** SfDropdown ([#968](https://github.com/DivanteLtd/storefront-ui/issues/968)) ([2bf5831](https://github.com/DivanteLtd/storefront-ui/commit/2bf5831695ae3e0ed233c8a68fccb9b789dbdc12))
+* add slot for cancel in the SfSelect ([#1015](https://github.com/DivanteLtd/storefront-ui/issues/1015)) ([275b823](https://github.com/DivanteLtd/storefront-ui/commit/275b823060491d08ce18c9e1975285db2b28a6a0))
+
+
+
+
+
 # [0.7.0](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.4...@storefront-ui/vue@0.7.0) (2020-04-08)
 
 

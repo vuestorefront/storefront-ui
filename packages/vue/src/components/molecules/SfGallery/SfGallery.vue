@@ -70,7 +70,7 @@ import SfImage from "../../atoms/SfImage/SfImage.vue";
 export default {
   name: "SfGallery",
   components: {
-    SfImage
+    SfImage,
   },
   props: {
     /**
@@ -78,42 +78,42 @@ export default {
      */
     images: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     /**
      * Images width, without unit
      */
     imageWidth: {
       type: [Number, String],
-      default: 422
+      default: 422,
     },
     /**
      * Images height, without unit
      */
     imageHeight: {
       type: [Number, String],
-      default: 664
+      default: 664,
     },
     /**
      * Thumb width, without unit
      */
     thumbWidth: {
       type: [Number, String],
-      default: 160
+      default: 160,
     },
     /**
      * Thumb height, without unit
      */
     thumbHeight: {
       type: [Number, String],
-      default: 160
+      default: 160,
     },
     /**
      * Initial image number (starting from 1)
      */
     current: {
       type: Number,
-      default: 1
+      default: 1,
     },
     /**
      * Glide slider options (https://glidejs.com/docs/options/)
@@ -125,24 +125,24 @@ export default {
           type: "slider",
           autoplay: false,
           rewind: false,
-          gap: 0
+          gap: 0,
         };
-      }
+      },
     },
     /**
      * Image zoom inside or overlap the stage
      */
     outsideZoom: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Toogle for image zoom or overlap the stage
      */
     enableZoom: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
@@ -151,7 +151,7 @@ export default {
       pictureSelected: "",
       glide: null,
       activeIndex: this.current - 1,
-      style: ""
+      style: "",
     };
   },
   computed: {
@@ -159,12 +159,12 @@ export default {
       // map images to handle picture tags with SfImage
       return this.images.map(({ desktop, big }) => ({
         mobile: desktop,
-        desktop: big
+        desktop: big,
       }));
     },
     updatedSliderOptions() {
       return { ...this.sliderOptions, startAt: this.activeIndex };
-    }
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -220,9 +220,9 @@ export default {
         this.eventHover = $event;
         if (this.outsideZoom) {
           this.positionStatic = this.positionObject(index);
-          this.$refs.imgZoom.$refs.image.style.transformOrigin = `${$event.clientX -
-            this.positionStatic.x}px ${$event.clientY -
-            this.positionStatic.y}px`;
+          this.$refs.imgZoom.$refs.image.style.transformOrigin = `${
+            $event.clientX - this.positionStatic.x
+          }px ${$event.clientY - this.positionStatic.y}px`;
         } else {
           this.positionStatic = this.positionObject(index);
           this.$refs.sfGalleryBigImage[index].$refs.image.style.top = "0";
@@ -230,9 +230,9 @@ export default {
             "scale(2)";
           this.$refs.sfGalleryBigImage[
             index
-          ].$refs.image.style.transformOrigin = `${$event.clientX -
-            this.positionStatic.x}px ${$event.clientY -
-            this.positionStatic.y}px`;
+          ].$refs.image.style.transformOrigin = `${
+            $event.clientX - this.positionStatic.x
+          }px ${$event.clientY - this.positionStatic.y}px`;
         }
       }
     },
@@ -243,8 +243,8 @@ export default {
           "translate3d(0, -50%, 0)";
         this.$refs.sfGalleryBigImage[index].$refs.image.style.top = "50%";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">
