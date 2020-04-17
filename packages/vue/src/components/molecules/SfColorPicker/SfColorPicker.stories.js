@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  optionsKnob as options
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfColorPicker from "./SfColorPicker.vue";
 import SfColor from "../../atoms/SfColor/SfColor.vue";
@@ -17,16 +16,16 @@ storiesOf("Molecules|ColorPicker", module)
           "CSS modifiers",
           {
             "sf-color-picker--vertical": "sf-color-picker--vertical",
-            "sf-color-picker--left": "sf-color-picker--left"
+            "sf-color-picker--left": "sf-color-picker--left",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       label: {
-        default: text("label", "Choose color", "Props")
-      }
+        default: text("label", "Choose color", "Props"),
+      },
     },
     data() {
       return {
@@ -38,22 +37,22 @@ storiesOf("Molecules|ColorPicker", module)
             label: "Light Gray",
             value: "light gray",
             color: "#F1F2F3",
-            selected: false
+            selected: false,
           },
           {
             label: "Vivid rose",
             value: "vivid rose",
             color: "#DB5593",
-            selected: false
+            selected: false,
           },
           { label: "Peach", value: "peach", color: "#F59F93", selected: false },
           {
             label: "Citrus",
             value: "citrus",
             color: "#FFEE97",
-            selected: false
-          }
-        ]
+            selected: false,
+          },
+        ],
       };
     },
     components: { SfColorPicker, SfColor },
@@ -68,7 +67,7 @@ storiesOf("Molecules|ColorPicker", module)
         >
           <SfColor style="margin: 0.4375rem" v-for="color in colors" :key="color.value" :color="color.color" :selected="color.selected" @click="color.selected = !color.selected"/>
         </SfColorPicker>
-      </div>`
+      </div>`,
   }))
   .add("with --vertical", () => ({
     props: {
@@ -77,19 +76,19 @@ storiesOf("Molecules|ColorPicker", module)
           "CSS modifiers",
           {
             "sf-color-picker--vertical": "sf-color-picker--vertical",
-            "sf-color-picker--left": "sf-color-picker--left"
+            "sf-color-picker--left": "sf-color-picker--left",
           },
           "sf-color-picker--vertical",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       label: {
-        default: text("label", "", "Props")
+        default: text("label", "", "Props"),
       },
       closeIcon: {
-        default: text("closeIcon", "cross", "Props")
-      }
+        default: text("closeIcon", "cross", "Props"),
+      },
     },
     data() {
       return {
@@ -101,22 +100,22 @@ storiesOf("Molecules|ColorPicker", module)
             label: "Light Gray",
             value: "light gray",
             color: "#F1F2F3",
-            selected: false
+            selected: false,
           },
           {
             label: "Vivid rose",
             value: "vivid rose",
             color: "#DB5593",
-            selected: false
+            selected: false,
           },
           { label: "Peach", value: "peach", color: "#F59F93", selected: false },
           {
             label: "Citrus",
             value: "citrus",
             color: "#FFEE97",
-            selected: false
-          }
-        ]
+            selected: false,
+          },
+        ],
       };
     },
     components: { SfColorPicker, SfColor },
@@ -131,5 +130,5 @@ storiesOf("Molecules|ColorPicker", module)
         >
           <SfColor style="margin: 0.4375rem" v-for="color in colors" :key="color.value" :color="color.color" :selected="color.selected" @click="color.selected = !color.selected"/>
         </SfColorPicker>
-      </div>`
+      </div>`,
   }));

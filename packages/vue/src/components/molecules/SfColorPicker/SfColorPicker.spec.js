@@ -7,4 +7,3 @@ describe("SfColorPicker.vue", () => {
     expect(component.contains(".sf-color-picker")).toBe(true);
   });
 });
-

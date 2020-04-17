@@ -38,22 +38,22 @@ export default {
   props: {
     isOpen: {
       type: Boolean,
-      default: false
+      default: false,
     },
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     closeIcon: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   methods: {
     toggle() {
       this.$emit("click:toggle");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">
