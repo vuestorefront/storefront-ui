@@ -114,7 +114,7 @@ export default {
      */
     ariaLabelClose: {
       type: String,
-      default: null,
+      default: "Close Modal",
     },
   },
   data() {

@@ -24,7 +24,7 @@ storiesOf("Molecules|Modal", module)
         default: boolean("persistent", false, "Props"),
       },
       ariaLabelClose: {
-        default: text("ariaLabelClose", "Close", "Props"),
+        default: text("ariaLabelClose", "Close modal", "Props"),
       },
     },
     mixins: [visibilityToggleMixin],
@@ -57,7 +57,7 @@ storiesOf("Molecules|Modal", module)
         default: boolean("persistent", false, "Props"),
       },
       ariaLabelClose: {
-        default: text("ariaLabelClose", "Close", "Props"),
+        default: text("ariaLabelClose", "Close modal", "Props"),
       },
     },
     mixins: [visibilityToggleMixin],
