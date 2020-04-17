@@ -16,7 +16,7 @@ export default {
       type: Number,
       default: 1,
     },
-    tabMaxContentHight: {
+    tabMaxContentHeight: {
       type: String,
       default: "",
     },
@@ -48,9 +48,9 @@ export default {
     },
   },
   provide: {
-    tabMaxContentHight: this.tabMaxContentHight,
-    tabShowText: this.tabShowText,
-    tabHideText: this.tabHideText,
+    maxContentHeight: "tabMaxContentHeight",
+    showText: "tabShowText",
+    hideText: "tabHideText",
   },
 };
 </script>

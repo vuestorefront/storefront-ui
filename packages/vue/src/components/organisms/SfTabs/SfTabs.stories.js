@@ -9,8 +9,14 @@ storiesOf("Organisms|Tabs", module)
       openTab: {
         default: number("openTab", 1, {}, "Props"),
       },
-      maxContentHeight: {
-        default: text("maxContentHeight", "6.25rem", "Props"),
+      tabMaxContentHeight: {
+        default: text("tabMaxContentHeight", "6.25rem", "Props"),
+      },
+      tabShowText: {
+        default: text("tabShowText", "show", "Props"),
+      },
+      tabHideText: {
+        default: text("tabHideText", "hide", "Props"),
       },
     },
     data() {
@@ -35,11 +41,15 @@ storiesOf("Organisms|Tabs", module)
       };
     },
     template: `<SfTabs
-        :open-tab="openTab">
+          :open-tab="openTab"
+          :tabMaxContentHeight="tabMaxContentHeight"
+          :tabShowText="tabShowText"
+          :tabHideText="tabHideText"
+        >
         <SfTab 
             v-for="tab in tabs" 
             :key="tab.title" 
-            :title="tab.title"
+            :title="tab.title"            
         >
             {{tab.content}}
         </SfTab>

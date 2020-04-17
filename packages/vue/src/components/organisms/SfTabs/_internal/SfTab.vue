@@ -19,14 +19,13 @@
 
     <div class="sf-tabs__content">
       <div v-if="isActive" class="sf-tabs__content__tab">
-        <SfScrollable
-          :max-content-height="maxContentHeight"
-          :show-text="showText"
-          :hide-text="hideText"
-        >
+        <SfScrollable v-if="maxContentHeight">
           <!--@slot Default. Here you should pass your tab content -->
           <slot />
         </SfScrollable>
+        <div v-else>
+          <slot />
+        </div>
       </div>
     </div>
   </Fragment>
@@ -42,7 +41,7 @@ export default {
     SfChevron,
     SfScrollable,
   },
-  inject: ["tabMaxContentHight", "tabShowText", "tabHideText"],
+  inject: ["maxContentHeight"],
   props: {
     /**
      * Tab title.
@@ -52,18 +51,9 @@ export default {
       default: "",
     },
     maxContentHeight: {
+      type: String,
       default() {
-        return this.tabMaxContentHight;
-      },
-    },
-    showText: {
-      default() {
-        return this.tabShowText;
-      },
-    },
-    hideText: {
-      default() {
-        return this.tabHideText;
+        return this.maxContentHeight;
       },
     },
   },
