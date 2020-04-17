@@ -1,6 +1,5 @@
 <template>
   <SfButton
-    v-focus
     class="sf-arrow"
     type="button"
     :aria-label="ariaLabel"
@@ -15,12 +14,8 @@
 <script>
 import SfButton from "../SfButton/SfButton";
 import SfIcon from "../SfIcon/SfIcon";
-import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfArrow",
-  directives: {
-    focus,
-  },
   components: { SfButton, SfIcon },
   props: {
     ariaLabel: {
