@@ -21,6 +21,8 @@
       <!-- @slot Custom check mark markup -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <div
+          v-focus
+          tabindex="0"
           class="sf-checkbox__checkmark"
           :class="{ 'sf-checkbox__checkmark--is-active': isChecked }"
         >
@@ -36,8 +38,12 @@
 </template>
 <script>
 import SfIcon from "../SfIcon/SfIcon.vue";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfCheckbox",
+  directives: {
+    focus,
+  },
   components: {
     SfIcon,
   },
