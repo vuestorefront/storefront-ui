@@ -30,6 +30,7 @@ storiesOf("Atoms|QuantitySelector", module)
     template: `<div style="max-width: 375px">
         <SfQuantitySelector
           v-model="value"
+          aria-label="Quantity"
           :class="customClass"
         />
       </div>`,
