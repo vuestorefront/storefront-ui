@@ -35,7 +35,7 @@ export default {
   },
   components: {
     Fragment,
-    SfChevron
+    SfChevron,
   },
   props: {
     /**
@@ -43,13 +43,13 @@ export default {
      */
     title: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
       isActive: false,
-      desktopMin: 1024
+      desktopMin: 1024,
     };
   },
   methods: {
@@ -62,7 +62,7 @@ export default {
       );
       if (this.isActive && width > this.desktopMin) return;
       this.$parent.$emit("toggle", this._uid);
-    }
-  }
+    },
+  },
 };
 </script>

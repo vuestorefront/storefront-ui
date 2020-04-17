@@ -47,9 +47,9 @@ export default {
   components: { SfTabs, SfCheckbox, SfButton },
   data() {
     return {
-      newsletter: []
+      newsletter: [],
     };
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>

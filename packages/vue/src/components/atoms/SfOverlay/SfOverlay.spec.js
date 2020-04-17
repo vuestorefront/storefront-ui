@@ -4,8 +4,8 @@ describe("SfOverlay.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfOverlay, {
       propsData: {
-        visible: true
-      }
+        visible: true,
+      },
     });
     expect(component.contains(".sf-overlay")).toBe(true);
   });

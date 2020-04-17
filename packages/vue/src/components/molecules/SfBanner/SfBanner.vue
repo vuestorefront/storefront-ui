@@ -32,12 +32,12 @@
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import {
   mapMobileObserver,
-  unMapMobileObserver
+  unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
 export default {
   name: "SfBanner",
   components: {
-    SfButton
+    SfButton,
   },
   props: {
     /**
@@ -45,34 +45,34 @@ export default {
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Banner subtitle (at the top)
      */
     subtitle: {
       type: String,
-      default: ""
+      default: "",
     },
     description: {
       type: String,
-      default: ""
+      default: "",
     },
     /** text that will be displayed inside the button. You can replace the button  with "call-to-action" slot */
     buttonText: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Background color in HEX (eg #FFFFFF) */
     background: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Background image. Influenced by $banner-background-size, $banner-background-position CSS props. */
     image: {
       type: [String, Object],
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     ...mapMobileObserver(),
@@ -85,13 +85,13 @@ export default {
           : `url(${image})`,
         "--_banner-background-desktop-image":
           image.desktop && `url(${image.desktop})`,
-        "--_banner-background-color": background
+        "--_banner-background-color": background,
       };
-    }
+    },
   },
   beforeDestroy() {
     unMapMobileObserver();
-  }
+  },
 };
 </script>
 <style lang="scss">

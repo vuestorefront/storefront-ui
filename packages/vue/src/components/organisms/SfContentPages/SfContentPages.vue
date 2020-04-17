@@ -64,7 +64,7 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import {
   mapMobileObserver,
-  unMapMobileObserver
+  unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
 export default {
   name: "SfContentPages",
@@ -72,7 +72,7 @@ export default {
     SfList,
     SfMenuItem,
     SfIcon,
-    SfBar
+    SfBar,
   },
   props: {
     /**
@@ -80,19 +80,19 @@ export default {
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Active page
      */
     active: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
-      items: []
+      items: [],
     };
   },
   computed: {
@@ -107,7 +107,7 @@ export default {
           orphans.items = [];
         }
       };
-      this.items.forEach(item => {
+      this.items.forEach((item) => {
         if (item.items) {
           reduceOrphans();
           const category = { ...item };
@@ -121,12 +121,12 @@ export default {
     },
     isActive() {
       return this.active.length > 0;
-    }
+    },
   },
   provide() {
     const provided = {};
     Object.defineProperty(provided, "active", {
-      get: () => this.active
+      get: () => this.active,
     });
     return { provided };
   },
@@ -137,7 +137,7 @@ export default {
         return;
       }
       this.$emit("click:change", this.categories[0].items[0].title);
-    }
+    },
   },
   beforeDestroy() {
     unMapMobileObserver();
@@ -151,8 +151,8 @@ export default {
        * @type String
        */
       this.$emit("click:change", title);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">
