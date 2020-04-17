@@ -52,7 +52,7 @@ storiesOf("Atoms|CircleIcon", module)
         :icon="icon" 
         :has-badge="hasBadge"
         :badge-label="badgeLabel"
-        aria-label="CircleIcon label"
+        aria-label="Go to Home"
         :disabled="disabled"
         :style="{margin: '.5rem'}"
      />`,
@@ -90,7 +90,7 @@ storiesOf("Atoms|CircleIcon", module)
       :class="customClass"
       :icon="icon"
       :iconSize="iconSize"
-      aria-label="CircleIcon label"
+      aria-label="Go to Home"
     >
       <StoriesPlaceholder/>
     </SfCircleIcon>`,

@@ -4,7 +4,6 @@
     <slot>
       <SfIcon
         aria-hidden="true"
-        tabindex="-1"
         class="sf-circle-icon__icon"
         :icon="icon"
         :color="iconColor"
