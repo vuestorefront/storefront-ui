@@ -3,7 +3,7 @@
     class="sf-input"
     :class="{
       'sf-input--has-text': !!value,
-      'sf-input--invalid': valid === false
+      'sf-input--invalid': !valid,
     }"
   >
     <div class="sf-input__wrapper">
@@ -28,7 +28,7 @@
         v-if="isPassword"
         v-bind="{
           isPasswordVisible,
-          switchVisibilityPassword
+          switchVisibilityPassword,
         }"
         name="show-password"
       >
@@ -42,21 +42,19 @@
           <SfIcon
             class="sf-input__password-icon"
             :class="{
-              'sf-input__password-icon--hidden': !isPasswordVisible
+              'sf-input__password-icon--hidden': !isPasswordVisible,
             }"
             icon="show_password"
           ></SfIcon>
         </SfButton>
       </slot>
     </div>
-    <div v-if="valid !== undefined" class="sf-input__error-message">
+    <div class="sf-input__error-message">
       <transition name="fade">
-        <div v-if="!valid">
-          <!-- @slot Custom error message of form input -->
-          <slot name="error-message" v-bind="{ errorMessage }">{{
-            errorMessage
-          }}</slot>
-        </div>
+        <!-- @slot Custom error message of form input -->
+        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
+          <span>{{ errorMessage }}</span></slot
+        >
       </transition>
     </div>
   </div>
@@ -73,42 +71,42 @@ export default {
      */
     value: {
       type: [String, Number],
-      default: null
+      default: null,
     },
     /**
      * Form input label
      */
     label: {
       type: String,
-      default: null
+      default: null,
     },
     /**
      * Form input name
      */
     name: {
       type: String,
-      default: null
+      default: null,
     },
     /**
      * Form input type
      */
     type: {
       type: String,
-      default: "text"
+      default: "text",
     },
     /**
      * Validate value of form input
      */
     valid: {
       type: Boolean,
-      default: undefined
+      default: true,
     },
     /**
      * Error message value of form input. It will be appeared if `valid` is `true`.
      */
     errorMessage: {
       type: String,
-      default: null
+      default: null,
     },
     /**
      * Native input required attribute
@@ -116,7 +114,7 @@ export default {
     required: {
       type: Boolean,
       default: false,
-      description: "Native input required attribute"
+      description: "Native input required attribute",
     },
     /**
      * Native input disabled attribute
@@ -124,51 +122,77 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
-      description: "Native input disabled attribute"
+      description: "Native input disabled attribute",
     },
     /**
      * Form input aria-label
      */
     ariaLabel: {
       type: String,
-      default: null
+      default: null,
     },
+    /**
+     * Status of show password icon display
+     */
     hasShowPassword: {
       type: Boolean,
-      default: true
-    }
+      default: false,
+    },
   },
   data() {
     return {
       isPasswordVisible: false,
-      inputType: ""
+      inputType: "",
+      isNumberTypeSafari: false,
     };
   },
   computed: {
     listeners() {
       return {
         ...this.$listeners,
-        input: event => this.$emit("input", event.target.value)
+        input: (event) => this.$emit("input", event.target.value),
       };
     },
     isPassword() {
       return this.type === "password" && this.hasShowPassword;
-    }
+    },
   },
   watch: {
     type: {
       immediate: true,
-      handler: function(value) {
-        this.inputType = value;
-      }
-    }
+      handler: function (type) {
+        let inputType = type;
+        // Safari has bug for number input
+        if (typeof window !== "undefined" || typeof document !== "undefined") {
+          const ua = navigator.userAgent.toLocaleLowerCase();
+          if (
+            ua.indexOf("safari") !== -1 &&
+            ua.indexOf("chrome") === -1 &&
+            type === "number"
+          ) {
+            this.isNumberTypeSafari = true;
+            inputType = "text";
+          }
+        }
+        this.inputType = inputType;
+      },
+    },
+    value: {
+      immediate: true,
+      handler: function (value) {
+        if (!this.isNumberTypeSafari) return;
+        if (isNaN(value)) {
+          this.$emit("input");
+        }
+      },
+    },
   },
   methods: {
     switchVisibilityPassword() {
       this.isPasswordVisible = !this.isPasswordVisible;
       this.inputType = this.isPasswordVisible ? "text" : "password";
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

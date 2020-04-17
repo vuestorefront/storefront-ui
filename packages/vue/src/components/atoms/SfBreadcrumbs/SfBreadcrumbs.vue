@@ -4,13 +4,13 @@
       <li
         v-for="(breadcrumb, i) in breadcrumbs"
         :key="i"
-        class="sf-breadcrumbs__item"
+        class="sf-breadcrumbs__list-item"
         :aria-current="last === i && 'page'"
       >
         <template v-if="last !== i">
           <!-- @slot Custom markup for previous pages (binds `breadcrumb` object) -->
           <slot name="link" v-bind="{ breadcrumb, go }">
-            <a class="sf-breadcrumbs__link" @click="go(breadcrumb)">{{
+            <a class="sf-breadcrumbs__breadcrumb" @click="go(breadcrumb)">{{
               breadcrumb.text
             }}</a>
           </slot>
@@ -18,7 +18,10 @@
         <template v-else>
           <!-- @slot Custom markup for current page (binds `breadcrumb` object) -->
           <slot name="current" v-bind="{ breadcrumb }">
-            <span class="sf-breadcrumbs__current">{{ breadcrumb.text }}</span>
+            <span
+              class="sf-breadcrumbs__breadcrumb sf-breadcrumbs__breadcrumb--current"
+              >{{ breadcrumb.text }}</span
+            >
           </slot>
         </template>
       </li>
@@ -34,13 +37,13 @@ export default {
      */
     breadcrumbs: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   computed: {
     last() {
       return this.breadcrumbs.length - 1;
-    }
+    },
   },
   methods: {
     go(breadcrumb) {
@@ -49,8 +52,8 @@ export default {
        * @type {Event}
        */
       this.$emit("click", breadcrumb.route);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -29,7 +29,7 @@
           class="form__element"
         />
         <SfButton class="form__button" @click="updatePersonal"
-          >Update personal data
+          >Save changes
         </SfButton>
       </div>
       <p class="notice">
@@ -79,19 +79,18 @@
 </template>
 <script>
 import { SfTabs, SfInput, SfButton } from "@storefront-ui/vue";
-
 export default {
   name: "PersonalDetails",
   components: {
     SfTabs,
     SfInput,
-    SfButton
+    SfButton,
   },
   props: {
     account: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -100,7 +99,7 @@ export default {
       email: "",
       currentPassword: "",
       newPassword: "",
-      repeatPassword: ""
+      repeatPassword: "",
     };
   },
   watch: {
@@ -110,30 +109,29 @@ export default {
         this.lastName = value.lastName;
         this.email = value.email;
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
     updatePersonal() {
       const personal = {
         firstName: this.firstName,
         lastName: this.lastName,
-        email: this.email
+        email: this.email,
       };
       this.$emit("update:personal", personal);
     },
     updatePassword() {
       const password = {
-        password: this.newPassword
+        password: this.newPassword,
       };
       this.$emit("update:password", password);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
 .form {
   @include for-desktop {
     display: flex;
@@ -141,7 +139,7 @@ export default {
     align-items: center;
   }
   &__element {
-    margin: 0 0 var(--spacer-extra-big) 0;
+    margin: 0 0 var(--spacer-lg) 0;
     @include for-desktop {
       flex: 0 0 100%;
     }
@@ -151,7 +149,7 @@ export default {
       }
       &-even {
         @include for-desktop {
-          padding: 0 0 0 var(--spacer-extra-big);
+          padding: 0 0 0 var(--spacer-lg);
         }
       }
     }
@@ -164,18 +162,16 @@ export default {
   }
 }
 .message {
-  margin: 0 0 var(--spacer-extra-big) 0;
-  font: 300 var(--font-size-regular) / 1.6 var(--body-font-family-secondary);
-  &__label {
-    font-weight: 500;
-  }
+  margin: 0 0 var(--spacer-xl) 0;
+  color: var(--c-dark-variant);
 }
 .notice {
-  margin: var(--spacer-big) 0 0 0;
-  font: 300 var(--font-size-extra-small) / 1.6 var(--body-font-family-secondary);
+  max-width: 31rem;
+  margin: var(--spacer-base) 0 0 0;
+  font-size: var(--font-2xs);
 }
 a {
-  color: var(--c-text-muted);
+  color: var(--c-primary);
   text-decoration: none;
   &:hover {
     color: var(--c-text);

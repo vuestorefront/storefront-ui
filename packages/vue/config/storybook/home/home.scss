@@ -1,67 +1,39 @@
-// Reset CSS
+/**
+ * Use on global scope
+ */
+html,
 body {
-  color: var(--c-text);
-  font-size: var(--font-size-regular);
-  font-family: var(--body-font-family-primary);
-  font-weight: var(--body-font-weight-primary);
   margin: 0;
   padding: 0;
 }
-a {
-  text-decoration: none;
-  color: var(--c-link);
-  &:hover {
-    color: var(--c-link-hover);
-  }
-}
-h1 {
-  font-family: var(--body-font-family-secondary);
-  font-size: var(--h1-font-size);
-  font-weight: var(--h1-font-weight);
-  line-height: 1.6;
-  margin: 0;
-}
-h2 {
-  font-family: var(--body-font-family-secondary);
-  font-size: var(--h2-font-size);
-  font-weight: var(--h2-font-weight);
-  line-height: 1.6;
-  margin: 0;
-}
-h3 {
-  font-family: var(--body-font-family-secondary);
-  font-size: var(--h3-font-size);
-  font-weight: var(--h3-font-weight);
-  line-height: 1.6;
-  margin: 0;
-}
-h4 {
-  font-family: var(--body-font-family-secondary);
-  font-size: var(--h4-font-size);
-  font-weight: var(--h4-font-weight);
-  line-height: 1.6;
-  margin: 0;
-}
-// CSS for Storybook Home Page
 #intro {
-  padding: 0 10px;
-  box-sizing: border-box;
-  line-height: 1.5em;
-  h1 {
-    font-size: 1.5em;
-    padding-bottom: 15px;
-    margin-bottom: 10px;
-    color: #5ECE7B;
-    border-bottom: 1px solid lightgray;
+  padding: 1rem;
+  font: 300 0.875rem/1.6 "Roboto", serif;
+  color: #1D1F22;
+  h1,
+  h2,
+  h3 {
+    padding: 0;
+    margin: 0;
+    font: 300 1rem/1.4 "Raleway", sans-serif;
   }
-  ul, ol {
-    padding-left: 17px;
+  h1{
+    padding: 0 0 1rem 0;
+    border: solid #F1F2F3;
+    border-width: 0 0 1px 0;
+    color: #5ece7b;
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: 1rem;
+    font-weight: 500;
   }
   a {
-    color: black;
-    text-decoration: underline;
-    &:hover {
-      color: #5ECE7B;
-    }
+    color: inherit;
+  }
+  ul,
+  ol{
+    padding: 0 0 0 1rem;
   }
 }

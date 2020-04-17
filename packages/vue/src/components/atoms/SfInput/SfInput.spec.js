@@ -9,8 +9,8 @@ describe("SfInput.vue", () => {
     const label = "HelloWorld";
     const component = shallowMount(SfInput, {
       propsData: {
-        label
-      }
+        label,
+      },
     });
     expect(component.find(".sf-input__label").text()).toBe(label);
   });
@@ -18,11 +18,11 @@ describe("SfInput.vue", () => {
     const errorMessage = "This field is required";
     const component = shallowMount(SfInput, {
       slots: {
-        "error-message": errorMessage
+        "error-message": errorMessage,
       },
       propsData: {
-        valid: false
-      }
+        valid: false,
+      },
     });
     expect(component.find(".sf-input__error-message").text()).toMatch(
       errorMessage

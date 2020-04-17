@@ -160,7 +160,7 @@ All global variables are here `shared/styles/_variables.scss`
       300,
       var(--font-size-small),
       1.6,
-      var(--body-font-family-secondary)
+      var(--font-family-secondary)
     )
   );
 ``` 
@@ -265,6 +265,58 @@ A **safe** set of properties to customize are: `font-size`, `text-align`, `color
 :::warning
 Try to make components as customizable as possible **without complicating** them. Think about the parts that are usually customized and allow simple way to change their look.
 :::
+
+## Deprecation guidelines
+
+StorefrontUI cares about providing new features and keeping up-to-date with new best practices. Sometimes it can become necessary to make changes to APIs or to prepare new features in order to stay current. To make this process easier for everyone, we deprecate APIs and features for a period of time before the actual removal by adding proper information about deprecations in the next major version.
+
+**In summary:**
+- we don't remove implemented features before the next major version
+- we add deprecation infos, so users can prepare for replacements and have time to update their dependencies to the latest version
+- on our side: before a release, we can spot deprecated features more easily, remove them and prepare migration documentation
+
+**To standardize this process, we stick with a few rules:**
+- add this note next to the deprecated feature/APIs -> `@deprecated will be removed in 1.0.0 use ___ prop instead`
+- add this note next to deprecated code that should be removed `// TODO remove in 1.0.0 / BEGIN` -> `// END`
+- import helper from utitilies `import { deprecationWarning } from "@/utilities/helpers/deprecation-warning.js";`
+
+- add info about deprecation by using the helper method `deprecationWarning(this.$options.name, "your deprecation message")`
+
+:::warning deprecationWarning(componentName, message)
+`componentName` is a string argument that you have to pass for the component's name to appear in front of the deprecation warning – in general, `this.$options.name` returns the name of the current Vue component.
+:::
+
+As a result the console will show a warning like the following:
+ `[StorefrontUI][SfComponent] ____ prop has been deprecated and will be removed in 1.0.0. Use ____ instead.`
+
+:::tip DEPRECATION INFO
+Here you can see an example how it looks like in SfAccordion:
+::: 
+
+```js
+props: {
+  /**
+   * Opens the first accordion item if set to "true"
+   * @deprecated will be removed in 1.0.0 use open prop instead
+   */
+  firstOpen: {
+    type: Boolean,
+    default: false
+  },
+}
+```
+
+```js
+// TODO remove in 1.0.0 / BEGIN
+if (this.firstOpen) {
+  this.$children[0].isOpen = this.firstOpen;
+  console.warn(
+    "[StorefrontUI][SfAccordion] Prop 'firstOpen' has been deprecated and will be removed in v1.0.0. Use 'open' instead."
+  );
+  return;
+}
+// <- END
+```
 
 ## Unit tests
 

@@ -14,7 +14,9 @@
       <div>
         <!--@slot Custom title. Slot content will replace default title.-->
         <slot name="title" v-bind="{ title }">
-          <div v-if="title" class="sf-notification__title">{{ title }}</div>
+          <div v-if="title" class="sf-notification__title mobile-only">
+            {{ title }}
+          </div>
         </slot>
         <!--@slot Custom message. Slot content will replace default message.-->
         <slot name="message" v-bind="{ message }">
@@ -26,6 +28,7 @@
         <slot name="action" v-bind="{ action, actionHandler }">
           <button
             v-if="action"
+            v-focus
             class="sf-notification__action"
             @click="actionHandler"
           >
@@ -39,7 +42,6 @@
           class="sf-notification__close"
           icon="cross"
           color="white"
-          size="14px"
           @click="closeHandler"
         />
       </slot>
@@ -47,11 +49,15 @@
   </transition>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfNotification",
   components: {
-    SfIcon
+    SfIcon,
+  },
+  directives: {
+    focus: focus,
   },
   props: {
     /**
@@ -59,28 +65,28 @@ export default {
      */
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Title that will be displayed in Notification.
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Message that will be displayed in Notification.
      */
     message: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Action that will be displayed in Notification.
      */
     action: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Notification type ("secondary", "info", "success", "warning", "danger"). Check "Knobs" section to see how they look like.
@@ -88,12 +94,12 @@ export default {
     type: {
       type: String,
       default: "secondary",
-      validator: function(value) {
+      validator: function (value) {
         return ["secondary", "info", "success", "warning", "danger"].includes(
           value
         );
-      }
-    }
+      },
+    },
   },
   computed: {
     icon() {
@@ -105,7 +111,7 @@ export default {
         default:
           return "info_circle";
       }
-    }
+    },
   },
   methods: {
     actionHandler() {
@@ -121,8 +127,8 @@ export default {
        * @type {Event}
        */
       this.$emit("click:close");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

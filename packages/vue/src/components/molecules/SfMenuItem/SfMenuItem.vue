@@ -1,12 +1,12 @@
 <template>
   <div class="sf-menu-item" v-on="$listeners">
-    <!-- @slot -->
+    <!-- @slot for menu item icon-->
     <slot name="icon" />
-    <!-- @slot -->
+    <!-- @slot for menu item label-->
     <slot name="label" v-bind="{ label }">
       <span class="sf-menu-item__label">{{ label }}</span>
     </slot>
-    <!-- @slot -->
+    <!-- @slot for items count -->
     <slot name="count" v-bind="{ count }">
       <span class="sf-menu-item__count">{{ count }}</span>
     </slot>
@@ -26,22 +26,22 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfMenuItem",
   components: {
-    SfIcon
+    SfIcon,
   },
   props: {
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     icon: {
       type: String,
-      default: "chevron_right"
+      default: "chevron_right",
     },
     count: {
       type: [String, Number],
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 <style lang="scss">

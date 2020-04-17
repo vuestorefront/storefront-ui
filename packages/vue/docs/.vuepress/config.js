@@ -18,6 +18,7 @@ module.exports = {
       ['/introduction', 'Introduction'],
       ['/getting-started', 'Getting started'],
       ['/customization', 'Customization'],
+      ['/migration-guide', 'Migration Guide'],
       ['/meet-the-team', 'Meet the core team'],
       {
         title: 'Contributing Guide',
@@ -68,6 +69,7 @@ module.exports = {
           ["/components/Color", "Color"],
           ["/components/ContentPages", "Content Pages"],
           ["/components/Divider", "Divider"],
+          ["/components/Dropdown", "Dropdown"],
           ["/components/Filter", "Filter"],
           ["/components/Footer", "Footer"],
           ["/components/Gallery", "Gallery"],

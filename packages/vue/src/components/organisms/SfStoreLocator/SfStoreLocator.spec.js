@@ -5,25 +5,25 @@ describe("SfStoreLocator.vue", () => {
     const component = shallowMount(SfStoreLocator, {});
     expect(component.contains(".sf-store-locator")).toBe(true);
   });
-  it("emits on event when vue2-leaflet is loaded", done => {
+  it("emits on event when vue2-leaflet is loaded", (done) => {
     const component = shallowMount(SfStoreLocator, {
       listeners: {
         "library:loaded": () => {
           expect(component.vm.$data.loaded).toBeTruthy();
           done();
-        }
-      }
+        },
+      },
     });
   });
-  it("emits on event when the map is ready", done => {
+  it("emits on event when the map is ready", (done) => {
     const locateUser = jest.fn();
     const component = shallowMount(SfStoreLocator, {
       listeners: {
         "map:ready": () => {
           expect(component.vm.$data.mapReady).toBeTruthy();
           done();
-        }
-      }
+        },
+      },
     });
     component.vm.locateUser = locateUser;
     component.vm.onMapReady({});

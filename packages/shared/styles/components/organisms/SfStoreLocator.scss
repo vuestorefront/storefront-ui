@@ -1,173 +1,129 @@
 @import "../../helpers";
-
-.sf-store-locator {
-  --icon-size: 100%;
-  font: var(
-    --store-locator-font,
-    font(
-      --store-locator,
-      300,
-      var(--font-size-regular),
-      normal,
-      var(--body-font-family-primary)
-    )
-  );
-  &__title {
-    margin: var(--store-locator-title-margin, 0 0 0.625rem 0);
+.sf-store {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--store-padding, 0 0 var(--spacer-sm) 0);
+  margin: var(--store-margin, var(--spacer-base) 0 0 0);
+  @include border(--store-border, 0 0 1px 0, solid, var(--c-light));
+  &__distance {
+    flex: var(--store-distance-flex, 0 0 100%);
+    order: var(--store-distance-order);
+    margin: var(--store-distance-margin, 0 0 var(--spacer-xs) 0);
+    color: var(--c-dark-variant);
+    @include font(
+      --store-item-distance-font,
+      var(--font-light),
+      var(--font-base),
+      1.4,
+      var(--font-family-primary)
+    );
+    span {
+      font-weight: var(--font-bold);
+      color: var(--c-text);
+    }
   }
+  &__media {
+    flex: var(--store-media-flex, 0 0 7rem);
+  }
+  &__address {
+    margin: var(--store-item-addres-margin, 0 0 var(--spacer-base) 0);
+    color: var(--c-dark-variant);
+    @include font(
+      --store-item-property-font,
+      var(--font-normal),
+      var(--font-xs),
+      1.4,
+      var(--font-family-secondary)
+    );
+  }
+  &__name {
+    margin: var(--store-item-name-margin, 0 0 var(--spacer-2xs) 0);
+    color: var(--c-text);
+    @include font(
+      --store-item-property-font,
+      var(--font-normal),
+      var(--font-xs),
+      1.4,
+      var(--font-family-secondary)
+    );
+  }
+  &__property {
+    display: flex;
+    align-items: center;
+    margin: var(--store-item-property-margin, 0 0 var(--spacer-sm) 0);
+    color: var(--c-dark-variant);
+    @include font(
+      --store-item-property-font,
+      var(--font-normal),
+      var(--font-xs),
+      1.4,
+      var(--font-family-secondary)
+    );
+    &:last-child {
+      margin: var(--store-item-property-margin, 0);
+    }
+  }
+  &__property-icon {
+    --icon-color: var(--c-primary);
+    margin: var(--store-item-property-icon-margin, 0 var(--spacer-sm) 0 0);
+  }
+  @include for-desktop {
+    --store-distance-flex: 0 0 auto;
+    --store-distance-order: 1;
+    --store-distance-margin: 0 0 0 auto;
+  }
+}
+.sf-store-locator {
   &__wrapper {
     display: flex;
     flex-direction: var(--store-locator-wrapper-flex-direction, column-reverse);
-    flex-wrap: var(--store-locator-wrapper-flex-wrap, nowrap);
     justify-content: var(--store-locator-wrapper-justify-content, flex-start);
     align-items: var(--store-locator-wrapper-align-items, flex-start);
   }
   &__list {
-    width: var(--store-locator-list-width, 100%);
-    max-width: var(--store-locator-list-max-width, none);
+    flex: var(--store-locator-list-flex);
+    width: 100%;
+    padding: var(--store-locator-list-padding, 0 var(--spacer-sm));
     margin: var(--store-locator-list-margin);
   }
   &__map-wrapper {
     position: relative;
+    flex: var(--store-locator-map-flex, 0 0 60vh);
     width: var(--store-locator-map-width, 100%);
-    max-width: var(--store-locator-map-max-width, none);
-    min-height: var(--store-locator-map-min-height, 26.875rem);
-    &-map {
-      // Workaround to known bug about min-height / height interaction in Chrome / Firefox
-      position: absolute;
-      height: 100%;
-      &-my-location-btn {
-        a {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          &:hover {
-            display: flex;
-          }
-        }
-      }
-    }
-    .sf-loader {
-      position: absolute;
-    }
+    height: var(--store-locator-map-height);
   }
-  .sf-store {
-    &:first-of-type {
-      --divider-display: none;
-    }
-    &__first-divider {
-      --divider-display: block;
-      --divider-max-width: unset;
-      --divider-margin: 8px 0;
-      @include for-desktop {
-        --divider-width: calc(100% + 2.5rem);
-      }
-    }
-    &__item {
-      display: flex;
-      flex-direction: var(--store-item-flex-direction, row);
-      flex-wrap: var(--store-item-flex-wrap, nowrap);
-      justify-content: var(--store-item-justify-content, flex-start);
-      align-items: var(--store-item-align-items, flex-start);
-      font: var(
-        --store-item-font,
-        font(
-          --store-item,
-          300,
-          var(--font-size-small),
-          normal,
-          var(--body-font-family-primary)
-        )
-      );
-      &-media {
-        width: var(--store-item-media-width, 5.125rem);
-        height: var(--stor-item-media-height, 7rem);
-        margin: var(--store-item-media-margin, 0 1.25rem 0 0);
-        overflow: hidden;
-        cursor: pointer;
-      }
-      &-info {
-        flex: 1;
-        &-heading {
-          display: var(--store-item-info-heading-display);
-          justify-content: var(--store-item-info-heading-justify-content);
-          &-name {
-            color: var(--store-item-info-heading-name-color, var(--c-dark));
-            font: var(
-              --store-item-info-heading-name-font,
-              font(
-                --store-item-info-heading-name,
-                500,
-                var(--font-size-big),
-                normal,
-                var(--body-font-family-secondary)
-              )
-            );
-          }
-          &-distance {
-            width: var(--store-item-info-heading-distance-width);
-            color: var(
-              --store-item-info-heading-distance-color,
-              var(--c-gray-variant)
-            );
-            span {
-              color: var(
-                --store-item-info-heading-distance-span-color,
-                var(--c-dark)
-              );
-            }
-          }
-        }
-        &-address {
-          color: var(--store-item-info-address-color, var(--c-gray-variant));
-          margin: var(--store-item-info-address-margin, 0 0 1.25rem 0);
-        }
-        &-phone,
-        &-email {
-          display: var(--store-item-info-contact-display, flex);
-          flex-direction: var(--store-item-info-contact-flex-direction, row);
-          flex: var(--store-item-info-contact-flex-wrap, nowrap);
-          justify-content: var(
-            --store-item-info-contact-justify-content,
-            flex-start
-          );
-          align-items: var(--store-item-info-contact-align-items, center);
-          margin: var(--store-item-info-contact-margin, 0 0 0.625rem 0);
-          span {
-            margin: var(--store-item-info-contact-span-margin, 0 0 0 0.3125rem);
-            font: var(
-              --store-item-info-contact-span-font,
-              font(
-                --store-item-info-contact-span,
-                300,
-                var(--font-size-small),
-                normal,
-                var(--body-font-family-secondary)
-              )
-            );
-          }
-        }
-      }
+  &__map {
+    // Workaround to known bug about min-height / height interaction in Chrome / Firefox
+    position: absolute;
+    height: 100%;
+  }
+  &__stores {
+    padding: var(--store-locator-stores-padding, var(--spacer-sm));
+    @include border(
+      --store-locator-stores-border,
+      2px 0,
+      solid,
+      var(--c-light)
+    );
+    color: var(--store-locator-store-colot, var(--c-text));
+    @include font(
+      --store-locator-stores-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.4,
+      var(--font-family-secondary)
+    );
+    span {
+      font-weight: var(--font-bold);
+      color: var(--c-text);
     }
   }
   @include for-desktop {
-    --divider-max-width: 100%;
-    --divider-margin: 7px 0 7px auto;
-    --store-locator-list-width: 33%;
-    --store-locator-list-max-width: 26.25rem;
-    --store-locator-map-width: 66%;
-    --store-locator-map-max-width: 43.75rem;
-    --store-locator-map-min-height: 34.375rem;
     --store-locator-wrapper-flex-direction: row;
-    --store-locator-list-margin: 0 2.5rem 0 0;
-    --store-item-font-size: var(--font-size-extra-small);
-    --store-item-info-heading-distance-width: 80px;
-    --store-item-info-heading-display: flex;
-    --store-item-info-heading-justify-content: space-between;
-    --store-item-info-heading-name-font-size: var(--font-size-regular);
-    --store-item-info-contact-span-font-size: var(--font-size-extra-small);
-    --store-item-info-contact-span-fon-family: var(
-      --body-font-family-secondary
-    );
+    --store-locator-list-flex: 1;
+    --store-locator-list-padding: 0;
+    --store-locator-list-margin: 0 var(--spacer-2xl) 0 0;
+    --store-locator-map-flex: 1;
+    --store-locator-map-height: 46.25rem;
   }
 }
