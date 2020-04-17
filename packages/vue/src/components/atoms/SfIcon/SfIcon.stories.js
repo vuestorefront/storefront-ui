@@ -29,6 +29,23 @@ storiesOf("Atoms|Icon", module)
       :color="color"
       :view-box="viewBox"/>`,
   }))
+  .add("Icons", () => ({
+    components: { SfIcon },
+    data() {
+      return {
+        iconsNames,
+      };
+    },
+    template: `<div :style="{display: 'flex', flexWrap: 'wrap'}">
+      <div 
+          v-for="icon in iconsNames" 
+          :key="icon" 
+          :style="{display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '.5rem',flex: '0 0 50px', height: '50px', font: '300 12px Raleway'}">
+        <SfIcon :icon="icon" :style="{margin: '0 0 8px 0'}"/>
+        <span :style="{textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', width: '50px', textAlign: 'center'}">{{ icon }}</span>
+      </div>
+    </div>`,
+  }))
   .add("[props] default", () => ({
     props: {
       icon: {
