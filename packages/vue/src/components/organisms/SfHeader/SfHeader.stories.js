@@ -80,6 +80,7 @@ storiesOf("Organisms|Header", module)
       return {
         isMobile: false,
         navigation: ["women", "man", "kids"],
+        searchValue: "",
       };
     },
     computed: {
@@ -89,13 +90,13 @@ storiesOf("Organisms|Header", module)
     },
     mounted() {
       this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        1024;
-      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
       window
-        .matchMedia("(max-width: 1024px)")
+        .matchMedia("(max-width: 1023px)")
         .removeListener(this.mobileHandler);
     },
     methods: {
@@ -113,6 +114,7 @@ storiesOf("Organisms|Header", module)
           :active-icon="activeIcon"
           :has-mobile-search="hasMobileSearch"
           :search-placeholder="searchPlaceholder"
+          :search-value="searchValue"
           :cart-icon="cartIcon"
           :wishlist-icon="wishlistIcon"
           :is-sticky="isSticky"
@@ -122,6 +124,7 @@ storiesOf("Organisms|Header", module)
           @click:cart="alert('@click:cart')"
           @click:wishlist="alert('@click:wishlist')"
           @click:account="alert('@click:account')"
+          @change:search="searchValue = $event"
       >
         <template #navigation>
           <SfHeaderNavigationItem
@@ -181,6 +184,7 @@ storiesOf("Organisms|Header", module)
       return {
         isMobile: false,
         navigation: ["women", "man", "kids"],
+        searchValue: "",
       };
     },
     computed: {
@@ -192,13 +196,13 @@ storiesOf("Organisms|Header", module)
     },
     mounted() {
       this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        1024;
-      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
       window
-        .matchMedia("(max-width: 1024px)")
+        .matchMedia("(max-width: 1023px)")
         .removeListener(this.mobileHandler);
     },
     methods: {
@@ -215,6 +219,7 @@ storiesOf("Organisms|Header", module)
         :active-icon="activeIcon"
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
+        :search-value="searchValue"
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
@@ -223,6 +228,7 @@ storiesOf("Organisms|Header", module)
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
+        @change:search="searchValue = $event"
     >
       <template #navigation>
         <div :style="{margin: '0 0 0 1.25rem', display: 'flex', alignItems:'center', height: '100%'}">CUSTOM NAVIGATION</div>
@@ -276,6 +282,7 @@ storiesOf("Organisms|Header", module)
       return {
         isMobile: false,
         navigation: ["women", "man", "kids"],
+        searchValue: "",
       };
     },
     computed: {
@@ -287,13 +294,13 @@ storiesOf("Organisms|Header", module)
     },
     mounted() {
       this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        1024;
-      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
       window
-        .matchMedia("(max-width: 1024px)")
+        .matchMedia("(max-width: 1023px)")
         .removeListener(this.mobileHandler);
     },
     methods: {
@@ -310,6 +317,7 @@ storiesOf("Organisms|Header", module)
         :active-icon="activeIcon"
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
+        :search-value="searchValue"
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
@@ -318,6 +326,7 @@ storiesOf("Organisms|Header", module)
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
+        @change:search="searchValue = $event"
     >
       <template #logo="{logo,title}">
         CUSTOM LOGO
@@ -378,6 +387,7 @@ storiesOf("Organisms|Header", module)
       return {
         isMobile: false,
         navigation: ["women", "man", "kids"],
+        searchValue: "",
       };
     },
     computed: {
@@ -389,13 +399,13 @@ storiesOf("Organisms|Header", module)
     },
     mounted() {
       this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        1024;
-      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
       window
-        .matchMedia("(max-width: 1024px)")
+        .matchMedia("(max-width: 1023px)")
         .removeListener(this.mobileHandler);
     },
     methods: {
@@ -412,6 +422,7 @@ storiesOf("Organisms|Header", module)
         :active-icon="activeIcon"
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
+        :search-value="searchValue"
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
@@ -420,6 +431,7 @@ storiesOf("Organisms|Header", module)
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
+        @change:search="searchValue = $event"
     >
       <template #search>
         <div :style="{margin: '0 0 0 auto'}">CUSTOM SEARCH</div>
@@ -480,6 +492,7 @@ storiesOf("Organisms|Header", module)
       return {
         isMobile: false,
         navigation: ["women", "man", "kids"],
+        searchValue: "",
       };
     },
     computed: {
@@ -491,13 +504,13 @@ storiesOf("Organisms|Header", module)
     },
     mounted() {
       this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        1024;
-      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
       window
-        .matchMedia("(max-width: 1024px)")
+        .matchMedia("(max-width: 1023px)")
         .removeListener(this.mobileHandler);
     },
     methods: {
@@ -514,6 +527,7 @@ storiesOf("Organisms|Header", module)
         :active-icon="activeIcon"
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
+        :search-value="searchValue"
         :cart-icon="cartIcon"
         :wishlist-icon="wishlistIcon"
         :account-icon="accountIcon"
@@ -522,6 +536,7 @@ storiesOf("Organisms|Header", module)
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
+        @change:search="searchValue = $event"
     >
       <template #header-icons="{ accountIcon, wishlistIcon, cartIcon }">
         <div :style="{margin: '0 0 0 1.25rem'}">CUSTOM HEADER ICONS</div>
@@ -582,6 +597,7 @@ storiesOf("Organisms|Header", module)
       return {
         isMobile: false,
         navigation: ["women", "man", "kids"],
+        searchValue: "",
       };
     },
     computed: {
@@ -593,13 +609,13 @@ storiesOf("Organisms|Header", module)
     },
     mounted() {
       this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        1024;
-      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
       window
-        .matchMedia("(max-width: 1024px)")
+        .matchMedia("(max-width: 1023px)")
         .removeListener(this.mobileHandler);
     },
     methods: {
@@ -616,8 +632,10 @@ storiesOf("Organisms|Header", module)
         :active-icon="activeIcon"
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
+        :search-value="searchValue"
         :style="spacer"
         :cart-items-qty="cartItemsQty"
+        @change:search="searchValue = $event"
     >
       <template #language-selector>
         <div :style="{margin: '0 0 0 1rem'}">LANGUAGE SELECTOR</div>

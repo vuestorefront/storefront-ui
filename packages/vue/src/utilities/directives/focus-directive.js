@@ -1,11 +1,7 @@
 export const focus = {
-  inserted(el) {
-    el.tabindex = "0";
-  },
   bind(el) {
     el._mouseHandler = function () {
       el.style.outline = "none";
-      el.blur();
     };
     el._keyHandler = function () {
       el.style.outline = "";
