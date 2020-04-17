@@ -16,7 +16,6 @@
         />
       </div>
     </slot>
-
     <div class="sf-tabs__content">
       <div v-if="isActive" class="sf-tabs__content__tab">
         <SfScrollable v-if="maxContentHeight">
