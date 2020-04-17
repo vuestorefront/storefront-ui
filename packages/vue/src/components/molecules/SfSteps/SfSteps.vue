@@ -9,8 +9,8 @@
         v-bind="{ step }"
       >
         <button
-          v-focus
           :key="step.index"
+          v-focus
           :class="{
             'sf-steps__step': true,
             'sf-steps__step--done': step.done,
@@ -38,7 +38,7 @@ Vue.component("SfStep", SfStep);
 export default {
   name: "SfSteps",
   directives: {
-    focus: focus
+    focus: focus,
   },
   model: {
     prop: "active",
