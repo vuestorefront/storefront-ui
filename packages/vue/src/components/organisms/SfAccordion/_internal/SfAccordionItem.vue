@@ -13,6 +13,7 @@
       <button
         v-focus
         :aria-pressed="isOpen.toString()"
+        :aria-expanded="isOpen.toString()"
         :class="{ 'sf-accordion-item__header--open': isOpen }"
         class="sf-accordion-item__header"
         @click="accordionClick"
