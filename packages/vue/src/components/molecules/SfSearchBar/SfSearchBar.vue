@@ -4,8 +4,8 @@
       class="sf-search-bar__input"
       type="search"
       :value="value"
+      v-bind="$attrs"
       :placeholder="placeholder"
-      :aria-label="ariaLabel"
       @input="$emit('input', $event.target.value)"
       @keyup.enter="$emit('enter', $event.target.value)"
       @keyup.esc="$emit('input', '')"
@@ -27,6 +27,7 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfSearchBar",
+  inheritAttrs: false,
   components: { SfIcon },
   props: {
     placeholder: {
@@ -36,11 +37,7 @@ export default {
     value: {
       type: [Number, String],
       default: null,
-    },
-    ariaLabel: {
-      type: String,
-      default: "Search",
-    },
+    }
   },
 };
 </script>
