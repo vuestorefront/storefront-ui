@@ -2,7 +2,6 @@ export const focus = {
   bind(el) {
     el._mouseHandler = function () {
       el.style.outline = "none";
-      el.blur();
     };
     el._keyHandler = function () {
       el.style.outline = "";
