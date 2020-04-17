@@ -38,6 +38,8 @@
   &__input {
     position: absolute;
     opacity: 0;
+    top: var(--spacer-sm);
+    left: var(--spacer-sm);
   }
   &__container {
     display: var(--radio-container-display, flex);

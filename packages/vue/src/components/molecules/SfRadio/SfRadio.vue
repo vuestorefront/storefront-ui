@@ -8,7 +8,6 @@
   >
     <input
       :id="value"
-      v-focus
       type="radio"
       :name="name"
       :value="value"
@@ -21,6 +20,8 @@
       <!-- @slot Custom checkmark markup (bind 'isChecked' boolean, 'disabled' boolean -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <div
+          v-focus
+          tabindex="0"
           class="sf-radio__checkmark"
           :class="{ 'sf-radio__checkmark--is-active': isChecked }"
         ></div>
