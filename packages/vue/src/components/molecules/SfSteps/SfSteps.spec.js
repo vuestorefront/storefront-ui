@@ -4,8 +4,8 @@ describe("SfSteps.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfSteps, {
       propsData: {
-        steps: ["one", "two"]
-      }
+        steps: ["one", "two"],
+      },
     });
     expect(component.contains(".sf-steps")).toBe(true);
   });

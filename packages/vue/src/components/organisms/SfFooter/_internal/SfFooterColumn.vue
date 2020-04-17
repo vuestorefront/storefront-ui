@@ -21,13 +21,13 @@ export default {
   props: {
     title: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     open() {
       return this.$parent.open.includes(this.title);
-    }
+    },
   },
   mounted() {
     this.$parent.items.push(this.title);
@@ -35,7 +35,7 @@ export default {
   methods: {
     toggle(payload) {
       this.$parent.toggle(payload);
-    }
-  }
+    },
+  },
 };
 </script>

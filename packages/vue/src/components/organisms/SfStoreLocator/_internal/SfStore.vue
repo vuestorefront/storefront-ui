@@ -54,11 +54,11 @@ export default {
     "removeStore",
     "centerOn",
     "locatorData",
-    "getGeoDistance"
+    "getGeoDistance",
   ],
   components: {
     SfImage,
-    SfIcon
+    SfIcon,
   },
   props: {
     /**
@@ -66,55 +66,55 @@ export default {
      */
     latlng: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     /**
      * Name of the store
      */
     name: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Url of the picture of the store
      */
     picture: {
       type: [String, Object],
-      default: null
+      default: null,
     },
     /**
      * Address of the store
      */
     address: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Phone number of the store
      */
     phone: {
       type: String,
-      default: null
+      default: null,
     },
     /**
      * Email of the store
      */
     email: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     distance() {
       if (this.locatorData && this.locatorData.userPosition) {
         const dictLatLng = {
           lat: this.latlng[0],
-          lng: this.latlng[1]
+          lng: this.latlng[1],
         };
         return this.getGeoDistance(this.locatorData.userPosition, dictLatLng);
       }
       return null;
-    }
+    },
   },
   created() {
     if (this.registerStore) {
@@ -125,6 +125,6 @@ export default {
     if (this.removeStore) {
       this.removeStore(this.$props);
     }
-  }
+  },
 };
 </script>
