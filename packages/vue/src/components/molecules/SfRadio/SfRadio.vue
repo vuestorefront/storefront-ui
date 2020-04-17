@@ -67,7 +67,7 @@ export default {
     },
     details: {
       type: String,
-      default: ""
+      default: "",
     },
     description: {
       type: String,
