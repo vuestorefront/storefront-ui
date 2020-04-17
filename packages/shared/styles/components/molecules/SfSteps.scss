@@ -13,8 +13,8 @@
     flex: 1;
     justify-content: center;
     align-items: center;
-    background: transparent;
     border: 0;
+    background: var(--steps-step-background, transparent);
     padding: var(--steps-step-padding, var(--spacer-sm) var(--spacer-2xs));
     @include font(
       --step-font,
