@@ -25,7 +25,7 @@ export const tearDownListener = () => {
     window.matchMedia
   ) {
     window
-      .matchMedia(`(max-width: ${desktopMin}px)`)
+      .matchMedia(`(max-width: ${isMobileMax}px)`)
       .removeListener(onMediaMatch);
   }
 };
