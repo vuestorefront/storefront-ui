@@ -5,8 +5,6 @@
     </Simplebar>
     <SfButton
       v-show="hasScroll"
-      v-focus
-      :aria-label="isHidden ? showText : hideText"
       class="sf-button--text sf-scrollable__button"
       @click="isHidden = !isHidden"
     >
