@@ -26,7 +26,7 @@ storiesOf("Molecules|CallToAction", module)
         default: color("background", "#e1e3e2", "Props"),
       },
     },
-    template: `<div style="max-width: 1023px">
+    template: `<div style="max-width: 1240px">
       <SfCallToAction      
       :title="title"
       :description="description"
@@ -58,7 +58,7 @@ storiesOf("Molecules|CallToAction", module)
         default: color("background", "#e1e3e2", "Props"),
       },
     },
-    template: `<div style="max-width: 1023px">
+    template: `<div style="max-width: 1240px">
       <SfCallToAction      
       :title="title"
       :description="description"
@@ -94,7 +94,7 @@ storiesOf("Molecules|CallToAction", module)
         default: color("background", "#e1e3e2", "Props"),
       },
     },
-    template: `<div style="max-width: 1023px">
+    template: `<div style="max-width: 1240px">
       <SfCallToAction      
       :title="title"
       :description="description"
@@ -130,7 +130,7 @@ storiesOf("Molecules|CallToAction", module)
         default: color("background", "#e1e3e2", "Props"),
       },
     },
-    template: `<div style="max-width: 1023px">
+    template: `<div style="max-width: 1240px">
       <SfCallToAction      
       :title="title"
       :description="description"

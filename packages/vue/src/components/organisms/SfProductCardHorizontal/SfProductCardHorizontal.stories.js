@@ -82,7 +82,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       },
     },
     components: { SfProductCardHorizontal, SfButton, SfProperty },
-    template: `<div :style="{maxWidth: '1023px'}">
+    template: `<div :style="{maxWidth: '1240px'}">
       <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"
@@ -193,7 +193,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       };
     },
     components: { SfProductCardHorizontal, SfButton, SfProperty },
-    template: `<div :style="{maxWidth: '1023px'}">
+    template: `<div :style="{maxWidth: '1240px'}">
       <SfProductCardHorizontal
         :image="pictures"
         :image-width="imageWidth"
@@ -307,7 +307,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       };
     },
     components: { SfProductCardHorizontal },
-    template: `<div :style="{maxWidth: '1023px'}">
+    template: `<div :style="{maxWidth: '1240px'}">
       <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"
@@ -402,7 +402,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       };
     },
     components: { SfProductCardHorizontal },
-    template: `<div :style="{maxWidth: '1023px'}">
+    template: `<div :style="{maxWidth: '1240px'}">
       <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"

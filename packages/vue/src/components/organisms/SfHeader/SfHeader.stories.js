@@ -90,8 +90,8 @@ storiesOf("Organisms|Header", module)
     },
     mounted() {
       this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        1024;
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
       window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
@@ -196,8 +196,8 @@ storiesOf("Organisms|Header", module)
     },
     mounted() {
       this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        1024;
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
       window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
@@ -294,8 +294,8 @@ storiesOf("Organisms|Header", module)
     },
     mounted() {
       this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        1024;
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
       window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
@@ -399,8 +399,8 @@ storiesOf("Organisms|Header", module)
     },
     mounted() {
       this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        1024;
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
       window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
@@ -504,8 +504,8 @@ storiesOf("Organisms|Header", module)
     },
     mounted() {
       this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        1024;
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
       window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
@@ -609,8 +609,8 @@ storiesOf("Organisms|Header", module)
     },
     mounted() {
       this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        1024;
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
       window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
