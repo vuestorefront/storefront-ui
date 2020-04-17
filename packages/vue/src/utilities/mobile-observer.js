@@ -1,6 +1,6 @@
 import Vue from "vue";
 let observer;
-const desktopMin = 1024;
+const isMobileMax = 1023;
 export const onMediaMatch = (e) => {
   observer.isMobile = e.matches;
 };
@@ -13,9 +13,9 @@ export const setupListener = () => {
     return;
   }
   observer.isMobile =
-    Math.max(document.documentElement.clientWidth, window.innerWidth) <
-    desktopMin;
-  window.matchMedia(`(max-width: ${desktopMin}px)`).addListener(onMediaMatch);
+    Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+    isMobileMax;
+  window.matchMedia(`(max-width: ${isMobileMax}px)`).addListener(onMediaMatch);
   observer.isInitialized = true;
 };
 export const tearDownListener = () => {
