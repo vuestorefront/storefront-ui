@@ -31,7 +31,7 @@ import { focus } from "../../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfTab",
   directives: {
-    focus: focus
+    focus: focus,
   },
   components: {
     Fragment,
