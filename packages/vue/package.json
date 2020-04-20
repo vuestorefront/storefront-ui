@@ -24,6 +24,7 @@
     "scripts/*",
     "src/*",
     "index.js",
+    "stories.js",
     "styles.scss"
   ],
   "dependencies": {

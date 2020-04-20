@@ -11,6 +11,7 @@ docs/components
 
 # auto-generated index
 /index.js
+/stories.js
 
 # local env files
 .env.local
