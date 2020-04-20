@@ -356,7 +356,7 @@ function parseStoriesFile(contentStoriesFile) {
       return functionObject;
     }
     /* eslint-enable no-unused-vars */
-    eval(contentStoriesFile);
+    // eval(contentStoriesFile);
     return { storyComponents, storyTemplate, storyData, storyProps };
   }
   let {
