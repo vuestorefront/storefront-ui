@@ -27,7 +27,10 @@ export default {
     maxContentHeight: {
       type: String,
       default() {
-        return this.contentShow.maxContentHeight;
+        if (this.contentShow.maxContentHeight) {
+          return this.contentShow.maxContentHeight;
+        }
+        return null;
       },
     },
     showText: {
