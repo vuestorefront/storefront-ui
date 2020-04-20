@@ -45,7 +45,6 @@
             <SfCircleIcon
               class="sf-product-card__add-button"
               aria-label="add-to-cart"
-              role="button"
               :has-badge="showAddedToCartBadge"
               :disabled="addToCartDisabled"
               @click="onAddToCart"
