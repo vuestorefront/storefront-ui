@@ -1,5 +1,5 @@
 import { withKnobs, text, number } from "@storybook/addon-knobs";
-import SfReview from "./SfReview.vue";
+import { SfReview } from "@storefront-ui/vue";
 export default {
   title: "Molecules|Review",
   decorators: [withKnobs],

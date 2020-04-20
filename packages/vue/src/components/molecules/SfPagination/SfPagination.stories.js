@@ -1,5 +1,5 @@
 import { withKnobs, number, boolean } from "@storybook/addon-knobs";
-import SfPagination from "./SfPagination.vue";
+import { SfPagination } from "@storefront-ui/vue";
 export default {
   title: "Molecules|Pagination",
   decorators: [withKnobs],

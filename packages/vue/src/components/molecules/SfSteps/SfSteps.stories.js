@@ -1,5 +1,5 @@
 import { withKnobs, boolean } from "@storybook/addon-knobs";
-import SfSteps from "./SfSteps.vue";
+import { SfSteps } from "@storefront-ui/vue";
 const StoriesPlaceholder = {
   props: ["name"],
   template: `<div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">[#default slot content] {{name}}</div>`,

@@ -4,7 +4,7 @@ import {
   number,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfSection from "./SfSection.vue";
+import { SfSection } from "@storefront-ui/vue";
 const StoriesPlaceholder = {
   template: `<div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
     [#default slot content]

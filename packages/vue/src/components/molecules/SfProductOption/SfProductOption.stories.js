@@ -1,5 +1,5 @@
 import { withKnobs, text } from "@storybook/addon-knobs";
-import SfProductOption from "./SfProductOption.vue";
+import { SfProductOption } from "@storefront-ui/vue";
 export default {
   title: "Molecules|ProductOption",
   decorators: [withKnobs],

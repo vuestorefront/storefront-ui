@@ -1,5 +1,5 @@
 import { withKnobs, text, color } from "@storybook/addon-knobs";
-import SfCallToAction from "./SfCallToAction.vue";
+import { SfCallToAction } from "@storefront-ui/vue";
 export default {
   title: "Molecules|CallToAction",
   decorators: [withKnobs],

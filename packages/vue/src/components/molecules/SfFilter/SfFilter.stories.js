@@ -1,5 +1,5 @@
 import { withKnobs, text, number } from "@storybook/addon-knobs";
-import SfFilter from "./SfFilter.vue";
+import { SfFilter } from "@storefront-ui/vue";
 export default {
   title: "Molecules|Filter",
   decorators: [withKnobs],

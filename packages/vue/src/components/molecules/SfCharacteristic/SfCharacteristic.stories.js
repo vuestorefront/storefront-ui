@@ -2,7 +2,7 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
 import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
 import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
-import SfCharacteristic from "./SfCharacteristic.vue";
+import { SfCharacteristic } from "@storefront-ui/vue";
 const iconsNames = Object.keys(icons);
 export default {
   title: "Molecules|Characteristic",

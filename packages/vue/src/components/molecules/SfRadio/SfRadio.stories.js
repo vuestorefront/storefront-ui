@@ -4,7 +4,7 @@ import {
   boolean,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfRadio from "./SfRadio.vue";
+import { SfRadio } from "@storefront-ui/vue";
 export default {
   title: "Molecules|Radio",
   decorators: [withKnobs],

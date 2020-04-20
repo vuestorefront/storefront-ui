@@ -5,7 +5,7 @@ import {
   object,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfBanner from "./SfBanner.vue";
+import { SfBanner } from "@storefront-ui/vue";
 export default {
   title: "Molecules|Banner",
   decorators: [withKnobs],

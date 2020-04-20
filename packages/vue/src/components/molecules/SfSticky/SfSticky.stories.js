@@ -1,3 +1,4 @@
+import { SfSticky } from "@storefront-ui/vue";
 const StoriesWrapper = {
   template: `<div style="display: flex;">
     <div style="flex: 1; margin-right: 1.25rem">
@@ -14,7 +15,6 @@ const StoriesPlaceholder = {
         [#default slot content]
       </div>`,
 };
-import SfSticky from "./SfSticky.vue";
 export default {
   title: "Molecules|Sticky",
 };

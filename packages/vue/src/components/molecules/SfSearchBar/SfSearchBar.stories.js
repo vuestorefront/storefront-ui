@@ -3,7 +3,7 @@ import {
   text,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfSearchBar from "./SfSearchBar.vue";
+import { SfSearchBar } from "@storefront-ui/vue";
 export default {
   title: "Molecules|SearchBar",
   decorators: [withKnobs],

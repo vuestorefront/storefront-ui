@@ -1,5 +1,5 @@
 import { withKnobs, object, number, boolean } from "@storybook/addon-knobs";
-import SfGallery from "./SfGallery.vue";
+import { SfGallery } from "@storefront-ui/vue";
 export default {
   title: "Molecules|Gallery",
   decorators: [withKnobs],

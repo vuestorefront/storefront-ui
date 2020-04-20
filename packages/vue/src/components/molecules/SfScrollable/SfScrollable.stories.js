@@ -1,6 +1,5 @@
 import { withKnobs, text } from "@storybook/addon-knobs";
-import SfScrollable from "./SfScrollable.vue";
-import SfProductOption from "../SfProductOption/SfProductOption.vue";
+import { SfScrollable, SfProductOption } from "@storefront-ui/vue";
 export default {
   title: "Molecules|Scrollable",
   decorators: [withKnobs],

@@ -6,7 +6,7 @@
     v-on="$listeners"
   >
     <!--@slot Use this slot to place content inside the button.-->
-    @@@ <slot />
+    <slot />
   </button>
 </template>
 <script>

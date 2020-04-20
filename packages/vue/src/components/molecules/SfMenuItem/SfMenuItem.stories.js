@@ -1,6 +1,5 @@
 import { withKnobs, text } from "@storybook/addon-knobs";
-import SfMenuItem from "./SfMenuItem.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import { SfMenuItem, SfIcon } from "@storefront-ui/vue";
 export default {
   title: "Molecules|MenuItem",
   decorators: [withKnobs],

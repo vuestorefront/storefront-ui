@@ -1,5 +1,5 @@
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-import SfBar from "./SfBar.vue";
+import { SfBar } from "@storefront-ui/vue";
 export default {
   title: "Molecules|Bar",
   decorators: [withKnobs],

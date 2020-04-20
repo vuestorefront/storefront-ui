@@ -1,5 +1,5 @@
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
-import SfModal from "./SfModal.vue";
+import { SfModal } from "@storefront-ui/vue";
 import {
   visibilityToggleMixin,
   withVisibilityToggle,

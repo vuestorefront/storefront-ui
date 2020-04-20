@@ -1,5 +1,5 @@
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import SfAlert from "./SfAlert.vue";
+import { SfAlert } from "@storefront-ui/vue";
 export default {
   title: "Molecules|Alert",
   decorators: [withKnobs],

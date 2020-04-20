@@ -1,5 +1,5 @@
 import { withKnobs, boolean } from "@storybook/addon-knobs";
-import SfAddToCart from "./SfAddToCart.vue";
+import { SfAddToCart } from "@storefront-ui/vue";
 export default {
   title: "Molecules|AddToCart",
   decorators: [withKnobs],
