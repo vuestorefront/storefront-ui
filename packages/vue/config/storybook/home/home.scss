@@ -6,6 +6,14 @@ body {
   margin: 0;
   padding: 0;
 }
+#storybook-preview-iframe {
+  width: 100%;
+}
+#storybook-preview-iframe {
+  transform: scale(0.75);
+  transform-origin: 0 0;
+}
+
 #intro {
   padding: 1rem;
   font: 300 0.875rem/1.6 "Roboto", serif;
@@ -35,5 +43,5 @@ body {
   ul,
   ol{
     padding: 0 0 0 1rem;
-  }
+  }   
 }
