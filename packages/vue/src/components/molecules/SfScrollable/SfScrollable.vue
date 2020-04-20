@@ -22,7 +22,11 @@ export default {
     Simplebar,
     SfButton,
   },
-  inject: ["contentShow"],
+  inject: {
+    contentShow: {
+      default: "contentShow",
+    },
+  },
   props: {
     maxContentHeight: {
       type: String,
@@ -30,19 +34,25 @@ export default {
         if (this.contentShow.maxContentHeight) {
           return this.contentShow.maxContentHeight;
         }
-        return null;
+        return "";
       },
     },
     showText: {
       type: String,
       default() {
-        return this.contentShow.showText;
+        if (this.contentShow.showText) {
+          return this.contentShow.showText;
+        }
+        return "";
       },
     },
     hideText: {
       type: String,
       default() {
-        return this.contentShow.hideText;
+        if (this.contentShow.hideText) {
+          return this.contentShow.hideText;
+        }
+        return "";
       },
     },
   },
