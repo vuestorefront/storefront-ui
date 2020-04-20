@@ -49,10 +49,18 @@ export default {
     },
   },
   provide: function () {
+    const contentShow = {};
+    Object.defineProperty(contentShow, "maxContentHeight", {
+      get: () => this.tabMaxContentHeight,
+    });
+    Object.defineProperty(contentShow, "showText", {
+      get: () => this.tabShowText,
+    });
+    Object.defineProperty(contentShow, "hideText", {
+      get: () => this.tabHideText,
+    });
     return {
-      maxContentHeight: this.tabMaxContentHeight,
-      showText: this.tabShowText,
-      hideText: this.tabHideText,
+      contentShow,
     };
   },
 };

@@ -44,7 +44,7 @@ export default {
     SfChevron,
     SfScrollable,
   },
-  inject: ["maxContentHeight"],
+  inject: ["contentShow"],
   props: {
     /**
      * Tab title.
@@ -53,18 +53,17 @@ export default {
       type: String,
       default: "",
     },
-    maxContentHeight: {
-      type: String,
-      default() {
-        return this.maxContentHeight;
-      },
-    },
   },
   data() {
     return {
       isActive: false,
       desktopMin: 1024,
     };
+  },
+  computed: {
+    maxContentHeight() {
+      return this.contentShow.maxContentHeight;
+    },
   },
   methods: {
     tabClick() {
