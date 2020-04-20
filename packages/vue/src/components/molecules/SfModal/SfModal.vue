@@ -20,6 +20,7 @@
           />
         </slot>
         <button
+          v-focus
           v-if="cross"
           class="sf-modal__close desktop-only"
           :aria-label="ariaLabelClose"
@@ -31,7 +32,6 @@
               icon="cross"
               size="15px"
               color="gray-secondary"
-              aria-role="button"
             />
           </slot>
         </button>
@@ -48,8 +48,10 @@ import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfModal",
+  directives: { focus },
   components: {
     SfBar,
     SfOverlay,
