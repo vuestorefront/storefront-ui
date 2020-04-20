@@ -17,5 +17,7 @@
   );
   &__icon {
     --icon-width: 0.875rem;
+      border: 0;
+      background: transparent;
   }
 }
