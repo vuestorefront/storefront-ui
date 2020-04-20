@@ -89,6 +89,9 @@
   &__icons {
     display: flex;
     align-items: center;
+    background: transparent;
+    border: 0;
+    padding: 0;
   }
   &__icon {
     --icon-color: var(--c-dark-variant);
