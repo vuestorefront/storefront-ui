@@ -19,6 +19,7 @@
     box-sizing: border-box;
     width: var(--radio-checkmark-size, 1.5rem);
     height: var(--radio-checkmark-size, 1.5rem);
+    box-shadow: var(--radio-checkmark-box-shadow);
     @include border(
       --radio-checkmark-border,
       1px,
@@ -38,8 +39,11 @@
   &__input {
     position: absolute;
     opacity: 0;
-    top: var(--spacer-sm);
-    left: var(--spacer-sm);
+  }
+  input {
+    &:focus + .sf-radio__container {
+      --radio-checkmark-box-shadow: 0 0 2px 2px rgb(59, 153, 252);
+    }
   }
   &__container {
     display: var(--radio-container-display, flex);

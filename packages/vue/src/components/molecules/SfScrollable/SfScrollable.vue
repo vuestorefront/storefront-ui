@@ -14,7 +14,6 @@
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/focus-directive.js";
 import Simplebar from "simplebar-vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
@@ -22,9 +21,6 @@ export default {
   components: {
     Simplebar,
     SfButton,
-  },
-  directives: {
-    focus,
   },
   props: {
     maxContentHeight: {
