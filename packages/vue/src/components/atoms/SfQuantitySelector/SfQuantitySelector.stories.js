@@ -3,7 +3,7 @@ import {
   text,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfQuantitySelector from "./SfQuantitySelector.vue";
+import { SfQuantitySelector } from "@storefront-ui/vue";
 export default {
   title: "Atoms|QuantitySelector",
   decorators: [withKnobs],

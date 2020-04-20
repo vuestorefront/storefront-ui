@@ -3,7 +3,7 @@ import {
   text,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfBadge from "./SfBadge.vue";
+import { SfBadge } from "@storefront-ui/vue";
 export default {
   title: "Atoms|Badge",
   decorators: [withKnobs],

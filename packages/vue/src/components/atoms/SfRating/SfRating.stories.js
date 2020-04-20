@@ -1,6 +1,5 @@
 import { withKnobs, number } from "@storybook/addon-knobs";
-import SfRating from "./SfRating.vue";
-import SfIcon from "../SfIcon/SfIcon.vue";
+import { SfRating, SfIcon } from "@storefront-ui/vue";
 export default {
   title: "Atoms|Rating",
   decorators: [withKnobs],

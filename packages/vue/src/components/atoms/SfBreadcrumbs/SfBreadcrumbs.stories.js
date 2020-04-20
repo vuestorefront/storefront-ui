@@ -1,5 +1,5 @@
 import { withKnobs, object } from "@storybook/addon-knobs";
-import SfBreadcrumbs from "./SfBreadcrumbs.vue";
+import { SfBreadcrumbs } from "@storefront-ui/vue";
 export default {
   title: "Atoms|Breadcrumbs",
   decorators: [withKnobs],

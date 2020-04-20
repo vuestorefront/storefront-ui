@@ -4,7 +4,7 @@ import {
   optionsKnob as options,
   boolean,
 } from "@storybook/addon-knobs";
-import SfColor from "./SfColor.vue";
+import { SfColor } from "@storefront-ui/vue";
 export default {
   title: "Atoms|Color",
   decorators: [withKnobs],

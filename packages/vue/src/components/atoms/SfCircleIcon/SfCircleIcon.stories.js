@@ -6,7 +6,7 @@ import {
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
-import SfCircleIcon from "./SfCircleIcon.vue";
+import { SfCircleIcon } from "@storefront-ui/vue";
 const iconsNames = Object.keys(icons);
 const StoriesPlaceholder = {
   template: `<span style="font-size: 1.5rem; width: 20px; height: 20px; line-height: 0; display: flex; justify-content: center; align-items: center">1</span>`,

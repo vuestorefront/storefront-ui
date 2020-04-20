@@ -1,5 +1,5 @@
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-import SfOverlay from "./SfOverlay.vue";
+import { SfOverlay } from "@storefront-ui/vue";
 export default {
   title: "Atoms|Overlay",
   decorators: [withKnobs],

@@ -1,5 +1,5 @@
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-import SfCheckbox from "./SfCheckbox.vue";
+import { SfCheckbox } from "@storefront-ui/vue";
 export default {
   title: "Atoms|Checkbox",
   decorators: [withKnobs],

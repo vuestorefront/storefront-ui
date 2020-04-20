@@ -1,5 +1,5 @@
 import { withKnobs, number } from "@storybook/addon-knobs";
-import SfBullets from "./SfBullets.vue";
+import { SfBullets } from "@storefront-ui/vue";
 export default {
   title: "Atoms|Bullets",
   decorators: [withKnobs],

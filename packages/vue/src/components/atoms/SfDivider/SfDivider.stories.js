@@ -1,4 +1,4 @@
-import SfDivider from "./SfDivider.vue";
+import { SfDivider } from "@storefront-ui/vue";
 export default {
   title: "Atoms|Divider",
 };

@@ -1,6 +1,5 @@
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
-import SfChevron from "./SfChevron.vue";
-import SfIcon from "../SfIcon/SfIcon.vue";
+import { SfChevron, SfIcon } from "@storefront-ui/vue";
 export default {
   title: "Atoms|Chevron",
   decorators: [withKnobs],

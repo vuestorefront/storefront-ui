@@ -5,7 +5,7 @@ import {
   number,
   object,
 } from "@storybook/addon-knobs";
-import SfImage from "./SfImage.vue";
+import { SfImage } from "@storefront-ui/vue";
 export default {
   title: "Atoms|Image",
   decorators: [withKnobs],

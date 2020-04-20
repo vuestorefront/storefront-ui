@@ -4,7 +4,8 @@ import {
   boolean,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfButton from "./SfButton.vue";
+import { SfButton } from "@storefront-ui/vue";
+
 export default {
   title: "Atoms|Button",
   decorators: [withKnobs],
