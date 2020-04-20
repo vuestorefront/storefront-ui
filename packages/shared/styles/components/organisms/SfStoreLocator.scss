@@ -63,9 +63,9 @@
       margin: var(--store-item-property-margin, 0);
     }
   }
-  &__property-icon {
-    --icon-color: var(--c-primary);
-    margin: var(--store-item-property-icon-margin, 0 var(--spacer-sm) 0 0);
+  &__property-link {
+    color: var(--c-link);
+    text-decoration: none;
   }
   @include for-desktop {
     --store-distance-flex: 0 0 auto;
