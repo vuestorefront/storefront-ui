@@ -1,11 +1,9 @@
 import { withKnobs, number, boolean } from "@storybook/addon-knobs";
 import SfPagination from "./SfPagination.vue";
-
 export default {
   title: "Molecules|Pagination",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfPagination },
   props: {
@@ -31,7 +29,6 @@ export const Common = () => ({
         :has-arrows="hasArrows"
         @click="value => current = value"/>`,
 });
-
 export const SlotDefault = () => ({
   components: { SfPagination },
   props: {
@@ -58,11 +55,9 @@ export const SlotDefault = () => ({
         <template #default="{go}">CUSTOM DEFAULT</template>
     </SfPagination>`,
 });
-
 SlotDefault.story = {
   name: "[slot] default",
 };
-
 export const SlotPrev = () => ({
   components: { SfPagination },
   props: {
@@ -92,11 +87,9 @@ export const SlotPrev = () => ({
       </template>
     </SfPagination>`,
 });
-
 SlotPrev.story = {
   name: "[slot] prev",
 };
-
 export const SlotNext = () => ({
   components: { SfPagination },
   props: {
@@ -126,11 +119,9 @@ export const SlotNext = () => ({
       </template>
     </SfPagination>`,
 });
-
 SlotNext.story = {
   name: "[slot] next",
 };
-
 export const SlotNumber = () => ({
   components: { SfPagination },
   props: {
@@ -163,7 +154,6 @@ export const SlotNumber = () => ({
       </template>
     </SfPagination>`,
 });
-
 SlotNumber.story = {
   name: "[slot] number",
 };

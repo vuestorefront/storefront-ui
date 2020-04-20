@@ -4,12 +4,10 @@ import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
 import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
 import SfIcon from "./SfIcon.vue";
 const iconsNames = Object.keys(icons);
-
 export default {
   title: "Atoms|Icon",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   props: {
     icon: {
@@ -32,7 +30,6 @@ export const Common = () => ({
       :color="color"
       :view-box="viewBox"/>`,
 });
-
 export const Icons = () => ({
   components: { SfIcon },
   data() {
@@ -50,7 +47,6 @@ export const Icons = () => ({
       </div>
     </div>`,
 });
-
 export const PropsDefault = () => ({
   props: {
     icon: {
@@ -77,11 +73,9 @@ export const PropsDefault = () => ({
       :color="color"
       :view-box="viewBox" />`,
 });
-
 PropsDefault.story = {
   name: "[props] default",
 };
-
 export const SlotDefault = () => ({
   props: {
     icon: {
@@ -112,7 +106,6 @@ export const SlotDefault = () => ({
       </template>
     </SfIcon>`,
 });
-
 SlotDefault.story = {
   name: "[slot] default",
 };

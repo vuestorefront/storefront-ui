@@ -10,12 +10,10 @@ const StoriesPlaceholder = {
     [#default slot content]
   </div>`,
 };
-
 export default {
   title: "Molecules|Section",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfSection, StoriesPlaceholder },
   props: {
@@ -47,7 +45,6 @@ export const Common = () => ({
       <StoriesPlaceholder />
     </SfSection>`,
 });
-
 export const SlotHeading = () => ({
   components: { SfSection, StoriesPlaceholder },
   props: {
@@ -82,7 +79,6 @@ export const SlotHeading = () => ({
       <StoriesPlaceholder/>
     </SfSection>`,
 });
-
 SlotHeading.story = {
   name: "[slot] heading",
 };

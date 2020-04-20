@@ -5,12 +5,10 @@ import {
 } from "@storybook/addon-knobs";
 import SfProperty from "./SfProperty.vue";
 import SfBadge from "../SfBadge/SfBadge.vue";
-
 export default {
   title: "Atoms|Property",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfProperty },
   props: {
@@ -40,7 +38,6 @@ export const Common = () => ({
         :name="name"
         :value="value" />`,
 });
-
 export const SlotName = () => ({
   components: { SfProperty },
   props: {
@@ -73,11 +70,9 @@ export const SlotName = () => ({
       </template>
     </SfProperty>`,
 });
-
 SlotName.story = {
   name: "[slot] name",
 };
-
 export const SlotValue = () => ({
   components: {
     SfProperty,
@@ -113,7 +108,6 @@ export const SlotValue = () => ({
       </template>
     </SfProperty>`,
 });
-
 SlotValue.story = {
   name: "[slot] value",
 };

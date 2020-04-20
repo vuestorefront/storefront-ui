@@ -6,12 +6,10 @@ import {
 } from "@storybook/addon-knobs";
 import SfInput from "./SfInput.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
-
 export default {
   title: "Atoms|Input",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfInput },
   props: {
@@ -73,7 +71,6 @@ export const Common = () => ({
       :class="customClass"
       />`,
 });
-
 export const SlotLabel = () => ({
   components: {
     SfInput,
@@ -141,11 +138,9 @@ export const SlotLabel = () => ({
       </template>
     </SfInput>`,
 });
-
 SlotLabel.story = {
   name: "[slot] label",
 };
-
 export const SlotErrorMessage = () => ({
   components: {
     SfInput,
@@ -216,11 +211,9 @@ export const SlotErrorMessage = () => ({
       </template>
     </SfInput>`,
 });
-
 SlotErrorMessage.story = {
   name: "[slot] error-message",
 };
-
 export const SlotWithPasswordIcon = () => ({
   components: {
     SfInput,
@@ -288,11 +281,9 @@ export const SlotWithPasswordIcon = () => ({
       </template>
     </SfInput>`,
 });
-
 SlotWithPasswordIcon.story = {
   name: "[slot] with password icon",
 };
-
 export const WithModifierFilled = () => ({
   components: { SfInput },
   props: {
@@ -354,7 +345,6 @@ export const WithModifierFilled = () => ({
       :class="customClass"
       />`,
 });
-
 WithModifierFilled.story = {
   name: "with modifier --filled",
 };

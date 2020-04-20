@@ -4,12 +4,10 @@ import {
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfBadge from "./SfBadge.vue";
-
 export default {
   title: "Atoms|Badge",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   props: {
     customClass: {

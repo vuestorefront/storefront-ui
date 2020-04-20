@@ -5,11 +5,9 @@ const StoriesPlaceholderSliding = {
   template: `<div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">[#sliding slot content]</div>`,
 };
 import SfSlidingSection from "./SfSlidingSection.vue";
-
 export default {
   title: "Molecules|SlidingSection",
 };
-
 export const Common = () => ({
   components: {
     SfSlidingSection,

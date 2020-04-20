@@ -1,11 +1,9 @@
 import { withKnobs, text, color } from "@storybook/addon-knobs";
 import SfCallToAction from "./SfCallToAction.vue";
-
 export default {
   title: "Molecules|CallToAction",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfCallToAction },
   props: {
@@ -38,7 +36,6 @@ export const Common = () => ({
       :background="background"/>
     </div>`,
 });
-
 export const SlotTitle = () => ({
   components: { SfCallToAction },
   props: {
@@ -75,11 +72,9 @@ export const SlotTitle = () => ({
       </SfCallToAction>
     </div>`,
 });
-
 SlotTitle.story = {
   name: "[slot] title",
 };
-
 export const SlotDescription = () => ({
   components: { SfCallToAction },
   props: {
@@ -116,11 +111,9 @@ export const SlotDescription = () => ({
       </SfCallToAction>
     </div>`,
 });
-
 SlotDescription.story = {
   name: "[slot] description",
 };
-
 export const SlotButton = () => ({
   components: { SfCallToAction },
   props: {
@@ -157,7 +150,6 @@ export const SlotButton = () => ({
       </SfCallToAction>
     </div>`,
 });
-
 SlotButton.story = {
   name: "[slot] button",
 };

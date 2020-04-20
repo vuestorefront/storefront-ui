@@ -1,12 +1,13 @@
-import { withKnobs, text, optionsKnob as options } from '@storybook/addon-knobs';
-import SfArrow from './SfArrow.vue';
-import SfIcon from '../SfIcon/SfIcon.vue';
-
+import {
+  withKnobs,
+  text,
+  optionsKnob as options,
+} from "@storybook/addon-knobs";
+import { SfArrow, SfIcon } from "@storefront-ui/vue";
 export default {
-  title: 'Atoms|Arrow',
+  title: "Atoms|Arrow",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: {
     SfArrow,
@@ -14,23 +15,23 @@ export const Common = () => ({
   props: {
     customClass: {
       default: options(
-        'CSS modifiers',
+        "CSS modifiers",
         {
-          'sf-arrow--right': 'sf-arrow--right',
-          'sf-arrow--top': 'sf-arrow--top',
-          'sf-arrow--down': 'sf-arrow--down',
-          'sf-arrow--long': 'sf-arrow--long',
-          'sf-arrow--transparent': 'sf-arrow--transparent',
-          'sf-arrow--rounded': 'sf-arrow--rounded',
-          'sf-arrow--no-shadow': 'sf-arrow--no-shadow',
+          "sf-arrow--right": "sf-arrow--right",
+          "sf-arrow--top": "sf-arrow--top",
+          "sf-arrow--down": "sf-arrow--down",
+          "sf-arrow--long": "sf-arrow--long",
+          "sf-arrow--transparent": "sf-arrow--transparent",
+          "sf-arrow--rounded": "sf-arrow--rounded",
+          "sf-arrow--no-shadow": "sf-arrow--no-shadow",
         },
-        '',
-        { display: 'multi-select' },
-        'CSS Modifiers'
+        "",
+        { display: "multi-select" },
+        "CSS Modifiers"
       ),
     },
     ariaLabel: {
-      default: text('ariaLabel', 'Arrow Label', 'Props'),
+      default: text("ariaLabel", "Arrow Label", "Props"),
     },
   },
   template: `<SfArrow
@@ -38,7 +39,6 @@ export const Common = () => ({
       :aria-label="ariaLabel"
     />`,
 });
-
 export const SlotDefault = () => ({
   components: {
     SfArrow,
@@ -47,21 +47,21 @@ export const SlotDefault = () => ({
   props: {
     customClass: {
       default: options(
-        'CSS modifiers',
+        "CSS modifiers",
         {
-          'sf-arrow--right': 'sf-arrow--right',
-          'sf-arrow--long': 'sf-arrow--long',
-          'sf-arrow--transparent': 'sf-arrow--transparent',
-          'sf-arrow--rounded': 'sf-arrow--rounded',
-          'sf-arrow--no-shadow': 'sf-arrow--no-shadow',
+          "sf-arrow--right": "sf-arrow--right",
+          "sf-arrow--long": "sf-arrow--long",
+          "sf-arrow--transparent": "sf-arrow--transparent",
+          "sf-arrow--rounded": "sf-arrow--rounded",
+          "sf-arrow--no-shadow": "sf-arrow--no-shadow",
         },
-        '',
-        { display: 'multi-select' },
-        'CSS Modifiers'
+        "",
+        { display: "multi-select" },
+        "CSS Modifiers"
       ),
     },
     ariaLabel: {
-      default: text('ariaLabel', 'Arrow Label', 'Props'),
+      default: text("ariaLabel", "Arrow Label", "Props"),
     },
   },
   template: `<SfArrow
@@ -69,7 +69,6 @@ export const SlotDefault = () => ({
       <SfIcon icon="chevron_left" class="sf-arrow__icon" size="12px" view-box="0 0 24 12"/>
     </SfArrow>`,
 });
-
 SlotDefault.story = {
-  name: '[slot] default',
+  name: "[slot] default",
 };

@@ -1,11 +1,9 @@
 import { withKnobs, text, number } from "@storybook/addon-knobs";
 import SfFilter from "./SfFilter.vue";
-
 export default {
   title: "Molecules|Filter",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfFilter },
   props: {
@@ -33,7 +31,6 @@ export const Common = () => ({
        style="max-width: 22.875rem"
      />`,
 });
-
 export const ColorFilter = () => ({
   components: { SfFilter },
   props: {
@@ -61,7 +58,6 @@ export const ColorFilter = () => ({
         style="max-width: 22.875rem"
     />`,
 });
-
 export const SlotLabel = () => ({
   components: { SfFilter },
   props: {
@@ -91,11 +87,9 @@ export const SlotLabel = () => ({
      <template #label="{label}">CUSTOM LABEL</template>
      </SfFilter>`,
 });
-
 SlotLabel.story = {
   name: "[slot] label",
 };
-
 export const SlotCount = () => ({
   components: { SfFilter },
   props: {
@@ -125,7 +119,6 @@ export const SlotCount = () => ({
      <template #count="{count}">CUSTOM COUNT</template>
      </SfFilter>`,
 });
-
 SlotCount.story = {
   name: "[slot] count",
 };

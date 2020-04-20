@@ -1,12 +1,10 @@
 import { withKnobs, text } from "@storybook/addon-knobs";
 import SfPrice from "./SfPrice.vue";
 import SfBadge from "../SfBadge/SfBadge.vue";
-
 export default {
   title: "Atoms|Price",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfPrice },
   props: {
@@ -21,7 +19,6 @@ export const Common = () => ({
       :regular="regular"
       :special="special"/>`,
 });
-
 export const SlotSpecial = () => ({
   components: {
     SfPrice,
@@ -43,11 +40,9 @@ export const SlotSpecial = () => ({
       </template>  
     </SfPrice>`,
 });
-
 SlotSpecial.story = {
   name: "[slot] special",
 };
-
 export const SlotOld = () => ({
   components: {
     SfPrice,
@@ -69,11 +64,9 @@ export const SlotOld = () => ({
       </template>
     </SfPrice>`,
 });
-
 SlotOld.story = {
   name: "[slot] old",
 };
-
 export const SlotRegular = () => ({
   components: {
     SfPrice,
@@ -95,7 +88,6 @@ export const SlotRegular = () => ({
       </template>
     </SfPrice>`,
 });
-
 SlotRegular.story = {
   name: "[slot] regular",
 };

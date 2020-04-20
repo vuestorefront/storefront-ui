@@ -9,13 +9,11 @@ import {
   withDataToggle,
   dataToggleMixin,
 } from "../../../../config/storybook/decorators";
-import SfSidebar from "./SfSidebar.vue";
-
+import { SfSidebar } from "@storefront-ui/vue";
 export default {
   title: "Organisms|Sidebar",
   decorators: [withKnobs, withDataToggle("isSidebarOpen")],
 };
-
 export const Common = () => ({
   components: { SfSidebar },
   props: {
@@ -60,7 +58,6 @@ export const Common = () => ({
         Total items: 0
       </SfSidebar>`,
 });
-
 export const OnTheRight = () => ({
   components: { SfSidebar },
   props: {
@@ -105,11 +102,9 @@ export const OnTheRight = () => ({
         Total items: 0
       </SfSidebar>`,
 });
-
 OnTheRight.story = {
   name: "On the right",
 };
-
 export const SlotTitle = () => ({
   components: { SfSidebar },
   props: {
@@ -157,11 +152,9 @@ export const SlotTitle = () => ({
       Total items: 0
     </SfSidebar>`,
 });
-
 SlotTitle.story = {
   name: "[slot] title",
 };
-
 export const SlotCircleIcon = () => ({
   components: { SfSidebar },
   props: {
@@ -211,7 +204,6 @@ export const SlotCircleIcon = () => ({
         Total items: 0
       </SfSidebar>`,
 });
-
 SlotCircleIcon.story = {
   name: "[slot] circle-icon",
 };

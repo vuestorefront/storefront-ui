@@ -1,13 +1,9 @@
 import { withKnobs, text } from "@storybook/addon-knobs";
-import SfBottomNavigation from "./SfBottomNavigation.vue";
-import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-
+import { SfBottomNavigation, SfCircleIcon, SfIcon } from "@storefront-ui/vue";
 export default {
   title: "Organisms|BottomNavigation",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfBottomNavigation, SfCircleIcon, SfIcon },
   props: {
@@ -78,7 +74,6 @@ export const Common = () => ({
       </SfBottomNavigationItem>
     </SfBottomNavigation>`,
 });
-
 export const IconsOnly = () => ({
   components: { SfBottomNavigation, SfCircleIcon, SfIcon },
   props: {
@@ -121,11 +116,9 @@ export const IconsOnly = () => ({
       </SfBottomNavigationItem>
     </SfBottomNavigation>`,
 });
-
 IconsOnly.story = {
   name: "Icons only",
 };
-
 export const LabelsOnly = () => ({
   components: { SfBottomNavigation, SfCircleIcon, SfIcon },
   props: {
@@ -158,7 +151,6 @@ export const LabelsOnly = () => ({
       </SfBottomNavigationItem>
     </SfBottomNavigation>`,
 });
-
 LabelsOnly.story = {
   name: "Labels only",
 };

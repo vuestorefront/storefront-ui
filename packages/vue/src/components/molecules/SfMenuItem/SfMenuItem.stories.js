@@ -1,12 +1,10 @@
 import { withKnobs, text } from "@storybook/addon-knobs";
 import SfMenuItem from "./SfMenuItem.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-
 export default {
   title: "Molecules|MenuItem",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: {
     SfMenuItem,
@@ -29,7 +27,6 @@ export const Common = () => ({
       :icon="icon"/>
     </div>`,
 });
-
 export const SlotIcon = () => ({
   components: {
     SfMenuItem,
@@ -56,11 +53,9 @@ export const SlotIcon = () => ({
       </SfMenuItem>
     </div>`,
 });
-
 SlotIcon.story = {
   name: "[slot] icon",
 };
-
 export const SlotLabel = () => ({
   components: {
     SfMenuItem,
@@ -87,11 +82,9 @@ export const SlotLabel = () => ({
       </SfMenuItem>
     </div>`,
 });
-
 SlotLabel.story = {
   name: "[slot] label",
 };
-
 export const SlotCount = () => ({
   components: {
     SfMenuItem,
@@ -118,11 +111,9 @@ export const SlotCount = () => ({
       </SfMenuItem>
     </div>`,
 });
-
 SlotCount.story = {
   name: "[slot] count",
 };
-
 export const SlotMobileNavIcon = () => ({
   components: {
     SfMenuItem,
@@ -150,7 +141,6 @@ export const SlotMobileNavIcon = () => ({
       </SfMenuItem>
     </div>`,
 });
-
 SlotMobileNavIcon.story = {
   name: "[slot] mobile-nav-icon",
 };

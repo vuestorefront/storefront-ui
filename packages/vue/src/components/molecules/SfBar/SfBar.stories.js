@@ -1,11 +1,9 @@
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 import SfBar from "./SfBar.vue";
-
 export default {
   title: "Molecules|Bar",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfBar },
   props: {
@@ -25,7 +23,6 @@ export const Common = () => ({
         :close="close"
       />`,
 });
-
 export const SlotBack = () => ({
   components: { SfBar },
   props: {
@@ -47,11 +44,9 @@ export const SlotBack = () => ({
         <template #back>CUSTOM BACK</template>
       </SfBar>`,
 });
-
 SlotBack.story = {
   name: "[slot] back",
 };
-
 export const SlotTitle = () => ({
   components: { SfBar },
   props: {
@@ -73,11 +68,9 @@ export const SlotTitle = () => ({
         <template #title="{title}">CUSTOM TITLE</template>
       </SfBar>`,
 });
-
 SlotTitle.story = {
   name: "[slot] title",
 };
-
 export const SlotClose = () => ({
   components: { SfBar },
   props: {
@@ -99,7 +92,6 @@ export const SlotClose = () => ({
         <template #close>CUSTOM CLOSE</template>
       </SfBar>`,
 });
-
 SlotClose.story = {
   name: "[slot] close",
 };

@@ -1,11 +1,9 @@
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 import SfCheckbox from "./SfCheckbox.vue";
-
 export default {
   title: "Atoms|Checkbox",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfCheckbox },
   props: {
@@ -39,7 +37,6 @@ export const Common = () => ({
       :valid="valid"
       />`,
 });
-
 export const MultipleCheckboxes = () => ({
   components: { SfCheckbox },
   data() {
@@ -68,11 +65,9 @@ export const MultipleCheckboxes = () => ({
         /> 
       </div>`,
 });
-
 MultipleCheckboxes.story = {
   name: "Multiple checkboxes",
 };
-
 export const SlotCheckmark = () => ({
   components: { SfCheckbox },
   props: {
@@ -106,11 +101,9 @@ export const SlotCheckmark = () => ({
       </template>
     </SfCheckbox>`,
 });
-
 SlotCheckmark.story = {
   name: "[slot] checkmark",
 };
-
 export const SlotLabel = () => ({
   components: { SfCheckbox },
   props: {
@@ -144,7 +137,6 @@ export const SlotLabel = () => ({
       </template>
     </SfCheckbox>`,
 });
-
 SlotLabel.story = {
   name: "[slot] label",
 };

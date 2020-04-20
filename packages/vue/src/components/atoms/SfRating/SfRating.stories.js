@@ -1,12 +1,10 @@
 import { withKnobs, number } from "@storybook/addon-knobs";
 import SfRating from "./SfRating.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
-
 export default {
   title: "Atoms|Rating",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfRating },
   props: {
@@ -21,7 +19,6 @@ export const Common = () => ({
       :max="max"
       :score="score" />`,
 });
-
 export const SlotIconPositive = () => ({
   components: {
     SfRating,
@@ -43,11 +40,9 @@ export const SlotIconPositive = () => ({
       </template>  
     </SfRating>`,
 });
-
 SlotIconPositive.story = {
   name: "[slot] icon-positive",
 };
-
 export const SlotIconNegative = () => ({
   components: {
     SfRating,
@@ -69,7 +64,6 @@ export const SlotIconNegative = () => ({
       </template>  
     </SfRating>`,
 });
-
 SlotIconNegative.story = {
   name: "[slot] icon-negative",
 };

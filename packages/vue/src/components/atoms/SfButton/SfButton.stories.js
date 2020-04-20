@@ -5,12 +5,10 @@ import {
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfButton from "./SfButton.vue";
-
 export default {
   title: "Atoms|Button",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   props: {
     customClass: {

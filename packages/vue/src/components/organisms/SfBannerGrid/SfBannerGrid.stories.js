@@ -1,12 +1,9 @@
 import { withKnobs, select } from "@storybook/addon-knobs";
-import SfBannerGrid from "./SfBannerGrid.vue";
-import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
-
+import { SfBannerGrid, SfBanner } from "@storefront-ui/vue";
 export default {
   title: "Organisms|BannerGrid",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfBannerGrid, SfBanner },
   props: {

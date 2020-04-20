@@ -5,15 +5,11 @@ import {
   number,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfCollectedProduct from "./SfCollectedProduct.vue";
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
-
+import { SfCollectedProduct, SfButton, SfProperty } from "@storefront-ui/vue";
 export default {
   title: "Organisms|CollectedProduct",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfCollectedProduct, SfProperty, SfButton },
   props: {
@@ -81,7 +77,6 @@ export const Common = () => ({
       </template>
     </SfCollectedProduct>`,
 });
-
 export const SlotActions = () => ({
   components: { SfCollectedProduct, SfProperty },
   props: {
@@ -143,11 +138,9 @@ export const SlotActions = () => ({
       </template>
     </SfCollectedProduct>`,
 });
-
 SlotActions.story = {
   name: "[slot] actions",
 };
-
 export const SlotConfiguration = () => ({
   components: { SfCollectedProduct, SfProperty },
   props: {
@@ -209,11 +202,9 @@ export const SlotConfiguration = () => ({
       </template>
     </SfCollectedProduct>`,
 });
-
 SlotConfiguration.story = {
   name: "[slot] configuration",
 };
-
 export const SlotRemove = () => ({
   components: { SfCollectedProduct, SfProperty },
   props: {
@@ -275,11 +266,9 @@ export const SlotRemove = () => ({
       </template>
     </SfCollectedProduct>`,
 });
-
 SlotRemove.story = {
   name: "[slot] remove",
 };
-
 export const SlotImage = () => ({
   components: { SfCollectedProduct, SfProperty },
   props: {
@@ -341,11 +330,9 @@ export const SlotImage = () => ({
       </template>
     </SfCollectedProduct>`,
 });
-
 SlotImage.story = {
   name: "[slot] image",
 };
-
 export const SlotInput = () => ({
   components: { SfCollectedProduct, SfProperty },
   props: {
@@ -407,11 +394,9 @@ export const SlotInput = () => ({
       </template>
     </SfCollectedProduct>`,
 });
-
 SlotInput.story = {
   name: "[slot] input",
 };
-
 export const SlotTitle = () => ({
   components: { SfCollectedProduct, SfProperty },
   props: {
@@ -473,11 +458,9 @@ export const SlotTitle = () => ({
       </template>
     </SfCollectedProduct>`,
 });
-
 SlotTitle.story = {
   name: "[slot] title",
 };
-
 export const SlotPrice = () => ({
   components: { SfCollectedProduct, SfProperty },
   props: {
@@ -539,7 +522,6 @@ export const SlotPrice = () => ({
       </template>
     </SfCollectedProduct>`,
 });
-
 SlotPrice.story = {
   name: "[slot] price",
 };

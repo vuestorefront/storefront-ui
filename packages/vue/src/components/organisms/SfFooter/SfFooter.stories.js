@@ -1,16 +1,16 @@
 import { withKnobs, number, boolean } from "@storybook/addon-knobs";
-import SfFooter from "./SfFooter.vue";
-import SfHeader from "../SfHeader/SfHeader.vue";
-import SfList from "../SfList/SfList.vue";
-import SfImage from "../../atoms/SfImage/SfImage.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-
+import {
+  SfFooter,
+  SfHeader,
+  SfList,
+  SfImage,
+  SfButton,
+  SfMenuItem,
+} from "@storefront-ui/vue";
 export default {
   title: "Organisms|Footer",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: {
     SfFooter,

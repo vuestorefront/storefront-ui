@@ -1,9 +1,7 @@
 import Home from "./Home";
-
 export default {
   title: "Pages|Home",
 };
-
 export const Common = () => ({
   components: { Home },
   mounted() {

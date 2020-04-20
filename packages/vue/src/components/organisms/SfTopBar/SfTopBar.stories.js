@@ -1,11 +1,7 @@
-import SfTopBar from "./SfTopBar.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfImage from "../../atoms/SfImage/SfImage.vue";
-
+import { SfTopBar, SfButton, SfImage } from "@storefront-ui/vue";
 export default {
   title: "Organisms|TopBar",
 };
-
 export const Common = () => ({
   components: { SfTopBar, SfButton, SfImage },
   template: `<SfTopBar>
@@ -22,7 +18,6 @@ export const Common = () => ({
       </template>
     </SfTopBar>`,
 });
-
 export const SlotLeft = () => ({
   components: { SfTopBar, SfButton, SfImage },
   template: `<SfTopBar>
@@ -39,11 +34,9 @@ export const SlotLeft = () => ({
       </template>
     </SfTopBar>`,
 });
-
 SlotLeft.story = {
   name: "[slot] left",
 };
-
 export const SlotCenter = () => ({
   components: { SfTopBar, SfButton, SfImage },
   template: `<SfTopBar>
@@ -59,11 +52,9 @@ export const SlotCenter = () => ({
       </template>
     </SfTopBar>`,
 });
-
 SlotCenter.story = {
   name: "[slot] center",
 };
-
 export const SlotRight = () => ({
   components: { SfTopBar, SfButton, SfImage },
   template: `<SfTopBar>
@@ -79,7 +70,6 @@ export const SlotRight = () => ({
       </template>
     </SfTopBar>`,
 });
-
 SlotRight.story = {
   name: "[slot] right",
 };

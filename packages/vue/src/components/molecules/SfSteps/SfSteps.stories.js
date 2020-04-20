@@ -4,12 +4,10 @@ const StoriesPlaceholder = {
   props: ["name"],
   template: `<div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">[#default slot content] {{name}}</div>`,
 };
-
 export default {
   title: "Molecules|Steps",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfSteps, StoriesPlaceholder },
   props: {

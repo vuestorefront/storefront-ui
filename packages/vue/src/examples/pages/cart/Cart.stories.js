@@ -1,9 +1,7 @@
 import Cart from "./Cart";
-
 export default {
   title: "Pages|Cart",
 };
-
 export const Common = () => ({
   components: { Cart },
   mounted() {

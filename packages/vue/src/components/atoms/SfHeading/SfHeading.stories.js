@@ -6,12 +6,10 @@ import {
 } from "@storybook/addon-knobs";
 import SfHeading from "./SfHeading.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
-
 export default {
   title: "Atoms|Heading",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfHeading },
   props: {
@@ -44,7 +42,6 @@ export const Common = () => ({
       :title="title"
       :subtitle="subtitle"/>`,
 });
-
 export const SlotTitle = () => ({
   components: {
     SfHeading,
@@ -86,11 +83,9 @@ export const SlotTitle = () => ({
       </template>  
     </SfHeading>`,
 });
-
 SlotTitle.story = {
   name: "[slot] title",
 };
-
 export const SlotSubtitle = () => ({
   components: {
     SfHeading,
@@ -132,7 +127,6 @@ export const SlotSubtitle = () => ({
       </template>        
     </SfHeading>`,
 });
-
 SlotSubtitle.story = {
   name: "[slot] subtitle",
 };

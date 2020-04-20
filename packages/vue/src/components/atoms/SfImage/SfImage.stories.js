@@ -6,12 +6,10 @@ import {
   object,
 } from "@storybook/addon-knobs";
 import SfImage from "./SfImage.vue";
-
 export default {
   title: "Atoms|Image",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfImage },
   props: {
@@ -61,7 +59,6 @@ export const Common = () => ({
         :rootMargin="rootMargin"
         :threshold="threshold"/>`,
 });
-
 export const WithoutWidthAndHeight = () => ({
   components: { SfImage },
   props: {
@@ -104,11 +101,9 @@ export const WithoutWidthAndHeight = () => ({
         :threshold="threshold"
       />`,
 });
-
 WithoutWidthAndHeight.story = {
   name: "Without width and height",
 };
-
 export const SlotDefault = () => ({
   components: { SfImage },
   props: {
@@ -161,7 +156,6 @@ export const SlotDefault = () => ({
       CUSTOM OVERLAY CONTENT
     </SfImage>`,
 });
-
 SlotDefault.story = {
   name: "[slot] default",
 };

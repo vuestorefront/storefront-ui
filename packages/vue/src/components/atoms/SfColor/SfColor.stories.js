@@ -5,12 +5,10 @@ import {
   boolean,
 } from "@storybook/addon-knobs";
 import SfColor from "./SfColor.vue";
-
 export default {
   title: "Atoms|Color",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfColor },
   props: {

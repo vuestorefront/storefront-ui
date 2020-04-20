@@ -1,9 +1,7 @@
 import Category from "./Category";
-
 export default {
   title: "Pages|Category",
 };
-
 export const Common = () => ({
   components: { Category },
   mounted() {

@@ -5,7 +5,7 @@ import {
   boolean,
   object,
 } from "@storybook/addon-knobs";
-import SfHeader from "./SfHeader.vue";
+import { SfHeader } from "@storefront-ui/vue";
 const StoriesPlaceholder = {
   props: {
     mobile: {
@@ -27,12 +27,10 @@ const StoriesPlaceholder = {
   },
   template: `<div :style="style">[page content]</div>`,
 };
-
 export default {
   title: "Organisms|Header",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfHeader, StoriesPlaceholder },
   props: {
@@ -137,7 +135,6 @@ export const Common = () => ({
       <StoriesPlaceholder :mobile="isMobile"/>
     </div>`,
 });
-
 export const SlotNavigation = () => ({
   components: { SfHeader },
   props: {
@@ -233,11 +230,9 @@ export const SlotNavigation = () => ({
       </template>
     </SfHeader>`,
 });
-
 SlotNavigation.story = {
   name: "[slot] navigation",
 };
-
 export const SlotLogo = () => ({
   components: { SfHeader },
   props: {
@@ -340,11 +335,9 @@ export const SlotLogo = () => ({
       </template>
     </SfHeader>`,
 });
-
 SlotLogo.story = {
   name: "[slot] logo",
 };
-
 export const SlotSearch = () => ({
   components: { SfHeader },
   props: {
@@ -447,11 +440,9 @@ export const SlotSearch = () => ({
       </template>
     </SfHeader>`,
 });
-
 SlotSearch.story = {
   name: "[slot] search",
 };
-
 export const SlotHeaderIcons = () => ({
   components: { SfHeader },
   props: {
@@ -554,11 +545,9 @@ export const SlotHeaderIcons = () => ({
       </template>
     </SfHeader>`,
 });
-
 SlotHeaderIcons.story = {
   name: "[slot] header-icons",
 };
-
 export const SlotLanguageSelector = () => ({
   components: { SfHeader },
   props: {
@@ -655,7 +644,6 @@ export const SlotLanguageSelector = () => ({
       </template>
     </SfHeader>`,
 });
-
 SlotLanguageSelector.story = {
   name: "[slot] language-selector",
 };

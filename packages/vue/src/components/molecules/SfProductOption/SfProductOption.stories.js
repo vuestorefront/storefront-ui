@@ -1,11 +1,9 @@
 import { withKnobs, text } from "@storybook/addon-knobs";
 import SfProductOption from "./SfProductOption.vue";
-
 export default {
   title: "Molecules|ProductOption",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfProductOption },
   props: {
@@ -22,7 +20,6 @@ export const Common = () => ({
         :label="label"/>
     </div>`,
 });
-
 export const SlotColor = () => ({
   components: { SfProductOption },
   props: {
@@ -43,11 +40,9 @@ export const SlotColor = () => ({
       </SfProductOption>
     </div>`,
 });
-
 SlotColor.story = {
   name: "[slot] color",
 };
-
 export const SlotLabel = () => ({
   components: { SfProductOption },
   props: {
@@ -68,7 +63,6 @@ export const SlotLabel = () => ({
       </SfProductOption>
     </div>`,
 });
-
 SlotLabel.story = {
   name: "[slot] label",
 };

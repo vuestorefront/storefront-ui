@@ -1,9 +1,7 @@
 import Static from "./Static";
-
 export default {
   title: "Pages|Static",
 };
-
 export const Common = () => ({
   components: { Static },
   mounted() {

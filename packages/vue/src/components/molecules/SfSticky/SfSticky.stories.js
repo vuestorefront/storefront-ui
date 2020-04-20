@@ -15,11 +15,9 @@ const StoriesPlaceholder = {
       </div>`,
 };
 import SfSticky from "./SfSticky.vue";
-
 export default {
   title: "Molecules|Sticky",
 };
-
 export const Common = () => ({
   components: { SfSticky, StoriesWrapper, StoriesPlaceholder },
   template: `<StoriesWrapper>

@@ -1,13 +1,11 @@
-import SfCarousel from "./SfCarousel.vue";
+import { SfCarousel } from "@storefront-ui/vue";
 const StoriesPlaceholder = {
   props: ["index"],
   template: `<div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">{{index}}</div>`,
 };
-
 export default {
   title: "Organisms|Carousel",
 };
-
 export const Common = () => ({
   components: { SfCarousel, StoriesPlaceholder },
   template: `<SfCarousel
@@ -18,7 +16,6 @@ export const Common = () => ({
         </SfCarouselItem>
       </SfCarousel>`,
 });
-
 export const SlotNext = () => ({
   components: { SfCarousel, StoriesPlaceholder },
   template: `<SfCarousel
@@ -32,11 +29,9 @@ export const SlotNext = () => ({
       </SfCarouselItem>
     </SfCarousel>`,
 });
-
 SlotNext.story = {
   name: "[slot] next",
 };
-
 export const SlotPrev = () => ({
   components: { SfCarousel, StoriesPlaceholder },
   template: `<SfCarousel
@@ -50,7 +45,6 @@ export const SlotPrev = () => ({
       </SfCarouselItem>
     </SfCarousel>`,
 });
-
 SlotPrev.story = {
   name: "[slot] prev",
 };

@@ -5,14 +5,11 @@ import {
   boolean,
   object,
 } from "@storybook/addon-knobs";
-import SfGroupedProduct from "./SfGroupedProduct.vue";
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
-
+import { SfGroupedProduct, SfProperty } from "@storefront-ui/vue";
 export default {
   title: "Organisms|GroupedProduct",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfGroupedProduct, SfProperty },
   props: {
@@ -83,7 +80,6 @@ export const Common = () => ({
         </SfGroupedProductItem>
       </SfGroupedProduct>`,
 });
-
 export const MultipleProducts = () => ({
   components: { SfGroupedProduct, SfProperty },
   props: {
@@ -184,7 +180,6 @@ export const MultipleProducts = () => ({
       </SfGroupedProductItem>
     </SfGroupedProduct>`,
 });
-
 export const SlotDetails = () => ({
   components: { SfGroupedProduct },
   props: {
@@ -254,11 +249,9 @@ export const SlotDetails = () => ({
       </SfGroupedProductItem>
     </SfGroupedProduct>`,
 });
-
 SlotDetails.story = {
   name: "[slot] details",
 };
-
 export const SlotConfiguration = () => ({
   components: { SfGroupedProduct },
   props: {
@@ -328,11 +321,9 @@ export const SlotConfiguration = () => ({
       </SfGroupedProductItem>
     </SfGroupedProduct>`,
 });
-
 SlotConfiguration.story = {
   name: "[slot] configuration",
 };
-
 export const SlotImage = () => ({
   components: { SfGroupedProduct },
   props: {
@@ -402,11 +393,9 @@ export const SlotImage = () => ({
       </SfGroupedProductItem>
     </SfGroupedProduct>`,
 });
-
 SlotImage.story = {
   name: "[slot] image",
 };
-
 export const SlotInput = () => ({
   components: { SfGroupedProduct },
   props: {
@@ -478,11 +467,9 @@ export const SlotInput = () => ({
       </SfGroupedProductItem>
     </SfGroupedProduct>`,
 });
-
 SlotInput.story = {
   name: "[slot] input",
 };
-
 export const SlotTitle = () => ({
   components: { SfGroupedProduct },
   props: {
@@ -552,11 +539,9 @@ export const SlotTitle = () => ({
       </SfGroupedProductItem>
     </SfGroupedProduct>`,
 });
-
 SlotTitle.story = {
   name: "[slot] title",
 };
-
 export const SlotPrice = () => ({
   components: { SfGroupedProduct },
   props: {
@@ -626,7 +611,6 @@ export const SlotPrice = () => ({
       </SfGroupedProductItem>
     </SfGroupedProduct>`,
 });
-
 SlotPrice.story = {
   name: "[slot] price",
 };

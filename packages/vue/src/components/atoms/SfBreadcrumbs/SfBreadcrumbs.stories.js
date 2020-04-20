@@ -1,11 +1,9 @@
 import { withKnobs, object } from "@storybook/addon-knobs";
 import SfBreadcrumbs from "./SfBreadcrumbs.vue";
-
 export default {
   title: "Atoms|Breadcrumbs",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfBreadcrumbs },
   props: {
@@ -24,7 +22,6 @@ export const Common = () => ({
   template: `<SfBreadcrumbs
       :breadcrumbs="breadcrumbs" />`,
 });
-
 export const SlotLink = () => ({
   components: { SfBreadcrumbs },
   props: {
@@ -47,11 +44,9 @@ export const SlotLink = () => ({
       </template>
     </SfBreadcrumbs>`,
 });
-
 SlotLink.story = {
   name: "[slot] link",
 };
-
 export const SlotCurrent = () => ({
   components: { SfBreadcrumbs },
   props: {
@@ -74,7 +69,6 @@ export const SlotCurrent = () => ({
       </template>
     </SfBreadcrumbs>`,
 });
-
 SlotCurrent.story = {
   name: "[slot] current",
 };

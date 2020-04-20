@@ -4,12 +4,10 @@ import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
 import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
 import SfCharacteristic from "./SfCharacteristic.vue";
 const iconsNames = Object.keys(icons);
-
 export default {
   title: "Molecules|Characteristic",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfCharacteristic },
   props: {
@@ -40,7 +38,6 @@ export const Common = () => ({
       :size-icon="sizeIcon"
       :color-icon="colorIcon"/>`,
 });
-
 export const SlotIcon = () => ({
   components: { SfCharacteristic },
   props: {
@@ -75,11 +72,9 @@ export const SlotIcon = () => ({
       </template>
     </SfCharacteristic>`,
 });
-
 SlotIcon.story = {
   name: "[slot] icon",
 };
-
 export const SlotText = () => ({
   components: { SfCharacteristic },
   props: {
@@ -114,11 +109,9 @@ export const SlotText = () => ({
       </template>
     </SfCharacteristic>`,
 });
-
 SlotText.story = {
   name: "[slot] text",
 };
-
 export const SlotTitle = () => ({
   components: { SfCharacteristic },
   props: {
@@ -153,11 +146,9 @@ export const SlotTitle = () => ({
       </template>
     </SfCharacteristic>`,
 });
-
 SlotTitle.story = {
   name: "[slot] title",
 };
-
 export const SlotDescription = () => ({
   components: { SfCharacteristic },
   props: {
@@ -192,7 +183,6 @@ export const SlotDescription = () => ({
       </template>
     </SfCharacteristic>`,
 });
-
 SlotDescription.story = {
   name: "[slot] description",
 };

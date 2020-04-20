@@ -1,9 +1,11 @@
 import { withKnobs, text } from "@storybook/addon-knobs";
-import SfMegaMenu from "./SfMegaMenu.vue";
-import SfHeader from "../SfHeader/SfHeader.vue";
-import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
-import SfList from "../SfList/SfList.vue";
+import {
+  SfMegaMenu,
+  SfHeader,
+  SfMenuItem,
+  SfBanner,
+  SfList,
+} from "@storefront-ui/vue";
 const AsidePlaceholder = {
   components: { SfBanner },
   data() {
@@ -141,12 +143,10 @@ const MegaMenuPlaceholder = {
         </template>
       </SfMegaMenu>`,
 };
-
 export default {
   title: "Organisms|MegaMenu",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: {
     SfMegaMenu,
@@ -218,7 +218,6 @@ export const Common = () => ({
         </SfMegaMenuColumn>
       </SfMegaMenu>`,
 });
-
 export const SlotAside = () => ({
   components: {
     SfMegaMenu,
@@ -301,11 +300,9 @@ export const SlotAside = () => ({
         </template>
       </SfMegaMenu>`,
 });
-
 SlotAside.story = {
   name: "[slot] aside",
 };
-
 export const WithSfHeader = () => ({
   components: {
     SfHeader,
@@ -346,7 +343,6 @@ export const WithSfHeader = () => ({
         </template>
       </SfHeader>`,
 });
-
 WithSfHeader.story = {
   name: "With SfHeader",
 };

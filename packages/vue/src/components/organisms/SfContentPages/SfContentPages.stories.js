@@ -1,12 +1,9 @@
 import { withKnobs, text } from "@storybook/addon-knobs";
-import SfContentPages from "./SfContentPages.vue";
-import SfTabs from "../SfTabs/SfTabs.vue";
-
+import { SfContentPages, SfTabs } from "@storefront-ui/vue";
 export default {
   title: "Organisms|ContentPages",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfContentPages, SfTabs },
   props: {
@@ -74,7 +71,6 @@ export const Common = () => ({
       </SfContentPage>
       </SfContentPages>`,
 });
-
 export const WithCategory = () => ({
   components: { SfContentPages, SfTabs },
   props: {
@@ -149,7 +145,6 @@ export const WithCategory = () => ({
       </SfContentCategory>
     </SfContentPages>`,
 });
-
 export const Mixed = () => ({
   components: { SfContentPages, SfTabs },
   props: {
@@ -246,7 +241,6 @@ export const Mixed = () => ({
       </template>
     </SfContentPages>`,
 });
-
 export const WithIcon = () => ({
   components: { SfContentPages, SfTabs },
   props: {
@@ -317,7 +311,6 @@ export const WithIcon = () => ({
       </SfContentPage>
       </SfContentPages>`,
 });
-
 export const SlotMenuItem = () => ({
   components: { SfContentPages, SfTabs },
   props: {
@@ -388,7 +381,6 @@ export const SlotMenuItem = () => ({
       </SfContentPage>
     </SfContentPages>`,
 });
-
 SlotMenuItem.story = {
   name: "[slot] menu-item",
 };

@@ -4,12 +4,10 @@ import {
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfSearchBar from "./SfSearchBar.vue";
-
 export default {
   title: "Molecules|SearchBar",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfSearchBar },
   props: {
@@ -43,7 +41,6 @@ export const Common = () => ({
       :aria-label="ariaLabel"
       v-model="value"/>`,
 });
-
 export const SlotIcon = () => ({
   components: { SfSearchBar },
   props: {
@@ -79,11 +76,9 @@ export const SlotIcon = () => ({
       <template #icon>👀</template>
     </SfSearchBar>`,
 });
-
 SlotIcon.story = {
   name: "[slot] icon",
 };
-
 export const WithModifierNoIcon = () => ({
   components: { SfSearchBar },
   props: {
@@ -118,7 +113,6 @@ export const WithModifierNoIcon = () => ({
       v-model="value">
     </SfSearchBar>`,
 });
-
 WithModifierNoIcon.story = {
   name: "with modifier --no-icon",
 };

@@ -1,10 +1,8 @@
 import SfLoader from "./SfLoader.vue";
 import SfImage from "../SfImage/SfImage.vue";
-
 export default {
   title: "Atoms|Loader",
 };
-
 export const Common = () => ({
   components: {
     SfLoader,
@@ -27,7 +25,6 @@ export const Common = () => ({
       </SfLoader>
     </div>`,
 });
-
 export const SlotLoader = () => ({
   components: {
     SfLoader,
@@ -53,7 +50,6 @@ export const SlotLoader = () => ({
       </SfLoader>
     </div>`,
 });
-
 SlotLoader.story = {
   name: "[slot] loader",
 };

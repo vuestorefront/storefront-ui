@@ -4,12 +4,10 @@ import {
   visibilityToggleMixin,
   withVisibilityToggle,
 } from "../../../../config/storybook/decorators";
-
 export default {
   title: "Molecules|Modal",
   decorators: [withKnobs, withVisibilityToggle],
 };
-
 export const Common = () => ({
   components: { SfModal },
   props: {
@@ -43,7 +41,6 @@ export const Common = () => ({
         HELLO STOREFRONT UI!
       </SfModal>`,
 });
-
 export const SlotClose = () => ({
   components: { SfModal },
   props: {
@@ -80,7 +77,6 @@ export const SlotClose = () => ({
         </template>
       </SfModal>`,
 });
-
 SlotClose.story = {
   name: "[slot] close",
 };

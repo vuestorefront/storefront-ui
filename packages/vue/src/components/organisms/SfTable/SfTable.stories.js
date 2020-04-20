@@ -1,11 +1,9 @@
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
-import SfTable from "./SfTable.vue";
-
+import { SfTable } from "@storefront-ui/vue";
 export default {
   title: "Organisms/Table",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfTable },
   props: {

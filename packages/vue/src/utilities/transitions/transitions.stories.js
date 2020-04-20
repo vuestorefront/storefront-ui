@@ -1,9 +1,7 @@
 import SfButton from "./../../../src/components/atoms/SfButton/SfButton.vue";
-
 export default {
   title: "Utilities|Transitions",
 };
-
 export const FadeInOut = () => ({
   components: { SfButton },
   template: `
@@ -19,15 +17,12 @@ export const FadeInOut = () => ({
     show: false,
   }),
 });
-
 FadeInOut.story = {
   name: "fade in-out",
-
   parameters: {
     info: true,
   },
 };
-
 export const SlideLeft = () => ({
   components: { SfButton },
   template: `
@@ -43,15 +38,12 @@ export const SlideLeft = () => ({
     show: false,
   }),
 });
-
 SlideLeft.story = {
   name: "slide left",
-
   parameters: {
     info: true,
   },
 };
-
 export const SlideRight = () => ({
   components: { SfButton },
   template: `
@@ -67,15 +59,12 @@ export const SlideRight = () => ({
     show: false,
   }),
 });
-
 SlideRight.story = {
   name: "slide right",
-
   parameters: {
     info: true,
   },
 };
-
 export const CollapseTop = () => ({
   components: { SfButton },
   template: `
@@ -91,15 +80,12 @@ export const CollapseTop = () => ({
     show: false,
   }),
 });
-
 CollapseTop.story = {
   name: "collapse top",
-
   parameters: {
     info: true,
   },
 };
-
 export const CollapseBottom = () => ({
   components: { SfButton },
   template: `
@@ -115,15 +101,12 @@ export const CollapseBottom = () => ({
     show: false,
   }),
 });
-
 CollapseBottom.story = {
   name: "collapse bottom",
-
   parameters: {
     info: true,
   },
 };
-
 export const FadeInSlideOut = () => ({
   components: { SfButton },
   template: `
@@ -139,15 +122,12 @@ export const FadeInSlideOut = () => ({
     show: false,
   }),
 });
-
 FadeInSlideOut.story = {
   name: "fade in slide out",
-
   parameters: {
     info: true,
   },
 };
-
 export const FadeInCollapseOut = () => ({
   components: { SfButton },
   template: `
@@ -163,10 +143,8 @@ export const FadeInCollapseOut = () => ({
     show: false,
   }),
 });
-
 FadeInCollapseOut.story = {
   name: "fade in collapse out",
-
   parameters: {
     info: true,
   },

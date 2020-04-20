@@ -1,11 +1,9 @@
 import { withKnobs, number } from "@storybook/addon-knobs";
-import SfTabs from "./SfTabs.vue";
-
+import { SfTabs } from "@storefront-ui/vue";
 export default {
   title: "Organisms|Tabs",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfTabs },
   props: {

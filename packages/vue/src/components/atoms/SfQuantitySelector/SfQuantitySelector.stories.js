@@ -4,12 +4,10 @@ import {
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfQuantitySelector from "./SfQuantitySelector.vue";
-
 export default {
   title: "Atoms|QuantitySelector",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfQuantitySelector },
   data() {

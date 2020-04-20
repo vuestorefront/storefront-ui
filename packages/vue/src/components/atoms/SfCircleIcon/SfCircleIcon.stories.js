@@ -11,12 +11,10 @@ const iconsNames = Object.keys(icons);
 const StoriesPlaceholder = {
   template: `<span style="font-size: 1.5rem; width: 20px; height: 20px; line-height: 0; display: flex; justify-content: center; align-items: center">1</span>`,
 };
-
 export default {
   title: "Atoms|CircleIcon",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfCircleIcon },
   props: {
@@ -63,7 +61,6 @@ export const Common = () => ({
         :style="{margin: '.5rem'}"
      />`,
 });
-
 export const SlotDefault = () => ({
   components: { SfCircleIcon, StoriesPlaceholder },
   props: {
@@ -101,7 +98,6 @@ export const SlotDefault = () => ({
       <StoriesPlaceholder/>
     </SfCircleIcon>`,
 });
-
 SlotDefault.story = {
   name: "[slot] default",
 };

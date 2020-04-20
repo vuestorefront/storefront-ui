@@ -1,12 +1,10 @@
 import { withKnobs, text } from "@storybook/addon-knobs";
 import SfScrollable from "./SfScrollable.vue";
 import SfProductOption from "../SfProductOption/SfProductOption.vue";
-
 export default {
   title: "Molecules|Scrollable",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfScrollable, SfProductOption },
   props: {
@@ -64,7 +62,6 @@ export const Common = () => ({
           :style="{marginBottom: key < options.length - 1 ? '8px' : undefined}"/>
       </SfScrollable>`,
 });
-
 export const ContentHeightByCss = () => ({
   components: { SfScrollable, SfProductOption },
   props: {
@@ -118,7 +115,6 @@ export const ContentHeightByCss = () => ({
         :style="{marginBottom: key < options.length - 1 ? '8px' : undefined}"/>
     </SfScrollable>`,
 });
-
 ContentHeightByCss.story = {
   name: "Content height by CSS",
 };

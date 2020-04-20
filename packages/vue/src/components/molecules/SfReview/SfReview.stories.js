@@ -1,11 +1,9 @@
 import { withKnobs, text, number } from "@storybook/addon-knobs";
 import SfReview from "./SfReview.vue";
-
 export default {
   title: "Molecules|Review",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfReview },
   props: {
@@ -48,7 +46,6 @@ export const Common = () => ({
       :read-more-text="readMoreText"
       :hide-full-text="hideFullText" />`,
 });
-
 export const SlotIcon = () => ({
   components: { SfReview },
   props: {
@@ -95,11 +92,9 @@ export const SlotIcon = () => ({
       </template>  
     </SfReview>`,
 });
-
 SlotIcon.story = {
   name: "[slot] icon",
 };
-
 export const SlotAuthor = () => ({
   components: { SfReview },
   props: {
@@ -146,11 +141,9 @@ export const SlotAuthor = () => ({
       </template>  
     </SfReview>`,
 });
-
 SlotAuthor.story = {
   name: "[slot] author",
 };
-
 export const SlotInfo = () => ({
   components: { SfReview },
   props: {
@@ -197,11 +190,9 @@ export const SlotInfo = () => ({
       </template>  
     </SfReview>`,
 });
-
 SlotInfo.story = {
   name: "[slot] info",
 };
-
 export const SlotMessage = () => ({
   components: { SfReview },
   props: {
@@ -248,7 +239,6 @@ export const SlotMessage = () => ({
       </template>  
     </SfReview>`,
 });
-
 SlotMessage.story = {
   name: "[slot] message",
 };

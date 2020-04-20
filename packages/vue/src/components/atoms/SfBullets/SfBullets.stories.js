@@ -1,11 +1,9 @@
 import { withKnobs, number } from "@storybook/addon-knobs";
 import SfBullets from "./SfBullets.vue";
-
 export default {
   title: "Atoms|Bullets",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   props: {
     total: {
@@ -23,7 +21,6 @@ export const Common = () => ({
       :current="current"
       @click="value => current = value"/>`,
 });
-
 export const SlotActive = () => ({
   props: {
     total: {
@@ -45,11 +42,9 @@ export const SlotActive = () => ({
       </template>
     </SfBullets>`,
 });
-
 SlotActive.story = {
   name: "[slot] active",
 };
-
 export const SlotInactive = () => ({
   props: {
     total: {
@@ -71,7 +66,6 @@ export const SlotInactive = () => ({
       </template>
     </SfBullets>`,
 });
-
 SlotInactive.story = {
   name: "[slot] inactive",
 };

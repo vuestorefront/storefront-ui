@@ -5,14 +5,11 @@ import {
   select,
   object,
 } from "@storybook/addon-knobs";
-import SfStoreLocator from "./SfStoreLocator.vue";
-import SfImage from "../../atoms/SfImage/SfImage.vue";
-
+import { SfStoreLocator, SfImage } from "@storefront-ui/vue";
 export default {
   title: "Organisms|StoreLocator",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfStoreLocator },
   props: {
@@ -145,7 +142,6 @@ export const Common = () => ({
       </SfStoreLocator>
     </div>`,
 });
-
 export const PropsSfStore = () => ({
   components: { SfStoreLocator },
   props: {
@@ -218,11 +214,9 @@ export const PropsSfStore = () => ({
     </SfStoreLocator>
   </div>`,
 });
-
 PropsSfStore.story = {
   name: "[props] SfStore",
 };
-
 export const SlotDefault = () => ({
   components: { SfStoreLocator, SfImage },
   props: {
@@ -353,11 +347,9 @@ export const SlotDefault = () => ({
       </SfStoreLocator>
     </div>`,
 });
-
 SlotDefault.story = {
   name: "[slot] default",
 };
-
 export const SlotMarkerIcon = () => ({
   components: { SfStoreLocator },
   props: {
@@ -433,11 +425,9 @@ export const SlotMarkerIcon = () => ({
     </SfStoreLocator>
     </div>`,
 });
-
 SlotMarkerIcon.story = {
   name: "[slot] marker-icon",
 };
-
 export const SlotMapLoading = () => ({
   components: { SfStoreLocator },
   props: {
@@ -514,7 +504,6 @@ export const SlotMapLoading = () => ({
     </SfStoreLocator>
       </div>`,
 });
-
 SlotMapLoading.story = {
   name: "[slot] map-loading",
 };

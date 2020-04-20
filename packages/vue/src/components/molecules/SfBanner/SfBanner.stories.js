@@ -6,12 +6,10 @@ import {
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfBanner from "./SfBanner.vue";
-
 export default {
   title: "Molecules|Banner",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfBanner },
   props: {
@@ -68,7 +66,6 @@ export const Common = () => ({
       />
     </div>`,
 });
-
 export const SlotSubtitle = () => ({
   components: { SfBanner },
   props: {
@@ -128,11 +125,9 @@ export const SlotSubtitle = () => ({
       </SfBanner>
     </div>`,
 });
-
 SlotSubtitle.story = {
   name: "[slot] subtitle",
 };
-
 export const SlotTitle = () => ({
   components: { SfBanner },
   props: {
@@ -192,11 +187,9 @@ export const SlotTitle = () => ({
       </SfBanner>
     </div>`,
 });
-
 SlotTitle.story = {
   name: "[slot] title",
 };
-
 export const SlotDescription = () => ({
   components: { SfBanner },
   props: {
@@ -256,11 +249,9 @@ export const SlotDescription = () => ({
       </SfBanner>
     </div>`,
 });
-
 SlotDescription.story = {
   name: "[slot] description",
 };
-
 export const SlotCallToAction = () => ({
   components: { SfBanner },
   props: {
@@ -320,7 +311,6 @@ export const SlotCallToAction = () => ({
       </SfBanner>
     </div>`,
 });
-
 SlotCallToAction.story = {
   name: "[slot] call-to-action",
 };

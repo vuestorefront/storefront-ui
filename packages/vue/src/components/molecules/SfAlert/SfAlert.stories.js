@@ -1,11 +1,9 @@
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import SfAlert from "./SfAlert.vue";
-
 export default {
   title: "Molecules|Alert",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfAlert },
   props: {
@@ -26,7 +24,6 @@ export const Common = () => ({
       :type="type"
       />`,
 });
-
 export const SlotIcon = () => ({
   components: { SfAlert },
   props: {
@@ -50,11 +47,9 @@ export const SlotIcon = () => ({
       </template>  
     </SfAlert>`,
 });
-
 SlotIcon.story = {
   name: "[slot] icon",
 };
-
 export const SlotMessage = () => ({
   components: { SfAlert },
   props: {
@@ -78,7 +73,6 @@ export const SlotMessage = () => ({
       </template>  
     </SfAlert>`,
 });
-
 SlotMessage.story = {
   name: "[slot] message",
 };

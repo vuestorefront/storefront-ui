@@ -1,11 +1,9 @@
 import { withKnobs, boolean } from "@storybook/addon-knobs";
 import SfAddToCart from "./SfAddToCart.vue";
-
 export default {
   title: "Molecules|AddToCart",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfAddToCart },
   props: {
@@ -25,7 +23,6 @@ export const Common = () => ({
         @click="()=>{}"/>
       </div>`,
 });
-
 export const SlotAddToCartBtn = () => ({
   components: { SfAddToCart },
   props: {
@@ -42,19 +39,16 @@ export const SlotAddToCartBtn = () => ({
         <SfAddToCart
           v-model="qty"
           :disabled="disabled"
-          
-            >
+>
         <template #add-to-cart-btn>
         <button  @click="()=>{}">Custom Add To Cart</button>
       </template>
         </SfAddToCart>
       </div>`,
 });
-
 SlotAddToCartBtn.story = {
   name: "[slot] add-to-cart-btn",
 };
-
 export const SlotQuantitySelectInput = () => ({
   components: { SfAddToCart },
   props: {
@@ -81,7 +75,6 @@ export const SlotQuantitySelectInput = () => ({
         </SfAddToCart>
       </div>`,
 });
-
 SlotQuantitySelectInput.story = {
   name: "[slot] quantity-select-input",
 };

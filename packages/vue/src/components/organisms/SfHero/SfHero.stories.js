@@ -5,13 +5,11 @@ import {
   object,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfHero from "./SfHero.vue";
-
+import { SfHero } from "@storefront-ui/vue";
 export default {
   title: "Organisms|Hero",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfHero },
   props: {
@@ -78,7 +76,6 @@ export const Common = () => ({
       />
     </SfHero>`,
 });
-
 export const SlotPrev = () => ({
   components: { SfHero },
   props: {
@@ -148,11 +145,9 @@ export const SlotPrev = () => ({
       />
     </SfHero>`,
 });
-
 SlotPrev.story = {
   name: "[slot] prev",
 };
-
 export const SlotNext = () => ({
   components: { SfHero },
   props: {
@@ -222,11 +217,9 @@ export const SlotNext = () => ({
       />
     </SfHero>`,
 });
-
 SlotNext.story = {
   name: "[slot] next",
 };
-
 export const SlotBullets = () => ({
   components: { SfHero },
   props: {
@@ -296,11 +289,9 @@ export const SlotBullets = () => ({
       />
     </SfHero>`,
 });
-
 SlotBullets.story = {
   name: "[slot] bullets",
 };
-
 export const SlotSubtitle = () => ({
   components: { SfHero },
   props: {
@@ -364,11 +355,9 @@ export const SlotSubtitle = () => ({
       </SfHeroItem>
     </SfHero>`,
 });
-
 SlotSubtitle.story = {
   name: "[slot] subtitle",
 };
-
 export const SlotTitle = () => ({
   components: { SfHero },
   props: {
@@ -432,11 +421,9 @@ export const SlotTitle = () => ({
       </SfHeroItem>
     </SfHero>`,
 });
-
 SlotTitle.story = {
   name: "[slot] title",
 };
-
 export const SlotCallToAction = () => ({
   components: { SfHero },
   props: {
@@ -500,7 +487,6 @@ export const SlotCallToAction = () => ({
       </SfHeroItem>
     </SfHero>`,
 });
-
 SlotCallToAction.story = {
   name: "[slot] call-to-action",
 };

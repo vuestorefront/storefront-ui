@@ -1,13 +1,9 @@
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
-import SfAccordion from "./SfAccordion.vue";
-import SfList from "../SfList/SfList.vue";
-import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-
+import { SfAccordion, SfList, SfMenuItem } from "@storefront-ui/vue";
 export default {
   title: "Organisms|Accordion",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfAccordion, SfList, SfMenuItem },
   props: {
@@ -78,7 +74,6 @@ export const Common = () => ({
       </SfAccordionItem>
       </SfAccordion>`,
 });
-
 export const SlotHeader = () => ({
   components: { SfAccordion, SfList, SfMenuItem },
   props: {
@@ -153,7 +148,6 @@ export const SlotHeader = () => ({
       </SfAccordionItem>
     </SfAccordion>`,
 });
-
 SlotHeader.story = {
   name: "[slot] header",
 };

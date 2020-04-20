@@ -5,12 +5,10 @@ import {
   visibilityToggleMixin,
   withVisibilityToggle,
 } from "../../../../config/storybook/decorators";
-
 export default {
   title: "Molecules|Notification",
   decorators: [withKnobs, withVisibilityToggle],
 };
-
 export const Common = () => ({
   components: { SfNotification },
   props: {
@@ -47,7 +45,6 @@ export const Common = () => ({
         @click:close="visible = false"
       />`,
 });
-
 export const SlotIcon = () => ({
   components: { SfNotification, SfIcon },
   props: {
@@ -88,11 +85,9 @@ export const SlotIcon = () => ({
         </template>
       </SfNotification>`,
 });
-
 SlotIcon.story = {
   name: "[slot] icon",
 };
-
 export const SlotTitle = () => ({
   components: { SfNotification },
   props: {
@@ -132,11 +127,9 @@ export const SlotTitle = () => ({
         </template>
       </SfNotification>`,
 });
-
 SlotTitle.story = {
   name: "[slot] title",
 };
-
 export const SlotMessage = () => ({
   components: { SfNotification },
   props: {
@@ -177,11 +170,9 @@ export const SlotMessage = () => ({
         </template>
       </SfNotification>`,
 });
-
 SlotMessage.story = {
   name: "[slot] message",
 };
-
 export const SlotAction = () => ({
   components: { SfNotification },
   props: {
@@ -222,11 +213,9 @@ export const SlotAction = () => ({
         </template>
       </SfNotification>`,
 });
-
 SlotAction.story = {
   name: "[slot] action",
 };
-
 export const SlotClose = () => ({
   components: { SfNotification },
   props: {
@@ -267,7 +256,6 @@ export const SlotClose = () => ({
         </template>
       </SfNotification>`,
 });
-
 SlotClose.story = {
   name: "[slot] close",
 };

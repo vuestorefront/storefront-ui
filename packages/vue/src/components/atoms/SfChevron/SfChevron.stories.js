@@ -1,12 +1,10 @@
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import SfChevron from "./SfChevron.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
-
 export default {
   title: "Atoms|Chevron",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfChevron },
   props: {
@@ -27,7 +25,6 @@ export const Common = () => ({
   template: `<SfChevron
         :class="customClass" />`,
 });
-
 export const SlotDefault = () => ({
   components: {
     SfChevron,
@@ -53,7 +50,6 @@ export const SlotDefault = () => ({
         <SfIcon icon="chevron_down" size="xxs"/> 
       </SfChevron>`,
 });
-
 SlotDefault.story = {
   name: "[slot] default",
 };

@@ -19,12 +19,10 @@ const knobOptionsList = optionsList.reduce(
   (a, c) => ({ ...a, [c.label]: c.value }),
   {}
 );
-
 export default {
   title: "Molecules|Select",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfSelect, SfProductOption, SfInput },
   props: {
@@ -89,7 +87,6 @@ export const Common = () => ({
         </SfSelectOption>
       </SfSelect>`,
 });
-
 export const SlotLabel = () => ({
   components: { SfSelect, SfProductOption },
   props: {
@@ -148,11 +145,9 @@ export const SlotLabel = () => ({
       </SfSelect>
     </div>`,
 });
-
 SlotLabel.story = {
   name: "[slot] label",
 };
-
 export const SlotErrorMessage = () => ({
   components: { SfSelect, SfProductOption },
   props: {
@@ -211,11 +206,9 @@ export const SlotErrorMessage = () => ({
       </SfSelect>
     </div>`,
 });
-
 SlotErrorMessage.story = {
   name: "[slot] errorMessage",
 };
-
 export const SlotCancel = () => ({
   components: { SfSelect, SfProductOption },
   props: {
@@ -274,7 +267,6 @@ export const SlotCancel = () => ({
       </SfSelect>
     </div>`,
 });
-
 SlotCancel.story = {
   name: "[slot] cancel",
 };

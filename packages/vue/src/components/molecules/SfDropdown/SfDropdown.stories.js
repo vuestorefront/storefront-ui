@@ -3,16 +3,13 @@ import {
   text,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-
 import SfDropdown from "./SfDropdown.vue";
 import SfList from "../../organisms/SfList/SfList.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
-
 export default {
   title: "Molecules|Dropdown",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfDropdown, SfList, SfButton },
   props: {

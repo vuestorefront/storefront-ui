@@ -5,12 +5,10 @@ import {
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfRadio from "./SfRadio.vue";
-
 export default {
   title: "Molecules|Radio",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfRadio },
   props: {
@@ -65,7 +63,6 @@ export const Common = () => ({
        :required="required"
        v-model="checked"/>`,
 });
-
 export const SlotCheckmark = () => ({
   components: { SfRadio },
   props: {
@@ -125,11 +122,9 @@ export const SlotCheckmark = () => ({
        </template>
     </SfRadio>`,
 });
-
 SlotCheckmark.story = {
   name: "[slot] checkmark",
 };
-
 export const SlotLabel = () => ({
   components: { SfRadio },
   props: {
@@ -188,11 +183,9 @@ export const SlotLabel = () => ({
        </template>
     </SfRadio>`,
 });
-
 SlotLabel.story = {
   name: "[slot] label",
 };
-
 export const SlotDetails = () => ({
   components: { SfRadio },
   props: {
@@ -251,11 +244,9 @@ export const SlotDetails = () => ({
        </template>
     </SfRadio>`,
 });
-
 SlotDetails.story = {
   name: "[slot] details",
 };
-
 export const SlotDescription = () => ({
   components: { SfRadio },
   props: {
@@ -314,7 +305,6 @@ export const SlotDescription = () => ({
        </template>
     </SfRadio>`,
 });
-
 SlotDescription.story = {
   name: "[slot] description",
 };

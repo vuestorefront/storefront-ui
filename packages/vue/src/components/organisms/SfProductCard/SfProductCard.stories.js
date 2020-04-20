@@ -6,14 +6,12 @@ import {
   select,
   object,
 } from "@storybook/addon-knobs";
-import SfProductCard from "./SfProductCard.vue";
+import { SfProductCard } from "@storefront-ui/vue";
 import { colorsValues as colors } from "@storefront-ui/shared/variables/colors";
-
 export default {
   title: "Organisms|ProductCard",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfProductCard },
   props: {
@@ -112,7 +110,6 @@ export const Common = () => ({
         @click:reviews="alert('@click:reviews')"
     />`,
 });
-
 export const With2Pictures = () => ({
   components: { SfProductCard },
   props: {
@@ -225,11 +222,9 @@ export const With2Pictures = () => ({
         @click:reviews="alert('@click:reviews')"
     />`,
 });
-
 With2Pictures.story = {
   name: "With 2 pictures",
 };
-
 export const SlotImage = () => ({
   components: { SfProductCard },
   props: {
@@ -332,11 +327,9 @@ export const SlotImage = () => ({
       </template>
     </SfProductCard>`,
 });
-
 SlotImage.story = {
   name: "[slot] image",
 };
-
 export const SlotAddToCart = () => ({
   components: { SfProductCard },
   props: {
@@ -438,11 +431,9 @@ export const SlotAddToCart = () => ({
       </template>
     </SfProductCard>`,
 });
-
 SlotAddToCart.story = {
   name: "[slot] add-to-cart",
 };
-
 export const SlotTitle = () => ({
   components: { SfProductCard },
   props: {
@@ -544,11 +535,9 @@ export const SlotTitle = () => ({
       </template>
     </SfProductCard>`,
 });
-
 SlotTitle.story = {
   name: "[slot] title",
 };
-
 export const SlotWishlistIcon = () => ({
   components: { SfProductCard },
   props: {
@@ -650,11 +639,9 @@ export const SlotWishlistIcon = () => ({
       </template>
     </SfProductCard>`,
 });
-
 SlotWishlistIcon.story = {
   name: "[slot] wishlist-icon",
 };
-
 export const SlotPrice = () => ({
   components: { SfProductCard },
   props: {
@@ -756,11 +743,9 @@ export const SlotPrice = () => ({
       </template>
     </SfProductCard>`,
 });
-
 SlotPrice.story = {
   name: "[slot] price",
 };
-
 export const SlotReviews = () => ({
   components: { SfProductCard },
   props: {
@@ -862,7 +847,6 @@ export const SlotReviews = () => ({
       </template>
     </SfProductCard>`,
 });
-
 SlotReviews.story = {
   name: "[slot] reviews",
 };

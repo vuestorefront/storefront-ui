@@ -1,9 +1,7 @@
 import Login from "./Login.vue";
-
 export default {
   title: "Pages|Login & Sign in",
 };
-
 export const Common = () => ({
   components: { Login },
   mounted() {

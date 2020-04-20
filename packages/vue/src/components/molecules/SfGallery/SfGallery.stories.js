@@ -1,11 +1,9 @@
 import { withKnobs, object, number, boolean } from "@storybook/addon-knobs";
 import SfGallery from "./SfGallery.vue";
-
 export default {
   title: "Molecules|Gallery",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   components: { SfGallery },
   props: {

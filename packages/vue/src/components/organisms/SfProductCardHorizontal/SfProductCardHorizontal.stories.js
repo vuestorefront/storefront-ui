@@ -5,15 +5,15 @@ import {
   boolean,
   select,
 } from "@storybook/addon-knobs";
-import SfProductCardHorizontal from "./SfProductCardHorizontal.vue";
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
-
+import {
+  SfProductCardHorizontal,
+  SfProperty,
+  SfButton,
+} from "@storefront-ui/vue";
 export default {
   title: "Organisms|ProductCardHorizontal",
   decorators: [withKnobs],
 };
-
 export const Common = () => ({
   data() {
     return {
@@ -129,7 +129,6 @@ export const Common = () => ({
       </SfProductCardHorizontal>
     </div>`,
 });
-
 export const With2Pictures = () => ({
   props: {
     imageWidth: {
@@ -243,11 +242,9 @@ export const With2Pictures = () => ({
     </SfProductCardHorizontal>
     </div>`,
 });
-
 With2Pictures.story = {
   name: "With 2 pictures",
 };
-
 export const SlotConfiguration = () => ({
   props: {
     image: {
@@ -343,11 +340,9 @@ export const SlotConfiguration = () => ({
       </SfProductCardHorizontal>
     </div>`,
 });
-
 SlotConfiguration.story = {
   name: "[slot] configuration",
 };
-
 export const SlotActions = () => ({
   props: {
     image: {
@@ -443,7 +438,6 @@ export const SlotActions = () => ({
       </SfProductCardHorizontal>
     </div>`,
 });
-
 SlotActions.story = {
   name: "[slot] actions",
 };

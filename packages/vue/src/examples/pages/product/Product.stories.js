@@ -1,9 +1,7 @@
 import Product from "./Product";
-
 export default {
   title: "Pages|Product",
 };
-
 export const Common = () => ({
   components: { Product },
   mounted() {
