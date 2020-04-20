@@ -1,16 +1,20 @@
-import Vue from "vue";
-import { focusable, focusFirst, trap } from "./focus-trap/focus-trap.js";
+import { getFocusableChildrens, isFocusable, trap } from "./focus-trap/focus-trap.js";
+
 export const focusTrap = {
   bind(el) {
-    if (focusable(el).length > 0) {
-      focusFirst(focusable(el)[0]);
-    }
+    const focusableChildrenElements = getFocusableChildrens(el);
     el._keyHandler = function (e) {
-        trap(e, focusable(el));
+      if (e.key === "Tab") {
+        if (!isFocusable(e, focusableChildrenElements)) {
+          el._lastFocusedElement = e.target;
+        }
+      }
+      trap(e, focusableChildrenElements);
     };
     document.addEventListener("keydown", el._keyHandler);
   },
   unbind(el) {
+    if(el._lastFocusedElement) el._lastFocusedElement.focus()
     document.removeEventListener("keydown", el._keyHandler);
   },
 };
