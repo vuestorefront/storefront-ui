@@ -1,5 +1,3 @@
-import Vue from "vue";
-
 const focusableElements = [
   "a[href]",
   "button",
@@ -11,37 +9,38 @@ const focusableElements = [
   "select",
   "textarea",
 ];
-// const focusableElementsSuffix = () => {
-//     focusableElements.map(f => f += ':not([disabled])');
-// }
 
-export const focusable = (el) => {
-  return el.querySelectorAll(focusableElements);
+export const getFocusableChildrens = (el) => {
+  return el.querySelectorAll(focusableElements) || [];
 };
 
-export const focusFirst = (first) => {
-  Vue.nextTick(function () {
-    first.focus();
-  });
-};
+export const isFocusable = (e, focusableChildrenElements) => Array.from(focusableChildrenElements).some(
+    (el) => el === e.target
+  );
 
-export const trap = (e, focusable) => {
-  if (focusable.length < 2 && e.key === "Tab") {
+export const trap = (e, focusableChildrenElements) => {
+  if (!focusableChildrenElements.length || e.key !== "Tab") return;
+  if (!isFocusable(e, focusableChildrenElements)) {
+    e.preventDefault();
+    focusableChildrenElements[0].focus();
+  }
+  if (focusableChildrenElements.length === 1) {
     e.preventDefault();
     return;
   }
-  
-  const last = focusable.length - 1;
 
-  if (e.key === "Tab" && e.shiftKey === false && e.target === focusable[last]) {
+  const lastElementIndex = focusableChildrenElements.length - 1;
+  const isLastElement =
+    e.target === focusableChildrenElements[lastElementIndex];
+  const isFirstElement = e.target === focusableChildrenElements[0];
+
+  const isGoingForward = e.shiftKey === false;
+
+  if (isGoingForward && isLastElement) {
     e.preventDefault();
-    focusable[0].focus();
-  } else if (
-    e.key === "Tab" &&
-    e.shiftKey === true &&
-    e.target === focusable[0]
-  ) {
+    focusableChildrenElements[0].focus();
+  } else if (!isGoingForward && isFirstElement) {
     e.preventDefault();
-    focusable[last].focus();
+    focusableChildrenElements[lastElementIndex].focus();
   }
 };
