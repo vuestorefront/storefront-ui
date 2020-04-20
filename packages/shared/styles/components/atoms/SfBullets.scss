@@ -8,6 +8,8 @@
   background: var(--bullet-background, var(--c-gray));
   box-shadow: var(--bullet-box-shadow, none);
   cursor: pointer;
+  padding: 0;
+  border: 0;
   transition: transform 150ms linear, box-shadow 150ms linear;
   &:hover,
   &--active {

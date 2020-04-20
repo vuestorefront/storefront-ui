@@ -9,6 +9,7 @@
     <div class="sf-input__wrapper">
       <input
         :id="name"
+        v-focus
         v-bind="$attrs"
         :value="value"
         :required="required"
@@ -62,8 +63,12 @@
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfInput",
+  directives: {
+    focus,
+  },
   components: { SfIcon, SfButton },
   props: {
     /**
