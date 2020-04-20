@@ -8,7 +8,7 @@ export const focus = {
       el.focus();
     };
     window.addEventListener("mousedown", el._mouseHandler);
-    el.addEventListener("keyup", el._keyHandler);
+    el.addEventListener("keyup", el._keyHandler, true);
   },
   unbind(el) {
     window.removeEventListener("mousedown", el._mouseHandler);
