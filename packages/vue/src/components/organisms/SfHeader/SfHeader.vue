@@ -12,6 +12,8 @@
         <!--@slot Use this slot to replace logo with text or icon-->
         <slot name="logo" v-bind="{ logo, title }">
           <SfImage
+            tabindex="0"
+            v-focus
             v-if="logo"
             :src="logo"
             :alt="title"
@@ -75,12 +77,14 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
 export default {
   name: "SfHeader",
+  directives: { focus },
   components: {
     SfIcon,
     SfImage,
