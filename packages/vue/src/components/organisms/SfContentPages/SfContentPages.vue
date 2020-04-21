@@ -25,8 +25,6 @@
               <!-- @slot Custom menu-item markup -->
               <slot name="menu-item" v-bind="{ updatePage, page, active }">
                 <SfMenuItem
-                  v-focus
-                  tabindex="0"
                   :class="{ 'sf-menu-item--is-active': page.title === active }"
                   :label="page.title"
                   class="sf-content-pages__menu"
@@ -68,10 +66,8 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
-import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfContentPages",
-  directives: { focus },
   components: {
     SfList,
     SfMenuItem,
