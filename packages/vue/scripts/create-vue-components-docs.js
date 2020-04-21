@@ -781,11 +781,13 @@ function editVuepressConfigFiles(sfComponents) {
   let regExp = /([\s\S]+)\n(\s*)(\/\/\s*@components-docs-start.*[\s\S]*@components-docs-end)\n([\s\S]+)/g;
   let reResult = regExp.exec(contentConfigJs);
   if (!reResult || reResult.length !== 5) {
+    console.log(contentConfigJs);
     throw new Error("Error parsing VuePress config.js: Reg. Exp. mismatch");
   }
   // skip the components part (index 3) because we replace it entirely anyway
   let [, before, indent, , after] = reResult;
   // sfComponents.sort((a, b) => (a.sfComponentName > b.sfComponentName ? 1 : -1));
+
   function ComponentsGroup(title, children) {
     (this.title = title), (this.children = children);
   }
@@ -794,7 +796,7 @@ function editVuepressConfigFiles(sfComponents) {
   let organisms = new ComponentsGroup("Organisms", []);
   let components = [atoms, molecules, organisms];
   function componentsToString() {
-    return `{ \n${indent} title: ${this.title},\n${indent} children: [${this.children}]\n }`;
+    return `{ \n${indent} title: "${this.title}",\n${indent} children:  [\n ${this.children}]\n }`;
   }
   ComponentsGroup.prototype.toString = componentsToString;
   for (const { componentName, pathComponentVue } of sfComponents) {
@@ -804,22 +806,23 @@ function editVuepressConfigFiles(sfComponents) {
     console.log(atoms.children);
     switch (pathComponentVue.split("/")[0]) {
       case "atoms":
-        atoms.children.push(`["${path}", "${title}"]`, `\n${indent}`);
+        atoms.children.push(`\n${indent}["${path}", "${title}"]`);
         break;
       case "molecules":
-        molecules.children.push(`["${path}", "${title}"]`, `\n${indent}`);
+        molecules.children.push(`\n${indent}["${path}", "${title}"]`);
         break;
       case "organisms":
-        organisms.children.push(`["${path}", "${title}"]`, `\n${indent}`);
+        organisms.children.push(`\n${indent}["${path}", "${title}"]`);
         break;
       default:
         components.push(`["${path}", "${title}"]`);
     }
   }
-  let startTag = `\n${indent}// @components-docs-start (keep comment and indentation for auto-generated component docs)\n`;
-  let endTag = `\n${indent}// @components-docs-end\n`;
-  let formattedComponents = indent + components.join(`,\n${indent}`);
-  let newContent = before + startTag + formattedComponents + endTag + after;
+  let startTag = `\n// @components-docs-start (keep comment and indentation for auto-generated component docs)\n`;
+  let endTag = `// @components-docs-end\n`;
+  let formattedComponents =
+    indent + startTag + components.join(`,\n${indent}`) + endTag;
+  let newContent = before + formattedComponents + after;
   let pathVuepressConfig = pathInsideVuepressConfigRoot("config.js");
   fs.writeFileSync(pathVuepressConfig, newContent);
   /* enhanceApp.js */
@@ -840,6 +843,7 @@ function editVuepressConfigFiles(sfComponents) {
   [, beforeImports, , middle, indent, , after] = reResult;
   const importStatements = [];
   components = [];
+  console.log(components);
   for (const { sfComponentName, pathComponentVue } of sfComponents) {
     const importStatement = `import ${sfComponentName} from "../../src/components/${pathComponentVue}"`;
     importStatements.push(importStatement);
