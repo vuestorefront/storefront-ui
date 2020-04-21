@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-product-card-horizontal">
+  <div v-focus tabindex="0" class="sf-product-card-horizontal">
     <component
       :is="linkComponentTag"
       v-focus
