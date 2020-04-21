@@ -24,7 +24,7 @@ storiesOf("Molecules|Radio", module)
         default: text("label", "Pickup in the store", "Props"),
       },
       details: {
-        default: text("details", "Delivery from 4 to 6 business days", "Props")
+        default: text("details", "Delivery from 4 to 6 business days", "Props"),
       },
       description: {
         default: text(
@@ -78,7 +78,7 @@ storiesOf("Molecules|Radio", module)
         default: text("label", "Pickup in the store", "Props"),
       },
       details: {
-        default: text("details", "Delivery from 4 to 6 business days", "Props")
+        default: text("details", "Delivery from 4 to 6 business days", "Props"),
       },
       description: {
         default: text(
@@ -137,7 +137,7 @@ storiesOf("Molecules|Radio", module)
         default: text("label", "Pickup in the store", "Props"),
       },
       details: {
-        default: text("details", "Delivery from 4 to 6 business days", "Props")
+        default: text("details", "Delivery from 4 to 6 business days", "Props"),
       },
       description: {
         default: text(
@@ -189,37 +189,37 @@ storiesOf("Molecules|Radio", module)
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       label: {
-        default: text("label", "Pickup in the store", "Props")
+        default: text("label", "Pickup in the store", "Props"),
       },
       details: {
-        default: text("details", "Delivery from 4 to 6 business days", "Props")
+        default: text("details", "Delivery from 4 to 6 business days", "Props"),
       },
       description: {
         default: text(
           "description",
           "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
           "Props"
-        )
+        ),
       },
       name: {
-        default: text("name", "shipping", "Props")
+        default: text("name", "shipping", "Props"),
       },
       value: {
-        default: text("value", "store", "Props")
+        default: text("value", "store", "Props"),
       },
       disabled: {
-        default: boolean("disabled", false, "Props")
+        default: boolean("disabled", false, "Props"),
       },
       required: {
-        default: boolean("required", false, "Props")
-      }
+        default: boolean("required", false, "Props"),
+      },
     },
     data() {
       return {
-        checked: ""
+        checked: "",
       };
     },
     template: `<SfRadio 
@@ -235,7 +235,7 @@ storiesOf("Molecules|Radio", module)
        <template #details="{details}">
           CUSTOM DETAILS
        </template>
-    </SfRadio>`
+    </SfRadio>`,
   }))
   .add("[slot] description", () => ({
     components: { SfRadio },
@@ -253,7 +253,7 @@ storiesOf("Molecules|Radio", module)
         default: text("label", "Pickup in the store", "Props"),
       },
       details: {
-        default: text("details", "Delivery from 4 to 6 business days", "Props")
+        default: text("details", "Delivery from 4 to 6 business days", "Props"),
       },
       description: {
         default: text(
