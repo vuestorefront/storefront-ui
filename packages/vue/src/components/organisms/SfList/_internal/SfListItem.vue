@@ -1,5 +1,5 @@
 <template>
-  <li tabindex="0" class="sf-list__item">
+  <li v-focus tabindex="0" class="sf-list__item">
     <!-- @slot -->
     <slot />
   </li>
