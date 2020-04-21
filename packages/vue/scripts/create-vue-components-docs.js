@@ -781,13 +781,10 @@ function editVuepressConfigFiles(sfComponents) {
   let regExp = /([\s\S]+)\n(\s*)(\/\/\s*@components-docs-start.*[\s\S]*@components-docs-end)\n([\s\S]+)/g;
   let reResult = regExp.exec(contentConfigJs);
   if (!reResult || reResult.length !== 5) {
-    console.log(contentConfigJs);
     throw new Error("Error parsing VuePress config.js: Reg. Exp. mismatch");
   }
   // skip the components part (index 3) because we replace it entirely anyway
   let [, before, indent, , after] = reResult;
-  // sfComponents.sort((a, b) => (a.sfComponentName > b.sfComponentName ? 1 : -1));
-
   function ComponentsGroup(title, children) {
     (this.title = title), (this.children = children);
   }
@@ -803,7 +800,6 @@ function editVuepressConfigFiles(sfComponents) {
     const path = "/components/" + componentName;
     // put spaces between words for title
     const title = componentName.replace(/([A-Z])/g, " $1").trim();
-    console.log(atoms.children);
     switch (pathComponentVue.split("/")[0]) {
       case "atoms":
         atoms.children.push(`\n${indent}["${path}", "${title}"]`);
@@ -843,7 +839,6 @@ function editVuepressConfigFiles(sfComponents) {
   [, beforeImports, , middle, indent, , after] = reResult;
   const importStatements = [];
   components = [];
-  console.log(components);
   for (const { sfComponentName, pathComponentVue } of sfComponents) {
     const importStatement = `import ${sfComponentName} from "../../src/components/${pathComponentVue}"`;
     importStatements.push(importStatement);
