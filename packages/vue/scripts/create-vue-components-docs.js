@@ -61,7 +61,7 @@ function createVueComponentsDocs() {
     }
     const targetFilepath = path.join(
       pathTargetMdsRoot,
-      componentInfoFull.componentName + ".md"
+      componentInfoFull.componentName.toLowerCase() + ".md"
     );
     const success = saveResultMd(targetFilepath, resultMd);
     if (success) {
