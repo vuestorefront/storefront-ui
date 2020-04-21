@@ -1,6 +1,9 @@
 <template>
   <component
     :is="linkComponentTag"
+    v-focus
+    :tabIndex="disabled ? -1 : 0"
+    :class="{ 'sf-link--disabled': disabled }"
     :href="linkComponentTag === 'a' ? link : undefined"
     :to="link && linkComponentTag !== 'a' ? link : undefined"
     class="sf-link"
@@ -11,8 +14,11 @@
   </component>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
+
 export default {
   name: "SfLink",
+  directives: { focus },
   props: {
     /**
      * Tag link
@@ -27,6 +33,13 @@ export default {
     link: {
       type: [String, Object, Boolean],
       default: "",
+    },
+    /**
+     * Disabled link state
+     */
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {
