@@ -6,6 +6,7 @@
     class="sf-link"
     v-on="$listeners"
   >
+    <!-- @slot -->
     <slot />
   </component>
 </template>
@@ -13,12 +14,15 @@
 export default {
   name: "SfLink",
   props: {
+    /**
+     * Tag link
+     */
     linkTag: {
       type: String,
       default: "a",
     },
     /**
-     * Link to product page
+     * Page route
      */
     link: {
       type: [String, Object, Boolean],
@@ -28,14 +32,9 @@ export default {
   computed: {
     linkComponentTag() {
       let tag;
-      if (this.linkTag) {
-        return (tag = this.linkTag);
-      }
-      if (this.link) {
-        return typeof this.link === "object" || this.$router
-          ? (tag = "router-link")
-          : (tag = "nuxt-link");
-      }
+      this.linkTag && (tag = this.linkTag);
+      ((this.link && typeof this.link === "object") || this.$router) &&
+        (tag = "router-link"); // TODO set tag from config - 'router-link' or 'nuxt-link'
       return tag;
     },
   },
