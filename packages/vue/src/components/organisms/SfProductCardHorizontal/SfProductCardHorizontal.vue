@@ -80,6 +80,7 @@
               :score="scoreRating"
             />
             <a
+              v-focus
               v-if="reviewsCount"
               class="sf-product-card-horizontal__reviews-count"
               href="#"
