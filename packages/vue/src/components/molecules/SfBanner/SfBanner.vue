@@ -1,5 +1,5 @@
 <template>
-  <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
+  <section tabindex="0" v-focus class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
     <div class="sf-banner__container">
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
@@ -34,8 +34,10 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfBanner",
+  directives: { focus },
   components: {
     SfButton,
   },
