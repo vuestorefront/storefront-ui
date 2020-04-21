@@ -1,32 +1,33 @@
-import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, color } from "@storybook/addon-knobs";
-import SfCallToAction from "./SfCallToAction.vue";
-storiesOf("Molecules|CallToAction", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfCallToAction },
-    props: {
-      title: {
-        default: text("title", "Subscribe to Newsletters", "Props"),
-      },
-      description: {
-        default: text(
-          "description",
-          "Be aware of upcoming sales and events. Receive gifts and special offers!",
-          "Props"
-        ),
-      },
-      buttonText: {
-        default: text("buttonText", "Subscribe", "Props"),
-      },
-      image: {
-        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
-      },
-      background: {
-        default: color("background", "#e1e3e2", "Props"),
-      },
+import { SfCallToAction } from "@storefront-ui/vue";
+export default {
+  title: "Molecules|CallToAction",
+  decorators: [withKnobs],
+};
+export const Common = () => ({
+  components: { SfCallToAction },
+  props: {
+    title: {
+      default: text("title", "Subscribe to Newsletters", "Props"),
     },
-    template: `<div style="max-width: 1240px">
+    description: {
+      default: text(
+        "description",
+        "Be aware of upcoming sales and events. Receive gifts and special offers!",
+        "Props"
+      ),
+    },
+    buttonText: {
+      default: text("buttonText", "Subscribe", "Props"),
+    },
+    image: {
+      default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
+    },
+    background: {
+      default: color("background", "#e1e3e2", "Props"),
+    },
+  },
+  template: `<div style="max-width: 1240px">
       <SfCallToAction      
       :title="title"
       :description="description"
@@ -34,31 +35,31 @@ storiesOf("Molecules|CallToAction", module)
       :image="image"
       :background="background"/>
     </div>`,
-  }))
-  .add("[slot] title", () => ({
-    components: { SfCallToAction },
-    props: {
-      title: {
-        default: text("title", "Subscribe to Newsletters", "Props"),
-      },
-      description: {
-        default: text(
-          "description",
-          "Be aware of upcoming sales and events. Receive gifts and special offers!",
-          "Props"
-        ),
-      },
-      buttonText: {
-        default: text("buttonText", "Subscribe", "Props"),
-      },
-      image: {
-        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
-      },
-      background: {
-        default: color("background", "#e1e3e2", "Props"),
-      },
+});
+export const SlotTitle = () => ({
+  components: { SfCallToAction },
+  props: {
+    title: {
+      default: text("title", "Subscribe to Newsletters", "Props"),
     },
-    template: `<div style="max-width: 1240px">
+    description: {
+      default: text(
+        "description",
+        "Be aware of upcoming sales and events. Receive gifts and special offers!",
+        "Props"
+      ),
+    },
+    buttonText: {
+      default: text("buttonText", "Subscribe", "Props"),
+    },
+    image: {
+      default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
+    },
+    background: {
+      default: color("background", "#e1e3e2", "Props"),
+    },
+  },
+  template: `<div style="max-width: 1240px">
       <SfCallToAction      
       :title="title"
       :description="description"
@@ -70,31 +71,34 @@ storiesOf("Molecules|CallToAction", module)
          </template>
       </SfCallToAction>
     </div>`,
-  }))
-  .add("[slot] description", () => ({
-    components: { SfCallToAction },
-    props: {
-      title: {
-        default: text("title", "Subscribe to Newsletters", "Props"),
-      },
-      description: {
-        default: text(
-          "description",
-          "Be aware of upcoming sales and events. Receive gifts and special offers!",
-          "Props"
-        ),
-      },
-      buttonText: {
-        default: text("buttonText", "Subscribe", "Props"),
-      },
-      image: {
-        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
-      },
-      background: {
-        default: color("background", "#e1e3e2", "Props"),
-      },
+});
+SlotTitle.story = {
+  name: "[slot] title",
+};
+export const SlotDescription = () => ({
+  components: { SfCallToAction },
+  props: {
+    title: {
+      default: text("title", "Subscribe to Newsletters", "Props"),
     },
-    template: `<div style="max-width: 1240px">
+    description: {
+      default: text(
+        "description",
+        "Be aware of upcoming sales and events. Receive gifts and special offers!",
+        "Props"
+      ),
+    },
+    buttonText: {
+      default: text("buttonText", "Subscribe", "Props"),
+    },
+    image: {
+      default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
+    },
+    background: {
+      default: color("background", "#e1e3e2", "Props"),
+    },
+  },
+  template: `<div style="max-width: 1240px">
       <SfCallToAction      
       :title="title"
       :description="description"
@@ -106,31 +110,34 @@ storiesOf("Molecules|CallToAction", module)
          </template>
       </SfCallToAction>
     </div>`,
-  }))
-  .add("[slot] button", () => ({
-    components: { SfCallToAction },
-    props: {
-      title: {
-        default: text("title", "Subscribe to Newsletters", "Props"),
-      },
-      description: {
-        default: text(
-          "description",
-          "Be aware of upcoming sales and events. Receive gifts and special offers!",
-          "Props"
-        ),
-      },
-      buttonText: {
-        default: text("buttonText", "Subscribe", "Props"),
-      },
-      image: {
-        default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
-      },
-      background: {
-        default: color("background", "#e1e3e2", "Props"),
-      },
+});
+SlotDescription.story = {
+  name: "[slot] description",
+};
+export const SlotButton = () => ({
+  components: { SfCallToAction },
+  props: {
+    title: {
+      default: text("title", "Subscribe to Newsletters", "Props"),
     },
-    template: `<div style="max-width: 1240px">
+    description: {
+      default: text(
+        "description",
+        "Be aware of upcoming sales and events. Receive gifts and special offers!",
+        "Props"
+      ),
+    },
+    buttonText: {
+      default: text("buttonText", "Subscribe", "Props"),
+    },
+    image: {
+      default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
+    },
+    background: {
+      default: color("background", "#e1e3e2", "Props"),
+    },
+  },
+  template: `<div style="max-width: 1240px">
       <SfCallToAction      
       :title="title"
       :description="description"
@@ -142,4 +149,7 @@ storiesOf("Molecules|CallToAction", module)
          </template>
       </SfCallToAction>
     </div>`,
-  }));
+});
+SlotButton.story = {
+  name: "[slot] button",
+};
