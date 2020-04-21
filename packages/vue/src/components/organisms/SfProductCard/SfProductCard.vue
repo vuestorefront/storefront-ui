@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-product-card">
+  <div v-focus tabindex="0" class="sf-product-card">
     <component
       :is="linkComponentTag"
       v-focus
@@ -118,6 +118,7 @@
         />
         <a
           v-if="reviewsCount"
+          v-focus
           class="sf-product-card__reviews-count"
           href="#"
           @click="$emit('click:reviews')"
