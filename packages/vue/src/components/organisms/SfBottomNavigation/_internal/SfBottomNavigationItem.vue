@@ -1,7 +1,6 @@
 <template>
-  <div
+  <button
     v-focus
-    tabindex="0"
     class="sf-bottom-navigation-item"
     :class="{
       'sf-bottom-navigation-item--active': isActive,
@@ -35,7 +34,7 @@
         {{ label }}
       </div>
     </slot>
-  </div>
+  </button>
 </template>
 <script>
 import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
