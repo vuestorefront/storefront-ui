@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-chevron">
+  <div v-focus tabindex="0" class="sf-chevron">
     <!-- @slot Custom chevron markup -->
     <slot>
       <span class="sf-chevron__bar sf-chevron__bar--left"></span>
@@ -8,8 +8,12 @@
   </div>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfChevron",
+  directives: {
+    focus,
+  },
 };
 </script>
 <style lang="scss">

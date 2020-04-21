@@ -1,3 +1,4 @@
+import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
@@ -5,7 +6,7 @@ import {
   boolean,
   object,
 } from "@storybook/addon-knobs";
-import { SfHeader } from "@storefront-ui/vue";
+import SfHeader from "./SfHeader.vue";
 const StoriesPlaceholder = {
   props: {
     mobile: {
@@ -27,85 +28,86 @@ const StoriesPlaceholder = {
   },
   template: `<div :style="style">[page content]</div>`,
 };
-export default {
-  title: "Organisms|Header",
-  decorators: [withKnobs],
-};
-export const Common = () => ({
-  components: { SfHeader, StoriesPlaceholder },
-  props: {
-    title: {
-      default: text("title", "Storefront UI", "Props"),
+storiesOf("Organisms|Header", module)
+  .addDecorator(withKnobs)
+  .add("Common", () => ({
+    components: { SfHeader, StoriesPlaceholder },
+    props: {
+      title: {
+        default: text("title", "Storefront UI", "Props"),
+      },
+      logo: {
+        default: object(
+          "logo",
+          {
+            mobile: { url: "/assets/logo.svg" },
+            desktop: { url: "/assets/logo.svg" },
+          },
+          "Props"
+        ),
+      },
+      activeIcon: {
+        default: select(
+          "activeIcon",
+          ["", "account", "wishlist", "cart"],
+          "account",
+          "Props"
+        ),
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props"),
+      },
+      isSticky: {
+        default: boolean("isSticky", true, "Props"),
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props"),
+      },
+      cartIcon: {
+        default: text("cartIcon", "empty_cart", "Props"),
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props"),
+      },
+      accountIcon: {
+        default: text("accountIcon", "profile", "Props"),
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props"),
+      },
     },
-    logo: {
-      default: object(
-        "logo",
-        {
-          mobile: { url: "/assets/logo.svg" },
-          desktop: { url: "/assets/logo.svg" },
-        },
-        "Props"
-      ),
+    data() {
+      return {
+        isMobile: false,
+        navigation: ["women", "man", "kids"],
+        searchValue: "",
+      };
     },
-    activeIcon: {
-      default: select(
-        "activeIcon",
-        ["", "account", "wishlist", "cart"],
-        "account",
-        "Props"
-      ),
+    computed: {
+      spacer() {
+        return;
+      },
     },
-    hasMobileSearch: {
-      default: boolean("hasMobileSearch", false, "Props"),
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
-    isSticky: {
-      default: boolean("isSticky", true, "Props"),
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1023px)")
+        .removeListener(this.mobileHandler);
     },
-    searchPlaceholder: {
-      default: text("searchPlaceholder", "Search for items", "Props"),
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+      mobileHandler(event) {
+        this.isMobile = event.matches;
+      },
     },
-    cartIcon: {
-      default: text("cartIcon", "empty_cart", "Props"),
-    },
-    wishlistIcon: {
-      default: text("wishlistIcon", "heart", "Props"),
-    },
-    accountIcon: {
-      default: text("accountIcon", "profile", "Props"),
-    },
-    cartItemsQty: {
-      default: text("cartItemsQty", "0", "Props"),
-    },
-  },
-  data() {
-    return {
-      isMobile: false,
-      navigation: ["women", "man", "kids"],
-      searchValue: "",
-    };
-  },
-  computed: {
-    spacer() {
-      return;
-    },
-  },
-  mounted() {
-    this.isMobile =
-      Math.max(document.documentElement.clientWidth, window.innerWidth) < 1024;
-    window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
-  },
-  beforeDestroy() {
-    window.matchMedia("(max-width: 1024px)").removeListener(this.mobileHandler);
-  },
-  methods: {
-    alert(label) {
-      alert(label);
-    },
-    mobileHandler(event) {
-      this.isMobile = event.matches;
-    },
-  },
-  template: `<div>
+    template: `<div>
       <SfHeader
           :title="title"
           :logo="logo"
@@ -134,81 +136,84 @@ export const Common = () => ({
       </SfHeader>
       <StoriesPlaceholder :mobile="isMobile"/>
     </div>`,
-});
-export const SlotNavigation = () => ({
-  components: { SfHeader },
-  props: {
-    title: {
-      default: text("title", "Storefront UI", "Props"),
+  }))
+  .add("[slot] navigation", () => ({
+    components: { SfHeader },
+    props: {
+      title: {
+        default: text("title", "Storefront UI", "Props"),
+      },
+      logo: {
+        default: object(
+          "logo",
+          {
+            mobile: { url: "/assets/logo.svg" },
+            desktop: { url: "/assets/logo.svg" },
+          },
+          "Props"
+        ),
+      },
+      activeIcon: {
+        default: select(
+          "activeIcon",
+          ["", "account", "wishlist", "cart"],
+          "account",
+          "Props"
+        ),
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props"),
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props"),
+      },
+      cartIcon: {
+        default: text("cartIcon", "empty_cart", "Props"),
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props"),
+      },
+      accountIcon: {
+        default: text("accountIcon", "profile", "Props"),
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props"),
+      },
     },
-    logo: {
-      default: object(
-        "logo",
-        {
-          mobile: { url: "/assets/logo.svg" },
-          desktop: { url: "/assets/logo.svg" },
-        },
-        "Props"
-      ),
+    data() {
+      return {
+        isMobile: false,
+        navigation: ["women", "man", "kids"],
+        searchValue: "",
+      };
     },
-    activeIcon: {
-      default: select(
-        "activeIcon",
-        ["", "account", "wishlist", "cart"],
-        "account",
-        "Props"
-      ),
+    computed: {
+      spacer() {
+        return this.isMobile
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
+      },
     },
-    hasMobileSearch: {
-      default: boolean("hasMobileSearch", false, "Props"),
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
-    searchPlaceholder: {
-      default: text("searchPlaceholder", "Search for items", "Props"),
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1023px)")
+        .removeListener(this.mobileHandler);
     },
-    cartIcon: {
-      default: text("cartIcon", "empty_cart", "Props"),
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+      mobileHandler(event) {
+        this.isMobile = event.matches;
+      },
     },
-    wishlistIcon: {
-      default: text("wishlistIcon", "heart", "Props"),
-    },
-    accountIcon: {
-      default: text("accountIcon", "profile", "Props"),
-    },
-    cartItemsQty: {
-      default: text("cartItemsQty", "0", "Props"),
-    },
-  },
-  data() {
-    return {
-      isMobile: false,
-      navigation: ["women", "man", "kids"],
-      searchValue: "",
-    };
-  },
-  computed: {
-    spacer() {
-      return this.isMobile
-        ? { margin: "auto", padding: "0 1.25rem" }
-        : { margin: "auto", padding: "0 2.5rem" };
-    },
-  },
-  mounted() {
-    this.isMobile =
-      Math.max(document.documentElement.clientWidth, window.innerWidth) < 1024;
-    window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
-  },
-  beforeDestroy() {
-    window.matchMedia("(max-width: 1024px)").removeListener(this.mobileHandler);
-  },
-  methods: {
-    alert(label) {
-      alert(label);
-    },
-    mobileHandler(event) {
-      this.isMobile = event.matches;
-    },
-  },
-  template: `<SfHeader
+    template: `<SfHeader
         :title="title"
         :logo="logo"
         :active-icon="activeIcon"
@@ -229,84 +234,84 @@ export const SlotNavigation = () => ({
         <div :style="{margin: '0 0 0 1.25rem', display: 'flex', alignItems:'center', height: '100%'}">CUSTOM NAVIGATION</div>
       </template>
     </SfHeader>`,
-});
-SlotNavigation.story = {
-  name: "[slot] navigation",
-};
-export const SlotLogo = () => ({
-  components: { SfHeader },
-  props: {
-    title: {
-      default: text("title", "Storefront UI", "Props"),
+  }))
+  .add("[slot] logo", () => ({
+    components: { SfHeader },
+    props: {
+      title: {
+        default: text("title", "Storefront UI", "Props"),
+      },
+      logo: {
+        default: object(
+          "logo",
+          {
+            mobile: { url: "/assets/logo.svg" },
+            desktop: { url: "/assets/logo.svg" },
+          },
+          "Props"
+        ),
+      },
+      activeIcon: {
+        default: select(
+          "activeIcon",
+          ["", "account", "wishlist", "cart"],
+          "account",
+          "Props"
+        ),
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props"),
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props"),
+      },
+      cartIcon: {
+        default: text("cartIcon", "empty_cart", "Props"),
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props"),
+      },
+      accountIcon: {
+        default: text("accountIcon", "profile", "Props"),
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props"),
+      },
     },
-    logo: {
-      default: object(
-        "logo",
-        {
-          mobile: { url: "/assets/logo.svg" },
-          desktop: { url: "/assets/logo.svg" },
-        },
-        "Props"
-      ),
+    data() {
+      return {
+        isMobile: false,
+        navigation: ["women", "man", "kids"],
+        searchValue: "",
+      };
     },
-    activeIcon: {
-      default: select(
-        "activeIcon",
-        ["", "account", "wishlist", "cart"],
-        "account",
-        "Props"
-      ),
+    computed: {
+      spacer() {
+        return this.isMobile
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
+      },
     },
-    hasMobileSearch: {
-      default: boolean("hasMobileSearch", false, "Props"),
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
-    searchPlaceholder: {
-      default: text("searchPlaceholder", "Search for items", "Props"),
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1023px)")
+        .removeListener(this.mobileHandler);
     },
-    cartIcon: {
-      default: text("cartIcon", "empty_cart", "Props"),
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+      mobileHandler(event) {
+        this.isMobile = event.matches;
+      },
     },
-    wishlistIcon: {
-      default: text("wishlistIcon", "heart", "Props"),
-    },
-    accountIcon: {
-      default: text("accountIcon", "profile", "Props"),
-    },
-    cartItemsQty: {
-      default: text("cartItemsQty", "0", "Props"),
-    },
-  },
-  data() {
-    return {
-      isMobile: false,
-      navigation: ["women", "man", "kids"],
-      searchValue: "",
-    };
-  },
-  computed: {
-    spacer() {
-      return this.isMobile
-        ? { margin: "auto", padding: "0 1.25rem" }
-        : { margin: "auto", padding: "0 2.5rem" };
-    },
-  },
-  mounted() {
-    this.isMobile =
-      Math.max(document.documentElement.clientWidth, window.innerWidth) < 1024;
-    window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
-  },
-  beforeDestroy() {
-    window.matchMedia("(max-width: 1024px)").removeListener(this.mobileHandler);
-  },
-  methods: {
-    alert(label) {
-      alert(label);
-    },
-    mobileHandler(event) {
-      this.isMobile = event.matches;
-    },
-  },
-  template: `<SfHeader
+    template: `<SfHeader
         :title="title"
         :logo="logo"
         :active-icon="activeIcon"
@@ -334,84 +339,84 @@ export const SlotLogo = () => ({
         </SfHeaderNavigationItem>
       </template>
     </SfHeader>`,
-});
-SlotLogo.story = {
-  name: "[slot] logo",
-};
-export const SlotSearch = () => ({
-  components: { SfHeader },
-  props: {
-    title: {
-      default: text("title", "Storefront UI", "Props"),
+  }))
+  .add("[slot] search", () => ({
+    components: { SfHeader },
+    props: {
+      title: {
+        default: text("title", "Storefront UI", "Props"),
+      },
+      logo: {
+        default: object(
+          "logo",
+          {
+            mobile: { url: "/assets/logo.svg" },
+            desktop: { url: "/assets/logo.svg" },
+          },
+          "Props"
+        ),
+      },
+      activeIcon: {
+        default: select(
+          "activeIcon",
+          ["", "account", "wishlist", "cart"],
+          "account",
+          "Props"
+        ),
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props"),
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props"),
+      },
+      cartIcon: {
+        default: text("cartIcon", "empty_cart", "Props"),
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props"),
+      },
+      accountIcon: {
+        default: text("accountIcon", "profile", "Props"),
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props"),
+      },
     },
-    logo: {
-      default: object(
-        "logo",
-        {
-          mobile: { url: "/assets/logo.svg" },
-          desktop: { url: "/assets/logo.svg" },
-        },
-        "Props"
-      ),
+    data() {
+      return {
+        isMobile: false,
+        navigation: ["women", "man", "kids"],
+        searchValue: "",
+      };
     },
-    activeIcon: {
-      default: select(
-        "activeIcon",
-        ["", "account", "wishlist", "cart"],
-        "account",
-        "Props"
-      ),
+    computed: {
+      spacer() {
+        return this.isMobile
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
+      },
     },
-    hasMobileSearch: {
-      default: boolean("hasMobileSearch", false, "Props"),
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
-    searchPlaceholder: {
-      default: text("searchPlaceholder", "Search for items", "Props"),
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1023px)")
+        .removeListener(this.mobileHandler);
     },
-    cartIcon: {
-      default: text("cartIcon", "empty_cart", "Props"),
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+      mobileHandler(event) {
+        this.isMobile = event.matches;
+      },
     },
-    wishlistIcon: {
-      default: text("wishlistIcon", "heart", "Props"),
-    },
-    accountIcon: {
-      default: text("accountIcon", "profile", "Props"),
-    },
-    cartItemsQty: {
-      default: text("cartItemsQty", "0", "Props"),
-    },
-  },
-  data() {
-    return {
-      isMobile: false,
-      navigation: ["women", "man", "kids"],
-      searchValue: "",
-    };
-  },
-  computed: {
-    spacer() {
-      return this.isMobile
-        ? { margin: "auto", padding: "0 1.25rem" }
-        : { margin: "auto", padding: "0 2.5rem" };
-    },
-  },
-  mounted() {
-    this.isMobile =
-      Math.max(document.documentElement.clientWidth, window.innerWidth) < 1024;
-    window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
-  },
-  beforeDestroy() {
-    window.matchMedia("(max-width: 1024px)").removeListener(this.mobileHandler);
-  },
-  methods: {
-    alert(label) {
-      alert(label);
-    },
-    mobileHandler(event) {
-      this.isMobile = event.matches;
-    },
-  },
-  template: `<SfHeader
+    template: `<SfHeader
         :title="title"
         :logo="logo"
         :active-icon="activeIcon"
@@ -439,84 +444,84 @@ export const SlotSearch = () => ({
         </SfHeaderNavigationItem>
       </template>
     </SfHeader>`,
-});
-SlotSearch.story = {
-  name: "[slot] search",
-};
-export const SlotHeaderIcons = () => ({
-  components: { SfHeader },
-  props: {
-    title: {
-      default: text("title", "Storefront UI", "Props"),
+  }))
+  .add("[slot] header-icons", () => ({
+    components: { SfHeader },
+    props: {
+      title: {
+        default: text("title", "Storefront UI", "Props"),
+      },
+      logo: {
+        default: object(
+          "logo",
+          {
+            mobile: { url: "/assets/logo.svg" },
+            desktop: { url: "/assets/logo.svg" },
+          },
+          "Props"
+        ),
+      },
+      activeIcon: {
+        default: select(
+          "activeIcon",
+          ["", "account", "wishlist", "cart"],
+          "account",
+          "Props"
+        ),
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props"),
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props"),
+      },
+      cartIcon: {
+        default: text("cartIcon", "empty_cart", "Props"),
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props"),
+      },
+      accountIcon: {
+        default: text("accountIcon", "profile", "Props"),
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props"),
+      },
     },
-    logo: {
-      default: object(
-        "logo",
-        {
-          mobile: { url: "/assets/logo.svg" },
-          desktop: { url: "/assets/logo.svg" },
-        },
-        "Props"
-      ),
+    data() {
+      return {
+        isMobile: false,
+        navigation: ["women", "man", "kids"],
+        searchValue: "",
+      };
     },
-    activeIcon: {
-      default: select(
-        "activeIcon",
-        ["", "account", "wishlist", "cart"],
-        "account",
-        "Props"
-      ),
+    computed: {
+      spacer() {
+        return this.isMobile
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
+      },
     },
-    hasMobileSearch: {
-      default: boolean("hasMobileSearch", false, "Props"),
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
-    searchPlaceholder: {
-      default: text("searchPlaceholder", "Search for items", "Props"),
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1023px)")
+        .removeListener(this.mobileHandler);
     },
-    cartIcon: {
-      default: text("cartIcon", "empty_cart", "Props"),
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+      mobileHandler(event) {
+        this.isMobile = event.matches;
+      },
     },
-    wishlistIcon: {
-      default: text("wishlistIcon", "heart", "Props"),
-    },
-    accountIcon: {
-      default: text("accountIcon", "profile", "Props"),
-    },
-    cartItemsQty: {
-      default: text("cartItemsQty", "0", "Props"),
-    },
-  },
-  data() {
-    return {
-      isMobile: false,
-      navigation: ["women", "man", "kids"],
-      searchValue: "",
-    };
-  },
-  computed: {
-    spacer() {
-      return this.isMobile
-        ? { margin: "auto", padding: "0 1.25rem" }
-        : { margin: "auto", padding: "0 2.5rem" };
-    },
-  },
-  mounted() {
-    this.isMobile =
-      Math.max(document.documentElement.clientWidth, window.innerWidth) < 1024;
-    window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
-  },
-  beforeDestroy() {
-    window.matchMedia("(max-width: 1024px)").removeListener(this.mobileHandler);
-  },
-  methods: {
-    alert(label) {
-      alert(label);
-    },
-    mobileHandler(event) {
-      this.isMobile = event.matches;
-    },
-  },
-  template: `<SfHeader
+    template: `<SfHeader
         :title="title"
         :logo="logo"
         :active-icon="activeIcon"
@@ -544,84 +549,84 @@ export const SlotHeaderIcons = () => ({
         </SfHeaderNavigationItem>
       </template>
     </SfHeader>`,
-});
-SlotHeaderIcons.story = {
-  name: "[slot] header-icons",
-};
-export const SlotLanguageSelector = () => ({
-  components: { SfHeader },
-  props: {
-    title: {
-      default: text("title", "Storefront UI", "Props"),
+  }))
+  .add("[slot] language-selector", () => ({
+    components: { SfHeader },
+    props: {
+      title: {
+        default: text("title", "Storefront UI", "Props"),
+      },
+      logo: {
+        default: object(
+          "logo",
+          {
+            mobile: { url: "/assets/logo.svg" },
+            desktop: { url: "/assets/logo.svg" },
+          },
+          "Props"
+        ),
+      },
+      activeIcon: {
+        default: select(
+          "activeIcon",
+          ["", "account", "wishlist", "cart"],
+          "account",
+          "Props"
+        ),
+      },
+      hasMobileSearch: {
+        default: boolean("hasMobileSearch", false, "Props"),
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props"),
+      },
+      cartIcon: {
+        default: text("cartIcon", "empty_cart", "Props"),
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props"),
+      },
+      accountIcon: {
+        default: text("accountIcon", "profile", "Props"),
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props"),
+      },
     },
-    logo: {
-      default: object(
-        "logo",
-        {
-          mobile: { url: "/assets/logo.svg" },
-          desktop: { url: "/assets/logo.svg" },
-        },
-        "Props"
-      ),
+    data() {
+      return {
+        isMobile: false,
+        navigation: ["women", "man", "kids"],
+        searchValue: "",
+      };
     },
-    activeIcon: {
-      default: select(
-        "activeIcon",
-        ["", "account", "wishlist", "cart"],
-        "account",
-        "Props"
-      ),
+    computed: {
+      spacer() {
+        return this.isMobile
+          ? { margin: "auto", padding: "0 1.25rem" }
+          : { margin: "auto", padding: "0 2.5rem" };
+      },
     },
-    hasMobileSearch: {
-      default: boolean("hasMobileSearch", false, "Props"),
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
-    searchPlaceholder: {
-      default: text("searchPlaceholder", "Search for items", "Props"),
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1023px)")
+        .removeListener(this.mobileHandler);
     },
-    cartIcon: {
-      default: text("cartIcon", "empty_cart", "Props"),
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+      mobileHandler(event) {
+        this.isMobile = event.matches;
+      },
     },
-    wishlistIcon: {
-      default: text("wishlistIcon", "heart", "Props"),
-    },
-    accountIcon: {
-      default: text("accountIcon", "profile", "Props"),
-    },
-    cartItemsQty: {
-      default: text("cartItemsQty", "0", "Props"),
-    },
-  },
-  data() {
-    return {
-      isMobile: false,
-      navigation: ["women", "man", "kids"],
-      searchValue: "",
-    };
-  },
-  computed: {
-    spacer() {
-      return this.isMobile
-        ? { margin: "auto", padding: "0 1.25rem" }
-        : { margin: "auto", padding: "0 2.5rem" };
-    },
-  },
-  mounted() {
-    this.isMobile =
-      Math.max(document.documentElement.clientWidth, window.innerWidth) < 1024;
-    window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
-  },
-  beforeDestroy() {
-    window.matchMedia("(max-width: 1024px)").removeListener(this.mobileHandler);
-  },
-  methods: {
-    alert(label) {
-      alert(label);
-    },
-    mobileHandler(event) {
-      this.isMobile = event.matches;
-    },
-  },
-  template: `<SfHeader
+    template: `<SfHeader
         :title="title"
         :logo="logo"
         :active-icon="activeIcon"
@@ -643,7 +648,4 @@ export const SlotLanguageSelector = () => ({
         </SfHeaderNavigationItem>
       </template>
     </SfHeader>`,
-});
-SlotLanguageSelector.story = {
-  name: "[slot] language-selector",
-};
+  }));

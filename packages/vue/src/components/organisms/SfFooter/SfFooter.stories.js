@@ -1,79 +1,79 @@
+import { storiesOf } from "@storybook/vue";
 import { withKnobs, number, boolean } from "@storybook/addon-knobs";
-import {
-  SfFooter,
-  SfHeader,
-  SfList,
-  SfImage,
-  SfButton,
-  SfMenuItem,
-} from "@storefront-ui/vue";
-export default {
-  title: "Organisms|Footer",
-  decorators: [withKnobs],
-};
-export const Common = () => ({
-  components: {
-    SfFooter,
-    SfHeader,
-    SfList,
-    SfImage,
-    SfButton,
-    SfMenuItem,
-  },
-  props: {
-    column: {
-      default: number("column", 4, {}, "Props"),
+import SfFooter from "./SfFooter.vue";
+import SfHeader from "../SfHeader/SfHeader.vue";
+import SfList from "../SfList/SfList.vue";
+import SfImage from "../../atoms/SfImage/SfImage.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
+import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
+storiesOf("Organisms|Footer", module)
+  .addDecorator(withKnobs)
+  .add("Common", () => ({
+    components: {
+      SfFooter,
+      SfHeader,
+      SfList,
+      SfImage,
+      SfButton,
+      SfMenuItem,
     },
-    multiple: {
-      default: boolean("multiple", false, "Props"),
+    props: {
+      column: {
+        default: number("column", 4, {}, "Props"),
+      },
+      multiple: {
+        default: boolean("multiple", false, "Props"),
+      },
     },
-  },
-  data() {
-    return {
-      isMobile: false,
-      columns: [
-        {
-          title: "About us",
-          items: ["Who we are", "Quality in the details", "Customer Reviews"],
-        },
-        {
-          title: "Departments",
-          items: ["Women fashion", "Men fashion", "Kidswear", "Home"],
-        },
-        {
-          title: "Help",
-          items: ["Customer service", "Size guide", "Contact us"],
-        },
-        {
-          title: "Payment & delivery",
-          items: ["Purchase terms", "Guarantee"],
-        },
-        {
-          title: "Social",
-          pictures: ["facebook", "pinterest", "twitter", "youtube"],
-        },
-      ],
-    };
-  },
-  computed: {
-    itemSpacer() {
-      return this.isMobile ? { padding: "24px 32px" } : { padding: "16px 0" };
+    data() {
+      return {
+        isMobile: false,
+        columns: [
+          {
+            title: "About us",
+            items: ["Who we are", "Quality in the details", "Customer Reviews"],
+          },
+          {
+            title: "Departments",
+            items: ["Women fashion", "Men fashion", "Kidswear", "Home"],
+          },
+          {
+            title: "Help",
+            items: ["Customer service", "Size guide", "Contact us"],
+          },
+          {
+            title: "Payment & delivery",
+            items: ["Purchase terms", "Guarantee"],
+          },
+          {
+            title: "Social",
+            pictures: ["facebook", "pinterest", "twitter", "youtube"],
+          },
+        ],
+      };
     },
-  },
-  mounted() {
-    this.isMobile =
-      Math.max(document.documentElement.clientWidth, window.innerWidth) < 1024;
-    window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
-  },
-  beforeDestroy() {
-    window.matchMedia("(max-width: 1024px)").removeListener(this.mobileHandler);
-  },
-  methods: {
-    mobileHandler(event) {
-      this.isMobile = event.matches;
+    computed: {
+      itemSpacer() {
+        return this.isMobile ? { padding: "24px 32px" } : { padding: "16px 0" };
+      },
     },
-  },
-  template: `<SfFooter
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
+    },
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1023px)")
+        .removeListener(this.mobileHandler);
+    },
+    methods: {
+      mobileHandler(event) {
+        this.isMobile = event.matches;
+      },
+    },
+    template: `<SfFooter
         :column="column"
         :multiple="multiple"
       >
@@ -88,4 +88,4 @@ export const Common = () => ({
           </div>
         </SfFooterColumn>
       </SfFooter>`,
-});
+  }));

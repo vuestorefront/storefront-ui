@@ -14,7 +14,7 @@ export const Common = () => ({
       </template>
       <template #right>
         <div style="margin-right: 27px">Location:</div>
-        <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag"/>
+        <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag of the USA"/>
       </template>
     </SfTopBar>`,
 });
@@ -30,7 +30,7 @@ export const SlotLeft = () => ({
       </template>
       <template #right>
         <div style="margin-right: 27px">Location:</div>
-        <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag"/>
+        <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag of the USA"/>
       </template>
     </SfTopBar>`,
 });
@@ -48,7 +48,7 @@ export const SlotCenter = () => ({
       </template>
       <template #right>
         <div style="margin-right: 27px">Location:</div>
-        <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag"/>
+        <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag of the USA"/>
       </template>
     </SfTopBar>`,
 });
