@@ -1,4 +1,4 @@
-import SfCheckbox from "./src/components/atoms/SfCheckbox/SfCheckbox.vue";
+import SfCheckbox from "../../src/components/atoms/SfCheckbox/SfCheckbox.vue";
 
 /**
  * Add CSS styles to the component.

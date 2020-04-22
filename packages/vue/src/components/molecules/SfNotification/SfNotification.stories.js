@@ -5,7 +5,7 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import {
   visibilityToggleMixin,
   withVisibilityToggle,
-} from "@storefront-ui/vue/storiesDecorators";
+} from "@storefront-ui/vue/config/stories/decorators";
 storiesOf("Molecules|Notification", module)
   .addDecorator(withKnobs)
   .addDecorator(withVisibilityToggle)

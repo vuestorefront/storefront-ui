@@ -4,7 +4,7 @@ import SfModal from "./SfModal.vue";
 import {
   visibilityToggleMixin,
   withVisibilityToggle,
-} from "@storefront-ui/vue/storiesDecorators";
+} from "@storefront-ui/vue/config/stories/decorators";
 storiesOf("Molecules|Modal", module)
   .addDecorator(withKnobs)
   .addDecorator(withVisibilityToggle)
