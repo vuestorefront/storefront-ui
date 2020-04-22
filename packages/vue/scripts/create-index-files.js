@@ -34,11 +34,9 @@ function generateFilesContent() {
     "export {\n" +
     exports.join(",\n") +
     "\n};\n";
-  const contentJsJs = contentIndexJs.replace(/\.vue";/g, '.js";');
 
   return {
     contentIndexJs,
-    contentJsJs
   };
 }
 
