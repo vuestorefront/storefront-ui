@@ -2,10 +2,10 @@
   <component
     :is="linkComponentTag"
     v-focus
-    :tabIndex="disabled ? -1 : 0"
+    :tab-index="disabled ? -1 : 0"
     :class="{ 'sf-link--disabled': disabled }"
-    :href="linkComponentTag === 'a' ? link : undefined"
-    :to="link && linkComponentTag !== 'a' ? link : undefined"
+    :href="isExternal && link"
+    :to="isRouter && link"
     class="sf-link"
     v-on="$listeners"
   >
@@ -21,18 +21,11 @@ export default {
   directives: { focus },
   props: {
     /**
-     * Tag link
-     */
-    linkTag: {
-      type: String,
-      default: "a",
-    },
-    /**
      * Page route
      */
     link: {
       type: [String, Object, Boolean],
-      default: "",
+      default: null,
     },
     /**
      * Disabled link state
@@ -43,12 +36,16 @@ export default {
     },
   },
   computed: {
+    isExternal() {
+      return this.linkComponentTag === "a";
+    },
+    isRouter() {
+      return this.link && this.linkComponentTag !== "a";
+    },
     linkComponentTag() {
-      let tag;
-      this.linkTag && (tag = this.linkTag);
-      ((this.link && typeof this.link === "object") || this.$router) &&
-        (tag = "router-link"); // TODO set tag from config - 'router-link' or 'nuxt-link'
-      return tag;
+      return (this.link && typeof this.link === "object") || this.$router
+        ? "router-link" // TODO set tag from config - 'router-link' or 'nuxt-link'
+        : "a";
     },
   },
 };

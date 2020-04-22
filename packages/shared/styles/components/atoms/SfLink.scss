@@ -9,7 +9,7 @@
     1.4,
     var(--font-family-secondary)
   );
-  text-decoration: var(--link-text-decoration);
+  text-decoration: var(--link-text-decoration, underline);
   &--disabled {
     color: var(--link-color-disabled, var(--c-text-muted));
   }

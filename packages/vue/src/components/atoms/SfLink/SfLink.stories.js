@@ -9,13 +9,16 @@ storiesOf("Atoms|Link", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     props: {
-      propsName: {
-        default: text("propsName", "", "Props"),
+      link: {
+        default: text("link", "https://www.storefrontui.io/", "Props"),
       },
     },
     components: { SfLink },
     template: `<SfLink
-        :props-name="propsName"
-      />`,
+        target="_blank"
+        :link="link"
+      >
+      Check this out!
+      </SfLink>
+      `,
   }));
-
