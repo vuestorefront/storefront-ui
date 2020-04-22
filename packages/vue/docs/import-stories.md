@@ -25,6 +25,6 @@ req.keys().forEach(filename => stories.push(req(filename)))
 }
 configure(loadStories, module)
 ``` 
-- Get images from Storefront UI repositories and host it on `/assets/storybook`
+- Get images from Storefront UI repository and host it on `/assets/storybook`
 ## Others
 - What's happens when I have the same stories name? Ok, for example, you have stories "Atoms|Buttons" and Storefront UI has is too. If you add to Array Storefront UI stories after yours than at Storybook you see Storefront UI Button.
