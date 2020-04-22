@@ -4,7 +4,7 @@
       :disabled="disabled"
       class="sf-quantity-selector__button"
       @click="$emit('input', parseInt(qty, 10) - 1)"
-      >-</SfButton
+      >&minus;</SfButton
     >
     <SfInput
       type="number"
