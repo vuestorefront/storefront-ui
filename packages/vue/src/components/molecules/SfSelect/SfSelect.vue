@@ -17,7 +17,7 @@
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
-    v-clickOutside
+    v-clickOutside="closeHandler"
   >
     <div style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->

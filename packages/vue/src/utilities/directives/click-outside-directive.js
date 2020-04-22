@@ -1,6 +1,7 @@
+let outsideClickHandler;
 export const clickOutside = {
   bind(el, binding) {
-    let outsideClickHandler = (e) => {
+    outsideClickHandler = (e) => {
       e.stopPropagation();
       const callback = binding.value;
       if (!el.contains(e.target)) {
