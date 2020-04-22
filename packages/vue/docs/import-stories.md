@@ -7,19 +7,19 @@
 ## How to use
 - Open storybook config file, it can be `config.js` or `preview.js`
 - Use [manual loading](https://storybook.js.org/docs/basics/writing-stories/#loading-stories) to add Storefront UI stories to your Storybook. Here you got a basic config example:
-``` js
+``` javascript
 //import styles for storefront-ui components
-import ‚@storefront-ui/vue/styles.scss’
+import '@storefront-ui/vue/styles.scss'
 function loadStories () {
     const stories = []
     // require all stories from @storefront-ui
-    const sfui = require(‚@storefront-ui/vue/storiesOf.js’)
+    const sfui = require('@storefront-ui/vue/storiesOf.js')
     // or selected stories
-    const { SfButton, SfAccordion, … } = require(‚@storefront-ui/vue/storiesOf.js’)
+    const { SfButton, SfAccordion, … } = require('@storefront-ui/vue/storiesOf.js')
     // add it to Array
     Object.keys(sfui).forEach(fname => stories.push(sfui[fname]))
     // add yours stories
-    const req = require.context(‚../src’, true, /.stories.js$/)
+    const req = require.context('../src', true, /.stories.js$/)
 req.keys().forEach(filename => stories.push(req(filename)))
     return stories
 }
