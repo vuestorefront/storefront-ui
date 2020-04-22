@@ -13,7 +13,10 @@
       >
     </slot>
     <slot name="more-actions">
-      <button class="sf-collected-product__more-actions mobile-only">
+      <button
+        aria-label="More actions"
+        class="sf-collected-product__more-actions mobile-only"
+      >
         <SfIcon icon="more" />
       </button>
     </slot>
