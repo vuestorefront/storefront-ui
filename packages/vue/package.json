@@ -24,6 +24,8 @@
     "scripts/*",
     "src/*",
     "index.js",
+    "storiesDecorators.js",
+    "storiesOf.js",
     "styles.scss"
   ],
   "dependencies": {
