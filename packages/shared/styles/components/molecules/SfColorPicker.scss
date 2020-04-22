@@ -37,10 +37,10 @@
     text-align: center;
   }
   &__colors,
-  &__open {
+  &__button {
     opacity: var(--color-picker-opacity, 0.8);
   }
-  &__open {
+  &__button {
     width: var(--button-width, 100%);
     height: var(--button-height, 2.5rem);
     --button-padding: var(--spacer-xs) var(--spacer-sm);
@@ -48,16 +48,18 @@
     --button-text-transform: capitalize;
     width: 100%;
     padding: var(--color-picker-open-padding);
-    &--button {
-      transform-origin: var(--color-picker-open-button-transform-origin);
-      transform: var(--color-picker-open-button-transform);
-    }
+  }
+  &__button-open {
+    transform-origin: var(--color-picker-open-button-transform-origin);
+    transform: var(--color-picker-open-button-transform);
   }
   &__close {
     --icon-color: var(--c-white);
     --icon-size: 0.875rem;
+    --button-padding: 0;
+    --button-width: initial;
+    --button-background: transparent;
     margin: var(--color-picker-close-margin);
-    cursor: pointer;
   }
   &--active {
     --color-picker-colors-height: 100%;

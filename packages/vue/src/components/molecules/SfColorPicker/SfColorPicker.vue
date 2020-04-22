@@ -1,29 +1,39 @@
 <template>
   <div class="sf-color-picker" :class="{ 'sf-color-picker--active': isOpen }">
     <transition name="sf-color-picker" mode="out-in">
-      <div v-if="!isOpen" key="1" class="sf-color-picker__open">
-        <slot name="open">
+      <div
+        v-if="!isOpen"
+        key="color-picker-button"
+        class="sf-color-picker__button"
+      >
+        <!-- @slot Use this slot to replace open button. -->
+        <slot name="open" v-bind="{ toggle }">
           <SfButton
-            class="color-secondary sf-color-picker__open--button"
+            class="color-secondary sf-color-picker__button-open"
             @click="toggle"
             >+ Colors</SfButton
           >
         </slot>
       </div>
-      <div v-else key="2" class="sf-color-picker__colors">
-        <slot name="label">
+      <div v-else key="color-picker-colors" class="sf-color-picker__colors">
+        <!-- @slot Use this slot to replace label. -->
+
+        <slot name="label" v-bind="{ label }">
           <div v-if="label" class="sf-color-picker__label">{{ label }}</div>
         </slot>
+        <!-- @slot Use this slot to place content inside the color picker.-->
         <slot />
-        <slot name="close">
-          <SfIcon
-            v-if="closeIcon"
-            :icon="closeIcon"
-            role="button"
-            class="sf-color-picker__close"
-            :aria-pressed="!isOpen"
+        <!-- @slot Use this slot to replace close button. -->
+        <slot name="close" v-bind="{ close, toggle, isOpen }">
+          <SfButton
+            v-if="close"
+            class="sf-button--text sf-color-picker__close"
             @click="toggle"
-          />
+            aria-label="Close button"
+            :aria-pressed="!isOpen"
+          >
+            <SfIcon icon="cross" />
+          </SfButton>
         </slot>
       </div>
     </transition>
@@ -36,17 +46,26 @@ export default {
   name: "SfColorPicker",
   components: { SfIcon, SfButton },
   props: {
+    /**
+     * ColorPicker is open
+     */
     isOpen: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Label for ColorPicker
+     */
     label: {
       type: String,
       default: "",
     },
-    closeIcon: {
-      type: String,
-      default: "",
+    /**
+     * Close button state whether show it or not
+     */
+    close: {
+      type: Boolean,
+      default: true,
     },
   },
   methods: {
