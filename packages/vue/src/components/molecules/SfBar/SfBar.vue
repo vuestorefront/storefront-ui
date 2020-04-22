@@ -1,13 +1,16 @@
 <template>
   <div class="sf-bar">
     <slot name="back">
-        <button v-focus class="sf-bar__icon">
+        <button 
+          v-if="back" 
+          v-focus
+          aria-label="back"
+          class="sf-bar__icon"
+          @click="$emit('click:back')"
+        >
           <SfIcon
-            v-if="back"
             icon="chevron_left"
             size="14px"
-            aria-label="back"
-            @click="$emit('click:back')"
           />
         </button>
     </slot>
@@ -15,13 +18,16 @@
       <div class="sf-bar__title">{{ title }}</div>
     </slot>
     <slot name="close">
-        <button v-focus class="sf-bar__icon">
+        <button 
+          v-if="close" 
+          v-focus 
+          class="sf-bar__icon"
+          aria-label="close"
+          @click="$emit('click:close')"
+        >
           <SfIcon
-            v-if="close"
             icon="cross"
             size="14px"
-            aria-label="close"
-            @click="$emit('click:close')"
           />
         </button>
     </slot>
