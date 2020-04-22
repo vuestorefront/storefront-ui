@@ -27,4 +27,4 @@ configure(loadStories, module)
 ``` 
 - Get images from Storefront UI repository and host it on `/assets/storybook`
 ## Others
-- What's happens when I have the same stories name? Ok, for example, you have stories "Atoms|Buttons" and Storefront UI has is too. If you add to Array Storefront UI stories after yours than at Storybook you see Storefront UI Button.
+- What happens when I have the same name of stories as Storefront UI? For example: `Atoms|Buttons`. Then, you should keep in mind to add your stories after Storefront UI stories have been added to `array`. Otherwise, you will see Button from Storefront UI.
