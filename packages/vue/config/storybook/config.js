@@ -1,14 +1,23 @@
 import { configure, addDecorator, addParameters } from "@storybook/vue";
 import { withA11y } from "@storybook/addon-a11y";
 
-import theme from "./theme";
+// add storefront-ui root stylesheet to storybook
+import "@storefront-ui/vue/styles.scss";
+// get storefront-ui stories
+function loadStories() {
+  // get storefront-ui introduction page
+  const home = require("./home/home.stories.js");
+  const stories = [home];
 
-import "../../src/css/_all.scss";
+  //get all storefront-ui stories
+  const req = require.context("../../src/", true, /.stories.js$/);
+  req.keys().forEach((fname) => stories.push(req(fname)));
 
-const req = require.context("../../src/", true, /.stories.js$/);
+  return stories;
+}
 
-addDecorator(withA11y);
-
+// Storybook customization
+import theme from "./theme.js";
 addParameters({
   options: {
     brandTitle: "StorefrontUI",
@@ -18,10 +27,7 @@ addParameters({
     sortStoriesByKind: true,
   },
 });
-
-function loadStories() {
-  require("./home/home.js");
-  req.keys().forEach((filename) => req(filename));
-}
-
+// add a11y addon for all stories
+addDecorator(withA11y);
+// use Storefront UI stories
 configure(loadStories, module);
