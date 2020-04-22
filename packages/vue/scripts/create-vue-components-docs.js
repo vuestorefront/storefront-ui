@@ -897,10 +897,11 @@ This section is not fully documented yet. We are doing our best to make our docu
 }
 function getStorybookIFrameMarkup(storybookLink, storybookIFrameHeight) {
   let style = "width: 100%; border: 0; border-bottom: 1px solid #eee;";
+  let wrapperStyle = "max-width:740px;overflow: hidden;";  
   if (storybookIFrameHeight) {
     style += `height: ${storybookIFrameHeight}`;
   }
-  return `<iframe src="https://storybook.storefrontui.io/iframe.html?id=${storybookLink}" style="${style}"></iframe>`;
+  return `<div style="${wrapperStyle}"><iframe class="storybook-iframe" src="https://storybook.storefrontui.io/iframe.html?id=${storybookLink}" style="${style}"></iframe></div>`;
 }
 function getInternalComponentTemplate() {
   return `### [[internal-component-name]]
