@@ -13,11 +13,11 @@
     }"
     class="sf-select"
     @click="toggle($event)"
-    @blur="closeHandler"
     @keyup.space="openHandler"
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
+    v-clickOutside
   >
     <div style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->
@@ -62,6 +62,7 @@
   </div>
 </template>
 <script>
+import { clickOutside } from "../../../utilities/directives/click-outside-directive.js"
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
@@ -74,6 +75,9 @@ export default {
     SfButton,
     SfChevron,
     SfOverlay,
+  },
+  directives: {
+    clickOutside,
   },
   model: {
     prop: "selected",
