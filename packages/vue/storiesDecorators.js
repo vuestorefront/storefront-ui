@@ -1,4 +1,4 @@
-import SfCheckbox from "../../src/components/atoms/SfCheckbox/SfCheckbox.vue";
+import SfCheckbox from "./src/components/atoms/SfCheckbox/SfCheckbox.vue";
 
 /**
  * Add CSS styles to the component.
@@ -8,7 +8,7 @@ import SfCheckbox from "../../src/components/atoms/SfCheckbox/SfCheckbox.vue";
  */
 export function withCustomStyle(style = "") {
   return () => ({
-    template: `<story style="${style}" />`
+    template: `<story style="${style}" />`,
   });
 }
 
@@ -68,7 +68,7 @@ export function withContainer(htmlElement = "div", attributes = {}) {
     }
   }
   return () => ({
-    template: `<${htmlElement} ${attributesString}><story /></${htmlElement}>`
+    template: `<${htmlElement} ${attributesString}><story /></${htmlElement}>`,
   });
 }
 
@@ -107,14 +107,14 @@ export function withDataToggle(dataKey, eventName = "close") {
         },
         set(value) {
           this.checked = value ? [dataKey] : [];
-        }
-      }
+        },
+      },
     },
     data() {
       return {
-        checked: [dataKey]
+        checked: [dataKey],
       };
-    }
+    },
   });
 }
 
@@ -149,9 +149,9 @@ export function dataToggleMixin(dataKey, eventName = "close") {
         },
         set() {
           this.$emit(eventName);
-        }
-      }
-    }
+        },
+      },
+    },
   };
 }
 
