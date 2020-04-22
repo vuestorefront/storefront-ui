@@ -1,12 +1,13 @@
 <template>
   <div
-    aria-labelledby="Add to cart"
+    aria-labelledby="AddToCart"
     class="sf-add-to-cart"
     data-test="sf-add-to-card"
   >
     <slot name="add-to-cart-btn">
       <!--@slot Custom content that will replace default Add to cart button design.-->
       <SfButton
+        id="AddToCart"
         class="sf-add-to-cart__button"
         :disabled="disabled"
         v-on="$listeners"
