@@ -6,7 +6,7 @@ import {
   object,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfBanner from "./SfBanner.vue";
+import { SfBanner } from "@storefront-ui/vue";
 storiesOf("Molecules|Banner", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

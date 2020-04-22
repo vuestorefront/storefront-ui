@@ -1,7 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import SfNotification from "./SfNotification.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import { SfNotification, SfIcon } from "@storefront-ui/vue";
 import {
   visibilityToggleMixin,
   withVisibilityToggle,
