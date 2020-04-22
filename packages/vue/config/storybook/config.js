@@ -6,8 +6,7 @@ import "@storefront-ui/vue/styles.scss";
 // get storefront-ui stories
 function loadStories() {
   // get storefront-ui introduction page
-  const home = require("./home/home.stories.js");
-  const stories = [home];
+  const stories = [require("./home/home.stories.js")];
 
   //get all storefront-ui stories
   const req = require.context("../../src/", true, /.stories.js$/);
