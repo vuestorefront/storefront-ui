@@ -4,7 +4,6 @@
     :aria-owns="'lbox_' + _uid"
     aria-autocomplete="none"
     role="combobox"
-    tabindex="0"
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
@@ -14,12 +13,13 @@
     class="sf-select"
     @click="toggle($event)"
     @blur="closeHandler"
+    @keyup.esc="closeHandler"
     @keyup.space="openHandler"
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
   >
-    <div style="position: relative;">
+    <div v-focus tabindex="0" style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="sf-select__selected sf-select-option" v-html="html"></div>
       <slot name="label">
@@ -66,10 +66,12 @@ import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 import Vue from "vue";
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
+  directives: { focus },
   components: {
     SfButton,
     SfChevron,
