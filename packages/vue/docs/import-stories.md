@@ -6,7 +6,7 @@
 
 ## How to use
 - Open storybook config file, it can be `config.js` or `preview.js`
-- Use [manual loading](https://storybook.js.org/docs/basics/writing-stories/#loading-stories) to add Storefront UI stories to your Storybook. Here you got a basic config example:
+- Use [manual loading](https://storybook.js.org/docs/basics/writing-stories/#loading-stories) to add Storefront UI stories to your Storybook. Below, you can find a basic config example:
 ``` js
 //import styles for storefront-ui components
 import ‚@storefront-ui/vue/styles.scss’
