@@ -9,7 +9,7 @@ import {
 import {
   withDataToggle,
   dataToggleMixin,
-} from "@storefront-ui/vue/config/stories/decorators";
+} from "@storefront-ui/vue/config/storybook/decorators";
 import SfSidebar from "./SfSidebar.vue";
 storiesOf("Organisms|Sidebar", module)
   .addDecorator(withKnobs)
