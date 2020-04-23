@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.2...@storefront-ui/vue@0.7.3) (2020-04-23)
+
+
+### Bug Fixes
+
+* lozad props default state ([8084ef9](https://github.com/DivanteLtd/storefront-ui/commit/8084ef99fb94a5619869416925f66d905a1504ef))
+
+
+
+
+
 ## [0.7.2](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.1...@storefront-ui/vue@0.7.2) (2020-04-23)
 
 

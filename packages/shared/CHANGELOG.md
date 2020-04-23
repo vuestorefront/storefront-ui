@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.2...@storefront-ui/shared@0.7.3) (2020-04-23)
+
+
+### Bug Fixes
+
+* **styles:** gallery thumbs on mobile is hidden ([b657e7a](https://github.com/DivanteLtd/storefront-ui/commit/b657e7ab16aa7981ac213816bc3105528967ba36))
+
+
+
+
+
 ## [0.7.2](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.1...@storefront-ui/shared@0.7.2) (2020-04-23)
 
 
