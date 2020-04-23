@@ -32,7 +32,10 @@
       image="/assets/storybook/Home/newsletter.jpg"
     />
     <SfSection title-heading="Bestsellers">
-      <SfCarousel :settings="carouselSettings" class="carousel">
+      <SfCarousel 
+        :settings="isMobile ? { peek: 0 } : { peek: 16 }" 
+        class="carousel"
+      >
         <SfCarouselItem
           v-for="(product, index) in products"
           :key="index"
@@ -103,6 +106,10 @@ import {
   SfProductCard,
   SfImage,
 } from "@storefront-ui/vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../utilities/mobile-observer";
 export default {
   name: "Home",
   components: {
@@ -118,9 +125,6 @@ export default {
   },
   data() {
     return {
-      carouselSettings: {
-        peek: 16
-      },
       headingTitle: {
         mobile: "Match it with",
         desktop: "Bestsellers",
@@ -310,6 +314,12 @@ export default {
       ],
     };
   },
+  computed: {
+    ...mapMobileObserver(),
+  },
+  beforeDestroy() {
+    unMapMobileObserver();
+  },
   methods: {
     toggleWishlist(index) {
       return (this.products[index].isOnWishlist = !this.products[index]
@@ -335,7 +345,7 @@ export default {
     margin: 0;
   }
   &__item {
-    margin: var(--spacer-base) 0;
+    margin:  1.9375rem 0 2.4375rem 0;
   }
 }
 .banner-grid {
