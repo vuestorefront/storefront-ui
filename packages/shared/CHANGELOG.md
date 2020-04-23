@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.0...@storefront-ui/shared@0.7.1) (2020-04-10)
+
+
+### Features
+
+* **component:** SfDropdown ([#968](https://github.com/DivanteLtd/storefront-ui/issues/968)) ([2bf5831](https://github.com/DivanteLtd/storefront-ui/commit/2bf5831695ae3e0ed233c8a68fccb9b789dbdc12))
+
+
+
+
+
 # [0.7.0](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.6.4...@storefront-ui/shared@0.7.0) (2020-04-08)
 
 
