@@ -88,17 +88,17 @@ undefined | undefined | --font-black: 900
 
 **Spacers**
 
-Before | v0.6.0 | v0.7.0
+Before | v0.6.4 | v0.7.0
 ------------ | ------------ | -------------
-  --spacer-small: 0.25rem | undefined | --spacer-2xs: 0.25rem
-  --spacer: 0.5rem | --spacer-extra-small: 0.5rem | --spacer-xs: 0.5rem
-  --spacer-medium: 1rem | --spacer-small: 1rem | --spacer-sm: 1rem
-  --spacer-big: 1.25rem | undefined | undefined
-  undefined | --spacer-regular: 1.5rem | --spacer-base: 1.5rem
+ $spacer-small | --spacer-small: 0.25rem | --spacer-2xs: 0.25rem
+ $spacer | --spacer: 0.5rem | --spacer-xs: 0.5rem
+ $spacer-medium | --spacer-medium: 1rem | --spacer-sm: 1rem
+ $spacer-big | --spacer-big: 1.25rem | undefined
+  undefined | undefined | --spacer-base: 1.5rem
   undefined | undefined | --spacer-lg: 2rem
-  --spacer-extra-big: 2.5rem | --spacer-medium: 2.5rem | --spacer-xl: 2.5rem
-  undefined | --spacer-big: 5rem | --spacer-2xl: 5rem
-  undefined | --spacer-extra-big: 10rem | --spacer-3xl: 10rem
+ $spacer-extra-big | --spacer-extra-big: 2.5rem | --spacer-xl: 2.5rem
+  undefined | undefined | --spacer-2xl: 5rem
+  undefined | undefined | --spacer-3xl: 10rem
 
 - **Colors**
 
