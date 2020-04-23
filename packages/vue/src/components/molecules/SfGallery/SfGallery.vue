@@ -8,6 +8,7 @@
               v-for="(picture, index) in images"
               :key="'slide-' + index"
               class="glide__slide"
+              :style="{ width: `${imageWidth}px` }"
               @mouseover="startZoom(picture)"
               @mousemove="moveZoom($event, index)"
               @mouseout="removeZoom(index)"
