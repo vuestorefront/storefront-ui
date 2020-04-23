@@ -92,7 +92,7 @@ export default {
     SfLoader,
   },
   directives: {
-    focus
+    focus,
   },
   props: {
     /**
