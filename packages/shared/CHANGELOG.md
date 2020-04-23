@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.2](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.1...@storefront-ui/shared@0.7.2) (2020-04-23)
+
+
+### Bug Fixes
+
+* **a11y:** adjust semantic and add v-focus for SfStoreLocator ([#1044](https://github.com/DivanteLtd/storefront-ui/issues/1044)) ([8ab9c81](https://github.com/DivanteLtd/storefront-ui/commit/8ab9c8127df46058ca08c6048491d5137c0a5818))
+* **a11y:** button tag in SfBullets ([#1054](https://github.com/DivanteLtd/storefront-ui/issues/1054)) ([66080f5](https://github.com/DivanteLtd/storefront-ui/commit/66080f516ae443c95a43651264de9d4dc61deef7))
+* **a11y:** remove all outline:none ([#1050](https://github.com/DivanteLtd/storefront-ui/issues/1050)) ([688c193](https://github.com/DivanteLtd/storefront-ui/commit/688c193969ac48f23593471b292e4dc98453debf))
+* **a11y:** replace div to button ([#1024](https://github.com/DivanteLtd/storefront-ui/issues/1024)) ([3175d56](https://github.com/DivanteLtd/storefront-ui/commit/3175d560de33685a5dadb273a00bfaddc1525b65))
+* **a11y:** replace div to button on SfTabs ([#1036](https://github.com/DivanteLtd/storefront-ui/issues/1036)) ([f640225](https://github.com/DivanteLtd/storefront-ui/commit/f6402254a6f37bc77ee6bd1d5b53b6edc6709d87))
+* **styles:** css specificity for nested components ([4b25248](https://github.com/DivanteLtd/storefront-ui/commit/4b25248ec029cd63d565706c6a55ef7f435cbf44))
+* **styles:** thumbs width on SfGallery ([c99938c](https://github.com/DivanteLtd/storefront-ui/commit/c99938c98d7f7947443c5e8b7ea41ed33daa1d7a))
+* breakpoint for mobile/desktop ([#1038](https://github.com/DivanteLtd/storefront-ui/issues/1038)) ([c7884ea](https://github.com/DivanteLtd/storefront-ui/commit/c7884eaec165b1ded05b1fa5a4ed4b5f487f9598))
+* icon viewBox as rectangle ([#1034](https://github.com/DivanteLtd/storefront-ui/issues/1034)) ([13a4423](https://github.com/DivanteLtd/storefront-ui/commit/13a44236bfabf54a865d205087b0be9d542d5e84))
+
+
+### Features
+
+* details for SfRadio ([#1030](https://github.com/DivanteLtd/storefront-ui/issues/1030)) ([cd9667d](https://github.com/DivanteLtd/storefront-ui/commit/cd9667d6c25cffdb53caea919072dbe935471467))
+
+
+### Reverts
+
+* icon viewBox as rectangle ([#1034](https://github.com/DivanteLtd/storefront-ui/issues/1034)) ([8fd861c](https://github.com/DivanteLtd/storefront-ui/commit/8fd861c4300ca3bdb2031606be3e6e37d0b64d2f))
+
+
+
+
+
 ## [0.7.1](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.0...@storefront-ui/shared@0.7.1) (2020-04-10)
 
 

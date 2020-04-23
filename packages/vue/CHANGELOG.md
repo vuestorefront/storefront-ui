@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.2](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.1...@storefront-ui/vue@0.7.2) (2020-04-23)
+
+
+### Bug Fixes
+
+* **styles:** gallery size on Product example page ([8382a41](https://github.com/DivanteLtd/storefront-ui/commit/8382a41d7ad4ab151e20e0ec1528ed9f57b4fc88))
+* downgrade vuepress ([d4a117d](https://github.com/DivanteLtd/storefront-ui/commit/d4a117dc4150b15fb01599b353d7f5f6da752934))
+* minus sign in SfQuantitySelector ([#1098](https://github.com/DivanteLtd/storefront-ui/issues/1098)) ([98bf75a](https://github.com/DivanteLtd/storefront-ui/commit/98bf75ad3bfb30574af72370929b37fb37cf41df))
+* **a11y:** add v-focus to Atoms ([#1075](https://github.com/DivanteLtd/storefront-ui/issues/1075)) ([236c99f](https://github.com/DivanteLtd/storefront-ui/commit/236c99fb1b2a4f29b49b01cd4d506b1cdb58fc49))
+* **a11y:** adjust semantic and add v-focus for SfStoreLocator ([#1044](https://github.com/DivanteLtd/storefront-ui/issues/1044)) ([8ab9c81](https://github.com/DivanteLtd/storefront-ui/commit/8ab9c8127df46058ca08c6048491d5137c0a5818))
+* **a11y:** aria-hidde for SfIcons ([#1063](https://github.com/DivanteLtd/storefront-ui/issues/1063)) ([f0cdbf4](https://github.com/DivanteLtd/storefront-ui/commit/f0cdbf4a2ac84458e97b72a656508e4923d65c49))
+* **a11y:** button tag in SfBullets ([#1054](https://github.com/DivanteLtd/storefront-ui/issues/1054)) ([66080f5](https://github.com/DivanteLtd/storefront-ui/commit/66080f516ae443c95a43651264de9d4dc61deef7))
+* **a11y:** improvements on SfTopBar stories ([#1064](https://github.com/DivanteLtd/storefront-ui/issues/1064)) ([046bd7f](https://github.com/DivanteLtd/storefront-ui/commit/046bd7f00be89af13adf405226de2213d029f5e7))
+* **a11y:** replace div to button ([#1024](https://github.com/DivanteLtd/storefront-ui/issues/1024)) ([3175d56](https://github.com/DivanteLtd/storefront-ui/commit/3175d560de33685a5dadb273a00bfaddc1525b65))
+* **a11y:** replace div to button on SfTabs ([#1036](https://github.com/DivanteLtd/storefront-ui/issues/1036)) ([f640225](https://github.com/DivanteLtd/storefront-ui/commit/f6402254a6f37bc77ee6bd1d5b53b6edc6709d87))
+* **a11y:** semantic of SfLoader ([#1049](https://github.com/DivanteLtd/storefront-ui/issues/1049)) ([f1050c8](https://github.com/DivanteLtd/storefront-ui/commit/f1050c8064ae9fc1a63e722e875bd08674bae909))
+* **docs:** vuepress links on production ([a445513](https://github.com/DivanteLtd/storefront-ui/commit/a4455133c0c29265457173a838b5a656c64832d4))
+* breakpoint for mobile/desktop ([#1038](https://github.com/DivanteLtd/storefront-ui/issues/1038)) ([c7884ea](https://github.com/DivanteLtd/storefront-ui/commit/c7884eaec165b1ded05b1fa5a4ed4b5f487f9598))
+* icon viewBox as rectangle ([#1034](https://github.com/DivanteLtd/storefront-ui/issues/1034)) ([13a4423](https://github.com/DivanteLtd/storefront-ui/commit/13a44236bfabf54a865d205087b0be9d542d5e84))
+* reactivity on SfSearch in SfHeader ([#1033](https://github.com/DivanteLtd/storefront-ui/issues/1033)) ([c654eda](https://github.com/DivanteLtd/storefront-ui/commit/c654edab32065734aa5a836e5dcd6c4235afe6ca))
+* remove unnecessary blur from v-focus ([#1072](https://github.com/DivanteLtd/storefront-ui/issues/1072)) ([2d94763](https://github.com/DivanteLtd/storefront-ui/commit/2d947637090134a734fec624722a794d5d3da662))
+
+
+### Features
+
+* add rootMargin and threshold for lozad ([#1057](https://github.com/DivanteLtd/storefront-ui/issues/1057)) ([6958b23](https://github.com/DivanteLtd/storefront-ui/commit/6958b232b4220ad9947f304f9bed47cee8fe4dcd))
+* details for SfRadio ([#1030](https://github.com/DivanteLtd/storefront-ui/issues/1030)) ([cd9667d](https://github.com/DivanteLtd/storefront-ui/commit/cd9667d6c25cffdb53caea919072dbe935471467))
+* view icons for mobile on Category ([#1041](https://github.com/DivanteLtd/storefront-ui/issues/1041)) ([677ee84](https://github.com/DivanteLtd/storefront-ui/commit/677ee846aba4776d28068d2e532eae46f6129010))
+
+
+
+
+
 ## [0.7.1](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.0...@storefront-ui/vue@0.7.1) (2020-04-10)
 
 
