@@ -1,10 +1,7 @@
 const focusableElements = [
   "a[href]",
-  "button",
   "button:not([disabled])",
-  "[tabindex]",
   "[tabindex]:not([disabled])",
-  "input",
   "input:not([disabled])",
   "select",
   "textarea",
