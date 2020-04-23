@@ -8,6 +8,7 @@
     }"
   >
     <input
+      tabindex="-1"
       :id="name"
       type="checkbox"
       :name="name"
@@ -23,6 +24,8 @@
         <div
           v-focus
           tabindex="0"
+          :aria-label="name + isChecked"
+          @keyup.space="checkCheckmark"
           class="sf-checkbox__checkmark"
           :class="{ 'sf-checkbox__checkmark--is-active': isChecked }"
         >
@@ -104,6 +107,9 @@ export default {
         this.$emit("change", selected);
       }
     },
+    checkCheckmark() {
+      this.inputHandler()
+    }
   },
 };
 </script>
