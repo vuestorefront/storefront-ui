@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, number } from "@storybook/addon-knobs";
-import SfFilter from "./SfFilter.vue";
+import { SfFilter } from "@storefront-ui/vue";
 storiesOf("Molecules|Filter", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

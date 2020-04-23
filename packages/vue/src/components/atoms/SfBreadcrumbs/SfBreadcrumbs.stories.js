@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, object } from "@storybook/addon-knobs";
-import SfBreadcrumbs from "./SfBreadcrumbs.vue";
+import { SfBreadcrumbs } from "@storefront-ui/vue";
 storiesOf("Atoms|Breadcrumbs", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

@@ -1,10 +1,12 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
-import SfMegaMenu from "./SfMegaMenu.vue";
-import SfHeader from "../SfHeader/SfHeader.vue";
-import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
-import SfList from "../SfList/SfList.vue";
+import {
+  SfMegaMenu,
+  SfHeader,
+  SfMenuItem,
+  SfBanner,
+  SfList,
+} from "@storefront-ui/vue";
 const AsidePlaceholder = {
   components: { SfBanner },
   data() {
