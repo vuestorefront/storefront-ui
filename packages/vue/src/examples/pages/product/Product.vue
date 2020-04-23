@@ -5,7 +5,7 @@
       :breadcrumbs="breadcrumbs"
     />
     <div class="product">
-      <SfGallery :images="product.images" />
+      <SfGallery :images="product.images" class="product__gallery" />
       <div class="product__info">
         <div class="product__header">
           <SfHeading
@@ -464,6 +464,9 @@ export default {
     &__paragraph {
       margin: 0;
     }
+  }
+  &__gallery {
+    flex: 1;
   }
 }
 .breadcrumbs {
