@@ -1,16 +1,65 @@
 <template>
   <div>
-    <SfHeader :isSticky="true" @click:cart="open = true"></SfHeader>
+    <SfHeader v-if="false" :isSticky="true" @click:cart="open = true"></SfHeader>
       <nuxt />
-    <SfFooter></SfFooter>
+    <SfFooter v-if="false"></SfFooter>
+    <SfBottomNavigation class="mobile-only">
+      <SfBottomNavigationItem
+          v-for="(item, key) in items"
+          :key="key"
+          :icon="item.icon"
+          :icon-active="item.iconActive"
+          :label="item.label"
+          icon-size="17px"
+          :is-active="currentIcon === item.iconActive"
+          @click="currentIcon = item.iconActive"
+      />
+      <SfBottomNavigationItem
+          label="Basket"
+          icon="add_to_cart"
+      >
+        <template #icon>
+          <SfCircleIcon aria-label="Add to cart">
+            <SfIcon
+                icon="add_to_cart"
+                color="white"
+                size="25px"
+                :style="{margin: '0 0 0 -2px'}"
+            />
+          </SfCircleIcon>
+        </template>
+      </SfBottomNavigationItem>
+    </SfBottomNavigation>
     <Cart v-if="false"/>
   </div>
 </template>
 <script>
-  import {SfHeader, SfFooter} from "@storefront-ui/vue"
+  import {SfHeader, SfFooter, SfBottomNavigation } from "@storefront-ui/vue"
   import Cart from "@storefront-ui/vue/src/examples/pages/cart/Cart.vue"
   export default {
     components: {SfHeader, SfFooter, Cart},
+    items: [
+      {
+        icon: "home",
+        iconActive: "",
+        label: "Home"
+      },
+      {
+        icon: "menu",
+        iconActive: "",
+        label: "Menu"
+      },
+      {
+        icon: "heart",
+        iconActive: "heart_fill",
+        label: "Heart"
+      },
+      {
+        icon: "profile",
+        iconActive: "profile_fill",
+        label: "Profile"
+      }
+    ]
   }
 </script>
 <style lang="scss">
