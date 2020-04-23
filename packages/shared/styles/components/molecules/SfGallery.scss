@@ -15,6 +15,7 @@
   }
   &__item {
     display: flex;
+    flex: 0 0 var(--gallery-thumb-width, 10rem);
     margin: var(--gallery-item-margin, 0 var(--spacer-xs) 0 0);
     &:last-child {
       --gallery-item-margin: 0;
