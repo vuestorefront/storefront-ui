@@ -10,7 +10,7 @@ const focusableElements = [
   "textarea",
 ];
 
-export const getFocusableChildrens = (el) => {
+export const getFocusableChildren = (el) => {
   return el.querySelectorAll(focusableElements) || [];
 };
 
