@@ -9,11 +9,8 @@
       >
         <template v-if="last !== i">
           <!-- @slot Custom markup for previous pages (binds `breadcrumb` object) -->
-          <slot name="link" v-bind="{ breadcrumb, go }">
-            <SfLink
-              :link="breadcrumb.route.link"
-              class="sf-breadcrumbs__breadcrumb"
-              @click="go(breadcrumb)"
+          <slot name="link" v-bind="{ breadcrumb }">
+            <SfLink :link="breadcrumb.link" class="sf-breadcrumbs__breadcrumb"
               >{{ breadcrumb.text }}
             </SfLink>
           </slot>
@@ -21,11 +18,9 @@
         <template v-else>
           <!-- @slot Custom markup for current page (binds `breadcrumb` object) -->
           <slot name="current" v-bind="{ breadcrumb }">
-            <a
-              v-focus
-              tabindex="0"
+            <SfLink
               class="sf-breadcrumbs__breadcrumb sf-breadcrumbs__breadcrumb--current"
-              >{{ breadcrumb.text }}</a
+              >{{ breadcrumb.text }}</SfLink
             >
           </slot>
         </template>
@@ -56,15 +51,6 @@ export default {
   computed: {
     last() {
       return this.breadcrumbs.length - 1;
-    },
-  },
-  methods: {
-    go(breadcrumb) {
-      /**
-       * Event for breadcrumb click, passes `breadcrumb.route` as value
-       * @type {Event}
-       */
-      this.$emit("click", breadcrumb.route);
     },
   },
 };

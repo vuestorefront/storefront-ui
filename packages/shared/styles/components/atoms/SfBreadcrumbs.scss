@@ -28,8 +28,11 @@
     );
     --link-color: var(--c-text-muted);
     --link-text-decoration: none;
+    &:hover {
+      --link-color: var(--c-text);
+    }
     &--current {
-      --breadcrumbs-breadcrumb-color: var(--c-text);
+      --link-color: var(--c-text);
       cursor: default;
     }
   }
