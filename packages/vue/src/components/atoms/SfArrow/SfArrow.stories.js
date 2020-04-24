@@ -28,7 +28,7 @@ storiesOf("Atoms|Arrow", module)
           { display: "multi-select" },
           "CSS Modifiers"
         ),
-      }
+      },
     },
     template: `<SfArrow
       :class="customClass" 

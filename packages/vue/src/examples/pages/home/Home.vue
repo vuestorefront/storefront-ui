@@ -83,7 +83,10 @@
           <SfButton class="app-banner__button" aria-label="Go to Apple Product">
             <SfImage src="/assets/storybook/Home/apple.png" />
           </SfButton>
-          <SfButton class="app-banner__button" aria-label="Go to Google Product">
+          <SfButton
+            class="app-banner__button"
+            aria-label="Go to Google Product"
+          >
             <SfImage src="/assets/storybook/Home/google.png" />
           </SfButton>
         </div>
