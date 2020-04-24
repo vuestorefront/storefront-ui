@@ -16,13 +16,13 @@ export default {
   props: {
     name: {
       type: String,
-      default: ""
+      default: "",
     },
     value: {
       type: [String, Number],
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 <style lang="scss">

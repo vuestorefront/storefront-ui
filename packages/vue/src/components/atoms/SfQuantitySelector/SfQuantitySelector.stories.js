@@ -1,18 +1,17 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  optionsKnob as options
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfQuantitySelector from "./SfQuantitySelector.vue";
+import { SfQuantitySelector } from "@storefront-ui/vue";
 storiesOf("Atoms|QuantitySelector", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfQuantitySelector },
     data() {
       return {
-        value: 1
+        value: 1,
       };
     },
     props: {
@@ -20,16 +19,17 @@ storiesOf("Atoms|QuantitySelector", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-quantity-selector--secondary": "sf-quantity-selector--secondary"
+            "sf-quantity-selector--secondary":
+              "sf-quantity-selector--secondary",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       ariaLabel: {
-        default: text("ariaLabel", "Quantity", "Props")
-      }
+        default: text("ariaLabel", "Quantity", "Props"),
+      },
     },
     template: `<div style="max-width: 375px">
         <SfQuantitySelector
@@ -37,5 +37,5 @@ storiesOf("Atoms|QuantitySelector", module)
           :class="customClass"
           :aria-label="ariaLabel"
         />
-      </div>`
+      </div>`,
   }));

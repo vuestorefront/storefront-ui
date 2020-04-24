@@ -3,9 +3,9 @@ import {
   withKnobs,
   text,
   optionsKnob as options,
-  boolean
+  boolean,
 } from "@storybook/addon-knobs";
-import SfColor from "./SfColor.vue";
+import { SfColor } from "@storefront-ui/vue";
 storiesOf("Atoms|Color", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -17,17 +17,17 @@ storiesOf("Atoms|Color", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-color--rounded": "sf-color--rounded"
+            "sf-color--rounded": "sf-color--rounded",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
-      }
+        ),
+      },
     },
     data() {
       return {
-        selected: true
+        selected: true,
       };
     },
     template: `<SfColor 
@@ -37,5 +37,5 @@ storiesOf("Atoms|Color", module)
           aria-label="color"  
           style="margin: 10px;"
           :class="customClass"
-          @click="selected = !selected"/>`
+          @click="selected = !selected"/>`,
   }));

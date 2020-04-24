@@ -16,7 +16,7 @@ Join us in [Our Discord Server](https://discord.gg/GS8hqFS). Then let's have a c
 
 <Team/>
 
-And of course, without these awesome [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) commiting their time, there won't be Storefront UI :heart:.
+And of course, without these awesome [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) committing their time, there won't be Storefront UI :heart:.
 
 ## Become a maintainer?
 

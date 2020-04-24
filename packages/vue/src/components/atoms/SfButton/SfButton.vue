@@ -1,5 +1,6 @@
 <template>
   <button
+    v-focus
     class="sf-button"
     v-bind="$attrs"
     :disabled="disabled"
@@ -10,17 +11,21 @@
   </button>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfButton",
+  directives: {
+    focus,
+  },
   props: {
     /**
      * Native button disabled attribute
      */
     disabled: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 <style lang="scss">

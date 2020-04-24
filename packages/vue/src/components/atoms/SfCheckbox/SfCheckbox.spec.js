@@ -9,8 +9,8 @@ describe("SfCheckbox.vue", () => {
     const msg = "HelloWorld";
     const component = shallowMount(SfCheckbox, {
       propsData: {
-        label: msg
-      }
+        label: msg,
+      },
     });
     expect(component.find(".sf-checkbox__label").text()).toMatch(msg);
   });

@@ -14,7 +14,7 @@
         <div
           class="sf-mega-menu__aside"
           :class="{
-            'sf-mega-menu__aside--without-content': !this.$slots.aside
+            'sf-mega-menu__aside--without-content': !this.$slots.aside,
           }"
         >
           <SfList class="sf-mega-menu__menu-mobile mobile-only">
@@ -53,48 +53,48 @@ import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import {
   mapMobileObserver,
-  unMapMobileObserver
+  unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
 export default {
   name: "SfMegaMenu",
   components: {
     SfList,
     SfMenuItem,
-    SfBar
+    SfBar,
   },
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     asideTitle: {
       type: String,
-      default: ""
+      default: "",
     },
     visible: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
       active: [],
-      items: []
+      items: [],
     };
   },
   computed: {
     ...mapMobileObserver(),
     isActive() {
       return this.active.length > 0;
-    }
+    },
   },
   provide() {
     const megaMenu = {};
     Object.defineProperty(megaMenu, "active", {
-      get: () => this.active
+      get: () => this.active,
     });
     Object.defineProperty(megaMenu, "updateItems", {
-      value: this.updateItems
+      value: this.updateItems,
     });
     return { megaMenu };
   },
@@ -105,7 +105,7 @@ export default {
           this.active = mobile ? [] : [...this.items];
         });
       },
-      immediate: true
+      immediate: true,
     },
     visible: {
       handler(visible) {
@@ -115,8 +115,8 @@ export default {
           this.active = [...this.items];
         });
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   beforeDestroy() {
     unMapMobileObserver();
@@ -129,8 +129,8 @@ export default {
     change(payload) {
       this.active = payload ? [payload] : [];
       this.$emit("change", payload ? payload : "");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -1,34 +1,29 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  optionsKnob as options
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
-
-import SfDropdown from "./SfDropdown.vue";
-import SfList from "../../organisms/SfList/SfList.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
-
+import { SfDropdown, SfList, SfButton } from "@storefront-ui/vue";
 storiesOf("Molecules|Dropdown", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfDropdown, SfList, SfButton },
     props: {
       title: {
-        default: text("title", "Choose size", "Props")
+        default: text("title", "Choose size", "Props"),
       },
       customClass: {
         default: options(
           "CSS modifiers",
           {
-            "sf-dropdown--up": "sf-dropdown--up"
+            "sf-dropdown--up": "sf-dropdown--up",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
-      }
+        ),
+      },
     },
     data() {
       return {
@@ -37,8 +32,8 @@ storiesOf("Molecules|Dropdown", module)
           "Add to cart",
           "Add to compare",
           "Add to wishlist",
-          "Share"
-        ]
+          "Share",
+        ],
       };
     },
     template: `<div>
@@ -52,5 +47,5 @@ storiesOf("Molecules|Dropdown", module)
           </SfList>
         </SfDropdown>
       </div>
-    </div>`
+    </div>`,
   }));
