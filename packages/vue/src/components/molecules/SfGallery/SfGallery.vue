@@ -45,7 +45,7 @@
     </div>
     <div class="sf-gallery__thumbs">
       <slot name="thumbs" v-bind="{ images, active: activeIndex, go }">
-        <div
+        <button
           v-for="(image, index) in images"
           :key="'img-' + index"
           class="sf-gallery__item"
@@ -53,15 +53,13 @@
           @click="go(index)"
         >
           <SfImage
-            v-focus
-            tabindex="0"
             class="sf-gallery__thumb"
             :src="image.mobile.url"
             :alt="image.alt"
             :width="thumbWidth"
             :height="thumbHeight"
           />
-        </div>
+        </button>
       </slot>
     </div>
   </div>
@@ -69,12 +67,8 @@
 <script>
 import Glide from "@glidejs/glide";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
-import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfGallery",
-  directives: {
-    focus: focus
-  },
   components: {
     SfImage,
   },
