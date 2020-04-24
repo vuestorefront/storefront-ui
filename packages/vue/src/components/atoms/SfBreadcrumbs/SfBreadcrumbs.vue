@@ -10,13 +10,12 @@
         <template v-if="last !== i">
           <!-- @slot Custom markup for previous pages (binds `breadcrumb` object) -->
           <slot name="link" v-bind="{ breadcrumb, go }">
-            <a
-              v-focus
-              tabindex="0"
+            <SfLink
+              :link="breadcrumb.route.link"
               class="sf-breadcrumbs__breadcrumb"
               @click="go(breadcrumb)"
-              >{{ breadcrumb.text }}</a
-            >
+              >{{ breadcrumb.text }}
+            </SfLink>
           </slot>
         </template>
         <template v-else>
@@ -35,11 +34,15 @@
   </nav>
 </template>
 <script>
+import SfLink from "../SfLink/SfLink";
 import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfBreadcrumbs",
   directives: {
-    focus: focus
+    focus: focus,
+  },
+  components: {
+    SfLink,
   },
   props: {
     /**
