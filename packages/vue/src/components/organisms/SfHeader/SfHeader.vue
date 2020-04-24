@@ -31,6 +31,7 @@
           <SfSearchBar
             :value="searchValue"
             :placeholder="searchPlaceholder"
+            aria-label="Search"
             class="sf-header__search"
             :class="{ 'desktop-only': !hasMobileSearch }"
             @input="$emit('change:search', $event)"

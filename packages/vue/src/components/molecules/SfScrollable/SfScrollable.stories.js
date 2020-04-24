@@ -1,7 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
-import SfScrollable from "./SfScrollable.vue";
-import SfProductOption from "../SfProductOption/SfProductOption.vue";
+import { SfScrollable, SfProductOption } from "@storefront-ui/vue";
 storiesOf("Molecules|Scrollable", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
