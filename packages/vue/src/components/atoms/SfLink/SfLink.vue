@@ -2,8 +2,6 @@
   <component
     :is="linkComponentTag"
     v-focus
-    :tab-index="disabled ? -1 : 0"
-    :class="{ 'sf-link--disabled': disabled }"
     :href="isExternal && link"
     :to="isRouter && link"
     class="sf-link"
@@ -24,15 +22,8 @@ export default {
      * Page route
      */
     link: {
-      type: [String, Object, Boolean],
+      type: [String, Object],
       default: null,
-    },
-    /**
-     * Disabled link state
-     */
-    disabled: {
-      type: Boolean,
-      default: false,
     },
   },
   computed: {

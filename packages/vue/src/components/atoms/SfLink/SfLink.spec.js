@@ -7,4 +7,3 @@ describe("SfLink.vue", () => {
     expect(component.contains(".sf-link")).toBe(true);
   });
 });
-
