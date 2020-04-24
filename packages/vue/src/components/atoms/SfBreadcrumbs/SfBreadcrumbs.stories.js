@@ -10,9 +10,9 @@ storiesOf("Atoms|Breadcrumbs", module)
         default: object(
           "breadcrumbs",
           [
-            { text: "Home", link: "https://faaaaaaa.ro" },
-            { text: "Category", link: "https://faaaaaaa.ro" },
-            { text: "Pants", link: "https://faaaaaaa.ro" },
+            { text: "Home", link: "#" },
+            { text: "Category", link: "#" },
+            { text: "Pants", link: "#" },
           ],
           "Props"
         ),
