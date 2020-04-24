@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, number, boolean } from "@storybook/addon-knobs";
-import SfPagination from "./SfPagination.vue";
+import { SfPagination } from "@storefront-ui/vue";
 storiesOf("Molecules|Pagination", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

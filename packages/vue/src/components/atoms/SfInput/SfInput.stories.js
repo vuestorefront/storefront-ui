@@ -5,8 +5,7 @@ import {
   boolean,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfInput from "./SfInput.vue";
-import SfIcon from "../SfIcon/SfIcon.vue";
+import { SfInput, SfIcon } from "@storefront-ui/vue";
 storiesOf("Atoms|Input", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
