@@ -32,9 +32,6 @@
     border: var(--modal-close-border, none);
     background: var(--modal-close-background, none);
     cursor: pointer;
-    &:focus {
-      outline: none;
-    }
   }
   @include for-desktop {
     --modal-width: 29.375rem;

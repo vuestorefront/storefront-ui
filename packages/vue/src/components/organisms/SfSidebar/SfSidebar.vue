@@ -17,6 +17,7 @@
           <SfCircleIcon
             v-if="button"
             icon-size="12px"
+            aria-label="Close sidebar"
             icon="cross"
             class="sf-sidebar__circle-icon desktop-only"
             @click="close"
@@ -60,39 +61,39 @@ export default {
     SfBar,
     SfCircleIcon,
     SfOverlay,
-    SfHeading
+    SfHeading,
   },
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     subtitle: {
       type: String,
-      default: ""
+      default: "",
     },
     headingLevel: {
       type: Number,
-      default: 3
+      default: 3,
     },
     button: {
       type: Boolean,
-      default: true
+      default: true,
     },
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     overlay: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
     return {
       position: "left",
       staticClass: null,
-      className: null
+      className: null,
     };
   },
   computed: {
@@ -107,7 +108,7 @@ export default {
     },
     hasBottom() {
       return this.$slots.hasOwnProperty("content-bottom");
-    }
+    },
   },
   watch: {
     visible: {
@@ -124,8 +125,8 @@ export default {
           document.removeEventListener("keydown", this.keydownHandler);
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   mounted() {
     this.classHandler();
@@ -158,8 +159,8 @@ export default {
             ? "right"
             : "left";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

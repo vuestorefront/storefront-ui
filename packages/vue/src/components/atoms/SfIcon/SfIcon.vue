@@ -36,7 +36,7 @@ export default {
      */
     icon: {
       type: [String, Array],
-      default: ""
+      default: "",
     },
     /**
      * Custom size of the icon
@@ -45,7 +45,7 @@ export default {
      */
     size: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Custom color of the icon
@@ -54,18 +54,18 @@ export default {
      */
     color: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Custom viewBox size of the icon
      * It should be according to the standard `"min-x min-y width height"`.
      * By default it will be `0 0 24 24`. If you use our icons, you don't need to pass this prop at all.
-     * Recommedations: try to get your SVG designed with our default viewBox value and reduce the number of props passed to the component.
+     * Recommendations: try to get your SVG designed with our default viewBox value and reduce the number of props passed to the component.
      */
     viewBox: {
       type: String,
-      default: "0 0 24 24"
-    }
+      default: "0 0 24 24",
+    },
   },
   computed: {
     isSFColors() {
@@ -84,7 +84,7 @@ export default {
     iconCustomStyle() {
       return {
         "--icon-color": !this.isSFColors ? this.color : "",
-        "--icon-size": !this.isSFSizes ? this.size : ""
+        "--icon-size": !this.isSFSizes ? this.size : "",
       };
     },
     isSFIcons() {
@@ -101,8 +101,8 @@ export default {
       } else {
         return Array.isArray(this.icon) ? this.icon : [this.icon];
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

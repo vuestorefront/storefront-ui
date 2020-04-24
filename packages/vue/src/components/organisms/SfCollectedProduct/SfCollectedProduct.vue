@@ -3,6 +3,7 @@
     <slot name="remove" v-bind="{ removeHandler }">
       <SfCircleIcon
         icon="cross"
+        aria-label="Remove"
         class="sf-circle-icon--small sf-collected-product__remove sf-collected-product__remove--circle-icon"
         @click="removeHandler"
       />
@@ -33,6 +34,7 @@
         <div class="sf-collected-product__quantity-wrapper">
           <SfQuantitySelector
             :qty="qty"
+            aria-label="Quantity"
             class="sf-collected-product__quantity-selector"
             @input="$emit('input', $event)"
           />
@@ -74,10 +76,10 @@ export default {
     SfImage,
     SfCircleIcon,
     SfPrice,
-    SfQuantitySelector
+    SfQuantitySelector,
   },
   model: {
-    prop: "qty"
+    prop: "qty",
   },
   props: {
     /**
@@ -86,56 +88,56 @@ export default {
      */
     image: {
       type: [String, Object],
-      default: ""
+      default: "",
     },
     /**
      * Product image width, without unit
      */
     imageWidth: {
       type: [String, Number],
-      default: 140
+      default: 140,
     },
     /**
      * Product image height, without unit
      */
     imageHeight: {
       type: [String, Number],
-      default: 200
+      default: 200,
     },
     /**
      * Product title
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Product regular price
      */
     regularPrice: {
       type: [Number, String],
-      default: null
+      default: null,
     },
     /**
      * Product special price
      */
     specialPrice: {
       type: [Number, String],
-      default: null
+      default: null,
     },
     /**
      * Selected quantity
      */
     qty: {
       type: [Number, String],
-      default: 1
-    }
+      default: 1,
+    },
   },
   methods: {
     removeHandler() {
       this.$emit("click:remove");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

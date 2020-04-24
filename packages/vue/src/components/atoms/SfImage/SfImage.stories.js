@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
@@ -7,7 +6,7 @@ import {
   number,
   object,
 } from "@storybook/addon-knobs";
-import SfImage from "./SfImage.vue";
+import { SfImage } from "@storefront-ui/vue";
 storiesOf("Atoms|Image", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -64,7 +63,9 @@ storiesOf("Atoms|Image", module)
         :width="width"
         :height="height"
         :lazy="lazy"
-        :picture-breakpoint="pictureBreakpoint" />`,
+        :picture-breakpoint="pictureBreakpoint" 
+        :rootMargin="rootMargin"
+        :threshold="threshold"/>`,
   }))
   .add("Without width and height", () => ({
     components: { SfImage },
@@ -92,12 +93,20 @@ storiesOf("Atoms|Image", module)
       pictureBreakpoint: {
         default: number("pictureBreakpoint", 576, {}, "Props"),
       },
+      rootMargin: {
+        default: text("rootMargin", "", "Props"),
+      },
+      threshold: {
+        default: number("threshold", 0, {}, "Props"),
+      },
     },
     template: `<SfImage
         :src="src"
         :alt="alt"
         :lazy="lazy"
         :picture-breakpoint="pictureBreakpoint"
+        :rootMargin="rootMargin"
+        :threshold="threshold"
       />`,
   }))
   .add("[slot] default", () => ({
@@ -132,6 +141,12 @@ storiesOf("Atoms|Image", module)
       pictureBreakpoint: {
         default: number("picture-breakpoint", 576, {}, "Props"),
       },
+      rootMargin: {
+        default: text("rootMargin", "", "Props"),
+      },
+      threshold: {
+        default: number("threshold", 0, {}, "Props"),
+      },
     },
     template: `<SfImage
       :src="src"
@@ -140,6 +155,8 @@ storiesOf("Atoms|Image", module)
       :height="height"
       :lazy="lazy"
       :picture-breakpoint="pictureBreakpoint"
+      :rootMargin="rootMargin"
+      :threshold="threshold"
     >
       CUSTOM OVERLAY CONTENT
     </SfImage>`,

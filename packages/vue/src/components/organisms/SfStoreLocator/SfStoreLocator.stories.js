@@ -1,14 +1,12 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
   number,
   select,
-  object
+  object,
 } from "@storybook/addon-knobs";
-import SfStoreLocator from "./SfStoreLocator.vue";
-import SfImage from "../../atoms/SfImage/SfImage.vue";
+import { SfStoreLocator, SfImage } from "@storefront-ui/vue";
 storiesOf("Organisms|StoreLocator", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -21,17 +19,17 @@ storiesOf("Organisms|StoreLocator", module)
             default:
               "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
             openstreetmap: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            wikimedia: "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"
+            wikimedia: "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png",
           },
           "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
           "Props"
-        )
+        ),
       },
       tileServerAttribution: {
-        default: text("tileServerAttribution", "", "Props")
+        default: text("tileServerAttribution", "", "Props"),
       },
       center: {
-        default: object("center", [47.5104387, 19.0444433], "Props")
+        default: object("center", [47.5104387, 19.0444433], "Props"),
       },
       zoom: {
         default: number(
@@ -41,10 +39,10 @@ storiesOf("Organisms|StoreLocator", module)
             range: true,
             min: 1,
             max: 16,
-            step: 1
+            step: 1,
           },
           "Props"
-        )
+        ),
       },
       maxZoom: {
         default: number(
@@ -54,25 +52,25 @@ storiesOf("Organisms|StoreLocator", module)
             range: true,
             min: 1,
             max: 16,
-            step: 1
+            step: 1,
           },
           "Props"
-        )
+        ),
       },
       markerIconSize: {
-        default: object("markerIconSize", [21, 28], "Props")
+        default: object("markerIconSize", [21, 28], "Props"),
       },
       markerIconAnchor: {
-        default: object("markerIconAnchor", [10.5, 0], "Props")
+        default: object("markerIconAnchor", [10.5, 0], "Props"),
       },
       mapOptions: {
-        default: object("mapOptions", {}, "Props")
+        default: object("mapOptions", {}, "Props"),
       },
       tileLayerOptions: {
-        default: object("tileLayerOptions", {}, "Props")
+        default: object("tileLayerOptions", {}, "Props"),
       },
       markerOptions: {
-        default: object("markerOptions", {}, "Props")
+        default: object("markerOptions", {}, "Props"),
       },
       flyToStoreZoom: {
         default: number(
@@ -82,11 +80,11 @@ storiesOf("Organisms|StoreLocator", module)
             range: true,
             min: 1,
             max: 16,
-            step: 1
+            step: 1,
           },
           "Props"
-        )
-      }
+        ),
+      },
     },
     data() {
       return {
@@ -99,8 +97,8 @@ storiesOf("Organisms|StoreLocator", module)
             name: "DivWear",
             picture: {
               mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeA.png" }
-            }
+              desktop: { url: "/assets/storybook/SfStore/storeA.png" },
+            },
           },
           {
             latlng: [51.1176696, 17.0183064],
@@ -110,10 +108,10 @@ storiesOf("Organisms|StoreLocator", module)
             name: "Divante Wear",
             picture: {
               mobile: { url: "/assets/storybook/SfStore/storeB.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeB.png" }
-            }
-          }
-        ]
+              desktop: { url: "/assets/storybook/SfStore/storeB.png" },
+            },
+          },
+        ],
       };
     },
     template: `<div style="max-width: 1240px;">
@@ -141,36 +139,36 @@ storiesOf("Organisms|StoreLocator", module)
           :picture="store.picture"
         />
       </SfStoreLocator>
-    </div>`
+    </div>`,
   }))
   .add("[props] SfStore", () => ({
     components: { SfStoreLocator },
     props: {
       latlng: {
-        default: object("latlng", [47.5104387, 19.0444433], "Props")
+        default: object("latlng", [47.5104387, 19.0444433], "Props"),
       },
       address: {
-        default: text("address", "Budapest, Deák Ferenc u. 19, 1052", "Props")
+        default: text("address", "Budapest, Deák Ferenc u. 19, 1052", "Props"),
       },
       phone: {
-        default: text("phone", "(70) 881 9463", "Props")
+        default: text("phone", "(70) 881 9463", "Props"),
       },
       email: {
-        default: text("email", "example@email.com", "Props")
+        default: text("email", "example@email.com", "Props"),
       },
       name: {
-        default: text("name", "Divante Wear", "Props")
+        default: text("name", "Divante Wear", "Props"),
       },
       picture: {
         default: object(
           "picture",
           {
             mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-            desktop: { url: "/assets/storybook/SfStore/storeA.png" }
+            desktop: { url: "/assets/storybook/SfStore/storeA.png" },
           },
           "Props"
-        )
-      }
+        ),
+      },
     },
     data() {
       return {
@@ -183,8 +181,8 @@ storiesOf("Organisms|StoreLocator", module)
             name: "Store",
             picture: {
               mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeA.png" }
-            }
+              desktop: { url: "/assets/storybook/SfStore/storeA.png" },
+            },
           },
           {
             latlng: [51.1176696, 17.0183064],
@@ -194,10 +192,10 @@ storiesOf("Organisms|StoreLocator", module)
             name: "Store",
             picture: {
               mobile: { url: "/assets/storybook/SfStore/storeB.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeB.png" }
-            }
-          }
-        ]
+              desktop: { url: "/assets/storybook/SfStore/storeB.png" },
+            },
+          },
+        ],
       };
     },
     template: `<div style="max-width: 1240px;">
@@ -213,7 +211,7 @@ storiesOf("Organisms|StoreLocator", module)
           :picture="picture"
       />
     </SfStoreLocator>
-  </div>`
+  </div>`,
   }))
   .add("[slot] default", () => ({
     components: { SfStoreLocator, SfImage },
@@ -225,17 +223,17 @@ storiesOf("Organisms|StoreLocator", module)
             default:
               "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
             openstreetmap: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            wikimedia: "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"
+            wikimedia: "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png",
           },
           "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
           "Props"
-        )
+        ),
       },
       tileServerAttribution: {
-        default: text("tileServerAttribution", "", "Props")
+        default: text("tileServerAttribution", "", "Props"),
       },
       center: {
-        default: object("center", [47.5104387, 19.0444433], "Props")
+        default: object("center", [47.5104387, 19.0444433], "Props"),
       },
       zoom: {
         default: number(
@@ -245,10 +243,10 @@ storiesOf("Organisms|StoreLocator", module)
             range: true,
             min: 1,
             max: 16,
-            step: 1
+            step: 1,
           },
           "Props"
-        )
+        ),
       },
       maxZoom: {
         default: number(
@@ -258,25 +256,25 @@ storiesOf("Organisms|StoreLocator", module)
             range: true,
             min: 1,
             max: 16,
-            step: 1
+            step: 1,
           },
           "Props"
-        )
+        ),
       },
       markerIconSize: {
-        default: object("markerIconSize", [21, 28], "Props")
+        default: object("markerIconSize", [21, 28], "Props"),
       },
       markerIconAnchor: {
-        default: object("markerIconAnchor", [10.5, 0], "Props")
+        default: object("markerIconAnchor", [10.5, 0], "Props"),
       },
       mapOptions: {
-        default: object("mapOptions", {}, "Props")
+        default: object("mapOptions", {}, "Props"),
       },
       tileLayerOptions: {
-        default: object("tileLayerOptions", {}, "Props")
+        default: object("tileLayerOptions", {}, "Props"),
       },
       markerOptions: {
-        default: object("markerOptions", {}, "Props")
+        default: object("markerOptions", {}, "Props"),
       },
       flyToStoreZoom: {
         default: number(
@@ -286,11 +284,11 @@ storiesOf("Organisms|StoreLocator", module)
             range: true,
             min: 1,
             max: 16,
-            step: 1
+            step: 1,
           },
           "Props"
-        )
-      }
+        ),
+      },
     },
     data() {
       return {
@@ -303,8 +301,8 @@ storiesOf("Organisms|StoreLocator", module)
             name: "DivWear",
             picture: {
               mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeA.png" }
-            }
+              desktop: { url: "/assets/storybook/SfStore/storeA.png" },
+            },
           },
           {
             latlng: [51.1176696, 17.0183064],
@@ -314,10 +312,10 @@ storiesOf("Organisms|StoreLocator", module)
             name: "Divante Wear",
             picture: {
               mobile: { url: "/assets/storybook/SfStore/storeB.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeB.png" }
-            }
-          }
-        ]
+              desktop: { url: "/assets/storybook/SfStore/storeB.png" },
+            },
+          },
+        ],
       };
     },
     template: `<div style="max-width: 1240px;">
@@ -343,36 +341,36 @@ storiesOf("Organisms|StoreLocator", module)
           <small>* click picture to zoom</small>
         </div>
       </SfStoreLocator>
-    </div>`
+    </div>`,
   }))
   .add("[slot] marker-icon", () => ({
     components: { SfStoreLocator },
     props: {
       latlng: {
-        default: object("latlng", [47.5104387, 19.0444433], "Props")
+        default: object("latlng", [47.5104387, 19.0444433], "Props"),
       },
       address: {
-        default: text("address", "Budapest, Deák Ferenc u. 19, 1052", "Props")
+        default: text("address", "Budapest, Deák Ferenc u. 19, 1052", "Props"),
       },
       phone: {
-        default: text("phone", "(70) 881 9463", "Props")
+        default: text("phone", "(70) 881 9463", "Props"),
       },
       email: {
-        default: text("email", "example@email.com", "Props")
+        default: text("email", "example@email.com", "Props"),
       },
       name: {
-        default: text("name", "Divante Wear", "Props")
+        default: text("name", "Divante Wear", "Props"),
       },
       picture: {
         default: object(
           "picture",
           {
             mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-            desktop: { url: "/assets/storybook/SfStore/storeA.png" }
+            desktop: { url: "/assets/storybook/SfStore/storeA.png" },
           },
           "Props"
-        )
-      }
+        ),
+      },
     },
     data() {
       return {
@@ -385,8 +383,8 @@ storiesOf("Organisms|StoreLocator", module)
             name: "Store",
             picture: {
               mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeA.png" }
-            }
+              desktop: { url: "/assets/storybook/SfStore/storeA.png" },
+            },
           },
           {
             latlng: [51.1176696, 17.0183064],
@@ -396,10 +394,10 @@ storiesOf("Organisms|StoreLocator", module)
             name: "Store",
             picture: {
               mobile: { url: "/assets/storybook/SfStore/storeB.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeB.png" }
-            }
-          }
-        ]
+              desktop: { url: "/assets/storybook/SfStore/storeB.png" },
+            },
+          },
+        ],
       };
     },
     template: `<div style="max-width: 1240px;">
@@ -418,36 +416,36 @@ storiesOf("Organisms|StoreLocator", module)
           :picture="picture"
       />
     </SfStoreLocator>
-    </div>`
+    </div>`,
   }))
   .add("[slot] map-loading", () => ({
     components: { SfStoreLocator },
     props: {
       latlng: {
-        default: object("latlng", [47.5104387, 19.0444433], "Props")
+        default: object("latlng", [47.5104387, 19.0444433], "Props"),
       },
       address: {
-        default: text("address", "Budapest, Deák Ferenc u. 19, 1052", "Props")
+        default: text("address", "Budapest, Deák Ferenc u. 19, 1052", "Props"),
       },
       phone: {
-        default: text("phone", "(70) 881 9463", "Props")
+        default: text("phone", "(70) 881 9463", "Props"),
       },
       email: {
-        default: text("email", "example@email.com", "Props")
+        default: text("email", "example@email.com", "Props"),
       },
       name: {
-        default: text("name", "Divante Wear", "Props")
+        default: text("name", "Divante Wear", "Props"),
       },
       picture: {
         default: object(
           "picture",
           {
             mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-            desktop: { url: "/assets/storybook/SfStore/storeA.png" }
+            desktop: { url: "/assets/storybook/SfStore/storeA.png" },
           },
           "Props"
-        )
-      }
+        ),
+      },
     },
     data() {
       return {
@@ -460,8 +458,8 @@ storiesOf("Organisms|StoreLocator", module)
             name: "Store",
             picture: {
               mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeA.png" }
-            }
+              desktop: { url: "/assets/storybook/SfStore/storeA.png" },
+            },
           },
           {
             latlng: [51.1176696, 17.0183064],
@@ -471,10 +469,10 @@ storiesOf("Organisms|StoreLocator", module)
             name: "Store",
             picture: {
               mobile: { url: "/assets/storybook/SfStore/storeB.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeB.png" }
-            }
-          }
-        ]
+              desktop: { url: "/assets/storybook/SfStore/storeB.png" },
+            },
+          },
+        ],
       };
     },
     template: `
@@ -494,5 +492,5 @@ storiesOf("Organisms|StoreLocator", module)
           :picture="picture"
       />
     </SfStoreLocator>
-      </div>`
+      </div>`,
   }));

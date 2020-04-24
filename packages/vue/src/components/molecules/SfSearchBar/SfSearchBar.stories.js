@@ -2,9 +2,9 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  optionsKnob as options
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfSearchBar from "./SfSearchBar.vue";
+import { SfSearchBar } from "@storefront-ui/vue";
 storiesOf("Molecules|SearchBar", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -15,30 +15,27 @@ storiesOf("Molecules|SearchBar", module)
           "CSS modifiers",
           {
             "sf-search-bar--position-center": "sf-search-bar--position-center",
-            "sf-search-bar--no-icon": "sf-search-bar--no-icon"
+            "sf-search-bar--no-icon": "sf-search-bar--no-icon",
           },
           "null",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       placeholder: {
-        default: text("placeholder", "Search for items", "Props")
+        default: text("placeholder", "Search for items", "Props"),
       },
-      ariaLabel: {
-        default: text("ariaLabel", "Search", "Props")
-      }
     },
     data() {
       return {
-        value: ""
+        value: "",
       };
     },
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
-      :aria-label="ariaLabel"
-      v-model="value"/>`
+      aria-label="Search"
+      v-model="value"/>`,
   }))
   .add("[slot] icon", () => ({
     components: { SfSearchBar },
@@ -48,32 +45,29 @@ storiesOf("Molecules|SearchBar", module)
           "CSS modifiers",
           {
             "sf-search-bar--position-center": "sf-search-bar--position-center",
-            "sf-search-bar--no-icon": "sf-search-bar--no-icon"
+            "sf-search-bar--no-icon": "sf-search-bar--no-icon",
           },
           "null",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       placeholder: {
-        default: text("placeholder", "Search for items", "Props")
+        default: text("placeholder", "Search for items", "Props"),
       },
-      ariaLabel: {
-        default: text("ariaLabel", "Search", "Props")
-      }
     },
     data() {
       return {
-        value: ""
+        value: "",
       };
     },
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
-      :aria-label="ariaLabel"
+      aria-label="Search"
       v-model="value">
       <template #icon>👀</template>
-    </SfSearchBar>`
+    </SfSearchBar>`,
   }))
   .add("with modifier --no-icon", () => ({
     components: { SfSearchBar },
@@ -83,29 +77,26 @@ storiesOf("Molecules|SearchBar", module)
           "CSS modifiers",
           {
             "sf-search-bar--position-center": "sf-search-bar--position-center",
-            "sf-search-bar--no-icon": "sf-search-bar--no-icon"
+            "sf-search-bar--no-icon": "sf-search-bar--no-icon",
           },
           "sf-search-bar--no-icon",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       placeholder: {
-        default: text("placeholder", "Search for items", "Props")
+        default: text("placeholder", "Search for items", "Props"),
       },
-      ariaLabel: {
-        default: text("ariaLabel", "Search", "Props")
-      }
     },
     data() {
       return {
-        value: ""
+        value: "",
       };
     },
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
-      :aria-label="ariaLabel"
+      aria-label="Search"
       v-model="value">
-    </SfSearchBar>`
+    </SfSearchBar>`,
   }));

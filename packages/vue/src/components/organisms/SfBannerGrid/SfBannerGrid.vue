@@ -52,9 +52,9 @@ export default {
   props: {
     bannerGrid: {
       type: Number,
-      default: 1
-    }
-  }
+      default: 1,
+    },
+  },
 };
 </script>
 <style lang="scss">

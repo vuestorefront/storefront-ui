@@ -80,10 +80,13 @@
     >
       <template #call-to-action>
         <div class="app-banner__call-to-action">
-          <SfButton class="app-banner__button">
+          <SfButton class="app-banner__button" aria-label="Go to Apple Product">
             <SfImage src="/assets/storybook/Home/apple.png" />
           </SfButton>
-          <SfButton class="app-banner__button">
+          <SfButton
+            class="app-banner__button"
+            aria-label="Go to Google Product"
+          >
             <SfImage src="/assets/storybook/Home/google.png" />
           </SfButton>
         </div>
@@ -101,7 +104,7 @@ import {
   SfSection,
   SfCarousel,
   SfProductCard,
-  SfImage
+  SfImage,
 } from "@storefront-ui/vue";
 export default {
   name: "Home",
@@ -114,13 +117,13 @@ export default {
     SfSection,
     SfCarousel,
     SfProductCard,
-    SfImage
+    SfImage,
   },
   data() {
     return {
       headingTitle: {
         mobile: "Match it with",
-        desktop: "Bestsellers"
+        desktop: "Bestsellers",
       },
       heroes: [
         {
@@ -128,7 +131,7 @@ export default {
           subtitle: "SUMMER COLLECTION 2020",
           buttonText: "Learn more",
           background: "rgb(236, 239, 241)",
-          image: "/assets/storybook/Home/hero.png"
+          image: "/assets/storybook/Home/hero.png",
         },
         {
           title: "Colorful summer dresses are already in store",
@@ -137,15 +140,15 @@ export default {
           background: "rgb(239, 235, 233)",
           image: "/assets/storybook/Home/bannerHM.jpg",
           className:
-            "sf-hero-item--position-bg-top-left sf-hero-item--align-right"
+            "sf-hero-item--position-bg-top-left sf-hero-item--align-right",
         },
         {
           title: "Colorful summer dresses are already in store",
           subtitle: "SUMMER COLLECTION 2020",
           buttonText: "Learn more",
           background: "rgb(236, 239, 241)",
-          image: "/assets/storybook/Home/hero.png"
-        }
+          image: "/assets/storybook/Home/hero.png",
+        },
       ],
       banners: [
         {
@@ -156,7 +159,7 @@ export default {
             "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.",
           buttonText: "Shop now",
           image: "/assets/storybook/Home/bannerF.jpg",
-          class: "desktop-only"
+          class: "desktop-only",
         },
         {
           slot: "banner-B",
@@ -166,20 +169,20 @@ export default {
             "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.",
           buttonText: "Shop now",
           image: "/assets/storybook/Home/bannerE.jpg",
-          class: "desktop-only"
+          class: "desktop-only",
         },
         {
           slot: "banner-C",
           subtitle: "T-Shirts",
           title: "The Office Life",
-          image: "/assets/storybook/Home/bannerC.jpg"
+          image: "/assets/storybook/Home/bannerC.jpg",
         },
         {
           slot: "banner-D",
           subtitle: "Summer Sandals",
           title: "Eco Sandals",
-          image: "/assets/storybook/Home/bannerG.jpg"
-        }
+          image: "/assets/storybook/Home/bannerG.jpg",
+        },
       ],
       products: [
         {
@@ -190,7 +193,7 @@ export default {
           isOnWishlist: true,
           reviews: 8,
           badgeLabel: "",
-          badgeColor: "color-primary"
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
@@ -200,7 +203,7 @@ export default {
           isOnWishlist: true,
           reviews: 8,
           badgeLabel: "-50%",
-          badgeColor: "color-primary"
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
@@ -210,7 +213,7 @@ export default {
           isOnWishlist: false,
           reviews: 8,
           badgeLabel: "",
-          badgeColor: "color-primary"
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
@@ -220,7 +223,7 @@ export default {
           isOnWishlist: false,
           reviews: 8,
           badgeLabel: "",
-          badgeColor: "color-primary"
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
@@ -230,7 +233,7 @@ export default {
           isOnWishlist: false,
           reviews: 8,
           badgeLabel: "-10%",
-          badgeColor: "color-primary"
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
@@ -240,7 +243,7 @@ export default {
           isOnWishlist: false,
           reviews: 8,
           badgeLabel: "",
-          badgeColor: "color-primary"
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
@@ -250,7 +253,7 @@ export default {
           isOnWishlist: false,
           reviews: 8,
           badgeLabel: "",
-          badgeColor: "color-primary"
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
@@ -260,59 +263,59 @@ export default {
           isOnWishlist: false,
           reviews: 8,
           badgeLabel: "",
-          badgeColor: "color-primary"
-        }
+          badgeColor: "color-primary",
+        },
       ],
       instagramFeed: [
         [
           {
             content: "angelina_trn",
             mobile: {
-              url: "/assets/storybook/Home/imageA.png"
+              url: "/assets/storybook/Home/imageA.png",
             },
             desktop: {
-              url: "/assets/storybook/Home/imageA.png"
-            }
+              url: "/assets/storybook/Home/imageA.png",
+            },
           },
           {
             content: "angelina_trn",
             mobile: {
-              url: "/assets/storybook/Home/imageB.png"
+              url: "/assets/storybook/Home/imageB.png",
             },
             desktop: {
-              url: "/assets/storybook/Home/imageB.png"
-            }
-          }
+              url: "/assets/storybook/Home/imageB.png",
+            },
+          },
         ],
         [
           {
             content: "angelina_trn",
             mobile: {
-              url: "/assets/storybook/Home/imageC.jpg"
+              url: "/assets/storybook/Home/imageC.jpg",
             },
             desktop: {
-              url: "/assets/storybook/Home/imageC.jpg"
-            }
+              url: "/assets/storybook/Home/imageC.jpg",
+            },
           },
           {
             content: "angelina_trn",
             mobile: {
-              url: "/assets/storybook/Home/imageD.jpg"
+              url: "/assets/storybook/Home/imageD.jpg",
             },
             desktop: {
-              url: "/assets/storybook/Home/imageD.jpg"
-            }
-          }
-        ]
-      ]
+              url: "/assets/storybook/Home/imageD.jpg",
+            },
+          },
+        ],
+      ],
     };
   },
   methods: {
     toggleWishlist(index) {
       return (this.products[index].isOnWishlist = !this.products[index]
         .isOnWishlist);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

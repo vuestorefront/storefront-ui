@@ -9,8 +9,8 @@ describe("SfButton.vue", () => {
     const msg = "HelloWorld";
     const component = shallowMount(SfButton, {
       slots: {
-        default: msg
-      }
+        default: msg,
+      },
     });
     expect(component.find(".sf-button").text()).toMatch(msg);
   });
