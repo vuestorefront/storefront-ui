@@ -11,9 +11,9 @@
   );
   text-decoration: var(--link-text-decoration, underline);
   &:visited {
-    color: var(--link-color-visited);
+    color: var(--link-color);
   }
   &:hover {
-    color: var(--link-color-hover);
+    color: var(--link-color);
   }
 }
