@@ -51,9 +51,11 @@ export default {
       handler(value) {
         if (typeof window === "undefined" || typeof document === "undefined")
           return;
-        value
-          ? document.addEventListener("keydown", this.keydownHandler)
-          : document.removeEventListener("keydown", this.keydownHandler);
+        if (value) {
+          document.addEventListener("keydown", this.keydownHandler);
+        } else {
+          document.removeEventListener("keydown", this.keydownHandler);
+        }
       },
       immediate: true,
     },
