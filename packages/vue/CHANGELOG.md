@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.4](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.3...@storefront-ui/vue@0.7.4) (2020-04-23)
+
+**Note:** Version bump only for package @storefront-ui/vue
+
+
+
+
+
 ## [0.7.3](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.2...@storefront-ui/vue@0.7.3) (2020-04-23)
 
 
