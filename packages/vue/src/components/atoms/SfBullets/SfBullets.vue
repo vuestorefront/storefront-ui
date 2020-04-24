@@ -47,7 +47,7 @@ import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfBullets",
   directives: {
-    focus: focus
+    focus: focus,
   },
   props: {
     /**

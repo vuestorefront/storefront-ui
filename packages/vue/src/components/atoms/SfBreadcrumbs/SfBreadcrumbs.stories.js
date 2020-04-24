@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, object } from "@storybook/addon-knobs";
-import SfBreadcrumbs from "./SfBreadcrumbs.vue";
+import { SfBreadcrumbs } from "@storefront-ui/vue";
 storiesOf("Atoms|Breadcrumbs", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -10,9 +10,9 @@ storiesOf("Atoms|Breadcrumbs", module)
         default: object(
           "breadcrumbs",
           [
-            { text: "Home", route: { link: "#" } },
-            { text: "Category", route: { link: "#" } },
-            { text: "Pants", route: { link: "#" } },
+            { text: "Home", link: "#" },
+            { text: "Category", link: "#" },
+            { text: "Pants", link: "#" },
           ],
           "Props"
         ),
@@ -28,9 +28,9 @@ storiesOf("Atoms|Breadcrumbs", module)
         default: object(
           "breadcrumbs",
           [
-            { text: "Home", route: { link: "#" } },
-            { text: "Category", route: { link: "#" } },
-            { text: "Pants", route: { link: "#" } },
+            { text: "Home", link: "#" },
+            { text: "Category", link: "#" },
+            { text: "Pants", link: "#" },
           ],
           "Props"
         ),
@@ -50,9 +50,9 @@ storiesOf("Atoms|Breadcrumbs", module)
         default: object(
           "breadcrumbs",
           [
-            { text: "Home", route: { link: "#" } },
-            { text: "Category", route: { link: "#" } },
-            { text: "Pants", route: { link: "#" } },
+            { text: "Home", link: "#" },
+            { text: "Category", link: "#" },
+            { text: "Pants", link: "#" },
           ],
           "Props"
         ),

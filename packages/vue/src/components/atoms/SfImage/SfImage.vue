@@ -75,11 +75,11 @@ export default {
     },
     rootMargin: {
       type: String,
-      default: "",
+      default: "0px 0px 0px 0px",
     },
     threshold: {
       type: [String, Number],
-      default: "",
+      default: 0,
     },
   },
   data() {
