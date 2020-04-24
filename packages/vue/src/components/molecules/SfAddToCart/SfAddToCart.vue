@@ -1,9 +1,5 @@
 <template>
-  <div
-    aria-labelledby="AddToCart"
-    class="sf-add-to-cart"
-    data-test="sf-add-to-card"
-  >
+  <div aria-labelledby="AddToCart" class="sf-add-to-cart">
     <slot name="add-to-cart-btn">
       <!--@slot Custom content that will replace default Add to cart button design.-->
       <SfButton
