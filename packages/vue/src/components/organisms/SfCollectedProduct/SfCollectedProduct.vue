@@ -3,6 +3,7 @@
     <slot name="remove" v-bind="{ removeHandler }">
       <SfCircleIcon
         icon="cross"
+        aria-label="Remove"
         class="sf-circle-icon--small sf-collected-product__remove sf-collected-product__remove--circle-icon"
         @click="removeHandler"
       />
@@ -33,6 +34,7 @@
         <div class="sf-collected-product__quantity-wrapper">
           <SfQuantitySelector
             :qty="qty"
+            aria-label="Quantity"
             class="sf-collected-product__quantity-selector"
             @input="$emit('input', $event)"
           />

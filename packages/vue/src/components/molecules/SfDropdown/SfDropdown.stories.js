@@ -4,11 +4,7 @@ import {
   text,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-
-import SfDropdown from "./SfDropdown.vue";
-import SfList from "../../organisms/SfList/SfList.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
-
+import { SfDropdown, SfList, SfButton } from "@storefront-ui/vue";
 storiesOf("Molecules|Dropdown", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

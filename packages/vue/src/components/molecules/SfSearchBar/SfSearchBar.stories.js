@@ -4,7 +4,7 @@ import {
   text,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfSearchBar from "./SfSearchBar.vue";
+import { SfSearchBar } from "@storefront-ui/vue";
 storiesOf("Molecules|SearchBar", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -25,9 +25,6 @@ storiesOf("Molecules|SearchBar", module)
       placeholder: {
         default: text("placeholder", "Search for items", "Props"),
       },
-      ariaLabel: {
-        default: text("ariaLabel", "Search", "Props"),
-      },
     },
     data() {
       return {
@@ -37,7 +34,7 @@ storiesOf("Molecules|SearchBar", module)
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
-      :aria-label="ariaLabel"
+      aria-label="Search"
       v-model="value"/>`,
   }))
   .add("[slot] icon", () => ({
@@ -58,9 +55,6 @@ storiesOf("Molecules|SearchBar", module)
       placeholder: {
         default: text("placeholder", "Search for items", "Props"),
       },
-      ariaLabel: {
-        default: text("ariaLabel", "Search", "Props"),
-      },
     },
     data() {
       return {
@@ -70,7 +64,7 @@ storiesOf("Molecules|SearchBar", module)
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
-      :aria-label="ariaLabel"
+      aria-label="Search"
       v-model="value">
       <template #icon>👀</template>
     </SfSearchBar>`,
@@ -93,9 +87,6 @@ storiesOf("Molecules|SearchBar", module)
       placeholder: {
         default: text("placeholder", "Search for items", "Props"),
       },
-      ariaLabel: {
-        default: text("ariaLabel", "Search", "Props"),
-      },
     },
     data() {
       return {
@@ -105,7 +96,7 @@ storiesOf("Molecules|SearchBar", module)
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
-      :aria-label="ariaLabel"
+      aria-label="Search"
       v-model="value">
     </SfSearchBar>`,
   }));
