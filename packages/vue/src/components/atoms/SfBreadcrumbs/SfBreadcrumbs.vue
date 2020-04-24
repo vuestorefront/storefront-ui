@@ -19,6 +19,7 @@
           <!-- @slot Custom markup for current page (binds `breadcrumb` object) -->
           <slot name="current" v-bind="{ breadcrumb }">
             <SfLink
+              :link="breadcrumb.link"
               class="sf-breadcrumbs__breadcrumb sf-breadcrumbs__breadcrumb--current"
               >{{ breadcrumb.text }}</SfLink
             >
