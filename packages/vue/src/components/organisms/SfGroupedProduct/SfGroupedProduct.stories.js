@@ -6,8 +6,7 @@ import {
   boolean,
   object,
 } from "@storybook/addon-knobs";
-import SfGroupedProduct from "./SfGroupedProduct.vue";
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
+import { SfGroupedProduct, SfProperty } from "@storefront-ui/vue";
 storiesOf("Organisms|GroupedProduct", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

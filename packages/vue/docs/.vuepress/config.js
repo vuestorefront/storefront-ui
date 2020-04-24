@@ -17,6 +17,7 @@ module.exports = {
     sidebar: [
       ['/introduction', 'Introduction'],
       ['/getting-started', 'Getting started'],
+      ['/import-stories', 'Import stories to your Storybook'],
       ['/customization', 'Customization'],
       ['/migration-guide', 'Migration Guide'],
       ['/meet-the-team', 'Meet the core team'],

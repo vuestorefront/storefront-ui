@@ -84,10 +84,10 @@ export default {
   ],
   components: {
     SfImage,
-    SfCharacteristic
+    SfCharacteristic,
   },
   directives: {
-    focus: focus
+    focus: focus,
   },
   props: {
     /**

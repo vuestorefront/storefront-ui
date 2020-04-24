@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-import SfOverlay from "./SfOverlay.vue";
+import { SfOverlay } from "@storefront-ui/vue";
 storiesOf("Atoms|Overlay", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
