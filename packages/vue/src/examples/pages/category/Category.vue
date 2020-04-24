@@ -11,6 +11,7 @@
       <div class="navbar__main">
         <SfButton
           class="sf-button--text navbar__filters-button"
+          aria-label="Filters"
           @click="isFilterSidebarOpen = true"
         >
           <SfIcon size="32px" color="#BEBFC4" icon="filter" />
