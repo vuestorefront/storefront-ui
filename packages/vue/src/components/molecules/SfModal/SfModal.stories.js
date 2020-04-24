@@ -23,9 +23,6 @@ storiesOf("Molecules|Modal", module)
       persistent: {
         default: boolean("persistent", false, "Props"),
       },
-      ariaLabelClose: {
-        default: text("ariaLabelClose", "Close", "Props"),
-      },
     },
     mixins: [visibilityToggleMixin],
     template: `
@@ -35,7 +32,6 @@ storiesOf("Molecules|Modal", module)
         :overlay="overlay"
         :cross="cross"
         :persistent="persistent"
-        :ariaLabelClose="ariaLabelClose"
         @close="visible = false"
       >
         HELLO STOREFRONT UI!
@@ -56,9 +52,6 @@ storiesOf("Molecules|Modal", module)
       persistent: {
         default: boolean("persistent", false, "Props"),
       },
-      ariaLabelClose: {
-        default: text("ariaLabelClose", "Close", "Props"),
-      },
     },
     mixins: [visibilityToggleMixin],
     template: `
@@ -68,7 +61,6 @@ storiesOf("Molecules|Modal", module)
         :title="title"
         :cross="cross"
         :persistent="persistent"
-        :ariaLabelClose="ariaLabelClose"
         @close="visible = false"
       >
         HELLO STOREFRONT UI!
