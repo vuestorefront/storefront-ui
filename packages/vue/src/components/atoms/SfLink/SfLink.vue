@@ -3,7 +3,7 @@
     :is="linkComponentTag"
     v-focus
     :href="isExternal && link"
-    :to="isRouter && link"
+    :to="!isExternal && link"
     class="sf-link"
     v-on="$listeners"
   >
@@ -23,20 +23,18 @@ export default {
      */
     link: {
       type: [String, Object],
-      default: null,
+      default: "",
     },
   },
   computed: {
     isExternal() {
-      return this.linkComponentTag === "a";
-    },
-    isRouter() {
-      return this.link && this.linkComponentTag !== "a";
+      return typeof this.link === "string" && this.link.indexOf(/https?/g) > -1
+        ? true
+        : false;
     },
     linkComponentTag() {
-      return (this.link && typeof this.link === "object") || this.$router
-        ? "router-link" // TODO set tag from config - 'router-link' or 'nuxt-link'
-        : "a";
+      const routerLink = this.$nuxt ? "nuxt-link" : "router-link";
+      return this.isExternal ? routerLink : "a";
     },
   },
 };
