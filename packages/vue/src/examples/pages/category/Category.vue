@@ -362,7 +362,7 @@ export default {
           ],
         },
         {
-          header: "Accesorries",
+          header: "Accessorries",
           items: [
             { label: "All", count: "280" },
             { label: "Skirts", count: "23" },

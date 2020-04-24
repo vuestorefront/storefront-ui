@@ -1,10 +1,10 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
-import SfModal from "./SfModal.vue";
+import { SfModal } from "@storefront-ui/vue";
 import {
   visibilityToggleMixin,
   withVisibilityToggle,
-} from "../../../../config/storybook/decorators";
+} from "@storefront-ui/vue/config/storybook/decorators";
 storiesOf("Molecules|Modal", module)
   .addDecorator(withKnobs)
   .addDecorator(withVisibilityToggle)
