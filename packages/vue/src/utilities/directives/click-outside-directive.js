@@ -1,18 +1,18 @@
-let outsideClickHandler;
 export const clickOutside = {
   bind(el, binding) {
-    outsideClickHandler = (e) => {
+    binding.name = "click-outside";
+    el._outsideClickHandler = (e) => {
       e.stopPropagation();
-      const callback = binding.value;
+      const closeHandler = binding.value;
       if (!el.contains(e.target)) {
-        callback();
+        closeHandler();
       }
     };
-    document.addEventListener("click", outsideClickHandler);
-    document.addEventListener("touchstart", outsideClickHandler);
+    document.addEventListener("click", el._outsideClickHandler);
+    document.addEventListener("touchstart", el._outsideClickHandler);
   },
   unbind() {
-    document.removeEventListener("click", outsideClickHandler);
-    document.removeEventListener("touchstart", outsideClickHandler);
+    document.removeEventListener("click", el._outsideClickHandler);
+    document.removeEventListener("touchstart", el._outsideClickHandler);
   },
 };
