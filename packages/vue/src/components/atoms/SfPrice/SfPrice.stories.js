@@ -1,7 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
-import SfPrice from "./SfPrice.vue";
-import SfBadge from "../SfBadge/SfBadge.vue";
+import { SfPrice, SfBadge } from "@storefront-ui/vue";
 storiesOf("Atoms|Price", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, number } from "@storybook/addon-knobs";
-import SfReview from "./SfReview.vue";
+import { SfReview } from "@storefront-ui/vue";
 storiesOf("Molecules|Review", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
