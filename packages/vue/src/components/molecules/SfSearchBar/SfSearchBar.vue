@@ -27,8 +27,8 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfSearchBar",
-  inheritAttrs: false,
   components: { SfIcon },
+  inheritAttrs: false,
   props: {
     placeholder: {
       type: String,
@@ -37,7 +37,7 @@ export default {
     value: {
       type: [Number, String],
       default: null,
-    }
+    },
   },
 };
 </script>

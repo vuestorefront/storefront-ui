@@ -1,8 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  optionsKnob as options,
-} from "@storybook/addon-knobs";
+import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import { SfQuantitySelector } from "@storefront-ui/vue";
 storiesOf("Atoms|QuantitySelector", module)
   .addDecorator(withKnobs)
