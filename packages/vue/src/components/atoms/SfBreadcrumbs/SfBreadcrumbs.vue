@@ -31,12 +31,8 @@
 </template>
 <script>
 import SfLink from "../SfLink/SfLink";
-import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfBreadcrumbs",
-  directives: {
-    focus: focus,
-  },
   components: {
     SfLink,
   },
