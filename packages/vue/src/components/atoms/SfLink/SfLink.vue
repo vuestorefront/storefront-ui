@@ -25,13 +25,13 @@ export default {
     },
   },
   computed: {
+    isExternal() {
+      return typeof this.link === "string" && this.link.search(/https?/g) > -1;
+    },
     urlTag() {
       return this.isExternal || !this.$router
         ? { href: this.link }
         : { to: this.link };
-    },
-    isExternal() {
-      return typeof this.link === "string" && this.link.search(/https?/g) > -1;
     },
     linkComponentTag() {
       const routerLink = this.$nuxt ? "nuxt-link" : "router-link";
