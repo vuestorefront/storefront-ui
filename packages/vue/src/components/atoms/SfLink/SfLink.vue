@@ -25,17 +25,18 @@ export default {
     },
   },
   computed: {
-    urlTag() {
-      return this.isExternal || !this.$router
-        ? { href: this.link }
-        : { to: this.link };
-    },
     isExternal() {
       return typeof this.link === "string" && this.link.search(/https?/g) > -1;
     },
+    isNativeLinkTag() {
+      return this.isExternal || !this.$router;
+    },
+    urlTag() {
+      return this.isNativeLinkTag ? { href: this.link } : { to: this.link };
+    },
     linkComponentTag() {
       const routerLink = this.$nuxt ? "nuxt-link" : "router-link";
-      return this.isExternal || !this.$router ? "a" : routerLink;
+      return this.isNativeLinkTag ? "a" : routerLink;
     },
   },
 };
