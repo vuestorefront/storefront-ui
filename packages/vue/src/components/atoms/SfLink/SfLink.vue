@@ -2,8 +2,7 @@
   <component
     :is="linkComponentTag"
     v-focus
-    :href="isExternal && link"
-    :to="!isExternal && link"
+    v-bind="urlTag"
     class="sf-link"
     v-on="$listeners"
   >
@@ -13,7 +12,6 @@
 </template>
 <script>
 import { focus } from "../../../utilities/directives/focus-directive.js";
-
 export default {
   name: "SfLink",
   directives: { focus },
@@ -27,14 +25,17 @@ export default {
     },
   },
   computed: {
+    urlTag() {
+      return this.isExternal || !this.$router
+        ? { href: this.link }
+        : { to: this.link };
+    },
     isExternal() {
-      return typeof this.link === "string" && this.link.indexOf(/https?/g) > -1
-        ? true
-        : false;
+      return typeof this.link === "string" && this.link.search(/https?/g) > -1;
     },
     linkComponentTag() {
       const routerLink = this.$nuxt ? "nuxt-link" : "router-link";
-      return this.isExternal ? routerLink : "a";
+      return this.isExternal || !this.$router ? "a" : routerLink;
     },
   },
 };
