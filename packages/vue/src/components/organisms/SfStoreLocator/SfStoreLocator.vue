@@ -111,7 +111,7 @@ export default {
       default: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ",
     },
     /**
-     * Initial center of the map, overriden when the user position is captured, supports sync modifier
+     * Initial center of the map, overridden when the user position is captured, supports sync modifier
      */
     center: {
       type: [Array, Object],
