@@ -86,7 +86,7 @@
     "sass-loader": "^8.0.2",
     "storybook-addon-vue-info": "^1.2.2",
     "vue-cli-plugin-storybook": "~1.2.2",
-    "vue-docgen-api": "^4.16.0",
+    "vue-docgen-api": "^3.22.3",
     "vue-template-compiler": "^2.6.8",
     "vuepress": "^0.14.11"
   },
