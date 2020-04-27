@@ -102,9 +102,6 @@ export default {
         this.$emit("change", selected);
       }
     },
-    checkCheckmark() {
-      this.inputHandler();
-    },
   },
 };
 </script>
