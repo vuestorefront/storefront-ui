@@ -18,9 +18,9 @@
       <template v-if="showFirst">
         <li class="sf-pagination__item">
           <slot name="number" v-bind="{ go, number: 1 }">
-            <button v-focus class="sf-pagination__button" @click="go(1)">
+            <SfLink class="sf-pagination__button" @click="go(1)">
               1
-            </button>
+            </SfLink>
           </slot>
         </li>
         <li class="sf-pagination__item">
@@ -34,14 +34,13 @@
           class="sf-pagination__item"
         >
           <slot name="number" v-bind="{ go, number }">
-            <button
-              v-focus
+            <SfLink
               class="sf-pagination__button"
               :class="{ 'sf-pagination__button--current': current === number }"
               @click="go(number)"
             >
               {{ number }}
-            </button>
+            </SfLink>
           </slot>
         </li>
       </slot>
@@ -51,9 +50,9 @@
         </li>
         <li class="sf-pagination__item">
           <slot name="number" v-bind="{ go, number: total }">
-            <button v-focus class="sf-pagination__button" @click="go(total)">
+            <SfLink class="sf-pagination__button" @click="go(total)">
               {{ total }}
-            </button>
+            </SfLink>
           </slot>
         </li>
       </template>
@@ -77,10 +76,12 @@
 <script>
 import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
 export default {
   name: "SfPagination",
   components: {
     SfIcon,
+    SfLink,
   },
   directives: {
     focus,
