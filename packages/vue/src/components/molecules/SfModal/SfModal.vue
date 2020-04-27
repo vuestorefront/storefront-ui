@@ -20,7 +20,6 @@
           />
         </slot>
         <button
-          v-focus
           v-if="cross"
           v-focus
           class="sf-modal__close desktop-only"
