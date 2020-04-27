@@ -4,5 +4,7 @@
   margin: var(--divider-margin);
   max-width: var(--divider-max-width);
   width: var(--divider-width);
+  height: var(--divider-height);
+  background: var(--divider-background);
   @include border(--divider-border, 1px, solid, var(--c-light));
 }
