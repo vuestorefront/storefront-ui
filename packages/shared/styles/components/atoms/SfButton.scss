@@ -49,8 +49,8 @@
     --button-box-shadow: none;
   }
   &--pure {
-    padding: 0;
-    background: transparent;
+    --button-padding: 0;
+    --button-background: transparent;
     --button-color: var(--c-text);
     &:hover {
       --button-box-shadow: 0;
