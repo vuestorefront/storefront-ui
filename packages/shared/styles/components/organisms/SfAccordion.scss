@@ -6,6 +6,7 @@
     padding: var(--accordion-item-header-padding, var(--spacer-sm));
     color: var(--accordion-item-header-color, var(--c-text));
     transition: color 150ms ease-in-out;
+    width: 100%;
     cursor: pointer;
     @include border(
       --accordion-item-header-border,

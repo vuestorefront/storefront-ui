@@ -31,6 +31,7 @@
           <SfSearchBar
             :value="searchValue"
             :placeholder="searchPlaceholder"
+            aria-label="Search"
             class="sf-header__search"
             :class="{ 'desktop-only': !hasMobileSearch }"
             @input="$emit('change:search', $event)"
@@ -42,23 +43,24 @@
           name="header-icons"
           v-bind="{ accountIcon, wishlistIcon, cartIcon }"
         >
-          <button 
+          <button
             v-for="icon in headerIcons"
-            :key="icon.name" 
-            class="sf-header__icons desktop-only">
-              <SfIcon
-                :icon="icon.icon"
-                :has-badge="isCartEmpty && icon.hasBadge === true"
-                :badge-label="cartItemsQty"
-                size="xs"
-                class="sf-header__icon"
-                :class="{
-                  'sf-header__icon--is-active': activeIcon === icon.name,
-                }"
-                :aria-label="icon.name"
-                :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
-                @click="$emit(`click:${icon.name}`)"
-              />
+            :key="icon.name"
+            class="sf-header__icons desktop-only"
+          >
+            <SfIcon
+              :icon="icon.icon"
+              :has-badge="isCartEmpty && icon.hasBadge === true"
+              :badge-label="cartItemsQty"
+              size="xs"
+              class="sf-header__icon"
+              :class="{
+                'sf-header__icon--is-active': activeIcon === icon.name,
+              }"
+              :aria-label="icon.name"
+              :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
+              @click="$emit(`click:${icon.name}`)"
+            />
           </button>
         </slot>
         <!--@slot Use this slot to replace default header language selector on mobile -->
