@@ -17,7 +17,7 @@ storiesOf("Molecules|SearchBar", module)
             "sf-search-bar--position-center": "sf-search-bar--position-center",
             "sf-search-bar--no-icon": "sf-search-bar--no-icon",
           },
-          "null",
+          "",
           { display: "multi-select" },
           "CSS Modifiers"
         ),
@@ -47,7 +47,7 @@ storiesOf("Molecules|SearchBar", module)
             "sf-search-bar--position-center": "sf-search-bar--position-center",
             "sf-search-bar--no-icon": "sf-search-bar--no-icon",
           },
-          "null",
+          "",
           { display: "multi-select" },
           "CSS Modifiers"
         ),
