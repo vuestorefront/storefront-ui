@@ -6,7 +6,7 @@ import {
   boolean,
   object,
 } from "@storybook/addon-knobs";
-import SfHeader from "./SfHeader.vue";
+import { SfHeader } from "@storefront-ui/vue";
 const StoriesPlaceholder = {
   props: {
     mobile: {

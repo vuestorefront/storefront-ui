@@ -22,18 +22,14 @@
         <button
           v-focus
           v-if="cross"
+          v-focus
           class="sf-modal__close desktop-only"
-          :aria-label="ariaLabelClose"
+          aria-label="Close modal"
           @click="close"
         >
           <!--@slot Use this slot to place content inside the close button.-->
           <slot name="close">
-            <SfIcon
-              icon="cross"
-              size="15px"
-              color="gray-secondary"
-              aria-role="button"
-            />
+            <SfIcon icon="cross" size="15px" color="gray-secondary" />
           </slot>
         </button>
         <div ref="content" class="sf-modal__content">
@@ -111,13 +107,6 @@ export default {
     transitionModal: {
       type: String,
       default: "fade",
-    },
-    /**
-     * aria-label of the close button
-     */
-    ariaLabelClose: {
-      type: String,
-      default: null,
     },
   },
   data() {

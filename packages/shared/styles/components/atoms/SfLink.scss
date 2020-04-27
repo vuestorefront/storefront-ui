@@ -1,0 +1,19 @@
+@import "../../helpers";
+
+.sf-link {
+  color: var(--link-color, var(--c-text));
+  @include font(
+    --link-font,
+    var(--font-normal),
+    var(--font-lg),
+    1.4,
+    var(--font-family-secondary)
+  );
+  text-decoration: var(--link-text-decoration, underline);
+  &:visited {
+    color: var(--link-color);
+  }
+  &:hover {
+    color: var(--link-color);
+  }
+}
