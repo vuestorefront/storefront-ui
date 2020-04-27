@@ -8,8 +8,8 @@
     }"
   >
     <input
-      tabindex="-1"
       :id="name"
+      v-focus
       type="checkbox"
       :name="name"
       :value="value"
@@ -22,10 +22,6 @@
       <!-- @slot Custom check mark markup -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <div
-          v-focus
-          tabindex="0"
-          :aria-label="name + isChecked"
-          @keyup.space="checkCheckmark"
           class="sf-checkbox__checkmark"
           :class="{ 'sf-checkbox__checkmark--is-active': isChecked }"
         >
@@ -108,8 +104,8 @@ export default {
       }
     },
     checkCheckmark() {
-      this.inputHandler()
-    }
+      this.inputHandler();
+    },
   },
 };
 </script>
