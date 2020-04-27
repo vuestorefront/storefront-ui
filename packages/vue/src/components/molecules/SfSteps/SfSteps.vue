@@ -33,12 +33,11 @@
 import Vue from "vue";
 import SfStep from "./_internal/SfStep.vue";
 import { focus } from "../../../utilities/directives/focus-directive.js";
-
 Vue.component("SfStep", SfStep);
 export default {
   name: "SfSteps",
   directives: {
-    focus: focus,
+    focus,
   },
   model: {
     prop: "active",

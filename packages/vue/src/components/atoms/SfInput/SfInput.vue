@@ -17,7 +17,6 @@
         :name="name"
         :class="{ 'sf-input--is-password': isPassword }"
         :type="inputType"
-        :aria-label="ariaLabel"
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
@@ -70,6 +69,7 @@ export default {
     focus,
   },
   components: { SfIcon, SfButton },
+  inheritAttrs: false,
   props: {
     /**
      * Current input value (`v-model`)
@@ -128,13 +128,6 @@ export default {
       type: Boolean,
       default: false,
       description: "Native input disabled attribute",
-    },
-    /**
-     * Form input aria-label
-     */
-    ariaLabel: {
-      type: String,
-      default: null,
     },
     /**
      * Status of show password icon display

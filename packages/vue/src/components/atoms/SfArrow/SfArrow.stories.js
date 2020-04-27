@@ -4,8 +4,7 @@ import {
   text,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfArrow from "./SfArrow.vue";
-import SfIcon from "../SfIcon/SfIcon.vue";
+import { SfArrow, SfIcon } from "@storefront-ui/vue";
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -30,13 +29,10 @@ storiesOf("Atoms|Arrow", module)
           "CSS Modifiers"
         ),
       },
-      ariaLabel: {
-        default: text("ariaLabel", "Arrow Label", "Props"),
-      },
     },
     template: `<SfArrow
       :class="customClass" 
-      :aria-label="ariaLabel"
+      aria-label="Arrow label"
     />`,
   }))
   .add("[slot] default", () => ({
@@ -60,12 +56,9 @@ storiesOf("Atoms|Arrow", module)
           "CSS Modifiers"
         ),
       },
-      ariaLabel: {
-        default: text("ariaLabel", "Arrow Label", "Props"),
-      },
     },
     template: `<SfArrow
-      :class="customClass" :aria-label="ariaLabel">
+      :class="customClass" aria-label="Arrow label">
       <SfIcon icon="chevron_left" class="sf-arrow__icon" size="12px" view-box="0 0 24 12"/>
     </SfArrow>`,
   }));

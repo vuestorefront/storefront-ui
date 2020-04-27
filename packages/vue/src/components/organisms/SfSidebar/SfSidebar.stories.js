@@ -9,8 +9,8 @@ import {
 import {
   withDataToggle,
   dataToggleMixin,
-} from "../../../../config/storybook/decorators";
-import SfSidebar from "./SfSidebar.vue";
+} from "@storefront-ui/vue/config/storybook/decorators";
+import { SfSidebar } from "@storefront-ui/vue";
 storiesOf("Organisms|Sidebar", module)
   .addDecorator(withKnobs)
   .addDecorator(withDataToggle("isSidebarOpen"))
