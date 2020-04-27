@@ -52,6 +52,7 @@
     --button-padding: 0;
     --button-background: transparent;
     --button-color: var(--c-text);
+    --button-text-transform: none;
     &:hover {
       --button-box-shadow: 0;
     }
