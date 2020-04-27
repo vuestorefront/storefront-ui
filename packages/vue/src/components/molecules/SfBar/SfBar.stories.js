@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-import SfBar from "./SfBar.vue";
+import { SfBar } from "@storefront-ui/vue";
 storiesOf("Molecules|Bar", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

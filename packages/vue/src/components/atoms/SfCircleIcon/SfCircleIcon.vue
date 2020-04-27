@@ -1,15 +1,9 @@
 <template>
-  <SfButton
-    :aria-label="ariaLabel"
-    class="sf-circle-icon"
-    :disabled="disabled"
-    v-on="$listeners"
-  >
+  <SfButton class="sf-circle-icon" :disabled="disabled" v-on="$listeners">
     <!--@slot Custom content that will replace default icon. can be used for inlined SVG's-->
     <slot>
       <SfIcon
         aria-hidden="true"
-        tabindex="-1"
         class="sf-circle-icon__icon"
         :icon="icon"
         :color="iconColor"
@@ -35,10 +29,6 @@ export default {
     SfIcon,
   },
   props: {
-    ariaLabel: {
-      type: String,
-      default: "",
-    },
     icon: {
       type: [String, Array],
       default: "home",

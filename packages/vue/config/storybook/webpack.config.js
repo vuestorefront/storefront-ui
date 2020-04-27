@@ -10,28 +10,11 @@ module.exports = async ({ config }) => {
     ],
     enforce: "pre"
   });
-
-  config.module.rules.push({
-    test: /\.md$/,
-    use: [
-      {
-        loader: "html-loader"
-      },
-      {
-        loader: "markdown-loader",
-        options: {
-          /* your options here */
-        }
-      }
-    ]
-  });
-
   config.module.rules.push({
     test: /\.scss$/,
     sideEffects: true,
     loaders: ["sass-loader"],
     include: path.resolve(__dirname, "../../")
   });
-
   return config;
 };

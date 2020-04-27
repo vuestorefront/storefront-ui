@@ -58,7 +58,7 @@
     }
   }
   &__chevron {
-    position: absolute;
+    --chevron-position: absolute;
     right: var(--spacer-xs);
     top: 50%;
     transform: translate3d(0, -50%, 0);
