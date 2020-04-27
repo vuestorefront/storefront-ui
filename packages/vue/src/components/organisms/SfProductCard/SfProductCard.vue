@@ -87,10 +87,10 @@
         </h3>
       </slot>
     </component>
-    <button
+    <SfButton
       v-if="wishlistIcon !== false"
-      v-focus
       :aria-label="`${ariaLabel} ${title}`"
+      class="sf-button--pure"
       :class="wishlistIconClasses"
       @click="toggleIsOnWishlist"
     >
@@ -101,7 +101,7 @@
           data-test="sf-wishlist-icon"
         />
       </slot>
-    </button>
+    </SfButton>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
         v-if="regularPrice"
@@ -141,6 +141,7 @@ import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfProductCard",
   components: {
@@ -150,6 +151,7 @@ export default {
     SfImage,
     SfCircleIcon,
     SfBadge,
+    SfButton,
   },
   directives: { focus },
   props: {
