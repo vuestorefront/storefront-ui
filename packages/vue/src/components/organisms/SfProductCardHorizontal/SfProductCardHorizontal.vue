@@ -109,7 +109,7 @@
       <button
         v-if="wishlistIcon !== false"
         v-focus
-        :aria-label="ariaLabel"
+        :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
         class="mobile-only"
         @click="toggleIsOnWishlist"
