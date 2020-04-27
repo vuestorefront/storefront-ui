@@ -6,6 +6,7 @@ import {
   SfMenuItem,
   SfBanner,
   SfList,
+  SfOverlay,
 } from "@storefront-ui/vue";
 const AsidePlaceholder = {
   components: { SfBanner },
@@ -302,6 +303,7 @@ storiesOf("Organisms|MegaMenu", module)
   .add("With SfHeader", () => ({
     components: {
       SfHeader,
+      SfOverlay,
       MegaMenuPlaceholder,
     },
     data() {
@@ -310,6 +312,8 @@ storiesOf("Organisms|MegaMenu", module)
       };
     },
     template: `
+    <div>
+      <SfOverlay :visible="!!hovered"/>
       <SfHeader
         title="Storefront UI"
         :logo="{ mobile: { url: '/assets/logo.svg' }, desktop: { url: '/assets/logo.svg' } }"
@@ -337,5 +341,6 @@ storiesOf("Organisms|MegaMenu", module)
             <MegaMenuPlaceholder title="Kids" :visible="hovered === 'kids'"/>
           </SfHeaderNavigationItem>
         </template>
-      </SfHeader>`,
+      </SfHeader>
+      </div>`,
   }));
