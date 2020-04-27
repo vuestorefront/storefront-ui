@@ -1,6 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import SfList from "./SfList.vue";
-import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
+import { SfList, SfMenuItem } from "@storefront-ui/vue";
 storiesOf("Organisms|List", module).add("Common", () => ({
   components: { SfList, SfMenuItem },
   data() {

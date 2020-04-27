@@ -31,10 +31,10 @@
     }
   },
   {
-    "name": "Przemek Spaczek",
+    "name": "Przemysław Spaczek",
     "role": "Maintainer",
     "work": {
-      "title": "Frontend Developer",
+      "title": "Senior Frontend Developer",
       "org": "DivanteLtd",
       "orgUrl": "https://github.com/DivanteLtd"
     },
@@ -99,7 +99,7 @@
     "name": "Anna Musiał",
     "role": "Maintainer",
     "work": {
-      "title": "Junior Frontend Developer",
+      "title": "Frontend Developer",
       "org": "DivanteLtd",
       "orgUrl": "https://github.com/DivanteLtd"
     },

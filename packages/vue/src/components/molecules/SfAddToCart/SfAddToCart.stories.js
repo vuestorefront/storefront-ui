@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
-import SfAddToCart from "./SfAddToCart.vue";
+import { SfAddToCart } from "@storefront-ui/vue";
 storiesOf("Molecules|AddToCart", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
