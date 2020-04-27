@@ -6,9 +6,7 @@ import {
   number,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfCollectedProduct from "./SfCollectedProduct.vue";
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
+import { SfCollectedProduct, SfProperty, SfButton } from "@storefront-ui/vue";
 storiesOf("Organisms|CollectedProduct", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

@@ -8,12 +8,12 @@
   >
     <input
       :id="value"
+      v-focus
       type="radio"
       :name="name"
       :value="value"
       :checked="isChecked"
       :disabled="disabled"
-      class="sf-radio__input"
       @input="inputHandler"
     />
     <label :for="value" class="sf-radio__container">
@@ -46,8 +46,12 @@
   </div>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfRadio",
+  directives: {
+    focus,
+  },
   model: {
     prop: "selected",
     event: "input",

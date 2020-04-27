@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, number } from "@storybook/addon-knobs";
-import SfBullets from "./SfBullets.vue";
+import { SfBullets } from "@storefront-ui/vue";
 storiesOf("Atoms|Bullets", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

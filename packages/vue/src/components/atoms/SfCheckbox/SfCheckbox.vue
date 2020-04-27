@@ -9,6 +9,7 @@
   >
     <input
       :id="name"
+      v-focus
       type="checkbox"
       :name="name"
       :value="value"
@@ -36,8 +37,12 @@
 </template>
 <script>
 import SfIcon from "../SfIcon/SfIcon.vue";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfCheckbox",
+  directives: {
+    focus,
+  },
   components: {
     SfIcon,
   },
@@ -97,6 +102,9 @@ export default {
         }
         this.$emit("change", selected);
       }
+    },
+    checkCheckmark() {
+      this.inputHandler();
     },
   },
 };
