@@ -56,6 +56,12 @@ storiesOf("Atoms|Image", module)
       pictureBreakpoint: {
         default: number("pictureBreakpoint", 576, {}, "Props"),
       },
+      rootMargin: {
+        default: text("rootMargin", "", "Props"),
+      },
+      threshold: {
+        default: number("threshold", 0, {}, "Props"),
+      },
     },
     template: `<SfImage
         :src="src"

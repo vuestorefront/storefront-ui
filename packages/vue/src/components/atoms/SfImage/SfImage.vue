@@ -18,7 +18,7 @@
       />
     </template>
     <template v-else>
-      <picture :data-iesrc="source[0].src" :data-alt="alt">
+      <picture :data-iesrc="srcIE" :data-alt="alt">
         <source
           v-for="(srcItem, i) in source"
           :key="i"
@@ -30,14 +30,15 @@
           :srcset="source.mobile.url"
           :media="`(max-width: ${pictureBreakpoint}px)`"
         /> -->
-        <img
+        <!-- <img
           v-if="show"
           ref="image"
           :src="source"
           :alt="alt"
           :width="width"
           :height="height"
-        />
+        /> -->
+        <noscript><img ref="image" src="source" alt="" /></noscript>
       </picture>
     </template>
     <transition name="fade">
@@ -89,30 +90,38 @@ export default {
     return {
       show: false,
       overlay: false,
-      srcIE: "",
     };
   },
   computed: {
     source() {
       let src = this.src || "";
+      let srcIE;
       // if (Array.isArray(this.src)) {
       //   this.srcIE = src[0].src;
       // }
+
       if (typeof this.src === "object" && !Array.isArray(this.src)) {
-        src = [
-          {
-            src: this.src.mobile.url,
-            media: "(max-width: {{pictureBreakpoint}}px)",
-          },
-          {
-            src: this.src.desktop.url,
-            media: "(min-width: {{pictureBreakpoint}}px)",
-          },
-        ];
         if (!src.desktop || !src.mobile) {
-          const object = src.desktop || src.mobile || { url: "" };
+          const object = src.desktop || src.mobile;
           src = object.url;
+          console.log("object without one element");
+        } else {
+          src = [
+            {
+              src: this.src.mobile.url,
+              media: "(max-width: {{pictureBreakpoint}}px)",
+            },
+            {
+              src: this.src.desktop.url,
+              media: "(min-width: {{pictureBreakpoint}}px)",
+            },
+          ];
+          console.log("full object");
         }
+      } else if (Array.isArray(this.src)) {
+        srcIE = this.src.filter((srcItem, index) => (index = 0));
+        src = this.src.filter((srcItem, index) => index > 0);
+        console.log("array");
       }
       console.log(src);
       return src;
