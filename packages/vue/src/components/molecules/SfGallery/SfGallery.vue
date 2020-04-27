@@ -45,7 +45,7 @@
     </div>
     <div class="sf-gallery__thumbs">
       <slot name="thumbs" v-bind="{ images, active: activeIndex, go }">
-        <div
+        <button
           v-for="(image, index) in images"
           :key="'img-' + index"
           class="sf-gallery__item"
@@ -55,11 +55,11 @@
           <SfImage
             class="sf-gallery__thumb"
             :src="image.mobile.url"
-            alt=""
+            :alt="image.alt"
             :width="thumbWidth"
             :height="thumbHeight"
           />
-        </div>
+        </button>
       </slot>
     </div>
   </div>

@@ -14,10 +14,11 @@
     color: var(--pagination-item-color, var(--c-text-muted));
   }
   &__button {
+    --link-text-decoration: "none";
+    --link-color: var(--c-text-muted);
     padding: var(--pagination-button-padding, 0);
     margin: var(--pagination-button-margin);
     background-color: transparent;
-    color: var(--pagination-button-color, var(--text-muted));
     @include font(
       --pagination-font,
       var(--font-normal),
@@ -40,7 +41,7 @@
       --pagination-button-margin: 0 0 0 var(--spacer-lg);
     }
     &--current {
-      --pagination-button-color: var(--c-text);
+      --link-color: var(--c-text);
       --pagination-button-border-color: var(--c-text);
     }
     &:disabled {

@@ -5,7 +5,7 @@ const StoriesPlaceholderStatic = {
 const StoriesPlaceholderSliding = {
   template: `<div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">[#sliding slot content]</div>`,
 };
-import SfSlidingSection from "./SfSlidingSection.vue";
+import { SfSlidingSection } from "@storefront-ui/vue";
 storiesOf("Molecules|SlidingSection", module).add("Common", () => ({
   components: {
     SfSlidingSection,
