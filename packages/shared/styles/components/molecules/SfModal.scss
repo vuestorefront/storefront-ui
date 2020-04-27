@@ -23,6 +23,13 @@
   &__content {
     overflow-y: auto;
     padding: var(--modal-content-padding, var(--spacer-base) var(--spacer-sm));
+    @include font(
+      --modal-content-font,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
   }
   &__close {
     position: absolute;
