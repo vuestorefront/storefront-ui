@@ -38,12 +38,9 @@
       </div>
       <!--@slot Custom notification close icon. Slot content will replace default close icon.-->
       <slot name="close" v-bind="{ closeHandler }">
-        <SfIcon
-          class="sf-notification__close"
-          icon="cross"
-          color="white"
-          @click="closeHandler"
-        />
+        <button v-focus class="sf-notification__close">
+          <SfIcon icon="cross" color="white" @click="closeHandler" />
+        </button>
       </slot>
     </div>
   </transition>

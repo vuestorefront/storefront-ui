@@ -60,6 +60,8 @@
     top: var(--notification-close-top, var(--spacer-xs));
     right: var(--notification-close-right, var(--spacer-xs));
     cursor: pointer;
+    background: transparent;
+    border: 0;
   }
   @include for-desktop {
     --notification-max-width: 100%;
