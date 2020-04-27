@@ -1,7 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
-import SfContentPages from "./SfContentPages.vue";
-import SfTabs from "../SfTabs/SfTabs.vue";
+import { SfContentPages, SfTabs } from "@storefront-ui/vue";
 storiesOf("Organisms|ContentPages", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

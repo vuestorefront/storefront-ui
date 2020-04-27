@@ -6,9 +6,11 @@ import {
   boolean,
   select,
 } from "@storybook/addon-knobs";
-import SfProductCardHorizontal from "./SfProductCardHorizontal.vue";
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
+import {
+  SfProductCardHorizontal,
+  SfProperty,
+  SfButton,
+} from "@storefront-ui/vue";
 storiesOf("Organisms|ProductCardHorizontal", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
