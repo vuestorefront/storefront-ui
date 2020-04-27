@@ -4,15 +4,14 @@
       <li v-if="hasArrows" class="sf-pagination__item">
         <!-- @slot Custom markup for previous page button -->
         <slot name="prev" v-bind="{ isDisabled: !canGoPrev, go: goPrev }">
-          <button
-            v-focus
+          <SfLink
             aria-label="Go to previous page"
             class="sf-pagination__button sf-pagination__button--prev"
             :disabled="isDisabled('prev')"
             @click="go('prev')"
           >
             <sf-icon icon="chevron_left" size="14px" />
-          </button>
+          </SfLink>
         </slot>
       </li>
       <template v-if="showFirst">
@@ -59,22 +58,20 @@
       <li v-if="hasArrows" class="sf-pagination__item">
         <!-- @slot Custom markup for next page button -->
         <slot name="next" v-bind="{ isDisabled: !canGoNext, go: goNext }">
-          <button
-            v-focus
+          <SfLink
             aria-label="Go to next page"
             class="sf-pagination__button sf-pagination__button--next"
             :disabled="isDisabled('next')"
             @click="go('next')"
           >
             <sf-icon icon="chevron_right" size="14px" />
-          </button>
+          </SfLink>
         </slot>
       </li>
     </ul>
   </nav>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
 export default {
@@ -82,9 +79,6 @@ export default {
   components: {
     SfIcon,
     SfLink,
-  },
-  directives: {
-    focus,
   },
   props: {
     /**
