@@ -49,9 +49,9 @@
         </div>
       </transition>
     </div>
-    <div v-if="valid !== undefined" class="sf-select__error-message">
+    <div v-if="!valid && valid !== undefined" class="sf-select__error-message">
       <transition name="fade">
-        <div v-if="!valid">
+        <div>
           <!-- @slot Custom error message of form select -->
           <slot name="error-message" v-bind="{ errorMessage }">
             {{ errorMessage }}

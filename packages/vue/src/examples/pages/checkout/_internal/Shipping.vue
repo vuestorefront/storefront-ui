@@ -73,7 +73,7 @@
         v-model="country"
         :value="country"
         label="Country"
-        class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
+        class="form__element form__element--half form__element--half-even select sf-select--underlined"
         :valid="true"
         required
         @change="updateField('country', $event)"
@@ -332,6 +332,9 @@ export default {
     &__radio-group {
       flex: 0 0 calc(100% + var(--spacer-sm));
       margin: 0 calc(var(--spacer-sm) * -1);
+    }
+    .select {
+      height: 68px;
     }
   }
   @include for-mobile {
