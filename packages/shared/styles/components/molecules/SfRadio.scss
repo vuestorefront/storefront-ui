@@ -19,7 +19,6 @@
     box-sizing: border-box;
     width: var(--radio-checkmark-size, 1.5rem);
     height: var(--radio-checkmark-size, 1.5rem);
-    box-shadow: var(--radio-checkmark-box-shadow);
     @include border(
       --radio-checkmark-border,
       1px,
@@ -36,13 +35,15 @@
       --radio-checkmark-border-color: var(--c-primary);
     }
   }
-  &__input {
+  input {
     position: absolute;
     opacity: 0;
-  }
-  input {
-    &:focus + .sf-radio__container {
-      --radio-checkmark-box-shadow: 0 0 2px 2px rgb(59, 153, 252);
+    &[style*="outline: none"]:focus + .sf-radio__container .sf-radio__checkmark {
+      outline: none;
+    }
+    &:focus + .sf-radio__container .sf-radio__checkmark{
+      outline-color: -webkit-focus-ring-color;
+      outline-style: auto;
     }
   }
   &__container {

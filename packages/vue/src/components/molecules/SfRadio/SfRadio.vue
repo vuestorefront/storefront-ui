@@ -7,14 +7,13 @@
     }"
   >
     <input
-      v-focus
       :id="value"
+      v-focus
       type="radio"
       :name="name"
       :value="value"
       :checked="isChecked"
       :disabled="disabled"
-      class="sf-radio__input"
       @input="inputHandler"
     />
     <label :for="value" class="sf-radio__container">
