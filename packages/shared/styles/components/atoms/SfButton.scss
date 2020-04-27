@@ -48,6 +48,14 @@
     --button-cursor: default;
     --button-box-shadow: none;
   }
+  &--pure {
+    padding: 0;
+    background: transparent;
+    --button-color: var(--c-text);
+    &:hover {
+      --button-box-shadow: 0;
+    }
+  }
   &--full-width {
     --button-width: 100%;
   }
