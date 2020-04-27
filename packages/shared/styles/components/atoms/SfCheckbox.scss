@@ -60,10 +60,10 @@
   input {
     position: absolute;
     opacity: 0;
-    &[style*="outline: none"]:focus + .sf-checkbox__container .sf-checkbox__checkmark {
+    &[style*="outline: none"]:focus + .sf-checkbox__checkmark, .sf-checkbox__container {
       outline: none;
     }
-    &:focus + .sf-checkbox__container .sf-checkbox__checkmark{
+    &:focus + .sf-checkbox__checkmark, .sf-checkbox__container{
       outline-color: -webkit-focus-ring-color;
       outline-style: auto;
     }
