@@ -1,6 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import SfLoader from "./SfLoader.vue";
-import SfImage from "../SfImage/SfImage.vue";
+import { SfLoader, SfImage } from "@storefront-ui/vue";
 storiesOf("Atoms|Loader", module)
   .add("Common", () => ({
     components: {

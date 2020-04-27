@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import SfCarousel from "./SfCarousel.vue";
+import { SfCarousel } from "@storefront-ui/vue";
 const StoriesPlaceholder = {
   props: ["index"],
   template: `<div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">{{index}}</div>`,

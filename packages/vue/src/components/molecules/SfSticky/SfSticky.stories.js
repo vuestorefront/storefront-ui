@@ -15,7 +15,7 @@ const StoriesPlaceholder = {
         [#default slot content]
       </div>`,
 };
-import SfSticky from "./SfSticky.vue";
+import { SfSticky } from "@storefront-ui/vue";
 storiesOf("Molecules|Sticky", module).add("Common", () => ({
   components: { SfSticky, StoriesWrapper, StoriesPlaceholder },
   template: `<StoriesWrapper>
