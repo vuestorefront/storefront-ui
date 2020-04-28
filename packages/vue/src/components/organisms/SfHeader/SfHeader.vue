@@ -52,7 +52,7 @@
           >
             <SfIcon
               :icon="icon.icon"
-              :has-badge="isCartEmpty && icon.hasBadge === true"
+              :has-badge="cartIsNotEmpty && icon.hasBadge === true"
               :badge-label="cartItemsQty"
               size="xs"
               class="sf-header__icon"
@@ -209,8 +209,8 @@ export default {
   },
   computed: {
     ...mapMobileObserver(),
-    isCartEmpty() {
-      return !!this.cartItemsQty;
+    cartIsNotEmpty() {
+      return parseInt(this.cartItemsQty, 10) > 0;
     },
   },
   watch: {
