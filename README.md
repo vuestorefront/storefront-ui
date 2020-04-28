@@ -71,7 +71,7 @@ We are currently in the process of building the library. If you want to help in 
 Thank you! There would be no Storefront UI without you.
 
 # Supporters
-<a href="https://divante.co"><img src="https://avatars0.githubusercontent.com/u/11463761?s=200&v=4" alt="divante" height="55px"></a>&nbsp;&nbsp;
+<a href="https://divante.co"><img src="https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/docs/assets/logo-divante.svg" alt="divante" height="55px"></a>&nbsp;&nbsp;
 <a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="55px"></a>
 
 # Contributing
