@@ -14,7 +14,7 @@
           v-if="selected && hasBadge"
           class="sf-color__badge mobile-only"
         >
-          <SfIcon icon="check" size="7px" color="white" />
+          <SfIcon aria-hidden="true" icon="check" size="7px" color="white" />
         </SfBadge>
       </slot>
     </transition>
@@ -28,30 +28,30 @@ export default {
   name: "SfColor",
   components: {
     SfBadge,
-    SfIcon
+    SfIcon,
   },
   directives: {
-    focus: focus
+    focus: focus,
   },
   props: {
     color: {
       type: String,
-      default: ""
+      default: "",
     },
     selected: {
       type: Boolean,
-      default: false
+      default: false,
     },
     hasBadge: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   computed: {
     style() {
       return { "--color-background": this.color };
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

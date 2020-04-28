@@ -1,16 +1,14 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, select } from "@storybook/addon-knobs";
-import SfBannerGrid from "./SfBannerGrid.vue";
-import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
+import { SfBannerGrid, SfBanner } from "@storefront-ui/vue";
 storiesOf("Organisms|BannerGrid", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfBannerGrid, SfBanner },
     props: {
       bannerGrid: {
-        default: select("bannerGrid", [1, 2], 1, "Props")
-      }
+        default: select("bannerGrid", [1, 2], 1, "Props"),
+      },
     },
     data() {
       return {
@@ -20,11 +18,11 @@ storiesOf("Organisms|BannerGrid", module)
             subtitle: ["Dresses"],
             title: ["Cocktail & Party"],
             description: [
-              "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+              "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.",
             ],
             buttonText: ["Shop now"],
             image: ["/assets/storybook/Home/bannerF.jpg"],
-            class: ["sf-banner--slim"]
+            class: ["sf-banner--slim"],
           },
           {
             slot: "banner-B",
@@ -32,12 +30,12 @@ storiesOf("Organisms|BannerGrid", module)
             title: ["Linen Dresses"],
             description: [
               "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.",
-              ""
+              "",
             ],
             buttonText: ["Shop now"],
             image: ["/assets/storybook/Home/bannerE.jpg"],
             class: ["sf-banner--slim"],
-            style: ["padding-right: 20%", undefined]
+            style: ["padding-right: 20%", undefined],
           },
           {
             slot: "banner-C",
@@ -45,7 +43,7 @@ storiesOf("Organisms|BannerGrid", module)
             title: ["The Office Life", "Your Office"],
             buttonText: [undefined, "Shop now"],
             image: ["/assets/storybook/Home/bannerC.jpg"],
-            class: ["sf-banner--slim"]
+            class: ["sf-banner--slim"],
           },
           {
             slot: "banner-D",
@@ -54,19 +52,19 @@ storiesOf("Organisms|BannerGrid", module)
             buttonText: [undefined, "Shop now"],
             image: [
               "/assets/storybook/Home/bannerG.jpg",
-              "/assets/storybook/Home/bannerK.jpg"
+              "/assets/storybook/Home/bannerK.jpg",
             ],
-            class: ["sf-banner--slim"]
-          }
-        ]
+            class: ["sf-banner--slim"],
+          },
+        ],
       };
     },
     computed: {
       banners() {
-        return this.bannersExample.map(banner => {
+        return this.bannersExample.map((banner) => {
           const grid = this.bannerGrid - 1;
           const obj = {};
-          Object.keys(banner).forEach(key => {
+          Object.keys(banner).forEach((key) => {
             obj[key] =
               key != "slot"
                 ? typeof banner[key][grid] != "undefined"
@@ -76,7 +74,7 @@ storiesOf("Organisms|BannerGrid", module)
           });
           return obj;
         });
-      }
+      },
     },
     template: `<SfBannerGrid
         :banner-grid="bannerGrid"
@@ -96,5 +94,5 @@ storiesOf("Organisms|BannerGrid", module)
             :class="item.class" 
           />
         </template>
-      </SfBannerGrid>`
+      </SfBannerGrid>`,
   }));

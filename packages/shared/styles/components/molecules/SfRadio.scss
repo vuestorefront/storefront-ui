@@ -35,9 +35,16 @@
       --radio-checkmark-border-color: var(--c-primary);
     }
   }
-  &__input {
+  input {
     position: absolute;
     opacity: 0;
+    &[style*="outline: none"]:focus + .sf-radio__container .sf-radio__checkmark {
+      outline: none;
+    }
+    &:focus + .sf-radio__container .sf-radio__checkmark{
+      outline-color: -webkit-focus-ring-color;
+      outline-style: auto;
+    }
   }
   &__container {
     display: var(--radio-container-display, flex);
@@ -55,6 +62,17 @@
   &__content {
     flex: 1;
     margin: var(--radio-content-margin, 0 0 0 var(--spacer-sm));
+  }
+  &__details {
+    margin: var(--radio-details-margin, var(--spacer-xs) 0 0 0);
+    color: var(--radio-details-color, var(--c-text-muted));
+    @include font(
+      --radio-details-font,
+      var(--font-light),
+      var(--font-xs),
+      1.2,
+      var(--font-family-secondary)
+    );
   }
   &__description {
     margin: var(--radio-description-margin, var(--spacer-xs) 0 0 0);

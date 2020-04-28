@@ -21,18 +21,14 @@
         </slot>
         <button
           v-if="cross"
+          v-focus
           class="sf-modal__close desktop-only"
-          :aria-label="ariaLabelClose"
+          aria-label="Close modal"
           @click="close"
         >
           <!--@slot Use this slot to place content inside the close button.-->
           <slot name="close">
-            <SfIcon
-              icon="cross"
-              size="15px"
-              color="gray-secondary"
-              aria-role="button"
-            />
+            <SfIcon icon="cross" size="15px" color="gray-secondary" />
           </slot>
         </button>
         <div ref="content" class="sf-modal__content">
@@ -48,16 +44,18 @@ import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfModal",
+  directives: { focus },
   components: {
     SfBar,
     SfOverlay,
-    SfIcon
+    SfIcon,
   },
   model: {
     prop: "visible",
-    event: "close"
+    event: "close",
   },
   props: {
     /**
@@ -65,67 +63,60 @@ export default {
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Visibility of the modal
      */
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Cross closing modal button
      */
     cross: {
       type: Boolean,
-      default: true
+      default: true,
     },
     /**
      * Whether to show the overlay
      */
     overlay: {
       type: Boolean,
-      default: true
+      default: true,
     },
     /**
      * If true clicking outside will not dismiss the modal
      */
     persistent: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * overlay transition effect
      */
     transitionOverlay: {
       type: String,
-      default: "fade"
+      default: "fade",
     },
     /**
      * overlay transition effect
      */
     transitionModal: {
       type: String,
-      default: "fade"
+      default: "fade",
     },
-    /**
-     * aria-label of the close button
-     */
-    ariaLabelClose: {
-      type: String,
-      default: null
-    }
   },
   data() {
     return {
       staticClass: null,
-      className: null
+      className: null,
     };
   },
   watch: {
     visible: {
-      handler: function(value) {
+      handler: function (value) {
         if (typeof window === "undefined" || typeof document === "undefined")
           return;
         if (value) {
@@ -138,8 +129,8 @@ export default {
           document.removeEventListener("keydown", this.keydownHandler);
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
     close() {
@@ -162,8 +153,8 @@ export default {
       if (this.className !== this.$vnode.data.class) {
         this.className = this.$vnode.data.class;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

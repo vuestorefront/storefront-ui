@@ -15,6 +15,7 @@
   }
   &__item {
     display: flex;
+    flex: 0 0 var(--gallery-thumb-width, 10rem);
     margin: var(--gallery-item-margin, 0 var(--spacer-xs) 0 0);
     &:last-child {
       --gallery-item-margin: 0;
@@ -26,6 +27,9 @@
       --gallery-item-opacity: 1;
       --gallery-item-cursor: default;
     }
+    background: transparent;
+    border: 0;
+    padding: 0;
   }
   &__thumb {
     width: var(--gallery-thumb-width, calc(var(--_image-width, 10rem) * 1px));

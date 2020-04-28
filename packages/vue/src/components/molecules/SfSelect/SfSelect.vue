@@ -9,7 +9,7 @@
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
       'sf-select--is-required': required,
-      'sf-select--is-disabled': disabled
+      'sf-select--is-disabled': disabled,
     }"
     class="sf-select"
     @click="toggle($event)"
@@ -19,7 +19,7 @@
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
   >
-    <div style="position: relative">
+    <div style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="sf-select__selected sf-select-option" v-html="html"></div>
       <slot name="label">
@@ -73,11 +73,11 @@ export default {
   components: {
     SfButton,
     SfChevron,
-    SfOverlay
+    SfOverlay,
   },
   model: {
     prop: "selected",
-    event: "change"
+    event: "change",
   },
   props: {
     /**
@@ -85,57 +85,57 @@ export default {
      */
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Selected item value
      */
     selected: {
       type: [String, Number, Object],
-      default: ""
+      default: "",
     },
     /**
      * Dropdown list size
      */
     size: {
       type: Number,
-      default: 5
+      default: 5,
     },
     /**
      * Required attribute
      */
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Validate value of form input
      */
     valid: {
       type: Boolean,
-      default: undefined
+      default: undefined,
     },
     /**
      * Disabled status of form select
      */
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Error message value of form select. It will be appeared if `valid` is `true`.
      */
     errorMessage: {
       type: String,
-      default: "This field is not correct."
-    }
+      default: "This field is not correct.",
+    },
   },
   data() {
     return {
       open: false,
       options: [],
       indexes: {},
-      optionHeight: 0
+      optionHeight: 0,
     };
   },
   computed: {
@@ -149,7 +149,7 @@ export default {
       },
       set(index) {
         this.$emit("change", this.options[index].value);
-      }
+      },
     },
     html() {
       if (this.index < 0) return;
@@ -164,32 +164,32 @@ export default {
     },
     isSelected() {
       return this.selected;
-    }
+    },
   },
   watch: {
     open: {
       immediate: true,
-      handler: function(visible) {
+      handler: function (visible) {
         if (visible) {
           this.$nextTick(() => {
             this.optionHeight = this.$slots.default[0].elm.offsetHeight;
           });
         }
-      }
-    }
+      },
+    },
   },
-  created: function() {},
-  mounted: function() {
+  created: function () {},
+  mounted: function () {
     const options = [];
     const indexes = {};
     let i = 0;
     if (!this.$slots.default) return;
     this.$on("update", this.update);
-    this.$slots.default.forEach(slot => {
+    this.$slots.default.forEach((slot) => {
       if (!slot.tag) return;
       options.push({
         ...slot.componentOptions.propsData,
-        html: slot.elm.innerHTML
+        html: slot.elm.innerHTML,
       });
       indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
       i++;
@@ -197,7 +197,7 @@ export default {
     this.options = options;
     this.indexes = indexes;
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     this.$off("update", this.update);
   },
   methods: {
@@ -231,8 +231,8 @@ export default {
     },
     closeHandler() {
       this.open = false;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

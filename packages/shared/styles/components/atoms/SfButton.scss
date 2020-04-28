@@ -14,7 +14,6 @@
   text-decoration: var(--button-text-decoration);
   transition: var(--button-transition, box-shadow 150ms ease-in-out);
   cursor: var(--button-cursor, pointer);
-  outline: none;
   border-radius: var(--button-border-radius, 0);
   white-space: var(--button-wrap, nowrap);
   @include font(

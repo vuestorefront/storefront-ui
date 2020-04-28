@@ -10,7 +10,8 @@
       </div>
       <div class="navbar__main">
         <SfButton
-          class="sf-button--text navbar__filters-button "
+          class="sf-button--text navbar__filters-button"
+          aria-label="Filters"
           @click="isFilterSidebarOpen = true"
         >
           <SfIcon size="32px" color="#BEBFC4" icon="filter" />
@@ -33,8 +34,8 @@
           <span class="desktop-only">280</span>
           <span class="navbar__label mobile-only">280 Items</span>
         </div>
-        <div class="navbar__view desktop-only">
-          <span class="navbar__view-label">View</span>
+        <div class="navbar__view">
+          <span class="navbar__view-label desktop-only">View</span>
           <SfIcon
             class="navbar__view-icon"
             :color="isGridView ? '#1D1F22' : '#BEBFC4'"
@@ -56,16 +57,6 @@
             @click="isGridView = false"
           />
         </div>
-        <SfButton class="sf-button--text navbar__filters-button mobile-only">
-          Sort by
-          <SfIcon size="15px" style="margin-left: 10px;">
-            <svg viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M8.32809 15.2897L12 11.7644V12.2892L8.13547 16L4.27094 12.2892V11.7644L7.94285 15.2897V6.83165H8.32809L8.32809 15.2897ZM3.67191 0.710288L0 4.23556V3.71082L3.86453 0L7.72906 3.71082V4.23556L4.05715 0.710288V9.16835H3.67191L3.67191 0.710288Z"
-              />
-            </svg>
-          </SfIcon>
-        </SfButton>
       </div>
     </div>
     <div class="main section">
@@ -143,7 +134,7 @@
           :total="4"
           :visible="5"
           @click="
-            page => {
+            (page) => {
               currentPage = page;
             }
           "
@@ -318,7 +309,7 @@ import {
   SfAccordion,
   SfSelect,
   SfBreadcrumbs,
-  SfColor
+  SfColor,
 } from "@storefront-ui/vue";
 export default {
   components: {
@@ -335,7 +326,7 @@ export default {
     SfAccordion,
     SfSelect,
     SfBreadcrumbs,
-    SfColor
+    SfColor,
   },
   data() {
     return {
@@ -346,16 +337,16 @@ export default {
       sortByOptions: [
         {
           value: "latest",
-          label: "Latest"
+          label: "Latest",
         },
         {
           value: "price-up",
-          label: "Price from low to high"
+          label: "Price from low to high",
         },
         {
           value: "price-down",
-          label: "Price from high to low"
-        }
+          label: "Price from high to low",
+        },
       ],
       sidebarAccordion: [
         {
@@ -367,11 +358,11 @@ export default {
             { label: "Dresses", count: "34" },
             { label: "T-shirts", count: "56" },
             { label: "Pants", count: "7" },
-            { label: "Underwear", count: "12" }
-          ]
+            { label: "Underwear", count: "12" },
+          ],
         },
         {
-          header: "Accesorries",
+          header: "Accessorries",
           items: [
             { label: "All", count: "280" },
             { label: "Skirts", count: "23" },
@@ -379,8 +370,8 @@ export default {
             { label: "Dresses", count: "34" },
             { label: "T-shirts", count: "56" },
             { label: "Pants", count: "7" },
-            { label: "Underwear", count: "12" }
-          ]
+            { label: "Underwear", count: "12" },
+          ],
         },
         {
           header: "Shoes",
@@ -391,9 +382,9 @@ export default {
             { label: "Dresses", count: "34" },
             { label: "T-shirts", count: "56" },
             { label: "Pants", count: "7" },
-            { label: "Underwear", count: "12" }
-          ]
-        }
+            { label: "Underwear", count: "12" },
+          ],
+        },
       ],
       products: [
         {
@@ -405,7 +396,7 @@ export default {
           price: { regular: "$50.00", special: "$20.00" },
           rating: { max: 5, score: 5 },
           reviewsCount: 8,
-          isOnWishlist: true
+          isOnWishlist: true,
         },
         {
           title: "Cream Beach Bag",
@@ -416,7 +407,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isOnWishlist: false
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -427,7 +418,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isOnWishlist: false
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -438,7 +429,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isOnWishlist: false
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -449,7 +440,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isOnWishlist: false
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -460,7 +451,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isOnWishlist: false
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -471,7 +462,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 6,
-          isOnWishlist: false
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -482,8 +473,8 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isOnWishlist: false
-        }
+          isOnWishlist: false,
+        },
       ],
       filters: {
         collection: [
@@ -491,20 +482,20 @@ export default {
             label: "Summer fly",
             value: "summer-fly",
             count: "10",
-            selected: false
+            selected: false,
           },
           {
             label: "Best 2018",
             value: "best-2018",
             count: "23",
-            selected: false
+            selected: false,
           },
           {
             label: "Your choice",
             value: "your-choice",
             count: "54",
-            selected: false
-          }
+            selected: false,
+          },
         ],
         color: [
           { label: "Red", value: "red", color: "#990611", selected: false },
@@ -513,10 +504,10 @@ export default {
             label: "Yellow",
             value: "yellow",
             color: "#DCA742",
-            selected: false
+            selected: false,
           },
           { label: "Blue", value: "blue", color: "#004F97", selected: false },
-          { label: "Navy", value: "navy", color: "#656466", selected: false }
+          { label: "Navy", value: "navy", color: "#656466", selected: false },
         ],
         size: [
           { label: "Size 2 (XXS)", value: "xxs", count: "10", selected: false },
@@ -526,72 +517,72 @@ export default {
             label: "Size 12-14 (M)",
             value: "m",
             count: "109",
-            selected: false
+            selected: false,
           },
           { label: "Size 16-18 (L)", value: "l", count: "23", selected: false },
           {
             label: "Size 20-22(XL)",
             value: "xl",
             count: "12",
-            selected: false
+            selected: false,
           },
           {
             label: "Size 24-26 (XXL)",
             value: "xxl",
             count: "2",
-            selected: false
-          }
+            selected: false,
+          },
         ],
         price: [
           {
             label: "Under $200",
             value: "under-200",
             count: "23",
-            selected: false
+            selected: false,
           },
           {
             label: "Under $300",
             value: "under-300",
             count: "54",
-            selected: false
-          }
+            selected: false,
+          },
         ],
         material: [
           { label: "Cotton", value: "coton", count: "33", selected: false },
-          { label: "Silk", value: "silk", count: "73", selected: false }
-        ]
+          { label: "Silk", value: "silk", count: "73", selected: false },
+        ],
       },
       breadcrumbs: [
         {
           text: "Home",
           route: {
-            link: "#"
-          }
+            link: "#",
+          },
         },
         {
           text: "Women",
           route: {
-            link: "#"
-          }
-        }
-      ]
+            link: "#",
+          },
+        },
+      ],
     };
   },
   methods: {
     updateFilter() {},
     clearAllFilters() {
       const filters = Object.keys(this.filters);
-      filters.forEach(name => {
+      filters.forEach((name) => {
         const prop = this.filters[name];
-        prop.forEach(value => {
+        prop.forEach((value) => {
           value.selected = false;
         });
       });
     },
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -655,6 +646,9 @@ export default {
   &__filters-button {
     display: flex;
     align-items: center;
+    @include for-mobile {
+      order: 1;
+    }
     svg {
       fill: var(--c-text-muted);
       transition: fill 150ms ease;
@@ -690,9 +684,11 @@ export default {
   &__view {
     display: flex;
     align-items: center;
-    margin: 0 var(--spacer-xl);
     @include for-desktop {
       margin: 0 0 0 var(--spacer-2xl);
+    }
+    @include for-mobile {
+      order: -1;
     }
     &-icon {
       cursor: pointer;

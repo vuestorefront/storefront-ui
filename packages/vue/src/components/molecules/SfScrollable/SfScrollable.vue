@@ -20,27 +20,27 @@ export default {
   name: "SfScrollable",
   components: {
     Simplebar,
-    SfButton
+    SfButton,
   },
   props: {
     maxContentHeight: {
       type: String,
-      default: ""
+      default: "",
     },
     showText: {
       type: String,
-      default: "Show"
+      default: "Show",
     },
     hideText: {
       type: String,
-      default: "Hide"
-    }
+      default: "Hide",
+    },
   },
   data() {
     return {
       isHidden: true,
       hasScroll: false,
-      contentEl: undefined
+      contentEl: undefined,
     };
   },
   computed: {
@@ -48,9 +48,9 @@ export default {
       return {
         "--_scrollable-max-height": this.maxContentHeight.trim
           ? this.maxContentHeight
-          : undefined
+          : undefined,
       };
-    }
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -68,8 +68,8 @@ export default {
       const containerHeight = this.$refs.content.$el.offsetHeight;
       const contentHeight = this.contentEl.offsetHeight;
       this.hasScroll = contentHeight > containerHeight;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

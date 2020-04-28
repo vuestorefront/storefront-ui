@@ -28,7 +28,7 @@ export default {
   name: "SfDropdown",
   components: {
     SfOverlay,
-    SfButton
+    SfButton,
   },
   props: {
     /**
@@ -36,21 +36,40 @@ export default {
      */
     isOpen: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Title for dropdown content, visible on mobile.
      */
     title: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
+  },
+  watch: {
+    isOpen: {
+      handler(value) {
+        if (typeof window === "undefined" || typeof document === "undefined")
+          return;
+        if (value) {
+          document.addEventListener("keydown", this.keydownHandler);
+        } else {
+          document.removeEventListener("keydown", this.keydownHandler);
+        }
+      },
+      immediate: true,
+    },
   },
   methods: {
     close() {
       this.$emit("click:close");
-    }
-  }
+    },
+    keydownHandler(e) {
+      if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
+        this.close();
+      }
+    },
+  },
 };
 </script>
 <style lang="scss">

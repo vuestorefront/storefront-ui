@@ -63,6 +63,7 @@
             <SfColor
               v-for="(color, i) in product.colors"
               :key="i"
+              :aria-label="color.name"
               :color="color.color"
               :selected="color.selected"
               class="product__color"
@@ -150,7 +151,7 @@ import {
   SfColor,
   SfSelect,
   SfProductOption,
-  SfBreadcrumbs
+  SfBreadcrumbs,
 } from "@storefront-ui/vue";
 export default {
   name: "Product",
@@ -168,7 +169,7 @@ export default {
     SfColor,
     SfSelect,
     SfProductOption,
-    SfBreadcrumbs
+    SfBreadcrumbs,
   },
   data() {
     return {
@@ -184,23 +185,23 @@ export default {
           {
             mobile: { url: "assets/storybook/Product/productA.png" },
             desktop: { url: "assets/storybook/Product/productA.png" },
-            big: { url: "assets/storybook/Product/productA.png" }
+            big: { url: "assets/storybook/Product/productA.png" },
           },
           {
             mobile: { url: "assets/storybook/Product/productB.jpg" },
             desktop: { url: "assets/storybook/Product/productB.jpg" },
-            big: { url: "assets/storybook/Product/productB.jpg" }
+            big: { url: "assets/storybook/Product/productB.jpg" },
           },
           {
             mobile: { url: "assets/storybook/Product/productA.png" },
             desktop: { url: "assets/storybook/Product/productA.png" },
-            big: { url: "assets/storybook/Product/productA.png" }
+            big: { url: "assets/storybook/Product/productA.png" },
           },
           {
             mobile: { url: "assets/storybook/Product/productB.jpg" },
             desktop: { url: "assets/storybook/Product/productB.jpg" },
-            big: { url: "assets/storybook/Product/productB.jpg" }
-          }
+            big: { url: "assets/storybook/Product/productB.jpg" },
+          },
         ],
         price: "$50.00",
         colors: [
@@ -208,29 +209,29 @@ export default {
           { color: "#ABD9D8", name: "mint1", selected: false },
           { color: "#DB5593", name: "pink1", selected: false },
           { color: "#ABD9D8", name: "mint2", selected: false },
-          { color: "#DB5593", name: "pink2", selected: false }
+          { color: "#DB5593", name: "pink2", selected: false },
         ],
         rating: {
           rate: 4,
-          max: 5
+          max: 5,
         },
         details: [
           {
             name: "Code",
-            value: 435435
+            value: 435435,
           },
           {
             name: "Material",
-            value: "Cotton"
+            value: "Cotton",
           },
           {
             name: "Category",
-            value: "Pants"
+            value: "Pants",
           },
           {
             name: "Country",
-            value: "Poland"
-          }
+            value: "Poland",
+          },
         ],
         sizes: ["32", "34", "36", "38", "40", "42"],
         careInstructions: "Do not wash!",
@@ -244,8 +245,8 @@ export default {
               "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
             rating: {
               max: 5,
-              rate: 4
-            }
+              rate: 4,
+            },
           },
           {
             author: "Jane D.Smith",
@@ -254,47 +255,47 @@ export default {
               "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
             rating: {
               max: 5,
-              rate: 4
-            }
-          }
-        ]
+              rate: 4,
+            },
+          },
+        ],
       },
       tabs: [
         {
           title: "Description",
           content:
-            "The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses."
+            "The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses.",
         },
         {
           title: "Read reviews",
-          content: ""
+          content: "",
         },
         {
           title: "Additional Information",
-          content: ""
-        }
+          content: "",
+        },
       ],
       selected: false,
       breadcrumbs: [
         {
           text: "Home",
           route: {
-            link: "#"
-          }
+            link: "#",
+          },
         },
         {
           text: "Category",
           route: {
-            link: "#"
-          }
+            link: "#",
+          },
         },
         {
           text: "Pants",
           route: {
-            link: "#"
-          }
-        }
-      ]
+            link: "#",
+          },
+        },
+      ],
     };
   },
   methods: {
@@ -312,8 +313,8 @@ export default {
           el.selected = false;
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

@@ -4,12 +4,12 @@
       :disabled="disabled"
       class="sf-quantity-selector__button"
       @click="$emit('input', parseInt(qty, 10) - 1)"
-      >-</SfButton
+      >&minus;</SfButton
     >
     <SfInput
       type="number"
       :value="qty"
-      :aria-label="ariaLabel"
+      v-bind="$attrs"
       :disabled="disabled"
       class="sf-quantity-selector__input"
       @input="$emit('input', parseInt($event, 10))"
@@ -29,36 +29,30 @@ export default {
   name: "SfQuantitySelector",
   components: {
     SfInput,
-    SfButton
+    SfButton,
   },
+  inheritAttrs: false,
   model: {
-    prop: "qty"
+    prop: "qty",
   },
   props: {
     /** Quantity */
     qty: {
       type: [Number, String],
-      default: 1
-    },
-    /**
-     * Form input label
-     */
-    ariaLabel: {
-      type: String,
-      default: "quantity"
+      default: 1,
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   watch: {
     qty(val) {
       if (val < 1 || isNaN(val)) {
         this.$emit("input", 1);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">
