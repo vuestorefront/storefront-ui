@@ -24,8 +24,8 @@
       --button-background: var(--c-light);
     }
   }
-  .sf-icon {
-    position: initial;
+  &__icon {
+    --icon-position: static;
   }
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
