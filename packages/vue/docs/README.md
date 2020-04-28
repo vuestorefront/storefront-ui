@@ -36,6 +36,6 @@ export default {
 voila!
 
 ## Supporters
-<a href="https://divante.co"><img src="https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/docs/assets/logo-divante.svg" alt="divante" height="55px"></a>&nbsp;&nbsp;
+<a href="https://divante.co"><img src="https://raw.githubusercontent.com/DivanteLtd/storefront-ui/master/packages/vue/docs/assets/logo-divante.svg" alt="divante" height="55px"></a>&nbsp;&nbsp;
 <a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="55px"></a>
 
