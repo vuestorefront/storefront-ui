@@ -4,7 +4,6 @@
     :aria-owns="'lbox_' + _uid"
     aria-autocomplete="none"
     role="combobox"
-    tabindex="0"
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
@@ -21,7 +20,11 @@
   >
     <div style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <div class="sf-select__selected sf-select-option" v-html="html"></div>
+      <div
+        class="sf-select__selected sf-select-option"
+        tabindex="0"
+        v-html="html"
+      ></div>
       <slot name="label">
         <div v-if="label" class="sf-select__label">
           {{ label }}
@@ -49,9 +52,9 @@
         </div>
       </transition>
     </div>
-    <div v-if="!valid && valid !== undefined" class="sf-select__error-message">
+    <div v-if="valid !== undefined" class="sf-select__error-message">
       <transition name="fade">
-        <div>
+        <div v-if="!valid">
           <!-- @slot Custom error message of form select -->
           <slot name="error-message" v-bind="{ errorMessage }">
             {{ errorMessage }}
