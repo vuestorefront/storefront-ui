@@ -92,14 +92,11 @@
       :aria-label="`${ariaLabel} ${title}`"
       class="sf-button--pure"
       :class="wishlistIconClasses"
+      data-test="sf-wishlist-icon"
       @click="toggleIsOnWishlist"
     >
       <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
-        <SfIcon
-          :icon="currentWishlistIcon"
-          size="22px"
-          data-test="sf-wishlist-icon"
-        />
+        <SfIcon :icon="currentWishlistIcon" size="22px" />
       </slot>
     </SfButton>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
