@@ -1,8 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
-import SfBottomNavigation from "./SfBottomNavigation.vue";
-import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import { SfBottomNavigation, SfCircleIcon, SfIcon } from "@storefront-ui/vue";
 storiesOf("Organisms|BottomNavigation", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

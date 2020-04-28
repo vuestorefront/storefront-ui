@@ -7,7 +7,7 @@
   --button-background: var(--c-primary);
   --button-transition: box-shadow 300ms ease;
   --button-box-shadow: 0 4px 4px rgba(var(--c-dark-base), 0.2);
-  border-radius: 100%;
+  --button-border-radius: 100%;
   position: var(--circle-icon-position, relative);
   &:hover {
     --button-background: var(--c-primary);
