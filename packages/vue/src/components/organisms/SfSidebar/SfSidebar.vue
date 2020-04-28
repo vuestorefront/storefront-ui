@@ -2,7 +2,7 @@
   <div class="sf-sidebar" :class="[staticClass, className]">
     <SfOverlay :visible="visibleOverlay" @click="close" />
     <transition :name="transitionName">
-      <aside v-if="visible" class="sf-sidebar__aside">
+      <aside v-if="visible" v-focus-trap class="sf-sidebar__aside">
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="bar">
           <SfBar
@@ -50,6 +50,7 @@
   </div>
 </template>
 <script>
+import { focusTrap } from "../../../utilities/directives/focus-trap-directive.js";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
@@ -57,6 +58,7 @@ import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 export default {
   name: "SfSidebar",
+  directives: { focusTrap },
   components: {
     SfBar,
     SfCircleIcon,

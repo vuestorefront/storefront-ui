@@ -73,7 +73,7 @@ storiesOf("Organisms|GroupedProduct", module)
           :price-special="priceSpecial"
         >
           <template #details>
-           <div :style="{color: '#A3A5AD', fontSize: '12px'}">MSD23-345-324</div>
+           <div :style="{color: '#72757E', fontSize: '12px'}">MSD23-345-324</div>
            <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0'}" />
           </template>
         </SfGroupedProductItem>

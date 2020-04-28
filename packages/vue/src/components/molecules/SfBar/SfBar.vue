@@ -1,29 +1,34 @@
 <template>
   <div class="sf-bar">
-    <slot name="back">
-      <SfButton
-        v-if="back"
-        aria-label="back"
-        class="sf-button--pure sf-bar__icon"
-        @click="$emit('click:back')"
-      >
-        <SfIcon icon="chevron_left" size="14px" />
-      </SfButton>
-    </slot>
-    <slot name="title" v-bind="{ title }">
-      <div class="sf-bar__title">{{ title }}</div>
-    </slot>
-    <slot name="close">
-      <SfButton
-        v-if="close"
-        v-focus
-        class="sf-button--pure sf-bar__icon"
-        aria-label="close"
-        @click="$emit('click:close')"
-      >
-        <SfIcon icon="cross" size="14px" />
-      </SfButton>
-    </slot>
+    <div>
+      <slot name="back">
+        <SfButton
+          v-if="back"
+          aria-label="back"
+          class="sf-button--pure sf-bar__icon"
+          @click="$emit('click:back')"
+        >
+          <SfIcon icon="chevron_left" size="14px" />
+        </SfButton>
+      </slot>
+    </div>
+    <div>
+      <slot name="title" v-bind="{ title }">
+        <div class="sf-bar__title">{{ title }}</div>
+      </slot>
+    </div>
+    <div>
+      <slot name="close">
+        <SfButton
+          v-if="close"
+          class="sf-button--pure sf-bar__icon"
+          aria-label="close"
+          @click="$emit('click:close')"
+        >
+          <SfIcon icon="cross" size="14px" />
+        </SfButton>
+      </slot>
+    </div>
   </div>
 </template>
 <script>
