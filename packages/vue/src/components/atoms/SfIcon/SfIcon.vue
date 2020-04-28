@@ -19,13 +19,13 @@
         />
       </svg>
     </slot>
-    <transition name="sf-icon__badge">
-      <slot v-if="hasBadge" name="badge" v-bind="{ badgeLabel, hasBadge }">
-        <SfBadge class="sf-icon__badge sf-badge--rounded">
+    <slot name="badge" v-bind="{ badgeLabel, hasBadge }">
+      <transition name="bounce">
+        <SfBadge v-if="hasBadge" class="sf-icon__badge sf-badge--number">
           {{ badgeLabel }}
         </SfBadge>
-      </slot>
-    </transition>
+      </transition>
+    </slot>
   </div>
 </template>
 <script>
