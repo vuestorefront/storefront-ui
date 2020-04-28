@@ -1,5 +1,5 @@
 <template>
-  <div v-focus tabindex="0" class="sf-chevron">
+  <div class="sf-chevron">
     <!-- @slot Custom chevron markup -->
     <slot>
       <span class="sf-chevron__bar sf-chevron__bar--left"></span>

@@ -5,27 +5,7 @@
       :breadcrumbs="breadcrumbs"
     />
     <div class="product">
-      <div>
-        <SfGallery :images="product.images">
-          <template #options>
-            <SfColorPicker
-              :is-open="isOpen"
-              class="color-picker sf-color-picker--vertical mobile-only"
-              close-icon="cross"
-              @click:toggle="isOpen = !isOpen"
-            >
-              <SfColor
-                v-for="color in product.colors"
-                :key="color.name"
-                style="margin: 0.4375rem;"
-                :color="color.color"
-                :selected="color.selected"
-                @click="color.selected = !color.selected"
-              />
-            </SfColorPicker>
-          </template>
-        </SfGallery>
-      </div>
+      <SfGallery :images="product.images" class="product__gallery" />
       <div class="product__info">
         <div class="product__header">
           <SfHeading
@@ -83,6 +63,7 @@
             <SfColor
               v-for="(color, i) in product.colors"
               :key="i"
+              :aria-label="color.name"
               :color="color.color"
               :selected="color.selected"
               class="product__color"
@@ -487,6 +468,9 @@ export default {
     &__paragraph {
       margin: 0;
     }
+  }
+  &__gallery {
+    flex: 1;
   }
 }
 .breadcrumbs {

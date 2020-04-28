@@ -41,12 +41,16 @@
         <template v-if="showAddToCartButton">
           <slot
             name="add-to-cart"
-            v-bind="{ isAddedToCart, showAddedToCartBadge, isAddingToCart }"
+            v-bind="{
+              isAddedToCart,
+              showAddedToCartBadge,
+              isAddingToCart,
+              title,
+            }"
           >
             <SfCircleIcon
               class="sf-product-card__add-button"
-              aria-label="add-to-cart"
-              role="button"
+              :aria-label="`Add to Cart ${title}`"
               :has-badge="showAddedToCartBadge"
               :disabled="addToCartDisabled"
               @click="onAddToCart"
@@ -87,7 +91,7 @@
     <button
       v-if="wishlistIcon !== false"
       v-focus
-      :aria-label="ariaLabel"
+      :aria-label="`${ariaLabel} ${title}`"
       :class="wishlistIconClasses"
       @click="toggleIsOnWishlist"
     >
@@ -119,6 +123,7 @@
         />
         <a
           v-if="reviewsCount"
+          v-focus
           class="sf-product-card__reviews-count"
           href="#"
           @click="$emit('click:reviews')"
