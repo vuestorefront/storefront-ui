@@ -105,12 +105,11 @@
           </slot>
         </div>
       </div>
-      <button
+      <SfButton
         v-if="wishlistIcon !== false"
-        v-focus
         :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
-        class="mobile-only"
+        class="sf-button--pure mobile-only"
         @click="toggleIsOnWishlist"
       >
         <!--@slot Use this slot to replace wishlist icon-->
@@ -121,7 +120,7 @@
             data-test="sf-wishlist-icon"
           />
         </slot>
-      </button>
+      </SfButton>
     </div>
   </div>
 </template>
