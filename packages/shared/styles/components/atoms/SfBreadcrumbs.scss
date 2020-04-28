@@ -26,10 +26,10 @@
       1.6,
       var(--font-family-secondary)
     );
-    --link-color: #72757E;
+    --link-color: var(--c-text-muted);
     --link-text-decoration: none;
     &:hover {
-      --link-color: #72757E;
+      --link-color: var(--c-text);
     }
     &--current {
       --link-color: var(--c-text);

@@ -662,7 +662,7 @@ export default {
   &__label {
     font-family: var(--font-family-secondary);
     font-weight: var(--font-normal);
-    color: #43464e;
+    color: var(--c-text-muted);
     margin: 0 var(--spacer-2xs) 0 0;
   }
   &__select {
