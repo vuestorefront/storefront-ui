@@ -10,12 +10,11 @@
         showChevron: $parent.showChevron,
       }"
     >
-      <button
-        v-focus
+      <SfButton
         :aria-pressed="isOpen.toString()"
         :aria-expanded="isOpen.toString()"
         :class="{ 'sf-accordion-item__header--open': isOpen }"
-        class="sf-accordion-item__header"
+        class="sf-button--pure sf-accordion-item__header"
         @click="accordionClick"
       >
         {{ header }}
@@ -25,7 +24,7 @@
           class="sf-accordion-item__chevron"
           :class="{ 'sf-chevron--right': !isOpen }"
         />
-      </button>
+      </SfButton>
     </slot>
     <transition :name="$parent.transition">
       <div v-if="isOpen" class="sf-accordion-item__content">
@@ -38,11 +37,13 @@
 <script>
 import { focus } from "../../../../utilities/directives/focus-directive.js";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
+import SfButton from "../../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfAccordionItem",
   directives: { focus },
   components: {
     SfChevron,
+    SfButton,
   },
   props: {
     header: {
