@@ -32,8 +32,8 @@
       image="/assets/storybook/Home/newsletter.jpg"
     />
     <SfSection title-heading="Bestsellers">
-      <SfCarousel 
-        :settings="isMobile ? { peek: 0 } : { peek: 16 }" 
+      <SfCarousel
+        :settings="{ peek: 16, breakpoints: { 1023: { peek: 0, perView: 2 } } }"
         class="carousel"
       >
         <SfCarouselItem
@@ -345,7 +345,7 @@ export default {
     margin: 0;
   }
   &__item {
-    margin:  1.9375rem 0 2.4375rem 0;
+    margin: 1.9375rem 0 2.4375rem 0;
   }
 }
 .banner-grid {
