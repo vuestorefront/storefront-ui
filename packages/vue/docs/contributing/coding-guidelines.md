@@ -8,7 +8,7 @@ The good news is that for basic coding, we have `prettier` run automatically on 
 
 In general, this is an open source project, hence:
 
-* Readability is extremly important. Please consider the next random developer who will read your code, and keep it simple for them.
+* Readability is extremely important. Please consider the next random developer who will read your code, and keep it simple for them.
 * No complex logic in `template` view. If there is, please use `computed` properties.
 
 ## Design patterns
@@ -255,7 +255,7 @@ A **safe** set of properties to customize are: `font-size`, `text-align`, `color
 2. We use **slots** and **props** for content composition. 
 * Props should be used to fulfil most common use case
 * Instead of providing multiple props and configurations for different use cases try to add slots with general usage
-* Slots are also meant to be used for markup **replacement**. In other words every default markup **should be replacable** with slots.
+* Slots are also meant to be used for markup **replacement**. In other words every default markup **should be replaceable** with slots.
 * Always provide proper slot-scope. For example when we have pagination component with slot `next` allowing to replace arrow to next page we would like to provide things like  `next()` function or `canGoFurther` variable. Then if someone will choose to replace slot content with his/her own it's much easier to know how to keep same behavior.
 
 3. One slot is usually a **single** BEM element.

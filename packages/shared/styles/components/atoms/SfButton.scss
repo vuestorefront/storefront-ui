@@ -3,7 +3,7 @@
   box-sizing: border-box;
   width: var(--button-size, var(--button-width));
   height: var(--button-size, var(--button-height));
-  display: flex;
+  display: var(--button-display, flex);
   align-items: center;
   justify-content: center;
   padding: var(--button-padding, var(--spacer-sm) calc(var(--spacer-sm) * 2));
