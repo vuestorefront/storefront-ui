@@ -106,10 +106,6 @@ import {
   SfProductCard,
   SfImage,
 } from "@storefront-ui/vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
 export default {
   name: "Home",
   components: {
@@ -313,12 +309,6 @@ export default {
         ],
       ],
     };
-  },
-  computed: {
-    ...mapMobileObserver(),
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
   methods: {
     toggleWishlist(index) {
