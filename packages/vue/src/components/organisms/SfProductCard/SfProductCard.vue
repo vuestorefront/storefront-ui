@@ -122,6 +122,7 @@
         />
         <a
           v-if="reviewsCount"
+          v-focus
           class="sf-product-card__reviews-count"
           href="#"
           @click="$emit('click:reviews')"

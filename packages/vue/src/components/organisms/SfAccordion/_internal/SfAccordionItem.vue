@@ -20,7 +20,6 @@
       >
         {{ header }}
         <SfChevron
-          v-focus
           tabindex="0"
           class="sf-accordion-item__chevron"
           :class="{ 'sf-chevron--right': !isOpen }"

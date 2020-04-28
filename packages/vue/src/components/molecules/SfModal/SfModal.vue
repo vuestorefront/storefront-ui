@@ -9,7 +9,7 @@
     >
     </SfOverlay>
     <transition :name="transitionModal">
-      <div v-if="visible" class="sf-modal__container">
+      <div v-if="visible" v-focus-trap class="sf-modal__container">
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="modal-bar">
           <SfBar
@@ -45,9 +45,11 @@ import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { focus } from "../../../utilities/directives/focus-directive.js";
+import { focusTrap } from "../../../utilities/directives/focus-trap-directive.js";
+
 export default {
   name: "SfModal",
-  directives: { focus },
+  directives: { focus, focusTrap },
   components: {
     SfBar,
     SfOverlay,

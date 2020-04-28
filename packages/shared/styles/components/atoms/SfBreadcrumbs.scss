@@ -14,7 +14,7 @@
           0 var(--spacer-sm)
         );
         content: var(--breadcrumbs-list-item-seperator, "|");
-        color: var(--breadcrumbs-list-item-brfore-color, var(--c-text-muted));
+        color: var(--breadcrumbs-list-item-before-color, var(--c-text-muted));
       }
     }
   }
