@@ -155,6 +155,14 @@
       content: "";
     }
   }
+  &__icon {
+    position: absolute;
+    --icon-width: var(--input-icon-width, var(--icon-size, 1rem));
+    --icon-height: var(--input-icon-height, var(--icon-size, 1rem));
+    top: var(--input-icon-top, 50%);
+    right: var(--input-icon-right, var(--spacer-xs));
+    transform: translate3d(0, -50%, 0);    
+  }
   &--invalid {
     --input-border-color: var(--c-danger);
     input {

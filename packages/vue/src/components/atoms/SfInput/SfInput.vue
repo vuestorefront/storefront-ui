@@ -48,6 +48,18 @@
           ></SfIcon>
         </SfButton>
       </slot>
+      <slot
+        v-if="!(hasShowPassword && type === 'password')"
+        name="icon"
+        v-bind="{ colorIcon, icon }"
+      >
+        <SfIcon
+          v-if="hasIcon"
+          class="sf-input__icon"
+          :color="colorIcon"
+          :icon="icon"
+        />
+      </slot>
     </div>
     <div class="sf-input__error-message">
       <transition name="fade">
@@ -135,6 +147,21 @@ export default {
     hasShowPassword: {
       type: Boolean,
       default: false,
+    },
+    /**
+     * Status and properties of icon display
+     */
+    hasIcon: {
+      type: Boolean,
+      default: false,
+    },
+    icon: {
+      type: String,
+      default: "",
+    },
+    colorIcon: {
+      type: String,
+      default: "",
     },
   },
   data() {
