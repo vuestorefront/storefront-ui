@@ -85,7 +85,7 @@
   &__search {
     margin: var(--header-search-margin, var(--spacer-xs) 0);
     height: 2.25rem;
-    width: var(--header-search-width, 100%);
+    flex: var(--header-search-flex,  0 0 100%);
   }
   &__icons {
     display: flex;
@@ -127,6 +127,6 @@
     --header-container-padding: 0;
     --header-container-flex-wrap: nowrap;
     --header-search-margin: 0 0 0 auto;
-    --header-search-width: 20rem;
+    --header-search-flex:  0 1 20rem;
   }
 }
