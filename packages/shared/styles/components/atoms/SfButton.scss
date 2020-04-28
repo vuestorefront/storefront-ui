@@ -53,6 +53,7 @@
     --button-background: transparent;
     --button-color: var(--c-text);
     --button-text-transform: none;
+    --button-wrap: normal;
     &:hover {
       --button-box-shadow: 0;
     }
