@@ -1,5 +1,5 @@
 <template>
-  <div v-focus tabindex="0" class="sf-product-card-horizontal">
+  <div class="sf-product-card-horizontal">
     <component
       :is="linkComponentTag"
       v-focus
@@ -80,8 +80,8 @@
               :score="scoreRating"
             />
             <a
-              v-focus
               v-if="reviewsCount"
+              v-focus
               class="sf-product-card-horizontal__reviews-count"
               href="#"
               @click="$emit('click:reviews')"

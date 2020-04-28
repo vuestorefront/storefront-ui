@@ -1,5 +1,5 @@
 <template>
-  <li tabindex="0" v-focus class="glide__slide sf-grouped-product-item">
+  <li class="glide__slide sf-grouped-product-item">
     <div class="sf-grouped-product-item__aside">
       <!-- @slot Custom image markup -->
       <slot
@@ -59,10 +59,8 @@
 import SfPrice from "../../../atoms/SfPrice/SfPrice.vue";
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
 import SfQuantitySelector from "../../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
-import { focus } from "../../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfGroupedProductItem",
-  directives: { focus },
   components: {
     SfImage,
     SfPrice,

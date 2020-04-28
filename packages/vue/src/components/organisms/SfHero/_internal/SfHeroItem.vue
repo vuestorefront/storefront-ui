@@ -1,5 +1,5 @@
 <template>
-  <li v-focus tabindex="0" class="glide__slide sf-hero-item" :style="style">
+  <li class="glide__slide sf-hero-item" :style="style">
     <div class="sf-hero-item__container">
       <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
       <slot name="subtitle" v-bind="{ subtitle }">
@@ -22,10 +22,8 @@
 </template>
 <script>
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
-import { focus } from "../../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfHeroItem",
-  directives: { focus },
   components: {
     SfButton,
   },

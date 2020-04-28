@@ -29,7 +29,7 @@
           </SfList>
           <div class="sf-mega-menu__aside-content">
             <slot name="asideTitle" v-bind="{ asideTitle }">
-              <h3 v-focus tabindex="0" v-if="asideTitle" class="sf-mega-menu__aside-title">
+              <h3 v-if="asideTitle" class="sf-mega-menu__aside-title">
                 {{ asideTitle }}
               </h3>
             </slot>

@@ -1,5 +1,5 @@
 <template>
-  <div v-focus tabindex="0" class="sf-collected-product">
+  <div class="sf-collected-product">
     <slot name="remove" v-bind="{ removeHandler }">
       <SfCircleIcon
         icon="cross"
@@ -69,10 +69,8 @@ import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
-import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfCollectedProduct",
-  directives: { focus },
   components: {
     SfButton,
     SfIcon,
