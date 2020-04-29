@@ -38,10 +38,10 @@
   input {
     position: absolute;
     opacity: 0;
-    &[style*="outline: none"]:focus + .sf-radio__checkmark, .sf-radio__container  {
+    &[style*="outline: none"]:focus + .sf-radio__checkmark {
       outline: none;
     }
-    &:focus + .sf-radio__checkmark, .sf-radio__container {
+    &:focus + .sf-radio__checkmark {
       outline-color: -webkit-focus-ring-color;
       outline-style: auto;
     }
