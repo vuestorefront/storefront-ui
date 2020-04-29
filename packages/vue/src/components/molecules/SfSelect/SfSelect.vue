@@ -1,6 +1,5 @@
 <template>
   <div
-    :aria-expanded="open ? 'true' : 'false'"
     :aria-owns="'lbox_' + _uid"
     aria-autocomplete="none"
     role="combobox"
@@ -19,11 +18,17 @@
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
   >
-    <div v-focus tabindex="0" style="position: relative;">
+    <div style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <div class="sf-select__selected sf-select-option" v-html="html"></div>
+      <div
+        v-focus
+        tabindex="0"
+        :aria-labelledby="label"
+        class="sf-select__selected sf-select-option"
+        v-html="html"
+      ></div>
       <slot name="label">
-        <div v-if="label" class="sf-select__label">
+        <div :id="label" v-if="label" class="sf-select__label">
           {{ label }}
         </div>
       </slot>
@@ -32,9 +37,13 @@
       </slot>
       <SfOverlay :visible="open" class="sf-select__overlay mobile-only" />
       <transition name="sf-select">
-        <div v-show="open" class="sf-select__dropdown">
+        <div role="list" v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
-          <ul :style="{ maxHeight }" class="sf-select__options">
+          <ul
+            :aria-expanded="open ? 'true' : 'false'"
+            :style="{ maxHeight }"
+            class="sf-select__options"
+          >
             <slot />
           </ul>
           <slot name="cancel">

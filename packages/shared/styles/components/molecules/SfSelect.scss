@@ -74,7 +74,7 @@
       calc(
         calc(
           var(--spacer-base) + var(--spacer-2xs) +
-          var(--select-label-font-size, var(--font-lg))
+            var(--select-label-font-size, var(--font-lg))
         )
       )
     );
@@ -102,10 +102,12 @@
     );
   }
   &__options {
-    overflow: auto;
     margin: 0;
     padding: 0;
     list-style-type: none;
+    @include for-mobile {
+      overflow: auto;
+    }
     &::-webkit-scrollbar {
       width: 0;
     }
