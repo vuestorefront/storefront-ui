@@ -72,7 +72,7 @@ storiesOf("Organisms|CollectedProduct", module)
         </div>
       </template>
       <template #actions>
-          <SfButton class="sf-button--text desktop-only">Save for later</SfButton>
+          <SfButton :aria-label="'Save for later' + title" class="sf-button--text desktop-only">Save for later</SfButton>
       </template>
     </SfCollectedProduct>`,
   }))
