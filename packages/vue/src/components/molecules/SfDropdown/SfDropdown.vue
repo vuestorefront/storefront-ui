@@ -1,6 +1,9 @@
 <template>
-  <div class="sf-dropdown">
-    <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" @click="close" />
+  <div
+    v-click-outside="{ closeHandler: close, exclude: notClosableEl }"
+    class="sf-dropdown"
+  >
+    <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" />
     <transition name="sf-dropdown">
       <div v-show="isOpen" class="sf-dropdown__container">
         <!--@slot Use this slot to replace title. -->
@@ -22,6 +25,7 @@
   </div>
 </template>
 <script>
+import { clickOutside } from "../../../utilities/directives/click-outside-directive.js";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
@@ -29,6 +33,9 @@ export default {
   components: {
     SfOverlay,
     SfButton,
+  },
+  directives: {
+    clickOutside,
   },
   props: {
     /**
@@ -44,6 +51,10 @@ export default {
     title: {
       type: String,
       default: "",
+    },
+    notClosableEl: {
+      type: Array,
+      default: undefined,
     },
   },
   watch: {
