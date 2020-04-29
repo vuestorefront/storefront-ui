@@ -7,18 +7,17 @@
       'sf-checkbox--has-error': !valid,
     }"
   >
-    <input
-      :id="name"
-      v-focus
-      type="checkbox"
-      :name="name"
-      :value="value"
-      :checked="isChecked"
-      :disabled="disabled"
-      class="sf-checkbox__input"
-      @change="inputHandler"
-    />
-    <label :for="name" class="sf-checkbox__container">
+    <label class="sf-checkbox__container">
+      <input
+        v-focus
+        type="checkbox"
+        :name="name"
+        :value="value"
+        :checked="isChecked"
+        :disabled="disabled"
+        class="sf-checkbox__input"
+        @change="inputHandler"
+      />
       <!-- @slot Custom check mark markup -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <div
@@ -102,9 +101,6 @@ export default {
         }
         this.$emit("change", selected);
       }
-    },
-    checkCheckmark() {
-      this.inputHandler();
     },
   },
 };

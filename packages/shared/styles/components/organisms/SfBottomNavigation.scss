@@ -19,6 +19,8 @@
 }
 .sf-bottom-navigation-item {
   --icon-color: var(--c-gray-variant);
+  background: transparent;
+  border: 0;
   top: var(--bottom-navigation-item-top);
   display: flex;
   flex-direction: column;
