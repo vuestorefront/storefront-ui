@@ -2,7 +2,7 @@
   <div class="sf-store-locator">
     <div class="sf-store-locator__wrapper">
       <div class="sf-store-locator__list">
-        <div v-focus class="sf-store-locator__stores desktop-only" tabindex="0">
+        <div class="sf-store-locator__stores desktop-only">
           Found stores: <span>{{ stores.length }}</span>
         </div>
         <!-- @slot Use this slot to show stores cards -->

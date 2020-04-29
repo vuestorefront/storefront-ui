@@ -26,7 +26,9 @@ export default {
   },
   computed: {
     isExternal() {
-      return typeof this.link === "string" && this.link.search(/https?/g) > -1;
+      return (
+        typeof this.link === "string" && this.link.search(/(^\/|^#)/g) === -1
+      );
     },
     isNativeLinkTag() {
       return this.isExternal || !this.$router;

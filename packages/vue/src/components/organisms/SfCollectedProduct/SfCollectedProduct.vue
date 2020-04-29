@@ -14,11 +14,12 @@
       >
     </slot>
     <slot name="more-actions">
-      <SfIcon
-        icon="more"
-        role="button"
+      <button
+        aria-label="More actions"
         class="sf-collected-product__more-actions mobile-only"
-      />
+      >
+        <SfIcon icon="more" />
+      </button>
     </slot>
     <div class="sf-collected-product__aside">
       <slot name="image" v-bind="{ image, title }">
