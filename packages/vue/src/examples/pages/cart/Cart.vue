@@ -30,7 +30,7 @@
               >
                 <template #configuration>
                   <div class="collected-product__properties">
-                    <SfProperty
+                <SfProperty
                       v-for="(property, key) in product.configuration"
                       :key="key"
                       :name="property.name"
@@ -41,11 +41,13 @@
                 <template #actions>
                   <div class="desktop-only collected-product__actions">
                     <SfButton
+                      :aria-label="`Save for later ${product.title}`"
                       class="sf-button--text color-secondary collected-product__action"
                     >
                       Save for later
                     </SfButton>
                     <SfButton
+                      :aria-label="`Add to compare ${product.title}`"
                       class="sf-button--text color-secondary collected-product__action"
                     >
                       Add to compare
