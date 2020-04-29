@@ -43,24 +43,25 @@
           name="header-icons"
           v-bind="{ accountIcon, wishlistIcon, cartIcon }"
         >
-          <div class="sf-header__icons desktop-only">
+          <button
+            v-for="icon in headerIcons"
+            :key="icon.name"
+            class="sf-header__icons desktop-only"
+          >
             <SfIcon
-              v-for="icon in headerIcons"
-              :key="icon.name"
               :icon="icon.icon"
-              :has-badge="isCartEmpty && icon.hasBadge === true"
+              :has-badge="cartIsNotEmpty && icon.hasBadge === true"
               :badge-label="cartItemsQty"
               size="xs"
               class="sf-header__icon"
               :class="{
                 'sf-header__icon--is-active': activeIcon === icon.name,
               }"
-              role="button"
               :aria-label="icon.name"
               :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
               @click="$emit(`click:${icon.name}`)"
             />
-          </div>
+          </button>
         </slot>
         <!--@slot Use this slot to replace default header language selector on mobile -->
         <slot name="language-selector" />
@@ -204,8 +205,8 @@ export default {
   },
   computed: {
     ...mapMobileObserver(),
-    isCartEmpty() {
-      return !!this.cartItemsQty;
+    cartIsNotEmpty() {
+      return parseInt(this.cartItemsQty, 10) > 0;
     },
   },
   watch: {

@@ -2,7 +2,7 @@
   <div class="sf-store">
     <!-- @slot Use this slot to change distance element -->
     <slot name="distance">
-      <div v-if="distance" v-focus class="sf-store__distance" tabindex="0">
+      <div v-if="distance" class="sf-store__distance">
         <span>{{ distance }}km</span> away from you
       </div>
     </slot>
@@ -10,12 +10,10 @@
       <!-- @slot Use this slot to show media elements -->
       <slot name="media">
         <SfImage
-          v-focus
           :src="picture"
           :alt="`${name} picture`"
           :width="82"
           :height="112"
-          tabindex="0"
         />
       </slot>
     </div>
@@ -23,14 +21,14 @@
       <div class="sf-store__heading">
         <!-- @slot Use this slot to show heading -->
         <slot name="heading">
-          <div v-focus class="sf-store__name" tabindex="0">
+          <div class="sf-store__name">
             {{ name }}
           </div>
         </slot>
       </div>
       <!-- @slot This is the default slot of the component, placed on the right of the picture -->
       <slot>
-        <div v-if="address" v-focus class="sf-store__address" tabindex="0">
+        <div v-if="address" class="sf-store__address">
           {{ address }}
         </div>
         <SfCharacteristic

@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/vue",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "scripts": {
     "serve": "yarn create-index-files && vue-cli-service serve",
     "build": "yarn create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -30,7 +30,7 @@
   ],
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "^0.7.3",
+    "@storefront-ui/shared": "^0.7.5",
     "@storybook/addon-storysource": "^5.3.18",
     "@storybook/addon-viewport": "^5.3.18",
     "@types/jest": "^25.2.1",
@@ -86,7 +86,7 @@
     "sass-loader": "^8.0.2",
     "storybook-addon-vue-info": "^1.2.2",
     "vue-cli-plugin-storybook": "~1.2.2",
-    "vue-docgen-api": "^4.16.0",
+    "vue-docgen-api": "^3.22.3",
     "vue-template-compiler": "^2.6.8",
     "vuepress": "^0.14.11"
   },

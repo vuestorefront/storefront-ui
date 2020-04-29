@@ -9,7 +9,7 @@
     >
     </SfOverlay>
     <transition :name="transitionModal">
-      <div v-if="visible" class="sf-modal__container">
+      <div v-if="visible" v-focus-trap class="sf-modal__container">
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="modal-bar">
           <SfBar
@@ -21,18 +21,14 @@
         </slot>
         <button
           v-if="cross"
+          v-focus
           class="sf-modal__close desktop-only"
           aria-label="Close modal"
           @click="close"
         >
           <!--@slot Use this slot to place content inside the close button.-->
           <slot name="close">
-            <SfIcon
-              icon="cross"
-              size="15px"
-              color="gray-secondary"
-              aria-role="button"
-            />
+            <SfIcon icon="cross" size="15px" color="gray-secondary" />
           </slot>
         </button>
         <div ref="content" class="sf-modal__content">
@@ -48,8 +44,12 @@ import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+import { focus } from "../../../utilities/directives/focus-directive.js";
+import { focusTrap } from "../../../utilities/directives/focus-trap-directive.js";
+
 export default {
   name: "SfModal",
+  directives: { focus, focusTrap },
   components: {
     SfBar,
     SfOverlay,

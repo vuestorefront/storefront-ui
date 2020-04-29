@@ -50,7 +50,6 @@
             <SfCircleIcon
               class="sf-product-card__add-button"
               :aria-label="`Add to Cart ${title}`"
-              role="button"
               :has-badge="showAddedToCartBadge"
               :disabled="addToCartDisabled"
               @click="onAddToCart"
@@ -123,6 +122,7 @@
         />
         <a
           v-if="reviewsCount"
+          v-focus
           class="sf-product-card__reviews-count"
           href="#"
           @click="$emit('click:reviews')"

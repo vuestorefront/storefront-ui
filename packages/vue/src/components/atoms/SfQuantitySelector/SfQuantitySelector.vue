@@ -27,11 +27,11 @@ import SfInput from "../../atoms/SfInput/SfInput.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfQuantitySelector",
-  inheritAttrs: false,
   components: {
     SfInput,
     SfButton,
   },
+  inheritAttrs: false,
   model: {
     prop: "qty",
   },
