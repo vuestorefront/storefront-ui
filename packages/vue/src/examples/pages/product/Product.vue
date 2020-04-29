@@ -32,7 +32,9 @@
                 ({{ product.reviews.length }})
               </a>
             </div>
-            <SfButton class="sf-button--text desktop-only"
+            <SfButton
+              :aria-label="`Read all reviews ${product.name}`"
+              class="sf-button--text desktop-only"
               >Read all reviews</SfButton
             >
           </div>
@@ -72,13 +74,20 @@
           </div>
           <SfAddToCart
             v-model="qty"
+            :aria-label="`Add to cart ${product.name}`"
             class="product__add-to-cart"
             @click="addToCart"
           />
-          <SfButton class="sf-button--text desktop-only product__save">
+          <SfButton
+            :aria-label="`Save for later ${product.name}`"
+            class="sf-button--text desktop-only product__save"
+          >
             Save for later
           </SfButton>
-          <SfButton class="sf-button--text desktop-only product__compare">
+          <SfButton
+            :aria-label="`Add to compare ${product.name}`"
+            class="sf-button--text desktop-only product__compare"
+          >
             Add to compare
           </SfButton>
         </div>
