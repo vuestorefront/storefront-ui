@@ -27,7 +27,7 @@
       <slot name="input" v-bind="{ qty }">
         <SfQuantitySelector
           :qty="qty"
-          aria-label="Quantity"
+          :aria-label="`Quantity of ${title}`"
           class="sf-grouped-product-item__quantity-selector"
           @input="$emit('input', $event)"
         />
