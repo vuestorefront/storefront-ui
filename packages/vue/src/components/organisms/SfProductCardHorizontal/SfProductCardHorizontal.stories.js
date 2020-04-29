@@ -111,6 +111,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           </template>
           <template #actions>
               <SfButton
+                :aria-label="'Save for later' + title"
                 class="sf-button--text desktop-only"
                 @click="$emit('click:add-to-wishlist')"
                 style="margin: 0 0 1rem auto; display: block" 
@@ -118,6 +119,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
                 Save for later
               </SfButton>
               <SfButton
+                :aria-label="'Add to compare' + title"
                 class="sf-button--text desktop-only"
                 @click="$emit('click:add-to-compare')"
                 style="margin: 0 0 0 auto; display: block"
@@ -224,6 +226,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         <template #actions>
           <div>
               <SfButton
+                :aria-label="'Save for later' + title"
                 class="sf-button--text color-primary desktop-only"
                 style="padding-bottom: 1rem" 
                 @click="$emit('click:add-to-wishlist')"

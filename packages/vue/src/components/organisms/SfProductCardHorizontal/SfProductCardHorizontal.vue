@@ -82,6 +82,7 @@
             <a
               v-if="reviewsCount"
               v-focus
+              :aria-label="`Read ${reviewsCount} reviews about ${title}`"
               class="sf-product-card-horizontal__reviews-count"
               href="#"
               @click="$emit('click:reviews')"
@@ -99,6 +100,7 @@
           <slot name="add-to-cart">
             <SfAddToCart
               :qty="qty"
+              :aria-label="`Add to cart ${title}`"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
               @input="$emit('input', $event)"
               @click="$emit('click:add-to-cart')"

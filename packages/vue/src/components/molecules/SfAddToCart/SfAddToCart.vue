@@ -1,9 +1,9 @@
 <template>
-  <div aria-labelledby="AddToCart" class="sf-add-to-cart">
+  <div id="AddToCart" aria-label="Add to cart" class="sf-add-to-cart">
     <slot name="add-to-cart-btn">
       <!--@slot Custom content that will replace default Add to cart button design.-->
       <SfButton
-        id="AddToCart"
+        aria-labelledby="AddToCart"
         class="sf-add-to-cart__button"
         :disabled="disabled"
         v-on="$listeners"
