@@ -39,7 +39,7 @@ storiesOf("Molecules|Dropdown", module)
     },
     template: `<div>
       <div style="position: relative; display: inline-block;">
-        <SfButton @click="isOpen = true" ref="button" class="exclude">Choice your action</SfButton>
+        <SfButton @click="isOpen = true" ref="button">Choice your action</SfButton>
         <SfDropdown :is-open="isOpen" :title="title" @click:close="isOpen = false" :not-closable-el='["button"]'>
           <SfList>
             <SfListItem v-for="(action, key) in actionList" :key="key">

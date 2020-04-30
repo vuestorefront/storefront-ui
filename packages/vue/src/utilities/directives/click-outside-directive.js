@@ -7,13 +7,11 @@ export const clickOutside = {
       let clickedOnExcludedEl = false;
       exclude.forEach((element) => {
         if (!clickedOnExcludedEl) {
-          console.log(vnode);
-          const excludedEl = vnode.context.$refs[element];
+          const excludedEl = vnode.context.$root.$children[0].$refs[element];
           clickedOnExcludedEl = excludedEl.contains(e.target);
         }
       });
       if (!el.contains(e.target) && !clickedOnExcludedEl) {
-        console.log("close");
         closeHandler();
       }
     };

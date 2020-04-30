@@ -1,11 +1,12 @@
 <template>
-  <div
-    v-click-outside="{ closeHandler: close, exclude: notClosableEl }"
-    class="sf-dropdown"
-  >
+  <div class="sf-dropdown">
     <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" />
     <transition name="sf-dropdown">
-      <div v-show="isOpen" class="sf-dropdown__container">
+      <div
+        v-show="isOpen"
+        v-click-outside="{ closeHandler: close, exclude: notClosableEl }"
+        class="sf-dropdown__container"
+      >
         <!--@slot Use this slot to replace title. -->
         <slot name="title">
           <div v-if="title" class="sf-dropdown__title">{{ title }}</div>
