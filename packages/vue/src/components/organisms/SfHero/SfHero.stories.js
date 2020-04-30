@@ -65,6 +65,7 @@ storiesOf("Organisms|Hero", module)
           :button-text="buttonText"
           :image="image"
           :background="background"
+          :aria-label="title + buttonText"
       />
       <SfHeroItem
           title="Colorful summer dresses are already in store"
