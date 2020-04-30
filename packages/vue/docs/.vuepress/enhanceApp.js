@@ -33,6 +33,7 @@ import SfHero from "../../src/components/organisms/SfHero/SfHero.vue"
 import SfIcon from "../../src/components/atoms/SfIcon/SfIcon.vue"
 import SfImage from "../../src/components/atoms/SfImage/SfImage.vue"
 import SfInput from "../../src/components/atoms/SfInput/SfInput.vue"
+import SfLanguageSelector from "../../src/components/molecules/SfLanguageSelector/SfLanguageSelector.vue"
 import SfLink from "../../src/components/atoms/SfLink/SfLink.vue"
 import SfList from "../../src/components/organisms/SfList/SfList.vue"
 import SfLoader from "../../src/components/atoms/SfLoader/SfLoader.vue"
@@ -105,6 +106,7 @@ export default ({
   Vue.component("SfIcon", SfIcon);
   Vue.component("SfImage", SfImage);
   Vue.component("SfInput", SfInput);
+  Vue.component("SfLanguageSelector", SfLanguageSelector);
   Vue.component("SfLink", SfLink);
   Vue.component("SfList", SfList);
   Vue.component("SfLoader", SfLoader);
