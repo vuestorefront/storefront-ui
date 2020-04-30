@@ -1,5 +1,10 @@
 <template>
-  <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
+  <section
+    id="sf-banner"
+    class="sf-banner"
+    :style="style"
+    v-on="isMobile ? $listeners : {}"
+  >
     <div class="sf-banner__container">
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
@@ -19,6 +24,7 @@
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
           v-if="buttonText"
+          aria-labelledby="sf-banner"
           class="sf-banner__call-to-action color-secondary"
           v-on="!isMobile ? $listeners : {}"
         >
