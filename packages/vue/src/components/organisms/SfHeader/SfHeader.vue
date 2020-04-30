@@ -47,6 +47,8 @@
             v-for="icon in headerIcons"
             :key="icon.name"
             class="sf-header__icons desktop-only"
+            :aria-label="icon.name"
+            :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
             @click="$emit(`click:${icon.name}`)"
           >
             <SfIcon
@@ -58,8 +60,6 @@
               :class="{
                 'sf-header__icon--is-active': activeIcon === icon.name,
               }"
-              :aria-label="icon.name"
-              :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
             />
           </button>
         </slot>
