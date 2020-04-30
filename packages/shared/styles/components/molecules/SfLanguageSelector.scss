@@ -1,0 +1,91 @@
+@import "../../helpers";
+
+.sf-language-selector {
+  position: var(--language-selector-position, fixed);
+  width: var(--language-selector-width, 100%);
+  top: var(--language-selector-top);
+  bottom: var(--language-selector-bottom, 0);
+  transform: var(--language-selector-transform);
+  &__container {
+    position: relative;
+    box-sizing: border-box;
+    padding: var(--language-selector-container-padding);
+    z-index: 1;
+    background: var(--language-selector-background, var(--c-white));
+    @include for-desktop {
+      height: 100vh;
+      padding: var(
+        --language-selector-container-padding,
+        var(--spacer-base) var(--spacer-2xl)
+      );
+    }
+  }
+  &__title {
+    padding: var(
+      --language-selector-title-padding,
+      var(--spacer-sm) var(--spacer-lg)
+    );
+    color: var(--language-selector-title-color, var(--c-text));
+    @include font(
+      --language-selector-title-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.2,
+      var(--font-family-secondary)
+    );
+    text-align: var(--language-selector-title-text-align, center);
+  }
+  &__close-desktop {
+    position: absolute;
+    top: var(--spacer-xs);
+    right: var(--spacer-xs);
+    --button-background: var(--c-black);
+  }
+  &__close {
+    --button-background: var(--_c-light-primary);
+    --button-color: var(--c-text-muted);
+  }
+  &__list {
+    @include for-desktop {
+      display: flex;
+    }
+  }
+  &__language-button {
+    @include for-desktop {
+      --button-border-width: 0;
+      --button-text-transform: capitalize;
+    }
+  }
+  &__list-item {
+    @include for-desktop {
+      --list-item-margin: 0 var(--spacer-sm);
+    }
+  }
+  &-enter-active {
+    animation: var(
+      --language-selector-animation-enter,
+      language-selector var(--language-selector-time, 150ms)
+    );
+    @include for-desktop {
+      --language-selector-time: 300ms;
+    }
+  }
+  &-leave-active {
+    animation: var(
+      --language-selector-animation-leave,
+      language-selector var(--language-selector-time, 150ms) reverse
+    );
+    @include for-desktop {
+      --language-selector-time: 300ms;
+    }
+  }
+}
+
+@keyframes language-selector {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
