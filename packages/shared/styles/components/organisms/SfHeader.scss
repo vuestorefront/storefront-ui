@@ -13,7 +13,7 @@
     text-decoration: var(--header-navigation-item-text-decoration, none);
     color: var(--header-navigation-item-color, var(--c-dark-variant));
     @include font(
-      --header-navigation-item,
+      --header-navigation-item-font,
       var(--font-bold),
       var(--font-sm),
       1.6,
@@ -41,10 +41,17 @@
   }
   &:active {
     & > * {
-      --header-navigation-item-color: var(--c-primary);
+      color: var(--header-navigation-item-color, var(--c-primary));
+      @include font(
+      --header-navigation-item-active,
+      var(--font-bold),
+      var(--font-sm),
+      1.6,
+      var(--font-family-secondary)
+    );
     }
     &::after {
-      --header-navigation-item-background-underline: var(--c-primary);
+      --header-navigation-item-underline-color: var(--c-primary);
     }
   }
   &:last-child {
@@ -137,15 +144,17 @@
   }
   &--has-mobile-navigation {
     --header-navigation-order: 1;
-    --header-navigation-item-margin: 0;
-    --header-navigation-margin: 0;
     --header-navigation-width: 100%;
-    --header-navigation-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
-    --header-navigation-item-padding: var(--spacer-sm);
     --header-navigation-item-flex: 1;
     --header-navigation-items-justify-content: center;
-    --header-navigation-overflow: auto;
+    --header-navigation-item-margin: 0;
+    --header-navigation-margin: 0;
+    --header-navigation-item-padding: var(--spacer-sm);
+    --header-navigation-item-color: var(--c-text);
+    --header-navigation-item-font-weight: var(--font-normal);
     --header-navigation-item-text-transform: capitalize;
+    --header-navigation-overflow: auto;
+    --header-navigation-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
 
   }
   @include for-desktop {
