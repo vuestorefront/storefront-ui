@@ -62,6 +62,17 @@
       var(--font-family-secondary)
     );
   }
+  &__helper-text {
+    color: var(--input-error-message-color, var(--c-primary));
+    height: calc(var(--font-xs) * 1.2);
+    @include font(
+      --input-helper-text-font,
+      var(--font-medium),
+      var(--font-xs),
+      1.2,
+      var(--font-family-secondary)
+    );
+  }
   &__wrapper,
   input {
     width: 100%;

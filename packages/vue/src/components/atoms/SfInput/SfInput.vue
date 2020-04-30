@@ -61,10 +61,22 @@
         />
       </slot>
     </div>
+    <div class="sf-input__helper-text">
+      <transition name="fade">
+        <!-- @slot Custom error message of form input -->
+        <slot v-if="helperText" name="helper-text" v-bind="{ helperText }">
+          <span>{{ helperText }}</span></slot
+        >
+      </transition>
+    </div>
     <div class="sf-input__error-message">
       <transition name="fade">
         <!-- @slot Custom error message of form input -->
-        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
+        <slot
+          v-if="!valid || required"
+          name="error-message"
+          v-bind="{ errorMessage }"
+        >
           <span>{{ errorMessage }}</span></slot
         >
       </transition>
@@ -163,6 +175,13 @@ export default {
       type: String,
       default: "",
     },
+    /**
+     * helper value of form input.
+     */
+    helperText: {
+      type: String,
+      default: null,
+    },
   },
   data() {
     return {
@@ -209,6 +228,14 @@ export default {
         if (isNaN(value)) {
           this.$emit("input");
         }
+      },
+    },
+    required: {
+      immediate: true,
+      handler: function (required) {
+        required
+          ? (this.errorMessage = `Required ${this.errorMessage}`)
+          : (this.errorMessage = null);
       },
     },
   },
