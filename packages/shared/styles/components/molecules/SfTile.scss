@@ -1,0 +1,35 @@
+@import "../../helpers";
+.sf-tile {
+  position: relative;
+  width: var(--tile-width, 100px);
+  height: var(--tile-height, 120px);
+  margin: var(--tile-margin, 0);
+  @include background(
+    --tile-background,
+    var(--_tile-background-color, transparent),
+    var(--_tile-background-image)
+  );
+  &__title {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    text-transform: uppercase;
+    @include font(
+      --font-tile,
+      var(--font-light),
+      var(--font-sm),
+      1.6,
+      var(--font-family-secondary)
+    )
+  }
+  @include for-desktop {
+    --tile-width: 256px;
+    --tile-height: 490px;
+    --font-tile-size: 26px;
+    --tile-background-image: var(
+      --_tile-background-desktop-image,
+      var(--_tile-background-image)
+    );
+  }
+}
