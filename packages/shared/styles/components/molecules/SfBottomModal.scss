@@ -1,19 +1,35 @@
 @import "../../helpers";
 
-.sf-language-selector {
+.sf-bottom-modal {
   position: var(--language-selector-position, fixed);
   width: var(--language-selector-width, 100%);
   top: var(--language-selector-top);
   bottom: var(--language-selector-bottom, 0);
   transform: var(--language-selector-transform);
+  --characteristic-description-font-size: var(--font-base);
+  @include for-mobile {
+    --characteristic-description-font-weight: var(--font-semibold);
+  }
+  @include for-desktop {
+    --list-item-margin: 0 var(--spacer-sm);
+    --button-text-transform: capitalize;
+    --characteristic-description-font-size: var(--font-sm);
+  }
   &__container {
-    position: relative;
     box-sizing: border-box;
-    padding: var(--language-selector-container-padding);
+    position: relative;
     z-index: 1;
+    padding: var(--language-selector-container-padding);
     background: var(--language-selector-background, var(--c-white));
+    @include font(
+      --bottom-modal-container-font,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
     @include for-desktop {
-      height: 100vh;
+      height: var(--bottom-modal-height);
       padding: var(
         --language-selector-container-padding,
         var(--spacer-base) var(--spacer-2xl)
@@ -21,19 +37,17 @@
     }
   }
   &__title {
+    --heading-title-font-weight: var(--font-normal);
     padding: var(
       --language-selector-title-padding,
       var(--spacer-sm) var(--spacer-lg)
     );
     color: var(--language-selector-title-color, var(--c-text));
-    @include font(
-      --language-selector-title-font,
-      var(--font-normal),
-      var(--font-sm),
-      1.2,
-      var(--font-family-secondary)
-    );
     text-align: var(--language-selector-title-text-align, center);
+    @include for-mobile {
+      --heading-title-font-size: var(--font-xs);
+      --heading-title-font-weight: var(--font-bold);
+    }
   }
   &__close-desktop {
     position: absolute;
@@ -44,22 +58,6 @@
   &__close {
     --button-background: var(--_c-light-primary);
     --button-color: var(--c-text-muted);
-  }
-  &__list {
-    @include for-desktop {
-      display: flex;
-    }
-  }
-  &__language-button {
-    @include for-desktop {
-      --button-border-width: 0;
-      --button-text-transform: capitalize;
-    }
-  }
-  &__list-item {
-    @include for-desktop {
-      --list-item-margin: 0 var(--spacer-sm);
-    }
   }
   &-enter-active {
     animation: var(
