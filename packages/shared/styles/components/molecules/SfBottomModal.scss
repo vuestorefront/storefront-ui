@@ -1,11 +1,11 @@
 @import "../../helpers";
 
 .sf-bottom-modal {
-  position: var(--language-selector-position, fixed);
-  width: var(--language-selector-width, 100%);
-  top: var(--language-selector-top);
-  bottom: var(--language-selector-bottom, 0);
-  transform: var(--language-selector-transform);
+  position: var(--bottom-modal-position, fixed);
+  width: var(--bottom-modal-width, 100%);
+  top: var(--bottom-modal-top);
+  bottom: var(--bottom-modal-bottom, 0);
+  transform: var(--bottom-modal-transform);
   --characteristic-description-font-size: var(--font-base);
   @include for-mobile {
     --characteristic-description-font-weight: var(--font-semibold);
@@ -19,8 +19,8 @@
     box-sizing: border-box;
     position: relative;
     z-index: 1;
-    padding: var(--language-selector-container-padding);
-    background: var(--language-selector-background, var(--c-white));
+    padding: var(--bottom-modal-container-padding);
+    background: var(--bottom-modal-background, var(--c-white));
     @include font(
       --bottom-modal-container-font,
       var(--font-light),
@@ -31,7 +31,7 @@
     @include for-desktop {
       height: var(--bottom-modal-height);
       padding: var(
-        --language-selector-container-padding,
+        --bottom-modal-container-padding,
         var(--spacer-base) var(--spacer-2xl)
       );
     }
@@ -39,11 +39,11 @@
   &__title {
     --heading-title-font-weight: var(--font-normal);
     padding: var(
-      --language-selector-title-padding,
+      --bottom-modal-title-padding,
       var(--spacer-sm) var(--spacer-lg)
     );
-    color: var(--language-selector-title-color, var(--c-text));
-    text-align: var(--language-selector-title-text-align, center);
+    color: var(--bottom-modal-title-color, var(--c-text));
+    text-align: var(--bottom-modal-title-text-align, center);
     @include for-mobile {
       --heading-title-font-size: var(--font-xs);
       --heading-title-font-weight: var(--font-bold);
@@ -61,25 +61,25 @@
   }
   &-enter-active {
     animation: var(
-      --language-selector-animation-enter,
-      language-selector var(--language-selector-time, 150ms)
+      --bottom-modal-animation-enter,
+      bottom-modal var(--bottom-modal-time, 150ms)
     );
     @include for-desktop {
-      --language-selector-time: 300ms;
+      --bottom-modal-time: 300ms;
     }
   }
   &-leave-active {
     animation: var(
-      --language-selector-animation-leave,
-      language-selector var(--language-selector-time, 150ms) reverse
+      --bottom-modal-animation-leave,
+      bottom-modal var(--bottom-modal-time, 150ms) reverse
     );
     @include for-desktop {
-      --language-selector-time: 300ms;
+      --bottom-modal-time: 300ms;
     }
   }
 }
 
-@keyframes language-selector {
+@keyframes bottom-modal {
   0% {
     transform: translate3d(0, 100%, 0);
   }
