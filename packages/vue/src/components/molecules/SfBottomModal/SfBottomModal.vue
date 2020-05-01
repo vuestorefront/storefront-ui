@@ -10,9 +10,9 @@
         v-show="isOpen"
         role="dialog"
         aria-modal="true"
-        aria-labelledby="Language Selector"
         class="sf-bottom-modal__container"
       >
+        <!--@slot Use this slot to replace title. -->
         <slot name="title">
           <SfHeading
             v-if="title"
@@ -21,6 +21,7 @@
             class="sf-bottom-modal__title"
           />
         </slot>
+        <!--@slot Use this slot to replace close button for desktop. -->
         <slot name="close-desktop">
           <SfCircleIcon
             class="sf-circle-icon--small sf-bottom-modal__close-desktop desktop-only"
@@ -29,7 +30,9 @@
             @click="close"
           />
         </slot>
+        <!--@slot Use this slot to replace content. -->
         <slot />
+        <!--@slot Use this slot to replace close button for mobile. -->
         <slot name="close-mobile">
           <SfButton
             class="sf-button--full-width mobile-only sf-bottom-modal__close"
