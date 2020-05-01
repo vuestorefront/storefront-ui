@@ -1,4 +1,4 @@
 # component-description
-Language Selector component
+Bottom Modal component
 # storybook-iframe-height
 20rem
