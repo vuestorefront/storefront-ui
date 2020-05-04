@@ -20,7 +20,6 @@
     border-radius: var(--checkbox-border-radius);
     background: var(--checkbox-background, transparent);
     transition: background 150ms linear, border-color 150ms linear;
-    z-index: 10;
     &:hover {
       --checkbox-border-color: var(--c-primary);
       .sf-checkbox--has-error & {
@@ -62,7 +61,9 @@
   input {    
     position: absolute;    
     opacity: 0;
-    z-index: 0;
+    left: -1000%;
+    width: 1px;
+    height: 1px;
     &[style*="outline: none"]:focus + .sf-checkbox__checkmark {
       outline: none;
     }

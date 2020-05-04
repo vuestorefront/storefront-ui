@@ -38,6 +38,9 @@
   input {
     position: absolute;
     opacity: 0;
+    left: -1000%;
+    width: 1px;
+    height: 1px;
     &[style*="outline: none"]:focus + .sf-radio__checkmark {
       outline: none;
     }
@@ -47,6 +50,7 @@
     }
   }
   &__container {
+    position: relative;
     display: var(--radio-container-display, flex);
     align-items: var(--radio-container-align-items);
     flex: 1;
