@@ -1,5 +1,6 @@
 <template>
-  <div
+  <button
+    v-focus
     class="sf-bottom-navigation-item"
     :class="{
       'sf-bottom-navigation-item--active': isActive,
@@ -33,13 +34,15 @@
         {{ label }}
       </div>
     </slot>
-  </div>
+  </button>
 </template>
 <script>
 import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 import SfCircleIcon from "../../../atoms/SfCircleIcon/SfCircleIcon.vue";
+import { focus } from "../../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfBottomNavigationItem",
+  directives: { focus },
   components: {
     SfCircleIcon,
     SfIcon,

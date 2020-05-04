@@ -6,17 +6,16 @@
       'sf-radio--is-disabled': disabled,
     }"
   >
-    <input
-      :id="value"
-      type="radio"
-      :name="name"
-      :value="value"
-      :checked="isChecked"
-      :disabled="disabled"
-      class="sf-radio__input"
-      @input="inputHandler"
-    />
-    <label :for="value" class="sf-radio__container">
+    <label class="sf-radio__container">
+      <input
+        v-focus
+        type="radio"
+        :name="name"
+        :value="value"
+        :checked="isChecked"
+        :disabled="disabled"
+        @input="inputHandler"
+      />
       <!-- @slot Custom checkmark markup (bind 'isChecked' boolean, 'disabled' boolean -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <div
@@ -46,8 +45,12 @@
   </div>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfRadio",
+  directives: {
+    focus,
+  },
   model: {
     prop: "selected",
     event: "input",
