@@ -11,9 +11,12 @@
       <div class="sf-sliding-section__mobile-bar">
         <!-- @slot Use this slot to replace close icon -->
         <slot name="close" v-bind="{ closeHandler }">
-          <button class="sf-sliding-section__close" @click="closeHandler">
+          <SfButton
+            class="sf-button--pure sf-sliding-section__close"
+            @click="closeHandler"
+          >
             <SfIcon icon="cross" size="xxs" />
-          </button>
+          </SfButton>
         </slot>
       </div>
       <!-- @slot Use this slot to place sliding content. -->
@@ -23,6 +26,7 @@
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import {
   mapMobileObserver,
   unMapMobileObserver,
@@ -31,6 +35,7 @@ export default {
   name: "SfSlidingSection",
   components: {
     SfIcon,
+    SfButton,
   },
   data() {
     return {

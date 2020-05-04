@@ -105,14 +105,11 @@
     top: var(--product-card-wishlist-icon-top, var(--spacer-sm));
     right: var(--product-card-wishlist-icon-right, var(--spacer-sm));
     padding: var(--product-card-wishlist-icon-padding, 0);
-    border: 0;
-    background-color: transparent;
     opacity: var(--product-card-wishlist-icon-opacity, 1);
     transition: var(
       --product-card-wishlist-icon-transition,
       opacity 150ms ease-in-out
     );
-    cursor: pointer;
   }
   &--on-wishlist {
     --product-card-wishlist-icon-opacity: 1;
