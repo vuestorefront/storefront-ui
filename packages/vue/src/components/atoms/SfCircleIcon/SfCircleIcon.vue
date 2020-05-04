@@ -8,15 +8,10 @@
         :icon="icon"
         :color="iconColor"
         :size="iconSize"
+        :badge-label="badgeLabel"
+        :has-badge="hasBadge"
       />
     </slot>
-    <transition name="sf-circle-icon__badge">
-      <slot v-if="hasBadge" name="badge" v-bind="{ badgeLabel, hasBadge }">
-        <div class="sf-circle-icon__badge">
-          {{ badgeLabel }}
-        </div>
-      </slot>
-    </transition>
   </SfButton>
 </template>
 <script>

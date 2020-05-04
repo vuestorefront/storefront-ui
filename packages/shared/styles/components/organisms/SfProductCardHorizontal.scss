@@ -111,10 +111,6 @@
     position: absolute;
     top: 0;
     right: 0;
-    padding: 0;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
   }
   @include for-desktop {
     --product-card-horizontal-flex-direction: row;

@@ -85,18 +85,15 @@
   &__search {
     margin: var(--header-search-margin, var(--spacer-xs) 0);
     height: 2.25rem;
-  }
-  &__icons {
-    display: flex;
-    align-items: center;
-    background: transparent;
-    border: 0;
-    padding: 0;
+    flex: var(--header-search-flex,  0 0 100%);
   }
   &__icon {
     --icon-color: var(--c-dark-variant);
     margin: 0 0 0 calc(var(--spacer-sm) * 3.25);
-    cursor: pointer;
+    .sf-icon__badge {
+      --icon-badge-top: -0.5rem;
+      --icon-badge-right: -0.5rem;
+    }
     &:hover {
       --icon-color: var(--c-text);
     }
@@ -122,5 +119,6 @@
     --header-container-padding: 0;
     --header-container-flex-wrap: nowrap;
     --header-search-margin: 0 0 0 auto;
+    --header-search-flex:  0 1 20rem;
   }
 }

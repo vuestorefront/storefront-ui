@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.5](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.3...@storefront-ui/shared@0.7.5) (2020-04-29)
+
+
+### Bug Fixes
+
+* duplicated id for SfCheckbox and SfRadio ([#1118](https://github.com/DivanteLtd/storefront-ui/issues/1118)) ([d164b3e](https://github.com/DivanteLtd/storefront-ui/commit/d164b3eeae535219112da408a7757f4562fdc692))
+* **a11y:** focus should be only for interactive elements ([#1093](https://github.com/DivanteLtd/storefront-ui/issues/1093)) ([437d6aa](https://github.com/DivanteLtd/storefront-ui/commit/437d6aa51bdb455929ad373bc14551c53566435a))
+* default font for SfModal ([#1111](https://github.com/DivanteLtd/storefront-ui/issues/1111)) ([33cbfc3](https://github.com/DivanteLtd/storefront-ui/commit/33cbfc334850f4267d9e425cc319adf22add59dd))
+* size of SfSearch on mobile ([#1113](https://github.com/DivanteLtd/storefront-ui/issues/1113)) ([8085a1a](https://github.com/DivanteLtd/storefront-ui/commit/8085a1a49e2f8a33fa76a4de9c88cea694716684))
+* **a11:** global colors have too low contrast  ([#1121](https://github.com/DivanteLtd/storefront-ui/issues/1121)) ([736dcd9](https://github.com/DivanteLtd/storefront-ui/commit/736dcd9cba5855bd0fe44b64e4ec86e06f0ca4df))
+* position of the elements in SfBar ([d38644c](https://github.com/DivanteLtd/storefront-ui/commit/d38644cadad69d526745319e1b0aa2763705d3ae))
+* **a11y:** focus and alt for thumbs on SfGallery ([#1060](https://github.com/DivanteLtd/storefront-ui/issues/1060)) ([ebd40d2](https://github.com/DivanteLtd/storefront-ui/commit/ebd40d218e125c36a39e62d071b9b0eff181892e))
+* **a11y:** improve SfLink to SfBreadcrumbs ([#1046](https://github.com/DivanteLtd/storefront-ui/issues/1046)) ([6302133](https://github.com/DivanteLtd/storefront-ui/commit/6302133bf965ddde540811ade26cf3efb9735775))
+* **a11y:** replace role="button" to button ([#1085](https://github.com/DivanteLtd/storefront-ui/issues/1085)) ([d3f3338](https://github.com/DivanteLtd/storefront-ui/commit/d3f33382cd59e7f2f8fcf0f12e1b48e96d07b99e))
+* **a11y:** semantics and v-focus in SfAccordion ([#1080](https://github.com/DivanteLtd/storefront-ui/issues/1080)) ([86bd4a1](https://github.com/DivanteLtd/storefront-ui/commit/86bd4a1b9e5b69acac9b5cc6e3a8ba7f1770c37d))
+* **a11y:** v-focus in molecules ([#1073](https://github.com/DivanteLtd/storefront-ui/issues/1073)) ([dd0b01f](https://github.com/DivanteLtd/storefront-ui/commit/dd0b01f7833fb8e1c440e8bf97a48a64e2bcd8d6))
+* **a11y:** v-focus in SfCheckbox ([#1078](https://github.com/DivanteLtd/storefront-ui/issues/1078)) ([6369a9c](https://github.com/DivanteLtd/storefront-ui/commit/6369a9c27b8c66fa40e633c576f1bdc48ca6b902))
+
+
+### Features
+
+* number modifier in SfBadge for all number notification([#1021](https://github.com/DivanteLtd/storefront-ui/issues/1021)) ([818e174](https://github.com/DivanteLtd/storefront-ui/commit/818e174ca8a0b9ea531cfc23832ad8e058e62b96))
+* **component:** SfLink ([#1092](https://github.com/DivanteLtd/storefront-ui/issues/1092)) ([e360170](https://github.com/DivanteLtd/storefront-ui/commit/e360170d4aa2a5110d0c19c4aeb8f42952305ee8))
+
+
+
+
+
 ## [0.7.3](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.2...@storefront-ui/shared@0.7.3) (2020-04-23)
 
 
