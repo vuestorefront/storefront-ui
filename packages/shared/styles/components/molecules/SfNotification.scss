@@ -43,9 +43,6 @@
   }
   &__action {
     display: var(--notification-action-display, none);
-    padding: 0;
-    border: 0;
-    background-color: transparent;
     color: var(--notification-action-color);
     font: var(--notification-action-font, inherit);
     text-decoration: var(--notification-action-text-decoration, underline);
@@ -59,9 +56,6 @@
     position: absolute;
     top: var(--notification-close-top, var(--spacer-xs));
     right: var(--notification-close-right, var(--spacer-xs));
-    cursor: pointer;
-    background: transparent;
-    border: 0;
   }
   @include for-desktop {
     --notification-max-width: 100%;
