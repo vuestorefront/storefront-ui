@@ -109,6 +109,11 @@
         );
       }
     }
+    &__remove {
+      &:focus {
+        --collected-product-remove-opacity: 1;
+      }
+    }
     &__aside {
       flex: 0 0 8.75rem;
     }
