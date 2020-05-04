@@ -65,6 +65,7 @@
           v-if="createAccount"
           v-model="password"
           :has-show-password="true"
+          required-message="Required"
           type="password"
           label="Create Password"
           class="form__element"

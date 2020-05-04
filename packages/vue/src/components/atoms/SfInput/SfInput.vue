@@ -61,24 +61,28 @@
         />
       </slot>
     </div>
-    <div class="sf-input__helper-text">
+    <div v-if="helperText" class="sf-input__helper-text">
       <transition name="fade">
         <!-- @slot Custom error message of form input -->
-        <slot v-if="helperText" name="helper-text" v-bind="{ helperText }">
+        <slot name="helper-text" v-bind="{ helperText }">
           <span>{{ helperText }}</span></slot
         >
       </transition>
     </div>
     <div class="sf-input__error-message">
       <transition name="fade">
+        <!-- @slot Custom required message of form input -->
+        <slot name="required-message" v-bind="{ requiredMessage }">
+          <span v-if="required" class="sf-input__error-message--required"
+            >{{ requiredMessage }}
+          </span></slot
+        >
+      </transition>
+      <transition name="fade">
         <!-- @slot Custom error message of form input -->
-        <slot
-          v-if="!valid || required"
-          name="error-message"
-          v-bind="{ errorMessage }"
-        >
-          <span>{{ errorMessage }}</span></slot
-        >
+        <slot name="error-message" v-bind="{ errorMessage }">
+          <span v-if="!valid">{{ errorMessage }}</span>
+        </slot>
       </transition>
     </div>
   </div>
@@ -144,6 +148,13 @@ export default {
       type: Boolean,
       default: false,
       description: "Native input required attribute",
+    },
+    /**
+     * Required message value of form input. It will be appeared if `required` is `true`.
+     */
+    requiredMessage: {
+      type: String,
+      default: null,
     },
     /**
      * Native input disabled attribute
@@ -228,14 +239,6 @@ export default {
         if (isNaN(value)) {
           this.$emit("input");
         }
-      },
-    },
-    required: {
-      immediate: true,
-      handler: function (required) {
-        required
-          ? (this.errorMessage = `Required ${this.errorMessage}`)
-          : (this.errorMessage = null);
       },
     },
   },
