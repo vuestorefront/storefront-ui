@@ -40,7 +40,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(
@@ -107,7 +107,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(
@@ -176,7 +176,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(
@@ -245,7 +245,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(
@@ -314,7 +314,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(
@@ -377,7 +377,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(
@@ -440,7 +440,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(
