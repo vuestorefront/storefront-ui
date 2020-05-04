@@ -1,8 +1,13 @@
 <template>
   <div class="sf-sidebar" :class="[staticClass, className]">
-    <SfOverlay :visible="visibleOverlay" @click="close" />
+    <SfOverlay :visible="visibleOverlay" />
     <transition :name="transitionName">
-      <aside v-if="visible" v-focus-trap class="sf-sidebar__aside">
+      <aside
+        v-if="visible"
+        v-focus-trap
+        v-click-outside="{ closeHandler: close, exclude: notClosingEl }"
+        class="sf-sidebar__aside"
+      >
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="bar">
           <SfBar
@@ -51,6 +56,7 @@
 </template>
 <script>
 import { focusTrap } from "../../../utilities/directives/focus-trap-directive.js";
+import { clickOutside } from "../../../utilities/directives/click-outside-directive.js";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
@@ -58,7 +64,7 @@ import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 export default {
   name: "SfSidebar",
-  directives: { focusTrap },
+  directives: { focusTrap, clickOutside },
   components: {
     SfBar,
     SfCircleIcon,
@@ -89,6 +95,13 @@ export default {
     overlay: {
       type: Boolean,
       default: true,
+    },
+    /**
+     * Array of elements which don't close sidebar.
+     */
+    notClosingEl: {
+      type: Array,
+      default: undefined,
     },
   },
   data() {

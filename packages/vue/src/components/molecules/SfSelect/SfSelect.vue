@@ -2,6 +2,7 @@
   <div
     :aria-expanded="open ? 'true' : 'false'"
     :aria-owns="'lbox_' + _uid"
+    v-click-outside="{ closeHandler: closeHandler, exclude: notClosingEl }"
     aria-autocomplete="none"
     role="combobox"
     tabindex="0"
@@ -17,7 +18,6 @@
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
-    v-click-outside="closeHandler"
   >
     <div style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->
@@ -62,7 +62,7 @@
   </div>
 </template>
 <script>
-import { clickOutside } from "../../../utilities/directives/click-outside-directive.js"
+import { clickOutside } from "../../../utilities/directives/click-outside-directive.js";
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
@@ -132,6 +132,13 @@ export default {
     errorMessage: {
       type: String,
       default: "This field is not correct.",
+    },
+    /**
+     * Array of elements which don't close select.
+     */
+    notClosingEl: {
+      type: Array,
+      default: undefined,
     },
   },
   data() {

@@ -4,7 +4,7 @@
     <transition name="sf-dropdown">
       <div
         v-show="isOpen"
-        v-click-outside="{ closeHandler: close, exclude: notClosableEl }"
+        v-click-outside="{ closeHandler: close, exclude: notClosingEl }"
         class="sf-dropdown__container"
       >
         <!--@slot Use this slot to replace title. -->
@@ -53,7 +53,10 @@ export default {
       type: String,
       default: "",
     },
-    notClosableEl: {
+    /**
+     * Array of elements which don't close dropdown.
+     */
+    notClosingEl: {
       type: Array,
       default: undefined,
     },

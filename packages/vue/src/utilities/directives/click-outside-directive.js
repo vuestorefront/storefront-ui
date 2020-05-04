@@ -5,20 +5,16 @@ export const clickOutside = {
       e.stopPropagation();
       const { closeHandler, exclude } = binding.value;
       let clickedOnExcludedEl = false;
-      exclude.forEach((element) => {
-        if (!clickedOnExcludedEl) {
-          const excludedEl = vnode.context.$nextTick(() => {
-            console.log(
-              vnode.context.$root.$children[0].$refs[element],
-              e.target,
-              el
-            );
-            return vnode.context.$root.$children[0].$refs[element];
-          });
-          console.log(excludedEl);
-          clickedOnExcludedEl = excludedEl.contains(e.target);
-        }
-      });
+      if (exclude)
+        exclude.forEach((element) => {
+          if (!clickedOnExcludedEl) {
+            const excludedEl = vnode.context.$parent.$refs[element];
+            console.log(excludedEl, e.target);
+            excludedEl.$el
+              ? (clickedOnExcludedEl = excludedEl.$el.contains(e.target))
+              : (clickedOnExcludedEl = excludedEl.contains(e.target));
+          }
+        });
       if (!el.contains(e.target) && !clickedOnExcludedEl) {
         closeHandler();
       }
@@ -26,7 +22,7 @@ export const clickOutside = {
     document.addEventListener("click", el._outsideClickHandler);
     document.addEventListener("touchstart", el._outsideClickHandler);
   },
-  unbind() {
+  unbind(el) {
     document.removeEventListener("click", el._outsideClickHandler);
     document.removeEventListener("touchstart", el._outsideClickHandler);
   },

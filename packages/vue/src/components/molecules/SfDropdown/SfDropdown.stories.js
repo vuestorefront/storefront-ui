@@ -34,13 +34,13 @@ storiesOf("Molecules|Dropdown", module)
           "Add to wishlist",
           "Share",
         ],
-        notClosableEl: undefined
+        notClosingEl: ["button"],
       };
     },
-    template: `<div>
+    template: `<div style="display:flex">
       <div style="position: relative; display: inline-block;">
-        <SfButton @click="isOpen = true" ref="button">Choice your action</SfButton>
-        <SfDropdown :is-open="isOpen" :title="title" @click:close="isOpen = false" :not-closable-el='["button"]'>
+        <SfButton class="exclude" @click="isOpen = true" ref="button">Choose your action</SfButton>
+        <SfDropdown :is-open="isOpen" :title="title" @click:close="isOpen = false" :not-closing-el="notClosingEl">
           <SfList>
             <SfListItem v-for="(action, key) in actionList" :key="key">
               <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = false">{{ action }}</SfButton>
