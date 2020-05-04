@@ -34,8 +34,6 @@
     position: absolute;
     top: var(--collected-product-remove-top);
     right: var(--collected-product-remove-right, var(--spacer-xs));
-    background: transparent;
-    border: 0;
   }
   &__aside {
     position: relative;
