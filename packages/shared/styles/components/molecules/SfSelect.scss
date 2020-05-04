@@ -121,6 +121,9 @@
       1.2,
       var(--font-family-secondary)
     );
+    &--required {
+      color: var(--select-error-message-required-color, var(--c-primary));
+    }
   }
   &__cancel {
     --button-background: var(--c-light);

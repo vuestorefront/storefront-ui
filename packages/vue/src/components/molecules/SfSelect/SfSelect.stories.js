@@ -43,6 +43,9 @@ storiesOf("Molecules|Select", module)
       required: {
         default: boolean("required", false, "Props"),
       },
+      requiredMessage: {
+        default: text("requiredMessage", "Required", "Props"),
+      },
       valid: {
         default: boolean("valid", true, "Props"),
       },
@@ -74,6 +77,7 @@ storiesOf("Molecules|Select", module)
         :label="label"
         :size="size"
         :required="required"
+        :requiredMessage="requiredMessage"
         :valid="valid"
         :disabled="disabled"
         :error-message="errorMessage"
@@ -107,6 +111,9 @@ storiesOf("Molecules|Select", module)
       required: {
         default: boolean("required", false, "Props"),
       },
+      requiredMessage: {
+        default: text("requiredMessage", "Required", "Props"),
+      },
       valid: {
         default: boolean("valid", true, "Props"),
       },
@@ -130,6 +137,7 @@ storiesOf("Molecules|Select", module)
         :label="label"
         :size="size"
         :required="required"
+        :requiredMessage="requiredMessage"
         :valid="valid"
         :disabled="disabled"
         :error-message="errorMessage">
@@ -165,6 +173,9 @@ storiesOf("Molecules|Select", module)
       required: {
         default: boolean("required", false, "Props"),
       },
+      requiredMessage: {
+        default: text("requiredMessage", "Required", "Props"),
+      },
       valid: {
         default: boolean("valid", false, "Props"),
       },
@@ -188,6 +199,7 @@ storiesOf("Molecules|Select", module)
         :label="label"
         :size="size"
         :required="required"
+        :requiredMessage="requiredMessage"
         :valid="valid"
         :disabled="disabled"
         :error-message="errorMessage">
@@ -223,6 +235,9 @@ storiesOf("Molecules|Select", module)
       required: {
         default: boolean("required", false, "Props"),
       },
+      requiredMessage: {
+        default: text("requiredMessage", "Required", "Props"),
+      },
       valid: {
         default: boolean("valid", false, "Props"),
       },
@@ -246,6 +261,7 @@ storiesOf("Molecules|Select", module)
         :label="label"
         :size="size"
         :required="required"
+        :requiredMessage="requiredMessage"
         :valid="valid"
         :disabled="disabled"
         :error-message="errorMessage">

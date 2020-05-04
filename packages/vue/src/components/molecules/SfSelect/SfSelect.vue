@@ -49,7 +49,20 @@
         </div>
       </transition>
     </div>
-    <div v-if="valid !== undefined" class="sf-select__error-message">
+    <div
+      v-if="valid !== undefined || required"
+      class="sf-select__error-message"
+    >
+      <transition name="fade">
+        <div v-if="required">
+          <!-- @slot Custom required message of form input -->
+          <slot name="required-message" v-bind="{ requiredMessage }">
+            <span class="sf-select__error-message--required"
+              >{{ requiredMessage }}
+            </span>
+          </slot>
+        </div>
+      </transition>
       <transition name="fade">
         <div v-if="!valid">
           <!-- @slot Custom error message of form select -->
@@ -107,6 +120,13 @@ export default {
     required: {
       type: Boolean,
       default: false,
+    },
+    /**
+     * Required message value of form select. It will be appeared if `required` is `true`.
+     */
+    requiredMessage: {
+      type: String,
+      default: null,
     },
     /**
      * Validate value of form input

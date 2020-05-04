@@ -71,12 +71,14 @@
     </div>
     <div class="sf-input__error-message">
       <transition name="fade">
-        <!-- @slot Custom required message of form input -->
-        <slot name="required-message" v-bind="{ requiredMessage }">
-          <span v-if="required" class="sf-input__error-message--required"
-            >{{ requiredMessage }}
-          </span></slot
-        >
+        <div v-if="required">
+          <!-- @slot Custom required message of form input -->
+          <slot name="required-message" v-bind="{ requiredMessage }">
+            <span class="sf-input__error-message--required"
+              >{{ requiredMessage }}
+            </span></slot
+          >
+        </div>
       </transition>
       <transition name="fade">
         <!-- @slot Custom error message of form input -->

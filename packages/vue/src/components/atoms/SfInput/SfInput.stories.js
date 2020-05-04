@@ -4,7 +4,7 @@ import {
   text,
   boolean,
   optionsKnob as options,
-  select
+  select,
 } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
 import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
@@ -61,9 +61,13 @@ storiesOf("Atoms|Input", module)
       },
       colorIcon: {
         default: select("colorIcon", ["", ...colors], "", "Props"),
-      }, 
+      },
       helperText: {
-        default: text("helperText", "Password should consist of at least 2 digit, capital letter and special sign", "Props"),
+        default: text(
+          "helperText",
+          "Password should consist of at least 2 digit, capital letter and special sign",
+          "Props"
+        ),
       },
     },
     data() {
@@ -144,7 +148,11 @@ storiesOf("Atoms|Input", module)
         default: select("colorIcon", ["", ...colors], "", "Props"),
       },
       helperText: {
-        default: text("helperText", "Password should consist of at least 2 digit, capital letter and special sign", "Props"),
+        default: text(
+          "helperText",
+          "Password should consist of at least 2 digit, capital letter and special sign",
+          "Props"
+        ),
       },
     },
     data() {
@@ -228,7 +236,11 @@ storiesOf("Atoms|Input", module)
         default: select("colorIcon", ["", ...colors], "", "Props"),
       },
       helperText: {
-        default: text("helperText", "Password should consist of at least 2 digit, capital letter and special sign", "Props"),
+        default: text(
+          "helperText",
+          "Password should consist of at least 2 digit, capital letter and special sign",
+          "Props"
+        ),
       },
     },
     data() {
@@ -314,7 +326,11 @@ storiesOf("Atoms|Input", module)
         default: select("colorIcon", ["", ...colors], "", "Props"),
       },
       helperText: {
-        default: text("helperText", "Password should consist of at least 2 digit, capital letter and special sign", "Props"),
+        default: text(
+          "helperText",
+          "Password should consist of at least 2 digit, capital letter and special sign",
+          "Props"
+        ),
       },
     },
     data() {
@@ -401,7 +417,11 @@ storiesOf("Atoms|Input", module)
         default: select("colorIcon", ["", ...colors], "", "Props"),
       },
       helperText: {
-        default: text("helperText", "Password should consist of at least 2 digit, capital letter and special sign", "Props"),
+        default: text(
+          "helperText",
+          "Password should consist of at least 2 digit, capital letter and special sign",
+          "Props"
+        ),
       },
     },
     data() {
@@ -482,7 +502,11 @@ storiesOf("Atoms|Input", module)
         default: select("colorIcon", ["", ...colors], "", "Props"),
       },
       helperText: {
-        default: text("helperText", "Password should consist of at least 2 digit, capital letter and special sign", "Props"),
+        default: text(
+          "helperText",
+          "Password should consist of at least 2 digit, capital letter and special sign",
+          "Props"
+        ),
       },
     },
     data() {
