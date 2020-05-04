@@ -22,6 +22,7 @@ import SfCollectedProduct from "../../src/components/organisms/SfCollectedProduc
 import SfColor from "../../src/components/atoms/SfColor/SfColor.vue"
 import SfContentPages from "../../src/components/organisms/SfContentPages/SfContentPages.vue"
 import SfDivider from "../../src/components/atoms/SfDivider/SfDivider.vue"
+import SfDropdown from "../../src/components/molecules/SfDropdown/SfDropdown.vue"
 import SfFilter from "../../src/components/molecules/SfFilter/SfFilter.vue"
 import SfFooter from "../../src/components/organisms/SfFooter/SfFooter.vue"
 import SfGallery from "../../src/components/molecules/SfGallery/SfGallery.vue"
@@ -32,6 +33,7 @@ import SfHero from "../../src/components/organisms/SfHero/SfHero.vue"
 import SfIcon from "../../src/components/atoms/SfIcon/SfIcon.vue"
 import SfImage from "../../src/components/atoms/SfImage/SfImage.vue"
 import SfInput from "../../src/components/atoms/SfInput/SfInput.vue"
+import SfLink from "../../src/components/atoms/SfLink/SfLink.vue"
 import SfList from "../../src/components/organisms/SfList/SfList.vue"
 import SfLoader from "../../src/components/atoms/SfLoader/SfLoader.vue"
 import SfMegaMenu from "../../src/components/organisms/SfMegaMenu/SfMegaMenu.vue"
@@ -65,9 +67,9 @@ import SfTopBar from "../../src/components/organisms/SfTopBar/SfTopBar.vue"
 
 export default ({
   Vue,
-  options, 
-  router, 
-  siteData 
+  options,
+  router,
+  siteData
 }) => {
   // @components-docs-start (keep comment and indentation for auto-generated component docs)
   Vue.component("SfAccordion", SfAccordion);
@@ -92,6 +94,7 @@ export default ({
   Vue.component("SfColor", SfColor);
   Vue.component("SfContentPages", SfContentPages);
   Vue.component("SfDivider", SfDivider);
+  Vue.component("SfDropdown", SfDropdown);
   Vue.component("SfFilter", SfFilter);
   Vue.component("SfFooter", SfFooter);
   Vue.component("SfGallery", SfGallery);
@@ -102,6 +105,7 @@ export default ({
   Vue.component("SfIcon", SfIcon);
   Vue.component("SfImage", SfImage);
   Vue.component("SfInput", SfInput);
+  Vue.component("SfLink", SfLink);
   Vue.component("SfList", SfList);
   Vue.component("SfLoader", SfLoader);
   Vue.component("SfMegaMenu", SfMegaMenu);

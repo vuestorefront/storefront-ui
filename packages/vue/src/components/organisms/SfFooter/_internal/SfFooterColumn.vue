@@ -1,11 +1,11 @@
 <template>
   <div class="sf-footer-column">
-    <div class="sf-footer-column__title" @click="toggle(title)">
+    <button v-focus class="sf-footer-column__title" @click="toggle(title)">
       {{ title }}
       <div class="sf-footer-column__chevron">
         <SfChevron :class="{ 'sf-chevron--top': open }" />
       </div>
-    </div>
+    </button>
     <transition name="fade">
       <div v-if="open" class="sf-footer-column__content">
         <slot />
@@ -15,19 +15,21 @@
 </template>
 <script>
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
+import { focus } from "../../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfFooterColumn",
+  directives: { focus },
   components: { SfChevron },
   props: {
     title: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     open() {
       return this.$parent.open.includes(this.title);
-    }
+    },
   },
   mounted() {
     this.$parent.items.push(this.title);
@@ -35,7 +37,7 @@ export default {
   methods: {
     toggle(payload) {
       this.$parent.toggle(payload);
-    }
-  }
+    },
+  },
 };
 </script>

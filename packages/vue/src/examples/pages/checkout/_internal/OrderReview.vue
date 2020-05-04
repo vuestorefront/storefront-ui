@@ -92,25 +92,25 @@ export default {
   components: {
     SfHeading,
     SfButton,
-    SfCharacteristic
+    SfCharacteristic,
   },
   props: {
     order: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     shippingMethods: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     paymentMethods: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     characteristics: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   computed: {
     shipping() {
@@ -119,7 +119,7 @@ export default {
     shippingMethod() {
       const shippingMethod = this.shipping.shippingMethod;
       const method = this.shippingMethods.find(
-        method => method.value === shippingMethod
+        (method) => method.value === shippingMethod
       );
       return method ? method : { price: 0 };
     },
@@ -129,11 +129,11 @@ export default {
     paymentMethod() {
       const paymentMethod = this.payment.paymentMethod;
       const method = this.paymentMethods.find(
-        method => method.value === paymentMethod
+        (method) => method.value === paymentMethod
       );
       return method ? method : { label: "" };
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

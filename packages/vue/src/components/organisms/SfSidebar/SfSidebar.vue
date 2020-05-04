@@ -2,7 +2,7 @@
   <div class="sf-sidebar" :class="[staticClass, className]">
     <SfOverlay :visible="visibleOverlay" @click="close" />
     <transition :name="transitionName">
-      <aside v-if="visible" class="sf-sidebar__aside">
+      <aside v-if="visible" v-focus-trap class="sf-sidebar__aside">
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="bar">
           <SfBar
@@ -17,6 +17,7 @@
           <SfCircleIcon
             v-if="button"
             icon-size="12px"
+            aria-label="Close sidebar"
             icon="cross"
             class="sf-sidebar__circle-icon desktop-only"
             @click="close"
@@ -49,6 +50,7 @@
   </div>
 </template>
 <script>
+import { focusTrap } from "../../../utilities/directives/focus-trap-directive.js";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
@@ -56,43 +58,44 @@ import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 export default {
   name: "SfSidebar",
+  directives: { focusTrap },
   components: {
     SfBar,
     SfCircleIcon,
     SfOverlay,
-    SfHeading
+    SfHeading,
   },
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     subtitle: {
       type: String,
-      default: ""
+      default: "",
     },
     headingLevel: {
       type: Number,
-      default: 3
+      default: 3,
     },
     button: {
       type: Boolean,
-      default: true
+      default: true,
     },
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     overlay: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
     return {
       position: "left",
       staticClass: null,
-      className: null
+      className: null,
     };
   },
   computed: {
@@ -107,7 +110,7 @@ export default {
     },
     hasBottom() {
       return this.$slots.hasOwnProperty("content-bottom");
-    }
+    },
   },
   watch: {
     visible: {
@@ -124,8 +127,8 @@ export default {
           document.removeEventListener("keydown", this.keydownHandler);
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   mounted() {
     this.classHandler();
@@ -158,8 +161,8 @@ export default {
             ? "right"
             : "left";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

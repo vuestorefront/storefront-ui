@@ -27,29 +27,29 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfCallToAction",
   components: {
-    SfButton
+    SfButton,
   },
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     buttonText: {
       type: String,
-      default: ""
+      default: "",
     },
     description: {
       type: String,
-      default: ""
+      default: "",
     },
     background: {
       type: String,
-      default: ""
+      default: "",
     },
     image: {
-      type: String,
-      default: ""
-    }
+      type: [String, Object],
+      default: "",
+    },
   },
   computed: {
     style() {
@@ -61,10 +61,10 @@ export default {
           : `url(${image})`,
         "--_call-to-action-background-desktop-image":
           image.desktop && `url(${image.desktop})`,
-        "--_call-to-action-background-color": background
+        "--_call-to-action-background-color": background,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

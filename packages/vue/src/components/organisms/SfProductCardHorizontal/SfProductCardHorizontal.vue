@@ -81,6 +81,7 @@
             />
             <a
               v-if="reviewsCount"
+              v-focus
               class="sf-product-card-horizontal__reviews-count"
               href="#"
               @click="$emit('click:reviews')"
@@ -99,17 +100,17 @@
             <SfAddToCart
               :qty="qty"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
+              @input="$emit('input', $event)"
               @click="$emit('click:add-to-cart')"
             />
           </slot>
         </div>
       </div>
-      <button
+      <SfButton
         v-if="wishlistIcon !== false"
-        v-focus
-        :aria-label="ariaLabel"
+        :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
-        class="mobile-only"
+        class="sf-button--pure mobile-only"
         @click="toggleIsOnWishlist"
       >
         <!--@slot Use this slot to replace wishlist icon-->
@@ -120,7 +121,7 @@
             data-test="sf-wishlist-icon"
           />
         </slot>
-      </button>
+      </SfButton>
     </div>
   </div>
 </template>
@@ -144,13 +145,13 @@ export default {
     SfButton,
     SfAddToCart,
     SfProductOption,
-    SfProperty
+    SfProperty,
   },
   directives: {
-    focus: focus
+    focus: focus,
   },
   model: {
-    prop: "qty"
+    prop: "qty",
   },
   props: {
     /**
@@ -158,7 +159,7 @@ export default {
      */
     description: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Product image
@@ -166,35 +167,35 @@ export default {
      */
     image: {
       type: [Array, Object, String],
-      default: ""
+      default: "",
     },
     /**
      * Product image width, without unit
      */
     imageWidth: {
       type: [String, Number],
-      default: 140
+      default: 140,
     },
     /**
      * Product image height, without unit
      */
     imageHeight: {
       type: [String, Number],
-      default: 200
+      default: 200,
     },
     /**
      * Product title
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Link to product page
      */
     link: {
       type: [String, Object],
-      default: ""
+      default: "",
     },
     /**
      * Link element tag
@@ -203,56 +204,56 @@ export default {
      */
     linkTag: {
       type: String,
-      default: undefined
+      default: undefined,
     },
     /**
      * Product rating
      */
     scoreRating: {
       type: [Number, Boolean],
-      default: false
+      default: false,
     },
     /**
      * Product reviews count
      */
     reviewsCount: {
       type: [Number, Boolean],
-      default: false
+      default: false,
     },
     /**
      * Maximum product rating
      */
     maxRating: {
       type: [Number, String],
-      default: 5
+      default: 5,
     },
     /**
      * Product regular price
      */
     regularPrice: {
       type: [Number, String],
-      default: null
+      default: null,
     },
     /**
      * Product special price
      */
     specialPrice: {
       type: [Number, String],
-      default: null
+      default: null,
     },
     /**
      * isAddedToCart status of whether button is showed, product is added or not
      */
     isAddedToCart: {
       type: Boolean,
-      deafult: false
+      deafult: false,
     },
     /**
      * addToCartDisabled status of whether button is disabled when out of stock
      */
     addToCartDisabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Wish list icon
@@ -261,7 +262,7 @@ export default {
      */
     wishlistIcon: {
       type: [String, Array, Boolean],
-      default: "heart"
+      default: "heart",
     },
     /**
      * Wish list icon for product which has been added to wish list
@@ -270,22 +271,22 @@ export default {
      */
     isOnWishlistIcon: {
       type: [String, Array],
-      default: "heart_fill"
+      default: "heart_fill",
     },
     /**
      * Status of whether product is on wish list or not
      */
     isOnWishlist: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Selected quantity
      */
     qty: {
       type: [Number, String],
-      default: 1
-    }
+      default: 1,
+    },
   },
   computed: {
     currentWishlistIcon() {
@@ -310,13 +311,13 @@ export default {
           : "a";
       }
       return "div";
-    }
+    },
   },
   methods: {
     toggleIsOnWishlist() {
       this.$emit("click:wishlist", !this.isOnWishlist);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
-import SfTable from "./SfTable.vue";
+import { SfTable } from "@storefront-ui/vue";
 storiesOf("Organisms/Table", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -10,13 +10,13 @@ storiesOf("Organisms/Table", module)
         default: options(
           "customClass",
           {
-            "sf-table--no-border": "sf-table--no-border"
+            "sf-table--no-border": "sf-table--no-border",
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
-      }
+        ),
+      },
     },
     data() {
       return {
@@ -25,17 +25,17 @@ storiesOf("Organisms/Table", module)
           "Payment date",
           "Payment method",
           "Amount",
-          "Status"
+          "Status",
         ],
         tableRows: [
           ["#35767", "4th Nov", "Paypal", "12.00$", "Finalise"],
           ["#35767", "4th Nov", "Visa", "15.00$", "In process"],
-          ["#35767", "4th Nov", "Paypal", "12.00$", "Finalise"]
+          ["#35767", "4th Nov", "Paypal", "12.00$", "Finalise"],
         ],
         status: {
           Finalise: "text-success",
-          "In process": "text-warning"
-        }
+          "In process": "text-warning",
+        },
       };
     },
     template: `<SfTable 
@@ -56,5 +56,5 @@ storiesOf("Organisms/Table", module)
             :key="data"
             :class="status[data]">{{data}}</SfTableData>
         </SfTableRow>
-      </SfTable>`
+      </SfTable>`,
   }));

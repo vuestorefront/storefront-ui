@@ -6,9 +6,9 @@ describe("SfTableRow.vue", () => {
       inject: ["table"],
       provide() {
         return {
-          table: []
+          table: [],
         };
-      }
+      },
     });
     expect(component.contains(".sf-table__row")).toBe(true);
   });

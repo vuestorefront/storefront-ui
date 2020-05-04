@@ -3,7 +3,7 @@
   box-sizing: border-box;
   width: var(--button-size, var(--button-width));
   height: var(--button-size, var(--button-height));
-  display: flex;
+  display: var(--button-display, flex);
   align-items: center;
   justify-content: center;
   padding: var(--button-padding, var(--spacer-sm) calc(var(--spacer-sm) * 2));
@@ -14,7 +14,6 @@
   text-decoration: var(--button-text-decoration);
   transition: var(--button-transition, box-shadow 150ms ease-in-out);
   cursor: var(--button-cursor, pointer);
-  outline: none;
   border-radius: var(--button-border-radius, 0);
   white-space: var(--button-wrap, nowrap);
   @include font(
@@ -48,6 +47,19 @@
     --button-color: var(--c-text-muted);
     --button-cursor: default;
     --button-box-shadow: none;
+  }
+  &--pure {
+    --button-padding: 0;
+    --button-background: transparent;
+    --button-color: var(--c-text);
+    --button-text-transform: none;
+    --button-wrap: normal;
+    &:hover {
+      --button-box-shadow: 0;
+    }
+    &:active {
+      --button-background: transparent;
+    }
   }
   &--full-width {
     --button-width: 100%;

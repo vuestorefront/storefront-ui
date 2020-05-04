@@ -9,6 +9,7 @@
 </template>
 <script>
 import Vue from "vue";
+import { deprecationWarning } from "../../../utilities/helpers/deprecation-warning.js";
 import SfAccordionItem from "./_internal/SfAccordionItem.vue";
 Vue.component("SfAccordionItem", SfAccordionItem);
 export default {
@@ -19,7 +20,7 @@ export default {
      */
     open: {
       type: [String, Array],
-      default: ""
+      default: "",
     },
     /**
      * Opens the first accordion item if set to "true"
@@ -27,26 +28,26 @@ export default {
      */
     firstOpen: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Allows to open multiple accordion items if set to "true"
      */
     multiple: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Overlay transition effect
      */
     transition: {
       type: String,
-      default: "fade"
+      default: "fade",
     },
     showChevron: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   mounted() {
     this.$on("toggle", this.toggleHandler);
@@ -61,13 +62,14 @@ export default {
         // TODO remove in 1.0.0 ->
         if (this.firstOpen) {
           this.$children[0].isOpen = this.firstOpen;
-          console.warn(
-            "[StorefrontUI][SfAccordion] firstOpen prop has been deprecated and will be removed in 1.0.0. Use open instead."
+          deprecationWarning(
+            this.$options.name,
+            "Prop 'firstOpen' has been deprecated and will be removed in v1.0.0. Use 'open' instead."
           );
           return;
         }
         // <- TODO remove in 1.0.0
-        this.$children.forEach(child => {
+        this.$children.forEach((child) => {
           child.isOpen = Array.isArray(this.open)
             ? this.open.includes(child.header)
             : this.open === child.header;
@@ -76,19 +78,19 @@ export default {
     },
     toggleHandler(slotId) {
       if (!this.multiple && !Array.isArray(this.open)) {
-        this.$children.forEach(child => {
+        this.$children.forEach((child) => {
           child._uid === slotId
             ? (child.isOpen = !child.isOpen)
             : (child.isOpen = false);
         });
       } else {
-        const clickedHeader = this.$children.find(child => {
+        const clickedHeader = this.$children.find((child) => {
           return child._uid === slotId;
         });
         clickedHeader.isOpen = !clickedHeader.isOpen;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

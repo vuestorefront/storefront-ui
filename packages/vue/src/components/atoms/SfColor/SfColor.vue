@@ -1,7 +1,6 @@
 <template>
-  <button
-    v-focus
-    class="sf-color"
+  <SfButton
+    class="sf-button--pure sf-color"
     :class="{ 'sf-color--active': selected }"
     :style="style"
     :aria-pressed="selected.toString()"
@@ -14,44 +13,42 @@
           v-if="selected && hasBadge"
           class="sf-color__badge mobile-only"
         >
-          <SfIcon icon="check" size="7px" color="white" />
+          <SfIcon aria-hidden="true" icon="check" size="7px" color="white" />
         </SfBadge>
       </slot>
     </transition>
-  </button>
+  </SfButton>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../SfButton/SfButton.vue";
 export default {
   name: "SfColor",
   components: {
     SfBadge,
-    SfIcon
-  },
-  directives: {
-    focus: focus
+    SfIcon,
+    SfButton,
   },
   props: {
     color: {
       type: String,
-      default: ""
+      default: "",
     },
     selected: {
       type: Boolean,
-      default: false
+      default: false,
     },
     hasBadge: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   computed: {
     style() {
       return { "--color-background": this.color };
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

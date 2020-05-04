@@ -4,7 +4,7 @@
     :class="{
       'sf-header--has-mobile-search': hasMobileSearch,
       'sf-header--is-sticky': isSticky,
-      'sf-header--is-hidden': !isVisible
+      'sf-header--is-hidden': !isVisible,
     }"
   >
     <div class="sf-header__sticky-container">
@@ -24,11 +24,18 @@
           <slot name="navigation" />
         </nav>
         <!--@slot Use this slot to replace default search bar-->
-        <slot name="search" v-bind="{ searchPlaceholder }">
+        <slot
+          name="search"
+          v-bind="{ searchPlaceholder, searchValue, hasMobileSearch }"
+        >
           <SfSearchBar
+            :value="searchValue"
             :placeholder="searchPlaceholder"
+            aria-label="Search"
             class="sf-header__search"
             :class="{ 'desktop-only': !hasMobileSearch }"
+            @input="$emit('change:search', $event)"
+            @enter="$emit('enter:search', $event)"
           />
         </slot>
         <!--@slot Use this slot to replace default header icons with custom content-->
@@ -36,24 +43,24 @@
           name="header-icons"
           v-bind="{ accountIcon, wishlistIcon, cartIcon }"
         >
-          <div class="sf-header__icons desktop-only">
+          <SfButton
+            v-for="icon in headerIcons"
+            :key="icon.name"
+            class="sf-button--pure sf-header__icon desktop-only"
+            :aria-label="icon.name"
+            :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
+            @click="$emit(`click:${icon.name}`)"
+          >
             <SfIcon
-              v-for="icon in headerIcons"
-              :key="icon.name"
               :icon="icon.icon"
-              :has-badge="isCartEmpty && icon.hasBadge === true"
+              :has-badge="cartIsNotEmpty && icon.hasBadge === true"
               :badge-label="cartItemsQty"
               size="xs"
-              class="sf-header__icon"
               :class="{
-                'sf-header__icon--is-active': activeIcon === icon.name
+                'sf-header__icon--is-active': activeIcon === icon.name,
               }"
-              role="button"
-              :aria-label="icon.name"
-              :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
-              @click="$emit(`click:${icon.name}`)"
             />
-          </div>
+          </SfButton>
         </slot>
         <!--@slot Use this slot to replace default header language selector on mobile -->
         <slot name="language-selector" />
@@ -67,18 +74,20 @@ import Vue from "vue";
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
 import {
   mapMobileObserver,
-  unMapMobileObserver
+  unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfHeader",
   components: {
     SfIcon,
     SfImage,
-    SfSearchBar
+    SfSearchBar,
+    SfButton,
   },
   props: {
     /**
@@ -86,35 +95,35 @@ export default {
      */
     logo: {
       type: [String, Object],
-      default: ""
+      default: "",
     },
     /**
      * Header title
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Header cartIcon (accepts same value as SfIcon)
      */
     cartIcon: {
       type: [String, Boolean],
-      default: "empty_cart"
+      default: "empty_cart",
     },
     /**
      * Header wishlistIcon (accepts same value as SfIcon)
      */
     wishlistIcon: {
       type: [String, Boolean],
-      default: "heart"
+      default: "heart",
     },
     /**
      * Header accountIcon (accepts same value as SfIcon)
      */
     accountIcon: {
       type: [String, Boolean],
-      default: "profile"
+      default: "profile",
     },
     /**
      * Header activeIcon (accepts account, wishlist and cart)
@@ -124,36 +133,43 @@ export default {
       default: "",
       validator(value) {
         return ["", "account", "wishlist", "cart"].includes(value);
-      }
+      },
     },
     /**
      * Header search on mobile
      */
     hasMobileSearch: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Header sticky to top
      */
     isSticky: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Header search placeholder
      */
     searchPlaceholder: {
       type: String,
-      default: "Search for items"
+      default: "Search for items",
+    },
+    /**
+     * Header search phrase
+     */
+    searchValue: {
+      type: String,
+      default: "",
     },
     /**
      * Header cart items quantity
      */
     cartItemsQty: {
       type: String,
-      default: "0"
-    }
+      default: "0",
+    },
   },
   data() {
     return {
@@ -162,20 +178,20 @@ export default {
           conditional: this.accountIcon,
           icon: this.accountIcon,
           name: "account",
-          hasBadge: false
+          hasBadge: false,
         },
         {
           conditional: this.wishlistIcon,
           icon: this.wishlistIcon,
           name: "wishlist",
-          hasBadge: false
+          hasBadge: false,
         },
         {
           conditional: this.cartIcon,
           icon: this.cartIcon,
           name: "cart",
-          hasBadge: true
-        }
+          hasBadge: true,
+        },
       ],
       isVisible: true,
       isSearchVisible: true,
@@ -185,14 +201,14 @@ export default {
       animationStart: undefined,
       animationLong: undefined,
       animationDuration: 300,
-      height: {}
+      height: {},
     };
   },
   computed: {
     ...mapMobileObserver(),
-    isCartEmpty() {
-      return !!this.cartItemsQty;
-    }
+    cartIsNotEmpty() {
+      return parseInt(this.cartItemsQty, 10) > 0;
+    },
   },
   watch: {
     scrollDirection() {
@@ -210,11 +226,11 @@ export default {
         this.$nextTick(() => {
           const containerHeight = this.$refs.header;
           this.height = {
-            height: `${containerHeight.offsetHeight}px`
+            height: `${containerHeight.offsetHeight}px`,
           };
         });
       },
-      immediate: true
+      immediate: true,
     },
     hasMobileSearch: {
       handler() {
@@ -223,12 +239,12 @@ export default {
             return;
           const computedContainer = window.getComputedStyle(this.$refs.header);
           this.height = {
-            height: computedContainer.height
+            height: computedContainer.height,
           };
         });
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   mounted() {
     if (this.isSticky) {
@@ -261,8 +277,8 @@ export default {
       this.scrollDirection = currentScrollPosition < this.lastScrollPosition;
       this.isSearchVisible = currentScrollPosition <= 0;
       this.lastScrollPosition = currentScrollPosition;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

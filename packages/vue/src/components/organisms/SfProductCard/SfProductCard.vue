@@ -37,45 +37,6 @@
             >{{ badgeLabel }}</SfBadge
           >
         </slot>
-        <template v-if="showAddToCartButton">
-          <slot
-            name="add-to-cart"
-            v-bind="{ isAddedToCart, showAddedToCartBadge, isAddingToCart }"
-          >
-            <SfCircleIcon
-              class="sf-product-card__add-button"
-              aria-label="add-to-cart"
-              role="button"
-              :has-badge="showAddedToCartBadge"
-              :disabled="addToCartDisabled"
-              @click="onAddToCart"
-            >
-              <div class="sf-product-card__add-button--icons">
-                <transition
-                  name="sf-product-card__add-button--icons"
-                  mode="out-in"
-                >
-                  <slot v-if="!isAddingToCart" name="add-to-cart-icon">
-                    <SfIcon
-                      key="add_to_cart"
-                      icon="add_to_cart"
-                      size="20px"
-                      color="white"
-                    />
-                  </slot>
-                  <slot v-else name="adding-to-cart-icon">
-                    <SfIcon
-                      key="added_to_cart"
-                      icon="added_to_cart"
-                      size="20px"
-                      color="white"
-                    />
-                  </slot>
-                </transition>
-              </div>
-            </SfCircleIcon>
-          </slot>
-        </template>
       </div>
       <slot name="title" v-bind="{ title }">
         <h3 class="sf-product-card__title">
@@ -83,10 +44,49 @@
         </h3>
       </slot>
     </component>
-    <button
+    <template v-if="showAddToCartButton">
+      <slot
+        name="add-to-cart"
+        v-bind="{
+          isAddedToCart,
+          showAddedToCartBadge,
+          isAddingToCart,
+          title,
+        }"
+      >
+        <SfCircleIcon
+          class="sf-product-card__add-button"
+          :aria-label="`Add to Cart ${title}`"
+          :has-badge="showAddedToCartBadge"
+          :disabled="addToCartDisabled"
+          @click="onAddToCart"
+        >
+          <div class="sf-product-card__add-button--icons">
+            <transition name="sf-product-card__add-button--icons" mode="out-in">
+              <slot v-if="!isAddingToCart" name="add-to-cart-icon">
+                <SfIcon
+                  key="add_to_cart"
+                  icon="add_to_cart"
+                  size="20px"
+                  color="white"
+                />
+              </slot>
+              <slot v-else name="adding-to-cart-icon">
+                <SfIcon
+                  key="added_to_cart"
+                  icon="added_to_cart"
+                  size="20px"
+                  color="white"
+                />
+              </slot>
+            </transition>
+          </div>
+        </SfCircleIcon>
+      </slot>
+    </template>
+    <SfButton
       v-if="wishlistIcon !== false"
-      v-focus
-      :aria-label="ariaLabel"
+      :aria-label="`${ariaLabel} ${title}`"
       :class="wishlistIconClasses"
       @click="toggleIsOnWishlist"
     >
@@ -97,7 +97,7 @@
           data-test="sf-wishlist-icon"
         />
       </slot>
-    </button>
+    </SfButton>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
         v-if="regularPrice"
@@ -118,6 +118,7 @@
         />
         <a
           v-if="reviewsCount"
+          v-focus
           class="sf-product-card__reviews-count"
           href="#"
           @click="$emit('click:reviews')"
@@ -137,6 +138,7 @@ import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfProductCard",
   components: {
@@ -145,7 +147,8 @@ export default {
     SfIcon,
     SfImage,
     SfCircleIcon,
-    SfBadge
+    SfBadge,
+    SfButton,
   },
   directives: { focus },
   props: {
@@ -155,28 +158,28 @@ export default {
      */
     image: {
       type: [Array, Object, String],
-      default: ""
+      default: "",
     },
     /**
      * Product image width, without unit
      */
     imageWidth: {
       type: [String, Number],
-      default: 216
+      default: 216,
     },
     /**
      * Product image height, without unit
      */
     imageHeight: {
       type: [String, Number],
-      default: 326
+      default: 326,
     },
     /**
      * Badge label
      */
     badgeLabel: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Badge color
@@ -185,21 +188,21 @@ export default {
      */
     badgeColor: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Product title
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Link to product page
      */
     link: {
       type: [String, Object],
-      default: ""
+      default: "",
     },
     /**
      * Link element tag
@@ -208,42 +211,42 @@ export default {
      */
     linkTag: {
       type: String,
-      default: undefined
+      default: undefined,
     },
     /**
      * Product rating
      */
     scoreRating: {
       type: [Number, Boolean],
-      default: false
+      default: false,
     },
     /**
      * Product reviews count
      */
     reviewsCount: {
       type: [Number, Boolean],
-      default: false
+      default: false,
     },
     /**
      * Maximum product rating
      */
     maxRating: {
       type: [Number, String],
-      default: 5
+      default: 5,
     },
     /**
      * Product regular price
      */
     regularPrice: {
       type: [Number, String],
-      default: null
+      default: null,
     },
     /**
      * Product special price
      */
     specialPrice: {
       type: [Number, String],
-      default: null
+      default: null,
     },
     /**
      * Wish list icon
@@ -252,7 +255,7 @@ export default {
      */
     wishlistIcon: {
       type: [String, Array, Boolean],
-      default: "heart"
+      default: "heart",
     },
     /**
      * Wish list icon for product which has been added to wish list
@@ -261,40 +264,40 @@ export default {
      */
     isOnWishlistIcon: {
       type: [String, Array],
-      default: "heart_fill"
+      default: "heart_fill",
     },
     /**
      * Status of whether product is on wish list or not
      */
     isOnWishlist: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Status of showing add to cart button
      */
     showAddToCartButton: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * isAddedToCart status of whether button is showed, product is added or not
      */
     isAddedToCart: {
       type: Boolean,
-      deafult: false
+      deafult: false,
     },
     /**
      * addToCartDisabled status of whether button is disabled when out of stock
      */
     addToCartDisabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
-      isAddingToCart: false
+      isAddingToCart: false,
     };
   },
   computed: {
@@ -314,7 +317,7 @@ export default {
       return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
     wishlistIconClasses() {
-      const defaultClass = "sf-product-card__wishlist-icon";
+      const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
       return `${defaultClass} ${
         this.isOnWishlist ? "sf-product-card--on-wishlist" : ""
       }`;
@@ -329,7 +332,7 @@ export default {
           : "a";
       }
       return "div";
-    }
+    },
   },
   methods: {
     toggleIsOnWishlist() {
@@ -342,8 +345,8 @@ export default {
         this.isAddingToCart = false;
       }, 1000);
       this.$emit("click:add-to-cart");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

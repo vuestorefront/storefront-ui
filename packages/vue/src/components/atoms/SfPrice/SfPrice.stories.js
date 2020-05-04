@@ -1,36 +1,34 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
-import SfPrice from "./SfPrice.vue";
-import SfBadge from "../SfBadge/SfBadge.vue";
+import { SfPrice, SfBadge } from "@storefront-ui/vue";
 storiesOf("Atoms|Price", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfPrice },
     props: {
       regular: {
-        default: text("regular", "$200.00", "Props")
+        default: text("regular", "$200.00", "Props"),
       },
       special: {
-        default: text("special", "$100.00", "Props")
-      }
+        default: text("special", "$100.00", "Props"),
+      },
     },
     template: `<SfPrice
       :regular="regular"
-      :special="special"/>`
+      :special="special"/>`,
   }))
   .add("[slot] special", () => ({
     components: {
       SfPrice,
-      SfBadge
+      SfBadge,
     },
     props: {
       regular: {
-        default: text("regular", "$200.00", "Props")
+        default: text("regular", "$200.00", "Props"),
       },
       special: {
-        default: text("special", "$100.00", "Props")
-      }
+        default: text("special", "$100.00", "Props"),
+      },
     },
     template: `<SfPrice
       :regular="regular"
@@ -38,20 +36,20 @@ storiesOf("Atoms|Price", module)
       <template #special="{special}">
         <SfBadge class="color-warning">{{special}}</SfBadge>
       </template>  
-    </SfPrice>`
+    </SfPrice>`,
   }))
   .add("[slot] old", () => ({
     components: {
       SfPrice,
-      SfBadge
+      SfBadge,
     },
     props: {
       regular: {
-        default: text("regular", "$200.00", "Props")
+        default: text("regular", "$200.00", "Props"),
       },
       special: {
-        default: text("special", "$100.00", "Props")
-      }
+        default: text("special", "$100.00", "Props"),
+      },
     },
     template: `<SfPrice
       :regular="regular"
@@ -59,20 +57,20 @@ storiesOf("Atoms|Price", module)
       <template #old="{regular, special}">
         <SfBadge class="color-secondary">{{regular}}</SfBadge>
       </template>
-    </SfPrice>`
+    </SfPrice>`,
   }))
   .add("[slot] regular", () => ({
     components: {
       SfPrice,
-      SfBadge
+      SfBadge,
     },
     props: {
       regular: {
-        default: text("regular", "$200.00", "Props")
+        default: text("regular", "$200.00", "Props"),
       },
       special: {
-        default: text("special", "", "Props")
-      }
+        default: text("special", "", "Props"),
+      },
     },
     template: `<SfPrice
       :regular="regular"
@@ -80,5 +78,5 @@ storiesOf("Atoms|Price", module)
       <template #regular="{regular, special}">
         <SfBadge>{{regular}}</SfBadge>
       </template>
-    </SfPrice>`
+    </SfPrice>`,
   }));

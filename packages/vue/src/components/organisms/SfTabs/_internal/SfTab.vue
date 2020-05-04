@@ -2,10 +2,9 @@
   <Fragment class="sf-tabs__tab">
     <!--@slot Title. Here you should pass a title tab-->
     <slot name="title" v-bind="{ tabClick, isActive, title }">
-      <div
-        role="button"
+      <SfButton
         :aria-pressed="isActive.toString()"
-        class="sf-tabs__title"
+        class="sf-button--pure sf-tabs__title"
         :class="{ 'sf-tabs__title--active': isActive }"
         @click="tabClick"
       >
@@ -14,7 +13,7 @@
           class="sf-tabs__chevron"
           :class="{ 'sf-chevron--right': !isActive }"
         />
-      </div>
+      </SfButton>
     </slot>
     <div class="sf-tabs__content">
       <div v-if="isActive" class="sf-tabs__content__tab">
@@ -27,11 +26,13 @@
 <script>
 import { Fragment } from "vue-fragment";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
+import SfButton from "../../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfTab",
   components: {
     Fragment,
-    SfChevron
+    SfChevron,
+    SfButton,
   },
   props: {
     /**
@@ -39,13 +40,13 @@ export default {
      */
     title: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
       isActive: false,
-      desktopMin: 1024
+      desktopMin: 1024,
     };
   },
   methods: {
@@ -58,7 +59,7 @@ export default {
       );
       if (this.isActive && width > this.desktopMin) return;
       this.$parent.$emit("toggle", this._uid);
-    }
-  }
+    },
+  },
 };
 </script>
