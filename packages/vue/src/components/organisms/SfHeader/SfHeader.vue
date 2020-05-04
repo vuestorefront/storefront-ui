@@ -43,10 +43,10 @@
           name="header-icons"
           v-bind="{ accountIcon, wishlistIcon, cartIcon }"
         >
-          <button
+          <SfButton
             v-for="icon in headerIcons"
             :key="icon.name"
-            class="sf-header__icon desktop-only"
+            class="sf-button--pure sf-header__icon desktop-only"
             :aria-label="icon.name"
             :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
             @click="$emit(`click:${icon.name}`)"
@@ -60,7 +60,7 @@
                 'sf-header__icon--is-active': activeIcon === icon.name,
               }"
             />
-          </button>
+          </SfButton>
         </slot>
         <!--@slot Use this slot to replace default header language selector on mobile -->
         <slot name="language-selector" />
@@ -80,12 +80,14 @@ Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfHeader",
   components: {
     SfIcon,
     SfImage,
     SfSearchBar,
+    SfButton,
   },
   props: {
     /**
