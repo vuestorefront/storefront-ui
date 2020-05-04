@@ -3708,6 +3708,40 @@
   resolved "https://registry.yarnpkg.com/@soda/get-current-script/-/get-current-script-1.0.0.tgz#623aa40623550e3b94767cffeb096a6fb597ed09"
   integrity sha512-9GvTek+7cVw7r+L7TNGOG1astZJWXz2h5q4BqMXl28KN+24iSCm1xo+RhZOZvwdT3bzNe9hD7riJc/lBoO7mgg==
 
+"@storefront-ui/shared@^0.7.6":
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/@storefront-ui/shared/-/shared-0.7.6.tgz#c3e0f71dae2ae446edd4f3a89285734fb78d8ea3"
+  integrity sha512-naz0GUeQDPwWaHHzN+LAGBhhhH5c3Tz/5k/MjrMAx8NugDouAh0foW0ycy8TTv4GlA4XDAUpRCPTa5rulI2pXw==
+
+"@storefront-ui/vue@^0.7.6":
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/@storefront-ui/vue/-/vue-0.7.6.tgz#7056347473e899fc45f15b8faa63c64ed04fe0b2"
+  integrity sha512-DmupdIdnTI3e6J1jBgVUguKkzDFCH872aRewn3lDgstqN2WfgIK0eYgkFF4F0BtqvSQuDkgae/af05DtHpo6Hw==
+  dependencies:
+    "@glidejs/glide" "^3.3.0"
+    "@storefront-ui/shared" "^0.7.6"
+    "@storybook/addon-storysource" "^5.3.18"
+    "@storybook/addon-viewport" "^5.3.18"
+    "@types/jest" "^25.2.1"
+    "@vue/babel-preset-app" "^4.3.1"
+    "@vuepress/plugin-register-components" "^1.4.1"
+    babel-eslint "^10.1.0"
+    babel-loader "^8.1.0"
+    body-scroll-lock "^3.0.1"
+    core-js "^3.6.5"
+    hammerjs "^2.0.8"
+    leaflet "^1.5.1"
+    lint-staged "^10.1.3"
+    lozad "^1.9.0"
+    node-sass "^4.12.0"
+    sass-loader "^8.0.2"
+    simplebar-vue "^1.4.0"
+    storybook-addon-vue-info "^1.4.2"
+    vue-drag-drop "^1.1.4"
+    vue-fragment "^1.5.1"
+    vue2-leaflet "^2.5.2"
+    webpack-dev-middleware "3.7.2"
+
 "@storybook/addon-a11y@^5.3.18":
   version "5.3.18"
   resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-5.3.18.tgz#3f35b2f03a0f292c415d659b5f6f8c00a029c9f7"
