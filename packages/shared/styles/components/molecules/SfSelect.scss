@@ -110,12 +110,25 @@
       width: 0;
     }
   }
+  &__helper-text {
+    color: var(--select-helper-text-color, var(--c-secondary-variant));
+    height: calc(var(--font-xs) * 1.2);
+    margin: var(--select-helper-text-margin, 0 0 var(--spacer-xs) 0);
+    @include font(
+      --select-helper-text-font,
+      var(--font-medium),
+      var(--font-xs),
+      1.2,
+      var(--font-family-secondary)
+    );
+  }
   &__error-message {
     --select-border-color: var(--c-danger);
+    display: flex;
     color: var(--select-error-message-color, var(--c-danger));
     height: calc(var(--font-xs) * 1.2);
     @include font(
-      --input-error-message-font,
+      --select-error-message-font,
       var(--font-medium),
       var(--font-xs),
       1.2,
@@ -123,6 +136,7 @@
     );
     &--required {
       color: var(--select-error-message-required-color, var(--c-primary));
+      margin: var(--select-error-message-required-margin, 0 var(--spacer-2xs) 0 0);
     }
   }
   &__cancel {

@@ -52,8 +52,9 @@
     }
   }
   &__error-message {
+    display: flex;    
     color: var(--input-error-message-color, var(--c-danger));
-    height: calc(var(--font-xs) * 1.2);
+    height: calc(var(--font-xs) * 1.2);    
     @include font(
       --input-error-message-font,
       var(--font-medium),
@@ -63,11 +64,13 @@
     );
     &--required {
       color: var(--input-error-message-required-color, var(--c-primary));
+      margin: var(--input-error-message-required-margin, 0 var(--spacer-2xs) 0 0);
     }
   }
   &__helper-text {
-    color: var(--input-error-message-color, var(--c-secondary-variant));
+    color: var(--input-helper-text-color, var(--c-secondary-variant));
     height: calc(var(--font-xs) * 1.2);
+    margin: var(--input-helper-text-margin, 0 0 var(--spacer-xs) 0);
     @include font(
       --input-helper-text-font,
       var(--font-medium),
