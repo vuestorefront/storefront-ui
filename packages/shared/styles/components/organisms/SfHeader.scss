@@ -87,17 +87,11 @@
     height: 2.25rem;
     flex: var(--header-search-flex,  0 0 100%);
   }
-  &__icons {
-    display: flex;
-    align-items: center;
-    background: transparent;
-    border: 0;
-    padding: 0;
-  }
   &__icon {
     --icon-color: var(--c-dark-variant);
+    padding: 0;
     margin: 0 0 0 calc(var(--spacer-sm) * 3.25);
-    cursor: pointer;
+    border: 0;
     .sf-icon__badge {
       --icon-badge-top: -0.5rem;
       --icon-badge-right: -0.5rem;
