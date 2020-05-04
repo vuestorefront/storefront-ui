@@ -62,6 +62,7 @@ import SfSticky from "../../src/components/molecules/SfSticky/SfSticky.vue"
 import SfStoreLocator from "../../src/components/organisms/SfStoreLocator/SfStoreLocator.vue"
 import SfTable from "../../src/components/organisms/SfTable/SfTable.vue"
 import SfTabs from "../../src/components/organisms/SfTabs/SfTabs.vue"
+import SfTile from "../../src/components/molecules/SfTile/SfTile.vue"
 import SfTopBar from "../../src/components/organisms/SfTopBar/SfTopBar.vue"
 // @components-docs-end
 
@@ -134,6 +135,7 @@ export default ({
   Vue.component("SfStoreLocator", SfStoreLocator);
   Vue.component("SfTable", SfTable);
   Vue.component("SfTabs", SfTabs);
+  Vue.component("SfTile", SfTile);
   Vue.component("SfTopBar", SfTopBar);
   // @components-docs-end
 }
