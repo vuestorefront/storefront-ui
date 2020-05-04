@@ -17,18 +17,8 @@
       <SfBottomNavigationItem
           label="Basket"
           icon="add_to_cart"
-      >
-        <template #icon>
-          <SfCircleIcon aria-label="Add to cart">
-            <SfIcon
-                icon="add_to_cart"
-                color="white"
-                size="25px"
-                :style="{margin: '0 0 0 -2px'}"
-            />
-          </SfCircleIcon>
-        </template>
-      </SfBottomNavigationItem>
+          :isFloating="true"
+      />
     </SfBottomNavigation>
     <Cart v-if="false"/>
   </div>
@@ -37,29 +27,33 @@
   import {SfHeader, SfFooter, SfBottomNavigation } from "@storefront-ui/vue"
   import Cart from "@storefront-ui/vue/src/examples/pages/cart/Cart.vue"
   export default {
-    components: {SfHeader, SfFooter, Cart},
-    items: [
-      {
-        icon: "home",
-        iconActive: "",
-        label: "Home"
-      },
-      {
-        icon: "menu",
-        iconActive: "",
-        label: "Menu"
-      },
-      {
-        icon: "heart",
-        iconActive: "heart_fill",
-        label: "Heart"
-      },
-      {
-        icon: "profile",
-        iconActive: "profile_fill",
-        label: "Profile"
+    components: {SfHeader, SfFooter, Cart, SfBottomNavigation},
+    data(){
+      return {
+        items: [
+          {
+            icon: "home",
+            iconActive: "",
+            label: "Home"
+          },
+          {
+            icon: "menu",
+            iconActive: "",
+            label: "Menu"
+          },
+          {
+            icon: "heart",
+            iconActive: "heart_fill",
+            label: "Heart"
+          },
+          {
+            icon: "profile",
+            iconActive: "profile_fill",
+            label: "Profile"
+          }
+        ]
       }
-    ]
+    }
   }
 </script>
 <style lang="scss">
