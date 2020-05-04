@@ -4,13 +4,10 @@
   position: relative;
   width: var(--color-width, var(--color-size, 2.5rem));
   height: var(--color-height, var(--color-size, 2.5rem));
-  padding: 0;
   background: var(--color-background);
-  border: 0;
   border-radius: var(--color-border-radius);
   box-shadow: var(--color-box-shadow);
   transition: transform 150ms linear, box-shadow 150ms linear;
-  cursor: pointer;
   &__badge {
     --badge-padding: var(--spacer-xs);
     --badge-border-radius: 100%;
