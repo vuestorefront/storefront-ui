@@ -67,12 +67,12 @@
   }
   &__helper-text {
     color: var(--input-error-message-color, var(--c-secondary-variant));
-    height: calc(var(--font-base) * 1.6);
+    height: calc(var(--font-xs) * 1.2);
     @include font(
       --input-helper-text-font,
       var(--font-medium),
-      var(--font-base),
-      1.6,
+      var(--font-xs),
+      1.2,
       var(--font-family-secondary)
     );
   }
