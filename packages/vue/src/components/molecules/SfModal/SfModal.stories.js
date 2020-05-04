@@ -34,7 +34,12 @@ storiesOf("Molecules|Modal", module)
         :persistent="persistent"
         @close="visible = false"
       >
-        HELLO STOREFRONT UI!
+        <p>HELLO STOREFRONT UI!</p>
+        <form action="">
+          <input type="text">
+          <input type="text">
+          <button>hello</button>
+        </form>
       </SfModal>`,
   }))
   .add("[slot] close", () => ({

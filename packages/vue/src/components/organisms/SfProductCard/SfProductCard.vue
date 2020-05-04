@@ -37,49 +37,6 @@
             >{{ badgeLabel }}</SfBadge
           >
         </slot>
-        <template v-if="showAddToCartButton">
-          <slot
-            name="add-to-cart"
-            v-bind="{
-              isAddedToCart,
-              showAddedToCartBadge,
-              isAddingToCart,
-              title,
-            }"
-          >
-            <SfCircleIcon
-              class="sf-product-card__add-button"
-              :aria-label="`Add to Cart ${title}`"
-              :has-badge="showAddedToCartBadge"
-              :disabled="addToCartDisabled"
-              @click="onAddToCart"
-            >
-              <div class="sf-product-card__add-button--icons">
-                <transition
-                  name="sf-product-card__add-button--icons"
-                  mode="out-in"
-                >
-                  <slot v-if="!isAddingToCart" name="add-to-cart-icon">
-                    <SfIcon
-                      key="add_to_cart"
-                      icon="add_to_cart"
-                      size="20px"
-                      color="white"
-                    />
-                  </slot>
-                  <slot v-else name="adding-to-cart-icon">
-                    <SfIcon
-                      key="added_to_cart"
-                      icon="added_to_cart"
-                      size="20px"
-                      color="white"
-                    />
-                  </slot>
-                </transition>
-              </div>
-            </SfCircleIcon>
-          </slot>
-        </template>
       </div>
       <slot name="title" v-bind="{ title }">
         <h3 class="sf-product-card__title">
@@ -87,18 +44,61 @@
         </h3>
       </slot>
     </component>
-    <SfButton
+    <template v-if="showAddToCartButton">
+      <slot
+        name="add-to-cart"
+        v-bind="{
+          isAddedToCart,
+          showAddedToCartBadge,
+          isAddingToCart,
+          title,
+        }"
+      >
+        <SfCircleIcon
+          class="sf-product-card__add-button"
+          :aria-label="`Add to Cart ${title}`"
+          :has-badge="showAddedToCartBadge"
+          :disabled="addToCartDisabled"
+          @click="onAddToCart"
+        >
+          <div class="sf-product-card__add-button--icons">
+            <transition name="sf-product-card__add-button--icons" mode="out-in">
+              <slot v-if="!isAddingToCart" name="add-to-cart-icon">
+                <SfIcon
+                  key="add_to_cart"
+                  icon="add_to_cart"
+                  size="20px"
+                  color="white"
+                />
+              </slot>
+              <slot v-else name="adding-to-cart-icon">
+                <SfIcon
+                  key="added_to_cart"
+                  icon="added_to_cart"
+                  size="20px"
+                  color="white"
+                />
+              </slot>
+            </transition>
+          </div>
+        </SfCircleIcon>
+      </slot>
+    </template>
+    <button
       v-if="wishlistIcon !== false"
+      v-focus
       :aria-label="`${ariaLabel} ${title}`"
-      class="sf-button--pure"
       :class="wishlistIconClasses"
-      data-test="sf-wishlist-icon"
       @click="toggleIsOnWishlist"
     >
       <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
-        <SfIcon :icon="currentWishlistIcon" size="22px" />
+        <SfIcon
+          :icon="currentWishlistIcon"
+          size="22px"
+          data-test="sf-wishlist-icon"
+        />
       </slot>
-    </SfButton>
+    </button>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
         v-if="regularPrice"
@@ -119,6 +119,7 @@
         />
         <a
           v-if="reviewsCount"
+          v-focus
           class="sf-product-card__reviews-count"
           href="#"
           @click="$emit('click:reviews')"
@@ -138,7 +139,6 @@ import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfProductCard",
   components: {
@@ -148,7 +148,6 @@ export default {
     SfImage,
     SfCircleIcon,
     SfBadge,
-    SfButton,
   },
   directives: { focus },
   props: {

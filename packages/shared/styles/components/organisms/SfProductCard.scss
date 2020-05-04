@@ -62,8 +62,8 @@
   &__add-button {
     --circle-icon-position: absolute;
     --button-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
-    right: var(--product-card-add-button-right, 1rem);
-    bottom: var(--product-card-add-button-bottom, 0);
+    right: var(--product-card-add-button-right, 1.5rem);
+    top: var(--product-card-add-button-top, 18.2rem);
     display: var(--product-card-add-button-display, none);
     transform: var(--product-card-add-button-transform, translate3d(0, 50%, 0));
     opacity: var(--product-card-add-button-opacity, 0);
@@ -116,7 +116,7 @@
   }
   @include for-desktop {
     --product-card-max-width: 15.5rem;
-    --product-card-padding: calc(var(--spacer-sm));
+    --product-card-padding: var(--spacer-sm);
     --product-card-title-margin: var(--spacer-xl) 0 0 0;
     --product-card-transition: box-shadow 150ms ease-in-out;
     --product-card-wishlist-icon-top: var(--spacer-lg);
