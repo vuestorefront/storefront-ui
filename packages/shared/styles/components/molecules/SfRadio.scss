@@ -38,15 +38,19 @@
   input {
     position: absolute;
     opacity: 0;
-    &[style*="outline: none"]:focus + .sf-radio__container .sf-radio__checkmark {
+    left: -1000%;
+    width: 1px;
+    height: 1px;
+    &[style*="outline: none"]:focus + .sf-radio__checkmark {
       outline: none;
     }
-    &:focus + .sf-radio__container .sf-radio__checkmark{
+    &:focus + .sf-radio__checkmark {
       outline-color: -webkit-focus-ring-color;
       outline-style: auto;
     }
   }
   &__container {
+    position: relative;
     display: var(--radio-container-display, flex);
     align-items: var(--radio-container-align-items);
     flex: 1;

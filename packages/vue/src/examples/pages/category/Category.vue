@@ -100,6 +100,7 @@
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
             :is-on-wishlist="product.isOnWishlist"
+            :show-add-to-cart-button="true"
             class="products__product-card"
             @click:wishlist="toggleWishlist(i)"
           >

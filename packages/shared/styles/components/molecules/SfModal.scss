@@ -35,10 +35,6 @@
     position: absolute;
     right: var(--modal-close-right, var(--spacer-sm));
     top: var(--modal-close-top, var(--spacer-sm));
-    padding: 0;
-    border: var(--modal-close-border, none);
-    background: var(--modal-close-background, none);
-    cursor: pointer;
   }
   @include for-desktop {
     --modal-width: 29.375rem;
