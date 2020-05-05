@@ -49,7 +49,7 @@ storiesOf("Molecules|Dropdown", module)
       </div>
     </div>`,
   }))
-  .add("with 'sf-dropdown--up' modifier", () => ({
+  .add("With up modifier", () => ({
     components: { SfDropdown, SfList, SfButton },
     props: {
       title: {
