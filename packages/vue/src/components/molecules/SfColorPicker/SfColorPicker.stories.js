@@ -34,6 +34,7 @@ storiesOf("Molecules|ColorPicker", module)
     data() {
       return {
         isOpen: false,
+        isMobile: false,
         colors: [
           { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
           { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
@@ -60,14 +61,36 @@ storiesOf("Molecules|ColorPicker", module)
       };
     },
     components: { SfColorPicker, SfColor },
+    computed: {
+      showOnDesktop() {
+        const isOpen = !this.isMobile;
+        return isOpen;
+      }
+    },
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
+    },
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1023px)")
+        .removeListener(this.mobileHandler);
+    },
+    methods: {
+      mobileHandler(event) {
+        this.isMobile = event.matches;
+      },
+    },
     template: `
       <div style="position: relative; min-height: 250px;">
         <SfColorPicker
-          style="max-width: 10rem;"
+          style="max-width: 11rem;"
           :class="customClass"
           :label="label"
           :has-close="hasClose"
-          :isOpen="isOpen"
+          :isOpen="isOpen || !isMobile"
           @click:toggle="isOpen = !isOpen"
         >
           <SfColor style="margin: 0.4375rem" v-for="color in colors" :key="color.value" :color="color.color" :selected="color.selected" @click="color.selected = !color.selected"/>
@@ -98,6 +121,7 @@ storiesOf("Molecules|ColorPicker", module)
     data() {
       return {
         isOpen: false,
+        isMobile: false,
         colors: [
           { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
           { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
@@ -124,13 +148,29 @@ storiesOf("Molecules|ColorPicker", module)
       };
     },
     components: { SfColorPicker, SfColor },
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
+    },
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1023px)")
+        .removeListener(this.mobileHandler);
+    },
+    methods: {
+      mobileHandler(event) {
+        this.isMobile = event.matches;
+      },
+    },
     template: `
       <div style="position: relative; height: 100vh;">
         <SfColorPicker
-          :isOpen="isOpen"
           :class="customClass"
           :label="label"
           :has-close="hasClose"
+          :isOpen="isOpen || !isMobile"
           @click:toggle="isOpen = !isOpen"
         >
           <SfColor style="margin: 0.4375rem" v-for="color in colors" :key="color.value" :color="color.color" :selected="color.selected" @click="color.selected = !color.selected"/>

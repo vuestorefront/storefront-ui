@@ -5,13 +5,15 @@
   position: var(--color-picker-position, absolute);
   z-index: 1;
   top: var(--color-picker-top);
-  right: var(--color-picker-right);
-  bottom: var(--color-picker-bottom, 0);
-  display: flex;
-  align-items: var(--color-picker-align-items, flex-end);
-  width: var(--color-picker-width, 100%);
-  overflow: var(--color-picker-overflow, hidden);
-  transform: var(--color-picker-transform);
+  @include for-mobile {
+    right: var(--color-picker-right);
+    bottom: var(--color-picker-bottom, 0);
+    align-items: var(--color-picker-align-items, flex-end);
+    display: flex;
+    width: var(--color-picker-width, 100%);
+    overflow: var(--color-picker-overflow, hidden);
+    transform: var(--color-picker-transform);
+  }
   &__colors {
     box-sizing: border-box;
     display: flex;
@@ -23,7 +25,9 @@
     align-items: center;
     justify-content: var(--color-picker-justify-content, center);
     padding: var(--color-picker-padding, var(--spacer-xs));
-    background: var(--color-picker-background, var(--c-black));
+    @include for-mobile {
+      background: var(--color-picker-background, var(--c-black));
+    }
   }
   &__label {
     flex: 0 0 100%;
@@ -62,47 +66,59 @@
     --button-background: transparent;
     margin: var(--color-picker-close-margin);
   }
-  &--active {
-    --color-picker-colors-height: 100%;
-    height: var(--color-picker-height, 100%);
-  }
-  &-enter-active,
-  &-leave-active {
-    transition: transform 0.35s ease;
-  }
-  &-enter {
-    transform: var(--color-picker-animation-transform, translate3d(0, 100%, 0));
-  }
-  &-leave-to {
-    transform: var(--color-picker-animation-transform, translate3d(0, 100%, 0));
-  }
-  &--vertical {
-    --button-width: 10rem;
-    --color-picker-top: 50%;
-    --color-picker-overflow: none;
-    --color-picker-bottom: auto;
-    --color-picker-colors-height: initial;
-    --color-picker-transform: translate(0, -50%);
-    --color-picker-height: inherit;
-    --color-picker-width: auto;
-    --color-picker-open-padding: var(--spacer-2xl) 0;
-    --color-picker-padding: var(--spacer-base);
-    --color-picker-flex-direction: column;
-    --color-picker-justify-content: flex-start;
-    --color-picker-close-margin: var(--spacer-xs) 0 0 0;
-    --color-picker-right: 0;
-    --color-picker-animation-transform: translate3d(100%, 0, 0);
-    --color-picker-open-button-transform-origin: bottom right;
-    --color-picker-open-button-transform: rotate(-90deg)
-    translate(calc(var(--open-button-x, 50%) + calc(var(--button-height, 2.5rem) / 2)), var(--open-button-y, 0));
-    --color-picker-align-items: center;
-  }
-  &--left {
-    --color-picker-left: 0;
-    --color-picker-right: unset;
-    --color-picker-animation-transform: translate3d(-90%, 0, 0);
-    --color-picker-open-button-transform-origin: bottom left;
-    --open-button-x: -50%;
-    --open-button-y: 100%;
+  @include for-mobile {
+    &--active {
+      --color-picker-colors-height: 100%;
+      height: var(--color-picker-height, 100%);
+    }
+    &-enter-active,
+    &-leave-active {
+      transition: transform 0.35s ease;
+    }
+    &-enter {
+      transform: var(
+        --color-picker-animation-transform,
+        translate3d(0, 100%, 0)
+      );
+    }
+    &-leave-to {
+      transform: var(
+        --color-picker-animation-transform,
+        translate3d(0, 100%, 0)
+      );
+    }
+    &--vertical {
+      --color-picker-padding: var(--spacer-base);
+      --color-picker-align-items: center;
+      --color-picker-width: auto;
+      --color-picker-open-padding: var(--spacer-2xl) 0;
+      --color-picker-close-margin: var(--spacer-xs) 0 0 0;
+      --color-picker-right: 0;
+      --color-picker-justify-content: flex-start;
+      --color-picker-flex-direction: column;
+      --color-picker-transform: translate(0, -50%);
+      --color-picker-bottom: auto;
+      --color-picker-overflow: none;
+      --color-picker-top: 50%;
+      --color-picker-colors-height: initial;
+      --color-picker-height: inherit;
+      --color-picker-animation-transform: translate3d(100%, 0, 0);
+      --color-picker-open-button-transform-origin: bottom right;
+      --color-picker-open-button-transform: rotate(-90deg)
+        translate(
+          calc(
+            var(--open-button-x, 50%) + calc(var(--button-height, 2.5rem) / 2)
+          ),
+          var(--open-button-y, 0)
+        );
+    }
+    &--left {
+      --color-picker-left: 0;
+      --color-picker-right: unset;
+      --color-picker-animation-transform: translate3d(-90%, 0, 0);
+      --color-picker-open-button-transform-origin: bottom left;
+      --open-button-x: -50%;
+      --open-button-y: 100%;
+    }
   }
 }
