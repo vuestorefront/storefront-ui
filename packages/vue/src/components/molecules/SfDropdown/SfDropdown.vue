@@ -4,13 +4,13 @@
     <transition name="sf-dropdown">
       <div v-show="isOpen" class="sf-dropdown__container">
         <!--@slot Use this slot to replace title. -->
-        <slot name="title">
+        <slot name="title" v-bind="{ title }">
           <div v-if="title" class="sf-dropdown__title">{{ title }}</div>
         </slot>
         <!--@slot Use this slot to place content inside the dropdown.-->
         <slot />
         <!--@slot Use this slot to replace cancel button. -->
-        <slot name="cancel">
+        <slot name="cancel" v-bind="{ close }">
           <SfButton
             class="sf-button--full-width sf-dropdown__cancel"
             @click="close"
