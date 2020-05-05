@@ -15,9 +15,11 @@
   &__colors {
     box-sizing: border-box;
     display: flex;
+    width: 100%;
     height: var(--color-picker-colors-height);
     flex-direction: var(--color-picker-flex-direction, row);
     flex-wrap: wrap;
+    align-content: center;
     align-items: center;
     justify-content: var(--color-picker-justify-content, center);
     padding: var(--color-picker-padding, var(--spacer-xs));
@@ -41,8 +43,7 @@
     opacity: var(--color-picker-opacity, 0.8);
   }
   &__button {
-    width: var(--button-width, 100%);
-    height: var(--button-height, 2.5rem);
+    --button-width: 100%;
     --button-padding: var(--spacer-xs) var(--spacer-sm);
     --button-font-weight: var(--font-light);
     --button-text-transform: capitalize;
@@ -78,7 +79,7 @@
   &--vertical {
     --button-width: 10rem;
     --color-picker-top: 50%;
-    --color-picker-overflow: unset;
+    --color-picker-overflow: none;
     --color-picker-bottom: auto;
     --color-picker-colors-height: initial;
     --color-picker-transform: translate(0, -50%);
