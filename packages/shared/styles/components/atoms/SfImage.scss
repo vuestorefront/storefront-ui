@@ -36,6 +36,7 @@
     padding: var(--image-ovarlay-padding, var(--spacer-sm));
     background: var(--image-ovarlay-background, rgba(var(--c-dark-base), 0.6));
     color: var(--image-overlay-color, var(--c-white));
+    opacity: var(--image-overlay-opacity, 0);
     @include font(
       --image-overlay-font,
       var(--font-light),
@@ -43,5 +44,9 @@
       1.6,
       var(--font-family-secondary)
     );
+    transition: opacity 150ms ease-in-out;
+  }
+  &:hover{
+    --image-overlay-opacity: 1
   }
 }
