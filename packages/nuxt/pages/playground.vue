@@ -1,5 +1,5 @@
 <template>
-  <div class="playground">
+  <div class="playground" style="padding: 1rem">
     <p>String</p>
     <SfImage :src="src" :lazy="false" alt="Cotton Sweater" width="216" height="326">
       Cotton Sweater
@@ -8,14 +8,16 @@
     <SfImage :src="ob" :lazy="false" alt="Cotton Sweater">
       Cotton Sweater
     </SfImage>
+    <p>Pagination</p>
+    <SfPagination :total="10" page-param-name="p"/>
   </div>
 </template>
 <script>
-  import { SfImage } from "@storefront-ui/vue"
+  import { SfImage, SfPagination } from "@storefront-ui/vue"
   export default {
     name: "playground",
     layout: "blank",
-    components: { SfImage },
+    components: { SfImage, SfPagination },
     data(){
       return {
         src: "/assets/storybook/SfImage/product-216x326.jpg",
