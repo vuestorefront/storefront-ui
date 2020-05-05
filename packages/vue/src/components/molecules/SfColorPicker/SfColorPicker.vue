@@ -17,20 +17,19 @@
       </div>
       <div v-else key="color-picker-colors" class="sf-color-picker__colors">
         <!-- @slot Use this slot to replace label. -->
-
         <slot name="label" v-bind="{ label }">
           <div v-if="label" class="sf-color-picker__label">{{ label }}</div>
         </slot>
         <!-- @slot Use this slot to place content inside the color picker.-->
         <slot />
         <!-- @slot Use this slot to replace close button. -->
-        <slot name="close" v-bind="{ close, toggle, isOpen }">
+        <slot name="close" v-bind="{ hasClose, toggle, isOpen }">
           <SfButton
-            v-if="close"
+            v-if="hasClose"
             class="sf-button--text sf-color-picker__close"
-            @click="toggle"
             aria-label="Close button"
             :aria-pressed="!isOpen"
+            @click="toggle"
           >
             <SfIcon icon="cross" />
           </SfButton>
@@ -63,9 +62,9 @@ export default {
     /**
      * Close button state whether show it or not
      */
-    close: {
+    hasClose: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
   methods: {

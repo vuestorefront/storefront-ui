@@ -3,6 +3,7 @@ import {
   withKnobs,
   text,
   optionsKnob as options,
+  boolean,
 } from "@storybook/addon-knobs";
 import SfColorPicker from "./SfColorPicker.vue";
 import SfColor from "../../atoms/SfColor/SfColor.vue";
@@ -26,6 +27,9 @@ storiesOf("Molecules|ColorPicker", module)
       label: {
         default: text("label", "Choose color", "Props"),
       },
+      hasClose: {
+        defaukt: boolean("hasClose", false, "Props")
+      }
     },
     data() {
       return {
@@ -62,6 +66,7 @@ storiesOf("Molecules|ColorPicker", module)
           style="max-width: 10rem;"
           :class="customClass"
           :label="label"
+          :has-close="hasClose"
           :isOpen="isOpen"
           @click:toggle="isOpen = !isOpen"
         >
@@ -86,8 +91,8 @@ storiesOf("Molecules|ColorPicker", module)
       label: {
         default: text("label", "", "Props"),
       },
-      closeIcon: {
-        default: text("closeIcon", "cross", "Props"),
+      hasClose: {
+        default: boolean("hasClose", true, "Props"),
       },
     },
     data() {
@@ -125,7 +130,7 @@ storiesOf("Molecules|ColorPicker", module)
           :isOpen="isOpen"
           :class="customClass"
           :label="label"
-          :closeIcon="closeIcon"
+          :has-close="hasClose"
           @click:toggle="isOpen = !isOpen"
         >
           <SfColor style="margin: 0.4375rem" v-for="color in colors" :key="color.value" :color="color.color" :selected="color.selected" @click="color.selected = !color.selected"/>
