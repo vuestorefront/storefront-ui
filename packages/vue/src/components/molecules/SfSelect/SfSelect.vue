@@ -21,14 +21,15 @@
     <div style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div
+        id="sfSelect"
         v-focus
         tabindex="0"
-        :aria-labelledby="label"
+        role="listbox"
         class="sf-select__selected sf-select-option"
         v-html="html"
       ></div>
       <slot name="label">
-        <div :id="label" v-if="label" class="sf-select__label">
+        <div v-if="label" class="sf-select__label">
           {{ label }}
         </div>
       </slot>
@@ -147,6 +148,7 @@ export default {
       options: [],
       indexes: {},
       optionHeight: 0,
+      focusedOption: "",
     };
   },
   computed: {
@@ -159,6 +161,7 @@ export default {
         return stringified;
       },
       set(index) {
+        this.focusedOption = this.options[index].value;
         this.$emit("change", this.options[index].value);
       },
     },
@@ -222,6 +225,8 @@ export default {
       if (index < 0) index = 0;
       if (index >= optionsLength) index = optionsLength - 1;
       this.index = index;
+      document.getElementById("sfSelect").blur();
+      document.getElementById(this.focusedOption).focus();
     },
     enter() {
       this.toggle();

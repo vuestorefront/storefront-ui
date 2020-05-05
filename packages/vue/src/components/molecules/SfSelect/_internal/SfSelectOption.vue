@@ -1,5 +1,7 @@
 <template>
   <li
+    :id="value"
+    role="option"
     class="sf-select-option"
     :class="{ 'sf-select-option--is-active': selected === value }"
     tabindex="0"
