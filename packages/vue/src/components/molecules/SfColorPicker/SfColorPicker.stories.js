@@ -28,8 +28,8 @@ storiesOf("Molecules|ColorPicker", module)
         default: text("label", "Choose color", "Props"),
       },
       hasClose: {
-        defaukt: boolean("hasClose", false, "Props")
-      }
+        defaukt: boolean("hasClose", false, "Props"),
+      },
     },
     data() {
       return {
@@ -61,12 +61,6 @@ storiesOf("Molecules|ColorPicker", module)
       };
     },
     components: { SfColorPicker, SfColor },
-    computed: {
-      showOnDesktop() {
-        const isOpen = !this.isMobile;
-        return isOpen;
-      }
-    },
     mounted() {
       this.isMobile =
         Math.max(document.documentElement.clientWidth, window.innerWidth) <=
