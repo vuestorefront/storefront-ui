@@ -4,8 +4,6 @@
     :class="{ 'sf-image--has-size': size && source }"
     :style="size"
     v-on="$listeners"
-    @mouseover="isHovered = true"
-    @mouseleave="isHovered = false"
   >
     <template v-if="isPicture">
       <picture>
@@ -81,7 +79,6 @@ export default {
   data() {
     return {
       isLoaded: false,
-      isHovered: false,
     };
   },
   computed: {

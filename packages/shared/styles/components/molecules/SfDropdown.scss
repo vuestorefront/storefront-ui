@@ -52,10 +52,12 @@
     }
   }
   &--up {
-    --dropdown-top: 0;
-    --dropdown-bottom: auto;
-    --dropdown-transform: translate(0, -100%);
-    --dropdown-box-shadow: 0px -4px 11px rgba(var(--c-dark-base), 0.1);
+    @include for-desktop {
+      --dropdown-top: 0;
+      --dropdown-bottom: auto;
+      --dropdown-transform: translate(0, -100%);
+      --dropdown-box-shadow: 0px -4px 11px rgba(var(--c-dark-base), 0.1);
+    }
   }
   &-enter-active {
     animation: var(--dropdown-animation-enter, dropdown 150ms);
