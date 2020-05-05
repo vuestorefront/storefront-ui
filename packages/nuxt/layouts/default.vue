@@ -30,6 +30,7 @@
     components: {SfHeader, SfFooter, Cart, SfBottomNavigation},
     data(){
       return {
+        currentIcon: "profile_fill",
         items: [
           {
             icon: "home",

@@ -1,9 +1,13 @@
 <template>
   <div class="playground">
-    <!-- server []; client [x] -->
-    <SfImage :src="src"/>
-    <!-- server [x]; client [x] and it loading again on client side -->
-<!--    <img :src="src" alt="">-->
+    <p>String</p>
+    <SfImage :src="src" :lazy="false" alt="Cotton Sweater" width="216" height="326">
+      Cotton Sweater
+    </SfImage>
+    <p>Object</p>
+    <SfImage :src="ob" :lazy="false" alt="Cotton Sweater">
+      Cotton Sweater
+    </SfImage>
   </div>
 </template>
 <script>
@@ -14,7 +18,15 @@
     components: { SfImage },
     data(){
       return {
-        src: "https://storybook.storefrontui.io/assets/storybook/SfImage/product-216x326.jpg"
+        src: "/assets/storybook/SfImage/product-216x326.jpg",
+        ob: {
+          mobile: {
+            url: "https://storybook.storefrontui.io/assets/storybook/SfImage/product-109x164.jpg"
+          },
+          desktop: {
+            url: "https://storybook.storefrontui.io/assets/storybook/SfImage/product-216x326.jpg"
+          }
+        }
       }
     }
   }
