@@ -104,23 +104,6 @@
             class="products__product-card"
             @click:wishlist="toggleWishlist(i)"
           >
-            <template #options>
-              <SfColorPicker
-                :is-open="product.isOpen"
-                label="Choose color"
-                class="color-picker mobile-only"
-                @click:toggle="product.isOpen = !product.isOpen"
-              >
-                <SfColor
-                  v-for="color in product.colors"
-                  :key="color.name"
-                  style="margin: 0.4375rem;"
-                  :color="color.color"
-                  :selected="color.selected"
-                  @click="color.selected = !color.selected"
-                />
-              </SfColorPicker>
-            </template>
           </SfProductCard>
         </transition-group>
         <transition-group
@@ -328,8 +311,7 @@ import {
   SfAccordion,
   SfSelect,
   SfBreadcrumbs,
-  SfColor,
-  SfColorPicker,
+  SfColor
 } from "@storefront-ui/vue";
 export default {
   components: {
@@ -346,8 +328,7 @@ export default {
     SfAccordion,
     SfSelect,
     SfBreadcrumbs,
-    SfColor,
-    SfColorPicker,
+    SfColor
   },
   data() {
     return {
