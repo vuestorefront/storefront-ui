@@ -68,6 +68,7 @@
     background: var(--header-sticky-container-background, var(--c-white));
     transform: var(--header-sticky-container-transform);
     transition: var(--header-sticky-container-transition);
+    box-shadow: var(--header-sticky-container-box-shadow);
   }
   &__sticky-holder {
     box-sizing: border-box;
@@ -96,7 +97,6 @@
     justify-content: var(--header-navigation-justify-content);
     margin: var(--header-navigation-margin, 0 0 0 5rem);
     order: var(--header-navigation-order);
-    box-shadow: var(--header-navigation-box-shadow);
     overflow: var(--header-navigation-overflow);
     &::-webkit-scrollbar {
       width: 0;
@@ -135,8 +135,10 @@
     --search-bar-background: var(--c-white);
     --search-bar-padding: 0 var(--spacer-xs);
     --search-bar-icon-right: var(--spacer-xs);
+    --header-sticky-container-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
   }
   &--has-mobile-navigation {
+    --header-sticky-container-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
     --header-navigation-order: 1;
     --header-navigation-width: 100%;
     --header-navigation-item-flex: 1;
@@ -148,7 +150,6 @@
     --header-navigation-item-font-weight: var(--font-normal);
     --header-navigation-item-text-transform: capitalize;
     --header-navigation-overflow: auto;
-    --header-navigation-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
 
   }
   @include for-desktop {
