@@ -32,7 +32,7 @@
         </component>
       </slot>
       <slot name="points">
-        <span class="sf-pagination__item">...</span>
+        <div class="sf-pagination__item">...</div>
       </slot>
     </template>
     <template v-for="page in limitedPageNumbers">
@@ -52,7 +52,7 @@
     </template>
     <template v-if="showLast">
       <slot name="points">
-        <span class="sf-pagination__item">...</span>
+        <div class="sf-pagination__item">...</div>
       </slot>
       <slot name="number" v-bind="{ page: total }">
         <component
