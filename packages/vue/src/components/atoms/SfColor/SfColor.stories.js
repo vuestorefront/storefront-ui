@@ -34,7 +34,7 @@ storiesOf("Atoms|Color", module)
           :color="color" 
           :selected="selected" 
           :has-badge="hasBadge"
-          :aria-label="color + 'color'"  
+          :aria-label="color"  
           style="margin: 10px;"
           :class="customClass"
           @click="selected = !selected"/>`,
