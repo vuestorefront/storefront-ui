@@ -9,7 +9,6 @@ export const clickOutside = {
         exclude.forEach((element) => {
           if (!clickedOnExcludedEl) {
             const excludedEl = vnode.context.$parent.$refs[element];
-            console.log(excludedEl, e.target);
             excludedEl.$el
               ? (clickedOnExcludedEl = excludedEl.$el.contains(e.target))
               : (clickedOnExcludedEl = excludedEl.contains(e.target));
