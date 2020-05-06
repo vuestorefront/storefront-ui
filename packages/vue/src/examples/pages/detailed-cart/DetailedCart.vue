@@ -46,24 +46,16 @@
                   </div>
                 </template>
                 <template #actions>
-                  <SfButton
-                    :aria-label="`Edit ${product.title}`"
-                    class="sf-button--text actions__button desktop-only"
+                  <SfButton class="sf-button--text actions__button desktop-only"
                     >Edit</SfButton
                   >
-                  <SfButton
-                    :aria-label="`Save for later${product.title}`"
-                    class="sf-button--text actions__button desktop-only"
+                  <SfButton class="sf-button--text actions__button desktop-only"
                     >Save for later</SfButton
                   >
-                  <SfButton
-                    :aria-label="`Add to compare ${product.title}`"
-                    class="sf-button--text actions__button desktop-only"
+                  <SfButton class="sf-button--text actions__button desktop-only"
                     >Add to compare</SfButton
                   >
-                  <SfButton
-                    :aria-label="`Add message or gift wrap for ${product.title}`"
-                    class="sf-button--text actions__button desktop-only"
+                  <SfButton class="sf-button--text actions__button desktop-only"
                     >Add message or gift wrap</SfButton
                   >
                 </template>

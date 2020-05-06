@@ -32,9 +32,7 @@
                 ({{ product.reviews.length }})
               </a>
             </div>
-            <SfButton
-              :aria-label="`Read all reviews ${product.name}`"
-              class="sf-button--text desktop-only"
+            <SfButton class="sf-button--text desktop-only"
               >Read all reviews</SfButton
             >
           </div>
@@ -78,16 +76,10 @@
             class="product__add-to-cart"
             @click="addToCart"
           />
-          <SfButton
-            :aria-label="`Save for later ${product.name}`"
-            class="sf-button--text desktop-only product__save"
-          >
+          <SfButton class="sf-button--text desktop-only product__save">
             Save for later
           </SfButton>
-          <SfButton
-            :aria-label="`Add to compare ${product.name}`"
-            class="sf-button--text desktop-only product__compare"
-          >
+          <SfButton class="sf-button--text desktop-only product__compare">
             Add to compare
           </SfButton>
         </div>

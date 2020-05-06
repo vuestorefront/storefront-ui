@@ -41,13 +41,11 @@
                 <template #actions>
                   <div class="desktop-only collected-product__actions">
                     <SfButton
-                      :aria-label="`Save for later ${product.title}`"
                       class="sf-button--text color-secondary collected-product__save"
                     >
                       Save for later
                     </SfButton>
                     <SfButton
-                      :aria-label="`Add to compare ${product.title}`"
                       class="sf-button--text color-secondary collected-product__compare"
                     >
                       Add to compare
