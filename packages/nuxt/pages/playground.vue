@@ -1,15 +1,6 @@
 <template>
   <div class="playground" style="padding: 1rem">
-    <p>String</p>
-    <SfImage :src="src" :lazy="false" alt="Cotton Sweater" width="216" height="326">
-      Cotton Sweater
-    </SfImage>
-    <p>Object</p>
-    <SfImage :src="ob" :lazy="false" alt="Cotton Sweater">
-      Cotton Sweater
-    </SfImage>
-    <p>Pagination</p>
-    <SfPagination :total="10" page-param-name="p"/>
+    <SfPagination :total="10"/>
   </div>
 </template>
 <script>
