@@ -37,7 +37,7 @@
       <!-- @slot Custom title markup -->
       <slot name="title" v-bind="{ title }">
         <div class="sf-grouped-product-item__title-wraper">
-          <SfLink class="sf-grouped-product-item__title">{{ title }}</SfLink>
+          <SfLink :link="link" class="sf-grouped-product-item__title">{{ title }}</SfLink>
         </div>
       </slot>
       <!-- @slot Custom details markup -->
@@ -141,6 +141,13 @@ export default {
     qty: {
       type: [Number, String],
       default: 1,
+    },
+    /**
+     * Link to product
+     */
+    link: {
+      type: [String, Object],
+      default: "",
     },
   },
 };
