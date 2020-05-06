@@ -1,6 +1,7 @@
 @import "../../helpers";
 .sf-button {
   box-sizing: border-box;
+  position: relative;
   width: var(--button-size, var(--button-width));
   height: var(--button-size, var(--button-height));
   display: var(--button-display, flex);
@@ -9,10 +10,8 @@
   padding: var(--button-padding, var(--spacer-sm) calc(var(--spacer-sm) * 2));
   color: var(--button-color, var(--c-light-variant));
   background: var(--button-background, var(--c-primary));
-  box-shadow: var(--button-box-shadow);
   text-transform: var(--button-text-transform, uppercase);
   text-decoration: var(--button-text-decoration);
-  transition: var(--button-transition, box-shadow 150ms ease-in-out);
   cursor: var(--button-cursor, pointer);
   border-radius: var(--button-border-radius, 0);
   white-space: var(--button-wrap, nowrap);
@@ -34,8 +33,26 @@
       }
     }
   }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--button-border-radius, 0);
+    box-shadow: var(--button-box-shadow, 0px 4px 4px var(--c-black));
+    z-index: -1;
+    opacity: var(--button-box-shadow-opacity, 0.25);
+    transform: var(--button-box-shadow-transform, scale(0));
+    transition: var(
+      --button-box-shadow-transition,
+      transform 200ms ease-in-out
+    );
+    will-change: transform;
+  }
   &:hover {
-    --button-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    --button-box-shadow-transform: scale(1);
   }
   &:active {
     --button-box-shadow: none;
