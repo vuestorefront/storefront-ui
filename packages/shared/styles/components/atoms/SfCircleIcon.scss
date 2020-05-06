@@ -5,20 +5,17 @@
   --icon-size: 1.25rem;
   --button-size: 3.25rem;
   --button-background: var(--c-primary);
-  --button-box-shadow-transition: transform 300ms ease;
-  --button-box-shadow: 0 4px 4px var(--c-black);
-  --button-box-shadow-opacity: 0.2;
   --button-border-radius: 100%;
+  --button-box-shadow: 0 0 0 0.5rem var(--c-primary);
+  --button-box-shadow-opacity: 0.3;
   position: var(--circle-icon-position, relative);
   &:hover {
     --button-background: var(--c-primary);
-    --button-box-shadow: 0 0 0 0.3125rem var(--c-primary);
-    --button-box-shadow-opacity: 0.3;
+    --button-box-shadow-transform: scale(0.9);
   }
   &:active {
-    --button-box-shadow-transition: transform 150ms ease;
     --button-box-shadow: 0 0 0 0.5rem var(--c-primary);
-    --button-box-shadow-opacity: 0.3;
+    --button-box-shadow-transform: scale(1);
   }
   &:disabled {
     --button-box-shadow: 0;
@@ -35,16 +32,16 @@
     $variant: map-get($map, "variant");
     &.color-#{$color} {
       --button-background: var(--c-#{$color});
+      --button-box-shadow-opacity: 0.08;
+      --button-box-shadow: 0 0 0 0.5rem var(--c-#{$color});
       &:hover {
         --button-background: var(--c-#{$color}-lighten);
-        --button-box-shadow: 0
-          0
-          0
-          0.3125rem
-          rgba(var(--c-#{$color}-base), 0.08);
+        --button-box-shadow-transform: scale(0.9);
+
       }
       &:active {
-        --button-box-shadow: 0 0 0 0.5rem rgba(var(--c-#{$color}-base), 0.08);
+        --button-box-shadow: 0 0 0 0.5rem var(--c-#{$color});
+        --button-box-shadow-transform: scale(1);
       }
     }
   }

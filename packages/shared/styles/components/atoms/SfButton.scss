@@ -10,6 +10,7 @@
   padding: var(--button-padding, var(--spacer-sm) calc(var(--spacer-sm) * 2));
   color: var(--button-color, var(--c-light-variant));
   background: var(--button-background, var(--c-primary));
+  transition: var(--button-transition);
   text-transform: var(--button-text-transform, uppercase);
   text-decoration: var(--button-text-decoration);
   cursor: var(--button-cursor, pointer);
@@ -36,18 +37,18 @@
   &::before {
     content: "";
     position: absolute;
+    z-index: -1;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: var(--button-border-radius, 0);
+    border-radius: var(--button-border-radius);
     box-shadow: var(--button-box-shadow, 0px 4px 4px var(--c-black));
-    z-index: -1;
     opacity: var(--button-box-shadow-opacity, 0.25);
-    transform: var(--button-box-shadow-transform, scale(0));
+    transform: var(--button-box-shadow-transform, scale(0.7));
     transition: var(
       --button-box-shadow-transition,
-      transform 200ms ease-in-out
+      transform 250ms ease-in-out
     );
     will-change: transform;
   }
