@@ -23,20 +23,11 @@
           class="sf-grouped-product-item__image"
         />
       </slot>
-      <!-- @slot Custom input markup -->
-      <slot name="input" v-bind="{ qty }">
-        <SfQuantitySelector
-          :qty="qty"
-          aria-label="Quantity"
-          class="sf-grouped-product-item__quantity-selector"
-          @input="$emit('input', $event)"
-        />
-      </slot>
     </div>
     <div class="sf-grouped-product-item__description">
       <!-- @slot Custom title markup -->
-      <slot name="title" v-bind="{ title }">
-        <div class="sf-grouped-product-item__title">{{ title }}</div>
+      <slot name="title" v-bind="{ title }"> 
+        <a href="#" class="sf-grouped-product-item__title">{{ title }}</a>
       </slot>
       <!-- @slot Custom details markup -->
       <slot name="details" />
@@ -44,6 +35,7 @@
     <!-- @slot Custom configuration markup -->
     <slot name="configuration" />
     <div class="sf-grouped-product-item__info">
+      <!-- @slot Custom price markup -->
       <slot name="price" v-bind="{ priceSpecial, priceRegular }">
         <SfPrice
           :regular="priceRegular"
@@ -52,7 +44,15 @@
         />
       </slot>
     </div>
-    <!-- @slot Custom price markup -->
+    <!-- @slot Custom input markup -->
+    <slot name="input" v-bind="{ qty }">
+      <SfQuantitySelector
+        :qty="qty"
+        aria-label="Quantity"
+        class="sf-grouped-product-item__quantity-selector"
+        @input="$emit('input', $event)"
+      />
+    </slot>
   </li>
 </template>
 <script>
