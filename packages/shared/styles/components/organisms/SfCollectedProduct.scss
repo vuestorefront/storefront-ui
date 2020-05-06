@@ -39,6 +39,7 @@
     right: var(--collected-product-remove-right, var(--spacer-xs));
   }
   &__aside {
+    order: -1;
     position: relative;
     flex: 0 0 8.75rem;
     line-height: 0;

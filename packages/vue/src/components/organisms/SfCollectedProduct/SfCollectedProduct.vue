@@ -1,26 +1,23 @@
 <template>
   <div class="sf-collected-product">
-    <slot name="remove" v-bind="{ removeHandler }">
-      <SfCircleIcon
-        icon="cross"
-        aria-label="Remove"
-        class="sf-circle-icon--small sf-collected-product__remove sf-collected-product__remove--circle-icon"
-        @click="removeHandler"
-      />
-      <SfButton
-        class="sf-button--text sf-collected-product__remove sf-collected-product__remove--text"
-        @click="removeHandler"
-        >Remove</SfButton
-      >
-    </slot>
-    <slot name="more-actions">
-      <SfButton
-        aria-label="More actions"
-        class="sf-button--pure sf-collected-product__more-actions mobile-only"
-      >
-        <SfIcon icon="more" />
-      </SfButton>
-    </slot>
+    <div class="sf-collected-product__main">
+      <div class="sf-collected-product__details">
+        <slot name="title" v-bind="{ title }">
+          <div class="sf-collected-product__title">{{ title }}</div>
+        </slot>
+        <slot name="price" v-bind="{ specialPrice, regularPrice }">
+          <SfPrice
+            v-if="regularPrice"
+            :regular="regularPrice"
+            :special="specialPrice"
+          />
+        </slot>
+        <slot name="configuration" />
+      </div>
+      <div class="sf-collected-product__actions">
+        <slot name="actions" />
+      </div>
+    </div>
     <div class="sf-collected-product__aside">
       <slot name="image" v-bind="{ image, title }">
         <SfImage
@@ -42,24 +39,26 @@
         </div>
       </slot>
     </div>
-    <div class="sf-collected-product__main">
-      <div class="sf-collected-product__details">
-        <slot name="title" v-bind="{ title }">
-          <div class="sf-collected-product__title">{{ title }}</div>
-        </slot>
-        <slot name="price" v-bind="{ specialPrice, regularPrice }">
-          <SfPrice
-            v-if="regularPrice"
-            :regular="regularPrice"
-            :special="specialPrice"
-          />
-        </slot>
-        <slot name="configuration" />
-      </div>
-      <div class="sf-collected-product__actions">
-        <slot name="actions" />
-      </div>
-    </div>
+    <slot name="remove" v-bind="{ removeHandler }">
+      <SfCircleIcon
+        icon="cross"
+        aria-label="Remove"
+        class="sf-circle-icon--small sf-collected-product__remove sf-collected-product__remove--circle-icon"
+      />
+      <SfButton
+        class="sf-button--text sf-collected-product__remove sf-collected-product__remove--text"
+        @click="removeHandler"
+        >Remove</SfButton
+      >
+    </slot>
+    <slot name="more-actions">
+      <SfButton
+        aria-label="More actions"
+        class="sf-button--pure sf-collected-product__more-actions mobile-only"
+      >
+        <SfIcon icon="more" />
+      </SfButton>
+    </slot>
   </div>
 </template>
 <script>

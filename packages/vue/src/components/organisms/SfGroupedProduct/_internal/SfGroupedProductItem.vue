@@ -26,8 +26,8 @@
     </div>
     <div class="sf-grouped-product-item__description">
       <!-- @slot Custom title markup -->
-      <slot name="title" v-bind="{ title }"> 
-        <a href="#" class="sf-grouped-product-item__title">{{ title }}</a>
+      <slot name="title" v-bind="{ title }">
+        <div class="sf-grouped-product-item__title">{{ title }}</div>
       </slot>
       <!-- @slot Custom details markup -->
       <slot name="details" />
