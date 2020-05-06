@@ -85,9 +85,20 @@ And this code will change `width` of icon inside `SfArrow` to `2rem`.
   --icon-width: 2rem;
 }
 ```    
-You can override any global variable. To find the variable name to override, go to [Components documentation](https://docs.storefrontui.io/components). 
 
-### Color Variables
+## Global variables 
+**You can override any global variable as well as  component-specific variables.**
+
+Below you can find more information about global variables for **typography, layout variables (spacers) and colors.**
+To find the components variables to override, go to [Components documentation](https://docs.storefrontui.io/components). 
+
+### Typography
+<<< @/../shared/styles/variables/_typography.scss
+
+### Spacers 
+<<< @/../shared/styles/variables/_layout.scss
+
+### Colors
 
 There are two kinds of color variables, **Internal colors** and **Theme Variables**.
 
@@ -109,7 +120,7 @@ Internal color variables are defined using a SASS mixin that generates all the i
 This code:
 
 ```scss
-@include generate-color-variants(--_c-green-primary, #5fce7d);
+@include generate-color-variants(--_c-green-primary, #5ece7b);
 ``` 
 
 will generate the following variables:
@@ -140,10 +151,9 @@ This code will generate the following variables:
 --c-primary-darken: var(--_c-green-primary-darken);
 ```
 
-#### Color variables override
+#### How to override color variables? 
 
-We can override color variables. For example:
-
+:::tip For example:
 ```scss
 // Internal color variables
 @include generate-color-variants(--_c-blue-primary, #0284fe);
@@ -151,6 +161,14 @@ We can override color variables. For example:
 // Primary
 @include assign-color-variants(--c-primary, --_c-blue-primary);
 ```
+:::
+
+
+#### Below, you can find all global color variables that you can use and override.
+
+
+<<< @/../shared/styles/variables/_colors.scss
+
 
 ## Per-instance component customization
 
