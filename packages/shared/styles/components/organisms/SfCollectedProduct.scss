@@ -70,11 +70,9 @@
     display: flex;
     flex-direction: column;
   }
-  &__title-wraper {
-    margin-bottom: var(--spacer-base);
-  }
   &__title {
     display: inline-block;
+    margin-bottom: var(--spacer-base);
     --link-text-decoration: none;
     @include font(
       --collected-product-title-font,
