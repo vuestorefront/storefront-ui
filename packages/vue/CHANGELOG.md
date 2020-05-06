@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.8](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.7...@storefront-ui/vue@0.7.8) (2020-05-06)
+
+
+### Features
+
+* support fot SSR in SfPagination ([#1151](https://github.com/DivanteLtd/storefront-ui/issues/1151)) ([0b3e93a](https://github.com/DivanteLtd/storefront-ui/commit/0b3e93af85c9eea275523d9b868bb5119d0548eb))
+
+
+
+
+
 ## [0.7.7](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.6...@storefront-ui/vue@0.7.7) (2020-05-05)
 
 
