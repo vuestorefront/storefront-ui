@@ -24,3 +24,18 @@
   );
   background-size: var(#{$element}-size, $size);
 }
+
+@function _box-shadow($element, $shadow-params, $shadow-color) {
+  @return var(#{$element}-params, $shadow-params)
+    var(#{$element}-color, $shadow-color);
+}
+
+@mixin box-shadow(
+  $element,
+  $params,
+  $color,
+  $opacity
+) {
+  box-shadow: var(#{$element}, _box-shadow($element, $params, $color));
+  opacity: var(#{$element}, $opacity);
+}
