@@ -84,9 +84,8 @@
         </SfCircleIcon>
       </slot>
     </template>
-    <button
+    <SfButton
       v-if="wishlistIcon !== false"
-      v-focus
       :aria-label="`${ariaLabel} ${title}`"
       :class="wishlistIconClasses"
       @click="toggleIsOnWishlist"
@@ -98,7 +97,7 @@
           data-test="sf-wishlist-icon"
         />
       </slot>
-    </button>
+    </SfButton>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
         v-if="regularPrice"
@@ -139,6 +138,7 @@ import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfProductCard",
   components: {
@@ -148,6 +148,7 @@ export default {
     SfImage,
     SfCircleIcon,
     SfBadge,
+    SfButton,
   },
   directives: { focus },
   props: {
@@ -316,7 +317,7 @@ export default {
       return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
     wishlistIconClasses() {
-      const defaultClass = "sf-product-card__wishlist-icon";
+      const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
       return `${defaultClass} ${
         this.isOnWishlist ? "sf-product-card--on-wishlist" : ""
       }`;

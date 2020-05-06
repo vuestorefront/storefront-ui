@@ -26,35 +26,35 @@
         </slot>
         <!--@slot Custom action. Slot content will replace default action.-->
         <slot name="action" v-bind="{ action, actionHandler }">
-          <button
+          <SfButton
             v-if="action"
-            v-focus
-            class="sf-notification__action"
+            class="sf-button--pure sf-notification__action"
             @click="actionHandler"
           >
             {{ action }}
-          </button>
+          </SfButton>
         </slot>
       </div>
       <!--@slot Custom notification close icon. Slot content will replace default close icon.-->
       <slot name="close" v-bind="{ closeHandler }">
-        <button v-focus class="sf-notification__close">
-          <SfIcon icon="cross" color="white" @click="closeHandler" />
-        </button>
+        <SfButton
+          class="sf-button--pure sf-notification__close"
+          @click="closeHandler"
+        >
+          <SfIcon icon="cross" color="white" />
+        </SfButton>
       </slot>
     </div>
   </transition>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfNotification",
   components: {
     SfIcon,
-  },
-  directives: {
-    focus: focus,
+    SfButton,
   },
   props: {
     /**
