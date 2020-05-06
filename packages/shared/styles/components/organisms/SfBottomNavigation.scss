@@ -54,6 +54,10 @@
   &--has-margin {
     --bottom-navigation-item-label-margin: var(--spacer-xs) 0 0 0;
   }
+  &__icon {
+    background: transparent;
+    padding: 0;
+  }
   &--floating {
     --icon-color: var(--c-white);
     & .sf-circle-icon {

@@ -27,9 +27,6 @@
       --gallery-item-opacity: 1;
       --gallery-item-cursor: default;
     }
-    background: transparent;
-    border: 0;
-    padding: 0;
   }
   &__thumb {
     width: var(--gallery-thumb-width, calc(var(--_image-width, 10rem) * 1px));
