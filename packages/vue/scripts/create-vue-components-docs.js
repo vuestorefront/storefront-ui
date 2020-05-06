@@ -793,11 +793,11 @@ function editVuepressConfigFiles(sfComponents) {
   let organisms = new ComponentsGroup("Organisms", []);
   let components = [atoms, molecules, organisms];
   function componentsToString() {
-    return `{ \n${indent} title: "${this.title}",\n${indent} children:  [\n ${this.children}]\n }`;
+    return `{ \n${indent} title: "${this.title}",\n${indent} collapsable: false,\n${indent} children:  [${this.children}]\n }`;
   }
   ComponentsGroup.prototype.toString = componentsToString;
   for (const { componentName, pathComponentVue } of sfComponents) {
-    const path = "/components/" + componentName;
+    const path = "/components/" + componentName.toLowerCase();
     // put spaces between words for title
     const title = componentName.replace(/([A-Z])/g, " $1").trim();
     switch (pathComponentVue.split("/")[0]) {
