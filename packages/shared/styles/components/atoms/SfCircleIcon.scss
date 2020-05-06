@@ -5,17 +5,20 @@
   --icon-size: 1.25rem;
   --button-size: 3.25rem;
   --button-background: var(--c-primary);
-  --button-transition: box-shadow 300ms ease;
-  --button-box-shadow: 0 4px 4px rgba(var(--c-dark-base), 0.2);
+  --button-box-shadow-transition: transform 300ms ease;
+  --button-box-shadow: 0 4px 4px var(--c-black);
+  --button-box-shadow-opacity: 0.2;
   --button-border-radius: 100%;
   position: var(--circle-icon-position, relative);
   &:hover {
     --button-background: var(--c-primary);
-    --button-box-shadow: 0 0 0 0.3125rem rgba(var(--c-primary-base), 0.3);
+    --button-box-shadow: 0 0 0 0.3125rem var(--c-primary);
+    --button-box-shadow-opacity: 0.3;
   }
   &:active {
-    --button-transition: box-shadow 150ms ease;
-    --button-box-shadow: 0 0 0 0.5rem rgba(var(--c-primary-base), 0.3);
+    --button-box-shadow-transition: transform 150ms ease;
+    --button-box-shadow: 0 0 0 0.5rem var(--c-primary);
+    --button-box-shadow-opacity: 0.3;
   }
   &:disabled {
     --button-box-shadow: 0;
