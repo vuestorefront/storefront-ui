@@ -28,7 +28,8 @@
   box-sizing: border-box;
   width: var(--select-width);
   height: var(--select-height);
-  color: var(--select-color, var(--c-text));
+  padding: var(--select-padding, 0 0 calc(var(--font-xs) * 1.2) 0);
+  color: var(--select-color, var(--c-text));  
   cursor: default;
   &__label {
     position: absolute;
@@ -58,6 +59,7 @@
   }
   &__chevron {
     --chevron-position: absolute;
+    display: var(--chevron-display, block);
     right: var(--spacer-xs);
     top: 50%;
     transform: translate3d(0, -50%, 0);
@@ -78,7 +80,7 @@
       )
     );
     padding: var(
-      --select-padding,
+      --select-selected-padding,
       var(--spacer-sm) var(--spacer-lg) var(--spacer-xs) var(--spacer-2xs)
     );
     margin: var(--select-margin, 0 0 var(--spacer-xs) 0);
@@ -151,9 +153,7 @@
     --select-label-required: " *";
   }
   &--no-chevron {
-    .sf-select__chevron {
-      display: none;
-    }
+    --chevron-display: none;
   }
   &-enter-active {
     animation: var(--select-animation-enter, ssmobile 150ms);
