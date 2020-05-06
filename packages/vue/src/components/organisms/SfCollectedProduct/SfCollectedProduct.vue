@@ -45,7 +45,11 @@
     <div class="sf-collected-product__main">
       <div class="sf-collected-product__details">
         <slot name="title" v-bind="{ title }">
-          <div class="sf-collected-product__title">{{ title }}</div>
+          <div class="sf-collected-product__title-wraper">
+            <SfLink :link="link" class="sf-collected-product__title">
+              {{ title }}
+            </SfLink>
+          </div>
         </slot>
         <slot name="price" v-bind="{ specialPrice, regularPrice }">
           <SfPrice
@@ -69,6 +73,7 @@ import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
 export default {
   name: "SfCollectedProduct",
   components: {
@@ -78,6 +83,7 @@ export default {
     SfCircleIcon,
     SfPrice,
     SfQuantitySelector,
+    SfLink,
   },
   model: {
     prop: "qty",
@@ -132,6 +138,13 @@ export default {
     qty: {
       type: [Number, String],
       default: 1,
+    },
+    /**
+     * Link to product
+     */
+    link: {
+      type: [String, Object],
+      default: "",
     },
   },
   methods: {
