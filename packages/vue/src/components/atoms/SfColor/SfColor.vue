@@ -1,7 +1,6 @@
 <template>
-  <button
-    v-focus
-    class="sf-color"
+  <SfButton
+    class="sf-button--pure sf-color"
     :class="{ 'sf-color--active': selected }"
     :style="style"
     :aria-pressed="selected.toString()"
@@ -18,20 +17,18 @@
         </SfBadge>
       </slot>
     </transition>
-  </button>
+  </SfButton>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../SfButton/SfButton.vue";
 export default {
   name: "SfColor",
   components: {
     SfBadge,
     SfIcon,
-  },
-  directives: {
-    focus: focus,
+    SfButton,
   },
   props: {
     color: {
