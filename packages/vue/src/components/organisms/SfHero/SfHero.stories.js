@@ -6,7 +6,7 @@ import {
   object,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfHero from "./SfHero.vue";
+import { SfHero } from "@storefront-ui/vue";
 storiesOf("Organisms|Hero", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -40,7 +40,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(
@@ -106,7 +106,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(
@@ -175,7 +175,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(
@@ -244,7 +244,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(
@@ -313,7 +313,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(
@@ -376,7 +376,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(
@@ -439,7 +439,7 @@ storiesOf("Organisms|Hero", module)
         default: text("subtitle", "Summer Collection 2019", "Props"),
       },
       buttonText: {
-        default: text("buttonText", "Lear more", "Props"),
+        default: text("buttonText", "Learn more", "Props"),
       },
       image: {
         default: object(

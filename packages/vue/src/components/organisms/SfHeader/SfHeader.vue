@@ -3,6 +3,7 @@
     class="sf-header"
     :class="{
       'sf-header--has-mobile-search': hasMobileSearch,
+      'sf-header--has-mobile-navigation': hasMobileNavigation && isMobile,
       'sf-header--is-sticky': isSticky,
       'sf-header--is-hidden': !isVisible,
     }"
@@ -19,7 +20,10 @@
           />
           <h1 v-else-if="title" class="sf-header__title">{{ title }}</h1>
         </slot>
-        <nav class="sf-header__navigation desktop-only">
+        <nav
+          :class="{ 'desktop-only': !hasMobileNavigation }"
+          class="sf-header__navigation"
+        >
           <!--@slot Use this slot to replace default navigation links -->
           <slot name="navigation" />
         </nav>
@@ -31,6 +35,7 @@
           <SfSearchBar
             :value="searchValue"
             :placeholder="searchPlaceholder"
+            aria-label="Search"
             class="sf-header__search"
             :class="{ 'desktop-only': !hasMobileSearch }"
             @input="$emit('change:search', $event)"
@@ -42,24 +47,24 @@
           name="header-icons"
           v-bind="{ accountIcon, wishlistIcon, cartIcon }"
         >
-          <div class="sf-header__icons desktop-only">
+          <SfButton
+            v-for="icon in headerIcons"
+            :key="icon.name"
+            class="sf-button--pure sf-header__icon desktop-only"
+            :aria-label="icon.name"
+            :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
+            @click="$emit(`click:${icon.name}`)"
+          >
             <SfIcon
-              v-for="icon in headerIcons"
-              :key="icon.name"
               :icon="icon.icon"
-              :has-badge="isCartEmpty && icon.hasBadge === true"
+              :has-badge="cartIsNotEmpty && icon.hasBadge === true"
               :badge-label="cartItemsQty"
               size="xs"
-              class="sf-header__icon"
               :class="{
                 'sf-header__icon--is-active': activeIcon === icon.name,
               }"
-              role="button"
-              :aria-label="icon.name"
-              :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
-              @click="$emit(`click:${icon.name}`)"
             />
-          </div>
+          </SfButton>
         </slot>
         <!--@slot Use this slot to replace default header language selector on mobile -->
         <slot name="language-selector" />
@@ -79,12 +84,14 @@ Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfHeader",
   components: {
     SfIcon,
     SfImage,
     SfSearchBar,
+    SfButton,
   },
   props: {
     /**
@@ -136,6 +143,10 @@ export default {
      * Header search on mobile
      */
     hasMobileSearch: {
+      type: Boolean,
+      default: false,
+    },
+    hasMobileNavigation: {
       type: Boolean,
       default: false,
     },
@@ -203,8 +214,8 @@ export default {
   },
   computed: {
     ...mapMobileObserver(),
-    isCartEmpty() {
-      return !!this.cartItemsQty;
+    cartIsNotEmpty() {
+      return parseInt(this.cartItemsQty, 10) > 0;
     },
   },
   watch: {

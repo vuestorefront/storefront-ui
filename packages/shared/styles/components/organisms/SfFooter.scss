@@ -7,6 +7,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    border: 0;
     padding: var(
       --footer-column-title-padding,
       var(--spacer-base) var(--spacer-xl)
