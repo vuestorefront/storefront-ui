@@ -266,18 +266,17 @@ export default {
         );
         return;
       }
-      this.hidden =
-        this.scrollDirection === "down" && this.lastScrollPosition > this.height
-          ? true
-          : false;
+      this.hidden = this.scrollDirection === "down";
     },
     scrollHandler() {
       if (typeof window === "undefined" || typeof document === "undefined")
         return;
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
-      this.scrollDirection =
-        currentScrollPosition < this.lastScrollPosition ? "up" : "down";
+      if (currentScrollPosition >= this.height) {
+        this.scrollDirection =
+          currentScrollPosition < this.lastScrollPosition ? "up" : "down";
+      }
       this.lastScrollPosition = currentScrollPosition;
     },
   },

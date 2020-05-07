@@ -89,6 +89,10 @@
     justify-content: flex-end;
 
     @include for-desktop {
+      flex-wrap: nowrap;
+      #{$this}--multiline & {
+        flex-wrap: wrap;
+      }
     }
   }
   &__navigation {
