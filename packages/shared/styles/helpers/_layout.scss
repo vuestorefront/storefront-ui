@@ -39,17 +39,15 @@
     var(#{$element}-color, $shadow-color);
 }
 
-@mixin box-shadow-hover(
+@mixin box-shadow(
   $element,
   $h-offset,
   $v-offset,
   $blur,
   $spread,
   $color,
-  $opacity,
 ) {
-  &::before,
-  &::after {
+  &::before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -58,25 +56,14 @@
     width: 100%;
     height: 100%;
     border-radius: inherit;
-    box-shadow: var(#{$element}, _box-shadow($element, $h-offset, $v-offset, $blur, $spread, $color));
     transition: var(
       #{$element}-transition,
       opacity var(#{$element}-transition-opacity-duration, 200ms)
         var(#{$element}-transition-opacity-timing-function, ease-in-out), box-shadow var(#{$element}-transition-box-shadow-duration, 200ms)
         var(#{$element}-transition-box-shadow-timing-function, ease-in-out)
     );
-  }
-  &::before {
-    opacity: var(#{$element}-opacity, $opacity);
-    will-change: box-shadow;
-  }
-  &::after {
-    opacity: var(#{$element}-opacity-on-shadow, 1);
-    box-shadow: 0 0 0 1.5rem var(--c-white);
-    will-change: opacity;
-  }
-  &:hover,
-  &:active {
-    --button-box-shadow-opacity-on-shadow: 0;
+    opacity: var(#{$element}-opacity, 0);
+    box-shadow: var(#{$element}, _box-shadow($element, $h-offset, $v-offset, $blur, $spread, $color));
+    will-change: opacity, box-shadow;
   }
 }
