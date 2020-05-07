@@ -62,7 +62,7 @@
         var(#{$element}-transition-opacity-timing-function, ease-in-out), box-shadow var(#{$element}-transition-box-shadow-duration, 200ms)
         var(#{$element}-transition-box-shadow-timing-function, ease-in-out)
     );
-    opacity: var(#{$element}-opacity, 0);
+    opacity: var(#{$element}-opacity);
     box-shadow: var(#{$element}, _box-shadow($element, $h-offset, $v-offset, $blur, $spread, $color));
     will-change: opacity, box-shadow;
   }
