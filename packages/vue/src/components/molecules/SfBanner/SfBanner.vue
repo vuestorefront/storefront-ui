@@ -1,6 +1,7 @@
 <template>
   <section
     :id="`sf-banner-${titleId}`"
+    role="banner"
     class="sf-banner"
     :style="style"
     v-on="isMobile ? $listeners : {}"
