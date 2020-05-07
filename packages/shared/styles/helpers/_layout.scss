@@ -51,7 +51,7 @@
     transform: var(#{$element}-transform, $scale);
     transition: 
       var(#{$element}-transition,
-      transform 250ms ease-in-out
+      transform var(#{$element}-transition-duration, 250ms) var(#{$element}-transition-timing-function, ease-in-out)
     );
     will-change: transform;
   }
