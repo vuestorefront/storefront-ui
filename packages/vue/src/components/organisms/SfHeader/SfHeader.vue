@@ -4,6 +4,7 @@
     class="sf-header"
     :class="{
       'sf-header--has-mobile-search': hasMobileSearch,
+      'sf-header--has-mobile-navigation': hasMobileNavigation && isMobile,
       'sf-header--is-sticky': isSticky,
       'sf-header--is-hidden': !isVisible,
     }"
@@ -20,7 +21,10 @@
           />
           <h1 v-else-if="title" class="sf-header__title">{{ title }}</h1>
         </slot>
-        <nav class="sf-header__navigation desktop-only">
+        <nav
+          :class="{ 'desktop-only': !hasMobileNavigation }"
+          class="sf-header__navigation"
+        >
           <!--@slot Use this slot to replace default navigation links -->
           <slot name="navigation" />
         </nav>
@@ -140,6 +144,10 @@ export default {
      * Header search on mobile
      */
     hasMobileSearch: {
+      type: Boolean,
+      default: false,
+    },
+    hasMobileNavigation: {
       type: Boolean,
       default: false,
     },
