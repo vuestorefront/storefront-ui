@@ -8,18 +8,15 @@
   --icon-width: 1.5rem;
   --icon-height: 0.75rem;
   --icon-color: var(--c-dark);
+  --button-box-shadow: 0px 4px 4px var(--c-black);
+  --box-shadow-transition-opacity-duration: 150ms;
   display: flex;
   align-items: center;
   justify-content: var(--arrow-justify-content, center);
-  box-shadow: var(--arrow-box-shadow);
-  @include box-shadow(
-    --arrow-box-shadow, 0px 4px 4px, var(--c-black), 0.25, scale(0.7)
-  );
-  --arrow-box-shadow-transition-duration: 150ms;
   &:hover {
     --button-background: var(--c-dark);
-    --icon-color: var(--c-light);  
-    --arrow-box-shadow-transform: scale(1);
+    --icon-color: var(--c-light);
+    --button-box-shadow-opacity: 0.25;
   }
   &__icon {
     transform: var(--arrow-icon-transform);
@@ -45,19 +42,17 @@
   }
   &--transparent {
     --button-background: transparent;
+    --button-box-shadow: none;
     &:hover {
       --button-background: transparent;
       --icon-color: var(--c-dark);
-      --arrow-box-shadow: none;
     }
   }
   &--rounded {
     --button-border-radius: 100%;
   }
   &--no-shadow {
-    &:hover {
-      --arrow-box-shadow: none;
-    }
+    --button-box-shadow: none;
   }
   &--right {
     --arrow-icon-transform: rotate(180deg);

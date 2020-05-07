@@ -25,8 +25,14 @@
   );
   @include border(--button-border, 0, solid, var(--c-primary));
   @include box-shadow(
-    --button-box-shadow, 0px 4px 4px, var(--c-black), 0.25, scale(0.7)
+    --button-box-shadow,
+    0px,
+    4px,
+    4px,
+    0px,
+    var(--c-black),
   );
+  --button-box-shadow-opacity: 0;
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     $variant: map-get($map, "variant");
@@ -38,7 +44,7 @@
     }
   }
   &:hover {
-    --button-box-shadow-transform: scale(1);
+    --button-box-shadow-opacity: 0.25;
   }
   &:active {
     --button-box-shadow: none;
@@ -57,9 +63,7 @@
     --button-color: var(--c-text);
     --button-text-transform: none;
     --button-wrap: normal;
-    &:hover {
-      --button-box-shadow: 0;
-    }
+    --button-box-shadow: none;
     &:active {
       --button-background: transparent;
     }
@@ -102,9 +106,9 @@
     --button-text-decoration: underline;
     --button-font-size: var(--font-xs);
     --button-font-weight: var(--font-medium);
+    --button-box-shadow: none;
     display: inline;
     &:hover {
-      --button-box-shadow: none;
       --button-background: transparent;
       --button-color: var(--c-primary);
     }
@@ -139,9 +143,7 @@
     --button-border-color: var(--c-light);
     --button-background: transparent;
     --button-color: var(--c-text-muted);
-    &:hover {
-      --button-box-shadow: none;
-    }
+    --button-box-shadow: none;
     &:active {
       --button-background: var(--c-gray-variant);
       --button-color: var(--c-light-variant);
