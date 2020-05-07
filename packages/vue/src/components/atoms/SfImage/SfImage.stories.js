@@ -17,10 +17,12 @@ storiesOf("Atoms|Image", module)
           "src",
           {
             mobile: {
-              url: ["/assets/storybook/SfImage/product-216x326.webp", "/assets/storybook/SfImage/product-109x164.jpg"],
+              url: "/assets/storybook/SfImage/product-109x164.webp", 
+              fallback: "/assets/storybook/SfImage/product-109x164.jpg",
             },
             desktop: {
-              url: ["/assets/storybook/SfImage/product-216x326.webp", "/assets/storybook/SfImage/product-216x326.jpg"],
+              url: "/assets/storybook/SfImage/product-216x326.webp",
+              fallback: "/assets/storybook/SfImage/product-216x326.jpg"
             },
           },
           "Props"

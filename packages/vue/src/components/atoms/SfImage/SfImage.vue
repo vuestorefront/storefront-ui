@@ -5,54 +5,31 @@
     :style="size"
     v-on="$listeners"
   >
-    <!-- <template v-if="typeof source === 'string'">
-      <img
-        v-if="show"
-        ref="image"
-        :src="source"
-        :alt="alt"
-        :width="width"
-        :height="height"
-      />
-    </template>
-    <template v-else>
-      <picture :data-iesrc="srcIE" :data-alt="alt"> -->
     <template v-if="isPicture">
       <picture>
-        <!-- <source
-          v-for="(srcItem, i) in source"
-          :key="i"
-          :srcset="srcItem.src"
-          :media="srcItem.media"
-          :type="srcItem.type"
-        /> -->
         <source
-          v-for="(urlDesktop, i) in source.desktop.url"
-          :key="i"
-          :srcset="urlDesktop"
+          :srcset="source.desktop.url"
           :media="`(min-width: ${pictureBreakpoint}px)`"
         />
-        <source 
-          v-for="(urlMobile, j) in source.mobile.url"
-          :key="j"
-          :srcset="urlMobile"
+        <source
+          :srcset="source.mobile.url"
           :media="`(max-width: ${pictureBreakpoint}px)`"
         />
-        <!-- <img
-          v-if="show"
-          ref="image"
-          :src="source"
-          :alt="alt"
-          :media="`(max-width: ${pictureBreakpoint - 1}px)`"
-        /> -->
+        <source
+          :srcset="source.desktop.fallback"
+          :media="`(min-width: ${pictureBreakpoint}px)`"
+        />
+        <source
+          :srcset="source.mobile.fallback"
+          :media="`(max-width: ${pictureBreakpoint}px)`"
+        />
         <img
-          v-show="source.desktop.url[0]"
-          :src="source.desktop.url[0]"
+          v-show="source.desktop.url"
+          :src="source.desktop.url"
           v-bind="$attrs"
           :width="width"
           :height="height"
         />
-        <!-- <noscript><img ref="image" src="source" alt="" /></noscript> -->
       </picture>
     </template>
     <template v-else>
@@ -79,11 +56,6 @@ export default {
   inheritAttrs: false,
   props: {
     src: {
-      //   type: [String, Array, Object],
-      //   default: "",
-      // },
-      // alt: {
-      //   type: String,
       type: [String, Object],
       default: "",
     },
@@ -121,47 +93,7 @@ export default {
     isPicture() {
       return typeof this.src === "object";
     },
-    src() {
-      typeof this.src.desktop.url === "String" ? this.src.desktop.url = this.src.desktop.url.split() : null
-      typeof this.src.mobile.url === "String" ? this.src.mobile.url = this.src.mobile.url.split() : null
-      return {
-        mobile: {
-          url: this.src.desktop.url,
-        },
-        desktop: {
-          url: this.src.mobile.url,
-        },
-      }
-    },
     source() {
-      // let src = this.src || "";
-      // let srcIE;
-
-      // if (typeof this.src === "object" && !Array.isArray(this.src)) {
-      //   if (!src.desktop || !src.mobile) {
-      //     const object = src.desktop || src.mobile;
-      //     src = object.url;
-      //     console.log("object without one element");
-      //   } else {
-      //     src = [
-      //       {
-      //         src: this.src.mobile.url,
-      //         media: "(max-width: {{pictureBreakpoint}}px)",
-      //       },
-      //       {
-      //         src: this.src.desktop.url,
-      //         media: "(min-width: {{pictureBreakpoint}}px)",
-      //       },
-      //     ];
-      //     console.log("full object");
-      //   }
-      // } else if (Array.isArray(this.src)) {
-      //   srcIE = this.src.filter((srcItem, index) => (index = 0));
-      //   src = this.src.filter((srcItem, index) => index > 0);
-      //   console.log("array");
-      // }
-      // console.log(src);
-      // return src;      
       const allow =
         (this.isLoaded && this.lazy) || (!this.isLoaded && !this.lazy);
       const disallow = this.isPicture
@@ -170,7 +102,7 @@ export default {
       return allow ? this.src : disallow;
     },
     noscript() {
-      return this.isPicture ? this.src.desktop.url[0] : this.src;
+      return this.isPicture ? this.src.desktop.url : this.src;
     },
     size() {
       return (
