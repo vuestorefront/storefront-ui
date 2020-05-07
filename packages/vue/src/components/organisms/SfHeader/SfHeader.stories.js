@@ -82,7 +82,7 @@ storiesOf("Organisms|Header", module)
     data() {
       return {
         isMobile: false,
-        navigation: ["women", "man", "kids"],
+        navigation: ["women", "man", "kids", "women", "man", "kids"],
         searchValue: "",
       };
     },
