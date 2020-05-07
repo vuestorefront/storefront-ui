@@ -1,13 +1,7 @@
 <template>
   <div class="sf-product-card">
-    <component
-      :is="linkComponentTag"
-      v-focus
-      :href="linkComponentTag === 'a' ? link : undefined"
-      :to="link && linkComponentTag !== 'a' ? link : undefined"
-      class="sf-product-card__link"
-    >
-      <div class="sf-product-card__image-wrapper">
+    <div class="sf-product-card__image-wrapper">
+      <SfLink class="sf-product-card__link" :link="link">
         <slot name="image" v-bind="{ image, title }">
           <template v-if="Array.isArray(image)">
             <SfImage
@@ -29,61 +23,66 @@
             :height="imageHeight"
           />
         </slot>
-        <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
-          <SfBadge
-            v-if="badgeLabel"
-            class="sf-product-card__badge"
-            :class="badgeColorClass"
-            >{{ badgeLabel }}</SfBadge
+      </SfLink>
+      <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
+        <SfBadge
+          v-if="badgeLabel"
+          class="sf-product-card__badge"
+          :class="badgeColorClass"
+          >{{ badgeLabel }}</SfBadge
+        >
+      </slot>
+      <template v-if="showAddToCartButton">
+        <slot
+          name="add-to-cart"
+          v-bind="{
+            isAddedToCart,
+            showAddedToCartBadge,
+            isAddingToCart,
+            title,
+          }"
+        >
+          <SfCircleIcon
+            class="sf-product-card__add-button"
+            :aria-label="`Add to Cart ${title}`"
+            :has-badge="showAddedToCartBadge"
+            :disabled="addToCartDisabled"
+            @click="onAddToCart"
           >
+            <div class="sf-product-card__add-button--icons">
+              <transition
+                name="sf-product-card__add-button--icons"
+                mode="out-in"
+              >
+                <slot v-if="!isAddingToCart" name="add-to-cart-icon">
+                  <SfIcon
+                    key="add_to_cart"
+                    icon="add_to_cart"
+                    size="20px"
+                    color="white"
+                  />
+                </slot>
+                <slot v-else name="adding-to-cart-icon">
+                  <SfIcon
+                    key="added_to_cart"
+                    icon="added_to_cart"
+                    size="20px"
+                    color="white"
+                  />
+                </slot>
+              </transition>
+            </div>
+          </SfCircleIcon>
         </slot>
-      </div>
+      </template>
+    </div>
+    <SfLink class="sf-product-card__link" :link="link">
       <slot name="title" v-bind="{ title }">
         <h3 class="sf-product-card__title">
           {{ title }}
         </h3>
       </slot>
-    </component>
-    <template v-if="showAddToCartButton">
-      <slot
-        name="add-to-cart"
-        v-bind="{
-          isAddedToCart,
-          showAddedToCartBadge,
-          isAddingToCart,
-          title,
-        }"
-      >
-        <SfCircleIcon
-          class="sf-product-card__add-button"
-          :aria-label="`Add to Cart ${title}`"
-          :has-badge="showAddedToCartBadge"
-          :disabled="addToCartDisabled"
-          @click="onAddToCart"
-        >
-          <div class="sf-product-card__add-button--icons">
-            <transition name="sf-product-card__add-button--icons" mode="out-in">
-              <slot v-if="!isAddingToCart" name="add-to-cart-icon">
-                <SfIcon
-                  key="add_to_cart"
-                  icon="add_to_cart"
-                  size="20px"
-                  color="white"
-                />
-              </slot>
-              <slot v-else name="adding-to-cart-icon">
-                <SfIcon
-                  key="added_to_cart"
-                  icon="added_to_cart"
-                  size="20px"
-                  color="white"
-                />
-              </slot>
-            </transition>
-          </div>
-        </SfCircleIcon>
-      </slot>
-    </template>
+    </SfLink>
     <SfButton
       v-if="wishlistIcon !== false"
       :aria-label="`${ariaLabel} ${title}`"
@@ -133,7 +132,9 @@
 <script>
 import { focus } from "../../../utilities/directives/focus-directive.js";
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
+import { deprecationWarning } from "../../../utilities/helpers/deprecation-warning.js";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
@@ -147,6 +148,7 @@ export default {
     SfRating,
     SfIcon,
     SfImage,
+    SfLink,
     SfCircleIcon,
     SfBadge,
     SfButton,
@@ -209,6 +211,7 @@ export default {
      * Link element tag
      * By default it'll be 'router-link' if Vue Router
      * is available on instance, or 'a' otherwise.
+     * @deprecated will be removed in 1.0.0 use SfLink instead
      */
     linkTag: {
       type: String,
@@ -324,6 +327,10 @@ export default {
       }`;
     },
     linkComponentTag() {
+      deprecationWarning(
+        this.$options.name,
+        "Prop 'linkTag' has been deprecated and will be removed in v1.0.0. Use 'SfLink' instead."
+      );
       if (this.linkTag) {
         return this.linkTag;
       }
