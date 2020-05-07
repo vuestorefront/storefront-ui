@@ -10,9 +10,9 @@ storiesOf("Atoms|Breadcrumbs", module)
         default: object(
           "breadcrumbs",
           [
-            { text: "Home", route: { link: "#" } },
-            { text: "Category", route: { link: "#" } },
-            { text: "Pants", route: { link: "#" } },
+            { text: "Home", link: "#" },
+            { text: "Category", link: "#" },
+            { text: "Pants", link: "#" },
           ],
           "Props"
         ),
@@ -28,9 +28,9 @@ storiesOf("Atoms|Breadcrumbs", module)
         default: object(
           "breadcrumbs",
           [
-            { text: "Home", route: { link: "#" } },
-            { text: "Category", route: { link: "#" } },
-            { text: "Pants", route: { link: "#" } },
+            { text: "Home", link: "#" },
+            { text: "Category", link: "#" },
+            { text: "Pants", link: "#" },
           ],
           "Props"
         ),
@@ -50,9 +50,9 @@ storiesOf("Atoms|Breadcrumbs", module)
         default: object(
           "breadcrumbs",
           [
-            { text: "Home", route: { link: "#" } },
-            { text: "Category", route: { link: "#" } },
-            { text: "Pants", route: { link: "#" } },
+            { text: "Home", link: "#" },
+            { text: "Category", link: "#" },
+            { text: "Pants", link: "#" },
           ],
           "Props"
         ),

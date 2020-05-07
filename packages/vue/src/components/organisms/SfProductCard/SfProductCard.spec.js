@@ -142,7 +142,8 @@ describe("SfProductCard.vue: Wish list icon button", () => {
       },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
-    wishlistIconButton.trigger("click");
+
+    wishlistIconButton.vm.$emit("click");
     expect(component.emitted()[clickEventName].length).toBe(1);
   });
   it("emits click:wishlist event with payload=true on button click when isOnWishlist=false", () => {
@@ -152,7 +153,8 @@ describe("SfProductCard.vue: Wish list icon button", () => {
       },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
-    wishlistIconButton.trigger("click");
+
+    wishlistIconButton.vm.$emit("click");
     expect(component.emitted()[clickEventName][0][0]).toBe(true);
   });
   it("emits click:wishlist event with payload=false on button click when isOnWishlist=true", () => {
@@ -163,7 +165,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
       },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
-    wishlistIconButton.trigger("click");
+    wishlistIconButton.vm.$emit("click");
     expect(component.emitted()[clickEventName][0][0]).toBe(false);
   });
 });

@@ -1,13 +1,11 @@
 <template>
   <div
     class="sf-image"
-    :class="{ 'sf-image--has-size': wrapper }"
-    :style="wrapper"
+    :class="{ 'sf-image--has-size': size && source }"
+    :style="size"
     v-on="$listeners"
-    @mouseover="overlay = true"
-    @mouseleave="overlay = false"
   >
-    <template v-if="typeof source === 'string'">
+    <!-- <template v-if="typeof source === 'string'">
       <img
         v-if="show"
         ref="image"
@@ -18,7 +16,9 @@
       />
     </template>
     <template v-else>
-      <picture :data-iesrc="srcIE" :data-alt="alt">
+      <picture :data-iesrc="srcIE" :data-alt="alt"> -->
+    <template v-if="isPicture">
+      <picture>
         <source
           v-for="(srcItem, i) in source"
           :key="i"
@@ -35,43 +35,61 @@
           ref="image"
           :src="source"
           :alt="alt"
+          :media="`(max-width: ${pictureBreakpoint - 1}px)`"
+        />
+        <img
+          v-show="source.desktop.url"
+          :src="source.desktop.url"
+          v-bind="$attrs"
           :width="width"
           :height="height"
         /> -->
         <noscript><img ref="image" src="source" alt="" /></noscript>
       </picture>
     </template>
-    <transition name="fade">
-      <div v-if="showOverlay" class="sf-image__overlay">
-        <slot />
-      </div>
-    </transition>
+    <template v-else>
+      <img
+        v-show="source"
+        :src="source"
+        v-bind="$attrs"
+        :width="width"
+        :height="height"
+      />
+    </template>
+    <noscript v-if="lazy" inline-template>
+      <img :src="noscript" v-bind="$attrs" :width="width" :height="height" />
+    </noscript>
+    <div v-if="hasOverlay" class="sf-image__overlay">
+      <slot />
+    </div>
   </div>
 </template>
 <script>
 import lozad from "lozad";
 export default {
   name: "SfImage",
+  inheritAttrs: false,
   props: {
     src: {
-      type: [String, Array, Object],
+      //   type: [String, Array, Object],
+      //   default: "",
+      // },
+      // alt: {
+      //   type: String,
+      type: [String, Object],
       default: "",
-    },
-    alt: {
-      type: String,
-      default: "",
-    },
-    width: {
-      type: [String, Number],
-      default: undefined,
-    },
-    height: {
-      type: [String, Number],
-      default: undefined,
     },
     lazy: {
       type: Boolean,
       default: true,
+    },
+    width: {
+      type: [String, Number],
+      default: null,
+    },
+    height: {
+      type: [String, Number],
+      default: null,
     },
     pictureBreakpoint: {
       type: Number,
@@ -88,84 +106,78 @@ export default {
   },
   data() {
     return {
-      show: false,
-      overlay: false,
+      isLoaded: false,
     };
   },
   computed: {
+    isPicture() {
+      return typeof this.src === "object";
+    },
     source() {
-      let src = this.src || "";
-      let srcIE;
-      // if (Array.isArray(this.src)) {
-      //   this.srcIE = src[0].src;
-      // }
+      // let src = this.src || "";
+      // let srcIE;
 
-      if (typeof this.src === "object" && !Array.isArray(this.src)) {
-        if (!src.desktop || !src.mobile) {
-          const object = src.desktop || src.mobile;
-          src = object.url;
-          console.log("object without one element");
-        } else {
-          src = [
-            {
-              src: this.src.mobile.url,
-              media: "(max-width: {{pictureBreakpoint}}px)",
-            },
-            {
-              src: this.src.desktop.url,
-              media: "(min-width: {{pictureBreakpoint}}px)",
-            },
-          ];
-          console.log("full object");
-        }
-      } else if (Array.isArray(this.src)) {
-        srcIE = this.src.filter((srcItem, index) => (index = 0));
-        src = this.src.filter((srcItem, index) => index > 0);
-        console.log("array");
-      }
-      console.log(src);
-      return src;
+      // if (typeof this.src === "object" && !Array.isArray(this.src)) {
+      //   if (!src.desktop || !src.mobile) {
+      //     const object = src.desktop || src.mobile;
+      //     src = object.url;
+      //     console.log("object without one element");
+      //   } else {
+      //     src = [
+      //       {
+      //         src: this.src.mobile.url,
+      //         media: "(max-width: {{pictureBreakpoint}}px)",
+      //       },
+      //       {
+      //         src: this.src.desktop.url,
+      //         media: "(min-width: {{pictureBreakpoint}}px)",
+      //       },
+      //     ];
+      //     console.log("full object");
+      //   }
+      // } else if (Array.isArray(this.src)) {
+      //   srcIE = this.src.filter((srcItem, index) => (index = 0));
+      //   src = this.src.filter((srcItem, index) => index > 0);
+      //   console.log("array");
+      // }
+      // console.log(src);
+      // return src;
+      const allow =
+        (this.isLoaded && this.lazy) || (!this.isLoaded && !this.lazy);
+      const disallow = this.isPicture
+        ? { desktop: { url: null }, mobile: { url: null } }
+        : null;
+      return allow ? this.src : disallow;
     },
-    showOverlay() {
-      return this.$slots.default && this.overlay;
+    noscript() {
+      return this.isPicture ? this.src.desktop.url : this.src;
     },
-    wrapper() {
+    size() {
       return (
         this.width &&
-        this.height &&
-        `--_image-width: ${this.width}; --_image-height: ${this.height}`
+        this.height && {
+          "--_image-width": this.width,
+          "--_image-height": this.height,
+        }
       );
     },
-  },
-  watch: {
-    lazy: {
-      handler(value) {
-        this.show = !value;
-      },
-      immediate: true,
+    hasOverlay() {
+      return this.$slots.default;
     },
   },
   mounted() {
-    if (!this.lazy) {
-      this.show = true;
-      return;
-    }
-    this.lozad();
-  },
-  methods: {
-    lozad() {
-      const vm = this;
-      this.$nextTick(() => {
-        const observer = lozad(vm.$el, {
-          load() {
-            vm.show = true;
-          },
-          rootMargin: this.rootMargin,
-          threshold: this.threshold,
-        });
-        observer.observe();
+    if (!this.lazy) return;
+    const vm = this;
+    this.$nextTick(() => {
+      const observer = lozad(vm.$el, {
+        load() {
+          vm.isLoaded = true;
+        },
+        rootMargin: vm.rootMargin,
+        threshold: vm.threshold,
       });
-    },
+      observer.observe();
+    });
   },
 };
 </script>

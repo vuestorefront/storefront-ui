@@ -18,6 +18,9 @@
     opacity: var(--collected-product-remove-opacity);
     right: var(--collected-product-remove-right, var(--spacer-xs));
     transition: var(--collected-product-remove-transition);
+    &:focus {
+      --collected-product-remove-opacity: 1;
+    }
     &--circle-icon {
       top: var(--collected-product-remove-top);
       display: var(--collected-product-remove-circle-icon-display, none);
