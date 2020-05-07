@@ -83,7 +83,7 @@ export default {
   },
   computed: {
     isPicture() {
-      return typeof this.src === "object";
+      return Object.keys(this.src).length > 0 && typeof this.src === "object";
     },
     source() {
       const allow =
