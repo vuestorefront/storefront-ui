@@ -26,7 +26,7 @@
     &--next {
       --pagination-item-margin: 0 0 0 var(--spacer-lg);
     }
-    &--current {
+    &.is-current {
       color: var(--c-text);
       cursor: default;
     }

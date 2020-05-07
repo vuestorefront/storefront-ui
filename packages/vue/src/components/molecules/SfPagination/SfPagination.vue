@@ -42,7 +42,7 @@
         class="sf-pagination__item"
         :class="{
           'sf-button--pure': !hasRouter && currentPage !== page,
-          'sf-pagination__item--current': currentPage === page,
+          'is-current': currentPage === page,
         }"
         :link="hasRouter && currentPage !== page ? getLinkTo(page) : null"
         @click="!hasRouter && currentPage !== page ? go(page) : null"
