@@ -4,7 +4,7 @@
     :class="{
       'is-active': isChecked,
       'is-disabled': disabled,
-      'sf-checkbox--has-error': !valid,
+      'has-error': !valid,
     }"
   >
     <label class="sf-checkbox__container">

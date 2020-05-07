@@ -22,7 +22,7 @@
     transition: background 150ms linear, border-color 150ms linear;
     &:hover {
       --checkbox-border-color: var(--c-primary);
-      .sf-checkbox--has-error & {
+      .has-error & {
         --checkbox-border-color: var(--c-danger);
       }
       .is-disabled & {
@@ -45,7 +45,7 @@
   &.is-active {
     --checkbox-border-color: var(--c-primary);
     --checkbox-background: var(--c-primary);
-    &.sf-checkbox--has-error {
+    &.has-error {
       --checkbox-border-color: var(--c-danger);
       --checkbox-background: var(--c-danger);
     }
