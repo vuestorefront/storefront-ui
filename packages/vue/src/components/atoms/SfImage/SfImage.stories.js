@@ -15,29 +15,14 @@ storiesOf("Atoms|Image", module)
       src: {
         default: object(
           "src",
-          [
-            {
-              src: "/assets/storybook/SfImage/product-216x326.jpg",
+          {
+            mobile: {
+              url: ["/assets/storybook/SfImage/product-216x326.webp", "/assets/storybook/SfImage/product-109x164.jpg"],
             },
-            {
-              src: "/assets/storybook/SfImage/product-216x326.webp",
-              media: "(min-width: 1280px)",
-              type: "image/webp",
+            desktop: {
+              url: ["/assets/storybook/SfImage/product-216x326.webp", "/assets/storybook/SfImage/product-216x326.jpg"],
             },
-            {
-              src: "/assets/storybook/SfImage/product-109x164.webp",
-              type: "image/webp",
-            },
-            {
-              src: "/assets/storybook/SfImage/product-216x326.jpg",
-              media: "(min-width: 1280px)",
-              type: "image/jpeg",
-            },
-            {
-              src: "/assets/storybook/SfImage/product-109x164.jpg",
-              type: "image/jpeg",
-            },
-          ],
+          },
           "Props"
         ),
       },

@@ -19,32 +19,40 @@
       <picture :data-iesrc="srcIE" :data-alt="alt"> -->
     <template v-if="isPicture">
       <picture>
-        <source
+        <!-- <source
           v-for="(srcItem, i) in source"
           :key="i"
           :srcset="srcItem.src"
           :media="srcItem.media"
           :type="srcItem.type"
-        />
-        <!-- <source
-          :srcset="source.mobile.url"
-          :media="`(max-width: ${pictureBreakpoint}px)`"
         /> -->
+        <source
+          v-for="(urlDesktop, i) in source.desktop.url"
+          :key="i"
+          :srcset="urlDesktop"
+          :media="`(min-width: ${pictureBreakpoint}px)`"
+        />
+        <source 
+          v-for="(urlMobile, j) in source.mobile.url"
+          :key="j"
+          :srcset="urlMobile"
+          :media="`(max-width: ${pictureBreakpoint}px)`"
+        />
         <!-- <img
           v-if="show"
           ref="image"
           :src="source"
           :alt="alt"
           :media="`(max-width: ${pictureBreakpoint - 1}px)`"
-        />
+        /> -->
         <img
-          v-show="source.desktop.url"
-          :src="source.desktop.url"
+          v-show="source.desktop.url[0]"
+          :src="source.desktop.url[0]"
           v-bind="$attrs"
           :width="width"
           :height="height"
-        /> -->
-        <noscript><img ref="image" src="source" alt="" /></noscript>
+        />
+        <!-- <noscript><img ref="image" src="source" alt="" /></noscript> -->
       </picture>
     </template>
     <template v-else>
@@ -113,6 +121,18 @@ export default {
     isPicture() {
       return typeof this.src === "object";
     },
+    src() {
+      typeof this.src.desktop.url === "String" ? this.src.desktop.url = this.src.desktop.url.split() : null
+      typeof this.src.mobile.url === "String" ? this.src.mobile.url = this.src.mobile.url.split() : null
+      return {
+        mobile: {
+          url: this.src.desktop.url,
+        },
+        desktop: {
+          url: this.src.mobile.url,
+        },
+      }
+    },
     source() {
       // let src = this.src || "";
       // let srcIE;
@@ -141,7 +161,7 @@ export default {
       //   console.log("array");
       // }
       // console.log(src);
-      // return src;
+      // return src;      
       const allow =
         (this.isLoaded && this.lazy) || (!this.isLoaded && !this.lazy);
       const disallow = this.isPicture
@@ -150,7 +170,7 @@ export default {
       return allow ? this.src : disallow;
     },
     noscript() {
-      return this.isPicture ? this.src.desktop.url : this.src;
+      return this.isPicture ? this.src.desktop.url[0] : this.src;
     },
     size() {
       return (
