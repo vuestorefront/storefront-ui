@@ -72,7 +72,6 @@
           </div>
           <SfAddToCart
             v-model="qty"
-            :aria-label="`Add to cart ${product.name}`"
             class="product__add-to-cart"
             @click="addToCart"
           />

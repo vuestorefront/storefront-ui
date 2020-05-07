@@ -62,7 +62,6 @@ storiesOf("Molecules|Banner", module)
       :button-text="buttonText"
       :image="image"
       :background="background"
-      :aria-label="title + buttonText"
       />
     </div>`,
   }))
@@ -118,7 +117,6 @@ storiesOf("Molecules|Banner", module)
       :description="description"
       :button-text="buttonText"
       :image="image"
-      :aria-label="title + buttonText"
       :background="background">
         <template #subtitle="{subtitle}">
           <div style="font-size: 1rem">CUSTOM SUBTITLE</div>
@@ -237,7 +235,6 @@ storiesOf("Molecules|Banner", module)
       :description="description"
       :button-text="buttonText"
       :image="image"
-      :aria-label="title + buttonText"
       :background="background">
         <template #description="{description}">
           CUSTOM DESCRIPTION

@@ -92,7 +92,6 @@ storiesOf("Organisms|BannerGrid", module)
             :button-text="item.buttonText"
             :image="item.image"
             :class="item.class"
-            :aria-label="item.title + item.buttonText"
           />
         </template>
       </SfBannerGrid>`,

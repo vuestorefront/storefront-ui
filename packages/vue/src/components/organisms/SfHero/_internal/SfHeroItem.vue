@@ -1,9 +1,5 @@
 <template>
-  <li
-    :id="`sf-hero-${titleId}`"
-    class="glide__slide sf-hero-item"
-    :style="style"
-  >
+  <li class="glide__slide sf-hero-item" :style="style">
     <div class="sf-hero-item__container">
       <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
       <slot name="subtitle" v-bind="{ subtitle }">
@@ -16,7 +12,7 @@
       <!--@slot Call to action section. Slot content will replace default SfButton component-->
       <slot name="call-to-action" v-bind="{ buttonText }">
         <div v-if="buttonText" class="sf-hero-item__button">
-          <SfButton :aria-labelledby="`sf-hero-${titleId}`">
+          <SfButton>
             {{ buttonText }}
           </SfButton>
         </div>
@@ -70,9 +66,6 @@ export default {
           image.desktop && `url(${image.desktop})`,
         "--_hero-item-background-color": background,
       };
-    },
-    titleId() {
-      return this.title.replace(/ /g, "");
     },
   },
 };

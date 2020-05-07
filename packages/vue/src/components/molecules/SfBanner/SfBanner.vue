@@ -1,11 +1,5 @@
 <template>
-  <section
-    :id="`sf-banner-${titleId}`"
-    role="banner"
-    class="sf-banner"
-    :style="style"
-    v-on="isMobile ? $listeners : {}"
-  >
+  <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
     <div class="sf-banner__container">
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
@@ -25,7 +19,6 @@
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
           v-if="buttonText"
-          :aria-labelledby="`sf-banner-${titleId}`"
           class="sf-banner__call-to-action color-secondary"
           v-on="!isMobile ? $listeners : {}"
         >
@@ -94,9 +87,6 @@ export default {
           image.desktop && `url(${image.desktop})`,
         "--_banner-background-color": background,
       };
-    },
-    titleId() {
-      return this.title.replace(/ /g, "");
     },
   },
   beforeDestroy() {

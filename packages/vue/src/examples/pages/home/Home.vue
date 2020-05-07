@@ -21,7 +21,6 @@
           :button-text="banner.buttonText"
           :image="banner.image"
           :class="banner.class"
-          :aria-label="banner.title + banner.buttonText"
         />
       </template>
     </SfBannerGrid>

@@ -3,6 +3,7 @@
     <slot name="remove" v-bind="{ removeHandler }">
       <SfCircleIcon
         icon="cross"
+        aria-label="Remove"
         class="sf-circle-icon--small sf-collected-product__remove sf-collected-product__remove--circle-icon"
         @click="removeHandler"
       />
@@ -14,7 +15,7 @@
     </slot>
     <slot name="more-actions">
       <SfButton
-        aria-label="`More actions`"
+        aria-label="More actions"
         class="sf-button--pure sf-collected-product__more-actions mobile-only"
       >
         <SfIcon icon="more" />
