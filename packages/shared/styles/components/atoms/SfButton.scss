@@ -24,6 +24,9 @@
     var(--font-family-secondary)
   );
   @include border(--button-border, 0, solid, var(--c-primary));
+  @include box-shadow(
+    --button-box-shadow, 0px 4px 4px, var(--c-black), 0.25, scale(0.7)
+  );
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     $variant: map-get($map, "variant");
@@ -33,24 +36,6 @@
         --button-background: #{$variant};
       }
     }
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: var(--button-border-radius);
-    box-shadow: var(--button-box-shadow, 0px 4px 4px var(--c-black));
-    opacity: var(--button-box-shadow-opacity, 0.25);
-    transform: var(--button-box-shadow-transform, scale(0.7));
-    transition: var(
-      --button-box-shadow-transition,
-      transform 250ms ease-in-out
-    );
-    will-change: transform;
   }
   &:hover {
     --button-box-shadow-transform: scale(1);
