@@ -1,5 +1,6 @@
 <template>
   <div
+    id="sfHeader"
     class="sf-header"
     :class="{
       'sf-header--has-mobile-search': hasMobileSearch,
@@ -274,9 +275,12 @@ export default {
         return;
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
-      this.scrollDirection = currentScrollPosition < this.lastScrollPosition;
-      this.isSearchVisible = currentScrollPosition <= 0;
-      this.lastScrollPosition = currentScrollPosition;
+      const headerHeight = parseInt(getComputedStyle(document.getElementById("sfHeader")).height, 10);
+      if (currentScrollPosition > headerHeight) {
+        this.scrollDirection = currentScrollPosition < this.lastScrollPosition;
+        this.isSearchVisible = currentScrollPosition <= 0;
+        this.lastScrollPosition = currentScrollPosition;
+      }
     },
   },
 };
