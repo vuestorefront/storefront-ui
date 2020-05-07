@@ -7,7 +7,7 @@ import {
   object,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import { SfHeader } from "@storefront-ui/vue";
+import { SfHeader, SfLink } from "@storefront-ui/vue";
 const StoriesPlaceholder = {
   props: {
     mobile: {
@@ -32,14 +32,15 @@ const StoriesPlaceholder = {
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfHeader, StoriesPlaceholder },
+    components: { SfHeader, SfLink, StoriesPlaceholder },
     props: {
       customClass: {
         default: options(
           "CSS modifiers",
           {
             "sf-header--has-mobile-search": "sf-header--has-mobile-search",
-            "sf-header--has-mobile-navigation": "sf-header--has-mobile-navigation",
+            "sf-header--has-mobile-navigation":
+              "sf-header--has-mobile-navigation",
             "sf-header--multiline": "sf-header--multiline",
           },
           "",
@@ -120,6 +121,7 @@ storiesOf("Organisms|Header", module)
     },
     template: `<div>
       <SfHeader
+          :class="customClass"
           :title="title"
           :logo="logo"
           :active-icon="activeIcon"
@@ -140,7 +142,7 @@ storiesOf("Organisms|Header", module)
           <SfHeaderNavigationItem
               v-for="item in navigation"
               :key="item">
-            <a href="#" :style="{ display: 'flex',alignItems: 'center',height: '100%' }">{{item}}</a>
+            <SfLink href="#">{{item}}</SfLink>
           </SfHeaderNavigationItem>
         </template>
       </SfHeader>
