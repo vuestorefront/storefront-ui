@@ -20,24 +20,36 @@
   background: var(
     #{$element},
     var(#{$element}-image, $image) var(#{$element}-color, $color) no-repeat
-    var(#{$element}-position, $position)
+      var(#{$element}-position, $position)
   );
   background-size: var(#{$element}-size, $size);
 }
 
-@function _box-shadow($element, $shadow-params, $shadow-color) {
-  @return var(#{$element}-params, $shadow-params)
+@function _box-shadow(
+  $element,
+  $shadow-h-offset,
+  $shadow-v-offset,
+  $shadow-blur,
+  $shadow-spread,
+  $shadow-color
+) {
+  @return var(#{$element}-h-offset, $shadow-h-offset)
+    var(#{$element}-v-offset, $shadow-v-offset)
+    var(#{$element}-blur, $shadow-blur) var(#{$element}-spread, $shadow-spread)
     var(#{$element}-color, $shadow-color);
 }
 
-@mixin box-shadow(
+@mixin box-shadow-hover(
   $element,
-  $params,
+  $h-offset,
+  $v-offset,
+  $blur,
+  $spread,
   $color,
   $opacity,
-  $scale
 ) {
-  &::before {
+  &::before,
+  &::after {
     content: "";
     position: absolute;
     z-index: -1;
@@ -46,13 +58,25 @@
     width: 100%;
     height: 100%;
     border-radius: inherit;
-    box-shadow: var(#{$element}, _box-shadow($element, $params, $color));
-    opacity: var(#{$element}-opacity, $opacity);
-    transform: var(#{$element}-transform, $scale);
-    transition: 
-      var(#{$element}-transition,
-      transform var(#{$element}-transition-duration, 250ms) var(#{$element}-transition-timing-function, ease-in-out)
+    box-shadow: var(#{$element}, _box-shadow($element, $h-offset, $v-offset, $blur, $spread, $color));
+    transition: var(
+      #{$element}-transition,
+      opacity var(#{$element}-transition-opacity-duration, 200ms)
+        var(#{$element}-transition-opacity-timing-function, ease-in-out), box-shadow var(#{$element}-transition-box-shadow-duration, 200ms)
+        var(#{$element}-transition-box-shadow-timing-function, ease-in-out)
     );
-    will-change: transform;
+  }
+  &::before {
+    opacity: var(#{$element}-opacity, $opacity);
+    will-change: box-shadow;
+  }
+  &::after {
+    opacity: var(#{$element}-opacity-on-shadow, 1);
+    box-shadow: 0 0 0 1.5rem var(--c-white);
+    will-change: opacity;
+  }
+  &:hover,
+  &:active {
+    --button-box-shadow-opacity-on-shadow: 0;
   }
 }
