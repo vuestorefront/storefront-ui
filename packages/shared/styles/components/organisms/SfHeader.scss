@@ -1,119 +1,132 @@
 @import "../../helpers";
 .sf-header-navigation-item {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  position: relative;
-  padding: var(--header-navigation-item-padding);
-  margin: var(--header-navigation-item-margin, 0 var(--spacer-2xl) 0 0);
-  justify-content: var(--header-navigation-items-justify-content);
-  flex: var(--header-navigation-item-flex);
+  flex: 1;
   & > * {
-    text-transform: var(--header-navigation-item-text-transform, uppercase);
-    text-decoration: var(--header-navigation-item-text-decoration, none);
-    color: var(--header-navigation-item-color, var(--c-dark-variant));
+    box-sizing: border-box;
+    display: block;
+    padding: calc(var(--spacer-sm) - 1px) var(--spacer-sm);
+    margin: 0;
+    border: solid transparent;
+    border-width: 0 0 2px 0;
+    transition: border-color 150ms ease-in-out, color 150ms ease-in-out;
+    color: var(--c-dark-variant);
     @include font(
       --header-navigation-item-font,
       var(--font-bold),
       var(--font-sm),
-      1.6,
+      1.2,
       var(--font-family-secondary)
     );
-  }
-  &::after {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    background: var(--header-navigation-item-underline-color, transparent);
-    content: "";
-    transition: background 150ms ease-in-out;
-  }
-  &:hover {
-    & > * {
-      --header-navigation-item-color: var(--c-text);
+    text-transform: uppercase;
+    text-decoration: initial;
+    text-align: center;
+    @include for-desktop {
+      padding: calc(var(--spacer-lg) - 1px) var(--spacer-sm);
+      margin: 0 var(--spacer-sm);
     }
-    &::after {
-      --header-navigation-item-underline-color: var(--c-primary);
+    &:focus {
+      color: var(--c-text);
+      border-color: var(--c-primary);
+    }
+    @at-root .sf-header--multiline & {
+      @include for-desktop {
+        padding: calc(var(--spacer-sm) - 1px) var(--spacer-sm);
+      }
     }
   }
-  &:active {
-    & > * {
-      color: var(--header-navigation-item-color, var(--c-primary));
-      @include font(
-      --header-navigation-item-active,
-      var(--font-bold),
-      var(--font-sm),
-      1.6,
-      var(--font-family-secondary)
-    );
+  &:hover > * {
+    color: var(--c-text);
+    border-color: var(--c-primary);
+    &:active{
+      color: var(--c-primary)
     }
-    &::after {
-      --header-navigation-item-underline-color: var(--c-primary);
-    }
-  }
-  &:last-child {
-    margin: 0;
   }
 }
 .sf-header {
-  position: relative;
-  z-index: var(--header-z-index, 1);
-  &__sticky-container {
-    box-sizing: border-box;
-    position: var(--header-sticky-container-position, relative);
-    width: var(--header-sticky-container-width);
-    background: var(--header-sticky-container-background, var(--c-white));
-    transform: var(--header-sticky-container-transform);
-    transition: var(--header-sticky-container-transition);
-    box-shadow: var(--header-sticky-container-box-shadow);
+  $this: &;
+  &__wrapper {
+    width: 100%;
+    background: #ffffff;
+    transition: transform 150ms ease-in-out;
+    #{$this}--is-sticky & {
+      position: fixed;
+      z-index: 1;
+    }
+    #{$this}--is-hidden & {
+      transform: translate3d(0, -100%, 0);
+      transition: transform 300ms ease-in-out;
+    }
   }
-  &__sticky-holder {
-    box-sizing: border-box;
-  }
-  &__container {
-    box-sizing: border-box;
+  header {
     display: flex;
-    flex-wrap: var(--header-container-flex-wrap, wrap);
-    justify-content: var(--header-container-justify-content, center);
+    flex-wrap: wrap;
     align-items: center;
-    padding: var(--header-container-padding);
-    max-width: var(--header-container-width, 77.5rem);
+    justify-content: center;
+    padding: 0 var(--spacer-sm);
+    max-width: 79.5rem;
     margin: 0 auto;
-    height: var(--header-container-height, auto);
+    @include for-desktop {
+      flex-wrap: nowrap;
+    }
   }
   &__logo {
     --image-width: var(--header-logo-width, auto);
     --image-height: var(--header-logo-height, 2.125rem);
-    margin: var(--header-logo-margin, var(--spacer-xs) 0);
+    flex: 0 0 var(--header-logo-width, auto);
+    margin: var(--spacer-xs) 0;
+  }
+  &__title {
+    margin: var(--spacer-xs) 0;
+  }
+  &__aside:not(:empty) {
+    margin: 0 0 0 auto;
+  }
+  &__actions {
+    flex: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+
+    @include for-desktop {
+    }
   }
   &__navigation {
-    display: flex;
-    height: var(--header-navigation-height, 100%);
-    width: var(--header-navigation-width);
-    padding: var(--header-navigation-padding);
-    justify-content: var(--header-navigation-justify-content);
-    margin: var(--header-navigation-margin, 0 0 0 5rem);
-    order: var(--header-navigation-order);
-    overflow: var(--header-navigation-overflow);
-    &::-webkit-scrollbar {
-      width: 0;
+    order: 1;
+    display: var(--header-navigation-display, none);
+    flex: 0 0 calc(100% + var(--spacer-sm) * 2);
+    margin: 0 calc(var(--spacer-sm) * -1);
+    @include for-desktop {
+      --header-navigation-display: flex;
+      order: 0;
+      flex: 0 0 auto;
+      margin: 0 auto 0 var(--spacer-xl)
     }
   }
   &__search {
-    margin: var(--header-search-margin, var(--spacer-xs) 0);
-    height: 2.25rem;
-    flex: var(--header-search-flex,  0 0 100%);
+    display: var(--header-search-display, none);
+    flex: 0 0 100%;
+    margin: var(--spacer-xs) 0;
+    @include for-desktop {
+      --header-search-display: flex;
+      flex: initial;
+    }
+  }
+  &__icons {
+    display: none;
+    @include for-desktop {
+      display: flex;
+      margin:  var(--spacer-sm) 0;
+    }
+    #{$this}--multiline & {
+      order: -1;
+      margin: var(--spacer-sm) 0 var(--spacer-sm) 100%;
+    }
   }
   &__icon {
     --icon-color: var(--c-dark-variant);
-    margin: 0 0 0 calc(var(--spacer-sm) * 3.25);
-    .sf-icon__badge {
-      --icon-badge-top: -0.5rem;
-      --icon-badge-right: -0.5rem;
-    }
+    --icon-badge-top: -0.5rem;
+    --icon-badge-right: -0.5rem;
     &:hover {
       --icon-color: var(--c-text);
     }
@@ -121,43 +134,19 @@
       --icon-color: var(--c-primary);
     }
   }
-  &--is-sticky {
-    --header-sticky-container-position: fixed;
-    --header-sticky-container-width: 100%;
-    --header-sticky-container-transition: transform 150ms ease-in-out;
+  &__action {
+    margin: 0 0 0 var(--spacer-xl);
   }
-  &--is-hidden {
-    --header-sticky-container-transform: translate3d(0, -100%, 0);
+  &-height {
+    box-sizing: border-box;
+  }
+  &--is-sticky {
+    height: var(--_header-height);
   }
   &--has-mobile-search {
-    --search-bar-background: var(--c-white);
-    --search-bar-padding: 0 var(--spacer-xs);
-    --search-bar-icon-right: var(--spacer-xs);
-    --header-sticky-container-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
+    --header-search-display: flex;
   }
   &--has-mobile-navigation {
-    --header-sticky-container-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
-    --header-navigation-order: 1;
-    --header-navigation-width: 100%;
-    --header-navigation-item-flex: 1;
-    --header-navigation-items-justify-content: center;
-    --header-navigation-item-margin: 0;
-    --header-navigation-margin: 0;
-    --header-navigation-item-padding: var(--spacer-sm);
-    --header-navigation-item-color: var(--c-text);
-    --header-navigation-item-font-weight: var(--font-normal);
-    --header-navigation-item-text-transform: capitalize;
-    --header-navigation-overflow: auto;
-
-  }
-  @include for-desktop {
-    --header-logo-margin: 0;
-    --header-container-height: 5rem;
-    --header-container-justify-content: space-between;
-    --header-container-padding: 0;
-    --header-container-flex-wrap: nowrap;
-    --header-search-margin: 0 0 0 auto;
-    --header-search-flex:  0 1 20rem;
-    --header-sticky-container-box-shadow: none;
+    --header-navigation-display: flex;
   }
 }
