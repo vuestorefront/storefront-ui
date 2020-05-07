@@ -88,7 +88,7 @@
     "vue-cli-plugin-storybook": "~1.2.2",
     "vue-docgen-api": "^3.22.3",
     "vue-template-compiler": "^2.6.8",
-    "vuepress": "^0.14.11"
+    "vuepress": "^1.4.1"
   },
   "peerDependencies": {
     "vue": "^2.6.x"
