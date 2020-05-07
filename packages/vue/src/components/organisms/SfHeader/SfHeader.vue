@@ -70,7 +70,11 @@
         <slot name="language-selector" />
       </header>
     </div>
-    <div v-show="isSticky" class="sf-header__sticky-holder" :style="height" />
+    <div
+      v-show="isSticky"
+      class="sf-header__sticky-holder"
+      :style="holderHeight"
+    />
   </div>
 </template>
 <script>
@@ -209,13 +213,16 @@ export default {
       animationStart: undefined,
       animationLong: undefined,
       animationDuration: 300,
-      height: {},
+      height: undefined,
     };
   },
   computed: {
     ...mapMobileObserver(),
     cartIsNotEmpty() {
       return parseInt(this.cartItemsQty, 10) > 0;
+    },
+    holderHeight() {
+      return { height: `${this.height}px` };
     },
   },
   watch: {
@@ -233,9 +240,7 @@ export default {
           return;
         this.$nextTick(() => {
           const containerHeight = this.$refs.header;
-          this.height = {
-            height: `${containerHeight.offsetHeight}px`,
-          };
+          this.height = containerHeight.offsetHeight;
         });
       },
       immediate: true,
@@ -246,9 +251,7 @@ export default {
           if (typeof window === "undefined" || typeof document === "undefined")
             return;
           const computedContainer = window.getComputedStyle(this.$refs.header);
-          this.height = {
-            height: computedContainer.height,
-          };
+          this.height = parseInt(computedContainer.height, 10);
         });
       },
       immediate: true,
@@ -282,9 +285,11 @@ export default {
         return;
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
-      this.scrollDirection = currentScrollPosition < this.lastScrollPosition;
-      this.isSearchVisible = currentScrollPosition <= 0;
-      this.lastScrollPosition = currentScrollPosition;
+      if (currentScrollPosition > this.height) {
+        this.scrollDirection = currentScrollPosition < this.lastScrollPosition;
+        this.isSearchVisible = currentScrollPosition <= 0;
+        this.lastScrollPosition = currentScrollPosition;
+      }
     },
   },
 };
