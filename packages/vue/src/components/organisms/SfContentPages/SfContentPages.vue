@@ -7,7 +7,7 @@
       @click:back="updatePage()"
     />
     <section
-      :class="{ 'sf-content-pages__section--is-active': isActive }"
+      :class="{ 'is-active': isActive }"
       class="sf-content-pages__section"
     >
       <div class="sf-content-pages__sidebar">

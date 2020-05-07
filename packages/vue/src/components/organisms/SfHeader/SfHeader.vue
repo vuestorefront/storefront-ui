@@ -61,7 +61,7 @@
               :badge-label="cartItemsQty"
               size="xs"
               :class="{
-                'sf-header__icon--is-active': activeIcon === icon.name,
+                'is-active': activeIcon === icon.name,
               }"
             />
           </SfButton>

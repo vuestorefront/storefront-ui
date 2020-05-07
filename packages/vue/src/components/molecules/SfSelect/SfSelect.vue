@@ -6,7 +6,7 @@
     role="combobox"
     tabindex="0"
     :class="{
-      'sf-select--is-active': isActive,
+      'is-active': isActive,
       'sf-select--is-selected': isSelected,
       'sf-select--is-required': required,
       'sf-select--is-disabled': disabled,

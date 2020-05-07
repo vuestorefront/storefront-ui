@@ -18,7 +18,7 @@
     flex: 1;
     margin: var(--content-pages-section-margin, var(--spacer-base) 0);
     transition: var(--content-pages-transition, transform 150ms ease-in-out);
-    &--is-active {
+    &.is-active {
       transform: var(
         --content-pages-section-active-transform,
         translate3d(-100%, 0, 0)

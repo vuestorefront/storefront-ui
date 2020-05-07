@@ -42,7 +42,7 @@
       var(--font-family-secondary)
     );
   }
-  &--is-active {
+  &.is-active {
     --checkbox-border-color: var(--c-primary);
     --checkbox-background: var(--c-primary);
     &.sf-checkbox--has-error {

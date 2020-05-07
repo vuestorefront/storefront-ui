@@ -2,7 +2,7 @@
   <div
     class="sf-bottom-navigation-item"
     :class="{
-      'sf-bottom-navigation-item--active': isActive,
+      'is-active': isActive,
       'sf-bottom-navigation-item--floating': isFloating,
       'sf-bottom-navigation-item--center': !icon || !label,
     }"

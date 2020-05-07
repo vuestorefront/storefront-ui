@@ -1,8 +1,5 @@
 <template>
-  <section
-    class="sf-sliding-section"
-    :class="{ 'sf-sliding-section--is-active': isActive }"
-  >
+  <section class="sf-sliding-section" :class="{ 'is-active': isActive }">
     <div ref="static" class="sf-sliding-section__static">
       <!-- @slot Use this slot to place static content. -->
       <slot name="static" />

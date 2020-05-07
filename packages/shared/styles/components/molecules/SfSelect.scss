@@ -13,7 +13,7 @@
     1.2,
     var(--font-family-primary)
   );
-  &--is-active {
+  &.is-active {
     --select-option-background: var(--c-light);
   }
   @include for-desktop {
@@ -137,7 +137,7 @@
     --select-label-top: 0;
     --select-label-font-size: var(--font-2xs);
   }
-  &--is-active {
+  &.is-active {
     --chevron-color: var(--c-primary);
     --select-label-color: var(--c-text-muted);
     --select-border-color: var(--c-primary);

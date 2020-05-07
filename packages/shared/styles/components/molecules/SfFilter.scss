@@ -44,7 +44,7 @@
     --filter-label-font-size: var(--font-2xs);
     --filter-count-font-size: var(--font-2xs);
   }
-  &--active {
+  &.is-active {
     @include for-desktop {
       --filter-label-text-decoration: underline;
       --filter-label-transform: scale(1.4);

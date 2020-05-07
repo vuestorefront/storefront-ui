@@ -23,7 +23,7 @@
   }
   @include for-desktop {
     --color-size: 0.75rem;
-    &--active,
+    &.is-active,
     &:hover {
       transform: scale(1.667);
     }

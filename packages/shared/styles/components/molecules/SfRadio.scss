@@ -30,7 +30,7 @@
       --radio-checkmark-transition,
       border 0.25s cubic-bezier(1, 0.5, 0.8, 1)
     );
-    .sf-radio--is-active & {
+    &.is-active {
       --radio-checkmark-border-width: 9px;
       --radio-checkmark-border-color: var(--c-primary);
     }
@@ -88,11 +88,11 @@
       var(--font-family-primary)
     );
   }
-  &--is-active {
+  &.is-active {
     background: var(--radio-background, var(--c-light));
   }
   &--transparent {
-    &.sf-radio--is-active {
+    &.is-active {
       --radio-background: transparent;
     }
   }

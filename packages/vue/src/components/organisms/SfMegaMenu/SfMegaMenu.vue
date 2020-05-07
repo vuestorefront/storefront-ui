@@ -7,10 +7,7 @@
         class="mobile-only"
         @click:back="change()"
       />
-      <div
-        class="sf-mega-menu__content"
-        :class="{ 'sf-mega-menu__content--is-active': isActive }"
-      >
+      <div class="sf-mega-menu__content" :class="{ 'is-active': isActive }">
         <div
           class="sf-mega-menu__aside"
           :class="{

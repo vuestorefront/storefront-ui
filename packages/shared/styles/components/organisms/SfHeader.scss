@@ -117,7 +117,7 @@
     &:hover {
       --icon-color: var(--c-text);
     }
-    &--is-active {
+    & .is-active {
       --icon-color: var(--c-primary);
     }
   }

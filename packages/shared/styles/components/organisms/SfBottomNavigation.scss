@@ -46,7 +46,7 @@
   &__label {
     margin: var(--bottom-navigation-item-label-margin);
   }
-  &--active {
+  &.is-active {
     --icon-color: var(--c-black);
     --bottom-navigation-item-color: var(--c-black);
     --bottom-navigation-item-font-weight: var(--font-normal);
