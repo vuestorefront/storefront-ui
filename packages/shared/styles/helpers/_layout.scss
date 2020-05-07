@@ -34,8 +34,25 @@
   $element,
   $params,
   $color,
-  $opacity
+  $opacity,
+  $scale
 ) {
-  box-shadow: var(#{$element}, _box-shadow($element, $params, $color));
-  opacity: var(#{$element}, $opacity);
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    box-shadow: var(#{$element}, _box-shadow($element, $params, $color));
+    opacity: var(#{$element}-opacity, $opacity);
+    transform: var(#{$element}-transform, $scale);
+    transition: 
+      var(#{$element}-transition,
+      transform 250ms ease-in-out
+    );
+    will-change: transform;
+  }
 }
