@@ -142,7 +142,7 @@
     --select-label-color: var(--c-text-muted);
     --select-border-color: var(--c-primary);
   }
-  &--is-disabled {
+  &.is-disabled {
     --chevron-color: var(--c-text-disabled);
     --select-color: var(--c-text-disabled);
     --select-border-color: var(--c-text-disabled);

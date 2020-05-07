@@ -13,9 +13,9 @@
           class="sf-button--pure"
           :class="{
             'sf-steps__step': true,
-            'sf-steps__step--done': step.done,
-            'sf-steps__step--current': step.current,
-            'sf-steps__step--disabled': step.disabled,
+            'is-done': step.done,
+            'is-current': step.current,
+            'is-disabled': step.disabled,
           }"
           @click="stepClick(step)"
         >

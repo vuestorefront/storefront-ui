@@ -25,7 +25,7 @@
       .sf-checkbox--has-error & {
         --checkbox-border-color: var(--c-danger);
       }
-      .sf-checkbox--is-disabled & {
+      .is-disabled & {
         --checkbox-border-color: var(--c-text-disabled);
       }
     }
@@ -49,12 +49,12 @@
       --checkbox-border-color: var(--c-danger);
       --checkbox-background: var(--c-danger);
     }
-    &.sf-checkbox--is-disabled {
+    &.is-disabled {
       --checkbox-border-color: var(--c-text-disabled);
       --checkbox-background: var(--c-text-disabled);
     }
   }
-  &--is-disabled {
+  &.is-disabled {
     --checkbox-label-color: var(--c-text-disabled);
     --checkbox-border-color: var(--c-text-disabled);
   }

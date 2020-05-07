@@ -3,7 +3,7 @@
     class="sf-checkbox"
     :class="{
       'is-active': isChecked,
-      'sf-checkbox--is-disabled': disabled,
+      'is-disabled': disabled,
       'sf-checkbox--has-error': !valid,
     }"
   >
