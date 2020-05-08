@@ -1,10 +1,14 @@
 @import "../../helpers";
 .sf-header-navigation-item {
   flex: 1;
+  display: flex;
   & > *:not(.sf-mega-menu) {
     --link-color: var(--header-navigation-item-color, var(--c-dark-variant));
     box-sizing: border-box;
-    display: block;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: var(--header-navigation-item-padding, calc(var(--spacer-sm) - 1px) var(--spacer-sm));
     margin: var(--header-navigation-item-margin, 0);
     @include border(--header-navigation-item-border, 0 0 2px 0, solid, transparent);
@@ -22,7 +26,7 @@
     text-align: center;
     @include for-desktop {
       padding: var(--header-navigation-item-padding, calc(var(--spacer-lg) - 1px) var(--spacer-sm));
-      margin: var(--header-navigation-item-margin, 0 var(--spacer-sm));
+      margin: var(--header-navigation-item-margin, 0);
     }
     &:focus {
       --header-navigation-item-color: var(--c-text);
@@ -41,6 +45,7 @@
   }
 }
 .sf-header {
+  position: relative;
   &__wrapper {
     position: var(--header-wrapper-position);
     z-index: var(--header-wrapper-z-index, 1);
@@ -56,7 +61,7 @@
     align-items: center;
     justify-content: center;
     padding: var(--header-padding, 0 var(--spacer-sm));
-    max-width: var(--header-width, 79.5rem);
+    max-width: var(--header-width, 77.5rem);
     margin: var(--header-margin,0 auto);
     @include for-desktop {
       flex-wrap: var(--header-flex-wrap, nowrap);
@@ -97,11 +102,11 @@
     }
   }
   &__search {
-    display: var(--header-search-display, none);
+    --search-bar-display: none;
     flex: var(--header-search-flex, 0 0 100%);
     margin: var(--spacer-xs) 0;
     @include for-desktop {
-      --header-search-display: flex;
+      --search-bar-display: flex;
       --header-search-flex: 0 1 19.875rem;
     }
   }
@@ -146,8 +151,10 @@
       --header-box-shadow: none;
     }
   }
-  &--has-mobile-search {
-    --header-search-display: flex;
+  &--has-mobile-search  {
+    & .sf-header__search {
+      --search-bar-display: flex;
+    }
   }
   &--has-mobile-navigation {
     --header-navigation-display: flex;
