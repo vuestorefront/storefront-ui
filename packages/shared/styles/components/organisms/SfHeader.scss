@@ -102,11 +102,11 @@
     }
   }
   &__search {
-    display: var(--search-bar-display, none);
+    --search-bar-display: none;
     flex: var(--header-search-flex, 0 0 100%);
     margin: var(--spacer-xs) 0;
     @include for-desktop {
-      display: var(--search-bar-display, flex);
+      --search-bar-display: flex;
       --header-search-flex: 0 1 19.875rem;
     }
   }
@@ -151,8 +151,10 @@
       --header-box-shadow: none;
     }
   }
-  &--has-mobile-search {
-    --search-bar-display: flex;
+  &--has-mobile-search  {
+    & .sf-header__search {
+      --search-bar-display: flex;
+    }
   }
   &--has-mobile-navigation {
     --header-navigation-display: flex;
