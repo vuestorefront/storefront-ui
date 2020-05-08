@@ -49,15 +49,23 @@
       --heading-title-font-weight: var(--font-bold);
     }
   }
-  &__close-desktop {
+  &__close {
+    --button-background: var(--c-black);
+    --button-display: none;
     position: absolute;
     top: var(--spacer-xs);
     right: var(--spacer-xs);
-    --button-background: var(--c-black);
+    @include for-desktop {
+      --button-display: flex;
+    }
   }
-  &__close {
+  &__cancel {
+    --button-display: flex;
     --button-background: var(--_c-light-primary);
     --button-color: var(--c-text-muted);
+    @include for-desktop {
+      --button-display: none;
+    }
   }
   &-enter-active {
     animation: var(

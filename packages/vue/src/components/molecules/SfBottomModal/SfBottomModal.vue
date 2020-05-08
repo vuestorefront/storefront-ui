@@ -24,7 +24,7 @@
         <!--@slot Use this slot to replace close button for desktop. -->
         <slot name="close-desktop">
           <SfCircleIcon
-            class="sf-circle-icon--small sf-bottom-modal__close-desktop desktop-only"
+            class="sf-circle-icon--small sf-bottom-modal__close"
             aria-label="Close"
             icon="cross"
             @click="close"
@@ -35,7 +35,7 @@
         <!--@slot Use this slot to replace close button for mobile. -->
         <slot name="close-mobile">
           <SfButton
-            class="sf-button--full-width mobile-only sf-bottom-modal__close"
+            class="sf-button--full-width sf-bottom-modal__cancel"
             aria-label="Close"
             @click="close"
             >Cancel</SfButton
