@@ -785,18 +785,40 @@ function editVuepressConfigFiles(sfComponents) {
   }
   // skip the components part (index 3) because we replace it entirely anyway
   let [, before, indent, , after] = reResult;
-  sfComponents.sort((a, b) => (a.sfComponentName > b.sfComponentName ? 1 : -1));
-  let components = [];
-  for (const { componentName } of sfComponents) {
+  function ComponentsGroup(title, children) {
+    (this.title = title), (this.children = children);
+  }
+  let atoms = new ComponentsGroup("Atoms", []);
+  let molecules = new ComponentsGroup("Molecules", []);
+  let organisms = new ComponentsGroup("Organisms", []);
+  let components = [atoms, molecules, organisms];
+  function componentsToString() {
+    return `{ \n${indent} title: "${this.title}",\n${indent} collapsable: false,\n${indent} children:  [${this.children}]\n }`;
+  }
+  ComponentsGroup.prototype.toString = componentsToString;
+  for (const { componentName, pathComponentVue } of sfComponents) {
     const path = "/components/" + componentName.toLowerCase();
     // put spaces between words for title
     const title = componentName.replace(/([A-Z])/g, " $1").trim();
-    components.push(`["${path}", "${title}"]`);
+    switch (pathComponentVue.split("/")[0]) {
+      case "atoms":
+        atoms.children.push(`\n${indent}["${path}", "${title}"]`);
+        break;
+      case "molecules":
+        molecules.children.push(`\n${indent}["${path}", "${title}"]`);
+        break;
+      case "organisms":
+        organisms.children.push(`\n${indent}["${path}", "${title}"]`);
+        break;
+      default:
+        components.push(`["${path}", "${title}"]`);
+    }
   }
-  let startTag = `\n${indent}// @components-docs-start (keep comment and indentation for auto-generated component docs)\n`;
-  let endTag = `\n${indent}// @components-docs-end\n`;
-  let formattedComponents = indent + components.join(`,\n${indent}`);
-  let newContent = before + startTag + formattedComponents + endTag + after;
+  let startTag = `\n// @components-docs-start (keep comment and indentation for auto-generated component docs)\n`;
+  let endTag = `// @components-docs-end\n`;
+  let formattedComponents =
+    indent + startTag + components.join(`,\n${indent}`) + endTag;
+  let newContent = before + formattedComponents + after;
   let pathVuepressConfig = pathInsideVuepressConfigRoot("config.js");
   fs.writeFileSync(pathVuepressConfig, newContent);
   /* enhanceApp.js */

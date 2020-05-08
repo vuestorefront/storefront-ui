@@ -3,6 +3,7 @@
     class="sf-header"
     :class="{
       'sf-header--has-mobile-search': hasMobileSearch,
+      'sf-header--has-mobile-navigation': hasMobileNavigation && isMobile,
       'sf-header--is-sticky': isSticky,
       'sf-header--is-hidden': !isVisible,
     }"
@@ -19,7 +20,10 @@
           />
           <h1 v-else-if="title" class="sf-header__title">{{ title }}</h1>
         </slot>
-        <nav class="sf-header__navigation desktop-only">
+        <nav
+          :class="{ 'desktop-only': !hasMobileNavigation }"
+          class="sf-header__navigation"
+        >
           <!--@slot Use this slot to replace default navigation links -->
           <slot name="navigation" />
         </nav>
@@ -66,7 +70,11 @@
         <slot name="language-selector" />
       </header>
     </div>
-    <div v-show="isSticky" class="sf-header__sticky-holder" :style="height" />
+    <div
+      v-show="isSticky"
+      class="sf-header__sticky-holder"
+      :style="holderHeight"
+    />
   </div>
 </template>
 <script>
@@ -142,6 +150,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    hasMobileNavigation: {
+      type: Boolean,
+      default: false,
+    },
     /**
      * Header sticky to top
      */
@@ -201,13 +213,16 @@ export default {
       animationStart: undefined,
       animationLong: undefined,
       animationDuration: 300,
-      height: {},
+      height: undefined,
     };
   },
   computed: {
     ...mapMobileObserver(),
     cartIsNotEmpty() {
       return parseInt(this.cartItemsQty, 10) > 0;
+    },
+    holderHeight() {
+      return { height: `${this.height}px` };
     },
   },
   watch: {
@@ -225,9 +240,7 @@ export default {
           return;
         this.$nextTick(() => {
           const containerHeight = this.$refs.header;
-          this.height = {
-            height: `${containerHeight.offsetHeight}px`,
-          };
+          this.height = containerHeight.offsetHeight;
         });
       },
       immediate: true,
@@ -238,9 +251,7 @@ export default {
           if (typeof window === "undefined" || typeof document === "undefined")
             return;
           const computedContainer = window.getComputedStyle(this.$refs.header);
-          this.height = {
-            height: computedContainer.height,
-          };
+          this.height = parseInt(computedContainer.height, 10);
         });
       },
       immediate: true,
@@ -274,9 +285,11 @@ export default {
         return;
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
-      this.scrollDirection = currentScrollPosition < this.lastScrollPosition;
-      this.isSearchVisible = currentScrollPosition <= 0;
-      this.lastScrollPosition = currentScrollPosition;
+      if (currentScrollPosition > this.height) {
+        this.scrollDirection = currentScrollPosition < this.lastScrollPosition;
+        this.isSearchVisible = currentScrollPosition <= 0;
+        this.lastScrollPosition = currentScrollPosition;
+      }
     },
   },
 };
