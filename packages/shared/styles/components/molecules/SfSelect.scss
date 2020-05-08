@@ -29,7 +29,7 @@
   width: var(--select-width);
   height: var(--select-height);
   padding: var(--select-padding, 0 0 calc(var(--font-xs) * 1.2) 0);
-  color: var(--select-color, var(--c-text));
+  color: var(--select-color, var(--c-text));  
   cursor: default;
   &__label {
     position: absolute;
@@ -59,6 +59,7 @@
   }
   &__chevron {
     --chevron-position: absolute;
+    display: var(--chevron-display, block);
     right: var(--spacer-xs);
     top: 50%;
     transform: translate3d(0, -50%, 0);
@@ -74,12 +75,12 @@
       calc(
         calc(
           var(--spacer-base) + var(--spacer-2xs) +
-          var(--select-label-font-size, var(--font-lg))
+            var(--select-label-font-size, var(--font-lg))
         )
       )
     );
     padding: var(
-      --select-padding,
+      --select-selected-padding,
       var(--spacer-sm) var(--spacer-lg) var(--spacer-xs) var(--spacer-2xs)
     );
     margin: var(--select-margin, 0 0 var(--spacer-xs) 0);
@@ -102,10 +103,12 @@
     );
   }
   &__options {
-    overflow: auto;
     margin: 0;
     padding: 0;
     list-style-type: none;
+    @include for-mobile {
+      overflow: auto;
+    }
     &::-webkit-scrollbar {
       width: 0;
     }
@@ -150,6 +153,9 @@
   }
   &--is-required {
     --select-label-required: " *";
+  }
+  &--no-chevron {
+    --chevron-display: none;
   }
   &-enter-active {
     animation: var(--select-animation-enter, ssmobile 150ms);

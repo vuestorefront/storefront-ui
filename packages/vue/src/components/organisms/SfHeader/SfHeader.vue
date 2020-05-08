@@ -1,92 +1,115 @@
 <template>
   <div
     class="sf-header"
-    :class="{
-      'sf-header--has-mobile-search': hasMobileSearch,
-      'sf-header--is-sticky': isSticky,
-      'sf-header--is-hidden': !isVisible,
-    }"
+    :class="{ 'sf-header--is-sticky': sticky, 'sf-header--is-hidden': hidden }"
+    :style="stickyHeight"
   >
-    <div class="sf-header__sticky-container">
-      <header ref="header" class="sf-header__container">
-        <!--@slot Use this slot to replace logo with text or icon-->
+    <div class="sf-header__wrapper">
+      <header ref="header">
+        <!--@slot Use this slot to replace logo with text or image-->
         <slot name="logo" v-bind="{ logo, title }">
-          <SfImage
-            v-if="logo"
-            :src="logo"
-            :alt="title"
-            class="sf-header__logo"
-          />
-          <h1 v-else-if="title" class="sf-header__title">{{ title }}</h1>
-        </slot>
-        <nav class="sf-header__navigation desktop-only">
-          <!--@slot Use this slot to replace default navigation links -->
-          <slot name="navigation" />
-        </nav>
-        <!--@slot Use this slot to replace default search bar-->
-        <slot
-          name="search"
-          v-bind="{ searchPlaceholder, searchValue, hasMobileSearch }"
-        >
-          <SfSearchBar
-            :value="searchValue"
-            :placeholder="searchPlaceholder"
-            aria-label="Search"
-            class="sf-header__search"
-            :class="{ 'desktop-only': !hasMobileSearch }"
-            @input="$emit('change:search', $event)"
-            @enter="$emit('enter:search', $event)"
-          />
-        </slot>
-        <!--@slot Use this slot to replace default header icons with custom content-->
-        <slot
-          name="header-icons"
-          v-bind="{ accountIcon, wishlistIcon, cartIcon }"
-        >
-          <button
-            v-for="icon in headerIcons"
-            :key="icon.name"
-            class="sf-header__icons desktop-only"
-          >
-            <SfIcon
-              :icon="icon.icon"
-              :has-badge="cartIsNotEmpty && icon.hasBadge === true"
-              :badge-label="cartItemsQty"
-              size="xs"
-              class="sf-header__icon"
-              :class="{
-                'sf-header__icon--is-active': activeIcon === icon.name,
-              }"
-              :aria-label="icon.name"
-              :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
-              @click="$emit(`click:${icon.name}`)"
+          <SfLink link="/">
+            <SfImage
+              v-if="logo"
+              :src="logo"
+              :alt="title"
+              class="sf-header__logo"
             />
-          </button>
+            <h1 v-else class="sf-header__title">{{ title }}</h1>
+          </SfLink>
         </slot>
-        <!--@slot Use this slot to replace default header language selector on mobile -->
-        <slot name="language-selector" />
+        <div class="sf-header__aside">
+          <!-- @slot Use this slot for language or currency selector -->
+          <slot name="aside" />
+        </div>
+        <div class="sf-header__actions">
+          <nav class="sf-header__navigation">
+            <slot name="navigation"></slot>
+          </nav>
+          <!--@slot Use this slot to replace default search bar-->
+          <slot name="search" v-bind="{ searchValue, searchPlaceholder }">
+            <SfSearchBar
+              :value="searchValue"
+              :placeholder="searchPlaceholder"
+              aria-label="Search"
+              class="sf-header__search"
+              @input="$emit('change:search', $event)"
+              @enter="$emit('enter:search', $event)"
+            />
+          </slot>
+          <!--@slot Use this slot to replace default header icons with custom content-->
+          <slot
+            name="header-icons"
+            v-bind="{ activeIcon, cartHasProducts, cartItemsQty }"
+          >
+            <div class="sf-header__icons">
+              <SfButton
+                class="sf-button--pure sf-header__action"
+                @click="$emit('click:account')"
+              >
+                <SfIcon
+                  icon="account"
+                  size="1.25rem"
+                  :class="{
+                    'sf-header__icon--is-active': activeIcon === 'account',
+                  }"
+                />
+              </SfButton>
+              <SfButton
+                class="sf-button--pure sf-header__action"
+                @click="$emit('click:wishlist')"
+              >
+                <SfIcon
+                  icon="heart"
+                  size="1.25rem"
+                  :class="{
+                    'sf-header__icon--is-active': activeIcon === 'wishlist',
+                  }"
+                />
+              </SfButton>
+              <SfButton
+                class="sf-button--pure sf-header__action"
+                @click="$emit('click:cart')"
+              >
+                <SfIcon
+                  class="sf-header__icon"
+                  icon="empty_cart"
+                  :has-badge="cartHasProducts"
+                  :badge-label="cartItemsQty"
+                  size="1.25rem"
+                  :class="{
+                    'sf-header__icon--is-active': activeIcon === 'cart',
+                  }"
+                />
+              </SfButton>
+            </div>
+          </slot>
+        </div>
       </header>
     </div>
-    <div v-show="isSticky" class="sf-header__sticky-holder" :style="height" />
   </div>
 </template>
 <script>
 import Vue from "vue";
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
+Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
-Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
 export default {
   name: "SfHeader",
   components: {
-    SfIcon,
     SfImage,
     SfSearchBar,
+    SfButton,
+    SfIcon,
+    SfLink,
   },
   props: {
     /**
@@ -135,20 +158,6 @@ export default {
       },
     },
     /**
-     * Header search on mobile
-     */
-    hasMobileSearch: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-     * Header sticky to top
-     */
-    isSticky: {
-      type: Boolean,
-      default: false,
-    },
-    /**
      * Header search placeholder
      */
     searchPlaceholder: {
@@ -166,81 +175,72 @@ export default {
      * Header cart items quantity
      */
     cartItemsQty: {
-      type: String,
+      type: [String, Number],
       default: "0",
     },
+    /**
+     * Header sticky to top
+     */
+    isSticky: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Header search on mobile
+     */
   },
   data() {
     return {
-      headerIcons: [
-        {
-          conditional: this.accountIcon,
-          icon: this.accountIcon,
-          name: "account",
-          hasBadge: false,
-        },
-        {
-          conditional: this.wishlistIcon,
-          icon: this.wishlistIcon,
-          name: "wishlist",
-          hasBadge: false,
-        },
-        {
-          conditional: this.cartIcon,
-          icon: this.cartIcon,
-          name: "cart",
-          hasBadge: true,
-        },
-      ],
-      isVisible: true,
-      isSearchVisible: true,
+      icons: [],
+      height: 0,
+      hidden: false,
       sticky: false,
-      scrollDirection: undefined, // false = down, true = up
+      scrollDirection: null,
       lastScrollPosition: 0,
-      animationStart: undefined,
-      animationLong: undefined,
+      animationStart: null,
+      animationLong: null,
       animationDuration: 300,
-      height: {},
     };
   },
   computed: {
     ...mapMobileObserver(),
-    cartIsNotEmpty() {
+    cartHasProducts() {
       return parseInt(this.cartItemsQty, 10) > 0;
+    },
+    stickyHeight() {
+      return {
+        "--_header-height": `${this.height}px`,
+      };
     },
   },
   watch: {
-    scrollDirection() {
-      if (typeof window === "undefined" || typeof document === "undefined")
-        return;
-      window.cancelAnimationFrame(this.animationLong);
-      this.animationLong = undefined;
-      this.animationStart = undefined;
-      this.animationLong = window.requestAnimationFrame(this.animationHandler);
+    scrollDirection: {
+      handler() {
+        if (typeof window === "undefined" || typeof document === "undefined")
+          return;
+        window.cancelAnimationFrame(this.animationLong);
+        this.animationLong = null;
+        this.animationStart = null;
+        this.animationLong = window.requestAnimationFrame(
+          this.animationHandler
+        );
+      },
     },
     isMobile: {
       handler() {
         if (typeof window === "undefined" || typeof document === "undefined")
           return;
         this.$nextTick(() => {
-          const containerHeight = this.$refs.header;
-          this.height = {
-            height: `${containerHeight.offsetHeight}px`,
-          };
+          this.height = this.$refs.header.offsetHeight;
         });
       },
       immediate: true,
     },
-    hasMobileSearch: {
-      handler() {
-        this.$nextTick(() => {
-          if (typeof window === "undefined" || typeof document === "undefined")
-            return;
-          const computedContainer = window.getComputedStyle(this.$refs.header);
-          this.height = {
-            height: computedContainer.height,
-          };
-        });
+    isSticky: {
+      handler(isSticky) {
+        if (typeof window === "undefined" || typeof document === "undefined")
+          return;
+        this.sticky = isSticky;
       },
       immediate: true,
     },
@@ -251,10 +251,12 @@ export default {
     }
   },
   beforeDestroy() {
-    if (this.isSticky) {
-      window.removeEventListener("scroll", this.scrollHandler);
-    }
     unMapMobileObserver();
+    if (this.isSticky) {
+      window.removeEventListener("scroll", this.scrollHandler, {
+        passive: true,
+      });
+    }
   },
   methods: {
     animationHandler(timestamp) {
@@ -266,15 +268,17 @@ export default {
         );
         return;
       }
-      this.isVisible = this.scrollDirection;
+      this.hidden = this.scrollDirection === "down";
     },
     scrollHandler() {
       if (typeof window === "undefined" || typeof document === "undefined")
         return;
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
-      this.scrollDirection = currentScrollPosition < this.lastScrollPosition;
-      this.isSearchVisible = currentScrollPosition <= 0;
+      if (currentScrollPosition >= this.height) {
+        this.scrollDirection =
+          currentScrollPosition < this.lastScrollPosition ? "up" : "down";
+      }
       this.lastScrollPosition = currentScrollPosition;
     },
   },
