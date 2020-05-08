@@ -121,7 +121,7 @@ const MegaMenuPlaceholder = {
         title="Man"
         :asideTitle="asideTitle"
         :visible="visible"
-        :style="{position: 'absolute', left: 0}"
+        :style="{position: 'absolute', left: 0, top: '100%'}"
       >
         <SfMegaMenuColumn 
           v-for="subcategory in subcategories" 
