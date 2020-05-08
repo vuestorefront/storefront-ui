@@ -5,8 +5,9 @@ import {
   select,
   boolean,
   object,
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
-import { SfHeader } from "@storefront-ui/vue";
+import { SfHeader, SfLink } from "@storefront-ui/vue";
 const StoriesPlaceholder = {
   props: {
     mobile: {
@@ -31,8 +32,22 @@ const StoriesPlaceholder = {
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfHeader, StoriesPlaceholder },
+    components: { SfHeader, SfLink, StoriesPlaceholder },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-header--has-mobile-search": "sf-header--has-mobile-search",
+            "sf-header--has-mobile-navigation":
+              "sf-header--has-mobile-navigation",
+            "sf-header--multiline": "sf-header--multiline",
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
       title: {
         default: text("title", "Storefront UI", "Props"),
       },
@@ -53,12 +68,6 @@ storiesOf("Organisms|Header", module)
           "account",
           "Props"
         ),
-      },
-      hasMobileSearch: {
-        default: boolean("hasMobileSearch", false, "Props"),
-      },
-      hasMobileNavigation: {
-        default: boolean("hasMobileNavigation", false, "Props"),
       },
       isSticky: {
         default: boolean("isSticky", true, "Props"),
@@ -112,11 +121,10 @@ storiesOf("Organisms|Header", module)
     },
     template: `<div>
       <SfHeader
+          :class="customClass"
           :title="title"
           :logo="logo"
           :active-icon="activeIcon"
-          :has-mobile-search="hasMobileSearch"
-          :has-mobile-navigation="hasMobileNavigation"
           :search-placeholder="searchPlaceholder"
           :search-value="searchValue"
           :cart-icon="cartIcon"
@@ -134,7 +142,7 @@ storiesOf("Organisms|Header", module)
           <SfHeaderNavigationItem
               v-for="item in navigation"
               :key="item">
-            <a href="#" :style="{ display: 'flex',alignItems: 'center',height: '100%' }">{{item}}</a>
+            <SfLink href="#">{{item}}</SfLink>
           </SfHeaderNavigationItem>
         </template>
       </SfHeader>
@@ -165,12 +173,6 @@ storiesOf("Organisms|Header", module)
           "Props"
         ),
       },
-      hasMobileSearch: {
-        default: boolean("hasMobileSearch", true, "Props"),
-      },
-      hasMobileNavigation: {
-        default: boolean("hasMobileNavigation", true, "Props"),
-      },
       isSticky: {
         default: boolean("isSticky", true, "Props"),
       },
@@ -226,8 +228,6 @@ storiesOf("Organisms|Header", module)
           :title="title"
           :logo="logo"
           :active-icon="activeIcon"
-          :has-mobile-search="hasMobileSearch"
-          :has-mobile-navigation="hasMobileNavigation"
           :search-placeholder="searchPlaceholder"
           :search-value="searchValue"
           :cart-icon="cartIcon"
@@ -253,7 +253,7 @@ storiesOf("Organisms|Header", module)
     </div>`,
   }))
   .add("[slot] navigation", () => ({
-    components: { SfHeader },
+    components: { SfHeader, SfLink },
     props: {
       title: {
         default: text("title", "Storefront UI", "Props"),
@@ -346,7 +346,7 @@ storiesOf("Organisms|Header", module)
         @change:search="searchValue = $event"
     >
       <template #navigation>
-        <div :style="{margin: '0 0 0 1.25rem', display: 'flex', alignItems:'center', height: '100%'}">CUSTOM NAVIGATION</div>
+        <SfLink link="/">CUSTOM NAVIGATION</SfLink>
       </template>
     </SfHeader>`,
   }))
@@ -665,8 +665,8 @@ storiesOf("Organisms|Header", module)
       </template>
     </SfHeader>`,
   }))
-  .add("[slot] language-selector", () => ({
-    components: { SfHeader },
+  .add("[slot] aside", () => ({
+    components: { SfHeader, SfLink },
     props: {
       title: {
         default: text("title", "Storefront UI", "Props"),
@@ -748,18 +748,18 @@ storiesOf("Organisms|Header", module)
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
         :search-value="searchValue"
-        :style="spacer"
         :cart-items-qty="cartItemsQty"
         @change:search="searchValue = $event"
+        class="sf-header--has-mobile-search sf-header--has-mobile-navigation"
     >
-      <template #language-selector>
-        <div :style="{margin: '0 0 0 1rem'}">LANGUAGE SELECTOR</div>
+      <template #aside>
+        <div :style="{margin: '0 0 0 1rem'}" class="mobile-only">ASIDE</div>
       </template>
       <template #navigation>
         <SfHeaderNavigationItem
             v-for="item in navigation"
             :key="item">
-          <a href="#" :style="{ display: 'flex',alignItems: 'center',height: '100%' }">{{item}}</a>
+          <SfLink href="#">{{item}}</SfLink>
         </SfHeaderNavigationItem>
       </template>
     </SfHeader>`,
