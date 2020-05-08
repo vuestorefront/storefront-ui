@@ -55,7 +55,9 @@
     margin: var(--grouped-product-item-info-margin);
   }
   &__title {
-    margin: var(--grouped-product-item-title-margin, var(--spacer-xs) 0);
+    padding: var(--grouped-product-item-title-margin, var(--spacer-xs) 0);
+    display: inline-block;
+    --link-text-decoration: none;
     @include font(
       --grouped-product-item-title-font,
       var(--font-normal),
