@@ -100,11 +100,11 @@
     }
   }
   &__search {
-    display: var(--header-search-display, none);
+    --search-bar-display: none;
     flex: var(--header-search-flex, 0 0 100%);
     margin: var(--spacer-xs) 0;
     @include for-desktop {
-      --header-search-display: flex;
+      --search-bar-display: flex;
       --header-search-flex: 0 1 19.875rem;
     }
   }
@@ -150,7 +150,7 @@
     }
   }
   &--has-mobile-search {
-    --header-search-display: flex;
+    --search-bar-display: flex;
   }
   &--has-mobile-navigation {
     --header-navigation-display: flex;
