@@ -38,6 +38,7 @@
       <!--@slot Custom notification close icon. Slot content will replace default close icon.-->
       <slot name="close" v-bind="{ closeHandler }">
         <SfButton
+          aria-label="Close notification"
           class="sf-button--pure sf-notification__close"
           @click="closeHandler"
         >
