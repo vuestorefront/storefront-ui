@@ -38,7 +38,7 @@
       </slot>
       <SfOverlay :visible="open" class="sf-select__overlay mobile-only" />
       <transition name="sf-select">
-        <div role="list" v-show="open" class="sf-select__dropdown">
+        <div v-show="open" role="list" class="sf-select__dropdown">
           <!--  sf-select__option -->
           <ul
             :aria-expanded="open ? 'true' : 'false'"
