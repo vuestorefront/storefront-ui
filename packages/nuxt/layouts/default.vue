@@ -1,6 +1,14 @@
 <template>
   <div>
-    <SfHeader v-if="false" :isSticky="true" @click:cart="open = true"></SfHeader>
+    <SfHeader class="sf-header--multiline" title="Storefront UI" logo="/assets/logo.svg" :cartItemsQty="1" is-sticky>
+      <template #navigation>
+        <SfHeaderNavigationItem
+            v-for="(item, i) in navigation"
+            :key="i">
+          <SfLink :link="item.link">{{item.name}}</SfLink>
+        </SfHeaderNavigationItem>
+      </template>
+    </SfHeader>
       <nuxt />
     <SfFooter v-if="false"></SfFooter>
     <SfBottomNavigation class="mobile-only">
@@ -24,10 +32,10 @@
   </div>
 </template>
 <script>
-  import {SfHeader, SfFooter, SfBottomNavigation } from "@storefront-ui/vue"
+  import {SfHeader, SfFooter, SfBottomNavigation, SfLink } from "@storefront-ui/vue"
   import Cart from "@storefront-ui/vue/src/examples/pages/cart/Cart.vue"
   export default {
-    components: {SfHeader, SfFooter, Cart, SfBottomNavigation},
+    components: {SfHeader, SfFooter, Cart, SfBottomNavigation, SfLink},
     data(){
       return {
         currentIcon: "profile_fill",
@@ -52,6 +60,16 @@
             iconActive: "profile_fill",
             label: "Profile"
           }
+        ],
+        navigation: [
+          {link: "/category", name: "Category"},
+          {link: "/product", name: "Product"},
+          {link: "/cart", name: "Cart"},
+          {link: "/detailed-cart", name: "Detailed Cart"},
+          {link: "/login", name: "Login"},
+          {link: "/my-account", name: "My Account"},
+          {link: "/static", name: "Static"},
+          {link: "/thank-you", name: "Thank You"}
         ]
       }
     }
