@@ -88,6 +88,7 @@ module.exports = {
 ["/components/alert", "Alert"],
 ["/components/banner", "Banner"],
 ["/components/bar", "Bar"],
+["/components/bottommodal", "Bottom Modal"],
 ["/components/calltoaction", "Call To Action"],
 ["/components/characteristic", "Characteristic"],
 ["/components/dropdown", "Dropdown"],

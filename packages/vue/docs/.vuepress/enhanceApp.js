@@ -14,7 +14,6 @@ import SfHeading from "../../src/components/atoms/SfHeading/SfHeading.vue"
 import SfIcon from "../../src/components/atoms/SfIcon/SfIcon.vue"
 import SfImage from "../../src/components/atoms/SfImage/SfImage.vue"
 import SfInput from "../../src/components/atoms/SfInput/SfInput.vue"
-import SfBottomModal from "../../src/components/molecules/SfBottomModal/SfBottomModal.vue"
 import SfLink from "../../src/components/atoms/SfLink/SfLink.vue"
 import SfLoader from "../../src/components/atoms/SfLoader/SfLoader.vue"
 import SfOverlay from "../../src/components/atoms/SfOverlay/SfOverlay.vue"
@@ -26,6 +25,7 @@ import SfAddToCart from "../../src/components/molecules/SfAddToCart/SfAddToCart.
 import SfAlert from "../../src/components/molecules/SfAlert/SfAlert.vue"
 import SfBanner from "../../src/components/molecules/SfBanner/SfBanner.vue"
 import SfBar from "../../src/components/molecules/SfBar/SfBar.vue"
+import SfBottomModal from "../../src/components/molecules/SfBottomModal/SfBottomModal.vue"
 import SfCallToAction from "../../src/components/molecules/SfCallToAction/SfCallToAction.vue"
 import SfCharacteristic from "../../src/components/molecules/SfCharacteristic/SfCharacteristic.vue"
 import SfDropdown from "../../src/components/molecules/SfDropdown/SfDropdown.vue"
@@ -87,7 +87,6 @@ export default ({
   Vue.component("SfIcon", SfIcon);
   Vue.component("SfImage", SfImage);
   Vue.component("SfInput", SfInput);
-  Vue.component("SfBottomModal", SfBottomModal);
   Vue.component("SfLink", SfLink);
   Vue.component("SfLoader", SfLoader);
   Vue.component("SfOverlay", SfOverlay);
@@ -99,6 +98,7 @@ export default ({
   Vue.component("SfAlert", SfAlert);
   Vue.component("SfBanner", SfBanner);
   Vue.component("SfBar", SfBar);
+  Vue.component("SfBottomModal", SfBottomModal);
   Vue.component("SfCallToAction", SfCallToAction);
   Vue.component("SfCharacteristic", SfCharacteristic);
   Vue.component("SfDropdown", SfDropdown);
