@@ -8,11 +8,11 @@ export const clickOutside = {
         closeHandler();
       }
     };
-    document.addEventListener("click", el._outsideClickHandler);
+    document.addEventListener("mouseup", el._outsideClickHandler);
     document.addEventListener("touchstart", el._outsideClickHandler);
   },
   unbind(el) {
-    document.removeEventListener("click", el._outsideClickHandler);
+    document.removeEventListener("mouseup", el._outsideClickHandler);
     document.removeEventListener("touchstart", el._outsideClickHandler);
     el._outsideClickHandler = null;
   },
