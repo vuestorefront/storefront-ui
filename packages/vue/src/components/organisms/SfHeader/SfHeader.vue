@@ -27,7 +27,7 @@
             <slot name="navigation"></slot>
           </nav>
           <!--@slot Use this slot to replace default search bar-->
-          <slot name="search" v-bind="{searchValue, searchPlaceholder}">
+          <slot name="search" v-bind="{ searchValue, searchPlaceholder }">
             <SfSearchBar
               :value="searchValue"
               :placeholder="searchPlaceholder"
@@ -38,7 +38,10 @@
             />
           </slot>
           <!--@slot Use this slot to replace default header icons with custom content-->
-          <slot name="header-icons" v-bind="{activeIcon, cartHasProducts, cartItemsQty}">
+          <slot
+            name="header-icons"
+            v-bind="{ activeIcon, cartHasProducts, cartItemsQty }"
+          >
             <div class="sf-header__icons">
               <SfButton
                 class="sf-button--pure sf-header__action"
