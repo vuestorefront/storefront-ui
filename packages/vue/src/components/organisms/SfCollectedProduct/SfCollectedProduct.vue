@@ -35,7 +35,6 @@
         <div class="sf-collected-product__quantity-wrapper">
           <SfQuantitySelector
             :qty="qty"
-            aria-label="Quantity"
             class="sf-collected-product__quantity-selector"
             @input="$emit('input', $event)"
           />
