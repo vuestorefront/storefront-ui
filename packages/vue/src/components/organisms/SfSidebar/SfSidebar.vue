@@ -5,7 +5,7 @@
       <aside
         v-if="visible"
         v-focus-trap
-        v-click-outside="{ closeHandler: close, exclude: notClosingEl }"
+        v-click-outside="close"
         class="sf-sidebar__aside"
       >
         <!--@slot Use this slot to place content inside the modal bar.-->
@@ -95,13 +95,6 @@ export default {
     overlay: {
       type: Boolean,
       default: true,
-    },
-    /**
-     * Array of elements which don't close sidebar.
-     */
-    notClosingEl: {
-      type: Array,
-      default: undefined,
     },
   },
   data() {

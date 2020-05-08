@@ -1,8 +1,8 @@
 <template>
   <div
+    v-click-outside="closeHandler"
     :aria-expanded="open ? 'true' : 'false'"
     :aria-owns="'lbox_' + _uid"
-    v-click-outside="{ closeHandler: closeHandler, exclude: notClosingEl }"
     aria-autocomplete="none"
     role="combobox"
     tabindex="0"
