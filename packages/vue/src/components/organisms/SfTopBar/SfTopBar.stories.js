@@ -1,7 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import SfTopBar from "./SfTopBar.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfImage from "../../atoms/SfImage/SfImage.vue";
+import { SfTopBar, SfButton, SfImage } from "@storefront-ui/vue";
 storiesOf("Organisms|TopBar", module)
   .add("Common", () => ({
     components: { SfTopBar, SfButton, SfImage },
@@ -15,7 +13,7 @@ storiesOf("Organisms|TopBar", module)
       </template>
       <template #right>
         <div style="margin-right: 27px">Location:</div>
-        <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag"/>
+        <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag of the USA"/>
       </template>
     </SfTopBar>`,
   }))
@@ -31,7 +29,7 @@ storiesOf("Organisms|TopBar", module)
       </template>
       <template #right>
         <div style="margin-right: 27px">Location:</div>
-        <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag"/>
+        <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag of the USA"/>
       </template>
     </SfTopBar>`,
   }))
@@ -46,7 +44,7 @@ storiesOf("Organisms|TopBar", module)
       </template>
       <template #right>
         <div style="margin-right: 27px">Location:</div>
-        <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag"/>
+        <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag of the USA"/>
       </template>
     </SfTopBar>`,
   }))

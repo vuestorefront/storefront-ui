@@ -19,6 +19,8 @@
 }
 .sf-bottom-navigation-item {
   --icon-color: var(--c-gray-variant);
+  background: transparent;
+  border: 0;
   top: var(--bottom-navigation-item-top);
   display: flex;
   flex-direction: column;
@@ -51,6 +53,10 @@
   }
   &--has-margin {
     --bottom-navigation-item-label-margin: var(--spacer-xs) 0 0 0;
+  }
+  &__icon {
+    background: transparent;
+    padding: 0;
   }
   &--floating {
     --icon-color: var(--c-white);

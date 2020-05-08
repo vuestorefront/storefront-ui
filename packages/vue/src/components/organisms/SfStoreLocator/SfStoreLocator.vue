@@ -2,7 +2,7 @@
   <div class="sf-store-locator">
     <div class="sf-store-locator__wrapper">
       <div class="sf-store-locator__list">
-        <div v-focus class="sf-store-locator__stores desktop-only" tabindex="0">
+        <div class="sf-store-locator__stores desktop-only">
           Found stores: <span>{{ stores.length }}</span>
         </div>
         <!-- @slot Use this slot to show stores cards -->
@@ -111,7 +111,7 @@ export default {
       default: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ",
     },
     /**
-     * Initial center of the map, overriden when the user position is captured, supports sync modifier
+     * Initial center of the map, overridden when the user position is captured, supports sync modifier
      */
     center: {
       type: [Array, Object],

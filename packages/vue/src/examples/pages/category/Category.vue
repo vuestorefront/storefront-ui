@@ -11,6 +11,7 @@
       <div class="navbar__main">
         <SfButton
           class="sf-button--text navbar__filters-button"
+          aria-label="Filters"
           @click="isFilterSidebarOpen = true"
         >
           <SfIcon size="32px" color="#BEBFC4" icon="filter" />
@@ -99,6 +100,7 @@
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
             :is-on-wishlist="product.isOnWishlist"
+            :show-add-to-cart-button="true"
             class="products__product-card"
             @click:wishlist="toggleWishlist(i)"
           />
@@ -361,7 +363,7 @@ export default {
           ],
         },
         {
-          header: "Accesorries",
+          header: "Accessorries",
           items: [
             { label: "All", count: "280" },
             { label: "Skirts", count: "23" },

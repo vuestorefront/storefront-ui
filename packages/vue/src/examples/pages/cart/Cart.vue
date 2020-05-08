@@ -41,12 +41,12 @@
                 <template #actions>
                   <div class="desktop-only collected-product__actions">
                     <SfButton
-                      class="sf-button--text color-secondary collected-product__action"
+                      class="sf-button--text color-secondary collected-product__save"
                     >
                       Save for later
                     </SfButton>
                     <SfButton
-                      class="sf-button--text color-secondary collected-product__action"
+                      class="sf-button--text color-secondary collected-product__compare"
                     >
                       Add to compare
                     </SfButton>
@@ -246,13 +246,24 @@ export default {
   }
   &__actions {
     transition: opacity 150ms ease-in-out;
-    opacity: var(--cp-actions-opacity, 0);
   }
-  &__action {
+  &__save,
+  &__compare {
     --button-padding: 0;
+    &:focus {
+      --cp-save-opacity: 1;
+      --cp-compare-opacity: 1;
+    }
+  }
+  &__save {
+    opacity: var(--cp-save-opacity, 0);
+  }
+  &__compare {
+    opacity: var(--cp-compare-opacity, 0);
   }
   &:hover {
-    --cp-actions-opacity: 1;
+    --cp-save-opacity: 1;
+    --cp-compare-opacity: 1;
   }
 }
 </style>

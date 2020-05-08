@@ -4,23 +4,21 @@
       <!--@slot custom icon for inactive bullet -->
       <slot name="inactive" class="sf-bullet" v-bind="{ index, go }">
         <li :key="index">
-          <button
-            v-focus
+          <SfButton
             :aria-label="'Go to slide ' + (index + 1)"
-            class="sf-bullet"
+            class="sf-button--pure sf-bullet"
             @click="go(index)"
-          ></button>
+          ></SfButton>
         </li>
       </slot>
     </template>
     <!--@slot custom icon for active bullet -->
     <slot name="active">
       <li>
-        <button
-          v-focus
+        <SfButton
           aria-label="Current slide"
-          class="sf-bullet sf-bullet--active"
-        ></button>
+          class="sf-button--pure sf-bullet sf-bullet--active"
+        ></SfButton>
       </li>
     </slot>
     <template v-for="(_, index) of inactiveRight">
@@ -31,23 +29,22 @@
         v-bind="{ index: inactiveLeft + 1 + index, go }"
       >
         <li :key="inactiveLeft + 1 + index">
-          <button
-            v-focus
+          <SfButton
             :aria-label="'Go to slide ' + (inactiveLeft + 2 + index)"
-            class="sf-bullet"
+            class="sf-button--pure sf-bullet"
             @click="go(inactiveLeft + 1 + index)"
-          ></button>
+          ></SfButton>
         </li>
       </slot>
     </template>
   </ol>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/focus-directive.js";
+import SfButton from "../SfButton/SfButton.vue";
 export default {
   name: "SfBullets",
-  directives: {
-    focus: focus
+  components: {
+    SfButton,
   },
   props: {
     /**

@@ -2,10 +2,9 @@
   <Fragment class="sf-tabs__tab">
     <!--@slot Title. Here you should pass a title tab-->
     <slot name="title" v-bind="{ tabClick, isActive, title }">
-      <button
-        v-focus
+      <SfButton
         :aria-pressed="isActive.toString()"
-        class="sf-tabs__title"
+        class="sf-button--pure sf-tabs__title"
         :class="{ 'sf-tabs__title--active': isActive }"
         @click="tabClick"
       >
@@ -14,7 +13,7 @@
           class="sf-tabs__chevron"
           :class="{ 'sf-chevron--right': !isActive }"
         />
-      </button>
+      </SfButton>
     </slot>
     <div class="sf-tabs__content">
       <div v-if="isActive" class="sf-tabs__content__tab">
@@ -32,17 +31,15 @@
 <script>
 import { Fragment } from "vue-fragment";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
+import SfButton from "../../../atoms/SfButton/SfButton.vue";
 import SfScrollable from "../../../molecules/SfScrollable/SfScrollable.vue";
-import { focus } from "../../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfTab",
-  directives: {
-    focus: focus,
-  },
   components: {
     Fragment,
     SfChevron,
     SfScrollable,
+    SfButton,
   },
   inject: ["contentShow"],
   props: {

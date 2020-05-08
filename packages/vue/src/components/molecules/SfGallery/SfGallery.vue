@@ -45,21 +45,21 @@
     </div>
     <div class="sf-gallery__thumbs">
       <slot name="thumbs" v-bind="{ images, active: activeIndex, go }">
-        <div
+        <SfButton
           v-for="(image, index) in images"
           :key="'img-' + index"
-          class="sf-gallery__item"
+          class="sf-button--pure sf-gallery__item"
           :class="{ 'sf-gallery__item--selected': index === activeIndex }"
           @click="go(index)"
         >
           <SfImage
             class="sf-gallery__thumb"
             :src="image.mobile.url"
-            alt=""
+            :alt="image.alt"
             :width="thumbWidth"
             :height="thumbHeight"
           />
-        </div>
+        </SfButton>
       </slot>
     </div>
   </div>
@@ -67,10 +67,12 @@
 <script>
 import Glide from "@glidejs/glide";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfGallery",
   components: {
     SfImage,
+    SfButton,
   },
   props: {
     /**

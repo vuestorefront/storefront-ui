@@ -95,4 +95,11 @@
 .fade-collapse {
     @include transition-slide-fade("bottom");
 }
-
+.bounce{
+    &-enter-active {
+      animation: bounce-in 300ms;
+    }
+    &-leave-active {
+      animation: bounce-in 300ms reverse;
+    }
+}

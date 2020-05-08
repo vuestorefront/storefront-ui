@@ -5,7 +5,7 @@
       :breadcrumbs="breadcrumbs"
     />
     <div class="product">
-      <SfGallery :images="product.images" />
+      <SfGallery :images="product.images" class="product__gallery" />
       <div class="product__info">
         <div class="product__header">
           <SfHeading
@@ -63,6 +63,7 @@
             <SfColor
               v-for="(color, i) in product.colors"
               :key="i"
+              :aria-label="color.name"
               :color="color.color"
               :selected="color.selected"
               class="product__color"
@@ -464,6 +465,9 @@ export default {
     &__paragraph {
       margin: 0;
     }
+  }
+  &__gallery {
+    flex: 1;
   }
 }
 .breadcrumbs {
