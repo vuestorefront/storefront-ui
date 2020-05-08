@@ -1,10 +1,12 @@
 @import "../../helpers";
 .sf-header-navigation-item {
   flex: 1;
+  display: flex;
   & > *:not(.sf-mega-menu) {
     --link-color: var(--header-navigation-item-color, var(--c-dark-variant));
     box-sizing: border-box;
-    display: block;
+    display: flex;
+    align-items: center;
     padding: var(--header-navigation-item-padding, calc(var(--spacer-sm) - 1px) var(--spacer-sm));
     margin: var(--header-navigation-item-margin, 0);
     @include border(--header-navigation-item-border, 0 0 2px 0, solid, transparent);
@@ -22,7 +24,7 @@
     text-align: center;
     @include for-desktop {
       padding: var(--header-navigation-item-padding, calc(var(--spacer-lg) - 1px) var(--spacer-sm));
-      margin: var(--header-navigation-item-margin, 0 var(--spacer-sm));
+      margin: var(--header-navigation-item-margin, 0);
     }
     &:focus {
       --header-navigation-item-color: var(--c-text);
@@ -41,6 +43,7 @@
   }
 }
 .sf-header {
+  position: relative;
   &__wrapper {
     position: var(--header-wrapper-position);
     z-index: var(--header-wrapper-z-index, 1);
@@ -56,7 +59,7 @@
     align-items: center;
     justify-content: center;
     padding: var(--header-padding, 0 var(--spacer-sm));
-    max-width: var(--header-width, 79.5rem);
+    max-width: var(--header-width, 77.5rem);
     margin: var(--header-margin,0 auto);
     @include for-desktop {
       flex-wrap: var(--header-flex-wrap, nowrap);

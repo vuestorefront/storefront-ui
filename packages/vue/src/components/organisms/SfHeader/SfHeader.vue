@@ -7,7 +7,7 @@
     <div class="sf-header__wrapper">
       <header ref="header">
         <!--@slot Use this slot to replace logo with text or image-->
-        <slot name="logo">
+        <slot name="logo" v-bind="{ logo, title }">
           <SfLink link="/">
             <SfImage
               v-if="logo"
@@ -27,19 +27,18 @@
             <slot name="navigation"></slot>
           </nav>
           <!--@slot Use this slot to replace default search bar-->
-          <slot name="search">
+          <slot name="search" v-bind="{searchValue, searchPlaceholder}">
             <SfSearchBar
               :value="searchValue"
               :placeholder="searchPlaceholder"
               aria-label="Search"
               class="sf-header__search"
-              :class="{}"
               @input="$emit('change:search', $event)"
               @enter="$emit('enter:search', $event)"
             />
           </slot>
           <!--@slot Use this slot to replace default header icons with custom content-->
-          <slot name="header-icons">
+          <slot name="header-icons" v-bind="{activeIcon, cartHasProducts, cartItemsQty}">
             <div class="sf-header__icons">
               <SfButton
                 class="sf-button--pure sf-header__action"
