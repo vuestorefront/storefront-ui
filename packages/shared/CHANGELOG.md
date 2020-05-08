@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.9](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.8...@storefront-ui/shared@0.7.9) (2020-05-08)
+
+
+### Bug Fixes
+
+* button add to card on SfProductCard ([#1162](https://github.com/DivanteLtd/storefront-ui/issues/1162)) ([710aa95](https://github.com/DivanteLtd/storefront-ui/commit/710aa95a809992c3ef40685afa1d2bf2fd697b9c))
+* specificity for cancel button in SfDropdown ([#1168](https://github.com/DivanteLtd/storefront-ui/issues/1168)) ([d5e9655](https://github.com/DivanteLtd/storefront-ui/commit/d5e965557f7112d18d1686b5be182a353701f903))
+* ssr and specificity in SfHeader ([#1166](https://github.com/DivanteLtd/storefront-ui/issues/1166)) ([c3da59c](https://github.com/DivanteLtd/storefront-ui/commit/c3da59c68655f643180410f88737c5b328970c8a))
+
+
+### Features
+
+* mobile navigation for short categories in SfHeader ([#1137](https://github.com/DivanteLtd/storefront-ui/issues/1137)) ([428bf8b](https://github.com/DivanteLtd/storefront-ui/commit/428bf8b93ea1fc7f9692923b8da92fb66b6afd35))
+
+
+
+
+
 ## [0.7.8](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.7...@storefront-ui/shared@0.7.8) (2020-05-06)
 
 
