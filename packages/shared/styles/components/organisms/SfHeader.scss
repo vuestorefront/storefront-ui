@@ -2,6 +2,7 @@
 .sf-header-navigation-item {
   flex: 1;
   & > * {
+    --link-color: var(--header-navigation-item-color, var(--c-dark-variant));
     box-sizing: border-box;
     display: block;
     padding: var(--header-navigation-item-padding, calc(var(--spacer-sm) - 1px) var(--spacer-sm));
@@ -20,8 +21,8 @@
     text-decoration: initial;
     text-align: center;
     @include for-desktop {
-      --header-navigation-item-padding: calc(var(--spacer-lg) - 1px) var(--spacer-sm);
-      --header-navigation-item-margin: 0 var(--spacer-sm);
+      padding: var(--header-navigation-item-padding, calc(var(--spacer-lg) - 1px) var(--spacer-sm));
+      margin: var(--header-navigation-item-margin, 0 var(--spacer-sm));
     }
     &:focus {
       --header-navigation-item-color: var(--c-text);
@@ -37,7 +38,6 @@
   }
 }
 .sf-header {
-  $this: &;
   &__wrapper {
     position: var(--header-wrapper-position);
     z-index: var(--header-wrapper-z-index, 1);
@@ -45,6 +45,7 @@
     background: var(--header-background, #ffffff);
     transition: var(--header-wrapper-transition, transform 150ms ease-in-out);
     transform: var(--header-wrapper-transform);
+    box-shadow: var(--header-box-shadow);
   }
   header {
     display: flex;
@@ -55,7 +56,7 @@
     max-width: var(--header-width, 79.5rem);
     margin: var(--header-margin,0 auto);
     @include for-desktop {
-      --header-flex-wrap: nowrap;
+      flex-wrap: var(--header-flex-wrap, nowrap);
     }
   }
   &__logo {
@@ -77,7 +78,7 @@
     align-items: center;
     justify-content: flex-end;
     @include for-desktop {
-      --header-actions-flex-wrap: nowrap;
+      flex-wrap: var(--header-actions-flex-wrap, nowrap);
     }
   }
   &__navigation {
@@ -102,11 +103,12 @@
     }
   }
   &__icons {
+    order: var(--header-icons-order);
     display: var(--header-icons-display, none);
     margin: var(--header-icons-margin);
     @include for-desktop {
       --header-icons-display: flex;
-      --header-icons-margin:  var(--spacer-sm) 0;
+      margin:  var(--header-icons-margin, var(--spacer-sm) 0);
     }
   }
   &__icon {
@@ -133,6 +135,13 @@
   &--is-hidden {
     --header-wrapper-transform: translate3d(0, -100%, 0);
     --header-wrapper-transition: transform 300ms ease-in-out;
+  }
+  &--has-mobile-search,
+  &--has-mobile-navigation{
+    --header-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
+    @include for-desktop {
+      --header-box-shadow: none;
+    }
   }
   &--has-mobile-search {
     --header-search-display: flex;
