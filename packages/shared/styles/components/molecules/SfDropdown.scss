@@ -48,6 +48,7 @@
   &__cancel,
   &__title {
     @include for-desktop {
+      --button-display: none;
       display: none;
     }
   }

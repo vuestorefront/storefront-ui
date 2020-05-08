@@ -5,8 +5,9 @@ import {
   select,
   boolean,
   object,
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
-import { SfHeader } from "@storefront-ui/vue";
+import { SfHeader, SfLink } from "@storefront-ui/vue";
 const StoriesPlaceholder = {
   props: {
     mobile: {
@@ -31,6 +32,124 @@ const StoriesPlaceholder = {
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
+    components: { SfHeader, SfLink, StoriesPlaceholder },
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-header--has-mobile-search": "sf-header--has-mobile-search",
+            "sf-header--has-mobile-navigation":
+              "sf-header--has-mobile-navigation",
+            "sf-header--multiline": "sf-header--multiline",
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
+      title: {
+        default: text("title", "Storefront UI", "Props"),
+      },
+      logo: {
+        default: object(
+          "logo",
+          {
+            mobile: { url: "/assets/logo.svg" },
+            desktop: { url: "/assets/logo.svg" },
+          },
+          "Props"
+        ),
+      },
+      activeIcon: {
+        default: select(
+          "activeIcon",
+          ["", "account", "wishlist", "cart"],
+          "account",
+          "Props"
+        ),
+      },
+      isSticky: {
+        default: boolean("isSticky", true, "Props"),
+      },
+      searchPlaceholder: {
+        default: text("searchPlaceholder", "Search for items", "Props"),
+      },
+      cartIcon: {
+        default: text("cartIcon", "empty_cart", "Props"),
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props"),
+      },
+      accountIcon: {
+        default: text("accountIcon", "profile", "Props"),
+      },
+      cartItemsQty: {
+        default: text("cartItemsQty", "0", "Props"),
+      },
+    },
+    data() {
+      return {
+        isMobile: false,
+        navigation: ["women", "man", "kids"],
+        searchValue: "",
+      };
+    },
+    computed: {
+      spacer() {
+        return;
+      },
+    },
+    mounted() {
+      this.isMobile =
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
+    },
+    beforeDestroy() {
+      window
+        .matchMedia("(max-width: 1023px)")
+        .removeListener(this.mobileHandler);
+    },
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+      mobileHandler(event) {
+        this.isMobile = event.matches;
+      },
+    },
+    template: `<div>
+      <SfHeader
+          :class="customClass"
+          :title="title"
+          :logo="logo"
+          :active-icon="activeIcon"
+          :search-placeholder="searchPlaceholder"
+          :search-value="searchValue"
+          :cart-icon="cartIcon"
+          :wishlist-icon="wishlistIcon"
+          :is-sticky="isSticky"
+          :account-icon="accountIcon"
+          :style="spacer"
+          :cart-items-qty="cartItemsQty"
+          @click:cart="alert('@click:cart')"
+          @click:wishlist="alert('@click:wishlist')"
+          @click:account="alert('@click:account')"
+          @change:search="searchValue = $event"
+      >
+        <template #navigation>
+          <SfHeaderNavigationItem
+              v-for="item in navigation"
+              :key="item">
+            <SfLink href="#">{{item}}</SfLink>
+          </SfHeaderNavigationItem>
+        </template>
+      </SfHeader>
+      <StoriesPlaceholder :mobile="isMobile"/>
+    </div>`,
+  }))
+  .add("with Search and Navigation items", () => ({
     components: { SfHeader, StoriesPlaceholder },
     props: {
       title: {
@@ -53,9 +172,6 @@ storiesOf("Organisms|Header", module)
           "account",
           "Props"
         ),
-      },
-      hasMobileSearch: {
-        default: boolean("hasMobileSearch", false, "Props"),
       },
       isSticky: {
         default: boolean("isSticky", true, "Props"),
@@ -112,7 +228,6 @@ storiesOf("Organisms|Header", module)
           :title="title"
           :logo="logo"
           :active-icon="activeIcon"
-          :has-mobile-search="hasMobileSearch"
           :search-placeholder="searchPlaceholder"
           :search-value="searchValue"
           :cart-icon="cartIcon"
@@ -138,7 +253,7 @@ storiesOf("Organisms|Header", module)
     </div>`,
   }))
   .add("[slot] navigation", () => ({
-    components: { SfHeader },
+    components: { SfHeader, SfLink },
     props: {
       title: {
         default: text("title", "Storefront UI", "Props"),
@@ -231,7 +346,7 @@ storiesOf("Organisms|Header", module)
         @change:search="searchValue = $event"
     >
       <template #navigation>
-        <div :style="{margin: '0 0 0 1.25rem', display: 'flex', alignItems:'center', height: '100%'}">CUSTOM NAVIGATION</div>
+        <SfLink link="/">CUSTOM NAVIGATION</SfLink>
       </template>
     </SfHeader>`,
   }))
@@ -550,8 +665,8 @@ storiesOf("Organisms|Header", module)
       </template>
     </SfHeader>`,
   }))
-  .add("[slot] language-selector", () => ({
-    components: { SfHeader },
+  .add("[slot] aside", () => ({
+    components: { SfHeader, SfLink },
     props: {
       title: {
         default: text("title", "Storefront UI", "Props"),
@@ -633,18 +748,18 @@ storiesOf("Organisms|Header", module)
         :has-mobile-search="hasMobileSearch"
         :search-placeholder="searchPlaceholder"
         :search-value="searchValue"
-        :style="spacer"
         :cart-items-qty="cartItemsQty"
         @change:search="searchValue = $event"
+        class="sf-header--has-mobile-search sf-header--has-mobile-navigation"
     >
-      <template #language-selector>
-        <div :style="{margin: '0 0 0 1rem'}">LANGUAGE SELECTOR</div>
+      <template #aside>
+        <div :style="{margin: '0 0 0 1rem'}" class="mobile-only">ASIDE</div>
       </template>
       <template #navigation>
         <SfHeaderNavigationItem
             v-for="item in navigation"
             :key="item">
-          <a href="#" :style="{ display: 'flex',alignItems: 'center',height: '100%' }">{{item}}</a>
+          <SfLink href="#">{{item}}</SfLink>
         </SfHeaderNavigationItem>
       </template>
     </SfHeader>`,
