@@ -24,6 +24,8 @@
 <script>
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import { nonBrowserEnvironment } from "../../../utilities/helpers/check-environment.js";
+
 export default {
   name: "SfDropdown",
   components: {
@@ -49,8 +51,7 @@ export default {
   watch: {
     isOpen: {
       handler(value) {
-        if (typeof window === "undefined" || typeof document === "undefined")
-          return;
+        if (nonBrowserEnvironment) return;
         if (value) {
           document.addEventListener("keydown", this.keydownHandler);
         } else {

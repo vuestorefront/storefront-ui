@@ -97,6 +97,7 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
+import { nonBrowserEnvironment } from "../../../utilities/helpers/check-environment.js";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
@@ -216,8 +217,7 @@ export default {
   watch: {
     scrollDirection: {
       handler() {
-        if (typeof window === "undefined" || typeof document === "undefined")
-          return;
+        if (nonBrowserEnvironment) return;
         window.cancelAnimationFrame(this.animationLong);
         this.animationLong = null;
         this.animationStart = null;
@@ -228,8 +228,7 @@ export default {
     },
     isMobile: {
       handler() {
-        if (typeof window === "undefined" || typeof document === "undefined")
-          return;
+        if (nonBrowserEnvironment) return;
         this.$nextTick(() => {
           this.height = this.$refs.header.offsetHeight;
         });
@@ -238,8 +237,7 @@ export default {
     },
     isSticky: {
       handler(isSticky) {
-        if (typeof window === "undefined" || typeof document === "undefined")
-          return;
+        if (nonBrowserEnvironment) return;
         this.sticky = isSticky;
       },
       immediate: true,
@@ -271,8 +269,7 @@ export default {
       this.hidden = this.scrollDirection === "down";
     },
     scrollHandler() {
-      if (typeof window === "undefined" || typeof document === "undefined")
-        return;
+      if (nonBrowserEnvironment) return;
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
       if (currentScrollPosition >= this.height) {

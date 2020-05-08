@@ -44,6 +44,7 @@ import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { focusTrap } from "../../../utilities/directives/focus-trap-directive.js";
+import { nonBrowserEnvironment } from "../../../utilities/helpers/check-environment.js";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfModal",
@@ -118,8 +119,7 @@ export default {
   watch: {
     visible: {
       handler: function (value) {
-        if (typeof window === "undefined" || typeof document === "undefined")
-          return;
+        if (nonBrowserEnvironment) return;
         if (value) {
           this.$nextTick(() => {
             disableBodyScroll(this.$refs.content);
