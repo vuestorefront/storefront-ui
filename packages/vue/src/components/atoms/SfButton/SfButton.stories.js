@@ -5,7 +5,7 @@ import {
   boolean,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfButton from "./SfButton.vue";
+import { SfButton } from "@storefront-ui/vue";
 storiesOf("Atoms|Button", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -18,6 +18,7 @@ storiesOf("Atoms|Button", module)
             "sf-button--underlined": "sf-button--underlined",
             "sf-button--text": "sf-button--text",
             "sf-button--full-width": "sf-button--full-width",
+            "sf-button--pure": "sf-button--pure",
             "color-primary": "color-primary",
             "color-secondary": "color-secondary",
             "color-warning": "color-warning",

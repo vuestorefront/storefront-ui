@@ -5,8 +5,7 @@ import {
   number,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfHeading from "./SfHeading.vue";
-import SfIcon from "../SfIcon/SfIcon.vue";
+import { SfHeading, SfIcon } from "@storefront-ui/vue";
 storiesOf("Atoms|Heading", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

@@ -1,6 +1,7 @@
 @import "../../helpers";
-.sf-checkbox {
-  &__container {
+.sf-checkbox {  
+  &__container {   
+     position: relative;
     display: flex;
     align-items: center;
     padding: var(--checkbox-padding);
@@ -57,14 +58,18 @@
     --checkbox-label-color: var(--c-text-disabled);
     --checkbox-border-color: var(--c-text-disabled);
   }
-  input {
-    position: absolute;
+  input {    
+    position: absolute;    
+    opacity: 0;
+    left: -1000%;
     width: 1px;
     height: 1px;
-    margin: -1px;
-    padding: 0;
-    border: 0;
-    overflow: hidden;
-    clip: rect(0px, 0px, 0px, 0px);
+    &[style*="outline: none"]:focus + .sf-checkbox__checkmark {
+      outline: none;
+    }
+    &:focus + .sf-checkbox__checkmark {
+      outline-color: -webkit-focus-ring-color;
+      outline-style: auto;
+    }
   }
 }

@@ -4,7 +4,7 @@ import {
   text,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfBadge from "./SfBadge.vue";
+import { SfBadge } from "@storefront-ui/vue";
 storiesOf("Atoms|Badge", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -14,6 +14,7 @@ storiesOf("Atoms|Badge", module)
           "CSS modifiers",
           {
             "sf-badge--full-width": "sf-badge--full-width",
+            "sf-badge--number": "sf-badge--number",
             "color-primary": "color-primary",
             "color-secondary": "color-secondary",
             "color-warning": "color-warning",
@@ -35,4 +36,16 @@ storiesOf("Atoms|Badge", module)
       :class="customClass">
       {{customLabel}}
      </SfBadge>`,
+  }))
+  .add("as Number", () => ({
+    props: {
+      customLabel: {
+        default: text("default", "99", "Slots"),
+      },
+    },
+    components: { SfBadge },
+    template: `<SfBadge
+        class="sf-badge--number">
+      {{customLabel}}
+    </SfBadge>`,
   }));

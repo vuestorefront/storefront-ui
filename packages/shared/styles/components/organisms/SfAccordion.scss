@@ -4,10 +4,10 @@
     display: flex;
     justify-content: var(--accordion-item-header-justify, space-between);
     padding: var(--accordion-item-header-padding, var(--spacer-sm));
-    color: var(--accordion-item-header-color, var(--c-text));
+    color: var(--accordion-item-header-color);
     transition: color 150ms ease-in-out;
-    cursor: pointer;
-    @include border(
+    width: 100%;
+   @include border(
       --accordion-item-header-border,
       0 0 1px 0,
       solid,

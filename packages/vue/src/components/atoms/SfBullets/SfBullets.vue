@@ -3,12 +3,23 @@
     <template v-for="(_, index) of inactiveLeft">
       <!--@slot custom icon for inactive bullet -->
       <slot name="inactive" class="sf-bullet" v-bind="{ index, go }">
-        <li :key="index" class="sf-bullet" @click="go(index)"></li>
+        <li :key="index">
+          <SfButton
+            :aria-label="'Go to slide ' + (index + 1)"
+            class="sf-button--pure sf-bullet"
+            @click="go(index)"
+          ></SfButton>
+        </li>
       </slot>
     </template>
     <!--@slot custom icon for active bullet -->
     <slot name="active">
-      <li class="sf-bullet sf-bullet--active"></li>
+      <li>
+        <SfButton
+          aria-label="Current slide"
+          class="sf-button--pure sf-bullet sf-bullet--active"
+        ></SfButton>
+      </li>
     </slot>
     <template v-for="(_, index) of inactiveRight">
       <!--@slot custom icon for inactive bullet -->
@@ -17,18 +28,24 @@
         class="sf-bullet"
         v-bind="{ index: inactiveLeft + 1 + index, go }"
       >
-        <li
-          :key="inactiveLeft + 1 + index"
-          class="sf-bullet"
-          @click="go(inactiveLeft + 1 + index)"
-        ></li>
+        <li :key="inactiveLeft + 1 + index">
+          <SfButton
+            :aria-label="'Go to slide ' + (inactiveLeft + 2 + index)"
+            class="sf-button--pure sf-bullet"
+            @click="go(inactiveLeft + 1 + index)"
+          ></SfButton>
+        </li>
       </slot>
     </template>
   </ol>
 </template>
 <script>
+import SfButton from "../SfButton/SfButton.vue";
 export default {
   name: "SfBullets",
+  components: {
+    SfButton,
+  },
   props: {
     /**
      * Number of bullets in total (active + inactive)

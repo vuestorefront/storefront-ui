@@ -1,7 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, select } from "@storybook/addon-knobs";
-import SfBannerGrid from "./SfBannerGrid.vue";
-import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
+import { SfBannerGrid, SfBanner } from "@storefront-ui/vue";
 storiesOf("Organisms|BannerGrid", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -92,7 +91,7 @@ storiesOf("Organisms|BannerGrid", module)
             :description="item.description" 
             :button-text="item.buttonText"
             :image="item.image"
-            :class="item.class" 
+            :class="item.class"
           />
         </template>
       </SfBannerGrid>`,

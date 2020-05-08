@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-dropdown {
   position: var(--dropdown-position, fixed);
   width: var(--dropdown-width, 100%);
@@ -8,7 +7,7 @@
   transform: var(--dropdown-transform);
   @include for-desktop {
     position: var(--dropdown-position, absolute);
-    transform: var(--dropdown-transform, translate(0, 100%))
+    transform: var(--dropdown-transform, translate(0, 100%));
   }
   &__container {
     position: relative;
@@ -16,7 +15,10 @@
     background: var(--dropdown-background, var(--c-white));
     box-shadow: var(--dropdown-box-shadow);
     @include for-desktop {
-    box-shadow: var(--dropdown-box-shadow, 0px 4px 11px rgba(var(--c-dark-base), 0.1));
+      box-shadow: var(
+        --dropdown-box-shadow,
+        0px 4px 11px rgba(var(--c-dark-base), 0.1)
+      );
     }
   }
   &__overlay {
@@ -46,14 +48,17 @@
   &__cancel,
   &__title {
     @include for-desktop {
+      --button-display: none;
       display: none;
     }
   }
   &--up {
-    --dropdown-top: 0;
-    --dropdown-bottom: auto;
-    --dropdown-transform: translate(0, -100%);
-    --dropdown-box-shadow: 0px -4px 11px rgba(var(--c-dark-base), 0.1)
+    @include for-desktop {
+      --dropdown-top: 0;
+      --dropdown-bottom: auto;
+      --dropdown-transform: translate(0, -100%);
+      --dropdown-box-shadow: 0px -4px 11px rgba(var(--c-dark-base), 0.1);
+    }
   }
   &-enter-active {
     animation: var(--dropdown-animation-enter, dropdown 150ms);
@@ -64,8 +69,8 @@
 }
 @keyframes dropdown {
   0% {
-      transform: translate3d(0, 100%, 0);
-    }
+    transform: translate3d(0, 100%, 0);
+  }
   100% {
     transform: translate3d(0, 0, 0);
   }

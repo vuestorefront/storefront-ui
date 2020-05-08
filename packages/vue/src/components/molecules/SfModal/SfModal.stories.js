@@ -1,10 +1,10 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
-import SfModal from "./SfModal.vue";
+import { SfModal } from "@storefront-ui/vue";
 import {
   visibilityToggleMixin,
   withVisibilityToggle,
-} from "../../../../config/storybook/decorators";
+} from "@storefront-ui/vue/config/storybook/decorators";
 storiesOf("Molecules|Modal", module)
   .addDecorator(withKnobs)
   .addDecorator(withVisibilityToggle)
@@ -23,9 +23,6 @@ storiesOf("Molecules|Modal", module)
       persistent: {
         default: boolean("persistent", false, "Props"),
       },
-      ariaLabelClose: {
-        default: text("ariaLabelClose", "Close", "Props"),
-      },
     },
     mixins: [visibilityToggleMixin],
     template: `
@@ -35,10 +32,14 @@ storiesOf("Molecules|Modal", module)
         :overlay="overlay"
         :cross="cross"
         :persistent="persistent"
-        :ariaLabelClose="ariaLabelClose"
         @close="visible = false"
       >
-        HELLO STOREFRONT UI!
+        <p>HELLO STOREFRONT UI!</p>
+        <form action="">
+          <input type="text">
+          <input type="text">
+          <button>hello</button>
+        </form>
       </SfModal>`,
   }))
   .add("[slot] close", () => ({
@@ -56,9 +57,6 @@ storiesOf("Molecules|Modal", module)
       persistent: {
         default: boolean("persistent", false, "Props"),
       },
-      ariaLabelClose: {
-        default: text("ariaLabelClose", "Close", "Props"),
-      },
     },
     mixins: [visibilityToggleMixin],
     template: `
@@ -68,7 +66,6 @@ storiesOf("Molecules|Modal", module)
         :title="title"
         :cross="cross"
         :persistent="persistent"
-        :ariaLabelClose="ariaLabelClose"
         @close="visible = false"
       >
         HELLO STOREFRONT UI!

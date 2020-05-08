@@ -23,7 +23,7 @@
           :level="3"
         />
         <p class="order__paragraph paragraph">
-          You have successfuly placed the order. You can check status of your
+          You have successfully placed the order. You can check status of your
           order by using our delivery status feature. You will receive an order
           confirmation e-mail with details of your order and a link to track its
           progress.

@@ -23,15 +23,18 @@
   &__content {
     overflow-y: auto;
     padding: var(--modal-content-padding, var(--spacer-base) var(--spacer-sm));
+    @include font(
+      --modal-content-font,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
   }
   &__close {
     position: absolute;
     right: var(--modal-close-right, var(--spacer-sm));
     top: var(--modal-close-top, var(--spacer-sm));
-    padding: 0;
-    border: var(--modal-close-border, none);
-    background: var(--modal-close-background, none);
-    cursor: pointer;
   }
   @include for-desktop {
     --modal-width: 29.375rem;

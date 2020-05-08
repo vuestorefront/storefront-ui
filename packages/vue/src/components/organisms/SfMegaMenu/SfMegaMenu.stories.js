@@ -1,10 +1,12 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
-import SfMegaMenu from "./SfMegaMenu.vue";
-import SfHeader from "../SfHeader/SfHeader.vue";
-import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
-import SfList from "../SfList/SfList.vue";
+import {
+  SfMegaMenu,
+  SfHeader,
+  SfMenuItem,
+  SfBanner,
+  SfList,
+} from "@storefront-ui/vue";
 const AsidePlaceholder = {
   components: { SfBanner },
   data() {
@@ -119,7 +121,7 @@ const MegaMenuPlaceholder = {
         title="Man"
         :asideTitle="asideTitle"
         :visible="visible"
-        :style="{ position: 'absolute', left: 0, width: '100%', top: '100%' }"
+        :style="{position: 'absolute', left: 0, top: '100%'}"
       >
         <SfMegaMenuColumn 
           v-for="subcategory in subcategories" 
@@ -314,6 +316,7 @@ storiesOf("Organisms|MegaMenu", module)
       >
         <template #navigation>
           <SfHeaderNavigationItem
+            :class="{'sf-header-navigation-item--is-active': hovered === 'women'}"
             @mouseover="hovered = 'women'"
             @mouseleave="hovered = ''"
           >
@@ -321,6 +324,7 @@ storiesOf("Organisms|MegaMenu", module)
             <MegaMenuPlaceholder title="Woman" :visible="hovered === 'women'"/>
           </SfHeaderNavigationItem>
           <SfHeaderNavigationItem
+            :class="{'sf-header-navigation-item--is-active': hovered === 'man'}"
             @mouseover="hovered = 'man'"
             @mouseleave="hovered = ''"
           >
@@ -328,6 +332,7 @@ storiesOf("Organisms|MegaMenu", module)
             <MegaMenuPlaceholder title="Man" :visible="hovered === 'man'"/>
           </SfHeaderNavigationItem>
           <SfHeaderNavigationItem
+            :class="{'sf-header-navigation-item--is-active': hovered === 'kids'}"
             @mouseover="hovered = 'kids'"
             @mouseleave="hovered = ''"
           >

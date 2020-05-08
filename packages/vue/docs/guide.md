@@ -1,4 +1,4 @@
-# Introduction
+# Beginner's Guide
 
 ::: tip
 If you want to start using Storefront UI rather than reading about it's concepts please visit the [getting started](getting-started.md) section.
