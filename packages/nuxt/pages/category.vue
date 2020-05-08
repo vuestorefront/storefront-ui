@@ -1,14 +1,15 @@
 <template>
-  <div>
-    <Category />
-  </div>
+  <Category />
 </template>
 
 <script>
-  import Category from "@storefront-ui/vue/src/examples/pages/category/Category.vue"
-  export default {
-    components: {
-      Category
-    }
+import Category from "@storefront-ui/vue/src/examples/pages/category/Category";
+
+export default {
+  components: {
+    Category
   }
+};
 </script>
+
+

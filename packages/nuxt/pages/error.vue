@@ -1,14 +1,13 @@
 <template>
-  <div>
-    <Error />
-  </div>
+  <Error />
 </template>
 
 <script>
-  import Error from "@storefront-ui/vue/src/examples/pages/error/Error.vue"
-  export default {
-    components: {
-      Error
-    }
+import Error from "@storefront-ui/vue/src/examples/pages/error/Error";
+
+export default {
+  components: {
+    Error
   }
+};
 </script>

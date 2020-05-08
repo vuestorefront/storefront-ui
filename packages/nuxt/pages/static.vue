@@ -1,14 +1,13 @@
 <template>
-  <div>
-    <Static />
-  </div>
+  <Static />
 </template>
 
 <script>
-  import Static from "@storefront-ui/vue/src/examples/pages/static/Static.vue"
-  export default {
-    components: {
-      Static
-    }
+import Static from "@storefront-ui/vue/src/examples/pages/static/Static";
+
+export default {
+  components: {
+    Static
   }
+};
 </script>

@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <Checkout />
-  </div>
+  <Checkout />
 </template>
-
 <script>
-  import Checkout from "@storefront-ui/vue/src/examples/pages/checkout/Checkout.vue"
-  export default {
-    components: {
-      Checkout
-    }
+import Checkout from "@storefront-ui/vue/src/examples/pages/checkout/Checkout";
+
+export default {
+  components: {
+    Checkout
   }
+};
 </script>
