@@ -1,7 +1,7 @@
 @import "../../helpers";
 .sf-header-navigation-item {
   flex: 1;
-  & > * {
+  & > *:not(.sf-mega-menu) {
     --link-color: var(--header-navigation-item-color, var(--c-dark-variant));
     box-sizing: border-box;
     display: block;
@@ -29,12 +29,15 @@
       --header-navigation-item-border-color: var(--c-primary);
     }
   }
-  &:hover > * {
+  &:hover > *:not(.sf-mega-menu){
     --header-navigation-item-color: var(--c-text);
     --header-navigation-item-border-color: var(--c-primary);
     &:active{
-      --header-navigation-item-color: var(--c-primary)
+      --header-navigation-item-color: var(--c-primary);
     }
+  }
+  &--is-active:hover > *:not(.sf-mega-menu){
+    --header-navigation-item-color: var(--c-primary);
   }
 }
 .sf-header {
