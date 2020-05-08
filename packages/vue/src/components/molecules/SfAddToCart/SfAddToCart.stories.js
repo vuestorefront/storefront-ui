@@ -1,19 +1,18 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
-import SfAddToCart from "./SfAddToCart.vue";
-
+import { SfAddToCart } from "@storefront-ui/vue";
 storiesOf("Molecules|AddToCart", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfAddToCart },
     props: {
       disabled: {
-        default: boolean("disabled", false, "Props")
-      }
+        default: boolean("disabled", false, "Props"),
+      },
     },
     data() {
       return {
-        qty: 1
+        qty: 1,
       };
     },
     template: `<div style="max-width: 21.25rem">
@@ -21,18 +20,18 @@ storiesOf("Molecules|AddToCart", module)
         v-model="qty"
         :disabled="disabled"
         @click="()=>{}"/>
-      </div>`
+      </div>`,
   }))
   .add("[slot] add-to-cart-btn", () => ({
     components: { SfAddToCart },
     props: {
       disabled: {
-        default: boolean("disabled", false, "Props")
-      }
+        default: boolean("disabled", false, "Props"),
+      },
     },
     data() {
       return {
-        qty: 1
+        qty: 1,
       };
     },
     template: `<div style="max-width: 21.25rem">
@@ -45,18 +44,18 @@ storiesOf("Molecules|AddToCart", module)
         <button  @click="()=>{}">Custom Add To Cart</button>
       </template>
         </SfAddToCart>
-      </div>`
+      </div>`,
   }))
   .add("[slot] quantity-select-input", () => ({
     components: { SfAddToCart },
     props: {
       disabled: {
-        default: boolean("disabled", false, "Props")
-      }
+        default: boolean("disabled", false, "Props"),
+      },
     },
     data() {
       return {
-        qty: 1
+        qty: 1,
       };
     },
     template: `<div style="max-width: 21.25rem">
@@ -71,5 +70,5 @@ storiesOf("Molecules|AddToCart", module)
             </select>
           </template>
         </SfAddToCart>
-      </div>`
+      </div>`,
   }));

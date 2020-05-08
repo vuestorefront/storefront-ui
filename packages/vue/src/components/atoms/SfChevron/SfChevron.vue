@@ -8,8 +8,12 @@
   </div>
 </template>
 <script>
+import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
-  name: "SfChevron"
+  name: "SfChevron",
+  directives: {
+    focus,
+  },
 };
 </script>
 <style lang="scss">

@@ -3,14 +3,24 @@ $typography-map: (
   "extra-small": var(--font-size-extra-small),
   "small": var(--font-size-small),
   "regular": var(--font-size-regular),
-  "big": var(--font-size-big),
-  "extra-big": var(--font-size-extra-big)
+  "big": var(--font-size-big)
 );
-
 // Use it to set component font styles
-@function font($element, $font-weight, $font-size, $line-height, $font-family) {
-  @return var(#{$element}-font-weight, $font-weight)
-    var(#{$element}-font-size, $font-size) /
+@function _font(
+  $element,
+  $font-weight,
+  $font-size,
+  $line-height,
+  $font-family
+) {
+  @return var(#{$element}-weight, $font-weight)
+    var(#{$element}-size, $font-size) /
     var(#{$element}-line-height, $line-height)
-    var(#{$element}-font-family, $font-family);
+    var(#{$element}-family, $font-family);
+}
+@mixin font($element, $font-weight, $font-size, $line-height, $font-family) {
+  font: var(
+    #{$element},
+    _font($element, $font-weight, $font-size, $line-height, $font-family)
+  );
 }

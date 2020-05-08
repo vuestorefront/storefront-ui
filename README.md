@@ -42,7 +42,7 @@ Read [how it can be customized](https://docs.storefrontui.io/customization.html)
 
 # Design
 
-You can find the stunning designs we are using for Storefront UI components [here](https://www.figma.com/file/hrwE3VsMBHgdJoS86rVr4W/Desktop-%26-Mobile-Vue-Storefront?node-id=99%3A0).
+You can find the stunning designs we are using for Storefront UI components [here](http://bit.ly/storefront-ui-design-system).
 
 [![image](https://user-images.githubusercontent.com/15185752/58185795-06b51900-7cb4-11e9-883f-2571cace575c.png)
 ](https://www.youtube.com/watch?v=8FO6tm9rEdo&feature=youtu.be)
@@ -57,13 +57,13 @@ We are currently in the process of building the library. If you want to help in 
 [These awesome people](https://docs.storefrontui.io/meet-the-team.html) are maintaining Storefront UI. They're ensuring that it performs smooth and looks awesome!
 
 - Filip Rakowski ([@filrak](https://github.com/filrak))
-- Przemek Spaczek ([@pspaczek](https://github.com/pspaczek))
-- Ania Musiał ([@aniamusial](https://github.com/aniamusial))
-- Marta Radziszewska ([@martaradziszewska](https://github.com/martaradziszewska))
 - Leonardo Matos ([@leomp12](https://github.com/leomp12))
+- Przemek Spaczek ([@pspaczek](https://github.com/pspaczek))
 - Maya Shavin ([@mayashavin](https://github.com/mayashavin))
 - Nicolò Maria Mezzopera ([@DonNicoJS](https://github.com/DonNicoJs))
 - Eduard Dopler ([@EduardDopler](https://github.com/EduardDopler))
+- Ania Musiał ([@aniamusial](https://github.com/aniamusial))
+- Marta Radziszewska ([@martaradziszewska](https://github.com/martaradziszewska))
 
 
 ...and amazing [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) who are committing their time to make it better.
@@ -71,7 +71,8 @@ We are currently in the process of building the library. If you want to help in 
 Thank you! There would be no Storefront UI without you.
 
 # Supporters
-<a href="https://divante.co"><img style="margin-right: 20px" src="https://avatars0.githubusercontent.com/u/11463761?s=200&v=4" alt="divante" height="55px"></a><a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="55px"></a>
+<a href="https://divante.co"><img src="https://raw.githubusercontent.com/DivanteLtd/storefront-ui/master/packages/vue/docs/assets/logo-divante.svg" alt="divante" height="55px"></a>&nbsp;&nbsp;
+<a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="55px"></a>
 
 # Contributing
 

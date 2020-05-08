@@ -2,9 +2,9 @@
   <div class="sf-sidebar" :class="[staticClass, className]">
     <SfOverlay :visible="visibleOverlay" @click="close" />
     <transition :name="transitionName">
-      <aside v-if="visible" class="sf-sidebar__aside">
+      <aside v-if="visible" v-focus-trap class="sf-sidebar__aside">
         <!--@slot Use this slot to place content inside the modal bar.-->
-        <slot name="modal-bar">
+        <slot name="bar">
           <SfBar
             :title="title"
             class="mobile-only"
@@ -12,7 +12,19 @@
             @click:back="close"
           />
         </slot>
-        <div ref="content" class="sf-sidebar__content">
+        <!--@slot Use this slot to replace close icon.-->
+        <slot name="circle-icon" v-bind="{ close, button }">
+          <SfCircleIcon
+            v-if="button"
+            icon-size="12px"
+            aria-label="Close sidebar"
+            icon="cross"
+            class="sf-sidebar__circle-icon desktop-only"
+            @click="close"
+          />
+        </slot>
+        <div v-if="title || hasTop" class="sf-sidebar__top">
+          <!--@slot Use this slot to replace SfHeading component.-->
           <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
               v-if="title"
@@ -22,67 +34,68 @@
               class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
             />
           </slot>
+          <!--@slot Use this slot to add sticky top content.-->
+          <slot name="content-top" />
+        </div>
+        <div ref="content" class="sf-sidebar__content">
+          <!--@slot Use this slot to add SfSidebar content.-->
           <slot />
         </div>
-        <slot name="circle-icon" v-bind="{ close, button }">
-          <SfCircleIcon
-            v-if="button"
-            icon-size="14px"
-            icon="cross"
-            icon-color="white"
-            class="sf-sidebar__circle-icon desktop-only"
-            @click="close"
-          />
-        </slot>
+        <!--@slot Use this slot to place content to sticky bottom.-->
+        <div v-if="hasBottom" class="sf-sidebar__bottom">
+          <slot name="content-bottom" />
+        </div>
       </aside>
     </transition>
   </div>
 </template>
 <script>
+import { focusTrap } from "../../../utilities/directives/focus-trap-directive.js";
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
-import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 export default {
   name: "SfSidebar",
+  directives: { focusTrap },
   components: {
     SfBar,
     SfCircleIcon,
     SfOverlay,
-    SfHeading
+    SfHeading,
   },
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     subtitle: {
       type: String,
-      default: ""
+      default: "",
     },
     headingLevel: {
       type: Number,
-      default: 2
+      default: 3,
     },
     button: {
       type: Boolean,
-      default: true
+      default: true,
     },
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     overlay: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
     return {
       position: "left",
       staticClass: null,
-      className: null
+      className: null,
     };
   },
   computed: {
@@ -91,7 +104,13 @@ export default {
     },
     transitionName() {
       return "slide-" + this.position;
-    }
+    },
+    hasTop() {
+      return this.$slots.hasOwnProperty("content-top");
+    },
+    hasBottom() {
+      return this.$slots.hasOwnProperty("content-bottom");
+    },
   },
   watch: {
     visible: {
@@ -108,8 +127,8 @@ export default {
           document.removeEventListener("keydown", this.keydownHandler);
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   mounted() {
     this.classHandler();
@@ -142,8 +161,8 @@ export default {
             ? "right"
             : "left";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

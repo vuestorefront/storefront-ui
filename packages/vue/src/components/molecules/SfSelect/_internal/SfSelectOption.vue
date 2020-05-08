@@ -15,9 +15,9 @@ export default {
   name: "SfSelectOption",
   props: {
     value: {
-      type: [String, Object],
-      default: ""
-    }
+      type: [String, Number, Object],
+      default: "",
+    },
   },
   computed: {
     selected() {
@@ -25,12 +25,12 @@ export default {
     },
     indexes() {
       return this.$parent.indexes;
-    }
+    },
   },
   methods: {
     clicked() {
       this.$parent.$emit("update", this.indexes[JSON.stringify(this.value)]);
-    }
-  }
+    },
+  },
 };
 </script>

@@ -1,14 +1,5 @@
 <template>
-  <li
-    class="glide__slide sf-hero-item"
-    :style="
-      'background-image: url(' +
-        image +
-        '); background-color: ' +
-        background +
-        ';'
-    "
-  >
+  <li class="glide__slide sf-hero-item" :style="style">
     <div class="sf-hero-item__container">
       <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
       <slot name="subtitle" v-bind="{ subtitle }">
@@ -34,34 +25,48 @@ import SfButton from "../../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfHeroItem",
   components: {
-    SfButton
+    SfButton,
   },
   props: {
     /** Hero item title */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Hero item subtitle (at the top) */
     subtitle: {
       type: String,
-      default: ""
+      default: "",
     },
     /** text that will be displayed inside the button. You can replace the button  with "call-to-action" slot */
     buttonText: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Background color */
     background: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Background image path */
     image: {
-      type: String,
-      default: ""
-    }
-  }
+      type: [Object, String],
+      default: "",
+    },
+  },
+  computed: {
+    style() {
+      const image = this.image;
+      const background = this.background;
+      return {
+        "--_hero-item-background-image": image.mobile
+          ? `url(${image.mobile})`
+          : `url(${image})`,
+        "--_hero-item-background-desktop-image":
+          image.desktop && `url(${image.desktop})`,
+        "--_hero-item-background-color": background,
+      };
+    },
+  },
 };
 </script>

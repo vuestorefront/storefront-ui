@@ -1,4 +1,4 @@
-import { shallowMount } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import SfHeroItem from "./SfHeroItem.vue";
 import SfButton from "../../../atoms/SfButton/SfButton";
 const title = "title_single";
@@ -10,14 +10,14 @@ describe("SfHeroItem.vue", () => {
   describe("with items passed as props", () => {
     let component;
     beforeEach(() => {
-      component = shallowMount(SfHeroItem, {
+      component = mount(SfHeroItem, {
         propsData: {
           title,
           subtitle,
           buttonText,
           background,
-          image
-        }
+          image,
+        },
       });
     });
     afterEach(() => {
@@ -35,26 +35,16 @@ describe("SfHeroItem.vue", () => {
     it("renders SfButton correctly", () => {
       expect(component.find(SfButton).text()).toContain(buttonText);
     });
-    it("renders background image correctly", () => {
-      expect(component.find("li").element.style.backgroundImage).toContain(
-        image
-      );
-    });
-    it("renders background color correctly", () => {
-      expect(component.find("li").element.style.backgroundColor).toBe(
-        background
-      );
-    });
   });
   describe("with items passed through slots", () => {
     let component;
     beforeEach(() => {
-      component = shallowMount(SfHeroItem, {
+      component = mount(SfHeroItem, {
         slots: {
           title: `<div>${title}</div>`,
           subtitle: `<div>${subtitle}</div>`,
-          "call-to-action": `<div>halabala</div>`
-        }
+          "call-to-action": `<div>halabala</div>`,
+        },
       });
     });
     afterEach(() => {

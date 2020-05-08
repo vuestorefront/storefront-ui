@@ -1,37 +1,39 @@
 @import "../../helpers";
-
 .sf-breadcrumbs {
-  font: var(
-    --breadcrumbs-font,
-    font(
-      --breadcrumbs,
-      400,
-      var(--font-size-small),
-      1.6,
-      var(--body-font-family-secondary)
-    )
-  );
   &__list {
     display: flex;
     padding: 0;
     margin: 0;
     list-style: none;
   }
-  &__item {
+  &__list-item {
     &:not(:first-child) {
-      padding: var(--breadcrumbs-item-padding, 0 0 0 var(--spacer));
       &::before {
-        padding: var(--breadcrumbs-item-before-padding, 0 var(--spacer) 0 0);
-        content: var(--breadcrumbs-item-seperator, "|");
+        padding: var(
+          --breadcrumbs-list-item-before-padding,
+          0 var(--spacer-sm)
+        );
+        content: var(--breadcrumbs-list-item-seperator, "|");
+        color: var(--breadcrumbs-list-item-before-color, var(--c-text-muted));
       }
     }
   }
-  &__link {
-    color: var(--breadcrumbs-link, var(--c-text));
-    cursor: pointer;
-  }
-  &__current {
-    color: var(--breadcrumbs-current, var(--c-text-muted));
-    cursor: default;
+  &__breadcrumb {
+    @include font(
+      --breadcrumbs-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.6,
+      var(--font-family-secondary)
+    );
+    --link-color: var(--c-text-muted);
+    --link-text-decoration: none;
+    &:hover {
+      --link-color: var(--c-text);
+    }
+    &--current {
+      --link-color: var(--c-text);
+      cursor: default;
+    }
   }
 }

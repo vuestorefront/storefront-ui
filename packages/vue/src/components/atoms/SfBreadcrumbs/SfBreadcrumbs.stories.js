@@ -1,7 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, object } from "@storybook/addon-knobs";
-import SfBreadcrumbs from "./SfBreadcrumbs.vue";
+import { SfBreadcrumbs } from "@storefront-ui/vue";
 storiesOf("Atoms|Breadcrumbs", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -11,16 +10,16 @@ storiesOf("Atoms|Breadcrumbs", module)
         default: object(
           "breadcrumbs",
           [
-            { text: "Home", route: { link: "#" } },
-            { text: "Category", route: { link: "#" } },
-            { text: "Pants", route: { link: "#" } }
+            { text: "Home", link: "#" },
+            { text: "Category", link: "#" },
+            { text: "Pants", link: "#" },
           ],
           "Props"
-        )
-      }
+        ),
+      },
     },
     template: `<SfBreadcrumbs
-      :breadcrumbs="breadcrumbs" />`
+      :breadcrumbs="breadcrumbs" />`,
   }))
   .add("[slot] link", () => ({
     components: { SfBreadcrumbs },
@@ -29,20 +28,20 @@ storiesOf("Atoms|Breadcrumbs", module)
         default: object(
           "breadcrumbs",
           [
-            { text: "Home", route: { link: "#" } },
-            { text: "Category", route: { link: "#" } },
-            { text: "Pants", route: { link: "#" } }
+            { text: "Home", link: "#" },
+            { text: "Category", link: "#" },
+            { text: "Pants", link: "#" },
           ],
           "Props"
-        )
-      }
+        ),
+      },
     },
     template: `<SfBreadcrumbs
       :breadcrumbs="breadcrumbs">
       <template #link="{breadcrumb, go}">
         <span style="text-transform: lowercase">'{{breadcrumb.text}}'</span>
       </template>
-    </SfBreadcrumbs>`
+    </SfBreadcrumbs>`,
   }))
   .add("[slot] current", () => ({
     components: { SfBreadcrumbs },
@@ -51,18 +50,18 @@ storiesOf("Atoms|Breadcrumbs", module)
         default: object(
           "breadcrumbs",
           [
-            { text: "Home", route: { link: "#" } },
-            { text: "Category", route: { link: "#" } },
-            { text: "Pants", route: { link: "#" } }
+            { text: "Home", link: "#" },
+            { text: "Category", link: "#" },
+            { text: "Pants", link: "#" },
           ],
           "Props"
-        )
-      }
+        ),
+      },
     },
     template: `<SfBreadcrumbs
       :breadcrumbs="breadcrumbs">
       <template #current="{breadcrumb}">
         <span style="text-transform: uppercase">"{{breadcrumb.text}}"</span>
       </template>
-    </SfBreadcrumbs>`
+    </SfBreadcrumbs>`,
   }));

@@ -1,20 +1,23 @@
 @import "../../helpers";
-
 .sf-bullet {
   box-sizing: border-box;
-  width: var(--bullet-width, var(--bullet-size, 8px));
-  height: var(--bullet-height, var(--bullet-size, 8px));
-  margin: var(--bullet-margin, var(--spacer-small));
+  width: var(--bullet-width, var(--bullet-size, 0.5rem));
+  height: var(--bullet-height, var(--bullet-size, 0.5rem));
+  margin: var(--bullet-margin, var(--spacer-2xs));
   border-radius: var(--bullet-border-radius, 100%);
   background: var(--bullet-background, var(--c-gray));
-  cursor: pointer;
+  box-shadow: var(--bullet-box-shadow, none);
+  transition: transform 150ms linear, box-shadow 150ms linear;
+  &:hover,
   &--active {
-    --bullet-size: 0.625rem;
+    transform: scale3d(1.25, 1.25, 1);
+    --bullet-box-shadow: 0 3px 4px 0 rgba(var(--c-dark-base), 0.25);
+  }
+  &--active {
     --bullet-background: var(--c-primary);
     cursor: default;
   }
 }
-
 .sf-bullets {
   display: flex;
   align-items: center;

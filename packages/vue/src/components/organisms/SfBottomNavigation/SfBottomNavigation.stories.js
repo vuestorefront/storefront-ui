@@ -1,188 +1,149 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  boolean,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
-
-import SfBottomNavigation from "./SfBottomNavigation.vue";
-
-import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-
+import { withKnobs, text } from "@storybook/addon-knobs";
+import { SfBottomNavigation, SfCircleIcon, SfIcon } from "@storefront-ui/vue";
 storiesOf("Organisms|BottomNavigation", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfBottomNavigation, SfCircleIcon, SfIcon },
     props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-bottom-navigation-item--active":
-              "sf-bottom-navigation-item--active"
-          },
-          "sf-bottom-navigation-item--active",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       label: {
-        default: text("label", "Home", "Props")
+        default: text("label", "Home", "Props"),
       },
       icon: {
-        default: text("icon", "home", "Props")
+        default: text("icon", "home", "Props"),
       },
-      isFloating: {
-        default: boolean("isFloating", true, "Props")
-      }
+      iconActive: {
+        default: text("iconActive", "home_fill", "Props"),
+      },
     },
     data() {
       return {
         items: [
-          { icon: "menu", label: "Menu" },
-          { icon: "heart", label: "Heart" },
-          { icon: "profile", label: "Profile" }
-        ]
+          {
+            icon: "menu",
+            iconActive: "",
+            label: "Menu",
+          },
+          {
+            icon: "heart",
+            iconActive: "heart_fill",
+            label: "Heart",
+          },
+          {
+            icon: "profile",
+            iconActive: "profile_fill",
+            label: "Profile",
+          },
+        ],
+        currentIcon: "heart_fill",
       };
     },
     template: `<SfBottomNavigation>
       <SfBottomNavigationItem 
         :icon="icon" 
         :label="label"
-        :class="customClass"
+        :icon-active="iconActive"
+        :is-active="currentIcon === iconActive"
+        @click="currentIcon = iconActive"
       />
       <SfBottomNavigationItem
         v-for="(item, key) in items"
         :key="key"
-        :icon="item.icon"
+        :icon="item.icon" 
+        :icon-active="item.iconActive"
         :label="item.label"
-        icon-size="20px"
+        icon-size="17px"
+        :is-active="currentIcon === item.iconActive"
+        @click="currentIcon = item.iconActive"
       />
       <SfBottomNavigationItem
         label="Basket"
-        icon="add_to_cart"
-        :is-floating="isFloating"
-      >
+        icon="add_to_cart"     
+        >
         <template #icon>
-          <SfCircleIcon>
+          <SfCircleIcon aria-label="Add to cart">
             <SfIcon
               icon="add_to_cart"
               color="white"
-              size="28px"
+              size="25px"
               :style="{margin: '0 0 0 -2px'}"
             />
           </SfCircleIcon>
         </template>
       </SfBottomNavigationItem>
-    </SfBottomNavigation>`
+    </SfBottomNavigation>`,
   }))
   .add("Icons only", () => ({
     components: { SfBottomNavigation, SfCircleIcon, SfIcon },
     props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-bottom-navigation-item--active":
-              "sf-bottom-navigation-item--active"
-          },
-          "sf-bottom-navigation-item--active",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       label: {
-        default: text("label", "Home", "Props")
+        default: text("label", "Home", "Props"),
       },
       icon: {
-        default: text("icon", "home", "Props")
+        default: text("icon", "home", "Props"),
       },
-      isFloating: {
-        default: boolean("isFloating", true, "Props")
-      }
     },
     data() {
       return {
-        items: [{ icon: "menu" }, { icon: "heart" }, { icon: "profile" }]
+        items: [{ icon: "menu" }, { icon: "heart" }, { icon: "profile" }],
       };
     },
     template: `<SfBottomNavigation>
       <SfBottomNavigationItem
         :icon="icon"
-        :class="customClass"
       />
       <SfBottomNavigationItem
         v-for="(item, key) in items"
         :key="key"
         :icon="item.icon"
         :label="item.label"
-        icon-size="20px"
+        icon-size="17px"
       />
       <SfBottomNavigationItem
         icon="add_to_cart"
-        :is-floating="isFloating"
       >
         <template #icon>
           <SfCircleIcon>
             <SfIcon
               icon="add_to_cart"
               color="white"
-              size="28px"
+              size="25px"
               :style="{margin: '0 0 0 -2px'}"
             />
           </SfCircleIcon>
         </template>
       </SfBottomNavigationItem>
-    </SfBottomNavigation>`
+    </SfBottomNavigation>`,
   }))
   .add("Labels only", () => ({
     components: { SfBottomNavigation, SfCircleIcon, SfIcon },
     props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-bottom-navigation-item--active":
-              "sf-bottom-navigation-item--active"
-          },
-          "sf-bottom-navigation-item--active",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       label: {
-        default: text("label", "Home", "Props")
+        default: text("label", "Home", "Props"),
       },
       icon: {
-        default: text("icon", "home", "Props")
+        default: text("icon", "home", "Props"),
       },
-      isFloating: {
-        default: boolean("isFloating", true, "Props")
-      }
     },
     data() {
       return {
-        items: [{ label: "Menu" }, { label: "Heart" }, { label: "Profile" }]
+        items: [{ label: "Menu" }, { label: "Heart" }, { label: "Profile" }],
       };
     },
     template: `<SfBottomNavigation>
       <SfBottomNavigationItem
         :label="label"
-        :class="customClass"
       />
       <SfBottomNavigationItem
         v-for="(item, key) in items"
         :key="key"
         :icon="item.icon"
         :label="item.label"
-        icon-size="20px"
+        icon-size="17px"
       />
       <SfBottomNavigationItem
         label="Basket"
       >
       </SfBottomNavigationItem>
-    </SfBottomNavigation>`
+    </SfBottomNavigation>`,
   }));

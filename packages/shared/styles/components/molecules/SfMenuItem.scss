@@ -1,39 +1,37 @@
 @import "../../helpers";
-
 .sf-menu-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--menu-item-color, var(--c-gray));
-  font: var(
-    --menu-item-font,
-    font(
-      --menu-item,
-      400,
-      var(--font-size-regular),
-      1.6,
-      var(--body-font-family-secondary)
-    )
-  );
+  text-transform: var(--menu-item-text-transform);
   cursor: pointer;
-  &:hover {
-    --menu-item-color: var(--c-dark);
-  }
-  &--is-active {
-    --menu-item-color: var(--c-dark);
-    --icon-color: var(--c-dark);
-    text-decoration: var(--menu-item-active-text-decoration, underline);
-  }
+  @include font(
+    --menu-item-font,
+    var(--font-normal),
+    var(--font-base),
+    1.4,
+    var(--font-family-secondary)
+  );
   &__icon {
     --icon-color: var(--c-gray);
-    margin: var(--menu-item-icon-margin, 0 var(--spacer-big) 0 0);
+    margin: var(--menu-item-icon-margin, 0 var(--spacer-xs) 0 0);
   }
   &__count {
     margin: var(--menu-item-count-margin, 0 0 0 auto);
+    color: var(--menu-item-count-color, var(--c-gray));
   }
   &__mobile-nav-icon {
     display: var(--menu-item-mobile-nav-icon-display, flex);
-    margin: var(--menu-item-mobile-nav-icon-margin, 0 0 0 var(--spacer-big));
+    margin: var(--menu-item-mobile-nav-icon-margin, 0 0 0 var(--spacer-base));
+  }
+  &__label {
+    color: var(--menu-item-label-color, var(--c-dark-variant));
+  }
+  &--is-active {
+    --menu-item-label-color: var(--c-primary);
+  }
+  &:hover {
+    --menu-item-label-color: var(--c-black);
   }
   @include for-desktop {
     --menu-item-mobile-nav-icon-display: none;

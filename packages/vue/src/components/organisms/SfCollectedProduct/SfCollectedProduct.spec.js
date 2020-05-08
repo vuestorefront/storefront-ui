@@ -5,8 +5,8 @@ describe("SfCollectedProduct.vue", () => {
     const title = "Product";
     const component = shallowMount(SfCollectedProduct, {
       propsData: {
-        title
-      }
+        title,
+      },
     });
     expect(component.contains(".sf-collected-product")).toBe(true);
   });
