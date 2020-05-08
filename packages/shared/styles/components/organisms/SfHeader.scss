@@ -5,8 +5,10 @@
   & > *:not(.sf-mega-menu) {
     --link-color: var(--header-navigation-item-color, var(--c-dark-variant));
     box-sizing: border-box;
+    flex: 1;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: var(--header-navigation-item-padding, calc(var(--spacer-sm) - 1px) var(--spacer-sm));
     margin: var(--header-navigation-item-margin, 0);
     @include border(--header-navigation-item-border, 0 0 2px 0, solid, transparent);
@@ -100,11 +102,11 @@
     }
   }
   &__search {
-    --search-bar-display: none;
+    display: var(--search-bar-display, none);
     flex: var(--header-search-flex, 0 0 100%);
     margin: var(--spacer-xs) 0;
     @include for-desktop {
-      --search-bar-display: flex;
+      display: var(--search-bar-display, flex);
       --header-search-flex: 0 1 19.875rem;
     }
   }
