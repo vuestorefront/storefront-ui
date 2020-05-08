@@ -28,6 +28,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron"
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -92,6 +93,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron"
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -150,6 +152,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron"
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -208,6 +211,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron"
           },
           "sf-select--underlined",
           { display: "multi-select" },
