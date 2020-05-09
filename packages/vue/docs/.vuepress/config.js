@@ -54,7 +54,7 @@ module.exports = {
         collapsable: false,
         children: [
 // @components-docs-start (keep comment and indentation for auto-generated component docs)
-{
+{ 
  title: "Atoms",
  collapsable: false,
  children:  [
@@ -80,7 +80,7 @@ module.exports = {
 ["/components/quantityselector", "Quantity Selector"],
 ["/components/rating", "Rating"]]
  },
-{
+{ 
  title: "Molecules",
  collapsable: false,
  children:  [
@@ -88,6 +88,7 @@ module.exports = {
 ["/components/alert", "Alert"],
 ["/components/banner", "Banner"],
 ["/components/bar", "Bar"],
+["/components/bottommodal", "Bottom Modal"],
 ["/components/calltoaction", "Call To Action"],
 ["/components/characteristic", "Characteristic"],
 ["/components/dropdown", "Dropdown"],
@@ -108,7 +109,7 @@ module.exports = {
 ["/components/steps", "Steps"],
 ["/components/sticky", "Sticky"]]
  },
-{
+{ 
  title: "Organisms",
  collapsable: false,
  children:  [

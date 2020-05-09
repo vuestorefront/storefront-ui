@@ -1,11 +1,9 @@
 <template>
   <div
-    :aria-expanded="open ? 'true' : 'false'"
-    :aria-owns="'lbox_' + _uid"
     v-click-outside="{ closeHandler: closeHandler, exclude: notClosingEl }"
+    :aria-owns="'lbox_' + _uid"
     aria-autocomplete="none"
     role="combobox"
-    tabindex="0"
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
@@ -14,6 +12,8 @@
     }"
     class="sf-select"
     @click="toggle($event)"
+    @blur="closeHandler"
+    @keyup.esc="closeHandler"
     @keyup.space="openHandler"
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
@@ -21,7 +21,14 @@
   >
     <div style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <div class="sf-select__selected sf-select-option" v-html="html"></div>
+      <div
+        id="sfSelect"
+        v-focus
+        tabindex="0"
+        role="listbox"
+        class="sf-select__selected sf-select-option"
+        v-html="html"
+      ></div>
       <slot name="label">
         <div v-if="label" class="sf-select__label">
           {{ label }}
@@ -32,9 +39,13 @@
       </slot>
       <SfOverlay :visible="open" class="sf-select__overlay mobile-only" />
       <transition name="sf-select">
-        <div v-show="open" class="sf-select__dropdown">
+        <div v-show="open" role="list" class="sf-select__dropdown">
           <!--  sf-select__option -->
-          <ul :style="{ maxHeight }" class="sf-select__options">
+          <ul
+            :aria-expanded="open ? 'true' : 'false'"
+            :style="{ maxHeight }"
+            class="sf-select__options"
+          >
             <slot />
           </ul>
           <slot name="cancel">
@@ -67,10 +78,12 @@ import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
+import { focus } from "../../../utilities/directives/focus-directive.js";
 import Vue from "vue";
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
+  directives: { focus },
   components: {
     SfButton,
     SfChevron,
@@ -147,6 +160,7 @@ export default {
       options: [],
       indexes: {},
       optionHeight: 0,
+      focusedOption: "",
     };
   },
   computed: {
@@ -159,6 +173,7 @@ export default {
         return stringified;
       },
       set(index) {
+        this.focusedOption = this.options[index].value;
         this.$emit("change", this.options[index].value);
       },
     },
@@ -222,6 +237,8 @@ export default {
       if (index < 0) index = 0;
       if (index >= optionsLength) index = optionsLength - 1;
       this.index = index;
+      document.getElementById("sfSelect").blur();
+      document.getElementById(this.focusedOption).focus();
     },
     enter() {
       this.toggle();
