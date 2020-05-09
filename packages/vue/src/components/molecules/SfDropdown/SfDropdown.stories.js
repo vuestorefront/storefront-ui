@@ -39,8 +39,8 @@ storiesOf("Molecules|Dropdown", module)
     },
     template: `<div style="display:flex">
       <div style="position: relative; display: inline-block;">
-        <SfButton @click="isOpen = true" ref="button">Choose your action</SfButton>
-        <SfDropdown :class="customClass" :is-open="isOpen" :title="title" @click:close="isOpen = false" :not-closing-el="notClosingEl">
+        <SfButton @click="isOpen = true">Choose your action</SfButton>
+        <SfDropdown :class="customClass" :is-open="isOpen" :title="title" @click:close="isOpen = false">
           <SfList>
             <SfListItem v-for="(action, key) in actionList" :key="key">
               <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = !isOpen">{{ action }}</SfButton>
@@ -82,8 +82,8 @@ storiesOf("Molecules|Dropdown", module)
     },
     template: `<div>
       <div style="position: absolute; display: inline-block; bottom: 0;">
-        <SfButton @click="isOpen = true" ref="button">Choose your action</SfButton>
-        <SfDropdown :class="customClass" :is-open="isOpen" :title="title" @click:close="isOpen = false" :not-closing-el="notClosingEl">
+        <SfButton @click="isOpen = true">Choose your action</SfButton>
+        <SfDropdown :class="customClass" :is-open="isOpen" :title="title" @click:close="isOpen = false">
           <SfList>
             <SfListItem v-for="(action, key) in actionList" :key="key">
               <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = false">{{ action }}</SfButton>

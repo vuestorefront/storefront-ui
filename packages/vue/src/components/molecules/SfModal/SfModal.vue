@@ -11,7 +11,7 @@
       <div
         v-if="visible"
         v-focus-trap
-        v-click-outside="{ closeHandler: close, exclude: notClosingEl }"
+        v-click-outside="close"
         class="sf-modal__container"
       >
         <!--@slot Use this slot to place content inside the modal bar.-->
@@ -113,13 +113,6 @@ export default {
     transitionModal: {
       type: String,
       default: "fade",
-    },
-    /**
-     * Array of elements which don't close modal.
-     */
-    notClosingEl: {
-      type: Array,
-      default: undefined,
     },
   },
   data() {

@@ -1,6 +1,7 @@
 <template>
   <div
-    v-click-outside="{ closeHandler: closeHandler, exclude: notClosingEl }"
+    v-click-outside="closeHandler"
+    :aria-expanded="open ? 'true' : 'false'"
     :aria-owns="'lbox_' + _uid"
     aria-autocomplete="none"
     role="combobox"
@@ -23,6 +24,7 @@
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div
         id="sfSelect"
+        ref="button"
         v-focus
         tabindex="0"
         role="listbox"
@@ -149,7 +151,7 @@ export default {
     /**
      * Array of elements which don't close select.
      */
-    notClosingEl: {
+    elementsToExclude: {
       type: Array,
       default: undefined,
     },
@@ -251,6 +253,9 @@ export default {
         this.disabled
       ) {
         return;
+      } else if (this.$refs["button"].contains(event.target) && this.open) {
+        console.log(this.$refs["button"]);
+        this.open = false;
       }
       this.open = !this.open;
     },
