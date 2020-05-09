@@ -148,13 +148,6 @@ export default {
       type: String,
       default: "This field is not correct.",
     },
-    /**
-     * Array of elements which don't close select.
-     */
-    elementsToExclude: {
-      type: Array,
-      default: undefined,
-    },
   },
   data() {
     return {
