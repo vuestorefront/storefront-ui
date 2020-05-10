@@ -5,7 +5,7 @@ import {
   optionsKnob as options,
   boolean,
 } from "@storybook/addon-knobs";
-import SfColor from "./SfColor.vue";
+import { SfColor } from "@storefront-ui/vue";
 storiesOf("Atoms|Color", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -34,7 +34,7 @@ storiesOf("Atoms|Color", module)
           :color="color" 
           :selected="selected" 
           :has-badge="hasBadge"
-          aria-label="color"  
+          :aria-label="color"  
           style="margin: 10px;"
           :class="customClass"
           @click="selected = !selected"/>`,

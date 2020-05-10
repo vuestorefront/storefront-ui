@@ -5,16 +5,19 @@ const glob = require("glob");
 const path = require("path");
 
 const pathTargetIndexJs = path.resolve(__dirname, "..", "index.js");
+const pathTargetStoriesOfJs = path.resolve(__dirname, "..", "storiesOf.js");
 
 const pathVueComponentsRoot = path.resolve(__dirname, "..", "src/components");
 const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
-  cwd: pathVueComponentsRoot
+  cwd: pathVueComponentsRoot,
 });
 
 function createIndexFiles() {
   const filesContent = generateFilesContent();
   saveIndexJs(filesContent.contentIndexJs);
   console.log("index.js created");
+  saveStoriesOfJs(filesContent.contentStoriesOfJs);
+  console.log("storiesOf.js created");
 }
 
 function generateFilesContent() {
@@ -34,20 +37,25 @@ function generateFilesContent() {
     "export {\n" +
     exports.join(",\n") +
     "\n};\n";
-  const contentJsJs = contentIndexJs.replace(/\.vue";/g, '.js";');
-
+  const contentStoriesOfJs = contentIndexJs
+    .replace(/import/g, "const")
+    .replace(/ from /g, " = require(")
+    .replace(/\.vue";/g, '.stories.js");')
+    .replace(/export/g, "module.exports =");
   return {
     contentIndexJs,
-    contentJsJs
+    contentStoriesOfJs,
   };
 }
 
 function saveIndexJs(contentIndexJs) {
   fs.writeFileSync(pathTargetIndexJs, contentIndexJs);
 }
-
+function saveStoriesOfJs(contentStoriesOfJs) {
+  fs.writeFileSync(pathTargetStoriesOfJs, contentStoriesOfJs);
+}
 module.exports = {
-  createIndexFiles
+  createIndexFiles,
 };
 
 if (require.main === module) {

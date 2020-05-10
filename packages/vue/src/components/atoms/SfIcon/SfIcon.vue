@@ -19,15 +19,26 @@
         />
       </svg>
     </slot>
+    <slot name="badge" v-bind="{ badgeLabel, hasBadge }">
+      <transition name="bounce">
+        <SfBadge v-if="hasBadge" class="sf-icon__badge sf-badge--number">
+          {{ badgeLabel }}
+        </SfBadge>
+      </transition>
+    </slot>
   </div>
 </template>
 <script>
 import icons from "@storefront-ui/shared/icons/icons";
 import { iconColorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { sizesValues as SF_SIZES } from "@storefront-ui/shared/variables/sizes";
+import SfBadge from "../SfBadge/SfBadge";
 const SF_ICONS = Object.keys(icons);
 export default {
   name: "SfIcon",
+  components: {
+    SfBadge,
+  },
   props: {
     /**
      * Icon SVG path(s)
@@ -60,11 +71,19 @@ export default {
      * Custom viewBox size of the icon
      * It should be according to the standard `"min-x min-y width height"`.
      * By default it will be `0 0 24 24`. If you use our icons, you don't need to pass this prop at all.
-     * Recommedations: try to get your SVG designed with our default viewBox value and reduce the number of props passed to the component.
+     * Recommendations: try to get your SVG designed with our default viewBox value and reduce the number of props passed to the component.
      */
     viewBox: {
       type: String,
       default: "0 0 24 24",
+    },
+    hasBadge: {
+      type: Boolean,
+      default: false,
+    },
+    badgeLabel: {
+      type: String,
+      default: "",
     },
   },
   computed: {

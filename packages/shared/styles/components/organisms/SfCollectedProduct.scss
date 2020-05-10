@@ -18,6 +18,9 @@
     opacity: var(--collected-product-remove-opacity);
     right: var(--collected-product-remove-right, var(--spacer-xs));
     transition: var(--collected-product-remove-transition);
+    &:focus {
+      --collected-product-remove-opacity: 1;
+    }
     &--circle-icon {
       top: var(--collected-product-remove-top);
       display: var(--collected-product-remove-circle-icon-display, none);
@@ -68,7 +71,9 @@
     flex-direction: column;
   }
   &__title {
+    display: inline-block;
     margin-bottom: var(--spacer-base);
+    --link-text-decoration: none;
     @include font(
       --collected-product-title-font,
       var(--font-normal),

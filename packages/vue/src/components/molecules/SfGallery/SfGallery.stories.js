@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, object, number, boolean } from "@storybook/addon-knobs";
-import SfGallery from "./SfGallery.vue";
+import { SfGallery } from "@storefront-ui/vue";
 storiesOf("Molecules|Gallery", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
