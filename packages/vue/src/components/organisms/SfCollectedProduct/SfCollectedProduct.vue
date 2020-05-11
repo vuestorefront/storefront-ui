@@ -18,7 +18,7 @@
         aria-label="More actions"
         class="sf-button--pure sf-collected-product__more-actions mobile-only"
       >
-        <SfIcon icon="more" />
+        <SfIcon icon="more" size="16px" />
       </SfButton>
     </slot>
     <div class="sf-collected-product__aside">

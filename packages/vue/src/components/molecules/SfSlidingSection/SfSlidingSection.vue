@@ -15,7 +15,7 @@
             class="sf-button--pure sf-sliding-section__close"
             @click="closeHandler"
           >
-            <SfIcon icon="cross" size="xxs" />
+            <SfIcon icon="cross" size="14px" />
           </SfButton>
         </slot>
       </div>
