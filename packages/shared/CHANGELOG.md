@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.10](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.9...@storefront-ui/shared@0.7.10) (2020-05-08)
+
+
+### Bug Fixes
+
+* **a11y:** link in SfCollectedProduct and SfGroupedProduct ([#1153](https://github.com/DivanteLtd/storefront-ui/issues/1153)) ([349df75](https://github.com/DivanteLtd/storefront-ui/commit/349df757e807bd104ecbc321d8e6b44162783c7b))
+* **a11y:** v-focus in SfSelect  ([#1095](https://github.com/DivanteLtd/storefront-ui/issues/1095)) ([6417541](https://github.com/DivanteLtd/storefront-ui/commit/6417541d4509150228662b3c97c7e1f4a7c63ce4))
+
+
+### Features
+
+* **component:** SfBottomModal ([#1144](https://github.com/DivanteLtd/storefront-ui/issues/1144)) ([fc1893b](https://github.com/DivanteLtd/storefront-ui/commit/fc1893b659455219686c1237c20ae294cdb046cb))
+
+
+
+
+
 ## [0.7.9](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.8...@storefront-ui/shared@0.7.9) (2020-05-08)
 
 
