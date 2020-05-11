@@ -73,7 +73,7 @@ export default {
   watch: {
     isOpen: {
       handler(value) {
-        if (!isBrowserEnvironment) return;
+        if (!isBrowserEnvironment()) return;
         if (value) {
           document.addEventListener("keydown", this.keydownHandler);
         } else {

@@ -119,7 +119,7 @@ export default {
   watch: {
     visible: {
       handler: function (value) {
-        if (!isBrowserEnvironment) return;
+        if (!isBrowserEnvironment()) return;
         if (value) {
           this.$nextTick(() => {
             disableBodyScroll(this.$refs.content);

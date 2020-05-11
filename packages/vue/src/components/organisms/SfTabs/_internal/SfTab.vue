@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     tabClick() {
-      if (!isBrowserEnvironment) return;
+      if (!isBrowserEnvironment()) return;
       const width = Math.max(
         document.documentElement.clientWidth,
         window.innerWidth

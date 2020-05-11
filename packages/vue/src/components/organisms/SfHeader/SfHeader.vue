@@ -217,7 +217,7 @@ export default {
   watch: {
     scrollDirection: {
       handler() {
-        if (!isBrowserEnvironment) return;
+        if (!isBrowserEnvironment()) return;
         window.cancelAnimationFrame(this.animationLong);
         this.animationLong = null;
         this.animationStart = null;
@@ -228,7 +228,7 @@ export default {
     },
     isMobile: {
       handler() {
-        if (!isBrowserEnvironment) return;
+        if (!isBrowserEnvironment()) return;
         this.$nextTick(() => {
           this.height = this.$refs.header.offsetHeight;
         });
@@ -237,7 +237,7 @@ export default {
     },
     isSticky: {
       handler(isSticky) {
-        if (!isBrowserEnvironment) return;
+        if (!isBrowserEnvironment()) return;
         this.sticky = isSticky;
       },
       immediate: true,
@@ -269,7 +269,7 @@ export default {
       this.hidden = this.scrollDirection === "down";
     },
     scrollHandler() {
-      if (!isBrowserEnvironment) return;
+      if (!isBrowserEnvironment()) return;
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
       if (currentScrollPosition >= this.height) {

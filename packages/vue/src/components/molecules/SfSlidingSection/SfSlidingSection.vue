@@ -52,7 +52,7 @@ export default {
   },
   watch: {
     isMobile(mobile) {
-      if (!isBrowserEnvironment) return;
+      if (!isBrowserEnvironment()) return;
       if (!mobile) {
         this.isActive = false;
         this.hasScrollLock = false;
@@ -63,7 +63,7 @@ export default {
       this.hammer.set({ enable: true });
     },
     isActive(active) {
-      if (!isBrowserEnvironment) return;
+      if (!isBrowserEnvironment()) return;
       if (!active) {
         this.hasStaticHeight = false;
         if (!this.isMobile) {
@@ -76,7 +76,7 @@ export default {
       this.hasScrollLock = false;
     },
     hasScrollLock(scrollLock) {
-      if (!isBrowserEnvironment) return;
+      if (!isBrowserEnvironment()) return;
       if (!scrollLock) {
         this.scrollUnlock();
         return;
