@@ -37,14 +37,13 @@ import { isClient } from "../../../../utilities/helpers";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
 import SfScrollable from "../../../molecules/SfScrollable/SfScrollable.vue";
-import { focus } from "../../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfTab",
   components: {
     Fragment,
     SfChevron,
-    SfButton,
     SfScrollable,
+    SfButton,
   },
   inject: ["tabConfig"],
   props: {
