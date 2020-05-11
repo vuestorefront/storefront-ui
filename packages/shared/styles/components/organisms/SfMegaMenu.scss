@@ -20,6 +20,7 @@
       solid,
       var(--c-light)
     );
+    text-align: var(--mega-menu-column-title-text-align, left)
   }
   @include for-desktop {
     --list-item-padding: 0;
@@ -35,6 +36,7 @@
   --list-item-padding: var(--spacer-sm);
   --list-item-border-width: 0 0 1px 0;
   overflow: var(--mega-menu-overflow, hidden);
+  width: var(--mega-menu-width, 100%);
   height: var(--mega-menu-height, 100%);
   background-color: var(--mega-menu-background, var(--c-white));
   &__content {
