@@ -6,9 +6,7 @@ import {
   boolean,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfSelect from "./SfSelect.vue";
-import SfProductOption from "../SfProductOption/SfProductOption.vue";
-import SfInput from "../../atoms/SfInput/SfInput.vue";
+import { SfSelect, SfProductOption } from "@storefront-ui/vue";
 const optionsList = [
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
   { value: "amber", color: "#FFBF00", label: "Amber" },
@@ -23,13 +21,14 @@ const knobOptionsList = optionsList.reduce(
 storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfSelect, SfProductOption, SfInput },
+    components: { SfSelect, SfProductOption },
     props: {
       customClass: {
         default: options(
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -94,6 +93,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -152,6 +152,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -210,6 +211,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },

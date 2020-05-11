@@ -15,12 +15,12 @@
         icon-color="white"
         icon-size="28px"
       />
-      <SfIcon
+      <SfButton
         v-else-if="icon"
-        :icon="currentIcon"
-        :size="iconSize"
-        class="sf-bottom-navigation-item__icon"
-      />
+        class="sf-button--pure sf-bottom-navigation-item__icon"
+      >
+        <SfIcon :icon="currentIcon" :size="iconSize" />
+      </SfButton>
     </slot>
     <slot name="label" v-bind="{ label }">
       <div
@@ -38,11 +38,15 @@
 <script>
 import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 import SfCircleIcon from "../../../atoms/SfCircleIcon/SfCircleIcon.vue";
+import SfButton from "../../../atoms/SfButton/SfButton.vue";
+import { focus } from "../../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfBottomNavigationItem",
+  directives: { focus },
   components: {
     SfCircleIcon,
     SfIcon,
+    SfButton,
   },
   props: {
     icon: {

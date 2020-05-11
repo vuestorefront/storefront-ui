@@ -22,7 +22,7 @@ For organizing and tracking purpose, we divide issues on StorefrontUI into the f
 
 Please do the following checks:
 * **Double-check** [the current issues](https://github.com/DivanteLtd/storefront-ui/issues) with the help of Github issue search, to avoid report duplication.
-* If it is an issue about **component behavior**, check our [Components Playground](http://storybook.storefrontui.io) or [Components Documentaton](/components/Accordion.md) to make sure it is indeed a bug 🐛 and not an intended feature.
+* If it is an issue about **component behavior**, check our [Components Playground](http://storybook.storefrontui.io) or [Components Documentation](/components/Accordion.md) to make sure it is indeed a bug 🐛 and not an intended feature.
 * If it's about **technical questions** or just to **verify it is technical related**, refer to our [Discord Server](https://discord.gg/GS8hqFS) first. Our contributors and core team will be more than happy to help.
 * Besides, if it is about **feature request**, refer to our current [Roadmap]() to see if your request exists.
 

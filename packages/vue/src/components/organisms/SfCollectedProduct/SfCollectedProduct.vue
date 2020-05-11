@@ -3,6 +3,7 @@
     <slot name="remove" v-bind="{ removeHandler }">
       <SfCircleIcon
         icon="cross"
+        aria-label="Remove"
         class="sf-circle-icon--small sf-collected-product__remove sf-collected-product__remove--circle-icon"
         @click="removeHandler"
       />
@@ -13,11 +14,12 @@
       >
     </slot>
     <slot name="more-actions">
-      <SfIcon
-        icon="more"
-        role="button"
-        class="sf-collected-product__more-actions mobile-only"
-      />
+      <SfButton
+        aria-label="More actions"
+        class="sf-button--pure sf-collected-product__more-actions mobile-only"
+      >
+        <SfIcon icon="more" />
+      </SfButton>
     </slot>
     <div class="sf-collected-product__aside">
       <slot name="image" v-bind="{ image, title }">
@@ -42,7 +44,11 @@
     <div class="sf-collected-product__main">
       <div class="sf-collected-product__details">
         <slot name="title" v-bind="{ title }">
-          <div class="sf-collected-product__title">{{ title }}</div>
+          <div class="sf-collected-product__title-wraper">
+            <SfLink :link="link" class="sf-collected-product__title">
+              {{ title }}
+            </SfLink>
+          </div>
         </slot>
         <slot name="price" v-bind="{ specialPrice, regularPrice }">
           <SfPrice
@@ -66,6 +72,7 @@ import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
 export default {
   name: "SfCollectedProduct",
   components: {
@@ -75,6 +82,7 @@ export default {
     SfCircleIcon,
     SfPrice,
     SfQuantitySelector,
+    SfLink,
   },
   model: {
     prop: "qty",
@@ -129,6 +137,13 @@ export default {
     qty: {
       type: [Number, String],
       default: 1,
+    },
+    /**
+     * Link to product
+     */
+    link: {
+      type: [String, Object],
+      default: "",
     },
   },
   methods: {
