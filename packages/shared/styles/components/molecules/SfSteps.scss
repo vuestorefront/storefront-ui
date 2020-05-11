@@ -24,7 +24,7 @@
     );
     color: var(--steps-step-color, var(--c-link));
     cursor: var(--steps-step-cursor, pointer);
-    &.is-current,
+    &.current,
     &.is-done {
       --steps-step-color: var(--c-text);
       --steps-step-cursor: default;
@@ -68,7 +68,7 @@
     &__step {
       --steps-step-padding: 0 0 var(--spacer-xs) 0;
       --step-font-size: var(--font-lg);
-      &.is-current,
+      &.current,
       &.is-done {
         --steps-step-after-background: var(--c-black);
       }

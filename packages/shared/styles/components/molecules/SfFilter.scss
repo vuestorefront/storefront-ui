@@ -50,7 +50,7 @@
       --filter-label-transform: scale(1.4);
     }
   }
-  &--is-color {
+  &.is-color {
     @include for-desktop {
       --checkbox-display: none;
       --filter-label-display: none;

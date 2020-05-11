@@ -103,7 +103,7 @@
       }
     }
   }
-  &--without-carousel {
+  &.without-carousel {
     .glide {
       &__slides {
         display: block;
@@ -130,7 +130,7 @@
       --quantity-selector-background: var(--c-light);
     }
   }
-  &--without-quantity {
+  &.without-quantity {
     --grouped-product-item-quantity-selector-display: none;
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div
     class="sf-image"
-    :class="{ 'sf-image--has-size': size && source }"
+    :class="{ 'has-size': size && source }"
     :style="size"
     v-on="$listeners"
   >

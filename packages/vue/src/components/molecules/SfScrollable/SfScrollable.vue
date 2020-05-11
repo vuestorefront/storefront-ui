@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-scrollable" :class="{ 'sf-scrollable--is-open': !isHidden }">
+  <div class="sf-scrollable" :class="{ 'is-open': !isHidden }">
     <Simplebar ref="content" class="sf-scrollable__content" :style="style">
       <slot />
     </Simplebar>

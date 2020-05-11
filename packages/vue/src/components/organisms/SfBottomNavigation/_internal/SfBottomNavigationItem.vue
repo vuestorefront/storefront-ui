@@ -3,8 +3,8 @@
     class="sf-bottom-navigation-item"
     :class="{
       'is-active': isActive,
-      'sf-bottom-navigation-item--floating': isFloating,
-      'sf-bottom-navigation-item--center': !icon || !label,
+      'is-floating': isFloating,
+      center: !icon || !label,
     }"
     v-on="$listeners"
   >
@@ -27,7 +27,7 @@
         v-if="label"
         class="sf-bottom-navigation-item__label"
         :class="{
-          'sf-bottom-navigation-item--has-margin': icon,
+          'has-margin': icon,
         }"
       >
         {{ label }}

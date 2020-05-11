@@ -5,7 +5,7 @@
       <component
         :is="`h${level}`"
         class="sf-heading__title"
-        :class="level > 1 && `sf-heading__title--h${level}`"
+        :class="level > 1 && `h${level}`"
       >
         {{ title }}
       </component>

@@ -12,7 +12,7 @@
       border-radius: 10px;
     }
   }
-  &--is-open {
+  &.is-open {
     --scrollable-max-height: auto;
   }
   &__button {

@@ -51,14 +51,14 @@
     --bottom-navigation-item-color: var(--c-black);
     --bottom-navigation-item-font-weight: var(--font-normal);
   }
-  &--has-margin {
+  & .has-margin {
     --bottom-navigation-item-label-margin: var(--spacer-xs) 0 0 0;
   }
   &__icon {
     background: transparent;
     padding: 0;
   }
-  &--floating {
+  &.is-floating {
     --icon-color: var(--c-white);
     & .sf-circle-icon {
       --circle-icon-position: absolute;
@@ -66,7 +66,7 @@
       transform: translate3d(0, -50%, 0);
     }
   }
-  &--center {
+  &.center {
     --bottom-navigation-item-align-self: center;
   }
 }

@@ -140,7 +140,7 @@
     --icon-width: var(--input-password-icon-width, 1.375rem);
     --icon-height: var(--input-password-icon-height, 0.8125rem);
     position: relative;
-    &--hidden {
+    &.hidden {
       --input-password-icon-scaleX: 1;
     }
     &::after {
@@ -155,7 +155,7 @@
       content: "";
     }
   }
-  &--invalid {
+  &.invalid {
     --input-border-color: var(--c-danger);
     input {
       &:focus {
@@ -166,7 +166,7 @@
       }
     }
   }
-  &--has-text,
+  &.has-text,
   input[type="date"] ~ *,
   input[type="time"] ~ *,
   input[type="image"] ~ *,
@@ -182,7 +182,7 @@
     --input-label-font-size: var(--font-xs);
     --input-label-color: var(--c-secondary-variant);
     --input-label-transition: color 150ms ease;
-    &.sf-input--has-text {
+    &.has-text {
       --input-label-display: none;
     }
     input {

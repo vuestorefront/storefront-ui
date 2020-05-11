@@ -7,8 +7,8 @@
     tabindex="0"
     :class="{
       'is-active': isActive,
-      'sf-select--is-selected': isSelected,
-      'sf-select--is-required': required,
+      'is-selected': isSelected,
+      'is-required': required,
       'is-disabled': disabled,
     }"
     class="sf-select"

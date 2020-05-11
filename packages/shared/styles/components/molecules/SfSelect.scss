@@ -133,7 +133,7 @@
     --select-border-width: 0 0 1px 0;
     --select-border-color: var(--c-light);
   }
-  &--is-selected {
+  &.is-selected {
     --select-label-top: 0;
     --select-label-font-size: var(--font-2xs);
   }
@@ -148,7 +148,7 @@
     --select-border-color: var(--c-text-disabled);
     --select-label-color: var(--c-text-disabled);
   }
-  &--is-required {
+  &.is-required {
     --select-label-required: " *";
   }
   &-enter-active {

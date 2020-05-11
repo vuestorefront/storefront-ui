@@ -14,7 +14,7 @@
           :class="{
             'sf-steps__step': true,
             'is-done': step.done,
-            'is-current': step.current,
+            'current': step.current,
             'is-disabled': step.disabled,
           }"
           @click="stepClick(step)"
