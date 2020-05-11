@@ -1,8 +1,4 @@
-import {
-  getFocusableChildren,
-  isFocusable,
-  moveFocus,
-} from "./focus-trap/focus-trap.js";
+import { getFocusableChildren, isFocusable, moveFocus } from "./focus-trap";
 import Vue from "vue";
 
 export const focusTrap = {
