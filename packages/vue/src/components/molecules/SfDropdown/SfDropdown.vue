@@ -51,7 +51,7 @@ export default {
   watch: {
     isOpen: {
       handler(value) {
-        if (!isClient()) return;
+        if (!isClient) return;
         if (value) {
           document.addEventListener("keydown", this.keydownHandler);
         } else {

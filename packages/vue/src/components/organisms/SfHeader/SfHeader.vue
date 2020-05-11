@@ -217,7 +217,7 @@ export default {
   watch: {
     scrollDirection: {
       handler() {
-        if (!isClient()) return;
+        if (!isClient) return;
         window.cancelAnimationFrame(this.animationLong);
         this.animationLong = null;
         this.animationStart = null;
@@ -228,7 +228,7 @@ export default {
     },
     isMobile: {
       handler() {
-        if (!isClient()) return;
+        if (!isClient) return;
         this.$nextTick(() => {
           this.height = this.$refs.header.offsetHeight;
         });
@@ -237,7 +237,7 @@ export default {
     },
     isSticky: {
       handler(isSticky) {
-        if (!isClient()) return;
+        if (!isClient) return;
         this.sticky = isSticky;
       },
       immediate: true,
@@ -269,7 +269,7 @@ export default {
       this.hidden = this.scrollDirection === "down";
     },
     scrollHandler() {
-      if (!isClient()) return;
+      if (!isClient) return;
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
       if (currentScrollPosition >= this.height) {

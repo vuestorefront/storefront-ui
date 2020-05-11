@@ -116,7 +116,7 @@ export default {
   watch: {
     visible: {
       handler(value) {
-        if (!isClient()) return;
+        if (!isClient) return;
         if (value) {
           this.$nextTick(() => {
             disableBodyScroll(this.$refs.content);
