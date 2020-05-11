@@ -36,7 +36,7 @@
 </template>
 <script>
 import SfIcon from "../SfIcon/SfIcon.vue";
-import { focus } from "../../../utilities/directives/focus-directive.js";
+import { focus } from "../../../utilities/directives";
 export default {
   name: "SfCheckbox",
   directives: {

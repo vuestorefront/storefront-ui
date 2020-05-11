@@ -130,7 +130,7 @@
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/focus-directive.js";
+import { focus } from "../../../utilities/directives";
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { deprecationWarning } from "../../../utilities/helpers";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
