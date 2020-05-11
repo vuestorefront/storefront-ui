@@ -50,7 +50,7 @@ import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-import { isBrowserEnvironment } from "../../../utilities/helpers";
+import { isClient } from "../../../utilities/helpers";
 export default {
   name: "SfBottomModal",
   components: { SfOverlay, SfButton, SfCircleIcon, SfHeading },
@@ -73,7 +73,7 @@ export default {
   watch: {
     isOpen: {
       handler(value) {
-        if (!isBrowserEnvironment()) return;
+        if (!isClient()) return;
         if (value) {
           document.addEventListener("keydown", this.keydownHandler);
         } else {
