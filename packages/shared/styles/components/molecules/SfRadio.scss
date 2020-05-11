@@ -14,6 +14,7 @@
       normal,
       var(--font-family-secondary)
     );
+    color: var(--radio-label-color);
   }
   &__checkmark {
     box-sizing: border-box;
@@ -59,9 +60,9 @@
       var(--spacer-sm) var(--spacer-lg) var(--spacer-sm) var(--spacer-sm)
     );
     cursor: var(--radio-container-cursor, pointer);
-    &:hover {
-      --radio-checkmark-border-color: var(--c-primary);
-    }
+  }
+  &:hover {
+    --radio-checkmark-border-color: var(--c-primary);
   }
   &__content {
     flex: 1;
@@ -87,9 +88,20 @@
       1.6,
       var(--font-family-primary)
     );
+    color: var(--radio-description-margin);
   }
   &--is-active {
     background: var(--radio-background, var(--c-light));
+  }
+  &.is-disabled {
+    --radio-checkmark-border-color:  var(--c-text-disabled);
+    --radio-details-color: var(--c-text-disabled);
+    --radio-description-margin: var(--c-text-disabled);
+    --radio-label-color: var(--c-text-disabled);
+    --radio-container-cursor: not-allowed;
+    &:hover {
+      --radio-checkmark-border-color: var(--c-text-disabled);
+    }
   }
   &--transparent {
     &.sf-radio--is-active {

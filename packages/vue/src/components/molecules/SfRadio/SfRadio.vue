@@ -3,7 +3,7 @@
     class="sf-radio"
     :class="{
       'sf-radio--is-active': isChecked,
-      'sf-radio--is-disabled': disabled,
+      'is-disabled': disabled,
     }"
   >
     <label class="sf-radio__container">
