@@ -33,6 +33,7 @@
 </template>
 <script>
 import { Fragment } from "vue-fragment";
+import { isClient } from "../../../../utilities/helpers";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
 import SfScrollable from "../../../molecules/SfScrollable/SfScrollable.vue";
@@ -74,8 +75,7 @@ export default {
   },
   methods: {
     tabClick() {
-      if (typeof window === "undefined" || typeof document === "undefined")
-        return;
+      if (!isClient) return;
       const width = Math.max(
         document.documentElement.clientWidth,
         window.innerWidth

@@ -4,7 +4,7 @@
     <slot v-for="index in parseInt(finalScore, 10)" name="icon-positive">
       <SfIcon
         :key="`p${index}`"
-        size="14px"
+        size="0.875rem"
         class="sf-rating__icon"
         icon="star"
       />
@@ -16,7 +16,7 @@
     >
       <SfIcon
         :key="`n${index}`"
-        size="14px"
+        size="0.875rem"
         class="sf-rating__icon sf-rating__icon--negative"
         icon="star"
       />

@@ -45,6 +45,7 @@
               'sf-input__password-icon--hidden': !isPasswordVisible,
             }"
             icon="show_password"
+            size="1.5rem"
           ></SfIcon>
         </SfButton>
       </slot>
@@ -53,7 +54,7 @@
       <transition name="fade">
         <!-- @slot Custom error message of form input -->
         <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
-          <span>{{ errorMessage }}</span></slot
+          <div>{{ errorMessage }}</div></slot
         >
       </transition>
     </div>
@@ -62,7 +63,7 @@
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
-import { focus } from "../../../utilities/directives/focus-directive.js";
+import { focus } from "../../../utilities/directives";
 export default {
   name: "SfInput",
   directives: {

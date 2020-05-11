@@ -13,7 +13,7 @@
           v-if="selected && hasBadge"
           class="sf-color__badge mobile-only"
         >
-          <SfIcon aria-hidden="true" icon="check" size="7px" color="white" />
+          <SfIcon aria-hidden="true" icon="check" size="8px" color="white" />
         </SfBadge>
       </slot>
     </transition>

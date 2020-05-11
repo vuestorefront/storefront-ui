@@ -3,7 +3,7 @@
     class="sf-radio"
     :class="{
       'sf-radio--is-active': isChecked,
-      'sf-radio--is-disabled': disabled,
+      'is-disabled': disabled,
     }"
   >
     <label class="sf-radio__container">
@@ -45,7 +45,7 @@
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/focus-directive.js";
+import { focus } from "../../../utilities/directives";
 export default {
   name: "SfRadio",
   directives: {
