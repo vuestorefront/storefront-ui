@@ -98,7 +98,7 @@
     --radio-details-color: var(--c-text-disabled);
     --radio-description-margin: var(--c-text-disabled);
     --radio-label-color: var(--c-text-disabled);
-    --radio-container-cursor: not-allowed;
+    --radio-container-cursor: default;
     &:hover {
       --radio-checkmark-border-color: var(--c-text-disabled);
     }
