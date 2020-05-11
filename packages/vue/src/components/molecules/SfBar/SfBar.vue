@@ -8,7 +8,7 @@
           class="sf-button--pure sf-bar__icon"
           @click="$emit('click:back')"
         >
-          <SfIcon icon="chevron_left" size="14px" />
+          <SfIcon icon="chevron_left" size="0.875rem" />
         </SfButton>
       </slot>
     </div>

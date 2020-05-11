@@ -35,7 +35,7 @@
         >Go to checkout</SfButton
       >
       <div class="actions__email">
-        <SfCharacteristic icon="mail" size-icon="12px" color-icon="secondary">
+        <SfCharacteristic icon="mail" size-icon="20px" color-icon="secondary">
           <template #text>
             <SfButton
               class="sf-button--text actions__button actions__button--secondary"
