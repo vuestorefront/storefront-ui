@@ -17,14 +17,17 @@ export default {
       type: Number,
       default: 1,
     },
+    /** Max height of visible content  */
     tabMaxContentHeight: {
       type: String,
       default: "",
     },
+    /** Text for button showing content  */
     tabShowText: {
       type: String,
       default: "show",
     },
+    /** Text for button hiding content  */
     tabHideText: {
       type: String,
       default: "hide",
@@ -49,18 +52,18 @@ export default {
     },
   },
   provide: function () {
-    const contentShow = {};
-    Object.defineProperty(contentShow, "maxContentHeight", {
+    const tabConfig = {};
+    Object.defineProperty(tabConfig, "tabMaxContentHeight", {
       get: () => this.tabMaxContentHeight,
     });
-    Object.defineProperty(contentShow, "showText", {
+    Object.defineProperty(tabConfig, "tabShowText", {
       get: () => this.tabShowText,
     });
-    Object.defineProperty(contentShow, "hideText", {
+    Object.defineProperty(tabConfig, "tabHideText", {
       get: () => this.tabHideText,
     });
     return {
-      contentShow,
+      tabConfig,
     };
   },
 };

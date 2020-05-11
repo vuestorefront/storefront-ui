@@ -17,13 +17,16 @@
     </slot>
     <div class="sf-tabs__content">
       <div v-if="isActive" class="sf-tabs__content__tab">
-        <SfScrollable v-if="maxContentHeight">
+        <SfScrollable
+          v-if="tabMaxContentHeight"
+          :max-content-height="tabMaxContentHeight"
+          :show-text="tabShowText"
+          :hide-text="tabHideText"
+        >
           <!--@slot Default. Here you should pass your tab content -->
           <slot />
         </SfScrollable>
-        <div v-else>
-          <slot />
-        </div>
+        <slot v-else />
       </div>
     </div>
   </Fragment>
@@ -31,6 +34,7 @@
 <script>
 import { Fragment } from "vue-fragment";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
+import SfButton from "../../../atoms/SfButton/SfButton.vue";
 import SfScrollable from "../../../molecules/SfScrollable/SfScrollable.vue";
 import { focus } from "../../../../utilities/directives/focus-directive.js";
 export default {
@@ -38,9 +42,10 @@ export default {
   components: {
     Fragment,
     SfChevron,
+    SfButton,
     SfScrollable,
   },
-  inject: ["contentShow"],
+  inject: ["tabConfig"],
   props: {
     /**
      * Tab title.
@@ -57,8 +62,14 @@ export default {
     };
   },
   computed: {
-    maxContentHeight() {
-      return this.contentShow.maxContentHeight;
+    tabMaxContentHeight() {
+      return this.tabConfig.tabMaxContentHeight;
+    },
+    tabShowText() {
+      return this.tabConfig.tabShowText;
+    },
+    tabHideText() {
+      return this.tabConfig.tabHideText;
     },
   },
   methods: {
