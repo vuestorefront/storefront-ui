@@ -1,3 +1,2 @@
-export const isClient = (() => {
-  return typeof window !== "undefined" || typeof document !== "undefined";
-})();
+export const isClient = (() =>
+  typeof window !== "undefined" || typeof document !== "undefined")();
