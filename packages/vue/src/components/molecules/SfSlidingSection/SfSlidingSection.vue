@@ -31,7 +31,7 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
-import { nonBrowserEnvironment } from "../../../utilities/helpers/check-environment.js";
+import { isBrowserEnvironment } from "../../../utilities/helpers";
 
 export default {
   name: "SfSlidingSection",
@@ -52,7 +52,7 @@ export default {
   },
   watch: {
     isMobile(mobile) {
-      if (nonBrowserEnvironment) return;
+      if (!isBrowserEnvironment) return;
       if (!mobile) {
         this.isActive = false;
         this.hasScrollLock = false;
@@ -63,7 +63,7 @@ export default {
       this.hammer.set({ enable: true });
     },
     isActive(active) {
-      if (nonBrowserEnvironment) return;
+      if (!isBrowserEnvironment) return;
       if (!active) {
         this.hasStaticHeight = false;
         if (!this.isMobile) {
@@ -76,7 +76,7 @@ export default {
       this.hasScrollLock = false;
     },
     hasScrollLock(scrollLock) {
-      if (nonBrowserEnvironment) return;
+      if (!isBrowserEnvironment) return;
       if (!scrollLock) {
         this.scrollUnlock();
         return;

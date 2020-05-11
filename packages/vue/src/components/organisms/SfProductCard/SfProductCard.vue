@@ -132,7 +132,7 @@
 <script>
 import { focus } from "../../../utilities/directives/focus-directive.js";
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
-import { deprecationWarning } from "../../../utilities/helpers/deprecation-warning.js";
+import { deprecationWarning } from "../../../utilities/helpers";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";

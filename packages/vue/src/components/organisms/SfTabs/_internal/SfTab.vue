@@ -25,7 +25,7 @@
 </template>
 <script>
 import { Fragment } from "vue-fragment";
-import { nonBrowserEnvironment } from "../../../../utilities/helpers/check-environment.js";
+import { isBrowserEnvironment } from "../../../../utilities/helpers";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
 export default {
@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     tabClick() {
-      if (nonBrowserEnvironment) return;
+      if (!isBrowserEnvironment) return;
       const width = Math.max(
         document.documentElement.clientWidth,
         window.innerWidth

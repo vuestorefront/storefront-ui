@@ -52,7 +52,7 @@
 <script>
 import { focusTrap } from "../../../utilities/directives/focus-trap-directive.js";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
-import { nonBrowserEnvironment } from "../../../utilities/helpers/check-environment.js";
+import { isBrowserEnvironment } from "../../../utilities/helpers";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
@@ -116,7 +116,7 @@ export default {
   watch: {
     visible: {
       handler(value) {
-        if (nonBrowserEnvironment) return;
+        if (!isBrowserEnvironment()) return;
         if (value) {
           this.$nextTick(() => {
             disableBodyScroll(this.$refs.content);
