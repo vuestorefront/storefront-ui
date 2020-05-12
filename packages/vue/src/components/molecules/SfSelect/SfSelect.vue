@@ -23,7 +23,7 @@
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div
         id="sfSelect"
-        ref="button"
+        v-focus
         tabindex="0"
         role="listbox"
         class="sf-select__selected sf-select-option"
