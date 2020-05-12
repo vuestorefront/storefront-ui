@@ -24,7 +24,6 @@
       <div
         id="sfSelect"
         ref="button"
-        v-focus
         tabindex="0"
         role="listbox"
         class="sf-select__selected sf-select-option"
@@ -240,11 +239,8 @@ export default {
           event &&
           event.target.contains(this.$refs.cancel.$el)) ||
         this.disabled
-      ) {
+      )
         return;
-      } else if (this.$refs["button"].contains(event.target) && this.open) {
-        this.open = false;
-      }
       this.open = !this.open;
     },
     openHandler() {
