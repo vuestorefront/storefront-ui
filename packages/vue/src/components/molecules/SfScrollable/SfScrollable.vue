@@ -24,26 +24,26 @@ export default {
   },
   props: {
     /*
-    * Maximum height of visible content 
-    */
+     * Maximum height of visible content
+     */
     maxContentHeight: {
       type: String,
-      default: ""
-      },
+      default: "",
+    },
     /*
-    * Text for button showing content  
-    */  
+     * Text for button showing content
+     */
     showText: {
       type: String,
-      default: ""
-      },
+      default: "Show",
+    },
     /*
-    * Text for button hiding content
-    */ 
+     * Text for button hiding content
+     */
     hideText: {
       type: String,
-      default: ""
-      }
+      default: "Hide",
+    },
   },
   data() {
     return {
