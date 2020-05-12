@@ -73,7 +73,6 @@
             />
             <SfButton
               v-if="reviewsCount"
-              v-focus
               :aria-label="`Read ${reviewsCount} reviews about ${title}`"
               class="sf-button--pure sf-product-card-horizontal__reviews-count"
               href="#"
