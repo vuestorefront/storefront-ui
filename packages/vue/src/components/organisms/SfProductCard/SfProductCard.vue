@@ -115,16 +115,14 @@
           :max="maxRating"
           :score="scoreRating"
         />
-        <a
+        <SfButton
           v-if="reviewsCount"
-          v-focus
           :aria-label="`Read ${reviewsCount} reviews about ${title}`"
-          class="sf-product-card__reviews-count"
-          href="#"
+          class="sf-button--pure sf-product-card__reviews-count"
           @click="$emit('click:reviews')"
         >
           ({{ reviewsCount }})
-        </a>
+        </SfButton>
       </div>
     </slot>
   </div>
