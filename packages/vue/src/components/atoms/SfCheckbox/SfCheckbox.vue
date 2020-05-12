@@ -24,7 +24,7 @@
           class="sf-checkbox__checkmark"
           :class="{ 'sf-checkbox__checkmark--is-active': isChecked }"
         >
-          <SfIcon v-if="isChecked" icon="check" size="11px" color="white" />
+          <SfIcon v-if="isChecked" icon="check" size="12x" color="white" />
         </div>
       </slot>
       <!-- @slot Custom label markup -->
@@ -36,7 +36,7 @@
 </template>
 <script>
 import SfIcon from "../SfIcon/SfIcon.vue";
-import { focus } from "../../../utilities/directives/focus-directive.js";
+import { focus } from "../../../utilities/directives";
 export default {
   name: "SfCheckbox",
   directives: {

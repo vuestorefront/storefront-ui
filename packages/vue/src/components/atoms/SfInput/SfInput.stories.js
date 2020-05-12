@@ -61,7 +61,6 @@ storiesOf("Atoms|Input", module)
       :error-message="errorMessage"
       :required="required"
       :disabled="disabled"
-      aria-label="Input label"
       :has-show-password="hasShowPassword"
       :class="customClass"
       />`,
@@ -123,7 +122,6 @@ storiesOf("Atoms|Input", module)
         :required="required"
         :disabled="disabled"
         :has-show-password="hasShowPassword"
-        aria-label="Input label"
         >
       <template #label="{label}">
             <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
@@ -187,7 +185,6 @@ storiesOf("Atoms|Input", module)
       :required="required"
       :disabled="disabled"
       :has-show-password="hasShowPassword"
-      aria-label="Input label"
       >
       <template #error-message="{errorMessage}">
         <div>
@@ -254,10 +251,12 @@ storiesOf("Atoms|Input", module)
       :required="required"
       :disabled="disabled"
       :has-show-password="hasShowPassword"
-      aria-label="Input label"
       >
       <template #error-message="{errorMessage}">
-        <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> CUSTOM ERROR MESSAGE
+        <div style="display: flex; align-items: center">
+          <SfIcon icon="info_shield" size="0.875rem" color="#E22326" style="margin-right: 4px; display: inline-block"/>
+          <span>CUSTOM ERROR MESSAGE</span>
+        </div>
       </template>
     </SfInput>`,
   }))
@@ -314,7 +313,6 @@ storiesOf("Atoms|Input", module)
       :error-message="errorMessage"
       :required="required"
       :disabled="disabled"
-      aria-label="Input label"
       :has-show-password="hasShowPassword"
       :class="customClass"
       />`,

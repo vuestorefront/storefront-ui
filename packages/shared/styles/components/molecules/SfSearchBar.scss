@@ -23,16 +23,17 @@
 .sf-search-bar {
   box-sizing: border-box;
   position: relative;
-  display: flex;
+  display: var(--search-bar-display, flex);
   align-items: center;
   background: var(--search-bar-background);
+  padding: var(--search-bar-padding);
   width: var(--search-bar-width);
   height: var(--search-bar-height, 2rem);
   &__icon {
     --icon-size: 1.25rem;
     position: absolute;
     bottom: var(--spacer-xs);
-    right: 0;
+    right: var(--search-bar-icon-right, 0);
     display: var(--search-bar-icon-display, block);
   }
   &__input {

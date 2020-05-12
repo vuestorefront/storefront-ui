@@ -27,7 +27,11 @@
     <div class="sf-grouped-product-item__description">
       <!-- @slot Custom title markup -->
       <slot name="title" v-bind="{ title }">
-        <div class="sf-grouped-product-item__title">{{ title }}</div>
+        <div class="sf-grouped-product-item__title-wraper">
+          <SfLink :link="link" class="sf-grouped-product-item__title">{{
+            title
+          }}</SfLink>
+        </div>
       </slot>
       <!-- @slot Custom details markup -->
       <slot name="details" />
@@ -59,12 +63,14 @@
 import SfPrice from "../../../atoms/SfPrice/SfPrice.vue";
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
 import SfQuantitySelector from "../../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
+import SfLink from "../../../atoms/SfLink/SfLink.vue";
 export default {
   name: "SfGroupedProductItem",
   components: {
     SfImage,
     SfPrice,
     SfQuantitySelector,
+    SfLink,
   },
   model: {
     prop: "qty",
@@ -137,6 +143,13 @@ export default {
     qty: {
       type: [Number, String],
       default: 1,
+    },
+    /**
+     * Link to product
+     */
+    link: {
+      type: [String, Object],
+      default: "",
     },
   },
 };

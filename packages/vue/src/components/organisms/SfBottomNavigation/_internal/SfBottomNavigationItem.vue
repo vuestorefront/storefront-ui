@@ -39,7 +39,7 @@
 import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 import SfCircleIcon from "../../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
-import { focus } from "../../../../utilities/directives/focus-directive.js";
+import { focus } from "../../../../utilities/directives";
 export default {
   name: "SfBottomNavigationItem",
   directives: { focus },

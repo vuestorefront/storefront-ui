@@ -60,6 +60,7 @@
         :title="characteristic.title"
         :description="characteristic.description"
         :icon="characteristic.icon"
+        size-icon="20px"
         color-icon="green-primary"
         class="characteristics__item"
       />
