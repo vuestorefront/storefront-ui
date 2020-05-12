@@ -127,7 +127,7 @@
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/focus-directive.js";
+import { focus } from "../../../utilities/directives";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfProperty from "../../atoms/SfProperty/SfProperty.vue";

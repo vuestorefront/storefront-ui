@@ -58,7 +58,7 @@ storiesOf("Molecules|Radio", module)
        :description="description"
        :name="name"
        :value="value"
-       :disbled="disabled"
+       :disabled="disabled"
        :required="required"
        v-model="checked"/>`,
   }))
@@ -112,7 +112,7 @@ storiesOf("Molecules|Radio", module)
        :description="description"
        :name="name"
        :value="value"
-       :disbled="disabled"
+       :disabled="disabled"
        :required="required"
        v-model="checked">
        <template #checkmark="{isChecked, disabled}">
@@ -171,7 +171,7 @@ storiesOf("Molecules|Radio", module)
        :description="description"
        :name="name"
        :value="value"
-       :disbled="disabled"
+       :disabled="disabled"
        :required="required"
        v-model="checked">
        <template #label="{label, isChecked, disabled}">
@@ -229,7 +229,7 @@ storiesOf("Molecules|Radio", module)
        :description="description"
        :name="name"
        :value="value"
-       :disbled="disabled"
+       :disabled="disabled"
        :required="required"
        v-model="checked">
        <template #details="{details}">
@@ -287,7 +287,7 @@ storiesOf("Molecules|Radio", module)
        :description="description"
        :name="name"
        :value="value"
-       :disbled="disabled"
+       :disabled="disabled"
        :required="required"
        v-model="checked">
        <template #description="{description}">

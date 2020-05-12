@@ -68,7 +68,7 @@
   </div>
 </template>
 <script>
-import { focus } from "../../../../utilities/directives/focus-directive.js";
+import { focus } from "../../../../utilities/directives";
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
 import SfCharacteristic from "../../../molecules/SfCharacteristic/SfCharacteristic.vue";
 export default {
