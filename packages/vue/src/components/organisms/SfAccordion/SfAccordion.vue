@@ -9,7 +9,7 @@
 </template>
 <script>
 import Vue from "vue";
-import { deprecationWarning } from "../../../utilities/helpers/deprecation-warning.js";
+import { deprecationWarning } from "../../../utilities/helpers";
 import SfAccordionItem from "./_internal/SfAccordionItem.vue";
 Vue.component("SfAccordionItem", SfAccordionItem);
 export default {

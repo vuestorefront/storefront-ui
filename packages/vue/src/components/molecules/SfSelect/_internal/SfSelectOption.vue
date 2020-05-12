@@ -1,18 +1,23 @@
 <template>
   <li
+    :id="value"
+    role="option"
     class="sf-select-option"
     :class="{ 'sf-select-option--is-active': selected === value }"
-    role="option"
+    tabindex="0"
     :aria-selected="selected === value ? 'true' : 'false'"
     @click="clicked"
+    @keyup.space.enter="clicked"
   >
     <!-- @slot -->
     <slot />
   </li>
 </template>
 <script>
+import { focus } from "../../../../utilities/directives";
 export default {
   name: "SfSelectOption",
+  directives: { focus },
   props: {
     value: {
       type: [String, Number, Object],

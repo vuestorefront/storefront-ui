@@ -49,7 +49,7 @@
         :height="height"
       />
     </template>
-    <noscript v-if="lazy" inline-template>
+    <noscript v-if="lazy && noscript" inline-template>
       <img :src="noscript" v-bind="$attrs" :width="width" :height="height" />
     </noscript>
     <div v-if="hasOverlay" class="sf-image__overlay">
@@ -99,7 +99,7 @@ export default {
   },
   computed: {
     isPicture() {
-      return typeof this.src === "object";
+      return !!this.src && typeof this.src === "object";
     },
     isSrcSet() {
       return this.src.srcset;
