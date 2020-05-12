@@ -6,7 +6,7 @@
     v-on="$listeners"
   >
     <template v-if="isPicture">
-      <picture>
+      <picture v-if="!isSrcSet">
         <source
           :srcset="source.desktop.url"
           :media="`(min-width: ${pictureBreakpoint}px)`"
@@ -15,20 +15,28 @@
           :srcset="source.mobile.url"
           :media="`(max-width: ${pictureBreakpoint}px)`"
         />
-        <source
-          :srcset="source.desktop.fallback"
-          :media="`(min-width: ${pictureBreakpoint}px)`"
-        />
-        <source
-          :srcset="source.mobile.fallback"
-          :media="`(max-width: ${pictureBreakpoint}px)`"
-        />
         <img
           v-show="source.desktop.url"
           :src="source.desktop.url"
           v-bind="$attrs"
           :width="width"
           :height="height"
+        />
+      </picture>
+      <picture v-else>
+        <source
+          v-for="(srcItem, i) in source.srcset"
+          :key="i"
+          :srcset="srcItem.src"
+          :media="srcItem.media"
+          :type="srcItem.type"
+        />
+        <img
+          v-show="source.srcset"
+          :src="source.srcset.src"
+          :srcset="source.srcset.srcset"
+          :sizes="source.srcset.sizes"
+          v-bind="$attrs"
         />
       </picture>
     </template>
@@ -56,7 +64,7 @@ export default {
   inheritAttrs: false,
   props: {
     src: {
-      type: [String, Object],
+      type: [String, Array, Object],
       default: "",
     },
     lazy: {
@@ -93,12 +101,20 @@ export default {
     isPicture() {
       return typeof this.src === "object";
     },
+    isSrcSet() {
+      return this.src.srcset;
+    },
     source() {
       const allow =
         (this.isLoaded && this.lazy) || (!this.isLoaded && !this.lazy);
       const disallow = this.isPicture
-        ? { desktop: { url: null }, mobile: { url: null } }
+        ? {
+            desktop: { url: null },
+            mobile: { url: null },
+            srcset: { src: null },
+          }
         : null;
+      console.log(this.src.srcset);
       return allow ? this.src : disallow;
     },
     noscript() {

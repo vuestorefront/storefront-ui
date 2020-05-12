@@ -5,6 +5,7 @@ import {
   boolean,
   number,
   object,
+  array
 } from "@storybook/addon-knobs";
 import { SfImage } from "@storefront-ui/vue";
 storiesOf("Atoms|Image", module)
@@ -16,14 +17,23 @@ storiesOf("Atoms|Image", module)
         default: object(
           "src",
           {
-            mobile: {
-              url: "/assets/storybook/SfImage/product-109x164.webp", 
-              fallback: "/assets/storybook/SfImage/product-109x164.jpg",
-            },
-            desktop: {
-              url: "/assets/storybook/SfImage/product-216x326.webp",
-              fallback: "/assets/storybook/SfImage/product-216x326.jpg"
-            },
+            srcset: [
+              {
+                src: `/assets/storybook/SfImage/product-109x164.webp`,
+                media: `(max-width: 480px)`, // optional
+                type: `image/webp` //optional
+              },
+              {
+                src: `/assets/storybook/SfImage/product-109x164.webp`,
+                media: `(min-width: 480px) and (max-width: 720px)`, // optional
+                type: `image/webp` //optional
+              },
+              {
+                src: `/assets/storybook/SfImage/product-216x326.jpg`,
+                media: `(min-width: 1240px)`, // optional
+                type: `image/webp` //optional
+              }
+            ]
           },
           "Props"
         ),
