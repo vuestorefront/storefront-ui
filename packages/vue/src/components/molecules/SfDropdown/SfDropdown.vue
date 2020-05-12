@@ -29,6 +29,8 @@
 import { clickOutside } from "../../../utilities/directives/click-outside-directive.js";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import { isClient } from "../../../utilities/helpers";
+
 export default {
   name: "SfDropdown",
   components: {
@@ -57,8 +59,7 @@ export default {
   watch: {
     isOpen: {
       handler(value) {
-        if (typeof window === "undefined" || typeof document === "undefined")
-          return;
+        if (!isClient) return;
         if (value) {
           document.addEventListener("keydown", this.keydownHandler);
         } else {

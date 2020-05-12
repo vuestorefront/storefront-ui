@@ -13,7 +13,7 @@
           aria-label="Go to previous page"
           @click="hasRouter ? null : go(getPrev)"
         >
-          <SfIcon icon="arrow_left" size="2rem" />
+          <SfIcon icon="arrow_left" size="1.125rem" />
         </component>
       </div>
     </slot>
@@ -81,7 +81,7 @@
           aria-label="Go to previous next"
           @click="hasRouter ? null : go(getNext)"
         >
-          <SfIcon icon="arrow_right" size="2rem" />
+          <SfIcon icon="arrow_right" size="1.125rem" />
         </component>
       </div>
     </slot>

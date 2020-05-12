@@ -31,7 +31,7 @@
         >
           <!--@slot Use this slot to place content inside the close button.-->
           <slot name="close">
-            <SfIcon icon="cross" size="15px" color="gray-secondary" />
+            <SfIcon icon="cross" size="0.875rem" color="gray-secondary" />
           </slot>
         </SfButton>
         <div ref="content" class="sf-modal__content">
@@ -50,7 +50,7 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { focusTrap } from "../../../utilities/directives/focus-trap-directive.js";
 import { clickOutside } from "../../../utilities/directives/click-outside-directive.js";
-
+import { isClient } from "../../../utilities/helpers";
 export default {
   name: "SfModal",
   directives: { focus, focusTrap, clickOutside },
@@ -124,8 +124,7 @@ export default {
   watch: {
     visible: {
       handler: function (value) {
-        if (typeof window === "undefined" || typeof document === "undefined")
-          return;
+        if (!isClient) return;
         if (value) {
           this.$nextTick(() => {
             disableBodyScroll(this.$refs.content);
