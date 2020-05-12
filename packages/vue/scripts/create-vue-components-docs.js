@@ -923,11 +923,7 @@ function getStorybookIFrameMarkup(storybookLink, storybookIFrameHeight) {
   if (storybookIFrameHeight) {
     style += `height: ${storybookIFrameHeight}`;
   }
-  return `
-  <input id="mobile" type="checkbox" value="mobile" name="mobile"><label for="mobile">Mobile view</label>
-  <div style="${wrapperStyle}">
-  <iframe class="storybook-iframe" src="https://storybook.storefrontui.io/iframe.html?id=${storybookLink}" style="${style}"></iframe>
-  </div>`;
+  return `<div><iframe class="storybook-iframe" src="https://storybook.storefrontui.io/iframe.html?id=${storybookLink}" style="${style}"></iframe></div>`;
 }
 function getInternalComponentTemplate() {
   return `### [[internal-component-name]]
