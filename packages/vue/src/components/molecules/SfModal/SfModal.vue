@@ -5,15 +5,11 @@
       class="sf-modal__overlay"
       :transition="transitionOverlay"
       :visible="visible"
+      @click="checkPersistence"
     >
     </SfOverlay>
     <transition :name="transitionModal">
-      <div
-        v-if="visible"
-        v-focus-trap
-        v-click-outside="close"
-        class="sf-modal__container"
-      >
+      <div v-if="visible" v-focus-trap class="sf-modal__container">
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="modal-bar">
           <SfBar
@@ -48,12 +44,11 @@ import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
-import { focusTrap } from "../../../utilities/directives/focus-trap-directive.js";
-import { clickOutside } from "../../../utilities/directives/click-outside-directive.js";
+import { focusTrap } from "../../../utilities/directives/";
 import { isClient } from "../../../utilities/helpers";
 export default {
   name: "SfModal",
-  directives: { focus, focusTrap, clickOutside },
+  directives: { focusTrap },
   components: {
     SfBar,
     SfOverlay,
@@ -142,11 +137,11 @@ export default {
     close() {
       this.$emit("close", false);
     },
-    // checkPersistence() {
-    //   if (!this.persistent) {
-    //     this.close();
-    //   }
-    // },
+    checkPersistence() {
+      if (!this.persistent) {
+        this.close();
+      }
+    },
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
         this.close();

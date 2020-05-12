@@ -26,7 +26,7 @@
   </div>
 </template>
 <script>
-import { clickOutside } from "../../../utilities/directives/click-outside-directive.js";
+import { clickOutside } from "../../../utilities/directives/";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { isClient } from "../../../utilities/helpers";

@@ -13,7 +13,6 @@
     }"
     class="sf-select"
     @click="toggle($event)"
-    @blur="closeHandler"
     @keyup.esc="closeHandler"
     @keyup.space="openHandler"
     @keyup.up="move(-1)"
@@ -75,24 +74,21 @@
   </div>
 </template>
 <script>
-import { clickOutside } from "../../../utilities/directives/click-outside-directive.js";
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
-import { focus } from "../../../utilities/directives";
+import { focus } from "../../../utilities/directives/";
+import { clickOutside } from "../../../utilities/directives/";
 import Vue from "vue";
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
-  directives: { focus },
+  directives: { focus, clickOutside },
   components: {
     SfButton,
     SfChevron,
     SfOverlay,
-  },
-  directives: {
-    clickOutside,
   },
   model: {
     prop: "selected",
@@ -247,7 +243,6 @@ export default {
       ) {
         return;
       } else if (this.$refs["button"].contains(event.target) && this.open) {
-        console.log(this.$refs["button"]);
         this.open = false;
       }
       this.open = !this.open;
