@@ -52,25 +52,15 @@ storiesOf("Organisms|BottomNavigation", module)
         :icon="item.icon" 
         :icon-active="item.iconActive"
         :label="item.label"
-        icon-size="17px"
+        icon-size="20px"
         :is-active="currentIcon === item.iconActive"
         @click="currentIcon = item.iconActive"
       />
       <SfBottomNavigationItem
         label="Basket"
         icon="add_to_cart"     
-        >
-        <template #icon>
-          <SfCircleIcon aria-label="Add to cart">
-            <SfIcon
-              icon="add_to_cart"
-              color="white"
-              size="25px"
-              :style="{margin: '0 0 0 -2px'}"
-            />
-          </SfCircleIcon>
-        </template>
-      </SfBottomNavigationItem>
+        is-floating
+        />
     </SfBottomNavigation>`,
   }))
   .add("Icons only", () => ({
@@ -97,7 +87,7 @@ storiesOf("Organisms|BottomNavigation", module)
         :key="key"
         :icon="item.icon"
         :label="item.label"
-        icon-size="17px"
+        icon-size="20px"
       />
       <SfBottomNavigationItem
         icon="add_to_cart"
@@ -139,7 +129,7 @@ storiesOf("Organisms|BottomNavigation", module)
         :key="key"
         :icon="item.icon"
         :label="item.label"
-        icon-size="17px"
+        icon-size="20px"
       />
       <SfBottomNavigationItem
         label="Basket"

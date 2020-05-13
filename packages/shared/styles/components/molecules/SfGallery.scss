@@ -36,12 +36,12 @@
     );
   }
   &__stage {
-    position: relative;
-    width: 100%;
+    flex: 1;
     max-width: var(--gallery-stage-width, 26.375rem);
   }
   .glide {
     &__slide {
+      flex: 1;
       display: flex;
     }
     &__slides {

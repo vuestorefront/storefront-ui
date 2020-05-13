@@ -1,7 +1,7 @@
 <template>
   <div
     class="sf-image"
-    :class="{ 'sf-image--has-size': size && source }"
+    :class="{ 'sf-image--has-size': size }"
     :style="size"
     v-on="$listeners"
   >
@@ -33,8 +33,14 @@
         :height="height"
       />
     </template>
-    <noscript v-if="lazy" inline-template>
-      <img :src="noscript" v-bind="$attrs" :width="width" :height="height" />
+    <noscript v-if="lazy && noscript" inline-template>
+      <img
+        class="noscript"
+        :src="noscript"
+        v-bind="$attrs"
+        :width="width"
+        :height="height"
+      />
     </noscript>
     <div v-if="hasOverlay" class="sf-image__overlay">
       <slot />
@@ -83,7 +89,7 @@ export default {
   },
   computed: {
     isPicture() {
-      return typeof this.src === "object";
+      return !!this.src && typeof this.src === "object";
     },
     source() {
       const allow =

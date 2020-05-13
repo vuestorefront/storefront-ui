@@ -23,7 +23,7 @@
 .sf-search-bar {
   box-sizing: border-box;
   position: relative;
-  display: flex;
+  display: var(--search-bar-display, flex);
   align-items: center;
   background: var(--search-bar-background);
   padding: var(--search-bar-padding);

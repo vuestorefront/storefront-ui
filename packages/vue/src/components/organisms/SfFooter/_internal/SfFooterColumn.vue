@@ -15,7 +15,7 @@
 </template>
 <script>
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
-import { focus } from "../../../../utilities/directives/focus-directive.js";
+import { focus } from "../../../../utilities/directives";
 export default {
   name: "SfFooterColumn",
   directives: { focus },
