@@ -40,15 +40,23 @@
           <!--@slot Use this slot to replace default header icons with custom content-->
           <slot
             name="header-icons"
-            v-bind="{ activeIcon, cartHasProducts, cartItemsQty }"
+            v-bind="{
+              activeIcon,
+              cartHasProducts,
+              cartItemsQty,
+              cartIcon,
+              wishlistIcon,
+              accountIcon,
+            }"
           >
             <div class="sf-header__icons">
               <SfButton
+                v-if="accountIcon"
                 class="sf-button--pure sf-header__action"
                 @click="$emit('click:account')"
               >
                 <SfIcon
-                  icon="account"
+                  :icon="accountIcon"
                   size="1.25rem"
                   :class="{
                     'sf-header__icon--is-active': activeIcon === 'account',
@@ -56,11 +64,12 @@
                 />
               </SfButton>
               <SfButton
+                v-if="wishlistIcon"
                 class="sf-button--pure sf-header__action"
                 @click="$emit('click:wishlist')"
               >
                 <SfIcon
-                  icon="heart"
+                  :icon="wishlistIcon"
                   size="1.25rem"
                   :class="{
                     'sf-header__icon--is-active': activeIcon === 'wishlist',
@@ -68,12 +77,13 @@
                 />
               </SfButton>
               <SfButton
+                v-if="cartIcon"
                 class="sf-button--pure sf-header__action"
                 @click="$emit('click:cart')"
               >
                 <SfIcon
                   class="sf-header__icon"
-                  icon="empty_cart"
+                  :icon="cartIcon"
                   :has-badge="cartHasProducts"
                   :badge-label="cartItemsQty"
                   size="1.25rem"
