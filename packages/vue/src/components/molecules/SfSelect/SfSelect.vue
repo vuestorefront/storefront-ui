@@ -77,8 +77,8 @@ import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
-import { focus } from "../../../utilities/directives/";
-import { clickOutside } from "../../../utilities/directives/";
+import { focus } from "../../../utilities/directives";
+import { clickOutside } from "../../../utilities/directives";
 import Vue from "vue";
 Vue.component("SfSelectOption", SfSelectOption);
 export default {

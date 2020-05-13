@@ -50,7 +50,7 @@
   </div>
 </template>
 <script>
-import { focusTrap } from "../../../utilities/directives/";
+import { focusTrap } from "../../../utilities/directives";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { isClient } from "../../../utilities/helpers";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
