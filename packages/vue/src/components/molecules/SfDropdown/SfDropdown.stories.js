@@ -2,6 +2,7 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
+  boolean,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import { SfDropdown, SfList, SfButton } from "@storefront-ui/vue";
@@ -12,6 +13,9 @@ storiesOf("Molecules|Dropdown", module)
     props: {
       title: {
         default: text("title", "Choose size", "Props"),
+      }, 
+      persistent: {
+        default: boolean("persistent", false, "Props"),
       },
       customClass: {
         default: options(
@@ -40,7 +44,7 @@ storiesOf("Molecules|Dropdown", module)
     template: `<div style="display:flex">
       <div style="position: relative; display: inline-block;">
         <SfButton @click="isOpen = true">Choose your action</SfButton>
-        <SfDropdown :class="customClass" :is-open="isOpen" :title="title" @click:close="isOpen = false">
+        <SfDropdown :class="customClass" :is-open="isOpen" :persistent="persistent" :title="title" @click:close="isOpen = false">
           <SfList>
             <SfListItem v-for="(action, key) in actionList" :key="key">
               <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = !isOpen">{{ action }}</SfButton>
@@ -55,6 +59,9 @@ storiesOf("Molecules|Dropdown", module)
     props: {
       title: {
         default: text("title", "Choose size", "Props"),
+      },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
       },
       customClass: {
         default: options(
@@ -83,7 +90,7 @@ storiesOf("Molecules|Dropdown", module)
     template: `<div>
       <div style="position: absolute; display: inline-block; bottom: 0;">
         <SfButton @click="isOpen = true">Choose your action</SfButton>
-        <SfDropdown :class="customClass" :is-open="isOpen" :title="title" @click:close="isOpen = false">
+        <SfDropdown :class="customClass" :is-open="isOpen" :persistent="persistent" :title="title" @click:close="isOpen = false">
           <SfList>
             <SfListItem v-for="(action, key) in actionList" :key="key">
               <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = false">{{ action }}</SfButton>
