@@ -1,7 +1,9 @@
 @import "../../helpers";
 .sf-price {
-  &__value {
-    margin: var(--price-margin);
+    display: flex;
+    flex-direction: var(--price-flex-direction, row);
+    align-items: var(--price-align-items, flex-start);
+    justify-content: var(--price-justify-content, flex-start);
     color: var(--price-color, var(--c-text));
     text-decoration: var(--price-text-decoration);
     letter-spacing: 0.02rem;
@@ -11,12 +13,22 @@
       var(--font-lg),
       1.6,
       var(--font-family-secondary)
-    );
-    &--old {
-      --price-color: var(--c-danger);
-      --price-margin: 0 var(--spacer-xs) 0 0;
-      --price-text-decoration: line-through;
-      --price-font-weight: var(--font-light);
+    ); 
+    &__regular {
+      margin: var(--price-regular-margin, var(--price-margin));
+      color: var(--price-regular-color, var(--price-color));
+      text-decoration: var(--price-regular-text-decoration);
     }
-  }
+    &__special {
+      margin: var(--price-special-margin, var(--price-margin));
+      color: var(--price-special-color, var(--price-color));
+      text-decoration: var(--price-special-text-decoration, var(--price-text-decoration));
+    }
+    &__old {
+      margin: var(--price-old-margin, 0 var(--spacer-xs));
+      color: var(--price-old-color, var(--c-danger));
+      text-decoration: var(--price-old-text-decoration, line-through);
+      font-weight: var(--price-old-font-weight, var(--font-light));
+    }
+  
 }
