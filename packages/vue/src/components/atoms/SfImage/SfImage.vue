@@ -17,6 +17,7 @@
         />
         <img
           v-show="source.desktop.url"
+          ref="image"
           :src="source.desktop.url"
           v-bind="$attrs"
           :width="width"
@@ -27,6 +28,7 @@
     <template v-else>
       <img
         v-show="source"
+        ref="image"
         :src="source"
         v-bind="$attrs"
         :width="width"
