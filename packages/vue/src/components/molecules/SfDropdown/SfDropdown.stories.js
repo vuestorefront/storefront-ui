@@ -34,7 +34,6 @@ storiesOf("Molecules|Dropdown", module)
           "Add to wishlist",
           "Share",
         ],
-        notClosingEl: ["button"],
       };
     },
     template: `<div style="display:flex">
@@ -77,7 +76,6 @@ storiesOf("Molecules|Dropdown", module)
           "Add to wishlist",
           "Share",
         ],
-        notClosingEl: ["button"],
       };
     },
     template: `<div>
