@@ -186,7 +186,9 @@ export default {
       handler: function (visible) {
         if (visible) {
           this.$nextTick(() => {
-            this.optionHeight = this.$slots.default[0].elm.offsetHeight;
+            if (this.$slots.default) {
+              this.optionHeight = this.$slots.default[0].elm.offsetHeight;
+            }
           });
         }
       },
@@ -194,22 +196,14 @@ export default {
   },
   created: function () {},
   mounted: function () {
-    const options = [];
-    const indexes = {};
-    let i = 0;
-    if (!this.$slots.default) return;
-    this.$on("update", this.update);
-    this.$slots.default.forEach((slot) => {
-      if (!slot.tag) return;
-      options.push({
-        ...slot.componentOptions.propsData,
-        html: slot.elm.innerHTML,
-      });
-      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
-      i++;
-    });
-    this.options = options;
-    this.indexes = indexes;
+    this.addOptionsAndIndexes();
+  },
+  updated() {
+    if (this.$slots.default) {
+      if (this.$slots.default.length > this.options.length) {
+        this.addOptionsAndIndexes();
+      }
+    }
   },
   beforeDestroy: function () {
     this.$off("update", this.update);
@@ -217,6 +211,26 @@ export default {
   methods: {
     update(index) {
       this.index = index;
+    },
+    addOptionsAndIndexes() {
+      const options = [];
+      const indexes = {};
+      if (this.$slots.default) {
+        let i = 0;
+        this.$on("update", this.update);
+        this.$slots.default.forEach((slot) => {
+          if (!slot.tag) return;
+          options.push({
+            ...slot.componentOptions.propsData,
+            html: slot.elm.innerHTML,
+          });
+          indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
+          i++;
+        });
+        this.options = options;
+        this.indexes = indexes;
+      }
+      return;
     },
     move(payload) {
       const optionsLength = this.options.length;
