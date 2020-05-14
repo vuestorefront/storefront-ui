@@ -12,7 +12,7 @@
     padding: var(--input-label-padding);
     color: var(--input-label-color, inherit);
     text-transform: underline;
-    background: var(--input-label-background, var(--c-white));
+    background: var(--input-label-background);
     transform: var(
       --input-label-transform,
       translate3d(0, calc(var(--input-label-top, 50%) * -1), 0)
@@ -200,9 +200,10 @@
   }
   &--outline {
     --input-label-left: var(--spacer-sm);
-    --input-label-font-size: var(--font-base);
-    --input-border-color: var(--c-secondary-variant);
     --input-padding: var(--spacer-xs) var(--spacer-xs) var(--spacer-xs) var(--spacer-sm);
+    --input-border-color: var(--c-secondary-variant);
+    --input-label-background: var(--c-white);
+    --input-label-font-size: var(--font-base);
     &.sf-input--has-text {
       --input-label-top: -25%;
       --input-label-left: var(--spacer-xs);
@@ -223,11 +224,11 @@
       --input-border-width: 1px;
       &:focus {
         & ~ * {
+          --input-label-top: -25%;
+          --input-label-left: var(--spacer-xs);
           --input-label-padding: 0 var(--spacer-2xs);
           --input-bar-width: 0;
-          --input-label-left: var(--spacer-xs);
           --input-label-color: var(--c-secondary-variant);
-          --input-label-top: -25%;
         }
       }
     }
