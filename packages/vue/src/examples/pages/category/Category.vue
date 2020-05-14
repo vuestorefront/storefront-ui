@@ -103,8 +103,7 @@
             :show-add-to-cart-button="true"
             class="products__product-card"
             @click:wishlist="toggleWishlist(i)"
-          >
-          </SfProductCard>
+          />
         </transition-group>
         <transition-group
           v-else
@@ -311,7 +310,7 @@ import {
   SfAccordion,
   SfSelect,
   SfBreadcrumbs,
-  SfColor
+  SfColor,
 } from "@storefront-ui/vue";
 export default {
   components: {
@@ -328,7 +327,7 @@ export default {
     SfAccordion,
     SfSelect,
     SfBreadcrumbs,
-    SfColor
+    SfColor,
   },
   data() {
     return {
@@ -399,18 +398,10 @@ export default {
           rating: { max: 5, score: 5 },
           reviewsCount: 8,
           isOnWishlist: true,
-          colors: [
-            { color: "#EDCBB9", name: "beige", selected: true },
-            { color: "#ABD9D8", name: "mint1", selected: false },
-            { color: "#DB5593", name: "pink1", selected: false },
-            { color: "#ABD9D8", name: "mint2", selected: false },
-            { color: "#DB5593", name: "pink2", selected: false },
-          ],
         },
         {
           title: "Cream Beach Bag",
           id: 2,
-          isOpen: false,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productB.jpg",
@@ -418,18 +409,10 @@ export default {
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
           isOnWishlist: false,
-          colors: [
-            { color: "#EDCBB9", name: "beige", selected: true },
-            { color: "#ABD9D8", name: "mint1", selected: false },
-            { color: "#DB5593", name: "pink1", selected: false },
-            { color: "#ABD9D8", name: "mint2", selected: false },
-            { color: "#DB5593", name: "pink2", selected: false },
-          ],
         },
         {
           title: "Cream Beach Bag",
           id: 3,
-          isOpen: false,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productC.jpg",
@@ -437,18 +420,10 @@ export default {
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
           isOnWishlist: false,
-          colors: [
-            { color: "#EDCBB9", name: "beige", selected: true },
-            { color: "#ABD9D8", name: "mint1", selected: false },
-            { color: "#DB5593", name: "pink1", selected: false },
-            { color: "#ABD9D8", name: "mint2", selected: false },
-            { color: "#DB5593", name: "pink2", selected: false },
-          ],
         },
         {
           title: "Cream Beach Bag",
           id: 4,
-          isOpen: false,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productA.jpg",
@@ -456,18 +431,10 @@ export default {
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
           isOnWishlist: false,
-          colors: [
-            { color: "#EDCBB9", name: "beige", selected: true },
-            { color: "#ABD9D8", name: "mint1", selected: false },
-            { color: "#DB5593", name: "pink1", selected: false },
-            { color: "#ABD9D8", name: "mint2", selected: false },
-            { color: "#DB5593", name: "pink2", selected: false },
-          ],
         },
         {
           title: "Cream Beach Bag",
           id: 5,
-          isOpen: false,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productB.jpg",
@@ -475,18 +442,10 @@ export default {
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
           isOnWishlist: false,
-          colors: [
-            { color: "#EDCBB9", name: "beige", selected: true },
-            { color: "#ABD9D8", name: "mint1", selected: false },
-            { color: "#DB5593", name: "pink1", selected: false },
-            { color: "#ABD9D8", name: "mint2", selected: false },
-            { color: "#DB5593", name: "pink2", selected: false },
-          ],
         },
         {
           title: "Cream Beach Bag",
           id: 6,
-          isOpen: false,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productC.jpg",
@@ -494,18 +453,10 @@ export default {
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
           isOnWishlist: false,
-          colors: [
-            { color: "#EDCBB9", name: "beige", selected: true },
-            { color: "#ABD9D8", name: "mint1", selected: false },
-            { color: "#DB5593", name: "pink1", selected: false },
-            { color: "#ABD9D8", name: "mint2", selected: false },
-            { color: "#DB5593", name: "pink2", selected: false },
-          ],
         },
         {
           title: "Cream Beach Bag",
           id: 7,
-          isOpen: false,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productA.jpg",
@@ -517,7 +468,6 @@ export default {
         {
           title: "Cream Beach Bag",
           id: 8,
-          isOpen: false,
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productB.jpg",

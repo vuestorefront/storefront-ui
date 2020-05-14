@@ -177,7 +177,6 @@ export default {
       selectedColor: "beige",
       selectedSize: undefined,
       qty: 1,
-      isOpen: false,
       product: {
         name: "Cashmere Sweater",
         description:
