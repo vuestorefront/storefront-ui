@@ -647,9 +647,6 @@ export default {
   &__filters-button {
     display: flex;
     align-items: center;
-    @include for-mobile {
-      order: 1;
-    }
     svg {
       fill: var(--c-text-muted);
       transition: fill 150ms ease;
@@ -685,11 +682,9 @@ export default {
   &__view {
     display: flex;
     align-items: center;
+    margin: 0 var(--spacer-xl);
     @include for-desktop {
       margin: 0 0 0 var(--spacer-2xl);
-    }
-    @include for-mobile {
-      order: -1;
     }
     &-icon {
       cursor: pointer;
