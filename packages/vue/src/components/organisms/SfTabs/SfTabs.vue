@@ -8,6 +8,7 @@
 import Vue from "vue";
 import SfTab from "./_internal/SfTab.vue";
 Vue.component("SfTab", SfTab);
+
 export default {
   name: "SfTabs",
   props: {
@@ -15,6 +16,21 @@ export default {
     openTab: {
       type: Number,
       default: 1,
+    },
+    /** Max height of visible content  */
+    tabMaxContentHeight: {
+      type: String,
+      default: "",
+    },
+    /** Text for button showing content  */
+    tabShowText: {
+      type: String,
+      default: "show",
+    },
+    /** Text for button hiding content  */
+    tabHideText: {
+      type: String,
+      default: "hide",
     },
   },
   mounted() {
@@ -34,6 +50,21 @@ export default {
         this.$children[this.openTab - 1].isActive = true;
       }
     },
+  },
+  provide: function () {
+    const tabConfig = {};
+    Object.defineProperty(tabConfig, "tabMaxContentHeight", {
+      get: () => this.tabMaxContentHeight,
+    });
+    Object.defineProperty(tabConfig, "tabShowText", {
+      get: () => this.tabShowText,
+    });
+    Object.defineProperty(tabConfig, "tabHideText", {
+      get: () => this.tabHideText,
+    });
+    return {
+      tabConfig,
+    };
   },
 };
 </script>

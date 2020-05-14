@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.11](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.10...@storefront-ui/shared@0.7.11) (2020-05-14)
+
+
+### Bug Fixes
+
+* adjust icon to Material Icon Guidelines ([#1154](https://github.com/DivanteLtd/storefront-ui/issues/1154)) ([c60a01a](https://github.com/DivanteLtd/storefront-ui/commit/c60a01ac3d412c85fa57657be0ec2be41624cfc5))
+* disabled in SfRadio  ([#1174](https://github.com/DivanteLtd/storefront-ui/issues/1174)) ([d1f698b](https://github.com/DivanteLtd/storefront-ui/commit/d1f698b7e1002c780bebe5535d7946c6cd372058))
+* impossible to see photos in enlargement ([#1178](https://github.com/DivanteLtd/storefront-ui/issues/1178)) ([546848c](https://github.com/DivanteLtd/storefront-ui/commit/546848c16a89313b8df6c7f5ef28e17ba8d8c480))
+
+
+
+
+
 ## [0.7.10](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.9...@storefront-ui/shared@0.7.10) (2020-05-08)
 
 

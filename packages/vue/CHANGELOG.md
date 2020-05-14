@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.11](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.10...@storefront-ui/vue@0.7.11) (2020-05-14)
+
+
+### Bug Fixes
+
+* add unique keys to titles in SfContentPages ([#1188](https://github.com/DivanteLtd/storefront-ui/issues/1188)) ([f154822](https://github.com/DivanteLtd/storefront-ui/commit/f154822f31136c2b0e0c920186eb218864ee2e29))
+* adjust icon to Material Icon Guidelines ([#1154](https://github.com/DivanteLtd/storefront-ui/issues/1154)) ([c60a01a](https://github.com/DivanteLtd/storefront-ui/commit/c60a01ac3d412c85fa57657be0ec2be41624cfc5))
+* disabled in SfRadio  ([#1174](https://github.com/DivanteLtd/storefront-ui/issues/1174)) ([d1f698b](https://github.com/DivanteLtd/storefront-ui/commit/d1f698b7e1002c780bebe5535d7946c6cd372058))
+* header icons API in SfHeader ([#1180](https://github.com/DivanteLtd/storefront-ui/issues/1180)) ([c86a457](https://github.com/DivanteLtd/storefront-ui/commit/c86a457f31c90d09ab8ec509c543619d159f93c6))
+* impossible to see photos in enlargement ([#1178](https://github.com/DivanteLtd/storefront-ui/issues/1178)) ([546848c](https://github.com/DivanteLtd/storefront-ui/commit/546848c16a89313b8df6c7f5ef28e17ba8d8c480))
+* revert image refs in SfImage ([#1184](https://github.com/DivanteLtd/storefront-ui/issues/1184)) ([43f2d17](https://github.com/DivanteLtd/storefront-ui/commit/43f2d17a88d8fb029342425727a2098587cc5633))
+
+
+### Features
+
+* click outside directive ([#1099](https://github.com/DivanteLtd/storefront-ui/issues/1099)) ([47e344b](https://github.com/DivanteLtd/storefront-ui/commit/47e344b25b069575832d807c8eec11afce000b12))
+* remove jump effect from SfTabs ([#1018](https://github.com/DivanteLtd/storefront-ui/issues/1018)) ([43e737f](https://github.com/DivanteLtd/storefront-ui/commit/43e737f0389ce30d9c074d3479919b941d6d440a))
+* **helper:** isClient helper and reorganize imports ([#1175](https://github.com/DivanteLtd/storefront-ui/issues/1175)) ([ae3b2f4](https://github.com/DivanteLtd/storefront-ui/commit/ae3b2f4775c92d2bef09a685f1d4c5362b926fd4))
+
+
+
+
+
 ## [0.7.10](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.9...@storefront-ui/vue@0.7.10) (2020-05-08)
 
 

@@ -45,6 +45,6 @@ storiesOf("Atoms|Chevron", module)
     },
     template: `<SfChevron
         :class="customClass">
-        <SfIcon icon="chevron_down" size="xxs"/> 
+        <SfIcon icon="chevron_down" size="14px"/> 
       </SfChevron>`,
   }));

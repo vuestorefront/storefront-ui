@@ -253,7 +253,10 @@ storiesOf("Atoms|Input", module)
       :has-show-password="hasShowPassword"
       >
       <template #error-message="{errorMessage}">
-        <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> CUSTOM ERROR MESSAGE
+        <div style="display: flex; align-items: center">
+          <SfIcon icon="info_shield" size="0.875rem" color="#E22326" style="margin-right: 4px; display: inline-block"/>
+          <span>CUSTOM ERROR MESSAGE</span>
+        </div>
       </template>
     </SfInput>`,
   }))
