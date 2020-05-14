@@ -1,34 +1,34 @@
 @import "../../helpers";
+@mixin _price($type, $margin: 0, $color: var(--c-text), $weight: var(--font-medium), $text-decoration: none) {
+  margin: var(--price-#{$type}-margin, $margin );
+  color: var(--price-#{$type}-color, $color);
+  @include font(
+    --price-#{$type}-font,
+    $weight,
+    var(--font-lg),
+    1.6,
+    var(--font-family-secondary)
+  );
+  text-decoration: var(--price-#{$type}-text-decoration, $text-decoration);
+}
 .sf-price {
-    display: flex;
-    flex-direction: var(--price-flex-direction, row);
-    align-items: var(--price-align-items, flex-start);
-    justify-content: var(--price-justify-content, flex-start);
-    color: var(--price-color, var(--c-text));
-    text-decoration: var(--price-text-decoration);
-    letter-spacing: 0.02rem;
-    @include font(
-      --price-font,
-      var(--font-medium),
-      var(--font-lg),
-      1.6,
-      var(--font-family-secondary)
-    ); 
-    &__regular {
-      margin: var(--price-regular-margin, var(--price-margin));
-      color: var(--price-regular-color, var(--price-color));
-      text-decoration: var(--price-regular-text-decoration);
-    }
-    &__special {
-      margin: var(--price-special-margin, var(--price-margin));
-      color: var(--price-special-color, var(--price-color));
-      text-decoration: var(--price-special-text-decoration, var(--price-text-decoration));
-    }
-    &__old {
-      margin: var(--price-old-margin, 0 var(--spacer-xs));
-      color: var(--price-old-color, var(--c-danger));
-      text-decoration: var(--price-old-text-decoration, line-through);
-      font-weight: var(--price-old-font-weight, var(--font-light));
-    }
-  
+  display: flex;
+  flex-direction: var(--price-flex-direction, row);
+  align-items: var(--price-align-items, center);
+  justify-content: var(--price-justify-content);
+  &__regular {
+    @include _price($type: regular)
+  }
+  &__special {
+    @include _price($type: special)
+  }
+  &__old {
+    @include _price(
+      $type: old,
+      $margin: 0 var(--spacer-xs) 0 0,
+      $color: var(--c-danger),
+      $weight: var(--font-light),
+      $text-decoration: line-through
+    )
+  }
 }
