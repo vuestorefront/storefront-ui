@@ -1,5 +1,7 @@
 <template>
   <div
+    v-click-outside="closeHandler"
+    :aria-expanded="open.toString()"
     :aria-owns="'lbox_' + _uid"
     aria-autocomplete="none"
     role="combobox"
@@ -11,7 +13,6 @@
     }"
     class="sf-select"
     @click="toggle($event)"
-    @blur="closeHandler"
     @keyup.esc="closeHandler"
     @keyup.space="openHandler"
     @keyup.up="move(-1)"
@@ -41,7 +42,7 @@
         <div v-show="open" role="list" class="sf-select__dropdown">
           <!--  sf-select__option -->
           <ul
-            :aria-expanded="open ? 'true' : 'false'"
+            :aria-expanded="open.toString()"
             :style="{ maxHeight }"
             class="sf-select__options"
           >
@@ -77,11 +78,12 @@ import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import { focus } from "../../../utilities/directives";
+import { clickOutside } from "../../../utilities/directives";
 import Vue from "vue";
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
-  directives: { focus },
+  directives: { focus, clickOutside },
   components: {
     SfButton,
     SfChevron,
@@ -237,9 +239,8 @@ export default {
           event &&
           event.target.contains(this.$refs.cancel.$el)) ||
         this.disabled
-      ) {
+      )
         return;
-      }
       this.open = !this.open;
     },
     openHandler() {

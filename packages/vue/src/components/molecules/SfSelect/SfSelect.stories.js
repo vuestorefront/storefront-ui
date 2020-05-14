@@ -125,7 +125,7 @@ storiesOf("Molecules|Select", module)
         options: optionsList,
       };
     },
-    template: `<div style="max-width: 30rem">
+    template: `<div style="max-width: 30rem">    
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -134,14 +134,15 @@ storiesOf("Molecules|Select", module)
         :required="required"
         :valid="valid"
         :disabled="disabled"
-        :error-message="errorMessage">
+        :error-message="errorMessage"        
+        >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
         <template #label>
           CUSTOM LABEL
         </template>
-      </SfSelect>
+      </SfSelect>      
     </div>`,
   }))
   .add("[slot] errorMessage", () => ({
