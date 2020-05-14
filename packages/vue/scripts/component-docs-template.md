@@ -4,9 +4,7 @@
 
 [[toc]]
 
-## Most common usage scenario asdasd
-
-- [x] Mobile view
+## Most common usage scenario
 
 [[storybook-iframe]]
 
