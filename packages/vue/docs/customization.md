@@ -66,8 +66,13 @@ We can represent style guide as a set of global CSS variables. By using them we 
 
 You can override them to shape the look and feel of your project. There are two groups of available CSS variables in Storefront UI:
 - **Global** variables are representing project style guide. They are setting up global properties like like colors or typography. For example, the following code will change primary font in your whole project to `Raleway`.
-```css
-:root {
+```scss
+/*
+ * use id of DOM root element
+ * vue-cli -> #app
+ * nuxt-app -> __nuxt
+ */
+#app {
     --font-family-primary: 'Raleway', serif;
 }
 ```
