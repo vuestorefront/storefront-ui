@@ -1,95 +1,110 @@
 <template>
   <nav class="sf-pagination">
-    <ul class="sf-pagination__list">
-      <li v-if="hasArrows" class="sf-pagination__item">
-        <!-- @slot Custom markup for previous page button -->
-        <slot name="prev" v-bind="{ isDisabled: !canGoPrev, go: goPrev }">
-          <button
-            aria-label="Go to previous page"
-            class="sf-pagination__button sf-pagination__button--prev"
-            :disabled="isDisabled('prev')"
-            @click="go('prev')"
-          >
-            <sf-icon icon="chevron_left" size="14px" />
-          </button>
-        </slot>
-      </li>
-      <template v-if="showFirst">
-        <li class="sf-pagination__item">
-          <slot name="number" v-bind="{ go, number: 1 }">
-            <button class="sf-pagination__button" @click="go(1)">1</button>
-          </slot>
-        </li>
-        <li class="sf-pagination__item">
-          <slot name="points">...</slot>
-        </li>
-      </template>
-      <slot v-bind="{ go }">
-        <li
-          v-for="number in limitedPageNumbers"
-          :key="number"
-          class="sf-pagination__item"
+    <!-- @slot Custom markup for previous page button -->
+    <slot name="prev" v-bind="{ isDisabled: !canGoPrev, prev: getPrev }">
+      <div class="sf-pagination__item sf-pagination__item--prev">
+        <component
+          :is="componentIs"
+          v-if="canGoPrev"
+          :class="{
+            'sf-button--pure': !hasRouter,
+          }"
+          :link="hasRouter ? getLinkTo(getPrev) : null"
+          aria-label="Go to previous page"
+          @click="hasRouter ? null : go(getPrev)"
         >
-          <slot name="number" v-bind="{ go, number }">
-            <button
-              class="sf-pagination__button"
-              :class="{ 'sf-pagination__button--current': current === number }"
-              @click="go(number)"
-            >
-              {{ number }}
-            </button>
-          </slot>
-        </li>
+          <SfIcon icon="arrow_left" size="1.125rem" />
+        </component>
+      </div>
+    </slot>
+    <template v-if="showFirst">
+      <slot name="number" v-bind="{ page: 1 }">
+        <component
+          :is="componentIs"
+          class="sf-pagination__item"
+          :class="{
+            'sf-button--pure': !hasRouter,
+          }"
+          :link="hasRouter ? getLinkTo(1) : null"
+          @click="hasRouter ? null : go(1)"
+        >
+          1
+        </component>
       </slot>
-      <template v-if="showLast">
-        <li class="sf-pagination__item">
-          <slot name="points">...</slot>
-        </li>
-        <li class="sf-pagination__item">
-          <slot name="number" v-bind="{ go, number: total }">
-            <button class="sf-pagination__button" @click="go(total)">
-              {{ total }}
-            </button>
-          </slot>
-        </li>
-      </template>
-      <li v-if="hasArrows" class="sf-pagination__item">
-        <!-- @slot Custom markup for next page button -->
-        <slot name="next" v-bind="{ isDisabled: !canGoNext, go: goNext }">
-          <button
-            aria-label="Go to next page"
-            class="sf-pagination__button sf-pagination__button--next"
-            :disabled="isDisabled('next')"
-            @click="go('next')"
-          >
-            <sf-icon icon="chevron_right" size="14px" />
-          </button>
-        </slot>
-      </li>
-    </ul>
+      <slot name="points">
+        <div class="sf-pagination__item">...</div>
+      </slot>
+    </template>
+    <template v-for="page in limitedPageNumbers">
+      <component
+        :is="currentPage === page ? 'span' : componentIs"
+        :key="page"
+        class="sf-pagination__item"
+        :class="{
+          'sf-button--pure': !hasRouter && currentPage !== page,
+          'sf-pagination__item--current': currentPage === page,
+        }"
+        :link="hasRouter && currentPage !== page ? getLinkTo(page) : null"
+        @click="!hasRouter && currentPage !== page ? go(page) : null"
+      >
+        {{ page }}
+      </component>
+    </template>
+    <template v-if="showLast">
+      <slot name="points">
+        <div class="sf-pagination__item">...</div>
+      </slot>
+      <slot name="number" v-bind="{ page: total }">
+        <component
+          :is="componentIs"
+          class="sf-pagination__item"
+          :class="{
+            'sf-button--pure': !hasRouter,
+          }"
+          :link="hasRouter ? getLinkTo(total) : null"
+          @click="hasRouter ? null : go(total)"
+        >
+          {{ total }}
+        </component>
+      </slot>
+    </template>
+    <!-- @slot Custom markup for previous page button -->
+    <slot name="next" v-bind="{ isDisabled: !canGoNext, next: getNext }">
+      <div class="sf-pagination__item sf-pagination__item--next">
+        <component
+          :is="componentIs"
+          v-if="canGoNext"
+          :class="{
+            'sf-button--pure': !hasRouter,
+          }"
+          :link="hasRouter ? getLinkTo(getNext) : null"
+          aria-label="Go to previous next"
+          @click="hasRouter ? null : go(getNext)"
+        >
+          <SfIcon icon="arrow_right" size="1.125rem" />
+        </component>
+      </div>
+    </slot>
   </nav>
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfPagination",
   components: {
     SfIcon,
+    SfLink,
+    SfButton,
   },
   props: {
-    /**
-     * Current page number
-     */
-    current: {
-      type: Number,
-      default: 1,
-    },
     /**
      * Total number of pages
      */
     total: {
       type: Number,
-      default: 5,
+      default: 0,
     },
     /**
      * Maximum visible pagination items
@@ -105,87 +120,91 @@ export default {
       type: Boolean,
       default: true,
     },
-  },
-  data() {
-    return {
-      showFirst: false,
-      showLast: false,
-    };
+    /**
+     * Current page number, for non router
+     */
+    current: {
+      type: Number,
+      default: 1,
+    },
+    /**
+     * Name of page query param for router
+     */
+    pageParamName: {
+      type: String,
+      default: "page",
+    },
   },
   computed: {
+    hasRouter() {
+      return this.$route;
+    },
+    componentIs() {
+      return this.hasRouter ? "sf-link" : "sf-button";
+    },
+    currentPage() {
+      return this.hasRouter
+        ? this.$route.query[this.pageParamName]
+          ? parseInt(this.$route.query[this.pageParamName], 10)
+          : 1
+        : this.current;
+    },
+    getPrev() {
+      return this.currentPage - 1;
+    },
+    canGoPrev() {
+      return this.getPrev > 0;
+    },
+    getNext() {
+      return this.currentPage + 1;
+    },
+    canGoNext() {
+      return this.getNext <= this.total;
+    },
+    showFirst() {
+      return !(
+        this.total <= this.visible ||
+        this.currentPage < this.visible - Math.floor(this.visible / 2) + 1
+      );
+    },
+    showLast() {
+      return !(
+        this.total <= this.visible ||
+        this.total - this.currentPage <
+          this.visible - Math.floor(this.visible / 2) + 1
+      );
+    },
     listOfPageNumbers() {
       return Array.from(Array(this.total), (_, i) => i + 1);
     },
     limitedPageNumbers() {
-      return this.setLimitedPageNumber();
-    },
-    canGoPrev() {
-      return this.current > 1;
-    },
-    canGoNext() {
-      return this.current < this.total - 1;
-    },
-  },
-  methods: {
-    setLimitedPageNumber() {
       if (this.total <= this.visible) {
-        this.showFirst = false;
-        this.showLast = false;
         return this.listOfPageNumbers;
       }
-      if (this.current < this.visible - Math.floor(this.visible / 2) + 1) {
-        this.showFirst = false;
-        this.showLast = true;
+      if (this.currentPage < this.visible - Math.floor(this.visible / 2) + 1) {
         return this.listOfPageNumbers.slice(0, this.visible);
       }
       if (
-        this.total - this.current <
+        this.total - this.currentPage <
         this.visible - Math.floor(this.visible / 2) + 1
       ) {
-        this.showFirst = true;
-        this.showLast = false;
         return this.listOfPageNumbers.slice(this.total - this.visible);
       }
-      this.showFirst = true;
-      this.showLast = true;
       return this.listOfPageNumbers.slice(
-        this.current - Math.ceil(this.visible / 2),
-        this.current + Math.floor(this.visible / 2)
+        this.currentPage - Math.ceil(this.visible / 2),
+        this.currentPage + Math.floor(this.visible / 2)
       );
     },
-    go(direct) {
-      switch (direct) {
-        case "prev":
-          this.$emit("click", this.current < 2 ? 1 : this.current - 1);
-          break;
-        case "next":
-          this.$emit(
-            "click",
-            this.current > this.total - 1 ? this.total : this.current + 1
-          );
-          break;
-        default:
-          if (this.current !== direct) this.$emit("click", direct);
-      }
+  },
+  methods: {
+    go(page) {
+      this.$emit("click", page);
     },
-    goNext() {
-      this.$emit(
-        "click",
-        this.current > this.total - 1 ? this.total : this.current + 1
-      );
-    },
-    goPrev() {
-      this.$emit("click", this.current < 2 ? 1 : this.current - 1);
-    },
-    isDisabled(direct) {
-      switch (direct) {
-        case "prev":
-          return this.current < 2;
-        case "next":
-          return this.current > this.total - 1;
-        default:
-          return true;
-      }
+    getLinkTo(page) {
+      return {
+        ...this.$route,
+        query: { ...this.$route.query, [this.pageParamName]: page },
+      };
     },
   },
 };

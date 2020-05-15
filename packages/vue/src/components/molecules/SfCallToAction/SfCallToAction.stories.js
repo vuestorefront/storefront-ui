@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, color } from "@storybook/addon-knobs";
-import SfCallToAction from "./SfCallToAction.vue";
+import { SfCallToAction } from "@storefront-ui/vue";
 storiesOf("Molecules|CallToAction", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -26,7 +26,7 @@ storiesOf("Molecules|CallToAction", module)
         default: color("background", "#e1e3e2", "Props"),
       },
     },
-    template: `<div style="max-width: 1024px">
+    template: `<div style="max-width: 1240px">
       <SfCallToAction      
       :title="title"
       :description="description"
@@ -58,7 +58,7 @@ storiesOf("Molecules|CallToAction", module)
         default: color("background", "#e1e3e2", "Props"),
       },
     },
-    template: `<div style="max-width: 1024px">
+    template: `<div style="max-width: 1240px">
       <SfCallToAction      
       :title="title"
       :description="description"
@@ -94,7 +94,7 @@ storiesOf("Molecules|CallToAction", module)
         default: color("background", "#e1e3e2", "Props"),
       },
     },
-    template: `<div style="max-width: 1024px">
+    template: `<div style="max-width: 1240px">
       <SfCallToAction      
       :title="title"
       :description="description"
@@ -130,7 +130,7 @@ storiesOf("Molecules|CallToAction", module)
         default: color("background", "#e1e3e2", "Props"),
       },
     },
-    template: `<div style="max-width: 1024px">
+    template: `<div style="max-width: 1240px">
       <SfCallToAction      
       :title="title"
       :description="description"

@@ -23,14 +23,23 @@ export default {
     SfButton,
   },
   props: {
+    /*
+     * Maximum height of visible content
+     */
     maxContentHeight: {
       type: String,
       default: "",
     },
+    /*
+     * Text for button showing content
+     */
     showText: {
       type: String,
       default: "Show",
     },
+    /*
+     * Text for button hiding content
+     */
     hideText: {
       type: String,
       default: "Hide",
@@ -46,7 +55,7 @@ export default {
   computed: {
     style() {
       return {
-        "--_scrollable-max-height": this.maxContentHeight.trim
+        "--_scrollable-max-height": this.maxContentHeight.trim()
           ? this.maxContentHeight
           : undefined,
       };

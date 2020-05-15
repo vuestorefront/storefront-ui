@@ -1,9 +1,9 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, text, select, boolean } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
 import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
 import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
-import SfIcon from "./SfIcon.vue";
+import { SfIcon } from "@storefront-ui/vue";
 const iconsNames = Object.keys(icons);
 storiesOf("Atoms|Icon", module)
   .addDecorator(withKnobs)
@@ -13,7 +13,7 @@ storiesOf("Atoms|Icon", module)
         default: select("icon", iconsNames, "home", "Props"),
       },
       size: {
-        default: select("size", sizes, "xxs", "Props"),
+        default: select("size", sizes, "lg", "Props"),
       },
       color: {
         default: select("color", colors, "green-primary", "Props"),
@@ -21,13 +21,38 @@ storiesOf("Atoms|Icon", module)
       viewBox: {
         default: text("viewBox", "0 0 24 24", "Props"),
       },
+      hasBadge: {
+        default: boolean("hasBadge", false, "Props"),
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "99", "Props"),
+      },
     },
     components: { SfIcon },
     template: `<SfIcon
       :icon="icon"
       :size="size"
       :color="color"
-      :view-box="viewBox"/>`,
+      :view-box="viewBox"
+      :has-badge="hasBadge"
+      :badge-label="badgeLabel"/>`,
+  }))
+  .add("Available icons", () => ({
+    components: { SfIcon },
+    data() {
+      return {
+        iconsNames,
+      };
+    },
+    template: `<div :style="{display: 'flex', flexWrap: 'wrap'}">
+      <div
+          v-for="icon in iconsNames"
+          :key="icon"
+          :style="{display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '.5rem',flex: '0 0 50px', height: '50px', font: '300 12px Raleway'}">
+        <SfIcon :icon="icon" :style="{margin: '0 0 8px 0'}"/>
+        <span :style="{textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', width: '50px', textAlign: 'center'}">{{ icon }}</span>
+      </div>
+    </div>`,
   }))
   .add("[props] default", () => ({
     props: {
@@ -47,13 +72,21 @@ storiesOf("Atoms|Icon", module)
       viewBox: {
         default: text("viewBox", "0 0 24 24", "Props"),
       },
+      hasBadge: {
+        default: boolean("hasBadge", false, "Props"),
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "99", "Props"),
+      },
     },
     components: { SfIcon },
     template: `<SfIcon
       :icon="icon"
       :size="size"
       :color="color"
-      :view-box="viewBox" />`,
+      :view-box="viewBox" 
+      :has-badge="hasBadge"
+      :badge-label="badgeLabel"/>`,
   }))
   .add("[slot] default", () => ({
     props: {
@@ -73,13 +106,21 @@ storiesOf("Atoms|Icon", module)
       viewBox: {
         default: text("viewBox", "0 0 24 24", "Props"),
       },
+      hasBadge: {
+        default: boolean("hasBadge", false, "Props"),
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "99", "Props"),
+      },
     },
     components: { SfIcon },
     template: `<SfIcon
       :icon="icon"
       :size="size"
       :color="color"
-      :view-box="viewBox">
+      :view-box="viewBox"
+      :has-badge="hasBadge"
+      :badge-label="badgeLabel">
       <template #default="{viewBox, iconPaths, icon}">
         <img src="/assets/logo.svg" alt="Vue.js">
       </template>

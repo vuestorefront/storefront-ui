@@ -1,11 +1,13 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, number, boolean } from "@storybook/addon-knobs";
-import SfFooter from "./SfFooter.vue";
-import SfHeader from "../SfHeader/SfHeader.vue";
-import SfList from "../SfList/SfList.vue";
-import SfImage from "../../atoms/SfImage/SfImage.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
+import {
+  SfFooter,
+  SfHeader,
+  SfList,
+  SfImage,
+  SfButton,
+  SfMenuItem,
+} from "@storefront-ui/vue";
 storiesOf("Organisms|Footer", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -59,13 +61,13 @@ storiesOf("Organisms|Footer", module)
     },
     mounted() {
       this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <
-        1024;
-      window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
+        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
+        1023;
+      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
     },
     beforeDestroy() {
       window
-        .matchMedia("(max-width: 1024px)")
+        .matchMedia("(max-width: 1023px)")
         .removeListener(this.mobileHandler);
     },
     methods: {

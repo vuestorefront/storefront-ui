@@ -8,8 +8,9 @@
         :step-click="stepClick"
         v-bind="{ step }"
       >
-        <div
+        <SfButton
           :key="step.index"
+          class="sf-button--pure"
           :class="{
             'sf-steps__step': true,
             'sf-steps__step--done': step.done,
@@ -19,7 +20,7 @@
           @click="stepClick(step)"
         >
           <span class="sf-steps__title">{{ step.step }}</span>
-        </div>
+        </SfButton>
       </slot>
       <div class="sf-steps__progress" :style="progress"></div>
     </div>
@@ -31,9 +32,13 @@
 <script>
 import Vue from "vue";
 import SfStep from "./_internal/SfStep.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 Vue.component("SfStep", SfStep);
 export default {
   name: "SfSteps",
+  components: {
+    SfButton,
+  },
   model: {
     prop: "active",
     event: "change",

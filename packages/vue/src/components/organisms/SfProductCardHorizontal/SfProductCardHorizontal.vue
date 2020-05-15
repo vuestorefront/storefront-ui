@@ -1,10 +1,7 @@
 <template>
   <div class="sf-product-card-horizontal">
-    <component
-      :is="linkComponentTag"
-      v-focus
-      :href="linkComponentTag === 'a' ? link : undefined"
-      :to="link && linkComponentTag !== 'a' ? link : undefined"
+    <SfLink
+      :link="link"
       class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
     >
       <div class="sf-product-card-horizontal__image-wrapper">
@@ -31,22 +28,17 @@
           />
         </slot>
       </div>
-    </component>
+    </SfLink>
     <div class="sf-product-card-horizontal__main">
       <div class="sf-product-card-horizontal__details">
-        <component
-          :is="linkComponentTag"
-          :href="linkComponentTag === 'a' ? link : undefined"
-          :to="link && linkComponentTag !== 'a' ? link : undefined"
-          class="sf-product-card-horizontal__link"
-        >
+        <SfLink :link="link" class="sf-product-card-horizontal__link">
           <!--@slot Use this slot to replace title-->
           <slot name="title" v-bind="{ title }">
             <h3 class="sf-product-card-horizontal__title">
               {{ title }}
             </h3>
           </slot>
-        </component>
+        </SfLink>
         <!--@slot Use this slot to replace description-->
         <slot name="description">
           <p class="sf-product-card-horizontal__description desktop-only">
@@ -79,14 +71,15 @@
               :max="maxRating"
               :score="scoreRating"
             />
-            <a
+            <SfButton
               v-if="reviewsCount"
-              class="sf-product-card-horizontal__reviews-count"
+              :aria-label="`Read ${reviewsCount} reviews about ${title}`"
+              class="sf-button--pure sf-product-card-horizontal__reviews-count"
               href="#"
               @click="$emit('click:reviews')"
             >
               ({{ reviewsCount }})
-            </a>
+            </SfButton>
           </div>
         </slot>
         <div class="sf-product-card-horizontal__actions">
@@ -105,12 +98,11 @@
           </slot>
         </div>
       </div>
-      <button
+      <SfButton
         v-if="wishlistIcon !== false"
-        v-focus
-        :aria-label="ariaLabel"
+        :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
-        class="mobile-only"
+        class="sf-button--pure mobile-only"
         @click="toggleIsOnWishlist"
       >
         <!--@slot Use this slot to replace wishlist icon-->
@@ -121,20 +113,19 @@
             data-test="sf-wishlist-icon"
           />
         </slot>
-      </button>
+      </SfButton>
     </div>
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/focus-directive.js";
+import { focus } from "../../../utilities/directives";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfAddToCart from "../../molecules/SfAddToCart/SfAddToCart.vue";
-import SfProductOption from "../../molecules/SfProductOption/SfProductOption.vue";
 export default {
   name: "SfProductCardHorizontal",
   components: {
@@ -142,10 +133,9 @@ export default {
     SfRating,
     SfImage,
     SfIcon,
+    SfLink,
     SfButton,
     SfAddToCart,
-    SfProductOption,
-    SfProperty,
   },
   directives: {
     focus: focus,

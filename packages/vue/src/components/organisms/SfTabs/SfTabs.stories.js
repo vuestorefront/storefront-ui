@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number } from "@storybook/addon-knobs";
-import SfTabs from "./SfTabs.vue";
+import { withKnobs, number, text } from "@storybook/addon-knobs";
+import { SfTabs } from "@storefront-ui/vue";
 storiesOf("Organisms|Tabs", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -9,6 +9,15 @@ storiesOf("Organisms|Tabs", module)
       openTab: {
         default: number("openTab", 1, {}, "Props"),
       },
+      tabMaxContentHeight: {
+        default: text("tabMaxContentHeight", "6.25rem", "Props"),
+      },
+      tabShowText: {
+        default: text("tabShowText", "show", "Props"),
+      },
+      tabHideText: {
+        default: text("tabHideText", "hide", "Props"),
+      },
     },
     data() {
       return {
@@ -16,7 +25,7 @@ storiesOf("Organisms|Tabs", module)
           {
             title: "Description",
             content:
-              "The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses.",
+              "The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses. The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses. The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses. The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses. The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses.",
           },
           {
             title: "Read reviews",
@@ -32,13 +41,17 @@ storiesOf("Organisms|Tabs", module)
       };
     },
     template: `<SfTabs
-        :open-tab="openTab">
+          :open-tab="openTab"
+          :tabMaxContentHeight="tabMaxContentHeight"
+          :tabShowText="tabShowText"
+          :tabHideText="tabHideText"
+        >
         <SfTab 
             v-for="tab in tabs" 
             :key="tab.title" 
-            :title="tab.title"
+            :title="tab.title"            
         >
-          {{tab.content}}
+            {{tab.content}}
         </SfTab>
       </SfTabs>`,
   }));

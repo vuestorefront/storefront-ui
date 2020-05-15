@@ -9,6 +9,7 @@
 </template>
 <script>
 import Vue from "vue";
+import { deprecationWarning } from "../../../utilities/helpers";
 import SfAccordionItem from "./_internal/SfAccordionItem.vue";
 Vue.component("SfAccordionItem", SfAccordionItem);
 export default {
@@ -61,8 +62,9 @@ export default {
         // TODO remove in 1.0.0 ->
         if (this.firstOpen) {
           this.$children[0].isOpen = this.firstOpen;
-          console.warn(
-            "[StorefrontUI][SfAccordion] firstOpen prop has been deprecated and will be removed in 1.0.0. Use open instead."
+          deprecationWarning(
+            this.$options.name,
+            "Prop 'firstOpen' has been deprecated and will be removed in v1.0.0. Use 'open' instead."
           );
           return;
         }

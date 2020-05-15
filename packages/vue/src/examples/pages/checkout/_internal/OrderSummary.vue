@@ -35,7 +35,11 @@
         label="Enter promo code"
         class="sf-input--filled promo-code__input"
       />
-      <SfCircleIcon class="promo-code__circle-icon" icon="check" />
+      <SfCircleIcon
+        aria-label="Send promo code"
+        class="promo-code__circle-icon"
+        icon="check"
+      />
     </div>
     <div class="actions">
       <SfButton
@@ -56,6 +60,7 @@
         :title="characteristic.title"
         :description="characteristic.description"
         :icon="characteristic.icon"
+        size-icon="20px"
         color-icon="green-primary"
         class="characteristics__item"
       />

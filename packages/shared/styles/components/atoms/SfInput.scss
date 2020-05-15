@@ -137,8 +137,6 @@
     }
   }
   &__password-icon {
-    --icon-width: var(--input-password-icon-width, 1.375rem);
-    --icon-height: var(--input-password-icon-height, 0.8125rem);
     position: relative;
     &--hidden {
       --input-password-icon-scaleX: 1;

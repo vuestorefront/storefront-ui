@@ -10,10 +10,10 @@
     justify-content: space-between;
     margin: var(--tabs-title-margin);
     padding: var(--tabs-title-padding, var(--spacer-sm));
+    background: var(--tabs-title-background);
     @include border(--tabs-title-border, 0 0 1px 0, solid, var(--c-light));
-    color: var(--tabs-title-color, var(--c-text));
+    color: var(--tabs-title-color);
     transition: color 150ms ease-in-out;
-    cursor: pointer;
     @include font(
       --tabs-title-font,
       var(--font-normal),

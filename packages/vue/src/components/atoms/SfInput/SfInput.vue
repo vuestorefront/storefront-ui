@@ -9,6 +9,7 @@
     <div class="sf-input__wrapper">
       <input
         :id="name"
+        v-focus
         v-bind="$attrs"
         :value="value"
         :required="required"
@@ -16,7 +17,6 @@
         :name="name"
         :class="{ 'sf-input--is-password': isPassword }"
         :type="inputType"
-        :aria-label="ariaLabel"
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
@@ -45,6 +45,7 @@
               'sf-input__password-icon--hidden': !isPasswordVisible,
             }"
             icon="show_password"
+            size="1.5rem"
           ></SfIcon>
         </SfButton>
       </slot>
@@ -53,7 +54,7 @@
       <transition name="fade">
         <!-- @slot Custom error message of form input -->
         <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
-          <span>{{ errorMessage }}</span></slot
+          <div>{{ errorMessage }}</div></slot
         >
       </transition>
     </div>
@@ -62,9 +63,14 @@
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import { focus } from "../../../utilities/directives";
 export default {
   name: "SfInput",
+  directives: {
+    focus,
+  },
   components: { SfIcon, SfButton },
+  inheritAttrs: false,
   props: {
     /**
      * Current input value (`v-model`)
@@ -123,13 +129,6 @@ export default {
       type: Boolean,
       default: false,
       description: "Native input disabled attribute",
-    },
-    /**
-     * Form input aria-label
-     */
-    ariaLabel: {
-      type: String,
-      default: null,
     },
     /**
      * Status of show password icon display

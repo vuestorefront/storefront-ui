@@ -9,7 +9,7 @@
     >
     </SfOverlay>
     <transition :name="transitionModal">
-      <div v-if="visible" class="sf-modal__container">
+      <div v-if="visible" v-focus-trap class="sf-modal__container">
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="modal-bar">
           <SfBar
@@ -19,22 +19,17 @@
             @click:close="close"
           />
         </slot>
-        <button
+        <SfButton
           v-if="cross"
-          class="sf-modal__close desktop-only"
-          :aria-label="ariaLabelClose"
+          class="sf-button--pure sf-modal__close desktop-only"
+          aria-label="Close modal"
           @click="close"
         >
           <!--@slot Use this slot to place content inside the close button.-->
           <slot name="close">
-            <SfIcon
-              icon="cross"
-              size="15px"
-              color="gray-secondary"
-              aria-role="button"
-            />
+            <SfIcon icon="cross" size="0.875rem" color="gray-secondary" />
           </slot>
-        </button>
+        </SfButton>
         <div ref="content" class="sf-modal__content">
           <!--@slot Use this slot to place content inside the modal.-->
           <slot />
@@ -47,13 +42,18 @@
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+import { focusTrap } from "../../../utilities/directives";
+import { isClient } from "../../../utilities/helpers";
 export default {
   name: "SfModal",
+  directives: { focusTrap },
   components: {
     SfBar,
     SfOverlay,
     SfIcon,
+    SfButton,
   },
   model: {
     prop: "visible",
@@ -109,13 +109,6 @@ export default {
       type: String,
       default: "fade",
     },
-    /**
-     * aria-label of the close button
-     */
-    ariaLabelClose: {
-      type: String,
-      default: null,
-    },
   },
   data() {
     return {
@@ -126,8 +119,7 @@ export default {
   watch: {
     visible: {
       handler: function (value) {
-        if (typeof window === "undefined" || typeof document === "undefined")
-          return;
+        if (!isClient) return;
         if (value) {
           this.$nextTick(() => {
             disableBodyScroll(this.$refs.content);

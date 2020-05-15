@@ -2,7 +2,7 @@
 home: true
 heroImage: /hero.png
 actionText: Get Started →
-actionLink: /introduction
+actionLink: /guide
 features:
 - title: Customization
   details: Along with standard prop-based customization, every component has a set of slots that let you replace any part of it with your own images, icons or even custom HTML markup.
@@ -36,4 +36,6 @@ export default {
 voila!
 
 ## Supporters
-<a href="https://divante.co"><img style="margin-right: 15px" src="https://camo.githubusercontent.com/26482689fe32dbe4664eeb62d463e334b5137f91/68747470733a2f2f646976616e74652e636f2f61626f75742075732f4c4f474f2e706e67" alt="divante" height="55px"></a><a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="55px"></a>
+<a href="https://divante.co"><img src="https://raw.githubusercontent.com/DivanteLtd/storefront-ui/master/packages/vue/docs/assets/logo-divante.svg" alt="divante" height="55px"></a>&nbsp;&nbsp;
+<a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="55px"></a>
+

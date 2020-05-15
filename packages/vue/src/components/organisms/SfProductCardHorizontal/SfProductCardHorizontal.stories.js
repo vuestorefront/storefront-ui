@@ -6,9 +6,11 @@ import {
   boolean,
   select,
 } from "@storybook/addon-knobs";
-import SfProductCardHorizontal from "./SfProductCardHorizontal.vue";
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
+import {
+  SfProductCardHorizontal,
+  SfProperty,
+  SfButton,
+} from "@storefront-ui/vue";
 storiesOf("Organisms|ProductCardHorizontal", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -82,7 +84,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       },
     },
     components: { SfProductCardHorizontal, SfButton, SfProperty },
-    template: `<div :style="{maxWidth: '1024px'}">
+    template: `<div :style="{maxWidth: '1240px'}">
       <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"
@@ -193,7 +195,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       };
     },
     components: { SfProductCardHorizontal, SfButton, SfProperty },
-    template: `<div :style="{maxWidth: '1024px'}">
+    template: `<div :style="{maxWidth: '1240px'}">
       <SfProductCardHorizontal
         :image="pictures"
         :image-width="imageWidth"
@@ -307,7 +309,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       };
     },
     components: { SfProductCardHorizontal },
-    template: `<div :style="{maxWidth: '1024px'}">
+    template: `<div :style="{maxWidth: '1240px'}">
       <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"
@@ -402,7 +404,7 @@ storiesOf("Organisms|ProductCardHorizontal", module)
       };
     },
     components: { SfProductCardHorizontal },
-    template: `<div :style="{maxWidth: '1024px'}">
+    template: `<div :style="{maxWidth: '1240px'}">
       <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"

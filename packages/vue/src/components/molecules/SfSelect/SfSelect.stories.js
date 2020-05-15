@@ -6,9 +6,7 @@ import {
   boolean,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfSelect from "./SfSelect.vue";
-import SfProductOption from "../SfProductOption/SfProductOption.vue";
-import SfInput from "../../atoms/SfInput/SfInput.vue";
+import { SfSelect, SfProductOption } from "@storefront-ui/vue";
 const optionsList = [
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
   { value: "amber", color: "#FFBF00", label: "Amber" },
@@ -23,13 +21,14 @@ const knobOptionsList = optionsList.reduce(
 storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfSelect, SfProductOption, SfInput },
+    components: { SfSelect, SfProductOption },
     props: {
       customClass: {
         default: options(
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -94,6 +93,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -125,7 +125,7 @@ storiesOf("Molecules|Select", module)
         options: optionsList,
       };
     },
-    template: `<div style="max-width: 30rem">
+    template: `<div style="max-width: 30rem">    
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -134,14 +134,15 @@ storiesOf("Molecules|Select", module)
         :required="required"
         :valid="valid"
         :disabled="disabled"
-        :error-message="errorMessage">
+        :error-message="errorMessage"        
+        >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
         <template #label>
           CUSTOM LABEL
         </template>
-      </SfSelect>
+      </SfSelect>      
     </div>`,
   }))
   .add("[slot] errorMessage", () => ({
@@ -152,6 +153,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -210,6 +212,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },

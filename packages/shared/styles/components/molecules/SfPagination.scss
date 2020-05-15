@@ -1,23 +1,14 @@
 @import "../../helpers";
 .sf-pagination {
-  &__list {
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
+  display: flex;
+  align-items: center;
   &__item {
-    display: flex;
-    align-items: center;
+    --link-text-decoration: none;
+    --link-color: var(--c-text-muted);
+    width: var(--pagination-item-width);
+    height: var(--pagination-item-height);
     margin: var(--pagination-item-margin, 0 var(--spacer-2xs));
-    color: var(--pagination-item-color, var(--c-text-muted));
-  }
-  &__button {
-    padding: var(--pagination-button-padding, 0);
-    margin: var(--pagination-button-margin);
-    background-color: transparent;
-    color: var(--pagination-button-color, var(--text-muted));
+    color: var(--c-text-muted);
     @include font(
       --pagination-font,
       var(--font-normal),
@@ -25,27 +16,19 @@
       1.4,
       var(--font-family-secondary)
     );
-    @include border(--pagination-button-border, 0 0 1px 0, solid, transparent);
-    opacity: var(--pagination-button-opacity);
-    transition: var(
-      --pagination-button-transition,
-      color 150ms ease-in-out,
-      border-color 150ms ease-in-out
-    );
-    cursor: var(--pagination-button-cursor, pointer);
+    &--prev, &--next {
+      --pagination-item-width: 1.125rem;
+      --pagination-item-height: 1.125rem;
+    }
     &--prev {
-      --pagination-button-margin: 0 var(--spacer-lg) 0 0;
+      --pagination-item-margin: 0 var(--spacer-lg) 0 0;
     }
     &--next {
-      --pagination-button-margin: 0 0 0 var(--spacer-lg);
+      --pagination-item-margin: 0 0 0 var(--spacer-lg);
     }
     &--current {
-      --pagination-button-color: var(--c-text);
-      --pagination-button-border-color: var(--c-text);
-    }
-    &:disabled {
-      --pagination-button-opacity: 0.7;
-      --pagination-button-cursor: default;
+      color: var(--c-text);
+      cursor: default;
     }
   }
   @include for-desktop {

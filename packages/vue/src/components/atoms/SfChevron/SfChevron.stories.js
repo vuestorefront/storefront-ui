@@ -1,7 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
-import SfChevron from "./SfChevron.vue";
-import SfIcon from "../SfIcon/SfIcon.vue";
+import { SfChevron, SfIcon } from "@storefront-ui/vue";
 storiesOf("Atoms|Chevron", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -46,6 +45,6 @@ storiesOf("Atoms|Chevron", module)
     },
     template: `<SfChevron
         :class="customClass">
-        <SfIcon icon="chevron_down" size="xxs"/> 
+        <SfIcon icon="chevron_down" size="14px"/> 
       </SfChevron>`,
   }));

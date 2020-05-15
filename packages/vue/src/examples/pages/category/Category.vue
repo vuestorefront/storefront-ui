@@ -11,6 +11,7 @@
       <div class="navbar__main">
         <SfButton
           class="sf-button--text navbar__filters-button"
+          aria-label="Filters"
           @click="isFilterSidebarOpen = true"
         >
           <SfIcon size="32px" color="#BEBFC4" icon="filter" />
@@ -33,8 +34,8 @@
           <span class="desktop-only">280</span>
           <span class="navbar__label mobile-only">280 Items</span>
         </div>
-        <div class="navbar__view desktop-only">
-          <span class="navbar__view-label">View</span>
+        <div class="navbar__view">
+          <span class="navbar__view-label desktop-only">View</span>
           <SfIcon
             class="navbar__view-icon"
             :color="isGridView ? '#1D1F22' : '#BEBFC4'"
@@ -56,16 +57,6 @@
             @click="isGridView = false"
           />
         </div>
-        <SfButton class="sf-button--text navbar__filters-button mobile-only">
-          Sort by
-          <SfIcon size="15px" style="margin-left: 10px;">
-            <svg viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M8.32809 15.2897L12 11.7644V12.2892L8.13547 16L4.27094 12.2892V11.7644L7.94285 15.2897V6.83165H8.32809L8.32809 15.2897ZM3.67191 0.710288L0 4.23556V3.71082L3.86453 0L7.72906 3.71082V4.23556L4.05715 0.710288V9.16835H3.67191L3.67191 0.710288Z"
-              />
-            </svg>
-          </SfIcon>
-        </SfButton>
       </div>
     </div>
     <div class="main section">
@@ -109,6 +100,7 @@
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
             :is-on-wishlist="product.isOnWishlist"
+            :show-add-to-cart-button="true"
             class="products__product-card"
             @click:wishlist="toggleWishlist(i)"
           />
@@ -371,7 +363,7 @@ export default {
           ],
         },
         {
-          header: "Accesorries",
+          header: "Accessorries",
           items: [
             { label: "All", count: "280" },
             { label: "Skirts", count: "23" },
@@ -655,6 +647,9 @@ export default {
   &__filters-button {
     display: flex;
     align-items: center;
+    @include for-mobile {
+      order: 1;
+    }
     svg {
       fill: var(--c-text-muted);
       transition: fill 150ms ease;
@@ -690,9 +685,11 @@ export default {
   &__view {
     display: flex;
     align-items: center;
-    margin: 0 var(--spacer-xl);
     @include for-desktop {
       margin: 0 0 0 var(--spacer-2xl);
+    }
+    @include for-mobile {
+      order: -1;
     }
     &-icon {
       cursor: pointer;

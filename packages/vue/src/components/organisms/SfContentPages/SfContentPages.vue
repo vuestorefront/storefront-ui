@@ -12,14 +12,17 @@
     >
       <div class="sf-content-pages__sidebar">
         <h1 class="sf-content-pages__title desktop-only">{{ title }}</h1>
-        <div v-for="(category, key) in categories" :key="key">
+        <div
+          v-for="(category, key) in categories"
+          :key="`${category.title}-${key}`"
+        >
           <h2 v-if="category.title" class="sf-content-pages__category-title">
             {{ category.title }}
           </h2>
           <SfList class="sf-content-pages__list">
             <SfListItem
-              v-for="page in category.items"
-              :key="page.title"
+              v-for="(page, key) in category.items"
+              :key="`${page.title}-${key}`"
               class="sf-content-pages__list-item"
             >
               <!-- @slot Custom menu-item markup -->
