@@ -7,4 +7,3 @@ describe("SfHighlight.vue", () => {
     expect(component.contains(".sf-highlight")).toBe(true);
   });
 });
-
