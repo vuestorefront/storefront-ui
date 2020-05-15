@@ -31,7 +31,7 @@
           1
         </component>
       </slot>
-      <slot name="points">
+      <slot v-if="firstVisiblePageNumber > 2" name="points">
         <div class="sf-pagination__item">...</div>
       </slot>
     </template>
@@ -51,7 +51,7 @@
       </component>
     </template>
     <template v-if="showLast">
-      <slot name="points">
+      <slot v-if="this.lastVisiblePageNumber < this.total - 1" name="points">
         <div class="sf-pagination__item">...</div>
       </slot>
       <slot name="number" v-bind="{ page: total }">
@@ -162,17 +162,10 @@ export default {
       return this.getNext <= this.total;
     },
     showFirst() {
-      return !(
-        this.total <= this.visible ||
-        this.currentPage < this.visible - Math.floor(this.visible / 2) + 1
-      );
+      return this.firstVisiblePageNumber > 1;
     },
     showLast() {
-      return !(
-        this.total <= this.visible ||
-        this.total - this.currentPage <
-          this.visible - Math.floor(this.visible / 2) + 1
-      );
+      return this.lastVisiblePageNumber < this.total;
     },
     listOfPageNumbers() {
       return Array.from(Array(this.total), (_, i) => i + 1);
@@ -186,7 +179,7 @@ export default {
       }
       if (
         this.total - this.currentPage <
-        this.visible - Math.floor(this.visible / 2) + 1
+        this.visible - Math.ceil(this.visible / 2) + 1
       ) {
         return this.listOfPageNumbers.slice(this.total - this.visible);
       }
@@ -194,6 +187,12 @@ export default {
         this.currentPage - Math.ceil(this.visible / 2),
         this.currentPage + Math.floor(this.visible / 2)
       );
+    },
+    firstVisiblePageNumber() {
+      return this.limitedPageNumbers[0];
+    },
+    lastVisiblePageNumber() {
+      return this.limitedPageNumbers[this.limitedPageNumbers.length - 1];
     },
   },
   methods: {
