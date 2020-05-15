@@ -1,0 +1,7 @@
+@import "../../helpers";
+
+ .sf-highlight {
+   span {
+     color: var(--higliht-color, var(--c-primary))
+   }
+ }
