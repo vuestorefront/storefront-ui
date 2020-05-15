@@ -1,8 +1,12 @@
 <template>
   <transition name="fade">
-    <div v-if="visible" class="sf-mega-menu">
+    <div
+      v-if="visible"
+      class="sf-mega-menu"
+      :class="{ 'sf-mega-menu--is-active': isActive }"
+    >
       <SfBar
-        :title="title"
+        :title="title || active[0]"
         :back="isActive"
         class="mobile-only"
         @click:back="change()"
