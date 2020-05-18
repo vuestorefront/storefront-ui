@@ -1,7 +1,8 @@
 <template>
   <div class="sf-product-card-horizontal">
-    <SfLink
-      :link="link"
+    <component
+      :is="componentTag"
+      :link="componentTag === 'sf-link' ? link : null"
       class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
     >
       <div class="sf-product-card-horizontal__image-wrapper">
@@ -28,17 +29,21 @@
           />
         </slot>
       </div>
-    </SfLink>
+    </component>
     <div class="sf-product-card-horizontal__main">
       <div class="sf-product-card-horizontal__details">
-        <SfLink :link="link" class="sf-product-card-horizontal__link">
+        <component
+          :is="componentTag"
+          :link="componentTag === 'sf-link' ? link : null"
+          class="sf-product-card-horizontal__link"
+        >
           <!--@slot Use this slot to replace title-->
           <slot name="title" v-bind="{ title }">
             <h3 class="sf-product-card-horizontal__title">
               {{ title }}
             </h3>
           </slot>
-        </SfLink>
+        </component>
         <!--@slot Use this slot to replace description-->
         <slot name="description">
           <p class="sf-product-card-horizontal__description desktop-only">
@@ -189,8 +194,6 @@ export default {
     },
     /**
      * Link element tag
-     * By default it'll be 'router-link' if Vue Router
-     * is available on instance, or 'a' otherwise.
      */
     linkTag: {
       type: String,
@@ -291,14 +294,12 @@ export default {
         this.isOnWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
       }`;
     },
-    linkComponentTag() {
+    componentTag() {
       if (this.linkTag) {
         return this.linkTag;
       }
       if (this.link) {
-        return typeof this.link === "object" || this.$router
-          ? "router-link"
-          : "a";
+        return "sf-link";
       }
       return "div";
     },
