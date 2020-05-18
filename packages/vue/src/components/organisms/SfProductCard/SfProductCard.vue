@@ -1,12 +1,8 @@
 <template>
   <div class="sf-product-card">
     <div class="sf-product-card__image-wrapper">
-      <component
-        :is="componentTag"
-        :link="componentTag === 'sf-link' ? link : null"
-        class="sf-product-card__link"
-      >
-        <slot name="image" v-bind="{ image, title }">
+      <slot name="image" v-bind="{ image, title }">
+        <SfLink :link="link" class="sf-product-card__link">
           <template v-if="Array.isArray(image)">
             <SfImage
               v-for="(picture, key) in image.slice(0, 2)"
@@ -26,8 +22,8 @@
             :width="imageWidth"
             :height="imageHeight"
           />
-        </slot>
-      </component>
+        </SfLink>
+      </slot>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
         <SfBadge
           v-if="badgeLabel"
@@ -80,16 +76,13 @@
         </slot>
       </template>
     </div>
-    <SfLink
-      :link="link"
-      class="sf-product-card__link"
-    >
-      <slot name="title" v-bind="{ title }">
+    <slot name="title" v-bind="{ title }">
+      <SfLink :link="link" class="sf-product-card__link">
         <h3 class="sf-product-card__title">
           {{ title }}
         </h3>
-      </slot>
-    </SfLink>
+      </SfLink>
+    </slot>
     <SfButton
       v-if="wishlistIcon !== false"
       :aria-label="`${ariaLabel} ${title}`"

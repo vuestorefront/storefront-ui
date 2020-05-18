@@ -1,13 +1,12 @@
 <template>
   <div class="sf-product-card-horizontal">
-    <component
-      :is="componentTag"
-      :link="componentTag === 'sf-link' ? link : null"
-      class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
-    >
-      <div class="sf-product-card-horizontal__image-wrapper">
-        <!--@slot Use this slot to replace image-->
-        <slot name="image" v-bind="{ image, title }">
+    <div class="sf-product-card-horizontal__image-wrapper">
+      <!--@slot Use this slot to replace image-->
+      <slot name="image" v-bind="{ image, title }">
+        <SfLink
+          :link="link"
+          class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
+        >
           <template v-if="Array.isArray(image)">
             <SfImage
               v-for="(picture, key) in image.slice(0, 2)"
@@ -27,19 +26,19 @@
             :width="imageWidth"
             :height="imageHeight"
           />
-        </slot>
-      </div>
-    </component>
+        </SfLink>
+      </slot>
+    </div>
     <div class="sf-product-card-horizontal__main">
       <div class="sf-product-card-horizontal__details">
-        <SfLink :link="link" class="sf-product-card-horizontal__link">
-          <!--@slot Use this slot to replace title-->
-          <slot name="title" v-bind="{ title }">
+        <!--@slot Use this slot to replace title-->
+        <slot name="title" v-bind="{ title }">
+          <SfLink :link="link" class="sf-product-card-horizontal__link">
             <h3 class="sf-product-card-horizontal__title">
               {{ title }}
             </h3>
-          </slot>
-        </SfLink>
+          </SfLink>
+        </slot>
         <!--@slot Use this slot to replace description-->
         <slot name="description">
           <p class="sf-product-card-horizontal__description desktop-only">
