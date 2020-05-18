@@ -30,8 +30,8 @@ describe.only("SfSearchBar.vue", () => {
         placeholder: placeholder,
       },
     });
-    expect(
-      component.find(".sf-search-bar__input").attributes("placeholder")
-    ).toEqual(placeholder);
+    expect(component.find(".sf-search-bar__input").attributes("label")).toEqual(
+      placeholder
+    );
   });
 });
