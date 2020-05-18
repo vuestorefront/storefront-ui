@@ -120,7 +120,7 @@ export default {
       if (this.isSFIcons) {
         return icons[this.icon].paths;
       } else {
-        return Array.isArray(this.icon) ? this.icon : console.log([this.icon]);
+        return Array.isArray(this.icon) ? this.icon : [this.icon];
       }
     },
   },
