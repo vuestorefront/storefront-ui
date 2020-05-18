@@ -107,7 +107,9 @@ export default {
       };
     },
     isSFIcons() {
-      return SF_ICONS.includes(this.icon.trim());
+      if (typeof this.icon === "string") {
+        return SF_ICONS.includes(this.icon.trim());
+      } else return null;
     },
     iconViewBox() {
       return this.isSFIcons
