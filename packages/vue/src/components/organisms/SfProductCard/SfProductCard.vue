@@ -1,7 +1,11 @@
 <template>
   <div class="sf-product-card">
     <div class="sf-product-card__image-wrapper">
-      <SfLink class="sf-product-card__link" :link="link">
+      <component
+        :is="componentTag"
+        :link="componentTag === 'sf-link' ? link : null"
+        class="sf-product-card__link"
+      >
         <slot name="image" v-bind="{ image, title }">
           <template v-if="Array.isArray(image)">
             <SfImage
@@ -23,7 +27,7 @@
             :height="imageHeight"
           />
         </slot>
-      </SfLink>
+      </component>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
         <SfBadge
           v-if="badgeLabel"
@@ -76,13 +80,17 @@
         </slot>
       </template>
     </div>
-    <SfLink class="sf-product-card__link" :link="link">
+    <component
+      :is="componentTag"
+      :link="componentTag === 'sf-link' ? link : null"
+      class="sf-product-card__link"
+    >
       <slot name="title" v-bind="{ title }">
         <h3 class="sf-product-card__title">
           {{ title }}
         </h3>
       </slot>
-    </SfLink>
+    </component>
     <SfButton
       v-if="wishlistIcon !== false"
       :aria-label="`${ariaLabel} ${title}`"
@@ -207,9 +215,6 @@ export default {
     },
     /**
      * Link element tag
-     * By default it'll be 'router-link' if Vue Router
-     * is available on instance, or 'a' otherwise.
-     * @deprecated will be removed in 1.0.0 use SfLink instead
      */
     linkTag: {
       type: String,
@@ -324,18 +329,12 @@ export default {
         this.isOnWishlist ? "sf-product-card--on-wishlist" : ""
       }`;
     },
-    linkComponentTag() {
-      deprecationWarning(
-        this.$options.name,
-        "Prop 'linkTag' has been deprecated and will be removed in v1.0.0. Use 'SfLink' instead."
-      );
+    componentTag() {
       if (this.linkTag) {
         return this.linkTag;
       }
       if (this.link) {
-        return typeof this.link === "object" || this.$router
-          ? "router-link"
-          : "a";
+        return "sf-link";
       }
       return "div";
     },
