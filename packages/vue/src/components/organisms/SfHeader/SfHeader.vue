@@ -141,21 +141,21 @@ export default {
      * Header cartIcon (accepts same value as SfIcon)
      */
     cartIcon: {
-      type: [String, Boolean],
+      type: [String, Boolean, Array],
       default: "empty_cart",
     },
     /**
      * Header wishlistIcon (accepts same value as SfIcon)
      */
     wishlistIcon: {
-      type: [String, Boolean],
+      type: [String, Boolean, Array],
       default: "heart",
     },
     /**
      * Header accountIcon (accepts same value as SfIcon)
      */
     accountIcon: {
-      type: [String, Boolean],
+      type: [String, Boolean, Array],
       default: "profile",
     },
     /**
