@@ -118,7 +118,6 @@
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
@@ -136,9 +135,6 @@ export default {
     SfLink,
     SfButton,
     SfAddToCart,
-  },
-  directives: {
-    focus: focus,
   },
   model: {
     prop: "qty",
@@ -189,6 +185,7 @@ export default {
     },
     /**
      * Link element tag
+     * @deprecated will be removed in 1.0.0 use slot to replace content
      */
     linkTag: {
       type: String,
@@ -288,15 +285,6 @@ export default {
       return `${defaultClass} ${
         this.isOnWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
       }`;
-    },
-    componentTag() {
-      if (this.linkTag) {
-        return this.linkTag;
-      }
-      if (this.link) {
-        return "sf-link";
-      }
-      return "div";
     },
   },
   methods: {

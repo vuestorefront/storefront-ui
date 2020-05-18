@@ -128,7 +128,6 @@
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives";
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { deprecationWarning } from "../../../utilities/helpers";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
@@ -151,7 +150,6 @@ export default {
     SfBadge,
     SfButton,
   },
-  directives: { focus },
   props: {
     /**
      * Product image
@@ -207,6 +205,7 @@ export default {
     },
     /**
      * Link element tag
+     * @deprecated will be removed in 1.0.0 use slot to replace content
      */
     linkTag: {
       type: String,
@@ -320,15 +319,6 @@ export default {
       return `${defaultClass} ${
         this.isOnWishlist ? "sf-product-card--on-wishlist" : ""
       }`;
-    },
-    componentTag() {
-      if (this.linkTag) {
-        return this.linkTag;
-      }
-      if (this.link) {
-        return "sf-link";
-      }
-      return "div";
     },
   },
   methods: {
