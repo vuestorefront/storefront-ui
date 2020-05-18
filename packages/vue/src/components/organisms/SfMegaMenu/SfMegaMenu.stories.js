@@ -2,343 +2,166 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
 import {
   SfMegaMenu,
-  SfHeader,
-  SfMenuItem,
-  SfBanner,
   SfList,
+  SfBanner,
+  SfProductCard,
 } from "@storefront-ui/vue";
-const AsidePlaceholder = {
-  components: { SfBanner },
-  data() {
-    return {
-      isMobile: false,
-      tiles: [
-        {
-          title: "THE OFFICE LIFE",
-          subtitle: "T-shirts",
-          pictures: {
-            mobile: "assets/storybook/SfMegaMenu/bannerSandals.jpg",
-            desktop: "assets/storybook/SfMegaMenu/bannerSandals.jpg",
-          },
-        },
-        {
-          title: "ECO SANDALS",
-          subtitle: "T-shirts",
-          pictures: {
-            mobile: "assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
-            desktop: "assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
-          },
-        },
-      ],
-    };
-  },
-  computed: {
-    root() {
-      return this.isMobile ? {} : { display: "flex" };
-    },
-  },
-  mounted() {
-    this.isMobile =
-      Math.max(document.documentElement.clientWidth, window.innerWidth) <= 1023;
-    window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
-  },
-  beforeDestroy() {
-    window.matchMedia("(max-width: 1023px)").removeListener(this.mobileHandler);
-  },
-  methods: {
-    mobileHandler(event) {
-      this.isMobile = event.matches;
-    },
-  },
-  template: `
-      <div :style="root">
-      <SfBanner 
-        v-for="(tile, index) in tiles"
-        :key="tile.title" 
-        :title="tile.title" 
-        :subtitle="tile.subtitle" 
-        :image="tile.pictures" 
-        :style="{margin: isMobile ? index === 0 ? '0' : '24px 0 0 0' : index === 0 ? '0' : '0 0 0 24px', '--banner-height': '310px', '--banner-width': '330px'} "
-      />
-      </div>`,
-};
-const MegaMenuPlaceholder = {
-  components: { SfMegaMenu, SfMenuItem, AsidePlaceholder, SfList },
-  props: {
-    title: {
-      type: String,
-      default: "",
-    },
-    visible: {
-      type: Boolean,
-      default: false,
-    },
-    asideTitle: {
-      default: text("asideTitle", "Featured", "Props"),
-    },
-  },
-  data() {
-    return {
-      subcategories: [
-        {
-          header: "Clothing",
-          items: [
-            { label: "Skirts" },
-            { label: "Sweaters" },
-            { label: "Dresses" },
-            { label: "TShirts" },
-            { label: "Pants" },
-            { label: "Underwear" },
-            { label: "Jackets" },
-            { label: "Blouses" },
-          ],
-        },
-        {
-          header: "Accessories",
-          items: [
-            { label: "Bags & Purses" },
-            { label: "Belts" },
-            { label: "Gloves" },
-            { label: "Hats" },
-          ],
-        },
-        {
-          header: "Shoes",
-          items: [
-            { label: "Boots" },
-            { label: "Heels" },
-            { label: "Flat shoes" },
-            { label: "Loafers" },
-            { label: "Sandals" },
-            { label: "Slippers" },
-            { label: "Trainers" },
-          ],
-        },
-      ],
-    };
-  },
-  template: `<SfMegaMenu 
-        title="Man"
-        :asideTitle="asideTitle"
-        :visible="visible"
-        :style="{position: 'absolute', left: 0, top: '100%'}"
-      >
-        <SfMegaMenuColumn 
-          v-for="subcategory in subcategories" 
-          :key="subcategory.header" 
-          :title="subcategory.header"
-        >
-          <SfList>
-            <SfListItem 
-              v-for="item in subcategory.items" 
-              :key="item.label"
-            >
-              <SfMenuItem
-                :label="item.label" 
-              />
-            </SfListItem>
-          </SfList>
-        </SfMegaMenuColumn>
-        <template #aside>
-          <AsidePlaceholder/>
-        </template>
-      </SfMegaMenu>`,
-};
 storiesOf("Organisms|MegaMenu", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: {
       SfMegaMenu,
-      SfMenuItem,
       SfList,
+      SfBanner,
     },
-    props: {
-      title: {
-        default: text("title", "Man", "Props"),
-      },
-    },
-    data() {
-      return {
-        visible: true,
-        subcategories: [
-          {
-            header: "Clothing",
-            items: [
-              { label: "Skirts" },
-              { label: "Sweaters" },
-              { label: "Dresses" },
-              { label: "TShirts" },
-              { label: "Pants" },
-              { label: "Underwear" },
-              { label: "Jackets" },
-              { label: "Blouses" },
-            ],
-          },
-          {
-            header: "Accessories",
-            items: [
-              { label: "Bags & Purses" },
-              { label: "Belts" },
-              { label: "Gloves" },
-              { label: "Hats" },
-            ],
-          },
-          {
-            header: "Shoes",
-            items: [
-              { label: "Boots" },
-              { label: "Heels" },
-              { label: "Flat shoes" },
-              { label: "Loafers" },
-              { label: "Sandals" },
-              { label: "Slippers" },
-              { label: "Trainers" },
-            ],
-          },
-        ],
-      };
-    },
-    template: `<SfMegaMenu 
-        :title="title" 
-        :visible="visible"
-      >
-        <SfMegaMenuColumn 
-          v-for="subcategory in subcategories" 
-          :key="subcategory.header" 
-          :title="subcategory.header"
-        >
-          <SfList>
-            <SfListItem v-for="item in subcategory.items" :key="item.label" >
-              <SfMenuItem
-                :label="item.label" 
-              />
-            </SfListItem>
-          </SfList>
-        </SfMegaMenuColumn>
-      </SfMegaMenu>`,
+    template: `<SfMegaMenu>
+        <div style="display: flex; flex: 0 0 50%; justify-content: space-between">
+          <div>
+            <h3 class="sf-mega-menu__root">CLOTHINGS</h3>
+            <SfList>
+              <SfListItem>Skirts</SfListItem>
+              <SfListItem>Sweaters</SfListItem>
+              <SfListItem>Dresses</SfListItem>
+            </SfList>
+          </div>
+          <div>
+            <h3 class="sf-mega-menu__root">ACCESORIES</h3>
+            <SfList>
+              <SfListItem>Skirts</SfListItem>
+              <SfListItem>Sweaters</SfListItem>
+              <SfListItem>Dresses</SfListItem>
+            </SfList>
+          </div>
+          <div>
+            <h3 class="sf-mega-menu__root">SHOES</h3>
+            <SfList>
+              <SfListItem>Skirts</SfListItem>
+              <SfListItem>Sweaters</SfListItem>
+              <SfListItem>Dresses</SfListItem>
+            </SfList>
+          </div>
+        </div>
+        <div style="flex: 0 0 50%">
+          <h3 class="sf-mega-menu__root">FEATURED</h3>
+          <div style="display: flex">
+            <SfBanner title="The Office Life" subtitle="T-Shirts"/>
+            <SfBanner title="Eco Sandals" subtitle="Shoes"/>
+          </div>
+        </div>
+    </SfMegaMenu>`,
   }))
-  .add("[slot] aside", () => ({
+  .add("With A", () => ({
     components: {
       SfMegaMenu,
-      SfMenuItem,
       SfList,
-      AsidePlaceholder,
+      SfBanner,
     },
-    props: {
-      title: {
-        default: text("title", "Man", "Props"),
-      },
-      asideTitle: {
-        default: text("asideTitle", "Featured", "Props"),
-      },
-    },
-    data() {
-      return {
-        visible: true,
-        subcategories: [
-          {
-            header: "Clothing",
-            items: [
-              { label: "Skirts" },
-              { label: "Sweaters" },
-              { label: "Dresses" },
-              { label: "TShirts" },
-              { label: "Pants" },
-              { label: "Underwear" },
-              { label: "Jackets" },
-              { label: "Blouses" },
-            ],
-          },
-          {
-            header: "Accessories",
-            items: [
-              { label: "Bags & Purses" },
-              { label: "Belts" },
-              { label: "Gloves" },
-              { label: "Hats" },
-            ],
-          },
-          {
-            header: "Shoes",
-            items: [
-              { label: "Boots" },
-              { label: "Heels" },
-              { label: "Flat shoes" },
-              { label: "Loafers" },
-              { label: "Sandals" },
-              { label: "Slippers" },
-              { label: "Trainers" },
-            ],
-          },
-        ],
-      };
-    },
-    template: `<SfMegaMenu 
-        :title="title"
-        :asideTitle="asideTitle"
-        :visible="visible"
-      >
-        <SfMegaMenuColumn 
-          v-for="subcategory in subcategories" 
-          :key="subcategory.header" 
-          :title="subcategory.header"
-        >
-          <SfList>
-            <SfListItem
-              v-for="item in subcategory.items"
-              :key="item.label" 
-            >
-              <SfMenuItem
-                :label="item.label"
-              />
-            </SfListItem>
-          </SfList>
-        </SfMegaMenuColumn>
-        <template #aside>
-          <AsidePlaceholder/>
-        </template>
-      </SfMegaMenu>`,
+    template: `<SfMegaMenu>
+      <div style="display: flex; width: 100%">
+        <div style="flex: 0 0 240px">
+          <h3 class="sf-mega-menu__root">CLOTHINGS</h3>
+          <h3 class="sf-mega-menu__root">ACCESORIES</h3>
+          <h3 class="sf-mega-menu__root">SHOES</h3>
+        </div>
+        <div style="display: flex; justify-content: space-between">
+          <div>
+            <h3 class="sf-mega-menu__root">CLOTHINGS</h3>
+            <SfList>
+              <SfListItem>Skirts</SfListItem>
+              <SfListItem>Sweaters</SfListItem>
+              <SfListItem>Dresses</SfListItem>
+            </SfList>
+          </div>
+          <div>
+            <h3 class="sf-mega-menu__root">ACCESORIES</h3>
+            <SfList>
+              <SfListItem>Skirts</SfListItem>
+              <SfListItem>Sweaters</SfListItem>
+              <SfListItem>Dresses</SfListItem>
+            </SfList>
+          </div>
+          <div>
+            <h3 class="sf-mega-menu__root">SHOES</h3>
+            <SfList>
+              <SfListItem>Skirts</SfListItem>
+              <SfListItem>Sweaters</SfListItem>
+              <SfListItem>Dresses</SfListItem>
+            </SfList>
+          </div>
+        </div>
+      </div>
+    </SfMegaMenu>`,
   }))
-  .add("With SfHeader", () => ({
+  .add("With AA", () => ({
     components: {
-      SfHeader,
-      MegaMenuPlaceholder,
+      SfMegaMenu,
+      SfList,
+      SfBanner,
     },
-    data() {
-      return {
-        hovered: "",
-      };
+    template: `<SfMegaMenu>
+      <div style="display: flex; width: 100%">
+        <div style="flex: 0 0 240px">
+          <h3 class="sf-mega-menu__root">CLOTHINGS</h3>
+          <h3 class="sf-mega-menu__root">ACCESORIES</h3>
+          <h3 class="sf-mega-menu__root">SHOES</h3>
+        </div>
+        <div style="display: flex; flex: 1">
+          <div>
+            <h3 class="sf-mega-menu__root">CLOTHINGS</h3>
+            <SfList>
+              <SfListItem>Skirts</SfListItem>
+              <SfListItem>Sweaters</SfListItem>
+              <SfListItem>Dresses</SfListItem>
+            </SfList>
+          </div>
+          <div>
+            <h3 class="sf-mega-menu__root">ACCESORIES</h3>
+            <SfList>
+              <SfListItem>Skirts</SfListItem>
+              <SfListItem>Sweaters</SfListItem>
+              <SfListItem>Dresses</SfListItem>
+            </SfList>
+          </div>
+          <div>
+            <h3 class="sf-mega-menu__root">SHOES</h3>
+            <SfList>
+              <SfListItem>Skirts</SfListItem>
+              <SfListItem>Sweaters</SfListItem>
+              <SfListItem>Dresses</SfListItem>
+            </SfList>
+          </div>
+        </div>
+      </div>
+    </SfMegaMenu>`,
+  }))
+  .add("Search", () => ({
+    components: {
+      SfMegaMenu,
+      SfList,
+      SfBanner,
+      SfProductCard,
     },
-    template: `
-      <SfHeader
-        title="Storefront UI"
-        :logo="{ mobile: { url: '/assets/logo.svg' }, desktop: { url: '/assets/logo.svg' } }"
-      >
-        <template #navigation>
-          <SfHeaderNavigationItem
-            :class="{'sf-header-navigation-item--is-active': hovered === 'women'}"
-            @mouseover="hovered = 'women'"
-            @mouseleave="hovered = ''"
-          >
-            <a href="#women">Women</a>
-            <MegaMenuPlaceholder title="Woman" :visible="hovered === 'women'"/>
-          </SfHeaderNavigationItem>
-          <SfHeaderNavigationItem
-            :class="{'sf-header-navigation-item--is-active': hovered === 'man'}"
-            @mouseover="hovered = 'man'"
-            @mouseleave="hovered = ''"
-          >
-            <a href="#man">Man</a>
-            <MegaMenuPlaceholder title="Man" :visible="hovered === 'man'"/>
-          </SfHeaderNavigationItem>
-          <SfHeaderNavigationItem
-            :class="{'sf-header-navigation-item--is-active': hovered === 'kids'}"
-            @mouseover="hovered = 'kids'"
-            @mouseleave="hovered = ''"
-          >
-            <a href="#kids">Kids</a>
-            <MegaMenuPlaceholder title="Kids" :visible="hovered === 'kids'"/>
-          </SfHeaderNavigationItem>
-        </template>
-      </SfHeader>`,
+    template: `<SfMegaMenu>
+      <div style="flex: 0 0 240px">
+        <h3 class="sf-mega-menu__root">CLOTHINGS</h3>
+        <h3 class="sf-mega-menu__root">ACCESORIES</h3>
+        <h3 class="sf-mega-menu__root">SHOES</h3>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; flex: 1; height: 100%; overflow: auto">
+        <SfProductCard
+          v-for="(_, key) in 8"
+          :key="key"
+          image="/assets/storybook/Home/productB.jpg"
+          image-width="216"
+          image-height="326"
+          badge-label="-50%"
+          title="Vila stripe shirt dress"
+          regular-price="$50.00"
+          show-add-to-cart-button
+          :score-rating="4"
+          :max-rating="5"
+          :reviews-count="7"
+        />
+      </div>
+    </SfMegaMenu>`,
   }));
