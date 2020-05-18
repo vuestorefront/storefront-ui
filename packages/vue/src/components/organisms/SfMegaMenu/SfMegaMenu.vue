@@ -3,7 +3,7 @@
     <div
       v-if="visible"
       class="sf-mega-menu"
-      :class="{ 'sf-mega-menu--is-active': isActive }"
+      :class="{ 'is-active': isActive }"
     >
       <SfBar
         :title="title || active[0]"
