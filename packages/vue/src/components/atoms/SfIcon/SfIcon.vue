@@ -107,7 +107,9 @@ export default {
       };
     },
     isSFIcons() {
-      return SF_ICONS.includes(this.icon.trim());
+      if (typeof this.icon === "string") {
+        return SF_ICONS.includes(this.icon.trim());
+      } else return null;
     },
     iconViewBox() {
       return this.isSFIcons
@@ -118,7 +120,7 @@ export default {
       if (this.isSFIcons) {
         return icons[this.icon].paths;
       } else {
-        return Array.isArray(this.icon) ? this.icon : [this.icon];
+        return Array.isArray(this.icon) ? this.icon : console.log([this.icon]);
       }
     },
   },
