@@ -46,7 +46,7 @@ export default {
     },
     /** Svg file iconPath  */
     icon: {
-      type: String,
+      type: [String, Array],
       default: "",
     },
     /** Characteristic title  */
