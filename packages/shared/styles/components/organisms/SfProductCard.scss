@@ -3,6 +3,7 @@
   box-sizing: border-box;
   position: relative;
   z-index: var(--product-card-z-index);
+  width: 100%;
   max-width: var(--product-card-max-width, 10.625rem);
   height: var(--product-card-height);
   padding: var(--product-card-padding, var(--spacer-xs));
@@ -126,7 +127,7 @@
     --product-card-wishlist-icon-opacity: 1;
   }
   @include for-desktop {
-    --product-card-max-width: 15.5rem;
+    --product-card-max-width: 15.625rem;
     --product-card-padding: var(--spacer-sm);
     --product-card-title-margin: var(--spacer-xl) 0 0 0;
     --product-card-transition: box-shadow 150ms ease-in-out;
