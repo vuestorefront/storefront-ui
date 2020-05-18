@@ -23,7 +23,7 @@ storiesOf("Molecules|SearchBar", module)
         ),
       },
       placeholder: {
-        default: text("placeholder", "Search for items", "Props"),
+        default: text("placeholder", "Search for items and promotions", "Props"),
       },
     },
     data() {
@@ -53,7 +53,7 @@ storiesOf("Molecules|SearchBar", module)
         ),
       },
       placeholder: {
-        default: text("placeholder", "Search for items", "Props"),
+        default: text("placeholder", "Search for items and promotions", "Props"),
       },
     },
     data() {
@@ -85,7 +85,7 @@ storiesOf("Molecules|SearchBar", module)
         ),
       },
       placeholder: {
-        default: text("placeholder", "Search for items", "Props"),
+        default: text("placeholder", "Search for items and promotions", "Props"),
       },
     },
     data() {

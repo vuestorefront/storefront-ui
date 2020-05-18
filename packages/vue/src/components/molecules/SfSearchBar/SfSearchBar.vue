@@ -1,6 +1,6 @@
 <template>
   <div class="sf-search-bar">
-    <input
+    <!-- <input
       class="sf-search-bar__input"
       type="search"
       :value="value"
@@ -10,7 +10,16 @@
       @keyup.enter="$emit('enter', $event.target.value)"
       @keyup.esc="$emit('input', '')"
       @blur="$emit('blur')"
-    />
+    /> -->
+    <SfInput
+      class="sf-search-bar__input"
+      type="search"
+      :value="value"
+      v-bind="$attrs"
+      :label="placeholder"
+      v-on="listeners"
+    >
+    </SfInput>
     <!-- @slot -->
     <slot name="icon">
       <span class="sf-search-bar__icon">
@@ -21,9 +30,10 @@
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfInput from "../../atoms/SfInput/SfInput.vue";
 export default {
   name: "SfSearchBar",
-  components: { SfIcon },
+  components: { SfIcon, SfInput },
   inheritAttrs: false,
   props: {
     placeholder: {
@@ -33,6 +43,21 @@ export default {
     value: {
       type: [Number, String],
       default: null,
+    },
+  },
+  computed: {
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: (value) => this.$emit("input", value),
+        keyup: (event) => {
+          if (event.enter) this.$emit("enter", event.target.value);
+        },
+        keyup: (event) => {
+          if (event.esc) this.$emit("input", "");
+        },
+        blur: () => this.$emit("blur"),
+      };
     },
   },
 };

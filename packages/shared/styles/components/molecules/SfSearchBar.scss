@@ -1,25 +1,25 @@
 @import "../../helpers";
 // todo: after replace <input> to <SfInput> we can remove @mixin placeholder and @mixin iconPosition
-@mixin placeholder {
-  &::-webkit-input-placeholder {
-    @content;
-  }
-  &::-moz-placeholder {
-    @content;
-  }
-  &:-ms-input-placeholder {
-    @content;
-  }
-}
-@mixin iconPosition {
-  flex-direction: var(--search-bar-icon-flex-direction, row);
-  .sf-search-bar__input {
-    --search-bar-input-text-align: center;
-    &::placeholder {
-      text-align: center;
-    }
-  }
-}
+// @mixin placeholder {
+//   &::-webkit-input-placeholder {
+//     @content;
+//   }
+//   &::-moz-placeholder {
+//     @content;
+//   }
+//   &:-ms-input-placeholder {
+//     @content;
+//   }
+// }
+// @mixin iconPosition {
+//   flex-direction: var(--search-bar-icon-flex-direction, row);
+//   .sf-search-bar__input {
+//     --search-bar-input-text-align: center;
+//     &::placeholder {
+//       text-align: center;
+//     }
+//   }
+// }
 .sf-search-bar {
   box-sizing: border-box;
   position: relative;
@@ -36,19 +36,25 @@
     right: var(--search-bar-icon-right, 0);
     display: var(--search-bar-icon-display, block);
   }
-  &__input {
+  &__input {    
     position: relative;
     flex-grow: 1;
+    // color: var(--search-bar-placeholder-color, var(--c-secondary-variant));    
     background: transparent;
     text-align: var(--search-bar-input-text-align);
     width: 100%;
     height: 100%;
+    &.sf-input__label{
+    display: var(--input-bar-display, none);
+    color: var(--input-label-color, var(--c-secondary-variant));
+    transition: var(--input-label-transition, color 0.2s ease-in);   
+    } 
     @include font(
       --search-bar-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--input-label-font-weight, var(--font-normal)),
+      var(--input-label-font-size, var(--font-sm)),
       1.6,
-      var(--font-family-secondary)
+      var(--input-label-font-family, var(--font-family-secondary))
     );
     @include border(
       --search-bar-border,
@@ -56,15 +62,14 @@
       solid,
       var(--c-dark-variant)
     );
-    @include placeholder {
-      color: var(--search-bar-placeholder-color, var(--c-gray));
-      transition: var(--search-bar-placeholder-transition, color 0.2s ease-in);
-      font: inherit;
-    }
+    // @include placeholder {
+    //   color: var(--search-bar-placeholder-color, var(--c-gray));
+    //   transition: var(--search-bar-placeholder-transition, color 0.2s ease-in);
+    //   font: inherit;
+    // }
     &:focus {
-      @include placeholder {
-        color: var(--search-bar-placeholder-color-focus, transparent);
-      }
+      // color: var(--search-bar-placeholder-color-focus, transparent);
+      --input-label-color: transparent;
     }
     &::-webkit-search-cancel-button {
       opacity: 0;
@@ -76,9 +81,9 @@
       opacity: 0;
     }
   }
-  &--position-center {
-    @include iconPosition();
-  }
+  // &--position-center {
+  //   @include iconPosition();
+  // }
   &--no-icon {
     --search-bar-icon-display: none;
   }
