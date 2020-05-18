@@ -80,9 +80,8 @@
         </slot>
       </template>
     </div>
-    <component
-      :is="componentTag"
-      :link="componentTag === 'sf-link' ? link : null"
+    <SfLink
+      :link="link"
       class="sf-product-card__link"
     >
       <slot name="title" v-bind="{ title }">
@@ -90,7 +89,7 @@
           {{ title }}
         </h3>
       </slot>
-    </component>
+    </SfLink>
     <SfButton
       v-if="wishlistIcon !== false"
       :aria-label="`${ariaLabel} ${title}`"

@@ -32,18 +32,14 @@
     </component>
     <div class="sf-product-card-horizontal__main">
       <div class="sf-product-card-horizontal__details">
-        <component
-          :is="componentTag"
-          :link="componentTag === 'sf-link' ? link : null"
-          class="sf-product-card-horizontal__link"
-        >
+        <SfLink :link="link" class="sf-product-card-horizontal__link">
           <!--@slot Use this slot to replace title-->
           <slot name="title" v-bind="{ title }">
             <h3 class="sf-product-card-horizontal__title">
               {{ title }}
             </h3>
           </slot>
-        </component>
+        </SfLink>
         <!--@slot Use this slot to replace description-->
         <slot name="description">
           <p class="sf-product-card-horizontal__description desktop-only">
