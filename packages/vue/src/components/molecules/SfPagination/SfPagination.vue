@@ -51,7 +51,7 @@
       </component>
     </template>
     <template v-if="showLast">
-      <slot v-if="this.lastVisiblePageNumber < this.total - 1" name="points">
+      <slot v-if="lastVisiblePageNumber < total - 1" name="points">
         <div class="sf-pagination__item">...</div>
       </slot>
       <slot name="number" v-bind="{ page: total }">
