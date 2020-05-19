@@ -7,7 +7,7 @@ import {
   object,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import { SfHeader, SfLink } from "@storefront-ui/vue";
+import { SfHeader, SfLink, SfButton, SfIcon } from "@storefront-ui/vue";
 const StoriesPlaceholder = {
   props: {
     mobile: {
@@ -32,7 +32,7 @@ const StoriesPlaceholder = {
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfHeader, SfLink, StoriesPlaceholder },
+    components: { SfHeader, SfLink, SfIcon, SfButton, StoriesPlaceholder },
     props: {
       customClass: {
         default: options(
@@ -75,15 +75,6 @@ storiesOf("Organisms|Header", module)
       searchPlaceholder: {
         default: text("searchPlaceholder", "Search for items", "Props"),
       },
-      cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props"),
-      },
-      wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
-      },
-      accountIcon: {
-        default: text("accountIcon", "profile", "Props"),
-      },
       cartItemsQty: {
         default: text("cartItemsQty", "0", "Props"),
       },
@@ -124,18 +115,11 @@ storiesOf("Organisms|Header", module)
           :class="customClass"
           :title="title"
           :logo="logo"
-          :active-icon="activeIcon"
           :search-placeholder="searchPlaceholder"
           :search-value="searchValue"
-          :cart-icon="cartIcon"
-          :wishlist-icon="wishlistIcon"
           :is-sticky="isSticky"
-          :account-icon="accountIcon"
           :style="spacer"
           :cart-items-qty="cartItemsQty"
-          @click:cart="alert('@click:cart')"
-          @click:wishlist="alert('@click:wishlist')"
-          @click:account="alert('@click:account')"
           @change:search="searchValue = $event"
       >
         <template #navigation>
@@ -144,6 +128,49 @@ storiesOf("Organisms|Header", module)
               :key="item">
             <SfLink href="#">{{item}}</SfLink>
           </SfHeaderNavigationItem>
+        </template>
+        <template #header-icons>
+        <div class="sf-header__icons">
+          <SfButton
+            class="sf-button--pure sf-header__action"
+            @click="alert('click:account')"
+          >
+            <SfIcon
+              icon="account"
+              size="1.25rem"
+              :class="{
+                'sf-header__icon--is-active': activeIcon === 'account',
+              }"
+            />
+          </SfButton>
+          <SfButton
+            class="sf-button--pure sf-header__action"
+            @click="alert('@click:wishlist')"
+          >
+            <SfIcon
+              icon="wishlist"
+              size="1.25rem"
+              :class="{
+                'sf-header__icon--is-active': activeIcon === 'menu',
+              }"
+            />
+              </SfButton>
+              <SfButton
+                class="sf-button--pure sf-header__action"
+                @click="alert('click:cart')"
+              >
+                <SfIcon
+                  class="sf-header__icon"
+                  icon="cart"
+                  :has-badge="parseInt(cartItemsQty, 10) > 0"
+                  :badge-label="cartItemsQty"
+                  size="1.25rem"
+                  :class="{
+                    'sf-header__icon--is-active': activeIcon === 'cart',
+                  }"
+                />
+              </SfButton>
+            </div>
         </template>
       </SfHeader>
       <StoriesPlaceholder :mobile="isMobile"/>
