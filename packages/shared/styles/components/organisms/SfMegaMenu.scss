@@ -1,5 +1,14 @@
 @import "../../helpers";
 .sf-mega-menu-column {
+  &__title {
+    @include font(
+      --mega-menu-column-title-font,
+      var(--font-medium),
+      var(--font-base),
+      1.4,
+      var(--font-family-secondary)
+    );
+  }
 }
 .sf-mega-menu {
   background: #FFF;
@@ -14,14 +23,5 @@
     padding: var(--header-padding, 0 var(--spacer-sm));
     max-width: var(--mega-menu-width, 77.5rem);
     margin: var(--mega-menu-margin,0 auto);
-  }
-  &__root {
-    @include font(
-      --mega-menu-column-title-font,
-      var(--font-medium),
-      var(--font-base),
-      1.4,
-      var(--font-family-secondary)
-    );
   }
 }

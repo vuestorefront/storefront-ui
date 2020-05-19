@@ -8,6 +8,9 @@
   </transition>
 </template>
 <script>
+import Vue from "vue";
+import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn.vue";
+Vue.component("SfMegaMenuColumn", SfMegaMenuColumn);
 export default {
   name: "SfMegaMenu",
   inheritAttrs: false,
