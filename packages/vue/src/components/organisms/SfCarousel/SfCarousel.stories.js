@@ -1,22 +1,21 @@
 import { storiesOf } from "@storybook/vue";
 import { SfCarousel } from "@storefront-ui/vue";
-const StoriesPlaceholder = {
-  props: ["index"],
-  template: `<div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">{{index}}</div>`,
-};
+
 storiesOf("Organisms|Carousel", module)
   .add("Common", () => ({
-    components: { SfCarousel, StoriesPlaceholder },
+    components: { SfCarousel },
     template: `<SfCarousel
       :style="{maxWidth: '1140px', margin: 'auto'}"
     >
         <SfCarouselItem v-for="index in 12">
-          <StoriesPlaceholder :index="index"/>
+          <div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">
+            {{index}}
+          </div>
         </SfCarouselItem>
       </SfCarousel>`,
   }))
   .add("[slot] next", () => ({
-    components: { SfCarousel, StoriesPlaceholder },
+    components: { SfCarousel },
     template: `<SfCarousel
       :style="{maxWidth: '1140px', margin: 'auto'}"
     >
@@ -24,12 +23,14 @@ storiesOf("Organisms|Carousel", module)
         <button @click="go">NEXT</button>
       </template>
       <SfCarouselItem v-for="index in 12">
-        <StoriesPlaceholder :index="index"/>
+        <div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">
+          {{index}}
+        </div>
       </SfCarouselItem>
     </SfCarousel>`,
   }))
   .add("[slot] prev", () => ({
-    components: { SfCarousel, StoriesPlaceholder },
+    components: { SfCarousel },
     template: `<SfCarousel
       :style="{maxWidth: '1140px', margin: 'auto'}"
     >
@@ -37,7 +38,9 @@ storiesOf("Organisms|Carousel", module)
         <button @click="go">PREV</button>
       </template>
       <SfCarouselItem v-for="index in 12">
-        <StoriesPlaceholder :index="index"/>
+        <div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">
+          {{index}}
+        </div>
       </SfCarouselItem>
     </SfCarousel>`,
   }));
