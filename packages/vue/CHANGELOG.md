@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.12](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.11...@storefront-ui/vue@0.7.12) (2020-05-19)
+
+
+### Bug Fixes
+
+* display checked icon on checkbox ([#1201](https://github.com/DivanteLtd/storefront-ui/issues/1201)) ([5ea8950](https://github.com/DivanteLtd/storefront-ui/commit/5ea8950d7cc3cd396a929dcd91b554efeeeae620))
+* icon assign array ([#1193](https://github.com/DivanteLtd/storefront-ui/issues/1193)) ([a6b4b90](https://github.com/DivanteLtd/storefront-ui/commit/a6b4b901cdd7265cafb1bc5b97a1aac9b63aab3d))
+* last/first page number, add condition to show dots ([#1189](https://github.com/DivanteLtd/storefront-ui/issues/1189)) ([763c25f](https://github.com/DivanteLtd/storefront-ui/commit/763c25f72a2a49cb40f24af88e2e5f6339274bd4))
+* product cards with SfLink inside slots ([#1197](https://github.com/DivanteLtd/storefront-ui/issues/1197)) ([d4a3809](https://github.com/DivanteLtd/storefront-ui/commit/d4a38099d596bbb62d120e28c3dab32aedcda806))
+* remove this from SfPagination ([#1199](https://github.com/DivanteLtd/storefront-ui/issues/1199)) ([1006752](https://github.com/DivanteLtd/storefront-ui/commit/1006752763d62c2a634185953c595fc6002bcde3))
+
+
+### Features
+
+* add additional class + add auto title bar ([#1191](https://github.com/DivanteLtd/storefront-ui/issues/1191)) ([ca14797](https://github.com/DivanteLtd/storefront-ui/commit/ca14797467dbface4b0b78ef10577bd695b2c398))
+
+
+
+
+
 ## [0.7.11](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.10...@storefront-ui/vue@0.7.11) (2020-05-14)
 
 
