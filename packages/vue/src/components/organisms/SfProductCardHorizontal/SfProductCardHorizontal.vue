@@ -2,7 +2,10 @@
   <div class="sf-product-card-horizontal">
     <div class="sf-product-card-horizontal__image-wrapper">
       <!--@slot Use this slot to replace image-->
-      <slot name="image" v-bind="{ image, title }">
+      <slot
+        name="image"
+        v-bind="{ image, title, link, imageHeight, imageWidth }"
+      >
         <SfLink
           :link="link"
           class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
@@ -32,7 +35,7 @@
     <div class="sf-product-card-horizontal__main">
       <div class="sf-product-card-horizontal__details">
         <!--@slot Use this slot to replace title-->
-        <slot name="title" v-bind="{ title }">
+        <slot name="title" v-bind="{ title, link }">
           <SfLink :link="link" class="sf-product-card-horizontal__link">
             <h3 class="sf-product-card-horizontal__title">
               {{ title }}
