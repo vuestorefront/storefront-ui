@@ -49,8 +49,14 @@
           ></SfIcon>
         </SfButton>
       </slot>
-      <slot v-if="isIcon">
-        <SfIcon class="sf-input__icon" icon="icon" size="1.5rem"></SfIcon>
+      <slot v-if="icon" v-bind="{colorIcon, sizeIcon, icon}">
+        <SfIcon 
+          :color="colorIcon"
+          :size="sizeIcon"
+          :icon="icon"
+          class="sf-input__icon"
+        >
+        </SfIcon>
       </slot>
     </div>
     <div class="sf-input__error-message">

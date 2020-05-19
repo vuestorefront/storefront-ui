@@ -68,6 +68,7 @@
     height: 100%;
   }
   &__wrapper {
+    display: flex;
     position: relative;
     margin: var(--input-margin, 0 0 var(--spacer-xs) 0);
   }
@@ -136,20 +137,34 @@
       --button-box-shadow: none;
     }
   }
+  &__password-icon,
+  &__icon {
+    // position: relative;
+    &::after {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+      // transform: translate3d(0, -50%, 0) rotate(45deg)
+      //   scaleX(var(--input-password-icon-scaleX, 0));
+      transition: transform 150ms linear;
+      content: "";
+    }
+  } 
   &__password-icon {
     position: relative;
     &--hidden {
       --input-password-icon-scaleX: 1;
     }
     &::after {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      height: 1px;
+      // position: absolute;
+      // top: 50%;
+      // width: 100%;
+      // height: 1px;
       background: var(--input-password-icon-background, var(--c-black));
       transform: translate3d(0, -50%, 0) rotate(45deg)
         scaleX(var(--input-password-icon-scaleX, 0));
-      transition: transform 150ms linear;
+      // transition: transform 150ms linear;
       content: "";
     }
   }
