@@ -49,6 +49,9 @@
           ></SfIcon>
         </SfButton>
       </slot>
+      <slot v-if="isIcon">
+        <SfIcon class="sf-input__icon" icon="icon" size="1.5rem"></SfIcon>
+      </slot>
     </div>
     <div class="sf-input__error-message">
       <transition name="fade">
@@ -136,6 +139,21 @@ export default {
     hasShowPassword: {
       type: Boolean,
       default: false,
+    },
+    /** One of predefined SfIcon colors, default is black.  */
+    colorIcon: {
+      type: String,
+      default: "",
+    },
+    /** One of predefined SfIcon sizes.  */
+    sizeIcon: {
+      type: String,
+      default: "",
+    },
+    /** Svg file iconPath  */
+    icon: {
+      type: [String, Array],
+      default: "",
     },
   },
   data() {

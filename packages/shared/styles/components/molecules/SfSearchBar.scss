@@ -36,7 +36,14 @@
     right: var(--search-bar-icon-right, 0);
     display: var(--search-bar-icon-display, block);
   }
-  &__input {    
+  &__input {   
+    --input-bar-display: none;
+    --input-padding: 0;
+    --input-font-size: var(--font-base);
+    --input-label-font-size: var(--font-sm);
+    --input-label-color: var(--c-secondary-variant);
+    // --input-label-transform: none;    
+    --input-label-transition: 0.2s ease-in;  
     position: relative;
     flex-grow: 1;
     // color: var(--search-bar-placeholder-color, var(--c-secondary-variant));    
@@ -44,18 +51,16 @@
     text-align: var(--search-bar-input-text-align);
     width: 100%;
     height: 100%;
-    &.sf-input__label{
-    display: var(--input-bar-display, none);
-    color: var(--input-label-color, var(--c-secondary-variant));
-    transition: var(--input-label-transition, color 0.2s ease-in);   
-    } 
-    @include font(
-      --search-bar-font,
-      var(--input-label-font-weight, var(--font-normal)),
-      var(--input-label-font-size, var(--font-sm)),
-      1.6,
-      var(--input-label-font-family, var(--font-family-secondary))
-    );
+    // .sf-input__label{
+    //   - 
+    // } 
+    // @include font(
+    //   --search-bar-font,
+    //   var(--font-normal),
+    //   var(--font-sm),
+    //   1.6,
+    //   var(--font-family-secondary)
+    // );
     @include border(
       --search-bar-border,
       0 0 2px 0,
@@ -67,16 +72,22 @@
     //   transition: var(--search-bar-placeholder-transition, color 0.2s ease-in);
     //   font: inherit;
     // }
-    &:focus {
-      // color: var(--search-bar-placeholder-color-focus, transparent);
-      --input-label-color: transparent;
+    input:focus {
+      & ~ * {
+        --input-label-color: transparent;
+        --input-label-top: 50%;
+        --input-label-font-size: var(--font-sm);
+      }
+    }
+    &.sf-input--has-text {
+      --input-label-display: none;
     }
     &::-webkit-search-cancel-button {
       opacity: 0;
     }
-    &[type="search"] {
-      -webkit-appearance: none;
-    }
+    // &[type="search"] {
+    //   -webkit-appearance: none;
+    // }
     &::-ms-clear {
       opacity: 0;
     }
