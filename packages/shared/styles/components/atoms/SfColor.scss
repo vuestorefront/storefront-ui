@@ -14,12 +14,6 @@
     position: absolute;
     top: -25%;
     right: -25%;
-    &-enter-active {
-      animation: bounce-in 300ms;
-    }
-    &-leave-active {
-      animation: bounce-in 300ms reverse;
-    }
   }
   @include for-desktop {
     --color-size: 0.75rem;
