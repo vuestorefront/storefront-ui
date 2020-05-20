@@ -1,6 +1,58 @@
-@import './mixins';
+$transition-fade: opacity .3s linear;
+$transition-base: $transition-fade;
+$transition-slide: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+$transition-slide-transform-size: 400px;
+
+// mixins
+
+@mixin transition($transition...) {
+    @if length($transition) == 0 {
+        transition: $transition-base;
+    } @else {
+        transition: $transition;
+    }
+}
+
+@mixin transition-fade() {
+    &-enter-active,
+    &-leave-active {
+        @include transition($transition-fade);
+    }
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+}
+
+@mixin transition-slide($direction: "left") {
+    &-enter-active,
+    &-leave-active {
+        transition: $transition-slide;
+    }
+    &-enter,
+    &-leave-to {
+        @if $direction == "bottom" {
+            transform: translateY($transition-slide-transform-size);
+        } @else if $direction == "top" {
+            transform: translateY(-$transition-slide-transform-size);
+        } @else if $direction == "left" {
+            transform: translateX(-$transition-slide-transform-size);
+        } @else {
+            transform: translateX($transition-slide-transform-size);
+        }
+        opacity: 0;
+    }
+}
+
+@mixin transition-slide-fade($direction: "left") {
+    @include transition-slide($direction);
+    &-enter-active {
+        transition: $transition-fade;
+    }
+}
 
 // slide-left
+
 .slide-left-enter-active {
     -webkit-animation: slide-left .5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: slide-left .5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
