@@ -5,7 +5,7 @@
       class="sf-bottom-modal__overlay"
       @click="close"
     />
-    <transition name="sf-bottom-modal">
+    <SfTransition transition="sf-bottom-modal">
       <nav
         v-show="isOpen"
         role="dialog"
@@ -42,18 +42,19 @@
           >
         </slot>
       </nav>
-    </transition>
+    </SfTransition>
   </div>
 </template>
 <script>
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
+import SfTransition from "../../../utilities/transitions/component/SfTransition.js";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import { isClient } from "../../../utilities/helpers";
 export default {
   name: "SfBottomModal",
-  components: { SfOverlay, SfButton, SfCircleIcon, SfHeading },
+  components: { SfOverlay, SfButton, SfCircleIcon, SfHeading, SfTransition },
   props: {
     /**
      * Bottom Modal is open
@@ -66,6 +67,10 @@ export default {
      * Bottom Modal title
      */
     title: {
+      type: String,
+      default: "",
+    },
+    transition: {
       type: String,
       default: "",
     },
