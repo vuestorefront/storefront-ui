@@ -5,7 +5,7 @@
       class="sf-bottom-modal__overlay"
       @click="close"
     />
-    <SfTransition transition="sf-bottom-modal">
+    <SfTransition :transition="transition">
       <nav
         v-show="isOpen"
         role="dialog"
@@ -71,7 +71,7 @@ export default {
       default: "",
     },
     transition: {
-      type: String,
+      type: [String, Boolean],
       default: "",
     },
   },
