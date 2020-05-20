@@ -5,7 +5,7 @@
       class="sf-bottom-modal__overlay"
       @click="close"
     />
-    <transition name="sf-bottom-modal">
+    <transition name="sf-collapse-bottom">
       <nav
         v-show="isOpen"
         role="dialog"
