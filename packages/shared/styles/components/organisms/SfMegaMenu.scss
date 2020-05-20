@@ -9,13 +9,16 @@
       var(--font-family-secondary)
     );
   }
+  &.has-children {
+    display: flex;
+  }
 }
 .sf-mega-menu {
   background: #FFF;
-  height: 730px;
+  //height: 730px;
   overflow: hidden;
   &__container {
-    display: flex;
+    display: var(--mega-menu-display, flex);
     flex-direction: var(--mega-menu-flex-direction);
     flex-wrap: var(--mega-menu-flex-wrap, nowrap);
     align-items: var(--mega-menu-align-items);
@@ -23,5 +26,8 @@
     padding: var(--header-padding, 0 var(--spacer-sm));
     max-width: var(--mega-menu-width, 77.5rem);
     margin: var(--mega-menu-margin,0 auto);
+  }
+  &.has-children {
+    //--mega-menu-display: block;
   }
 }

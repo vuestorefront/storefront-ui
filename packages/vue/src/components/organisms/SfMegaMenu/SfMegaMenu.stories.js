@@ -53,36 +53,75 @@ storiesOf("Organisms|MegaMenu", module)
       SfBanner,
     },
     template: `<SfMegaMenu>
-      <div style="display: flex; width: 100%">
-        <div style="flex: 0 0 240px">
-          <h3 class="sf-mega-menu__root">CLOTHINGS</h3>
-          <h3 class="sf-mega-menu__root">ACCESORIES</h3>
-          <h3 class="sf-mega-menu__root">SHOES</h3>
-        </div>
-        <div style="display: flex; justify-content: space-between; flex: 1; background-color: #F1F2F3">
-          <SfMegaMenuColumn style="flex: 1" title="CLOTHINGS A">
-            <SfList>
-              <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
-              <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
-              <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
-            </SfList>
-          </SfMegaMenuColumn>
-          <SfMegaMenuColumn style="flex: 1" title="ACCESORIES A">
-            <SfList>
-              <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
-              <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
-              <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
-            </SfList>
-          </SfMegaMenuColumn>
-          <SfMegaMenuColumn style="flex: 1" title="SHOES A">
-            <SfList>
-              <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
-              <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
-              <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
-            </SfList>
-          </SfMegaMenuColumn>
-        </div>
-      </div>
+      <SfMegaMenuColumn style="flex: 1" title="CLOTHINGS" force-active>
+        <SfMegaMenuColumn style="flex: 1" title="CLOTHINGS A">
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+        <SfMegaMenuColumn style="flex: 1" title="CLOTHINGS B" >
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+        <SfMegaMenuColumn style="flex: 1" title="CLOTHINGS C" >
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+      </SfMegaMenuColumn>
+      <SfMegaMenuColumn style="flex: 1" title="ACCESORIES" force-active>
+        <SfMegaMenuColumn style="flex: 1" title="ACCESORIES A">
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+        <SfMegaMenuColumn style="flex: 1" title="ACCESORIES B">
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+        <SfMegaMenuColumn style="flex: 1" title="ACCESORIES C">
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+      </SfMegaMenuColumn>
+      <SfMegaMenuColumn style="flex: 1" title="SHOES" force-active>
+        <SfMegaMenuColumn style="flex: 1" title="SHOES A">
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+        <SfMegaMenuColumn style="flex: 1" title="SHOES B">
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+        <SfMegaMenuColumn style="flex: 1" title="SHOES C">
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+      </SfMegaMenuColumn>
     </SfMegaMenu>`,
   }))
   .add("With AA", () => ({
@@ -92,18 +131,8 @@ storiesOf("Organisms|MegaMenu", module)
       SfBanner,
     },
     template: `<SfMegaMenu>
-      <div style="display: flex; width: 100%">
-        <div style="flex: 0 0 240px">
-          <h3 class="sf-mega-menu__root">CLOTHINGS</h3>
-          <h3 class="sf-mega-menu__root">ACCESORIES</h3>
-          <h3 class="sf-mega-menu__root">SHOES</h3>
-        </div>
-        <div style="flex: 0 0 240px; background-color: #E0E0E1">
-          <h3 class="sf-mega-menu__root">CLOTHINGS A</h3>
-          <h3 class="sf-mega-menu__root">ACCESORIES A</h3>
-          <h3 class="sf-mega-menu__root">SHOES A</h3>
-        </div>
-        <div style="display: flex; justify-content: space-between; flex: 1; background-color: #F1F2F3">
+      <SfMegaMenuColumn style="flex: 1" title="CLOTHINGS">
+        <SfMegaMenuColumn style="flex: 1" title="CLOTHINGS A">
           <SfMegaMenuColumn style="flex: 1" title="CLOTHINGS AA">
             <SfList>
               <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
@@ -111,6 +140,40 @@ storiesOf("Organisms|MegaMenu", module)
               <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
             </SfList>
           </SfMegaMenuColumn>
+          <SfMegaMenuColumn style="flex: 1" title="CLOTHINGS AB">
+            <SfList>
+              <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+            </SfList>
+          </SfMegaMenuColumn>
+          <SfMegaMenuColumn style="flex: 1" title="CLOTHINGS AC">
+            <SfList>
+              <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+            </SfList>
+          </SfMegaMenuColumn>
+        </SfMegaMenuColumn>
+        <SfMegaMenuColumn style="flex: 1" title="CLOTHINGS B">
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+        <SfMegaMenuColumn style="flex: 1" title="CLOTHINGS C">
+          <SfMegaMenuColumn style="flex: 1" title="CLOTHINGS CC">
+            <SfList>
+              <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+            </SfList>
+          </SfMegaMenuColumn>
+        </SfMegaMenuColumn>
+      </SfMegaMenuColumn>
+      <SfMegaMenuColumn style="flex: 1" title="ACCESORIES">
+        <SfMegaMenuColumn style="flex: 1" title="ACCESORIES A">
           <SfMegaMenuColumn style="flex: 1" title="ACCESORIES AA">
             <SfList>
               <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
@@ -118,6 +181,38 @@ storiesOf("Organisms|MegaMenu", module)
               <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
             </SfList>
           </SfMegaMenuColumn>
+          <SfMegaMenuColumn style="flex: 1" title="ACCESORIES AB">
+            <SfList>
+              <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+            </SfList>
+          </SfMegaMenuColumn>
+          <SfMegaMenuColumn style="flex: 1" title="ACCESORIES AC">
+            <SfList>
+              <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+            </SfList>
+          </SfMegaMenuColumn>
+        </SfMegaMenuColumn>
+        <SfMegaMenuColumn style="flex: 1" title="ACCESORIES B">
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+        <SfMegaMenuColumn style="flex: 1" title="ACCESORIES C">
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+      </SfMegaMenuColumn>
+      <SfMegaMenuColumn style="flex: 1" title="SHOES">
+        <SfMegaMenuColumn style="flex: 1" title="SHOES A">
           <SfMegaMenuColumn style="flex: 1" title="SHOES AA">
             <SfList>
               <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
@@ -125,8 +220,36 @@ storiesOf("Organisms|MegaMenu", module)
               <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
             </SfList>
           </SfMegaMenuColumn>
-        </div>
-      </div>
+          <SfMegaMenuColumn style="flex: 1" title="SHOES AB">
+            <SfList>
+              <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+            </SfList>
+          </SfMegaMenuColumn>
+          <SfMegaMenuColumn style="flex: 1" title="SHOES AC">
+            <SfList>
+              <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+              <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+            </SfList>
+          </SfMegaMenuColumn>
+        </SfMegaMenuColumn>
+        <SfMegaMenuColumn style="flex: 1" title="SHOES B">
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+        <SfMegaMenuColumn style="flex: 1" title="SHOES C">
+          <SfList>
+            <SfListItem style="--list-item-margin: 1rem 0">Skirts</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Sweaters</SfListItem>
+            <SfListItem style="--list-item-margin: 1rem 0">Dresses</SfListItem>
+          </SfList>
+        </SfMegaMenuColumn>
+      </SfMegaMenuColumn>
     </SfMegaMenu>`,
   }))
   .add("Search", () => ({
