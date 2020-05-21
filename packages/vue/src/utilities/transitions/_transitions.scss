@@ -23,6 +23,19 @@
     transform: translate3d(0, 100%, 0);
   }
 }
+.sf-collapse-top {
+  &-enter-active,
+  &-leave-active {
+    transition: transform 0.25s ease-in-out;
+    @include for-desktop {
+      transition: transform 0.35 ease-in-out;
+    }
+  }
+  &-enter,
+  &-leave-to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
 .sf-slide-left {
   &-enter-active,
   &-leave-active {
