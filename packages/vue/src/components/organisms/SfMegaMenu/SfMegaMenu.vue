@@ -1,16 +1,17 @@
 <template>
   <transition name="fade">
-    <div v-if="visible" class="sf-mega-menu" :class="{ 'is-active': isActive }">
+    <div
+      v-show="visible"
+      class="sf-mega-menu"
+      :class="{ 'is-active': isActive }"
+    >
       <SfBar
-        :title="title || active[0]"
+        :title="title"
         :back="isActive"
-        class="mobile-only"
-        @click:back="change()"
+        class="sf-mega-menu__bar"
+        @click:back="isActive = ''"
       />
-      <div
-        class="sf-mega-menu__content"
-        :class="{ 'sf-mega-menu__content--is-active': isActive }"
-      >
+      <div class="sf-mega-menu__content">
         <div class="sf-mega-menu__menu">
           <!-- @slot Slot for menu column -->
           <slot />
@@ -24,10 +25,6 @@ import Vue from "vue";
 import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn.vue";
 Vue.component("SfMegaMenuColumn", SfMegaMenuColumn);
 import SfBar from "../../molecules/SfBar/SfBar.vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
 export default {
   name: "SfMegaMenu",
   components: {
@@ -38,69 +35,22 @@ export default {
       type: String,
       default: "",
     },
-    asideTitle: {
-      type: String,
-      default: "",
-    },
     visible: {
       type: Boolean,
       default: false,
     },
+    /**
+     * @deprecated will be removed in 1.0.0
+     */
+    asideTitle: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     return {
-      active: [],
-      items: [],
+      isActive: "",
     };
-  },
-  computed: {
-    ...mapMobileObserver(),
-    isActive() {
-      return this.active.length > 0;
-    },
-  },
-  provide() {
-    const megaMenu = {};
-    Object.defineProperty(megaMenu, "active", {
-      get: () => this.active,
-    });
-    Object.defineProperty(megaMenu, "updateItems", {
-      value: this.updateItems,
-    });
-    return { megaMenu };
-  },
-  watch: {
-    isMobile: {
-      handler(mobile) {
-        this.$nextTick(() => {
-          this.active = mobile ? [] : [...this.items];
-        });
-      },
-      immediate: true,
-    },
-    visible: {
-      handler(visible) {
-        if (!visible) return;
-        if (this.isMobile) return;
-        this.$nextTick(() => {
-          this.active = [...this.items];
-        });
-      },
-      immediate: true,
-    },
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
-  },
-  methods: {
-    updateItems(title) {
-      if (this.items.includes(title)) return;
-      this.items.push(title);
-    },
-    change(payload) {
-      this.active = payload ? [payload] : [];
-      this.$emit("change", payload ? payload : "");
-    },
   },
 };
 </script>

@@ -1,33 +1,32 @@
 <template>
-  <div v-if="isActive" class="sf-mega-menu-column">
-    <!-- @slot Custom title markup -->
+  <div
+    :class="{ 'is-active': $parent.isActive === title }"
+    class="sf-mega-menu-column"
+  >
     <slot name="title" v-bind="{ title }">
-      <h3 class="sf-mega-menu-column__title">{{ title }}</h3>
+      <SfMenuItem
+        :label="title"
+        class="sf-mega-menu-column__header"
+        @click="$parent.isActive = title"
+      />
     </slot>
-    <!-- @slot Column markup -->
-    <slot />
+    <div class="sf-mega-menu-column__content">
+      <slot />
+    </div>
   </div>
 </template>
 <script>
+import SfMenuItem from "../../../molecules/SfMenuItem/SfMenuItem.vue";
 export default {
   name: "SfMegaMenuColumn",
-  inject: ["megaMenu"],
+  components: {
+    SfMenuItem,
+  },
   props: {
-    /**
-     * Column title
-     */
     title: {
       type: String,
       default: "",
     },
-  },
-  computed: {
-    isActive() {
-      return this.megaMenu.active.includes(this.title);
-    },
-  },
-  mounted() {
-    this.megaMenu.updateItems(this.title);
   },
 };
 </script>
