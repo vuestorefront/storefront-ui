@@ -9,6 +9,7 @@
       1.4,
       var(--font-family-secondary)
     );
+    text-transform: var(--mega-menu-column-title-text-transform, uppercase);
   }
 }
 .sf-mega-menu {

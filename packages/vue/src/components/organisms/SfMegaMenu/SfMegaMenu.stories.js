@@ -134,6 +134,12 @@ storiesOf("Organisms|MegaMenu", module)
         </SfList>
       </SfMegaMenuColumn>
       <SfMegaMenuColumn title="Product suggestions" style="flex: 1">
+        <template #title="{title}">
+          <div style="display: flex; align-items: center">
+            <h3 class="sf-mega-menu-column__title">{{ title }}</h3>
+            <span style="margin: 0 0 0 var(--spacer-sm); color:var(--c-gray); font: var(--font-normal) var(--font-sm)/1.4 var(--font-family-secondary);">(20 items)</span>
+          </div>
+        </template>
         <SfScrollable style="width: 100%; --scrollable-max-height: 630px;" show-text="" hide-text="">
           <div style="display: flex; flex-wrap: wrap;">
             <SfProductCard 
