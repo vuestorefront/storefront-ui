@@ -1,15 +1,11 @@
 <template>
   <transition name="fade">
-    <div
-      v-show="visible"
-      class="sf-mega-menu"
-      :class="{ 'is-active': isActive }"
-    >
+    <div v-show="visible" class="sf-mega-menu" :class="{ 'is-active': active }">
       <SfBar
-        :title="isActive || title"
-        :back="!!isActive"
+        :title="active || title"
+        :back="!!active"
         class="sf-mega-menu__bar"
-        @click:back="isActive = ''"
+        @click:back="active = ''"
       />
       <div class="sf-mega-menu__content">
         <div class="sf-mega-menu__menu">
@@ -18,6 +14,10 @@
         </div>
         <div v-if="$slots.aside" class="sf-mega-menu__aside">
           <!-- @slot @deprecated will be removed in 1.0.0 -->
+          <SfMenuItem
+            :label="asideTitle"
+            class="sf-mega-menu__aside-header desktop-only"
+          />
           <slot name="aside" />
         </div>
       </div>
@@ -29,6 +29,7 @@ import Vue from "vue";
 import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn.vue";
 Vue.component("SfMegaMenuColumn", SfMegaMenuColumn);
 import SfBar from "../../molecules/SfBar/SfBar.vue";
+import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem";
 import {
   mapMobileObserver,
   unMapMobileObserver,
@@ -37,6 +38,7 @@ export default {
   name: "SfMegaMenu",
   components: {
     SfBar,
+    SfMenuItem,
   },
   props: {
     title: {
@@ -57,19 +59,29 @@ export default {
   },
   data() {
     return {
-      isActive: "",
+      active: "",
     };
+  },
+  provide() {
+    const megaMenu = {};
+    Object.defineProperty(megaMenu, "active", {
+      get: () => this.active,
+    });
+    Object.defineProperty(megaMenu, "changeActive", {
+      value: this.changeActive,
+    });
+    return { megaMenu };
   },
   watch: {
     isMobile: {
       handler() {
-        this.isActive = "";
+        this.active = "";
       },
       immediate: true,
     },
   },
   methods: {
-    change(payload) {
+    changeActive(payload) {
       if (!this.isMobile) return;
       this.active = payload;
       this.$emit("change", payload);

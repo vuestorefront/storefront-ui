@@ -1,13 +1,10 @@
 <template>
-  <div
-    :class="{ 'is-active': $parent.isActive === title }"
-    class="sf-mega-menu-column"
-  >
-    <slot name="title" v-bind="{ title }">
+  <div :class="{ 'is-active': active === title }" class="sf-mega-menu-column">
+    <slot name="title" v-bind="{ title, changeActive: megaMenu.changeActive }">
       <SfMenuItem
         :label="title"
         class="sf-mega-menu-column__header"
-        @click="$parent.isActive = title"
+        @click="megaMenu.changeActive(title)"
       />
     </slot>
     <div class="sf-mega-menu-column__content">
@@ -26,6 +23,12 @@ export default {
     title: {
       type: String,
       default: "",
+    },
+  },
+  inject: ["megaMenu"],
+  computed: {
+    active() {
+      return this.megaMenu.active;
     },
   },
 };
