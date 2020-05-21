@@ -34,9 +34,9 @@
         />
         <img
           v-show="source.srcset"
-          :src="source.srcset.src"
-          :srcset="source.srcset.srcset"
-          :sizes="source.srcset.sizes"
+          :src="source.srcset[0].src"
+          :srcset="source.srcset[0].srcset"
+          :sizes="source.srcset[0].sizes"
           v-bind="$attrs"
         />
       </picture>
@@ -113,20 +113,23 @@ export default {
       return this.src.srcset;
     },
     source() {
-      const allow =
-        (this.isLoaded && this.lazy) || (!this.isLoaded && !this.lazy);
-      const disallow = this.isPicture
-        ? {
-            desktop: { url: null },
-            mobile: { url: null },
-            srcset: { src: null },
-          }
-        : null;
-      console.log(this.src.srcset);
-      return allow ? this.src : disallow;
+      if (!(!this.isLoaded && this.lazy)) return this.src;
+
+      if (this.isPicture && this.isSrcSet) {
+        return {
+          srcset: [{ media: null, src: null, type: null }],
+        };
+      }
+      if (this.isPicture && !this.isSrcSet) {
+        return {
+          mobile: { url: null },
+          desktop: { url: null },
+        };
+      }
+      return null;
     },
     noscript() {
-      return this.isPicture ? this.src.desktop.url : this.src;
+      return this.src.desktop?.url || this.src.srcset?.src || this.src;
     },
     size() {
       return (
@@ -146,7 +149,7 @@ export default {
     const vm = this;
     this.$nextTick(() => {
       const observer = lozad(vm.$el, {
-        load() {
+        loaded() {
           vm.isLoaded = true;
         },
         rootMargin: vm.rootMargin,

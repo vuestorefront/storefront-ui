@@ -30,7 +30,7 @@ storiesOf("Atoms|Image", module)
               {
                 src: `/assets/storybook/SfImage/product-216x326.jpg`,
                 media: `(min-width: 1240px)`,
-                type: `image/webp`,
+                type: `image/jpg`,
               },
             ],
           },
