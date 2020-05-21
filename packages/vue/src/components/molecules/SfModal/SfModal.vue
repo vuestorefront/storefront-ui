@@ -100,14 +100,14 @@ export default {
      */
     transitionOverlay: {
       type: String,
-      default: "fade",
+      default: "sf-fade",
     },
     /**
      * overlay transition effect
      */
     transitionModal: {
       type: String,
-      default: "fade",
+      default: "sf-fade",
     },
   },
   data() {

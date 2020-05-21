@@ -61,7 +61,7 @@
       </transition>
     </div>
     <div v-if="valid !== undefined" class="sf-select__error-message">
-      <transition name="fade">
+      <transition name="sf-fade">
         <div v-if="!valid">
           <!-- @slot Custom error message of form select -->
           <slot name="error-message" v-bind="{ errorMessage }">
