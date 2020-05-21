@@ -55,6 +55,7 @@
   }
 }
 .sf-mega-menu {
+  width: 100%;
   &__bar {
     display: var(--mega-menu-bar-display, flex);
     @include for-desktop {
@@ -73,7 +74,7 @@
     transition: transform 150ms ease-in-out;
     @include for-desktop {
       flex-direction:var(--mega-menu-content-flex-direction, row);
-      padding: var(--mega-menu-content-padding, var(--spacer-xl) 0);
+      padding: var(--mega-menu-content-padding, var(--spacer-xl) var(--spacer-sm));
     }
   }
   &__menu {
