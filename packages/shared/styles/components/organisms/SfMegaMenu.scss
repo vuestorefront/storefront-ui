@@ -1,12 +1,7 @@
 @import "../../helpers";
 .sf-mega-menu-column {
-  --list-item-padding: var(--spacer-sm) var(--spacer-sm) var(--spacer-sm)
-    var(--spacer-lg);
-  margin: var(--mega-menu-margin);
+  flex: 1;
   &__title {
-    margin: var(--mega-menu-column-title-margin);
-    padding: var(--mega-menu-column-title-padding, var(--spacer-sm));
-    text-transform: var(--mega-menu-column-title-text-transform);
     @include font(
       --mega-menu-column-title-font,
       var(--font-medium),
@@ -14,22 +9,6 @@
       1.4,
       var(--font-family-secondary)
     );
-    @include border(
-      --mega-menu-column-title-border,
-      0 0 1px 0,
-      solid,
-      var(--c-light)
-    );
-    text-align: var(--mega-menu-column-title-text-align, left)
-  }
-  @include for-desktop {
-    --list-item-padding: 0;
-    --list-item-margin: var(--spacer-base) 0;
-    --mega-menu-column-title-border-width: 0;
-    --mega-menu-margin: 0 var(--spacer-2xl) 0 0;
-    --mega-menu-column-title-padding: 0;
-    --mega-menu-column-title-margin: 0 0 var(--spacer-base) 0;
-    --mega-menu-column-title-text-transform: uppercase;
   }
 }
 .sf-mega-menu {
@@ -93,7 +72,7 @@
     --mega-menu-content-padding: var(--spacer-xl) 0;
     --mega-menu-aside-order: 1;
     --mega-menu-menu-display: flex;
-    --mega-menu-section-flex: 0 0 auto;
+    --mega-menu-section-flex: 1;
     --mega-menu-aside-content-padding: 0;
     --mega-menu-aside-title-display: block;
     --mega-menu-aside-title-text-transform: uppercase;

@@ -1,10 +1,6 @@
 <template>
   <transition name="fade">
-    <div
-      v-if="visible"
-      class="sf-mega-menu"
-      :class="{ 'is-active': isActive }"
-    >
+    <div v-if="visible" class="sf-mega-menu" :class="{ 'is-active': isActive }">
       <SfBar
         :title="title || active[0]"
         :back="isActive"
@@ -15,31 +11,6 @@
         class="sf-mega-menu__content"
         :class="{ 'sf-mega-menu__content--is-active': isActive }"
       >
-        <div
-          class="sf-mega-menu__aside"
-          :class="{
-            'sf-mega-menu__aside--without-content': !this.$slots.aside,
-          }"
-        >
-          <SfList class="sf-mega-menu__menu-mobile mobile-only">
-            <SfListItem v-for="item in items" :key="item">
-              <!-- @slot Custom menu-item markup -->
-              <slot name="menu-item" v-bind="{ change, item, active }">
-                <div @click="change(item)">
-                  <SfMenuItem :label="item" class="sf-mega-menu__menu-item" />
-                </div>
-              </slot>
-            </SfListItem>
-          </SfList>
-          <div class="sf-mega-menu__aside-content">
-            <slot name="asideTitle" v-bind="{ asideTitle }">
-              <h3 v-if="asideTitle" class="sf-mega-menu__aside-title">
-                {{ asideTitle }}
-              </h3>
-            </slot>
-            <slot name="aside" />
-          </div>
-        </div>
         <div class="sf-mega-menu__menu">
           <!-- @slot Slot for menu column -->
           <slot />
@@ -52,8 +23,6 @@
 import Vue from "vue";
 import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn.vue";
 Vue.component("SfMegaMenuColumn", SfMegaMenuColumn);
-import SfList from "../SfList/SfList.vue";
-import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import {
   mapMobileObserver,
@@ -62,8 +31,6 @@ import {
 export default {
   name: "SfMegaMenu",
   components: {
-    SfList,
-    SfMenuItem,
     SfBar,
   },
   props: {
