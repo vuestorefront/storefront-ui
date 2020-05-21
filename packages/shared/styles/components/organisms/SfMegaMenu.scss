@@ -63,7 +63,7 @@
   }
   &__content {
     display: var(--mega-menu-content-display, flex);
-    flex-direction: var(--mega-menu-content-flex-direction, row);
+    flex-direction: var(--mega-menu-content-flex-direction, column);
     justify-content: var(--mega-menu-content-justify-content, space-between);
     align-items: var(--mega-menu-content-align-items, flex-start);
     max-width: var(--mega-menu-content-width, 77.5rem);
@@ -82,13 +82,17 @@
     justify-content: var(--mega-menu-menu-justify-content, space-between);
     align-items: var(--mega-menu-menu-align-items, flex-start);
     flex: 1;
+    width: 100%;
     overflow: hidden;
     @include for-desktop {
       flex-direction:var(--mega-menu-menu-flex-direction, row);
     }
   }
   // @deprecated will be removed in 1.0.0
-  &__aside{}
+  &__aside{
+    flex: 1;
+    width: 100%;
+  }
   &.is-active{
     --mega-menu-content-transform: translateX(-100%);
     @include for-desktop {

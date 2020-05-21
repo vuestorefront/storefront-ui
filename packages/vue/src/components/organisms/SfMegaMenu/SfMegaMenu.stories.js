@@ -78,6 +78,7 @@ storiesOf("Organisms|MegaMenu", module)
     template: `<SfMegaMenu 
       :visible="true" 
       title="Man"
+      class="sb-mega-menu"
     >
       <SfMegaMenuColumn 
         v-for="(category, key) in categories" 
@@ -207,7 +208,7 @@ storiesOf("Organisms|MegaMenu", module)
             ],
           },
         ],
-        tiles: [
+        banners: [
           {
             title: "THE OFFICE LIFE",
             subtitle: "T-shirts",
@@ -231,6 +232,7 @@ storiesOf("Organisms|MegaMenu", module)
       :visible="true" 
       title="Man"
       aside-title="Featured"
+      class="sb-mega-menu"
     >
       <SfMegaMenuColumn 
         v-for="(category, key) in categories" 
@@ -244,14 +246,14 @@ storiesOf("Organisms|MegaMenu", module)
         </SfList>
       </SfMegaMenuColumn>
       <template #aside>
-        <div style="display: flex">
+        <div class="sb-mega-menu__banners">
           <SfBanner
-            v-for="(tile, key) in tiles"
-            :key="key"
-            :title="tile.title"
-            :subtitle="tile.subtitle"
-            :image="tile.pictures"
-            :style="{margin: key === 0 ? '0 1rem 0 0' : ''}"
+              v-for="(banner, key) in banners"
+              :key="key"
+              :title="banner.title"
+              :subtitle="banner.subtitle"
+              :image="banner.pictures"
+              class="sb-mega-menu__banner"
           />
         </div>
       </template>
