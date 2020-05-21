@@ -129,7 +129,7 @@ storiesOf("Organisms|MegaMenu", module)
     },
     template: `<SfMegaMenu
         :visible="true"
-        title="Man"
+        title="Search results"
         class="sb-mega-menu"
     >
       <SfMegaMenuColumn title="Categories" class="sf-mega-menu-column--pined-content-on-mobile" style="flex: 0 0 220px; --menu-item-mobile-nav-icon-display: none;">
@@ -149,8 +149,8 @@ storiesOf("Organisms|MegaMenu", module)
             <span style="margin: 0 0 0 var(--spacer-sm); color:var(--c-gray); font: var(--font-normal) var(--font-sm)/1.4 var(--font-family-secondary);">(20 items)</span>
           </div>
         </template>
-        <SfScrollable style="--scrollable-max-height: 630px; margin: -35px" show-text="" hide-text="">
-          <div style="display: flex; flex-wrap: wrap; padding: 35px">
+        <SfScrollable style="--scrollable-max-height: 630px;" show-text="" hide-text="">
+          <div style="display: flex; flex-wrap: wrap;">
             <SfProductCard 
                 v-for="index in 8" 
                 :key="index" 
