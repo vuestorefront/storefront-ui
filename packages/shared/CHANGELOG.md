@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.12](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.11...@storefront-ui/shared@0.7.12) (2020-05-19)
+
+
+### Bug Fixes
+
+* product cards with SfLink inside slots ([#1197](https://github.com/DivanteLtd/storefront-ui/issues/1197)) ([d4a3809](https://github.com/DivanteLtd/storefront-ui/commit/d4a38099d596bbb62d120e28c3dab32aedcda806))
+
+
+
+
+
 ## [0.7.11](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.10...@storefront-ui/shared@0.7.11) (2020-05-14)
 
 
