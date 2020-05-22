@@ -4,6 +4,7 @@
   position: relative;
   z-index: var(--product-card-z-index);
   max-width: var(--product-card-max-width, 10.625rem);
+  flex: 0 1 var(--product-card-max-width, 10.625rem);
   height: var(--product-card-height);
   padding: var(--product-card-padding, var(--spacer-xs));
   background-color: var(--product-card-background, var(--c-white));
