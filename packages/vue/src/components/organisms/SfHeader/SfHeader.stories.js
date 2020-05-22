@@ -125,7 +125,7 @@ storiesOf("Organisms|Header", module)
           </SfHeaderNavigationItem>
         </template>
       </SfHeader>
-      <div :style="display: flex; align-items: center; justify-content: center; height: 155vh; background-color: #f2f2f2;">
+      <div style="display: flex; align-items: center; justify-content: center; height: 155vh; background-color: #f2f2f2;">
         [page content]
       </div>
     </div>`,
@@ -230,7 +230,7 @@ storiesOf("Organisms|Header", module)
           </SfHeaderNavigationItem>
         </template>
       </SfHeader>
-      <div :style="display: flex; align-items: center; justify-content: center; height: 155vh; background-color: #f2f2f2;">
+      <div style="display: flex; align-items: center; justify-content: center; height: 155vh; background-color: #f2f2f2;">
         [page content]
       </div>
     </div>`,
