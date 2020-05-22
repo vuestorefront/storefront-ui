@@ -69,7 +69,8 @@
     --select-option-font-size: var(--font-lg);
     box-sizing: border-box;
     display: flex;
-    align-items: center;
+    align-items: var(--select-selected-align-items,center);
+    justify-content: var(--select-selected-justify-content, flex-start);
     min-height: var(
       --select-height,
       calc(
