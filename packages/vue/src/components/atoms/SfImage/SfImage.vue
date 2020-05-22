@@ -5,53 +5,51 @@
     :style="size"
     v-on="$listeners"
   >
-    <template v-if="isPicture">
-      <picture v-if="!isSrcSet">
+    <template v-if="isSrcObject">
+      <source
+        :srcset="source.desktop.url"
+        :media="`(min-width: ${pictureBreakpoint}px)`"
+      />
+      <source
+        :srcset="source.mobile.url"
+        :media="`(max-width: ${pictureBreakpoint}px)`"
+      />
+      <img
+        v-show="source.desktop.url"
+        :src="source.desktop.url"
+        v-bind="$attrs"
+        :width="width"
+        :height="height"
+      />
+    </template>
+    <template v-else-if="isSrcset">
+      <picture>
         <source
-          :srcset="source.desktop.url"
-          :media="`(min-width: ${pictureBreakpoint}px)`"
-        />
-        <source
-          :srcset="source.mobile.url"
-          :media="`(max-width: ${pictureBreakpoint}px)`"
-        />
-        <img
-          v-show="source.desktop.url"
-          ref="image"
-          :src="source.desktop.url"
-          v-bind="$attrs"
-          :width="width"
-          :height="height"
-        />
-      </picture>
-      <picture v-else>
-        <source
-          v-for="(srcItem, i) in source.srcset"
+          v-for="(srcItem, i) in source"
           :key="i"
           :srcset="srcItem.src"
           :media="srcItem.media"
           :type="srcItem.type"
         />
         <img
-          v-show="source.srcset"
-          :src="source.srcset[0].src"
-          :srcset="source.srcset[0].srcset"
-          :sizes="source.srcset[0].sizes"
+          v-show="src"
+          :src="(src.desktop && src.desktop.url) || src"
           v-bind="$attrs"
+          :width="width"
+          :height="height"
         />
       </picture>
     </template>
     <template v-else>
       <img
         v-show="source"
-        ref="image"
         :src="source"
         v-bind="$attrs"
         :width="width"
         :height="height"
       />
     </template>
-    <noscript v-if="lazy && noscript" inline-template>
+    <noscript v-if="noscript" inline-template>
       <img
         class="noscript"
         :src="noscript"
@@ -72,8 +70,12 @@ export default {
   inheritAttrs: false,
   props: {
     src: {
-      type: [String, Array, Object],
+      type: [String, Object],
       default: "",
+    },
+    srcset: {
+      type: Array,
+      default: () => [],
     },
     lazy: {
       type: Boolean,
@@ -106,30 +108,33 @@ export default {
     };
   },
   computed: {
-    isPicture() {
+    isSrcObject() {
       return !!this.src && typeof this.src === "object";
     },
-    isSrcSet() {
-      return this.src.srcset;
+    isSrcset() {
+      return !!Array.isArray(this.srcset) && !!this.srcset.length;
+    },
+    isLazyAndNotLoaded() {
+      return !this.isLoaded && this.lazy;
     },
     source() {
-      if (!(!this.isLoaded && this.lazy)) return this.src;
+      if (this.isLazyAndNotLoaded) {
+        return this.isSrcset
+          ? { srcset: [{ media: null, src: null, type: null }] }
+          : this.src;
+      }
+      if (this.isSrcset) {
+        return this.srcset;
+      }
 
-      if (this.isPicture && this.isSrcSet) {
-        return {
-          srcset: [{ media: null, src: null, type: null }],
-        };
-      }
-      if (this.isPicture && !this.isSrcSet) {
-        return {
-          mobile: { url: null },
-          desktop: { url: null },
-        };
-      }
-      return null;
+      return this.src;
     },
     noscript() {
-      return this.src.desktop?.url || this.src.srcset?.src || this.src;
+      return (
+        (this.isSrcset && this.srcset[0].url) ||
+        this.src.desktop?.url ||
+        this.src
+      );
     },
     size() {
       return (

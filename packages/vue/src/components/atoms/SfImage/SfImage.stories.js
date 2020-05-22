@@ -12,11 +12,10 @@ storiesOf("Atoms|Image", module)
   .add("Common", () => ({
     components: { SfImage },
     props: {
-      src: {
+      srcset: {
         default: object(
-          "src",
-          {
-            srcset: [
+          "srcset",
+            [
               {
                 src: `/assets/storybook/SfImage/product-109x164.webp`,
                 media: `(max-width: 480px)`,
@@ -33,9 +32,11 @@ storiesOf("Atoms|Image", module)
                 type: `image/jpg`,
               },
             ],
-          },
           "Props"
         ),
+      },
+      src: {
+        default: text("src", "/assets/storybook/SfImage/product-216x326.jpg", "Props"),
       },
       alt: {
         default: text("alt", "Vila stripe maxi shirt dress", "Props"),
@@ -61,6 +62,7 @@ storiesOf("Atoms|Image", module)
     },
     template: `<SfImage
         :src="src"
+        :srcset="srcset"
         :alt="alt"
         :width="width"
         :height="height"
