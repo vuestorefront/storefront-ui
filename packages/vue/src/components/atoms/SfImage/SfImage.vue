@@ -177,7 +177,6 @@ export default {
     },
   },
   mounted() {
-    console.log(this.source, this.srcset);
     if (!this.lazy) return;
     const vm = this;
     this.$nextTick(() => {
