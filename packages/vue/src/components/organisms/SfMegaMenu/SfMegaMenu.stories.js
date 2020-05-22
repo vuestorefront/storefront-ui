@@ -141,13 +141,17 @@ storiesOf("Organisms|MegaMenu", module)
       </SfMegaMenuColumn>
       <SfMegaMenuColumn title="Product suggestions" class="sf-mega-menu-column--pined-content-on-mobile" style="flex: 1">
         <template #title="{title}">
-          <div style="display: flex; align-items: center; --menu-item-mobile-nav-icon-display: none;">
-            <SfMenuItem
-                :label="title"
-                class="sf-mega-menu-column__header"
-            />
-            <span style="margin: 0 0 0 var(--spacer-sm); color:var(--c-gray); font: var(--font-normal) var(--font-sm)/1.4 var(--font-family-secondary);">(20 items)</span>
-          </div>
+          <SfMenuItem
+              :label="title"
+              class="sf-mega-menu-column__header"
+              style="--menu-item-mobile-nav-icon-display: none;"
+          >
+            <template #label>
+              <div style="display: flex; align-items: center;">
+                {{title}} <span style="margin: 0 0 0 var(--spacer-sm); color:var(--c-gray); font: var(--font-normal) var(--font-sm)/1.4 var(--font-family-secondary); text-transform: lowercase">(20 items)</span>
+              </div>
+            </template>
+          </SfMenuItem>
         </template>
         <SfScrollable style="--scrollable-max-height: 630px;" show-text="" hide-text="">
           <div style="display: flex; flex-wrap: wrap;">

@@ -72,6 +72,9 @@ export default {
     });
     return { megaMenu };
   },
+  computed: {
+    ...mapMobileObserver(),
+  },
   watch: {
     isMobile: {
       handler() {
@@ -80,18 +83,15 @@ export default {
       immediate: true,
     },
   },
+  beforeDestroy() {
+    unMapMobileObserver();
+  },
   methods: {
     changeActive(payload) {
       if (!this.isMobile) return;
       this.active = payload;
       this.$emit("change", payload);
     },
-  },
-  computed: {
-    ...mapMobileObserver(),
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
 };
 </script>
