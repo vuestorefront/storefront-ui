@@ -103,3 +103,10 @@
       animation: bounce-in 300ms reverse;
     }
 }
+.sf-expand {
+    &-enter-active,
+    &-leave-active {
+      transition: height 0.25s ease-in-out;
+      overflow: hidden;
+    }
+  }
