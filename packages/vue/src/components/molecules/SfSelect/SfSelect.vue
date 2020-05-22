@@ -22,7 +22,7 @@
     <div style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div
-        id="sfSelect"
+        ref="sfSelect"
         v-focus
         tabindex="0"
         role="listbox"
@@ -227,7 +227,7 @@ export default {
       if (index < 0) index = 0;
       if (index >= optionsLength) index = optionsLength - 1;
       this.index = index;
-      document.getElementById("sfSelect").blur();
+      this.$refs.sfSelect.blur();
       document.getElementById(this.focusedOption).focus();
     },
     enter() {
