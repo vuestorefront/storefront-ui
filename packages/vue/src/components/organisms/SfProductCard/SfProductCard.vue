@@ -1,7 +1,10 @@
 <template>
   <div class="sf-product-card">
     <div class="sf-product-card__image-wrapper">
-      <slot name="image" v-bind="{ image, title, link, imageHeight, imageWidth }">
+      <slot
+        name="image"
+        v-bind="{ image, title, link, imageHeight, imageWidth }"
+      >
         <SfLink :link="link" class="sf-product-card__link">
           <template v-if="Array.isArray(image)">
             <SfImage
