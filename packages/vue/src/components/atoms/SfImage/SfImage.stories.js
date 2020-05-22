@@ -87,7 +87,9 @@ storiesOf("Atoms|Image", module)
       },
       src: {
         default: object(
-          "src", "/assets/storybook/SfImage/product-216x326.jpg","Props"
+          "src",
+          "/assets/storybook/SfImage/product-216x326.jpg",
+          "Props"
         ),
       },
       sizes: {
@@ -125,14 +127,16 @@ storiesOf("Atoms|Image", module)
     props: {
       src: {
         default: object(
-          "src", {
+          "src",
+          {
             mobile: {
               url: "/assets/storybook/SfImage/product-109x164.jpg",
             },
             desktop: {
               url: "/assets/storybook/SfImage/product-216x326.jpg",
             },
-          },"Props"
+          },
+          "Props"
         ),
       },
       alt: {
@@ -165,7 +169,9 @@ storiesOf("Atoms|Image", module)
     props: {
       src: {
         default: object(
-          "src", "/assets/storybook/SfImage/product-216x326.jpg","Props"
+          "src",
+          "/assets/storybook/SfImage/product-216x326.jpg",
+          "Props"
         ),
       },
       sizes: {
