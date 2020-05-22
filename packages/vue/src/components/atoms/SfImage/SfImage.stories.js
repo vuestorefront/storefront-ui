@@ -174,9 +174,6 @@ storiesOf("Atoms|Image", module)
           "Props"
         ),
       },
-      sizes: {
-        default: text("sizes", "(max-width: 1024px) 109px, 216px", "Props"),
-      },
       alt: {
         default: text("alt", "Vila stripe maxi shirt dress", "Props"),
       },
