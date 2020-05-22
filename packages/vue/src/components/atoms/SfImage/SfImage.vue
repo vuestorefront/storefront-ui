@@ -22,7 +22,7 @@
         :height="height"
       />
     </template>
-    <template v-else-if="isSrcset">
+    <template v-else-if="isSrcset && isSrcsetArray">
       <picture>
         <source
           v-for="(srcItem, i) in source"
@@ -33,12 +33,23 @@
         />
         <img
           v-show="src"
-          :src="(src.desktop && src.desktop.url) || src"
+          :src="(src && src.desktop && src.desktop.url) || src"
           v-bind="$attrs"
           :width="width"
           :height="height"
         />
       </picture>
+    </template>
+    <template v-else-if="isSrcset">
+      <img
+        v-show="source"
+        :src="(src && src.desktop && src.desktop.url) || src"
+        :srcset="source"
+        v-bind="$attrs"
+        :sizes="sizes"
+        :width="width"
+        :height="height"
+      />
     </template>
     <template v-else>
       <img
@@ -74,8 +85,12 @@ export default {
       default: "",
     },
     srcset: {
-      type: Array,
-      default: () => [],
+      type: [String, Array],
+      default: "",
+    },
+    sizes: {
+      type: String,
+      default: "",
     },
     lazy: {
       type: Boolean,
@@ -112,16 +127,30 @@ export default {
       return !!this.src && typeof this.src === "object";
     },
     isSrcset() {
-      return !!Array.isArray(this.srcset) && !!this.srcset.length;
+      return !!this.srcset.length;
+    },
+    isSrcsetArray() {
+      return !!Array.isArray(this.srcset);
     },
     isLazyAndNotLoaded() {
       return !this.isLoaded && this.lazy;
     },
     source() {
+      if (this.isLazyAndNotLoaded && this.isSrcset && this.isSrcsetArray) {
+        return [{ media: null, src: null, type: null }];
+      }
+      if (this.isLazyAndNotLoaded && isSrcObject) {
+        return {
+          mobile: {
+            url: null,
+          },
+          desktop: {
+            url: null,
+          },
+        };
+      }
       if (this.isLazyAndNotLoaded) {
-        return this.isSrcset
-          ? { srcset: [{ media: null, src: null, type: null }] }
-          : this.src;
+        return null;
       }
       if (this.isSrcset) {
         return this.srcset;
@@ -131,8 +160,9 @@ export default {
     },
     noscript() {
       return (
-        (this.isSrcset && this.srcset[0].url) ||
-        this.src.desktop?.url ||
+        (this.isSrcset && this.isSrcsetArray && this.srcset[0].src) ||
+        (this.isSrcset && this.srcset) ||
+        (this.isSrcObject && this.src.desktop?.url) ||
         this.src
       );
     },
