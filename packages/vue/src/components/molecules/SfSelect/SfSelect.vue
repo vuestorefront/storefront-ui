@@ -198,17 +198,15 @@ export default {
   mounted: function () {
     const options = [];
     const indexes = {};
-    let i = 0;
     if (!this.$slots.default) return;
     this.$on("update", this.update);
-    this.$slots.default.forEach((slot) => {
+    this.$slots.default.forEach((slot, index) => {
       if (!slot.tag) return;
       options.push({
         ...slot.componentOptions.propsData,
         html: slot.elm.innerHTML,
       });
-      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
-      i++;
+      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = index;
     });
     this.options = options;
     this.indexes = indexes;
