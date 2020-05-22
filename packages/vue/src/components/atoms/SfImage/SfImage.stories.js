@@ -15,28 +15,32 @@ storiesOf("Atoms|Image", module)
       srcset: {
         default: object(
           "srcset",
-            [
-              {
-                src: `/assets/storybook/SfImage/product-109x164.webp`,
-                media: `(max-width: 480px)`,
-                type: `image/webp`,
-              },
-              {
-                src: `/assets/storybook/SfImage/product-109x164.webp`,
-                media: `(min-width: 480px) and (max-width: 720px)`,
-                type: `image/webp`,
-              },
-              {
-                src: `/assets/storybook/SfImage/product-216x326.jpg`,
-                media: `(min-width: 1240px)`,
-                type: `image/jpg`,
-              },
-            ],
+          [
+            {
+              src: `/assets/storybook/SfImage/product-109x164.webp`,
+              media: `(max-width: 480px)`,
+              type: `image/webp`,
+            },
+            {
+              src: `/assets/storybook/SfImage/product-109x164.webp`,
+              media: `(min-width: 480px) and (max-width: 720px)`,
+              type: `image/webp`,
+            },
+            {
+              src: `/assets/storybook/SfImage/product-216x326.jpg`,
+              media: `(min-width: 1240px)`,
+              type: `image/jpg`,
+            },
+          ],
           "Props"
         ),
       },
       src: {
-        default: text("src", "/assets/storybook/SfImage/product-216x326.jpg", "Props"),
+        default: text(
+          "src",
+          "/assets/storybook/SfImage/product-216x326.jpg",
+          "Props"
+        ),
       },
       alt: {
         default: text("alt", "Vila stripe maxi shirt dress", "Props"),
@@ -70,6 +74,127 @@ storiesOf("Atoms|Image", module)
         :picture-breakpoint="pictureBreakpoint" 
         :rootMargin="rootMargin"
         :threshold="threshold"/>`,
+  }))
+  .add("With srcset as string", () => ({
+    components: { SfImage },
+    props: {
+      srcset: {
+        default: object(
+          "srcset",
+          "/assets/storybook/SfImage/product-109x164.jpg 109w, /assets/storybook/SfImage/product-216x326.jpg 216w",
+          "Props"
+        ),
+      },
+      src: {
+        default: object(
+          "src", "/assets/storybook/SfImage/product-216x326.jpg","Props"
+        ),
+      },
+      sizes: {
+        default: text("sizes", "(max-width: 1024px) 109px, 216px", "Props"),
+      },
+      alt: {
+        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
+      },
+      lazy: {
+        default: boolean("lazy", true, "Props"),
+      },
+      pictureBreakpoint: {
+        default: number("pictureBreakpoint", 576, {}, "Props"),
+      },
+      rootMargin: {
+        default: text("rootMargin", "", "Props"),
+      },
+      threshold: {
+        default: number("threshold", 0, {}, "Props"),
+      },
+    },
+    template: `<SfImage
+        :src="src"
+        :srcset="srcset"
+        :alt="alt"
+        :lazy="lazy"
+        :sizes="sizes"
+        :picture-breakpoint="pictureBreakpoint"
+        :rootMargin="rootMargin"
+        :threshold="threshold"
+      />`,
+  }))
+  .add("With src as object", () => ({
+    components: { SfImage },
+    props: {
+      src: {
+        default: object(
+          "src", {
+            mobile: {
+              url: "/assets/storybook/SfImage/product-109x164.jpg",
+            },
+            desktop: {
+              url: "/assets/storybook/SfImage/product-216x326.jpg",
+            },
+          },"Props"
+        ),
+      },
+      alt: {
+        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
+      },
+      lazy: {
+        default: boolean("lazy", true, "Props"),
+      },
+      pictureBreakpoint: {
+        default: number("pictureBreakpoint", 576, {}, "Props"),
+      },
+      rootMargin: {
+        default: text("rootMargin", "", "Props"),
+      },
+      threshold: {
+        default: number("threshold", 0, {}, "Props"),
+      },
+    },
+    template: `<SfImage
+        :src="src"
+        :alt="alt"
+        :lazy="lazy"
+        :picture-breakpoint="pictureBreakpoint"
+        :rootMargin="rootMargin"
+        :threshold="threshold"
+      />`,
+  }))
+  .add("With src as string", () => ({
+    components: { SfImage },
+    props: {
+      src: {
+        default: object(
+          "src", "/assets/storybook/SfImage/product-216x326.jpg","Props"
+        ),
+      },
+      sizes: {
+        default: text("sizes", "(max-width: 1024px) 109px, 216px", "Props"),
+      },
+      alt: {
+        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
+      },
+      lazy: {
+        default: boolean("lazy", true, "Props"),
+      },
+      pictureBreakpoint: {
+        default: number("pictureBreakpoint", 576, {}, "Props"),
+      },
+      rootMargin: {
+        default: text("rootMargin", "", "Props"),
+      },
+      threshold: {
+        default: number("threshold", 0, {}, "Props"),
+      },
+    },
+    template: `<SfImage
+        :src="src"
+        :alt="alt"
+        :lazy="lazy"
+        :picture-breakpoint="pictureBreakpoint"
+        :rootMargin="rootMargin"
+        :threshold="threshold"
+      />`,
   }))
   .add("Without width and height", () => ({
     components: { SfImage },

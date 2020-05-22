@@ -6,21 +6,23 @@
     v-on="$listeners"
   >
     <template v-if="isSrcObject">
-      <source
-        :srcset="source.desktop.url"
-        :media="`(min-width: ${pictureBreakpoint}px)`"
-      />
-      <source
-        :srcset="source.mobile.url"
-        :media="`(max-width: ${pictureBreakpoint}px)`"
-      />
-      <img
-        v-show="source.desktop.url"
-        :src="source.desktop.url"
-        v-bind="$attrs"
-        :width="width"
-        :height="height"
-      />
+      <picture>
+        <source
+          :srcset="source.desktop.url"
+          :media="`(min-width: ${pictureBreakpoint}px)`"
+        />
+        <source
+          :srcset="source.mobile.url"
+          :media="`(max-width: ${pictureBreakpoint}px)`"
+        />
+        <img
+          v-show="source.desktop.url"
+          :src="source.desktop.url"
+          v-bind="$attrs"
+          :width="width"
+          :height="height"
+        />
+      </picture>
     </template>
     <template v-else-if="isSrcset && isSrcsetArray">
       <picture>
@@ -46,7 +48,6 @@
         :src="(src && src.desktop && src.desktop.url) || src"
         :srcset="source"
         v-bind="$attrs"
-        :sizes="sizes"
         :width="width"
         :height="height"
       />
@@ -86,10 +87,6 @@ export default {
     },
     srcset: {
       type: [String, Array],
-      default: "",
-    },
-    sizes: {
-      type: String,
       default: "",
     },
     lazy: {
@@ -139,7 +136,7 @@ export default {
       if (this.isLazyAndNotLoaded && this.isSrcset && this.isSrcsetArray) {
         return [{ media: null, src: null, type: null }];
       }
-      if (this.isLazyAndNotLoaded && isSrcObject) {
+      if (this.isLazyAndNotLoaded && this.isSrcObject) {
         return {
           mobile: {
             url: null,
@@ -180,6 +177,7 @@ export default {
     },
   },
   mounted() {
+    console.log(this.source, this.srcset);
     if (!this.lazy) return;
     const vm = this;
     this.$nextTick(() => {
