@@ -11,13 +11,9 @@
           :srcset="source.desktop.url"
           :media="`(min-width: ${pictureBreakpoint}px)`"
         />
-        <source
-          :srcset="source.mobile.url"
-          :media="`(max-width: ${pictureBreakpoint}px)`"
-        />
         <img
-          v-show="source.desktop.url"
-          :src="source.desktop.url"
+          v-show="source"
+          :src="source.mobile.url"
           v-bind="$attrs"
           :width="width"
           :height="height"
