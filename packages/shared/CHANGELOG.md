@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.13](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.12...@storefront-ui/shared@0.7.13) (2020-05-22)
+
+
+### Bug Fixes
+
+* checkbox font size ([#1211](https://github.com/DivanteLtd/storefront-ui/issues/1211)) ([8aee2eb](https://github.com/DivanteLtd/storefront-ui/commit/8aee2eb6f2e23aefac608fa7064331d8252f65e9))
+* remove getElementById and add overflow for dropdown with options ([5229656](https://github.com/DivanteLtd/storefront-ui/commit/5229656fa54efba09e672e2248f148c8183542de))
+
+
+### Features
+
+* add css variable to .sf-select__selected ([e6c7d16](https://github.com/DivanteLtd/storefront-ui/commit/e6c7d1621dd179233556e2d623496a6ab66ef266))
+
+
+
+
+
 ## [0.7.12](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.11...@storefront-ui/shared@0.7.12) (2020-05-19)
 
 
