@@ -4,8 +4,13 @@ import {
   text,
   boolean,
   optionsKnob as options,
+  select
 } from "@storybook/addon-knobs";
 import { SfInput, SfIcon } from "@storefront-ui/vue";
+import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
+import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
+import { icons } from "@storefront-ui/shared/icons/icons";
+const iconsNames = Object.keys(icons);
 storiesOf("Atoms|Input", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -46,6 +51,15 @@ storiesOf("Atoms|Input", module)
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
+      icon: {
+        default: select("icon", iconsNames, "", "Props"),
+      },
+      sizeIcon: {
+        default: select("sizeIcon", sizes, "sm", "Props"),
+      },
+      colorIcon: {
+        default: select("colorIcon", colors, "black", "Props"),
+      },
     },
     data() {
       return {
@@ -63,6 +77,9 @@ storiesOf("Atoms|Input", module)
       :disabled="disabled"
       :has-show-password="hasShowPassword"
       :class="customClass"
+      :icon="icon"
+      :sizeIcon="sizeIcon"
+      :colorIcon="colorIcon"
       />`,
   }))
   .add("[slot] label", () => ({
@@ -106,6 +123,15 @@ storiesOf("Atoms|Input", module)
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
+      icon: {
+        default: select("icon", iconsNames, "", "Props"),
+      },
+      sizeIcon: {
+        default: select("sizeIcon", sizes, "sm", "Props"),
+      },
+      colorIcon: {
+        default: select("colorIcon", colors, "black", "Props"),
+      },
     },
     data() {
       return {
@@ -122,6 +148,9 @@ storiesOf("Atoms|Input", module)
         :required="required"
         :disabled="disabled"
         :has-show-password="hasShowPassword"
+        :icon="icon"
+        :sizeIcon="sizeIcon"
+        :colorIcon="colorIcon"
         >
       <template #label="{label}">
             <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
@@ -169,6 +198,15 @@ storiesOf("Atoms|Input", module)
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
+      icon: {
+        default: select("icon", iconsNames, "", "Props"),
+      },
+      sizeIcon: {
+        default: select("sizeIcon", sizes, "sm", "Props"),
+      },
+      colorIcon: {
+        default: select("colorIcon", colors, "black", "Props"),
+      },
     },
     data() {
       return {
@@ -185,6 +223,9 @@ storiesOf("Atoms|Input", module)
       :required="required"
       :disabled="disabled"
       :has-show-password="hasShowPassword"
+      :icon="icon"
+      :sizeIcon="sizeIcon"
+      :colorIcon="colorIcon"
       >
       <template #error-message="{errorMessage}">
         <div>
@@ -235,6 +276,15 @@ storiesOf("Atoms|Input", module)
       hasShowPassword: {
         default: boolean("hasShowPassword", true, "Props"),
       },
+      icon: {
+        default: select("icon", iconsNames, "", "Props"),
+      },
+      sizeIcon: {
+        default: select("sizeIcon", sizes, "sm", "Props"),
+      },
+      colorIcon: {
+        default: select("colorIcon", colors, "black", "Props"),
+      },
     },
     data() {
       return {
@@ -251,6 +301,9 @@ storiesOf("Atoms|Input", module)
       :required="required"
       :disabled="disabled"
       :has-show-password="hasShowPassword"
+      :icon="icon"
+      :sizeIcon="sizeIcon"
+      :colorIcon="colorIcon"
       >
       <template #error-message="{errorMessage}">
         <div style="display: flex; align-items: center">
@@ -298,6 +351,15 @@ storiesOf("Atoms|Input", module)
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
+      icon: {
+        default: select("icon", iconsNames, "", "Props"),
+      },
+      sizeIcon: {
+        default: select("sizeIcon", sizes, "sm", "Props"),
+      },
+      colorIcon: {
+        default: select("colorIcon", colors, "black", "Props"),
+      },
     },
     data() {
       return {
@@ -315,5 +377,8 @@ storiesOf("Atoms|Input", module)
       :disabled="disabled"
       :has-show-password="hasShowPassword"
       :class="customClass"
+      :icon="icon"
+      :sizeIcon="sizeIcon"
+      :colorIcon="colorIcon"
       />`,
   }));

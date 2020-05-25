@@ -49,8 +49,8 @@
           ></SfIcon>
         </SfButton>
       </slot>
-      <slot v-if="icon" v-bind="{colorIcon, sizeIcon, icon}">
-        <SfIcon 
+      <slot v-if="icon" v-bind="{ colorIcon, sizeIcon, icon }">
+        <SfIcon
           :color="colorIcon"
           :size="sizeIcon"
           :icon="icon"

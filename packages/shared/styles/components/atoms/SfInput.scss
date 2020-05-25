@@ -137,19 +137,11 @@
       --button-box-shadow: none;
     }
   }
-  &__password-icon,
   &__icon {
-    // position: relative;
-    &::after {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      height: 1px;
-      // transform: translate3d(0, -50%, 0) rotate(45deg)
-      //   scaleX(var(--input-password-icon-scaleX, 0));
-      transition: transform 150ms linear;
-      content: "";
-    }
+    --icon-position: absolute;  
+    top: 50%;
+    right: 0;
+     transform: translate3d(0, -50%, 0);
   } 
   &__password-icon {
     position: relative;
@@ -157,16 +149,19 @@
       --input-password-icon-scaleX: 1;
     }
     &::after {
-      // position: absolute;
-      // top: 50%;
-      // width: 100%;
-      // height: 1px;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      height: 1px;
       background: var(--input-password-icon-background, var(--c-black));
       transform: translate3d(0, -50%, 0) rotate(45deg)
         scaleX(var(--input-password-icon-scaleX, 0));
-      // transition: transform 150ms linear;
+      transition: transform 150ms linear;
       content: "";
     }
+  }
+  &__password-button ~ &__icon {
+    right: var(--input-icon-right, var(--spacer-xl));
   }
   &--invalid {
     --input-border-color: var(--c-danger);
