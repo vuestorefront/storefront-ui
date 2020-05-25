@@ -1,9 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options,
-} from "@storybook/addon-knobs";
+import { withKnobs, text } from "@storybook/addon-knobs";
 
 import {
   SfBottomModal,

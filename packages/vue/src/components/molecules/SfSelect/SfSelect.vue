@@ -22,7 +22,7 @@
     <div style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div
-        id="sfSelect"
+        ref="sfSelect"
         v-focus
         tabindex="0"
         role="listbox"
@@ -198,17 +198,15 @@ export default {
   mounted: function () {
     const options = [];
     const indexes = {};
-    let i = 0;
     if (!this.$slots.default) return;
     this.$on("update", this.update);
-    this.$slots.default.forEach((slot) => {
+    this.$slots.default.forEach((slot, index) => {
       if (!slot.tag) return;
       options.push({
         ...slot.componentOptions.propsData,
         html: slot.elm.innerHTML,
       });
-      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
-      i++;
+      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = index;
     });
     this.options = options;
     this.indexes = indexes;
@@ -227,7 +225,7 @@ export default {
       if (index < 0) index = 0;
       if (index >= optionsLength) index = optionsLength - 1;
       this.index = index;
-      document.getElementById("sfSelect").blur();
+      this.$refs.sfSelect.blur();
       document.getElementById(this.focusedOption).focus();
     },
     enter() {

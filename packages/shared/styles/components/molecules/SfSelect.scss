@@ -29,7 +29,7 @@
   width: var(--select-width);
   height: var(--select-height);
   padding: var(--select-padding, 0 0 calc(var(--font-xs) * 1.2) 0);
-  color: var(--select-color, var(--c-text));  
+  color: var(--select-color, var(--c-text));
   cursor: default;
   &__label {
     position: absolute;
@@ -69,7 +69,8 @@
     --select-option-font-size: var(--font-lg);
     box-sizing: border-box;
     display: flex;
-    align-items: center;
+    align-items: var(--select-selected-align-items,center);
+    justify-content: var(--select-selected-justify-content, flex-start);
     min-height: var(
       --select-height,
       calc(
@@ -106,9 +107,7 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
-    @include for-mobile {
-      overflow: auto;
-    }
+    overflow: auto;
     &::-webkit-scrollbar {
       width: 0;
     }
