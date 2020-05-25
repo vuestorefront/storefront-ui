@@ -35,6 +35,8 @@
     box-sizing: border-box;
     width: var(--sidebar-content-width);
     height: 100%;
+    scrollbar-color: var(--c-gray-variant) var(--c-light);
+    scrollbar-width: thin;
     padding: var(
       --sidebar-content-padding,
       var(--spacer-base) var(--spacer-sm)
@@ -48,12 +50,12 @@
       var(--font-family-primary)
     );
     &::-webkit-scrollbar {
-      width: 4px;
-      background: #F1F2F3;
+      width: var(--spacer-2xs);
+      background: var(--c-light);
       border-radius: 100px;
     }
     &::-webkit-scrollbar-thumb {
-      background: #8D8F9A;
+      background: var(--c-gray-variant);
     }
   }
   &__title {
