@@ -48,7 +48,12 @@
       var(--font-family-primary)
     );
     &::-webkit-scrollbar {
-      width: 0;
+      width: 4px;
+      background: #F1F2F3;
+      border-radius: 100px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #8D8F9A;
     }
   }
   &__title {
