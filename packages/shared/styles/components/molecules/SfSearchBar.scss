@@ -38,7 +38,7 @@
     &.sf-input--has-text {
       --input-label-display: none;
     }
-    &::-webkit-search-cancel-button {
+    input::-webkit-search-cancel-button {
       opacity: 0;
     }
     &::-ms-clear {
@@ -52,6 +52,9 @@
   }
   &--position-center {
     --search-bar-input-text-align: center;  
+    .sf-input__wrapper {
+      justify-content: center;
+    }
   }
   @include for-desktop {
     --search-bar-width: 20rem;
