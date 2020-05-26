@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.15](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.14...@storefront-ui/vue@0.7.15) (2020-05-26)
+
+
+### Bug Fixes
+
+* move sass to deps ([a9ab5fa](https://github.com/DivanteLtd/storefront-ui/commit/a9ab5fa87ac20ede7b7063c5fd1ecb4ca3c0f34d))
+
+
+
+
+
 ## [0.7.14](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.13...@storefront-ui/vue@0.7.14) (2020-05-25)
 
 
