@@ -92,7 +92,7 @@
         --input-password-icon-background: var(--c-primary);
         --input-label-top: 0;
         --input-label-color: var(--c-primary);
-        --input-label-font-size: var(--font-2xs);
+        --input-label-font-size: var(--font-xs);
         --input-bar-width: 50%;
         --input-error-message-color: var(--c-primary);
       }
@@ -170,7 +170,7 @@
   input[type="image"] ~ *,
   input[type="file"] ~ * {
     --input-label-top: 0;
-    --input-label-font-size: var(--font-2xs);
+    --input-label-font-size: var(--font-xs);
   }
   &--filled {
     --input-background: var(--c-light);
