@@ -29,6 +29,7 @@
     "styles.scss"
   ],
   "dependencies": {
+    "node-sass": "^4.13.1",
     "@glidejs/glide": "^3.3.0",
     "@storefront-ui/shared": "0.7.13",
     "body-scroll-lock": "^3.0.1",
@@ -39,7 +40,8 @@
     "simplebar-vue": "^1.4.0",
     "vue-drag-drop": "^1.1.4",
     "vue-fragment": "^1.5.1",
-    "vue2-leaflet": "^2.5.2"
+    "vue2-leaflet": "^2.5.2",
+    "sass-loader": "^8.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -70,9 +72,7 @@
     "jest": "^25.3.0",
     "lint-staged": "^10.0.7",
     "markdown-loader": "^5.0.0",
-    "node-sass": "^4.13.1",
     "prettier": "^2.0.4",
-    "sass-loader": "^8.0.2",
     "storybook-addon-vue-info": "^1.2.2",
     "vue-cli-plugin-storybook": "~1.2.2",
     "vue-docgen-api": "^3.22.3",
