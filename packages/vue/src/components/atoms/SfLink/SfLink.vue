@@ -1,10 +1,5 @@
 <template>
-  <component
-    :is="linkComponentTag"
-    v-focus
-    v-bind="urlTag"
-    class="sf-link"
-  >
+  <component :is="linkComponentTag" v-focus v-bind="urlTag" class="sf-link">
     <!-- @slot -->
     <slot />
   </component>

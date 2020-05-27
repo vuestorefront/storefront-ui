@@ -11,10 +11,7 @@
     </slot>
     <slot name="add-to-cart-btn">
       <!--@slot Custom content that will replace default Add to cart button design.-->
-      <SfButton
-        class="sf-add-to-cart__button"
-        :disabled="disabled"
-      >
+      <SfButton class="sf-add-to-cart__button" :disabled="disabled">
         Add to cart
       </SfButton>
     </slot>

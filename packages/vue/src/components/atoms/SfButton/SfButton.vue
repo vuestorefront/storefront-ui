@@ -1,10 +1,5 @@
 <template>
-  <button
-    v-focus
-    class="sf-button"
-    v-bind="$attrs"
-    :disabled="disabled"
-  >
+  <button v-focus class="sf-button" v-bind="$attrs" :disabled="disabled">
     <!--@slot Use this slot to place content inside the button.-->
     <slot />
   </button>

@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import {component} from "vue";
+import { component } from "vue";
 // If you don;t have this file run `yarn` cmd to create it
 import Playground from "./Playground.vue";
 export default {

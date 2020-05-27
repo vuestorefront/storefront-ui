@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="sf-image"
-    :class="{ 'sf-image--has-size': size }"
-    :style="size"
-  >
+  <div class="sf-image" :class="{ 'sf-image--has-size': size }" :style="size">
     <template v-if="isPicture">
       <picture>
         <source
@@ -34,7 +30,7 @@
         :height="height"
       />
     </template>
-    <noscript v-if="lazy && noscript" inline-template>
+    <noscript v-if="lazy && noscript">
       <img
         class="noscript"
         :src="noscript"

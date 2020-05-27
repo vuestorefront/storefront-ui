@@ -15,6 +15,12 @@ module.exports = {
     // "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-multiple-empty-lines": ["error", { max: 2 }],
+    "vue/component-tags-order": [
+      "error",
+      {
+        order: ["template", "script", "style"],
+      },
+    ],
   },
   parserOptions: {
     parser: "babel-eslint",
