@@ -17,7 +17,7 @@
         :name="name"
         :class="{ 'sf-input--is-password': isPassword }"
         :type="inputType"
-        v-on="listeners"
+        @input="$emit('input', event.target.value)"
       />
       <span class="sf-input__bar"></span>
       <label class="sf-input__label" :for="name">
@@ -146,12 +146,6 @@ export default {
     };
   },
   computed: {
-    listeners() {
-      return {
-        ...this.$listeners,
-        input: (event) => this.$emit("input", event.target.value),
-      };
-    },
     isPassword() {
       return this.type === "password" && this.hasShowPassword;
     },
