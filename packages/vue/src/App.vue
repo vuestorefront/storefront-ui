@@ -4,15 +4,15 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
+import {component} from "vue";
 // If you don;t have this file run `yarn` cmd to create it
 import Playground from "./Playground.vue";
-export default Vue.extend({
+export default {
   name: "App",
   components: {
     Playground,
   },
-});
+};
 </script>
 <style lang="scss">
 @import "./css/all.scss";

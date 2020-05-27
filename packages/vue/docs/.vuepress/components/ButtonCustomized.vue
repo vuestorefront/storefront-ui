@@ -1,5 +1,5 @@
 <template>
-  <button v-bind="$attrs" class="sf-button" v-on="$listeners">
+  <button v-bind="$attrs" class="sf-button">
     <!--@slot Use this slot to place content inside the button.-->
     <slot />
   </button>
