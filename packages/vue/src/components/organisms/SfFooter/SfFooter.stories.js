@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number, boolean } from "@storybook/addon-knobs";
+import { withKnobs, number, boolean, object } from "@storybook/addon-knobs";
 import {
   SfFooter,
   SfHeader,
@@ -26,6 +26,9 @@ storiesOf("Organisms|Footer", module)
       multiple: {
         default: boolean("multiple", false, "Props"),
       },
+      isOpenOnMobile: {
+        deafult: object("open", ["About us", "Help"], "Props")
+      }
     },
     data() {
       return {
@@ -78,8 +81,9 @@ storiesOf("Organisms|Footer", module)
     template: `<SfFooter
         :column="column"
         :multiple="multiple"
+        :isOpenOnMobile="isOpenOnMobile"
       >
-        <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title">
+        <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title">        
           <SfList v-if="column.items">
             <SfListItem v-for="item in column.items" :key="item">
               <SfMenuItem :label="item"/>

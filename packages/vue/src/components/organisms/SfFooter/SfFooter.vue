@@ -24,6 +24,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    isOpenOnMobile: {
+      type: [Array, Object],
+      default: () => [],
+    },
   },
   data() {
     return {
@@ -46,6 +50,10 @@ export default {
       },
       immediate: true,
     },
+  },
+  created() {
+    this.open = this.isOpenOnMobile;
+    console.log(this.open);
   },
   beforeDestroy() {
     unMapMobileObserver();
