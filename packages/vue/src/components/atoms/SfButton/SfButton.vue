@@ -4,7 +4,6 @@
     class="sf-button"
     v-bind="$attrs"
     :disabled="disabled"
-    v-on="$listeners"
   >
     <!--@slot Use this slot to place content inside the button.-->
     <slot />

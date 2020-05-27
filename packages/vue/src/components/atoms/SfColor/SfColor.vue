@@ -4,7 +4,6 @@
     :class="{ 'sf-color--active': selected }"
     :style="style"
     :aria-pressed="selected.toString()"
-    v-on="$listeners"
   >
     <transition name="sf-color__badge">
       <!-- @slot Use it to replace badge to custom element -->

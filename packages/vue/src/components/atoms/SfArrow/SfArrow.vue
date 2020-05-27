@@ -1,5 +1,5 @@
 <template>
-  <SfButton class="sf-arrow" type="button" v-on="$listeners">
+  <SfButton class="sf-arrow" type="button">
     <!--@slot Use this slot to replace arrow icon-->
     <slot>
       <SfIcon

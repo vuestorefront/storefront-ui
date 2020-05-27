@@ -3,7 +3,6 @@
     ref="icon"
     :class="['sf-icon', iconColorClass, iconSizeClass]"
     :style="iconCustomStyle"
-    v-on="$listeners"
   >
     <slot v-bind="{ viewBox, iconPaths, icon }">
       <svg

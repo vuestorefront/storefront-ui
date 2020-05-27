@@ -3,7 +3,6 @@
     class="sf-image"
     :class="{ 'sf-image--has-size': size }"
     :style="size"
-    v-on="$listeners"
   >
     <template v-if="isPicture">
       <picture>

@@ -21,10 +21,10 @@
         <LMap
           v-if="loaded"
           ref="map"
+          v-model:center="internalCenter"
+          v-model:zoom="internalZoom"
           class="sf-store-locator__map"
           :options="computedMapOptions"
-          :center.sync="internalCenter"
-          :zoom.sync="internalZoom"
           :max-zoom="maxZoom"
           @ready="onMapReady"
           @locationfound="locationFound"
