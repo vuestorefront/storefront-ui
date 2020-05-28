@@ -27,7 +27,7 @@ storiesOf("Organisms|Footer", module)
         default: boolean("multiple", false, "Props"),
       },
       isOpenOnMobile: {
-        deafult: object("open", ["About us", "Help"], "Props")
+        default: object("isOpenOnMobile", ["About us", "Payment & delivery", "Social"], "Props")
       }
     },
     data() {

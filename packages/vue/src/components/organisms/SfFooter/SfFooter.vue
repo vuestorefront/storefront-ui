@@ -25,7 +25,7 @@ export default {
       default: true,
     },
     isOpenOnMobile: {
-      type: [Array, Object],
+      type: Array,
       default: () => [],
     },
   },
@@ -45,15 +45,18 @@ export default {
     isMobile: {
       handler(mobile) {
         this.$nextTick(() => {
-          this.open = mobile ? [] : [...this.items];
+          this.decodeString();
+          mobile ? this.open : (this.open = [...this.items]);
         });
       },
       immediate: true,
     },
   },
   created() {
-    this.open = this.isOpenOnMobile;
-    console.log(this.open);
+    if (this.isOpenOnMobile && this.isMobile) {
+      this.decodeString();
+      return this.open;
+    }
   },
   beforeDestroy() {
     unMapMobileObserver();
@@ -69,6 +72,17 @@ export default {
         this.open.push(payload);
       }
       this.$emit("change", this.open);
+    },
+    /* 
+      function to decode string into HTML
+    */
+    decodeString() {
+      let txt = document.createElement("textarea");
+      this.open = this.isOpenOnMobile.map((columnTitle) => {
+        txt.innerHTML = columnTitle;
+        return txt.value;
+      });
+      return this.open;
     },
   },
 };
