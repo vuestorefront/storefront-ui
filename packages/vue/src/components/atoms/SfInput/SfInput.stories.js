@@ -316,4 +316,61 @@ storiesOf("Atoms|Input", module)
       :has-show-password="hasShowPassword"
       :class="customClass"
       />`,
+  }))
+  .add("native placeholder", () => ({
+    components: { SfInput },
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-input--filled": "sf-input--filled",
+          },
+          "sf-input--filled",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
+      type: {
+        default: text("type", "text", "Props"),
+      },
+      name: {
+        default: text("name", "first-name", "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Required.", "Props"),
+      },
+      valid: {
+        default: boolean("valid", true, "Props"),
+      },
+      required: {
+        default: boolean("required", false, "Props"),
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props"),
+      },
+      hasShowPassword: {
+        default: boolean("hasShowPassword", false, "Props"),
+      },
+    },
+    data() {
+      return {
+        value: "",
+      };
+    },
+    template: `
+      <label for="first-name" style="font-size:1.125rem;font-family:Raleway">
+        Name:
+        <SfInput
+        v-model="value"
+        :type="type"
+        :name="name"         
+        :valid="valid"
+        :error-message="errorMessage"
+        :required="required"
+        :disabled="disabled"
+        :has-show-password="hasShowPassword"
+        placeholder="First name"
+        />
+      </label>`,
   }));
