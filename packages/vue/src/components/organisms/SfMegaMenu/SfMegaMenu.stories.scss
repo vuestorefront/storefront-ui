@@ -1,0 +1,23 @@
+@import "~@storefront-ui/shared/styles/helpers";
+.sb-mega-menu {
+  &__featured {
+    flex: 0 0 43.125rem;
+  }
+  &__banners {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacer-base);
+    @include for-desktop {
+      flex-direction: row;
+      padding: 0;
+    }
+  }
+  &__banner{
+    &:first-child{
+      margin: 0 0 var(--spacer-sm) 0;
+      @include for-desktop {
+        margin: 0 var(--spacer-sm) 0 0;
+      }
+    }
+  }
+}
