@@ -25,9 +25,6 @@
   </transition>
 </template>
 <script>
-import Vue from "vue";
-import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn.vue";
-Vue.component("SfMegaMenuColumn", SfMegaMenuColumn);
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem";
 import {

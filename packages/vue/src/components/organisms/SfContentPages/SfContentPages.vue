@@ -56,11 +56,6 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import SfContentPage from "./_internal/SfContentPage.vue";
-import SfContentCategory from "./_internal/SfContentCategory.vue";
-Vue.component("SfContentPage", SfContentPage);
-Vue.component("SfContentCategory", SfContentCategory);
 import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";

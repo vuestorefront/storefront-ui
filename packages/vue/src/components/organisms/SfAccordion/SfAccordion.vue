@@ -8,10 +8,7 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
 import { deprecationWarning } from "../../../utilities/helpers";
-import SfAccordionItem from "./_internal/SfAccordionItem.vue";
-Vue.component("SfAccordionItem", SfAccordionItem);
 export default {
   name: "SfAccordion",
   props: {
@@ -50,7 +47,8 @@ export default {
     },
   },
   mounted() {
-    this.$on("toggle", this.toggleHandler);
+    // this.$on("toggle", this.toggleHandler);
+    // emitter.on('toggle', this.toggleHandler)
     this.setAsOpen();
   },
   updated() {

@@ -100,9 +100,6 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
-Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import {
   mapMobileObserver,
   unMapMobileObserver,

@@ -31,11 +31,8 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import SfCarouselItem from "./_internal/SfCarouselItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
 import Glide from "@glidejs/glide";
-Vue.component("SfCarouselItem", SfCarouselItem);
 export default {
   name: "SfCarousel",
   components: {

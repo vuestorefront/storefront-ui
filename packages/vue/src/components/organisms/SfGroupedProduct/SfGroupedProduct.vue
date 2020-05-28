@@ -21,10 +21,7 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
 import Glide from "@glidejs/glide";
-import SfGroupedProductItem from "./_internal/SfGroupedProductItem.vue";
-Vue.component("SfGroupedProductItem", SfGroupedProductItem);
 export default {
   name: "SfGroupedProduct",
   props: {
