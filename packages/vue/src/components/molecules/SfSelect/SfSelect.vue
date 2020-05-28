@@ -3,8 +3,8 @@
     v-click-outside="closeHandler"
     :aria-expanded="open.toString()"
     :aria-owns="'lbox_' + _uid"
-    aria-autocomplete="none"
-    role="combobox"
+    :aria-label="label"
+    role="listbox"
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
@@ -25,7 +25,6 @@
         ref="sfSelect"
         v-focus
         tabindex="0"
-        role="listbox"
         class="sf-select__selected sf-select-option"
         v-html="html"
       ></div>
@@ -39,7 +38,7 @@
       </slot>
       <SfOverlay :visible="open" class="sf-select__overlay mobile-only" />
       <transition name="sf-select">
-        <div v-show="open" role="list" class="sf-select__dropdown">
+        <div v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
           <ul
             :aria-expanded="open.toString()"
