@@ -359,8 +359,10 @@ storiesOf("Atoms|Input", module)
       };
     },
     template: `
-      <label for="first-name" style="font-size:1.125rem;font-family:Raleway">
-        Name:
+      <div>
+        <label for="first-name" style="font-size:1.125rem;font-family:Raleway">
+          Name:
+        </label>
         <SfInput
         v-model="value"
         :type="type"
@@ -372,5 +374,5 @@ storiesOf("Atoms|Input", module)
         :has-show-password="hasShowPassword"
         placeholder="First name"
         />
-      </label>`,
+      </div>`,
   }));
