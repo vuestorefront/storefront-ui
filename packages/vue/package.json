@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/vue",
-  "version": "0.7.16",
+  "version": "0.7.17",
   "scripts": {
     "serve": "yarn create-index-files && vue-cli-service serve",
     "build": "yarn create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
