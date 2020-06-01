@@ -3,6 +3,7 @@
     ref="icon"
     :class="['sf-icon', iconColorClass, iconSizeClass]"
     :style="iconCustomStyle"
+    v-bind="$attrs"
   >
     <slot v-bind="{ viewBox, iconPaths, icon }">
       <svg

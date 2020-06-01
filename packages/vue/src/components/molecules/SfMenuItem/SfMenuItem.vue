@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-menu-item">
+  <div class="sf-menu-item" v-bind="$attrs">
     <!-- @slot for menu item icon-->
     <slot name="icon" />
     <!-- @slot for menu item label-->

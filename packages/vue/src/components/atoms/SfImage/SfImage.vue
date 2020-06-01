@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-image" :class="{ 'sf-image--has-size': size }" :style="size">
+  <div class="sf-image" :class="{ 'sf-image--has-size': size }" :style="size" v-bind="$attrs">
     <template v-if="isPicture">
       <picture>
         <source

@@ -1,5 +1,5 @@
 <template>
-  <SfButton class="sf-circle-icon" :disabled="disabled">
+  <SfButton class="sf-circle-icon" :disabled="disabled" v-bind="$attrs">
     <!--@slot Custom content that will replace default icon. can be used for inlined SVG's-->
     <slot>
       <SfIcon

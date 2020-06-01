@@ -1,5 +1,5 @@
 <template>
-  <section class="sf-banner" :style="style" v-on="isMobile && {}">
+  <section class="sf-banner" :style="style" v-bind="$attrs" v-on="isMobile && {}" >
     <div class="sf-banner__container">
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
@@ -20,6 +20,7 @@
         <SfButton
           v-if="buttonText"
           class="sf-banner__call-to-action color-secondary"
+          v-bind="$attrs"
           v-on="!isMobile && {}"
         >
           {{ buttonText }}

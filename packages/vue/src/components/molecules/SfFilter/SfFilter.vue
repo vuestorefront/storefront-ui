@@ -4,6 +4,7 @@
     :class="{ 'sf-filter--active': selected, 'sf-filter--is-color': color }"
     :name="label"
     :selected="selected"
+    v-bind="$attrs"
   >
     <template #label>
       <slot name="color" v-bind="{ color, selected }">

@@ -6,6 +6,7 @@
       'sf-bottom-navigation-item--floating': isFloating,
       'sf-bottom-navigation-item--center': !icon || !label,
     }"
+    v-bind="$attrs"
   >
     <slot name="icon" v-bind="{ icon, iconActive, iconSize, isFloating }">
       <SfCircleIcon
