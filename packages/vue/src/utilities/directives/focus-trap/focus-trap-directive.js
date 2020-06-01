@@ -1,9 +1,9 @@
 import { getFocusableChildren, isFocusable, moveFocus } from "./focus-trap";
-import Vue from "vue";
+import {nextTick} from "vue";
 
 export const focusTrap = {
   beforeMount(el) {
-    Vue.nextTick(() => {
+    nextTick(() => {
       el._focusableChildrenElements = getFocusableChildren(el);
     });
     el._keyHandler = function (e) {
@@ -17,7 +17,7 @@ export const focusTrap = {
     document.addEventListener("keydown", el._keyHandler);
   },
   updated(el) {
-    Vue.nextTick(() => {
+    nextTick(() => {
       el._focusableChildrenElements = getFocusableChildren(el);
     });
   },
