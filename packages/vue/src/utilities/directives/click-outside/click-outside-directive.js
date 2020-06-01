@@ -1,5 +1,5 @@
 export const clickOutside = {
-  bind(el, binding) {
+  beforeMount(el, binding) {
     binding.name = "click-outside";
     const closeHandler = binding.value;
     el._outsideClickHandler = function (event) {
@@ -11,7 +11,7 @@ export const clickOutside = {
     document.addEventListener("mouseup", el._outsideClickHandler);
     document.addEventListener("touchstart", el._outsideClickHandler);
   },
-  unbind(el) {
+  unmounted(el) {
     document.removeEventListener("mouseup", el._outsideClickHandler);
     document.removeEventListener("touchstart", el._outsideClickHandler);
     el._outsideClickHandler = null;

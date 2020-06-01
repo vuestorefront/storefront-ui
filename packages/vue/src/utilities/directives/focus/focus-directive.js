@@ -1,5 +1,5 @@
 export const focus = {
-  bind(el) {
+  beforeMount(el) {
     el._mouseHandler = function () {
       el.style.outline = "none";
     };
@@ -10,7 +10,7 @@ export const focus = {
     window.addEventListener("mousedown", el._mouseHandler);
     el.addEventListener("keyup", el._keyHandler);
   },
-  unbind(el) {
+  unmounted(el) {
     window.removeEventListener("mousedown", el._mouseHandler);
     el.removeEventListener("keyup", el._keyHandler);
   },
