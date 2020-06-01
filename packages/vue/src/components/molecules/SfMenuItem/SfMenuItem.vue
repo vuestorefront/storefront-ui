@@ -1,10 +1,16 @@
 <template>
-  <div class="sf-menu-item" v-on="$listeners">
+  <div
+    v-focus
+    class="sf-menu-item"
+    role="button"
+    tabindex="0"
+    v-on="$listeners"
+  >
     <!-- @slot for menu item icon-->
     <slot name="icon" />
     <!-- @slot for menu item label-->
     <slot name="label" v-bind="{ label }">
-      <span class="sf-menu-item__label">{{ label }}</span>
+      <span v-focus class="sf-menu-item__label">{{ label }}</span>
     </slot>
     <!-- @slot for items count -->
     <slot name="count" v-bind="{ count }">
@@ -22,12 +28,14 @@
   </div>
 </template>
 <script>
+import focus from "../../../utilities/directives";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfMenuItem",
   components: {
     SfIcon,
   },
+  directives: { focus },
   props: {
     label: {
       type: String,
