@@ -25,7 +25,7 @@ storiesOf("Molecules|Range", module)
         default: number("min", 0, "Props"),
       },
       max: {
-        default: number("max", 10, "Props"),
+        default: number("max", 10, "Props"),  
       },
       step: {
         default: number("step", 1, "Props"),
@@ -33,14 +33,21 @@ storiesOf("Molecules|Range", module)
       label: {
         default: text("label", "Price", "Props"),
       },
+      labelMin: {
+        default: text("labelMin", "PriceMinValue", "Props"),
+      },
+      labelMax: {
+        default: text("labelMax", "PriceMaxValue", "Props"),
+      },
     },
     components: { SfRange },
     template: `<SfRange
         :class="customClass"
-        :props-name="propsName"
         :min="min"
         :max="max"
         :step="step"
         :label="label"
+        :labelMin="labelMin"
+        :labelMax="labelMax"
       />`,
   }));

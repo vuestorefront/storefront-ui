@@ -1,6 +1,56 @@
 @import "../../helpers";
 
-// .sf-range {
-//   &__element {}
-//   &--modifier {}
-// }
+@mixin track() {
+  background: none; /* get rid of Firefox track background */
+  height: 100%;
+  width: 100%;
+}
+
+@mixin thumb() {
+  background: currentcolor;
+  border: none; /* get rid of Firefox thumb border */
+  border-radius: 0; /* get rid of Firefox corner rounding */
+  pointer-events: auto; /* catch clicks */
+  width: var(--range-thumb-width, var(--range-thumb-size, var(--spacer-lg))); 
+  height: var(--range-thumb-width, var(--range-thumb-size, var(--spacer-lg)));
+}
+
+.sf-range {
+    display: grid;
+    overflow: hidden; 
+    position: relative;    
+    grid-template-rows: max-content 1rem;
+    margin: 1rem auto;
+    width: var(--range-width, 100%);
+  .sf-input__label {
+    position: absolute;
+    clip-path: inset(50%);   
+  }
+  &__slider {
+    grid-column: 1;
+    grid-row-start: 2;
+    input {
+      &::-webkit-slider-runnable-track, &::-webkit-slider-thumb, & { 
+        -webkit-appearance: none; 
+      } 
+      --input-padding: 0;
+      --input-background: none;
+      // background: none; /* get rid of white Chrome background */
+      // font: inherit; /* fix too small font-size in both Chrome & Firefox */
+      margin: 0;
+      pointer-events: none; /* let clicks pass through */          
+      
+      &::-webkit-slider-runnable-track { @include track; }
+      &::-moz-range-track { @include track; }
+      
+      &::-webkit-slider-thumb { @include thumb; }
+      &::-moz-range-thumb { @include thumb; }
+    }
+    // &-label {
+    //   &::after {
+    //     counter-reset: c var(--c);
+    //     content: counter(c);
+    //   }
+    // }  
+}
+}
