@@ -1,4 +1,4 @@
-import Vue from "vue";
+import {reactive} from "vue";
 let observer;
 const isMobileMax = 1023;
 export const onMediaMatch = (e) => {
@@ -31,7 +31,7 @@ export const tearDownListener = () => {
 };
 export const mapMobileObserver = () => {
   if (!observer) {
-    observer = Vue.observable({
+    observer = reactive({
       isMobile: false,
       clients: 0,
       isInitialized: false,
