@@ -1,5 +1,5 @@
 import { getFocusableChildren, isFocusable, moveFocus } from "./focus-trap";
-import {nextTick} from "vue";
+import { nextTick } from "vue";
 
 export const focusTrap = {
   beforeMount(el) {
