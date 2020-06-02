@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.16](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.15...@storefront-ui/vue@0.7.16) (2020-05-28)
+
+
+### Bug Fixes
+
+* **a11y:** accessibility error's in SfBottomNavigationItem ([c5ed935](https://github.com/DivanteLtd/storefront-ui/commit/c5ed9357e8650a1ad69f7bc6e039d221acaaebb4))
+* a11y violations in select fixed ([#1223](https://github.com/DivanteLtd/storefront-ui/issues/1223)) ([156da91](https://github.com/DivanteLtd/storefront-ui/commit/156da910efcfc709b5492fb0fe3cf2c1df0bea58))
+* close on desktop in SfCollectedProduct should emit click:remove ([96a160f](https://github.com/DivanteLtd/storefront-ui/commit/96a160fde2800e7ed78982e1c81d353dc6bc112c))
+* typos in docs ([#1219](https://github.com/DivanteLtd/storefront-ui/issues/1219)) ([87cde90](https://github.com/DivanteLtd/storefront-ui/commit/87cde90f0dfcad68b3e26a11f67e8789996371d0))
+
+
+
+
+
+## [0.7.15](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.14...@storefront-ui/vue@0.7.15) (2020-05-26)
+
+
+### Bug Fixes
+
+* move sass to deps ([a9ab5fa](https://github.com/DivanteLtd/storefront-ui/commit/a9ab5fa87ac20ede7b7063c5fd1ecb4ca3c0f34d))
+
+
+
+
+
 ## [0.7.14](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.13...@storefront-ui/vue@0.7.14) (2020-05-25)
 
 

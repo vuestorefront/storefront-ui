@@ -3,13 +3,14 @@
     v-click-outside="closeHandler"
     :aria-expanded="open.toString()"
     :aria-owns="'lbox_' + _uid"
-    aria-autocomplete="none"
-    role="combobox"
+    :aria-label="label"
+    role="listbox"
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
       'sf-select--is-required': required,
       'sf-select--is-disabled': disabled,
+      'sf-select--is-invalid': !valid,
     }"
     class="sf-select"
     @click="toggle($event)"
@@ -18,14 +19,13 @@
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
+    v-on="$listeners"
   >
     <div style="position: relative;">
-      <!-- eslint-disable-next-line vue/no-v-html -->
       <div
         ref="sfSelect"
         v-focus
         tabindex="0"
-        role="listbox"
         class="sf-select__selected sf-select-option"
         v-html="html"
       ></div>
@@ -39,7 +39,7 @@
       </slot>
       <SfOverlay :visible="open" class="sf-select__overlay mobile-only" />
       <transition name="sf-select">
-        <div v-show="open" role="list" class="sf-select__dropdown">
+        <div v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
           <ul
             :aria-expanded="open.toString()"
@@ -60,14 +60,12 @@
         </div>
       </transition>
     </div>
-    <div v-if="valid !== undefined" class="sf-select__error-message">
-      <transition name="fade">
-        <div v-if="!valid">
-          <!-- @slot Custom error message of form select -->
-          <slot name="error-message" v-bind="{ errorMessage }">
-            {{ errorMessage }}
-          </slot>
-        </div>
+    <div class="sf-select__error-message">
+      <transition name="sf-fade">
+        <!-- @slot Custom error message of form select -->
+        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
+          <span> {{ errorMessage }} </span>
+        </slot>
       </transition>
     </div>
   </div>
@@ -123,11 +121,11 @@ export default {
       default: false,
     },
     /**
-     * Validate value of form input
+     * Validate value of form select
      */
     valid: {
       type: Boolean,
-      default: undefined,
+      default: true,
     },
     /**
      * Disabled status of form select
