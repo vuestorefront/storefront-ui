@@ -32,13 +32,12 @@
     }
   }
   &__more-actions {
-    --icon-width: 4px;
-    --icon-height: 0.9375rem;
     position: absolute;
     top: var(--collected-product-remove-top);
     right: var(--collected-product-remove-right, var(--spacer-xs));
   }
   &__aside {
+    order: -1;
     position: relative;
     flex: 0 0 8.75rem;
     line-height: 0;
@@ -71,7 +70,9 @@
     flex-direction: column;
   }
   &__title {
+    display: inline-block;
     margin-bottom: var(--spacer-base);
+    --link-text-decoration: none;
     @include font(
       --collected-product-title-font,
       var(--font-normal),

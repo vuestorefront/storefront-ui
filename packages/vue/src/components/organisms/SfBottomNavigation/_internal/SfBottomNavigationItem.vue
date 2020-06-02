@@ -14,10 +14,12 @@
         :icon="icon"
         icon-color="white"
         icon-size="28px"
+        :aria-label="label"
       />
       <SfButton
         v-else-if="icon"
         class="sf-button--pure sf-bottom-navigation-item__icon"
+        :aria-label="label"
       >
         <SfIcon :icon="currentIcon" :size="iconSize" />
       </SfButton>
@@ -39,7 +41,7 @@
 import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 import SfCircleIcon from "../../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
-import { focus } from "../../../../utilities/directives/focus-directive.js";
+import { focus } from "../../../../utilities/directives";
 export default {
   name: "SfBottomNavigationItem",
   directives: { focus },
@@ -50,7 +52,7 @@ export default {
   },
   props: {
     icon: {
-      type: String,
+      type: [String, Array],
       default: "",
     },
     isActive: {

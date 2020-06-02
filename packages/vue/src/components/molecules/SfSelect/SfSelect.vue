@@ -1,10 +1,10 @@
 <template>
   <div
-    :aria-expanded="open ? 'true' : 'false'"
+    v-click-outside="closeHandler"
+    :aria-expanded="open.toString()"
     :aria-owns="'lbox_' + _uid"
-    aria-autocomplete="none"
-    role="combobox"
-    tabindex="0"
+    :aria-label="label"
+    role="listbox"
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
@@ -13,7 +13,7 @@
     }"
     class="sf-select"
     @click="toggle($event)"
-    @blur="closeHandler"
+    @keyup.esc="closeHandler"
     @keyup.space="openHandler"
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
@@ -21,7 +21,13 @@
   >
     <div style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <div class="sf-select__selected sf-select-option" v-html="html"></div>
+      <div
+        ref="sfSelect"
+        v-focus
+        tabindex="0"
+        class="sf-select__selected sf-select-option"
+        v-html="html"
+      ></div>
       <slot name="label">
         <div v-if="label" class="sf-select__label">
           {{ label }}
@@ -34,7 +40,11 @@
       <transition name="sf-select">
         <div v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
-          <ul :style="{ maxHeight }" class="sf-select__options">
+          <ul
+            :aria-expanded="open.toString()"
+            :style="{ maxHeight }"
+            class="sf-select__options"
+          >
             <slot />
           </ul>
           <slot name="cancel">
@@ -66,10 +76,13 @@ import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
+import { focus } from "../../../utilities/directives";
+import { clickOutside } from "../../../utilities/directives";
 import Vue from "vue";
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
+  directives: { focus, clickOutside },
   components: {
     SfButton,
     SfChevron,
@@ -136,6 +149,7 @@ export default {
       options: [],
       indexes: {},
       optionHeight: 0,
+      focusedOption: "",
     };
   },
   computed: {
@@ -148,6 +162,7 @@ export default {
         return stringified;
       },
       set(index) {
+        this.focusedOption = this.options[index].value;
         this.$emit("change", this.options[index].value);
       },
     },
@@ -182,17 +197,15 @@ export default {
   mounted: function () {
     const options = [];
     const indexes = {};
-    let i = 0;
     if (!this.$slots.default) return;
     this.$on("update", this.update);
-    this.$slots.default.forEach((slot) => {
+    this.$slots.default.forEach((slot, index) => {
       if (!slot.tag) return;
       options.push({
         ...slot.componentOptions.propsData,
         html: slot.elm.innerHTML,
       });
-      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
-      i++;
+      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = index;
     });
     this.options = options;
     this.indexes = indexes;
@@ -211,6 +224,8 @@ export default {
       if (index < 0) index = 0;
       if (index >= optionsLength) index = optionsLength - 1;
       this.index = index;
+      this.$refs.sfSelect.blur();
+      document.getElementById(this.focusedOption).focus();
     },
     enter() {
       this.toggle();
@@ -221,9 +236,8 @@ export default {
           event &&
           event.target.contains(this.$refs.cancel.$el)) ||
         this.disabled
-      ) {
+      )
         return;
-      }
       this.open = !this.open;
     },
     openHandler() {

@@ -48,7 +48,7 @@
           :key="key"
           :description="characteristic.description"
           :icon="characteristic.icon"
-          size-icon="0.75rem"
+          size-icon="14px"
           class="info__characteristic"
         />
       </div>

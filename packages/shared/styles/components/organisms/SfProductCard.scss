@@ -4,6 +4,7 @@
   position: relative;
   z-index: var(--product-card-z-index);
   max-width: var(--product-card-max-width, 10.625rem);
+  flex: 0 1 var(--product-card-max-width, 10.625rem);
   height: var(--product-card-height);
   padding: var(--product-card-padding, var(--spacer-xs));
   background-color: var(--product-card-background, var(--c-white));
@@ -29,6 +30,12 @@
   &:active {
     --product-card-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
   }
+  &__link {
+    display: block;
+    width: 100%;
+    line-height: 0;
+    text-decoration: none;
+  }
   &__title {
     margin: var(--product-card-title-margin, var(--spacer-xs) 0 0 0);
     @include font(
@@ -41,7 +48,6 @@
   }
   &__image-wrapper {
     position: relative;
-    display: flex;
   }
   &__image,
   &__picture {
@@ -62,8 +68,8 @@
   &__add-button {
     --circle-icon-position: absolute;
     --button-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
-    right: var(--product-card-add-button-right, 1.5rem);
-    top: var(--product-card-add-button-top, 18.2rem);
+    right: var(--product-card-add-button-right, 1rem);
+    bottom: var(--product-card-add-button-bottom, 0);
     display: var(--product-card-add-button-display, none);
     transform: var(--product-card-add-button-transform, translate3d(0, 50%, 0));
     opacity: var(--product-card-add-button-opacity, 0);

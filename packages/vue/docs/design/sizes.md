@@ -6,7 +6,7 @@ Below is the list of our standard sizes used for typography and its correspondin
 
 <SfDocsSizes/>
 
-These sizes are defined [here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/variables/css/_typography.scss)
+These sizes are defined [here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/variables/_typography.scss)
 
 ## Icon sizes
 
@@ -14,7 +14,7 @@ Similarly, we provide the same standard sizes for customizing `SfIcon`.
 
 <SfDocsIcons/>
 
-Each size used from this list for the icon will be converted to a proper size class, following the syntax `sf-icon--size-<size>`. For example `sf-icon--size-xxs`. These classes for sizes are defined [here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/components/SfIcon.scss)
+Each size used from this list for the icon will be converted to a proper size class, following the syntax `sf-icon--size-<size>`. For example `sf-icon--size-xxs`. These classes for sizes are defined [here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/components/atoms/SfIcon.scss)
 
 You can apply any size from the list above to an icon, simply by passing the size's label to `size` prop, e.g
 ```html
@@ -36,5 +36,4 @@ export default {
 }
 </script>
 ```
-More information on `SfIcon` can be found [here](/components/Icon.md)
-
+More information on `SfIcon` can be found [here](/components/atoms/SfIcon/SfIcon.md)

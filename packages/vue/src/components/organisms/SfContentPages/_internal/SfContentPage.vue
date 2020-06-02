@@ -19,7 +19,7 @@ export default {
      * Page nav title
      */
     icon: {
-      type: String,
+      type: [String, Array],
       default: "",
     },
   },
