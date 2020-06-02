@@ -1,8 +1,11 @@
 <template>
   <div class="sf-product-card">
     <div class="sf-product-card__image-wrapper">
-      <SfLink class="sf-product-card__link" :link="link">
-        <slot name="image" v-bind="{ image, title }">
+      <slot
+        name="image"
+        v-bind="{ image, title, link, imageHeight, imageWidth }"
+      >
+        <SfLink :link="link" class="sf-product-card__link">
           <template v-if="Array.isArray(image)">
             <SfImage
               v-for="(picture, key) in image.slice(0, 2)"
@@ -22,8 +25,8 @@
             :width="imageWidth"
             :height="imageHeight"
           />
-        </slot>
-      </SfLink>
+        </SfLink>
+      </slot>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
         <SfBadge
           v-if="badgeLabel"
@@ -76,13 +79,13 @@
         </slot>
       </template>
     </div>
-    <SfLink class="sf-product-card__link" :link="link">
-      <slot name="title" v-bind="{ title }">
+    <slot name="title" v-bind="{ title, link }">
+      <SfLink :link="link" class="sf-product-card__link">
         <h3 class="sf-product-card__title">
           {{ title }}
         </h3>
-      </slot>
-    </SfLink>
+      </SfLink>
+    </slot>
     <SfButton
       v-if="wishlistIcon !== false"
       :aria-label="`${ariaLabel} ${title}`"
@@ -128,7 +131,6 @@
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives";
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { deprecationWarning } from "../../../utilities/helpers";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
@@ -151,7 +153,6 @@ export default {
     SfBadge,
     SfButton,
   },
-  directives: { focus },
   props: {
     /**
      * Product image
@@ -207,9 +208,7 @@ export default {
     },
     /**
      * Link element tag
-     * By default it'll be 'router-link' if Vue Router
-     * is available on instance, or 'a' otherwise.
-     * @deprecated will be removed in 1.0.0 use SfLink instead
+     * @deprecated will be removed in 1.0.0 use slot to replace content
      */
     linkTag: {
       type: String,
@@ -323,21 +322,6 @@ export default {
       return `${defaultClass} ${
         this.isOnWishlist ? "sf-product-card--on-wishlist" : ""
       }`;
-    },
-    linkComponentTag() {
-      deprecationWarning(
-        this.$options.name,
-        "Prop 'linkTag' has been deprecated and will be removed in v1.0.0. Use 'SfLink' instead."
-      );
-      if (this.linkTag) {
-        return this.linkTag;
-      }
-      if (this.link) {
-        return typeof this.link === "object" || this.$router
-          ? "router-link"
-          : "a";
-      }
-      return "div";
     },
   },
   methods: {
