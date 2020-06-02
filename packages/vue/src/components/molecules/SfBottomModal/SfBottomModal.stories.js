@@ -1,9 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options,
-} from "@storybook/addon-knobs";
+import { withKnobs, text } from "@storybook/addon-knobs";
 
 import {
   SfBottomModal,
@@ -20,6 +16,9 @@ storiesOf("Molecules|BottomModal", module)
       title: {
         default: text("title", "Title", "Props"),
       },
+      transition: {
+        default: text("transition", "sf-bottom-modal", "Props"),
+      },
     },
     components: {
       SfBottomModal,
@@ -35,7 +34,7 @@ storiesOf("Molecules|BottomModal", module)
       <SfButton @click="isOpen = !isOpen">
       Open bottom modal
       </SfButton>
-      <SfBottomModal :is-open="isOpen" :title="title" @click:close="isOpen = !isOpen"> 
+      <SfBottomModal :transition="transition" :is-open="isOpen" :title="title" @click:close="isOpen = !isOpen"> 
           YOUR CONTENT
       </SfBottomModal>
     </div>
@@ -45,6 +44,9 @@ storiesOf("Molecules|BottomModal", module)
     props: {
       title: {
         default: text("title", "Choose language", "Props"),
+      },
+      transition: {
+        default: text("transition", "sf-bottom-modal", "Props"),
       },
     },
     components: {

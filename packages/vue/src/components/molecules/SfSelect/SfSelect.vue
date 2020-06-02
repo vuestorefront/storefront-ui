@@ -1,15 +1,16 @@
 <template>
   <div
-    v-click-outside="closeHandler"
+    v-click-outside="checkPersistence"
     :aria-expanded="open.toString()"
     :aria-owns="'lbox_' + _uid"
-    aria-autocomplete="none"
-    role="combobox"
+    :aria-label="label"
+    role="listbox"
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
       'sf-select--is-required': required,
       'sf-select--is-disabled': disabled,
+      'sf-select--is-invalid': !valid,
     }"
     class="sf-select"
     @click="toggle($event)"
@@ -18,14 +19,13 @@
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
+    v-on="$listeners"
   >
     <div style="position: relative;">
-      <!-- eslint-disable-next-line vue/no-v-html -->
       <div
-        id="sfSelect"
+        ref="sfSelect"
         v-focus
         tabindex="0"
-        role="listbox"
         class="sf-select__selected sf-select-option"
         v-html="html"
       ></div>
@@ -37,9 +37,13 @@
       <slot name="icon">
         <SfChevron class="sf-select__chevron" />
       </slot>
-      <SfOverlay :visible="open" class="sf-select__overlay mobile-only" />
+      <SfOverlay
+        ref="overlay"
+        :visible="open"
+        class="sf-select__overlay mobile-only"
+      />
       <transition name="sf-select">
-        <div v-show="open" role="list" class="sf-select__dropdown">
+        <div v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
           <ul
             :aria-expanded="open.toString()"
@@ -60,14 +64,12 @@
         </div>
       </transition>
     </div>
-    <div v-if="valid !== undefined" class="sf-select__error-message">
-      <transition name="fade">
-        <div v-if="!valid">
-          <!-- @slot Custom error message of form select -->
-          <slot name="error-message" v-bind="{ errorMessage }">
-            {{ errorMessage }}
-          </slot>
-        </div>
+    <div class="sf-select__error-message">
+      <transition name="sf-fade">
+        <!-- @slot Custom error message of form select -->
+        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
+          <span> {{ errorMessage }} </span>
+        </slot>
       </transition>
     </div>
   </div>
@@ -123,11 +125,11 @@ export default {
       default: false,
     },
     /**
-     * Validate value of form input
+     * Validate value of form select
      */
     valid: {
       type: Boolean,
-      default: undefined,
+      default: true,
     },
     /**
      * Disabled status of form select
@@ -142,6 +144,13 @@ export default {
     errorMessage: {
       type: String,
       default: "This field is not correct.",
+    },
+    /**
+     * If true clicking outside will not dismiss the select
+     */
+    persistent: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -198,17 +207,15 @@ export default {
   mounted: function () {
     const options = [];
     const indexes = {};
-    let i = 0;
     if (!this.$slots.default) return;
     this.$on("update", this.update);
-    this.$slots.default.forEach((slot) => {
+    this.$slots.default.forEach((slot, index) => {
       if (!slot.tag) return;
       options.push({
         ...slot.componentOptions.propsData,
         html: slot.elm.innerHTML,
       });
-      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
-      i++;
+      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = index;
     });
     this.options = options;
     this.indexes = indexes;
@@ -227,7 +234,7 @@ export default {
       if (index < 0) index = 0;
       if (index >= optionsLength) index = optionsLength - 1;
       this.index = index;
-      document.getElementById("sfSelect").blur();
+      this.$refs.sfSelect.blur();
       document.getElementById(this.focusedOption).focus();
     },
     enter() {
@@ -238,10 +245,19 @@ export default {
         (this.$refs.cancel &&
           event &&
           event.target.contains(this.$refs.cancel.$el)) ||
+        (this.$refs.overlay &&
+          event &&
+          this.persistent &&
+          event.target.contains(this.$refs.overlay.$el)) ||
         this.disabled
       )
         return;
       this.open = !this.open;
+    },
+    checkPersistence() {
+      if (!this.persistent) {
+        this.closeHandler();
+      }
     },
     openHandler() {
       this.open = true;
