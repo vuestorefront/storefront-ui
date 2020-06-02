@@ -16,6 +16,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -52,7 +53,8 @@ storiesOf("Atoms|Input", module)
         value: "",
       };
     },
-    template: `<SfInput
+    template: `<div style="padding: 10px">
+    <SfInput
       v-model="value"
       :type="type"
       :label="label"
@@ -63,7 +65,8 @@ storiesOf("Atoms|Input", module)
       :disabled="disabled"
       :has-show-password="hasShowPassword"
       :class="customClass"
-      />`,
+      />
+    </div>`,
   }))
   .add("[slot] label", () => ({
     components: {
@@ -76,6 +79,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -139,6 +143,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -205,6 +210,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -268,6 +274,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "sf-input--filled",
           { display: "multi-select" },

@@ -51,7 +51,7 @@
       </slot>
     </div>
     <div class="sf-input__error-message">
-      <transition name="fade">
+      <transition name="sf-fade">
         <!-- @slot Custom error message of form input -->
         <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
           <div>{{ errorMessage }}</div></slot
