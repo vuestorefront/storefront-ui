@@ -117,7 +117,7 @@ export default {
       return this.visible && this.overlay;
     },
     transitionName() {
-      return "slide-" + this.position;
+      return "sf-slide-" + this.position;
     },
     hasTop() {
       return this.$slots.hasOwnProperty("content-top");

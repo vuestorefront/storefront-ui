@@ -15,8 +15,8 @@ describe("SfPrice.vue", () => {
       },
     });
     expect(
-      component.contains(".sf-price__value--old") &&
-        component.contains(".sf-price__value--special")
+      component.contains(".sf-price__old") &&
+        component.contains(".sf-price__special")
     ).toBe(true);
   });
   it("renders regular and special price props passed as Number", () => {
@@ -29,8 +29,8 @@ describe("SfPrice.vue", () => {
       },
     });
     expect(
-      component.contains(".sf-price__value--old") &&
-        component.contains(".sf-price__value--special")
+      component.contains(".sf-price__old") &&
+        component.contains(".sf-price__special")
     ).toBe(true);
   });
   it("renders an old price via slot", () => {
@@ -47,7 +47,7 @@ describe("SfPrice.vue", () => {
         special: "<ins class='special'>text</ins>",
       },
     });
-    expect(component.find(".sf-price__value--special").exists()).toBe(false);
+    expect(component.find(".sf-price__special").exists()).toBe(false);
     expect(component.contains(".special")).toBe(true);
   });
 });

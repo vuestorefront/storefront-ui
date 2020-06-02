@@ -34,7 +34,7 @@ export default {
       default: "",
     },
     icon: {
-      type: String,
+      type: [String, Array],
       default: "chevron_right",
     },
     count: {

@@ -13,7 +13,7 @@ storiesOf("Molecules|Dropdown", module)
     props: {
       title: {
         default: text("title", "Choose size", "Props"),
-      }, 
+      },
       persistent: {
         default: boolean("persistent", false, "Props"),
       },
@@ -38,7 +38,6 @@ storiesOf("Molecules|Dropdown", module)
           "Add to wishlist",
           "Share",
         ],
-        notClosingEl: ["button"],
       };
     },
     template: `<div style="display:flex">
@@ -84,7 +83,6 @@ storiesOf("Molecules|Dropdown", module)
           "Add to wishlist",
           "Share",
         ],
-        notClosingEl: ["button"],
       };
     },
     template: `<div>

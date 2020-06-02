@@ -150,7 +150,7 @@ storiesOf("Molecules|Select", module)
         <template #label>
           CUSTOM LABEL
         </template>
-      </SfSelect>      
+      </SfSelect>
     </div>`,
   }))
   .add("[slot] errorMessage", () => ({

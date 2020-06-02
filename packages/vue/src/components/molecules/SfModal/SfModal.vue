@@ -46,11 +46,11 @@
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { focusTrap } from "../../../utilities/directives";
 import { clickOutside } from "../../../utilities/directives";
 import { isClient } from "../../../utilities/helpers";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfModal",
   directives: { focusTrap, clickOutside },
@@ -105,14 +105,14 @@ export default {
      */
     transitionOverlay: {
       type: String,
-      default: "fade",
+      default: "sf-fade",
     },
     /**
      * overlay transition effect
      */
     transitionModal: {
       type: String,
-      default: "fade",
+      default: "sf-fade",
     },
   },
   data() {

@@ -9,9 +9,7 @@ import {
 import { icons } from "@storefront-ui/shared/icons/icons";
 import { SfCircleIcon } from "@storefront-ui/vue";
 const iconsNames = Object.keys(icons);
-const StoriesPlaceholder = {
-  template: `<span style="font-size: 1.5rem; width: 20px; height: 20px; line-height: 0; display: flex; justify-content: center; align-items: center">1</span>`,
-};
+
 storiesOf("Atoms|CircleIcon", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -58,7 +56,7 @@ storiesOf("Atoms|CircleIcon", module)
      />`,
   }))
   .add("[slot] default", () => ({
-    components: { SfCircleIcon, StoriesPlaceholder },
+    components: { SfCircleIcon },
     props: {
       customClass: {
         default: options(
@@ -92,6 +90,8 @@ storiesOf("Atoms|CircleIcon", module)
       :iconSize="iconSize"
       aria-label="Go to Home"
     >
-      <StoriesPlaceholder/>
+      <span style="font-size: 1.5rem; width: 20px; height: 20px; line-height: 0; display: flex; justify-content: center; align-items: center">
+        1
+      </span>,
     </SfCircleIcon>`,
   }));
