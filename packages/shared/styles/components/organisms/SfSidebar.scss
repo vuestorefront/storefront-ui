@@ -39,7 +39,7 @@
       --sidebar-content-padding,
       var(--spacer-base) var(--spacer-sm)
     );
-    color: var(--sidebar-content-color, vaR(--c-text));
+    color: var(--sidebar-content-color, var(--c-text));
     @include font(
       --sidebar-content-font,
       var(--font-light),

@@ -1,6 +1,6 @@
 <template>
   <div class="sf-loader">
-    <transition name="fade" mode="out-in">
+    <transition name="sf-fade" mode="out-in">
       <!--@slot Slot for the actual content being loaded -->
       <slot v-if="!loading"></slot>
       <div v-else class="sf-loader__overlay">
