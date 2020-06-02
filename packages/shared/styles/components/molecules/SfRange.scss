@@ -1,16 +1,16 @@
 @import "../../helpers";
 
 @mixin track() {
-  background: none; /* get rid of Firefox track background */
+  background: none;
   height: 100%;
   width: 100%;
 }
 
 @mixin thumb() {
   background: currentcolor;
-  border: none; /* get rid of Firefox thumb border */
-  border-radius: 0; /* get rid of Firefox corner rounding */
-  pointer-events: auto; /* catch clicks */
+  border: none;
+  border-radius: 0;
+  pointer-events: auto;
   width: var(--range-thumb-width, var(--range-thumb-size, var(--spacer-lg))); 
   height: var(--range-thumb-width, var(--range-thumb-size, var(--spacer-lg)));
 }
@@ -35,10 +35,8 @@
       } 
       --input-padding: 0;
       --input-background: none;
-      // background: none; /* get rid of white Chrome background */
-      // font: inherit; /* fix too small font-size in both Chrome & Firefox */
       margin: 0;
-      pointer-events: none; /* let clicks pass through */          
+      pointer-events: none;        
       
       &::-webkit-slider-runnable-track { @include track; }
       &::-moz-range-track { @include track; }
@@ -46,11 +44,8 @@
       &::-webkit-slider-thumb { @include thumb; }
       &::-moz-range-thumb { @include thumb; }
     }
-    // &-label {
-    //   &::after {
-    //     counter-reset: c var(--c);
-    //     content: counter(c);
-    //   }
-    // }  
+    &-label {
+      position: absolute;
+    }
 }
 }

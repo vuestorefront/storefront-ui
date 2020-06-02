@@ -4,43 +4,47 @@
       {{ label }}
     </div>
     <SfInput
+      v-model="valueMin"
       type="range"
       v-bind="$attrs"
+      name="nameMin"
+      role="slider"
+      tabindex="0"
+      class="sf-range__slider"
       :value="valueMin"
       :min="min"
       :max="max"
       :step="step"
       :label="labelMin"
-      name="nameMin"
-      role="slider"
-      tabindex="0"
-      class="sf-range__slider"
-      @input="sliderHandler('valueMin',$event)"
       :aria-valuemin="min"
       :aria-valuenow="valueMin"
       :aria-valuemax="max"
+      @input="sliderHandler('valueMin', $event)"
     />
-    <span class="sf-range__slider-label" :style="styleLabel">{{
+    <span class="sf-range__slider-label" :style="styleLabelMin">{{
       valueMin
     }}</span>
     <SfInput
+      v-model="valueMax"
       type="range"
       v-bind="$attrs"
+      name="nameMax"
+      role="slider"
+      tabindex="0"
+      class="sf-range__slider"
       :value="valueMax"
       :min="min"
       :max="max"
       :step="step"
       :label="labelMax"
-      name="nameMax"
-      role="slider"
-      tabindex="0"
-      class="sf-range__slider"
-      @input="sliderHandler('valueMax',$event)"
       :aria-valuemin="min"
       :aria-valuenow="valueMax"
       :aria-valuemax="max"
+      @input="sliderHandler('valueMax', $event)"
     />
-    <span class="sf-range__slider-label">{{ valueMax }}</span>
+    <span class="sf-range__slider-label" :style="styleLabelMax">{{
+      valueMax
+    }}</span>
   </div>
 </template>
 <script>
@@ -83,9 +87,16 @@ export default {
     };
   },
   computed: {
-    styleLabel() {
+    styleLabelMin() {
       const newValue = Number(
           ((this.valueMin - this.min) * 100) / (this.max - this.min)
+        ),
+        newPosition = 10 - newValue * 0.2;
+      return `left: calc(${newValue}% + (${newPosition}px))`;
+    },
+    styleLabelMax() {
+      const newValue = Number(
+          ((this.valueMax - this.min) * 100) / (this.max - this.min)
         ),
         newPosition = 10 - newValue * 0.2;
       return `left: calc(${newValue}% + (${newPosition}px))`;
@@ -107,11 +118,6 @@ export default {
   },
   methods: {
     sliderHandler(slider, value) {
-      if (slider === "valueMin") {
-        this.valueMin = value;
-      } else if (slider === "valueMax") {
-        this.valueMax = value;
-      }
       this.$emit("input", { [slider]: value });
     },
   },
