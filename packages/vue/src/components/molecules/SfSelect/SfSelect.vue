@@ -10,6 +10,7 @@
       'sf-select--is-selected': isSelected,
       'sf-select--is-required': required,
       'sf-select--is-disabled': disabled,
+      'sf-select--is-invalid': !valid,
     }"
     class="sf-select"
     @click="toggle($event)"
@@ -18,9 +19,9 @@
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
+    v-on="$listeners"
   >
     <div style="position: relative;">
-      <!-- eslint-disable-next-line vue/no-v-html -->
       <div
         ref="sfSelect"
         v-focus
@@ -59,14 +60,12 @@
         </div>
       </transition>
     </div>
-    <div v-if="valid !== undefined" class="sf-select__error-message">
+    <div class="sf-select__error-message">
       <transition name="fade">
-        <div v-if="!valid">
-          <!-- @slot Custom error message of form select -->
-          <slot name="error-message" v-bind="{ errorMessage }">
-            {{ errorMessage }}
-          </slot>
-        </div>
+        <!-- @slot Custom error message of form select -->
+        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
+          <span> {{ errorMessage }} </span>
+        </slot>
       </transition>
     </div>
   </div>
@@ -122,11 +121,11 @@ export default {
       default: false,
     },
     /**
-     * Validate value of form input
+     * Validate value of form select
      */
     valid: {
       type: Boolean,
-      default: undefined,
+      default: true,
     },
     /**
      * Disabled status of form select
