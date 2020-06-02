@@ -151,7 +151,7 @@
           </template>
         </SfRadio>
       </div>
-      <transition name="fade">
+      <transition name="sf-fade">
         <div v-if="isCreditCard" class="credit-card-form">
           <SfInput
             v-model="cardNumber"
