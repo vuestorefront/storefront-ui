@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="sf-fade">
     <div v-show="visible" class="sf-mega-menu" :class="{ 'is-active': active }">
       <SfBar
         :title="active || title"
