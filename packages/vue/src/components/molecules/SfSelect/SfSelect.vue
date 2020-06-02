@@ -1,6 +1,6 @@
 <template>
   <div
-    v-click-outside="closeHandler"
+    v-click-outside="checkPersistence"
     :aria-expanded="open.toString()"
     :aria-owns="'lbox_' + _uid"
     :aria-label="label"
@@ -37,7 +37,11 @@
       <slot name="icon">
         <SfChevron class="sf-select__chevron" />
       </slot>
-      <SfOverlay :visible="open" class="sf-select__overlay mobile-only" />
+      <SfOverlay
+        ref="overlay"
+        :visible="open"
+        class="sf-select__overlay mobile-only"
+      />
       <transition name="sf-select">
         <div v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
@@ -141,6 +145,13 @@ export default {
       type: String,
       default: "This field is not correct.",
     },
+    /**
+     * If true clicking outside will not dismiss the select
+     */
+    persistent: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -234,10 +245,19 @@ export default {
         (this.$refs.cancel &&
           event &&
           event.target.contains(this.$refs.cancel.$el)) ||
+        (this.$refs.overlay &&
+          event &&
+          this.persistent &&
+          event.target.contains(this.$refs.overlay.$el)) ||
         this.disabled
       )
         return;
       this.open = !this.open;
+    },
+    checkPersistence() {
+      if (!this.persistent) {
+        this.closeHandler();
+      }
     },
     openHandler() {
       this.open = true;
