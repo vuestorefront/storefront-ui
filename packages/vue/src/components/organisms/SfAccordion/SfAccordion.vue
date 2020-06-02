@@ -9,6 +9,8 @@
 </template>
 <script>
 import { deprecationWarning } from "../../../utilities/helpers";
+import useMitt from '../../../composables/useMitt'
+
 export default {
   name: "SfAccordion",
   props: {
@@ -46,9 +48,13 @@ export default {
       default: true,
     },
   },
+  setup() {
+    const { emit, on } = useMitt();
+
+    return { emit, on };
+  },
   mounted() {
-    // this.$on("toggle", this.toggleHandler);
-    // emitter.on('toggle', this.toggleHandler)
+    this.on("toggle", this.toggleHandler);
     this.setAsOpen();
   },
   updated() {

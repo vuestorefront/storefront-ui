@@ -37,6 +37,7 @@
 import { focus } from "../../../../utilities/directives";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
+
 export default {
   name: "SfAccordionItem",
   directives: { focus },
@@ -57,7 +58,7 @@ export default {
   },
   methods: {
     accordionClick() {
-      this.$parent.$emit("toggle", this._uid);
+      this.$parent.emit("toggle", this._uid);
     },
   },
 };
