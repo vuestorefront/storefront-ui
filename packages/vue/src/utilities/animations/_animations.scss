@@ -1,0 +1,42 @@
+ 
+.sf-bounce {
+  &-enter-active {
+    animation: sf-bounce 0.3s;
+  }
+  &-leave-active {
+    animation: sf-bounce 0.3s reverse;
+  }
+}
+
+.sf-pulse {
+  &-enter-active {
+    animation: sf-pulse 0.25s;
+  }
+  &-leave-active {
+    animation: sf-pulse 0.25s reverse;
+  }
+}
+
+@keyframes sf-bounce {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes sf-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -80,7 +80,7 @@
       </SfAccordionItem>
       <SfAccordionItem header="Order details">
         <div class="accordion__item">
-          <transition name="fade">
+          <transition name="sf-fade">
             <div class="accordion__content accordion__content">
               <SfCollectedProduct
                 v-for="(product, index) in products"
