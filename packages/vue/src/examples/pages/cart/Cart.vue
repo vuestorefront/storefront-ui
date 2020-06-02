@@ -13,10 +13,10 @@
           :value="totalItems"
         />
       </template>
-      <transition name="fade" mode="out-in">
+      <transition name="sf-fade" mode="out-in">
         <div v-if="totalItems" key="my-cart" class="my-cart">
           <div class="collected-product-list">
-            <transition-group name="fade" tag="div">
+            <transition-group name="sf-fade" tag="div">
               <SfCollectedProduct
                 v-for="product in products"
                 :key="product.id"
@@ -74,7 +74,7 @@
         </div>
       </transition>
       <template #content-bottom>
-        <transition name="fade">
+        <transition name="sf-fade">
           <div v-if="totalItems">
             <SfProperty
               name="Total price"

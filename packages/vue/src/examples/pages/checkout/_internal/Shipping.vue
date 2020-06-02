@@ -131,7 +131,7 @@
                   >info
                 </SfButton>
               </div>
-              <transition name="fade">
+              <transition name="sf-fade">
                 <div v-if="item.isOpen" class="shipping__info">
                   {{ description }}
                 </div>
