@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.16](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.13...@storefront-ui/shared@0.7.16) (2020-05-28)
+
+
+### Bug Fixes
+
+* label size in select and input ([#1218](https://github.com/DivanteLtd/storefront-ui/issues/1218)) ([ec45a1a](https://github.com/DivanteLtd/storefront-ui/commit/ec45a1acafb44749d5fcf5740ff31cb2b6c302a6))
+* make SfPrice wrappable ([c7cf2db](https://github.com/DivanteLtd/storefront-ui/commit/c7cf2dbf520baca2a81e5eaa3b0b5a70e53ecd78))
+* **a11y:** accessibility error's in SfBottomNavigationItem ([c5ed935](https://github.com/DivanteLtd/storefront-ui/commit/c5ed9357e8650a1ad69f7bc6e039d221acaaebb4))
+
+
+
+
+
+## [0.7.13](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.12...@storefront-ui/shared@0.7.13) (2020-05-22)
+
+
+### Bug Fixes
+
+* checkbox font size ([#1211](https://github.com/DivanteLtd/storefront-ui/issues/1211)) ([8aee2eb](https://github.com/DivanteLtd/storefront-ui/commit/8aee2eb6f2e23aefac608fa7064331d8252f65e9))
+* remove getElementById and add overflow for dropdown with options ([5229656](https://github.com/DivanteLtd/storefront-ui/commit/5229656fa54efba09e672e2248f148c8183542de))
+
+
+### Features
+
+* add css variable to .sf-select__selected ([e6c7d16](https://github.com/DivanteLtd/storefront-ui/commit/e6c7d1621dd179233556e2d623496a6ab66ef266))
+
+
+
+
+
+## [0.7.12](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.11...@storefront-ui/shared@0.7.12) (2020-05-19)
+
+
+### Bug Fixes
+
+* product cards with SfLink inside slots ([#1197](https://github.com/DivanteLtd/storefront-ui/issues/1197)) ([d4a3809](https://github.com/DivanteLtd/storefront-ui/commit/d4a38099d596bbb62d120e28c3dab32aedcda806))
+
+
+
+
+
 ## [0.7.11](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.10...@storefront-ui/shared@0.7.11) (2020-05-14)
 
 
