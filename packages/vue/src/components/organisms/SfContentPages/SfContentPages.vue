@@ -21,8 +21,8 @@
           </h2>
           <SfList class="sf-content-pages__list">
             <SfListItem
-              v-for="(page, key) in category.items"
-              :key="`${page.title}-${key}`"
+              v-for="(page, itemKey) in category.items"
+              :key="`${page.title}-${itemKey}`"
               class="sf-content-pages__list-item"
             >
               <!-- @slot Custom menu-item markup -->

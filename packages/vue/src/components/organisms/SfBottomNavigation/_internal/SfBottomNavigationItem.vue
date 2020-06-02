@@ -14,10 +14,12 @@
         :icon="icon"
         icon-color="white"
         icon-size="28px"
+        :aria-label="label"
       />
       <SfButton
         v-else-if="icon"
         class="sf-button--pure sf-bottom-navigation-item__icon"
+        :aria-label="label"
       >
         <SfIcon :icon="currentIcon" :size="iconSize" />
       </SfButton>
