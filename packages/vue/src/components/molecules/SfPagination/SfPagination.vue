@@ -36,19 +36,21 @@
       </slot>
     </template>
     <template v-for="page in limitedPageNumbers">
-      <component
-        :is="currentPage === page ? 'span' : componentIs"
-        :key="page"
-        class="sf-pagination__item"
-        :class="{
-          'sf-button--pure': !hasRouter && currentPage !== page,
-          'sf-pagination__item--current': currentPage === page,
-        }"
-        :link="hasRouter && currentPage !== page ? getLinkTo(page) : null"
-        @click="!hasRouter && currentPage !== page ? go(page) : null"
-      >
-        {{ page }}
-      </component>
+      <slot name="number" v-bind="{ page, currentPage }">
+        <component
+          :is="currentPage === page ? 'span' : componentIs"
+          :key="page"
+          class="sf-pagination__item"
+          :class="{
+            'sf-button--pure': !hasRouter && currentPage !== page,
+            'sf-pagination__item--current': currentPage === page,
+          }"
+          :link="hasRouter && currentPage !== page ? getLinkTo(page) : null"
+          @click="!hasRouter && currentPage !== page ? go(page) : null"
+        >
+          {{ page }}
+        </component>
+      </slot>
     </template>
     <template v-if="showLast">
       <slot v-if="lastVisiblePageNumber < total - 1" name="points">
