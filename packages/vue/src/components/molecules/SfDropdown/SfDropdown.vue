@@ -4,7 +4,7 @@
     <transition name="sf-dropdown">
       <div
         v-show="isOpen"
-        v-click-outside="close"
+        v-click-outside="checkPersistence"
         class="sf-dropdown__container"
       >
         <!--@slot Use this slot to replace title. -->
@@ -26,7 +26,7 @@
   </div>
 </template>
 <script>
-import { clickOutside } from "../../../utilities/directives";
+import { clickOutside } from "../../../utilities/directives/";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { isClient } from "../../../utilities/helpers";
@@ -55,6 +55,13 @@ export default {
       type: String,
       default: "",
     },
+    /**
+     * If true clicking outside will not dismiss the dropdown
+     */
+    persistent: {
+      type: Boolean,
+      default: false,
+    },
   },
   watch: {
     isOpen: {
@@ -72,6 +79,9 @@ export default {
   methods: {
     close() {
       this.$emit("click:close");
+    },
+    checkPersistence() {
+      if (!this.persistent) this.close();
     },
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
