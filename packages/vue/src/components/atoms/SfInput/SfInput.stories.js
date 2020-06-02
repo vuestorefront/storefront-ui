@@ -16,6 +16,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -52,7 +53,8 @@ storiesOf("Atoms|Input", module)
         value: "",
       };
     },
-    template: `<SfInput
+    template: `<div style="padding: 10px">
+    <SfInput
       v-model="value"
       :type="type"
       :label="label"
@@ -63,7 +65,8 @@ storiesOf("Atoms|Input", module)
       :disabled="disabled"
       :has-show-password="hasShowPassword"
       :class="customClass"
-      />`,
+      />
+    </div>`,
   }))
   .add("[slot] label", () => ({
     components: {
@@ -76,6 +79,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -139,6 +143,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -205,6 +210,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -253,7 +259,10 @@ storiesOf("Atoms|Input", module)
       :has-show-password="hasShowPassword"
       >
       <template #error-message="{errorMessage}">
-        <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> CUSTOM ERROR MESSAGE
+        <div style="display: flex; align-items: center">
+          <SfIcon icon="info_shield" size="0.875rem" color="#E22326" style="margin-right: 4px; display: inline-block"/>
+          <span>CUSTOM ERROR MESSAGE</span>
+        </div>
       </template>
     </SfInput>`,
   }))
@@ -265,6 +274,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "sf-input--filled",
           { display: "multi-select" },

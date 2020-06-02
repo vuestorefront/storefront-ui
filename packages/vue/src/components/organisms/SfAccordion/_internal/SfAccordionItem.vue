@@ -34,7 +34,7 @@
   </div>
 </template>
 <script>
-import { focus } from "../../../../utilities/directives/focus-directive.js";
+import { focus } from "../../../../utilities/directives";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
 export default {
