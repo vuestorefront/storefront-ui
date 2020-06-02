@@ -1,5 +1,5 @@
 <template>
-  <section class="sf-section">
+  <section ref="section" class="sf-section">
     <!--@slot Section heading. Slot content will replace default <sf-heading> component-->
     <slot
       name="heading"
@@ -55,7 +55,7 @@ export default {
     };
   },
   mounted: function () {
-    this.hasUnderlinedModifier = this.$el.classList.contains(
+    this.hasUnderlinedModifier = this.$refs.section.classList.contains(
       "sf-section--underline"
     );
   },

@@ -1,5 +1,5 @@
 <template>
-  <table class="sf-table">
+  <table ref="table" class="sf-table">
     <slot />
   </table>
 </template>
@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     updateColumnsCount(columnsCount) {
-      this.$el.style.setProperty(
+      this.$refs.table.style.setProperty(
         "--_table-column-width",
         Math.ceil(columnsCount / 2)
       );

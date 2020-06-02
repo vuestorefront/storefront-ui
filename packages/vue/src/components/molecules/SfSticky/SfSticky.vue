@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="sticky"
     class="sf-sticky"
     :class="{
       'sf-sticky--sticky': isSticky,
@@ -55,46 +56,49 @@ export default {
       this.toggleBound();
     },
     parentTop() {
-      this.$el.style.bottom = "";
-      this.$el.parentElement.style.paddingTop = "";
+      this.$refs.sticky.style.bottom = "";
+      this.$refs.sticky.parentElement.style.paddingTop = "";
       this.isSticky = false;
       this.isBound = false;
       this.computedPadding();
-      this.parentHeight = this.$el.parentElement.offsetHeight;
+      this.parentHeight = this.$refs.sticky.parentElement.offsetHeight;
     },
     width(value) {
-      this.$el.style.maxWidth = `${value}px`;
+      this.$refs.sticky.style.maxWidth = `${value}px`;
     },
     isSticky(state) {
       if (state) {
-        if (this.$el.nextSibling) {
-          this.$el.parentElement.style.paddingTop = `${
+        if (this.$refs.sticky.nextSibling) {
+          this.$refs.sticky.parentElement.style.paddingTop = `${
             this.height + this.padding.top
           }px`;
         }
       } else {
-        if (this.$el.nextSibling && this.scrollY <= this.parentTop + this.top) {
-          this.$el.parentElement.style.paddingTop = "";
+        if (
+          this.$refs.sticky.nextSibling &&
+          this.scrollY <= this.parentTop + this.top
+        ) {
+          this.$refs.sticky.parentElement.style.paddingTop = "";
         }
       }
     },
     isBound(state) {
       if (state) {
-        this.$el.style.bottom = `${this.padding.bottom}px`; //if parent have padding
+        this.$refs.sticky.style.bottom = `${this.padding.bottom}px`; //if parent have padding
       } else {
-        this.$el.style.bottom = "";
+        this.$refs.sticky.style.bottom = "";
       }
     },
   },
   mounted: function () {
     if (!this.isIE) return;
-    this.$el.parentElement.style.position = "relative";
+    this.$refs.sticky.parentElement.style.position = "relative";
     this.padding = this.computedPadding();
-    this.parentTop = this.$el.parentElement.offsetTop;
-    this.top = this.$el.offsetTop;
-    this.parentHeight = this.$el.parentElement.offsetHeight;
-    this.height = this.$el.offsetHeight;
-    this.width = this.$el.parentElement.offsetWidth;
+    this.parentTop = this.$refs.sticky.parentElement.offsetTop;
+    this.top = this.$refs.sticky.offsetTop;
+    this.parentHeight = this.$refs.sticky.parentElement.offsetHeight;
+    this.height = this.$refs.sticky.offsetHeight;
+    this.width = this.$refs.sticky.parentElement.offsetWidth;
     window.addEventListener("scroll", this.scrollHandler, { passive: true });
     window.addEventListener("resize", this.resizeHandler, { passive: true });
   },
@@ -107,8 +111,8 @@ export default {
       this.scrollY = Math.ceil(window.pageYOffset);
     },
     resizeHandler() {
-      this.width = this.$el.parentElement.offsetWidth;
-      this.parentTop = this.$el.parentElement.offsetTop;
+      this.width = this.$refs.sticky.parentElement.offsetWidth;
+      this.parentTop = this.$refs.sticky.parentElement.offsetTop;
     },
     toggleSticky() {
       if (
@@ -128,7 +132,7 @@ export default {
       }
     },
     computedPadding() {
-      const computed = window.getComputedStyle(this.$el.parentElement);
+      const computed = window.getComputedStyle(this.$refs.sticky.parentElement);
       return {
         top: parseInt(computed["padding-top"], 10),
         right: parseInt(computed["padding-right"], 10),
