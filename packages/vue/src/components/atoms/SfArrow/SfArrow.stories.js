@@ -1,9 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options,
-} from "@storybook/addon-knobs";
+import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import { SfArrow, SfIcon } from "@storefront-ui/vue";
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
