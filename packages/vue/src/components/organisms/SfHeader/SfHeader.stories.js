@@ -175,7 +175,7 @@ storiesOf("Organisms|Header", module)
       },
       cartItemsQty: {
         default: text("cartItemsQty", "0", "Props"),
-      }, 
+      },
       wishlistItemsQty: {
         default: text("wishlistItemsQty", "0", "Props"),
       },
