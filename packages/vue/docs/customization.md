@@ -1,13 +1,13 @@
 # How to customize Storefront UI components
 
-One of the key goals of Storefront Ui is to provide you with a ready to use design system that will you allow to recreate almost every design.
+One of the key goals of Storefront UI is to provide you with a ready to use design system that will allow you to recreate almost every design.
 
 Below you can read how you can customize different aspects of its styles and components.
 
 [[toc]]
 
 ## Intro to CSS Custom Properties
-CSS Custom Properties (or so called CSS variables) are extremaly powerful and have a great inpact on how we write and structure our styles. We decided to migrate from SCSS to CSS variables for many reasons:
+CSS Custom Properties (or so called CSS variables) are extremely powerful and have a great impact on how we write and structure our styles. We decided to migrate from SCSS to CSS variables for many reasons:
 - **Easy-theming**
 You can easily overwrite any variable as they are dynamic (unlike variables defined using preprocessors). All elements that use the variable will automatically reflect the change.
 ```css

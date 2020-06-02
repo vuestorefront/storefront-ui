@@ -13,6 +13,7 @@
 }
 .sf-price {
   display: flex;
+  flex-wrap: var(--price-flex-wrap, wrap);
   flex-direction: var(--price-flex-direction, row);
   align-items: var(--price-align-items, center);
   justify-content: var(--price-justify-content);

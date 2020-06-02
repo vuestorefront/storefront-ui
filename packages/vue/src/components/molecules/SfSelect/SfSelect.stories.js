@@ -53,6 +53,9 @@ storiesOf("Molecules|Select", module)
       errorMessage: {
         default: text("errorMessage", "Color", "Props"),
       },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
       selected: {
         default: options(
           "selected",
@@ -78,6 +81,7 @@ storiesOf("Molecules|Select", module)
         :valid="valid"
         :disabled="disabled"
         :error-message="errorMessage"
+        :persistent="persistent"
         style="max-width: 30rem"
       >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
@@ -118,6 +122,9 @@ storiesOf("Molecules|Select", module)
       errorMessage: {
         default: text("errorMessage", "Color", "Props"),
       },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
     },
     data() {
       return {
@@ -134,7 +141,8 @@ storiesOf("Molecules|Select", module)
         :required="required"
         :valid="valid"
         :disabled="disabled"
-        :error-message="errorMessage"        
+        :error-message="errorMessage" 
+        :persistent="persistent"       
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
@@ -142,7 +150,7 @@ storiesOf("Molecules|Select", module)
         <template #label>
           CUSTOM LABEL
         </template>
-      </SfSelect>      
+      </SfSelect>
     </div>`,
   }))
   .add("[slot] errorMessage", () => ({
@@ -178,6 +186,9 @@ storiesOf("Molecules|Select", module)
       errorMessage: {
         default: text("errorMessage", "Color", "Props"),
       },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
     },
     data() {
       return {
@@ -194,7 +205,9 @@ storiesOf("Molecules|Select", module)
         :required="required"
         :valid="valid"
         :disabled="disabled"
-        :error-message="errorMessage">
+        :error-message="errorMessage"
+        :persistent="persistent"
+        >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
@@ -237,6 +250,9 @@ storiesOf("Molecules|Select", module)
       errorMessage: {
         default: text("errorMessage", "Color", "Props"),
       },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
     },
     data() {
       return {
@@ -253,7 +269,9 @@ storiesOf("Molecules|Select", module)
         :required="required"
         :valid="valid"
         :disabled="disabled"
-        :error-message="errorMessage">
+        :error-message="errorMessage"
+        :persistent="persistent"
+        >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
