@@ -1,6 +1,7 @@
 @import "../../helpers";
 .sf-sidebar {
   &__aside {
+    --scrollable-max-height: var(--sidebar-content-max-height, 600px);
     position: fixed;
     top: var(--sidebar-top, 0);
     left: var(--sidebar-left, 0);
@@ -50,12 +51,7 @@
       var(--font-family-primary)
     );
     &::-webkit-scrollbar {
-      width: var(--spacer-2xs);
-      background: var(--c-light);
-      border-radius: 100px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: var(--c-gray-variant);
+      width: 0;
     }
   }
   &__title {

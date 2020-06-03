@@ -37,10 +37,12 @@
           <!--@slot Use this slot to add sticky top content.-->
           <slot name="content-top" />
         </div>
-        <div ref="content" class="sf-sidebar__content">
-          <!--@slot Use this slot to add SfSidebar content.-->
-          <slot />
-        </div>
+        <SfScrollable show-text="" hide-text="">
+          <div ref="content" class="sf-sidebar__content">
+            <!--@slot Use this slot to add SfSidebar content.-->
+            <slot />
+          </div>
+        </SfScrollable>
         <!--@slot Use this slot to place content to sticky bottom.-->
         <div v-if="hasBottom" class="sf-sidebar__bottom">
           <slot name="content-bottom" />
@@ -57,6 +59,7 @@ import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
+import SfScrollable from "../../molecules/SfScrollable/SfScrollable.vue";
 export default {
   name: "SfSidebar",
   directives: { focusTrap },
@@ -65,6 +68,7 @@ export default {
     SfCircleIcon,
     SfOverlay,
     SfHeading,
+    SfScrollable,
   },
   props: {
     title: {
