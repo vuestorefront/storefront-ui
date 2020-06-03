@@ -24,14 +24,14 @@ export default {
       type: Boolean,
       default: true,
     },
-    isOpenOnMobile: {
-      type: Array,
+    open: {
+      type: [String, Array],
       default: () => [],
     },
   },
   data() {
     return {
-      open: [],
+      isOpenOnMobile: [...this.open],
       items: [],
     };
   },
@@ -46,7 +46,7 @@ export default {
       handler(mobile) {
         this.$nextTick(() => {
           this.decodeString();
-          mobile ? this.open : (this.open = [...this.items]);
+          this.open = mobile ? this.isOpenOnMobile : [...this.items];
         });
       },
       immediate: true,
@@ -55,7 +55,7 @@ export default {
   created() {
     if (this.isOpenOnMobile && this.isMobile) {
       this.decodeString();
-      return this.open;
+      return this.isOpenOnMobile;
     }
   },
   beforeDestroy() {
@@ -78,11 +78,11 @@ export default {
     */
     decodeString() {
       let txt = document.createElement("textarea");
-      this.open = this.isOpenOnMobile.map((columnTitle) => {
+      this.isOpenOnMobile = this.isOpenOnMobile.map((columnTitle) => {
         txt.innerHTML = columnTitle;
         return txt.value;
       });
-      return this.open;
+      return this.isOpenOnMobile;
     },
   },
 };
