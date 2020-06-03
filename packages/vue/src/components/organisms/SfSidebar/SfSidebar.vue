@@ -1,8 +1,13 @@
 <template>
   <div class="sf-sidebar" :class="[staticClass, className]">
-    <SfOverlay :visible="visibleOverlay" @click="close" />
+    <SfOverlay :visible="visibleOverlay" />
     <transition :name="transitionName">
-      <aside v-if="visible" v-focus-trap class="sf-sidebar__aside">
+      <aside
+        v-if="visible"
+        v-focus-trap
+        v-click-outside="checkPersistence"
+        class="sf-sidebar__aside"
+      >
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="bar">
           <SfBar
@@ -52,7 +57,8 @@
   </div>
 </template>
 <script>
-import { focusTrap } from "../../../utilities/directives";
+import { focusTrap } from "../../../utilities/directives/";
+import { clickOutside } from "../../../utilities/directives/";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { isClient } from "../../../utilities/helpers";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
@@ -62,7 +68,7 @@ import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 import SfScrollable from "../../molecules/SfScrollable/SfScrollable.vue";
 export default {
   name: "SfSidebar",
-  directives: { focusTrap },
+  directives: { focusTrap, clickOutside },
   components: {
     SfBar,
     SfCircleIcon,
@@ -95,6 +101,13 @@ export default {
       type: Boolean,
       default: true,
     },
+    /**
+     * If true clicking outside will not dismiss the sidebar
+     */
+    persistent: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -108,7 +121,7 @@ export default {
       return this.visible && this.overlay;
     },
     transitionName() {
-      return "slide-" + this.position;
+      return "sf-slide-" + this.position;
     },
     hasTop() {
       return this.$slots.hasOwnProperty("content-top");
@@ -143,6 +156,9 @@ export default {
   methods: {
     close() {
       this.$emit("close");
+    },
+    checkPersistence() {
+      if (!this.persistent) this.close();
     },
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
