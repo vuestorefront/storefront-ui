@@ -42,7 +42,7 @@ export default {
      */
     transition: {
       type: String,
-      default: "fade",
+      default: "sf-expand",
     },
     showChevron: {
       type: Boolean,

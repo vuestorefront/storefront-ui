@@ -16,6 +16,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -56,7 +57,7 @@ storiesOf("Atoms|Input", module)
       };
     },
     template: `
-    <div>
+    <div style="padding: 10px">
       <label v-if="nativePlaceholder" for="first-name" style="font-size:1.125rem;font-family:Raleway">
             Name:
       </label>
@@ -86,6 +87,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -149,6 +151,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -215,6 +218,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -278,6 +282,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "sf-input--filled",
           { display: "multi-select" },
