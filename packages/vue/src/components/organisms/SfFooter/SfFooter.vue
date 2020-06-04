@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return {
-      isOpenOnMobile: [...this.open],
+      setOpen: [...this.open],
       items: [],
     };
   },
@@ -45,18 +45,11 @@ export default {
     isMobile: {
       handler(mobile) {
         this.$nextTick(() => {
-          this.decodeString();
-          this.open = mobile ? this.isOpenOnMobile : [...this.items];
+          this.setOpen = mobile ? [...this.decodeString()] : [...this.items];
         });
       },
       immediate: true,
     },
-  },
-  created() {
-    if (this.isOpenOnMobile && this.isMobile) {
-      this.decodeString();
-      return this.isOpenOnMobile;
-    }
   },
   beforeDestroy() {
     unMapMobileObserver();
@@ -65,24 +58,23 @@ export default {
     toggle(payload) {
       if (!this.isMobile) return;
       if (!this.multiple) {
-        this.open = [payload];
-      } else if (this.open.includes(payload)) {
-        this.open = this.open.filter((item) => item !== payload);
+        this.setOpen = [payload];
+      } else if (this.setOpen.includes(payload)) {
+        this.setOpen = this.setOpen.filter((item) => item !== payload);
       } else {
-        this.open.push(payload);
+        this.setOpen.push(payload);
       }
-      this.$emit("change", this.open);
+      this.$emit("change", this.setOpen);
     },
     /* 
       function to decode string into HTML
     */
     decodeString() {
       let txt = document.createElement("textarea");
-      this.isOpenOnMobile = this.isOpenOnMobile.map((columnTitle) => {
+      return this.open.map((columnTitle) => {
         txt.innerHTML = columnTitle;
         return txt.value;
       });
-      return this.isOpenOnMobile;
     },
   },
 };

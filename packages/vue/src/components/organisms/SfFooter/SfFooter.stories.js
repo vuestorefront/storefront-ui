@@ -26,8 +26,8 @@ storiesOf("Organisms|Footer", module)
       multiple: {
         default: boolean("multiple", false, "Props"),
       },
-      isOpenOnMobile: {
-        default: object("isOpenOnMobile", ["About us", "Payment & delivery", "Social"], "Props")
+      open: {
+        default: object("open", ["About us", "Payment & delivery", "Social"], "Props")
       }
     },
     data() {
@@ -81,7 +81,7 @@ storiesOf("Organisms|Footer", module)
     template: `<SfFooter
         :column="column"
         :multiple="multiple"
-        :isOpenOnMobile="isOpenOnMobile"
+        :open="open"
       >
         <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title">        
           <SfList v-if="column.items">
