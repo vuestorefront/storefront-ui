@@ -56,6 +56,7 @@
 }
 .sf-mega-menu {
   width: 100%;
+  background: var(--mega-menu-background, var(--c-white));
   &__bar {
     display: var(--mega-menu-bar-display, flex);
     @include for-desktop {

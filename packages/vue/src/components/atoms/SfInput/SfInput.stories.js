@@ -16,6 +16,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -46,24 +47,30 @@ storiesOf("Atoms|Input", module)
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
+      placeholder: {
+        default: text("placeholder", "", "Props"),
+      },
     },
     data() {
       return {
         value: "",
       };
     },
-    template: `<SfInput
-      v-model="value"
-      :type="type"
-      :label="label"
-      :name="name"
-      :valid="valid"
-      :error-message="errorMessage"
-      :required="required"
-      :disabled="disabled"
-      :has-show-password="hasShowPassword"
-      :class="customClass"
-      />`,
+    template: `<div style="padding: 10px">
+      <SfInput
+        v-model="value"
+        :type="type"
+        :label="label"
+        :name="name"
+        :valid="valid"
+        :error-message="errorMessage"
+        :required="required"
+        :disabled="disabled"
+        :has-show-password="hasShowPassword"
+        :class="customClass"
+        :placeholder="placeholder"
+      />
+    </div>`,
   }))
   .add("[slot] label", () => ({
     components: {
@@ -76,6 +83,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -139,6 +147,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -205,6 +214,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -268,6 +278,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "sf-input--filled",
           { display: "multi-select" },

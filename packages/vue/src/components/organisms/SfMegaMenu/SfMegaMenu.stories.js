@@ -1,3 +1,4 @@
+import "./SfMegaMenu.stories.scss";
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
 import {
@@ -92,7 +93,7 @@ storiesOf("Organisms|MegaMenu", module)
           </SfListItem>
         </SfList>
       </SfMegaMenuColumn>
-      <SfMegaMenuColumn title="Featured" class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__promo">
+      <SfMegaMenuColumn title="Featured" class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__featured">
         <div class="sb-mega-menu__banners">
           <SfBanner
             v-for="(banner, key) in banners"
@@ -359,7 +360,7 @@ storiesOf("Organisms|MegaMenu", module)
                 </SfListItem>
               </SfList>
             </SfMegaMenuColumn>
-            <SfMegaMenuColumn title="Featured" class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__promo">
+            <SfMegaMenuColumn title="Featured" class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__featured">
               <div class="sb-mega-menu__banners">
                 <SfBanner
                   v-for="(banner, key) in banners"

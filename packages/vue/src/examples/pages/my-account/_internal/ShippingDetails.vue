@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="sf-fade">
     <SfTabs
       v-if="editAddress"
       key="edit-address"
@@ -95,7 +95,7 @@
           ...) This way you won't have to enter the shipping address manually
           with each order.
         </p>
-        <transition-group tag="div" name="fade" class="shipping-list">
+        <transition-group tag="div" name="sf-fade" class="shipping-list">
           <div
             v-for="(shipping, key) in account.shipping"
             :key="shipping.streetName + shipping.apartment"
