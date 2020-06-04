@@ -27,7 +27,7 @@ storiesOf("Atoms|Input", module)
         default: text("type", "text", "Props"),
       },
       label: {
-        default: text("label", "First name", "Props"),
+        default: text("label", "", "Props"),
       },
       name: {
         default: text("name", "first-name", "Props"),
@@ -48,7 +48,7 @@ storiesOf("Atoms|Input", module)
         default: boolean("hasShowPassword", false, "Props"),
       },
       placeholder: {
-        default: text("placeholder", "", "Props"),
+        default: text("placeholder", "holder", "Props"),
       },
     },
     data() {
@@ -56,11 +56,7 @@ storiesOf("Atoms|Input", module)
         value: "",
       };
     },
-    template: `
-    <div style="padding: 10px">
-      <label v-if="placeholder" for="first-name" style="font-size:1.125rem;font-family:Raleway">
-            Name:
-      </label>
+    template: `<div style="padding: 10px">
       <SfInput
         v-model="value"
         :type="type"
