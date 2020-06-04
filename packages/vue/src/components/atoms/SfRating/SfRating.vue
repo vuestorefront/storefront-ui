@@ -9,22 +9,14 @@
         :icon="icon"
       />
     </slot>
-    <!--@slot custom icon for partially positive finalScore. -->
+    <!--@slot custom icon for fractional finalScore. -->
     <slot name="icon-fraction">
-      <!-- <SfIcon
-        v-if="score % 1 !== 0"
-        size="0.875rem"
-        class="sf-rating__icon sf-rating__icon--fraction-postive"
-        icon="star"
-      />
-      <SfIcon
-        v-if="score % 1 !== 0"
-        size="0.875rem"
-        class="sf-rating__icon sf-rating__icon--fraction-negative"
-        icon="star"
-      /> -->
       <SfIcon v-if="score % 1 !== 0" class="sf-rating__icon" size="0.875rem">
-        <svg>
+        <svg
+          class="sf-icon-path"
+          :viewBox="iconViewBox"
+          preserveAspectRatio="none"
+        >
           <defs>
             <linearGradient
               :id="finalScore - Math.floor(finalScore)"
@@ -122,6 +114,9 @@ export default {
       } else {
         return Array.isArray(this.icon) ? this.icon : [this.icon];
       }
+    },
+    iconViewBox() {
+      return this.isSFIcons ? icons[this.icon].viewBox : this.viewBox;
     },
   },
   methods: {
