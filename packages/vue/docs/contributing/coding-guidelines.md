@@ -327,8 +327,9 @@ The minimum set of tests should contain component:
 ## Stories for Storybook
 
 Component stories should contain at least these following stories:
-1. Default called `basic` for all props, with props and CSS modifiers fillable as knobs.
+1. Default called `Common` for all props, with props and CSS modifiers fillable as knobs.
 2. One for every customisable `slot` in the component
+3. Use *.stories.scss to add styles for stories. Use `.sb-` prefix for stories classes. A good example is [SfMegaMenu stories](https://github.com/DivanteLtd/storefront-ui/tree/develop/packages/vue/src/components/organisms/SfMegaMenu) 
 
 :::tip
 A good example is [SfBanner stories](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/src/components/molecules/SfBanner/SfBanner.stories.js).
@@ -336,4 +337,4 @@ A good example is [SfBanner stories](https://github.com/DivanteLtd/storefront-ui
 
 You can learn more about Storybook syntax and how to use [here](https://storybook.js.org).
 
-Check [our storybook](http://storefrontui-storybook.netlify.com) for examples.
+Check [our storybook](https://storybook.storefrontui.io/) for examples.
