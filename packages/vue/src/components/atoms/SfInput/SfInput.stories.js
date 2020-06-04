@@ -47,8 +47,8 @@ storiesOf("Atoms|Input", module)
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
-      nativePlaceholder: {
-        default: text("nativePlaceholder", "", "Props"),
+      placeholder: {
+        default: text("placeholder", "", "Props"),
       },
     },
     data() {
@@ -58,7 +58,7 @@ storiesOf("Atoms|Input", module)
     },
     template: `
     <div style="padding: 10px">
-      <label v-if="nativePlaceholder" for="first-name" style="font-size:1.125rem;font-family:Raleway">
+      <label v-if="placeholder" for="first-name" style="font-size:1.125rem;font-family:Raleway">
             Name:
       </label>
       <SfInput
@@ -72,7 +72,7 @@ storiesOf("Atoms|Input", module)
         :disabled="disabled"
         :has-show-password="hasShowPassword"
         :class="customClass"
-        :placeholder="nativePlaceholder"
+        :placeholder="placeholder"
       />
     </div>`,
   }))
