@@ -2,7 +2,12 @@
   <SfButton class="sf-arrow" type="button" v-on="$listeners">
     <!--@slot Use this slot to replace arrow icon-->
     <slot>
-      <SfIcon aria-hidden="true" icon="arrow_left" class="sf-arrow__icon" />
+      <SfIcon
+        size="1.5rem"
+        icon="arrow_left"
+        aria-hidden="true"
+        class="sf-arrow__icon"
+      />
     </slot>
   </SfButton>
 </template>

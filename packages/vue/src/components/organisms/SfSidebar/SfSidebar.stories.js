@@ -43,6 +43,9 @@ storiesOf("Organisms|Sidebar", module)
       button: {
         default: boolean("button", true, "Props"),
       },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
     },
     mixins: [dataToggleMixin("isSidebarOpen")],
     template: `<SfSidebar
@@ -54,6 +57,7 @@ storiesOf("Organisms|Sidebar", module)
         :button="button"
         :overlay="overlay"
         :class="customClass"
+        :persistent="persistent"
       >
         Total items: 0
       </SfSidebar>`,
@@ -87,6 +91,9 @@ storiesOf("Organisms|Sidebar", module)
       button: {
         default: boolean("button", true, "Props"),
       },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
     },
     mixins: [dataToggleMixin("isSidebarOpen")],
     template: `<SfSidebar
@@ -98,6 +105,7 @@ storiesOf("Organisms|Sidebar", module)
         :button="button"
         :overlay="overlay"
         :class="customClass"
+        :persistent="persistent"
       >
         Total items: 0
       </SfSidebar>`,
@@ -131,6 +139,9 @@ storiesOf("Organisms|Sidebar", module)
       button: {
         default: boolean("button", true, "Props"),
       },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
     },
     mixins: [dataToggleMixin("isSidebarOpen")],
     template: `<SfSidebar
@@ -142,6 +153,7 @@ storiesOf("Organisms|Sidebar", module)
         :button="button"
         :overlay="overlay"
         :class="customClass"
+        :persistent="persistent"
     >
       <template #title="{title, subtitle, headingLevel}">
         <div>CUSTOM TITLE</div>
@@ -178,6 +190,9 @@ storiesOf("Organisms|Sidebar", module)
       button: {
         default: boolean("button", true, "Props"),
       },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
     },
     mixins: [dataToggleMixin("isSidebarOpen")],
     template: `<SfSidebar
@@ -189,6 +204,7 @@ storiesOf("Organisms|Sidebar", module)
         :button="button"
         :overlay="overlay"
         :class="customClass"
+        :persistent="persistent"
       >
         <template #circle-icon="{close}">
           <div 

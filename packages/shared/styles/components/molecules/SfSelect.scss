@@ -6,6 +6,13 @@
   @include border(--select-option-border, 1px 0 0 0, solid, var(--c-light));
   background: var(--select-option-background);
   color: inherit;
+  min-height: var(
+    --select-height,
+    calc(
+      var(--spacer-base) + var(--spacer-2xs) +
+      var(--select-label-font-size, var(--font-lg))
+    )
+  );
   @include font(
     --select-option-font,
     var(--font-light),
@@ -29,12 +36,12 @@
   width: var(--select-width);
   height: var(--select-height);
   padding: var(--select-padding, 0 0 calc(var(--font-xs) * 1.2) 0);
-  color: var(--select-color, var(--c-text));  
+  color: var(--select-color, var(--c-text));
   cursor: default;
   &__label {
     position: absolute;
     top: var(--select-label-top, 50%);
-    left: var(--select-label-left, var(--spacer-2xs));
+    left: var(--select-label-left, 0);
     color: var(--select-label-color, inherit);
     transform: var(
       --select-label-transform,
@@ -69,19 +76,11 @@
     --select-option-font-size: var(--font-lg);
     box-sizing: border-box;
     display: flex;
-    align-items: center;
-    min-height: var(
-      --select-height,
-      calc(
-        calc(
-          var(--spacer-base) + var(--spacer-2xs) +
-          var(--select-label-font-size, var(--font-lg))
-        )
-      )
-    );
+    align-items: var(--select-selected-align-items,center);
+    justify-content: var(--select-selected-justify-content, flex-start);
     padding: var(
       --select-selected-padding,
-      var(--spacer-sm) var(--spacer-lg) var(--spacer-xs) var(--spacer-2xs)
+      var(--spacer-sm) var(--spacer-lg) var(--spacer-xs) 0
     );
     margin: var(--select-margin, 0 0 var(--spacer-xs) 0);
     background: var(--select-background);
@@ -103,10 +102,10 @@
     );
   }
   &__options {
-    overflow: auto;
     margin: 0;
     padding: 0;
     list-style-type: none;
+    overflow: auto;
     &::-webkit-scrollbar {
       width: 0;
     }
@@ -114,7 +113,7 @@
   &__error-message {
     --select-border-color: var(--c-danger);
     color: var(--select-error-message-color, var(--c-danger));
-    height: calc(var(--font-xs) * 1.2);
+    min-height: calc(var(--font-xs) * 1.2);
     @include font(
       --input-error-message-font,
       var(--font-medium),
@@ -136,7 +135,10 @@
   }
   &--is-selected {
     --select-label-top: 0;
-    --select-label-font-size: var(--font-2xs);
+    --select-label-font-size: var(--font-xs);
+  }
+  &--is-invalid {
+    --select-border-color: var(--c-danger);
   }
   &--is-active {
     --chevron-color: var(--c-primary);

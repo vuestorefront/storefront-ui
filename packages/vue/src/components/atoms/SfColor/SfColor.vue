@@ -6,14 +6,14 @@
     :aria-pressed="selected.toString()"
     v-on="$listeners"
   >
-    <transition name="sf-color__badge">
+    <transition name="sf-bounce">
       <!-- @slot Use it to replace badge to custom element -->
       <slot name="badge" v-bind="{ selected, hasBadge }">
         <SfBadge
           v-if="selected && hasBadge"
           class="sf-color__badge mobile-only"
         >
-          <SfIcon aria-hidden="true" icon="check" size="7px" color="white" />
+          <SfIcon aria-hidden="true" icon="check" size="8px" color="white" />
         </SfBadge>
       </slot>
     </transition>
