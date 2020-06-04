@@ -27,7 +27,7 @@ storiesOf("Atoms|Input", module)
         default: text("type", "text", "Props"),
       },
       label: {
-        default: text("label", "", "Props"),
+        default: text("label", "First name", "Props"),
       },
       name: {
         default: text("name", "first-name", "Props"),
@@ -48,7 +48,7 @@ storiesOf("Atoms|Input", module)
         default: boolean("hasShowPassword", false, "Props"),
       },
       placeholder: {
-        default: text("placeholder", "holder", "Props"),
+        default: text("placeholder", "", "Props"),
       },
     },
     data() {
