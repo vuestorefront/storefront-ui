@@ -1,6 +1,6 @@
 <template>
   <SfModal id="login" :visible="true" :title="modalTitle">
-    <transition name="fade" mode="out-in">
+    <transition name="sf-fade" mode="out-in">
       <div v-if="isLogIn" key="log-in" class="modal-content">
         <form class="form" @submit.prevent="() => false">
           <SfInput

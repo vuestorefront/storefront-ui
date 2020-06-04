@@ -6,12 +6,20 @@
   margin: var(--bullet-margin, var(--spacer-2xs));
   border-radius: var(--bullet-border-radius, 100%);
   background: var(--bullet-background, var(--c-gray));
-  box-shadow: var(--bullet-box-shadow, none);
   transition: transform 150ms linear, box-shadow 150ms linear;
+  @include box-shadow(
+    --bullet-box-shadow,
+    0px,
+    3px,
+    4px,
+    0px,
+    var(--c-black),
+  );
+  --bullet-box-shadow-opacity: 0;
   &:hover,
   &--active {
     transform: scale3d(1.25, 1.25, 1);
-    --bullet-box-shadow: 0 3px 4px 0 rgba(var(--c-dark-base), 0.25);
+    --bullet-box-shadow-opacity: 0.25;
   }
   &--active {
     --bullet-background: var(--c-primary);
