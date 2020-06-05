@@ -8,12 +8,13 @@
     color: inherit;
     text-decoration: inherit;
     &--image {
-      flex: 0 0 var(--product-card-horizontal-image-width, 5.3125rem);
+      display: block;
+      line-height: 0;
     }
   }
   &__image-wrapper {
+    flex: 0 0 var(--product-card-horizontal-image-width, 5.3125rem);
     position: relative;
-    display: flex;
     &:hover {
       --product-card-horizontal-image-opacity: 1;
       --product-card-horizontal-image-even-opacity: 1;
