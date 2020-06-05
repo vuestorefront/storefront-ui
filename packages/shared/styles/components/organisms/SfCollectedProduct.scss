@@ -71,12 +71,12 @@
   }
   &__title {
     display: inline-block;
-    margin-bottom: var(--spacer-base);
+    margin: var(--collected-product-title-margin, 0 var(--spacer-base) var(--spacer-base) 0);
     --link-text-decoration: none;
     @include font(
       --collected-product-title-font,
       var(--font-normal),
-      var(--font-2xs),
+      var(--font-sm),
       1.6,
       var(--font-family-secondary)
     );
