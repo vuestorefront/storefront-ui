@@ -24,7 +24,7 @@ storiesOf("Organisms|Footer", module)
         default: number("column", 4, {}, "Props"),
       },
       multiple: {
-        default: boolean("multiple", false, "Props"),
+        default: boolean("multiple", true, "Props"),
       },
       open: {
         default: object("open", ["About us", "Help", "Social"], "Props"),

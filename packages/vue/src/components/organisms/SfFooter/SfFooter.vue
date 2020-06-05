@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return {
-      setOpen: [],
+      isOpen: [],
       items: [],
     };
   },
@@ -45,7 +45,7 @@ export default {
     isMobile: {
       handler(mobile) {
         this.$nextTick(() => {
-          this.setOpen = mobile ? [...this.open] : [...this.items];
+          this.isOpen = mobile ? [...this.open] : [...this.items];
         });
       },
       immediate: true,
@@ -58,13 +58,13 @@ export default {
     toggle(payload) {
       if (!this.isMobile) return;
       if (!this.multiple) {
-        this.setOpen = [payload];
-      } else if (this.setOpen.includes(payload)) {
-        this.setOpen = this.setOpen.filter((item) => item !== payload);
+        this.isOpen = [payload];
+      } else if (this.isOpen.includes(payload)) {
+        this.isOpen = this.isOpen.filter((item) => item !== payload);
       } else {
-        this.setOpen.push(payload);
+        this.isOpen.push(payload);
       }
-      this.$emit("change", this.setOpen);
+      this.$emit("change", this.isOpen);
     },
   },
 };
