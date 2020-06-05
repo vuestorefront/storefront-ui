@@ -45,7 +45,7 @@ export default {
     isMobile: {
       handler(mobile) {
         this.$nextTick(() => {
-          this.setOpen = mobile ? [...this.decodeString()] : [...this.items];
+          this.setOpen = mobile ? [...this.open] : [...this.items];
         });
       },
       immediate: true,
@@ -65,16 +65,6 @@ export default {
         this.setOpen.push(payload);
       }
       this.$emit("change", this.setOpen);
-    },
-    /* 
-      function to decode string into HTML
-    */
-    decodeString() {
-      let txt = document.createElement("textarea");
-      return this.open.map((columnTitle) => {
-        txt.innerHTML = columnTitle;
-        return txt.value;
-      });
     },
   },
 };
