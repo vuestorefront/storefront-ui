@@ -4,6 +4,7 @@
     <transition :name="transitionName">
       <aside
         v-if="visible"
+        ref="sidebarAside"
         v-focus-trap
         v-click-outside="checkPersistence"
         class="sf-sidebar__aside"
@@ -42,7 +43,7 @@
           <!--@slot Use this slot to add sticky top content.-->
           <slot name="content-top" />
         </div>
-        <SfScrollable show-text="" hide-text="">
+        <SfScrollable show-text="" hide-text="" :style="setMaxHeight">
           <div ref="content" class="sf-sidebar__content">
             <!--@slot Use this slot to add SfSidebar content.-->
             <slot />
@@ -114,6 +115,7 @@ export default {
       position: "left",
       staticClass: null,
       className: null,
+      setMaxHeight: "",
     };
   },
   computed: {
@@ -149,6 +151,9 @@ export default {
   },
   mounted() {
     this.classHandler();
+    console.log(this.$refs.asideHeight);
+    const asideHeight = this.$refs.asideHeight.clientHeight;
+    return (this.setMaxHeight = `--sidebar-content-max-height:${asideHeight}px`);
   },
   updated() {
     this.classHandler();

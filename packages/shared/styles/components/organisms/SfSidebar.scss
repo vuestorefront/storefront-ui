@@ -1,7 +1,7 @@
 @import "../../helpers";
 .sf-sidebar {
   &__aside {
-    --scrollable-max-height: var(--sidebar-content-max-height, 600px);
+    --scrollable-max-height: var(--sidebar-content-max-height, auto);
     position: fixed;
     top: var(--sidebar-top, 0);
     left: var(--sidebar-left, 0);
