@@ -679,6 +679,7 @@ export default {
     --select-padding: 0;
     --select-selected-padding: 0 var(--spacer-lg) 0 var(--spacer-2xs);
     --select-margin: 0;
+    --select-error-message-height: 0;
   }
   &__sort {
     display: flex;
