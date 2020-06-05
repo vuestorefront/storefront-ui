@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return {
-      setOpen: [...this.open],
+      setOpen: [],
       items: [],
     };
   },
