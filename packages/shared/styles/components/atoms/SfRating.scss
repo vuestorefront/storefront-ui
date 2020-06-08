@@ -7,11 +7,5 @@
     &--negative {
       --icon-color: var(--icon-color-negative);
     }
-    &--fraction-positive {
-      --icon-color: var(--icon-color); 
-    }
-    &--fraction-negative {
-      --icon-color: var(--icon-color-negative)
-    }
   }
 }

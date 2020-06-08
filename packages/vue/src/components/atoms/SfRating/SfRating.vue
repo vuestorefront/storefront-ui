@@ -1,51 +1,21 @@
 <template>
   <div class="sf-rating">
     <!--@slot custom icon for finalScore. Provide single icon that will be automatically repeated -->
-    <slot v-for="index in parseInt(finalScore, 10)" name="icon-positive">
+    <slot v-for="index in Math.ceil(finalScore)" name="icon-positive">
       <SfIcon
         :key="`p${index}`"
         size="0.875rem"
         class="sf-rating__icon"
         :icon="icon"
+        :coverage="
+          index === Math.ceil(finalScore) && finalScore % 1 > 0
+            ? finalScore % 1
+            : 1
+        "
       />
     </slot>
-    <!--@slot custom icon for fractional finalScore. -->
-    <slot name="icon-fraction">
-      <SfIcon v-if="score % 1 !== 0" class="sf-rating__icon" size="0.875rem">
-        <svg
-          class="sf-icon-path"
-          :viewBox="iconViewBox"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <linearGradient
-              :id="finalScore - Math.floor(finalScore)"
-              x1="0"
-              y1="0"
-              x2="1"
-              y2="0"
-            >
-              <stop
-                :offset="finalScore - Math.floor(finalScore)"
-                stop-color="var(--icon-color)"
-              />
-              <stop offset="0" stop-color="var(--icon-color-negative)" />
-            </linearGradient>
-          </defs>
-          <path
-            v-for="(path, index) in iconPaths"
-            :key="index"
-            :d="path"
-            :fill="fillUrl(finalScore - Math.floor(finalScore))"
-            style="height: 100%;"
-          />
-        </svg>
-      </SfIcon>
-    </slot>
-    <!--@slot custom icon for negative (left) finalScore. Provide single icon that will be automatically repeated -->
     <slot
-      v-for="index in parseInt(finalMax, 10) -
-      Math.ceil(parseFloat(finalScore, 10))"
+      v-for="index in parseInt(finalMax, 10) - Math.ceil(finalScore)"
       name="icon-negative"
     >
       <SfIcon
@@ -102,26 +72,6 @@ export default {
     },
     finalMax() {
       return !this.max || this.max <= 0 ? 1 : this.max;
-    },
-    isSFIcons() {
-      if (typeof this.icon === "string") {
-        return SF_ICONS.includes(this.icon.trim());
-      } else return null;
-    },
-    iconPaths() {
-      if (this.isSFIcons) {
-        return icons[this.icon].paths;
-      } else {
-        return Array.isArray(this.icon) ? this.icon : [this.icon];
-      }
-    },
-    iconViewBox() {
-      return this.isSFIcons ? icons[this.icon].viewBox : this.viewBox;
-    },
-  },
-  methods: {
-    fillUrl(index) {
-      return "url(#" + index + ")";
     },
   },
 };

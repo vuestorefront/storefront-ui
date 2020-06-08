@@ -6,7 +6,7 @@
   width: var(--icon-width, var(--icon-size, #{map-get($sizes, "sm")}));
   height: var(--icon-height, var(--icon-size, #{map-get($sizes, "sm")}));
   background: transparent;
-  fill: var(--icon-color, #{map-get($icon-colors, "black")});
+  fill: var(--icon-color, #{map-get($icon-colors, "black")});   
   svg,
   img {
     width: inherit;
@@ -17,6 +17,9 @@
     top: var(--icon-badge-top, 0);
     right: var(--icon-badge-right, 0);
   }
+  // &--fraction {
+  //   --icon-color-negative: var(--c-gray-variant);
+  // }
   @each $palette, $color in $icon-colors {
     &.color-#{$palette} {
       --icon-color: #{$color};
