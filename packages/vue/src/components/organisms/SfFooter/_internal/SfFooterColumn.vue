@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     open() {
-      return this.$parent.open.includes(this.title);
+      return this.$parent.isOpen.includes(this.title);
     },
   },
   mounted() {

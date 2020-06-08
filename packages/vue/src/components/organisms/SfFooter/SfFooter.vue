@@ -24,10 +24,14 @@ export default {
       type: Boolean,
       default: true,
     },
+    open: {
+      type: [String, Array],
+      default: () => [],
+    },
   },
   data() {
     return {
-      open: [],
+      isOpen: [],
       items: [],
     };
   },
@@ -41,7 +45,7 @@ export default {
     isMobile: {
       handler(mobile) {
         this.$nextTick(() => {
-          this.open = mobile ? [] : [...this.items];
+          this.isOpen = mobile ? [...this.open] : [...this.items];
         });
       },
       immediate: true,
@@ -54,13 +58,13 @@ export default {
     toggle(payload) {
       if (!this.isMobile) return;
       if (!this.multiple) {
-        this.open = [payload];
-      } else if (this.open.includes(payload)) {
-        this.open = this.open.filter((item) => item !== payload);
+        this.isOpen = [payload];
+      } else if (this.isOpen.includes(payload)) {
+        this.isOpen = this.isOpen.filter((item) => item !== payload);
       } else {
-        this.open.push(payload);
+        this.isOpen.push(payload);
       }
-      this.$emit("change", this.open);
+      this.$emit("change", this.isOpen);
     },
   },
 };
