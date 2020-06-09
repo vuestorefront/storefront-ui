@@ -20,19 +20,23 @@
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
-      <label class="sf-input__label" :for="name">
+      <label
+        class="sf-input__label"
+        :for="name"
+        :class="{ 'sf-input__label--has-icon': hasIcon }"
+      >
         <!-- @slot Custom input label -->
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
       <slot
-        v-if="isPassword"
         v-bind="{
           isPasswordVisible,
           switchVisibilityPassword,
         }"
-        name="show-password"
+        name="computedIconSlotName"
       >
         <SfButton
+          v-if="isPassword"
           class="sf-input__password-button"
           type="button"
           aria-label="switch-visibility-password"
@@ -45,20 +49,14 @@
               'sf-input__password-icon--hidden': !isPasswordVisible,
             }"
             icon="show_password"
-            size="1.5rem"
-          ></SfIcon>
+          />
         </SfButton>
-      </slot>
-      <slot
-        v-if="!(hasShowPassword && type === 'password')"
-        name="icon"
-        v-bind="{ colorIcon, icon }"
-      >
         <SfIcon
           v-if="hasIcon"
           class="sf-input__icon"
-          :color="colorIcon"
           :icon="icon"
+          :color="colorIcon"
+          :size="sizeIcon"
         />
       </slot>
     </div>
@@ -68,24 +66,6 @@
         <slot :name="computedMessageSlotName" v-bind="{ computedMessage }">
           <div :class="computedMessageClass">{{ computedMessage }}</div></slot
         >
-      </transition>
-    </div>
-    <div class="sf-input__error-message">
-      <transition name="fade">
-        <div v-if="required">
-          <!-- @slot Custom required message of form input -->
-          <slot name="required-message" v-bind="{ requiredMessage }">
-            <span class="sf-input__error-message--required"
-              >{{ requiredMessage }}
-            </span></slot
-          >
-        </div>
-      </transition>
-      <transition name="fade">
-        <!-- @slot Custom error message of form input -->
-        <slot name="error-message" v-bind="{ errorMessage }">
-          <span v-if="!valid">{{ errorMessage }}</span>
-        </slot>
       </transition>
     </div>
   </div>
@@ -196,12 +176,9 @@ export default {
       type: String,
       default: "",
     },
-    /**
-     * helper value of form input.
-     */
-    helperText: {
+    sizeIcon: {
       type: String,
-      default: null,
+      default: "",
     },
   },
   data() {
@@ -227,9 +204,9 @@ export default {
       } else if (this.successMessage && this.valid) {
         return "show-successMessage";
       } else if (this.hintMessage) {
-        return this.required ? "show-hintMessage" : "show-message";
+        return this.required ? "show-hintMessage" : "";
       } else {
-        return "show-message";
+        return "";
       }
     },
     computedMessage() {
@@ -250,6 +227,17 @@ export default {
         return "sf-input__message--success";
       } else if (this.hintMessage) {
         return this.required ? "sf-input__message--hint" : "";
+      } else {
+        return "";
+      }
+    },
+    computedIconSlotName() {
+      if (this.hasShowPassword) {
+        return this.hasIcon
+          ? "show-password-button-and-icon"
+          : "show-password-button";
+      } else if (this.hasIcon) {
+        return "show-icon";
       } else {
         return "";
       }

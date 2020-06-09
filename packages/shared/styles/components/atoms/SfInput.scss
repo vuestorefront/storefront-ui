@@ -16,7 +16,7 @@
     display: var(--input-label-display);
     top: var(--input-label-top, 50%);
     left: var(--input-label-left);
-    padding: var(--input-label-padding);
+    padding: var(--input-label-padding, 0);
     color: var(--input-label-color, inherit);
     text-transform: underline;
     background: var(--input-label-background);
@@ -26,21 +26,22 @@
     );
     transition: var(
       --input-label-transition,
-      top 150ms linear,
-      font-size 150ms linear
+      all 150ms linear
     );
-
-    &::after {
-      content: var(--input-label-required);
-      color: var(--input-label-color, var(--c-primary));
-    }
     @include font(
       --input-label-font,
       var(--font-normal),
-      var(--font-lg),
+      var(--font-base),
       1,
       var(--font-family-secondary)
     );
+    &::after {
+      content: var(--input-label-required);
+      color: var(--input-label-color, var(--c-text));
+    }
+    &--has-icon {
+      padding: var(--input-label-padding, 0 0 0 var(--spacer-base));      
+    }    
   }
   &__bar {
     position: relative;
@@ -114,13 +115,18 @@
       & ~ * {
         --icon-color: var(--c-primary);
         --input-password-icon-background: var(--c-primary);
-        --input-label-top: 0;
+        --input-label-top: 0;        
         --input-label-color: var(--c-primary);
         --input-label-font-size: var(--font-xs);
         --input-bar-width: 50%;
-        --input-error-message-color: var(--c-primary);
-      }
-    }
+        --input-icon-top: 4px;
+        --input-icon-left: 0;
+        --icon-size: 12px;  
+        .sf-input__label--has-icon {
+          --input-label-padding: 0 0 0 var(--spacer-sm);
+        }      
+      }                      
+    }    
     &:required {
       & ~ * {
         --input-label-required: " *";
@@ -152,8 +158,8 @@
     --button-padding: 0;
     --button-background: transparent;
     position: absolute;
-    top: var(--input-icon-top, 50%);
-    right: var(--input-icon-right, var(--spacer-xs));
+    top: var(--input-password-icon-top, 50%);
+    right: var(--input-password-icon-right, var(--spacer-xs));
     transform: translate3d(0, -50%, 0);
     &:hover {
       --button-background: transparent;
@@ -179,12 +185,17 @@
   }
   &__icon {
     position: absolute;
+    display: var(--input-icon-display, inline-block);
     --icon-width: var(--input-icon-width, var(--icon-size, 1rem));
     --icon-height: var(--input-icon-height, var(--icon-size, 1rem));
     top: var(--input-icon-top, 50%);
-    right: var(--input-icon-right, var(--spacer-xs));
-    transform: translate3d(0, -50%, 0);    
-  }
+    left: var(--input-icon-left, var(--spacer-2xs));
+    transform: translate3d(0, -50%, 0);
+    transition: var(
+      --input-icon-transition,
+      all 150ms linear
+    );       
+  }  
   &--invalid {
     --input-border-color: var(--c-danger);
     input {
@@ -201,13 +212,22 @@
   input[type="time"] ~ *,
   input[type="image"] ~ *,
   input[type="file"] ~ * {
-    --input-label-top: 0;
+    --input-label-top: 0;    
     --input-label-font-size: var(--font-xs);
+    --input-icon-top: 4px;
+    --input-icon-left: 0;
+    .sf-input__label--has-icon {
+      --input-label-padding: 0 0 0 var(--spacer-sm);
+    }    
+    .sf-icon {
+      --icon-size: 12px;
+    }
   }
   &--filled {
     --input-background: var(--c-light);
     --input-font-size: var(--font-xs);
     --input-padding: var(--spacer-xs);
+    --input-label-padding: 0;
     --input-label-left: var(--spacer-xs);
     --input-label-font-size: var(--font-xs);
     --input-label-color: var(--c-secondary-variant);
@@ -215,15 +235,16 @@
     &.sf-input--has-text {
       --input-label-display: none;
     }
-    input {
+    .sf-input__icon {
+      --input-icon-display: none;
+    }
+    input {      
       &:focus {
         & ~ * {
           --input-bar-width: unset;
-          --input-label-top: 50%;
-          --input-label-font-size: var(--font-xs);
-          --input-label-color: var(--c-text);
+          --input-label-display: none;
         }
-      }
+      }      
     }
   }
   &--outline {
@@ -232,18 +253,20 @@
     --input-border-color: var(--c-secondary-variant);
     --input-label-background: var(--c-white);
     --input-label-font-size: var(--font-base);
-    &.sf-input--has-text {
-      --input-label-top: -25%;
-      --input-label-left: var(--spacer-xs);
-      --input-label-padding: 0 var(--spacer-2xs);
-    }
-    &.sf-input--invalid {
-      --input-border-color: var(--c-danger);
-      --input-label-color: var(--c-danger);
-      input {
-        &:focus {
-          & ~ * {
-            --input-label-color: var(--c-danger);
+    &.sf-input {
+      &--has-text {
+        --input-label-top: -25%;
+        --input-label-left: var(--spacer-xs);
+        --input-label-padding: 0 var(--spacer-2xs);
+      }
+      &--invalid {
+        --input-border-color: var(--c-danger);
+        --input-label-color: var(--c-danger);
+        input {
+          &:focus {
+            & ~ * {
+              --input-label-color: var(--c-danger);
+            }
           }
         }
       }
@@ -257,7 +280,7 @@
           --input-label-padding: 0 var(--spacer-2xs);
           --input-bar-width: 0;
           --input-label-color: var(--c-secondary-variant);
-        }
+        }      
       }
     }
   }

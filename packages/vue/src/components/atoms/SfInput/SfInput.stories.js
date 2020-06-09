@@ -69,6 +69,12 @@ storiesOf("Atoms|Input", module)
       colorIcon: {
         default: select("colorIcon", ["", ...colors], "", "Props"),
       },
+      sizeIcon: {
+        default: text("sizeIcon", "xxs", "Props"),
+      },
+      placeholder: {
+        default: text("placeholder", "", "Props"),
+      },
     },
     data() {
       return {
@@ -87,6 +93,10 @@ storiesOf("Atoms|Input", module)
         :successMessage="successMessage"
         :required="required"
         :disabled="disabled"
+        :hasIcon="hasIcon"
+        :icon="icon"
+        :colorIcon="colorIcon"
+        :sizeIcon="sizeIcon"
         :has-show-password="hasShowPassword"
         :class="customClass"
         :placeholder="placeholder"
