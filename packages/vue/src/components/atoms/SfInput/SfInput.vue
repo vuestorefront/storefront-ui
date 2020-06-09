@@ -49,6 +49,18 @@
           ></SfIcon>
         </SfButton>
       </slot>
+      <slot
+        v-if="!(hasShowPassword && type === 'password')"
+        name="icon"
+        v-bind="{ colorIcon, icon }"
+      >
+        <SfIcon
+          v-if="hasIcon"
+          class="sf-input__icon"
+          :color="colorIcon"
+          :icon="icon"
+        />
+      </slot>
     </div>
     <div class="sf-input__message">
       <transition name="sf-fade">
@@ -56,6 +68,24 @@
         <slot :name="computedMessageSlotName" v-bind="{ computedMessage }">
           <div :class="computedMessageClass">{{ computedMessage }}</div></slot
         >
+      </transition>
+    </div>
+    <div class="sf-input__error-message">
+      <transition name="fade">
+        <div v-if="required">
+          <!-- @slot Custom required message of form input -->
+          <slot name="required-message" v-bind="{ requiredMessage }">
+            <span class="sf-input__error-message--required"
+              >{{ requiredMessage }}
+            </span></slot
+          >
+        </div>
+      </transition>
+      <transition name="fade">
+        <!-- @slot Custom error message of form input -->
+        <slot name="error-message" v-bind="{ errorMessage }">
+          <span v-if="!valid">{{ errorMessage }}</span>
+        </slot>
       </transition>
     </div>
   </div>
@@ -150,6 +180,28 @@ export default {
     hasShowPassword: {
       type: Boolean,
       default: false,
+    },
+    /**
+     * Status and properties of icon display
+     */
+    hasIcon: {
+      type: Boolean,
+      default: false,
+    },
+    icon: {
+      type: String,
+      default: "",
+    },
+    colorIcon: {
+      type: String,
+      default: "",
+    },
+    /**
+     * helper value of form input.
+     */
+    helperText: {
+      type: String,
+      default: null,
     },
   },
   data() {

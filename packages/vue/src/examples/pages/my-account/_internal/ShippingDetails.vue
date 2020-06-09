@@ -13,6 +13,7 @@
         <div class="form">
           <SfInput
             v-model="firstName"
+            required-message="Required"
             name="firstName"
             label="First Name"
             required
@@ -20,6 +21,7 @@
           />
           <SfInput
             v-model="lastName"
+            required-message="Required"
             name="lastName"
             label="Last Name"
             required
@@ -27,6 +29,7 @@
           />
           <SfInput
             v-model="streetName"
+            required-message="Required"
             name="streetName"
             label="Street Name"
             required
@@ -34,6 +37,7 @@
           />
           <SfInput
             v-model="apartment"
+            required-message="Required"
             name="apartment"
             label="House/Apartment number"
             required
@@ -41,6 +45,7 @@
           />
           <SfInput
             v-model="city"
+            required-message="Required"
             name="city"
             label="City"
             required
@@ -48,6 +53,7 @@
           />
           <SfInput
             v-model="state"
+            required-message="Required"
             name="state"
             label="State/Province"
             required
@@ -55,6 +61,7 @@
           />
           <SfInput
             v-model="zipCode"
+            required-message="Required"
             name="zipCode"
             label="Zip-code"
             required
@@ -62,6 +69,7 @@
           />
           <SfSelect
             v-model="country"
+            required-message="Required"
             name="country"
             label="Country"
             required
@@ -77,6 +85,7 @@
           </SfSelect>
           <SfInput
             v-model="phoneNumber"
+            required-message="Required"
             name="phone"
             label="Phone number"
             required
