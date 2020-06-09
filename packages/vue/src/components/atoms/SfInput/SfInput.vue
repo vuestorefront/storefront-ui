@@ -200,11 +200,11 @@ export default {
     },
     computedMessageSlotName() {
       if (this.errorMessage && !this.valid) {
-        return "show-errorMessage";
+        return "show-error-message";
       } else if (this.successMessage && this.valid) {
-        return "show-successMessage";
+        return "show-success-message";
       } else if (this.hintMessage) {
-        return this.required ? "show-hintMessage" : "";
+        return this.required ? "show-hint-message" : "";
       } else {
         return "";
       }

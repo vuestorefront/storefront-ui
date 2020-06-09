@@ -18,7 +18,7 @@ describe("SfInput.vue", () => {
     const errorMessage = "This field is required";
     const component = shallowMount(SfInput, {
       slots: {
-        "error-message": errorMessage,
+        "show-error-message": errorMessage,
       },
       propsData: {
         valid: false,
