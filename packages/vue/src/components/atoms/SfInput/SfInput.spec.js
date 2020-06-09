@@ -24,7 +24,7 @@ describe("SfInput.vue", () => {
         valid: false,
       },
     });
-    expect(component.find(".sf-input__error-message").text()).toMatch(
+    expect(component.find(".sf-input__message--error").text()).toMatch(
       errorMessage
     );
   });
