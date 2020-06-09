@@ -1,19 +1,17 @@
 <template>
-  <div class="sf-search-bar">
-    <SfInput
-      class="sf-search-bar__input"
-      type="search"
-      :value="value"
-      v-bind="$attrs"
-      :label="placeholder"
-      name="search"
-      icon="search"
-      color-icon="--c-secondary-variant"
-      size-icon="1.25rem"
-      v-on="listeners"
-    >
-    </SfInput>
-  </div>
+  <SfInput
+    class="sf-search-bar"
+    type="search"
+    :value="value"
+    v-bind="$attrs"
+    :placeholder="placeholder"
+    name="search"
+    icon="search"
+    color-icon="--c-secondary-variant"
+    size-icon="1.25rem"
+    v-on="listeners"
+  >
+  </SfInput>
 </template>
 <script>
 import SfInput from "../../atoms/SfInput/SfInput.vue";
