@@ -12,7 +12,7 @@ describe.only("SfSearchBar.vue", () => {
         placeholder: placeholder,
       },
     });
-    expect(component.find(".sf-search-bar").attributes("label")).toEqual(
+    expect(component.find(".sf-search-bar").attributes("placeholder")).toEqual(
       placeholder
     );
   });
