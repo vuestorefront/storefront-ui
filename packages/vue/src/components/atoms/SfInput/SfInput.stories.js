@@ -4,7 +4,7 @@ import {
   text,
   boolean,
   optionsKnob as options,
-  select
+  select,
 } from "@storybook/addon-knobs";
 import { SfInput, SfIcon } from "@storefront-ui/vue";
 import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
@@ -21,6 +21,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -93,6 +94,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -168,6 +170,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -246,6 +249,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -321,6 +325,7 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
+            "sf-input--outline": "sf-input--outline",
           },
           "sf-input--filled",
           { display: "multi-select" },

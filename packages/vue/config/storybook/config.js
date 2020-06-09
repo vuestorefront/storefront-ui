@@ -3,7 +3,6 @@ import { withA11y } from "@storybook/addon-a11y";
 
 // add storefront-ui root stylesheet to storybook
 import "@storefront-ui/vue/styles.scss";
-import "./stories.scss";
 // get storefront-ui stories
 function loadStories() {
   // get storefront-ui introduction page
