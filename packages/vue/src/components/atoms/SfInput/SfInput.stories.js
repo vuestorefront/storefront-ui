@@ -21,7 +21,6 @@ storiesOf("Atoms|Input", module)
           "CSS modifiers",
           {
             "sf-input--filled": "sf-input--filled",
-            "sf-input--outline": "sf-input--outline",
           },
           "",
           { display: "multi-select" },
@@ -61,6 +60,9 @@ storiesOf("Atoms|Input", module)
       colorIcon: {
         default: select("colorIcon", colors, "black", "Props"),
       },
+      placeholder: {
+        default: text("placeholder", "", "Props"),
+      },
     },
     data() {
       return {
@@ -81,6 +83,7 @@ storiesOf("Atoms|Input", module)
       :icon="icon"
       :sizeIcon="sizeIcon"
       :colorIcon="colorIcon"
+      :placeholder="placeholder"
       />`,
   }))
   .add("[slot] label", () => ({
