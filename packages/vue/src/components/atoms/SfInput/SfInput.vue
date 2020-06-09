@@ -50,11 +50,11 @@
         </SfButton>
       </slot>
     </div>
-    <div class="sf-input__error-message">
+    <div class="sf-input__message">
       <transition name="sf-fade">
-        <!-- @slot Custom error message of form input -->
-        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
-          <div>{{ errorMessage }}</div></slot
+        <!-- @slot Custom message of form input -->
+        <slot :name="computedMessageSlotName" v-bind="{ computedMessage }">
+          <div :class="computedMessageClass">{{ computedMessage }}</div></slot
         >
       </transition>
     </div>
@@ -115,12 +115,26 @@ export default {
       default: "",
     },
     /**
+     * Success message value of form input.
+     */
+    successMessage: {
+      type: String,
+      default: "",
+    },
+    /**
      * Native input required attribute
      */
     required: {
       type: Boolean,
-      default: false,
+      default: true,
       description: "Native input required attribute",
+    },
+    /**
+     * Hint/Required message value of form input.
+     */
+    hintMessage: {
+      type: String,
+      default: "Required.",
     },
     /**
      * Native input disabled attribute
@@ -154,6 +168,39 @@ export default {
     },
     isPassword() {
       return this.type === "password" && this.hasShowPassword;
+    },
+    computedMessageSlotName() {
+      if (this.errorMessage && !this.valid) {
+        return "show-errorMessage";
+      } else if (this.successMessage && this.valid) {
+        return "show-successMessage";
+      } else if (this.hintMessage) {
+        return this.required ? "show-hintMessage" : "show-message";
+      } else {
+        return "show-message";
+      }
+    },
+    computedMessage() {
+      if (this.errorMessage && !this.valid) {
+        return this.errorMessage;
+      } else if (this.successMessage && this.valid) {
+        return this.successMessage;
+      } else if (this.hintMessage) {
+        return this.required ? this.hintMessage : "";
+      } else {
+        return "";
+      }
+    },
+    computedMessageClass() {
+      if (this.errorMessage && !this.valid) {
+        return "sf-input__message--error";
+      } else if (this.successMessage && this.valid) {
+        return "sf-input__message--success";
+      } else if (this.hintMessage) {
+        return this.required ? "sf-input__message--hint" : "";
+      } else {
+        return "";
+      }
     },
   },
   watch: {

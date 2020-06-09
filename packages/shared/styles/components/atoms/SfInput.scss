@@ -62,16 +62,29 @@
       right: 50%;
     }
   }
-  &__error-message {
-    color: var(--input-error-message-color, var(--c-danger));
+  &__message {
     min-height: calc(var(--font-xs) * 1.2);
     @include font(
-      --input-error-message-font,
+      --input-message-font,
       var(--font-medium),
       var(--font-xs),
       1.2,
       var(--font-family-secondary)
     );
+    &--hint {
+      color: var(--input-message-hint-color, var(--c-secondary));
+      &::before {
+        display: var(--input-message-hint-display, inline-block);
+        content: var(--input-message-required, "*");
+        color: var(--input-message-hint-color);
+      }
+    }
+    &--error {
+      color: var(--input-message-error-color, var(--c-danger));
+    }
+    &--success {
+      color: var(--input-message-success-color, var(--c-primary));
+    }
   }
   &__wrapper,
   input {

@@ -33,16 +33,22 @@ storiesOf("Atoms|Input", module)
         default: text("name", "first-name", "Props"),
       },
       errorMessage: {
-        default: text("errorMessage", "Required.", "Props"),
+        default: text("errorMessage", "Something is wrong.", "Props"),
       },
       valid: {
         default: boolean("valid", true, "Props"),
+      },      
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
       },
       required: {
         default: boolean("required", true, "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
+      },
+      successMessage: {
+        default: text("successMessage", "", "Props"),
       },
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
@@ -64,6 +70,8 @@ storiesOf("Atoms|Input", module)
         :name="name"
         :valid="valid"
         :error-message="errorMessage"
+        :hintMessage="hintMessage" 
+        :successMessage="successMessage"
         :required="required"
         :disabled="disabled"
         :has-show-password="hasShowPassword"
