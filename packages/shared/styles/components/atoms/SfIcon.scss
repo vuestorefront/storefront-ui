@@ -17,9 +17,6 @@
     top: var(--icon-badge-top, 0);
     right: var(--icon-badge-right, 0);
   }
-  // &--fraction {
-  //   --icon-color-negative: var(--c-gray-variant);
-  // }
   @each $palette, $color in $icon-colors {
     &.color-#{$palette} {
       --icon-color: #{$color};
