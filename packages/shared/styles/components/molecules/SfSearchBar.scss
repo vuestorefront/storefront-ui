@@ -1,18 +1,18 @@
 @import "../../helpers";
 .sf-search-bar {
   --input-bar-display: none;  
-  --input-font-size: var(--font-base);
+  --input-padding: 0;  
   --input-border-width: 0;
+  --input-font-size: var(--font-base);
   --input-label-font-size: var(--font-sm);
   --input-label-color: var(--c-secondary-variant);  
-  --input-label-transition: 0.2s ease-in;  
+  --input-label-transition: 0.2s ease-in; 
   box-sizing: border-box;
   position: relative;
   display: var(--search-bar-display, flex);
   flex-grow: 1; 
   align-items: center;
-  background: var(--search-bar-background, transparent);
-  padding: var(--search-bar-padding, var(--input-padding, 0));
+  background: var(--search-bar-background, transparent);  
   width: var(--search-bar-width);
   height: var(--search-bar-height, 2rem);    
   text-align: var(--search-bar-input-text-align);
@@ -34,7 +34,7 @@
   &.sf-input--has-text {
     --input-label-display: none;
   }
-  &::-webkit-search-cancel-button {
+  input::-webkit-search-cancel-button {
     opacity: 0;
   }
   &::-ms-clear {
