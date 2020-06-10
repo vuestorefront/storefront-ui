@@ -4,6 +4,7 @@
     :class="{
       'sf-input--has-text': !!value,
       'sf-input--invalid': !valid,
+      'sf-input--has-icon': hasIcon
     }"
   >
     <div class="sf-input__wrapper">
@@ -22,8 +23,7 @@
       <span class="sf-input__bar"></span>
       <label
         class="sf-input__label"
-        :for="name"
-        :class="{ 'sf-input__label--has-icon': hasIcon }"
+        :for="name"        
       >
         <!-- @slot Custom input label -->
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
@@ -63,7 +63,7 @@
     <div class="sf-input__message">
       <transition name="sf-fade">
         <!-- @slot Custom message of form input -->
-        <slot :name="computedMessageSlotName" v-bind="{ computedMessage }">
+        <slot v-if="!disabled" :name="computedMessageSlotName" v-bind="{ computedMessage }">
           <div :class="computedMessageClass">{{ computedMessage }}</div></slot
         >
       </transition>
@@ -210,7 +210,7 @@ export default {
       }
     },
     computedMessage() {
-      if (this.errorMessage && !this.valid) {
+      if (this.errorMessage && !this.valid ) {
         return this.errorMessage;
       } else if (this.successMessage && this.valid) {
         return this.successMessage;

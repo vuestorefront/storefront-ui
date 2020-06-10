@@ -38,10 +38,7 @@
     &::after {
       content: var(--input-label-required);
       color: var(--input-label-color, var(--c-text));
-    }
-    &--has-icon {
-      padding: var(--input-label-padding, 0 0 0 var(--spacer-base));      
-    }    
+    }       
   }
   &__bar {
     position: relative;
@@ -113,20 +110,16 @@
     text-align: var(--input-text-align);
     &:focus {
       & ~ * {
-        --icon-color: var(--c-primary);
         --input-password-icon-background: var(--c-primary);
         --input-label-top: 0;        
         --input-label-color: var(--c-primary);
         --input-label-font-size: var(--font-xs);
-        --input-bar-width: 50%;
-        --input-icon-top: 4px;
-        --input-icon-left: 0;
-        --icon-size: 12px;  
-        .sf-input__label--has-icon {
-          --input-label-padding: 0 0 0 var(--spacer-sm);
-        }      
-      }                      
-    }    
+        --input-bar-width: 50%; 
+        .sf-input__password-icon{
+          --input-password-icon-size: 12px;
+        }                    
+      }                            
+    }   
     &:required {
       & ~ * {
         --input-label-required: " *";
@@ -137,7 +130,7 @@
       /* add to provide color on iOS */
       -webkit-text-fill-color: var(--c-text-disabled);
       & ~ * {
-        --icon-color: var(--text-disabled);
+        --icon-color: var(--c-text-disabled);
         --input-label-color: var(--c-text-disabled);
       }
     }
@@ -154,7 +147,8 @@
     }
   }
   &__password-button {
-    --icon-size: 12px;
+    width: var(--input-password-icon-size, 12px);
+    height: var(--input-password-icon-size, 12px);
     --button-padding: 0;
     --button-background: transparent;
     position: absolute;
@@ -186,11 +180,12 @@
   &__icon {
     position: absolute;
     display: var(--input-icon-display, inline-block);
-    --icon-width: var(--input-icon-width, var(--icon-size, 1rem));
-    --icon-height: var(--input-icon-height, var(--icon-size, 1rem));
+    width: var(--input-icon-width, var(--icon-size, .75rem));
+    height: var(--input-icon-height, var(--icon-size, .75rem));
     top: var(--input-icon-top, 50%);
     left: var(--input-icon-left, var(--spacer-2xs));
-    transform: translate3d(0, -50%, 0);
+    --icon-color: var(--input-label-color);
+    transform: var(--input-icon-transform, translate3d(0, -50%, 0));
     transition: var(
       --input-icon-transition,
       all 150ms linear
@@ -202,8 +197,8 @@
       &:focus {
         & ~ * {
           --input-bar-background: var(--c-danger);
-          --input-label-color: var(--c-danger);
-        }
+          --input-label-color: var(--c-danger);                     
+        }        
       }
     }
   }
@@ -213,14 +208,25 @@
   input[type="image"] ~ *,
   input[type="file"] ~ * {
     --input-label-top: 0;    
-    --input-label-font-size: var(--font-xs);
-    --input-icon-top: 4px;
-    --input-icon-left: 0;
-    .sf-input__label--has-icon {
-      --input-label-padding: 0 0 0 var(--spacer-sm);
+    --input-label-font-size: var(--font-xs);    
+  }
+  &--has-icon {
+    label {
+      padding: var(--input-label-padding, 0 0 0 var(--spacer-base));
     }    
-    .sf-icon {
-      --icon-size: 12px;
+    input:focus {
+      & ~ * {
+        --input-icon-top: var(--spacer-2xs);
+        --icon-size: 0.375rem;
+        --input-label-padding: 0 0 0 var(--spacer-sm);
+      } 
+    }
+    &.sf-input--has-text {
+      --input-icon-top: var(--spacer-2xs);          
+      --input-label-padding: 0 0 0 var(--spacer-sm); 
+      .sf-icon {
+        --icon-size: 0.375rem;
+      }  
     }
   }
   &--filled {
