@@ -16,31 +16,29 @@
     transform: translate3d(-50%, 0, 0);
     text-transform: uppercase;
     margin: var(--tile-title-margin, 0 0 var(--spacer-2xs));
-    color: var(--tile-title-color, var(--c-link));
+    color: var(--tile-title-color, var(--c-black));
     transition: color 150ms ease-in-out;
     @include font(
       --font-tile,
-      var(--font-light),
-      var(--h4-font-size),
+      var(--font-bold),
+      var(--h3-font-size),
       1.6,
       var(--font-family-secondary)
     )
   }
   &:hover {
-    --tile-title-color: var(--c-black);
     box-shadow: var(--tile-box-shadow, 0px 4px 11px rgba(29, 31, 34, 0.1));
     transition: box-shadow 150ms ease-in-out;
   }
   @include for-desktop {
     --tile-width: 16rem;
     --tile-height: 30.625rem;
-    --font-tile-size: var(--h3-font-size);
-    --font-tile-weight: var(--font-medium);
+    --font-tile-weight: var(--font-semibold);
     --tile-background-image: var(
       --_tile-background-desktop-image,
       var(--_tile-background-image)
     );
-    --tile-title-margin: 0 0 3rem;
+    --tile-title-margin: 0 0 var(--spacer-xl);
     --tile-box-shadow: 4px 12px 24px rgba(119, 121, 122, 0.25);
   }
 }
