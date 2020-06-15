@@ -17,6 +17,7 @@
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
+    v-on="$listeners"
   >
     <div style="position: relative;">
       <!-- eslint-disable-next-line vue/no-v-html -->
@@ -170,8 +171,8 @@ export default {
       return this.options[this.index].html;
     },
     maxHeight() {
-      if (!this.size) return;
-      return `${this.optionHeight * this.size}px`;
+      if (!this.options.length) return;
+      return `${this.optionHeight * this.options.length}px`;
     },
     isActive() {
       return this.open;
