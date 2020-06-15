@@ -13,10 +13,10 @@
           :value="totalItems"
         />
       </template>
-      <transition name="fade" mode="out-in">
+      <transition name="sf-fade" mode="out-in">
         <div v-if="totalItems" key="my-cart" class="my-cart">
           <div class="collected-product-list">
-            <transition-group name="fade" tag="div">
+            <transition-group name="sf-fade" tag="div">
               <SfCollectedProduct
                 v-for="product in products"
                 :key="product.id"
@@ -41,12 +41,12 @@
                 <template #actions>
                   <div class="desktop-only collected-product__actions">
                     <SfButton
-                      class="sf-button--text color-secondary collected-product__action"
+                      class="sf-button--text color-secondary collected-product__save"
                     >
                       Save for later
                     </SfButton>
                     <SfButton
-                      class="sf-button--text color-secondary collected-product__action"
+                      class="sf-button--text color-secondary collected-product__compare"
                     >
                       Add to compare
                     </SfButton>
@@ -74,7 +74,7 @@
         </div>
       </transition>
       <template #content-bottom>
-        <transition name="fade">
+        <transition name="sf-fade">
           <div v-if="totalItems">
             <SfProperty
               name="Total price"
@@ -246,13 +246,24 @@ export default {
   }
   &__actions {
     transition: opacity 150ms ease-in-out;
-    opacity: var(--cp-actions-opacity, 0);
   }
-  &__action {
+  &__save,
+  &__compare {
     --button-padding: 0;
+    &:focus {
+      --cp-save-opacity: 1;
+      --cp-compare-opacity: 1;
+    }
+  }
+  &__save {
+    opacity: var(--cp-save-opacity, 0);
+  }
+  &__compare {
+    opacity: var(--cp-compare-opacity, 0);
   }
   &:hover {
-    --cp-actions-opacity: 1;
+    --cp-save-opacity: 1;
+    --cp-compare-opacity: 1;
   }
 }
 </style>

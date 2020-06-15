@@ -1,23 +1,11 @@
 <template>
   <div
     class="sf-image"
-    :class="{ 'sf-image--has-size': wrapper }"
-    :style="wrapper"
+    :class="{ 'sf-image--has-size': size }"
+    :style="size"
     v-on="$listeners"
-    @mouseover="overlay = true"
-    @mouseleave="overlay = false"
   >
-    <template v-if="typeof source === 'string'">
-      <img
-        v-if="show"
-        ref="image"
-        :src="source"
-        :alt="alt"
-        :width="width"
-        :height="height"
-      />
-    </template>
-    <template v-else>
+    <template v-if="isPicture">
       <picture>
         <source
           :srcset="source.desktop.url"
@@ -25,49 +13,63 @@
         />
         <source
           :srcset="source.mobile.url"
-          :media="`(max-width: ${pictureBreakpoint}px)`"
+          :media="`(max-width: ${pictureBreakpoint - 1}px)`"
         />
         <img
-          v-if="show"
+          v-show="source.desktop.url"
           ref="image"
-          :src="source"
-          :alt="alt"
+          :src="source.desktop.url"
+          v-bind="$attrs"
           :width="width"
           :height="height"
         />
       </picture>
     </template>
-    <transition name="fade">
-      <div v-if="showOverlay" class="sf-image__overlay">
-        <slot />
-      </div>
-    </transition>
+    <template v-else>
+      <img
+        v-show="source"
+        ref="image"
+        :src="source"
+        v-bind="$attrs"
+        :width="width"
+        :height="height"
+      />
+    </template>
+    <noscript v-if="lazy && noscript" inline-template>
+      <img
+        class="noscript"
+        :src="noscript"
+        v-bind="$attrs"
+        :width="width"
+        :height="height"
+      />
+    </noscript>
+    <div v-if="hasOverlay" class="sf-image__overlay">
+      <slot />
+    </div>
   </div>
 </template>
 <script>
 import lozad from "lozad";
 export default {
   name: "SfImage",
+  inheritAttrs: false,
   props: {
     src: {
       type: [String, Object],
-      default: () => ({ mobile: { url: "" }, desktop: { url: "" } }),
-    },
-    alt: {
-      type: String,
       default: "",
-    },
-    width: {
-      type: [String, Number],
-      default: undefined,
-    },
-    height: {
-      type: [String, Number],
-      default: undefined,
     },
     lazy: {
       type: Boolean,
       default: true,
+    },
+    width: {
+      type: [String, Number],
+      default: null,
+    },
+    height: {
+      type: [String, Number],
+      default: null,
     },
     pictureBreakpoint: {
       type: Number,
@@ -84,61 +86,50 @@ export default {
   },
   data() {
     return {
-      show: false,
-      overlay: false,
+      isLoaded: false,
     };
   },
   computed: {
+    isPicture() {
+      return !!this.src && typeof this.src === "object";
+    },
     source() {
-      let src = this.src || "";
-      if (typeof src === "object") {
-        if (!src.desktop || !src.mobile) {
-          const object = src.desktop || src.mobile || { url: "" };
-          src = object.url;
-        }
-      }
-      return src;
+      const allow =
+        (this.isLoaded && this.lazy) || (!this.isLoaded && !this.lazy);
+      const disallow = this.isPicture
+        ? { desktop: { url: null }, mobile: { url: null } }
+        : null;
+      return allow ? this.src : disallow;
     },
-    showOverlay() {
-      return this.$slots.default && this.overlay;
+    noscript() {
+      return this.isPicture ? this.src.desktop.url : this.src;
     },
-    wrapper() {
+    size() {
       return (
         this.width &&
-        this.height &&
-        `--_image-width: ${this.width}; --_image-height: ${this.height}`
+        this.height && {
+          "--_image-width": this.width,
+          "--_image-height": this.height,
+        }
       );
     },
-  },
-  watch: {
-    lazy: {
-      handler(value) {
-        this.show = !value;
-      },
-      immediate: true,
+    hasOverlay() {
+      return this.$slots.default;
     },
   },
   mounted() {
-    if (!this.lazy) {
-      this.show = true;
-      return;
-    }
-    this.lozad();
-  },
-  methods: {
-    lozad() {
-      const vm = this;
-      this.$nextTick(() => {
-        const observer = lozad(vm.$el, {
-          load() {
-            vm.show = true;
-          },
-          rootMargin: this.rootMargin,
-          threshold: this.threshold,
-        });
-        observer.observe();
+    if (!this.lazy) return;
+    const vm = this;
+    this.$nextTick(() => {
+      const observer = lozad(vm.$el, {
+        load() {
+          vm.isLoaded = true;
+        },
+        rootMargin: vm.rootMargin,
+        threshold: vm.threshold,
       });
-    },
+      observer.observe();
+    });
   },
 };
 </script>

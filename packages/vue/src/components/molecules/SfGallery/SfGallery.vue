@@ -26,7 +26,7 @@
           </ul>
         </div>
       </div>
-      <transition name="fade">
+      <transition name="sf-fade">
         <div
           v-if="outsideZoom && pictureSelected"
           ref="outSide"
@@ -45,10 +45,10 @@
     </div>
     <div class="sf-gallery__thumbs">
       <slot name="thumbs" v-bind="{ images, active: activeIndex, go }">
-        <button
+        <SfButton
           v-for="(image, index) in images"
           :key="'img-' + index"
-          class="sf-gallery__item"
+          class="sf-button--pure sf-gallery__item"
           :class="{ 'sf-gallery__item--selected': index === activeIndex }"
           @click="go(index)"
         >
@@ -59,7 +59,7 @@
             :width="thumbWidth"
             :height="thumbHeight"
           />
-        </button>
+        </SfButton>
       </slot>
     </div>
   </div>
@@ -67,10 +67,12 @@
 <script>
 import Glide from "@glidejs/glide";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfGallery",
   components: {
     SfImage,
+    SfButton,
   },
   props: {
     /**

@@ -8,12 +8,13 @@
     color: inherit;
     text-decoration: inherit;
     &--image {
-      flex: 0 0 var(--product-card-horizontal-image-width, 5.3125rem);
+      display: block;
+      line-height: 0;
     }
   }
   &__image-wrapper {
+    flex: 0 0 var(--product-card-horizontal-image-width, 5.3125rem);
     position: relative;
-    display: flex;
     &:hover {
       --product-card-horizontal-image-opacity: 1;
       --product-card-horizontal-image-even-opacity: 1;
@@ -95,6 +96,8 @@
       var(--font-family-secondary)
     );
     &-count {
+      --button-font-size: var(--font-sm);
+      --button-font-weight: var(--font-light);
       color: var(--c-text);
       text-decoration: none;
       margin: 0 0 0 var(--spacer-xs);
@@ -111,10 +114,6 @@
     position: absolute;
     top: 0;
     right: 0;
-    padding: 0;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
   }
   @include for-desktop {
     --product-card-horizontal-flex-direction: row;

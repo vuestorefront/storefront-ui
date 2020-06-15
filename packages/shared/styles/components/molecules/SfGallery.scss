@@ -27,9 +27,6 @@
       --gallery-item-opacity: 1;
       --gallery-item-cursor: default;
     }
-    background: transparent;
-    border: 0;
-    padding: 0;
   }
   &__thumb {
     width: var(--gallery-thumb-width, calc(var(--_image-width, 10rem) * 1px));
@@ -39,11 +36,12 @@
     );
   }
   &__stage {
-    width: 100%;
+    flex: 1;
     max-width: var(--gallery-stage-width, 26.375rem);
   }
   .glide {
     &__slide {
+      flex: 1;
       display: flex;
     }
     &__slides {

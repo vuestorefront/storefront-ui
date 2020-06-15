@@ -1,5 +1,10 @@
 <template>
-  <div class="sf-menu-item" v-on="$listeners">
+  <component
+    :is="componentIs"
+    class="sf-menu-item"
+    v-bind="bind"
+    v-on="$listeners"
+  >
     <!-- @slot for menu item icon-->
     <slot name="icon" />
     <!-- @slot for menu item label-->
@@ -19,27 +24,61 @@
         size="14px"
       />
     </slot>
-  </div>
+  </component>
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfMenuItem",
   components: {
     SfIcon,
+    SfLink,
+    SfButton,
   },
   props: {
+    /**
+     * Menu-item label
+     */
     label: {
       type: String,
       default: "",
     },
+    /**
+     * Menu-item icon (visible on mobile)
+     */
     icon: {
-      type: String,
+      type: [String, Array],
       default: "chevron_right",
     },
+    /**
+     * Menu-item count of items
+     */
     count: {
       type: [String, Number],
       default: "",
+    },
+    /**
+     * Menu-item link (if is empty then SfMenuItem is SfButton)
+     */
+    link: {
+      type: [String, Object],
+      default: "",
+    },
+  },
+  computed: {
+    bind() {
+      const bind = {};
+      if (this.link) {
+        bind.link = this.link;
+      } else {
+        bind.class = "sf-button--pure";
+      }
+      return bind;
+    },
+    componentIs() {
+      return this.link ? "sf-link" : "sf-button";
     },
   },
 };

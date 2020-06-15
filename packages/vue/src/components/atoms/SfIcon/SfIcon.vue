@@ -20,7 +20,7 @@
       </svg>
     </slot>
     <slot name="badge" v-bind="{ badgeLabel, hasBadge }">
-      <transition name="bounce">
+      <transition name="sf-bounce">
         <SfBadge v-if="hasBadge" class="sf-icon__badge sf-badge--number">
           {{ badgeLabel }}
         </SfBadge>
@@ -107,7 +107,9 @@ export default {
       };
     },
     isSFIcons() {
-      return SF_ICONS.includes(this.icon.trim());
+      if (typeof this.icon === "string") {
+        return SF_ICONS.includes(this.icon.trim());
+      } else return null;
     },
     iconViewBox() {
       return this.isSFIcons

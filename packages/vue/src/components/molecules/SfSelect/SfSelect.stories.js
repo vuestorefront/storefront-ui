@@ -28,6 +28,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -51,6 +52,9 @@ storiesOf("Molecules|Select", module)
       },
       errorMessage: {
         default: text("errorMessage", "Color", "Props"),
+      },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
       },
       selected: {
         default: options(
@@ -77,6 +81,7 @@ storiesOf("Molecules|Select", module)
         :valid="valid"
         :disabled="disabled"
         :error-message="errorMessage"
+        :persistent="persistent"
         style="max-width: 30rem"
       >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
@@ -92,6 +97,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -116,6 +122,9 @@ storiesOf("Molecules|Select", module)
       errorMessage: {
         default: text("errorMessage", "Color", "Props"),
       },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
     },
     data() {
       return {
@@ -123,7 +132,7 @@ storiesOf("Molecules|Select", module)
         options: optionsList,
       };
     },
-    template: `<div style="max-width: 30rem">
+    template: `<div style="max-width: 30rem">    
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -132,7 +141,9 @@ storiesOf("Molecules|Select", module)
         :required="required"
         :valid="valid"
         :disabled="disabled"
-        :error-message="errorMessage">
+        :error-message="errorMessage" 
+        :persistent="persistent"       
+        >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
@@ -150,6 +161,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -174,6 +186,9 @@ storiesOf("Molecules|Select", module)
       errorMessage: {
         default: text("errorMessage", "Color", "Props"),
       },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
     },
     data() {
       return {
@@ -190,7 +205,9 @@ storiesOf("Molecules|Select", module)
         :required="required"
         :valid="valid"
         :disabled="disabled"
-        :error-message="errorMessage">
+        :error-message="errorMessage"
+        :persistent="persistent"
+        >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
@@ -208,6 +225,7 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -232,6 +250,9 @@ storiesOf("Molecules|Select", module)
       errorMessage: {
         default: text("errorMessage", "Color", "Props"),
       },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
     },
     data() {
       return {
@@ -248,7 +269,9 @@ storiesOf("Molecules|Select", module)
         :required="required"
         :valid="valid"
         :disabled="disabled"
-        :error-message="errorMessage">
+        :error-message="errorMessage"
+        :persistent="persistent"
+        >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>

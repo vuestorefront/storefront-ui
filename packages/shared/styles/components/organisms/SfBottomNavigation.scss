@@ -18,7 +18,7 @@
   );
 }
 .sf-bottom-navigation-item {
-  --icon-color: var(--c-gray-variant);
+  --icon-color: var(--c-gray);
   background: transparent;
   border: 0;
   top: var(--bottom-navigation-item-top);
@@ -32,7 +32,7 @@
     --bottom-navigation-item-padding,
     var(--spacer-xs) 0 var(--spacer-xs) 0
   );
-  color: var(--bottom-navigation-item-color, var(--c-gray-variant));
+  color: var(--bottom-navigation-item-color, var(--c-gray));
   @include font(
     --bottom-navigation-item-font,
     var(--font-light),
@@ -53,6 +53,10 @@
   }
   &--has-margin {
     --bottom-navigation-item-label-margin: var(--spacer-xs) 0 0 0;
+  }
+  &__icon {
+    background: transparent;
+    padding: 0;
   }
   &--floating {
     --icon-color: var(--c-white);

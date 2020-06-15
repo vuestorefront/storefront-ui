@@ -1,6 +1,5 @@
 <template>
-  <button
-    v-focus
+  <div
     class="sf-bottom-navigation-item"
     :class="{
       'sf-bottom-navigation-item--active': isActive,
@@ -15,13 +14,15 @@
         :icon="icon"
         icon-color="white"
         icon-size="28px"
+        :aria-label="label"
       />
-      <SfIcon
+      <SfButton
         v-else-if="icon"
-        :icon="currentIcon"
-        :size="iconSize"
-        class="sf-bottom-navigation-item__icon"
-      />
+        class="sf-button--pure sf-bottom-navigation-item__icon"
+        :aria-label="label"
+      >
+        <SfIcon :icon="currentIcon" :size="iconSize" />
+      </SfButton>
     </slot>
     <slot name="label" v-bind="{ label }">
       <div
@@ -34,22 +35,24 @@
         {{ label }}
       </div>
     </slot>
-  </button>
+  </div>
 </template>
 <script>
 import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 import SfCircleIcon from "../../../atoms/SfCircleIcon/SfCircleIcon.vue";
-import { focus } from "../../../../utilities/directives/focus-directive.js";
+import SfButton from "../../../atoms/SfButton/SfButton.vue";
+import { focus } from "../../../../utilities/directives";
 export default {
   name: "SfBottomNavigationItem",
   directives: { focus },
   components: {
     SfCircleIcon,
     SfIcon,
+    SfButton,
   },
   props: {
     icon: {
-      type: String,
+      type: [String, Array],
       default: "",
     },
     isActive: {

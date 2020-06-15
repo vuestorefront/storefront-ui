@@ -2,15 +2,14 @@
   <div class="sf-bar">
     <div>
       <slot name="back">
-        <button
+        <SfButton
           v-if="back"
-          v-focus
           aria-label="back"
-          class="sf-bar__icon"
+          class="sf-button--pure sf-bar__icon"
           @click="$emit('click:back')"
         >
-          <SfIcon icon="chevron_left" size="14px" />
-        </button>
+          <SfIcon icon="chevron_left" size="0.875rem" />
+        </SfButton>
       </slot>
     </div>
     <div>
@@ -20,27 +19,26 @@
     </div>
     <div>
       <slot name="close">
-        <button
+        <SfButton
           v-if="close"
-          v-focus
-          class="sf-bar__icon"
+          class="sf-button--pure sf-bar__icon"
           aria-label="close"
           @click="$emit('click:close')"
         >
           <SfIcon icon="cross" size="14px" />
-        </button>
+        </SfButton>
       </slot>
     </div>
   </div>
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import { focus } from "../../../utilities/directives/focus-directive.js";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfBar",
-  directives: { focus },
   components: {
     SfIcon,
+    SfButton,
   },
   props: {
     title: {

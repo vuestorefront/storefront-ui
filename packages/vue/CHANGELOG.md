@@ -3,6 +3,178 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.16](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.15...@storefront-ui/vue@0.7.16) (2020-05-28)
+
+
+### Bug Fixes
+
+* **a11y:** accessibility error's in SfBottomNavigationItem ([c5ed935](https://github.com/DivanteLtd/storefront-ui/commit/c5ed9357e8650a1ad69f7bc6e039d221acaaebb4))
+* a11y violations in select fixed ([#1223](https://github.com/DivanteLtd/storefront-ui/issues/1223)) ([156da91](https://github.com/DivanteLtd/storefront-ui/commit/156da910efcfc709b5492fb0fe3cf2c1df0bea58))
+* close on desktop in SfCollectedProduct should emit click:remove ([96a160f](https://github.com/DivanteLtd/storefront-ui/commit/96a160fde2800e7ed78982e1c81d353dc6bc112c))
+* typos in docs ([#1219](https://github.com/DivanteLtd/storefront-ui/issues/1219)) ([87cde90](https://github.com/DivanteLtd/storefront-ui/commit/87cde90f0dfcad68b3e26a11f67e8789996371d0))
+
+
+
+
+
+## [0.7.15](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.14...@storefront-ui/vue@0.7.15) (2020-05-26)
+
+
+### Bug Fixes
+
+* move sass to deps ([a9ab5fa](https://github.com/DivanteLtd/storefront-ui/commit/a9ab5fa87ac20ede7b7063c5fd1ecb4ca3c0f34d))
+
+
+
+
+
+## [0.7.14](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.13...@storefront-ui/vue@0.7.14) (2020-05-25)
+
+
+### Bug Fixes
+
+* body-scroll-lock dep ([8dcece8](https://github.com/DivanteLtd/storefront-ui/commit/8dcece863a3073f8b58ae24bebf4aba97338c5f4))
+
+
+
+
+
+## [0.7.13](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.12...@storefront-ui/vue@0.7.13) (2020-05-22)
+
+
+### Bug Fixes
+
+* remove getElementById and add overflow for dropdown with options ([5229656](https://github.com/DivanteLtd/storefront-ui/commit/5229656fa54efba09e672e2248f148c8183542de))
+
+
+
+
+
+## [0.7.12](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.11...@storefront-ui/vue@0.7.12) (2020-05-19)
+
+
+### Bug Fixes
+
+* display checked icon on checkbox ([#1201](https://github.com/DivanteLtd/storefront-ui/issues/1201)) ([5ea8950](https://github.com/DivanteLtd/storefront-ui/commit/5ea8950d7cc3cd396a929dcd91b554efeeeae620))
+* icon assign array ([#1193](https://github.com/DivanteLtd/storefront-ui/issues/1193)) ([a6b4b90](https://github.com/DivanteLtd/storefront-ui/commit/a6b4b901cdd7265cafb1bc5b97a1aac9b63aab3d))
+* last/first page number, add condition to show dots ([#1189](https://github.com/DivanteLtd/storefront-ui/issues/1189)) ([763c25f](https://github.com/DivanteLtd/storefront-ui/commit/763c25f72a2a49cb40f24af88e2e5f6339274bd4))
+* product cards with SfLink inside slots ([#1197](https://github.com/DivanteLtd/storefront-ui/issues/1197)) ([d4a3809](https://github.com/DivanteLtd/storefront-ui/commit/d4a38099d596bbb62d120e28c3dab32aedcda806))
+* remove this from SfPagination ([#1199](https://github.com/DivanteLtd/storefront-ui/issues/1199)) ([1006752](https://github.com/DivanteLtd/storefront-ui/commit/1006752763d62c2a634185953c595fc6002bcde3))
+
+
+### Features
+
+* add additional class + add auto title bar ([#1191](https://github.com/DivanteLtd/storefront-ui/issues/1191)) ([ca14797](https://github.com/DivanteLtd/storefront-ui/commit/ca14797467dbface4b0b78ef10577bd695b2c398))
+
+
+
+
+
+## [0.7.11](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.10...@storefront-ui/vue@0.7.11) (2020-05-14)
+
+
+### Bug Fixes
+
+* add unique keys to titles in SfContentPages ([#1188](https://github.com/DivanteLtd/storefront-ui/issues/1188)) ([f154822](https://github.com/DivanteLtd/storefront-ui/commit/f154822f31136c2b0e0c920186eb218864ee2e29))
+* adjust icon to Material Icon Guidelines ([#1154](https://github.com/DivanteLtd/storefront-ui/issues/1154)) ([c60a01a](https://github.com/DivanteLtd/storefront-ui/commit/c60a01ac3d412c85fa57657be0ec2be41624cfc5))
+* disabled in SfRadio  ([#1174](https://github.com/DivanteLtd/storefront-ui/issues/1174)) ([d1f698b](https://github.com/DivanteLtd/storefront-ui/commit/d1f698b7e1002c780bebe5535d7946c6cd372058))
+* header icons API in SfHeader ([#1180](https://github.com/DivanteLtd/storefront-ui/issues/1180)) ([c86a457](https://github.com/DivanteLtd/storefront-ui/commit/c86a457f31c90d09ab8ec509c543619d159f93c6))
+* impossible to see photos in enlargement ([#1178](https://github.com/DivanteLtd/storefront-ui/issues/1178)) ([546848c](https://github.com/DivanteLtd/storefront-ui/commit/546848c16a89313b8df6c7f5ef28e17ba8d8c480))
+* revert image refs in SfImage ([#1184](https://github.com/DivanteLtd/storefront-ui/issues/1184)) ([43f2d17](https://github.com/DivanteLtd/storefront-ui/commit/43f2d17a88d8fb029342425727a2098587cc5633))
+
+
+### Features
+
+* click outside directive ([#1099](https://github.com/DivanteLtd/storefront-ui/issues/1099)) ([47e344b](https://github.com/DivanteLtd/storefront-ui/commit/47e344b25b069575832d807c8eec11afce000b12))
+* remove jump effect from SfTabs ([#1018](https://github.com/DivanteLtd/storefront-ui/issues/1018)) ([43e737f](https://github.com/DivanteLtd/storefront-ui/commit/43e737f0389ce30d9c074d3479919b941d6d440a))
+* **helper:** isClient helper and reorganize imports ([#1175](https://github.com/DivanteLtd/storefront-ui/issues/1175)) ([ae3b2f4](https://github.com/DivanteLtd/storefront-ui/commit/ae3b2f4775c92d2bef09a685f1d4c5362b926fd4))
+
+
+
+
+
+## [0.7.10](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.9...@storefront-ui/vue@0.7.10) (2020-05-08)
+
+
+### Bug Fixes
+
+* **a11y:** link in SfCollectedProduct and SfGroupedProduct ([#1153](https://github.com/DivanteLtd/storefront-ui/issues/1153)) ([349df75](https://github.com/DivanteLtd/storefront-ui/commit/349df757e807bd104ecbc321d8e6b44162783c7b))
+* **a11y:** v-focus in SfSelect  ([#1095](https://github.com/DivanteLtd/storefront-ui/issues/1095)) ([6417541](https://github.com/DivanteLtd/storefront-ui/commit/6417541d4509150228662b3c97c7e1f4a7c63ce4))
+* more descriptive aria labels for buttons ([#1131](https://github.com/DivanteLtd/storefront-ui/issues/1131)) ([c68e66f](https://github.com/DivanteLtd/storefront-ui/commit/c68e66f973aac16aa18d2ad436910103b4a179b6))
+
+
+### Features
+
+* **component:** SfBottomModal ([#1144](https://github.com/DivanteLtd/storefront-ui/issues/1144)) ([fc1893b](https://github.com/DivanteLtd/storefront-ui/commit/fc1893b659455219686c1237c20ae294cdb046cb))
+
+
+
+
+
+## [0.7.9](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.8...@storefront-ui/vue@0.7.9) (2020-05-08)
+
+
+### Bug Fixes
+
+* nullish SfImage ([#1167](https://github.com/DivanteLtd/storefront-ui/issues/1167)) ([ea6275a](https://github.com/DivanteLtd/storefront-ui/commit/ea6275ae8bc0c1a1fab4a04b31d794047c897ed1))
+* ssr and specificity in SfHeader ([#1166](https://github.com/DivanteLtd/storefront-ui/issues/1166)) ([c3da59c](https://github.com/DivanteLtd/storefront-ui/commit/c3da59c68655f643180410f88737c5b328970c8a))
+* sticky with a gap to hide in SfHeader ([#1163](https://github.com/DivanteLtd/storefront-ui/issues/1163)) ([e1fe15b](https://github.com/DivanteLtd/storefront-ui/commit/e1fe15b4737ea62eb1f58ea4b7e9d451dfcdcaee))
+* **docs:** broken links at documentation ([#1161](https://github.com/DivanteLtd/storefront-ui/issues/1161)) ([fd230b6](https://github.com/DivanteLtd/storefront-ui/commit/fd230b696475ce067754ea4d7dbb03c0998b2bda))
+* button add to card on SfProductCard ([#1162](https://github.com/DivanteLtd/storefront-ui/issues/1162)) ([710aa95](https://github.com/DivanteLtd/storefront-ui/commit/710aa95a809992c3ef40685afa1d2bf2fd697b9c))
+* **docs:** broken links at documentation ([#1159](https://github.com/DivanteLtd/storefront-ui/issues/1159)) ([388d26f](https://github.com/DivanteLtd/storefront-ui/commit/388d26fc333946df90d6f7d3b2a64f425923e3ea))
+
+
+### Features
+
+* mobile navigation for short categories in SfHeader ([#1137](https://github.com/DivanteLtd/storefront-ui/issues/1137)) ([428bf8b](https://github.com/DivanteLtd/storefront-ui/commit/428bf8b93ea1fc7f9692923b8da92fb66b6afd35))
+
+
+
+
+
+## [0.7.8](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.7...@storefront-ui/vue@0.7.8) (2020-05-06)
+
+
+### Features
+
+* support fot SSR in SfPagination ([#1151](https://github.com/DivanteLtd/storefront-ui/issues/1151)) ([0b3e93a](https://github.com/DivanteLtd/storefront-ui/commit/0b3e93af85c9eea275523d9b868bb5119d0548eb))
+
+
+
+
+
+## [0.7.7](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.6...@storefront-ui/vue@0.7.7) (2020-05-05)
+
+
+### Bug Fixes
+
+* noscript fallback for SfImage ([#1150](https://github.com/DivanteLtd/storefront-ui/issues/1150)) ([97a9647](https://github.com/DivanteLtd/storefront-ui/commit/97a96471e9a1fcb04f64bf3a9c781d901ed752a1))
+* up modifier in SfDropdown ([#1149](https://github.com/DivanteLtd/storefront-ui/issues/1149)) ([eedf3df](https://github.com/DivanteLtd/storefront-ui/commit/eedf3df918f709e297fd76bbbde14ed1cb9bdcfe))
+
+
+
+
+
+## [0.7.6](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.5...@storefront-ui/vue@0.7.6) (2020-05-04)
+
+
+### Bug Fixes
+
+* **a11y:** clickable elements visible on focus ([#1148](https://github.com/DivanteLtd/storefront-ui/issues/1148)) ([09b8ce3](https://github.com/DivanteLtd/storefront-ui/commit/09b8ce367105782996cbbd1fe2fd92f1cde936c0))
+* SSR mismatch in the SfBottomNav ([#1133](https://github.com/DivanteLtd/storefront-ui/issues/1133)) ([32256fe](https://github.com/DivanteLtd/storefront-ui/commit/32256fe4e97e3f8f0a89646b48aeb7ae7892fc1c))
+* **a11y:** order of SfQuantitySelector in SfAddToCart ([#1146](https://github.com/DivanteLtd/storefront-ui/issues/1146)) ([0eabb92](https://github.com/DivanteLtd/storefront-ui/commit/0eabb92e07216de9c8702d2716f51d16101a2dd6))
+* move add to cart button outside the link ([#1132](https://github.com/DivanteLtd/storefront-ui/issues/1132)) ([2308c6f](https://github.com/DivanteLtd/storefront-ui/commit/2308c6f9615e53df734a5b208ae5664ba514152f))
+* SfHeader click moved to button ([#1143](https://github.com/DivanteLtd/storefront-ui/issues/1143)) ([df2f077](https://github.com/DivanteLtd/storefront-ui/commit/df2f077a398aacad89aadb2ef352d0abbb8446d6))
+
+
+### Features
+
+* pure modifier for SfButton ([#1119](https://github.com/DivanteLtd/storefront-ui/issues/1119)) ([46bd3db](https://github.com/DivanteLtd/storefront-ui/commit/46bd3db4ec20251a2df716b44664b6e1ba763c49))
+
+
+
+
+
 ## [0.7.5](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.4...@storefront-ui/vue@0.7.5) (2020-04-29)
 
 
