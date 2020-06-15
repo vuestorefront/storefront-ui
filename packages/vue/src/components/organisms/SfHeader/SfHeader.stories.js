@@ -8,31 +8,10 @@ import {
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import { SfHeader, SfLink } from "@storefront-ui/vue";
-const StoriesPlaceholder = {
-  props: {
-    mobile: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  computed: {
-    style() {
-      const style = {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "155vh",
-        background: "#f2f2f2",
-      };
-      return style;
-    },
-  },
-  template: `<div :style="style">[page content]</div>`,
-};
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfHeader, SfLink, StoriesPlaceholder },
+    components: { SfHeader, SfLink },
     props: {
       customClass: {
         default: options(
@@ -87,6 +66,9 @@ storiesOf("Organisms|Header", module)
       cartItemsQty: {
         default: text("cartItemsQty", "0", "Props"),
       },
+      wishlistItemsQty: {
+        default: text("wishlistItemsQty", "0", "Props"),
+      },
     },
     data() {
       return {
@@ -133,6 +115,7 @@ storiesOf("Organisms|Header", module)
           :account-icon="accountIcon"
           :style="spacer"
           :cart-items-qty="cartItemsQty"
+          :wishlist-items-qty="wishlistItemsQty"
           @click:cart="alert('@click:cart')"
           @click:wishlist="alert('@click:wishlist')"
           @click:account="alert('@click:account')"
@@ -146,11 +129,13 @@ storiesOf("Organisms|Header", module)
           </SfHeaderNavigationItem>
         </template>
       </SfHeader>
-      <StoriesPlaceholder :mobile="isMobile"/>
+      <div style="display: flex; align-items: center; justify-content: center; height: 155vh; background-color: #f2f2f2;">
+        [page content]
+      </div>
     </div>`,
   }))
   .add("with Search and Navigation items", () => ({
-    components: { SfHeader, StoriesPlaceholder },
+    components: { SfHeader },
     props: {
       title: {
         default: text("title", "Storefront UI", "Props"),
@@ -190,6 +175,9 @@ storiesOf("Organisms|Header", module)
       },
       cartItemsQty: {
         default: text("cartItemsQty", "0", "Props"),
+      },
+      wishlistItemsQty: {
+        default: text("wishlistItemsQty", "0", "Props"),
       },
     },
     data() {
@@ -236,6 +224,7 @@ storiesOf("Organisms|Header", module)
           :account-icon="accountIcon"
           :style="spacer"
           :cart-items-qty="cartItemsQty"
+          :wishlist-items-qty="wishlistItemsQty"
           @click:cart="alert('@click:cart')"
           @click:wishlist="alert('@click:wishlist')"
           @click:account="alert('@click:account')"
@@ -249,7 +238,9 @@ storiesOf("Organisms|Header", module)
           </SfHeaderNavigationItem>
         </template>
       </SfHeader>
-      <StoriesPlaceholder :mobile="isMobile"/>
+      <div style="display: flex; align-items: center; justify-content: center; height: 155vh; background-color: #f2f2f2;">
+        [page content]
+      </div>
     </div>`,
   }))
   .add("[slot] navigation", () => ({
@@ -293,6 +284,9 @@ storiesOf("Organisms|Header", module)
       },
       cartItemsQty: {
         default: text("cartItemsQty", "0", "Props"),
+      },
+      wishlistItemsQty: {
+        default: text("wishlistItemsQty", "0", "Props"),
       },
     },
     data() {
@@ -340,6 +334,7 @@ storiesOf("Organisms|Header", module)
         :account-icon="accountIcon"
         :style="spacer"
         :cart-items-qty="cartItemsQty"
+        :wishlist-items-qty="wishlistItemsQty"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -392,6 +387,9 @@ storiesOf("Organisms|Header", module)
       cartItemsQty: {
         default: text("cartItemsQty", "0", "Props"),
       },
+      wishlistItemsQty: {
+        default: text("wishlistItemsQty", "0", "Props"),
+      },
     },
     data() {
       return {
@@ -438,6 +436,7 @@ storiesOf("Organisms|Header", module)
         :account-icon="accountIcon"
         :style="spacer"
         :cart-items-qty="cartItemsQty"
+        :wishlist-items-qty="wishlistItemsQty"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -497,6 +496,9 @@ storiesOf("Organisms|Header", module)
       cartItemsQty: {
         default: text("cartItemsQty", "0", "Props"),
       },
+      wishlistItemsQty: {
+        default: text("wishlistItemsQty", "0", "Props"),
+      },
     },
     data() {
       return {
@@ -543,6 +545,7 @@ storiesOf("Organisms|Header", module)
         :account-icon="accountIcon"
         :style="spacer"
         :cart-items-qty="cartItemsQty"
+        :wishlist-items-qty="wishlistItemsQty"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -602,6 +605,9 @@ storiesOf("Organisms|Header", module)
       cartItemsQty: {
         default: text("cartItemsQty", "0", "Props"),
       },
+      wishlistItemsQty: {
+        default: text("wishlistItemsQty", "0", "Props"),
+      },
     },
     data() {
       return {
@@ -648,6 +654,7 @@ storiesOf("Organisms|Header", module)
         :account-icon="accountIcon"
         :style="spacer"
         :cart-items-qty="cartItemsQty"
+        :wishlist-items-qty="wishlistItemsQty"
         @click:cart="alert('@click:cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:account="alert('@click:account')"
@@ -707,6 +714,9 @@ storiesOf("Organisms|Header", module)
       cartItemsQty: {
         default: text("cartItemsQty", "0", "Props"),
       },
+      wishlistItemsQty: {
+        default: text("wishlistItemsQty", "0", "Props"),
+      },
     },
     data() {
       return {
@@ -749,6 +759,7 @@ storiesOf("Organisms|Header", module)
         :search-placeholder="searchPlaceholder"
         :search-value="searchValue"
         :cart-items-qty="cartItemsQty"
+        :wishlist-items-qty="wishlistItemsQty"
         @change:search="searchValue = $event"
         class="sf-header--has-mobile-search sf-header--has-mobile-navigation"
     >

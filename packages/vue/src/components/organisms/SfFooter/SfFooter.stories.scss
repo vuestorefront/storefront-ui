@@ -1,0 +1,13 @@
+@import "~@storefront-ui/shared/styles/helpers";
+.sb-footer {
+  &__social{
+    display: flex;
+    padding: var(--spacer-base) var(--spacer-xl);
+    @include for-desktop {
+      padding: var(--spacer-sm) 0;
+    }
+  }
+ .sb-social-icon {
+   margin: 0 var(--spacer-base) 0 0
+ }
+}

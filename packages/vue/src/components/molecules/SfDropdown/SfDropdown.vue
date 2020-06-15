@@ -1,8 +1,12 @@
 <template>
   <div class="sf-dropdown">
-    <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" @click="close" />
+    <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" />
     <transition name="sf-dropdown">
-      <div v-show="isOpen" class="sf-dropdown__container">
+      <div
+        v-show="isOpen"
+        v-click-outside="checkPersistence"
+        class="sf-dropdown__container"
+      >
         <!--@slot Use this slot to replace title. -->
         <slot name="title" v-bind="{ title }">
           <div v-if="title" class="sf-dropdown__title">{{ title }}</div>
@@ -22,6 +26,7 @@
   </div>
 </template>
 <script>
+import { clickOutside } from "../../../utilities/directives/";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { isClient } from "../../../utilities/helpers";
@@ -31,6 +36,9 @@ export default {
   components: {
     SfOverlay,
     SfButton,
+  },
+  directives: {
+    clickOutside,
   },
   props: {
     /**
@@ -46,6 +54,13 @@ export default {
     title: {
       type: String,
       default: "",
+    },
+    /**
+     * If true clicking outside will not dismiss the dropdown
+     */
+    persistent: {
+      type: Boolean,
+      default: false,
     },
   },
   watch: {
@@ -64,6 +79,9 @@ export default {
   methods: {
     close() {
       this.$emit("click:close");
+    },
+    checkPersistence() {
+      if (!this.persistent) this.close();
     },
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {

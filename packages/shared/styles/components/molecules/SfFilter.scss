@@ -10,10 +10,10 @@
     display: var(--filter-label-display, flex);
     align-items: var(--filter-label-align-items, center);
     margin: var(--filter-label-margin, 0);
-    color: var(--filter-label-color);
+    color: var(--filter-label-color, var(--_c-dark-secondary));
     @include font(
       --filter-label-font,
-      var(--font-medium),
+      var(--font-normal),
       var(--font-base),
       1.4,
       var(--font-family-secondary)
@@ -41,13 +41,13 @@
     --filter-color-margin: 0;
     --filter-label-margin: 0 0 0 var(--spacer-sm);
     --filter-count-margin: 0 0 0 auto;
-    --filter-label-font-size: var(--font-2xs);
-    --filter-count-font-size: var(--font-2xs);
+    --filter-label-font-size: var(--font-sm);
+    --filter-count-font-size: var(--font-sm);
   }
   &--active {
+    --filter-label-color: var(--c-text);
     @include for-desktop {
       --filter-label-text-decoration: underline;
-      --filter-label-transform: scale(1.4);
     }
   }
   &--is-color {

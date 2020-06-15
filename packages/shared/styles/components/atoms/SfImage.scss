@@ -12,7 +12,7 @@
   &--has-size {
     width: 100%;
     max-width: calc(var(--_image-width) * 1px);
-    img {
+    img:not(.noscript) {
       position: absolute;
       top: 50%;
       left: 0;
