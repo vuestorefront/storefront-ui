@@ -57,11 +57,8 @@ storiesOf("Atoms|Input", module)
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
-      hasIcon: {
-        default: boolean("hasIcon", false, "Props"),
-      },
       icon: {
-        default: select("icon", iconsNames, "phone", "Props"),
+        default: select("icon", ["", ...iconsNames], "", "Props"),
       },
       colorIcon: {
         default: select("colorIcon", ["", ...colors], "", "Props"),
@@ -90,7 +87,6 @@ storiesOf("Atoms|Input", module)
         :successMessage="successMessage"
         :required="required"
         :disabled="disabled"
-        :hasIcon="hasIcon"
         :icon="icon"
         :colorIcon="colorIcon"
         :sizeIcon="sizeIcon"
@@ -135,19 +131,15 @@ storiesOf("Atoms|Input", module)
       },
       required: {
         default: boolean("required", true, "Props"),
-      },
-      
+      },      
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
-      hasIcon: {
-        default: boolean("hasIcon", false, "Props"),
-      },
       icon: {
-        default: select("icon", iconsNames, "phone", "Props"),
+        default: select("icon", ["", ...iconsNames], "", "Props"),
       },
       colorIcon: {
         default: select("colorIcon", ["", ...colors], "", "Props"),
@@ -177,7 +169,7 @@ storiesOf("Atoms|Input", module)
         :has-show-password="hasShowPassword"
         >
       <template #label="{label}">
-            <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
+            {{label}} <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>
       </template>
     </SfInput>`,
   }))
@@ -215,19 +207,15 @@ storiesOf("Atoms|Input", module)
       },
       required: {
         default: boolean("required", false, "Props"),
-      },
-      
+      },      
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
-      hasIcon: {
-        default: boolean("hasIcon", false, "Props"),
-      },
       icon: {
-        default: select("icon", iconsNames, "phone", "Props"),
+        default: select("icon", ["", ...iconsNames], "", "Props"),
       },
       colorIcon: {
         default: select("colorIcon", ["", ...colors], "", "Props"),
@@ -256,7 +244,6 @@ storiesOf("Atoms|Input", module)
       :disabled="disabled"
       :has-show-password="hasShowPassword"
       aria-label="Input label"
-      :hasIcon="hasIcon"
       :icon="icon"
       :colorIcon="colorIcon"
       :helperText="helperText"
@@ -303,19 +290,15 @@ storiesOf("Atoms|Input", module)
       },
       required: {
         default: boolean("required", false, "Props"),
-      },
-      
+      },      
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
-      hasIcon: {
-        default: boolean("hasIcon", false, "Props"),
-      },
       icon: {
-        default: select("icon", iconsNames, "phone", "Props"),
+        default: select("icon", ["", ...iconsNames], "", "Props"),
       },
       colorIcon: {
         default: select("colorIcon", ["", ...colors], "", "Props"),
@@ -343,8 +326,9 @@ storiesOf("Atoms|Input", module)
       :required="required"      
       :disabled="disabled"
       :has-show-password="hasShowPassword"
+      :icon="icon"
       >
-      <template #error-message="{errorMessage}">
+      <template #show-error-message="{errorMessage}">
         <div>
           <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> 
           CUSTOM ERROR MESSAGE
@@ -387,19 +371,15 @@ storiesOf("Atoms|Input", module)
       },
       required: {
         default: boolean("required", false, "Props"),
-      },
-      
+      },      
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
       hasShowPassword: {
         default: boolean("hasShowPassword", true, "Props"),
       },
-      hasIcon: {
-        default: boolean("hasIcon", false, "Props"),
-      },
       icon: {
-        default: select("icon", iconsNames, "phone", "Props"),
+        default: select("icon", ["", ...iconsNames], "", "Props"),
       },
       colorIcon: {
         default: select("colorIcon", ["", ...colors], "", "Props"),
@@ -424,8 +404,7 @@ storiesOf("Atoms|Input", module)
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
-      :required="required"
-      
+      :required="required"      
       :disabled="disabled"
       :has-show-password="hasShowPassword"
       >
@@ -469,19 +448,15 @@ storiesOf("Atoms|Input", module)
       },
       required: {
         default: boolean("required", false, "Props"),
-      },
-      
+      },      
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
-      hasIcon: {
-        default: boolean("hasIcon", false, "Props"),
-      },
       icon: {
-        default: select("icon", iconsNames, "phone", "Props"),
+        default: select("icon", ["", ...iconsNames], "", "Props"),
       },
       colorIcon: {
         default: select("colorIcon", ["", ...colors], "", "Props"),
@@ -510,7 +485,6 @@ storiesOf("Atoms|Input", module)
       :disabled="disabled"
       :has-show-password="hasShowPassword"
       :class="customClass"
-      :hasIcon="hasIcon"
       :icon="icon"
       :colorIcon="colorIcon"
       :helperText="helperText"

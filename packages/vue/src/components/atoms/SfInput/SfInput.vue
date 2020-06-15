@@ -4,7 +4,7 @@
     :class="{
       'sf-input--has-text': !!value,
       'sf-input--invalid': !valid,
-      'sf-input--has-icon': hasIcon
+      'sf-input--has-icon': icon,
     }"
   >
     <div class="sf-input__wrapper">
@@ -21,10 +21,7 @@
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
-      <label
-        class="sf-input__label"
-        :for="name"        
-      >
+      <label class="sf-input__label" :for="name">
         <!-- @slot Custom input label -->
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
@@ -52,7 +49,7 @@
           />
         </SfButton>
         <SfIcon
-          v-if="hasIcon"
+          v-if="icon"
           class="sf-input__icon"
           :icon="icon"
           :color="colorIcon"
@@ -63,7 +60,11 @@
     <div class="sf-input__message">
       <transition name="sf-fade">
         <!-- @slot Custom message of form input -->
-        <slot v-if="!disabled" :name="computedMessageSlotName" v-bind="{ computedMessage }">
+        <slot
+          v-if="!disabled"
+          :name="computedMessageSlotName"
+          v-bind="{ computedMessage }"
+        >
           <div :class="computedMessageClass">{{ computedMessage }}</div></slot
         >
       </transition>
@@ -210,7 +211,7 @@ export default {
       }
     },
     computedMessage() {
-      if (this.errorMessage && !this.valid ) {
+      if (this.errorMessage && !this.valid) {
         return this.errorMessage;
       } else if (this.successMessage && this.valid) {
         return this.successMessage;
