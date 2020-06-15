@@ -6,9 +6,9 @@
     v-bind="$attrs"
     :placeholder="placeholder"
     name="search"
-    icon="search"
-    color-icon="--c-secondary-variant"
-    size-icon="1.25rem"
+    :icon="icon"
+    :color-icon="colorIcon"
+    :size-icon="sizeIcon"
     v-on="listeners"
   >
   </SfInput>
@@ -27,6 +27,18 @@ export default {
     value: {
       type: [Number, String],
       default: null,
+    },
+    colorIcon: {
+      type: String,
+      default: "--c-secondary-variant",
+    },
+    sizeIcon: {
+      type: String,
+      default: "1.25rem",
+    },
+    icon: {
+      type: [String, Array],
+      default: "search",
     },
   },
   computed: {

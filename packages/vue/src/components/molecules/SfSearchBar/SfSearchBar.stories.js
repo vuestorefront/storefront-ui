@@ -29,6 +29,15 @@ storiesOf("Molecules|SearchBar", module)
           "Props"
         ),
       },
+      icon: {
+        default: text("icon", "search", "Props" )
+      },
+      colorIcon: {
+        default: text("colorIcon", "--c-secondary-variant", "Props")
+      },
+      sizeIcon: {
+        default: text("sizeIcon", "1.25rem", "Props")
+      },
     },
     data() {
       return {
@@ -38,6 +47,9 @@ storiesOf("Molecules|SearchBar", module)
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
+      :icon="icon"
+      :colorIcon="colorIcon"
+      :sizeIcon="sizeIcon"
       aria-label="Search"
       v-model="value"/>`,
   }))
@@ -74,7 +86,7 @@ storiesOf("Molecules|SearchBar", module)
       :placeholder="placeholder"
       aria-label="Search"
       v-model="value">
-      <template #icon>👀</template>
+      <template #show-icon>👀</template>
     </SfSearchBar>`,
   }))
   .add("with modifier --no-icon", () => ({
@@ -98,6 +110,15 @@ storiesOf("Molecules|SearchBar", module)
           "Search for items and promotions",
           "Props"
         ),
+        icon: {
+          default: text("icon", "search", "Props")
+        },
+        colorIcon: {
+          default: text("colorIcon", "--c-secondary-variant", "Props")
+        },
+        sizeIcon: {
+          default: text("sizeIcon", "1.25rem", "Props")
+        },
       },
     },
     data() {
@@ -108,6 +129,9 @@ storiesOf("Molecules|SearchBar", module)
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
+      :icon="icon"
+      :colorIcon="colorIcon"
+      :sizeIcon="sizeIcon"
       aria-label="Search"
       v-model="value">
     </SfSearchBar>`,
