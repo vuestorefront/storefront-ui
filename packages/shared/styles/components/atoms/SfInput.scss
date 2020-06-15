@@ -178,13 +178,13 @@
     }
   }
   &__icon {
-    position: absolute;
-    display: var(--input-icon-display, inline-block);
-    width: var(--input-icon-width, var(--icon-size, .75rem));
-    height: var(--input-icon-height, var(--icon-size, .75rem));
-    top: var(--input-icon-top, 50%);
-    left: var(--input-icon-left, var(--spacer-2xs));
     --icon-color: var(--input-label-color);
+    position: absolute;
+    display: var(--input-icon-display, flex);
+    width: var(--input-icon-width, var(--input-icon-size, .75rem));
+    height: var(--input-icon-height, var(--input-icon-size, .75rem));
+    top: var(--input-icon-top, 50%);
+    left: var(--input-icon-left, var(--spacer-2xs));    
     transform: var(--input-icon-transform, translate3d(0, -50%, 0));
     transition: var(
       --input-icon-transition,
@@ -193,11 +193,12 @@
   }  
   &--invalid {
     --input-border-color: var(--c-danger);
+    --input-label-color: var(--c-danger); 
     input {
       &:focus {
         & ~ * {
-          --input-bar-background: var(--c-danger);
-          --input-label-color: var(--c-danger);                     
+          --input-bar-background: var(--c-danger);   
+          --input-label-color: var(--c-danger);                           
         }        
       }
     }
@@ -216,16 +217,18 @@
     }    
     input:focus {
       & ~ * {
-        --input-icon-top: var(--spacer-2xs);
-        --icon-size: 0.375rem;
+        --input-icon-top: 0;        
+        --input-icon-transform: translate3d(0, 50%, 0);
+        --input-icon-size: 0.375rem;
         --input-label-padding: 0 0 0 var(--spacer-sm);
       } 
     }
     &.sf-input--has-text {
-      --input-icon-top: var(--spacer-2xs);          
+      --input-icon-top: 0;  
+      --input-icon-transform: translate3d(0, 50%, 0);        
       --input-label-padding: 0 0 0 var(--spacer-sm); 
       .sf-icon {
-        --icon-size: 0.375rem;
+        --input-icon-size: 0.375rem;
       }  
     }
   }
@@ -258,12 +261,23 @@
     --input-padding: var(--spacer-xs) var(--spacer-xs) var(--spacer-xs) var(--spacer-sm);
     --input-border-color: var(--c-secondary-variant);
     --input-label-background: var(--c-white);
-    --input-label-font-size: var(--font-base);
+    // --input-label-font-size: var(--font-base);
     &.sf-input {
       &--has-text {
+        --input-icon-display: none;
         --input-label-top: -25%;
         --input-label-left: var(--spacer-xs);
         --input-label-padding: 0 var(--spacer-2xs);
+      }
+      &--has-icon {
+        --input-label-left: var(--spacer-xs);
+        --input-icon-left: var(--spacer-xs);
+        input:focus {
+           & ~ * {
+             --input-icon-display: none;
+             --input-label-left: var(--spacer-xs);
+           }
+        }
       }
       &--invalid {
         --input-border-color: var(--c-danger);
