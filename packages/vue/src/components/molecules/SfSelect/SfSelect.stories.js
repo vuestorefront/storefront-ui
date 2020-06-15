@@ -44,9 +44,6 @@ storiesOf("Molecules|Select", module)
       required: {
         default: boolean("required", false, "Props"),
       },
-      requiredMessage: {
-        default: text("requiredMessage", "Required", "Props"),
-      },
       valid: {
         default: boolean("valid", true, "Props"),
       },
@@ -55,6 +52,12 @@ storiesOf("Molecules|Select", module)
       },
       errorMessage: {
         default: text("errorMessage", "Color", "Props"),
+      },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
+      successMessage: {
+        default: text("successMessage", "", "Props"),
       },
       persistent: {
         default: boolean("persistent", false, "Props"),
@@ -81,10 +84,11 @@ storiesOf("Molecules|Select", module)
         :label="label"
         :size="size"
         :required="required"
-        :requiredMessage="requiredMessage"
         :valid="valid"
         :disabled="disabled"
         :error-message="errorMessage"
+        :hintMessage="hintMessage"
+        :successMessage="successMessage"
         :persistent="persistent"
         style="max-width: 30rem"
       >
@@ -117,9 +121,6 @@ storiesOf("Molecules|Select", module)
       required: {
         default: boolean("required", false, "Props"),
       },
-      requiredMessage: {
-        default: text("requiredMessage", "Required", "Props"),
-      },
       valid: {
         default: boolean("valid", true, "Props"),
       },
@@ -128,6 +129,12 @@ storiesOf("Molecules|Select", module)
       },
       errorMessage: {
         default: text("errorMessage", "Color", "Props"),
+      },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
+      successMessage: {
+        default: text("successMessage", "", "Props"),
       },
       persistent: {
         default: boolean("persistent", false, "Props"),
@@ -146,10 +153,11 @@ storiesOf("Molecules|Select", module)
         :label="label"
         :size="size"
         :required="required"
-        :requiredMessage="requiredMessage"
         :valid="valid"
         :disabled="disabled"
         :error-message="errorMessage" 
+        :hintMessage="hintMessage"
+        :successMessage="successMessage"
         :persistent="persistent"       
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
@@ -185,9 +193,6 @@ storiesOf("Molecules|Select", module)
       required: {
         default: boolean("required", false, "Props"),
       },
-      requiredMessage: {
-        default: text("requiredMessage", "Required", "Props"),
-      },
       valid: {
         default: boolean("valid", false, "Props"),
       },
@@ -196,6 +201,12 @@ storiesOf("Molecules|Select", module)
       },
       errorMessage: {
         default: text("errorMessage", "Color", "Props"),
+      },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
+      successMessage: {
+        default: text("successMessage", "", "Props"),
       },
       persistent: {
         default: boolean("persistent", false, "Props"),
@@ -214,10 +225,11 @@ storiesOf("Molecules|Select", module)
         :label="label"
         :size="size"
         :required="required"
-        :requiredMessage="requiredMessage"
         :valid="valid"
         :disabled="disabled"
         :error-message="errorMessage"
+        :hintMessage="hintMessage"
+        :successMessage="successMessage"
         :persistent="persistent"
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
@@ -253,8 +265,11 @@ storiesOf("Molecules|Select", module)
       required: {
         default: boolean("required", false, "Props"),
       },
-      requiredMessage: {
-        default: text("requiredMessage", "Required", "Props"),
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
+      successMessage: {
+        default: text("successMessage", "", "Props"),
       },
       valid: {
         default: boolean("valid", false, "Props"),
@@ -282,10 +297,11 @@ storiesOf("Molecules|Select", module)
         :label="label"
         :size="size"
         :required="required"
-        :requiredMessage="requiredMessage"
         :valid="valid"
         :disabled="disabled"
         :error-message="errorMessage"
+        :hintMessage="hintMessage"
+        :successMessage="successMessage"
         :persistent="persistent"
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">

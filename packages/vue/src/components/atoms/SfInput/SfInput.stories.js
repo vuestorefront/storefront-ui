@@ -47,10 +47,7 @@ storiesOf("Atoms|Input", module)
       },
       required: {
         default: boolean("required", true, "Props"),
-      },
-      requiredMessage: {
-        default: text("requiredMessage", "Required", "Props"),
-      },
+      },      
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
@@ -139,9 +136,7 @@ storiesOf("Atoms|Input", module)
       required: {
         default: boolean("required", true, "Props"),
       },
-      requiredMessage: {
-        default: text("requiredMessage", "Required", "Props"),
-      },
+      
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
@@ -177,8 +172,7 @@ storiesOf("Atoms|Input", module)
         :name="name"
         :valid="valid"
         :error-message="errorMessage"
-        :required="required"
-        :requiredMessage="requiredMessage"
+        :required="required"        
         :disabled="disabled"
         :has-show-password="hasShowPassword"
         >
@@ -222,9 +216,7 @@ storiesOf("Atoms|Input", module)
       required: {
         default: boolean("required", false, "Props"),
       },
-      requiredMessage: {
-        default: text("requiredMessage", "Required", "Props"),
-      },
+      
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
@@ -260,8 +252,7 @@ storiesOf("Atoms|Input", module)
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
-      :required="required"
-      :requiredMessage="requiredMessage"
+      :required="required"      
       :disabled="disabled"
       :has-show-password="hasShowPassword"
       aria-label="Input label"
@@ -313,9 +304,7 @@ storiesOf("Atoms|Input", module)
       required: {
         default: boolean("required", false, "Props"),
       },
-      requiredMessage: {
-        default: text("requiredMessage", "Required", "Props"),
-      },
+      
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
@@ -351,8 +340,7 @@ storiesOf("Atoms|Input", module)
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
-      :required="required"
-      :requiredMessage="requiredMessage"
+      :required="required"      
       :disabled="disabled"
       :has-show-password="hasShowPassword"
       >
@@ -400,9 +388,7 @@ storiesOf("Atoms|Input", module)
       required: {
         default: boolean("required", false, "Props"),
       },
-      requiredMessage: {
-        default: text("requiredMessage", "Required", "Props"),
-      },
+      
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
@@ -439,7 +425,7 @@ storiesOf("Atoms|Input", module)
       :valid="valid"
       :error-message="errorMessage"
       :required="required"
-      :requiredMessage="requiredMessage"
+      
       :disabled="disabled"
       :has-show-password="hasShowPassword"
       >
@@ -484,9 +470,7 @@ storiesOf("Atoms|Input", module)
       required: {
         default: boolean("required", false, "Props"),
       },
-      requiredMessage: {
-        default: text("requiredMessage", "Required", "Props"),
-      },
+      
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
@@ -523,7 +507,6 @@ storiesOf("Atoms|Input", module)
       :valid="valid"
       :error-message="errorMessage"
       :required="required"
-      :requiredMessage="requiredMessage"
       :disabled="disabled"
       :has-show-password="hasShowPassword"
       :class="customClass"
