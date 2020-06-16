@@ -162,7 +162,7 @@ export default {
     const vm = this;
     this.$nextTick(() => {
       const observer = lozad(vm.$el, {
-        loaded() {
+        load() {
           vm.isLoaded = true;
         },
         rootMargin: vm.rootMargin,
