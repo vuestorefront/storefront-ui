@@ -1,5 +1,10 @@
 <template>
-  <div class="sf-range" role="group" aria-labelledby="sfrange-label">
+  <div
+    class="sf-range"
+    role="group"
+    aria-labelledby="sfrange-label"
+    :style="minMaxStyle"
+  >
     <div id="sfrange-label">
       {{ label }}
     </div>
@@ -100,6 +105,9 @@ export default {
         ),
         newPosition = 10 - newValue * 0.2;
       return `left: calc(${newValue}% + (${newPosition}px))`;
+    },
+    minMaxStyle() {
+      return `--valueMin: ${this.valueMin}; --valueMax: ${this.valueMax}; --min: ${this.min}; --max: ${this.max};`;
     },
   },
   watch: {

@@ -12,16 +12,18 @@
   border-radius: 0;
   pointer-events: auto;
   width: var(--range-thumb-width, var(--range-thumb-size, var(--spacer-lg))); 
-  height: var(--range-thumb-width, var(--range-thumb-size, var(--spacer-lg)));
+  height: var(--range-thumb-height, var(--range-thumb-size, var(--spacer-lg)));
 }
 
 .sf-range {
+    --dif: calc(var(--max) - var(--min));
     display: grid;
     overflow: hidden; 
     position: relative;    
     grid-template-rows: max-content 1rem;
     margin: 1rem auto;
     width: var(--range-width, 100%);
+    background: linear-gradient(0deg, #ccc var(--spacer-sm), transparent 0);
   .sf-input__label {
     position: absolute;
     clip-path: inset(50%);   
@@ -30,7 +32,7 @@
     grid-column: 1;
     grid-row-start: 2;
     input {
-      &::-webkit-slider-runnable-track, &::-webkit-slider-thumb, & { 
+      &::-webkit-slider-runnable-track, &::-webkit-slider-thumb { 
         -webkit-appearance: none; 
       } 
       --input-padding: 0;
@@ -47,5 +49,13 @@
     &-label {
       position: absolute;
     }
-}
+  }
+  &::after {
+		grid-column: 1/ span 2;
+		grid-row: 2;
+		margin-left: calc((var(--valueMin) - var(--min))/var(--dif)*100%);
+		width: calc((var(--valueMax) - var(--valueMin))/var(--dif)*100%);
+		background: #95a;
+		content: ''
+	}
 }
