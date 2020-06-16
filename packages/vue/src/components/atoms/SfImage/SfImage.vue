@@ -1,7 +1,7 @@
 <template>
   <div
     class="sf-image"
-    :class="{ 'has-size': size && source }"
+    :class="{ 'has-size': size }"
     :style="size"
     v-on="$listeners"
   >
@@ -17,6 +17,7 @@
         />
         <img
           v-show="source.desktop.url"
+          ref="image"
           :src="source.desktop.url"
           v-bind="$attrs"
           :width="width"
@@ -27,6 +28,7 @@
     <template v-else>
       <img
         v-show="source"
+        ref="image"
         :src="source"
         v-bind="$attrs"
         :width="width"
@@ -34,7 +36,13 @@
       />
     </template>
     <noscript v-if="lazy && noscript" inline-template>
-      <img :src="noscript" v-bind="$attrs" :width="width" :height="height" />
+      <img
+        class="noscript"
+        :src="noscript"
+        v-bind="$attrs"
+        :width="width"
+        :height="height"
+      />
     </noscript>
     <div v-if="hasOverlay" class="sf-image__overlay">
       <slot />

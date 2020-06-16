@@ -13,7 +13,7 @@
           aria-label="Go to previous page"
           @click="hasRouter ? null : go(getPrev)"
         >
-          <SfIcon icon="arrow_left" size="2rem" />
+          <SfIcon icon="arrow_left" size="1.125rem" />
         </component>
       </div>
     </slot>
@@ -31,27 +31,29 @@
           1
         </component>
       </slot>
-      <slot name="points">
+      <slot v-if="firstVisiblePageNumber > 2" name="points">
         <div class="sf-pagination__item">...</div>
       </slot>
     </template>
     <template v-for="page in limitedPageNumbers">
-      <component
-        :is="currentPage === page ? 'span' : componentIs"
-        :key="page"
-        class="sf-pagination__item"
-        :class="{
-          'sf-button--pure': !hasRouter && currentPage !== page,
-          current: currentPage === page,
-        }"
-        :link="hasRouter && currentPage !== page ? getLinkTo(page) : null"
-        @click="!hasRouter && currentPage !== page ? go(page) : null"
-      >
-        {{ page }}
-      </component>
+      <slot name="number" v-bind="{ page, currentPage }">
+        <component
+          :is="currentPage === page ? 'span' : componentIs"
+          :key="page"
+          class="sf-pagination__item"
+          :class="{
+            'sf-button--pure': !hasRouter && currentPage !== page,
+            current: currentPage === page,
+          }"
+          :link="hasRouter && currentPage !== page ? getLinkTo(page) : null"
+          @click="!hasRouter && currentPage !== page ? go(page) : null"
+        >
+          {{ page }}
+        </component>
+      </slot>
     </template>
     <template v-if="showLast">
-      <slot name="points">
+      <slot v-if="lastVisiblePageNumber < total - 1" name="points">
         <div class="sf-pagination__item">...</div>
       </slot>
       <slot name="number" v-bind="{ page: total }">
@@ -81,7 +83,7 @@
           aria-label="Go to previous next"
           @click="hasRouter ? null : go(getNext)"
         >
-          <SfIcon icon="arrow_right" size="2rem" />
+          <SfIcon icon="arrow_right" size="1.125rem" />
         </component>
       </div>
     </slot>
@@ -162,17 +164,10 @@ export default {
       return this.getNext <= this.total;
     },
     showFirst() {
-      return !(
-        this.total <= this.visible ||
-        this.currentPage < this.visible - Math.floor(this.visible / 2) + 1
-      );
+      return this.firstVisiblePageNumber > 1;
     },
     showLast() {
-      return !(
-        this.total <= this.visible ||
-        this.total - this.currentPage <
-          this.visible - Math.floor(this.visible / 2) + 1
-      );
+      return this.lastVisiblePageNumber < this.total;
     },
     listOfPageNumbers() {
       return Array.from(Array(this.total), (_, i) => i + 1);
@@ -186,7 +181,7 @@ export default {
       }
       if (
         this.total - this.currentPage <
-        this.visible - Math.floor(this.visible / 2) + 1
+        this.visible - Math.ceil(this.visible / 2) + 1
       ) {
         return this.listOfPageNumbers.slice(this.total - this.visible);
       }
@@ -194,6 +189,12 @@ export default {
         this.currentPage - Math.ceil(this.visible / 2),
         this.currentPage + Math.floor(this.visible / 2)
       );
+    },
+    firstVisiblePageNumber() {
+      return this.limitedPageNumbers[0];
+    },
+    lastVisiblePageNumber() {
+      return this.limitedPageNumbers[this.limitedPageNumbers.length - 1];
     },
   },
   methods: {

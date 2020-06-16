@@ -42,7 +42,7 @@ Read [how it can be customized](https://docs.storefrontui.io/customization.html)
 
 # Design
 
-You can find the stunning designs we are using for Storefront UI components [here](http://bit.ly/storefront-ui-design-system).
+You can find the stunning designs we are using for Storefront UI components [here](https://www.figma.com/file/N0Ct95cSAoODNv7zYS01ng/Storefront-UI-%7C-Design-System?node-id=127%3A1054).
 
 [![image](https://user-images.githubusercontent.com/15185752/58185795-06b51900-7cb4-11e9-883f-2571cace575c.png)
 ](https://www.youtube.com/watch?v=8FO6tm9rEdo&feature=youtu.be)
