@@ -54,9 +54,6 @@ storiesOf("Atoms|Image", module)
       lazy: {
         default: boolean("lazy", true, "Props"),
       },
-      pictureBreakpoint: {
-        default: number("pictureBreakpoint", 576, {}, "Props"),
-      },
       rootMargin: {
         default: text("rootMargin", "", "Props"),
       },
@@ -71,7 +68,6 @@ storiesOf("Atoms|Image", module)
         :width="width"
         :height="height"
         :lazy="lazy"
-        :picture-breakpoint="pictureBreakpoint" 
         :rootMargin="rootMargin"
         :threshold="threshold"/>`,
   }))
@@ -101,9 +97,6 @@ storiesOf("Atoms|Image", module)
       lazy: {
         default: boolean("lazy", true, "Props"),
       },
-      pictureBreakpoint: {
-        default: number("pictureBreakpoint", 576, {}, "Props"),
-      },
       rootMargin: {
         default: text("rootMargin", "", "Props"),
       },
@@ -117,54 +110,11 @@ storiesOf("Atoms|Image", module)
         :alt="alt"
         :lazy="lazy"
         :sizes="sizes"
-        :picture-breakpoint="pictureBreakpoint"
         :rootMargin="rootMargin"
         :threshold="threshold"
       />`,
   }))
-  .add("With src as object", () => ({
-    components: { SfImage },
-    props: {
-      src: {
-        default: object(
-          "src",
-          {
-            mobile: {
-              url: "/assets/storybook/SfImage/product-109x164.jpg",
-            },
-            desktop: {
-              url: "/assets/storybook/SfImage/product-216x326.jpg",
-            },
-          },
-          "Props"
-        ),
-      },
-      alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
-      },
-      lazy: {
-        default: boolean("lazy", true, "Props"),
-      },
-      pictureBreakpoint: {
-        default: number("pictureBreakpoint", 576, {}, "Props"),
-      },
-      rootMargin: {
-        default: text("rootMargin", "", "Props"),
-      },
-      threshold: {
-        default: number("threshold", 0, {}, "Props"),
-      },
-    },
-    template: `<SfImage
-        :src="src"
-        :alt="alt"
-        :lazy="lazy"
-        :picture-breakpoint="pictureBreakpoint"
-        :rootMargin="rootMargin"
-        :threshold="threshold"
-      />`,
-  }))
-  .add("With src as string", () => ({
+  .add("With src", () => ({
     components: { SfImage },
     props: {
       src: {
@@ -180,9 +130,6 @@ storiesOf("Atoms|Image", module)
       lazy: {
         default: boolean("lazy", true, "Props"),
       },
-      pictureBreakpoint: {
-        default: number("pictureBreakpoint", 576, {}, "Props"),
-      },
       rootMargin: {
         default: text("rootMargin", "", "Props"),
       },
@@ -194,7 +141,6 @@ storiesOf("Atoms|Image", module)
         :src="src"
         :alt="alt"
         :lazy="lazy"
-        :picture-breakpoint="pictureBreakpoint"
         :rootMargin="rootMargin"
         :threshold="threshold"
       />`,
@@ -222,9 +168,6 @@ storiesOf("Atoms|Image", module)
       lazy: {
         default: boolean("lazy", true, "Props"),
       },
-      pictureBreakpoint: {
-        default: number("pictureBreakpoint", 576, {}, "Props"),
-      },
       rootMargin: {
         default: text("rootMargin", "", "Props"),
       },
@@ -236,7 +179,6 @@ storiesOf("Atoms|Image", module)
         :src="src"
         :alt="alt"
         :lazy="lazy"
-        :picture-breakpoint="pictureBreakpoint"
         :rootMargin="rootMargin"
         :threshold="threshold"
       />`,
@@ -270,9 +212,6 @@ storiesOf("Atoms|Image", module)
       lazy: {
         default: boolean("lazy", true, "Props"),
       },
-      pictureBreakpoint: {
-        default: number("picture-breakpoint", 576, {}, "Props"),
-      },
       rootMargin: {
         default: text("rootMargin", "", "Props"),
       },
@@ -286,7 +225,6 @@ storiesOf("Atoms|Image", module)
       :width="width"
       :height="height"
       :lazy="lazy"
-      :picture-breakpoint="pictureBreakpoint"
       :rootMargin="rootMargin"
       :threshold="threshold"
     >
