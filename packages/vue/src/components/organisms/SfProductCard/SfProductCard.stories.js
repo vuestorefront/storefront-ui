@@ -520,7 +520,7 @@ storiesOf("Organisms|ProductCard", module)
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
     >
-      <template #title="{ title }">
+      <template #details-top="{ title }">
         CUSTOM TITLE
       </template>
     </SfProductCard>`,
@@ -722,7 +722,7 @@ storiesOf("Organisms|ProductCard", module)
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
     >
-      <template #price="{ specialPrice, regularPrice }">
+      <template #details-center="{ specialPrice, regularPrice }">
         CUSTOM PRICE
       </template>
     </SfProductCard>`,
@@ -823,7 +823,7 @@ storiesOf("Organisms|ProductCard", module)
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
     >
-      <template #reviews="{ maxRating, scoreRating }">
+      <template #details-bottom="{ maxRating, scoreRating }">
         CUSTOM REVIEWS
       </template>
     </SfProductCard>`,

@@ -76,7 +76,7 @@
         </slot>
       </template>
     </div>
-    <slot name="title" v-bind="{ title, link }">
+    <slot name="details-top" v-bind="{ title, link }">
       <SfLink :link="link" class="sf-product-card__link">
         <h3 class="sf-product-card__title">
           {{ title }}
@@ -97,7 +97,7 @@
         />
       </slot>
     </SfButton>
-    <slot name="price" v-bind="{ specialPrice, regularPrice }">
+    <slot name="details-center" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
         v-if="regularPrice"
         class="sf-product-card__price"
@@ -105,7 +105,7 @@
         :special="specialPrice"
       />
     </slot>
-    <slot name="reviews" v-bind="{ maxRating, scoreRating }">
+    <slot name="details-bottom" v-bind="{ maxRating, scoreRating }">
       <div
         v-if="typeof scoreRating === 'number'"
         class="sf-product-card__reviews"
