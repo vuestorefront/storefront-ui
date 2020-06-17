@@ -75,14 +75,14 @@ storiesOf("Atoms|Image", module)
     components: { SfImage },
     props: {
       srcset: {
-        default: object(
+        default: text(
           "srcset",
           "/assets/storybook/SfImage/product-109x164.jpg 109w, /assets/storybook/SfImage/product-216x326.jpg 216w",
           "Props"
         ),
       },
       src: {
-        default: object(
+        default: text(
           "src",
           "/assets/storybook/SfImage/product-216x326.jpg",
           "Props"
@@ -118,7 +118,7 @@ storiesOf("Atoms|Image", module)
     components: { SfImage },
     props: {
       src: {
-        default: object(
+        default: text(
           "src",
           "/assets/storybook/SfImage/product-216x326.jpg",
           "Props"
@@ -149,16 +149,9 @@ storiesOf("Atoms|Image", module)
     components: { SfImage },
     props: {
       src: {
-        default: object(
+        default: text(
           "src",
-          {
-            mobile: {
-              url: "/assets/storybook/SfImage/product-109x164.jpg",
-            },
-            desktop: {
-              url: "/assets/storybook/SfImage/product-216x326.jpg",
-            },
-          },
+          "/assets/storybook/SfImage/product-216x326.jpg",
           "Props"
         ),
       },
@@ -187,16 +180,9 @@ storiesOf("Atoms|Image", module)
     components: { SfImage },
     props: {
       src: {
-        default: object(
+        default: text(
           "src",
-          {
-            mobile: {
-              url: "/assets/storybook/SfImage/product-109x164.jpg",
-            },
-            desktop: {
-              url: "/assets/storybook/SfImage/product-216x326.jpg",
-            },
-          },
+          "/assets/storybook/SfImage/product-216x326.jpg",
           "Props"
         ),
       },

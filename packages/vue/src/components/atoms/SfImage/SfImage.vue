@@ -131,12 +131,11 @@ export default {
     },
     getSrcOrSrcset() {
       if (this.isLazyAndNotLoaded) {
-        return this.isSrcset
-          ? { srcset: { src: null, srcset: null, sizes: null } }
-          : { src: null };
+        return this.isSrcset ? { src: null, srcset: null } : { src: null };
       }
-
-      return this.isSrcset ? { srcset: this.srcset } : { src: this.src };
+      return this.isSrcset
+        ? { src: this.src, srcset: this.srcset }
+        : { src: this.src };
     },
     noscript() {
       return (
