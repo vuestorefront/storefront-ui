@@ -37,11 +37,8 @@ storiesOf("Atoms|Button", module)
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
-      nativeButton: {
-        default: boolean("native button tag", true, "Props"),
-      },
-      href: {
-        default: text("link", "https://www.storefrontui.io/", "Props"),
+      link: {
+        default: text("link", "", "Props"),
       }
     },
     components: { SfButton },
@@ -49,7 +46,7 @@ storiesOf("Atoms|Button", module)
       :class="customClass"
       :disabled="disabled"
       :nativeButton="nativeButton"
-      :link="href">
+      :link="link">
       {{customLabel}}
     </SfButton>`,
   }))
@@ -82,10 +79,7 @@ storiesOf("Atoms|Button", module)
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
-      nativeButton: {
-        default: boolean("native button tag", false, "Props"),
-      },
-      href: {
+      link: {
         default: text("link", "https://www.storefrontui.io/", "Props"),
       }
     },
@@ -94,7 +88,7 @@ storiesOf("Atoms|Button", module)
       :class="customClass"
       :disabled="disabled"
       :nativeButton="nativeButton"
-      :link="href">
+      :link="link">
       {{customLabel}}
     </SfButton>`,
   }));

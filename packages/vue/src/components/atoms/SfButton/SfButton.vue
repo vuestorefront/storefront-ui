@@ -5,7 +5,7 @@
     class="sf-button"
     v-bind="$attrs"
     :disabled="disabled"
-    :link="href"
+    :link="link"
     v-on="$listeners"
   >
     <!--@slot Use this slot to place content inside the button.-->
@@ -32,14 +32,7 @@ export default {
       default: false,
     },
     /**
-     * To change for "a" tag choose false
-     */
-    nativeButton: {
-      type: Boolean,
-      default: true,
-    },
-    /**
-     * Link for "a" tag
+     * Link for "a" tag, when empty it is button.
      */
     link: {
       type: [String, Object],
@@ -48,10 +41,7 @@ export default {
   },
   computed: {
     tag() {
-      return this.nativeButton === true ? "button" : "SfLink";
-    },
-    href() {
-      return this.nativeButton === true ? null : this.link;
+      return this.link ? "SfLink" : "button";
     },
   },
 };
