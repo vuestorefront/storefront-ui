@@ -1,0 +1,136 @@
+:root {
+  .h1 {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-semibold);
+    font-size: var(--h1-font-size);
+    line-height: 48px;
+  }
+
+  .h2 {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-normal);
+    font-size: var(--h2-font-size);
+    line-height: 42px;
+    text-transform: uppercase;
+  }
+
+  .h3 {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-semibold);
+    font-size: var(--h3-font-size);
+    line-height: 32px;
+  }
+
+  .h4 {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-medium);
+    font-size: var(--h4-font-size);
+    line-height: 26px;
+  }
+
+  .h5 {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-normal);
+    font-size: var(--h5-font-size);
+    line-height: 22px;
+  }
+
+  .h6 {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-normal);
+    font-size: var(--h6-font-size);
+    line-height: 16px;
+  }
+
+  .text-lg {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-normal);
+    font-size: var(--font-lg);
+    line-height: 24px;
+  }
+
+  .text {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-normal);
+    font-size: var(--font-base);
+    line-height: 18px;
+  }
+
+  .text-sm {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-normal);
+    font-size: var(--font-sm);
+    line-height: 20px;
+    @include for-desktop {
+      font-weight: var(--font-light);
+    }
+    } 
+
+  .text-bullets {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-light);
+    font-size: var(--font-base);
+    line-height: 22px;
+  }
+
+  .text-label {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-semibold);
+    font-size: var(--font-xs);
+    line-height: 18px;
+  }
+
+  .text-btn {  
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-semibold);
+    font-size: var(--font-base);
+    line-height: 22px;
+    text-transform: uppercase;
+    font-size: 40px;
+  }
+
+  .text-link {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-medium);
+    font-size: var(--font-sm);
+    line-height: 20px;  
+    text-decoration-line: underline;
+    color: var(--c-info);
+  }
+
+  .text-price {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-medium);
+    font-size: var(--font-lg);
+    line-height: 24px;  
+    text-transform: uppercase;
+  }
+
+  .text-characteristics {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-normal);
+    font-size: var(--font-xs);
+    line-height: 18px;
+  }
+
+  .text-braedcrumbs {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-normal);
+    font-size: var(--font-sm);
+    line-height: 20px;
+  }
+
+  .mobile-nav-item {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-light);
+    font-size: var(--font-xs);
+    line-height: 18px;
+  }
+
+  .text-input {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-normal);
+    font-size: var(--font-base);
+    line-height: 24px;
+  }
+}
