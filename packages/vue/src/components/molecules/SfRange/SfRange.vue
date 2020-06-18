@@ -16,6 +16,14 @@ export default {
       type: Number,
       default: 0,
     },
+    valueMin: {
+      type: Number,
+      default: 0,
+    },
+    valueMax: {
+      type: [Number, String],
+      default: 1,
+    },
     step: {
       type: Number,
       default: 1,
@@ -46,12 +54,6 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  data() {
-    return {
-      valueMin: 0,
-      valueMax: 0,
-    };
   },
   computed: {
     // orientation(value) {
@@ -123,7 +125,7 @@ export default {
         max: this.min === this.max ? this.max + 1 : this.max,
       },
       step: this.step,
-      start: [this.valueMin, this.valueMax],
+      start: this.valueMax ? [this.valueMin, this.valueMax] : this.valueMin,
       connect: true,
       direction: this.rangeDirection,
       orientation: this.rangeOrientation,
