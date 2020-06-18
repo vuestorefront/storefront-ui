@@ -7,4 +7,3 @@ describe("SfRange.vue", () => {
     expect(component.contains(".sf-range")).toBe(true);
   });
 });
-

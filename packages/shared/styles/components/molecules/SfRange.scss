@@ -1,61 +1,43 @@
 @import "../../helpers";
 
-// @mixin track() {
-//   background: none;
-//   height: 100%;
-//   width: 100%;
-// }
-
-// @mixin thumb() {
-//   background: currentcolor;
-//   border: none;
-//   border-radius: 0;
-//   pointer-events: auto;
-//   width: var(--range-thumb-width, var(--range-thumb-size, var(--spacer-lg))); 
-//   height: var(--range-thumb-height, var(--range-thumb-size, var(--spacer-lg)));
-// }
-
 .sf-range {
-    // --dif: calc(var(--max) - var(--min));
-    // display: grid;
-    // overflow: hidden; 
-    position: relative;    
-    // grid-template-rows: max-content 1rem;
-    // margin: 1rem auto;
+    position: relative;  
     width: var(--range-width, 100%);
-    background: linear-gradient(0deg, #ccc var(--spacer-sm), transparent 0);
-  // .sf-input__label {
-  //   position: absolute;
-  //   clip-path: inset(50%);   
-  // }
-  // &__slider {
-  //   grid-column: 1;
-  //   grid-row-start: 2;
-  //   input {
-  //     &::-webkit-slider-runnable-track, &::-webkit-slider-thumb { 
-  //       -webkit-appearance: none; 
-  //     } 
-  //     --input-padding: 0;
-  //     --input-background: none;
-  //     margin: 0;
-  //     pointer-events: none;        
-      
-  //     &::-webkit-slider-runnable-track { @include track; }
-  //     &::-moz-range-track { @include track; }
-      
-  //     &::-webkit-slider-thumb { @include thumb; }
-  //     &::-moz-range-thumb { @include thumb; }
-  //   }
-  //   &-label {
-  //     position: absolute;
-  //   }
-  // }
-  // &::after {
-	// 	grid-column: 1/ span 2;
-	// 	grid-row: 2;
-	// 	margin-left: calc((var(--valueMin) - var(--min))/var(--dif)*100%);
-	// 	width: calc((var(--valueMax) - var(--valueMin))/var(--dif)*100%);
-	// 	background: #95a;
-	// 	content: ''
-	// }
+    height: 7px;
+    background: #F1F2F3;
+    border: none;
+    box-shadow: none;
+    // .noUi-origin {
+    //   top: 0;
+    //   // transform: translate3d(0, -50%, 0);
+    // }
+    .noUi-handle {
+      width: 33px;
+      height: 33px;
+      bottom: 25%;
+      // transform: translate3d(0, -50%, 0);
+      border: 1px solid #5ECE7B;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: none;
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+    // .noUi-base {
+    //   height: 7px;
+    //   background: #fff;
+    // }
+    // .noUi-base .noUi-connects {
+    //   height: 7px;
+    // }
+    .noUi-connect {
+      height: 7px;
+      background: #5ECE7B;
+    }
+    .noUi-touch-area {
+      background: #fff;
+      border-radius: 50%;
+    }
 }

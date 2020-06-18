@@ -26,13 +26,13 @@ storiesOf("Molecules|Range", module)
         default: number("min", 0, "Props"),
       },
       max: {
-        default: number("max", 10, "Props"),  
+        default: number("max", 10, "Props"),
       },
       valueMin: {
         default: number("Value min", 0, "Props"),
       },
       valueMax: {
-        default: number("Value Max", 0, "Props"),
+        default: number("Value Max", 1, "Props"),
       },
       step: {
         default: number("step", 1, "Props"),
@@ -48,7 +48,7 @@ storiesOf("Molecules|Range", module)
       },
       tooltips: {
         default: boolean("tooltips", false, "Props"),
-      }
+      },
     },
     components: { SfRange },
     template: `<div style="padding: 100px">
@@ -64,7 +64,7 @@ storiesOf("Molecules|Range", module)
         :orientation="orientation"
         :tooltips="tooltips"
       />
-      </div>`
+      </div>`,
   }))
   .add("One slider", () => ({
     props: {
@@ -105,7 +105,7 @@ storiesOf("Molecules|Range", module)
       },
       tooltips: {
         default: boolean("tooltips", false, "Props"),
-      }
+      },
     },
     components: { SfRange },
     template: `<div style="padding: 100px">
@@ -121,5 +121,5 @@ storiesOf("Molecules|Range", module)
         :orientation="orientation"
         :tooltips="tooltips"
       />
-      </div>`
+      </div>`,
   }));
