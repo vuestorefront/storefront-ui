@@ -120,7 +120,7 @@ export default {
     let config = {
       range: {
         min: this.min,
-        max: this.max,
+        max: this.min === this.max ? this.max + 1 : this.max,
       },
       step: this.step,
       start: [this.valueMin, this.valueMax],
