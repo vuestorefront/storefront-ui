@@ -1,62 +1,12 @@
 <template>
-  <div
-    class="sf-range"
-    role="group"
-    aria-labelledby="sfrange-label"
-    :style="minMaxStyle"
-  >
-    <div id="sfrange-label">
-      {{ label }}
-    </div>
-    <SfInput
-      v-model="valueMin"
-      type="range"
-      v-bind="$attrs"
-      name="nameMin"
-      role="slider"
-      tabindex="0"
-      class="sf-range__slider"
-      :value="valueMin"
-      :min="min"
-      :max="max"
-      :step="step"
-      :label="labelMin"
-      :aria-valuemin="min"
-      :aria-valuenow="valueMin"
-      :aria-valuemax="max"
-      @input="sliderHandler('valueMin', $event)"
-    />
-    <span class="sf-range__slider-label" :style="styleLabelMin">{{
-      valueMin
-    }}</span>
-    <SfInput
-      v-model="valueMax"
-      type="range"
-      v-bind="$attrs"
-      name="nameMax"
-      role="slider"
-      tabindex="0"
-      class="sf-range__slider"
-      :value="valueMax"
-      :min="min"
-      :max="max"
-      :step="step"
-      :label="labelMax"
-      :aria-valuemin="min"
-      :aria-valuenow="valueMax"
-      :aria-valuemax="max"
-      @input="sliderHandler('valueMax', $event)"
-    />
-    <span class="sf-range__slider-label" :style="styleLabelMax">{{
-      valueMax
-    }}</span>
-  </div>
+  <div ref="range" class="sf-range" v-bind="$attrs" :disabled="disabled"></div>
 </template>
 <script>
-import SfInput from "../../atoms/SfInput/SfInput";
+import noUiSlider from "nouislider";
+// import SfInput from "../../atoms/SfInput/SfInput";
 export default {
   name: "SfRange",
-  components: { SfInput },
+  // components: { SfInput },
   props: {
     min: {
       type: Number,
@@ -74,15 +24,27 @@ export default {
       type: String,
       default: "",
     },
-    /* only for screen readers purposes */
-    labelMin: {
-      type: String,
-      default: "",
+    disabled: {
+      type: Boolean,
+      default: true,
     },
-    /* only for screen readers purposes */
-    labelMax: {
-      type: String,
-      default: "",
+    /*
+     * Horizontal orientation if true, vertical orientation if false
+     */
+    orientation: {
+      type: Boolean,
+      default: true,
+    },
+    /*
+     * Ltr orientation if true, rtl orientation if false
+     */
+    direction: {
+      type: Boolean,
+      default: true,
+    },
+    tooltips: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -92,45 +54,103 @@ export default {
     };
   },
   computed: {
-    styleLabelMin() {
-      const newValue = Number(
-          ((this.valueMin - this.min) * 100) / (this.max - this.min)
-        ),
-        newPosition = 10 - newValue * 0.2;
-      return `left: calc(${newValue}% + (${newPosition}px))`;
-    },
-    styleLabelMax() {
-      const newValue = Number(
-          ((this.valueMax - this.min) * 100) / (this.max - this.min)
-        ),
-        newPosition = 10 - newValue * 0.2;
-      return `left: calc(${newValue}% + (${newPosition}px))`;
-    },
-    minMaxStyle() {
-      return `--valueMin: ${this.valueMin}; --valueMax: ${this.valueMax}; --min: ${this.min}; --max: ${this.max};`;
-    },
+    // orientation(value) {
+    //   return this.resetAndChangeOption(value);
+    // },
+    // rangeDirection() {
+    //   return this.direction ? 'ltr' : 'rtl';
+    // }
   },
   watch: {
-    valueMin: {
+    // orientation: {
+    //   handler(value){
+    //     console.log(this.resetAndChangeOption(value));
+    //     return this.resetAndChangeOption(value,'orientation');
+    //   },
+    //   immediate: true,
+    // },
+    min: {
       handler(value) {
-        return value > this.valueMax ? this.valueMax : value;
+        if (this.$refs.range) {
+          return this.updateOptions({
+            range: {
+              min: value,
+              max: this.max,
+            },
+          });
+        }
       },
       immediate: true,
     },
-    valueMax: {
+    max: {
       handler(value) {
-        return value < this.valueMin ? this.valueMin : value;
+        if (this.$refs.range) {
+          return this.updateOptions({
+            range: {
+              min: this.min,
+              max: value,
+            },
+          });
+        }
+      },
+      immediate: true,
+    },
+    step: {
+      handler(value) {
+        if (this.$refs.range) {
+          return this.updateOptions({
+            step: value,
+          });
+        }
+      },
+      immediate: true,
+    },
+    tooltips: {
+      handler(value) {
+        if (this.$refs.range) {
+          return this.updateOptions({
+            tooltips: value,
+          });
+        }
       },
       immediate: true,
     },
   },
+  mounted() {
+    let config = {
+      range: {
+        min: this.min,
+        max: this.max,
+      },
+      step: this.step,
+      start: [this.valueMin, this.valueMax],
+      connect: true,
+      direction: this.rangeDirection,
+      orientation: this.rangeOrientation,
+      behaviour: "tap-drag",
+      tooltips: this.tooltipsShow,
+    };
+    noUiSlider
+      .create(this.$refs.range, config)
+      .on("change", (values) => this.$emit("change", values));
+  },
   methods: {
-    sliderHandler(slider, value) {
-      this.$emit("input", { [slider]: value });
+    // resetAndChangeOption(changedValue, changedValueName) {
+    //   if(this.$refs.range) {
+    //   console.log(this.$refs.range, changedValueName, changedValue, this.config);
+    //   this.$refs.range.noUiSlider.destroy();
+    //   noUiSlider.create(this.$refs.range, {...this.config, changedValueName: changedValue}).on('change', (values) => this.$emit('change', values))
+    //   this.$refs.range.noUiSlider[changedValueName].changedValue;
+    //   }
+    // },
+    updateOptions(updatedOption) {
+      console.log(this.$refs.range.noUiSlider, updatedOption);
+      this.$refs.range.noUiSlider.updateOptions(updatedOption, false);
     },
   },
 };
 </script>
 <style lang="scss">
+@import "~nouislider/distribute/nouislider.css";
 @import "~@storefront-ui/shared/styles/components/molecules/SfRange.scss";
 </style>

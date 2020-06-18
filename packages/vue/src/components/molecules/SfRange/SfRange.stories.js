@@ -3,6 +3,7 @@ import {
   withKnobs,
   number,
   text,
+  boolean,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfRange from "./SfRange.vue";
@@ -33,21 +34,27 @@ storiesOf("Molecules|Range", module)
       label: {
         default: text("label", "Price", "Props"),
       },
-      labelMin: {
-        default: text("labelMin", "PriceMinValue", "Props"),
+      disabled: {
+        default: boolean("disabled", false, "Props"),
       },
-      labelMax: {
-        default: text("labelMax", "PriceMaxValue", "Props"),
+      orientation: {
+        default: boolean("orientation", true, "Props"),
       },
+      tooltips: {
+        default: boolean("tooltips", false, "Props"),
+      }
     },
     components: { SfRange },
-    template: `<SfRange
+    template: `<div style="padding: 100px">
+    <SfRange
         :class="customClass"
         :min="min"
         :max="max"
         :step="step"
         :label="label"
-        :labelMin="labelMin"
-        :labelMax="labelMax"
-      />`,
+        :disabled="disabled"
+        :orientation="orientation"
+        :tooltips="tooltips"
+      />
+      </div>`
   }));
