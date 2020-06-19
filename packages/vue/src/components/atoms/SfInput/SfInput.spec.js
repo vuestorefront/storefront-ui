@@ -14,12 +14,9 @@ describe("SfInput.vue", () => {
     });
     expect(component.find(".sf-input__label").text()).toBe(label);
   });
-  it("renders errorMessage slot with valid set to false when passed", () => {
+  it("renders errorMessage with valid set to false when passed", () => {
     const errorMessage = "This phrase is wrong";
-    const component = shallowMount(SfInput, {
-      slots: {
-        "show-error-message": errorMessage,
-      },
+    const component = shallowMount(SfInput, {      
       propsData: {
         valid: false,
         errorMessage: errorMessage,

@@ -64,9 +64,8 @@
           v-if="!disabled"
           :name="computedMessageSlotName"
           v-bind="{ computedMessage }"
-          :class="computedMessageClass"
         >
-          <div>{{ computedMessage }}</div></slot
+          <div :class="computedMessageClass">{{ computedMessage }}</div></slot
         >
       </transition>
     </div>
