@@ -64,8 +64,9 @@
           v-if="!disabled"
           :name="computedMessageSlotName"
           v-bind="{ computedMessage }"
+          :class="computedMessageClass"
         >
-          <div :class="computedMessageClass">{{ computedMessage }}</div></slot
+          <div>{{ computedMessage }}</div></slot
         >
       </transition>
     </div>
@@ -268,7 +269,7 @@ export default {
       this.inputType = this.isPasswordVisible ? "text" : "password";
     },
     messagesHandler(error, success, hint) {
-      if (!this.valid) {
+      if (this.errorMessage && !this.valid) {
         return error;
       } else if (this.successMessage && this.valid) {
         return success;
