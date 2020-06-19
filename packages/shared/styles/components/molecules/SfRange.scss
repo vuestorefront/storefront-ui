@@ -1,43 +1,39 @@
 @import "../../helpers";
 
 .sf-range {
-    position: relative;  
-    width: var(--range-width, 100%);
-    height: 7px;
-    background: #F1F2F3;
-    border: none;
+  position: relative;  
+  width: var(--range-width, 100%);
+  height: 7px;
+  background: #F1F2F3;
+  border: none;
+  box-shadow: none;
+  .noUi-handle {
+    width: 33px;
+    height: 33px;
+    transform: translate3d(0, -20%, 0);
+    border: 1px solid #5ECE7B;
+    border-radius: 50%;
+    background: #fff;
     box-shadow: none;
-    // .noUi-origin {
-    //   top: 0;
-    //   // transform: translate3d(0, -50%, 0);
-    // }
+    &::before,
+    &::after {
+      display: none;
+    }  
+  }
+  .noUi-connect {
+    height: 7px;
+    background: #5ECE7B;
+  }
+  .noUi-touch-area {
+    background: #fff;
+    border-radius: 50%;
+  }
+  &:disabled {
     .noUi-handle {
-      width: 33px;
-      height: 33px;
-      bottom: 25%;
-      // transform: translate3d(0, -50%, 0);
-      border: 1px solid #5ECE7B;
-      border-radius: 50%;
-      background: #fff;
-      box-shadow: none;
-      &::before,
-      &::after {
-        display: none;
-      }
+      border: 1px solid var(--c-text-disabled);
     }
-    // .noUi-base {
-    //   height: 7px;
-    //   background: #fff;
-    // }
-    // .noUi-base .noUi-connects {
-    //   height: 7px;
-    // }
     .noUi-connect {
-      height: 7px;
-      background: #5ECE7B;
+      background: var(--c-text-disabled);
     }
-    .noUi-touch-area {
-      background: #fff;
-      border-radius: 50%;
-    }
+  }  
 }

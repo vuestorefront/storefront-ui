@@ -10,18 +10,7 @@ import SfRange from "./SfRange.vue";
 storiesOf("Molecules|Range", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-range--modifier": "sf-range--modifier",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
+    props: {      
       min: {
         default: number("min", 0, "Props"),
       },
@@ -53,7 +42,6 @@ storiesOf("Molecules|Range", module)
     components: { SfRange },
     template: `<div style="padding: 100px">
     <SfRange
-        :class="customClass"
         :min="min"
         :max="max"
         :valueMin="valueMin"
@@ -68,17 +56,6 @@ storiesOf("Molecules|Range", module)
   }))
   .add("One slider", () => ({
     props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-range--modifier": "sf-range--modifier",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
       min: {
         default: number("min", 0, "Props"),
       },
@@ -110,7 +87,6 @@ storiesOf("Molecules|Range", module)
     components: { SfRange },
     template: `<div style="padding: 100px">
     <SfRange
-        :class="customClass"
         :min="min"
         :max="max"
         :valueMin="valueMin"

@@ -1,12 +1,20 @@
 <template>
-  <div ref="range" class="sf-range" v-bind="$attrs" :disabled="disabled"></div>
+  <div
+    ref="range"
+    v-focus
+    class="sf-range"
+    v-bind="$attrs"
+    :disabled="disabled"
+  ></div>
 </template>
 <script>
 import noUiSlider from "nouislider";
-// import SfInput from "../../atoms/SfInput/SfInput";
+import focus from "../../../utilities/directives";
 export default {
   name: "SfRange",
-  // components: { SfInput },
+  directives: {
+    focus,
+  },
   props: {
     min: {
       type: Number,
@@ -55,22 +63,7 @@ export default {
       default: false,
     },
   },
-  computed: {
-    // orientation(value) {
-    //   return this.resetAndChangeOption(value);
-    // },
-    // rangeDirection() {
-    //   return this.direction ? 'ltr' : 'rtl';
-    // }
-  },
   watch: {
-    // orientation: {
-    //   handler(value){
-    //     console.log(this.resetAndChangeOption(value));
-    //     return this.resetAndChangeOption(value,'orientation');
-    //   },
-    //   immediate: true,
-    // },
     min: {
       handler(value) {
         if (this.$refs.range) {
@@ -86,34 +79,28 @@ export default {
     },
     max: {
       handler(value) {
-        if (this.$refs.range) {
-          return this.updateOptions({
-            range: {
-              min: this.min,
-              max: value,
-            },
-          });
-        }
+        return this.updateOptions({
+          range: {
+            min: this.min,
+            max: value,
+          },
+        });
       },
       immediate: true,
     },
     step: {
       handler(value) {
-        if (this.$refs.range) {
-          return this.updateOptions({
-            step: value,
-          });
-        }
+        return this.updateOptions({
+          step: value,
+        });
       },
       immediate: true,
     },
     tooltips: {
       handler(value) {
-        if (this.$refs.range) {
-          return this.updateOptions({
-            tooltips: value,
-          });
-        }
+        return this.updateOptions({
+          tooltips: value,
+        });
       },
       immediate: true,
     },
@@ -146,8 +133,9 @@ export default {
     //   }
     // },
     updateOptions(updatedOption) {
-      console.log(this.$refs.range.noUiSlider, updatedOption);
-      this.$refs.range.noUiSlider.updateOptions(updatedOption, false);
+      if (this.$refs.range) {
+        return this.$refs.range.noUiSlider.updateOptions(updatedOption, false);
+      }
     },
   },
 };
