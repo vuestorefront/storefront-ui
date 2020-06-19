@@ -268,7 +268,7 @@ export default {
       this.inputType = this.isPasswordVisible ? "text" : "password";
     },
     messagesHandler(error, success, hint) {
-      if (this.errorMessage && !this.valid) {
+      if (!this.valid) {
         return error;
       } else if (this.successMessage && this.valid) {
         return success;
