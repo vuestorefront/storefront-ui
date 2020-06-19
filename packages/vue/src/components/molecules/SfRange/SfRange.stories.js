@@ -35,6 +35,9 @@ storiesOf("Molecules|Range", module)
       orientation: {
         default: boolean("orientation", true, "Props"),
       },
+      direction: {
+        default: boolean("direction", true, "Props"),
+      },
       tooltips: {
         default: boolean("tooltips", false, "Props"),
       },
@@ -50,6 +53,7 @@ storiesOf("Molecules|Range", module)
         :label="label"
         :disabled="disabled"
         :orientation="orientation"
+        :direction="direction"
         :tooltips="tooltips"
       />
       </div>`,
@@ -80,6 +84,9 @@ storiesOf("Molecules|Range", module)
       orientation: {
         default: boolean("orientation", true, "Props"),
       },
+      direction: {
+        default: boolean("direction", true, "Props"),
+      },
       tooltips: {
         default: boolean("tooltips", false, "Props"),
       },
@@ -95,6 +102,7 @@ storiesOf("Molecules|Range", module)
         :label="label"
         :disabled="disabled"
         :orientation="orientation"
+        :direction="direction"
         :tooltips="tooltips"
       />
       </div>`,

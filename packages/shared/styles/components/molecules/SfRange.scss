@@ -3,17 +3,28 @@
 .sf-range {
   position: relative;  
   width: var(--range-width, 100%);
-  height: 7px;
-  background: #F1F2F3;
+  height: var(--range-height, 7px);
+  @include background(
+    --range-background,
+    var(--c-light),
+  );
   border: none;
   box-shadow: none;
   .noUi-handle {
-    width: 33px;
-    height: 33px;
+    width: var(--range-handle-width, var(--range-handle-size, 33px));
+    height: var(--range-handle-width, var(--range-handle-size, 33px));
     transform: translate3d(0, -20%, 0);
-    border: 1px solid #5ECE7B;
-    border-radius: 50%;
-    background: #fff;
+    @include border(
+      --range-handle-border,
+      1px, 
+      solid, 
+      var(--c-primary)
+    );
+    border-radius: var(--range-handle-border-radius, 50%);
+    @include background(
+    --range-handle-background,
+    var(--c-white),
+  );
     box-shadow: none;
     &::before,
     &::after {
@@ -21,19 +32,26 @@
     }  
   }
   .noUi-connect {
-    height: 7px;
-    background: #5ECE7B;
+    background: var(--range-handle-background, var(--c-primary));
   }
   .noUi-touch-area {
-    background: #fff;
-    border-radius: 50%;
+    background: var(--range-handle-background);
+    border-radius: var(--range-handle-border-radius);
   }
-  &:disabled {
+  .noUi-vertical {
+    --range-height: 100%;
+    --range-width: 7px;
+    .noUi-connect {
+      height: 100%;
+      width: 7px;
+    }
+  }
+  &[disabled="disabled"] {
     .noUi-handle {
-      border: 1px solid var(--c-text-disabled);
+      --range-handle-border-color: var(--c-text-disabled);
     }
     .noUi-connect {
-      background: var(--c-text-disabled);
+      --range-handle-background: var(--c-text-disabled);
     }
   }  
 }

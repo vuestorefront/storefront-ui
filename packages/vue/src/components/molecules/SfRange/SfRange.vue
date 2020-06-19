@@ -63,6 +63,13 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      config: {},
+      rangeOrientation: "horizontal",
+      rangeDirection: "ltr",
+    };
+  },
   watch: {
     min: {
       handler(value) {
@@ -104,9 +111,27 @@ export default {
       },
       immediate: true,
     },
+    orientation: {
+      handler(value) {
+        console.log(value);
+        this.rangeOrientation = value ? "horizontal" : "vertical";
+        return this.resetAndChangeOption({
+          orientation: this.rangeOrientation,
+        });
+      },
+      immediate: true,
+    },
+    direction: {
+      handler(value) {
+        console.log(value);
+        this.rangeDirection = value ? "ltr" : "rtl";
+        return this.resetAndChangeOption({ direction: this.rangeDirection });
+      },
+      immediate: true,
+    },
   },
   mounted() {
-    let config = {
+    this.config = {
       range: {
         min: this.min,
         max: this.min === this.max ? this.max + 1 : this.max,
@@ -120,18 +145,19 @@ export default {
       tooltips: this.tooltipsShow,
     };
     noUiSlider
-      .create(this.$refs.range, config)
+      .create(this.$refs.range, this.config)
       .on("change", (values) => this.$emit("change", values));
   },
   methods: {
-    // resetAndChangeOption(changedValue, changedValueName) {
-    //   if(this.$refs.range) {
-    //   console.log(this.$refs.range, changedValueName, changedValue, this.config);
-    //   this.$refs.range.noUiSlider.destroy();
-    //   noUiSlider.create(this.$refs.range, {...this.config, changedValueName: changedValue}).on('change', (values) => this.$emit('change', values))
-    //   this.$refs.range.noUiSlider[changedValueName].changedValue;
-    //   }
-    // },
+    resetAndChangeOption(changedValue) {
+      if (this.$refs.range) {
+        console.log(this.$refs.range, this.config);
+        this.$refs.range.noUiSlider.destroy();
+        noUiSlider
+          .create(this.$refs.range, { ...this.config, ...changedValue })
+          .on("change", (values) => this.$emit("change", values));
+      }
+    },
     updateOptions(updatedOption) {
       if (this.$refs.range) {
         return this.$refs.range.noUiSlider.updateOptions(updatedOption, false);
