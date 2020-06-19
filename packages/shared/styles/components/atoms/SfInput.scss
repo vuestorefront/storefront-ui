@@ -111,7 +111,7 @@
     &:focus {
       & ~ * {
         --input-password-icon-background: var(--c-primary);
-        --input-label-top: 0;        
+        --input-label-top: 0;
         --input-label-color: var(--c-primary);
         --input-label-font-size: var(--font-xs);
         --input-bar-width: 50%; 
@@ -197,7 +197,7 @@
     input {
       &:focus {
         & ~ * {
-          --input-bar-background: var(--c-danger);   
+          --input-bar-background: var(--c-danger);
           --input-label-color: var(--c-danger);                           
         }        
       }
@@ -300,7 +300,7 @@
           --input-label-padding: 0 var(--spacer-2xs);
           --input-bar-width: 0;
           --input-label-color: var(--c-secondary-variant);
-        }      
+        }
       }
     }
   }

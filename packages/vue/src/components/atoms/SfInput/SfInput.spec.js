@@ -14,18 +14,18 @@ describe("SfInput.vue", () => {
     });
     expect(component.find(".sf-input__label").text()).toBe(label);
   });
-  // it("renders errorMessage slot with valid is false when passed", () => {
-  //   const errorMessage = "This field is required";
-  //   const component = shallowMount(SfInput, {
-  //     slots: {
-  //       "show-error-message": errorMessage,
-  //     },
-  //     propsData: {
-  //       valid: false,
-  //     },
-  //   });
-  //   expect(component.find(".sf-input__message--error").text()).toMatch(
-  //     errorMessage
-  //   );
-  // });
+  it("renders errorMessage slot with valid is false when passed", () => {
+    const errorMessage = "This field is required";
+    const component = shallowMount(SfInput, {
+      slots: {
+        "show-error-message": errorMessage,
+      },
+      propsData: {
+        valid: false,
+      },
+    });
+    expect(component.find(".sf-input__message--error").text()).toMatch(
+      errorMessage
+    );
+  });
 });

@@ -200,37 +200,25 @@ export default {
       return this.type === "password" && this.hasShowPassword;
     },
     computedMessageSlotName() {
-      if (this.errorMessage && !this.valid) {
-        return "show-error-message";
-      } else if (this.successMessage && this.valid) {
-        return "show-success-message";
-      } else if (this.hintMessage) {
-        return this.required ? "show-hint-message" : "";
-      } else {
-        return "";
-      }
+      return this.messagesHandler(
+        "show-error-message",
+        "show-success-message",
+        this.required ? "show-hint-message" : ""
+      );
     },
     computedMessage() {
-      if (this.errorMessage && !this.valid) {
-        return this.errorMessage;
-      } else if (this.successMessage && this.valid) {
-        return this.successMessage;
-      } else if (this.hintMessage) {
-        return this.required ? this.hintMessage : "";
-      } else {
-        return "";
-      }
+      return this.messagesHandler(
+        this.errorMessage,
+        this.successMessage,
+        this.required ? this.hintMessage : ""
+      );
     },
     computedMessageClass() {
-      if (this.errorMessage && !this.valid) {
-        return "sf-input__message--error";
-      } else if (this.successMessage && this.valid) {
-        return "sf-input__message--success";
-      } else if (this.hintMessage) {
-        return this.required ? "sf-input__message--hint" : "";
-      } else {
-        return "";
-      }
+      return this.messagesHandler(
+        "sf-input__message--error",
+        "sf-input__message--success",
+        this.required ? "sf-input__message--hint" : ""
+      );
     },
     computedIconSlotName() {
       if (this.hasShowPassword) {
@@ -278,6 +266,17 @@ export default {
     switchVisibilityPassword() {
       this.isPasswordVisible = !this.isPasswordVisible;
       this.inputType = this.isPasswordVisible ? "text" : "password";
+    },
+    messagesHandler(error, success, hint) {
+      if (this.errorMessage && !this.valid) {
+        return error;
+      } else if (this.successMessage && this.valid) {
+        return success;
+      } else if (this.hintMessage) {
+        return hint;
+      } else {
+        return "";
+      }
     },
   },
 };
