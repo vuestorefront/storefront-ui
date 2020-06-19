@@ -1,7 +1,7 @@
-.text {
+.text-color {
   @include color-modifiers($prefix: '-');
 }
 
-.bg {
+.bg-color {
   @include color-modifiers($prefix: '-', $property: 'background');
 }
