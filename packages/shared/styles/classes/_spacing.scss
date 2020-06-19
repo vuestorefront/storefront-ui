@@ -1,0 +1,59 @@
+/* padding */
+.p {
+  @include space-modifiers($prefix: '-', $property: 'padding');
+}
+
+.px {
+  @include space-modifiers-multiple('-', 'padding-left', 'padding-right');
+  
+}
+
+.py {
+  @include space-modifiers-multiple('-', 'padding-top', 'padding-bottom');
+}
+
+.pt {
+  @include space-modifiers($prefix: '-', $property: 'padding-top');
+}
+
+.pb {
+  @include space-modifiers($prefix: '-', $property: 'padding-bottom');
+}
+
+.pl {
+  @include space-modifiers($prefix: '-', $property: 'padding-left');
+}
+
+.pr {
+  @include space-modifiers($prefix: '-', $property: 'padding-right');
+}
+
+/* margin */
+.m {
+  @include space-modifiers($prefix: '-', $property: 'margin');
+}
+
+.mx {
+  @include space-modifiers-multiple('-', 'margin-left', 'margin-right');
+  
+}
+
+.my {
+  @include space-modifiers-multiple('-', 'margin-top', 'margin-bottom');
+}
+
+.mt {
+  @include space-modifiers($prefix: '-', $property: 'margin-top');
+}
+
+.mb {
+  @include space-modifiers($prefix: '-', $property: 'margin-bottom');
+}
+
+.ml {
+  @include space-modifiers($prefix: '-', $property: 'margin-left');
+}
+
+.mr {
+  @include space-modifiers($prefix: '-', $property: 'margin-right');
+}

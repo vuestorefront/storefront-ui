@@ -1,21 +1,3 @@
-$colors: (
-  'black-primary': var(--c-black),
-  'black-secondary': var(--c-dark-variant),
-  'green-primary': var(--c-primary),
-  'green-secondary': var(--c-primary-variant),
-  'gray-primary': var(--c-gray),
-  'gray-secondary': var(--c-gray-variant),
-  'gray-dark-accent': var(--c-text-disabled),
-  'gray-light-accent': var(--c-light),
-  'red-primary': var(--c-danger),
-  'red-secondary': var(--c-danger-variant),
-  'blue-primary': var(--c-info),
-  'blue-secondary': var(--c-info-variant),
-  'yellow-primary': var(--c-warning),
-  'yellow-secondary': var(--c-warning-variant),
-  'white': var(--c-white),
-);
-
 .text {
   @include color-modifiers($prefix: '-');
 }

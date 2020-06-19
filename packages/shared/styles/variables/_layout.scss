@@ -8,3 +8,14 @@
   --spacer-2xl: 5rem; // 80px
   --spacer-3xl: 10rem; // 160px
 }
+
+$spaces: (
+  "4": var(--spacer-2xs),
+  "8": var(--spacer-xs),
+  "16": var(--spacer-sm),
+  "24": var(--spacer-base),
+  "32": var(--spacer-lg),
+  "40": var(--spacer-xl),
+  "80": var(--spacer-2xl),
+  "160": var(--spacer-3xl),
+);
