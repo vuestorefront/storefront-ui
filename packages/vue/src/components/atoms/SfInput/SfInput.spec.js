@@ -22,6 +22,7 @@ describe("SfInput.vue", () => {
       },
       propsData: {
         valid: false,
+        errorMessage: errorMessage,
       },
     });
     expect(component.find(".sf-input__message--error").text()).toMatch(
