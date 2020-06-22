@@ -1,59 +1,67 @@
 /* padding */
 .pad {
-  @include space-modifiers($prefix: '-', $property: 'padding');
+  padding: var(--spacer-base);
+}
+
+.pad {
+  @include space-modifiers('-', 'padding');
 }
 
 .pad-x {
-  @include space-modifiers-multiple('-', 'padding-left', 'padding-right');
+  @include space-modifiers('-', 'padding-left', 'padding-right');
   
 }
 
 .pad-y {
-  @include space-modifiers-multiple('-', 'padding-top', 'padding-bottom');
+  @include space-modifiers('-', 'padding-top', 'padding-bottom');
 }
 
 .pad-t {
-  @include space-modifiers($prefix: '-', $property: 'padding-top');
+  @include space-modifiers('-', 'padding-top');
 }
 
 .pad-b {
-  @include space-modifiers($prefix: '-', $property: 'padding-bottom');
+  @include space-modifiers('-', 'padding-bottom');
 }
 
 .pad-l {
-  @include space-modifiers($prefix: '-', $property: 'padding-left');
+  @include space-modifiers('-', 'padding-left');
 }
 
 .pad-r {
-  @include space-modifiers($prefix: '-', $property: 'padding-right');
+  @include space-modifiers('-', 'padding-right');
 }
 
 /* margin */
-.m {
-  @include space-modifiers($prefix: '-', $property: 'margin');
+.mar {
+  margin: var(--spacer-base);
+}
+
+.mar {
+  @include space-modifiers('-', 'margin');
 }
 
 .mar-x {
-  @include space-modifiers-multiple('-', 'margin-left', 'margin-right');
+  @include space-modifiers('-', 'margin-left', 'margin-right');
   
 }
 
 .mar-y {
-  @include space-modifiers-multiple('-', 'margin-top', 'margin-bottom');
+  @include space-modifiers('-', 'margin-top', 'margin-bottom');
 }
 
 .mar-t {
-  @include space-modifiers($prefix: '-', $property: 'margin-top');
+  @include space-modifiers('-', 'margin-top');
 }
 
 .mar-b {
-  @include space-modifiers($prefix: '-', $property: 'margin-bottom');
+  @include space-modifiers('-', 'margin-bottom');
 }
 
 .mar-l {
-  @include space-modifiers($prefix: '-', $property: 'margin-left');
+  @include space-modifiers('-', 'margin-left');
 }
 
 .mar-r {
-  @include space-modifiers($prefix: '-', $property: 'margin-right');
+  @include space-modifiers('-', 'margin-right');
 }

@@ -6,19 +6,11 @@
   }
 }
 
-@mixin space-modifiers($prefix: '-', $property: 'padding') {
-  @each $name, $space in $spaces {
-    &#{$prefix}#{$name} {
-      #{$property}: $space !important;
-    }
-  }
-}
-
-@mixin space-modifiers-multiple($prefix: '-', $properties...) {
+@mixin space-modifiers($prefix: '-', $properties...) {
   @each $name, $space in $spaces {
     &#{$prefix}#{$name} {
       @for $i from 0 to length($properties) {
-        #{nth($properties, $i + 1)}: $space !important;
+        #{nth($properties, $i + 1)}: $space;
       }
     }
   }
