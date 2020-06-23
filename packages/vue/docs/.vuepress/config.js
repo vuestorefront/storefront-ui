@@ -46,7 +46,8 @@ module.exports = {
         children: [
           ['/design/color-palette', 'Colors'],
           ['/design/sizes', 'Sizes'],
-          ['/design/working-with-designs', 'Working with Designs']
+          ['/design/working-with-designs', 'Working with Designs'],
+          ['/design/styleguide', 'Styleguide']
         ],
       },
       {
