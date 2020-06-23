@@ -88,7 +88,7 @@ storiesOf("Organisms|MegaMenu", module)
         :title="category.title"
       >
         <SfList>
-          <SfListItem v-for="(subcategory, key) in category.subcategories">
+          <SfListItem v-for="(subcategory, index) in category.subcategories" :key="index">
             <SfMenuItem :label="subcategory.title"></SfMenuItem>
           </SfListItem>
         </SfList>
