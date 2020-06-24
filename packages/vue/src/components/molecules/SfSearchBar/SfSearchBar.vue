@@ -14,7 +14,7 @@
     <!-- @slot -->
     <slot name="icon">
       <span class="sf-search-bar__icon">
-        <SfIcon color="#737680" size="1.25rem" icon="search" />
+        <SfIcon color="#737680" :size="iconSize" icon="search" />
       </span>
     </slot>
   </div>
@@ -33,6 +33,10 @@ export default {
     value: {
       type: [Number, String],
       default: null,
+    },
+    iconSize: {
+      type: String,
+      default: "",
     },
   },
 };
