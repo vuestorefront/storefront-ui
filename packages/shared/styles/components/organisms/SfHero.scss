@@ -51,6 +51,15 @@
   &--align-right {
     --hero-item-justify-content: flex-end;
   }
+  &--position-bg-top-right {
+    background-position: top right;
+  }
+  &--position-bg-bottom-right {
+    background-position: bottom right;
+  }
+  &--position-bg-bottom-left {
+    background-position: bottom left;
+  }
   @include for-desktop {
     --hero-item-height: 36.625rem;
     --hero-item-padding: var(--spacer-2xl);
