@@ -9,7 +9,7 @@ function loadStories() {
   const stories = [require("./home/home.stories.js")];
 
   //get all storefront-ui stories
-  const req = require.context("../../src/", true, /.stories.js$/);
+  const req = require.context("../../src/", true, /.stories.(js|mdx)$/);
   req.keys().forEach((fname) => stories.push(req(fname)));
 
   return stories;

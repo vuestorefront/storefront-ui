@@ -3,6 +3,7 @@ import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import { SfArrow, SfIcon } from "@storefront-ui/vue";
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
+  .addParameters({ component: SfArrow })
   .add("Common", () => ({
     components: {
       SfArrow,
