@@ -1,9 +1,3 @@
-# Properties
-
-
-
-
-
 # Utility Classes
 
 ## Padding
@@ -170,7 +164,7 @@ Class | Properties
 .bg-color-yellow-secondary | background-color: #f6e389;
 .bg-color-white | background-color: #ffffff;
 
-## Typography
+## Headings
 
 Class | Properties
 ------------ | ------------- 
@@ -180,15 +174,3 @@ Class | Properties
 .h4 | font-family: "Raleway", sans-serif; font-weight: 500; font-size: 20px; line-height: 26px;
 .h5 | font-family: "Raleway", sans-serif; font-weight: 400; font-size: 16px; line-height: 22px;
 .h6 | font-family: "Raleway", sans-serif; font-weight: 400; font-size: 14px; line-height: 16px;
-.text-large | font-family: "Roboto", serif; font-weight: 400; font-size: 18px; line-height: 24px;
-.text | font-family: "Roboto", serif; font-weight: 400; font-size: 16px;  line-height: 18px;
-.text-small  | font-family: "Roboto", serif; font-weight: 400; font-size: 14px; line-height: 20px;
-.text-bullets | font-family: "Roboto", serif; font-weight: 300; font-size: 16px; line-height: 22px;
-.text-label  | font-family: "Raleway", sans-serif; font-weight: 600; font-size: 12px; line-height: 18px;
-.text-button | font-family: "Raleway", sans-serif; font-weight: 600; font-size: 16px; line-height: 22px; text-transform: uppercase; font-size: 40px;
-.text-link | font-family: "Raleway", sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; text-decoration-line: underline; color: #0468DB;
-.text-price | font-family: "Raleway", sans-serif; font-weight: 500; font-size: 18px; line-height: 24px; text-transform: uppercase;
-.text-characteristics | font-family: "Raleway", sans-serif; font-weight: 400; font-size: 12px; line-height: 18px;
-.text-braedcrumbs | font-family: "Raleway", sans-serif; font-weight: 400; font-size: 14px; line-height: 20px;
-.mobile-nav-item  | font-family: "Roboto", serif; font-weight: 300; font-size: 12px; line-height: 18px;
-.text-input | font-family: "Raleway", sans-serif; font-weight: 400; font-size: 16px; line-height: 24px;

@@ -11,6 +11,11 @@ $desktop-xxl-min: 1920px;
     @content;
   }
 }
+@mixin for-tablet {
+  @media (max-width: $desktop-min - 1px) {
+    @content;
+  }
+}
 @mixin for-desktop {
   @media (min-width: $desktop-min) {
     @content;
