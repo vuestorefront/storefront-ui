@@ -181,8 +181,8 @@ export default {
       return this.options[this.index].html;
     },
     maxHeight() {
-      if (!this.size) return;
-      return `${this.optionHeight * this.size}px`;
+      if (!this.options.length) return;
+      return `${this.optionHeight * this.options.length}px`;
     },
     isActive() {
       return this.open;
@@ -197,7 +197,9 @@ export default {
       handler: function (visible) {
         if (visible) {
           this.$nextTick(() => {
-            this.optionHeight = this.$slots.default[0].elm.offsetHeight;
+            if (this.$slots.default) {
+              this.optionHeight = this.$slots.default[0].elm.offsetHeight;
+            }
           });
         }
       },
@@ -205,20 +207,14 @@ export default {
   },
   created: function () {},
   mounted: function () {
-    const options = [];
-    const indexes = {};
-    if (!this.$slots.default) return;
-    this.$on("update", this.update);
-    this.$slots.default.forEach((slot, index) => {
-      if (!slot.tag) return;
-      options.push({
-        ...slot.componentOptions.propsData,
-        html: slot.elm.innerHTML,
-      });
-      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = index;
-    });
-    this.options = options;
-    this.indexes = indexes;
+    this.addOptionsAndIndexes();
+  },
+  updated() {
+    if (this.$slots.default) {
+      if (this.$slots.default.length > this.options.length) {
+        this.addOptionsAndIndexes();
+      }
+    }
   },
   beforeDestroy: function () {
     this.$off("update", this.update);
@@ -226,6 +222,22 @@ export default {
   methods: {
     update(index) {
       this.index = index;
+    },
+    addOptionsAndIndexes() {
+      const options = [];
+      const indexes = {};
+      if (!this.$slots.default) return;
+      this.$on("update", this.update);
+      this.$slots.default.forEach(({ tag, componentOptions, elm }, index) => {
+        if (!tag) return;
+        options.push({
+          ...componentOptions.propsData,
+          html: elm.innerHTML,
+        });
+        indexes[JSON.stringify(componentOptions.propsData.value)] = index;
+      });
+      this.options = options;
+      this.indexes = indexes;
     },
     move(payload) {
       const optionsLength = this.options.length;
