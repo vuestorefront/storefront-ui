@@ -10,52 +10,60 @@
           <SfLink href="#">{{item}}</SfLink>
         </SfHeaderNavigationItem>
       </template>
-    </SfHeader>
-    <SfBreadcrumbs 
-      :breadcrumbs="breadcrumbs"
-    />
-    <div class="circle-category__upper-bar">
-      <SfHeading class="circle-category__heading" title="Beverages" :level="3"/>
-      <div class="circle-category__filter">
-        <SfSelect label="Sort by:" class="circle-category__filter-select" selected="Price from high to low">
+    </SfHeader>    
+    <section class="circle-category__upper-bar">
+      <div>
+        <SfBreadcrumbs 
+          :breadcrumbs="breadcrumbs"
+        />
+        <SfHeading class="circle-category__heading" title="Beverages" :level="3"/>
+      </div>
+      <div class="circle-category__sort">
+        <SfSelect label="Sort by:" class="circle-category__sort-select" selected="Price from high to low">
           <SfSelectOption v-for="(option, key) in selectOptions" :key="key" :value="option">
             {{option}}
           </SfSelectOption>
         </SfSelect>
       </div>
-    </div>
-    <SfProductCard
-      v-for="(product, key) in products" :key="key"
-      :image="product.image"
-      width="278px"
-      height="278px"
-      :regularPrice="product.price"
-      wishlistIcon="heart"
-
-    />
-    <div>
-      <SfAccordion :multiple="true" :showChevron="false">
-        <SfAccordionItem
-            v-for="(accordion, i) in sidebarAccordion"
-            :key="i"
-            :header="accordion.header"
-          >
-          <template>
-            <SfScrollable showText="more" hideText="less" maxContentHeight="4rem">
-              <SfList>
-                <SfListItem
-                  v-for="item in accordion.items"
-                  :key="item"
-                  class="list__item"
+    </section>
+    <section class="circle-category__main">
+      <div class="circle-category__sidebar">
+        <SfAccordion :multiple="true" :showChevron="false" :open="getAccordionItemsHeader()">
+          <SfAccordionItem 
+              class="circle-category__filter"
+              v-for="(accordion, i) in sidebarAccordion"
+              :key="i"
+              :header="accordion.header"
+            >
+            <template>
+              <SfScrollable class="circle-category__scrollable" showText="more" hideText="less" maxContentHeight="4rem">
+                <SfList
+                  class="circle-category__filter-items"
                 >
-                  <SfMenuItem :label="item"/>
-                </SfListItem>
-              </SfList>
-            </SfScrollable>
+                  <SfListItem
+                    v-for="item in accordion.items"
+                    :key="item"
+                  >
+                    <SfMenuItem :label="item"/>
+                  </SfListItem>
+                </SfList>
+              </SfScrollable>
             </template>
-        </SfAccordionItem>
-      </SfAccordion>
-    </div>
+          </SfAccordionItem>
+        </SfAccordion>
+      </div>
+      <div class="circle-category__products">
+        <SfProductCard
+          class="circle-category__product"
+          v-for="(product, key) in products" :key="key"
+          :image="product.image"
+          imageWidth="278px"
+          imageHeight="278px"
+          :regularPrice="product.price"
+          wishlistIcon="heart"
+        />
+      </div>
+    </section>
     <SfFooter :column="4">
       <SfFooterColumn v-for="(column, key) in footerColumns" :key="key" :title="column.header">
         <SfList v-if="column.items">
@@ -201,6 +209,13 @@ export default {
         },
       ]
     }
+  },
+  methods: {
+    getAccordionItemsHeader() {
+      return this.sidebarAccordion.map(
+        item => item.header 
+      )
+    }
   }
 }
 </script>
@@ -256,17 +271,14 @@ export default {
     display: flex;
     justify-content: space-between;       
   }
-  &__filter {
+  &__sort {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      span {
-        font-weight: bold;
-      }
       &-select {   
-        --select-label-top: 50%; 
+        --select-label-top: 65%; 
         --select-label-left: calc(var(--spacer-2xl) * -1);  
-        --select-label-font: var(--font-lg) Montserrat;  
+        --select-label-font: var(--font-bold) var(--font-lg) Montserrat;  
         width: 15rem;
         .sf-select-option {
           --select-option-background: #fff;          
@@ -280,9 +292,54 @@ export default {
   &__heading {
     --heading-title-color: #EE2E24; 
     display: flex;
-    align-self: flex-end;     
+    align-self: flex-end;  
+    margin: 2.875rem 0 var(--spacer-xl) 0;   
     font-weight: bold;
     font-size: var(--font-lg);
-  }    
+  } 
+  &__main {
+    display: flex;
+    width: 100%;    
+  }
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 14.3125rem;
+  }
+  &__filter {    
+    --accordion-item-header-color: #1D1F22;
+    --accordion-item-header-font: bold var(--spacer-base) Montserrat;
+    width: 100%;    
+    &-items {
+      padding: var(--spacer-sm) var(--spacer-sm) 4px var(--spacer-sm);
+      background: #FFFFFF;
+      box-shadow: 4px 12px 24px rgba(119, 121, 122, 0.15);
+      border-radius: 10px;
+    }   
+    &__scrollable {
+      position: relative;
+      button {
+        display: flex;
+        justify-content: flex-start;
+      }
+      button:after {
+        position: absolute;
+        top: 50%;        
+        content: ">";
+        transform: rotate(45%) translate(0, -50%, 0);
+      }
+    }
+    .sf-accordion-item__header--open {
+      --accordion-item-header-color: #1D1F22;
+    } 
+    
+  }
+  &__products {
+    display: flex;
+    flex-wrap: wrap;
+  }   
+//   &__product {
+//     width:
+//   }
 }
 </style>
