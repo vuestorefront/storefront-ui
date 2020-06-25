@@ -303,7 +303,7 @@
 <script>
 import {
   SfHeading,
-  SfSidebar,
+  // SfSidebar,
   SfButton,
   SfList,
   SfIcon,
@@ -321,7 +321,7 @@ export default {
   components: {
     SfHeading,
     SfButton,
-    SfSidebar,
+    // SfSidebar,
     SfIcon,
     SfList,
     SfFilter,

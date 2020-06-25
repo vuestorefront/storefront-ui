@@ -14,9 +14,7 @@
     <SfBreadcrumbs 
       :breadcrumbs="breadcrumbs"
     />
-    <SfHeading
-      title="Beverages"
-    />
+    <Heading title="Beverages"/>
     <span>Sort by:</span>
     <SfSelect>
       <SfSelectOption v-for="(option, key) in selectOptions" :key="key" :value="option">
@@ -26,43 +24,67 @@
 
     <SfProductCard
       v-for="(product, key) in products" :key="key"
+      :image="product.image"
+      width="278px"
+      height="278px"
+      :regularPrice="product.price"
+      wishlistIcon="heart"
+
     />
-    <SfSidebar>
-      <SfAccordion>
+    <div :title="Beverages" :visible="true" :button="false" :overlay="false">
+      <SfAccordion multiple="true">
         <SfAccordionItem
             v-for="(accordion, i) in sidebarAccordion"
             :key="i"
             :header="accordion.header"
           >
           <template>
+            <SfScrollable>
               <SfList class="list">
                 <SfListItem
                   v-for="(item, j) in accordion.items"
                   :key="j"
                   class="list__item"
                 >
-                  <SfMenuItem :label="item.label" :count="item.count" />
+                  <SfMenuItem >
+                    {{item}}
+                  </SfMenuItem>
                 </SfListItem>
               </SfList>
+            </SfScrollable>
             </template>
         </SfAccordionItem>
       </SfAccordion>
-    </SfSidebar>
-    <SfFooter/>
+    </div>
+    <SfFooter :column="4">
+      <SfFooterColumn v-for="(column, key) in footerColumns" :key="key" :title="column.header">
+        <SfList v-if="column.items">
+          <SfListItem v-for="item in column.items" :key="item">
+            {{item}}
+          </SfListItem>
+        </SfList>
+        <div v-else-if="column.pictures">
+          <SfImage v-for="picture in column.pictures" :key="picture" :src='"/assets/"+picture+"_Icon.png"' width="32px" height="32px"/>          
+        </div>
+        <SfInput v-else type="email"/>
+      </SfFooterColumn>
+    </SfFooter>
   </div>
 </template>
 
 <script>
 import {SfHeader,
     SfBreadcrumbs,
-    SfHeading,
+    // SfHeading,
     SfSelect,
     SfProductCard,
-    SfSidebar,
+    // SfSidebar,
     SfAccordion,
     SfList,
     SfFooter,
-    SfLink
+    SfLink,
+    SfInput,
+    SfImage
     } from '@storefront-ui/vue'
 
 export default {
@@ -70,14 +92,16 @@ export default {
   components: {
     SfHeader,
     SfBreadcrumbs,
-    SfHeading,
+    // SfHeading,
     SfSelect,
     SfProductCard,
-    SfSidebar,
+    // SfSidebar,
     SfAccordion,
     SfList,
     SfFooter,
-    SfLink
+    SfLink,
+    SfInput,
+    SfImage
   },
   data() {
     return {
@@ -102,28 +126,75 @@ export default {
       ],
       products: [
         {title: "5 Hour Energy Peach Mango",
-        price: "$ 50"},
+        price: "$ 50",
+        image: "./assets/image_93.png"},
         {title: "5 Hour Energy Peach Mango",
-        price: "$ 50"},
+        price: "$ 50",
+        image: "./assets/image_93.png"},
         {title: "5 Hour Energy Peach Mango",
-        price: "$ 50"},
+        price: "$ 50",
+        image: "./assets/image_93.png"},
         {title: "5 Hour Energy Peach Mango",
-        price: "$ 50"},
+        price: "$ 50",
+        image: "./assets/image_93.png"},
         {title: "5 Hour Energy Peach Mango",
-        price: "$ 50"},
+        price: "$ 50",
+        image: "./assets/image_93.png"},
         {title: "5 Hour Energy Peach Mango",
-        price: "$ 50"},
+        price: "$ 50",
+        image: "./assets/image_93.png"},
         {title: "5 Hour Energy Peach Mango",
-        price: "$ 50"},
+        price: "$ 50",
+        image: "./assets/image_93.png"},
         {title: "5 Hour Energy Peach Mango",
-        price: "$ 50"},
+        price: "$ 50",
+        image: "./assets/image_93.png"},
         {title: "5 Hour Energy Peach Mango",
-        price: "$ 50"},
+        price: "$ 50",
+        image: "./assets/image_93.png"},
         {title: "5 Hour Energy Peach Mango",
-        price: "$ 50"}        
+        price: "$ 50",
+        image: "./assets/image_93.png"}        
       ],
       sidebarAccordion: [
-        "Categories", "Brands", "Price", "Popular"
+        {
+          header: "Categories",
+          items: ["Energy Drinks", "Soft Drinks", "Cans", "Water", "Sugar-free Drinks"]
+        }, 
+        {
+          header: "Brands",
+          items: ["Extra Strenght", "Coca-cola", "Pepsi", "Red Bull", "Waterlove"]
+        },
+        {
+          header: "Price",
+          items: []
+        },
+        {
+          header: "Popular",
+          items: ["Candy","E-Cigarettes", "Grocery", "Health & Beauty", "Household", "Ready to Eat / Food"]
+        },
+      ],
+      footerColumns: [
+        {
+          header: "ABOUT US",
+          items: ["Who we are", "Quality in the details", "Customer Reviews"]
+        },
+        {
+          header: "DEPARTMENTS",
+          items: ["Department1", "Department2", "Department3", "Department4" ]
+        },
+        {
+          header: "HELP",
+          items: ["Energy Drinks", "Soft Drinks", "Cans", "Water", "Sugar-free Drinks"]
+        },
+        {
+          header: "PAYMENTS & DELIVERY",
+          items: ["Energy Drinks", "Soft Drinks", "Cans", "Water", "Sugar-free Drinks"]
+        },
+        {
+          header: "SOCIAL",
+          pictures: ["Facebook", "Pinterest", "Google", "Twitter", "Youtube"]
+        },
       ]
     }
   }
