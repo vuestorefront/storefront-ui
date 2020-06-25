@@ -2,15 +2,19 @@
   <div class="sf-tile" :style="style">
     <!-- @slot Use this slot to replace title -->
     <slot name="title" v-bind="{ title }">
-      <h3 v-if="title" class="sf-tile__title">
+      <div v-if="title" class="sf-tile__title">
         {{ title }}
-      </h3>
+      </div>
     </slot>
   </div>
 </template>
 <script>
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../utilities/mobile-observer";
 export default {
-  name: "SfAlert",
+  name: "SfTile",
   props: {
     /**
      * Tile title
@@ -20,33 +24,31 @@ export default {
       default: "",
     },
     /**
-     * Tile background color
+     * Tile background image
      */
     background: {
-      type: String,
-      default: "",
-    },
-    /**
-     * Tile image
-     */
-    image: {
       type: [String, Object],
       default: "",
     },
   },
   computed: {
+    ...mapMobileObserver(),
     style() {
-      const image = this.image;
-      const background = this.background;
-      return {
-        "--_tile-background-image": image.mobile
-          ? `url(${image.mobile})`
-          : `url(${image})`,
-        "--_tile-background-desktop-image":
-          image.desktop && `url(${image.desktop})`,
-        "--tile-background-color": background,
-      };
+      if (typeof this.background === String) {
+        return {
+          "--tile-background-image": `url('${this.background}')`,
+        };
+      } else {
+        return {
+          "--tile-background-image": this.isMobile
+            ? `url('${this.background.mobile}')`
+            : `url('${this.background.desktop}')`,
+        };
+      }
     },
+  },
+  beforeDestroy() {
+    unMapMobileObserver();
   },
 };
 </script>

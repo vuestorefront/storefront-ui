@@ -4,11 +4,9 @@
   width: var(--tile-width, 6.25rem);
   height: var(--tile-height, 7.5rem);
   margin: var(--tile-margin, 0);
-  @include background(
-    --tile-background,
-    var(--_tile-background-color, transparent),
-    var(--_tile-background-image)
-  );
+  background-image: var(--tile-background-image);
+  background-repeat:  var(--tile-background-repeat, no-repeat);
+  background-color: var(--tile-background-color, transparent);
   &__title {
     position: absolute;
     bottom: 0;
@@ -34,10 +32,6 @@
     --tile-width: 16rem;
     --tile-height: 30.625rem;
     --font-tile-weight: var(--font-semibold);
-    --tile-background-image: var(
-      --_tile-background-desktop-image,
-      var(--_tile-background-image)
-    );
     --tile-title-margin: 0 0 var(--spacer-xl);
     --tile-box-shadow: 4px 12px 24px rgba(119, 121, 122, 0.25);
   }

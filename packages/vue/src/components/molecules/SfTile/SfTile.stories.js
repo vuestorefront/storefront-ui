@@ -9,7 +9,7 @@ storiesOf("Molecules|Tile", module)
       title: {
         default: text("title", "Bags", "Props"),
       },
-      image: {
+      background: {
         default: object(
           "image",
           {
@@ -19,13 +19,9 @@ storiesOf("Molecules|Tile", module)
           "Props"
         ),
       },
-      background: {
-        default: color("background", "#C4C4C4", "Props"),
-      },
     },
     template: `<SfTile
       :title="title"
-      :image="image"
       :background="background"
       />`,
   }));
