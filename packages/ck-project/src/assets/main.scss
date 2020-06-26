@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  // font-family
+  --font-family-primary: 'Montserrat', sans-serif;
+  --font-family-secondary: 'Montserrat', sans-serif;
+  // font-weight
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extra-bold: 800;
+  --font-black: 900;
+  // font-size
+  --font-2xs: 0.625rem; //10px
+  --font-xs: 0.75rem; //12px
+  --font-sm: 0.875rem; //14px
+  --font-base: 1rem; //16px
+  --font-lg: 1.125rem; //18px
+  --font-xl: 1.5rem; //24px
+  // heading font-size
+  --h1-font-size: 1.375rem; //22px
+  --h2-font-size: 1.375rem; //22px
+  --h3-font-size: 1rem; //16px
+  --h4-font-size: 0.875rem; //14px
+  --h5-font-size: 0.75rem; //12px
+  --h6-font-size: 0.75rem; //12px
+  // @include for-desktop {
+    --h1-font-size: 2.625rem; //42px
+    --h2-font-size: 2.625rem; //42px
+    --h3-font-size: 1.625rem; //26px
+    --h4-font-size: 1.125rem; //18px
+    --h5-font-size: 0.875rem; //14px
+    --h6-font-size: 0.625rem; //10px
+  // }
+
+  --spacer-2xs: 0.25rem; // 4px
+  --spacer-xs: 0.5rem; // 8px
+  --spacer-sm: 1rem; // 16px
+  --spacer-base: 1.5rem; // 24px
+  --spacer-lg: 2rem; // 32px
+  --spacer-xl: 2.5rem; // 40px
+  --spacer-2xl: 5rem; // 80px
+  --spacer-3xl: 10rem; // 160px
+
+  --_c-red-primary: #EE2E24;
+  --_c-red-secondary: rgba(238, 46, 36, 0.5);
+
+  --_c-yellow-primary: #F99B2A;
+  --_c-yellow-secondary: #E18517;
+
+  --_c-dark-primary: #1D1F22;
+  --_c-dark-secondary: #43464E;
+
+  --_c-gray-primary:#8D8F9A;
+  --_c-gray-secondary: #C6C7CC
+
+
+
+
+
+}
