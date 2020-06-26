@@ -39,7 +39,7 @@ storiesOf("Atoms|Button", module)
       },
       link: {
         default: text("link", "", "Props"),
-      }
+      },
     },
     components: { SfButton },
     template: `<SfButton
@@ -81,7 +81,7 @@ storiesOf("Atoms|Button", module)
       },
       link: {
         default: text("link", "https://www.storefrontui.io/", "Props"),
-      }
+      },
     },
     components: { SfButton },
     template: `<SfButton

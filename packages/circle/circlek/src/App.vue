@@ -36,7 +36,7 @@
               :header="accordion.header"
             >
             <template>
-              <SfScrollable class="circle-category__scrollable" showText="more" hideText="less" maxContentHeight="4rem">
+              <SfScrollable class="circle-category__scrollable" showText="More" hideText="Less" maxContentHeight="4rem">
                 <SfList
                   class="circle-category__filter-items"
                 >
@@ -60,21 +60,27 @@
           imageWidth="278px"
           imageHeight="278px"
           :regularPrice="product.price"
+          :title="product.title"
           wishlistIcon="heart"
         />
       </div>
     </section>
-    <SfFooter :column="4">
-      <SfFooterColumn v-for="(column, key) in footerColumns" :key="key" :title="column.header">
+    <SfFooter class="circle-category__footer" :column="4">
+      <div class="circle-category__footer-bar">
+      </div>
+      <SfFooterColumn class="circle-category__footer-column" v-for="(column, key) in footerColumns" :key="key" :title="column.header">
         <SfList v-if="column.items">
           <SfListItem v-for="item in column.items" :key="item">
             {{item}}
           </SfListItem>
         </SfList>
         <div v-else-if="column.pictures">
-          <SfImage v-for="picture in column.pictures" :key="picture" :src='"/assets/"+picture+"_Icon.png"' width="32px" height="32px"/>          
+          <SfImage v-for="picture in column.pictures" :key="picture" :src='"./assets/"+picture+"_Icon.png"' :width="32" :height="32"/>          
         </div>
-        <SfInput v-else type="email"/>
+        <div class="circle-category__footer-input" v-else>
+          <SfInput  type="email" placeholder="Type your email address" />
+          <SfButton>subscribe</SfButton>
+        </div>
       </SfFooterColumn>
     </SfFooter>
   </div>
@@ -94,7 +100,8 @@ import {SfHeader,
     SfInput,
     SfImage,
     SfMenuItem,
-    SfScrollable
+    SfScrollable,
+    SfButton
     } from '@storefront-ui/vue'
 
 export default {
@@ -113,7 +120,8 @@ export default {
     SfInput,
     SfImage,
     SfMenuItem,
-    SfScrollable
+    SfScrollable,
+    SfButton
   },
   data() {
     return {
@@ -207,6 +215,10 @@ export default {
           header: "SOCIAL",
           pictures: ["Facebook", "Pinterest", "Google", "Twitter", "Youtube"]
         },
+        {
+          header: "",
+          input: ""
+        }
       ]
     }
   },
@@ -312,34 +324,79 @@ export default {
     width: 100%;    
     &-items {
       padding: var(--spacer-sm) var(--spacer-sm) 4px var(--spacer-sm);
+      text-align: left;
       background: #FFFFFF;
       box-shadow: 4px 12px 24px rgba(119, 121, 122, 0.15);
       border-radius: 10px;
     }   
-    &__scrollable {
-      position: relative;
-      button {
-        display: flex;
-        justify-content: flex-start;
-      }
-      button:after {
-        position: absolute;
-        top: 50%;        
-        content: ">";
-        transform: rotate(45%) translate(0, -50%, 0);
-      }
-    }
+    
     .sf-accordion-item__header--open {
       --accordion-item-header-color: #1D1F22;
-    } 
-    
+    }     
   }
+  &__scrollable {
+      position: relative;
+      text-align: left;
+      
+      .sf-button{
+        --button-color:#EE2E24;
+        font-size: var(--spacer-sm);
+        text-decoration: none;
+      }          
+      button:after {
+        position: absolute;
+        bottom: var(--spacer-2xs);
+        right: 0;        
+        content: url(./assets/Vector.svg);
+      }
+    }
   &__products {
     display: flex;
     flex-wrap: wrap;
   }   
-//   &__product {
-//     width:
-//   }
+  &__product {
+    text-align: left;  
+    .sf-price__regular {
+      color: #EE2E24;
+    }
+  }
+  &__footer {
+    --list-item-color:  #FFF;
+    position: relative;
+    background-color: #1D1F22;
+    &-column {
+      text-align: left;
+    }
+    button {
+      color:  #FFF;
+    }
+  }
+  &__footer-bar {
+    position: absolute;
+    height: 1.25rem;
+    width: 100%;
+    top: 0;    
+    left: 0;
+    background: #F99B2A;
+  }
+  &__footer-input {
+    --input-background:  #F1F2F3;
+    --button-font-size: 10px;
+    --button-font-weight: var(--font-extra-bold);
+    --button-background: #EE2E24;
+    --button-border-radius: 24px;
+    display: flex;    
+    align-items: center;
+    
+    input {
+      color: #43464E;
+      font-size: 12px;
+      border-radius: 34px;
+    }
+    button {
+      width: 7.25rem;
+      height: var(--spacer-lg);
+    }
+  }
 }
 </style>
