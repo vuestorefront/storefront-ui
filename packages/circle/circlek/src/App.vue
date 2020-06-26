@@ -2,6 +2,7 @@
   <div id="app" class="circle-category">
     <SfHeader 
       :logo="logo"
+      title="Circle K logo"
     >
       <template #navigation>
         <SfHeaderNavigationItem
@@ -28,7 +29,7 @@
     </section>
     <section class="circle-category__main">
       <div class="circle-category__sidebar">
-        <SfAccordion :multiple="true" :showChevron="false" :open="getAccordionItemsHeader()">
+        <SfAccordion :multiple="true" :showChevron="false" :open="getAccordionItemsHeader()" >
           <SfAccordionItem 
               class="circle-category__filter"
               v-for="(accordion, i) in sidebarAccordion"
@@ -56,14 +57,14 @@
         <SfProductCard
           class="circle-category__product"
           v-for="(product, key) in products" :key="key"
-          :image="product.image"
-          imageWidth="278px"
-          imageHeight="278px"
+          :image="product.image"          
           :regularPrice="product.price"
           :title="product.title"
           wishlistIcon="heart"
-        />
+        >        
+        </SfProductCard>
       </div>
+      
     </section>
     <SfFooter class="circle-category__footer" :column="4">
       <div class="circle-category__footer-bar">
@@ -75,7 +76,7 @@
           </SfListItem>
         </SfList>
         <div v-else-if="column.pictures">
-          <SfImage v-for="picture in column.pictures" :key="picture" :src='"./assets/"+picture+"_Icon.png"' :width="32" :height="32"/>          
+          <SfImage v-for="picture in column.pictures" :key="picture" :src='require("./assets/"+picture+"_Icon.png")' :width="32" :height="32"/>          
         </div>
         <div class="circle-category__footer-input" v-else>
           <SfInput  type="email" placeholder="Type your email address" />
@@ -92,7 +93,6 @@ import {SfHeader,
     SfHeading,
     SfSelect,
     SfProductCard,
-    // SfSidebar,
     SfAccordion,
     SfList,
     SfFooter,
@@ -112,7 +112,6 @@ export default {
     SfHeading,
     SfSelect,
     SfProductCard,
-    // SfSidebar,
     SfAccordion,
     SfList,
     SfFooter,
@@ -125,7 +124,7 @@ export default {
   },
   data() {
     return {
-      logo: "./assets/logo.png",
+      logo: require("./assets/logo.png"),
       navigation: ["home", "products", "our stores"],
       breadcrumbs: [
                     {
@@ -145,36 +144,66 @@ export default {
         "Price from high to low", "Price from high to low", "Price from high to low"
       ],
       products: [
-        {title: "5 Hour Energy Peach Mango",
-        price: "$ 50",
-        image: "./assets/image_93.png"},
-        {title: "5 Hour Energy Peach Mango",
-        price: "$ 50",
-        image: "./assets/image_93.png"},
-        {title: "5 Hour Energy Peach Mango",
-        price: "$ 50",
-        image: "./assets/image_93.png"},
-        {title: "5 Hour Energy Peach Mango",
-        price: "$ 50",
-        image: "./assets/image_93.png"},
-        {title: "5 Hour Energy Peach Mango",
-        price: "$ 50",
-        image: "./assets/image_93.png"},
-        {title: "5 Hour Energy Peach Mango",
-        price: "$ 50",
-        image: "./assets/image_93.png"},
-        {title: "5 Hour Energy Peach Mango",
-        price: "$ 50",
-        image: "./assets/image_93.png"},
-        {title: "5 Hour Energy Peach Mango",
-        price: "$ 50",
-        image: "./assets/image_93.png"},
-        {title: "5 Hour Energy Peach Mango",
-        price: "$ 50",
-        image: "./assets/image_93.png"},
-        {title: "5 Hour Energy Peach Mango",
-        price: "$ 50",
-        image: "./assets/image_93.png"}        
+        {
+          title: "5 Hour Energy Peach Mango",
+          subtitle: "health and beauty",
+          price: "$ 50",
+          image: require("./assets/image_93.png"),
+        },
+        {
+          title: "5 Hour Energy Peach Mango",
+          subtitle: "health and beauty",
+          price: "$ 50",
+          image: require("./assets/image_93.png")
+        },
+        {
+          title: "5 Hour Energy Peach Mango",
+          subtitle: "health and beauty",
+          price: "$ 50",
+          image: require("./assets/image_93.png")
+        },
+        {
+          title: "5 Hour Energy Peach Mango",
+          subtitle: "health and beauty",
+          price: "$ 50",
+          image: require("./assets/image_93.png")
+        },
+        {
+          title: "5 Hour Energy Peach Mango",
+          subtitle: "health and beauty",
+          price: "$ 50",
+          image: require("./assets/image_93.png")
+        },
+        {
+          title: "5 Hour Energy Peach Mango",
+          subtitle: "health and beauty",
+          price: "$ 50",
+          image: require("./assets/image_93.png")
+        },
+        {
+          title: "5 Hour Energy Peach Mango",
+          subtitle: "health and beauty",
+          price: "$ 50",
+          image: require("./assets/image_93.png")
+        },
+        {
+          title: "5 Hour Energy Peach Mango",
+          subtitle: "health and beauty",
+          price: "$ 50",
+          image: require("./assets/image_93.png")
+        },
+        {
+          title: "5 Hour Energy Peach Mango",
+          subtitle: "health and beauty",
+          price: "$ 50",
+          image: require("./assets/image_93.png")
+        },
+        {
+          title: "5 Hour Energy Peach Mango",
+          subtitle: "health and beauty",
+          price: "$ 50",
+          image: require("./assets/image_93.png")
+        }        
       ],
       sidebarAccordion: [
         {
@@ -234,6 +263,10 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+:root {
+  --color-active:  #EE2E24;
+}
+
 .circle-category {
   font-family: Montserrat, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -246,7 +279,7 @@ export default {
   .sf-header {
     height:90px;
     margin: 0 0 1.5rem 0;
-    background: #FFFFFF;
+    background: var(--c-white);
     box-shadow: 0px 0px 30px rgba(29, 31, 34, 0.08), 1px 10px 10px rgba(102, 62, 51, 0.02);
     border-radius: 60px;
     &-navigation-item {
@@ -254,27 +287,26 @@ export default {
       --header-navigation-item-font-weight: bold;
       --header-navigation-item-font-line-height: 1.0625rem;
       .sf-link {
-        --header-navigation-item-color: #1D1F22;
+        --header-navigation-item-color: var(--c-text);
         &:hover,
         &:active {
-          --header-navigation-item-color:#EE2E24;
+          --header-navigation-item-color: var(--color-active);
         }
       }      
     }
     .sf-search-bar {
       --search-bar-icon-right: 0.875rem;
       --search-bar-input-text-align: left;
-      --search-bar-font: normal 14px Montserrat;
+      --search-bar-font: normal var(--font-sm) Montserrat;
       --search-bar-border: none;
-      --search-bar-padding: 0 2.1875rem 0 2.125rem;
-      
+      --search-bar-padding: 0 2.1875rem 0 2.125rem;      
       width: 21.75rem;
       height: 3rem;
-      border: 2px solid #EE2E24;
+      border: 2px solid  var(--color-active);
       box-sizing: border-box;
       border-radius: 34px;
-      &__icons {
-        bottom: var(--spacer-base);
+      &__icon {
+        bottom: 50%;
         transform: translate3d(0, 50%, 0);
       }
     }
@@ -293,16 +325,16 @@ export default {
         --select-label-font: var(--font-bold) var(--font-lg) Montserrat;  
         width: 15rem;
         .sf-select-option {
-          --select-option-background: #fff;          
+          --select-option-background: var(--c-white);          
         }
         &:hover,
         &:focus {
-          --chevron-color: #000;
+          --chevron-color: var(--c-black);
         }
       }
     } 
   &__heading {
-    --heading-title-color: #EE2E24; 
+    --heading-title-color:  var(--color-active); 
     display: flex;
     align-self: flex-end;  
     margin: 2.875rem 0 var(--spacer-xl) 0;   
@@ -315,38 +347,46 @@ export default {
   }
   &__sidebar {
     display: flex;
-    flex-direction: column;
-    width: 14.3125rem;
+    flex-direction: column;    
+    margin: 0 var(--spacer-base) 0 0;
   }
   &__filter {    
-    --accordion-item-header-color: #1D1F22;
+    --accordion-item-header-color: var(--c-text);
     --accordion-item-header-font: bold var(--spacer-base) Montserrat;
-    width: 100%;    
-    &-items {
-      padding: var(--spacer-sm) var(--spacer-sm) 4px var(--spacer-sm);
+    position: relative;
+    width: 13.125rem;
+    margin: var(--spacer-2xl) 0;
+    box-shadow: 4px 12px 24px rgba(119, 121, 122, 0.15);
+      border-radius: 10px; 
+    &-items {      
+      padding: var(--spacer-sm) var(--spacer-sm) var(--spacer-2xs) var(--spacer-sm);        
       text-align: left;
-      background: #FFFFFF;
-      box-shadow: 4px 12px 24px rgba(119, 121, 122, 0.15);
-      border-radius: 10px;
-    }   
-    
-    .sf-accordion-item__header--open {
-      --accordion-item-header-color: #1D1F22;
-    }     
+      background: var(--c-white);      
+    }    
+    @media (min-width: 1024px) {
+      .sf-accordion-item__header {
+      position: absolute;
+      top: -3.75rem;
+      pointer-events: none;
+      &--open {
+        --accordion-item-header-color: var(--c-text);
+      } 
+    }  
+    }         
   }
   &__scrollable {
       position: relative;
-      text-align: left;
-      
+      text-align: left;     
       .sf-button{
-        --button-color:#EE2E24;
+        --button-color: var(--color-active);
+        margin: 0 0 0 var(--spacer-sm);
         font-size: var(--spacer-sm);
         text-decoration: none;
-      }          
+      }        
       button:after {
         position: absolute;
         bottom: var(--spacer-2xs);
-        right: 0;        
+        right: var(--spacer-sm);       
         content: url(./assets/Vector.svg);
       }
     }
@@ -357,18 +397,33 @@ export default {
   &__product {
     text-align: left;  
     .sf-price__regular {
-      color: #EE2E24;
+      color:  var(--color-active);
+    }
+    .sf-product-card__title {
+      position: relative;
+      &:before {
+        position: absolute;
+        content: "health and beauty";
+        top: calc(var(--spacer-base) * -1);
+        color: #72757E;
+        font-size: 10px;
+        font-family: Raleway;
+        text-transform: uppercase;
+      }
     }
   }
   &__footer {
-    --list-item-color:  #FFF;
+    --list-item-color:  var(--c-white);
     position: relative;
-    background-color: #1D1F22;
+    background-color: var(--c-text);
     &-column {
       text-align: left;
     }
     button {
-      color:  #FFF;
+      color:  var(--c-white);
+    }
+    .sf-image {
+      margin: 0 var(--spacer-2xs) 0 0;
     }
   }
   &__footer-bar {
@@ -380,23 +435,29 @@ export default {
     background: #F99B2A;
   }
   &__footer-input {
-    --input-background:  #F1F2F3;
-    --button-font-size: 10px;
+    position: relative;
+    --input-bar-display: none;
+    --input-background:  var(--c-light);
+    --input-padding: 0 0 0 var(--spacer-sm);
+    --button-font-size: 0.625rem;
     --button-font-weight: var(--font-extra-bold);
-    --button-background: #EE2E24;
-    --button-border-radius: 24px;
+    --button-background:  var(--color-active);
+    --button-border-radius: 1.5rem;
     display: flex;    
-    align-items: center;
-    
+    align-items: flex-start;    
     input {
+      height: var(--spacer-lg);
+      width: 16.6875rem;
       color: #43464E;
-      font-size: 12px;
-      border-radius: 34px;
+      font-size: 0.75rem;
+      border-radius: 2.125rem;
     }
     button {
+      position: absolute;
+      right: calc(var(--spacer-xl) * -1);
       width: 7.25rem;
       height: var(--spacer-lg);
-    }
+    }    
   }
 }
 </style>
