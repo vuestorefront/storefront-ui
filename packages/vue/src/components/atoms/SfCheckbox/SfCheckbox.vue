@@ -6,6 +6,7 @@
       'sf-checkbox--is-disabled': disabled,
       'sf-checkbox--has-error': !valid,
     }"
+    :data-testid="name"
   >
     <label class="sf-checkbox__container">
       <input
