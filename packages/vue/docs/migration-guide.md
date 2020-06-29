@@ -120,5 +120,31 @@ Before | v0.7.0
 ------------ | ------------
 undefined | --c-text-disabled: var(--_c-gray-accent)
 
+### Deletions
+
+### Additions
+
+### Changes
+
+- **Props**
+
+Component | Before | v0.8.0
+------------ | ------------ | ------------
+SfHeading | subtitle | description
+
+- **Custom properties**
+
+Component | Before | v0.8.0
+------------ | ------------ | ------------
+SfHeading | --heading-subtitle-margin | --heading-description-margin
+SfHeading | --heading-subtitle-color | --heading-description-color
+SfHeading | --heading-subtitle-font-size | --heading-description-font-size
+SfHeading | --heading-subtitle-font-family | --heading-description-font-family
+
+- **Slots**
+
+Component | Before | v0.8.0
+------------ | ------------ | ------------
+SfHeading | subtitle | description
 
 ## Release notes
