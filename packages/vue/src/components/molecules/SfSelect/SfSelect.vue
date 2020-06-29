@@ -19,7 +19,6 @@
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
-    v-on="$listeners"
   >
     <div style="position: relative;">
       <div
@@ -27,6 +26,7 @@
         v-focus
         tabindex="0"
         class="sf-select__selected sf-select-option"
+        v-on="$listeners"
         v-html="html"
       ></div>
       <slot name="label">
