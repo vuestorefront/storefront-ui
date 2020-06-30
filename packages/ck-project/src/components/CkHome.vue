@@ -39,15 +39,17 @@
         </template>
       </SfHeroItem>
     </SfHero>
-    <div class="store-locator">
-      <div class="store-locator__text">Store Locator</div>
-      <SfImage class="store-locator__geo" :src="img('geo.svg')" alt="alt" />
+    <div class="ck-store-locator">
+      <div class="store-locator">
+        <div class="store-locator__text">Store Locator</div>
+        <SfImage class="store-locator__geo" :src="img('geo.svg')" alt="alt" />
+      </div>
+      <SfSearchBar
+        class="ck-searchbar"
+        placeholder="Find your store by City or Zip "
+        aria-label="Search"
+      />
     </div>
-    <SfSearchBar
-      class="ck-searchbar"
-      placeholder="Find your store by City or Zip "
-      aria-label="Search"
-    />
     <SfBanner
       class="ck-banner"
       title="Create account and get discounts!"
@@ -56,10 +58,14 @@
       :image="img('banner-circle.png')"
       background="#F1F2F3"
     />
-    <p class="bestsellers">Bestsellers</p>
-    <SfCarousel :style="{ maxWidth: '1140px', margin: 'auto' }">
+    <p class="ck-bestsellers">Bestsellers</p>
+    <SfCarousel
+      class="ck-carousel"
+      :style="{ maxWidth: '1140px', margin: 'auto' }"
+    >
       <SfCarouselItem v-for="(index, key) in 12" :key="key">
         <SfProductCard
+          class="ck-product"
           :image="product.image"
           :image-width="product.imageWidth"
           :image-height="product.imageHeight"
@@ -67,20 +73,29 @@
           :title="product.category"
         >
           <template #title>
-            {{ product.category }}
+            <p class="ck-product__category">{{ product.category }}</p>
           </template>
           <template #price>
-            {{ product.title }}
+            <p class="ck-product__title">{{ product.title }}</p>
           </template>
           <template #add-to-cart>
-            CUSTOM TITLE
+            <SfButton class="ck-product__add-to-cart">
+              Click to buy
+            </SfButton>
           </template>
           <template #reviews>
-            {{ product.price }}
+            <p class="ck-product__price">{{ product.price }}</p>
           </template>
         </SfProductCard>
       </SfCarouselItem>
     </SfCarousel>
+    <SfBanner
+      class="ck-banner__phone desktop-only"
+      title="Download our application to your mobile"
+      button-text="Download"
+      background="#F1F2F3"
+      :image="img('phone.png')"
+    />
   </div>
 </template>
 
@@ -140,7 +155,6 @@ export default {
   --button-border-radius: 24px;
   --button-padding: 16px 46px;
   --hero-item-background-size: 0;
-  // --hero-item-background: none;
   text-align: left;
   &__subtitle {
     color: var(--_c-red-primary);
@@ -153,7 +167,6 @@ export default {
     margin-top: 16px;
     @include for-desktop {
       margin-top: 0;
-      // width: 314px;
       line-height: 33px;
     }
   }
@@ -161,11 +174,10 @@ export default {
     margin-top: 23px;
   }
   @include for-desktop {
-    // --hero-item-background: url("../assets/polarpop.png");
     --hero-item-background-position: right;
     --hero-item-background-size: contain;
     --hero-item-title-font-size: 42px;
-    --hero-item-container-width: 426px;
+    --hero-item-container-width: 527px;
   }
 }
 
@@ -175,10 +187,6 @@ export default {
 
 ::v-deep .sf-bullet--active {
   --bullet-background: var(--_c-red-primary);
-}
-
-.ck-hero {
-  --hero-bullets-display: flex;
 }
 
 .store-locator {
@@ -192,28 +200,17 @@ export default {
     font-weight: var(--font-extra-bold);
     @include for-desktop {
       font-size: 40px;
-      &::before {
-        content: "";
-        width: 99%;
-        height: 120px;
-        background: #f1f2f3;
-        position: absolute;
-        bottom: 0;
-        transform: translate(0, 20%);
-        border-radius: 60px;
-        z-index: -1;
-        box-shadow: 0px 0px 30px rgba(29, 31, 34, 0.08);
-      }
+      margin: 19px 103px;
     }
   }
   &__geo {
-    width: 42px;
+    width: 64px;
     @include for-desktop {
       position: absolute;
       right: 0;
-      bottom: 0;
-      bottom: 100;
-      width: 121px;
+      transform: translate(0, 40%);
+      width: 186px;
+      margin-right: 134.5px;
     }
   }
   @include for-desktop {
@@ -222,8 +219,42 @@ export default {
 }
 
 .ck-searchbar {
-  position: relative;
-  margin-top: 40px;
+  --search-bar-height: 48px;
+  --search-bar-border-width: 0;
+  --search-bar-input-text-align: left;
+  --search-bar-font-weight: bold;
+  --search-bar-font-size: 14px;
+  --search-bar-placeholder-color: var(--_c-dark-primary);
+  border: 2px solid var(--_c-red-primary);
+  border-radius: 34px;
+  padding: 13px 20px;
+  @include for-desktop {
+    margin: 50px 103px;
+    padding: 0;
+    --search-bar-font-size: 24px;
+    --search-bar-width: 600px;
+    --search-bar-font-weight: normal;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--_c-dark-primary);
+  }
+}
+
+.ck-store-locator {
+  @include for-desktop {
+    &::before {
+      content: "";
+      width: 100%;
+      height: 120px;
+      left: 0;
+      background: #f1f2f3;
+      position: absolute;
+      transform: translate(0, 90%);
+      border-radius: 60px;
+      z-index: -1;
+      box-shadow: 0px 0px 30px rgba(29, 31, 34, 0.08);
+    }
+  }
 }
 
 .ck-banner {
@@ -239,7 +270,7 @@ export default {
   }
 }
 
-.bestsellers {
+.ck-bestsellers {
   text-align: left;
   color: var(--_c-red-primary);
   font-weight: 800;
@@ -248,6 +279,48 @@ export default {
   @include for-desktop {
     font-size: 48px;
     text-align: center;
+    margin-bottom: 100px;
   }
+}
+
+.ck-carousel {
+  --button-border-radius: 60px;
+  --button-width: 40px;
+}
+
+.ck-product {
+  padding: 10px;
+  text-align: left;
+  &__category {
+    font-size: 10px;
+    color: #72757e;
+    margin-bottom: 10px;
+  }
+  &__title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  &__price {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+  }
+}
+
+.ck-banner__phone {
+  --banner-background-size: contain;
+  --banner-width: 1237px;
+  --banner-height: 502px;
+  --banner-title-font-weight: 800;
+  --banner-title-font-size: 42px;
+  --button-border-radius: 24px;
+  --button-width: 261px;
+  --banner-title-text-transform: none;
+  --banner-container-width: 644px;
+  --banner-title-margin: 39px auto;
+  --button-box-shadow: 4px 12px 24px rgba(119, 121, 122, 0.25);
+  background-position: right;
+  margin: 80px auto;
+  text-align: left;
 }
 </style>

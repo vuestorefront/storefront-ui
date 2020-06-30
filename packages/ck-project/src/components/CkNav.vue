@@ -74,7 +74,7 @@ export default {
 @import "@storefront-ui/vue/styles.scss";
 
 .sf-header {
-  --header-background: transparent;
+  --header-background: var(--_c-white);
   --header-navigation-item-border: none;
   --header-box-shadow: 0px 0px 30px rgba(29, 31, 34, 0.08),
     1px 10px 10px rgba(102, 62, 51, 0.02);
@@ -137,12 +137,6 @@ export default {
       margin-right: 10px;
       padding-bottom: 19px;
     }
-  }
-}
-
-.sf-header__icon {
-  &--is-active {
-    --icon-color: yellow;
   }
 }
 </style>

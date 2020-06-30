@@ -3,6 +3,7 @@
     <CkNav />
     <CkHome />
     <CkBottomNav />
+    <CkFooter />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import CkHome from "./components/CkHome.vue";
 import CkNav from "./components/CkNav.vue";
 import CkBottomNav from "./components/CkBottomNav.vue";
+import CkFooter from "./components/CkFooter.vue";
 
 export default {
   name: "App",
@@ -17,6 +19,7 @@ export default {
     CkHome,
     CkNav,
     CkBottomNav,
+    CkFooter,
   },
 };
 </script>
