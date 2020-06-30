@@ -122,3 +122,16 @@ undefined | --c-text-disabled: var(--_c-gray-accent)
 
 
 ## Release notes
+
+## Components with data-testid
+
+Before | v0.8.0
+------------ | ------------
+- | SfBreadcrumbs
+- | SfBullets
+- | SfCheckbox
+- | SfColor
+- | SfInput
+- | SfQuantitySelector
+- | SfMenuItem
+- | SfHeader
