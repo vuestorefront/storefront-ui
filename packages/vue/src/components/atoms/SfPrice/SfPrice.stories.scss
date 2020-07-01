@@ -1,0 +1,11 @@
+@import "~@storefront-ui/shared/styles/helpers";
+.price {
+  &--text-special, &--text-old {
+    font-family: var(--font-family-secondary);
+    text-transform: uppercase;
+    margin: 0;
+  }
+  &--text-old {
+    color: var(--c-danger);
+  }
+}
