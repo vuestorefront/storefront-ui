@@ -4,7 +4,6 @@
     :aria-expanded="open.toString()"
     :aria-owns="'lbox_' + _uid"
     :aria-label="label"
-    role="listbox"
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
@@ -48,6 +47,7 @@
           <ul
             :aria-expanded="open.toString()"
             :style="{ maxHeight }"
+            role="listbox"
             class="sf-select__options"
           >
             <slot />
