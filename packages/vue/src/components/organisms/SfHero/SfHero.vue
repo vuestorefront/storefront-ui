@@ -13,7 +13,7 @@
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <div @click="go('prev')">
           <SfArrow
-            class="sf-arrow sf-arrow--transparent"
+            class="sf-arrow sf-arrow--transparent sf-hero__controls__arrow"
             aria-label="previous"
           />
         </div>
@@ -22,7 +22,7 @@
       <slot name="next" v-bind="{ go: () => go('next') }">
         <div @click="go('next')">
           <SfArrow
-            class="sf-arrow sf-arrow--right sf-arrow--transparent"
+            class="sf-arrow sf-arrow--right sf-arrow--transparent sf-hero__controls__arrow"
             aria-label="next"
           />
         </div>
