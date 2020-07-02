@@ -20,7 +20,50 @@
   background: var(
     #{$element},
     var(#{$element}-image, $image) var(#{$element}-color, $color) no-repeat
-    var(#{$element}-position, $position)
+      var(#{$element}-position, $position)
   );
   background-size: var(#{$element}-size, $size);
+}
+
+@function _box-shadow(
+  $element,
+  $shadow-h-offset,
+  $shadow-v-offset,
+  $shadow-blur,
+  $shadow-spread,
+  $shadow-color
+) {
+  @return var(#{$element}-h-offset, $shadow-h-offset)
+    var(#{$element}-v-offset, $shadow-v-offset)
+    var(#{$element}-blur, $shadow-blur) var(#{$element}-spread, $shadow-spread)
+    var(#{$element}-color, $shadow-color);
+}
+
+@mixin box-shadow(
+  $element,
+  $h-offset,
+  $v-offset,
+  $blur,
+  $spread,
+  $color,
+) {
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    transition: var(
+      #{$element}-transition,
+      opacity var(#{$element}-transition-opacity-duration, 200ms)
+        var(#{$element}-transition-opacity-timing-function, ease-in-out), box-shadow var(#{$element}-transition-box-shadow-duration, 200ms)
+        var(#{$element}-transition-box-shadow-timing-function, ease-in-out)
+    );
+    opacity: var(#{$element}-opacity);
+    box-shadow: var(#{$element}, _box-shadow($element, $h-offset, $v-offset, $blur, $spread, $color));
+    will-change: opacity, box-shadow;
+  }
 }

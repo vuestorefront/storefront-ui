@@ -13,13 +13,13 @@
           class="breadcrumbs desktop-only"
           :breadcrumbs="breadcrumbs"
         />
-        <transition name="fade" mode="out-in">
+        <transition name="sf-fade" mode="out-in">
           <div
             v-if="totalItems"
             key="detailed-cart"
             class="collected-product-list"
           >
-            <transition-group name="fade" tag="div">
+            <transition-group name="sf-fade" tag="div">
               <SfCollectedProduct
                 v-for="product in products"
                 :key="product.id"

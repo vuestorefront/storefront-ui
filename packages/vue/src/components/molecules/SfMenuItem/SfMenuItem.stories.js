@@ -17,12 +17,16 @@ storiesOf("Molecules|MenuItem", module)
       icon: {
         default: text("icon", "chevron_right", "Props"),
       },
+      link: {
+        default: text("link", "https://www.storefrontui.io/", "Props"),
+      },
     },
     template: `<div style="max-width: 300px">
       <SfMenuItem
       :label="label"
       :count="count"
-      :icon="icon"/>
+      :icon="icon"
+      :link="link"/>
     </div>`,
   }))
   .add("[slot] icon", () => ({

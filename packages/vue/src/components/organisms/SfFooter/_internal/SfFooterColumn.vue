@@ -6,7 +6,7 @@
         <SfChevron :class="{ 'sf-chevron--top': open }" />
       </div>
     </button>
-    <transition name="fade">
+    <transition name="sf-fade">
       <div v-if="open" class="sf-footer-column__content">
         <slot />
       </div>
@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     open() {
-      return this.$parent.open.includes(this.title);
+      return this.$parent.isOpen.includes(this.title);
     },
   },
   mounted() {
